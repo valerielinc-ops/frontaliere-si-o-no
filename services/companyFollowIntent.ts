@@ -22,18 +22,34 @@
  * un-consented subscription that emails somebody is a GDPR problem, not a
  * conversion optimisation.
  *
- * localStorage, deliberately, not a Firestore "pending_follows" collection:
- * a new collection means a new query shape means a new composite index, and
- * `firestore.indexes.json` is NOT applied by CI (see subscribeCompanyAlert's
- * docblock). The cost is that a confirmation opened on a DIFFERENT device
- * loses the parked follow — the subscriber is still created and confirmed, the
- * user simply taps "Segui" again, now signed in. Losing a tap is the correct
- * trade against shipping a query that fails in production.
+ * ── STORAGE ───────────────────────────────────────────────────────────────
+ * Storage/TTL/guard mechanics come from `services/pendingIntentStore.ts`, the
+ * module that already exists for exactly this problem ("survives the auth
+ * round-trip across every sign-in surface, INCLUDING a magic-link email that
+ * opens in a brand-new tab") and is already shared by `pendingJobAlert.ts` and
+ * `pendingSaveJob.ts`. This module only owns what is specific to CompanyAlert:
+ * the payload shape, the per-entry prune, and the replay.
+ *
+ * The one deviation from those two siblings is deliberate and is why the TTL is
+ * passed explicitly: they park a value across a sign-in popup that resolves in
+ * seconds, so `DEFAULT_INTENT_TTL_MS` is 15 minutes. A double-opt-in email may
+ * sit unread for a day. 15 minutes here would silently drop the follow of every
+ * visitor who does not check their inbox immediately — a silent no-op with the
+ * UI still saying "controlla la posta".
+ *
+ * localStorage, not a Firestore `pending_follows` collection: a new collection
+ * means a new query shape means a new composite index, and
+ * `firestore.indexes.json` is NOT applied by CI (see `subscribeCompanyAlert`'s
+ * docblock). The cost is that a confirmation opened on a DIFFERENT device loses
+ * the parked follow — the subscriber is still created and confirmed, the user
+ * simply taps "Segui" again, now signed in. Losing a tap is the correct trade
+ * against shipping a query that fails in production.
  */
 
 import type { JobAlert } from './jobAlertService';
+import { clearIntent, peekIntent, saveIntent } from './pendingIntentStore';
 
-const STORAGE_KEY = 'company_follow_pending';
+const KEY = 'company_follow_pending';
 
 /** Intents older than this are dropped: a stale click is not consent. */
 export const PENDING_FOLLOW_TTL_MS = 7 * 24 * 60 * 60 * 1000;
@@ -59,24 +75,16 @@ export interface PendingCompanyFollow {
 }
 
 function readRaw(): PendingCompanyFollow[] {
-  if (typeof window === 'undefined') return [];
-  try {
-    const parsed = JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '[]');
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
-  }
+  // The store's own TTL governs the LIST (refreshed on every write); the
+  // per-entry prune below governs each follow, because one list can accumulate
+  // entries from several visits.
+  const stored = peekIntent<PendingCompanyFollow[]>(KEY, PENDING_FOLLOW_TTL_MS);
+  return Array.isArray(stored) ? stored : [];
 }
 
 function writeRaw(entries: PendingCompanyFollow[]): void {
-  if (typeof window === 'undefined') return;
-  try {
-    if (entries.length === 0) window.localStorage.removeItem(STORAGE_KEY);
-    else window.localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
-  } catch {
-    // Quota / private mode — the follow is simply not parked. Never throw from
-    // a storage helper: the caller is mid-signup and must still see success.
-  }
+  if (entries.length === 0) clearIntent(KEY);
+  else saveIntent(KEY, entries);
 }
 
 /**
@@ -101,8 +109,7 @@ export function savePendingCompanyFollow(intent: Omit<PendingCompanyFollow, 'sav
   const existing = pruneExpired(readRaw(), now)
     // De-dup on (email, company): tapping twice must not create two alerts.
     .filter((e) => !(e.email === email && e.company === intent.company));
-  const next = [...existing, { ...intent, email, savedAt: now }].slice(-MAX_PENDING);
-  writeRaw(next);
+  writeRaw([...existing, { ...intent, email, savedAt: now }].slice(-MAX_PENDING));
 }
 
 /** Non-expired parked follows. */
@@ -111,7 +118,7 @@ export function readPendingCompanyFollows(nowMs: number = Date.now()): PendingCo
 }
 
 export function clearPendingCompanyFollows(): void {
-  writeRaw([]);
+  clearIntent(KEY);
 }
 
 /**

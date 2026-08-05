@@ -655,6 +655,23 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
     expect(readPendingCompanyFollows()).toHaveLength(0);
   });
 
+  it('reuses the shared pending-intent store instead of a fourth localStorage helper', () => {
+    // services/pendingIntentStore.ts already exists for exactly this problem
+    // ("survives the auth round-trip … including a magic-link email that opens
+    // in a brand-new tab") and is already shared by pendingJobAlert.ts and
+    // pendingSaveJob.ts. Surfaced by the sibling-patterns gate; the first draft
+    // of this module hand-rolled getItem/setItem/try-catch/TTL again.
+    const src = readRepoFile('services/companyFollowIntent.ts');
+    expect(src).toContain("from './pendingIntentStore'");
+    expect(src.includes('localStorage.setItem')).toBe(false);
+    expect(src.includes('localStorage.getItem')).toBe(false);
+    // …but NOT its 15-minute default: a double-opt-in email can sit unread for
+    // a day, and the default would silently drop the follow while the UI still
+    // says "controlla la posta".
+    expect(src).toContain('peekIntent<PendingCompanyFollow[]>(KEY, PENDING_FOLLOW_TTL_MS)');
+    expect(PENDING_FOLLOW_TTL_MS).toBeGreaterThan(24 * 60 * 60 * 1000);
+  });
+
   it('expires a stale intent — an old click is not consent', () => {
     const now = Date.now();
     const fresh = { ...intent, savedAt: now - 1000 };
