@@ -592,6 +592,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <AdSenseBanner
  adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}
  adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format}
+ adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout}
  />
  )}
 

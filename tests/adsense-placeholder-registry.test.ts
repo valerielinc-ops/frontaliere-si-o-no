@@ -117,8 +117,11 @@ describe('#4677 — job-list in-feed units reserve the registry height, not the 
     // in-article inline unit nor the end-of-article multiplex.
     const src = fs.readFileSync(path.join(ROOT, 'build-plugins', 'staticPagesPlugin.ts'), 'utf-8');
     expect(src, 'the flat 180px blog ad placeholder must be gone').not.toMatch(/class="s-1zvlaE"/);
-    expect(src).toContain('AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight');
-    expect(src).toContain('AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight');
+    // Reached through the SAME resolver the runtime uses — reading the registry
+    // field directly here would re-create two independently-typed read sites.
+    expect(src).toContain('resolveSlotPlaceholderMinHeight');
+    expect(src).toContain('AD_SLOTS.ARTICLE_INLINE_MOBILE');
+    expect(src).toContain('AD_SLOTS.ARTICLE_END_MULTIPLEX');
   });
 });
 
@@ -146,6 +149,52 @@ describe('multiplex desktop uplift survives the registry switch', () => {
     const cfg = AD_SLOTS.JOBDETAIL_TOP_BANNER as SlotEntry;
     expect(resolvePlaceholderMinHeight(cfg.slot, cfg.format, cfg.layout, 1440))
       .toBe(cfg.placeholderMinHeight);
+  });
+});
+
+describe('every call site actually reaches the registry', () => {
+  // Reviewer finding on PR #5106. The resolver is keyed on the
+  // (slot, format, layout) TRIPLE, so a call site that passes `adSlot` and
+  // `adFormat` but omits `adLayout` for a slot that declares one builds the key
+  // `slot|fluid|`, misses the lookup, and silently falls through to the format
+  // heuristic. Today `fluid` and `in-article` happen to agree at 220, so the
+  // miss is invisible — until someone raises ARTICLE_INLINE_MOBILE the way
+  // JOBLIST_INFEED_* was raised 280 → 336 for #4302, at which point those call
+  // sites keep the stale value. That is #4677 all over again, so it is pinned
+  // structurally (does the prop reach the resolver?) rather than by grepping
+  // for one literal spelling.
+  it('a slot that declares a layout is never rendered without adLayout', () => {
+    const offenders: string[] = [];
+    const layoutSlots = new Set(
+      entries.filter(([, cfg]) => typeof cfg.layout === 'string').map(([name]) => name),
+    );
+    const walk = (dir: string) => {
+      for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+        const p = path.join(dir, e.name);
+        if (e.isDirectory()) { walk(p); continue; }
+        if (!e.name.endsWith('.tsx')) continue;
+        const src = fs.readFileSync(p, 'utf-8');
+        for (const m of src.matchAll(/<AdSenseBanner\b([\s\S]*?)\/>/g)) {
+          const blob = m[1];
+          const slot = /adSlot=\{AD_SLOTS\.([A-Z_0-9]+)\.slot\}/.exec(blob);
+          if (!slot || !layoutSlots.has(slot[1])) continue;
+          if (!/adLayout=/.test(blob)) {
+            offenders.push(`${path.relative(ROOT, p)} → ${slot[1]}`);
+          }
+        }
+      }
+    };
+    walk(path.join(ROOT, 'components'));
+    expect(offenders).toEqual([]);
+  });
+
+  it('resolution misses when the declared layout is dropped', () => {
+    // Pins the mechanism the test above guards, so the guard cannot be
+    // "simplified" away on the belief that the triple key is forgiving.
+    const cfg = AD_SLOTS.ARTICLE_INLINE_MOBILE as SlotEntry;
+    expect(cfg.layout).toBe('in-article');
+    expect(resolveSlotPlaceholderMinHeight(cfg.slot, cfg.format, cfg.layout)).toBe(cfg.placeholderMinHeight);
+    expect(resolveSlotPlaceholderMinHeight(cfg.slot, cfg.format, undefined)).toBeUndefined();
   });
 });
 

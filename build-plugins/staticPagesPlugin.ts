@@ -18,7 +18,7 @@ import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { jsToJson as sharedJsToJson } from './shared/jsToJson';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
-import { AD_SLOTS } from '../services/adsenseSlots';
+import { AD_SLOTS, resolveSlotPlaceholderMinHeight } from '../services/adsenseSlots';
 // Single producer for the hub `ssg-article-grid` (issue #4974 item 4): nanako's
 // fast-publish refreshes the same grid on every article it publishes, so the
 // two emitters cannot drift. Extension is explicit for the same reason
@@ -4683,8 +4683,20 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // 280-vs-336 regression in issue #4677.
  const adReserve = (px: number) =>
  `<div style="min-height:${px}px;contain:layout;overflow:hidden;margin:1rem 0" aria-hidden="true"></div>`;
- const adPlaceholderInline = adReserve(AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight);
- const adPlaceholderEnd = adReserve(AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight);
+ // Resolved through the SAME function the runtime component uses, not by
+ // reading the field directly: two independently-typed read sites is the drift
+ // shape this whole change removes. No viewport at build time → the mobile/SSR
+ // floor, which is what a prerendered shell must reserve anyway.
+ const inlineCfg = AD_SLOTS.ARTICLE_INLINE_MOBILE;
+ const endCfg = AD_SLOTS.ARTICLE_END_MULTIPLEX;
+ const adPlaceholderInline = adReserve(
+ resolveSlotPlaceholderMinHeight(inlineCfg.slot, inlineCfg.format, inlineCfg.layout)
+ ?? inlineCfg.placeholderMinHeight,
+ );
+ const adPlaceholderEnd = adReserve(
+ resolveSlotPlaceholderMinHeight(endCfg.slot, endCfg.format, (endCfg as { layout?: string }).layout)
+ ?? endCfg.placeholderMinHeight,
+ );
  rootHtml = isBlogDetailPage
  ? `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p><div class="s-6z0aHu ft-blog-body">${blogArticleHtml}${blogSourcesHtml}</div>${adPlaceholderInline}${relatedHtml}</article>${adPlaceholderEnd}<div class="s-WR7RLD">${`<div style="${sp};height:12rem"></div>`.repeat(3)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`
  : (() => {

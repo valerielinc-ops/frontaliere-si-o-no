@@ -319,6 +319,16 @@ export function shouldPlaceInfeedAd(position1Based: number): boolean {
  * reads the same registry entry the build-time emitter does, so the two paths
  * can no longer drift and a slot's reserve is edited in exactly one place.
  *
+ * Two registry entries MAY share a triple when they are the same physical ad
+ * unit reused in two placements (e.g. JOBLIST_INFEED_MOBILE and
+ * JOBDETAIL_AUTH_GATE both key to `3205029282|auto|`). That is allowed and
+ * intentional, but it makes their `placeholderMinHeight` values a single value
+ * with two spellings: the resolver returns whichever entry is enumerated last,
+ * so the two MUST stay numerically equal. `tests/adsense-placeholder-registry
+ * .test.ts` turns red the moment they diverge — if you need genuinely different
+ * reserves for two placements, give them different slot ids or formats rather
+ * than editing one number.
+ *
  * Keyed on the (slot, format, layout) TRIPLE, never the slot id alone: slot
  * ids are deliberately reused across placements (see the "Slot id REUSES …"
  * notes above), and `3205029282` is shared by JOBLIST_INFEED_MOBILE (336) and

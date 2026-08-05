@@ -535,6 +535,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  <AdSenseBanner
  adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}
  adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format}
+ adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout}
  />
  )}
 
