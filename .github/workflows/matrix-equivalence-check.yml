@@ -86,8 +86,14 @@ jobs:
         run: npm run build:ci
       - name: Prune to it shard (root + shared, drop en/de/fr) — mirrors deploy strip
         run: node tooling/scripts/ci/prune-locale-shard.mjs build/dist
+      # `--deploy-artifact-perimeter` (issue #4894) — applied to BOTH sides, never
+      # one. The github-pages artifact is post-processed (CDN offload deletes
+      # assets/data/og/images subtrees and rewrites every same-origin ref in HTML
+      # to https://cdn.frontaliereticino.ch/...), so a raw dist/ can never equal
+      # it. See the flag's docblock in dist-hash-manifest.mjs for the measured
+      # breakdown of run 27749079114.
       - name: Manifest the matrix it-shard
-        run: node tooling/scripts/ci/dist-hash-manifest.mjs build/dist /tmp/matrix-it.txt
+        run: node tooling/scripts/ci/dist-hash-manifest.mjs build/dist /tmp/matrix-it.txt --deploy-artifact-perimeter
       - name: Download the live github-pages artifact (monolith it + shared)
         env:
           GH_TOKEN: ${{ github.token }}
@@ -96,16 +102,70 @@ jobs:
           mkdir -p /tmp/live
           gh run download "${{ github.event.inputs.deploy_run_id }}" \
             -R "${{ github.repository }}" -n github-pages -D /tmp/live
-          # The github-pages artifact is a single artifact.tar inside.
+          # The github-pages artifact is a single artifact.tar inside. Extract it
+          # into the TOOLING checkout as ./dist: rehydrate-section-shards.sh reads
+          # scripts/lib/section-shard-*.json by relative path and writes into
+          # ./dist, so it must run with the repo root as cwd.
+          mkdir -p tooling/dist
           if [ -f /tmp/live/artifact.tar ]; then
-            mkdir -p /tmp/live/dist && tar -xf /tmp/live/artifact.tar -C /tmp/live/dist
+            tar -xf /tmp/live/artifact.tar -C tooling/dist
+          else
+            cp -a /tmp/live/. tooling/dist/
           fi
-          find /tmp/live -maxdepth 2 -type d 2>/dev/null | head -20 || true
+          find tooling/dist -maxdepth 1 -type d 2>/dev/null | head -20 || true
+      # With <SECTION>_SHARD_LIVE=true the deploy STRIPS that section's subtree
+      # from the artifact before upload (deploy.yml → strip-section-subtree.sh),
+      # so the artifact is missing pages the matrix side still has. All 27 section
+      # variables are currently 'true'. Pull them back in — same step, same env
+      # block and same script as post-deploy-validate-dist.yml, which is the
+      # working reference implementation.
+      #
+      # Deliberately NOT rehydrating the LOCALE shards: the matrix side is an
+      # it-shard (prune-locale-shard.mjs drops en/de/fr) and the artifact is
+      # it+shared, so both sides are already IT-only. Adding en/de/fr to the live
+      # side alone would re-break the symmetry this check depends on.
+      - name: Restore shard-clone cache
+        uses: actions/cache/restore@v5
+        with:
+          path: ${{ runner.temp }}/shard-clone-cache
+          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-${{ github.run_attempt }}
+          restore-keys: |
+            shard-clone-cache-${{ github.run_id }}-
+      - name: Rehydrate section shards into the live artifact (when sharding active)
+        working-directory: tooling
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOY_RUN_ID: ${{ github.event.inputs.deploy_run_id }}
+          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
+          SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
+          ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
+          ARGOVIA_SHARD_LIVE: ${{ vars.ARGOVIA_SHARD_LIVE }}
+          APPENZELLO_SHARD_LIVE: ${{ vars.APPENZELLO_SHARD_LIVE }}
+          BASILEA_SHARD_LIVE: ${{ vars.BASILEA_SHARD_LIVE }}
+          BERNA_SHARD_LIVE: ${{ vars.BERNA_SHARD_LIVE }}
+          FRIBURGO_SHARD_LIVE: ${{ vars.FRIBURGO_SHARD_LIVE }}
+          GINEVRA_SHARD_LIVE: ${{ vars.GINEVRA_SHARD_LIVE }}
+          GLARONA_SHARD_LIVE: ${{ vars.GLARONA_SHARD_LIVE }}
+          GRIGIONI_SHARD_LIVE: ${{ vars.GRIGIONI_SHARD_LIVE }}
+          GIURA_SHARD_LIVE: ${{ vars.GIURA_SHARD_LIVE }}
+          LUCERNA_SHARD_LIVE: ${{ vars.LUCERNA_SHARD_LIVE }}
+          NEUCHATEL_SHARD_LIVE: ${{ vars.NEUCHATEL_SHARD_LIVE }}
+          NIDVALDO_SHARD_LIVE: ${{ vars.NIDVALDO_SHARD_LIVE }}
+          OBVALDO_SHARD_LIVE: ${{ vars.OBVALDO_SHARD_LIVE }}
+          SCIAFFUSA_SHARD_LIVE: ${{ vars.SCIAFFUSA_SHARD_LIVE }}
+          SOLETTA_SHARD_LIVE: ${{ vars.SOLETTA_SHARD_LIVE }}
+          SVITTO_SHARD_LIVE: ${{ vars.SVITTO_SHARD_LIVE }}
+          TURGOVIA_SHARD_LIVE: ${{ vars.TURGOVIA_SHARD_LIVE }}
+          URI_SHARD_LIVE: ${{ vars.URI_SHARD_LIVE }}
+          VAUD_SHARD_LIVE: ${{ vars.VAUD_SHARD_LIVE }}
+          VALLESE_SHARD_LIVE: ${{ vars.VALLESE_SHARD_LIVE }}
+          ZUGO_SHARD_LIVE: ${{ vars.ZUGO_SHARD_LIVE }}
+          SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
+          ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
+          ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
+          SHARD_CLONE_CACHE_DIR: ${{ runner.temp }}/shard-clone-cache
+        run: bash scripts/lib/rehydrate-section-shards.sh
       - name: Manifest the live monolith it+shared
-        run: |
-          set -eo pipefail
-          LIVE_DIST=/tmp/live/dist
-          [ -d "$LIVE_DIST" ] || LIVE_DIST=/tmp/live
-          node tooling/scripts/ci/dist-hash-manifest.mjs "$LIVE_DIST" /tmp/live-it.txt
+        run: node tooling/scripts/ci/dist-hash-manifest.mjs tooling/dist /tmp/live-it.txt --deploy-artifact-perimeter
       - name: Compare matrix it-shard ≡ live monolith it+shared
         run: node tooling/scripts/ci/compare-dist-manifests.mjs /tmp/live-it.txt /tmp/matrix-it.txt
