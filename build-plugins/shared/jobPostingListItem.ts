@@ -21,7 +21,7 @@
  * each linked detail page.
  */
 import { buildJobPostingSchema, type JobInput } from './jobPostingSchema';
-import { truncateCodeUnits } from './safeTruncate';
+import { truncateHeadline } from './titleSuffix';
 
 /** Max `description` length embedded per list item (full text is on the detail page). */
 export const LIST_ITEM_DESCRIPTION_CAP = 300;
@@ -41,9 +41,12 @@ export function buildListItemJobPosting(
     const schema = buildJobPostingSchema(input, opts) as unknown as Record<string, unknown>;
     const { '@context': _omitContext, ...rest } = schema;
     if (typeof rest.description === 'string' && rest.description.length > LIST_ITEM_DESCRIPTION_CAP) {
-      // Surrogate-safe cut: a raw slice can split an emoji pair and leave a lone
-      // surrogate that makes Google reject the JSON-LD ("Truncated Unicode char").
-      rest.description = `${truncateCodeUnits(rest.description, LIST_ITEM_DESCRIPTION_CAP)}…`;
+      // Surrogate-safe cut (truncateHeadline slices via truncateCodeUnits): a raw
+      // slice can split an emoji pair and leave a lone surrogate that makes Google
+      // reject the JSON-LD ("Truncated Unicode char"). truncateHeadline adds the
+      // word-boundary + dangling-clause peel, so this ItemList entry — which
+      // Google may surface directly in a rich result — no longer ends mid-word.
+      rest.description = truncateHeadline(rest.description, LIST_ITEM_DESCRIPTION_CAP);
     }
     return rest;
   } catch {

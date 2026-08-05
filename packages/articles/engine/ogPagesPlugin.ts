@@ -134,6 +134,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  titleBrandSuffix: TITLE_BRAND_SUFFIX,
  titleMaxChars: TITLE_MAX_CHARS,
  clampMetaDescription,
+ repairSerpSnippet,
  truncateCodeUnits,
  stableChunkFile,
  stableChunkFiles,
@@ -275,11 +276,13 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (!answerRaw) continue;
  const cleanAnswer = stripMarkdownForFaq(answerRaw);
  if (!cleanAnswer) continue;
- // Surrogate-safe: this answer becomes FAQPage JSON-LD acceptedAnswer.text; a
- // raw slice can split an emoji pair and leave a lone surrogate that breaks parsing.
- const truncated = cleanAnswer.length > 300
- ? truncateCodeUnits(cleanAnswer, 297) + '...'
- : cleanAnswer;
+ // Surrogate-safe (truncateHeadline slices via truncateCodeUnits): this answer
+ // becomes FAQPage JSON-LD acceptedAnswer.text; a raw slice can split an emoji
+ // pair and leave a lone surrogate that breaks parsing. truncateHeadline also
+ // cuts on a word boundary and peels the dangling clause tail — the previous
+ // raw slice ended answers mid-word inside a rich result that Google renders
+ // directly in the SERP.
+ const truncated = truncateHeadline(cleanAnswer, 300);
  pairs.push({ question: heading, answer: truncated });
  }
  return pairs;
@@ -825,7 +828,16 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // headline structured data to match (Publisher Center answer/9607104)
  // Headline VERBATIM — no truncation. Brand applied conditionally below.
  const localizedTitle = localizedTitleRaw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
- const localizedDesc = localizedMeta?.excerpt || en.ogD;
+ // Repair descriptions the corpus generator already amputated mid-clause
+ // BEFORE they reach this render layer. `scripts/create-article.mjs` cut the
+ // stored excerpt to a fixed budget without peeling the tail, so 2 936 entries
+ // in content/seo/** end on a dangling preposition — 1 844 of them on the
+ // literal "… Dati aggiornati 2026 per". Those arrive UNDER the clamp budget,
+ // so no downstream truncation ever inspects them: without this call they ship
+ // to the SERP broken. No-ops on text that already reads as complete.
+ // Applied at the single definition point so <meta name="description">,
+ // og:description, the visible <p> lede and JSON-LD all stay identical.
+ const localizedDesc = repairSerpSnippet(localizedMeta?.excerpt || en.ogD);
  // Pad short descriptions to ≥150 chars for Bing (locale variant excerpts are often <150)
  const LOCALE_DESC_CONTEXT: Partial<Record<string, string>> = {
  en: ' Practical guide and free tools for cross-border workers (frontalieri) between Switzerland and Italy. Frontaliere Ticino.',
@@ -845,10 +857,14 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  (localeForMeta ?? 'it') as 'it' | 'en' | 'de' | 'fr',
  { maxLength: 155 },
  );
- // Truncate to ≤155 chars for Bing/Google snippet display
- const metaDesc = metaDescRaw.length > 155
- ? truncateCodeUnits(metaDescRaw, 152) + '…'
- : metaDescRaw;
+ // Truncate to ≤155 chars for Bing/Google snippet display.
+ // truncateHeadline, NOT truncateCodeUnits: the raw code-unit slice cut mid
+ // WORD and shipped snippets like "…impatto su perme…" (live offender
+ // /articoli-frontaliere/calendario-festivi-ticino-2026/). truncateHeadline
+ // cuts on a word boundary and peels the dangling clause tail, so the snippet
+ // always ends on a content word — same helper every other template family
+ // already reaches through clampMetaDescription.
+ const metaDesc = truncateHeadline(metaDescRaw, 155);
  // <title>: headline VERBATIM, brand suffix only when total <= TITLE_MAX_CHARS.
  // Per build-plugins/shared/titleSuffix.ts, mid-headline ellipsis truncation
  // tanks CTR (see /calcola-stipendio/ regression doc). We only force a

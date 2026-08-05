@@ -42,7 +42,7 @@ import { nearbyEventsBlockForJobPage } from './shared/jobEventsCrosslink';
 import { EJP_STRIPPED_MARKER } from './shared/ejpMarker';
 import { WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
-import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription, truncateHeadline } from './shared/titleSuffix';
+import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription, truncateHeadline, peelDanglingClauseTail } from './shared/titleSuffix';
 import { stripLeadingSectionLabel } from './shared/jobDescription/parser';
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import {
@@ -1794,9 +1794,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return sentenceMatch[0].trim();
  }
  // Fall back to the last word boundary (mid-sentence → keep the honest marker).
+ // peelDanglingClauseTail so the marker never follows a dangling preposition
+ // ("…responsabile per…"), same rule the meta description path uses.
  const lastSpace = window.lastIndexOf(' ');
  const cut = lastSpace > 200 ? window.slice(0, lastSpace) : window;
- return `${cut.trim()}…`;
+ return `${peelDanglingClauseTail(cut.trim())}…`;
  };
  /**
   * Deterministic non-crypto hash (djb2) — used to pick stable FAQ template
@@ -2761,16 +2763,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const metaBody = cleanDesc.length > 40 ? ` ${cleanDesc}` : '';
  // Assemble: intro + salary + body, truncated to 160 chars; fallback to body if over limit
  const descWithSalary = `${metaIntro}${metaSalarySnippet}${metaCta}`;
- // Truncate meta description at word boundary, avoiding trailing hyphens/prepositions
- const truncMetaDesc = (s: string, max = 160): string => {
- if (s.length <= max) return s;
- let cut = s.lastIndexOf(' ', max - 1);
- if (cut <= 0) cut = max - 1;
- let result = truncateCodeUnits(s, cut).trimEnd();
- // Strip trailing hyphens, dashes, and common prepositions
- result = result.replace(/[\s\-–—]+$/, '').replace(/\s+(di|da|per|a|in|con|su|del|della|dei|delle|at|in|for|of|the|an|bei|für|im|von|chez|pour|au|du|de|des|les)\s*$/i, '');
- return result + '...';
- };
+ // Truncate meta description at word boundary, avoiding trailing hyphens/prepositions.
+ // Delegates to the shared truncateHeadline → peelDanglingClauseTail: this used
+ // to carry its OWN inline preposition list, a literal duplicate of
+ // TRAILING_STOPWORDS in build-plugins/shared/titleSuffix.ts that had already
+ // drifted (it was missing `tra`, `fra`, `sul`, `che`, `come`, `und`, `zu`, `et`,
+ // `qui`, … so those still dangled here after being handled there).
+ // AGENTS.md Non-Negotiable #6: one shared module, no copies.
+ const truncMetaDesc = (s: string, max = 160): string => truncateHeadline(s, max);
  // Decode HTML entities from source data to prevent double-escaping in esc()
  const description = decodeHtmlEntities(descWithSalary.length <= 160
  ? descWithSalary

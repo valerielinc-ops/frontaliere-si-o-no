@@ -28,8 +28,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildJobPostingSchema } from './shared/jobPostingSchema';
-import { truncateCodeUnits } from './shared/safeTruncate';
-import { composeSerpJobTitle } from './shared/titleSuffix';
+import { composeSerpJobTitle, truncateHeadline } from './shared/titleSuffix';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { WriteCollector } from './batchWrite';
 import { resolvePublisherAdsFlushed, type EmittedPublisherAd } from './shared/buildSignals';
@@ -438,9 +437,12 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
           // (same helper as job-detail pages) so long combinations truncate
           // word-aware instead of overflowing the 66-char cap via raw concat.
           const metaTitle = composeSerpJobTitle(title, company, place, locale);
-          // Surrogate-safe: ad bodies are user-submitted and contain emoji; a raw
-          // slice can split a pair and leave a lone surrogate (� in the SERP snippet).
-          const metaDesc = truncateCodeUnits(localizedDescription(rec, locale).replace(/\s+/g, ' '), 160);
+          // Surrogate-safe (truncateHeadline slices via truncateCodeUnits): ad
+          // bodies are user-submitted and contain emoji; a raw slice can split a
+          // pair and leave a lone surrogate (� in the SERP snippet). It also adds
+          // the word-boundary + dangling-clause peel the raw slice lacked, so the
+          // snippet stops on a content word instead of mid-word at char 160.
+          const metaDesc = truncateHeadline(localizedDescription(rec, locale).replace(/\s+/g, ' '), 160);
 
           const html = buildSeoPageHtml({
             locale,

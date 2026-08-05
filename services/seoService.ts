@@ -18,8 +18,7 @@ import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jo
 import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from '../build-plugins/shared/jobPostingFaq';
 import { getCantonDisplayName } from '../build-plugins/shared/cantonDisplay';
 import { resolveJobCanton } from '../build-plugins/shared/cantonSection';
-import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription, truncateTitleAtClauseBoundary } from '../build-plugins/shared/titleSuffix';
-import { truncateCodeUnits } from '../build-plugins/shared/safeTruncate';
+import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription, truncateHeadline, truncateTitleAtClauseBoundary } from '../build-plugins/shared/titleSuffix';
 
 /**
  * Retry a dynamic import once after clearing SW caches.
@@ -175,9 +174,12 @@ function normalizeSeoText(input: string): string {
 function compactSeoDescription(input: string, maxChars = 320): string {
  const cleaned = normalizeSeoText(input).replace(/<[^>]+>/g, ' ');
  if (cleaned.length <= maxChars) return cleaned;
- // Surrogate-safe cut: this feeds the SPA-runtime JSON-LD `description`; a raw
- // slice can split an emoji pair and leave a lone surrogate that breaks parsing.
- return `${truncateCodeUnits(cleaned, maxChars - 1).trim()}…`;
+ // Surrogate-safe cut (truncateHeadline slices via truncateCodeUnits): this
+ // feeds the SPA-runtime JSON-LD `description`; a raw slice can split an emoji
+ // pair and leave a lone surrogate that breaks parsing. truncateHeadline adds
+ // the word-boundary + dangling-clause peel the raw slice lacked, so the text
+ // no longer stops mid-word or on a preposition.
+ return truncateHeadline(cleaned, maxChars);
 }
 
 function companyLogoFromJob(job: any): string {
