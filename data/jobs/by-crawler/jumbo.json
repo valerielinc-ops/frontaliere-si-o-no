@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jumbo",
-  "assembledAt": "2026-08-05T11:31:35.180Z",
+  "assembledAt": "2026-08-05T10:35:20.856Z",
   "jobs": [
     {
       "id": "jumbo-e3f2921c-c2e",
@@ -2273,21 +2273,28 @@
       "previousSlugsByLocale": {
         "de": [
           "verkaufsberater-in-do-it-jumbo-schanis",
-          "verkaufsberater-in-do-it-jumbo-schanis-sankt-gallen-ppc360"
+          "verkaufsberater-in-do-it-jumbo-schanis-sankt-gallen-ppc360",
+          "verkaufsberater-in-do-it-jumbo-schanis-sankt-gallen-d7nzst"
         ],
         "it": [
           "consulente-di-vendita-do-it-jumbo-schanis",
           "verkaufsberater-in-do-it-jumbo-schanis",
           "consulente-di-vendita-in-do-it-jumbo-schanis",
-          "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-schanis"
+          "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-schanis",
+          "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-schanis-8fe85a",
+          "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-schanis-8fe85a",
+          "verkaufsberater-in-do-it-jumbo-schanis-sankt-gallen-d7nzst",
+          "consultant-commercial-a-do-it-jumbo-division-der-coop-genossenschaft-schanis"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-schanis",
-          "sales-consultant-in-do-it-jumbo-schanis"
+          "sales-consultant-in-do-it-jumbo-schanis",
+          "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-schanis-8fe85a"
         ],
         "fr": [
           "verkaufsberater-in-do-it-jumbo-schanis",
-          "consultant-en-ventes-a-do-it-jumbo-schanis"
+          "consultant-en-ventes-a-do-it-jumbo-schanis",
+          "consultant-commercial-a-do-it-jumbo-division-der-coop-genossenschaft-schanis"
         ]
       },
       "previousSlugs": [
@@ -2300,10 +2307,13 @@
         "consulente-vendite-do-it-jumbo-division-der-coop-genossenschaft-schanis",
         "consulente-di-vendita-in-do-it-jumbo-schanis",
         "verkaufsberater-in-do-it-jumbo-schanis-sankt-gallen-ppc360",
-        "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-schanis"
+        "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-schanis",
+        "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-schanis-8fe85a",
+        "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-schanis-8fe85a",
+        "verkaufsberater-in-do-it-jumbo-schanis-sankt-gallen-d7nzst",
+        "consultant-commercial-a-do-it-jumbo-division-der-coop-genossenschaft-schanis"
       ],
       "firstSeenAt": "2026-07-09T22:25:22.978Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2315,7 +2325,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-92c44d1e-87e",
@@ -4380,7 +4391,8 @@
           "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-glarus",
           "verkaufsberater-in-do-it-jumbo-schwyz",
           "consulente-di-vendita-do-it-jumbo-schwyz",
-          "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz"
+          "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
+          "consulente-di-vendita-do-it-jumbo-division-der-coop-genossenschaft-schwyz"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-schwyz",
@@ -4415,10 +4427,10 @@
         "verkaufsberater-en-do-it-jumbo-division-der-coop-genossenschaft-schattdorf",
         "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-glarus",
         "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz-nu6qg8",
-        "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz"
+        "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
+        "consulente-di-vendita-do-it-jumbo-division-der-coop-genossenschaft-schwyz"
       ],
       "firstSeenAt": "2026-07-17T11:19:55.688Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -4430,7 +4442,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-2df838d0-b2c",
@@ -6321,13 +6334,15 @@
         "sales-advisor-in-garden-jumbo-wurenlingen",
         "conseiller-commercial-a-garden-jumbo-wurenlingen",
         "consulente-vendite-in-garden-jumbo-wurenlingen",
-        "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-wurenlingen"
+        "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-wurenlingen",
+        "consulente-vendite-garden-jumbo-division-der-coop-genossenschaft-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-garden-jumbo-wurenlingen",
           "consulente-vendite-in-garden-jumbo-wurenlingen",
-          "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-wurenlingen"
+          "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-wurenlingen",
+          "consulente-vendite-garden-jumbo-division-der-coop-genossenschaft-wurenlingen"
         ],
         "en": [
           "verkaufsberater-in-garden-jumbo-wurenlingen",
@@ -6342,7 +6357,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:07:47.763Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6354,7 +6368,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-e64abbdc-ec5",
@@ -7841,7 +7856,11 @@
           "consulente-di-vendita-in-do-it-jumbo-schattdorf",
           "sales-consultant-in-do-it-jumbo-schattdorf",
           "consultant-en-ventes-a-do-it-jumbo-schattdorf",
-          "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-schattdorf"
+          "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-schattdorf",
+          "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-glarus",
+          "consulente-di-vendita-garden-jumbo-division-der-coop-genossenschaft-schattdorf",
+          "consulente-di-vendita-do-it-jumbo-division-der-coop-genossenschaft-glarus",
+          "consulente-di-vendita-jumbo-division-der-coop-genossenschaft-schattdorf"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-schattdorf",
@@ -7863,10 +7882,13 @@
         "sales-consultant-in-do-it-jumbo-schattdorf",
         "consultant-en-ventes-a-do-it-jumbo-schattdorf",
         "verkaufsberater-in-do-it-jumbo-schattdorf-uri-xt1cv4",
-        "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-schattdorf"
+        "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-schattdorf",
+        "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-glarus",
+        "consulente-di-vendita-garden-jumbo-division-der-coop-genossenschaft-schattdorf",
+        "consulente-di-vendita-do-it-jumbo-division-der-coop-genossenschaft-glarus",
+        "consulente-di-vendita-jumbo-division-der-coop-genossenschaft-schattdorf"
       ],
       "firstSeenAt": "2026-07-30T11:16:54.218Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -7878,7 +7900,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-f1673ccc-733",
@@ -7957,7 +7980,8 @@
         "verkaufsberater-in-jumbo-schattdorf",
         "verkaufsberater-in-jumbo-schattdorf-uri-hetyhl",
         "verkaufsberater-in-jumbo-schattdorf-uri",
-        "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-schattdorf-cf62d0"
+        "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-schattdorf-cf62d0",
+        "consulente-vendite-garden-jumbo-division-der-coop-genossenschaft-schattdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7972,7 +7996,8 @@
           "verkaufsberater-in-jumbo-schattdorf",
           "verkaufsberater-in-jumbo-schattdorf-uri-hetyhl",
           "verkaufsberater-in-jumbo-schattdorf-uri",
-          "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-schattdorf-cf62d0"
+          "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-schattdorf-cf62d0",
+          "consulente-vendite-garden-jumbo-division-der-coop-genossenschaft-schattdorf"
         ],
         "en": [
           "verkaufsberater-in-garden-jumbo-schattdorf",
@@ -7989,7 +8014,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:16:54.220Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -8001,7 +8025,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-ee27b59d-8fb",
@@ -19489,15 +19514,21 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
+      "previousSlugs": [
+        "verkaufsberater-in-jumbo-huntwangen",
+        "sales-consultant-in-jumbo-huntwangen",
+        "consultant-en-ventes-jumbo-huntwangen",
+        "consulente-commerciale-in-jumbo-huntwangen",
+        "verkaufsberater-in-jumbo-huntwangen-zurich-e09yb1",
+        "consulente-commerciale-in-jumbo-division-der-coop-genossenschaft-huntwangen",
+        "consulente-divendita-jumbo-division-der-coop-genossenschaft-huntwangen"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "verkaufsberater-in-jumbo-huntwangen",
-          "verkaufsberater-in-jumbo-huntwangen-zurich-e09yb1"
-        ],
         "it": [
           "verkaufsberater-in-jumbo-huntwangen",
           "consulente-commerciale-in-jumbo-huntwangen",
-          "consulente-commerciale-in-jumbo-division-der-coop-genossenschaft-huntwangen"
+          "consulente-commerciale-in-jumbo-division-der-coop-genossenschaft-huntwangen",
+          "consulente-divendita-jumbo-division-der-coop-genossenschaft-huntwangen"
         ],
         "en": [
           "verkaufsberater-in-jumbo-huntwangen",
@@ -19506,18 +19537,13 @@
         "fr": [
           "verkaufsberater-in-jumbo-huntwangen",
           "consultant-en-ventes-jumbo-huntwangen"
+        ],
+        "de": [
+          "verkaufsberater-in-jumbo-huntwangen",
+          "verkaufsberater-in-jumbo-huntwangen-zurich-e09yb1"
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-jumbo-huntwangen",
-        "sales-consultant-in-jumbo-huntwangen",
-        "consultant-en-ventes-jumbo-huntwangen",
-        "consulente-commerciale-in-jumbo-huntwangen",
-        "verkaufsberater-in-jumbo-huntwangen-zurich-e09yb1",
-        "consulente-commerciale-in-jumbo-division-der-coop-genossenschaft-huntwangen"
-      ],
       "firstSeenAt": "2026-08-03T12:35:40.801Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -19529,7 +19555,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-645c08e9-081",
@@ -20013,31 +20040,6 @@
           "• Am liebsten arbeiten Sie mit Menschen – mit der Kundschaft und im Team."
         ]
       },
-      "previousSlugs": [
-        "verkaufer-in-kassen-services-jumbo-arbon",
-        "seller-in-cash-registers-services-jumbo-arbon",
-        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-arbon",
-        "venditore-in-cassa-servizi-jumbo-arbon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-kassen-services-jumbo-arbon",
-          "venditore-in-cassa-servizi-jumbo-arbon"
-        ],
-        "en": [
-          "verkaufer-in-kassen-services-jumbo-arbon",
-          "seller-in-cash-registers-services-jumbo-arbon"
-        ],
-        "de": [
-          "verkaufer-in-kassen-services-jumbo-arbon"
-        ],
-        "fr": [
-          "verkaufer-in-kassen-services-jumbo-arbon",
-          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-arbon"
-        ]
-      },
-      "firstSeenAt": "2026-08-04T11:33:52.753Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -20049,7 +20051,43 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-04T11:33:52.753Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-jumbo-arbon",
+          "venditore-in-cassa-servizi-jumbo-arbon",
+          "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-arbon",
+          "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-arbon",
+          "verkaufer-in-kassen-services-jumbo-arbon-thurgau-tx22j0",
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-arbon"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-jumbo-arbon",
+          "seller-in-cash-registers-services-jumbo-arbon",
+          "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-arbon"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-jumbo-arbon",
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-arbon",
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-arbon"
+        ],
+        "de": [
+          "verkaufer-in-kassen-services-jumbo-arbon",
+          "verkaufer-in-kassen-services-jumbo-arbon-thurgau-tx22j0"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-arbon",
+        "seller-in-cash-registers-services-jumbo-arbon",
+        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-arbon",
+        "venditore-in-cassa-servizi-jumbo-arbon",
+        "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-arbon",
+        "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-arbon",
+        "verkaufer-in-kassen-services-jumbo-arbon-thurgau-tx22j0",
+        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-arbon"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-7505fd0c-d87",
@@ -20114,31 +20152,6 @@
           "• Lächeln ist dein Geheimnis zum Erfolg!"
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-garden-jumbo-feuerthalen",
-        "sales-advisor-in-garden-jumbo-feuerthalen",
-        "conseiller-commercial-a-garden-jumbo-feuerthalen",
-        "consulente-vendite-in-garden-jumbo-feuerthalen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-garden-jumbo-feuerthalen",
-          "consulente-vendite-in-garden-jumbo-feuerthalen"
-        ],
-        "en": [
-          "verkaufsberater-in-garden-jumbo-feuerthalen",
-          "sales-advisor-in-garden-jumbo-feuerthalen"
-        ],
-        "de": [
-          "verkaufsberater-in-garden-jumbo-feuerthalen"
-        ],
-        "fr": [
-          "verkaufsberater-in-garden-jumbo-feuerthalen",
-          "conseiller-commercial-a-garden-jumbo-feuerthalen"
-        ]
-      },
-      "firstSeenAt": "2026-08-04T11:33:52.752Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -20150,7 +20163,34 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-04T11:33:52.752Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-feuerthalen",
+          "consulente-vendite-in-garden-jumbo-feuerthalen",
+          "consulente-di-vendita-garden-jumbo-division-der-coop-genossenschaft-feuerthalen"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-feuerthalen",
+          "sales-advisor-in-garden-jumbo-feuerthalen"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-feuerthalen",
+          "conseiller-commercial-a-garden-jumbo-feuerthalen"
+        ],
+        "de": [
+          "verkaufsberater-in-garden-jumbo-feuerthalen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-feuerthalen",
+        "sales-advisor-in-garden-jumbo-feuerthalen",
+        "conseiller-commercial-a-garden-jumbo-feuerthalen",
+        "consulente-vendite-in-garden-jumbo-feuerthalen",
+        "consulente-di-vendita-garden-jumbo-division-der-coop-genossenschaft-feuerthalen"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-d1456db1-5af",
@@ -20216,24 +20256,6 @@
           "• Deutsch beherrschst du sehr gut – mündlich und schriftlich."
         ]
       },
-      "firstSeenAt": "2026-08-04T22:17:07.355Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "rayonleiter-in-garden-jumbo-langnau-im-emmental",
-          "rayon-leader-in-garden-jumbo-langnau-im-emmental"
-        ],
-        "de": [
-          "rayonleiter-in-garden-jumbo-langnau-im-emmental"
-        ],
-        "fr": [
-          "rayonleiter-in-garden-jumbo-langnau-im-emmental"
-        ]
-      },
-      "previousSlugs": [
-        "rayonleiter-in-garden-jumbo-langnau-im-emmental",
-        "rayon-leader-in-garden-jumbo-langnau-im-emmental"
-      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -20245,7 +20267,33 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-04T22:17:07.355Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-garden-jumbo-langnau-im-emmental",
+          "rayon-leader-in-garden-jumbo-langnau-im-emmental",
+          "rayon-leader-in-garden-jumbo-division-der-coop-genossenschaft-langnau-im-emmental",
+          "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-langnau-im-emmental-bern-quyj10",
+          "chef-de-rayon-a-garden-jumbo-division-der-coop-genossenschaft-langnau-im-emmental"
+        ],
+        "fr": [
+          "rayonleiter-in-garden-jumbo-langnau-im-emmental",
+          "chef-de-rayon-a-garden-jumbo-division-der-coop-genossenschaft-langnau-im-emmental"
+        ],
+        "de": [
+          "rayonleiter-in-garden-jumbo-langnau-im-emmental",
+          "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-langnau-im-emmental-bern-quyj10"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-garden-jumbo-langnau-im-emmental",
+        "rayon-leader-in-garden-jumbo-langnau-im-emmental",
+        "rayon-leader-in-garden-jumbo-division-der-coop-genossenschaft-langnau-im-emmental",
+        "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-langnau-im-emmental-bern-quyj10",
+        "chef-de-rayon-a-garden-jumbo-division-der-coop-genossenschaft-langnau-im-emmental"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-be464d9d-0a0",
@@ -20506,31 +20554,33 @@
           "• Erfahrungen mit SAP-Systemen und -Prozessen sowie Französischkenntnisse sind wünschenswert"
         ]
       },
-      "previousSlugs": [
-        "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon",
-        "marketing-assistant-elektromaterial-e-licht-jumbo-dietlikon",
-        "marketing-assistant-electrical-material-and-light-jumbo-dietlikon",
-        "assistant-marketing-materiel-electrique-et-lumiere-jumbo-dietlikon"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon",
-          "marketing-assistant-elektromaterial-e-licht-jumbo-dietlikon"
+          "marketing-assistant-elektromaterial-e-licht-jumbo-dietlikon",
+          "marketing-assistant-elektromaterial-e-licht-jumbo-division-der-coop-genossenschaft-dietlikon",
+          "marketing-assistant-elektromaterial-und-licht-jumbo-division-der-coop-genossenschaft-dietlikon"
         ],
         "en": [
           "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon",
           "marketing-assistant-electrical-material-and-light-jumbo-dietlikon"
         ],
-        "de": [
-          "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon"
-        ],
         "fr": [
           "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon",
           "assistant-marketing-materiel-electrique-et-lumiere-jumbo-dietlikon"
+        ],
+        "de": [
+          "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon"
         ]
       },
-      "firstSeenAt": "2026-08-04T11:33:52.746Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon",
+        "marketing-assistant-elektromaterial-e-licht-jumbo-dietlikon",
+        "marketing-assistant-electrical-material-and-light-jumbo-dietlikon",
+        "assistant-marketing-materiel-electrique-et-lumiere-jumbo-dietlikon",
+        "marketing-assistant-elektromaterial-e-licht-jumbo-division-der-coop-genossenschaft-dietlikon",
+        "marketing-assistant-elektromaterial-und-licht-jumbo-division-der-coop-genossenschaft-dietlikon"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -20542,7 +20592,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-04T11:33:52.746Z",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-ff580559-398",

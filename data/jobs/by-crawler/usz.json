@@ -1,6 +1,6 @@
 {
   "crawlerKey": "usz",
-  "assembledAt": "2026-08-05T11:43:20.839Z",
+  "assembledAt": "2026-08-05T11:14:06.600Z",
   "jobs": [
     {
       "id": "usz-1855ccae124c",
@@ -5666,7 +5666,10 @@
         "mpa-fage-for-outpatient-gynecology-80-100-universitatsspital-zurich-usz-campus",
         "mpa-fage-fur-die-ambulante-gynakologie-80-100-usz-ch",
         "mpa-fage-pour-la-gynecologie-externe-80-100-universitatsspital-zurich-usz-campus",
-        "mpa-fage-per-la-ambulante-geburtshilfe-60-100-universitatsspital-zurich-usz-campus"
+        "mpa-fage-per-la-ambulante-geburtshilfe-60-100-universitatsspital-zurich-usz-campus",
+        "mpa-fage-per-la-ambulante-dermatologie-50-universitatsspital-zurich-usz-flughafen",
+        "mpa-fage-for-ambulatory-dermatology-50-universitatsspital-zurich-usz-flughafen",
+        "mpa-fage-fur-die-ambulante-dermatologie-50-usz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5679,12 +5682,16 @@
           "mpa-fage-for-outpatient-gynecology-80-100-universitatsspital-zurich-usz-campus",
           "mpa-fage-fur-die-ambulante-gynakologie-80-100-usz-ch",
           "mpa-fage-pour-la-gynecologie-externe-80-100-universitatsspital-zurich-usz-campus",
-          "mpa-fage-per-la-ambulante-geburtshilfe-60-100-universitatsspital-zurich-usz-campus"
+          "mpa-fage-per-la-ambulante-geburtshilfe-60-100-universitatsspital-zurich-usz-campus",
+          "mpa-fage-per-la-ambulante-dermatologie-50-universitatsspital-zurich-usz-flughafen",
+          "mpa-fage-for-ambulatory-dermatology-50-universitatsspital-zurich-usz-flughafen",
+          "mpa-fage-fur-die-ambulante-dermatologie-50-usz-ch"
         ],
         "en": [
           "mpa-fage-fur-die-ambulante-geburtshilfe-60-100-usz-ch",
           "mpa-fage-for-outpatient-dermatology-50-100-universitatsspital-zurich-usz-flughafen",
-          "mpa-fage-for-outpatient-gynecology-80-100-universitatsspital-zurich-usz-campus"
+          "mpa-fage-for-outpatient-gynecology-80-100-universitatsspital-zurich-usz-campus",
+          "mpa-fage-for-ambulatory-dermatology-50-universitatsspital-zurich-usz-flughafen"
         ],
         "de": [
           "mpa-fage-fur-die-ambulante-dermatologie-50-100-usz-ch",
@@ -5693,7 +5700,8 @@
         "fr": [
           "mpa-fage-fur-die-ambulante-geburtshilfe-60-100-usz-ch",
           "mpa-fage-pour-la-dermatologie-externe-50-100-universitatsspital-zurich-usz-flughafen",
-          "mpa-fage-pour-la-gynecologie-externe-80-100-universitatsspital-zurich-usz-campus"
+          "mpa-fage-pour-la-gynecologie-externe-80-100-universitatsspital-zurich-usz-campus",
+          "mpa-fage-fur-die-ambulante-dermatologie-50-usz-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T13:06:45.475Z",
@@ -13299,11 +13307,28 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mpa-fage-fur-das-ambulatorium-am-usz-campus-80-100-usz-ch"
+        "mpa-fage-fur-das-ambulatorium-am-usz-campus-80-100-usz-ch",
+        "berufsbildner-in-mpa-fage-per-das-ambulatorium-am-usz-campus-80-100-universitatsspital-zurich-usz-campus",
+        "professional-instructor-in-mpa-fage-for-the-ambulatory-at-usz-campus-80-100-universitatsspital-zurich-usz-campus",
+        "berufsbildner-in-mpa-fage-fur-das-ambulatorium-am-usz-campus-80-100-usz-ch",
+        "entraineur-professionnel-en-mpa-fage-pour-l-ambulatoire-a-usz-campus-80-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-fage-fur-das-ambulatorium-am-usz-campus-80-100-usz-ch"
+          "mpa-fage-fur-das-ambulatorium-am-usz-campus-80-100-usz-ch",
+          "berufsbildner-in-mpa-fage-per-das-ambulatorium-am-usz-campus-80-100-universitatsspital-zurich-usz-campus",
+          "professional-instructor-in-mpa-fage-for-the-ambulatory-at-usz-campus-80-100-universitatsspital-zurich-usz-campus",
+          "berufsbildner-in-mpa-fage-fur-das-ambulatorium-am-usz-campus-80-100-usz-ch",
+          "entraineur-professionnel-en-mpa-fage-pour-l-ambulatoire-a-usz-campus-80-100-universitatsspital-zurich-usz-campus"
+        ],
+        "en": [
+          "professional-instructor-in-mpa-fage-for-the-ambulatory-at-usz-campus-80-100-universitatsspital-zurich-usz-campus"
+        ],
+        "de": [
+          "berufsbildner-in-mpa-fage-fur-das-ambulatorium-am-usz-campus-80-100-usz-ch"
+        ],
+        "fr": [
+          "entraineur-professionnel-en-mpa-fage-pour-l-ambulatoire-a-usz-campus-80-100-universitatsspital-zurich-usz-campus"
         ]
       },
       "firstSeenAt": "2026-07-28T22:39:35.670Z",
