@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-08-04T08:21:18.105Z",
+  "assembledAt": "2026-08-05T08:20:53.039Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -2267,43 +2267,6 @@
       "imageUrl": "/images/events/guidle-A84qwvX.jpg"
     },
     {
-      "id": "guidle:ABvU2MD",
-      "title": "Sons of the East Openair",
-      "titleByLocale": {
-        "it": "Sons of the East Openair",
-        "en": "Sons of the East Openair",
-        "de": "Sons of the East Openair",
-        "fr": "Sons of the East Openair"
-      },
-      "description": "Nach drei restlos ausverkauften Konzerten kehren Sons of the East 2026 zurück – und zwar dahin, wo ihre Mitsinghymnen am allermeisten zur Geltung komment: unter freiem Himmel auf der Bühne am Teich!",
-      "descriptionByLocale": {
-        "it": "Nach drei restlos ausverkauften Konzerten kehren Sons of the East 2026 zurück – und zwar dahin, wo ihre Mitsinghymnen am allermeisten zur Geltung komment: unter freiem Himmel auf der Bühne am Teich!",
-        "en": "Nach drei restlos ausverkauften Konzerten kehren Sons of the East 2026 zurück – und zwar dahin, wo ihre Mitsinghymnen am allermeisten zur Geltung komment: unter freiem Himmel auf der Bühne am Teich!",
-        "de": "Nach drei restlos ausverkauften Konzerten kehren Sons of the East 2026 zurück – und zwar dahin, wo ihre Mitsinghymnen am allermeisten zur Geltung komment: unter freiem Himmel auf der Bühne am Teich!",
-        "fr": "Nach drei restlos ausverkauften Konzerten kehren Sons of the East 2026 zurück – und zwar dahin, wo ihre Mitsinghymnen am allermeisten zur Geltung komment: unter freiem Himmel auf der Bühne am Teich!"
-      },
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-04",
-      "startTime": "19:00",
-      "category": "Folk Music",
-      "venue": "Mühle Hunziken",
-      "comune": "Rubigen",
-      "canton": "BE",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/rubigen/sons-of-the-east-zusatzshow_ABvU2MD",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Hunziken 101",
-        "postalCode": "3113"
-      },
-      "geo": {
-        "lat": 46.8907188,
-        "lng": 7.5418315
-      },
-      "recurring": true,
-      "imageUrl": "/images/events/guidle-ABvU2MD.jpg"
-    },
-    {
       "id": "guidle:AnBhUFt",
       "title": "Genuss & Impro mit Mirjam Woggon & Romeo Meyer",
       "titleByLocale": {
@@ -3556,47 +3519,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AtjQ5jB.jpg"
-    },
-    {
-      "id": "guidle:A8k8H1r",
-      "title": "This Will Destroy You (US)",
-      "titleByLocale": {
-        "it": "This Will Destroy You (US)",
-        "en": "This Will Destroy You (US)",
-        "de": "This Will Destroy You (US)",
-        "fr": "This Will Destroy You (US)"
-      },
-      "description": "This Will Destroy You (US) & Support: Mascara (FR)04.08.2026 Zürich, Bogen FEinlass: 19:15 Uhr | Beginn: 20:30 UhrWEITERE INFORMATIONENBogen FINFOSBogen FViaduktstrasse 978005 Zürich",
-      "descriptionByLocale": {
-        "it": "This Will Destroy You (US) & Support: Mascara (FR)04.08.2026 Zürich, Bogen FEinlass: 19:15 Uhr | Beginn: 20:30 UhrWEITERE INFORMATIONENBogen FINFOSBogen FViaduktstrasse 978005 Zürich",
-        "en": "This Will Destroy You (US) & Support: Mascara (FR)04.08.2026 Zürich, Bogen FEinlass: 19:15 Uhr | Beginn: 20:30 UhrWEITERE INFORMATIONENBogen FINFOSBogen FViaduktstrasse 978005 Zürich",
-        "de": "This Will Destroy You (US) & Support: Mascara (FR)04.08.2026 Zürich, Bogen FEinlass: 19:15 Uhr | Beginn: 20:30 UhrWEITERE INFORMATIONENBogen FINFOSBogen FViaduktstrasse 978005 Zürich",
-        "fr": "This Will Destroy You (US) & Support: Mascara (FR)04.08.2026 Zürich, Bogen FEinlass: 19:15 Uhr | Beginn: 20:30 UhrWEITERE INFORMATIONENBogen FINFOSBogen FViaduktstrasse 978005 Zürich"
-      },
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-04",
-      "startTime": "20:30",
-      "category": "Rock generalmente",
-      "venue": "Bogen F",
-      "canton": "ZH",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/zuerich/this-will-destroy-you-us_A8k8H1r",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 38,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Viaduktstrasse 97",
-        "postalCode": "8005"
-      },
-      "geo": {
-        "lat": 47.3847733,
-        "lng": 8.5208588
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-A8k8H1r.jpg"
     },
     {
       "id": "guidle:ADtUG5Q",
@@ -5404,6 +5326,653 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AcTf6rt.jpg"
+    },
+    {
+      "id": "guidle:AQhyVSn",
+      "title": "BAEST (DK) – «COLOSSAL EUROPEAN HEADLINE TOUR 2026»",
+      "titleByLocale": {
+        "it": "BAEST (DK) – «COLOSSAL EUROPEAN HEADLINE TOUR 2026»",
+        "en": "BAEST (DK) – \"COLOSSAL EUROPEAN HEADLINE TOUR 2026\"",
+        "de": "BAEST (DK) – «KOLOSSALE EUROPEAN HEADLINE TOUR 2026»",
+        "fr": "BAEST (DK) – « COLOSSAL EUROPEAN HEADLINE TOUR 2026 »"
+      },
+      "description": "Das Albumcover gibt bereits einen Hinweis: BAEST gehen mit «Colossal» teils neue Wege und stehen 2026 nicht mehr nur für den harschen Death Metal, den sie seit Anbeginn und auch noch auf ihrem",
+      "descriptionByLocale": {
+        "it": "Das Albumcover gibt bereits einen Hinweis: BAEST gehen mit «Colossal» teils neue Wege und stehen 2026 nicht mehr nur für den harschen Death Metal, den sie seit Anbeginn und auch noch auf ihrem",
+        "en": "The album cover is now complete with a hint: BAEST began with «Colossal» the new season and season of 2026, not only for the first Death Metal, but also for the first time.",
+        "de": "Das Albumcover gibt bereits einen Hinweis: BAEST gehen mit „Colossal“ teils neue Wege und stehen 2026 nicht mehr nur für den harschen Death Metal, den sie seit Anbeginn und auch noch auf ihren",
+        "fr": "DAS Albumcover gibt bereits einen Hinweis : BAEST gehen mit « Colossal » teils neue Wege und stehen 2026 nicht mehr nur für den harschen Death Metal, den sie seit Anbeginn und auch noch auf ihrem"
+      },
+      "startDate": "2026-09-27",
+      "endDate": "2026-09-27",
+      "startTime": "19:30",
+      "category": "Metal / Hardcore",
+      "venue": "KiFF - Kultur in der Futterfabrik",
+      "comune": "Aarau",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/aarau/baest-dk-colossal-european-headline-tour-2026_AQhyVSn",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Tellistrasse 118",
+        "postalCode": "5000"
+      },
+      "geo": {
+        "lat": 47.3985618,
+        "lng": 8.0647273
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AQhyVSn.jpg"
+    },
+    {
+      "id": "guidle:ATYHjyU",
+      "title": "Riviera Impro Openair (RIO)",
+      "titleByLocale": {
+        "it": "Riviera Impro Openair (RIO)",
+        "en": "Riviera Impro Openair (RIO)",
+        "de": "Riviera Impro Openair (RIO)",
+        "fr": "Riviera Impro à ciel ouvert (RIO)"
+      },
+      "description": "Vevey vibriert diesen Sommer mit dem RIO! Jeden Freitag vom 24. Juli bis zum 14. August findet im Théâtre de Verdure ein einzigartiges Improvisationstheaterturnier statt.",
+      "descriptionByLocale": {
+        "it": "Vevey spacca quest' estate con il RIO! Ogni venerdì dal 24 luglio al 14 agosto, il Théâtre de Verdure ospita un torneo di improvvisazione teatrale unico nel suo genere.",
+        "en": "Vevey rocks this summer with the RIO! Every Friday from July 24 to August 14, the Théâtre de Verdure hosts a unique theatrical improvisation tournament.",
+        "de": "Vevey rockt diesen Sommer mit dem RIO! Jeden Freitag vom 24. Juli bis 14. August veranstaltet das Théâtre de Verdure ein einzigartiges Theaterimprovisationsturnier.",
+        "fr": "Vevey vibre cet été avec le RIO ! Tous les vendredis du 24 juillet au 14 août, le Théâtre de Verdure accueille un tournoi d'improvisation théâtrale unique."
+      },
+      "startDate": "2026-08-07",
+      "endDate": "2026-08-14",
+      "startTime": "00:00",
+      "category": "Teatro: improvisazione",
+      "venue": "Théâtre de Verdure",
+      "comune": "Vevey",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/events/alternative/vevey/riviera-impro-openair-rio_ATYHjyU",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Jardin du Rivage",
+        "postalCode": "1800"
+      },
+      "geo": {
+        "lat": 46.4594288,
+        "lng": 6.8400129
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-ATYHjyU.jpg"
+    },
+    {
+      "id": "guidle:Am3hJqm",
+      "title": "Sonido Gallo Negro",
+      "titleByLocale": {
+        "it": "Sonido Gallo Negro",
+        "en": "Black Rooster Sound",
+        "de": "Schwarzer Hahn-Sound",
+        "fr": "Son Coq Noir"
+      },
+      "description": "Ein psychedelischer Rausch, der in tanzende Trance versetzt.",
+      "descriptionByLocale": {
+        "it": "Ein psychedelischer Rausch, der in tanzende Trance versetzt.",
+        "en": "A psychedelischer Rausch, der in tanzende Trance versetzt.",
+        "de": "Ein PS ⑤chedelischer Rausch, der in tanzende Trance versetzt.",
+        "fr": "Un psychédéliste Rausch, en trance versetz."
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "startTime": "20:30",
+      "category": "Latin",
+      "venue": "Moods im Schiffbau",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zuerich/sonido-gallo-negro_Am3hJqm",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 38,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Schiffbaustrasse 6",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3888209,
+        "lng": 8.518645
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Am3hJqm.jpg"
+    },
+    {
+      "id": "guidle:AV5kVEF",
+      "title": "DOUG SHORTS [US] & THE RUFFCATS [DE] | Support: NAMAY KUSH [CH]",
+      "titleByLocale": {
+        "it": "DOUG SHORTS [US] & THE RUFFCATS [DE] | Support: NAMAY KUSH [CH]",
+        "en": "JESSICA [US] & JESSICA [DE] | Support: JESSICA [CH]",
+        "de": "DOUG SHORTS [US] & THE RUFFCATS [DE] | Unterstützung: NAMAY KUSH [CH]",
+        "fr": "DOUG SHORTS [US] & THE RUFFCATS [DE] | Support : NAMAY KUSH [CH]"
+      },
+      "description": "Update zum Konzert am 9. Oktober 2026 (Bereits gekaufte Tickets behalten Gültigkeit, können aber über Petzi erstattet werden)",
+      "descriptionByLocale": {
+        "it": "Update zum Konzert am 9. Oktober 2026 (Bereits gekaufte Tickets behalten Gültigkeit, können aber über Petzi erstattet werden)",
+        "en": "Update on the concert on October 9, 2026 (Tickets already purchased remain valid, but can be refunded via Petzi)",
+        "de": "Update zum Konzert am 9. Oktober 2026 (Bereits gekaufte Tickets behalten ihre Gültigkeit, können aber über Petzi erstattet werden)",
+        "fr": "Mise à jour de Konzert am 9. Oktober 2026 (Bereits gekaufte Tickets behalten Gültigkeit, können aber über Petzi erstattet werden)"
+      },
+      "startDate": "2026-10-09",
+      "endDate": "2026-10-09",
+      "startTime": "20:30",
+      "category": "Blues",
+      "venue": "TapTab",
+      "canton": "SH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/schaffhausen/rah-und-the-ruffcats-de-support-namay-kush-ch_AV5kVEF",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 14,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Baumgartenstrasse 19",
+        "postalCode": "8200"
+      },
+      "geo": {
+        "lat": 47.6944769,
+        "lng": 8.6362838
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AV5kVEF.jpg"
+    },
+    {
+      "id": "guidle:AeVsEPA",
+      "title": "Wu Lyf (UK) & Support",
+      "titleByLocale": {
+        "it": "Wu Lyf (UK) & Support",
+        "en": "(UK) & Support",
+        "de": "Wu Lyf (Großbritannien) & Support",
+        "fr": "Wu Lyf (Royaume-Uni) & Support"
+      },
+      "description": "Manchester ist die Wiege des Indie-Rocks: Joy Division, The Smiths, Stone Roses, The Fall, Oasis, Buzzcocks, Happy Mondays, New Order – man könnte die Liste bis ans Ende dieser Vorschau fortsetzen,",
+      "descriptionByLocale": {
+        "it": "Manchester ist die Wiege des Indie-Rocks: Joy Division, The Smiths, Stone Roses, The Fall, Oasis, Buzzcocks, Happy Mondays, New Order – man könnte die Liste bis ans Ende dieser Vorschau fortsetzen,",
+        "en": "Manchester is the Wiege of Indie-Rocks: Joy Division, The Smiths, Stone Roses, The Fall, Oasis, Buzzcocks, Happy Mondays, New Order – man könnte die Liste bis ans Ende dieser Vorschau fortsetzen,",
+        "de": "Manchester ist die Wiege des Indie-Rocks: Joy Division, The Smiths, Stone Roses, The Fall, Oasis, Buzzcocks, Happy Mondays, New Order – man könnte die Liste bis zum Ende dieser Vorschau fortsetzen,",
+        "fr": "Manchester ist die Wiege des Indie-Rocks : Joy Division, The Smiths, Stone Roses, The Fall, Oasis, Buzzcocks, Happy Mondays, New Order – man könnte die Liste bis ans Ende dieser Vorschau fortsetzen,"
+      },
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-03",
+      "startTime": "20:30",
+      "category": "Altri eventi",
+      "venue": "Bogen F",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zuerich/wu-lyf-uk-und-support_AeVsEPA",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 38,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Viaduktstrasse 97",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3847733,
+        "lng": 8.5208588
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AeVsEPA.jpg"
+    },
+    {
+      "id": "guidle:AXef9jA",
+      "title": "Femi Luna",
+      "titleByLocale": {
+        "it": "Femi Luna",
+        "en": "Femi Moon",
+        "de": "Femi Mond",
+        "fr": "Fémi Luna"
+      },
+      "description": "Der Wind pfeift nur noch leise durch die Eiseskälte, und eine meterhohe Decke aus Schnee schaltet den Rest der Welt auf stumm.",
+      "descriptionByLocale": {
+        "it": "Der Wind pfeift nur noch leise durch die Eiseskälte, und eine meterhohe Decke aus Schnee schaltet den Rest der Welt auf stumm.",
+        "en": "The wind whistles softly through the icy cold, and a meter-high blanket of snow mutes the rest of the world.",
+        "de": "Der ①ind pfeift nur noch leise durch die Eisesk Grafflte, und eine meterhohe Decke aus Schnee schaltet den Rest der ①elt auf stumm.",
+        "fr": "Le vent ne se laisse pas aller pendant la nuit à travers le ciel, et un mètre au-dessus du sol s'étend du reste du monde au milieu."
+      },
+      "startDate": "2026-10-15",
+      "endDate": "2026-10-15",
+      "startTime": "20:15",
+      "category": "cantautore",
+      "venue": "Helsinki Klub",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/kleinkunst/zuerich/femi-luna_AXef9jA",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Geroldstrasse 35",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3859392,
+        "lng": 8.5183004
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AXef9jA.jpg"
+    },
+    {
+      "id": "guidle:AneGnrT",
+      "title": "TapTab Sonidero präsentiert COSMICA BANDIDA [COL] | LA JUNGLA [COL]",
+      "titleByLocale": {
+        "it": "TapTab Sonidero präsentiert COSMICA BANDIDA [COL] | LA JUNGLA [COL]",
+        "en": "TapTab Sonidero präsentiert COSMICA BANDIDA [COL] | LA JUNGLA [COL]",
+        "de": "TapTab Sonidero präsentiert COSMICA BANDIDA [COL] | LA JUNGLA [COL]",
+        "fr": "TapTab Sonidero präsentiert COSMICA BANDIDA [COL] | LA JUNGLA [COL]"
+      },
+      "description": "Endlich trifft sich das Dorf einmal mehr in seiner Mitte und feiert – einfach um des Feierns willen.",
+      "descriptionByLocale": {
+        "it": "Endlich trifft sich das Dorf einmal mehr in seiner Mitte und feiert – einfach um des Feierns willen.",
+        "en": "Endlich trifft sich das Dorf einmal mehr in seiner Mitte und feiert – einfach um des Feierns willen.",
+        "de": "Endlich trifft sich das Dorf einmal mehr in seiner Mitte und feiert – einfach um des Feierns willen.",
+        "fr": "Endlich trifft sich das Dorf einmal mehr in seiner Mitte und feiert – einfach um des Feierns willen."
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "21:30",
+      "category": "Latin",
+      "venue": "TapTab",
+      "canton": "SH",
+      "url": "https://www.guidle.com/it/veranstaltungen/kleinkunst/schaffhausen/taptab-sonidero-praesentiert-cosmica-bandida-col_AneGnrT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 11.5,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Baumgartenstrasse 19",
+        "postalCode": "8200"
+      },
+      "geo": {
+        "lat": 47.6944769,
+        "lng": 8.6362838
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AneGnrT.jpg"
+    },
+    {
+      "id": "guidle:AdUnRK6",
+      "title": "GOOD VIBEZ REGGAE NIGHT / SAMORA & BATIS3TA",
+      "titleByLocale": {
+        "it": "GOOD VIBEZ REGGAE NIGHT / SAMORA & BATIS3TA",
+        "en": "GOOD VIBEZ REGGAE NIGHT / SAMORA & BATIS3TA",
+        "de": "GOOD VIBEZ REGGAE NIGHT / SAMORA & BATIS3TA",
+        "fr": "GOOD VIBEZ REGGAE NIGHT / SAMORA & BATIS3TA"
+      },
+      "description": "Samora, geboren in der südamerikanischen Karibik, bringt eine unglaublich frische, kraftvolle und energiegeladene Interpretation moderner antillischer Vibes auf die Bühne.",
+      "descriptionByLocale": {
+        "it": "Samora, geboren in der südamerikanischen Karibik, bringt eine unglaublich frische, kraftvolle und energiegeladene Interpretation moderner antillischer Vibes auf die Bühne.",
+        "en": "Samora, geboren in der südamerikanischen Karibik, bringt eine unglaublich frische, kraftvolle und energiegeladene Interpretation moderner antillischer Vibes auf die Bühne.",
+        "de": "Samora, geboren in der südamerikanischen Karibik, bringt eine unglaublich frische, kraftvolle und energiegeladene Interpretation moderner antillischer Vibes auf die Bühne.",
+        "fr": "Samora, geboren in der südamerikanischen Karibik, bringt eine unglaublich frische, kraftvolle und energiegeladene Interpretation moderner antillischer Vibes auf die Bühne."
+      },
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-03",
+      "startTime": "22:00",
+      "category": "Reggae / Dancehall",
+      "venue": "Grabenhalle",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/st-gallen/good-vibez-reggae-night-samora-und-batis3ta_AdUnRK6",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Unterer Graben 17",
+        "postalCode": "9000"
+      },
+      "geo": {
+        "lat": 47.4273375,
+        "lng": 9.3742055
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AdUnRK6.jpg"
+    },
+    {
+      "id": "guidle:AfKn3aj",
+      "title": "Skinshape (UK)",
+      "titleByLocale": {
+        "it": "Skinshape (UK)",
+        "en": "Skinshape (UK)",
+        "de": "Skinshape (UK)",
+        "fr": "Skinshape (UK)"
+      },
+      "description": "Musik zwischen Traum und Wirklichkeit, psychedelisch und trotzdem leicht wie ein Sommertag. Skinshape&#160;&#160;ist musikalisch verwurzelt im Folk und Funk der 70er-Jahre.",
+      "descriptionByLocale": {
+        "it": "Musik zwischen Traum und Wirklichkeit, psychedelisch und trotzdem leicht wie ein Sommertag. Skinshape&#160;&#160;ist musikalisch verwurzelt im Folk und Funk der 70er-Jahre.",
+        "en": "Musik zwischen Traum und Wirklichkeit, psychedelisch und trotzdem leicht wie ein Sommertag. Skinshape&#160;&#160;ist musikalisch verwurzelt im Folk und Funk der 70er-Jahre.",
+        "de": "Musik zwischen Traum und Wirklichkeit, psychedelisch und trotzdem leicht wie ein Sommertag. Skinshape&#160;&#160;ist musikalisch verwurzelt im Folk und Funk der 70er-Jahre.",
+        "fr": "Musik zwischen Traum und Wirklichkeit, psychedelisch und trotzdem leicht wie ein Sommertag. Skinshape&#160;&#160;ist musikalisch verwurzelt im Folk und Funk der 70er-Jahre."
+      },
+      "startDate": "2026-09-10",
+      "endDate": "2026-09-10",
+      "startTime": "19:30",
+      "category": "Folk Music",
+      "venue": "Kuppel Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/basel/skinshape-uk_AfKn3aj",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Nachtigallenwäldeli 9/10",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.5501819,
+        "lng": 7.5846719
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AfKn3aj.jpg"
+    },
+    {
+      "id": "guidle:A1gYtsQ",
+      "title": "DARK VOID 26 - DAS ICH / SOLITARY EXPERIMENTS / RROYCE / KY",
+      "titleByLocale": {
+        "it": "DARK VOID 26 - DAS ICH / SOLITARY EXPERIMENTS / RROYCE / KY",
+        "en": "DARK VOID 26 - DAS ICH / SOLITARY EXPERIMENTS / RROYCE / KY",
+        "de": "DARK VOID 26 - DAS ICH / SOLITARY EXPERIMENTS / RROYCE / KY",
+        "fr": "DARK VOID 26 - DAS ICH / SOLITARY EXPERIMENTS / RROYCE / KY"
+      },
+      "description": "Das jährliche Mini-Festival am Bodensee hat mittlerweile schon Tradition.",
+      "descriptionByLocale": {
+        "it": "Das jährliche Mini-Festival am Bodensee hat mittlerweile schon Tradition.",
+        "en": "Das jährliche Mini-Festival am Bodensee hat mittlerweile schon Tradition.",
+        "de": "Das jährliche Mini-Festival am Bodensee hat mittlerweile schon Tradition.",
+        "fr": "Das jährliche Mini-Festival am Bodensee hat mittlerweile schon Tradition."
+      },
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-17",
+      "startTime": "19:00",
+      "category": "New Wave / Dark Wave",
+      "venue": "Club Vaudeville",
+      "comune": "Lindau",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/lindau-bodensee/dark-void-26-das-ich-solitary-experiments-rroyce-ky_A1gYtsQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 45.2,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Von-Behring-Straße 6-8",
+        "postalCode": "88131"
+      },
+      "geo": {
+        "lat": 47.5513819,
+        "lng": 9.7228511
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A1gYtsQ.jpg"
+    },
+    {
+      "id": "guidle:AFwCSd6",
+      "title": "BaBa ZuLa",
+      "titleByLocale": {
+        "it": "BaBa ZuLa",
+        "en": "BaBa ZuLa",
+        "de": "BaBa ZuLa",
+        "fr": "BaBa ZuLa"
+      },
+      "description": "Roh, hypnotisch, grenzenlos.",
+      "descriptionByLocale": {
+        "it": "Roh, hypnotisch, grenzenlos.",
+        "en": "Roh, hypnotisch, grenzenlos.",
+        "de": "Roh, hypnotisch, grenzenlos.",
+        "fr": "Roh, hypnotisch, grenzenlos."
+      },
+      "startDate": "2026-10-15",
+      "endDate": "2026-10-15",
+      "startTime": "20:30",
+      "category": "Musica orientale",
+      "venue": "Moods im Schiffbau",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/zuerich/baba-zula_AFwCSd6",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 42,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Schiffbaustrasse 6",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3888209,
+        "lng": 8.518645
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AFwCSd6.jpg"
+    },
+    {
+      "id": "guidle:Ar4QQRh",
+      "title": "Sessioni di Fafleralp",
+      "titleByLocale": {
+        "it": "Sessioni di Fafleralp",
+        "en": "Fafleralp Sessions",
+        "de": "Fafleralp Sessions",
+        "fr": "Sessions de Fafleralp"
+      },
+      "description": "Le SESSIONI FAFLERALP si concentrano interamente sui \"corpi di risonanza\" e staccano la spina ovunque sia possibile.",
+      "descriptionByLocale": {
+        "it": "Le SESSIONI FAFLERALP si concentrano interamente sui \"corpi di risonanza\" e staccano la spina ovunque sia possibile.",
+        "en": "The FAFLERALP SESSIONS focus entirely on \"resonating bodies\" and pull the plug wherever possible.",
+        "de": "Die FAFLERALP SESSIONS setzen voll und ganz auf \"Resonanzkörper\" und ziehen wo immer möglich den Stecker.",
+        "fr": "Les FAFLERALP SESSIONS misent entièrement sur les \"caisses de résonance\" et débranchent les prises partout où c'est possible."
+      },
+      "startDate": "2026-08-27",
+      "endDate": "2026-08-30",
+      "startTime": "00:00",
+      "category": "Festival / Incontro",
+      "venue": "Hotel Fafleralp",
+      "comune": "Blatten",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/events/alternative/blatten-loetschen/fafleralp-sessions_Ar4QQRh",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Im Paradies",
+        "postalCode": "3919"
+      },
+      "geo": {
+        "lat": 46.4489559,
+        "lng": 7.8583488
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-Ar4QQRh.jpg"
+    },
+    {
+      "id": "guidle:AyUXuEh",
+      "title": "Company",
+      "titleByLocale": {
+        "it": "Company",
+        "en": "Company",
+        "de": "Company",
+        "fr": "Company"
+      },
+      "description": "COMPANY! Ein Konzert für Jeden. Songs aus aller Richtungen wie, RnB, EDM, Pop, 80s und Vieles mehr wo ihr euch darauf freuen könnt.",
+      "descriptionByLocale": {
+        "it": "COMPANY! Ein Konzert für Jeden. Songs aus aller Richtungen wie, RnB, EDM, Pop, 80s und Vieles mehr wo ihr euch darauf freuen könnt.",
+        "en": "COMPANY! Ein Konzert für Jeden. Songs aus aller Richtungen wie, RnB, EDM, Pop, 80s und Vieles mehr wo ihr euch darauf freuen könnt.",
+        "de": "COMPANY! Ein Konzert für Jeden. Songs aus aller Richtungen wie, RnB, EDM, Pop, 80s und Vieles mehr wo ihr euch darauf freuen könnt.",
+        "fr": "COMPANY! Ein Konzert für Jeden. Songs aus aller Richtungen wie, RnB, EDM, Pop, 80s und Vieles mehr wo ihr euch darauf freuen könnt."
+      },
+      "startDate": "2026-10-10",
+      "endDate": "2026-10-10",
+      "startTime": "20:00",
+      "category": "Altri eventi",
+      "venue": "Grabenhalle",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/st-gallen/company_AyUXuEh",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 26.4,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Unterer Graben 17",
+        "postalCode": "9000"
+      },
+      "geo": {
+        "lat": 47.4273375,
+        "lng": 9.3742055
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AyUXuEh.jpg"
+    },
+    {
+      "id": "guidle:ATrakHJ",
+      "title": "Maddy Street + Bëtise au NED Music Club",
+      "titleByLocale": {
+        "it": "Maddy Street + Bëtise au NED Music Club",
+        "en": "Maddy Street + Bëtise au NED Music Club",
+        "de": "Maddy Street + Bëtise au NED Music Club",
+        "fr": "Maddy Street + Bëtise au NED Music Club"
+      },
+      "description": "Le 10 octobre 2026, le NED accueille une soirée electro-rock queer intense et magnétique.",
+      "descriptionByLocale": {
+        "it": "Le 10 octobre 2026, le NED accueille une soirée electro-rock queer intense et magnétique.",
+        "en": "Le 10 octobre 2026, le NED accueille une soirée electro-rock queer intense et magnétique.",
+        "de": "Le 10 octobre 2026, le NED accueille une soirée electro-rock queer intense et magnétique.",
+        "fr": "Le 10 octobre 2026, le NED accueille une soirée electro-rock queer intense et magnétique."
+      },
+      "startDate": "2026-10-10",
+      "endDate": "2026-10-10",
+      "startTime": "20:30",
+      "category": "Performance artistico",
+      "venue": "Ned Music Club",
+      "comune": "Montreux",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/petits-spectacles/montreux/maddy-street-betise-au-ned-music-club_ATrakHJ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Rue du Marché 19",
+        "postalCode": "1820"
+      },
+      "geo": {
+        "lat": 46.4339072,
+        "lng": 6.9123413
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ATrakHJ.jpg"
+    },
+    {
+      "id": "guidle:ADqdD6r",
+      "title": "Greg Freeman (US)",
+      "titleByLocale": {
+        "it": "Greg Freeman (US)",
+        "en": "Greg Freeman (US)",
+        "de": "Greg Freeman (US)",
+        "fr": "Greg Freeman (US)"
+      },
+      "description": "Greg Freeman (US) & Support25.08.2026 Zürich, Bogen FEinlass: 19:15 Uhr | Beginn: 20:30 Uhr&#160;&#160;&#160;WEITERE INFORMATIONEN Bogen F&#160;&#160;INFOSBogen FViaduktstrasse 978005 Zürich",
+      "descriptionByLocale": {
+        "it": "Greg Freeman (US) & Support25.08.2026 Zürich, Bogen FEinlass: 19:15 Uhr | Beginn: 20:30 Uhr&#160;&#160;&#160;WEITERE INFORMATIONEN Bogen F&#160;&#160;INFOSBogen FViaduktstrasse 978005 Zürich",
+        "en": "Greg Freeman (US) & Support25.08.2026 Zürich, Bogen FEinlass: 19:15 Uhr | Beginn: 20:30 Uhr&#160;&#160;&#160;WEITERE INFORMATIONEN Bogen F&#160;&#160;INFOSBogen FViaduktstrasse 978005 Zürich",
+        "de": "Greg Freeman (US) & Support25.08.2026 Zürich, Bogen FEinlass: 19:15 Uhr | Beginn: 20:30 Uhr&#160;&#160;&#160;WEITERE INFORMATIONEN Bogen F&#160;&#160;INFOSBogen FViaduktstrasse 978005 Zürich",
+        "fr": "Greg Freeman (US) & Support25.08.2026 Zürich, Bogen FEinlass: 19:15 Uhr | Beginn: 20:30 Uhr&#160;&#160;&#160;WEITERE INFORMATIONEN Bogen F&#160;&#160;INFOSBogen FViaduktstrasse 978005 Zürich"
+      },
+      "startDate": "2026-08-25",
+      "endDate": "2026-08-25",
+      "startTime": "20:30",
+      "category": "Altri eventi",
+      "venue": "Bogen F",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/zuerich/greg-freeman-us_ADqdD6r",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Viaduktstrasse 97",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3847733,
+        "lng": 8.5208588
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ADqdD6r.jpg"
+    },
+    {
+      "id": "guidle:AAdxeRF",
+      "title": "Jugendfestival ALL IN!",
+      "titleByLocale": {
+        "it": "Jugendfestival ALL IN!",
+        "en": "Jugendfestival ALL IN!",
+        "de": "Jugendfestival ALL IN!",
+        "fr": "Jugendfestival ALL IN!"
+      },
+      "description": "Das Jugendfestival ALL IN! findet am 4. und 5. September 2026 im Werkk in Baden statt und bietet ein vielfältiges Programm mit Musik, Workshops und weiteren Aktivitäten.",
+      "descriptionByLocale": {
+        "it": "Das Jugendfestival ALL IN! findet am 4. und 5. September 2026 im Werkk in Baden statt und bietet ein vielfältiges Programm mit Musik, Workshops und weiteren Aktivitäten.",
+        "en": "Das Jugendfestival ALL IN! findet am 4. und 5. September 2026 im Werkk in Baden statt und bietet ein vielfältiges Programm mit Musik, Workshops und weiteren Aktivitäten.",
+        "de": "Das Jugendfestival ALL IN! findet am 4. und 5. September 2026 im Werkk in Baden statt und bietet ein vielfältiges Programm mit Musik, Workshops und weiteren Aktivitäten.",
+        "fr": "Das Jugendfestival ALL IN! findet am 4. und 5. September 2026 im Werkk in Baden statt und bietet ein vielfältiges Programm mit Musik, Workshops und weiteren Aktivitäten."
+      },
+      "startDate": "2026-09-04",
+      "endDate": "2026-09-05",
+      "startTime": "18:00",
+      "category": "Festival / Incontro",
+      "venue": "Werkk Kulturlokal Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/baden/jugendfestival-all-in_AAdxeRF",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 5,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Schmiedestrasse 1",
+        "postalCode": "5400"
+      },
+      "geo": {
+        "lat": 47.4799963,
+        "lng": 8.3006636
+      },
+      "recurring": true
     }
   ]
 }
