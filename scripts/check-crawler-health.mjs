@@ -448,6 +448,19 @@ const EMPTY_OK_CRAWLERS = new Set([
   // automatically when Yapeal republishes a posting. Same
   // legitimately-empty small-employer case as linnea/josef-mueller (#4751).
   'yapeal',
+  // Croix-Rouge fribourgeoise (cantonal Red Cross section, JobCloud Company
+  // Page https://company.jobcloud.ch/fr/job-list/1773421929172x328595190866247700):
+  // verified live 2026-08-03 — the server-rendered listing page returns HTTP
+  // 200 with its structure unchanged (same Webflow CMS collection, same
+  // `job-list` id) but the collection is now genuinely empty: the page's own
+  // empty-state copy reads "Il n'y a actuellement aucun poste vacant" (no
+  // markup extraction to fail — 0 job-detail `href`s present at all). The
+  // parser's docblock previously noted 3 open postings; a cantonal Red Cross
+  // section of this size legitimately has stretches with zero openings. The
+  // listing/detail selectors are unchanged and healthy; re-arms automatically
+  // when the org republishes a vacancy. Same legitimately-empty small-employer
+  // case as linnea/josef-mueller/yapeal.
+  'croix-rouge-fribourgeoise',
 ]);
 
 /** Read JSON file, return null on any error. */
