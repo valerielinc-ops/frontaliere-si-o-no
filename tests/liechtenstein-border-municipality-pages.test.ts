@@ -46,7 +46,8 @@ describe('Liechtenstein border municipality above-floor page render (#4884)', ()
     });
     expect(urlPath).toBe(liechtensteinMunicipalityPathFor('it', schaan.slug));
     expect(wordCount).toBeGreaterThan(50);
-    expect(html).toMatch(/name=["']?robots["']?\s+content=["']?index,follow/);
+    expect(html).toMatch(/name=["']?robots["']?\s+content=["']?index, follow/);
+    expect(html).toContain('max-image-preview:large');
     // Residence-exclusive taxation is qualitative only — no invented
     // CHF/EUR figure may appear as a "tax amount" tile.
     expect(html).toContain(String(LIECHTENSTEIN_REGIME.nonReturnThresholdDaysPerYear));

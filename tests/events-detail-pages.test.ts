@@ -283,7 +283,8 @@ describe('renderEventDetailPage', () => {
   it('is indexable (rich enough body, ≥ MIN_INDEXABLE_WORDS)', () => {
     expect(page.wordCount).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
     expect(page.html).toContain('robots');
-    expect(page.html).toContain('index,follow');
+    expect(page.html).toContain('max-image-preview:large');
+    expect(page.html).not.toContain('noindex');
   });
   it('carries the title, an Event JSON-LD with our canonical + sameAs, breadcrumb and FAQ', () => {
     // (HTML is minified — JSON-LD has no spaces after colons)

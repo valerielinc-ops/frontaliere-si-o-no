@@ -319,7 +319,9 @@ export function buildCanonicalBridgePage(options: {
  hreflangEntries,
  } = options;
 
- const robotsContent = noindex ? 'noindex,follow' : 'index,follow';
+ // Indexable bridges are real SERP entry points, so they get the same
+ // preview qualifiers as any other indexable page (see normalizeRobotsDirective).
+ const robotsContent = noindex ? 'noindex,follow' : ROBOTS_INDEX_ENHANCED_CONTENT;
  const hreflangHtml = hreflangEntries && hreflangEntries.length > 0
  ? '\n' + hreflangEntries.map(e => ` <link rel="alternate" hreflang="${e.hreflang}" href="${e.href}">`).join('\n')
  : '';
@@ -716,35 +718,105 @@ export const MIN_INDEXABLE_WORDS = 50;
 const ROBOTS_NOINDEX_FOLLOW = '\n <meta name="robots" content="noindex,follow">';
 
 /**
+ * The `content` value every INDEXABLE page must carry.
+ *
+ * `max-image-preview:large` is not a nice-to-have: it is the gate Google
+ * applies before a page is eligible for a large-image card in Discover and in
+ * image-rich SERP treatments. Without it the crawler caps the preview at a
+ * thumbnail no matter how good the page's imagery is.
+ *
+ * This used to exist only as the pre-rendered tag `ROBOTS_INDEX_ENHANCED`,
+ * which meant the ~59 page families that pass a `robots` STRING through
+ * `buildSimplePage`/`buildSeoPageHtml` had no way to reuse it and all
+ * hand-typed the plain `'index,follow'` literal instead. Measured against the
+ * live site on 2026-08-05, 50 of 83 sampled sitemap families shipped without
+ * `max-image-preview:large` for exactly that reason. Splitting the content
+ * string out from the tag is what lets {@link normalizeRobotsDirective} repair
+ * all of them at the single emission point.
+ */
+export const ROBOTS_INDEX_ENHANCED_CONTENT =
+ 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1';
+
+/**
+ * Upgrade a caller-supplied robots directive to the enhanced indexable form.
+ *
+ * The contract is deliberately narrow, because this runs on every page the
+ * site emits:
+ *
+ *  - anything that opts OUT of indexing (`noindex`) is returned untouched.
+ *    Preview qualifiers are meaningless on a page Google is told not to index,
+ *    and rewriting them would risk turning a deliberate exclusion into an
+ *    inclusion.
+ *  - anything that already carries `max-image-preview` is returned untouched,
+ *    so a family that has tuned its own qualifiers keeps them.
+ *  - everything else -- in practice the plain `'index,follow'` literal that 88
+ *    call sites pass -- is replaced by {@link ROBOTS_INDEX_ENHANCED_CONTENT}.
+ *
+ * Normalising at the emission point rather than at the 88 call sites is what
+ * makes the property hold BY CONSTRUCTION: a new page family that passes
+ * `robots: 'index,follow'` (the obvious thing to write, and what every
+ * existing family did) is Discover-eligible without its author knowing this
+ * rule exists. Editing 88 literals would have fixed today's pages and left the
+ * 89th to reintroduce the bug.
+ */
+export function normalizeRobotsDirective(robots: string): string {
+ if (/\bnoindex\b/i.test(robots)) return robots;
+ if (/max-image-preview/i.test(robots)) return robots;
+ return ROBOTS_INDEX_ENHANCED_CONTENT;
+}
+
+/** Matches an emitted robots meta tag whatever its `content` value is. */
+const ROBOTS_META_TAG_RE = /<meta\s+name=["']?robots["']?[^>]*>/i;
+
+/**
+ * Rewrite (or insert) the robots meta tag of an already-emitted HTML string.
+ *
+ * Post-emit demotion to `noindex` is how several plugins enforce the
+ * thin-content floor (Non-Negotiable #4) after the page HTML is built. Doing it
+ * with a regex that spells out the INDEXABLE content value -- as
+ * exchangeRatePagesPlugin did -- couples the guard to whatever string the shell
+ * happens to emit, so the day the shell's directive changed the guard silently
+ * stopped matching and thin pages would have shipped indexable. Matching the
+ * tag by NAME instead of by value is what keeps the guard correct across any
+ * future change to the directive.
+ */
+export function replaceRobotsMeta(html: string, content: string): string {
+ const tag = `<meta name="robots" content="${content}">`;
+ return ROBOTS_META_TAG_RE.test(html)
+ ? html.replace(ROBOTS_META_TAG_RE, tag)
+ : html.replace(/<head(\s[^>]*)?>/i, (m) => `${m}${tag}`);
+}
+
+/**
  * Returns the appropriate robots meta tag based on the word count of the page body.
- * Pages with >= MIN_INDEXABLE_WORDS get `index,follow`; below that, `noindex,follow`.
- * Always returns an explicit tag -- never relies on browser defaults.
+ * Pages with >= MIN_INDEXABLE_WORDS get the enhanced indexable directive; below
+ * that, `noindex,follow`. Always returns an explicit tag -- never relies on
+ * browser defaults.
+ *
+ * Kept as a distinct name from `robotsMetaEnhancedForContent` only so the
+ * existing call sites keep reading naturally; both now emit the same indexable
+ * directive. The split used to be meaningful and was the reason expired-job
+ * soft landings shipped without `max-image-preview:large`.
  */
 export function robotsMetaForContent(bodyHtml: string): string {
- const wordCount = countHtmlBodyWords(bodyHtml);
- if (wordCount >= MIN_INDEXABLE_WORDS) {
- return '\n <meta name="robots" content="index,follow">';
- }
- return ROBOTS_NOINDEX_FOLLOW;
+ return robotsMetaEnhancedForContent(bodyHtml);
 }
 
 /**
  * Enhanced robots directive for indexable pages, asking Google for large
- * snippet/image/video previews in search results. Value matches what's
- * already live on canton hub pages (e.g. /cerca-lavoro-ticino/) and used by
- * staticPagesPlugin.ts / ogPagesPlugin.ts -- a single shared export so new
- * callers reuse it instead of hand-typing the qualifier list.
+ * snippet/image/video previews in search results. Used by staticPagesPlugin.ts
+ * and the raw job templates -- a single shared export so new callers reuse it
+ * instead of hand-typing the qualifier list.
  */
-export const ROBOTS_INDEX_ENHANCED = '\n <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">';
+export const ROBOTS_INDEX_ENHANCED = `\n <meta name="robots" content="${ROBOTS_INDEX_ENHANCED_CONTENT}">`;
 
 /**
- * Same word-count gate as `robotsMetaForContent`, but returns the enhanced
- * snippet/preview directives on the indexable branch instead of plain
- * `index,follow`. For hub-style landing pages (sector/recency hubs) that
- * aren't protected by an upstream inventory floor -- unlike the canton/city
- * editorial hubs, which are always past a floor gate by the time they reach
- * HTML emission and can use `ROBOTS_INDEX_ENHANCED` directly -- so content
- * depth must be checked per-render instead of assumed.
+ * Word-count-gated variant of {@link ROBOTS_INDEX_ENHANCED}. For hub-style
+ * landing pages (sector/recency hubs) that aren't protected by an upstream
+ * inventory floor -- unlike the canton/city editorial hubs, which are always
+ * past a floor gate by the time they reach HTML emission and can use
+ * `ROBOTS_INDEX_ENHANCED` directly -- so content depth must be checked
+ * per-render instead of assumed.
  */
 export function robotsMetaEnhancedForContent(bodyHtml: string): string {
  return countHtmlBodyWords(bodyHtml) >= MIN_INDEXABLE_WORDS

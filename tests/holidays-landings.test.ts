@@ -19,6 +19,7 @@ import {
   __computeBridgesForTest,
 } from '@/build-plugins/holidaysLandingsPlugin';
 import { MIN_INDEXABLE_WORDS } from '@/build-plugins/constants';
+import { expectIndexableWithLargePreview } from './helpers/robotsAssertions';
 
 const DATASET = JSON.parse(
   readFileSync(resolve(__dirname, '..', 'data', 'seo', 'frontaliere-holidays.json'), 'utf8'),
@@ -106,7 +107,7 @@ describe('holidays landings — render smoke', () => {
         expect(r.wordCount, `${locale}/${page} thin`).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
         expect(r.html).toContain('<h1');
         expect(r.html).toContain(`https://frontaliereticino.ch${r.urlPath}`);
-        expect(r.html).toContain('index,follow');
+        expectIndexableWithLargePreview(r.html, `${locale}/${page}`);
       }
     }
   });

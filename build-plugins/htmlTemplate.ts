@@ -7,7 +7,7 @@
  *
  * Phase 3 optimization: reduces string concatenation overhead for 55k+ pages.
  */
-import { FAVICON_LINKS, GTAG_SNIPPET, ADSENSE_SNIPPET, BASE_URL, SPA_ACTION_REDIRECT_SCRIPT, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT } from './constants';
+import { FAVICON_LINKS, GTAG_SNIPPET, ADSENSE_SNIPPET, BASE_URL, SPA_ACTION_REDIRECT_SCRIPT, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT, normalizeRobotsDirective } from './constants';
 import { escapeInlineScript } from './shared/inlineJsonScript';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { CRITICAL_CSS_LINK } from './shared/criticalCss';
@@ -426,7 +426,7 @@ ${skipMainWrap ? bodyHtml : ` <main class="static-job-page">\n ${bodyHtml}\n </m
  ${HEAD_PREFIX}
  <title>${esc(title)}</title>
  <meta name="description" content="${esc(metaDescription)}">
- <meta name="robots" content="${robots}">
+ <meta name="robots" content="${normalizeRobotsDirective(robots)}">
  <meta property="og:type" content="${ogType}">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${ogLocale}">

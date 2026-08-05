@@ -3,7 +3,7 @@ import path from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
-import { buildCanonicalBridgePage, buildFlatRedirect } from '@/build-plugins/constants';
+import { buildCanonicalBridgePage, buildFlatRedirect, ROBOTS_INDEX_ENHANCED_CONTENT } from '@/build-plugins/constants';
 import { META_DESCRIPTION_MAX_CHARS } from '@/build-plugins/shared/titleSuffix';
 
 // A 240-char description well past the SERP snippet budget.
@@ -25,12 +25,15 @@ describe('SEO builder noindex guards', () => {
   });
 
   describe('buildCanonicalBridgePage noindex parameter', () => {
-    it('defaults to index,follow when noindex is not set', () => {
+    it('defaults to the enhanced indexable directive when noindex is not set', () => {
       const html = buildCanonicalBridgePage({
         canonicalUrl: 'https://frontaliereticino.ch/test/',
         pathLabel: '/test/',
       });
-      expect(html).toContain('content="index,follow"');
+      // An indexable bridge is a real SERP entry point, so it carries the same
+      // Discover-eligibility qualifiers as any other indexable page.
+      expect(html).toContain(`content="${ROBOTS_INDEX_ENHANCED_CONTENT}"`);
+      expect(html).toContain('max-image-preview:large');
       expect(html).not.toContain('noindex');
     });
 
@@ -44,13 +47,13 @@ describe('SEO builder noindex guards', () => {
       expect(html).not.toContain('content="index,follow"');
     });
 
-    it('outputs index,follow when noindex is explicitly false', () => {
+    it('outputs the enhanced indexable directive when noindex is explicitly false', () => {
       const html = buildCanonicalBridgePage({
         canonicalUrl: 'https://frontaliereticino.ch/test/',
         pathLabel: '/test/',
         noindex: false,
       });
-      expect(html).toContain('content="index,follow"');
+      expect(html).toContain(`content="${ROBOTS_INDEX_ENHANCED_CONTENT}"`);
     });
   });
 

@@ -139,12 +139,15 @@ describe('exchange page generation', () => {
     expect(rels.size).toBe(pages.length); // no duplicate paths
   });
 
-  it('every page clears MIN_INDEXABLE_WORDS and is index,follow', () => {
+  it('every page clears MIN_INDEXABLE_WORDS and is indexable with large image previews', () => {
     for (const page of pages) {
       const words = countHtmlBodyWords(page.html);
       expect(words, `${page.relPath} has only ${words} words`).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
       // minifyHtml may strip attribute quotes → match both forms
-      expect(page.html).toMatch(/content="?index,follow"?/);
+      // Indexable + Discover-eligible. Asserting the qualifier rather than the
+      // bare `index,follow` literal, which the shell no longer emits.
+      expect(page.html).toMatch(/max-image-preview:large/);
+      expect(page.html).not.toMatch(/content="?noindex/);
     }
   });
 

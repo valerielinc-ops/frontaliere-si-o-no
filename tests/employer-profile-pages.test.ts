@@ -115,7 +115,8 @@ describe('employerProfilePagesPlugin', () => {
 
   it('the profile page is indexable and shows the company H1 + facts', () => {
     const html = read('aziende/acme-corp/index.html');
-    expect(html).toContain('name=robots content=index,follow');
+    expect(html).toContain('name=robots content="index, follow');
+    expect(html).toContain('max-image-preview:large');
     expect(html).toContain('Lavorare in Acme Corp');
     expect(html).toContain('6'); // active jobs
     expect(html).toContain("CHF 100"); // median salary formatted

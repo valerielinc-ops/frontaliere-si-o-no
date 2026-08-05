@@ -2,7 +2,7 @@ import path from 'path';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { createHash } from 'node:crypto';
 import type { Plugin } from 'vite';
-import { BASE_URL, ANALYTICS_SNIPPET } from './constants';
+import { BASE_URL, ANALYTICS_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { PDF_PAGE_A4, PDF_MARGIN_DEFAULT, PDF_BASE_PALETTE, collectPdfBuffer } from './shared/pdfKitTheme';
 
@@ -470,7 +470,7 @@ function generateLandingPage(guide: PdfGuide, pdfSizeKb: string, dateStamp: stri
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(guide.title)} | Frontaliere Ticino</title>
 <meta name="description" content="${esc(clampMetaDescription(guide.subtitle))}">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="robots" content="${ROBOTS_INDEX_ENHANCED_CONTENT}">
 <link rel="canonical" href="${canonical}">
 ${hreflangLinks}
 <meta property="og:type" content="article">

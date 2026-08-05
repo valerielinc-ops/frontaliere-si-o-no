@@ -25,7 +25,7 @@ import type fsT from 'node:fs';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { railGutters } from './shared/railGutters';
 import type npT from 'node:path';
-import { ADSENSE_SNIPPET, BASE_URL, buildCanonicalBridgePage, CDN_PRECONNECT_HINT } from './constants';
+import { ADSENSE_SNIPPET, BASE_URL, buildCanonicalBridgePage, CDN_PRECONNECT_HINT, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
 import {
   ARTICLES_PAGE_SIZE,
@@ -1209,7 +1209,7 @@ function buildHtml(args: BuildHtmlArgs): string {
     <meta name="viewport" content="width=device-width,initial-scale=1">
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(pageTitle)}</title>
     <meta name="description" content="${esc(clampMetaDescription(description))}">
-    <meta name="robots" content="index,follow">
+    <meta name="robots" content="${ROBOTS_INDEX_ENHANCED_CONTENT}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">
@@ -1835,7 +1835,7 @@ export function buildThinCantonHubHtml(args: {
     <meta name="viewport" content="width=device-width,initial-scale=1">
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(pageTitle)}</title>
     <meta name="description" content="${esc(clampMetaDescription(intro))}">
-    <meta name="robots" content="index,follow">
+    <meta name="robots" content="${ROBOTS_INDEX_ENHANCED_CONTENT}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">

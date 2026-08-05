@@ -61,13 +61,15 @@ describe('driveby / end-multiplex ad markup contributes zero indexability words 
     // Body with EXACTLY the floor number of words — the worst case for a flip.
     const floorProse = `<p>${'word '.repeat(MIN_INDEXABLE_WORDS).trim()}</p>`;
     expect(countHtmlBodyWords(floorProse)).toBe(MIN_INDEXABLE_WORDS);
-    expect(robotsMetaForContent(floorProse)).toContain('index,follow');
+    // Asserts INDEXABILITY, not the exact directive string: the indexable
+    // branch now carries the Discover preview qualifiers as well.
+    expect(robotsMetaForContent(floorProse)).toContain('max-image-preview:large');
     expect(robotsMetaForContent(floorProse)).not.toContain('noindex');
 
     const withAds = `${DRIVEBY_AD_SNIPPET}\n${floorProse}\n${adSlotHtml('JOBLIST_END_MULTIPLEX')}`;
     // The driveby markup must NOT push the count off the floor in either direction.
     expect(countHtmlBodyWords(withAds)).toBe(MIN_INDEXABLE_WORDS);
-    expect(robotsMetaForContent(withAds)).toContain('index,follow');
+    expect(robotsMetaForContent(withAds)).toContain('max-image-preview:large');
     expect(robotsMetaForContent(withAds)).not.toContain('noindex');
   });
 });

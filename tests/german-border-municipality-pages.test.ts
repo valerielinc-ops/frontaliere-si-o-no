@@ -42,7 +42,8 @@ describe('German border municipality above-floor page render (#4882)', () => {
     });
     expect(urlPath).toBe(germanMunicipalityPathFor('it', konstanz.slug));
     expect(wordCount).toBeGreaterThan(50);
-    expect(html).toMatch(/name=["']?robots["']?\s+content=["']?index,follow/);
+    expect(html).toMatch(/name=["']?robots["']?\s+content=["']?index, follow/);
+    expect(html).toContain('max-image-preview:large');
     // The sourced 4.5% rate must appear, derived from GERMAN_REGIME_TAX
     // (never a second hard-coded literal — drift-safe).
     expect(html).toContain(TAX_RATE_STR);

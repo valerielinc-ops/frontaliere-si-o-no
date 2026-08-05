@@ -1037,6 +1037,19 @@ jobs:
       # (this file) — audit:max-bfs-depth (and its /tmp/g19.log) now runs
       # there, not in this job.
 
+      # Deliberately OUTSIDE the spawn_capped pool above, and deliberately
+      # continue-on-error: this audit reports Discover eligibility per page
+      # family and must never be able to turn `validate-dist` red. A red
+      # validate-dist skips the whole `publish` job (IndexNow, Google Indexing
+      # API, GSC sync), so an eligibility report that blocks indexation would
+      # cost more traffic than the gap it measures (issue #5001; same
+      # non-blocking pattern as `check-seo-moratorium` in deploy.yml).
+      # The two universal checks it covers are already enforced at the source
+      # by tests/seo/discover-robots-directive.test.ts.
+      - name: Discover eligibility report (non-blocking)
+        continue-on-error: true
+        run: npm run audit:discover-eligibility
+
       - name: Build size summary
         run: |
           echo "=== Recovered dist size summary ==="
