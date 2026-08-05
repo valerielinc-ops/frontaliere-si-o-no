@@ -245,16 +245,46 @@ const MANAGED_FIREWALL_RULES = [
 ];
 
 // Shared cache settings for both managed rules: make matching requests
-// eligible for the edge cache with a 24h Edge TTL (override_origin — the
-// origin sends max-age=600, which would otherwise cap edge entries; the
-// deploy-time purge in scripts/cf-purge-cache.mjs keeps them fresh). 3xx-5xx
-// responses get TTL 0 so a transient redirect/404 never outlives a build.
-// Browser TTL respects the origin so clients still revalidate per max-age.
+// eligible for the edge cache (override_origin — the origin sends max-age=600,
+// which would otherwise cap edge entries). 3xx-5xx responses get TTL 0 so a
+// transient redirect/404 never outlives a build. Browser TTL respects the
+// origin so clients still revalidate per max-age.
+//
+// EDGE TTL IS SELF-INVALIDATING, NOT PURGE-INVALIDATED (2026-08-05, #5162).
+// This was 86400 (24h), and apex freshness after a deploy was delegated to the
+// zone-wide `purge_everything` in scripts/cf-purge-cache.mjs. Measuring the
+// zone showed that trade was inverted — it bought little and cost a lot:
+//
+//   * apex (frontaliereticino.ch) ran at 19.2% cache hit (109_543 hit vs
+//     241_501 miss + 216_685 none over 23h). The 24h TTL was mostly notional.
+//   * cdn.frontaliereticino.ch ran at 96.0% hit — 1_436_958 of 1_497_318 — and
+//     `purge_everything` is ZONE-wide, so every deploy annihilated that cache
+//     too, even though the CDN never needed it: /assets/ freshness already
+//     comes from the targeted per-key purge (purge-changed-cdn-assets.mjs).
+//
+// The cost landed as 5xx. With a 7-day edge TTL on /assets/, steady state
+// should produce almost no origin fetches; instead ~60k reached R2 in 23h,
+// which only the repeated full-zone purges explain. 277 of them failed
+// (0.46% of origin fetches) and surfaced as edge-synthesised 502s — issues
+// #5034/#5035/#5036/#5052/#5081/#5092/#5093/#5094, and the failed dynamic
+// import in #4644.
+//
+// A purge also DELETES the cached copy rather than expiring it, so serve_stale
+// (#5158) had nothing to fall back on and measured staleRescuable = 0. Purge
+// and serve_stale are mutually exclusive by construction; keeping both was the
+// reason that mitigation could not work.
+//
+// 300s bounds post-deploy apex staleness to 5 minutes without any zone purge,
+// so the CDN cache survives deploys. Do NOT raise this back toward 86400
+// without restoring a freshness mechanism for the apex — and do not restore it
+// by re-enabling the zone-wide purge (see CF_PURGE_ZONE_WIDE in
+// scripts/cf-purge-cache.mjs). Guarded by tests/cf-zone-purge-blast-radius.test.ts.
+const APEX_EDGE_TTL_SECONDS = 300;
 const CACHE_ACTION_PARAMETERS = {
   cache: true,
   edge_ttl: {
     mode: 'override_origin',
-    default: 86400, // 24h — matches cache.put() s-maxage; 7200 (2h) capped entries prematurely (EXPIRED observed 2026-06-11, Adversarial check A confirmed)
+    default: APEX_EDGE_TTL_SECONDS,
     status_code_ttl: [{ status_code_range: { from: 300, to: 599 }, value: 0 }], // 0 = no-cache for 3xx-5xx apex origin miss
   },
   browser_ttl: { mode: 'respect_origin' },

@@ -26,6 +26,14 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
+          # Checkout 68-728s su 10 run: il massimo è il 61% di un cap da 20min.
+          # Blobless partial clone come guard-data-integrity #4120 (mediana ~150s
+          # nei job filtrati contro ~600s in quelli non filtrati, senza sparse da
+          # nessuna parte). Sicuro: il job verifica i loghi e committa, non legge
+          # blob storici.
+          filter: blob:none
+        # Tetto sullo step → `failure` diagnosticabile invece di `cancelled`.
+        timeout-minutes: 12
 
       - uses: actions/setup-node@v5
         with:
