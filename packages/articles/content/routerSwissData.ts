@@ -640,6 +640,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'medicina-di-genere-svizzera': { it: 'medicina-di-genere-svizzera', en: 'swiss-gender-medicine', de: 'schweizer-geschlechtsmedizin', fr: 'medecine-de-genre-suisse' },
  'comprare-casa-svizzera-mutuo-requisiti': { it: 'comprare-casa-svizzera-mutuo-requisiti', en: 'buy-house-switzerland-mortgage-requirements', de: 'haus-kaufen-schweiz-hypothekenanforderungen', fr: 'acheter-maison-suisse-requisites-hypotheque' },
  'assicurazione-disoccupazione-svizzera-funzionamento': { it: 'assicurazione-disoccupazione-svizzera-funzionamento', en: 'swiss-unemployment-insurance-how-it-works', de: 'schweizer-arbeitslosenversicherung-funktionsweise', fr: 'assurance-chomage-suisse-fonctionnement' },
+ 'sistema-sanitario-svizzero-lamal-funzionamento': { it: 'sistema-sanitario-svizzero-lamal-funzionamento', en: 'how-swiss-healthcare-system-works', de: 'wie-funktioniert-das-schweizer-gesundheitssystem', fr: 'comment-fonctionne-le-systeme-de-sante-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

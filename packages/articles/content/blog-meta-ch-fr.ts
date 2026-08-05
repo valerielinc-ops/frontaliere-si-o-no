@@ -1843,6 +1843,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assicurazione-disoccupazione-svizzera-funzionamento.title': 'Assurance chômage suisse : comment ça marche',
     'blog.article.assicurazione-disoccupazione-svizzera-funzionamento.excerpt': 'Guide complet des exigences, du calcul de l\'indemnité et des obligations envers l\'ORP pour les travailleurs en Suisse.',
     'blog.article.assicurazione-disoccupazione-svizzera-funzionamento.imageAlt': 'Vue d\'un quartier d\'affaires à Lugano',
+    'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.title': 'Système de santé suisse LAMal : comment ça marche',
+    'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.excerpt': 'Guide pratique du fonctionnement du système de santé en Suisse : obligation LAMal, choix de la caisse-maladie, franchises et remboursements.',
+    'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.imageAlt': 'Bâtiment de santé suisse dans un cadre urbain',
 };
 
 export default blogMetaChFr;

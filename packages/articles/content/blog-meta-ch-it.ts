@@ -1843,6 +1843,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assicurazione-disoccupazione-svizzera-funzionamento.title': 'Assicurazione disoccupazione svizzera: come funziona',
     'blog.article.assicurazione-disoccupazione-svizzera-funzionamento.excerpt': 'Guida completa ai requisiti, al calcolo dell\'indennità e agli obblighi verso l\'URC per i lavoratori in Svizzera.',
     'blog.article.assicurazione-disoccupazione-svizzera-funzionamento.imageAlt': 'Veduta di un centro direzionale a Lugano',
+    'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.title': 'Sistema sanitario svizzero LAMal: come funziona',
+    'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.excerpt': 'Guida pratica al funzionamento del sistema sanitario in Svizzera: obbligo LAMal, scelta della cassa malati, franchigie e rimborsi.',
+    'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.imageAlt': 'Edificio sanitario svizzero in un contesto urbano',
 };
 
 export default blogMetaChIt;

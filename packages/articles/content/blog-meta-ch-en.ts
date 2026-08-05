@@ -1843,6 +1843,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assicurazione-disoccupazione-svizzera-funzionamento.title': 'Swiss Unemployment Insurance: How It Works',
     'blog.article.assicurazione-disoccupazione-svizzera-funzionamento.excerpt': 'Complete guide to the requirements, calculation of the allowance and obligations towards the URC for workers in Switzerland.',
     'blog.article.assicurazione-disoccupazione-svizzera-funzionamento.imageAlt': 'View of a business district in Lugano',
+    'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.title': 'Swiss health system LAMal: how it works',
+    'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.excerpt': 'Practical guide to the functioning of the health system in Switzerland: LAMal obligation, choice of sick pay, deductibles and reimbursements.',
+    'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.imageAlt': 'Swiss healthcare facility building in an urban setting',
 };
 
 export default blogMetaChEn;
