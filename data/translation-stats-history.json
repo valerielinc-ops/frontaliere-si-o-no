@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-07-17T06:38:11.243Z",
-    "label": "before",
-    "total": 24922,
-    "needsRetranslation": 8704,
-    "suppressed": 36,
-    "incomplete": 194,
-    "complete": 24728,
-    "missingByLocale": {
-      "it": 138,
-      "en": 86,
-      "de": 73,
-      "fr": 105
-    },
-    "topPending": [
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 21
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 21
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 13
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "VOLG",
-        "pending": 12
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 11
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 9
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 8
-      },
-      {
-        "company": "Sulzer",
-        "pending": 7
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 7
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-17T06:46:05.307Z",
-    "label": "after",
-    "total": 24922,
-    "needsRetranslation": 1618,
-    "suppressed": 36,
-    "incomplete": 194,
-    "complete": 24728,
-    "missingByLocale": {
-      "it": 138,
-      "en": 86,
-      "de": 73,
-      "fr": 105
-    },
-    "topPending": [
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 21
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 21
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 13
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "VOLG",
-        "pending": 12
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 11
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 9
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 8
-      },
-      {
-        "company": "Sulzer",
-        "pending": 7
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 7
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-17T12:49:23.769Z",
     "label": "before",
     "total": 24910,
@@ -11396,6 +11282,120 @@
       {
         "company": "Coop Genossenschaft",
         "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-05T06:42:48.039Z",
+    "label": "before",
+    "total": 26500,
+    "needsRetranslation": 12070,
+    "suppressed": 40,
+    "incomplete": 225,
+    "complete": 26275,
+    "missingByLocale": {
+      "it": 158,
+      "en": 89,
+      "de": 91,
+      "fr": 128
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 35
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Roche",
+        "pending": 17
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 12
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 11
+      },
+      {
+        "company": "IKEA",
+        "pending": 10
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 10
+      },
+      {
+        "company": "Sulzer",
+        "pending": 8
+      },
+      {
+        "company": "VOLG",
+        "pending": 7
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-05T06:53:53.963Z",
+    "label": "after",
+    "total": 26500,
+    "needsRetranslation": 684,
+    "suppressed": 40,
+    "incomplete": 225,
+    "complete": 26275,
+    "missingByLocale": {
+      "it": 158,
+      "en": 89,
+      "de": 91,
+      "fr": 128
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 35
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Roche",
+        "pending": 17
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 12
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 11
+      },
+      {
+        "company": "IKEA",
+        "pending": 10
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 10
+      },
+      {
+        "company": "Sulzer",
+        "pending": 8
+      },
+      {
+        "company": "VOLG",
+        "pending": 7
       }
     ]
   }
