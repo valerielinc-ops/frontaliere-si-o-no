@@ -82,10 +82,21 @@ function findWorkerEntrypoints(): string[] {
 function relativeSpecifiers(src: string): { spec: string; line: number }[] {
   const found: { spec: string; line: number }[] = [];
   const lines = src.split('\n');
+  // Comment-aware, come già fa `ci-vitest-check-name.test.ts`: in questo repo i
+  // docblock DESCRIVONO spesso gli import (`flatHtmlRedirectPlugin.ts` racconta
+  // nel commento proprio lo specifier che causò l'incidente). Un match dentro un
+  // commento sarebbe un falso positivo che blocca una PR estranea — cioè
+  // esattamente il danno che questo guard esiste per evitare. I commenti sono
+  // sostituiti con spazi, non rimossi, così gli offset restano validi e la riga
+  // riportata resta quella vera.
+  const blanked = src
+    .replace(/\/\*[\s\S]*?\*\//g, (m) => m.replace(/[^\n]/g, ' '))
+    .replace(/(^|[^:])\/\/[^\n]*/g, (m, p1) => p1 + ' '.repeat(m.length - p1.length));
   // `from '...'` (import/export statici) e `import('...')` (dinamici). Il
   // specifier può stare su una riga diversa dalla keyword (import multilinea),
   // quindi si lavora sul sorgente intero e si risale alla riga per offset.
   const re = /(?:\bfrom\s*|\bimport\s*\(\s*)['"]([^'"]+)['"]/g;
+  src = blanked;
   let m: RegExpExecArray | null;
   while ((m = re.exec(src)) !== null) {
     const spec = m[1];
