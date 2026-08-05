@@ -222,6 +222,36 @@ async function fetchDetailPage(url) {
   }
 }
 
+// Direct detail-page fetches hit the same datacenter-egress block as the feed
+// (see FEED_PROXY_BASE comment above) and fail every time from CI — silently
+// degrading every job to the short flat feed summary instead of the full
+// sectioned description. Unlike the feed, morss's `:proxy` raw-passthrough
+// mode refuses arbitrary (non-feed) pages, so a per-job proxy retry isn't an
+// option; instead, fetch the feed once more in morss's full-text mode (no
+// `:proxy` prefix), which fetches every item's own page from morss's clean IP
+// and embeds the extracted body as `<content:encoded>` (verified live
+// 2026-08-05). One extra request covers every job, fetched lazily only if a
+// direct detail fetch actually fails.
+let fullTextContentByLink = null;
+async function fetchFullTextContentByLink() {
+  const fullTextBase = FEED_PROXY_BASE.replace(/:proxy\/?$/, '');
+  const url = `${fullTextBase}${FEED_URL}`;
+  const map = new Map();
+  try {
+    const res = await fetchWithRetry(url, {
+      headers: { 'User-Agent': UA, Accept: 'application/rss+xml, application/xml, text/xml, */*' },
+    }, 2);
+    if (!res.ok) return map;
+    const xml = await res.text();
+    for (const entry of parseFeed(xml)) {
+      if (entry.link && entry.content) map.set(entry.link, entry.content);
+    }
+  } catch (err) {
+    console.warn(`  ⚠️ Full-text feed fallback failed: ${err.message}`);
+  }
+  return map;
+}
+
 function parseDetailPage(html) {
   if (!html) return null;
   const sections = [];
@@ -417,7 +447,12 @@ async function main() {
   for (const entry of entries) {
     console.log(`  🔗 Fetching detail: ${entry.title} ...`);
     const html = await fetchDetailPage(entry.link);
-    const detailDesc = parseDetailPage(html);
+    let detailDesc = parseDetailPage(html);
+    if (!detailDesc) {
+      if (fullTextContentByLink === null) fullTextContentByLink = await fetchFullTextContentByLink();
+      const content = fullTextContentByLink.get(entry.link);
+      if (content) detailDesc = stripHtml(content).slice(0, 3000) || null;
+    }
     jobs.push(buildJob(entry, detailDesc));
     if (entries.indexOf(entry) < entries.length - 1) await sleep(DETAIL_DELAY_MS);
   }

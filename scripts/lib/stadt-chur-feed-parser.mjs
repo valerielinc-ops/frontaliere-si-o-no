@@ -44,6 +44,18 @@ export function parseAtomEntries(xmlText = '') {
   return entries;
 }
 
+/**
+ * `<content:encoded>` (or any other namespace prefix — the exact prefix
+ * depends on which tool serialized the feed, e.g. morss's full-text mode
+ * assigns its own generated prefix) holds the full readable body when the
+ * feed was fetched in full-text mode instead of raw passthrough.
+ */
+function extractEncodedContent(block) {
+  const m = block.match(/<(?:[\w.-]+:)?encoded(?:\s[^>]*)?>([\s\S]*?)<\/(?:[\w.-]+:)?encoded>/);
+  if (!m) return '';
+  return decodeHtmlEntities(m[1].replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1').trim());
+}
+
 /** Parse RSS 2.0 `<item>` elements (textual `<link>`, `<description>`, `<pubDate>`). */
 export function parseRssItems(xmlText = '') {
   const entries = [];
@@ -65,6 +77,7 @@ export function parseRssItems(xmlText = '') {
       link,
       id: get('guid') || link,
       summary: get('description'),
+      content: extractEncodedContent(block),
       updated: get('pubDate'),
       category: get('category'),
     });
