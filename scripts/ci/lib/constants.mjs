@@ -23,9 +23,17 @@ export const VITEST_CHECK_NAME = 'vitest (unit + integration)';
  * SE la failure è un test rotto o una cancellazione transient (concurrency
  * `cancel-in-progress` durante un'ondata di push su main). `vitestCheck.mjs` usa
  * questo regex per ri-aprire gli shard sottostanti e distinguere i due casi
- * (vedi `vitestFailureIsTransientCancellation`). `\d+\/\d+` resta valido se il
+ * (vedi `vitestVerdictIsTransientCancellation`). `\d+\/\d+` resta valido se il
  * numero di shard cambia. Drift dal `name:` del job → guard in
- * `tests/ci-vitest-check-name.test.ts`. */
+ * `tests/ci-vitest-check-name.test.ts`.
+ *
+ * NB (2026-08-05): dal de-sharding #2882 `tests.yml` ha un JOB SOLO e questo
+ * regex non matcha nulla sugli head odierni — il ramo shard di
+ * `vitestVerdictIsTransientCancellation` è quindi inerte, non morto: resta per
+ * rendere il ri-shardaggio reversibile senza toccare il percorso di recupero.
+ * Nella topologia a job singolo la cancellazione NON viene collassata in
+ * `failure`: atterra come `cancelled` sul check aggregatore, caso gestito
+ * direttamente lì senza passare da questo regex. */
 export const VITEST_SHARD_NAME_RE = /^vitest shard \d+\/\d+$/;
 
 /**

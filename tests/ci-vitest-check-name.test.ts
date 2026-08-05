@@ -80,7 +80,7 @@ describe('VITEST_CHECK_NAME (#1602 drift guard)', () => {
 /**
  * Contratto single-job post de-sharding (#2882): tests.yml esegue UN solo job
  * `vitest (unit + integration)` — non esiste più un job `vitest-shard:` con
- * matrice. `VITEST_SHARD_NAME_RE` e `vitestFailureIsTransientCancellation`
+ * matrice. `VITEST_SHARD_NAME_RE` e `vitestVerdictIsTransientCancellation`
  * RESTANO in scripts/ci/lib (dormienti): senza check-run shard l'heal ritorna
  * `false`, che è il comportamento CORRETTO nel nuovo mondo — un vitest=failure
  * sull'HEAD è sempre un fail reale, mai un mascheramento da shard `cancelled`
