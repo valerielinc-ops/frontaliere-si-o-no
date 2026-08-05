@@ -594,33 +594,7 @@ function enrichFromLocalSources(orphans) {
   let enrichedFromSlugParsing = 0;
 
   const enriched = orphans.map((orphan) => {
-    const result = {
-      slug: orphan.slug,
-      locale: orphan.locale,
-      path: orphan.path,
-      queries: Array.isArray(orphan.queries)
-        ? orphan.queries.sort((a, b) => b.impressions - a.impressions).slice(0, 20)
-        : [],
-      totalImpressions: orphan.totalImpressions || 0,
-      totalClicks: orphan.totalClicks || 0,
-      topQuery: null,
-      title: '',
-      titleByLocale: { it: '', en: '', de: '', fr: '' },
-      descriptionByLocale: { it: '', en: '', de: '', fr: '' },
-      company: '',
-      companyKey: '',
-      location: '',
-      sector: '',
-      salaryMin: 0,
-      salaryCurrency: 'CHF',
-      slugByLocale: {},
-      localePaths: {},
-      sourceUrl: '',
-      googleStatus: 'unknown',
-      googleCanonical: '',
-      lastCrawlTime: '',
-      source: ['gsc'],
-    };
+    const result = newEnrichedRecord(orphan);
 
     // Top query
     if (result.queries.length > 0) {
@@ -1149,6 +1123,47 @@ function collectObservedPaths(entry) {
     out[entry.locale] = entry.path;
   }
   return out;
+}
+
+/**
+ * The base enriched record for one orphan, before any enrichment source is
+ * applied. Extracted from enrich() so the #4248 carry-through contract is
+ * unit-testable: writeOutputs() persists THIS object, not the raw orphan, so
+ * an `observedPaths` dropped here would make the whole de-amplification inert
+ * — the next run would find no map, mint the per-locale duplicates again and
+ * re-inflate the store past GitHub's 100 MB blob limit.
+ */
+export function newEnrichedRecord(orphan) {
+  return {
+    slug: orphan.slug,
+    locale: orphan.locale,
+    path: orphan.path,
+    // Seeded from the orphan's own path/locale when the map is absent, so
+    // every written record is self-describing.
+    observedPaths: collectObservedPaths(orphan),
+    queries: Array.isArray(orphan.queries)
+      ? [...orphan.queries].sort((a, b) => b.impressions - a.impressions).slice(0, 20)
+      : [],
+    totalImpressions: orphan.totalImpressions || 0,
+    totalClicks: orphan.totalClicks || 0,
+    topQuery: null,
+    title: '',
+    titleByLocale: { it: '', en: '', de: '', fr: '' },
+    descriptionByLocale: { it: '', en: '', de: '', fr: '' },
+    company: '',
+    companyKey: '',
+    location: '',
+    sector: '',
+    salaryMin: 0,
+    salaryCurrency: 'CHF',
+    slugByLocale: {},
+    localePaths: {},
+    sourceUrl: '',
+    googleStatus: 'unknown',
+    googleCanonical: '',
+    lastCrawlTime: '',
+    source: ['gsc'],
+  };
 }
 
 /**

@@ -30,6 +30,7 @@ import {
   ORPHAN_LOCALES,
   collectObservedPaths,
   hasSearchSignal,
+  newEnrichedRecord,
   recordCompatObservation,
 } from '../scripts/sync-gsc-orphans.mjs';
 import { mineOrphanData } from '../scripts/mine-all-job-slugs.mjs';
@@ -147,5 +148,49 @@ describe('all-known-job-slugs locale coverage survives the collapse (#4248)', ()
     // observedPaths is consulted first and wins; the point of the assertion is
     // that exactly ONE value survives — no duplicate/last-write-wins churn.
     expect(result.get(SLUG)?.locales.it).toBe('/cerca-lavoro-zurigo/drifted');
+  });
+});
+
+// writeOutputs() persists the ENRICHED record, not the raw orphan. If the base
+// record dropped `observedPaths`, the de-amplification would be inert: the next
+// run would find no map, mint the per-locale duplicates again and re-inflate
+// the store past the 100 MB blob limit. Pin the carry-through.
+describe('newEnrichedRecord carries observedPaths into what gets written (#4248)', () => {
+  it('preserves the folded locale map', () => {
+    const record = newEnrichedRecord({
+      slug: SLUG,
+      locale: 'it',
+      path: LOCALE_PATHS.it,
+      observedPaths: { ...LOCALE_PATHS },
+      queries: [],
+      totalImpressions: 0,
+      totalClicks: 0,
+    });
+    expect(record.observedPaths).toEqual(LOCALE_PATHS);
+  });
+
+  it('seeds the map from path/locale when the orphan has none, so the record is self-describing', () => {
+    const record = newEnrichedRecord({
+      slug: SLUG,
+      locale: 'de',
+      path: LOCALE_PATHS.de,
+      queries: [],
+      totalImpressions: 0,
+      totalClicks: 0,
+    });
+    expect(record.observedPaths).toEqual({ de: LOCALE_PATHS.de });
+  });
+
+  it('round-trips: an enriched record feeds mineOrphanData the same 4 locale paths', () => {
+    const record = newEnrichedRecord({
+      slug: SLUG,
+      locale: 'it',
+      path: LOCALE_PATHS.it,
+      observedPaths: { ...LOCALE_PATHS },
+      queries: [],
+      totalImpressions: 0,
+      totalClicks: 0,
+    });
+    expect(mineOrphanData([record]).get(SLUG)?.locales).toEqual(LOCALE_PATHS);
   });
 });
