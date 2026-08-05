@@ -69,7 +69,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:21.748Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -81,7 +80,9 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "bcv-5be022537abe",
