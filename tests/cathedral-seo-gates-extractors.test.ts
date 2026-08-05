@@ -139,17 +139,52 @@ describe('#5169 — every gate spec is wired to a reader that can fail loudly', 
       (g) => g.name === 'orphan-sitemap-pages',
     )!;
     const extract = gate.extractCurrent as (parsed: unknown, raw: string) => number;
-    const reportPath = path.join(REPO_ROOT, 'data/orphan-pages-audit.json');
     // The padded `TOTAL` row the old regex tried to parse, with numbers that
-    // deliberately do NOT match the report — the reader must ignore stdout.
+    // deliberately do NOT match any report — the reader must ignore stdout.
     const humanTable = 'sitemap-jobs.xml     123456    789   0.6%\nTOTAL   999   42   4.2%\n';
-    if (fs.existsSync(reportPath)) {
-      const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
-      expect(extract({}, humanTable)).toBe(report.totalOrphans);
-      expect(extract({}, humanTable)).not.toBe(42);
-    } else {
-      // No report on disk → the gate must ERROR, never silently score 0.
-      expect(() => extract({}, humanTable)).toThrow();
+    // The COMMITTED report is stale by construction (it was generated long
+    // before this process started), so the reader must refuse it rather than
+    // score the gate against it. Same for a missing file.
+    expect(() => extract({}, humanTable)).toThrow(/stale|ENOENT|no such file/i);
+  });
+
+  it('accepts a report written during this run, and still refuses a stale one', () => {
+    const gate = (GATES as Array<Record<string, unknown>>).find(
+      (g) => g.name === 'orphan-sitemap-pages',
+    )!;
+    const extract = gate.extractCurrent as (parsed: unknown, raw: string) => number;
+    const reportPath = path.join(REPO_ROOT, 'data/orphan-pages-audit.json');
+    const original = fs.existsSync(reportPath) ? fs.readFileSync(reportPath) : null;
+    try {
+      // Fresh: written "now" — the shape audit-orphan-pages-in-sitemaps writes.
+      fs.writeFileSync(
+        reportPath,
+        JSON.stringify({
+          version: 2,
+          generatedAt: new Date(Date.now() + 1000).toISOString(),
+          totalSitemapUrls: 1000,
+          totalOrphans: 137,
+          perSitemap: {},
+        }),
+      );
+      expect(extract({}, '')).toBe(137);
+
+      // Stale: a crashed audit left last week's committed copy behind.
+      fs.writeFileSync(
+        reportPath,
+        JSON.stringify({ version: 2, generatedAt: '2020-01-01T00:00:00.000Z', totalOrphans: 0 }),
+      );
+      expect(() => extract({}, '')).toThrow(/stale/i);
+
+      // Present but shapeless → error, never a silent 0.
+      fs.writeFileSync(
+        reportPath,
+        JSON.stringify({ generatedAt: new Date(Date.now() + 1000).toISOString() }),
+      );
+      expect(() => extract({}, '')).toThrow(/totalOrphans/);
+    } finally {
+      if (original === null) fs.rmSync(reportPath, { force: true });
+      else fs.writeFileSync(reportPath, original);
     }
   });
 

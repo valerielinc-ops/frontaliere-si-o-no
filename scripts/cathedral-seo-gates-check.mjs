@@ -44,6 +44,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 
+// Wall-clock at module load, used to reject a stale on-disk audit report.
+// Floored to whole seconds because `generatedAt` is an ISO string with ms
+// precision but the file can be written in the same millisecond we start.
+const PROCESS_STARTED_AT = Math.floor(Date.now() / 1000) * 1000;
+
 const VERDICT_PATH = path.join(PROJECT_ROOT, 'data', 'cathedral-seo-gates-verdict.json');
 
 /**
@@ -136,9 +141,20 @@ export const GATES = [
     // (line 627) does not contain, so it fell through to `/(\d+)\s+orphan/`,
     // which matches the first incidental "N orphan…" in the log. Issue #5169.
     extractCurrent: () => {
-      const report = JSON.parse(
-        readFileSync(path.join(PROJECT_ROOT, 'data', 'orphan-pages-audit.json'), 'utf8'),
-      );
+      const reportPath = path.join(PROJECT_ROOT, 'data', 'orphan-pages-audit.json');
+      const report = JSON.parse(readFileSync(reportPath, 'utf8'));
+      // The report is git-TRACKED, so a run that crashed before writing would
+      // leave the committed copy behind and this reader would score the gate
+      // against a stale number — the exact class of silent-pass this fix
+      // exists to remove. Require the file to have been written by THIS
+      // process's audit spawn.
+      const generatedAt = Date.parse(report?.generatedAt ?? '');
+      if (!Number.isFinite(generatedAt) || generatedAt < PROCESS_STARTED_AT) {
+        throw new Error(
+          `data/orphan-pages-audit.json is stale (generatedAt=${report?.generatedAt ?? 'missing'}, ` +
+            `this run started ${new Date(PROCESS_STARTED_AT).toISOString()}) — the audit did not write a fresh report`,
+        );
+      }
       const v = report?.totalOrphans;
       if (typeof v !== 'number' || !Number.isFinite(v)) {
         throw new Error('data/orphan-pages-audit.json carries no numeric totalOrphans');
