@@ -28,9 +28,43 @@ permissions:
 jobs:
   drain:
     runs-on: ubuntu-latest
+    # NON alzare questo cap: il timeout #5162 era il Checkout, non il drain (che
+    # gira in ~5s). Deve restare uguale a JOB_TIMEOUT_MINUTES qui sotto —
+    # `timeout-minutes` non accetta il context `env`, quindi il valore è ripetuto.
     timeout-minutes: 6
+    env:
+      JOB_TIMEOUT_MINUTES: 6
     steps:
+      # Deadline assoluta del job: è il riferimento che mancava allo script per
+      # sapere quanto tempo gli lascia il setup. Vedi scripts/ci/lib/run-budget.mjs.
+      - name: Export job deadline
+        run: echo "CI_JOB_DEADLINE_EPOCH=$(( $(date +%s) + ${{ env.JOB_TIMEOUT_MINUTES }} * 60 ))" >> "$GITHUB_ENV"
+
+      # Il Checkout è la causa del timeout #5162: nel run 31037187242 il
+      # `git fetch --depth=1` ha girato 6m10s (19:03:48 → 19:09:58) prendendosi
+      # l'INTERO budget di 6 minuti — il drain non è mai partito. Il drain vero
+      # costa 5 secondi (run 31045219116): il budget di questo job è, di fatto,
+      # tutto Checkout.
+      #
+      # Distribuzione misurata su 16 run riusciti: 102s → 249s (mediana ~113s).
+      # Il fallimento a 370s è quindi una CODA del fetch, non un trend — e questo
+      # cap la separa dal caso normale. 5 minuti stanno sopra il massimo osservato
+      # (249s) con margine, quindi nessun run sano viene toccato, e sotto il cap
+      # del job, il che cambia l'esito da `cancelled` a `failure`: un job
+      # `cancelled` non fa mai scattare gli `if: failure()` — è esattamente il
+      # buco che scan-job-timeouts.mjs esiste per tappare — mentre un `failure`
+      # si diagnostica da solo. Il tick successivo (cron 20min + workflow_run a
+      # ogni fine di issue-fix) recupera comunque: questo job è ridondante di
+      # proposito, un run perso non perde lavoro.
+      #
+      # NIENTE `filter: blob:none` qui, ed è una scelta MISURATA, non una svista:
+      # con `fetch-depth: 1` il fetch è già bulk e il partial clone è un
+      # peggioramento netto (+125% su tests.yml, vedi la nota in
+      # pr-review-loop.yml, che cita anche uno stallo da 11 minuti). Paga solo
+      # con `fetch-depth: 0` — ed è per questo che pr-autorebase.yml lo usa e
+      # questo no.
       - name: Checkout
+        timeout-minutes: 5
         uses: actions/checkout@v5
         with:
           fetch-depth: 1

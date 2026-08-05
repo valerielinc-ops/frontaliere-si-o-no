@@ -43,8 +43,24 @@ import {
 } from '../lib/workflow-scope-detect.mjs';
 import { detectSecretsScoped, matchSecretsScopedLabel } from '../lib/secrets-scope-detect.mjs';
 import { isBackoffActive, maxQuotaResetsAt } from './claude-rate-limit.mjs';
+import { runBudgetFromEnv } from './lib/run-budget.mjs';
 
 export { detectWorkflowScoped, detectSecretsScoped, matchSecretsScopedLabel };
+
+// --- BUDGET DI RUN (#5162) ---------------------------------------------------
+// Il job `drain` ha 6 minuti per SETUP + LAVORO, e il setup non è una costante:
+// `actions/checkout` su questo repo (10,5 GB) costa ~113s nel caso normale ma ha
+// una coda lunga — nel run 31037187242 ha preso 6m10s da solo e il job è stato
+// ucciso PRIMA che questo script partisse. Quando invece parte, gli restano i
+// minuti che il checkout non ha consumato: un numero variabile che lo script non
+// conosceva. La deadline assoluta esportata dal workflow glielo dice, così i
+// loop qui sotto si fermano puliti invece di essere ammazzati a metà di un item
+// (una issue tolta dalla coda ma non promossa, un commento di age-out postato su
+// una issue mai chiusa).
+const budget = runBudgetFromEnv();
+// Costo per item: un'azione di age-out sono 2 chiamate gh (comment + close), un
+// rescue/park 1-2 (view commenti + edit label). 8s copre entrambe con margine.
+const ITEM_COST_MS = Number(process.env.FOLLOWUP_ITEM_COST_MS || 8_000);
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -564,9 +580,23 @@ function loadOpenPrFilesMap() {
   return map;
 }
 
+/** Wrapper: qualunque sia il `return` con cui `runDrain` esce, il riepilogo di
+ * ciò che è stato rimandato per budget viene sempre stampato (AGENTS.md
+ * "no silent cap"). */
 function main() {
+  try {
+    runDrain();
+  } finally {
+    budget.report();
+  }
+}
+
+function runDrain() {
   if (!REPO) { console.error('GITHUB_REPOSITORY mancante'); process.exit(1); }
   console.log(`followup-drainer${DRY ? ' [DRY-RUN]' : ''} repo=${REPO}`);
+  if (budget.enabled) {
+    console.log(`budget di run: ${Math.round(budget.remainingMs() / 1000)}s utilizzabili prima della deadline del job.`);
+  }
 
   // --- AGE-OUT CLOSE: drena il ratchet delle issue queue-managed mai chiuse ---
   // Ortogonale allo slot issue-fix (chiudere non tocca il fixer) → gira sempre.
@@ -581,6 +611,10 @@ function main() {
       console.log(`age-out: ${candidates.length} eleggibili, cap ${AGEOUT_MAX_PER_RUN}/run → ${candidates.length - toClose.length} rinviate al prossimo tick (no silent cap).`);
     }
     for (const iss of toClose) {
+      // Coppia non atomica (comment → close): senza budget il job può morire fra
+      // le due e lasciare la issue commentata-ma-aperta, che al tick successivo
+      // viene ri-commentata. Non si comincia se non c'è il tempo di finire.
+      if (!budget.take(`#${iss.number} (age-out)`, ITEM_COST_MS)) break;
       const note = `🗑️ Auto-chiusa dal followup-drainer: follow-up inattivo da ≥${AGEOUT_INACTIVE_DAYS}gg e vecchio ≥${AGEOUT_DAYS}gg, mai entrato in lavorazione → non funnel-blocking. **Riapri** se il problema ricorre (o riloggalo: il lessons-harvester lo ricatturerà se è un pattern reale).`;
       if (DRY) { console.log(`[dry] close #${iss.number} (age-out) — "${iss.title}"`); continue; }
       try {
@@ -611,6 +645,7 @@ function main() {
       .filter((iss) => !isWorkflowScoped(iss.number))
       .filter((iss) => !hasFixPREver(iss.number));
     for (const iss of tooLarge) {
+      if (!budget.take(`#${iss.number} (too-large)`, ITEM_COST_MS)) break;
       if (DRY) { console.log(`[dry] too-large #${iss.number} (gen ${reparkGenOf(iss)}, 0 PR) → needs-human`); continue; }
       edit(iss.number, { add: ['needs-human'], remove: [] });
       console.log(`TOO-LARGE #${iss.number} → needs-human (gen ${reparkGenOf(iss)}, mai una PR = error_max_turns/too-large; stop al burn opus) — "${iss.title?.slice(0, 45)}"`);
@@ -636,6 +671,7 @@ function main() {
         console.log(`parked-retry: cap ${RETRY_MAX_PER_RUN}/run raggiunto, ${reparkable.length - retried - skippedWf} rinviati al prossimo tick (no silent cap).`);
         break;
       }
+      if (!budget.take(`#${iss.number} (parked-retry)`, ITEM_COST_MS)) break;
       // capability-guard → resta parked (WF-scope: push bloccato; secrets-scope: credenziali mai disponibili)
       if (isWorkflowScoped(iss.number) || isSecretsScoped(iss)) { skippedWf++; continue; }
       // (too-large escalation gestita dal pass dedicato sopra, no cooldown)
@@ -744,6 +780,10 @@ function main() {
   }
 
   for (const iss of stuckFix) {
+    // Il rescue MUTA le label (re-queue/park). Fermarsi qui è sicuro: nessuna
+    // issue non ancora esaminata è stata toccata, e il prossimo tick ricalcola
+    // l'intero insieme da GitHub — non c'è cursore da riprendere.
+    if (!budget.take(`#${iss.number} (rescue)`, ITEM_COST_MS)) break;
     const ageMin = minutesSince(iss.updatedAt);
     const hasPR = hasFixPR(iss.number);
     if (hasPR) continue;   // ha PR → run completata con successo, non orfano né settling
@@ -871,6 +911,10 @@ function main() {
   // Park preemptivo = stesso esito del NON_RETRYABLE post-hoc, senza il run. Il
   // body serve solo per i candidati realmente considerati → fetch lazy, 1 alla volta.
   for (const cand of queued) {
+    // Valutare un candidato costa una `gh issue view` (body) e può finire in
+    // comment+edit di park. Senza tempo per la coppia si esce: la coda resta
+    // intatta e il tick successivo riparte dallo stesso primo candidato.
+    if (!budget.take(`#${cand.number} (drain)`, ITEM_COST_MS)) break;
     let body = '';
     try {
       const raw = gh(['issue', 'view', String(cand.number), '--repo', REPO, '--json', 'body'], { json: true });
