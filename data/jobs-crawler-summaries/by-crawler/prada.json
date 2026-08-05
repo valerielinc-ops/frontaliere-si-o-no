@@ -1,18 +1,49 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-08-05T11:37:45.095Z",
-  "total": 3,
+  "generatedAt": "2026-08-05T22:56:15.121Z",
+  "total": 4,
   "newCount": 1,
-  "updatedCount": 1,
-  "removedCount": 1,
+  "updatedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 15038,
-  "avgDurationMs": 15038,
+  "durationMs": 10176,
+  "avgDurationMs": 10176,
   "durationHistory": [
-    15038
+    10176
   ],
   "newJobs": [
+    {
+      "id": "prada-a1f96a3d7828",
+      "slug": "miu-miu-store-manager-prada-group-jeddah",
+      "company": "Prada Group",
+      "companyKey": "prada",
+      "companyDomain": "pradagroup.com",
+      "title": "MIU MIU Store Manager",
+      "location": "Jeddah",
+      "canton": "TI",
+      "addressLocality": "Jeddah",
+      "addressCountry": "CH",
+      "category": "fashion",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-05",
+      "url": "https://jobs.pradagroup.com/job/Jeddah-MIU-MIU-Store-Manager/1423493133/",
+      "source": "Prada Group Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-05T22:56:11.847Z",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "prada-6e594e1d0693",
       "slug": "miu-miu-client-advisor-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
@@ -33,17 +64,16 @@
       "url": "https://jobs.pradagroup.com/job/Las-Vegas-MIU-MIU-Client-Advisor-Wynn-Las-Vegas-NV-89044/1412525633/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-05T11:37:33.430Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-08-05T22:56:08.570Z",
+      "firstSeenAt": "2026-08-05T11:37:33.430Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "prada-6c4e57745113",
       "slug": "prada-runner-sankt-moritz-prada-group-saint-moritz",
@@ -64,7 +94,7 @@
       "url": "https://jobs.pradagroup.com/job/Saint-Moritz-PRADA-Runner%2C-Sankt-Moritz/1422417533/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-05T11:37:32.875Z",
+      "crawledAt": "2026-08-05T22:56:07.870Z",
       "firstSeenAt": "2026-08-03T22:16:33.147Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -75,44 +105,42 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "id": "prada-0c54df42911a",
-      "slug": "prada-client-consulente-m-f-d-roermond-prada-group-roermond",
+      "id": "prada-a1f96a3d7828",
+      "slug": "miu-miu-store-manager-prada-group-jeddah",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
-      "title": "PRADA Client Advisor (m/f/d), Roermond",
-      "location": "Roermond",
+      "title": "MIU MIU Store Manager",
+      "location": "Jeddah",
       "canton": "TI",
-      "addressLocality": "Roermond",
+      "addressLocality": "Jeddah",
       "addressCountry": "CH",
       "category": "fashion",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-03",
-      "url": "https://jobs.pradagroup.com/job/Roermond-PRADA-Client-Advisor-%28mfd%29%2C-Roermond/1421773633/",
+      "postedDate": "2026-08-05",
+      "url": "https://jobs.pradagroup.com/job/Jeddah-MIU-MIU-Store-Manager/1423493133/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-03T22:16:34.919Z",
-      "firstSeenAt": "2026-08-03T13:16:05.476Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "crawledAt": "2026-08-05T22:56:11.847Z",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "country": "CH",
       "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 87,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 16,
         "completeness": 19
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "id": "prada-6e594e1d0693",
       "slug": "miu-miu-client-advisor-wynn-las-vegas-prada-group-nearest-major-market-las-vegas",
@@ -133,17 +161,17 @@
       "url": "https://jobs.pradagroup.com/job/Las-Vegas-MIU-MIU-Client-Advisor-Wynn-Las-Vegas-NV-89044/1412525633/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-05T11:37:33.430Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-08-05T22:56:08.570Z",
+      "firstSeenAt": "2026-08-05T11:37:33.430Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "country": "CH",
       "addressRegion": "TI",
-      "_qualityScore": 83,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -167,7 +195,7 @@
       "url": "https://jobs.pradagroup.com/job/Saint-Moritz-PRADA-Runner%2C-Sankt-Moritz/1422417533/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-05T11:37:32.875Z",
+      "crawledAt": "2026-08-05T22:56:07.870Z",
       "firstSeenAt": "2026-08-03T22:16:33.147Z",
       "needsRetranslation": true,
       "salaryMin": 57500,
@@ -208,7 +236,7 @@
       "country": "CH",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-04T22:30:57.250Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
