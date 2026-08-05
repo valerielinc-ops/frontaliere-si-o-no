@@ -1876,6 +1876,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.title': 'Glencore increases profits and revenues in the semester',
     'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.excerpt': 'The trading and mining company recorded a strong increase in profits and revenues in the first half of 2026',
     'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.imageAlt': 'Image of a Zurich financial center with a large screen showing Glencore data',
+    'blog.article.raffreddare-le-citta-svizzere-il-lavoro-e-appena-iniziato.title': 'Cooling down Swiss cities? “The work has just begun”',
+    'blog.article.raffreddare-le-citta-svizzere-il-lavoro-e-appena-iniziato.excerpt': 'Switzerland is trying to adapt to heatwaves, but the road is still long.',
+    'blog.article.raffreddare-le-citta-svizzere-il-lavoro-e-appena-iniziato.imageAlt': 'A Swiss city during a heatwave.',
 };
 
 export default blogMetaChEn;
