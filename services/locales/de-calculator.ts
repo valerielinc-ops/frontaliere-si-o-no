@@ -476,6 +476,7 @@ const deCalculator: Record<string, string> = {
  'calculator.paywall.privacyNote': 'Nur f\u00fcr dieses PDF. Kein Spam \u2014 Abmeldung jederzeit m\u00f6glich.',
  'calculator.paywall.successToast': 'PDF verschickt! Pr\u00fcfen Sie Ihren Posteingang.',
  'calculator.paywall.errorToast': 'PDF konnte nicht gesendet werden. Bitte E-Mail pr\u00fcfen und erneut versuchen.',
+ 'calculator.regimeScope.notice': 'Diese Berechnung bildet das Grenzg\u00e4nger-Regime Italien\u2013Schweiz ab: Tessiner Quellensteuer und italienische IRPEF mit Freibetrag. Sie gilt nicht f\u00fcr Einwohner von Frankreich, Deutschland, \u00d6sterreich oder Liechtenstein \u2014 dort gelten andere Abkommen.',
 };
 
 export default deCalculator;

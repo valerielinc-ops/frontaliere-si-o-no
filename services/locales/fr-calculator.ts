@@ -476,6 +476,7 @@ const frCalculator: Record<string, string> = {
  'calculator.paywall.privacyNote': 'Uniquement pour ce PDF. Pas de spam \u2014 d\u00e9sinscription \u00e0 tout moment.',
  'calculator.paywall.successToast': 'PDF envoy\u00e9 ! V\u00e9rifiez votre bo\u00eete de r\u00e9ception.',
  'calculator.paywall.errorToast': 'Impossible d\u2019envoyer le PDF. V\u00e9rifiez l\u2019e-mail et r\u00e9essayez.',
+ 'calculator.regimeScope.notice': 'Ce calcul applique le r\u00e9gime frontalier Italie\u2013Suisse : imp\u00f4t \u00e0 la source tessinois et IRPEF italienne avec franchise. Il ne s\u2019applique pas aux r\u00e9sidents de France, d\u2019Allemagne, d\u2019Autriche ou du Liechtenstein, o\u00f9 d\u2019autres accords s\u2019appliquent.',
 };
 
 export default frCalculator;

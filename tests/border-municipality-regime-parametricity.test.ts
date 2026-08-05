@@ -32,6 +32,8 @@ import { renderAboveFloorPage as renderLiechtensteinAbove } from '@/build-plugin
 
 import { FRENCH_ABOVE_FLOOR, FRENCH_BELOW_FLOOR, FRENCH_LOCALES } from '@/build-plugins/frenchBorderMunicipalityData';
 import { GERMAN_ABOVE_FLOOR, GERMAN_LOCALES, GERMAN_REGIME_TAX } from '@/build-plugins/germanBorderMunicipalityData';
+import { REGIME_TAX as FRENCH_REGIME_TAX } from '@/build-plugins/frenchBorderMunicipalityData';
+import { SOURCE_LABEL } from '@/build-plugins/shared/authoritativeSources';
 import { AUSTRIAN_ABOVE_FLOOR, AUSTRIAN_LOCALES, AUSTRIAN_REGIME } from '@/build-plugins/austrianBorderMunicipalityData';
 import { LIECHTENSTEIN_ABOVE_FLOOR, LIECHTENSTEIN_LOCALES, LIECHTENSTEIN_REGIME } from '@/build-plugins/liechtensteinBorderMunicipalityData';
 
@@ -106,13 +108,41 @@ describe('no foreign family reuses the Italy-Switzerland regime', () => {
     ['accordo Italia-Svizzera 2020', /accordo (?:italia|italo)[- ]svizzer/i],
   ];
 
-  it.each(ALL_FOREIGN)('%s pages contain no Italian-regime marker', (_name, pages) => {
+  /**
+   * The calculator-scope notice names the Italian regime on purpose, to say it
+   * does NOT apply here (the calculator is hardwired to Italy-Switzerland and
+   * these pages link it). So an Italian marker is tolerated only inside a
+   * sentence that is talking about the calculator; anywhere else it is the
+   * Italian template leaking in. Matching by sentence rather than by stripping
+   * the notice verbatim keeps this robust against HTML-entity escaping of
+   * apostrophes in the it/fr copy.
+   */
+  const MENTIONS_CALCULATOR = /(?:calcolatore|calculator|rechner|calculateur)/i;
+
+  it.each(ALL_FOREIGN)('%s pages state no Italian-regime rule outside the calculator-scope notice', (_name, pages) => {
     const hits: string[] = [];
     for (const [label, re] of ITALIAN_MARKERS) {
-      const found = offenders(pages as Page[], re);
+      const found = (pages as Page[])
+        .filter((p) =>
+          p.text
+            .split(/(?<=[.!?])\s+/)
+            .some((s) => re.test(s) && !MENTIONS_CALCULATOR.test(s)),
+        )
+        .map((p) => p.key);
       if (found.length) hits.push(`${label}: ${found.slice(0, 3).join(', ')} (+${Math.max(0, found.length - 3)} more)`);
     }
     expect(hits).toEqual([]);
+  });
+
+  it.each(ALL_FOREIGN)('%s pages scope the calculator link to the Italy-Switzerland regime', (_name, pages) => {
+    // The link stays (it is the tool that makes these pages useful) but it
+    // must never read as if its number described this border.
+    const DENIES_APPLICABILITY =
+      /(?:non riproduce|non vale|does not (?:reproduce|apply)|bildet NICHT|gilt daher nicht|ne reproduit pas|ne s(?:'|&#39;)applique)/i;
+    const unscoped = (pages as Page[])
+      .filter((p) => !(MENTIONS_CALCULATOR.test(p.text) && DENIES_APPLICABILITY.test(p.text)))
+      .map((p) => p.key);
+    expect(unscoped).toEqual([]);
   });
 });
 
@@ -304,5 +334,60 @@ describe('France — two incompatible accords, and neither is a consequence of g
     const IN_SWISS_CANTON =
       /(?:è nel canton(?:e)? Ginevra|is in canton Geneva|liegt im Kanton Genf|est dans le canton de Genève)/i;
     expect(offenders(FRENCH_PAGES, IN_SWISS_CANTON)).toEqual([]);
+  });
+});
+
+describe('every regime figure ships with a visible source attribution', () => {
+  /**
+   * The provenance strings (treaty articles, SR numbers, official bulletins)
+   * were exported by each data module and referenced by no plugin, so every
+   * rate and day-threshold reached HTML unattributed. On YMYL tax content the
+   * attribution is the trust signal — and it is what separates these pages
+   * from the "scaled content" profile. These assertions fail if a family
+   * stops rendering it.
+   */
+  // Explicit citation tokens rather than slices of the source string: the
+  // rendered HTML escapes quotes (&quot;) and the strings carry punctuation,
+  // so a derived prefix silently stops matching. These are the identifiers a
+  // reader would actually check.
+  const FAMILY_SOURCES = [
+    ['Germany', GERMAN_PAGES, 'BMF', GERMAN_REGIME_TAX.source],
+    ['Austria', AUSTRIAN_PAGES, 'BGBl. III Nr. 22/2007', AUSTRIAN_REGIME.source],
+    ['Liechtenstein', LIECHTENSTEIN_PAGES, '0.672.951.43', LIECHTENSTEIN_REGIME.source],
+  ] as const;
+
+  it.each(FAMILY_SOURCES)('%s renders its regime source on every page', (_name, pages, token, source) => {
+    // The token must really come from the data module, not just from prose.
+    expect(source).toContain(token);
+    const missing = pages.filter((p) => !p.text.includes(token)).map((p) => p.key);
+    expect(missing).toEqual([]);
+  });
+
+  it('France renders the accord source matching the regime the page presents', () => {
+    const GENEVE = 'ge.ch';
+    const HUIT = 'impots.gouv.fr';
+    expect(FRENCH_REGIME_TAX.geneve.source).toContain(GENEVE);
+    expect(FRENCH_REGIME_TAX['huit-cantons'].source).toContain(HUIT);
+    for (const p of FRENCH_PAGES) {
+      const slug = p.key.split('[')[0];
+      const m = FRENCH_ABOVE_FLOOR.find((x) => x.slug === slug)!;
+      if (m.regimeBasis === 'dual') {
+        // Both accords are described, so both must be attributed.
+        expect(p.text.includes(GENEVE), `${p.key} missing Geneva source`).toBe(true);
+        expect(p.text.includes(HUIT), `${p.key} missing 1983 source`).toBe(true);
+      } else {
+        expect(p.text.includes(HUIT), `${p.key} missing 1983 source`).toBe(true);
+        expect(p.text.includes(GENEVE), `${p.key} should not cite the Geneva barème`).toBe(false);
+      }
+    }
+  });
+
+  it('labels the attribution in the page locale', () => {
+    for (const [, pages] of ALL_FOREIGN) {
+      for (const p of pages as Page[]) {
+        const locale = p.key.match(/\[(\w+)\]$/)![1] as keyof typeof SOURCE_LABEL;
+        expect(p.text.includes(SOURCE_LABEL[locale]), `${p.key} missing "${SOURCE_LABEL[locale]}" label`).toBe(true);
+      }
+    }
   });
 });

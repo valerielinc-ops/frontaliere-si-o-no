@@ -39,6 +39,33 @@ export const SOURCES_HEADING: Record<SourcesLocale, string> = {
 };
 
 /**
+ * Inline "Fonte:" label for a single attribution rendered next to the claim
+ * it supports — the sibling of SOURCES_HEADING, which heads a whole block of
+ * outbound links.
+ *
+ * Exists because the border-municipality families carry sourced tax figures
+ * (treaty articles, SR numbers, official bulletins) whose provenance strings
+ * were exported but never rendered: every rate and day-threshold shipped to
+ * HTML with no visible attribution. On YMYL tax content the attribution IS
+ * the trust signal, so it belongs beside the number, not only in a code
+ * comment. Shared rather than duplicated per plugin (AGENTS.md #6): four
+ * families need the same four strings.
+ *
+ * Note the French typographic space before the colon.
+ */
+export const SOURCE_LABEL: Record<SourcesLocale, string> = {
+  it: 'Fonte',
+  en: 'Source',
+  de: 'Quelle',
+  fr: 'Source',
+};
+
+/** `Fonte: <text>` / `Source : <text>`, with the French spacing rule applied. */
+export function formatSourceAttribution(locale: SourcesLocale, source: string): string {
+  return locale === 'fr' ? `${SOURCE_LABEL[locale]} : ${source}` : `${SOURCE_LABEL[locale]}: ${source}`;
+}
+
+/**
  * BFS/UST — Swiss Federal Statistical Office, wages & income statistics
  * (LSE — the salary structure survey the site's salary medians derive from).
  * The Italian portal has no deep wages page, so `it` links the section

@@ -476,6 +476,7 @@ const enCalculator: Record<string, string> = {
  'calculator.paywall.privacyNote': 'Only for this PDF. No spam — unsubscribe anytime.',
  'calculator.paywall.successToast': 'PDF sent! Check your inbox.',
  'calculator.paywall.errorToast': 'Could not send the PDF. Check your email and try again.',
+ 'calculator.regimeScope.notice': 'This calculation applies the Italy\u2013Switzerland cross-border regime: Ticino withholding tax plus Italian IRPEF with its allowance. It does not apply to residents of France, Germany, Austria or Liechtenstein, where different agreements govern.',
 };
 
 export default enCalculator;
