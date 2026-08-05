@@ -297,28 +297,18 @@ export function capSearchStatsLandingTitle(
  // reaches it, never a floor that can force a broken ending.
  if (peeled.length >= MIN_PEELED_TITLE_CHARS) return peeled;
  // The ladder recovers length — but only counts if it did not buy those characters by
- // breaking the ending. TWO ways it can, and both must be checked:
+ // breaking the ending. TWO independent ways it can, and both are now enforced by the
+ // shared primitive rather than re-derived here (review round 4):
  //
- //   a) ending on a function word — its low-budget branch strips separators only, never
- //      stopwords (deliberately: truncateHeadline's ellipsis softens that, a <title> has none);
- //   b) ending MID-WORD — when no space sits before half the budget (a first word longer
- //      than max/2) that branch returns a raw slice, and a mid-word slice has nothing to
- //      peel, so the stopword check alone passes it unchanged. "Amministrazione lavoro
- //      Ticino" at max=12 yields "Amministrazi": clean by (a), broken by (b), and exactly
- //      the "…impatto su perme…" class this PR exists to remove.
+ //   a) ending on a function word — its low-budget branch strips separators only;
+ //   b) ending MID-WORD — that same branch returns a raw slice when no space sits before
+ //      half the budget, and a mid-word slice has nothing to peel, so the stopword check
+ //      alone passes it unchanged.
  //
- // (b) is tested against rawTitle rather than the candidate: the character following the
- // prefix must not be a letter or digit. Punctuation and whitespace are both legitimate
- // boundaries, so testing for whitespace alone would reject valid cuts.
- const ladder = truncateClauseAware(rawTitle, max).trimEnd();
- const endsOnWordBoundary =
- rawTitle.startsWith(ladder) &&
- (ladder.length >= rawTitle.length || !/[\p{L}\p{N}]/u.test(rawTitle.charAt(ladder.length)));
- if (
- ladder.length >= MIN_PEELED_TITLE_CHARS &&
- peelDanglingClauseTail(ladder) === ladder &&
- endsOnWordBoundary
- ) {
+ // `requireWordBoundary` makes truncateClauseAware refuse (b) and return '' instead, so the
+ // rule has ONE home for every caller instead of living in this comparison.
+ const ladder = truncateClauseAware(rawTitle, max, max, true).trimEnd();
+ if (ladder.length >= MIN_PEELED_TITLE_CHARS && peelDanglingClauseTail(ladder) === ladder) {
  return ladder;
  }
  // Nothing is both long enough and unbroken: prefer the clean short peel. The hard cut is

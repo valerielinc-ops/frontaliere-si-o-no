@@ -30,6 +30,8 @@ import {
   buildTitleWithBrand,
   TITLE_MAX_CHARS,
   META_DESCRIPTION_MAX_CHARS,
+  endsOnWordBoundary,
+  truncateClauseAware,
 } from '../build-plugins/shared/titleSuffix';
 
 /** Function words that must never end a SERP string. Kept small on purpose — the
@@ -228,5 +230,48 @@ describe('single source of truth for the clause tail (AGENTS.md Non-Negotiable #
       const code = src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
       expect(code, `${rel} hardcodes a calendar year`).not.toMatch(/(?<![\w.])20[2-9]\d(?![\w.])/);
     }
+  });
+});
+
+describe('endsOnWordBoundary — the second half of "ends cleanly" (review round 4)', () => {
+  it('rejects a cut inside a word and accepts one at a real boundary', () => {
+    expect(endsOnWordBoundary('Amministrazione contabile', 'Amministraz')).toBe(false);
+    expect(endsOnWordBoundary('Amministrazione contabile', 'Amministrazione')).toBe(true);
+    expect(endsOnWordBoundary('Amministrazione contabile', 'Amministrazione contabile')).toBe(true);
+  });
+
+  it('treats punctuation as a boundary, not just whitespace', () => {
+    // A whitespace-only test would reject this valid cut.
+    expect(endsOnWordBoundary('Lavoro: Ticino', 'Lavoro')).toBe(true);
+  });
+
+  it('does not mistake a split emoji for a boundary', () => {
+    // charAt() here returns a lone surrogate, which matches neither \p{L} nor \p{N} — so a
+    // charAt-based check would call this clean. Reading the code point does not.
+    const source = 'Lavoro 🇨🇭 Ticino';
+    const half = source.slice(0, 8); // lands between the two halves of the flag's first pair
+    expect(endsOnWordBoundary(source, half)).toBe(false);
+  });
+
+  it('refuses a candidate that is not a prefix of the source', () => {
+    expect(endsOnWordBoundary('Lavoro Ticino', 'Ticino')).toBe(false);
+  });
+});
+
+describe('truncateClauseAware — requireWordBoundary (review round 4)', () => {
+  it('returns the mid-word slice by default, so truncateHeadline keeps its behaviour', () => {
+    // The ellipsis truncateHeadline appends IS the signal that the text was cut, which is
+    // why the default stays permissive: "Amministraz…" is legible.
+    expect(truncateClauseAware('Amministrazione contabile', 11)).toBe('Amministraz');
+    expect(truncateHeadline('Amministrazione contabile', 12)).toBe('Amministraz…');
+  });
+
+  it('refuses the same slice when the caller cannot signal truncation', () => {
+    // A <title> takes no ellipsis, so the identical string would read as a typo.
+    expect(truncateClauseAware('Amministrazione contabile', 11, 11, true)).toBe('');
+  });
+
+  it('still returns a clean cut when one exists', () => {
+    expect(truncateClauseAware('Amministrazione contabile', 20, 20, true)).toBe('Amministrazione');
   });
 });

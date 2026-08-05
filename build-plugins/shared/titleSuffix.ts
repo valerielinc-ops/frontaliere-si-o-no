@@ -119,6 +119,33 @@ export function repairSerpSnippet(text: string, terminal: string = '.'): string 
 }
 
 /**
+ * Does `candidate` (a prefix of `source`) stop at a real word boundary?
+ *
+ * The rule lives here, not at a call site, because "ends cleanly" is TWO independent
+ * properties and checking only one is the bug this file keeps re-learning: a cut can end on
+ * a dangling function word, OR it can end mid-word. {@link peelDanglingClauseTail} answers
+ * the first and is a NO-OP on the second — a partial word is neither a separator nor a
+ * stopword, so it passes untouched.
+ *
+ * Boundary = the next code point is not a letter or digit. Punctuation counts as a boundary,
+ * so testing for whitespace alone would reject valid cuts.
+ *
+ * Reads a CODE POINT, not `charAt`: on an astral character (emoji, some CJK) `charAt`
+ * returns a lone surrogate, which matches neither `\p{L}` nor `\p{N}`, so a cut landing
+ * inside one would be misreported as a clean boundary. A candidate that ends between the
+ * two halves of a surrogate pair is likewise not a boundary.
+ */
+export function endsOnWordBoundary(source: string, candidate: string): boolean {
+  if (!source.startsWith(candidate)) return false;
+  if (candidate.length >= source.length) return true;
+  const cp = source.codePointAt(candidate.length);
+  if (cp === undefined) return true;
+  // Low surrogate at the cut index -> the candidate split a surrogate pair.
+  if (cp >= 0xdc00 && cp <= 0xdfff) return false;
+  return !/[\p{L}\p{N}]/u.test(String.fromCodePoint(cp));
+}
+
+/**
  * Clause-aware truncation to `max` code units, WITHOUT an ellipsis.
  *
  * The degradation ladder shared by {@link truncateHeadline} (which appends `…`) and by
@@ -129,8 +156,19 @@ export function repairSerpSnippet(text: string, terminal: string = '.'): string 
  * Unlike {@link truncateTitleAtClauseBoundary} this NEVER over-amputates — it falls back
  * through word boundary and then separator-only strip — so it is the right fallback for a
  * caller that has to produce something usable inside a fixed budget.
+ *
+ * @param requireWordBoundary  When true, a result that stops mid-word is refused and `''`
+ *   is returned instead, leaving the caller to apply its own fallback. Default false, which
+ *   is what {@link truncateHeadline} needs: it appends `…`, and an ellipsis is exactly the
+ *   signal that the text was cut — "Amministraz…" is legible, while for a `<title>` (no
+ *   ellipsis allowed) the same string reads as a typo. Same ladder, different contract.
  */
-export function truncateClauseAware(s: string, max: number, halfwayBudget: number = max): string {
+export function truncateClauseAware(
+  s: string,
+  max: number,
+  halfwayBudget: number = max,
+  requireWordBoundary: boolean = false,
+): string {
   const sliced = truncateCodeUnits(s, max);
   const lastSpace = sliced.lastIndexOf(' ');
   // `halfwayBudget` defaults to `max` and exists only for truncateHeadline, which slices at
@@ -151,9 +189,14 @@ export function truncateClauseAware(s: string, max: number, halfwayBudget: numbe
   // Guard against over-amputation: a tail of consecutive function words could
   // peel away most of the snippet. Below half the budget the separator-only
   // strip is the better trade (same rationale as the halfway-mark check above).
-  return peeled.length >= half
+  const result = peeled.length >= half
     ? peeled
     : cut.replace(CLAUSE_SEPARATOR_TAIL_RE, '').trimEnd();
+  // The low-budget branch above returns a RAW slice when no space sits before half the
+  // budget, and that slice can stop mid-word. Callers that cannot signal truncation with an
+  // ellipsis must be able to refuse it rather than re-deriving the check themselves.
+  if (requireWordBoundary && !endsOnWordBoundary(s, result)) return '';
+  return result;
 }
 
 /**
