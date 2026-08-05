@@ -4,17 +4,25 @@ import {
   pct,
   comparisonLine,
   formatSegmentTable,
+  formatCoverageNote,
   emptyCell,
+  treatedCell,
   newSegment,
   buildCanonicalDeliveryDocId,
   normalizeEmail,
   parseDaysArg,
   parseSinceArg,
+  parseMaturityHoursArg,
   computeQueryFloor,
+  computeMaturityCutoff,
+  computeFetchFloor,
+  effectiveDeliveryDate,
   argValue,
   GROUP_ORDER,
   IMMEDIATE_LABEL,
   TRANSACTIONAL_CAMPAIGN_IDS,
+  DEFAULT_MATURITY_HOURS,
+  MAX_SCHEDULE_LOOKAHEAD_MS,
 } from '../scripts/report-send-hour-impact.mjs';
 
 // ── Fixture helpers ──────────────────────────────────────────────────────
@@ -24,10 +32,13 @@ import {
 // with those two members is a faithful stand-in for a Firestore
 // QueryDocumentSnapshot here. No Firestore mocking needed.
 
-function deliveryDoc({ campaignId, email, sentAt, sendTimeSource = null, opened = false, clicked = false, messageId = null, canonicalId = true, isOperatorVerification = false }: {
+function deliveryDoc({ campaignId, email, sentAt, sendTimeSource = null, opened = false, clicked = false, messageId = null, canonicalId = true, isOperatorVerification = false, scheduledFor = null }: {
   campaignId: string; email: string; sentAt: Date; sendTimeSource?: string | null;
   opened?: boolean; clicked?: boolean; messageId?: string | null; canonicalId?: boolean;
   isOperatorVerification?: boolean;
+  // `scheduled_for` is what the cascade actually scheduled (null when the
+  // selected provider has no native scheduled-send) — #3798 Fase 4.
+  scheduledFor?: Date | { toDate: () => Date } | null;
 }) {
   const id = canonicalId
     ? buildCanonicalDeliveryDocId(campaignId, email)
@@ -38,6 +49,7 @@ function deliveryDoc({ campaignId, email, sentAt, sendTimeSource = null, opened 
       email: normalizeEmail(email),
       campaign_id: campaignId,
       sent_at: sentAt,
+      scheduled_for: scheduledFor,
       send_time_source: sendTimeSource,
       message_id: messageId,
       opened_at: opened ? sentAt : null,
@@ -93,9 +105,11 @@ describe('aggregate — normal case with mixed groups', () => {
     ];
     const { segments, droppedNonCanonical } = aggregate(deliveries, [], null);
     expect(droppedNonCanonical).toBe(0);
-    expect(segments.combined.personal).toEqual({ deliveries: 2, opens: 1, clicks: 0 });
-    expect(segments.combined.global).toEqual({ deliveries: 1, opens: 0, clicks: 1 });
-    expect(segments.combined[IMMEDIATE_LABEL]).toEqual({ deliveries: 1, opens: 0, clicks: 0 });
+    // No scheduled_for on these fixtures → the treated sub-counts stay 0 while
+    // the intent-to-treat counts are unchanged (#3798 Fase 4 coverage).
+    expect(segments.combined.personal).toEqual({ deliveries: 2, opens: 1, clicks: 0, scheduled: 0, scheduledOpens: 0, scheduledClicks: 0 });
+    expect(segments.combined.global).toEqual({ deliveries: 1, opens: 0, clicks: 1, scheduled: 0, scheduledOpens: 0, scheduledClicks: 0 });
+    expect(segments.combined[IMMEDIATE_LABEL]).toEqual({ deliveries: 1, opens: 0, clicks: 0, scheduled: 0, scheduledOpens: 0, scheduledClicks: 0 });
     expect(pct(segments.combined.personal.opens, segments.combined.personal.deliveries)).toBe(50);
   });
 
@@ -110,7 +124,7 @@ describe('aggregate — normal case with mixed groups', () => {
       eventDoc({ campaignId: CAMPAIGN, email: 'viaevents@x.com', type: 'click' }),
     ];
     const { segments } = aggregate(deliveries, events, null);
-    expect(segments.combined.personal).toEqual({ deliveries: 1, opens: 1, clicks: 1 });
+    expect(segments.combined.personal).toMatchObject({ deliveries: 1, opens: 1, clicks: 1 });
   });
 
   it('matches an event to its delivery by message_id when email differs (namespaced key, no collision)', () => {
@@ -128,7 +142,7 @@ describe('aggregate — deliveries=0 (no division by zero, no crash)', () => {
     const { segments, droppedNonCanonical } = aggregate([], [], null);
     expect(droppedNonCanonical).toBe(0);
     for (const g of GROUP_ORDER) {
-      expect(segments.combined[g]).toEqual({ deliveries: 0, opens: 0, clicks: 0 });
+      expect(segments.combined[g]).toEqual(emptyCell());
       expect(pct(segments.combined[g].opens, segments.combined[g].deliveries)).toBe(0);
     }
   });
@@ -168,7 +182,7 @@ describe('aggregate — transactional sends excluded from the immediate/pre-feat
     ];
     const { segments, droppedTransactional } = aggregate(deliveries, [], null);
     expect(droppedTransactional).toBe(2);
-    expect(segments.combined[IMMEDIATE_LABEL]).toEqual({ deliveries: 1, opens: 0, clicks: 0 });
+    expect(segments.combined[IMMEDIATE_LABEL]).toEqual({ ...emptyCell(), deliveries: 1 });
   });
 
   it('exposes the known transactional campaign_id set for reuse/inspection', () => {
@@ -322,6 +336,230 @@ describe('aggregate — since-date boundary (before/after split)', () => {
     };
     const { segments } = aggregate([doc], [], since);
     expect(segments.after.global.deliveries).toBe(1);
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────
+// #3798 Fase 4 — instrument fix: the report used to window, split and credit
+// on `sent_at` (the moment we called the provider's API). The whole point of
+// this feature is that the provider delivers LATER, so `personal` was the only
+// cohort systematically delayed relative to its own `sent_at` — a confound
+// with exactly the sign of the negative result that was observed. Everything
+// below anchors on `scheduled_for ?? sent_at` instead.
+// ─────────────────────────────────────────────────────────────────────────
+
+describe('effectiveDeliveryDate — delivery instant, not API-call instant', () => {
+  const sentAt = new Date('2026-07-20T03:33:00.000Z');
+
+  it('falls back to sent_at when the provider had no native scheduled-send', () => {
+    expect(effectiveDeliveryDate({ sent_at: sentAt, scheduled_for: null })?.toISOString()).toBe(sentAt.toISOString());
+  });
+
+  it('uses scheduled_for when the cascade really held the message back', () => {
+    const scheduled = new Date('2026-07-20T18:07:00.000Z');
+    expect(effectiveDeliveryDate({ sent_at: sentAt, scheduled_for: scheduled })?.toISOString()).toBe(scheduled.toISOString());
+  });
+
+  it('reads a Firestore Timestamp-shaped scheduled_for', () => {
+    const scheduled = new Date('2026-07-21T09:00:00.000Z');
+    expect(effectiveDeliveryDate({ sent_at: sentAt, scheduled_for: { toDate: () => scheduled } })?.toISOString()).toBe(scheduled.toISOString());
+  });
+
+  it('never returns an instant BEFORE sent_at — delivery cannot precede the API call', () => {
+    // A provider echoing back a clamped/immediate time, or clock skew. Letting
+    // it through would drag the delivery to the wrong side of the pre/post split.
+    const bogus = new Date(sentAt.getTime() - 60 * 60 * 1000);
+    expect(effectiveDeliveryDate({ sent_at: sentAt, scheduled_for: bogus })?.toISOString()).toBe(sentAt.toISOString());
+  });
+
+  it('returns null for a stub doc with no sent_at at all', () => {
+    expect(effectiveDeliveryDate({ sent_at: null, scheduled_for: sentAt })).toBeNull();
+    expect(effectiveDeliveryDate({})).toBeNull();
+  });
+
+  it('ignores an unparsable scheduled_for rather than poisoning the row with NaN', () => {
+    expect(effectiveDeliveryDate({ sent_at: sentAt, scheduled_for: 'not-a-date' })?.toISOString()).toBe(sentAt.toISOString());
+  });
+});
+
+describe('aggregate — maturation window (equal opportunity to be opened)', () => {
+  const now = new Date('2026-08-05T00:00:00.000Z');
+  const cutoff = computeMaturityCutoff(now, 48); // 2026-08-03T00:00:00Z
+
+  it('drops a delivery released inside the maturation window, in EVERY group alike', () => {
+    const fresh = new Date('2026-08-04T12:00:00.000Z'); // 12h old
+    const deliveries = [
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'p@x.com', sentAt: fresh, sendTimeSource: 'personal' }),
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'g@x.com', sentAt: fresh, sendTimeSource: 'global' }),
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'i@x.com', sentAt: fresh, sendTimeSource: null }),
+    ];
+    const { segments, droppedImmature } = aggregate(deliveries, [], null, { maturityCutoff: cutoff });
+    expect(droppedImmature).toBe(3);
+    for (const g of GROUP_ORDER) expect(segments.combined[g].deliveries).toBe(0);
+  });
+
+  it('is the core regression: a SCHEDULED delivery is judged on scheduled_for, not sent_at', () => {
+    // Sent 4 days ago (mature by sent_at) but only released 12h ago — it has
+    // NOT had a fair chance to be opened, and counting it is exactly what
+    // dragged the `personal` open rate down.
+    const doc = deliveryDoc({
+      campaignId: CAMPAIGN,
+      email: 'delayed@x.com',
+      sentAt: new Date('2026-08-01T00:00:00.000Z'),
+      scheduledFor: new Date('2026-08-04T12:00:00.000Z'),
+      sendTimeSource: 'personal',
+    });
+    const { segments, droppedImmature } = aggregate([doc], [], null, { maturityCutoff: cutoff });
+    expect(droppedImmature).toBe(1);
+    expect(segments.combined.personal.deliveries).toBe(0);
+    // ...and with the filter off, the old confounded behaviour is reproducible.
+    const off = aggregate([doc], [], null, {});
+    expect(off.segments.combined.personal.deliveries).toBe(1);
+    expect(off.droppedImmature).toBe(0);
+  });
+
+  it('keeps a delivery released exactly at the cutoff (>= is fresh, > is dropped)', () => {
+    const atCutoff = deliveryDoc({ campaignId: CAMPAIGN, email: 'edge@x.com', sentAt: new Date(cutoff), sendTimeSource: 'global' });
+    const { segments, droppedImmature } = aggregate([atCutoff], [], null, { maturityCutoff: cutoff });
+    expect(droppedImmature).toBe(0);
+    expect(segments.combined.global.deliveries).toBe(1);
+  });
+
+  it('an unscheduled delivery is unaffected: sent_at and delivery instant coincide', () => {
+    const mature = deliveryDoc({ campaignId: CAMPAIGN, email: 'old@x.com', sentAt: new Date('2026-07-30T00:00:00.000Z'), sendTimeSource: null });
+    const { segments, droppedImmature } = aggregate([mature], [], null, { maturityCutoff: cutoff });
+    expect(droppedImmature).toBe(0);
+    expect(segments.combined[IMMEDIATE_LABEL].deliveries).toBe(1);
+  });
+});
+
+describe('aggregate — pre/post split anchored to delivery, and the window floor', () => {
+  const since = new Date('2026-07-12T00:00:00.000Z');
+
+  it('a message SENT before the split but DELIVERED after lands in "after"', () => {
+    // Under the old sent_at bucketing this landed in "before", crediting the
+    // pre-feature baseline with a delivery the feature actually produced.
+    const doc = deliveryDoc({
+      campaignId: CAMPAIGN,
+      email: 'straddle@x.com',
+      sentAt: new Date('2026-07-11T22:00:00.000Z'),
+      scheduledFor: new Date('2026-07-12T08:00:00.000Z'),
+      sendTimeSource: 'personal',
+    });
+    const { segments } = aggregate([doc], [], since);
+    expect(segments.after.personal.deliveries).toBe(1);
+    expect(segments.before.personal.deliveries).toBe(0);
+  });
+
+  it('trims the lookahead over-fetch: delivered before the window floor is excluded', () => {
+    const windowFloor = new Date('2026-07-12T00:00:00.000Z');
+    const tooOld = deliveryDoc({ campaignId: CAMPAIGN, email: 'old@x.com', sentAt: new Date('2026-07-10T00:00:00.000Z'), sendTimeSource: 'global' });
+    const inWindow = deliveryDoc({
+      campaignId: CAMPAIGN,
+      email: 'kept@x.com',
+      sentAt: new Date('2026-07-11T20:00:00.000Z'), // fetched only thanks to the widened floor
+      scheduledFor: new Date('2026-07-12T06:00:00.000Z'),
+      sendTimeSource: 'personal',
+    });
+    const { segments, droppedBeforeWindow } = aggregate([tooOld, inWindow], [], null, { windowFloor });
+    expect(droppedBeforeWindow).toBe(1);
+    expect(segments.combined.global.deliveries).toBe(0);
+    expect(segments.combined.personal.deliveries).toBe(1);
+  });
+
+  it('computeFetchFloor reaches back one full max lookahead before the logical floor', () => {
+    const floor = new Date('2026-07-12T00:00:00.000Z');
+    expect(computeFetchFloor(floor).getTime()).toBe(floor.getTime() - MAX_SCHEDULE_LOOKAHEAD_MS);
+    // Without the widening, `inWindow` above is never fetched at all — a
+    // silent left-edge truncation that only ever hits the scheduled cohort.
+    expect(computeFetchFloor(floor).getTime()).toBeLessThan(new Date('2026-07-11T20:00:00.000Z').getTime());
+  });
+});
+
+describe('aggregate — treatment coverage (how much of `personal` was really treated)', () => {
+  const sentAt = new Date('2026-07-20T03:33:00.000Z');
+
+  it('counts only deliveries with a real scheduled_for as treated, and their opens/clicks separately', () => {
+    const deliveries = [
+      // Treated + opened.
+      deliveryDoc({ campaignId: CAMPAIGN, email: 't1@x.com', sentAt, scheduledFor: new Date('2026-07-20T18:00:00Z'), sendTimeSource: 'personal', opened: true }),
+      // Treated, not opened.
+      deliveryDoc({ campaignId: CAMPAIGN, email: 't2@x.com', sentAt, scheduledFor: new Date('2026-07-20T18:00:00Z'), sendTimeSource: 'personal' }),
+      // Labelled personal but the cascade fell through to Mailjet v3.1 / Mailtrap /
+      // Cloudflare — no native scheduled-send, so it went out immediately and
+      // never received the treatment. It still opens, inflating the ITT row.
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'u1@x.com', sentAt, scheduledFor: null, sendTimeSource: 'personal', opened: true, clicked: true }),
+    ];
+    const { segments } = aggregate(deliveries, [], null);
+    const cell = segments.combined.personal;
+    expect(cell).toEqual({ deliveries: 3, opens: 2, clicks: 1, scheduled: 2, scheduledOpens: 1, scheduledClicks: 0 });
+    // The treated-only projection is a strict subset, never a different denominator.
+    expect(treatedCell(cell)).toEqual({ deliveries: 2, opens: 1, clicks: 0 });
+  });
+
+  it('formatSegmentTable exposes coverage as a sched% column', () => {
+    const cells = newSegment();
+    cells.personal = { deliveries: 4, opens: 2, clicks: 0, scheduled: 1, scheduledOpens: 1, scheduledClicks: 0 };
+    expect(formatSegmentTable('t', cells)).toContain('sched%');
+    expect(formatSegmentTable('t', cells)).toMatch(/25\.0%/);
+  });
+
+  it('formatSegmentTable still renders cells built without the treated sub-counts', () => {
+    // Legacy/hand-built cells (and the significance tests below) omit them.
+    const cells = newSegment();
+    cells.personal = { deliveries: 42, opens: 10, clicks: 2 } as never;
+    expect(() => formatSegmentTable('t', cells)).not.toThrow();
+    expect(formatSegmentTable('t', cells)).toContain('0.0%');
+  });
+
+  it('formatCoverageNote warns loudly when the personal cohort is diluted', () => {
+    const cells = newSegment();
+    cells.personal = { deliveries: 100, opens: 10, clicks: 1, scheduled: 30, scheduledOpens: 5, scheduledClicks: 1 };
+    const note = formatCoverageNote(cells);
+    expect(note).toContain('30/100');
+    expect(note).toContain('⚠️');
+    expect(note).toContain('scheduled only');
+  });
+
+  it('formatCoverageNote stays quiet when coverage is high', () => {
+    const cells = newSegment();
+    cells.personal = { deliveries: 100, opens: 10, clicks: 1, scheduled: 95, scheduledOpens: 9, scheduledClicks: 1 };
+    const note = formatCoverageNote(cells);
+    expect(note).toContain('95/100');
+    expect(note).not.toContain('⚠️');
+  });
+
+  it('formatCoverageNote does not divide by zero on an empty cohort', () => {
+    const note = formatCoverageNote(newSegment());
+    expect(note).not.toContain('NaN');
+    expect(note).toContain('no `personal` deliveries');
+  });
+});
+
+describe('parseMaturityHoursArg / computeMaturityCutoff', () => {
+  it('defaults to DEFAULT_MATURITY_HOURS when the flag is absent', () => {
+    expect(parseMaturityHoursArg(null)).toEqual({ hours: DEFAULT_MATURITY_HOURS, warning: null });
+  });
+
+  it('accepts 0 as an explicit "disable the filter" — unlike --days, which rejects it', () => {
+    expect(parseMaturityHoursArg('0')).toEqual({ hours: 0, warning: null });
+    expect(computeMaturityCutoff(new Date(), 0)).toBeNull();
+  });
+
+  it('rejects a negative value, which would put the cutoff in the FUTURE and drop everything', () => {
+    const { hours, warning } = parseMaturityHoursArg('-12');
+    expect(hours).toBe(DEFAULT_MATURITY_HOURS);
+    expect(warning).toMatch(/>= 0/);
+  });
+
+  it('rejects non-numeric input with a warning', () => {
+    expect(parseMaturityHoursArg('soon').hours).toBe(DEFAULT_MATURITY_HOURS);
+    expect(parseMaturityHoursArg('soon').warning).toMatch(/>= 0/);
+  });
+
+  it('computes the cutoff N hours before now', () => {
+    const now = new Date('2026-08-05T12:00:00.000Z');
+    expect(computeMaturityCutoff(now, 48)?.toISOString()).toBe('2026-08-03T12:00:00.000Z');
   });
 });
 

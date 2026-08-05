@@ -9,10 +9,13 @@ name: Send-Time Impact Report
 
 on:
   schedule:
-    # Weekly, Monday 02:20 UTC — inside the quiet 01:00-04:00 UTC concurrency
-    # window (same audit as send-job-alerts, #3798). Weekly cadence tracks the
-    # slow-growing `personal` cohort (subscribers need 3+ post-feature events
-    # before they get a personal hour) into the backlog without spamming it.
+    # Weekly, Monday 02:20 UTC. Weekly cadence tracks the slow-growing
+    # `personal` cohort (subscribers need 3+ post-feature events before they get
+    # a personal hour) into the backlog without spamming it.
+    # The slot is not load-bearing for a read-only report, and the "quiet
+    # 01:00-04:00 UTC concurrency window" this comment used to cite does not
+    # exist — see the corrected audit in send-job-alerts.yml (#3798 Fase 1).
+    # Effective start is ~05:54 UTC (median 214m of GitHub dispatch backlog).
     - cron: '20 2 * * 1'
   workflow_dispatch:
     inputs:
@@ -25,6 +28,11 @@ on:
         description: 'Feature activation date for the pre/post split (YYYY-MM-DD)'
         required: false
         default: '2026-07-12'
+        type: string
+      maturity_hours:
+        description: 'Exclude deliveries released less than N hours ago (0 = disable, reproduces the old confounded numbers)'
+        required: false
+        default: '48'
         type: string
       post_to_issue:
         description: 'Post the report as a comment on issue #3798'
@@ -70,10 +78,17 @@ jobs:
           # defaults the workflow_dispatch inputs declare.
           REPORT_DAYS: ${{ inputs.days || '20' }}
           REPORT_SINCE: ${{ inputs.since || '2026-07-12' }}
+          # #3798 Fase 4: without a maturation window the `personal` cohort is
+          # the only one systematically delayed relative to its own sent_at, so
+          # it gets a shorter effective window in which to be opened. Measured
+          # 2026-08-05: that single confound moved personal-vs-global from
+          # -8.7pp to +12.1pp on the same data.
+          REPORT_MATURITY_HOURS: ${{ inputs.maturity_hours || '48' }}
         run: |
           node scripts/report-send-hour-impact.mjs \
             --days "$REPORT_DAYS" \
-            --since "$REPORT_SINCE" | tee /tmp/send-hour-impact.txt | tee -a "$GITHUB_STEP_SUMMARY"
+            --since "$REPORT_SINCE" \
+            --maturity-hours "$REPORT_MATURITY_HOURS" | tee /tmp/send-hour-impact.txt | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Upload report artifact
         if: always()
@@ -104,6 +119,6 @@ jobs:
                 body,
                 '```',
                 '',
-                `_Auto-posted by the Send-Time Impact Report workflow — [run](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}). Each comparison above is now a real two-proportion z-test (\`[significant, p=...]\` / \`[not significant, p=...]\`), not a fixed n<100 cutoff._`,
+                `_Auto-posted by the Send-Time Impact Report workflow — [run](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}). Comparisons are real two-proportion z-tests (\`[significant, p=...]\` / \`[not significant, p=...]\`). Since #3798 Fase 4 the report keys on DELIVERY time (\`scheduled_for ?? sent_at\`) and drops deliveries released in the last \`--maturity-hours\`, so the deliberately-delayed \`personal\` cohort is no longer compared against a shorter open window than \`global\`/\`immediate\`; \`sched%\` is the share of each group that genuinely got a scheduled send._`,
               ].join('\n'),
             });
