@@ -519,8 +519,16 @@ export function canonicalSwissCityName(value = '') {
  * matched city token (normalized) or empty string. Used as a "rescue" path
  * when addressLocality is canton-only — we look at the description body
  * for a real city before deciding to drop the record.
+ *
+ * @param {string} text
+ * @param {{ skipTokens?: Set<string> }} [options] - tokens to ignore. A
+ *   skipped token does NOT abort the scan: the search continues so that a
+ *   description reading "alle Mitarbeitenden in Winterthur" still resolves to
+ *   Winterthur instead of the village of Alle (JU). Callers scanning free-form
+ *   description text should pass TEXT_RESCUE_AMBIGUOUS_TOKENS — or, better,
+ *   just call rescueSwissCityFromText(), which does it for them.
  */
-export function findSwissCityInText(text = '') {
+export function findSwissCityInText(text = '', { skipTokens } = {}) {
   if (!text || typeof text !== 'string') return '';
   const norm = normalizeToken(text);
   if (!norm) return '';
@@ -530,27 +538,114 @@ export function findSwissCityInText(text = '') {
   for (let n = 3; n >= 1; n--) {
     for (let i = 0; i + n <= words.length; i++) {
       const candidate = words.slice(i, i + n).join(' ');
+      if (skipTokens?.has(candidate)) continue;
       if (_strictSwissCityTokens.has(candidate)) return candidate;
     }
   }
   return '';
 }
 
+// Municipality tokens that are ALSO everyday words in the languages job ads
+// are written in (de/fr/it/en) or well-known company/brand names. Scanning a
+// free-text description for a city name matches these constantly — "alle"
+// ("all" in German) appears in almost every German ad — so a text rescue that
+// accepts them manufactures a Swiss location out of thin air.
+//
+// Scope is deliberately narrow: this set applies ONLY to
+// rescueSwissCityFromText() (free-text description scanning). It is NOT part
+// of AMBIGUOUS_LOCATION_WORD_TOKENS, because an explicit `addressLocality` of
+// "Rolle" or "Fully" IS a real location the author typed on purpose, and must
+// keep resolving via isKnownSwissCity()/isCantonRelevant(). The bug class is
+// text rescue, so the guard belongs on text rescue only.
+//
+// Evidence: run 31001482058 of location-quality-audit. Cross-joining the
+// per-job report against data/jobs/by-crawler/ showed 1592 published jobs whose
+// city had been overwritten by the description rescue; these tokens accounted
+// for 1391 of them (87%). Worked example: Roche postings in Jakarta, Kyiv,
+// Michigan, Mississauga and Petaling Jaya all shipped as "Alle" (JU) because
+// their German description contains the word "alle". Bühler Group postings in
+// Wuxi, Curitiba and Alzenau shipped as "Bühler" (AR) — the company's own name.
+//
+// Criterion for adding a token: a single- or multi-word BFS token that is a
+// common de/fr/it/en word or a company name, CONFIRMED against audit data.
+// Do not add distinctive town names (Locarno, Sion, Winterthur, ...) — those
+// appearing in a description really do signal the job's location.
+// Counts below are the observed bogus rewrites from that run.
+export const TEXT_RESCUE_AMBIGUOUS_TOKENS = new Set([
+  'alle',     // DE "all"                      — 705 bogus rewrites → Alle (JU)
+  'rolle',    // DE/FR "role" / "rôle"         — 247 → Rolle (VD)
+  'buhler',   // Bühler Group (company name)   —  97 → Bühler (AR)
+  'premier',  // EN/FR "first"                 —  86 → Premier (VD)
+  'le lieu',  // FR "the place/venue"          —  84 → Le Lieu (VD)
+  'root',     // EN "root"                     —  56 → Root (LU)
+  'fully',    // EN "fully"                    —  48 → Fully (VS)
+  'taverne',  // DE/FR/IT "tavern"             —  30 → Taverne (TI)
+  'messen',   // DE "trade fairs" / "to measure" — 20 → Messen (SO)
+  'laufen',   // DE "to run"                   —  18 → Laufen (BL)
+  'dorf',     // DE "village"                  —   3 → Dorf (ZH)
+  'bullet',   // EN "bullet"                   —   2 → Bullet (VD)
+  'lachen',   // DE "to laugh"                 —   2 → Lachen (SZ)
+  'bulle',    // FR "bubble" — named as a known hazard in this file since the
+              //   ≥4-char guard was added, but 5 chars, so never caught by it
+  'port',     // EN/FR/DE "port"               —   1 → Port (BE)
+  'lens',     // EN "lens"                     —   1 → Lens (VS)
+  'wahlen',   // DE "elections"                —   1 → Wahlen (BL)
+  'speicher', // DE "storage" / "memory"       —   1 → Speicher (AR)
+  'riviera',  // generic geographic term       —   1 → Riviera (TI)
+  // Found by re-running the audit join against the patched rescue: these were
+  // the everyday words still anchoring foreign postings after the first pass.
+  'meilen',   // DE "miles" — pulled Michigan/Tampa/Boston postings into Meilen (ZH)
+  'gland',    // EN "gland" — pharma descriptions (Penzberg, Mannheim) → Gland (VD)
+  'rossa',    // IT "red"   — Prada's Taichung postings → Rossa (GR)
+]);
+
 /**
  * Guarded combination of findSwissCityInText() + canonicalSwissCityName():
- * only accepts a match of ≥4 characters. Some Swiss municipality names are
- * also everyday nouns in the job's own language (e.g. "Zug" = train in
- * German, "Bulle" = bubble in French), so a description that merely
- * mentions commute logistics ("gut mit dem Zug erreichbar") must not be
- * treated as naming the job's real city. Returns '' when there is no match
- * or the match is too short to trust. Single source of truth for every
- * description-text rescue call site — never inline the raw
- * canonicalSwissCityName(findSwissCityInText(...)) expression instead.
+ * accepts a match only when it is ≥4 characters AND not an everyday word.
+ * Some Swiss municipality names are also everyday nouns in the job's own
+ * language (e.g. "Zug" = train in German, "Bulle" = bubble in French), so a
+ * description that merely mentions commute logistics ("gut mit dem Zug
+ * erreichbar") must not be treated as naming the job's real city.
+ *
+ * The ≥4-char rule alone is far too weak: it stops "Zug" but lets through
+ * "Alle" (4), "Root" (4), "Rolle" (5), "Fully" (5) and "Bulle" (5) — which
+ * between them accounted for ~1.4k mislocated jobs (see
+ * TEXT_RESCUE_AMBIGUOUS_TOKENS). Hence the explicit token blocklist.
+ *
+ * Returns '' when there is no match, the match is too short, or the match is
+ * an everyday word. Single source of truth for every DESCRIPTION-text rescue
+ * call site — never inline the raw
+ * canonicalSwissCityName(findSwissCityInText(...)) expression instead. To pull
+ * a city out of a location FIELD, use swissCityFromLocationField() below.
  */
 export function rescueSwissCityFromText(text = '') {
-  const found = findSwissCityInText(text);
+  const found = findSwissCityInText(text, { skipTokens: TEXT_RESCUE_AMBIGUOUS_TOKENS });
   if (!found || found.length < 4) return '';
   return canonicalSwissCityName(found);
+}
+
+/**
+ * Extract the Swiss city named inside a LOCATION FIELD — `addressLocality`,
+ * `location`, a crawler's raw location string. Companion to
+ * rescueSwissCityFromText, and the reason the two are separate functions:
+ *
+ *   - a description is prose the author never intended as an address, so a
+ *     municipality name appearing in it is usually an everyday word →
+ *     TEXT_RESCUE_AMBIGUOUS_TOKENS applies, and "Ihre Rolle im Team" must not
+ *     resolve to Rolle (VD);
+ *   - a location field is a place the author typed on purpose, so "Rolle" there
+ *     IS Rolle (VD) → no blocklist, and no ≥4-char rule either.
+ *
+ * Handles the decoration crawlers wrap around a city name: "Baden, Aargau",
+ * "Luzern / hybrid", "2540 Grenchen Phone", "Visp-Eyholz". Returns '' when the
+ * field names no known Swiss municipality.
+ *
+ * Exists so neither behaviour is expressed by inlining
+ * canonicalSwissCityName(findSwissCityInText(...)) at a call site, where the
+ * choice of blocklist-or-not becomes invisible and drifts.
+ */
+export function swissCityFromLocationField(value = '') {
+  return canonicalSwissCityName(findSwissCityInText(value));
 }
 
 // ─── Liechtenstein postal-code helper ──────────────────────────────────────

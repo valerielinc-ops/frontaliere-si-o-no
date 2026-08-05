@@ -33,10 +33,10 @@ beforeEach(() => {
 });
 
 describe('github-issue-creator crawler-failure consecutive gate', () => {
-  it('1st failure → low-priority breadcrumb (no priority:high) + crawler-transient label', async () => {
-    // No open issue, no recently-closed issue, no labels exist yet, create succeeds.
+  it('1st failure → ledger entry, NOT a per-crawler issue (#5139/#5137)', async () => {
+    // No open issue, no recently-closed issue, no ledger yet.
     execFileSync.mockImplementation((_cmd: string, args: string[]) => {
-      if (args[0] === 'issue' && args[1] === 'list') return '[]'; // no dup
+      if (args[0] === 'issue' && args[1] === 'list') return '[]'; // no dup, no ledger
       if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/42';
       return '';
     });
@@ -49,11 +49,91 @@ describe('github-issue-creator crawler-failure consecutive gate', () => {
       workflow: 'Update Nestlé',
     } as any);
 
-    expect(res?.number).toBe(42);
+    // The only issue created is the shared ledger — a lone blip must not mint
+    // an issue of its own. 333 crawler-transient issues had been opened this way.
+    const creates = ghCalls().filter((a) => a[0] === 'issue' && a[1] === 'create');
+    expect(creates).toHaveLength(1);
+    expect(creates[0][creates[0].indexOf('--title') + 1]).toBe('Crawler transient failures (rolling ledger)');
+    expect(creates.some((c) => c.includes('Crawler Failure: Update Nestlé'))).toBe(false);
+
+    // The failure is recorded as a ledger comment carrying the crawler's key.
+    const comment = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'comment');
+    expect(comment?.[2]).toBe('42');
+    expect(comment?.[comment.indexOf('--body') + 1]).toContain('transient-key: Crawler Failure: Update Nestlé');
+
+    expect(res?.ledger).toBe(true);
+    // Never escalates the caller's priority on a first blip.
+    expect(createCallLabels()).not.toContain('priority:high');
+  });
+
+  it('reuses an existing ledger and escalates on the Nth failure', async () => {
+    // Ledger #7 already holds 2 in-window entries for this crawler.
+    const key = 'transient-key: Crawler Failure: Update Nestlé';
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') {
+        // Dedup lookup for the crawler title finds nothing; ledger lookup finds #7.
+        const isLedgerLookup = args.some((a) => typeof a === 'string' && a.includes('Crawler transient failures'));
+        return isLedgerLookup
+          ? JSON.stringify([{ number: 7, title: 'Crawler transient failures (rolling ledger)', url: 'u', closedAt: null }])
+          : '[]';
+      }
+      if (args[0] === 'issue' && args[1] === 'view') {
+        return JSON.stringify({
+          comments: [
+            { createdAt: ISO(1), body: `x ${key}` },
+            { createdAt: ISO(2), body: `x ${key}` },
+            { createdAt: ISO(200), body: `x ${key}` }, // outside the 48h window
+            { createdAt: ISO(1), body: 'transient-key: Crawler Failure: Update Other' },
+          ],
+        });
+      }
+      if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/77';
+      return '';
+    });
+
+    const res = await createGithubIssue({
+      title: 'Crawler Failure: Update Nestlé',
+      description: 'fetch failed again',
+      priority: 2,
+      labels: ['Bug'],
+      workflow: 'Update Nestlé',
+    } as any);
+
+    // 2 in-window entries + this run = 3 = threshold → a real, routable issue.
+    expect(res?.number).toBe(77);
+    expect(res?.ledger).toBeUndefined();
+    const creates = ghCalls().filter((a) => a[0] === 'issue' && a[1] === 'create');
+    expect(creates).toHaveLength(1);
+    expect(creates[0][creates[0].indexOf('--title') + 1]).toBe('Crawler Failure: Update Nestlé');
+    const labels = createCallLabels();
+    expect(labels).toContain('priority:high');
+    expect(labels).not.toContain('crawler-transient');
+  });
+
+  it('falls back to a per-crawler issue when the ledger cannot be written', async () => {
+    // Ledger creation fails (gh error) → we must not lose the failure signal.
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      if (args[0] === 'issue' && args[1] === 'create') {
+        const title = args[args.indexOf('--title') + 1];
+        if (String(title).startsWith('Crawler transient failures')) throw new Error('gh down');
+        return 'https://github.com/o/r/issues/55';
+      }
+      return '';
+    });
+
+    const res = await createGithubIssue({
+      title: 'Crawler Failure: Update Nestlé',
+      description: 'fetch failed',
+      priority: 2,
+      labels: ['Bug'],
+      workflow: 'Update Nestlé',
+    } as any);
+
+    expect(res?.number).toBe(55);
     const labels = createCallLabels();
     expect(labels).toContain('priority:low');
     expect(labels).toContain('crawler-transient');
-    expect(labels).not.toContain('priority:high');
   });
 
   it('Nth failure on an existing breadcrumb → escalates to caller priority', async () => {

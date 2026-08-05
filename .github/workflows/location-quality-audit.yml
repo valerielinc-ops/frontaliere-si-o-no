@@ -72,13 +72,20 @@ jobs:
           const r = JSON.parse(readFileSync('data/location-audit-report.json', 'utf8'));
           const s = r.summary;
           const pct = (n) => (r.audited > 0 ? ((n / r.audited) * 100).toFixed(2) : '0.00');
-          const overridden = s.crawlerCantonOverridden || 0;
-          // A published canton that contradicts the crawler's own record is a
-          // wrong canton by construction — no municipality database has to
+          const rewritten = s.crawlerLocationRewritten || 0;
+          const stampDiffers = s.crawlerCantonStampDiffers || 0;
+          // A published LOCALITY that contradicts the crawler's own record is a
+          // wrong location by construction — no municipality database has to
           // adjudicate it — so it belongs with the two never-acceptable
           // categories rather than in the informational rows (#4838: the BFS-only
           // signal reported 0 problems while 28/39 Bürgenstock jobs shipped TI).
-          const hasRealBugs = s.cantonMismatch > 0 || s.foreignInSwiss > 0 || overridden > 0;
+          //
+          // The canton STAMP difference is deliberately not a bug signal (#5136):
+          // dedicated crawlers write the employer's home canton on every posting,
+          // so "crawler said BS, we published ZH" is usually just the crawler's
+          // constant being stale. Alarming on it buried the real rewrites under
+          // ~775 false positives.
+          const hasRealBugs = s.cantonMismatch > 0 || s.foreignInSwiss > 0 || rewritten > 0;
 
           let md = `## Location data quality snapshot\n\n`;
           md += `Audited ${r.audited} / ${r.totalJobs} jobs (geocoding ${r.geocodingEnabled ? 'ON' : 'OFF'}).\n\n`;
@@ -86,15 +93,16 @@ jobs:
           md += `| ✅ Correct (BFS-confirmed) | ${s.correct} | ${pct(s.correct)}% |\n`;
           md += `| ⚠️ Canton mismatch (BFS disagrees with stored canton) | ${s.cantonMismatch} | ${pct(s.cantonMismatch)}% |\n`;
           md += `| 🚨 Foreign city tagged as Swiss canton | ${s.foreignInSwiss} | ${pct(s.foreignInSwiss)}% |\n`;
-          md += `| 📌 Published canton contradicts the crawler record | ${overridden} | ${pct(overridden)}% |\n`;
+          md += `| 📌 Published locality contradicts the crawler record | ${rewritten} | ${pct(rewritten)}% |\n`;
           md += `| ❓ Custom/unknown location (matches no canonical Swiss location) | ${s.customLocation} | ${pct(s.customLocation)}% |\n`;
           md += `| 🏢 Suspected company-default fallback | ${s.companyDefaultFallback} | ${pct(s.companyDefaultFallback)}% |\n`;
           md += `| 📭 Empty location | ${s.emptyLocation} | ${pct(s.emptyLocation)}% |\n`;
-          md += `| 🔤 Lowercase canton (stored) | ${s.lowercaseCanton} | ${pct(s.lowercaseCanton)}% |\n\n`;
+          md += `| 🔤 Lowercase canton (stored) | ${s.lowercaseCanton} | ${pct(s.lowercaseCanton)}% |\n`;
+          md += `| ℹ️ Crawler canton stamp differs (same place — context, not a bug) | ${stampDiffers} | ${pct(stampDiffers)}% |\n\n`;
           md += hasRealBugs
-            ? `🚨 **Canton mismatch, foreign-tagged-as-Swiss and/or crawler-canton-overridden are non-zero** — these are the three categories the dataset must never produce (location must always resolve to a real Swiss canton, and the published canton must never contradict the crawler's own record). Check the full report artifact for offending companies/cities.\n\n`
-            : `No canton-mismatch / foreign-tagged-as-Swiss / crawler-canton-overridden bugs this run.\n\n`;
-          md += `_\`📌 Published canton contradicts the crawler record\` is BFS-independent: it fires for hamlets and resorts BFS does not list as municipalities, which the other rows can only file under "custom/unknown location". ${r.crawlerRecordsIndexed || 0} crawler records indexed this run._\n\n`;
+            ? `🚨 **Canton mismatch, foreign-tagged-as-Swiss and/or published-locality-rewritten are non-zero** — these are the three categories the dataset must never produce (location must always resolve to a real Swiss canton, and the published locality must never contradict the crawler's own record). Check the full report artifact for offending companies/cities.\n\n`
+            : `No canton-mismatch / foreign-tagged-as-Swiss / locality-rewritten bugs this run.\n\n`;
+          md += `_\`📌 Published locality contradicts the crawler record\` is BFS-independent, which is exactly why it matters: it catches jobs moved onto a city that IS a real BFS municipality, so every BFS-backed row above signs them off as correct. The destination is usually an everyday word that happens to name a village — "Alle" (JU) is German for "all" — so start from the "Rewritten INTO" table in the artifact and add repeat offenders to \`TEXT_RESCUE_AMBIGUOUS_TOKENS\`. ${r.crawlerRecordsIndexed || 0} crawler records indexed this run._\n\n`;
           md += `**Run:** ${process.env.RUN_URL}\n`;
           md += `Full per-job detail: \`location-audit-report\` workflow artifact (30-day retention).\n`;
           md += `Script: \`scripts/audit-job-locations.mjs\`\n`;
