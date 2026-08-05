@@ -259,7 +259,10 @@ export function readOrphanEnriched(rootDir = process.cwd()) {
   for (const f of listOrphanEnrichedShardFiles(rootDir)) {
     try {
       const j = JSON.parse(fs.readFileSync(f, 'utf-8'));
-      if (Array.isArray(j?.orphans)) shardRecords.push(...j.orphans);
+      // Appended one by one, not `push(...j.orphans)`: the spread passes every
+      // record as a separate argument, and this ledger is an accumulator whose
+      // whole history is one oversize blob away from breaking a push again.
+      if (Array.isArray(j?.orphans)) for (const r of j.orphans) shardRecords.push(r);
     } catch {
       /* skip corrupt/mid-write shard */
     }
