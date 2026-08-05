@@ -637,6 +637,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'banche-cercano-piu-personale': { it: 'banche-cercano-piu-personale', en: 'swiss-banks-look-for-staff-july', de: 'schweizer-banken-suchen-personal-juli', fr: 'banques-suisses-recherchent-personnel-juillet' },
  'cile-1988-democrazia-svizzera': { it: 'cile-1988-democrazia-svizzera', en: 'chile-1988-democracy-switzerland', de: 'chile-1988-demokratie-schweiz', fr: 'chili-1988-democratie-suisse' },
  'franco-svizzero-economia-bns-politica-monetaria': { it: 'franco-svizzero-economia-bns-politica-monetaria', en: 'swiss-franc-economy-snb-monetary-policy', de: 'schweizer-franken-wirtschaft-snb-geldpolitik', fr: 'franc-suisse-economie-bns-politique-monetaire' },
+ 'medicina-di-genere-svizzera': { it: 'medicina-di-genere-svizzera', en: 'swiss-gender-medicine', de: 'schweizer-geschlechtsmedizin', fr: 'medecine-de-genre-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -1834,6 +1834,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.franco-svizzero-economia-bns-politica-monetaria.title': 'Franc suisse : économie et politique monétaire de la BNS',
     'blog.article.franco-svizzero-economia-bns-politica-monetaria.excerpt': 'Découvrez le rôle de la Banque nationale suisse dans la politique monétaire et l\'impact du franc fort sur l\'économie et les salaires.',
     'blog.article.franco-svizzero-economia-bns-politica-monetaria.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes',
+    'blog.article.medicina-di-genere-svizzera.title': 'Médecine de genre en Suisse : nouveaux défis et opportunités',
+    'blog.article.medicina-di-genere-svizzera.excerpt': 'La médecine de genre lutte pour devenir d\'usage courant, mais les lacunes dans les financements et les résistances politiques rendent tout très difficile.',
+    'blog.article.medicina-di-genere-svizzera.imageAlt': 'Hôpital moderne en Suisse à Lugano avec des professionnels médicaux divers',
 };
 
 export default blogMetaChFr;

@@ -1834,6 +1834,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.franco-svizzero-economia-bns-politica-monetaria.title': 'Schweizer Franken: Wirtschaft und Geldpolitik der SNB',
     'blog.article.franco-svizzero-economia-bns-politica-monetaria.excerpt': 'Erfahren Sie mehr über die Rolle der Schweizerischen Nationalbank in der Geldpolitik und die Auswirkungen des starken Frankens auf die Wirtschaft und die Löhne.',
     'blog.article.franco-svizzero-economia-bns-politica-monetaria.imageAlt': 'Panoramablick auf Lugano mit dem See und den Bergen',
+    'blog.article.medicina-di-genere-svizzera.title': 'Gendermedizin in der Schweiz: Neue Herausforderungen und Chancen',
+    'blog.article.medicina-di-genere-svizzera.excerpt': 'Die Geschlechtermedizin kämpft darum, alltäglich zu werden, aber Finanzierungslücken und politischer Widerstand erschweren alles sehr.',
+    'blog.article.medicina-di-genere-svizzera.imageAlt': 'Modernes Schweizer Krankenhaus in Lugano mit medizinischem Personal aus verschiedenen Ländern',
 };
 
 export default blogMetaChDe;

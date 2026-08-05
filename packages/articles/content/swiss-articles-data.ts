@@ -5500,6 +5500,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'medicina-di-genere-svizzera',
+    category: 'novita',
+    date: '2026-08-05T03:15:47.876Z',
+    image: '/images/blog/medicina-di-genere-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
