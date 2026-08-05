@@ -68,6 +68,11 @@ data/expired-jobs.json
 data/jobs-meta.json
 data/jobs-crawler-summaries.json
 data/all-known-job-slugs.json
+# data/orphan-enriched-data.json — superseded by the sharded ledger under
+# data/orphan-enriched-data/ (#4248). Kept ignored so a stale writer or an
+# old checkout that re-creates the >100MB monolith can never be committed:
+# GH001 rejects the WHOLE push, which is what kept sync-gsc-orphans.yml red.
+data/orphan-enriched-data.json
 data/job-canton-pins.json
 data/jobs-crawler-audit.json
 data/jobs-stats.json

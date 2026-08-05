@@ -19,6 +19,7 @@ import { firstParsableMs } from './shared/firstParsableDate';
 import { buildSlimSeed } from './shared/slimJobIndex';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
+import { readOrphanEnriched } from '../scripts/lib/orphan-enriched-store.mjs';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from './shared/jobPostingFaq';
 import { hostFromUrl } from './shared/hostFromUrl';
@@ -11133,7 +11134,6 @@ ${staticAnalyticsHtml}
  } catch { /* file missing — skip */ }
 
  // 1c. Load enriched data for orphan slugs (GSC queries + translation cache titles/descriptions)
- const orphanEnrichedPath = np.resolve(rootDir, 'data/orphan-enriched-data.json');
  interface OrphanEnriched {
  queries?: string[];
  totalImpressions?: number;
@@ -11154,7 +11154,12 @@ ${staticAnalyticsHtml}
  }
  const orphanGscData = new Map<string, OrphanEnriched>();
  try {
- const enrichedArr: any[] = JSON.parse(fs.readFileSync(orphanEnrichedPath, 'utf-8'));
+ // Sharded ledger (#4248). readOrphanEnriched returns a slug's locale
+ // records with the STRONGEST GSC signal LAST, so the last-one-wins
+ // `orphanGscData.set` below now resolves to the record that actually
+ // carries the queries instead of whichever locale happened to be
+ // appended last — see signalRank in scripts/lib/orphan-enriched-store.mjs.
+ const enrichedArr: any[] = readOrphanEnriched(rootDir);
  let withQueries = 0;
  let withContent = 0;
  for (const entry of enrichedArr) {

@@ -14,6 +14,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { JOB_BOARD_SEGMENT_RX } from './lib/jobBoardSections.mjs';
+import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -217,7 +218,7 @@ function mergeContextFallback(primary, fallback) {
 
 function buildJobContextResolver() {
   const activeJobs = readJsonSafe('data/jobs.json', []);
-  const orphanJobs = readJsonSafe('data/orphan-enriched-data.json', []);
+  const orphanJobs = readOrphanEnriched(ROOT);
   const slugRegistry = readJsonSafe('data/slug-registry.json', {});
   const preCathedralRegistry = readJsonSafe('data/slug-registry.pre-cathedral.snapshot.json', {});
 

@@ -4,7 +4,8 @@
  *
  * Recovers rich content for 404-compat slugs (from data/seo-404-compat-paths.json)
  * by looking them up in data/translation-cache/*.json. Slugs found in the cache
- * get appended to data/orphan-enriched-data.json with real title/description per
+ * get appended to the sharded enriched-orphan ledger (data/orphan-enriched-data/,
+ * via scripts/lib/orphan-enriched-store.mjs) with real title/description per
  * locale, so the jobsSeoPagesPlugin soft-landing turns from a generic template
  * into a content-rich page.
  *
@@ -20,13 +21,17 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { readCompatPaths } from './lib/compat-paths-store.mjs';
+import {
+  readOrphanEnriched,
+  writeOrphanEnriched,
+  ORPHAN_ENRICHED_SHARD_DIR,
+} from './lib/orphan-enriched-store.mjs';
 import { JOB_BOARD_SECTION_PREFIX_SOURCE } from './lib/jobBoardSections.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
-const ORPHAN_ENRICHED = path.resolve(ROOT, 'data/orphan-enriched-data.json');
 const ORPHAN_SLUGS = path.resolve(ROOT, 'data/orphan-indexed-job-slugs.json');
 const JOBS = path.resolve(ROOT, 'data/jobs.json');
 const CACHE_DIR = path.resolve(ROOT, 'data/translation-cache');
@@ -181,7 +186,7 @@ function main() {
 
   const compat = readCompatPaths(ROOT); // sharded accumulator (issue #2988)
   const compatPaths = Array.isArray(compat.paths) ? compat.paths : [];
-  const enriched = readJson(ORPHAN_ENRICHED, []);
+  const enriched = readOrphanEnriched(ROOT);
   const orphanSlugsList = readJson(ORPHAN_SLUGS, []);
   const activeJobs = readJson(JOBS, []);
 
@@ -326,8 +331,11 @@ function main() {
   }
 
   const updatedEnriched = [...enriched, ...newEntries];
-  writeJson(ORPHAN_ENRICHED, updatedEnriched);
-  console.log(`💾 Wrote ${ORPHAN_ENRICHED} (+${newEntries.length})`);
+  const written = writeOrphanEnriched(updatedEnriched, ROOT);
+  console.log(
+    `💾 Wrote ${ORPHAN_ENRICHED_SHARD_DIR}/ (+${newEntries.length}, `
+      + `${written.totalRecords} records across ${written.shardCount} shards)`,
+  );
 
   if (newOrphanSlugs.length > 0) {
     const updatedOrphan = [...orphanSlugsList, ...newOrphanSlugs];

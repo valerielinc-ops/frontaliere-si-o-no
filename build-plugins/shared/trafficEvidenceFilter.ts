@@ -51,6 +51,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { readOrphanEnriched } from '../../scripts/lib/orphan-enriched-store.mjs';
 
 export type UrlClass =
   | 'previousSlug'
@@ -158,7 +159,6 @@ export class TrafficEvidenceFilter {
     const indexedClusterPath = path.join(rootDir, 'data', 'indexed-cluster-urls.json');
     const gscJobUrlsPath = path.join(rootDir, 'data', 'gsc-job-urls.json');
     const gscOrphanSlugsPath = path.join(rootDir, 'data', 'gsc-orphan-job-slugs.json');
-    const orphanEnrichedPath = path.join(rootDir, 'data', 'orphan-enriched-data.json');
     const firstSeenPath = path.join(rootDir, 'data', 'url-first-seen.json');
 
     // Build a single normalized "has traffic" set from every signal source.
@@ -215,7 +215,7 @@ export class TrafficEvidenceFilter {
       }
     }
     // Reviewer MEDIUM #5: `data/gsc-orphan-job-slugs.json` (array of IT
-    // job slugs) and `data/orphan-enriched-data.json` (array of
+    // job slugs) and the sharded enriched-orphan ledger (records of
     // {locale, slug, path, queries[]}) are produced by the GSC orphan-
     // discovery pipeline. Each entry represents a URL Google has
     // already indexed (with at least one impression or click) but
@@ -233,7 +233,7 @@ export class TrafficEvidenceFilter {
         addToSet(`/cerca-lavoro-ticino/${slug}/`, () => evOrphanSlugs++);
       }
     }
-    const orphanEnriched = tryRead<unknown>(orphanEnrichedPath);
+    const orphanEnriched = readOrphanEnriched(rootDir);
     if (Array.isArray(orphanEnriched)) {
       for (const entry of orphanEnriched) {
         if (!entry || typeof entry !== 'object') continue;

@@ -35,6 +35,7 @@ import {
   LEGACY_PREV_SLUGS_CAP,
 } from './lib/dedicated-crawler-common.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
+import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -43,7 +44,6 @@ const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const DATA_EXPIRED = path.resolve(ROOT, 'data', 'expired-jobs.json');
-const DATA_ORPHAN_ENRICHED = path.resolve(ROOT, 'data', 'orphan-enriched-data.json');
 const DATA_ORPHAN_SLUGS = path.resolve(ROOT, 'data', 'orphan-indexed-job-slugs.json');
 const DATA_SLICES_DIR = path.resolve(ROOT, 'data', 'jobs', 'by-crawler');
 const DATA_EXPIRED_SLICES_DIR = path.resolve(ROOT, 'data', 'jobs', 'expired', 'by-crawler');
@@ -1240,7 +1240,9 @@ if (isDirectRun) {
   const activeJobs = readJson(DATA_JOBS, []);
   const expiredJobs = readJson(DATA_EXPIRED, []);
   const orphanSlugs = readJson(DATA_ORPHAN_SLUGS, []);
-  const enrichedData = readJson(DATA_ORPHAN_ENRICHED, []);
+  // Sharded under data/orphan-enriched-data/ (#4248) — the monolith crossed
+  // GitHub's 100 MB per-blob push limit and blocked every sync push.
+  const enrichedData = readOrphanEnriched(ROOT);
 
   console.log(`📊 Loaded: ${activeJobs.length} active, ${expiredJobs.length} expired, ${orphanSlugs.length} orphan slugs, ${enrichedData.length} enriched entries`);
   console.log('');

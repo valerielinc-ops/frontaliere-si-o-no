@@ -65,3 +65,18 @@ data/seo-404-compat/part-*.json merge=compat-shard
 # construction. Driver wired via `git config merge.known-slugs-shard.driver` in
 # scripts/lib/git-push-with-retry.sh and scripts/lib/git-commit-data.sh.
 data/all-known-job-slugs/part-*.json merge=known-slugs-shard
+
+# data/orphan-enriched-data/part-*.json are the shards of the enriched-orphan
+# ledger (issue #4248 split the >100MB monolith into 32 sorted JSON shards).
+# Each shard is `{ "orphans": [ {slug, locale, queries, …} ] }` sorted by
+# (slug, locale). Same store family, same concurrent producers and same failure
+# mode as the two shard sets above — sync-gsc-orphans rewrites the whole ledger
+# every run and enrich-compat-orphan-slugs appends to it, so git's default line
+# merge has no stable anchor and either conflicts (wedging the push-retry loop)
+# or keeps both rewrites, which for a JSON ARRAY means DUPLICATE RECORDS and a
+# doubled blob — re-creating the very size problem the shard exists to solve.
+# The custom `orphan-enriched-shard` driver does a 3-way merge on the record set
+# keyed by (locale, slug) → deduped + sorted by construction. Driver wired via
+# `git config merge.orphan-enriched-shard.driver` in
+# scripts/lib/git-push-with-retry.sh and scripts/lib/git-commit-data.sh.
+data/orphan-enriched-data/part-*.json merge=orphan-enriched-shard
