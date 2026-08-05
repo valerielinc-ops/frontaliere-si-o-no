@@ -109,6 +109,108 @@ function labelCount(label) {
   } catch { return 0; }
 }
 
+/** Tracker issue number (find only — creation stays in the posting path). */
+function findTracker() {
+  try {
+    const found = gh(['issue', 'list', '--repo', REPO, '--state', 'open',
+      '--search', `in:title "${TRACKER_TITLE}"`, '--json', 'number,title', '--limit', '5']);
+    return (found.find((i) => i.title === TRACKER_TITLE) || {}).number || null;
+  } catch { return null; }
+}
+
+/**
+ * Stable key for a warning, so a streak survives the numbers changing.
+ * "failure-rate 53% su issue-fix.yml (54/102 run reali)" → "failure-rate:issue-fix.yml".
+ */
+export function warnKey(text) {
+  const s = String(text || '');
+  const wf = s.match(/\bsu ([a-z0-9-]+\.yml)/i);
+  if (/failure-rate/i.test(s) && wf) return `failure-rate:${wf[1]}`;
+  if (/first-shot LGTM rate/i.test(s)) return 'first-shot-lgtm';
+  if (/agent:fix zombie/i.test(s)) return 'zombie';
+  return s.replace(/\d+/g, '#').trim();
+}
+
+/**
+ * How many CONSECUTIVE prior reports already carried each warning.
+ *
+ * A threshold line that has been on for two months and never changed state
+ * carries no information: the reader learns nothing new from the ninth
+ * identical "failure-rate 53% su issue-fix.yml". The count is what makes it
+ * readable again — "1 report" is noise from a bad week, "9 consecutive" is an
+ * escalation nobody acted on. Deliberately NOT a threshold change: the warning
+ * still fires at exactly the same point (AGENTS.md Non-Negotiable #1), it just
+ * says how long it has been firing.
+ *
+ * Source is the tracker's own prior comments — this script's own output — so
+ * there is no new state file to keep in sync. Only the last `COMMENT_WINDOW`
+ * comments are read, so a streak that reaches the far end of that window is
+ * reported as a LOWER BOUND (`capped`) rather than as an exact count.
+ *
+ * @param {number|null} tracker issue number, or null when it does not exist yet
+ * @returns {Map<string, {count: number, since: string, capped: boolean}>}
+ */
+export function warnStreaks(tracker, fetchComments = defaultFetchComments) {
+  const streaks = new Map();
+  if (!tracker) return streaks;
+  const comments = fetchComments(tracker);
+  if (!comments.length) return streaks;
+  // Newest first: a streak ends at the first prior report that did NOT warn.
+  const ordered = [...comments].reverse();
+  const stillRunning = new Set();
+  let first = true;
+  let reportsSeen = 0;
+  for (const body of ordered) {
+    const text = String(body || '');
+    if (!/^## Loop health/m.test(text)) continue;
+    reportsSeen += 1;
+    const section = text.split(/###\s*⚠️\s*Da investigare/)[1];
+    const dateMatch = text.match(/\(dal (\d{4}-\d{2}-\d{2})\)/);
+    const keys = new Set();
+    if (section) {
+      for (const line of section.split('\n')) {
+        const bullet = line.match(/^-\s+(.*)$/);
+        if (bullet) keys.add(warnKey(bullet[1]));
+      }
+    }
+    if (first) {
+      for (const k of keys) {
+        streaks.set(k, { count: 1, since: dateMatch ? dateMatch[1] : '?', capped: false });
+        stillRunning.add(k);
+      }
+      first = false;
+      continue;
+    }
+    for (const k of [...stillRunning]) {
+      if (keys.has(k)) {
+        const cur = streaks.get(k);
+        cur.count += 1;
+        cur.since = dateMatch ? dateMatch[1] : cur.since;
+      } else {
+        stillRunning.delete(k);
+      }
+    }
+    if (stillRunning.size === 0) break;
+  }
+  // Anything still running when the window ran out started before it.
+  for (const k of stillRunning) {
+    const cur = streaks.get(k);
+    if (cur && cur.count === reportsSeen) cur.capped = true;
+  }
+  return streaks;
+}
+
+/** How far back a streak can be measured (tracker comments, newest last). */
+const COMMENT_WINDOW = 14;
+
+/** Last COMMENT_WINDOW tracker comments. Read-only; failures degrade to []. */
+function defaultFetchComments(tracker) {
+  try {
+    const out = gh(['issue', 'view', String(tracker), '--repo', REPO, '--json', 'comments']);
+    return (out.comments || []).slice(-COMMENT_WINDOW).map((c) => c.body || '');
+  } catch { return []; }
+}
+
 function main() {
   if (!REPO) { console.error('GITHUB_REPOSITORY/GH_REPO mancante'); process.exit(1); }
   const since = isoDaysAgo(DAYS);
@@ -143,9 +245,20 @@ function main() {
   const needsHuman = labelCount('needs-human');
   lines.push(`**Backlog:** agent:fix zombie ${zombies} · in coda ${queued} · fu-parked ${parked} · needs-human ${needsHuman}.`);
 
+  // Quanto dura ciascun allarme: una riga di soglia accesa da due mesi senza
+  // mai cambiare stato non si legge più. Il conteggio la rende di nuovo
+  // leggibile — "1 report" è rumore di una settimana storta, "9 consecutivi"
+  // è un'escalation che nessuno ha raccolto.
+  const tracker = findTracker();
+  const streaks = warnStreaks(tracker);
   lines.push('');
   lines.push(warns.length
-    ? `### ⚠️ Da investigare\n${warns.map((w) => `- ${w}`).join('\n')}`
+    ? `### ⚠️ Da investigare\n${warns.map((w) => {
+      const s = streaks.get(warnKey(w));
+      if (!s) return `- ${w} — **nuovo** questo report`;
+      const n = `${s.capped ? '≥' : ''}${s.count + 1}`;
+      return `- ${w} — sopra soglia da **${n} report consecutivi** (almeno dal ${s.since})`;
+    }).join('\n')}`
     : '### ✅ Nessuna soglia superata');
   lines.push('');
   lines.push('_Report deterministico da loop-health-report.yml (zero-Claude). Baseline 2026-06-12 pre-tuning: ~89 run/g, redflag-fail 56%, first-shot 69%._');
@@ -155,12 +268,7 @@ function main() {
 
   if (NO_POST) return;
   // Find-or-create issue tracker, poi commenta il report (storico in un posto).
-  let num = null;
-  try {
-    const found = gh(['issue', 'list', '--repo', REPO, '--state', 'open',
-      '--search', `in:title "${TRACKER_TITLE}"`, '--json', 'number,title', '--limit', '5']);
-    num = (found.find((i) => i.title === TRACKER_TITLE) || {}).number || null;
-  } catch { /* noop */ }
+  let num = tracker;
   if (!num) {
     try {
       const url = gh(['issue', 'create', '--repo', REPO, '--title', TRACKER_TITLE,
@@ -178,4 +286,6 @@ function main() {
   }
 }
 
-main();
+// Guarded so the pure helpers above (warnKey/warnStreaks) can be unit-tested
+// without the module firing a full network report on import.
+if (import.meta.url === `file://${process.argv[1]}`) main();
