@@ -1,7 +1,67 @@
 {
   "crawlerKey": "stadt-chur",
-  "assembledAt": "2026-08-04T22:38:23.750Z",
+  "assembledAt": "2026-08-05T11:59:35.498Z",
   "jobs": [
+    {
+      "title": "Stellvertretung Fachlehrperson NII, Schuleinheit Fortuna Sek",
+      "slug": "stellvertretung-fachlehrperson-nii-schuleinheit-fortuna-sek-stadt-chur-1707",
+      "url": "https://jobs.chur.ch/Stellvertretung-Fachlehrperson-NII-Schuleinheit-Fortuna-Se-de-j1707.html",
+      "applyUrl": "https://jobs.chur.ch/Stellvertretung-Fachlehrperson-NII-Schuleinheit-Fortuna-Se-de-j1707.html",
+      "company": "Stadt Chur",
+      "companyKey": "stadt-chur",
+      "companyDomain": "chur.ch",
+      "location": "Chur",
+      "addressLocality": "Chur",
+      "addressRegion": "Graubünden",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "education",
+      "sector": "Pubblica Amministrazione",
+      "department": "",
+      "source": "stadt-chur-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-05",
+      "validThrough": "",
+      "employmentType": "full_time",
+      "contractType": "permanent",
+      "description": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Schuleinheit Fortuna ist seit August 2025 Teil der Stadtschule Chu...",
+      "titleByLocale": {
+        "de": "Stellvertretung Fachlehrperson NII, Schuleinheit Fortuna Sek",
+        "it": "Stellvertretung Fachlehrperson NII, Schuleinheit Fortuna Sek",
+        "en": "Stellvertretung Fachlehrperson NII, Schuleinheit Fortuna Sek",
+        "fr": "Stellvertretung Fachlehrperson NII, Schuleinheit Fortuna Sek"
+      },
+      "descriptionByLocale": {
+        "de": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Schuleinheit Fortuna ist seit August 2025 Teil der Stadtschule Chu...",
+        "it": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Schuleinheit Fortuna ist seit August 2025 Teil der Stadtschule Chu...",
+        "en": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Schuleinheit Fortuna ist seit August 2025 Teil der Stadtschule Chu...",
+        "fr": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Schuleinheit Fortuna ist seit August 2025 Teil der Stadtschule Chu..."
+      },
+      "slugByLocale": {
+        "it": "stellvertretung-fachlehrperson-nii-schuleinheit-fortuna-sek-stadt-chur-1707",
+        "en": "stellvertretung-fachlehrperson-nii-schuleinheit-fortuna-sek-stadt-chur-1707",
+        "de": "stellvertretung-fachlehrperson-nii-schuleinheit-fortuna-sek-stadt-chur-1707",
+        "fr": "stellvertretung-fachlehrperson-nii-schuleinheit-fortuna-sek-stadt-chur-1707"
+      },
+      "crawledAt": "2026-08-05T11:49:34.502Z",
+      "id": "stadt-chur-1014212c81a9",
+      "needsRetranslation": true,
+      "salaryMin": 48500,
+      "salaryMax": 89500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48500,
+          "maxValue": 89500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-05T11:49:34.502Z"
+    },
     {
       "title": "Sargträger/in",
       "slug": "coffin-portatore-stadt-chur-chur",
@@ -44,7 +104,7 @@
         "de": "sargtrager-in-stadt-chur-chur",
         "fr": "porte-cercueil-stadt-chur-chur"
       },
-      "crawledAt": "2026-08-04T22:29:29.449Z",
+      "crawledAt": "2026-08-05T11:50:41.264Z",
       "id": "stadt-chur-4309d92c4ac7",
       "previousSlugsByLocale": {
         "fr": [
@@ -115,7 +175,7 @@
         "de": "lehrstelle-als-fachfrau-fachmann-betreuung-efz-fachrichtung-kinderbetreuung-stadt-chur-1705",
         "fr": "apprentissage-en-tant-que-specialiste-soins-specialises-efz-garderie-specialisee-stadt-chur-chur"
       },
-      "crawledAt": "2026-08-04T22:30:36.212Z",
+      "crawledAt": "2026-08-05T11:51:48.021Z",
       "id": "stadt-chur-6baf9a5642b8",
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -188,7 +248,7 @@
         "de": "leitende-r-mechaniker-in-und-stv-bereichsleiter-in-werkstatt-und-flottenmanagement-stadt-chur-1704",
         "fr": "mecanicien-chef-et-directeur-de-division-stv-dans-l-atelier-et-la-gestion-de-la-flotte-stadt-chur-chur"
       },
-      "crawledAt": "2026-08-04T22:31:42.975Z",
+      "crawledAt": "2026-08-05T11:52:54.780Z",
       "id": "stadt-chur-74fdc42733da",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -217,7 +277,8 @@
       },
       "previousSlugs": [
         "leitende-r-mechaniker-in-und-stv-bereichsleiter-in-werkstatt-und-flottenmanagement-stadt-chur-1704"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Vorarbeiter/in Betrieblicher Unterhalt mit Stellvertre-tungsfunktion Bereichsleiter (100%)",
@@ -261,7 +322,7 @@
         "de": "vorarbeiter-in-betrieblicher-unterhalt-mit-stellvertre-tungsfunktion-bereichsleiter-100-stadt-chur-1702",
         "fr": "maintenance-des-contremaitres-dans-l-entreprise-avec-gestionnaire-de-poste-100-stadt-chur-chur"
       },
-      "crawledAt": "2026-08-04T22:32:49.738Z",
+      "crawledAt": "2026-08-05T11:54:01.539Z",
       "id": "stadt-chur-00c100636c42",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -276,7 +337,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-28T11:49:42.646Z"
+      "firstSeenAt": "2026-07-28T11:49:42.646Z",
+      "needsRetranslation": true
     },
     {
       "title": "Treffmitarbeit Queerer Jugendtreff",
@@ -320,7 +382,7 @@
         "de": "treffmitarbeit-queerer-jugendtreff-stadt-chur-1700",
         "fr": "rencontre-avec-queerer-jugendtreff-stadt-chur-chur"
       },
-      "crawledAt": "2026-08-04T22:33:56.499Z",
+      "crawledAt": "2026-08-05T11:55:08.297Z",
       "id": "stadt-chur-c06cc9091d80",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -393,7 +455,7 @@
         "de": "treffleitung-queerer-jugendtreff-stadt-chur-1701",
         "fr": "guidee-par-queerer-jugendtreff-stadt-chur-chur"
       },
-      "crawledAt": "2026-08-04T22:35:03.262Z",
+      "crawledAt": "2026-08-05T11:56:15.056Z",
       "id": "stadt-chur-f6ae3a02a7e5",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -466,7 +528,7 @@
         "de": "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699",
         "fr": "specialiste-de-l-etat-civil-stadt-chur-chur"
       },
-      "crawledAt": "2026-08-04T22:36:10.023Z",
+      "crawledAt": "2026-08-05T11:57:21.814Z",
       "id": "stadt-chur-8181a7de3772",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -497,7 +559,8 @@
       "previousSlugs": [
         "civil-status-officer-stadt-chur-chur",
         "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Badmeister/in Saison (100%)",
@@ -541,7 +604,7 @@
         "de": "badmeister-in-saison-100-stadt-chur-1695",
         "fr": "badmaster-en-saison-100-stadt-chur-chur"
       },
-      "crawledAt": "2026-08-04T22:37:16.785Z",
+      "crawledAt": "2026-08-05T11:58:28.574Z",
       "id": "stadt-chur-8abd0783429f",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -614,7 +677,7 @@
         "de": "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446",
         "fr": "aspirants-policiers-et-aspirants-policiers-stadt-chur-chur"
       },
-      "crawledAt": "2026-08-04T22:38:23.543Z",
+      "crawledAt": "2026-08-05T11:59:35.333Z",
       "id": "stadt-chur-b4ceea7ca5ef",
       "salaryMin": 57500,
       "salaryMax": 87000,
