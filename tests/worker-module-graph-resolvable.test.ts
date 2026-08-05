@@ -31,10 +31,16 @@ import { resolve, dirname, join, relative } from 'node:path';
  * Altrove nei build-plugin gli import extensionless sono legittimi — li risolve
  * Vite. Allargare la regola a tutto `build-plugins/` sarebbe churn senza
  * invariante dietro.
+ *
+ * La discovery cammina `build-plugins/` E `scripts/` (non solo il primo): il
+ * worker non è un'esclusiva di `build-plugins/` — `scripts/lib/parse-job-slices-worker.mjs`,
+ * spawnato da `scripts/assemble-jobs-dataset.mjs` (funnel-critical, girato in
+ * `deploy.yml`), è un entrypoint della stessa classe sotto lo stesso Node ESM
+ * puro. Hardcodare `build-plugins/` lasciava quel worker fuori dal guard.
  */
 
 const ROOT = resolve(import.meta.dirname, '..');
-const BUILD_PLUGINS = resolve(ROOT, 'build-plugins');
+const WORKER_SEARCH_ROOTS = [resolve(ROOT, 'build-plugins'), resolve(ROOT, 'scripts')];
 
 // Estensioni che Node ESM (+ tsx) accetta come specifier esplicito.
 const EXPLICIT_EXT = /\.(ts|tsx|mts|cts|mjs|cjs|js|jsx|json)$/;
@@ -70,7 +76,7 @@ function findWorkerEntrypoints(): string[] {
       if (named.includes('parentPort')) out.push(full);
     }
   };
-  walk(BUILD_PLUGINS);
+  for (const root of WORKER_SEARCH_ROOTS) walk(root);
   return out.sort();
 }
 
@@ -179,12 +185,16 @@ describe('grafo moduli dei worker: risolvibile sotto Node ESM (#5131)', () => {
   it('trova almeno un entrypoint worker (il guard non passa a vuoto)', () => {
     expect(
       entrypoints.length,
-      'nessun entrypoint worker trovato sotto build-plugins/ — la discovery si è rotta ' +
-        'e questo test starebbe verificando il nulla',
+      'nessun entrypoint worker trovato sotto build-plugins/ o scripts/ — la discovery si è ' +
+        'rotta e questo test starebbe verificando il nulla',
     ).toBeGreaterThan(0);
     // postWalkWorker.mjs è quello che ha causato l'incidente: se sparisce dalla
     // discovery, il guard ha smesso di coprire il caso noto.
     expect(entrypoints.map((f) => relative(ROOT, f))).toContain('build-plugins/postWalkWorker.mjs');
+    // parse-job-slices-worker.mjs è lo stesso pattern fuori da build-plugins/,
+    // spawnato da assemble-jobs-dataset.mjs (funnel-critical): se sparisce, il
+    // guard è tornato a coprire solo build-plugins/.
+    expect(entrypoints.map((f) => relative(ROOT, f))).toContain('scripts/lib/parse-job-slices-worker.mjs');
   });
 
   it('ogni specifier relativo nel grafo dei worker porta un\'estensione esplicita e risolve', () => {
