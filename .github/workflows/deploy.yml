@@ -966,6 +966,42 @@ jobs:
           CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
         run: bash scripts/lib/deploy-it-pages-prep.sh
 
+      # Refresh the R2 copies the Worker serves for EDGE_PUSHED_FILES.
+      #
+      # servePushedEdgeFile() in infra/cloudflare-worker/locale-router.js
+      # PREFERS the R2 object over the origin passthrough whenever the object
+      # exists — that is the whole point of the table. The consequence nobody
+      # closed when it shipped: an R2 object that stops being refreshed does
+      # not decay back to the origin, it SHADOWS it indefinitely.
+      #
+      # Until this step, the only caller of publish-edge-files.mjs was
+      # fast-publish-article.yml, which is workflow_dispatch-only. Measured on
+      # 2026-08-05, three days after its last run (2026-08-02T02:12:48Z):
+      #
+      #   R2 /edge/sitemap-news.xml   last-modified 2026-08-02T02:15:18Z,
+      #                               3 <url>, publication dates 07-31…08-02
+      #   public/sitemap-news.xml     22 <url>, ALL inside the 48h window
+      #
+      # Google News only accepts articles published in the last two days, so
+      # every entry it could see was expired: the site was serving ZERO
+      # eligible URLs while the corpus published ~22/day. The same freeze hit
+      # /sitemap-glossario.xml (6 days) and the llms.txt family (3 days) — the
+      # AI-citation surface. It also pinned the pre-CDN /images/blog/*.webp
+      # <image:loc> URLs, which now 404; the fresh copy already points at
+      # cdn.frontaliereticino.ch.
+      #
+      # Running it here puts a hard ceiling on that staleness at one deploy.
+      # This is the right spot and not merely a convenient one: dist/ is fully
+      # built (so the 'generated' llms.txt entries render against real page
+      # data), load-rc-env hydrated R2_*/CF_* earlier in this same job, and the
+      # matrix guard makes it run exactly once per deploy rather than per
+      # locale. continue-on-error matches the script's own fail-open posture —
+      # a failed PUT leaves the previous R2 copy serving, exactly as before.
+      - name: Publish edge files (refresh the R2 copies the Worker prefers)
+        if: matrix.locale == 'it'
+        continue-on-error: true
+        run: node scripts/publish-edge-files.mjs
+
       - name: Upload Pages artifact (compression-level 9)
         if: matrix.locale == 'it'
         id: upload-pages-artifact

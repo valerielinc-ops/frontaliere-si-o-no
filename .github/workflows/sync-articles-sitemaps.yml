@@ -65,8 +65,18 @@ jobs:
         run: node scripts/pull-articles-api.mjs
 
       - name: Commit if changed
+        id: commit
         run: |
           set -euo pipefail
+          # Recorded BEFORE the commit, because after it `git diff` is clean.
+          # Drives the edge-publish step below: /sitemap-news.xml is served
+          # from R2, not from this commit, so committing a fresher file does
+          # nothing for Google News on its own.
+          if git diff --quiet -- public/sitemap-news.xml; then
+            echo "news-sitemap-changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "news-sitemap-changed=true" >> "$GITHUB_OUTPUT"
+          fi
           # Every artifact the pull writes: the two sitemaps, the ten RSS feeds
           # and the news-ticker payload (issue #4974 item 2). Listing them here
           # rather than `git add public/` keeps the commit scoped to what this
@@ -132,3 +142,40 @@ jobs:
           # the same writers.
           bash scripts/lib/git-push-with-retry.sh \
             --regenerate-cmd "node scripts/pull-articles-api.mjs && git add -- ${FILES[*]}"
+
+      # ── Google News freshness: the commit above is not the publish ──────────
+      #
+      # /sitemap-news.xml is registered in EDGE_PUSHED_FILES, so the Worker
+      # serves the R2 copy and never reads the file this job just committed
+      # until something PUTs it. deploy.yml now does that on every deploy,
+      # which bounds the staleness — but "a few hours" is the wrong unit for a
+      # surface whose entries expire after 48h and whose whole value is being
+      # crawled while the news is still news. This job is the actor that
+      # rewrites the file (every articles-published dispatch, ~22 articles a
+      # day), so it is the one that should publish it.
+      #
+      # --only=/sitemap-news.xml on purpose: this checkout is a `git checkout`,
+      # not a build. Pushing the whole table from here would overwrite the
+      # 'generated' llms.txt family with whatever a dist-less tree renders.
+      # This job owns exactly one entry and pushes exactly that one.
+      #
+      # Gated on the file having actually changed so a quiet run does not spend
+      # a Cloudflare purge on a byte-identical re-PUT.
+      - name: Prepare Firebase credentials
+        if: steps.commit.outputs.news-sitemap-changed == 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        if: steps.commit.outputs.news-sitemap-changed == 'true'
+        run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+
+      - name: Publish the news sitemap to the edge
+        if: steps.commit.outputs.news-sitemap-changed == 'true'
+        continue-on-error: true
+        run: node scripts/publish-edge-files.mjs --only=/sitemap-news.xml

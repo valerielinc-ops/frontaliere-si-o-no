@@ -15,7 +15,10 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
 import worker, { EDGE_PUSHED_FILES } from '../infra/cloudflare-worker/locale-router.js';
-import { readFileSync } from 'node:fs';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — plain JS script module, no type declarations.
+import { selectedEntries } from '../scripts/publish-edge-files.mjs';
+import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const APEX = 'https://frontaliereticino.ch';
@@ -222,4 +225,110 @@ describe('locale llms.txt variants stay excluded from EDGE_PUSHED_FILES (#4881 r
       expect(await res.text()).toBe('shard-served');
     },
   );
+});
+
+/**
+ * Publisher coverage — the invariant whose absence took the Google News
+ * surface offline for three days (issues #5006 / #5005 / #5001).
+ *
+ * servePushedEdgeFile PREFERS the R2 object over the origin passthrough
+ * whenever the object exists. That asymmetry is the point of the table, and
+ * it is also its one sharp edge: an R2 object that stops being refreshed does
+ * not decay back to the origin, it SHADOWS it forever. Registering a path
+ * here is therefore a promise that something keeps PUTting it.
+ *
+ * When the table shipped, the only caller of publish-edge-files.mjs was
+ * fast-publish-article.yml — `workflow_dispatch` only. Measured 2026-08-05,
+ * three days after its last run: R2 /edge/sitemap-news.xml carried 3 <url>
+ * with publication dates 2026-07-31…08-02 while public/sitemap-news.xml
+ * carried 22, all inside the 48h Google News window. Google News accepts
+ * nothing older than two days, so the live surface offered zero eligible URLs
+ * while the corpus published ~22 a day. /sitemap-glossario.xml and the
+ * llms.txt family were frozen the same way.
+ *
+ * A manual trigger is not a publisher. This asserts every registered path is
+ * covered by a workflow that fires on its own.
+ */
+describe('every EDGE_PUSHED_FILES path has an automatically-triggered publisher', () => {
+  const WORKFLOWS_DIR = path.resolve(__dirname, '..', '.github', 'workflows');
+  /** Triggers that fire without a human. `workflow_dispatch` is excluded on purpose. */
+  const AUTOMATIC_TRIGGERS = ['push', 'schedule', 'workflow_run', 'repository_dispatch'];
+
+  /**
+   * Pathnames a workflow's publish-edge-files.mjs invocations cover.
+   * `--only=a,b` covers exactly a and b; a bare invocation covers everything.
+   */
+  function coveredPaths(workflowSource: string): Set<string> {
+    const covered = new Set<string>();
+    for (const line of workflowSource.split('\n')) {
+      if (!line.includes('scripts/publish-edge-files.mjs')) continue;
+      // Skip prose: only a `run:`-style shell line actually invokes it.
+      if (/^\s*#/.test(line)) continue;
+      const only = line.match(/--only=(\S+)/);
+      if (only) {
+        for (const p of only[1].split(',')) if (p) covered.add(p);
+      } else {
+        for (const p of Object.keys(EDGE_PUSHED_FILES)) covered.add(p);
+      }
+    }
+    return covered;
+  }
+
+  function hasAutomaticTrigger(workflowSource: string): boolean {
+    const onBlock = workflowSource.match(/^on:\n([\s\S]*?)(?=^\S)/m)?.[1] ?? '';
+    return AUTOMATIC_TRIGGERS.some((t) => new RegExp(`^\\s{2}${t}:`, 'm').test(onBlock));
+  }
+
+  const publishers = readdirSync(WORKFLOWS_DIR)
+    .filter((f) => f.endsWith('.yml') || f.endsWith('.yaml'))
+    .map((f) => ({ file: f, source: readFileSync(path.join(WORKFLOWS_DIR, f), 'utf-8') }))
+    .filter(({ source }) => source.includes('scripts/publish-edge-files.mjs'));
+
+  it('at least one workflow invokes publish-edge-files.mjs', () => {
+    expect(publishers.length).toBeGreaterThan(0);
+  });
+
+  it.each(Object.keys(EDGE_PUSHED_FILES))(
+    '%s is published by a workflow that fires without a manual dispatch',
+    (pathname) => {
+      const covering = publishers
+        .filter(({ source }) => hasAutomaticTrigger(source) && coveredPaths(source).has(pathname))
+        .map(({ file }) => file);
+
+      expect(
+        covering,
+        `${pathname} is registered in EDGE_PUSHED_FILES, so the Worker serves its R2 copy in ` +
+          `preference to the origin — but no automatically-triggered workflow runs ` +
+          `scripts/publish-edge-files.mjs for it. The R2 object will freeze and shadow the ` +
+          `origin indefinitely (this is exactly how sitemap-news.xml went 3 days stale and ` +
+          `took the Google News surface to zero eligible URLs). Add a publish step to a ` +
+          `workflow with a push/schedule/workflow_run/repository_dispatch trigger.`,
+      ).not.toHaveLength(0);
+    },
+  );
+});
+
+/**
+ * `--only` is a hard gate, not a filter that shrugs: every skip inside
+ * publish-edge-files.mjs is a ::warning:: + exit 0, so a typo'd pathname
+ * would be indistinguishable from a successful run that published nothing.
+ */
+describe('publish-edge-files --only selection', () => {
+  it('defaults to the whole table when no --only is passed', () => {
+    expect(selectedEntries(['node', 'publish-edge-files.mjs']).map(([p]) => p)).toEqual(
+      Object.keys(EDGE_PUSHED_FILES),
+    );
+  });
+
+  it('narrows to the named registered pathnames', () => {
+    const picked = selectedEntries(['node', 'publish-edge-files.mjs', '--only=/sitemap-news.xml']);
+    expect(picked.map(([p]) => p)).toEqual(['/sitemap-news.xml']);
+    expect(picked[0][1]).toBe(EDGE_PUSHED_FILES['/sitemap-news.xml']);
+  });
+
+  it('throws on a pathname that is not registered', () => {
+    expect(() =>
+      selectedEntries(['node', 'publish-edge-files.mjs', '--only=/sitemap-typo.xml']),
+    ).toThrow(/not registered in EDGE_PUSHED_FILES/);
+  });
 });
