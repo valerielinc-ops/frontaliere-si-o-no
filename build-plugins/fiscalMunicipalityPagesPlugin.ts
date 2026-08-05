@@ -31,6 +31,7 @@
  */
 
 import fs from 'node:fs';
+import { irpefDisplayText } from '../services/irpefAddizionaleRegime';
 import path from 'node:path';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
@@ -503,7 +504,7 @@ function renderRelated(locale: FiscalLocale, current: FiscalMunicipality): strin
   const links = others
     .map(
       (m) =>
-        `<a class="rounded-md border border-edge bg-surface-raised p-3 text-sm font-semibold text-heading hover:border-accent-border" href="${fiscalPathFor(locale, m.slug)}">${esc(m.name)} <span class="font-normal text-muted">· ${esc(pct(m.irpefAddizionale, locale))}</span></a>`,
+        `<a class="rounded-md border border-edge bg-surface-raised p-3 text-sm font-semibold text-heading hover:border-accent-border" href="${fiscalPathFor(locale, m.slug)}">${esc(m.name)} <span class="font-normal text-muted">· ${esc(irpefDisplayText(m, locale, pct(m.irpefAddizionale, locale)))}</span></a>`,
     )
     .join('');
   return `<section class="mt-6 rounded-md border border-edge bg-surface p-5">
@@ -522,7 +523,7 @@ export function renderAboveFloorPage(params: {
   const c = COPY[locale];
   const n = municipality.name;
   const nums = computeRegimes(municipality.irpefAddizionale);
-  const addizPctStr = pct(municipality.irpefAddizionale, locale);
+  const addizPctStr = irpefDisplayText(municipality, locale, pct(municipality.irpefAddizionale, locale));
   const diffMonthlyStr = eur(nums.diffMonthlyEUR, locale);
   const addizEurStr = eur(nums.addizionaleAnnualEUR, locale);
   const canonicalPath = fiscalPathFor(locale, municipality.slug);
@@ -701,7 +702,7 @@ export function renderBridgePage(params: {
   return buildSeoPageHtml({
     locale,
     title: c.title(n),
-    description: c.desc(n, pct(municipality.irpefAddizionale, locale)),
+    description: c.desc(n, irpefDisplayText(municipality, locale, pct(municipality.irpefAddizionale, locale))),
     canonicalUrl,
     robots: 'noindex,follow',
     ogLocale: OG_LOCALE[locale],
@@ -735,7 +736,7 @@ function renderHubPage(params: { locale: FiscalLocale; dateStamp: string; distDi
           (m) =>
             `<a class="rounded-md border border-edge bg-surface-raised p-4 hover:border-accent-border" href="${fiscalPathFor(locale, m.slug)}">
               <span class="block text-sm font-semibold text-heading">${esc(m.name)}</span>
-              <span class="mt-1 block text-xs text-muted">${esc(c.tileAddiz)}: ${esc(pct(m.irpefAddizionale, locale))}</span>
+              <span class="mt-1 block text-xs text-muted">${esc(c.tileAddiz)}: ${esc(irpefDisplayText(m, locale, pct(m.irpefAddizionale, locale)))}</span>
             </a>`,
         )
         .join('');
