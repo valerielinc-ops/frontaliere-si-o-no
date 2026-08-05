@@ -262,18 +262,38 @@ function mineSlugRegistry() {
   return slugs;
 }
 
-function mineOrphanData() {
+function mineOrphanData(orphansOverride = null) {
   const slugs = new Map();
-  const orphans = readJson(dataPath('orphan-enriched-data.json'));
+  const orphans = orphansOverride ?? readJson(dataPath('orphan-enriched-data.json'));
   if (!Array.isArray(orphans)) return slugs;
 
   for (const o of orphans) {
     if (!isValidJobSlug(o.slug)) continue;
     // Entries carry the actual observed `path`/`locale` (real canton board
     // section GSC indexed it under) — use that instead of assuming TI.
+    // `observedPaths` (issue #4248) holds every locale path seen for the slug:
+    // before the de-amplification fix those lived in three EXTRA ~2.5 KB
+    // records, one per locale, which is what inflated the orphan store past
+    // GitHub's 100 MB blob limit. Reading the map here keeps the per-locale
+    // coverage of data/all-known-job-slugs.json byte-identical while the
+    // duplicates collapse. Legacy records without the map keep working via the
+    // `path`/`locale` pair below.
+    const observed = o.observedPaths && typeof o.observedPaths === 'object' ? o.observedPaths : null;
+    const pairs = [];
+    if (observed) {
+      for (const [loc, p] of Object.entries(observed)) {
+        if (p && ['it', 'en', 'de', 'fr'].includes(loc)) pairs.push([loc, p]);
+      }
+    }
     if (o.path && o.locale && ['it', 'en', 'de', 'fr'].includes(o.locale)) {
+      pairs.push([o.locale, o.path]);
+    }
+    if (pairs.length > 0) {
       if (!slugs.has(o.slug)) slugs.set(o.slug, { locales: {} });
-      slugs.get(o.slug).locales[o.locale] = o.path;
+      const target = slugs.get(o.slug).locales;
+      for (const [loc, p] of pairs) {
+        if (!target[loc]) target[loc] = p;
+      }
     } else if (!slugs.has(o.slug)) {
       slugs.set(o.slug, { locales: buildLocalePathsForCanton('TI', o.slug) });
     }
@@ -683,4 +703,4 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   main();
 }
 
-export { buildLocalePathsForCanton, buildLocalePathsForJob, fillMissingLocalePaths };
+export { buildLocalePathsForCanton, buildLocalePathsForJob, fillMissingLocalePaths, mineOrphanData };
