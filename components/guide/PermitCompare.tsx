@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect, useCallback, Suspense } from 'react';
+import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
 import { lazyRetry } from '@/services/lazyRetry';
 
@@ -687,7 +688,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
  </div>
  <div className="flex justify-between text-subtle">
  <span>{t('livability.irpef')}</span>
- <span className="font-mono">{muni.irpefAddizionale}%</span>
+ <span className="font-mono"><IrpefAddizionaleValue municipality={muni} /></span>
  </div>
  </div>
 

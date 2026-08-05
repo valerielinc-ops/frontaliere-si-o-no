@@ -1,7 +1,16 @@
 import React, { useState, useMemo } from 'react';
+import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { lazyRetry } from '@/services/lazyRetry';
 import { useTranslation } from '@/services/i18n';
 import { MUNICIPALITIES, type Municipality } from '@/data/municipalities';
+import {
+ irpefFiscalScore,
+ irpefRateRange,
+ leviesIrpefAddizionale,
+ formatIrpefAddizionale,
+ noSurchargeLabel,
+ noSurchargeNote,
+} from '@/services/irpefAddizionaleRegime';
 import { MapPin, List, Map, AlertTriangle, Trophy, Medal } from 'lucide-react';
 
 // ── Weight configuration ──
@@ -22,12 +31,15 @@ function scoreMunicipalities(municipalities: Municipality[]): ScoredMunicipality
  // Find min/max for normalization
  const dists = municipalities.map((m) => m.distanceKm);
  const rents = municipalities.map((m) => m.avgRentMonthly);
- const irpefs = municipalities.map((m) => m.irpefAddizionale);
  const pops = municipalities.map((m) => m.population);
 
  const minDist = Math.min(...dists), maxDist = Math.max(...dists);
  const minRent = Math.min(...rents), maxRent = Math.max(...rents);
- const minIrpef = Math.min(...irpefs), maxIrpef = Math.max(...irpefs);
+ // Range over the comuni that actually levy the surcharge (#4875). Including
+ // the 51 Valle d'Aosta rows — a special-statute region that levies none —
+ // pinned minIrpef to 0 and handed every one of them the maximum on this axis
+ // in EVERY ranking, for a tax they are not subject to.
+ const { min: minIrpef, max: maxIrpef } = irpefRateRange(municipalities);
  const minPop = Math.min(...pops), maxPop = Math.max(...pops);
 
  const normalize = (val: number, min: number, max: number) =>
@@ -37,18 +49,25 @@ function scoreMunicipalities(municipalities: Municipality[]): ScoredMunicipality
  // Lower is better for distance, rent, irpef → invert
  const distScore = 1 - normalize(m.distanceKm, minDist, maxDist);
  const rentScore = 1 - normalize(m.avgRentMonthly, minRent, maxRent);
- const irpefScore = 1 - normalize(m.irpefAddizionale, minIrpef, maxIrpef);
+ const irpefScore = irpefFiscalScore(m, minIrpef, maxIrpef);
  // Higher is better for population (more services)
  const popScore = normalize(m.population, minPop, maxPop);
  // Fascia bonus: 1 = 100%, 1A = 60%, 2 = 20%
  const fasciaScore = m.fascia === '1' ? 1 : m.fascia === '1A' ? 0.6 : 0.2;
 
- const score =
+ // A comune outside the surcharge regime is not on the fiscal axis at all,
+ // so its weight is redistributed across the axes it IS on rather than
+ // scored as if it had won the cheapest rate (#4875).
+ const applicableWeight = irpefScore === null
+ ? W_DISTANCE + W_RENT + W_POPULATION + W_FASCIA
+ : 1;
+ const weighted =
  distScore * W_DISTANCE +
  rentScore * W_RENT +
- irpefScore * W_IRPEF +
+ (irpefScore === null ? 0 : irpefScore * W_IRPEF) +
  popScore * W_POPULATION +
  fasciaScore * W_FASCIA;
+ const score = weighted / applicableWeight;
 
  return { ...m, score: Math.round(score * 100) / 100, rank: 0 };
  });
@@ -242,7 +261,7 @@ export default function LivabilityIndex() {
  € {m.avgRentMonthly}
  </td>
  <td className="py-2.5 px-3 text-right font-mono text-body">
- {m.irpefAddizionale}%
+ <IrpefAddizionaleValue municipality={m} />
  </td>
  <td className="py-2.5 px-3 text-right font-mono text-body">
  {m.population.toLocaleString()}

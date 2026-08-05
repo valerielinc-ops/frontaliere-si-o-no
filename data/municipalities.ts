@@ -67,6 +67,33 @@ export interface Municipality {
  province: string;
  lat: number;
  lng: number;
+ /**
+  * Addizionale comunale IRPEF rate, in percent (e.g. `0.55` = 0.55 %).
+  *
+  * PROVENANCE + THE ZERO CAVEAT (issue #4875). Distribution across the 518
+  * rows: 0 → 51, 0.4 → 2, 0.5 → 59, 0.55 → 346, 0.6 → 36, 0.65 → 2,
+  * 0.7 → 16, 0.75 → 2, 0.8 → 4.
+  *
+  * The 51 zeros are NOT a placeholder — unlike the `population: 2000`
+  * default fixed in #4922. They are exactly the 51 rows with
+  * `province: 'AO'`, i.e. the whole Valle d'Aosta present in this dataset:
+  * a region with a special statute (l. cost. 4/1948) that levies no comunal
+  * IRPEF surcharge at all. `0` there means "this tax does not apply", not
+  * "the cheapest rate".
+  *
+  * Consequence for consumers: the field is NOT a single comparable scale.
+  * Never min-max normalise, bucket or colour it raw — use
+  * `services/irpefAddizionaleRegime.ts` (`leviesIrpefAddizionale`,
+  * `irpefRateRange`, `irpefFiscalScore`) and render it through
+  * `components/shared/IrpefAddizionaleValue.tsx`. Passing the raw number to a
+  * TAX CALCULATION is correct (the tax really is zero there); passing it to a
+  * RANKING or a colour scale is not.
+  *
+  * Not modelled here: whether a given non-zero value is a statutory single
+  * rate or an effective average of a progressive bracket schedule. That
+  * distinction needs a verified per-comune MEF source and is not derivable
+  * from this file.
+  */
  irpefAddizionale: number;
  distanceKm: number;
  /**

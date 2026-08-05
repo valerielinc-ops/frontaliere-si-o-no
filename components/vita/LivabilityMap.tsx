@@ -1,4 +1,5 @@
 import React from 'react';
+import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { MapContainer, TileLayer, CircleMarker, Tooltip } from 'react-leaflet';
 import type { Municipality } from '@/data/municipalities';
 import { MAP_COLORS } from '@/services/mapColors';
@@ -46,7 +47,7 @@ export default function LivabilityMap({ municipalities }: { municipalities: Scor
  <div className="text-sm">
  <p className="font-bold">{m.rank}. {m.name} ({m.province})</p>
  <p>Score: {(m.score * 100).toFixed(0)}/100</p>
- <p>{m.distanceKm} km — € {m.avgRentMonthly}/mese — IRPEF +{m.irpefAddizionale}%</p>
+ <p>{m.distanceKm} km — € {m.avgRentMonthly}/mese — IRPEF <IrpefAddizionaleValue municipality={m} prefix="+" /></p>
  </div>
  </Tooltip>
  </CircleMarker>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useDeferredValue, Suspense } from 'react';
+import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { useTranslation } from '../../services/i18n';
 import { PROVINCE_NAMES } from '../../services/provinceList';
 import { lazyRetry } from '@/services/lazyRetry';
@@ -503,7 +504,7 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
  </div>
  <div className="bg-neutral-subtle rounded-xl p-3">
  <p className="text-sm text-muted mb-1">{t('guide.municipalities.detail.irpef')}</p>
- <p className="font-bold text-strong">{municipality.irpefAddizionale}%</p>
+ <p className="font-bold text-strong"><IrpefAddizionaleValue municipality={municipality} /></p>
  </div>
  <div className="bg-surface-alt/50 rounded-xl p-3">
  <p className="text-sm text-muted mb-1">{t('guide.municipalities.detail.avgRent')}</p>
