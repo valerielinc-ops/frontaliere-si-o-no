@@ -58,6 +58,7 @@ import {
   vitestVerdictIsTransientCancellation,
   vitestFailureIsNotAttributableToPr,
 } from './lib/vitestCheck.mjs';
+import { hasCommentMarker as hasCommentMarkerShared } from './lib/prComments.mjs';
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -278,9 +279,7 @@ function stuckRedRescueReason(head) {
 /** Un commento della PR contiene già `marker`? Dedup condivisa fra il comment di
  * conflitto e il rescue one-shot dello stuck-red. */
 function hasCommentMarker(num, marker) {
-  const comments = gh(['api', `repos/${REPO}/issues/${num}/comments`, '--paginate',
-    '--jq', '[.[] | .body] | join("\\n")'], { json: false, allowFail: true }) || '';
-  return comments.includes(marker);
+  return hasCommentMarkerShared(gh, REPO, num, marker);
 }
 
 /** C'è una review Claude (`pr-review-loop`, check-run `review`) ANCORA in volo

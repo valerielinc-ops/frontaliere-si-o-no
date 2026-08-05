@@ -24,6 +24,7 @@
  *       il gating), GITHUB_REPOSITORY. Richiede `gh` in PATH.
  */
 import { execFileSync } from 'node:child_process';
+import { commentOnce as commentOnceShared } from './lib/prComments.mjs';
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -62,14 +63,7 @@ function removeLabel(num, label) {
 }
 
 function commentOnce(num, marker, body) {
-  const comments = gh(['api', `repos/${REPO}/issues/${num}/comments`, '--paginate',
-    '--jq', '[.[] | .body] | join("\\n")'], { json: false, allowFail: true }) || '';
-  if (comments.includes(marker)) {
-    console.log(`PR #${num}: marker ${marker} già presente — no comment.`);
-    return;
-  }
-  if (DRY) { console.log(`[dry] comment ${marker} #${num}`); return; }
-  gh(['pr', 'comment', String(num), '--repo', REPO, '--body', `${marker}\n${body}`], { json: false, allowFail: true });
+  commentOnceShared(gh, REPO, num, marker, body, { dry: DRY });
 }
 
 function main() {
