@@ -59,6 +59,15 @@ const ASSEMBLE_OUTPUTS = [
   // come dataset-dipendente invece di scivolare nel gruppo veloce e girare
   // prima che la migrazione canton-aware abbia scritto gli shard.
   'all-known-job-slugs',
+  // Idem per il ledger degli orfani arricchiti (issue #4248, seconda metà):
+  // anch'esso è passato da monolite `orphan-enriched-data.json` a shard sotto
+  // `data/orphan-enriched-data/`, letti via
+  // `scripts/lib/orphan-enriched-store.mjs`. Senza `.json` per la stessa
+  // ragione: il prefisso matcha sia il path degli shard sia quello del modulo.
+  // È scritto da sync-gsc-orphans/enrich-compat-orphan-slugs, ma un test che lo
+  // legge vede comunque la versione committata finché la pipeline dati non ha
+  // finito, quindi appartiene allo stesso gruppo.
+  'orphan-enriched-data',
 ];
 
 const OUTPUT_RE = new RegExp(
@@ -77,7 +86,7 @@ const OUTPUT_RE = new RegExp(
  * ha bisogno che l'assemble sia finito, una readFileSync sì.
  */
 const FS_READ_RE =
-  /\b(readFileSync|readFile|existsSync|statSync|createReadStream|readJson|loadJson|readAllKnownJobSlugs)\b/;
+  /\b(readFileSync|readFile|existsSync|statSync|createReadStream|readJson|loadJson|readAllKnownJobSlugs|readOrphanEnriched)\b/;
 
 /** true se il sorgente legge un output dell'assemble dal filesystem. */
 function readsDatasetFromDisk(src) {

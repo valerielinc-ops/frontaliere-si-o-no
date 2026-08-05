@@ -121,13 +121,26 @@ jobs:
         # Needs data/jobs.json (assembled above); self-skips if missing.
         run: npx tsx scripts/prune-404-compat-paths.ts
 
+      # #4248: the workflow was red for three weeks and the badge said so, but
+      # what the failure COST was invisible — the pipeline kept computing soft
+      # landings and `git push` kept throwing them away. Measure the backlog
+      # (what this run computed vs what main actually has) BEFORE the commit, so
+      # a future "green but reconciling nothing" regression shows up as a
+      # growing number instead of a silent one. Never fails the job: it is
+      # telemetry, and the commit below is the step that matters.
+      - name: Report orphan reconciliation backlog
+        if: ${{ inputs.dry_run != true }}
+        continue-on-error: true
+        run: node scripts/report-orphan-reconciliation.mjs
+
       - name: Commit and push
         if: ${{ inputs.dry_run != true }}
         id: commit
         run: |
           SKIP_AI_TRANSLATION=1 bash scripts/lib/git-commit-data.sh --slice-only \
             "chore: sync GSC orphan slugs and reconcile job data" \
-            data/orphan-enriched-data.json \
+            data/orphan-enriched-data \
+            data/orphan-reconciliation-history.json \
             data/orphan-indexed-job-slugs.json \
             data/gsc-orphan-queries.json \
             data/url-inspection-results.json \
@@ -162,7 +175,7 @@ jobs:
           # Check if tracking or compat data changed (new soft-landing pages needed)
           TRACKING_CHANGES=$(git diff HEAD~1 --name-only -- data/all-known-job-slugs data/seo-404-compat | wc -l)
           CRAWLER_CHANGES=$(git diff HEAD~1 --name-only -- data/jobs/by-crawler/ | wc -l)
-          ORPHAN_CHANGES=$(git diff HEAD~1 --name-only -- data/orphan-enriched-data.json | wc -l)
+          ORPHAN_CHANGES=$(git diff HEAD~1 --name-only -- data/orphan-enriched-data | wc -l)
 
           if [ "$CRAWLER_CHANGES" -gt 0 ] || [ "$TRACKING_CHANGES" -gt 0 ]; then
             echo "🚀 Job data changed (crawler: $CRAWLER_CHANGES, tracking: $TRACKING_CHANGES) — triggering deploy"

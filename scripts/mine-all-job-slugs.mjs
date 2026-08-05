@@ -28,6 +28,7 @@ import {
   writeAllKnownJobSlugs,
   KNOWN_SLUGS_SHARD_COUNT,
 } from './lib/all-known-job-slugs-store.mjs';
+import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { JOB_BOARD_SEGMENT_RX } from './lib/jobBoardSections.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 
@@ -270,7 +271,7 @@ function mineSlugRegistry() {
 
 function mineOrphanData(orphansOverride = null) {
   const slugs = new Map();
-  const orphans = orphansOverride ?? readJson(dataPath('orphan-enriched-data.json'));
+  const orphans = orphansOverride ?? readOrphanEnriched(ROOT);
   if (!Array.isArray(orphans)) return slugs;
 
   for (const o of orphans) {
@@ -419,7 +420,7 @@ function fuzzyReconcileOrphans(knownSlugs) {
     }
   }
 
-  const enriched = readJson(dataPath('orphan-enriched-data.json'));
+  const enriched = readOrphanEnriched(ROOT);
   if (Array.isArray(enriched)) {
     for (const o of enriched) {
       if (o?.slug && isValidJobSlug(o.slug) && !knownSet.has(o.slug)) unknown.add(o.slug);

@@ -64,6 +64,13 @@ git config merge.compat-shard.driver 'node scripts/ci/merge-compat-shard.mjs %O 
 # a re-serialised sorted JSON OBJECT produces duplicate keys rather than bloat.
 git config merge.known-slugs-shard.driver 'node scripts/ci/merge-known-slugs-shard.mjs %O %A %B' || true
 
+# Same registration for the enriched-orphan ledger shards
+# (.gitattributes `merge=orphan-enriched-shard`, data/orphan-enriched-data/part-*.json,
+# issue #4248): a 3-way merge on the record set keyed by (locale, slug) instead
+# of git's default line merge, which on a re-serialised sorted JSON ARRAY
+# produces duplicate records rather than bloat alone.
+git config merge.orphan-enriched-shard.driver 'node scripts/ci/merge-orphan-enriched-shard.mjs %O %A %B' || true
+
 # ── Clear orphaned .git/index.lock left by a crashed prior git operation ────
 # Same class of bug as scripts/lib/git-commit-data.sh (see that file's header
 # comment for the full incident writeup: group-06 production failure,
