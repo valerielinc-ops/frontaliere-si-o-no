@@ -1,18 +1,57 @@
 {
   "key": "igs-bern",
   "label": "Interessengemeinschaft Sozialpsychiatrie Bern",
-  "generatedAt": "2026-08-05T11:45:33.323Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-08-05T22:43:28.574Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3620,
-  "avgDurationMs": 3620,
+  "durationMs": 5240,
+  "avgDurationMs": 5240,
   "durationHistory": [
-    3620
+    5240
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "igs-bern-f5747d81c7ce",
+      "slug": "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch",
+      "company": "Interessengemeinschaft Sozialpsychiatrie Bern",
+      "companyKey": "igs-bern",
+      "companyDomain": "igsbern.ch",
+      "title": "Fachfrau/Fachmann Betreuung (FaBe) / Gesundheit (FaGe) EFZ (50% - 70%)",
+      "needsRetranslation": true,
+      "location": "Moosseedorf",
+      "canton": "BE",
+      "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job161595?ext",
+      "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-05T22:43:24.350Z",
+      "addressLocality": "Moosseedorf",
+      "postalCode": "3000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-05",
+      "applyUrl": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job161595?ext",
+      "pensumMin": 50,
+      "pensumMax": 50,
+      "pensum": "50%",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "igs-bern-53da410315b2",
@@ -27,7 +66,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job160824?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:45:30.846Z",
+      "crawledAt": "2026-08-05T22:43:24.929Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
