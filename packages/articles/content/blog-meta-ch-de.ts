@@ -1867,6 +1867,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzeri-fuga-estero-costo-casa.title': 'Schweizer auf der Flucht über die Grenze: Wiegen Sie die Kosten des Hauses',
     'blog.article.svizzeri-fuga-estero-costo-casa.excerpt': 'Über 154\'000 Schweizerinnen und Schweizer leben in ausländischen Grenzgebieten - ein Plus von 14 Prozent, angetrieben von unhaltbaren Immobilienpreisen und stetig steigenden Mieten.',
     'blog.article.svizzeri-fuga-estero-costo-casa.imageAlt': 'Panoramablick auf ein Wohngebiet im Grenzgebiet zwischen der Schweiz und Italien',
+    'blog.article.calo-disavanzo-cantonale-2026.title': 'Kantonales Defizit 2026: Rückgang auf -49,7 Mio. Franken',
+    'blog.article.calo-disavanzo-cantonale-2026.excerpt': 'Der Staatsrat hat den Vorabschluss für Juni aktualisiert und das prognostizierte Defizit dank gesteigerter Erträge und kontrollierter Ausgaben auf -49,7 Mio. CHF gesenkt.',
+    'blog.article.calo-disavanzo-cantonale-2026.imageAlt': 'Kantonsgebäude in Bellinzona mit Finanzunterlagen auf einem Tisch, Alpenkulisse.',
 };
 
 export default blogMetaChDe;

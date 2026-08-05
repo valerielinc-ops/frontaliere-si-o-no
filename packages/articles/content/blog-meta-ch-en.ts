@@ -1867,6 +1867,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzeri-fuga-estero-costo-casa.title': 'Swiss fleeing overseas: the cost of the house weighs',
     'blog.article.svizzeri-fuga-estero-costo-casa.excerpt': 'Over 154,000 Swiss live in foreign border areas: a 14% increase driven by unsustainable real estate prices and steadily growing rents.',
     'blog.article.svizzeri-fuga-estero-costo-casa.imageAlt': 'Panoramic view of a residential border area between Switzerland and Italy',
+    'blog.article.calo-disavanzo-cantonale-2026.title': 'Cantonal deficit 2026: down to -49.7 million francs',
+    'blog.article.calo-disavanzo-cantonale-2026.excerpt': 'The State Council updated the June forecast, reducing the forecast deficit to -49.7 million CHF, thanks to higher revenues and controlled expenses.',
+    'blog.article.calo-disavanzo-cantonale-2026.imageAlt': 'Cantonal building in Bellinzona with financial documents on a table, Alpine backdrop.',
 };
 
 export default blogMetaChEn;

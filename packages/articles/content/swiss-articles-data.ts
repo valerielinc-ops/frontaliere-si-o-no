@@ -5599,6 +5599,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'calo-disavanzo-cantonale-2026',
+    category: 'fiscale',
+    date: '2026-08-05T10:44:20.172Z',
+    image: '/images/blog/calo-disavanzo-cantonale-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
