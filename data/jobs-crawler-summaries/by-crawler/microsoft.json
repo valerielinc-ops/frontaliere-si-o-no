@@ -1,18 +1,19 @@
 {
   "key": "microsoft",
   "label": "Microsoft",
-  "generatedAt": "2026-08-05T11:28:49.935Z",
-  "total": 13,
-  "newCount": 1,
-  "updatedCount": 11,
+  "generatedAt": "2026-08-05T22:40:33.063Z",
+  "total": 12,
+  "newCount": 0,
+  "updatedCount": 12,
   "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 19048,
-  "avgDurationMs": 19048,
+  "unchangedCount": 0,
+  "durationMs": 17926,
+  "avgDurationMs": 17926,
   "durationHistory": [
-    19048
+    17926
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "microsoft-200045521",
       "slug": "principal-applied-scientist-microsoft-zurich",
@@ -25,7 +26,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556945177",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-05T11:28:47.332Z",
+      "crawledAt": "2026-08-05T22:40:29.107Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -39,16 +40,15 @@
       "featured": false,
       "postedDate": "2026-08-05",
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556945177",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-08-05T11:28:47.332Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "microsoft-200044926",
       "slug": "software-engineer-ii-applied-sciences-group-microsoft-zurich",
@@ -61,7 +61,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556942270",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-05T11:28:47.330Z",
+      "crawledAt": "2026-08-05T22:40:29.110Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -96,7 +96,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556938967",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-05T11:28:47.334Z",
+      "crawledAt": "2026-08-05T22:40:29.111Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -131,7 +131,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556938037",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-05T11:28:47.331Z",
+      "crawledAt": "2026-08-05T22:40:29.112Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556946093",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-05T11:28:47.331Z",
+      "crawledAt": "2026-08-05T22:40:29.110Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -201,7 +201,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556874634",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-05T11:28:47.336Z",
+      "crawledAt": "2026-08-05T22:40:29.118Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -236,7 +236,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556626992",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-05T11:28:47.327Z",
+      "crawledAt": "2026-08-05T22:40:29.116Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -271,7 +271,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556938071",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-05T11:28:47.329Z",
+      "crawledAt": "2026-08-05T22:40:29.112Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -295,41 +295,6 @@
       }
     },
     {
-      "id": "microsoft-200043897",
-      "slug": "principal-forward-deployed-engineer-software-engineer-german-speaking-microsoft-zurich",
-      "company": "Microsoft",
-      "companyKey": "microsoft",
-      "companyDomain": "microsoft.com",
-      "title": "Principal Forward Deployed Engineer - Software Engineer - German Speaking",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.careers.microsoft.com/careers/job/1970393556938560",
-      "source": "Microsoft Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-05T11:28:47.333Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-17",
-      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556938560",
-      "firstSeenAt": "2026-07-17T22:07:55.970Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
       "id": "microsoft-200043895",
       "slug": "principal-forward-deployed-engineer-technical-program-manager-german-speaking-microsoft",
       "company": "Microsoft",
@@ -341,7 +306,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556938558",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-05T11:28:47.335Z",
+      "crawledAt": "2026-08-05T22:40:29.114Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -365,6 +330,41 @@
       }
     },
     {
+      "id": "microsoft-200043897",
+      "slug": "principal-forward-deployed-engineer-software-engineer-german-speaking-microsoft-zurich",
+      "company": "Microsoft",
+      "companyKey": "microsoft",
+      "companyDomain": "microsoft.com",
+      "title": "Principal Forward Deployed Engineer - Software Engineer - German Speaking",
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.careers.microsoft.com/careers/job/1970393556938560",
+      "source": "Microsoft Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-05T22:40:29.114Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-17",
+      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556938560",
+      "firstSeenAt": "2026-07-17T22:07:55.970Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
       "id": "microsoft-200044133",
       "slug": "principal-forward-deployed-engineer-data-scientist-german-speaking-microsoft-zurich",
       "company": "Microsoft",
@@ -376,7 +376,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556939162",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-05T11:28:47.335Z",
+      "crawledAt": "2026-08-05T22:40:29.116Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -411,7 +411,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556933034",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-05T11:28:47.325Z",
+      "crawledAt": "2026-08-05T22:40:29.106Z",
       "addressLocality": "Switzerland",
       "addressRegion": "",
       "addressCountry": "CH",
@@ -436,46 +436,6 @@
     }
   ],
   "removedJobs": [
-    {
-      "id": "microsoft-200034943",
-      "slug": "responsabile-del-programma-tecnico-microsoft-switzerland",
-      "company": "Microsoft",
-      "companyKey": "microsoft",
-      "companyDomain": "microsoft.com",
-      "title": "Technical Program Manager",
-      "location": "Switzerland",
-      "canton": "ZH",
-      "url": "https://apply.careers.microsoft.com/careers/job/1970393556858888",
-      "source": "Microsoft Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-03T22:18:31.668Z",
-      "addressLocality": "Switzerland",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-23",
-      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556858888",
-      "firstSeenAt": "2026-07-23T22:12:14.844Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
-  "unchangedJobs": [
     {
       "id": "microsoft-200041934",
       "slug": "direttore-solution-specialista-manager-ai-business-solutions-microsoft-switzerland",
@@ -514,5 +474,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
