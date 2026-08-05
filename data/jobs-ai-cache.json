@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-05T11:34:22.825Z",
+  "savedAt": "2026-08-05T11:57:06.237Z",
   "entries": [
     {
       "key": "d75719e12bc559369b74abd12b1a133042ef5e67255856876010887a99333ff9",
@@ -90944,7 +90944,7 @@
     },
     {
       "key": "acbe9ca55bec0dd4d9c5e4392330a64fadd25076ff56111f1505f7507cfe7d4a",
-      "touchedAt": 1783463477264,
+      "touchedAt": 1785931003774,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -90980,7 +90980,7 @@
     },
     {
       "key": "3fcae6f43b0488bea8cbfb473144683933cb42d3608923322604c0fb55b8aa26",
-      "touchedAt": 1783463485560,
+      "touchedAt": 1785930999777,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -91007,7 +91007,7 @@
     },
     {
       "key": "4590e07c430ce5c0a8a004da0d1b83bbce83e64228179a1cfde99b3c9981712f",
-      "touchedAt": 1783463486601,
+      "touchedAt": 1785930998703,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -286403,11 +286403,11 @@
     },
     {
       "key": "94e2df269dee06298ca5f282e72f6d0b4f7f43028a60f3fca25a492c6a34831f",
-      "touchedAt": 1785882671661,
+      "touchedAt": 1785930364132,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, indicating a real single job detail page."
       }
     },
     {
@@ -286439,7 +286439,7 @@
     },
     {
       "key": "8fdc8149e0005a7ec7b3cd4cab8ed4b0713d90211efadb31d2dda43d4d006509",
-      "touchedAt": 1785882692299,
+      "touchedAt": 1785930364349,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -290789,6 +290789,249 @@
         "isJob": true,
         "confidence": 0.9,
         "reason": "The page contains a concrete role title, responsibilities, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "802035a1cb7bd23c1cfe9b18c3cc951c6ffc91930ab5c482cf2b586dcbeddbb1",
+      "touchedAt": 1785930367466,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "aa1247e5c7224674d3e13aa4987df63626c80c44384212a3850ae36cdd1e2328",
+      "touchedAt": 1785930370133,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "712064cee8b9f21c6e9299c8eb343c713cef8fabd52274e49a44c32ab20b48c1",
+      "touchedAt": 1785930373317,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Verkaufstrainer Region Süd (m/w/d)', responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "afd88f13a72a489483974f7d8441d2bd59f3ba9d765863512b3356197d1b307a",
+      "touchedAt": 1785930376438,
+      "value": {
+        "isJob": true,
+        "confidence": 0.8,
+        "reason": "The page contains a concrete role title, responsibilities, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "d218a96486d1b935a6f259742879619927d634644f54823a08baff928b5812be",
+      "touchedAt": 1785930379362,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (ANALISTA PRICING III (Cientista Dados)), responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "8d6f548a83dbc51835c4270f65f48d965947e009764b925fd4ad5781ab945064",
+      "touchedAt": 1785930382232,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "fe656e90deb227f648428912c96fb486c6ad409ce080a1f9e3017f38083acbda",
+      "touchedAt": 1785930385535,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "63491231839960b9eef3225c2fc683898e3abdba3d52d3c2570f6b4bf15793b7",
+      "touchedAt": 1785930388427,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "6d680ee091f29be99b249d5bda5f48f69aac06d4c204ef9632da0ff87a76ac4a",
+      "touchedAt": 1785930390972,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "3a132a8da6639f0787a2b4df04d61f00cb09c3fbc29674845029eb67d7f657cf",
+      "touchedAt": 1785930394696,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Verkaufstrainer Region Nord (m/w/d)', responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "da8392820dbb02bfca1013a7ac35a4a6d7ab4f5af8951c81f840a3cedafeeee6",
+      "touchedAt": 1785930397445,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "63d832a0aa3a3b127efddc856f07ea26df9b765fbecf44d9f05edf61f1774b37",
+      "touchedAt": 1785930401105,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, including a job description, qualifications, and benefits. It also has a clear call-to-action to apply for the position."
+      }
+    },
+    {
+      "key": "973d300e96fd9d281f60f1245d370fbd1955db899cb586ee2e75108ba2e3b1df",
+      "touchedAt": 1785930405636,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "489a11e837ab31a41cc914c34bdc2b59b4ce1cb24d6da0ccf01217ae980752cf",
+      "touchedAt": 1785930408843,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "15f494ad4895321ec9191af4ab83c595b3a7b81204e798ea5c36275e1d779b62",
+      "touchedAt": 1785930411917,
+      "value": {
+        "isJob": true,
+        "confidence": 0.8,
+        "reason": "The page contains a concrete role title (PA Project Team Underwriter), responsibilities/requirements (Key Accountabilities), and application context (Apply now, Start apply with LinkedIn)."
+      }
+    },
+    {
+      "key": "ae0921e20022a8698b9f886c802ccdd346588341be4dce3dc6f8c3706ef34a44",
+      "touchedAt": 1785930459094,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "The page contains a specific role title (Spécialiste en souscription, région de l'Est), detailed responsibilities, qualifications, location, and application instructions, which are characteristic of a single job detail page rather than a generic listing or informational page."
+      }
+    },
+    {
+      "key": "b056a9556d6df62111f8ad7a02851ccfe9eaf28d4cc472c351d316702c5098a4",
+      "touchedAt": 1785930460210,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "The page presents a specific role title (Junior AI Builder Intern), detailed responsibilities, required skill sets, duration, and application actions, matching the criteria for a single job detail page."
+      }
+    },
+    {
+      "key": "1b682255771f430ecaac3348a4ef959e82657c7216e8e568ac6ebf1ea061bd02",
+      "touchedAt": 1785930460898,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "The page contains a specific role title ('Performance Management & Compensation - Zurich Asuransi Indonesia'), a detailed job summary, key accountabilities, location, recruiter name, and application actions, which meet the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "efe8cef526d85eb179888b95e01024cb3813077a90d7c4f98c57d94f804a78c3",
+      "touchedAt": 1785930461746,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "The page presents a specific role title (Duales Studium Mathematik und Informatik FH Aachen Campus Köln), includes detailed responsibilities, learning objectives, benefits, and application instructions, matching the criteria for a single job detail page."
+      }
+    },
+    {
+      "key": "f3d0fe08f5ba1b086bccb30f653adc63d7a3ec4f8bf64638f731e623c1f25c58",
+      "touchedAt": 1785930462651,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "The page contains a specific role title (Team Lead / Asst Manager - Senior Collections Specialist), detailed responsibilities, required qualifications, location, and application actions, which are hallmarks of a single job detail page rather than a generic listing or informational page."
+      }
+    },
+    {
+      "key": "ed2cf01aa3e3d9a653d34c4253a88e6d39bbc1cea2674659e49fa8644d58677b",
+      "touchedAt": 1785930476172,
+      "value": {
+        "isJob": true,
+        "confidence": 0.99,
+        "reason": "The page presents a specific role title (Legal Counsel – Trade Sanctions), detailed responsibilities, required qualifications, and application actions (Apply now), which are hallmarks of a single job detail page rather than a generic listing or informational page."
+      }
+    },
+    {
+      "key": "950b4375b51084a47e05c915b20e7a1ed405a66297d9e90698d2ca23193b4fc7",
+      "touchedAt": 1785930998261,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "d9aaceca604dea4641d8326fd734c0a1dda59d53728a6bcd09ab47df9e828ff0",
+      "touchedAt": 1785930999260,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "ed6235762ca710f57a107ac54013d65d3be8290661d2065d13ca8994c5f7d7fd",
+      "touchedAt": 1785931002228,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, indicating it is a real single job detail page."
+      }
+    },
+    {
+      "key": "2988fa21bc5fc53535fe5cd872d508a45327a3a8d94e9d039bfbbdbf931346cc",
+      "touchedAt": 1785931002732,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "2ca78b4b6fe0a1f7fa15303ed63bcd1934125fbaf663a46a117f47d3bb2393c9",
+      "touchedAt": 1785931003242,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating it is a real single job detail page."
+      }
+    },
+    {
+      "key": "125f28cad218e9a3e7f039ef2b293147350ac7f627750ee3a53467e7474bf86b",
+      "touchedAt": 1785931004243,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "La página contiene un título de puesto específico, responsabilidades y requisitos del trabajo, así como un contexto de aplicación, lo que sugiere que se trata de una página de detalles de un trabajo real."
       }
     }
   ]
