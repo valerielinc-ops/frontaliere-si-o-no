@@ -1154,7 +1154,98 @@ here does one of those two things.
 ### 12.5 Still open
 
 - **§5.7** — delete `mirror-articles-corpus`, earliest 2026-08-09. Recheck with
-  `/repos/valerielinc-ops/frontaliere-si-o-no/commits?path=packages/articles&since=<cutover>`.
+  `/repos/valerielinc-ops/frontaliere-si-o-no/commits?path=packages/articles&since=<cutover>`,
+  but read §13 first: that query as written can no longer return 0, and the
+  criterion has to be split by subtree.
+
+## 13. The direction nobody was watching: `engine/` (2026-08-05)
+
+The cycle runs two ways — code down from the site, data up from the corpus
+(`CLAUDE.md`). §12 verified the data direction end to end. The code direction
+had stopped working at the cutover and nothing said so.
+
+`mirror-articles-corpus.yml` was its only carrier, and §5.7 disabled it for a
+good reason: it does `rm -rf content && cp -R packages/articles/content`, which
+now deletes every article nanako generated. Correct — and it left `engine/`,
+which this repo still owns, with no way down.
+
+### 13.1 What that cost, measured
+
+Nine commits touched `packages/articles/engine/` between the cutover and
+2026-08-05. The four most recent never reached nanako:
+
+| | |
+|---|---|
+| #5101 | hero `<img>` intrinsic `width`/`height` |
+| #5107 | topical related-articles index with an inbound-link floor |
+| #5147 | clause-aware SERP truncation → `repairSerpSnippet` **on the contract** |
+| (+) | `ARTICLE_FOOTER_ROOT` — the `<div id="footer-root"></div>` target |
+
+nanako renders article pages now, so every article published in between shipped
+from the pre-fix engine. Measured on production, two articles published that
+day: `<main class="seo-static-content">` present, `id="footer-root"` **absent**.
+
+That is the diagnosis §12 asked for. `audit:footer-root-presence` went from 23
+offenders to **3608** and was recorded as "a two-order-of-magnitude worsening to
+diagnose, not noise" — the fix landed in this repo's engine, this repo stopped
+emitting article pages (`BUILD_EMIT_SKIP`), and the repo that does emit them
+never received it.
+
+### 13.2 The §5.7 criterion is unsatisfiable as written
+
+"0 commits have touched `packages/articles/` on main since the cutover" cannot
+hold any more, because the site now **pulls the corpus back**
+(`scripts/pull-articles-corpus.mjs`, run by `sync-articles-sitemaps.yml`) and
+each pull is a commit under that path. Measured at 2026-08-05: **58** commits
+match, of which **57** are the sync.
+
+Split by subtree it says something useful, and the answer is the opposite of
+what one query suggested:
+
+- `packages/articles/content` — **1** non-sync commit, and it *is* the pull-back.
+  Main has stopped producing the corpus. §5.7's real criterion holds.
+- `packages/articles/engine` — **9** commits. Main still owns the engine, as
+  intended, and had no way to deliver it.
+
+So the two subtrees need opposite treatments, and folding them into one path
+query hid a live defect behind a number that was going to be non-zero anyway.
+
+### 13.3 `engine/` alone is safe to mirror; the contract is not
+
+`tests/packages-articles-confinement.test.ts` proves by AST that nothing under
+`packages/articles` imports outside its own folder. That is what makes the
+engine copyable into another repo unchanged — but it covers **imports**, and
+`SiteShellContract` is the other coupling and is not import-shaped.
+
+#5147 added `repairSerpSnippet` to the contract. Copying the engine without the
+matching `host/` change gives `TypeError: repairSerpSnippet is not a function`
+at render time, and nanako's CI reported **40/40 green** and parity **8/8**
+while it did — its engine assertions read the engine as *text*, because
+`node --test` cannot import TypeScript. `generator-ci.yml` did not even watch
+`engine/**` or `host/**`, so an engine change ran no CI at all.
+
+Both are closed on the nanako side: the paths are watched, and
+`generator/tests/shell-contract-coverage.mjs` boots the real bootstrap and
+inspects the real object (41 declared members, 0 missing), failing on any member
+`host/` does not supply.
+
+### 13.4 The transport
+
+`.github/workflows/mirror-articles-engine.yml` carries `packages/articles/engine`
+plus `index.ts` and `articleSections.ts`, and **nothing else**. That split is the
+whole safety argument: the destructive half of the old mirror was entirely about
+`content/`, so a mirror that cannot name `content/` is safe to fire on `push` —
+and firing by itself is what stops the drift being invisible. The staged diff is
+checked against an allowlist at run time and the run dies on anything outside it,
+rather than trusting the copy step to stay correct.
+
+It opens a PR on nanako rather than pushing to its `main`, so the shell-contract
+gate above runs *between* an engine change and the generator that publishes
+articles. An open PR there means the two engines have diverged.
+
+This also unblocks §5.7 properly: `mirror-articles-corpus.yml` can now be deleted
+without removing the last code-shaped connection between the two repos, which is
+the thing that made deleting it feel unsafe even though it is unusable.
 - **`host/` is a second producer of the site chrome.** Unavoidable — host values
   are what a host owns. Both repos now assert the same fingerprint over the 21
   scalars AND the same golden over 23 function probes, so either side drifting
