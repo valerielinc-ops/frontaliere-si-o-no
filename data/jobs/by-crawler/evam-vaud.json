@@ -1,6 +1,6 @@
 {
   "crawlerKey": "evam-vaud",
-  "assembledAt": "2026-08-05T11:48:51.633Z",
+  "assembledAt": "2026-08-05T22:50:51.965Z",
   "jobs": [
     {
       "id": "evam-vaud-6629394",
@@ -41,7 +41,7 @@
       "sourceLang": "fr",
       "postedDate": "2025-10-17",
       "datePosted": "2025-10-17",
-      "crawledAt": "2026-08-05T11:48:48.547Z",
+      "crawledAt": "2026-08-05T22:50:49.962Z",
       "category": "Amministrazione Pubblica",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -67,6 +67,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:13.369Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -119,7 +120,7 @@
       "sourceLang": "fr",
       "postedDate": "2025-12-15",
       "datePosted": "2025-12-15",
-      "crawledAt": "2026-08-05T11:48:48.538Z",
+      "crawledAt": "2026-08-05T22:50:49.955Z",
       "category": "Sociale",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -131,7 +132,6 @@
       "previousSlugs": [
         "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch",
         "educateurs-trices-sociaux-ales-80-domaine-mna-cdd-evam-vaud-ch",
-        "lavoratori-sociali-80-csd-evam-lausanne",
         "un-impiegato-della-cucina-20-csd-evam-lausanne",
         "a-kitchen-clerk-20-csd-evam-lausanne",
         "ein-kuchenschreiber-20-csd-evam-lausanne",
@@ -141,13 +141,13 @@
         "3-cooking-clerk-40-85-csd-evam-lausanne",
         "3-kochangestellte-40-85-csd-evam-lausanne",
         "3-commis-e-de-cuisine-de-40-a-85-cdd-evam-vaud-ch",
-        "3-commis-e-de-cuisine-de-40-a-85-cdd-evam-lausanne"
+        "3-commis-e-de-cuisine-de-40-a-85-cdd-evam-lausanne",
+        "lavoratori-sociali-80-csd-evam-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch",
           "educateurs-trices-sociaux-ales-80-domaine-mna-cdd-evam-vaud-ch",
-          "lavoratori-sociali-80-csd-evam-lausanne",
           "un-impiegato-della-cucina-20-csd-evam-lausanne",
           "a-kitchen-clerk-20-csd-evam-lausanne",
           "ein-kuchenschreiber-20-csd-evam-lausanne",
@@ -157,7 +157,8 @@
           "3-cooking-clerk-40-85-csd-evam-lausanne",
           "3-kochangestellte-40-85-csd-evam-lausanne",
           "3-commis-e-de-cuisine-de-40-a-85-cdd-evam-vaud-ch",
-          "3-commis-e-de-cuisine-de-40-a-85-cdd-evam-lausanne"
+          "3-commis-e-de-cuisine-de-40-a-85-cdd-evam-lausanne",
+          "lavoratori-sociali-80-csd-evam-lausanne"
         ],
         "en": [
           "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch",
@@ -227,7 +228,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-01-13",
       "datePosted": "2026-01-13",
-      "crawledAt": "2026-08-05T11:48:48.528Z",
+      "crawledAt": "2026-08-05T22:50:49.945Z",
       "category": "Amministrazione Pubblica",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -253,6 +254,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:13.349Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -262,85 +264,6 @@
           "@type": "QuantitativeValue",
           "minValue": 60500,
           "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "evam-vaud-7163896",
-      "slug": "formatore-responsabile-delle-informazioni-per-migranti-50-70-contratto-a-tempo-determinato-evam-lausanne",
-      "slugByLocale": {
-        "it": "formatore-responsabile-delle-informazioni-per-migranti-50-70-contratto-a-tempo-determinato-evam-lausanne",
-        "en": "a-trainer-in-charge-of-information-to-migrants-50-70-csd-evam-lausanne",
-        "de": "ein-trainer-der-fur-informationen-fur-migranten-verantwortlich-ist-50-70-csd-evam-lausanne",
-        "fr": "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-vaud-ch"
-      },
-      "company": "EVAM",
-      "companyKey": "evam-vaud",
-      "companyDomain": "evam.ch",
-      "title": "Un.e formateur.trice en charge de l'information aux migrants (50 - 70%) – CDD",
-      "titleByLocale": {
-        "it": "Formatore responsabile delle informazioni per migranti (50 - 70%) – contratto a tempo determinato",
-        "en": "A trainer in charge of information to migrants (50 - 70%) – CSD",
-        "de": "Ein Trainer, der für Informationen für Migranten verantwortlich ist (50 - 70%) - CSD",
-        "fr": "Un.e formateur.trice en charge de l'information aux migrants (50 - 70%) – CDD"
-      },
-      "description": "## Rejoignez l’EVAM et donnez du sens à votre expertise !\n\nEt si votre prochain défi professionnel avait un réel impact social ? À l’EVAM, chaque collaborateur·trice contribue à une mission essentielle : accompagner des personnes en situation de migration avec **ouverture** et **responsabilité**.\n\nDans le cadre d’un départ, nous recrutons un·e :\n\n**Un.e formateur.trice en charge de l'information aux migrants** (50 - 70%) – **CDD jusqu'en décembre. Lieu** : Lausanne **Entrée en fonction** : A convenir\n\n## Ce que vous apportez à notre mission\n\nEn tant que Formateur·trice référent·e, vous concevez et animez des ateliers d’information destinés aux personnes migrantes afin de renforcer leur compréhension du cadre institutionnel, social et professionnel, et de soutenir leur autonomie et leur intégration.\n\nEn collaboration étroite avec les différents domaines de l’EVAM et les partenaires internes et externes, vous contribuez au développement et à la qualité des dispositifs de formation et d’information collective.\n\n## Le mot de votre future responsable Denatsha:\n\n\" Inscrite dans le cadre de l’Agenda d’intégration suisse, notre action repose sur une posture proactive et engagée. Elle s’appuie sur la curiosité professionnelle, la capacité à aller chercher l’information, à en assurer une mise à jour constante et à la questionner, afin de rester en phase avec des réalités en évolution permanente.\n\nLe travail s’inscrit pleinement dans une dynamique collective et transversale. Vous évoluerez au sein d’une équipe engagée et solidaire, où la collaboration et le partage des connaissances sont essentiels. L’initiative, l’autonomie et le sens des responsabilités s’y conjuguent à une forte culture du travail en équipe.\"\n\n## Vos missions clés\n\n- Concevoir, animer et dispenser des ateliers d’informations à l’intégration.\n- Comprendre des situations complexes et transmettre l’essentiel de manière claire et accessible.\n- Structurer et coordonner efficacement les ateliers et activités de formation.\n- Proposer des améliorations et gérer les missions de manière proactive.\n- Communiquer avec clarté, pédagogie et précision, à l’oral comme à l’écrit.\n- Etablir une relation de confiance avec des publics et partenaires diversifiés.\n- Travailler en équipe et contribuer activement aux projets transversaux.\n- Faire preuve de diplomatie et d’adaptation dans un contexte interculturel.\n- Gérer les priorités et maintenir la qualité des prestations dans un environnement exigeant.\n\n## Votre profil\n\n- Bachelor dans un domaine utile au poste complété d’un brevet de formateurs d’adulte ou équivalent\n- Expérience de 2 ans min dans une fonction similaire\n- Excellente connaissance du domaine de la migration et du contexte institutionnel\n- Maîtrise des outils numérique, notamment dans la création de formation\n- Esprit d’équipe et aptitude au travail en réseau\n- Bonne gestion organisationnelle et orientation solution\n- Excellentes capacités d’adaptation et de flexibilité\n\n## Ce que l’EVAM vous propose\n\n- Un environnement de travail **engagé**\n- Une politique de télétravail\n- 5 semaines de vacances (6 dès 50 ans)\n- De **très bonnes prestations sociales**\n- Des projets porteurs de sens dans un contexte interculturel stimulant\n\n## Le processus de recrutement en 3 étapes :\n\n1. Un entretien avec la responsable et la chargée de recrutement.\n\n2. Une mise en situation\n\n3. Une demi-journée d’immersion pour découvrir concrètement votre futur environnement de travail.\n\n*À l’issue du processus : demande d’un extrait du casier judiciaire, (documents vierges requis).*\n\nVous vous reconnaissez dans cette mission ? Nous avons hâte de découvrir votre candidature et de construire ensemble un avenir solidaire.",
-      "descriptionByLocale": {
-        "it": "## Unisciti a EVAM e senti la tua esperienza! E se la tua prossima sfida professionale abbia un impatto sociale reale? A EVAM, ogni dipendente contribuisce ad una missione essenziale: accompagnare le persone in situazioni di migrazione con apertura e responsabilità. Come parte di una partenza, ne reclutiamo uno: Un formatore responsabile delle informazioni ai migranti (50 - 70%) – CDD fino a dicembre. Luogo in cui si trova Losanna. Essere d'accordo ## Cosa porti alla nostra missione Come formatore di riferimento, progetta e conduce workshop informativi per i migranti al fine di rafforzare la loro comprensione del quadro istituzionale, sociale e professionale e sostenere la loro autonomia e integrazione. In stretta collaborazione con i vari settori dell'EVAM e dei partner interni ed esterni, contribuisce allo sviluppo e alla qualità dei sistemi di formazione e informazione collettiva. ## La parola della tua futura testa Denatsha: \" Nell'ambito dell'Agenda svizzera per l'integrazione, la nostra azione si basa su una postura proattiva e impegnata. Si basa sulla curiosità professionale, sulla capacità di cercare informazioni, di rimanere aggiornati e interrogarla, al fine di continuare a cambiare le realtà. Il lavoro fa parte di una dinamica collettiva e trasversale. Si evolverà in un team impegnato e di supporto in cui la collaborazione e la condivisione delle conoscenze sono essenziali. L'iniziativa, l'autonomia e il senso di responsabilità si combinano con una forte cultura del lavoro di squadra\". ## Le vostre missioni chiave - Progettazione, lead e fornire workshop di informazioni di integrazione. - Comprendere situazioni complesse e trasmettere gli elementi essenziali in modo chiaro e accessibile. - Efficacemente strutturare e coordinare workshop e attività di formazione. - Proporre miglioramenti e gestire le missioni in modo proattivo. - Comunicare con chiarezza, pedagogia e precisione, sia per via orale che per iscritto. - Stabilire un rapporto di fiducia con pubblico e partner diversi. - Lavorare come team e contribuire attivamente a progetti di cross-cuting. - Dimostrare diplomazia e adattamento in un contesto interculturale. - Gestione delle priorità e mantenimento della qualità dei servizi in un ambiente esigente. ## Il tuo profilo - Laurea in un campo utile al post completato con un certificato di formatori adulti o equivalenti - Esperienza di 2 anni min in una funzione simile - Ottima conoscenza della migrazione e contesto istituzionale - Masterizzazione degli strumenti digitali, in particolare nella creazione di formazione - Competenze di team spirit e networking - Buona gestione organizzativa e orientamento alla soluzione - Eccellente adattabilità e flessibilità ## Cosa propone EVAM - Un ambiente di lavoro - Una politica di telelavoro - 5 settimane di vacanza (6 da 50 anni) - Da I benefici sociali molto buoni - Progetti significativi in un contesto interculturale stimolante ## Il processo di reclutamento a tre fasi: 1. Un'intervista con il direttore e l'ufficiale di reclutamento. 2. Situazione 3. Mezza giornata di immersione per scoprire il tuo futuro ambiente di lavoro. *Alla fine del processo: richiedere un estratto dal verbale penale, (documenti vergini richiesti). * Ti riconosci in questa missione? Non vediamo l'ora di scoprire la vostra candidatura e costruire insieme un futuro solidale.",
-        "en": "## Join EVAM and make sense of your expertise! What if your next professional challenge has a real social impact? At EVAM, each employee contributes to an essential mission: to accompany people in situations of migration with **openness** and **responsibility**. As part of a departure, we recruit one: **A trainer in charge of information to migrants** (50 - 70%) – **CDD until December. Place** : Lausanne **Entry into office** : To be agreed ##\n• What you bring to our mission As a reference trainer, you design and conduct information workshops for migrants in order to strengthen their understanding of the institutional, social and professional framework and support their autonomy and integration. In close collaboration with the various fields of EVAM and internal and external partners, you contribute to the development and quality of training and collective information systems. ## The word of your future head Denatsha: \" As part of the Swiss Agenda for Integration, our action is based on a proactive and committed posture. It is based on professional curiosity, the ability to seek information, to keep up-to-date and to question it, in order to keep up with changing realities. Work is fully part of a collective and cross-cutting dynamic. You will evolve into a committed and supportive team where collaboration and knowledge sharing are essential. The initiative, autonomy and sense of responsibility combine with a strong culture of teamwork.\" ## Your key missions - Design, lead and deliver integration information workshops. - Understand complex situations and convey the essentials in a clear and accessible way. - Effectively structure and coordinate workshops and training activities. - Propose improvements and manage missions proactively. - Communicate with clarity, pedagogy and precision, both orally and in writing. - Establish a trust relationship with diverse audiences and partners. - Work as a team and actively contribute to cross-cutting projects. - Demonstrate diplomacy and adaptation in an intercultural context. - Managing priorities and maintaining the quality of services in a demanding environment. ##\n• Your profile - Bachelor's degree in a field useful to the post completed with a certificate of adult or equivalent trainers - Experience of 2 years min in a similar function - Excellent knowledge of migration and institutional context - Mastery of digital tools, particularly in the creation of training - Team spirit and networking skills - Good organizational management and solution orientation - Excellent adaptability and flexibility ## What EVAM proposes - A work environment ** engaged** - A teleworking policy - 5 weeks of holiday (6 from 50 years) - From **very good social benefits** - Meaningful projects in a stimulating intercultural context ## The three-step recruitment process: 1. An interview with the manager and the recruitment officer. 2. Situation 3. Half a day of immersion to discover your future working environment. *At the end of the process: request for an extract from the criminal record, (virgin documents required). * Do you recognize yourself in this mission? We look forward to discovering your candidacy and building together a solidarity future.",
-        "de": "## Treten Sie EVAM bei und machen Sie Sinn für Ihre Expertise! Was ist, wenn Ihre nächste berufliche Herausforderung echte soziale Auswirkungen hat? Bei EVAM trägt jeder Mitarbeiter zu einer wesentlichen Mission bei: Menschen in Migrationssituationen mit **Offenheit** und **Verantwortung** zu begleiten. Im Rahmen einer Abreise rekrutieren wir eine: **Ein Trainer, der für Informationen für Migranten verantwortlich ist** (50 - 70%) – **CDD bis Dezember. Place** : Lausanne **Eintritt ins Amt** : Zu vereinbaren ## Was Sie zu unserer Mission bringen Als Referenztrainer entwerfen und führen Sie Informationsworkshops für Migranten durch, um deren Verständnis der institutionellen, sozialen und beruflichen Rahmenbedingungen zu stärken und deren Autonomie und Integration zu unterstützen. In enger Zusammenarbeit mit den verschiedenen Bereichen von EVAM und internen und externen Partnern tragen Sie zur Entwicklung und Qualität von Schulungs- und kollektiven Informationssystemen bei. ## Das Wort deines zukünftigen Kopfes Denatsha: „Im Rahmen der Schweizer Integrationsagenda basiert unser Handeln auf einer proaktiven und engagierten Haltung. Es basiert auf professioneller Neugier, der Fähigkeit, Informationen zu suchen, auf dem neuesten Stand zu bleiben und sie zu hinterfragen, um mit den sich verändernden Realitäten Schritt zu halten. Arbeit ist Teil einer kollektiven und übergreifenden Dynamik. Sie entwickeln sich zu einem engagierten und unterstützenden Team, in dem Zusammenarbeit und Wissensaustausch unerlässlich sind. Initiative, Autonomie und Verantwortungsbewusstsein verbinden sich mit einer starken Kultur der Teamarbeit. ## Ihre wichtigsten Missionen - Design, Leitung und Durchführung von Integrationsinformationsworkshops. - Komplexe Situationen verstehen und das Wesentliche klar und zugänglich vermitteln. - Strukturierung und Koordinierung von Workshops und Schulungen. - Verbesserung vorschlagen und Missionen proaktiv verwalten. - Kommunizieren Sie mit Klarheit, Pädagogik und Präzision sowohl mündlich als auch schriftlich. - Aufbau einer Vertrauensbeziehung mit verschiedenen Zielgruppen und Partnern. - Arbeiten Sie als Team und tragen Sie aktiv zu Querschnittsprojekten bei. - Demonstrieren Sie Diplomatie und Anpassung in einem interkulturellen Kontext. - Prioritäten verwalten und die Qualität der Dienstleistungen in einem anspruchsvollen Umfeld erhalten. ## Dein Profil - Bachelor-Abschluss in einem Bereich nützlich für die Stelle mit einem Zertifikat von Erwachsenen oder gleichwertigen Trainern abgeschlossen - Erfahrung von 2 Jahren min in einer ähnlichen Funktion - Exzellentes Wissen über Migration und institutionellen Kontext - Beherrschung digitaler Werkzeuge, insbesondere bei der Erstellung von Schulungen - Teamgeist und Netzwerkfähigkeiten - Gutes Organisationsmanagement und Lösungsorientierung - Hervorragende Anpassungsfähigkeit und Flexibilität ## Was EVAM vorschlägt - Ein Arbeitsumfeld ** engagiert ** - Eine Telearbeitspolitik - 5 Wochen Urlaub (6 von 50 Jahren) - Von **sehr guten Sozialleistungen** - Sinnvolle Projekte in einem stimulierenden interkulturellen Kontext ## Der dreistufige Rekrutierungsprozess: 1. Ein Interview mit dem Manager und dem Rekrutierungsbeauftragten. 2. Lage 3. Ein halber Tag des Eintauchens, um Ihre zukünftige Arbeitsumgebung zu entdecken. *Am Ende des Prozesses: Antrag auf einen Auszug aus dem Strafregister, (jungfräuliche Dokumente erforderlich). * Erkennst du dich selbst in dieser Mission? Wir freuen uns darauf, Ihre Kandidatur zu entdecken und gemeinsam eine solidarische Zukunft aufzubauen.",
-        "fr": "## Rejoignez l’EVAM et donnez du sens à votre expertise !\n\nEt si votre prochain défi professionnel avait un réel impact social ? À l’EVAM, chaque collaborateur·trice contribue à une mission essentielle : accompagner des personnes en situation de migration avec **ouverture** et **responsabilité**.\n\nDans le cadre d’un départ, nous recrutons un·e :\n\n**Un.e formateur.trice en charge de l'information aux migrants** (50 - 70%) – **CDD jusqu'en décembre. Lieu** : Lausanne **Entrée en fonction** : A convenir\n\n## Ce que vous apportez à notre mission\n\nEn tant que Formateur·trice référent·e, vous concevez et animez des ateliers d’information destinés aux personnes migrantes afin de renforcer leur compréhension du cadre institutionnel, social et professionnel, et de soutenir leur autonomie et leur intégration.\n\nEn collaboration étroite avec les différents domaines de l’EVAM et les partenaires internes et externes, vous contribuez au développement et à la qualité des dispositifs de formation et d’information collective.\n\n## Le mot de votre future responsable Denatsha:\n\n\" Inscrite dans le cadre de l’Agenda d’intégration suisse, notre action repose sur une posture proactive et engagée. Elle s’appuie sur la curiosité professionnelle, la capacité à aller chercher l’information, à en assurer une mise à jour constante et à la questionner, afin de rester en phase avec des réalités en évolution permanente.\n\nLe travail s’inscrit pleinement dans une dynamique collective et transversale. Vous évoluerez au sein d’une équipe engagée et solidaire, où la collaboration et le partage des connaissances sont essentiels. L’initiative, l’autonomie et le sens des responsabilités s’y conjuguent à une forte culture du travail en équipe.\"\n\n## Vos missions clés\n\n- Concevoir, animer et dispenser des ateliers d’informations à l’intégration.\n- Comprendre des situations complexes et transmettre l’essentiel de manière claire et accessible.\n- Structurer et coordonner efficacement les ateliers et activités de formation.\n- Proposer des améliorations et gérer les missions de manière proactive.\n- Communiquer avec clarté, pédagogie et précision, à l’oral comme à l’écrit.\n- Etablir une relation de confiance avec des publics et partenaires diversifiés.\n- Travailler en équipe et contribuer activement aux projets transversaux.\n- Faire preuve de diplomatie et d’adaptation dans un contexte interculturel.\n- Gérer les priorités et maintenir la qualité des prestations dans un environnement exigeant.\n\n## Votre profil\n\n- Bachelor dans un domaine utile au poste complété d’un brevet de formateurs d’adulte ou équivalent\n- Expérience de 2 ans min dans une fonction similaire\n- Excellente connaissance du domaine de la migration et du contexte institutionnel\n- Maîtrise des outils numérique, notamment dans la création de formation\n- Esprit d’équipe et aptitude au travail en réseau\n- Bonne gestion organisationnelle et orientation solution\n- Excellentes capacités d’adaptation et de flexibilité\n\n## Ce que l’EVAM vous propose\n\n- Un environnement de travail **engagé**\n- Une politique de télétravail\n- 5 semaines de vacances (6 dès 50 ans)\n- De **très bonnes prestations sociales**\n- Des projets porteurs de sens dans un contexte interculturel stimulant\n\n## Le processus de recrutement en 3 étapes :\n\n1. Un entretien avec la responsable et la chargée de recrutement.\n\n2. Une mise en situation\n\n3. Une demi-journée d’immersion pour découvrir concrètement votre futur environnement de travail.\n\n*À l’issue du processus : demande d’un extrait du casier judiciaire, (documents vierges requis).*\n\nVous vous reconnaissez dans cette mission ? Nous avons hâte de découvrir votre candidature et de construire ensemble un avenir solidaire."
-      },
-      "location": "Lausanne",
-      "streetAddress": "Rte de Chavannes 37",
-      "postalCode": "1007",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "url": "https://emploi.evam.ch/jobs/7163896-un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd",
-      "source": "EVAM Dedicated Parser",
-      "sourceLang": "fr",
-      "postedDate": "2026-02-03",
-      "datePosted": "2026-02-03",
-      "crawledAt": "2026-08-05T11:48:48.515Z",
-      "category": "Formazione",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "employmentType": "PART_TIME",
-      "contract": "temporary",
-      "contractType": "temporary",
-      "currency": "CHF",
-      "hiringOrganizationName": "EVAM",
-      "previousSlugs": [
-        "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-vaud-ch",
-        "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-lausanne",
-        "formatore-responsabile-delle-informazioni-per-migranti-50-70-contratto-a-tempo-determinato-evam-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-vaud-ch",
-          "formatore-responsabile-delle-informazioni-per-migranti-50-70-contratto-a-tempo-determinato-evam-lausanne"
-        ],
-        "en": [
-          "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-lausanne"
-        ],
-        "de": [
-          "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-vaud-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:58:13.342Z",
-      "salaryMin": 58400,
-      "salaryMax": 88600,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58400,
-          "maxValue": 88600,
           "unitText": "YEAR"
         }
       }
@@ -384,7 +307,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-03-26",
       "datePosted": "2026-03-26",
-      "crawledAt": "2026-08-05T11:48:48.493Z",
+      "crawledAt": "2026-08-05T22:50:49.937Z",
       "category": "Legale",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -417,6 +340,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:55:16.511Z",
+      "needsRetranslation": true,
       "salaryMin": 66800,
       "salaryMax": 101200,
       "baseSalary": {
@@ -469,7 +393,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-04-01",
       "datePosted": "2026-04-01",
-      "crawledAt": "2026-08-05T11:48:48.481Z",
+      "crawledAt": "2026-08-05T22:50:49.925Z",
       "category": "Amministrazione",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -503,6 +427,7 @@
         "un-responsabile-amministrativo-100-contratto-a-tempo-determinato-di-9-mesi-evam-lausanne"
       ],
       "firstSeenAt": "2026-07-04T10:58:13.308Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -555,7 +480,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-04-09",
       "datePosted": "2026-04-09",
-      "crawledAt": "2026-08-05T11:48:48.462Z",
+      "crawledAt": "2026-08-05T22:50:49.919Z",
       "category": "Sociale",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -603,6 +528,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:18:15.824Z",
+      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -655,7 +581,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-04-16",
       "datePosted": "2026-04-16",
-      "crawledAt": "2026-08-05T11:48:48.452Z",
+      "crawledAt": "2026-08-05T22:50:49.913Z",
       "category": "Amministrazione",
       "experienceLevel": "senior",
       "sector": "Amministrazione Pubblica",
@@ -745,7 +671,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-06-09",
       "datePosted": "2026-06-09",
-      "crawledAt": "2026-08-05T11:48:48.437Z",
+      "crawledAt": "2026-08-05T22:50:49.903Z",
       "category": "Sociale",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -771,84 +697,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:18:15.753Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "evam-vaud-7891231",
-      "slug": "specialista-hr-100-contratto-a-tempo-determinato-evam-lausanne",
-      "slugByLocale": {
-        "it": "specialista-hr-100-contratto-a-tempo-determinato-evam-lausanne",
-        "en": "hr-specialist-100-csd-evam-lausanne",
-        "de": "hr-spezialist-100-csd-evam-lausanne",
-        "fr": "specialiste-rh-100-cdd-evam-vaud-ch"
-      },
-      "company": "EVAM",
-      "companyKey": "evam-vaud",
-      "companyDomain": "evam.ch",
-      "title": "Spécialiste RH (100%) - CDD",
-      "titleByLocale": {
-        "it": "Specialista HR (100%) - Contratto a Tempo Determinato",
-        "en": "HR specialist (100%) - CSD",
-        "de": "HR-Spezialist (100%) - CSD",
-        "fr": "Spécialiste RH (100%) - CDD"
-      },
-      "description": "L'EVAM (Établissement vaudois de l'accueil des migrants) est un acteur majeur du service public vaudois. Avec plus de 1'000 collaboratrices et collaborateurs engagés et un budget annuel de 360 millions de francs, nous assurons l'accueil, l'accompagnement et l'intégration des personnes migrantes dans le canton de Vaud.\n\nChaque jour, nos équipes œuvrent avec ouverture et responsabilité pour répondre à des enjeux sociaux essentiels. Rejoindre l'EVAM, c'est mettre ses compétences au service d'une mission humaine et d'utilité publique, dans un environnement professionnel stimulant, diversifié et en constante évolution.\n\nDans le cadre du remplacement d'un congé maternité, nous recrutons un·e :\n\n## Spécialiste RH (100%) – CDD de 12 mois\n\nLieu : Lausanne (Route de Chavannes 31) + quelques déplacements dans le canton Entrée en fonction : De suite ou à convenir\n\n[Classe salariale : 7](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial_2026.pdf) *(ce barème s’entend à prérequis validés, à défaut desquels l’enclassement se fait à hauteur de classe -1)*\n\n## Ce que vous apportez à notre mission\n\nVéritable partenaire de terrain, vous êtes au cœur de la relation entre les équipes, les managers et les enjeux humains de notre organisation. Vous apportez un soutien stratégique et opérationnel, dans une approche humaine, éthique et rigoureuse des relations de travail.\n\nLe mot de votre futur·e responsable, Cécilia :\n\n« Ce poste est une belle opportunité de contribuer concrètement à la qualité de l’accompagnement RH au sein de notre institution. Nous recherchons une personne rigoureuse, proactive et orientée solutions, capable d’apporter son expertise tout en développant des relations de confiance avec les collaborateurs et les managers. À l’EVAM, nous croyons à une fonction RH à la fois professionnelle, humaine et proche du terrain. Si vous aimez allier précision, sens du service et impact positif, ce poste est fait pour vous. »\n\n## Vos missions clés\n\n- Conseiller et accompagner les managers sur les bonnes pratiques RH (droit du travail public/privé)\n- Gérer les situations complexes : conflits, mesures disciplinaires, licenciements\n- Piloter le cycle de vie RH des collaborateurs : suivi des évaluations, certificats de travail, etc...\n- Coordonner la gestion des absences en collaboration avec notre Care Manager\n- Contribuer à des projets RH innovants qui font évoluer notre organisation\n\n## Votre profil\n\n- Bachelor HES avec spécialisation en RH ou formation équivalente\n- Excellente capacité d’écoute, de pédagogie et de communication (orale & écrite)\n- Sens de la confidentialité, rigueur, et leadership collaboratif\n- Solides connaissances du droit du travail suisse (public et privé)\n- À l’aise dans un environnement dynamique, en évolution constante\n\n## Ce que l’EVAM vous propose\n\n- Un environnement de travail engagé\n- Une politique de formation continue pour évoluer dans votre carrière\n- Une politique de télétravail\n- 5 semaines de vacances (6 dès 50 ans)\n- De très bonnes prestations sociales\n- Des projets porteurs de sens dans un contexte interculturel stimulant\n\n## Le processus de recrutement en 2 étapes :\n\n1. Entretien avec votre future responsable ainsi que la responsable de l'entité RH.\n\n2. Mise en situation pour valoriser vos compétences.\n\n*À l’issue du processus : demande d’un extrait du casier judiciaire, extrait spécial et attestation de l’office des poursuites (documents vierges requis).*\n\nVous vous reconnaissez dans cette mission ? Nous avons hâte de découvrir votre candidature et de construire ensemble un avenir solidaire.",
-      "descriptionByLocale": {
-        "it": "L'EVAM (istituzione vaudiana per la ricezione dei migranti) è un grande giocatore nel servizio pubblico voodoo. Con oltre 1.000 collaboratori impegnati e un bilancio annuale di 360 milioni di franchi, garantiamo l'accoglienza, il sostegno e l'integrazione dei migranti nel cantone di Vaud. Ogni giorno, i nostri team lavorano con apertura e responsabilità per affrontare questioni sociali chiave. Unire EVAM significa mettere le tue competenze al servizio di una missione umana e di pubblica utilità, in un ambiente professionale stimolante, vario e in continua evoluzione. Nell'ambito della sostituzione del congedo di maternità, ne reclutiamo uno: ## HR Specialist (100%) – 12 mesi CSD **Locazione ** : Losanna (Route de Chavannes 31) + qualche viaggio al cantone Impresa in ufficio **: Immediatamente o da concordare [**Classe di vendita: 7**](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial 2026.pdf) *(**Questa scala si riferisce ai prerequisiti convalidati, in mancanza di quale classificazione è a livello di grado -1) * ## Cosa porti alla nostra missione Un vero partner nel campo, sei al centro del rapporto tra team, manager e la posta in gioco umana della nostra organizzazione. Fornite supporto strategico e operativo in un approccio **umano, etico e rigoroso** alle relazioni di lavoro. **La parola del tuo futuro responsabile, Cécilia:** \"Questa posizione è una grande opportunità per contribuire concretamente alla qualità del supporto HR all'interno della nostra istituzione. Siamo alla ricerca di una persona rigorosa, proattiva e orientata alle soluzioni, in grado di portare competenze e sviluppare relazioni di fiducia con dipendenti e manager. In EVAM, crediamo in una funzione HR che sia professionale, umano e vicino al campo. Se ti piace combinare precisione, senso di servizio e impatto positivo, questa posizione è per te. » ## Le vostre missioni chiave - Consigliere e responsabile del sostegno alle buone pratiche HR (diritto pubblico/privato del lavoro) - Gestione di situazioni complesse: conflitti, misure disciplinari, terminazioni - Pilotare il ciclo di vita HR dei dipendenti: monitoraggio delle valutazioni, certificati di lavoro, ecc... - Coordinate la gestione degli assenti in collaborazione con il nostro Care Manager - Contribuisci a progetti HR innovativi che avanzano la nostra organizzazione ## Il tuo profilo - Bachelor HES con specializzazione HR o formazione equivalente - Ottima capacità di ascolto, pedagogia e comunicazione (orale e scritto) - Confidenzialità, rigore e leadership collaborativa - Forte conoscenza del diritto del lavoro svizzero (pubblico e privato) - A casa in un ambiente dinamico e in continua evoluzione ## Cosa propone EVAM - Un ambiente di lavoro impegnato - Una politica di formazione continua per evolvere nella tua carriera - Una politica di telelavoro - 5 settimane di vacanza (6 da 50 anni) - Benefici sociali - Progetti significativi in un contesto interculturale stimolante ## Il processo di reclutamento a 2 fasi: 1. Intervista con il tuo futuro manager e il capo dell'ente HR. 2. Impostazione sul posto per valutare le tue abilità. *Alla fine del processo: richiesta di un estratto del registro penale, estratto speciale e certificato dall'ufficio per l'accusa (documenti vergini richiesti). * Ti riconosci in questa missione? Non vediamo l'ora di scoprire la vostra candidatura e costruire insieme un futuro solidale.",
-        "en": "The EVAM (Vaudian institution for the reception of migrants) is a major player in the voodoo public service. With more than 1,000 committed collaborators and an annual budget of 360 million francs, we ensure the reception, support and integration of migrants in the canton of Vaud. Every day, our teams work with openness and responsibility to address key social issues. Joining EVAM means putting your skills at the service of a human mission and of public utility, in a stimulating, diverse and constantly evolving professional environment. As part of the replacement of maternity leave, we recruit one: ## HR Specialist (100%) – 12-month CSD Location : Lausanne (Route de Chavannes 31) + a few trips to the canton Entrance in office : Immediately or to be agreed [Salary class: 7](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial 2026.pdf) *(This scale refers to validated prerequisites, failing which classification is at grade level -1) * ##\n• What you bring to our mission A true partner in the field, you are at the heart of the relationship between teams, managers and the human stakes of our organization. You provide strategic and operational support in a human, ethical and rigorous approach to labour relations. The word of your future responsible, Cécilia: \" This position is a great opportunity to contribute concretely to the quality of HR support within our institution. We are looking for a rigorous, proactive and solutions-oriented person, able to bring expertise while developing relationships of trust with employees and managers. At EVAM, we believe in a HR function that is both professional, human and close to the field. If you like to combine precision, service sense and positive impact, this position is for you. » ## Your key missions - Adviser and support managers on good HR practices (public/private labour law) - Managing complex situations: conflicts, disciplinary measures, terminations - Piloting the employees' HR life cycle: monitoring evaluations, work certificates, etc... - Coordinate absentee management in collaboration with our Care Manager - Contribute to innovative HR projects that advance our organization ##\n• Your profile - Bachelor HES with HR specialization or equivalent training - Excellent listening, pedagogy and communication skills (oral & written) - Confidentiality, rigor, and collaborative leadership - Strong knowledge of Swiss labour law (public and private) - At home in a dynamic, constantly changing environment ## What EVAM proposes - A committed working environment - A policy of continuous training to evolve in your career - A teleworking policy - 5 weeks of holiday (6 from 50 years) - Very good social benefits - Meaningful projects in a stimulating intercultural context ## The 2-step recruitment process: 1. Interview with your future manager and the head of the HR entity. 2. Setting in place to value your skills. *At the end of the process: request for an extract of the criminal record, special extract and certificate from the prosecution office (virgin documents required). * Do you recognize yourself in this mission? We look forward to discovering your candidacy and building together a solidarity future.",
-        "de": "Die EVAM (Vaudianische Einrichtung für die Aufnahme von Migranten) ist ein wichtiger Akteur im öffentlichen Voodoo-Dienst. Mit mehr als 1.000 engagierten Mitarbeitern und einem Jahresbudget von 360 Millionen Franken sichern wir die Aufnahme, Unterstützung und Integration von Migranten im Kanton Waadt. Jeden Tag arbeiten unsere Teams mit Offenheit und Verantwortung, um wichtige soziale Probleme anzugehen. Der Beitritt zu EVAM bedeutet, Ihre Fähigkeiten in den Dienst einer menschlichen Mission und des öffentlichen Nutzens in einem anregenden, vielfältigen und sich ständig weiterentwickelnden beruflichen Umfeld zu stellen. Im Rahmen der Ersetzung des Mutterschaftsurlaubs rekrutieren wir einen: ## HR-Spezialist (100%) - 12-Monats-CSD Location : Lausanne (Route de Chavannes 31) + einige Reisen in den Kanton Eintritt im Amt : Sofort oder noch zu vereinbaren [Gehaltsklasse: 7](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial 2026.pdf) *(Diese Skala bezieht sich auf validierte Voraussetzungen, andernfalls ist die Einstufung in die Besoldungsgruppe -1) * ## Was Sie zu unserer Mission bringen Als echter Partner in diesem Bereich stehen Sie im Mittelpunkt der Beziehung zwischen Teams, Managern und den menschlichen\n• Aufgaben unserer Organisation. Sie bieten strategische und operative Unterstützung in einem * menschlichen, ethischen und rigorosen * Ansatz für Arbeitsbeziehungen. Das Wort Ihrer zukünftigen Verantwortlichen, Cécilia: Diese Position ist eine großartige Gelegenheit, konkret zur Qualität der HR-Unterstützung innerhalb unserer Institution beizutragen. Wir suchen eine strenge, proaktive und lösungsorientierte Person, die in der Lage ist, Fachwissen einzubringen und gleichzeitig Vertrauensbeziehungen zu Mitarbeitern und Führungskräften aufzubauen. Bei EVAM glauben wir an eine HR-Funktion, die sowohl professionell, menschlich als auch fachnah ist. Wenn Sie Präzision, Servicesinn und positive Wirkung kombinieren möchten, ist diese Position für Sie. » ## Ihre wichtigsten Missionen - Berater und Support Manager zu Good HR Practices (öffentliches/privates Arbeitsrecht) - Bewältigung komplexer Situationen: Konflikte, Disziplinarmaßnahmen, Kündigungen - Pilotierung des HR-Lebenszyklus der Mitarbeiter: Überwachung von Bewertungen, Arbeitszertifikaten usw. - Koordination des Abwesendenmanagements in Zusammenarbeit mit unserem Care Manager - Beitrag zu innovativen HR-Projekten, die unsere Organisation voranbringen ## Dein Profil - Bachelor HES mit HR Spezialisierung oder gleichwertige Ausbildung - Ausgezeichnetes Zuhören, Pädagogik und Kommunikationsfähigkeiten (mündlich & schriftlich) - Vertraulichkeit, Strenge und kollaborative Führung - Starke Kenntnisse des Schweizer Arbeitsrechts (öffentlich und privat) - Zuhause in einem dynamischen, sich ständig verändernden Umfeld ## Was EVAM vorschlägt - Ein engagiertes Arbeitsumfeld - Eine Politik der kontinuierlichen Ausbildung in Ihrer Karriere zu entwickeln - Eine Telearbeitspolitik - 5 Wochen Urlaub (6 von 50 Jahren) - Sehr gute Sozialleistungen - Sinnvolle Projekte in einem stimulierenden interkulturellen Kontext ## Der 2-stufige Rekrutierungsprozess: 1. Interview mit Ihrem zukünftigen Manager und dem Leiter der HR-Einheit. 2. Setzen Sie sich ein, um Ihre Fähigkeiten zu schätzen. *Am Ende des Prozesses: Antrag auf Auszug aus dem Strafregister, Sonderauszug und Bescheinigung der Staatsanwaltschaft (jungfräuliche Dokumente erforderlich). * Erkennst du dich selbst in dieser Mission? Wir freuen uns darauf, Ihre Kandidatur zu entdecken und gemeinsam eine solidarische Zukunft aufzubauen.",
-        "fr": "L'EVAM (Établissement vaudois de l'accueil des migrants) est un acteur majeur du service public vaudois. Avec plus de 1'000 collaboratrices et collaborateurs engagés et un budget annuel de 360 millions de francs, nous assurons l'accueil, l'accompagnement et l'intégration des personnes migrantes dans le canton de Vaud.\n\nChaque jour, nos équipes œuvrent avec ouverture et responsabilité pour répondre à des enjeux sociaux essentiels. Rejoindre l'EVAM, c'est mettre ses compétences au service d'une mission humaine et d'utilité publique, dans un environnement professionnel stimulant, diversifié et en constante évolution.\n\nDans le cadre du remplacement d'un congé maternité, nous recrutons un·e :\n\n## Spécialiste RH (100%) – CDD de 12 mois\n\nLieu : Lausanne (Route de Chavannes 31) + quelques déplacements dans le canton Entrée en fonction : De suite ou à convenir\n\n[Classe salariale : 7](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial_2026.pdf) *(ce barème s’entend à prérequis validés, à défaut desquels l’enclassement se fait à hauteur de classe -1)*\n\n## Ce que vous apportez à notre mission\n\nVéritable partenaire de terrain, vous êtes au cœur de la relation entre les équipes, les managers et les enjeux humains de notre organisation. Vous apportez un soutien stratégique et opérationnel, dans une approche humaine, éthique et rigoureuse des relations de travail.\n\nLe mot de votre futur·e responsable, Cécilia :\n\n« Ce poste est une belle opportunité de contribuer concrètement à la qualité de l’accompagnement RH au sein de notre institution. Nous recherchons une personne rigoureuse, proactive et orientée solutions, capable d’apporter son expertise tout en développant des relations de confiance avec les collaborateurs et les managers. À l’EVAM, nous croyons à une fonction RH à la fois professionnelle, humaine et proche du terrain. Si vous aimez allier précision, sens du service et impact positif, ce poste est fait pour vous. »\n\n## Vos missions clés\n\n- Conseiller et accompagner les managers sur les bonnes pratiques RH (droit du travail public/privé)\n- Gérer les situations complexes : conflits, mesures disciplinaires, licenciements\n- Piloter le cycle de vie RH des collaborateurs : suivi des évaluations, certificats de travail, etc...\n- Coordonner la gestion des absences en collaboration avec notre Care Manager\n- Contribuer à des projets RH innovants qui font évoluer notre organisation\n\n## Votre profil\n\n- Bachelor HES avec spécialisation en RH ou formation équivalente\n- Excellente capacité d’écoute, de pédagogie et de communication (orale & écrite)\n- Sens de la confidentialité, rigueur, et leadership collaboratif\n- Solides connaissances du droit du travail suisse (public et privé)\n- À l’aise dans un environnement dynamique, en évolution constante\n\n## Ce que l’EVAM vous propose\n\n- Un environnement de travail engagé\n- Une politique de formation continue pour évoluer dans votre carrière\n- Une politique de télétravail\n- 5 semaines de vacances (6 dès 50 ans)\n- De très bonnes prestations sociales\n- Des projets porteurs de sens dans un contexte interculturel stimulant\n\n## Le processus de recrutement en 2 étapes :\n\n1. Entretien avec votre future responsable ainsi que la responsable de l'entité RH.\n\n2. Mise en situation pour valoriser vos compétences.\n\n*À l’issue du processus : demande d’un extrait du casier judiciaire, extrait spécial et attestation de l’office des poursuites (documents vierges requis).*\n\nVous vous reconnaissez dans cette mission ? Nous avons hâte de découvrir votre candidature et de construire ensemble un avenir solidaire."
-      },
-      "location": "Lausanne",
-      "streetAddress": "Rte de Chavannes 31",
-      "postalCode": "1007",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "url": "https://emploi.evam.ch/jobs/7891231-specialiste-rh-100-cdd",
-      "source": "EVAM Dedicated Parser",
-      "sourceLang": "fr",
-      "postedDate": "2026-06-11",
-      "datePosted": "2026-06-11",
-      "crawledAt": "2026-08-05T11:48:48.426Z",
-      "category": "Risorse Umane",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "employmentType": "FULL_TIME",
-      "contract": "temporary",
-      "contractType": "temporary",
-      "currency": "CHF",
-      "hiringOrganizationName": "EVAM",
-      "previousSlugs": [
-        "specialiste-rh-100-cdd-evam-vaud-ch",
-        "specialista-hr-100-contratto-a-tempo-determinato-evam-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "specialiste-rh-100-cdd-evam-vaud-ch",
-          "specialista-hr-100-contratto-a-tempo-determinato-evam-lausanne"
-        ],
-        "en": [
-          "specialiste-rh-100-cdd-evam-vaud-ch"
-        ],
-        "de": [
-          "specialiste-rh-100-cdd-evam-vaud-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:58:13.205Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -901,7 +750,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-06-15",
       "datePosted": "2026-06-15",
-      "crawledAt": "2026-08-05T11:48:48.413Z",
+      "crawledAt": "2026-08-05T22:50:49.890Z",
       "category": "Risorse Umane",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -954,88 +803,6 @@
       }
     },
     {
-      "id": "evam-vaud-7917504",
-      "slug": "allenatore-fli-in-integrazione-80-cdi-evam-lausanne",
-      "slugByLocale": {
-        "it": "allenatore-fli-in-integrazione-80-cdi-evam-lausanne",
-        "en": "fli-trainer-in-integration-80-cdi-evam-lausanne",
-        "de": "fli-trainer-in-integration-80-cdi-evam-lausanne",
-        "fr": "formateur-trice-fli-dans-le-domaine-de-l-integration-80-cdi-evam-vaud-ch"
-      },
-      "company": "EVAM",
-      "companyKey": "evam-vaud",
-      "companyDomain": "evam.ch",
-      "title": "Formateur·trice FLI dans le domaine de l’intégration (80%) - CDI",
-      "titleByLocale": {
-        "it": "Allenatore FLI in integrazione (80%) - CDI",
-        "en": "FLI trainer in integration (80%) - CDI",
-        "de": "FLI-Trainer in Integration (80%) - CDI",
-        "fr": "Formateur·trice FLI dans le domaine de l’intégration (80%) - CDI"
-      },
-      "description": "L'EVAM (Établissement vaudois de l'accueil des migrants) est un acteur majeur du service public vaudois. Avec plus de 1'000 collaboratrices et collaborateurs engagés et un budget annuel de 360 millions de francs, nous assurons l'accueil, l'accompagnement et l'intégration des personnes migrantes dans le canton de Vaud.\n\nChaque jour, nos équipes œuvrent avec ouverture et responsabilité pour répondre à des enjeux sociaux essentiels. Rejoindre l'EVAM, c'est mettre ses compétences au service d'une mission humaine et d'utilité publique, dans un environnement professionnel stimulant, diversifié et en constante évolution.\n\nDans le cadre d’un remplacement, nous recrutons un·e :\n\nFormateur·trice FLI dans le domaine de l’intégration (80%) - CDI\n\n[Classe salariale](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial_2026.pdf): 8*(ce barème s’entend à prérequis validés, à défaut desquels l’enclassement se fait à hauteur de classe -1)*\n\nLieu :Lausanne Entrée en fonction : Août 2026\n\n## Ce que vous apportez à notre mission\n\nAu sein du Pôle Français et connaissances de base, vous jouez un rôle essentiel dans l’apprentissage du français et l’intégration des personnes migrantes. En lien avec les équipes pédagogiques, administratives et éducatives, vous accompagnez les participant·es dans leur parcours de formation et favorisez leur autonomie ainsi que leur inclusion sociale.\n\n## Le mot de votre future responsable, Dominique :\n\n« Vous intégrerez une équipe engagée et dynamique, dans un environnement où l’humain est le cœur de notre travail. Votre mission consistera à guider et à former des personnes issues de la migration. Chaque cours est une opportunité de transmettre des compétences essentielles, de valoriser les parcours de chacun·e. Vous travaillerez au côté de collègues passionnés et solidaires, unis par des valeurs fortes d'entraide, d’empathie et d’équité. »\n\n## Vos missions clés\n\n- Vous préparez le contenu des cours et dispensez des formations adaptées aux besoins des participant·es.\n- Vous participez à l’évolution des supports pédagogiques, des outils didactiques et aux échanges de pratiques professionnelles.\n- Vous évaluez les participant·es de manière continue et assurez leur suivi pédagogique.\n- Vous collaborez avec les équipes administratives, éducatives et les chef·fes d’équipe pour accompagner les situations particulières.\n- Vous effectuez les tâches administratives liées à la fonction et rendez compte régulièrement de l’évolution des participant·es.\n- Vous contribuez à la communication entre les différents intervenant·es ainsi qu’à l’encadrement des auxiliaires pédagogiques et des stagiaires.\n- Vous veillez au respect des règles en vigueur au sein des dispositifs de formation.\n\n## Votre profil\n\n- Master en didactique, en FLE ou dans un autre domaine utile\n- Diplôme de didactique du français langue étrangère ou certificat de formateur d’adultes (FSEA1) : souhaité\n- Certificat de formateur en langue dans le domaine de l’intégration (*fide)* : souhaité\n- Expérience de 3 ans dans le domaine de la formation d’adultes et/ou d’adolescent·es\n- Aisance dans l’utilisation des outils numériques pour la formation\n- Intérêt pour le domaine de la migration et de l’interculturel\n- Capacité à gérer et à motiver un groupe\n- Bonne expression orale\n- Esprit d’ouverture et flexibilité\n\n## Ce que l’EVAM vous propose\n\n- Un environnement de travail engagé\n- Une politique de formation continue pour évoluer dans votre carrière\n- Une politique de télétravail\n- 5 semaines de vacances (6 dès 50 ans)\n- De très bonnes prestations sociales\n- Des projets porteurs de sens dans un contexte interculturel stimulant\n\n## Le processus de recrutement en 3 étapes :\n\n1.Un entretien avec la responsable et la chargée de recrutement.\n\n2.Une mise en situation\n\n3.Une demi-journée d’immersion pour découvrir concrètement votre futur environnement de travail\n\n*À l’issue du processus : demande d’un extrait du casier judiciaire.*\n\nVous vous reconnaissez dans cette mission ? Nous avons hâte de découvrir votre candidature et de construire ensemble un avenir solidaire.",
-      "descriptionByLocale": {
-        "it": "EVAM (Etablissement vaudois de l'accueil des migrants) è un giocatore importante nel servizio pubblico voodoo. Con oltre 1.000 dipendenti e un bilancio annuale di 360 milioni di franchi, accogliamo, sosteniamo e integramo i migranti nel cantone di Vaud.\n\nOgni giorno, i nostri team lavorano con apertura e responsabilità per affrontare questioni sociali chiave. Unire EVAM significa mettere le proprie competenze al servizio di una missione umana e di pubblica utilità, in un ambiente professionale stimolante, vario e in continua evoluzione.\n\nCome parte di un sostituto, ne reclutiamo uno:\n\n**FLI trainer in integrazione (80%) - CDI**\n\n[**La classe di vendita**](http://www.evam.ch/app/uploads/2026/06/Bareme-salarial 2026.pdf)**: 8***(**Questa scala si riferisce ai prerequisiti convalidati, in mancanza di quale classificazione è a livello di grado -1) *\n\n**Location:**Lausanne **Commento: ** agosto 2026\n\n## Cosa porti alla nostra missione\n\nAll'interno del Polo francese e delle conoscenze di base, si gioca un ruolo essenziale nell'apprendimento del francese e nell'integrazione dei migranti. In relazione ai team educativi, amministrativi ed educativi, accompagni i partecipanti al loro percorso formativo e promuovi la loro autonomia e inclusione sociale.\n\n## La parola del vostro futuro leader, Dominique:\n\n\" Integrerai un team impegnato e dinamico in un ambiente in cui gli esseri umani sono il cuore del nostro lavoro. La vostra missione sarà di guidare e formare le persone dalla migrazione. Ogni corso è un'opportunità per trasmettere competenze essenziali, valorizzare i percorsi degli altri. Voi lavorerete insieme a colleghi appassionati e solidali, uniti da forti valori di aiuto reciproco, empatia e correttezza».\n\n## Le vostre missioni chiave\n\n- Prepara il contenuto dei corsi e fornisci una formazione adatta alle esigenze dei partecipanti.\n- Si partecipa all'evoluzione dei materiali didattici, strumenti didattici e scambi di pratiche professionali.\n- Valutate i partecipanti su base continuativa e assicurate il loro follow-up pedagogico.\n- Lavori con i leader amministrativi, educativi e di team per sostenere situazioni specifiche.\n- Effettuare i compiti amministrativi relativi alla funzione e riferire regolarmente sui progressi dei partecipanti.\n- Contribuisci alla comunicazione tra i vari partecipanti e alla supervisione di assistenti didattici e tirocinanti.\n- L'utente garantisce il rispetto delle norme vigenti nell'ambito del regime di formazione.\n\n## Il tuo profilo\n\n- Master in didattica, FLE o altro campo utile\n- Diploma in francese come lingua straniera o certificato di formatore adulto (FSEA1): desiderato\n- Certificato di formazione linguistica nel campo dell'integrazione (*fide)* : desiderato\n- 3 anni di esperienza nell'educazione degli adulti e/o degli adolescenti\n- Utilizzo di strumenti digitali per la formazione\n- Interessi di migrazione e interculturalismo\n- Capacità di gestire e motivare un gruppo\n- Buona espressione orale\n- Apertura e flessibilità\n\n## Cosa propone EVAM\n\n- Un ambiente di lavoro\n- Una politica di formazione continua** per evolversi nella tua carriera\n- Politica dei trasporti\n- 5 settimane di vacanza (6 da 50 anni)\n- Da **I benefici sociali molto buoni **\n- Progetti significativi in un contesto interculturale stimolante\n\n## Il processo di reclutamento a tre fasi:\n\n1.Un incontro con il responsabile del reclutamento e il responsabile del reclutamento.\n\n2.A Situazione\n\n3.A immersione di mezza giornata per scoprire il vostro futuro ambiente di lavoro\n\n*Alla fine del processo: richiesta di un estratto del verbale penale. *\n\nTi riconosci in questa missione? Non vediamo l'ora di scoprire la vostra candidatura e costruire insieme un futuro solidale.",
-        "en": "EVAM (Etablissement vaudois de l'accueil des migrants) is a major player in the voodoo public service. With more than 1,000 employees and an annual budget of 360 million francs, we welcome, support and integrate migrants in the canton of Vaud.\n\nEvery day, our teams work with openness and responsibility to address key social issues. Joining EVAM means putting its skills at the service of a human mission and of public utility, in a stimulating, diverse and constantly evolving professional environment.\n\nAs part of a replacement, we recruit one:\n\nFLI trainer in integration (80%) - CDI\n\n[Salary class](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial 2026.pdf): 8*(This scale refers to validated prerequisites, failing which classification is at grade level -1) *\n\nLocation:Lausanne Commencement: August 2026\n\n## What you bring to our mission\n\nWithin the French Pole and basic knowledge, you play an essential role in learning French and integrating migrants. In connection with the educational, administrative and educational teams, you accompany the participants in their training journey and promote their autonomy and social inclusion.\n\n## The word of your future leader, Dominique:\n\n\" You will integrate a committed and dynamic team into an environment where humans are the core of our work. Your mission will be to guide and train people from migration. Each course is an opportunity to transmit essential skills, to value each other's paths. You will work alongside passionate and supportive colleagues, united by strong values of mutual aid, empathy and fairness. »\n\n## Your key missions\n\n- You prepare the content of the courses and provide training tailored to the needs of the participants.\n- You participate in the evolution of teaching materials, teaching tools and exchanges of professional practices.\n- You evaluate participants on an ongoing basis and ensure their pedagogical follow-up.\n- You work with administrative, educational and team leaders to support specific situations.\n- You perform the administrative tasks related to the function and report regularly on the progress of the participants.\n- You contribute to communication between the various participants and to the supervision of teaching assistants and trainees.\n- You ensure compliance with the rules in force within the training arrangements.\n\n## Your profile\n\n- Master in didactic, FLE or other useful field\n- Diploma in French as a foreign language or certificate of adult trainer (FSEA1): desired\n- Certificate of language trainer in the field of integration (*fide)* : desired\n- 3 years experience in adult and/or adolescent education\n- Use of digital tools for training\n- Interest in migration and interculturalism\n- Ability to manage and motivate a group\n- Good oral expression\n- Openness and flexibility\n\n## What EVAM proposes\n\n- A work environment engaged\n- A continuous training policy to evolve in your career\n- Telework policy\n- 5 weeks of holiday (6 from 50 years)\n- From very good social benefits\n- Meaningful projects in a stimulating intercultural context\n\n## The three-step recruitment process:\n\n1.A meeting with the recruitment manager and the recruitment officer.\n\n2.A Situation\n\n3.A half-day immersion to discover your future working environment\n\n*At the end of the process: request for an extract of the criminal record. *\n\nDo you recognize yourself in this mission? We look forward to discovering your candidacy and building together a solidarity future.",
-        "de": "EVAM (Etablissement vaudois de l'accueil des migrants) ist ein wichtiger Akteur im öffentlichen Voodoo-Dienst. Mit mehr als 1.000 Mitarbeitern und einem Jahresbudget von 360 Millionen Franken begrüßen, unterstützen und integrieren wir Migranten im Kanton Waadt.\n\nJeden Tag arbeiten unsere Teams mit Offenheit und Verantwortung, um wichtige soziale Probleme anzugehen. Der Beitritt zu EVAM bedeutet, seine Fähigkeiten in einem anregenden, vielfältigen und sich ständig weiterentwickelnden beruflichen Umfeld in den Dienst einer menschlichen Mission und eines öffentlichen Dienstes zu stellen.\n\nAls Teil eines Ersatzes rekrutieren wir einen:\n\nFLI Trainer in Integration (80%) - CDI\n\n[Gehaltsklasse](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial 2026.pdf): 8*(Diese Skala bezieht sich auf validierte Voraussetzungen, andernfalls ist die Einstufung in die Besoldungsgruppe -1) *\n\nLocation:Lausanne Beginn: August 2026\n\n## Was Sie zu unserer Mission bringen\n\nInnerhalb des französischen Poles und des Grundwissens spielen Sie eine wesentliche Rolle beim Französischlernen und bei der Integration von Migranten. In Verbindung mit den Bildungs-, Verwaltungs- und Bildungsteams begleiten Sie die Teilnehmer auf ihrer Trainingsreise und fördern deren Autonomie und soziale Inklusion.\n\n## Das Wort Ihres zukünftigen Führers, Dominique:\n\n\"Sie werden ein engagiertes und dynamisches Team in ein Umfeld integrieren, in dem der Mensch im Mittelpunkt unserer Arbeit steht.\" Ihre Mission wird es sein, Menschen vor Migration zu führen und auszubilden. Jeder Kurs ist eine Gelegenheit, wesentliche Fähigkeiten zu vermitteln, um die Wege des anderen zu schätzen. Sie werden mit leidenschaftlichen und unterstützenden Kollegen zusammenarbeiten, vereint durch starke Werte der gegenseitigen Hilfe, Empathie und Fairness.\n\n## Ihre wichtigsten Missionen\n\n- Sie bereiten die Inhalte der Kurse vor und bieten Schulungen an, die auf die Bedürfnisse der Teilnehmer zugeschnitten sind.\n- Sie beteiligen sich an der Entwicklung von Lehrmaterialien, Lehrmitteln und dem Austausch von Berufspraktiken.\n- Sie bewerten die Teilnehmer laufend und sorgen für deren pädagogische Begleitung.\n- Sie arbeiten mit Verwaltungs-, Bildungs- und Teamleitern zusammen, um bestimmte Situationen zu unterstützen.\n- Sie erledigen die administrativen Aufgaben im Zusammenhang mit der Funktion und berichten regelmäßig über den Fortschritt der Teilnehmer.\n- Sie tragen zur Kommunikation zwischen den verschiedenen Teilnehmern und zur Betreuung von Lehrassistenten und Auszubildenden bei.\n- Sie gewährleisten die Einhaltung der geltenden Regeln innerhalb der Schulungsvereinbarungen.\n\n## Dein Profil\n\n- Master in Didaktik, FLE oder anderen nützlichen Bereich\n- Diplom in Französisch als Fremdsprache oder Zertifikat des erwachsenen Trainers (FSEA1): gewünscht\n- Zertifikat des Sprachtrainers im Bereich Integration (*fide)* : gewünscht\n- 3 Jahre Erfahrung in der Erwachsenen- und/oder Jugendbildung\n- Nutzung digitaler Tools für die Ausbildung\n- Interesse an Migration und Interkulturalismus\n- Fähigkeit, eine Gruppe zu managen und zu motivieren\n- Guter mündlicher Ausdruck\n- Offenheit und Flexibilität\n\n## Was EVAM vorschlägt\n\n- Ein Arbeitsumfeld engagiert\n- Eine kontinuierliche Trainingspolitik, um sich in Ihrer Karriere zu entwickeln\n- Telearbeitspolitik\n- 5 Wochen Urlaub (6 von 50 Jahren)\n- Von sehr guten Sozialleistungen\n- Sinnvolle Projekte in einem stimulierenden interkulturellen Kontext\n\n## Der dreistufige Rekrutierungsprozess:\n\n1.Ein Treffen mit dem Rekrutierungsmanager und dem Rekrutierungsbeauftragten.\n\n2.A Situation\n\n3. Ein halbtägiges Eintauchen, um Ihre zukünftige Arbeitsumgebung zu entdecken\n\n*Am Ende des Prozesses: Antrag auf einen Auszug aus dem Strafregister. *\n\nErkennst du dich selbst in dieser Mission? Wir freuen uns darauf, Ihre Kandidatur zu entdecken und gemeinsam eine solidarische Zukunft aufzubauen.",
-        "fr": "L'EVAM (Établissement vaudois de l'accueil des migrants) est un acteur majeur du service public vaudois. Avec plus de 1'000 collaboratrices et collaborateurs engagés et un budget annuel de 360 millions de francs, nous assurons l'accueil, l'accompagnement et l'intégration des personnes migrantes dans le canton de Vaud.\n\nChaque jour, nos équipes œuvrent avec ouverture et responsabilité pour répondre à des enjeux sociaux essentiels. Rejoindre l'EVAM, c'est mettre ses compétences au service d'une mission humaine et d'utilité publique, dans un environnement professionnel stimulant, diversifié et en constante évolution.\n\nDans le cadre d’un remplacement, nous recrutons un·e :\n\nFormateur·trice FLI dans le domaine de l’intégration (80%) - CDI\n\n[Classe salariale](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial_2026.pdf): 8*(ce barème s’entend à prérequis validés, à défaut desquels l’enclassement se fait à hauteur de classe -1)*\n\nLieu :Lausanne Entrée en fonction : Août 2026\n\n## Ce que vous apportez à notre mission\n\nAu sein du Pôle Français et connaissances de base, vous jouez un rôle essentiel dans l’apprentissage du français et l’intégration des personnes migrantes. En lien avec les équipes pédagogiques, administratives et éducatives, vous accompagnez les participant·es dans leur parcours de formation et favorisez leur autonomie ainsi que leur inclusion sociale.\n\n## Le mot de votre future responsable, Dominique :\n\n« Vous intégrerez une équipe engagée et dynamique, dans un environnement où l’humain est le cœur de notre travail. Votre mission consistera à guider et à former des personnes issues de la migration. Chaque cours est une opportunité de transmettre des compétences essentielles, de valoriser les parcours de chacun·e. Vous travaillerez au côté de collègues passionnés et solidaires, unis par des valeurs fortes d'entraide, d’empathie et d’équité. »\n\n## Vos missions clés\n\n- Vous préparez le contenu des cours et dispensez des formations adaptées aux besoins des participant·es.\n- Vous participez à l’évolution des supports pédagogiques, des outils didactiques et aux échanges de pratiques professionnelles.\n- Vous évaluez les participant·es de manière continue et assurez leur suivi pédagogique.\n- Vous collaborez avec les équipes administratives, éducatives et les chef·fes d’équipe pour accompagner les situations particulières.\n- Vous effectuez les tâches administratives liées à la fonction et rendez compte régulièrement de l’évolution des participant·es.\n- Vous contribuez à la communication entre les différents intervenant·es ainsi qu’à l’encadrement des auxiliaires pédagogiques et des stagiaires.\n- Vous veillez au respect des règles en vigueur au sein des dispositifs de formation.\n\n## Votre profil\n\n- Master en didactique, en FLE ou dans un autre domaine utile\n- Diplôme de didactique du français langue étrangère ou certificat de formateur d’adultes (FSEA1) : souhaité\n- Certificat de formateur en langue dans le domaine de l’intégration (*fide)* : souhaité\n- Expérience de 3 ans dans le domaine de la formation d’adultes et/ou d’adolescent·es\n- Aisance dans l’utilisation des outils numériques pour la formation\n- Intérêt pour le domaine de la migration et de l’interculturel\n- Capacité à gérer et à motiver un groupe\n- Bonne expression orale\n- Esprit d’ouverture et flexibilité\n\n## Ce que l’EVAM vous propose\n\n- Un environnement de travail engagé\n- Une politique de formation continue pour évoluer dans votre carrière\n- Une politique de télétravail\n- 5 semaines de vacances (6 dès 50 ans)\n- De très bonnes prestations sociales\n- Des projets porteurs de sens dans un contexte interculturel stimulant\n\n## Le processus de recrutement en 3 étapes :\n\n1.Un entretien avec la responsable et la chargée de recrutement.\n\n2.Une mise en situation\n\n3.Une demi-journée d’immersion pour découvrir concrètement votre futur environnement de travail\n\n*À l’issue du processus : demande d’un extrait du casier judiciaire.*\n\nVous vous reconnaissez dans cette mission ? Nous avons hâte de découvrir votre candidature et de construire ensemble un avenir solidaire."
-      },
-      "location": "Lausanne",
-      "streetAddress": "Rte de Chavannes 37",
-      "postalCode": "1007",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "url": "https://emploi.evam.ch/jobs/7917504-formateur-trice-fli-dans-le-domaine-de-l-integration-80-cdi",
-      "source": "EVAM Dedicated Parser",
-      "sourceLang": "fr",
-      "postedDate": "2026-06-16",
-      "datePosted": "2026-06-16",
-      "crawledAt": "2026-08-05T11:48:48.400Z",
-      "category": "Formazione",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "employmentType": "FULL_TIME",
-      "contract": "full-time",
-      "contractType": "permanent",
-      "currency": "CHF",
-      "hiringOrganizationName": "EVAM",
-      "previousSlugs": [
-        "formatore-fli-nel-campo-dell-integrazione-80-contratto-a-tempo-indeterminato-evam-lausanne",
-        "fli-trainer-in-integration-80-cdi-evam-lausanne",
-        "formateur-trice-fli-dans-le-domaine-de-l-integration-80-cdi-evam-vaud-ch",
-        "allenatore-fli-in-integrazione-80-cdi-evam-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "formatore-fli-nel-campo-dell-integrazione-80-contratto-a-tempo-indeterminato-evam-lausanne",
-          "fli-trainer-in-integration-80-cdi-evam-lausanne",
-          "formateur-trice-fli-dans-le-domaine-de-l-integration-80-cdi-evam-vaud-ch",
-          "allenatore-fli-in-integrazione-80-cdi-evam-lausanne"
-        ],
-        "en": [
-          "formateur-trice-fli-dans-le-domaine-de-l-integration-80-cdi-evam-vaud-ch"
-        ],
-        "de": [
-          "formateur-trice-fli-dans-le-domaine-de-l-integration-80-cdi-evam-vaud-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T22:52:24.116Z",
-      "salaryMin": 48400,
-      "salaryMax": 73200,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48400,
-          "maxValue": 73200,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "evam-vaud-7926440",
       "slug": "assistente-sociale-100-csd-evam-fechy",
       "slugByLocale": {
@@ -1074,7 +841,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-06-17",
       "datePosted": "2026-06-17",
-      "crawledAt": "2026-08-05T11:48:48.385Z",
+      "crawledAt": "2026-08-05T22:50:49.880Z",
       "category": "Sociale",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -1096,6 +863,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:13.137Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1148,7 +916,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-06-18",
       "datePosted": "2026-06-18",
-      "crawledAt": "2026-08-05T11:48:48.371Z",
+      "crawledAt": "2026-08-05T22:50:49.872Z",
       "category": "Legale",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -1226,7 +994,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-06-18",
       "datePosted": "2026-06-18",
-      "crawledAt": "2026-08-05T11:48:48.363Z",
+      "crawledAt": "2026-08-05T22:50:49.862Z",
       "category": "Amministrazione",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -1254,6 +1022,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:55:16.191Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1306,7 +1075,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-07-03",
       "datePosted": "2026-07-03",
-      "crawledAt": "2026-08-05T11:48:48.343Z",
+      "crawledAt": "2026-08-05T22:50:49.853Z",
       "category": "Sociale",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -1329,6 +1098,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:13.051Z",
+      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -1381,7 +1151,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-07-03",
       "datePosted": "2026-07-03",
-      "crawledAt": "2026-08-05T11:48:48.329Z",
+      "crawledAt": "2026-08-05T22:50:49.845Z",
       "category": "Sociale",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -1403,6 +1173,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:18:15.507Z",
+      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -1455,7 +1226,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-07-03",
       "datePosted": "2026-07-03",
-      "crawledAt": "2026-08-05T11:48:48.312Z",
+      "crawledAt": "2026-08-05T22:50:49.834Z",
       "category": "Amministrazione Pubblica",
       "experienceLevel": "senior",
       "sector": "Amministrazione Pubblica",
@@ -1533,7 +1304,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-07-08",
       "datePosted": "2026-07-08",
-      "crawledAt": "2026-08-05T11:48:48.298Z",
+      "crawledAt": "2026-08-05T22:50:49.821Z",
       "category": "Amministrazione Pubblica",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -1561,6 +1332,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:55:16.078Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1613,7 +1385,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-07-10",
       "datePosted": "2026-07-10",
-      "crawledAt": "2026-08-05T11:48:48.279Z",
+      "crawledAt": "2026-08-05T22:50:49.810Z",
       "category": "Amministrazione Pubblica",
       "experienceLevel": "senior",
       "sector": "Amministrazione Pubblica",
@@ -1695,7 +1467,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-07-20",
       "datePosted": "2026-07-20",
-      "crawledAt": "2026-08-05T11:48:48.260Z",
+      "crawledAt": "2026-08-05T22:50:49.800Z",
       "category": "Sociale",
       "experienceLevel": "senior",
       "sector": "Amministrazione Pubblica",
@@ -1725,6 +1497,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T12:45:40.545Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1777,7 +1550,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-07-22",
       "datePosted": "2026-07-22",
-      "crawledAt": "2026-08-05T11:48:48.236Z",
+      "crawledAt": "2026-08-05T22:50:49.787Z",
       "category": "Sociale",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -1859,7 +1632,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-07-24",
       "datePosted": "2026-07-24",
-      "crawledAt": "2026-08-05T11:48:48.204Z",
+      "crawledAt": "2026-08-05T22:50:49.771Z",
       "category": "Amministrazione Pubblica",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -1951,7 +1724,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-07-28",
       "datePosted": "2026-07-28",
-      "crawledAt": "2026-08-05T11:48:48.168Z",
+      "crawledAt": "2026-08-05T22:50:49.755Z",
       "category": "Amministrazione",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -1977,6 +1750,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:53:35.977Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2029,7 +1803,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-08-03",
       "datePosted": "2026-08-03",
-      "crawledAt": "2026-08-05T11:48:48.132Z",
+      "crawledAt": "2026-08-05T22:50:49.740Z",
       "category": "Amministrazione Pubblica",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -2067,6 +1841,249 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "evam-vaud-7163896",
+      "slug": "formatore-responsabile-delle-informazioni-per-migranti-50-70-contratto-a-tempo-determinato-evam-lausanne",
+      "slugByLocale": {
+        "it": "formatore-responsabile-delle-informazioni-per-migranti-50-70-contratto-a-tempo-determinato-evam-lausanne",
+        "en": "a-trainer-in-charge-of-information-to-migrants-50-70-csd-evam-lausanne",
+        "de": "ein-trainer-der-fur-informationen-fur-migranten-verantwortlich-ist-50-70-csd-evam-lausanne",
+        "fr": "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-vaud-ch"
+      },
+      "company": "EVAM",
+      "companyKey": "evam-vaud",
+      "companyDomain": "evam.ch",
+      "title": "Un.e formateur.trice en charge de l'information aux migrants (50 - 70%) – CDD",
+      "titleByLocale": {
+        "it": "Formatore responsabile delle informazioni per migranti (50 - 70%) – contratto a tempo determinato",
+        "en": "Un.e formateur.trice en charge de l'information aux migrants (50 - 70%) – CDD",
+        "de": "Ein Trainer, der für Informationen für Migranten verantwortlich ist (50 - 70%) - CSD",
+        "fr": "Un.e formateur.trice en charge de l'information aux migrants (50 - 70%) – CDD"
+      },
+      "description": "## Rejoignez l’EVAM et donnez du sens à votre expertise !\n\nEt si votre prochain défi professionnel avait un réel impact social ? À l’EVAM, chaque collaborateur·trice contribue à une mission essentielle : accompagner des personnes en situation de migration avec **ouverture** et **responsabilité**.\n\nDans le cadre d’un départ, nous recrutons un·e :\n\n**Un.e formateur.trice en charge de l'information aux migrants** (50 - 70%) – **CDD jusqu'en décembre. Lieu** : Lausanne **Entrée en fonction** : A convenir\n\n## Ce que vous apportez à notre mission\n\nEn tant que Formateur·trice référent·e, vous concevez et animez des ateliers d’information destinés aux personnes migrantes afin de renforcer leur compréhension du cadre institutionnel, social et professionnel, et de soutenir leur autonomie et leur intégration.\n\nEn collaboration étroite avec les différents domaines de l’EVAM et les partenaires internes et externes, vous contribuez au développement et à la qualité des dispositifs de formation et d’information collective.\n\n## Le mot de votre future responsable Denatsha:\n\n\" Inscrite dans le cadre de l’Agenda d’intégration suisse, notre action repose sur une posture proactive et engagée. Elle s’appuie sur la curiosité professionnelle, la capacité à aller chercher l’information, à en assurer une mise à jour constante et à la questionner, afin de rester en phase avec des réalités en évolution permanente.\n\nLe travail s’inscrit pleinement dans une dynamique collective et transversale. Vous évoluerez au sein d’une équipe engagée et solidaire, où la collaboration et le partage des connaissances sont essentiels. L’initiative, l’autonomie et le sens des responsabilités s’y conjuguent à une forte culture du travail en équipe.\"\n\n## Vos missions clés\n\n- Concevoir, animer et dispenser des ateliers d’informations à l’intégration.\n- Comprendre des situations complexes et transmettre l’essentiel de manière claire et accessible.\n- Structurer et coordonner efficacement les ateliers et activités de formation.\n- Proposer des améliorations et gérer les missions de manière proactive.\n- Communiquer avec clarté, pédagogie et précision, à l’oral comme à l’écrit.\n- Etablir une relation de confiance avec des publics et partenaires diversifiés.\n- Travailler en équipe et contribuer activement aux projets transversaux.\n- Faire preuve de diplomatie et d’adaptation dans un contexte interculturel.\n- Gérer les priorités et maintenir la qualité des prestations dans un environnement exigeant.\n\n## Votre profil\n\n- Bachelor dans un domaine utile au poste complété d’un brevet de formateurs d’adulte ou équivalent\n- Expérience de 2 ans min dans une fonction similaire\n- Excellente connaissance du domaine de la migration et du contexte institutionnel\n- Maîtrise des outils numérique, notamment dans la création de formation\n- Esprit d’équipe et aptitude au travail en réseau\n- Bonne gestion organisationnelle et orientation solution\n- Excellentes capacités d’adaptation et de flexibilité\n\n## Ce que l’EVAM vous propose\n\n- Un environnement de travail **engagé**\n- Une politique de télétravail\n- 5 semaines de vacances (6 dès 50 ans)\n- De **très bonnes prestations sociales**\n- Des projets porteurs de sens dans un contexte interculturel stimulant\n\n## Le processus de recrutement en 3 étapes :\n\n1. Un entretien avec la responsable et la chargée de recrutement.\n\n2. Une mise en situation\n\n3. Une demi-journée d’immersion pour découvrir concrètement votre futur environnement de travail.\n\n*À l’issue du processus : demande d’un extrait du casier judiciaire, (documents vierges requis).*\n\nVous vous reconnaissez dans cette mission ? Nous avons hâte de découvrir votre candidature et de construire ensemble un avenir solidaire.",
+      "descriptionByLocale": {
+        "it": "## Unisciti a EVAM e senti la tua esperienza! E se la tua prossima sfida professionale abbia un impatto sociale reale? A EVAM, ogni dipendente contribuisce ad una missione essenziale: accompagnare le persone in situazioni di migrazione con apertura e responsabilità. Come parte di una partenza, ne reclutiamo uno: Un formatore responsabile delle informazioni ai migranti (50 - 70%) – CDD fino a dicembre. Luogo in cui si trova Losanna. Essere d'accordo ## Cosa porti alla nostra missione Come formatore di riferimento, progetta e conduce workshop informativi per i migranti al fine di rafforzare la loro comprensione del quadro istituzionale, sociale e professionale e sostenere la loro autonomia e integrazione. In stretta collaborazione con i vari settori dell'EVAM e dei partner interni ed esterni, contribuisce allo sviluppo e alla qualità dei sistemi di formazione e informazione collettiva. ## La parola della tua futura testa Denatsha: \" Nell'ambito dell'Agenda svizzera per l'integrazione, la nostra azione si basa su una postura proattiva e impegnata. Si basa sulla curiosità professionale, sulla capacità di cercare informazioni, di rimanere aggiornati e interrogarla, al fine di continuare a cambiare le realtà. Il lavoro fa parte di una dinamica collettiva e trasversale. Si evolverà in un team impegnato e di supporto in cui la collaborazione e la condivisione delle conoscenze sono essenziali. L'iniziativa, l'autonomia e il senso di responsabilità si combinano con una forte cultura del lavoro di squadra\". ## Le vostre missioni chiave - Progettazione, lead e fornire workshop di informazioni di integrazione. - Comprendere situazioni complesse e trasmettere gli elementi essenziali in modo chiaro e accessibile. - Efficacemente strutturare e coordinare workshop e attività di formazione. - Proporre miglioramenti e gestire le missioni in modo proattivo. - Comunicare con chiarezza, pedagogia e precisione, sia per via orale che per iscritto. - Stabilire un rapporto di fiducia con pubblico e partner diversi. - Lavorare come team e contribuire attivamente a progetti di cross-cuting. - Dimostrare diplomazia e adattamento in un contesto interculturale. - Gestione delle priorità e mantenimento della qualità dei servizi in un ambiente esigente. ## Il tuo profilo - Laurea in un campo utile al post completato con un certificato di formatori adulti o equivalenti - Esperienza di 2 anni min in una funzione simile - Ottima conoscenza della migrazione e contesto istituzionale - Masterizzazione degli strumenti digitali, in particolare nella creazione di formazione - Competenze di team spirit e networking - Buona gestione organizzativa e orientamento alla soluzione - Eccellente adattabilità e flessibilità ## Cosa propone EVAM - Un ambiente di lavoro - Una politica di telelavoro - 5 settimane di vacanza (6 da 50 anni) - Da I benefici sociali molto buoni - Progetti significativi in un contesto interculturale stimolante ## Il processo di reclutamento a tre fasi: 1. Un'intervista con il direttore e l'ufficiale di reclutamento. 2. Situazione 3. Mezza giornata di immersione per scoprire il tuo futuro ambiente di lavoro. *Alla fine del processo: richiedere un estratto dal verbale penale, (documenti vergini richiesti). * Ti riconosci in questa missione? Non vediamo l'ora di scoprire la vostra candidatura e costruire insieme un futuro solidale.",
+        "en": "## Join EVAM and make sense of your expertise! What if your next professional challenge has a real social impact? At EVAM, each employee contributes to an essential mission: to accompany people in situations of migration with **openness** and **responsibility**. As part of a departure, we recruit one: **A trainer in charge of information to migrants** (50 - 70%) – **CDD until December. Place** : Lausanne **Entry into office** : To be agreed ##\n• What you bring to our mission As a reference trainer, you design and conduct information workshops for migrants in order to strengthen their understanding of the institutional, social and professional framework and support their autonomy and integration. In close collaboration with the various fields of EVAM and internal and external partners, you contribute to the development and quality of training and collective information systems. ## The word of your future head Denatsha: \" As part of the Swiss Agenda for Integration, our action is based on a proactive and committed posture. It is based on professional curiosity, the ability to seek information, to keep up-to-date and to question it, in order to keep up with changing realities. Work is fully part of a collective and cross-cutting dynamic. You will evolve into a committed and supportive team where collaboration and knowledge sharing are essential. The initiative, autonomy and sense of responsibility combine with a strong culture of teamwork.\" ## Your key missions - Design, lead and deliver integration information workshops. - Understand complex situations and convey the essentials in a clear and accessible way. - Effectively structure and coordinate workshops and training activities. - Propose improvements and manage missions proactively. - Communicate with clarity, pedagogy and precision, both orally and in writing. - Establish a trust relationship with diverse audiences and partners. - Work as a team and actively contribute to cross-cutting projects. - Demonstrate diplomacy and adaptation in an intercultural context. - Managing priorities and maintaining the quality of services in a demanding environment. ##\n• Your profile - Bachelor's degree in a field useful to the post completed with a certificate of adult or equivalent trainers - Experience of 2 years min in a similar function - Excellent knowledge of migration and institutional context - Mastery of digital tools, particularly in the creation of training - Team spirit and networking skills - Good organizational management and solution orientation - Excellent adaptability and flexibility ## What EVAM proposes - A work environment ** engaged** - A teleworking policy - 5 weeks of holiday (6 from 50 years) - From **very good social benefits** - Meaningful projects in a stimulating intercultural context ## The three-step recruitment process: 1. An interview with the manager and the recruitment officer. 2. Situation 3. Half a day of immersion to discover your future working environment. *At the end of the process: request for an extract from the criminal record, (virgin documents required). * Do you recognize yourself in this mission? We look forward to discovering your candidacy and building together a solidarity future.",
+        "de": "## Treten Sie EVAM bei und machen Sie Sinn für Ihre Expertise! Was ist, wenn Ihre nächste berufliche Herausforderung echte soziale Auswirkungen hat? Bei EVAM trägt jeder Mitarbeiter zu einer wesentlichen Mission bei: Menschen in Migrationssituationen mit **Offenheit** und **Verantwortung** zu begleiten. Im Rahmen einer Abreise rekrutieren wir eine: **Ein Trainer, der für Informationen für Migranten verantwortlich ist** (50 - 70%) – **CDD bis Dezember. Place** : Lausanne **Eintritt ins Amt** : Zu vereinbaren ## Was Sie zu unserer Mission bringen Als Referenztrainer entwerfen und führen Sie Informationsworkshops für Migranten durch, um deren Verständnis der institutionellen, sozialen und beruflichen Rahmenbedingungen zu stärken und deren Autonomie und Integration zu unterstützen. In enger Zusammenarbeit mit den verschiedenen Bereichen von EVAM und internen und externen Partnern tragen Sie zur Entwicklung und Qualität von Schulungs- und kollektiven Informationssystemen bei. ## Das Wort deines zukünftigen Kopfes Denatsha: „Im Rahmen der Schweizer Integrationsagenda basiert unser Handeln auf einer proaktiven und engagierten Haltung. Es basiert auf professioneller Neugier, der Fähigkeit, Informationen zu suchen, auf dem neuesten Stand zu bleiben und sie zu hinterfragen, um mit den sich verändernden Realitäten Schritt zu halten. Arbeit ist Teil einer kollektiven und übergreifenden Dynamik. Sie entwickeln sich zu einem engagierten und unterstützenden Team, in dem Zusammenarbeit und Wissensaustausch unerlässlich sind. Initiative, Autonomie und Verantwortungsbewusstsein verbinden sich mit einer starken Kultur der Teamarbeit. ## Ihre wichtigsten Missionen - Design, Leitung und Durchführung von Integrationsinformationsworkshops. - Komplexe Situationen verstehen und das Wesentliche klar und zugänglich vermitteln. - Strukturierung und Koordinierung von Workshops und Schulungen. - Verbesserung vorschlagen und Missionen proaktiv verwalten. - Kommunizieren Sie mit Klarheit, Pädagogik und Präzision sowohl mündlich als auch schriftlich. - Aufbau einer Vertrauensbeziehung mit verschiedenen Zielgruppen und Partnern. - Arbeiten Sie als Team und tragen Sie aktiv zu Querschnittsprojekten bei. - Demonstrieren Sie Diplomatie und Anpassung in einem interkulturellen Kontext. - Prioritäten verwalten und die Qualität der Dienstleistungen in einem anspruchsvollen Umfeld erhalten. ## Dein Profil - Bachelor-Abschluss in einem Bereich nützlich für die Stelle mit einem Zertifikat von Erwachsenen oder gleichwertigen Trainern abgeschlossen - Erfahrung von 2 Jahren min in einer ähnlichen Funktion - Exzellentes Wissen über Migration und institutionellen Kontext - Beherrschung digitaler Werkzeuge, insbesondere bei der Erstellung von Schulungen - Teamgeist und Netzwerkfähigkeiten - Gutes Organisationsmanagement und Lösungsorientierung - Hervorragende Anpassungsfähigkeit und Flexibilität ## Was EVAM vorschlägt - Ein Arbeitsumfeld ** engagiert ** - Eine Telearbeitspolitik - 5 Wochen Urlaub (6 von 50 Jahren) - Von **sehr guten Sozialleistungen** - Sinnvolle Projekte in einem stimulierenden interkulturellen Kontext ## Der dreistufige Rekrutierungsprozess: 1. Ein Interview mit dem Manager und dem Rekrutierungsbeauftragten. 2. Lage 3. Ein halber Tag des Eintauchens, um Ihre zukünftige Arbeitsumgebung zu entdecken. *Am Ende des Prozesses: Antrag auf einen Auszug aus dem Strafregister, (jungfräuliche Dokumente erforderlich). * Erkennst du dich selbst in dieser Mission? Wir freuen uns darauf, Ihre Kandidatur zu entdecken und gemeinsam eine solidarische Zukunft aufzubauen.",
+        "fr": "## Rejoignez l’EVAM et donnez du sens à votre expertise !\n\nEt si votre prochain défi professionnel avait un réel impact social ? À l’EVAM, chaque collaborateur·trice contribue à une mission essentielle : accompagner des personnes en situation de migration avec **ouverture** et **responsabilité**.\n\nDans le cadre d’un départ, nous recrutons un·e :\n\n**Un.e formateur.trice en charge de l'information aux migrants** (50 - 70%) – **CDD jusqu'en décembre. Lieu** : Lausanne **Entrée en fonction** : A convenir\n\n## Ce que vous apportez à notre mission\n\nEn tant que Formateur·trice référent·e, vous concevez et animez des ateliers d’information destinés aux personnes migrantes afin de renforcer leur compréhension du cadre institutionnel, social et professionnel, et de soutenir leur autonomie et leur intégration.\n\nEn collaboration étroite avec les différents domaines de l’EVAM et les partenaires internes et externes, vous contribuez au développement et à la qualité des dispositifs de formation et d’information collective.\n\n## Le mot de votre future responsable Denatsha:\n\n\" Inscrite dans le cadre de l’Agenda d’intégration suisse, notre action repose sur une posture proactive et engagée. Elle s’appuie sur la curiosité professionnelle, la capacité à aller chercher l’information, à en assurer une mise à jour constante et à la questionner, afin de rester en phase avec des réalités en évolution permanente.\n\nLe travail s’inscrit pleinement dans une dynamique collective et transversale. Vous évoluerez au sein d’une équipe engagée et solidaire, où la collaboration et le partage des connaissances sont essentiels. L’initiative, l’autonomie et le sens des responsabilités s’y conjuguent à une forte culture du travail en équipe.\"\n\n## Vos missions clés\n\n- Concevoir, animer et dispenser des ateliers d’informations à l’intégration.\n- Comprendre des situations complexes et transmettre l’essentiel de manière claire et accessible.\n- Structurer et coordonner efficacement les ateliers et activités de formation.\n- Proposer des améliorations et gérer les missions de manière proactive.\n- Communiquer avec clarté, pédagogie et précision, à l’oral comme à l’écrit.\n- Etablir une relation de confiance avec des publics et partenaires diversifiés.\n- Travailler en équipe et contribuer activement aux projets transversaux.\n- Faire preuve de diplomatie et d’adaptation dans un contexte interculturel.\n- Gérer les priorités et maintenir la qualité des prestations dans un environnement exigeant.\n\n## Votre profil\n\n- Bachelor dans un domaine utile au poste complété d’un brevet de formateurs d’adulte ou équivalent\n- Expérience de 2 ans min dans une fonction similaire\n- Excellente connaissance du domaine de la migration et du contexte institutionnel\n- Maîtrise des outils numérique, notamment dans la création de formation\n- Esprit d’équipe et aptitude au travail en réseau\n- Bonne gestion organisationnelle et orientation solution\n- Excellentes capacités d’adaptation et de flexibilité\n\n## Ce que l’EVAM vous propose\n\n- Un environnement de travail **engagé**\n- Une politique de télétravail\n- 5 semaines de vacances (6 dès 50 ans)\n- De **très bonnes prestations sociales**\n- Des projets porteurs de sens dans un contexte interculturel stimulant\n\n## Le processus de recrutement en 3 étapes :\n\n1. Un entretien avec la responsable et la chargée de recrutement.\n\n2. Une mise en situation\n\n3. Une demi-journée d’immersion pour découvrir concrètement votre futur environnement de travail.\n\n*À l’issue du processus : demande d’un extrait du casier judiciaire, (documents vierges requis).*\n\nVous vous reconnaissez dans cette mission ? Nous avons hâte de découvrir votre candidature et de construire ensemble un avenir solidaire."
+      },
+      "location": "Lausanne",
+      "streetAddress": "Rte de Chavannes 37",
+      "postalCode": "1007",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "url": "https://emploi.evam.ch/jobs/7163896-un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd",
+      "source": "EVAM Dedicated Parser",
+      "sourceLang": "fr",
+      "postedDate": "2026-02-03",
+      "datePosted": "2026-02-03",
+      "crawledAt": "2026-08-05T11:48:48.515Z",
+      "category": "Formazione",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "employmentType": "PART_TIME",
+      "contract": "temporary",
+      "contractType": "temporary",
+      "currency": "CHF",
+      "hiringOrganizationName": "EVAM",
+      "previousSlugs": [
+        "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-vaud-ch",
+        "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-lausanne",
+        "formatore-responsabile-delle-informazioni-per-migranti-50-70-contratto-a-tempo-determinato-evam-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-vaud-ch",
+          "formatore-responsabile-delle-informazioni-per-migranti-50-70-contratto-a-tempo-determinato-evam-lausanne"
+        ],
+        "en": [
+          "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-lausanne"
+        ],
+        "de": [
+          "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-vaud-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T10:58:13.342Z",
+      "salaryMin": 58400,
+      "salaryMax": 88600,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58400,
+          "maxValue": 88600,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
+    },
+    {
+      "id": "evam-vaud-7891231",
+      "slug": "specialista-hr-100-contratto-a-tempo-determinato-evam-lausanne",
+      "slugByLocale": {
+        "it": "specialista-hr-100-contratto-a-tempo-determinato-evam-lausanne",
+        "en": "hr-specialist-100-csd-evam-lausanne",
+        "de": "hr-spezialist-100-csd-evam-lausanne",
+        "fr": "specialiste-rh-100-cdd-evam-vaud-ch"
+      },
+      "company": "EVAM",
+      "companyKey": "evam-vaud",
+      "companyDomain": "evam.ch",
+      "title": "Spécialiste RH (100%) - CDD",
+      "titleByLocale": {
+        "it": "Specialista HR (100%) - Contratto a Tempo Determinato",
+        "en": "HR specialist (100%) - CSD",
+        "de": "HR-Spezialist (100%) - CSD",
+        "fr": "Spécialiste RH (100%) - CDD"
+      },
+      "description": "L'EVAM (Établissement vaudois de l'accueil des migrants) est un acteur majeur du service public vaudois. Avec plus de 1'000 collaboratrices et collaborateurs engagés et un budget annuel de 360 millions de francs, nous assurons l'accueil, l'accompagnement et l'intégration des personnes migrantes dans le canton de Vaud.\n\nChaque jour, nos équipes œuvrent avec ouverture et responsabilité pour répondre à des enjeux sociaux essentiels. Rejoindre l'EVAM, c'est mettre ses compétences au service d'une mission humaine et d'utilité publique, dans un environnement professionnel stimulant, diversifié et en constante évolution.\n\nDans le cadre du remplacement d'un congé maternité, nous recrutons un·e :\n\n## Spécialiste RH (100%) – CDD de 12 mois\n\nLieu : Lausanne (Route de Chavannes 31) + quelques déplacements dans le canton Entrée en fonction : De suite ou à convenir\n\n[Classe salariale : 7](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial_2026.pdf) *(ce barème s’entend à prérequis validés, à défaut desquels l’enclassement se fait à hauteur de classe -1)*\n\n## Ce que vous apportez à notre mission\n\nVéritable partenaire de terrain, vous êtes au cœur de la relation entre les équipes, les managers et les enjeux humains de notre organisation. Vous apportez un soutien stratégique et opérationnel, dans une approche humaine, éthique et rigoureuse des relations de travail.\n\nLe mot de votre futur·e responsable, Cécilia :\n\n« Ce poste est une belle opportunité de contribuer concrètement à la qualité de l’accompagnement RH au sein de notre institution. Nous recherchons une personne rigoureuse, proactive et orientée solutions, capable d’apporter son expertise tout en développant des relations de confiance avec les collaborateurs et les managers. À l’EVAM, nous croyons à une fonction RH à la fois professionnelle, humaine et proche du terrain. Si vous aimez allier précision, sens du service et impact positif, ce poste est fait pour vous. »\n\n## Vos missions clés\n\n- Conseiller et accompagner les managers sur les bonnes pratiques RH (droit du travail public/privé)\n- Gérer les situations complexes : conflits, mesures disciplinaires, licenciements\n- Piloter le cycle de vie RH des collaborateurs : suivi des évaluations, certificats de travail, etc...\n- Coordonner la gestion des absences en collaboration avec notre Care Manager\n- Contribuer à des projets RH innovants qui font évoluer notre organisation\n\n## Votre profil\n\n- Bachelor HES avec spécialisation en RH ou formation équivalente\n- Excellente capacité d’écoute, de pédagogie et de communication (orale & écrite)\n- Sens de la confidentialité, rigueur, et leadership collaboratif\n- Solides connaissances du droit du travail suisse (public et privé)\n- À l’aise dans un environnement dynamique, en évolution constante\n\n## Ce que l’EVAM vous propose\n\n- Un environnement de travail engagé\n- Une politique de formation continue pour évoluer dans votre carrière\n- Une politique de télétravail\n- 5 semaines de vacances (6 dès 50 ans)\n- De très bonnes prestations sociales\n- Des projets porteurs de sens dans un contexte interculturel stimulant\n\n## Le processus de recrutement en 2 étapes :\n\n1. Entretien avec votre future responsable ainsi que la responsable de l'entité RH.\n\n2. Mise en situation pour valoriser vos compétences.\n\n*À l’issue du processus : demande d’un extrait du casier judiciaire, extrait spécial et attestation de l’office des poursuites (documents vierges requis).*\n\nVous vous reconnaissez dans cette mission ? Nous avons hâte de découvrir votre candidature et de construire ensemble un avenir solidaire.",
+      "descriptionByLocale": {
+        "it": "L'EVAM (istituzione vaudiana per la ricezione dei migranti) è un grande giocatore nel servizio pubblico voodoo. Con oltre 1.000 collaboratori impegnati e un bilancio annuale di 360 milioni di franchi, garantiamo l'accoglienza, il sostegno e l'integrazione dei migranti nel cantone di Vaud. Ogni giorno, i nostri team lavorano con apertura e responsabilità per affrontare questioni sociali chiave. Unire EVAM significa mettere le tue competenze al servizio di una missione umana e di pubblica utilità, in un ambiente professionale stimolante, vario e in continua evoluzione. Nell'ambito della sostituzione del congedo di maternità, ne reclutiamo uno: ## HR Specialist (100%) – 12 mesi CSD **Locazione ** : Losanna (Route de Chavannes 31) + qualche viaggio al cantone Impresa in ufficio **: Immediatamente o da concordare [**Classe di vendita: 7**](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial 2026.pdf) *(**Questa scala si riferisce ai prerequisiti convalidati, in mancanza di quale classificazione è a livello di grado -1) * ## Cosa porti alla nostra missione Un vero partner nel campo, sei al centro del rapporto tra team, manager e la posta in gioco umana della nostra organizzazione. Fornite supporto strategico e operativo in un approccio **umano, etico e rigoroso** alle relazioni di lavoro. **La parola del tuo futuro responsabile, Cécilia:** \"Questa posizione è una grande opportunità per contribuire concretamente alla qualità del supporto HR all'interno della nostra istituzione. Siamo alla ricerca di una persona rigorosa, proattiva e orientata alle soluzioni, in grado di portare competenze e sviluppare relazioni di fiducia con dipendenti e manager. In EVAM, crediamo in una funzione HR che sia professionale, umano e vicino al campo. Se ti piace combinare precisione, senso di servizio e impatto positivo, questa posizione è per te. » ## Le vostre missioni chiave - Consigliere e responsabile del sostegno alle buone pratiche HR (diritto pubblico/privato del lavoro) - Gestione di situazioni complesse: conflitti, misure disciplinari, terminazioni - Pilotare il ciclo di vita HR dei dipendenti: monitoraggio delle valutazioni, certificati di lavoro, ecc... - Coordinate la gestione degli assenti in collaborazione con il nostro Care Manager - Contribuisci a progetti HR innovativi che avanzano la nostra organizzazione ## Il tuo profilo - Bachelor HES con specializzazione HR o formazione equivalente - Ottima capacità di ascolto, pedagogia e comunicazione (orale e scritto) - Confidenzialità, rigore e leadership collaborativa - Forte conoscenza del diritto del lavoro svizzero (pubblico e privato) - A casa in un ambiente dinamico e in continua evoluzione ## Cosa propone EVAM - Un ambiente di lavoro impegnato - Una politica di formazione continua per evolvere nella tua carriera - Una politica di telelavoro - 5 settimane di vacanza (6 da 50 anni) - Benefici sociali - Progetti significativi in un contesto interculturale stimolante ## Il processo di reclutamento a 2 fasi: 1. Intervista con il tuo futuro manager e il capo dell'ente HR. 2. Impostazione sul posto per valutare le tue abilità. *Alla fine del processo: richiesta di un estratto del registro penale, estratto speciale e certificato dall'ufficio per l'accusa (documenti vergini richiesti). * Ti riconosci in questa missione? Non vediamo l'ora di scoprire la vostra candidatura e costruire insieme un futuro solidale.",
+        "en": "The EVAM (Vaudian institution for the reception of migrants) is a major player in the voodoo public service. With more than 1,000 committed collaborators and an annual budget of 360 million francs, we ensure the reception, support and integration of migrants in the canton of Vaud. Every day, our teams work with openness and responsibility to address key social issues. Joining EVAM means putting your skills at the service of a human mission and of public utility, in a stimulating, diverse and constantly evolving professional environment. As part of the replacement of maternity leave, we recruit one: ## HR Specialist (100%) – 12-month CSD Location : Lausanne (Route de Chavannes 31) + a few trips to the canton Entrance in office : Immediately or to be agreed [Salary class: 7](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial 2026.pdf) *(This scale refers to validated prerequisites, failing which classification is at grade level -1) * ##\n• What you bring to our mission A true partner in the field, you are at the heart of the relationship between teams, managers and the human stakes of our organization. You provide strategic and operational support in a human, ethical and rigorous approach to labour relations. The word of your future responsible, Cécilia: \" This position is a great opportunity to contribute concretely to the quality of HR support within our institution. We are looking for a rigorous, proactive and solutions-oriented person, able to bring expertise while developing relationships of trust with employees and managers. At EVAM, we believe in a HR function that is both professional, human and close to the field. If you like to combine precision, service sense and positive impact, this position is for you. » ## Your key missions - Adviser and support managers on good HR practices (public/private labour law) - Managing complex situations: conflicts, disciplinary measures, terminations - Piloting the employees' HR life cycle: monitoring evaluations, work certificates, etc... - Coordinate absentee management in collaboration with our Care Manager - Contribute to innovative HR projects that advance our organization ##\n• Your profile - Bachelor HES with HR specialization or equivalent training - Excellent listening, pedagogy and communication skills (oral & written) - Confidentiality, rigor, and collaborative leadership - Strong knowledge of Swiss labour law (public and private) - At home in a dynamic, constantly changing environment ## What EVAM proposes - A committed working environment - A policy of continuous training to evolve in your career - A teleworking policy - 5 weeks of holiday (6 from 50 years) - Very good social benefits - Meaningful projects in a stimulating intercultural context ## The 2-step recruitment process: 1. Interview with your future manager and the head of the HR entity. 2. Setting in place to value your skills. *At the end of the process: request for an extract of the criminal record, special extract and certificate from the prosecution office (virgin documents required). * Do you recognize yourself in this mission? We look forward to discovering your candidacy and building together a solidarity future.",
+        "de": "Die EVAM (Vaudianische Einrichtung für die Aufnahme von Migranten) ist ein wichtiger Akteur im öffentlichen Voodoo-Dienst. Mit mehr als 1.000 engagierten Mitarbeitern und einem Jahresbudget von 360 Millionen Franken sichern wir die Aufnahme, Unterstützung und Integration von Migranten im Kanton Waadt. Jeden Tag arbeiten unsere Teams mit Offenheit und Verantwortung, um wichtige soziale Probleme anzugehen. Der Beitritt zu EVAM bedeutet, Ihre Fähigkeiten in den Dienst einer menschlichen Mission und des öffentlichen Nutzens in einem anregenden, vielfältigen und sich ständig weiterentwickelnden beruflichen Umfeld zu stellen. Im Rahmen der Ersetzung des Mutterschaftsurlaubs rekrutieren wir einen: ## HR-Spezialist (100%) - 12-Monats-CSD Location : Lausanne (Route de Chavannes 31) + einige Reisen in den Kanton Eintritt im Amt : Sofort oder noch zu vereinbaren [Gehaltsklasse: 7](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial 2026.pdf) *(Diese Skala bezieht sich auf validierte Voraussetzungen, andernfalls ist die Einstufung in die Besoldungsgruppe -1) * ## Was Sie zu unserer Mission bringen Als echter Partner in diesem Bereich stehen Sie im Mittelpunkt der Beziehung zwischen Teams, Managern und den menschlichen\n• Aufgaben unserer Organisation. Sie bieten strategische und operative Unterstützung in einem * menschlichen, ethischen und rigorosen * Ansatz für Arbeitsbeziehungen. Das Wort Ihrer zukünftigen Verantwortlichen, Cécilia: Diese Position ist eine großartige Gelegenheit, konkret zur Qualität der HR-Unterstützung innerhalb unserer Institution beizutragen. Wir suchen eine strenge, proaktive und lösungsorientierte Person, die in der Lage ist, Fachwissen einzubringen und gleichzeitig Vertrauensbeziehungen zu Mitarbeitern und Führungskräften aufzubauen. Bei EVAM glauben wir an eine HR-Funktion, die sowohl professionell, menschlich als auch fachnah ist. Wenn Sie Präzision, Servicesinn und positive Wirkung kombinieren möchten, ist diese Position für Sie. » ## Ihre wichtigsten Missionen - Berater und Support Manager zu Good HR Practices (öffentliches/privates Arbeitsrecht) - Bewältigung komplexer Situationen: Konflikte, Disziplinarmaßnahmen, Kündigungen - Pilotierung des HR-Lebenszyklus der Mitarbeiter: Überwachung von Bewertungen, Arbeitszertifikaten usw. - Koordination des Abwesendenmanagements in Zusammenarbeit mit unserem Care Manager - Beitrag zu innovativen HR-Projekten, die unsere Organisation voranbringen ## Dein Profil - Bachelor HES mit HR Spezialisierung oder gleichwertige Ausbildung - Ausgezeichnetes Zuhören, Pädagogik und Kommunikationsfähigkeiten (mündlich & schriftlich) - Vertraulichkeit, Strenge und kollaborative Führung - Starke Kenntnisse des Schweizer Arbeitsrechts (öffentlich und privat) - Zuhause in einem dynamischen, sich ständig verändernden Umfeld ## Was EVAM vorschlägt - Ein engagiertes Arbeitsumfeld - Eine Politik der kontinuierlichen Ausbildung in Ihrer Karriere zu entwickeln - Eine Telearbeitspolitik - 5 Wochen Urlaub (6 von 50 Jahren) - Sehr gute Sozialleistungen - Sinnvolle Projekte in einem stimulierenden interkulturellen Kontext ## Der 2-stufige Rekrutierungsprozess: 1. Interview mit Ihrem zukünftigen Manager und dem Leiter der HR-Einheit. 2. Setzen Sie sich ein, um Ihre Fähigkeiten zu schätzen. *Am Ende des Prozesses: Antrag auf Auszug aus dem Strafregister, Sonderauszug und Bescheinigung der Staatsanwaltschaft (jungfräuliche Dokumente erforderlich). * Erkennst du dich selbst in dieser Mission? Wir freuen uns darauf, Ihre Kandidatur zu entdecken und gemeinsam eine solidarische Zukunft aufzubauen.",
+        "fr": "L'EVAM (Établissement vaudois de l'accueil des migrants) est un acteur majeur du service public vaudois. Avec plus de 1'000 collaboratrices et collaborateurs engagés et un budget annuel de 360 millions de francs, nous assurons l'accueil, l'accompagnement et l'intégration des personnes migrantes dans le canton de Vaud.\n\nChaque jour, nos équipes œuvrent avec ouverture et responsabilité pour répondre à des enjeux sociaux essentiels. Rejoindre l'EVAM, c'est mettre ses compétences au service d'une mission humaine et d'utilité publique, dans un environnement professionnel stimulant, diversifié et en constante évolution.\n\nDans le cadre du remplacement d'un congé maternité, nous recrutons un·e :\n\n## Spécialiste RH (100%) – CDD de 12 mois\n\nLieu : Lausanne (Route de Chavannes 31) + quelques déplacements dans le canton Entrée en fonction : De suite ou à convenir\n\n[Classe salariale : 7](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial_2026.pdf) *(ce barème s’entend à prérequis validés, à défaut desquels l’enclassement se fait à hauteur de classe -1)*\n\n## Ce que vous apportez à notre mission\n\nVéritable partenaire de terrain, vous êtes au cœur de la relation entre les équipes, les managers et les enjeux humains de notre organisation. Vous apportez un soutien stratégique et opérationnel, dans une approche humaine, éthique et rigoureuse des relations de travail.\n\nLe mot de votre futur·e responsable, Cécilia :\n\n« Ce poste est une belle opportunité de contribuer concrètement à la qualité de l’accompagnement RH au sein de notre institution. Nous recherchons une personne rigoureuse, proactive et orientée solutions, capable d’apporter son expertise tout en développant des relations de confiance avec les collaborateurs et les managers. À l’EVAM, nous croyons à une fonction RH à la fois professionnelle, humaine et proche du terrain. Si vous aimez allier précision, sens du service et impact positif, ce poste est fait pour vous. »\n\n## Vos missions clés\n\n- Conseiller et accompagner les managers sur les bonnes pratiques RH (droit du travail public/privé)\n- Gérer les situations complexes : conflits, mesures disciplinaires, licenciements\n- Piloter le cycle de vie RH des collaborateurs : suivi des évaluations, certificats de travail, etc...\n- Coordonner la gestion des absences en collaboration avec notre Care Manager\n- Contribuer à des projets RH innovants qui font évoluer notre organisation\n\n## Votre profil\n\n- Bachelor HES avec spécialisation en RH ou formation équivalente\n- Excellente capacité d’écoute, de pédagogie et de communication (orale & écrite)\n- Sens de la confidentialité, rigueur, et leadership collaboratif\n- Solides connaissances du droit du travail suisse (public et privé)\n- À l’aise dans un environnement dynamique, en évolution constante\n\n## Ce que l’EVAM vous propose\n\n- Un environnement de travail engagé\n- Une politique de formation continue pour évoluer dans votre carrière\n- Une politique de télétravail\n- 5 semaines de vacances (6 dès 50 ans)\n- De très bonnes prestations sociales\n- Des projets porteurs de sens dans un contexte interculturel stimulant\n\n## Le processus de recrutement en 2 étapes :\n\n1. Entretien avec votre future responsable ainsi que la responsable de l'entité RH.\n\n2. Mise en situation pour valoriser vos compétences.\n\n*À l’issue du processus : demande d’un extrait du casier judiciaire, extrait spécial et attestation de l’office des poursuites (documents vierges requis).*\n\nVous vous reconnaissez dans cette mission ? Nous avons hâte de découvrir votre candidature et de construire ensemble un avenir solidaire."
+      },
+      "location": "Lausanne",
+      "streetAddress": "Rte de Chavannes 31",
+      "postalCode": "1007",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "url": "https://emploi.evam.ch/jobs/7891231-specialiste-rh-100-cdd",
+      "source": "EVAM Dedicated Parser",
+      "sourceLang": "fr",
+      "postedDate": "2026-06-11",
+      "datePosted": "2026-06-11",
+      "crawledAt": "2026-08-05T11:48:48.426Z",
+      "category": "Risorse Umane",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "employmentType": "FULL_TIME",
+      "contract": "temporary",
+      "contractType": "temporary",
+      "currency": "CHF",
+      "hiringOrganizationName": "EVAM",
+      "previousSlugs": [
+        "specialiste-rh-100-cdd-evam-vaud-ch",
+        "specialista-hr-100-contratto-a-tempo-determinato-evam-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-rh-100-cdd-evam-vaud-ch",
+          "specialista-hr-100-contratto-a-tempo-determinato-evam-lausanne"
+        ],
+        "en": [
+          "specialiste-rh-100-cdd-evam-vaud-ch"
+        ],
+        "de": [
+          "specialiste-rh-100-cdd-evam-vaud-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T10:58:13.205Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
+    },
+    {
+      "id": "evam-vaud-7917504",
+      "slug": "allenatore-fli-in-integrazione-80-cdi-evam-lausanne",
+      "slugByLocale": {
+        "it": "allenatore-fli-in-integrazione-80-cdi-evam-lausanne",
+        "en": "fli-trainer-in-integration-80-cdi-evam-lausanne",
+        "de": "fli-trainer-in-integration-80-cdi-evam-lausanne",
+        "fr": "formateur-trice-fli-dans-le-domaine-de-l-integration-80-cdi-evam-vaud-ch"
+      },
+      "company": "EVAM",
+      "companyKey": "evam-vaud",
+      "companyDomain": "evam.ch",
+      "title": "Formateur·trice FLI dans le domaine de l’intégration (80%) - CDI",
+      "titleByLocale": {
+        "it": "Allenatore FLI in integrazione (80%) - CDI",
+        "en": "FLI trainer in integration (80%) - CDI",
+        "de": "FLI-Trainer in Integration (80%) - CDI",
+        "fr": "Formateur·trice FLI dans le domaine de l’intégration (80%) - CDI"
+      },
+      "description": "L'EVAM (Établissement vaudois de l'accueil des migrants) est un acteur majeur du service public vaudois. Avec plus de 1'000 collaboratrices et collaborateurs engagés et un budget annuel de 360 millions de francs, nous assurons l'accueil, l'accompagnement et l'intégration des personnes migrantes dans le canton de Vaud.\n\nChaque jour, nos équipes œuvrent avec ouverture et responsabilité pour répondre à des enjeux sociaux essentiels. Rejoindre l'EVAM, c'est mettre ses compétences au service d'une mission humaine et d'utilité publique, dans un environnement professionnel stimulant, diversifié et en constante évolution.\n\nDans le cadre d’un remplacement, nous recrutons un·e :\n\nFormateur·trice FLI dans le domaine de l’intégration (80%) - CDI\n\n[Classe salariale](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial_2026.pdf): 8*(ce barème s’entend à prérequis validés, à défaut desquels l’enclassement se fait à hauteur de classe -1)*\n\nLieu :Lausanne Entrée en fonction : Août 2026\n\n## Ce que vous apportez à notre mission\n\nAu sein du Pôle Français et connaissances de base, vous jouez un rôle essentiel dans l’apprentissage du français et l’intégration des personnes migrantes. En lien avec les équipes pédagogiques, administratives et éducatives, vous accompagnez les participant·es dans leur parcours de formation et favorisez leur autonomie ainsi que leur inclusion sociale.\n\n## Le mot de votre future responsable, Dominique :\n\n« Vous intégrerez une équipe engagée et dynamique, dans un environnement où l’humain est le cœur de notre travail. Votre mission consistera à guider et à former des personnes issues de la migration. Chaque cours est une opportunité de transmettre des compétences essentielles, de valoriser les parcours de chacun·e. Vous travaillerez au côté de collègues passionnés et solidaires, unis par des valeurs fortes d'entraide, d’empathie et d’équité. »\n\n## Vos missions clés\n\n- Vous préparez le contenu des cours et dispensez des formations adaptées aux besoins des participant·es.\n- Vous participez à l’évolution des supports pédagogiques, des outils didactiques et aux échanges de pratiques professionnelles.\n- Vous évaluez les participant·es de manière continue et assurez leur suivi pédagogique.\n- Vous collaborez avec les équipes administratives, éducatives et les chef·fes d’équipe pour accompagner les situations particulières.\n- Vous effectuez les tâches administratives liées à la fonction et rendez compte régulièrement de l’évolution des participant·es.\n- Vous contribuez à la communication entre les différents intervenant·es ainsi qu’à l’encadrement des auxiliaires pédagogiques et des stagiaires.\n- Vous veillez au respect des règles en vigueur au sein des dispositifs de formation.\n\n## Votre profil\n\n- Master en didactique, en FLE ou dans un autre domaine utile\n- Diplôme de didactique du français langue étrangère ou certificat de formateur d’adultes (FSEA1) : souhaité\n- Certificat de formateur en langue dans le domaine de l’intégration (*fide)* : souhaité\n- Expérience de 3 ans dans le domaine de la formation d’adultes et/ou d’adolescent·es\n- Aisance dans l’utilisation des outils numériques pour la formation\n- Intérêt pour le domaine de la migration et de l’interculturel\n- Capacité à gérer et à motiver un groupe\n- Bonne expression orale\n- Esprit d’ouverture et flexibilité\n\n## Ce que l’EVAM vous propose\n\n- Un environnement de travail engagé\n- Une politique de formation continue pour évoluer dans votre carrière\n- Une politique de télétravail\n- 5 semaines de vacances (6 dès 50 ans)\n- De très bonnes prestations sociales\n- Des projets porteurs de sens dans un contexte interculturel stimulant\n\n## Le processus de recrutement en 3 étapes :\n\n1.Un entretien avec la responsable et la chargée de recrutement.\n\n2.Une mise en situation\n\n3.Une demi-journée d’immersion pour découvrir concrètement votre futur environnement de travail\n\n*À l’issue du processus : demande d’un extrait du casier judiciaire.*\n\nVous vous reconnaissez dans cette mission ? Nous avons hâte de découvrir votre candidature et de construire ensemble un avenir solidaire.",
+      "descriptionByLocale": {
+        "it": "EVAM (Etablissement vaudois de l'accueil des migrants) è un giocatore importante nel servizio pubblico voodoo. Con oltre 1.000 dipendenti e un bilancio annuale di 360 milioni di franchi, accogliamo, sosteniamo e integramo i migranti nel cantone di Vaud.\n\nOgni giorno, i nostri team lavorano con apertura e responsabilità per affrontare questioni sociali chiave. Unire EVAM significa mettere le proprie competenze al servizio di una missione umana e di pubblica utilità, in un ambiente professionale stimolante, vario e in continua evoluzione.\n\nCome parte di un sostituto, ne reclutiamo uno:\n\n**FLI trainer in integrazione (80%) - CDI**\n\n[**La classe di vendita**](http://www.evam.ch/app/uploads/2026/06/Bareme-salarial 2026.pdf)**: 8***(**Questa scala si riferisce ai prerequisiti convalidati, in mancanza di quale classificazione è a livello di grado -1) *\n\n**Location:**Lausanne **Commento: ** agosto 2026\n\n## Cosa porti alla nostra missione\n\nAll'interno del Polo francese e delle conoscenze di base, si gioca un ruolo essenziale nell'apprendimento del francese e nell'integrazione dei migranti. In relazione ai team educativi, amministrativi ed educativi, accompagni i partecipanti al loro percorso formativo e promuovi la loro autonomia e inclusione sociale.\n\n## La parola del vostro futuro leader, Dominique:\n\n\" Integrerai un team impegnato e dinamico in un ambiente in cui gli esseri umani sono il cuore del nostro lavoro. La vostra missione sarà di guidare e formare le persone dalla migrazione. Ogni corso è un'opportunità per trasmettere competenze essenziali, valorizzare i percorsi degli altri. Voi lavorerete insieme a colleghi appassionati e solidali, uniti da forti valori di aiuto reciproco, empatia e correttezza».\n\n## Le vostre missioni chiave\n\n- Prepara il contenuto dei corsi e fornisci una formazione adatta alle esigenze dei partecipanti.\n- Si partecipa all'evoluzione dei materiali didattici, strumenti didattici e scambi di pratiche professionali.\n- Valutate i partecipanti su base continuativa e assicurate il loro follow-up pedagogico.\n- Lavori con i leader amministrativi, educativi e di team per sostenere situazioni specifiche.\n- Effettuare i compiti amministrativi relativi alla funzione e riferire regolarmente sui progressi dei partecipanti.\n- Contribuisci alla comunicazione tra i vari partecipanti e alla supervisione di assistenti didattici e tirocinanti.\n- L'utente garantisce il rispetto delle norme vigenti nell'ambito del regime di formazione.\n\n## Il tuo profilo\n\n- Master in didattica, FLE o altro campo utile\n- Diploma in francese come lingua straniera o certificato di formatore adulto (FSEA1): desiderato\n- Certificato di formazione linguistica nel campo dell'integrazione (*fide)* : desiderato\n- 3 anni di esperienza nell'educazione degli adulti e/o degli adolescenti\n- Utilizzo di strumenti digitali per la formazione\n- Interessi di migrazione e interculturalismo\n- Capacità di gestire e motivare un gruppo\n- Buona espressione orale\n- Apertura e flessibilità\n\n## Cosa propone EVAM\n\n- Un ambiente di lavoro\n- Una politica di formazione continua** per evolversi nella tua carriera\n- Politica dei trasporti\n- 5 settimane di vacanza (6 da 50 anni)\n- Da **I benefici sociali molto buoni **\n- Progetti significativi in un contesto interculturale stimolante\n\n## Il processo di reclutamento a tre fasi:\n\n1.Un incontro con il responsabile del reclutamento e il responsabile del reclutamento.\n\n2.A Situazione\n\n3.A immersione di mezza giornata per scoprire il vostro futuro ambiente di lavoro\n\n*Alla fine del processo: richiesta di un estratto del verbale penale. *\n\nTi riconosci in questa missione? Non vediamo l'ora di scoprire la vostra candidatura e costruire insieme un futuro solidale.",
+        "en": "EVAM (Etablissement vaudois de l'accueil des migrants) is a major player in the voodoo public service. With more than 1,000 employees and an annual budget of 360 million francs, we welcome, support and integrate migrants in the canton of Vaud.\n\nEvery day, our teams work with openness and responsibility to address key social issues. Joining EVAM means putting its skills at the service of a human mission and of public utility, in a stimulating, diverse and constantly evolving professional environment.\n\nAs part of a replacement, we recruit one:\n\nFLI trainer in integration (80%) - CDI\n\n[Salary class](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial 2026.pdf): 8*(This scale refers to validated prerequisites, failing which classification is at grade level -1) *\n\nLocation:Lausanne Commencement: August 2026\n\n## What you bring to our mission\n\nWithin the French Pole and basic knowledge, you play an essential role in learning French and integrating migrants. In connection with the educational, administrative and educational teams, you accompany the participants in their training journey and promote their autonomy and social inclusion.\n\n## The word of your future leader, Dominique:\n\n\" You will integrate a committed and dynamic team into an environment where humans are the core of our work. Your mission will be to guide and train people from migration. Each course is an opportunity to transmit essential skills, to value each other's paths. You will work alongside passionate and supportive colleagues, united by strong values of mutual aid, empathy and fairness. »\n\n## Your key missions\n\n- You prepare the content of the courses and provide training tailored to the needs of the participants.\n- You participate in the evolution of teaching materials, teaching tools and exchanges of professional practices.\n- You evaluate participants on an ongoing basis and ensure their pedagogical follow-up.\n- You work with administrative, educational and team leaders to support specific situations.\n- You perform the administrative tasks related to the function and report regularly on the progress of the participants.\n- You contribute to communication between the various participants and to the supervision of teaching assistants and trainees.\n- You ensure compliance with the rules in force within the training arrangements.\n\n## Your profile\n\n- Master in didactic, FLE or other useful field\n- Diploma in French as a foreign language or certificate of adult trainer (FSEA1): desired\n- Certificate of language trainer in the field of integration (*fide)* : desired\n- 3 years experience in adult and/or adolescent education\n- Use of digital tools for training\n- Interest in migration and interculturalism\n- Ability to manage and motivate a group\n- Good oral expression\n- Openness and flexibility\n\n## What EVAM proposes\n\n- A work environment engaged\n- A continuous training policy to evolve in your career\n- Telework policy\n- 5 weeks of holiday (6 from 50 years)\n- From very good social benefits\n- Meaningful projects in a stimulating intercultural context\n\n## The three-step recruitment process:\n\n1.A meeting with the recruitment manager and the recruitment officer.\n\n2.A Situation\n\n3.A half-day immersion to discover your future working environment\n\n*At the end of the process: request for an extract of the criminal record. *\n\nDo you recognize yourself in this mission? We look forward to discovering your candidacy and building together a solidarity future.",
+        "de": "EVAM (Etablissement vaudois de l'accueil des migrants) ist ein wichtiger Akteur im öffentlichen Voodoo-Dienst. Mit mehr als 1.000 Mitarbeitern und einem Jahresbudget von 360 Millionen Franken begrüßen, unterstützen und integrieren wir Migranten im Kanton Waadt.\n\nJeden Tag arbeiten unsere Teams mit Offenheit und Verantwortung, um wichtige soziale Probleme anzugehen. Der Beitritt zu EVAM bedeutet, seine Fähigkeiten in einem anregenden, vielfältigen und sich ständig weiterentwickelnden beruflichen Umfeld in den Dienst einer menschlichen Mission und eines öffentlichen Dienstes zu stellen.\n\nAls Teil eines Ersatzes rekrutieren wir einen:\n\nFLI Trainer in Integration (80%) - CDI\n\n[Gehaltsklasse](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial 2026.pdf): 8*(Diese Skala bezieht sich auf validierte Voraussetzungen, andernfalls ist die Einstufung in die Besoldungsgruppe -1) *\n\nLocation:Lausanne Beginn: August 2026\n\n## Was Sie zu unserer Mission bringen\n\nInnerhalb des französischen Poles und des Grundwissens spielen Sie eine wesentliche Rolle beim Französischlernen und bei der Integration von Migranten. In Verbindung mit den Bildungs-, Verwaltungs- und Bildungsteams begleiten Sie die Teilnehmer auf ihrer Trainingsreise und fördern deren Autonomie und soziale Inklusion.\n\n## Das Wort Ihres zukünftigen Führers, Dominique:\n\n\"Sie werden ein engagiertes und dynamisches Team in ein Umfeld integrieren, in dem der Mensch im Mittelpunkt unserer Arbeit steht.\" Ihre Mission wird es sein, Menschen vor Migration zu führen und auszubilden. Jeder Kurs ist eine Gelegenheit, wesentliche Fähigkeiten zu vermitteln, um die Wege des anderen zu schätzen. Sie werden mit leidenschaftlichen und unterstützenden Kollegen zusammenarbeiten, vereint durch starke Werte der gegenseitigen Hilfe, Empathie und Fairness.\n\n## Ihre wichtigsten Missionen\n\n- Sie bereiten die Inhalte der Kurse vor und bieten Schulungen an, die auf die Bedürfnisse der Teilnehmer zugeschnitten sind.\n- Sie beteiligen sich an der Entwicklung von Lehrmaterialien, Lehrmitteln und dem Austausch von Berufspraktiken.\n- Sie bewerten die Teilnehmer laufend und sorgen für deren pädagogische Begleitung.\n- Sie arbeiten mit Verwaltungs-, Bildungs- und Teamleitern zusammen, um bestimmte Situationen zu unterstützen.\n- Sie erledigen die administrativen Aufgaben im Zusammenhang mit der Funktion und berichten regelmäßig über den Fortschritt der Teilnehmer.\n- Sie tragen zur Kommunikation zwischen den verschiedenen Teilnehmern und zur Betreuung von Lehrassistenten und Auszubildenden bei.\n- Sie gewährleisten die Einhaltung der geltenden Regeln innerhalb der Schulungsvereinbarungen.\n\n## Dein Profil\n\n- Master in Didaktik, FLE oder anderen nützlichen Bereich\n- Diplom in Französisch als Fremdsprache oder Zertifikat des erwachsenen Trainers (FSEA1): gewünscht\n- Zertifikat des Sprachtrainers im Bereich Integration (*fide)* : gewünscht\n- 3 Jahre Erfahrung in der Erwachsenen- und/oder Jugendbildung\n- Nutzung digitaler Tools für die Ausbildung\n- Interesse an Migration und Interkulturalismus\n- Fähigkeit, eine Gruppe zu managen und zu motivieren\n- Guter mündlicher Ausdruck\n- Offenheit und Flexibilität\n\n## Was EVAM vorschlägt\n\n- Ein Arbeitsumfeld engagiert\n- Eine kontinuierliche Trainingspolitik, um sich in Ihrer Karriere zu entwickeln\n- Telearbeitspolitik\n- 5 Wochen Urlaub (6 von 50 Jahren)\n- Von sehr guten Sozialleistungen\n- Sinnvolle Projekte in einem stimulierenden interkulturellen Kontext\n\n## Der dreistufige Rekrutierungsprozess:\n\n1.Ein Treffen mit dem Rekrutierungsmanager und dem Rekrutierungsbeauftragten.\n\n2.A Situation\n\n3. Ein halbtägiges Eintauchen, um Ihre zukünftige Arbeitsumgebung zu entdecken\n\n*Am Ende des Prozesses: Antrag auf einen Auszug aus dem Strafregister. *\n\nErkennst du dich selbst in dieser Mission? Wir freuen uns darauf, Ihre Kandidatur zu entdecken und gemeinsam eine solidarische Zukunft aufzubauen.",
+        "fr": "L'EVAM (Établissement vaudois de l'accueil des migrants) est un acteur majeur du service public vaudois. Avec plus de 1'000 collaboratrices et collaborateurs engagés et un budget annuel de 360 millions de francs, nous assurons l'accueil, l'accompagnement et l'intégration des personnes migrantes dans le canton de Vaud.\n\nChaque jour, nos équipes œuvrent avec ouverture et responsabilité pour répondre à des enjeux sociaux essentiels. Rejoindre l'EVAM, c'est mettre ses compétences au service d'une mission humaine et d'utilité publique, dans un environnement professionnel stimulant, diversifié et en constante évolution.\n\nDans le cadre d’un remplacement, nous recrutons un·e :\n\nFormateur·trice FLI dans le domaine de l’intégration (80%) - CDI\n\n[Classe salariale](https://www.evam.ch/app/uploads/2026/06/Bareme-salarial_2026.pdf): 8*(ce barème s’entend à prérequis validés, à défaut desquels l’enclassement se fait à hauteur de classe -1)*\n\nLieu :Lausanne Entrée en fonction : Août 2026\n\n## Ce que vous apportez à notre mission\n\nAu sein du Pôle Français et connaissances de base, vous jouez un rôle essentiel dans l’apprentissage du français et l’intégration des personnes migrantes. En lien avec les équipes pédagogiques, administratives et éducatives, vous accompagnez les participant·es dans leur parcours de formation et favorisez leur autonomie ainsi que leur inclusion sociale.\n\n## Le mot de votre future responsable, Dominique :\n\n« Vous intégrerez une équipe engagée et dynamique, dans un environnement où l’humain est le cœur de notre travail. Votre mission consistera à guider et à former des personnes issues de la migration. Chaque cours est une opportunité de transmettre des compétences essentielles, de valoriser les parcours de chacun·e. Vous travaillerez au côté de collègues passionnés et solidaires, unis par des valeurs fortes d'entraide, d’empathie et d’équité. »\n\n## Vos missions clés\n\n- Vous préparez le contenu des cours et dispensez des formations adaptées aux besoins des participant·es.\n- Vous participez à l’évolution des supports pédagogiques, des outils didactiques et aux échanges de pratiques professionnelles.\n- Vous évaluez les participant·es de manière continue et assurez leur suivi pédagogique.\n- Vous collaborez avec les équipes administratives, éducatives et les chef·fes d’équipe pour accompagner les situations particulières.\n- Vous effectuez les tâches administratives liées à la fonction et rendez compte régulièrement de l’évolution des participant·es.\n- Vous contribuez à la communication entre les différents intervenant·es ainsi qu’à l’encadrement des auxiliaires pédagogiques et des stagiaires.\n- Vous veillez au respect des règles en vigueur au sein des dispositifs de formation.\n\n## Votre profil\n\n- Master en didactique, en FLE ou dans un autre domaine utile\n- Diplôme de didactique du français langue étrangère ou certificat de formateur d’adultes (FSEA1) : souhaité\n- Certificat de formateur en langue dans le domaine de l’intégration (*fide)* : souhaité\n- Expérience de 3 ans dans le domaine de la formation d’adultes et/ou d’adolescent·es\n- Aisance dans l’utilisation des outils numériques pour la formation\n- Intérêt pour le domaine de la migration et de l’interculturel\n- Capacité à gérer et à motiver un groupe\n- Bonne expression orale\n- Esprit d’ouverture et flexibilité\n\n## Ce que l’EVAM vous propose\n\n- Un environnement de travail engagé\n- Une politique de formation continue pour évoluer dans votre carrière\n- Une politique de télétravail\n- 5 semaines de vacances (6 dès 50 ans)\n- De très bonnes prestations sociales\n- Des projets porteurs de sens dans un contexte interculturel stimulant\n\n## Le processus de recrutement en 3 étapes :\n\n1.Un entretien avec la responsable et la chargée de recrutement.\n\n2.Une mise en situation\n\n3.Une demi-journée d’immersion pour découvrir concrètement votre futur environnement de travail\n\n*À l’issue du processus : demande d’un extrait du casier judiciaire.*\n\nVous vous reconnaissez dans cette mission ? Nous avons hâte de découvrir votre candidature et de construire ensemble un avenir solidaire."
+      },
+      "location": "Lausanne",
+      "streetAddress": "Rte de Chavannes 37",
+      "postalCode": "1007",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "url": "https://emploi.evam.ch/jobs/7917504-formateur-trice-fli-dans-le-domaine-de-l-integration-80-cdi",
+      "source": "EVAM Dedicated Parser",
+      "sourceLang": "fr",
+      "postedDate": "2026-06-16",
+      "datePosted": "2026-06-16",
+      "crawledAt": "2026-08-05T11:48:48.400Z",
+      "category": "Formazione",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "employmentType": "FULL_TIME",
+      "contract": "full-time",
+      "contractType": "permanent",
+      "currency": "CHF",
+      "hiringOrganizationName": "EVAM",
+      "previousSlugs": [
+        "formatore-fli-nel-campo-dell-integrazione-80-contratto-a-tempo-indeterminato-evam-lausanne",
+        "fli-trainer-in-integration-80-cdi-evam-lausanne",
+        "formateur-trice-fli-dans-le-domaine-de-l-integration-80-cdi-evam-vaud-ch",
+        "allenatore-fli-in-integrazione-80-cdi-evam-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "formatore-fli-nel-campo-dell-integrazione-80-contratto-a-tempo-indeterminato-evam-lausanne",
+          "fli-trainer-in-integration-80-cdi-evam-lausanne",
+          "formateur-trice-fli-dans-le-domaine-de-l-integration-80-cdi-evam-vaud-ch",
+          "allenatore-fli-in-integrazione-80-cdi-evam-lausanne"
+        ],
+        "en": [
+          "formateur-trice-fli-dans-le-domaine-de-l-integration-80-cdi-evam-vaud-ch"
+        ],
+        "de": [
+          "formateur-trice-fli-dans-le-domaine-de-l-integration-80-cdi-evam-vaud-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-14T22:52:24.116Z",
+      "salaryMin": 48400,
+      "salaryMax": 73200,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48400,
+          "maxValue": 73200,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
