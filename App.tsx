@@ -36,6 +36,11 @@ const PdfDownloadGate = React.lazy(() => import('@/components/shared/PdfDownload
 const AdBlockGate = React.lazy(() => import('@/components/community/AdBlockGate'));
 const NewsletterInline = lazyRetry(() => import('@/components/community/Newsletter'));
 const NewsletterMount = React.lazy(() => import('@/components/community/NewsletterMount'));
+// CompanyAlert island (#5012 phase 2): hydrates the "Segui questa azienda" CTA
+// into the [data-company-follow-mount] placeholder the SSG employer-profile
+// pages emit. Mounted unconditionally like NewsletterMount above — on every
+// other route the scan is one querySelectorAll that matches nothing.
+const CompanyFollowMount = React.lazy(() => import('@/components/community/CompanyFollowMount'));
 const LanguageSelector = lazyRetry(() => import('@/components/shared/LanguageSelector'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
 const SeasonalNaspiSimulator = lazyRetry(() => import('@/components/calculator/SeasonalNaspiSimulator'));
@@ -3680,6 +3685,7 @@ const App: React.FC = () => {
  <SafeLazy boundary="pdf-download-gate"><PdfDownloadGate /></SafeLazy>
  <SafeLazy boundary="adblock-gate"><AdBlockGate /></SafeLazy>
  <SafeLazy boundary="newsletter-mount"><NewsletterMount /></SafeLazy>
+ <SafeLazy boundary="company-follow-mount"><CompanyFollowMount /></SafeLazy>
  {showWhatsNew && (
  <SafeLazy boundary="whats-new-modal">
  <WhatsNewModal
