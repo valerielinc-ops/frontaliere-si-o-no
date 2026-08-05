@@ -1,5 +1,6 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { Analytics, decodeReactError } from '../../services/analytics';
+import { isOriginRedactedThirdPartyStack } from '../../services/benignErrorPatterns';
 import { AlertTriangle, RefreshCw, Copy, Check } from 'lucide-react';
 import { t } from '../../services/i18n';
 import {
@@ -234,14 +235,20 @@ export class ErrorBoundary extends Component<Props, State> {
 
  const fp = ErrorBoundary.fingerprint(error);
 
- // Rich error tracking to Firebase Analytics
- Analytics.trackAppError('error_boundary', {
+ // Rich error tracking to Firebase Analytics.
+ // A stack whose frames ALL had their source URL redacted by the engine is
+ // third-party cross-origin code throwing inside our tree, not a bug of ours
+ // — same classification the global handlers apply (issue #4173). The
+ // boundary context stays in the message; only the type/fatality change.
+ const boundaryStack = error.stack?.slice(0, 500) || '';
+ const boundaryThirdParty = isOriginRedactedThirdPartyStack(boundaryStack);
+ Analytics.trackAppError(boundaryThirdParty ? 'cross_origin_script' : 'error_boundary', {
  message: `[ErrorBoundary:${crashedComponent}] ${error.name}: ${error.message}`,
- stack: error.stack?.slice(0, 500) || '',
+ stack: boundaryStack,
  componentStack: errorInfo.componentStack?.slice(0, 300) || '',
  pagePath: snapUrl,
  pageTitle: document.title,
- fatal: true,
+ fatal: !boundaryThirdParty,
  errorFingerprint: fp,
  referrer: snapReferrer,
  sessionRedirect: snapSessionRedirect,
@@ -489,14 +496,17 @@ export class SilentErrorBoundary extends Component<SilentBoundaryProps, SilentBo
  const stack = errorInfo.componentStack?.slice(0, 300) || '';
  const props = (this as React.Component<SilentBoundaryProps, SilentBoundaryState>).props;
  try {
- Analytics.trackAppError('error_boundary', {
+ const silentStack = error.stack?.slice(0, 500) || '';
+ Analytics.trackAppError(
+ isOriginRedactedThirdPartyStack(silentStack) ? 'cross_origin_script' : 'error_boundary', {
  message: `[SilentBoundary:${props.boundary}] ${error.name}: ${decoded.slice(0, 160)}`,
- stack: error.stack?.slice(0, 500) || '',
+ stack: silentStack,
  componentStack: stack,
  pagePath: typeof window !== 'undefined' ? window.location.pathname + window.location.search : '',
  pageTitle: typeof document !== 'undefined' ? document.title : '',
  fatal: false,
- });
+ },
+ );
  } catch {
  /* analytics may be unavailable */
  }
