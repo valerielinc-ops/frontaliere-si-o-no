@@ -48,8 +48,12 @@ declare global {
 
 /**
  * Where the corpus publishes its JSON. Same default as
- * `scripts/pull-articles-api.mjs`, so the site and its build scripts read one
- * origin. The contract is JSON documents, never ES modules — see the
+ * `scripts/lib/articles-api-base.mjs`, which every node-side reader imports,
+ * so the site and its build scripts read one origin. The literal is repeated
+ * here rather than imported because that module resolves `process.env`, which
+ * does not exist in a browser — this copy is the client-side fallback for when
+ * nothing injected `__ARTICLES_API_BASE__`, not a second source of truth.
+ * The contract is JSON documents, never ES modules — see the
  * "Perché JSON e non un modulo" section of the frontaliere-articles README and
  * issue #4974: the previous module-shaped coupling silently changed export
  * shape between build tools and stranded every article page on a skeleton.
