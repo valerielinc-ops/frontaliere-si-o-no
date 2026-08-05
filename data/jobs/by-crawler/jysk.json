@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-2fnafy",
-      "slug": "stellvertretende-filialleitung-a-80-100-in-der-filiale-heimberg-jysk-heimberg-2fnafy",
+      "slug": "gestione-del-ramo-aggiunto-a-80-100-nel-ramo-heimberg-jysk-heimberg",
       "company": "JYSK",
       "title": "Stellvertretende Filialleitung (a) 80-100% in der Filiale Heimberg",
       "location": "Heimberg",
@@ -23,10 +23,10 @@
       "crawledAt": "2026-08-05T11:46:00.106Z",
       "firstSeenAt": "2026-08-05T11:46:00.106Z",
       "slugByLocale": {
-        "it": "stellvertretende-filialleitung-a-80-100-in-der-filiale-heimberg-jysk-heimberg-2fnafy",
-        "en": "stellvertretende-filialleitung-a-80-100-in-der-filiale-heimberg-jysk-heimberg-2fnafy",
+        "it": "gestione-del-ramo-aggiunto-a-80-100-nel-ramo-heimberg-jysk-heimberg",
+        "en": "deputy-branch-management-a-80-100-in-the-branch-heimberg-jysk-heimberg",
         "de": "stellvertretende-filialleitung-a-80-100-in-der-filiale-heimberg-jysk-heimberg-2fnafy",
-        "fr": "stellvertretende-filialleitung-a-80-100-in-der-filiale-heimberg-jysk-heimberg-2fnafy"
+        "fr": "direction-generale-adjointe-a-80-100-dans-la-branche-heimberg-jysk-heimberg"
       },
       "titleByLocale": {
         "de": "Stellvertretende Filialleitung (a) 80-100% in der Filiale Heimberg",
@@ -58,11 +58,25 @@
       "addressLocality": "Heimberg",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-filialleitung-a-80-100-in-der-filiale-heimberg-jysk-heimberg-2fnafy"
+        ],
+        "en": [
+          "stellvertretende-filialleitung-a-80-100-in-der-filiale-heimberg-jysk-heimberg-2fnafy"
+        ],
+        "fr": [
+          "stellvertretende-filialleitung-a-80-100-in-der-filiale-heimberg-jysk-heimberg-2fnafy"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretende-filialleitung-a-80-100-in-der-filiale-heimberg-jysk-heimberg-2fnafy"
+      ]
     },
     {
       "id": "company-7idbhu",
-      "slug": "verkaufer-in-a-60-in-der-filiale-staufen-lenzburg-jysk-staufen-7idbhu",
+      "slug": "vendor-a-60-nel-ramo-staufen-lenzburg-jysk-staufen",
       "company": "JYSK",
       "title": "Verkäufer/in (a) 60% in der Filiale Staufen-Lenzburg",
       "location": "Staufen",
@@ -81,10 +95,10 @@
       "crawledAt": "2026-08-05T11:46:00.106Z",
       "firstSeenAt": "2026-08-05T11:46:00.106Z",
       "slugByLocale": {
-        "it": "verkaufer-in-a-60-in-der-filiale-staufen-lenzburg-jysk-staufen-7idbhu",
-        "en": "verkaufer-in-a-60-in-der-filiale-staufen-lenzburg-jysk-staufen-7idbhu",
+        "it": "vendor-a-60-nel-ramo-staufen-lenzburg-jysk-staufen",
+        "en": "vendor-a-60-in-the-staufen-lenzburg-branch-jysk-staufen",
         "de": "verkaufer-in-a-60-in-der-filiale-staufen-lenzburg-jysk-staufen-7idbhu",
-        "fr": "verkaufer-in-a-60-in-der-filiale-staufen-lenzburg-jysk-staufen-7idbhu"
+        "fr": "fournisseur-a-60-dans-la-succursale-de-staufen-lenzburg-jysk-staufen"
       },
       "titleByLocale": {
         "de": "Verkäufer/in (a) 60% in der Filiale Staufen-Lenzburg",
@@ -116,7 +130,21 @@
       "addressLocality": "Staufen",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-a-60-in-der-filiale-staufen-lenzburg-jysk-staufen-7idbhu"
+        ],
+        "en": [
+          "verkaufer-in-a-60-in-der-filiale-staufen-lenzburg-jysk-staufen-7idbhu"
+        ],
+        "fr": [
+          "verkaufer-in-a-60-in-der-filiale-staufen-lenzburg-jysk-staufen-7idbhu"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-a-60-in-der-filiale-staufen-lenzburg-jysk-staufen-7idbhu"
+      ]
     },
     {
       "id": "company-lylh0y",
