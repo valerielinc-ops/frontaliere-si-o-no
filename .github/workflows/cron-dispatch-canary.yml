@@ -1,0 +1,113 @@
+name: Cron Dispatch Canary
+
+# Measures how late GitHub actually DISPATCHES a scheduled run, for two slots,
+# every night. Issue #3798 Fase 1 follow-up.
+#
+# WHY
+# The 2026-08-05 audit showed the cost of a cron slot in this repo is not runner
+# contention (post-dispatch job queue wait: median 2s) but GitHub's scheduled-
+# dispatch backlog: ~240 min at 00:00 UTC vs ~51 min at 22:00 UTC. It also left
+# 23:00 UTC unmeasured — no workflow is scheduled there — while the 21:00
+# (62 min) and 22:00 (51 min) neighbours suggested a 23:xx cron might start
+# around 00:15 UTC, i.e. EARLIER and far tighter than send-job-alerts' current
+# 00:33 slot (~04:33 effective, p90 471 min, max 590 min).
+#
+# That was a conjecture. This workflow measures it instead of arguing about it,
+# so the decision gets made on numbers by whoever looks next, rather than by
+# another session re-deriving the whole audit from scratch.
+#
+# WHAT IT OPTIMISES — not punctuality
+# scripts/lib/send-schedule.mjs computeScheduledSendAt targets the NEXT
+# occurrence of each subscriber's preferred hour, so every subscriber whose hour
+# has already passed when the run fires is deferred to tomorrow and gets ~24h-old
+# content. The metric is therefore the EFFECTIVE START within the UTC day, not
+# the delay: a slot that drifts 75 min but starts at 00:15 beats one that drifts
+# 20 min but starts at 04:30. scripts/ci/audit-cron-dispatch-delay.mjs converts
+# the column into an expected share-of-base-deferred and ranks on that.
+#
+# TWO CRONS, ON PURPOSE. 23:17 is the candidate; 00:33 mirrors send-job-alerts'
+# real slot exactly. Sampling both on the same night makes the comparison
+# PAIRED, so a night when GitHub's global backlog is unusually bad cancels out
+# instead of being misread as a slot effect. One trivial extra run per day is a
+# cheap price for that.
+#
+# SENDS NOTHING. Dispatch delay is a property of GitHub Actions, not of email:
+# no provider is contacted, no subscriber is touched, no Firestore document is
+# read or written. There is deliberately no send path here to get wrong — the
+# job reads its own run's metadata and appends one line to a history file.
+
+on:
+  schedule:
+    # Candidate slot — the gap the 2026-08-05 audit could not fill.
+    - cron: '17 23 * * *'
+    # Control — byte-identical to send-job-alerts.yml's slot, so the comparison
+    # is against the real incumbent rather than against a historical average.
+    - cron: '33 0 * * *'
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: 'Slot label for a manual smoke test (not recorded — only scheduled runs enter the dataset)'
+        required: false
+        default: '23:17'
+        type: string
+
+concurrency:
+  # No cancel-in-progress: the two slots are ~1h15m apart and each run IS the
+  # measurement, so cancelling one would silently punch a hole in the sample.
+  group: cron-dispatch-canary-${{ github.event.schedule || 'manual' }}
+
+permissions:
+  contents: write   # appends data/cron-dispatch-history.jsonl
+  actions: read     # reads its own run's created_at / run_started_at
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          # No `npm ci` — the probe uses Node stdlib and global fetch only.
+          # Installing would add minutes to a job whose entire point is to
+          # record a timestamp.
+
+      - name: Record dispatch delay
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # `github.event.schedule` is the literal cron expression that fired,
+          # which is how one workflow with two crons knows which slot it is
+          # serving. Empty on workflow_dispatch — the probe then records
+          # nothing (a manual run has no nominal slot to be late against).
+          CANARY_SLOT: ${{ github.event.schedule == '17 23 * * *' && '23:17' || '00:33' }}
+          CANARY_EVENT: ${{ github.event_name }}
+        run: node scripts/ci/probe-cron-dispatch-delay.mjs
+
+      - name: Summarise what the sample says so far
+        run: node scripts/ci/audit-cron-dispatch-delay.mjs | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit the sample
+        if: github.event_name == 'schedule'
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/cron-dispatch-history.jsonl
+          if git diff --cached --quiet; then
+            echo "No new sample to commit"
+            exit 0
+          fi
+          git commit -m "chore: record cron dispatch-delay sample"
+          # APPEND-ONLY history, single writer per run: a plain rebase replays
+          # this one trailing line over whatever else landed on main. Same
+          # reasoning as cf-5xx-monitor.yml — deliberately NO --regenerate-cmd,
+          # which would re-run the probe and append a SECOND line for the same
+          # occurrence, silently double-counting the sample.
+          bash scripts/lib/git-push-with-retry.sh

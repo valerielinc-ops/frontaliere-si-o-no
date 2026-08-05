@@ -349,11 +349,53 @@ and get pushed to tomorrow's slot — receiving ~24h-old content. Firing early
 beats firing punctually. 00:33 + 240m lands ~04:33, the earliest effective
 start of any sampled slot, and even its p90 (~08:24) clears the morning crawler
 batch (dispatched ~11:20; longest group `crawler-group-01` runs ~3-4h, not the
-5h40m its `timeout-minutes` allows). The unsampled 23:00 slot is the one worth
-testing next — the 21h/22h numbers suggest it could fire ~00:15 UTC with a far
-tighter tail.
+5h40m its `timeout-minutes` allows).
 
 **The previously-claimed 3h gap between the two sends does not exist** and is
 not needed: effective starts are ~04:33 and ~06:13 (~1h40m apart), and on p90
 days job-alerts starts *after* the newsletter. The two workflows have no data
 dependency and separate `concurrency` groups.
+
+### The 23:00 slot is being measured, not argued about
+
+The audit above could not evaluate one candidate: **no workflow in the repo is
+scheduled at 23:00 UTC**, so there was nothing to measure. The 21:00 (62m) and
+22:00 (51m) neighbours suggest a 23:xx cron would start around 00:15 UTC —
+earlier *and* with a far tighter tail than 00:33's ~04:33 median / 471m p90.
+That is a conjecture, and it is not a good enough reason to move a production
+send.
+
+`.github/workflows/cron-dispatch-canary.yml` now collects the data on its own:
+
+| Piece | What it does |
+|---|---|
+| `.github/workflows/cron-dispatch-canary.yml` | Two crons — `17 23 * * *` (candidate) and `33 0 * * *` (control, byte-identical to send-job-alerts' slot). Sends nothing. |
+| `scripts/ci/probe-cron-dispatch-delay.mjs` | Reads its own run's `created_at`, computes the delay against its nominal slot, appends one line to `data/cron-dispatch-history.jsonl`. |
+| `scripts/ci/audit-cron-dispatch-delay.mjs` | `--from-history` ranks the slots; `--scan` re-runs the repo-wide audit live, so the methodology never has to be rebuilt from scratch again. |
+
+Three design points worth keeping:
+
+- **It ranks on effective start, not on delay.** A slot that drifts 75 min but
+  starts at 00:15 beats one that drifts 20 min but starts at 04:30, because
+  `computeScheduledSendAt` defers every subscriber whose hour has already
+  passed. The report prints an estimated *share of the base deferred*
+  (uniform preferred-hour assumption by default; pass `--hour-histogram` to
+  score against the real distribution) so the ranking cannot be read backwards.
+- **Both slots are sampled the same night**, which makes the comparison paired:
+  a night when GitHub's global backlog is unusually bad cancels out instead of
+  being mistaken for a slot effect.
+- **It sends nothing.** Dispatch delay is a property of GitHub Actions, not of
+  email, so it is measurable without touching a subscriber — no provider call,
+  no Firestore read or write, and no send path in the workflow to get wrong.
+
+```bash
+node scripts/ci/audit-cron-dispatch-delay.mjs                      # current standing
+node scripts/ci/audit-cron-dispatch-delay.mjs --compare 23:17 00:33
+node scripts/ci/audit-cron-dispatch-delay.mjs --scan               # repo-wide, live
+```
+
+**The decision rule, pre-committed so nobody has to re-litigate it:** once
+there are ≥14 paired nights, if `23:17` shows the earlier median effective
+start, move `send-job-alerts.yml` onto it. Nothing else changes — the send
+logic is untouched either way. If it does not win, delete the canary and the
+question is closed with an answer instead of a hunch.

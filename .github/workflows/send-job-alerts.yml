@@ -41,8 +41,18 @@ on:
     # Firing early is worth more than firing punctually. 00:33 + 240m median
     # lands ~04:33 UTC, the earliest effective start of any sampled slot, and
     # even the p90 (~08:24) stays clear of the morning crawler batch (dispatched
-    # ~11:20). Revisit only with data for the unsampled 23:00 slot, which the
-    # 21h/22h numbers suggest could fire ~00:15 UTC with a much tighter tail.
+    # ~11:20).
+    #
+    # The one candidate that could beat it is the 23:00 slot, which the audit
+    # could not evaluate because no workflow is scheduled there. That gap is now
+    # being filled automatically: cron-dispatch-canary.yml samples 23:17 and
+    # 00:33 on the same night (paired, so GitHub's day-to-day backlog swings
+    # cancel) into data/cron-dispatch-history.jsonl. Standing verdict:
+    #   node scripts/ci/audit-cron-dispatch-delay.mjs
+    # Pre-committed rule: at >=14 paired nights, if 23:17 has the earlier median
+    # EFFECTIVE START, move this cron there — nothing else about this workflow
+    # changes. Do not move it on the delay figure alone; see the canary's
+    # docblock for why early beats punctual.
     #
     # Note the minute is NOT load-bearing: the ":00/:15/:30/:45 get
     # deprioritised" folklore does not hold here. Median delay is 150m at :00,
