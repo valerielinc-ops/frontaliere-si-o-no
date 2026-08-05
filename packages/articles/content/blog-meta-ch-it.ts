@@ -1867,6 +1867,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzeri-fuga-estero-costo-casa.title': 'Svizzeri in fuga oltreconfine: pesa il costo della casa',
     'blog.article.svizzeri-fuga-estero-costo-casa.excerpt': 'Oltre 154\'000 svizzeri vivono in zone di confine estere: un aumento del 14% spinto dai prezzi immobiliari insostenibili e affitti in costante crescita.',
     'blog.article.svizzeri-fuga-estero-costo-casa.imageAlt': 'Vista panoramica di una zona residenziale di confine tra Svizzera e Italia',
+    'blog.article.calo-disavanzo-cantonale-2026.title': 'Disavanzo cantonale 2026: cala a -49,7 milioni di franchi',
+    'blog.article.calo-disavanzo-cantonale-2026.excerpt': 'Il Consiglio di Stato ha aggiornato il preconsuntivo di giugno, riducendo il deficit previsto a -49,7 milioni di CHF, grazie a maggiori ricavi e spese controllate.',
+    'blog.article.calo-disavanzo-cantonale-2026.imageAlt': 'Edificio cantonale di Bellinzona con documenti finanziari sul tavolo, sfondo alpino.',
 };
 
 export default blogMetaChIt;

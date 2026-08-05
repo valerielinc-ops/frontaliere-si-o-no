@@ -1867,6 +1867,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzeri-fuga-estero-costo-casa.title': 'Suisses en fuite au-delà de la frontière : le coût de la maison pèse',
     'blog.article.svizzeri-fuga-estero-costo-casa.excerpt': 'Plus de 154\'000 Suisses vivent dans des zones frontalières étrangères : une augmentation de 14% tirée par des prix immobiliers insoutenables et des loyers en constante augmentation.',
     'blog.article.svizzeri-fuga-estero-costo-casa.imageAlt': 'Vue panoramique d\'une zone résidentielle frontalière tra la Suisse et l\'Italie',
+    'blog.article.calo-disavanzo-cantonale-2026.title': 'Déficit cantonal 2026 : baisse à -49,7 millions de francs',
+    'blog.article.calo-disavanzo-cantonale-2026.excerpt': 'Le Conseil d\'État a mis à jour le budget prévisionnel de juin, réduisant le déficit prévu à -49,7 millions de CHF, grâce à une augmentation des revenus et des dépenses contrôlées.',
+    'blog.article.calo-disavanzo-cantonale-2026.imageAlt': 'Bâtiment cantonal à Bellinzone avec des documents financiers sur une table, arrière‑plan alpin.',
 };
 
 export default blogMetaChFr;

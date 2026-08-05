@@ -648,6 +648,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'congedo-parentale-svizzera-durata': { it: 'congedo-parentale-svizzera-durata', en: 'parental-leave-switzerland-duration-allowance', de: 'elternzeit-schweiz-dauer-entschaedigung', fr: 'conge-parental-suisse-duree-indemnite' },
  'caldo-disparita-sociali-ginevra': { it: 'caldo-disparita-sociali-ginevra', en: 'heat-social-disparities-geneva', de: 'hitze-soziale-ungleichheiten-genf', fr: 'chaleur-disparites-sociales-geneve' },
  'svizzeri-fuga-estero-costo-casa': { it: 'svizzeri-fuga-estero-costo-casa', en: 'swiss-citizens-moving-abroad-housing-costs', de: 'schweizer-auswanderung-grenzregionen-wohnungskosten', fr: 'suisses-quittent-confederation-logement-prix' },
+ 'calo-disavanzo-cantonale-2026': { it: 'calo-disavanzo-cantonale-2026', en: 'cantonal-deficit-improvement-2026', de: 'kantonales-defizit-2026', fr: 'deficit-cantonal-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

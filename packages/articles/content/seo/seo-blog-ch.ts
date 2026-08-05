@@ -24158,6 +24158,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-calo-disavanzo-cantonale-2026': {
+    title: 'Disavanzo cantonale 2026: cala a -49,7 milioni di franchi',
+    description: 'Il Consiglio di Stato di Bellinzona ha aggiornato il preconsuntivo di giugno 2026, riducendo il deficit a -49,7 milioni di franchi grazie a maggiori ricavi',
+    keywords: 'frontalieri, ticino, svizzera, italia, disavanzo, cantonale, cala, milioni',
+    ogTitle: 'Disavanzo cantonale 2026: deficit ridotto a -49,7 milioni di CHF',
+    ogDescription: 'Il Consiglio di Stato di Bellinzona ha aggiornato il preconsuntivo di giugno 2026, riducendo il deficit a -49,7 milioni di franchi grazie a maggiori ricavi',
+    canonicalPath: '/articoli-svizzera/calo-disavanzo-cantonale-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disavanzo cantonale 2026: cala a -49,7 milioni di franchi",
+      "description": "Il Consiglio di Stato di Bellinzona ha aggiornato il preconsuntivo di giugno 2026, riducendo il deficit a -49,7 milioni di franchi grazie a maggiori ricavi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calo-disavanzo-cantonale-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio cantonale di Bellinzona con documenti finanziari sul tavolo, sfondo alpino."
+      },
+      "datePublished": "2026-08-05T10:44:20+00:00",
+      "dateModified": "2026-08-05T10:44:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/calo-disavanzo-cantonale-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
