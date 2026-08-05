@@ -9282,6 +9282,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tradate-lite-ferito-trentenne.title': 'Lite devant la gare de Tradate : un trentenaire blessé',
     'blog.article.tradate-lite-ferito-trentenne.excerpt': 'Une dispute entre citoyens extracommunautaires a dégénéré en rixe et un homme de 30 ans a été blessé.',
     'blog.article.tradate-lite-ferito-trentenne.imageAlt': 'Une bagarre dans une gare',
+    'blog.article.caso-delmastro-protesta-avs.title': 'Affaire Delmastro, l\'amaro spettacolo di Avs in tribuna',
+    'blog.article.caso-delmastro-protesta-avs.excerpt': 'Les députés de l\'Alliance Verte et de la Gauche se sont bandés les yeux dans l\'hémicycle pour protester contre le non-accès aux chats entre Andrea Delmastro et Mauro Carroccia.',
+    'blog.article.caso-delmastro-protesta-avs.imageAlt': 'Protestation à la Chambre des députés',
 };
 
 export default blogMetaFr;
