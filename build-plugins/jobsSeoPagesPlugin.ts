@@ -42,7 +42,7 @@ import { nearbyEventsBlockForJobPage } from './shared/jobEventsCrosslink';
 import { EJP_STRIPPED_MARKER } from './shared/ejpMarker';
 import { WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
-import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription, truncateHeadline, peelDanglingClauseTail, truncateTitleAtClauseBoundary } from './shared/titleSuffix';
+import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription, truncateHeadline, peelDanglingClauseTail, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS, truncateClauseAware } from './shared/titleSuffix';
 import { stripLeadingSectionLabel } from './shared/jobDescription/parser';
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import {
@@ -270,12 +270,25 @@ export function capSearchStatsLandingTitle(
  const capAt = (max: number): string => {
  if (rawTitle.length <= max) return rawTitle;
  const peeled = truncateTitleAtClauseBoundary(rawTitle, max);
- // truncateTitleAtClauseBoundary can return empty (budget fits only
- // stopwords, or a single unbroken token with no word boundary to back
- // off to) — same fallback contract as its other caller
- // (services/seoService.ts's SERP A/B experiment). Fall back to a hard
- // cut so the shrink loop below always converges to a non-empty title.
- return peeled || truncateCodeUnits(rawTitle, max).trimEnd();
+ // Reject a TOO-SHORT peel, not merely an empty one: that is the helper's
+ // stated contract (MIN_PEELED_TITLE_CHARS), and testing `peeled || …` here
+ // honoured only the emptiness half of it. A short-but-non-empty peel — the
+ // budget fitted only stopwords, and peeling them left a fragment — would
+ // satisfy the shrink loop below and ship as the indexed <title>, i.e. the
+ // near-empty SERP title that is exactly the CTR-regression class this file
+ // is being fixed for.
+ //
+ // Falls back to truncateClauseAware, NOT to the untruncated title (what the
+ // SERP-experiment caller does): this runs inside a shrink loop that must
+ // converge within `maxChars`, and returning the full title would never
+ // converge. truncateClauseAware is the same degradation ladder truncateHeadline
+ // uses — word boundary, then separator-only strip — minus the ellipsis the
+ // SERP-title contract forbids, so the fallback still ends cleanly rather than
+ // mid-word. When `max` itself is below the floor the peel can never clear it,
+ // so the loop's tail always takes the ladder — intended, not an edge case.
+ return peeled.length >= MIN_PEELED_TITLE_CHARS
+ ? peeled
+ : truncateClauseAware(rawTitle, max).trimEnd() || truncateCodeUnits(rawTitle, max).trimEnd();
  };
  let capped = capAt(maxChars);
  for (let max = maxChars; measureLength(capped) > maxChars && max > 0; max -= 1) {

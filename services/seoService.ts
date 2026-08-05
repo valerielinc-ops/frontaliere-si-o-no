@@ -18,7 +18,7 @@ import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jo
 import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from '../build-plugins/shared/jobPostingFaq';
 import { getCantonDisplayName } from '../build-plugins/shared/cantonDisplay';
 import { resolveJobCanton } from '../build-plugins/shared/cantonSection';
-import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription, truncateHeadline, truncateTitleAtClauseBoundary } from '../build-plugins/shared/titleSuffix';
+import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription, truncateHeadline, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS } from '../build-plugins/shared/titleSuffix';
 import { truncateCodeUnits } from '../build-plugins/shared/safeTruncate';
 import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescription } from '../build-plugins/shared/borderCrossingTitle';
 
@@ -659,8 +659,8 @@ function applySerpTitleDescriptionVariant(
  experimentTitle = `${cleanTitle}${suffix}`;
  } else {
  const maxClean = MAX_TITLE_LENGTH - suffix.length;
- const truncatedClean = maxClean >= 10 ? safeTruncate(cleanTitle, maxClean) : '';
- experimentTitle = truncatedClean.length >= 10 ? `${truncatedClean}${suffix}` : title;
+ const truncatedClean = maxClean >= MIN_PEELED_TITLE_CHARS ? safeTruncate(cleanTitle, maxClean) : '';
+ experimentTitle = truncatedClean.length >= MIN_PEELED_TITLE_CHARS ? `${truncatedClean}${suffix}` : title;
  }
  const experimentDesc = `${description} Aggiornato ${year} con focus: ${intent}.`;
  return {
@@ -677,8 +677,8 @@ function applySerpTitleDescriptionVariant(
  experimentTitle = `${cleanTitle}${suffix}`;
  } else {
  const maxClean = MAX_TITLE_LENGTH - suffix.length;
- const truncatedClean = maxClean >= 10 ? safeTruncate(cleanTitle, maxClean) : '';
- experimentTitle = truncatedClean.length >= 10 ? `${truncatedClean}${suffix}` : title;
+ const truncatedClean = maxClean >= MIN_PEELED_TITLE_CHARS ? safeTruncate(cleanTitle, maxClean) : '';
+ experimentTitle = truncatedClean.length >= MIN_PEELED_TITLE_CHARS ? `${truncatedClean}${suffix}` : title;
  }
  const experimentDesc = `${description} Simulazione aggiornata ${year} per ${intent}.`;
  return {

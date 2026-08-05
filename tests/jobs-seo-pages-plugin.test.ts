@@ -9,7 +9,7 @@ import {
   deriveJobCanton,
   deriveJobAddressLocality,
 } from '../build-plugins/jobsSeoPagesPlugin';
-import { TITLE_MAX_CHARS } from '../build-plugins/shared/titleSuffix';
+import { TITLE_MAX_CHARS, MIN_PEELED_TITLE_CHARS } from '../build-plugins/shared/titleSuffix';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -56,6 +56,35 @@ describe('capSearchStatsLandingTitle (#3589 sibling: same escape-unaware title-b
     expect(capSearchStatsLandingTitle('Offerte di lavoro Infermiere in Svizzera')).toBe(
       'Offerte di lavoro Infermiere in Svizzera',
     );
+  });
+
+  it('rejects a too-short peel, not just an empty one, and degrades through the shared ladder', () => {
+    // truncateTitleAtClauseBoundary's contract is that a result under
+    // MIN_PEELED_TITLE_CHARS must be refused. Testing only `peeled || fallback`
+    // honoured the emptiness half alone: with this input the budget lands inside
+    // a run of stopwords, the peel strips them all, and the 6-char fragment
+    // "Lavoro" was shipped as the indexed <title> — verified by reverting the
+    // guard, at which point this test fails with "expected 6 to be >= 10".
+    const rawTitle = 'Lavoro: e di il la per con in su tra fra Svizzera italiana';
+    const capped = capSearchStatsLandingTitle(rawTitle, 20);
+
+    expect(capped.length).toBeGreaterThanOrEqual(MIN_PEELED_TITLE_CHARS);
+    // Still a real prefix of the title, and still inside the budget.
+    expect(rawTitle.startsWith(capped)).toBe(true);
+    expect(capped.length).toBeLessThanOrEqual(20);
+    expect(capped).not.toContain('…');
+  });
+
+  it('keeps the peel when it clears the floor', () => {
+    // Guard against "fix" by always hard-cutting: a healthy peel must still win,
+    // otherwise the clause-aware truncation this file exists for is dead code.
+    const rawTitle = 'Offerte di lavoro Infermiere qualificato in Svizzera italiana';
+    const capped = capSearchStatsLandingTitle(rawTitle, 40);
+    expect(capped.length).toBeGreaterThanOrEqual(MIN_PEELED_TITLE_CHARS);
+    expect(capped.length).toBeLessThanOrEqual(40);
+    // A peel never ends on a separator or a dangling function word.
+    expect(capped).not.toMatch(/[\s:,;.!?—–·-]$/);
+    expect(capped).not.toMatch(/\b(di|in|per|con|il|la|e)$/);
   });
 
   it('caps an overlong title on a whitespace boundary with NO ellipsis (titleSuffix.ts no-`…` policy)', () => {

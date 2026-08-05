@@ -119,6 +119,44 @@ export function repairSerpSnippet(text: string, terminal: string = '.'): string 
 }
 
 /**
+ * Clause-aware truncation to `max` code units, WITHOUT an ellipsis.
+ *
+ * The degradation ladder shared by {@link truncateHeadline} (which appends `…`) and by
+ * SERP-title callers, which must not (see the module header's no-ellipsis contract).
+ * Extracted so the two cannot drift: the ladder is the interesting part, the ellipsis is
+ * a suffix.
+ *
+ * Unlike {@link truncateTitleAtClauseBoundary} this NEVER over-amputates — it falls back
+ * through word boundary and then separator-only strip — so it is the right fallback for a
+ * caller that has to produce something usable inside a fixed budget.
+ */
+export function truncateClauseAware(s: string, max: number, halfwayBudget: number = max): string {
+  const sliced = truncateCodeUnits(s, max);
+  const lastSpace = sliced.lastIndexOf(' ');
+  // `halfwayBudget` defaults to `max` and exists only for truncateHeadline, which slices at
+  // `max - 1` to reserve room for its ellipsis but measures the halfway mark against the
+  // FULL budget. Folding the two into one number would shift the threshold by one character
+  // for every headline — a silent behaviour change dressed up as a refactor.
+  const half = Math.floor(halfwayBudget / 2);
+  // Only use the word boundary if it sits past the halfway mark — otherwise
+  // we'd amputate too much content and the truncation looks worse than a hard cut.
+  const cut = lastSpace > half
+    ? sliced.slice(0, lastSpace)
+    : sliced;
+  // Never leave a dangling delimiter or function word: a cut that lands right after a
+  // separator produces "Role —" in the SERP (live offender: "…Produzione PPS — · rif.
+  // zell"), and one that lands after a preposition produces "…con B, C e" — both read as
+  // broken markup and tank CTR.
+  const peeled = peelDanglingClauseTail(cut);
+  // Guard against over-amputation: a tail of consecutive function words could
+  // peel away most of the snippet. Below half the budget the separator-only
+  // strip is the better trade (same rationale as the halfway-mark check above).
+  return peeled.length >= half
+    ? peeled
+    : cut.replace(CLAUSE_SEPARATOR_TAIL_RE, '').trimEnd();
+}
+
+/**
  * Word-aware truncation: cut on the last whitespace boundary inside `max`,
  * append "…". Falls back to a hard cut when no usable boundary exists
  * (single very long token, no spaces in the first half of the budget).
@@ -128,33 +166,32 @@ export function repairSerpSnippet(text: string, terminal: string = '.'): string 
  * or article ("…requisiti e costi con B, C e…" — live offender on
  * `/guida-frontaliere/permessi-di-lavoro/`). See that helper for why a
  * dangling function word is a CTR defect and not a cosmetic one.
+ *
+ * The ladder itself lives in {@link truncateClauseAware}; this is that plus the ellipsis.
  */
 export function truncateHeadline(headline: string, max: number): string {
   const safe = String(headline || '');
   if (safe.length <= max) return safe;
-  // Reserve 1 char for the trailing ellipsis. Surrogate-safe so the hard-cut
-  // fallback can never leave a lone surrogate (split emoji) in a meta tag.
-  const sliced = truncateCodeUnits(safe, max - 1);
-  const lastSpace = sliced.lastIndexOf(' ');
-  // Only use the word boundary if it sits past the halfway mark — otherwise
-  // we'd amputate too much content and the truncation looks worse than a hard cut.
-  const cut = lastSpace > Math.floor(max / 2)
-    ? sliced.slice(0, lastSpace)
-    : sliced;
-  // Never leave a dangling delimiter or function word before the ellipsis: a
-  // cut that lands right after a separator produces "Role —…" in the SERP
-  // (live offender: "…Produzione PPS —… · rif. zell"), and one that lands
-  // after a preposition produces "…con B, C e…" — both read as broken markup
-  // and tank CTR.
-  const peeled = peelDanglingClauseTail(cut);
-  // Guard against over-amputation: a tail of consecutive function words could
-  // peel away most of the snippet. Below half the budget the separator-only
-  // strip is the better trade (same rationale as the halfway-mark check above).
-  const safeCut = peeled.length >= Math.floor(max / 2)
-    ? peeled
-    : cut.replace(CLAUSE_SEPARATOR_TAIL_RE, '').trimEnd();
-  return safeCut + '…';
+  // Reserve 1 char for the trailing ellipsis. Surrogate-safe (via truncateCodeUnits inside
+  // truncateClauseAware) so the hard-cut fallback can never leave a lone surrogate (split
+  // emoji) in a meta tag.
+  return truncateClauseAware(safe, max - 1, max) + '…';
 }
+
+/**
+ * Minimum length a peeled title must reach to be usable.
+ *
+ * Part of {@link truncateTitleAtClauseBoundary}'s CONTRACT, not a caller's local
+ * preference — which is why it lives here rather than being restated at each call
+ * site. It used to be an unexported literal `10` inside the SERP-experiment caller,
+ * while the other caller checked only for emptiness and its comment claimed to
+ * honour "the same fallback contract". A threshold every caller must respect but
+ * that no caller can import is a rule that drifts by construction (AGENTS.md #6).
+ *
+ * Below this a peel is technically non-empty but carries no information: the budget
+ * fitted only stopwords/separators and peeling them off left a fragment.
+ */
+export const MIN_PEELED_TITLE_CHARS = 10;
 
 /**
  * Truncate a title segment to `maxLen` code units ending on a whole clause:
@@ -165,9 +202,10 @@ export function truncateHeadline(headline: string, max: number): string {
  * frontaliere 2026" (issue #3510).
  *
  * Never appends an ellipsis (SERP-title contract, see module header). May
- * return a short or empty string when the budget only fits stopwords —
- * callers must treat a too-short result as "use the untruncated title"
- * (the SERP-experiment caller falls back below 10 chars).
+ * return a SHORT OR EMPTY string when the budget only fits stopwords — callers
+ * must reject any result under {@link MIN_PEELED_TITLE_CHARS}, not merely an
+ * empty one, and fall back to the untruncated title (or, where a caller must
+ * converge inside a budget, to a hard cut).
  */
 export function truncateTitleAtClauseBoundary(s: string, maxLen: number): string {
   let truncated = truncateCodeUnits(s, maxLen);
