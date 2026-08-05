@@ -1873,6 +1873,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.canicola-lavoro-dialogo-consiglio-stato.title': 'Canicola e lavoro: the Council of State initiates dialogue with trade unions',
     'blog.article.canicola-lavoro-dialogo-consiglio-stato.excerpt': 'The Bellinzona State Council meets UNIA, OCST, USS and VPOD to define measures on work during heatwaves, with the involvement of the Ticino Provincial Council at the federal level.',
     'blog.article.canicola-lavoro-dialogo-consiglio-stato.imageAlt': 'Council chamber in Bellinzona with sunlight, union representatives and politicians discussing.',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.title': 'Glencore increases profits and revenues in the semester',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.excerpt': 'The trading and mining company recorded a strong increase in profits and revenues in the first half of 2026',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.imageAlt': 'Image of a Zurich financial center with a large screen showing Glencore data',
 };
 
 export default blogMetaChEn;

@@ -5617,6 +5617,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'glencore-aumenta-utili-e-ricavi-nel-semestre',
+    category: 'fiscale',
+    date: '2026-08-05T13:55:33.873Z',
+    image: '/images/blog/glencore-aumenta-utili-e-ricavi-nel-semestre.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -1873,6 +1873,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.canicola-lavoro-dialogo-consiglio-stato.title': 'Canicola e lavoro: il Consiglio di Stato avvia il dialogo con i sindacati',
     'blog.article.canicola-lavoro-dialogo-consiglio-stato.excerpt': 'Il Consiglio di Stato di Bellinzona incontra UNIA, OCST, USS e VPOD per definire misure sul lavoro durante le ondate di calore, con coinvolgimento della Deputazione ticinese a livello federale.',
     'blog.article.canicola-lavoro-dialogo-consiglio-stato.imageAlt': 'Sala del Consiglio di Stato di Bellinzona con luce solare, rappresentanti sindacali e politici in discussione.',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.title': 'Glencore aumenta utili e ricavi nel semestre',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.excerpt': 'La società di trading e mining ha registrato un forte aumento degli utili e dei ricavi nel primo semestre 2026',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.imageAlt': 'Immagine di un centro finanziario di Zurigo con un grande schermo che mostra i dati della Glencore',
 };
 
 export default blogMetaChIt;

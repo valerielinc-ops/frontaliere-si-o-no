@@ -650,6 +650,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svizzeri-fuga-estero-costo-casa': { it: 'svizzeri-fuga-estero-costo-casa', en: 'swiss-citizens-moving-abroad-housing-costs', de: 'schweizer-auswanderung-grenzregionen-wohnungskosten', fr: 'suisses-quittent-confederation-logement-prix' },
  'calo-disavanzo-cantonale-2026': { it: 'calo-disavanzo-cantonale-2026', en: 'cantonal-deficit-improvement-2026', de: 'kantonales-defizit-2026', fr: 'deficit-cantonal-2026' },
  'canicola-lavoro-dialogo-consiglio-stato': { it: 'canicola-lavoro-dialogo-consiglio-stato', en: 'heatwave-work-council-dialogue', de: 'hitze-arbeitsrat-dialog', fr: 'canicule-travail-conseil-dialogue' },
+ 'glencore-aumenta-utili-e-ricavi-nel-semestre': { it: 'glencore-aumenta-utili-e-ricavi-nel-semestre', en: 'glencore-augments-profits-and-revenues-in-the-first-half', de: 'glencore-steigert-gewinn-und-umsatz-im-ersten-halbjahr', fr: 'glencore-augmente-ses-benefices-et-ses-revenus-dans-la-premiere-mois' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

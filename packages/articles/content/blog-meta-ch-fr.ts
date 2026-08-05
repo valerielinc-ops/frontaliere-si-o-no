@@ -1873,6 +1873,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.canicola-lavoro-dialogo-consiglio-stato.title': 'Canicule et travail : le Conseil d\'État entame le dialogue avec les syndicats',
     'blog.article.canicola-lavoro-dialogo-consiglio-stato.excerpt': 'Le Conseil d\'Etat de Bellinzone rencontre UNIA, OCST, USS et VPOD pour définir des mesures au travail pendant les vagues de chaleur, avec la participation de la Députation tessinoise au niveau fédéral.',
     'blog.article.canicola-lavoro-dialogo-consiglio-stato.imageAlt': 'Salle du Conseil d\'État à Bellinzona avec lumière du jour, représentants syndicaux et politiciens en discussion.',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.title': 'Glencore augmente ses bénéfices et ses revenus au cours du semestre',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.excerpt': 'La société de trading et de minage a enregistré une forte augmentation de ses bénéfices et de ses revenus au premier semestre 2026',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.imageAlt': 'Image d\'un centre financier de Zurich avec un grand écran montrant les données de Glencore',
 };
 
 export default blogMetaChFr;
