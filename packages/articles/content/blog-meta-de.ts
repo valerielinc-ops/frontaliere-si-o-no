@@ -9249,6 +9249,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pre-festival-locarno-2024.title': 'Pre-Festival in Locarno: ein Ereignis zwischen Licht und Licht (zu viele)',
     'blog.article.pre-festival-locarno-2024.excerpt': 'Die 79. Ausgabe des Filmfestivals von Locarno beginnt mit einer Vorführung von „Wer hat Roger Rabbit reingelegt?“, die Verwirrung und Diskussionen hervorruft.',
     'blog.article.pre-festival-locarno-2024.imageAlt': 'Luftaufnahme von Locarnos Piazza Grande während des Filmfestivals',
+    'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.title': 'Grenzgänger: Arbeitsunfall und UVG-Versicherung im Jahr 2026',
+    'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.excerpt': 'Entdecken Sie die Neuheiten der UVG-Unfallversicherung für Grenzgänger im Jahr 2026 mit Fokus auf \'über 20 km\' und operativer Checkliste.',
+    'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.imageAlt': 'Luftaufnahme von Castelgrande in Bellinzona, Tessin, Schweiz.',
 };
 
 export default blogMetaDe;

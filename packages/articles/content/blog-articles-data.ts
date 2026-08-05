@@ -27768,6 +27768,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-infortunio-lainf-2026-oltre-20-km',
+ category: 'pratico',
+ date: '2026-08-05T03:08:06.520Z',
+ image: '/images/blog/frontaliere-infortunio-lainf-2026-oltre-20-km.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

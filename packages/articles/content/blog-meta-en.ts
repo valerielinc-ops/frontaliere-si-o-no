@@ -9250,6 +9250,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pre-festival-locarno-2024.title': 'Pre-festival in Locarno: an event between lights and lights (too many)',
     'blog.article.pre-festival-locarno-2024.excerpt': 'The 79th edition of the Locarno Film Festival opens with a screening of "Who Framed Roger Rabbit?" that sparks perplexity and discussion.',
     'blog.article.pre-festival-locarno-2024.imageAlt': 'Aerial view of Locarno\'s Piazza Grande during the Film Festival',
+    'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.title': 'Frontier: Accident at work and LAINF insurance in 2026',
+    'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.excerpt': 'Discover the latest news on LAINF accident insurance for border workers in 2026, with a focus on \'over 20 km\' and an operational checklist.',
+    'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Ticino, Switzerland.',
 };
 
 export default blogMetaEn;
