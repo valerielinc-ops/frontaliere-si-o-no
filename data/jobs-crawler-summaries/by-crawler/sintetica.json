@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-08-05T11:27:51.931Z",
+  "generatedAt": "2026-08-05T22:19:19.967Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10305,
-  "avgDurationMs": 10305,
+  "durationMs": 9638,
+  "avgDurationMs": 9638,
   "durationHistory": [
-    10305
+    9638
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -255,13 +255,13 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "sourceLang": "en",
+      "sourceLang": "it",
       "id": "sintetica-8218af8800e4",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
-      "_qualityScore": 83,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 15
       }
@@ -611,7 +611,7 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "sourceLang": "en",
+      "sourceLang": "it",
       "id": "sintetica-8218af8800e4",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
@@ -619,10 +619,10 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 20
       }
