@@ -23,6 +23,14 @@ on:
   schedule:
     - cron: '47 4 * * 1'
   workflow_dispatch:
+    inputs:
+      deploy_run_id:
+        description: >-
+          Deploy run whose already-built dist/ to audit. Leave empty to use the
+          most recent successful deploy.yml run on main that still has its
+          artifacts (they expire after 1 day).
+        required: false
+        type: string
   push:
     # Re-run when the gates checker itself changes — does NOT run on data /
     # plugin / dist edits (those are validated by deploy.yml).
@@ -34,6 +42,9 @@ on:
 permissions:
   contents: read
   issues: write
+  # Listing + downloading the `github-pages` artifact of the deploy run whose
+  # dist/ this gate audits (issue #5169 — it no longer builds its own).
+  actions: read
 
 concurrency:
   group: cathedral-seo-gates-check
@@ -42,16 +53,11 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    # Monolith full SSG build (~143 min, deploy run 27822078795). 90 min
-    # chronically cancelled this gate mid-build (3 of the last 5 runs were
-    # timeout-cancelled at 90 min). 180 min clears ~143 min with growth headroom.
-    #
-    # adsense-prereview.yml used to share this exact build block; as of issue
-    # #4943 it no longer builds at all (it audits the live site over HTTP), so
-    # this workflow is now the ONLY caller of the shared composite build action.
-    # It still OOMs here for the same reason (host kill at RSS ~11.7 GB on a
-    # 16 GB runner) — this gate needs a real built dist to inspect emitted HTML,
-    # so it cannot simply reuse the live-HTTP approach. Tracked separately.
+    # Issue #5169: this used to run its own full SSG build (~143 min) and was
+    # killed by the KERNEL OOM-killer on 9 of its last 10 runs. It now replays
+    # the dist deploy.yml already built, so the budget covers artifact download
+    # + shard rehydrate + 6 audits, not a build. Kept generous: rehydrate falls
+    # back to cloning the shard repos when a run's artifacts have expired.
     timeout-minutes: 180
     # Skip draft PR runs + closed-PR re-runs. The workflow does not subscribe
     # to pull_request events; this `if` is belt-and-braces for any future
@@ -112,48 +118,126 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Assemble jobs dataset
-        run: node scripts/assemble-jobs-dataset.mjs --stats
-
-      # ── Pre-build data prep — MUST mirror deploy.yml's build job ──────────
-      # The gates audit `dist/`, so this workflow has to emit the SAME dist
-      # deploy.yml ships. deploy dedups + migrates + cleans the dataset BEFORE
-      # build:ci; before this was shared, this workflow used to skip that and
-      # build the raw assembled dataset, which (a) audited a dist that never
-      # deploys — wrong gate inputs (duplicate job titles, stale sitemap
-      # entries, unmigrated canonicals) — and (b) emitted ~920 extra
-      # (cross-crawler duplicate / expired) job pages × 4 locales, pushing the
-      # full SEO build past the 16 GB runner's RAM → OOM (exit 134) before the
-      # gates step ran (issue #2121). deploy.yml builds the deduped set
-      # (≈11.2k jobs) and fits; building the raw set (≈12.1k) does not.
+      # ── dist/ is REPLAYED, never rebuilt (issue #5169) ────────────────────
       #
-      # These page-shaping steps now live in the shared composite action so
-      # deploy.yml and this gate can never drift apart again (follow-up
-      # #2198). Both reference the SAME action → adding a step there updates
-      # both workflows at once. None require secrets.
-      - name: SEO build data-prep (shared with deploy.yml)
-        uses: ./.github/actions/seo-build-data-prep
+      # This gate used to run its own full SSG build through the composite
+      # action `build-dist-multi-locale-merged`. It was killed by the kernel
+      # OOM-killer on 9 of its last 10 runs — run 30795844586 died at RSS
+      # ~11.3 GB after 72 minutes while building the FIRST of four locales
+      # (`The runner has received a shutdown signal`, i.e. the whole runner
+      # process went, so even the crash-reporter step below could not fire).
+      # The revert trigger written into that action ("if a scheduled run of
+      # either caller workflow still OOMs at/above the previous ~11.7GB ceiling
+      # after this lands, per-locale filtering is not shedding the memory this
+      # diagnosis assumes") is therefore SATISFIED: per-locale splitting does
+      # not help, because the retention is not per-locale — related-search's
+      # 349k candidates and the global hub datasets are loaded identically in
+      # every sub-build.
+      #
+      # The fix is to stop building. deploy.yml's per-locale matrix builds this
+      # exact dist successfully every few hours, and the repo already has the
+      # machinery to replay it (`audit-dist-from-run.yml`, documented in
+      # AGENTS.md → Build And Test). Auditing the artifact deploy SHIPPED is
+      # also strictly more truthful than auditing a private rebuild of it.
+      #
+      # Not applicable here: #4943's remedy for the sibling AdSense checklist
+      # (drop the build and read the LIVE site). These gates measure emitted
+      # HTML — title length, structured data, text/HTML ratio, BFS depth — so
+      # they need a dist tree, just not one built here.
+      - name: Resolve the deploy run whose dist/ to audit
+        id: deploy
+        env:
+          GH_TOKEN: ${{ github.token }}
+          # Dispatch input reaches the shell as DATA, never as script text.
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+        run: |
+          set -euo pipefail
+          RID="${INPUT_DEPLOY_RUN_ID:-}"
+          if [ -n "$RID" ]; then
+            echo "Operator-pinned deploy run: $RID"
+          else
+            # Artifacts carry retention-days: 1, so the newest successful deploy
+            # is not necessarily the newest one that still HAS its dist. Walk
+            # back until an artifact set is actually present rather than failing
+            # on the first miss.
+            for cand in $(gh run list --workflow=deploy.yml --branch=main \
+                            --status=success --limit=12 \
+                            --json databaseId --jq '.[].databaseId'); do
+              if gh api "repos/${{ github.repository }}/actions/runs/$cand/artifacts" \
+                   --jq '.artifacts[] | select(.name=="github-pages") | .id' \
+                 | grep -q .; then
+                RID="$cand"
+                echo "Newest successful deploy that still has its dist: $RID"
+                break
+              fi
+              echo "  run $cand: github-pages artifact expired — trying older"
+            done
+          fi
+          if [ -z "$RID" ]; then
+            echo "::error::No successful deploy.yml run on main still has a 'github-pages' artifact (retention is 1 day). Re-run this gate after the next deploy, or pass deploy_run_id explicitly."
+            exit 1
+          fi
+          echo "deploy_run_id=$RID" >> "$GITHUB_OUTPUT"
 
-      # issue #4586 sibling fix: was a single monolithic `npm run build:ci`
-      # building all 4 locales in ONE Node process — the OOM pattern first
-      # diagnosed on adsense-prereview.yml (heapUsed 3.6GB → 11.7GB across
-      # SSG phases, forced GC reclaims ~13MB of ~11.7GB = live retention from
-      # the "company hub v2" surface growth, not a leak/missing heap flag).
-      # Both workflows shared this exact monolith-build block, so AGENTS.md's
-      # sibling-pattern rule applied: fixed as one class via the shared
-      # composite action, not just on the reporting workflow.
-      # NOTE (issue #4943): the per-locale split did NOT shed the memory — the
-      # composite action's own revert trigger fired. adsense-prereview.yml left
-      # this build path entirely; this workflow still needs a built dist, so it
-      # remains on it and remains affected. Structural fix as built: build each
-      # locale SEPARATELY (BUILD_LOCALE,
-      # same mechanism deploy.yml's build-locale matrix already uses in
-      # production) and merge into one dist/ tree — same code path, ~1/4 peak
-      # heap per process, zero change to build-plugins/**. See the composite
-      # action for the full diagnosis + revert trigger (unvalidated
-      # pre-merge — cannot exercise a 180min workflow locally).
-      - name: Build dist (per-locale, memory-bounded merge)
-        uses: ./.github/actions/build-dist-multi-locale-merged
+      - name: Download the deployed dist (github-pages artifact)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOY_RUN_ID: ${{ steps.deploy.outputs.deploy_run_id }}
+        run: |
+          set -euo pipefail
+          ARTIFACT_ID=$(gh api "repos/${{ github.repository }}/actions/runs/$DEPLOY_RUN_ID/artifacts" \
+            --jq '.artifacts[] | select(.name=="github-pages") | .id' | head -1)
+          if [ -z "$ARTIFACT_ID" ]; then
+            echo "::error::No 'github-pages' artifact on run $DEPLOY_RUN_ID."
+            exit 1
+          fi
+          mkdir -p /tmp/pages
+          gh api -H "Accept: application/vnd.github+json" \
+            "repos/${{ github.repository }}/actions/artifacts/$ARTIFACT_ID/zip" > /tmp/pages.zip
+          unzip -q /tmp/pages.zip -d /tmp/pages
+          # The github-pages artifact ships a single artifact.tar inside the zip.
+          if [ ! -f /tmp/pages/artifact.tar ]; then
+            echo "::error::Expected /tmp/pages/artifact.tar — saw $(ls /tmp/pages)"
+            exit 1
+          fi
+          mkdir -p dist
+          tar -xf /tmp/pages/artifact.tar -C dist
+          rm -f /tmp/pages.zip /tmp/pages/artifact.tar
+          echo "Restored $(find dist -type f | wc -l) files into dist/ from deploy run $DEPLOY_RUN_ID"
+
+      # The github-pages artifact is the TRUNK only: deploy.yml strips the
+      # en/de/fr subtrees and every per-section subtree out of it (they are
+      # served from their own shard repos through the Worker at the same URLs).
+      # Auditing it as-is walks a fraction of the site and reports the absent
+      # subtrees as a defect OF THE SITE — replay run 30346794790 declared ~68k
+      # cluster URLs below crawl depth for exactly this reason (#4857). Same
+      # order and same failure contract as post-deploy-validate-dist.yml and
+      # audit-dist-from-run.yml: locale first and hard-fail, sections strictly
+      # after and soft-fail.
+      - name: Rehydrate locale then section shards into dist/
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOY_RUN_ID: ${{ steps.deploy.outputs.deploy_run_id }}
+          # Every `*_SHARD_LIVE` / `LOCALE_SHARDS_LIVE` repo variable at once, so
+          # a newly added section cannot be silently missed by a hand-kept list.
+          REPO_VARS_JSON: ${{ toJSON(vars) }}
+        run: |
+          set -uo pipefail
+          eval "$(jq -r 'to_entries[]
+                         | select(.key | test("_SHARDS?_LIVE$"))
+                         | "export \(.key)=\(.value | @sh)"' <<< "$REPO_VARS_JSON")"
+          LOCALE_RC=0
+          bash scripts/lib/rehydrate-locale-shards.sh || LOCALE_RC=$?
+          bash scripts/lib/rehydrate-section-shards.sh
+          echo "dist/ now holds $(find dist -type f | wc -l) files"
+          if [ "$LOCALE_RC" -ne 0 ]; then exit "$LOCALE_RC"; fi
+
+      # Precondition, not a gate: abort BEFORE any audit runs if dist/ is still
+      # missing whole subtrees. Without it a degraded rehydrate turns straight
+      # into a fabricated structural verdict about the site — and, here, into a
+      # bogus "regressed" issue filed against a baseline that is fine.
+      - name: Assert dist/ is the complete logical site
+        run: node scripts/ci/assert-dist-complete.mjs
 
       - name: Run gates check
         id: gates

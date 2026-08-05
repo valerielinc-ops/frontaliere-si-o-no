@@ -1,0 +1,218 @@
+import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import { execFileSync } from 'node:child_process';
+
+import {
+  currentOffenders,
+  baselineOffenders,
+  GATES,
+} from '../scripts/cathedral-seo-gates-check.mjs';
+
+/**
+ * Issue #5169 — the cathedral SEO gates were inert.
+ *
+ * `extractCurrent` assumed `offenders` is an ARRAY and fell back to `p.total`;
+ * `extractBaseline` read `b.total`. But three of the six audits emit
+ * `offenders` as a NUMBER with no `total` key, and every committed baseline
+ * stores `totalOffenders`. So `current` was 0, `baseline` was 0, and the
+ * verdict was `pass` on every run no matter what `dist/` contained — a gate
+ * that costs a 70-minute build and protects nothing.
+ *
+ * These tests pin the reader against the REAL payload keys the audits emit and
+ * the REAL committed baseline files, so a future rename of either side fails
+ * here instead of silently disarming the gate again.
+ */
+
+const REPO_ROOT = path.resolve(__dirname, '..');
+
+/** The exact `--json` payload shape each audit prints (keys only, values dummy). */
+const REAL_PAYLOADS: Record<string, Record<string, unknown>> = {
+  // scripts/audit-title-length.mjs MODE_JSON block
+  'title-length': {
+    scanned: 2220043,
+    skippedNoindex: 12,
+    missingTitle: 0,
+    threshold: 66,
+    offenders: 4290,
+    byFeature: {},
+    byLocale: {},
+    worst: [],
+  },
+  // scripts/audit-text-html-ratio.mjs MODE_JSON block
+  'text-html-ratio': {
+    scanned: 73133,
+    threshold: 10,
+    offenders: 6912,
+    byFeature: {},
+    worst: [],
+  },
+  // scripts/audit-title-no-disambig-hash.mjs MODE_JSON block
+  'title-no-disambig-hash': {
+    scanned: 2220043,
+    skippedNoindex: 3,
+    missingTitle: 0,
+    offenders: 539,
+    byFeature: {},
+    byLocale: {},
+    worst: [],
+  },
+};
+
+describe('#5169 — cathedral gate readers see the numbers the audits actually emit', () => {
+  it.each(Object.keys(REAL_PAYLOADS))('%s: a NUMERIC `offenders` is not read as 0', (gateName) => {
+    const payload = REAL_PAYLOADS[gateName];
+    expect(currentOffenders(payload)).toBe(payload.offenders);
+    expect(currentOffenders(payload)).toBeGreaterThan(0);
+  });
+
+  it('still accepts an ARRAY `offenders` (the shape the old reader assumed)', () => {
+    expect(currentOffenders({ offenders: [{ file: 'a' }, { file: 'b' }] })).toBe(2);
+    expect(currentOffenders({ offenders: [] })).toBe(0);
+  });
+
+  it('accepts `total` (image-object-license) and `totalOffenders`', () => {
+    expect(currentOffenders({ total: 7, files: 3 })).toBe(7);
+    expect(currentOffenders({ totalOffenders: 9 })).toBe(9);
+  });
+
+  it('THROWS on a payload with no offender count instead of scoring 0', () => {
+    // This is the whole point: a silent 0 is what made the gate a no-op.
+    expect(() => currentOffenders({ scanned: 100 })).toThrow(/no offender count/);
+    expect(() => currentOffenders({})).toThrow(/no offender count/);
+    expect(() => currentOffenders(null)).toThrow(/no offender count/);
+  });
+
+  it('THROWS on a baseline with no offender count instead of scoring 0', () => {
+    expect(() => baselineOffenders({ scanned: 100 })).toThrow(/no offender count/);
+    expect(() => baselineOffenders(null)).toThrow(/no offender count/);
+  });
+});
+
+describe('#5169 — the committed baseline files are readable by the gate', () => {
+  const rateBaselines = [
+    'data/title-length-baseline.json',
+    'data/text-html-ratio-baseline.json',
+    'data/title-no-disambig-hash-baseline.json',
+  ];
+
+  it.each(rateBaselines)('%s exposes a non-zero offender count', (rel) => {
+    const raw = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, rel), 'utf8'));
+    // The old reader looked for `total`, which none of these files has.
+    expect(raw.total).toBeUndefined();
+    expect(baselineOffenders(raw)).toBe(raw.totalOffenders);
+    expect(baselineOffenders(raw)).toBeGreaterThan(0);
+  });
+
+  it('a real payload vs its real baseline no longer compares 0 to 0', () => {
+    const baseline = JSON.parse(
+      fs.readFileSync(path.join(REPO_ROOT, 'data/title-length-baseline.json'), 'utf8'),
+    );
+    const cur = currentOffenders(REAL_PAYLOADS['title-length']);
+    const base = baselineOffenders(baseline);
+    expect(cur).toBeGreaterThan(0);
+    expect(base).toBeGreaterThan(0);
+    // A payload one worse than the baseline must read as a regression.
+    const worse = { ...REAL_PAYLOADS['title-length'], offenders: base + 1 };
+    expect(currentOffenders(worse) - base).toBe(1);
+  });
+});
+
+describe('#5169 — every gate spec is wired to a reader that can fail loudly', () => {
+  it('has exactly the six documented gates, each with both extractors', () => {
+    expect(GATES.map((g: { name: string }) => g.name)).toEqual([
+      'text-html-ratio',
+      'orphan-sitemap-pages',
+      'image-object-license',
+      'max-bfs-depth',
+      'title-length',
+      'title-no-disambig-hash',
+    ]);
+    for (const g of GATES as Array<Record<string, unknown>>) {
+      expect(typeof g.extractCurrent, String(g.name)).toBe('function');
+      expect(typeof g.extractBaseline, String(g.name)).toBe('function');
+    }
+  });
+
+  it('orphan-sitemap-pages reads the report file, not the human stdout table', () => {
+    const gate = (GATES as Array<Record<string, unknown>>).find(
+      (g) => g.name === 'orphan-sitemap-pages',
+    )!;
+    const extract = gate.extractCurrent as (parsed: unknown, raw: string) => number;
+    const reportPath = path.join(REPO_ROOT, 'data/orphan-pages-audit.json');
+    // The padded `TOTAL` row the old regex tried to parse, with numbers that
+    // deliberately do NOT match the report — the reader must ignore stdout.
+    const humanTable = 'sitemap-jobs.xml     123456    789   0.6%\nTOTAL   999   42   4.2%\n';
+    if (fs.existsSync(reportPath)) {
+      const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+      expect(extract({}, humanTable)).toBe(report.totalOrphans);
+      expect(extract({}, humanTable)).not.toBe(42);
+    } else {
+      // No report on disk → the gate must ERROR, never silently score 0.
+      expect(() => extract({}, humanTable)).toThrow();
+    }
+  });
+
+  it('importing the script does not run the six audits (main is guarded)', () => {
+    // If `main()` fired on import the import above would have spawned audits
+    // over dist/ and this suite would take minutes / fail. Assert the guard is
+    // present in the source so a refactor cannot quietly remove it.
+    const src = fs.readFileSync(path.join(REPO_ROOT, 'scripts/cathedral-seo-gates-check.mjs'), 'utf8');
+    expect(src).toMatch(/invokedDirectly/);
+    expect(src).toMatch(/if \(invokedDirectly\) \{/);
+  });
+
+  it('is still executable as a script (node --check passes)', () => {
+    execFileSync(process.execPath, [
+      '--check',
+      path.join(REPO_ROOT, 'scripts/cathedral-seo-gates-check.mjs'),
+    ]);
+  });
+});
+
+describe('#5169 — the gate replays the deployed dist instead of rebuilding it', () => {
+  const wf = fs.readFileSync(
+    path.join(REPO_ROOT, '.github/workflows/cathedral-seo-gates-check.yml'),
+    'utf8',
+  );
+  /** Strip `#` comments so a mention in prose is not mistaken for a real step. */
+  const active = wf
+    .split('\n')
+    .filter((l) => !/^\s*#/.test(l))
+    .join('\n');
+
+  it('never runs its own SSG build (that is what the OOM-killer kept killing)', () => {
+    expect(active).not.toMatch(/build-dist-multi-locale-merged/);
+    expect(active).not.toMatch(/npm run build:ci/);
+    expect(active).not.toMatch(/seo-build-data-prep/);
+  });
+
+  it('downloads the deploy run github-pages artifact and rehydrates the shards', () => {
+    expect(active).toMatch(/github-pages/);
+    expect(active).toMatch(/rehydrate-locale-shards\.sh/);
+    expect(active).toMatch(/rehydrate-section-shards\.sh/);
+  });
+
+  it('asserts dist/ is complete BEFORE the gates run, so a degraded rehydrate cannot file a bogus regression', () => {
+    const assertAt = active.indexOf('node scripts/ci/assert-dist-complete.mjs');
+    // The RUN of the checker, not the `paths:` trigger that names the same file.
+    const gatesAt = active.indexOf('node scripts/cathedral-seo-gates-check.mjs');
+    expect(assertAt).toBeGreaterThan(-1);
+    expect(gatesAt).toBeGreaterThan(-1);
+    expect(assertAt).toBeLessThan(gatesAt);
+  });
+
+  it('has the actions:read permission the cross-run artifact download needs', () => {
+    expect(active).toMatch(/actions:\s*read/);
+  });
+
+  it('keeps every referenced helper on disk', () => {
+    for (const rel of [
+      'scripts/ci/assert-dist-complete.mjs',
+      'scripts/lib/rehydrate-locale-shards.sh',
+      'scripts/lib/rehydrate-section-shards.sh',
+    ]) {
+      expect(fs.existsSync(path.join(REPO_ROOT, rel)), rel).toBe(true);
+    }
+  });
+});

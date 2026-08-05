@@ -35,7 +35,7 @@
  *   2 — at least one gate regressed
  */
 
-import { promises as fs } from 'node:fs';
+import { promises as fs, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -58,8 +58,56 @@ const VERDICT_PATH = path.join(PROJECT_ROOT, 'data', 'cathedral-seo-gates-verdic
  * @property {string} notes
  */
 
+/**
+ * Offender count out of an audit's `--json` payload.
+ *
+ * Issue #5169: the original readers assumed `offenders` is an ARRAY and fell
+ * back to `p.total`. Three of the six audits emit `offenders` as a NUMBER
+ * (`result.offendersTotal` / `offenders.length` — audit-title-length.mjs:394,
+ * audit-text-html-ratio.mjs:499, audit-title-no-disambig-hash.mjs:307) and
+ * emit no `total` key at all, so `Array.isArray` was false, `p.total` was
+ * undefined, and `current` was **0 on every run**. Paired with
+ * {@link baselineOffenders} (which read `b.total`, while every baseline file
+ * stores `totalOffenders`) the comparison was `0 === 0` → status `pass`,
+ * permanently, whatever dist/ actually contained. Four of the six gates were
+ * inert. Accept every shape the audits actually emit, and treat a payload that
+ * carries none of them as an ERROR rather than silently scoring 0.
+ * @param {unknown} parsed
+ * @returns {number}
+ */
+export function currentOffenders(parsed) {
+  const p = /** @type {Record<string, unknown>} */ (parsed ?? {});
+  const offenders = p.offenders;
+  if (Array.isArray(offenders)) return offenders.length;
+  for (const key of ['offenders', 'total', 'totalOffenders']) {
+    const v = p[key];
+    if (typeof v === 'number' && Number.isFinite(v)) return v;
+  }
+  throw new Error(
+    `audit payload carries no offender count (keys: ${Object.keys(p).join(', ') || 'none'})`,
+  );
+}
+
+/**
+ * Offender count out of a committed baseline file. Every rate-based baseline
+ * writes `totalOffenders` (audit-title-length.mjs:199 and siblings); `total` is
+ * accepted for any older/hand-written file. See {@link currentOffenders}.
+ * @param {unknown} baseline
+ * @returns {number}
+ */
+export function baselineOffenders(baseline) {
+  const b = /** @type {Record<string, unknown>} */ (baseline ?? {});
+  for (const key of ['totalOffenders', 'total']) {
+    const v = b[key];
+    if (typeof v === 'number' && Number.isFinite(v)) return v;
+  }
+  throw new Error(
+    `baseline carries no offender count (keys: ${Object.keys(b).join(', ') || 'none'})`,
+  );
+}
+
 /** @type {GateSpec[]} */
-const GATES = [
+export const GATES = [
   {
     name: 'text-html-ratio',
     cmd: [
@@ -71,17 +119,8 @@ const GATES = [
     auditCmd: 'npm run audit:text-html-ratio',
     rebaselineCmd: 'npm run audit:text-html-ratio:rebaseline',
     baselineFile: 'data/text-html-ratio-baseline.json',
-    extractCurrent: (parsed) => {
-      const p = /** @type {Record<string, unknown>} */ (parsed);
-      const offenders = /** @type {unknown[]|undefined} */ (p.offenders);
-      if (Array.isArray(offenders)) return offenders.length;
-      const total = Number(p.total ?? 0);
-      return Number.isFinite(total) ? total : 0;
-    },
-    extractBaseline: (baseline) => {
-      const b = /** @type {Record<string, unknown>} */ (baseline);
-      return Number(b.total ?? 0);
-    },
+    extractCurrent: currentOffenders,
+    extractBaseline: baselineOffenders,
     notes: 'Pages with text-to-HTML ratio <= 10% (Semrush threshold).',
   },
   {
@@ -90,15 +129,29 @@ const GATES = [
     auditCmd: 'npm run audit:orphan-sitemap-pages',
     rebaselineCmd: 'npm run audit:orphan-sitemap-pages:rebaseline',
     baselineFile: 'data/orphan-pages-baseline.json',
-    extractCurrent: (parsed, raw) => {
-      const m = raw.match(/total[^:]*orphans?\s*[:=]?\s*(\d+)/i);
-      if (m) return Number(m[1]);
-      const m2 = raw.match(/(\d+)\s+orphan/i);
-      return m2 ? Number(m2[1]) : 0;
+    // audit-orphan-pages-in-sitemaps has no `--json` mode, but it always writes
+    // its machine-readable report to data/orphan-pages-audit.json (line 804)
+    // before exiting. Read THAT. The previous reader regexed the human table on
+    // stdout for /total[^:]*orphans?/ — a pattern the padded `TOTAL` row
+    // (line 627) does not contain, so it fell through to `/(\d+)\s+orphan/`,
+    // which matches the first incidental "N orphan…" in the log. Issue #5169.
+    extractCurrent: () => {
+      const report = JSON.parse(
+        readFileSync(path.join(PROJECT_ROOT, 'data', 'orphan-pages-audit.json'), 'utf8'),
+      );
+      const v = report?.totalOrphans;
+      if (typeof v !== 'number' || !Number.isFinite(v)) {
+        throw new Error('data/orphan-pages-audit.json carries no numeric totalOrphans');
+      }
+      return v;
     },
     extractBaseline: (baseline) => {
-      const b = /** @type {Record<string, unknown>} */ (baseline);
-      return Number(b.totalOrphans ?? 0);
+      const b = /** @type {Record<string, unknown>} */ (baseline ?? {});
+      const v = b.totalOrphans;
+      if (typeof v !== 'number' || !Number.isFinite(v)) {
+        throw new Error('orphan baseline carries no numeric totalOrphans');
+      }
+      return v;
     },
     notes: 'Sitemap URLs not reachable by BFS from /.',
   },
@@ -168,16 +221,8 @@ const GATES = [
     auditCmd: 'npm run audit:title-length',
     rebaselineCmd: 'npm run audit:title-length:rebaseline',
     baselineFile: 'data/title-length-baseline.json',
-    extractCurrent: (parsed) => {
-      const p = /** @type {Record<string, unknown>} */ (parsed);
-      const offenders = /** @type {unknown[]|undefined} */ (p.offenders);
-      if (Array.isArray(offenders)) return offenders.length;
-      return Number(p.total ?? 0);
-    },
-    extractBaseline: (baseline) => {
-      const b = /** @type {Record<string, unknown>} */ (baseline);
-      return Number(b.total ?? 0);
-    },
+    extractCurrent: currentOffenders,
+    extractBaseline: baselineOffenders,
     notes: '<title> length must be <= 66 (60 + 10% tolerance).',
   },
   {
@@ -191,16 +236,8 @@ const GATES = [
     auditCmd: 'npm run audit:title-no-disambig-hash',
     rebaselineCmd: 'npm run audit:title-no-disambig-hash:rebaseline',
     baselineFile: 'data/title-no-disambig-hash-baseline.json',
-    extractCurrent: (parsed) => {
-      const p = /** @type {Record<string, unknown>} */ (parsed);
-      const offenders = /** @type {unknown[]|undefined} */ (p.offenders);
-      if (Array.isArray(offenders)) return offenders.length;
-      return Number(p.total ?? 0);
-    },
-    extractBaseline: (baseline) => {
-      const b = /** @type {Record<string, unknown>} */ (baseline);
-      return Number(b.total ?? 0);
-    },
+    extractCurrent: currentOffenders,
+    extractBaseline: baselineOffenders,
     notes: 'Visible "(#hash)" disambiguator in <title> hurts CTR.',
   },
 ];
@@ -383,7 +420,14 @@ async function main() {
   process.exit(0);
 }
 
-main().catch((err) => {
-  console.error('[seo-gates-check] fatal:', err instanceof Error ? err.stack : err);
-  process.exit(1);
-});
+// Run only when invoked as a script. `currentOffenders` / `baselineOffenders` /
+// `GATES` are exported for tests/cathedral-seo-gates-extractors.test.ts, and an
+// import must not spawn six audits over dist/ as a side effect.
+const invokedDirectly =
+  process.argv[1] !== undefined && path.resolve(process.argv[1]) === __filename;
+if (invokedDirectly) {
+  main().catch((err) => {
+    console.error('[seo-gates-check] fatal:', err instanceof Error ? err.stack : err);
+    process.exit(1);
+  });
+}
