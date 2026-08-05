@@ -40,7 +40,7 @@ vi.mock('firebase/firestore', () => ({
   getFirestore: vi.fn(() => ({})),
 }));
 
-import { MAX_ALERTS_PER_USER, subscribeCompanyAlert } from '@/services/jobAlertService';
+import { companyAlertKey, MAX_ALERTS_PER_USER, subscribeCompanyAlert } from '@/services/jobAlertService';
 import {
   buildCompanyAlertEmail,
   companyHubUrl,
@@ -48,6 +48,7 @@ import {
   COMPANY_ALERT_TEMPLATE_ID,
 } from '@/services/companyAlertEmail.mjs';
 import { isImmediateCompanyAlert } from '../scripts/lib/company-alert-routing.mjs';
+import { companyFollowMountPlaceholder } from '../build-plugins/shared/companyFollowMountPlaceholder';
 import { selectNewlyPublishedJobs } from '../scripts/send-company-alerts.mjs';
 import {
   flushPendingCompanyFollows,
@@ -708,6 +709,84 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
     const app = readRepoFile('App.tsx');
     expect(app).toContain('flushPendingCompanyFollows');
     expect(app).toContain("action === 'confirm_newsletter'");
+  });
+});
+
+describe('CTA on the SSG employer pages /aziende/<slug>/ (#5012 requisito 1)', () => {
+  it('emits a hydration island, not a second copy of the button', () => {
+    // /aziende/<slug>/ resolves to { activeTab: 'job-board', staticOverlay: true },
+    // so the SPA renders header+footer only and the static body stays visible —
+    // an interactive CTA there has to be an island. It reuses the pattern that
+    // already exists (newsletterMountPlaceholder → NewsletterMount) and mounts
+    // the SAME CompanyFollowButton: a copy would be a second surface free to
+    // drift from the matcher, silently.
+    const mount = readRepoFile('components/community/CompanyFollowMount.tsx');
+    expect(mount).toContain("import CompanyFollowButton from './CompanyFollowButton'");
+    expect(mount).toContain('[data-company-follow-mount]:not([data-company-follow-mounted])');
+    // createPortal APPENDS — it does not clear the container. Without this the
+    // pre-hydration skeleton stays visible under the real button.
+    expect(mount).toContain("el.innerHTML = ''");
+    // Idempotency: the MutationObserver re-scan fires on every DOM change.
+    expect(mount).toContain("el.dataset.companyFollowMounted = '1'");
+  });
+
+  it('is mounted unconditionally from App.tsx, like NewsletterMount', () => {
+    // Gating it on a route would mean re-parsing the pathname: the employer
+    // route carries no slug in its AppRoute (`{ activeTab: 'job-board',
+    // staticOverlay: true }`). The scan is one querySelectorAll that matches
+    // nothing everywhere else.
+    const app = readRepoFile('App.tsx');
+    expect(app).toContain('boundary="company-follow-mount"');
+    expect(app).toContain("React.lazy(() => import('@/components/community/CompanyFollowMount'))");
+  });
+
+  it('hands the button raw name + companyKey so the token cannot diverge from the URL', () => {
+    const html = companyFollowMountPlaceholder({
+      company: 'Migros Ticino',
+      companyKey: 'migros-ti',
+      locale: 'it',
+      surface: 'employer_profile',
+    });
+    expect(html).toContain('data-company="Migros Ticino"');
+    expect(html).toContain('data-company-key="migros-ti"');
+    // NOT the precomputed slug: companyAlertKey re-derives it through the one
+    // shared normalisation, which is also what built this page's URL.
+    expect(html.includes('data-company-slug')).toBe(false);
+    expect(companyAlertKey('Migros Ticino', 'migros-ti')).toBe('migros');
+  });
+
+  it('escapes the employer name into the data attribute', () => {
+    const html = companyFollowMountPlaceholder({
+      company: 'Bürgenstock Hotels & Resort',
+      companyKey: null,
+      locale: 'it',
+      surface: 'employer_profile',
+    });
+    expect(html).toContain('data-company="Bürgenstock Hotels &amp; Resort"');
+  });
+
+  it('emits nothing for a nameless employer', () => {
+    // companyAlertKey('') is '' → the button would render null and strand an
+    // empty box on the page.
+    expect(companyFollowMountPlaceholder({ company: '', locale: 'it', surface: 'employer_profile' })).toBe('');
+  });
+
+  it('the skeleton label matches the hydrated button in all four locales', () => {
+    // The label is duplicated in the build plugin (it cannot import the runtime
+    // i18n bundle). Duplicated, therefore asserted: a drifted skeleton would
+    // swap visible text at hydration.
+    for (const [loc, key] of [['it', 'it'], ['en', 'en'], ['de', 'de'], ['fr', 'fr']] as const) {
+      const html = companyFollowMountPlaceholder({ company: 'Acme', locale: loc, surface: 'employer_profile' });
+      const label = /border-edge bg-surface-raised text-muted">([^<]+)</.exec(html)?.[1] || '';
+      expect(label, `${loc} label missing`).toBeTruthy();
+      expect(readRepoFile(`services/locales/${key}-core.ts`), `${loc} drifted from jobAlert.companyFollow.cta`)
+        .toContain(`'jobAlert.companyFollow.cta': '${label}'`);
+    }
+  });
+
+  it('an unknown locale falls back instead of emitting an empty label', () => {
+    const html = companyFollowMountPlaceholder({ company: 'Acme', locale: 'xx', surface: 'employer_profile' });
+    expect(html).toContain('Segui questa azienda');
   });
 });
 
