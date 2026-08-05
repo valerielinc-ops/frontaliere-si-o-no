@@ -498,13 +498,48 @@ describe('company_alert template — the dedicated email the issue asks for (#50
 
 describe('unsubscribe-link HMAC lives in exactly one module (#5012 phase 2, NN #6)', () => {
   it('only scripts/lib/job-alert-unsub-urls.mjs derives the job-alert unsub token', () => {
-    // The verifier is a THIRD file (functions/src/jobAlertUnsubscribe.js). Two
-    // builders drifting from one verifier means the user's unsubscribe click
-    // fails as "invalid token" — an unsubscribe that does not unsubscribe.
+    // Two BUILDERS drifting from one verifier means the user's unsubscribe
+    // click fails as "invalid token" — an unsubscribe that does not
+    // unsubscribe. One builder module, imported by both senders.
     const fingerprint = 'job_alert_unsub:';
     expect(readRepoFile('scripts/lib/job-alert-unsub-urls.mjs')).toContain(fingerprint);
     expect(readRepoFile('scripts/send-job-alerts.mjs').includes(fingerprint)).toBe(false);
     expect(readRepoFile('scripts/send-company-alerts.mjs').includes(fingerprint)).toBe(false);
+  });
+
+  it('the Cloud Function VERIFIER still derives byte-identical tokens', async () => {
+    // functions/src/jobAlertUnsubscribe.js is the third file in this token's
+    // life and it cannot import the builder — the functions bundle resolves
+    // nothing outside `functions/`. So it stays a deliberate pinned mirror,
+    // and parity is asserted here instead of hoped for. Exactly the remedy
+    // #5151 applied to normalizeCompanyAlertKey.
+    //
+    // Surfaced by the sibling-patterns gate on the extraction commit, and it
+    // was a genuine sibling: without this test the builder could be edited
+    // (a trim, a lowercase, a prefix rename) and every unsubscribe link in
+    // production would start failing verification with no test turning red.
+    const { generateAlertUnsubToken, generateAllAlertsUnsubToken } =
+      await import('../functions/src/jobAlertUnsubscribe.js');
+    const { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl } =
+      await import('../scripts/lib/job-alert-unsub-urls.mjs');
+
+    const previous = process.env.NEWSLETTER_SECRET;
+    process.env.NEWSLETTER_SECRET = 'test-secret-#5012';
+    try {
+      for (const [alertId, email] of [
+        ['alert-1', 'a@b.ch'],
+        ['alert-2', '  Mixed.Case@Example.COM  '],
+      ] as const) {
+        const builtOne = new URL(makeAlertUnsubscribeUrl(alertId, email)).searchParams.get('token');
+        expect(builtOne).toBe(generateAlertUnsubToken(alertId, email, 'test-secret-#5012'));
+
+        const builtAll = new URL(makeAllAlertsUnsubscribeUrl(email)).searchParams.get('token');
+        expect(builtAll).toBe(generateAllAlertsUnsubToken(email, 'test-secret-#5012'));
+      }
+    } finally {
+      if (previous === undefined) delete process.env.NEWSLETTER_SECRET;
+      else process.env.NEWSLETTER_SECRET = previous;
+    }
   });
 });
 
