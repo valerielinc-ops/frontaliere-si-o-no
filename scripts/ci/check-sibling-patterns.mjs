@@ -161,6 +161,49 @@ function resolveBase() {
   return 'HEAD~1';
 }
 
+// Incremental depth steps tried on a shallow clone before giving up (issue
+// #5195): a full `--unshallow` would defeat the point of staying shallow (the
+// reporting machine keeps the repo shallow because a full clone is ~9.6GB and
+// doesn't fit on disk), so we only fetch enough extra history to reach a
+// common ancestor, capped.
+const DEEPEN_STEPS = [100, 500, 2000];
+
+/**
+ * Resolves the merge-base between `base` and HEAD, self-healing a shallow
+ * clone instead of silently falling back to a bogus comparison (issue #5195).
+ *
+ * On a shallow clone `git merge-base` can exit 0 with EMPTY output when the
+ * shallow boundary cuts off before the real common ancestor — the caller
+ * previously did `mergeBase = git(...).trim() || base`, which on empty output
+ * substituted `base` itself as the "merge-base". A two-dot diff against that
+ * fake merge-base compares the full tree of `base` against HEAD instead of
+ * just the branch's own changes, surfacing every file that merely differs
+ * between the two (unrelated in-flight work on other files) as a "candidate
+ * sibling" — the ~100-370 false positives per push reported in #5195.
+ *
+ * Fix: if merge-base is empty AND the repo is shallow, incrementally
+ * `git fetch --deepen` until a common ancestor is found (bounded by
+ * DEEPEN_STEPS) instead of guessing. If it still can't be found — deepening
+ * exhausted, no network, or histories are genuinely unrelated — return null
+ * so the caller can skip the comparison with an explicit message instead of
+ * emitting a misleading fallback diff.
+ */
+function resolveMergeBase(base) {
+  let mergeBase = git(['merge-base', base, 'HEAD'], { allowFail: true }).trim();
+  if (mergeBase) return { mergeBase, deepened: false };
+
+  const isShallow =
+    git(['rev-parse', '--is-shallow-repository'], { allowFail: true }).trim() === 'true';
+  if (!isShallow) return { mergeBase: null, deepened: false };
+
+  for (const step of DEEPEN_STEPS) {
+    git(['fetch', `--deepen=${step}`, 'origin'], { allowFail: true });
+    mergeBase = git(['merge-base', base, 'HEAD'], { allowFail: true }).trim();
+    if (mergeBase) return { mergeBase, deepened: true };
+  }
+  return { mergeBase: null, deepened: true };
+}
+
 /**
  * Estrae espressioni verbatim dalle righe RIMOSSE del diff (prefisso `-`).
  * Pass supplementare rispetto a extractTokens (issue #4260): quando un fix
@@ -409,8 +452,35 @@ export const PATTERN_CLASSES = [
 function main() {
   const base = resolveBase();
   // merge-base per il three-dot: cambiamenti del branch dalla divergenza.
-  const mergeBase =
-    git(['merge-base', base, 'HEAD'], { allowFail: true }).trim() || base;
+  const { mergeBase, deepened } = resolveMergeBase(base);
+
+  if (!mergeBase) {
+    // Issue #5195: niente fallback silenzioso su `base` — su un clone shallow
+    // quel fallback confrontava alberi non imparentati e produceva centinaia
+    // di falsi positivi (ogni file che differisce da `base`, non solo quelli
+    // del branch). Bail-out esplicito invece: candidate-surfacer inattendibile
+    // è peggio di nessun candidate-surfacer.
+    const msg =
+      `check-sibling-patterns: merge-base tra ${base} e HEAD non calcolabile` +
+      (deepened
+        ? ' (anche dopo aver approfondito il clone shallow con git fetch --deepen)'
+        : ' su clone shallow') +
+      ' — confronto non affidabile su alberi potenzialmente non imparentati, salto ' +
+      "l'analisi invece di produrre falsi positivi. Per un confronto affidabile: " +
+      '`git fetch --unshallow` (o un clone completo) prima del push.';
+    if (JSON_OUT) {
+      console.log(
+        JSON.stringify(
+          { base, mergeBase: null, changedCode: [], candidates: [], skipped: true, reason: 'unresolvable-merge-base' },
+          null,
+          2,
+        ),
+      );
+    } else {
+      console.log(msg);
+    }
+    process.exit(0); // advisory pass-through anche in --strict: un base fasullo non può produrre un verdetto
+  }
 
   // Diff del working tree vs base (committed + staged + unstaged): copre tutto
   // ciò che il branch introdurrà, anche se il fixer non ha ancora committato.
