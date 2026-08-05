@@ -9246,6 +9246,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.title': 'Premier jour au Tessin : checklist pour les familles avec enfants',
     'blog.article.frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.excerpt': 'Connaître les documents nécessaires pour le premier jour de travail au Tessin est essentiel pour les frontaliers qui travaillent en Suisse et résident en Italie.',
     'blog.article.frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.imageAlt': 'Une famille d\'un travailleur frontalier se prépare pour la première journée de travail en Tessin.',
+    'blog.article.semafori-intelligenti-cadenazzo-quartino.title': 'Traffico Cadenazzo-Quartino: da fine agosto semafori intelligenti',
+    'blog.article.semafori-intelligenti-cadenazzo-quartino.excerpt': 'Les nouveaux feux de signalisation intelligents entre Cadenazzo et Quartino entreront en service à partir de la fin du mois d\'août, améliorant ainsi la gestion du trafic.',
+    'blog.article.semafori-intelligenti-cadenazzo-quartino.imageAlt': 'Nouveaux feux de circulation intelligents entre Cadenazzo et Quartino',
 };
 
 export default blogMetaFr;

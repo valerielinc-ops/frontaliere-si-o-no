@@ -9243,6 +9243,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.title': 'Erster Tag im Tessin: Checkliste für Familien mit Kindern',
     'blog.article.frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.excerpt': 'Die Kenntnis der notwendigen Dokumente für den ersten Arbeitstag im Tessin ist für Grenzgänger, die in der Schweiz arbeiten und in Italien wohnen, von grundlegender Bedeutung.',
     'blog.article.frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.imageAlt': 'Eine Familie eines Grenzarbeiters bereitet sich auf den ersten Arbeitstag in Ticino vor.',
+    'blog.article.semafori-intelligenti-cadenazzo-quartino.title': 'Verkehr Cadenazzo-Quartino: Ab Ende August werden intelligente Ampeln aktiviert',
+    'blog.article.semafori-intelligenti-cadenazzo-quartino.excerpt': 'Die neuen intelligenten Ampeln zwischen Cadenazzo und Quartino werden ab Ende August in Betrieb gehen und das Verkehrsmanagement verbessern.',
+    'blog.article.semafori-intelligenti-cadenazzo-quartino.imageAlt': 'Neue intelligente Ampeln zwischen Cadenazzo und Quartino',
 };
 
 export default blogMetaDe;

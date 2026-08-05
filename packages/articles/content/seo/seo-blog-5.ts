@@ -58922,6 +58922,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-semafori-intelligenti-cadenazzo-quartino': {
+    title: 'Traffico Cadenazzo-Quartino: da fine agosto si attivano i semafori intelligenti',
+    description: 'I nuovi semafori intelligenti tra Cadenazzo e Quartino entreranno in funzione dalla fine di agosto, migliorando la gestione del traffico per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, cadenazzo-quartino, fine, agosto',
+    ogTitle: 'Traffico Cadenazzo-Quartino: da fine agosto si attivano i semafori intelligenti',
+    ogDescription: 'I nuovi semafori intelligenti tra Cadenazzo e Quartino entreranno in funzione dalla fine di agosto, migliorando la gestione del traffico per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/semafori-intelligenti-cadenazzo-quartino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico Cadenazzo-Quartino: da fine agosto si attivano i semafori intelligenti",
+      "description": "I nuovi semafori intelligenti tra Cadenazzo e Quartino entreranno in funzione dalla fine di agosto, migliorando la gestione del traffico per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/semafori-intelligenti-cadenazzo-quartino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nuovi semafori intelligenti tra Cadenazzo e Quartino"
+      },
+      "datePublished": "2026-08-05T02:03:05+00:00",
+      "dateModified": "2026-08-05T02:03:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/semafori-intelligenti-cadenazzo-quartino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

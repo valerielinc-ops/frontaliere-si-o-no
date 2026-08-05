@@ -27750,6 +27750,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'semafori-intelligenti-cadenazzo-quartino',
+ category: 'novita',
+ date: '2026-08-05T02:03:05.319Z',
+ image: '/images/blog/semafori-intelligenti-cadenazzo-quartino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

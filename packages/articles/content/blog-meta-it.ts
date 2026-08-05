@@ -9245,6 +9245,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.title': 'Primo giorno in Ticino: checklist per famiglie con figli',
     'blog.article.frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.excerpt': 'Conoscere i documenti necessari per il primo giorno di lavoro in Ticino è fondamentale per i frontaliere che lavorano in Svizzera e risiedono in Italia.',
     'blog.article.frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.imageAlt': 'Un frontaliere con la sua famiglia si prepara per il primo giorno di lavoro in Ticino.',
+    'blog.article.semafori-intelligenti-cadenazzo-quartino.title': 'Traffico Cadenazzo-Quartino: da fine agosto si attivano i semafori intelligenti',
+    'blog.article.semafori-intelligenti-cadenazzo-quartino.excerpt': 'I nuovi semafori intelligenti tra Cadenazzo e Quartino entreranno in funzione dalla fine di agosto, migliorando la gestione del traffico.',
+    'blog.article.semafori-intelligenti-cadenazzo-quartino.imageAlt': 'Nuovi semafori intelligenti tra Cadenazzo e Quartino',
 };
 
 export default blogMetaIt;
