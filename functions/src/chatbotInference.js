@@ -19,6 +19,7 @@
  * Only single-turn messages ≤ 200 chars are cached (FAQ pattern).
  */
 
+import { createHash } from 'node:crypto';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { tryClaudeHaikuFallback, CLAUDE_HAIKU_MODEL } from './claudeHaikuFallback.js';
 
@@ -89,7 +90,10 @@ const CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutes
 function cacheKey(messages) {
  if (!Array.isArray(messages) || messages.length !== 1) return null;
  const q = String(messages[0]?.content ?? '').trim().toLowerCase();
- return q.length > 0 && q.length <= 200 ? q : null;
+ // Hash instead of storing the raw question: this Map lives in the Cloud
+ // Function's warm-container memory (up to CACHE_MAX entries) and the raw
+ // text is user-submitted free text that can contain PII (#5196).
+ return q.length > 0 && q.length <= 200 ? createHash('sha256').update(q).digest('hex') : null;
 }
 
 function cacheGet(key) {
