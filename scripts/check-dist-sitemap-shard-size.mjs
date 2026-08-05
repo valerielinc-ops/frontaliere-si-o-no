@@ -9,9 +9,10 @@
  * regression before it ships.
  *
  * SHARD_HARD_CAP is intentionally kept strictly above the generators' own
- * per-shard cap (build-plugins/relatedSearchClustersPlugin.ts
- * SITEMAP_SHARD_CAP = 39_000, scripts/lib/sitemap-shard.mjs
- * DEFAULT_CAP_PER_SHARD = 39000): several shards are *by design* filled to
+ * per-shard cap (SITEMAP_SHARD_CAP = 39_000, now single-sourced in
+ * scripts/lib/sitemap-limits.mjs and imported by every emitter —
+ * relatedSearchClustersPlugin, sitemap-shard.mjs and the #5110
+ * locale-variant backfill): several shards are *by design* filled to
  * exactly that cap, so a `>=` gate at that value would permanently
  * false-positive on every full-by-design shard (#4395 sibling fix). The
  * generator cap was lowered below SHARD_WARN_CAP too (45,000 → 39,000,
