@@ -448,6 +448,70 @@ const EMPTY_OK_CRAWLERS = new Set([
   // automatically when Yapeal republishes a posting. Same
   // legitimately-empty small-employer case as linnea/josef-mueller (#4751).
   'yapeal',
+  // Temenos (Geneva-HQ banking software, Workday tenant temenos.wd103,
+  // site Temenoscareers): verified live 2026-08-05 — the tenant's location
+  // facet is `locationMainGroup`, so the canonical `locationCountry` facet
+  // that createWorkdaySwissParser sends is rejected with HTTP 400; the
+  // factory's documented fallback (refetch unfiltered + strict CH gate) then
+  // fetches the WHOLE board and gets `total: 16` postings, every one of them
+  // explicitly foreign (Paris, Sydney, Singapore, United States Remote,
+  // London, Bertrange LU, Bucharest, Chennai, Makati City). Zero Swiss roles
+  // — the Geneva HQ simply has no open req right now. The public careers
+  // site (careers.temenos.com → temenos.com/about-us/careers/) links to the
+  // same `Temenoscareers` Workday site, so there is no second board we are
+  // missing. Listing fetch + strict CH gate are healthy and re-arm the moment
+  // a Geneva/Swiss req is published. Same legitimately-empty
+  // regional-filter case as bracco/fnz (#4844).
+  'temenos',
+  // Veeam Software (Baar ZG Swiss entity, Greenhouse board `veeamsoftware`):
+  // verified live 2026-08-05 — https://boards-api.greenhouse.io/v1/boards/
+  // veeamsoftware/jobs returns HTTP 200 with 235 postings worldwide (board
+  // token still valid, response shape unchanged), and applying the parser's
+  // own SWISS_LOCATION_RE (/switzerland|schweiz|suisse|svizzera|\bbaar\b|
+  // \bzug\b/i) to every `location.name` yields 0 matches — the board is
+  // currently Remote-US/Bucharest/Warsaw/Prague-heavy with no CH row at all.
+  // Independently corroborated by Veeam's own front-end:
+  // https://careers.veeam.com/search-jobs/Switzerland renders
+  // "We found 0 jobs for Switzerland". A global vendor with a small Swiss
+  // legal seat legitimately has stretches with no CH req; the Greenhouse
+  // fetch + Swiss filter are healthy and re-arm when a CH posting appears.
+  // Same legitimately-empty regional-filter case as bracco/fnz (#5060).
+  'veeam',
+  // Gavi, the Vaccine Alliance (Geneva, Salesforce fRecruit portal
+  // fs-2662.my.salesforce-sites.com): verified live 2026-08-05 — the listing
+  // page the parser fetches
+  // (https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJobList?portal=Global)
+  // returns HTTP 200 with its structure fully intact (same Visualforce
+  // `pbBody` page block, same "For the vacancies listed below…" copy, same
+  // Current Vacancies nav) but the results table is genuinely empty: the
+  // pager reads "Page 1 of 0" and the table body renders the portal's own
+  // "None found" empty state, with zero `vacancyNo=` links in the markup.
+  // Nothing for a selector to fail on — the international-health alliance
+  // simply has no open vacancy right now (it had 2 when the parser was
+  // written). Parser + Swiss canton gate are healthy and re-arm when a
+  // vacancy is republished. Same legitimately-empty small-employer case as
+  // linnea/josef-mueller (#5059).
+  'gavi',
+  'rado',
+  'swatch-group-assembly',
+  // ^ rado + swatch-group-assembly (#5083, #5013): both are Swatch Group
+  // sub-brands that share the group-wide swatchgroup.com/careers pool with no
+  // per-brand path segment, so the shared engine stamps their `companyKey` on
+  // EVERY job of the pool and `filterSharedPoolJobsByBrand()`
+  // (scripts/lib/swatchgroup-brand-filter.mjs, #4392) re-derives the real
+  // per-brand subset from each posting's own `company` text. Verified in the
+  // production crawl log of run 30955397678 (2026-08-04T22:21:48Z): the
+  // shared pool crawl is healthy — the sibling `eta-sa-swatch-group` slice
+  // was written with 22 jobs in the same run — and the filter reported
+  // "rado: brand filter kept 0/7 job(s)" and "swatch-group-assembly: brand
+  // filter kept 0/24 job(s)". The pool's real employers that run are The
+  // Swatch Group Ltd, EM Microelectronic-Marin Ltd, Tissot Ltd, MECO SA and
+  // Renata AG — no Rado Watch Co. Ltd / Rado Uhren AG and no Swatch Group
+  // Assembly SA posting exists to keep. Filtering to 0 is the CORRECT output
+  // of a working filter, not a selector break: the brand patterns still key
+  // off each brand's real legal-entity name, so a genuine future Rado or
+  // Assembly posting is picked up immediately. Same class as the
+  // brand/regional-filter entries above.
 ]);
 
 /** Read JSON file, return null on any error. */
