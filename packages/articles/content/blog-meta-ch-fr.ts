@@ -1870,6 +1870,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.calo-disavanzo-cantonale-2026.title': 'Déficit cantonal 2026 : baisse à -49,7 millions de francs',
     'blog.article.calo-disavanzo-cantonale-2026.excerpt': 'Le Conseil d\'État a mis à jour le budget prévisionnel de juin, réduisant le déficit prévu à -49,7 millions de CHF, grâce à une augmentation des revenus et des dépenses contrôlées.',
     'blog.article.calo-disavanzo-cantonale-2026.imageAlt': 'Bâtiment cantonal à Bellinzone avec des documents financiers sur une table, arrière‑plan alpin.',
+    'blog.article.canicola-lavoro-dialogo-consiglio-stato.title': 'Canicule et travail : le Conseil d\'État entame le dialogue avec les syndicats',
+    'blog.article.canicola-lavoro-dialogo-consiglio-stato.excerpt': 'Le Conseil d\'Etat de Bellinzone rencontre UNIA, OCST, USS et VPOD pour définir des mesures au travail pendant les vagues de chaleur, avec la participation de la Députation tessinoise au niveau fédéral.',
+    'blog.article.canicola-lavoro-dialogo-consiglio-stato.imageAlt': 'Salle du Conseil d\'État à Bellinzona avec lumière du jour, représentants syndicaux et politiciens en discussion.',
 };
 
 export default blogMetaChFr;

@@ -649,6 +649,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'caldo-disparita-sociali-ginevra': { it: 'caldo-disparita-sociali-ginevra', en: 'heat-social-disparities-geneva', de: 'hitze-soziale-ungleichheiten-genf', fr: 'chaleur-disparites-sociales-geneve' },
  'svizzeri-fuga-estero-costo-casa': { it: 'svizzeri-fuga-estero-costo-casa', en: 'swiss-citizens-moving-abroad-housing-costs', de: 'schweizer-auswanderung-grenzregionen-wohnungskosten', fr: 'suisses-quittent-confederation-logement-prix' },
  'calo-disavanzo-cantonale-2026': { it: 'calo-disavanzo-cantonale-2026', en: 'cantonal-deficit-improvement-2026', de: 'kantonales-defizit-2026', fr: 'deficit-cantonal-2026' },
+ 'canicola-lavoro-dialogo-consiglio-stato': { it: 'canicola-lavoro-dialogo-consiglio-stato', en: 'heatwave-work-council-dialogue', de: 'hitze-arbeitsrat-dialog', fr: 'canicule-travail-conseil-dialogue' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
