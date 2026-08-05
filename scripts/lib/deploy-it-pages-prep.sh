@@ -181,11 +181,61 @@ _publish_cdn_r2() {
     --checksum --no-update-modtime --transfers=24 --checkers=48 --fast-list)
   local bkt=":s3:$R2_BUCKET" ok=1
   echo "CDN→R2 (rclone --checksum): payload $(du -sh "$stage" | cut -f1) → $bkt"
-  _r2_sync() { # <src-dir> <dst-prefix> <cache-control> — COPY (additive, no delete)
+  _r2_sync() { # <src-dir> <dst-prefix> <cache-control> [json-log] — COPY (additive, no delete)
     [ -d "$1" ] || return 0
-    "${RC[@]}" copy "$1" "$bkt/$2" --header-upload "Cache-Control: $3" --stats=0 || ok=0
+    if [ -n "${4:-}" ]; then
+      # Capture WHICH objects actually moved so the caller can purge exactly
+      # those at the edge (see the assets/ call below). --log-file swallows
+      # rclone's stderr, so the log is echoed back to the deploy output after
+      # the run — a sync error must stay visible in the job log.
+      "${RC[@]}" copy "$1" "$bkt/$2" --header-upload "Cache-Control: $3" --stats=0 \
+        -v --use-json-log --log-file="$4" || ok=0
+      # `if`, not `[ -s … ] && cat`: an EMPTY log (nothing changed — the common
+      # case) would make that the last command and return non-zero from this
+      # function. Harmless today (this file deliberately runs without `set -e`,
+      # see its note near the step runners) but a trap for whoever adds it.
+      if [ -s "$4" ]; then cat "$4"; fi
+    else
+      "${RC[@]}" copy "$1" "$bkt/$2" --header-upload "Cache-Control: $3" --stats=0 || ok=0
+    fi
   }
-  _r2_sync "$stage/assets"    assets    "public,max-age=31536000,immutable"
+  # assets/ Cache-Control — read this before changing it.
+  #
+  # Bundle filenames here are STABLE, never content-hashed
+  # (tests/stable-asset-names.test.ts): the BYTES change under the SAME URL on
+  # every code deploy. The zone rule `cdn-r2-passthrough-cache`
+  # (infra/cloudflare/rules.md) caches this host with
+  # `edge_ttl: {mode: 'respect_origin'}`, so whatever we set here IS the edge
+  # TTL — and `immutable` on a URL whose bytes change is simply false. It also
+  # contradicts public/_headers, which states outright that NOTHING under
+  # /assets/ may ever be served `immutable`.
+  #
+  # The previous `max-age=31536000,immutable` made edge freshness depend
+  # ENTIRELY on cf-purge-cache.mjs `purge_everything`, which runs only in
+  # post-deploy-validate-live.yml behind three gates (deploy-publish.yml's
+  # `workflow_run.conclusion == 'success'`, `steps.propagation.outcome ==
+  # 'success'`, and `continue-on-error: true`). That chain does not clear in
+  # practice — deploy-publish.yml had 0 successes in its last 60 runs when this
+  # was written — so the edge held one build's chunks while R2 served another's:
+  # the cross-chunk version skew behind #5062 / #4644.
+  #
+  # The TTL is a BACKSTOP, not the freshness mechanism — freshness comes from
+  # the targeted purge below, which runs in this same step right after the
+  # upload. The number is therefore chosen to bound how long a MISSED purge can
+  # go unnoticed without inflating edge→R2 fetch-through, because every extra
+  # origin hop is another chance to hit the transient connect failure
+  # (`originResponseStatus: 0`) Cloudflare surfaces as the 502s in
+  # #5034/#5035/#5036/#5052/#5081/#5092/#5093/#5094.
+  #
+  # Measured over 23h: the 661 distinct /assets/ keys took 520k requests but
+  # only ~2.9k origin hops (0.57%) — these keys are HOT, so their hop count is
+  # driven by TTL expiry per PoP, not by request arrival. Scaling that way,
+  # max-age=600 would be ~100x the hops and max-age=86400 ~3x; 7 days keeps the
+  # increase modest (~+30%) while still turning "stale forever" into "stale for
+  # at most a week". Do NOT raise this back to a year, and do NOT re-add
+  # `immutable`.
+  local _assets_log="$(mktemp -t r2-assets-XXXXXX.jsonl 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/r2-assets.jsonl")"
+  _r2_sync "$stage/assets"    assets    "public,max-age=604800" "$_assets_log"
   _r2_sync "$stage/og"        og        "public,max-age=86400"
   _r2_sync "$stage/images"    images    "public,max-age=86400"
   _r2_sync "$stage/data"      data      "public,max-age=600"
@@ -205,6 +255,26 @@ _publish_cdn_r2() {
   else
     echo "⚠️ R2 marker PUT failed — offload skipped, og/data stay in dist"
   fi
+  # Invalidate the edge for EXACTLY the assets/ keys whose bytes just changed.
+  # Runs only past the `ok != 1` guard above, so the full payload is already on
+  # R2. Targeted (`--files=`, batches of 30) and never `purge_everything`: this
+  # host serves ~634k eyeball requests/day at a ~93% edge hit ratio, and
+  # dropping all of that at once produces the cold-fill stampede against R2
+  # whose edge→origin failures (`originResponseStatus: 0`) Cloudflare returns to
+  # users and Googlebot as the 502s in #5034/#5035/#5036/#5052/#5081/#5092/
+  # #5093/#5094. Same targeted-purge pattern scripts/publish-article-chunks.mjs
+  # already uses for its own out-of-band chunk PUTs.
+  #
+  # This does NOT replace cf-purge-cache.mjs `purge_everything` in
+  # post-deploy-validate-live.yml (still needed for the apex HTML, which the
+  # it-apex-html-cache rule holds with `override_origin` 24h). It removes the
+  # CDN bundle's DEPENDENCE on that purge, which is gated behind a workflow
+  # chain that in practice does not run — see the assets/ Cache-Control comment.
+  if [ -s "$_assets_log" ]; then
+    node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+      || echo "::warning::targeted CDN asset purge failed — edge falls back to the 7d max-age"
+  fi
+  rm -f "$_assets_log" 2>/dev/null || true
   # GC visibility scan (Refs #2886, follow-up of #2883's "GC storage R2
   # (janitor): skippato" deferral). DRY-RUN ONLY at this automatic call site —
   # see _janitor_cdn_r2's header comment for why. This just makes bucket growth

@@ -44,30 +44,38 @@
 // above alone, not on pre-existing production evidence.
 //
 // CDN CACHE / VERSION SKEW: the R2 `assets/` prefix is synced at full-deploy
-// time with `Cache-Control: public, max-age=31536000, immutable`
+// time with `Cache-Control: public, max-age=604800`
 // (scripts/lib/deploy-it-pages-prep.sh `_r2_sync`), and the Cloudflare zone
 // rule `cdn-r2-passthrough-cache` (infra/cloudflare/rules.md) sets
-// `edge_ttl: { mode: 'respect_origin' }` — so the EDGE itself can hold this key
-// fresh for up to a year absent an explicit purge. The separate zone rule
-// `cdn-assets-revalidate` (http_response_headers_transform phase) rewrites the
-// Cache-Control the BROWSER receives to `public, max-age=600, must-revalidate`,
-// but that is a response-header rewrite on the way OUT — a different, later
-// phase than the one that decided whether the edge's OWN cached copy was
-// fresh. The documented "~10 min worst case" is therefore a BROWSER-cache
-// bound, not necessarily the edge one (the existence of the separate, stronger
-// `early-boot-js-no-cache` rule for the one script that must self-heal every
-// other chunk is itself evidence the general `/assets/*` rule's guarantee was
-// judged browser-side only). Because this script's PUT bypasses the normal
-// full-deploy → validate-live → cf-purge-cache.mjs `purge_everything` safety
-// net entirely, it performs its OWN narrow, TARGETED purge (`purge_cache` with
-// a `files` list — never `purge_everything`) for exactly the keys it just
-// uploaded, immediately after each successful upload. It also asks
-// upload-cdn-file.sh for a short Cache-Control on these specific keys instead
-// of the full-deploy default, so any FUTURE edge fetch-through (after this
-// purge, before the next full deploy re-syncs the immutable header) also
-// settles quickly. Together: purge fixes the CURRENT publish regardless of
-// which edge-caching interpretation is correct; the short TTL is defense in
-// depth for the window between now and the next full deploy.
+// `edge_ttl: { mode: 'respect_origin' }` — so that object header IS the edge
+// TTL. The separate zone rule `cdn-assets-revalidate`
+// (http_response_headers_transform phase) rewrites the Cache-Control the
+// BROWSER receives to `public, max-age=600, must-revalidate`, but that is a
+// response-header rewrite on the way OUT — a different, later phase than the
+// one that decided whether the edge's OWN cached copy was fresh. The documented
+// "~10 min worst case" is therefore a BROWSER-cache bound, not the edge one
+// (the existence of the separate, stronger `early-boot-js-no-cache` rule for
+// the one script that must self-heal every other chunk is itself evidence the
+// general `/assets/*` rule's guarantee was judged browser-side only).
+//
+// That header used to be `max-age=31536000, immutable`, which made the edge
+// hold a stable-named chunk for up to a YEAR unless `purge_everything` ran —
+// and it effectively never did (deploy-publish.yml, the only path to it, had 0
+// successes in its last 60 runs). That was the version-skew source behind
+// #5062/#4644; the full-deploy sync now purges exactly the keys it re-uploaded
+// (scripts/ci/purge-changed-cdn-assets.mjs), the same targeted pattern this
+// script already used.
+//
+// Because this script's PUT bypasses the full-deploy path entirely, it still
+// performs its OWN narrow, TARGETED purge (`purge_cache` with a `files` list —
+// never `purge_everything`) for exactly the keys it just uploaded, immediately
+// after each successful upload. It also asks upload-cdn-file.sh for a short
+// Cache-Control on these specific keys instead of the full-deploy default, so
+// any FUTURE edge fetch-through (after this purge, before the next full deploy
+// re-syncs the 7d header) also settles quickly. Together: purge fixes the
+// CURRENT publish regardless of which edge-caching interpretation is correct;
+// the short TTL is defense in depth for the window between now and the next
+// full deploy.
 //
 // resilientImport (services/resilientImport.ts) is ORTHOGONAL to this script's
 // correctness: it only engages when a dynamic import throws (chunk-load
@@ -185,8 +193,8 @@ export const COMPANION_CHUNKS = [
 
 // Short override so any edge fetch-through after this publish settles quickly
 // (see header comment) — applies ONLY to these two out-of-band PUTs, not the
-// full-deploy R2 sync (deploy-it-pages-prep.sh keeps its own 1-year immutable
-// policy for the normal build path).
+// full-deploy R2 sync (deploy-it-pages-prep.sh keeps its own 24h policy plus a
+// targeted per-key purge for the normal build path).
 export const CHUNK_CACHE_CONTROL = 'public, max-age=300, must-revalidate';
 export const TICKER_CDN_KEY = 'data/news-ticker-live.json';
 export const TICKER_CACHE_CONTROL = 'public, max-age=300, must-revalidate';
