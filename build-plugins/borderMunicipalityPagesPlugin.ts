@@ -12,6 +12,7 @@
 
 import fs from 'node:fs';
 import { irpefDisplayText, irpefDisplayTitle } from '../services/irpefAddizionaleRegime';
+import { rentCaptionSuffix } from '../services/avgRentEstimate';
 import path from 'node:path';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
@@ -918,7 +919,7 @@ function renderPage(params: {
     <dl class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       ${renderMetric(copy.distance, `${formatDecimal(municipality.distanceKm, locale)} km`, METRIC_DETAIL.municipalDataset[locale])}
       ${renderMetric(copy.irpef, irpefDisplayText(municipality, locale, `${formatDecimal(municipality.irpefAddizionale, locale)}%`), irpefDisplayTitle(municipality, locale) || METRIC_DETAIL.localRate[locale])}
-      ${renderMetric(copy.rent, `EUR ${formatInt(municipality.avgRentMonthly, locale)}`, METRIC_DETAIL.monthlyRent[locale])}
+      ${renderMetric(copy.rent, `EUR ${formatInt(municipality.avgRentMonthly, locale)}`, `${METRIC_DETAIL.monthlyRent[locale]} · ${rentCaptionSuffix(municipality, locale)}`)}
       ${renderMetric(copy.population, formatInt(municipality.population, locale), municipality.province)}
     </dl>
 
