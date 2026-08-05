@@ -175,6 +175,62 @@ describe('verifyShrinkAgainstSource()', () => {
     });
   });
 
+  it('REFUSES a quarantine-driven shrink instead of waving it through on a vacuous empty diff (reviewer 🔴, PR #5113)', async () => {
+    // The hole: writeJobsCrawlerSlice reassigns its `jobs` internally —
+    // quarantineBoilerplateJobs() returns a NEW filtered array rather than
+    // mutating the caller's — so the count that trips the guard is NOT derived
+    // from the array the caller passed. Diffing prior against the caller's
+    // (pre-quarantine) array finds every key still present, `disappeared` is
+    // empty, and "nothing disappeared" is vacuously true: the write would be
+    // accepted with zero URL evidence and nothing archived.
+    //
+    // `expectedNewCount` is the count the guard actually measured. When the
+    // array handed to us does not match it, we refuse rather than guess.
+    const prior = Array.from({ length: 30 }, (_, i) => job(`q${i}`));
+    const preQuarantine = prior; // what the caller passed — all 30 still here
+    const verdict = await verifyShrinkAgainstSource(prior, preQuarantine, {
+      expectedNewCount: 5, // ...but only 5 survived quarantine and would persist
+      validate: validatorFrom({}),
+    });
+    expect(verdict.corroborated).toBe(false);
+    expect(verdict.reason).toMatch(/array-mismatch/);
+    expect(verdict.disappearedJobs).toHaveLength(0);
+  });
+
+  it('probes the post-quarantine set correctly once the measured array is used', async () => {
+    // Same scenario, but now diffing against what actually persists: the 25
+    // quarantined jobs show up as disappearing and get probed. They are still
+    // live at the source (a quarantine is our own decision, not a source
+    // removal), so the guard correctly stands.
+    const prior = Array.from({ length: 30 }, (_, i) => job(`q${i}`));
+    const postQuarantine = prior.slice(0, 5);
+    const verdict = await verifyShrinkAgainstSource(prior, postQuarantine, {
+      expectedNewCount: 5,
+      validate: validatorFrom({}), // default verdict is "ok" = still live
+    });
+    expect(verdict.corroborated).toBe(false);
+    expect(verdict.checked).toBe(25);
+    expect(verdict.alive).toBe(25);
+  });
+
+  it('REFUSES rather than probing unbounded when the drop exceeds the probe budget', async () => {
+    // A legitimately huge drop is possible; probing it unbounded inside the
+    // crawl step is not. Above the cap the guard stands (conservative
+    // direction) and the log names the reason.
+    const prior = Array.from({ length: 40 }, (_, i) => job(`c${i}`));
+    let probed = 0;
+    const verdict = await verifyShrinkAgainstSource(prior, [], {
+      maxProbes: 10,
+      validate: async (jobs) => {
+        probed += jobs.length;
+        return jobs.map((j) => ({ id: j.id, valid: false, definitive: true, reason: 'http-404' }));
+      },
+    });
+    expect(verdict.corroborated).toBe(false);
+    expect(verdict.reason).toMatch(/probe-budget-exceeded/);
+    expect(probed).toBe(0); // refused before spending any network budget
+  });
+
   it('leaves the guard threshold itself untouched (no ratio was lowered)', () => {
     // Same expectations as tests/scripts/shrink-guard.test.ts — restated here
     // so a future edit to the acceptance path cannot quietly relax the gate.

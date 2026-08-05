@@ -741,10 +741,54 @@ export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}
   const keptKeys = new Set((newJobs || []).map(shrinkJobKey));
   const disappeared = (priorJobs || []).filter((job) => !keptKeys.has(shrinkJobKey(job)));
 
-  // Nothing disappeared (the shrink is pure dedup) — nothing to corroborate,
-  // and nothing that could be silently lost either.
+  // Nothing disappeared. Two very different situations produce this, and only
+  // one of them is safe:
+  //   (a) pure dedup — the prior slice held the same job twice, every key
+  //       survives, no content is lost. Corroborated, nothing to probe.
+  //   (b) the caller diffed the WRONG arrays — e.g. `newJobs` is a pre-filter
+  //       snapshot while the count that tripped the guard came from a filtered
+  //       one. Then "nothing disappeared" is vacuously true and accepting it
+  //       would wave a real drop through with zero evidence.
+  // The caller can pass `expectedNewCount` (the count the guard actually
+  // measured) to tell them apart: if the array we diffed is not the array that
+  // was measured, we refuse rather than guess.
+  const expectedNewCount = options.expectedNewCount;
+  if (Number.isFinite(expectedNewCount) && (newJobs || []).length !== expectedNewCount) {
+    return {
+      corroborated: false,
+      checked: 0,
+      dead: 0,
+      alive: 0,
+      unverifiable: (priorJobs || []).length,
+      evidence: [],
+      survivors: [],
+      disappearedJobs: [],
+      reason: `array-mismatch: diffed ${(newJobs || []).length} jobs but the guard measured ${expectedNewCount}`,
+    };
+  }
   if (disappeared.length === 0) {
     return { corroborated: true, checked: 0, dead: 0, alive: 0, unverifiable: 0, evidence: [], survivors: [], disappearedJobs: [] };
+  }
+
+  // Bound the probe budget. A legitimately huge drop is possible, but probing
+  // it unbounded inside the crawl step is not: at DEFAULT_CONCURRENCY=10 and a
+  // 7s timeout the worst case grows linearly. Above the cap we REFUSE (the
+  // guard stands, prior slice kept) rather than accept on partial evidence —
+  // the conservative direction, and the drop can still be applied deliberately
+  // via SKIP_SHRINK_GUARD=1 after a human look.
+  const maxProbes = Number(process.env.SHRINK_VERIFY_MAX_PROBES) || options.maxProbes || 500;
+  if (disappeared.length > maxProbes) {
+    return {
+      corroborated: false,
+      checked: disappeared.length,
+      dead: 0,
+      alive: 0,
+      unverifiable: disappeared.length,
+      evidence: [],
+      survivors: [],
+      disappearedJobs: disappeared,
+      reason: `probe-budget-exceeded: ${disappeared.length} disappearing jobs > cap ${maxProbes}`,
+    };
   }
 
   // A job with no URL can never be proven dead — treat it as still-alive so
@@ -812,16 +856,36 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
   } catch (err) {
     if (!String(err?.message || '').startsWith('[shrink-guard]')) throw err;
 
-    const priorJobs = readExistingCrawlerJobs(crawlerKey);
+    // Use the arrays the guard ACTUALLY measured, not this function's `jobs`
+    // argument. writeJobsCrawlerSlice reassigns `jobs` internally
+    // (quarantineBoilerplateJobs returns a new filtered array) and hardens it,
+    // so a quarantine-driven shrink is invisible in the caller's array: diffing
+    // against it would find nothing disappeared and wave the write through with
+    // no evidence at all. Without the attached payload we cannot know what was
+    // measured, so we refuse instead of guessing.
+    const measured = err?.shrinkGuard;
+    if (!measured || !Array.isArray(measured.finalJobs) || !Array.isArray(measured.priorJobs)) {
+      console.error(
+        `  🚫 ${crawlerKey}: shrink guard tripped without a measurement payload — cannot verify, keeping the prior slice.`,
+      );
+      throw err;
+    }
+    const priorJobs = measured.priorJobs;
     console.log(
-      `  🔬 ${crawlerKey}: shrink guard tripped — probing the ${Math.max(priorJobs.length - jobs.length, 0)} disappearing job(s) against the source before deciding.`,
+      `  🔬 ${crawlerKey}: shrink guard tripped (${measured.priorCount} → ${measured.newCount}) — probing the disappearing job(s) against the source before deciding.`,
     );
-    const verdict = await verifyShrinkAgainstSource(priorJobs, jobs, { validate, concurrency, timeoutMs });
+    const verdict = await verifyShrinkAgainstSource(priorJobs, measured.finalJobs, {
+      validate,
+      concurrency,
+      timeoutMs,
+      expectedNewCount: measured.newCount,
+    });
 
     if (!verdict.corroborated) {
       console.error(
         `  🚫 ${crawlerKey}: shrink NOT corroborated — ${verdict.alive} of ${verdict.checked} disappearing job(s) are still live at the source` +
           (verdict.unverifiable ? `, ${verdict.unverifiable} have no URL to probe` : '') +
+          (verdict.reason ? ` [${verdict.reason}]` : '') +
           `. Keeping the prior slice (guard stands).`,
       );
       for (const s of verdict.survivors.slice(0, 5)) {
@@ -1528,7 +1592,23 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
       const report = { crawlerKey, priorCount, newCount, ratio: newCount / priorCount };
       console.error(`\n🚨 Shrink guard FAILED for ${crawlerKey}: ${newCount}/${priorCount} jobs (${Math.round(report.ratio * 100)}% of prior) — refusing to persist, prior slice on disk kept\n`);
       _createShrinkGuardIssue(crawlerKey, report);
-      throw new Error(`[shrink-guard] ${crawlerKey}: slice would shrink from ${priorCount} to ${newCount} jobs (${Math.round(report.ratio * 100)}% of prior) — refusing to write, source likely returned degraded results. Override with SKIP_SHRINK_GUARD=1 if this is a legitimate drop.`);
+      const shrinkErr = new Error(`[shrink-guard] ${crawlerKey}: slice would shrink from ${priorCount} to ${newCount} jobs (${Math.round(report.ratio * 100)}% of prior) — refusing to write, source likely returned degraded results. Override with SKIP_SHRINK_GUARD=1 if this is a legitimate drop.`);
+      // Carry the EXACT arrays the guard measured. `jobs` is reassigned inside
+      // this function (`quarantineBoilerplateJobs` returns a new filtered
+      // array, it does not mutate the caller's), so the caller's own `jobs`
+      // argument is NOT what `newCount` counted. Any consumer that re-derives
+      // the drop set from the caller's array would miss a quarantine-driven
+      // shrink entirely and see an empty diff — i.e. "nothing disappeared" —
+      // which is vacuously true and would wave the write through with zero
+      // evidence. Attaching the measured arrays makes that class impossible.
+      shrinkErr.shrinkGuard = {
+        crawlerKey,
+        priorCount,
+        newCount,
+        priorJobs: existingSlice.jobs,
+        finalJobs: hardened.jobs,
+      };
+      throw shrinkErr;
     }
   }
 
