@@ -14,8 +14,8 @@
 // index (only the job-canton shards) never referenced by robots.txt (#4395).
 //
 // Thresholds are intentionally decoupled from the generators' own per-shard
-// cap (build-plugins/relatedSearchClustersPlugin.ts SITEMAP_SHARD_CAP =
-// 39_000, scripts/lib/sitemap-shard.mjs DEFAULT_CAP_PER_SHARD = 39000):
+// cap (SITEMAP_SHARD_CAP = 39_000, now single-sourced in
+// scripts/lib/sitemap-limits.mjs and imported by every emitter):
 // several shards are *by design* filled to exactly that cap, so CRITICAL
 // must sit strictly above it or every full-by-design shard trips a false
 // positive every week (#4395). The generator cap was ALSO lowered below

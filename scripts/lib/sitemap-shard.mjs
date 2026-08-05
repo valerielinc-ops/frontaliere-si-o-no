@@ -26,6 +26,7 @@
 
 import { writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
+import { SITEMAP_SHARD_CAP, padShardIndex } from './sitemap-limits.mjs';
 
 /**
  * @typedef {Object} UrlEntry
@@ -41,12 +42,12 @@ import path from 'node:path';
  * @property {Array<UrlEntry>} urls
  */
 
-// Kept strictly below the weekly monitor's WARNING_THRESHOLD (42,000,
-// scripts/check-sitemap-shard-size.mjs) — see the SITEMAP_SHARD_CAP comment
-// in build-plugins/relatedSearchClustersPlugin.ts (same cap value, sibling
-// constant) for why 45,000 previously guaranteed a weekly false-positive
-// warning on every full-by-design shard (issue #5066).
-const DEFAULT_CAP_PER_SHARD = 39000;
+// Imported, not re-declared: this cap used to be a literal here AND in
+// build-plugins/relatedSearchClustersPlugin.ts, with each comment pointing at
+// the other as a "sibling constant" to keep in lockstep by hand. It now has a
+// single home (scripts/lib/sitemap-limits.mjs) — see that file for why 39,000
+// and not Google's 50,000 (issue #5066).
+const DEFAULT_CAP_PER_SHARD = SITEMAP_SHARD_CAP;
 const FILENAME_PREFIX = 'sitemap-jobs';
 
 /**
@@ -70,13 +71,13 @@ export function escapeXml(value) {
  * Pad a numeric index to a zero-padded 3-digit string (001, 002, ...).
  * Falls back to the unpadded number for indices >= 1000.
  *
+ * Thin alias over the shared helper so this module's internal call sites keep
+ * their existing name while the implementation stays single-sourced.
+ *
  * @param {number} index
  * @returns {string}
  */
-function padIndex(index) {
-  if (index >= 1000) return String(index);
-  return String(index).padStart(3, '0');
-}
+const padIndex = padShardIndex;
 
 /**
  * Slugify a shardKey return value into something safe for a filename.
