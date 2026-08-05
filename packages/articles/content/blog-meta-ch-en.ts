@@ -1858,6 +1858,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.democrazia-diretta-e-votazioni-federali.title': 'Federal Voting Switzerland: How the Laws Work',
     'blog.article.democrazia-diretta-e-votazioni-federali.excerpt': 'A complete guide to Swiss direct democracy: popular initiatives, referendums and a double majority of the people and cantons.',
     'blog.article.democrazia-diretta-e-votazioni-federali.imageAlt': 'Federal Palace in Bern seat of Swiss votes and democracy',
+    'blog.article.congedo-parentale-svizzera-durata.title': 'Swiss Parental Leave Paid Duration and Rules',
+    'blog.article.congedo-parentale-svizzera-durata.excerpt': 'Complete guide to maternity and paternity leave in Switzerland: duration, daily allowance, contributions and regulatory framework for workers.',
+    'blog.article.congedo-parentale-svizzera-durata.imageAlt': 'Panoramic view of Lugano and the Swiss financial district',
+    'blog.article.caldo-disparita-sociali-ginevra.title': 'Heatwave: Women, Elderly and Poor Most at Risk',
+    'blog.article.caldo-disparita-sociali-ginevra.excerpt': 'A report by the University of Geneva reveals that the ability to cope with heat waves depends on social, economic and housing factors.',
+    'blog.article.caldo-disparita-sociali-ginevra.imageAlt': 'Swiss city during a hot summer day',
 };
 
 export default blogMetaChEn;

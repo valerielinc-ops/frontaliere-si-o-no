@@ -7,6 +7,15 @@ export default {
  "./components/**/*.{js,ts,jsx,tsx}",
  "./services/**/*.{js,ts,jsx,tsx}",
  "./build-plugins/**/*.{js,ts}",
+ // The article engine emits static HTML with Tailwind utilities exactly like
+ // build-plugins does, but it was never scanned: the glob above only ever
+ // matched the 8-line re-export shims, not the real emitters that moved into
+ // the package. Every utility it emits (`bg-surface-alt`, `overflow-x-hidden`,
+ // `my-4`, `w-full`, `h-auto`, `rounded-lg`, ...) has been surviving on the
+ // accident of the same class appearing in a scanned component. That accident
+ // is not a contract: the day a component drops the last use of one, article
+ // pages lose it silently. Scanning the source that emits them makes it one.
+ "./packages/articles/engine/**/*.{js,ts}",
  ],
  darkMode: 'class',
  theme: {

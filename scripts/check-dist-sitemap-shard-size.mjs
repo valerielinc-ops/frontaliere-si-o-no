@@ -10,10 +10,13 @@
  *
  * SHARD_HARD_CAP is intentionally kept strictly above the generators' own
  * per-shard cap (build-plugins/relatedSearchClustersPlugin.ts
- * SITEMAP_SHARD_CAP = 45_000, scripts/lib/sitemap-shard.mjs
- * DEFAULT_CAP_PER_SHARD = 45000): several shards are *by design* filled to
- * exactly that cap, so a `>=` gate at exactly 45,000 would permanently
- * false-positive on every full-by-design shard (#4395 sibling fix).
+ * SITEMAP_SHARD_CAP = 39_000, scripts/lib/sitemap-shard.mjs
+ * DEFAULT_CAP_PER_SHARD = 39000): several shards are *by design* filled to
+ * exactly that cap, so a `>=` gate at that value would permanently
+ * false-positive on every full-by-design shard (#4395 sibling fix). The
+ * generator cap was lowered below SHARD_WARN_CAP too (45,000 → 39,000,
+ * issue #5066) after the same false-positive class recurred at the WARN
+ * level.
  *
  * Behavior:
  *   - Reads every dist/sitemap-*.xml that is NOT a sitemapindex.
