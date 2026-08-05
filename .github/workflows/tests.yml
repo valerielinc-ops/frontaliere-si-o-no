@@ -43,11 +43,42 @@ on:
   # carries the existing ## LGTM forward across a pure main-merge rebase).
   workflow_dispatch:
 
-# Cancel in-progress runs for the same ref so superseded commits don't waste
-# the runner pool (matches deploy.yml's behaviour).
+# Two different questions share this workflow, and they do NOT want the same
+# cancellation semantics.
+#
+#   PR runs ask "is THIS head mergeable?". A newer push to the same PR makes the
+#   older head irrelevant, so cancelling it is free — the answer for the head
+#   that matters is still produced. `cancel-in-progress: true` is correct.
+#
+#   Push-to-main runs ask "is main healthy RIGHT NOW?" — the signal AGENTS.md
+#   ("main rosso blocca a cascata: priorità assoluta main verde") depends on.
+#   Every main push shares ONE group (`github.ref` is always `refs/heads/main`),
+#   so with cancel-in-progress: true each merge killed the run started by the
+#   previous merge. The suite needs ~9 min; auto-merge lands PRs every 2-5 min
+#   during a backlog burst, so main runs were killed before reaching a verdict
+#   essentially whenever the repo was busy — MEASURED over the last 30 main-push
+#   runs: 14 cancelled (47%), i.e. main's health was unobservable roughly half
+#   the time, and precisely during the bursts where a regression is most likely.
+#   A cancelled run is not a neutral outcome here: it destroys the only signal
+#   that says whether main is green, so a regression stays invisible until some
+#   unrelated PR happens to inherit it.
+#
+# Fix: keep newest-wins for PRs, let the main verdict RUN TO COMPLETION.
+# `cancel-in-progress: false` does NOT queue main runs without bound — GitHub
+# caps a group at 1 running + 1 pending and drops the superseded middle, so a
+# burst of N merges still costs 2 runs, not N. What changes is that the running
+# one now finishes: main gets a real verdict roughly every suite-length instead
+# of never. The verdict may lag main's tip by a commit or two, which is the
+# intended trade (the coordinator's "va bene che valga solo l'ultimo, purché
+# almeno uno arrivi in fondo") — a slightly stale green/red beats no answer.
+#
+# This is strictly MORE gate, not less: no test is skipped, no threshold moved,
+# no failure downgraded. It only stops throwing away results already paid for.
 concurrency:
   group: tests-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  # PR + workflow_dispatch → newest-wins. push (main only, per `on:` above) →
+  # run to completion so the health signal actually lands.
+  cancel-in-progress: ${{ github.event_name != 'push' }}
 
 jobs:
   # Single job, full suite. The job name `vitest (unit + integration)` is
