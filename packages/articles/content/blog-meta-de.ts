@@ -9270,6 +9270,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.indicatore-affari-aziende-luglio.title': 'Geschäftsindikator Unternehmen: Erholung in fast allen Branchen',
     'blog.article.indicatore-affari-aziende-luglio.excerpt': 'Die wirtschaftliche Lage der Schweizer Unternehmen verbessert sich gemäss dem KOF-Institut der Eidgenössischen Technischen Hochschule Zürich mit einem Plus von 21,5 Punkten im Juli.',
     'blog.article.indicatore-affari-aziende-luglio.imageAlt': 'Ueberblick ueber ein Finanzviertel in der Schweiz mit modernen Gebaeuden',
+    'blog.article.svizzeri-fuga-alloglio-ticino.title': 'Schweizer auf der Flucht über die Grenze zur Unterkunft',
+    'blog.article.svizzeri-fuga-alloglio-ticino.excerpt': '154\'700 Schweizerinnen und Schweizer leben in Grenzregionen. 70% der Westschweizer finden die Mieten zu hoch. Como und Varese zwischen den betroffenen Regionen.',
+    'blog.article.svizzeri-fuga-alloglio-ticino.imageAlt': 'Panoramablick auf den Comer See mit Schweizer Bürgern, die sich in die Region bewegen',
 };
 
 export default blogMetaDe;

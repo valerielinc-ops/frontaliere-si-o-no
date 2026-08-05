@@ -1864,6 +1864,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.caldo-disparita-sociali-ginevra.title': 'Vague de chaleur : femmes, personnes âgées et pauvres les plus à risque',
     'blog.article.caldo-disparita-sociali-ginevra.excerpt': 'Un rapport de l\'Université de Genève révèle que la capacité à faire face aux vagues de chaleur dépend de facteurs sociaux, économiques et de logement.',
     'blog.article.caldo-disparita-sociali-ginevra.imageAlt': 'Ville suisse pendant une chaude journée d\'été',
+    'blog.article.svizzeri-fuga-estero-costo-casa.title': 'Suisses en fuite au-delà de la frontière : le coût de la maison pèse',
+    'blog.article.svizzeri-fuga-estero-costo-casa.excerpt': 'Plus de 154\'000 Suisses vivent dans des zones frontalières étrangères : une augmentation de 14% tirée par des prix immobiliers insoutenables et des loyers en constante augmentation.',
+    'blog.article.svizzeri-fuga-estero-costo-casa.imageAlt': 'Vue panoramique d\'une zone résidentielle frontalière tra la Suisse et l\'Italie',
 };
 
 export default blogMetaChFr;

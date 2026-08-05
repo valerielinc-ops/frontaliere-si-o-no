@@ -1864,6 +1864,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.caldo-disparita-sociali-ginevra.title': 'Heatwave: Women, Elderly and Poor Most at Risk',
     'blog.article.caldo-disparita-sociali-ginevra.excerpt': 'A report by the University of Geneva reveals that the ability to cope with heat waves depends on social, economic and housing factors.',
     'blog.article.caldo-disparita-sociali-ginevra.imageAlt': 'Swiss city during a hot summer day',
+    'blog.article.svizzeri-fuga-estero-costo-casa.title': 'Swiss fleeing overseas: the cost of the house weighs',
+    'blog.article.svizzeri-fuga-estero-costo-casa.excerpt': 'Over 154,000 Swiss live in foreign border areas: a 14% increase driven by unsustainable real estate prices and steadily growing rents.',
+    'blog.article.svizzeri-fuga-estero-costo-casa.imageAlt': 'Panoramic view of a residential border area between Switzerland and Italy',
 };
 
 export default blogMetaChEn;
