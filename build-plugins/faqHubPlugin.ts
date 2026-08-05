@@ -38,6 +38,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { formatUpdatedSentence } from './shared/humanDate';
 import { WriteCollector } from './batchWrite';
@@ -389,21 +390,35 @@ interface RenderResult {
   faqCount: number;
 }
 
-function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): RenderResult {
+/**
+ * @param eligibleLocales Locales whose hub page this build will actually
+ *   write. The `MIN_INDEXABLE_WORDS` floor below is evaluated per locale, so
+ *   it can drop DE while keeping IT — and an hreflang block built from the
+ *   full locale list would then advertise a page nothing wrote (the #5114
+ *   class). Pass 1 of the caller's two-pass render supplies an empty set: it
+ *   only needs `wordCount`, which is computed from the body and does not
+ *   depend on the hreflang block.
+ */
+function renderPage(
+  locale: FaqHubLocale,
+  dateStamp: string,
+  distDir?: string,
+  eligibleLocales: ReadonlySet<string> = new Set(),
+): RenderResult {
   const copy = COPY[locale];
   const urlPath = buildFaqHubPath(locale);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
   const hubParentUrl = `${BASE_URL}${GUIDA_HUB_PATH[locale]}`;
 
-  // Hreflang (4 locales + x-default).
-  const hreflangLines = FAQ_HUB_LOCALES.map(
-    (alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${buildFaqHubPath(alt)}">`,
-  );
-  hreflangLines.push(
-    `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${buildFaqHubPath('it')}">`,
-  );
-  const alternates = hreflangLines.join('\n');
+  // Hreflang (4 locales + x-default), emitted only when every locale's hub
+  // is actually written this build — otherwise nothing, since a partial set
+  // trades audit-hreflang's [missingTarget] for [tooFew] (#5114).
+  const alternates = buildLocaleAlternateBlock({
+    eligibleLocales,
+    hrefFor: (alt) => `${BASE_URL}${buildFaqHubPath(alt as FaqHubLocale)}`,
+    indent: '    ',
+  });
 
   // Categories (10) → 10 sections (10 Q/A each).
   const sections: string[] = [];
@@ -583,18 +598,35 @@ export function faqHubPlugin(rootDir: string): Plugin {
         pluginName: 'faqHubPlugin',
       });
 
-      const alternates = FAQ_HUB_LOCALES.map(
+      // ── Pass 1: which locales clear the indexability floor? ────────────
+      // The floor is per-locale, so it can drop DE while keeping IT. Deciding
+      // it BEFORE any page is rendered for real is what makes it impossible
+      // to advertise a hub that never gets written (#5114 class). `wordCount`
+      // is derived from the body alone, so this pass is not affected by the
+      // empty hreflang block it renders with.
+      const eligibleLocales = new Set<string>(
+        FAQ_HUB_LOCALES.filter(
+          (locale) => renderPage(locale, dateStamp, distDir).wordCount >= MIN_INDEXABLE_WORDS,
+        ),
+      );
+
+      // Sitemap alternates track the same set: an ineligible locale has no
+      // page, so advertising it would point the crawler at a 404.
+      const alternates = FAQ_HUB_LOCALES.filter((alt) => eligibleLocales.has(alt)).map(
         (alt) => `${alt}|${BASE_URL}${buildFaqHubPath(alt)}`,
       );
-      alternates.push(`x-default|${BASE_URL}${buildFaqHubPath('it')}`);
+      if (eligibleLocales.has('it')) {
+        alternates.push(`x-default|${BASE_URL}${buildFaqHubPath('it')}`);
+      }
 
       const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
       let pagesWritten = 0;
       let thinSkipped = 0;
       let itWasWritten = false;
 
+      // ── Pass 2: render for real, with the settled alternate set ────────
       for (const locale of FAQ_HUB_LOCALES) {
-        const rendered = renderPage(locale, dateStamp, distDir);
+        const rendered = renderPage(locale, dateStamp, distDir, eligibleLocales);
 
         if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
           thinSkipped++;

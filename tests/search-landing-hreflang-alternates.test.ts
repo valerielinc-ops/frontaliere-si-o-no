@@ -140,9 +140,15 @@ describe('search-landing emitters route every hreflang block through the shared 
   // (city hubs, sector hubs, …) whose four locales are always emitted. Only
   // the search-landing family has a per-locale floor, so only it can promise
   // a page it never writes.
+  // Every emitter whose page family has a PER-LOCALE emission floor — the
+  // only shape that can promise a sibling it never writes. `faqHubPlugin`
+  // is the second instance of the class: it skipped a locale below
+  // `MIN_INDEXABLE_WORDS` while emitting a full four-locale block
+  // (AGENTS.md #6 — fix the class, not the file).
   const EMITTERS = [
     'build-plugins/jobsSeoPagesPlugin.ts',
     'build-plugins/relatedSearchClustersPlugin.ts',
+    'build-plugins/faqHubPlugin.ts',
   ];
 
   const read = (rel: string) => fs.readFileSync(path.join(ROOT, rel), 'utf-8');
@@ -186,6 +192,16 @@ describe('search-landing emitters route every hreflang block through the shared 
       ).not.toMatch(/eligibleLocales:\s*localeList/);
       expect(call).toMatch(/hrefFor:/);
     }
+  });
+
+  it('faqHubPlugin settles its eligible set before rendering for real', () => {
+    const src = read('build-plugins/faqHubPlugin.ts');
+    // Two-pass render: the MIN_INDEXABLE_WORDS floor is a per-locale skip, so
+    // the set has to be known before any page is written.
+    expect(src).toMatch(/const eligibleLocales = new Set<string>\(/);
+    expect(src).toMatch(/renderPage\(locale, dateStamp, distDir, eligibleLocales\)/);
+    // The sitemap alternate list must track the same set.
+    expect(src).toMatch(/FAQ_HUB_LOCALES\.filter\(\(alt\) => eligibleLocales\.has\(alt\)\)/);
   });
 
   it('the keyword-landing floor drives both emission and the alternate set', () => {
