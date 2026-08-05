@@ -1,98 +1,7 @@
 {
   "crawlerKey": "transgourmet",
-  "assembledAt": "2026-08-04T11:34:05.826Z",
+  "assembledAt": "2026-08-04T22:16:08.722Z",
   "jobs": [
-    {
-      "id": "transgourmet-f633a1ed-4c6",
-      "slug": "system-ingegnere-windows-transgourmet-moosseedorf",
-      "slugByLocale": {
-        "it": "system-ingegnere-windows-transgourmet-moosseedorf",
-        "en": "system-engineer-windows-transgourmet-moosseedorf",
-        "de": "system-engineer-windows-transgourmet-moosseedorf",
-        "fr": "ingenieur-systemes-windows-transgourmet-moosseedorf"
-      },
-      "company": "Transgourmet",
-      "companyKey": "transgourmet",
-      "companyDomain": "transgourmet.ch",
-      "title": "System Engineer Windows",
-      "titleByLocale": {
-        "it": "System Ingegnere Windows",
-        "en": "System Engineer Windows",
-        "de": "System Ingenieur Windows",
-        "fr": "Ingénieur Systèmes Windows"
-      },
-      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du konzipierst, implementierst und betreibst moderne Windows-basierte Plattformen und entwickelst sie aktiv weiter (Fokus der Stelle auf Engineering, mit aktiver Mitarbeit im Betrieb)\n\n• Du stellst zusammen mit dem Team den stabilen und sicheren Betrieb über den gesamten Lifecycle sicher (Run/Operate & Improve): Monitoring/Alerting, Incident-/Problem-Management, Patch-/Release-Management, Capacity/Performance sowie Verfügbarkeit\n\n• Du treibst Standardisierung, Automatisierung und Härtung (Security) der Systemumgebungen voran (z. B. via IaC/Skripting)\n\n• Du übernimmst Engineering-Verantwortung für Lifecycle-Themen: Design, Build, Patch-/Release-Management, Capacity, Performance sowie Verfügbarkeit\n\n• Du analysierst Störungen nachhaltig, führst Root-Cause-Analysen durch und etablierst dauerhafte Verbesserungen (Problem Management)\n\n• Du arbeitest in unternehmensweiten Projekten als technischer Lead oder Spezialist mit und bringst dein Know-how ein\n\n• Du berätst Applikationsverantwortliche und interne Teams zu Infrastruktur, Architektur, Security und Betriebsmodellen\n\n• Du pflegst System-, Architektur- und Betriebsdokumentationen, Standards und Runbooks und sorgst für deren Verfügbarkeit\n\n• Du übernimmst nach der Einarbeitung Pikett-Dienste im definierten Turnus und stellst die Betriebssicherheit auch ausserhalb der Bürozeiten sicher\n\n• Geplante Wartungsfenster und Changes finden regelmässig ausserhalb der Bürozeiten sowie an Wochenenden statt (je nach Bedarf)\n\n## Anforderungen\n• Abgeschlossene Informatikausbildung (EFZ/HF/FH) oder vergleichbare, mehrjährige Praxiserfahrung als Windows System Engineer\n\n• Sehr gute Kenntnisse im Microsoft-Ökosystem, z. B. Microsoft 365, Azure, Windows Server & Clients, MS SQL (betriebsnah), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP\n\n• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)\n\n• Gute Kenntnisse in Netzwerktechnologien und Security-Grundlagen (LAN/WLAN, Cisco, 802.1x, Härtung, Identity- & Access-Konzepte)\n\n• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging\n\n• Starke Skills in Automatisierung & Skripting (PowerShell; idealerweise Git-gestützte Arbeitsweise, CI/CD-nahe Methoden von Vorteil)\n\n• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git\n\n• Strukturierte, eigenverantwortliche Arbeitsweise, hohe Serviceorientierung und gute Kommunikation; Anwenderkenntnisse in der Atlassian Cloud Suite\n\n• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil",
-      "descriptionByLocale": {
-        "it": "Siamo impegnati nei nostri clienti. Ci impegniamo nei nostri 31 mercati di ritiro, per servizio sul campo e consegna, così come nel mondo digitale.Con una gamma di marchi privati versatile interessanti, consulenza professionale e servizi innovativi.Transgourmet Schweiz AG appartiene al Gruppo internazionale Transgourmet. L'azienda è leader nella fornitura e ritiro all'ingrosso svizzero e conta circa 2.100 dipendenti e 100.000 clienti (ristauranti, alberghi, mense, case e ospedali, nonché al dettaglio). Attività\n• Progetta, implementa e gestisce le moderne piattaforme basate su Windows e le sviluppa attivamente (con focus sull'ingegneria, con partecipazione attiva alle operazioni)\n• Tu e il team assicurate un funzionamento stabile e sicuro durante tutto il ciclo di vita (Run/Operate &/81): Monitoraggio/Allertazione, Gestione degli incidenti/Problemi, Gestione delle licenze/Patch, Capacità/Performance e Disponibilità• Avanzate la standardizzazione, l'automazione e la curità degli ambienti di sistema (ad esempio. tramite IaC/Skripting)• Si assume la responsabilità ingegneristica per gli argomenti del ciclo di vita: progettazione, costruzione, gestione patch/release, capacità, prestazioni e disponibilità• Si analizzano i difetti in modo sostenibile, si esegue l'analisi basata su root e root e si implementare miglioramenti duraturi (gestione dei problemi)• Si lavora come leader tecnico o specialista in progetti aziendali e si guadagna il proprio know-how• Si consiglia ai gestori delle applicazioni e ai team interni su infrastrutture, architettura, sicurezza e modelli operativi• Si prende cura di sistemi, architettura e documentazione operativa, Standard e Runbook e garantirne la disponibilità• Dopo l'introduzione dei servizi piket, si assume il controllo nel ciclo definito e garantisce la sicurezza operativa anche al di fuori degli orari di ufficio• Finestre di manutenzione e modifiche previste sono regolarmente tenute al di fuori degli orari di ufficio e nei fine settimana (a seconda dei requisiti) Requisiti\n• Completato addestramento informatico (EFZ/HF/FH) o comparabile, esperienza pluriennale come ingegnere di sistema Windows• Ottima conoscenza dell'ecosistema Microsoft, ad esempio. Microsoft 365, Azure, Windows Server & Clients, MS SQL (operativo), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP• Esperienza con tecnologie di virtualizzazione, idealmente VV (vSphere/ESXi/vCenter)• Buona conoscenza delle tecnologie di rete e dei principi di sicurezza (LAN/WLAN, Cisco, 802.1x, indurimento e simpatie)• Esperienza con backup/restore e storage (ad es. Veeam) e Monitoraggio/Logging• Forte capacità di automazione e scripting (PowerShell; idealmente modalità di funzionamento supportata da Git, metodi di vantaggio correlati a CI/CD)• Vantaggio è familiare con la gestione del codice Ansible e sorgente con Git• Modalità di funzionamento strutturata, auto-responsabile, orientamento di servizio elevato e buona comunicazione; Conoscenza degli utenti in Atlxian Cloud Suite• Ottime competenze tedesche; Francese e/o Italiane sono vantaggiose",
-        "en": "We are committed to our customers. We are committed to our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive private brands, professional specialist advice and innovative services.Transgourmet Schweiz AG belongs to the international Transgourmet Group. The company is a leader in Swiss supply and pick-up wholesale and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retail). Tasks\n• You design, implement and operate modern Windows-based platforms and actively develop them (focus on engineering, with active participation in operations)• You and the team ensure stable and safe operation throughout the Lifecycle (Run/Operate &/81): Monitoring/Alerting, Incident/Problem Management, Patch/Release Management, Capacity/Performance and Availability• You advance standardization, automation and curity of the system environments (e.g. via IaC/Skripting)• You take over engineering responsibility for Lifecycle topics: design, build, patch/release management, capacity, performance and availability• You analyze faults sustainably, perform root- and root-based analysis and implement lasting improvements (problem management)• You work as a technical lead or specialist in company-wide projects and gain your know-how• You advise application managers and internal teams on infrastructure, architecture, security and operating models• You take care of system, architecture and operational documentation, Standards and Runbooks and ensure their availability• After the introduction of piket services, you take over in the defined cycle and ensure operational safety even outside of office times• Planned maintenance windows and Changes are regularly held outside office hours and on weekends (depending on requirements) Requirements\n• Completed computer science training (EFZ/HF/FH) or comparable, multi-year experience as Windows System Engineer• Very good knowledge of the Microsoft ecosystem, e.g. Microsoft 365, Azure, Windows Server & Clients, MS SQL (operational), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP• Experience with virtualization technologies, ideally VV (vSphere/ESXi/vCenter)• Good knowledge of network technologies and security principles (LAN/WLAN, Cisco, 802.1x, hardening, and sympathies)• Experience with backup/restore and storage (e.g. Veeam) and Monitoring/Logging• Strong skills in automation & scripting (PowerShell; ideally Git-supported mode of operation, CI/CD-related methods of advantage)• Advantage is familiar with Ansible and source code management with Git• Structured, self-responsible mode of operation, high service orientation and good communication; User knowledge in Atlassian Cloud Suite• Very good German; French and/or Italian skills are advantageous",
-        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du konzipierst, implementierst und betreibst moderne Windows-basierte Plattformen und entwickelst sie aktiv weiter (Fokus der Stelle auf Engineering, mit aktiver Mitarbeit im Betrieb)\n\n• Du stellst zusammen mit dem Team den stabilen und sicheren Betrieb über den gesamten Lifecycle sicher (Run/Operate & Improve): Monitoring/Alerting, Incident-/Problem-Management, Patch-/Release-Management, Capacity/Performance sowie Verfügbarkeit\n\n• Du treibst Standardisierung, Automatisierung und Härtung (Security) der Systemumgebungen voran (z. B. via IaC/Skripting)\n\n• Du übernimmst Engineering-Verantwortung für Lifecycle-Themen: Design, Build, Patch-/Release-Management, Capacity, Performance sowie Verfügbarkeit\n\n• Du analysierst Störungen nachhaltig, führst Root-Cause-Analysen durch und etablierst dauerhafte Verbesserungen (Problem Management)\n\n• Du arbeitest in unternehmensweiten Projekten als technischer Lead oder Spezialist mit und bringst dein Know-how ein\n\n• Du berätst Applikationsverantwortliche und interne Teams zu Infrastruktur, Architektur, Security und Betriebsmodellen\n\n• Du pflegst System-, Architektur- und Betriebsdokumentationen, Standards und Runbooks und sorgst für deren Verfügbarkeit\n\n• Du übernimmst nach der Einarbeitung Pikett-Dienste im definierten Turnus und stellst die Betriebssicherheit auch ausserhalb der Bürozeiten sicher\n\n• Geplante Wartungsfenster und Changes finden regelmässig ausserhalb der Bürozeiten sowie an Wochenenden statt (je nach Bedarf)\n\n## Anforderungen\n• Abgeschlossene Informatikausbildung (EFZ/HF/FH) oder vergleichbare, mehrjährige Praxiserfahrung als Windows System Engineer\n\n• Sehr gute Kenntnisse im Microsoft-Ökosystem, z. B. Microsoft 365, Azure, Windows Server & Clients, MS SQL (betriebsnah), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP\n\n• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)\n\n• Gute Kenntnisse in Netzwerktechnologien und Security-Grundlagen (LAN/WLAN, Cisco, 802.1x, Härtung, Identity- & Access-Konzepte)\n\n• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging\n\n• Starke Skills in Automatisierung & Skripting (PowerShell; idealerweise Git-gestützte Arbeitsweise, CI/CD-nahe Methoden von Vorteil)\n\n• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git\n\n• Strukturierte, eigenverantwortliche Arbeitsweise, hohe Serviceorientierung und gute Kommunikation; Anwenderkenntnisse in der Atlassian Cloud Suite\n\n• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil",
-        "fr": "Nous nous engageons auprès de nos clients. Nous sommes engagés dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques privées attrayantes, des conseils professionnels spécialisés et des services innovants.Transgourmet Schweiz AG appartient au groupe international Transgourmet. L'entreprise est un leader dans la fourniture et la ramassage en gros suisse et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que de détail). Tâches\n• Vous concevez, implémentez et exploitez des plateformes modernes basées sur Windows et vous les développez activement (en mettant l'accent sur l'ingénierie, avec une participation active aux opérations)• Vous et l'équipe vous assurez un fonctionnement stable et sûr tout au long du cycle de vie (Run/Operate &/81): Surveillance/Alertation, Gestion des incidents/problèmes, Gestion des patchs/releases, Capacité/Performance et Disponibilité• Vous faites progresser la normalisation, l'automatisation et la curité des environnements système (p. ex. via IaC/Skripting)• Vous assumez la responsabilité de l'ingénierie des thèmes du cycle de vie : conception, construction, gestion de patch/release, capacité, performance et disponibilité• Vous analysez durablement les défauts, effectuez des analyses root- and root-based et implémentez des améliorations durables (gestion de problèmes)• Vous travaillez comme chef de file technique ou spécialiste dans des projets à l'échelle de l'entreprise et gagnez votre savoir-faire• Vous conseillez les gestionnaires d'applications et les équipes internes sur les modèles d'infrastructure, d'architecture, de sécurité et d'exploitation• Vous vous occupez des systèmes, de l'architecture et de la documentation opérationnelle, Normes et cahiers de course et assurer leur disponibilité• Après l'introduction des services de piquet, vous prenez le relais dans le cycle défini et assurer la sécurité opérationnelle même en dehors des heures de bureau• Les fenêtres de maintenance prévues et les modifications sont tenues régulièrement en dehors des heures de bureau et les week-ends (selon les exigences) Exigences\n• Formation informatique complète (EFZ/HF/FH) ou expérience comparable, pluriannuelle en tant qu'ingénieur système Windows• Très bonne connaissance de l'écosystème Microsoft, par exemple. Microsoft 365, Azure, Windows Server & Clients, MS SQL (opérationnel), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP• Expérience des technologies de virtualisation, idéalement VV (vSphere/ESXi/vCenter)• Bonne connaissance des technologies de réseau et des principes de sécurité (LAN/WLAN, Cisco, 802.1x, durcissement et les fichiers de sécurité)• Expérience de la sauvegarde/restauration et du stockage (par exemple: Veeam) et Monitoring/Logging• Des compétences élevées en automatisation et en script (PowerShell; idéalement soutenu par Git mode de fonctionnement, IC/CD-profit méthodes)• Avantage est familier avec Ansible et la gestion de code source avec Git• Mode de fonctionnement structuré, auto-responsible, orientation de service élevé et bonne communication; Connaissances utilisateur dans Atlassian Cloud Suite• Très bon allemand; les compétences françaises et/ou italiennes sont avantageuses"
-      },
-      "location": "Moosseedorf",
-      "canton": "BE",
-      "url": "https://jobs.transgourmet.ch/offene-stellen/system-engineer-windows/f633a1ed-4c62-4291-be3c-dd3d535cc231",
-      "source": "Transgourmet Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:33:59.894Z",
-      "addressLocality": "Moosseedorf",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3302",
-      "streetAddress": "Lochackerweg 5",
-      "category": "Ingegneria",
-      "contract": "permanent",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Commercio all'ingrosso alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-05",
-      "pensum": "100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=164960",
-      "requirements": [
-        "• Abgeschlossene Informatikausbildung (EFZ/HF/FH) oder vergleichbare, mehrjährige Praxiserfahrung als Windows System Engineer",
-        "• Sehr gute Kenntnisse im Microsoft-Ökosystem, z. B. Microsoft 365, Azure, Windows Server & Clients, MS SQL (betriebsnah), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP",
-        "• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)",
-        "• Gute Kenntnisse in Netzwerktechnologien und Security-Grundlagen (LAN/WLAN, Cisco, 802.1x, Härtung, Identity- & Access-Konzepte)",
-        "• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging",
-        "• Starke Skills in Automatisierung & Skripting (PowerShell; idealerweise Git-gestützte Arbeitsweise, CI/CD-nahe Methoden von Vorteil)",
-        "• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git",
-        "• Strukturierte, eigenverantwortliche Arbeitsweise, hohe Serviceorientierung und gute Kommunikation; Anwenderkenntnisse in der Atlassian Cloud Suite",
-        "• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)",
-          "• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging",
-          "• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git",
-          "• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil"
-        ]
-      },
-      "previousSlugs": [
-        "system-engineer-windows-transgourmet-moosseedorf",
-        "finestre-del-system-engineer-transgourmet-moosseedorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "system-engineer-windows-transgourmet-moosseedorf",
-          "finestre-del-system-engineer-transgourmet-moosseedorf"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T15:46:10.889Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "transgourmet-cf1ffd74-342",
       "slug": "mitarbeiterin-addetto-a-alle-vendite-allrounder-80-100-transgourmet-hinwil",
@@ -124,7 +33,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-allrounder/cf1ffd74-342b-41ae-b5d8-e70e704ab167",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:33:59.893Z",
+      "crawledAt": "2026-08-04T22:16:03.507Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -205,100 +114,6 @@
       }
     },
     {
-      "id": "transgourmet-fa2e39fb-574",
-      "slug": "collaboratore-collaboratore-di-arrivi-transgourmet-gals",
-      "slugByLocale": {
-        "it": "collaboratore-collaboratore-di-arrivi-transgourmet-gals",
-        "en": "collaborator-collaborator-of-arrivals-transgourmet-gals",
-        "de": "mitarbeiter-mitarbeiter-von-arrivals-transgourmet-gals",
-        "fr": "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
-      },
-      "company": "Transgourmet",
-      "companyKey": "transgourmet",
-      "companyDomain": "transgourmet.ch",
-      "title": "Collaboratrice / Collaborateur des Arrivages",
-      "titleByLocale": {
-        "it": "Collaboratore / Collaboratore di Arrivi",
-        "en": "Collaborator / Collaborator of Arrivals",
-        "de": "Mitarbeiter / Mitarbeiter von Arrivals",
-        "fr": "Collaboratrice / Collaborateur des Arrivages"
-      },
-      "description": "Notre cœur bat pour le secteur gastronomique suisse. Nous nous engageons sans cesse pour nos clients. Dans nos 31 marchés de libre-service, par le biais du Service externe et de la livraison, tout autant que dans le monde numérique. Avec un assortiment varié, des marques propres attrayantes, des conseils spécialisés et professionnels et des services innovateurs.\n\nTransgourmet Suisse SA fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de livraison et de libre-service en Suisse et compte quelque 2'100 collaborateurs, ainsi que 100'000 clients (restaurants, hôtels, cantines, foyers et hôpitaux, ainsi que commerce de détail).\n\n## Aufgaben\n• Assurer un traitement qualitatif de l'arrivage des marchandises de Transgourmet\n\n• Effectuer le contrôle des marchandises lors de l'arrivage et du stockage de manière professionnel en suivant les directives internes.\n\n• Travailler en étroite collaboration avec les collègues de l'entrepôt mais aussi avec les fournisseurs.\n\n• Assurer les différents échanges / retours d'emballages et d'articles consignés ou non avec les fournisseurs\n\n• Respecter des directives légales en matière d'assurance qualité\n\n## Anforderungen\n• Formation complète en tant que logisticien CFC/AFP ou au moins 3 ans d'expérience professionnelle dans ce domaine\n\n• Permis de conduire un chariot élévateur (reconnu par la SUVA) avec suffisamment   d'expérience\n\n• Initiative personnelle, fiabilité et forte volonté de s'engager\n\n• Bonne résistance physique au froid et aux charges\n\n• Bonnes connaissances dans l'utilisation des systèmes de gestion des stocks\n\n• Bonnes connaissances du français parlé / écrit",
-      "descriptionByLocale": {
-        "it": "Il nostro cuore batte per il settore gastronomico svizzero. Siamo costantemente impegnati nei nostri clienti. Nei nostri 31 mercati self-service, attraverso il servizio esterno e la consegna, così come nel mondo digitale. Con un assortimento vario, attraenti marchi puliti, consulenza specializzata e professionale e servizi innovativi.\n\nTransgourmet Suisse SA fa parte del gruppo internazionale Transgourmet. L'azienda è leader nel commercio di consegna e self-service in Svizzera e ha circa 2'100 dipendenti, così come 100'000 clienti (ristoranti, hotel, mense, case e ospedali, così come al dettaglio).\n\n## Aufgaben\n• Lavorazione qualitativa dell'arrivo dei beni Transgourmet\n\n• Eseguire il controllo delle merci quando si arriva e memorizzato in modo professionale seguendo le istruzioni interne.\n\n• Lavorare a stretto contatto con colleghi e fornitori di magazzino.\n\n• Assicurare diversi scambi / resi di pacchetti e articoli registrati o non con i fornitori\n\n• Osservare le linee guida di garanzia della qualità giuridica\n\n## Anforderungen\n• Full training as a CFC/AFP Logistician o almeno 3 anni di esperienza professionale in questo campo\n\n• Permesso di guidare un carrello elevatore (riconosciuto da SUVA) con esperienza sufficiente\n\n• Iniziativa personale, affidabilità e forte impegno\n\n• Buona resistenza fisica al freddo e ai carichi\n\n• Buona conoscenza nell'uso dei sistemi di gestione delle scorte\n\n• Buona conoscenza del francese parlato/scritto",
-        "en": "Our heart beats for the Swiss gastronomic sector. We are constantly committed to our clients. In our 31 self-service markets, through external service and delivery, as well as in the digital world. With a varied assortment, attractive clean brands, specialized and professional advice and innovative services.\n\nTransgourmet Suisse SA is part of the international group Transgourmet. The company is a leader in the delivery and self-service trade in Switzerland and has some 2'100 employees, as well as 100'000 customers (restaurants, hotels, canteens, homes and hospitals, as well as retail).\n\n## Aufgaben\n• Qualitative processing of the arrival of Transgourmet goods\n\n• Perform control of goods when arriving and stored in a professional manner following internal instructions.\n\n• Work closely with warehouse colleagues and suppliers.\n\n• Ensure different exchanges / returns of packages and items recorded or not with suppliers\n\n• Observe legal quality assurance guidelines\n\n## Anforderungen\n• Full training as a CFC/AFP Logistician or at least 3 years of professional experience in this field\n\n• Permit to drive a forklift (recognized by SUVA) with sufficient experience\n\n• Personal initiative, reliability and strong commitment\n\n• Good physical resistance to cold and loads\n\n• Good knowledge in the use of inventory management systems\n\n• Good knowledge of spoken/written French",
-        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Wir sind unseren Kunden ständig verpflichtet. In unseren 31 Self-Service-Märkten, durch externe Dienstleistung und Lieferung, sowie in der digitalen Welt. Mit einem abwechslungsreichen Sortiment, attraktiven sauberen Marken, spezialisierter und professioneller Beratung und innovativen Dienstleistungen.\n\nTransgourmet Suisse SA ist Teil der internationalen Gruppe Transgourmet. Das Unternehmen ist führend im Liefer- und Selbstbedienungshandel der Schweiz und beschäftigt rund 2'100 Mitarbeiter sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Häuser und Krankenhäuser sowie Einzelhandel).\n\n## Aufgaben\n• Qualitative Verarbeitung der Ankunft von Transgourmet-Waren\n\n• Kontrollieren Sie die Waren bei der Ankunft und lagern Sie sie professionell nach internen Anweisungen.\n\n• Arbeiten Sie eng mit Lagerkollegen und Lieferanten zusammen.\n\n• Stellen Sie sicher, dass unterschiedliche Umtausch / Rückgabe von Paketen und Artikeln aufgezeichnet oder nicht mit Lieferanten\n\n• Einhaltung der gesetzlichen Qualitätssicherungsrichtlinien\n\n## Vorschriften\n• Vollständige Ausbildung zum CFC/AFP-Logistiker oder mindestens 3 Jahre Berufserfahrung in diesem Bereich\n\n• Genehmigung zum Führen eines Gabelstaplers (anerkannt von SUVA) mit ausreichender Erfahrung\n\n• Eigeninitiative, Zuverlässigkeit und starkes Engagement\n\n• Gute physikalische Beständigkeit gegen Kälte und Belastungen\n\n• Gute Kenntnisse im Einsatz von Bestandsverwaltungssystemen\n\n• Gute Kenntnisse des gesprochenen / geschriebenen Französisch",
-        "fr": "Notre cœur bat pour le secteur gastronomique suisse. Nous nous engageons sans cesse pour nos clients. Dans nos 31 marchés de libre-service, par le biais du Service externe et de la livraison, tout autant que dans le monde numérique. Avec un assortiment varié, des marques propres attrayantes, des conseils spécialisés et professionnels et des services innovateurs.\n\nTransgourmet Suisse SA fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de livraison et de libre-service en Suisse et compte quelque 2'100 collaborateurs, ainsi que 100'000 clients (restaurants, hôtels, cantines, foyers et hôpitaux, ainsi que commerce de détail).\n\n## Aufgaben\n• Assurer un traitement qualitatif de l'arrivage des marchandises de Transgourmet\n\n• Effectuer le contrôle des marchandises lors de l'arrivage et du stockage de manière professionnel en suivant les directives internes.\n\n• Travailler en étroite collaboration avec les collègues de l'entrepôt mais aussi avec les fournisseurs.\n\n• Assurer les différents échanges / retours d'emballages et d'articles consignés ou non avec les fournisseurs\n\n• Respecter des directives légales en matière d'assurance qualité\n\n## Anforderungen\n• Formation complète en tant que logisticien CFC/AFP ou au moins 3 ans d'expérience professionnelle dans ce domaine\n\n• Permis de conduire un chariot élévateur (reconnu par la SUVA) avec suffisamment d'expérience\n\n• Initiative personnelle, fiabilité et forte volonté de s'engager\n\n• Bonne résistance physique au froid et aux charges\n\n• Bonnes connaissances dans l'utilisation des systèmes de gestion des stocks\n\n• Bonnes connaissances du français parlé / écrit"
-      },
-      "location": "Gals",
-      "canton": "BE",
-      "url": "https://jobs.transgourmet.ch/postes-vacantes/collaboratrice-collaborateur-des-arrivages/fa2e39fb-5748-44dd-86b8-a76543b37633",
-      "source": "Transgourmet Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-04T11:33:59.889Z",
-      "addressLocality": "Gals",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3238",
-      "streetAddress": "Bernstrasse 9",
-      "category": "Altro",
-      "contract": "permanent",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Commercio all'ingrosso alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "pensum": "100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168623",
-      "requirements": [
-        "• Formation complète en tant que logisticien CFC/AFP ou au moins 3 ans d'expérience professionnelle dans ce domaine",
-        "• Permis de conduire un chariot élévateur (reconnu par la SUVA) avec suffisamment   d'expérience",
-        "• Initiative personnelle, fiabilité et forte volonté de s'engager",
-        "• Bonne résistance physique au froid et aux charges",
-        "• Bonnes connaissances dans l'utilisation des systèmes de gestion des stocks",
-        "• Bonnes connaissances du français parlé / écrit"
-      ],
-      "requirementsByLocale": {
-        "fr": [
-          "• Formation complète en tant que logisticien CFC/AFP ou au moins 3 ans d'expérience professionnelle dans ce domaine",
-          "• Permis de conduire un chariot élévateur (reconnu par la SUVA) avec suffisamment d'expérience",
-          "• Initiative personnelle, fiabilité et forte volonté de s'engager",
-          "• Bonne résistance physique au froid et aux charges",
-          "• Bonnes connaissances dans l'utilisation des systèmes de gestion des stocks",
-          "• Bonnes connaissances du français parlé / écrit"
-        ]
-      },
-      "previousSlugs": [
-        "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
-        ],
-        "en": [
-          "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
-        ],
-        "de": [
-          "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T11:15:23.704Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "transgourmet-57aaf462-20f",
       "slug": "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-gamsen",
       "slugByLocale": {
@@ -329,7 +144,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-markt/57aaf462-20f3-4c1f-8b7c-cff06ebbe1c8",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:33:59.889Z",
+      "crawledAt": "2026-08-04T22:16:03.505Z",
       "addressLocality": "Gamsen",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -401,6 +216,100 @@
       }
     },
     {
+      "id": "transgourmet-fa2e39fb-574",
+      "slug": "collaboratore-collaboratore-di-arrivi-transgourmet-gals",
+      "slugByLocale": {
+        "it": "collaboratore-collaboratore-di-arrivi-transgourmet-gals",
+        "en": "collaborator-collaborator-of-arrivals-transgourmet-gals",
+        "de": "mitarbeiter-mitarbeiter-von-arrivals-transgourmet-gals",
+        "fr": "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
+      },
+      "company": "Transgourmet",
+      "companyKey": "transgourmet",
+      "companyDomain": "transgourmet.ch",
+      "title": "Collaboratrice / Collaborateur des Arrivages",
+      "titleByLocale": {
+        "it": "Collaboratore / Collaboratore di Arrivi",
+        "en": "Collaborator / Collaborator of Arrivals",
+        "de": "Mitarbeiter / Mitarbeiter von Arrivals",
+        "fr": "Collaboratrice / Collaborateur des Arrivages"
+      },
+      "description": "Notre cœur bat pour le secteur gastronomique suisse. Nous nous engageons sans cesse pour nos clients. Dans nos 31 marchés de libre-service, par le biais du Service externe et de la livraison, tout autant que dans le monde numérique. Avec un assortiment varié, des marques propres attrayantes, des conseils spécialisés et professionnels et des services innovateurs.\n\nTransgourmet Suisse SA fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de livraison et de libre-service en Suisse et compte quelque 2'100 collaborateurs, ainsi que 100'000 clients (restaurants, hôtels, cantines, foyers et hôpitaux, ainsi que commerce de détail).\n\n## Aufgaben\n• Assurer un traitement qualitatif de l'arrivage des marchandises de Transgourmet\n\n• Effectuer le contrôle des marchandises lors de l'arrivage et du stockage de manière professionnel en suivant les directives internes.\n\n• Travailler en étroite collaboration avec les collègues de l'entrepôt mais aussi avec les fournisseurs.\n\n• Assurer les différents échanges / retours d'emballages et d'articles consignés ou non avec les fournisseurs\n\n• Respecter des directives légales en matière d'assurance qualité\n\n## Anforderungen\n• Formation complète en tant que logisticien CFC/AFP ou au moins 3 ans d'expérience professionnelle dans ce domaine\n\n• Permis de conduire un chariot élévateur (reconnu par la SUVA) avec suffisamment   d'expérience\n\n• Initiative personnelle, fiabilité et forte volonté de s'engager\n\n• Bonne résistance physique au froid et aux charges\n\n• Bonnes connaissances dans l'utilisation des systèmes de gestion des stocks\n\n• Bonnes connaissances du français parlé / écrit",
+      "descriptionByLocale": {
+        "it": "Il nostro cuore batte per il settore gastronomico svizzero. Siamo costantemente impegnati nei nostri clienti. Nei nostri 31 mercati self-service, attraverso il servizio esterno e la consegna, così come nel mondo digitale. Con un assortimento vario, attraenti marchi puliti, consulenza specializzata e professionale e servizi innovativi.\n\nTransgourmet Suisse SA fa parte del gruppo internazionale Transgourmet. L'azienda è leader nel commercio di consegna e self-service in Svizzera e ha circa 2'100 dipendenti, così come 100'000 clienti (ristoranti, hotel, mense, case e ospedali, così come al dettaglio).\n\n## Aufgaben\n• Lavorazione qualitativa dell'arrivo dei beni Transgourmet\n\n• Eseguire il controllo delle merci quando si arriva e memorizzato in modo professionale seguendo le istruzioni interne.\n\n• Lavorare a stretto contatto con colleghi e fornitori di magazzino.\n\n• Assicurare diversi scambi / resi di pacchetti e articoli registrati o non con i fornitori\n\n• Osservare le linee guida di garanzia della qualità giuridica\n\n## Anforderungen\n• Full training as a CFC/AFP Logistician o almeno 3 anni di esperienza professionale in questo campo\n\n• Permesso di guidare un carrello elevatore (riconosciuto da SUVA) con esperienza sufficiente\n\n• Iniziativa personale, affidabilità e forte impegno\n\n• Buona resistenza fisica al freddo e ai carichi\n\n• Buona conoscenza nell'uso dei sistemi di gestione delle scorte\n\n• Buona conoscenza del francese parlato/scritto",
+        "en": "Our heart beats for the Swiss gastronomic sector. We are constantly committed to our clients. In our 31 self-service markets, through external service and delivery, as well as in the digital world. With a varied assortment, attractive clean brands, specialized and professional advice and innovative services.\n\nTransgourmet Suisse SA is part of the international group Transgourmet. The company is a leader in the delivery and self-service trade in Switzerland and has some 2'100 employees, as well as 100'000 customers (restaurants, hotels, canteens, homes and hospitals, as well as retail).\n\n## Aufgaben\n• Qualitative processing of the arrival of Transgourmet goods\n\n• Perform control of goods when arriving and stored in a professional manner following internal instructions.\n\n• Work closely with warehouse colleagues and suppliers.\n\n• Ensure different exchanges / returns of packages and items recorded or not with suppliers\n\n• Observe legal quality assurance guidelines\n\n## Anforderungen\n• Full training as a CFC/AFP Logistician or at least 3 years of professional experience in this field\n\n• Permit to drive a forklift (recognized by SUVA) with sufficient experience\n\n• Personal initiative, reliability and strong commitment\n\n• Good physical resistance to cold and loads\n\n• Good knowledge in the use of inventory management systems\n\n• Good knowledge of spoken/written French",
+        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Wir sind unseren Kunden ständig verpflichtet. In unseren 31 Self-Service-Märkten, durch externe Dienstleistung und Lieferung, sowie in der digitalen Welt. Mit einem abwechslungsreichen Sortiment, attraktiven sauberen Marken, spezialisierter und professioneller Beratung und innovativen Dienstleistungen.\n\nTransgourmet Suisse SA ist Teil der internationalen Gruppe Transgourmet. Das Unternehmen ist führend im Liefer- und Selbstbedienungshandel der Schweiz und beschäftigt rund 2'100 Mitarbeiter sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Häuser und Krankenhäuser sowie Einzelhandel).\n\n## Aufgaben\n• Qualitative Verarbeitung der Ankunft von Transgourmet-Waren\n\n• Kontrollieren Sie die Waren bei der Ankunft und lagern Sie sie professionell nach internen Anweisungen.\n\n• Arbeiten Sie eng mit Lagerkollegen und Lieferanten zusammen.\n\n• Stellen Sie sicher, dass unterschiedliche Umtausch / Rückgabe von Paketen und Artikeln aufgezeichnet oder nicht mit Lieferanten\n\n• Einhaltung der gesetzlichen Qualitätssicherungsrichtlinien\n\n## Vorschriften\n• Vollständige Ausbildung zum CFC/AFP-Logistiker oder mindestens 3 Jahre Berufserfahrung in diesem Bereich\n\n• Genehmigung zum Führen eines Gabelstaplers (anerkannt von SUVA) mit ausreichender Erfahrung\n\n• Eigeninitiative, Zuverlässigkeit und starkes Engagement\n\n• Gute physikalische Beständigkeit gegen Kälte und Belastungen\n\n• Gute Kenntnisse im Einsatz von Bestandsverwaltungssystemen\n\n• Gute Kenntnisse des gesprochenen / geschriebenen Französisch",
+        "fr": "Notre cœur bat pour le secteur gastronomique suisse. Nous nous engageons sans cesse pour nos clients. Dans nos 31 marchés de libre-service, par le biais du Service externe et de la livraison, tout autant que dans le monde numérique. Avec un assortiment varié, des marques propres attrayantes, des conseils spécialisés et professionnels et des services innovateurs.\n\nTransgourmet Suisse SA fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de livraison et de libre-service en Suisse et compte quelque 2'100 collaborateurs, ainsi que 100'000 clients (restaurants, hôtels, cantines, foyers et hôpitaux, ainsi que commerce de détail).\n\n## Aufgaben\n• Assurer un traitement qualitatif de l'arrivage des marchandises de Transgourmet\n\n• Effectuer le contrôle des marchandises lors de l'arrivage et du stockage de manière professionnel en suivant les directives internes.\n\n• Travailler en étroite collaboration avec les collègues de l'entrepôt mais aussi avec les fournisseurs.\n\n• Assurer les différents échanges / retours d'emballages et d'articles consignés ou non avec les fournisseurs\n\n• Respecter des directives légales en matière d'assurance qualité\n\n## Anforderungen\n• Formation complète en tant que logisticien CFC/AFP ou au moins 3 ans d'expérience professionnelle dans ce domaine\n\n• Permis de conduire un chariot élévateur (reconnu par la SUVA) avec suffisamment d'expérience\n\n• Initiative personnelle, fiabilité et forte volonté de s'engager\n\n• Bonne résistance physique au froid et aux charges\n\n• Bonnes connaissances dans l'utilisation des systèmes de gestion des stocks\n\n• Bonnes connaissances du français parlé / écrit"
+      },
+      "location": "Gals",
+      "canton": "BE",
+      "url": "https://jobs.transgourmet.ch/postes-vacantes/collaboratrice-collaborateur-des-arrivages/fa2e39fb-5748-44dd-86b8-a76543b37633",
+      "source": "Transgourmet Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-04T22:16:03.504Z",
+      "addressLocality": "Gals",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3238",
+      "streetAddress": "Bernstrasse 9",
+      "category": "Altro",
+      "contract": "permanent",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Commercio all'ingrosso alimentare",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-21",
+      "pensum": "100%",
+      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168623",
+      "requirements": [
+        "• Formation complète en tant que logisticien CFC/AFP ou au moins 3 ans d'expérience professionnelle dans ce domaine",
+        "• Permis de conduire un chariot élévateur (reconnu par la SUVA) avec suffisamment   d'expérience",
+        "• Initiative personnelle, fiabilité et forte volonté de s'engager",
+        "• Bonne résistance physique au froid et aux charges",
+        "• Bonnes connaissances dans l'utilisation des systèmes de gestion des stocks",
+        "• Bonnes connaissances du français parlé / écrit"
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "• Formation complète en tant que logisticien CFC/AFP ou au moins 3 ans d'expérience professionnelle dans ce domaine",
+          "• Permis de conduire un chariot élévateur (reconnu par la SUVA) avec suffisamment d'expérience",
+          "• Initiative personnelle, fiabilité et forte volonté de s'engager",
+          "• Bonne résistance physique au froid et aux charges",
+          "• Bonnes connaissances dans l'utilisation des systèmes de gestion des stocks",
+          "• Bonnes connaissances du français parlé / écrit"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
+        ],
+        "en": [
+          "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
+        ],
+        "de": [
+          "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
+        ]
+      },
+      "firstSeenAt": "2026-07-21T11:15:23.704Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "transgourmet-9d860179-c1b",
       "slug": "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dietikon",
       "slugByLocale": {
@@ -431,7 +340,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-metzgerei/9d860179-c1b1-4c61-bbfd-76fac3939ee0",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:33:59.888Z",
+      "crawledAt": "2026-08-04T22:16:03.504Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -509,98 +418,6 @@
       }
     },
     {
-      "id": "transgourmet-75222981-fde",
-      "slug": "ordina-picker-ordine-picker-transgourmet-landquart",
-      "slugByLocale": {
-        "it": "ordina-picker-ordine-picker-transgourmet-landquart",
-        "en": "order-picker-order-picker-transgourmet-landquart",
-        "de": "kommissioniererin-kommissionierer-transgourmet-landquart",
-        "fr": "recuperateur-de-commandes-recuperateur-de-commandes-transgourmet-landquart"
-      },
-      "company": "Transgourmet",
-      "companyKey": "transgourmet",
-      "companyDomain": "transgourmet.ch",
-      "title": "Kommissioniererin / Kommissionierer",
-      "titleByLocale": {
-        "it": "Ordina picker / ordine picker",
-        "en": "Order picker / order picker",
-        "de": "Kommissioniererin / Kommissionierer",
-        "fr": "Récupérateur de commandes / Récupérateur de commandes"
-      },
-      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kommissionierst Kundenaufträge termingerecht, fehlerfrei und qualitativ top – auch in Kühlräumen (3–5 °C).\n\n• Du hältst Rüstreihenfolgen ein und belädst die Transportgebinde korrekt.\n\n• Du ordnest Aufträge der richtigen Tour zu und platzierst sie am passenden Bereitstellungsplatz.\n\n• Du löst Nachschub aus, wenn Artikel zur Neige gehen.\n\n• Du unterstützt bei Inventuren und entsorgst Abfall fachgerecht.\n\n• Du arbeitest systemgeführt und hältst alle Kommissionier-, QS- und ASIB-Richtlinien ein.\n\n## Anforderungen\n• Du hast Erfahrung im Wareneingang und in der Kommissionierung.\n\n• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.\n\n• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.\n\n• Du bist körperlich belastbar und für Kühlräume gemacht.\n\n• Du kennst dich mit Lagerverwaltungssystemen aus.\n\n• Du sprichst gut Deutsch und bist zuverlässig.",
-      "descriptionByLocale": {
-        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di approvvigionamento e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Scegli gli ordini dei clienti in tempo, senza errori e di alta qualità, anche nelle sale frigorifere (3-5 °C).\n\n• Mantenere gli ordini di configurazione e caricare correttamente i contenitori di trasporto.\n\n• Assegnare gli ordini al tour giusto e posizionarli nello spazio di consegna appropriato.\n\n• Si attivano forniture quando gli articoli vengono esauriti.\n\n• Sosteni gli inventari e disfasci correttamente i rifiuti.\n\n• Lei lavora sistema-gestito e conforme a tutte le linee guida di raccolta ordini, QS e ASIB.\n\n## Requisiti\n• Hai esperienza nella ricevuta e nella raccolta delle merci.\n\n• Hai un pass valido per carrello elevatore omologato SUVA.\n\n• Si lavora orientato all'obiettivo, strutturato e con un alto livello di iniziativa.\n\n• Siete fisicamente resilienti e fatti per le stanze fredde.\n\n• Conosci i sistemi di gestione del magazzino.\n\n• Parli bene tedesco e sei affidabile.",
-        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\n\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss supply and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\n• You pick customer orders on time, error-free and top-quality – even in refrigeration rooms (3–5 °C).\n\n• You keep setup orders and load the transport containers correctly.\n\n• You assign orders to the right tour and place them in the appropriate delivery space.\n\n• You trigger supplies when articles run out.\n\n• You support with inventories and dispose of waste properly.\n\n• You work system-managed and comply with all order picking, QS and ASIB guidelines.\n\n## Requirements\n• You have experience in goods receipt and picking.\n\n• You have a valid SUVA-approved forklift pass.\n\n• You work goal-oriented, structured and with a high level of initiative.\n\n• You are physically resilient and made for cold rooms.\n\n• You are familiar with warehouse management systems.\n\n• You speak good German and are reliable.",
-        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kommissionierst Kundenaufträge termingerecht, fehlerfrei und qualitativ top – auch in Kühlräumen (3–5 °C).\n\n• Du hältst Rüstreihenfolgen ein und belädst die Transportgebinde korrekt.\n\n• Du ordnest Aufträge der richtigen Tour zu und platzierst sie am passenden Bereitstellungsplatz.\n\n• Du löst Nachschub aus, wenn Artikel zur Neige gehen.\n\n• Du unterstützt bei Inventuren und entsorgst Abfall fachgerecht.\n\n• Du arbeitest systemgeführt und hältst alle Kommissionier-, QS- und ASIB-Richtlinien ein.\n\n## Anforderungen\n• Du hast Erfahrung im Wareneingang und in der Kommissionierung.\n\n• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.\n\n• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.\n\n• Du bist körperlich belastbar und für Kühlräume gemacht.\n\n• Du kennst dich mit Lagerverwaltungssystemen aus.\n\n• Du sprichst gut Deutsch und bist zuverlässig.",
-        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\n\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de gros suisse d'approvisionnement et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détaillants).\n\n## Tâche\n• Vous choisissez les commandes des clients à temps, sans erreur et de qualité supérieure – même dans les salles de réfrigération (3-5 °C).\n\n• Vous gardez les commandes de configuration et chargez correctement les conteneurs de transport.\n\n• Vous assignez des commandes à la bonne visite et les placez dans l'espace de livraison approprié.\n\n• Vous déclenchez des fournitures quand les articles sont épuisés.\n\n• Vous supportez les stocks et éliminez les déchets correctement.\n\n• Vous travaillez système géré et se conforme à toutes les commandes, QS et ASIB lignes directrices.\n\n## Exigences\n• Vous avez de l'expérience dans la réception et la cueillette des marchandises.\n\n• Vous avez une carte de chariot élévateur valide approuvée par le SUVA.\n\n• Vous travaillez sur des objectifs, structurés et avec un haut niveau d'initiative.\n\n• Vous êtes physiquement résistant et fait pour les chambres froides.\n\n• Vous connaissez bien les systèmes de gestion des entrepôts.\n\n• Tu parles bien l'allemand et tu es fiable."
-      },
-      "location": "Landquart",
-      "canton": "GR",
-      "url": "https://jobs.transgourmet.ch/offene-stellen/kommissioniererin-kommissionierer/75222981-fdea-4776-a3ed-9b9edea180cf",
-      "source": "Transgourmet Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:33:59.882Z",
-      "addressLocality": "Landquart",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "permanent",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Commercio all'ingrosso alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-24",
-      "pensum": "80-100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168551",
-      "requirements": [
-        "• Du hast Erfahrung im Wareneingang und in der Kommissionierung.",
-        "• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.",
-        "• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.",
-        "• Du bist körperlich belastbar und für Kühlräume gemacht.",
-        "• Du kennst dich mit Lagerverwaltungssystemen aus.",
-        "• Du sprichst gut Deutsch und bist zuverlässig."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Du hast Erfahrung im Wareneingang und in der Kommissionierung.",
-          "• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.",
-          "• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.",
-          "• Du bist körperlich belastbar und für Kühlräume gemacht.",
-          "• Du kennst dich mit Lagerverwaltungssystemen aus.",
-          "• Du sprichst gut Deutsch und bist zuverlässig."
-        ]
-      },
-      "previousSlugs": [
-        "kommissioniererin-kommissionierer-transgourmet-landquart"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kommissioniererin-kommissionierer-transgourmet-landquart"
-        ],
-        "en": [
-          "kommissioniererin-kommissionierer-transgourmet-landquart"
-        ],
-        "fr": [
-          "kommissioniererin-kommissionierer-transgourmet-landquart"
-        ]
-      },
-      "firstSeenAt": "2026-07-24T22:06:53.285Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "transgourmet-4b66d7c3-413",
       "slug": "mitarbeiterin-bereitstellung-collaboratore-trice-bereitstellung-transgourmet-landquart",
       "slugByLocale": {
@@ -631,7 +448,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-bereitstellung-mitarbeiter-bereitstellung/4b66d7c3-4136-47e2-b212-1d3645daf99a",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:33:59.879Z",
+      "crawledAt": "2026-08-04T22:16:03.498Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -694,6 +511,98 @@
       }
     },
     {
+      "id": "transgourmet-75222981-fde",
+      "slug": "ordina-picker-ordine-picker-transgourmet-landquart",
+      "slugByLocale": {
+        "it": "ordina-picker-ordine-picker-transgourmet-landquart",
+        "en": "order-picker-order-picker-transgourmet-landquart",
+        "de": "kommissioniererin-kommissionierer-transgourmet-landquart",
+        "fr": "recuperateur-de-commandes-recuperateur-de-commandes-transgourmet-landquart"
+      },
+      "company": "Transgourmet",
+      "companyKey": "transgourmet",
+      "companyDomain": "transgourmet.ch",
+      "title": "Kommissioniererin / Kommissionierer",
+      "titleByLocale": {
+        "it": "Ordina picker / ordine picker",
+        "en": "Order picker / order picker",
+        "de": "Kommissioniererin / Kommissionierer",
+        "fr": "Récupérateur de commandes / Récupérateur de commandes"
+      },
+      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kommissionierst Kundenaufträge termingerecht, fehlerfrei und qualitativ top – auch in Kühlräumen (3–5 °C).\n\n• Du hältst Rüstreihenfolgen ein und belädst die Transportgebinde korrekt.\n\n• Du ordnest Aufträge der richtigen Tour zu und platzierst sie am passenden Bereitstellungsplatz.\n\n• Du löst Nachschub aus, wenn Artikel zur Neige gehen.\n\n• Du unterstützt bei Inventuren und entsorgst Abfall fachgerecht.\n\n• Du arbeitest systemgeführt und hältst alle Kommissionier-, QS- und ASIB-Richtlinien ein.\n\n## Anforderungen\n• Du hast Erfahrung im Wareneingang und in der Kommissionierung.\n\n• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.\n\n• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.\n\n• Du bist körperlich belastbar und für Kühlräume gemacht.\n\n• Du kennst dich mit Lagerverwaltungssystemen aus.\n\n• Du sprichst gut Deutsch und bist zuverlässig.",
+      "descriptionByLocale": {
+        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di approvvigionamento e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Scegli gli ordini dei clienti in tempo, senza errori e di alta qualità, anche nelle sale frigorifere (3-5 °C).\n\n• Mantenere gli ordini di configurazione e caricare correttamente i contenitori di trasporto.\n\n• Assegnare gli ordini al tour giusto e posizionarli nello spazio di consegna appropriato.\n\n• Si attivano forniture quando gli articoli vengono esauriti.\n\n• Sosteni gli inventari e disfasci correttamente i rifiuti.\n\n• Lei lavora sistema-gestito e conforme a tutte le linee guida di raccolta ordini, QS e ASIB.\n\n## Requisiti\n• Hai esperienza nella ricevuta e nella raccolta delle merci.\n\n• Hai un pass valido per carrello elevatore omologato SUVA.\n\n• Si lavora orientato all'obiettivo, strutturato e con un alto livello di iniziativa.\n\n• Siete fisicamente resilienti e fatti per le stanze fredde.\n\n• Conosci i sistemi di gestione del magazzino.\n\n• Parli bene tedesco e sei affidabile.",
+        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\n\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss supply and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\n• You pick customer orders on time, error-free and top-quality – even in refrigeration rooms (3–5 °C).\n\n• You keep setup orders and load the transport containers correctly.\n\n• You assign orders to the right tour and place them in the appropriate delivery space.\n\n• You trigger supplies when articles run out.\n\n• You support with inventories and dispose of waste properly.\n\n• You work system-managed and comply with all order picking, QS and ASIB guidelines.\n\n## Requirements\n• You have experience in goods receipt and picking.\n\n• You have a valid SUVA-approved forklift pass.\n\n• You work goal-oriented, structured and with a high level of initiative.\n\n• You are physically resilient and made for cold rooms.\n\n• You are familiar with warehouse management systems.\n\n• You speak good German and are reliable.",
+        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kommissionierst Kundenaufträge termingerecht, fehlerfrei und qualitativ top – auch in Kühlräumen (3–5 °C).\n\n• Du hältst Rüstreihenfolgen ein und belädst die Transportgebinde korrekt.\n\n• Du ordnest Aufträge der richtigen Tour zu und platzierst sie am passenden Bereitstellungsplatz.\n\n• Du löst Nachschub aus, wenn Artikel zur Neige gehen.\n\n• Du unterstützt bei Inventuren und entsorgst Abfall fachgerecht.\n\n• Du arbeitest systemgeführt und hältst alle Kommissionier-, QS- und ASIB-Richtlinien ein.\n\n## Anforderungen\n• Du hast Erfahrung im Wareneingang und in der Kommissionierung.\n\n• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.\n\n• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.\n\n• Du bist körperlich belastbar und für Kühlräume gemacht.\n\n• Du kennst dich mit Lagerverwaltungssystemen aus.\n\n• Du sprichst gut Deutsch und bist zuverlässig.",
+        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\n\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de gros suisse d'approvisionnement et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détaillants).\n\n## Tâche\n• Vous choisissez les commandes des clients à temps, sans erreur et de qualité supérieure – même dans les salles de réfrigération (3-5 °C).\n\n• Vous gardez les commandes de configuration et chargez correctement les conteneurs de transport.\n\n• Vous assignez des commandes à la bonne visite et les placez dans l'espace de livraison approprié.\n\n• Vous déclenchez des fournitures quand les articles sont épuisés.\n\n• Vous supportez les stocks et éliminez les déchets correctement.\n\n• Vous travaillez système géré et se conforme à toutes les commandes, QS et ASIB lignes directrices.\n\n## Exigences\n• Vous avez de l'expérience dans la réception et la cueillette des marchandises.\n\n• Vous avez une carte de chariot élévateur valide approuvée par le SUVA.\n\n• Vous travaillez sur des objectifs, structurés et avec un haut niveau d'initiative.\n\n• Vous êtes physiquement résistant et fait pour les chambres froides.\n\n• Vous connaissez bien les systèmes de gestion des entrepôts.\n\n• Tu parles bien l'allemand et tu es fiable."
+      },
+      "location": "Landquart",
+      "canton": "GR",
+      "url": "https://jobs.transgourmet.ch/offene-stellen/kommissioniererin-kommissionierer/75222981-fdea-4776-a3ed-9b9edea180cf",
+      "source": "Transgourmet Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-04T22:16:03.498Z",
+      "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "permanent",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Commercio all'ingrosso alimentare",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-24",
+      "pensum": "80-100%",
+      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168551",
+      "requirements": [
+        "• Du hast Erfahrung im Wareneingang und in der Kommissionierung.",
+        "• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.",
+        "• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.",
+        "• Du bist körperlich belastbar und für Kühlräume gemacht.",
+        "• Du kennst dich mit Lagerverwaltungssystemen aus.",
+        "• Du sprichst gut Deutsch und bist zuverlässig."
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Du hast Erfahrung im Wareneingang und in der Kommissionierung.",
+          "• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.",
+          "• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.",
+          "• Du bist körperlich belastbar und für Kühlräume gemacht.",
+          "• Du kennst dich mit Lagerverwaltungssystemen aus.",
+          "• Du sprichst gut Deutsch und bist zuverlässig."
+        ]
+      },
+      "previousSlugs": [
+        "kommissioniererin-kommissionierer-transgourmet-landquart"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kommissioniererin-kommissionierer-transgourmet-landquart"
+        ],
+        "en": [
+          "kommissioniererin-kommissionierer-transgourmet-landquart"
+        ],
+        "fr": [
+          "kommissioniererin-kommissionierer-transgourmet-landquart"
+        ]
+      },
+      "firstSeenAt": "2026-07-24T22:06:53.285Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "transgourmet-02920716-191",
       "slug": "logistica-notturna-logistica-notturna-transgourmet-landquart",
       "slugByLocale": {
@@ -724,7 +633,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/nachtlogistikerin-nachtlogistiker/02920716-1913-4628-949c-695424f4420e",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:33:59.878Z",
+      "crawledAt": "2026-08-04T22:16:03.497Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -818,7 +727,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/chauffeuse-chauffeur-kat-c/0149d4f5-e441-45df-9326-5286982c8e6e",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:33:59.877Z",
+      "crawledAt": "2026-08-04T22:16:03.494Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -889,6 +798,98 @@
       }
     },
     {
+      "id": "transgourmet-74f7cf7c-dae",
+      "slug": "linux-system-administrator-transgourmet-moosseedorf",
+      "slugByLocale": {
+        "it": "linux-system-administrator-transgourmet-moosseedorf",
+        "en": "linux-system-administrator-transgourmet-moosseedorf",
+        "de": "linux-system-administrator-transgourmet-moosseedorf",
+        "fr": "administrateur-systeme-linux-transgourmet-moosseedorf"
+      },
+      "company": "Transgourmet",
+      "companyKey": "transgourmet",
+      "companyDomain": "transgourmet.ch",
+      "title": "Linux System Administrator",
+      "titleByLocale": {
+        "it": "Linux System Administrator",
+        "en": "Linux System Administrator",
+        "de": "Linux System Administrator",
+        "fr": "Administrateur système Linux"
+      },
+      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du stellst gemeinsam mit internen Teams und externen Partnern den stabilen, sicheren und performanten Betrieb unserer Linux-basierten System- und Plattformlandschaft sicher\n\n• Du betreibst, überwachst und entwickelst unsere Infrastruktur- und Plattform-Services kontinuierlich weiter\n\n• Du arbeitest aktiv an unternehmensweiten Infrastruktur- und Netzwerkprojekten mit und bringst deine Erfahrung in Design, Umsetzung und Betrieb ein\n\n• Du übernimmst Verantwortung im Incident-, Problem- und Change-Management und analysierst Störungen eigenständig bis auf System- und Netzwerkebene\n\n• Du berätst Applikationsverantwortliche in den Bereichen Linux-Systeme, Netzwerkinfrastruktur, Plattformarchitektur und Security und fungierst als technische Schnittstelle zu Entwicklung und Betrieb\n\n• Du pflegst unsere system- und netzwerktechnische Dokumentation und stellst deren Aktualität und Verfügbarkeit sicher\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Informatikausbildung oder mehrere Jahre Berufserfahrung als Linux System Engineer / Administrator\n\n• Idealerweise verfügst Du über fundierte Kenntnisse im Betrieb von Oracle Linux Systemen\n\n• Du besitzt eine ausgeprägte Netzwerk-Affinität und kennst dich mit folgenden Themen gut aus: LAN / WLAN, Switching & Routing, Cisco-Netzwerke, Authentifizierungs- und Zugangsmechanismen (z. B. 802.1X)\n\n• Du hast Erfahrung im Umgang mit Container- und Plattformumgebungen (RedHat OpenShift, Docker, Podman)\n\n• Du automatisierst wiederkehrende Aufgaben mit Ansible und Skripting (z. B. Bash, Python)\n\n• Du hast Erfahrung mit Virtualisierungstechnologien, Backup- und Storage-Lösungen (z. B. Veeam)\n\n• Du bewegst dich sicher in heterogenen IT-Umgebungen und hast keine Berührungsängste mit: Microsoft-Technologien (Microsoft 365, Azure, Windows Server/Clients, AD, Exchange, Teams, VoIP) sowie Git\n\n• Du hast eine schnelle Auffassungsgabe für technische Zusammenhänge und verfügst über Anwenderkenntnisse in der Atlassian Cloud Suite\n\n• Du sprichst Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil",
+      "descriptionByLocale": {
+        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di approvvigionamento e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Insieme a team interni e partner esterni, garantisci il funzionamento stabile, sicuro e ad alte prestazioni del nostro sistema basato su Linux e del nostro paesaggio piattaforma.\n\n• Potrai operare, monitorare e sviluppare continuamente i nostri servizi infrastruttura e piattaforma\n\n• Potrai partecipare attivamente a progetti di infrastruttura e di rete a livello aziendale e contribuire alla tua esperienza nella progettazione, implementazione e funzionamento\n\n• Si assume la responsabilità per la gestione degli incidenti, dei problemi e dei cambiamenti e analizza le interruzioni in modo indipendente fino al livello di sistema e di rete\n\n• Si consiglia ai responsabili delle applicazioni nei settori dei sistemi Linux, dell'infrastruttura di rete, dell'architettura della piattaforma e della sicurezza e di agire come interfaccia tecnica per lo sviluppo e il funzionamento\n\n• Mantenete il nostro sistema e la documentazione di rete e assicurate la sua up-to-date e disponibilità\n\n## Requisiti\n• Hai completato un'educazione informatica o diversi anni di esperienza professionale come Linux System Engineer / Amministratore\n\n• Idealmente, Hai una conoscenza approfondita del funzionamento dei sistemi Oracle Linux\n\n• Hai una forte affinità di rete e conosci i seguenti argomenti: LAN / WLAN, switching & routing, reti Cisco, meccanismi di autenticazione e di accesso (ad esempio 802.1X)\n\n• Hai esperienza nella gestione di ambienti container e piattaforme (RedHat OpenShift, Docker, Podman)\n\n• Automatizzare le attività ricorrenti con Ansible e scripting (ad esempio Bash, Python)\n\n• Hai esperienza con tecnologie di virtualizzazione, soluzioni di backup e storage (ad esempio Veeam)\n\n• Si muove in modo sicuro in ambienti IT eterogenei e non ha paura di contatto con: tecnologie Microsoft (Microsoft 365, Azure, Windows Server/Clients, AD, Exchange, Teams, VoIP) e Git\n\n• Hai una rapida comprensione delle connessioni tecniche e delle conoscenze degli utenti nella Suite Cloud Atlassian\n\n• Tu parli tedesco; La conoscenza del francese e/o dell'italiano è un vantaggio",
+        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\n\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss supply and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\n• Together with internal teams and external partners, you ensure the stable, secure and high-performance operation of our Linux-based system and platform landscape.\n\n• You will continuously operate, monitor and develop our infrastructure and platform services\n\n• You will actively participate in company-wide infrastructure and network projects and contribute your experience in design, implementation and operation\n\n• You take responsibility for incident, problem and change management and analyze disruptions independently up to the system and network level\n\n• You advise application managers in the areas of Linux systems, network infrastructure, platform architecture and security and act as a technical interface to development and operation\n\n• You maintain our system and network documentation and ensure its up-to-date and availability\n\n## Requirements\n• You have completed a computer science education or several years of professional experience as a Linux System Engineer / Administrator\n\n• Ideally, You have in-depth knowledge of the operation of Oracle Linux systems\n\n• You have a strong network affinity and are familiar with the following topics: LAN / WLAN, switching & routing, Cisco networks, authentication and access mechanisms (e.g. 802.1X)\n\n• You have experience in handling container and platform environments (RedHat OpenShift, Docker, Podman)\n\n• Automate recurring tasks with Ansible and scripting (e.g. Bash, Python)\n\n• You have experience with virtualization technologies, backup and storage solutions (e.g. Veeam)\n\n• You move safely in heterogeneous IT environments and have no fear of contact with: Microsoft technologies (Microsoft 365, Azure, Windows Server/Clients, AD, Exchange, Teams, VoIP) and Git\n\n• You have a quick apprehension of technical connections and user knowledge in the Atlassian Cloud Suite\n\n• You speak German; Knowledge of French and/or Italian is an advantage",
+        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du stellst gemeinsam mit internen Teams und externen Partnern den stabilen, sicheren und performanten Betrieb unserer Linux-basierten System- und Plattformlandschaft sicher\n\n• Du betreibst, überwachst und entwickelst unsere Infrastruktur- und Plattform-Services kontinuierlich weiter\n\n• Du arbeitest aktiv an unternehmensweiten Infrastruktur- und Netzwerkprojekten mit und bringst deine Erfahrung in Design, Umsetzung und Betrieb ein\n\n• Du übernimmst Verantwortung im Incident-, Problem- und Change-Management und analysierst Störungen eigenständig bis auf System- und Netzwerkebene\n\n• Du berätst Applikationsverantwortliche in den Bereichen Linux-Systeme, Netzwerkinfrastruktur, Plattformarchitektur und Security und fungierst als technische Schnittstelle zu Entwicklung und Betrieb\n\n• Du pflegst unsere system- und netzwerktechnische Dokumentation und stellst deren Aktualität und Verfügbarkeit sicher\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Informatikausbildung oder mehrere Jahre Berufserfahrung als Linux System Engineer / Administrator\n\n• Idealerweise verfügst Du über fundierte Kenntnisse im Betrieb von Oracle Linux Systemen\n\n• Du besitzt eine ausgeprägte Netzwerk-Affinität und kennst dich mit folgenden Themen gut aus: LAN / WLAN, Switching & Routing, Cisco-Netzwerke, Authentifizierungs- und Zugangsmechanismen (z. B. 802.1X)\n\n• Du hast Erfahrung im Umgang mit Container- und Plattformumgebungen (RedHat OpenShift, Docker, Podman)\n\n• Du automatisierst wiederkehrende Aufgaben mit Ansible und Skripting (z. B. Bash, Python)\n\n• Du hast Erfahrung mit Virtualisierungstechnologien, Backup- und Storage-Lösungen (z. B. Veeam)\n\n• Du bewegst dich sicher in heterogenen IT-Umgebungen und hast keine Berührungsängste mit: Microsoft-Technologien (Microsoft 365, Azure, Windows Server/Clients, AD, Exchange, Teams, VoIP) sowie Git\n\n• Du hast eine schnelle Auffassungsgabe für technische Zusammenhänge und verfügst über Anwenderkenntnisse in der Atlassian Cloud Suite\n\n• Du sprichst Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil",
+        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\n\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de gros suisse d'approvisionnement et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détaillants).\n\n## Tâche\n• Avec des équipes internes et des partenaires externes, vous assurez le fonctionnement stable, sécurisé et performant de notre système Linux et de notre plateforme.\n\n• Vous exploiterez, surveillerez et développerez en permanence nos services d'infrastructure et de plateforme\n\n• Vous participerez activement à des projets d'infrastructure et de réseau à l'échelle de l'entreprise et apporterez votre expérience dans la conception, la mise en œuvre et l'exploitation\n\n• Vous assumez la responsabilité de la gestion des incidents, des problèmes et des changements et analysez les perturbations indépendamment jusqu'au niveau du système et du réseau\n\n• Vous conseillez les gestionnaires d'applications dans les domaines des systèmes Linux, de l'infrastructure réseau, de l'architecture de la plate-forme et de la sécurité et agissez comme une interface technique pour le développement et le fonctionnement\n\n• Vous maintenez notre système et notre documentation réseau et assurez sa mise à jour et sa disponibilité\n\n## Exigences\n• Vous avez complété une formation en informatique ou plusieurs années d'expérience professionnelle en tant qu'ingénieur système Linux / Administrateur\n\n• Idéalement, vous avez une connaissance approfondie du fonctionnement des systèmes Oracle Linux\n\n• Vous avez une forte affinité réseau et connaissez les sujets suivants : LAN / WLAN, commutation et routage, réseaux Cisco, mécanismes d'authentification et d'accès (par exemple 802.1X)\n\n• Vous avez de l'expérience dans la manipulation des environnements conteneur et plate-forme (RedHat OpenShift, Docker, Podman)\n\n• Automatiser les tâches récurrentes avec Ansible et scripting (par exemple Bash, Python)\n\n• Vous avez une expérience des technologies de virtualisation, des solutions de sauvegarde et de stockage (par exemple Veeam)\n\n• Vous déménagez en toute sécurité dans des environnements informatiques hétérogènes et n'avez aucune crainte de contact avec les technologies Microsoft (Microsoft 365, Azure, Windows Server/Clients, AD, Exchange, Teams, VoIP) et Git\n\n• Vous avez une appréhension rapide des connexions techniques et des connaissances utilisateur dans la Suite Cloud Atlassian\n\n• Vous parlez allemand; la connaissance du français et/ou de l'italien est un avantage"
+      },
+      "location": "Moosseedorf",
+      "canton": "BE",
+      "url": "https://jobs.transgourmet.ch/offene-stellen/linux-system-administrator/74f7cf7c-dae8-4dee-a904-967abaab171b",
+      "source": "Transgourmet Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-04T22:16:03.493Z",
+      "addressLocality": "Moosseedorf",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3302",
+      "streetAddress": "Lochackerweg 5",
+      "category": "Amministrazione",
+      "contract": "permanent",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Commercio all'ingrosso alimentare",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-26",
+      "pensum": "100%",
+      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=162756",
+      "requirements": [
+        "• Du verfügst über eine abgeschlossene Informatikausbildung oder mehrere Jahre Berufserfahrung als Linux System Engineer / Administrator",
+        "• Idealerweise verfügst Du über fundierte Kenntnisse im Betrieb von Oracle Linux Systemen",
+        "• Du besitzt eine ausgeprägte Netzwerk-Affinität und kennst dich mit folgenden Themen gut aus: LAN / WLAN, Switching & Routing, Cisco-Netzwerke, Authentifizierungs- und Zugangsmechanismen (z. B. 802.1X)",
+        "• Du hast Erfahrung im Umgang mit Container- und Plattformumgebungen (RedHat OpenShift, Docker, Podman)",
+        "• Du automatisierst wiederkehrende Aufgaben mit Ansible und Skripting (z. B. Bash, Python)",
+        "• Du hast Erfahrung mit Virtualisierungstechnologien, Backup- und Storage-Lösungen (z. B. Veeam)",
+        "• Du bewegst dich sicher in heterogenen IT-Umgebungen und hast keine Berührungsängste mit: Microsoft-Technologien (Microsoft 365, Azure, Windows Server/Clients, AD, Exchange, Teams, VoIP) sowie Git",
+        "• Du hast eine schnelle Auffassungsgabe für technische Zusammenhänge und verfügst über Anwenderkenntnisse in der Atlassian Cloud Suite",
+        "• Du sprichst Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Idealerweise verfügst Du über fundierte Kenntnisse im Betrieb von Oracle Linux Systemen",
+          "• Du hast Erfahrung im Umgang mit Container- und Plattformumgebungen (RedHat OpenShift, Docker, Podman)",
+          "• Du automatisierst wiederkehrende Aufgaben mit Ansible und Skripting (z. B. Bash, Python)",
+          "• Du hast Erfahrung mit Virtualisierungstechnologien, Backup- und Storage-Lösungen (z. B. Veeam)",
+          "• Du sprichst Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil"
+        ]
+      },
+      "previousSlugs": [
+        "administrateur-systeme-linux-transgourmet-moosseedorf",
+        "linux-system-administrator-transgourmet-schweiz-ag-moosseedorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "administrateur-systeme-linux-transgourmet-moosseedorf",
+          "linux-system-administrator-transgourmet-schweiz-ag-moosseedorf"
+        ]
+      },
+      "firstSeenAt": "2026-07-27T12:31:31.082Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "transgourmet-db4e176e-3bd",
       "slug": "gestione-aggiuntiva-della-categoria-transgourmet-moosseedorf",
       "slugByLocale": {
@@ -919,7 +920,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/assistant-category-management-non-food/db4e176e-3bdc-4111-9186-370fe51ebfb7",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:33:59.876Z",
+      "crawledAt": "2026-08-04T22:16:03.493Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -982,98 +983,6 @@
       }
     },
     {
-      "id": "transgourmet-74f7cf7c-dae",
-      "slug": "linux-system-administrator-transgourmet-moosseedorf",
-      "slugByLocale": {
-        "it": "linux-system-administrator-transgourmet-moosseedorf",
-        "en": "linux-system-administrator-transgourmet-moosseedorf",
-        "de": "linux-system-administrator-transgourmet-moosseedorf",
-        "fr": "administrateur-systeme-linux-transgourmet-moosseedorf"
-      },
-      "company": "Transgourmet",
-      "companyKey": "transgourmet",
-      "companyDomain": "transgourmet.ch",
-      "title": "Linux System Administrator",
-      "titleByLocale": {
-        "it": "Linux System Administrator",
-        "en": "Linux System Administrator",
-        "de": "Linux System Administrator",
-        "fr": "Administrateur système Linux"
-      },
-      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du stellst gemeinsam mit internen Teams und externen Partnern den stabilen, sicheren und performanten Betrieb unserer Linux-basierten System- und Plattformlandschaft sicher\n\n• Du betreibst, überwachst und entwickelst unsere Infrastruktur- und Plattform-Services kontinuierlich weiter\n\n• Du arbeitest aktiv an unternehmensweiten Infrastruktur- und Netzwerkprojekten mit und bringst deine Erfahrung in Design, Umsetzung und Betrieb ein\n\n• Du übernimmst Verantwortung im Incident-, Problem- und Change-Management und analysierst Störungen eigenständig bis auf System- und Netzwerkebene\n\n• Du berätst Applikationsverantwortliche in den Bereichen Linux-Systeme, Netzwerkinfrastruktur, Plattformarchitektur und Security und fungierst als technische Schnittstelle zu Entwicklung und Betrieb\n\n• Du pflegst unsere system- und netzwerktechnische Dokumentation und stellst deren Aktualität und Verfügbarkeit sicher\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Informatikausbildung oder mehrere Jahre Berufserfahrung als Linux System Engineer / Administrator\n\n• Idealerweise verfügst Du über fundierte Kenntnisse im Betrieb von Oracle Linux Systemen\n\n• Du besitzt eine ausgeprägte Netzwerk-Affinität und kennst dich mit folgenden Themen gut aus: LAN / WLAN, Switching & Routing, Cisco-Netzwerke, Authentifizierungs- und Zugangsmechanismen (z. B. 802.1X)\n\n• Du hast Erfahrung im Umgang mit Container- und Plattformumgebungen (RedHat OpenShift, Docker, Podman)\n\n• Du automatisierst wiederkehrende Aufgaben mit Ansible und Skripting (z. B. Bash, Python)\n\n• Du hast Erfahrung mit Virtualisierungstechnologien, Backup- und Storage-Lösungen (z. B. Veeam)\n\n• Du bewegst dich sicher in heterogenen IT-Umgebungen und hast keine Berührungsängste mit: Microsoft-Technologien (Microsoft 365, Azure, Windows Server/Clients, AD, Exchange, Teams, VoIP) sowie Git\n\n• Du hast eine schnelle Auffassungsgabe für technische Zusammenhänge und verfügst über Anwenderkenntnisse in der Atlassian Cloud Suite\n\n• Du sprichst Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil",
-      "descriptionByLocale": {
-        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di approvvigionamento e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Insieme a team interni e partner esterni, garantisci il funzionamento stabile, sicuro e ad alte prestazioni del nostro sistema basato su Linux e del nostro paesaggio piattaforma.\n\n• Potrai operare, monitorare e sviluppare continuamente i nostri servizi infrastruttura e piattaforma\n\n• Potrai partecipare attivamente a progetti di infrastruttura e di rete a livello aziendale e contribuire alla tua esperienza nella progettazione, implementazione e funzionamento\n\n• Si assume la responsabilità per la gestione degli incidenti, dei problemi e dei cambiamenti e analizza le interruzioni in modo indipendente fino al livello di sistema e di rete\n\n• Si consiglia ai responsabili delle applicazioni nei settori dei sistemi Linux, dell'infrastruttura di rete, dell'architettura della piattaforma e della sicurezza e di agire come interfaccia tecnica per lo sviluppo e il funzionamento\n\n• Mantenete il nostro sistema e la documentazione di rete e assicurate la sua up-to-date e disponibilità\n\n## Requisiti\n• Hai completato un'educazione informatica o diversi anni di esperienza professionale come Linux System Engineer / Amministratore\n\n• Idealmente, Hai una conoscenza approfondita del funzionamento dei sistemi Oracle Linux\n\n• Hai una forte affinità di rete e conosci i seguenti argomenti: LAN / WLAN, switching & routing, reti Cisco, meccanismi di autenticazione e di accesso (ad esempio 802.1X)\n\n• Hai esperienza nella gestione di ambienti container e piattaforme (RedHat OpenShift, Docker, Podman)\n\n• Automatizzare le attività ricorrenti con Ansible e scripting (ad esempio Bash, Python)\n\n• Hai esperienza con tecnologie di virtualizzazione, soluzioni di backup e storage (ad esempio Veeam)\n\n• Si muove in modo sicuro in ambienti IT eterogenei e non ha paura di contatto con: tecnologie Microsoft (Microsoft 365, Azure, Windows Server/Clients, AD, Exchange, Teams, VoIP) e Git\n\n• Hai una rapida comprensione delle connessioni tecniche e delle conoscenze degli utenti nella Suite Cloud Atlassian\n\n• Tu parli tedesco; La conoscenza del francese e/o dell'italiano è un vantaggio",
-        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\n\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss supply and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\n• Together with internal teams and external partners, you ensure the stable, secure and high-performance operation of our Linux-based system and platform landscape.\n\n• You will continuously operate, monitor and develop our infrastructure and platform services\n\n• You will actively participate in company-wide infrastructure and network projects and contribute your experience in design, implementation and operation\n\n• You take responsibility for incident, problem and change management and analyze disruptions independently up to the system and network level\n\n• You advise application managers in the areas of Linux systems, network infrastructure, platform architecture and security and act as a technical interface to development and operation\n\n• You maintain our system and network documentation and ensure its up-to-date and availability\n\n## Requirements\n• You have completed a computer science education or several years of professional experience as a Linux System Engineer / Administrator\n\n• Ideally, You have in-depth knowledge of the operation of Oracle Linux systems\n\n• You have a strong network affinity and are familiar with the following topics: LAN / WLAN, switching & routing, Cisco networks, authentication and access mechanisms (e.g. 802.1X)\n\n• You have experience in handling container and platform environments (RedHat OpenShift, Docker, Podman)\n\n• Automate recurring tasks with Ansible and scripting (e.g. Bash, Python)\n\n• You have experience with virtualization technologies, backup and storage solutions (e.g. Veeam)\n\n• You move safely in heterogeneous IT environments and have no fear of contact with: Microsoft technologies (Microsoft 365, Azure, Windows Server/Clients, AD, Exchange, Teams, VoIP) and Git\n\n• You have a quick apprehension of technical connections and user knowledge in the Atlassian Cloud Suite\n\n• You speak German; Knowledge of French and/or Italian is an advantage",
-        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du stellst gemeinsam mit internen Teams und externen Partnern den stabilen, sicheren und performanten Betrieb unserer Linux-basierten System- und Plattformlandschaft sicher\n\n• Du betreibst, überwachst und entwickelst unsere Infrastruktur- und Plattform-Services kontinuierlich weiter\n\n• Du arbeitest aktiv an unternehmensweiten Infrastruktur- und Netzwerkprojekten mit und bringst deine Erfahrung in Design, Umsetzung und Betrieb ein\n\n• Du übernimmst Verantwortung im Incident-, Problem- und Change-Management und analysierst Störungen eigenständig bis auf System- und Netzwerkebene\n\n• Du berätst Applikationsverantwortliche in den Bereichen Linux-Systeme, Netzwerkinfrastruktur, Plattformarchitektur und Security und fungierst als technische Schnittstelle zu Entwicklung und Betrieb\n\n• Du pflegst unsere system- und netzwerktechnische Dokumentation und stellst deren Aktualität und Verfügbarkeit sicher\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Informatikausbildung oder mehrere Jahre Berufserfahrung als Linux System Engineer / Administrator\n\n• Idealerweise verfügst Du über fundierte Kenntnisse im Betrieb von Oracle Linux Systemen\n\n• Du besitzt eine ausgeprägte Netzwerk-Affinität und kennst dich mit folgenden Themen gut aus: LAN / WLAN, Switching & Routing, Cisco-Netzwerke, Authentifizierungs- und Zugangsmechanismen (z. B. 802.1X)\n\n• Du hast Erfahrung im Umgang mit Container- und Plattformumgebungen (RedHat OpenShift, Docker, Podman)\n\n• Du automatisierst wiederkehrende Aufgaben mit Ansible und Skripting (z. B. Bash, Python)\n\n• Du hast Erfahrung mit Virtualisierungstechnologien, Backup- und Storage-Lösungen (z. B. Veeam)\n\n• Du bewegst dich sicher in heterogenen IT-Umgebungen und hast keine Berührungsängste mit: Microsoft-Technologien (Microsoft 365, Azure, Windows Server/Clients, AD, Exchange, Teams, VoIP) sowie Git\n\n• Du hast eine schnelle Auffassungsgabe für technische Zusammenhänge und verfügst über Anwenderkenntnisse in der Atlassian Cloud Suite\n\n• Du sprichst Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil",
-        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\n\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de gros suisse d'approvisionnement et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détaillants).\n\n## Tâche\n• Avec des équipes internes et des partenaires externes, vous assurez le fonctionnement stable, sécurisé et performant de notre système Linux et de notre plateforme.\n\n• Vous exploiterez, surveillerez et développerez en permanence nos services d'infrastructure et de plateforme\n\n• Vous participerez activement à des projets d'infrastructure et de réseau à l'échelle de l'entreprise et apporterez votre expérience dans la conception, la mise en œuvre et l'exploitation\n\n• Vous assumez la responsabilité de la gestion des incidents, des problèmes et des changements et analysez les perturbations indépendamment jusqu'au niveau du système et du réseau\n\n• Vous conseillez les gestionnaires d'applications dans les domaines des systèmes Linux, de l'infrastructure réseau, de l'architecture de la plate-forme et de la sécurité et agissez comme une interface technique pour le développement et le fonctionnement\n\n• Vous maintenez notre système et notre documentation réseau et assurez sa mise à jour et sa disponibilité\n\n## Exigences\n• Vous avez complété une formation en informatique ou plusieurs années d'expérience professionnelle en tant qu'ingénieur système Linux / Administrateur\n\n• Idéalement, vous avez une connaissance approfondie du fonctionnement des systèmes Oracle Linux\n\n• Vous avez une forte affinité réseau et connaissez les sujets suivants : LAN / WLAN, commutation et routage, réseaux Cisco, mécanismes d'authentification et d'accès (par exemple 802.1X)\n\n• Vous avez de l'expérience dans la manipulation des environnements conteneur et plate-forme (RedHat OpenShift, Docker, Podman)\n\n• Automatiser les tâches récurrentes avec Ansible et scripting (par exemple Bash, Python)\n\n• Vous avez une expérience des technologies de virtualisation, des solutions de sauvegarde et de stockage (par exemple Veeam)\n\n• Vous déménagez en toute sécurité dans des environnements informatiques hétérogènes et n'avez aucune crainte de contact avec les technologies Microsoft (Microsoft 365, Azure, Windows Server/Clients, AD, Exchange, Teams, VoIP) et Git\n\n• Vous avez une appréhension rapide des connexions techniques et des connaissances utilisateur dans la Suite Cloud Atlassian\n\n• Vous parlez allemand; la connaissance du français et/ou de l'italien est un avantage"
-      },
-      "location": "Moosseedorf",
-      "canton": "BE",
-      "url": "https://jobs.transgourmet.ch/offene-stellen/linux-system-administrator/74f7cf7c-dae8-4dee-a904-967abaab171b",
-      "source": "Transgourmet Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:33:59.875Z",
-      "addressLocality": "Moosseedorf",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3302",
-      "streetAddress": "Lochackerweg 5",
-      "category": "Amministrazione",
-      "contract": "permanent",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Commercio all'ingrosso alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-26",
-      "pensum": "100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=162756",
-      "requirements": [
-        "• Du verfügst über eine abgeschlossene Informatikausbildung oder mehrere Jahre Berufserfahrung als Linux System Engineer / Administrator",
-        "• Idealerweise verfügst Du über fundierte Kenntnisse im Betrieb von Oracle Linux Systemen",
-        "• Du besitzt eine ausgeprägte Netzwerk-Affinität und kennst dich mit folgenden Themen gut aus: LAN / WLAN, Switching & Routing, Cisco-Netzwerke, Authentifizierungs- und Zugangsmechanismen (z. B. 802.1X)",
-        "• Du hast Erfahrung im Umgang mit Container- und Plattformumgebungen (RedHat OpenShift, Docker, Podman)",
-        "• Du automatisierst wiederkehrende Aufgaben mit Ansible und Skripting (z. B. Bash, Python)",
-        "• Du hast Erfahrung mit Virtualisierungstechnologien, Backup- und Storage-Lösungen (z. B. Veeam)",
-        "• Du bewegst dich sicher in heterogenen IT-Umgebungen und hast keine Berührungsängste mit: Microsoft-Technologien (Microsoft 365, Azure, Windows Server/Clients, AD, Exchange, Teams, VoIP) sowie Git",
-        "• Du hast eine schnelle Auffassungsgabe für technische Zusammenhänge und verfügst über Anwenderkenntnisse in der Atlassian Cloud Suite",
-        "• Du sprichst Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Idealerweise verfügst Du über fundierte Kenntnisse im Betrieb von Oracle Linux Systemen",
-          "• Du hast Erfahrung im Umgang mit Container- und Plattformumgebungen (RedHat OpenShift, Docker, Podman)",
-          "• Du automatisierst wiederkehrende Aufgaben mit Ansible und Skripting (z. B. Bash, Python)",
-          "• Du hast Erfahrung mit Virtualisierungstechnologien, Backup- und Storage-Lösungen (z. B. Veeam)",
-          "• Du sprichst Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil"
-        ]
-      },
-      "previousSlugs": [
-        "administrateur-systeme-linux-transgourmet-moosseedorf",
-        "linux-system-administrator-transgourmet-schweiz-ag-moosseedorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "administrateur-systeme-linux-transgourmet-moosseedorf",
-          "linux-system-administrator-transgourmet-schweiz-ag-moosseedorf"
-        ]
-      },
-      "firstSeenAt": "2026-07-27T12:31:31.082Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "transgourmet-e409b323-0a3",
       "slug": "driver-cat-c-transgourmet-gals",
       "slugByLocale": {
@@ -1104,7 +1013,7 @@
       "url": "https://jobs.transgourmet.ch/postes-vacantes/chauffeuse-chauffeur-cat-c/e409b323-0a35-4a78-adc3-f97bb66416fe",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T11:33:59.874Z",
+      "crawledAt": "2026-08-04T22:16:03.492Z",
       "addressLocality": "Gals",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1200,7 +1109,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in/ec3f59d4-0ee8-45df-91a0-9cd8427ddd33",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:33:59.872Z",
+      "crawledAt": "2026-08-04T22:16:03.491Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1294,7 +1203,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-kundencenter/0c58beab-3962-43d0-ab75-f943b228d32f",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:33:59.871Z",
+      "crawledAt": "2026-08-04T22:16:03.490Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1388,7 +1297,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/chauffeuse-chauffeur-kat-c-bern/f8df7113-64d2-4135-afcc-95b784eb44b4",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:33:59.869Z",
+      "crawledAt": "2026-08-04T22:16:03.487Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1482,7 +1391,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/abteilungsleiterin-abteilungsleiter-metzgerei/0bd82d54-00c7-481b-bcde-3a34164c2f09",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:33:59.868Z",
+      "crawledAt": "2026-08-04T22:16:03.486Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1582,7 +1491,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/abteilungsleiterin-abteilungsleiter-molkerei/99d37dd8-1318-4d84-9fa3-56b0a0d6fb7b",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T11:33:59.866Z",
+      "crawledAt": "2026-08-04T22:16:03.484Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1644,6 +1553,190 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "transgourmet-2a865910-d4a",
+      "slug": "system-engineer-windows-transgourmet-moosseedorf",
+      "slugByLocale": {
+        "de": "system-engineer-windows-transgourmet-moosseedorf",
+        "it": "system-engineer-windows-transgourmet-moosseedorf",
+        "en": "system-engineer-windows-transgourmet-moosseedorf",
+        "fr": "system-engineer-windows-transgourmet-moosseedorf"
+      },
+      "company": "Transgourmet",
+      "companyKey": "transgourmet",
+      "companyDomain": "transgourmet.ch",
+      "title": "System Engineer Windows",
+      "titleByLocale": {
+        "de": "System Ingenieur Windows",
+        "en": "System Engineer Windows",
+        "it": "System Ingegnere Windows",
+        "fr": "System Ingénieur Windows"
+      },
+      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du konzipierst, implementierst und betreibst moderne Windows-basierte Plattformen und entwickelst sie aktiv weiter (Fokus der Stelle auf Engineering, mit aktiver Mitarbeit im Betrieb)\n\n• Du stellst zusammen mit dem Team den stabilen und sicheren Betrieb über den gesamten Lifecycle sicher (Run/Operate & Improve): Monitoring/Alerting, Incident-/Problem-Management, Patch-/Release-Management, Capacity/Performance sowie Verfügbarkeit\n\n• Du treibst Standardisierung, Automatisierung und Härtung (Security) der Systemumgebungen voran (z. B. via IaC/Skripting)\n\n• Du übernimmst Engineering-Verantwortung für Lifecycle-Themen: Design, Build, Patch-/Release-Management, Capacity, Performance sowie Verfügbarkeit\n\n• Du analysierst Störungen nachhaltig, führst Root-Cause-Analysen durch und etablierst dauerhafte Verbesserungen (Problem Management)\n\n• Du arbeitest in unternehmensweiten Projekten als technischer Lead oder Spezialist mit und bringst dein Know-how ein\n\n• Du berätst Applikationsverantwortliche und interne Teams zu Infrastruktur, Architektur, Security und Betriebsmodellen\n\n• Du pflegst System-, Architektur- und Betriebsdokumentationen, Standards und Runbooks und sorgst für deren Verfügbarkeit\n\n• Du übernimmst nach der Einarbeitung Pikett-Dienste im definierten Turnus und stellst die Betriebssicherheit auch ausserhalb der Bürozeiten sicher\n\n• Geplante Wartungsfenster und Changes finden regelmässig ausserhalb der Bürozeiten sowie an Wochenenden statt (je nach Bedarf)\n\n## Anforderungen\n• Abgeschlossene Informatikausbildung (EFZ/HF/FH) oder vergleichbare, mehrjährige Praxiserfahrung als Windows System Engineer\n\n• Sehr gute Kenntnisse im Microsoft-Ökosystem, z. B. Microsoft 365, Azure, Windows Server & Clients, MS SQL (betriebsnah), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP\n\n• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)\n\n• Gute Kenntnisse in Netzwerktechnologien und Security-Grundlagen (LAN/WLAN, Cisco, 802.1x, Härtung, Identity- & Access-Konzepte)\n\n• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging\n\n• Starke Skills in Automatisierung & Skripting (PowerShell; idealerweise Git-gestützte Arbeitsweise, CI/CD-nahe Methoden von Vorteil)\n\n• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git\n\n• Strukturierte, eigenverantwortliche Arbeitsweise, hohe Serviceorientierung und gute Kommunikation; Anwenderkenntnisse in der Atlassian Cloud Suite\n\n• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil",
+      "descriptionByLocale": {
+        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du konzipierst, implementierst und betreibst moderne Windows-basierte Plattformen und entwickelst sie aktiv weiter (Fokus der Stelle auf Engineering, mit aktiver Mitarbeit im Betrieb)\n\n• Du stellst zusammen mit dem Team den stabilen und sicheren Betrieb über den gesamten Lifecycle sicher (Run/Operate & Improve): Monitoring/Alerting, Incident-/Problem-Management, Patch-/Release-Management, Capacity/Performance sowie Verfügbarkeit\n\n• Du treibst Standardisierung, Automatisierung und Härtung (Security) der Systemumgebungen voran (z. B. via IaC/Skripting)\n\n• Du übernimmst Engineering-Verantwortung für Lifecycle-Themen: Design, Build, Patch-/Release-Management, Capacity, Performance sowie Verfügbarkeit\n\n• Du analysierst Störungen nachhaltig, führst Root-Cause-Analysen durch und etablierst dauerhafte Verbesserungen (Problem Management)\n\n• Du arbeitest in unternehmensweiten Projekten als technischer Lead oder Spezialist mit und bringst dein Know-how ein\n\n• Du berätst Applikationsverantwortliche und interne Teams zu Infrastruktur, Architektur, Security und Betriebsmodellen\n\n• Du pflegst System-, Architektur- und Betriebsdokumentationen, Standards und Runbooks und sorgst für deren Verfügbarkeit\n\n• Du übernimmst nach der Einarbeitung Pikett-Dienste im definierten Turnus und stellst die Betriebssicherheit auch ausserhalb der Bürozeiten sicher\n\n• Geplante Wartungsfenster und Changes finden regelmässig ausserhalb der Bürozeiten sowie an Wochenenden statt (je nach Bedarf)\n\n## Anforderungen\n• Abgeschlossene Informatikausbildung (EFZ/HF/FH) oder vergleichbare, mehrjährige Praxiserfahrung als Windows System Engineer\n\n• Sehr gute Kenntnisse im Microsoft-Ökosystem, z. B. Microsoft 365, Azure, Windows Server & Clients, MS SQL (betriebsnah), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP\n\n• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)\n\n• Gute Kenntnisse in Netzwerktechnologien und Security-Grundlagen (LAN/WLAN, Cisco, 802.1x, Härtung, Identity- & Access-Konzepte)\n\n• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging\n\n• Starke Skills in Automatisierung & Skripting (PowerShell; idealerweise Git-gestützte Arbeitsweise, CI/CD-nahe Methoden von Vorteil)\n\n• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git\n\n• Strukturierte, eigenverantwortliche Arbeitsweise, hohe Serviceorientierung und gute Kommunikation; Anwenderkenntnisse in der Atlassian Cloud Suite\n\n• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil",
+        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di approvvigionamento e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Progettare, implementare e gestire moderne piattaforme basate su Windows e svilupparle attivamente ulteriormente (attenzione sull'ingegneria, con la cooperazione attiva in azienda)\n\n• Insieme al team, garantisci un funzionamento stabile e sicuro in tutto il ciclo di vita (run/operate & better): monitoraggio/alerting, gestione incidente/problem, gestione patch/release, capacità/performance e disponibilità.\n\n• Si avanza la standardizzazione, l'automazione e la sicurezza degli ambienti di sistema (ad esempio tramite IaC/Skripting)\n\n• Si assume la responsabilità di ingegneria per gli argomenti del ciclo di vita: progettazione, costruzione, patch/release management, capacità, prestazioni e disponibilità\n\n• Analizzi le perturbazioni in modo sostenibile, esegui analisi causa radice e crei miglioramenti duraturi (gestione dei problemi)\n\n• Lavori in progetti aziendali come lead tecnico o specialista e contribuisci al tuo know-how\n\n• Si consiglia ai responsabili delle applicazioni e ai team interni di infrastrutture, architettura, sicurezza e modelli operativi\n\n• Mantenete il sistema, l'architettura e la documentazione operativa, gli standard e i runbook e garantite la loro disponibilità\n\n• Dopo la formazione, si assume i servizi Pikett su una base definita e garantire la sicurezza operativa anche al di fuori delle ore di ufficio\n\n• Finestre di manutenzione programmate e modifiche avvengono regolarmente al di fuori delle ore di ufficio e nei fine settimana (come richiesto)\n\n## Requisiti\n• Formazione informatica completata (EFZ/HF/FH) o comparabile, diversi anni di esperienza pratica come ingegnere di sistema di Windows\n\n• Ottima conoscenza dell'ecosistema Microsoft, ad esempio Microsoft 365, Azure, Windows Server & Clients, MS SQL (funzionale), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP\n\n• Esperienza con le tecnologie di virtualizzazione, idealmente VMware (vSphere/ESXi/vCenter)\n\n• Buona conoscenza delle tecnologie di rete e dei fondamenti di sicurezza (LAN/WLAN, Cisco, 802.1x, indurimento, identità e concetti di accesso)\n\n• Esperienza con backup/restore e storage (ad esempio Veeam) e monitoraggio/logging\n\n• Forti competenze nell'automazione e nello scripting (PowerShell; metodo di lavoro idealmente supportato da Git, metodi correlati a CI/CD di vantaggio)\n\n• Vantaggiosamente, si ha familiarità con Ansible e gestione del codice sorgente con Git\n\n• Metodi di lavoro strutturati e auto-responsabili, orientamento ad alto servizio e buona comunicazione; Esperienza utente nella Suite Cloud Atlassian\n\n• Molto buono tedesco; La conoscenza del francese e/o italiano è un vantaggio",
+        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\n\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss supply and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\n• You design, implement and operate modern Windows-based platforms and actively develop them further (focus on engineering, with active cooperation in the company)\n\n• Together with the team, you ensure stable and secure operation throughout the entire lifecycle (run/operate & improve): monitoring/alerting, incident/problem management, patch/release management, capacity/performance and availability.\n\n• You advance standardization, automation and security of system environments (e.g. via IaC/Skripting)\n\n• You take over engineering responsibility for lifecycle topics: design, build, patch/release management, capacity, performance and availability\n\n• You analyze disruptions sustainably, perform root-cause analyses and establish lasting improvements (problem management)\n\n• You work in company-wide projects as a technical lead or specialist and contribute your know-how\n\n• You advise application managers and internal teams on infrastructure, architecture, security and operational models\n\n• You maintain system, architecture and operational documentation, standards and runbooks and ensure their availability\n\n• After training, you take on Pikett services on a defined basis and ensure operational safety even outside of office hours\n\n• Scheduled maintenance windows and changes take place regularly outside office hours and on weekends (as required)\n\n## Requirements\n• Completed computer science training (EFZ/HF/FH) or comparable, several years of practical experience as a Windows System Engineer\n\n• Very good knowledge of the Microsoft ecosystem, e.g. Microsoft 365, Azure, Windows Server & Clients, MS SQL (operational), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP\n\n• Experience with virtualization technologies, ideally VMware (vSphere/ESXi/vCenter)\n\n• Good knowledge of network technologies and security fundamentals (LAN/WLAN, Cisco, 802.1x, hardening, identity & access concepts)\n\n• Experience with backup/restore and storage (e.g. Veeam) and monitoring/logging\n\n• Strong skills in automation & scripting (PowerShell; ideally Git-assisted working method, CI/CD-related methods of advantage)\n\n• Advantageously, you are familiar with Ansible and source code management with Git\n\n• Structured, self-responsible working methods, high service orientation and good communication; User experience in the Atlassian Cloud Suite\n\n• Very good German; Knowledge of French and/or Italian is an advantage",
+        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\n\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de gros suisse d'approvisionnement et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détaillants).\n\n## Tâche\n• Vous concevez, implémentez et exploitez des plates-formes modernes basées sur Windows et les développez activement (axez-vous sur l'ingénierie, avec une coopération active dans l'entreprise)\n\n• En collaboration avec l'équipe, vous assurez un fonctionnement stable et sécurisé tout au long du cycle de vie (course/exploitation & amélioration): surveillance/alerte, gestion des incidents/problèmes, gestion des patchs/libérations, capacité/performance et disponibilité.\n\n• Vous faites progresser la normalisation, l'automatisation et la sécurité des environnements système (par exemple via IaC/Skripting)\n\n• Vous assumez la responsabilité de l'ingénierie pour les sujets du cycle de vie : conception, construction, gestion des patchs/libérations, capacité, performance et disponibilité\n\n• Vous analysez les perturbations de façon durable, effectuez des analyses de causes profondes et établissez des améliorations durables (gestion des problèmes)\n\n• Vous travaillez dans des projets à l'échelle de l'entreprise en tant que responsable technique ou spécialiste et apportez votre savoir-faire\n\n• Vous conseillez les gestionnaires d'applications et les équipes internes sur l'infrastructure, l'architecture, la sécurité et les modèles opérationnels\n\n• Vous maintenez le système, l'architecture et la documentation opérationnelle, les normes et les runbooks et assurez leur disponibilité\n\n• Après la formation, vous prenez des services Pikett sur une base définie et assurer la sécurité opérationnelle même en dehors des heures de bureau\n\n• Les fenêtres d'entretien et les changements prévus ont lieu régulièrement en dehors des heures de bureau et les fins de semaine (au besoin)\n\n## Exigences\n• Formation en informatique terminée (EFZ/HF/FH) ou comparable, plusieurs années d'expérience pratique en tant qu'ingénieur système Windows\n\n• Très bonne connaissance de l'écosystème Microsoft, par exemple Microsoft 365, Azure, Windows Server & Clients, MS SQL (opérationnel), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP\n\n• Expérience des technologies de virtualisation, idéalement VMware (vSphere/ESXi/vCenter)\n\n• Bonne connaissance des technologies de réseau et des fondamentaux de sécurité (LAN/WLAN, Cisco, 802.1x, durcissement, identité et concepts d'accès)\n\n• Expérience avec sauvegarde/restauration et stockage (par exemple Veeam) et surveillance/logging\n\n• Fortes compétences en automatisation et en scripts (PowerShell; idéalement une méthode de travail assistée par Git, des méthodes d'avantage liées à l'IC/CD)\n\n• Avantageusement, vous connaissez Ansible et la gestion de code source avec Git\n\n• Méthodes de travail structurées et auto-responsables, orientation de service élevée et bonne communication; Expérience utilisateur dans la suite Cloud Atlassian\n\n• Très bon allemand; la connaissance du français et/ou de l'italien est un avantage"
+      },
+      "location": "Moosseedorf",
+      "canton": "BE",
+      "url": "https://jobs.transgourmet.ch/offene-stellen/system-engineer-windows/2a865910-d4ae-4120-a898-efd5b532a67e",
+      "source": "Transgourmet Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-04T22:16:03.483Z",
+      "addressLocality": "Moosseedorf",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3302",
+      "streetAddress": "Lochackerweg 5",
+      "category": "Ingegneria",
+      "contract": "permanent",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Commercio all'ingrosso alimentare",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-04",
+      "pensum": "100%",
+      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=164960",
+      "requirements": [
+        "• Abgeschlossene Informatikausbildung (EFZ/HF/FH) oder vergleichbare, mehrjährige Praxiserfahrung als Windows System Engineer",
+        "• Sehr gute Kenntnisse im Microsoft-Ökosystem, z. B. Microsoft 365, Azure, Windows Server & Clients, MS SQL (betriebsnah), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP",
+        "• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)",
+        "• Gute Kenntnisse in Netzwerktechnologien und Security-Grundlagen (LAN/WLAN, Cisco, 802.1x, Härtung, Identity- & Access-Konzepte)",
+        "• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging",
+        "• Starke Skills in Automatisierung & Skripting (PowerShell; idealerweise Git-gestützte Arbeitsweise, CI/CD-nahe Methoden von Vorteil)",
+        "• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git",
+        "• Strukturierte, eigenverantwortliche Arbeitsweise, hohe Serviceorientierung und gute Kommunikation; Anwenderkenntnisse in der Atlassian Cloud Suite",
+        "• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Abgeschlossene Informatikausbildung (EFZ/HF/FH) oder vergleichbare, mehrjährige Praxiserfahrung als Windows System Engineer",
+          "• Sehr gute Kenntnisse im Microsoft-Ökosystem, z. B. Microsoft 365, Azure, Windows Server & Clients, MS SQL (betriebsnah), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP",
+          "• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)",
+          "• Gute Kenntnisse in Netzwerktechnologien und Security-Grundlagen (LAN/WLAN, Cisco, 802.1x, Härtung, Identity- & Access-Konzepte)",
+          "• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging",
+          "• Starke Skills in Automatisierung & Skripting (PowerShell; idealerweise Git-gestützte Arbeitsweise, CI/CD-nahe Methoden von Vorteil)",
+          "• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git",
+          "• Strukturierte, eigenverantwortliche Arbeitsweise, hohe Serviceorientierung und gute Kommunikation; Anwenderkenntnisse in der Atlassian Cloud Suite",
+          "• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil"
+        ]
+      },
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-04T22:16:03.483Z"
+    },
+    {
+      "id": "transgourmet-f633a1ed-4c6",
+      "slug": "system-ingegnere-windows-transgourmet-moosseedorf",
+      "slugByLocale": {
+        "it": "system-ingegnere-windows-transgourmet-moosseedorf",
+        "en": "system-engineer-windows-transgourmet-moosseedorf-dajfqy",
+        "de": "system-engineer-windows-transgourmet-moosseedorf-dajfqy",
+        "fr": "ingenieur-systemes-windows-transgourmet-moosseedorf"
+      },
+      "company": "Transgourmet",
+      "companyKey": "transgourmet",
+      "companyDomain": "transgourmet.ch",
+      "title": "System Engineer Windows",
+      "titleByLocale": {
+        "it": "System Ingegnere Windows",
+        "en": "System Engineer Windows",
+        "de": "System Ingenieur Windows",
+        "fr": "Ingénieur Systèmes Windows"
+      },
+      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du konzipierst, implementierst und betreibst moderne Windows-basierte Plattformen und entwickelst sie aktiv weiter (Fokus der Stelle auf Engineering, mit aktiver Mitarbeit im Betrieb)\n\n• Du stellst zusammen mit dem Team den stabilen und sicheren Betrieb über den gesamten Lifecycle sicher (Run/Operate & Improve): Monitoring/Alerting, Incident-/Problem-Management, Patch-/Release-Management, Capacity/Performance sowie Verfügbarkeit\n\n• Du treibst Standardisierung, Automatisierung und Härtung (Security) der Systemumgebungen voran (z. B. via IaC/Skripting)\n\n• Du übernimmst Engineering-Verantwortung für Lifecycle-Themen: Design, Build, Patch-/Release-Management, Capacity, Performance sowie Verfügbarkeit\n\n• Du analysierst Störungen nachhaltig, führst Root-Cause-Analysen durch und etablierst dauerhafte Verbesserungen (Problem Management)\n\n• Du arbeitest in unternehmensweiten Projekten als technischer Lead oder Spezialist mit und bringst dein Know-how ein\n\n• Du berätst Applikationsverantwortliche und interne Teams zu Infrastruktur, Architektur, Security und Betriebsmodellen\n\n• Du pflegst System-, Architektur- und Betriebsdokumentationen, Standards und Runbooks und sorgst für deren Verfügbarkeit\n\n• Du übernimmst nach der Einarbeitung Pikett-Dienste im definierten Turnus und stellst die Betriebssicherheit auch ausserhalb der Bürozeiten sicher\n\n• Geplante Wartungsfenster und Changes finden regelmässig ausserhalb der Bürozeiten sowie an Wochenenden statt (je nach Bedarf)\n\n## Anforderungen\n• Abgeschlossene Informatikausbildung (EFZ/HF/FH) oder vergleichbare, mehrjährige Praxiserfahrung als Windows System Engineer\n\n• Sehr gute Kenntnisse im Microsoft-Ökosystem, z. B. Microsoft 365, Azure, Windows Server & Clients, MS SQL (betriebsnah), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP\n\n• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)\n\n• Gute Kenntnisse in Netzwerktechnologien und Security-Grundlagen (LAN/WLAN, Cisco, 802.1x, Härtung, Identity- & Access-Konzepte)\n\n• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging\n\n• Starke Skills in Automatisierung & Skripting (PowerShell; idealerweise Git-gestützte Arbeitsweise, CI/CD-nahe Methoden von Vorteil)\n\n• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git\n\n• Strukturierte, eigenverantwortliche Arbeitsweise, hohe Serviceorientierung und gute Kommunikation; Anwenderkenntnisse in der Atlassian Cloud Suite\n\n• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil",
+      "descriptionByLocale": {
+        "it": "Siamo impegnati nei nostri clienti. Ci impegniamo nei nostri 31 mercati di ritiro, per servizio sul campo e consegna, così come nel mondo digitale.Con una gamma di marchi privati versatile interessanti, consulenza professionale e servizi innovativi.Transgourmet Schweiz AG appartiene al Gruppo internazionale Transgourmet. L'azienda è leader nella fornitura e ritiro all'ingrosso svizzero e conta circa 2.100 dipendenti e 100.000 clienti (ristauranti, alberghi, mense, case e ospedali, nonché al dettaglio). Attività\n• Progetta, implementa e gestisce le moderne piattaforme basate su Windows e le sviluppa attivamente (con focus sull'ingegneria, con partecipazione attiva alle operazioni)\n• Tu e il team assicurate un funzionamento stabile e sicuro durante tutto il ciclo di vita (Run/Operate &/81): Monitoraggio/Allertazione, Gestione degli incidenti/Problemi, Gestione delle licenze/Patch, Capacità/Performance e Disponibilità• Avanzate la standardizzazione, l'automazione e la curità degli ambienti di sistema (ad esempio. tramite IaC/Skripting)• Si assume la responsabilità ingegneristica per gli argomenti del ciclo di vita: progettazione, costruzione, gestione patch/release, capacità, prestazioni e disponibilità• Si analizzano i difetti in modo sostenibile, si esegue l'analisi basata su root e root e si implementare miglioramenti duraturi (gestione dei problemi)• Si lavora come leader tecnico o specialista in progetti aziendali e si guadagna il proprio know-how• Si consiglia ai gestori delle applicazioni e ai team interni su infrastrutture, architettura, sicurezza e modelli operativi• Si prende cura di sistemi, architettura e documentazione operativa, Standard e Runbook e garantirne la disponibilità• Dopo l'introduzione dei servizi piket, si assume il controllo nel ciclo definito e garantisce la sicurezza operativa anche al di fuori degli orari di ufficio• Finestre di manutenzione e modifiche previste sono regolarmente tenute al di fuori degli orari di ufficio e nei fine settimana (a seconda dei requisiti) Requisiti\n• Completato addestramento informatico (EFZ/HF/FH) o comparabile, esperienza pluriennale come ingegnere di sistema Windows• Ottima conoscenza dell'ecosistema Microsoft, ad esempio. Microsoft 365, Azure, Windows Server & Clients, MS SQL (operativo), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP• Esperienza con tecnologie di virtualizzazione, idealmente VV (vSphere/ESXi/vCenter)• Buona conoscenza delle tecnologie di rete e dei principi di sicurezza (LAN/WLAN, Cisco, 802.1x, indurimento e simpatie)• Esperienza con backup/restore e storage (ad es. Veeam) e Monitoraggio/Logging• Forte capacità di automazione e scripting (PowerShell; idealmente modalità di funzionamento supportata da Git, metodi di vantaggio correlati a CI/CD)• Vantaggio è familiare con la gestione del codice Ansible e sorgente con Git• Modalità di funzionamento strutturata, auto-responsabile, orientamento di servizio elevato e buona comunicazione; Conoscenza degli utenti in Atlxian Cloud Suite• Ottime competenze tedesche; Francese e/o Italiane sono vantaggiose",
+        "en": "We are committed to our customers. We are committed to our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive private brands, professional specialist advice and innovative services.Transgourmet Schweiz AG belongs to the international Transgourmet Group. The company is a leader in Swiss supply and pick-up wholesale and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retail). Tasks\n• You design, implement and operate modern Windows-based platforms and actively develop them (focus on engineering, with active participation in operations)• You and the team ensure stable and safe operation throughout the Lifecycle (Run/Operate &/81): Monitoring/Alerting, Incident/Problem Management, Patch/Release Management, Capacity/Performance and Availability• You advance standardization, automation and curity of the system environments (e.g. via IaC/Skripting)• You take over engineering responsibility for Lifecycle topics: design, build, patch/release management, capacity, performance and availability• You analyze faults sustainably, perform root- and root-based analysis and implement lasting improvements (problem management)• You work as a technical lead or specialist in company-wide projects and gain your know-how• You advise application managers and internal teams on infrastructure, architecture, security and operating models• You take care of system, architecture and operational documentation, Standards and Runbooks and ensure their availability• After the introduction of piket services, you take over in the defined cycle and ensure operational safety even outside of office times• Planned maintenance windows and Changes are regularly held outside office hours and on weekends (depending on requirements) Requirements\n• Completed computer science training (EFZ/HF/FH) or comparable, multi-year experience as Windows System Engineer• Very good knowledge of the Microsoft ecosystem, e.g. Microsoft 365, Azure, Windows Server & Clients, MS SQL (operational), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP• Experience with virtualization technologies, ideally VV (vSphere/ESXi/vCenter)• Good knowledge of network technologies and security principles (LAN/WLAN, Cisco, 802.1x, hardening, and sympathies)• Experience with backup/restore and storage (e.g. Veeam) and Monitoring/Logging• Strong skills in automation & scripting (PowerShell; ideally Git-supported mode of operation, CI/CD-related methods of advantage)• Advantage is familiar with Ansible and source code management with Git• Structured, self-responsible mode of operation, high service orientation and good communication; User knowledge in Atlassian Cloud Suite• Very good German; French and/or Italian skills are advantageous",
+        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du konzipierst, implementierst und betreibst moderne Windows-basierte Plattformen und entwickelst sie aktiv weiter (Fokus der Stelle auf Engineering, mit aktiver Mitarbeit im Betrieb)\n\n• Du stellst zusammen mit dem Team den stabilen und sicheren Betrieb über den gesamten Lifecycle sicher (Run/Operate & Improve): Monitoring/Alerting, Incident-/Problem-Management, Patch-/Release-Management, Capacity/Performance sowie Verfügbarkeit\n\n• Du treibst Standardisierung, Automatisierung und Härtung (Security) der Systemumgebungen voran (z. B. via IaC/Skripting)\n\n• Du übernimmst Engineering-Verantwortung für Lifecycle-Themen: Design, Build, Patch-/Release-Management, Capacity, Performance sowie Verfügbarkeit\n\n• Du analysierst Störungen nachhaltig, führst Root-Cause-Analysen durch und etablierst dauerhafte Verbesserungen (Problem Management)\n\n• Du arbeitest in unternehmensweiten Projekten als technischer Lead oder Spezialist mit und bringst dein Know-how ein\n\n• Du berätst Applikationsverantwortliche und interne Teams zu Infrastruktur, Architektur, Security und Betriebsmodellen\n\n• Du pflegst System-, Architektur- und Betriebsdokumentationen, Standards und Runbooks und sorgst für deren Verfügbarkeit\n\n• Du übernimmst nach der Einarbeitung Pikett-Dienste im definierten Turnus und stellst die Betriebssicherheit auch ausserhalb der Bürozeiten sicher\n\n• Geplante Wartungsfenster und Changes finden regelmässig ausserhalb der Bürozeiten sowie an Wochenenden statt (je nach Bedarf)\n\n## Anforderungen\n• Abgeschlossene Informatikausbildung (EFZ/HF/FH) oder vergleichbare, mehrjährige Praxiserfahrung als Windows System Engineer\n\n• Sehr gute Kenntnisse im Microsoft-Ökosystem, z. B. Microsoft 365, Azure, Windows Server & Clients, MS SQL (betriebsnah), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP\n\n• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)\n\n• Gute Kenntnisse in Netzwerktechnologien und Security-Grundlagen (LAN/WLAN, Cisco, 802.1x, Härtung, Identity- & Access-Konzepte)\n\n• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging\n\n• Starke Skills in Automatisierung & Skripting (PowerShell; idealerweise Git-gestützte Arbeitsweise, CI/CD-nahe Methoden von Vorteil)\n\n• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git\n\n• Strukturierte, eigenverantwortliche Arbeitsweise, hohe Serviceorientierung und gute Kommunikation; Anwenderkenntnisse in der Atlassian Cloud Suite\n\n• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil",
+        "fr": "Nous nous engageons auprès de nos clients. Nous sommes engagés dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques privées attrayantes, des conseils professionnels spécialisés et des services innovants.Transgourmet Schweiz AG appartient au groupe international Transgourmet. L'entreprise est un leader dans la fourniture et la ramassage en gros suisse et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que de détail). Tâches\n• Vous concevez, implémentez et exploitez des plateformes modernes basées sur Windows et vous les développez activement (en mettant l'accent sur l'ingénierie, avec une participation active aux opérations)• Vous et l'équipe vous assurez un fonctionnement stable et sûr tout au long du cycle de vie (Run/Operate &/81): Surveillance/Alertation, Gestion des incidents/problèmes, Gestion des patchs/releases, Capacité/Performance et Disponibilité• Vous faites progresser la normalisation, l'automatisation et la curité des environnements système (p. ex. via IaC/Skripting)• Vous assumez la responsabilité de l'ingénierie des thèmes du cycle de vie : conception, construction, gestion de patch/release, capacité, performance et disponibilité• Vous analysez durablement les défauts, effectuez des analyses root- and root-based et implémentez des améliorations durables (gestion de problèmes)• Vous travaillez comme chef de file technique ou spécialiste dans des projets à l'échelle de l'entreprise et gagnez votre savoir-faire• Vous conseillez les gestionnaires d'applications et les équipes internes sur les modèles d'infrastructure, d'architecture, de sécurité et d'exploitation• Vous vous occupez des systèmes, de l'architecture et de la documentation opérationnelle, Normes et cahiers de course et assurer leur disponibilité• Après l'introduction des services de piquet, vous prenez le relais dans le cycle défini et assurer la sécurité opérationnelle même en dehors des heures de bureau• Les fenêtres de maintenance prévues et les modifications sont tenues régulièrement en dehors des heures de bureau et les week-ends (selon les exigences) Exigences\n• Formation informatique complète (EFZ/HF/FH) ou expérience comparable, pluriannuelle en tant qu'ingénieur système Windows• Très bonne connaissance de l'écosystème Microsoft, par exemple. Microsoft 365, Azure, Windows Server & Clients, MS SQL (opérationnel), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP• Expérience des technologies de virtualisation, idéalement VV (vSphere/ESXi/vCenter)• Bonne connaissance des technologies de réseau et des principes de sécurité (LAN/WLAN, Cisco, 802.1x, durcissement et les fichiers de sécurité)• Expérience de la sauvegarde/restauration et du stockage (par exemple: Veeam) et Monitoring/Logging• Des compétences élevées en automatisation et en script (PowerShell; idéalement soutenu par Git mode de fonctionnement, IC/CD-profit méthodes)• Avantage est familier avec Ansible et la gestion de code source avec Git• Mode de fonctionnement structuré, auto-responsible, orientation de service élevé et bonne communication; Connaissances utilisateur dans Atlassian Cloud Suite• Très bon allemand; les compétences françaises et/ou italiennes sont avantageuses"
+      },
+      "location": "Moosseedorf",
+      "canton": "BE",
+      "url": "https://jobs.transgourmet.ch/offene-stellen/system-engineer-windows/f633a1ed-4c62-4291-be3c-dd3d535cc231",
+      "source": "Transgourmet Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-04T11:33:59.894Z",
+      "addressLocality": "Moosseedorf",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3302",
+      "streetAddress": "Lochackerweg 5",
+      "category": "Ingegneria",
+      "contract": "permanent",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Commercio all'ingrosso alimentare",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-05",
+      "pensum": "100%",
+      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=164960",
+      "requirements": [
+        "• Abgeschlossene Informatikausbildung (EFZ/HF/FH) oder vergleichbare, mehrjährige Praxiserfahrung als Windows System Engineer",
+        "• Sehr gute Kenntnisse im Microsoft-Ökosystem, z. B. Microsoft 365, Azure, Windows Server & Clients, MS SQL (betriebsnah), Active Directory/Entra ID, Exchange (Online/Hybrid), Teams/VoIP",
+        "• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)",
+        "• Gute Kenntnisse in Netzwerktechnologien und Security-Grundlagen (LAN/WLAN, Cisco, 802.1x, Härtung, Identity- & Access-Konzepte)",
+        "• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging",
+        "• Starke Skills in Automatisierung & Skripting (PowerShell; idealerweise Git-gestützte Arbeitsweise, CI/CD-nahe Methoden von Vorteil)",
+        "• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git",
+        "• Strukturierte, eigenverantwortliche Arbeitsweise, hohe Serviceorientierung und gute Kommunikation; Anwenderkenntnisse in der Atlassian Cloud Suite",
+        "• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Erfahrung mit Virtualisierungstechnologien, idealerweise VMware (vSphere/ESXi/vCenter)",
+          "• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging",
+          "• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git",
+          "• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil"
+        ]
+      },
+      "previousSlugs": [
+        "system-engineer-windows-transgourmet-moosseedorf",
+        "finestre-del-system-engineer-transgourmet-moosseedorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "system-engineer-windows-transgourmet-moosseedorf",
+          "finestre-del-system-engineer-transgourmet-moosseedorf"
+        ],
+        "en": [
+          "system-engineer-windows-transgourmet-moosseedorf"
+        ],
+        "de": [
+          "system-engineer-windows-transgourmet-moosseedorf"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T15:46:10.889Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }

@@ -58883,6 +58883,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli': {
+    title: 'Primo giorno in Ticino: checklist per famiglie con figli',
+    description: 'Conoscere i documenti necessari per il primo giorno di lavoro in Ticino è fondamentale per i frontaliere che lavorano in Svizzera e risiedono in Italia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, primo, giorno, checklist, famiglie',
+    ogTitle: 'Checklist operativa per il primo giorno di lavoro in Ticino: documenti, contratto, permesso, dati bancari e assicurazione sanitaria. Focus su \'famiglia con figli\' con checklist operativa e confronto scenari.',
+    ogDescription: 'Conoscere i documenti necessari per il primo giorno di lavoro in Ticino è fondamentale per i frontaliere che lavorano in Svizzera e risiedono in Italia.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Primo giorno in Ticino: checklist per famiglie con figli",
+      "description": "Conoscere i documenti necessari per il primo giorno di lavoro in Ticino è fondamentale per i frontaliere che lavorano in Svizzera e risiedono in Italia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere con la sua famiglia si prepara per il primo giorno di lavoro in Ticino."
+      },
+      "datePublished": "2026-08-04T23:01:23+00:00",
+      "dateModified": "2026-08-04T23:01:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

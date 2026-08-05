@@ -17,8 +17,10 @@
     "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-1-dietikon-691852",
     "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-1-dottingen-702649",
     "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-1-hunzenschwil-702651",
+    "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-1-muri-ag-731145",
     "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-1-neftenbach-687914",
     "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-1-regensdorf-672240",
+    "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-1-reinach-ag-731144",
     "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-1-schaffhausen-705268",
     "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-1-schlieren-691739",
     "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-1-schlieren-691858",
@@ -166,6 +168,7 @@
     "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-wadenswil-689554",
     "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-zurich-701463",
     "https://team.lidl.ch/it/jobs/sachbearbeiter-sachbearbeiterin-administration-kosten-m-w-d-60-80-weinfelden-719464",
+    "https://team.lidl.ch/it/jobs/sachbearbeiter-sachbearbeiterin-qualitatssicherung-and-nachhaltigkeit-m-w-d-80-100-weinfelden-730812",
     "https://team.lidl.ch/it/jobs/sachbearbeiter-sachbearbeiterin-recruiting-m-w-d-80-100-weinfelden-725294",
     "https://team.lidl.ch/it/jobs/sachbearbeiter-sachbearbeiterin-sortiment-m-w-d-80-100-sevaz-713245",
     "https://team.lidl.ch/it/jobs/studentenjob-verkauf-m-w-d-20-40-schluein-710973",
@@ -302,6 +305,7 @@
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-brugg-702634",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-dottingen-702627",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-hunzenschwil-702630",
+    "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-muri-ag-731135",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-neftenbach-687913",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-schlieren-691732",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-schlieren-691770",
@@ -346,10 +350,11 @@
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-90-ostermundigen-694195",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-winterthur-722351",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-biel-bienne-702324",
-    "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-reiden-714285"
+    "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-reiden-714285",
+    "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-springerfunktion-m-w-d-80-100-1-muri-ag-731141"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-08-04T11:33:33.787Z",
+  "updatedAt": "2026-08-04T22:14:40.777Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/it/jobs/lehrstelle-detailhandel-eba-oder-efz-kreuzlingen-727482": {
       "location": "Kreuzlingen",
@@ -532,6 +537,15 @@
       "contract": "Full-time"
     },
     "https://team.lidl.ch/it/jobs/fachexperte-technisches-facility-management-m-w-d-80-100-weinfelden-724995": {
+      "location": "Weinfelden",
+      "addressLocality": "Weinfelden",
+      "canton": "TG",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
+    "https://team.lidl.ch/it/jobs/sachbearbeiter-sachbearbeiterin-qualitatssicherung-and-nachhaltigkeit-m-w-d-80-100-weinfelden-730812": {
       "location": "Weinfelden",
       "addressLocality": "Weinfelden",
       "canton": "TG",
@@ -1827,6 +1841,33 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
+    "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-muri-ag-731135": {
+      "location": "Muri (AG)",
+      "addressLocality": "Muri (AG)",
+      "canton": "AG",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-springerfunktion-m-w-d-80-100-1-muri-ag-731141": {
+      "location": "Muri (AG)",
+      "addressLocality": "Muri (AG)",
+      "canton": "AG",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
+    "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-1-muri-ag-731145": {
+      "location": "Muri (AG)",
+      "addressLocality": "Muri (AG)",
+      "canton": "AG",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-wadenswil-689554": {
       "location": "Wädenswil",
       "addressLocality": "Wädenswil",
@@ -1963,6 +2004,15 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-reinach-ag-677051": {
+      "location": "Reinach (AG)",
+      "addressLocality": "Reinach (AG)",
+      "canton": "BL",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/it/jobs/allrounder-verkauf-m-w-d-20-40-1-reinach-ag-731144": {
       "location": "Reinach (AG)",
       "addressLocality": "Reinach (AG)",
       "canton": "BL",
