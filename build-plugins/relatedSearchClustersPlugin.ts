@@ -338,6 +338,12 @@ const CACHE_KEY_INPUTS = [
 // the leaked locs — bump invalidates them so the next build recomputes the
 // floor decision for every cross-locale entry.
 //
+// v9 (2026-08-03, issue #5066) lowers SITEMAP_SHARD_CAP from 45,000 to
+// 39,000 so full-by-design cluster shards land below the weekly monitor's
+// 42,000 WARNING floor (see SITEMAP_SHARD_CAP comment above). Old v8 caches
+// still hold shards boundary-split at 45,000 — bump forces a fresh emit that
+// re-shards at the new, smaller cap.
+//
 // Issue #4383 item 2 (verified 2026-07-18, no staleness gap found): a stale
 // v7-cached shard can never coexist with a fresh v8 shard. `computeCacheKey`
 // below hashes `version:${CACHE_VERSION}` directly INTO the sha256 digest
@@ -357,15 +363,25 @@ const CACHE_KEY_INPUTS = [
 // cathedral-seo-gates-check.yml, local dev), which run as one process with
 // one CACHE_VERSION value — no shard-vs-shard mismatch is possible there
 // either.
-const CACHE_VERSION = 'v8';
+const CACHE_VERSION = 'v9';
 
 /**
- * sitemaps.org caps each sitemap at 50,000 URLs. We shard at 45,000 to
+ * sitemaps.org caps each sitemap at 50,000 URLs. We shard at 39,000 to
  * leave a safety margin for incidental growth between builds. The
  * `sitemap-search-clusters.xml` cohort topped 81,537 URLs as of
  * 2026-05-18, silently failing GSC ingestion above the cap.
+ *
+ * Kept strictly BELOW the weekly monitor's WARNING_THRESHOLD (42,000,
+ * `scripts/check-sitemap-shard-size.mjs` / `check-dist-sitemap-shard-
+ * size.mjs`), not just Google's hard cap. At the previous 45,000 cap, every
+ * full-by-design shard sat right at 45,000 — ABOVE the 42,000 warning
+ * floor — so the monitor guaranteed a weekly WARNING for the same
+ * non-actionable, by-design condition (issue #5066, sibling of the
+ * CRITICAL-vs-cap decoupling done in #4395). 39,000 leaves real margin
+ * under 42,000 so a full shard no longer self-trips the warning; only a
+ * genuinely growing cohort approaching the cap will.
  */
-const SITEMAP_SHARD_CAP = 45_000;
+const SITEMAP_SHARD_CAP = 39_000;
 const SITEMAP_SHARD_PREFIX = 'sitemap-search-clusters';
 
 function padShardIndex(index: number): string {
