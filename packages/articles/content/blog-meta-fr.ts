@@ -9273,6 +9273,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.indicatore-affari-aziende-luglio.title': 'Indicateur affaires entreprises : reprise dans presque tous les secteurs',
     'blog.article.indicatore-affari-aziende-luglio.excerpt': 'La situation économique des entreprises suisses s\'améliore selon l\'Institut KOF de l\'Ecole polytechnique fédérale de Zurich, avec un indicateur à plus 21,5 points en juillet.',
     'blog.article.indicatore-affari-aziende-luglio.imageAlt': 'Vue d\'ensemble d\'un quartier financier en Suisse avec des batiments modernes',
+    'blog.article.svizzeri-fuga-alloglio-ticino.title': 'Suisses fuyant au-delà de la frontière pour le logement',
+    'blog.article.svizzeri-fuga-alloglio-ticino.excerpt': '154\'700 Suisses vivent dans des régions frontalières. 70% des Romands trouvent des loyers trop élevés. Côme et Varèse parmi les régions concernées.',
+    'blog.article.svizzeri-fuga-alloglio-ticino.imageAlt': 'Vue panoramique sur le lac de Como avec des Suisses déménageant vers la région',
 };
 
 export default blogMetaFr;
