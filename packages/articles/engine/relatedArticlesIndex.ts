@@ -85,6 +85,36 @@ const SAME_CATEGORY_BONUS = 1.15;
 const MIN_TOKEN_LENGTH = 4;
 
 /**
+ * Three-character tokens that ARE the topic in this corpus, exempted from the
+ * length floor above.
+ *
+ * The floor exists to drop function words, and at four characters it also drops
+ * every domain acronym — which in a corpus about cross-border taxation and
+ * pensions is the most discriminating vocabulary there is. `AVS e LPP: come si
+ * somma la pensione svizzera` is a real headline shape here, and without this
+ * set its only surviving tokens are the generic ones, so it scores against
+ * fiscal articles as readily as against pension ones.
+ *
+ * All four locales, because the same scheme has a different acronym in each
+ * (AVS/AHV, LPP/BVG, IVA/TVA/MWST) and an article pair split across locales
+ * must still recognise itself. `730` is included for the same reason it is in
+ * `data/news-sitemap-whitelist.ts`: it names one specific Italian tax return
+ * and nothing else.
+ *
+ * Deliberately an allowlist, not a lowered floor: dropping MIN_TOKEN_LENGTH to
+ * 3 globally would admit the long tail of three-letter function words across
+ * four languages, which STOPWORDS does not (and should not have to) enumerate.
+ */
+const DOMAIN_ACRONYMS = new Set([
+  'avs', 'ahv', // old-age insurance, it/fr — de
+  'lpp', 'bvg', // occupational pension, it/fr — de
+  'iva', 'tva', // VAT, it — fr
+  'cmb', 'cmi', // cassa malati frontalieri variants
+  'imu', // Italian property tax
+  '730', // the Italian tax return, cf. data/news-sitemap-whitelist.ts
+]);
+
+/**
  * A token appearing in more than this fraction of the corpus is treated as a
  * stopword regardless of the list below. "frontaliere" is in virtually every
  * title on this site: it identifies the domain, not the article. This is what
@@ -161,7 +191,7 @@ export function tokenize(text: string): string[] {
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .split(/[^a-z0-9]+/)
-    .filter((t) => t.length >= MIN_TOKEN_LENGTH && !STOPWORDS.has(t))
+    .filter((t) => (t.length >= MIN_TOKEN_LENGTH || DOMAIN_ACRONYMS.has(t)) && !STOPWORDS.has(t))
     .map(foldInflection);
 }
 
