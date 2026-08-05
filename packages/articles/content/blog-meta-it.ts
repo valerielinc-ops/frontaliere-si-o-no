@@ -9254,6 +9254,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.title': 'Frontaliere: Infortunio sul lavoro e assicurazione LAINF nel 2026',
     'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.excerpt': 'Scopri le novità sull\'assicurazione infortuni LAINF per i frontalieri nel 2026, con focus su \'oltre 20 km\' e checklist operativa.',
     'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Ticino, Switzerland.',
+    'blog.article.poste-italiane-consulenti-finanziari-varese.title': 'Poste Italiane cerca consulenti finanziari in provincia di Varese',
+    'blog.article.poste-italiane-consulenti-finanziari-varese.excerpt': 'L\'azienda cerca laureati/laureandi per attività di promozione e vendita di servizi finanziari, assicurativi e di finanziamento fino al 26 agosto',
+    'blog.article.poste-italiane-consulenti-finanziari-varese.imageAlt': 'Ufficio postale italiano a Varese con consulente finanziario',
 };
 
 export default blogMetaIt;

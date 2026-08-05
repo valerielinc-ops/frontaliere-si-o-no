@@ -9253,6 +9253,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.title': 'Frontier: Accident at work and LAINF insurance in 2026',
     'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.excerpt': 'Discover the latest news on LAINF accident insurance for border workers in 2026, with a focus on \'over 20 km\' and an operational checklist.',
     'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Ticino, Switzerland.',
+    'blog.article.poste-italiane-consulenti-finanziari-varese.title': 'Poste Italiane is looking for financial advisors in the province of Varese',
+    'blog.article.poste-italiane-consulenti-finanziari-varese.excerpt': 'The company is looking for graduates/undergraduates for promotion and sale of financial, insurance and financing services until 26 August',
+    'blog.article.poste-italiane-consulenti-finanziari-varese.imageAlt': 'Italian post office in Varese with financial advisor',
 };
 
 export default blogMetaEn;

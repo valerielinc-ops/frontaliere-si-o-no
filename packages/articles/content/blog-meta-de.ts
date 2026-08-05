@@ -9252,6 +9252,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.title': 'Grenzgänger: Arbeitsunfall und UVG-Versicherung im Jahr 2026',
     'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.excerpt': 'Entdecken Sie die Neuheiten der UVG-Unfallversicherung für Grenzgänger im Jahr 2026 mit Fokus auf \'über 20 km\' und operativer Checkliste.',
     'blog.article.frontaliere-infortunio-lainf-2026-oltre-20-km.imageAlt': 'Luftaufnahme von Castelgrande in Bellinzona, Tessin, Schweiz.',
+    'blog.article.poste-italiane-consulenti-finanziari-varese.title': 'Poste Italiane sucht Finanzberater in der Provinz Varese',
+    'blog.article.poste-italiane-consulenti-finanziari-varese.excerpt': 'Das Unternehmen sucht Absolventen/Absolventen für die Förderung und den Verkauf von Finanz-, Versicherungs- und Finanzierungsdienstleistungen bis zum 26. August',
+    'blog.article.poste-italiane-consulenti-finanziari-varese.imageAlt': 'Italienische Postfiliale in Varese mit Finanzberater',
 };
 
 export default blogMetaDe;

@@ -59039,6 +59039,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-poste-italiane-consulenti-finanziari-varese': {
+    title: 'Poste Italiane cerca consulenti finanziari in provincia di Varese',
+    description: 'Poste Italiane cerca laureati/laureandi per consulenza finanziaria in provincia di Varese fino al 26 agosto. Scopri i requisiti e come candidarsi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, poste, italiane, cerca, consulenti',
+    ogTitle: 'Poste Italiane cerca consulenti finanziari in Varese',
+    ogDescription: 'Poste Italiane cerca laureati/laureandi per consulenza finanziaria in provincia di Varese fino al 26 agosto. Scopri i requisiti e come candidarsi.',
+    canonicalPath: '/articoli-frontaliere/poste-italiane-consulenti-finanziari-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Poste Italiane cerca consulenti finanziari in provincia di Varese",
+      "description": "Poste Italiane cerca laureati/laureandi per consulenza finanziaria in provincia di Varese fino al 26 agosto. Scopri i requisiti e come candidarsi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/poste-italiane-consulenti-finanziari-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio postale italiano a Varese con consulente finanziario"
+      },
+      "datePublished": "2026-08-05T03:21:31+00:00",
+      "dateModified": "2026-08-05T03:21:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/poste-italiane-consulenti-finanziari-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
