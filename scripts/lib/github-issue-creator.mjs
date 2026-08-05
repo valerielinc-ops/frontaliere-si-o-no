@@ -64,6 +64,21 @@ const DEFAULT_CRAWLER_GATE_WINDOW_HOURS = 48; // failures older than this don't 
 const CRAWLER_TRANSIENT_LABEL = 'crawler-transient';
 const RECURRENCE_MARKER = '🔁'; // prefixes every recurrence comment we post
 
+// Sub-threshold failures are recorded HERE instead of each minting its own
+// issue (#5139/#5137). The gate above always downgraded a lone blip to a
+// `crawler-transient` breadcrumb — but a breadcrumb is still an issue: 333 of
+// them had been opened by 2026-08-05, and although a bot auto-closes each one
+// once the crawler goes green (~14h later), every one still fires notifications,
+// enters triage, and buries real bugs. The ones that DON'T recover quickly reach
+// a human, which is how two priority:low network blips ended up hand-triaged.
+//
+// One long-lived ledger issue absorbs all of them. Consecutive-failure counting
+// keeps working — the ordinal is read from ledger comments carrying the
+// crawler's stable title key — so the Nth failure still escalates into a real,
+// routable per-crawler issue. Nobody ever has to close the ledger.
+const TRANSIENT_LEDGER_TITLE = 'Crawler transient failures (rolling ledger)';
+const LEDGER_KEY_PREFIX = 'transient-key:'; // machine-readable per-crawler key in each ledger comment
+
 /**
  * Run `gh` with explicit args. Returns trimmed stdout, or null on failure.
  * stderr is forwarded for visibility (workflow logs will show the actual error).
@@ -236,6 +251,91 @@ function countRecentFailureEvents(issueNumber, windowHours) {
   }
 }
 
+/**
+ * The single open ledger issue that absorbs sub-threshold crawler blips.
+ * Looked up by exact title; created on first use. Best-effort: returns null on
+ * any gh error so the caller falls back to the previous per-crawler-issue
+ * behaviour rather than losing the failure signal entirely.
+ */
+function findOrCreateTransientLedger() {
+  const existing = searchIssuesByTitlePrefix(TRANSIENT_LEDGER_TITLE, 'open')
+    .find((i) => i.title === TRANSIENT_LEDGER_TITLE);
+  if (existing) return existing.number;
+
+  ensureLabelsExist([CRAWLER_TRANSIENT_LABEL, PRIORITY_LABEL[4]]);
+  const body = [
+    'Rolling log of **sub-threshold** crawler failures.',
+    '',
+    `A crawler that fails fewer than ${DEFAULT_CRAWLER_GATE_THRESHOLD} times in a`,
+    `${DEFAULT_CRAWLER_GATE_WINDOW_HOURS}h window is almost always a network blip that`,
+    'self-heals on the next scheduled run. Those land here as a comment instead of',
+    'opening their own issue, so the backlog is not flooded with breadcrumbs that a',
+    'bot opens and closes hours later.',
+    '',
+    `On the ${DEFAULT_CRAWLER_GATE_THRESHOLD}rd consecutive failure the crawler gets a real,`,
+    'routable issue at full priority — that is the signal worth acting on.',
+    '',
+    '**Leave this issue open.** It is the counter; closing it resets every streak.',
+  ].join('\n');
+  const url = gh([
+    'issue', 'create',
+    '--title', TRANSIENT_LEDGER_TITLE,
+    '--body', body,
+    '--label', CRAWLER_TRANSIENT_LABEL,
+    '--label', PRIORITY_LABEL[4],
+    ...repoFlag(),
+  ], { allowFailure: true });
+  if (!url) return null;
+  const m = url.split('\n').pop().trim().match(/\/issues\/(\d+)/);
+  return m ? Number(m[1]) : null;
+}
+
+/**
+ * Count in-window ledger entries for one crawler key. Mirrors
+ * countRecentFailureEvents but reads the shared ledger instead of a
+ * dedicated issue. Fails OPEN (0) so the gate can never escalate on a
+ * counting error.
+ */
+function countLedgerEvents(ledgerNumber, key, windowHours) {
+  if (!ledgerNumber) return 0;
+  const cutoff = Date.now() - windowHours * 3600 * 1000;
+  const out = gh([
+    'issue', 'view', String(ledgerNumber),
+    '--json', 'comments',
+    ...repoFlag(),
+  ], { allowFailure: true });
+  if (!out) return 0;
+  try {
+    const marker = `${LEDGER_KEY_PREFIX} ${key}`;
+    let count = 0;
+    for (const c of JSON.parse(out).comments || []) {
+      const at = c.createdAt && Date.parse(c.createdAt);
+      if (at && at >= cutoff && typeof c.body === 'string' && c.body.includes(marker)) count += 1;
+    }
+    return count;
+  } catch {
+    return 0;
+  }
+}
+
+/** Append one sub-threshold failure to the ledger. Returns true when recorded. */
+function recordLedgerEvent(ledgerNumber, key, ordinal, threshold, body) {
+  if (!ledgerNumber) return false;
+  const comment = [
+    `${RECURRENCE_MARKER} **${key}** — transient failure ${ordinal}/${threshold} in the rolling window.`,
+    '',
+    `\`${LEDGER_KEY_PREFIX} ${key}\``,
+    '',
+    body,
+  ].join('\n');
+  const res = gh([
+    'issue', 'comment', String(ledgerNumber),
+    '--body', comment.slice(0, MAX_BODY_LEN),
+    ...repoFlag(),
+  ], { allowFailure: true });
+  return res !== null;
+}
+
 /** Replace an issue's priority label (remove all priority:* labels, add the target). */
 function setIssuePriorityLabel(issueNumber, targetPriorityLabel, extraAdd = []) {
   const removable = Object.values(PRIORITY_LABEL).filter((l) => l !== targetPriorityLabel);
@@ -357,8 +457,15 @@ export async function createGithubIssue({
   let effectivePriority = priority;
   let gatedBelowThreshold = false;
   if (gateThreshold > 0) {
-    const priorEvents = existing ? countRecentFailureEvents(existing.number, gateWindowHours) : 0;
+    // Where the streak is counted depends on whether this crawler already has a
+    // real issue. Once escalated, the issue itself is the counter; before that,
+    // the shared ledger is — so a blip never needs an issue of its own.
+    const ledgerNumber = existing ? null : findOrCreateTransientLedger();
+    const priorEvents = existing
+      ? countRecentFailureEvents(existing.number, gateWindowHours)
+      : countLedgerEvents(ledgerNumber, titlePrefix, gateWindowHours);
     const thisEventOrdinal = priorEvents + 1;
+
     if (thisEventOrdinal < gateThreshold) {
       effectivePriority = 4; // priority:low breadcrumb
       gatedBelowThreshold = true;
@@ -366,6 +473,27 @@ export async function createGithubIssue({
         `[github-issue-creator] Gate: failure ${thisEventOrdinal}/${gateThreshold} for `
         + `"${titlePrefix}" within ${gateWindowHours}h → low-priority breadcrumb (no escalation).`,
       );
+
+      // No issue for this crawler yet → record in the ledger and stop. This is
+      // the line that keeps a lone network blip out of the backlog entirely;
+      // the old behaviour opened a `crawler-transient` issue here (#5139/#5137).
+      // If the ledger is unavailable we deliberately fall through to the legacy
+      // per-crawler issue rather than dropping the signal.
+      if (!existing && ledgerNumber) {
+        const recorded = recordLedgerEvent(
+          ledgerNumber, titlePrefix, thisEventOrdinal, gateThreshold,
+          [workflow ? `**Workflow:** ${workflow}` : '', description || '_no details provided_']
+            .filter(Boolean).join('\n\n'),
+        );
+        if (recorded) {
+          console.log(
+            `[github-issue-creator] Recorded transient failure in ledger #${ledgerNumber} `
+            + `— no per-crawler issue opened (${thisEventOrdinal}/${gateThreshold}).`,
+          );
+          return { number: ledgerNumber, title: TRANSIENT_LEDGER_TITLE, url: null, ledger: true };
+        }
+        console.error('[github-issue-creator] Ledger write failed; falling back to per-crawler issue.');
+      }
     } else {
       console.log(
         `[github-issue-creator] Gate: failure ${thisEventOrdinal}/${gateThreshold} for `

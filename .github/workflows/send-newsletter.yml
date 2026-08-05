@@ -5,7 +5,25 @@ on:
     # Daily 03:33 UTC (05:33 CEST) — moved up 2h from 05:33 UTC per explicit owner request (2026-07-08).
     # Original 05:33 was tuned via PostHog click data to land ~25 min before peak read hour (06:00 UTC, 34 clicks/90d);
     # this 2h shift widens that lead to ~2h25m, so the peak-alignment rationale no longer holds as-is.
-    # Avoids :00/:15/:30/:45 minute slots which GitHub Actions cron deprioritizes under load (silent skips).
+    #
+    # #3798 Fase 1, re-audited 2026-08-05 — two corrections to the reasoning
+    # above (the slot itself is unchanged; see send-job-alerts.yml for the full
+    # audit and the numbers):
+    #  * The nominal cron minute is not when this runs. GitHub's scheduled-
+    #    dispatch backlog puts the real start at a median of 160m later
+    #    (~06:13 UTC; p90 196m, max 209m over the last 28 scheduled runs). Any
+    #    "lands N minutes before peak read hour" tuning has to be done against
+    #    the effective start, not the crontab. As it happens the ~06:13
+    #    effective start is close to the 06:00 UTC peak the original 05:33 was
+    #    aiming for — the 2h shift was largely absorbed by the drift.
+    #  * "Avoids :00/:15/:30/:45 which GitHub deprioritizes" is not supported by
+    #    the data: median dispatch delay is 150m at :00, 149m at :15/:30/:45 and
+    #    158m at off-minutes (n=1462 scheduled runs). The minute does not
+    #    matter; the hour does.
+    # Since per-user scheduling landed, the effective start matters far less
+    # anyway: the provider holds each message until the subscriber's own hour
+    # (scripts/lib/send-schedule.mjs), so this cron only decides when the
+    # campaign is composed and enqueued.
     - cron: '33 3 * * *'
   workflow_dispatch:
     inputs:

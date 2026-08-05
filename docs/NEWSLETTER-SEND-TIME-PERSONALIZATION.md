@@ -214,12 +214,59 @@ under-count their opens/clicks.
 node scripts/report-send-hour-impact.mjs                    # last 30 days
 node scripts/report-send-hour-impact.mjs --days 60
 node scripts/report-send-hour-impact.mjs --since 2026-07-01  # pre/post split at rollout date
+node scripts/report-send-hour-impact.mjs --maturity-hours 72 # stricter maturation
+node scripts/report-send-hour-impact.mjs --maturity-hours 0  # reproduce the old, confounded numbers
 node scripts/report-send-hour-impact.mjs --json
 ```
 
-Groups with fewer than 100 deliveries are flagged inline as not statistically
-meaningful yet (`n<100, not significant`) rather than silently included in
-the headline comparison.
+Every comparison is a real two-proportion z-test against the paired baseline
+(`services/newsletter-ab-stats.mjs`), reported inline as
+`[significant, p=...]` / `[not significant, p=...]`.
+
+### The instrument correction (#3798 Fase 4, 2026-08-05)
+
+The report used to window, split and count on `sent_at`. `sent_at` is when we
+called the provider's API; the entire point of this feature is that the
+provider delivers **later**. That made `personal` the only cohort
+systematically delayed relative to its own timestamp, so it was measured
+against a shorter effective window in which to be opened than `global` and
+`immediate` — a confound with exactly the sign of the negative result that was
+first observed. Three corrections, all in
+`scripts/report-send-hour-impact.mjs`:
+
+1. **Delivery anchoring** — window floor, pre/post split and maturity all key
+   off `scheduled_for ?? sent_at`. Because the Firestore query can only filter
+   on the indexed `sent_at`, the fetch floor is widened by
+   `MAX_SCHEDULE_LOOKAHEAD_MS` (3d) and the surplus trimmed in `aggregate()`;
+   without that, a message sent just before the floor but delivered inside it
+   is never fetched — a silent left-edge truncation hitting only the scheduled
+   cohort.
+2. **Maturation** (`--maturity-hours`, default 48) — drops deliveries released
+   less than N hours ago from **every** group alike, so each cohort has had the
+   same opportunity to be opened.
+3. **Coverage** (`sched%` column + a treated-only comparison) — the share of
+   each group carrying a real `scheduled_for`. A `personal` delivery whose
+   cascade fell through to a provider with no native scheduled-send went out
+   immediately and never received the treatment; without this number the test
+   measures a treatment of unknown intensity.
+
+Measured effect of the correction on the same production data (20-day window,
+split at 2026-07-12, `personal` vs `global` open rate):
+
+| Instrument | personal vs global | verdict |
+|---|---|---|
+| `sent_at`, no maturation (old) | **−8.7 pp** | feature looks harmful (p=0.000) |
+| delivery-anchored, no maturation | −2.6 pp | still negative (p=0.000) |
+| delivery-anchored + 24h maturation | **+5.0 pp** | positive (p=0.000) |
+| delivery-anchored + 48h maturation | **+12.1 pp** | positive (p=0.000) |
+| delivery-anchored + 72h maturation | **+5.9 pp** | positive (p=0.000) |
+
+The sign is positive and significant at every maturity window tested and
+negative only with maturation off, so the earlier negative verdict was an
+artifact of the instrument, not a property of the feature. Treated-only
+(`scheduled_for` present on both sides) at 48h: **+15.1 pp** (36.3% vs 21.2%),
+on 87.3% coverage of the `personal` cohort. The pre-committed rollback
+(`PER_USER_SEND_TIME=off`) was therefore **not** exercised.
 
 **What to watch**, beyond the report's own open/click-rate delta:
 
@@ -256,18 +303,57 @@ large enough to matter in practice.
 Both sends stay at **once per day** — this feature changes *when within
 the day* each subscriber's email goes out, not how often the workflow runs.
 
-| Workflow | Cron (UTC) | Rationale |
-|---|---|---|
-| `send-newsletter.yml` | `33 3 * * *` (03:33) | Unchanged by this feature. Tuned via PostHog click data + owner request (2026-07-08); confirmed clear by the same concurrency audit below. |
-| `send-job-alerts.yml` | `33 0 * * *` (00:33) | Moved from `0 5 * * *` (2026-07-11, issue #3798 rollout); shifted from 01:47→00:33 (2026-07-21) to hold a 3h gap before send-newsletter. See below. |
+| Workflow | Cron (UTC) | Effective start (median) | Rationale |
+|---|---|---|---|
+| `send-newsletter.yml` | `33 3 * * *` (03:33) | ~06:13 | Unchanged by this feature. Tuned via PostHog click data + owner request (2026-07-08). |
+| `send-job-alerts.yml` | `33 0 * * *` (00:33) | ~04:33 | Moved from `0 5 * * *` (2026-07-11, #3798 rollout), then 01:47→00:33 (2026-07-21). Kept at 00:33 after the 2026-08-05 re-audit — see below. |
 
-**Audit basis** (real GitHub Actions runs, 3.5-day window, July 2026):
-01:00-04:00 UTC is the quietest concurrency window on the account (~4
-concurrent jobs observed, vs a ~22-job peak around 12:00 UTC). The previous
-05:00 UTC slot collided with real `translate-pending.yml` runs observed
-spanning 04:51→07:01 UTC and 05:11→09:47 UTC — job-alerts was competing for
-runner capacity with an active translation/housekeeping job on those days.
-`:47` avoids the `:00`/`:15`/`:30`/`:45` minute marks GitHub Actions
-deprioritizes under load (documented silent-skip risk). At its typical 3-10
-minute runtime, `send-job-alerts` finishes with wide margin before
-`send-newsletter` fires at 03:33 UTC.
+### Audit basis — corrected 2026-08-05 (#3798 Fase 1)
+
+The July 2026 audit that produced these slots measured **concurrent jobs per
+wall-clock hour**. That is the wrong metric twice over, and its conclusion
+("01:00-04:00 UTC is the quietest window") was right by accident. Re-audited
+over 30 days of scheduled runs across every crontabbed workflow in the repo:
+
+- **The concurrency pool is no longer the constraint.** Post-dispatch job queue
+  wait (`job.started_at − job.created_at`) is a median of **2s**, p90 8-9s, for
+  runs created anywhere in 00:00-06:00 UTC (n=414 jobs over 7 days). The
+  ~20-job free-tier ceiling behind incident #2882 stopped biting when the 581
+  per-crawler workflows were consolidated into 23 groups
+  (`docs/CI-CD-PIPELINE.md`). Choosing a slot to dodge our own concurrent jobs
+  optimises something that costs ~2 seconds.
+- **What costs hours is GitHub's scheduled-dispatch backlog** — the gap between
+  the nominal cron minute and `run.created_at`. Median by nominal hour: 00h
+  **240m**, 02h 199m, 03h 159m, 05h 147m, 10h 109m, 15h 65m, 21h 62m, 22h
+  **51m**. `send-job-alerts` at 00:33 is the worst-placed workflow measured
+  (median 240m, p90 471m, max 590m).
+- **It is a property of the slot, not of the workflow.**
+  `orchestrate-crawlers.yml` is scheduled at both 09:00 (median 133m) and 21:00
+  (median 62m) — same workflow, same repo, 2.1× apart. `translate-pending.yml`
+  (07:00→157m vs 13:00→130m) and `audit-parser-quality.yml` (10:30→114m vs
+  15:15→99m) agree.
+- **A "runs created per hour" histogram cannot see this**, because it counts
+  runs at their delayed time. 00h-02h show 11-22 runs/h vs 68-75 at 10h-11h —
+  the night looks quiet precisely because its own scheduled work is being
+  deferred into the morning. Dispatch delay is in fact *anti*-correlated with
+  our own run volume (22h is the 5th busiest hour and has the lowest delay).
+- **The minute is not load-bearing.** Median delay is 150m at `:00`, 149m at
+  `:15`/`:30`/`:45`, 158m at off-minutes (n=1462). The `:47`/`:33`
+  "avoids GitHub's deprioritised minute marks" rationale is unsupported here.
+
+**Why the slots stay early anyway.** The low-drift band is 15:00-22:00 UTC, but
+moving there would be a net loss: `computeScheduledSendAt` schedules each
+subscriber for the *next* occurrence of their preferred hour, so the later in
+the UTC day the run fires, the more subscribers have already passed their hour
+and get pushed to tomorrow's slot — receiving ~24h-old content. Firing early
+beats firing punctually. 00:33 + 240m lands ~04:33, the earliest effective
+start of any sampled slot, and even its p90 (~08:24) clears the morning crawler
+batch (dispatched ~11:20; longest group `crawler-group-01` runs ~3-4h, not the
+5h40m its `timeout-minutes` allows). The unsampled 23:00 slot is the one worth
+testing next — the 21h/22h numbers suggest it could fire ~00:15 UTC with a far
+tighter tail.
+
+**The previously-claimed 3h gap between the two sends does not exist** and is
+not needed: effective starts are ~04:33 and ~06:13 (~1h40m apart), and on p90
+days job-alerts starts *after* the newsletter. The two workflows have no data
+dependency and separate `concurrency` groups.
