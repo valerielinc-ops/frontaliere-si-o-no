@@ -1700,7 +1700,23 @@ async function reportGA4(token) {
     }
 
     // 3h-v-fallback: If app_error custom dimensions aren't registered in GA4,
-    // fall back to standard 'exception' event descriptions (always queryable).
+    // fall back to the standard 'exception' event (always queryable). Reads its
+    // OWN error_type/error_message params — the same registered custom
+    // dimensions the 3h-v query above reads off app_error — rather than
+    // reconstructing them by regex-splitting the human-readable `description`
+    // param. `description` is built in services/analytics.ts as
+    // `[${type}] ${decodedMessage}` where decodedMessage keeps ITS OWN leading
+    // `[Component:Name]`/`[SilentBoundary:x]` annotation intact (unlike
+    // `error_message`, which is deliberately stripped of that annotation —
+    // see `classifiableMessage` in analytics.ts — so the classification-
+    // relevant substring, e.g. "does not provide an export named", gets
+    // priority within GA4's ~100-char hard truncation at ingestion). Splitting
+    // `description` after GA4 has already truncated it means the doubled-up
+    // bracket prefix can itself consume the whole 100-char budget, silently
+    // cutting the classification-relevant substring the deny-list in
+    // scripts/lib/error-issue-sync.mjs matches against — a spurious backlog
+    // issue for an already self-healed error (#5063). error_type/error_message
+    // don't have this problem: they're stripped/prioritized at the source.
     if (!errorHealth.appErrors.length) {
       const excRes = await fetchRetry(
         `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
@@ -1710,7 +1726,8 @@ async function reportGA4(token) {
           body: JSON.stringify({
             ...baseRequest,
             dimensions: [
-              { name: 'customEvent:description' },
+              { name: 'customEvent:error_type' },
+              { name: 'customEvent:error_message' },
               { name: 'pagePath' },
             ],
             metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
@@ -1727,17 +1744,13 @@ async function reportGA4(token) {
       );
       if (excRes.ok) {
         const excData = await excRes.json();
-        errorHealth.appErrors = (excData.rows || []).map((r) => {
-          const desc = r.dimensionValues[0].value || '';
-          const typeMatch = desc.match(/^\[([^\]]+)\]/);
-          return {
-            errorType: typeMatch ? typeMatch[1] : 'exception',
-            errorMessage: typeMatch ? desc.slice(typeMatch[0].length + 1).trim() : desc,
-            pagePath: r.dimensionValues[1].value,
-            count: parseInt(r.metricValues[0].value, 10),
-            users: parseInt(r.metricValues[1].value, 10),
-          };
-        });
+        errorHealth.appErrors = (excData.rows || []).map((r) => ({
+          errorType: r.dimensionValues[0].value || 'exception',
+          errorMessage: r.dimensionValues[1].value,
+          pagePath: r.dimensionValues[2].value,
+          count: parseInt(r.metricValues[0].value, 10),
+          users: parseInt(r.metricValues[1].value, 10),
+        }));
       }
     }
 

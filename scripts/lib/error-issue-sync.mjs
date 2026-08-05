@@ -50,6 +50,19 @@ export const ISSUE_DENY_PATTERNS = [
   // A genuinely persistent export breakage still reaches the backlog through
   // OTHER signatures (the downstream TypeErrors it causes are not denied).
   /does not provide an export named/i,
+  // GA4 truncates the `error_message` custom event parameter at 100 chars
+  // BEFORE it ever reaches this feeder (reports/analytics-latest.json stores
+  // the already-truncated GA4 value) — unlike the client-side detection above,
+  // which runs on the raw, untruncated `error.message` and is unaffected. A
+  // longer `[SilentBoundary:<name>] SyntaxError: The requested module '<path>'
+  // does not provide an export named '<binding>'` prefix pushes "an export
+  // named" past the 100-char cutoff, so the pattern above never matches and
+  // this self-healed class leaks into the backlog anyway (issue #5063: cut off
+  // at "...does not provide "). This shorter prefix of the exact same V8/Chrome
+  // wording lands well within the truncation budget regardless of boundary/
+  // module name length, while staying specific enough to this SyntaxError class
+  // to not swallow unrelated errors.
+  /does not provide\b/i,
   /import not found/i,
   /indirect export/i,
   /Importing binding name/i,

@@ -452,6 +452,12 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     expect(isIssueDenied('Stale chunk: Failed to fetch dynamically imported module: https://cdn.frontaliereticino.ch/assets/App.js')).toBe(false);
     // And the denied class, for contrast:
     expect(isIssueDenied("The requested module './vendor-firebase-core.js' does not provide an export named 'createWebChannelTransport'")).toBe(true);
+    // GA4 hard-truncates the error_message custom parameter at 100 chars
+    // BEFORE it reaches this feeder, which can cut "an export named" off the
+    // full-phrase pattern above (issue #5063: a long `[SilentBoundary:name]`
+    // prefix pushed the phrase past the cutoff, so the message arrived here
+    // reading only "...does not provide "). Must still be denied.
+    expect(isIssueDenied("[SilentBoundary:ai-chatbot] SyntaxError: The requested module './internalLinks.js' does not provide ")).toBe(true);
     expect(isIssueDenied('Script error.')).toBe(true);
     // Bare transport failures (#4150): Chrome / Safari / Firefox wordings all denied.
     expect(isIssueDenied('TypeError: Failed to fetch')).toBe(true);
