@@ -40,6 +40,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
+import { CALC_HREF } from './shared/calcHref';
 import { formatSourceAttribution } from './shared/authoritativeSources';
 import { CALCULATOR_REGIME_SCOPE_NOTICE, CALCULATOR_REGIME_SCOPE_TAG } from './shared/calculatorRegimeScope';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
@@ -262,12 +263,6 @@ const COPY: Record<LiechtensteinLocale, Copy> = {
   },
 };
 
-const CALC_PATH: Record<LiechtensteinLocale, string> = {
-  it: '/calcola-stipendio/',
-  en: '/en/calculate-salary/',
-  de: '/de/gehalt-berechnen/',
-  fr: '/fr/calculer-salaire/',
-};
 
 // ── hreflang / breadcrumb ───────────────────────────────────────
 
@@ -389,7 +384,7 @@ export function renderAboveFloorPage(params: {
     <section class="mt-6 rounded-md border border-edge bg-surface p-5">
       <h2 class="text-xl font-bold text-heading">${esc(c.crossTitle)}</h2>
       <div class="mt-4 grid gap-3 sm:grid-cols-2">
-        <a class="rounded-md border border-accent-border bg-accent-subtle p-4 text-sm font-semibold text-heading hover:border-accent-strong" href="${CALC_PATH[locale]}">${esc(c.calcLink)} <span class="font-normal text-muted">(${esc(CALCULATOR_REGIME_SCOPE_TAG[locale])})</span></a>
+        <a class="rounded-md border border-accent-border bg-accent-subtle p-4 text-sm font-semibold text-heading hover:border-accent-strong" href="${CALC_HREF[locale]}">${esc(c.calcLink)} <span class="font-normal text-muted">(${esc(CALCULATOR_REGIME_SCOPE_TAG[locale])})</span></a>
         <a class="rounded-md border border-edge bg-surface-raised p-4 text-sm font-semibold text-heading hover:border-accent-border" href="${LIECHTENSTEIN_HUB_PATH[locale]}">${esc(c.hubLabel)}</a>
       </div>
       <p class="mt-3 text-xs leading-5 text-muted">${esc(CALCULATOR_REGIME_SCOPE_NOTICE[locale])}</p>
@@ -452,7 +447,7 @@ export function renderBridgePage(params: {
     <h1 class="text-2xl font-bold text-heading mb-3">${esc(c.h1(n))}</h1>
     <p class="text-body mb-5 leading-6">${esc(c.bridgeLede(n))}</p>
     <ul class="space-y-2 list-none p-0 m-0">
-      <li><a href="${CALC_PATH[locale]}" class="text-sm font-semibold text-link">${esc(c.calcLink)} →</a> <span class="text-xs text-muted">(${esc(CALCULATOR_REGIME_SCOPE_TAG[locale])})</span></li>
+      <li><a href="${CALC_HREF[locale]}" class="text-sm font-semibold text-link">${esc(c.calcLink)} →</a> <span class="text-xs text-muted">(${esc(CALCULATOR_REGIME_SCOPE_TAG[locale])})</span></li>
       <li><a href="${LIECHTENSTEIN_HUB_PATH[locale]}" class="text-sm font-semibold text-link">${esc(c.hubLabel)} →</a></li>
     </ul>
   </main>`;
