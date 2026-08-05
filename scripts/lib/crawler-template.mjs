@@ -148,6 +148,7 @@ import {
 } from '../jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -953,7 +954,12 @@ export async function runStandardCrawlerPipeline(config) {
   const sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const sliceJobs = Array.isArray(sliceRaw) ? sliceRaw.filter(isCompanyJob) : [];
 
-  writeJobsCrawlerSlice(companyKey, sliceJobs);
+  // Evidence-gated write (#5016/#5017). Identical to writeJobsCrawlerSlice
+  // until the anti-shrink guard trips; then the disappearing jobs are probed
+  // at their own source URLs and the smaller slice is accepted ONLY if every
+  // one of them is provably gone. A degraded/blocked source still fails here
+  // exactly as before — the threshold is unchanged, the proof is the addition.
+  await writeJobsCrawlerSliceVerified(companyKey, sliceJobs);
   writeSummaryCrawlerSlice({
     key: companyKey,
     label: companyLabel,

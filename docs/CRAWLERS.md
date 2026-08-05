@@ -151,6 +151,49 @@ is no longer needed at this granularity.
 | `data/slug-registry.json` | Assemble step | Fingerprint -> slug mapping for canonical URLs (immutable / frozen URL strategy E9) |
 | `data/jobs-crawler-config.json` | Assemble step | Crawler configuration registry |
 
+## Anti-Shrink Guard — Refusal and Evidence-Based Acceptance
+
+`writeJobsCrawlerSlice()` refuses to persist a slice that shrinks abnormally
+(`shouldBlockShrink()` in `scripts/assemble-jobs-dataset.mjs`): below 40% of a
+20+ baseline, below 20% under that baseline, or any total wipeout. It keeps the
+prior slice on disk, files a `parser-health` issue and throws.
+
+That refusal has a counterpart, because a source can also shrink **for real**.
+Without one, an employer that closes most of its vacancies bricks its crawler:
+every run trips the guard, throws, fails the workflow step (the crawler-group
+workflow runs housekeeping and commit only when the crawl step **succeeded**)
+and freezes the slice holding jobs that no longer exist — the guard against
+silent content *loss* starts causing silent content *rot*. Confirmed on
+grace-la-margna (#5016/#5017): 14 winter-season postings expired, the source
+listed 1, and 10 consecutive runs failed while 13 dead jobs stayed live.
+
+**`writeJobsCrawlerSliceVerified(crawlerKey, jobs, options)`** is the async
+entry point that resolves this. It behaves exactly like the sync function until
+the guard trips; then it probes every job the write would drop at **its own
+source URL** via `validateJobUrls()` (`scripts/lib/validate-job-url.mjs`) and
+retries the write with the guard bypassed only if every one of them is provably
+gone. The disappearing jobs are archived into
+`data/jobs/expired/by-crawler/<key>.json` first, so their indexed URLs get the
+enriched soft-landing page instead of a 404.
+
+Two properties are load-bearing and must not be relaxed:
+
+- **The threshold is untouched.** This is a proof requirement, not a lower
+  ratio. Only `definitive` verdicts count as evidence — HTTP 404/410, redirect
+  to a generic listing, an ATS "position closed" marker, an explicit
+  "no longer available" phrase.
+- **The validator is fail-open, so ambiguity blocks.** A timeout, 403/429, bot
+  challenge, auth wall, network error, or a dropped job with no URL to probe
+  all report "still alive" and the guard stands. A degraded or blocked source
+  can therefore never masquerade as a legitimate shrink — which is precisely
+  the case the guard exists to catch.
+
+`runStandardCrawlerPipeline` already uses the verified write, so every
+template-based crawler gets this by construction. A bespoke runner
+(`update-grace-jobs.mjs`) opts in by calling it instead of
+`writeJobsCrawlerSlice`. `SKIP_SHRINK_GUARD=1` remains the manual, human-only
+override for a local re-run; it is not the automated path.
+
 ## Slug Lifecycle & SEO Continuity
 
 When a job's slug changes (via relocalize or hardenJobLocaleFields), the old slug is preserved in `previousSlugs[]` on the job object. The build plugin (`jobsSeoPagesPlugin`) uses `previousSlugs` to generate **bridge pages** (canonical redirect pages) so old indexed URLs don't 404.
