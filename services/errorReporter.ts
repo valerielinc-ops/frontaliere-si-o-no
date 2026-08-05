@@ -19,7 +19,7 @@
  */
 
 import { Analytics } from '@/services/analytics';
-import { isBenignErrorMessage } from '@/services/benignErrorPatterns';
+import { isBenignErrorMessage, isOriginRedactedThirdPartyStack } from '@/services/benignErrorPatterns';
 import { isNewsletterAutologinInFlight } from '@/services/newsletterAutologinSignal';
 import { isVersionSkewError, recoverFromStaleChunk } from '@/services/resilientImport';
 
@@ -120,6 +120,12 @@ export function reportCaughtError(
    : message;
  if (isBenignErrorMessage(message) || isBenignErrorMessage(prefixedMessage)) return;
 
+ // ── Re-classify errors whose whole stack had its source URLs redacted (#4173) ──
+ // Parity with the two global handlers in services/analytics.ts: a stack in
+ // which not one frame carries a source is a cross-origin third-party script,
+ // never our own modules. Shared predicate so the three pipelines can't drift.
+ const originRedactedThirdParty = isOriginRedactedThirdPartyStack(extractStack(error));
+
  // ── Per-page-load cap to prevent flood storms ──
  if (reportsThisSession >= MAX_REPORTS_PER_SESSION) return;
 
@@ -144,7 +150,7 @@ export function reportCaughtError(
  // supplied by the caller and is used as the endpoint fallback when the
  // caller did not provide an explicit `apiEndpoint`.
  try {
- const resolvedType = options.type || 'api_error';
+ const resolvedType = originRedactedThirdParty ? 'cross_origin_script' : (options.type || 'api_error');
  const resolvedEndpoint = options.apiEndpoint || context;
  const resolvedStatus = options.statusCode ?? 0;
  Analytics.trackAppError(resolvedType, {
@@ -153,7 +159,7 @@ export function reportCaughtError(
  apiEndpoint: resolvedEndpoint,
  statusCode: resolvedStatus,
  apiMethod: options.apiMethod,
- fatal: options.fatal ?? false,
+ fatal: originRedactedThirdParty ? false : (options.fatal ?? false),
  });
  } catch {
  // Analytics not initialized — the console.warn above is our fallback

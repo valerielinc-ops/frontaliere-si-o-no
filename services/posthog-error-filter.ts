@@ -32,7 +32,11 @@
  * only drops the event when every frame's origin is a known third-party
  * script we do not control. This is narrower and safer than a message regex.
  */
-import { UNIVERSAL_BENIGN_PATTERNS } from './benignErrorPatterns';
+import {
+  UNIVERSAL_BENIGN_PATTERNS,
+  BROWSER_EXTENSION_ORIGIN_PATTERN,
+  isOriginRedactedThirdPartyStack,
+} from './benignErrorPatterns';
 
 /** Patterns that match benign / unactionable exception messages. */
 export const BENIGN_MESSAGES: readonly RegExp[] = [
@@ -56,7 +60,8 @@ export const THIRD_PARTY_STACK_ORIGINS: readonly RegExp[] = [
   /^https:\/\/accounts\.google\.com\/gsi\//i,
   // Browser extension content scripts (Chrome / Firefox / Safari) — #3673.
   // They run in page context but are entirely third-party; no fix possible.
-  /^(?:chrome|moz|safari)-extension:\/\//i,
+  // Anchored wrapper around the shared literal in benignErrorPatterns.ts.
+  new RegExp(`^${BROWSER_EXTENSION_ORIGIN_PATTERN.source}`, 'i'),
   // Microsoft Clarity session recording — #3760.
   // Injected lazily by services/clarity.ts; all frames from clarity.ms are
   // third-party. Companion to the `standardSelectors` message pattern added
@@ -137,6 +142,75 @@ function isThirdPartyStackOnly(event: PostHogExceptionEvent): boolean {
   return origins.every((origin) => THIRD_PARTY_STACK_ORIGINS.some((pattern) => pattern.test(origin)));
 }
 
+// ──────────────────────────────────────────────────────────────────────────
+// Raw-stack bridge (#4173)
+// ──────────────────────────────────────────────────────────────────────────
+//
+// PostHog's `$exception` autocapture parses `error.stack` with a frame regex
+// that REQUIRES a `url:line:col` tail. WebKit redacts exactly that tail for
+// every frame of a script the page loaded cross-origin without CORS, so those
+// frames are all dropped and the event reaches `before_send` with
+// `stacktrace.frames === []` — invisible to `isThirdPartyStackOnly`, which is
+// why #4173's `RangeError` kept reopening as a first-party bug for months.
+//
+// `installRawStackRecorder()` therefore keeps the *unparsed* stack of the last
+// few window errors in a small ring buffer, and `before_send` consults it when
+// (and only when) PostHog resolved zero frames. It must be installed BEFORE
+// `posthog.init()` so the recorder's listener is registered ahead of PostHog's
+// own — `initPostHog()` in services/posthog.ts does that synchronously, before
+// the dynamic `import('posthog-js')`.
+
+interface RawStackEntry { readonly key: string; readonly stack: string; }
+
+const RAW_STACK_BUFFER_LIMIT = 8;
+const rawStackBuffer: RawStackEntry[] = [];
+let rawStackRecorderInstalled = false;
+
+/** Normalise a message for buffer lookup: PostHog may reshape the wording. */
+function rawStackKey(message: string): string {
+  return String(message || '').replace(/^(?:Uncaught\s+)?(?:\w*Error:\s*)?/, '').trim().slice(0, 120);
+}
+
+/** @internal — exported for tests and for `installRawStackRecorder`. */
+export function recordRawErrorStack(message: string, stack: string): void {
+  if (!stack) return;
+  rawStackBuffer.push({ key: rawStackKey(message), stack });
+  while (rawStackBuffer.length > RAW_STACK_BUFFER_LIMIT) rawStackBuffer.shift();
+}
+
+/** @internal — exported for tests. */
+export function _resetRawStackBufferForTests(): void {
+  rawStackBuffer.length = 0;
+  rawStackRecorderInstalled = false;
+}
+
+function lookupRawErrorStack(message: string): string {
+  const key = rawStackKey(message);
+  if (!key) return '';
+  for (let i = rawStackBuffer.length - 1; i >= 0; i -= 1) {
+    const entry = rawStackBuffer[i];
+    if (entry.key && (key.includes(entry.key) || entry.key.includes(key))) return entry.stack;
+  }
+  return '';
+}
+
+/**
+ * Register the raw-stack recorder. Idempotent, and a no-op outside the browser.
+ * Call synchronously from `initPostHog()` before the PostHog SDK is imported.
+ */
+export function installRawStackRecorder(): void {
+  if (rawStackRecorderInstalled || typeof window === 'undefined') return;
+  rawStackRecorderInstalled = true;
+  window.addEventListener('error', (event) => {
+    const err = (event as ErrorEvent).error;
+    if (err instanceof Error && err.stack) recordRawErrorStack(err.message || event.message || '', err.stack);
+  });
+  window.addEventListener('unhandledrejection', (event) => {
+    const reason = (event as PromiseRejectionEvent).reason;
+    if (reason instanceof Error && reason.stack) recordRawErrorStack(reason.message || '', reason.stack);
+  });
+}
+
 /**
  * Create the `before_send` hook for `posthog.init()`. Returns the event
  * unchanged for non-exception events and real errors; returns `null` to
@@ -152,6 +226,12 @@ export function createExceptionFilter() {
       }
     }
     if (isThirdPartyStackOnly(event)) return null;
+    // Zero resolved frames → fall back to the raw stack we recorded ahead of
+    // PostHog's own handler and classify on its SHAPE (#4173).
+    if (extractStackFrameOrigins(event).length === 0
+      && isOriginRedactedThirdPartyStack(lookupRawErrorStack(blob))) {
+      return null;
+    }
     return event;
   };
 }
