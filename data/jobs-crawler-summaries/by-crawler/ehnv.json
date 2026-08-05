@@ -1,18 +1,19 @@
 {
   "key": "ehnv",
   "label": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
-  "generatedAt": "2026-08-04T22:20:22.074Z",
-  "total": 6,
-  "newCount": 2,
-  "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7056,
-  "avgDurationMs": 7056,
+  "generatedAt": "2026-08-05T11:32:48.004Z",
+  "total": 5,
+  "newCount": 0,
+  "updatedCount": 5,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 7525,
+  "avgDurationMs": 7525,
   "durationHistory": [
-    7056
+    7525
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "ehnv-df61ac7f71bb",
       "slug": "un-e-assistant-e-en-soins-et-sante-communautaire-assc-a-80-100-ehnv-orbe",
@@ -26,7 +27,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4363/une-assistante-en-soins-et-sante-communautaire-assc-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T22:20:16.479Z",
+      "crawledAt": "2026-08-05T11:32:42.417Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -42,11 +43,12 @@
       "postedDate": "2026-08-04",
       "applyUrl": "https://www.ehnv.ch/emplois#offer/4363/une-assistante-en-soins-et-sante-communautaire-assc-a-80-100",
       "externalId": "4363",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-08-04T22:20:16.479Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -57,13 +59,13 @@
       "companyKey": "ehnv",
       "companyDomain": "ehnv.ch",
       "title": "Un.e infirmier.ère à 80-90%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Pompaples",
       "canton": "VD",
       "url": "https://www.ehnv.ch/emplois#offer/4364/une-infirmierere-a-80-90",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T22:20:17.144Z",
+      "crawledAt": "2026-08-05T11:32:43.076Z",
       "addressLocality": "Pompaples",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -79,16 +81,15 @@
       "postedDate": "2026-08-04",
       "applyUrl": "https://www.ehnv.ch/emplois#offer/4364/une-infirmierere-a-80-90",
       "externalId": "4364",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-08-04T22:20:17.144Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "ehnv-63fec21acb00",
       "slug": "un-e-chef-fe-de-clinique-adjointe-a-80-100-ehnv-yverdon-les-bains",
@@ -102,7 +103,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4187/une-cheffe-de-clinique-adjointe-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T22:20:17.760Z",
+      "crawledAt": "2026-08-05T11:32:43.685Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -140,7 +141,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4094/une-medecin-agreee-ou-associe-interniste-bariatrique-a-100-min-60",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T22:20:18.399Z",
+      "crawledAt": "2026-08-05T11:32:44.312Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -178,7 +179,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/3428/une-medecin-adjointe-a-80",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T22:20:18.998Z",
+      "crawledAt": "2026-08-05T11:32:44.967Z",
       "addressLocality": "Chamblon et Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -204,8 +205,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "ehnv-befc66e83546",
       "slug": "70-100-assistente-medico-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-cossonay",
@@ -246,5 +246,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
