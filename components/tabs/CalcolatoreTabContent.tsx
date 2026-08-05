@@ -84,6 +84,19 @@ export default function CalcolatoreTabContent() {
  {t('seoContent.calculator.subtitle')}
  </p>
 
+ {/* Regime scope (issue #4545 follow-up). The engine is hardwired to the
+     Italy-Switzerland regime — Ticino withholding tables plus Italian IRPEF
+     and FRANCHIGIA_NUOVI_FRONTALIERI — and takes no country-of-residence
+     input, yet the France/Germany/Austria/Liechtenstein border-municipality
+     pages all link here. Without this line a Lörrach resident reads an
+     Italian-regime net as if it were theirs: a wrong NUMBER, which is
+     believed more readily than wrong prose. Delete this together with
+     build-plugins/shared/calculatorRegimeScope.ts once the calculator
+     accepts a residence country. */}
+ <p className="text-xs text-muted mb-4 border-l-2 border-edge pl-3" data-testid="calculator-regime-scope">
+ {t('calculator.regimeScope.notice')}
+ </p>
+
  {/* Above-the-fold job-board onward-nav CTA (follow-up #2814; same intent as
      the static data pages' renderAboveFoldJobCta shipped in #2798). Rendered at
      FIRST PAINT — NOT behind the showDeferredHomeWidgets idle flip — right after
