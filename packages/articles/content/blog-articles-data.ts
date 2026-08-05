@@ -27867,6 +27867,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mendrisio-strada-serpiano-urgenti-lavori',
+ category: 'pratico',
+ date: '2026-08-05T21:13:49.251Z',
+ image: '/images/blog/mendrisio-strada-serpiano-urgenti-lavori.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

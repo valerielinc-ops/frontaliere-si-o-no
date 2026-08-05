@@ -9282,6 +9282,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.caso-delmastro-protesta-avs.title': 'Fall Delmastro, der Protest von Avs vor der Kammer mit Augenbinden',
     'blog.article.caso-delmastro-protesta-avs.excerpt': 'Die Abgeordneten der Grünen und der Linken haben sich im Plenarsaal die Augen verbunden, um gegen den fehlenden Zugang zu den Chats zwischen Andrea Delmastro und Mauro Carroccia zu protestieren.',
     'blog.article.caso-delmastro-protesta-avs.imageAlt': 'Protest im Abgeordnetenhaus',
+    'blog.article.mendrisio-strada-serpiano-urgenti-lavori.title': 'Es müssen dringende Arbeiten an der Straße nach Serpiano durchgeführt werden',
+    'blog.article.mendrisio-strada-serpiano-urgenti-lavori.excerpt': 'Die Gemeinde Mendrisio beantragte einen Kredit von 1,2 Millionen Franken für die Sicherung der Strassenränder und der drei Brücken.',
+    'blog.article.mendrisio-strada-serpiano-urgenti-lavori.imageAlt': 'Straßenbauarbeiten in Serpiano',
 };
 
 export default blogMetaDe;
