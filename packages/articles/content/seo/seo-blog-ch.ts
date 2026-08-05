@@ -23651,6 +23651,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cile-1988-democrazia-svizzera': {
+    title: 'Cile 1988: lezioni dalla fine di una dittatura',
+    description: 'Il plebiscito cileno del 1988 ha segnato la fine di 15 anni di dittatura militare guidata da Pinochet e ha dato il via alla transizione verso la democrazia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cile, 1988, lezioni, dalla',
+    ogTitle: 'Cile 1988: cosa possiamo imparare dalla votazione che ha posto fine a una dittatura?',
+    ogDescription: 'Il plebiscito cileno del 1988 ha segnato la fine di 15 anni di dittatura militare guidata da Pinochet e ha dato il via alla transizione verso la democrazia.',
+    canonicalPath: '/articoli-svizzera/cile-1988-democrazia-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cile 1988: lezioni dalla fine di una dittatura",
+      "description": "Il plebiscito cileno del 1988 ha segnato la fine di 15 anni di dittatura militare guidata da Pinochet e ha dato il via alla transizione verso la democrazia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cile-1988-democrazia-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il paesaggio del Ticino in secondo piano"
+      },
+      "datePublished": "2026-08-05T02:09:28+00:00",
+      "dateModified": "2026-08-05T02:09:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cile-1988-democrazia-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
