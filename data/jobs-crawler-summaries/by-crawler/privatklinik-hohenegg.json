@@ -1,16 +1,16 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-07-31T22:08:07.610Z",
-  "total": 2,
+  "generatedAt": "2026-08-04T22:16:07.919Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7638,
-  "avgDurationMs": 7638,
+  "unchangedCount": 0,
+  "durationMs": 5667,
+  "avgDurationMs": 5667,
   "durationHistory": [
-    7638
+    5667
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://apply.refline.ch/640332/0063/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:08:00.695Z",
+      "crawledAt": "2026-08-04T22:16:03.321Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -56,48 +56,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "privatklinik-hohenegg-4aec380d7fbc",
-      "slug": "fachperson-gesundheit-cfc-60-100-privatklinik-hohenegg-meilen",
-      "company": "Privatklinik Hohenegg",
-      "companyKey": "privatklinik-hohenegg",
-      "companyDomain": "hohenegg.ch",
-      "title": "Fachperson Gesundheit EFZ 60-100%",
-      "location": "Meilen",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/640332/0047/pub/13/index.html",
-      "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:36:27.609Z",
-      "addressLocality": "Meilen",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8706",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://apply.refline.ch/640332/0047/pub/13/index.html",
-      "pensumMin": 60,
-      "pensumMax": 60,
-      "pensum": "60%",
-      "firstSeenAt": "2026-07-03T23:11:37.913Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }

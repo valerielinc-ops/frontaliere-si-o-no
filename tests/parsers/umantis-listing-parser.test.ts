@@ -215,6 +215,33 @@ describe('parseUmantisListing — UI detection', () => {
     const { entries } = parseUmantisListing(html);
     expect(entries).toHaveLength(1);
   });
+
+  it('older-UI: does not bleed a neighbouring row\'s location into a short row (issue #5011)', () => {
+    // Regression for #5011: Bürgenstock's multi-property listing has short
+    // rows between jobs, so a fixed-distance lookbehind previously reached
+    // past the current row's own (empty) location text and picked up the
+    // PREVIOUS row's location/brand name instead.
+    const html = `
+      <span class="tableaslist_text tableaslist_element_1152486">&nbsp;Taverne</span>
+      <span class="tableaslist_text tableaslist_element_1152487">&nbsp;|&nbsp;Online seit: 10.05.2026<br/></span>
+      <span class="tableaslist_subtitle tableaslist_element_1152488">
+        <a href="/Vacancies/111/Description/1">Service Mitarbeiter/-in 100%</a>
+      </span>
+      <span class="tableaslist_subtitle tableaslist_element_1152488">
+        <a href="/Vacancies/222/Description/1">Assistent/-in Floral Design 100%</a>
+      </span>
+      <span class="tableaslist_subtitle tableaslist_element_1152491">&nbsp;|&nbsp;Art: Vollzeit</span>
+    `;
+    const { entries } = parseUmantisListing(html);
+    expect(entries).toHaveLength(2);
+    expect(entries[0].id).toBe('111');
+    expect(entries[0].location).toBe('Taverne');
+    // The second job's own row carries no "<City> | Online seit" text — the
+    // bounded window must NOT reach back across job 111's anchor to reuse
+    // "Taverne" for job 222 too.
+    expect(entries[1].id).toBe('222');
+    expect(entries[1].location).toBe('');
+  });
 });
 
 describe('createUmantisListingParser — config validation', () => {

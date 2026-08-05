@@ -1,0 +1,159 @@
+# Transport manifest for #4974 item 3, cutover step 2 (docs/articles-generator-migration.md §5.2).
+#
+# One path or glob per line. Blank lines and lines starting with # are ignored.
+# Every path here is resolved relative to the repo root and must exist at resolve
+# time, or the workflow fails loudly (a stale entry is a silent scope shrink, not
+# a warning).
+#
+# Why a file instead of inline YAML: this set is the actual reviewable content of
+# the transport — a diff to this file is a diff to what moves, independent of any
+# workflow-syntax changes.
+#
+# WHY THIS IS NOT "scripts/lib/**": scripts/lib/ has 792 files on disk, and most
+# of them are the job-crawler feature's per-employer parsers (job-parser.mjs,
+# ats-clients/**, alerts/**, most of perf-sources/**, most of topic-sources/**,
+# most of evidence/**, scheduler/winnerEvaluator.mjs) — unrelated to article
+# generation and NOT part of the MOVE set in docs/articles-generator-migration.md
+# §2. A blanket glob would ship ~730 irrelevant files into nanako's tree. The list
+# below is the actual static-import transitive closure of the 7 entry points,
+# computed by following relative import/export/require specifiers from each
+# producer (regex-based, same limitation the doc's §1 methodology notes: dynamic
+# `import()` behind a computed path is invisible to this and was checked by hand
+# for the entries below — verified no entry uses one for its own lib tree).
+#
+# The doc's §2 prose describes this set by directory group ("discovery/**,
+# scoring/**, topic-sources/**, evidence/**, scheduler/**, etc.") as a shorthand.
+# Taken literally that shorthand is wrong for topic-sources/, evidence/, and
+# scheduler/: each of those directories has files NOT reachable from any of the
+# 7 entries (e.g. scripts/lib/scheduler/winnerEvaluator.mjs is only imported by
+# scripts/tune-discovery-quota.mjs, a maintenance script outside this move; see
+# the migration report for the full verification). This manifest lists the real
+# closure, not the shorthand, on the theory that an explicit file list that has
+# been checked beats a glob that has not.
+#
+# discovery/** and scoring/** ARE fully covered by every file the resolver found
+# under those two directories, so they're expressed as globs; the rest are listed
+# file-by-file because only part of each directory is in scope.
+
+# --- The 7 MOVE entry points (docs §2, §4, §5.2) ---------------------------
+# 5 named producers, the 7th undercounted producer (fix-faq-locales.mjs, §4/§6.5),
+# and its paired helper (generate-journalist-image-catalog.mjs, §2: "the six
+# producers themselves plus the two helper scripts one of them shells out to /
+# is paired with"). NOTE: docs §5 step 2's own prose lists only 6 (producers +
+# fix-faq-locales.mjs) and omits generate-journalist-image-catalog.mjs — that is
+# a discrepancy between §2 (MOVE) and §5's summary sentence, not a hidden STAYS.
+# Included here per §2's explicit disposition; flagged in the migration report
+# for the doc author to reconcile.
+scripts/create-article.mjs
+scripts/generate-events-digest-article.mjs
+scripts/generate-border-wait-ranking-article.mjs
+scripts/publish-journalist-article.mjs
+scripts/batch-add-faq-to-articles.mjs
+scripts/fix-faq-locales.mjs
+scripts/generate-journalist-image-catalog.mjs
+
+# --- scripts/lib/ root-level files reachable from the entries above --------
+# Pure content-generation machinery: LLM routing, translation, fact-checking,
+# scoring inputs, evergreen refresh, event/border-wait content shaping. No
+# site-rendering dependency (docs §2).
+scripts/lib/ai-models.mjs
+scripts/lib/ai-search-template.mjs
+scripts/lib/article-body-repetition.mjs
+scripts/lib/article-defect-memory.mjs
+scripts/lib/article-factuality-gates.mjs
+scripts/lib/article-free-mt.mjs
+scripts/lib/article-locale-lexicon.mjs
+scripts/lib/article-sanitizers.mjs
+scripts/lib/article-topic-selector.mjs
+scripts/lib/atomic-write-json.mjs
+scripts/lib/border-wait-ranking-content.mjs
+scripts/lib/border-wait-ranking.mjs
+scripts/lib/cluster-classifier-prompt.mjs
+scripts/lib/decode-html-entities.mjs
+scripts/lib/detect-language.mjs
+scripts/lib/dup-stoplist.mjs
+scripts/lib/ensure-chromium.mjs
+scripts/lib/events-digest-content.mjs
+scripts/lib/events-utils.mjs
+scripts/lib/evergreen-article-refresh.mjs
+scripts/lib/evergreen-topic-generator.mjs
+scripts/lib/extract-article-text.mjs
+scripts/lib/fact-check-consensus.mjs
+scripts/lib/fnv1a.mjs
+scripts/lib/free-translate.mjs
+scripts/lib/haversine.mjs
+scripts/lib/it-text-similarity.mjs
+scripts/lib/itLanguageCheck.mjs
+scripts/lib/llm-json-repair.mjs
+scripts/lib/local-opus-mt.mjs
+scripts/lib/meta-field-regex.mjs
+scripts/lib/mymemory-translate.mjs
+scripts/lib/profession-taxonomy.mjs
+scripts/lib/slug-truncate.mjs
+scripts/lib/translation-glossary.mjs
+
+# NOTE — explicitly NOT moved, do not add:
+# scripts/lib/resolve-git-add-path.mjs — resolves a repo-relative path through a
+# symlink to its real on-disk path for `git add`. Only exists because main's
+# corpus paths are symlinks into packages/articles/. Docs §2: "STAYS main-shaped,
+# but nanako needs its own equivalent... retire on the nanako side, note it
+# explicitly so nobody ports it out of habit." It IS in the static-import
+# closure (create-article.mjs imports it) — it is excluded on purpose, not by
+# oversight. Producer scripts landing in nanako will need this call site rewired
+# to nanako's own (symlink-free) path resolution before they can run there; that
+# rewiring is out of scope for this "stand up the code" step (§5.2) and belongs
+# to the REWIRE work in §5.3+.
+
+# --- discovery/** — topic discovery pipeline (fully reachable, safe to glob) --
+scripts/lib/discovery/**
+
+# --- scoring/** — dedup/scoring pipeline (fully reachable, safe to glob) ------
+scripts/lib/scoring/**
+
+# --- evidence/, scheduler/, perf-sources/, topic-sources/ ------------------
+# Partially reachable: each of these directories also holds files used only by
+# OTHER scripts (quality-alerts.mjs, tune-discovery-quota.mjs, the job-crawler
+# feature, etc.) that are not part of this move. Listed file-by-file rather than
+# globbed so the manifest doesn't silently widen if someone adds a new,
+# unrelated file to one of these directories later.
+scripts/lib/evidence/constants.mjs
+scripts/lib/evidence/embeddingClient.mjs
+scripts/lib/perf-sources/domainTerms.mjs
+scripts/lib/scheduler/quotaController.mjs
+scripts/lib/scheduler/slugSimilarity.mjs
+scripts/lib/topic-sources/detectLocale.mjs
+scripts/lib/topic-sources/googleNewsRss.mjs
+scripts/lib/topic-sources/googleSuggest.mjs
+scripts/lib/topic-sources/googleTrends.mjs
+scripts/lib/topic-sources/gscOrphans.mjs
+scripts/lib/topic-sources/wordpressSearch.mjs
+
+# --- Dependencies OUTSIDE scripts/ (added after the first transport) ---------
+#
+# The list above is the static-import closure computed WITHIN scripts/. Six of
+# the moved files also import across the directory boundary — `../build-plugins/`,
+# `../data/`, `../services/` — and those specifiers were never followed, so the
+# first transport shipped code that could not load: these are top-level
+# `import`s, so create-article.mjs threw before main() on every invocation in
+# nanako. Found by running the transported code there rather than reading it.
+#
+# They land under generator/ at the same relative path they have here, which is
+# what keeps the importing files' specifiers working with zero rewriting.
+#
+# NOT listed here, on purpose:
+#   - build-plugins/shared/articleSectionCore.mjs — a symlink into
+#     packages/articles/engine/shared/, a tree nanako ALREADY mirrors. Copying it
+#     would have created a second, drifting copy of the section tuple; the import
+#     is repointed at nanako's own engine/shared/ instead.
+#   - data/border-wait-averages.json — REWIRED, not transported (§5.3): it is
+#     regenerated here daily and nanako fetches it over HTTP from public/data/.
+#   - data/news-sitemap-whitelist.ts — VENDORED as .mjs on the nanako side
+#     (§5.3), deliberately a copy rather than a live dependency.
+#   - scripts/lib/resolve-git-add-path.mjs — still excluded; it resolves symlinks
+#     that exist only here. nanako's corpus-paths.mjs replaces it.
+build-plugins/borderWaitData.ts
+data/borderCrossings.ts
+data/canton-url-slugs.json
+data/municipalities.ts
+services/borderCrossingSlug.ts
+services/borderWaitFormat.ts

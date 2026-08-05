@@ -51,13 +51,29 @@
 import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { VITEST_CHECK_NAME } from './lib/constants.mjs';
-import { latestCompletedVitestConclusion, vitestFailureIsTransientCancellation } from './lib/vitestCheck.mjs';
+import {
+  latestCompletedVitestConclusion,
+  vitestFailureIsTransientCancellation,
+  vitestFailureIsNotAttributableToPr,
+} from './lib/vitestCheck.mjs';
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
 const TOKEN = process.env.GH_TOKEN || '';
 const MAX_PER_RUN = 10;
 const CONFLICT_MARKER = '<!-- AUTOREBASE_CONFLICT -->';
+// One-shot per PR: `vitestFailureIsNotAttributableToPr` è pura e ri-risponderebbe
+// `true` a ogni tick finché l'head resta rosso. Il marker rende il rescue
+// irripetibile: una PR ri-testata contro main verde che torna ROSSA è rotta per
+// conto suo e non va ri-rebasata all'infinito (frugalità CI + niente rebase-thrash,
+// la stessa classe di livelock di #2415). Da lì la prendono recycle-stale-prs /
+// un umano.
+const STUCK_RED_MARKER = '<!-- AUTOREBASE_STUCK_RED_RESCUE -->';
+// Backstop `stale` di vitestFailureIsNotAttributableToPr: un vitest rosso più
+// vecchio di N ore va ri-verificato una volta anche senza prova di main-rosso
+// (copre i fallimenti INFRA, es. #5019: `RPC failed; curl 56` + runner shutdown
+// durante il checkout, zero test eseguiti, con main verde in quel momento).
+const STUCK_RED_STALE_H = Number(process.env.AUTOREBASE_STUCK_RED_STALE_H || 24);
 // Activity-guard: don't rebase-push a branch whose head was pushed in the last
 // N minutes — a contributor/agent is likely mid-flight (still pushing fixes on
 // top of an LGTM'd PR). Rebasing then races their push: ours lands first, their
@@ -226,6 +242,45 @@ function vitestFailureIsTransient(head) {
   return vitestFailureIsTransientCancellation(out && out.check_runs);
 }
 
+/** Ultimi run COMPLETATI di `tests.yml` sul branch main, per stabilire se main è
+ * tornato verde DOPO che una PR è stata testata (vedi
+ * `vitestFailureIsNotAttributableToPr`). Fetchato UNA volta per run
+ * dell'autorebase e memoizzato: è lo stesso identico dato per tutte le PR, e la
+ * finestra di 50 run copre abbondantemente sia una giornata di main caldo sia i
+ * ~3 giorni della finestra rossa 2026-08-02→04. */
+let _mainTestsRuns = null;
+function mainTestsRuns() {
+  if (_mainTestsRuns) return _mainTestsRuns;
+  const out = gh(
+    ['api', `repos/${REPO}/actions/workflows/tests.yml/runs?branch=main&status=completed&per_page=50`],
+    { json: true, allowFail: true });
+  _mainTestsRuns = (out && out.workflow_runs) || [];
+  return _mainTestsRuns;
+}
+
+/** Il vitest rosso sull'head NON è attribuibile alla PR (main rosso al momento
+ * del test e poi tornato verde, oppure rosso stantio da >24h = infra)? Ritorna
+ * la `reason` (`'red-main'`/`'stale'`) o '' . Vedi lib/vitestCheck.mjs. */
+function stuckRedRescueReason(head) {
+  const out = gh(
+    ['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`],
+    { json: true, allowFail: true });
+  const { rescue, reason } = vitestFailureIsNotAttributableToPr({
+    checkRuns: (out && out.check_runs) || [],
+    mainTestsRuns: mainTestsRuns(),
+    staleHours: STUCK_RED_STALE_H,
+  });
+  return rescue ? reason : '';
+}
+
+/** Un commento della PR contiene già `marker`? Dedup condivisa fra il comment di
+ * conflitto e il rescue one-shot dello stuck-red. */
+function hasCommentMarker(num, marker) {
+  const comments = gh(['api', `repos/${REPO}/issues/${num}/comments`, '--paginate',
+    '--jq', '[.[] | .body] | join("\\n")'], { json: false, allowFail: true }) || '';
+  return comments.includes(marker);
+}
+
 /** C'è una review Claude (`pr-review-loop`, check-run `review`) ANCORA in volo
  * sull'head (status `queued`/`in_progress`)? Il push del rebase si autentica via
  * App/PAT (x-access-token) e quindi RI-TRIGGERA `pull_request` → `pr-review-loop`
@@ -299,9 +354,7 @@ function ensureStaleLabel(num) {
 
 function commentConflictOnce(num, branch) {
   // Dedup: salta se il marker è già presente in un commento.
-  const comments = gh(['api', `repos/${REPO}/issues/${num}/comments`, '--paginate',
-    '--jq', '[.[] | .body] | join("\\n")'], { json: false, allowFail: true }) || '';
-  if (comments.includes(CONFLICT_MARKER)) {
+  if (hasCommentMarker(num, CONFLICT_MARKER)) {
     console.log(`PR #${num}: marker conflitto già presente — no comment.`);
     return;
   }
@@ -398,16 +451,65 @@ async function processPR(pr) {
 
   // GATE frugalità: solo near-merge.
   const lgtm = hasLgtmReview(num);
-  const nearMerge =
+  let nearMerge =
     labels.includes('collision-risk') ||
     labels.includes('stale-review') ||
     lgtm;
+
+  // ── QUARTA classe near-merge: STUCK-RED (2026-08-05) ───────────────────────
+  // Le prime tre classi presuppongono che una PR bloccata abbia GIÀ un segnale:
+  // un `## LGTM`, o una label messa da qualcun altro. Una PR il cui vitest è
+  // rosso non ne ha NESSUNO, e non può acquisirne, perché ogni produttore di
+  // segnale è a valle del vitest verde:
+  //   pr-review-loop.yml gira solo su `workflow_run.conclusion == 'success'`
+  //     → niente review ⇒ niente LGTM ⇒ niente label;
+  //   stale-pr-rescuer.yml classe A esige `tests == success`, classe B esige una
+  //     review con 🔴 → cade nell'`else` ⇒ non mette nemmeno `stale-review`;
+  //   e qui il gate sopra la skippa.
+  // Il grafo non ha archi uscenti: la PR resta rossa PER SEMPRE, anche dopo che
+  // main è tornato verde. Misurato su 8 PR (#5019 #5067 #5068 #5070 #5072 #5073
+  // #5074 #5085), ferme 1-4 giorni con `vitest (unit + integration)` come UNICO
+  // check rosso (`detect` e `contract` verdi su tutte, mergeable=MERGEABLE: non
+  // erano conflitti né il body-contract).
+  // Rompiamo il ciclo SOLO con prova positiva che il rosso non è della PR
+  // (vitestFailureIsNotAttributableToPr: main tornato verde dopo il test, o rosso
+  // stantio >24h = infra) e SOLO se la PR è behind — se è già allineata a main
+  // non c'è nulla di nuovo da ereditare e il rosso è suo. One-shot via marker.
+  // `behind` serve sia allo stuck-red sia al flusso normale: memoizzato per non
+  // pagare due volte la compare API (l'unica chiamata IN PIÙ rispetto a prima è
+  // per le PR non-near-merge, dove prima si usciva subito).
+  let _behind = null;
+  const behindOf = () => (_behind ??= behindMain(head));
+
+  let stuckRedReason = '';
+  if (!nearMerge && behindOf() > 0) {
+    stuckRedReason = stuckRedRescueReason(head);
+    if (stuckRedReason && hasCommentMarker(num, STUCK_RED_MARKER)) {
+      console.log(`PR #${num} stuck-red (${stuckRedReason}) ma GIÀ ri-testata una volta (marker) — skip: il rosso è suo.`);
+      stuckRedReason = '';
+    }
+    if (stuckRedReason) nearMerge = true;
+  }
+
   if (!nearMerge) {
-    console.log(`PR #${num} non near-merge (no LGTM/collision-risk/stale-review) — skip.`);
+    console.log(`PR #${num} non near-merge (no LGTM/collision-risk/stale-review/stuck-red) — skip.`);
     return;
   }
 
-  const behind = behindMain(head);
+  const behind = behindOf();
+
+  if (stuckRedReason) {
+    console.log(`PR #${num} STUCK-RED (${stuckRedReason}): vitest rosso non attribuibile alla PR, ${behind} dietro main → rescue one-shot (rebase + re-test).`);
+    if (!DRY) {
+      const why = stuckRedReason === 'red-main'
+        ? 'il suo `vitest` è stato eseguito sul merge ref mentre `main` era ROSSO, ed è tornato verde dopo'
+        : 'il suo `vitest` è rosso da oltre ' + STUCK_RED_STALE_H + 'h senza che nulla possa ri-eseguirlo (probabile fallimento infrastrutturale)';
+      gh(['pr', 'comment', String(num), '--repo', REPO, '--body',
+        `${STUCK_RED_MARKER}\n♻️ **autorebase / stuck-red**: questa PR è ferma perché ${why}.\n\nCon vitest rosso \`pr-review-loop\` non parte (gira solo su \`tests\` success), quindi la PR non può ottenere né \`## LGTM\` né una label — e senza quelli nessun workflow la ri-testa: stato assorbente. Rebase su \`origin/main\` + ri-esecuzione dei test, **una sola volta**. Se torna rossa, il fallimento è della PR.\n\n_Segnale deterministico da pr-autorebase.yml (zero-Claude)._`],
+        { json: false, allowFail: true });
+    }
+  }
+
   if (behind === 0) {
     // Già allineata a main, ma l'head può essere "orfano" (0 check-run vitest):
     // rebasato da un push PAT che non ha ri-triggerato `pull_request`, o da un

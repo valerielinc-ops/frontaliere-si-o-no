@@ -1,6 +1,6 @@
 {
   "crawlerKey": "modellstation-somosa",
-  "assembledAt": "2026-07-31T22:09:50.427Z",
+  "assembledAt": "2026-08-04T22:20:06.840Z",
   "jobs": [
     {
       "id": "modellstation-somosa-f65bc46c69f6",
@@ -34,7 +34,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/eine-oberaerztin-einen-oberarzt-60-80",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:09:47.046Z",
+      "crawledAt": "2026-08-04T22:20:02.083Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/praktikum-fuer-studierende-sozialpaedagogik",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:09:46.575Z",
+      "crawledAt": "2026-08-04T22:20:01.375Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -137,84 +137,6 @@
         ]
       },
       "firstSeenAt": "2026-05-20T06:05:24.688Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "modellstation-somosa-c618cb416dbe",
-      "slug": "tirocinio-in-psicologia-80-100-modellstation-somosa-winterthur",
-      "slugByLocale": {
-        "it": "tirocinio-in-psicologia-80-100-modellstation-somosa-winterthur",
-        "en": "psychology-internship-80-100-modellstation-somosa-winterthur",
-        "de": "psychologie-praktikum-80-100-modellstation-somosa-winterthur",
-        "fr": "psychologie-praktikum-80-100-modellstation-somosa-winterthur"
-      },
-      "company": "Modellstation SOMOSA",
-      "companyKey": "modellstation-somosa",
-      "companyDomain": "somosa.ch",
-      "title": "Psychologie-Praktikum, 80 - 100%",
-      "titleByLocale": {
-        "it": "Tirocinio in Psicologia, 80 - 100%",
-        "en": "Psychology internship, 80 - 100 %",
-        "de": "Psychologie-Praktikum, 80 - 100%",
-        "fr": "Stage en psychologie, 80 - 100 %"
-      },
-      "description": "Die sozialpädagogisch-psychiatrische Modellstation SOMOSA bietet ein stationäres 6- bis 12-monatiges Intensivbehandlungsprogramm für 14- bis 18-jährige weibliche und männliche Jugendliche, die sich in einer schweren Adolenszentenkrise befinden. Ziel der Behandlung ist es, die Klientinnen und Klienten in ihrer Persönlichkeit so weit zu stabilisieren, dass sie beim Austritt in den vorhandenen stützenden oder ersetzenden Sozialisationssystemen bestehen können.\n\nDas Behandlungsteam besteht aus sozialpädagogischen, psychiatrischen, psychotherapeutischen und arbeitsagogischen Fachpersonen, welche das somosaspezifische, therapeutisch-pädagogische Konzept umsetzen. Die hoch frequentierten Fall- und Teamsupervisionen dienen als Reflexions- und Unterstützungsgefässe.\n\nDie Modellstation SOMOSA schliesst seit 1994 eine Versorgungslücke bei den Jugendlichen mit komplexen Entwicklungs- und Persönlichkeitsstörungen, die kombiniert pädagogisch und psychiatrisch angegangen werden müssen.\n\nWir bieten für Psychologiestudierende\nein sechsmonatiges Praktikum an, 80 - 100%\n\nPraktikumsbeginn am 01.11.2026 oder nach Vereinbarung\n\nAnforderungsprofil\n\n• Abgeschlossenes oder fortgeschrittenes Psychologiestudium\n\n• Offener und sicherer Umgang mit Jugendlichen\n\n• Selbstständiges Arbeiten\n\nTätigkeiten\n\n• Betreuung der Qualitätssicherungsinstrumente\n\n• Verfassen von Anamneseberichten\n\n• Durchführung und Auswertung psychologischer Tests (Leistungs- und Persönlichkeitstests)\n\n• Co-Leitung von therapeutischen Gruppen (Soziale Kompetenz, Cannabisgruppe)\n\n• Durchführen von Einzelaktivitäten mit Jugendlichen\n\n• Teilnahme an wöchentlichen intersystemischen Fallbesprechnungen\n\n• Protokollführung an interdisziplinären Standortbestimmungen\n\n• Protokollführung am wöchentlichen Therapierapport\n\n• Teilnahme an der Supervision\n\nWir bieten\n\n• Abwechslungsreiche und verantwortungsvolle Tätigkeit in einem erfahrenen, multiprofessionellen Behandlungsteam\n\n• Eng vernetzte interdisziplinäre Fachzusammenarbeit\n\n• Regelmässige interne Fallsupervisionen mit renommierten Supervisoren\n\n• Bruttolohn CHF ​3'580.45 / Mt.\n\nBewerbungsfrist und weitere Infos\n\nDie Bewerbungen nehmen wir bis am 31.07.2026 entgegen. Ihre Unterlagen schicken Sie bitte an:\n\npersonal@somosa.ch\n\nModellstation SOMOSA — jugendpsychiatrische Klinik und Jugendheim für Adoleszente (6–18 Jahre), Winterthur (ZH), Schweiz.",
-      "descriptionByLocale": {
-        "it": "SOMOSA offre un programma di assistenza intensiva di 6-12 mesi per adolescenti di età compresa tra i 14 e i 18 anni in grave crisi adolescente. Lo scopo del trattamento è quello di stabilizzare i clienti nella loro personalità in modo tale da poter sopravvivere a partire nei sistemi di sostegno o di sostituzione esistenti. Il team di trattamento è composto da specialisti socio-pedagogici, psichiatrici, psicoterapeutici e lavoro-agogici che implementano il concetto di somosa-specifico, terapeutico-pedagogico. Il caso e le supervisioni del team, molto frequentate, servono come vasi di riflessione e supporto. Dal 1994, la stazione modello SOMOSA ha chiuso un divario nella cura degli adolescenti con complessi disturbi dello sviluppo e della personalità, che devono essere affrontati in modo pedagogico e psichiatrico combinato. Forniamo per gli studenti di psicologia uno stage di sei mesi, 80 - 100% Inizio stage il 01.11.2026 o di accordo Profilo di richiesta\n• Studi di psicologia completa o avanzata\n• Trattamento aperto e sicuro dei giovani\n• Lavorare autonomamente Attività\n• Gestione degli strumenti di garanzia della qualità\n• Scrivere rapporti di storia medica\n• Condurre e valutare test psicologici (prove di performance e personalità)\n• Cogestione di gruppi terapeutici (competenza sociale, gruppo di cannabis)\n• Eseguire attività individuali con i giovani\n• Partecipazione alle discussioni settimanali sui casi intersistemici\n• Gestione del protocollo alle determinazioni interdisciplinari della posizione\n• Gestione del protocollo sul rapporto di terapia settimanale\n• Partecipazione alla supervisione Offriamo\n• Lavoro vario e responsabile in un team di trattamento esperto e multi-professionale\n• Cooperazione interdisciplinare in stretta rete\n• Supervisioni regolari dei casi interni con rinomati supervisori\n• salario lordo CHF 3,580.45 / Mt. Termine di richiesta e ulteriori informazioni Le domande saranno accettate entro il 31.07.2026. Si prega di inviare i documenti a: personal@somosa.ch Stazione di modello SOMOSA — clinica psichiatrica giovanile e casa dei giovani per adolescenti (6-18 anni), Winterthur (ZH), Svizzera.",
-        "en": "SOMOSA offers an inpatient 6- to 12-month intensive care program for 14- to 18-year-old female and male adolescents in severe adolescent crisis. The aim of the treatment is to stabilize the clients in their personality to such an extent that they can survive on leaving in the existing supporting or replacing socialization systems. The treatment team consists of socio-pedagogical, psychiatric, psychotherapeutic and work-agogical specialists who implement the somosa-specific, therapeutic-pedagogical concept. The highly frequented case and team supervisions serve as reflection and support vessels. Since 1994, the model station SOMOSA has closed a gap in the care of adolescents with complex developmental and personality disorders, which must be addressed in a combined pedagogical and psychiatric way. We provide for psychology students a six-month internship, 80 - 100% Internship start on 01.11.2026 or by agreement Requirement profile\n• Completed or advanced psychology studies\n• Open and safe treatment of young people\n• Working independently Activities\n• Management of quality assurance instruments\n• Writing of medical history reports\n• Conduct and evaluate psychological tests (performance and personality tests)\n• Co-management of therapeutic groups (social competence, cannabis group)\n• Performing individual activities with young people\n• Participation in weekly intersystemic case discussions\n• Protocol management at interdisciplinary location determinations\n• Protocol management on the weekly therapy report\n• Participation in supervision We offer\n• Varied and responsible work in an experienced, multi-professional treatment team\n• Closely networked interdisciplinary cooperation\n• Regular internal case supervisions with renowned supervisors\n• Gross wage CHF 3,580.45 / Mt. Application deadline and further information Applications will be accepted by 31.07.2026. Please send your documents to: personal@somosa.ch Model station SOMOSA — youth psychiatric clinic and youth home for adolescents (6–18 years), Winterthur (ZH), Switzerland.",
-        "de": "Die sozialpädagogisch-psychiatrische Modellstation SOMOSA bietet ein stationäres 6- bis 12-monatiges Intensivbehandlungsprogramm für 14- bis 18-jährige weibliche und männliche Jugendliche, die sich in einer schweren Adolenszentenkrise befinden. Ziel der Behandlung ist es, die Klientinnen und Klienten in ihrer Persönlichkeit so weit zu stabilisieren, dass sie beim Austritt in den vorhandenen stützenden oder ersetzenden Sozialisationssystemen bestehen können.\n\nDas Behandlungsteam besteht aus sozialpädagogischen, psychiatrischen, psychotherapeutischen und arbeitsagogischen Fachpersonen, welche das somosaspezifische, therapeutisch-pädagogische Konzept umsetzen. Die hoch frequentierten Fall- und Teamsupervisionen dienen als Reflexions- und Unterstützungsgefässe.\n\nDie Modellstation SOMOSA schliesst seit 1994 eine Versorgungslücke bei den Jugendlichen mit komplexen Entwicklungs- und Persönlichkeitsstörungen, die kombiniert pädagogisch und psychiatrisch angegangen werden müssen.\n\nWir bieten für Psychologiestudierende\nein sechsmonatiges Praktikum an, 80 - 100%\n\nPraktikumsbeginn am 01.11.2026 oder nach Vereinbarung\n\nAnforderungsprofil\n\n• Abgeschlossenes oder fortgeschrittenes Psychologiestudium\n\n• Offener und sicherer Umgang mit Jugendlichen\n\n• Selbstständiges Arbeiten\n\nTätigkeiten\n\n• Betreuung der Qualitätssicherungsinstrumente\n\n• Verfassen von Anamneseberichten\n\n• Durchführung und Auswertung psychologischer Tests (Leistungs- und Persönlichkeitstests)\n\n• Co-Leitung von therapeutischen Gruppen (Soziale Kompetenz, Cannabisgruppe)\n\n• Durchführen von Einzelaktivitäten mit Jugendlichen\n\n• Teilnahme an wöchentlichen intersystemischen Fallbesprechnungen\n\n• Protokollführung an interdisziplinären Standortbestimmungen\n\n• Protokollführung am wöchentlichen Therapierapport\n\n• Teilnahme an der Supervision\n\nWir bieten\n\n• Abwechslungsreiche und verantwortungsvolle Tätigkeit in einem erfahrenen, multiprofessionellen Behandlungsteam\n\n• Eng vernetzte interdisziplinäre Fachzusammenarbeit\n\n• Regelmässige interne Fallsupervisionen mit renommierten Supervisoren\n\n• Bruttolohn CHF ​3'580.45 / Mt.\n\nBewerbungsfrist und weitere Infos\n\nDie Bewerbungen nehmen wir bis am 31.07.2026 entgegen. Ihre Unterlagen schicken Sie bitte an:\n\npersonal@somosa.ch\n\nModellstation SOMOSA — jugendpsychiatrische Klinik und Jugendheim für Adoleszente (6–18 Jahre), Winterthur (ZH), Schweiz.",
-        "fr": "SOMOSA offre un programme de soins intensifs de 6 à 12 mois aux adolescentes âgées de 14 à 18 ans en situation de crise grave. L'objectif du traitement est de stabiliser les clients dans leur personnalité au point qu'ils peuvent survivre en quittant les systèmes de soutien ou de remplacement existants. L'équipe de traitement se compose de spécialistes socio-pédagogiques, psychiatriques, psychothérapeutiques et du travail-agogiques qui mettent en œuvre le concept spécifique somosa, thérapeutique-pédagogique. Les cas très fréquentés et les supervisions d'équipe servent de navires de réflexion et de soutien. Depuis 1994, la station modèle SOMOSA a comblé une lacune dans la prise en charge des adolescents atteints de troubles complexes du développement et de la personnalité, qui doit être abordée de manière pédagogique et psychiatrique. Nous fournissons aux étudiants en psychologie un stage de six mois, 80 - 100% Début du stage le 01.11.2026 ou par accord Profil des besoins\n• Études de psychologie achevées ou avancées\n• Traitement ouvert et sûr des jeunes\n• Travail indépendant Activités\n• Gestion des instruments d'assurance de la qualité\n• Rédaction des rapports d'histoire médicale\n• Effectuer et évaluer des tests psychologiques (tests de performance et de personnalité)\n• Cogestion des groupes thérapeutiques (compétence sociale, groupe cannabis)\n• Activités individuelles avec les jeunes\n• Participation à des discussions hebdomadaires sur des cas intersystémiques\n• Gestion du protocole dans les déterminations interdisciplinaires des emplacements\n• Gestion du protocole sur le rapport hebdomadaire de thérapie\n• Participation à la supervision Nous offrons\n• Travail varié et responsable dans une équipe de traitement expérimentée et multiprofessionnelle\n• Coopération interdisciplinaire en réseau étroit\n• Supervisions internes régulières avec des superviseurs renommés\n• Salaire brut CHF 3,580.45 / Mt. Délai de présentation des demandes et informations complémentaires Les demandes seront acceptées au 31.07.2026. Veuillez envoyer vos documents à: personnel@somosa.ch Station modèle SOMOSA — clinique psychiatrique pour jeunes et foyer pour adolescents (6-18 ans), Winterthur (ZH), Suisse."
-      },
-      "needsRetranslation": false,
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://www.somosa.ch/offene-stellen-detail/psychologie-praktikum-2",
-      "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:09:46.097Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8400",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-01",
-      "applyUrl": "https://www.somosa.ch/offene-stellen-detail/psychologie-praktikum-2",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "psychologie-praktikum-80-100-modellstation-somosa-winterthur",
-        "stage-di-psicologia-80-100-modellstation-somosa-winterthur",
-        "tirocinio-in-psicologia-80-100-modellstation-somosa-winterthur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "psychologie-praktikum-80-100-modellstation-somosa-winterthur",
-          "stage-di-psicologia-80-100-modellstation-somosa-winterthur",
-          "tirocinio-in-psicologia-80-100-modellstation-somosa-winterthur"
-        ],
-        "en": [
-          "psychologie-praktikum-80-100-modellstation-somosa-winterthur"
-        ]
-      },
-      "firstSeenAt": "2026-07-01T12:17:50.709Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -260,7 +182,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/teamleitung-tagesstruktur-90",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:09:45.628Z",
+      "crawledAt": "2026-08-04T22:20:00.688Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -335,12 +257,13 @@
         "de": "Die sozialpädagogisch-psychiatrische Modellstation SOMOSA bietet ein stationäres 6- bis 12-monatiges Intensivbehandlungsprogramm für 14- bis 18-jährige Klientinnen und Klienten, die sich in einer schweren Adolenszentenkrise befinden. Ziel der Behandlung ist es, die Klientinnen und Klienten in ihrer Persönlichkeit soweit zu stabilisieren, dass sie beim Austritt in den vorhandenen stützenden oder ersetzenden Sozialisationssystemen bestehen können.\n\nAls anerkanntes Listenspital im Bereich Kinder- und Jugendpsychiatrie und als Jugendheim mit sozialpädagogischem Auftrag erfüllen wir beide Bestimmungen durch eine in langjähriger Erfahrung gefestigte, intersystemische Zusammenarbeit in den Fachgebieten Sozialpädagogik, Pflege, Psychotherapie und Arbeitsagogik.\n\nFür die Wohngruppe B suchen wir\n\neine Sozialpädagogin / einen Sozialpädagogen HFS/FHS/Uni\n\n80%, per 01.09.2026 oder nach Vereinbarung\n\nFür die Umsetzung des somosaspezifischen therapeutisch-pädagogischen Konzepts arbeiten Sie zusammen mit Kollegen/innen aus sozialpädagogischen, psychiatrischen, psychotherapeutischen und arbeitsagogischen Bereichen.\n\nAls neues Teammitglied tragen Sie eine Organisationskultur mit, welche auf allen Ebenen Merkmale wie Offenheit, Transparenz, positive Fehler- und Lernkultur, Innovation, effizientes Arbeiten und Wohlergehen aller Beteiligten beinhaltet.\n\nZu einem späteren Zeitpunkt kann die Übernahme der Funktion als stellvertretende Gruppenleitung geprüft werden.\n\nIhr Aufgabengebiet\n\n• Fallführung und Bezugspersonenarbeit über einen längeren Zeitraum\n\n• Mitentwicklung und Umsetzung der individuellen Behandlungspläne im Rahmen der Bezugspersonenarbeit\n\n• Training von Alltags-, Selbst- und Sozialkompetenzen im Gruppen- und Einzelsetting\n\n• Gestaltung der arbeitsfreien Zeit und Wochenorganisation\n\n• Teilnahme an Projekten und Arbeitsgruppen, Erstellen von Dokumentationen und Berichtswesen\n\nDazu bringen Sie mit\n\n• Dipl. Sozialpädagoge / Sozialpädagogin HFS / FHS / Uni\n\n• Bereitschaft und Offenheit den Teamentwicklungsprozess aktiv mitzugestalten\n\n• Bereitschaft für unregelmässige Arbeitszeiten und Pikettschlafen\n\n• Erfahrung in der Teamarbeit wünschenswert\n\n• Führerschein Kat. B wünschenswert\n\nVon uns dürfen Sie einen spannenden Arbeitsplatz erwarten sowie\n\n• Vielseitige, interessante, enge interdisziplinäre Zusammenarbeit\n\n• Regelmässige Fall- und Teamsupervisionen\n\n• Raum für Eigeninitiative, Verantwortung und persönliche Entwicklung\n\n• Interne und externe Weiterbildungsmöglichkeiten mit zeitlicher und finanzieller Unterstützung\n\n• Mindestens 25 Tage Ferien\n\n• Interne gesellige Mitarbeiteranlässe\n\n• Pensionskasse angegliedert an die 'Pensionskasse der Stadt Zürich'\n\n• Die Anstellungsbedingungen sind fortschrittlich, in Anlehnung an die kantonalzürcherischen Richtlinien\n\n• Ausgezeichnete ÖV-Anbindung\n\n• Parkplätze stehen gratis zur Verfügung\n\n• Eulach-Parkanlage in unmittelbarer Nähe\n\n• Attraktive Fringe Benefits\n\nBewerbungsfrist und weitere Infos\n\nDie Bewerbungen werden laufend gesichtet\n\nFür mündliche Auskünfte stehen Ihnen unsere Gruppenleiter,\nHerr Jan Schmid, Gruppenleiter Wohngruppe B, gerne zur Verfügung. Telefon 052 244 50 00\n\nIhre schriftliche Bewerbung senden Sie bitte mit den üblichen Unterlagen vorzugsweise per E- Mail: personal@somosa.ch\n\noder per Post an\n\nModellstation SOMOSA\nAbteilung Personal\nFrau Miriam Wäfler\nZum Park 20\n8404 Winterthur\n\nModellstation SOMOSA — jugendpsychiatrische Klinik und Jugendheim für Adoleszente (6–18 Jahre), Winterthur (ZH), Schweiz.",
         "fr": "SOMOSA offre un programme de soins intensifs de 6 à 12 mois aux patients âgés de 14 à 18 ans qui sont en grave crise adolescente. L'objectif du traitement est de stabiliser les clients dans leur personnalité à tel point qu'ils peuvent survivre dans les systèmes existants de soutien ou de remplacement de la socialisation quand ils partent. En tant que Listespital reconnu dans le domaine de la psychiatrie des enfants et des adolescents et en tant que foyer pour jeunes ayant une mission socio-éducative, nous remplissons les deux dispositions par une coopération intersystémique de longue date dans les domaines de la pédagogie sociale, des soins, de la psychothérapie et de la pédagogie du travail. Pour le groupe résidentiel B que nous recherchons un enseignant social HFS/FHS/Uni 80%, au 01.09.2026 ou par accord Pour la mise en œuvre du concept thérapeutique-pédagogique spécifique à la somosa, vous travaillez en collaboration avec des collègues des domaines sociopédagogique, psychiatrique, psychothérapeutique et du travail-agogique. En tant que nouveau membre de l'équipe, vous avez une culture organisationnelle qui comprend à tous les niveaux des caractéristiques telles que l'ouverture, la transparence, la culture positive d'erreur et d'apprentissage, l'innovation, le travail efficace et le bien-être de tous les participants. À une date ultérieure, le poste de chef de groupe adjoint peut être examiné. Vos responsabilités\n• Gestion de cas et travaux de référence sur une plus longue période\n• Co-élaboration et mise en œuvre de plans de traitement individuels dans le cadre des travaux de référence\n• Formation des compétences quotidiennes, personnelles et sociales en milieu collectif et individuel\n• Conception du temps de non-travail et organisation hebdomadaire\n• Participation aux projets et aux groupes de travail, établissement de la documentation et établissement de rapports Pour cela, apportez-les avec vous.\n• Dipl. Pédagogue social / Pédagogue social HFS / FHS / Uni\n• Volonté et ouverture pour façonner activement le processus de développement de l'équipe\n• Préparation pour les heures de travail irrégulières et le sommeil au piquet\n• Expérience de travail en équipe souhaitable\n• Permis de conduire Cat B souhaitable Nous pouvons vous attendre à un lieu de travail passionnant et\n• Coopération interdisciplinaire polyvalente, intéressante et étroite\n• Surveillance régulière des cas et des équipes\n• Espace d'initiative, de responsabilité et de développement personnel\n• Possibilités de formation internes et externes avec le temps et le soutien financier\n• Au moins 25 jours de vacances\n• Événements sociaux internes pour les salariés\n• Caisse de retraite affiliée au «Pensionskasse der Stadt Zürich»\n• Les conditions d'emploi sont progressives, conformément aux directives cantonales de Zurich\n• Excellente connexion aux transports publics\n• Un parking est disponible gratuitement\n• Stationnement d'Eulach à proximité immédiate\n• Avantages de frange attrayants Délai de présentation des demandes et informations complémentaires Les demandes sont constamment examinées Pour des informations orales, nos chefs de groupe sont à votre disposition, M. Jan Schmid, Gruppeiter Wohngruppe B, est disponible. Téléphone 052 244 50 00 Veuillez envoyer votre candidature écrite avec les documents habituels de préférence par e-mail: personal@somosa.ch ou par la poste Station modèle SOMOSA Département du personnel Mme Miriam Wäfler Vers le parc 20 8404 Winterthur Station modèle SOMOSA — clinique psychiatrique pour jeunes et foyer pour adolescents (6-18 ans), Winterthur (ZH), Suisse."
       },
+      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://www.somosa.ch/offene-stellen-detail/sozialpaedagogen-sozialpaedagoginnen-wg-a-80",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:09:45.154Z",
+      "crawledAt": "2026-08-04T22:20:00.002Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",

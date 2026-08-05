@@ -46,6 +46,21 @@ jobs:
         with:
           node-version: '22'
 
+      # The corpus, not just the published surface. pull-articles-api.mjs brings
+      # in the sitemaps, feeds and ticker — everything a MACHINE reads — and
+      # that is why every post-cutover article was in sitemap-blog.xml and the
+      # RSS while the site's own hub still showed 2026-07-29 as its newest
+      # entry. The reader-facing lists are rendered from the SPA bundle, which
+      # is built from packages/articles/content/, and nothing had refreshed
+      # that since mirror-articles-corpus.yml last ran on the cutover day.
+      #
+      # The published API cannot substitute: articles.json carries no title
+      # (§7.1), and a list needs titles.
+      #
+      # A pull, never a push — nanako owns the corpus. See the script header.
+      - name: Pull the article corpus
+        run: node scripts/pull-articles-corpus.mjs
+
       - name: Pull published sitemaps
         run: node scripts/pull-articles-api.mjs
 
@@ -56,13 +71,28 @@ jobs:
           # and the news-ticker payload (issue #4974 item 2). Listing them here
           # rather than `git add public/` keeps the commit scoped to what this
           # workflow owns — public/ carries plenty this job must never touch.
+          #
+          # The last three are the generator migration's additions (item 3, §3
+          # and §5.5 of docs/articles-generator-migration.md). They are listed
+          # unconditionally and that is safe today even though nanako publishes
+          # neither yet: the pull skips an artifact it cannot find, so the paths
+          # simply stay unmodified and drop out of the diff check below. Adding
+          # them now rather than at cutover means the day nanako starts emitting
+          # is a publisher change only, with nothing to remember on this side.
+          #
+          # public/images/blog is a DIRECTORY on purpose — the pull writes one
+          # file per new article and the set is not known ahead of time.
           FILES=(
+            packages/articles/content
             public/sitemap-blog.xml
             public/sitemap-blog-ch.xml
             public/rss.xml public/rss-it.xml public/rss-en.xml public/rss-de.xml public/rss-fr.xml
             public/rss-svizzera.xml public/rss-svizzera-it.xml public/rss-svizzera-en.xml
             public/rss-svizzera-de.xml public/rss-svizzera-fr.xml
             public/news-ticker-live.json
+            public/sitemap-news.xml
+            public/sitemap.xml
+            public/images/blog
           )
 
           if git diff --quiet -- "${FILES[@]}" && git diff --quiet --cached -- "${FILES[@]}" \

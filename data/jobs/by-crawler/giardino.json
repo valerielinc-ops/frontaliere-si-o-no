@@ -1,6 +1,6 @@
 {
   "crawlerKey": "giardino",
-  "assembledAt": "2026-07-31T22:11:59.913Z",
+  "assembledAt": "2026-08-04T22:15:28.871Z",
   "jobs": [
     {
       "id": "giardino-09336b0daa13",
@@ -33,7 +33,7 @@
       "url": "https://giardinohotels.ch/en/jobs/chef-de-rang/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:11:56.254Z",
+      "crawledAt": "2026-08-04T22:15:26.261Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -71,7 +71,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T11:34:41.921Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -116,7 +115,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-chef-de-partie/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:11:56.254Z",
+      "crawledAt": "2026-08-04T22:15:26.261Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -152,111 +151,14 @@
         ]
       },
       "previousSlugs": [
-        "chef-de-partie-giardino-group-champfer",
-        "capopartita-giardino-group-champfer"
+        "chef-de-partie-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-partie-giardino-group-champfer",
-          "capopartita-giardino-group-champfer"
+          "chef-de-partie-giardino-group-champfer"
         ]
       },
       "firstSeenAt": "2026-07-10T12:00:53.640Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "giardino-e0eabfdf6f07",
-      "slug": "bellista-giardino-group-champfer",
-      "slugByLocale": {
-        "it": "bellista-giardino-group-champfer",
-        "en": "bell-attendant-giardino-group-champfer",
-        "de": "bell-attendant-giardino-group-champfer",
-        "fr": "agent-de-bell-giardino-group-champfer"
-      },
-      "company": "Giardino Group",
-      "companyKey": "giardino",
-      "companyDomain": "giardinohotels.ch",
-      "title": "Bell Attendant",
-      "titleByLocale": {
-        "it": "Bellista",
-        "en": "Bell Attendant",
-        "de": "Bell Attendant",
-        "fr": "Agent de Bell"
-      },
-      "description": "Giardino Group sucht für das Giardino Mountain in Champfèr eine/n Bell Attendant. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nDu bist mitverantwortlich für eine reibungslose An- und Abreise unserer Gäste und einen positiven ersten und letzten Eindruck. Zu deinem Arbeitsalltag gehört der Gepäckservice, die Hotel Transfers mit dem Shuttle, das parken von Gästeautos und diverse Botengänge im Hotel sowie ausserhalb. Ferner bist du für die Sauberkeit der Vorfahrt, der Garage und der Lobby mitverantwortlich und erledigst deine Aufgaben auch in Stresssituationen auf höchstem Niveau.\n\n## Anforderungen\n- Langjährige Erfahrung in einer vergleichbaren Position in der Luxushotellerie\n- Zwingend Führerschein Kategorie B, von Vorteil: Führerausweis Kategorie D1\n- Gute Sprachkenntnisse in Deutsch und Englisch, Italienisch sowie jede weitere Fremdsprache ist von Vorteil\n- Eine herzliche und kompetente Gästebetreuung\n- Ein gepflegtes Erscheinungsbild und sicheres Auftreten\n- Pflichtbewusstsein, Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Einen respektvollen Umgang mit Kollegen und Vorgesetzten",
-      "descriptionByLocale": {
-        "it": "Il Gruppo Giardino è alla ricerca di un partecipante Bell per il Monte Giardino a Champfèr. Giardino Hotels è un affascinante gruppo di hotel di lusso svizzero con sedi a St. Moritz, Ascona e Locarno.\n\n## Compiti\nSiete congiuntamente responsabili di un buon arrivo e partenza dei nostri ospiti e di una prima e ultima impressione positiva. Il vostro lavoro quotidiano comprende il servizio bagagli, i trasferimenti dell'hotel con la navetta, il parcheggio delle auto e vari messaggeri in hotel e fuori. Inoltre, siete congiuntamente responsabili per la pulizia del diritto di strada, il garage e la lobby ed eseguire i vostri compiti anche in situazioni stressanti al massimo livello.\n\n## Requisiti\n- Molti anni di esperienza in una posizione paragonabile nel settore alberghiero di lusso\n- Patente di guida obbligatoria categoria B, vantaggiosa: patente di guida categoria D1\n- Buone competenze linguistiche in tedesco e inglese, italiano e qualsiasi altra lingua straniera è un vantaggio\n- Una cura calda e competente per gli ospiti\n- Un aspetto ben curato e un aspetto sicuro\n- Un senso di dovere, resilienza, flessibilità ed entusiasmo\n- Trattare con rispetto con colleghi e superiori",
-        "en": "Giardino Group is looking for a Bell Attendant for the Giardino Mountain in Champfèr. Giardino Hotels is a characterful Swiss luxury hotel group with locations in St. Moritz, Ascona and Locarno.\n\n## Tasks\nYou are jointly responsible for a smooth arrival and departure of our guests and a positive first and last impression. Your day-to-day work includes the luggage service, the hotel transfers with the shuttle, the parking of guest cars and various messengers in the hotel as well as outside. Furthermore, you are jointly responsible for the cleanliness of the right of way, the garage and the lobby and perform your tasks even in stressful situations at the highest level.\n\n## Requirements\n- Many years of experience in a comparable position in the luxury hotel industry\n- Mandatory driving licence category B, advantageous: driving licence category D1\n- Good language skills in German and English, Italian and any other foreign language is an advantage\n- A warm and competent guest care\n- A well-groomed appearance and safe appearance\n- A sense of duty, resilience, flexibility and enthusiasm\n- Dealing respectfully with colleagues and superiors",
-        "de": "Giardino Group sucht für das Giardino Mountain in Champfèr eine/n Bell Attendant. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nDu bist mitverantwortlich für eine reibungslose An- und Abreise unserer Gäste und einen positiven ersten und letzten Eindruck. Zu deinem Arbeitsalltag gehört der Gepäckservice, die Hotel Transfers mit dem Shuttle, das parken von Gästeautos und diverse Botengänge im Hotel sowie ausserhalb. Ferner bist du für die Sauberkeit der Vorfahrt, der Garage und der Lobby mitverantwortlich und erledigst deine Aufgaben auch in Stresssituationen auf höchstem Niveau.\n\n## Anforderungen\n- Langjährige Erfahrung in einer vergleichbaren Position in der Luxushotellerie\n- Zwingend Führerschein Kategorie B, von Vorteil: Führerausweis Kategorie D1\n- Gute Sprachkenntnisse in Deutsch und Englisch, Italienisch sowie jede weitere Fremdsprache ist von Vorteil\n- Eine herzliche und kompetente Gästebetreuung\n- Ein gepflegtes Erscheinungsbild und sicheres Auftreten\n- Pflichtbewusstsein, Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Einen respektvollen Umgang mit Kollegen und Vorgesetzten",
-        "fr": "Giardino Group est à la recherche d'un accompagnateur Bell pour le mont Giardino à Champfèr. Giardino Hotels est un groupe hôtelier de luxe suisse de caractère avec des emplacements à St. Moritz, Ascona et Locarno.\n\n## Tâche\nVous êtes conjointement responsable de l'arrivée et du départ de nos invités et d'une première et dernière impression positive. Votre travail quotidien comprend le service de bagages, les transferts de l'hôtel avec la navette, le parking des voitures invités et divers messagers dans l'hôtel ainsi qu'à l'extérieur. De plus, vous êtes conjointement responsable de la propreté de l'emprise, du garage et du lobby et vous exécutez vos tâches même dans des situations stressantes au plus haut niveau.\n\n## Exigences\n- De nombreuses années d'expérience dans une position comparable dans l'industrie hôtelière de luxe\n- Permis de conduire obligatoire catégorie B, avantageux: permis de conduire catégorie D1\n- Bonnes compétences linguistiques en allemand et en anglais, en italien et dans toute autre langue étrangère est un avantage\n- Un accueil chaleureux et compétent\n- Une apparence soignée et sûre\n- Sens du devoir, résilience, flexibilité et enthousiasme\n- Respecter les collègues et les supérieurs"
-      },
-      "location": "Champfèr",
-      "canton": "GR",
-      "url": "https://giardinohotels.ch/en/jobs/gm-bell-attendant/",
-      "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:11:56.253Z",
-      "addressLocality": "Champfèr",
-      "postalCode": "7512",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-29",
-      "applyUrl": "https://giardinohotels.ch/en/jobs/gm-bell-attendant/",
-      "requirements": [
-        "Langjährige Erfahrung in einer vergleichbaren Position in der Luxushotellerie",
-        "Zwingend Führerschein Kategorie B, von Vorteil: Führerausweis Kategorie D1",
-        "Gute Sprachkenntnisse in Deutsch und Englisch, Italienisch sowie jede weitere Fremdsprache ist von Vorteil",
-        "Eine herzliche und kompetente Gästebetreuung",
-        "Ein gepflegtes Erscheinungsbild und sicheres Auftreten",
-        "Pflichtbewusstsein, Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
-        "Einen respektvollen Umgang mit Kollegen und Vorgesetzten"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Langjährige Erfahrung in einer vergleichbaren Position in der Luxushotellerie",
-          "Zwingend Führerschein Kategorie B, von Vorteil: Führerausweis Kategorie D1",
-          "Gute Sprachkenntnisse in Deutsch und Englisch, Italienisch sowie jede weitere Fremdsprache ist von Vorteil",
-          "Eine herzliche und kompetente Gästebetreuung",
-          "Ein gepflegtes Erscheinungsbild und sicheres Auftreten",
-          "Pflichtbewusstsein, Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
-          "Einen respektvollen Umgang mit Kollegen und Vorgesetzten"
-        ]
-      },
-      "previousSlugs": [
-        "bell-attendant-giardino-group-champfer",
-        "bellista-giardino-group-champfer"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "bell-attendant-giardino-group-champfer",
-          "bellista-giardino-group-champfer"
-        ],
-        "fr": [
-          "bell-attendant-giardino-group-champfer"
-        ]
-      },
-      "firstSeenAt": "2026-07-29T11:34:41.920Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -301,7 +203,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-assistant-concierge/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:11:56.253Z",
+      "crawledAt": "2026-08-04T22:15:26.260Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -340,17 +242,14 @@
         ]
       },
       "previousSlugs": [
-        "assistant-concierge-giardino-group-champfer",
-        "assistente-giardino-group-champfer"
+        "assistant-concierge-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-concierge-giardino-group-champfer",
-          "assistente-giardino-group-champfer"
+          "assistant-concierge-giardino-group-champfer"
         ]
       },
       "firstSeenAt": "2026-07-29T11:34:41.921Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -371,7 +270,7 @@
         "it": "addetto-alle-pulizie-giardino-group-ascona",
         "en": "housekeeping-waiting-giardino-group-ascona",
         "de": "housekeeping-attendant-giardino-group-ascona",
-        "fr": "housekeeping-attendant-giardino-group-ascona"
+        "fr": "employe-de-menage-giardino-group-ascona"
       },
       "company": "Giardino Group",
       "companyKey": "giardino",
@@ -381,7 +280,7 @@
         "it": "Addetto alle pulizie",
         "en": "Housekeeping Waiting",
         "de": "Housekeeping Attendant",
-        "fr": "Housekeeping Attendant"
+        "fr": "Employé de ménage"
       },
       "description": "Giardino Group sucht für das Giardino Ascona in Ascona eine/n Housekeeping Attendant. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nIn dieser Funktion bist du für die Reinigung von Hotelzimmern zuständig und hilfst in der Lingerie mit. Bei Bedarf hilfst du deinen Kollegen bei der Reinigung von öffentlichen Räumen.\n\n## Anforderungen\n- Erfahrung in einer gleichwertigen Position in der Luxushotellerie\n- Freude an der Pflege von schönen Materialien\n- Exaktes und verantwortungsbewusstes Arbeiten\n- Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Ein gepflegtes Erscheinungsbild und höfliche Umgangsformen\n- Einen respektvollen Umgang mit Kollegen und Vorgesetzten\n- Gute Deutsch-und Englischkenntnisse\n\n## Benefits\n- Einen innovativen und gut organisierten Arbeitsplatz\n- Die Möglichkeit, aktiv an der Eröffnung, am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen\n- Eine offene und transparente Kommunikation\n- Regelmässige Schulungen und Weiterbildungen wie auch zahlreiche Mitarbeiterbenefits\n- Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
       "descriptionByLocale": {
@@ -395,7 +294,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-housekeeping-attendant/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:11:56.253Z",
+      "crawledAt": "2026-08-04T22:15:26.260Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -432,23 +331,18 @@
       },
       "previousSlugs": [
         "housekeeping-attendant-giardino-group-ascona",
-        "agent-de-menage-giardino-group-ascona",
-        "employe-de-menage-giardino-group-ascona",
-        "addetto-alle-pulizie-giardino-group-ascona"
+        "agent-de-menage-giardino-group-ascona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "housekeeping-attendant-giardino-group-ascona",
-          "addetto-alle-pulizie-giardino-group-ascona"
+          "housekeeping-attendant-giardino-group-ascona"
         ],
         "fr": [
           "agent-de-menage-giardino-group-ascona",
-          "employe-de-menage-giardino-group-ascona",
           "housekeeping-attendant-giardino-group-ascona"
         ]
       },
       "firstSeenAt": "2026-06-19T21:49:01.621Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -458,6 +352,97 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "giardino-e0eabfdf6f07",
+      "slug": "bellista-giardino-group-champfer",
+      "slugByLocale": {
+        "it": "bellista-giardino-group-champfer",
+        "en": "bell-attendant-giardino-group-champfer",
+        "de": "bell-attendant-giardino-group-champfer",
+        "fr": "agent-de-bell-giardino-group-champfer"
+      },
+      "company": "Giardino Group",
+      "companyKey": "giardino",
+      "companyDomain": "giardinohotels.ch",
+      "title": "Bell Attendant",
+      "titleByLocale": {
+        "it": "Bellista",
+        "en": "Bell Attendant",
+        "de": "Bell Attendant",
+        "fr": "Agent de Bell"
+      },
+      "description": "Giardino Group sucht für das Giardino Mountain in Champfèr eine/n Bell Attendant. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nDu bist mitverantwortlich für eine reibungslose An- und Abreise unserer Gäste und einen positiven ersten und letzten Eindruck. Zu deinem Arbeitsalltag gehört der Gepäckservice, die Hotel Transfers mit dem Shuttle, das parken von Gästeautos und diverse Botengänge im Hotel sowie ausserhalb. Ferner bist du für die Sauberkeit der Vorfahrt, der Garage und der Lobby mitverantwortlich und erledigst deine Aufgaben auch in Stresssituationen auf höchstem Niveau.\n\n## Anforderungen\n- Langjährige Erfahrung in einer vergleichbaren Position in der Luxushotellerie\n- Zwingend Führerschein Kategorie B, von Vorteil: Führerausweis Kategorie D1\n- Gute Sprachkenntnisse in Deutsch und Englisch, Italienisch sowie jede weitere Fremdsprache ist von Vorteil\n- Eine herzliche und kompetente Gästebetreuung\n- Ein gepflegtes Erscheinungsbild und sicheres Auftreten\n- Pflichtbewusstsein, Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Einen respektvollen Umgang mit Kollegen und Vorgesetzten",
+      "descriptionByLocale": {
+        "it": "Il Gruppo Giardino è alla ricerca di un partecipante Bell per il Monte Giardino a Champfèr. Giardino Hotels è un affascinante gruppo di hotel di lusso svizzero con sedi a St. Moritz, Ascona e Locarno.\n\n## Compiti\nSiete congiuntamente responsabili di un buon arrivo e partenza dei nostri ospiti e di una prima e ultima impressione positiva. Il vostro lavoro quotidiano comprende il servizio bagagli, i trasferimenti dell'hotel con la navetta, il parcheggio delle auto e vari messaggeri in hotel e fuori. Inoltre, siete congiuntamente responsabili per la pulizia del diritto di strada, il garage e la lobby ed eseguire i vostri compiti anche in situazioni stressanti al massimo livello.\n\n## Requisiti\n- Molti anni di esperienza in una posizione paragonabile nel settore alberghiero di lusso\n- Patente di guida obbligatoria categoria B, vantaggiosa: patente di guida categoria D1\n- Buone competenze linguistiche in tedesco e inglese, italiano e qualsiasi altra lingua straniera è un vantaggio\n- Una cura calda e competente per gli ospiti\n- Un aspetto ben curato e un aspetto sicuro\n- Un senso di dovere, resilienza, flessibilità ed entusiasmo\n- Trattare con rispetto con colleghi e superiori",
+        "en": "Giardino Group is looking for a Bell Attendant for the Giardino Mountain in Champfèr. Giardino Hotels is a characterful Swiss luxury hotel group with locations in St. Moritz, Ascona and Locarno.\n\n## Tasks\nYou are jointly responsible for a smooth arrival and departure of our guests and a positive first and last impression. Your day-to-day work includes the luggage service, the hotel transfers with the shuttle, the parking of guest cars and various messengers in the hotel as well as outside. Furthermore, you are jointly responsible for the cleanliness of the right of way, the garage and the lobby and perform your tasks even in stressful situations at the highest level.\n\n## Requirements\n- Many years of experience in a comparable position in the luxury hotel industry\n- Mandatory driving licence category B, advantageous: driving licence category D1\n- Good language skills in German and English, Italian and any other foreign language is an advantage\n- A warm and competent guest care\n- A well-groomed appearance and safe appearance\n- A sense of duty, resilience, flexibility and enthusiasm\n- Dealing respectfully with colleagues and superiors",
+        "de": "Giardino Group sucht für das Giardino Mountain in Champfèr eine/n Bell Attendant. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nDu bist mitverantwortlich für eine reibungslose An- und Abreise unserer Gäste und einen positiven ersten und letzten Eindruck. Zu deinem Arbeitsalltag gehört der Gepäckservice, die Hotel Transfers mit dem Shuttle, das parken von Gästeautos und diverse Botengänge im Hotel sowie ausserhalb. Ferner bist du für die Sauberkeit der Vorfahrt, der Garage und der Lobby mitverantwortlich und erledigst deine Aufgaben auch in Stresssituationen auf höchstem Niveau.\n\n## Anforderungen\n- Langjährige Erfahrung in einer vergleichbaren Position in der Luxushotellerie\n- Zwingend Führerschein Kategorie B, von Vorteil: Führerausweis Kategorie D1\n- Gute Sprachkenntnisse in Deutsch und Englisch, Italienisch sowie jede weitere Fremdsprache ist von Vorteil\n- Eine herzliche und kompetente Gästebetreuung\n- Ein gepflegtes Erscheinungsbild und sicheres Auftreten\n- Pflichtbewusstsein, Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Einen respektvollen Umgang mit Kollegen und Vorgesetzten",
+        "fr": "Giardino Group est à la recherche d'un accompagnateur Bell pour le mont Giardino à Champfèr. Giardino Hotels est un groupe hôtelier de luxe suisse de caractère avec des emplacements à St. Moritz, Ascona et Locarno.\n\n## Tâche\nVous êtes conjointement responsable de l'arrivée et du départ de nos invités et d'une première et dernière impression positive. Votre travail quotidien comprend le service de bagages, les transferts de l'hôtel avec la navette, le parking des voitures invités et divers messagers dans l'hôtel ainsi qu'à l'extérieur. De plus, vous êtes conjointement responsable de la propreté de l'emprise, du garage et du lobby et vous exécutez vos tâches même dans des situations stressantes au plus haut niveau.\n\n## Exigences\n- De nombreuses années d'expérience dans une position comparable dans l'industrie hôtelière de luxe\n- Permis de conduire obligatoire catégorie B, avantageux: permis de conduire catégorie D1\n- Bonnes compétences linguistiques en allemand et en anglais, en italien et dans toute autre langue étrangère est un avantage\n- Un accueil chaleureux et compétent\n- Une apparence soignée et sûre\n- Sens du devoir, résilience, flexibilité et enthousiasme\n- Respecter les collègues et les supérieurs"
+      },
+      "location": "Champfèr",
+      "canton": "GR",
+      "url": "https://giardinohotels.ch/en/jobs/gm-bell-attendant/",
+      "source": "Giardino Group Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-04T22:15:26.259Z",
+      "addressLocality": "Champfèr",
+      "postalCode": "7512",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-29",
+      "applyUrl": "https://giardinohotels.ch/en/jobs/gm-bell-attendant/",
+      "requirements": [
+        "Langjährige Erfahrung in einer vergleichbaren Position in der Luxushotellerie",
+        "Zwingend Führerschein Kategorie B, von Vorteil: Führerausweis Kategorie D1",
+        "Gute Sprachkenntnisse in Deutsch und Englisch, Italienisch sowie jede weitere Fremdsprache ist von Vorteil",
+        "Eine herzliche und kompetente Gästebetreuung",
+        "Ein gepflegtes Erscheinungsbild und sicheres Auftreten",
+        "Pflichtbewusstsein, Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
+        "Einen respektvollen Umgang mit Kollegen und Vorgesetzten"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Langjährige Erfahrung in einer vergleichbaren Position in der Luxushotellerie",
+          "Zwingend Führerschein Kategorie B, von Vorteil: Führerausweis Kategorie D1",
+          "Gute Sprachkenntnisse in Deutsch und Englisch, Italienisch sowie jede weitere Fremdsprache ist von Vorteil",
+          "Eine herzliche und kompetente Gästebetreuung",
+          "Ein gepflegtes Erscheinungsbild und sicheres Auftreten",
+          "Pflichtbewusstsein, Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
+          "Einen respektvollen Umgang mit Kollegen und Vorgesetzten"
+        ]
+      },
+      "previousSlugs": [
+        "bell-attendant-giardino-group-champfer"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "bell-attendant-giardino-group-champfer"
+        ],
+        "fr": [
+          "bell-attendant-giardino-group-champfer"
+        ]
+      },
+      "firstSeenAt": "2026-07-29T11:34:41.920Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }
@@ -493,7 +478,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-chef-de-rang/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:11:56.252Z",
+      "crawledAt": "2026-08-04T22:15:26.259Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -531,17 +516,14 @@
         ]
       },
       "previousSlugs": [
-        "chef-de-rang-giardino-group-champfer",
-        "capo-di-grado-giardino-group-champfer"
+        "chef-de-rang-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-rang-giardino-group-champfer",
-          "capo-di-grado-giardino-group-champfer"
+          "chef-de-rang-giardino-group-champfer"
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:33.588Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -586,7 +568,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-steward/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:11:56.252Z",
+      "crawledAt": "2026-08-04T22:15:26.259Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -616,17 +598,14 @@
         ]
       },
       "previousSlugs": [
-        "steward-giardino-group-champfer",
-        "amministratore-giardino-group-champfer"
+        "steward-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "steward-giardino-group-champfer",
-          "amministratore-giardino-group-champfer"
+          "steward-giardino-group-champfer"
         ]
       },
       "firstSeenAt": "2026-07-10T12:00:53.639Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -655,7 +634,7 @@
       "title": "Reservations & Front Office Specialist (m/w)",
       "titleByLocale": {
         "it": "Reservations & Front Office Specialista (m/w)",
-        "en": "Reservations & Front Office Specialist (m/w)",
+        "en": "Reservations & Front Office Specialist (m/f)",
         "de": "Reservations & Front Office Spezialist (m/w)",
         "fr": "Reservations & Front Office Spécialiste (m/w)"
       },
@@ -671,7 +650,7 @@
       "url": "https://giardinohotels.ch/en/jobs/reservations-front-office-specialist/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:11:56.251Z",
+      "crawledAt": "2026-08-04T22:15:26.258Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -708,7 +687,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T22:17:48.134Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -753,7 +731,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-demichef-de-partie/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:11:56.249Z",
+      "crawledAt": "2026-08-04T22:15:26.256Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -807,7 +785,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:00:53.637Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -852,7 +829,7 @@
       "url": "https://giardinohotels.ch/en/jobs/staff-cook-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-31T22:11:56.248Z",
+      "crawledAt": "2026-08-04T22:15:26.255Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -886,7 +863,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:03:59.309Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -899,88 +875,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "giardino-f99cad5a4ded",
-      "slug": "marketing-pr-manager-giardino-group-ascona",
-      "slugByLocale": {
-        "it": "marketing-pr-manager-giardino-group-ascona",
-        "en": "marketing-pr-manager-giardino-group-ascona",
-        "de": "marketing-pr-manager-giardino-group-ascona",
-        "fr": "directeur-du-marketing-et-des-relations-publiques-giardino-group-ascona"
-      },
-      "company": "Giardino Group",
-      "companyKey": "giardino",
-      "companyDomain": "giardinohotels.ch",
-      "title": "Marketing & PR Manager",
-      "titleByLocale": {
-        "it": "Marketing e PR Manager",
-        "en": "Marketing & PR Manager",
-        "de": "Marketing & PR Manager",
-        "fr": "Directeur du marketing et des relations publiques"
-      },
-      "description": "Giardino Group sucht für das Giardino Ascona in Ascona eine/n Marketing & PR Manager. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\n• Entwicklung und Umsetzung der Marketing-, PR- und Kommunikationsstrategie für die gesamte Giardino Group\n• Führung von Brand-, Content-, Social-Media- und PR-Aktivitäten\n• Steuerung von Agenturen, Medienpartnerschaften und Influencer Relations\n• Positionierung der Giardino-Marken im Luxus-, Lifestyle- und Tourismussegment\n• Verantwortung für Kampagnen, Budgets und Performance-KPIs\n• Enge Zusammenarbeit mit Geschäftsleitung, Sales und Operations\n\n## Anforderungen\n- Mehrjährige Führungserfahrung in Marketing, PR oder Brand Management\n- Erfahrung in Hotellerie, Tourismus, Luxury oder Lifestyle von Vorteil\n- Strategisches Denken kombiniert mit Hands-on-Mentalität\n- Exzellente Kommunikationsfähigkeiten in Deutsch und Englisch, Italienisch von Vorteil\n- Leidenschaft für Marken, Gastfreundschaft und Storytellin\n- Affinität zu AI, digitalen Tools, Datenanalyse und messbaren Marketinginstrumenten\n- Unternehmerisches Denken, Eigeninitiative und strukturierte Arbeitsweise",
-      "descriptionByLocale": {
-        "it": "Giardino Group è alla ricerca di un Marketing & PR Manager per il Giardino Ascona ad Ascona. Giardino Hotels è un affascinante gruppo di hotel di lusso svizzero con sedi a St. Moritz, Ascona e Locarno. ## Compiti\n• Sviluppo e attuazione della strategia di marketing, PR e comunicazione per l'intero Gruppo Giardino\n• Gestione delle attività di brand, contenuti, social media e PR\n• Gestione delle agenzie, dei partenariati dei media e dei rapporti di influenza\n• Posizionamento dei marchi Giardino nel segmento lusso, stile di vita e turismo\n• Responsabilità per campagne, budget e prestazioni KPI\n• Una stretta collaborazione con la gestione, le vendite e le operazioni ## Requisiti - Diversi anni di esperienza di leadership nel marketing, PR o gestione del marchio - Esperienza in ospitalità, turismo, lusso o stile di vita - Pensiero strategico combinato con mentalità hands-on - Eccellente capacità di comunicazione in tedesco e inglese, italiano benefico - Passione per marchi, ospitalità e storytellin - Affinità a AI, strumenti digitali, analisi dei dati e strumenti di marketing misurabili - pensiero imprenditoriale, iniziativa e metodi di lavoro strutturati",
-        "en": "Giardino Group is looking for a Marketing & PR Manager for the Giardino Ascona in Ascona. Giardino Hotels is a characterful Swiss luxury hotel group with locations in St. Moritz, Ascona and Locarno. ## Tasks\n• Development and implementation of the marketing, PR and communication strategy for the entire Giardino Group\n• Management of brand, content, social media and PR activities\n• Management of agencies, media partnerships and influencer relations\n• Positioning of Giardino brands in the luxury, lifestyle and tourism segment\n• Responsibility for campaigns, budgets and performance KPIs\n• Close cooperation with management, sales and operations ## Requirements - Several years of leadership experience in marketing, PR or brand management - Experience in hospitality, tourism, luxury or lifestyle - Strategic thinking combined with hands-on mentality - Excellent communication skills in German and English, Italian beneficial - Passion for brands, hospitality and storytellin - Affinity to AI, digital tools, data analysis and measurable marketing tools - Entrepreneurial thinking, initiative and structured working methods",
-        "de": "Giardino Group sucht für das Giardino Ascona in Ascona eine/n Marketing & PR Manager. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\n• Entwicklung und Umsetzung der Marketing-, PR- und Kommunikationsstrategie für die gesamte Giardino Group\n• Führung von Brand-, Content-, Social-Media- und PR-Aktivitäten\n• Steuerung von Agenturen, Medienpartnerschaften und Influencer Relations\n• Positionierung der Giardino-Marken im Luxus-, Lifestyle- und Tourismussegment\n• Verantwortung für Kampagnen, Budgets und Performance-KPIs\n• Enge Zusammenarbeit mit Geschäftsleitung, Sales und Operations\n\n## Anforderungen\n- Mehrjährige Führungserfahrung in Marketing, PR oder Brand Management\n- Erfahrung in Hotellerie, Tourismus, Luxury oder Lifestyle von Vorteil\n- Strategisches Denken kombiniert mit Hands-on-Mentalität\n- Exzellente Kommunikationsfähigkeiten in Deutsch und Englisch, Italienisch von Vorteil\n- Leidenschaft für Marken, Gastfreundschaft und Storytellin\n- Affinität zu AI, digitalen Tools, Datenanalyse und messbaren Marketinginstrumenten\n- Unternehmerisches Denken, Eigeninitiative und strukturierte Arbeitsweise",
-        "fr": "Giardino Group est à la recherche d'un responsable marketing et relations publiques pour la Giardino Ascona à Ascona. Giardino Hotels est un groupe hôtelier de luxe suisse de caractère avec des emplacements à St. Moritz, Ascona et Locarno. ## Tâche\n• Développement et mise en œuvre de la stratégie marketing, PR et communication pour l'ensemble du Groupe Giardino\n• Gestion des activités de marque, de contenu, de médias sociaux et de relations publiques\n• Gestion des agences, partenariats avec les médias et relations d'influence\n• Positionnement des marques Giardino dans le segment luxe, style de vie et tourisme\n• Responsabilité des campagnes, des budgets et des indicateurs de performance\n• Coopération étroite avec la direction, les ventes et les opérations ## Exigences - Plusieurs années d'expérience en marketing, en relations publiques ou en gestion de marque - Expérience en hospitalité, tourisme, luxe ou style de vie - La pensée stratégique combinée à la mentalité pratique - Excellentes compétences en communication en allemand et anglais, italien bénéfique - Passion pour les marques, l'hospitalité et le conte - Affinité à l'IA, outils numériques, analyse de données et outils marketing mesurables - Pensée entrepreneuriale, initiative et méthodes de travail structurées"
-      },
-      "location": "Ascona",
-      "canton": "TI",
-      "url": "https://giardinohotels.ch/en/jobs/marketing-pr-manager-m-w/",
-      "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:40:25.709Z",
-      "addressLocality": "Ascona",
-      "postalCode": "6612",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Marketing / Vendite",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-07",
-      "applyUrl": "https://giardinohotels.ch/en/jobs/marketing-pr-manager-m-w/",
-      "requirements": [
-        "Mehrjährige Führungserfahrung in Marketing, PR oder Brand Management",
-        "Erfahrung in Hotellerie, Tourismus, Luxury oder Lifestyle von Vorteil",
-        "Strategisches Denken kombiniert mit Hands-on-Mentalität",
-        "Exzellente Kommunikationsfähigkeiten in Deutsch und Englisch, Italienisch von Vorteil",
-        "Leidenschaft für Marken, Gastfreundschaft und Storytellin",
-        "Affinität zu AI, digitalen Tools, Datenanalyse und messbaren Marketinginstrumenten",
-        "Unternehmerisches Denken, Eigeninitiative und strukturierte Arbeitsweise"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Mehrjährige Führungserfahrung in Marketing, PR oder Brand Management",
-          "Erfahrung in Hotellerie, Tourismus, Luxury oder Lifestyle von Vorteil",
-          "Strategisches Denken kombiniert mit Hands-on-Mentalität",
-          "Exzellente Kommunikationsfähigkeiten in Deutsch und Englisch, Italienisch von Vorteil",
-          "Leidenschaft für Marken, Gastfreundschaft und Storytellin",
-          "Affinität zu AI, digitalen Tools, Datenanalyse und messbaren Marketinginstrumenten",
-          "Unternehmerisches Denken, Eigeninitiative und strukturierte Arbeitsweise"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T11:14:52.237Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
     }
   ]
 }

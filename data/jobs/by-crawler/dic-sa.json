@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dic-sa",
-  "assembledAt": "2026-07-31T22:12:46.964Z",
+  "assembledAt": "2026-08-04T22:22:27.240Z",
   "jobs": [
     {
       "id": "dic-sa-7375dc493f17",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "ingegnere-civile-epf-project-leader-h-f-dic-sa-aigle",
         "en": "civilian-engineer-epf-project-leader-h-f-dic-sa-aigle",
-        "de": "ingenieur-civil-epf-chef-de-projet-h-f-dic-sa-aigle",
+        "de": "civilian-engineer-epf-projektleiter-h-f-dic-sa-aigle",
         "fr": "ingenieur-civil-epf-chef-de-projet-h-f-dic-sa-aigle"
       },
       "company": "DIC SA",
@@ -33,7 +33,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/90aca745-50a2-46aa-ba78-f551572468cb/",
       "source": "DIC SA Dedicated Parser (jobs.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-31T22:12:44.392Z",
+      "crawledAt": "2026-08-04T22:22:25.297Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "streetAddress": "Les Glariers",
@@ -54,7 +54,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ingenieur-civil-epf-chef-de-projet-h-f-dic-sa-aigle",
-        "civilian-engineer-epf-projektleiter-h-f-dic-sa-aigle",
         "ingegnere-civile-epf-project-leader-h-f-dic-sa-aigle"
       ],
       "previousSlugsByLocale": {
@@ -66,7 +65,6 @@
           "ingenieur-civil-epf-chef-de-projet-h-f-dic-sa-aigle"
         ],
         "de": [
-          "civilian-engineer-epf-projektleiter-h-f-dic-sa-aigle",
           "ingenieur-civil-epf-chef-de-projet-h-f-dic-sa-aigle"
         ]
       },

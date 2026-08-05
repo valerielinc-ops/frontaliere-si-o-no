@@ -139,6 +139,54 @@ jobs:
         continue-on-error: true
         run: node scripts/crawl-ge-agenda.mjs
 
+      - name: Persist nationwide checkpoints + slices (survives downstream failures)
+        id: persist-nationwide
+        # The "Persist geo/translation caches" step above runs BEFORE guidle and
+        # myswitzerland, so it only ever covered tio-agenda. Everything the two
+        # nationwide crawlers produce — their checkpoint cursors, their by-source
+        # slices, and their additions to the shared translation cache — was
+        # committed nowhere but "Commit dataset" at the very end, which requires
+        # assemble AND the vitest gate to pass first.
+        #
+        # That is how a month of work was lost: from 2026-07-07 the job was
+        # killed by timeout-minutes before the commit step, so saveCursor() never
+        # reached git and myswitzerland restarted from checkpoint index 1331
+        # every single day, re-crawling the same 320 of 21314 records and
+        # discarding them. The translation budget added alongside this step stops
+        # the timeout; this step makes sure the next stall costs one run's
+        # progress instead of all of it.
+        #
+        # if: always() and continue-on-error for the same reasons as the caches
+        # step above — this is a progress ratchet, not the deliverable, and it
+        # must never skip-cascade assemble/gate/commit.
+        if: always()
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # All guarded: a crawler cancelled before its first write leaves these
+          # missing, and `git add` on a missing path errors under `set -e`.
+          [ -d data/events/checkpoints ] && git add data/events/checkpoints/ || true
+          [ -f data/events/by-source/guidle.json ] && git add data/events/by-source/guidle.json || true
+          [ -f data/events/by-source/myswitzerland.json ] && git add data/events/by-source/myswitzerland.json || true
+          [ -f data/events-translation-cache.json ] && git add data/events-translation-cache.json || true
+          [ -f data/events-geocode-cache.json ] && git add data/events-geocode-cache.json || true
+          if git diff --cached --quiet; then
+            echo "No nationwide progress diff, skipping commit"
+            exit 0
+          fi
+
+          git commit -m "🧭 Persist guidle/myswitzerland crawl checkpoints and slices"
+          # --stash-dirty for the same reason as the caches step: the events
+          # dataset and article-surface files this run also wrote are staged
+          # later, by "Commit dataset", and a plain `git reset --hard HEAD`
+          # recovery on a rebase retry would throw them away.
+          bash scripts/lib/git-push-with-retry.sh --stash-dirty
+
       - name: Assemble events dataset
         id: assemble
         run: node scripts/assemble-events-dataset.mjs --stats
@@ -148,7 +196,12 @@ jobs:
         # Rewrites the 4 blog-body files of the stable `eventi-weekend-ticino`
         # article with the current weekend's events (no re-registration, no RSS
         # churn). Soft-fail: a refresh hiccup must never block the events commit.
-        run: node scripts/generate-events-digest-article.mjs || echo "::warning::digest article refresh skipped"
+        # DISABLED AT CUTOVER (#4974 item 3, §5.7): the digest now runs in
+        # nanakokyobashi-rgb/frontaliere-articles, which fetches the dataset the
+        # steps above publish. Everything ELSE in this workflow stays — the
+        # crawling is a site data pipeline (§0.2), and nanako now DEPENDS on it
+        # continuing to write public/data/events.json.
+        run: echo "digest refresh moved to the articles repo — see refresh-events-digest.yml there"
 
       - name: Gate — events dataset + refreshed body must keep the suite green
         id: gate
@@ -175,7 +228,13 @@ jobs:
           # and a path that IS a file symlink (seo-blog-5.ts, blog-articles-data.ts)
           # stages nothing at all while still exiting 0 — which would silently
           # drop the dateModified/updatedAt bumps this job just wrote.
+          # public/data/events.json is the SAME dataset, written in the same call
+          # by assemble-events-dataset.mjs. It is staged because `data/` is not
+          # deployed, so without the published copy the events digest — which now
+          # runs in the articles repo — has no way to read this at all (#4974
+          # item 3). Same both-places pattern as border-wait-averages.json.
           node scripts/lib/git-add-resolved.mjs data/events.json \
+            public/data/events.json \
             data/events/by-source/tio-agenda.json \
             data/events/by-source/guidle.json \
             data/events/by-source/myswitzerland.json \

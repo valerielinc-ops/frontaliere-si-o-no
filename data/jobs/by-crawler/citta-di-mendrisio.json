@@ -1,6 +1,6 @@
 {
   "crawlerKey": "citta-di-mendrisio",
-  "assembledAt": "2026-07-31T22:07:15.982Z",
+  "assembledAt": "2026-08-04T22:15:43.542Z",
   "jobs": [
     {
       "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=84eb45c2-bdff-4670-930f-ffb37bb5f3e1",
@@ -63,7 +63,23 @@
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-31T11:36:33.626Z"
+      "firstSeenAt": "2026-07-31T11:36:33.626Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "educational-resource-of-institute-re-at-50-citta-di-mendrisio-mendrisio"
+        ],
+        "de": [
+          "bildungsressourcen-des-instituts-re-bei-50-citta-di-mendrisio-mendrisio"
+        ],
+        "fr": [
+          "ressources-pedagogiques-de-l-institut-re-a-50-citta-di-mendrisio-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "educational-resource-of-institute-re-at-50-citta-di-mendrisio-mendrisio",
+        "bildungsressourcen-des-instituts-re-bei-50-citta-di-mendrisio-mendrisio",
+        "ressources-pedagogiques-de-l-institut-re-a-50-citta-di-mendrisio-mendrisio"
+      ]
     },
     {
       "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=b73e0e64-5744-4538-aa9e-51144606f363",

@@ -32,11 +32,12 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { execSync, spawn } from 'node:child_process';
+import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { denylistKey, loadRestoreDenylist } from './backfill-prev-slugs-from-loss-events.mjs';
 import { DEFAULT_PREV_SLUG_CAP, LOCALES } from './lib/dedicated-crawler-common.mjs';
+import { createCatFileBatch } from './lib/git-cat-file-batch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -196,67 +197,6 @@ function buildFileCommitsIndex(since) {
     }
   }
   return fileCommits;
-}
-
-/**
- * Long-lived `git cat-file --batch` process. The old code spawned a fresh
- * `git show <commit>:<path>` process per historical blob (~2000+ in a
- * typical 24h window) — each pays its own process-spawn + repo-open cost.
- * `cat-file --batch` keeps ONE process alive and streams requests/responses
- * over its stdin/stdout pipe; responses arrive strictly in request order
- * (git's documented batch-mode contract), so a simple FIFO queue suffices.
- *
- * @param {string} cwd
- */
-function createCatFileBatch(cwd) {
-  const proc = spawn('git', ['cat-file', '--batch'], { cwd, stdio: ['pipe', 'pipe', 'ignore'] });
-  const queue = [];
-  let buf = Buffer.alloc(0);
-
-  proc.stdout.on('data', (chunk) => {
-    buf = buf.length ? Buffer.concat([buf, chunk]) : chunk;
-    drain();
-  });
-  proc.on('error', (err) => {
-    while (queue.length) queue.shift().reject(err);
-  });
-
-  function drain() {
-    for (;;) {
-      const nl = buf.indexOf(10);
-      if (nl === -1) return;
-      const header = buf.subarray(0, nl).toString('utf8');
-      const parts = header.split(' ');
-      if (parts[1] === 'missing') {
-        buf = buf.subarray(nl + 1);
-        queue.shift()?.resolve(null);
-        continue;
-      }
-      const size = Number(parts[2]);
-      if (!Number.isFinite(size)) {
-        buf = buf.subarray(nl + 1);
-        queue.shift()?.resolve(null);
-        continue;
-      }
-      const need = nl + 1 + size + 1;
-      if (buf.length < need) return;
-      const content = buf.subarray(nl + 1, nl + 1 + size).toString('utf8');
-      buf = buf.subarray(need);
-      queue.shift()?.resolve(content);
-    }
-  }
-
-  return {
-    get(objSpec) {
-      return new Promise((resolve, reject) => {
-        queue.push({ resolve, reject });
-        proc.stdin.write(`${objSpec}\n`);
-      });
-    },
-    close() {
-      proc.stdin.end();
-    },
-  };
 }
 
 async function main() {
