@@ -9272,6 +9272,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.indicatore-affari-aziende-luglio.title': 'Indicatore affari aziende: ripresa in quasi tutti i settori',
     'blog.article.indicatore-affari-aziende-luglio.excerpt': 'La situazione economica delle aziende svizzere migliora secondo l\'Istituto KOF del Politecnico federale di Zurigo, con un indicatore a più 21,5 punti in luglio.',
     'blog.article.indicatore-affari-aziende-luglio.imageAlt': 'Panoramica di un distretto finanziario in Svizzera con edifici moderni e attività economica',
+    'blog.article.svizzeri-fuga-alloglio-ticino.title': 'Svizzeri in fuga oltreconfine per l\'alloggio',
+    'blog.article.svizzeri-fuga-alloglio-ticino.excerpt': '154\'700 svizzeri vivono in regioni di confine. 70% dei romandi trova affitti troppo alti. Como e Varese tra le regioni interessate.',
+    'blog.article.svizzeri-fuga-alloglio-ticino.imageAlt': 'Vista sul lago di Como con frontalieri che si spostano verso la regione',
 };
 
 export default blogMetaIt;
