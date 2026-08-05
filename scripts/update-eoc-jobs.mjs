@@ -26,6 +26,7 @@ import {
   validateDedicatedLocaleCoverage,
   stableSlugHash,
   addPreviousSlugForLocale,
+  restoreLocaleSlug,
 } from './lib/dedicated-crawler-common.mjs';
 import { capSlugArray } from './lib/slug-history-journal.mjs';
 import { normalizeDescriptionBullets, exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -653,6 +654,18 @@ export function stabilizeEocSlugsInMemory(currentJobs, preSliceJobs) {
       for (const locale of ['it', 'en', 'de', 'fr']) {
         const oldSlug = pre.slugByLocale[locale];
         const newSlug = job.slugByLocale[locale];
+
+        // Pre-crawl slug exists, post-crawl slot is empty: the crawl dropped
+        // this locale entirely. Restoring the pre-crawl value is precisely
+        // this stabilizer's job, and the `oldSlug && newSlug &&` condition
+        // below skipped it — leaving the locale blank retires an indexed URL
+        // with no redirect target and no journal entry (issue #5157).
+        if (oldSlug && !newSlug) {
+          restoreLocaleSlug(job, locale, oldSlug, 'update-eoc-jobs/stabilize-empty-locale');
+          stabilizedLocaleSlugs++;
+          continue;
+        }
+
         if (oldSlug && newSlug && oldSlug !== newSlug) {
           if (Array.isArray(job.previousSlugs)) {
             job.previousSlugs = job.previousSlugs.filter(s => s !== oldSlug);

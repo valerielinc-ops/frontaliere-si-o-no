@@ -59,11 +59,23 @@ import {
   vitestFailureIsNotAttributableToPr,
 } from './lib/vitestCheck.mjs';
 import { hasCommentMarker as hasCommentMarkerShared } from './lib/prComments.mjs';
+import { runBudgetFromEnv, rotateForFairness } from './lib/run-budget.mjs';
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
 const TOKEN = process.env.GH_TOKEN || '';
 const MAX_PER_RUN = 10;
+// Costo tipico di una PR nel loop, misurato sui run reali (fase di lavoro
+// 19-114s per 1-10 PR): ~30s copre il caso normale con margine. È una STIMA per
+// decidere se COMINCIARE, non un timer: nessuna PR viene interrotta a metà.
+const PR_COST_MS = Number(process.env.AUTOREBASE_PR_COST_MS || 30_000);
+// Sezione critica NON atomica: `gh pr close` + `gh pr reopen`. Se il job muore
+// fra le due la PR resta CHIUSA e nessuno la riapre (vedi reopenToRetrigger).
+// Non si entra senza il tempo di uscirne — con margine largo rispetto a due
+// chiamate API che nel caso peggiore ritentano.
+const REOPEN_COST_MS = Number(process.env.AUTOREBASE_REOPEN_COST_MS || 20_000);
+
+const budget = runBudgetFromEnv();
 const CONFLICT_MARKER = '<!-- AUTOREBASE_CONFLICT -->';
 // One-shot per PR: `vitestFailureIsNotAttributableToPr` è pura e ri-risponderebbe
 // `true` a ogni tick finché l'head resta rosso. Il marker rende il rescue
@@ -160,6 +172,18 @@ function hasAnyClaudeReview(num) {
  * osservata, dead-end #4 della mappa loop 2026-06-12). */
 function reopenToRetrigger(num) {
   if (DRY) { console.log(`[dry] close+reopen #${num} (re-trigger review+tests)`); return true; }
+  // BUDGET GUARD (#5145/#5144). Questa è la sola sezione NON ATOMICA dello
+  // script: fra `close` e `reopen` la PR è CHIUSA. I guard sotto coprono il
+  // fallimento dell'API, non il job UCCISO dal `timeout-minutes` — in quel caso
+  // il processo sparisce fra le due chiamate e la PR resta chiusa senza che
+  // nessuno la riapra (danno reale e duraturo, l'opposto di un run rosso
+  // innocuo). Se non c'è il tempo di completare la coppia NON si comincia: la
+  // PR resta intatta e il prossimo tick rifà la stessa valutazione.
+  if (!budget.canAfford(REOPEN_COST_MS)) {
+    console.log(`PR #${num}: budget di run insufficiente per la coppia close+reopen — NON la tocco (una chiusura senza riapertura lascerebbe la PR chiusa). Rimandata al prossimo tick.`);
+    budget.defer(`#${num} (close+reopen)`);
+    return false;
+  }
   // NIENTE allowFail qui: con `json:false` allowFail ritorna '' sia su successo
   // (gh pr close/reopen confermano su stderr, stdout vuoto) sia su fallimento —
   // l'unico segnale affidabile è l'eccezione (🔴 review #1930: i guard ===null
@@ -757,14 +781,31 @@ async function main() {
     console.error(`gh pr list fallito: ${String(e).slice(0, 160)}`);
     process.exit(0);
   }
-  const open = (prs || []).filter((p) => !p.isDraft);
-  console.log(`PR open non-draft: ${open.length}`);
+  const openUnrotated = (prs || []).filter((p) => !p.isDraft);
+  // Rotazione anti-starvation (#5145/#5144 punto 3): il cap `MAX_PER_RUN` e il
+  // budget di run tagliano entrambi la CODA della lista. Partendo sempre dalla
+  // stessa testa, una PR lenta in posizione 1 non consuma solo il proprio turno:
+  // rende irraggiungibili tutte quelle dietro, a ogni run. Ruotando su
+  // GITHUB_RUN_NUMBER ogni PR passa dalla testa nell'arco di pochi tick.
+  const open = rotateForFairness(openUnrotated, process.env.GITHUB_RUN_NUMBER);
+  console.log(`PR open non-draft: ${open.length}${open.length > 1 ? ` (ordine ruotato su run #${process.env.GITHUB_RUN_NUMBER || '?'} — anti-starvation)` : ''}`);
+  if (budget.enabled) {
+    console.log(`budget di run: ${Math.round(budget.remainingMs() / 1000)}s utilizzabili prima della deadline del job.`);
+  }
 
   let processed = 0;
   let cappedSkipped = 0;
   for (const pr of open) {
     if (processed >= MAX_PER_RUN) {
       cappedSkipped++;
+      continue;
+    }
+    // BUDGET GUARD: fermarsi PRIMA di cominciare una PR che non si farebbe in
+    // tempo a finire. Le PR non valutate restano esattamente com'erano — non
+    // c'è nessuno stato da ripulire — e il prossimo tick le rivaluta da zero
+    // (il loop è già interamente idempotente: ogni decisione è ricalcolata da
+    // GitHub, niente è memorizzato fra un run e l'altro).
+    if (!budget.take(`#${pr.number}`, PR_COST_MS)) {
       continue;
     }
     processed++;
@@ -777,7 +818,8 @@ async function main() {
   if (cappedSkipped > 0) {
     console.log(`::warning::cap raggiunto (${MAX_PER_RUN}/run): ${cappedSkipped} PR non valutate questo run (verranno valutate al prossimo tick).`);
   }
-  console.log('autorebase scan completo.');
+  budget.report();
+  console.log(`autorebase scan completo (${processed} PR valutate).`);
 }
 
 // Esegui solo come CLI (non quando importato dai test → resolveImportConflictsInText
