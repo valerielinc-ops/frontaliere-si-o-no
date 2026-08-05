@@ -15,7 +15,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -681,7 +681,12 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  // Evidence-gated write (#5016/#5017). This crawler has its own pipeline
+  // (it does not go through runStandardCrawlerPipeline), so it opts into the
+  // same acceptance path explicitly: if the anti-shrink guard trips, every
+  // job the smaller slice drops is probed at its own hotelcareer.com detail
+  // URL and the write only proceeds when all of them are provably gone.
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'grace',

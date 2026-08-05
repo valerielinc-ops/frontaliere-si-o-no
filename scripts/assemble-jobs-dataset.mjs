@@ -54,6 +54,8 @@ import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { resolveJobDiffKey } from './lib/job-match-key.mjs';
+import { validateJobUrls } from './lib/validate-job-url.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -678,6 +680,160 @@ export function shouldBlockShrink(priorCount, newCount) {
     return newCount < priorCount * SHRINK_GUARD_RATIO;
   }
   return priorCount > 0 && newCount < priorCount * SHRINK_GUARD_SMALL_BASELINE_RATIO;
+}
+
+/* ── Evidence-based shrink acceptance (issue #5016 / #5017) ─────────────
+ *
+ * The shrink guard above is a *refusal*: it keeps the prior slice on disk and
+ * throws. That is right when the source degraded, but it had no counterpart
+ * for the opposite (and equally real) case — the employer genuinely closed
+ * most of its vacancies. In that state the guard bricks the crawler forever:
+ * every run trips it, throws, fails the workflow step, re-files the
+ * "Crawler Failure" issue, and — because the group workflow only runs
+ * housekeeping and commit when the crawl step SUCCEEDED — the slice freezes
+ * with jobs that no longer exist at the source. Those dead jobs keep their
+ * live job pages instead of being archived into the expired soft-landing
+ * path, so the guard designed to prevent silent content loss starts causing
+ * silent content ROT.
+ *
+ * Observed on grace-la-margna: 14 winter-season postings expired at the end
+ * of July 2026, hotelcareer.com has listed exactly 1 open position on every
+ * run since (runs 30814154182, 30905340681, 30955742385 all discovered the
+ * same single "Restaurant Supervisor (m/w)" posting), the independent board
+ * catererglobal.com shows 0, and the crawler has failed 10 runs in a row.
+ *
+ * The fix is NOT a lower threshold: the threshold is untouched. It is a
+ * *proof requirement*. Before a shrink is accepted, every job the new payload
+ * drops must be shown to be gone at its own source URL, using the same
+ * fail-open validator housekeeping already uses (`validateJobUrl`) and
+ * counting ONLY its `definitive` verdicts — HTTP 404/410, redirect to a
+ * generic listing, an ATS "position closed" marker, or an explicit
+ * "no longer available" phrase. Anything ambiguous (timeout, 403/429, bot
+ * challenge, auth wall, network error) is reported as still-alive, so a
+ * blocked or degraded source can never masquerade as a legitimate shrink —
+ * which is exactly the failure mode the guard exists to catch.
+ */
+
+/** Identity used to diff prior vs new slice jobs. */
+function shrinkJobKey(job) {
+  return resolveJobDiffKey(job) || `title:${String(job?.title || '').trim().toLowerCase()}`;
+}
+
+/**
+ * Probe the jobs a shrinking write would drop and decide whether the source
+ * itself corroborates the drop.
+ *
+ * Pure orchestration around an injectable validator so it is unit-testable
+ * without network access.
+ *
+ * @param {object[]} priorJobs  Jobs currently persisted in the slice.
+ * @param {object[]} newJobs    Jobs this run wants to persist.
+ * @param {object} [options]
+ * @param {(jobs: Array<{id: string, url: string}>, opts?: object) => Promise<Array<{id?: string, valid: boolean, definitive?: boolean, reason: string}>>} [options.validate]
+ *   Defaults to the shared `validateJobUrls`.
+ * @param {number} [options.concurrency]
+ * @param {number} [options.timeoutMs]
+ * @returns {Promise<{corroborated: boolean, checked: number, dead: number, alive: number, unverifiable: number, evidence: Array<{url: string, reason: string}>, survivors: Array<{url: string, reason: string}>}>}
+ */
+export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}) {
+  const validate = options.validate || validateJobUrls;
+  const keptKeys = new Set((newJobs || []).map(shrinkJobKey));
+  const disappeared = (priorJobs || []).filter((job) => !keptKeys.has(shrinkJobKey(job)));
+
+  // Nothing disappeared (the shrink is pure dedup) — nothing to corroborate,
+  // and nothing that could be silently lost either.
+  if (disappeared.length === 0) {
+    return { corroborated: true, checked: 0, dead: 0, alive: 0, unverifiable: 0, evidence: [], survivors: [] };
+  }
+
+  // A job with no URL can never be proven dead — treat it as still-alive so
+  // the shrink stays blocked rather than accepted on absent evidence.
+  const probeable = disappeared.filter((job) => typeof job?.url === 'string' && job.url.trim());
+  const unverifiable = disappeared.length - probeable.length;
+
+  const results = probeable.length
+    ? await validate(
+        probeable.map((job) => ({ id: shrinkJobKey(job), url: job.url })),
+        { concurrency: options.concurrency, timeoutMs: options.timeoutMs },
+      )
+    : [];
+
+  const evidence = [];
+  const survivors = [];
+  results.forEach((result, i) => {
+    const url = probeable[i]?.url || '';
+    // ONLY a definitive dead verdict is evidence. `valid: false` without
+    // `definitive` never occurs today, but treating it as non-evidence keeps
+    // this correct if the validator gains softer signals later.
+    if (result && result.valid === false && result.definitive === true) {
+      evidence.push({ url, reason: result.reason });
+    } else {
+      survivors.push({ url, reason: result?.reason || 'unknown' });
+    }
+  });
+
+  return {
+    corroborated: unverifiable === 0 && survivors.length === 0 && evidence.length === disappeared.length,
+    checked: disappeared.length,
+    dead: evidence.length,
+    alive: survivors.length,
+    unverifiable,
+    evidence,
+    survivors,
+  };
+}
+
+/**
+ * Async wrapper around `writeJobsCrawlerSlice` that gives a genuinely-shrunk
+ * source a way through the guard, with proof.
+ *
+ * Behaviour is identical to calling `writeJobsCrawlerSlice` directly except
+ * when the guard would block: then it probes the disappearing jobs and, only
+ * if EVERY one of them is provably gone at its own source URL, retries the
+ * write with the guard bypassed for that single write. Otherwise the original
+ * guard error is rethrown unchanged, so a degraded scrape still fails loudly
+ * and still keeps the prior slice.
+ *
+ * @param {string} crawlerKey
+ * @param {object[]} jobs
+ * @param {object} [options] Passed through to `writeJobsCrawlerSlice`; also
+ *   accepts `validate` / `concurrency` / `timeoutMs` for the probe.
+ */
+export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = {}) {
+  const { validate, concurrency, timeoutMs, ...writeOptions } = options;
+  try {
+    writeJobsCrawlerSlice(crawlerKey, jobs, writeOptions);
+    return { written: true, shrinkAccepted: false };
+  } catch (err) {
+    if (!String(err?.message || '').startsWith('[shrink-guard]')) throw err;
+
+    const priorJobs = readExistingCrawlerJobs(crawlerKey);
+    console.log(
+      `  🔬 ${crawlerKey}: shrink guard tripped — probing the ${Math.max(priorJobs.length - jobs.length, 0)} disappearing job(s) against the source before deciding.`,
+    );
+    const verdict = await verifyShrinkAgainstSource(priorJobs, jobs, { validate, concurrency, timeoutMs });
+
+    if (!verdict.corroborated) {
+      console.error(
+        `  🚫 ${crawlerKey}: shrink NOT corroborated — ${verdict.alive} of ${verdict.checked} disappearing job(s) are still live at the source` +
+          (verdict.unverifiable ? `, ${verdict.unverifiable} have no URL to probe` : '') +
+          `. Keeping the prior slice (guard stands).`,
+      );
+      for (const s of verdict.survivors.slice(0, 5)) {
+        console.error(`     ↳ still live: ${s.url} (${s.reason})`);
+      }
+      throw err;
+    }
+
+    console.warn(
+      `  ✅ ${crawlerKey}: shrink CORROBORATED — all ${verdict.dead} disappearing job(s) are provably gone at the source. Accepting the smaller slice.`,
+    );
+    for (const e of verdict.evidence.slice(0, 10)) {
+      console.warn(`     ↳ gone: ${e.url} (${e.reason})`);
+    }
+    writeJobsCrawlerSlice(crawlerKey, jobs, { ...writeOptions, skipShrinkGuard: true });
+    return { written: true, shrinkAccepted: true, verdict };
+  }
 }
 
 /**
