@@ -27,6 +27,7 @@ import {
   _resetProfessionJobsAggregateCache,
 } from '../build-plugins/professionJobsAggregate';
 import { SECTOR_MATCHERS, jobMatchesSector } from '../build-plugins/jobSectorLanding';
+import { ROLE_COMBO_MATCHERS } from '../build-plugins/jobsSeoPagesPlugin';
 
 /**
  * Build a throwaway rootDir holding a `data/jobs.json` of TI jobs with the
@@ -198,6 +199,64 @@ describe('sector taxonomy — SECTOR_MATCHERS.oss (#5203)', () => {
   it('does not match unrelated titles', () => {
     expect(match('Ingegnere civile')).toBe(false);
     expect(match('Consulente previdenziale')).toBe(false);
+  });
+});
+
+describe('sibling taxonomy — ROLE_COMBO_MATCHERS (/{ruolo}-ticino/ combo pages)', () => {
+  // Third table with the same defect, found by sweeping the repo for the
+  // `\b(…)\b` shape. It drives an indexed SEO surface, so it is funnel-critical
+  // and gets fixed in the same pass rather than left owed.
+  const byKey = new Map(ROLE_COMBO_MATCHERS.map((r) => [r.key, r.match]));
+  const m = (key: string, title: string) => byKey.get(key)!.test(title);
+
+  const MUST_MATCH: ReadonlyArray<readonly [string, string]> = [
+    // Italian plurals — none of these matched before.
+    ['infermiere', 'Infermieri'],
+    ['infermiere', 'Concorso generale 2026 Infermieri'],
+    ['medico', 'Medici assistenti in formazione (Medicina interna)'],
+    ['autista', "autisti/e veicoli leggeri o speciali presso l'Amministrazione comunale"],
+    ['cuoco', 'Cuochi'],
+    ['meccanico', 'Meccanici di manutenzione'],
+    ['elettricista', 'Elettricisti di cantiere'],
+    ['piastrellista', 'Muratori e piastrellisti'],
+    // German feminine / compound forms.
+    ['medico', 'Oberarzt Innere Medizin'],
+    ['medico', 'Fachärztin Radiologie'],
+    ['infermiere', 'Krankenpflegerin 80%'],
+    ['infermiere', 'Pflegefachfrau HF'],
+    ['elettricista', 'Elektroinstallateur EFZ'],
+    ['cuoco', 'Köchin 100%'],
+    ['educatore', 'Erzieherin Kita'],
+    ['vendita', 'Verkäuferin Teilzeit'],
+  ];
+
+  for (const [key, title] of MUST_MATCH) {
+    it(`${key} matches ${JSON.stringify(title)}`, () => {
+      expect(m(key, title)).toBe(true);
+    });
+  }
+
+  // The false positives the loose-stem repair introduced, measured on the
+  // corpus and then tightened back out. These must stay out.
+  const MUST_NOT_MATCH: ReadonlyArray<readonly [string, string]> = [
+    ['infermiere', 'Stage servizio infermieristico'],
+    ['infermiere', 'Assistente di studio medico (servizio infermieristico)'],
+    ['contabile', 'Impiegato/a amministrativo/a per il Servizio Centrale di Contabilità e Fatturazione'],
+    ['cuoco', 'Manager für Cookie-Einwilligungen'],
+    ['cuoco', 'Mitarbeiter Kocherei'],
+  ];
+
+  for (const [key, title] of MUST_NOT_MATCH) {
+    it(`${key} does NOT match ${JSON.stringify(title)}`, () => {
+      expect(m(key, title)).toBe(false);
+    });
+  }
+
+  it('keeps every key it had before', () => {
+    expect(ROLE_COMBO_MATCHERS.map((r) => r.key)).toEqual([
+      'medico', 'infermiere', 'autista', 'cuoco', 'piastrellista',
+      'elettricista', 'vendita', 'educatore', 'contabile', 'meccanico',
+    ]);
   });
 });
 
