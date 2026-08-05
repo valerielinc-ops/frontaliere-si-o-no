@@ -106,12 +106,14 @@ describe('SEO titles are truncated at word boundaries (#4974)', () => {
 
   it('truncateAtWordBoundary really stops at a word boundary', async () => {
     // Exercised through the real helper rather than re-implemented here.
-    const src = createArticle.slice(createArticle.indexOf('function truncateAtWordBoundary'));
-    const body = src.slice(0, src.indexOf('\n}\n') + 3);
-    const fn = new Function(`${body}; return truncateAtWordBoundary;`)() as (
-      t: string,
-      n: number,
-    ) => string;
+    // create-article.mjs's truncateAtWordBoundary now delegates to the shared
+    // build-plugins/shared/clauseTail.mjs (one implementation for the generator
+    // AND the SERP render layer — AGENTS.md Non-Negotiable #6), so this imports
+    // the real module instead of eval-ing a source slice: a source slice cannot
+    // resolve the delegate's import, and testing the module is closer to what
+    // actually ships than testing a re-parsed copy of it.
+    const { truncateToClause } = await import('../../build-plugins/shared/clauseTail.mjs');
+    const fn = truncateToClause as (t: string, n: number) => string;
 
     const long = 'Incidente mortale a Porlezza: muore un giovane motociclista di Como';
     const cut = fn(long, 57);

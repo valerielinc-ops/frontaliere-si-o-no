@@ -32,6 +32,8 @@
 /** Literal placeholder pattern this module exists to eliminate. Exported so
  * the periodic checker (scripts/check-glossario-definitions.mjs) and this
  * module's own consumers can share one detection regex. */
+import { peelDanglingClauseTail } from '../../build-plugins/shared/clauseTail.mjs';
+
 export const GLOSSARY_PLACEHOLDER_DESCRIPTION_RX = /^Definizione e spiegazione di .+ per frontalieri/i;
 
 export const GLOSSARY_TERM_DEFINITIONS: Readonly<Record<string, string>> = {
@@ -152,6 +154,7 @@ export function truncateForMetaDescription(text: string, maxLength = 165): strin
   const slice = s.slice(0, hardLimit);
   const lastSpace = slice.lastIndexOf(' ');
   const cutAt = lastSpace > Math.floor(hardLimit * 0.6) ? lastSpace : hardLimit;
-  const trimmed = slice.slice(0, cutAt).replace(/[\s.,;:!?\-–—]+$/u, '');
+  // Shared peel — a word-boundary cut still stops mid-clause ("…tassato in").
+  const trimmed = peelDanglingClauseTail(slice.slice(0, cutAt));
   return `${trimmed}…`;
 }

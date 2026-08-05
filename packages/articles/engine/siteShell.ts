@@ -135,6 +135,13 @@ export interface SiteShellContract {
   titleMaxChars: number;
   clampMetaDescription: (description: string, max?: number) => string;
   metaDescriptionMaxChars: number;
+  /**
+   * Repair a description/title that arrived ALREADY cut mid-clause from the
+   * corpus generator (ends on a dangling preposition/article). No-ops on text
+   * that already reads as complete. See `repairSerpSnippet` in
+   * `build-plugins/shared/titleSuffix.ts`.
+   */
+  repairSerpSnippet: (text: string, terminal?: string) => string;
 
   // build-plugins/shared/safeTruncate.ts
   truncateCodeUnits: (input: string, max: number) => string;

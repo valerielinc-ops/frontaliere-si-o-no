@@ -38,6 +38,8 @@
  * Google counts visible characters, not UTF-16 code units.
  */
 
+import { peelDanglingClauseTail } from '../../build-plugins/shared/clauseTail.mjs';
+
 export type JobPageLocale = 'it' | 'en' | 'de' | 'fr';
 
 export const JOB_PAGE_LOCALES: readonly JobPageLocale[] = ['it', 'en', 'de', 'fr'] as const;
@@ -106,7 +108,9 @@ function trimToMax(title: string): string {
   let trimmed = chars.join('');
   const lastSpace = trimmed.lastIndexOf(' ');
   if (lastSpace > TITLE_MIN_CHARS) trimmed = trimmed.slice(0, lastSpace);
-  return trimmed;
+  // A word-boundary cut can still stop mid-clause ("Offerte di lavoro a"),
+  // which reads as broken in the SERP. Shared peel — see clauseTail.mjs.
+  return peelDanglingClauseTail(trimmed);
 }
 
 /**

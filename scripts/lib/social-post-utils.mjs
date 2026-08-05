@@ -18,6 +18,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createCantonResolvers } from '../../build-plugins/shared/cantonResolvers.mjs';
+import { peelDanglingClauseTail } from '../../build-plugins/shared/clauseTail.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -157,7 +158,8 @@ export function truncateBody(text, maxLen) {
   // Fall back to last space.
   const lastSpace = window.lastIndexOf(' ');
   if (lastSpace >= Math.floor(maxLen * 0.5)) {
-    return window.slice(0, lastSpace).trim() + '…';
+    // Shared peel — a word-boundary cut still stops mid-clause.
+    return peelDanglingClauseTail(window.slice(0, lastSpace)) + '…';
   }
   // Reserve one char for the ellipsis so the result never exceeds maxLen.
   // Matters for hard-limited fields (e.g. Reddit's 300-char title cap):

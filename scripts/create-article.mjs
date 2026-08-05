@@ -144,6 +144,7 @@ import { detectBodyRepetition, dedupeRepeatedParagraphs, stripDuplicateTitleFrom
 import { loadEmbeddingStore, loadEmbeddingMeta } from './lib/scoring/embeddingMatcher.mjs';
 import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
 import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
+import { truncateToClause } from '../build-plugins/shared/clauseTail.mjs';
 import { buildStructuralEvergreenTopics } from './lib/evergreen-topic-generator.mjs';
 import { resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
 import { metaFieldRegex, unescapeTsValue } from './lib/meta-field-regex.mjs';
@@ -2454,11 +2455,27 @@ async function optimizeImageToWebp(inputPath, outputPath) {
   return { ok: true, before, after };
 }
 
+/**
+ * Truncate to `maxLen` ending on a COMPLETE clause.
+ *
+ * Delegates to the shared `truncateToClause` (build-plugins/shared/clauseTail.mjs)
+ * — the SAME module the TypeScript render layer uses via `titleSuffix.ts`, so
+ * the generator and the renderer can never disagree about what a clean tail is.
+ *
+ * Two defects this replaces, both measured in the shipped corpus:
+ *   1. `Math.max(cut.lastIndexOf(' '), maxLen - 12)` fell back to a HARD
+ *      character cut whenever the last space sat before `maxLen - 12`, so a
+ *      long final word was sliced mid-word — 56 stored ogTitle/headline values
+ *      still end that way ("…doganali per frontalier", 54 of them at exactly
+ *      57 chars).
+ *   2. Stripping only punctuation left the preposition dangling — 2 936 stored
+ *      descriptions end on one, 1 844 on the literal "Dati aggiornati <year> per".
+ *
+ * A snippet that stops on a preposition reads as a broken record in the SERP
+ * and makes Google more likely to discard the description entirely.
+ */
 function truncateAtWordBoundary(text, maxLen) {
-  const s = String(text || '').replace(/\s+/g, ' ').trim();
-  if (s.length <= maxLen) return s;
-  const cut = s.slice(0, maxLen + 1);
-  return cut.slice(0, Math.max(cut.lastIndexOf(' '), maxLen - 12)).trim().replace(/[,:;.\-–—\s]+$/, '');
+  return truncateToClause(text, maxLen);
 }
 
 // ── SEO length caps (Semrush + Google snippet compliance) ──

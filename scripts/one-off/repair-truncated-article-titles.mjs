@@ -42,6 +42,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { truncateToClause } from '../../build-plugins/shared/clauseTail.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const SEO_DIR = path.join(ROOT, 'packages', 'articles', 'content', 'seo');
@@ -53,14 +54,14 @@ const BRAND = ' | Frontaliere Ticino';
 const TITLE_MAX_CHARS = 66;
 
 /** Mirrors create-article.mjs's truncateAtWordBoundary exactly. */
+// Delegates to the shared build-plugins/shared/clauseTail.mjs — the same
+// implementation create-article.mjs and the SERP render layer use. The local
+// copy this replaces carried the original defect it was written to repair:
+// `Math.max(cut.lastIndexOf(' '), maxLen - 12)` falls back to a HARD mid-word
+// cut when the last space sits before `maxLen - 12`, and stripping only
+// punctuation leaves the preposition dangling ("…doganali per").
 function truncateAtWordBoundary(text, maxLen) {
-  const s = String(text || '').replace(/\s+/g, ' ').trim();
-  if (s.length <= maxLen) return s;
-  const cut = s.slice(0, maxLen + 1);
-  return cut
-    .slice(0, Math.max(cut.lastIndexOf(' '), maxLen - 12))
-    .trim()
-    .replace(/[,:;.\-–—\s]+$/, '');
+  return truncateToClause(text, maxLen);
 }
 
 /**
