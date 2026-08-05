@@ -95,6 +95,7 @@
  */
 
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
+import { redactPersonalData } from './privacy/redactPii';
 import { captureEvent as posthogCapture, capturePageView as posthogPageView } from './posthog';
 import {
  isBenignErrorMessage,
@@ -506,16 +507,22 @@ function deriveActiveSection(): string {
  }
 }
 
-function sanitizeChatbotQuestion(raw: string): string {
- return truncate(
- String(raw || '')
- .replace(/\s+/g, ' ')
- .replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi, '[email]')
- .replace(/\bhttps?:\/\/\S+/gi, '[url]')
- .replace(/\b(?:\+?\d[\s().-]?){7,}\d\b/g, '[phone]')
- .trim(),
- 180
- );
+/**
+ * Redact personal data out of a chatbot question before it leaves the browser.
+ *
+ * This used to strip only email, URL and phone — so a question carrying a real
+ * name, date of birth and street address went to GA4 and PostHog in clear
+ * (#5196). The rules now live in `services/privacy/redactPii.ts`, in their own
+ * module, because they are not analytics logic: any other sink that ever
+ * handles user-authored text needs the same treatment, and a copy-paste of
+ * three regexes is how this class of bug spreads.
+ *
+ * Truncation happens AFTER redaction, never before: truncating first can cut a
+ * street address in half and ship the half that is still identifying.
+ */
+function sanitizeChatbotQuestion(raw: string): { text: string; kinds: string[] } {
+ const { text, kinds } = redactPersonalData(raw);
+ return { text: truncate(text, 180), kinds };
 }
 
 function detectOrganicMedium(host: string): string {
@@ -941,8 +948,14 @@ export const Analytics = {
  } = {}
  ) => {
  const pageContext = deriveAnalyticsPageContext(`${window.location.pathname}${window.location.search}`);
+ // Same class as the chatbot question (#5196): user-authored free text on its
+ // way to two third-party analytics products. The capitalised-name heuristic is
+ // OFF here — measured against 800 distinct real search terms, it would have
+ // touched 1.1% and every one was signal, not PII (`Project Manager`,
+ // `Ente Ospedaliero Cantonale`). With it off, 0 of 800 change, and email,
+ // phone, IBAN, AVS, codice fiscale, dates and addresses are still stripped.
  log('search', {
- search_term: searchTerm,
+ search_term: redactPersonalData(searchTerm, { inferNamesFromCapitalisation: false }).text,
  search_results_count: options.resultsCount,
  search_origin: options.searchSource || pageContext.pageTemplate,
  page_template: pageContext.pageTemplate,
@@ -1998,12 +2011,17 @@ export const Analytics = {
  trigger?: 'send' | 'send_attempt' | 'quick_question' | 'pending_autosend';
  }
  ) => {
- const clean = sanitizeChatbotQuestion(question);
+ const { text: clean, kinds } = sanitizeChatbotQuestion(question);
  if (!clean) return;
  log('chatbot_question', {
  question_text: clean,
  question_length: clean.length,
  question_word_count: clean.split(/\s+/).filter(Boolean).length,
+ // WHICH kinds of personal data were stripped, never the data itself. This
+ // is what makes it possible to answer "are users still pasting addresses?"
+ // without holding a single address (#5196).
+ redacted_kinds: kinds.join(',') || 'none',
+ redacted_count: kinds.length,
  ...(details || {}),
  });
  },
@@ -2020,8 +2038,10 @@ export const Analytics = {
  // so PostHog HogQL queries never see mixed null/empty values for the same
  // column. Pre-2026-05-19 we saw "null null null" rows that came from
  // an older payload shape — fix the schema, not the workaround.
- const keywords = (details.keywords || '').trim();
- const location = (details.location || '').trim();
+ // Free text the user typed — redacted for the same reason as `search_term`
+ // above, with the same measured exception for capitalised job titles.
+ const keywords = redactPersonalData((details.keywords || '').trim(), { inferNamesFromCapitalisation: false }).text;
+ const location = redactPersonalData((details.location || '').trim(), { inferNamesFromCapitalisation: false }).text;
  const frequency = (details.frequency || 'daily').trim();
  const surface = details.surface || 'inline_card';
  log('job_alert_created', {
