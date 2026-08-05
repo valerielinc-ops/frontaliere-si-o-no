@@ -3326,20 +3326,8 @@
         "fr": []
       },
       "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-denner-ag-zurich"
-        ],
-        "en": [
-          "verkaufer-in-denner-ag-zurich"
-        ],
-        "fr": [
-          "verkaufer-in-denner-ag-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-in-denner-ag-zurich"
-      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3355,9 +3343,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      "needsRetranslation": true
     },
     {
       "id": "company-r5knfa",
