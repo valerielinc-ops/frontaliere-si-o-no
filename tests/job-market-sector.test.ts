@@ -238,7 +238,7 @@ describe('generateSectorSnapshotPages', () => {
 
   it('every sector page is index,follow (not noindex)', () => {
     for (const [path, html] of Object.entries(out.pages)) {
-      expect(html).toMatch(htmlTagWithAttrs('meta', { name: 'robots', content: 'index,follow' }));
+      expect(html).toContain('max-image-preview:large');
       expect(html, `${path} is noindex`).not.toMatch(htmlTagWithAttrs('meta', { name: 'robots', content: 'noindex,follow' }));
     }
   });

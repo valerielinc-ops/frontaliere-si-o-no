@@ -68,7 +68,8 @@ describe('Austrian border municipality above-floor page render (#4883)', () => {
     });
     expect(urlPath).toBe(austrianMunicipalityPathFor('it', feldkirch.slug));
     expect(wordCount).toBeGreaterThan(50);
-    expect(html).toMatch(/name=["']?robots["']?\s+content=["']?index,follow/);
+    expect(html).toMatch(/name=["']?robots["']?\s+content=["']?index, follow/);
+    expect(html).toContain('max-image-preview:large');
     // Credit method / inter-state compensation / OECD short-stay threshold /
     // telework social-security threshold must all be present.
     expect(html).toMatch(/Anrechnungsmethode/i);

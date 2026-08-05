@@ -17,6 +17,7 @@ import {
 } from '@/build-plugins/minimumWageLandingsData';
 import { __renderMinWagePageForTest } from '@/build-plugins/minimumWageLandingsPlugin';
 import { MIN_INDEXABLE_WORDS } from '@/build-plugins/constants';
+import { expectIndexableWithLargePreview } from './helpers/robotsAssertions';
 
 const DATASET = JSON.parse(
   readFileSync(resolve(__dirname, '..', 'data', 'seo', 'swiss-minimum-wage.json'), 'utf8'),
@@ -108,14 +109,14 @@ describe('minimum-wage dataset — invariants', () => {
 });
 
 describe('minimum-wage landings — render smoke', () => {
-  it('every page renders above the thin-content floor with canonical + h1 + index,follow', () => {
+  it('every page renders above the thin-content floor with canonical + h1 + an indexable Discover-eligible robots directive', () => {
     for (const locale of MINWAGE_LOCALES) {
       for (const page of MINWAGE_PAGES) {
         const r = __renderMinWagePageForTest({ locale, page, dateStamp: '2026-07-19' });
         expect(r.wordCount, `${locale}/${page.kind} thin`).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
         expect(r.html).toContain('<h1');
         expect(r.html).toContain(`https://frontaliereticino.ch${r.urlPath}`);
-        expect(r.html).toContain('index,follow');
+        expectIndexableWithLargePreview(r.html, `${locale}/${page.kind}`);
       }
     }
   });
