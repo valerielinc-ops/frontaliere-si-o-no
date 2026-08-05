@@ -9247,6 +9247,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.semafori-intelligenti-cadenazzo-quartino.title': 'Cadenazzo-Quartino: smart traffic lights start August 29',
     'blog.article.semafori-intelligenti-cadenazzo-quartino.excerpt': 'The new smart traffic lights between Cadenazzo and Quartino will come into operation from the end of August, improving traffic management.',
     'blog.article.semafori-intelligenti-cadenazzo-quartino.imageAlt': 'New intelligent traffic lights between Cadenazzo and Quartino',
+    'blog.article.pre-festival-locarno-2024.title': 'Pre-festival in Locarno: an event between lights and lights (too many)',
+    'blog.article.pre-festival-locarno-2024.excerpt': 'The 79th edition of the Locarno Film Festival opens with a screening of "Who Framed Roger Rabbit?" that sparks perplexity and discussion.',
+    'blog.article.pre-festival-locarno-2024.imageAlt': 'Aerial view of Locarno\'s Piazza Grande during the Film Festival',
 };
 
 export default blogMetaEn;

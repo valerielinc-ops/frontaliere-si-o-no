@@ -9246,6 +9246,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.semafori-intelligenti-cadenazzo-quartino.title': 'Verkehr Cadenazzo-Quartino: Ab Ende August werden intelligente Ampeln aktiviert',
     'blog.article.semafori-intelligenti-cadenazzo-quartino.excerpt': 'Die neuen intelligenten Ampeln zwischen Cadenazzo und Quartino werden ab Ende August in Betrieb gehen und das Verkehrsmanagement verbessern.',
     'blog.article.semafori-intelligenti-cadenazzo-quartino.imageAlt': 'Neue intelligente Ampeln zwischen Cadenazzo und Quartino',
+    'blog.article.pre-festival-locarno-2024.title': 'Pre-Festival in Locarno: ein Ereignis zwischen Licht und Licht (zu viele)',
+    'blog.article.pre-festival-locarno-2024.excerpt': 'Die 79. Ausgabe des Filmfestivals von Locarno beginnt mit einer Vorführung von „Wer hat Roger Rabbit reingelegt?“, die Verwirrung und Diskussionen hervorruft.',
+    'blog.article.pre-festival-locarno-2024.imageAlt': 'Luftaufnahme von Locarnos Piazza Grande während des Filmfestivals',
 };
 
 export default blogMetaDe;

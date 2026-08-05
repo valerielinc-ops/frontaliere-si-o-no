@@ -9249,6 +9249,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.semafori-intelligenti-cadenazzo-quartino.title': 'Traffico Cadenazzo-Quartino: da fine agosto semafori intelligenti',
     'blog.article.semafori-intelligenti-cadenazzo-quartino.excerpt': 'Les nouveaux feux de signalisation intelligents entre Cadenazzo et Quartino entreront en service à partir de la fin du mois d\'août, améliorant ainsi la gestion du trafic.',
     'blog.article.semafori-intelligenti-cadenazzo-quartino.imageAlt': 'Nouveaux feux de circulation intelligents entre Cadenazzo et Quartino',
+    'blog.article.pre-festival-locarno-2024.title': 'Pré-festival à Locarno : un événement entre lumières et lumières (trop)',
+    'blog.article.pre-festival-locarno-2024.excerpt': 'La 79ème édition du Festival du Film de Locarno s\'ouvre par une projection de « Qui a piégé Roger Rabbit ? » qui suscite perplexité et discussions.',
+    'blog.article.pre-festival-locarno-2024.imageAlt': 'Vue aérienne de la Piazza Grande de Locarno pendant le Festival du Film',
 };
 
 export default blogMetaFr;

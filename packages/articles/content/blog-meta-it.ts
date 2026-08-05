@@ -9248,6 +9248,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.semafori-intelligenti-cadenazzo-quartino.title': 'Traffico Cadenazzo-Quartino: da fine agosto si attivano i semafori intelligenti',
     'blog.article.semafori-intelligenti-cadenazzo-quartino.excerpt': 'I nuovi semafori intelligenti tra Cadenazzo e Quartino entreranno in funzione dalla fine di agosto, migliorando la gestione del traffico.',
     'blog.article.semafori-intelligenti-cadenazzo-quartino.imageAlt': 'Nuovi semafori intelligenti tra Cadenazzo e Quartino',
+    'blog.article.pre-festival-locarno-2024.title': 'Pre-festival a Locarno: un evento tra luci e luci (troppe)',
+    'blog.article.pre-festival-locarno-2024.excerpt': 'La 79ª edizione del Festival del Film di Locarno si apre con una proiezione di "Chi ha incastrato Roger Rabbit?" che suscita perplessità e discussioni.',
+    'blog.article.pre-festival-locarno-2024.imageAlt': 'Vista aerea di Piazza Grande a Locarno durante il Festival del Film',
 };
 
 export default blogMetaIt;
