@@ -141,6 +141,30 @@ export function compareIrpefAddizionale(a: MunicipalityLike, b: MunicipalityLike
 }
 
 /**
+ * Direction-aware counterpart of {@link compareIrpefAddizionale} for sortable
+ * columns with an asc/desc toggle. A naive `dir === 'asc' ? cmp : -cmp`
+ * flips the no-surcharge tie-break along with the numeric one: in `desc` the
+ * comuni that sort last in `asc` (correctly, since they are not on the
+ * fiscal axis) would flip to first — the exact "wins the ranking for a tax
+ * they don't pay" distortion this module exists to remove, just mirrored
+ * (#4875 round-2). No-surcharge comuni stay last regardless of `dir`; only
+ * the numeric comparison between comuni that actually levy the surcharge
+ * inverts.
+ */
+export function compareIrpefAddizionaleWithDirection(
+  a: MunicipalityLike,
+  b: MunicipalityLike,
+  dir: 'asc' | 'desc',
+): number {
+  const aLevies = leviesIrpefAddizionale(a);
+  const bLevies = leviesIrpefAddizionale(b);
+  if (aLevies !== bLevies) return aLevies ? -1 : 1;
+  if (!aLevies) return 0;
+  const cmp = a.irpefAddizionale - b.irpefAddizionale;
+  return dir === 'asc' ? cmp : -cmp;
+}
+
+/**
  * Text-level counterpart of `components/shared/IrpefAddizionaleValue.tsx`, for
  * the SSG plugins that emit static HTML and cannot mount a React component
  * (`build-plugins/borderMunicipalityPagesPlugin.ts`,

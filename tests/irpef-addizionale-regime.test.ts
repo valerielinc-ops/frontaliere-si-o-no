@@ -13,6 +13,7 @@ import { describe, expect, it } from 'vitest';
 import { MUNICIPALITIES } from '@/data/municipalities';
 import {
   NO_SURCHARGE_PROVINCES,
+  compareIrpefAddizionaleWithDirection,
   formatIrpefAddizionale,
   irpefFiscalScore,
   irpefRateRange,
@@ -78,6 +79,32 @@ describe('irpefFiscalScore keeps the exempt comuni off the axis', () => {
   });
 });
 
+describe('compareIrpefAddizionaleWithDirection keeps the exempt regime last regardless of toggle (#4875 round-2)', () => {
+  const levies055 = { province: 'CO', irpefAddizionale: 0.55 };
+  const levies08 = { province: 'CO', irpefAddizionale: 0.8 };
+  const exempt = { province: 'AO', irpefAddizionale: 0 };
+
+  it('asc: exempt sorts after every levying comune', () => {
+    expect(compareIrpefAddizionaleWithDirection(exempt, levies055, 'asc')).toBeGreaterThan(0);
+    expect(compareIrpefAddizionaleWithDirection(levies055, exempt, 'asc')).toBeLessThan(0);
+  });
+
+  it('desc: exempt still sorts after every levying comune, not before', () => {
+    expect(compareIrpefAddizionaleWithDirection(exempt, levies055, 'desc')).toBeGreaterThan(0);
+    expect(compareIrpefAddizionaleWithDirection(levies055, exempt, 'desc')).toBeLessThan(0);
+  });
+
+  it('desc still inverts the numeric order between two levying comuni', () => {
+    expect(compareIrpefAddizionaleWithDirection(levies055, levies08, 'asc')).toBeLessThan(0);
+    expect(compareIrpefAddizionaleWithDirection(levies055, levies08, 'desc')).toBeGreaterThan(0);
+  });
+
+  it('two exempt comuni tie regardless of direction', () => {
+    expect(compareIrpefAddizionaleWithDirection(exempt, exempt, 'asc')).toBe(0);
+    expect(compareIrpefAddizionaleWithDirection(exempt, exempt, 'desc')).toBe(0);
+  });
+});
+
 describe('display never shows a bare 0%', () => {
   it('formats an applicable rate as a percentage', () => {
     expect(formatIrpefAddizionale({ province: 'CO', irpefAddizionale: 0.55 })).toBe('0.55%');
@@ -112,6 +139,12 @@ describe('no consumer prints or ranks the raw field any more (Non-Negotiable #6)
     const src = read(rel);
     expect(src, `${rel} still prints a bare rate`).not.toMatch(/irpefAddizionale\}\s*%/);
     expect(src).toContain('IrpefAddizionaleValue');
+  });
+
+  it('the map addizionale sort column uses the direction-aware comparator, not the generic asc/desc negation', () => {
+    const src = read('components/guide/BorderMunicipalitiesMap.tsx');
+    expect(src).toContain('compareIrpefAddizionaleWithDirection');
+    expect(src).not.toMatch(/case 'addizionale':.*compareIrpefAddizionale\(/);
   });
 
   it('the map colour scale asks the shared predicate first', () => {

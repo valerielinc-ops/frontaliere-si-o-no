@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useCallback, useEffect, useDeferredValue } from 'react';
-import { leviesIrpefAddizionale, compareIrpefAddizionale } from '@/services/irpefAddizionaleRegime';
+import { leviesIrpefAddizionale, compareIrpefAddizionaleWithDirection } from '@/services/irpefAddizionaleRegime';
 import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { useTranslation } from '@/services/i18n';
@@ -129,11 +129,13 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  // Sort municipalities
  const sortedMunicipalities = useMemo(() => {
  return [...municipalitiesWithTax].sort((a, b) => {
+ if (deferredSortField === 'addizionale') {
+ return compareIrpefAddizionaleWithDirection(a, b, deferredSortDir);
+ }
  let cmp = 0;
  switch (deferredSortField) {
  case 'name': cmp = a.name.localeCompare(b.name, 'it'); break;
  case 'tax': cmp = a.taxResult.finalItalianTaxEUR - b.taxResult.finalItalianTaxEUR; break;
- case 'addizionale': cmp = compareIrpefAddizionale(a, b); break;
  case 'distance': cmp = a.distanceKm - b.distanceKm; break;
  }
  return deferredSortDir === 'asc' ? cmp : -cmp;
