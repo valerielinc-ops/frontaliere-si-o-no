@@ -12707,6 +12707,24 @@ ${staticAnalyticsHtml}
  const jsonLdScripts = breadcrumbLd + (jobPostingLd ? '\n ' + jobPostingLd : '');
  recordPhase('ejp:jsonld', __tEjpJsonld);
 
+ // Tier decision FIRST. It reads only `__slCandidatePaths` (hoisted above the
+ // body) and the traffic set — never the HTML — so hoisting it above the build
+ // is behaviour-neutral: same inputs, same counters, same result, and no other
+ // decideMulti call happens in between. Two reasons to do it here (#5130
+ // follow-up):
+ //   1. it makes the decision's own cost attributable instead of hiding inside
+ //      ph:ejp:shell;
+ //   2. 149,099 of 178,828 soft-landings (83%, run 31036546298) are THIN — the
+ //      full article body is built, minified and then thrown away for five
+ //      pages out of six. Having the decision before the build is the
+ //      precondition for skipping that work, which is the next step once these
+ //      timers say what it is worth.
+ const __tEjpDecide = phaseTimer();
+ const __slDecision = trafficFilter.decideMulti(__slCandidatePaths, 'soft-landing-expired');
+ const __slAction: 'full' | 'thin' =
+ __slDecision.action === 'thin' ? 'thin' : 'full';
+ recordPhase('ejp:decide', __tEjpDecide);
+
  const __tEjpShell = phaseTimer();
  // Bot-gated Auto Ads loader (meta + adsense-loader) ONLY on real-traffic
  // expired pages (__slKeepProse): immediate Auto Ads (anchor/vignette/in-page)
@@ -12721,6 +12739,8 @@ ${staticAnalyticsHtml}
  selfUrl, hreflangLinks, jsonLdScripts, expiredWindowData,
  staticBody, __slAdSnippet
  );
+ recordPhase('ejp:shell', __tEjpShell);
+
  // Tiered emission for soft-landings. Same filter + evidence flow as
  // previousSlug bridges: URL with traffic stays full; URL without and
  // matching an approved pattern becomes a thin shell (HEAD verbatim,
@@ -12731,20 +12751,23 @@ ${staticAnalyticsHtml}
  // prose gate and the thin-shell gate can never diverge. (Reviewer HIGH #1
  // cross-locale safety net + PR #743 legacy-locale bridge probe are baked
  // into that builder.)
- const __slDecision = trafficFilter.decideMulti(__slCandidatePaths, 'soft-landing-expired');
- const __slAction: 'full' | 'thin' =
- __slDecision.action === 'thin' ? 'thin' : 'full';
+ //
+ // Timed separately (ph:ejp:thin): it re-scans the whole freshly-built
+ // document — stripScriptsAndStyles + an <h1> match + a canonical match + a
+ // JSON-LD parse + a lazy `[\s\S]*?` article replace — on 149k pages, and
+ // none of that was attributable before.
+ const __tEjpThin = phaseTimer();
  const softLandingHtml =
  __slAction === 'thin'
  ? buildSoftLandingThinHtml(__slFullHtml, locale)
  : __slFullHtml;
+ recordPhase('ejp:thin', __tEjpThin);
  if (__slAction === 'thin') {
  softLandingThinCount++;
  softLandingBytesSaved += __slFullHtml.length - softLandingHtml.length;
  } else {
  softLandingFullCount++;
  }
- recordPhase('ejp:shell', __tEjpShell);
 
  // Dedup membership: __slPathKey is computed and checked at the top of
  // this locale iteration (hoisted to avoid running the full ph:ejp:*

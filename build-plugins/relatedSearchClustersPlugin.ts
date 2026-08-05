@@ -3201,6 +3201,15 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         const __clAllPaths = [out.urlPath, ...__clMirrorPaths, ...__clCrossLocaleProbes];
         // `primaryPath` pins the inert-band age gate to the URL we are about
         // to emit. Every other entry above is an evidence-only probe.
+        //
+        // Timed (issue #5130 follow-up, AGENTS.md #6 — same split applied to
+        // jobsSeoPagesPlugin's ph:ejp:shell in this PR). `render-cluster-page`
+        // measured 111,523 ms over 80,368 pages on run 31036546298 as ONE
+        // opaque bucket covering render + decide + thin conversion, and
+        // `cluster tier: full=5601 thin=74767` says 93% take the thin path — so
+        // buildClusterThinHtml re-scans a freshly-built document on more than
+        // nine pages out of ten with no timer of its own.
+        const __tClDecide = profileStart();
         const __clDecision = trafficFilter.decideMulti(__clAllPaths, 'gsc-keyword-landing', {
           primaryPath: out.urlPath,
         });
@@ -3212,16 +3221,23 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         // visitor or for an inbound link. The band is sized entirely by the
         // threshold in data/url-pruning-approved-patterns.json.
         const __clNoindex = __clDecision.noindex === true;
+        profileRecord('cluster-decide', __tClDecide);
         // Enrichment is spent only where it can still pay: a page leaving the
         // index gains nothing from more prose, while the thin pages that stay
         // indexed are exactly the residual near-duplicate surface. Same reason
         // the byte cost lands on ~half the thinned set instead of all of it.
+        //
+        // `cluster-thin` covers the whole post-render document surgery — the
+        // thin conversion AND the robots-meta rewrite — because both re-scan
+        // the freshly-built HTML and both are candidates for the same fix.
+        const __tClThin = profileStart();
         const __clThinned = __clAction === 'thin'
           ? buildClusterThinHtml(out.html, locale, { enrich: !__clNoindex })
           : out.html;
         const __clHtml = __clNoindex
           ? replaceRobotsMeta(__clThinned, 'noindex,follow')
           : __clThinned;
+        profileRecord('cluster-thin', __tClThin);
         const __clDelta = __clAction === 'thin' ? out.html.length - __clHtml.length : 0;
         if (__clAction === 'thin') clusterThinCount++; else clusterFullCount++;
         if (__clNoindex) clusterNoindexCount++;
