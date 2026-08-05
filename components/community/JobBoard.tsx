@@ -87,6 +87,7 @@ import type { JobNetEstimate } from '@/services/jobNetEstimate';
 import {
  ArrowLeft,
  ArrowUpRight,
+ BellRing,
  BookOpen,
  Bookmark,
  Briefcase,
@@ -2158,6 +2159,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // (88% dismiss rate · 0 conversions in 30 days → dead weight); the
  // job-detail surface is now the only conversion path beyond the inline form.
  const [jobDetailPromptVisible, setJobDetailPromptVisible] = useState(false);
+ // Post-apply in-page state (issues #5040 / #5039). `handleApply` hands the
+ // user off to the employer's ATS in a NEW TAB and, until now, changed nothing
+ // on our page: the visitor came back to a page that looked exactly as they had
+ // left it, with no record that they had applied. That is also why PostHog
+ // classified the apply click as a `$dead_click` — its heuristic calls a click
+ // dead when no DOM mutation / scroll / selection follows within 2.5s, and a
+ // `window.open` produces none. 805 of 1890 dead clicks over 14d (42.6%) carry
+ // `$dead_click_visibility_changed_timeout`, the signature of exactly this
+ // "click backgrounded the tab" pattern, and "Candidati" is the single largest
+ // own-app cluster. Rendering real confirmation is the honest fix: the user
+ // gets feedback, and the click stops being dead because the page genuinely
+ // responded.
+ const [appliedJobId, setAppliedJobId] = useState<string | null>(null);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
  useEffect(() => {
  isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
@@ -3158,12 +3172,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  enablePersonalization && enableJobAlerts && jobMatchAlertCategoryLabel && userId && userEmail && jobMatchAlertEligible,
  );
 
- useEffect(() => {
- if (!jobMatchAlertVisible) return;
- // At most once per surface per session (review PR #4338, bug G) — see the
- // module-level comment near trackJobAlertCtaShownOnce above.
- trackJobAlertCtaShownOnce('job_match_pill', jobMatchAlertCategoryLabel);
- }, [jobMatchAlertVisible, jobMatchAlertCategoryLabel]);
+ // Impression is emitted by <JobMatchAlertCta onImpression> when the CTA is
+ // genuinely on screen — NOT from an effect keyed on "is rendered". This block
+ // renders inside a job list most visitors never scroll to, and the mount-based
+ // version reported 300 impressions with 0 clicks and 0 conversions over 14d,
+ // inflating the alert_funnel_conversion denominator (issue #5039).
 
  // ── Saved-jobs alert nudge (#4467, epic #4465) ───────────────────────────
  // At ≥SAVED_JOBS_NUDGE_THRESHOLD saved jobs, offer an email alert prefilled
@@ -3320,12 +3333,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  enableJobAlerts && boardFilterAlertKeywordLabel && userId && userEmail && !isJobDetailView && boardFilterAlertEligible,
  );
 
- useEffect(() => {
- if (!boardFilterAlertVisible) return;
- // At most once per surface per session (review PR #4338, bug G) — see the
- // module-level comment near trackJobAlertCtaShownOnce above.
- trackJobAlertCtaShownOnce('job_board_filters', boardFilterAlertKeywordLabel);
- }, [boardFilterAlertVisible, boardFilterAlertKeywordLabel]);
+ // Same as the job-match pill above: the impression comes from
+ // <JobBoardFilterAlertCta onImpression> on real viewport visibility (#5039).
 
  useEffect(() => {
  try { console.log('[AlertDebug] enter', { detail: isJobDetailView, flag: enableJobAlerts, uid: !!userId, email: !!userEmail, inFlight: newsletterAutologinInFlight, jobId: selectedJob?.id }); } catch { /* noop */ }
@@ -3428,6 +3437,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // re-runs / re-arms.
  // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [isJobDetailView, selectedJob?.id, enableJobAlerts, newsletterAutologinInFlight, userId, userEmail, t]);
+
+ // Impression for the peak-intent alert offer inside the applied receipt. Fired
+ // on appearance rather than via IntersectionObserver because the receipt is
+ // rendered directly under the button the user just pressed — it is on screen by
+ // construction, so an in-view check would add machinery without adding truth.
+ useEffect(() => {
+ if (!appliedJobId || !selectedJob || appliedJobId !== selectedJob.id) return;
+ Analytics.trackJobAlertCtaShown('job_detail_button', (t(categoryTranslationKey(selectedJob)) || '').trim());
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+ }, [appliedJobId, selectedJob?.id]);
+
+ // Drop the applied receipt when the user moves to a different job / leaves the
+ // detail view, so it never leaks onto an unrelated listing.
+ useEffect(() => {
+ if (appliedJobId && (!isJobDetailView || selectedJob?.id !== appliedJobId)) {
+ setAppliedJobId(null);
+ }
+ }, [appliedJobId, isJobDetailView, selectedJob?.id]);
 
  // Auto-unmount the prompt if the user logs out or leaves the detail view.
  useEffect(() => {
@@ -5859,7 +5886,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // External publisher ads: count the apply click too (session-debounced, so it
  // never double-counts with the header logo/title links). No-op for crawled jobs.
  trackPublisherApplyClick(job as { publisherJobId?: string | null });
- if (job.url) window.open(buildReferralUrl(job.url, job), '_blank', 'noopener,noreferrer');
+ if (job.url) {
+ window.open(buildReferralUrl(job.url, job), '_blank', 'noopener,noreferrer');
+ // Mutate the page in the same tick as the hand-off — the confirmation is the
+ // user-visible receipt AND the DOM change that makes this click non-dead.
+ setAppliedJobId(job.id);
+ }
  };
 
  const handleShare = async (job: JobListing) => {
@@ -6002,6 +6034,56 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  </div>
  <p className="mt-1.5 text-xs text-muted">{t('jobBoard.sectorContext.source')}</p>
+ </div>
+ ) : null;
+
+ // Post-apply receipt + peak-intent alert offer (issues #5040, #5039).
+ //
+ // The alert CTA here deliberately does NOT require an authenticated session.
+ // The only surface that converts today (`job_detail_prompt`, 5 creations on
+ // 410 impressions over 14d) is hard-gated on userId+email and logs a `no_auth`
+ // skip for everyone else, so anonymous visitors — the bulk of organic search
+ // traffic — are never offered an alert at the one moment their intent is
+ // provably highest: they just applied. This routes them through the always-
+ // mounted JobAlertForm, which owns auth + email capture, using the same
+ // queued-request + backToList hand-off SavedJobsAlertNudge already uses from
+ // the detail view.
+ const appliedNoticeJsx = (appliedJobId && selectedJob && appliedJobId === selectedJob.id) ? (
+ <div
+ role="status"
+ className="rounded-xl border border-success-border bg-success-subtle p-3 space-y-2"
+ >
+ <div className="flex items-start gap-2">
+ <CheckCircle2 className="w-4 h-4 text-success shrink-0 mt-0.5" aria-hidden="true" />
+ <div className="min-w-0">
+ <p className="text-sm font-semibold font-display text-heading">
+ {t('jobBoard.applied.title')}
+ </p>
+ <p className="mt-0.5 text-xs text-subtle">{t('jobBoard.applied.body')}</p>
+ </div>
+ </div>
+ <div className="flex flex-wrap gap-2">
+ <button
+ type="button"
+ onClick={() => {
+ const category = (t(categoryTranslationKey(selectedJob)) || '').trim();
+ Analytics.trackJobAlertCtaClick('job_detail_button', 'open', category);
+ requestJobAlertOpen(category || undefined);
+ backToList();
+ }}
+ className="inline-flex items-center gap-2 px-3 py-2 min-h-[44px] text-xs font-semibold font-display rounded-lg bg-accent-strong text-on-accent hover:bg-accent-strong-hover transition-colors"
+ >
+ <BellRing className="w-3.5 h-3.5" aria-hidden="true" />
+ {t('jobBoard.applied.alertCta')}
+ </button>
+ <button
+ type="button"
+ onClick={() => handleApply(selectedJob)}
+ className="inline-flex items-center gap-2 px-3 py-2 min-h-[44px] text-xs font-medium text-muted hover:text-strong transition-colors"
+ >
+ {t('jobBoard.applied.reopen')}
+ </button>
+ </div>
  </div>
  ) : null;
 
@@ -8442,6 +8524,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <ArrowUpRight className="w-4 h-4" />
  {t('jobBoard.apply')}
  </button>
+ {appliedNoticeJsx}
  <dl className="grid grid-cols-3 gap-2 text-xs">
  <div className="rounded-lg bg-surface-alt p-2 text-center">
  <dt className="uppercase tracking-wide text-[10px] text-muted">{t('jobBoard.snapshot.location')}</dt>
@@ -8506,7 +8589,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  width={28}
  height={28}
  loading="lazy"
- onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div>
+ onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {appliedNoticeJsx}
  {isPublisherAd && userId && userEmail && (
  <Suspense fallback={null}>
  <JobDetailJobAlertButton
@@ -8839,6 +8922,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  userId={userId}
  email={userEmail}
  locale={locale}
+ onImpression={() => trackJobAlertCtaShownOnce('job_board_filters', boardFilterAlertKeywordLabel)}
  keywordLabel={boardFilterAlertKeywordLabel}
  cantonCode={boardFilterAlertCantonCode}
  onSubscribed={() => {
@@ -9165,6 +9249,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  userId={userId}
  email={userEmail}
  locale={locale}
+ onImpression={() => trackJobAlertCtaShownOnce('job_match_pill', jobMatchAlertCategoryLabel)}
  categoryLabel={jobMatchAlertCategoryLabel}
  cantonCode={jobMatchAlertCantonCode}
  onSubscribed={() => {

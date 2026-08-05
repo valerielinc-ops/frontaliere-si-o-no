@@ -1,0 +1,15 @@
+name: fixture-unsafe-choice-options
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options:
+          - safe
+          - 'oops; rm -rf /'
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Do the thing
+        run: node scripts/thing.mjs --mode "${{ inputs.mode }}"

@@ -1,0 +1,25 @@
+name: fixture-safe
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        type: string
+      dry_run:
+        type: boolean
+        default: false
+      section:
+        type: choice
+        options:
+          - frontaliere
+          - svizzera
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Do the thing
+        env:
+          INPUT_TARGET: ${{ inputs.target }}
+        run: |
+          # Free text arrives as data and is quoted at every use.
+          node scripts/thing.mjs "$INPUT_TARGET" --section "${{ inputs.section }}"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then echo dry; fi
