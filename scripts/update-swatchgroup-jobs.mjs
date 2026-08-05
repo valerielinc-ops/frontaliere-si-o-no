@@ -251,7 +251,20 @@ async function main() {
     // case out too would freeze the stale mislabeled slice on disk forever,
     // silently contradicting the guard-driven correction this fix depends on.
     const _ckFilterEmptiedRealScrape = _ckJobs.length === 0 && _ckJobsRaw.length > 0;
-    let _ckTotal = _ckJobs.length > 0 ? _ckJobs.length : readExistingCrawlerJobs(ck, DATA_JOBS).length;
+    // No `dataJobsPath` fallback arg here (unlike every other dedicated
+    // crawler's own call site): DATA_JOBS is this script's ONE shared
+    // multi-brand scratch pool (all 6 sub-brands' raw jobs from THIS run),
+    // not a single-company scratch file. readExistingCrawlerJobs()'s legacy
+    // fallback returns dataJobsPath's content UNFILTERED when no per-crawler
+    // slice exists yet — for a single-company crawler that's correct (the
+    // whole scratch file IS that company's jobs), but here it silently
+    // handed back the size of the ENTIRE shared pool as a brand's own count
+    // (issue #5115: comadur/nivarox/swiss-timing report the ~53-job pool as
+    // `total` despite having no slice file, because their filtered/scraped
+    // count landed at 0 on some run and this fallback took over). Omitting
+    // the arg makes the function fall through to its own `[]` default when
+    // no slice exists, so a brand with no persisted slice correctly reports 0.
+    let _ckTotal = _ckJobs.length > 0 ? _ckJobs.length : readExistingCrawlerJobs(ck).length;
     if (_ckJobs.length > 0 || _ckFilterEmptiedRealScrape) {
       // Swatch Group is a multi-sub-brand umbrella crawler: comadur, eta-sa,
       // nivarox, rado, swatch-group-assembly and swiss-timing all persist in
@@ -280,7 +293,8 @@ async function main() {
         _aggregateTotal += _ckJobs.length;
       } catch (err) {
         _guardTrippedKeys.push(ck);
-        _ckTotal = readExistingCrawlerJobs(ck, DATA_JOBS).length;
+        // Same reasoning as above: no shared-pool fallback for a per-brand count.
+        _ckTotal = readExistingCrawlerJobs(ck).length;
         _aggregateTotal += _ckTotal;
         console.warn(`⚠️  ${ck}: slice write guard refused this run's ${_ckJobs.length} job(s) — prior slice (${_ckTotal} jobs) kept on disk, continuing with remaining Swatch Group sub-brands: ${String(err?.message || err)}`);
       }
