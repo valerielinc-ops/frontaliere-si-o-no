@@ -9262,6 +9262,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.locarno-film-festival-resistenza-legami.title': 'Locarno Film Festival: culture as a link',
     'blog.article.locarno-film-festival-resistenza-legami.excerpt': 'The Locarno Film Festival opens with \'Les Yeux Verts\', exploring themes of trauma and resilience through cinema in Piazza Grande.',
     'blog.article.locarno-film-festival-resistenza-legami.imageAlt': 'Piazza Grande in Locarno during the Locarno Film Festival',
+    'blog.article.frontalieri-svizzera-sondaggio-giugno-2026.title': '10 million initiative in Switzerland: those opposed to 52% in the survey',
+    'blog.article.frontalieri-svizzera-sondaggio-giugno-2026.excerpt': 'In June 2026, the second SSR survey overturned the fronts: the no to the UDC initiative rose to 52%. Details and percentages.',
+    'blog.article.frontalieri-svizzera-sondaggio-giugno-2026.imageAlt': 'View of Bellinzona in Ticino with historical buildings and Swiss flag',
 };
 
 export default blogMetaEn;

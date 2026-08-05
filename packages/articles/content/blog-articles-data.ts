@@ -27804,6 +27804,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-svizzera-sondaggio-giugno-2026',
+ category: 'novita',
+ date: '2026-08-05T06:01:26.039Z',
+ image: '/images/blog/frontalieri-svizzera-sondaggio-giugno-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -9261,6 +9261,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.locarno-film-festival-resistenza-legami.title': 'Locarno Film Festival: Kultur als Verbindung',
     'blog.article.locarno-film-festival-resistenza-legami.excerpt': 'Das Locarno Film Festival eröffnet mit "Les Yeux Verts" und erforscht Themen wie Trauma und Resilienz durch das Kino auf der Piazza Grande.',
     'blog.article.locarno-film-festival-resistenza-legami.imageAlt': 'Piazza Grande in Locarno während des Locarno Film Festivals',
+    'blog.article.frontalieri-svizzera-sondaggio-giugno-2026.title': '10-Millionen-Initiative in der Schweiz: Gegen 52% in der Umfrage',
+    'blog.article.frontalieri-svizzera-sondaggio-giugno-2026.excerpt': 'Im Juni 2026 kippt die zweite SRG-Umfrage die Fronten: Das Nein zur SVP-Initiative steigt auf 52%. Details und Prozentsätze.',
+    'blog.article.frontalieri-svizzera-sondaggio-giugno-2026.imageAlt': 'Ansicht von Bellinzona im Tessin mit historischen Gebäuden',
 };
 
 export default blogMetaDe;
