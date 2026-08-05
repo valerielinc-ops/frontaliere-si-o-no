@@ -49,6 +49,13 @@ jobs:
           # blob storici (fetch on-demand se mai servono): checkout da ~minuti a
           # ~secondi, HEAD materializzato identico → il fixer lavora invariato.
           filter: blob:none
+        # Tetto Checkout (classe #5145/#5144/#5162): senza, un fetch degenere
+        # consuma l'intero budget e il job muore `cancelled` — stato invisibile
+        # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
+        # posteriori. Col tetto e' un `failure` diagnosticabile.
+        # Ha gia' blob:none (#4189) e i numeri lo confermano: Checkout 129-262s su
+        # 4 run, max = 1% di un cap da 360min. Nessun altro cambio, solo il tetto.
+        timeout-minutes: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v5

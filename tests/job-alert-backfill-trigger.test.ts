@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { handleNewsletterSubscriberCreated } from '../functions/src/jobAlertBackfillTrigger.js';
-import { getSignalTier, signalTierChanged, resolveSignalTier } from '../functions/src/jobAlertBackfillCore.js';
+import { getSignalTier, signalTierChanged, resolveSignalTier, MAX_ALERTS_PER_USER } from '../functions/src/jobAlertBackfillCore.js';
 
 interface AlertDoc {
   id: string;
@@ -111,12 +111,15 @@ describe('handleNewsletterSubscriberCreated — skip reasons', () => {
 
 describe('handleNewsletterSubscriberCreated — cap enforcement', () => {
   it('skips when the subscriber already has MAX_ALERTS_PER_USER active alerts', async () => {
+    // Derived from the constant, not a hand-written list of 3 (#5012): the cap
+    // moved to 10 and a fixed-size fixture silently stops testing the cap the
+    // moment it no longer reaches it — it would assert 'capped' on a subscriber
+    // that is under the limit, or (as here) fail for the wrong reason.
     const db = fakeDb({
-      existingAlerts: [
-        { id: 'alert-1', active: true },
-        { id: 'alert-2', active: true },
-        { id: 'alert-3', active: true },
-      ],
+      existingAlerts: Array.from({ length: MAX_ALERTS_PER_USER }, (_, i) => ({
+        id: `alert-${i + 1}`,
+        active: true,
+      })),
     });
     const result = await handleNewsletterSubscriberCreated('a@b.ch', { job_category: 'tech' }, { db: db as any });
     expect(result).toEqual({ created: false, reason: 'capped' });

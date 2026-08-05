@@ -2014,7 +2014,7 @@ export const Analytics = {
  keywords?: string;
  location?: string;
  frequency?: string;
- surface?: 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'sticky_banner' | 'end_card' | 'preferences' | 'post_auth_auto' | 'job_match_pill' | 'job_board_filters' | 'saved_jobs_nudge' | 'calculator_results';
+ surface?: 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'sticky_banner' | 'end_card' | 'preferences' | 'post_auth_auto' | 'job_match_pill' | 'job_board_filters' | 'saved_jobs_nudge' | 'calculator_results' | 'company_follow_button';
  } = {}) => {
  // Defensive: collapse undefined/empty to clear sentinels rather than null
  // so PostHog HogQL queries never see mixed null/empty values for the same
@@ -2051,7 +2051,7 @@ export const Analytics = {
   * counts during funnel analysis.
   */
  trackJobAlertCtaClick: (
- surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_match_pill' | 'job_board_filters',
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_match_pill' | 'job_board_filters' | 'company_follow_button',
  action: 'open' | 'dismiss' | 'accept' | 'success' | 'error',
  keyword?: string,
  ) => {
@@ -2069,7 +2069,7 @@ export const Analytics = {
   * intent-only.
   */
  trackJobAlertCtaShown: (
- surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_match_pill' | 'job_board_filters' | 'job_detail_button',
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_match_pill' | 'job_board_filters' | 'job_detail_button' | 'company_follow_button',
  keyword?: string,
  ) => {
  log('job_alert_cta_shown', {

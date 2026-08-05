@@ -24,6 +24,33 @@ Rule 1 (`locale-shard-failover-cache`) and rule 2 (`it-apex-html-cache`) are
 managed by `scripts/cf-locale-failover-setup.mjs` — see that script for
 purpose/rollback. Rule 3 is the subject of this doc:
 
+> **Zone-wide purge removed, 2026-08-05 (#5162).** `it-apex-html-cache` used to
+> run a 24h `override_origin` edge TTL, refreshed after every deploy by
+> `purge_everything` in `post-deploy-validate-live.yml`. That purge is ZONE-wide
+> and this zone also carries the R2 CDN, so every deploy wiped a cache measured
+> at **96.0% hit / 1,497,318 req per 23h** in order to refresh the apex, measured
+> at **19.2% hit / 570,021 req**. The CDN never needed it — `/assets/` freshness
+> comes from the targeted per-key purge (`scripts/ci/purge-changed-cdn-assets.mjs`).
+> Refilling the wiped cache drove ~60k origin fetches into R2 in 23h against a 7d
+> edge TTL, 277 of which failed as edge-synthesised 502s: the whole
+> `cloudflare-5xx` asset family. A purge also *deletes* the copy `serve_stale`
+> would need, which is why #5158 measured `staleRescuable = 0`.
+> Apex freshness is now the bounded `APEX_EDGE_TTL_SECONDS` (300s) edge TTL, with
+> no purge. Guarded by `tests/cf-zone-purge-blast-radius.test.ts`.
+
+> ⚠️ **Rule ORDER in this phase is load-bearing, and `early-boot-js-bypass-cache`
+> currently loses.** In `http_request_cache_settings` a later matching rule
+> overrides an earlier one. Live order is `early-boot-js-bypass-cache` at index 2
+> and `cdn-r2-passthrough-cache` (`cache: true`, matches *every* cdn path except
+> `/cdn-build-id.txt`) at index 4 — so the bypass documented below is overridden.
+> Verified 2026-08-05: `GET https://cdn.frontaliereticino.ch/assets/early-boot.js`
+> returns `cf-cache-status: HIT`, not `BYPASS`. The version-skew self-heal window
+> this rule exists to close is therefore **not** closed. Tracked separately from
+> #5162 — fixing it means moving the bypass after the passthrough rule, which
+> changes a rule the failover script only partly owns.
+> (Note when probing: use `GET`. `curl -I` sends `HEAD`, which Cloudflare never
+> serves from cache — every path reports `DYNAMIC` and the reading is worthless.)
+
 ### `early-boot-js-bypass-cache`
 
 - **Rule id:** `856ceaeb0c354cdfba01c3e162762ab8`
@@ -45,6 +72,24 @@ purpose/rollback. Rule 3 is the subject of this doc:
   request, shrinking the stale-self-heal-script window to ~0 at the CDN
   layer. Pairs with the `early-boot-js-no-cache` response-header rule below,
   which does the same for the *browser* cache.
+- **⚠️ This rule was silently overridden for an unknown period, fixed 2026-08-05
+  (#5176).** In `http_request_cache_settings` every matching rule applies in
+  order and a **later rule wins**. `cdn-r2-passthrough-cache` (`cache: true`)
+  matches every CDN path and is *appended* by
+  `scripts/cf-locale-failover-setup.mjs` (`rules.push(desired)` when the rule is
+  not already present), so it landed at index 4 — after this one at index 2 —
+  and its `cache: true` beat this `cache: false`. Measured live:
+  `GET https://cdn.frontaliereticino.ch/assets/early-boot.js` returned
+  `cf-cache-status: HIT`, not `BYPASS`, so the stale-self-heal window this rule
+  exists to close was open the whole time.
+  The fix is an **exclusion, not a reordering**: `cdn-r2-passthrough-cache` now
+  excludes `/assets/early-boot.js` (the same shape as its existing
+  `/cdn-build-id.txt` exclusion), which makes this the only rule matching that
+  path regardless of index. Reordering would have been one dashboard edit away
+  from silently reverting, since the order is only a side effect of
+  append-on-create. Guarded by `tests/cdn-zone-rule-invariants.test.ts`.
+  *When probing this by hand, use `GET`* — `curl -I` sends `HEAD`, which
+  Cloudflare never serves from cache, so every path misreports `DYNAMIC`.
 - **Rollback:** delete rule `856ceaeb0c354cdfba01c3e162762ab8` from ruleset
   `d738dd4c3c32463ba40f1ac6bdd74d78` (leaves rules 1-2 untouched):
   ```bash

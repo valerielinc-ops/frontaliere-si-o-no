@@ -34,6 +34,37 @@
  *     France taxes fully via declaration, forfait 10% + barème.
  *   See build-plugins/frenchBorderMunicipalityData.ts for the sourced tax
  *   figures (REGIME_TAX) applied to the reference profile below.
+ *
+ * regimeBasis — WHY `regime` ALONE MUST NEVER BE PRESENTED AS DETERMINATIVE
+ * -----------------------------------------------------------------------
+ * The applicable regime is a function of the canton where the commuter WORKS
+ * (the canton of employment is what makes the 1973 Geneva arrangement or the
+ * 1983 accord apply), NOT of where they live and NOT of which crossing is
+ * nearest their home. `canton` in this dataset is the canton of the nearest
+ * crossing by OSRM road distance — a geographic fact about the commune, not a
+ * fiscal determination about its residents.
+ *
+ * Deriving `regime` from that geographic fact silently produced two wrong
+ * assignments in the shipped dataset:
+ *   - Divonne-les-Bains (01, Pays de Gex): nearest crossing Crassier-Divonne
+ *     is on the VD border → labelled 'huit-cantons', i.e. the page told a
+ *     Geneva commuter that France taxes their full Swiss income. Every other
+ *     Pays de Gex commune here is 'geneve'.
+ *   - Publier (74, Chablais): nearest crossing Saint-Gingolph is on the VS
+ *     border → 'huit-cantons', while Thonon-les-Bains 5 km away is 'geneve'.
+ *
+ * `regimeBasis` records whether geography can settle the question at all:
+ *   - 'dual'  — departments that border BOTH canton Geneva and an accord-1983
+ *     canton, so a resident may fall under either regime depending on their
+ *     employer's canton. Ain (01) borders GE and VD; Haute-Savoie (74) borders
+ *     GE and VS. For these the page presents BOTH regimes and states the rule,
+ *     rather than asserting one.
+ *   - 'accord-1983-only' — departments whose entire Swiss frontage is accord-
+ *     1983 cantons (Doubs 25 → NE/VD, Jura 39 → VD, Belfort 90 → JU). Canton
+ *     Geneva does not border these, so the 1983 accord is the only regime
+ *     reachable across their own border.
+ * This is a geographic criterion, verifiable from the border itself — no
+ * commuter-flow statistic is invented to pick a "prevalent" regime.
  */
 
 import fs from 'node:fs';
@@ -58,6 +89,19 @@ export const CANTON_REGIME = {
   JU: 'huit-cantons',
   VS: 'huit-cantons',
 };
+
+/**
+ * Departments whose Swiss frontage spans BOTH regimes, so the canton of the
+ * nearest crossing cannot settle which one applies (see the header note).
+ * Ain borders canton Geneva and canton Vaud; Haute-Savoie borders canton
+ * Geneva and canton Valais.
+ */
+export const DUAL_REGIME_DEPTS = new Set(['01', '74']);
+
+/** 'dual' | 'accord-1983-only' — see the header note on regimeBasis. */
+export function regimeBasisForDept(dept) {
+  return DUAL_REGIME_DEPTS.has(dept) ? 'dual' : 'accord-1983-only';
+}
 
 const SOURCE_LABEL =
   'geo.api.gouv.fr (INSEE population/coordonnate 2023) + OSRM road-routing (router.project-osrm.org) vs data/borderCrossings.ts + DGALN/DHUP "Carte des loyers" 2025 (data.gouv.fr, loypredm2 x 50m2); vedi data/frenchBorderMunicipalities.ts per dettaglio fonte-per-fonte.';
@@ -138,7 +182,11 @@ export function buildDataset(all) {
     distanceKm: m.distanceKm,
     nearestCrossing: m.nearestCrossing,
     canton: m.canton,
+    // Regime of the NEAREST canton — an indication, never a determination.
+    // Read together with regimeBasis: where that is 'dual' the page must
+    // present both regimes rather than assert this one.
     regime: CANTON_REGIME[m.canton],
+    regimeBasis: regimeBasisForDept(m.dept),
     avgRentMonthly: m.avgRentMonthly,
     rentSource: m.rentSource,
     rentObs: m.rentObs,

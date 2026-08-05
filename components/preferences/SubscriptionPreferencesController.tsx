@@ -68,6 +68,8 @@ interface SectionStrings {
  frequencyWeekly: string;
  frequencyOther: string;
  keywordsLabel: string;
+ /** #5012 — label for a CompanyAlert row (`specificCompanyKey`). */
+ companyLabel: string;
  locationsLabel: string;
  sectorsLabel: string;
  noFilters: string;
@@ -120,6 +122,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  frequencyWeekly: 'settimanale',
  frequencyOther: 'periodico',
  keywordsLabel: 'Parole chiave',
+ companyLabel: 'Azienda seguita',
  locationsLabel: 'Luoghi',
  sectorsLabel: 'Settori',
  noFilters: 'Nessun filtro impostato',
@@ -172,6 +175,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  frequencyWeekly: 'weekly',
  frequencyOther: 'periodic',
  keywordsLabel: 'Keywords',
+ companyLabel: 'Company followed',
  locationsLabel: 'Locations',
  sectorsLabel: 'Sectors',
  noFilters: 'No filters set',
@@ -224,6 +228,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  frequencyWeekly: 'wöchentlich',
  frequencyOther: 'regelmässig',
  keywordsLabel: 'Suchbegriffe',
+ companyLabel: 'Gefolgtes Unternehmen',
  locationsLabel: 'Orte',
  sectorsLabel: 'Branchen',
  noFilters: 'Keine Filter gesetzt',
@@ -276,6 +281,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  frequencyWeekly: 'hebdomadaire',
  frequencyOther: 'périodique',
  keywordsLabel: 'Mots-clés',
+ companyLabel: 'Entreprise suivie',
  locationsLabel: 'Lieux',
  sectorsLabel: 'Secteurs',
  noFilters: 'Aucun filtre défini',
@@ -375,6 +381,10 @@ async function authLoadFullStatus(email: string): Promise<{
  frequencyOverride: a.frequencyOverride === true,
  active: true,
  paused: a.paused === true,
+ specificCompanyKey: typeof a.specificCompanyKey === 'string' && a.specificCompanyKey
+ ? a.specificCompanyKey
+ : null,
+ specificJobId: typeof a.specificJobId === 'string' && a.specificJobId ? a.specificJobId : null,
  createdAt:
  created && typeof created.toMillis === 'function' ? created.toMillis() : null,
  });
@@ -525,6 +535,12 @@ async function authUpdateAlert(
  frequencyOverride: data?.frequencyOverride === true,
  active: data?.active !== false,
  paused: data?.paused === true,
+ specificCompanyKey: typeof data?.specificCompanyKey === 'string' && data.specificCompanyKey
+ ? data.specificCompanyKey
+ : null,
+ specificJobId: typeof data?.specificJobId === 'string' && data.specificJobId
+ ? data.specificJobId
+ : null,
  createdAt: created && typeof created.toMillis === 'function' ? created.toMillis() : null,
  };
 }
@@ -555,6 +571,9 @@ async function authCreateAlert(
  // in functions/src/newsletterSubscriptionManagement.js.
  frequencyOverride: true,
  active: true,
+ // Pinned scope (#5012) — null, never undefined (Firestore rejects it).
+ specificCompanyKey: payload.specificCompanyKey || null,
+ specificJobId: payload.specificJobId || null,
  email: key,
  createdAt: serverTimestamp(),
  };
@@ -584,6 +603,8 @@ async function authCreateAlert(
  frequencyOverride: true,
  active: true,
  paused: false,
+ specificCompanyKey: payload.specificCompanyKey || null,
+ specificJobId: payload.specificJobId || null,
  createdAt:
  created && typeof created.toMillis === 'function' ? created.toMillis() : Date.now(),
  };
@@ -869,6 +890,12 @@ const AlertRow: React.FC<AlertRowProps> = ({
  const [confirming, setConfirming] = useState(false);
 
  const filterParts: Array<{ label: string; values: string[] }> = [];
+ // CompanyAlert (#5012): a followed employer IS the filter — surfaced first
+ // so the row never reads "Nessun filtro impostato" for an alert that is in
+ // fact tightly scoped, and so the user can unfollow from here.
+ if (alert.specificCompanyKey) {
+ filterParts.push({ label: S.companyLabel, values: [alert.specificCompanyKey] });
+ }
  if (alert.keywords.length) filterParts.push({ label: S.keywordsLabel, values: alert.keywords });
  if (alert.locations.length)
  filterParts.push({ label: S.locationsLabel, values: alert.locations });

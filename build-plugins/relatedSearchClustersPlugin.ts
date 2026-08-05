@@ -43,6 +43,7 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
+import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
 import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
 
@@ -361,10 +362,12 @@ const CACHE_KEY_INPUTS = [
 // below is `false` on every shard and this on-disk cache is never read or
 // written at all during a production sharded deploy — each shard always
 // does a full fresh emit from `data/*.json`. The cache only activates for
-// non-sharded monolith builds (adsense-prereview.yml,
-// cathedral-seo-gates-check.yml, local dev), which run as one process with
-// one CACHE_VERSION value — no shard-vs-shard mismatch is possible there
-// either.
+// non-sharded monolith builds (cathedral-seo-gates-check.yml, local dev),
+// which run as one process with one CACHE_VERSION value — no shard-vs-shard
+// mismatch is possible there either. (adsense-prereview.yml was in this list
+// until issue #4943: it no longer builds at all — it audits the live site over
+// HTTP — because the monolith build it ran to produce dist/ was OOM-killed by
+// the host on every run since 2026-07-07.)
 const CACHE_VERSION = 'v9';
 
 // `SITEMAP_SHARD_CAP` and `padShardIndex` are imported from
@@ -1345,7 +1348,8 @@ function capForTitle(headline: string, max: number): string {
   if (safe.length <= max) return safe;
   const sliced = safe.slice(0, max);
   const lastSpace = sliced.lastIndexOf(' ');
-  return lastSpace > 0 ? sliced.slice(0, lastSpace).trimEnd() : sliced.trimEnd();
+  // Shared peel — dropping the trailing word can leave a preposition behind.
+  return peelDanglingClauseTail(lastSpace > 0 ? sliced.slice(0, lastSpace) : sliced);
 }
 
 /** Forward-framed copy when matching jobs is empty — avoids "0 jobs found"

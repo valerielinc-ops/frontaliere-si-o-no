@@ -22,6 +22,7 @@
  */
 
 import type { Plugin } from 'vite';
+import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
 import fs from 'node:fs';
 import np from 'node:path';
 import {
@@ -3140,7 +3141,8 @@ function renderStationPage(opts: {
         const slice = h1.slice(0, titleBudget);
         const lastSpace = slice.lastIndexOf(' ');
         const base = lastSpace > 30 ? slice.slice(0, lastSpace) : slice;
-        return base.replace(/[\s.,;:\-–—|]+$/u, '');
+        // Shared peel — a word-boundary cut still stops mid-clause.
+        return peelDanglingClauseTail(base);
       })();
   const hasCity = ctx.city.length > 0 && trimmedH1.toLowerCase().includes(ctx.city.toLowerCase());
   const streetTail = ctx.streetDisplay || ctx.slug;
@@ -4886,7 +4888,8 @@ function renderItalianStationPage(opts: {
         const slice = h1.slice(0, titleBudget);
         const lastSpace = slice.lastIndexOf(' ');
         const base = lastSpace > 30 ? slice.slice(0, lastSpace) : slice;
-        return base.replace(/[\s.,;:\-–—|]+$/u, '');
+        // Shared peel — a word-boundary cut still stops mid-clause.
+        return peelDanglingClauseTail(base);
       })();
   const dated = `${trimmedH1} (${dateStamp})`;
   const withDate = dated.length <= titleBudget ? dated : trimmedH1;

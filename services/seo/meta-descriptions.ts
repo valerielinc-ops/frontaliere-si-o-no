@@ -20,6 +20,7 @@
  */
 
 import type { JobPageLocale } from './job-board-titles';
+import { peelDanglingClauseTail } from '../../build-plugins/shared/clauseTail.mjs';
 
 /** Minimum visible meta-description length (Google SERP floor). */
 export const META_MIN_CHARS = 140;
@@ -64,6 +65,10 @@ function trimToMax(desc: string): string {
   let trimmed = chars.join('');
   const lastSpace = trimmed.lastIndexOf(' ');
   if (lastSpace > META_MIN_CHARS - 10) trimmed = trimmed.slice(0, lastSpace);
+  // A word-boundary cut still lands mid-CLAUSE: without this peel the snippet
+  // ends on a preposition and the terminal stop below just freezes it in place
+  // ("…requisiti e costi con B, C e."). Shared peel — see clauseTail.mjs.
+  trimmed = peelDanglingClauseTail(trimmed);
   // Ensure final punctuation
   if (!/[.!?]$/.test(trimmed)) trimmed = `${trimmed.replace(/[,;:—–-]\s*$/, '')}.`;
   return trimmed;

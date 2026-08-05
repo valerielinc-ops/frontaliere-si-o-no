@@ -14,6 +14,8 @@
  * URL and passes them in.
  */
 
+import { peelDanglingClauseTail } from '../build-plugins/shared/clauseTail.mjs';
+
 const BRAND_ORANGE = '#f97316';
 const BRAND_DARK = '#0f172a';
 const DARK_CARD = '#1e293b';
@@ -99,7 +101,8 @@ function snippet(text, max = 160) {
   if (t.length <= max) return t;
   const slot = t.slice(0, max - 1);
   const lastSpace = slot.lastIndexOf(' ');
-  return (lastSpace > max * 0.5 ? slot.slice(0, lastSpace) : slot).replace(/[\s,;:.\-]+$/, '') + '…';
+  // Shared peel — a word-boundary cut still stops mid-clause.
+  return peelDanglingClauseTail(lastSpace > max * 0.5 ? slot.slice(0, lastSpace) : slot) + '…';
 }
 
 function chip(label) {
