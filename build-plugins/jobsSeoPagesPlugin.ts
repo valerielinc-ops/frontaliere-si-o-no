@@ -42,7 +42,7 @@ import { nearbyEventsBlockForJobPage } from './shared/jobEventsCrosslink';
 import { EJP_STRIPPED_MARKER } from './shared/ejpMarker';
 import { WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
-import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription, truncateHeadline, peelDanglingClauseTail } from './shared/titleSuffix';
+import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription, truncateHeadline, peelDanglingClauseTail, truncateTitleAtClauseBoundary } from './shared/titleSuffix';
 import { stripLeadingSectionLabel } from './shared/jobDescription/parser';
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import {
@@ -269,9 +269,13 @@ export function capSearchStatsLandingTitle(
 ): string {
  const capAt = (max: number): string => {
  if (rawTitle.length <= max) return rawTitle;
- const sliced = rawTitle.slice(0, max);
- const lastSpace = sliced.lastIndexOf(' ');
- return lastSpace > 0 ? sliced.slice(0, lastSpace).trimEnd() : sliced.trimEnd();
+ const peeled = truncateTitleAtClauseBoundary(rawTitle, max);
+ // truncateTitleAtClauseBoundary can return empty (budget fits only
+ // stopwords, or a single unbroken token with no word boundary to back
+ // off to) — same fallback contract as its other caller
+ // (services/seoService.ts's SERP A/B experiment). Fall back to a hard
+ // cut so the shrink loop below always converges to a non-empty title.
+ return peeled || truncateCodeUnits(rawTitle, max).trimEnd();
  };
  let capped = capAt(maxChars);
  for (let max = maxChars; measureLength(capped) > maxChars && max > 0; max -= 1) {
