@@ -274,24 +274,41 @@ const CACHE_ACTION_PARAMETERS = {
 // the targeted per-key purge deploy-it-pages-prep.sh runs right after the R2
 // sync (scripts/ci/purge-changed-cdn-assets.mjs); their 7d max-age is only the
 // backstop if that purge is missed.
-// NOT SET HERE (yet): `serve_stale: { disable_stale_while_updating: false }`.
-// That is the direct mitigation for the `cloudflare-5xx` family
-// (#5034/#5035/#5036/#5052/#5081/#5092/#5093/#5094): those 502s carry
-// `originResponseStatus: 0` + `cacheStatus: none` — the origin returned NOTHING
-// and Cloudflare synthesised the 502 — and they cluster inside deploy windows,
-// when the rclone sync (`--fast-list` + 24 parallel PUTs, see
+// `serve_stale` IS set here, and the precondition the previous revision of this
+// comment demanded has now been met.
+//
+// It is the direct mitigation for the `cloudflare-5xx` family
+// (#5034/#5035/#5036/#5052/#5081/#5082/#5092/#5093/#5094 + #4644): those 502s
+// carry `originResponseStatus: 0` + `cacheStatus: none` — the origin returned
+// NOTHING and Cloudflare synthesised the 502 — and they cluster inside deploy
+// windows, when the rclone sync (`--fast-list` + 24 parallel PUTs, see
 // deploy-it-pages-prep.sh) is loading the same bucket the edge fetches through.
-// Serving a stale byte-identical asset would beat blanking the page for a user
-// or Googlebot. It is left out because this field could not be validated
-// against the live zone from an agent session (production ruleset mutations are
-// gated), and shipping an unverified schema into the script that OWNS these
-// rules would risk breaking all of them on the next run. Apply + verify with an
-// operator-approved PATCH on rule 0c83f11bdd424cf28d7dabaf637ba525 before
-// adding it here.
+// Serving a stale byte-identical asset beats blanking the page for a user or
+// for Googlebot.
+//
+// It was previously left out because the field could not be validated against
+// the live zone from an agent session, and shipping an unverified schema into
+// the script that OWNS these rules would risk breaking all of them on the next
+// run. That gate is now cleared: an operator-approved PATCH was applied to rule
+// 0c83f11bdd424cf28d7dabaf637ba525 (zone 435c32ec…, ruleset d738dd4c…) on
+// 2026-08-05, the API returned `success: true`, and the rule now echoes back
+// `"serve_stale": {"disable_stale_while_updating": false}` — so the schema is
+// confirmed against the live zone, not assumed.
+//
+// This constant must keep the field: this script owns every managed cache rule
+// and rewrites `action_parameters` wholesale on each run, so dropping it here
+// would silently REMOVE serve_stale from the live rule at the next invocation
+// and reopen the whole 5xx family.
+//
+// `disable_stale_while_updating: false` = stale-while-revalidate ENABLED (the
+// Cloudflare field is negated). It only ever applies to an asset already in
+// cache whose TTL has lapsed; a first-ever request to a dead origin still 502s,
+// which is why this mitigates the family without masking a genuine outage.
 const CDN_CACHE_ACTION_PARAMETERS = {
   cache: true,
   edge_ttl: { mode: 'respect_origin' },
   browser_ttl: { mode: 'respect_origin' },
+  serve_stale: { disable_stale_while_updating: false },
 };
 
 // Every cache rule this script owns, keyed by description (the idempotency
@@ -485,6 +502,21 @@ function ruleInShape(current, desired) {
     if (!gotStatus || gotStatus.value !== wantStatus.value) return false;
   }
   if ((p.browser_ttl || {}).mode !== want.browser_ttl.mode) return false;
+  // serve_stale is declared ONLY on cdn-r2-passthrough-cache, so compare it
+  // only where it is wanted — otherwise the two apex rules, which legitimately
+  // never carry it, would report perpetual drift and rewrite on every run.
+  //
+  // Without this branch the field is invisible to the comparison, which is a
+  // one-way trap rather than a harmless omission: an in-shape rule keeps its
+  // live action_parameters (so serve_stale survives an ordinary run), but the
+  // first run that DOES see drift on this rule replaces it wholesale with the
+  // constant below (`rules[idx] = desired`) and silently drops serve_stale —
+  // reopening the 5xx family at the least observable moment. Comparing it here
+  // also means the script RESTORES the field if it is ever stripped by hand.
+  if (want.serve_stale) {
+    const s = p.serve_stale;
+    if (!s || s.disable_stale_while_updating !== want.serve_stale.disable_stale_while_updating) return false;
+  }
   return true;
 }
 
