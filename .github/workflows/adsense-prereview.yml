@@ -116,6 +116,24 @@ jobs:
           retention-days: 90
           if-no-files-found: warn
 
+      # Symmetric to the failure reporter below: when the checklist runs clean
+      # again, close the canonical "Workflow Failure" issue instead of leaving it
+      # open forever. This workflow accumulated exactly that stale state — the
+      # recurring issue stayed open across 29 days of red — and the shared
+      # creator already implements the resolve half for this purpose. Uses the
+      # SAME stable title so it targets the issue the failure path would open.
+      - name: Resolve the failure issue on a clean run
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --resolve
+
       # Only an audit that COULD NOT RUN is a workflow failure. Blocking policy
       # findings (exit 2) are a real, expected output of a working checklist and
       # are tracked as content issues, not as recurring workflow-failure bugs.
