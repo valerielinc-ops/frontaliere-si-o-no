@@ -1,5 +1,130 @@
 [
   {
+    "slug": "senior-windows-server-engineer-w-m-d-raiffeisen-st-gallen",
+    "title": "Senior Windows Server Engineer (w/m/d)",
+    "titleByLocale": {
+      "it": "Senior Windows Server Ingegnere (w/m/d)",
+      "en": "Senior Windows Server Engineer (w/m/d)",
+      "de": "Senior Windows Server Ingenieur (w/m/d)",
+      "fr": "Ingénieur Senior Serveur Windows (m/f/d)"
+    },
+    "company": "Raiffeisen",
+    "companyKey": "raiffeisen",
+    "location": "St. Gallen",
+    "addressLocality": "St. Gallen",
+    "descriptionByLocale": {
+      "it": "Nel settore Infrastruttura & Operations ci occupiamo di tutte le questioni operative per Raiffeisen Informatik. Il gruppo Windows Server & CCI è responsabile del regolare funzionamento 7 ore su 7, 24 ore su 24, dei numerosi server Windows durante l'intero ciclo di vita, virtualizzato o fisico.\n\nPer rafforzare il nostro team presso la sede di San Gallo cerchiamo subito o su appuntamento una persona impegnata e tecnicamente esperta come Senior Windows Server Engineer (m/f/d).\n\nCompiti:\n• Responsabile del rafforzamento dei server Windows utilizzando criteri di gruppo e della gestione delle vulnerabilità.\n\n• Automatizzare e sviluppare ulteriormente i processi SCCM, comprese le sequenze di attività e il monitoraggio supportato da SCOM.\n\n• Costruisci e gestisci pipeline di gestione temporanea dei server efficienti utilizzando YAML, Python o PowerShell.\n\n• Analizzare questioni tecniche complesse e sviluppare soluzioni praticabili grazie a forti capacità analitiche e concettuali.\n\n• Garantire supporto di 3° livello in ambiente server Windows e partecipare al servizio di reperibilità 7×24.\n\nRequisiti:\n• Diversi anni di esperienza come ingegnere nell'ambiente server Windows in ambienti aziendali produttivi.\n\n• Conoscenza approfondita dell'hardware HPE (server ML/DL) nonché di argomenti di sicurezza quali rafforzamento, correzioni di sicurezza e standard CIS.\n\n• Mentalità tecnica e orientata al team, combinata con un modo di lavorare indipendente e standard di qualità elevati.\n\n• Ottima conoscenza della lingua tedesca e inglese per la documentazione tecnica.\n\nOffriamo:\nPer noi è importante l’equilibrio tra lavoro e vita privata dei nostri dipendenti. Per questo creiamo le condizioni affinché l'orario di lavoro sia flessibile - con offerte di mobile working, home office e lavoro part-time.",
+      "en": "In the Infrastructure & Operations area, we take care of all operational matters for Raiffeisen Informatik. The Windows Server & CCI group is responsible for the smooth 7*24 operation of the numerous Windows servers throughout their entire lifecycle, virtualized or physical.\n\nTo strengthen our team at the St. Gallen location, we are looking for a committed and technically experienced person as a Senior Windows Server Engineer (m/f/d) immediately or by appointment.\n\nTasks:\n• Responsible for hardening Windows servers using group policies and for vulnerability management.\n\n• Automate and further develop SCCM processes, including task sequences and SCOM-supported monitoring.\n\n• Build and operate efficient server staging pipelines using YAML, Python or PowerShell.\n\n• Analyzing complex technical issues and developing viable solutions thanks to strong analytical and conceptual skills.\n\n• Ensuring 3rd level support in the Windows server environment and participating in the 7×24 on-call service.\n\nRequirements:\n• Several years of experience as an engineer in the Windows server environment in productive enterprise landscapes.\n\n• In-depth knowledge of HPE hardware (ML/DL servers) as well as security topics such as hardening, security fixes and CIS standards.\n\n• Technical and team-oriented mindset, combined with an independent way of working and high quality standards.\n\n• Very good knowledge of German and English for technical documentation.\n\nWe offer:\nThe work-life balance of our employees is important to us. That's why we create the conditions for working hours to be flexible - with offers for mobile working, home office and part-time work.",
+      "de": "Im Bereich Infrastructure & Operations kümmern wir uns um alle Betriebsbelangen der Raiffeisen Informatik. Die Gruppe Windows Server & CCI zeigt sich verantwortlich für den reibungslosen 7*24 Betrieb der zahlreichen Windows Server im gesamten Lifecycle, virtualisiert oder physisch.<br/><br/>Zur Verstärkung unseres Teams am <b>Standort St. Gallen</b> suchen wir per sofort oder nach Vereinbarung eine engagierte und technisch versierte Persönlichkeit als <b>Senior Windows Server Engineer (m/w/d)</b>.\n\nAufgaben:\n• Verantwortung für das Hardening der Windows‑Server mittels Group Policies sowie für das Vulnerability Management.\n\n• Automatisieren und Weiterentwickeln von SCCM‑Prozessen, inklusive Tasksequenzen und SCOM‑gestütztem Monitoring.\n\n• Aufbau und Betrieb effizienter Server‑Staging‑Pipelines mit YAML, Python oder PowerShell.\n\n• Analysieren komplexer technischer Fragestellungen und Erarbeiten tragfähiger Lösungen dank starker analytisch‑konzeptioneller Fähigkeiten.\n\n• Sicherstellung des 3rd‑Level‑Supports im Windows‑Server‑Umfeld und Teilnahme am 7×24‑Pikettdienst.\n\nAnforderungen:\n• Mehrjährige Erfahrung als Engineer im Windows‑Server‑Umfeld in produktiven Enterprise‑Landschaften.\n\n• Fundierte Kenntnisse der HPE‑Hardware (ML/DL‑Server) sowie Sicherheitsthemen wie Hardening, Security Fixes und CIS‑Standards.\n\n• Technisches und teamorientiertes Mindset, kombiniert mit einer selbstständigen Arbeitsweise und hohem Qualitätsanspruch.\n\n• Sehr gute Deutschkenntnisse sowie Englisch für technische Dokumentationen.\n\nWir bieten:\nDie Work-Life-Balance unserer Mitarbeitenden ist uns wichtig. Deshalb schaffen wir die Voraussetzungen dafür, dass die Arbeitszeit flexibel gestaltet werden kann – mit Angeboten für mobiles Arbeiten, Homeoffice und Teilzeit-Pensen.",
+      "fr": "Dans le domaine Infrastructure & Operations, nous nous occupons de toutes les questions opérationnelles de Raiffeisen Informatik. Le groupe Windows Server & CCI est responsable du bon fonctionnement 7*24 des nombreux serveurs Windows tout au long de leur cycle de vie, virtualisés ou physiques.\n\nPour renforcer notre équipe sur le site de Saint-Gall, nous recherchons immédiatement ou sur rendez-vous une personne engagée et techniquement expérimentée en tant qu'ingénieur senior Windows Server (m/f/d).\n\nTâches :\n• Responsable du renforcement des serveurs Windows à l'aide de politiques de groupe et de la gestion des vulnérabilités.\n\n• Automatisez et développez davantage les processus SCCM, y compris les séquences de tâches et la surveillance prise en charge par SCOM.\n\n• Créez et exploitez des pipelines de transfert de serveur efficaces à l'aide de YAML, Python ou PowerShell.\n\n• Analyser des problèmes techniques complexes et développer des solutions viables grâce à de solides compétences analytiques et conceptuelles.\n\n• Assurer le support de 3ème niveau dans l'environnement serveur Windows et participer au service d'astreinte 7×24.\n\nExigences :\n• Plusieurs années d'expérience à titre d'ingénieur dans l'environnement serveur Windows dans des paysages d'entreprise productifs.\n\n• Connaissance approfondie du matériel HPE (serveurs ML/DL) ainsi que des sujets de sécurité tels que le renforcement, les correctifs de sécurité et les normes CIS.\n\n• Esprit technique et axé sur l'équipe, combiné à une manière de travailler indépendante et à des normes de qualité élevées.\n\n• Très bonne connaissance de l'allemand et de l'anglais pour la documentation technique.\n\nNous proposons :\nL’équilibre travail-vie personnelle de nos employés est important pour nous. C'est pourquoi nous créons les conditions pour que les horaires de travail soient flexibles - avec des offres pour le travail mobile, le travail à domicile et le travail à temps partiel."
+    },
+    "slugByLocale": {
+      "it": "senior-windows-server-engineer-w-m-d-raiffeisen-st-gallen",
+      "en": "senior-windows-server-engineer-w-m-d-raiffeisen-st-gallen",
+      "de": "senior-windows-server-engineer-w-m-d-raiffeisen-st-gallen",
+      "fr": "ingenieur-senior-serveur-windows-m-f-d-raiffeisen-st-gallen"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-08-05T11:46:59.366Z",
+    "postalCode": "9000",
+    "streetAddress": "Wassergasse",
+    "salaryMin": 79000,
+    "salaryMax": 120000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "centro-assistenza-clienti-f-m-d-raiffeisen-st-gallen",
+    "title": "Berater Kunden Service Center (w/m/d)",
+    "titleByLocale": {
+      "it": "Consulente Servizio Clienti (m/f)",
+      "en": "Customer Service Consultant (m/f)",
+      "de": "Berater Kunden Service Center (w/m/d)",
+      "fr": "Conseiller Service Client (m/f)"
+    },
+    "company": "Raiffeisen",
+    "companyKey": "raiffeisen",
+    "location": "St. Gallen",
+    "addressLocality": "St. Gallen",
+    "descriptionByLocale": {
+      "it": "Il Customer Service Center supporta attivamente Raiffeisen Svizzera, le Banche Raiffeisen e le società del gruppo nel raggiungimento dei loro obiettivi di servizio, accettando e rispondendo alle richieste telefoniche e scritte dei clienti finali.\n\nPer le nostre crescenti attività di consulenza, ti cerchiamo immediatamente o su appuntamento come persona che apprende velocemente, flessibile, orientata al servizio e forte comunicatore. Ti offriamo attività interessanti e diversificate in un ambiente di lavoro vario e frenetico, luoghi di lavoro moderni e un modello di lavoro con opzioni di home office.\n\nCompiti:\n• Assistenza telefonica e consulenza orientata ai servizi per i clienti privati del Gruppo Raiffeisen\n\n• Attività mirate di cross e up-selling\n\n• Rispondere alle richieste telefoniche dei clienti\n\n• Responsabilità condivisa per l'ulteriore sviluppo mirato del nostro territorio\n\n• Giorni lavorativi dal lunedì al venerdì con incarichi occasionali il sabato\n\nRequisiti:\n• Formazione commerciale di base, costituisce titolo preferenziale l'esperienza nel settore finanziario\n\n• Esperienza esistente nell'area contact center (inbound e outbound)\n\n• Affinità per la vendita e la consulenza\n\n• Forte orientamento al cliente e al servizio\n\n• Ottima conoscenza della lingua tedesca parlata e scritta\n\nOffriamo:\nPer noi è importante l’equilibrio tra lavoro e vita privata dei nostri dipendenti. Per questo creiamo le condizioni affinché l'orario di lavoro sia flessibile - con offerte di mobile working, home office e lavoro part-time.",
+      "en": "The Customer Service Center actively supports Raiffeisen Switzerland, Raiffeisen banks and group companies in achieving their service goals by accepting and answering telephone and written end customer inquiries.\n\nFor our increased consulting activities, we are looking for you immediately or by appointment as a quick learner, flexible, service-oriented and strong communicator. We offer you interesting and diverse activities in a fast-paced and varied working environment, modern workplaces and a working model with home office options.\n\nTasks:\n• Service-oriented support and advice for private customers of the Raiffeisen Group by telephone\n\n• Targeted cross- and up-selling activities\n\n• Responding to telephone customer inquiries\n\n• Shared responsibility for the targeted further development of our area\n\n• Working days from Monday to Friday with occasional assignments on Saturdays\n\nRequirements:\n• Basic commercial training, experience in the financial sector is an advantage\n\n• Existing experience in the contact center area (inbound and outbound)\n\n• Affinity for sales and advice\n\n• Strong customer and service orientation\n\n• Excellent knowledge of spoken and written German\n\nWe offer:\nThe work-life balance of our employees is important to us. That's why we create the conditions for working hours to be flexible - with offers for mobile working, home office and part-time work.",
+      "de": "Das Kunden Service Center unterstützt aktiv Raiffeisen Schweiz, Raiffeisenbanken und Gruppenunternehmen bei der Erreichung ihrer Service-Ziele mit der Entgegennahme und Beantwortung von telefonischen und schriftlichen Endkundenanfragen.<br/><br/>Für unsere verstärkte Beratungsaktivitäten suchen wir dich per sofort oder nach Vereinbarung als rasch lernende, flexible, dienstleistungsorientierte und kommunikationsstarke Persönlichkeit. Wir bieten dir interessante und vielfältige Tätigkeiten in einem schnelllebigen und abwechslungsreichen Arbeitsumfeld, moderne Arbeitsplätze und ein Arbeitsmodell mit Homeoffice-Möglichkeit.\n\nAufgaben:\n• Serviceorientierte Betreuung und Beratung von Privatkunden der Raiffeisengruppe per Telefon\n\n• Gezielte Cross- und Up-Selling Aktivitäten\n\n• Beantwortung von telefonischen Kundenanfragen\n\n• Mitverantwortung für die zielgerichtete Weiterentwicklung unseres Bereichs\n\n• Arbeitstage jeweils von Mo - Fr mit vereinzelten Einsätzen an Samstagen\n\nAnforderungen:\n• Kaufmännische Grundausbildung, Erfahrung in der Finanzbranche von Vorteil\n\n• Vorhandene Erfahrungen im Contact Center Bereich (Inbound und Outbound)\n\n• Affinität für Verkauf und Beratung\n\n• Ausgeprägte Kunden- und Serviceorientierung\n\n• Ausgezeichnete Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\nDie Work-Life-Balance unserer Mitarbeitenden ist uns wichtig. Deshalb schaffen wir die Voraussetzungen dafür, dass die Arbeitszeit flexibel gestaltet werden kann – mit Angeboten für mobiles Arbeiten, Homeoffice und Teilzeit-Pensen.",
+      "fr": "Le Customer Service Center soutient activement Raiffeisen Suisse, les banques Raiffeisen et les sociétés du groupe dans la réalisation de leurs objectifs de service en acceptant et en répondant aux demandes téléphoniques et écrites des clients finaux.\n\nPour nos activités de conseil accrues, nous vous recherchons immédiatement ou sur rendez-vous en tant que communicateur rapide, flexible, orienté service et fort. Nous vous proposons des activités intéressantes et diversifiées dans un environnement de travail rapide et varié, des postes de travail modernes et un modèle de travail avec des options de bureau à domicile.\n\nTâches :\n• Assistance et conseils axés sur le service pour les clients privés du Groupe Raiffeisen par téléphone\n\n• Activités ciblées de ventes croisées et incitatives\n\n• Répondre aux demandes téléphoniques des clients\n\n• Responsabilité partagée pour le développement ultérieur ciblé de notre région\n\n• Jours ouvrables du lundi au vendredi avec missions occasionnelles le samedi\n\nExigences :\n• Formation commerciale de base, une expérience dans le secteur financier est un avantage\n\n• Expérience existante dans le domaine des centres de contact (entrants et sortants)\n\n• Affinité pour la vente et le conseil\n\n• Forte orientation client et service\n\n• Excellente connaissance de l'allemand parlé et écrit\n\nNous proposons :\nL’équilibre travail-vie personnelle de nos employés est important pour nous. C'est pourquoi nous créons les conditions pour que les horaires de travail soient flexibles - avec des offres pour le travail mobile, le travail à domicile et le travail à temps partiel."
+    },
+    "slugByLocale": {
+      "it": "centro-assistenza-clienti-f-m-d-raiffeisen-st-gallen",
+      "en": "consultant-customer-service-center-f-m-d-raiffeisen-st-gallen",
+      "de": "berater-kunden-service-center-w-m-d-raiffeisen-st-gallen",
+      "fr": "centre-de-services-a-la-clientele-f-m-d-raiffeisen-st-gallen"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-08-05T11:46:59.366Z",
+    "previousSlugs": [
+      "berater-kunden-service-center-w-m-d-raiffeisen-st-gallen",
+      "conseiller-service-client-m-w-d-raiffeisen-st-gallen"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "berater-kunden-service-center-w-m-d-raiffeisen-st-gallen"
+      ],
+      "fr": [
+        "conseiller-service-client-m-w-d-raiffeisen-st-gallen"
+      ]
+    },
+    "postalCode": "9000",
+    "streetAddress": "Vadianstrasse 15",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "threat-intelligence-analista-w-m-d-raiffeisen-st-gallen",
+    "title": "Threat Intelligence Analyst (w/m/d)",
+    "titleByLocale": {
+      "it": "Threat Intelligence Analista (w/m/d)",
+      "en": "Threat Intelligence Analyst (f/m/d)",
+      "de": "Threat Intelligence Analyst (w/m/d)",
+      "fr": "Threat Intelligence Analyste (w/m/d)"
+    },
+    "company": "Raiffeisen",
+    "companyKey": "raiffeisen",
+    "location": "St. Gallen",
+    "addressLocality": "St. Gallen",
+    "descriptionByLocale": {
+      "it": "Come analista di minacce, si analizza e valuta la situazione attuale e futura minaccia informatica. Identifichi i gruppi attaccanti rilevanti, le campagne e le tendenze, derivano raccomandazioni per l'azione e supportano lo sviluppo continuo della nostra strategia di sicurezza informatica. <br/> <br/ > Per le nostre sedi <b>Cyber Intelligence & Response Team\n\nCompiti:\n• Analisi e valutazione delle attuali minacce informatiche, campagne di attacco e TTP a livello operativo e strategico.\n\n• Osservazione e interpretazione del panorama nazionale e internazionale delle minacce informatiche.\n\n• Ulteriori sviluppi e la creazione di Cyber Threat Intelligence a Raiffeisen.\n\n• Identificazione dei rischi e derivazione di misure volte a rafforzare la struttura di sicurezza.\n\n• Lavorare a stretto contatto con la CSIRT, la caccia alle minacce e altre squadre di sicurezza per rilevare e difendere le minacce.\n\n• Creazione di valutazioni di situazione, rapporti di minaccia e basi decisionali per le parti interessate rilevanti.\n\nRequisiti\n• Informatica completata o laurea completata in informatica.\n\n• Diversi anni di esperienza nella sicurezza informatica o nella sicurezza informatica\n\n• La conoscenza dell'intelligenza della minaccia, il teaming rosso o il pentesting è un vantaggio\n\n• Ulteriori istruzione o certificazione nel campo della sicurezza informatica sono vantaggiosi\n\n• Metodo di lavoro analitico, indipendente e orientato agli obiettivi\n\n• Molto buone competenze in tedesco e inglese\n\nOffriamo:\nIl bilanciamento della vita lavorativa dei nostri dipendenti è importante per noi. Ecco perché creiamo le condizioni per ore di lavoro flessibili – con offerte per lavoro mobile, ufficio domestico e lavoro part-time.",
+      "en": "As a threat intelligence analyst, you analyze and evaluate the current and future cyber threat situation. You identify relevant attacker groups, campaigns and trends, derive recommendations for action and support the continuous development of our cyber security strategy. <br/><br/ >For our <b>Cyber Intelligence & Response Team</b> at the Zurich Airport (The Circle) and St. Gallen locations, we offer a new role as Threat Intelligence Analyst (f/m/d) immediately or by agreement.\n\nTasks:\n• Analysis and evaluation of current cyber threats, attack campaigns and TTPs at operational and strategic level.\n\n• Observation and interpretation of the national and international cyber threat landscape.\n\n• Further development and establishment of Cyber Threat Intelligence at Raiffeisen.\n\n• Identification of risks and derivation of measures to strengthen the security facility.\n\n• Working closely with CSIRT, threat hunting and other security teams to detect and defend against threats.\n\n• Creation of situation assessments, threat reports and decision-making bases for relevant stakeholders.\n\nRequirements\n• Completed computer science or completed degree in computer science.\n\n• Several years of experience in IT security or cyber security\n\n• Knowledge of threat intelligence, red teaming or pentesting is an advantage\n\n• Further education or certification in the field of cyber security are advantageous\n\n• Analytical, independent and goal-oriented working method\n\n• Very good German and English skills\n\nWe offer:\nThe work-life balance of our employees is important to us. That’s why we create the conditions for flexible working hours – with offers for mobile work, home office and part-time work.",
+      "de": "Als Threat Intelligence Analyst analysierst und bewertest Du die aktuelle sowie zukünftige Cyber-Bedrohungslage. Du identifizierst relevante Angreifergruppen, Kampagnen und Trends, leitest daraus Handlungsempfehlungen ab und unterstützt die kontinuierliche Weiterentwicklung unserer Cyber-Security-Strategie.<br/><br/>Für unser <b>Cyber Intelligence & Response Team</b> an den Standorten Zürich-Flughafen (The Circle) und St. Gallen bieten wir per sofort oder nach Vereinbarung eine neue Rolle als Threat Intelligence Analyst (w/m/d) an.\n\nAufgaben:\n• Analyse und Bewertung aktueller Cyber-Bedrohungen, Angriffskampagnen und TTPs auf operativer und strategischer Ebene.\n\n• Beobachtung und Interpretation des nationalen und internationalen Cyber Threat Landscapes.\n\n• Weiterentwicklung und Etablierung der Cyber Threat Intelligence bei Raiffeisen.\n\n• Identifikation von Risiken sowie Ableitung von Massnahmen zur Stärkung des Sicherheitsdispositivs.\n\n• Enge Zusammenarbeit mit CSIRT, Threat-Hunting- und weiteren Security-Teams zur Erkennung und Abwehr von Bedrohungen.\n\n• Erstellung von Lagebeurteilungen, Threat Reports und Entscheidungsgrundlagen für relevante Stakeholder.\n\nAnforderungen:\n• Abgeschlossene Informatiklehre oder abgeschlossenes Studium im Bereich Informatik.\n\n• Mehrjährige Erfahrung in IT-Security oder Cyber Security\n\n• Kenntnisse in Threat Intelligence, Red Teaming oder Pentesting sind von Vorteil\n\n• Weiterbildungen oder Zertifizierungen im Bereich Cyber Security sind von Vorteil\n\n• Analytische, selbstständige und zielorientierte Arbeitsweise\n\n• Gute Deutsch- und Englischkenntnisse oder die Bereitschaft, die Deutschkenntnisse rasch weiterzuentwickeln.\n\nWir bieten:\nDie Work-Life-Balance unserer Mitarbeitenden ist uns wichtig. Deshalb schaffen wir die Voraussetzungen dafür, dass die Arbeitszeit flexibel gestaltet werden kann – mit Angeboten für mobiles Arbeiten, Homeoffice und Teilzeit-Pensen.",
+      "fr": "En tant qu'analyste du renseignement sur les menaces, vous analysez et évaluez la situation actuelle et future en matière de cybermenace. Vous identifiez les groupes d'agresseurs, les campagnes et les tendances pertinentes, formulez des recommandations d'action et soutenez le développement continu de notre stratégie de cybersécurité. <br/><br/ >Pour notre équipe de renseignement et d'intervention de la Cyber</b> à l'aéroport de Zurich (Le Cercle) et à St. Gallen, nous offrons un nouveau rôle d'analyste du renseignement de menace (f/m/d) immédiatement ou par accord.\n\nTâches :\n• Analyse et évaluation des cybermenaces actuelles, des campagnes d'attaque et des TTP au niveau opérationnel et stratégique.\n\n• Observation et interprétation de la cybermenace nationale et internationale.\n\n• Développement et mise en place de Cyber Threat Intelligence à Raiffeisen.\n\n• Identification des risques et définition des mesures de renforcement des installations de sécurité.\n\n• Collaborer étroitement avec le CSIRT, la chasse aux menaces et d'autres équipes de sécurité pour détecter et défendre les menaces.\n\n• Création d'évaluations de situation, de rapports sur les menaces et de bases de décision pour les parties prenantes concernées.\n\nExigences\n• Diplômé en informatique ou diplômé en informatique.\n\n• Plusieurs années d'expérience en sécurité informatique ou en cybersécurité\n\n• La connaissance de l'intelligence de la menace, de l'équipe rouge ou de la parenthèse est un avantage\n\n• La formation continue ou la certification dans le domaine de la cybersécurité sont avantageuses\n\n• Méthode de travail analytique, indépendante et axée sur les objectifs\n\n• Très bonnes compétences en allemand et en anglais\n\nNous offrons:\nL'équilibre entre le travail et la vie personnelle de nos employés est important pour nous. C'est pourquoi nous créons les conditions pour des horaires de travail flexibles – avec des offres pour le travail mobile, bureau à domicile et à temps partiel."
+    },
+    "slugByLocale": {
+      "it": "threat-intelligence-analista-w-m-d-raiffeisen-st-gallen",
+      "en": "threat-intelligence-analyst-w-m-d-raiffeisen-st-gallen",
+      "de": "threat-intelligence-analyst-w-m-d-raiffeisen-st-gallen",
+      "fr": "threat-intelligence-analyste-w-m-d-raiffeisen-st-gallen"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-08-05T11:46:59.366Z",
+    "previousSlugs": [
+      "threat-intelligence-analyst-w-m-d-raiffeisen-st-gallen"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "threat-intelligence-analyst-w-m-d-raiffeisen-st-gallen"
+      ],
+      "fr": [
+        "threat-intelligence-analyst-w-m-d-raiffeisen-st-gallen"
+      ]
+    },
+    "postalCode": "9000",
+    "streetAddress": "Wassergasse",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-lehrbeginn-august-2025-raiffeisen-eschenz",
     "title": "Lehrstelle als Kauffrau / Kaufmann EFZ Branche Bank, Lehrbeginn August 2025",
     "titleByLocale": {

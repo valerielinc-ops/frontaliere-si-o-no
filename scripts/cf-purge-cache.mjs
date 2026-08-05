@@ -71,9 +71,12 @@
  * own propagation window.
  */
 import { resolveZoneId as resolveZoneIdShared } from './lib/cf-analytics.mjs';
+// Cloudflare free-plan `files` purge_cache cap. Shared with
+// scripts/ci/purge-changed-cdn-assets.mjs, which batches UP TO this value —
+// a drifting second copy there would produce lists this script rejects.
+import { MAX_TARGETED_FILES } from './lib/cf-purge-limits.mjs';
 
 const PURGE_SETTLE_MS = Number(process.env.CF_PURGE_SETTLE_MS) || 20_000;
-const MAX_TARGETED_FILES = 30; // Cloudflare free-plan `files` purge_cache cap.
 
 const REST_BASE = 'https://api.cloudflare.com/client/v4';
 const ZONE_NAME = process.env.CF_ZONE_NAME || 'frontaliereticino.ch';

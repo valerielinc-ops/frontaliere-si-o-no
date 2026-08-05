@@ -93,4 +93,6 @@ jobs:
           # above) only touches THIS repo's issues — exactly the scope needed.
           GH_REPO: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node scripts/dmarc-monitor.mjs --days="${{ inputs.days || '7' }}"
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_DAYS: ${{ inputs.days || '7' }}
+        run: node scripts/dmarc-monitor.mjs --days="$INPUT_DAYS"

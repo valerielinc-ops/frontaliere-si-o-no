@@ -388,6 +388,8 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Dispatch/call inputs reach the shell as DATA, never as script text.
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
         run: |
           # Titolo STABILE (senza run-number) → dedup di github-issue-creator.mjs
           # collassa le run successive in commenti 🔁 sulla issue canonica invece
@@ -400,7 +402,7 @@ jobs:
             --title "Validation Failure (live): post-deploy" \
             --description "## Live validation post-deploy fallita
           **Validation run #:** ${{ github.run_number }}
-          **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}
+          **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/$INPUT_DEPLOY_RUN_ID
           **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           **Branch:** ${{ github.ref_name }}
           **SHA:** ${{ github.sha }}" \

@@ -594,33 +594,7 @@ function enrichFromLocalSources(orphans) {
   let enrichedFromSlugParsing = 0;
 
   const enriched = orphans.map((orphan) => {
-    const result = {
-      slug: orphan.slug,
-      locale: orphan.locale,
-      path: orphan.path,
-      queries: Array.isArray(orphan.queries)
-        ? orphan.queries.sort((a, b) => b.impressions - a.impressions).slice(0, 20)
-        : [],
-      totalImpressions: orphan.totalImpressions || 0,
-      totalClicks: orphan.totalClicks || 0,
-      topQuery: null,
-      title: '',
-      titleByLocale: { it: '', en: '', de: '', fr: '' },
-      descriptionByLocale: { it: '', en: '', de: '', fr: '' },
-      company: '',
-      companyKey: '',
-      location: '',
-      sector: '',
-      salaryMin: 0,
-      salaryCurrency: 'CHF',
-      slugByLocale: {},
-      localePaths: {},
-      sourceUrl: '',
-      googleStatus: 'unknown',
-      googleCanonical: '',
-      lastCrawlTime: '',
-      source: ['gsc'],
-    };
+    const result = newEnrichedRecord(orphan);
 
     // Top query
     if (result.queries.length > 0) {
@@ -1090,6 +1064,120 @@ function processExpiredJobs() {
 }
 
 // ══════════════════════════════════════════════════════════
+// Orphan record identity (issue #4248)
+// ══════════════════════════════════════════════════════════
+//
+// A job slug is globally unique (the invariant public/404.html's canton-drift
+// recovery is built on), so the orphan store must hold ONE record per slug.
+// Keying it by `${locale}:${slug}` instead created a self-amplifying loop with
+// the compat accumulator:
+//
+//   step 2d  feeds back FOUR locale paths for every orphan into
+//            data/seo-404-compat  →
+//   step 2b  reads that store back on the next run, derives the SAME slug from
+//            each of the four paths, and — because the dedup key carried the
+//            locale — minted four separate ~2.5 KB enriched records for it.
+//
+// Measured effect: data/orphan-enriched-data.json inflated 64.6 MB → ~285 MB in
+// a single run, which is ABOVE GitHub's hard 100 MB per-blob limit. Every push
+// from sync-gsc-orphans.yml has been rejected with GH001 since 2026-07-17
+// (0 successful runs in the last 100), so the 404-compat feedback never lands
+// on main and GSC-detected 404s keep 404ing — the exact traffic loss the
+// workflow exists to prevent.
+//
+// The duplicates carried no information either: the build plugin indexes them
+// with `orphanGscData.set(entry.slug, data)` (build-plugins/jobsSeoPagesPlugin.ts),
+// i.e. last-one-wins, discarding three of every four records at read time. The
+// only thing a per-locale duplicate held that the survivor did not was the
+// observed path, so that is what we keep — in `observedPaths`, one small map
+// instead of three full copies.
+
+const ORPHAN_LOCALES = ['it', 'en', 'de', 'fr'];
+
+/**
+ * Record a locale→path observation on an orphan record without minting a
+ * second record for the same slug. Returns true when the observation was new.
+ */
+function recordCompatObservation(entry, locale, path) {
+  if (!entry || !path) return false;
+  const loc = ORPHAN_LOCALES.includes(locale) ? locale : 'it';
+  if (!entry.observedPaths || typeof entry.observedPaths !== 'object') {
+    entry.observedPaths = {};
+  }
+  if (entry.observedPaths[loc]) return false;
+  entry.observedPaths[loc] = path;
+  return true;
+}
+
+/** Every locale→path pair a record knows about, legacy shape included. */
+function collectObservedPaths(entry) {
+  const out = {};
+  if (entry?.observedPaths && typeof entry.observedPaths === 'object') {
+    for (const [loc, p] of Object.entries(entry.observedPaths)) {
+      if (p && ORPHAN_LOCALES.includes(loc)) out[loc] = p;
+    }
+  }
+  // Legacy single-observation shape (pre-#4248 records, and the primary
+  // observation of every record).
+  if (entry?.path && ORPHAN_LOCALES.includes(entry?.locale) && !out[entry.locale]) {
+    out[entry.locale] = entry.path;
+  }
+  return out;
+}
+
+/**
+ * The base enriched record for one orphan, before any enrichment source is
+ * applied. Extracted from enrich() so the #4248 carry-through contract is
+ * unit-testable: writeOutputs() persists THIS object, not the raw orphan, so
+ * an `observedPaths` dropped here would make the whole de-amplification inert
+ * — the next run would find no map, mint the per-locale duplicates again and
+ * re-inflate the store past GitHub's 100 MB blob limit.
+ */
+export function newEnrichedRecord(orphan) {
+  return {
+    slug: orphan.slug,
+    locale: orphan.locale,
+    path: orphan.path,
+    // Seeded from the orphan's own path/locale when the map is absent, so
+    // every written record is self-describing.
+    observedPaths: collectObservedPaths(orphan),
+    queries: Array.isArray(orphan.queries)
+      ? [...orphan.queries].sort((a, b) => b.impressions - a.impressions).slice(0, 20)
+      : [],
+    totalImpressions: orphan.totalImpressions || 0,
+    totalClicks: orphan.totalClicks || 0,
+    topQuery: null,
+    title: '',
+    titleByLocale: { it: '', en: '', de: '', fr: '' },
+    descriptionByLocale: { it: '', en: '', de: '', fr: '' },
+    company: '',
+    companyKey: '',
+    location: '',
+    sector: '',
+    salaryMin: 0,
+    salaryCurrency: 'CHF',
+    slugByLocale: {},
+    localePaths: {},
+    sourceUrl: '',
+    googleStatus: 'unknown',
+    googleCanonical: '',
+    lastCrawlTime: '',
+    source: ['gsc'],
+  };
+}
+
+/**
+ * True when the record carries its own Search Console signal. Only signal-free
+ * records may be collapsed into a sibling — a record with queries/impressions
+ * is per-locale data that has to stay addressable per locale.
+ */
+function hasSearchSignal(entry) {
+  if (!entry) return false;
+  if (Array.isArray(entry.queries) && entry.queries.length > 0) return true;
+  return Number(entry.totalImpressions || 0) > 0 || Number(entry.totalClicks || 0) > 0;
+}
+
+// ══════════════════════════════════════════════════════════
 // Main
 // ══════════════════════════════════════════════════════════
 
@@ -1148,30 +1236,46 @@ async function main() {
     // casing (e.g. `/EN/find-jobs-ticino/...`) — same class as detectLocaleFromPath().
     const COMPAT_JOB_RE = /^(?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs?|job-search|jobs-i[mn]|jobsuche|stellenangebote|recherche-emploi|trouver-emploi|emplois)-[a-z-]+\/([^/]+)\/?$/i;
     const SKIP_RE = /^(?:search|ricerca|suche|recherche|azienda|company|unternehmen|entreprise)-/;
-    const existingSlugs = new Set(orphans.map((o) => `${o.locale}:${o.slug}`));
+    // Index by SLUG, not by `locale:slug` — see recordCompatObservation() for the
+    // ×4 amplification loop that the per-locale key created (issue #4248).
+    const bySlug = new Map();
+    for (const o of orphans) {
+      if (o?.slug && !bySlug.has(o.slug)) bySlug.set(o.slug, o);
+    }
     let compatAdded = 0;
+    let compatFolded = 0;
     for (const p of compatData.paths) {
       const m = String(p || '').match(COMPAT_JOB_RE);
       if (!m) continue;
       const slug = m[1].toLowerCase();
       if (!slug || SKIP_RE.test(slug)) continue;
       const locale = detectLocaleFromPath(p);
-      const key = `${locale}:${slug}`;
-      if (knownSlugs.has(slug) || existingSlugs.has(key)) continue;
-      existingSlugs.add(key);
-      orphans.push({
+      if (knownSlugs.has(slug)) continue;
+      const normalizedPath = p.replace(/\/$/, '');
+      const existing = bySlug.get(slug);
+      if (existing) {
+        if (recordCompatObservation(existing, locale, normalizedPath)) compatFolded++;
+        continue;
+      }
+      const entry = {
         slug,
         locale,
-        path: p.replace(/\/$/, ''),
+        path: normalizedPath,
         queries: [],
         totalImpressions: 0,
         totalClicks: 0,
         source: 'gsc-404-compat',
-      });
+      };
+      recordCompatObservation(entry, locale, normalizedPath);
+      bySlug.set(slug, entry);
+      orphans.push(entry);
       compatAdded++;
     }
-    if (compatAdded > 0) {
-      console.log(`  📋 GSC-404 compat paths: ${compatAdded} supplementary orphans added`);
+    if (compatAdded > 0 || compatFolded > 0) {
+      console.log(
+        `  📋 GSC-404 compat paths: ${compatAdded} supplementary orphans added, ` +
+          `${compatFolded} locale paths folded into an existing slug record`,
+      );
     }
   }
 
@@ -1183,13 +1287,33 @@ async function main() {
   const existingEnriched = readJsonSafe(dataPath('orphan-enriched-data.json'));
   if (Array.isArray(existingEnriched) && existingEnriched.length > 0) {
     const currentKeys = new Set(orphans.map((o) => `${o.locale}:${o.slug}`));
+    const bySlug = new Map();
+    for (const o of orphans) {
+      if (o?.slug && !bySlug.has(o.slug)) bySlug.set(o.slug, o);
+    }
     let preserved = 0;
     let preservedKnown = 0;
+    let collapsed = 0;
     for (const prev of existingEnriched) {
       if (!prev.slug) continue;
       const key = `${prev.locale || 'it'}:${prev.slug}`;
       // Skip if already in the new orphan set from this run
       if (currentKeys.has(key)) continue;
+      // Carried-over record with NO search signal of its own (the ×4 locale
+      // duplicates minted by the pre-fix step 2b): fold its observed path into
+      // the record we already keep for this slug instead of preserving a second
+      // ~2.5 KB copy that carries nothing the survivor doesn't already have.
+      // Records WITH real GSC signal are never collapsed — their queries and
+      // impressions are per-locale and must stay addressable per locale.
+      const survivor = bySlug.get(prev.slug);
+      if (survivor && !hasSearchSignal(prev)) {
+        for (const [loc, p] of Object.entries(collectObservedPaths(prev))) {
+          recordCompatObservation(survivor, loc, p);
+        }
+        currentKeys.add(key);
+        collapsed++;
+        continue;
+      }
       currentKeys.add(key);
       // Mark source so we can distinguish fresh GSC data from carried-over entries
       if (!prev.source) prev.source = 'previous-run';
@@ -1199,10 +1323,14 @@ async function main() {
         prev.source = 'enrichment-only';
         preservedKnown++;
       }
+      if (!bySlug.has(prev.slug)) bySlug.set(prev.slug, prev);
       orphans.push(prev);
       preserved++;
     }
     console.log(`  📋 Preserved ${preserved} previously-known orphans (${preservedKnown} now in tracking, kept for enrichment data)`);
+    if (collapsed > 0) {
+      console.log(`  🧹 Collapsed ${collapsed} signal-free per-locale duplicates into their slug record (#4248)`);
+    }
     console.log(`  📊 Total orphans after merge: ${orphans.length}`);
   }
 
@@ -1484,7 +1612,16 @@ async function main() {
   console.log('\n✅ Done');
 }
 
-main().catch((err) => {
-  console.error('❌ Fatal error:', err);
-  process.exit(1);
-});
+// Guard so the module is safely importable for unit testing (#4248 —
+// tests/sync-gsc-orphans-locale-amplification.test.ts) without executing the
+// real, data-mutating pipeline as a side effect of import. Same established
+// convention as scripts/mine-all-job-slugs.mjs (#4593) and
+// scripts/assemble-jobs-dataset.mjs.
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  main().catch((err) => {
+    console.error('❌ Fatal error:', err);
+    process.exit(1);
+  });
+}
+
+export { recordCompatObservation, collectObservedPaths, hasSearchSignal, ORPHAN_LOCALES };

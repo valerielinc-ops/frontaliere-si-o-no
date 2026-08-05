@@ -92,6 +92,7 @@ import {
   type RawJob,
 } from './relatedSearchClustersData';
 import { jobsSeoPagesFlushed } from './shared/buildSignals';
+import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
 import { shouldEmitLocale, EMIT_ALL_LOCALES, localeOfDistPath } from './shared/localeEmitFilter';
 import {
   registerKeywordLandingPaths,
@@ -365,28 +366,12 @@ const CACHE_KEY_INPUTS = [
 // either.
 const CACHE_VERSION = 'v9';
 
-/**
- * sitemaps.org caps each sitemap at 50,000 URLs. We shard at 39,000 to
- * leave a safety margin for incidental growth between builds. The
- * `sitemap-search-clusters.xml` cohort topped 81,537 URLs as of
- * 2026-05-18, silently failing GSC ingestion above the cap.
- *
- * Kept strictly BELOW the weekly monitor's WARNING_THRESHOLD (42,000,
- * `scripts/check-sitemap-shard-size.mjs` / `check-dist-sitemap-shard-
- * size.mjs`), not just Google's hard cap. At the previous 45,000 cap, every
- * full-by-design shard sat right at 45,000 — ABOVE the 42,000 warning
- * floor — so the monitor guaranteed a weekly WARNING for the same
- * non-actionable, by-design condition (issue #5066, sibling of the
- * CRITICAL-vs-cap decoupling done in #4395). 39,000 leaves real margin
- * under 42,000 so a full shard no longer self-trips the warning; only a
- * genuinely growing cohort approaching the cap will.
- */
-const SITEMAP_SHARD_CAP = 39_000;
+// `SITEMAP_SHARD_CAP` and `padShardIndex` are imported from
+// scripts/lib/sitemap-limits.mjs — see that module for why 39,000 and not
+// Google's 50,000. They used to be declared here AND (as
+// `DEFAULT_CAP_PER_SHARD`/`padIndex`) in scripts/lib/sitemap-shard.mjs, each
+// comment naming the other as a sibling to keep in lockstep by hand.
 const SITEMAP_SHARD_PREFIX = 'sitemap-search-clusters';
-
-function padShardIndex(index: number): string {
-  return index >= 1000 ? String(index) : String(index).padStart(3, '0');
-}
 
 function shardFilename(index: number): string {
   return `${SITEMAP_SHARD_PREFIX}-${padShardIndex(index)}.xml`;

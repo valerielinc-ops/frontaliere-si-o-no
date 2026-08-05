@@ -1,15 +1,15 @@
 {
   "crawlerKey": "puk-zuerich",
-  "assembledAt": "2026-08-04T22:15:17.298Z",
+  "assembledAt": "2026-08-05T11:29:01.470Z",
   "jobs": [
     {
       "id": "puk-zuerich-fadca51159cb",
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
+        "it": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich",
         "en": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
         "de": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
-        "fr": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
+        "fr": "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/163206/2117/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:15:04.150Z",
+      "crawledAt": "2026-08-05T11:28:52.875Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -105,8 +105,7 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-psychiatrische-universitatsklinik-zurich-zu-dtq80w",
           "dipl-pflegefachfrau-pflegefachmann-akutstation-jugendliche-a0-psychiatrische-universitatsklinik-zurich-zurich",
           "pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-puk-zuerich-zurich",
@@ -130,8 +129,7 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-puk-zuerich-zurich",
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
           "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
-          "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich",
-          "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische"
+          "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich"
         ]
       },
       "previousSlugs": [
@@ -193,9 +191,7 @@
         "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-b1-puk-zuerich-zurich",
         "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-hf-fh-b1-psychiatrische",
         "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
-        "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich",
-        "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich"
+        "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich"
       ],
       "firstSeenAt": "2026-05-19T17:18:42.497Z",
       "salaryMin": 79000,
@@ -242,7 +238,7 @@
       "url": "https://apply.refline.ch/163206/2676/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:15:03.304Z",
+      "crawledAt": "2026-08-05T11:28:51.985Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -329,7 +325,7 @@
       "url": "https://apply.refline.ch/163206/2734/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:15:02.883Z",
+      "crawledAt": "2026-08-05T11:28:51.541Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -408,7 +404,7 @@
       "url": "https://apply.refline.ch/163206/2718/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:15:02.465Z",
+      "crawledAt": "2026-08-05T11:28:51.098Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -499,7 +495,7 @@
       "url": "https://apply.refline.ch/163206/2060/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:15:02.039Z",
+      "crawledAt": "2026-08-05T11:28:50.651Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -584,7 +580,7 @@
       "url": "https://apply.refline.ch/163206/2560/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:15:01.619Z",
+      "crawledAt": "2026-08-05T11:28:50.208Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -691,7 +687,7 @@
       "url": "https://apply.refline.ch/163206/2460/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:15:01.200Z",
+      "crawledAt": "2026-08-05T11:28:49.765Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -774,7 +770,7 @@
       "url": "https://apply.refline.ch/163206/2738/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:15:00.781Z",
+      "crawledAt": "2026-08-05T11:28:49.322Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -855,7 +851,7 @@
       "url": "https://apply.refline.ch/163206/2726/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:15:00.361Z",
+      "crawledAt": "2026-08-05T11:28:48.877Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -937,7 +933,7 @@
       "url": "https://apply.refline.ch/163206/2704/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:59.936Z",
+      "crawledAt": "2026-08-05T11:28:48.433Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1022,7 +1018,7 @@
       "url": "https://apply.refline.ch/163206/2663/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:59.516Z",
+      "crawledAt": "2026-08-05T11:28:47.989Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1107,7 +1103,7 @@
       "url": "https://apply.refline.ch/163206/2684/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:59.097Z",
+      "crawledAt": "2026-08-05T11:28:47.545Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1185,7 +1181,7 @@
       "url": "https://apply.refline.ch/163206/2741/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:58.677Z",
+      "crawledAt": "2026-08-05T11:28:47.103Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1266,7 +1262,7 @@
       "url": "https://apply.refline.ch/163206/2720/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:58.256Z",
+      "crawledAt": "2026-08-05T11:28:46.660Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1350,7 +1346,7 @@
       "url": "https://apply.refline.ch/163206/2706/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:57.835Z",
+      "crawledAt": "2026-08-05T11:28:46.217Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1430,7 +1426,7 @@
       "url": "https://apply.refline.ch/163206/2658/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:56.577Z",
+      "crawledAt": "2026-08-05T11:28:44.887Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1496,7 +1492,7 @@
       "url": "https://apply.refline.ch/163206/2712/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:55.319Z",
+      "crawledAt": "2026-08-05T11:28:43.526Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1578,7 +1574,7 @@
       "url": "https://apply.refline.ch/163206/2516/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:54.900Z",
+      "crawledAt": "2026-08-05T11:28:42.886Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1655,7 +1651,7 @@
       "url": "https://apply.refline.ch/163206/2664/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:54.483Z",
+      "crawledAt": "2026-08-05T11:28:42.443Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1733,7 +1729,7 @@
       "url": "https://apply.refline.ch/163206/2681/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:54.062Z",
+      "crawledAt": "2026-08-05T11:28:41.998Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1810,7 +1806,7 @@
       "url": "https://apply.refline.ch/163206/2724/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:53.642Z",
+      "crawledAt": "2026-08-05T11:28:41.555Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1884,7 +1880,7 @@
       "url": "https://apply.refline.ch/163206/2705/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:53.220Z",
+      "crawledAt": "2026-08-05T11:28:41.110Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1985,7 +1981,7 @@
       "url": "https://apply.refline.ch/163206/2743/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:52.799Z",
+      "crawledAt": "2026-08-05T11:28:40.666Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2065,7 +2061,7 @@
       "url": "https://apply.refline.ch/163206/2742/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:52.380Z",
+      "crawledAt": "2026-08-05T11:28:40.223Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2133,25 +2129,25 @@
         "de": "Lehrstelle als Praktikerin / Praktiker Hotellerie-Hauswirtschaft EBA",
         "fr": "Apprentissage comme praticien / praticien de l'hôtellerie EBA"
       },
-      "description": "Lehrstelle als Praktikerin / Praktiker Hotellerie-Hauswirtschaft EBA bei Psychiatrische Universitätsklinik Zürich in Zürich.\n\nPsychiatrische Universitätsklinik Zürich bietet eine sinnstiftende Tätigkeit in einem engagierten Team.\n• Vielfältige Aus- und Weiterbildungsmöglichkeiten\n• Faire Anstellungsbedingungen\n• Moderne Arbeitsumgebung",
+      "description": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nDer Bereich Hotellerie unserer Klinik ist verantwortlich für die Verpflegung, Restauration, Reinigung, Raumbetreuung sowie Wäscheversorgung. Der Fokus liegt darauf, einen umfassenden Service für Patienten/innen und Mitarbeitende zu gewährleisten. Dies beinhaltet die sorgfältige Patientenversor-gung durch Mahlzeitenservice, Reinigung der Wohn- und Zimmereinheiten auf den Pflegestationen sowie einen effizienten Wäscheservice. Die Hotellerie bildet somit ein zentrales Element für das Wohlbefinden der Patientinnen und Patienten.\nFür die Standorte Männedorf, Rheinau und Zürich bieten wir per 2. August 2027 je eine\n\nLehrstelle als Praktikerin / Praktiker Hotellerie-Hauswirtschaft EBA\n\n100%\n\nIhre Aufgaben\n\n• Reinigen, Pflegen von Räumen, Einrichtungen und Materialien\n• Fachgerechtes Aufbereiten von Betriebs- und Kundenwäsche\n• Betreuung und Bedienung von Gästen sowie Kundinnen und Kunden im Restaurant\n• Zubereiten und Servieren von einfachen Speisen und Getränken\n• Mithilfe bei der Lagerhaltung und Materialbewirtschaftung\n• Einhalten von Hygiene-, Qualitäts- und Sicherheitsvorschriften\n• Abgeschlossene Volksschule\n• Freude an hauswirtschaftlichen Tätigkeiten im Bereich Hotellerie und Hauswirtschaft und am Kontakt mit Menschen\n• Dienstleistungsorientierte und zuverlässige Persönlichkeit\n• Sorgfältige Arbeitsweise und Verantwortungsbewusstsein\n• Teamfähigkeit sowie Belastbarkeit\n• Motivation, Neues zu lernen\n• Ausbildung für Ihre Zukunft: Fundierte zweijährige Grundausbildung und Möglichkeit, im Anschluss die Ausbildung zur Fachfrau / zum Fachmann Hotellerie-Hauswirtschaft EFZ zu absolvieren\n• Abwechslungsreiche Arbeit: Praktische Einsätze an verschiedenen Standorten (Stadt Zürich, Rheinau und Männedorf)\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks",
       "descriptionByLocale": {
-        "it": "Apprendistato come praticante / professionista dell'industria alberghiera EBA presso l'ospedale universitario psichiatrico di Zurigo a Zurigo.\n\nPsychiatric University Hospital Zurich offre un'attività significativa in un team impegnato.\n• Varie opportunità di formazione e istruzione\n• Condizioni dell'occupazione\n• Ambiente di lavoro moderno",
-        "en": "Apprenticeship as practitioner / practitioner hotel industry EBA at Psychiatric University Hospital Zurich in Zurich.\n\nPsychiatric University Hospital Zurich offers a meaningful activity in a committed team.\n• Various training and education opportunities\n• Fair employment conditions\n• Modern working environment",
-        "de": "Lehrstelle als Praktikerin / Praktiker Hotellerie-Hauswirtschaft EBA bei Psychiatrische Universitätsklinik Zürich in Zürich.\n\nPsychiatrische Universitätsklinik Zürich bietet eine sinnstiftende Tätigkeit in einem engagierten Team.\n• Vielfältige Aus- und Weiterbildungsmöglichkeiten\n• Faire Anstellungsbedingungen\n• Moderne Arbeitsumgebung",
-        "fr": "Apprentissage comme praticien / professionnel de l'hôtellerie EBA à l'hôpital universitaire psychiatrique Zurich à Zurich.\n\nL'hôpital universitaire psychiatrique de Zurich offre une activité significative dans une équipe engagée.\n• Différentes possibilités de formation et d'éducation\n• Conditions d'emploi équitables\n• Environnement de travail moderne"
+        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nDer Bereich Hotellerie unserer Klinik ist verantwortlich für die Verpflegung, Restauration, Reinigung, Raumbetreuung sowie Wäscheversorgung. Der Fokus liegt darauf, einen umfassenden Service für Patienten/innen und Mitarbeitende zu gewährleisten. Dies beinhaltet die sorgfältige Patientenversor-gung durch Mahlzeitenservice, Reinigung der Wohn- und Zimmereinheiten auf den Pflegestationen sowie einen effizienten Wäscheservice. Die Hotellerie bildet somit ein zentrales Element für das Wohlbefinden der Patientinnen und Patienten.\nFür die Standorte Männedorf, Rheinau und Zürich bieten wir per 2. August 2027 je eine\n\nLehrstelle als Praktikerin / Praktiker Hotellerie-Hauswirtschaft EBA\n\n100%\n\nIhre Aufgaben\n\n• Reinigen, Pflegen von Räumen, Einrichtungen und Materialien\n• Fachgerechtes Aufbereiten von Betriebs- und Kundenwäsche\n• Betreuung und Bedienung von Gästen sowie Kundinnen und Kunden im Restaurant\n• Zubereiten und Servieren von einfachen Speisen und Getränken\n• Mithilfe bei der Lagerhaltung und Materialbewirtschaftung\n• Einhalten von Hygiene-, Qualitäts- und Sicherheitsvorschriften\n• Abgeschlossene Volksschule\n• Freude an hauswirtschaftlichen Tätigkeiten im Bereich Hotellerie und Hauswirtschaft und am Kontakt mit Menschen\n• Dienstleistungsorientierte und zuverlässige Persönlichkeit\n• Sorgfältige Arbeitsweise und Verantwortungsbewusstsein\n• Teamfähigkeit sowie Belastbarkeit\n• Motivation, Neues zu lernen\n• Ausbildung für Ihre Zukunft: Fundierte zweijährige Grundausbildung und Möglichkeit, im Anschluss die Ausbildung zur Fachfrau / zum Fachmann Hotellerie-Hauswirtschaft EFZ zu absolvieren\n• Abwechslungsreiche Arbeit: Praktische Einsätze an verschiedenen Standorten (Stadt Zürich, Rheinau und Männedorf)\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks",
+        "it": "•\n\nIl Psychiatric University Hospital di Zurigo (PUK) è una delle principali cliniche psichiatriche in Svizzera. Con più di 2.500 dipendenti, ci impegniamo al trattamento olistico e alla cura delle persone con malattie mentali ogni giorno. Come clinica universitaria, combiniamo competenze cliniche con la ricerca e l'insegnamento – in un ambiente di lavoro caratterizzato da cooperazione interdisciplinare, fiducia e responsabilità personale.\n\nIl settore alberghiero della nostra clinica è responsabile della ristorazione, del restauro, della pulizia, della cura della camera e della lavanderia. L'obiettivo è quello di garantire un servizio completo per pazienti e dipendenti. Questo include un'attenta cura del paziente attraverso il servizio pasto, la pulizia di unità abitative e di camera nelle stazioni di cura e un servizio di lavanderia efficiente. L'industria alberghiera costituisce quindi un elemento centrale per il benessere dei pazienti.\nPer le località Männedorf, Rheinau e Zurigo, ne offriamo uno a partire dal 2 agosto 2027.\n\nApprendistato come praticante / praticante dell'industria alberghiera EBA\n\n100%\n\nI loro compiti\n\n• Pulizia, manutenzione di camere, strutture e materiali\n• Trattamento professionale della lavanderia aziendale e dei clienti\n• Cura e servizio di ospiti e clienti nel ristorante\n• Preparazione e servizio di cibi e bevande semplici\n• Assistenza nello stoccaggio e nella gestione dei materiali\n• Conformità alle normative in materia di igiene, qualità e sicurezza\n• Scuola elementare completa\n• Divertimento delle attività domestiche nel campo dell'ospitalità e della pulizia e del contatto con le persone\n• Personalità orientata al servizio e affidabile\n• Attenta metodi di lavoro e responsabilità\n• Lavoro di squadra e resilienza\n• Motivazione per imparare nuove\n• Formazione per il tuo futuro: formazione di base biennale approfondita e la possibilità di completare successivamente la formazione come specialista dell'industria alberghiera EFZ\n• Variazione: incarichi pratici in varie sedi (Città di Zurigo, Rheinau e Männedorf)\n• Forte nel team: cooperazione apprezzativa e sostegno reciproco\n• Ben curato nel lavoro quotidiano: offerte di cibo scontati o assegni pranzo",
+        "en": "•\n\nThe Psychiatric University Hospital Zurich (PUK) is one of the leading psychiatric clinics in Switzerland. With more than 2,500 employees, we are committed to the holistic treatment and care of people with mental illnesses every day. As a university clinic, we combine clinical expertise with research and teaching – in a working environment characterized by interdisciplinary cooperation, trust and personal responsibility.\n\nThe hotel sector of our clinic is responsible for catering, restoration, cleaning, room care and laundry care. The focus is on ensuring a comprehensive service for patients and employees. This includes careful patient care through meal service, cleaning of living and room units on the care stations and efficient laundry service. The hotel industry thus forms a central element for the well-being of patients.\nFor the locations Männedorf, Rheinau and Zurich, we offer one each as of August 2, 2027.\n\nApprenticeship as a practitioner / practitioner of the hotel industry EBA\n\n100%\n\nTheir tasks\n\n• Cleaning, maintenance of rooms, facilities and materials\n• Professional treatment of company and customer laundry\n• Care and service of guests and customers in the restaurant\n• Preparation and serving of simple food and drinks\n• Assistance in storage and material management\n• Compliance with hygiene, quality and safety regulations\n• Completed elementary school\n• Enjoyment of domestic activities in the field of hospitality and housekeeping and contact with people\n• Service-oriented and reliable personality\n• Careful working methods and responsibility\n• Teamwork and resilience\n• Motivation to learn new\n• Training for your future: in-depth two-year basic training and the possibility of subsequently completing the training as a specialist hotel industry-housekeeping EFZ\n• Varied work: Practical assignments at various locations (City of Zurich, Rheinau and Männedorf)\n• Strong in the team: appreciative cooperation and mutual support\n• Well taken care of in everyday work: discounted food offers or lunch checks",
+        "fr": "•\n\nL'hôpital universitaire psychiatrique de Zurich (PUK) est l'une des principales cliniques psychiatriques en Suisse. Avec plus de 2 500 employés, nous nous engageons à traiter et à soigner les personnes atteintes de maladies mentales chaque jour. En tant que clinique universitaire, nous combinons expertise clinique avec recherche et enseignement – dans un environnement de travail caractérisé par la coopération interdisciplinaire, la confiance et la responsabilité personnelle.\n\nLe secteur hôtelier de notre clinique est responsable de la restauration, de la restauration, du nettoyage, des soins de chambre et des soins de blanchisserie. L'accent est mis sur la garantie d'un service complet pour les patients et les employés. Cela comprend des soins soignés aux patients par le biais du service de repas, le nettoyage des unités de séjour et de chambre sur les postes de soins et un service de blanchisserie efficace. L'hôtellerie constitue donc un élément central du bien-être des patients.\nPour les lieux Männedorf, Rheinau et Zurich, nous en offrons un chacun au 2 août 2027.\n\nApprentissage comme praticien / praticien de l'hôtellerie EBA\n\n100%\n\nLeurs tâches\n\n• Nettoyage, entretien des chambres, installations et matériaux\n• Traitement professionnel de l'entreprise et de la blanchisserie client\n• Entretien et service des clients et des clients dans le restaurant\n• Préparation et service de produits alimentaires et boissons simples\n• Aide au stockage et à la gestion des matériaux\n• Respect des règles d'hygiène, de qualité et de sécurité\n• École primaire achevée\n• Profitez des activités domestiques dans le domaine de l'hospitalité et de l'entretien ménager et des contacts avec les gens\n• Personnalité axée sur le service et fiable\n• Méthodes de travail et responsabilité prudentes\n• Travail d'équipe et résilience\n• Motivation à apprendre\n• Formation pour votre avenir: une formation de base approfondie de deux ans et la possibilité de compléter ultérieurement la formation en tant que spécialiste de l'hôtellerie-ménagement EFZ\n• Travaux variés: travaux pratiques en divers endroits (Ville de Zurich, Rheinau et Männedorf)\n• Forte au sein de l'équipe : coopération et soutien mutuel\n• Bien pris en charge dans le travail quotidien: offres de nourriture à prix réduit ou lunch checks"
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://apply.refline.ch/163206/2745/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:51.959Z",
+      "crawledAt": "2026-08-05T11:28:39.777Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8032",
-      "category": "IT",
+      "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "intern",
@@ -2181,18 +2177,183 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:10:32.394Z",
-      "salaryMin": 71000,
-      "salaryMax": 120500,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 120500,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "puk-zuerich-c5650d759f87",
+      "slug": "apprendistato-come-kuchenangestellte-r-afp-psychiatrische-universitatsklinik-zurich",
+      "slugByLocale": {
+        "de": "lehrstelle-als-kuchenangestellte-r-eba-puk-zuerich-zurich",
+        "it": "apprendistato-come-kuchenangestellte-r-afp-psychiatrische-universitatsklinik-zurich",
+        "en": "apprenticeship-as-kitchen-employee-r-eba-psychiatrische-universitatsklinik-zurich-zurich",
+        "fr": "apprentissage-en-tant-qu-employe-de-cuisine-r-eba-psychiatrische-universitatsklinik-zurich-zurich"
+      },
+      "company": "Psychiatrische Universitätsklinik Zürich",
+      "companyKey": "puk-zuerich",
+      "companyDomain": "pukzh.ch",
+      "title": "Lehrstelle als Küchenangestellte/r EBA",
+      "titleByLocale": {
+        "de": "Lehrstelle als Küchenangestellte/r EBA",
+        "it": "Apprendistato come Küchenangestellte/r AFP",
+        "en": "Apprenticeship as kitchen employee/r EBA",
+        "fr": "Apprentissage en tant qu'employé de cuisine/r EBA"
+      },
+      "description": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nZur Gastronomie unserer Klinik gehören Küche, Verpflegung auf den Stationen sowie der Betrieb eines Restaurants. In der Küche werden Mahlzeiten für die Pflegestationen und das Restaurant produziert.\nIn unserer Küche am Standort Minervastrasse in Zürich bieten wir per 2. August 2027 eine\n\nLehrstelle als Küchenangestellte/r EBA\n\n100%\n\nIhre Aufgaben\n\n• Gründliche Ausbildung in allen Bereichen der Küche\n• Produktion und Präsentation unseres Angebotes für Patienten, Personal und Gäste\n• Mitarbeit bei Catering und Anlässen\n• Volksschulabschluss der Sekundarschule Niveau B oder C\n• Gute Deutschkenntnisse in Wort und Schrift\n• Freude am Umgang mit Lebensmitteln und am Kochen\n• Kreativität und Experimentierfreude\n• Ausgeprägtes Hygienebewusstsein und Ordnungssinn\n• Guter Geruchs- und Geschmackssinn\n• Zuverlässigkeit, Selbständigkeit, Teamfähigkeit und Gästeorientierung\n• Kleine Küche, direkter Kontakt zu den Gästen\n• Motivierte Ausbildner/innen mit ausgezeichnetem Fachwissen\n• Interessante und abwechslungsreiche Ausbildung\n• Kostenübernahme von Schulmaterial\n• Beteiligung am ZVV Abo\n• Optimale Vorbereitung auf das Berufsleben\nWeitere Auskünfte erteilt Ihnen gerne Patrick Ehmann, Bereichsleiter Hotellerie Zürich, Tel. +41 58 384 66 29.\nWir freuen uns auf Ihr vollständiges Dossier.",
+      "descriptionByLocale": {
+        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nZur Gastronomie unserer Klinik gehören Küche, Verpflegung auf den Stationen sowie der Betrieb eines Restaurants. In der Küche werden Mahlzeiten für die Pflegestationen und das Restaurant produziert.\nIn unserer Küche am Standort Minervastrasse in Zürich bieten wir per 2. August 2027 eine\n\nLehrstelle als Küchenangestellte/r EBA\n\n100%\n\nIhre Aufgaben\n\n• Gründliche Ausbildung in allen Bereichen der Küche\n• Produktion und Präsentation unseres Angebotes für Patienten, Personal und Gäste\n• Mitarbeit bei Catering und Anlässen\n• Volksschulabschluss der Sekundarschule Niveau B oder C\n• Gute Deutschkenntnisse in Wort und Schrift\n• Freude am Umgang mit Lebensmitteln und am Kochen\n• Kreativität und Experimentierfreude\n• Ausgeprägtes Hygienebewusstsein und Ordnungssinn\n• Guter Geruchs- und Geschmackssinn\n• Zuverlässigkeit, Selbständigkeit, Teamfähigkeit und Gästeorientierung\n• Kleine Küche, direkter Kontakt zu den Gästen\n• Motivierte Ausbildner/innen mit ausgezeichnetem Fachwissen\n• Interessante und abwechslungsreiche Ausbildung\n• Kostenübernahme von Schulmaterial\n• Beteiligung am ZVV Abo\n• Optimale Vorbereitung auf das Berufsleben\nWeitere Auskünfte erteilt Ihnen gerne Patrick Ehmann, Bereichsleiter Hotellerie Zürich, Tel. +41 58 384 66 29.\nWir freuen uns auf Ihr vollständiges Dossier.",
+        "it": "•\n\nL'ospedale psichiatrico dell'Università di Zurigo tratta e si prende cura di persone mentalmente malate di tutte le età. Gli oltre 2.500 dipendenti delle 55 diverse professioni danno il loro contributo alla cura olistica dei pazienti in team interdisciplinari, dalla chiarificazione e dalla terapia al follow-up. Il nostro lavoro si basa sulla fiducia reciproca e sulla responsabilità personale e insieme promuoviamo una cultura aziendale innovativa. Come clinica universitaria, siamo coinvolti con successo in progetti di ricerca nazionali e internazionali.\n\nLa gastronomia della nostra clinica comprende cucina, cibo nelle stazioni e il funzionamento di un ristorante. In cucina, i pasti sono prodotti per le stazioni di cura e il ristorante.\nNella nostra cucina nella posizione Minervastrasse a Zurigo offriamo il 2 agosto 2027\n\nApprendistato come impiegato della cucina/r EBA\n\n100%\n\nI loro compiti\n\n• Formazione approfondita in tutte le aree della cucina\n• Produzione e presentazione della nostra offerta per pazienti, personale e ospiti\n• Collaborazione in catering ed eventi\n• Livello di completamento della scuola primaria B o C\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n• Gioia nel trattare con cibo e cucina\n• Creatività e sperimentazione\n• Forte consapevolezza dell'igiene e senso dell'ordine\n• Buon senso di odore e gusto\n• Affidabilità, indipendenza, lavoro di squadra e orientamento degli ospiti\n• Piccola cucina, contatto diretto con gli ospiti\n• Allenatori motivati con un'ottima competenza\n• Formazione interessante e varia\n• Costi delle attrezzature scolastiche\n• Partecipazione a ZVV Abo\n• Preparazione ottimale per la vita lavorativa\nUlteriori informazioni possono essere fornite da Patrick Ehmann, responsabile della gestione alberghiera Zurigo, Tel. +41 58 384 66 29.\nNon vediamo l'ora del tuo dossier completo.",
+        "en": "•\n\nThe Psychiatric University Hospital Zurich treats and cares for mentally ill people of all ages. The more than 2,500 employees of the 55 different professions make their contribution to the holistic care of patients in interdisciplinary teams, from clarification and therapy to follow-up care. Our work is based on mutual trust and personal responsibility and together we promote an innovative corporate culture. As a university clinic, we are successfully involved in national and international research projects.\n\nThe gastronomy of our clinic includes cuisine, food on the stations and the operation of a restaurant. In the kitchen, meals are produced for the care stations and the restaurant.\nIn our kitchen at the Minervastrasse location in Zurich we offer as of 2 August 2027\n\nApprenticeship as kitchen employee/r EBA\n\n100%\n\nTheir tasks\n\n• In-depth training in all areas of the kitchen\n• Production and presentation of our offer for patients, staff and guests\n• Collaboration at catering and events\n• Primary school completion level B or C\n• Good knowledge of German in words and writing\n• Joy in dealing with food and cooking\n• Creativity and experimentation\n• Strong hygiene awareness and sense of order\n• Good sense of smell and taste\n• Reliability, independence, teamwork and guest orientation\n• Small kitchen, direct contact with guests\n• Motivated trainers with excellent expertise\n• Interesting and varied training\n• Costs of school equipment\n• Participation in ZVV Abo\n• Optimal preparation for working life\nFurther information can be provided by Patrick Ehmann, Head of Hotel Management Zurich, Tel. +41 58 384 66 29.\nWe look forward to your full dossier.",
+        "fr": "•\n\nL'hôpital psychiatrique de Zurich s'occupe des malades mentaux de tous âges. Plus de 2 500 employés des 55 professions différentes apportent leur contribution aux soins holistiques des patients dans les équipes interdisciplinaires, de la clarification et de la thérapie aux soins de suivi. Notre travail est basé sur la confiance mutuelle et la responsabilité personnelle et nous promouvons ensemble une culture d'entreprise innovante. En tant que clinique universitaire, nous participons avec succès à des projets de recherche nationaux et internationaux.\n\nLa gastronomie de notre clinique comprend la cuisine, la nourriture sur les stations et l'exploitation d'un restaurant. Dans la cuisine, des repas sont préparés pour les postes de soins et le restaurant.\nDans notre cuisine à l'emplacement Minervastrasse à Zurich, nous offrons à partir du 2 août 2027\n\nApprentissage en tant qu'employé de cuisine/r EBA\n\n100%\n\nLeurs tâches\n\n• Formation approfondie dans tous les domaines de la cuisine\n• Production et présentation de notre offre pour les patients, le personnel et les invités\n• Collaboration dans la restauration et les événements\n• Niveau d ' achèvement de l ' enseignement primaire B ou C\n• Bonne connaissance de l'allemand en mots et en écriture\n• La joie dans la nourriture et la cuisine\n• Créativité et expérimentation\n• Forte sensibilisation à l'hygiène et sens de l'ordre\n• Bon sens de l'odeur et du goût\n• Fiabilité, indépendance, travail d'équipe et orientation des invités\n• Petite cuisine, contact direct avec les clients\n• Formateurs motivés avec une excellente expertise\n• Formation intéressante et variée\n• Coûts du matériel scolaire\n• Participation à ZVV Abo\n• Préparation optimale à la vie active\nPour plus d'informations, veuillez contacter Patrick Ehmann, responsable de la gestion hôtelière Zurich, tél. +41 58 384 66 29.\nNous attendons avec impatience votre dossier complet."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/163206/2695/pub/2/index.html",
+      "source": "PUK Zürich Dedicated Parser (Refline 163206)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-05T11:28:39.334Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-05",
+      "applyUrl": "https://apply.refline.ch/163206/2695/pub/2/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "2695",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-kuchenangestellte-r-eba-puk-zuerich-zurich"
+        ],
+        "en": [
+          "lehrstelle-als-kuchenangestellte-r-eba-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
+        "fr": [
+          "lehrstelle-als-kuchenangestellte-r-eba-psychiatrische-universitatsklinik-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-als-kuchenangestellte-r-eba-puk-zuerich-zurich",
+        "lehrstelle-als-kuchenangestellte-r-eba-psychiatrische-universitatsklinik-zurich-zurich"
+      ],
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-05T11:28:39.334Z"
+    },
+    {
+      "id": "puk-zuerich-b15b6616f226",
+      "slug": "apprendistato-come-kochin-koch-cfc-psychiatrische-universitatsklinik-zurich",
+      "slugByLocale": {
+        "de": "lehrstelle-als-kochin-koch-efz-puk-zuerich-zurich",
+        "it": "apprendistato-come-kochin-koch-cfc-psychiatrische-universitatsklinik-zurich",
+        "en": "apprenticeship-as-cook-cook-efz-psychiatrische-universitatsklinik-zurich-zurich",
+        "fr": "apprentissage-comme-cuisinier-cuisinier-efz-psychiatrische-universitatsklinik-zurich-zurich"
+      },
+      "company": "Psychiatrische Universitätsklinik Zürich",
+      "companyKey": "puk-zuerich",
+      "companyDomain": "pukzh.ch",
+      "title": "Lehrstelle als Köchin / Koch EFZ",
+      "titleByLocale": {
+        "de": "Lehrstelle als Köchin / Koch EFZ",
+        "it": "Apprendistato come Köchin / Koch CFC",
+        "en": "Apprenticeship as cook / cook EFZ",
+        "fr": "Apprentissage comme cuisinier / cuisinier EFZ"
+      },
+      "description": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nZur Gastronomie unserer Klinik gehören Küche, Verpflegung auf den Stationen sowie der Betrieb eines Restaurants. In der Küche werden Mahlzeiten für die Pflegestationen und das Restaurant produziert.\nIn unserer Küche am Standort Lenggstrasse in Zürich bieten wir per 2. August 2027 eine\n\nLehrstelle als Köchin / Koch EFZ\n\n100%\n\nIhre Aufgaben\n\n• Gründliche Ausbildung in allen Bereichen der Küche\n• Produktion und Präsentation unseres Angebotes für Patienten, Personal und Gäste\n• Mitarbeit bei Catering und Anlässen\n• Volksschulabschluss der Sekundarschule Niveau A oder B\n• Gute Deutschkenntnisse in Wort und Schrift\n• Freude am Umgang mit Lebensmitteln und am Kochen\n• Gute Auffassungsgabe mit der Fähigkeit zur Koordination von Arbeitsabläufen\n• Kreativität und Experimentierfreude\n• Ausgeprägtes Hygienebewusstsein und Ordnungssinn\n• Guter Geruchs- und Geschmackssinn\n• Zuverlässigkeit, Selbständigkeit, Teamfähigkeit und Gästeorientierung\n• Robuste Gesundheit (Arbeit vorwiegend im Stehen)\n• Belastbarkeit in hektischen Situationen\n• Grosses Team, moderne Küche\n• Ausbildner/innen mit ausgezeichnetem Fachwissen\n• Interessante und abwechslungsreiche Ausbildung\n• Kostenübernahme von Schulmaterial\n• Beteiligung am ZVV Abo\n• Optimale Vorbereitung auf das Berufsleben",
+      "descriptionByLocale": {
+        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nZur Gastronomie unserer Klinik gehören Küche, Verpflegung auf den Stationen sowie der Betrieb eines Restaurants. In der Küche werden Mahlzeiten für die Pflegestationen und das Restaurant produziert.\nIn unserer Küche am Standort Lenggstrasse in Zürich bieten wir per 2. August 2027 eine\n\nLehrstelle als Köchin / Koch EFZ\n\n100%\n\nIhre Aufgaben\n\n• Gründliche Ausbildung in allen Bereichen der Küche\n• Produktion und Präsentation unseres Angebotes für Patienten, Personal und Gäste\n• Mitarbeit bei Catering und Anlässen\n• Volksschulabschluss der Sekundarschule Niveau A oder B\n• Gute Deutschkenntnisse in Wort und Schrift\n• Freude am Umgang mit Lebensmitteln und am Kochen\n• Gute Auffassungsgabe mit der Fähigkeit zur Koordination von Arbeitsabläufen\n• Kreativität und Experimentierfreude\n• Ausgeprägtes Hygienebewusstsein und Ordnungssinn\n• Guter Geruchs- und Geschmackssinn\n• Zuverlässigkeit, Selbständigkeit, Teamfähigkeit und Gästeorientierung\n• Robuste Gesundheit (Arbeit vorwiegend im Stehen)\n• Belastbarkeit in hektischen Situationen\n• Grosses Team, moderne Küche\n• Ausbildner/innen mit ausgezeichnetem Fachwissen\n• Interessante und abwechslungsreiche Ausbildung\n• Kostenübernahme von Schulmaterial\n• Beteiligung am ZVV Abo\n• Optimale Vorbereitung auf das Berufsleben",
+        "it": "•\n\nL'ospedale psichiatrico dell'Università di Zurigo tratta e si prende cura di persone mentalmente malate di tutte le età. Gli oltre 2.500 dipendenti delle 55 diverse professioni danno il loro contributo alla cura olistica dei pazienti in team interdisciplinari, dalla chiarificazione e dalla terapia al follow-up. Il nostro lavoro si basa sulla fiducia reciproca e sulla responsabilità personale e insieme promuoviamo una cultura aziendale innovativa. Come clinica universitaria, siamo coinvolti con successo in progetti di ricerca nazionali e internazionali.\n\nLa gastronomia della nostra clinica comprende cucina, cibo nelle stazioni e il funzionamento di un ristorante. In cucina, i pasti sono prodotti per le stazioni di cura e il ristorante.\nNella nostra cucina nella posizione Lenggstrasse a Zurigo offriamo dal 2 agosto 2027\n\nApprendistato come cuoco / cuoco EFZ\n\n100%\n\nI loro compiti\n\n• Formazione approfondita in tutte le aree della cucina\n• Produzione e presentazione della nostra offerta per pazienti, personale e ospiti\n• Collaborazione in catering ed eventi\n• Livello di completamento della scuola primaria A o B\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n• Gioia nel trattare con cibo e cucina\n• Buona comprensione con la capacità di coordinare i flussi di lavoro\n• Creatività e sperimentazione\n• Forte consapevolezza dell'igiene e senso dell'ordine\n• Buon senso di odore e gusto\n• Affidabilità, indipendenza, lavoro di squadra e orientamento degli ospiti\n• Robusto salute (lavoro principalmente in piedi)\n• Resilienza nelle situazioni frenetiche\n• Grande squadra, cucina moderna\n• Allenatori con esperienza eccellente\n• Formazione interessante e varia\n• Costi delle attrezzature scolastiche\n• Partecipazione a ZVV Abo\n• Preparazione ottimale per la vita lavorativa",
+        "en": "•\n\nThe Psychiatric University Hospital Zurich treats and cares for mentally ill people of all ages. The more than 2,500 employees of the 55 different professions make their contribution to the holistic care of patients in interdisciplinary teams, from clarification and therapy to follow-up care. Our work is based on mutual trust and personal responsibility and together we promote an innovative corporate culture. As a university clinic, we are successfully involved in national and international research projects.\n\nThe gastronomy of our clinic includes cuisine, food on the stations and the operation of a restaurant. In the kitchen, meals are produced for the care stations and the restaurant.\nIn our kitchen at the Lenggstrasse location in Zurich we offer as of August 2, 2027\n\nApprenticeship as cook / cook EFZ\n\n100%\n\nTheir tasks\n\n• In-depth training in all areas of the kitchen\n• Production and presentation of our offer for patients, staff and guests\n• Collaboration at catering and events\n• Primary school completion level A or B\n• Good knowledge of German in words and writing\n• Joy in dealing with food and cooking\n• Good understanding with the ability to coordinate workflows\n• Creativity and experimentation\n• Strong hygiene awareness and sense of order\n• Good sense of smell and taste\n• Reliability, independence, teamwork and guest orientation\n• Robust health (work mainly standing)\n• Resilience in hectic situations\n• Large team, modern kitchen\n• Trainers with excellent expertise\n• Interesting and varied training\n• Costs of school equipment\n• Participation in ZVV Abo\n• Optimal preparation for working life",
+        "fr": "•\n\nL'hôpital psychiatrique de Zurich s'occupe des malades mentaux de tous âges. Plus de 2 500 employés des 55 professions différentes apportent leur contribution aux soins holistiques des patients dans les équipes interdisciplinaires, de la clarification et de la thérapie aux soins de suivi. Notre travail est basé sur la confiance mutuelle et la responsabilité personnelle et nous promouvons ensemble une culture d'entreprise innovante. En tant que clinique universitaire, nous participons avec succès à des projets de recherche nationaux et internationaux.\n\nLa gastronomie de notre clinique comprend la cuisine, la nourriture sur les stations et l'exploitation d'un restaurant. Dans la cuisine, des repas sont préparés pour les postes de soins et le restaurant.\nDans notre cuisine à l'emplacement Lenggstrasse à Zurich, nous offrons dès le 2 août 2027\n\nApprentissage comme cuisinier / cuisinier EFZ\n\n100%\n\nLeurs tâches\n\n• Formation approfondie dans tous les domaines de la cuisine\n• Production et présentation de notre offre pour les patients, le personnel et les invités\n• Collaboration dans la restauration et les événements\n• Niveau A ou B\n• Bonne connaissance de l'allemand en mots et en écriture\n• La joie dans la nourriture et la cuisine\n• Bonne compréhension avec la capacité de coordonner les flux de travail\n• Créativité et expérimentation\n• Forte sensibilisation à l'hygiène et sens de l'ordre\n• Bon sens de l'odeur et du goût\n• Fiabilité, indépendance, travail d'équipe et orientation des invités\n• Santé robuste (travail essentiellement debout)\n• Résilience dans des situations agitées\n• Grande équipe, cuisine moderne\n• Trainers avec une excellente expertise\n• Formation intéressante et variée\n• Coûts du matériel scolaire\n• Participation à ZVV Abo\n• Préparation optimale à la vie active"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/163206/2694/pub/2/index.html",
+      "source": "PUK Zürich Dedicated Parser (Refline 163206)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-05T11:28:38.890Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-05",
+      "applyUrl": "https://apply.refline.ch/163206/2694/pub/2/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "2694",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-kochin-koch-efz-puk-zuerich-zurich"
+        ],
+        "en": [
+          "lehrstelle-als-kochin-koch-efz-puk-zuerich-zurich"
+        ],
+        "fr": [
+          "lehrstelle-als-kochin-koch-efz-puk-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-als-kochin-koch-efz-puk-zuerich-zurich"
+      ],
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-05T11:28:38.890Z"
     },
     {
       "id": "puk-zuerich-cebbd7d46d3d",
@@ -2225,7 +2386,7 @@
       "url": "https://apply.refline.ch/163206/2744/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:51.541Z",
+      "crawledAt": "2026-08-05T11:28:38.448Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2305,7 +2466,7 @@
       "url": "https://apply.refline.ch/163206/2730/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:51.122Z",
+      "crawledAt": "2026-08-05T11:28:38.003Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2388,7 +2549,7 @@
       "url": "https://apply.refline.ch/163206/2740/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:50.699Z",
+      "crawledAt": "2026-08-05T11:28:37.555Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2467,7 +2628,7 @@
       "url": "https://apply.refline.ch/163206/2731/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:50.279Z",
+      "crawledAt": "2026-08-05T11:28:37.112Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2517,9 +2678,9 @@
       "id": "puk-zuerich-34f30d016098",
       "slug": "risorse-umane-beraterin-risorse-umane-berater-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
-        "de": "hr-beraterin-hr-berater-puk-zuerich-zurich",
         "it": "risorse-umane-beraterin-risorse-umane-berater-psychiatrische-universitatsklinik-zurich-zurich",
         "en": "hr-consultant-hr-consultant-psychiatrische-universitatsklinik-zurich-zurich",
+        "de": "hr-beraterin-hr-berater-puk-zuerich-zurich",
         "fr": "ressources-humaines-beraterin-ressources-humaines-berater-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -2527,16 +2688,16 @@
       "companyDomain": "pukzh.ch",
       "title": "HR Beraterin / HR Berater",
       "titleByLocale": {
-        "de": "HR Beraterin / HR Berater",
         "it": "Risorse Umane Beraterin / Risorse Umane Berater",
         "en": "HR Consultant / HR Consultant",
+        "de": "HR Beraterin / HR Berater",
         "fr": "Ressources Humaines Beraterin / Ressources Humaines Berater"
       },
       "description": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nDie HR Beratung der Psychiatrischen Universitätsklinik Zürich (PUK) begleitet Führungskräfte und Mitarbeitende in einem vielseitigen und anspruchsvollen Arbeitsumfeld. Als kompetente und verlässliche Partnerin unterstützt sie die Führungskräfte und Mitarbeitenden entlang des gesamten Employee Lifecycles und berät sie in sämtlichen personalrelevanten Fragestellungen.\n\nZur Verstärkung unseres HR Beratungsteams suchen wir per 1. Oktober 2026 oder nach Vereinbarung eine engagierte Persönlichkeit als\n\nHR Beraterin / HR Berater\n\n90% - 100%\n\nIhre Aufgaben\n\n• Beratung und Begleitung von Führungskräften und Mitarbeitenden in sämtlichen personalrelevanten Fragestellungen\n• Verantwortung für die Begleitung des gesamten Employee Lifecycles - von der Rekrutierung bis zum Austritt – in Zusammenarbeit mit dem HR Services Team\n• Unterstützung der Führungskräfte bei personellen, arbeitsrechtlichen und organisatorischen Fragestellungen sowie bei der Entwicklung tragfähiger Lösungen\n• Sicherstellung einer professionellen und dienstleistungsorientierten Zusammenarbeit mit Führungskräften, Mitarbeitenden und internen Schnittstellen\n• Einbringung der eigenen Fachkompetenz in HR-Projekten und Mitwirkung an der Weiterentwicklung von HR-Prozessen und Dienstleistungen\n• Standortübergreifende Betreuung und Beratung der zugeteilten Bereiche sowie Bereitschaft zu Einsätzen an verschiedenen Standorten\n• Abgeschlossene kaufm. Grundausbildung mit Weiterbildung zur HR Fachfrau bzw. zum HR Fachmann mit eidg. Fachausweis oder einer gleichwertigen Qualifikation\n• Mehrjährige Berufserfahrung in einer generalistischen HR-Beratungsfunktion\n• Ausgeprägte Beratungskompetenz, hohe Kommunikationsfähigkeit und ein sicheres, stufengerechtes Auftreten im Umgang mit Mitarbeitenden und Führungskräften\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie hohe Eigenverantwortung\n• Ausgeprägte Sozialkompetenz, Empathie und hohe Dienstleistungsorientierung\n• Kenntnisse im öffentlichen Personalrecht mit praxisorientierter Anwendungserfahrung, idealerweise ergänzt durch Erfahrung im Gesundheitswesen\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Zukunft aktiv gestalten: Mitwirkung an Veränderungs- und Entwicklungsprozessen\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks",
       "descriptionByLocale": {
-        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nDie HR Beratung der Psychiatrischen Universitätsklinik Zürich (PUK) begleitet Führungskräfte und Mitarbeitende in einem vielseitigen und anspruchsvollen Arbeitsumfeld. Als kompetente und verlässliche Partnerin unterstützt sie die Führungskräfte und Mitarbeitenden entlang des gesamten Employee Lifecycles und berät sie in sämtlichen personalrelevanten Fragestellungen.\n\nZur Verstärkung unseres HR Beratungsteams suchen wir per 1. Oktober 2026 oder nach Vereinbarung eine engagierte Persönlichkeit als\n\nHR Beraterin / HR Berater\n\n90% - 100%\n\nIhre Aufgaben\n\n• Beratung und Begleitung von Führungskräften und Mitarbeitenden in sämtlichen personalrelevanten Fragestellungen\n• Verantwortung für die Begleitung des gesamten Employee Lifecycles - von der Rekrutierung bis zum Austritt – in Zusammenarbeit mit dem HR Services Team\n• Unterstützung der Führungskräfte bei personellen, arbeitsrechtlichen und organisatorischen Fragestellungen sowie bei der Entwicklung tragfähiger Lösungen\n• Sicherstellung einer professionellen und dienstleistungsorientierten Zusammenarbeit mit Führungskräften, Mitarbeitenden und internen Schnittstellen\n• Einbringung der eigenen Fachkompetenz in HR-Projekten und Mitwirkung an der Weiterentwicklung von HR-Prozessen und Dienstleistungen\n• Standortübergreifende Betreuung und Beratung der zugeteilten Bereiche sowie Bereitschaft zu Einsätzen an verschiedenen Standorten\n• Abgeschlossene kaufm. Grundausbildung mit Weiterbildung zur HR Fachfrau bzw. zum HR Fachmann mit eidg. Fachausweis oder einer gleichwertigen Qualifikation\n• Mehrjährige Berufserfahrung in einer generalistischen HR-Beratungsfunktion\n• Ausgeprägte Beratungskompetenz, hohe Kommunikationsfähigkeit und ein sicheres, stufengerechtes Auftreten im Umgang mit Mitarbeitenden und Führungskräften\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie hohe Eigenverantwortung\n• Ausgeprägte Sozialkompetenz, Empathie und hohe Dienstleistungsorientierung\n• Kenntnisse im öffentlichen Personalrecht mit praxisorientierter Anwendungserfahrung, idealerweise ergänzt durch Erfahrung im Gesundheitswesen\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Zukunft aktiv gestalten: Mitwirkung an Veränderungs- und Entwicklungsprozessen\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks",
         "it": "•\n\nIl Psychiatric University Hospital di Zurigo (PUK) è una delle principali cliniche psichiatriche in Svizzera. Con più di 2.500 dipendenti, ci impegniamo al trattamento olistico e alla cura delle persone con malattie mentali ogni giorno. Come clinica universitaria, combiniamo competenze cliniche con la ricerca e l'insegnamento – in un ambiente di lavoro caratterizzato da cooperazione interdisciplinare, fiducia e responsabilità personale.\n\nLa consulenza HR dell'Ospedale Psichiatrico Universitario di Zurigo (PUK) accompagna manager e dipendenti in un ambiente di lavoro versatile ed esigente. In qualità di partner competente e affidabile, supporta manager e dipendenti in tutto il ciclo di vita dei dipendenti e li consiglia su tutte le questioni rilevanti dal personale.\n\nPer rafforzare il nostro team di consulenza HR, stiamo cercando 1. Ottobre 2026 o per accordo una personalità impegnata come\n\nConsulente HR / Consulente HR\n\n90% - 100%\n\nI loro compiti\n\n• Consulenza e supporto ai responsabili e ai dipendenti in tutte le questioni rilevanti dal personale\n• Responsabilità per il supporto dell'intero ciclo di vita dei dipendenti - dal reclutamento al ritiro - in collaborazione con il team HR Services\n• Sostegno ai responsabili del personale, del diritto del lavoro e delle questioni organizzative nonché allo sviluppo di soluzioni attuabili\n• Garantire una collaborazione professionale e orientata al servizio con manager, dipendenti e interfacce interne\n• Portare la propria esperienza in progetti HR e partecipare a un ulteriore sviluppo di processi e servizi HR\n• Supporto e consulenza per le aree assegnate e disponibilità per le missioni in diverse località\n• Acquisto completato. Formazione di base con ulteriore formazione come specialista HR o come specialista HR con eidg. Certificato professionale o qualifica equivalente\n• Diversi anni di esperienza professionale in una funzione di consulenza HR generalista\n• Forte capacità di consulenza, elevata capacità di comunicazione e un approccio sicuro e passo per affrontare i dipendenti e i manager\n• Metodo di lavoro indipendente, strutturato e orientato alla soluzione, nonché un elevato livello di responsabilità personale\n• Forti competenze sociali, empatia e alto orientamento di servizio\n• Conoscenza del diritto del personale pubblico con esperienza pratica di applicazione, idealmente completata da esperienza nel settore sanitario\n• Insieme per le persone: cooperazione interdisciplinare per la cura psichiatrica olistica\n• Forte nel team: cooperazione apprezzativa e sostegno reciproco\n• Formare attivamente il futuro: partecipazione ai processi di cambiamento e sviluppo\n• Prestazioni future con valore aggiunto: 60% contributo del datore di lavoro al fondo pensione\n• Viaggi sostenibili: partecipazione a ZVV-BonusPass o abbonamento generale\n• Ben curato nel lavoro quotidiano: offerte di cibo scontati o assegni pranzo",
         "en": "•\n\nThe Psychiatric University Hospital Zurich (PUK) is one of the leading psychiatric clinics in Switzerland. With more than 2,500 employees, we are committed to the holistic treatment and care of people with mental illnesses every day. As a university clinic, we combine clinical expertise with research and teaching – in a working environment characterized by interdisciplinary cooperation, trust and personal responsibility.\n\nThe HR consultancy of the Psychiatric University Hospital Zurich (PUK) accompanies managers and employees in a versatile and demanding working environment. As a competent and reliable partner, she supports managers and employees throughout the entire employee lifecycle and advises them on all personnel-relevant issues.\n\nTo strengthen our HR consulting team, we are looking for 1. October 2026 or by arrangement a committed personality as\n\nHR Consultant / HR Consultant\n\n90% - 100%\n\nTheir tasks\n\n• Advising and supporting managers and employees in all personnel-relevant issues\n• Responsibility for the support of the entire employee lifecycle - from recruitment to withdrawal - in cooperation with the HR Services team\n• Support for managers in personnel, labour law and organisational issues as well as in the development of viable solutions\n• Ensuring professional and service-oriented cooperation with managers, employees and internal interfaces\n• Bringing your own expertise into HR projects and participating in the further development of HR processes and services\n• Cross-site support and advice of the assigned areas as well as readiness for missions at different locations\n• Completed purchase. Basic training with further education as an HR specialist or as an HR specialist with eidg. Professional certificate or equivalent qualification\n• Several years of professional experience in a generalist HR consulting function\n• Strong consulting skills, high communication skills and a secure, step-by-step approach to dealing with employees and managers\n• Independent, structured and solution-oriented working method as well as a high level of personal responsibility\n• Strong social skills, empathy and high service orientation\n• Knowledge of public personnel law with practical application experience, ideally complemented by experience in healthcare\n• Together for people: Interdisciplinary cooperation for holistic psychiatric care\n• Strong in the team: appreciative cooperation and mutual support\n• Shaping the future actively: Participation in change and development processes\n• Future provision with added value: 60% employer contribution to the pension fund\n• Sustainable travel: participation in the ZVV-BonusPass or general subscription\n• Well taken care of in everyday work: discounted food offers or lunch checks",
+        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nDie HR Beratung der Psychiatrischen Universitätsklinik Zürich (PUK) begleitet Führungskräfte und Mitarbeitende in einem vielseitigen und anspruchsvollen Arbeitsumfeld. Als kompetente und verlässliche Partnerin unterstützt sie die Führungskräfte und Mitarbeitenden entlang des gesamten Employee Lifecycles und berät sie in sämtlichen personalrelevanten Fragestellungen.\n\nZur Verstärkung unseres HR Beratungsteams suchen wir per 1. Oktober 2026 oder nach Vereinbarung eine engagierte Persönlichkeit als\n\nHR Beraterin / HR Berater\n\n90% - 100%\n\nIhre Aufgaben\n\n• Beratung und Begleitung von Führungskräften und Mitarbeitenden in sämtlichen personalrelevanten Fragestellungen\n• Verantwortung für die Begleitung des gesamten Employee Lifecycles - von der Rekrutierung bis zum Austritt – in Zusammenarbeit mit dem HR Services Team\n• Unterstützung der Führungskräfte bei personellen, arbeitsrechtlichen und organisatorischen Fragestellungen sowie bei der Entwicklung tragfähiger Lösungen\n• Sicherstellung einer professionellen und dienstleistungsorientierten Zusammenarbeit mit Führungskräften, Mitarbeitenden und internen Schnittstellen\n• Einbringung der eigenen Fachkompetenz in HR-Projekten und Mitwirkung an der Weiterentwicklung von HR-Prozessen und Dienstleistungen\n• Standortübergreifende Betreuung und Beratung der zugeteilten Bereiche sowie Bereitschaft zu Einsätzen an verschiedenen Standorten\n• Abgeschlossene kaufm. Grundausbildung mit Weiterbildung zur HR Fachfrau bzw. zum HR Fachmann mit eidg. Fachausweis oder einer gleichwertigen Qualifikation\n• Mehrjährige Berufserfahrung in einer generalistischen HR-Beratungsfunktion\n• Ausgeprägte Beratungskompetenz, hohe Kommunikationsfähigkeit und ein sicheres, stufengerechtes Auftreten im Umgang mit Mitarbeitenden und Führungskräften\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie hohe Eigenverantwortung\n• Ausgeprägte Sozialkompetenz, Empathie und hohe Dienstleistungsorientierung\n• Kenntnisse im öffentlichen Personalrecht mit praxisorientierter Anwendungserfahrung, idealerweise ergänzt durch Erfahrung im Gesundheitswesen\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Zukunft aktiv gestalten: Mitwirkung an Veränderungs- und Entwicklungsprozessen\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks",
         "fr": "•\n\nL'hôpital universitaire psychiatrique de Zurich (PUK) est l'une des principales cliniques psychiatriques en Suisse. Avec plus de 2 500 employés, nous nous engageons à traiter et à soigner les personnes atteintes de maladies mentales chaque jour. En tant que clinique universitaire, nous combinons expertise clinique avec recherche et enseignement – dans un environnement de travail caractérisé par la coopération interdisciplinaire, la confiance et la responsabilité personnelle.\n\nLe conseil RH de l'hôpital universitaire psychiatrique de Zurich (PUK) accompagne les gestionnaires et les employés dans un environnement de travail polyvalent et exigeant. En tant que partenaire compétente et fiable, elle soutient les gestionnaires et les employés tout au long du cycle de vie des employés et les conseille sur toutes les questions relatives au personnel.\n\nPour renforcer notre équipe de conseil en RH, nous cherchons 1. octobre 2026 ou par arrangement une personnalité engagée comme\n\nConsultant en RH / Consultant en RH\n\n90% - 100%\n\nLeurs tâches\n\n• Conseiller et soutenir les gestionnaires et les employés dans toutes les questions relatives au personnel\n• Responsabilité de l'ensemble du cycle de vie des employés - du recrutement au retrait - en collaboration avec l'équipe des Services RH\n• Soutien aux cadres dans les domaines du personnel, du droit du travail et de l'organisation ainsi que dans le développement de solutions viables\n• Assurer une coopération professionnelle et axée sur le service avec les gestionnaires, les employés et les interfaces internes\n• Apporter votre propre expertise aux projets de RH et participer au développement des processus et des services de RH\n• Fourniture d ' un appui et de conseils aux différents sites et préparation des missions dans différents sites\n• Achat terminé. Formation de base avec formation continue en tant que spécialiste des RH ou en tant que spécialiste des RH avec eidg. Certificat professionnel ou qualification équivalente\n• Plusieurs années d'expérience professionnelle dans une fonction de conseil en RH généraliste\n• De solides compétences en matière de consultation, des compétences élevées en communication et une approche sécuritaire et progressive des relations avec les employés et les gestionnaires\n• Méthode de travail indépendante, structurée et orientée vers la solution, ainsi qu'un haut niveau de responsabilité personnelle\n• Fortes compétences sociales, empathie et orientation vers un service élevé\n• Connaissance du droit du personnel public avec une expérience pratique, idéalement complétée par une expérience en matière de soins de santé\n• Ensemble pour les personnes: coopération interdisciplinaire pour des soins psychiatriques holistiques\n• Forte au sein de l'équipe : coopération et soutien mutuel\n• Façonner activement l'avenir : participation aux processus de changement et de développement\n• Provision future avec valeur ajoutée: 60% de cotisation de l'employeur au fonds de pension\n• Voyage durable : participation au ZVV-BonusPass ou abonnement général\n• Bien pris en charge dans le travail quotidien: offres de nourriture à prix réduit ou lunch checks"
       },
       "location": "Zürich",
@@ -2544,7 +2705,7 @@
       "url": "https://apply.refline.ch/163206/2748/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:49.858Z",
+      "crawledAt": "2026-08-05T11:28:36.669Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2560,26 +2721,14 @@
       "postedDate": "2026-08-04",
       "applyUrl": "https://apply.refline.ch/163206/2748/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "2748",
       "pensumMin": 90,
       "pensumMax": 90,
       "pensum": "90%",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-04T22:14:49.858Z",
+      "previousSlugs": [
+        "hr-beraterin-hr-berater-puk-zuerich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "hr-beraterin-hr-berater-puk-zuerich-zurich"
@@ -2591,9 +2740,19 @@
           "hr-beraterin-hr-berater-puk-zuerich-zurich"
         ]
       },
-      "previousSlugs": [
-        "hr-beraterin-hr-berater-puk-zuerich-zurich"
-      ]
+      "firstSeenAt": "2026-08-04T22:14:49.858Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "puk-zuerich-6b0cce6d0d1c",
@@ -2626,7 +2785,7 @@
       "url": "https://apply.refline.ch/163206/2737/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:49.433Z",
+      "crawledAt": "2026-08-05T11:28:36.226Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2708,7 +2867,7 @@
       "url": "https://apply.refline.ch/163206/2519/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:49.013Z",
+      "crawledAt": "2026-08-05T11:28:35.784Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2790,7 +2949,7 @@
       "url": "https://apply.refline.ch/163206/2725/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:48.576Z",
+      "crawledAt": "2026-08-05T11:28:35.338Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2874,7 +3033,7 @@
       "url": "https://apply.refline.ch/163206/2746/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:48.157Z",
+      "crawledAt": "2026-08-05T11:28:34.897Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2954,7 +3113,7 @@
       "url": "https://apply.refline.ch/163206/2586/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:47.737Z",
+      "crawledAt": "2026-08-05T11:28:34.454Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3031,9 +3190,9 @@
       },
       "description": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nLife – Sicherheit durch Beziehung\nIm Life werden Kinder und Jugendliche in suizidalen Krisen durch ein multiprofessionelles Team intensiv begleitet und betreut. Das Angebot erstreckt sich von der Prävention über stationäre und teilstationäre bis hin zur ambulanten Nachsorge. Die Zusammenarbeit mit den Kindern und Jugendlichen sowie deren Eltern erfolgt auf der Grundlage eines tragfähigen, beziehungsorientierten Ansatzes und erstreckt sich über sämtliche Versorgungssettings hinweg.\n\nWir suchen im Job Sharing ab dem 1.Oktober 2026 zur Verstärkung für unser Team zwei (je 50% Pensum)\n\nFachfrau Gesundheit / Fachmann Gesundheit (Krisenintervention für Jugendliche)\n\n50%\n\nIhre Aufgaben\n\n• Gewährleistung der pädagogischen und pflegerischen Versorgung, welche sich an Best Practice und ethisch-moralischen Gesichtspunkten orientiert\n• Gestaltung eines ressourcenfördernden milieutherapeutischen Behandlungssettings mit starker Orientierung am Lebensumfeld der Kinder und Jugendlichen\n• Delegierte Ausführung von Pflegeinterventionen\n• Begleitung in Krisensituationen\n• Beteiligung an Veränderungsprozessen, insbesondere der pflegerisch-therapeutischen Angebote\n• Aktive Teilnahme an einer intensiven interprofessionellen Zusammenarbeit\n• Ressourcenorientierte Alltagsgestaltung\n• Sie sehen unsere Kinder und Jugendlichen im Mittelpunkt Ihrer Arbeit\n• Abgeschlossene Berufsausbildung im Fachbereich (Anerkennungsnachweis bei ausländischen Abschlüssen)\n• Sie verfügen über Erfahrungen im Bereich der Kinder- und Jugendpsychiatrie oder sind bereit, sich entsprechende Kompetenzen anzueignen\n• Bereitschaft verschiedene Schichtdienste an allen Wochentagen zu leisten (überwiegend Früh- und Spätdienste)\n• Arbeitstage Sonntag bis Freitag von 16:30 – 23:30 Uhr\n• Spannende, abwechslungsreiche und verantwortungsvolle Aufgabebereiche in einem vielseitigen, dynamischen und universitär geprägten Umfeld\n• Regelmässige Fall- und Teamsupervisionen\n• Persönliche und fachliche Weiterentwicklungsmöglichkeiten\n• Anstellungsbedingungen nach kantonalem Personalgesetz\n• Attraktive Sozialleistungen (Übernahme von 60% der Pensionskassenbeiträge)\n• Vergünstigte Einkaufsmöglichkeiten sowie Sportangebote, Betriebseigene Kinderkrippe, Beteiligung am ZVV-BonusPass, etc.",
       "descriptionByLocale": {
-        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nLife – Sicherheit durch Beziehung\nIm Life werden Kinder und Jugendliche in suizidalen Krisen durch ein multiprofessionelles Team intensiv begleitet und betreut. Das Angebot erstreckt sich von der Prävention über stationäre und teilstationäre bis hin zur ambulanten Nachsorge. Die Zusammenarbeit mit den Kindern und Jugendlichen sowie deren Eltern erfolgt auf der Grundlage eines tragfähigen, beziehungsorientierten Ansatzes und erstreckt sich über sämtliche Versorgungssettings hinweg.\n\nWir suchen im Job Sharing ab dem 1.Oktober 2026 zur Verstärkung für unser Team zwei (je 50% Pensum)\n\nFachfrau Gesundheit / Fachmann Gesundheit (Krisenintervention für Jugendliche)\n\n50%\n\nIhre Aufgaben\n\n• Gewährleistung der pädagogischen und pflegerischen Versorgung, welche sich an Best Practice und ethisch-moralischen Gesichtspunkten orientiert\n• Gestaltung eines ressourcenfördernden milieutherapeutischen Behandlungssettings mit starker Orientierung am Lebensumfeld der Kinder und Jugendlichen\n• Delegierte Ausführung von Pflegeinterventionen\n• Begleitung in Krisensituationen\n• Beteiligung an Veränderungsprozessen, insbesondere der pflegerisch-therapeutischen Angebote\n• Aktive Teilnahme an einer intensiven interprofessionellen Zusammenarbeit\n• Ressourcenorientierte Alltagsgestaltung\n• Sie sehen unsere Kinder und Jugendlichen im Mittelpunkt Ihrer Arbeit\n• Abgeschlossene Berufsausbildung im Fachbereich (Anerkennungsnachweis bei ausländischen Abschlüssen)\n• Sie verfügen über Erfahrungen im Bereich der Kinder- und Jugendpsychiatrie oder sind bereit, sich entsprechende Kompetenzen anzueignen\n• Bereitschaft verschiedene Schichtdienste an allen Wochentagen zu leisten (überwiegend Früh- und Spätdienste)\n• Arbeitstage Sonntag bis Freitag von 16:30 – 23:30 Uhr\n• Spannende, abwechslungsreiche und verantwortungsvolle Aufgabebereiche in einem vielseitigen, dynamischen und universitär geprägten Umfeld\n• Regelmässige Fall- und Teamsupervisionen\n• Persönliche und fachliche Weiterentwicklungsmöglichkeiten\n• Anstellungsbedingungen nach kantonalem Personalgesetz\n• Attraktive Sozialleistungen (Übernahme von 60% der Pensionskassenbeiträge)\n• Vergünstigte Einkaufsmöglichkeiten sowie Sportangebote, Betriebseigene Kinderkrippe, Beteiligung am ZVV-BonusPass, etc.",
         "it": "•\n\nL'ospedale psichiatrico dell'Università di Zurigo tratta e si prende cura di persone mentalmente malate di tutte le età. Gli oltre 2.500 dipendenti delle 55 diverse professioni danno il loro contributo alla cura olistica dei pazienti in team interdisciplinari, dalla chiarificazione e dalla terapia al follow-up. Il nostro lavoro si basa sulla fiducia reciproca e sulla responsabilità personale e insieme promuoviamo una cultura aziendale innovativa. Come clinica universitaria, siamo coinvolti con successo in progetti di ricerca nazionali e internazionali.\n\nVita – Sicurezza attraverso la relazione\nNella vita, i bambini e gli adolescenti in crisi suicida sono intensamente accompagnati e curati da un team multi-professionale. L'offerta si estende dalla prevenzione alla cura di follow-up stazionaria e semistazione. La cooperazione con i bambini e gli adolescenti e i loro genitori si basa su un approccio sostenibile e orientato al rapporto e si estende su tutte le impostazioni di cura.\n\nSiamo alla ricerca di una condivisione di lavoro dal 1 ottobre 2026 per rafforzare il nostro team due (50% ciascuno)\n\nSpecialista della salute / Specialista della salute (intervento della crisi per i giovani)\n\n50%\n\nI loro compiti\n\n• Assicurare l'assistenza educativa e infermieristica basata sulle migliori pratiche e aspetti etici-morale\n• Progettazione di un ambiente di trattamento milieuterapeutico stimolante dalle risorse con un orientamento forte verso l'ambiente di vita dei bambini e degli adolescenti\n• Delegata attuazione degli interventi di assistenza\n• Assistenza nelle situazioni di crisi\n• Partecipazione ai processi di cambiamento, in particolare alle offerte terapeutiche infermieristica\n• Partecipazione attiva ad una intensa cooperazione interprofessionale\n• Design quotidiano orientato alle risorse\n• Vedete i nostri figli e i nostri giovani al centro del vostro lavoro\n• Formazione professionale completa nell'area tematica (certificato di riconoscimento per diplomi stranieri)\n• Hai esperienza in psichiatria infantile e adolescente o sono pronti ad acquisire competenze adeguate\n• Volontà di fornire vari servizi a turni in tutti i giorni della settimana (principalmente servizi anticipati e tardivi)\n• Giorni lavorativi Domenica a Venerdì dalle 16:30 alle 23:30\n• Attività emozionanti, varie e responsabili in un ambiente versatile, dinamico e orientato all'università\n• Custodie e supervisioni del team\n• Opportunità di sviluppo personale e professionale\n• Condizioni di lavoro secondo la legge cantonale del personale\n• Prestazioni sociali attraenti (acquisizione del 60% dei contributi pensionistici)\n• Sconti opportunità di shopping così come le offerte sportive, crèche di proprietà aziendale, la partecipazione alla ZVV-BonusPass, ecc.",
         "en": "•\n\nThe Psychiatric University Hospital Zurich treats and cares for mentally ill people of all ages. The more than 2,500 employees of the 55 different professions make their contribution to the holistic care of patients in interdisciplinary teams, from clarification and therapy to follow-up care. Our work is based on mutual trust and personal responsibility and together we promote an innovative corporate culture. As a university clinic, we are successfully involved in national and international research projects.\n\nLife – Safety through Relationship\nIn life, children and adolescents in suicidal crises are intensively accompanied and cared for by a multi-professional team. The offer extends from prevention to stationary and semi-stationary to ambulatory follow-up care. Cooperation with children and adolescents and their parents is based on a sustainable, relationship-oriented approach and extends across all care settings.\n\nWe are looking for job sharing from October 1, 2026 to reinforce our team two (50% each)\n\nHealth specialist / Health specialist (crisis intervention for young people)\n\n50%\n\nTheir tasks\n\n• Ensuring educational and nursing care based on best practice and ethical-moral aspects\n• Design of a resource-promoting milieutherapeutic treatment setting with a strong orientation towards the living environment of children and adolescents\n• Delegated implementation of care interventions\n• Assistance in crisis situations\n• Participation in change processes, in particular nursing-therapeutic offers\n• Active participation in an intensive interprofessional cooperation\n• Resource-oriented everyday design\n• You see our children and young people at the center of your work\n• Completed vocational training in the subject area (certificate of recognition for foreign degrees)\n• You have experience in child and adolescent psychiatry or are ready to acquire appropriate skills\n• Willingness to provide various shift services on all days of the week (mainly early and late services)\n• Working days Sunday to Friday from 16:30 – 23:30\n• Exciting, varied and responsible tasks in a versatile, dynamic and university-oriented environment\n• Regular case and team supervisions\n• Personal and professional development opportunities\n• Conditions of employment according to the Cantonal Personnel Act\n• Attractive social benefits (acquisition of 60% of pension contributions)\n• Discounted shopping opportunities as well as sports offers, company-owned crèche, participation in the ZVV-BonusPass, etc.",
+        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nLife – Sicherheit durch Beziehung\nIm Life werden Kinder und Jugendliche in suizidalen Krisen durch ein multiprofessionelles Team intensiv begleitet und betreut. Das Angebot erstreckt sich von der Prävention über stationäre und teilstationäre bis hin zur ambulanten Nachsorge. Die Zusammenarbeit mit den Kindern und Jugendlichen sowie deren Eltern erfolgt auf der Grundlage eines tragfähigen, beziehungsorientierten Ansatzes und erstreckt sich über sämtliche Versorgungssettings hinweg.\n\nWir suchen im Job Sharing ab dem 1.Oktober 2026 zur Verstärkung für unser Team zwei (je 50% Pensum)\n\nFachfrau Gesundheit / Fachmann Gesundheit (Krisenintervention für Jugendliche)\n\n50%\n\nIhre Aufgaben\n\n• Gewährleistung der pädagogischen und pflegerischen Versorgung, welche sich an Best Practice und ethisch-moralischen Gesichtspunkten orientiert\n• Gestaltung eines ressourcenfördernden milieutherapeutischen Behandlungssettings mit starker Orientierung am Lebensumfeld der Kinder und Jugendlichen\n• Delegierte Ausführung von Pflegeinterventionen\n• Begleitung in Krisensituationen\n• Beteiligung an Veränderungsprozessen, insbesondere der pflegerisch-therapeutischen Angebote\n• Aktive Teilnahme an einer intensiven interprofessionellen Zusammenarbeit\n• Ressourcenorientierte Alltagsgestaltung\n• Sie sehen unsere Kinder und Jugendlichen im Mittelpunkt Ihrer Arbeit\n• Abgeschlossene Berufsausbildung im Fachbereich (Anerkennungsnachweis bei ausländischen Abschlüssen)\n• Sie verfügen über Erfahrungen im Bereich der Kinder- und Jugendpsychiatrie oder sind bereit, sich entsprechende Kompetenzen anzueignen\n• Bereitschaft verschiedene Schichtdienste an allen Wochentagen zu leisten (überwiegend Früh- und Spätdienste)\n• Arbeitstage Sonntag bis Freitag von 16:30 – 23:30 Uhr\n• Spannende, abwechslungsreiche und verantwortungsvolle Aufgabebereiche in einem vielseitigen, dynamischen und universitär geprägten Umfeld\n• Regelmässige Fall- und Teamsupervisionen\n• Persönliche und fachliche Weiterentwicklungsmöglichkeiten\n• Anstellungsbedingungen nach kantonalem Personalgesetz\n• Attraktive Sozialleistungen (Übernahme von 60% der Pensionskassenbeiträge)\n• Vergünstigte Einkaufsmöglichkeiten sowie Sportangebote, Betriebseigene Kinderkrippe, Beteiligung am ZVV-BonusPass, etc.",
         "fr": "•\n\nL'hôpital psychiatrique de Zurich s'occupe des malades mentaux de tous âges. Plus de 2 500 employés des 55 professions différentes apportent leur contribution aux soins holistiques des patients dans les équipes interdisciplinaires, de la clarification et de la thérapie aux soins de suivi. Notre travail est basé sur la confiance mutuelle et la responsabilité personnelle et nous promouvons ensemble une culture d'entreprise innovante. En tant que clinique universitaire, nous participons avec succès à des projets de recherche nationaux et internationaux.\n\nVie – Sécurité par la relation\nDans la vie, les enfants et les adolescents en crise suicidaire sont accompagnés et pris en charge par une équipe multiprofessionnelle. L'offre va de la prévention aux soins de suivi fixes et semi-stationnaires aux soins ambulatoires. La coopération avec les enfants et les adolescents et leurs parents repose sur une approche durable et axée sur les relations et s'étend à tous les milieux de soins.\n\nNous sommes à la recherche de partage d'emploi à partir du 1er octobre 2026 pour renforcer notre équipe deux (50% chacun)\n\nSpécialiste de la santé / Spécialiste de la santé (intervention de crise pour les jeunes)\n\n50%\n\nLeurs tâches\n\n• Assurer des soins éducatifs et infirmiers fondés sur les meilleures pratiques et les aspects éthiques et moraux\n• Conception d'un cadre de traitement thérapeutique du milieu favorisant les ressources, avec une forte orientation vers le milieu de vie des enfants et des adolescents\n• Mise en œuvre déléguée des interventions en matière de soins\n• Assistance dans les situations de crise\n• Participation aux processus de changement, en particulier les offres de soins infirmiers et thérapeutiques\n• Participation active à une coopération interprofessionnelle intensive\n• Conception quotidienne axée sur les ressources\n• Vous voyez nos enfants et nos jeunes au centre de votre travail\n• Formation professionnelle complète dans le domaine (certificat de reconnaissance des diplômes étrangers)\n• Vous avez une expérience en psychiatrie de l'enfant et de l'adolescent ou êtes prêt à acquérir les compétences appropriées\n• Volonté de fournir divers services de quarts tous les jours de la semaine (principalement des services précoces et tardifs)\n• Jours ouvrables du dimanche au vendredi de 16:30 à 23:30\n• Des tâches passionnantes, variées et responsables dans un environnement polyvalent, dynamique et orienté vers l'université\n• Surveillance régulière des cas et des équipes\n• Possibilités de perfectionnement personnel et professionnel\n• Conditions d'emploi conformément à la loi sur le personnel cantonal\n• Prestations sociales attractives (acquisition de 60 % des cotisations de retraite)\n• Possibilités d'achats réduits ainsi que des offres sportives, crèche d'entreprise, participation au ZVV-BonusPass, etc."
       },
       "location": "Zürich",
@@ -3041,7 +3200,7 @@
       "url": "https://apply.refline.ch/163206/2703/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:47.296Z",
+      "crawledAt": "2026-08-05T11:28:34.009Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3120,7 +3279,7 @@
       "url": "https://apply.refline.ch/163206/2573/pub/3/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:46.874Z",
+      "crawledAt": "2026-08-05T11:28:33.556Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3213,7 +3372,7 @@
       "url": "https://apply.refline.ch/163206/2701/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:46.454Z",
+      "crawledAt": "2026-08-05T11:28:33.113Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3295,7 +3454,7 @@
       "url": "https://apply.refline.ch/163206/2728/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:46.031Z",
+      "crawledAt": "2026-08-05T11:28:32.669Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3376,7 +3535,7 @@
       "url": "https://apply.refline.ch/163206/2717/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:45.611Z",
+      "crawledAt": "2026-08-05T11:28:32.226Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3455,7 +3614,7 @@
       "url": "https://apply.refline.ch/163206/2721/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:45.191Z",
+      "crawledAt": "2026-08-05T11:28:31.783Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3535,7 +3694,7 @@
       "url": "https://apply.refline.ch/163206/2736/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:44.770Z",
+      "crawledAt": "2026-08-05T11:28:31.341Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3616,7 +3775,7 @@
       "url": "https://apply.refline.ch/163206/2627/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:44.342Z",
+      "crawledAt": "2026-08-05T11:28:30.897Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3697,7 +3856,7 @@
       "url": "https://apply.refline.ch/163206/2581/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:43.921Z",
+      "crawledAt": "2026-08-05T11:28:30.453Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3782,7 +3941,7 @@
       "url": "https://apply.refline.ch/163206/2715/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:43.496Z",
+      "crawledAt": "2026-08-05T11:28:29.952Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3862,7 +4021,7 @@
       "url": "https://apply.refline.ch/163206/2710/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:43.078Z",
+      "crawledAt": "2026-08-05T11:28:29.509Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3942,7 +4101,7 @@
       "url": "https://apply.refline.ch/163206/2688/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:42.659Z",
+      "crawledAt": "2026-08-05T11:28:29.066Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4028,7 +4187,7 @@
       "url": "https://apply.refline.ch/163206/2687/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:42.238Z",
+      "crawledAt": "2026-08-05T11:28:28.621Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4125,7 +4284,7 @@
       "url": "https://apply.refline.ch/163206/2697/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:41.818Z",
+      "crawledAt": "2026-08-05T11:28:28.176Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4208,7 +4367,7 @@
       "url": "https://apply.refline.ch/163206/1832/pub/6/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:41.401Z",
+      "crawledAt": "2026-08-05T11:28:27.733Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4297,7 +4456,7 @@
       "url": "https://apply.refline.ch/163206/2279/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:40.978Z",
+      "crawledAt": "2026-08-05T11:28:27.262Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4371,9 +4530,9 @@
       },
       "description": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nLife – Sicherheit durch Beziehung\nIm Life werden Kinder und Jugendliche in suizidalen Krisen durch ein multiprofessionelles Team intensiv begleitet und betreut. Das Angebot erstreckt sich von der Prävention über stationäre und teilstationäre bis hin zur ambulanten Nachsorge. Die Zusammenarbeit mit den Kindern und Jugendlichen sowie deren Eltern erfolgt auf der Grundlage eines tragfähigen, beziehungsorientierten Ansatzes und erstreckt sich über sämtliche Versorgungssettings hinweg.\n\nWir suchen Verstärkung für unser Team als:\n\nDipl. Pflegefachfrau / Pflegefachmann vorwiegend im Nachtdienst (Krisenintervention für Jugendliche)\n\n50%\n\nIhre Aufgaben\n\n• Gewährleistung der pädagogischen und pflegerischen Versorgung, welche sich an Best Practice und ethisch-moralischen Gesichtspunkten orientiert\n• Gestaltung eines ressourcenfördernden milieutherapeutischen Behandlungssettings mit starker Orientierung am Lebensumfeld der Kinder und Jugendlichen\n• Umsetzung des Pflegeprozesses vorwiegend im Nachtdienst (die Einarbeitung ist im Tagdienst)\n• Begleitung in Krisensituationen sowie Alltagsgestaltung\n• Beteiligung an Veränderungsprozessen, insbesondere der pflegerisch-therapeutischen Angebote\n• Sie sehen unsere Kinder und Jugendlichen im Mittelpunkt Ihrer Arbeit\n• Abgeschlossene Berufsausbildung als Pflegefachperson (Anerkennungsnachweis bei ausländischen Abschlüssen)\n• Sie verfügen über Erfahrungen im Bereich der Kinder- und Jugendpsychiatrie oder sind bereit, sich entsprechende Kompetenzen anzueignen\n• Freude an der interdisziplinären Zusammenarbeit sowie hohe Belastbarkeit\n• Spannende, abwechslungsreiche und verantwortungsvolle Aufgabebereiche in einem vielseitigen, dynamischen und universitär geprägten Umfeld\n• Regelmässige Fall- und Teamsupervisionen\n• Persönliche und fachliche Weiterentwicklungsmöglichkeiten\n• Anstellungsbedingungen nach kantonalem Personalgesetz\n• Attraktive Sozialleistungen (Übernahme von 60% der Pensionskassenbeiträge)\n• Vergünstigte Einkaufsmöglichkeiten sowie Sportangebote, Betriebseigene Kinderkrippe, Beteiligung am ZVV-BonusPass, etc.",
       "descriptionByLocale": {
-        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nLife – Sicherheit durch Beziehung\nIm Life werden Kinder und Jugendliche in suizidalen Krisen durch ein multiprofessionelles Team intensiv begleitet und betreut. Das Angebot erstreckt sich von der Prävention über stationäre und teilstationäre bis hin zur ambulanten Nachsorge. Die Zusammenarbeit mit den Kindern und Jugendlichen sowie deren Eltern erfolgt auf der Grundlage eines tragfähigen, beziehungsorientierten Ansatzes und erstreckt sich über sämtliche Versorgungssettings hinweg.\n\nWir suchen Verstärkung für unser Team als:\n\nDipl. Pflegefachfrau / Pflegefachmann vorwiegend im Nachtdienst (Krisenintervention für Jugendliche)\n\n50%\n\nIhre Aufgaben\n\n• Gewährleistung der pädagogischen und pflegerischen Versorgung, welche sich an Best Practice und ethisch-moralischen Gesichtspunkten orientiert\n• Gestaltung eines ressourcenfördernden milieutherapeutischen Behandlungssettings mit starker Orientierung am Lebensumfeld der Kinder und Jugendlichen\n• Umsetzung des Pflegeprozesses vorwiegend im Nachtdienst (die Einarbeitung ist im Tagdienst)\n• Begleitung in Krisensituationen sowie Alltagsgestaltung\n• Beteiligung an Veränderungsprozessen, insbesondere der pflegerisch-therapeutischen Angebote\n• Sie sehen unsere Kinder und Jugendlichen im Mittelpunkt Ihrer Arbeit\n• Abgeschlossene Berufsausbildung als Pflegefachperson (Anerkennungsnachweis bei ausländischen Abschlüssen)\n• Sie verfügen über Erfahrungen im Bereich der Kinder- und Jugendpsychiatrie oder sind bereit, sich entsprechende Kompetenzen anzueignen\n• Freude an der interdisziplinären Zusammenarbeit sowie hohe Belastbarkeit\n• Spannende, abwechslungsreiche und verantwortungsvolle Aufgabebereiche in einem vielseitigen, dynamischen und universitär geprägten Umfeld\n• Regelmässige Fall- und Teamsupervisionen\n• Persönliche und fachliche Weiterentwicklungsmöglichkeiten\n• Anstellungsbedingungen nach kantonalem Personalgesetz\n• Attraktive Sozialleistungen (Übernahme von 60% der Pensionskassenbeiträge)\n• Vergünstigte Einkaufsmöglichkeiten sowie Sportangebote, Betriebseigene Kinderkrippe, Beteiligung am ZVV-BonusPass, etc.",
         "it": "•\n\nL'ospedale psichiatrico dell'Università di Zurigo tratta e si prende cura di persone mentalmente malate di tutte le età. Gli oltre 2.500 dipendenti delle 55 diverse professioni danno il loro contributo alla cura olistica dei pazienti in team interdisciplinari, dalla chiarificazione e dalla terapia al follow-up. Il nostro lavoro si basa sulla fiducia reciproca e sulla responsabilità personale e insieme promuoviamo una cultura aziendale innovativa. Come clinica universitaria, siamo coinvolti con successo in progetti di ricerca nazionali e internazionali.\n\nVita – Sicurezza attraverso la relazione\nNella vita, i bambini e gli adolescenti in crisi suicida sono intensamente accompagnati e curati da un team multi-professionale. L'offerta si estende dalla prevenzione alla cura di follow-up stazionaria e semistazione. La cooperazione con i bambini e gli adolescenti e i loro genitori si basa su un approccio sostenibile e orientato al rapporto e si estende su tutte le impostazioni di cura.\n\nStiamo cercando rinforzi per la nostra squadra come:\n\nDipl. Specialista infermieristico / infermieristico principalmente in servizio notturno (intervento di crisi per i giovani)\n\n50%\n\nI loro compiti\n\n• Assicurare l'assistenza educativa e infermieristica basata sulle migliori pratiche e aspetti etici-morale\n• Progettazione di un ambiente di trattamento milieuterapeutico stimolante dalle risorse con un orientamento forte verso l'ambiente di vita dei bambini e degli adolescenti\n• Attuazione del processo di cura principalmente nel servizio notturno (la formazione è nel servizio diurno)\n• Assistenza in situazioni di crisi e vita quotidiana\n• Partecipazione ai processi di cambiamento, in particolare alle offerte terapeutiche infermieristica\n• Vedete i nostri figli e i nostri giovani al centro del vostro lavoro\n• Formazione professionale completa come infermiera (certificato di riconoscimento per diplomi stranieri)\n• Hai esperienza in psichiatria infantile e adolescente o sono pronti ad acquisire competenze adeguate\n• Sfruttamento della cooperazione interdisciplinare e elevata resilienza\n• Attività emozionanti, varie e responsabili in un ambiente versatile, dinamico e orientato all'università\n• Custodie e supervisioni del team\n• Opportunità di sviluppo personale e professionale\n• Condizioni di lavoro secondo la legge cantonale del personale\n• Prestazioni sociali attraenti (acquisizione del 60% dei contributi pensionistici)\n• Sconti opportunità di shopping così come le offerte sportive, crèche di proprietà aziendale, la partecipazione alla ZVV-BonusPass, ecc.",
         "en": "•\n\nThe Psychiatric University Hospital Zurich treats and cares for mentally ill people of all ages. The more than 2,500 employees of the 55 different professions make their contribution to the holistic care of patients in interdisciplinary teams, from clarification and therapy to follow-up care. Our work is based on mutual trust and personal responsibility and together we promote an innovative corporate culture. As a university clinic, we are successfully involved in national and international research projects.\n\nLife – Safety through Relationship\nIn life, children and adolescents in suicidal crises are intensively accompanied and cared for by a multi-professional team. The offer extends from prevention to stationary and semi-stationary to ambulatory follow-up care. Cooperation with children and adolescents and their parents is based on a sustainable, relationship-oriented approach and extends across all care settings.\n\nWe are looking for reinforcement for our team as:\n\nDipl. Nursing specialist / nursing specialist mainly on night duty (crisis intervention for young people)\n\n50%\n\nTheir tasks\n\n• Ensuring educational and nursing care based on best practice and ethical-moral aspects\n• Design of a resource-promoting milieutherapeutic treatment setting with a strong orientation towards the living environment of children and adolescents\n• Implementation of the care process mainly in the night service (the training is in the day service)\n• Assistance in crisis situations and everyday life\n• Participation in change processes, in particular nursing-therapeutic offers\n• You see our children and young people at the center of your work\n• Completed vocational training as a nurse (certificate of recognition for foreign degrees)\n• You have experience in child and adolescent psychiatry or are ready to acquire appropriate skills\n• Enjoyment of interdisciplinary cooperation and high resilience\n• Exciting, varied and responsible tasks in a versatile, dynamic and university-oriented environment\n• Regular case and team supervisions\n• Personal and professional development opportunities\n• Conditions of employment according to the Cantonal Personnel Act\n• Attractive social benefits (acquisition of 60% of pension contributions)\n• Discounted shopping opportunities as well as sports offers, company-owned crèche, participation in the ZVV-BonusPass, etc.",
+        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nLife – Sicherheit durch Beziehung\nIm Life werden Kinder und Jugendliche in suizidalen Krisen durch ein multiprofessionelles Team intensiv begleitet und betreut. Das Angebot erstreckt sich von der Prävention über stationäre und teilstationäre bis hin zur ambulanten Nachsorge. Die Zusammenarbeit mit den Kindern und Jugendlichen sowie deren Eltern erfolgt auf der Grundlage eines tragfähigen, beziehungsorientierten Ansatzes und erstreckt sich über sämtliche Versorgungssettings hinweg.\n\nWir suchen Verstärkung für unser Team als:\n\nDipl. Pflegefachfrau / Pflegefachmann vorwiegend im Nachtdienst (Krisenintervention für Jugendliche)\n\n50%\n\nIhre Aufgaben\n\n• Gewährleistung der pädagogischen und pflegerischen Versorgung, welche sich an Best Practice und ethisch-moralischen Gesichtspunkten orientiert\n• Gestaltung eines ressourcenfördernden milieutherapeutischen Behandlungssettings mit starker Orientierung am Lebensumfeld der Kinder und Jugendlichen\n• Umsetzung des Pflegeprozesses vorwiegend im Nachtdienst (die Einarbeitung ist im Tagdienst)\n• Begleitung in Krisensituationen sowie Alltagsgestaltung\n• Beteiligung an Veränderungsprozessen, insbesondere der pflegerisch-therapeutischen Angebote\n• Sie sehen unsere Kinder und Jugendlichen im Mittelpunkt Ihrer Arbeit\n• Abgeschlossene Berufsausbildung als Pflegefachperson (Anerkennungsnachweis bei ausländischen Abschlüssen)\n• Sie verfügen über Erfahrungen im Bereich der Kinder- und Jugendpsychiatrie oder sind bereit, sich entsprechende Kompetenzen anzueignen\n• Freude an der interdisziplinären Zusammenarbeit sowie hohe Belastbarkeit\n• Spannende, abwechslungsreiche und verantwortungsvolle Aufgabebereiche in einem vielseitigen, dynamischen und universitär geprägten Umfeld\n• Regelmässige Fall- und Teamsupervisionen\n• Persönliche und fachliche Weiterentwicklungsmöglichkeiten\n• Anstellungsbedingungen nach kantonalem Personalgesetz\n• Attraktive Sozialleistungen (Übernahme von 60% der Pensionskassenbeiträge)\n• Vergünstigte Einkaufsmöglichkeiten sowie Sportangebote, Betriebseigene Kinderkrippe, Beteiligung am ZVV-BonusPass, etc.",
         "fr": "•\n\nL'hôpital psychiatrique de Zurich s'occupe des malades mentaux de tous âges. Plus de 2 500 employés des 55 professions différentes apportent leur contribution aux soins holistiques des patients dans les équipes interdisciplinaires, de la clarification et de la thérapie aux soins de suivi. Notre travail est basé sur la confiance mutuelle et la responsabilité personnelle et nous promouvons ensemble une culture d'entreprise innovante. En tant que clinique universitaire, nous participons avec succès à des projets de recherche nationaux et internationaux.\n\nVie – Sécurité par la relation\nDans la vie, les enfants et les adolescents en crise suicidaire sont accompagnés et pris en charge par une équipe multiprofessionnelle. L'offre va de la prévention aux soins de suivi fixes et semi-stationnaires aux soins ambulatoires. La coopération avec les enfants et les adolescents et leurs parents repose sur une approche durable et axée sur les relations et s'étend à tous les milieux de soins.\n\nNous cherchons des renforts pour notre équipe :\n\nDipl. Spécialiste des soins infirmiers / spécialiste des soins infirmiers principalement en service de nuit (intervention de crise pour les jeunes)\n\n50%\n\nLeurs tâches\n\n• Assurer des soins éducatifs et infirmiers fondés sur les meilleures pratiques et les aspects éthiques et moraux\n• Conception d'un cadre de traitement thérapeutique du milieu favorisant les ressources, avec une forte orientation vers le milieu de vie des enfants et des adolescents\n• Mise en œuvre du processus de soins principalement dans le service de nuit (la formation est en service de jour)\n• Assistance dans les situations de crise et la vie quotidienne\n• Participation aux processus de changement, en particulier les offres de soins infirmiers et thérapeutiques\n• Vous voyez nos enfants et nos jeunes au centre de votre travail\n• Formation professionnelle terminée en tant qu'infirmière (certificat de reconnaissance des diplômes étrangers)\n• Vous avez une expérience en psychiatrie de l'enfant et de l'adolescent ou êtes prêt à acquérir les compétences appropriées\n• Profitez de la coopération interdisciplinaire et d'une grande résilience\n• Des tâches passionnantes, variées et responsables dans un environnement polyvalent, dynamique et orienté vers l'université\n• Surveillance régulière des cas et des équipes\n• Possibilités de perfectionnement personnel et professionnel\n• Conditions d'emploi conformément à la loi sur le personnel cantonal\n• Prestations sociales attractives (acquisition de 60 % des cotisations de retraite)\n• Possibilités d'achats réduits ainsi que des offres sportives, crèche d'entreprise, participation au ZVV-BonusPass, etc."
       },
       "location": "Zürich",
@@ -4381,7 +4540,7 @@
       "url": "https://apply.refline.ch/163206/2714/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:40.557Z",
+      "crawledAt": "2026-08-05T11:28:26.818Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4462,7 +4621,7 @@
       "url": "https://apply.refline.ch/163206/2139/pub/12/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:40.130Z",
+      "crawledAt": "2026-08-05T11:28:26.375Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4625,7 +4784,7 @@
       "url": "https://apply.refline.ch/163206/2175/pub/13/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:39.711Z",
+      "crawledAt": "2026-08-05T11:28:25.933Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4716,7 +4875,7 @@
       "url": "https://apply.refline.ch/163206/2543/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:39.288Z",
+      "crawledAt": "2026-08-05T11:28:25.488Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4880,7 +5039,7 @@
       "url": "https://apply.refline.ch/163206/2735/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:38.868Z",
+      "crawledAt": "2026-08-05T11:28:25.044Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4962,7 +5121,7 @@
       "url": "https://apply.refline.ch/163206/2729/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:38.443Z",
+      "crawledAt": "2026-08-05T11:28:24.598Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5017,26 +5176,26 @@
       "id": "puk-zuerich-81b15af9ef72",
       "slug": "ausbildungsleitung-hf-pflege-con-verantwortung-per-gewaltpraventionsschulungen-per-auszubildende-e-studierende-psychiatrische-universitatsklinik-zurich",
       "slugByLocale": {
+        "de": "ausbildungsleitung-hf-pflege-mit-verantwortung-fur-gewaltpraventionsschulungen-fur",
         "it": "ausbildungsleitung-hf-pflege-con-verantwortung-per-gewaltpraventionsschulungen-per-auszubildende-e-studierende-psychiatrische-universitatsklinik-zurich",
         "en": "training-director-hf-care-with-responsibility-for-violence-prevention-training-for-trainees-and-students-psychiatrische",
-        "de": "ausbildungsleitung-hf-pflege-mit-verantwortung-fur-gewaltpraventionsschulungen-fur",
         "fr": "directeur-de-la-formation-hf-prise-en-charge-de-la-formation-des-stagiaires-et-des-etudiants-en-matiere-de-prevention-de"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
       "companyDomain": "pukzh.ch",
-      "title": "Ausbildungsleitung HF Pflege mit Verantwortung für Gewaltpräventionsschulungen für Auszubildende und Studierende",
+      "title": "Ausbildungsleiterin / Ausbildungsleiter HF Pflege",
       "titleByLocale": {
-        "it": "Ausbildungsleitung HF Pflege con Verantwortung per Gewaltpräventionsschulungen per Auszubildende e Studierende",
-        "en": "Training Director HF Care with responsibility for violence prevention training for trainees and students",
-        "de": "Ausbildungsleitung HF Pflege mit Verantwortung für Gewaltpräventionsschulungen für Auszubildende und Studierende",
-        "fr": "Directeur de la formation HF Prise en charge de la formation des stagiaires et des étudiants en matière de prévention de la violence"
+        "de": "Ausbildungsleiterin / Ausbildungsleiter HF Pflege",
+        "it": "Responsabile della Formazione / Capo della Formazione HF Care",
+        "en": "Head of Training / Head of Training HF Care",
+        "fr": "Chef de la formation / Chef de la formation HF Care"
       },
-      "description": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nHier gestalten Sie nicht nur Ausbildung – Sie entwickeln Bildung aktiv weiter. Sie möchten neue Ideen einbringen, innovative Lernformate mitentwickeln und die Pflegeausbildung gemeinsam mit einem engagierten Team zukunftsorientiert gestalten? Dann freuen wir uns darauf, Sie kennenzulernen.\nFür eine spannende Herausforderung suchen wir eine engagierte, strategisch denkende und kreative Persönlichkeit als\n\nAusbildungsleitung HF Pflege mit Verantwortung für Gewaltpräventionsschulungen für Auszubildende und Studierende\n\n80% - 100%\n\nIhre Aufgaben\n\n• Gesamtverantwortung für den Ausbildungsgang HF Pflege (Planung, Organisation, Umsetzung und Qualität)\n• Entwicklung innovativer Bildungsangebote und Lernformate sowie Sicherstellung der praktischen Lernbegleitung\n• Beratung und Coaching der Berufsbildenden und Führungspersonen sowie Führung und Begleitung anspruchsvoller Gespräche mit Studierenden und Lernenden\n• Verantwortung für das interne Schulungsprogramm (LTT) inkl. Qualitätssicherung sowie Mitarbeit an der Weiterentwicklung des Kompetenzzentrums Bildung\n• Rekrutierung und Bildungsmarketing für den Ausbildungsgang HF Pflege\n• Zusammenarbeit mit internen und externen Bildungsinstitutionen sowie Vertretung der PUK in Fachgremien\n• Konzeption, Durchführung und Weiterentwicklung von Schulungen zur Gewaltprävention und Deeskalation für Lernende und Studierende in enger Abstimmung mit der APN Gewaltprävention\n• Abschluss als Pflegefachperson HF/FH\n• Eidgenössischer Fachausweis Ausbilder/in (Erwachsenenbildung); ein Diplom in Erwachsenenbildung (HF) oder ein MAS/MSc im Bildungsbereich ist von Vorteil\n• Mehrjährige Berufserfahrung in der Pflege sowie Erfahrung in der Ausbildung von Studierenden HF Pflege\n• Erfahrung in der Koordination und Qualitätssicherung von Bildungsprozessen\n• Weiterbildung als Trainer/in für Gewaltprävention und Deeskalation (NAGS) oder Bereitschaft, diese zu absolvieren\n• Ausgeprägte Beratungs-, Kommunikations- und Organisationskompetenz\n• Selbstständige, strukturierte und konzeptionelle Arbeitsweise sowie Freude daran, Bildungsangebote mit eigenen Ideen kontinuierlich weiterzuentwickeln\n• Eine abwechslungsreiche Position mit hoher Eigenverantwortung und Gestaltungsspielraum\n• Die Möglichkeit, die Ausbildung zukünftiger Pflegefachpersonen sowie die Gewaltprävention in einer universitären Psychiatrie aktiv mitzugestalten\n• Engagierte interprofessionelle Zusammenarbeit in einem innovativen Bildungsumfeld\n• Anstellungsbedingungen nach kantonalem Personalrecht\n• Attraktive Sozialleistungen mit einer Beteiligung von 60 % an den Pensionskassenbeiträgen\n• Zahlreiche Zusatzleistungen wie vergünstigte Verpflegung, Sportangebote, Beteiligung am ZVV-BonusPass bzw. Generalabonnement sowie eine betriebseigene Kinderkrippe, etc.",
+      "description": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nIm Kompetenzzentrum Bildung gestalten Sie nicht nur Ausbildung – Sie entwickeln Bildung aktiv weiter. Sie möchten neue Ideen einbringen, innovative Lernformate mitentwickeln und die Pflegeausbildung gemeinsam mit einem engagierten Team zukunftsorientiert gestalten? Dann freuen wir uns darauf, Sie kennenzulernen.\n\nFür unser Kompetenzzentrum Bildung suchen wir per sofort oder nach Vereinbarung\n\nAusbildungsleiterin / Ausbildungsleiter HF Pflege\n\n80-100%\n\nIhre Aufgaben\n\n• Gesamtverantwortung für den Ausbildungsgang HF Pflege (Planung, Organisation, Umsetzung und Qualitätssicherung)\n• Entwicklung innovativer Bildungsangebote und Lernformate sowie Sicherstellung der praktischen Lernbegleitung\n• Beratung und Coaching von Berufsbildenden und Führungspersonen sowie Begleitung anspruchsvoller Gespräche mit Studierenden und Lernenden\n• Verantwortung für das interne Schulungsprogramm (LTT) sowie Mitwirkung bei Gewaltpräventionsschulungen für Auszubildende und Studierende\n• Mitarbeit an der Weiterentwicklung des Kompetenzzentrums Bildung sowie Rekrutierung und Bildungsmarketing für den Ausbildungsgang HF Pflege\n• Zusammenarbeit mit internen und externen Bildungsinstitutionen sowie Vertretung der PUK in Fachgremien\n• Abschluss als Pflegefachperson HF/FH\n• Eidgenössischer Fachausweis Ausbilder/in (Erwachsenenbildung); ein Diplom in Erwachsenenbildung (HF) oder MAS/MSc im Bildungsbereich von Vorteil\n• Mehrjährige Berufserfahrung in der Pflege sowie Erfahrung in der Ausbildung von Studierenden HF Pflege\n• Erfahrung in der Koordination und Qualitätssicherung von Bildungsprozessen\n• Weiterbildung als Trainer/in für Gewaltprävention und Deeskalation (NAGS) oder Bereitschaft, diese zu absolvieren\n• Ausgeprägte Beratungs-, Kommunikations- und Organisationskompetenz sowie eine selbstständige, strukturierte und konzeptionelle Arbeitsweise mit Freude an der kontinuierlichen Weiterentwicklung von Bildungsangeboten\n• Die Möglichkeit, die Ausbildung zukünftiger Pflegefachpersonen sowie die Gewaltprävention in einer universitären Psychiatrie aktiv mitzugestalten\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Gesundheit im Fokus: Diverse Sportangebote, grüne Oasen sowie ein klinikinternes Care-Team\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement",
       "descriptionByLocale": {
-        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nHier gestalten Sie nicht nur Ausbildung – Sie entwickeln Bildung aktiv weiter. Sie möchten neue Ideen einbringen, innovative Lernformate mitentwickeln und die Pflegeausbildung gemeinsam mit einem engagierten Team zukunftsorientiert gestalten? Dann freuen wir uns darauf, Sie kennenzulernen.\nFür eine spannende Herausforderung suchen wir eine engagierte, strategisch denkende und kreative Persönlichkeit als\n\nAusbildungsleitung HF Pflege mit Verantwortung für Gewaltpräventionsschulungen für Auszubildende und Studierende\n\n80% - 100%\n\nIhre Aufgaben\n\n• Gesamtverantwortung für den Ausbildungsgang HF Pflege (Planung, Organisation, Umsetzung und Qualität)\n• Entwicklung innovativer Bildungsangebote und Lernformate sowie Sicherstellung der praktischen Lernbegleitung\n• Beratung und Coaching der Berufsbildenden und Führungspersonen sowie Führung und Begleitung anspruchsvoller Gespräche mit Studierenden und Lernenden\n• Verantwortung für das interne Schulungsprogramm (LTT) inkl. Qualitätssicherung sowie Mitarbeit an der Weiterentwicklung des Kompetenzzentrums Bildung\n• Rekrutierung und Bildungsmarketing für den Ausbildungsgang HF Pflege\n• Zusammenarbeit mit internen und externen Bildungsinstitutionen sowie Vertretung der PUK in Fachgremien\n• Konzeption, Durchführung und Weiterentwicklung von Schulungen zur Gewaltprävention und Deeskalation für Lernende und Studierende in enger Abstimmung mit der APN Gewaltprävention\n• Abschluss als Pflegefachperson HF/FH\n• Eidgenössischer Fachausweis Ausbilder/in (Erwachsenenbildung); ein Diplom in Erwachsenenbildung (HF) oder ein MAS/MSc im Bildungsbereich ist von Vorteil\n• Mehrjährige Berufserfahrung in der Pflege sowie Erfahrung in der Ausbildung von Studierenden HF Pflege\n• Erfahrung in der Koordination und Qualitätssicherung von Bildungsprozessen\n• Weiterbildung als Trainer/in für Gewaltprävention und Deeskalation (NAGS) oder Bereitschaft, diese zu absolvieren\n• Ausgeprägte Beratungs-, Kommunikations- und Organisationskompetenz\n• Selbstständige, strukturierte und konzeptionelle Arbeitsweise sowie Freude daran, Bildungsangebote mit eigenen Ideen kontinuierlich weiterzuentwickeln\n• Eine abwechslungsreiche Position mit hoher Eigenverantwortung und Gestaltungsspielraum\n• Die Möglichkeit, die Ausbildung zukünftiger Pflegefachpersonen sowie die Gewaltprävention in einer universitären Psychiatrie aktiv mitzugestalten\n• Engagierte interprofessionelle Zusammenarbeit in einem innovativen Bildungsumfeld\n• Anstellungsbedingungen nach kantonalem Personalrecht\n• Attraktive Sozialleistungen mit einer Beteiligung von 60 % an den Pensionskassenbeiträgen\n• Zahlreiche Zusatzleistungen wie vergünstigte Verpflegung, Sportangebote, Beteiligung am ZVV-BonusPass bzw. Generalabonnement sowie eine betriebseigene Kinderkrippe, etc.",
         "it": "•\n\nL'ospedale psichiatrico dell'Università di Zurigo tratta e si prende cura di persone mentalmente malate di tutte le età. Gli oltre 2.500 dipendenti delle 55 diverse professioni danno il loro contributo alla cura olistica dei pazienti in team interdisciplinari, dalla chiarificazione e dalla terapia al follow-up. Il nostro lavoro si basa sulla fiducia reciproca e sulla responsabilità personale e insieme promuoviamo una cultura aziendale innovativa. Come clinica universitaria, siamo coinvolti con successo in progetti di ricerca nazionali e internazionali.\n\nQui non solo design istruzione – Essi stanno attivamente sviluppando l'istruzione. Vuoi contribuire a nuove idee, sviluppare formati di apprendimento innovativi e formare la formazione infermieristica insieme a un team impegnato in modo orientato al futuro? Allora non vediamo l'ora di incontrarti.\nPer una sfida emozionante siamo alla ricerca di una personalità impegnata, strategicamente pensante e creativa come\n\nDirettore della formazione HF Cura della responsabilità della formazione per la prevenzione della violenza per i tirocinanti e gli studenti\n\n80% - 100%\n\nI loro compiti\n\n• Responsabilità complessiva del corso di formazione HF Care (pianificazione, organizzazione, implementazione e qualità)\n• Sviluppare offerte educative innovative e formati di apprendimento e garantire un supporto pratico all'apprendimento\n• Consulenza e coaching dei tirocinanti e dei dirigenti professionali, nonché leadership e accompagnamento di discussioni impegnative con studenti e studenti\n• Responsabilità del programma di formazione interna (LTT) incl. Garanzia di qualità e partecipazione all'ulteriore sviluppo del Centro di competenza Istruzione\n• Reclutamento e marketing educativo per il corso di formazione HF Pflege\n• Cooperazione con le istituzioni educative interne ed esterne e rappresentanza del PUK in comitati esperti\n• Progettazione, implementazione e sviluppo di corsi di formazione per la prevenzione della violenza e de-escalation per studenti e studenti in stretto coordinamento con APN Prevenzione della violenza\n• grado come infermiera HF/FH\n• Bundesgenössischer Fachausweis Trainer (Adult Education); un diploma in istruzione per adulti (HF) o un MAS/MSc nell'istruzione è vantaggioso\n• Diversi anni di esperienza professionale in allattamento e l'esperienza negli studenti di formazione HF infermieristica\n• Esperienza nel coordinamento e garanzia di qualità dei processi educativi\n• Formazione come allenatore per la prevenzione della violenza e de-escalation (NAGS) o la volontà di completarla\n• Forte consulenza, comunicazione e competenza organizzativa\n• Metodi di lavoro indipendenti, strutturati e concettuali, nonché il piacere di sviluppare continuamente offerte educative con le proprie idee\n• Una posizione varia con un alto grado di responsabilità personale e di portata per il design\n• L'opportunità di partecipare attivamente alla formazione di futuri infermieri e prevenzione della violenza nella psichiatria universitaria\n• Impegnata cooperazione interprofessionale in un ambiente educativo innovativo\n• Condizioni di lavoro ai sensi del diritto del personale cantonale\n• Prestazioni sociali attraenti con una quota del 60 % dei contributi pensionistici\n• Numerosi servizi aggiuntivi come cibo scontato, offerte sportive, partecipazione al ZVV BonusPass o abbonamento generale e un crèche di proprietà dell'azienda, ecc.",
         "en": "•\n\nThe Psychiatric University Hospital Zurich treats and cares for mentally ill people of all ages. The more than 2,500 employees of the 55 different professions make their contribution to the holistic care of patients in interdisciplinary teams, from clarification and therapy to follow-up care. Our work is based on mutual trust and personal responsibility and together we promote an innovative corporate culture. As a university clinic, we are successfully involved in national and international research projects.\n\nHere you not only design education – They are actively developing education. Would you like to contribute new ideas, co-develop innovative learning formats and shape nursing training together with a committed team in a future-oriented manner? Then we look forward to meeting you.\nFor an exciting challenge we are looking for a committed, strategically thinking and creative personality as\n\nTraining Director HF Care with responsibility for violence prevention training for trainees and students\n\n80% - 100%\n\nTheir tasks\n\n• Overall responsibility for the training course HF Care (planning, organisation, implementation and quality)\n• Developing innovative educational offerings and learning formats and ensuring practical learning support\n• Advice and coaching of vocational trainees and managers as well as leadership and accompaniment of demanding discussions with students and learners\n• Responsibility for the internal training programme (LTT) incl. Quality assurance and participation in the further development of the Competence Center Education\n• Recruitment and educational marketing for the training course HF Pflege\n• Cooperation with internal and external educational institutions and representation of the PUK in expert committees\n• Design, implementation and further development of training courses for violence prevention and de-escalation for learners and students in close coordination with APN Violence Prevention\n• degree as a nurse HF/FH\n• Bundesgenössischer Fachausweis Trainer (Adult Education); a diploma in adult education (HF) or an MAS/MSc in education is advantageous\n• Several years of professional experience in nursing as well as experience in training students HF nursing\n• Experience in the coordination and quality assurance of educational processes\n• Training as a trainer for violence prevention and de-escalation (NAGS) or willingness to complete it\n• Strong consulting, communication and organisational competence\n• Independent, structured and conceptual working methods as well as pleasure in continuously developing educational offers with your own ideas\n• A varied position with a high degree of personal responsibility and scope for design\n• The opportunity to actively participate in the training of future nurses and violence prevention in university psychiatry\n• Engaged interprofessional cooperation in an innovative educational environment\n• Conditions of employment under cantonal staff law\n• Attractive social benefits with a 60 % share of pension contributions\n• Numerous additional services such as discounted food, sports offers, participation in the ZVV BonusPass or General subscription and a company-owned crèche, etc.",
+        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nIm Kompetenzzentrum Bildung gestalten Sie nicht nur Ausbildung – Sie entwickeln Bildung aktiv weiter. Sie möchten neue Ideen einbringen, innovative Lernformate mitentwickeln und die Pflegeausbildung gemeinsam mit einem engagierten Team zukunftsorientiert gestalten? Dann freuen wir uns darauf, Sie kennenzulernen.\n\nFür unser Kompetenzzentrum Bildung suchen wir per sofort oder nach Vereinbarung\n\nAusbildungsleiterin / Ausbildungsleiter HF Pflege\n\n80-100%\n\nIhre Aufgaben\n\n• Gesamtverantwortung für den Ausbildungsgang HF Pflege (Planung, Organisation, Umsetzung und Qualitätssicherung)\n• Entwicklung innovativer Bildungsangebote und Lernformate sowie Sicherstellung der praktischen Lernbegleitung\n• Beratung und Coaching von Berufsbildenden und Führungspersonen sowie Begleitung anspruchsvoller Gespräche mit Studierenden und Lernenden\n• Verantwortung für das interne Schulungsprogramm (LTT) sowie Mitwirkung bei Gewaltpräventionsschulungen für Auszubildende und Studierende\n• Mitarbeit an der Weiterentwicklung des Kompetenzzentrums Bildung sowie Rekrutierung und Bildungsmarketing für den Ausbildungsgang HF Pflege\n• Zusammenarbeit mit internen und externen Bildungsinstitutionen sowie Vertretung der PUK in Fachgremien\n• Abschluss als Pflegefachperson HF/FH\n• Eidgenössischer Fachausweis Ausbilder/in (Erwachsenenbildung); ein Diplom in Erwachsenenbildung (HF) oder MAS/MSc im Bildungsbereich von Vorteil\n• Mehrjährige Berufserfahrung in der Pflege sowie Erfahrung in der Ausbildung von Studierenden HF Pflege\n• Erfahrung in der Koordination und Qualitätssicherung von Bildungsprozessen\n• Weiterbildung als Trainer/in für Gewaltprävention und Deeskalation (NAGS) oder Bereitschaft, diese zu absolvieren\n• Ausgeprägte Beratungs-, Kommunikations- und Organisationskompetenz sowie eine selbstständige, strukturierte und konzeptionelle Arbeitsweise mit Freude an der kontinuierlichen Weiterentwicklung von Bildungsangeboten\n• Die Möglichkeit, die Ausbildung zukünftiger Pflegefachpersonen sowie die Gewaltprävention in einer universitären Psychiatrie aktiv mitzugestalten\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Gesundheit im Fokus: Diverse Sportangebote, grüne Oasen sowie ein klinikinternes Care-Team\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement",
         "fr": "•\n\nL'hôpital psychiatrique de Zurich s'occupe des malades mentaux de tous âges. Plus de 2 500 employés des 55 professions différentes apportent leur contribution aux soins holistiques des patients dans les équipes interdisciplinaires, de la clarification et de la thérapie aux soins de suivi. Notre travail est basé sur la confiance mutuelle et la responsabilité personnelle et nous promouvons ensemble une culture d'entreprise innovante. En tant que clinique universitaire, nous participons avec succès à des projets de recherche nationaux et internationaux.\n\nIci, vous ne vous contentez pas de concevoir l'éducation – Ils développent activement l'éducation. Aimeriez-vous apporter de nouvelles idées, co-développer des formats d'apprentissage novateurs et façonner la formation infirmière avec une équipe engagée dans l'avenir? Alors nous avons hâte de vous rencontrer.\nPour un défi passionnant, nous sommes à la recherche d'une pensée engagée, stratégique et de la personnalité créative\n\nDirecteur de la formation HF Prise en charge de la formation des stagiaires et des étudiants en matière de prévention de la violence\n\n80% - 100%\n\nLeurs tâches\n\n• Responsabilité globale du cours de formation HF Care (planification, organisation, mise en œuvre et qualité)\n• Développer des offres éducatives novatrices et des formats d'apprentissage et assurer un soutien à l'apprentissage pratique\n• Conseils et encadrement des stagiaires et des cadres professionnels ainsi que leadership et accompagnement de discussions exigeantes avec les étudiants et les apprenants\n• Responsabilité du programme de formation interne (LTT) Assurance qualité et participation à la poursuite du développement du Centre de compétences Éducation\n• Recrutement et marketing éducatif pour le cours de formation HF Pflege\n• Coopération avec les établissements d'enseignement internes et externes et représentation du PUK dans les comités d'experts\n• Concevoir, mettre en œuvre et développer des cours de formation à la prévention et à la désescalade de la violence à l ' intention des apprenants et des étudiants en étroite coordination avec l ' APN\n• Diplôme d'infirmière HF/FH\n• Bundesgenössischer Fachausweis Trainer (éducation des adultes); un diplôme en éducation des adultes (HF) ou un MAS/MSc en éducation est avantageux\n• Plusieurs années d'expérience professionnelle en soins infirmiers ainsi que d'expérience en formation d'étudiants HF infirmier\n• Expérience en matière de coordination et d ' assurance de la qualité des processus éducatifs\n• Formation en tant que formateur pour la prévention de la violence et la désescalade (NAGS) ou volonté de la compléter\n• Forte compétence en matière de conseil, de communication et d'organisation\n• Méthodes de travail indépendantes, structurées et conceptuelles ainsi que plaisir à développer continuellement des offres éducatives avec vos propres idées\n• Un poste varié avec un haut degré de responsabilité personnelle et la portée de la conception\n• La possibilité de participer activement à la formation des futures infirmières et à la prévention de la violence en psychiatrie universitaire\n• Engagement de la coopération interprofessionnelle dans un environnement éducatif innovant\n• Conditions d'emploi en droit cantonal du personnel\n• Prestations sociales attractives avec une part de 60 % des cotisations de retraite\n• De nombreux services supplémentaires tels que la nourriture à prix réduit, les offres sportives, la participation au ZVV BonusPass ou l'abonnement général et une crèche appartenant à l'entreprise, etc."
       },
       "location": "Zürich",
@@ -5044,7 +5203,7 @@
       "url": "https://apply.refline.ch/163206/2713/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:38.023Z",
+      "crawledAt": "2026-08-05T11:28:24.154Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5065,30 +5224,38 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "previousSlugs": [
-        "ausbildungsleitung-hf-pflege-mit-verantwortung-fur-gewaltpraventionsschulungen-fur"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "ausbildungsleiterin-ausbildungsleiter-hf-pflege-puk-zuerich-zurich"
+        ],
         "it": [
-          "ausbildungsleitung-hf-pflege-mit-verantwortung-fur-gewaltpraventionsschulungen-fur"
+          "ausbildungsleitung-hf-pflege-mit-verantwortung-fur-gewaltpraventionsschulungen-fur",
+          "ausbildungsleiterin-ausbildungsleiter-hf-pflege-puk-zuerich-zurich"
         ],
         "en": [
-          "ausbildungsleitung-hf-pflege-mit-verantwortung-fur-gewaltpraventionsschulungen-fur"
+          "ausbildungsleitung-hf-pflege-mit-verantwortung-fur-gewaltpraventionsschulungen-fur",
+          "ausbildungsleiterin-ausbildungsleiter-hf-pflege-psychiatrische-universitatsklinik-zurich"
         ],
         "fr": [
-          "ausbildungsleitung-hf-pflege-mit-verantwortung-fur-gewaltpraventionsschulungen-fur"
+          "ausbildungsleitung-hf-pflege-mit-verantwortung-fur-gewaltpraventionsschulungen-fur",
+          "ausbildungsleiterin-ausbildungsleiter-hf-pflege-psychiatrische-universitatsklinik-zurich"
         ]
       },
+      "previousSlugs": [
+        "ausbildungsleitung-hf-pflege-mit-verantwortung-fur-gewaltpraventionsschulungen-fur",
+        "ausbildungsleiterin-ausbildungsleiter-hf-pflege-puk-zuerich-zurich",
+        "ausbildungsleiterin-ausbildungsleiter-hf-pflege-psychiatrische-universitatsklinik-zurich"
+      ],
       "firstSeenAt": "2026-07-06T14:53:34.347Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -5124,7 +5291,7 @@
       "url": "https://apply.refline.ch/163206/0081/pub/8/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:37.604Z",
+      "crawledAt": "2026-08-05T11:28:23.711Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5203,7 +5370,7 @@
       "url": "https://apply.refline.ch/163206/1546/pub/8/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:37.183Z",
+      "crawledAt": "2026-08-05T11:28:23.267Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5280,7 +5447,7 @@
       "url": "https://apply.refline.ch/163206/2654/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:36.762Z",
+      "crawledAt": "2026-08-05T11:28:22.822Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5357,7 +5524,7 @@
       "url": "https://apply.refline.ch/163206/2548/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:36.343Z",
+      "crawledAt": "2026-08-05T11:28:22.379Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5435,7 +5602,7 @@
       "url": "https://apply.refline.ch/163206/2739/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:35.925Z",
+      "crawledAt": "2026-08-05T11:28:21.933Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5516,7 +5683,7 @@
       "url": "https://apply.refline.ch/163206/2719/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:35.486Z",
+      "crawledAt": "2026-08-05T11:28:21.460Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5592,7 +5759,7 @@
       "url": "https://apply.refline.ch/163206/2579/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:35.059Z",
+      "crawledAt": "2026-08-05T11:28:21.008Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5674,7 +5841,7 @@
       "url": "https://apply.refline.ch/163206/2644/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:14:31.551Z",
+      "crawledAt": "2026-08-05T11:28:17.351Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5919,7 +6086,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

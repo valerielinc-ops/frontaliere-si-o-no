@@ -93,9 +93,43 @@ export function parseHitachiEnergyListingJson(json) {
 
 /**
  * Check if the listing API response has more pages.
+ *
+ * The AEM `joblist.listsearchresults.json` endpoint states its own pagination
+ * contract in the payload: `loadMore` (boolean — "another page exists") and
+ * `totalNumber` (the full result count, e.g. 87). Prefer those over guessing
+ * from the page length.
+ *
+ * Why (issue #4993): the previous implementation inferred "there is another
+ * page" from `items.length >= PAGE_SIZE` alone. A full page that comes back
+ * one item short — the source filters a posting out server-side after paging,
+ * so page 1 carries 19 of 20 — reads as "last page" and the crawl stops
+ * immediately, silently discarding every later page. Observed in production
+ * on 2026-07-30 (run 30585824881): page 1 returned 19 items, the loop broke
+ * after that single page, `Total Switzerland listings: 19`, and the slice
+ * would have gone 84 → 18 jobs. Only the shrink guard stopped the write.
+ * `loadMore` was `true` in that same payload, so the authoritative signal was
+ * present and ignored. The length heuristic is kept as a last-resort fallback
+ * for a payload that carries neither field.
+ *
+ * @param {object} json          Parsed listing API response.
+ * @param {object} [options]
+ * @param {number} [options.fetchedCount] Items accumulated so far across all
+ *   pages, used with `totalNumber` when `loadMore` is absent.
+ * @returns {boolean}
  */
-export function hasMorePages(json) {
-  return (json?.items?.length || 0) >= PAGE_SIZE;
+export function hasMorePages(json, { fetchedCount } = {}) {
+  const pageLength = json?.items?.length || 0;
+  // An empty page always terminates, whatever the metadata claims.
+  if (pageLength === 0) return false;
+
+  if (typeof json?.loadMore === 'boolean') return json.loadMore;
+
+  const total = Number(json?.totalNumber);
+  if (Number.isFinite(total) && total > 0 && Number.isFinite(Number(fetchedCount))) {
+    return Number(fetchedCount) < total;
+  }
+
+  return pageLength >= PAGE_SIZE;
 }
 
 /**

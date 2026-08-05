@@ -3,6 +3,7 @@ import { BellRing, Check, Loader2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { subscribeJobAlertOneTap } from '@/services/jobAlertService';
+import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 
 /**
  * One-tap "Avvisami per ruoli come questo" CTA (issue #3650, JM3).
@@ -35,6 +36,12 @@ export interface JobMatchAlertCtaProps {
   onSubscribed?: () => void;
   /** Called when subscribe throws. */
   onErrored?: (error: unknown) => void;
+  /** Fired ONCE, the first time this CTA is genuinely visible in the viewport.
+   * Deliberately not a mount callback: this surface renders inside a long job
+   * list most visitors never scroll to, and firing on mount is what inflated the
+   * `job_alert_cta_shown` denominator of the alert_funnel_conversion goal with
+   * impressions nobody ever saw (issue #5039). */
+  onImpression?: () => void;
   /** Optional override for the subscribe call (used by tests). */
   subscribe?: typeof subscribeJobAlertOneTap;
 }
@@ -47,6 +54,7 @@ export default function JobMatchAlertCta({
   cantonCode,
   onSubscribed,
   onErrored,
+  onImpression,
   subscribe = subscribeJobAlertOneTap,
 }: JobMatchAlertCtaProps) {
   const { t } = useTranslation();
@@ -65,6 +73,9 @@ export default function JobMatchAlertCta({
     }
   }, [categoryLabel, cantonCode, email, locale, onErrored, onSubscribed, subscribe, userId]);
 
+  // Impression = genuinely on screen, never merely mounted (issue #5039).
+  const impressionRef = useImpressionTracker(() => { if (onImpression) onImpression(); });
+
   if (status === 'success') {
     return (
       <p className="inline-flex items-center gap-2 text-sm font-semibold text-success">
@@ -75,7 +86,7 @@ export default function JobMatchAlertCta({
   }
 
   return (
-    <div>
+    <div ref={impressionRef}>
       <button
         type="button"
         onClick={handleClick}

@@ -50,10 +50,14 @@ import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
+import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { resolveJobDiffKey } from './lib/job-match-key.mjs';
+import { validateJobUrls } from './lib/validate-job-url.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -138,21 +142,33 @@ export function registerCrawlerSummaryGuard(key, label) {
  *   3. Strip a leading `:` / whitespace left over from `Location:Ticino`.
  *   4. Trim.
  *   5. If the value still smells like prose (>60 char OR contains tell-tale
- *      body-content keywords), fall back to "Ticino" — by-crawler files are
- *      Ticino-targeted, so the canton label is a safe, audit-friendly default.
+ *      body-content keywords), fall back to the job's OWN canton label.
+ *
+ * On (5) and on the empty/"undefined" guard the fallback used to be the literal
+ * `'Ticino'` — written when by-crawler files really were Ticino-only. The funnel
+ * now serves all 26 cantons, so that constant silently relabels a Nidwalden or
+ * Bern posting as Ticino: `inferAnyCanton('Ticino')` then returns TI, the canton
+ * field flips, the job is emitted under `/cerca-lavoro-ticino/`, ships
+ * `addressRegion:"TI"` in its JobPosting (AGENTS.md Non-Negotiable #3) and
+ * pollutes the single query that carries most of the organic traffic. Callers
+ * therefore pass the job's own canton label (`cantonFallbackLocality`), and the
+ * bare `'Ticino'` survives only where there is genuinely no canton on record.
+ *
+ * @param {unknown} rawValue
+ * @param {string} [fallbackLocality='Ticino'] locality to use when the value
+ *   carries no usable city — derive it from the job's canton, never hardcode.
  */
-function sanitizeJobLocationField(rawValue) {
+function sanitizeJobLocationField(rawValue, fallbackLocality = 'Ticino') {
   if (typeof rawValue !== 'string') return rawValue;
   const original = rawValue;
+  const fallback = String(fallbackLocality || '').trim() || 'Ticino';
   // A detail parser that returns the literal string "undefined"/"null" (or an
   // empty/whitespace value) slips past every `|| fallback` (truthy) and would
   // become `addressLocality: "undefined"` → Google rejects the JobPosting
   // structured data → de-index (AGENTS.md non-negotiable #3). Issue #900.
-  // by-crawler files are Ticino-targeted, so the canton label is a safe,
-  // audit-friendly default (same fallback this function already uses for prose).
   const trimmedOriginal = original.trim();
   if (trimmedOriginal === '' || /^(undefined|null)$/i.test(trimmedOriginal)) {
-    return 'Ticino';
+    return fallback;
   }
   let s = original
     .replace(/^.*?Location\s*[:.]?\s*/i, '')
@@ -165,9 +181,60 @@ function sanitizeJobLocationField(rawValue) {
     .replace(/^[\s:]+/, '')
     .trim();
   if (s.length > 60 || /\b(availability|offer you|requirements|inspektionen|home ?office|company address|posizione esclusivamente|ottima conoscenza|befristet)\b/i.test(s)) {
-    return 'Ticino';
+    return fallback;
   }
   return s === '' ? original : s;
+}
+
+/**
+ * Locality label to use when a job's own location text is unusable.
+ *
+ * Returns the Italian display name of the job's canton ("NW" → "Nidvaldo"), so
+ * the placeholder agrees with the canton the crawler recorded instead of
+ * contradicting it. Falls back to `'Ticino'` only for a job with no canton at
+ * all — there the funnel's primary canton is the historical default and the
+ * canton fill/pin logic downstream is what decides the real section.
+ *
+ * @param {object} job
+ * @returns {string}
+ */
+export function cantonFallbackLocality(job) {
+  const code = String(job?.canton || '').toUpperCase().trim();
+  if (!code) return 'Ticino';
+  const label = getCantonDisplayName(code, 'it');
+  return label && label !== code ? label : 'Ticino';
+}
+
+/**
+ * Re-label a canton-ONLY locality that names a canton the job is not in.
+ *
+ * A locality like "Ticino" is not a municipality — it is the canton's own name
+ * standing in for a city, produced by `safeLocationToken`'s default fallback,
+ * by a publisher intake field, or by a parser that scraped the region label.
+ * `isWeakCantonOnlyLabelOverride` (#4570) already stops such a label flipping
+ * the job's `canton`, and `resolveCantonAgainstPin` stops a stale pin doing the
+ * same — but the string itself survives into `addressLocality`, so a Solothurn
+ * or Nidwalden posting still ships `jobLocation.address.addressLocality:
+ * "Ticino"` in its JobPosting (AGENTS.md Non-Negotiable #3 — jobLocation must
+ * be correct, in every locale) and reads as a Ticino job to anyone scanning the
+ * card. 111 live records carried this shape.
+ *
+ * Rewrites the label to the job's OWN canton name; leaves real city names, and
+ * labels that already agree with the job's canton, untouched.
+ *
+ * @param {string} value current locality string
+ * @param {string} canton job's canton code
+ * @returns {string} the value, or the job's canton label when the value names a
+ *   different canton
+ */
+export function realignCantonOnlyLocality(value, canton) {
+  const s = String(value ?? '').trim();
+  const code = String(canton || '').toUpperCase().trim();
+  if (!s || !code) return value;
+  if (!isCantonOnlyLabel(s)) return value;
+  if (inferAnyCanton(s) === code) return value;
+  const label = getCantonDisplayName(code, 'it');
+  return label && label !== code ? label : value;
 }
 
 /**
@@ -250,8 +317,13 @@ export function normalizeParsedJobsForSlice(jobs) {
   for (const job of jobs) {
     if (!job || typeof job !== 'object') continue;
 
+    const localityFallback = cantonFallbackLocality(job);
+
     if (typeof job.location === 'string') {
-      const cleaned = sanitizeJobLocationField(job.location);
+      const cleaned = realignCantonOnlyLocality(
+        sanitizeJobLocationField(job.location, localityFallback),
+        job.canton,
+      );
       if (cleaned !== job.location) {
         job.location = cleaned;
         locationFixed++;
@@ -270,7 +342,10 @@ export function normalizeParsedJobsForSlice(jobs) {
     // rather than persisting an empty locality (which propagates to
     // deriveCanton/deriveStreetAddress lookups that key on addressLocality).
     if (typeof job.addressLocality === 'string' && job.addressLocality.trim()) {
-      const cleanedAddr = sanitizeJobLocationField(job.addressLocality);
+      const cleanedAddr = realignCantonOnlyLocality(
+        sanitizeJobLocationField(job.addressLocality, localityFallback),
+        job.canton,
+      );
       if (cleanedAddr !== job.addressLocality) job.addressLocality = cleanedAddr;
     } else if (!String(job.addressLocality || '').trim() && typeof job.location === 'string' && job.location.trim()) {
       job.addressLocality = job.location;
@@ -415,7 +490,7 @@ const DATA_STATS = path.join(ROOT, 'data', 'jobs-stats.json');
 // `/data/jobs-stats.json`, which Vite copies from public/. generateJobBoardStats
 // writes both on a full build; the cache-HIT path must restore both too.
 const PUBLIC_STATS = path.join(ROOT, 'public', 'data', 'jobs-stats.json');
-const ASSEMBLE_OUTPUT_CACHE_VERSION = '2026-06-30-canton-pin-inference-override-v1';
+const ASSEMBLE_OUTPUT_CACHE_VERSION = '2026-08-05-canton-pin-job-canton-authoritative-v1';
 
 /**
  * Compute a fingerprint of all crawler-slice input files so the assembly can
@@ -680,6 +755,240 @@ export function shouldBlockShrink(priorCount, newCount) {
   return priorCount > 0 && newCount < priorCount * SHRINK_GUARD_SMALL_BASELINE_RATIO;
 }
 
+/* ── Evidence-based shrink acceptance (issue #5016 / #5017) ─────────────
+ *
+ * The shrink guard above is a *refusal*: it keeps the prior slice on disk and
+ * throws. That is right when the source degraded, but it had no counterpart
+ * for the opposite (and equally real) case — the employer genuinely closed
+ * most of its vacancies. In that state the guard bricks the crawler forever:
+ * every run trips it, throws, fails the workflow step, re-files the
+ * "Crawler Failure" issue, and — because the group workflow only runs
+ * housekeeping and commit when the crawl step SUCCEEDED — the slice freezes
+ * with jobs that no longer exist at the source. Those dead jobs keep their
+ * live job pages instead of being archived into the expired soft-landing
+ * path, so the guard designed to prevent silent content loss starts causing
+ * silent content ROT.
+ *
+ * Observed on grace-la-margna: 14 winter-season postings expired at the end
+ * of July 2026, hotelcareer.com has listed exactly 1 open position on every
+ * run since (runs 30814154182, 30905340681, 30955742385 all discovered the
+ * same single "Restaurant Supervisor (m/w)" posting), the independent board
+ * catererglobal.com shows 0, and the crawler has failed 10 runs in a row.
+ *
+ * The fix is NOT a lower threshold: the threshold is untouched. It is a
+ * *proof requirement*. Before a shrink is accepted, every job the new payload
+ * drops must be shown to be gone at its own source URL, using the same
+ * fail-open validator housekeeping already uses (`validateJobUrl`) and
+ * counting ONLY its `definitive` verdicts — HTTP 404/410, redirect to a
+ * generic listing, an ATS "position closed" marker, or an explicit
+ * "no longer available" phrase. Anything ambiguous (timeout, 403/429, bot
+ * challenge, auth wall, network error) is reported as still-alive, so a
+ * blocked or degraded source can never masquerade as a legitimate shrink —
+ * which is exactly the failure mode the guard exists to catch.
+ */
+
+/** Identity used to diff prior vs new slice jobs. */
+function shrinkJobKey(job) {
+  return resolveJobDiffKey(job) || `title:${String(job?.title || '').trim().toLowerCase()}`;
+}
+
+/**
+ * Probe the jobs a shrinking write would drop and decide whether the source
+ * itself corroborates the drop.
+ *
+ * Pure orchestration around an injectable validator so it is unit-testable
+ * without network access.
+ *
+ * @param {object[]} priorJobs  Jobs currently persisted in the slice.
+ * @param {object[]} newJobs    Jobs this run wants to persist.
+ * @param {object} [options]
+ * @param {(jobs: Array<{id: string, url: string}>, opts?: object) => Promise<Array<{id?: string, valid: boolean, definitive?: boolean, reason: string}>>} [options.validate]
+ *   Defaults to the shared `validateJobUrls`.
+ * @param {number} [options.concurrency]
+ * @param {number} [options.timeoutMs]
+ * @returns {Promise<{corroborated: boolean, checked: number, dead: number, alive: number, unverifiable: number, evidence: Array<{url: string, reason: string}>, survivors: Array<{url: string, reason: string}>}>}
+ */
+export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}) {
+  const validate = options.validate || validateJobUrls;
+  const keptKeys = new Set((newJobs || []).map(shrinkJobKey));
+  const disappeared = (priorJobs || []).filter((job) => !keptKeys.has(shrinkJobKey(job)));
+
+  // Nothing disappeared. Two very different situations produce this, and only
+  // one of them is safe:
+  //   (a) pure dedup — the prior slice held the same job twice, every key
+  //       survives, no content is lost. Corroborated, nothing to probe.
+  //   (b) the caller diffed the WRONG arrays — e.g. `newJobs` is a pre-filter
+  //       snapshot while the count that tripped the guard came from a filtered
+  //       one. Then "nothing disappeared" is vacuously true and accepting it
+  //       would wave a real drop through with zero evidence.
+  // The caller can pass `expectedNewCount` (the count the guard actually
+  // measured) to tell them apart: if the array we diffed is not the array that
+  // was measured, we refuse rather than guess.
+  const expectedNewCount = options.expectedNewCount;
+  if (Number.isFinite(expectedNewCount) && (newJobs || []).length !== expectedNewCount) {
+    return {
+      corroborated: false,
+      checked: 0,
+      dead: 0,
+      alive: 0,
+      unverifiable: (priorJobs || []).length,
+      evidence: [],
+      survivors: [],
+      disappearedJobs: [],
+      reason: `array-mismatch: diffed ${(newJobs || []).length} jobs but the guard measured ${expectedNewCount}`,
+    };
+  }
+  if (disappeared.length === 0) {
+    return { corroborated: true, checked: 0, dead: 0, alive: 0, unverifiable: 0, evidence: [], survivors: [], disappearedJobs: [] };
+  }
+
+  // Bound the probe budget. A legitimately huge drop is possible, but probing
+  // it unbounded inside the crawl step is not: at DEFAULT_CONCURRENCY=10 and a
+  // 7s timeout the worst case grows linearly. Above the cap we REFUSE (the
+  // guard stands, prior slice kept) rather than accept on partial evidence —
+  // the conservative direction, and the drop can still be applied deliberately
+  // via SKIP_SHRINK_GUARD=1 after a human look.
+  const maxProbes = Number(process.env.SHRINK_VERIFY_MAX_PROBES) || options.maxProbes || 500;
+  if (disappeared.length > maxProbes) {
+    return {
+      corroborated: false,
+      checked: disappeared.length,
+      dead: 0,
+      alive: 0,
+      unverifiable: disappeared.length,
+      evidence: [],
+      survivors: [],
+      disappearedJobs: disappeared,
+      reason: `probe-budget-exceeded: ${disappeared.length} disappearing jobs > cap ${maxProbes}`,
+    };
+  }
+
+  // A job with no URL can never be proven dead — treat it as still-alive so
+  // the shrink stays blocked rather than accepted on absent evidence.
+  const probeable = disappeared.filter((job) => typeof job?.url === 'string' && job.url.trim());
+  const unverifiable = disappeared.length - probeable.length;
+
+  const results = probeable.length
+    ? await validate(
+        probeable.map((job) => ({ id: shrinkJobKey(job), url: job.url })),
+        { concurrency: options.concurrency, timeoutMs: options.timeoutMs },
+      )
+    : [];
+
+  const evidence = [];
+  const survivors = [];
+  results.forEach((result, i) => {
+    const url = probeable[i]?.url || '';
+    // ONLY a definitive dead verdict is evidence. `valid: false` without
+    // `definitive` never occurs today, but treating it as non-evidence keeps
+    // this correct if the validator gains softer signals later.
+    if (result && result.valid === false && result.definitive === true) {
+      evidence.push({ url, reason: result.reason });
+    } else {
+      survivors.push({ url, reason: result?.reason || 'unknown' });
+    }
+  });
+
+  return {
+    corroborated: unverifiable === 0 && survivors.length === 0 && evidence.length === disappeared.length,
+    checked: disappeared.length,
+    dead: evidence.length,
+    alive: survivors.length,
+    unverifiable,
+    evidence,
+    survivors,
+    // Full job objects (slug + locale data intact) so an accepted shrink can
+    // archive them into the expired soft-landing slice instead of leaving
+    // their indexed URLs to 404.
+    disappearedJobs: disappeared,
+  };
+}
+
+/**
+ * Async wrapper around `writeJobsCrawlerSlice` that gives a genuinely-shrunk
+ * source a way through the guard, with proof.
+ *
+ * Behaviour is identical to calling `writeJobsCrawlerSlice` directly except
+ * when the guard would block: then it probes the disappearing jobs and, only
+ * if EVERY one of them is provably gone at its own source URL, retries the
+ * write with the guard bypassed for that single write. Otherwise the original
+ * guard error is rethrown unchanged, so a degraded scrape still fails loudly
+ * and still keeps the prior slice.
+ *
+ * @param {string} crawlerKey
+ * @param {object[]} jobs
+ * @param {object} [options] Passed through to `writeJobsCrawlerSlice`; also
+ *   accepts `validate` / `concurrency` / `timeoutMs` for the probe.
+ */
+export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = {}) {
+  const { validate, concurrency, timeoutMs, ...writeOptions } = options;
+  try {
+    writeJobsCrawlerSlice(crawlerKey, jobs, writeOptions);
+    return { written: true, shrinkAccepted: false };
+  } catch (err) {
+    if (!String(err?.message || '').startsWith('[shrink-guard]')) throw err;
+
+    // Use the arrays the guard ACTUALLY measured, not this function's `jobs`
+    // argument. writeJobsCrawlerSlice reassigns `jobs` internally
+    // (quarantineBoilerplateJobs returns a new filtered array) and hardens it,
+    // so a quarantine-driven shrink is invisible in the caller's array: diffing
+    // against it would find nothing disappeared and wave the write through with
+    // no evidence at all. Without the attached payload we cannot know what was
+    // measured, so we refuse instead of guessing.
+    const measured = err?.shrinkGuard;
+    if (!measured || !Array.isArray(measured.finalJobs) || !Array.isArray(measured.priorJobs)) {
+      console.error(
+        `  🚫 ${crawlerKey}: shrink guard tripped without a measurement payload — cannot verify, keeping the prior slice.`,
+      );
+      throw err;
+    }
+    const priorJobs = measured.priorJobs;
+    console.log(
+      `  🔬 ${crawlerKey}: shrink guard tripped (${measured.priorCount} → ${measured.newCount}) — probing the disappearing job(s) against the source before deciding.`,
+    );
+    const verdict = await verifyShrinkAgainstSource(priorJobs, measured.finalJobs, {
+      validate,
+      concurrency,
+      timeoutMs,
+      expectedNewCount: measured.newCount,
+    });
+
+    if (!verdict.corroborated) {
+      console.error(
+        `  🚫 ${crawlerKey}: shrink NOT corroborated — ${verdict.alive} of ${verdict.checked} disappearing job(s) are still live at the source` +
+          (verdict.unverifiable ? `, ${verdict.unverifiable} have no URL to probe` : '') +
+          (verdict.reason ? ` [${verdict.reason}]` : '') +
+          `. Keeping the prior slice (guard stands).`,
+      );
+      for (const s of verdict.survivors.slice(0, 5)) {
+        console.error(`     ↳ still live: ${s.url} (${s.reason})`);
+      }
+      throw err;
+    }
+
+    console.warn(
+      `  ✅ ${crawlerKey}: shrink CORROBORATED — all ${verdict.dead} disappearing job(s) are provably gone at the source. Accepting the smaller slice.`,
+    );
+    for (const e of verdict.evidence.slice(0, 10)) {
+      console.warn(`     ↳ gone: ${e.url} (${e.reason})`);
+    }
+
+    // SEO continuity: a job leaving the slice without an expired entry turns
+    // its indexed URL into a hard 404 instead of an enriched soft-landing
+    // page (docs/CRAWLERS.md → "Slug Lifecycle & SEO Continuity"). The
+    // template pipeline already archives `diff.removedJobs` at its own step;
+    // archiving here as well is idempotent (the archive merges by slug) and
+    // closes the same gap for bespoke runners that have no such step.
+    const archived = archiveRemovedJobsToSlice(verdict.disappearedJobs, crawlerKey);
+    if (archived > 0) {
+      console.warn(`  📦 Archived ${archived} expired job(s) → data/jobs/expired/by-crawler/${crawlerKey}.json (soft-landing pages preserved).`);
+    }
+
+    writeJobsCrawlerSlice(crawlerKey, jobs, { ...writeOptions, skipShrinkGuard: true });
+    return { written: true, shrinkAccepted: true, verdict, archived };
+  }
+}
+
 /**
  * Decide whether a raw `inferAnyCanton()` result may be used to fill/correct
  * a job's canton. `inferAnyCanton` scans all 26 Swiss cantons (BFS-backed),
@@ -724,6 +1033,81 @@ export function acceptInferredCantonForFill(rawInferred) {
  */
 export function isWeakCantonOnlyLabelOverride(existingCanton, locationText) {
   return Boolean(existingCanton) && isCantonOnlyLabel(String(locationText || '').trim());
+}
+
+/**
+ * Reconcile a job's canton with the canton PIN ledger, and say what the ledger
+ * must hold afterwards.
+ *
+ * The ledger exists to stop the URL section (`/cerca-lavoro-<canton>/<slug>/`)
+ * drifting between builds as `inferAnyCanton`'s municipality DB grows. That is
+ * a tie-break job: it is only ever the *best available* signal when the record
+ * carries no canton of its own.
+ *
+ * It used to be more than that — the pin won over the job's own `canton`
+ * whenever `inferAnyCanton(city)` came back empty, which is the normal outcome
+ * for any city BFS doesn't list as a municipality (a hamlet, a resort, a
+ * "Remote" placeholder). `Obbürgen` (a village inside Stansstad, NW) is exactly
+ * that: Bürgenstock Hotels AG records canton NW on all 39 postings, BFS cannot
+ * resolve "Obbürgen", a stale TI pin therefore overwrote NW on every build, and
+ * — because a wrong pin was never rewritten — it could never heal (#4838).
+ * Measured across `data/jobs/by-crawler/`: **1,188 jobs** in 100+ employers were
+ * being relabelled this way, plus 455 where inference already beat the pin but
+ * the stale value stayed in the ledger and would take over again the moment the
+ * location text degraded.
+ *
+ * Precedence, highest first:
+ *   1. the job's own resolved canton (crawler-declared, or BFS-inferred by the
+ *      fill step above) — per-job evidence, and stable across builds because it
+ *      comes from parser config / the posting itself, not from a growing DB;
+ *   2. the pin — used only to fill a canton the job does not have.
+ *
+ * When (1) contradicts the ledger the ledger is REWRITTEN, so the correction is
+ * durable instead of being re-applied (and re-lost) every build. Re-sectioning
+ * an already-indexed URL is covered by the cross-canton relocation bridge
+ * (#3144, `activeDriftRealPathByCompat` in build-plugins/jobsSeoPagesPlugin.ts),
+ * which serves the legacy path as a canonical bridge to the live page.
+ *
+ * Exported for unit testing.
+ *
+ * @param {object} args
+ * @param {string} args.jobCanton      job's canton AFTER the inference fill step.
+ * @param {string|null} args.inferredCanton  accepted `inferAnyCanton` result, or null.
+ * @param {string|undefined} args.pinnedCanton  ledger value for this identity.
+ * @returns {{canton: string, pin: string, outcome: 'pin-frozen'|'pin-agrees'|'pin-corrected'|'pin-added'|'unpinned'}}
+ *   `canton` = the canton to emit; `pin` = the value the ledger must hold
+ *   (`''` means "do not record a pin for this identity").
+ */
+export function resolveCantonAgainstPin({ jobCanton, inferredCanton, pinnedCanton }) {
+  const raw = String(jobCanton || '').toUpperCase().trim();
+  const inferred = String(inferredCanton || '').toUpperCase().trim();
+  const pinned = String(pinnedCanton || '').toUpperCase().trim();
+  // "A canton of our own" means one the funnel actually serves. A crawler that
+  // records the COUNTRY code (`canton: "CH"` — 3 live records) or any other
+  // off-funnel value has no URL section to be placed in, so it must neither
+  // overrule the ledger nor be written INTO it: doing so would turn a job the
+  // pin was placing correctly into an orphan-non-target, the exact outcome
+  // `acceptInferredCantonForFill` already prevents on the inference path. Same
+  // guard, other input.
+  const job = isTargetCanton(raw) ? raw : '';
+
+  if (!pinned) {
+    // Only pin a NON-EMPTY canton backed by a confident city inference: pinning
+    // "" would freeze the job mis-placed forever, and pinning an unverified
+    // value would re-create the stale ledger this function exists to drain.
+    if (inferred && job) return { canton: job, pin: job, outcome: 'pin-added' };
+    // Nothing better to offer: hand back the value unchanged rather than
+    // blanking it — an off-funnel canton with no pin is a crawler bug for the
+    // location audit to surface, not something to silently erase here.
+    return { canton: raw, pin: '', outcome: 'unpinned' };
+  }
+  if (!job) {
+    // No canton of our own — the pin is the only signal there is. Freeze to it:
+    // this is the URL-stability guarantee the ledger was built for.
+    return { canton: pinned, pin: pinned, outcome: 'pin-frozen' };
+  }
+  if (job === pinned) return { canton: job, pin: pinned, outcome: 'pin-agrees' };
+  return { canton: job, pin: job, outcome: 'pin-corrected' };
 }
 
 const SWISS_PC_RE = /^\d{4}$/;
@@ -1355,7 +1739,23 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
       const report = { crawlerKey, priorCount, newCount, ratio: newCount / priorCount };
       console.error(`\n🚨 Shrink guard FAILED for ${crawlerKey}: ${newCount}/${priorCount} jobs (${Math.round(report.ratio * 100)}% of prior) — refusing to persist, prior slice on disk kept\n`);
       _createShrinkGuardIssue(crawlerKey, report);
-      throw new Error(`[shrink-guard] ${crawlerKey}: slice would shrink from ${priorCount} to ${newCount} jobs (${Math.round(report.ratio * 100)}% of prior) — refusing to write, source likely returned degraded results. Override with SKIP_SHRINK_GUARD=1 if this is a legitimate drop.`);
+      const shrinkErr = new Error(`[shrink-guard] ${crawlerKey}: slice would shrink from ${priorCount} to ${newCount} jobs (${Math.round(report.ratio * 100)}% of prior) — refusing to write, source likely returned degraded results. Override with SKIP_SHRINK_GUARD=1 if this is a legitimate drop.`);
+      // Carry the EXACT arrays the guard measured. `jobs` is reassigned inside
+      // this function (`quarantineBoilerplateJobs` returns a new filtered
+      // array, it does not mutate the caller's), so the caller's own `jobs`
+      // argument is NOT what `newCount` counted. Any consumer that re-derives
+      // the drop set from the caller's array would miss a quarantine-driven
+      // shrink entirely and see an empty diff — i.e. "nothing disappeared" —
+      // which is vacuously true and would wave the write through with zero
+      // evidence. Attaching the measured arrays makes that class impossible.
+      shrinkErr.shrinkGuard = {
+        crawlerKey,
+        priorCount,
+        newCount,
+        priorJobs: existingSlice.jobs,
+        finalJobs: hardened.jobs,
+      };
+      throw shrinkErr;
     }
   }
 
@@ -1578,8 +1978,15 @@ async function assembleJobs() {
   // is hardened.
   let sanitizedLoc = 0;
   for (const job of deduped) {
-    const cleanedLoc = sanitizeJobLocationField(job.location);
-    const cleanedAddr = sanitizeJobLocationField(job.addressLocality);
+    const localityFallback = cantonFallbackLocality(job);
+    const cleanedLoc = realignCantonOnlyLocality(
+      sanitizeJobLocationField(job.location, localityFallback),
+      job.canton,
+    );
+    const cleanedAddr = realignCantonOnlyLocality(
+      sanitizeJobLocationField(job.addressLocality, localityFallback),
+      job.canton,
+    );
     if (cleanedLoc !== job.location) {
       job.location = cleanedLoc;
       sanitizedLoc++;
@@ -1781,34 +2188,31 @@ async function assembleJobs() {
     // of this crawl); a NEW pin is recorded only with a confident inferred canton.
     const pinId = buildStableJobIdentity(job);
     if (pinId) {
+      // Precedence + ledger self-healing live in resolveCantonAgainstPin: the
+      // pin fills a canton the job does not have, and is REWRITTEN whenever the
+      // job resolved one of its own that contradicts it. buildStableJobIdentity
+      // keys on the apply URL, which COLLIDES when a crawler reuses one listing
+      // URL across postings (galenica ships every role as
+      // https://jobs.galenica.com/it/jobs): a single early TI pin froze 220
+      // non-TI jobs (Bern/Vaud/ZH…) onto the TI section — wrong canton, wrong
+      // addressRegion, buried in sitemap-jobs-ticino (the 2026-06
+      // max-bfs-depth regression). Same shape as #4838's Obbürgen freeze; both
+      // are resolved by treating per-job evidence as authoritative over the
+      // ledger.
       const pinned = cantonPins[pinId];
-      if (pinned) {
-        // A pin must NOT override the job's own confidently-inferred canton.
-        // buildStableJobIdentity keys on the apply URL, which COLLIDES when a
-        // crawler reuses one listing URL across postings (galenica ships every
-        // role as https://jobs.galenica.com/it/jobs): a single early TI pin then
-        // froze 220 non-TI jobs (Bern/Vaud/ZH…) onto the TI section — wrong
-        // canton + wrong addressRegion + buried in sitemap-jobs-ticino (the
-        // 2026-06 max-bfs-depth regression). The job's location is per-job
-        // authoritative, so when inference confidently resolves a DIFFERENT
-        // canton it wins over the pin. #3144's relocation bridge keeps the
-        // legacy-TI URL alive, so re-sectioning a mis-pinned job no longer 404s
-        // an indexed URL. A city-less job (inferred === null) still honours the
-        // pin, preserving the URL-stability guarantee for jobs whose location
-        // dropped out of this crawl.
-        if (inferred && inferred !== pinned) {
-          cantonPinsCorrected++;
-        } else if (job.canton !== pinned) {
-          job.canton = pinned;
-          if (job.addressRegion && job.addressRegion.length === 2) job.addressRegion = pinned;
-          cantonPinsFrozen++;
-        }
-      } else if (inferred && job.canton) {
-        // Only pin a NON-EMPTY canton: pinning "" would freeze the job
-        // mis-placed forever (the empty-canton bug the fill above prevents).
-        cantonPins[pinId] = job.canton;
-        cantonPinsAdded++;
+      const decision = resolveCantonAgainstPin({
+        jobCanton: job.canton,
+        inferredCanton: inferred,
+        pinnedCanton: pinned,
+      });
+      if (decision.canton !== job.canton) {
+        job.canton = decision.canton;
+        if (job.addressRegion && job.addressRegion.length === 2) job.addressRegion = decision.canton;
       }
+      if (decision.pin && cantonPins[pinId] !== decision.pin) cantonPins[pinId] = decision.pin;
+      if (decision.outcome === 'pin-frozen') cantonPinsFrozen++;
+      else if (decision.outcome === 'pin-corrected') cantonPinsCorrected++;
+      else if (decision.outcome === 'pin-added') cantonPinsAdded++;
     }
   }
   try {
@@ -1823,7 +2227,7 @@ async function assembleJobs() {
     console.log(`  🚧 Canton off-target: skipped ${cantonOffTargetSkipped} inferred-but-off-funnel canton(s) (left as-is — see warnings above for triage)`);
   }
   if (cantonPinsFrozen > 0 || cantonPinsAdded > 0 || cantonPinsCorrected > 0) {
-    console.log(`  📌 Canton pins: froze ${cantonPinsFrozen} to indexed canton, added ${cantonPinsAdded}, corrected ${cantonPinsCorrected} (location overrode colliding pin) (ledger ${Object.keys(cantonPins).length})`);
+    console.log(`  📌 Canton pins: froze ${cantonPinsFrozen} canton-less job(s) to the pinned canton, added ${cantonPinsAdded}, corrected ${cantonPinsCorrected} (job's own canton overrode a contradicting pin — ledger rewritten) (ledger ${Object.keys(cantonPins).length})`);
   }
   if (cantonEmptyNoSignal > 0) {
     // #2772 item 2: these jobs cannot self-heal next assemble either — their

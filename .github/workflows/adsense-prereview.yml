@@ -106,9 +106,14 @@ jobs:
         uses: ./.github/actions/build-dist-multi-locale-merged
 
       - name: Run AdSense pre-review audit
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text
+          # (${{ … }} is substituted before the shell parses the line).
+          INPUT_SAMPLE: ${{ inputs.sample || '140' }}
+          INPUT_STRICT: ${{ inputs.strict || 'true' }}
         run: |
-          SAMPLE="${{ inputs.sample || '140' }}"
-          STRICT="${{ inputs.strict || 'true' }}"
+          SAMPLE="$INPUT_SAMPLE"
+          STRICT="$INPUT_STRICT"
           FLAGS="--sample $SAMPLE --save"
           if [ "$STRICT" = "true" ]; then
             FLAGS="$FLAGS --strict"

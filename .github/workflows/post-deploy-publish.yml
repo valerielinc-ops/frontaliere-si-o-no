@@ -208,9 +208,11 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Dispatch/call inputs reach the shell as DATA, never as script text.
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
         run: |
           DATA=$(node scripts/deploy-registry.mjs get \
-            --run-id="${{ inputs.deploy_run_id }}" 2>/dev/null || echo '{}')
+            --run-id="$INPUT_DEPLOY_RUN_ID" 2>/dev/null || echo '{}')
           echo "data=$DATA" >> "$GITHUB_OUTPUT"
 
       - name: Wait for live article metadata
@@ -343,6 +345,8 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Dispatch/call inputs reach the shell as DATA, never as script text.
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
         run: |
           # Standard "Workflow Failure: <name>" prefix so the central reconciler
           # (close-recovered-failure-issues.mjs) auto-closes on recovery; <name> equals
@@ -351,7 +355,7 @@ jobs:
           node scripts/lib/github-issue-creator.mjs \
             --title "Workflow Failure: Post-deploy Publish (side-effects + mark good)" \
             --description "## Publish post-deploy fallita
-          **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}
+          **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/$INPUT_DEPLOY_RUN_ID
           **Publish run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           **Branch:** ${{ github.ref_name }}
           **SHA:** ${{ github.sha }}

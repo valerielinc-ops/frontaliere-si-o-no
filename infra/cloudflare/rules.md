@@ -58,6 +58,43 @@ purpose/rollback. Rule 3 is the subject of this doc:
   overload from every SEO-page load re-fetching early-boot.js); the origin is
   static GitHub Pages, so this is not expected to matter in practice.
 
+### `fonts-long-browser-ttl`
+
+- **Rule id:** `9ecdce037b004ef79665463893132a91`
+- **Expression:** `(http.host eq "frontaliereticino.ch" and starts_with(http.request.uri.path, "/fonts/"))`
+- **Action:** `set_cache_settings` → `edge_ttl` + `browser_ttl` `override_origin` 2592000 (30d)
+- **Purpose:** stable-named first-party `woff2`/`ttf` get a 30-day cache instead
+  of the origin's 600s (issue #3533). Safe to override here — unlike
+  `/assets/*`, a font file's bytes do not change per deploy.
+
+### `cdn-r2-passthrough-cache` (managed by `scripts/cf-locale-failover-setup.mjs`)
+
+- **Rule id:** `0c83f11bdd424cf28d7dabaf637ba525`
+- **Expression:** `(http.host eq "cdn.frontaliereticino.ch" and http.request.uri.path ne "/cdn-build-id.txt")`
+- **Action:** `set_cache_settings` → `cache: true`, `edge_ttl: {mode: respect_origin}`,
+  `browser_ttl: {mode: respect_origin}`
+- **THE LOAD-BEARING FACT:** because the edge TTL *respects origin*, the
+  `Cache-Control` written onto each R2 object by
+  `scripts/lib/deploy-it-pages-prep.sh` `_r2_sync` **is** the Cloudflare edge
+  TTL. `cdn-assets-revalidate` below rewrites only what the *browser* sees, in a
+  later phase — it has no effect on how long the edge holds its own copy. The
+  two are independent knobs and are deliberately different values.
+- **Origin note:** `cdn.frontaliereticino.ch` is an **R2 bucket custom domain**
+  (bucket `frontaliere-cdn`, proxied `CNAME → public.r2.dev`; confirm with
+  `GET accounts/{account}/r2/buckets/frontaliere-cdn/domains/custom`). It is
+  *not* the GitHub Pages repo of the same name — several triage passes on the
+  `cloudflare-5xx` issues assumed Pages and reasoned from the wrong origin.
+- **Why `/assets/*` must never be `immutable`:** bundle filenames are stable,
+  not content-hashed (`tests/stable-asset-names.test.ts`), so bytes change under
+  the same URL every deploy. With `respect_origin`, an `immutable` object header
+  meant the edge could serve one build's chunk for up to a year — the
+  cross-chunk version skew behind #5062/#4644. Objects now ship
+  `public,max-age=604800` and the deploy purges exactly the keys it re-uploaded
+  (`scripts/ci/purge-changed-cdn-assets.mjs`); the 7d TTL is only the backstop
+  if that purge is missed. Guarded by `tests/cdn-asset-cache-headers.test.ts`.
+- **Rollback:** managed by `scripts/cf-locale-failover-setup.mjs` — re-run that
+  script to restore, do not hand-edit.
+
 ## Ruleset `ea906d4f1c7d46f099ad16c15864896b` — phase `http_response_headers_transform`
 
 ### `cdn-assets-revalidate` (pre-existing, undocumented before this doc)

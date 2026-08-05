@@ -66,15 +66,19 @@ jobs:
 
       - name: Resolve dry-run mode
         id: mode
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_DRY_RUN: ${{ github.event.inputs.dry_run || 'true' }}
+          INPUT_THRESHOLD: ${{ github.event.inputs.threshold || '5' }}
         run: |
           set -euo pipefail
           # Default: cron runs APPLY; workflow_dispatch honors the input.
           if [ "${{ github.event_name }}" = "schedule" ]; then
             dry_run="false"
           else
-            dry_run="${{ github.event.inputs.dry_run || 'true' }}"
+            dry_run="$INPUT_DRY_RUN"
           fi
-          threshold="${{ github.event.inputs.threshold || '5' }}"
+          threshold="$INPUT_THRESHOLD"
           echo "dry_run=$dry_run"     >> "$GITHUB_OUTPUT"
           echo "threshold=$threshold" >> "$GITHUB_OUTPUT"
           echo "Mode: dry_run=$dry_run threshold=$threshold"

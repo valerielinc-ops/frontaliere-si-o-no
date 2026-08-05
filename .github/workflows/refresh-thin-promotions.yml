@@ -96,10 +96,14 @@ jobs:
       # GitHub secret refs. FIREBASE_SERVICE_ACCOUNT_JSON / GOOGLE_APPLICATION_CREDENTIALS
       # already in env from the first step.
       - name: Fetch thin-page promotions
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_WINDOW_HOURS: ${{ github.event.inputs.window_hours || '24' }}
+          INPUT_ACTIVE_WINDOW_DAYS: ${{ github.event.inputs.active_window_days || '30' }}
         run: |
           node scripts/fetch-thin-page-promotions.mjs \
-            --window-hours="${{ github.event.inputs.window_hours || '24' }}" \
-            --active-window-days="${{ github.event.inputs.active_window_days || '30' }}"
+            --window-hours="$INPUT_WINDOW_HOURS" \
+            --active-window-days="$INPUT_ACTIVE_WINDOW_DAYS"
 
       # Single-writer invariant (see #794/#801): this is the ONLY automated writer of
       # data/thin-page-promotions-*.json + .jsonl — a new writer would break the rebase-retry loop.

@@ -63,10 +63,13 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_DAYS: ${{ github.event.inputs.days || '7' }}
+          INPUT_NO_POST: ${{ github.event.inputs.no_post }}
         run: |
           set -euo pipefail
-          ARGS="--days ${{ github.event.inputs.days || '7' }}"
-          if [ "${{ github.event.inputs.no_post }}" = "true" ]; then
-            ARGS="$ARGS --no-post"
+          ARGS=(--days "$INPUT_DAYS")
+          if [ "$INPUT_NO_POST" = "true" ]; then
+            ARGS+=(--no-post)
           fi
-          node scripts/ci/loop-health-report.mjs $ARGS | tee -a "$GITHUB_STEP_SUMMARY"
+          node scripts/ci/loop-health-report.mjs "${ARGS[@]}" | tee -a "$GITHUB_STEP_SUMMARY"
