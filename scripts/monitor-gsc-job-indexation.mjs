@@ -575,9 +575,8 @@ async function main() {
   // Act on failures
   if (failedPages.length > 0 && !DRY_RUN) {
     const priority = persistentFailures.length > 0 ? 1 : 2;
-    const titlePrefix = persistentFailures.length > 0 ? '(PERSISTENT) ' : '';
     log('🚨', `${failedPages.length} FAIL(s) detected — creating GitHub issue (P${priority})`);
-    await createGithubIssue(failedPages, results, priority, titlePrefix);
+    await createGithubIssue(failedPages, results, priority, persistentFailures);
 
     // Auto-redeploy for canonical regressions
     await triggerRedeploy(failedPages);
@@ -609,7 +608,7 @@ async function main() {
 }
 
 // ── GitHub Issue ────────────────────────────────────────────
-async function createGithubIssue(failedPages, results, priority = 1, titlePrefix = '') {
+async function createGithubIssue(failedPages, results, priority = 1, persistentFailures = []) {
   const apiKey = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
   if (!apiKey) {
     log('ℹ️', 'GH_TOKEN/GITHUB_TOKEN not set — skipping');
@@ -621,6 +620,9 @@ async function createGithubIssue(failedPages, results, priority = 1, titlePrefix
     '',
     `**Date**: ${new Date().toISOString().split('T')[0]}`,
     `**Summary**: ${results.PASS} pass, ${results.FAIL} fail, ${results.WARN} warn, ${results.STALE} stale`,
+    persistentFailures.length > 0
+      ? `**PERSISTENT**: ${persistentFailures.length} page(s) still failing across consecutive runs (issue filed at priority ${priority}).`
+      : '**Persistence**: first run with these failures.',
     '',
     '### Failed Pages',
     ...failedPages.map(p => {
@@ -638,7 +640,13 @@ async function createGithubIssue(failedPages, results, priority = 1, titlePrefix
   try {
     const { createGithubIssue: create } = await import('./lib/github-issue-creator.mjs');
     await create({
-      title: `[Monitor] ${titlePrefix}job page(s) with indexation issues`,
+      // Stable title (ISSUES.md dedup a monte, issue #5121). The `(PERSISTENT) `
+      // prefix used to be interpolated here, so the moment the SAME failures
+      // survived into a second run the title changed and the helper opened a
+      // SECOND issue for the condition it was already tracking. Persistence is
+      // an escalation of one condition, not a different one: it now shows up in
+      // the priority (1 vs 2) and in the body, where the page list lives anyway.
+      title: '[Monitor] job page(s) with indexation issues',
       description,
       priority,
       labels: ['Bug'],
