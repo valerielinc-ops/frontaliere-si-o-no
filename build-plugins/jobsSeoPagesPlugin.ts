@@ -33,6 +33,11 @@ import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { registerKeywordLandingPaths } from './shared/keywordLandingPlan';
+import {
+  buildLocaleAlternateBlock,
+  buildSitemapAlternateBlock,
+  type AlternateLocale,
+} from './shared/localeAlternateBlock';
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
 import { markCantonNoindex } from './shared/cantonNoindexRegistry';
 import { markCantonSectorPage } from './shared/cantonSectorPageRegistry';
@@ -8420,6 +8425,11 @@ ${staticAnalyticsHtml}
  }
 
  /* ── GSC-driven keyword landing pages ──────────────────────── */
+ // Anti-doorway floor (CLAUDE.md non-negotiable #4 — no thin indexed
+ // content): a keyword landing needs at least this many matching jobs in a
+ // locale before that locale gets a page. Named because it now ALSO decides
+ // the hreflang alternate set (issue #5114) — the two must never drift.
+ const KEYWORD_LANDING_MIN_JOBS = 3;
  let keywordPageCount = 0;
  const keywordSitemapEntries: string[] = [];
  const kwConfigPath = np.resolve(rootDir, 'data/keyword-pages-config.json');
@@ -8445,10 +8455,54 @@ ${staticAnalyticsHtml}
  ].join(' ').toLowerCase();
  return kwFilterWords.every((kw: string) => haystack.includes(kw));
  };
+ // ── Cross-locale eligibility, decided BEFORE any locale is written ──
+ //
+ // The floor below is evaluated against THIS locale's own translations
+ // (#4715), so a keyword can clear it in IT and miss it in DE/EN/FR.
+ // `localeList` is visited IT-first, so the old code had already WRITTEN
+ // the IT page — carrying a templated four-locale alternate block — by
+ // the time DE was found ineligible. Those are the 22 `missingTarget`
+ // offenders of issue #5114.
+ //
+ // Hoisting the floor here makes the alternate set and the emission
+ // decision the SAME decision: `kwEligibleLocales` feeds both the
+ // `continue` below and the hreflang block, so an alternate for a page
+ // this build never writes is no longer expressible.
+ //
+ // Shard-stable on purpose: `sortedForPagination` + `kwMatchesLocale`
+ // are identical on every BUILD_LOCALE shard (only the WRITE is
+ // sharded), so all shards compute the same set and the cross-shard
+ // hreflang graph stays consistent. A dist-existence stat could NOT do
+ // this — `shared/hreflangGuard.ts` deliberately keeps unresolvable
+ // alternates on a shard because a sibling locale living on another
+ // shard is absent by design. That blind spot is why the post-walk
+ // repair never caught these.
+ const kwJobsByLocale = new Map<string, any[]>();
+ const kwEligibleLocales = new Set<string>();
+ for (const l of localeList) {
+ if (shouldEmitLocale(l)) {
+ // This shard renders `l`: keep the full (capped) list, it is the
+ // page's job payload. Cost-neutral vs the previous code, which ran
+ // exactly this filter per locale in the default all-locale build.
+ const arr = sortedForPagination.filter((j: any) => kwMatchesLocale(j, l)).slice(0, 30);
+ kwJobsByLocale.set(l, arr);
+ if (arr.length >= KEYWORD_LANDING_MIN_JOBS) kwEligibleLocales.add(l);
+ } else {
+ // Another shard renders `l`: we only need the floor verdict, so stop
+ // counting at the floor instead of materialising up to 30 matches.
+ let n = 0;
+ for (const j of sortedForPagination) {
+ if (kwMatchesLocale(j, l) && ++n >= KEYWORD_LANDING_MIN_JOBS) break;
+ }
+ if (n >= KEYWORD_LANDING_MIN_JOBS) kwEligibleLocales.add(l);
+ }
+ }
+ const kwHrefFor = (al: AlternateLocale): string =>
+ `${BASE_URL}${withSlash(`${localePrefix[al]}/${sectionByLocale[al]}/${searchRoutePrefix[al]}-${kwSlug}`.replace(/\/+/g, '/'))}`;
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
- const kwJobs = sortedForPagination.filter((j: any) => kwMatchesLocale(j, locale)).slice(0, 30);
- if (kwJobs.length < 3) continue;
+ const kwJobs = kwJobsByLocale.get(locale) ?? [];
+ if (!kwEligibleLocales.has(locale)) continue;
  const kwUniqueCompanies = [...new Set(kwJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
  const kwUniqueLocations = [...new Set(kwJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
  const __tGsc = startTimer();
@@ -8494,17 +8548,14 @@ ${staticAnalyticsHtml}
  roleDisplay: kwQueryDisplay || (locale === 'it' ? 'lavoro' : locale === 'en' ? 'jobs' : locale === 'de' ? 'Stellen' : 'emploi'),
  count: kwJobs.length,
  });
- const kwAlternatesPairs = localeList.map((al) => {
- const alSlug = `${searchRoutePrefix[al]}-${kwSlug}`;
- const alPath = `${localePrefix[al]}/${sectionByLocale[al]}/${alSlug}`.replace(/\/+/g, '/');
- return { lang: al, href: `${BASE_URL}${withSlash(alPath)}` };
+ // Alternates come from the SAME set that gates emission above, so this
+ // page can only advertise locales this build actually writes. Returns ''
+ // when any locale misses the floor — audit-hreflang skips pages with no
+ // hreflang but fails partial sets as `tooFew` (issue #5114).
+ const kwAlternates = buildLocaleAlternateBlock({
+ eligibleLocales: kwEligibleLocales,
+ hrefFor: kwHrefFor,
  });
- const kwXDefaultHref = kwAlternatesPairs.find((p) => p.lang === 'it')?.href ?? kwAlternatesPairs[0]?.href ?? kwCanonicalUrl;
- // audit-hreflang requires x-default on every multi-locale page.
- const kwAlternates = [
- ...kwAlternatesPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
- ` <link rel="alternate" hreflang="x-default" href="${kwXDefaultHref}">`,
- ].join('\n');
  const kwListHtml = jobCardListBody(kwJobs, locale);
  const kwCollLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: kwTitle, url: kwCanonicalUrl, description: kwDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` } });
  const kwCtaCopy: Record<string, string> = {
@@ -8621,11 +8672,24 @@ ${staticAnalyticsHtml}
  const lp = withSlash(`${localePrefix[l]}/${sectionByLocale[l]}/${ls}`.replace(/\/+/g, '/'));
  kwLocalePaths.set(l, lp);
  }
- const kwSmAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${kwLocalePaths.get(l)}" />`).join('\n');
+ // Same eligibility set as the HTML block above. Sitemaps have no `tooFew`
+ // rule — reciprocity only asks that every advertised alternate is itself a
+ // published <loc> — so this FILTERS rather than voiding: an ineligible
+ // locale has no page on any shard, and advertising it points the crawler
+ // at a 404 exactly as the HTML block did (issue #5114, same class).
+ const kwSmAlternates = buildSitemapAlternateBlock({
+ eligibleLocales: kwEligibleLocales,
+ hrefFor: (l) => `${BASE_URL}${kwLocalePaths.get(l)}`,
+ });
  // Every locale gets its own reciprocal <loc> entry (#3499) -- see
  // pushEditorialSitemapEntry above for rationale.
  for (const l of localeList) {
  const p = kwLocalePaths.get(l)!;
+ // IT is exempt from the existence stat (on a non-IT shard the IT page is
+ // written by ANOTHER shard, so a stat here would false-negative), but it
+ // is NOT exempt from the floor: below it no shard writes an IT page and
+ // the <loc> would advertise a 404 (issue #5114, same class).
+ if (!kwEligibleLocales.has(l)) continue;
  if (l !== 'it') {
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
  if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
@@ -8676,6 +8740,18 @@ ${staticAnalyticsHtml}
  const fallbackMatchingJobs = pickSearchLandingFallbackJobs(matchingJobsByLocale);
  if (fallbackMatchingJobs.length === 0) continue;
 
+ // Eligibility, derived the same way the emit loop below decides: a locale
+ // with no own matches still gets a page from `fallbackMatchingJobs`, which
+ // is non-empty by the guard above — so this set is normally all four.
+ // Derived rather than hardcoded so that if a future floor lands here the
+ // alternates follow it automatically instead of drifting into the #5114
+ // failure mode.
+ const _eligibleLocales = new Set<string>(
+ localeList.filter(
+ (l) => matchingJobsByLocale[l].length > 0 || fallbackMatchingJobs.length > 0,
+ ),
+ );
+
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const matchingJobs = matchingJobsByLocale[locale].length > 0
@@ -8700,17 +8776,11 @@ ${staticAnalyticsHtml}
  const cappedTitle = capSearchStatsLandingTitle(rawTitle);
  const title = buildTitleWithBrand(cappedTitle);
  const description = copy.description(name, matchingJobs.length);
- const _altPairs = localeList
- .map((altLocale) => {
- const altSlug = `${searchRoutePrefix[altLocale]}-${key}`;
- const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altSlug}`.replace(/\/+/g, '/');
- return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
+ const alternates = buildLocaleAlternateBlock({
+ eligibleLocales: _eligibleLocales,
+ hrefFor: (altLocale) =>
+ `${BASE_URL}${withSlash(`${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${searchRoutePrefix[altLocale]}-${key}`.replace(/\/+/g, '/'))}`,
  });
- const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
- const alternates = [
-  ..._altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
-  ` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`,
- ].join('\n');
  const listHtml = jobCardListBody(matchingJobs, locale);
 
  const searchBodyParts: string[] = [];
@@ -8893,6 +8963,13 @@ ${staticAnalyticsHtml}
  const matchingJobs = validJobs.filter(filterFn).slice(0, 20);
  if (matchingJobs.length === 0) return;
 
+ // `filterFn` is locale-agnostic and `matchingJobs` is non-empty here, so
+ // every locale gets a page and the set is all four. Derived, not
+ // hardcoded — see the search-stats site above for why (#5114).
+ const _comboEligibleLocales = new Set<string>(
+ localeList.filter(() => matchingJobs.length > 0),
+ );
+
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tSearchCombo = startTimer();
@@ -8904,17 +8981,11 @@ ${staticAnalyticsHtml}
  const copy = copyByLocale[locale];
  const comboTitle = buildTitleWithBrand(String(copy.title || '').replace(/\s*\|\s*Frontaliere Ticino\s*$/i, ''));
  const description = copy.description(matchingJobs.length);
- const _altPairs = localeList
- .map((altLocale) => {
- const altSlug = `${searchRoutePrefix[altLocale]}-${comboKey}`;
- const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altSlug}`.replace(/\/+/g, '/');
- return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
+ const alternates = buildLocaleAlternateBlock({
+ eligibleLocales: _comboEligibleLocales,
+ hrefFor: (altLocale) =>
+ `${BASE_URL}${withSlash(`${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${searchRoutePrefix[altLocale]}-${comboKey}`.replace(/\/+/g, '/'))}`,
  });
- const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
- const alternates = [
-  ..._altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
-  ` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`,
- ].join('\n');
  const listHtml = jobCardListBody(matchingJobs, locale);
 
  const comboOgImage = ` <meta property="og:image" content="${BASE_URL}/og-image.png">\n <meta property="og:image:width" content="1200">\n <meta property="og:image:height" content="630">\n <meta property="og:image:type" content="image/png">`;

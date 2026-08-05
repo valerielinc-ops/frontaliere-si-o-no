@@ -77,10 +77,25 @@ on:
         required: false
         type: string
         default: ''
+    outputs:
+      integrity_ok:
+        description: >-
+          'true' when no DEPLOY-INVALIDATING gate failed, i.e. the dist is a
+          valid site even if a quality audit is red. The caller gates
+          `publish` (IndexNow / Google Indexing API / GSC) on this instead of
+          on this workflow's overall result — a red quality audit must not
+          sequester the indexing notification of an already-live deploy
+          (issues #4828, #5128). Classification: QUALITY_GATES in
+          scripts/ci/classify-validate-dist-failures.mjs, default-deny.
+          Empty/absent ⇒ the caller's `== 'true'` test is false ⇒ publish is
+          skipped, so this fails closed.
+        value: ${{ jobs.integrity-verdict.outputs.integrity_ok }}
 
 jobs:
   validate-dist-source:
     runs-on: ubuntu-latest
+    outputs:
+      failed_gates: ${{ steps.gate-results.outputs.failed_gates }}
     permissions:
       actions: read     # for download-artifact same-run (github-pages, sitemaps, shard tars)
     steps:
@@ -526,6 +541,27 @@ jobs:
           fi
           echo "✅ Source validators + Pages artifact download complete"
 
+      # Publish the per-gate verdict for the integrity classifier below.
+      # `if: always()` because the step above exits 1 on any failure and the
+      # failing case is precisely the one we need to classify. Job outputs
+      # ARE readable by dependent jobs of a FAILED job within this workflow
+      # (the reusable-workflow boundary is the part that drops them — hence
+      # the separate always-green `integrity-verdict` job).
+      - name: Publish gate results
+        id: gate-results
+        if: always()
+        run: |
+          if [ -s /tmp/source-val-results.txt ]; then
+            printf 'failed_gates=%s\n' \
+              "$(awk '!/rc=0$/ {printf "%s%s", sep, $1; sep=","}' /tmp/source-val-results.txt)" \
+              >> "$GITHUB_OUTPUT"
+          else
+            # Job died before any validator recorded a row. Emitting the
+            # sentinel (rather than nothing) keeps "crashed" distinguishable
+            # from "all green" — the classifier fails closed on it.
+            echo 'failed_gates=__UNKNOWN__' >> "$GITHUB_OUTPUT"
+          fi
+
       # Informational diff between the live sitemaps (currently deployed) and
       # the new dist/ that's about to replace them. Helps spot anomalies — a
       # single deploy adding 5 URLs and removing 500 is almost always a bug
@@ -537,6 +573,8 @@ jobs:
 
   validate-dist-postbuild:
     runs-on: ubuntu-latest
+    outputs:
+      failed_gates: ${{ steps.gate-results.outputs.failed_gates }}
     permissions:
       actions: read     # for download-artifact same-run (github-pages, sitemaps, shard tars)
     steps:
@@ -1033,6 +1071,24 @@ jobs:
           [ $FAIL -eq 0 ] || exit 1
           echo "✅ All post-build validators + audits passed"
 
+      # Per-gate verdict for the integrity classifier (see `integrity-verdict`
+      # at the end of this file). `if: always()` — the step above exits 1 on
+      # failure and the failing case is exactly the one to classify.
+      - name: Publish gate results
+        id: gate-results
+        if: always()
+        run: |
+          if [ -s /tmp/post-build-timings.txt ]; then
+            printf 'failed_gates=%s\n' \
+              "$(awk '!/rc=0$/ {printf "%s%s", sep, $1; sep=","}' /tmp/post-build-timings.txt)" \
+              >> "$GITHUB_OUTPUT"
+          else
+            # No row recorded ⇒ the job died before/inside the gate step.
+            # Sentinel is an unclassified gate name, so the default-deny
+            # classifier blocks publish on it.
+            echo 'failed_gates=__UNKNOWN__' >> "$GITHUB_OUTPUT"
+          fi
+
       # bfs-depth baseline-candidate dump moved to validate-dist-postbuild-bfs
       # (this file) — audit:max-bfs-depth (and its /tmp/g19.log) now runs
       # there, not in this job.
@@ -1090,6 +1146,8 @@ jobs:
   # WITH EACH OTHER even though they're now parallel with audit:all).
   validate-dist-postbuild-bfs:
     runs-on: ubuntu-latest
+    outputs:
+      failed_gates: ${{ steps.gate-results.outputs.failed_gates }}
     permissions:
       actions: read     # for download-artifact same-run (github-pages, sitemaps, shard tars)
     steps:
@@ -1393,6 +1451,20 @@ jobs:
           [ $FAIL -eq 0 ] || exit 1
           echo "✅ BFS-depth + orphan-sitemap-pages audits passed"
 
+      # Per-gate verdict for the integrity classifier — see the identical
+      # step in validate-dist-postbuild for the rationale.
+      - name: Publish gate results
+        id: gate-results
+        if: always()
+        run: |
+          if [ -s /tmp/post-build-timings.txt ]; then
+            printf 'failed_gates=%s\n' \
+              "$(awk '!/rc=0$/ {printf "%s%s", sep, $1; sep=","}' /tmp/post-build-timings.txt)" \
+              >> "$GITHUB_OUTPUT"
+          else
+            echo 'failed_gates=__UNKNOWN__' >> "$GITHUB_OUTPUT"
+          fi
+
       # Moved from validate-dist-postbuild — depends on /tmp/g19.log, which
       # now only exists in THIS job. See that job's copy of this step
       # (removed) for the full rationale; unchanged otherwise.
@@ -1513,3 +1585,98 @@ jobs:
             --title "Validation Failure (dist): post-deploy" \
             --workflow "Post-deploy Validate Dist" \
             --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # integrity-verdict: does this run's red state invalidate the DEPLOY, or is
+  # it a QUALITY defect on pages that are already live?
+  #
+  # The caller gates `publish` (IndexNow, Google Indexing API, GSC submit,
+  # previous-slug-winners) on this output instead of on this workflow's
+  # overall result. Rationale and the classification list live in
+  # scripts/ci/classify-validate-dist-failures.mjs — default-deny: anything
+  # not explicitly listed as a quality gate blocks.
+  #
+  # This job MUST stay green. A failed job's outputs do not cross the
+  # reusable-workflow boundary, so a red verdict job would silently make
+  # `integrity_ok` empty — which the caller reads as "not true" and skips
+  # publish. That is the safe direction, but it would also make a quality-only
+  # failure indistinguishable from an infra failure, so the script always
+  # exits 0 and carries the verdict in its output instead.
+  #
+  # It does NOT make anything green: the three gate jobs keep their own
+  # results, this workflow still reports FAILURE to the caller, and
+  # validate-dist-report still opens the tracking issue (AGENTS.md
+  # non-negotiables #1 and #2 — no threshold widened, no error downgraded).
+  # ─────────────────────────────────────────────────────────────────────────
+  integrity-verdict:
+    needs: [validate-dist-source, validate-dist-postbuild, validate-dist-postbuild-bfs]
+    if: always()
+    runs-on: ubuntu-latest
+    outputs:
+      integrity_ok: ${{ steps.verdict.outputs.integrity_ok }}
+      blocking_gates: ${{ steps.verdict.outputs.blocking_gates }}
+      quality_gates: ${{ steps.verdict.outputs.quality_gates }}
+    steps:
+      - name: Checkout (build SHA via deploy_ref, else caller default)
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.deploy_ref }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Classify gate failures
+        id: verdict
+        env:
+          # A job that was cancelled or never ran contributes no gate names.
+          # Its `result` is folded in below so "cancelled" cannot read as
+          # "clean" — only `success` and `failure` carry a trustworthy list.
+          SOURCE_RESULT: ${{ needs.validate-dist-source.result }}
+          SOURCE_GATES: ${{ needs.validate-dist-source.outputs.failed_gates }}
+          POSTBUILD_RESULT: ${{ needs.validate-dist-postbuild.result }}
+          POSTBUILD_GATES: ${{ needs.validate-dist-postbuild.outputs.failed_gates }}
+          BFS_RESULT: ${{ needs.validate-dist-postbuild-bfs.result }}
+          BFS_GATES: ${{ needs.validate-dist-postbuild-bfs.outputs.failed_gates }}
+        run: |
+          set -euo pipefail
+          FAILED=""
+          # `if` form, not `[ -z "$1" ] && return 0`: under `set -e` that
+          # compound returns 1 for a NON-empty arg and kills the step.
+          add() { if [ -n "$1" ]; then FAILED="${FAILED:+$FAILED,}$1"; fi; }
+
+          # For each gate job: a `failure` with no gate names means it died
+          # outside the gate step (checkout, artifact download, rehydrate,
+          # "Assert dist/ is the complete logical site"). That is a
+          # dist-integrity failure, not a quality one — mark it unknown so
+          # the classifier's default-deny blocks publish.
+          for pair in "source:$SOURCE_RESULT:$SOURCE_GATES" \
+                      "postbuild:$POSTBUILD_RESULT:$POSTBUILD_GATES" \
+                      "bfs:$BFS_RESULT:$BFS_GATES"; do
+            name="${pair%%:*}"; rest="${pair#*:}"
+            result="${rest%%:*}"; gates="${rest#*:}"
+            case "$result" in
+              success) add "$gates" ;;
+              failure) if [ -n "$gates" ]; then add "$gates"; else add "__UNKNOWN__:$name"; fi ;;
+              *)       add "__UNKNOWN__:$name" ;;   # cancelled / skipped
+            esac
+          done
+
+          echo "collected failed gates: ${FAILED:-(none)}"
+          node scripts/ci/classify-validate-dist-failures.mjs --failed "$FAILED"
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### validate-dist integrity verdict"
+            echo ""
+            echo "- \`integrity_ok\`: **${{ steps.verdict.outputs.integrity_ok }}**"
+            echo "- blocking gates: \`${{ steps.verdict.outputs.blocking_gates || '(none)' }}\`"
+            echo "- quality gates: \`${{ steps.verdict.outputs.quality_gates || '(none)' }}\`"
+            echo ""
+            echo "\`publish\` (IndexNow / Indexing API / GSC) runs when this is \`true\` AND"
+            echo "\`deploy\` + \`validate-live\` are green. A quality gate staying red still"
+            echo "fails this workflow and still opens the tracking issue."
+          } >> "$GITHUB_STEP_SUMMARY"
