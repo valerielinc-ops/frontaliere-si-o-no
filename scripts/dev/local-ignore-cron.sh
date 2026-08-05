@@ -32,7 +32,7 @@ cd "$(git rev-parse --show-toplevel)"
 # via `git ls-files` so directory contents are picked up dynamically.
 PATHS=(
   # Job crawlers — the noisiest set
-  "data/all-known-job-slugs.json"
+  "data/all-known-job-slugs/*"
   "data/known-company-slugs.json"
   "data/jobs/by-crawler/*"
   "data/jobs-crawler-adapters/adapters/*"

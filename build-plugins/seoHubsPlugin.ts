@@ -62,6 +62,7 @@ import { hasCantonSectorPage } from './shared/cantonSectorPageRegistry';
 import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from './shared/cantonSeoProse';
 import { buildDayStampIso } from './shared/buildDayStamp';
 import { stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
+import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 
 const LOCALE_OG: Record<HubLocale, string> = {
   it: 'it_CH',
@@ -867,22 +868,20 @@ interface PaginatedHub {
 }
 
 /**
- * Read all-known-job-slugs.json — shape is `{ canonicalSlug: { locale: path } }`
+ * Read the canonical slug registry — shape is `{ canonicalSlug: { locale: path } }`.
+ * Sharded under data/all-known-job-slugs/ since #4248; always via the shared
+ * accessor, never the raw file (AGENTS.md #6).
  * We use the canonicalSlug list and build URLs per-locale from the inner map.
  */
 function readJobSlugsMap(
-  fs: typeof fsT,
-  np: typeof npT,
   rootDir: string,
 ): { slugs: string[]; perLocale: Record<HubLocale, Record<string, string>> } {
-  const file = np.resolve(rootDir, 'data/all-known-job-slugs.json');
   const empty = {
     slugs: [] as string[],
     perLocale: { it: {}, en: {}, de: {}, fr: {} } as Record<HubLocale, Record<string, string>>,
   };
   try {
-    if (!fs.existsSync(file)) return empty;
-    const raw = JSON.parse(fs.readFileSync(file, 'utf-8'));
+    const raw = readAllKnownJobSlugs(rootDir);
     if (!raw || typeof raw !== 'object') return empty;
     const slugs = Object.keys(raw).sort();
     const perLocale: Record<HubLocale, Record<string, string>> = { it: {}, en: {}, de: {}, fr: {} };
@@ -897,7 +896,7 @@ function readJobSlugsMap(
     }
     return { slugs, perLocale };
   } catch (err) {
-    console.warn('[seo-hubs] failed to read all-known-job-slugs.json', err);
+    console.warn('[seo-hubs] failed to read the canonical slug registry', err);
     return empty;
   }
 }
@@ -2493,7 +2492,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
   const sitemapEntries: string[] = [];
   const dateStamp = new Date().toISOString().slice(0, 10);
 
-  const { slugs: jobSlugs, perLocale: jobPerLocale } = readJobSlugsMap(fs, np, rootDir);
+  const { slugs: jobSlugs, perLocale: jobPerLocale } = readJobSlugsMap(rootDir);
   const companySlugs = readCompanySlugs(fs, np, rootDir);
   const {
     counts: jobCountBySlug,

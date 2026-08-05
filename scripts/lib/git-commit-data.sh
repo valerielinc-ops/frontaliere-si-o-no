@@ -37,6 +37,12 @@ set -euo pipefail
 # follow-up). Local config, idempotent; harmless if the files aren't touched.
 git config merge.compat-shard.driver 'node scripts/ci/merge-compat-shard.mjs %O %A %B' || true
 
+# Same registration for the canonical slug-registry shards
+# (.gitattributes `merge=known-slugs-shard`, data/all-known-job-slugs/part-*.json,
+# issue #4248): a 3-way MAP merge instead of git's default line merge, which on
+# a re-serialised sorted JSON OBJECT produces duplicate keys rather than bloat.
+git config merge.known-slugs-shard.driver 'node scripts/ci/merge-known-slugs-shard.mjs %O %A %B' || true
+
 # ── Clear orphaned .git/index.lock left by a crashed prior git operation ────
 # In the grouped crawler-group-*.yml workflows (post-#3701 consolidation),
 # every crawler in a group runs as a concurrent `background: true` step

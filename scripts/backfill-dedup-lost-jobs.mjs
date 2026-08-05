@@ -24,6 +24,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -31,7 +32,6 @@ const ROOT = path.resolve(__dirname, '..');
 const DEFAULT_AUDIT_PATH = '/tmp/housekeeping-audit-2026-04-07.md';
 const EXPIRED_SLICES_DIR = path.resolve(ROOT, 'data', 'jobs', 'expired', 'by-crawler');
 const SLICE_DIR_REL = 'data/jobs/by-crawler';
-const TRACKING_PATH = path.resolve(ROOT, 'data', 'all-known-job-slugs.json');
 const LOCALE_LIST = ['it', 'en', 'de', 'fr'];
 const LOCALE_PREFIX = { it: '', en: '/en', de: '/de', fr: '/fr' };
 const SECTION_BY_LOCALE = {
@@ -463,17 +463,14 @@ function loadActiveSlugsForCrawler(crawlerKey) {
       }
     } catch { /* ignore */ }
   }
-  // Also seed from the global tracking file (data/all-known-job-slugs.json),
-  // which records every slug that has ever produced a soft-landing page so we
-  // don't accidentally re-mint a slug that already serves another loser.
-  if (fs.existsSync(TRACKING_PATH)) {
-    try {
-      const tracking = JSON.parse(fs.readFileSync(TRACKING_PATH, 'utf8'));
-      if (tracking && typeof tracking === 'object') {
-        for (const k of Object.keys(tracking)) slugs.add(k);
-      }
-    } catch { /* ignore */ }
-  }
+  // Also seed from the global canonical slug registry (sharded under
+  // data/all-known-job-slugs/ since #4248), which records every slug that has
+  // ever produced a soft-landing page so we don't accidentally re-mint a slug
+  // that already serves another loser.
+  try {
+    const tracking = readAllKnownJobSlugs(ROOT);
+    for (const k of Object.keys(tracking)) slugs.add(k);
+  } catch { /* ignore */ }
   return [...slugs];
 }
 
@@ -717,7 +714,7 @@ function applyToDisk(filtered) {
 }
 
 /**
- * Merge backfilled slugs into data/all-known-job-slugs.json so the build
+ * Merge backfilled slugs into the canonical slug registry so the build
  * plugin includes them in expiredSlugs and renders soft-landing pages. Each
  * locale gets a path under its section prefix, mirroring how jobsSeoPagesPlugin
  * auto-populates tracking entries from active jobs.
@@ -741,12 +738,9 @@ const RESERVED_HUB_SLUGS = new Set([
 
 function applyToTracking(filtered) {
   let tracking = {};
-  if (fs.existsSync(TRACKING_PATH)) {
-    try {
-      const parsed = JSON.parse(fs.readFileSync(TRACKING_PATH, 'utf8'));
-      if (parsed && typeof parsed === 'object') tracking = parsed;
-    } catch { /* start fresh */ }
-  }
+  try {
+    tracking = readAllKnownJobSlugs(ROOT);
+  } catch { /* start fresh */ }
   let added = 0;
   let reservedHubsSkipped = 0;
   for (const proposals of filtered.values()) {
@@ -768,7 +762,7 @@ function applyToTracking(filtered) {
     }
   }
   if (added > 0) {
-    fs.writeFileSync(TRACKING_PATH, JSON.stringify(tracking) + '\n', 'utf8');
+    writeAllKnownJobSlugs(tracking, ROOT);
   }
   if (reservedHubsSkipped > 0) {
     console.log(`  🛡️  Skipped ${reservedHubsSkipped} reserved hub slug(s) (would clobber sector/city hub HTML)`);
@@ -856,7 +850,7 @@ function main() {
       process.stdout.write(`  ${w.crawlerKey}: +${w.added} (total ${w.total})\n`);
     }
     const trackingResult = applyToTracking(filtered);
-    process.stdout.write(`\n--- APPLY: tracking (data/all-known-job-slugs.json) ---\n`);
+    process.stdout.write(`\n--- APPLY: tracking (data/all-known-job-slugs/) ---\n`);
     process.stdout.write(`  added ${trackingResult.added} new slug(s); total now ${trackingResult.total}\n`);
   } else {
     process.stdout.write('\n(dry-run) no files were modified. Use --apply to write.\n');

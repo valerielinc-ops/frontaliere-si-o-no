@@ -65,6 +65,7 @@ import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescr
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { ARTICLE_SECTION_DESCRIPTORS } from './shared/articleSectionDescriptors';
+import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import {
   parseAnnotatedSitemapUrls,
   collectLocaleVariantEntries,
@@ -1236,11 +1237,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // sitemap-jobs.xml + sitemap-seo-hubs.xml.
  let jobsTotalPages = 1;
  try {
- const jobSlugsRaw = JSON.parse(fs.readFileSync(np.resolve(rootDir, 'data/all-known-job-slugs.json'), 'utf-8'));
+ const jobSlugsRaw = readAllKnownJobSlugs(rootDir);
  const slugCount = (jobSlugsRaw && typeof jobSlugsRaw === 'object') ? Object.keys(jobSlugsRaw).length : 0;
  jobsTotalPages = Math.max(1, Math.ceil(slugCount / JOBS_PAGE_SIZE));
  } catch (e) {
- console.warn('[static-pages] Could not compute jobsTotalPages from all-known-job-slugs.json:', e);
+ console.warn('[static-pages] Could not compute jobsTotalPages from the canonical slug registry:', e);
  }
 
  /* ── BFS-depth closure (May 2026) — TI hub deep navigators ──

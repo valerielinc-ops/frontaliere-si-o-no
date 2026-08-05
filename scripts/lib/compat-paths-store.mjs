@@ -35,6 +35,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fnv1a32Mod } from './fnv1a.mjs';
+import { shardFileName, listShardFilesIn } from './shard-file-naming.mjs';
 
 /** Legacy single-file location (kept for read-fallback during/after migration). */
 export const COMPAT_LEGACY_FILE = 'data/seo-404-compat-paths.json';
@@ -51,8 +52,6 @@ export const COMPAT_SHARD_DIR = 'data/seo-404-compat';
  */
 export const COMPAT_SHARD_COUNT = 16;
 
-const SHARD_RE = /^part-\d+\.json$/;
-
 /**
  * Deterministic shard index for a path (FNV-1a hash, 32-bit, % count).
  * Delegates to the shared `scripts/lib/fnv1a.mjs` (AGENTS.md #6) — the exact
@@ -65,7 +64,7 @@ export function compatShardIndex(p, count = COMPAT_SHARD_COUNT) {
 
 /** Absolute path of shard `i`. */
 export function compatShardFile(i, rootDir = process.cwd()) {
-  return path.resolve(rootDir, COMPAT_SHARD_DIR, `part-${String(i).padStart(2, '0')}.json`);
+  return path.resolve(rootDir, COMPAT_SHARD_DIR, shardFileName(i));
 }
 
 /** Absolute path of the manifest. */
@@ -75,15 +74,7 @@ export function compatManifestFile(rootDir = process.cwd()) {
 
 /** List existing shard files (absolute), sorted, or [] if the dir is absent. */
 export function listCompatShardFiles(rootDir = process.cwd()) {
-  const dir = path.resolve(rootDir, COMPAT_SHARD_DIR);
-  let names = [];
-  try {
-    names = fs.readdirSync(dir).filter((f) => SHARD_RE.test(f));
-  } catch {
-    return [];
-  }
-  names.sort();
-  return names.map((n) => path.join(dir, n));
+  return listShardFilesIn(path.resolve(rootDir, COMPAT_SHARD_DIR));
 }
 
 /**

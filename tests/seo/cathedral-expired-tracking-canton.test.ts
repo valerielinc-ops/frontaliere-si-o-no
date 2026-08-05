@@ -1,6 +1,6 @@
 // Phase 8 Sub-PR (c) — expired-job soft-landing tracking must be canton-aware.
 //
-// Before this change, every entry in data/all-known-job-slugs.json was minted
+// Before this change, every entry in the canonical slug registry was minted
 // under the legacy TI section (`/cerca-lavoro-ticino/...`) by the builder in
 // jobsSeoPagesPlugin.ts. With cathedral now emitting active per-job pages at
 // canton-aware URLs, the soft-landing emitter wrote stale TI URLs and the
@@ -15,9 +15,13 @@
 import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import {
+  readAllKnownJobSlugs,
+  knownSlugsStoreExists,
+} from '../../scripts/lib/all-known-job-slugs-store.mjs';
 
 const PLUGIN_PATH = path.resolve(__dirname, '../../build-plugins/jobsSeoPagesPlugin.ts');
-const TRACKING_PATH = path.resolve(__dirname, '../../data/all-known-job-slugs.json');
+const REPO_ROOT = path.resolve(__dirname, '../..');
 const JOBS_PATH = path.resolve(__dirname, '../../data/jobs.json');
 
 const TI_SECTION_FRAGMENTS = [
@@ -43,7 +47,7 @@ describe('Phase 8c — expired-tracking is canton-aware', () => {
   });
 
   it('data: non-TI tracking entries no longer reference the TI section path', () => {
-    if (!fs.existsSync(JOBS_PATH) || !fs.existsSync(TRACKING_PATH)) return;
+    if (!fs.existsSync(JOBS_PATH) || !knownSlugsStoreExists(REPO_ROOT)) return;
     const jobs: Array<{
       slug?: string;
       canton?: string;
@@ -51,9 +55,9 @@ describe('Phase 8c — expired-tracking is canton-aware', () => {
       slugByLocale?: Record<string, string>;
       previousSlugs?: string[];
     }> = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
-    const tracking: Record<string, Record<string, string>> = JSON.parse(
-      fs.readFileSync(TRACKING_PATH, 'utf8'),
-    );
+    const tracking: Record<string, Record<string, string>> = readAllKnownJobSlugs(
+      REPO_ROOT,
+    ) as Record<string, Record<string, string>>;
 
     // Build slug-alias -> job index so we can look up by tracking key.
     const slugToJob = new Map<string, (typeof jobs)[number]>();
