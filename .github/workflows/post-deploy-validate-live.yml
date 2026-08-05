@@ -203,26 +203,38 @@ jobs:
           echo "::error::[validate-live] propagation_timeout — deploy not live within window. Skipping smoke/gates; caller will NOT rollback (live is a valid earlier build)."
           exit 1
 
-      # Purge the Cloudflare edge cache now that the new build is confirmed
-      # LIVE at origin (propagation + deep sample succeeded above). The
-      # it-apex-html-cache rule caches HTML for 24h with override_origin;
-      # GitHub Pages can't signal Cloudflare on republish, so without this the
-      # edge would serve the prior build's HTML until the TTL lapses. Gated on
-      # propagation success so we never purge while origin still serves the OLD
-      # build (which would just re-cache stale) — and, since the deep-sample
-      # gate (2026-07-14), never while origin still has post-activation 404
-      # holes (purging then would replace good stale 200s with fresh 404s: the
-      # exact mechanism behind the job-alert dead-link spike + cf-hot-404s
-      # growth). Non-fatal: a purge hiccup must not fail validate-live.
-      - name: Purge Cloudflare edge cache (new build is live)
-        if: steps.propagation.outcome == 'success'
-        continue-on-error: true
-        run: |
-          # Force stdout export mode (GITHUB_ENV= ) so we can eval into THIS
-          # shell; GOOGLE_APPLICATION_CREDENTIALS was set by "Prepare Firebase
-          # credentials" above. No-op (exit 0) if CF_API_TOKEN is absent.
-          eval "$(GITHUB_ENV= node scripts/load-rc-env.mjs 2>/dev/null)" || true
-          node scripts/cf-purge-cache.mjs
+      # NO ZONE-WIDE PURGE HERE — REMOVED 2026-08-05 (#5162). Do not re-add.
+      #
+      # This step used to run `node scripts/cf-purge-cache.mjs` with no argv,
+      # i.e. `purge_everything`, on every successful deploy. It was there because
+      # it-apex-html-cache held apex HTML for 24h (override_origin) and GitHub
+      # Pages cannot signal Cloudflare on republish.
+      #
+      # `purge_everything` is ZONE-wide, and this zone carries the R2 CDN as well
+      # as the apex. Measured over 23h before removal:
+      #
+      #   cdn.frontaliereticino.ch  1_497_318 req  96.0% hit  ← wiped every deploy
+      #   frontaliereticino.ch        570_021 req  19.2% hit  ← the intended target
+      #
+      # So each deploy discarded a 1.4M-object CDN cache to refresh a cache that
+      # was barely holding anything — and the CDN never needed it, because
+      # /assets/ freshness comes from the targeted per-key purge that
+      # deploy-it-pages-prep.sh already runs (scripts/ci/purge-changed-cdn-assets.mjs).
+      # The re-fetch storm hit R2 directly: ~60k origin fetches in 23h against a
+      # 7-day edge TTL, 277 failing as edge-synthesised 502s — issues #5034,
+      # #5035, #5036, #5052, #5081, #5092, #5093, #5094 and the failed dynamic
+      # import in #4644; the apex 503s (#5082) are the same storm on Pages.
+      #
+      # It also made serve_stale (#5158) dead on arrival: a purge DELETES the
+      # copy, and serve_stale can only serve one that exists and merely expired
+      # (measured staleRescuable = 0).
+      #
+      # Apex freshness is now a bounded 300s edge TTL (APEX_EDGE_TTL_SECONDS in
+      # scripts/cf-locale-failover-setup.mjs) — self-invalidating, no purge
+      # needed. cf-purge-cache.mjs still supports the zone-wide mode for
+      # deliberate operator use, but it now requires CF_PURGE_ZONE_WIDE=1 so it
+      # cannot silently return to a deploy path.
+      # Guarded by tests/cf-zone-purge-blast-radius.test.ts.
 
       # Verify the offloaded JS/CSS bundle actually serves from the CDN on the
       # LIVE site. Moved here from the build job: the CDN Pages build lags the

@@ -80,8 +80,54 @@ in una giornata di deploy fitti), **ma un campione non è una correlazione**: se
 prima di toccare la concorrenza del sync. Il deploy è il percorso OOM-critico documentato in
 `deploy.yml`, e il repo pretende misura allegata per i claim di performance.
 
+## Causa radice trovata (2026-08-05, #5162) — l'ipotesi dell'rclone era sbagliata
+
+L'ipotesi qui sopra (i 502 si addensano durante l'rclone sync) **non ha retto alla
+misura**. Il driver è il **purge zone-wide**, non il sync.
+
+I numeri, sulla stessa finestra di 23h:
+
+| host | richieste | hit rate |
+|---|---|---|
+| `cdn.frontaliereticino.ch` | 1.497.318 | **96,0%** |
+| `frontaliereticino.ch` | 570.021 | 19,2% |
+
+`post-deploy-validate-live.yml` lanciava `purge_everything` dopo ogni deploy
+riuscito, per rinfrescare l'HTML dell'apex tenuto 24h da `it-apex-html-cache`.
+Ma il purge è **di zona**, e la zona contiene anche il CDN: ogni deploy buttava
+via una cache da 1,4 milioni di oggetti al 96% di hit per rinfrescarne una al
+19%. Il CDN non ne aveva bisogno — `/assets/` si invalida già chiave per chiave
+con `scripts/ci/purge-changed-cdn-assets.mjs`.
+
+Il conto torna proprio sui 502: con un edge TTL di 7 giorni su `/assets/`, a
+regime le fetch verso l'origin dovrebbero essere quasi zero. Ne sono arrivate
+**~60.000 in 23h** — spiegabili solo dai purge ripetuti — e **277 sono fallite**
+(0,46% delle fetch verso origin), sintetizzate dall'edge come 502.
+
+**Perché `serve_stale` (#5158) non poteva funzionare.** Un purge *cancella* la
+copia; `serve_stale` sa servire solo una copia che **esiste** ed è soltanto
+scaduta. Erano mutuamente esclusivi per costruzione: ecco perché
+`staleRescuable` misurava 0 e i 502 non sono calati dopo `7f147c82`. La fix non
+poteva essere un altro fallback sopra il purge — doveva togliere il purge.
+
+La freschezza dell'apex ora è `APEX_EDGE_TTL_SECONDS` (300s) in
+`scripts/cf-locale-failover-setup.mjs`, senza purge. Invariante in
+`tests/cf-zone-purge-blast-radius.test.ts`.
+
 ## Trappole note
 
+- **`curl -I` non misura la cache: manda `HEAD`, e Cloudflare non serve mai una
+  `HEAD` dalla cache.** Ogni path risponde `cf-cache-status: DYNAMIC` e sembra che
+  nessuna cache rule stia funzionando. Con `GET` lo stesso identico path risponde
+  `HIT`. Costato una diagnosi sbagliata il 2026-08-05 ("le cache rule sono inerti
+  sul CDN"), smentita dai dati GraphQL: 96% di hit rate. Usa
+  `curl -s -o /dev/null -D - <url>`.
+- **`/assets/early-boot.js` è cacheato malgrado la sua rule di bypass.** In
+  `http_request_cache_settings` vince l'ultima rule che matcha, e
+  `cdn-r2-passthrough-cache` (`cache: true`, indice 4) sta dopo
+  `early-boot-js-bypass-cache` (`cache: false`, indice 2). Verificato via `GET`:
+  `HIT`, non `BYPASS`. La finestra di skew che quella rule doveva chiudere è
+  ancora aperta — difetto separato da #5162, vedi `infra/cloudflare/rules.md`.
 - **`/assets/early-boot.js` non può essere servito stantio.** Ha una rule dedicata
   `early-boot-js-bypass-cache` con `cache: false`, perché deve restare fresco per
   l'auto-riparazione dello skew di versione. Un oggetto non cacheato non ha copia stantia:
