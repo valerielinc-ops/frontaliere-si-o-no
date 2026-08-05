@@ -105,6 +105,29 @@ describe('tokenizer', () => {
     expect(tokenize('perché')).toEqual(tokenize('perche'));
   });
 
+  it('keeps the domain acronyms that ARE the topic in this corpus', () => {
+    // The 4-char floor that drops function words also drops every domain
+    // acronym, and in a corpus about cross-border taxation and pensions those
+    // are the most discriminating vocabulary there is. `AVS e LPP: come si
+    // somma la pensione svizzera` is a real headline shape here.
+    expect(tokenize('AVS e LPP: come si somma la pensione')).toEqual(
+      expect.arrayContaining(['avs', 'lpp']),
+    );
+    // Same scheme, different acronym per locale — a cross-locale pair still
+    // has to recognise itself.
+    expect(tokenize('AHV und BVG')).toEqual(expect.arrayContaining(['ahv', 'bvg']));
+    expect(tokenize('IVA e TVA')).toEqual(expect.arrayContaining(['iva', 'tva']));
+    expect(tokenize('il modello 730')).toContain('730');
+  });
+
+  it('still drops short function words that are not domain acronyms', () => {
+    // The exemption is an allowlist, not a lowered floor: dropping the floor to
+    // 3 globally would admit the long tail of three-letter function words in
+    // four languages.
+    const t = tokenize('con una per che non del sul');
+    expect(t).toEqual([]);
+  });
+
   it('drops function words and sub-topical fragments', () => {
     const t = tokenize('Come funziona la pensione per il frontaliere');
     expect(t).not.toContain('come');
