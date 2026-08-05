@@ -43,6 +43,7 @@ import {
   BORDER_WAIT_CROSSINGS,
   BORDER_CROSSING_DISPLAY,
   CROSSING_TO_REGION,
+  isTicinoRegion,
   BORDER_REGION_DISPLAY,
   BORDER_WAIT_LOCALES,
   BORDER_WAIT_LOCALE_PREFIX,
@@ -373,17 +374,21 @@ function buildCrossingLiveUrl(slug: BorderCrossingSlug, locale: BorderWaitLocale
 }
 
 // This page's entire identity (H1, meta description, hand-written editorial
-// prose in all 4 locales, "26 valichi Italia-Svizzera" copy) is scoped to
-// the original Italy-Switzerland crossings. When issue #4889 extended
-// BORDER_WAIT_CROSSINGS/BORDER_WAIT_REGIONS with the Germania corridor,
-// this page's table/structured-data must stay filtered to the 3 original
-// regions — otherwise the page would show German crossings while its own
-// prose still says "Italia-Svizzera" (factually wrong content). A future
-// agent adding a Germany-specific linkbait map page should NOT extend this
-// one; it should follow the same pattern with its own copy.
-const ITALY_REGIONS: readonly BorderCrossingRegion[] = ['ticino-como', 'ticino-varese', 'ticino-verbano'];
-const ITALY_CROSSINGS: readonly BorderCrossingSlug[] = BORDER_WAIT_CROSSINGS.filter((slug) =>
-  ITALY_REGIONS.includes(CROSSING_TO_REGION[slug]),
+// prose in all 4 locales, "26 valichi" copy) is scoped to the original
+// TICINO–Italy crossings. Every extension of BORDER_WAIT_CROSSINGS since —
+// the Germania corridor (#4889) and the Grigioni/Vallese–Italy alpine one
+// (#4545) — must stay out of this page's table and structured data, or the
+// page would list crossings its own prose does not describe.
+//
+// Derived from the shared `isTicinoRegion` predicate rather than a second
+// hardcoded copy of the three region slugs (AGENTS.md #6: a constant
+// duplicated literally in ≥2 files goes into ONE shared module). The old
+// local list was also misnamed `ITALY_REGIONS`, which stopped being true
+// the moment an Italy-facing non-Ticino region existed. A future agent
+// adding a Germany- or alpine-specific linkbait map page should NOT extend
+// this one; it should follow the same pattern with its own copy.
+const TICINO_MAP_CROSSINGS: readonly BorderCrossingSlug[] = BORDER_WAIT_CROSSINGS.filter((slug) =>
+  isTicinoRegion(CROSSING_TO_REGION[slug]),
 );
 
 function buildHubUrl(locale: BorderWaitLocale): string {
@@ -393,11 +398,11 @@ function buildHubUrl(locale: BorderWaitLocale): string {
 }
 
 function renderCrossingsTable(locale: BorderWaitLocale, copy: Copy): string {
-  const crossings = ITALY_CROSSINGS.slice();
+  const crossings = TICINO_MAP_CROSSINGS.slice();
   const rows = crossings.map((slug) => {
     const name = BORDER_CROSSING_DISPLAY[slug];
     const region = CROSSING_TO_REGION[slug];
-    // Partial + fallback: `crossings` is filtered to ITALY_CROSSINGS above,
+    // Partial + fallback: `crossings` is filtered to TICINO_MAP_CROSSINGS above,
     // so `region` is always one of the 3 keys below at runtime, but
     // BorderCrossingRegion itself now has 5 more (non-Italy) members.
     const regionLabelByRegion: Partial<Record<BorderCrossingRegion, string>> = {
@@ -489,7 +494,7 @@ function renderPage(opts: {
   });
 
   // Build a Place[] list of the crossings for the Map structured data
-  const places = ITALY_CROSSINGS.map((slug) => ({
+  const places = TICINO_MAP_CROSSINGS.map((slug) => ({
     '@type': 'Place',
     name: BORDER_CROSSING_DISPLAY[slug],
     url: buildCrossingLiveUrl(slug, locale),

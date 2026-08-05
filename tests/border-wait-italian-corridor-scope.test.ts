@@ -200,3 +200,47 @@ describe('#4545 — no Ticino-only fact leaks onto a non-Ticino page', () => {
     expect(html).not.toBe(german);
   });
 });
+
+/**
+ * Internal-link scoping. `pickSiblingCrossings` in
+ * `build-plugins/shared/relatedLinks.ts` used to select its sibling pool with
+ * `REGION_TO_COUNTRY[region] === 'IT' ? TOP_5_CROSSINGS : …`. TOP_5_CROSSINGS
+ * is five *Ticino* crossings, so once an Italy-facing non-Ticino corridor
+ * existed that test would have pointed every alpine page at Chiasso, Gaggiolo
+ * and Ponte Tresa — the cross-corridor link bug #4952 was filed to stop.
+ *
+ * Asserted through the rendered page rather than the private helper: what
+ * matters is the links a crawler actually sees.
+ */
+describe('#4545 — alpine pages do not link into the Ticino cluster', () => {
+  const pages = generateBorderWaitPages({ current: EMPTY_CURRENT, history: [], today: new Date() });
+  const TICINO_TOP_5 = [
+    'chiasso-brogeda',
+    'chiasso-centro',
+    'gaggiolo',
+    'oria-gandria',
+    'ponte-tresa',
+  ] as const;
+
+  it('offers alpine crossings as siblings, never the Ticino top-5', () => {
+    const offenders: string[] = [];
+    for (const crossing of ITALIAN_ALPINE_CROSSINGS) {
+      const path = buildOggiPath('it', crossing);
+      const html = pages[path] ?? '';
+      for (const ticino of TICINO_TOP_5) {
+        if (html.includes(`/traffico-dogane/${ticino}/oggi/`)) {
+          offenders.push(`${path} → links to Ticino crossing ${ticino}`);
+        }
+      }
+    }
+    expect(offenders, offenders.join('\n')).toEqual([]);
+  });
+
+  it('still links Ticino pages to their historical Ticino siblings', () => {
+    const html = pages[buildOggiPath('it', 'chiasso-centro')] ?? '';
+    const linked = TICINO_TOP_5.filter(
+      (t) => t !== 'chiasso-centro' && html.includes(`/traffico-dogane/${t}/oggi/`),
+    );
+    expect(linked.length).toBeGreaterThan(0);
+  });
+});
