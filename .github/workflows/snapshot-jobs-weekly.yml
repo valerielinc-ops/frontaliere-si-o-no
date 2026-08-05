@@ -25,6 +25,20 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
+          # Il job PIÙ compromesso della classe, e non in teoria: run 30799322705
+          # (2026-08-03) ha fatto Checkout per 37m40s (08:56:24 → 09:34:04) su un
+          # cap di 45min ed è morto `cancelled` con il lavoro a metà. Su 10 run il
+          # Checkout va da 82s a 2260s (mediana 514s) = fino all'84% del budget.
+          # Blobless partial clone come guard-data-integrity #4120 /
+          # crawler-health-monitor #4380: i sei job che ce l'hanno stanno a
+          # mediana ~150s contro ~600s dei nove senza (nessuno usa sparse, quindi
+          # il filtro è l'unica variabile). Sicuro qui: gli step leggono il
+          # working tree di HEAD e committano, non blob storici.
+          filter: blob:none
+        # Tetto sullo step: 20min danno oltre il doppio del massimo atteso dopo
+        # il filtro (~9-10min) e trasformano il `cancelled` invisibile in un
+        # `failure` diagnosticabile.
+        timeout-minutes: 20
 
       - uses: actions/setup-node@v5
         with:

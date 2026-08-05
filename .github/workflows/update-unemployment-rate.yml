@@ -12,11 +12,32 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    # Questo job non aveva NESSUN cap: senza `timeout-minutes` GitHub applica il
+    # default di 6 ORE, quindi un Checkout impantanato (qui il costo dominante:
+    # 478-858s misurati su 10 run) poteva restare appeso a consumare minuti
+    # Actions senza mai fallire. 30min stanno larghi sul job osservato (max 869s
+    # in totale) e mettono un limite dove non ce n'era.
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
+          # Blobless partial clone (stessa cura di guard-data-integrity #4120 /
+          # crawler-health-monitor #4380 / issue-fix #4189). Misurato su questo
+          # repo, `fetch-depth: 0` SENZA filtro costa 478-858s qui; i sei job che
+          # hanno già `blob:none` stanno a 77-518s con mediana ~150s contro ~600s
+          # dei nove senza. Nessuno dei due gruppi usa sparse-checkout, quindi il
+          # confronto è pulito: il filtro è la variabile. Sicuro qui perché il job
+          # legge solo il working tree di HEAD e committa — nessuna lettura di
+          # blob storici (che sotto `blob:none` sarebbe un lazy-fetch per oggetto).
+          filter: blob:none
+        # Tetto sullo step: senza, un fetch degenere si prende l'intero budget e
+        # il job muore `cancelled` — stato invisibile agli `if: failure()`, il
+        # buco che scan-job-timeouts.mjs tappa solo a posteriori. Con il tetto è
+        # un `failure` diagnosticabile. 18min stanno sopra il max osservato
+        # (858s) anche se il filtro non rendesse nulla.
+        timeout-minutes: 18
 
       - name: Setup Node
         uses: actions/setup-node@v5

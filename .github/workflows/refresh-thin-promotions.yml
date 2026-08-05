@@ -72,6 +72,13 @@ jobs:
           # content download until a file is actually touched.
           filter: blob:none
           token: ${{ secrets.GITHUB_TOKEN }}
+        # Tetto Checkout (classe #5145/#5144/#5162): senza, un fetch degenere
+        # consuma l'intero budget e il job muore `cancelled` — stato invisibile
+        # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
+        # posteriori. Col tetto e' un `failure` diagnosticabile.
+        # Ha gia' blob:none e i numeri lo confermano: Checkout 110-253s su 10 run,
+        # max = 42% di un cap da 10min. Nessun altro cambio, solo il tetto.
+        timeout-minutes: 7
 
       - name: Setup Node
         uses: actions/setup-node@v5

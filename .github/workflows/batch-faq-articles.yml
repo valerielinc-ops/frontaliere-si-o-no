@@ -48,6 +48,13 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
+        # Tetto Checkout (classe #5145/#5144/#5162): senza, un fetch degenere
+        # consuma l'intero budget e il job muore `cancelled` — stato invisibile
+        # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
+        # posteriori. Col tetto e' un `failure` diagnosticabile.
+        # Checkout 547-783s su 10 run, ma il cap e' 360min: il massimo e' il 4%
+        # del budget. Nessun rischio timeout → NIENTE blob:none, solo il tetto.
+        timeout-minutes: 25
 
       - name: Setup Node.js
         uses: actions/setup-node@v5

@@ -29,6 +29,13 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
+          # Checkout 80-799s su 5 run: il massimo è il 44% di un cap da 30min.
+          # Blobless partial clone come guard-data-integrity #4120 (mediana ~150s
+          # nei job filtrati contro ~600s in quelli non filtrati). Sicuro: il job
+          # interroga i motori AI e committa il report, non legge blob storici.
+          filter: blob:none
+        # Tetto sullo step → `failure` diagnosticabile invece di `cancelled`.
+        timeout-minutes: 15
 
       - name: Setup Node.js
         uses: actions/setup-node@v5

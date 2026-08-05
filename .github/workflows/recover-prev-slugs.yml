@@ -61,6 +61,23 @@ jobs:
           # in the window are reachable (default fetch-depth=1 makes git log
           # return empty).
           fetch-depth: 0
+          # NIENTE `filter: blob:none` qui, ed è il caso in cui la cura generale
+          # sarebbe VELENO. `scan-prev-slug-losses.mjs` non si limita a camminare
+          # i commit: legge il CONTENUTO di ogni versione storica via
+          # `createCatFileBatch` (`git cat-file --batch`, riga ~241) per ogni
+          # coppia (commit, slice) su una finestra di 60 giorni e 569 file slice.
+          # Sotto blobless quei blob non esistono in locale e ognuno diventa un
+          # lazy-fetch a sé: è esattamente la classe di stallo da partial clone
+          # documentata in pr-review-loop.yml (11 minuti su un solo Checkout).
+          # Stesso motivo per cui non si può usare sparse-checkout: actions/checkout
+          # lo implementa attivando `--filter=blob:none`.
+        # Il tetto resta comunque utile: Checkout misurato 744-1115s su 10 run
+        # (fino al 74% di un cap da 25min) e un fetch degenere qui ucciderebbe il
+        # job `cancelled`, invisibile agli `if: failure()`. 21min stanno sopra il
+        # massimo osservato. NB: il tetto NON è la soluzione di questo workflow —
+        # vedi `## Non implementato` della PR: 3 run su 12 sono già `cancelled` e
+        # in run 30733696350 a morire è stato lo step di backfill, non il Checkout.
+        timeout-minutes: 21
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
