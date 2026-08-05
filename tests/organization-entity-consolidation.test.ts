@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
+import { jsToJson } from '../build-plugins/shared/jsToJson';
 import {
   ORGANIZATION_ID,
   ORGANIZATION_LD,
@@ -35,6 +36,30 @@ const read = (rel: string) => readFileSync(resolve(__dirname, '..', rel), 'utf-8
 
 const INDEX_HTML = read('index.html');
 const SEO_PAGES = read('services/seo/seo-pages.ts');
+
+const BASE_URL = 'https://frontaliereticino.ch';
+
+/** Same brace/bracket walk staticPagesPlugin uses to slice a literal out of the source. */
+function extractBalanced(src: string, pos: number): string | null {
+  const open = src[pos];
+  if (open !== '{' && open !== '[') return null;
+  const close = open === '{' ? '}' : ']';
+  let depth = 0;
+  let instr: string | null = null;
+  for (let i = pos; i < src.length; i++) {
+    const c = src[i];
+    if (instr) {
+      if (c === '\\') { i++; continue; }
+      if (c === instr) instr = null;
+      continue;
+    }
+    if (c === '"' || c === "'" || c === '`') { instr = c; continue; }
+    if (c === open) depth++;
+    else if (c === close) { depth--; if (depth === 0) return src.slice(pos, i + 1); }
+  }
+  return null;
+}
+
 
 /** The `#organization` JSON-LD block served on the homepage. */
 function homepageOrganization(): Record<string, unknown> {
@@ -98,13 +123,75 @@ describe('no two definitions of #organization disagree', () => {
     }
   });
 
-  it('seo-pages.ts spreads the canonical entity instead of re-declaring it', () => {
-    // Two hand-rolled NewsMediaOrganization literals used to live here, each
-    // with its own foundingDate and its own (or absent) sameAs.
-    expect(SEO_PAGES).toContain('...ORGANIZATION_LD_FULL');
-    expect(SEO_PAGES).not.toMatch(/"@type":\s*"NewsMediaOrganization"/);
-    // The founding year existed as 2023 in one place and 2024 in another.
-    expect(SEO_PAGES).not.toMatch(/"foundingDate":\s*"20\d\d"/);
+  /**
+   * seo-pages.ts must inline the entity as LITERAL JSON, not spread the
+   * imported binding.
+   *
+   * `staticPagesPlugin` regex-parses this file — it does not import it. Its
+   * `constDefs` map resolves only `const NAME = …` declared in the source, so
+   * `...ORGANIZATION_LD_FULL` would survive into `jsToJson` as literal text,
+   * `JSON.parse` would throw, and the plugin's silent
+   * `catch { /* skip SD *\/ }` would drop the ENTIRE structuredData array for
+   * the entry — WebSite + SearchAction + WebPage included, with a green build.
+   *
+   * So the single-source-of-truth guarantee cannot be "one object referenced
+   * everywhere" here. It is enforced instead by comparing the parsed literal
+   * against the canonical module — drift fails this test rather than being
+   * prevented by construction, which is the strongest option this file's
+   * parse contract allows.
+   */
+  it('every inlined #organization literal deep-equals the canonical entity', () => {
+    const entries = [
+      ...SEO_PAGES.matchAll(/structuredData:\s*(\[|\{)/g),
+    ];
+    expect(entries.length).toBeGreaterThan(0);
+
+    // staticPagesPlugin substitutes locally-declared `const NAME = …` into the
+    // literal before parsing it; without the same pass, any entry referencing
+    // SPEAKABLE_SECTION / HOWTO_CALCULATOR fails to parse and would be skipped
+    // here — including the home entry we most need to check.
+    const constDefs = new Map<string, string>();
+    const constRefRx = /^const\s+([A-Z_][A-Z0-9_]*)\s*=\s*/gm;
+    let cMatch: RegExpExecArray | null;
+    while ((cMatch = constRefRx.exec(SEO_PAGES)) !== null) {
+      const balanced = extractBalanced(SEO_PAGES, cMatch.index + cMatch[0].length);
+      if (balanced) constDefs.set(cMatch[1], balanced);
+    }
+    const resolveConsts = (sd: string): string => {
+      let out = sd;
+      for (const [name, value] of constDefs) {
+        out = out.replace(new RegExp(`(?<=[\\[,\\s])${name}(?=[\\],\\s,;])`, 'g'), value);
+      }
+      return out;
+    };
+
+    const found: Record<string, unknown>[] = [];
+    for (const m of entries) {
+      const start = m.index! + m[0].length - 1;
+      const raw = extractBalanced(SEO_PAGES, start);
+      if (!raw) continue;
+      let parsed: unknown;
+      try {
+        parsed = JSON.parse(
+          jsToJson(resolveConsts(raw), { baseUrl: BASE_URL, buildDateIso: '2026-01-01T00:00:00.000Z' }),
+        );
+      } catch {
+        continue; // covered by tests/static-pages-seo-entry-lookup.test.ts
+      }
+      for (const node of (Array.isArray(parsed) ? parsed : [parsed]) as Record<string, unknown>[]) {
+        if (node && node['@id'] === ORGANIZATION_ID) found.push(node);
+      }
+    }
+
+    expect(found.length, 'no inlined #organization node found in seo-pages.ts').toBeGreaterThanOrEqual(3);
+    const canonical = { '@context': 'https://schema.org', ...ORGANIZATION_LD_FULL } as Record<string, unknown>;
+    for (const node of found) {
+      // Page-specific colour (description/knowsAbout) is allowed to differ;
+      // every identity and transparency field must not.
+      const { description: _d, knowsAbout: _k, ...rest } = node;
+      const { description: _cd, knowsAbout: _ck, ...canonicalRest } = canonical;
+      expect(rest).toEqual(canonicalRest);
+    }
   });
 
   it('exactly one founding year exists across the whole entity surface', () => {

@@ -7,7 +7,6 @@
 
 import type { SEOMetadata } from '../seoService';
 import { EXCHANGE_RATE_EUR } from './exchangeRateMeta';
-import { ORGANIZATION_LD_FULL } from './organizationLd';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -76,11 +75,66 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
  },
- {
+  {
   "@context": "https://schema.org",
-  ...ORGANIZATION_LD_FULL,
-   "description": "La risorsa più completa per i lavoratori frontalieri tra Italia e Svizzera: simulatore fiscale, pensione, assicurazione sanitaria, cambio valuta e guide pratiche.",
-   "knowsAbout": [
+  "@type": "NewsMediaOrganization",
+  "@id": "https://frontaliereticino.ch/#organization",
+  "name": "Frontaliere Ticino",
+  "url": "https://frontaliereticino.ch/",
+  "sameAs": [
+   "https://www.facebook.com/profile.php?id=61588174947294",
+   "https://www.facebook.com/frontaliereticino",
+   "https://www.linkedin.com/company/frontaliere-ticino",
+   "https://github.com/valerielinc-ops/frontaliere-si-o-no"
+  ],
+  "logo": {
+   "@type": "ImageObject",
+   "contentUrl": "https://frontaliereticino.ch/icons/icon-512x512.png",
+   "url": "https://frontaliereticino.ch/icons/icon-512x512.png",
+   "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+   "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+   "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+   "creator": {
+    "@type": "Organization",
+    "name": "Frontaliere Ticino",
+    "url": "https://frontaliereticino.ch/"
+   },
+   "creditText": "Frontaliere Ticino",
+   "width": 512,
+   "height": 512
+  },
+  "foundingDate": "2023",
+  "description": "Piattaforma informativa per frontalieri italiani in Svizzera: tassazione, permessi, lavoro, sanità e aggiornamenti normativi.",
+  "contactPoint": {
+   "@type": "ContactPoint",
+   "contactType": "customer support",
+   "url": "https://frontaliereticino.ch/contattaci/",
+   "availableLanguage": [
+    "Italian",
+    "English",
+    "German",
+    "French"
+   ]
+  },
+  "areaServed": [
+   {
+    "@type": "Country",
+    "name": "Switzerland"
+   },
+   {
+    "@type": "Country",
+    "name": "Italy"
+   }
+  ],
+  "correctionsPolicy": "https://frontaliereticino.ch/correzioni/",
+  "ethicsPolicy": "https://frontaliereticino.ch/chi-siamo/#standard-giornalistici",
+  "ownershipFundingInfo": "https://frontaliereticino.ch/chi-siamo/#finanziamento",
+  "masthead": "https://frontaliereticino.ch/chi-siamo/#team",
+  "verificationFactCheckingPolicy": "https://frontaliereticino.ch/metodologia/#fact-checking",
+  "publishingPrinciples": "https://frontaliereticino.ch/metodologia/",
+  "actionableFeedbackPolicy": "https://frontaliereticino.ch/contattaci/",
+  "description": "La risorsa più completa per i lavoratori frontalieri tra Italia e Svizzera: simulatore fiscale, pensione, assicurazione sanitaria, cambio valuta e guide pratiche.",
+  "knowsAbout": [
  "Cross-border worker taxation",
  "Swiss withholding tax",
  "Italian IRPEF",
@@ -89,7 +143,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "CHF EUR exchange rates",
  "Permit G Permit B",
  "Canton Ticino employment"
- ],
+ ]
  },
  {
  "@context": "https://schema.org",
@@ -4683,7 +4737,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "WebPage",
  "name": "Eliminazione Dati Personali",
  "url": `${BASE_URL}/eliminazione-dati/`,
- "description": "Procedura per richiedere l\'eliminazione dei dati personali",
+ "description": "Procedura per richiedere l'eliminazione dei dati personali",
  "inLanguage": "it"
  }
  },
@@ -6504,18 +6558,73 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "description": "Piattaforma informativa per frontalieri italiani in Svizzera",
  "inLanguage": "it"
  },
- {
+  {
   "@context": "https://schema.org",
-  ...ORGANIZATION_LD_FULL,
-   "description": "Guida completa per i lavoratori frontalieri in Svizzera: simulatore fiscale, pensione, assicurazione sanitaria, cambio valuta e offerte di lavoro.",
-   "knowsAbout": [
+  "@type": "NewsMediaOrganization",
+  "@id": "https://frontaliereticino.ch/#organization",
+  "name": "Frontaliere Ticino",
+  "url": "https://frontaliereticino.ch/",
+  "sameAs": [
+   "https://www.facebook.com/profile.php?id=61588174947294",
+   "https://www.facebook.com/frontaliereticino",
+   "https://www.linkedin.com/company/frontaliere-ticino",
+   "https://github.com/valerielinc-ops/frontaliere-si-o-no"
+  ],
+  "logo": {
+   "@type": "ImageObject",
+   "contentUrl": "https://frontaliereticino.ch/icons/icon-512x512.png",
+   "url": "https://frontaliereticino.ch/icons/icon-512x512.png",
+   "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+   "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+   "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+   "creator": {
+    "@type": "Organization",
+    "name": "Frontaliere Ticino",
+    "url": "https://frontaliereticino.ch/"
+   },
+   "creditText": "Frontaliere Ticino",
+   "width": 512,
+   "height": 512
+  },
+  "foundingDate": "2023",
+  "description": "Piattaforma informativa per frontalieri italiani in Svizzera: tassazione, permessi, lavoro, sanità e aggiornamenti normativi.",
+  "contactPoint": {
+   "@type": "ContactPoint",
+   "contactType": "customer support",
+   "url": "https://frontaliereticino.ch/contattaci/",
+   "availableLanguage": [
+    "Italian",
+    "English",
+    "German",
+    "French"
+   ]
+  },
+  "areaServed": [
+   {
+    "@type": "Country",
+    "name": "Switzerland"
+   },
+   {
+    "@type": "Country",
+    "name": "Italy"
+   }
+  ],
+  "correctionsPolicy": "https://frontaliereticino.ch/correzioni/",
+  "ethicsPolicy": "https://frontaliereticino.ch/chi-siamo/#standard-giornalistici",
+  "ownershipFundingInfo": "https://frontaliereticino.ch/chi-siamo/#finanziamento",
+  "masthead": "https://frontaliereticino.ch/chi-siamo/#team",
+  "verificationFactCheckingPolicy": "https://frontaliereticino.ch/metodologia/#fact-checking",
+  "publishingPrinciples": "https://frontaliereticino.ch/metodologia/",
+  "actionableFeedbackPolicy": "https://frontaliereticino.ch/contattaci/",
+  "description": "Guida completa per i lavoratori frontalieri in Svizzera: simulatore fiscale, pensione, assicurazione sanitaria, cambio valuta e offerte di lavoro.",
+  "knowsAbout": [
  "Fiscalità frontalieri Svizzera-Italia",
  "Nuovo accordo fiscale 2026",
  "Previdenza sociale AVS/LPP",
  "Assicurazione malattia LAMal/CMB",
  "Permesso G e permesso B",
  "Mercato del lavoro Ticino"
- ],
+ ]
  }
  ],
  },
@@ -6608,10 +6717,65 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "description": "Frontaliere Ticino is the leading platform for Italian cross-border workers in Switzerland",
  "inLanguage": "en"
  },
+    {
+  "@context": "https://schema.org",
+  "@type": "NewsMediaOrganization",
+  "@id": "https://frontaliereticino.ch/#organization",
+  "name": "Frontaliere Ticino",
+  "url": "https://frontaliereticino.ch/",
+  "sameAs": [
+   "https://www.facebook.com/profile.php?id=61588174947294",
+   "https://www.facebook.com/frontaliereticino",
+   "https://www.linkedin.com/company/frontaliere-ticino",
+   "https://github.com/valerielinc-ops/frontaliere-si-o-no"
+  ],
+  "logo": {
+   "@type": "ImageObject",
+   "contentUrl": "https://frontaliereticino.ch/icons/icon-512x512.png",
+   "url": "https://frontaliereticino.ch/icons/icon-512x512.png",
+   "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+   "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+   "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+   "creator": {
+    "@type": "Organization",
+    "name": "Frontaliere Ticino",
+    "url": "https://frontaliereticino.ch/"
+   },
+   "creditText": "Frontaliere Ticino",
+   "width": 512,
+   "height": 512
+  },
+  "foundingDate": "2023",
+  "description": "Piattaforma informativa per frontalieri italiani in Svizzera: tassazione, permessi, lavoro, sanità e aggiornamenti normativi.",
+  "contactPoint": {
+   "@type": "ContactPoint",
+   "contactType": "customer support",
+   "url": "https://frontaliereticino.ch/contattaci/",
+   "availableLanguage": [
+    "Italian",
+    "English",
+    "German",
+    "French"
+   ]
+  },
+  "areaServed": [
    {
- "@context": "https://schema.org",
- ...ORGANIZATION_LD_FULL,
- "description": "The comprehensive guide for cross-border workers in Switzerland: tax simulator, pension planning, health insurance, currency exchange, and job board.",
+    "@type": "Country",
+    "name": "Switzerland"
+   },
+   {
+    "@type": "Country",
+    "name": "Italy"
+   }
+  ],
+  "correctionsPolicy": "https://frontaliereticino.ch/correzioni/",
+  "ethicsPolicy": "https://frontaliereticino.ch/chi-siamo/#standard-giornalistici",
+  "ownershipFundingInfo": "https://frontaliereticino.ch/chi-siamo/#finanziamento",
+  "masthead": "https://frontaliereticino.ch/chi-siamo/#team",
+  "verificationFactCheckingPolicy": "https://frontaliereticino.ch/metodologia/#fact-checking",
+  "publishingPrinciples": "https://frontaliereticino.ch/metodologia/",
+  "actionableFeedbackPolicy": "https://frontaliereticino.ch/contattaci/",
+  "description": "The comprehensive guide for cross-border workers in Switzerland: tax simulator, pension planning, health insurance, currency exchange, and job board."
  }
  ],
  },
