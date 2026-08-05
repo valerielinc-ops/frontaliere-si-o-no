@@ -1,0 +1,290 @@
+name: Mirror the articles engine to the corpus repo
+
+# The code half of the cycle, which has had no transport since the cutover.
+#
+# CLAUDE.md states the invariant this workflow restores: "il codice scende dal
+# sito al corpus, i dati risalgono dal corpus al sito". The data direction is
+# automated and healthy — nanako publishes JSON, sync-articles-sitemaps.yml and
+# scripts/pull-articles-corpus.mjs pull it back. The code direction had exactly
+# one carrier, mirror-articles-corpus.yml, and the 2026-08-02 cutover disabled
+# it: that workflow does `rm -rf content && cp -R packages/articles/content`, so
+# any automatic run now deletes every article nanako has generated. It was
+# switched to dispatch-only for that reason and cannot be switched back.
+#
+# So from 2026-08-02 the engine had no way down, and nothing said so. Three
+# engine PRs merged here on 2026-08-05 — #5101 (hero intrinsic width/height),
+# #5107 (topical related-articles index), and the ARTICLE_FOOTER_ROOT portal
+# target — never reached nanako. nanako is what renders article pages now, so
+# every article published in between shipped from the pre-fix engine. Measured
+# on production: `<main class="seo-static-content">` present, `<div
+# id="footer-root"></div>` absent, which is precisely what
+# audit:footer-root-presence counts and why its count went from 23 to 3608.
+#
+# The fix is not to re-enable the corpus mirror. It is to carry the ONLY thing
+# this repo still owns — `engine/` — and to carry nothing else. Splitting the
+# transport this way is what makes automation safe: the destructive half of the
+# old mirror was entirely about `content/`, and this workflow may not touch
+# `content/` at all. That is asserted below, at run time, on the staged diff.
+#
+# It is also what finally makes mirror-articles-corpus.yml deletable (#4974
+# §5.7): today it has to stay because deleting it would remove the last
+# code-shaped connection between the two repos, even though it is unusable.
+#
+# Why the engine is safe to drop into nanako wholesale:
+# tests/packages-articles-confinement.test.ts proves — via the TypeScript AST,
+# not regex — that nothing under packages/articles imports outside its own
+# folder beyond Node builtins and its declared dependencies. Everything else
+# arrives through SiteShellContract (engine/siteShell.ts), which nanako
+# satisfies from its own host/ tree. A package that cannot reach back into the
+# site is a package that can be copied into another repo unchanged.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'packages/articles/engine/**'
+      # index.ts and articleSections.ts are the package's own surface and the
+      # old mirror carried them alongside engine/. Same set, minus content/.
+      - 'packages/articles/index.ts'
+      - 'packages/articles/articleSections.ts'
+      - '.github/workflows/mirror-articles-engine.yml'
+
+  # Safety net, and in practice load-bearing — the same lesson
+  # mirror-articles-corpus.yml learned and wrote down before it was disabled.
+  # A push made with the default GITHUB_TOKEN never triggers another workflow
+  # (GitHub's anti-recursion rule), so the `push:` filter above misses any
+  # engine change that lands from automation rather than from a human merge.
+  # Without this schedule the drift this workflow exists to prevent would come
+  # back through exactly the door it came through the first time.
+  #
+  # Cheap when there is nothing to do: the job exits at "engine already in
+  # sync" without creating a branch or a PR.
+  schedule:
+    - cron: '19 */6 * * *' # off-hour, clear of the deploy cron and publish-api
+
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Stage and print the diff, push nothing.'
+        type: boolean
+        required: false
+        default: false
+
+# Serialised, never cancelled: two runs would each clone nanako, stage
+# independently and force-push the same side branch, and the loser would
+# silently overwrite the winner mid-flight.
+concurrency:
+  group: mirror-articles-engine
+  cancel-in-progress: false
+
+# Read-only against THIS repo. Every write happens inside a temp clone of
+# nanako, authenticated with ARTICLES_REPO_PAT.
+permissions:
+  contents: read
+
+env:
+  # The branch this workflow owns outright in nanako. It is derived state:
+  # rebuilt from origin/main + this repo's engine on every run, never edited by
+  # hand, which is what makes the force-push below safe.
+  TARGET_BRANCH: engine-lockstep-auto
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      # v5, not v4: v4's Node runtime gate fails on this runner image.
+      #
+      # Sparse, non-cone, anchored. This job reads packages/articles/engine and
+      # two sibling files and nothing else; a full checkout materialises 14k
+      # corpus files under packages/articles/content for no benefit, which is
+      # the 17-minute checkout that had to be engineered out of
+      # transport-generator-to-nanako.yml. Anchoring every pattern with a
+      # leading slash matters: unanchored, `engine` in gitignore syntax matches
+      # a directory of that name at any depth.
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /packages/articles/engine/
+            /packages/articles/index.ts
+            /packages/articles/articleSections.ts
+          sparse-checkout-cone-mode: false
+
+      - name: Sanity - the engine actually materialised
+        # A sparse pattern that selects nothing leaves an empty directory and
+        # every later step still "succeeds": the copy copies nothing, the diff
+        # is empty, and the run reports "already in sync" while the two repos
+        # drift apart. That is the same silent-success shape this whole
+        # workflow exists to remove, so it is checked rather than assumed.
+        run: |
+          set -euo pipefail
+          count=$(find packages/articles/engine -type f | wc -l | tr -d ' ')
+          echo "engine files checked out: $count"
+          if [ "$count" -lt 5 ]; then
+            echo "::error::sparse checkout produced $count engine file(s) — refusing to mirror an empty or truncated engine"
+            exit 1
+          fi
+          if [ ! -f packages/articles/engine/siteShell.ts ]; then
+            echo "::error::engine/siteShell.ts missing — the checkout is not the engine"
+            exit 1
+          fi
+
+      - name: Stage the engine into a clone of the corpus repo
+        id: stage
+        env:
+          PAT: ${{ secrets.ARTICLES_REPO_PAT }}
+        run: |
+          set -euo pipefail
+          if [ -z "${PAT:-}" ]; then
+            echo "::error::ARTICLES_REPO_PAT is not set — cannot mirror"
+            exit 1
+          fi
+
+          work=$(mktemp -d)
+          echo "work=$work" >> "$GITHUB_OUTPUT"
+
+          # Always branch from nanako's CURRENT main, never from whatever the
+          # side branch happens to hold. The side branch is derived state; if
+          # it were continued instead, a run whose PR was never merged would
+          # keep replaying an old base and the PR diff would drift away from
+          # what merging it would actually do.
+          git clone --depth 1 --branch main \
+            "https://x-access-token:${PAT}@github.com/nanakokyobashi-rgb/frontaliere-articles.git" \
+            "$work"
+
+          # The whole safety argument, in three lines: engine/ is REPLACED,
+          # content/ is not named, not read, and not written. The old mirror's
+          # destructive step was `rm -rf content` — there is deliberately no
+          # analogue here, and the guard below proves it on the actual diff
+          # rather than trusting this comment.
+          rm -rf "${work:?}/engine"
+          cp -R packages/articles/engine "$work/engine"
+          for f in index.ts articleSections.ts; do
+            [ -f "packages/articles/$f" ] && cp "packages/articles/$f" "$work/$f"
+          done
+
+          cd "$work"
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "engine already in sync — nothing to mirror"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+          # ── The guard that makes a `push:` trigger defensible ─────────────
+          # Every staged path must be one this workflow is allowed to own. If a
+          # future edit to the copy step above ever reaches content/, or the
+          # corpus repo's package.json, or its workflows, the run dies here
+          # instead of opening a PR that deletes articles. Fail-closed: an
+          # unrecognised path is a stop, not a warning.
+          bad=$(git diff --cached --name-only \
+                | grep -vE '^(engine/|index\.ts$|articleSections\.ts$)' || true)
+          if [ -n "$bad" ]; then
+            echo "::error::the engine mirror staged paths outside engine/ — refusing"
+            echo "$bad" | sed 's/^/  offending: /'
+            exit 1
+          fi
+
+          # The engine is a small, stable file set. Wholesale deletion means a
+          # bad checkout upstream, not an intentional change, and a PR built
+          # from it would read as a legitimate removal.
+          deleted=$(git diff --cached --diff-filter=D --name-only | wc -l | tr -d ' ')
+          echo "staged: $(git diff --cached --name-only | wc -l | tr -d ' ') path(s), $deleted deletion(s)"
+          if [ "$deleted" -gt 3 ]; then
+            echo "::error::mirror would delete $deleted engine file(s) — refusing, investigate upstream"
+            git diff --cached --diff-filter=D --name-only | sed 's/^/  deleting: /'
+            exit 1
+          fi
+
+          git diff --cached --stat | tail -20
+
+      - name: Push the side branch and open the lockstep PR
+        if: steps.stage.outputs.changed == 'true' && inputs.dry_run != true
+        env:
+          PAT: ${{ secrets.ARTICLES_REPO_PAT }}
+          GH_TOKEN: ${{ secrets.ARTICLES_REPO_PAT }}
+          WORK: ${{ steps.stage.outputs.work }}
+          SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          cd "$WORK"
+
+          git config user.name "Valerie Linc"
+          git config user.email "valerielinc@gmail.com"
+          git commit -q \
+            -m "Lockstep engine/ with frontaliere-si-o-no@${SHA:0:8}" \
+            -m "Automated engine-only mirror (frontaliere-si-o-no .github/workflows/mirror-articles-engine.yml). Carries packages/articles/engine plus index.ts and articleSections.ts, and nothing else — content/ is owned by this repo and is never touched. Merging republishes the data surface, because publish-api.yml watches engine/**."
+
+          # Force, deliberately. TARGET_BRANCH is derived state owned solely by
+          # this workflow and rebuilt from origin/main on every run, so there is
+          # no history on it worth preserving and nothing else pushes to it.
+          # --force-with-lease is the wrong tool here: it needs a remote-tracking
+          # ref this fresh shallow clone does not have, and it would fail closed
+          # on exactly the normal case (the branch moved because the previous
+          # run put it there).
+          git push --force origin "HEAD:${TARGET_BRANCH}"
+          echo "pushed ${TARGET_BRANCH}"
+
+          # One PR at a time. If one is already open this push updated it in
+          # place, which is the desired behaviour: the open PR IS the drift
+          # alarm, and a second one would split the signal.
+          open=$(gh pr list --repo nanakokyobashi-rgb/frontaliere-articles \
+                   --head "${TARGET_BRANCH}" --state open --json number \
+                   --jq 'length')
+          if [ "$open" -gt 0 ]; then
+            echo "existing PR updated in place"
+          else
+            # printf into a file, not a heredoc and not an inline --body.
+            #
+            # A heredoc cannot work here: its terminator must sit at column 0,
+            # and column 0 ends this `run: |` block scalar, so the workflow
+            # stops being parseable YAML. `<<-` does not rescue it either — it
+            # strips leading TABS only, and YAML forbids tabs for indentation.
+            # An inline --body has the same problem for its blank lines. Found
+            # by running `bash -n` over every run block in this file rather
+            # than by watching the step fail on the one run where drift exists.
+            body=$(mktemp)
+            printf '%s\n' \
+              'Automated by `mirror-articles-engine.yml` in valerielinc-ops/frontaliere-si-o-no.' \
+              '' \
+              'The site owns `packages/articles/engine/`; this repo executes it. This PR' \
+              'carries that folder down, and **only** that folder — `content/` belongs to' \
+              'this repo and the mirror never touches it (asserted on the staged diff,' \
+              'fail-closed).' \
+              '' \
+              "A PR rather than a direct push, so this repo's CI and the shell-contract" \
+              'parity golden run before an engine change reaches the generator that' \
+              'publishes articles. An open PR here means the two engines have diverged.' \
+              '' \
+              'Refs valerielinc-ops/frontaliere-si-o-no#4974' \
+              > "$body"
+            printf '\nFrom commit `%s`.\n' "${SHA:0:8}" >> "$body"
+
+            gh pr create --repo nanakokyobashi-rgb/frontaliere-articles \
+              --head "${TARGET_BRANCH}" --base main \
+              --title "🔗 Lockstep engine/ with the site" \
+              --body-file "$body"
+          fi
+
+      - name: Job summary
+        if: always()
+        env:
+          CHANGED: ${{ steps.stage.outputs.changed }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          {
+            echo "### Articles engine mirror"
+            echo
+            if [ "${CHANGED:-}" = "true" ]; then
+              if [ "${DRY_RUN:-}" = "true" ]; then
+                echo "Engine drift detected — dry run, nothing pushed."
+              else
+                echo "Engine drift detected — pushed \`${TARGET_BRANCH}\` and opened/updated the lockstep PR."
+              fi
+            else
+              echo "Engine in sync with the corpus repo. Nothing to do."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
