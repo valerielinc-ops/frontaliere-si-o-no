@@ -170,6 +170,23 @@ describe('comune di frontiera <title> stays within the audit:title-length cap (#
     }
   });
 
+  it('keeps the JSON-LD subjectOf.WebPage.name on the same builder as the <title>', () => {
+    // Reviewer catch on PR #5111: `placeLd.subjectOf.WebPage.name` read the raw
+    // `copy.title(municipality)` while the <title> went through the capped
+    // cascade. Both matched by accident before the cap; capping only one would
+    // have made structured data disagree with the rendered title for exactly the
+    // long-name comuni the cap exists for.
+    const lines = read('build-plugins/borderMunicipalityPagesPlugin.ts').split('\n');
+    const start = lines.findIndex((l) => l.includes('subjectOf: {'));
+    expect(start, 'placeLd.subjectOf block not found').toBeGreaterThan(-1);
+    const nameLine = lines
+      .slice(start, start + 20)
+      .find((l) => /^\s*name:/.test(l));
+    expect(nameLine, 'subjectOf.WebPage.name not found').toBeDefined();
+    expect(nameLine!).toContain('buildBorderMunicipalityTitle(municipality, locale)');
+    expect(nameLine!).not.toContain('copy.title(');
+  });
+
   it('reproduces the pre-fix overflow on the longest live comune name', () => {
     const longest = MUNICIPALITIES.map((m) => m.name).reduce(
       (a, b) => (b.length > a.length ? b : a),

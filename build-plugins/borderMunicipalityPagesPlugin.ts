@@ -1019,8 +1019,14 @@ function renderPage(params: {
       longitude: municipality.lng,
     },
     subjectOf: {
-      '@type': 'WebPage',
-      name: copy.title(municipality),
+      // Must be the SAME string the page ships as <title>. Before the #4828
+      // cascade both read `copy.title(municipality)` and matched by accident;
+      // capping only the <title> would have made them diverge for exactly the
+      // long-name comuni the cap exists for ("Bardello con Malgesso e Bregano":
+      // WebPage.name 73 char vs <title> ≤66). Structured-data `name` tracking a
+      // different string than the rendered title is a data-quality defect in its
+      // own right, so both go through the one builder.
+      name: buildBorderMunicipalityTitle(municipality, locale),
       url: canonicalUrl,
     },
   });
