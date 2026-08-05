@@ -23,6 +23,7 @@ import { fileURLToPath } from 'node:url';
 
 import { getAccessToken, submitPost, userAgent } from './lib/reddit-client.mjs';
 import { buildArticlePost } from './lib/reddit-templates.mjs';
+import { automationEligibleSubs } from './lib/redditAutomationPolicy.mjs';
 
 // Delay between subreddit submissions (ms). Conservative to respect
 // Reddit anti-spam / rate limits.
@@ -60,13 +61,14 @@ function loadSubreddits(repoRoot) {
 }
 
 /**
- * Resolve the automation-enabled subreddit names routed for a topic.
- * Pure: takes a config object + topic, returns an array of names whose
- * `subreddits[name].allowsAutomation === true`.
+ * Resolve the subreddits automation may post to for a topic, as names.
+ *
+ * Delegates to the shared policy module so this script and the daily cron
+ * cannot disagree about who is a legitimate target — they used to be two
+ * independent implementations of the same filter, one tested and one not.
  */
-function automationSubsForTopic(config, topic) {
-  const routed = Array.isArray(config?.routing?.[topic]) ? config.routing[topic] : [];
-  return routed.filter((name) => config?.subreddits?.[name]?.allowsAutomation === true);
+export function automationSubsForTopic(config, topic, opts) {
+  return automationEligibleSubs(config, topic, opts).map((s) => s.name);
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -154,7 +156,15 @@ async function main() {
   process.exit(0);
 }
 
-main().catch((err) => {
-  console.error('⚠️ post-to-reddit crashed:', err?.message || err);
-  process.exit(0); // soft-fail
-});
+// ── CLI ─────────────────────────────────────────────────────
+// Guarded exactly like the sibling `schedule-reddit-jobs-daily.mjs`: without
+// it, `import`ing this module to unit-test `automationSubsForTopic` runs
+// `main()`, which calls `process.exit(0)` on missing argv. A posting script is
+// the last place that should execute as a side effect of being read.
+const isDirectInvocation = import.meta.url === `file://${process.argv[1]}`;
+if (isDirectInvocation) {
+  main().catch((err) => {
+    console.error('⚠️ post-to-reddit crashed:', err?.message || err);
+    process.exit(0); // soft-fail
+  });
+}
