@@ -65,17 +65,21 @@ jobs:
       - name: Backfill sector corrections
         id: backfill
         continue-on-error: true
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_APPLY: ${{ inputs.apply }}
+          INPUT_EMAIL: ${{ inputs.email }}
         run: |
           APPLY_FLAG=""
           # Scheduled runs always apply; manual runs honor the apply input.
-          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.apply }}" = "true" ]; then
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "$INPUT_APPLY" = "true" ]; then
             APPLY_FLAG="--apply"
           fi
-          EMAIL_FLAG=""
-          if [ -n "${{ inputs.email }}" ]; then
-            EMAIL_FLAG="--email ${{ inputs.email }}"
+          EMAIL_ARGS=()
+          if [ -n "$INPUT_EMAIL" ]; then
+            EMAIL_ARGS=(--email "$INPUT_EMAIL")
           fi
-          node scripts/backfill-personalization-sector.mjs $APPLY_FLAG $EMAIL_FLAG
+          node scripts/backfill-personalization-sector.mjs $APPLY_FLAG "${EMAIL_ARGS[@]}"
 
       - name: Report failure to GitHub Issues
         if: steps.backfill.outcome == 'failure'

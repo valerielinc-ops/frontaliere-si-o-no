@@ -105,6 +105,18 @@ jobs:
         # the deploy. Catch the regression here instead of reactively (#779).
         run: npm run lint:gha-node-runtime
 
+      - name: Lint workflow input shell-injection
+        # Deterministic guardrail (issue #5032): fails if a workflow input is
+        # interpolated into a `run:` block. `${{ … }}` is expanded BEFORE the
+        # shell parses the line, so a free-text dispatch input lands as script
+        # text on a runner holding FIREBASE_SERVICE_ACCOUNT_JSON (an
+        # owner-equivalent production service account), CLAUDE_CODE_OAUTH_TOKEN,
+        # ARTICLES_REPO_PAT and the shard deploy keys. Fix = pass through `env:`
+        # and reference the QUOTED shell variable. Also enforced by
+        # tests/workflow-input-injection.test.ts; this step surfaces it without
+        # waiting for the vitest job.
+        run: npm run lint:workflow-input-injection
+
       - name: Lint hardcoded locale segments
         # Deterministic guard (escalation #1529, reviewer-finding/i18n-naming):
         # fails if a language segment (/de/, /fr/, /it/, /en/) is hardcoded as a

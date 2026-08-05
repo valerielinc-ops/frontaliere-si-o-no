@@ -84,9 +84,12 @@ jobs:
           # pass: ai-models.mjs only offers the model when this AND the RC
           # flag are both set.
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_DAYS: ${{ inputs.days || '30' }}
+          INPUT_SECTIONS: ${{ inputs.sections || 'all' }}
         run: |
-          DAYS="${{ inputs.days || '30' }}"
-          SECTION="${{ inputs.sections || 'all' }}"
+          DAYS="$INPUT_DAYS"
+          SECTION="$INPUT_SECTIONS"
 
           mkdir -p reports
 

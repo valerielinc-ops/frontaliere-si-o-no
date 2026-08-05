@@ -234,8 +234,11 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_PAT: ${{ env.GITHUB_PAT }}
           GH_REPO: ${{ github.repository }}
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_CAP: ${{ github.event.inputs.cap || '5' }}
+          INPUT_DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: |
           set -uo pipefail
-          ARGS="--cap ${{ github.event.inputs.cap || '5' }}"
-          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
-          node scripts/ci/triage-sweep.mjs $ARGS
+          ARGS=(--cap "$INPUT_CAP")
+          if [ "$INPUT_DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
+          node scripts/ci/triage-sweep.mjs "${ARGS[@]}"

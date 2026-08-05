@@ -122,14 +122,18 @@ jobs:
 
       - name: Render article (fast path)
         id: render
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_ARTICLE_ID: ${{ inputs.article_id }}
+          INPUT_SECTION: ${{ inputs.section }}
         run: |
           mkdir -p /tmp/fast-publish
           # Pinned to the same major the repo depends on (package.json
           # devDependencies: "tsx": "^4.21.0") so a future tsx major cannot
           # silently change loader behaviour on this un-installed fast path.
           npx -y tsx@4 scripts/publish-article-fast.mjs \
-            --id "${{ inputs.article_id }}" \
-            --section "${{ inputs.section }}" \
+            --id "$INPUT_ARTICLE_ID" \
+            --section "$INPUT_SECTION" \
             --out /tmp/fast-publish/dist \
             --summary /tmp/fast-publish/summary.json
 
@@ -287,13 +291,17 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_ARTICLE_ID: ${{ inputs.article_id }}
+          INPUT_SECTION: ${{ inputs.section }}
+          INPUT_SHA: ${{ inputs.sha || github.sha }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "Workflow Failure: Fast Publish Article" \
             --description "## Workflow fallito
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          **Article:** ${{ inputs.article_id }} (section=${{ inputs.section }})
-          **SHA:** ${{ inputs.sha || github.sha }}
+          **Article:** $INPUT_ARTICLE_ID (section=$INPUT_SECTION)
+          **SHA:** $INPUT_SHA
 
           Il fast-publish è fallito — l'articolo resta pubblicato SOLO tramite il deploy.yml completo (30min-2h)." \
             --priority 2 \

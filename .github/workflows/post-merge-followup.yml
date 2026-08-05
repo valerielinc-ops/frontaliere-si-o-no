@@ -72,9 +72,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_PR_NUMBER: ${{ github.event.inputs.pr_number }}
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            PR="${{ github.event.inputs.pr_number }}"
+            PR="$INPUT_PR_NUMBER"
             echo "::notice::Backfill dispatch per PR #${PR} (eligibility ri-verificata nel prompt Claude)."
             {
               echo "batch_prs=${PR}"

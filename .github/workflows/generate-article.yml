@@ -160,8 +160,11 @@ jobs:
       # race must retry in its own section, not get rerouted to frontaliere.
       - name: Resolve target section
         id: section
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_SECTION: ${{ github.event.inputs.section }}
         run: |
-          SEC="${{ github.event.inputs.section }}"
+          SEC="$INPUT_SECTION"
           if [ "$SEC" != "svizzera" ]; then SEC="frontaliere"; fi
           echo "section=$SEC" >> "$GITHUB_OUTPUT"
           echo "🎯 Target section: $SEC"
@@ -330,6 +333,10 @@ jobs:
           # always pass: ai-models.mjs only offers the model when this AND the
           # RC flag are both set (isClaudeCliFallbackEnabled/hasClaudeCodeOauthToken).
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # A free-text URL pasted straight onto a command line was the clearest
+          # injection site in this repo (#5032). It arrives through the
+          # environment, where it is data, and is quoted at every use.
+          ARTICLE_URL: ${{ inputs.url }}
         run: |
           echo "📰 Generating blog article (section=$TARGET_SECTION)..."
           # Out-of-process wall-clock kill. CREATE_ARTICLE_MAX_WALL_MS is an
@@ -345,8 +352,8 @@ jobs:
           hard_kill_s=$(( CREATE_ARTICLE_MAX_WALL_MS / 1000 + 300 ))
           echo "⏱️  hard kill after ${hard_kill_s}s (in-process budget $(( CREATE_ARTICLE_MAX_WALL_MS / 1000 ))s + 300s grace)"
           set +e
-          if [ -n "${{ inputs.url }}" ]; then
-            timeout --signal=TERM --kill-after=60s "${hard_kill_s}s" node scripts/create-article.mjs --section="$TARGET_SECTION" "${{ inputs.url }}"
+          if [ -n "$ARTICLE_URL" ]; then
+            timeout --signal=TERM --kill-after=60s "${hard_kill_s}s" node scripts/create-article.mjs --section="$TARGET_SECTION" "$ARTICLE_URL"
           else
             timeout --signal=TERM --kill-after=60s "${hard_kill_s}s" node scripts/create-article.mjs --section="$TARGET_SECTION"
           fi

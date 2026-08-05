@@ -91,10 +91,12 @@ jobs:
       - name: Download the live github-pages artifact (monolith it + shared)
         env:
           GH_TOKEN: ${{ github.token }}
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_DEPLOY_RUN_ID: ${{ github.event.inputs.deploy_run_id }}
         run: |
           set -eo pipefail
           mkdir -p /tmp/live
-          gh run download "${{ github.event.inputs.deploy_run_id }}" \
+          gh run download "$INPUT_DEPLOY_RUN_ID" \
             -R "${{ github.repository }}" -n github-pages -D /tmp/live
           # The github-pages artifact is a single artifact.tar inside.
           if [ -f /tmp/live/artifact.tar ]; then

@@ -76,7 +76,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           git add data/jobs-crawler-adapters/adapters/*.json
-          git commit -m "🛠️ Manage company adapter (${{ inputs.adapter_key }}, ${{ inputs.action }})"
+          git commit -m "🛠️ Manage company adapter ($ADAPTER_KEY, $ADAPTER_ACTION)"
 
           # Centralized rebase-retry helper survives concurrent pushes from
           # other data-refresh workflows. On rebase conflict, re-run the

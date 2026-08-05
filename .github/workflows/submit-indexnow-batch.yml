@@ -97,18 +97,25 @@ jobs:
       # `--local` to read from dist/ instead (not used here). The `npm ci`
       # above is only for the RC-loading step's `firebase-admin` dependency.
       - name: Submit IndexNow batch
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text. The
+          # array form also stops an unquoted value word-splitting, which
+          # `--sitemap $VALUE` did even without malice.
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
+          INPUT_ENDPOINT: ${{ inputs.endpoint }}
+          INPUT_SITEMAP: ${{ inputs.sitemap }}
         run: |
-          ARGS=""
-          if [ "${{ inputs.dry_run }}" = "true" ]; then
-            ARGS="$ARGS --dry-run"
+          ARGS=()
+          if [ "$INPUT_DRY_RUN" = "true" ]; then
+            ARGS+=(--dry-run)
           fi
-          if [ -n "${{ inputs.endpoint }}" ]; then
-            ARGS="$ARGS --endpoint ${{ inputs.endpoint }}"
+          if [ -n "$INPUT_ENDPOINT" ]; then
+            ARGS+=(--endpoint "$INPUT_ENDPOINT")
           fi
-          if [ -n "${{ inputs.sitemap }}" ]; then
-            ARGS="$ARGS --sitemap ${{ inputs.sitemap }}"
+          if [ -n "$INPUT_SITEMAP" ]; then
+            ARGS+=(--sitemap "$INPUT_SITEMAP")
           fi
-          node scripts/submit-indexnow-batch.mjs $ARGS
+          node scripts/submit-indexnow-batch.mjs "${ARGS[@]}"
 
       - name: Report failure to GitHub Issues
         if: failure()

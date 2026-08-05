@@ -175,19 +175,25 @@ jobs:
           SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY }}
           SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY }}
           SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_SECTION: ${{ matrix.section }}
+          INPUT_LOCALE: ${{ inputs.locale || 'all' }}
+          INPUT_BATCH_SIZE: ${{ inputs.batch_size || '300' }}
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
+          INPUT_LIMIT: ${{ inputs.limit }}
         run: |
           set -euo pipefail
           mkdir -p /tmp/rerender-corpus
-          ARGS=(--section "${{ matrix.section }}" \
-                --locale "${{ inputs.locale || 'all' }}" \
-                --batch-size "${{ inputs.batch_size || '300' }}" \
+          ARGS=(--section "$INPUT_SECTION" \
+                --locale "$INPUT_LOCALE" \
+                --batch-size "$INPUT_BATCH_SIZE" \
                 --out /tmp/rerender-corpus/dist \
                 --manifest /tmp/rerender-corpus/manifest.json)
-          if [ "${{ inputs.dry_run }}" = "true" ]; then
+          if [ "$INPUT_DRY_RUN" = "true" ]; then
             ARGS+=(--dry-run)
           fi
-          if [ -n "${{ inputs.limit }}" ]; then
-            ARGS+=(--limit "${{ inputs.limit }}")
+          if [ -n "$INPUT_LIMIT" ]; then
+            ARGS+=(--limit "$INPUT_LIMIT")
           fi
           # Pinned to the same tsx major package.json's devDependencies
           # declares ("tsx": "^4.21.0"), matching publish-article-fast.mjs's
