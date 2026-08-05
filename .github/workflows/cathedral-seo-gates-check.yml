@@ -88,10 +88,12 @@ jobs:
           node-version: '22'
           cache: 'npm'
 
-      # Ensure the labels exist BEFORE the `gh issue create --label seo-gates`
-      # calls below — the improvements-issue step runs under `set -euo pipefail`
-      # with no fallback, so a missing label crashes the whole job instead of
-      # just failing to file the issue (same class of bug as #4598).
+      # Create the labels with their colour/description before the issue steps.
+      # `github-issue-creator.mjs` creates anything missing on its own, but only
+      # with defaults — this keeps them recognisable in the backlog. (#4598: the
+      # raw `gh issue create` these steps used to run could crash the job under
+      # `set -euo pipefail` on a missing label; the helper's exit-0 contract now
+      # rules that out structurally.)
       - name: Ensure labels exist
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -200,15 +202,12 @@ jobs:
             exit 0
           fi
 
-          title="chore(seo-gates): possible rebaseline opportunity — ${improved} gate(s) improved"
-
-          # De-dupe — never spam if the same title is already open.
-          existing=$(gh issue list --state open --label seo-gates --limit 200 \
-            --json title --jq '.[].title' || true)
-          if echo "$existing" | grep -Fxq "$title"; then
-            echo "Issue already open: $title"
-            exit 0
-          fi
+          # Stable title: the improved-gate COUNT used to sit at ~char 52, inside
+          # the 60-char window the dedup matches on, so a month where 3 gates
+          # improved instead of 2 opened a second issue for the same standing
+          # opportunity. The count moves into the body, next to the per-gate
+          # detail that actually drives the rebaseline decision.
+          title="chore(seo-gates): possible rebaseline opportunity"
 
           {
             echo "Automated check detected **${improved}** SEO content gate(s) where the"
@@ -228,11 +227,18 @@ jobs:
             echo "${GITHUB_SERVER_URL:-https://github.com}/${GH_REPO}/actions/runs/${GITHUB_RUN_ID:-}"
           } > /tmp/issue-body.md
 
-          gh issue create \
+          # `github-issue-creator.mjs` (ISSUES.md dedup a monte) owns both the
+          # create and the dedup: same stable title → comment on the canonical
+          # issue instead of a new one. It also always exits 0, which removes the
+          # `set -euo pipefail` hazard the raw `gh` call carried here (this step,
+          # unlike the regression one below, had no `|| echo` fallback, so a
+          # single failed create reddened the whole job).
+          node scripts/lib/github-issue-creator.mjs \
             --title "$title" \
-            --body-file /tmp/issue-body.md \
+            --description "$(cat /tmp/issue-body.md)" \
+            --priority 4 \
             --label seo-gates \
-            --repo "$GH_REPO"
+            --workflow "${{ github.workflow }}"
 
       - name: Open issue + fail workflow on regression
         id: failgate
@@ -253,14 +259,12 @@ jobs:
             # One issue per regressed gate (easier triage than a single mega-issue).
             mapfile -t names < <(jq -r '.gates[] | select(.status == "regressed") | .name' \
               data/cathedral-seo-gates-verdict.json)
-            existing=$(gh issue list --state open --label seo-gates --limit 200 \
-              --json title --jq '.[].title' || true)
             for name in "${names[@]}"; do
+              # Already stable — `${name}` is a legitimate discriminant (one
+              # issue per gate), not a per-run value. What changes is WHO dedups:
+              # the helper, on the canonical issue, instead of a hand-rolled
+              # exact-title scan of the 200 most recent open issues.
               title="SEO gates regression: ${name} above baseline"
-              if echo "$existing" | grep -Fxq "$title"; then
-                echo "Issue already open: $title"
-                continue
-              fi
               current=$(jq -r --arg n "$name"   '.gates[] | select(.name == $n) | .current'        data/cathedral-seo-gates-verdict.json)
               baseline=$(jq -r --arg n "$name"  '.gates[] | select(.name == $n) | .baseline'       data/cathedral-seo-gates-verdict.json)
               delta=$(jq -r --arg n "$name"     '.gates[] | select(.name == $n) | .delta'          data/cathedral-seo-gates-verdict.json)
@@ -280,11 +284,13 @@ jobs:
                 echo ""
                 echo "Workflow run: ${GITHUB_SERVER_URL:-https://github.com}/${GH_REPO}/actions/runs/${GITHUB_RUN_ID:-}"
               } > /tmp/issue-body.md
-              gh issue create \
+              node scripts/lib/github-issue-creator.mjs \
                 --title "$title" \
-                --body-file /tmp/issue-body.md \
-                --label seo-gates,regression \
-                --repo "$GH_REPO" || echo "Failed to create issue for ${name} (continuing)."
+                --description "$(cat /tmp/issue-body.md)" \
+                --priority 2 \
+                --label seo-gates \
+                --label regression \
+                --workflow "${{ github.workflow }}"
             done
             # Mark that a condition (regression) issue was surfaced, so the
             # generic crash-reporter below stays silent (no duplicate).

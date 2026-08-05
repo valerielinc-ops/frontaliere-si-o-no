@@ -127,14 +127,18 @@ jobs:
             "Run: ${run_url}" \
             "_Filed automatically by Guard data integrity._")"
 
-          existing=$(gh issue list --repo "$GH_REPO" --state open --search "in:title \"$TITLE\"" \
-            --json number,title --jq "[.[] | select(.title==\"$TITLE\")][0].number" 2>/dev/null || true)
-          if [ -n "$existing" ] && [ "$existing" != "null" ]; then
-            gh issue comment "$existing" --repo "$GH_REPO" --body "🔁 Nuovo troncamento auto-revertato (push \`${AFTER}\`). ${run_url}" || true
-          else
-            gh issue create --repo "$GH_REPO" --title "$TITLE" --body "$BODY" \
-              --label bug --label priority:urgent || echo "::warning::gh issue create fallito."
-          fi
+          # Il titolo era gia' stabile e la dedup gia' corretta — ma era una COPIA
+          # a mano di scripts/lib/github-issue-creator.mjs (cerca per titolo →
+          # commenta 🔁 sull'issue canonica → altrimenti crea). Due
+          # implementazioni della stessa regola divergono prima o poi (AGENTS.md
+          # #6): qui si usa l'unica condivisa, che fa esattamente questo e in
+          # piu' esce sempre 0.
+          node scripts/lib/github-issue-creator.mjs \
+            --title "$TITLE" \
+            --description "$BODY" \
+            --priority 1 \
+            --label bug \
+            --workflow "${{ github.workflow }}"
 
       - name: Fail the run (so the revert is visible)
         if: steps.detect.outputs.count != '0'

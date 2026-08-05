@@ -61,10 +61,11 @@ jobs:
             echo "severity=none" >> "$GITHUB_OUTPUT"
           fi
 
-      # Ensure the labels exist BEFORE `gh issue create --label` — without this,
-      # a missing label makes the create call fail under `set -euo pipefail`,
-      # crashing the whole job and masking the real oversized-shard condition
-      # behind a generic "unexpected failure" report (#4598).
+      # Ensure the labels exist with their colour/description before the issue
+      # step. `github-issue-creator.mjs` creates anything missing on its own, but
+      # only with defaults — this keeps the severity labels distinguishable in
+      # the backlog (#4598 kept the create call from crashing the job; the
+      # helper's exit-0 contract now guarantees that structurally).
       - name: Ensure labels exist
         if: steps.check.outcome == 'failure' && steps.severity.outputs.severity != 'none'
         env:
@@ -90,20 +91,21 @@ jobs:
           warnings=$(jq -r '.warnings | join(", ")' "$report")
           criticals=$(jq -r '.criticals | join(", ")' "$report")
 
+          # Stable titles: the shard COUNT used to sit at ~char 31, inside the
+          # 60-char window the dedup matches on, so a run that went from 2 to 3
+          # oversized shards opened a second issue for the same condition. The
+          # count moves into the body (and into the per-shard table below, which
+          # is where triage actually reads it).
           if [ "$SEVERITY" = "critical" ]; then
             label="sitemap-shard-critical"
-            title="[sitemap-shard-size] CRITICAL: $(jq -r '.criticals | length' "$report") shard(s) ≥ 45k urls"
+            title="[sitemap-shard-size] CRITICAL: shard(s) at or above 45k urls"
+            priority=2
+            flaggedCount=$(jq -r '.criticals | length' "$report")
           else
             label="sitemap-shard-warning"
-            title="[sitemap-shard-size] WARNING: $(jq -r '.warnings | length' "$report") shard(s) ≥ 40k urls"
-          fi
-
-          # Skip if an open issue with the same title already exists.
-          existing=$(gh issue list --state open --label "$label" \
-            --limit 50 --json title --jq '.[].title' || true)
-          if echo "$existing" | grep -Fxq "$title"; then
-            echo "Issue already open: $title"
-            exit 0
+            title="[sitemap-shard-size] WARNING: shard(s) at or above 40k urls"
+            priority=3
+            flaggedCount=$(jq -r '.warnings | length' "$report")
           fi
 
           # Build a markdown table of every flagged shard.
@@ -116,7 +118,7 @@ jobs:
           ' "$report")
 
           body=$(cat <<EOF
-          Weekly sitemap shard size monitor flagged **$SEVERITY** shard(s).
+          Weekly sitemap shard size monitor flagged **${flaggedCount}** **$SEVERITY** shard(s).
 
           - Total shards: ${shardCount}
           - Total urls across all shards: ${totalUrls}
@@ -139,11 +141,18 @@ jobs:
           EOF
           )
 
-          gh issue create \
+          # `github-issue-creator.mjs` (ISSUES.md dedup a monte) replaces both the
+          # raw create AND the hand-rolled title match above: it dedups on the
+          # stable title and comments the recurrence on the canonical issue, so
+          # a shard that stays oversized week after week reads as one thread
+          # instead of N issues. It always exits 0, which also removes the
+          # `set -euo pipefail` hazard the previous raw `gh` call carried (#4598).
+          node scripts/lib/github-issue-creator.mjs \
             --title "$title" \
-            --body "$body" \
+            --description "$body" \
+            --priority "$priority" \
             --label "$label" \
-            --repo "$GH_REPO"
+            --workflow "${{ github.workflow }}"
 
       - name: Upload report artifact
         if: always()

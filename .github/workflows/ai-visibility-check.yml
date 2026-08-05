@@ -91,11 +91,12 @@ jobs:
             --branch "$GITHUB_REF_NAME" \
             --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -A"
 
-      # Ensure the labels exist BEFORE `gh issue create --label` below. The
-      # call already has a soft `|| echo` fallback so a missing label doesn't
-      # crash the job, but it silently drops the labels — same underlying
-      # missing-label gap as #4598, fixed here for coherence with the sibling
-      # workflows even though this one degrades safely.
+      # Create the domain label with its colour/description before the issue
+      # step. `github-issue-creator.mjs` calls `gh label create` for anything
+      # missing, but only with defaults — this keeps the label recognisable in
+      # the backlog. The old `priority` label is gone: urgency is now the
+      # helper's `--priority` (→ `priority:high` / `priority:low`), the same
+      # scale the triage/drainer pipeline already sorts on.
       - name: Ensure labels exist
         if: inputs.dry_run != 'true'
         env:
@@ -103,9 +104,15 @@ jobs:
         run: |
           gh label create "ai-visibility" --color "1D76DB" \
             --description "ai-visibility-check: monthly AI citation visibility report" --force 2>/dev/null || true
-          gh label create "priority" --color "D93F0B" \
-            --description "ai-visibility-check: citations dropped vs previous report" --force 2>/dev/null || true
 
+      # Issue via scripts/lib/github-issue-creator.mjs with a STABLE title
+      # (ISSUES.md: dedup a MONTE). The previous `gh issue create` interpolated
+      # the run date AND the score into the title, so every monthly run minted a
+      # brand-new issue for a condition that is by definition the same one — a
+      # backlog that grows on its own and no issue anyone can actually close.
+      # The date/score/percent still matter, so they move into the BODY, which
+      # is where the metric's history belongs anyway: the helper appends each
+      # run as a comment on the canonical issue, so the trend reads as a thread.
       - name: Create GitHub issue if citations dropped
         if: inputs.dry_run != 'true'
         env:
@@ -132,27 +139,35 @@ jobs:
           # Check for trend data (previous score)
           PREV_SCORE=$(node -e "const r=JSON.parse(require('fs').readFileSync('${JSON_REPORT}','utf8')); console.log(r.trend?.previousScore ?? 'none')" 2>/dev/null || echo "none")
 
-          CREATE_ISSUE=false
-          ISSUE_TITLE="📊 AI Visibility Report — ${DATE}: ${SCORE}/${TOTAL} (${PERCENT}%)"
-          ISSUE_LABELS="seo,ai-visibility"
+          # Stable titles: no date, no score, no counter anywhere in them (the
+          # helper dedups on the first 60 characters).
+          ISSUE_TITLE="AI Visibility monthly citation report"
+          ISSUE_PRIORITY=4
+          DROP_LINE=""
 
-          # Always create an issue for the monthly report
-          CREATE_ISSUE=true
-
-          # Add urgency label if citations dropped
           if [ "$PREV_SCORE" != "none" ] && [ "$SCORE" -lt "$PREV_SCORE" ]; then
             LOST=$((PREV_SCORE - SCORE))
-            ISSUE_TITLE="⚠️ AI Visibility Dropped — ${DATE}: ${SCORE}/${TOTAL} (lost ${LOST} citations)"
-            ISSUE_LABELS="seo,ai-visibility,priority"
+            ISSUE_TITLE="AI Visibility dropped versus the previous report"
+            ISSUE_PRIORITY=2
+            DROP_LINE="**Citations lost since the previous report: ${LOST}** (was ${PREV_SCORE}, now ${SCORE})."
           fi
 
-          if [ "$CREATE_ISSUE" = "true" ]; then
-            BODY=$(cat "$REPORT")
-            gh issue create \
-              --title "$ISSUE_TITLE" \
-              --body "$BODY" \
-              --label "$ISSUE_LABELS" || echo "⚠ Failed to create issue (labels may not exist yet)"
-          fi
+          BODY=$(printf '%s\n' \
+            "**Report date:** ${DATE}" \
+            "**Score:** ${SCORE}/${TOTAL} (${PERCENT}%)" \
+            "**Previous score:** ${PREV_SCORE}" \
+            "" \
+            "${DROP_LINE}" \
+            "" \
+            "$(cat "$REPORT")")
+
+          node scripts/lib/github-issue-creator.mjs \
+            --title "$ISSUE_TITLE" \
+            --description "$BODY" \
+            --priority "$ISSUE_PRIORITY" \
+            --label seo \
+            --label ai-visibility \
+            --workflow "${{ github.workflow }}"
 
       - name: Report failure to GitHub Issues
         if: failure()
