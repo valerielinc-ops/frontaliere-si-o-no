@@ -41,6 +41,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { formatUpdatedDate } from './shared/humanDate';
 import { WriteCollector } from './batchWrite';
@@ -399,8 +400,19 @@ function renderPage(opts: {
   snapshot: CareerJobsSnapshot;
   agencyCount: number;
   concorsiCount: number;
+  /**
+   * Locales whose page for THIS landing id the build will actually write.
+   * The `MIN_INDEXABLE_WORDS` floor below is evaluated per locale, so it can
+   * drop DE while keeping IT — and an hreflang block built from the full
+   * `CAREER_LOCALES` list would then advertise a page nothing wrote (the
+   * #5114 class). Pass 1 of the caller's two-pass render supplies the default
+   * empty set: it only needs `wordCount`, computed from the body and thus
+   * independent of the hreflang block.
+   */
+  eligibleLocales?: ReadonlySet<string>;
 }): RenderResult {
   const { locale, id, dateStamp, distDir, snapshot, agencyCount, concorsiCount } = opts;
+  const eligibleLocales = opts.eligibleLocales ?? new Set<string>();
   const copy = CAREER_LANDING_COPY[locale][id];
   const shell = getCareerTemplateBShell(locale);
   const templateB = buildCareerTemplateBCopy(locale, id, {
@@ -413,15 +425,15 @@ function renderPage(opts: {
   const urlPath = buildCareerLandingPath(locale, id);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
 
-  // Hreflang
-  const hreflangLines = CAREER_LOCALES.map((alt) => {
-    const altPath = buildCareerLandingPath(alt, id);
-    return `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altPath}">`;
+  // Hreflang (4 locales + x-default), emitted only when every locale's page
+  // for this landing id is actually written this build — otherwise nothing,
+  // since a partial set trades audit-hreflang's [missingTarget] for [tooFew]
+  // (#5114).
+  const alternates = buildLocaleAlternateBlock({
+    eligibleLocales,
+    hrefFor: (alt) => `${BASE_URL}${buildCareerLandingPath(alt, id)}`,
+    indent: '    ',
   });
-  hreflangLines.push(
-    `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${buildCareerLandingPath('it', id)}">`,
-  );
-  const alternates = hreflangLines.join('\n');
 
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
   const jobBoardUrl = `${BASE_URL}${buildCareerJobBoardUrl(locale)}`;
@@ -639,15 +651,42 @@ export function careerLandingsPlugin(rootDir: string): Plugin {
       let thinSkipped = 0;
 
       for (const id of CAREER_LANDING_IDS) {
-        const alternates = CAREER_LOCALES.map(
+        // ── Pass 1: which locales clear the indexability floor for this id? ──
+        // The floor is per-locale AND per-landing-id, so it can drop DE while
+        // keeping IT on the same id. Settling the set BEFORE any page is
+        // rendered for real is what makes it impossible to advertise a landing
+        // that never gets written (#5114 class). `wordCount` is derived from
+        // the body alone, so this pass is unaffected by the empty hreflang
+        // block it renders with.
+        const eligibleLocales = new Set<string>(
+          CAREER_LOCALES.filter(
+            (alt) =>
+              renderPage({
+                locale: alt,
+                id,
+                dateStamp,
+                distDir,
+                snapshot: snapshots[id],
+                agencyCount,
+                concorsiCount,
+              }).wordCount >= MIN_INDEXABLE_WORDS,
+          ),
+        );
+
+        // Sitemap alternates track the same set: an ineligible locale has no
+        // page, so advertising it would point the crawler at a 404.
+        const alternates = CAREER_LOCALES.filter((alt) => eligibleLocales.has(alt)).map(
           (alt) => `${alt}|${BASE_URL}${buildCareerLandingPath(alt, id)}`,
         );
-        alternates.push(
-          `x-default|${BASE_URL}${buildCareerLandingPath('it', id)}`,
-        );
+        if (eligibleLocales.has('it')) {
+          alternates.push(
+            `x-default|${BASE_URL}${buildCareerLandingPath('it', id)}`,
+          );
+        }
 
         let itWasWritten = false;
 
+        // ── Pass 2: render for real, with the settled alternate set ─────────
         for (const locale of CAREER_LOCALES) {
           const rendered = renderPage({
             locale,
@@ -657,6 +696,7 @@ export function careerLandingsPlugin(rootDir: string): Plugin {
             snapshot: snapshots[id],
             agencyCount,
             concorsiCount,
+            eligibleLocales,
           });
 
           if (rendered.wordCount < MIN_INDEXABLE_WORDS) {

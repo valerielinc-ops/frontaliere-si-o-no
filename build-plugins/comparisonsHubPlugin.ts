@@ -36,6 +36,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { formatUpdatedSentence } from './shared/humanDate';
 import {
@@ -331,21 +332,31 @@ function renderPage(opts: {
   lamalRows: readonly LamalCantonRow[];
   dateStamp: string;
   distDir?: string;
+  /**
+   * Locales whose hub page this build will actually write. The
+   * `MIN_INDEXABLE_WORDS` floor below is evaluated per locale, so it can drop
+   * DE while keeping IT — and an hreflang block built from the full
+   * `COMPARISONS_LOCALES` list would then advertise a page nothing wrote (the
+   * #5114 class). Pass 1 of the caller's two-pass render supplies the default
+   * empty set: it only needs `wordCount`, computed from the body and thus
+   * independent of the hreflang block.
+   */
+  eligibleLocales?: ReadonlySet<string>;
 }): RenderResult {
   const { locale, salaryRows, lamalRows, dateStamp, distDir } = opts;
+  const eligibleLocales = opts.eligibleLocales ?? new Set<string>();
   const copy = COMPARISONS_HUB_COPY[locale];
   const urlPath = buildComparisonsHubPath(locale);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
 
-  // Hreflang
-  const hreflangLines = COMPARISONS_LOCALES.map((alt) => {
-    const altPath = buildComparisonsHubPath(alt);
-    return `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altPath}">`;
+  // Hreflang (4 locales + x-default), emitted only when every locale's hub is
+  // actually written this build — otherwise nothing, since a partial set
+  // trades audit-hreflang's [missingTarget] for [tooFew] (#5114).
+  const alternates = buildLocaleAlternateBlock({
+    eligibleLocales,
+    hrefFor: (alt) => `${BASE_URL}${buildComparisonsHubPath(alt)}`,
+    indent: '    ',
   });
-  hreflangLines.push(
-    `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${buildComparisonsHubPath('it')}">`,
-  );
-  const alternates = hreflangLines.join('\n');
 
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
   // Parent hub for breadcrumb — the SPA "Confronti" tab.
@@ -578,18 +589,43 @@ export function comparisonsHubPlugin(rootDir: string): Plugin {
       const salaryRows = aggregateSalaryBySector(rootDir, 10);
       const lamalRows = aggregateLamalCantonMedians(rootDir, year);
 
-      // Hreflang alt list — same 4 locales for every page.
-      const alternates = COMPARISONS_LOCALES.map(
+      // ── Pass 1: which locales clear the indexability floor? ────────────
+      // The floor is per-locale, so it can drop DE while keeping IT. Deciding
+      // it BEFORE any page is rendered for real is what makes it impossible to
+      // advertise a hub that never gets written (#5114 class). `wordCount` is
+      // derived from the body alone, so this pass is not affected by the empty
+      // hreflang block it renders with.
+      const eligibleLocales = new Set<string>(
+        COMPARISONS_LOCALES.filter(
+          (alt) =>
+            renderPage({ locale: alt, salaryRows, lamalRows, dateStamp, distDir }).wordCount >=
+            MIN_INDEXABLE_WORDS,
+        ),
+      );
+
+      // Sitemap alt list — tracks the same set: an ineligible locale has no
+      // page, so advertising it would point the crawler at a 404.
+      const alternates = COMPARISONS_LOCALES.filter((alt) => eligibleLocales.has(alt)).map(
         (alt) => `${alt}|${BASE_URL}${buildComparisonsHubPath(alt)}`,
       );
-      alternates.push(`x-default|${BASE_URL}${buildComparisonsHubPath('it')}`);
+      if (eligibleLocales.has('it')) {
+        alternates.push(`x-default|${BASE_URL}${buildComparisonsHubPath('it')}`);
+      }
 
       const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
       let pagesWritten = 0;
       let thinSkipped = 0;
 
+      // ── Pass 2: render for real, with the settled alternate set ────────
       for (const locale of COMPARISONS_LOCALES) {
-        const rendered = renderPage({ locale, salaryRows, lamalRows, dateStamp, distDir });
+        const rendered = renderPage({
+          locale,
+          salaryRows,
+          lamalRows,
+          dateStamp,
+          distDir,
+          eligibleLocales,
+        });
 
         if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
           thinSkipped++;

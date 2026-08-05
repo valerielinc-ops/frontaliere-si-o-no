@@ -141,15 +141,33 @@ describe('search-landing emitters route every hreflang block through the shared 
   // the search-landing family has a per-locale floor, so only it can promise
   // a page it never writes.
   // Every emitter whose page family has a PER-LOCALE emission floor — the
-  // only shape that can promise a sibling it never writes. `faqHubPlugin`
-  // is the second instance of the class: it skipped a locale below
-  // `MIN_INDEXABLE_WORDS` while emitting a full four-locale block
-  // (AGENTS.md #6 — fix the class, not the file).
+  // only shape that can promise a sibling it never writes.
+  //
+  // The search landings (#5114) were the reported instance; the rest are the
+  // same template, surfaced by `scripts/ci/check-sibling-patterns.mjs` and
+  // fixed in the same PR per AGENTS.md #6. Each pairs a
+  // `wordCount < MIN_INDEXABLE_WORDS` per-locale `continue` with what used to
+  // be a full-locale-list hreflang block.
+  //
+  // NOT in this list, deliberately: `frontalierePillarPlugin.ts` shares the
+  // construct but emits a thin locale as `noindex,follow` instead of skipping
+  // it, so all four pages always exist and no alternate can dangle.
   const EMITTERS = [
     'build-plugins/jobsSeoPagesPlugin.ts',
     'build-plugins/relatedSearchClustersPlugin.ts',
     'build-plugins/faqHubPlugin.ts',
+    'build-plugins/careerLandingsPlugin.ts',
+    'build-plugins/comparisonsHubPlugin.ts',
+    'build-plugins/costOfLivingLandingsPlugin.ts',
+    'build-plugins/holidaysLandingsPlugin.ts',
+    'build-plugins/minimumWageLandingsPlugin.ts',
+    'build-plugins/nursingLandingsPlugin.ts',
+    'build-plugins/professionLandingsPlugin.ts',
+    'build-plugins/bfsSalaryLandingsPlugin.ts',
   ];
+
+  /** Emitters that gate on a per-locale word-count floor (all but the first two). */
+  const FLOOR_EMITTERS = EMITTERS.slice(2);
 
   const read = (rel: string) => fs.readFileSync(path.join(ROOT, rel), 'utf-8');
 
@@ -194,14 +212,30 @@ describe('search-landing emitters route every hreflang block through the shared 
     }
   });
 
-  it('faqHubPlugin settles its eligible set before rendering for real', () => {
-    const src = read('build-plugins/faqHubPlugin.ts');
+  it.each(FLOOR_EMITTERS)('%s settles its eligible set before rendering for real', (rel) => {
+    const src = read(rel);
     // Two-pass render: the MIN_INDEXABLE_WORDS floor is a per-locale skip, so
-    // the set has to be known before any page is written.
-    expect(src).toMatch(/const eligibleLocales = new Set<string>\(/);
-    expect(src).toMatch(/renderPage\(locale, dateStamp, distDir, eligibleLocales\)/);
-    // The sitemap alternate list must track the same set.
-    expect(src).toMatch(/FAQ_HUB_LOCALES\.filter\(\(alt\) => eligibleLocales\.has\(alt\)\)/);
+    // the set has to be settled before any page is written for real.
+    expect(src, 'expected a pass-1 eligibility set').toMatch(
+      /const eligibleLocales = new Set<string>\(/,
+    );
+    // …and the floor that drives the skip must be the one feeding that set.
+    expect(src).toMatch(/MIN_INDEXABLE_WORDS/);
+    // The render must actually receive it, otherwise pass 2 renders the
+    // default (empty) set and every page silently loses its hreflang.
+    expect(src, 'pass 2 must pass eligibleLocales into the render').toMatch(
+      /eligibleLocales[,\s}]/,
+    );
+  });
+
+  it.each(FLOOR_EMITTERS)('%s no longer hand-rolls the alternate block', (rel) => {
+    const src = read(rel);
+    // The pre-fix construct, shared verbatim across this whole template
+    // family. Its absence is what the sibling-pattern gate was pointing at.
+    expect(
+      src,
+      'build the block with buildLocaleAlternateBlock, not by joining hreflangLines (#5114)',
+    ).not.toMatch(/const alternates = hreflangLines\.join\('\\n'\)/);
   });
 
   it('the keyword-landing floor drives both emission and the alternate set', () => {
