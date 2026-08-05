@@ -1,4 +1,6 @@
 import React, { useState, useMemo, useCallback, useEffect, useDeferredValue } from 'react';
+import AvgRentValue from '@/components/shared/AvgRentValue';
+import { rentAxisNote } from '@/services/avgRentEstimate';
 import { leviesIrpefAddizionale, compareIrpefAddizionaleWithDirection } from '@/services/irpefAddizionaleRegime';
 import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
@@ -39,7 +41,7 @@ interface Props {
 
 // ─── Component ───────────────────────────────────────────────
 const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
- const { t } = useTranslation();
+ const { t, locale } = useTranslation();
  const [colorMode, setColorMode] = useState<ColorMode>('irpef');
  const [selectedMunicipality, setSelectedMunicipality] = useState<Municipality | null>(null);
  const [filterProvince, setFilterProvince] = useState<string>('all');
@@ -242,6 +244,12 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  {label}
  </button>
  ))}
+ {/* The rent axis is a zone-level estimate (#4545 residual 4): 32 distinct
+     values across 518 comuni, so the colour bands are far coarser than the
+     three-tone scale suggests. Disclosed only while that axis is active. */}
+ {colorMode === 'rent' && (
+ <p className="w-full text-[11px] leading-4 text-muted mt-1">{rentAxisNote(locale)}</p>
+ )}
  <label htmlFor="province-filter-mobile" className="sr-only">{t('bordermap.allProvinces')}</label>
  <select
  id="province-filter-mobile"
@@ -310,7 +318,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <hr />
  <p>📊 IRPEF add.: <b><IrpefAddizionaleValue municipality={m} /></b></p>
  <p>📏 {t('bordermap.distCrossing')}: <b>{m.distanceKm} km</b></p>
- <p>🏠 {t('bordermap.avgRent')}: <b>€{m.avgRentMonthly}/mese</b></p>
+ <p>🏠 {t('bordermap.avgRent')}: <b><AvgRentValue municipality={m} suffix="/mese" /></b></p>
  <p>👥 {t('bordermap.pop')}: <b>{m.population.toLocaleString('it-IT')}</b></p>
  </div>
  </Popup>
@@ -340,7 +348,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  </div>
  <div className="p-2 bg-surface-alt rounded-lg">
  <p className="text-sm text-muted">{t('bordermap.avgRent')}</p>
- <p className="text-lg font-bold text-strong">€{selectedMunicipality.avgRentMonthly}</p>
+ <p className="text-lg font-bold text-strong"><AvgRentValue municipality={selectedMunicipality} /></p>
  </div>
  <div className="p-2 bg-surface-alt rounded-lg">
  <p className="text-sm text-muted">{t('bordermap.pop')}</p>
@@ -502,6 +510,12 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  {label}
  </button>
  ))}
+ {/* The rent axis is a zone-level estimate (#4545 residual 4): 32 distinct
+     values across 518 comuni, so the colour bands are far coarser than the
+     three-tone scale suggests. Disclosed only while that axis is active. */}
+ {colorMode === 'rent' && (
+ <p className="w-full text-[11px] leading-4 text-muted mt-1">{rentAxisNote(locale)}</p>
+ )}
 
  <span className="text-edge">|</span>
 
@@ -708,7 +722,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <hr />
  <p>📊 IRPEF add.: <b><IrpefAddizionaleValue municipality={m} /></b></p>
  <p>📏 {t('bordermap.distCrossing')}: <b>{m.distanceKm} km</b></p>
- <p>🏠 {t('bordermap.avgRent')}: <b>€{m.avgRentMonthly}/mese</b></p>
+ <p>🏠 {t('bordermap.avgRent')}: <b><AvgRentValue municipality={m} suffix="/mese" /></b></p>
  <p>👥 {t('bordermap.pop')}: <b>{m.population.toLocaleString('it-IT')}</b></p>
  </div>
  </Popup>
@@ -738,7 +752,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  </div>
  <div className="p-3 bg-surface-alt rounded-lg">
  <p className="text-sm text-muted">{t('bordermap.avgRent')}</p>
- <p className="text-xl font-bold text-strong">€{selectedMunicipality.avgRentMonthly}</p>
+ <p className="text-xl font-bold text-strong"><AvgRentValue municipality={selectedMunicipality} /></p>
  </div>
  <div className="p-3 bg-surface-alt rounded-lg">
  <p className="text-sm text-muted">{t('bordermap.pop')}</p>
@@ -839,7 +853,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  {/* Extra info row */}
  <div className="flex items-center gap-4 text-xs text-muted mb-3">
  <span className="inline-flex items-center gap-1"><Navigation className="w-3 h-3" /> {m.distanceKm} km</span>
- <span>🏠 €{m.avgRentMonthly}/m</span>
+ <span>🏠 <AvgRentValue municipality={m} suffix="/m" /></span>
  <span>👥 {m.population.toLocaleString('it-IT')}</span>
  </div>
 

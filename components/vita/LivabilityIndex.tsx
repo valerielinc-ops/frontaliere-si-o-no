@@ -1,4 +1,6 @@
 import React, { useState, useMemo } from 'react';
+import AvgRentValue from '@/components/shared/AvgRentValue';
+import { rentAxisNote } from '@/services/avgRentEstimate';
 import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { lazyRetry } from '@/services/lazyRetry';
 import { useTranslation } from '@/services/i18n';
@@ -81,7 +83,7 @@ function scoreMunicipalities(municipalities: Municipality[]): ScoredMunicipality
 const LeafletMap = lazyRetry(() => import('./LivabilityMap'));
 
 export default function LivabilityIndex() {
- const { t } = useTranslation();
+ const { t, locale } = useTranslation();
  const [filterProvince, setFilterProvince] = useState<string>('');
  const [sortBy, setSortBy] = useState<SortKey>('score');
  const [viewMode, setViewMode] = useState<'table' | 'map'>('table');
@@ -173,6 +175,11 @@ export default function LivabilityIndex() {
  <option value="irpef">{t('livability.irpef')}</option>
  <option value="population">{t('livability.population')}</option>
  </select>
+ {/* Ranking on a zone-level estimate produces many ties and meaningless
+     small gaps (#4545 residual 4) — say so while that sort is active. */}
+ {sortBy === 'rent' && (
+ <p className="text-[11px] leading-4 text-muted mt-1">{rentAxisNote(locale)}</p>
+ )}
  </div>
 
  {/* View toggle */}
@@ -258,7 +265,7 @@ export default function LivabilityIndex() {
  {m.distanceKm} {t('livability.km')}
  </td>
  <td className="py-2.5 px-3 text-right font-mono text-body">
- € {m.avgRentMonthly}
+ <AvgRentValue municipality={m} prefix="€ " />
  </td>
  <td className="py-2.5 px-3 text-right font-mono text-body">
  <IrpefAddizionaleValue municipality={m} />
