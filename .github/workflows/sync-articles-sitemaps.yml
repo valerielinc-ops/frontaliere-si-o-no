@@ -46,6 +46,21 @@ jobs:
         with:
           node-version: '22'
 
+      # The corpus, not just the published surface. pull-articles-api.mjs brings
+      # in the sitemaps, feeds and ticker — everything a MACHINE reads — and
+      # that is why every post-cutover article was in sitemap-blog.xml and the
+      # RSS while the site's own hub still showed 2026-07-29 as its newest
+      # entry. The reader-facing lists are rendered from the SPA bundle, which
+      # is built from packages/articles/content/, and nothing had refreshed
+      # that since mirror-articles-corpus.yml last ran on the cutover day.
+      #
+      # The published API cannot substitute: articles.json carries no title
+      # (§7.1), and a list needs titles.
+      #
+      # A pull, never a push — nanako owns the corpus. See the script header.
+      - name: Pull the article corpus
+        run: node scripts/pull-articles-corpus.mjs
+
       - name: Pull published sitemaps
         run: node scripts/pull-articles-api.mjs
 
@@ -68,6 +83,7 @@ jobs:
           # public/images/blog is a DIRECTORY on purpose — the pull writes one
           # file per new article and the set is not known ahead of time.
           FILES=(
+            packages/articles/content
             public/sitemap-blog.xml
             public/sitemap-blog-ch.xml
             public/rss.xml public/rss-it.xml public/rss-en.xml public/rss-de.xml public/rss-fr.xml

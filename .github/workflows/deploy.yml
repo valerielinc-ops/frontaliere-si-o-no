@@ -336,8 +336,8 @@ jobs:
       # behavior (both sections keep emitting into the monolith build).
       # MUST stay in lockstep with the push-loop exclusion below — never
       # flip one true without the other in the SAME deploy.
-      ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP }}
-      ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP }}
+      ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+      ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
     steps:
       - name: Free disk space (remove unused toolchains)
         shell: bash
@@ -437,8 +437,55 @@ jobs:
 
       - name: Build (BUILD_LOCALE=${{ matrix.locale }})
         shell: bash
+        env:
+          # Redundant with the job-level `MALLOC_ARENA_MAX` above, which has
+          # been in place since 2026-07-27 — kept only so this step is
+          # self-contained if it is ever lifted out. It is NOT the fix for the
+          # current SIGTERMs: the job-level setting was already active in every
+          # run that died, which is precisely the revert trigger the job-level
+          # comment documents. See that comment for where to look instead.
+          MALLOC_ARENA_MAX: '2'
         run: |
           set -o pipefail
+
+          # Host-memory sampler. The builds that die report only
+          # "The runner has received a shutdown signal" and exit 143, which
+          # names no cause, and every theory read off the build's OWN numbers
+          # has been falsified by the last SUCCESSFUL run (15922, 2026-08-03):
+          # it peaked at rss 12643 MB — HIGHER than the 12203 MB of a run the
+          # host killed — and finished. Disk is not it either: all three runs
+          # report an identical 108 G free. What no log carries is the figure
+          # that would actually settle it, the HOST's free memory at the
+          # moment of death. This samples it every 10 s so the next failure is
+          # a measurement instead of another guess.
+          #
+          # `MemAvailable` is the number that matters (free + reclaimable),
+          # not `MemFree`. A run killed by the host will show it collapsing
+          # toward zero in the seconds before the log stops; one that stays
+          # comfortable rules host memory out and sends the search elsewhere.
+          #
+          # Run against a real shell before landing, which caught two defects
+          # that would have made this silently useless: piping the loop through
+          # `sed` to add the prefix emitted NOTHING (sed block-buffers when
+          # stdout is not a tty, so a sampler this sparse never flushed), and
+          # `$!` then held the PID of the pipeline's last element rather than
+          # the loop, so the trap left the sampler running. The prefix is
+          # printed inline and there is no pipe.
+          #
+          # The 4-hour bound is a backstop, not the mechanism: the trap below
+          # is what normally stops it. It exists so a sampler can never be what
+          # keeps a runner alive if the trap is ever bypassed.
+          ( end=$(( $(date +%s) + 14400 ))
+            while [ "$(date +%s)" -lt "$end" ]; do
+              printf '[hostmem] '
+              awk '/^(MemTotal|MemAvailable|MemFree|SwapFree|Dirty):/ {sub(/:/,"",$1); printf "%s=%dMB ", $1, $2/1024}' /proc/meminfo
+              printf 'topRSS=%dMB\n' "$(ps -eo rss= --sort=-rss | head -1 | awk '{print int($1/1024)}')"
+              sleep 10
+            done ) &
+          sampler=$!
+          # Never let the sampler outlive the step, whatever the build does.
+          trap 'kill "$sampler" 2>/dev/null || true' EXIT
+
           npm run build:ci 2>&1 | tee /tmp/build.log
 
       - name: Verify critical dist pages before upload
@@ -601,8 +648,8 @@ jobs:
           # would force-push a near-empty tree over the live shard —
           # excluded from the loop below instead. MUST stay in lockstep
           # with the build-time emit skip (same two repo variables).
-          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP }}
-          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP }}
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
         run: |
           set -uo pipefail
           # Each section pushes to its OWN shard repo — one section's push
@@ -626,7 +673,7 @@ jobs:
           # never-assigned array is an unbound-variable abort, not an empty count.
           failed=()
           pids=(); names=()
-          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+          for section in $(bash scripts/lib/deploy-shard-sections.sh); do
             # #4881 Fase 5: build no longer emits this section when its
             # BUILD_EMIT_SKIP flag is on — a full-replace push here would
             # force-push a near-empty dist/ tree over the live shard, wiping
@@ -756,7 +803,7 @@ jobs:
           }
           MAX_PARALLEL=4
           pids=()
-          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+          for section in $(bash scripts/lib/deploy-shard-sections.sh); do
             pack_section "$section" &
             pids+=("$!")
             if [ "${#pids[@]}" -ge "$MAX_PARALLEL" ]; then
@@ -889,11 +936,11 @@ jobs:
           # for them (its own ok-marker gate) — skipped explicitly here
           # instead to avoid a permanent "no push ok-marker" ::warning::
           # every deploy that reads like a failure but isn't one.
-          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP }}
-          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP }}
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
         run: |
           set -uo pipefail
-          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+          for section in $(bash scripts/lib/deploy-shard-sections.sh); do
             skip_var="$(echo "$section" | tr a-z A-Z)_BUILD_EMIT_SKIP"
             if [ "${!skip_var:-}" = "true" ]; then
               echo "$section-it: BUILD_EMIT_SKIP=true — build never emitted this section, no ok-marker, nothing to strip"
@@ -1229,8 +1276,8 @@ jobs:
           GH_REPO: ${{ github.repository }}
           # Issue #4881 Fase 5 — see ogPagesPlugin.ts's closeBundle docblock
           # and the IT-leg push step above for the full contract.
-          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP }}
-          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP }}
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
         run: |
           set -uo pipefail
           # Each section pushes to its OWN shard repo — one section's push
@@ -1253,7 +1300,7 @@ jobs:
           # never-assigned array is an unbound-variable abort, not an empty count.
           failed=()
           pids=(); names=()
-          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+          for section in $(bash scripts/lib/deploy-shard-sections.sh); do
             # #4881 Fase 5: same exclusion as the IT-leg push step above —
             # build no longer emitted this section, so a full-replace push
             # here would force-push a near-empty dist/ tree over the shard.
@@ -1362,7 +1409,7 @@ jobs:
           }
           MAX_PARALLEL=4
           pids=()
-          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+          for section in $(bash scripts/lib/deploy-shard-sections.sh); do
             pack_section "$section" &
             pids+=("$!")
             if [ "${#pids[@]}" -ge "$MAX_PARALLEL" ]; then
@@ -1491,11 +1538,11 @@ jobs:
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
           # Issue #4881 Fase 5: same exclusion as the IT-leg strip step —
           # see that step's comment for the rationale.
-          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP }}
-          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP }}
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
         run: |
           set -uo pipefail
-          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+          for section in $(bash scripts/lib/deploy-shard-sections.sh); do
             skip_var="$(echo "$section" | tr a-z A-Z)_BUILD_EMIT_SKIP"
             if [ "${!skip_var:-}" = "true" ]; then
               echo "$section-${{ matrix.locale }}: BUILD_EMIT_SKIP=true — build never emitted this section, no ok-marker, nothing to strip"

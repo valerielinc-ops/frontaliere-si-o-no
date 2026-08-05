@@ -1,18 +1,19 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-08-03T12:37:07.411Z",
+  "generatedAt": "2026-08-04T22:17:40.378Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 7,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 8,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 20658,
-  "avgDurationMs": 20658,
+  "durationMs": 18294,
+  "avgDurationMs": 18294,
   "durationHistory": [
-    20658
+    18294
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Lehrstelle Kaufmann-/frau EFZ/M 2027 (m/w/div.)",
       "slug": "lehrstelle-kaufmann-frau-efz-m-2027-m-w-div-bosch-buttikon",
@@ -35,16 +36,19 @@
       "sourceLang": "de",
       "postedDate": "2026-08-03",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-866a26f99bcd",
+      "salaryMin": 58500,
+      "salaryMax": 89500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-03T12:37:07.409Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Logistiker 100% (w/m/div.) - REF292961C",
       "slug": "logistiker-100-w-m-div-ref292961c-bosch-st-niklaus",
@@ -291,42 +295,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Lehrstelle Informatiker (w/m/div.) 2027 - REF289882W",
-      "slug": "apprendistato-informatiker-w-m-div-2027-ref289882w-bosch-thermotechnik-ag-st-niklaus",
-      "url": "https://jobs.bosch.com/en/job/REF289882W-lehrstelle-informatiker-w-m-div-2027-ref289882w",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000136446649-lehrstelle-informatiker-w-m-div-2027-ref289882w?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "St. Niklaus",
-      "addressLocality": "St. Niklaus",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "engineering",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-08",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-6522119316f9",
-      "salaryMin": 49000,
-      "salaryMax": 74500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-08T22:16:12.017Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
