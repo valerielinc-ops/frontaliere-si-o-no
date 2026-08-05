@@ -24197,6 +24197,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-canicola-lavoro-dialogo-consiglio-stato': {
+    title: 'Canicola e lavoro: il Consiglio di Stato avvia il dialogo con i sindacati',
+    description: 'Il Consiglio di Stato di Bellinzona incontra UNIA, OCST, USS e VPOD per definire misure sul lavoro durante le ondate di calore, con coinvolgimento della',
+    keywords: 'frontalieri, ticino, svizzera, italia, canicola, lavoro, consiglio, stato',
+    ogTitle: 'Canicola e lavoro: il Consiglio di Stato avvia il dialogo con i sindacati',
+    ogDescription: 'Incontro a Bellinzona tra Consiglio di Stato e sindacati per affrontare le condizioni di lavoro nelle ondate di calore, con nuove iniziative a livello cantonale',
+    canonicalPath: '/articoli-svizzera/canicola-lavoro-dialogo-consiglio-stato/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Canicola e lavoro: il Consiglio di Stato avvia il dialogo con i sindacati",
+      "description": "Il Consiglio di Stato di Bellinzona incontra UNIA, OCST, USS e VPOD per definire misure sul lavoro durante le ondate di calore, con coinvolgimento della",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/canicola-lavoro-dialogo-consiglio-stato.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sala del Consiglio di Stato di Bellinzona con luce solare, rappresentanti sindacali e politici in discussione."
+      },
+      "datePublished": "2026-08-05T12:43:34+00:00",
+      "dateModified": "2026-08-05T12:43:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/canicola-lavoro-dialogo-consiglio-stato/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1870,6 +1870,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.calo-disavanzo-cantonale-2026.title': 'Cantonal deficit 2026: down to -49.7 million francs',
     'blog.article.calo-disavanzo-cantonale-2026.excerpt': 'The State Council updated the June forecast, reducing the forecast deficit to -49.7 million CHF, thanks to higher revenues and controlled expenses.',
     'blog.article.calo-disavanzo-cantonale-2026.imageAlt': 'Cantonal building in Bellinzona with financial documents on a table, Alpine backdrop.',
+    'blog.article.canicola-lavoro-dialogo-consiglio-stato.title': 'Canicola e lavoro: the Council of State initiates dialogue with trade unions',
+    'blog.article.canicola-lavoro-dialogo-consiglio-stato.excerpt': 'The Bellinzona State Council meets UNIA, OCST, USS and VPOD to define measures on work during heatwaves, with the involvement of the Ticino Provincial Council at the federal level.',
+    'blog.article.canicola-lavoro-dialogo-consiglio-stato.imageAlt': 'Council chamber in Bellinzona with sunlight, union representatives and politicians discussing.',
 };
 
 export default blogMetaChEn;

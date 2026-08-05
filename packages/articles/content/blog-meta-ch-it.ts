@@ -1870,6 +1870,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.calo-disavanzo-cantonale-2026.title': 'Disavanzo cantonale 2026: cala a -49,7 milioni di franchi',
     'blog.article.calo-disavanzo-cantonale-2026.excerpt': 'Il Consiglio di Stato ha aggiornato il preconsuntivo di giugno, riducendo il deficit previsto a -49,7 milioni di CHF, grazie a maggiori ricavi e spese controllate.',
     'blog.article.calo-disavanzo-cantonale-2026.imageAlt': 'Edificio cantonale di Bellinzona con documenti finanziari sul tavolo, sfondo alpino.',
+    'blog.article.canicola-lavoro-dialogo-consiglio-stato.title': 'Canicola e lavoro: il Consiglio di Stato avvia il dialogo con i sindacati',
+    'blog.article.canicola-lavoro-dialogo-consiglio-stato.excerpt': 'Il Consiglio di Stato di Bellinzona incontra UNIA, OCST, USS e VPOD per definire misure sul lavoro durante le ondate di calore, con coinvolgimento della Deputazione ticinese a livello federale.',
+    'blog.article.canicola-lavoro-dialogo-consiglio-stato.imageAlt': 'Sala del Consiglio di Stato di Bellinzona con luce solare, rappresentanti sindacali e politici in discussione.',
 };
 
 export default blogMetaChIt;
