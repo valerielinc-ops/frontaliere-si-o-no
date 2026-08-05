@@ -39,6 +39,10 @@ import {
   PROFESSION_TAXONOMY,
   DOUBLE_VALIDATED_MIN_ONSITE,
   DOUBLE_VALIDATED_MIN_JOBS,
+  SUPPLY_VALIDATED_MIN_JOBS,
+  SUPPLY_VALIDATED_MIN_FILTER_JOBS,
+  hasPreciseFeedFilter,
+  isPromotable,
   classifySearchTerm,
   matchProfession,
   normalizeText,
@@ -307,8 +311,19 @@ for (const entry of PROFESSION_TAXONOMY) {
     doubleValidated: onsite >= DOUBLE_VALIDATED_MIN_ONSITE
       && jobCount >= DOUBLE_VALIDATED_MIN_JOBS
       && feedFilterJobCount >= DOUBLE_VALIDATED_MIN_JOBS,
+    // Supply-side qualification for a profession the site has no page for yet,
+    // whose on-site demand reads 0 for that very reason. Four times the
+    // double-validated job bar — see profession-taxonomy.mjs.
+    supplyValidated: jobCount >= SUPPLY_VALIDATED_MIN_JOBS
+      && feedFilterJobCount >= SUPPLY_VALIDATED_MIN_FILTER_JOBS,
+    // The literal feedFilter must be no broader than the profession it names,
+    // or the page lists jobs that are not the job in its <h1>.
+    preciseFilter: hasPreciseFeedFilter(jobCount, feedFilterJobCount),
     score: scoreOf(onsite, jobCount, gsc),
   };
+  // Reported, not recomputed downstream: one predicate for the report and the
+  // feed, so a row marked promotable here is one the feed actually promotes.
+  row.promotable = isPromotable(row);
   if (covered.has(entry.id)) {
     coveredRows.push({ ...row, coveredBy: covered.get(entry.id) });
   } else {
@@ -316,7 +331,9 @@ for (const entry of PROFESSION_TAXONOMY) {
   }
 }
 const byPriority = (a, b) =>
-  Number(b.doubleValidated) - Number(a.doubleValidated) || b.score - a.score;
+  Number(b.promotable) - Number(a.promotable)
+  || Number(b.doubleValidated) - Number(a.doubleValidated)
+  || b.score - a.score;
 opportunities.sort(byPriority);
 coveredRows.sort(byPriority);
 
@@ -361,13 +378,24 @@ md.push('## Professioni da attaccare — gap ranking settimanale');
 md.push('');
 md.push(`Finestra: ${WINDOW_DAYS} giorni · on-site search: ${onsiteTerms ? `${onsiteEventsTotal} eventi, ${onsiteTerms.length} termini unici` : '_disattivato_'} · annunci crawler: ${jobs.length}`);
 md.push('');
-md.push('Doppia validazione = c\'è chi cerca on-site **e** ci sono annunci reali da mostrare → landing converte subito.');
+md.push('**Promuovibile ✅** = `refresh-keyword-config` genera la pagina al prossimo giro, senza intervento.');
 md.push('');
-md.push('| # | Professione | On-site (60g) | Annunci | Match filtro | Cantoni top | GSC impr. | Score | Doppia val. |');
+md.push(`Due qualificazioni, una sola conseguenza. **Domanda**: ≥${DOUBLE_VALIDATED_MIN_ONSITE} ricerche on-site *e* ≥${DOUBLE_VALIDATED_MIN_JOBS} annunci — c'è chi cerca e c'è cosa mostrargli. **Offerta**: ≥${SUPPLY_VALIDATED_MIN_JOBS} annunci *e* ≥${SUPPLY_VALIDATED_MIN_FILTER_JOBS} match filtro — per le professioni che leggono 0 on-site perché il sito non ha ancora una pagina da cui farsi cercare. In entrambi i casi il filtro letterale deve restare specifico quanto la professione, o la pagina elencherebbe lavori diversi da quello nel suo H1.`);
+md.push('');
+md.push('| # | Professione | On-site (60g) | Annunci | Match filtro | Cantoni top | GSC impr. | Score | Promuovibile |');
 md.push('| --- | --- | --- | --- | --- | --- | --- | --- | --- |');
 opportunities.slice(0, 20).forEach((o, i) => {
   const cantonTop = Object.entries(o.cantons).slice(0, 3).map(([c, n]) => `${c}:${n}`).join(' ') || '—';
-  md.push(`| ${i + 1} | ${o.label} (\`${o.id}\`) | ${o.onsiteCount} | ${o.jobCount} | ${o.feedFilterJobCount} | ${cantonTop} | ${o.gscImpressions} | ${o.score} | ${o.doubleValidated ? '✅' : '—'} |`);
+  // Say WHY when the answer is no — a bare dash is what made this report
+  // something to read rather than something to act on.
+  const why = o.promotable
+    ? (o.doubleValidated ? '✅ domanda' : '✅ offerta')
+    : !o.preciseFilter
+      ? `— filtro largo (${o.feedFilterJobCount} letterali vs ${o.jobCount} professione)`
+      : o.jobCount < DOUBLE_VALIDATED_MIN_JOBS
+        ? '— nessun annuncio da mostrare'
+        : '— sotto entrambe le soglie';
+  md.push(`| ${i + 1} | ${o.label} (\`${o.id}\`) | ${o.onsiteCount} | ${o.jobCount} | ${o.feedFilterJobCount} | ${cantonTop} | ${o.gscImpressions} | ${o.score} | ${why} |`);
 });
 if (opportunities.length === 0) md.push('| — | _nessun gap: tutte le professioni con segnale sono già coperte_ | | | | | | | |');
 md.push('');

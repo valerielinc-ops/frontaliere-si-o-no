@@ -108,9 +108,15 @@ export function renderArticleHubCards(args: RenderArticleHubCardsArgs): string {
 
   return articles.slice(0, limit).map((art, idx) => {
     const artSlug = resolveSlug(art.id) ?? art.id;
+    // Trailing slash: the canonical form. Measured today, every card link on
+    // the live hub answers 301 to its own slashed twin — 100 cards x 8 hubs of
+    // internal links that all cost a redirect hop before reaching a 200, on
+    // the densest internal-link surface the site has. `resolveMeta` is
+    // unaffected: both call sites key their lookup through `seoKey()`, which
+    // normalises the slash away.
     const artPath = localePrefix
-      ? `/${localePrefix}/${sectionSlug}/${artSlug}`
-      : `/${sectionSlug}/${artSlug}`;
+      ? `/${localePrefix}/${sectionSlug}/${artSlug}/`
+      : `/${sectionSlug}/${artSlug}/`;
     const meta = resolveMeta(art.id, artPath);
     const title = meta
       ? esc(meta.title)
@@ -138,7 +144,97 @@ export function renderArticleHubCards(args: RenderArticleHubCardsArgs): string {
 }
 
 /** Opening tag of the grid, as emitted by staticPagesPlugin. */
-const GRID_OPEN = '<div class="ssg-article-grid">';
+export const ARTICLE_HUB_GRID_OPEN = '<div class="ssg-article-grid">';
+const GRID_OPEN = ARTICLE_HUB_GRID_OPEN;
+
+/**
+ * Footer nav of the SSG root shell, and the LAST element inside
+ * `<div class="s-wWmcGm">` on every landing staticPagesPlugin emits — hub
+ * branches, article branches and the generic fallback alike. That is what
+ * makes it the insert anchor for `ensureArticleHubCards`: the grid always
+ * goes immediately before it, so inserting there reproduces the site
+ * template's own ordering rather than guessing at one.
+ */
+export const ARTICLE_HUB_SHELL_NAV_OPEN = '<nav class="s-eazYqN">';
+
+/**
+ * `<h2>` + grid, as ONE block — the exact bytes staticPagesPlugin emits
+ * between `</article>` and the footer nav on both hub branches.
+ *
+ * Extracted because three call sites now produce it (the frontaliere hub
+ * branch, the svizzera hub branch, and `ensureArticleHubCards` below) and a
+ * literal repeated three times drifts. With one producer, a change to the
+ * heading tag or the grid marker reaches every emitter at once — which is the
+ * property the corpus-side refresher depends on to find the marker at all.
+ */
+export function renderArticleHubGridBlock(cardsHtml: string, headingLocale: string): string {
+  const heading = ARTICLES_HEADING[headingLocale] ?? ARTICLES_HEADING.it;
+  // No-op on all four current headings (no `&<>"` in any of them), so the
+  // bytes are unchanged; present so a future heading with an ampersand cannot
+  // emit invalid markup.
+  return `<h2 class="s-sXAwQz">${esc(heading)}</h2>${GRID_OPEN}${cardsHtml}</div>`;
+}
+
+/**
+ * An EMPTY inline-styled box — the CLS reservation staticPagesPlugin's generic
+ * fallback branch puts where a hub's content would go
+ * (`<div style="${sp};height:38rem;margin-top:1.5rem"></div>`). Matched only
+ * when it sits immediately before the shell nav, and only when it has no
+ * children and no text: that is reserved space with nothing in it, and the
+ * grid is precisely the content it was reserving.
+ *
+ * NOT an ad slot. AdSense placeholders are class-based
+ * (`<div class="s-1zvlaE" aria-hidden="true">`), never inline-styled, so this
+ * pattern cannot match one — Non-Negotiable #7 stays intact.
+ */
+const TRAILING_EMPTY_SKELETON = /<div style="[^"]*"><\/div>$/;
+
+/**
+ * Put the grid on a landing page — refreshing it when present, CREATING it
+ * when it is not.
+ *
+ * ─── The deadlock this closes ────────────────────────────────────────────
+ * `replaceArticleHubCards` can only refresh, and the site build is no longer
+ * on the serving path for these pages: `scripts/lib/deploy-shard-sections.sh`
+ * excludes both article sections from the shard push loop unconditionally, so
+ * nothing this build emits for them ever reaches the shard the Worker serves.
+ *
+ * That left `/articoli-svizzera/` (x4 locales) with no writer at all. Its live
+ * bytes come from the GENERIC fallback branch — copy, an empty 38rem box, the
+ * nav — emitted before the hub branch at `staticPagesPlugin.ts` existed, so it
+ * carries no `ssg-article-grid` marker. The site cannot rewrite it (not on the
+ * serving path); the corpus would not (no marker to replace, `absent++`,
+ * exit 0). 617 articles, zero of them reachable from the page readers land on,
+ * frozen since 2026-07-29 with nothing red anywhere.
+ *
+ * Refresh-only is what made "nobody writes" reachable. Create-or-refresh makes
+ * it unreachable: the side that IS on the serving path can now produce the
+ * marker it needs, and the first run self-heals into the ordinary replace path
+ * for every run after it.
+ *
+ * ─── Fail-closed, unchanged ──────────────────────────────────────────────
+ * A marker that is present but unbalanced still returns `null` — a malformed
+ * page is a page someone should look at, not one to overwrite. A page with no
+ * shell nav also returns `null`: without the anchor there is no defensible
+ * place to put the grid, and "append somewhere" is how a hub ends up with its
+ * cards after `</html>`.
+ */
+export function ensureArticleHubCards(
+  html: string,
+  cardsHtml: string,
+  headingLocale: string,
+): string | null {
+  // Marker present → this is a refresh, and an unbalanced grid must still
+  // refuse rather than fall through to the insert path (which would leave the
+  // broken grid in place AND add a second one).
+  if (html.includes(GRID_OPEN)) return replaceArticleHubCards(html, cardsHtml);
+
+  const at = html.lastIndexOf(ARTICLE_HUB_SHELL_NAV_OPEN);
+  if (at === -1) return null;
+
+  const head = html.slice(0, at).replace(TRAILING_EMPTY_SKELETON, '');
+  return head + renderArticleHubGridBlock(cardsHtml, headingLocale) + html.slice(at);
+}
 
 /**
  * Swap the grid inside an already-rendered landing page.

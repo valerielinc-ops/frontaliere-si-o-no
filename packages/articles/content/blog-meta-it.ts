@@ -9272,6 +9272,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.indicatore-affari-aziende-luglio.title': 'Indicatore affari aziende: ripresa in quasi tutti i settori',
     'blog.article.indicatore-affari-aziende-luglio.excerpt': 'La situazione economica delle aziende svizzere migliora secondo l\'Istituto KOF del Politecnico federale di Zurigo, con un indicatore a più 21,5 punti in luglio.',
     'blog.article.indicatore-affari-aziende-luglio.imageAlt': 'Panoramica di un distretto finanziario in Svizzera con edifici moderni e attività economica',
+    'blog.article.svizzeri-fuga-alloglio-ticino.title': 'Svizzeri in fuga oltreconfine per l\'alloggio',
+    'blog.article.svizzeri-fuga-alloglio-ticino.excerpt': '154\'700 svizzeri vivono in regioni di confine. 70% dei romandi trova affitti troppo alti. Como e Varese tra le regioni interessate.',
+    'blog.article.svizzeri-fuga-alloglio-ticino.imageAlt': 'Vista sul lago di Como con frontalieri che si spostano verso la regione',
+    'blog.article.borsa-rotta-isola-15000-punti.title': 'Borsa su, rotta sull\'isola dei 15\'000 punti?',
+    'blog.article.borsa-rotta-isola-15000-punti.excerpt': 'Nuovi massimi storici su Dow Jones e S&P-500 spingono verso il traguardo psicologico dei 15\'000 punti, induce gli analisti ad uno sguardo più sereno sul presente',
+    'blog.article.borsa-rotta-isola-15000-punti.imageAlt': 'Panoramica città svizzera con grafici finanziari in vetrate, cielo sereno',
+    'blog.article.tradate-lite-ferito-trentenne.title': 'Lite davanti alla stazione di Tradate: ferito un trentenne',
+    'blog.article.tradate-lite-ferito-trentenne.excerpt': 'Una discussione tra cittadini extracomunitari è degenerata in rissa e un uomo di 30 anni è rimasto ferito.',
+    'blog.article.tradate-lite-ferito-trentenne.imageAlt': 'Una lite in una stazione ferroviaria',
 };
 
 export default blogMetaIt;

@@ -18,13 +18,14 @@ import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { jsToJson as sharedJsToJson } from './shared/jsToJson';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
+import { AD_SLOTS, resolveSlotPlaceholderMinHeight } from '../services/adsenseSlots';
 // Single producer for the hub `ssg-article-grid` (issue #4974 item 4): nanako's
 // fast-publish refreshes the same grid on every article it publishes, so the
 // two emitters cannot drift. Extension is explicit for the same reason
 // flatHtmlRedirect's is — `packages/articles` is its own "type": "module"
 // package, where an extensionless deep specifier does not resolve under plain
 // Node ESM.
-import { renderArticleHubCards, ARTICLES_HEADING } from '../packages/articles/engine/articlesHubCards.ts';
+import { renderArticleHubCards, renderArticleHubGridBlock } from '../packages/articles/engine/articlesHubCards.ts';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
@@ -55,8 +56,12 @@ import { CITY_HUB_KEYS, CITY_HUB_DISPLAY_NAME, buildCityHubPath } from './cityJo
 
 // ── SPA shell <title> handling ────────────────────────────────────────
 // Universal rule: headline VERBATIM, brand suffix appended only when total
-// stays within TITLE_MAX_CHARS (70). See build-plugins/shared/titleSuffix.ts.
+// stays within TITLE_MAX_CHARS (66). See build-plugins/shared/titleSuffix.ts.
 import { buildTitleWithBrand, clampMetaDescription } from './shared/titleSuffix';
+// Border-crossing <title> cascade + its slug→label transform. Leaf module so
+// the #4828 regression suite can assert the 66-char cap over every id in
+// ALL_BORDER_CROSSING_IDS without importing this plugin's data graph.
+import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescription } from './shared/borderCrossingTitle';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { ARTICLE_SECTION_DESCRIPTORS } from './shared/articleSectionDescriptors';
@@ -2229,11 +2234,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  for (const crossingId of crossingIds) {
  const cp = `/guida-frontaliere/tempi-attesa-dogana/${crossingId}`;
  if (seoMap.has(seoKey(cp))) continue;
- const label = crossingId.replace(/-/g, ' ').replace(/\b\w/g, m => m.toUpperCase());
+ const label = borderCrossingLabel(crossingId);
+ const crossingTitle = buildBorderCrossingTitle(label);
+ const crossingDesc = buildBorderCrossingDescription(label);
  seoMap.set(seoKey(cp), {
- title: `Traffico dogana ${label} | Tempi attesa valico`,
- desc: `Traffico dogana ${label} in tempo reale: tempi di attesa, orari apertura e consigli pratici per frontalieri al valico.`,
- ogT: `Traffico dogana ${label} | Tempi attesa valico`,
+ title: crossingTitle,
+ desc: crossingDesc,
+ ogT: crossingTitle,
  ogD: `Traffico dogana ${label}: tempi di attesa, orari e consigli pratici per frontalieri al valico.`,
  });
  }
@@ -4670,14 +4677,34 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  return artSeo ? { title: artSeo.ogT, desc: artSeo.desc } : null;
  },
  });
- rootHtml = `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><h2 class="s-sXAwQz">${ARTICLES_HEADING[locale] ?? ARTICLES_HEADING.it}</h2><div class="ssg-article-grid">${swissCardsHtml}</div><nav class="s-eazYqN">${navHtml}</nav></div>`;
+ rootHtml = `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article>${renderArticleHubGridBlock(swissCardsHtml, locale)}<nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (blogSlugs.includes(firstSeg)) {
  const heroImg = blogHeroImageStatic ? `<img class="s-zYpvpO" src="${blogHeroImageStatic}" alt="${esc(seoData.ogT)}" width="800" height="320" fetchpriority="high">` : `<div style="${sp};height:16rem;margin-bottom:1.5rem"></div>`;
  // Ad placeholders reserve vertical space so React hydration doesn't cause layout shifts (CLS).
- // Heights match AdSenseBanner's placeholderMinHeight values.
- const adPlaceholder = `<div class="s-1zvlaE" aria-hidden="true"></div>`;
+ // The reserve is read from the AD_SLOTS registry, never hand-copied: the old
+ // `.s-1zvlaE` class pinned a flat 180px while claiming to "match AdSenseBanner's
+ // placeholderMinHeight values" — it matched neither the in-article inline unit
+ // (220) nor the end-of-article multiplex (400), so both under-reserved and the
+ // hydrated units pushed the article body down. Same drift class as the in-feed
+ // 280-vs-336 regression in issue #4677.
+ const adReserve = (px: number) =>
+ `<div style="min-height:${px}px;contain:layout;overflow:hidden;margin:1rem 0" aria-hidden="true"></div>`;
+ // Resolved through the SAME function the runtime component uses, not by
+ // reading the field directly: two independently-typed read sites is the drift
+ // shape this whole change removes. No viewport at build time → the mobile/SSR
+ // floor, which is what a prerendered shell must reserve anyway.
+ const inlineCfg = AD_SLOTS.ARTICLE_INLINE_MOBILE;
+ const endCfg = AD_SLOTS.ARTICLE_END_MULTIPLEX;
+ const adPlaceholderInline = adReserve(
+ resolveSlotPlaceholderMinHeight(inlineCfg.slot, inlineCfg.format, inlineCfg.layout)
+ ?? inlineCfg.placeholderMinHeight,
+ );
+ const adPlaceholderEnd = adReserve(
+ resolveSlotPlaceholderMinHeight(endCfg.slot, endCfg.format, (endCfg as { layout?: string }).layout)
+ ?? endCfg.placeholderMinHeight,
+ );
  rootHtml = isBlogDetailPage
- ? `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p><div class="s-6z0aHu ft-blog-body">${blogArticleHtml}${blogSourcesHtml}</div>${adPlaceholder}${relatedHtml}</article>${adPlaceholder}<div class="s-WR7RLD">${`<div style="${sp};height:12rem"></div>`.repeat(3)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`
+ ? `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p><div class="s-6z0aHu ft-blog-body">${blogArticleHtml}${blogSourcesHtml}</div>${adPlaceholderInline}${relatedHtml}</article>${adPlaceholderEnd}<div class="s-WR7RLD">${`<div style="${sp};height:12rem"></div>`.repeat(3)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`
  : (() => {
  // FRO-330: SSG article cards — render first 20 articles with real titles for crawlers
  const blogListSlug = firstSeg;
@@ -4703,7 +4730,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // bytes of repeated inline styles ≈ 75 KB savings). The .ssg-* rules now
  // live in public/assets/seo-static.css (already linked on these pages)
  // instead of a per-page inline <style> block. Visual output unchanged.
- return `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><h2 class="s-sXAwQz">${ARTICLES_HEADING[locale] ?? ARTICLES_HEADING.it}</h2><div class="ssg-article-grid">${articleCardsHtml}</div><nav class="s-eazYqN">${navHtml}</nav></div>`;
+ return `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article>${renderArticleHubGridBlock(articleCardsHtml, locale)}<nav class="s-eazYqN">${navHtml}</nav></div>`;
  })();
  } else if (statsSlugs.includes(firstSeg)) {
  rootHtml = `<div class="s-rO4k66"><div style="${sp};height:6rem;margin-bottom:1.5rem"></div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><div class="s-d0FtpK"><div style="${sp};height:14rem"></div><div style="${sp};height:14rem"></div></div><nav class="s-eazYqN">${navHtml}</nav></div>`;

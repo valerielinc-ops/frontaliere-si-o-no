@@ -211,12 +211,14 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
+          # Dispatch/call inputs reach the shell as DATA, never as script text.
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
         run: |
           mkdir -p /tmp/winners
-          if gh run download "${{ inputs.deploy_run_id }}" \
-               --name "winners-${{ inputs.deploy_run_id }}" \
+          if gh run download "$INPUT_DEPLOY_RUN_ID" \
+               --name "winners-$INPUT_DEPLOY_RUN_ID" \
                --dir /tmp/winners 2>/dev/null; then
-            echo "[winners] downloaded artifact for run ${{ inputs.deploy_run_id }}"
+            echo "[winners] downloaded artifact for run $INPUT_DEPLOY_RUN_ID"
           else
             echo "[winners] artifact not present (file unchanged this build) — skipping"
           fi
@@ -646,12 +648,14 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
+          # Dispatch/call inputs reach the shell as DATA, never as script text.
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
         run: |
           mkdir -p /tmp/winners
-          if gh run download "${{ inputs.deploy_run_id }}" \
-               --name "winners-${{ inputs.deploy_run_id }}" \
+          if gh run download "$INPUT_DEPLOY_RUN_ID" \
+               --name "winners-$INPUT_DEPLOY_RUN_ID" \
                --dir /tmp/winners 2>/dev/null; then
-            echo "[winners] downloaded artifact for run ${{ inputs.deploy_run_id }}"
+            echo "[winners] downloaded artifact for run $INPUT_DEPLOY_RUN_ID"
           else
             echo "[winners] artifact not present (file unchanged this build) — skipping"
           fi
@@ -1195,12 +1199,14 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
+          # Dispatch/call inputs reach the shell as DATA, never as script text.
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
         run: |
           mkdir -p /tmp/winners
-          if gh run download "${{ inputs.deploy_run_id }}" \
-               --name "winners-${{ inputs.deploy_run_id }}" \
+          if gh run download "$INPUT_DEPLOY_RUN_ID" \
+               --name "winners-$INPUT_DEPLOY_RUN_ID" \
                --dir /tmp/winners 2>/dev/null; then
-            echo "[winners] downloaded artifact for run ${{ inputs.deploy_run_id }}"
+            echo "[winners] downloaded artifact for run $INPUT_DEPLOY_RUN_ID"
           else
             echo "[winners] artifact not present (file unchanged this build) — skipping"
           fi
@@ -1461,6 +1467,8 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Dispatch/call inputs reach the shell as DATA, never as script text.
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
         run: |
           # Titolo STABILE (senza run-number): github-issue-creator.mjs dedupa sui
           # primi 60 char del titolo → con un run-number nel titolo ogni run aveva
@@ -1475,7 +1483,7 @@ jobs:
             --title "Validation Failure (dist): post-deploy" \
             --description "## Dist validation post-deploy fallita
           **Validation run #:** ${{ github.run_number }}
-          **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}
+          **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/$INPUT_DEPLOY_RUN_ID
           **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           **Source job:** ${{ needs.validate-dist-source.result }}
           **Post-build job:** ${{ needs.validate-dist-postbuild.result }}

@@ -223,7 +223,9 @@ jobs:
         continue-on-error: true
         env:
           LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
-        run: node scripts/local-mt-mopup.mjs --max-jobs ${{ inputs.mopup_max_jobs || '6000' }}
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
+        run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
 
       # Re-assemble so the cascade (which reads data/jobs.json) sees Argos's fills
       # and only queues the genuine remainder, not work Argos already finished.
@@ -283,6 +285,9 @@ jobs:
           # the slow ONNX tier off the bulk. Set MT_LOCAL_OPUSMT='' (or remove) to disable.
           MT_LOCAL_OPUSMT: '1'
           TRANSFORMERS_CACHE: .cache/transformers
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_MAX_JOBS: ${{ inputs.max_jobs || '100' }}
+          INPUT_COMPANY_KEY: ${{ inputs.company_key }}
           # Self-hosted LibreTranslate removed (see note above the steps): it was 100%
           # dead on the runner. The cascade now uses premium tiers + local Opus-MT +
           # MyMemory + PUBLIC LibreTranslate, which were already doing all the real work.
@@ -292,7 +297,12 @@ jobs:
           # hard-coded here — a static value reset the budget per company and could blow
           # past the 350min job timeout (review #2205 🔴). The cascade stops by ~250min,
           # leaving ~100min for the mop-up + always()-guarded commit/scatter/slug/deploy.
-        run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '100' }} ${{ inputs.company_key && format('--company-key {0}', inputs.company_key) || '' }}
+        run: |
+          ARGS=(--max-jobs "$INPUT_MAX_JOBS")
+          if [ -n "$INPUT_COMPANY_KEY" ]; then
+            ARGS+=(--company-key "$INPUT_COMPANY_KEY")
+          fi
+          node scripts/relocalize-pending-jobs.mjs "${ARGS[@]}"
 
       - name: Log translation stats (after)
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
@@ -336,9 +346,11 @@ jobs:
           # local-mt-translate.py flushes each request's JSONL as soon as its units
           # resolve, and the mop-up parses + commits the partial stdout (timedOut branch).
           LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         # --max-jobs is DECOUPLED from the `max_jobs` input (which caps the quota-bound
         # cascade). Argos is free + unlimited, so the mop-up drains whatever remains.
-        run: node scripts/local-mt-mopup.mjs --max-jobs ${{ inputs.mopup_max_jobs || '6000' }}
+        run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
 
       - name: Commit translations
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true

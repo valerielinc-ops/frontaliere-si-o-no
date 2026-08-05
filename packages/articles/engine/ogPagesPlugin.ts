@@ -8,6 +8,7 @@
  */
 
 import path from 'path';
+import { buildRelatedArticlesIndex } from './relatedArticlesIndex';
 import type { Plugin } from 'vite';
 import { getSiteShell } from './siteShell';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
@@ -38,6 +39,33 @@ function articleRootShell(hasSpaBundle: boolean): string {
     ? '<div id="root"><div class="ft-hdr-reserve" aria-hidden="true"></div></div>'
     : '<div id="root"></div>';
 }
+
+/**
+ * Footer portal target — the OTHER half of the staticOverlay shell contract.
+ *
+ * `articleRootShell` above mirrors only the `#root` mount of
+ * build-plugins/htmlTemplate.ts; the canonical `seoContentOutsideRoot` body
+ * section there emits BOTH `#root` and, after `</main>`, a
+ * `<div id="footer-root"></div>`. App.tsx (`footerPortalTarget`) portals the
+ * footer into that node on every `staticOverlay` route; when the node is
+ * absent the portal resolves to `null` and the footer falls back to an INLINE
+ * render inside `#root` — i.e. ABOVE `main.seo-static-content`, burying the
+ * whole article (and every footer internal link) under ~1500 px of chrome on
+ * mobile. That is the exact failure PR #243 fixed for `/calcola-stipendio/*`
+ * and that `audit:footer-root-presence` (scripts/audit-footer-root-presence.mjs,
+ * zero-tolerance) guards.
+ *
+ * Emitting the article body as a `<main class="seo-static-content">` sibling of
+ * `#root` (#4959) opted these pages INTO that contract without bringing this
+ * half along, so all ~900 articles × 4 locales shipped without the portal
+ * target: 3608 offenders in post-deploy validation run 30974294824, up from 23.
+ *
+ * Deliberately re-stated here rather than imported, for the same reason as
+ * `articleRootShell`: this package must not reach back into `build-plugins`
+ * (tests/packages-articles-confinement.test.ts) and it is loaded inside the
+ * post-walk worker thread.
+ */
+const ARTICLE_FOOTER_ROOT = '<div id="footer-root"></div>';
 
 export interface RenderedArticleEntry {
  articleId: string;
@@ -769,13 +797,36 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const relatedArticlesLabel: Record<string, string> = {
  it: 'Articoli correlati', en: 'Related articles', de: 'Verwandte Artikel', fr: 'Articles connexes',
  };
- // Sort entries by date (most recent first) for recency-based fallback
- const entriesByDate = [...entries].sort((a, b) => (b.datePub || '').localeCompare(a.datePub || ''));
- const buildRelatedArticlesHtml = (currentId: string, currentCategory: string, locale: string): string => {
- // Prefer same category, then fall back to most recent
- const sameCategory = entriesByDate.filter(e => e.articleId !== currentId && articleCategoryById[e.articleId] === currentCategory);
- const others = entriesByDate.filter(e => e.articleId !== currentId && articleCategoryById[e.articleId] !== currentCategory);
- const picks = [...sameCategory.slice(0, 3), ...others.slice(0, 5 - Math.min(sameCategory.length, 3))].slice(0, 5);
+ // Topic-ranked related articles with an inbound-link floor
+ // (packages/articles/engine/relatedArticlesIndex.ts).
+ //
+ // This replaces a picker that took the 3 newest same-category articles plus
+ // the 2 newest overall. That pool is sorted globally by date and does not
+ // vary per article, so every page emitted nearly the same five links:
+ // replayed against the 3.085 published articles, 99,48% of them (3.069)
+ // received ZERO inbound links from any other article, and two articles were
+ // linked from all 3.084 others. `category` could not rescue it either — four
+ // values, with `novita` holding 62% of the corpus.
+ //
+ // Built ONCE for the whole corpus rather than per page: the fairness pass and
+ // the orphan repair are corpus-level properties and cannot be decided one
+ // page at a time. `entries` is guaranteed full/unfiltered here even on the
+ // single-article fast path (see the `onlyArticleIdSet` comment below), which
+ // is exactly what this needs.
+ const relatedArticlesMap = buildRelatedArticlesIndex(
+ entries.map(e => ({
+ articleId: e.articleId,
+ title: e.ogT.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, ''),
+ excerpt: e.ogD,
+ datePub: e.datePub,
+ category: articleCategoryById[e.articleId],
+ })),
+ );
+ const entryById = new Map(entries.map(e => [e.articleId, e]));
+ const buildRelatedArticlesHtml = (currentId: string, _currentCategory: string, locale: string): string => {
+ const picks = (relatedArticlesMap.get(currentId) ?? [])
+ .map(id => entryById.get(id))
+ .filter((e): e is typeof entries[number] => Boolean(e));
  if (picks.length === 0) return '';
  const items = picks.map(art => {
  const slug = blogSlugs[art.articleId]?.[locale] ?? art.articleId;
@@ -790,8 +841,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
 
  for (const en of entries) {
  // Single-article / batch fast path (#4837 stream A, batched #4881 Fase 4):
- // the entries parse above MUST stay full/unfiltered (title-collision map +
- // entriesByDate related-articles pool both need every other article's
+ // the entries parse above MUST stay full/unfiltered (the title-collision map
+ // and the corpus-wide related-articles index both need every other article's
  // metadata to render THIS one correctly) — this is the only place that
  // narrows down to the requested id set.
  if (onlyArticleIdSet && !onlyArticleIdSet.has(en.articleId)) continue;
@@ -1317,7 +1368,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')} · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>
+ ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')} · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;
@@ -1340,7 +1391,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body>
- ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1>${heroFigureHtml}<p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>
+ ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1>${heroFigureHtml}<p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>${ARTICLE_FOOTER_ROOT}
  </body>
 </html>`;
  };

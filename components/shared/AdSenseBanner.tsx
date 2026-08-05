@@ -12,6 +12,11 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { isLikelyBot, trackAdEvent } from '@/services/adAnalytics';
 import { hasActiveReaderNoAdsEntitlement } from '@/services/readerEntitlement';
+import {
+ MULTIPLEX_DESKTOP_MIN_HEIGHT,
+ MULTIPLEX_DESKTOP_MIN_WIDTH,
+ resolveSlotPlaceholderMinHeight,
+} from '@/services/adsenseSlots';
 
 declare global {
  interface Window {
@@ -58,11 +63,29 @@ const SKIP_FOR_BOT = typeof window !== 'undefined' && isLikelyBot();
 type AdState = 'idle' | 'waiting_width' | 'loading' | 'filled' | 'collapsed';
 const initializedAdElements = new WeakSet<Element>();
 
+/**
+ * Layout space reserved before the unit fills — the only CLS lever we have on
+ * an ad whose real height Google decides at fill time (never gate/suppress the
+ * unit itself, AGENTS.md §7).
+ *
+ * Resolution order:
+ *   1. explicit `minHeight` prop (per-call-site override, wins over all),
+ *   2. `AD_SLOTS[…].placeholderMinHeight` for this (slot, format, layout) —
+ *      the registry is the declared source of truth and the SAME value the
+ *      build-time emitter (`build-plugins/lib/adSlotHtml.ts`) reserves,
+ *   3. the format heuristic below, for slots not in the registry.
+ *
+ * Step 2 used to be missing here: the component went straight to the format
+ * heuristic, so a registry entry only took effect when a call site happened to
+ * pass `minHeight` — 7 of 49 did. That silently reverted the #4302 CLS fix on
+ * the SPA (JOBLIST_INFEED_* was raised 280 → 336 in the registry, but
+ * `/cerca-lavoro-ticino/` kept reserving 280 live) and is the field-CLS
+ * regression in issue #4677. See the resolver docblock in
+ * `services/adsenseSlots.ts` for the full rationale.
+ */
 function getPlaceholderMinHeight(adFormat: string, adLayout?: string): number {
- // Heights match AD_SLOTS.placeholderMinHeight (FRO-385), except autorelaxed
- // multiplex which reserves more on desktop (≥1280px renders ~600px vs ~400px
- // mobile) — kept in sync with the `xl:min-h-[600px]` Suspense fallbacks.
- // Sized to cover the majority of real ad renders and prevent CLS when ads expand.
+ // Fallback for slots that are NOT in AD_SLOTS. Registry slots resolve via
+ // resolveSlotPlaceholderMinHeight and never reach this heuristic.
  if (adFormat === 'autorelaxed') {
    // Multiplex/autorelaxed renders ~380-450px on mobile but ~550-650px on
    // desktop (wider grid → more ad rows). A flat 400px under-reserves desktop
@@ -70,11 +93,27 @@ function getPlaceholderMinHeight(adFormat: string, adLayout?: string): number {
    // measured live on /cerca-lavoro-ticino/ricerca/ at 1440px (end multiplex
    // reserved 400px, rendered 600px → footer shift). Reserve per-viewport so
    // desktop matches the real render; SSR/build has no window → mobile floor.
-   return (typeof window !== 'undefined' && window.innerWidth >= 1280) ? 600 : 400;
+   return (typeof window !== 'undefined' && window.innerWidth >= MULTIPLEX_DESKTOP_MIN_WIDTH)
+     ? MULTIPLEX_DESKTOP_MIN_HEIGHT
+     : 400;
  }
  if (adLayout === 'in-article') return 220;
  if (adFormat === 'fluid') return 220;
  return 280;
+}
+
+/** Full resolution chain (registry first, heuristic as fallback). Exported for
+ *  the regression test that pins the registry↔runtime contract. */
+export function resolvePlaceholderMinHeight(
+ adSlot: string | undefined,
+ adFormat: string,
+ adLayout: string | undefined,
+ viewportWidth: number | undefined,
+): number {
+ return (
+   resolveSlotPlaceholderMinHeight(adSlot, adFormat, adLayout, viewportWidth) ??
+   getPlaceholderMinHeight(adFormat, adLayout)
+ );
 }
 
 function isElementInViewport(el: HTMLElement): boolean {
@@ -110,7 +149,14 @@ export default function AdSenseBanner({
  const [state, setState] = useState<AdState>('idle');
  const [scriptReady, setScriptReady] = useState(false);
  const [scriptFailed, setScriptFailed] = useState(false);
- const placeholderMinHeight = minHeight ?? getPlaceholderMinHeight(adFormat, adLayout);
+ const placeholderMinHeight =
+ minHeight ??
+ resolvePlaceholderMinHeight(
+ adSlot,
+ adFormat,
+ adLayout,
+ typeof window !== 'undefined' ? window.innerWidth : undefined,
+ );
 
  const cleanupAsyncWatchers = useCallback(() => {
  if (fillTimeoutRef.current) {

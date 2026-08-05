@@ -341,6 +341,112 @@ describe('nextCrawlerState', () => {
     expect(state.consecutiveEmptyRuns).toBe(0);
   });
 
+  // The whole `broken` cohort of the 2026-08-04 monitor snapshot, all five
+  // verified live as "source healthy, zero qualifying openings" rather than
+  // parser breaks (evidence per crawler in the EMPTY_OK_CRAWLERS comments in
+  // scripts/check-crawler-health.mjs). Table-driven so the class is covered
+  // in one place instead of five copy-pasted blocks.
+  const emptyOkCohort: Array<{ slug: string; issue: string; why: string; priorNonZero: number; emptyStreak: number }> = [
+    {
+      slug: 'temenos',
+      issue: '#4844',
+      why: 'Workday tenant rejects the locationCountry facet (HTTP 400); the strict-CH fallback walks the whole 16-posting board and finds no Swiss role',
+      priorNonZero: 1,
+      emptyStreak: 19,
+    },
+    {
+      slug: 'veeam',
+      issue: '#5060',
+      why: 'Greenhouse board veeamsoftware returns 235 live postings, none matching the parser SWISS_LOCATION_RE; careers.veeam.com itself reports 0 jobs for Switzerland',
+      priorNonZero: 2,
+      emptyStreak: 4,
+    },
+    {
+      slug: 'gavi',
+      issue: '#5059',
+      why: 'fRecruit portal listing renders its unchanged page block with "Page 1 of 0" / "None found" and zero vacancyNo links',
+      priorNonZero: 1,
+      emptyStreak: 4,
+    },
+    {
+      slug: 'rado',
+      issue: '#5083',
+      why: 'shared swatchgroup.com pool crawl is healthy (sibling eta-sa-swatch-group wrote 22 jobs same run); brand filter kept 0/7 because no posting carries a Rado legal entity',
+      priorNonZero: 1,
+      emptyStreak: 3,
+    },
+    {
+      slug: 'swatch-group-assembly',
+      issue: '#5013',
+      why: 'same shared-pool brand filter kept 0/24 — no Swatch Group Assembly SA posting in the pool',
+      priorNonZero: 14,
+      emptyStreak: 7,
+    },
+  ];
+
+  for (const { slug, issue, why, priorNonZero, emptyStreak } of emptyOkCohort) {
+    it(`clears broken status for ${slug} (empty-ok: ${why}) on a fresh zero-job run (${issue})`, () => {
+      const prev = {
+        // Relative to the simulated clock — never a calendar literal, so the
+        // fixture cannot rot (AGENTS.md test-fixture rule).
+        lastSuccessfulRunAt: new Date(NOW_MS - (emptyStreak + 1) * DAY_MS).toISOString(),
+        lastNonZeroJobs: priorNonZero,
+        consecutiveEmptyRuns: emptyStreak,
+        lastFailureReason: `${emptyStreak} consecutive runs returned 0 jobs`,
+        status: 'broken',
+        _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+        _lastObservedJobs: 0,
+        _lastObservedAssembledAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      };
+      const { status, state, reason } = nextCrawlerState(
+        prev,
+        {
+          slug,
+          jobCount: 0,
+          freshnessAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+          freshnessSource: 'summary',
+          generatedAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+          assembledAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+        },
+        NOW_ISO,
+        NOW_MS,
+      );
+      expect(status).toBe('healthy');
+      expect(reason).toBeNull();
+      expect(state.consecutiveEmptyRuns).toBe(0);
+    });
+  }
+
+  it('still flags an unlisted crawler broken on the same fresh zero-job observation (empty-ok is not a blanket mute)', () => {
+    // Guard against the class of "fix" this PR must never become: the five
+    // additions above must not have loosened the gate for everyone else.
+    const prev = {
+      lastSuccessfulRunAt: new Date(NOW_MS - 4 * DAY_MS).toISOString(),
+      lastNonZeroJobs: 12,
+      consecutiveEmptyRuns: 3,
+      lastFailureReason: '3 consecutive runs returned 0 jobs',
+      status: 'broken',
+      _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedJobs: 0,
+      _lastObservedAssembledAt: new Date(NOW_MS - DAY_MS).toISOString(),
+    };
+    const { status, state } = nextCrawlerState(
+      prev,
+      {
+        slug: 'not-an-empty-ok-crawler',
+        jobCount: 0,
+        freshnessAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+        freshnessSource: 'summary',
+        generatedAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+        assembledAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('broken');
+    expect(state.consecutiveEmptyRuns).toBe(4);
+  });
+
   it('flags stale when slice assembledAt is older than 7 days (regardless of empty streak)', () => {
     // heineken-ch fixture: slice from 8d ago.
     const { status, state, reason } = nextCrawlerState(

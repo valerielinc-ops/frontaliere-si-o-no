@@ -71,12 +71,20 @@ jobs:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
 
       - name: Rank profession keyword opportunities
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_WINDOW_DAYS: ${{ github.event.inputs.window_days || '60' }}
         run: |
           node scripts/profession-keyword-opportunities.mjs \
-            --window-days="${{ github.event.inputs.window_days || '60' }}" \
+            --window-days="$INPUT_WINDOW_DAYS" \
             --markdown-out=/tmp/profession-opportunities.md
 
       - name: Commit if changed
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text. The
+          # regenerate command is a nested shell string, so the variable stays
+          # unexpanded here and is quoted again when that shell reads it.
+          INPUT_WINDOW_DAYS: ${{ github.event.inputs.window_days || '60' }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
@@ -88,7 +96,7 @@ jobs:
           fi
           git commit -m "chore: weekly profession keyword opportunities refresh"
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "node scripts/profession-keyword-opportunities.mjs --window-days='${{ github.event.inputs.window_days || '60' }}' --markdown-out=/tmp/profession-opportunities.md && git add data/profession-keyword-opportunities.json"
+            --regenerate-cmd "node scripts/profession-keyword-opportunities.mjs --window-days=\"\$INPUT_WINDOW_DAYS\" --markdown-out=/tmp/profession-opportunities.md && git add data/profession-keyword-opportunities.json"
 
       - name: Open/update dedup issue with top opportunities
         env:

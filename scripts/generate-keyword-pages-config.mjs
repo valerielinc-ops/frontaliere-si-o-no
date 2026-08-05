@@ -13,6 +13,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+import { isPromotable } from './lib/profession-taxonomy.mjs';
+
 const ROOT = path.resolve(import.meta.dirname, '..');
 const GSC_PATH = path.join(ROOT, 'data/gsc-orphan-queries.json');
 const OUTPUT_PATH = path.join(ROOT, 'data/keyword-pages-config.json');
@@ -253,11 +255,24 @@ if (fs.existsSync(OPPORTUNITIES_PATH)) {
     for (const o of opp.opportunities || []) {
       if (fed >= FEED_MAX_NEW_PAGES) break;
       if (usedProfessions.has(o.id)) continue;
-      // Trust doubleValidated as-is (onsite >= DOUBLE_VALIDATED_MIN_ONSITE
-      // already baked in upstream) — a second, stricter local floor here
-      // previously left true double-validated gaps (onsite 10-24) stuck in
-      // the weekly report forever, never promoted to a page (#4564).
-      if (!o.doubleValidated) continue;
+      // ONE predicate, shared with the weekly ranking that produced this file
+      // (`isPromotable` in profession-taxonomy.mjs) — never a second floor
+      // tuned locally. That is the #4564 failure mode: a stricter local gate
+      // left rows the report marked promotable stuck there forever, never
+      // becoming a page.
+      //
+      // It qualifies a row two ways. DEMAND (the original double validation):
+      // people search it on-site AND there are ads to show them. SUPPLY: 12+
+      // live ads and 5+ literal matches, for professions that read 0 on-site
+      // *because* the site has no page for them yet — a circular signal that
+      // parked eight professions with 12-65 live ads in the report
+      // indefinitely. Both paths also require the literal feedFilter to be no
+      // broader than the profession it names.
+      //
+      // Recomputed from the row rather than trusting `o.promotable`, so a
+      // stale opportunities file written before the field existed still gates
+      // correctly instead of failing open.
+      if (!isPromotable(o)) continue;
       // Literal-match support: jobsSeoPagesPlugin filters with
       // `filterKeywords: [feedFilter]` (single substring) and skips pages
       // with <3 matching jobs — feeding below that produces a page that

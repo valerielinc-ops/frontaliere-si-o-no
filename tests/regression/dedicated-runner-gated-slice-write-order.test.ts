@@ -35,6 +35,25 @@ const SCRIPTS_DIR = path.join(ROOT, 'scripts');
 // (which is followed by a comma, not a paren).
 const CALL_RE = (name: string) => new RegExp(`\\b${name}\\s*\\(`);
 
+// The gated write has two entry points, and BOTH run the same quality /
+// normalization gates: `writeJobsCrawlerSlice` (sync) and its async wrapper
+// `writeJobsCrawlerSliceVerified` (issues #5016/#5017), which delegates to it
+// and, when the anti-shrink guard trips, probes the disappearing jobs at their
+// own source URLs before deciding. A runner that calls the wrapper satisfies
+// this invariant exactly like one that calls the base function — the ordering
+// requirement (gated write AFTER runDedicatedBaseCrawler) is unchanged, only
+// the set of accepted call sites widened.
+const GATED_WRITE_RE = /\bwriteJobsCrawlerSlice(?:Verified)?\s*\(/;
+
+function lastMatchLine(source: string, re: RegExp): number {
+  const lines = source.split('\n');
+  let last = -1;
+  for (let i = 0; i < lines.length; i++) {
+    if (re.test(lines[i])) last = i;
+  }
+  return last;
+}
+
 function findDirectDedicatedRunners(): string[] {
   return fs
     .readdirSync(SCRIPTS_DIR)
@@ -58,16 +77,6 @@ function firstCallLine(source: string, name: string): number {
   return -1;
 }
 
-function lastCallLine(source: string, name: string): number {
-  const lines = source.split('\n');
-  const re = CALL_RE(name);
-  let last = -1;
-  for (let i = 0; i < lines.length; i++) {
-    if (re.test(lines[i])) last = i;
-  }
-  return last;
-}
-
 describe('dedicated-runner gated-slice write order (#3089 item 1)', () => {
   const directRunners = findDirectDedicatedRunners();
 
@@ -87,10 +96,10 @@ describe('dedicated-runner gated-slice write order (#3089 item 1)', () => {
       const runLine = firstCallLine(source, 'runDedicatedBaseCrawler');
       expect(runLine, `${file}: expected a runDedicatedBaseCrawler(...) call site`).toBeGreaterThanOrEqual(0);
 
-      const writeLine = lastCallLine(source, 'writeJobsCrawlerSlice');
+      const writeLine = lastMatchLine(source, GATED_WRITE_RE);
       expect(
         writeLine,
-        `${file}: expected a writeJobsCrawlerSlice(...) call — without it, the raw ` +
+        `${file}: expected a writeJobsCrawlerSlice(...) / writeJobsCrawlerSliceVerified(...) call — without it, the raw ` +
           `ungated seed from runDedicatedBaseCrawler stays committed as this crawler's ` +
           `final slice (#3089 item 1 regression: boilerplate/wrong-lang jobs stay indexed).`,
       ).toBeGreaterThanOrEqual(0);
@@ -104,10 +113,10 @@ describe('dedicated-runner gated-slice write order (#3089 item 1)', () => {
     });
   }
 
-  it('crawler-template.mjs (runStandardCrawlerPipeline): writeJobsCrawlerSlice is called after runDedicatedBaseCrawler', () => {
+  it('crawler-template.mjs (runStandardCrawlerPipeline): the gated slice write is called after runDedicatedBaseCrawler', () => {
     const source = fs.readFileSync(path.join(SCRIPTS_DIR, 'lib', 'crawler-template.mjs'), 'utf-8');
     const runLine = firstCallLine(source, 'runDedicatedBaseCrawler');
-    const writeLine = lastCallLine(source, 'writeJobsCrawlerSlice');
+    const writeLine = lastMatchLine(source, GATED_WRITE_RE);
     expect(runLine).toBeGreaterThanOrEqual(0);
     expect(writeLine).toBeGreaterThanOrEqual(0);
     expect(writeLine).toBeGreaterThan(runLine);

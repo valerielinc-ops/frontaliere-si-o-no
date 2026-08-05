@@ -108,7 +108,7 @@ jobs:
       - name: Resolve deploy run id
         id: latest
         run: |
-          run_id="${{ inputs.deploy_run_id }}"
+          run_id="$INPUT_DEPLOY_RUN_ID"
           if [ -z "$run_id" ]; then
             run_id=$(gh run list \
               --workflow=deploy.yml \
@@ -121,6 +121,8 @@ jobs:
           echo "run_id=$run_id" >> "$GITHUB_OUTPUT"
         env:
           GH_TOKEN: ${{ github.token }}
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
 
       - name: Fetch github-pages artifact
         id: pages

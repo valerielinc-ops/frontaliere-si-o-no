@@ -65,13 +65,16 @@ jobs:
       - name: Run GSC refinement
         env:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/sa.json
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_WINDOW_DAYS: ${{ inputs.window_days }}
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
         run: |
-          FLAGS="--window-days=${{ inputs.window_days }}"
-          if [ "${{ inputs.dry_run }}" = "true" ]; then
-            FLAGS="$FLAGS --dry-run"
+          FLAGS=("--window-days=$INPUT_WINDOW_DAYS")
+          if [ "$INPUT_DRY_RUN" = "true" ]; then
+            FLAGS+=(--dry-run)
           fi
-          echo "Running: node scripts/refine-url-first-seen-via-gsc.mjs $FLAGS"
-          node scripts/refine-url-first-seen-via-gsc.mjs $FLAGS
+          echo "Running: node scripts/refine-url-first-seen-via-gsc.mjs ${FLAGS[*]}"
+          node scripts/refine-url-first-seen-via-gsc.mjs "${FLAGS[@]}"
 
       # Load GITHUB_PAT (Firebase Remote Config) into $GITHUB_ENV. RC reachability
       # requires the *Firebase* SA (secrets.FIREBASE_SERVICE_ACCOUNT_JSON), the

@@ -541,6 +541,93 @@ function countMap(items) {
   return map;
 }
 
+// ── Append-only SET registries (issue #4887) ───────────────────────────────
+// A handful of arrays in the committed data set are not ordinary lists: they
+// are append-only ORDERED SETS of historical URL/slug strings whose only job
+// is to keep an already-indexed URL alive (previousSlugs bridges, 404-compat
+// soft-landing paths). For those, mergeArrayByDelta()'s multiset semantics is
+// actively destructive, because THIS SCRIPT'S MERGE BASE IS DELIBERATELY
+// STALE: commit_isolated_from_worktree() resolves base_sha once from the
+// job's checkout HEAD and never fast-forwards it (see the comment at the
+// `git push` success branch), so a caller that invokes this script several
+// times in one job (translate-pending.yml commits translations, then title
+// fixes, then regenerated slugs) merges its 2nd/3rd commit against a base
+// that is already one-or-more of its OWN commits old. Under that stale base:
+//
+//   1. entries that are already on remote but absent from base look like
+//      local ADDITIONS and get appended again  → duplicates injected
+//      (observed: previousSlugs 42 entries → 81 with 41 distinct);
+//   2. the next writer normalises the array through `new Set` and the merge
+//      reads `count_base - count_local` as 40 intentional REMOVALS, deleting
+//      those fingerprints from remote — which holds only one copy each
+//      → 42 distinct slugs collapse to 2, with no slug-history-journal
+//      attribution (this script never imports slug-history-journal.mjs).
+//
+// That is the self-perpetuating cycle "Recover Lost previousSlugs" keeps
+// re-recovering (45-383 entries per run, threshold 10). Every recovered slug
+// is a URL Google already indexed, so each loss is direct organic-traffic
+// equity being deleted.
+//
+// The fix is to give these arrays their real semantics: an ordered set union
+// of remote and local, deduplicated. Base is not consulted at all, which is
+// what makes the stale base structurally harmless here — the merge becomes
+// idempotent and commutative, so no ordering of concurrent writers can
+// fabricate a removal.
+//
+// Deliberate trade-off: a genuine removal (cleanPreviousSlugsPerLocale
+// dropping an entry equal to the active slug, decontaminate-prev-slugs)
+// that races a concurrent writer survives one extra cycle before the next
+// writer drops it again. Resurrect-then-redrop is convergent and free;
+// deleting a live historical slug is permanent SEO loss. Same asymmetry the
+// `merge=union` drivers in .gitattributes are documented to accept.
+//
+// Bounds: each writer caps its own output through capSlugArray() before this
+// runs, so the union is bounded by 2x the cap and the next write re-caps it.
+// No ratchet.
+const APPEND_ONLY_SET_FILE_PATHS = [
+  // Registry of GSC-indexed orphan job slugs (root-level string array),
+  // committed by sync-gsc-orphans.yml.
+  { file: /(?:^|\/)data\/orphan-indexed-job-slugs\.json$/, path: /^\$$/ },
+  // Sharded 404-compat accumulator. The rebase path already gets set
+  // semantics from the `merge=compat-shard` driver in .gitattributes; the
+  // grouped-isolated commit path never rebases, so it reaches this merge
+  // instead and needs the same semantics or it silently drops soft-landing
+  // paths (same class, different code path, same file).
+  { file: /(?:^|\/)data\/seo-404-compat\/part-\d+\.json$/, path: /^\$\.paths$/ },
+];
+
+function isAppendOnlySetPath(fileLabel, pathLabel) {
+  // Per-job slug history. Present in every job-carrying slice
+  // (data/jobs/by-crawler/*.json, data/jobs/expired/by-crawler/*.json, …),
+  // so it is matched on the JSON path rather than on the file name.
+  if (/(?:^|[.\]])previousSlugs$/.test(pathLabel)) return true;
+  if (/(?:^|[.\]])previousSlugsByLocale\.[^.]+$/.test(pathLabel)) return true;
+  const normalized = String(fileLabel || '').replace(/\\/g, '/');
+  return APPEND_ONLY_SET_FILE_PATHS.some(
+    (rule) => rule.file.test(normalized) && rule.path.test(pathLabel)
+  );
+}
+
+function mergeAppendOnlySet(remoteArr, localArr, warnings, pathLabel) {
+  const merged = [];
+  const seen = new Set();
+  // Remote first so the older side keeps its position (capSlugArray evicts
+  // from the FRONT, i.e. oldest-first), then local-only entries appended as
+  // the newest.
+  for (const source of [remoteArr, localArr]) {
+    for (const item of source) {
+      const fp = stableStringify(item);
+      if (seen.has(fp)) continue;
+      seen.add(fp);
+      merged.push(clone(item));
+    }
+  }
+  warnings.push(
+    `Append-only set union at ${pathLabel} (remote ${remoteArr.length} ∪ local ${localArr.length} -> ${merged.length})`
+  );
+  return merged;
+}
+
 function mergeArrayByDelta(baseArr, remoteArr, localArr) {
   const baseFp = baseArr.map((v) => stableStringify(v));
   const remoteFp = remoteArr.map((v) => stableStringify(v));
@@ -677,6 +764,12 @@ function mergeValue(baseValue, remoteValue, localValue, warnings, pathLabel, for
     const baseArr = Array.isArray(baseValue) ? baseValue : [];
     const remoteArr = Array.isArray(remoteValue) ? remoteValue : [];
     const localArr = Array.isArray(localValue) ? localValue : [];
+    // Append-only SEO registries never take the delta path — see the block
+    // above mergeArrayByDelta() for why a stale merge base makes multiset
+    // deltas delete already-indexed slugs/paths (issue #4887).
+    if (isAppendOnlySetPath(label, pathLabel)) {
+      return mergeAppendOnlySet(remoteArr, localArr, warnings, pathLabel);
+    }
     return mergeArray(baseArr, remoteArr, localArr, warnings, pathLabel, forcedKey);
   }
 

@@ -27831,6 +27831,33 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'svizzeri-fuga-alloglio-ticino',
+ category: 'pratico',
+ date: '2026-08-05T09:59:53.394Z',
+ image: '/images/blog/svizzeri-fuga-alloglio-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'borsa-rotta-isola-15000-punti',
+ category: 'fiscale',
+ date: '2026-08-05T10:24:13.935Z',
+ image: '/images/blog/borsa-rotta-isola-15000-punti.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'tradate-lite-ferito-trentenne',
+ category: 'novita',
+ date: '2026-08-05T13:42:10.216Z',
+ image: '/images/blog/tradate-lite-ferito-trentenne.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

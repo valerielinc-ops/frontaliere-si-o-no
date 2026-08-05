@@ -20,9 +20,11 @@ jobs:
         id: art
         env:
           GH_TOKEN: ${{ github.token }}
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
         run: |
           set -e
-          RID=${{ inputs.deploy_run_id }}
+          RID="$INPUT_DEPLOY_RUN_ID"
           ARTIFACT_ID=$(gh api repos/${{ github.repository }}/actions/runs/$RID/artifacts \
             --jq '.artifacts[] | select(.name=="github-pages") | .id' | head -1)
           if [ -z "$ARTIFACT_ID" ]; then
@@ -48,6 +50,9 @@ jobs:
           echo "Extracted $(find dist -type f | wc -l) files into dist/"
 
       - name: Analyze composition
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
         run: |
           set -e
           REPORT=/tmp/composition-report.txt
@@ -55,7 +60,7 @@ jobs:
           log() { echo "$@" | tee -a "$REPORT"; }
 
           log "════════════════════════════════════════════════"
-          log "DIST COMPOSITION REPORT — run ${{ inputs.deploy_run_id }}"
+          log "DIST COMPOSITION REPORT — run $INPUT_DEPLOY_RUN_ID"
           log "Generated: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
           log "════════════════════════════════════════════════"
 

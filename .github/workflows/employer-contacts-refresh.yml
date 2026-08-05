@@ -62,8 +62,12 @@ jobs:
         run: node scripts/assemble-jobs-dataset.mjs --stats || true
 
       - name: Discover + upsert employer contacts (Firestore)
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_MIN_VIEWS: ${{ github.event.inputs.min_views || '5' }}
+          INPUT_LIMIT: ${{ github.event.inputs.limit || '0' }}
         run: |
           node scripts/sync-employer-contacts-to-firestore.mjs \
             --apply \
-            --min-views "${{ github.event.inputs.min_views || '5' }}" \
-            --limit "${{ github.event.inputs.limit || '0' }}"
+            --min-views "$INPUT_MIN_VIEWS" \
+            --limit "$INPUT_LIMIT"

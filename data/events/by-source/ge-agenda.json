@@ -3,7 +3,7 @@
   "sourceKey": "ge-agenda",
   "sourceName": "Ville de Genève Agenda",
   "canton": "GE",
-  "assembledAt": "2026-08-04T08:47:11.903Z",
+  "assembledAt": "2026-08-05T08:45:40.593Z",
   "events": [
     {
       "id": "ge-agenda:bacchanales",
@@ -20,7 +20,7 @@
       "imageUrl": "/images/events/ge-agenda-bacchanales.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:initiation-forro",
@@ -36,7 +36,7 @@
       "url": "https://www.geneve.ch/agenda/initiation-forro",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:initiation-salsa-portoricaine",
@@ -52,23 +52,7 @@
       "url": "https://www.geneve.ch/agenda/initiation-salsa-portoricaine",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:initiation-house",
-      "title": "Initiation à la House",
-      "startDate": "2026-07-19",
-      "endDate": "2026-08-16",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse sur la scène de la Canopée.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/initiation-house",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:initiation-ndombolo",
@@ -84,7 +68,7 @@
       "url": "https://www.geneve.ch/agenda/initiation-ndombolo",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:initiation-dancefit",
@@ -100,7 +84,23 @@
       "url": "https://www.geneve.ch/agenda/initiation-dancefit",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:initiation-house",
+      "title": "Initiation à la House",
+      "startDate": "2026-07-19",
+      "endDate": "2026-08-16",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse sur la scène de la Canopée.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/initiation-house",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:initiation-west-coast-swing",
@@ -116,7 +116,7 @@
       "url": "https://www.geneve.ch/agenda/initiation-west-coast-swing",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:initiation-reggaeton-adulte",
@@ -132,7 +132,7 @@
       "url": "https://www.geneve.ch/agenda/initiation-reggaeton-adulte",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:cours-yoga-aout-canopee",
@@ -148,7 +148,7 @@
       "url": "https://www.geneve.ch/agenda/cours-yoga-aout-canopee",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:cours-petit-pilates-enfants-aout-canopee",
@@ -164,7 +164,7 @@
       "url": "https://www.geneve.ch/agenda/cours-petit-pilates-enfants-aout-canopee",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:cours-pilates-aout-canopee",
@@ -180,7 +180,7 @@
       "url": "https://www.geneve.ch/agenda/cours-pilates-aout-canopee",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:cours-mouessence-aout-canopee",
@@ -196,7 +196,7 @@
       "url": "https://www.geneve.ch/agenda/cours-mouessence-aout-canopee",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:cours-mobility-workout-aout-canopee",
@@ -212,7 +212,7 @@
       "url": "https://www.geneve.ch/agenda/cours-mobility-workout-aout-canopee",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:cours-swedish-aout-canopee",
@@ -228,7 +228,7 @@
       "url": "https://www.geneve.ch/agenda/cours-swedish-aout-canopee",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:cours-body-wake-aout-canopee",
@@ -244,7 +244,7 @@
       "url": "https://www.geneve.ch/agenda/cours-body-wake-aout-canopee",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:cours-full-body-training-aout-canopee",
@@ -260,236 +260,7 @@
       "url": "https://www.geneve.ch/agenda/cours-full-body-training-aout-canopee",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:taiji-cite-seniors-3",
-      "title": "Taiji avec Cité Séniors",
-      "startDate": "2026-08-04",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Taiji au MEG pour se mettre à l’écoute de soi-même. Animé par Veronica Maillefer. Foyer. Le mardi 4 août de 10h00 à 11h00.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/taiji-cite-seniors-3",
-      "imageUrl": "/images/events/ge-agenda-taiji-cite-seniors-3.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:salon-ecoute-lucida-songo",
-      "title": "SALON D’ÉCOUTE avec Lucida Sonĝo",
-      "startDate": "2026-08-04",
-      "category": "Concert",
-      "region": "Genève",
-      "description": "voyage sonore / rêves lucides",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/salon-ecoute-lucida-songo",
-      "imageUrl": "/images/events/ge-agenda-salon-ecoute-lucida-songo.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:initiation-zouk-bresilien-canopee",
-      "title": "Initiation au Zouk brésilien à la Canopée",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-05",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "La Canopée se transforme en une piste de danse, à l'occasion d'une soirée dédiée au Zouk brésilien.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/initiation-zouk-bresilien-canopee",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:initiation-solo-swing",
-      "title": "Initiation au Solo Swing",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-07",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse sur la scène de la Canopée.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/initiation-solo-swing",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:initiation-danse-orientale",
-      "title": "Initiation à la danse orientale",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-09",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse sur la scène de la Canopée.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/initiation-danse-orientale",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:initiation-bollywood",
-      "title": "Initiation Bollywood",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-09",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse sur la scène de la Canopée.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/initiation-bollywood",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:cinemir",
-      "title": "CinéMir",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-09",
-      "category": "Projection",
-      "region": "Genève",
-      "description": "Projection",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/cinemir",
-      "imageUrl": "/images/events/ge-agenda-cinemir.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:initiation-flamenco",
-      "title": "Initiation au flamenco",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-09",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse sur la scène de la Canopée.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/initiation-flamenco",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:activites-estivales-seniors-equilibre",
-      "title": "Activités estivales pour les seniors | Gym équilibre",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-11",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Apprendre à chuter en douceur",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/activites-estivales-seniors-equilibre",
-      "imageUrl": "/images/events/ge-agenda-activites-estivales-seniors-equilibre.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:activites-estivales-seniors-gong",
-      "title": "Activités estivales pour les seniors | Qi Gong",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-12",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Le Qi Gong associe des mouvements lents, des exercices respiratoires et la concentration",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/activites-estivales-seniors-gong",
-      "imageUrl": "/images/events/ge-agenda-activites-estivales-seniors-gong.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:plein-jeux-canopee",
-      "title": "Le plein de jeux à la Canopée",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-12",
-      "category": "Animation",
-      "region": "Genève",
-      "description": "Les mercredis d'été, la ludothèque des Eaux-Vives prend ses quartiers à la Canopée. Jeux et animations pour tous les âges au programme!",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/plein-jeux-canopee",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:initiation-tango",
-      "title": "Initiation au Tango",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-12",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement au Tango à la Canopée.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/initiation-tango",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:activites-estivales-seniors-plein",
-      "title": "Activités estivales pour les seniors | Gym en plein air",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-13",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Cours gratuits de sport pour seniors dans des parcs de la Ville. Venez découvrir les appareils en libre accès pour s'entrainer tout en étant encadrés",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/activites-estivales-seniors-plein",
-      "imageUrl": "/images/events/ge-agenda-activites-estivales-seniors-plein.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:atelier-creez-carte-chocolat",
-      "title": "Atelier Créez votre carte en chocolat",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-13",
-      "category": "Atelier",
-      "region": "Genève",
-      "description": "Partagez un moment convivial lors d'un atelier chocolat au centre de Genève",
-      "comune": "Genève",
-      "comuneMatch": "exact",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/atelier-creez-carte-chocolat",
-      "imageUrl": "/images/events/ge-agenda-atelier-creez-carte-chocolat.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:cours-stretching-aout-canopee",
@@ -505,290 +276,7 @@
       "url": "https://www.geneve.ch/agenda/cours-stretching-aout-canopee",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:activites-estivales-seniors-zumba-gold",
-      "title": "Activités estivales pour les seniors | Zumba Gold",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-13",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Pratiquez au frais des cours gratuits cet été",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/activites-estivales-seniors-zumba-gold",
-      "imageUrl": "/images/events/ge-agenda-activites-estivales-seniors-zumba-gold.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:caustic-comedy-club-canopee",
-      "title": "Caustic Comedy Club à La Canopée",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-13",
-      "category": "Spectacle - Théâtre",
-      "region": "Genève",
-      "description": "Durant tout l'été, venez profiter chaque jeudi soir d'un plateau d'humour installé sous La Canopée. Une programmation proposée pour le Caustic Comedy Club.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/caustic-comedy-club-canopee",
-      "imageUrl": "/images/events/ge-agenda-caustic-comedy-club-canopee.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:stage-ete-enfants-espace-colibri",
-      "title": "Stage d'été pour enfants avec l'espace Colibri.",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-14",
-      "category": "Atelier",
-      "region": "Genève",
-      "description": "Une semaine de stage qui invite les enfants à découvrir le musée autrement : avec son corps, sa curiosité et son imagination. Du 29 juin au 3 juillet et du 10 au 14 août.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/stage-ete-enfants-espace-colibri",
-      "imageUrl": "/images/events/ge-agenda-stage-ete-enfants-espace-colibri.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:initiation-bachata",
-      "title": "Initiation à la Bachata",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-14",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse sur la scène de la Canopée.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/initiation-bachata",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:initiation-swing",
-      "title": "Initiation au Swing",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-14",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse sur la scène de la Canopée.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/initiation-swing",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:initiation-kizomba",
-      "title": "Initiation à la Kizomba",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-14",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse sur la scène de la Canopée.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/initiation-kizomba",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:initiation-danse-adulte",
-      "title": "Initiation à la danse K-pop (ado-adulte)",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-15",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse sur la scène de la Canopée.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/initiation-danse-adulte",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:initiation-danses-salon",
-      "title": "Initiation aux danses de salon",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-15",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à ces danses sur la scène de la Canopée.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/initiation-danses-salon",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:soiree-speciale-salsa-cubaine",
-      "title": "Soirée spéciale Salsa cubaine",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-15",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse puis pour la pratiquer durant toute la soirée à la Canopée.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/soiree-speciale-salsa-cubaine",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:capsules-estivales-2026",
-      "title": "Capsules estivales 2026",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-16",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "La Ville de Genève vous propose des cours de sport en plein air dans différents espaces publics, du 29 juin au 16 août.",
-      "comune": "Genève",
-      "comuneMatch": "exact",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/capsules-estivales-2026",
-      "imageUrl": "/images/events/ge-agenda-capsules-estivales-2026.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:fortune",
-      "title": "Fortune !",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-16",
-      "category": "Spectacle - Théâtre",
-      "region": "Genève",
-      "description": "Théâtre - création de Charlotte Dumartheray",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/fortune",
-      "imageUrl": "/images/events/ge-agenda-fortune.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:cine-transat",
-      "title": "Ciné Transat",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-16",
-      "category": "Projection",
-      "region": "Genève",
-      "description": "CinéTransat propose depuis 2009 des projections gratuites et en plein air de films culte, de films découverte et de courts-métrages, et tellement plus... venez le vivre par vous-même !",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/cine-transat",
-      "imageUrl": "/images/events/ge-agenda-cine-transat.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:aubes-musicales",
-      "title": "Les Aubes musicales",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-17",
-      "category": "Concert",
-      "region": "Genève",
-      "description": "Un festival unique qui célèbre le lever du soleil avec des concerts matinaux, généralement de 6h à 7h, dans un cadre exceptionnel au bord du lac Léman.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/aubes-musicales",
-      "imageUrl": "/images/events/ge-agenda-aubes-musicales.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:ete-secheron",
-      "title": "Un été à Sécheron",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-19",
-      "category": "Animation",
-      "region": "Genève",
-      "description": "Activités pour les habitantes et habitants. Rendez-vous à l'Esplanade de l’Espace de quartier Sécheron, Rue Anne-Torcapel 2, du 15 au 26 juin, les 1er, 2, 8 et 15 juillet et le 19 août 2026.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/ete-secheron",
-      "imageUrl": "/images/events/ge-agenda-ete-secheron.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:horaires-ete-cafe-jeux",
-      "title": "Horaires d'été du café-jeux",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-21",
-      "category": "Animation",
-      "region": "Genève",
-      "description": "Horaires d'ouverture du café-jeux pendant l'été",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/horaires-ete-cafe-jeux",
-      "imageUrl": "/images/events/ge-agenda-horaires-ete-cafe-jeux.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:scene-ella-fitzgerald",
-      "title": "Scène Ella Fitzgerald",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-21",
-      "category": "Festival",
-      "region": "Genève",
-      "description": "Concerts d’été à la Scène Ella Fitzgerald dans le majestueux cadre de verdure du parc La Grange. Gratuits et accessibles à toutes et tous.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/scene-ella-fitzgerald",
-      "imageUrl": "/images/events/ge-agenda-scene-ella-fitzgerald.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:allianz-cinema",
-      "title": "Allianz Cinéma",
-      "startDate": "2026-08-04",
-      "endDate": "2026-08-24",
-      "category": "Festival",
-      "region": "Genève",
-      "description": "Allianz Cinéma Genève s'installe chaque année sur la mythique place du Port-Noir entre la plage des Eaux-Vives et Genève Plage, pour 8 semaines de soirées inoubliables au bord du lac Léman.",
-      "comune": "Genève",
-      "comuneMatch": "exact",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/allianz-cinema",
-      "imageUrl": "/images/events/ge-agenda-allianz-cinema.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:herbiers-jeunesse-botanistes",
@@ -804,7 +292,7 @@
       "imageUrl": "/images/events/ge-agenda-herbiers-jeunesse-botanistes.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:visites-flash-afterwork-exposition-sylvia-sleigh-0",
@@ -820,7 +308,7 @@
       "imageUrl": "/images/events/ge-agenda-visites-flash-afterwork-exposition-sylvia-sleigh-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:recueil-cropettes-apero-atelier-collectif-100noms",
@@ -836,7 +324,7 @@
       "imageUrl": "/images/events/ge-agenda-recueil-cropettes-apero-atelier-collectif-100noms.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:nnavy",
@@ -852,7 +340,7 @@
       "imageUrl": "/images/events/ge-agenda-nnavy.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:cours-parents-kids-yoga-aout-canopee",
@@ -867,7 +355,22 @@
       "url": "https://www.geneve.ch/agenda/cours-parents-kids-yoga-aout-canopee",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:initiation-zouk-bresilien-canopee",
+      "title": "Initiation au Zouk brésilien à la Canopée",
+      "startDate": "2026-08-05",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "La Canopée se transforme en une piste de danse, à l'occasion d'une soirée dédiée au Zouk brésilien.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/initiation-zouk-bresilien-canopee",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:concert-barje-1",
@@ -883,7 +386,121 @@
       "imageUrl": "/images/events/ge-agenda-concert-barje-1.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:initiation-solo-swing",
+      "title": "Initiation au Solo Swing",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-07",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse sur la scène de la Canopée.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/initiation-solo-swing",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:initiation-danse-orientale",
+      "title": "Initiation à la danse orientale",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-09",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse sur la scène de la Canopée.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/initiation-danse-orientale",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:initiation-flamenco",
+      "title": "Initiation au flamenco",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-09",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse sur la scène de la Canopée.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/initiation-flamenco",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:initiation-bollywood",
+      "title": "Initiation Bollywood",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-09",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse sur la scène de la Canopée.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/initiation-bollywood",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:cinemir",
+      "title": "CinéMir",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-09",
+      "category": "Projection",
+      "region": "Genève",
+      "description": "Projection",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/cinemir",
+      "imageUrl": "/images/events/ge-agenda-cinemir.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:activites-estivales-seniors-equilibre",
+      "title": "Activités estivales pour les seniors | Gym équilibre",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-11",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "Apprendre à chuter en douceur",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/activites-estivales-seniors-equilibre",
+      "imageUrl": "/images/events/ge-agenda-activites-estivales-seniors-equilibre.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:plein-jeux-canopee",
+      "title": "Le plein de jeux à la Canopée",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-12",
+      "category": "Animation",
+      "region": "Genève",
+      "description": "Les mercredis d'été, la ludothèque des Eaux-Vives prend ses quartiers à la Canopée. Jeux et animations pour tous les âges au programme!",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/plein-jeux-canopee",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:cours-core-training-aout-canopee",
@@ -899,87 +516,357 @@
       "url": "https://www.geneve.ch/agenda/cours-core-training-aout-canopee",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
-      "id": "ge-agenda:atelier-chocolat-enfants-sucettes-chocolat-1",
-      "title": "Atelier chocolat pour les enfants - Sucettes en chocolat",
-      "startDate": "2026-08-06",
+      "id": "ge-agenda:activites-estivales-seniors-gong",
+      "title": "Activités estivales pour les seniors | Qi Gong",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-12",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "Le Qi Gong associe des mouvements lents, des exercices respiratoires et la concentration",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/activites-estivales-seniors-gong",
+      "imageUrl": "/images/events/ge-agenda-activites-estivales-seniors-gong.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:initiation-tango",
+      "title": "Initiation au Tango",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-12",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement au Tango à la Canopée.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/initiation-tango",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:activites-estivales-seniors-plein",
+      "title": "Activités estivales pour les seniors | Gym en plein air",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-13",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "Cours gratuits de sport pour seniors dans des parcs de la Ville. Venez découvrir les appareils en libre accès pour s'entrainer tout en étant encadrés",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/activites-estivales-seniors-plein",
+      "imageUrl": "/images/events/ge-agenda-activites-estivales-seniors-plein.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:atelier-creez-carte-chocolat",
+      "title": "Atelier Créez votre carte en chocolat",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-13",
       "category": "Atelier",
       "region": "Genève",
-      "description": "Chocolat créatif",
+      "description": "Partagez un moment convivial lors d'un atelier chocolat au centre de Genève",
       "comune": "Genève",
-      "comuneMatch": "region",
+      "comuneMatch": "exact",
       "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/atelier-chocolat-enfants-sucettes-chocolat-1",
-      "imageUrl": "/images/events/ge-agenda-atelier-chocolat-enfants-sucettes-chocolat-1.webp",
+      "url": "https://www.geneve.ch/agenda/atelier-creez-carte-chocolat",
+      "imageUrl": "/images/events/ge-agenda-atelier-creez-carte-chocolat.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
-      "id": "ge-agenda:repas-entre-seniors-jonction",
-      "title": "Repas entre seniors à la Jonction",
-      "startDate": "2026-08-06",
-      "category": "Animation",
+      "id": "ge-agenda:activites-estivales-seniors-zumba-gold",
+      "title": "Activités estivales pour les seniors | Zumba Gold",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-13",
+      "category": "Sport",
       "region": "Genève",
-      "description": "Brunch estival de quartier le jeudi 6 août, à la Pointe de la Jonction.",
+      "description": "Pratiquez au frais des cours gratuits cet été",
       "comune": "Genève",
       "comuneMatch": "region",
       "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/repas-entre-seniors-jonction",
-      "imageUrl": "/images/events/ge-agenda-repas-entre-seniors-jonction.webp",
+      "url": "https://www.geneve.ch/agenda/activites-estivales-seniors-zumba-gold",
+      "imageUrl": "/images/events/ge-agenda-activites-estivales-seniors-zumba-gold.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
-      "id": "ge-agenda:exposition-observatoires-carte-blanche-john-armleder-0",
-      "title": "Exposition Observatoires. Carte blanche à John M Armleder",
-      "startDate": "2026-08-06",
-      "category": "Visite commentée",
+      "id": "ge-agenda:caustic-comedy-club-canopee",
+      "title": "Caustic Comedy Club à La Canopée",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-13",
+      "category": "Spectacle - Théâtre",
       "region": "Genève",
-      "description": "Visite commentée",
+      "description": "Durant tout l'été, venez profiter chaque jeudi soir d'un plateau d'humour installé sous La Canopée. Une programmation proposée pour le Caustic Comedy Club.",
       "comune": "Genève",
       "comuneMatch": "region",
       "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/exposition-observatoires-carte-blanche-john-armleder-0",
-      "imageUrl": "/images/events/ge-agenda-exposition-observatoires-carte-blanche-john-armleder-0.webp",
+      "url": "https://www.geneve.ch/agenda/caustic-comedy-club-canopee",
+      "imageUrl": "/images/events/ge-agenda-caustic-comedy-club-canopee.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
-      "id": "ge-agenda:soiree-forro",
-      "title": "Soirée Forró",
-      "startDate": "2026-08-06",
-      "category": "Danse",
+      "id": "ge-agenda:stage-ete-enfants-espace-colibri",
+      "title": "Stage d'été pour enfants avec l'espace Colibri.",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-14",
+      "category": "Atelier",
       "region": "Genève",
-      "description": "Soirée Forró à la Chaloupe à Vapeur dès 19h00",
+      "description": "Une semaine de stage qui invite les enfants à découvrir le musée autrement : avec son corps, sa curiosité et son imagination. Du 29 juin au 3 juillet et du 10 au 14 août.",
       "comune": "Genève",
       "comuneMatch": "region",
       "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/soiree-forro",
-      "imageUrl": "/images/events/ge-agenda-soiree-forro.webp",
+      "url": "https://www.geneve.ch/agenda/stage-ete-enfants-espace-colibri",
+      "imageUrl": "/images/events/ge-agenda-stage-ete-enfants-espace-colibri.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
-      "id": "ge-agenda:concert-jardin-nations-0",
-      "title": "🎶 Concert au Jardin des Nations",
-      "startDate": "2026-08-06",
+      "id": "ge-agenda:initiation-swing",
+      "title": "Initiation au Swing",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-14",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse sur la scène de la Canopée.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/initiation-swing",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:initiation-bachata",
+      "title": "Initiation à la Bachata",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-14",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse sur la scène de la Canopée.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/initiation-bachata",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:initiation-kizomba",
+      "title": "Initiation à la Kizomba",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-14",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse sur la scène de la Canopée.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/initiation-kizomba",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:initiation-danse-adulte",
+      "title": "Initiation à la danse K-pop (ado-adulte)",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-15",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse sur la scène de la Canopée.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/initiation-danse-adulte",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:initiation-danses-salon",
+      "title": "Initiation aux danses de salon",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-15",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à ces danses sur la scène de la Canopée.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/initiation-danses-salon",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:soiree-speciale-salsa-cubaine",
+      "title": "Soirée spéciale Salsa cubaine",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-15",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "Profitez de la vue sur le Léman pour vous initier gratuitement à cette danse puis pour la pratiquer durant toute la soirée à la Canopée.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/soiree-speciale-salsa-cubaine",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:capsules-estivales-2026",
+      "title": "Capsules estivales 2026",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-16",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "La Ville de Genève vous propose des cours de sport en plein air dans différents espaces publics, du 29 juin au 16 août.",
+      "comune": "Genève",
+      "comuneMatch": "exact",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/capsules-estivales-2026",
+      "imageUrl": "/images/events/ge-agenda-capsules-estivales-2026.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:fortune",
+      "title": "Fortune !",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-16",
+      "category": "Spectacle - Théâtre",
+      "region": "Genève",
+      "description": "Théâtre - création de Charlotte Dumartheray",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/fortune",
+      "imageUrl": "/images/events/ge-agenda-fortune.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:aubes-musicales",
+      "title": "Les Aubes musicales",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-17",
       "category": "Concert",
       "region": "Genève",
-      "description": "concert folk-rock de Chess'co.",
+      "description": "Un festival unique qui célèbre le lever du soleil avec des concerts matinaux, généralement de 6h à 7h, dans un cadre exceptionnel au bord du lac Léman.",
       "comune": "Genève",
       "comuneMatch": "region",
       "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/concert-jardin-nations-0",
-      "imageUrl": "/images/events/ge-agenda-concert-jardin-nations-0.webp",
+      "url": "https://www.geneve.ch/agenda/aubes-musicales",
+      "imageUrl": "/images/events/ge-agenda-aubes-musicales.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:cine-transat",
+      "title": "Ciné Transat",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-16",
+      "category": "Projection",
+      "region": "Genève",
+      "description": "CinéTransat propose depuis 2009 des projections gratuites et en plein air de films culte, de films découverte et de courts-métrages, et tellement plus... venez le vivre par vous-même !",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/cine-transat",
+      "imageUrl": "/images/events/ge-agenda-cine-transat.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:ete-secheron",
+      "title": "Un été à Sécheron",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-19",
+      "category": "Animation",
+      "region": "Genève",
+      "description": "Activités pour les habitantes et habitants. Rendez-vous à l'Esplanade de l’Espace de quartier Sécheron, Rue Anne-Torcapel 2, du 15 au 26 juin, les 1er, 2, 8 et 15 juillet et le 19 août 2026.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/ete-secheron",
+      "imageUrl": "/images/events/ge-agenda-ete-secheron.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:horaires-ete-cafe-jeux",
+      "title": "Horaires d'été du café-jeux",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-21",
+      "category": "Animation",
+      "region": "Genève",
+      "description": "Horaires d'ouverture du café-jeux pendant l'été",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/horaires-ete-cafe-jeux",
+      "imageUrl": "/images/events/ge-agenda-horaires-ete-cafe-jeux.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:scene-ella-fitzgerald",
+      "title": "Scène Ella Fitzgerald",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-21",
+      "category": "Festival",
+      "region": "Genève",
+      "description": "Concerts d’été à la Scène Ella Fitzgerald dans le majestueux cadre de verdure du parc La Grange. Gratuits et accessibles à toutes et tous.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/scene-ella-fitzgerald",
+      "imageUrl": "/images/events/ge-agenda-scene-ella-fitzgerald.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:allianz-cinema",
+      "title": "Allianz Cinéma",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-24",
+      "category": "Festival",
+      "region": "Genève",
+      "description": "Allianz Cinéma Genève s'installe chaque année sur la mythique place du Port-Noir entre la plage des Eaux-Vives et Genève Plage, pour 8 semaines de soirées inoubliables au bord du lac Léman.",
+      "comune": "Genève",
+      "comuneMatch": "exact",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/allianz-cinema",
+      "imageUrl": "/images/events/ge-agenda-allianz-cinema.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:lectures-parc-3",
@@ -995,71 +882,87 @@
       "imageUrl": "/images/events/ge-agenda-lectures-parc-3.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
-      "id": "ge-agenda:ballade-dames-aujourhui-noelle-roger",
-      "title": "La Ballade des dames d’aujourd'hui : Noëlle Roger",
+      "id": "ge-agenda:atelier-chocolat-enfants-sucettes-chocolat-1",
+      "title": "Atelier chocolat pour les enfants - Sucettes en chocolat",
       "startDate": "2026-08-06",
-      "category": "Lecture",
+      "category": "Atelier",
       "region": "Genève",
-      "description": "Bibliomobile",
+      "description": "Chocolat créatif",
       "comune": "Genève",
       "comuneMatch": "region",
       "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/ballade-dames-aujourhui-noelle-roger",
-      "imageUrl": "/images/events/ge-agenda-ballade-dames-aujourhui-noelle-roger.webp",
+      "url": "https://www.geneve.ch/agenda/atelier-chocolat-enfants-sucettes-chocolat-1",
+      "imageUrl": "/images/events/ge-agenda-atelier-chocolat-enfants-sucettes-chocolat-1.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
-      "id": "ge-agenda:cours-stretching-1",
-      "title": "Cours de Stretching",
+      "id": "ge-agenda:repas-entre-seniors-jonction",
+      "title": "Repas entre seniors à la Jonction",
       "startDate": "2026-08-06",
-      "category": "Sport",
+      "category": "Animation",
       "region": "Genève",
-      "description": "Urban Training",
+      "description": "Brunch estival de quartier le jeudi 6 août, à la Pointe de la Jonction.",
       "comune": "Genève",
       "comuneMatch": "region",
       "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/cours-stretching-1",
-      "imageUrl": "/images/events/ge-agenda-cours-stretching-1.webp",
+      "url": "https://www.geneve.ch/agenda/repas-entre-seniors-jonction",
+      "imageUrl": "/images/events/ge-agenda-repas-entre-seniors-jonction.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
-      "id": "ge-agenda:soiree-ouverture-collaboration-planete-rouge",
-      "title": "Soirée d'ouverture - En collaboration avec Planète Rouge",
+      "id": "ge-agenda:exposition-observatoires-carte-blanche-john-armleder-0",
+      "title": "Exposition Observatoires. Carte blanche à John M Armleder",
+      "startDate": "2026-08-06",
+      "category": "Visite commentée",
+      "region": "Genève",
+      "description": "Visite commentée",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/exposition-observatoires-carte-blanche-john-armleder-0",
+      "imageUrl": "/images/events/ge-agenda-exposition-observatoires-carte-blanche-john-armleder-0.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:soiree-forro",
+      "title": "Soirée Forró",
       "startDate": "2026-08-06",
       "category": "Danse",
       "region": "Genève",
-      "description": "Jeudi hip-hop",
+      "description": "Soirée Forró à la Chaloupe à Vapeur dès 19h00",
       "comune": "Genève",
       "comuneMatch": "region",
       "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/soiree-ouverture-collaboration-planete-rouge",
-      "imageUrl": "/images/events/ge-agenda-soiree-ouverture-collaboration-planete-rouge.webp",
+      "url": "https://www.geneve.ch/agenda/soiree-forro",
+      "imageUrl": "/images/events/ge-agenda-soiree-forro.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
-      "id": "ge-agenda:picnic-culturel-drcharlatan-molotofu",
-      "title": "Picnic Culturel avec drcharlatan et Molotofu",
+      "id": "ge-agenda:concert-jardin-nations-0",
+      "title": "🎶 Concert au Jardin des Nations",
       "startDate": "2026-08-06",
       "category": "Concert",
       "region": "Genève",
-      "description": "« Techno against Techno-fascism »",
+      "description": "concert folk-rock de Chess'co.",
       "comune": "Genève",
       "comuneMatch": "region",
       "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/picnic-culturel-drcharlatan-molotofu",
-      "imageUrl": "/images/events/ge-agenda-picnic-culturel-drcharlatan-molotofu.webp",
+      "url": "https://www.geneve.ch/agenda/concert-jardin-nations-0",
+      "imageUrl": "/images/events/ge-agenda-concert-jardin-nations-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:barje-3",
@@ -1075,7 +978,71 @@
       "imageUrl": "/images/events/ge-agenda-barje-3.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:ballade-dames-aujourhui-noelle-roger",
+      "title": "La Ballade des dames d’aujourd'hui : Noëlle Roger",
+      "startDate": "2026-08-06",
+      "category": "Lecture",
+      "region": "Genève",
+      "description": "Bibliomobile",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/ballade-dames-aujourhui-noelle-roger",
+      "imageUrl": "/images/events/ge-agenda-ballade-dames-aujourhui-noelle-roger.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:cours-stretching-1",
+      "title": "Cours de Stretching",
+      "startDate": "2026-08-06",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "Urban Training",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/cours-stretching-1",
+      "imageUrl": "/images/events/ge-agenda-cours-stretching-1.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:soiree-ouverture-collaboration-planete-rouge",
+      "title": "Soirée d'ouverture - En collaboration avec Planète Rouge",
+      "startDate": "2026-08-06",
+      "category": "Danse",
+      "region": "Genève",
+      "description": "Jeudi hip-hop",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/soiree-ouverture-collaboration-planete-rouge",
+      "imageUrl": "/images/events/ge-agenda-soiree-ouverture-collaboration-planete-rouge.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:picnic-culturel-drcharlatan-molotofu",
+      "title": "Picnic Culturel avec drcharlatan et Molotofu",
+      "startDate": "2026-08-06",
+      "category": "Concert",
+      "region": "Genève",
+      "description": "« Techno against Techno-fascism »",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/picnic-culturel-drcharlatan-molotofu",
+      "imageUrl": "/images/events/ge-agenda-picnic-culturel-drcharlatan-molotofu.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:cours-cardio-hiit-aout-canopee",
@@ -1091,7 +1058,7 @@
       "url": "https://www.geneve.ch/agenda/cours-cardio-hiit-aout-canopee",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:groundation",
@@ -1107,7 +1074,7 @@
       "imageUrl": "/images/events/ge-agenda-groundation.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:skanki-society-sound-system",
@@ -1124,7 +1091,7 @@
       "imageUrl": "/images/events/ge-agenda-skanki-society-sound-system.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:barje-4",
@@ -1140,7 +1107,7 @@
       "imageUrl": "/images/events/ge-agenda-barje-4.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:vidy",
@@ -1156,7 +1123,7 @@
       "imageUrl": "/images/events/ge-agenda-vidy.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:atelier-creez-carte-vacances-chocolat-0",
@@ -1172,23 +1139,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-creez-carte-vacances-chocolat-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:samedi-velo-8-aout",
-      "title": "Samedi du Vélo du 8 août",
-      "startDate": "2026-08-08",
-      "category": "Atelier",
-      "region": "Genève",
-      "description": "Les Samedis du Vélos ce sont des activités gratuites avec : des balades à vélo pour découvrir la ville autrement, des cours de vélo tous niveaux et des cours de mécanique",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/samedi-velo-8-aout",
-      "imageUrl": "/images/events/ge-agenda-samedi-velo-8-aout.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:atelier-chocolat-enfants-chocolate-monster-3",
@@ -1204,7 +1155,23 @@
       "imageUrl": "/images/events/ge-agenda-atelier-chocolat-enfants-chocolate-monster-3.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:samedi-velo-8-aout",
+      "title": "Samedi du Vélo du 8 août",
+      "startDate": "2026-08-08",
+      "category": "Atelier",
+      "region": "Genève",
+      "description": "Les Samedis du Vélos ce sont des activités gratuites avec : des balades à vélo pour découvrir la ville autrement, des cours de vélo tous niveaux et des cours de mécanique",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/samedi-velo-8-aout",
+      "imageUrl": "/images/events/ge-agenda-samedi-velo-8-aout.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:water-geneva-festival-2026",
@@ -1220,7 +1187,7 @@
       "imageUrl": "/images/events/ge-agenda-water-geneva-festival-2026.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:soiree-speciale-bachata-canopee",
@@ -1235,7 +1202,7 @@
       "url": "https://www.geneve.ch/agenda/soiree-speciale-bachata-canopee",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:tasty-dancehall-afro-1",
@@ -1251,7 +1218,7 @@
       "imageUrl": "/images/events/ge-agenda-tasty-dancehall-afro-1.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:dance-festival",
@@ -1267,7 +1234,7 @@
       "imageUrl": "/images/events/ge-agenda-dance-festival.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:chicha-libre-jean-toussaint-fred-martin",
@@ -1283,7 +1250,7 @@
       "imageUrl": "/images/events/ge-agenda-chicha-libre-jean-toussaint-fred-martin.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:concert-chaloupe-vapeur-0",
@@ -1299,7 +1266,7 @@
       "imageUrl": "/images/events/ge-agenda-concert-chaloupe-vapeur-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:cours-bodyartr-meridian-flow-aout-canopee",
@@ -1315,7 +1282,7 @@
       "url": "https://www.geneve.ch/agenda/cours-bodyartr-meridian-flow-aout-canopee",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:art-nature-centre-aere-panda-club-geneve",
@@ -1331,7 +1298,7 @@
       "imageUrl": "/images/events/ge-agenda-art-nature-centre-aere-panda-club-geneve.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:mossa",
@@ -1347,7 +1314,24 @@
       "imageUrl": "/images/events/ge-agenda-mossa.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:projections-courts-metrages",
+      "title": "Projections de courts-métrages",
+      "startDate": "2026-08-10",
+      "endDate": "2026-08-17",
+      "category": "Projection",
+      "region": "Genève",
+      "description": "Collectif MAF",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/projections-courts-metrages",
+      "imageUrl": "/images/events/ge-agenda-projections-courts-metrages.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:cours-bodyartr-aout-canopee",
@@ -1362,7 +1346,22 @@
       "url": "https://www.geneve.ch/agenda/cours-bodyartr-aout-canopee",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:cours-bodyartr-workout-aout-canopee",
+      "title": "Cours de BODYART® Workout en août à la Canopée",
+      "startDate": "2026-08-11",
+      "category": "Sport",
+      "region": "Genève",
+      "description": "Du sport avec vue? C'est ce que propose le programme de la Canopée cet été! Rejoignez nous en matinée pour un entraînement holistique tout-en-un!",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/cours-bodyartr-workout-aout-canopee",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:activites-estivales-seniors-decouvrons-nature-ensemble-leman",
@@ -1378,7 +1377,7 @@
       "imageUrl": "/images/events/ge-agenda-activites-estivales-seniors-decouvrons-nature-ensemble-leman.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:taiji-cite-seniors-4",
@@ -1394,54 +1393,7 @@
       "imageUrl": "/images/events/ge-agenda-taiji-cite-seniors-4.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:cours-bodyartr-workout-aout-canopee",
-      "title": "Cours de BODYART® Workout en août à la Canopée",
-      "startDate": "2026-08-11",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Du sport avec vue? C'est ce que propose le programme de la Canopée cet été! Rejoignez nous en matinée pour un entraînement holistique tout-en-un!",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/cours-bodyartr-workout-aout-canopee",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:atelier-chocolat-enfants-chocolate-monster-4",
-      "title": "Atelier chocolat pour les enfants - Chocolate monster",
-      "startDate": "2026-08-11",
-      "category": "Atelier",
-      "region": "Genève",
-      "description": "Chocolat créatif",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/atelier-chocolat-enfants-chocolate-monster-4",
-      "imageUrl": "/images/events/ge-agenda-atelier-chocolat-enfants-chocolate-monster-4.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:salon-ecoute-ta",
-      "title": "SALON D’ÉCOUTE avec Ta Ka Dim",
-      "startDate": "2026-08-11",
-      "category": "Concert",
-      "region": "Genève",
-      "description": "fusion musique classique indienne et flamenco",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/salon-ecoute-ta",
-      "imageUrl": "/images/events/ge-agenda-salon-ecoute-ta.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:conference-proteger-donnees-permanence-numerique-rive-gauche",
@@ -1457,7 +1409,39 @@
       "imageUrl": "/images/events/ge-agenda-conference-proteger-donnees-permanence-numerique-rive-gauche.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:atelier-chocolat-enfants-chocolate-monster-4",
+      "title": "Atelier chocolat pour les enfants - Chocolate monster",
+      "startDate": "2026-08-11",
+      "category": "Atelier",
+      "region": "Genève",
+      "description": "Chocolat créatif",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/atelier-chocolat-enfants-chocolate-monster-4",
+      "imageUrl": "/images/events/ge-agenda-atelier-chocolat-enfants-chocolate-monster-4.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:salon-ecoute-ta",
+      "title": "SALON D’ÉCOUTE avec Ta Ka Dim",
+      "startDate": "2026-08-11",
+      "category": "Concert",
+      "region": "Genève",
+      "description": "fusion musique classique indienne et flamenco",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/salon-ecoute-ta",
+      "imageUrl": "/images/events/ge-agenda-salon-ecoute-ta.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:science-nature-litterature-rousseau-0",
@@ -1473,7 +1457,7 @@
       "imageUrl": "/images/events/ge-agenda-science-nature-litterature-rousseau-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:mediter-mah-observatoires-changement-date",
@@ -1489,7 +1473,7 @@
       "imageUrl": "/images/events/ge-agenda-mediter-mah-observatoires-changement-date.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:cours-bodyartr-recovery-aout-canopee",
@@ -1504,7 +1488,7 @@
       "url": "https://www.geneve.ch/agenda/cours-bodyartr-recovery-aout-canopee",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:atelier-court-demonter-transformer-jouets-electroniques-inventer",
@@ -1520,23 +1504,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-court-demonter-transformer-jouets-electroniques-inventer.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:live-music",
-      "title": "Live Music",
-      "startDate": "2026-08-12",
-      "category": "Concert",
-      "region": "Genève",
-      "description": "La Barje !",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/live-music",
-      "imageUrl": "/images/events/ge-agenda-live-music.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:atelier-court-demonter-transformer-jouets-electroniques-inventer-0",
@@ -1552,7 +1520,23 @@
       "imageUrl": "/images/events/ge-agenda-atelier-court-demonter-transformer-jouets-electroniques-inventer-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:live-music",
+      "title": "Live Music",
+      "startDate": "2026-08-12",
+      "category": "Concert",
+      "region": "Genève",
+      "description": "La Barje !",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/live-music",
+      "imageUrl": "/images/events/ge-agenda-live-music.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:henge",
@@ -1568,7 +1552,7 @@
       "imageUrl": "/images/events/ge-agenda-henge.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:voueces",
@@ -1585,7 +1569,7 @@
       "imageUrl": "/images/events/ge-agenda-voueces.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:lectures-parc-4",
@@ -1601,71 +1585,7 @@
       "imageUrl": "/images/events/ge-agenda-lectures-parc-4.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:visite-commentee-futur-quoi-0",
-      "title": "Visite commentée: Le futur, c'est quoi ?",
-      "startDate": "2026-08-13",
-      "category": "Visite commentée",
-      "region": "Genève",
-      "description": "Visite de l'exposition temporaire. Exposition temporaire. Le jeudi 13 août à 14h30.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/visite-commentee-futur-quoi-0",
-      "imageUrl": "/images/events/ge-agenda-visite-commentee-futur-quoi-0.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:cours-yoga-1",
-      "title": "Cours de Yoga",
-      "startDate": "2026-08-13",
-      "category": "Sport",
-      "region": "Genève",
-      "description": "Urban Training",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/cours-yoga-1",
-      "imageUrl": "/images/events/ge-agenda-cours-yoga-1.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:divertimento",
-      "title": "Divertimento",
-      "startDate": "2026-08-13",
-      "category": "Concert",
-      "region": "Genève",
-      "description": "Résidence d'artiste - Performance",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/divertimento",
-      "imageUrl": "/images/events/ge-agenda-divertimento.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:soiree-bollywood-2",
-      "title": "Soirée Bollywood",
-      "startDate": "2026-08-13",
-      "category": "Danse",
-      "region": "Genève",
-      "description": "Soirée Bollywood à la Chaloupe à Vapeur dès 19h00",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/soiree-bollywood-2",
-      "imageUrl": "/images/events/ge-agenda-soiree-bollywood-2.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:repas-entre-seniors-champel",
@@ -1681,55 +1601,71 @@
       "imageUrl": "/images/events/ge-agenda-repas-entre-seniors-champel.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
-      "id": "ge-agenda:ballade-dames-aujourhui-catherine-colomb",
-      "title": "La Ballade des dames d’aujourd'hui : Catherine Colomb",
+      "id": "ge-agenda:visite-commentee-futur-quoi-0",
+      "title": "Visite commentée: Le futur, c'est quoi ?",
       "startDate": "2026-08-13",
-      "category": "Lecture",
+      "category": "Visite commentée",
       "region": "Genève",
-      "description": "Bibliomobile",
+      "description": "Visite de l'exposition temporaire. Exposition temporaire. Le jeudi 13 août à 14h30.",
       "comune": "Genève",
       "comuneMatch": "region",
       "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/ballade-dames-aujourhui-catherine-colomb",
-      "imageUrl": "/images/events/ge-agenda-ballade-dames-aujourhui-catherine-colomb.webp",
+      "url": "https://www.geneve.ch/agenda/visite-commentee-futur-quoi-0",
+      "imageUrl": "/images/events/ge-agenda-visite-commentee-futur-quoi-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
-      "id": "ge-agenda:open-performance",
-      "title": "Open mic & Performance rap",
+      "id": "ge-agenda:cours-yoga-1",
+      "title": "Cours de Yoga",
       "startDate": "2026-08-13",
-      "category": "Danse",
+      "category": "Sport",
       "region": "Genève",
-      "description": "Jeudi hip-hop",
+      "description": "Urban Training",
       "comune": "Genève",
       "comuneMatch": "region",
       "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/open-performance",
-      "imageUrl": "/images/events/ge-agenda-open-performance.webp",
+      "url": "https://www.geneve.ch/agenda/cours-yoga-1",
+      "imageUrl": "/images/events/ge-agenda-cours-yoga-1.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
-      "id": "ge-agenda:picnic-culturel-sapin-magique-repas-prix-libre",
-      "title": "Picnic Culturel avec Sapin Magique et repas prix libre",
+      "id": "ge-agenda:divertimento",
+      "title": "Divertimento",
       "startDate": "2026-08-13",
       "category": "Concert",
       "region": "Genève",
-      "description": "Musique improvisée psychédélico-chamanico-régressive",
+      "description": "Résidence d'artiste - Performance",
       "comune": "Genève",
       "comuneMatch": "region",
       "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/picnic-culturel-sapin-magique-repas-prix-libre",
-      "imageUrl": "/images/events/ge-agenda-picnic-culturel-sapin-magique-repas-prix-libre.webp",
+      "url": "https://www.geneve.ch/agenda/divertimento",
+      "imageUrl": "/images/events/ge-agenda-divertimento.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:soiree-bollywood-2",
+      "title": "Soirée Bollywood",
+      "startDate": "2026-08-13",
+      "category": "Danse",
+      "region": "Genève",
+      "description": "Soirée Bollywood à la Chaloupe à Vapeur dès 19h00",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/soiree-bollywood-2",
+      "imageUrl": "/images/events/ge-agenda-soiree-bollywood-2.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:concert-jardin-nations-1",
@@ -1745,23 +1681,55 @@
       "imageUrl": "/images/events/ge-agenda-concert-jardin-nations-1.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
-      "id": "ge-agenda:seance-speciale",
-      "title": "Séance spéciale OLD BOY",
+      "id": "ge-agenda:ballade-dames-aujourhui-catherine-colomb",
+      "title": "La Ballade des dames d’aujourd'hui : Catherine Colomb",
       "startDate": "2026-08-13",
-      "category": "Projection",
+      "category": "Lecture",
       "region": "Genève",
-      "description": "Depuis la rentrée 2025, nos cinémas collaborent avec The Ones We Love. Une fois par mois, c'est VOUS qui votez pour décider du programme.",
+      "description": "Bibliomobile",
       "comune": "Genève",
       "comuneMatch": "region",
       "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/seance-speciale",
-      "imageUrl": "/images/events/ge-agenda-seance-speciale.webp",
+      "url": "https://www.geneve.ch/agenda/ballade-dames-aujourhui-catherine-colomb",
+      "imageUrl": "/images/events/ge-agenda-ballade-dames-aujourhui-catherine-colomb.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:open-performance",
+      "title": "Open mic & Performance rap",
+      "startDate": "2026-08-13",
+      "category": "Danse",
+      "region": "Genève",
+      "description": "Jeudi hip-hop",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/open-performance",
+      "imageUrl": "/images/events/ge-agenda-open-performance.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:picnic-culturel-sapin-magique-repas-prix-libre",
+      "title": "Picnic Culturel avec Sapin Magique et repas prix libre",
+      "startDate": "2026-08-13",
+      "category": "Concert",
+      "region": "Genève",
+      "description": "Musique improvisée psychédélico-chamanico-régressive",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/picnic-culturel-sapin-magique-repas-prix-libre",
+      "imageUrl": "/images/events/ge-agenda-picnic-culturel-sapin-magique-repas-prix-libre.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:festival-geneve-plage-american-summer",
@@ -1777,7 +1745,23 @@
       "imageUrl": "/images/events/ge-agenda-festival-geneve-plage-american-summer.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:seance-speciale",
+      "title": "Séance spéciale OLD BOY",
+      "startDate": "2026-08-13",
+      "category": "Projection",
+      "region": "Genève",
+      "description": "Depuis la rentrée 2025, nos cinémas collaborent avec The Ones We Love. Une fois par mois, c'est VOUS qui votez pour décider du programme.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/seance-speciale",
+      "imageUrl": "/images/events/ge-agenda-seance-speciale.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:barje-1",
@@ -1793,7 +1777,7 @@
       "imageUrl": "/images/events/ge-agenda-barje-1.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:atelier-creez-tablette-chocolat-3",
@@ -1809,7 +1793,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-creez-tablette-chocolat-3.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:arthur-hnatek",
@@ -1825,7 +1809,7 @@
       "imageUrl": "/images/events/ge-agenda-arthur-hnatek.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:festival-geneve-plage-cine-concert-lodger-alfred-hitchcock",
@@ -1841,7 +1825,7 @@
       "imageUrl": "/images/events/ge-agenda-festival-geneve-plage-cine-concert-lodger-alfred-hitchcock.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:barje-2",
@@ -1857,23 +1841,24 @@
       "imageUrl": "/images/events/ge-agenda-barje-2.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
-      "id": "ge-agenda:deejay-greens-style-groove-0",
-      "title": "DEEJAY GREENS · ALL STYLE GROOVE",
+      "id": "ge-agenda:equinox-house-tech-house",
+      "title": "EQUINOX HOUSE TO TECH HOUSE",
       "startDate": "2026-08-14",
+      "endDate": "2026-08-15",
       "category": "Clubbing",
       "region": "Genève",
-      "description": "Lieu emblématique des nuits genevoises depuis près de 40 ans et grand spécialiste des \"black musics\", le Chat Noir propose des soirées clubbing tous les vendredis et samedis. L'entrée est gratuite !",
+      "description": "EQUINOX HOUSE TO TECH HOUSE",
       "comune": "Genève",
       "comuneMatch": "region",
       "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/deejay-greens-style-groove-0",
-      "imageUrl": "/images/events/ge-agenda-deejay-greens-style-groove-0.webp",
+      "url": "https://www.geneve.ch/agenda/equinox-house-tech-house",
+      "imageUrl": "/images/events/ge-agenda-equinox-house-tech-house.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:soiree-jeux-speciale-loups-garous-thiercelieux",
@@ -1889,7 +1874,7 @@
       "imageUrl": "/images/events/ge-agenda-soiree-jeux-speciale-loups-garous-thiercelieux.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:rendez-geneva-brass-etoiles-plein-oreilles",
@@ -1905,7 +1890,23 @@
       "imageUrl": "/images/events/ge-agenda-rendez-geneva-brass-etoiles-plein-oreilles.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:deejay-greens-style-groove-0",
+      "title": "DEEJAY GREENS · ALL STYLE GROOVE",
+      "startDate": "2026-08-14",
+      "category": "Clubbing",
+      "region": "Genève",
+      "description": "Lieu emblématique des nuits genevoises depuis près de 40 ans et grand spécialiste des \"black musics\", le Chat Noir propose des soirées clubbing tous les vendredis et samedis. L'entrée est gratuite !",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/deejay-greens-style-groove-0",
+      "imageUrl": "/images/events/ge-agenda-deejay-greens-style-groove-0.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:geneve-recoit-11-festival-acroyoga",
@@ -1922,7 +1923,7 @@
       "imageUrl": "/images/events/ge-agenda-geneve-recoit-11-festival-acroyoga.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:atelier-creez-carte-vacances-chocolat-1",
@@ -1938,71 +1939,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-creez-carte-vacances-chocolat-1.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:atelier-bout-bois-1",
-      "title": "Atelier Bout de bois",
-      "startDate": "2026-08-15",
-      "category": "Atelier",
-      "region": "Genève",
-      "description": "Atelier dès 8 ans accompagné d’un-e adulte. Jardin. Samedi 15 août à 14h00.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/atelier-bout-bois-1",
-      "imageUrl": "/images/events/ge-agenda-atelier-bout-bois-1.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:tournee-estivale-communes-15-aout-samedis-velo",
-      "title": "Tournée estivale des Communes 15 août - Samedis du Vélo",
-      "startDate": "2026-08-15",
-      "category": "Animation",
-      "region": "Genève",
-      "description": "La Tournée estivale des communes dans les cadre des Samedis du Vélos, proposent des activités gratuites avec : des Vélotours pour découvrir la ville autrement et des cours de vélo tous niveaux",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/tournee-estivale-communes-15-aout-samedis-velo",
-      "imageUrl": "/images/events/ge-agenda-tournee-estivale-communes-15-aout-samedis-velo.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:atelier-bout-bois-3",
-      "title": "Atelier Bout de bois",
-      "startDate": "2026-08-15",
-      "category": "Atelier",
-      "region": "Genève",
-      "description": "Atelier dès 8 ans accompagné d’un-e adulte. Jardin. Samedi 15 août à 16h00.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/atelier-bout-bois-3",
-      "imageUrl": "/images/events/ge-agenda-atelier-bout-bois-3.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:zafif-ramin",
-      "title": "Zafîf + DJ Ramin",
-      "startDate": "2026-08-15",
-      "category": "Concert",
-      "region": "Genève",
-      "description": "Grooves neo bedouin hypnotique",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/zafif-ramin",
-      "imageUrl": "/images/events/ge-agenda-zafif-ramin.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:briques-0",
@@ -2018,7 +1955,71 @@
       "imageUrl": "/images/events/ge-agenda-briques-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:atelier-bout-bois-1",
+      "title": "Atelier Bout de bois",
+      "startDate": "2026-08-15",
+      "category": "Atelier",
+      "region": "Genève",
+      "description": "Atelier dès 8 ans accompagné d’un-e adulte. Jardin. Samedi 15 août à 14h00.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/atelier-bout-bois-1",
+      "imageUrl": "/images/events/ge-agenda-atelier-bout-bois-1.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:tournee-estivale-communes-15-aout-samedis-velo",
+      "title": "Tournée estivale des Communes 15 août - Samedis du Vélo",
+      "startDate": "2026-08-15",
+      "category": "Animation",
+      "region": "Genève",
+      "description": "La Tournée estivale des communes dans les cadre des Samedis du Vélos, proposent des activités gratuites avec : des Vélotours pour découvrir la ville autrement et des cours de vélo tous niveaux",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/tournee-estivale-communes-15-aout-samedis-velo",
+      "imageUrl": "/images/events/ge-agenda-tournee-estivale-communes-15-aout-samedis-velo.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:atelier-bout-bois-3",
+      "title": "Atelier Bout de bois",
+      "startDate": "2026-08-15",
+      "category": "Atelier",
+      "region": "Genève",
+      "description": "Atelier dès 8 ans accompagné d’un-e adulte. Jardin. Samedi 15 août à 16h00.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/atelier-bout-bois-3",
+      "imageUrl": "/images/events/ge-agenda-atelier-bout-bois-3.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:zafif-ramin",
+      "title": "Zafîf + DJ Ramin",
+      "startDate": "2026-08-15",
+      "category": "Concert",
+      "region": "Genève",
+      "description": "Grooves neo bedouin hypnotique",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/zafif-ramin",
+      "imageUrl": "/images/events/ge-agenda-zafif-ramin.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:festival-geneve-plage-annees-folles-hommage-josephine-baker",
@@ -2034,7 +2035,7 @@
       "imageUrl": "/images/events/ge-agenda-festival-geneve-plage-annees-folles-hommage-josephine-baker.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:chivi-reggaeton-salsa-merengue-bachata-1",
@@ -2050,23 +2051,7 @@
       "imageUrl": "/images/events/ge-agenda-chivi-reggaeton-salsa-merengue-bachata-1.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:visite-commentee-futur-quoi-1",
-      "title": "Visite commentée: Le futur, c'est quoi ?",
-      "startDate": "2026-08-16",
-      "category": "Visite commentée",
-      "region": "Genève",
-      "description": "Visite de l'exposition temporaire. Exposition temporaire. Le dimanche 16 août à 14h30.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/visite-commentee-futur-quoi-1",
-      "imageUrl": "/images/events/ge-agenda-visite-commentee-futur-quoi-1.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:tamales",
@@ -2082,39 +2067,23 @@
       "imageUrl": "/images/events/ge-agenda-tamales.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
-      "id": "ge-agenda:concert-chaloupe-vapeur-1",
-      "title": "Concert à La Chaloupe à Vapeur !",
+      "id": "ge-agenda:visite-commentee-futur-quoi-1",
+      "title": "Visite commentée: Le futur, c'est quoi ?",
       "startDate": "2026-08-16",
-      "category": "Concert",
+      "category": "Visite commentée",
       "region": "Genève",
-      "description": "Concert de Boss'y",
+      "description": "Visite de l'exposition temporaire. Exposition temporaire. Le dimanche 16 août à 14h30.",
       "comune": "Genève",
       "comuneMatch": "region",
       "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/concert-chaloupe-vapeur-1",
-      "imageUrl": "/images/events/ge-agenda-concert-chaloupe-vapeur-1.webp",
+      "url": "https://www.geneve.ch/agenda/visite-commentee-futur-quoi-1",
+      "imageUrl": "/images/events/ge-agenda-visite-commentee-futur-quoi-1.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
-    },
-    {
-      "id": "ge-agenda:pique-nique-fanzines-atelier-badges-fanzinoge-0",
-      "title": "Pique-nique Fanzines et atelier badges avec La FanzinoGE",
-      "startDate": "2026-08-16",
-      "category": "Atelier",
-      "region": "Genève",
-      "description": "La FanzinoGE s’invite au Pavillon d’animation des Cropettes pour son 3e pique-nique Fanzines de l’été avant la rentrée.",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/pique-nique-fanzines-atelier-badges-fanzinoge-0",
-      "imageUrl": "/images/events/ge-agenda-pique-nique-fanzines-atelier-badges-fanzinoge-0.webp",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:impro-pirates",
@@ -2130,7 +2099,7 @@
       "imageUrl": "/images/events/ge-agenda-impro-pirates.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:pique-nique-fanzines-atelier-badges-fanzinoge",
@@ -2146,7 +2115,39 @@
       "imageUrl": "/images/events/ge-agenda-pique-nique-fanzines-atelier-badges-fanzinoge.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:concert-chaloupe-vapeur-1",
+      "title": "Concert à La Chaloupe à Vapeur !",
+      "startDate": "2026-08-16",
+      "category": "Concert",
+      "region": "Genève",
+      "description": "Concert de Boss'y",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/concert-chaloupe-vapeur-1",
+      "imageUrl": "/images/events/ge-agenda-concert-chaloupe-vapeur-1.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
+    },
+    {
+      "id": "ge-agenda:pique-nique-fanzines-atelier-badges-fanzinoge-0",
+      "title": "Pique-nique Fanzines et atelier badges avec La FanzinoGE",
+      "startDate": "2026-08-16",
+      "category": "Atelier",
+      "region": "Genève",
+      "description": "La FanzinoGE s’invite au Pavillon d’animation des Cropettes pour son 3e pique-nique Fanzines de l’été avant la rentrée.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/pique-nique-fanzines-atelier-badges-fanzinoge-0",
+      "imageUrl": "/images/events/ge-agenda-pique-nique-fanzines-atelier-badges-fanzinoge-0.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:eklekto-ensemble-contrechamps-music-18-musicians",
@@ -2162,7 +2163,7 @@
       "imageUrl": "/images/events/ge-agenda-eklekto-ensemble-contrechamps-music-18-musicians.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:taiji-cite-seniors-8",
@@ -2178,7 +2179,7 @@
       "imageUrl": "/images/events/ge-agenda-taiji-cite-seniors-8.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:activites-estivales-seniors-marche-sportive-parc-eaux-vives",
@@ -2194,7 +2195,7 @@
       "imageUrl": "/images/events/ge-agenda-activites-estivales-seniors-marche-sportive-parc-eaux-vives.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:atelier-chocolat-enfants-sucettes-chocolat-2",
@@ -2210,7 +2211,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-chocolat-enfants-sucettes-chocolat-2.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:fete-rentree",
@@ -2226,7 +2227,7 @@
       "imageUrl": "/images/events/ge-agenda-fete-rentree.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:monet",
@@ -2242,7 +2243,7 @@
       "imageUrl": "/images/events/ge-agenda-monet.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:activites-estivales-seniors-karaoke-guitare",
@@ -2258,7 +2259,7 @@
       "imageUrl": "/images/events/ge-agenda-activites-estivales-seniors-karaoke-guitare.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:recueil-sonore-mini-atelier-musique-electronique-ghostape",
@@ -2274,7 +2275,7 @@
       "imageUrl": "/images/events/ge-agenda-recueil-sonore-mini-atelier-musique-electronique-ghostape.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:cours-pilates-1",
@@ -2290,7 +2291,7 @@
       "imageUrl": "/images/events/ge-agenda-cours-pilates-1.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:elvett-repetition-publique",
@@ -2306,7 +2307,7 @@
       "imageUrl": "/images/events/ge-agenda-elvett-repetition-publique.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:soiree-gafieira-1",
@@ -2322,7 +2323,7 @@
       "imageUrl": "/images/events/ge-agenda-soiree-gafieira-1.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:graffiti",
@@ -2338,7 +2339,7 @@
       "imageUrl": "/images/events/ge-agenda-graffiti.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:seance-speciale-fjord-cristian-mungiu",
@@ -2354,7 +2355,7 @@
       "imageUrl": "/images/events/ge-agenda-seance-speciale-fjord-cristian-mungiu.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:mediter-mah-observatoires",
@@ -2370,7 +2371,7 @@
       "imageUrl": "/images/events/ge-agenda-mediter-mah-observatoires.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:visite-flash-pause-dejeuner-2",
@@ -2386,7 +2387,7 @@
       "imageUrl": "/images/events/ge-agenda-visite-flash-pause-dejeuner-2.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:orchestre-chambre-geneve",
@@ -2402,7 +2403,7 @@
       "imageUrl": "/images/events/ge-agenda-orchestre-chambre-geneve.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:toots-guests-raya-queen-arnaud-moutinot-margaux-malya",
@@ -2418,7 +2419,7 @@
       "imageUrl": "/images/events/ge-agenda-toots-guests-raya-queen-arnaud-moutinot-margaux-malya.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:guilty-night-opera-espace",
@@ -2435,7 +2436,7 @@
       "imageUrl": "/images/events/ge-agenda-guilty-night-opera-espace.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:atelier-creez-tablette-chocolat-4",
@@ -2451,7 +2452,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-creez-tablette-chocolat-4.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:visite-exposition-debat-mouvant",
@@ -2467,7 +2468,7 @@
       "imageUrl": "/images/events/ge-agenda-visite-exposition-debat-mouvant.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:lecture-enfants-autrice-noemi-michel",
@@ -2483,7 +2484,7 @@
       "imageUrl": "/images/events/ge-agenda-lecture-enfants-autrice-noemi-michel.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:atelier-greffage-degustation-peches-vigne-autres-raretes-saison",
@@ -2499,7 +2500,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-greffage-degustation-peches-vigne-autres-raretes-saison.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:boukman-eksperyans-paul-beaubrun-aloko-queen",
@@ -2515,7 +2516,7 @@
       "imageUrl": "/images/events/ge-agenda-boukman-eksperyans-paul-beaubrun-aloko-queen.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:kenkylla-afro-caribbean-soca-dancehall-1",
@@ -2531,7 +2532,7 @@
       "imageUrl": "/images/events/ge-agenda-kenkylla-afro-caribbean-soca-dancehall-1.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:respirations-leman-chansons",
@@ -2547,7 +2548,7 @@
       "imageUrl": "/images/events/ge-agenda-respirations-leman-chansons.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:enquete-assassin-macchabees",
@@ -2563,7 +2564,7 @@
       "imageUrl": "/images/events/ge-agenda-enquete-assassin-macchabees.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:elvett",
@@ -2579,7 +2580,7 @@
       "imageUrl": "/images/events/ge-agenda-elvett.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:massacre-saint-barthelemy",
@@ -2596,7 +2597,7 @@
       "imageUrl": "/images/events/ge-agenda-massacre-saint-barthelemy.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:bardcore-party",
@@ -2612,7 +2613,7 @@
       "imageUrl": "/images/events/ge-agenda-bardcore-party.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:visite-flash-futur-ancestral",
@@ -2628,7 +2629,7 @@
       "imageUrl": "/images/events/ge-agenda-visite-flash-futur-ancestral.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:entre",
@@ -2644,7 +2645,7 @@
       "imageUrl": "/images/events/ge-agenda-entre.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:atelier-chocolat-enfants-chocolate-monster-5",
@@ -2660,7 +2661,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-chocolat-enfants-chocolate-monster-5.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:soiree-ouverture",
@@ -2676,7 +2677,7 @@
       "imageUrl": "/images/events/ge-agenda-soiree-ouverture.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:taiji-cite-seniors-5",
@@ -2692,7 +2693,7 @@
       "imageUrl": "/images/events/ge-agenda-taiji-cite-seniors-5.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:futur-quoi-formation-enseignant-0",
@@ -2708,7 +2709,7 @@
       "imageUrl": "/images/events/ge-agenda-futur-quoi-formation-enseignant-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:unlike-flowers",
@@ -2724,7 +2725,7 @@
       "imageUrl": "/images/events/ge-agenda-unlike-flowers.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     },
     {
       "id": "ge-agenda:joube",
@@ -2740,7 +2741,7 @@
       "imageUrl": "/images/events/ge-agenda-joube.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-08-04T08:47:11.903Z"
+      "crawledAt": "2026-08-05T08:45:40.593Z"
     }
   ]
 }
