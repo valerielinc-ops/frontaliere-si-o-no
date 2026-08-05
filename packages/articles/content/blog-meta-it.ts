@@ -9257,6 +9257,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.poste-italiane-consulenti-finanziari-varese.title': 'Poste Italiane cerca consulenti finanziari in provincia di Varese',
     'blog.article.poste-italiane-consulenti-finanziari-varese.excerpt': 'L\'azienda cerca laureati/laureandi per attività di promozione e vendita di servizi finanziari, assicurativi e di finanziamento fino al 26 agosto',
     'blog.article.poste-italiane-consulenti-finanziari-varese.imageAlt': 'Ufficio postale italiano a Varese con consulente finanziario',
+    'blog.article.pensionamento-anticipato-single-2026.title': 'Frontaliere: pianificazione pensionamento anticipato 2026',
+    'blog.article.pensionamento-anticipato-single-2026.excerpt': 'Guida operativa per il frontaliere single: impatto su AVS, secondo pilastro e gestione fiscale tra Svizzera e Italia nel quadro del nuovo accordo.',
+    'blog.article.pensionamento-anticipato-single-2026.imageAlt': 'Pianificazione pensionistica per frontalieri in Ticino',
 };
 
 export default blogMetaIt;
