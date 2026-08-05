@@ -43,7 +43,7 @@ import { nearbyEventsBlockForJobPage } from './shared/jobEventsCrosslink';
 import { EJP_STRIPPED_MARKER } from './shared/ejpMarker';
 import { WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
-import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription, truncateHeadline } from './shared/titleSuffix';
+import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription, truncateHeadline, peelDanglingClauseTail, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS, truncateClauseAware } from './shared/titleSuffix';
 import { stripLeadingSectionLabel } from './shared/jobDescription/parser';
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import {
@@ -270,9 +270,53 @@ export function capSearchStatsLandingTitle(
 ): string {
  const capAt = (max: number): string => {
  if (rawTitle.length <= max) return rawTitle;
- const sliced = rawTitle.slice(0, max);
- const lastSpace = sliced.lastIndexOf(' ');
- return lastSpace > 0 ? sliced.slice(0, lastSpace).trimEnd() : sliced.trimEnd();
+ const peeled = truncateTitleAtClauseBoundary(rawTitle, max);
+ // Reject a TOO-SHORT peel, not merely an empty one: that is the helper's
+ // stated contract (MIN_PEELED_TITLE_CHARS), and testing `peeled || …` here
+ // honoured only the emptiness half of it. A short-but-non-empty peel — the
+ // budget fitted only stopwords, and peeling them left a fragment — would
+ // satisfy the shrink loop below and ship as the indexed <title>, i.e. the
+ // near-empty SERP title that is exactly the CTR-regression class this file
+ // is being fixed for.
+ //
+ // Priority, in order. Two review rounds pushed in OPPOSITE directions here, and the
+ // ordering below is what satisfies both:
+ //
+ //   round 1: never ship a short-but-non-empty peel when something better exists;
+ //   round 2: never ship a title ending on a dangling function word.
+ //
+ // For a degenerate input neither can be waived: at max=20,
+ // "Lavoro: e di il la per con…" offers only "Lavoro" (6, clean) or
+ // "Lavoro: e di il la" (18, ends on an article). No prefix of that title is BOTH
+ // long enough and clean, because it contains exactly one content word in budget.
+ //
+ // The tie is broken toward the CLEAN ending, because that is this file's own thesis:
+ // peelDanglingClauseTail documents that a snippet stopping on a function word reads as
+ // broken markup and makes Google MORE likely to discard the supplied title and
+ // synthesise its own — losing the title entirely, which is strictly worse than a terse
+ // one. So MIN_PEELED_TITLE_CHARS is a PREFERENCE applied whenever a clean alternative
+ // reaches it, never a floor that can force a broken ending.
+ if (peeled.length >= MIN_PEELED_TITLE_CHARS) return peeled;
+ // The ladder recovers length — but only counts if it did not buy those characters by
+ // breaking the ending. TWO independent ways it can, and both are now enforced by the
+ // shared primitive rather than re-derived here (review round 4):
+ //
+ //   a) ending on a function word — its low-budget branch strips separators only;
+ //   b) ending MID-WORD — that same branch returns a raw slice when no space sits before
+ //      half the budget, and a mid-word slice has nothing to peel, so the stopword check
+ //      alone passes it unchanged.
+ //
+ // `requireWordBoundary` makes truncateClauseAware refuse (b) and return '' instead, so the
+ // rule has ONE home for every caller instead of living in this comparison.
+ const ladder = truncateClauseAware(rawTitle, max, max, true).trimEnd();
+ if (ladder.length >= MIN_PEELED_TITLE_CHARS && peelDanglingClauseTail(ladder) === ladder) {
+ return ladder;
+ }
+ // Nothing is both long enough and unbroken: prefer the clean short peel. The hard cut is
+ // the terminal fallback and stays mid-word by necessity — when the first word alone
+ // exceeds the budget (max=12 vs "Amministrazione") NO non-empty prefix ends on a
+ // boundary, and returning '' would empty the title instead of shortening it.
+ return peeled || truncateCodeUnits(rawTitle, max).trimEnd();
  };
  let capped = capAt(maxChars);
  for (let max = maxChars; measureLength(capped) > maxChars && max > 0; max -= 1) {
@@ -1795,9 +1839,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return sentenceMatch[0].trim();
  }
  // Fall back to the last word boundary (mid-sentence → keep the honest marker).
+ // peelDanglingClauseTail so the marker never follows a dangling preposition
+ // ("…responsabile per…"), same rule the meta description path uses.
  const lastSpace = window.lastIndexOf(' ');
  const cut = lastSpace > 200 ? window.slice(0, lastSpace) : window;
- return `${cut.trim()}…`;
+ return `${peelDanglingClauseTail(cut.trim())}…`;
  };
  /**
   * Deterministic non-crypto hash (djb2) — used to pick stable FAQ template
@@ -2762,16 +2808,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const metaBody = cleanDesc.length > 40 ? ` ${cleanDesc}` : '';
  // Assemble: intro + salary + body, truncated to 160 chars; fallback to body if over limit
  const descWithSalary = `${metaIntro}${metaSalarySnippet}${metaCta}`;
- // Truncate meta description at word boundary, avoiding trailing hyphens/prepositions
- const truncMetaDesc = (s: string, max = 160): string => {
- if (s.length <= max) return s;
- let cut = s.lastIndexOf(' ', max - 1);
- if (cut <= 0) cut = max - 1;
- let result = truncateCodeUnits(s, cut).trimEnd();
- // Strip trailing hyphens, dashes, and common prepositions
- result = result.replace(/[\s\-–—]+$/, '').replace(/\s+(di|da|per|a|in|con|su|del|della|dei|delle|at|in|for|of|the|an|bei|für|im|von|chez|pour|au|du|de|des|les)\s*$/i, '');
- return result + '...';
- };
+ // Truncate meta description at word boundary, avoiding trailing hyphens/prepositions.
+ // Delegates to the shared truncateHeadline → peelDanglingClauseTail: this used
+ // to carry its OWN inline preposition list, a literal duplicate of
+ // TRAILING_STOPWORDS in build-plugins/shared/titleSuffix.ts that had already
+ // drifted (it was missing `tra`, `fra`, `sul`, `che`, `come`, `und`, `zu`, `et`,
+ // `qui`, … so those still dangled here after being handled there).
+ // AGENTS.md Non-Negotiable #6: one shared module, no copies.
+ const truncMetaDesc = (s: string, max = 160): string => truncateHeadline(s, max);
  // Decode HTML entities from source data to prevent double-escaping in esc()
  const description = decodeHtmlEntities(descWithSalary.length <= 160
  ? descWithSalary

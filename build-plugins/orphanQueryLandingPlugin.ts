@@ -36,6 +36,7 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
+import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
 import { WriteCollector } from './batchWrite';
 import { shouldEmitLocale, EMIT_LOCALES } from './shared/localeEmitFilter';
 import {
@@ -333,7 +334,8 @@ function buildEditorialTitle(query: string, locale: OrphanLandingLocale): string
   if (q.length <= MAX) return q;
   const sliced = q.slice(0, MAX);
   const lastSpace = sliced.lastIndexOf(' ');
-  return lastSpace > 0 ? sliced.slice(0, lastSpace).trimEnd() : sliced.trimEnd();
+  // Shared peel — dropping the trailing word can leave a preposition behind.
+  return peelDanglingClauseTail(lastSpace > 0 ? sliced.slice(0, lastSpace) : sliced);
 }
 
 /**

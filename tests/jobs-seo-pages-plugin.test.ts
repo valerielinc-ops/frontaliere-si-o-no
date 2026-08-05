@@ -9,7 +9,7 @@ import {
   deriveJobCanton,
   deriveJobAddressLocality,
 } from '../build-plugins/jobsSeoPagesPlugin';
-import { TITLE_MAX_CHARS } from '../build-plugins/shared/titleSuffix';
+import { TITLE_MAX_CHARS, MIN_PEELED_TITLE_CHARS } from '../build-plugins/shared/titleSuffix';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -56,6 +56,67 @@ describe('capSearchStatsLandingTitle (#3589 sibling: same escape-unaware title-b
     expect(capSearchStatsLandingTitle('Offerte di lavoro Infermiere in Svizzera')).toBe(
       'Offerte di lavoro Infermiere in Svizzera',
     );
+  });
+
+  it('never ends on a dangling function word, even when that costs length', () => {
+    // The degenerate case, and the one that caught TWO review rounds. This title carries a
+    // single content word inside a 20-char budget, so no prefix is both >= 10 chars AND
+    // ends on a content word: the options are "Lavoro" (6, clean) or "Lavoro: e di il la"
+    // (18, ends on an article). The tie breaks toward the clean ending.
+    //
+    // The first version of this test asserted only length/prefix/no-ellipsis and therefore
+    // passed while shipping "Lavoro: e di il la" as the indexed <title> — the exact defect
+    // class the whole PR exists to remove. Asserting the ENDING is the point.
+    const rawTitle = 'Lavoro: e di il la per con in su tra fra Svizzera italiana';
+    const capped = capSearchStatsLandingTitle(rawTitle, 20);
+
+    expect(capped).not.toMatch(/[\s:,;.!?—–·-]$/);
+    expect(capped).not.toMatch(/(^|\s)(di|in|per|con|il|la|e|su|tra|fra)$/);
+    expect(capped.length).toBeGreaterThan(0);
+    expect(rawTitle.startsWith(capped)).toBe(true);
+    expect(capped.length).toBeLessThanOrEqual(20);
+    expect(capped).not.toContain('…');
+  });
+
+  it('never ends mid-word either, even when the longer candidate looks clean', () => {
+    // The stopword check alone is not enough: when no space sits before half the budget,
+    // truncateClauseAware returns a raw slice, and a mid-word slice has NOTHING to peel — so
+    // it passes the "clean" test unchanged. Here the ladder yields "Lavoro Amminis" (14, no
+    // dangling stopword, but cut inside a word) while the peel yields "Lavoro" (6, whole
+    // word). Before the boundary check the mid-word candidate won on length.
+    const rawTitle = 'Lavoro Amministrazione Ticino';
+    const capped = capSearchStatsLandingTitle(rawTitle, 14);
+
+    expect(capped).toBe('Lavoro');
+    // Stated as the general rule too, so a future refactor cannot satisfy it by luck.
+    const nextChar = rawTitle.charAt(capped.length);
+    expect(nextChar === '' || /[^\p{L}\p{N}]/u.test(nextChar)).toBe(true);
+  });
+
+  it('still prefers the longer candidate when it is BOTH long enough and unbroken', () => {
+    // Guard against "fixing" this by always taking the short clean peel: the longer
+    // candidate must still win whenever it ends on a real boundary. Different input and
+    // budget from the cases above so this is not a subset of them.
+    const rawTitle = 'Assistente amministrativa a Chiasso per studio legale';
+    const capped = capSearchStatsLandingTitle(rawTitle, 28);
+    expect(capped.length).toBeGreaterThan(MIN_PEELED_TITLE_CHARS);
+    expect(capped.length).toBeLessThanOrEqual(28);
+    expect(rawTitle.startsWith(capped)).toBe(true);
+    expect(capped).not.toMatch(/(^|\s)(di|in|per|con|il|la|a|e)$/);
+    const nextChar = rawTitle.charAt(capped.length);
+    expect(nextChar === '' || /[^\p{L}\p{N}]/u.test(nextChar)).toBe(true);
+  });
+
+  it('keeps the peel when it clears the floor', () => {
+    // Guard against "fix" by always hard-cutting: a healthy peel must still win,
+    // otherwise the clause-aware truncation this file exists for is dead code.
+    const rawTitle = 'Offerte di lavoro Infermiere qualificato in Svizzera italiana';
+    const capped = capSearchStatsLandingTitle(rawTitle, 40);
+    expect(capped.length).toBeGreaterThanOrEqual(MIN_PEELED_TITLE_CHARS);
+    expect(capped.length).toBeLessThanOrEqual(40);
+    // A peel never ends on a separator or a dangling function word.
+    expect(capped).not.toMatch(/[\s:,;.!?—–·-]$/);
+    expect(capped).not.toMatch(/\b(di|in|per|con|il|la|e)$/);
   });
 
   it('caps an overlong title on a whitespace boundary with NO ellipsis (titleSuffix.ts no-`…` policy)', () => {

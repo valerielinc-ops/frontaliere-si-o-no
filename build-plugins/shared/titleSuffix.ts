@@ -25,6 +25,11 @@
  */
 
 import { truncateCodeUnits } from './safeTruncate';
+import {
+  TRAILING_STOPWORDS,
+  CLAUSE_SEPARATOR_TAIL_RE,
+  peelDanglingClauseTail as peelDanglingClauseTailImpl,
+} from './clauseTail.mjs';
 
 export const TITLE_BRAND_SUFFIX = ' | Frontaliere Ticino';
 /**
@@ -48,57 +53,194 @@ export const TITLE_TARGET_CHARS = 60;
 export const TITLE_MAX_CHARS = 66;
 
 /**
+ * Peel a truncated string back to the last COMPLETE clause: strip trailing
+ * clause separators, then any dangling {@link TRAILING_STOPWORDS} function
+ * word, repeating until the string ends on a content word.
+ *
+ *   "Stipendio netto frontaliere 2026: come"  → "Stipendio netto frontaliere 2026"
+ *   "…requisiti e costi con B, C e"           → "…requisiti e costi con B, C"
+ *   "…franchigie su alcol. Dati aggiornati 2026 per" → "…Dati aggiornati 2026"
+ *
+ * WHY this is a CTR lever and not cosmetics: a snippet that stops on a
+ * preposition reads as a broken/incomplete record in the SERP, and Google is
+ * markedly more likely to discard the supplied description and synthesise its
+ * own — which loses control of the message the description was written to
+ * deliver. Measured incidence at the time of extraction: 2 936 blog-article
+ * descriptions in `packages/articles/content/seo/**` end on a dangling
+ * function word (1 844 of them on the literal tail "Dati aggiornati 2026 per"),
+ * plus 11 `services/seo/seo-pages.ts` entries that only acquire the dangling
+ * tail downstream, when {@link clampMetaDescription} cuts them to the 160-char
+ * budget.
+ *
+ * Single source of truth for the peel: {@link truncateHeadline} (→
+ * {@link clampMetaDescription}, every template family),
+ * {@link truncateTitleAtClauseBoundary} (SERP A/B titles) and
+ * {@link repairSerpSnippet} (already-stored text) all call it. Never inline
+ * the loop again.
+ */
+export const peelDanglingClauseTail: (s: string) => string = peelDanglingClauseTailImpl;
+
+/**
+ * Repair a SERP string that was ALREADY truncated mid-clause upstream, before
+ * it reached this render layer.
+ *
+ * {@link truncateHeadline} keeps *new* cuts clean, but it only fires when the
+ * text exceeds the budget — a value that a generator already amputated to
+ * 155 chars arrives *under* budget and passes through untouched. That is the
+ * state of the shipped article corpus: `scripts/create-article.mjs` cut
+ * descriptions to a fixed budget without peeling the tail, so the stored
+ * strings themselves end on "… Dati aggiornati 2026 per". Re-generating 14 k
+ * corpus files to fix that would be a huge diff against a mirrored tree; a
+ * render-layer repair heals every page at the next build with none.
+ *
+ * No-ops (returns the input, whitespace-normalised) when the text already ends
+ * on terminal punctuation or an ellipsis — i.e. when it reads as complete.
+ * Only a string that ends mid-clause is touched, and then only by REMOVING the
+ * dangling tail: this never invents words and never rewrites author copy.
+ *
+ * @param text      The stored title or description.
+ * @param terminal  Punctuation appended after a successful repair (default
+ *                  `'.'`, matching description prose). Pass `''` for titles,
+ *                  which do not take a terminal stop in the SERP.
+ */
+export function repairSerpSnippet(text: string, terminal: string = '.'): string {
+  const normalized = String(text || '').replace(/\s+/g, ' ').trim();
+  if (!normalized) return normalized;
+  // Already reads as a complete sentence/phrase → nothing to repair.
+  if (/[.!?…»"')\]]$/u.test(normalized)) return normalized;
+  const peeled = peelDanglingClauseTail(normalized);
+  // Nothing dangling — a title like "Permesso G Svizzera 2026" legitimately
+  // ends without punctuation on a content word.
+  if (peeled === normalized) return normalized;
+  // Refuse to repair when the peel would gut the string (a tail of stacked
+  // function words); shipping the original is safer than shipping a stub.
+  if (!peeled || peeled.length < normalized.length / 2) return normalized;
+  return terminal && !/[.!?…]$/u.test(peeled) ? peeled + terminal : peeled;
+}
+
+/**
+ * Does `candidate` (a prefix of `source`) stop at a real word boundary?
+ *
+ * The rule lives here, not at a call site, because "ends cleanly" is TWO independent
+ * properties and checking only one is the bug this file keeps re-learning: a cut can end on
+ * a dangling function word, OR it can end mid-word. {@link peelDanglingClauseTail} answers
+ * the first and is a NO-OP on the second — a partial word is neither a separator nor a
+ * stopword, so it passes untouched.
+ *
+ * Boundary = the next code point is not a letter or digit. Punctuation counts as a boundary,
+ * so testing for whitespace alone would reject valid cuts.
+ *
+ * Reads a CODE POINT, not `charAt`: on an astral character (emoji, some CJK) `charAt`
+ * returns a lone surrogate, which matches neither `\p{L}` nor `\p{N}`, so a cut landing
+ * inside one would be misreported as a clean boundary. A candidate that ends between the
+ * two halves of a surrogate pair is likewise not a boundary.
+ */
+export function endsOnWordBoundary(source: string, candidate: string): boolean {
+  if (!source.startsWith(candidate)) return false;
+  if (candidate.length >= source.length) return true;
+  const cp = source.codePointAt(candidate.length);
+  if (cp === undefined) return true;
+  // Low surrogate at the cut index -> the candidate split a surrogate pair.
+  if (cp >= 0xdc00 && cp <= 0xdfff) return false;
+  return !/[\p{L}\p{N}]/u.test(String.fromCodePoint(cp));
+}
+
+/**
+ * Clause-aware truncation to `max` code units, WITHOUT an ellipsis.
+ *
+ * The degradation ladder shared by {@link truncateHeadline} (which appends `…`) and by
+ * SERP-title callers, which must not (see the module header's no-ellipsis contract).
+ * Extracted so the two cannot drift: the ladder is the interesting part, the ellipsis is
+ * a suffix.
+ *
+ * Unlike {@link truncateTitleAtClauseBoundary} this NEVER over-amputates — it falls back
+ * through word boundary and then separator-only strip — so it is the right fallback for a
+ * caller that has to produce something usable inside a fixed budget.
+ *
+ * @param requireWordBoundary  When true, a result that stops mid-word is refused and `''`
+ *   is returned instead, leaving the caller to apply its own fallback. Default false, which
+ *   is what {@link truncateHeadline} needs: it appends `…`, and an ellipsis is exactly the
+ *   signal that the text was cut — "Amministraz…" is legible, while for a `<title>` (no
+ *   ellipsis allowed) the same string reads as a typo. Same ladder, different contract.
+ */
+export function truncateClauseAware(
+  s: string,
+  max: number,
+  halfwayBudget: number = max,
+  requireWordBoundary: boolean = false,
+): string {
+  const sliced = truncateCodeUnits(s, max);
+  const lastSpace = sliced.lastIndexOf(' ');
+  // `halfwayBudget` defaults to `max` and exists only for truncateHeadline, which slices at
+  // `max - 1` to reserve room for its ellipsis but measures the halfway mark against the
+  // FULL budget. Folding the two into one number would shift the threshold by one character
+  // for every headline — a silent behaviour change dressed up as a refactor.
+  const half = Math.floor(halfwayBudget / 2);
+  // Only use the word boundary if it sits past the halfway mark — otherwise
+  // we'd amputate too much content and the truncation looks worse than a hard cut.
+  const cut = lastSpace > half
+    ? sliced.slice(0, lastSpace)
+    : sliced;
+  // Never leave a dangling delimiter or function word: a cut that lands right after a
+  // separator produces "Role —" in the SERP (live offender: "…Produzione PPS — · rif.
+  // zell"), and one that lands after a preposition produces "…con B, C e" — both read as
+  // broken markup and tank CTR.
+  const peeled = peelDanglingClauseTail(cut);
+  // Guard against over-amputation: a tail of consecutive function words could
+  // peel away most of the snippet. Below half the budget the separator-only
+  // strip is the better trade (same rationale as the halfway-mark check above).
+  const result = peeled.length >= half
+    ? peeled
+    : cut.replace(CLAUSE_SEPARATOR_TAIL_RE, '').trimEnd();
+  // The low-budget branch above returns a RAW slice when no space sits before half the
+  // budget, and that slice can stop mid-word. Callers that cannot signal truncation with an
+  // ellipsis must be able to refuse it rather than re-deriving the check themselves.
+  if (requireWordBoundary && !endsOnWordBoundary(s, result)) return '';
+  return result;
+}
+
+/**
  * Word-aware truncation: cut on the last whitespace boundary inside `max`,
  * append "…". Falls back to a hard cut when no usable boundary exists
  * (single very long token, no spaces in the first half of the budget).
+ *
+ * The cut is then peeled back to a whole clause by
+ * {@link peelDanglingClauseTail} so the snippet never ends on a preposition
+ * or article ("…requisiti e costi con B, C e…" — live offender on
+ * `/guida-frontaliere/permessi-di-lavoro/`). See that helper for why a
+ * dangling function word is a CTR defect and not a cosmetic one.
+ *
+ * The ladder itself lives in {@link truncateClauseAware}; this is that plus the ellipsis.
  */
 export function truncateHeadline(headline: string, max: number): string {
   const safe = String(headline || '');
   if (safe.length <= max) return safe;
-  // Reserve 1 char for the trailing ellipsis. Surrogate-safe so the hard-cut
-  // fallback can never leave a lone surrogate (split emoji) in a meta tag.
-  const sliced = truncateCodeUnits(safe, max - 1);
-  const lastSpace = sliced.lastIndexOf(' ');
-  // Only use the word boundary if it sits past the halfway mark — otherwise
-  // we'd amputate too much content and the truncation looks worse than a hard cut.
-  const cut = lastSpace > Math.floor(max / 2)
-    ? sliced.slice(0, lastSpace)
-    : sliced;
-  // Never leave a dangling delimiter before the ellipsis: a cut that lands
-  // right after a separator token produces "Role —…" in the SERP (live
-  // offender: "…Produzione PPS —… · rif. zell"), which reads as broken
-  // markup and tanks CTR. Strip trailing separators/punctuation first.
-  return cut.replace(/[\s—–\-·|,;:&(]+$/u, '').trimEnd() + '…';
+  // Reserve 1 char for the trailing ellipsis. Surrogate-safe (via truncateCodeUnits inside
+  // truncateClauseAware) so the hard-cut fallback can never leave a lone surrogate (split
+  // emoji) in a meta tag.
+  return truncateClauseAware(safe, max - 1, max) + '…';
 }
 
 /**
- * Words that must never dangle at the end of a truncated title — conjunctions,
- * prepositions, articles and interrogatives across the 4 site locales
- * (it/en/de/fr). A budget cut that lands mid-clause leaves one of these
- * hanging ("Stipendio netto frontaliere 2026: come | simulazione | 2026",
- * issue #3510); {@link truncateTitleAtClauseBoundary} peels them off.
+ * Length a peeled title should reach to be preferred.
+ *
+ * Part of {@link truncateTitleAtClauseBoundary}'s CONTRACT, not a caller's local
+ * preference — which is why it lives here rather than being restated at each call
+ * site. It used to be an unexported literal `10` inside the SERP-experiment caller,
+ * while the other caller checked only for emptiness and its comment claimed to
+ * honour "the same fallback contract". A threshold every caller must respect but
+ * that no caller can import is a rule that drifts by construction (AGENTS.md #6).
+ *
+ * Below this a peel is technically non-empty but carries little information: the budget
+ * fitted only stopwords/separators and peeling them off left a fragment.
+ *
+ * A PREFERENCE, NOT AN ABSOLUTE FLOOR. For a title made almost entirely of function
+ * words there is no prefix that is both this long and ends on a content word, and in
+ * that conflict the clean ending wins — see {@link peelDanglingClauseTail} for why a
+ * dangling function word makes Google discard the title outright, which costs more than
+ * a terse one. A caller must never let this threshold force a broken ending.
  */
-const TRAILING_STOPWORDS = new Set([
-  // it
-  'e', 'ed', 'o', 'od', 'a', 'ad', 'i', 'il', 'lo', 'la', 'le', 'un', 'una',
-  'uno', 'di', 'del', 'dello', 'della', 'dei', 'degli', 'delle', 'da', 'dal',
-  'dalla', 'in', 'nel', 'nella', 'nei', 'nelle', 'con', 'per', 'tra', 'fra',
-  'su', 'sul', 'sulla', 'al', 'allo', 'alla', 'ai', 'agli', 'alle', 'che',
-  'come', 'quanto', 'quando', 'dove', 'cosa', 'se', 'non', 'senza', 'verso',
-  // en
-  'and', 'or', 'the', 'an', 'of', 'to', 'on', 'at', 'for', 'with', 'by',
-  'from', 'how', 'what', 'which', 'when', 'where', 'why', 'is', 'are',
-  'your', 'without',
-  // de
-  'und', 'oder', 'der', 'die', 'das', 'ein', 'eine', 'einem', 'einen',
-  'einer', 'eines', 'von', 'vom', 'zu', 'zum', 'zur', 'im', 'mit', 'für',
-  'auf', 'aus', 'bei', 'beim', 'nach', 'wie', 'was', 'wann', 'wo', 'als',
-  'den', 'dem', 'des', 'ohne', 'über',
-  // fr
-  'et', 'ou', 'le', 'les', 'une', 'des', 'de', 'du', 'en', 'dans', 'pour',
-  'avec', 'par', 'sur', 'sous', 'comme', 'comment', 'que', 'qui', 'quand',
-  'où', 'au', 'aux', 'à', 'sans', 'chez',
-]);
+export const MIN_PEELED_TITLE_CHARS = 10;
 
 /**
  * Truncate a title segment to `maxLen` code units ending on a whole clause:
@@ -109,9 +251,10 @@ const TRAILING_STOPWORDS = new Set([
  * frontaliere 2026" (issue #3510).
  *
  * Never appends an ellipsis (SERP-title contract, see module header). May
- * return a short or empty string when the budget only fits stopwords —
- * callers must treat a too-short result as "use the untruncated title"
- * (the SERP-experiment caller falls back below 10 chars).
+ * return a SHORT OR EMPTY string when the budget only fits stopwords — callers
+ * must reject any result under {@link MIN_PEELED_TITLE_CHARS}, not merely an
+ * empty one, and fall back to the untruncated title (or, where a caller must
+ * converge inside a budget, to a hard cut).
  */
 export function truncateTitleAtClauseBoundary(s: string, maxLen: number): string {
   let truncated = truncateCodeUnits(s, maxLen);
@@ -125,19 +268,8 @@ export function truncateTitleAtClauseBoundary(s: string, maxLen: number): string
   truncated = truncated.replace(/\s*\|\s*[^|]*$/, '').trimEnd();
   // Peel trailing clause separators and dangling stopwords until the title
   // ends on a content word: "…2026: come" → "…2026:" → "…2026".
-  for (;;) {
-    const sepStripped = truncated.replace(/[\s:,;.!?—–·-]+$/u, '');
-    if (sepStripped !== truncated) {
-      truncated = sepStripped;
-      continue;
-    }
-    const lastWord = /(\S+)$/.exec(truncated)?.[1]?.toLowerCase() ?? '';
-    if (lastWord && TRAILING_STOPWORDS.has(lastWord)) {
-      truncated = truncated.slice(0, truncated.length - lastWord.length).trimEnd();
-      continue;
-    }
-    return truncated;
-  }
+  // Shared with truncateHeadline/repairSerpSnippet — see peelDanglingClauseTail.
+  return peelDanglingClauseTail(truncated);
 }
 
 /**

@@ -8,6 +8,7 @@
  */
 
 import { renderRecommendedBlock } from './newsletter/recommendedBlock.mjs';
+import { truncateToClause } from '../build-plugins/shared/clauseTail.mjs';
 // Shared with functions/src/lib/welcomeEmailTemplate.js (Cloud Functions
 // can't import services/*.mjs — see that file's header). Canonical home is
 // functions/src/lib/newsletterUrlPaths.js; re-exported below so this
@@ -236,16 +237,16 @@ function nlT(locale, key) {
  * Truncate text at a word boundary without appending an ellipsis.
  * Keeps the result tidy (no trailing "…" or cut-off word). If the string
  * already fits the limit it is returned unchanged.
+ *
+ * Delegates to the shared `truncateToClause` (build-plugins/shared/clauseTail.mjs),
+ * the single implementation the SERP render layer also uses. The previous local
+ * version had two defects of the same class fixed there for the SEO templates:
+ * it fell back to a HARD mid-word cut whenever the last space sat before
+ * `max * 0.6`, and it stripped punctuation without peeling the dangling
+ * function word, so subject lines and card titles could end on "… per il".
  */
 export function truncateAtWordBoundary(text, max) {
-  const s = String(text || '');
-  if (s.length <= max) return s;
-  const slice = s.slice(0, max);
-  const lastSpace = slice.lastIndexOf(' ');
-  // Only break at a word boundary if it's reasonably deep in the string,
-  // otherwise fall back to the hard cut (avoids 1-2 word stubs).
-  const cutAt = lastSpace > max * 0.6 ? lastSpace : max;
-  return slice.slice(0, cutAt).replace(/[\s.,;:–—-]+$/u, '');
+  return truncateToClause(text, max);
 }
 
 function escapeHtml(str) {

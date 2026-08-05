@@ -23,6 +23,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { peelDanglingClauseTail } from '../build-plugins/shared/clauseTail.mjs';
 import { normalizeContract } from '../services/newsletter-content.mjs';
 import { nlNormLocale } from '../services/newsletter-template.mjs';
 import { renderRecommendedBlock } from '../services/newsletter/recommendedBlock.mjs';
@@ -757,8 +758,9 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
       const lastOpen = Math.max(cut.lastIndexOf('('), cut.lastIndexOf('['));
       if (lastOpen > Math.floor(max * 0.4)) cut = cut.slice(0, lastOpen);
     }
-    // Drop trailing punctuation (commas, semicolons, dashes, periods, en/em dashes).
-    cut = cut.replace(/[\s,;:.\-\u2013\u2014]+$/, '');
+    // Drop trailing punctuation AND any dangling function word — the shared
+    // peel, so an alert subject never ends on "… esperti tecnici per".
+    cut = peelDanglingClauseTail(cut);
     return cut + '\u2026';
   };
   // Strip filler prefixes the crawler / AI translator sometimes prepends to job
