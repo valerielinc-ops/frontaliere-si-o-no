@@ -9267,6 +9267,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-svizzera-sondaggio-giugno-2026.title': 'Initiative 10 millions en Suisse : contre 52% dans l\'enquête',
     'blog.article.frontalieri-svizzera-sondaggio-giugno-2026.excerpt': 'En juin 2026, le deuxième sondage SSR fait les gros titres : le non à l\'initiative UDC grimpe à 52 %. Détails et pourcentages.',
     'blog.article.frontalieri-svizzera-sondaggio-giugno-2026.imageAlt': 'Vue de Bellinzona au Tessin avec bâtiments historiques',
+    'blog.article.vivere-nel-cuore-di-bellinzona.title': 'Vivre au cœur de Bellinzone : qualité de vie et maisons',
+    'blog.article.vivere-nel-cuore-di-bellinzona.excerpt': 'Découvrez ce que signifie vivre dans le centre historique de Bellinzone, entre les châteaux UNESCO, le marché du samedi et un marché immobilier avantageux.',
+    'blog.article.vivere-nel-cuore-di-bellinzona.imageAlt': 'Le centre historique de Bellinzona avec ses tours médiévales le matin',
 };
 
 export default blogMetaFr;

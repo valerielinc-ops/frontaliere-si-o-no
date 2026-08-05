@@ -27813,6 +27813,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-nel-cuore-di-bellinzona',
+ category: 'pratico',
+ date: '2026-08-05T06:14:19.244Z',
+ image: '/images/blog/vivere-nel-cuore-di-bellinzona.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
