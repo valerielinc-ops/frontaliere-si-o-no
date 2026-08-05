@@ -127,6 +127,20 @@ export function irpefRateRange(
 }
 
 /**
+ * Ascending comparator for `irpefAddizionale` sort columns. Comuni that
+ * actually levy the surcharge sort first, ordered by rate; no-surcharge
+ * comuni (see {@link leviesIrpefAddizionale}) sort last instead of tying at
+ * raw `0` and winning the "cheapest" spot in an ascending sort (#4875).
+ */
+export function compareIrpefAddizionale(a: MunicipalityLike, b: MunicipalityLike): number {
+  const aLevies = leviesIrpefAddizionale(a);
+  const bLevies = leviesIrpefAddizionale(b);
+  if (aLevies !== bLevies) return aLevies ? -1 : 1;
+  if (!aLevies) return 0;
+  return a.irpefAddizionale - b.irpefAddizionale;
+}
+
+/**
  * Text-level counterpart of `components/shared/IrpefAddizionaleValue.tsx`, for
  * the SSG plugins that emit static HTML and cannot mount a React component
  * (`build-plugins/borderMunicipalityPagesPlugin.ts`,

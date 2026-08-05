@@ -6,7 +6,7 @@ import { MUNICIPALITIES, type Municipality } from '@/data/municipalities';
 import {
  irpefFiscalScore,
  irpefRateRange,
- leviesIrpefAddizionale,
+ compareIrpefAddizionale,
  formatIrpefAddizionale,
  noSurchargeLabel,
  noSurchargeNote,
@@ -100,7 +100,7 @@ export default function LivabilityIndex() {
  switch (sortBy) {
  case 'distance': return a.distanceKm - b.distanceKm;
  case 'rent': return a.avgRentMonthly - b.avgRentMonthly;
- case 'irpef': return a.irpefAddizionale - b.irpefAddizionale;
+ case 'irpef': return compareIrpefAddizionale(a, b);
  case 'population': return b.population - a.population;
  default: return b.score - a.score;
  }
