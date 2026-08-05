@@ -6279,8 +6279,7 @@
         "en": [
           "charge-de-projets-h-f-rolex-ch",
           "pmo-project-manager-rolex-bienne",
-          "project-manager-h-f-rolex-bienne-mla6bv",
-          "project-manager-h-f-rolex-bienne"
+          "project-manager-h-f-rolex-bienne-mla6bv"
         ],
         "de": [
           "charge-de-projets-h-f-rolex-ch",
@@ -6294,7 +6293,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:09:02.823Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -6306,7 +6304,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-cc56ff16d64b",
