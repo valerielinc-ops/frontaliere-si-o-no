@@ -40,11 +40,10 @@
 import { appendFileSync } from 'node:fs';
 
 import { SECTION_ROUTES } from '../infra/cloudflare-worker/locale-router.js';
+import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
 import { EXTERNALLY_SERVED_SECTIONS } from './lib/externally-served-paths.mjs';
 
 const SITE_ORIGIN = process.env.SITE_ORIGIN ?? 'https://frontaliereticino.ch';
-const API_BASE =
-  process.env.ARTICLES_API_BASE ?? 'https://nanakokyobashi-rgb.github.io/frontaliere-articles';
 /**
  * Both hubs render 100 cards. The floor is deliberately far below that: this
  * is a "did the grid disappear" probe, not a card-count ratchet, and a corpus
