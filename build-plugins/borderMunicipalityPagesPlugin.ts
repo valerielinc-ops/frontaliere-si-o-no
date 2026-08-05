@@ -11,6 +11,7 @@
  */
 
 import fs from 'node:fs';
+import { irpefDisplayText, irpefDisplayTitle } from '../services/irpefAddizionaleRegime';
 import path from 'node:path';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
@@ -595,7 +596,9 @@ function renderScenarioBody(params: {
   const mendrisio = formatInt(commute.mendrisio, locale);
   const lugano = formatInt(commute.lugano, locale);
   const locarno = formatInt(commute.locarno, locale);
-  const irpef = formatDecimal(municipality.irpefAddizionale, locale);
+  // Regime-aware (#4875): the 51 Valle d'Aosta comuni levy no comunal
+  // surcharge — printing their 0 raw on an INDEXED page reads as "cheapest".
+  const irpef = irpefDisplayText(municipality, locale, formatDecimal(municipality.irpefAddizionale, locale));
   const rent = formatInt(municipality.avgRentMonthly, locale);
   const carCost = formatInt(commute.costMonthly, locale);
   // Crossings without traffic-history data yet (e.g. future non-Ticino
@@ -872,7 +875,7 @@ function renderPage(params: {
 
     <dl class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       ${renderMetric(copy.distance, `${formatDecimal(municipality.distanceKm, locale)} km`, METRIC_DETAIL.municipalDataset[locale])}
-      ${renderMetric(copy.irpef, `${formatDecimal(municipality.irpefAddizionale, locale)}%`, METRIC_DETAIL.localRate[locale])}
+      ${renderMetric(copy.irpef, irpefDisplayText(municipality, locale, `${formatDecimal(municipality.irpefAddizionale, locale)}%`), irpefDisplayTitle(municipality, locale) || METRIC_DETAIL.localRate[locale])}
       ${renderMetric(copy.rent, `EUR ${formatInt(municipality.avgRentMonthly, locale)}`, METRIC_DETAIL.monthlyRent[locale])}
       ${renderMetric(copy.population, formatInt(municipality.population, locale), municipality.province)}
     </dl>

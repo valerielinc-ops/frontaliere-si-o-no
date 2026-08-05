@@ -125,3 +125,31 @@ export function irpefRateRange(
   if (rates.length === 0) return { min: 0, max: 0 };
   return { min: Math.min(...rates), max: Math.max(...rates) };
 }
+
+/**
+ * Text-level counterpart of `components/shared/IrpefAddizionaleValue.tsx`, for
+ * the SSG plugins that emit static HTML and cannot mount a React component
+ * (`build-plugins/borderMunicipalityPagesPlugin.ts`,
+ * `build-plugins/fiscalMunicipalityPagesPlugin.ts`). Those pages are the
+ * INDEXED surface — leaving them printing a bare `0%` while the SPA discloses
+ * the regime would be exactly the drift Non-Negotiable #6 forbids, on the
+ * side that carries the traffic.
+ *
+ * @param formattedRate The already locale-formatted rate string (e.g. `0,55%`),
+ *   used verbatim when the comune actually levies the surcharge.
+ */
+export function irpefDisplayText(
+  m: MunicipalityLike,
+  locale: string,
+  formattedRate: string,
+): string {
+  return leviesIrpefAddizionale(m) ? formattedRate : noSurchargeLabel(locale);
+}
+
+/**
+ * `title` attribute value for a static-HTML rate cell: the regime note when
+ * the comune is exempt, an empty string otherwise (callers omit the attribute).
+ */
+export function irpefDisplayTitle(m: MunicipalityLike, locale: string): string {
+  return leviesIrpefAddizionale(m) ? '' : noSurchargeNote(locale);
+}

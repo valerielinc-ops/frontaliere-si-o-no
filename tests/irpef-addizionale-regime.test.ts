@@ -16,6 +16,8 @@ import {
   formatIrpefAddizionale,
   irpefFiscalScore,
   irpefRateRange,
+  irpefDisplayText,
+  irpefDisplayTitle,
   leviesIrpefAddizionale,
   noSurchargeLabel,
   noSurchargeNote,
@@ -136,5 +138,39 @@ describe('no consumer prints or ranks the raw field any more (Non-Negotiable #6)
     const decl = src.indexOf('irpefAddizionale: number;');
     expect(decl).toBeGreaterThan(-1);
     expect(src.slice(Math.max(0, decl - 1600), decl)).toContain('irpefAddizionaleRegime');
+  });
+});
+
+describe('the INDEXED static surfaces disclose the regime too (Non-Negotiable #6)', () => {
+  it.each([
+    'build-plugins/borderMunicipalityPagesPlugin.ts',
+    'build-plugins/fiscalMunicipalityPagesPlugin.ts',
+  ])('%s renders the rate through the shared helper', (rel) => {
+    const src = read(rel);
+    expect(src).toContain('irpefDisplayText');
+    // The two pre-fix shapes: a rate interpolated straight into the metric /
+    // the comparison grid, with nothing routing it through the regime helper.
+    expect(src).not.toContain('renderMetric(copy.irpef, `${formatDecimal(municipality.irpefAddizionale, locale)}%`');
+    expect(src).not.toContain('${esc(pct(m.irpefAddizionale, locale))}');
+    expect(src).not.toContain('const addizPctStr = pct(');
+  });
+
+  it('the fiscal dataset really does carry the 51 exempt rows', () => {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const dataset = JSON.parse(read('data/fiscal-municipalities.json')) as {
+      aboveFloor?: Array<{ province: string; irpefAddizionale: number }>;
+      belowFloor?: Array<{ province: string; irpefAddizionale: number }>;
+    };
+    const rows = [...(dataset.aboveFloor || []), ...(dataset.belowFloor || [])];
+    const zeros = rows.filter((r) => r.irpefAddizionale === 0);
+    expect(zeros.length).toBeGreaterThan(0);
+    expect(new Set(zeros.map((r) => r.province))).toEqual(new Set(['AO']));
+  });
+
+  it('irpefDisplayText passes the rate through and swaps the exempt label', () => {
+    expect(irpefDisplayText({ province: 'CO', irpefAddizionale: 0.55 }, 'it', '0,55%')).toBe('0,55%');
+    expect(irpefDisplayText({ province: 'AO', irpefAddizionale: 0 }, 'it', '0,00%')).toBe(noSurchargeLabel('it'));
+    expect(irpefDisplayTitle({ province: 'CO', irpefAddizionale: 0.55 }, 'it')).toBe('');
+    expect(irpefDisplayTitle({ province: 'AO', irpefAddizionale: 0 }, 'en')).toBe(noSurchargeNote('en'));
   });
 });
