@@ -23768,6 +23768,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-svizzera-mutuo-requisiti': {
+    title: 'Comprare casa in Svizzera: requisiti e tassi | Frontaliere Ticino',
+    description: 'Scopri i requisiti per ottenere un mutuo in Svizzera, i fondi propri minimi, i tassi e le differenze tra banche cantonali e private. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, requisiti, tassi',
+    ogTitle: 'Comprare casa in Svizzera: requisiti del mutuo ipotecario, fondi propri minimi, tassi, differenze tra banche cantonali e private',
+    ogDescription: 'Scopri i requisiti per ottenere un mutuo in Svizzera, i fondi propri minimi, i tassi e le differenze tra banche cantonali e private',
+    canonicalPath: '/articoli-svizzera/comprare-casa-svizzera-mutuo-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa in Svizzera: requisiti e tassi",
+      "description": "Scopri i requisiti per ottenere un mutuo in Svizzera, i fondi propri minimi, i tassi e le differenze tra banche cantonali e private. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-svizzera-mutuo-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con le Alpi svizzere sullo sfondo, mostrando un quartiere residenziale moderno con case e barche"
+      },
+      "datePublished": "2026-08-05T03:35:11+00:00",
+      "dateModified": "2026-08-05T03:35:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-svizzera-mutuo-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

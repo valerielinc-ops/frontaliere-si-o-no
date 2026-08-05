@@ -5509,6 +5509,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'comprare-casa-svizzera-mutuo-requisiti',
+    category: 'fiscale',
+    date: '2026-08-05T03:35:11.754Z',
+    image: '/images/blog/comprare-casa-svizzera-mutuo-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
