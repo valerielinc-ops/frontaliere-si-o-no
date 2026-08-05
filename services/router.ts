@@ -250,9 +250,9 @@ export type StatsSubTab = 'overview' | 'livability' | 'jobs-observatory' | 'sala
  * this array — but keep both in sync regardless, per the file comments on
  * both sides.
  *
- * Sempione (canton VS) exists in `data/borderCrossings.ts` but is
- * deliberately absent from this array too — same pre-existing gap noted in
- * borderWaitData.ts, not introduced by this refactor.
+ * As of #4545 this array mirrors the complete `data/borderCrossings.ts`
+ * set (143). Sempione and the rest of the Grigioni/Vallese alpine corridor,
+ * previously called out here as a known gap, are now wired.
  */
 export const ALL_BORDER_CROSSING_IDS = [
  'chiasso-centro',
@@ -403,6 +403,18 @@ export const ALL_BORDER_CROSSING_IDS = [
  'le-chatelard-vallorcine',
  'saint-gingolph',
  'morgins-chatel',
+ // Italia — GR (6)
+ 'passo-dello-spluga',
+ 'castasegna-villa-di-chiavenna',
+ 'campocologno-tirano',
+ 'tunnel-munt-la-schera',
+ 'forcola-di-livigno',
+ 'giogo-di-santa-maria',
+ // Italia — VS (2)
+ 'sempione',
+ 'traforo-del-gran-san-bernardo',
+ // Austria — SG (de-collided second Widnau-Lustenau, #4890)
+ 'widnau-lustenau-schmitterbrucke',
 ] as const;
 
 export type BorderCrossingId = (typeof ALL_BORDER_CROSSING_IDS)[number];

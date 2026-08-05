@@ -174,7 +174,18 @@ export type BorderCrossingSlug =
   | 'goumois'
   | 'le-chatelard-vallorcine'
   | 'saint-gingolph'
-  | 'morgins-chatel';
+  | 'morgins-chatel'
+  // Italia — Grigioni/Vallese (issue #4545, corridor 5 of 5)
+  | 'passo-dello-spluga'
+  | 'castasegna-villa-di-chiavenna'
+  | 'campocologno-tirano'
+  | 'tunnel-munt-la-schera'
+  | 'forcola-di-livigno'
+  | 'giogo-di-santa-maria'
+  | 'sempione'
+  | 'traforo-del-gran-san-bernardo'
+  // Austria — the de-collided second Widnau-Lustenau crossing (#4890)
+  | 'widnau-lustenau-schmitterbrucke';
 
 /**
  * Closed union of crossing "regional hub" groupings — currently one per
@@ -213,12 +224,19 @@ export type BorderCrossingSlug =
  * 11. The "Count: N locales × (...)" comment on BORDER_WAIT_ROUTES further
  *     down is a manually computed illustration, not derived — update or
  *     drop the exact number when the crossing/region count changes.
+ * 12. If the new region is Italy-facing, decide DELIBERATELY whether it is
+ *     a *Ticino* region: add it to `TICINO_REGIONS` below only if the
+ *     Ticino-specific copy in `borderWaitPagesPlugin.ts` (A2 travel times,
+ *     Lugano/Como place names, TIS/TILO references) is actually true for
+ *     it. `REGION_TO_COUNTRY[r] === 'IT'` is NOT the same question — see
+ *     the `TICINO_REGIONS` doc comment.
  *
- * Sempione (canton VS, in data/borderCrossings.ts) is deliberately absent
- * from every map in this file — there is no static /traffico-dogane/...
- * page for it today. That's a pre-existing gap, not introduced by this
- * refactor; a future agent adding real VS coverage needs to walk this same
- * checklist for it, not assume it's already wired somewhere.
+ * As of #4545 every crossing in `data/borderCrossings.ts` (143) is mirrored
+ * here — the registry is complete, not a subset. The Grigioni/Vallese
+ * crossings (Spluga, Gran San Bernardo, Sempione, …) that this file used to
+ * call out as a known gap are now wired; if you add a crossing to the
+ * dataset, `tests/border-wait-italian-corridor-scope.test.ts` fails until
+ * you walk this checklist for it.
  */
 export type BorderCrossingRegion =
   | 'ticino-como'
@@ -237,12 +255,47 @@ export type BorderCrossingRegion =
   | 'vaud-francia'
   | 'neuchatel-francia'
   | 'giura-francia'
-  | 'vallese-francia';
+  | 'vallese-francia'
+  | 'grigioni-italia'
+  | 'vallese-italia';
+
+/**
+ * The Ticino–Italy regions, as a set.
+ *
+ * SEPARATE from `REGION_TO_COUNTRY[r] === 'IT'` on purpose, and the two must
+ * never be conflated again. Until the Grigioni/Vallese corridor landed
+ * (#4545) the only Italy-facing regions WERE the three Ticino ones, so the
+ * codebase used the country test as a proxy for "Ticino corridor" — and
+ * `borderWaitPagesPlugin.ts` hangs genuinely Ticino-only facts off it
+ * (A2 motorway travel times, Lugano/Mendrisio/Bellinzona, Como/Varese
+ * events, the TIS Ticino withholding tables, TILO S40/S50 rail lines,
+ * Brogeda/Stabio webcam towns, the Maslianico/Crociale dei Mulini
+ * alternates named in the FAQ). Those facts are FALSE for a page about the
+ * Splügen pass or the Great St Bernard tunnel, which are Italy-facing but
+ * 200 km from Ticino.
+ *
+ * Anything that means "is this the Ticino corridor" MUST use
+ * `isTicinoRegion`/`isTicinoCrossing`; only genuinely Italy-wide facts
+ * (the 2024 Italy–Switzerland tax agreement, IRPEF/frontaliere status) may
+ * key on `REGION_TO_COUNTRY`. Regression coverage:
+ * `tests/border-wait-italian-corridor-scope.test.ts`.
+ */
+const TICINO_REGIONS: ReadonlySet<BorderCrossingRegion> = new Set([
+  'ticino-como',
+  'ticino-varese',
+  'ticino-verbano',
+]);
+
+/** True only for the three Ticino–Italy regions. See `TICINO_REGIONS`. */
+export function isTicinoRegion(region: BorderCrossingRegion): boolean {
+  return TICINO_REGIONS.has(region);
+}
 
 export const BORDER_WAIT_LOCALES: readonly BorderWaitLocale[] = ['it', 'en', 'de', 'fr'] as const;
 
 /**
- * Full crossing registry (134) — must match ALL_BORDER_CROSSING_IDS in
+ * Full crossing registry (143, the complete data/borderCrossings.ts set)
+ * — must match ALL_BORDER_CROSSING_IDS in
  * router.ts. New crossing → append its slug here too (see "Adding a new
  * crossing" checklist above BorderCrossingRegion, step 5).
  */
@@ -395,6 +448,18 @@ export const BORDER_WAIT_CROSSINGS: readonly BorderCrossingSlug[] = [
   'le-chatelard-vallorcine',
   'saint-gingolph',
   'morgins-chatel',
+  // Italia — GR (6)
+  'passo-dello-spluga',
+  'castasegna-villa-di-chiavenna',
+  'campocologno-tirano',
+  'tunnel-munt-la-schera',
+  'forcola-di-livigno',
+  'giogo-di-santa-maria',
+  // Italia — VS (2)
+  'sempione',
+  'traforo-del-gran-san-bernardo',
+  // Austria — SG (the de-collided second Widnau-Lustenau, #4890)
+  'widnau-lustenau-schmitterbrucke',
 ] as const;
 
 /** Top-5 crossings eligible for monthly archive pages (highest GSC demand). */
@@ -545,6 +610,17 @@ export const BORDER_CROSSING_DISPLAY: Record<BorderCrossingSlug, string> = {
   'le-chatelard-vallorcine': 'Le Châtelard-Vallorcine',
   'saint-gingolph': 'Saint-Gingolph',
   'morgins-chatel': 'Morgins-Châtel (Pas de Morgins)',
+  // Italia — Grigioni/Vallese. Names mirror `data/borderCrossings.ts` so
+  // `slugifyCrossingName(name)` round-trips to the key on the left.
+  'passo-dello-spluga': 'Passo dello Spluga (Montespluga)',
+  'castasegna-villa-di-chiavenna': 'Castasegna-Villa di Chiavenna',
+  'campocologno-tirano': 'Campocologno-Tirano',
+  'tunnel-munt-la-schera': 'Tunnel Munt La Schera (Passo del Gallo)',
+  'forcola-di-livigno': 'Forcola di Livigno',
+  'giogo-di-santa-maria': "Giogo di Santa Maria (Passo dell'Umbrail)",
+  sempione: 'Sempione (Iselle-Gondo)',
+  'traforo-del-gran-san-bernardo': 'Traforo del Gran San Bernardo',
+  'widnau-lustenau-schmitterbrucke': 'Widnau-Lustenau (Schmitterbrücke)',
 };
 
 /**
@@ -689,6 +765,19 @@ export const CROSSING_TO_REGION: Record<BorderCrossingSlug, BorderCrossingRegion
   'le-chatelard-vallorcine': 'vallese-francia',
   'saint-gingolph': 'vallese-francia',
   'morgins-chatel': 'vallese-francia',
+  // Italia — Grigioni (province of Sondrio on the Italian side)
+  'passo-dello-spluga': 'grigioni-italia',
+  'castasegna-villa-di-chiavenna': 'grigioni-italia',
+  'campocologno-tirano': 'grigioni-italia',
+  'tunnel-munt-la-schera': 'grigioni-italia',
+  'forcola-di-livigno': 'grigioni-italia',
+  'giogo-di-santa-maria': 'grigioni-italia',
+  // Italia — Vallese. Sempione sits on canton VS but faces province VB
+  // (Domodossola corridor), Gran San Bernardo faces AO; both are Vallese
+  // crossings and are grouped by the SWISS canton, like every other region.
+  sempione: 'vallese-italia',
+  'traforo-del-gran-san-bernardo': 'vallese-italia',
+  'widnau-lustenau-schmitterbrucke': 'san-gallo-austria',
 };
 
 /**
@@ -819,6 +908,8 @@ export const BORDER_WAIT_REGIONS: readonly BorderCrossingRegion[] = [
   'neuchatel-francia',
   'giura-francia',
   'vallese-francia',
+  'grigioni-italia',
+  'vallese-italia',
 ] as const;
 
 /**
@@ -843,6 +934,8 @@ export const BORDER_REGION_DISPLAY: Record<BorderCrossingRegion, string> = {
   'neuchatel-francia': 'Neuchâtel — Francia',
   'giura-francia': 'Giura — Francia',
   'vallese-francia': 'Vallese — Francia',
+  'grigioni-italia': 'Grigioni — Italia',
+  'vallese-italia': 'Vallese — Italia',
 };
 
 /**
@@ -873,19 +966,27 @@ export const REGION_TO_COUNTRY: Record<BorderCrossingRegion, 'IT' | 'DE' | 'AT' 
   'neuchatel-francia': 'FR',
   'giura-francia': 'FR',
   'vallese-francia': 'FR',
+  'grigioni-italia': 'IT',
+  'vallese-italia': 'IT',
 };
 
 /**
- * True for the 26 Ticino–Italy crossings, false for the 108 non-Ticino
- * (Germany/Austria/Liechtenstein/France corridor) ones. Single source of
- * truth for "is this crossing in scope for Ticino-only content" (evergreen
- * ranking article, monthly archive pages,
- * etc.) — derived from CROSSING_TO_REGION + REGION_TO_COUNTRY instead of a
- * second hand-maintained list, so a new non-Italy corridor is excluded
- * automatically instead of silently leaking into Ticino-scoped copy.
+ * True for the 26 Ticino–Italy crossings, false for the 117 non-Ticino ones
+ * (Germany/Austria/Liechtenstein/France, plus the Grigioni/Vallese–Italy
+ * alpine corridor). Single source of truth for "is this crossing in scope
+ * for Ticino-only content" (evergreen ranking article, Telegram digest,
+ * monthly archive pages, etc.).
+ *
+ * Derived from CROSSING_TO_REGION + `isTicinoRegion` — NOT from
+ * `REGION_TO_COUNTRY === 'IT'`, which is what this used to test. That older
+ * form was correct only while Ticino was the sole Italy-facing corridor;
+ * #4545 added `grigioni-italia`/`vallese-italia`, which are Italy-facing but
+ * emphatically not Ticino, and under the country test the Splügen pass would
+ * have been ranked inside a "Ticino border crossings" article. See the
+ * `TICINO_REGIONS` doc comment above.
  */
 export function isTicinoCrossing(crossing: BorderCrossingSlug): boolean {
-  return REGION_TO_COUNTRY[CROSSING_TO_REGION[crossing]] === 'IT';
+  return isTicinoRegion(CROSSING_TO_REGION[crossing]);
 }
 
 // ── Path builders ─────────────────────────────────────────────────
@@ -936,7 +1037,7 @@ export function buildArchivePath(
  * services/router.ts so unknown `/traffico-dogane/...` URLs resolve to a known
  * route (guida/border sub-tab) instead of falling through to 404.
  *
- * Count: 4 locales × (1 root + 17 regional + 134 crossings) = 608 canonical paths.
+ * Count: 4 locales × (1 root + 19 regional + 143 crossings) = 652 canonical paths.
  */
 export const BORDER_WAIT_ROUTES: readonly string[] = (() => {
   const out: string[] = [];
