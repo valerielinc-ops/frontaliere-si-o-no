@@ -1095,7 +1095,18 @@ export async function deleteJobAlert(
  }
 }
 
-export type JobAlertFrequency = 'daily' | 'weekly';
+/**
+ * `'immediate'` (#5012 phase 2) is a CompanyAlert-only cadence: it routes the
+ * alert to the event-driven sender (scripts/send-company-alerts.mjs) instead of
+ * the daily digest. Kept in this union so the token-mode preferences page can
+ * READ BACK and display a followed-employer alert instead of mislabelling it
+ * — the shape must round-trip through the Cloud Function, which is why
+ * `normalizeFrequency` in functions/src/newsletterSubscriptionManagement.js
+ * accepts it too. It is deliberately NOT offered in the generic frequency
+ * picker: an immediate cadence without an employer pin would mean an email per
+ * job across the whole board.
+ */
+export type JobAlertFrequency = 'daily' | 'weekly' | 'immediate';
 
 export type JobAlertSummary = {
  id: string;

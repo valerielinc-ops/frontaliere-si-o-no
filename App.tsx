@@ -91,6 +91,10 @@ const Metodologia = lazyRetry(() => import('@/components/pages/Metodologia').the
 const DataDeletion = lazyRetry(() => import('@/components/pages/DataDeletion').then(m => ({ default: m.DataDeletion })));
 const EmailConfirmed = lazyRetry(() => import('@/components/pages/EmailConfirmed').then(m => ({ default: m.EmailConfirmed })));
 const NewsletterPreferences = lazyRetry(() => import('@/components/pages/NewsletterPreferences').then(m => ({ default: m.NewsletterPreferences })));
+// "Le mie aziende seguite" — CompanyAlert manager (#5012 phase 2). Private
+// route: no sitemap entry, no seo-pages record, absent from seo-completeness's
+// `standalones` — same convention as NewsletterPreferences above.
+const FollowedCompaniesPage = lazyRetry(() => import('@/components/pages/FollowedCompaniesPage').then(m => ({ default: m.FollowedCompaniesPage })));
 const GamificationPage = lazyRetry(() => import('@/components/community/GamificationPage'));
 const CommunityForum = lazyRetry(() => import('@/components/community/CommunityForum'));
 const ContactPage = lazyRetry(() => import('@/components/pages/ContactPage'));
@@ -815,13 +819,33 @@ const App: React.FC = () => {
  localStorage.setItem('newsletter_subscribed', 'true');
 
  // Auto-login with the auth token returned by the Cloud Function
+ let confirmedUser: { uid?: string } | null = null;
  if (result.authToken) {
  try {
- await signInWithCustomAuthToken(result.authToken);
+ confirmedUser = await signInWithCustomAuthToken(result.authToken);
  Analytics.trackUIInteraction('newsletter', 'confirm_autologin', 'success');
  } catch (authErr) {
  reportCaughtError(authErr, 'app.newsletterConfirmAutologin');
  Analytics.trackUIInteraction('newsletter', 'confirm_autologin', 'error');
+ }
+ }
+
+ // CompanyAlert double opt-in (#5012 phase 2). An anonymous visitor who
+ // tapped "Segui questa azienda" had their follow PARKED, not written —
+ // no alert exists for an unconfirmed address. This is the moment the
+ // consent arrives and a uid exists, so the parked intent becomes a real
+ // alert here. Lazy-imported so the chunk only loads for a visitor who
+ // actually parked one, and best-effort: a failure must never break the
+ // confirmation itself, which is the half that matters legally.
+ if (confirmedUser?.uid) {
+ try {
+ const { flushPendingCompanyFollows } = await import('@/services/companyFollowIntent');
+ const created = await flushPendingCompanyFollows(confirmedUser.uid, email);
+ if (created.length > 0) {
+ Analytics.trackUIInteraction('company_alert', 'double_optin_flush', String(created.length));
+ }
+ } catch (followErr) {
+ reportCaughtError(followErr, 'app.companyFollowFlush');
  }
  }
 
@@ -2584,6 +2608,10 @@ const App: React.FC = () => {
  <div>
  <NewsletterPreferences />
  </div>
+ ) : activeTab === 'followed-companies' ? (
+ <div>
+ <FollowedCompaniesPage />
+ </div>
  ) : activeTab === 'gamification' ? (
  <div className="max-w-7xl mx-auto">
  <GamificationPage />
@@ -2795,7 +2823,7 @@ const App: React.FC = () => {
  </Suspense>
 
  {/* Visible"last updated" date — AI freshness signal + user trust */}
- {!(['admin', 'profile', 'email-confirmed', 'newsletter-preferences', 'privacy', 'terms', 'data-deletion'] as string[]).includes(activeTab) && (
+ {!(['admin', 'profile', 'email-confirmed', 'newsletter-preferences', 'followed-companies', 'privacy', 'terms', 'data-deletion'] as string[]).includes(activeTab) && (
  <p className="text-sm text-muted text-center mt-6">
  <time dateTime={footerDateStr.dateTimeAttr}>
  {t('stats.lastUpdate')}: {footerDateStr.display}
