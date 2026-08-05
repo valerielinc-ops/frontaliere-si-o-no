@@ -2,13 +2,58 @@ name: Send Job Alert Emails
 
 on:
   schedule:
-    # Daily 00:33 UTC — shifted from 01:47 to hold a full 3h gap before
-    # send-newsletter at 03:33 UTC (unchanged). Still inside the quiet
-    # 01:00-04:00 UTC concurrency window from the original audit (3.5 days,
-    # July 2026: ~4 concurrent jobs vs a ~22-job peak at 12:00 UTC), and :33
-    # avoids the :00/:15/:30/:45 minute marks GitHub Actions cron
-    # deprioritizes under load (silent skips). job-alerts typically finishes
-    # in 3-10 min, leaving wide margin before the newsletter run. Issue #3798.
+    # Daily 00:33 UTC. Issue #3798 Fase 1 — KEPT, but the earlier rationale for
+    # this slot was measured on the wrong metric and is corrected here.
+    #
+    # Re-audited 2026-08-05 (30 days of scheduled runs across all 100+ crontabbed
+    # workflows in this repo, delay = run.created_at - nominal cron minute):
+    #
+    #  * The account-wide concurrency pool is NOT the constraint any more. Job
+    #    queue wait (job.started_at - job.created_at) is a median of 2s and a
+    #    p90 of 8-9s for every run created between 00:00 and 06:00 UTC (n=414
+    #    jobs sampled over 7 days). The ~20-job free-tier ceiling that drove
+    #    incident #2882 stopped biting when the 581 per-crawler workflows were
+    #    consolidated into 23 groups (docs/CI-CD-PIPELINE.md). Picking a slot to
+    #    dodge our own concurrent jobs optimises something that no longer costs
+    #    anything.
+    #  * What actually costs hours is GitHub's own scheduled-DISPATCH backlog,
+    #    which never appears in a "runs created per hour" histogram because that
+    #    histogram counts runs at the delayed time, not the nominal one. Median
+    #    delay by nominal cron hour: 00h 240m, 02h 199m, 03h 159m, 05h 147m,
+    #    10h 109m, 15h 65m, 21h 62m, 22h 51m. Confirmed WITHIN a single
+    #    workflow, which rules out any per-workflow confound:
+    #    orchestrate-crawlers.yml runs at both 09:00 (median 133m) and 21:00
+    #    (median 62m) — same workflow, same repo, 2.1x apart.
+    #  * So the 00:00-04:00 band is the WORST band of the day for dispatch, not
+    #    a "quiet window". It only LOOKS quiet in a created-at histogram
+    #    (00h-02h show 11-22 runs/h vs 68-75 at 10h-11h) because the night's own
+    #    scheduled work is being deferred into the morning. Delay is in fact
+    #    ANTI-correlated with our own run volume: 22h is the 5th busiest hour
+    #    and has the LOWEST delay.
+    #
+    # Why 00:33 stays anyway, despite being the worst-drifting slot measured
+    # (median 240m, p90 471m, max 590m): moving to the low-drift 15:00-22:00
+    # band would fire this workflow in the afternoon, and
+    # scripts/lib/send-schedule.mjs computeScheduledSendAt schedules each
+    # subscriber for the NEXT occurrence of their preferred hour. The later in
+    # the UTC day the run fires, the more subscribers have already passed their
+    # hour and get pushed to tomorrow's slot — receiving ~24h-old job matches.
+    # Firing early is worth more than firing punctually. 00:33 + 240m median
+    # lands ~04:33 UTC, the earliest effective start of any sampled slot, and
+    # even the p90 (~08:24) stays clear of the morning crawler batch (dispatched
+    # ~11:20). Revisit only with data for the unsampled 23:00 slot, which the
+    # 21h/22h numbers suggest could fire ~00:15 UTC with a much tighter tail.
+    #
+    # Note the minute is NOT load-bearing: the ":00/:15/:30/:45 get
+    # deprioritised" folklore does not hold here. Median delay is 150m at :00,
+    # 149m at :15/:30/:45 and 158m at off-minutes (n=1462) — off-minutes are if
+    # anything marginally worse.
+    #
+    # The previously-claimed "full 3h gap before send-newsletter at 03:33" does
+    # not exist in practice and is not needed: effective start is ~04:33 here vs
+    # ~06:13 for the newsletter (a ~1h40m gap), and on p90 days this one starts
+    # AFTER the newsletter. The two workflows have no data dependency and
+    # separate `concurrency` groups, so the ordering is not required.
     - cron: '33 0 * * *'
   workflow_dispatch:
     inputs:
