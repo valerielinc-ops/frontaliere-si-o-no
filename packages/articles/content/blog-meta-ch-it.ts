@@ -1858,6 +1858,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.democrazia-diretta-e-votazioni-federali.title': 'Votazioni federali Svizzera: come funzionano le leggi',
     'blog.article.democrazia-diretta-e-votazioni-federali.excerpt': 'Guida completa alla democrazia diretta svizzera: iniziative popolari, referendum e doppia maggioranza di popolo e cantoni.',
     'blog.article.democrazia-diretta-e-votazioni-federali.imageAlt': 'Palazzo Federale a Berna sede delle votazioni e della democrazia svizzera',
+    'blog.article.congedo-parentale-svizzera-durata.title': 'Congedo parentale svizzera durata indennita e regole',
+    'blog.article.congedo-parentale-svizzera-durata.excerpt': 'Guida completa al congedo di maternità e paternità in Svizzera: durata, indennità giornaliera, contributi e quadro normativo per i lavoratori.',
+    'blog.article.congedo-parentale-svizzera-durata.imageAlt': 'Vista panoramica di Lugano e del distretto finanziario svizzero',
 };
 
 export default blogMetaChIt;
