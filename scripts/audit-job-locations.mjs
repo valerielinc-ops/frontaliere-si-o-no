@@ -5,18 +5,31 @@
  * Layers:
  *   1. BFS check — is the city a known Swiss municipality? What canton?
  *   2. inferAnyCanton — does our location engine agree with the stored canton?
- *   3. Crawler-vs-dataset — does the published canton still match the canton the
+ *   3. Crawler-vs-dataset — does the published LOCALITY still match the one the
  *      crawler recorded in `data/jobs/by-crawler/<key>.json`?
  *   4. Nominatim — for cities not in BFS, verify country via geocoding
  *
  * Layer 3 exists because layers 1-2 are BFS-only and are therefore BLIND to the
- * largest mislabel class this audit is supposed to catch. A job in a hamlet BFS
- * does not list as a municipality (Obbürgen, NW — Bürgenstock Hotels AG, #4838)
- * lands in `unknownCity`, where a wrong canton is indistinguishable from a
- * merely unrecognised one: 28 of 39 Bürgenstock postings shipped `canton="TI"`
- * for months while every weekly snapshot reported 0 problems for them. Comparing
- * the published canton against the crawler's own record needs no municipality
- * database, so it catches exactly the cases BFS cannot adjudicate.
+ * largest mislabel class this audit is supposed to catch — in two ways.
+ *
+ * A job in a hamlet BFS does not list as a municipality (Obbürgen, NW —
+ * Bürgenstock Hotels AG, #4838) lands in `unknownCity`, where a wrong canton is
+ * indistinguishable from a merely unrecognised one: 28 of 39 Bürgenstock
+ * postings shipped `canton="TI"` for months while every weekly snapshot
+ * reported 0 problems for them.
+ *
+ * The converse is worse and is what #5136 turned out to be: a job moved onto a
+ * city that IS a real BFS municipality. Layers 1-2 then actively certify it as
+ * correct. Roche postings in Jakarta and Kyiv shipped as "Alle" (JU) — a real
+ * Jura village whose name is also the German word "all" — so `cantonMismatch`
+ * and `foreignInSwiss` both read 0 while 1592 jobs sat on a fabricated location.
+ *
+ * Comparing against the crawler's own record needs no municipality database, so
+ * it adjudicates both cases. Compare the LOCALITY, not the canton: a dedicated
+ * crawler stamps the employer's home canton on every posting it emits (Roche
+ * writes BS on its Shanghai ads), so a canton-only comparison flags ~775 jobs
+ * whose published canton is simply the correct one — noise that buried the real
+ * signal until #5136.
  *
  * Usage: node scripts/audit-job-locations.mjs [--geocode] [--limit N]
  *   --geocode   Enable Nominatim lookups for unknown cities (slow, 1 req/sec)
@@ -30,6 +43,7 @@ import {
   isKnownSwissMunicipality,
   inferAnyCanton,
   isCantonRelevant,
+  swissCityFromLocationField,
 } from './lib/target-swiss-locations.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { isLocationExplicitlyForeign, geocodeCountry } from './lib/dedicated-crawler-common.mjs';
@@ -59,7 +73,8 @@ const results = {
   lowercaseCanton: [],   // Canton code is lowercase (data quality)
   geocodeResults: [],    // Results from Nominatim verification
   companyDefaultFallback: [], // cantonMismatch subset where stored canton == company's modal canton
-  crawlerCantonOverridden: [], // published canton != canton the crawler recorded (BFS-independent)
+  crawlerLocationRewritten: [], // assemble replaced the locality the crawler recorded (BFS-independent)
+  crawlerCantonStampDiffers: [], // same place, crawler's per-company canton stamp is stale — context only
 };
 
 /* ── Geocode cache to avoid duplicate lookups ──────────────── */
@@ -79,14 +94,27 @@ function norm(v = '') {
   return String(v || '').trim();
 }
 
-/* ── Crawler-recorded canton index ────────────────────────────
+/* ── Crawler-recorded location index ──────────────────────────
  * `data/jobs/by-crawler/<key>.json` is what each crawler actually wrote for a
  * posting, before any assemble-time inference or pin-ledger reconciliation.
- * Keyed by the same stable identity the pin ledger uses, so a divergence here
- * means the published dataset overrode the crawler — the #4838 signature.
+ * Keyed by the same stable identity the pin ledger uses.
+ *
+ * Indexes the crawler's LOCALITY as well as its canton, because the two carry
+ * very different amounts of signal:
+ *
+ *   - `canton` is frequently a per-crawler constant, not a per-job fact. A
+ *     dedicated crawler stamps the employer's home canton on every posting it
+ *     emits — Roche writes canton=BS on its Shanghai, Madrid and Budapest ads
+ *     alike. So `published canton != crawler canton` on its own says nothing:
+ *     for a Roche job in Dietlikon the published ZH is right and the crawler's
+ *     BS is the stale value.
+ *   - the locality IS per-job. When the published city differs from the one
+ *     the crawler recorded, the assemble step rewrote the location, and THAT
+ *     is the condition worth alarming on.
+ *
  * Missing directory (fresh clone / sparse checkout) simply disables layer 3
  * rather than failing the audit. */
-function loadCrawlerCantons() {
+function loadCrawlerRecords() {
   const dir = join(ROOT, 'data', 'jobs', 'by-crawler');
   const index = new Map();
   if (!existsSync(dir)) return index;
@@ -98,14 +126,28 @@ function loadCrawlerCantons() {
     for (const job of slice) {
       if (!job || typeof job !== 'object') continue;
       const canton = norm(job.canton).toUpperCase();
-      if (!canton) continue;
+      const city = norm(job.addressLocality || job.location);
+      if (!canton && !city) continue;
       const id = buildStableJobIdentity(job);
-      if (id) index.set(id, canton);
+      if (id) index.set(id, { canton, city });
     }
   }
   return index;
 }
-const crawlerCantonById = loadCrawlerCantons();
+const crawlerRecordById = loadCrawlerRecords();
+
+/* Same-place test between the crawler's locality and the published one.
+ * Tolerates the decoration crawlers add around a city name — "Geneva,
+ * Switzerland", "Baden, Aargau", "Luzern / hybrid", "Pratteln 1" — so those do
+ * not read as a rewrite when the published city is the very city named inside. */
+function sameRecordedPlace(crawlerCity, publishedCity) {
+  const a = crawlerCity.toLowerCase();
+  const b = publishedCity.toLowerCase();
+  if (!a || !b) return false;
+  if (a === b) return true;
+  const inner = swissCityFromLocationField(crawlerCity);
+  return Boolean(inner) && inner.toLowerCase() === b;
+}
 
 /* ── Pass 0: per-company modal canton ─────────────────────────
  * Empirical proxy for "this company's HQ/default canton" — the most
@@ -161,18 +203,36 @@ for (const job of jobsToAudit) {
 
   const cantonUpper = storedCanton.toUpperCase();
 
-  // Layer 3: the published canton contradicts the canton the crawler recorded.
-  // BFS-independent, so it fires for hamlets/resorts/"Remote" placeholders that
-  // layers 1-2 can only file under "unknown city". Runs before the empty-location
-  // `continue` so a job with no city text is still checked.
-  const crawlerCanton = crawlerCantonById.get(buildStableJobIdentity(job) || '');
-  if (crawlerCanton && cantonUpper && crawlerCanton !== cantonUpper) {
-    results.crawlerCantonOverridden.push({
+  // Layer 3: the assemble step rewrote the location the crawler recorded.
+  // BFS-independent, so it catches what layers 1-2 structurally cannot: a job
+  // moved onto a city that IS a real BFS municipality, which layer 1 therefore
+  // signs off as "correct". That is the whole #4838 class — a Roche posting in
+  // Jakarta republished as "Alle" (JU) reads as perfectly valid to layer 1.
+  //
+  // Runs before the empty-location `continue` so a job with no city text is
+  // still checked.
+  //
+  // Split matters. `canton` alone is a per-crawler constant (see
+  // loadCrawlerRecords), so comparing cantons flags ~775 jobs whose published
+  // canton is simply the correct one for a city the crawler agreed on. Only a
+  // changed LOCALITY means the pipeline invented a location, so that is what
+  // lands in the alarming bucket; a bare canton-stamp difference is recorded
+  // separately as context and never trips the "must never produce" verdict.
+  const crawlerRecord = crawlerRecordById.get(buildStableJobIdentity(job) || '');
+  if (crawlerRecord && cantonUpper) {
+    const crawlerCity = crawlerRecord.city;
+    const entry = {
       id, company, city: city || '(empty)',
       storedCanton: cantonUpper,
-      crawlerCanton,
+      crawlerCanton: crawlerRecord.canton || '(none)',
+      crawlerCity: crawlerCity || '(none)',
       inferredCanton: city ? inferAnyCanton(city) || '(none)' : '(none)',
-    });
+    };
+    if (crawlerCity && city && !sameRecordedPlace(crawlerCity, city)) {
+      results.crawlerLocationRewritten.push(entry);
+    } else if (crawlerRecord.canton && crawlerRecord.canton !== cantonUpper) {
+      results.crawlerCantonStampDiffers.push(entry);
+    }
   }
 
   // Empty location
@@ -276,7 +336,8 @@ console.log(`❓ Unknown city (custom): ${results.unknownCity.length}`);
 console.log(`📭 Empty location:        ${results.emptyLocation.length}`);
 console.log(`🔤 Lowercase canton:      ${results.lowercaseCanton.length}`);
 console.log(`🏢 Company-default fallback (suspected): ${results.companyDefaultFallback.length}`);
-console.log(`📌 Crawler canton overridden by dataset: ${results.crawlerCantonOverridden.length}${crawlerCantonById.size ? '' : ' (by-crawler slices unavailable — check skipped)'}`);
+console.log(`📌 Crawler locality rewritten by dataset: ${results.crawlerLocationRewritten.length}${crawlerRecordById.size ? '' : ' (by-crawler slices unavailable — check skipped)'}`);
+console.log(`ℹ️  Crawler canton stamp differs (same place, benign): ${results.crawlerCantonStampDiffers.length}`);
 if (enableGeocode) {
   console.log(`🌍 Geocode results:       ${results.geocodeResults.length}`);
 }
@@ -301,17 +362,30 @@ if (results.companyDefaultFallback.length > 0) {
   }
 }
 
-// Detail: Crawler canton overridden by the assembled dataset
-if (results.crawlerCantonOverridden.length > 0) {
+// Detail: locality rewritten by the assembled dataset
+if (results.crawlerLocationRewritten.length > 0) {
   console.log('\n' + '─'.repeat(70));
-  console.log('📌 PUBLISHED CANTON CONTRADICTS THE CRAWLER RECORD');
+  console.log('📌 PUBLISHED LOCALITY CONTRADICTS THE CRAWLER RECORD');
   console.log('─'.repeat(70));
   const byCompany = {};
-  for (const o of results.crawlerCantonOverridden) {
-    const key = `${o.company} — crawler=${o.crawlerCanton} → published=${o.storedCanton} (city="${o.city}", BFS=${o.inferredCanton})`;
+  for (const o of results.crawlerLocationRewritten) {
+    const key = `${o.company} — crawler="${o.crawlerCity}" (${o.crawlerCanton}) → published="${o.city}" (${o.storedCanton})`;
     byCompany[key] = (byCompany[key] || 0) + 1;
   }
   for (const [key, count] of Object.entries(byCompany).sort((a, b) => b[1] - a[1])) {
+    console.log(`  ${count.toString().padStart(4)} × ${key}`);
+  }
+
+  // The destination city is the actionable part: a handful of everyday words
+  // that are also municipality names account for most rewrites, and each one
+  // is fixed by a single entry in TEXT_RESCUE_AMBIGUOUS_TOKENS.
+  console.log('\n  Rewritten INTO (add repeat offenders to TEXT_RESCUE_AMBIGUOUS_TOKENS):');
+  const byTarget = {};
+  for (const o of results.crawlerLocationRewritten) {
+    const key = `${o.city} (${o.storedCanton})`;
+    byTarget[key] = (byTarget[key] || 0) + 1;
+  }
+  for (const [key, count] of Object.entries(byTarget).sort((a, b) => b[1] - a[1]).slice(0, 20)) {
     console.log(`  ${count.toString().padStart(4)} × ${key}`);
   }
 }
@@ -442,17 +516,19 @@ writeFileSync(reportPath, JSON.stringify({
     emptyLocation: results.emptyLocation.length,
     lowercaseCanton: results.lowercaseCanton.length,
     companyDefaultFallback: results.companyDefaultFallback.length,
-    crawlerCantonOverridden: results.crawlerCantonOverridden.length,
+    crawlerLocationRewritten: results.crawlerLocationRewritten.length,
+    crawlerCantonStampDiffers: results.crawlerCantonStampDiffers.length,
     geocodeResults: results.geocodeResults.length,
   },
-  crawlerRecordsIndexed: crawlerCantonById.size,
+  crawlerRecordsIndexed: crawlerRecordById.size,
   cantonMismatches: results.cantonMismatch,
   foreignInSwiss: results.foreignInSwiss,
   unknownCities: results.unknownCity,
   emptyLocations: results.emptyLocation,
   lowercaseCantons: results.lowercaseCanton,
   companyDefaultFallback: results.companyDefaultFallback,
-  crawlerCantonOverridden: results.crawlerCantonOverridden,
+  crawlerLocationRewritten: results.crawlerLocationRewritten,
+  crawlerCantonStampDiffers: results.crawlerCantonStampDiffers,
   geocodeResults: results.geocodeResults,
 }, null, 2));
 console.log(`\n📄 Detailed report saved to: data/location-audit-report.json\n`);

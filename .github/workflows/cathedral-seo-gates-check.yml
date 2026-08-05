@@ -42,10 +42,16 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    # Same monolith full SSG build as adsense-prereview.yml (~143 min, deploy run
-    # 27822078795). 90 min chronically cancelled this gate mid-build (3 of the
-    # last 5 runs were timeout-cancelled at 90 min). 180 min clears ~143 min with
-    # growth headroom — same sibling-class fix applied to both audit workflows.
+    # Monolith full SSG build (~143 min, deploy run 27822078795). 90 min
+    # chronically cancelled this gate mid-build (3 of the last 5 runs were
+    # timeout-cancelled at 90 min). 180 min clears ~143 min with growth headroom.
+    #
+    # adsense-prereview.yml used to share this exact build block; as of issue
+    # #4943 it no longer builds at all (it audits the live site over HTTP), so
+    # this workflow is now the ONLY caller of the shared composite build action.
+    # It still OOMs here for the same reason (host kill at RSS ~11.7 GB on a
+    # 16 GB runner) — this gate needs a real built dist to inspect emitted HTML,
+    # so it cannot simply reuse the live-HTTP approach. Tracked separately.
     timeout-minutes: 180
     # Skip draft PR runs + closed-PR re-runs. The workflow does not subscribe
     # to pull_request events; this `if` is belt-and-braces for any future
@@ -129,15 +135,18 @@ jobs:
         uses: ./.github/actions/seo-build-data-prep
 
       # issue #4586 sibling fix: was a single monolithic `npm run build:ci`
-      # building all 4 locales in ONE Node process — same OOM pattern
+      # building all 4 locales in ONE Node process — the OOM pattern first
       # diagnosed on adsense-prereview.yml (heapUsed 3.6GB → 11.7GB across
       # SSG phases, forced GC reclaims ~13MB of ~11.7GB = live retention from
       # the "company hub v2" surface growth, not a leak/missing heap flag).
-      # Both workflows shared this exact monolith-build block (see the
-      # "Same monolith full SSG build as adsense-prereview.yml" comment this
-      # replaces) so AGENTS.md's sibling-pattern rule applies: fixed as one
-      # class via the shared composite action, not just on the reporting
-      # workflow. Structural fix: build each locale SEPARATELY (BUILD_LOCALE,
+      # Both workflows shared this exact monolith-build block, so AGENTS.md's
+      # sibling-pattern rule applied: fixed as one class via the shared
+      # composite action, not just on the reporting workflow.
+      # NOTE (issue #4943): the per-locale split did NOT shed the memory — the
+      # composite action's own revert trigger fired. adsense-prereview.yml left
+      # this build path entirely; this workflow still needs a built dist, so it
+      # remains on it and remains affected. Structural fix as built: build each
+      # locale SEPARATELY (BUILD_LOCALE,
       # same mechanism deploy.yml's build-locale matrix already uses in
       # production) and merge into one dist/ tree — same code path, ~1/4 peak
       # heap per process, zero change to build-plugins/**. See the composite

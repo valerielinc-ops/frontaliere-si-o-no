@@ -49,7 +49,7 @@ import { assembleUrlKey } from './lib/job-url-key.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator } from './lib/dedicated-crawler-common.mjs';
-import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
 import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
@@ -2056,11 +2056,12 @@ async function assembleJobs() {
     // (3) Canton-only labels need a Swiss anchor.
     if (isCantonOnlyLabel(primaryLoc)) {
       if (isSwissPostalCode(job.postalCode)) return true;
-      // Look for a Swiss city of ≥4 chars in description (avoids false
-      // positives like "Sales" — a real FR commune — matching "Sales
-      // Assistant" in English titles).
-      const found = findSwissCityInText(haystack);
-      if (found && found.length >= 4) return true;
+      // Look for a real Swiss city in the description. rescueSwissCityFromText
+      // is the single source of truth for description scanning: it applies both
+      // the ≥4-char rule and the everyday-word blocklist. Calling the raw
+      // findSwissCityInText here used to bypass the blocklist, which is exactly
+      // how "alle"/"rolle" descriptions anchored non-Swiss postings.
+      if (rescueSwissCityFromText(haystack)) return true;
       droppedCantonOnlyNoCity++;
       return false;
     }
@@ -2073,9 +2074,21 @@ async function assembleJobs() {
       // Sanitize: never ship the garbage primaryLoc verbatim — it would
       // leak into the JobPosting schema, sitemap slug, and search/filter
       // UI (e.g. Hirslanden Arbeitsort leak: "Bern - Futsal Minerva…
-      // Besetzung per: 1"). Replace with the real city found in the
-      // description body when one is findable there.
-      const rescuedCity = rescueSwissCityFromText(haystack);
+      // Besetzung per: 1").
+      //
+      // Order matters. Prefer a city recovered from primaryLoc ITSELF: the
+      // field usually still contains the true city with a suffix that stopped
+      // isKnownSwissCity from matching the whole string ("Geneva, Switzerland",
+      // "Baden, Aargau", "Luzern / hybrid", "2540 Grenchen Phone"). The
+      // description is a much weaker signal and is only consulted when the
+      // locality yields nothing — reaching for it first is what published
+      // Geneva postings as Root (LU) and Baden postings as Alle (JU).
+      //
+      // No blocklist on primaryLoc: an explicit locality field naming "Rolle"
+      // or "Fully" is a location the author typed on purpose. The blocklist
+      // exists for free-text description scanning only.
+      const rescuedCity = swissCityFromLocationField(primaryLoc)
+        || rescueSwissCityFromText(haystack);
       if (rescuedCity) {
         job.addressLocality = rescuedCity;
         job.location = rescuedCity;

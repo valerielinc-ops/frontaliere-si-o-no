@@ -1876,6 +1876,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.title': 'Glencore steigert Gewinn und Umsatz im Halbjahr',
     'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.excerpt': 'Das Handels- und Miningunternehmen verzeichnete im ersten Halbjahr 2026 einen starken Gewinn- und Ertragszuwachs',
     'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.imageAlt': 'Bild eines Finanzzentrums von Zürich mit einem großen Bildschirm, der die Glencore-Daten zeigt',
+    'blog.article.raffreddare-le-citta-svizzere-il-lavoro-e-appena-iniziato.title': 'Schweizer Städte kühlen? „Die Arbeit hat gerade erst begonnen“',
+    'blog.article.raffreddare-le-citta-svizzere-il-lavoro-e-appena-iniziato.excerpt': 'Die Schweiz versucht sich an die Hitzewellen anzupassen, aber der Weg ist noch lang.',
+    'blog.article.raffreddare-le-citta-svizzere-il-lavoro-e-appena-iniziato.imageAlt': 'Eine Schweizer Stadt während einer Hitzewelle.',
 };
 
 export default blogMetaChDe;

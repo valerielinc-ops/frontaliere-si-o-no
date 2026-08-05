@@ -56,12 +56,61 @@ jobs:
     # review, dispatch) girano sempre.
     if: ${{ github.event_name != 'pull_request' || github.event.pull_request.merged == true }}
     runs-on: ubuntu-latest
+    # NON alzare questo cap: i timeout #5145/#5144 erano il Checkout, non il
+    # lavoro (vedi lo step sotto). Alzarlo avrebbe solo pagato più minuti Actions
+    # per lo stesso fetch. Deve restare uguale a JOB_TIMEOUT_MINUTES qui sotto —
+    # `timeout-minutes` non accetta il context `env`, quindi il valore è ripetuto:
+    # se cambi uno cambia l'altro.
     timeout-minutes: 15
+    env:
+      JOB_TIMEOUT_MINUTES: 15
     steps:
+      # Deadline assoluta del job, esportata PRIMA di qualunque lavoro: è il
+      # riferimento che mancava allo script. Il cap `timeout-minutes` copre
+      # setup+lavoro insieme, ma il setup (Checkout) è la voce dominante e
+      # variabile, quindi lo script non poteva sapere quanto tempo gli restasse.
+      # Con la deadline lo sa e si ferma pulito invece di essere ucciso a metà di
+      # una PR (vedi scripts/ci/lib/run-budget.mjs).
+      - name: Export job deadline
+        run: echo "CI_JOB_DEADLINE_EPOCH=$(( $(date +%s) + ${{ env.JOB_TIMEOUT_MINUTES }} * 60 ))" >> "$GITHUB_ENV"
+
+      # Checkout: era la CAUSA REALE dei timeout #5145/#5144, non il lavoro.
+      # Misurato sui run reali di questo job (cap 15min): Checkout 10m21s
+      # (31025827970), 13m06s (31029804861), 13m42s (31033258098), 14m00s
+      # (31044227098) — l'87-93% del budget — con la fase di rebase a 19-114s.
+      # #5145 (14m58s) e #5144 (14m59s) sono lo stesso Checkout che sfora di un
+      # minuto: il job muore prima che pr-autorebase.mjs parta. Non è la coda di
+      # PR ad essere cresciuta (era 0 aperte alla diagnosi): è la STORIA del repo
+      # — 10,5 GB, ~8.900 commit su main in 7 giorni — e `fetch-depth: 0` ne paga
+      # il costo intero a ogni run, quindi peggiora da solo ogni giorno.
+      #
+      # Config presa da pr-body-contract.yml, l'unico altro job che ha bisogno
+      # della storia completa e dove è GIÀ MISURATA: `filter: blob:none` porta il
+      # suo Checkout da ~200s a 77s. La combinazione conta: il partial clone paga
+      # solo con `fetch-depth: 0` (salta i blob di TUTTA la storia, che qui sono
+      # quasi interamente immagini); su un fetch bulk `depth: 1` è invece un
+      # peggioramento netto (+125% misurato su tests.yml, vedi la nota in
+      # pr-review-loop.yml) — per questo il drainer NON lo usa.
+      # Lo sparse-checkout evita di materializzare 1,15 GB di immagini che questo
+      # job non legge mai: fa solo `git merge origin/main` e push. I path esclusi
+      # restano nell'indice (skip-worktree) → i commit li preservano, il merge
+      # resta corretto, e se un conflitto tocca uno di quei file git lo
+      # materializza da sé.
       - name: Checkout (full history)
         uses: actions/checkout@v5
         with:
           fetch-depth: 0 # serve l'intera storia per merge origin/main nei branch
+          filter: blob:none
+          sparse-checkout: |
+            /*
+            !/public/images/events
+            !/public/images/blog
+          sparse-checkout-cone-mode: false
+        # Tetto esplicito sul setup: se il Checkout degenera comunque, il job
+        # fallisce QUI in modo diagnosticabile invece di consumare in silenzio
+        # tutto il budget e morire `cancelled` nel mezzo del lavoro. Stesso
+        # valore e stessa ragione di pr-review-loop.yml / pr-body-contract.yml.
+        timeout-minutes: 8
 
       - name: Setup Node.js
         uses: actions/setup-node@v5

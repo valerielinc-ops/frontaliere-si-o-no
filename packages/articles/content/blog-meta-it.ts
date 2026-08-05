@@ -9284,6 +9284,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.caso-delmastro-protesta-avs.title': 'Caso Delmastro, la protesta di Avs alla Camera con le bende sugli occhi',
     'blog.article.caso-delmastro-protesta-avs.excerpt': 'I deputati di Alleanza Verdi e Sinistra si sono bendati gli occhi in aula per protestare contro il non accesso alle chat tra Andrea Delmastro e Mauro Carroccia.',
     'blog.article.caso-delmastro-protesta-avs.imageAlt': 'Protesta alla Camera',
+    'blog.article.mendrisio-strada-serpiano-urgenti-lavori.title': 'Vanno fatti lavori urgenti alla strada che porta a Serpiano',
+    'blog.article.mendrisio-strada-serpiano-urgenti-lavori.excerpt': 'Il Municipio di Mendrisio ha richiesto un credito di 1,2 milioni di franchi per la messa in sicurezza dei cigli stradali e dei tre ponti.',
+    'blog.article.mendrisio-strada-serpiano-urgenti-lavori.imageAlt': 'Lavori in corso sulla strada a Serpiano',
 };
 
 export default blogMetaIt;

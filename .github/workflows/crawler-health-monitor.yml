@@ -44,6 +44,14 @@ jobs:
           # Use the default GITHUB_TOKEN; the `contents: write` permission above
           # is enough to push back to `main` from this workflow.
           persist-credentials: true
+        # Tetto Checkout (classe #5145/#5144/#5162): senza, un fetch degenere
+        # consuma l'intero budget e il job muore `cancelled` — stato invisibile
+        # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
+        # posteriori. Col tetto e' un `failure` diagnosticabile.
+        # Ha gia' blob:none (#4380) e i numeri lo confermano: Checkout 96-239s su
+        # 10 run, max = 40% di un cap da 10min. Nessun altro cambio, solo il
+        # tetto.
+        timeout-minutes: 7
 
       - name: Setup Node
         uses: actions/setup-node@v5
