@@ -8,8 +8,11 @@
 # to data/pending-releases.json so the WhatsNewModal can be updated
 # periodically (manually or via the pre-push reminder).
 #
-# Non-user-facing commits (chore:, refactor:, ci:, docs:, test:, style:,
-# build:, Auto-generated, Auto-update) are silently skipped.
+# Non-user-facing commits are silently skipped: automated content pushes, the
+# non-product conventional types (chore/refactor/ci/docs/test/style/build/perf),
+# and — since #5169 follow-up — any feat/fix whose SCOPE is development
+# machinery (ci, deploy, workflows, gates, deps, …). See
+# scripts/lib/whats-new-classify.mjs, which owns those rules and is unit-tested.
 
 PENDING_FILE="data/pending-releases.json"
 
@@ -19,46 +22,25 @@ COMMIT_HASH=$(git log -1 --pretty=format:'%h')
 COMMIT_DATE=$(git log -1 --date=format:'%Y-%m-%d' --pretty=format:'%ad')
 COMMIT_AUTHOR=$(git log -1 --pretty=format:'%an')
 
-# ── Skip non-user-facing commits ──
-# Auto-generated commits (blog articles, crawler updates, etc.)
-case "$COMMIT_MSG" in
-  "📰 Auto-generated"*|"💼 Auto-update"*|"🤖 Auto-"*|"⛽ "*|"🔗 "*|"🌐 "*|"Merge "*|"merge "*) exit 0 ;;
-esac
+# ── Classify the commit ──
+# Single source: scripts/lib/whats-new-classify.mjs. The rules used to live here
+# as `case` statements that filtered on the conventional-commit TYPE only, so a
+# `fix(ci)` / `fix(seo-gates)` — pure build machinery — was queued for a modal
+# that site visitors read. Scope is the missing signal, and the shell is the
+# wrong place to keep a list that needs a test. The helper always exits 0 and
+# always prints JSON; if it cannot run at all we skip, because the safe default
+# for "should this reach users?" is no.
+CLASSIFY=$(node scripts/lib/whats-new-classify.mjs "$COMMIT_MSG" 2>/dev/null) || exit 0
+[ -z "$CLASSIFY" ] && exit 0
 
-# Non-user-facing conventional commit types
-case "$COMMIT_MSG" in
-  chore*|chore\(*|refactor*|refactor\(*|ci*|ci\(*|docs*|docs\(*|test*|test\(*|style*|style\(*|build*|build\(*|perf*|perf\(*)
-    exit 0
-    ;;
-esac
+USER_FACING=$(printf '%s' "$CLASSIFY" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{process.stdout.write(String(JSON.parse(s).userFacing))}catch{process.stdout.write('false')}})")
+[ "$USER_FACING" = "true" ] || exit 0
 
-# ── Determine commit type → release item type ──
-RELEASE_TYPE=""
-case "$COMMIT_MSG" in
-  feat*|feat\(*)    RELEASE_TYPE="feature" ;;
-  fix*|fix\(*)      RELEASE_TYPE="fix" ;;
-  improve*|improv*) RELEASE_TYPE="improvement" ;;
-  *)
-    # Not a conventional commit or not clearly user-facing → skip
-    exit 0
-    ;;
-esac
+RELEASE_TYPE=$(printf '%s' "$CLASSIFY" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{process.stdout.write(JSON.parse(s).type||'')}catch{process.stdout.write('')}})")
+SCOPE=$(printf '%s' "$CLASSIFY" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{process.stdout.write(JSON.parse(s).scope||'')}catch{process.stdout.write('')}})")
+DESC=$(printf '%s' "$CLASSIFY" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{process.stdout.write(JSON.parse(s).description||'')}catch{process.stdout.write('')}})")
 
-# ── Extract scope and description ──
-# Convention: "feat(scope): description" or "feat: description"
-SCOPE=""
-DESC="$COMMIT_MSG"
-# Try to extract scope: feat(scope): ...
-SCOPE_MATCH=$(echo "$COMMIT_MSG" | sed -n 's/^[a-z]*(\([^)]*\)): \(.*\)/\1/p')
-if [ -n "$SCOPE_MATCH" ]; then
-  SCOPE="$SCOPE_MATCH"
-  DESC=$(echo "$COMMIT_MSG" | sed -n 's/^[a-z]*([^)]*): \(.*\)/\1/p')
-else
-  # Try: feat: description
-  DESC=$(echo "$COMMIT_MSG" | sed -n 's/^[a-z]*: \(.*\)/\1/p')
-fi
-
-# If DESC is empty, use full message
+[ -z "$RELEASE_TYPE" ] && exit 0
 [ -z "$DESC" ] && DESC="$COMMIT_MSG"
 
 # ── Create or append to pending-releases.json ──
