@@ -794,9 +794,6 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const relatedArticlesLabel: Record<string, string> = {
  it: 'Articoli correlati', en: 'Related articles', de: 'Verwandte Artikel', fr: 'Articles connexes',
  };
- // Sort entries by date (most recent first). Still needed by the topical
- // index as its final tie-break and its vocabulary-isolate fallback.
- const entriesByDate = [...entries].sort((a, b) => (b.datePub || '').localeCompare(a.datePub || ''));
  // Topic-ranked related articles with an inbound-link floor
  // (packages/articles/engine/relatedArticlesIndex.ts).
  //
@@ -841,8 +838,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
 
  for (const en of entries) {
  // Single-article / batch fast path (#4837 stream A, batched #4881 Fase 4):
- // the entries parse above MUST stay full/unfiltered (title-collision map +
- // entriesByDate related-articles pool both need every other article's
+ // the entries parse above MUST stay full/unfiltered (the title-collision map
+ // and the corpus-wide related-articles index both need every other article's
  // metadata to render THIS one correctly) — this is the only place that
  // narrows down to the requested id set.
  if (onlyArticleIdSet && !onlyArticleIdSet.has(en.articleId)) continue;

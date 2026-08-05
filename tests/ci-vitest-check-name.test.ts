@@ -103,3 +103,70 @@ describe('vitest single-job contract (#2882 de-sharding)', () => {
     expect(VITEST_SHARD_NAME_RE.test(VITEST_CHECK_NAME)).toBe(false);
   });
 });
+
+/**
+ * Il verdetto su main deve poter ARRIVARE IN FONDO.
+ *
+ * `github.ref` di un push su main è sempre `refs/heads/main`, quindi TUTTI i
+ * push su main cadono nello stesso concurrency group. Con
+ * `cancel-in-progress: true` ogni merge uccideva il run del merge precedente:
+ * la suite dura ~9 min, auto-merge mergia ogni 2-5 min durante uno smaltimento
+ * di backlog → 14 run cancellati su 30 (47%) e nessun verdetto proprio nelle
+ * finestre in cui una regressione è più probabile.
+ *
+ * AGENTS.md fa dipendere una regola operativa esplicita da questo segnale
+ * («main rosso blocca a cascata, priorità assoluta main verde»): senza verdetto
+ * la regola non è applicabile e una regressione su main resta invisibile finché
+ * non la eredita per caso una PR.
+ *
+ * Il contratto fissato qui: newest-wins SOLO dove cancellare non distrugge
+ * informazione (PR: l'head vecchio è irrilevante), mai sul push a main.
+ * Questo test fallisce se qualcuno rimette `cancel-in-progress: true` secco.
+ */
+describe('main health-signal contract (verdetto non cancellabile)', () => {
+  const concurrencyBlock = (() => {
+    // Blocco `concurrency:` top-level (non indentato) fino alla prossima chiave
+    // top-level. Evita di matchare un eventuale `concurrency:` di job.
+    const m = TESTS_YML.match(/^concurrency:\s*\n((?:[ \t]+.*\n?)*)/m);
+    return m ? m[1] : '';
+  })();
+
+  it('il blocco concurrency top-level esiste ed è parsabile', () => {
+    expect(concurrencyBlock, 'blocco `concurrency:` top-level non trovato in tests.yml').not.toBe('');
+    expect(concurrencyBlock).toMatch(/cancel-in-progress:/);
+  });
+
+  it('cancel-in-progress NON è true incondizionato (ucciderebbe il verdetto su main)', () => {
+    const m = concurrencyBlock.match(/cancel-in-progress:\s*(.+?)\s*$/m);
+    expect(m, '`cancel-in-progress:` non trovato').toBeTruthy();
+    const value = (m![1] || '').replace(/^['"]|['"]$/g, '');
+    expect(
+      value === 'true',
+      'cancel-in-progress: true incondizionato → ogni merge su main cancella il run del merge ' +
+        'precedente e main non produce mai un verdetto. Condizionalo sull\'evento ' +
+        '(es. `${{ github.event_name != \'push\' }}`).',
+    ).toBe(false);
+  });
+
+  it('la condizione esclude il push (main) dalla cancellazione', () => {
+    const m = concurrencyBlock.match(/cancel-in-progress:\s*(.+?)\s*$/m);
+    const value = (m![1] || '').replace(/^['"]|['"]$/g, '');
+    // Deve essere un'espressione che nomina l'evento, non un literal.
+    expect(
+      /\$\{\{.*github\.event_name.*\}\}/.test(value),
+      `cancel-in-progress deve dipendere da github.event_name, trovato: ${value}`,
+    ).toBe(true);
+    // E deve escludere il push: `!= 'push'` (o equivalente esplicito su pull_request).
+    expect(
+      /github\.event_name\s*!=\s*'push'/.test(value) ||
+        /github\.event_name\s*==\s*'pull_request'/.test(value),
+      `la condizione deve escludere il push su main dalla cancellazione, trovato: ${value}`,
+    ).toBe(true);
+  });
+
+  it('tests.yml gira ancora sul push a main (il segnale esiste)', () => {
+    // Se qualcuno togliesse il trigger push il test sopra passerebbe a vuoto.
+    const onBlock = TESTS_YML.match(/^on:\s*\n((?:[ \t]+.*\n?|\s*#.*\n)*)/m)?.[1] ?? '';
+    expect(/push:\s*\n\s*branches:\s*\[?\s*main/.test(onBlock), 'trigger `push: branches: [main]` mancante').toBe(true);
+  });
+});
