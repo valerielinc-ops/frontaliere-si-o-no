@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-08-04T22:20:05.129Z",
+  "assembledAt": "2026-08-05T11:36:58.066Z",
   "jobs": [
     {
       "id": "sfs-group-d28e368a8b5c",
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/techniker-in-wärmebehandlung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:20:02.224Z",
+      "crawledAt": "2026-08-05T11:36:54.782Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -114,7 +114,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/teamleiter-in-qm-reklamationsmanagement-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:20:02.064Z",
+      "crawledAt": "2026-08-05T11:36:54.630Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -153,6 +153,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:33.392Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -197,7 +198,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/spécialiste-vente-interne-pour-(epi)-en-équipement-d'atelier-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-04T22:20:01.905Z",
+      "crawledAt": "2026-08-05T11:36:54.478Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "postalCode": "1000",
@@ -277,7 +278,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/senior-software-engineer-–-smart-factory-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:20:01.750Z",
+      "crawledAt": "2026-08-05T11:36:54.308Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -298,6 +299,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T12:18:33.038Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -342,7 +344,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/senior-qualitätsmanager-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:20:01.593Z",
+      "crawledAt": "2026-08-05T11:36:54.153Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -379,6 +381,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:15:23.617Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -423,7 +426,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/sap-modulbetreuung-pp-qm-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:20:01.436Z",
+      "crawledAt": "2026-08-05T11:36:54.001Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -460,6 +463,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:32.860Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -504,7 +508,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/sap-modulbetreuer-fi-co-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:20:01.275Z",
+      "crawledAt": "2026-08-05T11:36:53.846Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -541,6 +545,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:32.686Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -585,7 +590,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/project-manager-engineering-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:20:01.117Z",
+      "crawledAt": "2026-08-05T11:36:53.693Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -606,6 +611,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-31T11:54:37.544Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -650,7 +656,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/produktentwickler-in-—-aerospace-blind-fastener-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:20:00.960Z",
+      "crawledAt": "2026-08-05T11:36:53.541Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -728,7 +734,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-schleifen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:20:00.803Z",
+      "crawledAt": "2026-08-05T11:36:53.381Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -765,6 +771,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:32.163Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -809,7 +816,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:20:00.639Z",
+      "crawledAt": "2026-08-05T11:36:53.224Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -890,7 +897,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:20:00.480Z",
+      "crawledAt": "2026-08-05T11:36:53.072Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -926,6 +933,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:31.814Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -970,7 +978,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/group-finance-specialist-sap-fi-key-user-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-04T22:20:00.321Z",
+      "crawledAt": "2026-08-05T11:36:52.921Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1048,7 +1056,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:20:00.154Z",
+      "crawledAt": "2026-08-05T11:36:52.757Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1129,7 +1137,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:19:59.996Z",
+      "crawledAt": "2026-08-05T11:36:52.605Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1170,6 +1178,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:31.117Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1214,7 +1223,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anwendungstechniker-in-rainscreen-vhf-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:19:59.825Z",
+      "crawledAt": "2026-08-05T11:36:52.429Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1295,7 +1304,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anwendungstechniker-in-hauraton-entwässerungssysteme-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-04T22:19:59.641Z",
+      "crawledAt": "2026-08-05T11:36:52.233Z",
       "addressLocality": "Buchs ZH",
       "addressRegion": "ZH",
       "postalCode": "9435",
@@ -1343,88 +1352,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "sfs-group-61b77253ff38",
-      "slug": "operatore-impianti-trattamento-termico-m-f-d-sfs-group-heerbrugg",
-      "slugByLocale": {
-        "it": "operatore-impianti-trattamento-termico-m-f-d-sfs-group-heerbrugg",
-        "en": "plant-operator-heat-treatment-m-f-d-sfs-group-heerbrugg",
-        "de": "anlagenbediener-in-warmebehandlung-m-f-d-sfs-group-heerbrugg",
-        "fr": "operateur-traitement-thermique-m-f-d-sfs-group-heerbrugg"
-      },
-      "company": "SFS Group",
-      "companyKey": "sfs-group",
-      "companyDomain": "sfs.com",
-      "title": "Anlagenbediener/in Wärmebehandlung (m/f/d)",
-      "titleByLocale": {
-        "it": "Operatore impianti/trattamento termico (m/f/d)",
-        "en": "Plant operator/heat treatment (m/f/d)",
-        "de": "Anlagenbediener/in Wärmebehandlung (m/f/d)",
-        "fr": "Opérateur/traitement thermique (m/f/d)"
-      },
-      "description": "Steigende Produktbeanspruchungen und höhere Qualitätsansprüche, insbesondere im Bereich Automotive, erfordern eine Nachbearbeitung der kaltmassivumgeformten Produkte durch Wärmebehandlung. Your Tasks:\n• Einstellen, überwachen und bedienen von Wärmebehandlungsanlagen\n• Termingerechte Bearbeitung der Aufträge\n• Sicherstellung der Qualität und Einhaltung der Prüfvorschriften\n• Durchführung des vorsorglichen Maschinenunterhalts\n• Überprüfung und Verbesserung von Prozessen Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Freude an aktiver Mitarbeit im Fertigungsprozess\n• Positive Einstellung zum flexiblen Zwei- bis Dreischichtbetrieb\n• Motivierte, belastbare und zuverlässige Persönlichkeit\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
-      "descriptionByLocale": {
-        "it": "Aumentare le sollecitazioni del prodotto e le richieste di qualità più elevate, soprattutto nel settore automobilistico, richiedono il post-elaborazione dei prodotti a freddo mediante il trattamento termico. I vostri compiti:\n• Regolazione, monitoraggio e funzionamento delle apparecchiature di trattamento termico\n• Trattamento tempestivo degli ordini\n• Garantire qualità e conformità ai requisiti di prova\n• Manutenzione di macchinari precauzionali\n• Revisione e miglioramento dei processi Il tuo profilo:\n• Formazione meccanica di base completa\n• Partecipare attivamente al processo produttivo\n• Attitudine positiva verso un'operazione flessibile a due o tre turni\n• personalità motivata, resiliente e affidabile\n• Competenze tedesche in parola e scrittura Offriamo:\n• Occupazione in azienda innovativa e orientata al futuro\n• Attività varie\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo\n• Ristorante personale con prezzi interessanti\n• Numerose offerte sportive & eventi dei dipendenti",
-        "en": "Increasing product stresses and higher quality demands, especially in the automotive sector, require post-processing of the cold-formed products by heat treatment. Your Tasks:\n• Adjustment, monitoring and operation of heat treatment equipment\n• Timely processing of orders\n• Ensuring quality and compliance with test requirements\n• Precautionary machinery maintenance\n• Reviewing and improving processes Your profile:\n• Completed basic mechanical formation\n• Enjoying active participation in the manufacturing process\n• Positive attitude towards flexible two- to three-shift operation\n• Motivated, resilient and reliable personality\n• German skills in word and writing We offer:\n• Employment in future-oriented & innovative company\n• Varied tasks\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success\n• Staff restaurant with attractive prices\n• Numerous sports offers & employee events",
-        "de": "Steigende Produktbeanspruchungen und höhere Qualitätsansprüche, insbesondere im Bereich Automotive, erfordern eine Nachbearbeitung der kaltmassivumgeformten Produkte durch Wärmebehandlung. Your Tasks:\n• Einstellen, überwachen und bedienen von Wärmebehandlungsanlagen\n• Termingerechte Bearbeitung der Aufträge\n• Sicherstellung der Qualität und Einhaltung der Prüfvorschriften\n• Durchführung des vorsorglichen Maschinenunterhalts\n• Überprüfung und Verbesserung von Prozessen Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Freude an aktiver Mitarbeit im Fertigungsprozess\n• Positive Einstellung zum flexiblen Zwei- bis Dreischichtbetrieb\n• Motivierte, belastbare und zuverlässige Persönlichkeit\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
-        "fr": "L'augmentation du stress des produits et l'augmentation de la qualité des exigences, en particulier dans le secteur de l'automobile, exigent le post-traitement des produits formés à froid par traitement thermique. Vos tâches :\n• Réglage, surveillance et fonctionnement des équipements de traitement thermique\n• Traitement en temps voulu des commandes\n• Assurer la qualité et le respect des exigences d'essai\n• Entretien des machines de précaution\n• Examen et amélioration des processus Votre profil :\n• Formation mécanique de base achevée\n• Profitez d'une participation active au processus de fabrication\n• Attitude positive à l'égard d'un fonctionnement flexible en deux ou trois équipes\n• Personnalité motivée, résistante et fiable\n• Compétences en allemand en paroles et en écriture Nous offrons :\n• L'emploi dans une entreprise tournée vers l'avenir et innovante\n• Tâches variées\n• Six semaines de vacances et un achat de vacances supplémentaire possible\n• Participation annuelle au succès\n• Restaurant du personnel à prix attractifs\n• Nombreuses offres sportives et événements pour les employés"
-      },
-      "location": "Heerbrugg",
-      "canton": "SG",
-      "url": "https://join.sfs.com/ch/en/vacancies/anlagenbediener-in-wärmebehandlung-(m-f-d).html",
-      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-03T22:30:23.428Z",
-      "addressLocality": "Heerbrugg",
-      "addressRegion": "SG",
-      "streetAddress": "Rosenbergsaustrasse 8",
-      "postalCode": "9435",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Meccanica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-09",
-      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2929/Application/CheckLogin/1?lang=eng",
-      "jobReqId": "2929",
-      "legalEntity": "SFS Group Schweiz AG",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "anlagenbediener-in-warmebehandlung-m-f-d-sfs-group-heerbrugg",
-        "operatore-impianti-trattamento-termico-m-f-d-sfs-group-heerbrugg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "anlagenbediener-in-warmebehandlung-m-f-d-sfs-group-heerbrugg",
-          "operatore-impianti-trattamento-termico-m-f-d-sfs-group-heerbrugg"
-        ],
-        "en": [
-          "anlagenbediener-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
-        ],
-        "fr": [
-          "anlagenbediener-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
-        ]
-      },
-      "firstSeenAt": "2026-07-09T12:26:54.914Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
