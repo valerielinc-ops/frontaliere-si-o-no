@@ -844,11 +844,13 @@ jobs:
           : > /tmp/post-build-timings.txt
           : > /tmp/post-build-failures.txt
 
-          wait_slot() {
-            while (( $(jobs -rp | wc -l) >= MAX_PARALLEL )); do
-              wait -n 2>/dev/null || true
-            done
-          }
+          # The sliding-window primitive lives in ONE place since #5130
+          # (scripts/lib/bounded-parallel.sh) — this step is where the idiom
+          # was first proven, and deploy.yml's section fan-outs now use the
+          # same implementation. Keeping a verbatim second copy here is
+          # exactly the duplication AGENTS.md #6 forbids.
+          source scripts/lib/bounded-parallel.sh
+          wait_slot() { bp_wait_slot "$MAX_PARALLEL"; }
 
           # IMPORTANT: `set +e` inside the subshell. The GH Actions default
           # shell is `bash -eo pipefail`, which propagates errexit into the
