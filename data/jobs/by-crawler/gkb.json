@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gkb",
-  "assembledAt": "2026-08-05T11:35:29.447Z",
+  "assembledAt": "2026-08-05T22:22:34.814Z",
   "jobs": [
     {
       "id": "gkb-d829938f33ae",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1930/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:35:25.983Z",
+      "crawledAt": "2026-08-05T22:22:31.092Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1948/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:35:25.120Z",
+      "crawledAt": "2026-08-05T22:22:30.197Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -162,6 +162,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:24:58.407Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -181,9 +182,9 @@
       "slug": "responsabile-del-reparto-casa-di-cura-seora-laufenburg-uomo-donna-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "de": "abteilungsleitung-pflegeheim-seora-laufenburg-w-m-d-gesundheitszentrum-fricktal",
+        "it": "responsabile-del-reparto-casa-di-cura-seora-laufenburg-uomo-donna-gesundheitszentrum-fricktal-rheinfelden",
         "en": "head-of-department-care-home-seora-laufenburg-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "responsable-de-service-maison-de-retraite-seora-laufenburg-h-f-gesundheitszentrum-fricktal-rheinfelden",
-        "it": "responsabile-del-reparto-casa-di-cura-seora-laufenburg-uomo-donna-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "responsable-de-service-maison-de-retraite-seora-laufenburg-h-f-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -207,7 +208,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1945/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:35:24.259Z",
+      "crawledAt": "2026-08-05T22:22:29.329Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -288,7 +289,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1946/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:35:23.392Z",
+      "crawledAt": "2026-08-05T22:22:28.458Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -322,6 +323,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:31:04.014Z",
+      "needsRetranslation": true,
       "salaryMin": 87500,
       "salaryMax": 154500,
       "baseSalary": {
@@ -367,7 +369,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1949/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:35:22.530Z",
+      "crawledAt": "2026-08-05T22:22:27.595Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -401,6 +403,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:12:16.682Z",
+      "needsRetranslation": true,
       "salaryMin": 48500,
       "salaryMax": 85500,
       "baseSalary": {
@@ -446,7 +449,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1950/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:35:21.662Z",
+      "crawledAt": "2026-08-05T22:22:26.711Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -532,7 +535,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1952/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:35:20.794Z",
+      "crawledAt": "2026-08-05T22:22:25.826Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -600,7 +603,7 @@
       "title": "Studentenstelle Marketing (60%)",
       "titleByLocale": {
         "it": "Posizione degli studenti di marketing (60%)",
-        "en": "Marketing student position (60%)",
+        "en": "Studentenstelle Marketing (60%)",
         "de": "Studentenstelle Marketing (60%)",
         "fr": "Position étudiante en marketing (60%)"
       },
@@ -616,7 +619,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1954/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:35:19.929Z",
+      "crawledAt": "2026-08-05T22:22:24.964Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -655,6 +658,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:05:06.647Z",
+      "needsRetranslation": true,
       "salaryMin": 35100,
       "salaryMax": 62100,
       "baseSalary": {
@@ -700,7 +704,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:35:19.072Z",
+      "crawledAt": "2026-08-05T22:22:24.080Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -784,7 +788,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:35:18.209Z",
+      "crawledAt": "2026-08-05T22:22:23.199Z",
       "addressLocality": "Lenzerheide",
       "postalCode": "7000",
       "addressCountry": "CH",
