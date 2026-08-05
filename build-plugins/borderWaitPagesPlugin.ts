@@ -37,6 +37,7 @@
 import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
+import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
 import {
   BASE_URL,
   MIN_INDEXABLE_WORDS,
@@ -1974,7 +1975,8 @@ function renderLeafPage(inp: LeafInputs): string {
     if (dashIdx > 0 && dashIdx <= TITLE_H1_MAX) return h1.slice(0, dashIdx);
     const sliced = h1.slice(0, TITLE_H1_MAX);
     const lastSpace = sliced.lastIndexOf(' ');
-    return (lastSpace > 0 ? sliced.slice(0, lastSpace) : sliced).replace(/[\s—–-]+$/, '');
+    // Shared peel — a word-boundary cut still stops mid-clause.
+    return peelDanglingClauseTail(lastSpace > 0 ? sliced.slice(0, lastSpace) : sliced);
   })();
   // TITLE_H1_MAX (55) + brand suffix (22) can exceed the 66-char cap on its
   // own — route through buildTitleWithBrand so the brand drops rather than

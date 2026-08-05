@@ -41,6 +41,7 @@
 import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
+import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
 import {
   BASE_URL,
   MIN_INDEXABLE_WORDS,
@@ -1160,7 +1161,8 @@ function truncateAtWordBoundary(input: string, maxLength: number): string {
   const lastSpace = slice.lastIndexOf(' ');
   // Use the last space if it's not absurdly early; otherwise fall back to a hard cut.
   const cutAt = lastSpace > Math.floor(hardLimit * 0.6) ? lastSpace : hardLimit;
-  const trimmed = slice.slice(0, cutAt).replace(/[\s.,;:!?\-–—]+$/u, '');
+  // Shared peel — a word-boundary cut still stops mid-clause.
+  const trimmed = peelDanglingClauseTail(slice.slice(0, cutAt));
   return `${trimmed}…`;
 }
 

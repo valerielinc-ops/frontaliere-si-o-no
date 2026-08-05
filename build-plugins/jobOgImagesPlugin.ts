@@ -27,6 +27,7 @@ import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, unlinkS
 import { cpus } from 'os';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
 import { Worker } from 'worker_threads';
 import type { Plugin } from 'vite';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
@@ -209,7 +210,8 @@ function truncateText(s: string, maxChars: number): string {
   // Cut at word boundary
   const slice = s.slice(0, maxChars);
   const lastSpace = slice.lastIndexOf(' ');
-  return (lastSpace > maxChars * 0.6 ? slice.slice(0, lastSpace) : slice).trim() + '…';
+  // Shared peel — a word-boundary cut still stops mid-clause.
+  return peelDanglingClauseTail((lastSpace > maxChars * 0.6 ? slice.slice(0, lastSpace) : slice).trim()) + '…';
 }
 
 interface CardModel {

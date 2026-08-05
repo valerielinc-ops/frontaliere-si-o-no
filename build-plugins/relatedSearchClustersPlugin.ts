@@ -43,6 +43,7 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
+import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
 import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
 
@@ -1359,7 +1360,8 @@ function capForTitle(headline: string, max: number): string {
   if (safe.length <= max) return safe;
   const sliced = safe.slice(0, max);
   const lastSpace = sliced.lastIndexOf(' ');
-  return lastSpace > 0 ? sliced.slice(0, lastSpace).trimEnd() : sliced.trimEnd();
+  // Shared peel — dropping the trailing word can leave a preposition behind.
+  return peelDanglingClauseTail(lastSpace > 0 ? sliced.slice(0, lastSpace) : sliced);
 }
 
 /** Forward-framed copy when matching jobs is empty — avoids "0 jobs found"
