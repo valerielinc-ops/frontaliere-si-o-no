@@ -788,6 +788,11 @@ export const EDGE_PUSHED_FILES = {
   // guessing. It is called out in the PR body as still open.
   '/sitemap-blog.xml': { cdnKey: '/edge/sitemap-blog.xml', contentType: 'application/xml; charset=utf-8' },
   '/sitemap-blog-ch.xml': { cdnKey: '/edge/sitemap-blog-ch.xml', contentType: 'application/xml; charset=utf-8' },
+  // Same reason as its two siblings above, and it never had a passthrough
+  // copy to fall back to: /sitemap-articles-archive.xml is published by the
+  // corpus only. Its page-1 entries carry the four locale alternates plus
+  // x-default — exactly what the apex origin drops.
+  '/sitemap-articles-archive.xml': { cdnKey: '/edge/sitemap-articles-archive.xml', contentType: 'application/xml; charset=utf-8' },
   '/sitemap-glossario.xml': { cdnKey: '/edge/sitemap-glossario.xml', contentType: 'application/xml; charset=utf-8' },
   '/sitemap-news.xml': { cdnKey: '/edge/sitemap-news.xml', contentType: 'application/xml; charset=utf-8' },
   '/llms.txt': { cdnKey: '/edge/llms.txt', contentType: 'text/plain; charset=utf-8', source: 'generated' },
