@@ -2,12 +2,17 @@ name: Stale PR rescuer (self-healing signal)
 
 # Converte gli stalli silenziosi della pipeline PR in un segnale labellato +
 # queryable entro ~1h, invece di lasciarli fermi giorni (osservato 2026-06-02:
-# #1073 e #1075 ferme 23h). Due classi di stallo, entrambe documentate in
+# #1073 e #1075 ferme 23h). Tre classi di stallo, tutte documentate in
 # AGENTS.md ma finora SOLO manuali:
 #   A) workflow-validation drift: pr-review-loop fallisce con review body vuoto
 #      (branch indietro sui file workflow → app-token 401). Fix: merge origin/main.
 #   B) 🔴 Important non ripreso: il reviewer ha postato 🔴 sull'head corrente,
 #      auto-merge skipped, nessun commit nuovo. Fix: commit sullo stesso branch.
+#   C) vitest non-`success` sull'head e nessun run in volo: la PR non ha NESSUN
+#      segnale a valle e non può acquisirne (pr-review-loop gira solo su tests
+#      verdi) → prima cadeva in un `else` muto ed era irrecuperabile. Fix:
+#      `stale-review`, che riapre il gate near-merge di pr-autorebase.
+#      Misurata su 8 PR ferme 1-4 giorni il 2026-08-05 (issue #5041).
 #
 # DETERMINISTICO (zero Claude → zero quota Max, coerente con la frugalità di
 # issue-triage). Azione = label `stale-review` + UN commento idempotente con la
@@ -92,7 +97,17 @@ jobs:
             # `pull_request`, quindi SI attacca correttamente all'head reale della
             # PR) + la review API (il suo `commit_id` è anch'esso corretto).
             checks=$(gh api "repos/$REPO/commits/$HEAD/check-runs" 2>/dev/null || echo '{}')
-            TESTS_CONCL=$(echo "$checks" | jq -r '[.check_runs[] | select(.name=="vitest (unit + integration)")] | last | .conclusion // "none"')
+            # Selezione allineata a `latestCompletedVitestConclusion`
+            # (scripts/ci/lib/vitestCheck.mjs): ULTIMO check-run COMPLETATO per
+            # `completed_at`, non `last` per ordine API. Uno stesso SHA può
+            # portare PIÙ check-run omonimi (run `pull_request` + un
+            # `workflow_dispatch` manuale): prendere l'ultimo per ordine API
+            # pescava un verdetto ARBITRARIO, così un `failure` stantio
+            # mascherava il `success` reale e viceversa (classe del bug #2394,
+            # per cui quel modulo condiviso esiste).
+            TESTS_CONCL=$(echo "$checks" | jq -r '[.check_runs[] | select(.name=="vitest (unit + integration)" and .status=="completed" and .completed_at)] | sort_by(.completed_at) | last | .conclusion // "none"')
+            # Un run già in volo sull'head si risolverà da sé → non è uno stallo.
+            TESTS_PENDING=$(echo "$checks" | jq -r '[.check_runs[] | select(.name=="vitest (unit + integration)" and .status!="completed")] | length')
 
             # Ultima review del bot reviewer (claude) + commit a cui si riferisce.
             reviews=$(gh api "repos/$REPO/pulls/$N/reviews" 2>/dev/null || echo '[]')
@@ -113,8 +128,36 @@ jobs:
               # negazione del reviewer ("zero 🔴 Important findings", PR #3330).
               REASON="🔴 Important non ripreso (review sull'head corrente $HEAD, auto-merge skipped, nessun commit nuovo)"
               RESCUE="applica il fix del 🔴 in un nuovo commit sullo stesso branch \`$BRANCH\` → re-review automatica. Vedi la review più recente sulla PR."
+            elif [ "$TESTS_PENDING" = "0" ] && [ "$TESTS_CONCL" != "success" ]; then
+              # Classe C — RETE DI SICUREZZA (2026-08-05, issue #5041).
+              #
+              # Le classi A e B presuppongono che la PR abbia già un segnale a
+              # valle del vitest verde: A esige `tests == success`, B una review
+              # (che `pr-review-loop.yml` posta solo su
+              # `workflow_run.conclusion == 'success'`). Una PR con vitest ROSSO
+              # non ha né può acquisire nessuno dei due, e cadeva in questo
+              # `else` MUTO: nessuna label, nessun commento, nessuna traccia.
+              #
+              # Quel silenzio era il TERZO arco mancante dello stato assorbente
+              # misurato sulle 8 PR ferme 1-4 giorni (#5019 #5067 #5068 #5070
+              # #5072 #5073 #5074 #5085): senza `stale-review`, il gate
+              # near-merge di `pr-autorebase.mjs` skippa la PR, quindi nessun
+              # rebase e nessun re-test — e senza re-test il vitest resta rosso.
+              # Ciclo chiuso. `vitestFailureIsNotAttributableToPr` (#5095) ne ha
+              # aperto uno per il caso `failure` con prova positiva; questa è la
+              # rete a maglia larga che copre TUTTI i verdetti non-`success`
+              # (`cancelled`, `timed_out`, `action_required`, e il caso "nessun
+              # check-run vitest" degli head orfani) senza esigere alcuna prova.
+              #
+              # Resta alert-only e non spreca CI: mette una label + UN commento
+              # idempotente. È `pr-autorebase` a decidere se rebasare, e
+              # `recycle-stale-prs` a raccogliere ciò che resta fermo. Il gate
+              # d'età di 2h + l'idempotenza della label impediscono il rumore su
+              # una PR con lavoro in corso.
+              REASON="vitest \`$TESTS_CONCL\` sull'head da >2h, nessun run in volo e nessun segnale a valle (nessuna review possibile: pr-review-loop gira solo su tests verdi) — stallo silenzioso"
+              RESCUE="etichettata \`stale-review\` per riaprire il grafo: \`pr-autorebase\` ora la considera near-merge e la rebasa su main ri-dispatchando i test. Se il rosso è REALE (del diff della PR) va fixato a mano sul branch \`$BRANCH\` — la label non lo nasconde, lo rende visibile. Vedi AGENTS.md → \"main rosso blocca a cascata\"."
             else
-              echo "PR #$N nessuno stallo noto (tests=$TESTS_CONCL) — skip"; continue
+              echo "PR #$N nessuno stallo noto (tests=$TESTS_CONCL pending=$TESTS_PENDING) — skip"; continue
             fi
 
             echo "::warning::PR #$N STALLED — $REASON"
