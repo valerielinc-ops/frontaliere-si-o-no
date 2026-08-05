@@ -5536,6 +5536,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'come-funzionano-votazioni-federali-ch',
+    category: 'pratico',
+    date: '2026-08-05T04:48:01.327Z',
+    image: '/images/blog/come-funzionano-votazioni-federali-ch.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

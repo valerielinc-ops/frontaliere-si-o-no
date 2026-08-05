@@ -641,6 +641,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-svizzera-mutuo-requisiti': { it: 'comprare-casa-svizzera-mutuo-requisiti', en: 'buy-house-switzerland-mortgage-requirements', de: 'haus-kaufen-schweiz-hypothekenanforderungen', fr: 'acheter-maison-suisse-requisites-hypotheque' },
  'assicurazione-disoccupazione-svizzera-funzionamento': { it: 'assicurazione-disoccupazione-svizzera-funzionamento', en: 'swiss-unemployment-insurance-how-it-works', de: 'schweizer-arbeitslosenversicherung-funktionsweise', fr: 'assurance-chomage-suisse-fonctionnement' },
  'sistema-sanitario-svizzero-lamal-funzionamento': { it: 'sistema-sanitario-svizzero-lamal-funzionamento', en: 'how-swiss-healthcare-system-works', de: 'wie-funktioniert-das-schweizer-gesundheitssystem', fr: 'comment-fonctionne-le-systeme-de-sante-suisse' },
+ 'come-funzionano-votazioni-federali-ch': { it: 'come-funzionano-votazioni-federali-ch', en: 'how-swiss-federal-votes-work', de: 'wie-funktionieren-eidgenoessische-abstimmungen', fr: 'comment-fonctionnent-les-votations-federales' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

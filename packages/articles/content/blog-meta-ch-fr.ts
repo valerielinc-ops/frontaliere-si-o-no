@@ -1846,6 +1846,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.title': 'Système de santé suisse LAMal : comment ça marche',
     'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.excerpt': 'Guide pratique du fonctionnement du système de santé en Suisse : obligation LAMal, choix de la caisse-maladie, franchises et remboursements.',
     'blog.article.sistema-sanitario-svizzero-lamal-funzionamento.imageAlt': 'Bâtiment de santé suisse dans un cadre urbain',
+    'blog.article.come-funzionano-votazioni-federali-ch.title': 'Votations fédérales : guide du fonctionnement de la démocratie directe',
+    'blog.article.come-funzionano-votazioni-federali-ch.excerpt': 'Découvrez comment fonctionnent les initiatives populaires et les référendums, piliers de la démocratie directe suisse impliquant le peuple et les cantons.',
+    'blog.article.come-funzionano-votazioni-federali-ch.imageAlt': 'Palais fédéral à Berne siège de la démocratie suisse',
 };
 
 export default blogMetaChFr;
