@@ -200,7 +200,7 @@ export const Metodologia: React.FC = () => {
         </Section>
 
         {/* Standard giornalistici */}
-        <Section icon={ListChecks} title="Standard giornalistici">
+        <Section icon={ListChecks} title="Standard giornalistici" id="fact-checking">
           <p>
             Aderiamo agli standard di riferimento del giornalismo
             economico-finanziario applicati al contesto frontaliere:
@@ -335,13 +335,22 @@ function Section({
   icon: Icon,
   title,
   children,
+  id,
 }: {
   icon: React.FC<{ size?: number; className?: string }>;
   title: string;
   children: React.ReactNode;
+  /**
+   * Fragment target. `ORGANIZATION_POLICIES.verificationFactCheckingPolicy`
+   * points at `/metodologia/#fact-checking`, and this component had no `id`
+   * attributes at all — the fragment resolved to nothing, so the one
+   * transparency property that tells Google how we verify claims led
+   * nowhere. Pinned by tests/organization-entity-consolidation.test.ts.
+   */
+  id?: string;
 }) {
   return (
-    <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
+    <div id={id} className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
       <div className="flex items-center gap-3 mb-4">
         <Icon size={20} className="text-accent" />
         <h2 className="text-lg font-bold font-display text-strong">{title}</h2>
