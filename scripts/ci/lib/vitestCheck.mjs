@@ -32,7 +32,22 @@ import { VITEST_CHECK_NAME, VITEST_SHARD_NAME_RE } from './constants.mjs';
  *   (per `completed_at`), o '' se nessuno è ancora concluso/presente.
  */
 export function latestCompletedVitestConclusion(checkRuns) {
-  if (!Array.isArray(checkRuns)) return '';
+  const last = latestCompletedVitestRun(checkRuns);
+  return last ? last.conclusion || '' : '';
+}
+
+/**
+ * Come `latestCompletedVitestConclusion` ma ritorna il check-run INTERO, non solo
+ * la sua conclusion: serve a chi ha bisogno anche del `completed_at` (quando la
+ * PR è stata testata) per correlarlo con lo stato di `main` a quell'istante —
+ * vedi `vitestFailureIsNotAttributableToPr`. Stessa identica selezione (ultimo
+ * COMPLETATO per `completed_at`), estratta per non duplicare il filtro fragile.
+ *
+ * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} checkRuns
+ * @returns {{name?: string, status?: string, conclusion?: string, completed_at?: string}|null}
+ */
+export function latestCompletedVitestRun(checkRuns) {
+  if (!Array.isArray(checkRuns)) return null;
   const completed = checkRuns
     .filter(
       (c) =>
@@ -43,8 +58,7 @@ export function latestCompletedVitestConclusion(checkRuns) {
         c.completed_at,
     )
     .sort((a, b) => Date.parse(a.completed_at) - Date.parse(b.completed_at));
-  const last = completed[completed.length - 1];
-  return last ? last.conclusion || '' : '';
+  return completed[completed.length - 1] || null;
 }
 
 /**
@@ -108,4 +122,100 @@ export function vitestFailureIsTransientCancellation(checkRuns) {
   if (shards.some((c) => REAL_FAILURE.has(c.conclusion))) return false;
 
   return shards.some((c) => c.conclusion === 'cancelled');
+}
+
+/**
+ * Il `failure` di vitest sull'HEAD di una PR è NON attribuibile alla PR stessa,
+ * quindi merita UNA ri-esecuzione contro main aggiornato?
+ *
+ * ── Il buco che chiude (misurato 2026-08-05, 8 PR ferme: #5019 #5067 #5068 #5070
+ * #5072 #5073 #5074 #5085) ──────────────────────────────────────────────────
+ * `tests.yml` gira sul MERGE REF (`refs/pull/N/merge`), quindi il verdetto
+ * vitest di una PR contiene anche il codice di `main` a quell'istante. Quando
+ * main è rosso, OGNI PR testata in quella finestra eredita il rosso senza che il
+ * suo diff c'entri nulla. Misurato: main è stato `failure` dal 2026-08-02T09:14Z
+ * al 2026-08-04T13:37Z (14 run tests.yml consecutive rosse su main) ed è tornato
+ * verde alle 18:02Z col commit 3641631c; le 7 PR testate dentro quella finestra
+ * fallivano tutte su `tests/workflows/articles-mirror-trigger.test.ts` (+
+ * `blog-slugs-sitemap-sync`, `i18n-completeness`, `keyword-landing-plan`), file
+ * che NESSUNA di loro tocca. Su main corrente quei 4 file passano (52/52).
+ *
+ * Il commento storico di `vitestFailureIsTransientCancellation` afferma «un
+ * vitest=failure sull'HEAD è sempre un fail reale». Sul merge ref quella
+ * premessa è FALSA, e su di essa poggiava l'intera catena di recupero, che
+ * diventa uno stato ASSORBENTE:
+ *   1. `pr-review-loop.yml` gira solo su `workflow_run.conclusion == 'success'`
+ *      → vitest rosso ⇒ nessuna review ⇒ nessun `## LGTM`, nessuna label.
+ *   2. `pr-autorebase.mjs` tratta come near-merge solo LGTM / `collision-risk` /
+ *      `stale-review` → nessuno dei tre ⇒ skip, niente rebase, niente re-test.
+ *   3. `stale-pr-rescuer.yml` classe A esige `tests == success`, classe B esige
+ *      una review con 🔴 → cade nell'`else` ⇒ skip, non mette nemmeno la label
+ *      `stale-review` che sbloccherebbe (2).
+ * Nessun arco esce dallo stato: la PR resta rossa per sempre anche dopo che main
+ * è tornato verde. È esattamente ciò che è successo alle 8 PR.
+ *
+ * ── Il criterio ────────────────────────────────────────────────────────────
+ * Ri-testiamo SOLO con prova positiva che il rosso non è della PR, mai «a
+ * gratis» (AGENTS #5 + frugalità CI). Due prove, entrambe deterministiche:
+ *  - `red-main`: dopo il vitest rosso della PR, `tests.yml` su main ha chiuso
+ *    `success` almeno una volta ⇒ esiste su main codice noto-buono che la PR non
+ *    ha mai visto. Copre le 7 PR della finestra rossa.
+ *  - `stale`: il vitest rosso è più vecchio di `staleHours` (default 24h). È il
+ *    backstop per i rossi non-di-main e non-di-PR (infrastruttura): #5019 è
+ *    morta il 2026-08-01 su `error: RPC failed; curl 56 Recv failure` +
+ *    `The runner has received a shutdown signal` durante il CHECKOUT, senza
+ *    eseguire un singolo test, con main VERDE in quel momento — quindi `red-main`
+ *    non la coprirebbe.
+ *
+ * Guardia: se un run vitest è già in volo sull'head (queued/in_progress) NON
+ * proponiamo nulla — si risolverà da sé (stessa logica di
+ * `vitestFailureIsTransientCancellation`).
+ *
+ * Il chiamante DEVE rendere l'azione one-shot per PR (marker/label): questa
+ * funzione è pura e ri-risponderebbe `true` a ogni tick.
+ *
+ * @param {object} args
+ * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} args.checkRuns
+ *   `.check_runs` della check-runs API per l'HEAD SHA della PR.
+ * @param {Array<{conclusion?: string, updated_at?: string}>} args.mainTestsRuns
+ *   `.workflow_runs` di `actions/workflows/tests.yml/runs?branch=main`.
+ * @param {number} [args.nowMs] Clock iniettabile (test).
+ * @param {number} [args.staleHours] Soglia del backstop `stale`. 0 = disattivato.
+ * @returns {{rescue: boolean, reason: string}} `reason` ∈ `'red-main'|'stale'|''`.
+ */
+export function vitestFailureIsNotAttributableToPr({
+  checkRuns,
+  mainTestsRuns,
+  nowMs = Date.now(),
+  staleHours = 24,
+} = {}) {
+  const NO = { rescue: false, reason: '' };
+  if (!Array.isArray(checkRuns)) return NO;
+
+  // Un run fresco già in coda/in corso risolverà da sé → non proporre nulla.
+  const anyVitest = checkRuns.filter((c) => c && c.name === VITEST_CHECK_NAME);
+  if (anyVitest.some((c) => c.status !== 'completed')) return NO;
+
+  const last = latestCompletedVitestRun(checkRuns);
+  if (!last || last.conclusion !== 'failure') return NO;
+
+  const failedAt = Date.parse(last.completed_at);
+  if (Number.isNaN(failedAt)) return NO;
+
+  // Prova 1 — main è tornato verde DOPO che la PR è stata testata.
+  if (Array.isArray(mainTestsRuns)) {
+    const greenAfter = mainTestsRuns.some((r) => {
+      if (!r || r.conclusion !== 'success') return false;
+      const t = Date.parse(r.updated_at || '');
+      return !Number.isNaN(t) && t > failedAt;
+    });
+    if (greenAfter) return { rescue: true, reason: 'red-main' };
+  }
+
+  // Prova 2 — backstop: rosso troppo vecchio per essere ancora informativo.
+  if (staleHours > 0 && nowMs - failedAt > staleHours * 3600 * 1000) {
+    return { rescue: true, reason: 'stale' };
+  }
+
+  return NO;
 }
