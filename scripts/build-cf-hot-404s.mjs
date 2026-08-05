@@ -55,6 +55,25 @@ const APEX_HOST = process.env.CF_ZONE_NAME || DEFAULT_ZONE_NAME;
 // the measured universe (true cap only vs a degraded CF response or runaway),
 // env-tunable. Kept in lockstep with cfHot404BridgePlugin's MAX_EMIT — change
 // BOTH together. Revisit if growth doesn't taper (this rail will bite again).
+// PUSH-BYTE CEILING — the constraint this block never named, and the one that
+// bites before the inode budget does. data/cf-hot-404s.json is COMMITTED, and
+// GitHub rejects the ENTIRE push (every file travelling with it) when any single
+// blob crosses 100 MB: GH001, the failure sync-gsc-orphans spent three weeks on
+// in #4248. Measured 2026-08-05: 425,511 paths / 68.74 MB, ~169 B per path, and
+// flat at that size for nine consecutive daily rewrites — the STALE_DAYS age-out
+// has converged. Entry size is uniform here (median 132 B, max 265 B, 2.0x
+// spread), which is what makes a COUNT cap a valid proxy for bytes at all; the
+// same reasoning failed for data/jobs-ai-cache.json, whose values span 2.0 KB to
+// 73.7 KB (~37x) so its 30k-entry cap permitted ~104 MB. At the current 500k the
+// file lands at ~80.8 MB — safe, with 31 MB of headroom.
+//
+// So before raising CF_HOT_404_MAX, know where the wall is:
+//   ~588,064 paths (95 MB)  → tests/committed-blob-push-limit.test.ts (#5178)
+//                             goes red. This is what you hit FIRST, in CI.
+//   ~619,015 paths (100 MB) → GH001: the daily sweep's push is rejected, and so
+//                             is everything committed alongside it.
+// Raising this rail on the inode argument above without checking the byte number
+// is exactly how this file becomes the next #4248.
 const MAX_PATHS = Number(process.env.CF_HOT_404_MAX) || 500000;
 
 // Drop one-hit noise: a single hit is usually a bot path-probe, not a real

@@ -69,6 +69,12 @@ const SEARCH_CLUSTER_LEGACY_SET = new Set(
 // change BOTH together. SSG-memory is not measurable pre-merge: revert-trigger
 // declared in the PR body (revert if the next deploy OOMs or wall-time regresses).
 // Revisit if growth doesn't taper (this rail will bite again).
+// The lockstep cuts both ways: CF_HOT_404_MAX also caps MAX_PATHS in
+// scripts/build-cf-hot-404s.mjs, which bounds the COMMITTED data/cf-hot-404s.json.
+// The inode argument above says 500k is cheap — it is, for dist/. It says nothing
+// about git: that file dies at ~619k paths (100 MB, GH001) and turns CI red at
+// ~588k (tests/committed-blob-push-limit.test.ts, #5178). Raise this only after
+// reading the push-byte ceiling documented next to MAX_PATHS there.
 const MAX_EMIT = Number(process.env.CF_HOT_404_MAX) || 500000;
 
 const withSlash = (p: string): string => (p.endsWith('/') ? p : `${p}/`);
