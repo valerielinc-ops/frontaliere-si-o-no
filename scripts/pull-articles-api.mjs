@@ -39,8 +39,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const API_BASE =
-  process.env.ARTICLES_API_BASE ?? 'https://nanakokyobashi-rgb.github.io/frontaliere-articles';
+import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
 
 const ROOT = process.cwd();
 const PUBLIC_DIR = path.join(ROOT, 'public');

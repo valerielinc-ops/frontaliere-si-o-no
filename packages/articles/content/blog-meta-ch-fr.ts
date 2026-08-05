@@ -1858,6 +1858,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.democrazia-diretta-e-votazioni-federali.title': 'Votations fédérales Suisse : comment fonctionnent les lois',
     'blog.article.democrazia-diretta-e-votazioni-federali.excerpt': 'Guide complet de la démocratie directe suisse : initiatives populaires, référendums et double majorité du peuple et des cantons.',
     'blog.article.democrazia-diretta-e-votazioni-federali.imageAlt': 'Palais fédéral à Berne siège des votes et de la démocratie suisse',
+    'blog.article.congedo-parentale-svizzera-durata.title': 'Congé parental suisse durée indemnisée et règles',
+    'blog.article.congedo-parentale-svizzera-durata.excerpt': 'Guide complet du congé de maternité et de paternité en Suisse : durée, indemnités journalières, cotisations et cadre réglementaire pour les travailleurs.',
+    'blog.article.congedo-parentale-svizzera-durata.imageAlt': 'Vue panoramique de Lugano et du quartier financier suisse',
+    'blog.article.caldo-disparita-sociali-ginevra.title': 'Vague de chaleur : femmes, personnes âgées et pauvres les plus à risque',
+    'blog.article.caldo-disparita-sociali-ginevra.excerpt': 'Un rapport de l\'Université de Genève révèle que la capacité à faire face aux vagues de chaleur dépend de facteurs sociaux, économiques et de logement.',
+    'blog.article.caldo-disparita-sociali-ginevra.imageAlt': 'Ville suisse pendant une chaude journée d\'été',
 };
 
 export default blogMetaChFr;

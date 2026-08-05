@@ -62,44 +62,61 @@ export function latestCompletedVitestRun(checkRuns) {
 }
 
 /**
- * Il `failure` del check vitest AGGREGATORE sull'HEAD è una cancellazione
- * TRANSIENT (shard cancellati da concurrency) e NON un test rotto?
+ * Il verdetto vitest rosso sull'HEAD è una cancellazione TRANSIENT (concurrency)
+ * e NON un test rotto?
  *
- * Perché serve (#2438): `tests.yml` ha N shard (`vitest shard i/4`) + un job
- * aggregatore `vitest (unit + integration)` che fa `exit 1` se
- * `needs.vitest-shard.result != success`. Una cancellazione di massa
- * (`cancel-in-progress` durante un'ondata di rebase/push su main) lascia gli
- * shard `cancelled` → l'aggregatore COLLASSA `cancelled` in `failure` (RED),
- * indistinguibile da un fail reale al solo aggregatore. Una PR LGTM'd,
- * non-collision, behind=0 con questo `failure` transient veniva SKIPPATA da
- * pr-autorebase (il ramo behind=0 ri-dispatcha solo se il check vitest è ASSENTE,
- * non se è `failure`) e BLOCCATA da auto-merge-eval (gate `success`) → ferma
- * finché un evento esterno non ri-dispatcha i test.
+ * ── Perché il nome è cambiato (2026-08-05) ─────────────────────────────────
+ * Si chiamava `vitestFailureIsTransientCancellation` e guardava SOLO il caso
+ * `failure`, perché nella topologia a shard il rosso transient non poteva
+ * presentarsi altrimenti. Dopo il de-sharding (#2882) può, e il nome mentiva:
+ * un verdetto `cancelled` non è un `failure`. Vedi le due topologie sotto.
  *
- * Riapriamo gli shard sottostanti per ricostruire l'informazione che
- * l'aggregatore ha perso: la failure è transient SOLO se TUTTI gli shard sono
- * `completed`, NESSUNO è una failure reale (`failure`/`timed_out`/
- * `action_required`/`stale`), e ALMENO uno è `cancelled`. Un solo shard
- * `failure` → fail reale, NON ri-eseguire (AGENTS #5: «test fail = right finché
- * non provato contrario»; frugalità CI).
+ * ── Topologia CORRENTE: un solo job (post #2882) ───────────────────────────
+ * `tests.yml` ha un unico job `vitest (unit + integration)`, senza matrice.
+ * Una cancellazione (concurrency `cancel-in-progress`, runner shutdown) atterra
+ * quindi come `cancelled` DIRETTAMENTE sul check-run, senza collasso in
+ * `failure`. Quel verdetto non è un fallimento: il run non ha prodotto NESSUN
+ * verdetto sul codice, quindi ri-eseguirlo non può mascherare un test rotto —
+ * è l'unico modo per ottenere un'informazione che al momento non esiste.
  *
- * Guardie anti-spuria:
- *  - L'aggregatore COMPLETATO più recente dev'essere `failure` (riusa
- *    `latestCompletedVitestConclusion`): se l'ultimo run è già `success` non c'è
- *    nulla da sanare.
+ * Senza questo ramo `cancelled` è uno stato ASSORBENTE, la stessa trappola
+ * chiusa da `vitestFailureIsNotAttributableToPr` per il caso `failure`:
+ *   - `auto-merge-eval` esige `success` → blocca;
+ *   - `pr-review-loop.yml` gira solo su `workflow_run.conclusion == 'success'`
+ *     → nessuna review ⇒ nessun `## LGTM`, nessuna label;
+ *   - `vitestFailureIsNotAttributableToPr` esige `failure` → non copre;
+ *   - `pr-autorebase` senza label/LGTM/stuck-red → skip.
+ * Nessun arco uscente. (Rete di sicurezza indipendente a 2h: la classe C di
+ * `stale-pr-rescuer.yml`, che etichetta `stale-review` e riapre il grafo.)
+ *
+ * ── Topologia a SHARD: conservata (#2438) ──────────────────────────────────
+ * Con una matrice `vitest shard i/N` + job aggregatore che fa `exit 1` se
+ * `needs.vitest-shard.result != success`, una cancellazione di massa lascia gli
+ * shard `cancelled` e l'aggregatore COLLASSA `cancelled` in `failure`,
+ * indistinguibile da un fail reale al solo aggregatore. Riapriamo gli shard per
+ * ricostruire l'informazione persa: transient SOLO se NESSUNO shard è una
+ * failure reale (`failure`/`timed_out`/`action_required`/`stale`) e ALMENO uno è
+ * `cancelled`. Un solo shard `failure` → fail reale, NON ri-eseguire (AGENTS #5:
+ * «test fail = right finché non provato contrario»; frugalità CI).
+ * Il ramo resta perché `tests.yml` può tornare a shardare: cancellarlo
+ * renderebbe il de-sharding irreversibile senza un revert di questo file.
+ *
+ * ── Guardie anti-spuria (valgono per entrambe le topologie) ────────────────
  *  - NESSUN check-run vitest (aggregatore o shard) dev'essere in-progress/queued:
- *    un run fresco già in coda risolverà da sé → non ri-dispatchare (il caso che
- *    #2438 lascia scoperto è ESATTAMENTE "cancelled→failure SENZA run fresco
- *    pendente"). Questo gestisce anche i duplicati su SHA immutabile: se esiste
- *    un set di shard più nuovo ancora in corso, attendiamo invece di sommare.
+ *    un run fresco già in coda risolverà da sé → non ri-dispatchare. Questo
+ *    gestisce anche i duplicati su SHA immutabile (un `workflow_dispatch` manuale
+ *    sullo stesso SHA): se esiste un set più nuovo ancora in corso, attendiamo.
+ *  - Il verdetto COMPLETATO più recente (`latestCompletedVitestConclusion`, non
+ *    un `[0]` arbitrario) dev'essere `cancelled` o `failure`: se l'ultimo run è
+ *    già `success` non c'è nulla da sanare.
  *
  * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} checkRuns
  *   L'array `.check_runs` della GitHub check-runs API per l'HEAD SHA.
- * @returns {boolean} true SOLO se il `failure` aggregato è una cancellazione
+ * @returns {boolean} true SOLO se il verdetto rosso è una cancellazione
  *   transient sicura da ri-dispatchare (heal); false su fail reale, run fresco
- *   pendente, aggregatore non-`failure`, o input non valido.
+ *   pendente, verdetto non-rosso, o input non valido.
  */
-export function vitestFailureIsTransientCancellation(checkRuns) {
+export function vitestVerdictIsTransientCancellation(checkRuns) {
   if (!Array.isArray(checkRuns)) return false;
 
   const vitestRuns = checkRuns.filter(
@@ -112,8 +129,14 @@ export function vitestFailureIsTransientCancellation(checkRuns) {
   // Run fresco pendente (aggregatore o shard non concluso) → attendi, non sanare.
   if (vitestRuns.some((c) => c.status !== 'completed')) return false;
 
-  // L'esito aggregato corrente dev'essere proprio un failure da sanare.
-  if (latestCompletedVitestConclusion(checkRuns) !== 'failure') return false;
+  const verdict = latestCompletedVitestConclusion(checkRuns);
+
+  // Topologia corrente (job singolo): la cancellazione è già il verdetto finale.
+  // Nessuno shard da riaprire, e nessun verdetto sul codice da contraddire.
+  if (verdict === 'cancelled') return true;
+
+  // Topologia a shard: l'aggregatore ha collassato cancelled→failure.
+  if (verdict !== 'failure') return false;
 
   const shards = vitestRuns.filter((c) => VITEST_SHARD_NAME_RE.test(c.name || ''));
   if (shards.length === 0) return false;
@@ -140,7 +163,7 @@ export function vitestFailureIsTransientCancellation(checkRuns) {
  * `blog-slugs-sitemap-sync`, `i18n-completeness`, `keyword-landing-plan`), file
  * che NESSUNA di loro tocca. Su main corrente quei 4 file passano (52/52).
  *
- * Il commento storico di `vitestFailureIsTransientCancellation` afferma «un
+ * Il commento storico di `vitestVerdictIsTransientCancellation` afferma «un
  * vitest=failure sull'HEAD è sempre un fail reale». Sul merge ref quella
  * premessa è FALSA, e su di essa poggiava l'intera catena di recupero, che
  * diventa uno stato ASSORBENTE:
@@ -169,7 +192,12 @@ export function vitestFailureIsTransientCancellation(checkRuns) {
  *
  * Guardia: se un run vitest è già in volo sull'head (queued/in_progress) NON
  * proponiamo nulla — si risolverà da sé (stessa logica di
- * `vitestFailureIsTransientCancellation`).
+ * `vitestVerdictIsTransientCancellation`).
+ *
+ * Complementare, non sovrapposta, a `vitestVerdictIsTransientCancellation`:
+ * quella copre il rosso SENZA verdetto sul codice (`cancelled`), questa il rosso
+ * CON un verdetto che però appartiene a `main` e non alla PR (`failure` sul merge
+ * ref). I due predicati si escludono a vicenda sul valore di `conclusion`.
  *
  * Il chiamante DEVE rendere l'azione one-shot per PR (marker/label): questa
  * funzione è pura e ri-risponderebbe `true` a ogni tick.

@@ -263,11 +263,31 @@ const CACHE_ACTION_PARAMETERS = {
 // cdn.frontaliereticino.ch (R2) cache settings: RESPECT origin instead of
 // overriding it — unlike the apex HTML above, R2 objects already carry
 // correct explicit per-prefix Cache-Control (assets/og/images/data/job-canon,
-// see deploy-it-pages-prep.sh _r2_sync) and there is no purge-on-deploy
-// mechanism for R2 keys, so a fixed override would risk serving a stale
-// asset past a deploy. respect_origin also means a response with no positive
-// Cache-Control (e.g. /cdn-build-id.txt's `no-store`, or an R2 404) is never
-// cached, without needing per-status overrides here.
+// see deploy-it-pages-prep.sh _r2_sync), so a fixed override would risk
+// serving a stale asset past a deploy. respect_origin also means a response
+// with no positive Cache-Control (e.g. /cdn-build-id.txt's `no-store`, or an
+// R2 404) is never cached, without needing per-status overrides here.
+//
+// Because this is respect_origin, the object's Cache-Control IS the edge TTL —
+// which is why /assets/ must never be uploaded `immutable` under this site's
+// stable (non-content-hashed) filenames. Freshness for those keys comes from
+// the targeted per-key purge deploy-it-pages-prep.sh runs right after the R2
+// sync (scripts/ci/purge-changed-cdn-assets.mjs); their 7d max-age is only the
+// backstop if that purge is missed.
+// NOT SET HERE (yet): `serve_stale: { disable_stale_while_updating: false }`.
+// That is the direct mitigation for the `cloudflare-5xx` family
+// (#5034/#5035/#5036/#5052/#5081/#5092/#5093/#5094): those 502s carry
+// `originResponseStatus: 0` + `cacheStatus: none` — the origin returned NOTHING
+// and Cloudflare synthesised the 502 — and they cluster inside deploy windows,
+// when the rclone sync (`--fast-list` + 24 parallel PUTs, see
+// deploy-it-pages-prep.sh) is loading the same bucket the edge fetches through.
+// Serving a stale byte-identical asset would beat blanking the page for a user
+// or Googlebot. It is left out because this field could not be validated
+// against the live zone from an agent session (production ruleset mutations are
+// gated), and shipping an unverified schema into the script that OWNS these
+// rules would risk breaking all of them on the next run. Apply + verify with an
+// operator-approved PATCH on rule 0c83f11bdd424cf28d7dabaf637ba525 before
+// adding it here.
 const CDN_CACHE_ACTION_PARAMETERS = {
   cache: true,
   edge_ttl: { mode: 'respect_origin' },
