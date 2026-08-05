@@ -37,6 +37,28 @@ export const FRENCH_LOCALES: readonly FrenchLocale[] = ['it', 'en', 'de', 'fr'] 
 
 export type FrenchRegime = 'geneve' | 'huit-cantons';
 
+/**
+ * Whether geography can settle which regime applies to a commune's residents.
+ *
+ * The applicable regime follows the canton where the commuter WORKS, not where
+ * they live and not which crossing is nearest their home. `regime` below is
+ * derived from the canton of the nearest crossing, so it is an INDICATION of
+ * the closest Swiss canton — never a fiscal determination.
+ *
+ * - 'dual': the department borders both canton Geneva (1973 arrangement) and
+ *   an accord-1983 canton, so either regime is genuinely reachable — Ain (01)
+ *   borders GE and VD, Haute-Savoie (74) borders GE and VS. Pages for these
+ *   communes MUST present both regimes and state the canton-of-employment
+ *   rule instead of asserting `regime`.
+ * - 'accord-1983-only': the department's entire Swiss frontage is accord-1983
+ *   cantons (Doubs 25, Jura 39, Territoire de Belfort 90), so the 1983 accord
+ *   is the only regime reachable across its own border.
+ *
+ * See scripts/build-french-border-municipalities.mjs for the derivation and
+ * for the two misassignments (Divonne-les-Bains, Publier) this field fixes.
+ */
+export type FrenchRegimeBasis = 'dual' | 'accord-1983-only';
+
 export interface FrenchBorderMunicipality {
   name: string;
   slug: string;
@@ -48,7 +70,9 @@ export interface FrenchBorderMunicipality {
   distanceKm: number;
   nearestCrossing: string;
   canton: string;
+  /** Regime of the NEAREST canton — an indication. See FrenchRegimeBasis. */
   regime: FrenchRegime;
+  regimeBasis: FrenchRegimeBasis;
   avgRentMonthly: number;
   rentSource: 'commune' | 'maille';
   rentObs: number;
