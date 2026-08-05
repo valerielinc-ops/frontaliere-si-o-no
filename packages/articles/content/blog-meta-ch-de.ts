@@ -1873,6 +1873,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.canicola-lavoro-dialogo-consiglio-stato.title': 'Hitzewallung und Arbeit: Staatsrat nimmt Dialog mit Gewerkschaften auf',
     'blog.article.canicola-lavoro-dialogo-consiglio-stato.excerpt': 'Der Staatsrat von Bellinzona trifft sich mit der UNIA, dem OCST, dem SGB und dem VPOD, um Maßnahmen bei der Arbeit während der Hitzewellen unter Einbeziehung des Tessiner Departements auf Bundesebene zu definieren.',
     'blog.article.canicola-lavoro-dialogo-consiglio-stato.imageAlt': 'Ratssaal in Bellinzona mit Sonnenlicht, Gewerkschaftsvertreter und Politiker im Gespräch.',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.title': 'Glencore steigert Gewinn und Umsatz im Halbjahr',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.excerpt': 'Das Handels- und Miningunternehmen verzeichnete im ersten Halbjahr 2026 einen starken Gewinn- und Ertragszuwachs',
+    'blog.article.glencore-aumenta-utili-e-ricavi-nel-semestre.imageAlt': 'Bild eines Finanzzentrums von Zürich mit einem großen Bildschirm, der die Glencore-Daten zeigt',
 };
 
 export default blogMetaChDe;
