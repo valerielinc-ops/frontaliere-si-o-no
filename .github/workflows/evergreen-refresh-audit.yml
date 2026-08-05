@@ -36,6 +36,10 @@ jobs:
           echo "- **Stale (>6 months)**: $STALE"
           echo ""
 
+          DATED=$(echo "$RESULT" | jq -r '.datedExcludedCount')
+          echo "- **Dated announcements excluded**: $DATED"
+          echo ""
+
           if [ "$STALE" -eq 0 ]; then
             echo "✅ All evergreen articles are fresh"
           else
@@ -47,45 +51,52 @@ jobs:
           # Write article list to a temp file for issue body construction
           echo "$RESULT" > audit-result.json
 
-      - name: Create GitHub issue
+      # ONE issue, commented on each month — not one issue per month.
+      #
+      # The title used to carry `$(date +"%B %Y")`, inside the first 60 chars
+      # that `github-issue-creator.mjs` dedups on, so every run opened a fresh
+      # issue for a list that barely changes. #5021 is the August instance of
+      # a backlog item that had been reopening itself since the workflow
+      # landed. Stable title → the helper comments on the canonical issue
+      # instead (ISSUES.md, dedup-at-source).
+      - name: Open / dedup the evergreen refresh issue
         if: steps.audit.outputs.stale != '0'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          MONTH_YEAR=$(date -u +"%B %Y")
-          TOTAL=$(cat audit-result.json | jq -r '.totalEvergreen')
-          STALE=$(cat audit-result.json | jq -r '.staleCount')
+          TOTAL=$(jq -r '.totalEvergreen' audit-result.json)
+          STALE=$(jq -r '.staleCount' audit-result.json)
+          DATED=$(jq -r '.datedExcludedCount' audit-result.json)
+          CHECKLIST=$(jq -r '.stale[] | "- [ ] `\(.id)` (\(.category)) — \(.ageMonths) months old"' audit-result.json)
 
-          # Build checklist
-          CHECKLIST=$(cat audit-result.json | jq -r '.stale[] | "- [ ] `\(.id)` (\(.category)) — \(.ageMonths) months old"')
-
-          BODY=$(cat <<EOF
-          ## Stale Evergreen Articles (>6 months old)
-
-          Found **${STALE}** articles that may need updating out of **${TOTAL}** total evergreen articles.
-
-          ### Articles to review:
-
-          ${CHECKLIST}
-
-          ### How to refresh
-          Run \`node scripts/create-article.mjs --refresh --id={article-id}\` to regenerate with latest data.
-
-          ---
-          *Generated automatically by the [Evergreen Refresh Audit](https://github.com/${{ github.repository }}/actions/workflows/evergreen-refresh-audit.yml) workflow.*
-          EOF
-          )
-
-          # Ensure labels exist
           gh label create "content" --color "0E8A16" --description "Content updates" --force 2>/dev/null || true
           gh label create "evergreen-refresh" --color "1D76DB" --description "Evergreen article refresh audit" --force 2>/dev/null || true
 
-          gh issue create \
-            --title "🔄 Evergreen Article Refresh - ${MONTH_YEAR}" \
-            --body "$BODY" \
-            --label "content,evergreen-refresh"
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Evergreen articles past the 6-month freshness window" \
+            --description "## Stale evergreen articles (>6 months)
 
-          echo "✅ Created GitHub issue for ${STALE} stale articles"
+          **${STALE}** of **${TOTAL}** evergreen articles are past the window. **${DATED}** dated announcements were excluded — an article whose slug names one calendar day is about that day, and no refresh makes it evergreen (\`scripts/audit-evergreen-articles.mjs\`, \`isDatedAnnouncement\`).
+
+          ### Articles to refresh
+
+          ${CHECKLIST}
+
+          ### What a refresh is, and what it is not
+
+          A refresh means **the figures, rates and deadlines in the body actually change** to the current ones, with their sources. Only then does \`updatedAt\` move.
+
+          Bumping \`updatedAt\` without changing a word is not a refresh — it is a freshness signal for content that did not get fresher, which is exactly what Google's guidance on deceptive dates penalises, and it costs the article the ranking the audit was trying to protect. If the numbers in an article are still the current ones, **leave the date alone**: an accurate old date beats a false new one.
+
+          There is no automated path today. \`scripts/create-article.mjs\` has neither a \`--refresh\` nor an \`--id\` flag — the instruction this issue used to carry named a command that does not exist, which is why it went unactioned. Refreshing means editing the article body in the corpus (\`nanakokyobashi-rgb/frontaliere-articles\`, \`content/blog-body/<locale>/<id>.ts\`, all four locales) and setting \`updatedAt\` in the registry in the same change.
+
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --priority 4 \
+            --label content \
+            --label evergreen-refresh \
+            --workflow "${{ github.workflow }}"
+
+          echo "✅ Reported ${STALE} stale articles (${DATED} dated announcements excluded)"
 
       - name: Report failure to GitHub Issues
         if: failure()

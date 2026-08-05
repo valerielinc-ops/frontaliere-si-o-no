@@ -33,6 +33,77 @@
 export const DOUBLE_VALIDATED_MIN_ONSITE = 10; // on-site searches in window
 export const DOUBLE_VALIDATED_MIN_JOBS = 3; // live matching job ads (mirrors jobsSeoPagesPlugin's ≥3 gate)
 
+// ── Supply validation: the second qualification, for professions the site has
+// no page for YET.
+//
+// On-site search is a demand signal with a circularity problem: a visitor
+// types a profession into THIS site's search box, and they are only here
+// because something already ranks. A profession the site has never had a page
+// for therefore reads 0 on-site by construction, no matter how many people
+// search for it on Google. Measured on the 2026-08-03 report: eight
+// professions with 12-65 live job ads scored onsite=0 and were parked in the
+// weekly report indefinitely — `cassiere` (65 ads), `disegnatore` (57),
+// `polimeccanico` (54), `fiduciario` (28), `aiuto-cucina` (24),
+// `meccatronico` (20), `lattoniere` (14), `falegname` (12).
+//
+// This is NOT a relaxed floor. `DOUBLE_VALIDATED_MIN_ONSITE` is untouched, and
+// a supply-validated page must clear a job bar FOUR TIMES the double-validated
+// one: the page's whole value is the inventory it lists, so where the demand
+// evidence is weaker the supply evidence has to be stronger. A page with 12+
+// live ads is one `jobsSeoPagesPlugin`'s own ≥3 emit gate will certainly
+// produce, and one with something to show when a searcher lands on it.
+export const SUPPLY_VALIDATED_MIN_JOBS = 12; // 4x DOUBLE_VALIDATED_MIN_JOBS
+export const SUPPLY_VALIDATED_MIN_FILTER_JOBS = 5; // above the plugin's ≥3, with headroom for churn
+
+// ── Filter precision: a guard on BOTH qualifications.
+//
+// `feedFilterJobCount` counts ads matching the LITERAL feedFilter substring —
+// what the emitted page would actually list — while `jobCount` counts ads the
+// curated profession matcher recognises. When the literal matches far more
+// than the profession does, the filter is broader than the profession and the
+// page would be a grab-bag under a specific title. The clearest case in the
+// 2026-08-03 report: `agente-sicurezza`, feedFilter `sicurezza`, 36 profession
+// matches against 338 literal ones — "responsabile sicurezza", "sicurezza sul
+// lavoro" and everything else containing the word.
+//
+// A page listing jobs that are not the job in its <h1> is thin content with a
+// misleading title, which is worse than no page. Applied to double-validated
+// promotions too: nothing currently promoted comes close to the ratio
+// (`responsabile-negozio` 8/292, `custode` 3/64 — both far NARROWER than the
+// profession), so this raises the bar without moving any existing page.
+export const FILTER_PRECISION_MAX_RATIO = 3;
+
+/**
+ * True when the literal feedFilter is specific enough to title a page after
+ * the profession. `jobCount === 0` cannot be judged — no profession-matched
+ * baseline to compare against — so it fails closed.
+ */
+export function hasPreciseFeedFilter(jobCount, feedFilterJobCount) {
+  const jobs = Number(jobCount) || 0;
+  const literal = Number(feedFilterJobCount) || 0;
+  if (jobs <= 0) return false;
+  return literal <= jobs * FILTER_PRECISION_MAX_RATIO;
+}
+
+/**
+ * The single promotion predicate, shared by the weekly ranking (which reports
+ * it) and the config feed (which acts on it). One function means a row the
+ * report marks promotable is always one the feed will actually promote — the
+ * drift that #4564 fixed for the onsite floor, kept closed here for the rest.
+ */
+export function isPromotable(row) {
+  const onsite = Number(row?.onsiteCount) || 0;
+  const jobs = Number(row?.jobCount) || 0;
+  const literal = Number(row?.feedFilterJobCount) || 0;
+  if (!hasPreciseFeedFilter(jobs, literal)) return false;
+  const demandValidated = onsite >= DOUBLE_VALIDATED_MIN_ONSITE
+    && jobs >= DOUBLE_VALIDATED_MIN_JOBS
+    && literal >= DOUBLE_VALIDATED_MIN_JOBS;
+  const supplyValidated = jobs >= SUPPLY_VALIDATED_MIN_JOBS
+    && literal >= SUPPLY_VALIDATED_MIN_FILTER_JOBS;
+  return demandValidated || supplyValidated;
+}
+
 /** Lowercase, strip accents, collapse every non-alphanumeric run to a space. */
 export function normalizeText(text) {
   return String(text || '')
