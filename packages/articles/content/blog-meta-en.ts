@@ -9268,6 +9268,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-nel-cuore-di-bellinzona.title': 'Living in the heart of Bellinzona: quality of life and homes',
     'blog.article.vivere-nel-cuore-di-bellinzona.excerpt': 'Discover what it means to live in the historic centre of Bellinzona, among the UNESCO castles, the Saturday market and an advantageous real estate market.',
     'blog.article.vivere-nel-cuore-di-bellinzona.imageAlt': 'The historic center of Bellinzona with its medieval towers in the morning',
+    'blog.article.indicatore-affari-aziende-luglio.title': 'Business indicator companies: recovery in almost all sectors',
+    'blog.article.indicatore-affari-aziende-luglio.excerpt': 'The economic situation of Swiss companies improves according to the KOF Institute of the Federal Polytechnic of Zurich, with an indicator of more than 21.5 points in July.',
+    'blog.article.indicatore-affari-aziende-luglio.imageAlt': 'Overview of a financial district in Switzerland with modern buildings',
 };
 
 export default blogMetaEn;
