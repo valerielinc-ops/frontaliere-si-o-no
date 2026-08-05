@@ -188,6 +188,7 @@ async function fetchAllListings() {
 
   const allItems = [];
   const seenIds = new Set();
+  let lastJson = null;
 
   for (let page = 0; page < MAX_PAGES; page++) {
     const offset = page * PAGE_SIZE;
@@ -202,6 +203,7 @@ async function fetchAllListings() {
       break;
     }
 
+    lastJson = json;
     const items = parseHitachiEnergyListingJson(json);
     const newItems = items.filter((item) => !seenIds.has(item.jobId));
     if (newItems.length === 0) break;
@@ -212,8 +214,22 @@ async function fetchAllListings() {
     }
     console.log(`     Found ${newItems.length} new jobs (total: ${allItems.length})`);
 
-    if (!hasMorePages(json)) break;
+    // `fetchedCount` lets hasMorePages() fall back to the payload's own
+    // `totalNumber` when `loadMore` is absent — never to the page-length
+    // heuristic that truncated the crawl at a short first page (#4993).
+    if (!hasMorePages(json, { fetchedCount: allItems.length })) break;
     await sleep(800);
+  }
+
+  const declaredTotal = Number(lastJson?.totalNumber);
+  if (Number.isFinite(declaredTotal) && declaredTotal > 0 && allItems.length < declaredTotal) {
+    // Loud, non-fatal: pagination ended before the source's own declared
+    // count. The shrink guard is still the thing that refuses a bad write,
+    // but this makes a truncated crawl legible in the run log instead of
+    // looking like a healthy short board (#4993).
+    console.warn(
+      `  ⚠️ Pagination ended at ${allItems.length} listings but the API declares totalNumber=${declaredTotal} — treating this run as truncated.`,
+    );
   }
 
   console.log(`📋 Total Switzerland listings: ${allItems.length}`);
