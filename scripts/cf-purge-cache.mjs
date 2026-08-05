@@ -142,7 +142,43 @@ async function resolveZoneId() {
   }
 }
 
+// ZONE-WIDE PURGE IS OPT-IN SINCE 2026-08-05 (#5162).
+//
+// `purge_everything` is zone-wide, and this zone holds TWO hostnames with very
+// different cache economics. Measured over 23h:
+//
+//   cdn.frontaliereticino.ch  1_497_318 req, 96.0% hit  ← destroyed as collateral
+//   frontaliereticino.ch        570_021 req, 19.2% hit  ← the only intended target
+//
+// The CDN never needed this purge: /assets/ freshness comes from the targeted
+// per-key purge in scripts/ci/purge-changed-cdn-assets.mjs, which purges exactly
+// the keys the deploy re-uploaded. So each full-zone purge threw away a
+// 1.4M-object cache to refresh a cache that was barely holding anything, and the
+// re-fetch storm went straight at R2: ~60k origin fetches in 23h against a 7-day
+// edge TTL, 277 of which failed as edge-synthesised 502s (issues #5034, #5035,
+// #5036, #5052, #5081, #5092, #5093, #5094, and the failed dynamic import in
+// #4644). The apex 503s (#5082) are the same storm hitting GitHub Pages.
+//
+// It also made serve_stale (#5158) structurally dead: a purge DELETES the cached
+// copy, while serve_stale can only serve a copy that exists and has merely
+// expired. Measured staleRescuable = 0. The two cannot both be the strategy.
+//
+// Apex freshness now comes from a bounded 300s edge TTL instead
+// (APEX_EDGE_TTL_SECONDS in scripts/cf-locale-failover-setup.mjs), so no deploy
+// needs to purge the zone. This flag stays for deliberate operator use (e.g. a
+// cache-poisoning incident), and must not be wired back into a deploy workflow.
+// Guarded by tests/cf-zone-purge-blast-radius.test.ts.
+const ZONE_WIDE_OPT_IN = process.env.CF_PURGE_ZONE_WIDE === '1';
+
 try {
+  if (!targetFiles && !ZONE_WIDE_OPT_IN) {
+    console.log(
+      '⏭️  Zone-wide purge_everything is opt-in (set CF_PURGE_ZONE_WIDE=1) — skipping. ' +
+        'Apex freshness comes from the 300s edge TTL; CDN freshness from the targeted per-key purge ' +
+        '(scripts/ci/purge-changed-cdn-assets.mjs). See the header comment and #5162.',
+    );
+    process.exit(0);
+  }
   const zoneId = await resolveZoneId();
   const purgeBody = targetFiles ? { files: targetFiles } : { purge_everything: true };
   const purgeLabel = targetFiles ? `${targetFiles.length} file(s)` : 'purge_everything';
