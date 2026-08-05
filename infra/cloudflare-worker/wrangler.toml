@@ -176,6 +176,12 @@ routes = [
   { pattern = "frontaliereticino.ch/sitemap-blog.xml", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/sitemap-glossario.xml", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/sitemap-news.xml", zone_name = "frontaliereticino.ch" },
+  # A route is REQUIRED, not just an EDGE_PUSHED_FILES entry: without one the
+  # Worker never sees the request and the apex answers from Pages. Registering
+  # /sitemap-articles-archive.xml in that map and uploading the R2 object left
+  # it 404 for four hours — the object was there (200 on the CDN host), the
+  # Worker was deployed with the entry, and nothing routed to it.
+  { pattern = "frontaliereticino.ch/sitemap-articles-archive.xml", zone_name = "frontaliereticino.ch" },
   # Pushable-origin edge files, rollout step 2 (issue #4881 residual — llms.txt
   # family, see locale-router.js EDGE_PUSHED_FILES). Same no-wildcard rationale
   # as /sitemap-blog-ch.xml above: AI crawlers (GPTBot, ClaudeBot, PerplexityBot,
