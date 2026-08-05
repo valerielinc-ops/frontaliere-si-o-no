@@ -6399,6 +6399,22 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
       for (const locale of LOCALES) {
         const oldSlug = old.slugByLocale[locale];
         const newSlug = fresh.slugByLocale[locale];
+
+        // `newSlug` empty while `oldSlug` is live: mergeLocaleTextMap left the
+        // slot blank on purpose (its #4569 source-drift guard, or a fresh crawl
+        // that produced nothing for this locale) so the translation pipeline
+        // refills it against the new source text. That is right for TITLES and
+        // wrong for SLUGS: blanking an active slug retires an indexed URL with
+        // no redirect target, and the old `oldSlug && newSlug &&` condition
+        // skipped the capture below precisely in this case — the slug was
+        // dropped with no journal entry at all (issue #5157). Keep serving the
+        // existing URL until a real replacement exists; the next regeneration
+        // captures it as a bridge in the normal way.
+        if (oldSlug && !newSlug) {
+          restoreLocaleSlug(fresh, locale, oldSlug, 'mergePreserveLocaleData/empty-replacement');
+          continue;
+        }
+
         if (oldSlug && newSlug && oldSlug !== newSlug) {
           const stable = isSlugStable(oldSlug, newSlug, {
             existingLocation: old.addressLocality || old.location || '',
@@ -6727,6 +6743,45 @@ export function addPreviousSlugForLocale(job, locale, slug, cap = DEFAULT_PREV_S
 
   // Sync legacy flat array
   syncLegacyPreviousSlugs(job, cap);
+}
+
+/**
+ * Re-instate `slug` as the ACTIVE slug for `locale`, journaling the move.
+ *
+ * The authorized way to write `job.slugByLocale[locale]` from outside this
+ * module. It exists for one specific, recurring situation (issue #5157): a
+ * merge or crawl left the locale slot EMPTY while a perfectly good slug was
+ * serving it a moment ago. Blanking an active slug is never the right answer
+ * — it retires an URL Google has already indexed and gives the redirect
+ * machinery no target to point at — so the correct repair is to keep serving
+ * the slug that was there.
+ *
+ * Unlike `addPreviousSlugForLocale` (which banks a RETIRED slug into history)
+ * this puts a slug back on the LIVE field, so it is journaled as `restore`
+ * rather than `capture`. Callers get attribution for free instead of writing
+ * the field directly and leaving no trace.
+ *
+ * @param {object} job     mutated in place
+ * @param {string} locale
+ * @param {string} slug    the slug to re-instate
+ * @param {string} [source] caller tag for the journal
+ * @returns {boolean} true when the active slug actually changed
+ */
+export function restoreLocaleSlug(job, locale, slug, source = 'restoreLocaleSlug') {
+  if (!job || !locale) return false;
+  const norm = normalizeSpace(String(slug || ''));
+  if (!norm) return false;
+
+  if (!job.slugByLocale || typeof job.slugByLocale !== 'object') job.slugByLocale = {};
+  if (normalizeSpace(String(job.slugByLocale[locale] || '')) === norm) return false;
+
+  job.slugByLocale[locale] = norm;
+  recordSlugMutation({
+    jobId: job.id, locale, slug: norm, action: 'restore',
+    source: `dedicated-crawler-common.${source}`,
+    reason: 'active-slug-would-have-been-blanked',
+  });
+  return true;
 }
 
 /**
