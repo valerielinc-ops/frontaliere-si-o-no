@@ -76,8 +76,12 @@ jobs:
           EOF
           )
 
+          # Stable title: `${count}` sat at char 25, inside the 60-char window the
+          # helper dedups on, so a week where the count moved 3→4 opened a second
+          # issue for the same standing condition even though the call already
+          # went through the helper. The count is in the body's first line.
           node scripts/lib/github-issue-creator.mjs \
-            --title "[glossario-definitions] ${count} term page(s) shipping placeholder DefinedTerm.description" \
+            --title "[glossario-definitions] term pages shipping placeholder DefinedTerm.description" \
             --description "$body" \
             --priority 4 \
             --label seo-audit \

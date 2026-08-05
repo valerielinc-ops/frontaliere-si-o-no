@@ -74,16 +74,33 @@ jobs:
           const r = JSON.parse(readFileSync('/tmp/r/report.json', 'utf8'));
           const a = r.checks?.sitemapCoverage ?? { wouldBe404: 0, totalUrls: 0, sample: [] };
           const b = r.checks?.newsletterHubLinks ?? { wouldBe404: 0, companiesSampled: 0, sample: [] };
+          const g = r.checks?.publishGeneration ?? { apexSha: null, shardsTotal: 0, shardsSameGeneration: 0, offGeneration: [], staleShards: [], maxAgeHours: 24 };
           const total = a.wouldBe404 + b.wouldBe404;
-          let md = `## 404-risk audit: ${total} URL(s) would return a GitHub Pages 404\n\n`;
+          const stale = (g.staleShards ?? []).length;
+          const headline = stale > 0 && total === 0
+            ? `${stale} shard(s) have stopped publishing`
+            : `${total} URL(s) would return a GitHub Pages 404`;
+          let md = `## 404-risk audit: ${headline}\n\n`;
           md += `Served set: ${r.servedSetSize} paths (shards: ${JSON.stringify(r.meta?.shards ?? {})}, section shards: ${JSON.stringify(r.meta?.sectionShards ?? {})}).\n`;
+          md += `Publish generation: apex \`${g.apexSha ?? 'unknown'}\` · ${g.shardsSameGeneration}/${g.shardsTotal} shards on the same deploy.\n`;
           md += `**Run:** ${process.env.RUN_URL}\n\n`;
-          md += `These URLs are referenced (in sitemaps or by the newsletter builder) but have no served page — neither the main repo, the en/de/fr shard repos, nor the frontaliere-<section>-<locale> section shard repos (ticino/svizzera/zurigo). Each one is a silent 404.\n\n`;
+          md += `Counts below are restricted to URLs whose owning shard is on the SAME deploy as the sitemap — the only case where "no served page" is a sound conclusion. The apex sitemap and the shard repos publish on different channels with different latencies (issue #4079), so a URL owned by an off-generation shard is a snapshot skew, not a 404; those are listed separately and never dropped.\n\n`;
           md += `### (A) Sitemap coverage — ${a.wouldBe404} / ${a.totalUrls} sitemap URLs have no served page\n`;
           for (const u of a.sample ?? []) md += `- \`${u}\`\n`;
           if (a.wouldBe404 > (a.sample ?? []).length) md += `- … and ${a.wouldBe404 - a.sample.length} more (raise \`--limit\` to list all)\n`;
           md += `\n### (B) Newsletter company-hub links — ${b.wouldBe404} would 404 (${b.companiesSampled} companies × 4 locales)\n`;
           for (const o of b.sample ?? []) md += `- [${o.locale}] \`${o.builderUrl}\` → expected \`${o.expectedUrl}\` (${o.reason})\n`;
+          if (stale > 0) {
+            md += `\n### (C) Shards that stopped publishing — ${stale} (> ${g.maxAgeHours}h since their last push)\n`;
+            md += `A shard stuck several deploys behind serves its old build indefinitely, and is what bounds the skew deferral above.\n`;
+            for (const s of g.staleShards) md += `- \`${s.shard}\` — last pushed ${s.at} (${s.ageHours}h ago, stamp \`${s.sha ?? 'none'}\`)\n`;
+          }
+          const skew = (a.publishSkew ?? 0) + (b.publishSkew ?? 0);
+          if (skew > 0) {
+            md += `\n### Deferred as publish skew — ${skew} URL(s)\n`;
+            md += `Owned by a shard on a different deploy than the sitemap; re-checked on the next run. Off-generation shards: ${(g.offGeneration ?? []).map((o) => `\`${o.shard}\``).join(', ') || 'none'}.\n`;
+            for (const u of a.publishSkewSample ?? []) md += `- \`${u}\`\n`;
+          }
           writeFileSync('/tmp/r/desc.md', md);
           NODE
 
