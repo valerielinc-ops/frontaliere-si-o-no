@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "constellium-64f0aaeceb5b",
-      "slug": "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch",
+      "slug": "fabbro-di-funzionamento-m-w-d-in-4-turni-1-constellium-valais-steg",
       "slugByLocale": {
         "de": "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch",
-        "it": "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch",
-        "en": "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch",
-        "fr": "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch"
+        "it": "fabbro-di-funzionamento-m-w-d-in-4-turni-1-constellium-valais-steg",
+        "en": "operation-locksmith-m-w-d-in-4-shift-operation-1-constellium-valais-steg",
+        "fr": "operation-de-serrurier-m-w-d-en-4-equipes-1-constellium-valais-steg"
       },
       "company": "Constellium Valais",
       "companyKey": "constellium",
@@ -67,19 +67,23 @@
       "firstSeenAt": "2026-08-04T22:39:06.660Z",
       "previousSlugsByLocale": {
         "it": [
-          "fabbro-di-funzionamento-m-f-d-in-4-turni-1-constellium-valais-steg"
+          "fabbro-di-funzionamento-m-f-d-in-4-turni-1-constellium-valais-steg",
+          "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch"
         ],
         "en": [
-          "operation-locksmith-m-f-d-in-4-shift-operation-1-constellium-valais-steg"
+          "operation-locksmith-m-f-d-in-4-shift-operation-1-constellium-valais-steg",
+          "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch"
         ],
         "fr": [
-          "operation-de-serrurier-m-f-d-en-4-equipes-1-constellium-valais-steg"
+          "operation-de-serrurier-m-f-d-en-4-equipes-1-constellium-valais-steg",
+          "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch"
         ]
       },
       "previousSlugs": [
         "fabbro-di-funzionamento-m-f-d-in-4-turni-1-constellium-valais-steg",
         "operation-locksmith-m-f-d-in-4-shift-operation-1-constellium-valais-steg",
-        "operation-de-serrurier-m-f-d-en-4-equipes-1-constellium-valais-steg"
+        "operation-de-serrurier-m-f-d-en-4-equipes-1-constellium-valais-steg",
+        "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch"
       ]
     },
     {
@@ -131,14 +135,12 @@
       "crawledAt": "2026-08-04T22:39:05.358Z",
       "previousSlugs": [
         "betriebsschlosser-in-tagesarbeit-constellium-ch",
-        "betriebsschlosser-in-tagesarbeit-constellium-valais-steg",
-        "fabbriche-operaie-nel-lavoro-quotidiano-constellium-valais-steg"
+        "betriebsschlosser-in-tagesarbeit-constellium-valais-steg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebsschlosser-in-tagesarbeit-constellium-ch",
-          "betriebsschlosser-in-tagesarbeit-constellium-valais-steg",
-          "fabbriche-operaie-nel-lavoro-quotidiano-constellium-valais-steg"
+          "betriebsschlosser-in-tagesarbeit-constellium-valais-steg"
         ],
         "en": [
           "betriebsschlosser-in-tagesarbeit-constellium-valais-steg"

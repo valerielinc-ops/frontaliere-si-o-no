@@ -43,7 +43,7 @@
         "it": "capo-turno-test-ipu-b-s-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino-7l70e1",
         "en": "shift-leader-test-ipu-b-s-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino-7l70e1",
         "de": "shift-leader-test-ipu-b-s-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino-7l70e1",
-        "fr": "shift-leader-test-ipu-b-s-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino-7l70e1"
+        "fr": "capo-turno-test-ipu-b-s-m-f-d-80-100-abb-svizzera-sede-ticino-quartino-ticino"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -52,11 +52,16 @@
         "it": [
           "shift-leader-test-ipu-b-s-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino",
           "shift-leader-collaudo-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino"
+        ],
+        "fr": [
+          "shift-leader-test-ipu-b-s-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino-7l70e1"
         ]
       },
       "previousSlugs": [
         "shift-leader-test-ipu-b-s-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino",
-        "shift-leader-collaudo-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino"
+        "shift-leader-collaudo-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino",
+        "shift-leader-collaudo-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino",
+        "shift-leader-test-ipu-b-s-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino-7l70e1"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,

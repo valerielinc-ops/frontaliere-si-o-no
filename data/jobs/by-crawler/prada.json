@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "prada-34ca3e12040c",
-      "slug": "prada-stockroom-assistant-prada-group-taichung",
+      "slug": "prada-assistente-di-stockroom-prada-group-taichung",
       "slugByLocale": {
         "en": "prada-stockroom-assistant-prada-group-taichung",
-        "it": "prada-stockroom-assistant-prada-group-taichung",
-        "de": "prada-stockroom-assistant-prada-group-taichung",
-        "fr": "prada-stockroom-assistant-prada-group-taichung"
+        "it": "prada-assistente-di-stockroom-prada-group-taichung",
+        "de": "prada-stockroom-assistent-prada-group-taichung",
+        "fr": "assistant-de-la-salle-des-stocks-prada-prada-group-taichung"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -60,7 +60,21 @@
       },
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-04T22:30:57.250Z"
+      "firstSeenAt": "2026-08-04T22:30:57.250Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "prada-stockroom-assistant-prada-group-taichung"
+        ],
+        "de": [
+          "prada-stockroom-assistant-prada-group-taichung"
+        ],
+        "fr": [
+          "prada-stockroom-assistant-prada-group-taichung"
+        ]
+      },
+      "previousSlugs": [
+        "prada-stockroom-assistant-prada-group-taichung"
+      ]
     },
     {
       "id": "prada-6c4e57745113",
@@ -106,13 +120,11 @@
       "crawledAt": "2026-08-04T22:30:55.052Z",
       "previousSlugs": [
         "prada-runner-sankt-moritz-prada-group-saint-moritz",
-        "assistant-logistique-prada-saint-moritz-prada-group-saint-moritz",
-        "addetto-alla-logistica-prada-sankt-moritz-prada-group-saint-moritz"
+        "assistant-logistique-prada-saint-moritz-prada-group-saint-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "prada-runner-sankt-moritz-prada-group-saint-moritz",
-          "addetto-alla-logistica-prada-sankt-moritz-prada-group-saint-moritz"
+          "prada-runner-sankt-moritz-prada-group-saint-moritz"
         ],
         "fr": [
           "prada-runner-sankt-moritz-prada-group-saint-moritz",
