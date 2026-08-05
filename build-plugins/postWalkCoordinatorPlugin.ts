@@ -69,6 +69,8 @@ import {
 import type { BlogLinkLocale } from './blogContextualLinksData';
 import { transformFlatRedirect } from './flatHtmlRedirectPlugin';
 import { transformHreflang } from './hreflangPostprocessPlugin';
+import { shouldEmitPath } from './shared/localeEmitFilter';
+import { collectHtml } from './shared/distHtmlWalk';
 import {
   startTimer as profileStart,
   recordEmit as profileRecord,
@@ -96,31 +98,6 @@ interface WorkerResult {
   // these into its own module-level buckets via profileIngestBuckets()
   // before printPostWalkProfile() emits the unified table.
   profilerBuckets?: SerializedBuckets;
-}
-
-/**
- * Walk every `.html` file under `dir`, skipping static-asset directories.
- *
- * Reverted from the async BFS variant (PR #802) back to a sync recursive
- * generator. Run 26608004451 [post-walk-profile]:
- *   walk-dist  PR #802 → 85.7 s   (vs 65.3 s sync baseline, +31%)
- * The 8-way `fs.promises.readdir` BFS contended with the post-walk worker
- * pool (each worker also issues `fs.promises.readFile` through libuv's
- * default 4-thread pool) and ended up paying Promise scheduling overhead
- * + thread-pool serialization that the C-runtime sync recursion avoided.
- * Re-investigate when the worker pool moves to io_uring native ops or
- * `UV_THREADPOOL_SIZE` is bumped repo-wide.
- */
-function* walkHtml(dir: string): Iterable<string> {
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const p = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      if (entry.name === 'assets' || entry.name === 'data' || entry.name === 'images') continue;
-      yield* walkHtml(p);
-    } else if (entry.isFile() && entry.name.endsWith('.html')) {
-      yield p;
-    }
-  }
 }
 
 /**
@@ -402,14 +379,34 @@ export function postWalkCoordinatorPlugin(
 
         // ── Phase A: enumerate every emitted HTML file once ──────────
         const __tWalk = profileStart();
-        const allHtmlPaths: string[] = [];
+        const allHtmlPaths: string[] = collectHtml(distDir, []);
         const processHtmlPaths: string[] = [];
-        const existingHtmlSet = new Set<string>();
+        const existingHtmlSet = new Set<string>(allHtmlPaths);
         let preEmittedFlatBridgesSkipped = 0;
-        for (const file of walkHtml(distDir)) {
-          allHtmlPaths.push(file);
-          existingHtmlSet.add(file);
-          if (isPreEmittedJobFlatBridgePath(distDir, file)) {
+        let nonOwnedLocaleSkipped = 0;
+        for (const file of allHtmlPaths) {
+          // Per-locale matrix shard (BUILD_LOCALE): a file in a NON-owned
+          // locale subtree is deleted, unread, by scripts/ci/prune-locale-shard.mjs
+          // in the very next workflow step — it can never ship from this shard,
+          // so reading + transforming + rewriting it is pure waste. On the `it`
+          // shard of run 31036546298 that is ~600k of the 1,308,502 walked HTML
+          // files; on an en/de/fr shard it is nearly the whole tree (prune keeps
+          // ONLY `dist/<locale>` there). Same optimisation, same predicate and
+          // same justification as blogImageCdnFinalizePlugin's `walk`.
+          //
+          // The file stays in `existingHtmlSet` (built from the FULL walk above)
+          // so nothing that depends on knowing it exists changes:
+          //  - transformHreflang's existence check for a cross-locale alternate
+          //    is short-circuited anyway (`!shouldEmitLocale(ownerEmitLocale(l))
+          //    → keep`, hreflangPostprocessPlugin.ts:115), so a non-owned target
+          //    is kept UNCONDITIONALLY — it can never be dropped as broken;
+          //  - transformFlatRedirect's sibling lookup only ever reads a sibling
+          //    in the SAME directory, hence the same locale as the file itself.
+          // shouldEmitPath returns true for ALL paths on the default all-locale
+          // build (EMIT_ALL_LOCALES) → no-op, full coverage, byte-identical.
+          if (!shouldEmitPath(file, distDir)) {
+            nonOwnedLocaleSkipped++;
+          } else if (isPreEmittedJobFlatBridgePath(distDir, file)) {
             preEmittedFlatBridgesSkipped++;
           } else {
             processHtmlPaths.push(file);
@@ -491,7 +488,8 @@ export function postWalkCoordinatorPlugin(
         // eslint-disable-next-line no-console
         console.log(
           `\x1b[36m[post-walk-coordinator]\x1b[0m scanned ${filesScanned} files in ${dur}s ` +
-            `(workers: ${workerCount}) — ` +
+            `(workers: ${workerCount}, processed ${processHtmlPaths.length}, ` +
+            `${nonOwnedLocaleSkipped} non-owned-locale skipped) — ` +
             `bridges: ${merged.bridgeConverted + preEmittedFlatBridgesSkipped} converted ` +
             `(${preEmittedFlatBridgesSkipped} pre-skipped, ${merged.bridgeSkipped} non-bridge skipped), ` +
             `blog: ${merged.blogArticlesModified} modified / ${merged.blogLinksInjected} links injected, ` +

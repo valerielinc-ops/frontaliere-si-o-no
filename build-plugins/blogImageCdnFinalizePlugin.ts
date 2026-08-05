@@ -25,6 +25,7 @@
 
 import type { Plugin } from 'vite';
 import fs from 'node:fs';
+import fsp from 'node:fs/promises';
 import path from 'node:path';
 
 import { CDN_BLOG_BASE } from './shared/blogImageCdn';
@@ -57,15 +58,51 @@ const reLeak = new RegExp(
   '(?:' + ESC_ORIGIN + '/images/blog/|(?<![\\w.@])/images/blog/)(?!thumbnails/)' + FILE,
 );
 
+// The ONLY byte sequence any of the three regexes above can match. `reAbs`,
+// `reRel` (inside rewriteBlogImageRefs) and `reLeak` all require the literal
+// ASCII substring `/images/blog/`; none can match without it. A file whose raw
+// bytes do not contain it is therefore guaranteed to satisfy
+//   rewriteBlogImageRefs(html) === html   &&   hasBlogImageLeak(html) === false
+// so it can be skipped WITHOUT the utf8 decode and the three regex passes —
+// the decode/scan is exact-equivalence-preserving dead work on ~99.99% of the
+// tree (run 31036546298, `it` shard: 88 rewrites out of 710,873 files scanned,
+// cpu_s=152 of wall_s=386). Byte-level matching is sound for an ASCII needle:
+// utf8 decoding maps ASCII bytes 1:1 and replaces invalid sequences with
+// U+FFFD, so it can never CREATE an ASCII substring that the bytes lack.
+const BLOG_REF_MARKER = Buffer.from('/images/blog/');
+
 // Perf: the original finalize scanned every file TWICE (a rewrite pass + a
 // separate guard pass). The single pass in closeBundle below rewrites and
 // verifies each file in one read — halving the I/O — while the guard still
 // covers EVERY emitted file (no dir is skipped), so a stray /images/blog
 // reference anywhere (even in the job-board corpus, which today carries none)
 // is still caught before any image is deleted.
-function walk(dir: string, fn: (fp: string) => void, root: string = dir): void {
-  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    const fp = path.join(dir, e.name);
+//
+// LAZY, and deliberately so (issue #5169): this runs when the build's RSS is
+// already ~11.2 GB of the runner's 16 GB, and the `it` shard walks ~711k files.
+// Materialising the path list first would add ~70 MB of live strings at exactly
+// the wrong moment, so the sweep pulls one path at a time from this generator
+// instead. Resident cost is the readdir listing of the frames on the current
+// root→leaf path — the same thing the recursive form held on its call stack.
+//
+// Iterative (explicit frame stack) rather than `yield*` recursion: with `yield*`
+// every file costs one generator resume PER DEPTH LEVEL of the delegation chain,
+// which is what made postWalkCoordinator's walk 202 s over 1.3M files. Here
+// there is exactly one generator frame, so it is one resume per file. Traversal
+// order, skip list and shard gate are identical to the recursive form.
+function* walk(root: string): Generator<string> {
+  const frames: Array<{ dir: string; entries: fs.Dirent[]; i: number }> = [
+    { dir: root, entries: fs.readdirSync(root, { withFileTypes: true }), i: 0 },
+  ];
+  while (frames.length > 0) {
+    const f = frames[frames.length - 1];
+    if (f.i >= f.entries.length) {
+      frames.pop();
+      continue;
+    }
+    const e = f.entries[f.i++];
+    const dir = f.dir;
+    const fp = dir + path.sep + e.name;
     if (e.isDirectory()) {
       // Skip ONLY the TOP-LEVEL dist/{assets,data,images} (vite JS/CSS/fonts,
       // CDN-offloaded *.json payloads, *.webp/*.png/og art — none carry the
@@ -91,14 +128,110 @@ function walk(dir: string, fn: (fp: string) => void, root: string = dir): void {
       // walked and scanned. shouldEmitPath returns true for ALL paths on the
       // default all-locale build (EMIT_ALL_LOCALES) → no-op, full coverage.
       if (dir === root && !shouldEmitPath(fp, root)) continue;
-      walk(fp, fn, root);
+      frames.push({ dir: fp, entries: fs.readdirSync(fp, { withFileTypes: true }), i: 0 });
     } else if (SCAN_EXT.has(path.extname(e.name))) {
       // Same shard-ownership gate for root-level files (e.g. dist/index.html on
       // an en/de/fr shard) — pruned post-build, never shipped from here.
       if (!shouldEmitPath(fp, root)) continue;
-      fn(fp);
+      yield fp;
     }
   }
+}
+
+/**
+ * Shape of the last sweep, so a deploy log can attribute the plugin's
+ * `[profile-detail]` wall_s without a second profiling run. Purely observational.
+ */
+export const lastSweepTimings = { sweepMs: 0, lanes: 0 };
+
+/** Result of a whole-dist rewrite+guard sweep. `leaks` is sorted (deterministic). */
+export interface BlogImageSweepResult {
+  scanned: number;
+  rewritten: number;
+  /** dist-relative paths that STILL reference a full blog image. Sorted. */
+  leaks: string[];
+}
+
+// Concurrency for the read/rewrite sweep. The sweep is I/O-latency bound once
+// the BLOG_REF_MARKER fast path removes the decode+regex CPU (measured
+// wall_s=386 vs cpu_s=152 on run 31036546298 — ~60% of the wall was a single
+// thread waiting on `readFileSync`), so overlapping reads is where the wall
+// time goes. 8 keeps libuv's 4-thread file pool saturated without queueing so
+// deep that a burst of large sitemaps is held in memory at once (peak RSS at
+// this point in the build is ~11.2 GB of 16 — see MALLOC_ARENA_MAX in
+// deploy.yml, and #5169: the monolithic variant is killed by the KERNEL
+// OOM-killer at ~11.7 GB, so this plugin must not add a plateau). The walk
+// feeding these lanes is lazy and each buffer is released as soon as its file
+// is handled, so the resident cost is `concurrency × file size` — tens of MB
+// worst case, and it does NOT grow with the size of the tree.
+// REVERT TRIGGER: set BLOG_IMAGE_CDN_CONCURRENCY=1 to restore the exact
+// sequential behaviour if a deploy OOMs in this plugin.
+const DEFAULT_SWEEP_CONCURRENCY = 8;
+
+function resolveSweepConcurrency(): number {
+  const raw = process.env.BLOG_IMAGE_CDN_CONCURRENCY;
+  if (raw) {
+    const n = Number.parseInt(raw, 10);
+    if (Number.isFinite(n) && n > 0) return n;
+  }
+  return DEFAULT_SWEEP_CONCURRENCY;
+}
+
+/**
+ * Rewrite every full-blog-image reference under `distDir` to its CDN URL and
+ * report the files that still carry one afterwards.
+ *
+ * Output-identical to the original sequential single-pass walk by construction:
+ *  - the SET of visited files is the same (same `walk`, same filters);
+ *  - each file's transform depends only on its own bytes, so interleaving reads
+ *    cannot change any file's result;
+ *  - the fast path is exact (see BLOG_REF_MARKER);
+ *  - `leaks` is sorted, which is strictly MORE deterministic than the previous
+ *    filesystem-order array (it is only used for `.length` and a log slice).
+ */
+export async function sweepDistBlogImageRefs(
+  distDir: string,
+  concurrency: number = resolveSweepConcurrency(),
+): Promise<BlogImageSweepResult> {
+  const tSweep = Date.now();
+  let scanned = 0;
+  let rewritten = 0;
+  const leaks: string[] = [];
+
+  const handle = async (fp: string): Promise<void> => {
+    const buf = await fsp.readFile(fp);
+    // Exact fast path: no `/images/blog/` bytes ⇒ no rewrite, no leak.
+    if (!buf.includes(BLOG_REF_MARKER)) return;
+    const orig = buf.toString('utf8');
+    const out = rewriteBlogImageRefs(orig);
+    if (out !== orig) {
+      await fsp.writeFile(fp, out);
+      rewritten++;
+    }
+    if (hasBlogImageLeak(out)) leaks.push(path.relative(distDir, fp));
+  };
+
+  // Each lane pulls the next path from the shared (lazy) walker and awaits its
+  // own read, so at most `lanes` files are resident at any instant. `it.next()`
+  // is synchronous and JS is single-threaded, so the pull is atomic — two lanes
+  // can never receive the same path.
+  const it = walk(distDir);
+  const lanes = Math.max(1, concurrency);
+  await Promise.all(
+    Array.from({ length: lanes }, async () => {
+      for (;;) {
+        const n = it.next();
+        if (n.done) return;
+        scanned++;
+        await handle(n.value);
+      }
+    }),
+  );
+
+  lastSweepTimings.sweepMs = Date.now() - tSweep;
+  lastSweepTimings.lanes = lanes;
+  leaks.sort();
+  return { scanned, rewritten, leaks };
 }
 
 export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
@@ -114,25 +247,13 @@ export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
         return;
       }
 
-      let scanned = 0;
-      let rewritten = 0;
       // Single pass: rewrite each file, then verify the RESULT in-memory (no
       // second filesystem scan). Guard — nothing full-blog (non-thumbnail,
       // non-CDN) may remain. If any does, ABORT the offload (keep the images
       // in dist) rather than throw: a missed reference must never break the
       // deploy. Worst case the artifact ships the blog images as before (no
       // reduction) — never a 404 or a failed build.
-      const leaks: string[] = [];
-      walk(distDir, (fp) => {
-        scanned++;
-        const orig = fs.readFileSync(fp, 'utf8');
-        const out = rewriteBlogImageRefs(orig);
-        if (out !== orig) {
-          fs.writeFileSync(fp, out);
-          rewritten++;
-        }
-        if (hasBlogImageLeak(out)) leaks.push(path.relative(distDir, fp));
-      });
+      const { scanned, rewritten, leaks } = await sweepDistBlogImageRefs(distDir);
       if (leaks.length > 0) {
         console.warn(
           `[blog-image-cdn] ${leaks.length} file(s) still reference full /images/blog images after CDN ` +
@@ -156,7 +277,8 @@ export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
       }
       console.log(
         `[blog-image-cdn] rewrote ${rewritten}/${scanned} files → CDN; ` +
-          `deleted ${deleted} full blog images (${(freed / 1048576).toFixed(0)} MB freed; thumbnails kept local)`,
+          `deleted ${deleted} full blog images (${(freed / 1048576).toFixed(0)} MB freed; thumbnails kept local) ` +
+          `[sweep=${(lastSweepTimings.sweepMs / 1000).toFixed(1)}s lanes=${lastSweepTimings.lanes}]`,
       );
     },
   };
