@@ -35,12 +35,21 @@ export function clerCareerSectionYear(url = '') {
  * Records with no derivable stable id (no url and no slug) are preserved
  * as-is under a per-record synthetic key so a missing id never silently
  * drops a job. This only triggers when `getUrl(item)` returns '' (the API
- * listing carries no link at all) — whenever a URL IS present, `extractStableJobId`
- * always resolves a non-empty, stable key: Rule K (cler.ch host-gate) wins when
- * the leaf ends in a requisition digit run, and otherwise Rule C
- * (job-url-key.mjs) falls back to the whole normalized URL, which is never ''
- * for non-empty input (confirmed #4205 item 3, tests/job-url-key.test.ts +
- * tests/cler-crawler.test.ts).
+ * listing carries no link at all) — whenever a URL IS present,
+ * `extractStableJobId` always resolves a non-empty, stable key.
+ *
+ * #5230 — "non-empty and stable" was necessary but NOT sufficient, and the
+ * gap re-opened #3836 for a whole class of postings. Rule K originally fired
+ * only when the leaf ENDED in a digit run; Cler's apprenticeship/internship
+ * slugs carry no requisition suffix, so they fell through to Rule C's
+ * whole-URL key. That key is perfectly stable and non-empty — and DIFFERENT
+ * for the two career-section paths, so the pair never collapsed and every
+ * such posting was emitted twice (banca-cler 18/22 = 82%, the audit's only
+ * CRITICAL crawler). Rule K now falls back to a leaf-based
+ * `req:cler.ch:slug:<leaf>` key for the `/offene-stellen/<slug>` detail
+ * shape, which is invariant across both the career-section split and the
+ * de/it locale paths. Covered by tests/job-url-key.test.ts +
+ * tests/cler-crawler.test.ts.
  *
  * @param {Array<object>} items
  * @param {(item: object) => string} [getUrl] URL accessor (default `item.url`)
