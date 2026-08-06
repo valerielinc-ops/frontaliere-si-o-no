@@ -9300,6 +9300,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-nascita-figlio-anagrafe-2026.title': 'Naissance enfant frontaliers : inscription et chèques 2026',
     'blog.article.frontaliere-nascita-figlio-anagrafe-2026.excerpt': 'Guide opérationnel pour les frontaliers Tessin-Italie : naissance d\'un enfant, inscription à l\'état civil, allocations familiales et dossiers consulaires conformément au nouvel accord fiscal 2024 et à la convention 1976.',
     'blog.article.frontaliere-nascita-figlio-anagrafe-2026.imageAlt': 'Travailleur frontalier avec nouveau-né au bureau de douane de Brogeda, frontière Italie-Suisse',
+    'blog.article.frontalierieticinoaumento.title': 'Légère augmentation des travailleurs frontaliers au Tessin : les chiffres',
+    'blog.article.frontalierieticinoaumento.excerpt': 'Le nombre de frontaliers au Tessin a augmenté de 0,6 % par rapport au trimestre précédent, avec un total de 79 121 personnes.',
+    'blog.article.frontalierieticinoaumento.imageAlt': 'Vue de Lugano sur le lac et les montagnes',
 };
 
 export default blogMetaFr;

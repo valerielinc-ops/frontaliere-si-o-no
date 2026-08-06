@@ -9297,6 +9297,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-nascita-figlio-anagrafe-2026.title': 'Nascita figlio per frontalieri: iscrizione 2026 oltre 20 km',
     'blog.article.frontaliere-nascita-figlio-anagrafe-2026.excerpt': 'Betriebsanleitung für Grenzgänger Tessin-Italien: Geburt eines Kindes, Registrierung, Familienzulagen und konsularische Verfahren in Übereinstimmung mit dem neuen Steuerabkommen 2024 und dem Abkommen von 1976.',
     'blog.article.frontaliere-nascita-figlio-anagrafe-2026.imageAlt': 'Grenzgänger mit neugeborenem Baby beim Zollbüro Brogeda, Grenze Italien-Schweiz',
+    'blog.article.frontalierieticinoaumento.title': 'Leichte Zunahme der Grenzgänger im Tessin: die Zahlen',
+    'blog.article.frontalierieticinoaumento.excerpt': 'Die Zahl der Grenzgänger im Tessin stieg gegenüber dem Vorquartal um 0,6% auf insgesamt 79.121 Personen.',
+    'blog.article.frontalierieticinoaumento.imageAlt': 'Lugano See und Berge',
 };
 
 export default blogMetaDe;
