@@ -106,8 +106,15 @@ export function isSynthesizedByEdge(row) {
   return origin === 0;
 }
 
-/** cacheStatus values that mean a servable copy existed at the edge. */
-const CACHE_HAD_COPY = new Set(['hit', 'expired', 'revalidated', 'stale', 'updating']);
+/**
+ * cacheStatus values that mean a servable copy existed at the edge.
+ *
+ * Exported because the snapshot's report renderer needs the same notion to flag which rows
+ * serve_stale could have rescued. Two independent definitions of "servable copy" is precisely
+ * the ambiguity this module exists to remove: if a new cacheStatus value appears and only one
+ * copy learns about it, `staleRescuable` and the report flag diverge without a word.
+ */
+export const CACHE_HAD_COPY = new Set(['hit', 'expired', 'revalidated', 'stale', 'updating']);
 
 /**
  * Could serve_stale have rescued this request?

@@ -48,7 +48,12 @@ import {
   fetchErrorPaths,
   DEFAULT_ZONE_NAME,
 } from '../lib/cf-analytics.mjs';
-import { classifySurface, isSynthesizedByEdge, couldServeStaleHaveHelped } from '../lib/cf-error-surface.mjs';
+import {
+  classifySurface,
+  isSynthesizedByEdge,
+  couldServeStaleHaveHelped,
+  CACHE_HAD_COPY,
+} from '../lib/cf-error-surface.mjs';
 
 const DEFAULT_HISTORY_FILE = 'data/cf-5xx-history.jsonl';
 /** Top offending URLs kept per snapshot. Enough to spot a pattern, small enough to keep forever. */
@@ -221,7 +226,7 @@ export function renderReport(history) {
     const rows = Object.entries(last.byHostStatusCache).sort((a, b) => b[1] - a[1]);
     for (const [key, n] of rows.slice(0, 12)) {
       const [host, status, cache] = key.split('|');
-      const servable = ['hit', 'expired', 'revalidated', 'stale', 'updating'].includes(cache);
+      const servable = CACHE_HAD_COPY.has(cache);
       lines.push(`  ${host.padEnd(28)} ${status}  ${cache.padEnd(11)} ${String(n).padStart(5)}${servable ? '   <- copia servibile' : ''}`);
     }
   }
