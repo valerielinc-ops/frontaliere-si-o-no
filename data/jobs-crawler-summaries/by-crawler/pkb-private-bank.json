@@ -1,16 +1,16 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-08-05T23:01:29.616Z",
+  "generatedAt": "2026-08-06T11:45:10.468Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5736,
-  "avgDurationMs": 5736,
+  "unchangedCount": 1,
+  "durationMs": 4972,
+  "avgDurationMs": 4972,
   "durationHistory": [
-    5736
+    4972
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "employmentType": "PART_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-05T23:01:25.504Z",
+      "crawledAt": "2026-08-06T11:45:07.264Z",
       "id": "pkb-private-bank-649a7b6c1241",
       "firstSeenAt": "2026-08-03T22:25:34.929Z",
       "_qualityScore": 86,
@@ -41,36 +41,6 @@
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 20
-      }
-    },
-    {
-      "title": "Collaboratore Payments & Securities (f/m)",
-      "company": "PKB Private Bank SA",
-      "companyKey": "pkb-private-bank",
-      "companyDomain": "pkb.ch",
-      "url": "https://careers.pkb.ch/job/view-job.php?id=28-collaboratore-payments-securities-f-m-lugano&language=it",
-      "slug": "collaboratore-payments-securities-f-m-pkb-private-bank-lugano",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Serafino Balestra 1",
-      "postedDate": "2026-07-27",
-      "validThrough": "",
-      "sector": "Banca e servizi finanziari",
-      "role": "Contabilità/Banca/Finanza",
-      "employmentType": "FULL_TIME",
-      "source": "PKB Dedicated Parser (Arca24)",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-05T23:01:25.813Z",
-      "id": "pkb-private-bank-a98c1a99f4f2",
-      "firstSeenAt": "2026-07-28T11:43:51.581Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
         "completeness": 20
       }
     },
@@ -93,7 +63,7 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-05T23:01:26.126Z",
+      "crawledAt": "2026-08-06T11:45:07.642Z",
       "id": "pkb-private-bank-14e6e40f691f",
       "firstSeenAt": "2026-07-10T10:40:31.816Z",
       "_qualityScore": 88,
@@ -106,5 +76,43 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Collaboratore Payments & Securities (f/m)",
+      "company": "PKB Private Bank SA",
+      "companyKey": "pkb-private-bank",
+      "companyDomain": "pkb.ch",
+      "url": "https://careers.pkb.ch/job/view-job.php?id=28-collaboratore-payments-securities-f-m-lugano&language=it",
+      "slug": "collaboratore-payments-securities-f-m-pkb-private-bank-lugano",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Via Serafino Balestra 1",
+      "postedDate": "2026-07-27",
+      "validThrough": "",
+      "sector": "Banca e servizi finanziari",
+      "role": "Contabilità/Banca/Finanza",
+      "employmentType": "FULL_TIME",
+      "source": "PKB Dedicated Parser (Arca24)",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-05T23:01:25.813Z",
+      "id": "pkb-private-bank-a98c1a99f4f2",
+      "firstSeenAt": "2026-07-28T11:43:51.581Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ]
 }
