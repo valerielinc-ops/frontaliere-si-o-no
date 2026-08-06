@@ -1,16 +1,16 @@
 {
   "key": "cs-bregaglia",
   "label": "Centro Sanitario Bregaglia",
-  "generatedAt": "2026-08-05T22:45:21.323Z",
-  "total": 3,
+  "generatedAt": "2026-08-06T11:58:56.922Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3224,
-  "avgDurationMs": 3224,
+  "unchangedCount": 0,
+  "durationMs": 3469,
+  "avgDurationMs": 3469,
   "durationHistory": [
-    3224
+    3469
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/419-offerta-di-lavoro-medico-di-medicina-generale-o-internista",
       "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-05T22:45:19.172Z",
+      "crawledAt": "2026-08-06T11:58:54.260Z",
       "addressLocality": "Promontogno",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/324-apertura-bandi-per-apprendistato-al-csb",
       "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-05T22:45:19.173Z",
+      "crawledAt": "2026-08-06T11:58:54.262Z",
       "addressLocality": "Promontogno",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -90,46 +90,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "cs-bregaglia-646f58a699b0",
-      "slug": "collaboratore-sanitario-equivalente-a-oss-italiano-cs-bregaglia-promontogno",
-      "company": "Centro Sanitario Bregaglia",
-      "companyKey": "cs-bregaglia",
-      "companyDomain": "csbregaglia.ch",
-      "title": "collaboratore sanitario (equivalente a OSS italiano)",
-      "needsRetranslation": false,
-      "location": "Promontogno",
-      "canton": "GR",
-      "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/447-offerta-di-lavoro-collaboratore-sanitario-oss-italiano",
-      "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-05T11:47:01.088Z",
-      "addressLocality": "Promontogno",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7606",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-17",
-      "applyUrl": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/447-offerta-di-lavoro-collaboratore-sanitario-oss-italiano",
-      "firstSeenAt": "2026-07-22T22:15:34.912Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
