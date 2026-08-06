@@ -23,12 +23,12 @@
       "employmentType": "40 - 60%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-08-05T23:00:20.512Z",
-      "slug": "mitarbeiter-in-hauswirtschaft-kantonsspital-graubunden-chur",
+      "slug": "dipendenti-nelle-pulizie-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-kantonsspital-graubunden-chur",
-        "it": "mitarbeiter-in-hauswirtschaft-kantonsspital-graubunden-chur",
-        "en": "mitarbeiter-in-hauswirtschaft-kantonsspital-graubunden-chur",
-        "fr": "mitarbeiter-in-hauswirtschaft-kantonsspital-graubunden-chur"
+        "it": "dipendenti-nelle-pulizie-kantonsspital-graubunden-chur",
+        "en": "employee-in-housekeeping-kantonsspital-graubunden-chur",
+        "fr": "employe-dans-le-menage-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Mitarbeiter:in Hauswirtschaft",
@@ -58,7 +58,21 @@
       "salaryMin": 41080,
       "salaryMax": 87000,
       "currency": "CHF",
-      "firstSeenAt": "2026-08-05T23:00:20.512Z"
+      "firstSeenAt": "2026-08-05T23:00:20.512Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-hauswirtschaft-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "mitarbeiter-in-hauswirtschaft-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-hauswirtschaft-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10139247",
