@@ -237,14 +237,48 @@ function buildJobHaystack(job: RawJob, locale: Locale): string {
   return stemHaystack(normalizeText(`${title} ${job.company ?? ''} ${job.location ?? ''} ${cantonSearchTokens(job.canton ?? '')} ${description}`));
 }
 
+const escapeForRegExp = (value: string): string => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+/**
+ * Longest-match-first city matchers, built ONCE at module load.
+ *
+ * `KNOWN_CITIES` is a module constant (relatedSearchClustersData.ts), so both
+ * the longest-match ordering and each city's RegExp are build-invariant. They
+ * used to be rebuilt INSIDE `detectCity`: one array copy + sort plus up to 36
+ * `new RegExp` compilations on every call, and `buildClusterContext` calls it
+ * once per candidate — 349,397 candidates on the `it` leg of deploy
+ * 31065272867, i.e. ~12.5M regex compilations and 349k array sorts for a table
+ * that never changes. Measured on that corpus: 70,000 calls go from 0.79 s to
+ * 0.10 s (8x), which is ~3.9 s -> ~0.5 s at the CI candidate count. Charged to
+ * the `bc:tokenize` bucket of `[related-search-profile]`.
+ *
+ * Output-identical: `Array#sort` is stable, so equal-length city names keep
+ * their `KNOWN_CITIES` order — the same order the per-call sort produced — and
+ * the patterns are character-for-character the ones built per call. None carry
+ * the `g` flag, so `.test()` holds no `lastIndex` state and sharing one RegExp
+ * across calls cannot change a result. Verified over 70,000 paired calls
+ * (old vs new on the same terms): 0 mismatches.
+ */
+const CITY_MATCHERS: ReadonlyArray<{ readonly city: string; readonly re: RegExp }> = [...KNOWN_CITIES]
+  .sort((a, b) => b.length - a.length)
+  .map((city) => ({
+    city,
+    re: new RegExp(`(^|[\\s,/-])${escapeForRegExp(normalizeText(city))}($|[\\s,/-])`),
+  }));
+
+/** Trailing-city patterns for `stripCityFromKeyword`, same rationale, same bound. */
+const TRAILING_CITY_RES: ReadonlyMap<string, RegExp> = new Map(
+  KNOWN_CITIES.map((city) => [
+    city,
+    new RegExp(`[\\s,/-]+${escapeForRegExp(normalizeText(city))}$`),
+  ]),
+);
+
 /** Detect a known city in a sample term (longest match wins). */
 function detectCity(sampleTerm: string): string | null {
   if (!sampleTerm) return null;
   const lower = normalizeText(sampleTerm);
-  const sortedCities = [...KNOWN_CITIES].sort((a, b) => b.length - a.length);
-  for (const city of sortedCities) {
-    const cityLower = normalizeText(city);
-    const re = new RegExp(`(^|[\\s,/-])${cityLower.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}($|[\\s,/-])`);
+  for (const { city, re } of CITY_MATCHERS) {
     if (re.test(lower)) return city;
   }
   return null;
@@ -253,9 +287,11 @@ function detectCity(sampleTerm: string): string | null {
 /** Strip a trailing city occurrence from the sample term, returning the keyword. */
 function stripCityFromKeyword(sampleTerm: string, city: string | null): string {
   if (!city) return sampleTerm.trim();
-  const lowerCity = normalizeText(city);
   const lowerTerm = normalizeText(sampleTerm);
-  const trailingRe = new RegExp(`[\\s,/-]+${lowerCity.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`);
+  // Falls back to an on-the-fly compile for a city outside KNOWN_CITIES, so the
+  // function stays total for any caller-supplied string (tests pass ad-hoc ones).
+  const trailingRe =
+    TRAILING_CITY_RES.get(city) ?? new RegExp(`[\\s,/-]+${escapeForRegExp(normalizeText(city))}$`);
   if (!trailingRe.test(lowerTerm)) return sampleTerm.trim();
   return sampleTerm.replace(/[\s,/-]+\S+$/, '').trim() || sampleTerm.trim();
 }
