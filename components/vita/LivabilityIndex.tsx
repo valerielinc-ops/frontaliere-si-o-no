@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import AvgRentValue from '@/components/shared/AvgRentValue';
-import { rentAxisNote } from '@/services/avgRentEstimate';
+import { rentAxisNote, rentScoreShareNote } from '@/services/avgRentEstimate';
 import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { lazyRetry } from '@/services/lazyRetry';
 import { useTranslation } from '@/services/i18n';
@@ -217,6 +217,24 @@ export default function LivabilityIndex() {
  <span>{t('livability.weightPopulation')}</span>
  <span>{t('livability.weightFascia')}</span>
  </div>
+
+ {/* UNCONDITIONAL, and that is the whole point (#4545 residual 4 follow-up).
+     The rent axis is a zone-level estimate — 32 distinct values across 518
+     comuni — and it carries W_RENT of the composite score in EVERY row and
+     EVERY sort mode. Dropping it moves 513 of 518 ranks on the committed data
+     (mean shift 61 positions, max 415), so it decides the ordering rather than
+     merely breaking ties.
+
+     The disclosure used to render only while `sortBy === 'rent'` — a
+     conditional copied from BorderMunicipalitiesMap, where it is correct:
+     that surface colours BY rent only in `colorMode === 'rent'`, so outside
+     that mode the estimate drives nothing the reader sees. Here the axis is
+     never inactive, so the same conditional hid the disclosure in exactly the
+     view the page exists for, the default score ranking. Rendered beside the
+     weight legend so the qualification sits where the 25% claim is made. */}
+ <p className="mt-2 text-[11px] leading-4 text-muted" data-testid="livability-rent-score-share">
+ {rentScoreShareNote(W_RENT * 100, locale)}
+ </p>
  </div>
 
  {/* Content */}
