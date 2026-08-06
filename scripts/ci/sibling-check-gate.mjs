@@ -18,6 +18,10 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join, basename, resolve } from 'node:path';
 import { extractPrBody } from './pr-body-check-gate.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
+import {
+  ALLOW_UNRESOLVED_ENV,
+  unresolvedBaseOverrideActive,
+} from './lib/resolve-merge-base.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const checkScript = join(__dirname, 'check-sibling-patterns.mjs');
@@ -109,11 +113,32 @@ async function main() {
   }
 
   let candidates;
+  let result;
   try {
-    const result = JSON.parse(jsonOutput);
+    result = JSON.parse(jsonOutput);
     candidates = Array.isArray(result?.candidates) ? result.candidates : [];
   } catch {
     process.exit(0); // JSON parse error → fail-safe
+  }
+
+  // Issue #5195, second half. check-sibling-patterns.mjs emits
+  // `skipped: true` when it could not compute a merge-base — a deliberate
+  // "I did not run" signal. This gate used to read only `candidates` and so
+  // treated that as `candidates.length === 0` → exit 0, ZERO output, PR
+  // created. That is the failure mode the shallow-clone fix was supposed to
+  // remove, not relocate: 640 false positives at least got read, a silent
+  // all-clear never does. An un-run analysis blocks, and says so.
+  if (result?.skipped) {
+    const override = unresolvedBaseOverrideActive();
+    process.stderr.write(
+      `\n🚫 sibling-check-gate: sweep sibling NON ESEGUITO (${result.reason ?? 'sconosciuto'}).\n` +
+        'Nessun file gemello è stato verificato: questo NON equivale a "nessun candidato".\n' +
+        (override
+          ? `${ALLOW_UNRESOLVED_ENV} attivo → PR consentita senza verifica sibling (scelta dichiarata).\n\n`
+          : 'Rimedio: `git fetch --deepen=500 origin` (clone shallow) e riprova, oppure\n' +
+            `procedi deliberatamente con ${ALLOW_UNRESOLVED_ENV}=1.\n\n`),
+    );
+    process.exit(override ? 0 : 1);
   }
 
   if (candidates.length === 0) {

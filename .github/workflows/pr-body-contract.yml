@@ -347,6 +347,24 @@ jobs:
             });
             const prior = comments.find(c => (c.body || '').includes(STICKY));
 
+            // Issue #5195: `skipped` = l'analisi NON è girata (merge-base non
+            // calcolabile). Cadeva nel ramo `!candidates.length` e postava
+            // «✅ Sibling-check OK», cioè un all-clear affermativo per uno sweep
+            // mai eseguito — il reviewer smetteva di cercare proprio quando
+            // nessuno aveva guardato. Ramo esplicito e sticky sempre creato.
+            if (report.skipped) {
+              const body = `${STICKY}\n🚫 **Sibling-check NON ESEGUITO** — \`${report.reason || 'merge-base non calcolabile'}\` ` +
+                `(base \`${report.base}\`). Nessun file gemello è stato verificato: **non è un via libera**. ` +
+                `Il sweep AGENTS.md #6 va fatto a mano su questa PR, oppure rilancia il job con una base risolvibile.`;
+              if (prior) {
+                await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body });
+              } else {
+                await github.rest.issues.createComment({ owner, repo, issue_number, body });
+              }
+              core.warning(`sibling-check skipped: ${report.reason || 'unresolvable-merge-base'} — nessun sibling verificato.`);
+              return;
+            }
+
             if (!report.candidates.length) {
               // All-clear: aggiorna lo sticky se esisteva (diff cambiato), mai crearne uno nuovo.
               if (prior) {
@@ -424,6 +442,19 @@ jobs:
 
             const hasGaps = report.gapsByFile && report.gapsByFile.length > 0;
             const selfMap = report.selfMap;
+
+            // Issue #5195, stesso difetto del sibling-check qui sopra.
+            if (report.skipped) {
+              const body = `${STICKY}\n🚫 **Below-floor-bridge check NON ESEGUITO** — \`${report.reason || 'merge-base non calcolabile'}\` ` +
+                `(base \`${report.base}\`). Nessun loop è stato analizzato: **non è un via libera**.`;
+              if (prior) {
+                await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body });
+              } else {
+                await github.rest.issues.createComment({ owner, repo, issue_number, body });
+              }
+              core.warning(`below-floor-bridge skipped: ${report.reason || 'unresolvable-merge-base'}.`);
+              return;
+            }
 
             if (!hasGaps && !selfMap) {
               if (prior) {
