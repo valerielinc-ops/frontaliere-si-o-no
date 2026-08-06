@@ -921,12 +921,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mbp-manufacturing-specialist-thermo-fisher-scientific-ch",
-        "mbp-manufacturing-specialista-thermo-fisher-scientific-schweiz-ag-lengnau"
+        "mbp-manufacturing-specialista-thermo-fisher-scientific-schweiz-ag-lengnau",
+        "mbp-manufacturing-capo-squadra-thermo-fisher-scientific-schweiz-ag-lengnau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mbp-manufacturing-specialist-thermo-fisher-scientific-ch",
-          "mbp-manufacturing-specialista-thermo-fisher-scientific-schweiz-ag-lengnau"
+          "mbp-manufacturing-specialista-thermo-fisher-scientific-schweiz-ag-lengnau",
+          "mbp-manufacturing-capo-squadra-thermo-fisher-scientific-schweiz-ag-lengnau"
         ],
         "de": [
           "mbp-manufacturing-specialist-thermo-fisher-scientific-ch"
@@ -936,7 +938,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:23.683Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -948,7 +949,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "thermo-fisher-scientific-8f788362538c",
@@ -1327,7 +1329,8 @@
         "process-and-cleaning-validation-lead-msat-thermo-fisher-scientific-ch",
         "prozess-und-reinigung-validation-lead-msat-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
         "plomb-de-validation-du-procede-et-du-nettoyage-msat-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
-        "metrology-supervisore-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
+        "metrology-supervisore-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
+        "metrology-supervisore-thermo-fisher-scientific-schweiz-ag-lengnau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1340,7 +1343,8 @@
           "process-and-cleaning-validation-lead-msat-thermo-fisher-scientific-ch",
           "prozess-und-reinigung-validation-lead-msat-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
           "plomb-de-validation-du-procede-et-du-nettoyage-msat-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
-          "metrology-supervisore-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
+          "metrology-supervisore-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
+          "metrology-supervisore-thermo-fisher-scientific-schweiz-ag-lengnau"
         ],
         "en": [
           "manager-process-automation-thermo-fisher-scientific-ch"

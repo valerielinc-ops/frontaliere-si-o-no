@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ffs-officine-ferrovie-federali",
-  "assembledAt": "2026-08-06T11:47:59.408Z",
+  "assembledAt": "2026-08-06T10:25:28.187Z",
   "jobs": [
     {
       "id": "sbb-0911fd5c44c2",
@@ -2306,7 +2306,15 @@
       },
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-clienti-in-ffs-officine-ferrovie-federali-olten"
+        ]
+      },
+      "previousSlugs": [
+        "assistente-clienti-in-ffs-officine-ferrovie-federali-olten"
+      ]
     },
     {
       "id": "sbb-66644643c79a",
@@ -4316,14 +4324,19 @@
         "capo-sezione-in-galleria-nel-grande-progetto-di-zurigo-stadelhofen-ffs-officine-ferrovie-federali-zurich-altstetten",
         "section-manager-tunnel-in-the-zurich-stadelhofen-major-project-ffs-officine-ferrovie-federali-zurich-altstetten",
         "abschnittsleiter-in-tunnel-im-grossprojekt-zurich-stadelhofen-ffs-officine-ferrovie-federali-zurich-altstetten",
-        "chef-de-section-en-tunnel-dans-le-projet-stadelhofen-de-zurich-ffs-officine-ferrovie-federali-zurich-altstetten"
+        "chef-de-section-en-tunnel-dans-le-projet-stadelhofen-de-zurich-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "formatore-professionale-in-automazione-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "vocational-trainer-automation-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "berufsbildner-in-automation-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "formateur-triceen-automatisation-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "responsabile-di-progetto-infrastrukturplanung-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "pianificatore-di-risorse-in-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "resource-planner-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "ressourcenplaner-in-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "planificateur-de-ressources-ffs-officine-ferrovie-federali-zurich-altstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-fahrbahn-ffs-officine-ferrovie-federali-zurich-altstetten",
-          "responsabile-di-progetto-fahrbahn-ffs-officine-ferrovie-federali-zurich-altstetten",
-          "project-manager-roadway-ffs-officine-ferrovie-federali-zurich-altstetten",
-          "chef-de-projet-roadway-ffs-officine-ferrovie-federali-zurich-altstetten",
           "project-manager-in-road-ffs-officine-ferrovie-federali-zurich-altstetten",
           "responsabile-di-progetto-technische-anlagen-elektroanlagen-50hz-ffs-officine-ferrovie-federali-zurich-altstetten",
           "project-manager-technical-systems-electrical-systems-50hz-ffs-officine-ferrovie-federali-zurich-altstetten",
@@ -4337,21 +4350,30 @@
           "capo-sezione-in-galleria-nel-grande-progetto-di-zurigo-stadelhofen-ffs-officine-ferrovie-federali-zurich-altstetten",
           "section-manager-tunnel-in-the-zurich-stadelhofen-major-project-ffs-officine-ferrovie-federali-zurich-altstetten",
           "abschnittsleiter-in-tunnel-im-grossprojekt-zurich-stadelhofen-ffs-officine-ferrovie-federali-zurich-altstetten",
-          "chef-de-section-en-tunnel-dans-le-projet-stadelhofen-de-zurich-ffs-officine-ferrovie-federali-zurich-altstetten"
+          "chef-de-section-en-tunnel-dans-le-projet-stadelhofen-de-zurich-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "formatore-professionale-in-automazione-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "vocational-trainer-automation-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "berufsbildner-in-automation-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "formateur-triceen-automatisation-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "responsabile-di-progetto-infrastrukturplanung-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "pianificatore-di-risorse-in-ffs-officine-ferrovie-federali-zurich-altstetten"
         ],
         "en": [
           "project-manager-roadway-ffs-officine-ferrovie-federali-zurich-altstetten",
           "project-manager-technical-systems-electrical-systems-50hz-ffs-officine-ferrovie-federali-zurich-altstetten",
-          "section-manager-tunnel-in-the-zurich-stadelhofen-major-project-ffs-officine-ferrovie-federali-zurich-altstetten"
+          "section-manager-tunnel-in-the-zurich-stadelhofen-major-project-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "resource-planner-ffs-officine-ferrovie-federali-zurich-altstetten"
         ],
         "de": [
           "projektleiter-in-technische-anlagen-elektroanlagen-50hz-ffs-officine-ferrovie-federali-zurich-altstetten",
-          "abschnittsleiter-in-tunnel-im-grossprojekt-zurich-stadelhofen-ffs-officine-ferrovie-federali-zurich-altstetten"
+          "abschnittsleiter-in-tunnel-im-grossprojekt-zurich-stadelhofen-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "ressourcenplaner-in-ffs-officine-ferrovie-federali-zurich-altstetten"
         ],
         "fr": [
           "chef-de-projet-roadway-ffs-officine-ferrovie-federali-zurich-altstetten",
           "gestionnaire-de-projet-dans-les-systemes-techniques-electriques-50hz-ffs-officine-ferrovie-federali-zurich-altstetten",
-          "chef-de-section-en-tunnel-dans-le-projet-stadelhofen-de-zurich-ffs-officine-ferrovie-federali-zurich-altstetten"
+          "chef-de-section-en-tunnel-dans-le-projet-stadelhofen-de-zurich-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "planificateur-de-ressources-ffs-officine-ferrovie-federali-zurich-altstetten"
         ]
       },
       "firstSeenAt": "2026-07-20T12:41:16.466Z",
@@ -8820,11 +8842,15 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-08-06T11:46:44.624Z",
       "previousSlugs": [
-        "quereinstieg-lokfuhrer-in-personenverkehr-03-2027-ffs-officine-ferrovie-federali-zug"
+        "quereinstieg-lokfuhrer-in-personenverkehr-03-2027-ffs-officine-ferrovie-federali-zug",
+        "lateral-entry-train-driver-passenger-transport-ziegelbrucke-12-2026-ffs-officine-ferrovie-federali-ziegelbrucke",
+        "trasporto-passeggeri-a-ingresso-laterale-ziegelbrucke-12-2026-ffs-officine-ferrovie-federali-ziegelbrucke"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quereinstieg-lokfuhrer-in-personenverkehr-03-2027-ffs-officine-ferrovie-federali-zug"
+          "quereinstieg-lokfuhrer-in-personenverkehr-03-2027-ffs-officine-ferrovie-federali-zug",
+          "lateral-entry-train-driver-passenger-transport-ziegelbrucke-12-2026-ffs-officine-ferrovie-federali-ziegelbrucke",
+          "trasporto-passeggeri-a-ingresso-laterale-ziegelbrucke-12-2026-ffs-officine-ferrovie-federali-ziegelbrucke"
         ]
       },
       "firstSeenAt": "2026-06-10T23:30:26.236Z",
@@ -9534,11 +9560,13 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-08-06T11:46:25.390Z",
       "previousSlugs": [
-        "reiniger-in-ffs-officine-ferrovie-federali-brugg-ag"
+        "reiniger-in-ffs-officine-ferrovie-federali-brugg-ag",
+        "ispettore-per-il-monitoraggio-stradale-ffs-officine-ferrovie-federali-brugg-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "reiniger-in-ffs-officine-ferrovie-federali-brugg-ag"
+          "reiniger-in-ffs-officine-ferrovie-federali-brugg-ag",
+          "ispettore-per-il-monitoraggio-stradale-ffs-officine-ferrovie-federali-brugg-ag"
         ]
       },
       "firstSeenAt": "2026-06-10T23:25:07.400Z",

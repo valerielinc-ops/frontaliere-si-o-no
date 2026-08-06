@@ -553,7 +553,8 @@
           "immobilienbewerter-banque-cantonale-vaudoise-lausanne",
           "evaluateur-immobilier-bcv-lausanne",
           "evaluatrice-ou-evaluateur-immobilier-bcv-lausanne",
-          "consigliere-immobiliare-lausanne-regione-banque-cantonale-vaudoise-lausanne"
+          "consigliere-immobiliare-lausanne-regione-banque-cantonale-vaudoise-lausanne",
+          "bankberater-region-lausanne-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "conseiller-ere-successoral-e-region-lausanne-bcv-lausanne",
@@ -572,7 +573,8 @@
         "immobilienbewerter-banque-cantonale-vaudoise-lausanne",
         "evaluateur-immobilier-bcv-lausanne",
         "evaluatrice-ou-evaluateur-immobilier-bcv-lausanne",
-        "consigliere-immobiliare-lausanne-regione-banque-cantonale-vaudoise-lausanne"
+        "consigliere-immobiliare-lausanne-regione-banque-cantonale-vaudoise-lausanne",
+        "bankberater-region-lausanne-banque-cantonale-vaudoise-lausanne"
       ],
       "firstSeenAt": "2026-07-06T22:26:40.996Z",
       "salaryMin": 60500,
@@ -1229,12 +1231,14 @@
       "sfJobId": "1416370933",
       "previousSlugs": [
         "conseillere-ou-conseiller-pme-specialise-e-region-lausanne-bcv-lausanne",
-        "consulente-specializzato-per-le-pmi-regione-di-losanna-banque-cantonale-vaudoise-lausanne"
+        "consulente-specializzato-per-le-pmi-regione-di-losanna-banque-cantonale-vaudoise-lausanne",
+        "consulente-bancario-regione-losanna-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseillere-ou-conseiller-pme-specialise-e-region-lausanne-bcv-lausanne",
-          "consulente-specializzato-per-le-pmi-regione-di-losanna-banque-cantonale-vaudoise-lausanne"
+          "consulente-specializzato-per-le-pmi-regione-di-losanna-banque-cantonale-vaudoise-lausanne",
+          "consulente-bancario-regione-losanna-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "conseillere-ou-conseiller-pme-specialise-e-region-lausanne-bcv-lausanne"
@@ -1244,7 +1248,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T23:04:24.303Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1256,7 +1259,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcv-7c732f1b3265",

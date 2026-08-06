@@ -775,7 +775,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "bioprocess-ingenieur-usp-dsp-microbial-bioconjugates-m-w-d-80-100-lonza-visp"
+        ]
+      },
+      "previousSlugs": [
+        "bioprocess-ingenieur-usp-dsp-microbial-bioconjugates-m-w-d-80-100-lonza-visp"
+      ]
     },
     {
       "id": "lonza-b4558804df92",
@@ -902,7 +910,8 @@
         "waste-logistica-specialista-open-80-100-lonza-ch",
         "waste-logistics-specialist-open-80-100-lonza-ch",
         "waste-logistique-specialiste-open-80-100-lonza-ch",
-        "logistica-specialista-80-100-m-w-d-lonza-ch"
+        "logistica-specialista-80-100-m-w-d-lonza-ch",
+        "specialista-della-logistica-80-100-m-w-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -910,7 +919,8 @@
           "waste-logistica-specialista-open-80-100-lonza-ch",
           "waste-logistics-specialist-open-80-100-lonza-ch",
           "waste-logistique-specialiste-open-80-100-lonza-ch",
-          "logistica-specialista-80-100-m-w-d-lonza-ch"
+          "logistica-specialista-80-100-m-w-d-lonza-ch",
+          "specialista-della-logistica-80-100-m-w-d-lonza-ch"
         ],
         "de": [
           "waste-logistics-specialist-open-80-100-lonza-ch"
@@ -921,7 +931,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T22:15:32.687Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -934,7 +943,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-b1ff77543296",
@@ -1124,19 +1134,21 @@
       "jobReqId": "R75660",
       "previousSlugs": [
         "associate-director-asset-design-and-innovation-80-100-m-f-d-lonza-ch",
-        "direttore-di-ricerca-asset-design-e-innovazione-80-100-m-f-d-lonza-ch"
+        "direttore-di-ricerca-asset-design-e-innovazione-80-100-m-f-d-lonza-ch",
+        "directeur-associe-conception-des-actifs-et-innovation-80-100-m-f-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "associate-director-asset-design-and-innovation-80-100-m-f-d-lonza-ch",
-          "direttore-di-ricerca-asset-design-e-innovazione-80-100-m-f-d-lonza-ch"
+          "direttore-di-ricerca-asset-design-e-innovazione-80-100-m-f-d-lonza-ch",
+          "directeur-associe-conception-des-actifs-et-innovation-80-100-m-f-d-lonza-ch"
         ],
         "fr": [
-          "associate-director-asset-design-and-innovation-80-100-m-f-d-lonza-ch"
+          "associate-director-asset-design-and-innovation-80-100-m-f-d-lonza-ch",
+          "directeur-associe-conception-des-actifs-et-innovation-80-100-m-f-d-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-06-15T23:26:31.512Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1149,7 +1161,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-fbebc1351939",
@@ -1278,22 +1291,26 @@
       "jobReqId": "R76184",
       "previousSlugs": [
         "elektroinstallateur-efz-80-100-m-w-d-lonza-ch",
-        "installatore-trice-elettrico-a-cfc-80-100-m-w-d-lonza-ch"
+        "installatore-trice-elettrico-a-cfc-80-100-m-w-d-lonza-ch",
+        "electrical-installer-efz-80-100-lonza-ch",
+        "installateur-electrique-efz-80-100-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-efz-80-100-m-w-d-lonza-ch",
-          "installatore-trice-elettrico-a-cfc-80-100-m-w-d-lonza-ch"
+          "installatore-trice-elettrico-a-cfc-80-100-m-w-d-lonza-ch",
+          "electrical-installer-efz-80-100-lonza-ch",
+          "installateur-electrique-efz-80-100-lonza-ch"
         ],
         "en": [
-          "elektroinstallateur-efz-80-100-m-w-d-lonza-ch"
+          "elektroinstallateur-efz-80-100-m-w-d-lonza-ch",
+          "electrical-installer-efz-80-100-lonza-ch"
         ],
         "fr": [
           "elektroinstallateur-efz-80-100-m-w-d-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-06-15T23:26:21.705Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1306,7 +1323,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-a0c278de97e0",
@@ -2151,12 +2169,16 @@
       "jobReqId": "R76185",
       "previousSlugs": [
         "automatiker-efz-80-100-m-w-d-lonza-ch",
-        "automatiker-cfc-80-100-m-w-d-lonza-ch"
+        "automatiker-cfc-80-100-m-w-d-lonza-ch",
+        "automatic-efz-80-100-m-w-d-lonza-ch",
+        "efz-automatique-80-100-m-p-j-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatiker-efz-80-100-m-w-d-lonza-ch",
-          "automatiker-cfc-80-100-m-w-d-lonza-ch"
+          "automatiker-cfc-80-100-m-w-d-lonza-ch",
+          "automatic-efz-80-100-m-w-d-lonza-ch",
+          "efz-automatique-80-100-m-p-j-lonza-ch"
         ],
         "en": [
           "automatiker-efz-80-100-m-w-d-lonza-ch"
@@ -2166,7 +2188,6 @@
         ]
       },
       "firstSeenAt": "2026-06-15T23:25:42.597Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2179,7 +2200,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-9a5b24b5cebe",
@@ -2839,7 +2861,8 @@
         "program-manager-senior-sintesi-avanzata-lonza-ch",
         "senior-program-manager-advanced-synthesis-80-100-lonza-ch",
         "senior-program-manager-sintesi-avanzata-80-100-evergreen-lonza-ch",
-        "program-manager-senior-sintesi-avanzata-80-100-lonza-ch"
+        "program-manager-senior-sintesi-avanzata-80-100-lonza-ch",
+        "senior-program-manager-sintesi-avanzata-80-100-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2849,18 +2872,19 @@
           "program-manager-senior-sintesi-avanzata-lonza-ch",
           "senior-program-manager-advanced-synthesis-80-100-lonza-ch",
           "senior-program-manager-sintesi-avanzata-80-100-evergreen-lonza-ch",
-          "program-manager-senior-sintesi-avanzata-80-100-lonza-ch"
+          "program-manager-senior-sintesi-avanzata-80-100-lonza-ch",
+          "senior-program-manager-sintesi-avanzata-80-100-lonza-ch"
         ],
         "en": [
           "senior-program-manager-advanced-synthesis-80-100-evergreen-lonza-ch",
           "senior-program-manager-advanced-synthesis-lonza",
           "senior-program-manager-advanced-synthesis-lonza-ch",
           "program-manager-senior-sintesi-avanzata-lonza-ch",
-          "senior-program-manager-sintesi-avanzata-80-100-evergreen-lonza-ch"
+          "senior-program-manager-sintesi-avanzata-80-100-evergreen-lonza-ch",
+          "senior-program-manager-sintesi-avanzata-80-100-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-06-04T12:50:06.205Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2873,7 +2897,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-6580df7f8b86",
@@ -3240,7 +3265,6 @@
       "crawledAt": "2026-08-06T11:39:16.950Z",
       "jobReqId": "R76876",
       "firstSeenAt": "2026-06-09T22:47:50.689Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3253,7 +3277,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-utilities-hvac-cleanrooms-80-100-m-f-d-lonza-visp"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-utilities-hvac-cleanrooms-80-100-m-f-d-lonza-visp"
+      ]
     },
     {
       "id": "lonza-4819dc239106",
@@ -3520,12 +3553,16 @@
       "jobReqId": "R73097",
       "previousSlugs": [
         "projektingenieur-80-100-m-w-d-lonza-ch",
-        "ingegnere-di-progetto-80-100-lun-venedi-d-lonza-ch"
+        "ingegnere-di-progetto-80-100-lun-venedi-d-lonza-ch",
+        "ingenieur-de-projet-80-100-lonza-ch",
+        "ingenieur-de-projet-mammalian-80-100-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektingenieur-80-100-m-w-d-lonza-ch",
-          "ingegnere-di-progetto-80-100-lun-venedi-d-lonza-ch"
+          "ingegnere-di-progetto-80-100-lun-venedi-d-lonza-ch",
+          "ingenieur-de-projet-80-100-lonza-ch",
+          "ingenieur-de-projet-mammalian-80-100-lonza-ch"
         ],
         "en": [
           "projektingenieur-80-100-m-w-d-lonza-ch"
@@ -3535,7 +3572,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:48:01.166Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3548,7 +3584,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-47d774890b6c",
@@ -4023,12 +4060,14 @@
         "laboratoire-m-f-qc-mammalian-lonza-ch",
         "laboratoire-m-f-qc-mammalien-lonza-ch",
         "laboratorio-m-f-qc-mammalian-lonza-ch",
-        "laborant-m-w-d-qc-mammalian-lonza-ch"
+        "laborant-m-w-d-qc-mammalian-lonza-ch",
+        "laborant-in-qc-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laborant-m-w-qc-mammalian-lonza-ch",
-          "laboratorio-m-f-qc-mammalian-lonza-ch"
+          "laboratorio-m-f-qc-mammalian-lonza-ch",
+          "laborant-in-qc-lonza-ch"
         ],
         "en": [
           "laborant-m-w-qc-mammalian-lonza-ch"
@@ -4041,7 +4080,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:01:46.363Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -4054,7 +4092,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-47f2df0f56be",
@@ -4419,16 +4458,17 @@
       "jobReqId": "R72982",
       "previousSlugs": [
         "associate-director-technology-transfer-80-100-lonza-ch",
-        "senior-global-technology-transfer-lead-80-100-lonza-ch"
+        "senior-global-technology-transfer-lead-80-100-lonza-ch",
+        "associate-direttore-technology-transfer-80-100-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "associate-director-technology-transfer-80-100-lonza-ch",
-          "senior-global-technology-transfer-lead-80-100-lonza-ch"
+          "senior-global-technology-transfer-lead-80-100-lonza-ch",
+          "associate-direttore-technology-transfer-80-100-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-06-23T22:44:43.290Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -4441,7 +4481,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-17b7ba06ed10",
@@ -5606,12 +5647,16 @@
       "jobReqId": "R76182",
       "previousSlugs": [
         "elektroinstallateur-efz-automatiker-efz-emr-schicht-80-100-m-w-d-lonza-ch",
-        "installatore-trice-elettrico-a-cfc-automatiker-cfc-emr-schicht-80-100-m-w-d-lonza-ch"
+        "installatore-trice-elettrico-a-cfc-automatiker-cfc-emr-schicht-80-100-m-w-d-lonza-ch",
+        "automatiker-cfc-installatore-trice-elettrico-a-cfc-emr-schicht-80-100-m-w-d-lonza-ch",
+        "automatiker-efz-elektroinstallateur-efz-emr-schicht-80-100-m-w-d-lonza"
       ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-efz-automatiker-efz-emr-schicht-80-100-m-w-d-lonza-ch",
-          "installatore-trice-elettrico-a-cfc-automatiker-cfc-emr-schicht-80-100-m-w-d-lonza-ch"
+          "installatore-trice-elettrico-a-cfc-automatiker-cfc-emr-schicht-80-100-m-w-d-lonza-ch",
+          "automatiker-cfc-installatore-trice-elettrico-a-cfc-emr-schicht-80-100-m-w-d-lonza-ch",
+          "automatiker-efz-elektroinstallateur-efz-emr-schicht-80-100-m-w-d-lonza"
         ],
         "en": [
           "elektroinstallateur-efz-automatiker-efz-emr-schicht-80-100-m-w-d-lonza-ch"
@@ -5621,7 +5666,6 @@
         ]
       },
       "firstSeenAt": "2026-06-15T23:25:43.490Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -5634,7 +5678,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-3158e2454d53",
@@ -5684,7 +5729,6 @@
       "crawledAt": "2026-08-06T11:38:50.007Z",
       "jobReqId": "R77456",
       "firstSeenAt": "2026-07-06T22:17:28.659Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -5697,7 +5741,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-qa-spezialist-process-validation-80-100-f-m-d-lonza-visp"
+        ]
+      },
+      "previousSlugs": [
+        "senior-qa-spezialist-process-validation-80-100-f-m-d-lonza-visp"
+      ]
     },
     {
       "id": "lonza-a63cf7230e89",
@@ -6047,13 +6100,19 @@
       "previousSlugs": [
         "operatore-automatico-80-100-m-f-d-lonza-ch",
         "automatiker-80-100-m-w-d-lonza-ch",
-        "automatico-80-100-m-f-d-lonza-ch"
+        "automatico-80-100-m-f-d-lonza-ch",
+        "automatic-80-100-m-w-d-lonza-ch",
+        "automatico-80-100-m-w-d-lonza-ch",
+        "automatique-80-100-m-m-j-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operatore-automatico-80-100-m-f-d-lonza-ch",
           "automatiker-80-100-m-w-d-lonza-ch",
-          "automatico-80-100-m-f-d-lonza-ch"
+          "automatico-80-100-m-f-d-lonza-ch",
+          "automatic-80-100-m-w-d-lonza-ch",
+          "automatico-80-100-m-w-d-lonza-ch",
+          "automatique-80-100-m-m-j-lonza-ch"
         ],
         "en": [
           "automatiker-80-100-m-w-d-lonza-ch"
@@ -6136,7 +6195,8 @@
         "qc-project-manager-lonza-ch",
         "qc-projektmanager-lonza-ch",
         "qc-gestionnaire-de-projet-lonza-ch",
-        "piombo-di-progetto-qc-80-100-lonza-ch"
+        "piombo-di-progetto-qc-80-100-lonza-ch",
+        "piombo-di-progetto-phys-chem-qc-80-100-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6151,7 +6211,8 @@
           "qc-project-manager-lonza-ch",
           "qc-projektmanager-lonza-ch",
           "qc-gestionnaire-de-projet-lonza-ch",
-          "piombo-di-progetto-qc-80-100-lonza-ch"
+          "piombo-di-progetto-qc-80-100-lonza-ch",
+          "piombo-di-progetto-phys-chem-qc-80-100-lonza-ch"
         ],
         "en": [
           "qc-project-manager-lonza-ch"
@@ -8165,12 +8226,14 @@
       "jobReqId": "R76179",
       "previousSlugs": [
         "deltav-automation-engineer-80-100-m-f-d-lonza-ch",
-        "deltav-automation-ingegnere-80-100-m-f-d-lonza-ch"
+        "deltav-automation-ingegnere-80-100-m-f-d-lonza-ch",
+        "deltav-automation-engineer-80-100-m-f-d-lonza"
       ],
       "previousSlugsByLocale": {
         "it": [
           "deltav-automation-engineer-80-100-m-f-d-lonza-ch",
-          "deltav-automation-ingegnere-80-100-m-f-d-lonza-ch"
+          "deltav-automation-ingegnere-80-100-m-f-d-lonza-ch",
+          "deltav-automation-engineer-80-100-m-f-d-lonza"
         ],
         "de": [
           "deltav-automation-engineer-80-100-m-f-d-lonza-ch"
@@ -8392,7 +8455,8 @@
         "emr-engineer-80-100-m-f-d-lonza-ch",
         "emr-ingenieur-80-100-m-w-d-lonza-ch",
         "emr-ingenieur-automation-engineer-80-100-m-w-d-lonza-ch",
-        "ingegnere-emr-ingegnere-automazione-80-100-m-f-d-lonza-ch"
+        "ingegnere-emr-ingegnere-automazione-80-100-m-f-d-lonza-ch",
+        "ingegnere-per-l-automazione-80-100-m-f-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8400,7 +8464,8 @@
           "emr-engineer-80-100-m-f-d-lonza-ch",
           "emr-ingenieur-80-100-m-w-d-lonza-ch",
           "emr-ingenieur-automation-engineer-80-100-m-w-d-lonza-ch",
-          "ingegnere-emr-ingegnere-automazione-80-100-m-f-d-lonza-ch"
+          "ingegnere-emr-ingegnere-automazione-80-100-m-f-d-lonza-ch",
+          "ingegnere-per-l-automazione-80-100-m-f-d-lonza-ch"
         ],
         "en": [
           "emr-engineer-80-100-m-f-d-lonza-ch"
@@ -8410,7 +8475,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:47:52.181Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -8423,7 +8487,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-a37a4d888006",
@@ -9636,7 +9701,9 @@
         "it": [
           "anlagen-und-apparatebau-rohrbau-efz-80-100-m-f-d-lonza-ch",
           "anlagen-und-apparatebauer-rohrbau-efz-80-100-m-f-d-lonza-ch",
-          "anlagen-e-apparatebau-rohrbau-cfc-80-100-m-w-d-lonza-ch"
+          "anlagen-e-apparatebau-rohrbau-cfc-80-100-m-w-d-lonza-ch",
+          "constructeur-d-installations-et-d-equipements-en-construction-de-tuyaux-efz-80-100-lonza-ch",
+          "construction-d-installations-et-d-equipements-construction-de-tuyaux-80-100-m-f-d-lonza-ch"
         ],
         "en": [
           "anlagen-und-apparatebau-rohrbau-efz-80-100-m-f-d-lonza-ch"
@@ -9650,10 +9717,11 @@
         "anlagen-und-apparatebau-rohrbau-efz-80-100-m-f-d-lonza-ch",
         "construction-de-conduites-d-usines-et-d-equipements-efz-80-100-m-f-d-lonza-ch",
         "anlagen-und-apparatebauer-rohrbau-efz-80-100-m-f-d-lonza-ch",
-        "anlagen-e-apparatebau-rohrbau-cfc-80-100-m-w-d-lonza-ch"
+        "anlagen-e-apparatebau-rohrbau-cfc-80-100-m-w-d-lonza-ch",
+        "constructeur-d-installations-et-d-equipements-en-construction-de-tuyaux-efz-80-100-lonza-ch",
+        "construction-d-installations-et-d-equipements-construction-de-tuyaux-80-100-m-f-d-lonza-ch"
       ],
       "firstSeenAt": "2026-07-12T21:57:21.532Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -9666,7 +9734,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-85b0c1e0ff97",
@@ -10677,7 +10746,6 @@
       "crawledAt": "2026-08-06T11:37:47.967Z",
       "jobReqId": "R78138",
       "firstSeenAt": "2026-07-27T12:40:46.289Z",
-      "needsRetranslation": true,
       "salaryMin": 81000,
       "salaryMax": 135000,
       "baseSalary": {
@@ -10690,7 +10758,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "bioprocess-ingenieur-automatisierung-in-der-pharmazeutischen-produktion-80-100-m-w-d-lonza-le-lieu"
+        ]
+      },
+      "previousSlugs": [
+        "bioprocess-ingenieur-automatisierung-in-der-pharmazeutischen-produktion-80-100-m-w-d-lonza-le-lieu"
+      ]
     },
     {
       "id": "lonza-3151453947a1",
@@ -10746,16 +10823,20 @@
         ],
         "it": [
           "laboratory-analyst-laborant-m-w-d-auch-fur-quereinsteiger-4-schichtbetrieb-lonza-ch",
-          "analista-di-laboratorio-laboratore-m-f-d-controllo-qualita-4-schicht-lonza-ch"
+          "analista-di-laboratorio-laboratore-m-f-d-controllo-qualita-4-schicht-lonza-ch",
+          "laboratory-analyst-laborant-m-f-d-quality-control-4-schichtbetrieb-lonza"
+        ],
+        "en": [
+          "laboratory-analyst-laborant-m-f-d-quality-control-4-schichtbetrieb-lonza"
         ]
       },
       "previousSlugs": [
         "laboratory-analyst-laborant-m-w-d-auch-fur-quereinsteiger-4-schichtbetrieb-lonza-ch",
         "laboratory-analyst-laborant-m-f-d-quality-control-4-schichtbetrieb-lonza-ch",
-        "analista-di-laboratorio-laboratore-m-f-d-controllo-qualita-4-schicht-lonza-ch"
+        "analista-di-laboratorio-laboratore-m-f-d-controllo-qualita-4-schicht-lonza-ch",
+        "laboratory-analyst-laborant-m-f-d-quality-control-4-schichtbetrieb-lonza"
       ],
       "firstSeenAt": "2026-07-27T12:40:45.630Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -10768,7 +10849,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-cd75622258d6",
@@ -11073,7 +11155,8 @@
         "entraineur-de-bioconjugaison-f-m-d-lonza-ch",
         "operatore-operatore-centrale-bioconjugates-pcp-100-m-f-d-lonza-ch",
         "operator-anlagebediener-bioconjugates-pcp-100-m-w-d-lonza-ch",
-        "operatore-bioconjugates-m-f-d-lonza-ch"
+        "operatore-bioconjugates-m-f-d-lonza-ch",
+        "bioconjugates-w-m-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11086,7 +11169,8 @@
           "allenatore-bioconiugati-f-m-d-lonza-ch",
           "operatore-operatore-centrale-bioconjugates-pcp-100-m-f-d-lonza-ch",
           "operator-anlagebediener-bioconjugates-pcp-100-m-w-d-lonza-ch",
-          "operatore-bioconjugates-m-f-d-lonza-ch"
+          "operatore-bioconjugates-m-f-d-lonza-ch",
+          "bioconjugates-w-m-d-lonza-ch"
         ],
         "en": [
           "vi-operator-f-m-d-lonza-ch",
@@ -11103,7 +11187,6 @@
         ]
       },
       "firstSeenAt": "2026-06-15T23:26:11.491Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -11116,7 +11199,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-e6a10145ccb4",
@@ -11241,7 +11325,6 @@
       "crawledAt": "2026-08-06T11:37:41.303Z",
       "jobReqId": "R77757",
       "firstSeenAt": "2026-07-29T11:38:12.383Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -11254,7 +11337,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "qa-associate-direttore-facility-operations-80-100-f-m-d-lonza-visp"
+        ]
+      },
+      "previousSlugs": [
+        "qa-associate-direttore-facility-operations-80-100-f-m-d-lonza-visp"
+      ]
     },
     {
       "id": "lonza-26bdf71487b0",
@@ -12191,7 +12283,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "interno-ibex-msat-usp-80-100-lonza-visp"
+        ]
+      },
+      "previousSlugs": [
+        "interno-ibex-msat-usp-80-100-lonza-visp"
+      ]
     },
     {
       "id": "lonza-b6f047636bc6",
@@ -12324,7 +12424,8 @@
         "laborant-in-automatiker-80-100-m-w-d-lonza-ch",
         "laboratoire-in-automatique-80-100-m-f-d-lonza-ch",
         "laboratory-technician-analytical-development-bioconjugates-80-100-m-w-d-lonza-ch",
-        "tecnico-di-laboratorio-80-100-w-m-d-lonza-ch"
+        "tecnico-di-laboratorio-80-100-w-m-d-lonza-ch",
+        "tecnico-di-laboratorio-qc-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12334,7 +12435,8 @@
           "laborant-in-automatiker-80-100-m-w-d-lonza-ch",
           "laboratoire-in-automatique-80-100-m-f-d-lonza-ch",
           "laboratory-technician-analytical-development-bioconjugates-80-100-m-w-d-lonza-ch",
-          "tecnico-di-laboratorio-80-100-w-m-d-lonza-ch"
+          "tecnico-di-laboratorio-80-100-w-m-d-lonza-ch",
+          "tecnico-di-laboratorio-qc-lonza-ch"
         ],
         "en": [
           "laborator-in-automatician-80-100-m-f-d-lonza-ch"
@@ -12348,7 +12450,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T22:17:34.824Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -12361,7 +12462,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-33ef9bed8afe",
@@ -12739,13 +12841,15 @@
       "previousSlugs": [
         "emr-ingenieur-automatisierungsingenieur-deltav-80-100-m-w-d-lonza-ch",
         "emr-engineer-automation-engineer-deltav-80-100-m-f-d-lonza-ch",
-        "ingegnere-automazione-emr-deltav-80-100-m-f-d-lonza-ch"
+        "ingegnere-automazione-emr-deltav-80-100-m-f-d-lonza-ch",
+        "ingegnere-di-automazione-deltav-80-100-m-f-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "emr-ingenieur-automatisierungsingenieur-deltav-80-100-m-w-d-lonza-ch",
           "emr-engineer-automation-engineer-deltav-80-100-m-f-d-lonza-ch",
-          "ingegnere-automazione-emr-deltav-80-100-m-f-d-lonza-ch"
+          "ingegnere-automazione-emr-deltav-80-100-m-f-d-lonza-ch",
+          "ingegnere-di-automazione-deltav-80-100-m-f-d-lonza-ch"
         ],
         "en": [
           "emr-ingenieur-automatisierungsingenieur-deltav-80-100-m-w-d-lonza-ch"

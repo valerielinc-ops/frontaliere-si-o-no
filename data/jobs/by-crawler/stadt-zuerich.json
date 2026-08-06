@@ -2774,7 +2774,8 @@
         "forderlehrperson-shp-isr-sekundarstufe-schule-campus-glattal-stadt-zuerich-zurigo-50439",
         "enseignant-de-soutien-shp-isr-secondaire-campus-scolaire-glattal-stadt-zurich-zurich",
         "forderlehrperson-shp-isr-sekundarstufe-schule-campus-glattal-stadt-zurich-zurich",
-        "specialista-insegnante-secondario-i-scuola-campus-glattal-stadt-zurich-zurich"
+        "specialista-insegnante-secondario-i-scuola-campus-glattal-stadt-zurich-zurich",
+        "fachlehrperson-sekundar-i-schule-campus-glattal-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2784,7 +2785,8 @@
           "forderlehrperson-shp-isr-sekundarstufe-schule-campus-glattal-stadt-zuerich-zurigo-50439",
           "enseignant-de-soutien-shp-isr-secondaire-campus-scolaire-glattal-stadt-zurich-zurich",
           "forderlehrperson-shp-isr-sekundarstufe-schule-campus-glattal-stadt-zurich-zurich",
-          "specialista-insegnante-secondario-i-scuola-campus-glattal-stadt-zurich-zurich"
+          "specialista-insegnante-secondario-i-scuola-campus-glattal-stadt-zurich-zurich",
+          "fachlehrperson-sekundar-i-schule-campus-glattal-stadt-zurich-zurich"
         ],
         "en": [
           "fachlehrperson-sekundar-i-schule-campus-glattal-stadt-zuerich-zurigo-50223",
@@ -3129,12 +3131,18 @@
       "referenceNumber": "50937",
       "previousSlugs": [
         "sozialpadagog-in-schule-nordstern-stadt-zuerich-zurigo-50937",
-        "social-pedagogue-scuola-nordstern-stadt-zurich-zurich"
+        "social-pedagogue-scuola-nordstern-stadt-zurich-zurich",
+        "pedagogue-sociale-a-l-ecole-parthill-stadt-zurich-zurich",
+        "social-pedagogue-in-school-parthill-stadt-zurich-zurich",
+        "sozialpadagog-in-schule-rebhugel-stadt-zuerich-zurigo-50415"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sozialpadagog-in-schule-nordstern-stadt-zuerich-zurigo-50937",
-          "social-pedagogue-scuola-nordstern-stadt-zurich-zurich"
+          "social-pedagogue-scuola-nordstern-stadt-zurich-zurich",
+          "pedagogue-sociale-a-l-ecole-parthill-stadt-zurich-zurich",
+          "social-pedagogue-in-school-parthill-stadt-zurich-zurich",
+          "sozialpadagog-in-schule-rebhugel-stadt-zuerich-zurigo-50415"
         ],
         "en": [
           "sozialpadagog-in-schule-nordstern-stadt-zuerich-zurigo-50937"
@@ -3144,7 +3152,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:40:57.071Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3156,7 +3163,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-1e8f77f7dbee",
@@ -3373,12 +3381,16 @@
       "referenceNumber": "50877",
       "previousSlugs": [
         "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-stadt-zuerich-zurigo-50877",
-        "apprendistato-2027-fachfrau-fachmann-betreuung-cfc-kinder-stadt-zurich"
+        "apprendistato-2027-fachfrau-fachmann-betreuung-cfc-kinder-stadt-zurich",
+        "apprendistato-2026-fachfrau-fachmann-betreuung-cfc-kinder-verkurzt-stadt-zurich",
+        "lehrstelle-2026-fachfrau-fachmann-betreuung-efz-kinder-verkurzt-stadt-zuerich-zurigo-46994"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-stadt-zuerich-zurigo-50877",
-          "apprendistato-2027-fachfrau-fachmann-betreuung-cfc-kinder-stadt-zurich"
+          "apprendistato-2027-fachfrau-fachmann-betreuung-cfc-kinder-stadt-zurich",
+          "apprendistato-2026-fachfrau-fachmann-betreuung-cfc-kinder-verkurzt-stadt-zurich",
+          "lehrstelle-2026-fachfrau-fachmann-betreuung-efz-kinder-verkurzt-stadt-zuerich-zurigo-46994"
         ],
         "en": [
           "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-stadt-zuerich-zurigo-50877"
@@ -3388,7 +3400,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:37.015Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3400,7 +3411,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-c96311261391",
@@ -3533,12 +3545,16 @@
       "referenceNumber": "50927",
       "previousSlugs": [
         "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-verkurzte-lehre-stadt-zuerich",
-        "apprendistato-2027-fachfrau-fachmann-betreuung-cfc-kinder-verkurzte-lehre-stadt-zurich"
+        "apprendistato-2027-fachfrau-fachmann-betreuung-cfc-kinder-verkurzte-lehre-stadt-zurich",
+        "apprenticeship-2026-professional-care-efz-children-shortened-stadt-zurich-zurich",
+        "apprentissage-2026-soins-professionnels-efz-enfants-raccourci-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-verkurzte-lehre-stadt-zuerich",
-          "apprendistato-2027-fachfrau-fachmann-betreuung-cfc-kinder-verkurzte-lehre-stadt-zurich"
+          "apprendistato-2027-fachfrau-fachmann-betreuung-cfc-kinder-verkurzte-lehre-stadt-zurich",
+          "apprenticeship-2026-professional-care-efz-children-shortened-stadt-zurich-zurich",
+          "apprentissage-2026-soins-professionnels-efz-enfants-raccourci-stadt-zurich-zurich"
         ],
         "en": [
           "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-verkurzte-lehre-stadt-zuerich"
@@ -3548,7 +3564,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:37.014Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3560,7 +3575,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-214c5cd08d72",
@@ -4043,12 +4059,14 @@
       "referenceNumber": "50904",
       "previousSlugs": [
         "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-50904",
-        "sozialarbeiter-in-erwachsenenprofil-stadt-zurich-zurich"
+        "sozialarbeiter-in-erwachsenenprofil-stadt-zurich-zurich",
+        "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-49666"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-50904",
-          "sozialarbeiter-in-erwachsenenprofil-stadt-zurich-zurich"
+          "sozialarbeiter-in-erwachsenenprofil-stadt-zurich-zurich",
+          "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-49666"
         ]
       },
       "firstSeenAt": "2026-07-13T12:22:59.809Z",
@@ -6937,13 +6955,15 @@
         "schulsozialpadagog-in-schule-gabler-stadt-zuerich-zurigo-50632",
         "pedagogue-sociale-a-l-ecole-gabler-stadt-zurich-zurich",
         "schulsozialpadagog-in-schule-gabler-stadt-zurich-zurich",
-        "scuola-pedagoga-sociale-in-scuola-falletsche-stadt-zurich-zurich"
+        "scuola-pedagoga-sociale-in-scuola-falletsche-stadt-zurich-zurich",
+        "pedagoga-sociale-in-scuola-parthill-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schulsozialpadagog-in-schule-falletsche-stadt-zuerich-zurigo-50257",
           "schulsozialpadagog-in-schule-falletsche-stadt-zurich-zurich",
-          "scuola-pedagoga-sociale-in-scuola-falletsche-stadt-zurich-zurich"
+          "scuola-pedagoga-sociale-in-scuola-falletsche-stadt-zurich-zurich",
+          "pedagoga-sociale-in-scuola-parthill-stadt-zurich-zurich"
         ],
         "en": [
           "schulsozialpadagog-in-schule-falletsche-stadt-zurich-zurich"
@@ -6953,7 +6973,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.742Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -6965,7 +6984,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-e25d7bc6817b",
@@ -10216,14 +10236,12 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Waidberg",
       "referenceNumber": "51011",
-      "previousSlugs": [
-        "fachperson-betreuung-oder-sozialpadagog-in-fur-die-sekundar-tagesschule-stadt-zuerich",
-        "fachperson-betreuung-o-sozialpadagog-in-per-la-sekundar-tagesschule-stadt-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-oder-sozialpadagog-in-fur-die-sekundar-tagesschule-stadt-zuerich",
-          "fachperson-betreuung-o-sozialpadagog-in-per-la-sekundar-tagesschule-stadt-zurich"
+          "fachperson-betreuung-o-sozialpadagog-in-per-la-sekundar-tagesschule-stadt-zurich",
+          "social-pedagogue-or-specialist-care-day-school-wolfsblick-secondary-department-stadt-zurich-zurich",
+          "sozialpadagog-in-o-fachperson-betreuung-tagesschule-wolfsblick-abteilung-sekundar-stadt-zurich"
         ],
         "en": [
           "fachperson-betreuung-oder-sozialpadagog-in-fur-die-sekundar-tagesschule-stadt-zuerich"
@@ -10232,8 +10250,12 @@
           "fachperson-betreuung-oder-sozialpadagog-in-fur-die-sekundar-tagesschule-stadt-zuerich"
         ]
       },
-      "firstSeenAt": "2026-08-05T22:49:10.697Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "fachperson-betreuung-oder-sozialpadagog-in-fur-die-sekundar-tagesschule-stadt-zuerich",
+        "fachperson-betreuung-o-sozialpadagog-in-per-la-sekundar-tagesschule-stadt-zurich",
+        "social-pedagogue-or-specialist-care-day-school-wolfsblick-secondary-department-stadt-zurich-zurich",
+        "sozialpadagog-in-o-fachperson-betreuung-tagesschule-wolfsblick-abteilung-sekundar-stadt-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -10245,7 +10267,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-05T22:49:10.697Z",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-0520b53e9f36",
@@ -11061,12 +11085,14 @@
       "previousSlugs": [
         "schulische-n-heilpadagog-in-90-fur-die-kindergartenstufe-stadt-zuerich-zurigo-50038",
         "schulische-n-heilpadagog-in-90-fur-die-kindergartenstufe-stadt-zurich-zurich",
-        "schulische-n-heilpadagog-in-90-per-la-kindergartenstufe-stadt-zurich"
+        "schulische-n-heilpadagog-in-90-per-la-kindergartenstufe-stadt-zurich",
+        "schulische-n-heilpadagog-in-50-95-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schulische-n-heilpadagog-in-90-fur-die-kindergartenstufe-stadt-zuerich-zurigo-50038",
-          "schulische-n-heilpadagog-in-90-per-la-kindergartenstufe-stadt-zurich"
+          "schulische-n-heilpadagog-in-90-per-la-kindergartenstufe-stadt-zurich",
+          "schulische-n-heilpadagog-in-50-95-stadt-zurich-zurich"
         ],
         "en": [
           "schulische-n-heilpadagog-in-90-fur-die-kindergartenstufe-stadt-zurich-zurich"
@@ -11076,7 +11102,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.739Z",
-      "needsRetranslation": true,
       "salaryMin": 66200,
       "salaryMax": 100400,
       "baseSalary": {
@@ -11088,7 +11113,8 @@
           "maxValue": 100400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-18f527163227",
@@ -16341,13 +16367,15 @@
       "previousSlugs": [
         "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-49731",
         "sozialarbeiter-in-erwachsenenprofil-stadt-zurich-zurich",
-        "lavoratore-sociale-in-profilo-adulto-stadt-zurich-zurich-724256"
+        "lavoratore-sociale-in-profilo-adulto-stadt-zurich-zurich-724256",
+        "social-worker-in-adult-profile-stadt-zurich-zurich-86011e"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-49731",
           "sozialarbeiter-in-erwachsenenprofil-stadt-zurich-zurich",
-          "lavoratore-sociale-in-profilo-adulto-stadt-zurich-zurich-724256"
+          "lavoratore-sociale-in-profilo-adulto-stadt-zurich-zurich-724256",
+          "social-worker-in-adult-profile-stadt-zurich-zurich-86011e"
         ],
         "en": [
           "sozialarbeiter-in-erwachsenenprofil-stadt-zurich-zurich"
@@ -20270,12 +20298,14 @@
       "referenceNumber": "47001",
       "previousSlugs": [
         "sozialpadagog-in-oder-fachperson-betreuung-schule-entlisberg-stadt-zuerich-zurigo-47001",
-        "sozialpadagog-in-o-fachperson-betreuung-schule-entlisberg-stadt-zurich"
+        "sozialpadagog-in-o-fachperson-betreuung-schule-entlisberg-stadt-zurich",
+        "sozialpadagog-in-oder-fachperson-betreuung-schule-entlisberg-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sozialpadagog-in-oder-fachperson-betreuung-schule-entlisberg-stadt-zuerich-zurigo-47001",
-          "sozialpadagog-in-o-fachperson-betreuung-schule-entlisberg-stadt-zurich"
+          "sozialpadagog-in-o-fachperson-betreuung-schule-entlisberg-stadt-zurich",
+          "sozialpadagog-in-oder-fachperson-betreuung-schule-entlisberg-stadt-zurich-zurich"
         ],
         "en": [
           "sozialpadagog-in-oder-fachperson-betreuung-schule-entlisberg-stadt-zuerich-zurigo-47001"
@@ -20285,7 +20315,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.731Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -20297,7 +20326,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-0b08a36c66af",
@@ -20775,11 +20805,13 @@
         "sozialpadagog-in-hortleitung-o-fachperson-betreuung-an-der-tagesschule-heubeeribuel-stadt-zurich",
         "social-pedagogue-director-or-specialist-care-at-the-day-school-heubeeribuel-stadt-zurich-zurich",
         "sozialpadagog-in-hortleitung-oder-fachperson-betreuung-an-der-tagesschule-heubeeribuel",
-        "pedagogue-sociale-directeur-ou-soins-specialises-a-l-ecole-de-jour-heubeeribuel-stadt-zurich-zurich"
+        "pedagogue-sociale-directeur-ou-soins-specialises-a-l-ecole-de-jour-heubeeribuel-stadt-zurich-zurich",
+        "sozialpadagog-in-hortleitung-o-fachperson-betreuung-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagog-in-hortleitung-oder-fachperson-betreuung-in-der-betreuung-der-tagesschule"
+          "sozialpadagog-in-hortleitung-oder-fachperson-betreuung-in-der-betreuung-der-tagesschule",
+          "sozialpadagog-in-hortleitung-o-fachperson-betreuung-stadt-zurich"
         ],
         "en": [
           "sozialpadagog-in-hortleitung-oder-fachperson-betreuung-in-der-betreuung-der-tagesschule"
@@ -20789,7 +20821,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.732Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -20801,7 +20832,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-ef56acea46f0",
@@ -22346,23 +22378,37 @@
       "previousSlugs": [
         "projektleiter-in-80-100-stadt-zuerich-zurigo-51149",
         "projektleiter-in-80-100-stadt-zurich",
-        "project-manager-80-100-stadt-zurich-zurich"
+        "project-manager-80-100-stadt-zurich-zurich",
+        "project-manager-in-posizione-zurigo-oerlikon-stadt-zurich-zurich",
+        "project-manager-in-zurich-oerlikon-location-stadt-zurich-zurich",
+        "projektleiter-in-standort-zurich-oerlikon-stadt-zuerich-zurigo-50864",
+        "chef-de-projet-a-zurich-oerlikon-stadt-zurich-zurich",
+        "projektleiter-in-standort-zurich-oerlikon-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-80-100-stadt-zuerich-zurigo-51149",
           "projektleiter-in-80-100-stadt-zurich",
-          "project-manager-80-100-stadt-zurich-zurich"
+          "project-manager-80-100-stadt-zurich-zurich",
+          "project-manager-in-posizione-zurigo-oerlikon-stadt-zurich-zurich",
+          "project-manager-in-zurich-oerlikon-location-stadt-zurich-zurich",
+          "projektleiter-in-standort-zurich-oerlikon-stadt-zuerich-zurigo-50864",
+          "chef-de-projet-a-zurich-oerlikon-stadt-zurich-zurich",
+          "projektleiter-in-standort-zurich-oerlikon-stadt-zurich"
         ],
         "en": [
-          "projektleiter-in-80-100-stadt-zuerich-zurigo-51149"
+          "projektleiter-in-80-100-stadt-zuerich-zurigo-51149",
+          "project-manager-in-zurich-oerlikon-location-stadt-zurich-zurich"
         ],
         "fr": [
-          "projektleiter-in-80-100-stadt-zuerich-zurigo-51149"
+          "projektleiter-in-80-100-stadt-zuerich-zurigo-51149",
+          "chef-de-projet-a-zurich-oerlikon-stadt-zurich-zurich"
+        ],
+        "de": [
+          "projektleiter-in-standort-zurich-oerlikon-stadt-zuerich-zurigo-50864"
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:36.992Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -22374,7 +22420,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-8d47dc976bf0",
@@ -25202,16 +25249,19 @@
       "referenceNumber": "50448",
       "previousSlugs": [
         "kindheitspadagog-in-hf-mit-berufsbildungsverantwortung-stadt-zuerich-zurigo-50448",
-        "kindheitspadagog-in-hf-mit-berufsbildungsverantwortung-stadt-zurich-zurich"
+        "kindheitspadagog-in-hf-mit-berufsbildungsverantwortung-stadt-zurich-zurich",
+        "kindheitspadagog-in-hf-con-berufsbildungsverantwortung-e-stv-kitaleitung-stadt-zurich",
+        "kindheitspadagog-in-hf-mit-berufsbildungsverantwortung-und-stv-kitaleitung-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kindheitspadagog-in-hf-mit-berufsbildungsverantwortung-stadt-zuerich-zurigo-50448",
-          "kindheitspadagog-in-hf-mit-berufsbildungsverantwortung-stadt-zurich-zurich"
+          "kindheitspadagog-in-hf-mit-berufsbildungsverantwortung-stadt-zurich-zurich",
+          "kindheitspadagog-in-hf-con-berufsbildungsverantwortung-e-stv-kitaleitung-stadt-zurich",
+          "kindheitspadagog-in-hf-mit-berufsbildungsverantwortung-und-stv-kitaleitung-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.728Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -25223,7 +25273,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-ede008e4c661",
@@ -27022,12 +27073,41 @@
       "referenceNumber": "50762",
       "previousSlugs": [
         "projektleiter-in-infrastruktur-und-stadtraumprojekte-stadt-zuerich-zurigo-50762",
-        "projektleiter-in-infrastruktur-e-stadtraumprojekte-stadt-zurich"
+        "projektleiter-in-infrastruktur-e-stadtraumprojekte-stadt-zurich",
+        "project-manager-in-gis-infrastruttura-e-manutenzione-stadt-zurich-zurich",
+        "project-manager-in-gis-infrastructure-maintenance-stadt-zurich-zurich",
+        "projektleiter-in-gis-infrastruktur-wartung-stadt-zuerich-zurigo-50617",
+        "gestionnaire-de-projet-en-sig-infrastructure-et-maintenance-stadt-zurich-zurich",
+        "projektleiter-in-gis-infrastruktur-wartung-stadt-zurich",
+        "project-manager-nell-analisi-gis-data-stadt-zurich-zurich",
+        "project-manager-in-gis-data-analysis-stadt-zurich-zurich",
+        "projektleiter-in-gis-datenanalyse-stadt-zuerich-zurigo-50616",
+        "gestionnaire-de-projet-dans-le-sig-analyse-des-donnees-stadt-zurich-zurich",
+        "projektleiter-in-gis-datenanalyse-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-infrastruktur-und-stadtraumprojekte-stadt-zuerich-zurigo-50762",
-          "projektleiter-in-infrastruktur-e-stadtraumprojekte-stadt-zurich"
+          "projektleiter-in-infrastruktur-e-stadtraumprojekte-stadt-zurich",
+          "project-manager-in-gis-infrastruttura-e-manutenzione-stadt-zurich-zurich",
+          "project-manager-in-gis-infrastructure-maintenance-stadt-zurich-zurich",
+          "projektleiter-in-gis-infrastruktur-wartung-stadt-zuerich-zurigo-50617",
+          "gestionnaire-de-projet-en-sig-infrastructure-et-maintenance-stadt-zurich-zurich",
+          "projektleiter-in-gis-infrastruktur-wartung-stadt-zurich",
+          "project-manager-nell-analisi-gis-data-stadt-zurich-zurich",
+          "project-manager-in-gis-data-analysis-stadt-zurich-zurich",
+          "projektleiter-in-gis-datenanalyse-stadt-zuerich-zurigo-50616",
+          "gestionnaire-de-projet-dans-le-sig-analyse-des-donnees-stadt-zurich-zurich",
+          "projektleiter-in-gis-datenanalyse-stadt-zurich"
+        ],
+        "en": [
+          "project-manager-in-gis-infrastructure-maintenance-stadt-zurich-zurich"
+        ],
+        "de": [
+          "projektleiter-in-gis-infrastruktur-wartung-stadt-zuerich-zurigo-50617"
+        ],
+        "fr": [
+          "gestionnaire-de-projet-en-sig-infrastructure-et-maintenance-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-08-03T12:40:57.032Z",
@@ -28521,24 +28601,27 @@
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Umwelt- und Gesundheitsschutz",
       "referenceNumber": "51247",
-      "previousSlugs": [
-        "praktikant-in-netto-null-und-kooperationen-befristet-fur-12-monate-stadt-zuerich-zurigo",
-        "praktikant-in-netto-null-e-kooperationen-befristet-per-12-monate-stadt-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-netto-null-und-kooperationen-befristet-fur-12-monate-stadt-zuerich-zurigo",
-          "praktikant-in-netto-null-e-kooperationen-befristet-per-12-monate-stadt-zurich"
+          "praktikant-in-netto-null-e-kooperationen-befristet-per-12-monate-stadt-zurich",
+          "praktikant-in-daten-und-netto-null-befristet-fur-12-bis-18-monate-stadt-zurich-zurich"
         ],
         "en": [
           "praktikant-in-netto-null-und-kooperationen-befristet-fur-12-monate-stadt-zuerich-zurigo"
         ],
         "fr": [
           "praktikant-in-netto-null-und-kooperationen-befristet-fur-12-monate-stadt-zuerich-zurigo"
+        ],
+        "de": [
+          "praktikant-in-daten-und-netto-null-befristet-fur-12-bis-18-monate-stadt-zurich-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-05T22:49:10.684Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "praktikant-in-netto-null-und-kooperationen-befristet-fur-12-monate-stadt-zuerich-zurigo",
+        "praktikant-in-netto-null-e-kooperationen-befristet-per-12-monate-stadt-zurich",
+        "praktikant-in-daten-und-netto-null-befristet-fur-12-bis-18-monate-stadt-zurich-zurich"
+      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -28550,7 +28633,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-05T22:49:10.684Z",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-84d122a907de",
@@ -29921,12 +30006,14 @@
       "referenceNumber": "51242",
       "previousSlugs": [
         "hortleiter-in-stadt-zuerich-zurigo-51242",
-        "gestione-certificati-stadt-zurich-zurich"
+        "gestione-certificati-stadt-zurich-zurich",
+        "hortleiter-in-stadt-zuerich-zurigo-49673"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hortleiter-in-stadt-zuerich-zurigo-51242",
-          "gestione-certificati-stadt-zurich-zurich"
+          "gestione-certificati-stadt-zurich-zurich",
+          "hortleiter-in-stadt-zuerich-zurigo-49673"
         ],
         "en": [
           "hortleiter-in-stadt-zuerich-zurigo-51242"
@@ -31067,12 +31154,14 @@
       "referenceNumber": "45138",
       "previousSlugs": [
         "medizinische-schulbusbegleitungen-skb-stadt-zuerich-zurigo-45138",
-        "compagni-di-autobus-della-scuola-medica-skb-stadt-zurich-zurich"
+        "compagni-di-autobus-della-scuola-medica-skb-stadt-zurich-zurich",
+        "medizinische-schulbusbegleitungen-skb-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-schulbusbegleitungen-skb-stadt-zuerich-zurigo-45138",
-          "compagni-di-autobus-della-scuola-medica-skb-stadt-zurich-zurich"
+          "compagni-di-autobus-della-scuola-medica-skb-stadt-zurich-zurich",
+          "medizinische-schulbusbegleitungen-skb-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-08-04T22:38:33.521Z",
@@ -32786,12 +32875,14 @@
       "referenceNumber": "50848",
       "previousSlugs": [
         "schulische-r-heilpadagog-in-sekundarstufe-schule-riedenhalden-stadt-zuerich-zurigo-50848",
-        "insegnante-curativo-scolastico-a-livello-secondario-scuola-riedenhalden-stadt-zurich-zurich"
+        "insegnante-curativo-scolastico-a-livello-secondario-scuola-riedenhalden-stadt-zurich-zurich",
+        "schulische-r-heilpadagog-in-sekundarstufe-schule-riedenhalden-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schulische-r-heilpadagog-in-sekundarstufe-schule-riedenhalden-stadt-zuerich-zurigo-50848",
-          "insegnante-curativo-scolastico-a-livello-secondario-scuola-riedenhalden-stadt-zurich-zurich"
+          "insegnante-curativo-scolastico-a-livello-secondario-scuola-riedenhalden-stadt-zurich-zurich",
+          "schulische-r-heilpadagog-in-sekundarstufe-schule-riedenhalden-stadt-zurich-zurich"
         ],
         "en": [
           "schulische-r-heilpadagog-in-sekundarstufe-schule-riedenhalden-stadt-zuerich-zurigo-50848"

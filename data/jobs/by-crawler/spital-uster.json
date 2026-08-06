@@ -3489,16 +3489,17 @@
       "previousSlugs": [
         "expertin-experte-nds-50-100-notfallpflege-spital-uster-uster",
         "expertin-experte-nds-50-100-notfallpflege-spital-uster-ch",
-        "esperto-esperto-nds-50-100-assistenza-di-emergenza-spital-uster-uster"
+        "esperto-esperto-nds-50-100-assistenza-di-emergenza-spital-uster-uster",
+        "nds-expert-50-100-soins-d-urgence-spital-uster-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
           "expertin-experte-nds-50-100-notfallpflege-spital-uster-ch",
-          "esperto-esperto-nds-50-100-assistenza-di-emergenza-spital-uster-uster"
+          "esperto-esperto-nds-50-100-assistenza-di-emergenza-spital-uster-uster",
+          "nds-expert-50-100-soins-d-urgence-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-06-26T22:59:53.150Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3510,7 +3511,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-uster-3d9632dcb014",

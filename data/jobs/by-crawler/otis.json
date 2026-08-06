@@ -1835,19 +1835,20 @@
       "crawledAt": "2026-08-06T11:31:19.404Z",
       "previousSlugs": [
         "fp-a-manager-otis-fribourg",
-        "responsabile-fp-a-otis-sa-fribourg"
+        "responsabile-fp-a-otis-sa-fribourg",
+        "gestionnaire-de-f-a-otis-sa-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fp-a-manager-otis-fribourg",
-          "responsabile-fp-a-otis-sa-fribourg"
+          "responsabile-fp-a-otis-sa-fribourg",
+          "gestionnaire-de-f-a-otis-sa-fribourg"
         ],
         "fr": [
           "fp-a-manager-otis-fribourg"
         ]
       },
       "firstSeenAt": "2026-06-15T14:58:21.306Z",
-      "needsRetranslation": true,
       "salaryMin": 124000,
       "salaryMax": 167500,
       "baseSalary": {
@@ -1861,7 +1862,8 @@
         }
       },
       "country": "CH",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "otis-264632f0df97",

@@ -127,12 +127,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-hardware-product-user-experience-designer-logitech-ch",
-        "progettista-senior-dell-esperienza-utente-del-prodotto-hardware-logitech-lausanne-switzerland"
+        "progettista-senior-dell-esperienza-utente-del-prodotto-hardware-logitech-lausanne-switzerland",
+        "progettista-senior-dell-esperienza-utente-prodotto-hardware-logitech-lausanne-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-hardware-product-user-experience-designer-logitech-ch",
-          "progettista-senior-dell-esperienza-utente-del-prodotto-hardware-logitech-lausanne-switzerland"
+          "progettista-senior-dell-esperienza-utente-del-prodotto-hardware-logitech-lausanne-switzerland",
+          "progettista-senior-dell-esperienza-utente-prodotto-hardware-logitech-lausanne-switzerland"
         ],
         "de": [
           "senior-hardware-product-user-experience-designer-logitech-ch"
@@ -142,7 +144,6 @@
         ]
       },
       "firstSeenAt": "2026-05-28T13:21:21.034Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -155,7 +156,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "logitech-d966ad919913",

@@ -889,14 +889,18 @@
         "sport-leader-verkaufsberater-m-w-d-40-befristet-bern-shoppyland-decathlon-ch",
         "sport-leader-verkaufsberater-m-w-d-40-befristet-bern-shoppyland-decathlon-urtenen-schonbuhl",
         "sport-leader-verkaufsberater-m-w-d-befristet-bern-shoppyland-decathlon-ch",
-        "sport-leader-vendite-advisor-m-f-d-40-temporary-bern-shoppyland-decathlon-urtenen-schonbuhl"
+        "sport-leader-vendite-advisor-m-f-d-40-temporary-bern-shoppyland-decathlon-urtenen-schonbuhl",
+        "leader-sportif-conseiller-commercial-m-f-d-30-temporaire-bern-shoppyland-decathlon-urtenen-schonbuhl",
+        "sport-leader-sales-advisor-m-f-d-30-temporary-bern-shoppyland-decathlon-urtenen-schonbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sport-leader-verkaufsberater-m-w-d-40-befristet-bern-shoppyland-decathlon-ch",
           "sport-leader-verkaufsberater-m-w-d-40-befristet-bern-shoppyland-decathlon-urtenen-schonbuhl",
           "sport-leader-verkaufsberater-m-w-d-befristet-bern-shoppyland-decathlon-ch",
-          "sport-leader-vendite-advisor-m-f-d-40-temporary-bern-shoppyland-decathlon-urtenen-schonbuhl"
+          "sport-leader-vendite-advisor-m-f-d-40-temporary-bern-shoppyland-decathlon-urtenen-schonbuhl",
+          "leader-sportif-conseiller-commercial-m-f-d-30-temporaire-bern-shoppyland-decathlon-urtenen-schonbuhl",
+          "sport-leader-sales-advisor-m-f-d-30-temporary-bern-shoppyland-decathlon-urtenen-schonbuhl"
         ],
         "en": [
           "sport-leader-verkaufsberater-m-w-d-40-befristet-bern-shoppyland-decathlon-ch"
@@ -906,7 +910,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.764Z",
-      "needsRetranslation": true,
       "salaryMin": 27400,
       "salaryMax": 41600,
       "baseSalary": {
@@ -918,7 +921,8 @@
           "maxValue": 41600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "decathlon-e5f89fa2c493",
@@ -1288,12 +1292,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sport-leader-verkaufsberater-m-w-d-80-decathlon-rickenbach-decathlon-ch",
-        "leader-sportivo-consulente-commerciale-m-f-d-80-decathlon-rickenbach-decathlon-rickenbach"
+        "leader-sportivo-consulente-commerciale-m-f-d-80-decathlon-rickenbach-decathlon-rickenbach",
+        "leader-sportivo-consulente-commerciale-f-m-d-20-80-decathlon-stans-decathlon-stans",
+        "leader-sportivo-consulente-commerciale-m-f-d-80-baar-decathlon-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sport-leader-verkaufsberater-m-w-d-80-decathlon-rickenbach-decathlon-ch",
-          "leader-sportivo-consulente-commerciale-m-f-d-80-decathlon-rickenbach-decathlon-rickenbach"
+          "leader-sportivo-consulente-commerciale-m-f-d-80-decathlon-rickenbach-decathlon-rickenbach",
+          "leader-sportivo-consulente-commerciale-f-m-d-20-80-decathlon-stans-decathlon-stans",
+          "leader-sportivo-consulente-commerciale-m-f-d-80-baar-decathlon-baar"
         ],
         "en": [
           "sport-leader-verkaufsberater-m-w-d-80-decathlon-rickenbach-decathlon-ch"
@@ -1824,19 +1832,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sport-leader-verkaufsberater-m-w-d-100-stans-decathlon-ch",
-        "sport-leader-vendite-advisor-m-f-d-100-stans-decathlon-stans"
+        "sport-leader-vendite-advisor-m-f-d-100-stans-decathlon-stans",
+        "leader-sportif-conseiller-commercial-f-m-j-20-80-decathlon-stans-decathlon-stans",
+        "sport-leader-sales-advisor-f-m-d-20-80-decathlon-stans-decathlon-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sport-leader-verkaufsberater-m-w-d-100-stans-decathlon-ch",
-          "sport-leader-vendite-advisor-m-f-d-100-stans-decathlon-stans"
+          "sport-leader-vendite-advisor-m-f-d-100-stans-decathlon-stans",
+          "leader-sportif-conseiller-commercial-f-m-j-20-80-decathlon-stans-decathlon-stans",
+          "sport-leader-sales-advisor-f-m-d-20-80-decathlon-stans-decathlon-stans"
         ],
         "en": [
           "sport-leader-verkaufsberater-m-w-d-100-stans-decathlon-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T22:16:34.081Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1848,7 +1859,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "decathlon-f68c7b0718c8",
@@ -3153,7 +3165,10 @@
         "sport-leader-verkaufsberater-m-w-d-100-st-gallen-decathlon-ch",
         "leader-sportif-conseiller-commercial-m-f-d-100-st-gallen-decathlon-st-gallen",
         "sport-leader-verkaufsberater-m-w-d-80-decathlon-st-gallen-decathlon-ch",
-        "leader-sportivo-consulente-commerciale-m-f-d-40-decathlon-st-gallen-decathlon-st-gallen"
+        "leader-sportivo-consulente-commerciale-m-f-d-40-decathlon-st-gallen-decathlon-st-gallen",
+        "leader-sportif-conseiller-commercial-m-f-d-80-st-gallen-decathlon-st-gallen",
+        "leader-sportivo-consulente-commerciale-m-f-d-80-st-gallen-decathlon-st-gallen",
+        "sport-leader-sales-advisor-m-f-d-80-st-gallen-decathlon-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3167,7 +3182,10 @@
           "sport-leader-verkaufsberater-m-w-d-100-st-gallen-decathlon-ch",
           "leader-sportif-conseiller-commercial-m-f-d-100-st-gallen-decathlon-st-gallen",
           "sport-leader-verkaufsberater-m-w-d-80-decathlon-st-gallen-decathlon-ch",
-          "leader-sportivo-consulente-commerciale-m-f-d-40-decathlon-st-gallen-decathlon-st-gallen"
+          "leader-sportivo-consulente-commerciale-m-f-d-40-decathlon-st-gallen-decathlon-st-gallen",
+          "leader-sportif-conseiller-commercial-m-f-d-80-st-gallen-decathlon-st-gallen",
+          "leader-sportivo-consulente-commerciale-m-f-d-80-st-gallen-decathlon-st-gallen",
+          "sport-leader-sales-advisor-m-f-d-80-st-gallen-decathlon-st-gallen"
         ],
         "en": [
           "sport-leader-verkaufsberater-m-w-d-40-decathlon-st-gallen-decathlon-ch",
@@ -3672,13 +3690,15 @@
       "previousSlugs": [
         "befristet-sport-leader-verkaufsberater-m-w-d-80-bergsport-decathlon-ch",
         "befristet-sport-leader-verkaufsberater-m-w-d-80-bergsport-decathlon-basel",
-        "leader-sportivo-temporaneo-consulente-commerciale-m-f-d-80-sport-di-montagna-decathlon-basel"
+        "leader-sportivo-temporaneo-consulente-commerciale-m-f-d-80-sport-di-montagna-decathlon-basel",
+        "leader-sportivo-consulente-commerciale-m-f-d-80-basilea-sport-di-montagna-decathlon-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "befristet-sport-leader-verkaufsberater-m-w-d-80-bergsport-decathlon-ch",
           "befristet-sport-leader-verkaufsberater-m-w-d-80-bergsport-decathlon-basel",
-          "leader-sportivo-temporaneo-consulente-commerciale-m-f-d-80-sport-di-montagna-decathlon-basel"
+          "leader-sportivo-temporaneo-consulente-commerciale-m-f-d-80-sport-di-montagna-decathlon-basel",
+          "leader-sportivo-consulente-commerciale-m-f-d-80-basilea-sport-di-montagna-decathlon-basel"
         ],
         "en": [
           "befristet-sport-leader-verkaufsberater-m-w-d-80-bergsport-decathlon-ch"

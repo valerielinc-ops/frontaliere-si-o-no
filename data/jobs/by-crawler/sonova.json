@@ -604,12 +604,14 @@
         "practical-trainee-power-management-m-f-d-sonova-ch",
         "stage-pratique-gestion-de-l-energie-m-f-d-sonova-staefa-switzerland",
         "practical-apprendista-power-management-m-f-d-sonova-staefa",
-        "practical-trainee-power-management-m-w-d-sonova-staefa"
+        "practical-trainee-power-management-m-w-d-sonova-staefa",
+        "practical-apprendista-power-management-m-f-d-sonova-stafa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "practical-trainee-power-management-m-f-d-sonova-ch",
-          "practical-apprendista-power-management-m-f-d-sonova-staefa"
+          "practical-apprendista-power-management-m-f-d-sonova-staefa",
+          "practical-apprendista-power-management-m-f-d-sonova-stafa"
         ],
         "de": [
           "practical-trainee-power-management-m-f-d-sonova-ch"
@@ -620,7 +622,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:05:37.985Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -632,7 +633,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sonova-9b40720b457c",

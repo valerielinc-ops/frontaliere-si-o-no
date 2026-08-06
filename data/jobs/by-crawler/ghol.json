@@ -593,7 +593,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-08-06T11:56:14.129Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "infermiera-in-privato-servizio-privato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -601,7 +600,8 @@
         "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "notfallkrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -610,7 +610,8 @@
           "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -637,7 +638,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ghol-4bea4bccd510",

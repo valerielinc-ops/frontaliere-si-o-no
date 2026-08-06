@@ -10599,7 +10599,8 @@
         "assistent-in-gesundheit-und-soziales-fur-die-innere-medizin-triemli-stadtspital-zuerich",
         "assistant-a-la-sante-et-aux-affaires-sociales-pour-la-medecine-interne-triemli-stadtspital-zurich-zurich",
         "assistant-sante-et-affaires-sociales-pour-la-medecine-interne-triemli-stadtspital-zurich-zurich",
-        "assistente-medicina-interna-triemli-stadtspital-zurich-zurich"
+        "assistente-medicina-interna-triemli-stadtspital-zurich-zurich",
+        "unterassistent-innen-innere-medizin-triemli-stadtspital-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10609,7 +10610,8 @@
           "assistent-in-gesundheit-und-soziales-fur-die-innere-medizin-triemli-stadtspital-zuerich",
           "assistant-a-la-sante-et-aux-affaires-sociales-pour-la-medecine-interne-triemli-stadtspital-zurich-zurich",
           "assistant-sante-et-affaires-sociales-pour-la-medecine-interne-triemli-stadtspital-zurich-zurich",
-          "assistente-medicina-interna-triemli-stadtspital-zurich-zurich"
+          "assistente-medicina-interna-triemli-stadtspital-zurich-zurich",
+          "unterassistent-innen-innere-medizin-triemli-stadtspital-zurich-zurich"
         ],
         "en": [
           "unterassistent-innen-innere-medizin-triemli-stadtspital-zuerich-30300",
@@ -10624,7 +10626,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.241Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -10636,7 +10637,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-84edf14571f5",

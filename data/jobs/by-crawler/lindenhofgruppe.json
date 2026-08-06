@@ -1533,7 +1533,8 @@
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-2",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital"
+        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital",
+        "dipl-specialiste-des-soins-infirmiers-hf-fh-avec-fonction-supplementaire-lindenhofgruppe-sonnenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1544,17 +1545,18 @@
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-2",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital"
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital",
+          "dipl-specialiste-des-soins-infirmiers-hf-fh-avec-fonction-supplementaire-lindenhofgruppe-sonnenhofspital"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7"
         ],
         "fr": [
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
+          "dipl-specialiste-des-soins-infirmiers-hf-fh-avec-fonction-supplementaire-lindenhofgruppe-sonnenhofspital"
         ]
       },
       "firstSeenAt": "2026-06-11T13:03:30.775Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1566,7 +1568,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "lindenhofgruppe-0e76875be4ca",
@@ -3717,13 +3720,17 @@
       "previousSlugs": [
         "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
         "fachfrau-mann-gesundheit-lindenhofgruppe-lindenhofspital",
-        "salute-professionale-lindenhofgruppe-lindenhofspital"
+        "salute-professionale-lindenhofgruppe-lindenhofspital",
+        "health-professional-lindenhofgruppe-lindenhofspital-00398d",
+        "professionnels-de-la-sante-lindenhofgruppe-lindenhofspital-00398d"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
           "fachfrau-mann-gesundheit-lindenhofgruppe-lindenhofspital",
-          "salute-professionale-lindenhofgruppe-lindenhofspital"
+          "salute-professionale-lindenhofgruppe-lindenhofspital",
+          "health-professional-lindenhofgruppe-lindenhofspital-00398d",
+          "professionnels-de-la-sante-lindenhofgruppe-lindenhofspital-00398d"
         ],
         "en": [
           "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
@@ -3887,7 +3894,8 @@
         "chef-d-equipe-experts-pharmacie-assistants-pharmaceutiques-lindenhofgruppe-lindenhofgruppe",
         "teamleiter-in-fachpersonen-apotheke-pharma-assistenten-lindenhofgruppe-ch",
         "team-leader-specialisti-farmacia-assistenti-farmaceutici-lindenhofgruppe-lindenhofgruppe",
-        "teamleiter-in-per-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhof-e2l7sx"
+        "teamleiter-in-per-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhof-e2l7sx",
+        "teamleiter-in-per-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe-alle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3898,7 +3906,8 @@
           "chef-d-equipe-experts-pharmacie-assistants-pharmaceutiques-lindenhofgruppe-lindenhofgruppe",
           "teamleiter-in-fachpersonen-apotheke-pharma-assistenten-lindenhofgruppe-ch",
           "team-leader-specialisti-farmacia-assistenti-farmaceutici-lindenhofgruppe-lindenhofgruppe",
-          "teamleiter-in-per-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhof-e2l7sx"
+          "teamleiter-in-per-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhof-e2l7sx",
+          "teamleiter-in-per-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe-alle"
         ],
         "en": [
           "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe"
@@ -3909,7 +3918,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:34:38.509Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3921,7 +3929,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "lindenhofgruppe-3fdd65a83665",
@@ -4056,19 +4065,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch",
-        "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital"
+        "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital",
+        "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-alle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch",
-          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital"
+          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital",
+          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-alle"
         ],
         "fr": [
           "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch"
         ]
       },
       "firstSeenAt": "2026-07-29T22:31:34.545Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4080,7 +4090,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "lindenhofgruppe-c5f412203f72",

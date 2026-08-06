@@ -139,12 +139,14 @@
       "jobCategory": "Berufslehre",
       "previousSlugs": [
         "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-liebefeld",
-        "apprendista-elektroinstallateure-cfc-w-m-d-2027-etavis-arnold-liebefeld"
+        "apprendista-elektroinstallateure-cfc-w-m-d-2027-etavis-arnold-liebefeld",
+        "apprenti-e-elektroinstallateure-efz-w-m-d-2027-etavis-arnold-alle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-liebefeld",
-          "apprendista-elektroinstallateure-cfc-w-m-d-2027-etavis-arnold-liebefeld"
+          "apprendista-elektroinstallateure-cfc-w-m-d-2027-etavis-arnold-liebefeld",
+          "apprenti-e-elektroinstallateure-efz-w-m-d-2027-etavis-arnold-alle"
         ],
         "en": [
           "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-liebefeld"
@@ -154,7 +156,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:51:49.320Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -166,7 +167,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "etavis-2b657f071b31",

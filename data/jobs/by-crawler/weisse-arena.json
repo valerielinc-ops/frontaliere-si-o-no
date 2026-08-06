@@ -57,12 +57,16 @@
         "hilfskoch-hilfskochin-weisse-arena-ch",
         "auxiliary-cook-weisse-arena-gruppe-laax",
         "assistente-cuoco-weisse-arena-gruppe-laax",
-        "hilfskoch-hilfskochin-weisse-arena-gruppe-laax"
+        "hilfskoch-hilfskochin-weisse-arena-gruppe-laax",
+        "cook-kochin-weisse-arena-gruppe-laax",
+        "cuisiniere-kochin-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hilfskoch-hilfskochin-weisse-arena-ch",
-          "assistente-cuoco-weisse-arena-gruppe-laax"
+          "assistente-cuoco-weisse-arena-gruppe-laax",
+          "cook-kochin-weisse-arena-gruppe-laax",
+          "cuisiniere-kochin-weisse-arena-gruppe-laax"
         ],
         "en": [
           "hilfskoch-hilfskochin-weisse-arena-ch",
@@ -74,7 +78,6 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:41:43.954Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -87,7 +90,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "weisse-arena-f75d8e4df5ab",
@@ -1047,12 +1051,14 @@
         "servicemitarbeiter-in-im-fruhstuckservice-weisse-arena-ch",
         "addetto-al-servizio-di-colazione-weisse-arena-gruppe-laax",
         "breakfast-service-attendant-weisse-arena-gruppe-laax",
-        "employe-de-service-de-petit-dejeuner-weisse-arena-gruppe-laax"
+        "employe-de-service-de-petit-dejeuner-weisse-arena-gruppe-laax",
+        "personale-di-servizio-in-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicemitarbeiter-in-weisse-arena-ch",
-          "servicemitarbeiter-in-weisse-arena-gruppe-laax"
+          "servicemitarbeiter-in-weisse-arena-gruppe-laax",
+          "personale-di-servizio-in-weisse-arena-gruppe-laax"
         ],
         "en": [
           "servicemitarbeiter-in-weisse-arena-gruppe-laax"

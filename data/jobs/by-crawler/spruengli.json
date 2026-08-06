@@ -121,15 +121,13 @@
       "jobReqId": "1207",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-reinigung-30-spruengli-dietikon",
-        "mitarbeiter-in-reinigung-30-confiserie-sprungli-ag-dietikon",
-        "collaboratore-trice-in-reinigung-30-confiserie-sprungli-ag-dietikon"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-reinigung-30-spruengli-dietikon",
-          "collaboratore-trice-in-reinigung-30-confiserie-sprungli-ag-dietikon"
+          "collaboratore-trice-in-reinigung-30-confiserie-sprungli-ag-dietikon",
+          "collaboratore-trice-in-tagesreinigung-100-confiserie-sprungli-ag-dietikon",
+          "employe-en-nettoyage-quotidien-100-confiserie-sprungli-ag-dietikon",
+          "employee-in-daily-cleaning-100-confiserie-sprungli-ag-dietikon"
         ],
         "en": [
           "mitarbeiter-in-reinigung-30-confiserie-sprungli-ag-dietikon"
@@ -138,8 +136,14 @@
           "mitarbeiter-in-reinigung-30-confiserie-sprungli-ag-dietikon"
         ]
       },
-      "firstSeenAt": "2026-08-05T22:28:54.319Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "mitarbeiter-in-reinigung-30-spruengli-dietikon",
+        "mitarbeiter-in-reinigung-30-confiserie-sprungli-ag-dietikon",
+        "collaboratore-trice-in-reinigung-30-confiserie-sprungli-ag-dietikon",
+        "collaboratore-trice-in-tagesreinigung-100-confiserie-sprungli-ag-dietikon",
+        "employe-en-nettoyage-quotidien-100-confiserie-sprungli-ag-dietikon",
+        "employee-in-daily-cleaning-100-confiserie-sprungli-ag-dietikon"
+      ],
       "salaryMin": 22100,
       "salaryMax": 33500,
       "baseSalary": {
@@ -151,7 +155,9 @@
           "maxValue": 33500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-05T22:28:54.319Z",
+      "needsRetranslation": true
     },
     {
       "id": "spruengli-86ef3d502e38",

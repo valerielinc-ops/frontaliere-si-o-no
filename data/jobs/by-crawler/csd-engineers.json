@@ -2157,16 +2157,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "collaborateur-comptabilite-ap-ar-80-100-f-h-d-csd-engineers-ch",
-        "collaboratore-contabilita-ap-ar-80-100-f-h-d-csd-engineers-givisiez"
+        "collaboratore-contabilita-ap-ar-80-100-f-h-d-csd-engineers-givisiez",
+        "collaboratore-contabilita-ap-ar-80-100-e-h-d-csd-engineers-givisiez",
+        "mitarbeiter-accounting-ap-ar-80-100-e-h-d-csd-engineers-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-comptabilite-ap-ar-80-100-f-h-d-csd-engineers-ch",
-          "collaboratore-contabilita-ap-ar-80-100-f-h-d-csd-engineers-givisiez"
+          "collaboratore-contabilita-ap-ar-80-100-f-h-d-csd-engineers-givisiez",
+          "collaboratore-contabilita-ap-ar-80-100-e-h-d-csd-engineers-givisiez",
+          "mitarbeiter-accounting-ap-ar-80-100-e-h-d-csd-engineers-givisiez"
+        ],
+        "de": [
+          "mitarbeiter-accounting-ap-ar-80-100-e-h-d-csd-engineers-givisiez"
         ]
       },
       "firstSeenAt": "2026-06-24T21:52:47.939Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2179,7 +2185,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "csd-engineers-4191429897b0",

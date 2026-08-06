@@ -1422,12 +1422,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
-        "gestore-di-costruzione-nuovo-gu-tu-gisikon-f-m-d-implenia-gisikon"
+        "gestore-di-costruzione-nuovo-gu-tu-gisikon-f-m-d-implenia-gisikon",
+        "bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
-          "gestore-di-costruzione-nuovo-gu-tu-gisikon-f-m-d-implenia-gisikon"
+          "gestore-di-costruzione-nuovo-gu-tu-gisikon-f-m-d-implenia-gisikon",
+          "bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon"
         ]
       },
       "firstSeenAt": "2026-06-30T22:39:50.104Z",
@@ -1816,7 +1818,8 @@
         "construction-cost-planner-conversion-f-m-d-implenia-glattpark-opfikon",
         "baukostenplaner-umbau-w-m-d-implenia-ch",
         "transformation-du-planificateur-des-couts-de-construction-f-m-d-implenia-glattpark-opfikon",
-        "conversione-construction-manager-f-m-d-implenia-glattpark-opfikon"
+        "conversione-construction-manager-f-m-d-implenia-glattpark-opfikon",
+        "project-manager-conversion-f-m-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1828,7 +1831,8 @@
           "pianificatore-dei-costi-di-costruzione-ristrutturazione-f-m-d-implenia-glattpark-opfikon",
           "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon",
           "conversion-des-couts-de-construction-f-m-d-implenia-glattpark-opfikon",
-          "conversione-construction-manager-f-m-d-implenia-glattpark-opfikon"
+          "conversione-construction-manager-f-m-d-implenia-glattpark-opfikon",
+          "project-manager-conversion-f-m-d-implenia-glattpark-opfikon"
         ],
         "en": [
           "bauleiter-umbau-w-m-d-implenia-ch",
@@ -1844,7 +1848,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:29:53.606Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1856,7 +1859,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "implenia-f1bf58228d0c",
@@ -1910,20 +1914,21 @@
       "previousSlugs": [
         "senior-transaction-advisory-manager-m-w-d-opfikon-80-100-implenia-ch",
         "junior-transaction-advisory-manager-m-w-d-opfikon-80-100-implenia-ch",
-        "senior-manager-per-la-gestione-delle-transazioni-m-f-d-opfikon-80-100-immobiliare-basilea-implenia-basel"
+        "senior-manager-per-la-gestione-delle-transazioni-m-f-d-opfikon-80-100-immobiliare-basilea-implenia-basel",
+        "senior-transaction-advisory-manager-m-w-d-opfikon-80-100-implenia-ch-ksej97"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-transaction-advisory-manager-m-w-d-opfikon-80-100-implenia-ch",
           "junior-transaction-advisory-manager-m-w-d-opfikon-80-100-implenia-ch",
-          "senior-manager-per-la-gestione-delle-transazioni-m-f-d-opfikon-80-100-immobiliare-basilea-implenia-basel"
+          "senior-manager-per-la-gestione-delle-transazioni-m-f-d-opfikon-80-100-immobiliare-basilea-implenia-basel",
+          "senior-transaction-advisory-manager-m-w-d-opfikon-80-100-implenia-ch-ksej97"
         ],
         "fr": [
           "junior-transaction-advisory-manager-m-w-d-opfikon-80-100-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-07-03T22:06:43.388Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1935,7 +1940,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "implenia-26f689ce04b7",
@@ -1988,12 +1994,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bewirtschafter-gewerbeimmobilien-m-w-d-basel-80-100-implenia-ch",
-        "responsabile-immobiliare-commerciale-m-f-d-basilea-80-100-implenia-basel"
+        "responsabile-immobiliare-commerciale-m-f-d-basilea-80-100-implenia-basel",
+        "gestore-immobiliare-commerciale-l-f-d-basilea-80-100-implenia-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bewirtschafter-gewerbeimmobilien-m-w-d-basel-80-100-implenia-ch",
-          "responsabile-immobiliare-commerciale-m-f-d-basilea-80-100-implenia-basel"
+          "responsabile-immobiliare-commerciale-m-f-d-basilea-80-100-implenia-basel",
+          "gestore-immobiliare-commerciale-l-f-d-basilea-80-100-implenia-basel"
         ]
       },
       "firstSeenAt": "2026-07-16T23:09:29.893Z",
@@ -3040,16 +3048,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
-        "project-manager-nuovo-edificio-gu-tu-gisikon-f-m-d-implenia-gisikon"
+        "project-manager-nuovo-edificio-gu-tu-gisikon-f-m-d-implenia-gisikon",
+        "projektleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
-          "project-manager-nuovo-edificio-gu-tu-gisikon-f-m-d-implenia-gisikon"
+          "project-manager-nuovo-edificio-gu-tu-gisikon-f-m-d-implenia-gisikon",
+          "projektleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon"
         ]
       },
       "firstSeenAt": "2026-06-30T22:39:49.973Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3061,7 +3070,8 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "implenia-842c33471f75",
@@ -3116,14 +3126,16 @@
         "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch",
         "responsabile-della-pianificazione-progetto-di-conversione-jelmoli-f-m-d-implenia-glattpark-opfikon",
         "responsabile-della-pianificazione-del-progetto-di-ristrutturazione-jelmoli-f-m-d-implenia-glattpark-opfikon",
-        "responsabile-del-progetto-di-ristrutturazione-jelmoli-f-m-d-implenia-glattpark-opfikon"
+        "responsabile-del-progetto-di-ristrutturazione-jelmoli-f-m-d-implenia-glattpark-opfikon",
+        "responsabile-di-progetto-ristrutturazione-f-m-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch",
           "responsabile-della-pianificazione-progetto-di-conversione-jelmoli-f-m-d-implenia-glattpark-opfikon",
           "responsabile-della-pianificazione-del-progetto-di-ristrutturazione-jelmoli-f-m-d-implenia-glattpark-opfikon",
-          "responsabile-del-progetto-di-ristrutturazione-jelmoli-f-m-d-implenia-glattpark-opfikon"
+          "responsabile-del-progetto-di-ristrutturazione-jelmoli-f-m-d-implenia-glattpark-opfikon",
+          "responsabile-di-progetto-ristrutturazione-f-m-d-implenia-glattpark-opfikon"
         ],
         "en": [
           "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch"
@@ -3744,12 +3756,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ingenieur-holzbau-m-w-d-80-100-implenia-ch",
-        "ingegnere-holzbau-m-f-d-80-100-implenia-rumlang"
+        "ingegnere-holzbau-m-f-d-80-100-implenia-rumlang",
+        "praktikant-ingenieur-holzbau-m-w-d-80-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingenieur-holzbau-m-w-d-80-100-implenia-ch",
-          "ingegnere-holzbau-m-f-d-80-100-implenia-rumlang"
+          "ingegnere-holzbau-m-f-d-80-100-implenia-rumlang",
+          "praktikant-ingenieur-holzbau-m-w-d-80-100-implenia-ch"
+        ],
+        "de": [
+          "praktikant-ingenieur-holzbau-m-w-d-80-100-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:13.335Z",
@@ -4456,7 +4473,8 @@
         "conversione-di-project-manager-f-m-d-implenia-opfikon",
         "project-manager-conversion-f-m-d-implenia-opfikon",
         "projektleiter-umbau-w-m-d-implenia-ch",
-        "transformation-du-gestionnaire-de-projet-f-m-d-implenia-opfikon"
+        "transformation-du-gestionnaire-de-projet-f-m-d-implenia-opfikon",
+        "tunnelling-m-f-d-80-100-implenia-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4468,7 +4486,8 @@
           "conversione-di-project-manager-f-m-d-implenia-opfikon",
           "project-manager-conversion-f-m-d-implenia-opfikon",
           "projektleiter-umbau-w-m-d-implenia-ch",
-          "transformation-du-gestionnaire-de-projet-f-m-d-implenia-opfikon"
+          "transformation-du-gestionnaire-de-projet-f-m-d-implenia-opfikon",
+          "tunnelling-m-f-d-80-100-implenia-opfikon"
         ],
         "en": [
           "kalkulator-tunnelbau-m-w-d-80-100-implenia-ch",

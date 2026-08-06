@@ -557,12 +557,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-50-a-100-hug-thonex",
-        "responsabile-clinica-con-o-senza-titolo-di-specialita-50-al-100-hug-thonex"
+        "responsabile-clinica-con-o-senza-titolo-di-specialita-50-al-100-hug-thonex",
+        "head-of-clinic-with-or-without-specialty-title-50-or-100-hug-geneve",
+        "head-of-clinic-with-or-without-specialty-title-80-to-100-hug-puplinge",
+        "responsabile-clinica-con-o-senza-titolo-di-specialita-50-o-100-hug-geneve",
+        "responsabile-clinica-con-o-senza-titolo-di-specialita-80-al-100-hug-puplinge"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-50-a-100-hug-thonex",
-          "responsabile-clinica-con-o-senza-titolo-di-specialita-50-al-100-hug-thonex"
+          "responsabile-clinica-con-o-senza-titolo-di-specialita-50-al-100-hug-thonex",
+          "head-of-clinic-with-or-without-specialty-title-50-or-100-hug-geneve",
+          "head-of-clinic-with-or-without-specialty-title-80-to-100-hug-puplinge",
+          "responsabile-clinica-con-o-senza-titolo-di-specialita-50-o-100-hug-geneve",
+          "responsabile-clinica-con-o-senza-titolo-di-specialita-80-al-100-hug-puplinge"
         ],
         "en": [
           "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-50-a-100-hug-thonex"
@@ -2970,7 +2978,10 @@
         "psychotherapist-70-hug-geneve",
         "psychotherapeut-70-hug-geneve",
         "psychologue-psychotherapeute-70-hug-geneve",
-        "psicologo-20-hug-geneve"
+        "psicologo-20-hug-geneve",
+        "psicologo-50-hug-geneve",
+        "psychologe-50-hug-geneve",
+        "psychologist-50-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2979,7 +2990,10 @@
           "psychotherapist-70-hug-geneve",
           "psychotherapeut-70-hug-geneve",
           "psychologue-psychotherapeute-70-hug-geneve",
-          "psicologo-20-hug-geneve"
+          "psicologo-20-hug-geneve",
+          "psicologo-50-hug-geneve",
+          "psychologe-50-hug-geneve",
+          "psychologist-50-hug-geneve"
         ],
         "en": [
           "psychologue-20-hug-geneve",
@@ -2994,7 +3008,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:38:58.473Z",
-      "needsRetranslation": true,
       "salaryMin": 12100,
       "salaryMax": 18300,
       "baseSalary": {
@@ -3006,7 +3019,8 @@
           "maxValue": 18300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hug-7e9bec05b411",
@@ -3448,12 +3462,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-50-a-60-hug-geneve",
-        "psichiatria-infantile-e-adolescente-50-al-60-hug-geneve"
+        "psichiatria-infantile-e-adolescente-50-al-60-hug-geneve",
+        "psychologin-beim-kinder-und-jugendpsychiatriedienst-50-bis-100-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-50-a-60-hug-geneve",
-          "psichiatria-infantile-e-adolescente-50-al-60-hug-geneve"
+          "psichiatria-infantile-e-adolescente-50-al-60-hug-geneve",
+          "psychologin-beim-kinder-und-jugendpsychiatriedienst-50-bis-100-hug-geneve"
         ],
         "en": [
           "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-50-a-60-hug-geneve"
@@ -4152,12 +4168,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-80-hug-geneve",
-        "psichiatria-infantile-e-adolescente-80-hug-geneve"
+        "psichiatria-infantile-e-adolescente-80-hug-geneve",
+        "psychologist-at-the-child-and-adolescent-psychiatry-service-50-to-100-hug-geneve",
+        "psychologist-at-the-child-and-adolescent-psychiatry-service-60-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-80-hug-geneve",
-          "psichiatria-infantile-e-adolescente-80-hug-geneve"
+          "psichiatria-infantile-e-adolescente-80-hug-geneve",
+          "psychologist-at-the-child-and-adolescent-psychiatry-service-50-to-100-hug-geneve",
+          "psychologist-at-the-child-and-adolescent-psychiatry-service-60-hug-geneve"
         ],
         "en": [
           "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-80-hug-geneve"

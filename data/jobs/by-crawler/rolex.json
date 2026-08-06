@@ -3230,7 +3230,8 @@
         "projektkoordinator-h-f-rolex-geneve",
         "coordinateur-projets-cdm-h-f-rolex-ch",
         "coordinateur-relations-presse-projets-rp-h-f-cdm-rolex-ch",
-        "tecnico-operativo-h-f-rolex-geneve"
+        "tecnico-operativo-h-f-rolex-geneve",
+        "technicien-d-exploitation-h-f-rolex-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3248,7 +3249,8 @@
           "projektkoordinator-h-f-rolex-geneve",
           "coordinateur-projets-cdm-h-f-rolex-ch",
           "coordinateur-relations-presse-projets-rp-h-f-cdm-rolex-ch",
-          "tecnico-operativo-h-f-rolex-geneve"
+          "tecnico-operativo-h-f-rolex-geneve",
+          "technicien-d-exploitation-h-f-rolex-ch-2"
         ],
         "en": [
           "production-technician-m-f-rolex-geneve",
@@ -3259,7 +3261,8 @@
           "technischer-koordinator-m-f-rolex-geneve"
         ],
         "fr": [
-          "coordinateur-technique-h-f-rolex-ch"
+          "coordinateur-technique-h-f-rolex-ch",
+          "technicien-d-exploitation-h-f-rolex-ch-2"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:49.255Z",
@@ -7676,13 +7679,15 @@
         "gestionnaire-logistique-h-f-rolex-ch",
         "gestionnaire-logistique-h-f-rolex-geneve",
         "gestionnaire-logistique-m-w-d-rolex-geneve",
-        "gestione-logistica-h-f-rolex-geneve"
+        "gestione-logistica-h-f-rolex-geneve",
+        "gestionnaire-logistique-h-f-rolex-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-logistique-h-f-rolex-ch",
           "gestionnaire-logistique-h-f-rolex-geneve",
-          "gestione-logistica-h-f-rolex-geneve"
+          "gestione-logistica-h-f-rolex-geneve",
+          "gestionnaire-logistique-h-f-rolex-ch-2"
         ],
         "en": [
           "gestionnaire-logistique-m-w-d-rolex-geneve"
@@ -7692,7 +7697,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T11:19:12.508Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -7704,7 +7708,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-7876ed7a7676",
@@ -11402,7 +11407,8 @@
         "r-d-project-manager-m-f-movement-construction-rolex-geneve",
         "projektmanager-f-e-m-w-uhrwerksbau-rolex-geneve",
         "charge-de-projets-r-d-h-f-construction-mouvement-rolex-ch",
-        "r-d-project-manager-h-f-abbigliamento-da-costruzione-rolex-geneve"
+        "r-d-project-manager-h-f-abbigliamento-da-costruzione-rolex-geneve",
+        "r-d-project-manager-m-f-clothing-construction-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11411,7 +11417,8 @@
           "r-d-project-manager-m-f-movement-construction-rolex-geneve",
           "projektmanager-f-e-m-w-uhrwerksbau-rolex-geneve",
           "charge-de-projets-r-d-h-f-construction-mouvement-rolex-ch",
-          "r-d-project-manager-h-f-abbigliamento-da-costruzione-rolex-geneve"
+          "r-d-project-manager-h-f-abbigliamento-da-costruzione-rolex-geneve",
+          "r-d-project-manager-m-f-clothing-construction-rolex-geneve"
         ],
         "en": [
           "charge-de-projets-r-d-h-f-construction-habillement-rolex-ch",
@@ -11426,7 +11433,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:39:53.532Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -11438,7 +11444,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-7ce9dae95b3e",
@@ -12706,7 +12713,8 @@
         "materials-project-manager-h-f-rolex-geneve",
         "materialprojektmanager-h-f-rolex-geneve",
         "charge-de-projets-materiaux-h-f-rolex-ch",
-        "responsabile-del-progetto-di-qualita-h-f-rolex-geneve"
+        "responsabile-del-progetto-di-qualita-h-f-rolex-geneve",
+        "charge-de-projets-qualite-h-f-rolex-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12715,7 +12723,8 @@
           "materials-project-manager-h-f-rolex-geneve",
           "materialprojektmanager-h-f-rolex-geneve",
           "charge-de-projets-materiaux-h-f-rolex-ch",
-          "responsabile-del-progetto-di-qualita-h-f-rolex-geneve"
+          "responsabile-del-progetto-di-qualita-h-f-rolex-geneve",
+          "charge-de-projets-qualite-h-f-rolex-ch-2"
         ],
         "en": [
           "materials-project-manager-h-f-rolex-geneve"

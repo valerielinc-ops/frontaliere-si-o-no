@@ -170,12 +170,14 @@
       "pensum": "10 - 50%",
       "previousSlugs": [
         "unterhaltsreiniger-in-m-w-d-honegger-ag-adliswil",
-        "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-adliswil"
+        "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-adliswil",
+        "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-amriswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterhaltsreiniger-in-m-w-d-honegger-ag-adliswil",
-          "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-adliswil"
+          "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-adliswil",
+          "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-amriswil"
         ],
         "en": [
           "unterhaltsreiniger-in-m-w-d-honegger-ag-adliswil"
@@ -185,7 +187,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:11:38.618Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -197,7 +198,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "honegger-063d36bdee0c",
