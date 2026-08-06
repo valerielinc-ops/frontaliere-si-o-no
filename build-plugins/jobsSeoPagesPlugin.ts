@@ -33,6 +33,10 @@ import { buildBridgeThinHtml } from './shared/bridgeThinShell';
 import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
+import {
+  normalizeSearchTerm as normalizeSearchTermShared,
+  collectSearchLandingMatches,
+} from './shared/searchLandingMatch';
 import { registerKeywordLandingPaths } from './shared/keywordLandingPlan';
 import {
   buildLocaleAlternateBlock,
@@ -2270,24 +2274,30 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  editorial: `Les offres d'emploi proviennent directement des portails carrière officiels des entreprises en ${targetCantonsDisplay.fr} et sont actualisées quotidiennement. Chaque annonce renvoie à la page de candidature originale de l'employeur. Le job board couvre tous les secteurs : santé, finance, technologie, ingénierie, commerce et administration.`,
  },
  };
- const normalizeSearchTerm = (value: string): string => String(value || '')
- .toLowerCase()
- .normalize('NFD')
- .replace(/[\u0300-\u036f]/g, '')
- .replace(/[^a-z0-9]+/g, ' ')
- .trim();
- const matchesSearchLanding = (job: any, query: string, locale: 'it' | 'en' | 'de' | 'fr'): boolean => {
- const haystack = normalizeSearchTerm([
- job?.titleByLocale?.[locale],
- job?.title,
- job?.company,
- job?.location,
- job?.canton,
- job?.descriptionByLocale?.[locale],
- job?.description,
- ].filter(Boolean).join(' '));
- const tokens = normalizeSearchTerm(query).split(/\s+/).filter(Boolean);
- return tokens.length > 0 && tokens.every((token) => haystack.includes(token));
+ /**
+  * Search-landing matcher — see build-plugins/shared/searchLandingMatch.ts
+  * for the predicate, the batched form and why the two must agree. Aliased
+  * here so the ~7 combo filter sites below keep reading as before.
+  */
+ const normalizeSearchTerm = normalizeSearchTermShared;
+ /**
+  * Per-leader/per-locale match sets in ONE walk over validJobs, replacing
+  * the four `validJobs.filter(...).slice(0, 20)` calls that ran once per
+  * leader. Same sets, `4 x |validJobs|` haystack builds instead of
+  * `leaders x 4 x |validJobs|`. The block this sits in cost 330 s of
+  * untimed wall clock on the it leg of run 31065272867 (17.8 % of the
+  * plugin); the log line below makes it attributable from now on.
+  */
+ const searchLeaderMatches = (
+ queries: ReadonlyArray<{ key: string; name: string }>,
+ limit = 20,
+ ): Map<string, Record<'it' | 'en' | 'de' | 'fr', any[]>> => {
+ const __t0 = Date.now();
+ const { matches, haystacksBuilt } = collectSearchLandingMatches(validJobs, queries, localeList, limit);
+ console.log(
+ `[jobs-seo-profile] search-leader-prepass leaders=${queries.length} jobs=${validJobs.length} haystacks=${haystacksBuilt} naive=${queries.length * localeList.length * validJobs.length} wall_ms=${Date.now() - __t0}`,
+ );
+ return matches as Map<string, Record<'it' | 'en' | 'de' | 'fr', any[]>>;
  };
 
  /** Tracks every dist/ directory written by the active-job page generator
@@ -8830,13 +8840,13 @@ ${staticAnalyticsHtml}
 
  let searchPageCount = 0;
  const searchSitemapEntries: string[] = [];
+ // One walk over validJobs for ALL leaders (see searchLeaderMatches):
+ // same per-leader/per-locale match sets the four `.filter().slice(0,20)`
+ // calls produced, at 4 haystack builds per job instead of 4 per job per
+ // leader.
+ const __searchLeaderMatches = searchLeaderMatches([...searchLeaderMap.values()], 20);
  for (const { key, name } of searchLeaderMap.values()) {
- const matchingJobsByLocale = {
- it: validJobs.filter((job: any) => matchesSearchLanding(job, name, 'it')).slice(0, 20),
- en: validJobs.filter((job: any) => matchesSearchLanding(job, name, 'en')).slice(0, 20),
- de: validJobs.filter((job: any) => matchesSearchLanding(job, name, 'de')).slice(0, 20),
- fr: validJobs.filter((job: any) => matchesSearchLanding(job, name, 'fr')).slice(0, 20),
- };
+ const matchingJobsByLocale = __searchLeaderMatches.get(key)!;
  if (localeList.every((locale) => matchingJobsByLocale[locale].length === 0)) continue;
  const fallbackMatchingJobs = pickSearchLandingFallbackJobs(matchingJobsByLocale);
  if (fallbackMatchingJobs.length === 0) continue;
