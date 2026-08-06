@@ -9296,6 +9296,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.title': 'Borse: Zurigo chiude in verde, New York si concede una fuga',
     'blog.article.borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.excerpt': 'Il raffreddamento delle tensioni tra Washington e Teheran mantiene lo Swiss Market Index sopra la linea.',
     'blog.article.borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.imageAlt': 'Una giornata di sole a Lugano, con la vista sul lago.',
+    'blog.article.frontaliere-nascita-figlio-anagrafe-2026.title': 'Nascita figlio per frontalieri: iscrizione anagrafe e assegni 2026 oltre 20 km',
+    'blog.article.frontaliere-nascita-figlio-anagrafe-2026.excerpt': 'Guida operativa per frontalieri Ticino-Italia: nascita figlio, iscrizione anagrafica, assegni familiari e pratiche consolari nel rispetto del nuovo accordo fiscale 2024 e convenzione 1976.',
+    'blog.article.frontaliere-nascita-figlio-anagrafe-2026.imageAlt': 'Frontaliere con figlio appena nato presso ufficio doganale di Brogeda, confine italo-svizzero',
 };
 
 export default blogMetaIt;

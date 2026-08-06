@@ -9294,6 +9294,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.title': 'Taschen: Zürich schliesst grün, New York gönnt sich eine Flucht',
     'blog.article.borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.excerpt': 'Die Abkühlung der Spannungen zwischen Washington und Teheran hält den Swiss Market Index über der Linie.',
     'blog.article.borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.imageAlt': 'Ein sonniger Tag in Lugano, mit Blick auf den See.',
+    'blog.article.frontaliere-nascita-figlio-anagrafe-2026.title': 'Nascita figlio per frontalieri: iscrizione 2026 oltre 20 km',
+    'blog.article.frontaliere-nascita-figlio-anagrafe-2026.excerpt': 'Betriebsanleitung für Grenzgänger Tessin-Italien: Geburt eines Kindes, Registrierung, Familienzulagen und konsularische Verfahren in Übereinstimmung mit dem neuen Steuerabkommen 2024 und dem Abkommen von 1976.',
+    'blog.article.frontaliere-nascita-figlio-anagrafe-2026.imageAlt': 'Grenzgänger mit neugeborenem Baby beim Zollbüro Brogeda, Grenze Italien-Schweiz',
 };
 
 export default blogMetaDe;

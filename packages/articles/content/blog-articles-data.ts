@@ -27903,6 +27903,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontaliere-nascita-figlio-anagrafe-2026',
+ category: 'pratico',
+ date: '2026-08-06T05:29:36.352Z',
+ image: '/images/blog/frontaliere-nascita-figlio-anagrafe-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
