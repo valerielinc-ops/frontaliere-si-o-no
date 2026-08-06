@@ -1078,6 +1078,70 @@ describe('«aziende seguite» — logo and bulk unfollow (#5012)', () => {
   });
 });
 
+describe('the three deferred items (#5012 — closing the «Non implementato» list)', () => {
+  it('publishes a SLIM count map, not the 443 KB dataset', () => {
+    const plugin = readRepoFile('build-plugins/employerProfilePagesPlugin.ts');
+    expect(plugin).toContain("'employer-job-counts.json'");
+    // Only slugs that got a page: a count linking to a 404 is worse than none.
+    expect(plugin).toContain('employerJobCounts.set(slug, profile.activeJobs)');
+    expect(plugin).toContain('employerJobCounts.set(slug, rec.activeJobs)');
+    // dist/data/ is the prefix deploy-it-pages-prep.sh syncs to R2 (max-age=600).
+    expect(plugin).toContain("np.join(distDir, 'data')");
+
+    const page = readRepoFile('components/pages/FollowedCompaniesPage.tsx');
+    expect(page).toContain("cdnDataUrl('/data/employer-job-counts.json')");
+    // Decorative: a failed fetch must not become an error state on a page whose
+    // job is letting people unsubscribe.
+    expect(page).toContain('.catch(() => {');
+    expect(page).toContain('S.openRoles(jobCounts[slug])');
+  });
+
+  it('the email\'s manage link deep-links to the page that manages follows', () => {
+    const sender = readRepoFile('scripts/send-company-alerts.mjs');
+    expect(sender).toContain('followedCompaniesPath(locale)');
+    // Wrapped: /aziende-seguite/ reads the signed-in user, and `wrapUrl` adds
+    // the ne+ac pair App.tsx exchanges on ANY route.
+    expect(sender).toContain('const manageUrl = wrapUrl(');
+    // The way OUT must never depend on that exchange.
+    expect(sender).toContain('makeAlertUnsubscribeUrl(alert.id, recipient)');
+  });
+
+  it('the duplicated followed-companies slug matches the router', () => {
+    // The sender runs under plain `node` and cannot import the TS route table,
+    // so the slug is duplicated — and therefore asserted: a drift here sends
+    // every reader of every CompanyAlert email to a 404.
+    const sender = readRepoFile('scripts/send-company-alerts.mjs');
+    const slug = /const FOLLOWED_COMPANIES_SLUG = '([^']+)'/.exec(sender)?.[1];
+    expect(slug).toBeTruthy();
+    expect(readRepoFile('services/routeSlugs.data.ts')).toContain(`followedCompanies: '${slug}'`);
+  });
+
+  it('company follows and keyword alerts hold SEPARATE budgets, mirrored everywhere', () => {
+    // Following ten employers used to consume every alert slot, so the next
+    // saved search failed with «Maximum 10 active alerts per user» — a message
+    // naming neither the cause nor the fix.
+    const svc = readRepoFile('services/jobAlertService.ts');
+    expect(svc).toContain('export const MAX_COMPANY_ALERTS_PER_USER');
+    expect(svc).toContain('const isCompanyPin = Boolean(config.specificCompanyKey)');
+    expect(svc).toContain('sameKind >= kindCap');
+
+    const cf = readRepoFile('functions/src/newsletterSubscriptionManagement.js');
+    expect(cf).toContain('const MAX_COMPANY_ALERTS_PER_USER');
+    expect(cf).toContain('Boolean(data.specificCompanyKey) === creatingCompanyPin');
+
+    // Same number in both places, or the token-mode API and the signed-in UI
+    // disagree about when a user is full.
+    const svcCap = Number(/MAX_COMPANY_ALERTS_PER_USER = (\d+)/.exec(svc)?.[1]);
+    const cfCap = Number(/MAX_COMPANY_ALERTS_PER_USER = (\d+)/.exec(cf)?.[1]);
+    expect(svcCap).toBeGreaterThan(0);
+    expect(cfCap).toBe(svcCap);
+
+    // The newsletter backfill must not be blocked by follows either.
+    expect(readRepoFile('functions/src/jobAlertBackfillTrigger.js'))
+      .toContain('!d.data().specificCompanyKey');
+  });
+});
+
 describe('the follow CTA copy exists in all four locales (#5012 phase 2)', () => {
   it.each(['it', 'en', 'de', 'fr'])('%s-core carries every companyFollow key', (loc) => {
     const src = readRepoFile(`services/locales/${loc}-core.ts`);

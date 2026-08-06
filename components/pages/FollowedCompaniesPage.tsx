@@ -32,6 +32,7 @@ import { Building2, Loader2, ArrowUpRight } from 'lucide-react';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
+import { cdnDataUrl } from '@/services/cdnDataBase';
 import { getLocale } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
@@ -74,6 +75,7 @@ interface PageStrings {
   saveError: string;
   unfollowAll: string;
   unfollowAllConfirm: string;
+  openRoles: (n: number) => string;
 }
 
 const STRINGS: Record<Locale, PageStrings> = {
@@ -96,6 +98,7 @@ const STRINGS: Record<Locale, PageStrings> = {
     saveError: 'Non sono riuscito a salvare la frequenza. Riprova.',
     unfollowAll: 'Smetti di seguire tutte',
     unfollowAllConfirm: 'Vuoi smettere di seguire tutte le aziende? Non riceverai piu\' queste email.',
+    openRoles: (n: number) => (n === 1 ? '1 annuncio attivo' : `${n} annunci attivi`),
   },
   en: {
     title: 'Companies I follow',
@@ -116,6 +119,7 @@ const STRINGS: Record<Locale, PageStrings> = {
     saveError: "Couldn't save the frequency. Please try again.",
     unfollowAll: 'Stop following all',
     unfollowAllConfirm: 'Stop following every company? You will no longer receive these emails.',
+    openRoles: (n: number) => (n === 1 ? '1 open role' : `${n} open roles`),
   },
   de: {
     title: 'Meine gefolgten Unternehmen',
@@ -136,6 +140,7 @@ const STRINGS: Record<Locale, PageStrings> = {
     saveError: 'Die Frequenz konnte nicht gespeichert werden. Bitte erneut versuchen.',
     unfollowAll: 'Allen nicht mehr folgen',
     unfollowAllConfirm: 'Allen Unternehmen nicht mehr folgen? Du erhaeltst diese E-Mails dann nicht mehr.',
+    openRoles: (n: number) => (n === 1 ? '1 offene Stelle' : `${n} offene Stellen`),
   },
   fr: {
     title: 'Mes entreprises suivies',
@@ -156,6 +161,7 @@ const STRINGS: Record<Locale, PageStrings> = {
     saveError: 'Impossible d\'enregistrer la fréquence. Réessayez.',
     unfollowAll: 'Ne plus suivre aucune',
     unfollowAllConfirm: 'Ne plus suivre aucune entreprise ? Vous ne recevrez plus ces e-mails.',
+    openRoles: (n: number) => (n === 1 ? '1 offre active' : `${n} offres actives`),
   },
 };
 
@@ -230,6 +236,26 @@ export const FollowedCompaniesPage: React.FC = () => {
   const [error, setError] = useState('');
   const [busyId, setBusyId] = useState<string | null>(null);
   const [cadenceBusyId, setCadenceBusyId] = useState<string | null>(null);
+  /**
+   * slug → active openings, from the slim map employerProfilePagesPlugin emits
+   * (dist/data/employer-job-counts.json, ~20 KB, `max-age=600` at the edge).
+   *
+   * Best-effort and deliberately un-awaited by the list: the page's job is to
+   * show WHICH employers you follow and let you change or drop them, and none
+   * of that may wait on — or break with — a decorative count. A failed fetch
+   * leaves the rows without the line, nothing else.
+   */
+  const [jobCounts, setJobCounts] = useState<Record<string, number> | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    fetch(cdnDataUrl('/data/employer-job-counts.json'))
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (!cancelled && data && typeof data === 'object') setJobCounts(data as Record<string, number>);
+      })
+      .catch(() => { /* decorative — a missing count is not an error state */ });
+    return () => { cancelled = true; };
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -399,7 +425,12 @@ export const FollowedCompaniesPage: React.FC = () => {
                       ) : (
                         <Building2 className="w-5 h-5 text-muted shrink-0" aria-hidden="true" />
                       )}
-                      <p className="text-sm font-semibold text-heading truncate">{companyLabelFromSlug(slug)}</p>
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-heading truncate">{companyLabelFromSlug(slug)}</p>
+                        {typeof jobCounts?.[slug] === 'number' && (
+                          <p className="text-xs text-muted">{S.openRoles(jobCounts[slug])}</p>
+                        )}
+                      </div>
                     </div>
                     <p className="mt-1 text-xs text-muted">
                       {cadence === 'immediate' ? S.immediateBadge : cadence === 'daily' ? S.digestBadge : S.weeklyBadge}

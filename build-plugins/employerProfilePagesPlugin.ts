@@ -612,6 +612,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
       const dateStamp = new Date().toISOString().slice(0, 10);
       const collector = new WriteCollector({ distDir, pluginName: 'employerProfilePagesPlugin' });
       const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
+      const employerJobCounts = new Map<string, number>();
       const emittedProfiles: EmittedEmployerProfile[] = [];
       let profilePages = 0;
       let bridgePages = 0;
@@ -743,12 +744,14 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           if (locale === 'it' && indexable) {
             sitemapEntries.push({ canonical: urlPath, alternates });
           }
+          if (locale === 'it') employerJobCounts.set(slug, profile.activeJobs);
         }
       }
 
       for (const rec of belowFloor) {
         const slug = rec.slug;
         if (!slug) continue;
+        employerJobCounts.set(slug, rec.activeJobs);
         const hreflangHtml = hreflangFor(slug);
         for (const locale of LOCALES) {
           const urlPath = profilePath(locale, slug);
@@ -771,6 +774,36 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           collector.add(np.join(distDir, urlPath, 'index.html'), html);
           collector.add(np.join(distDir, urlPath.replace(/\/+$/, '') + '.html'), html);
           bridgePages++;
+        }
+      }
+
+      // Slim slug → active-jobs map for /aziende-seguite/ (#5012).
+      //
+      // The page lists the employers a user follows and, per the issue, how many
+      // openings each has right now. It stores only the slug, and the full
+      // dataset it would otherwise need (data/employer-profiles.json, 443 KB) is
+      // build input, not a published artifact — shipping it to the CDN for one
+      // private page would be wildly out of proportion. This is the two fields
+      // that page actually reads, ~20 KB for the whole corpus, written into the
+      // same `dist/data/` prefix deploy-it-pages-prep.sh already syncs to R2
+      // with `max-age=600`.
+      //
+      // Only slugs that GOT a page are included: a count linking to a 404 is
+      // worse than no count. Below-floor employers are in — they have a bridge
+      // page at the same URL — with their real (small) number, which is exactly
+      // the signal a follower wants before deciding to unfollow.
+      if (employerJobCounts.size > 0) {
+        try {
+          const counts: Record<string, number> = {};
+          for (const [slug, n] of Array.from(employerJobCounts.entries()).sort()) counts[slug] = n;
+          fs.mkdirSync(np.join(distDir, 'data'), { recursive: true });
+          fs.writeFileSync(
+            np.join(distDir, 'data', 'employer-job-counts.json'),
+            JSON.stringify(counts),
+            'utf-8',
+          );
+        } catch (err) {
+          console.warn('\x1b[33m[employer-profile-pages]\x1b[0m job-counts write failed:', err);
         }
       }
 

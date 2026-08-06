@@ -110,6 +110,28 @@ const ALERTS_SUBCOLLECTION = 'alerts';
  */
 export const MAX_ALERTS_PER_USER = 10;
 
+/**
+ * Separate budget for company-pinned alerts (#5012).
+ *
+ * The two kinds of alert compete for attention, not for the same resource: a
+ * keyword alert is a saved search, a company follow is "tell me when THIS
+ * employer posts". Sharing one cap meant that following ten employers — the
+ * ordinary case for the feature, and the one it exists to encourage — silently
+ * consumed every slot and made the next keyword alert fail with «Maximum 10
+ * active alerts per user», a message that names neither the cause nor the fix.
+ *
+ * Same number rather than a bigger one on purpose: the immediate sender mails
+ * ONE email per alert per run, so this budget is also the ceiling on how many
+ * CompanyAlert emails a single run can put in one inbox. Raising it is a
+ * deliverability decision, and it should come with per-recipient grouping in
+ * scripts/send-company-alerts.mjs, not before it.
+ *
+ * Mirrored in functions/src/newsletterSubscriptionManagement.js and
+ * functions/src/jobAlertBackfillCore.js (the functions bundle cannot import
+ * outside `functions/`) — parity pinned by tests/company-alert.test.ts.
+ */
+export const MAX_COMPANY_ALERTS_PER_USER = 10;
+
 // ── Lazy Firestore init ──────────────────────────────────────
 
 let _db: Firestore | null = null;
@@ -198,8 +220,19 @@ export async function createAlert(
     orderBy('createdAt', 'desc'),
   );
   const existing = await getDocs(existingQ);
-  if (existing.size >= MAX_ALERTS_PER_USER) {
-    throw new Error(`Maximum ${MAX_ALERTS_PER_USER} active alerts per user.`);
+  // Two budgets, counted apart — see MAX_COMPANY_ALERTS_PER_USER. The read is
+  // the same one document set either way, so this costs nothing extra.
+  const isCompanyPin = Boolean(config.specificCompanyKey);
+  const sameKind = existing.docs.filter(
+    (d) => Boolean((d.data() as { specificCompanyKey?: string | null }).specificCompanyKey) === isCompanyPin,
+  ).length;
+  const kindCap = isCompanyPin ? MAX_COMPANY_ALERTS_PER_USER : MAX_ALERTS_PER_USER;
+  if (sameKind >= kindCap) {
+    throw new Error(
+      isCompanyPin
+        ? `Maximum ${kindCap} followed companies per user.`
+        : `Maximum ${kindCap} active alerts per user.`,
+    );
   }
 
   // Ensure the parent subscriber doc exists.

@@ -51,11 +51,27 @@ import { buildAlertProfile, scoreJobForAlert } from '../services/jobAlertMatchin
 import { buildCompanyAlertEmail, COMPANY_ALERT_TEMPLATE_ID, COMPANY_ALERT_MAX_CARDS } from '../services/companyAlertEmail.mjs';
 import { nlNormLocale } from '../services/newsletter-template.mjs';
 import { isAddressSuppressed, isJobAlertExcluded } from '../services/emailSuppression.mjs';
-import { makePreferencesUrl, generateAutologinCode, makeAuthenticatedUrl } from '../services/newsletterUrls.mjs';
+import { generateAutologinCode, makeAuthenticatedUrl } from '../services/newsletterUrls.mjs';
 import { normalizeSentMap, filterUnsentJobs, mergeSentJobs, DEDUP_WINDOW_MS } from './lib/alert-sent-jobs.mjs';
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl, BASE_URL } from './lib/job-alert-unsub-urls.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { isImmediateCompanyAlert } from './lib/company-alert-routing.mjs';
+/**
+ * `/aziende-seguite/` per locale — ONE literal segment for every language, like
+ * `/aziende/` in services/companyAlertEmail.mjs.
+ *
+ * The slug is duplicated from ROUTE_SLUGS.followedCompanies rather than
+ * imported: this workflow runs the sender under plain `node`
+ * (.github/workflows/send-company-alerts.yml), and services/routeSlugs.data.ts
+ * is TypeScript — importing it would take the whole send down at runtime for a
+ * string. Duplicated, therefore asserted: tests/company-alert.test.ts fails if
+ * the two ever disagree, which would send every reader to a 404.
+ */
+const FOLLOWED_COMPANIES_SLUG = 'aziende-seguite';
+function followedCompaniesPath(locale) {
+  const prefix = locale === 'it' ? '' : `/${locale}`;
+  return `${prefix}/${FOLLOWED_COMPANIES_SLUG}/`;
+}
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -266,8 +282,21 @@ async function main() {
       utmMedium: 'email',
       preserveExistingUtmMedium: true,
     });
+    // «Gestisci le aziende seguite» → the page that actually manages them.
+    //
+    // It used to point at /preferenze-newsletter/ because that link is
+    // token-HMAC and works with no session, while /aziende-seguite/ reads the
+    // signed-in user. `wrapUrl` closes that gap: it appends the same `ne`+`ac`
+    // autologin pair every other link in this email carries, and App.tsx's
+    // autologin effect is route-independent — it exchanges the code and signs
+    // the reader in wherever they land. So the deep link arrives authenticated
+    // on the page that lists exactly what the email is about.
+    //
+    // The preferences page stays reachable: the unsubscribe links below are
+    // pure HMAC and never depend on a session, so a failed exchange still
+    // leaves a working way out — which is the part that must never break.
     const manageUrl = wrapUrl(
-      `${makePreferencesUrl(recipient, locale, { fallbackUnsigned: true })}&utm_source=${COMPANY_ALERT_TEMPLATE_ID}&utm_campaign=alert_${alert.id}`,
+      `${BASE_URL}${followedCompaniesPath(locale)}?utm_source=${COMPANY_ALERT_TEMPLATE_ID}&utm_campaign=alert_${alert.id}`,
     );
     // Display name: the alert stores only the canonical slug, so de-slug from
     // the job the employer just posted (authoritative, correctly cased) and
