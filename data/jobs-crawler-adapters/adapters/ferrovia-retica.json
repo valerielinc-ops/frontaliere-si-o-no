@@ -8,6 +8,7 @@
     "html"
   ],
   "seedUrls": [
+    "https://www.rhb.ch/it/job/projektleiter-in-tiefbau-50-100_2026-2238/",
     "https://www.rhb.ch/it/job/mechaniker-in-getriebeaufarbeitung-50-100_2026-2192/",
     "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2026-2195/",
     "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2025-2091/",
@@ -16,10 +17,13 @@
     "https://www.rhb.ch/it/job/erwachsenenlehre-netzelektriker-in-efz_2025-2100/",
     "https://www.rhb.ch/it/job/anlage-apparatebauer-in_2026-2239/",
     "https://www.rhb.ch/it/job/praktikant-in-mobility-science-praxisintegriertes-studium-zhaw-100_2025-2073/",
-    "https://www.rhb.ch/it/job/projektleiter-in-tiefbau-50-100_2026-2238/",
     "https://www.rhb.ch/it/job/leiter-in-bundner-guterbahn-80-100_2026-2235/"
   ],
   "seedMetaByUrl": {
+    "https://www.rhb.ch/it/job/projektleiter-in-tiefbau-50-100_2026-2238/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
     "https://www.rhb.ch/it/job/mechaniker-in-getriebeaufarbeitung-50-100_2026-2192/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
@@ -52,15 +56,11 @@
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
     },
-    "https://www.rhb.ch/it/job/projektleiter-in-tiefbau-50-100_2026-2238/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
-    },
     "https://www.rhb.ch/it/job/leiter-in-bundner-guterbahn-80-100_2026-2235/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
     }
   },
   "notes": "Rhaetian Railway, largest employer in Graubünden. Career page HTML crawler.",
-  "updatedAt": "2026-08-05T22:22:35.822Z"
+  "updatedAt": "2026-08-06T11:34:05.933Z"
 }
