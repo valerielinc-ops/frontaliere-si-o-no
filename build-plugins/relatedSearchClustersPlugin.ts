@@ -56,7 +56,11 @@ import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { ORPHAN_LANDING_SECTION } from './orphanQueryData';
 import { buildTitleWithBrand, TITLE_MAX_CHARS } from './shared/titleSuffix';
-import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
+import {
+  getTrafficEvidenceFilter,
+  type FilterDecision,
+  type UrlClass,
+} from './shared/trafficEvidenceFilter';
 import { buildClusterThinHtml } from './shared/clusterThinShell';
 import { EJP_STRIPPED_MARKER } from './shared/ejpMarker';
 import {
@@ -71,6 +75,7 @@ import {
   stripSearchQueryBoilerplate,
 } from '../services/relatedSearchClusters';
 import { isJunkSearchKeyword } from '../services/relatedSearchJunkTerms.mjs';
+import { isPromptPlaceholder } from '../scripts/lib/prompt-placeholder.mjs';
 import { stemSearchToken, stemHaystack } from '../services/searchStem.mjs';
 import { cantonSearchTokens } from '../services/cantonList';
 import {
@@ -347,6 +352,19 @@ const CACHE_KEY_INPUTS = [
 // still hold shards boundary-split at 45,000 — bump forces a fresh emit that
 // re-shards at the new, smaller cap.
 //
+// v10 (2026-08-06, run 31077435060) fixes the SECOND divergence of the same
+// kind v8 fixed. PR #5187 gave cluster pages a second reason to ship `noindex`
+// (the traffic-evidence inert band) and wired it into the owning-shard render
+// path only, so the locale-shard render-skip branch — which still applied just
+// v8's MIN_JOBS_FOR_INDEXABLE_CLUSTER check — kept every inert-band loc for the
+// three locales it does not own: 106,276 noindex URLs in
+// sitemap-search-clusters-*.xml, failing validate:content-quality and
+// validate:sitemap-pages, with `publish` skipped since 2026-08-05T23:14Z. Both
+// producers now read `sitemapEligible` from `decideClusterEmission`. Old v9
+// caches still hold the leaked locs, and the cache-hit path restores
+// `sitemapLocs` verbatim without re-running either producer — bump invalidates
+// them so the next build recomputes membership from the unified predicate.
+//
 // Issue #4383 item 2 (verified 2026-07-18, no staleness gap found): a stale
 // v7-cached shard can never coexist with a fresh v8 shard. `computeCacheKey`
 // below hashes `version:${CACHE_VERSION}` directly INTO the sha256 digest
@@ -368,7 +386,7 @@ const CACHE_KEY_INPUTS = [
 // until issue #4943: it no longer builds at all — it audits the live site over
 // HTTP — because the monolith build it ran to produce dist/ was OOM-killed by
 // the host on every run since 2026-07-07.)
-const CACHE_VERSION = 'v9';
+const CACHE_VERSION = 'v10';
 
 // `SITEMAP_SHARD_CAP` and `padShardIndex` are imported from
 // scripts/lib/sitemap-limits.mjs — see that module for why 39,000 and not
@@ -1220,8 +1238,189 @@ const BELOW_FLOOR_BRIDGE_COPY: Record<Locale, {
  * see CACHE_VERSION v8 history for the incident this de-duplication fixes.
  */
 export function isClusterBelowFloor(ctx: ClusterContext, enriched: EnrichedEntry | undefined): boolean {
-  const hasEnrichedIntro = Boolean(enriched?.intro && enriched.intro.trim());
-  return !hasEnrichedIntro && ctx.matchingJobs.length < MIN_JOBS_FOR_INDEXABLE_CLUSTER;
+  return !hasUsableEnrichedIntro(enriched) && ctx.matchingJobs.length < MIN_JOBS_FOR_INDEXABLE_CLUSTER;
+}
+
+/**
+ * True when an AI-enriched entry carries a real intro — i.e. one that can stand
+ * in for matching jobs as the cluster's claim to being worth indexing.
+ *
+ * Why this is not just `Boolean(intro.trim())`
+ * --------------------------------------------
+ * `scripts/enrich-related-search-clusters.mjs` asks the model to fill a JSON
+ * skeleton whose `intro` slot is the literal placeholder
+ * `<80-120 word prose paragraph, single paragraph, no line breaks>`. When the
+ * model hands the skeleton straight back instead of filling it, every check
+ * that script runs still passes — `validateEnrichment` only asserts that the
+ * intro is a non-empty string and that exactly three FAQ entries exist, and the
+ * 80-120 word check logs a warning but ACCEPTS. The echo is then written with a
+ * `cachedFor` stamp, so it is never retried.
+ *
+ * Measured on `data/related-search-enriched.json` at 2026-08-06: 76 of 7,089
+ * entries carry an echoed intro (with the matching `<question, max 80 chars>`
+ * and `...` FAQ placeholders), the oldest stamped 2026-07-13.
+ *
+ * The consequence is not cosmetic, because a non-blank intro is the ONLY
+ * exemption that lifts a cluster over MIN_JOBS_FOR_INDEXABLE_CLUSTER. An echoed
+ * template therefore buys a zero-job cluster a self-canonical, indexable page
+ * whose entire body is the prompt that produced it.
+ * `/en/find-jobs-switzerland/search-experiences-gossau/` shipped exactly that:
+ * 31 words, live, listed in `sitemap-search-clusters-001.xml`, and the single
+ * `thin content (<50 words)` BLOCKING error on run 31077435060.
+ *
+ * Scope is deliberately narrow: this rejects values that are provably fill-in
+ * slots, NOT short-but-real prose. "This intro is too short to be good" is a
+ * quality judgement for the enrichment pipeline; "this intro is the prompt" is
+ * a defect, and only the defect is decided here.
+ *
+ * The placeholder shape itself is defined once, in
+ * `scripts/lib/prompt-placeholder.mjs`, and shared with the generator that
+ * writes the file — a producer and a consumer holding separate copies of "what
+ * counts as real content" is the same divergence shape this PR is fixing.
+ */
+export function hasUsableEnrichedIntro(enriched: EnrichedEntry | undefined): boolean {
+  const intro = enriched?.intro?.trim();
+  if (!intro) return false;
+  return !isPromptPlaceholder(intro);
+}
+
+/** Minimal structural view of TrafficEvidenceFilter — keeps this decidable in tests. */
+export interface ClusterTrafficFilter {
+  decideMulti(
+    urlPaths: readonly string[],
+    urlClass: UrlClass,
+    opts?: { readonly primaryPath?: string },
+  ): FilterDecision;
+}
+
+export interface ClusterEmissionDecision {
+  /** Canonical dist path for this cluster, always trailing-slashed. */
+  readonly urlPath: string;
+  /** Sitemap `<loc>` for {@link urlPath}. */
+  readonly loc: string;
+  /** Legacy-canton + GSC-driven mirror paths, canonical removed. */
+  readonly mirrorPaths: ReadonlySet<string>;
+  /** Raw traffic-evidence tier decision — drives thin/full and enrichment. */
+  readonly decision: FilterDecision;
+  /** Below MIN_JOBS_FOR_INDEXABLE_CLUSTER → renderClusterPage emits a bridge. */
+  readonly belowFloor: boolean;
+  /** Traffic-evidence inert band (#5168) → robots meta rewritten. */
+  readonly inertBand: boolean;
+  /** The page ships a `noindex` robots directive, for EITHER reason above. */
+  readonly noindex: boolean;
+  /** Derived from {@link noindex}: a noindex URL may never enter a sitemap. */
+  readonly sitemapEligible: boolean;
+}
+
+/**
+ * THE cluster indexability decision. One function, both producers.
+ *
+ * Why this exists rather than two agreeing checks
+ * -----------------------------------------------
+ * `sitemap-search-clusters-*.xml` has two independent producers inside
+ * `closeBundle`, and they have now diverged twice in the same way:
+ *
+ *   • the OWNING-shard render path, which emits the HTML and knows the robots
+ *     directive it just wrote, and
+ *   • the locale-shard render-skip path (BUILD_LOCALE, LOCALE-SHARD-BUILD-PLAN
+ *     Fase 0), which emits nothing for a locale this shard does not own but
+ *     still contributes that locale's `<loc>`s so the it/main shard ships a
+ *     COMPLETE cross-locale sitemap.
+ *
+ * The skip path cannot be backstopped after the fact. `dropOverwrittenLocs`
+ * re-reads each loc's HTML in dist/ and drops the noindex ones, but for a
+ * non-owned locale there IS no HTML on this shard by design, so its cross-shard
+ * branch keeps those locs unconditionally (see `tests/sitemap-clusters-shard-
+ * keep.test.ts` — that KEEP is correct, and removing it would truncate the
+ * sitemap to IT-only). Whatever the skip path pushes, ships.
+ *
+ * Divergence #1 (run 29636707053, CACHE_VERSION v8): the skip path pushed every
+ * cross-locale loc without applying MIN_JOBS_FOR_INDEXABLE_CLUSTER → 31,624
+ * noindex below-floor bridges went out self-canonical in the sitemap. Fixed by
+ * extracting `isClusterBelowFloor` and calling it from both places.
+ *
+ * Divergence #2 (run 31077435060, PR #5187): the inert band added a SECOND
+ * reason a cluster page ships `noindex`. It was wired into the render path only,
+ * so the skip path — still applying just the floor check from divergence #1 —
+ * kept every inert-band loc for the three locales it does not own. 106,276
+ * noindex URLs in the sitemap, `validate:content-quality` and
+ * `validate:sitemap-pages` blocking, `publish` skipped since 2026-08-05.
+ *
+ * Sharing one leaf predicate was not enough, because "is this page noindex?" is
+ * not one leaf — it is a growing disjunction, and each new term has to be
+ * remembered in two places. So the composition itself lives here: `noindex` is
+ * the disjunction, `sitemapEligible` is its negation, and both call sites read
+ * the derived field instead of re-deriving it. A third reason to withhold
+ * indexation is added by extending `noindex` below, and both producers inherit
+ * it with no second edit. `tests/cluster-sitemap-noindex-single-source.test.ts`
+ * pins that structurally.
+ *
+ * Determinism across shards: every input here — the candidate set, jobs,
+ * `data/related-search-enriched.json`, `data/indexed-cluster-urls.json` and the
+ * traffic-evidence data — is loaded identically by all four matrix legs
+ * (deploy.yml's `prep` tars `data/` once and each leg restores that same
+ * artifact), and `BUILD_LOCALE` gates only WRITES. So the answer this returns
+ * for locale L on a non-owning shard equals the one the owning shard computes.
+ * That equality is what makes the skip path's cheap `<loc>` safe to trust.
+ */
+export function decideClusterEmission(input: {
+  ctx: ClusterContext;
+  locale: Locale;
+  enriched: EnrichedEntry | undefined;
+  indexedClusterUrlsByKey: ReadonlyMap<string, string[]>;
+  trafficFilter: ClusterTrafficFilter;
+}): ClusterEmissionDecision {
+  const { ctx, locale, enriched, indexedClusterUrlsByKey, trafficFilter } = input;
+  const urlPath = buildClusterPath(locale, ctx.candidate.slug, ctx.cantonGroup);
+
+  // Legacy-canton + GSC-driven mirrors. These are REAL emit targets on the
+  // owning shard and evidence probes everywhere, so they are built once here
+  // and handed back rather than recomputed per call site (they were duplicated
+  // line-for-line between the two paths before this function existed).
+  const mirrorPaths = new Set<string>();
+  for (const mirrorCanton of [ctx.legacyCantonGroup, 'TI']) {
+    if (mirrorCanton === AGGREGATE_KEY) continue;
+    mirrorPaths.add(buildClusterPath(locale, ctx.candidate.slug, mirrorCanton));
+  }
+  const extras = indexedClusterUrlsByKey.get(`${locale}::${ctx.candidate.slug}`);
+  if (extras) for (const p of extras) mirrorPaths.add(p);
+  mirrorPaths.delete(urlPath);
+
+  // Cross-locale probes (PR #749) — DECISION ONLY, never emitted: the same slug
+  // in another locale is a separate URL with its own GSC/GA4 footprint, and if
+  // any locale variant shows evidence the cluster stays full everywhere.
+  const probes: string[] = [];
+  for (const otherLocale of ['it', 'en', 'de', 'fr'] as const) {
+    if (otherLocale === locale) continue;
+    for (const otherCanton of [ctx.cantonGroup, ctx.legacyCantonGroup, 'TI']) {
+      if (otherCanton === AGGREGATE_KEY) continue;
+      probes.push(buildClusterPath(otherLocale, ctx.candidate.slug, otherCanton));
+    }
+    const otherExtras = indexedClusterUrlsByKey.get(`${otherLocale}::${ctx.candidate.slug}`);
+    if (otherExtras) for (const p of otherExtras) probes.push(p);
+  }
+
+  // `primaryPath` pins the inert-band age gate to the URL that actually carries
+  // the robots meta and sits in the sitemap; everything else is evidence-only.
+  const decision = trafficFilter.decideMulti(
+    [urlPath, ...mirrorPaths, ...probes],
+    'gsc-keyword-landing',
+    { primaryPath: urlPath },
+  );
+
+  const belowFloor = isClusterBelowFloor(ctx, enriched);
+  const inertBand = decision.noindex === true;
+  const noindex = belowFloor || inertBand;
+  return {
+    urlPath,
+    loc: `${BASE_URL}${urlPath}`,
+    mirrorPaths,
+    decision,
+    belowFloor,
+    inertBand,
+    noindex,
+    sitemapEligible: !noindex,
+  };
 }
 
 /**
@@ -3098,29 +3297,28 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         // mirror-drop patch (issue #911) — keeps a complete cross-locale set.
         // No-op in the default all-locale build (shouldEmitLocale always true).
         if (!shouldEmitLocale(locale)) {
-          const __skUrlPath = buildClusterPath(locale, ctx.candidate.slug, ctx.cantonGroup);
-          // Mirror the MIN_JOBS_FOR_INDEXABLE_CLUSTER floor decision that
-          // renderClusterPage makes on the OWNING shard (line ~1532). Below
-          // floor, that shard renders a noindex,follow bridge (canonical →
-          // hub) at this same urlPath instead of a self-canonical page — so
-          // this cheap cross-locale entry must NOT self-canonicalize into
-          // sitemapLocs either, or audit:sitemap-canonicals/validate:canonical
-          // hard-fail once the shards are merged. dropOverwrittenLocs can't
-          // catch this post-hoc: its cross-shard branch trusts owning-shard
-          // locs unconditionally (this shard never writes the HTML to check).
-          const __skEnriched = enriched[`${locale}::${ctx.candidate.slug}`];
-          if (!isClusterBelowFloor(ctx, __skEnriched)) {
-            sitemapLocs.push(`${BASE_URL}${__skUrlPath}`);
+          // This shard writes no HTML for `locale`, so `dropOverwrittenLocs`
+          // cannot vet what we push here — its cross-shard branch keeps
+          // non-owned locs unconditionally, and correctly so (removing that
+          // KEEP would truncate the merged sitemap to IT-only). Whatever this
+          // branch pushes SHIPS. It therefore asks the same question the owning
+          // shard asks, through the same function, instead of re-deriving a
+          // subset of it: that re-derivation is what leaked 31,624 below-floor
+          // bridges in run 29636707053 and 106,276 inert-band URLs in run
+          // 31077435060. See `decideClusterEmission`.
+          const __tSkDecide = profileStart();
+          const __skEmission = decideClusterEmission({
+            ctx,
+            locale,
+            enriched: enriched[`${locale}::${ctx.candidate.slug}`],
+            indexedClusterUrlsByKey,
+            trafficFilter,
+          });
+          profileRecord('cluster-decide-skip', __tSkDecide);
+          if (__skEmission.sitemapEligible) sitemapLocs.push(__skEmission.loc);
+          for (const mp of __skEmission.mirrorPaths) {
+            crossSectionMirrorLocs.push(`${BASE_URL}${mp.replace(/\/+$/, '')}/`);
           }
-          const __skMirror = new Set<string>();
-          for (const __skMc of [ctx.legacyCantonGroup, 'TI']) {
-            if (__skMc === AGGREGATE_KEY) continue;
-            __skMirror.add(buildClusterPath(locale, ctx.candidate.slug, __skMc));
-          }
-          const __skExtra = indexedClusterUrlsByKey.get(`${locale}::${ctx.candidate.slug}`);
-          if (__skExtra) for (const p of __skExtra) __skMirror.add(p);
-          __skMirror.delete(__skUrlPath);
-          for (const mp of __skMirror) crossSectionMirrorLocs.push(`${BASE_URL}${mp.replace(/\/+$/, '')}/`);
           continue;
         }
         // altKey was precomputed in the group-hreflang loop above and cached
@@ -3159,60 +3357,35 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         // Tiered emission decision per cluster context. The same html
         // payload is reused for the canonical + the flat-bridge source
         // + every legacy-canton mirror, so we decide once and apply
-        // uniformly. PR #743 fix: compute the mirror set BEFORE the
-        // decision and pass every candidate path through
-        // `decideMulti` — GSC + GA4 attribute traffic to the legacy
-        // mirror (typically `/cerca-lavoro-ticino/ricerca-X/`), not
-        // the freshly-promoted Svizzera canonical, so checking only
-        // `out.urlPath` would false-negative on essentially every
-        // cluster with real traffic.
-        const __clMirrorPaths = new Set<string>();
-        for (const mirrorCanton of [ctx.legacyCantonGroup, 'TI']) {
-          if (mirrorCanton === AGGREGATE_KEY) continue;
-          __clMirrorPaths.add(buildClusterPath(locale, ctx.candidate.slug, mirrorCanton));
-        }
-        const __clExtraKey = `${locale}::${ctx.candidate.slug}`;
-        const __clExtraPaths = indexedClusterUrlsByKey.get(__clExtraKey);
-        if (__clExtraPaths) for (const p of __clExtraPaths) __clMirrorPaths.add(p);
-        __clMirrorPaths.delete(out.urlPath);
-        // PR #749: cross-locale safety net for the DECISION ONLY. Each
-        // cluster context is emitted at a single locale, but the same
-        // slug at the same canton in EN/DE/FR is a separate URL with
-        // its own GSC + GA4 footprint. If any locale variant has
-        // indexation evidence the cluster stays full in EVERY locale
-        // (we own the content idea, not the per-locale page).
+        // uniformly. PR #743 fix: the mirror set is computed BEFORE the
+        // decision and every candidate path goes through `decideMulti` —
+        // GSC + GA4 attribute traffic to the legacy mirror (typically
+        // `/cerca-lavoro-ticino/ricerca-X/`), not the freshly-promoted
+        // Svizzera canonical, so checking only `out.urlPath` would
+        // false-negative on essentially every cluster with real traffic.
+        // PR #749 adds cross-locale probes on top. All of it — mirrors,
+        // probes, `primaryPath`, and the resulting indexability — now lives in
+        // `decideClusterEmission`, which the locale-shard skip path above calls
+        // with the same arguments. Nothing about "is this page noindex, and may
+        // its URL enter a sitemap" is decided at this call site anymore.
         //
-        // CRITICAL: these probe-only paths are NOT added to
-        // __clMirrorPaths because that Set is reused below for the
-        // actual mirror EMIT loop. Adding cross-locale paths there
-        // would write THIS-locale's HTML at OTHER-locales' URLs —
-        // serving DE content at FR routes, etc. We keep emit + decide
-        // payloads separate.
-        const __clCrossLocaleProbes: string[] = [];
-        for (const __clOtherLocale of ['it', 'en', 'de', 'fr'] as const) {
-          if (__clOtherLocale === locale) continue;
-          for (const __clOtherCanton of [ctx.cantonGroup, ctx.legacyCantonGroup, 'TI']) {
-            if (__clOtherCanton === AGGREGATE_KEY) continue;
-            __clCrossLocaleProbes.push(buildClusterPath(__clOtherLocale, ctx.candidate.slug, __clOtherCanton));
-          }
-          const __clOtherExtras = indexedClusterUrlsByKey.get(`${__clOtherLocale}::${ctx.candidate.slug}`);
-          if (__clOtherExtras) for (const p of __clOtherExtras) __clCrossLocaleProbes.push(p);
-        }
-        const __clAllPaths = [out.urlPath, ...__clMirrorPaths, ...__clCrossLocaleProbes];
-        // `primaryPath` pins the inert-band age gate to the URL we are about
-        // to emit. Every other entry above is an evidence-only probe.
-        //
-        // Timed (issue #5130 follow-up, AGENTS.md #6 — same split applied to
-        // jobsSeoPagesPlugin's ph:ejp:shell in this PR). `render-cluster-page`
+        // Timed (issue #5130 follow-up, AGENTS.md #6). `render-cluster-page`
         // measured 111,523 ms over 80,368 pages on run 31036546298 as ONE
         // opaque bucket covering render + decide + thin conversion, and
         // `cluster tier: full=5601 thin=74767` says 93% take the thin path — so
         // buildClusterThinHtml re-scans a freshly-built document on more than
         // nine pages out of ten with no timer of its own.
         const __tClDecide = profileStart();
-        const __clDecision = trafficFilter.decideMulti(__clAllPaths, 'gsc-keyword-landing', {
-          primaryPath: out.urlPath,
+        const __clEmission = decideClusterEmission({
+          ctx,
+          locale,
+          enriched: enriched[enrichedKey],
+          indexedClusterUrlsByKey,
+          trafficFilter,
         });
+        profileRecord('cluster-decide', __tClDecide);
+        const __clMirrorPaths = __clEmission.mirrorPaths;
+        const __clDecision = __clEmission.decision;
         const __clAction: 'full' | 'thin' = __clDecision.action === 'thin' ? 'thin' : 'full';
         // Inert band (issue #5168): zero traffic evidence in any source AND
         // discoverable for at least `noindexMinAgeDays`. These leave the index
@@ -3220,8 +3393,12 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         // navigation value survive, and no URL 404s, so nothing breaks for a
         // visitor or for an inbound link. The band is sized entirely by the
         // threshold in data/url-pruning-approved-patterns.json.
-        const __clNoindex = __clDecision.noindex === true;
-        profileRecord('cluster-decide', __tClDecide);
+        //
+        // Drives the robots rewrite and the enrichment spend only. Sitemap
+        // membership reads `sitemapEligible`, which also covers the below-floor
+        // bridge — a page that is already noindex from its own template and
+        // must not be rewritten a second time.
+        const __clNoindex = __clEmission.inertBand;
         // Enrichment is spent only where it can still pay: a page leaving the
         // index gains nothing from more prose, while the thin pages that stay
         // indexed are exactly the residual near-duplicate surface. Same reason
@@ -3256,7 +3433,13 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         collector.add(flatPath, flatBridge);
         emittedFiles.push(path.relative(distDir, indexPath));
         emittedFiles.push(path.relative(distDir, flatPath));
-        sitemapLocs.push(out.loc);
+        // Same gate, same field, same function as the skip path above.
+        // `dropOverwrittenLocs` would also catch a noindex page here (it re-reads
+        // the bytes we just wrote), but relying on that is what let the two
+        // producers drift apart: the backstop only ever protected the locale
+        // this shard happens to own. Deciding it from the predicate keeps both
+        // branches literally the same line.
+        if (__clEmission.sitemapEligible) sitemapLocs.push(out.loc);
 
         // ── Legacy mirrors ──────────────────────────────────────────────
         // Emit byte-identical copies of the canonical (Svizzera) HTML at the
