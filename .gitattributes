@@ -80,3 +80,21 @@ data/all-known-job-slugs/part-*.json merge=known-slugs-shard
 # `git config merge.orphan-enriched-shard.driver` in
 # scripts/lib/git-push-with-retry.sh and scripts/lib/git-commit-data.sh.
 data/orphan-enriched-data/part-*.json merge=orphan-enriched-shard
+
+# data/jobs-ai-cache.json is the crawlers' persistent LLM response cache. Unlike
+# the three shard sets above it is NOT sharded, because it is a CACHE and not an
+# accumulator: it is bounded by a byte budget instead (issue #4248 follow-up,
+# scripts/lib/ai-cache-budget.mjs), since GitHub's 100 MB push limit is in bytes
+# while the pre-existing cap counted entries — and entry size here spans two
+# orders of magnitude, so the count cap permitted a ~104 MB file.
+#
+# The budget alone is not enough. ~40 crawlers write this file concurrently, and
+# git's generic 3-way merge keys the `entries` array on `key` and UNIONS both
+# sides — a union of two sides each exactly at budget is ABOVE budget, so the
+# merge would silently undo the bound the persist step just applied and the
+# whole crawler group's push would die on GH001. The custom `ai-cache` driver
+# unions by key keeping the newest touchedAt, then re-applies the byte budget,
+# so the merged result is bounded by construction. Driver wired via
+# `git config merge.ai-cache.driver` in scripts/lib/git-push-with-retry.sh and
+# scripts/lib/git-commit-data.sh.
+data/jobs-ai-cache.json merge=ai-cache

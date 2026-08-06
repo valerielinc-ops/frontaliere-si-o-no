@@ -93,6 +93,15 @@ import {
   captureLostSlugs,
 } from './dedicated-crawler-common.mjs';
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
+// The cache's size bound lives in ONE module because two writers must agree on
+// it: this file at persist time, and scripts/ci/merge-ai-cache.mjs when git
+// reconciles two crawlers' commits. See that module for why the bound is in
+// bytes and not entries (issue #4248 follow-up).
+import {
+  trimAiCacheEntriesToByteBudget,
+  resolveAiCacheDiskMaxBytes,
+  AI_CACHE_DISK_MAX_BYTES_DEFAULT,
+} from './ai-cache-budget.mjs';
 import { recordSlugMutation } from './slug-history-journal.mjs';
 import {
   getJobLocalizationPipelineStats,
@@ -497,10 +506,23 @@ function persistAiCacheToDisk({ force = false } = {}) {
     .slice(-AI_CACHE_DISK_MAX_ENTRIES)
     .map(([key, entry]) => ({ key, touchedAt: entry.touchedAt, value: entry.value }));
 
+  const budgetBytes = resolveAiCacheDiskMaxBytes();
+  const { entries: budgeted, droppedEntries, droppedBytes } = trimAiCacheEntriesToByteBudget(
+    entries,
+    budgetBytes,
+  );
+  if (droppedEntries > 0) {
+    console.log(
+      `  🧹 AI cache byte budget: dropped ${droppedEntries} least-recently-used entries ` +
+        `(${(droppedBytes / 1048576).toFixed(1)} MB) to stay under ` +
+        `${(budgetBytes / 1048576).toFixed(0)} MB`,
+    );
+  }
+
   writeJson(resolveAiCachePath(), {
     version: AI_CACHE_FILE_VERSION,
     savedAt: new Date().toISOString(),
-    entries,
+    entries: budgeted,
   });
   aiCacheDirty = false;
 }
@@ -5860,6 +5882,9 @@ export const __testables = {
   clearAiResponseCacheForTests() { aiResponseCache.clear(); },
   persistAiCacheToDisk,
   loadPersistentAiCache,
+  trimAiCacheEntriesToByteBudget,
+  resolveAiCacheDiskMaxBytes,
+  AI_CACHE_DISK_MAX_BYTES_DEFAULT,
   seedAiCacheForTests(entries) {
     aiCacheLoaded = true;
     aiCacheDirty = true;
