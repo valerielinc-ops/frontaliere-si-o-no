@@ -20,6 +20,7 @@ import {
   couldServeStaleHaveHelped,
   SURFACES,
   LOCALE_SHARD_PREFIXES,
+  CACHE_HAD_COPY,
 } from '../scripts/lib/cf-error-surface.mjs';
 import {
   summarizeDiagnostics,
@@ -264,5 +265,31 @@ describe('byHostStatusCache — the cross-tab that decides the next move', () =>
     ] as never);
     expect(rendered).toContain('copia servibile');
     expect(rendered).toMatch(/frontaliereticino\.ch\s+503\s+hit/);
+  });
+});
+
+describe('CACHE_HAD_COPY is the single definition of "servable copy" (review nit)', () => {
+  it('the report flag and staleRescuable read the same set', () => {
+    // The renderer used to inline the five values verbatim. Two independent definitions of the
+    // same notion is the exact ambiguity this module exists to remove — a new cacheStatus value
+    // learned by only one of them would make the metric and the report disagree silently.
+    for (const cache of CACHE_HAD_COPY) {
+      expect(couldServeStaleHaveHelped({ surface: 'cdn-r2', cacheStatus: cache })).toBe(true);
+      const rendered = renderReport([
+        { ts: '2026-08-06T06:18:00Z', total5xx: 1, synthesized5xx: 1, staleRescuable5xx: 0,
+          bySurface: {}, byHostStatusCache: { [`cdn.frontaliereticino.ch|502|${cache}`]: 1 } },
+      ] as never);
+      // The row marker, not the table header — the header names the concept for every snapshot.
+      expect(rendered, `report must flag "${cache}" as servable`).toContain('<- copia servibile');
+    }
+  });
+
+  it('a non-servable outcome is flagged by neither', () => {
+    expect(couldServeStaleHaveHelped({ surface: 'cdn-r2', cacheStatus: 'none' })).toBe(false);
+    const rendered = renderReport([
+      { ts: '2026-08-06T06:18:00Z', total5xx: 1, synthesized5xx: 1, staleRescuable5xx: 0,
+        bySurface: {}, byHostStatusCache: { 'cdn.frontaliereticino.ch|502|none': 1 } },
+    ] as never);
+    expect(rendered).not.toContain('<- copia servibile');
   });
 });
