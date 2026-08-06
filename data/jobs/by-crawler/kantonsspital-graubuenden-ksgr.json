@@ -25,13 +25,22 @@
       "crawledAt": "2026-08-05T23:00:20.512Z",
       "slug": "mitarbeiter-in-hauswirtschaft-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "mitarbeiter-in-hauswirtschaft-kantonsspital-graubunden-chur"
+        "de": "mitarbeiter-in-hauswirtschaft-kantonsspital-graubunden-chur",
+        "it": "mitarbeiter-in-hauswirtschaft-kantonsspital-graubunden-chur",
+        "en": "mitarbeiter-in-hauswirtschaft-kantonsspital-graubunden-chur",
+        "fr": "mitarbeiter-in-hauswirtschaft-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Mitarbeiter:in Hauswirtschaft"
+        "de": "Mitarbeiter:in Hauswirtschaft",
+        "it": "Dipendenti: nelle pulizie",
+        "en": "Employee:in housekeeping",
+        "fr": "Employé:dans le ménage"
       },
       "descriptionByLocale": {
-        "de": "Starte nach Vereinbarung als\n\nAufgaben:\n• Du bist zuständig für die Aufbereitung der Patientenbetten, dabei entfernst du Bettwäsche, reinigst Matratzen und Bettgestelle und beziehst die Betten neu\n\n• Du sorgst für Ordnung und Sauberkeit und erledigst allgemeine hauswirtschaftliche Tätigkeiten\n\n• Du übernimmst die Tagesverantwortung sowie leichte administrative Arbeiten, mündliche und telefonische Anfragen und Onlinebestellungen\n\nAnforderungen:\n• Du bringst Berufserfahrung in der Hauswirtschaft mit\n\n• Du bist körperlich fit und arbeitest selbstständig, effizient sowie dienstleistungsorientiert\n\n• Du verfügst über gute mündliche und schriftliche Deutschkenntnisse\n\n• Du bist eine verantwortungsbewusste und teamfähige Persönlichkeit mit Eigeninitiative, Organisationsgeschick und Qualitätsbewusstsein\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Starte nach Vereinbarung als\n\nAufgaben:\n• Du bist zuständig für die Aufbereitung der Patientenbetten, dabei entfernst du Bettwäsche, reinigst Matratzen und Bettgestelle und beziehst die Betten neu\n\n• Du sorgst für Ordnung und Sauberkeit und erledigst allgemeine hauswirtschaftliche Tätigkeiten\n\n• Du übernimmst die Tagesverantwortung sowie leichte administrative Arbeiten, mündliche und telefonische Anfragen und Onlinebestellungen\n\nAnforderungen:\n• Du bringst Berufserfahrung in der Hauswirtschaft mit\n\n• Du bist körperlich fit und arbeitest selbstständig, effizient sowie dienstleistungsorientiert\n\n• Du verfügst über gute mündliche und schriftliche Deutschkenntnisse\n\n• Du bist eine verantwortungsbewusste und teamfähige Persönlichkeit mit Eigeninitiative, Organisationsgeschick und Qualitätsbewusstsein\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+        "it": "Avvio di accordo\n\nCompiti:\n• Sei responsabile della preparazione dei letti del paziente, rimuovi biancheria da letto, materassi puliti e cornici del letto e ritiri i letti\n\n• Fornire ordine e pulizia e svolgere attività domestiche generali\n\n• Si assume la responsabilità di giorno per giorno così come facile lavoro amministrativo, richieste orali e telefoniche e ordini online\n\nRequisiti\n• Porti esperienza professionale nelle pulizie\n\n• Siete fisicamente in forma e lavorare in modo indipendente, efficiente e orientato al servizio\n\n• Hai una buona conoscenza orale e scritta del tedesco\n\n• Sei una personalità responsabile e responsabile del team con iniziativa, capacità organizzative e consapevolezza della qualità\n\nPuoi fare qualcosa che gli altri non possono?\nFai la differenza?\nAllora appartieni a noi!",
+        "en": "Start by agreement as\n\nTasks:\n• You are responsible for the preparation of the patient beds, you remove bedding, clean mattresses and bed frames and retract the beds\n\n• You provide order and cleanliness and perform general domestic activities\n\n• You take on day-to-day responsibility as well as easy administrative work, oral and telephone inquiries and online orders\n\nRequirements\n• You bring professional experience in housekeeping\n\n• You are physically fit and work independently, efficiently and service-oriented\n\n• You have good oral and written knowledge of German\n\n• You are a responsible and team-capable personality with initiative, organizational skills and quality awareness\n\nCan you do something that others can’t?\nYou make the difference?\nThen you belong to us!",
+        "fr": "Commencer par un accord\n\nTâches :\n• Vous êtes responsable de la préparation des lits patients, vous retirez literie, matelas propres et cadres de lit et rétractez les lits\n\n• Vous fournissez l'ordre et la propreté et exécutez des activités domestiques générales\n\n• Vous assumez la responsabilité quotidienne ainsi que le travail administratif facile, les demandes orales et téléphoniques et les commandes en ligne\n\nExigences\n• Vous apportez une expérience professionnelle dans le ménage\n\n• Vous êtes physiquement apte et travaillez de façon indépendante, efficace et axée sur le service\n\n• Vous avez une bonne connaissance orale et écrite de l'allemand\n\n• Vous êtes une personnalité responsable et capable d'équipe avec initiative, compétences organisationnelles et sensibilisation à la qualité\n\nPouvez-vous faire quelque chose que les autres peuvent faire?\nTu fais la différence ?\nAlors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -44,7 +53,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
@@ -2399,7 +2407,6 @@
           "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-walenstadt"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
@@ -2466,7 +2473,6 @@
           "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
@@ -3517,7 +3523,6 @@
           "nachdiplomstudium-dipl-expertin-experte-notfallpflege-hf-fur-padiatrie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
@@ -3586,7 +3591,6 @@
           "specialista-assistenza-sanitaria-professionale-bambini-e-medicina-della-gioventu-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
