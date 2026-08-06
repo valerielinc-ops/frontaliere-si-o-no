@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-08-05T22:24:28.673Z",
+  "generatedAt": "2026-08-06T11:32:44.498Z",
   "total": 34,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 33,
-  "durationMs": 21061,
-  "avgDurationMs": 21061,
+  "durationMs": 20586,
+  "avgDurationMs": 20586,
   "durationHistory": [
-    21061
+    20586
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,7 +48,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.582Z",
+      "crawledAt": "2026-08-06T11:32:41.741Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-10",
@@ -172,7 +172,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.634Z",
+      "crawledAt": "2026-08-06T11:32:41.771Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-20",
@@ -336,7 +336,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.632Z",
+      "crawledAt": "2026-08-06T11:32:41.770Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -458,7 +458,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.628Z",
+      "crawledAt": "2026-08-06T11:32:41.768Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-21",
@@ -577,7 +577,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.626Z",
+      "crawledAt": "2026-08-06T11:32:41.767Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-02",
@@ -631,7 +631,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.622Z",
+      "crawledAt": "2026-08-06T11:32:41.764Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
@@ -686,7 +686,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.619Z",
+      "crawledAt": "2026-08-06T11:32:41.762Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-03",
@@ -815,7 +815,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.616Z",
+      "crawledAt": "2026-08-06T11:32:41.761Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -916,7 +916,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.613Z",
+      "crawledAt": "2026-08-06T11:32:41.758Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1036,7 +1036,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.609Z",
+      "crawledAt": "2026-08-06T11:32:41.756Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-08",
@@ -1152,7 +1152,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.607Z",
+      "crawledAt": "2026-08-06T11:32:41.754Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1207,7 +1207,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.604Z",
+      "crawledAt": "2026-08-06T11:32:41.751Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -1331,7 +1331,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.601Z",
+      "crawledAt": "2026-08-06T11:32:41.749Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1386,7 +1386,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.598Z",
+      "crawledAt": "2026-08-06T11:32:41.747Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -1441,7 +1441,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.594Z",
+      "crawledAt": "2026-08-06T11:32:41.744Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-21",
@@ -1496,7 +1496,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.592Z",
+      "crawledAt": "2026-08-06T11:32:41.743Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1512,117 +1512,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-5969",
-      "slug": "it-trading-treasury-solutions-specialista-efg-international-ag-lugano-n93k12",
-      "company": "EFG International AG",
-      "title": "IT Trading & Treasury Solutions Specialist",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-11",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5969",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "The IT Treasury and Trading team delivers efficient, effective support and IT solutions for applications and processes in client order execution, trading, treasury, and lending/collateral management. The team comprises both functional and technical experts supporting a Trading/Treasury room of approximately 50 traders. This role ensures continuity in client services and drives ongoing improvements in deliverable quality."
-            ],
-            "responsibilities": [
-              "Run the Bank: end-to-end support on the IT trading platforms used for Securities Lending & Collateral, Islamic Finance, Securities and Derivatives execution and trading, spanning from application maintenance to analysis and resolution on daily incidents, liaising with external vendors where applicable.",
-              "Run the Bank: act as entry point to trading desk for broader issues that require liaising with other IT departments to cover the full stack (core banking and other linked applications, IT infa server, database, network, …) or with Operations teams (Securities, Derivatives, FX back office, middle office)",
-              "Change the Bank: coordinate and execute various IT projects aimed at evolving or upgrading the IT trading platforms, either developed and released internally or by application providers: collection of business needs, solution design and documentation, development where applicable and/or vendor coordination, creation of test cases catalogue and execution of IT tests, support to user acceptance test, rollout and post production support",
-              "Change the Bank: development of departmental applications aimed at covering gaps of the existing IT applications, mainly in the area of system integration and reporting",
-              "Change the Bank: management of tools for the automation of health checks on trading IT platforms to eventually guarantee the service to internal clients"
-            ],
-            "requirements": [
-              "A university degree, preferably in computer science, finance or an equivalent educational background",
-              "Very good knowledge of programming languages (Java; Pyton; C++, SQL, Powershell, …), application server (Windows mainly, Linux) and database systems (Oracle, MS SQL)",
-              "Good knowledge of financial products (Forex, Securities, Derivatives, Sec Lending) and main bank processes (order/execution on the market of the plain vanilla products)",
-              "Very good analytic skill, tech curiosity, proactivity in identifying the best tech solution to a business need",
-              "Capability to work under constant pressure",
-              "Flexibility (request to work by shift; during bank-holiday or Saturday)",
-              "Capability to integrate in a wider IT team and good team player",
-              "Good communication skills (Italian-English are a must, French is a plus)"
-            ],
-            "benefits": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "<p>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</p><p style=\"margin-left: 0.375in; text-align: justify;\"> </p>"
-            ],
-            "process": [],
-            "highlights": [
-              "Run the Bank: end-to-end support on the IT trading platforms used for Securities Lending & Collateral, Islamic Finance, Securities and Derivatives execution and trading, spanning from application maintenance to analysis and resolution on daily incidents, liaising with external vendors where applicable.",
-              "Run the Bank: act as entry point to trading desk for broader issues that require liaising with other IT departments to cover the full stack (core banking and other linked applications, IT infa server, database, network, …) or with Operations teams (Securities, Derivatives, FX back office, middle office)",
-              "Change the Bank: coordinate and execute various IT projects aimed at evolving or upgrading the IT trading platforms, either developed and released internally or by application providers: collection of business needs, solution design and documentation, development where applicable and/or vendor coordination, creation of test cases catalogue and execution of IT tests, support to user acceptance test, rollout and post production support",
-              "A university degree, preferably in computer science, finance or an equivalent educational background",
-              "Very good knowledge of programming languages (Java; Pyton; C++, SQL, Powershell, …), application server (Windows mainly, Linux) and database systems (Oracle, MS SQL)",
-              "Good knowledge of financial products (Forex, Securities, Derivatives, Sec Lending) and main bank processes (order/execution on the market of the plain vanilla products)",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "A university degree",
-              "Very good knowledge of programming languages (Java",
-              "Good knowledge of financial products (Forex",
-              "Very good analytic skill",
-              "Capability to work under constant pressure",
-              "Run the Bank",
-              "Change the Bank"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-08-05T22:24:24.579Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "sourceLang": "en",
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "datePosted": "2026-02-11",
-      "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH",
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 25
       }
@@ -1734,7 +1623,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.567Z",
+      "crawledAt": "2026-08-06T11:32:41.733Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1790,7 +1679,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.565Z",
+      "crawledAt": "2026-08-06T11:32:41.732Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-24",
@@ -1937,7 +1826,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.561Z",
+      "crawledAt": "2026-08-06T11:32:41.729Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -2046,7 +1935,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.556Z",
+      "crawledAt": "2026-08-06T11:32:41.725Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-23",
@@ -2153,7 +2042,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-05T22:24:24.546Z",
+      "crawledAt": "2026-08-06T11:32:41.715Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-08-04",
@@ -2171,6 +2060,117 @@
         "cleanliness": 25,
         "richness": 25,
         "translation": 23,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-5969",
+      "slug": "it-trading-treasury-solutions-specialista-efg-international-ag-lugano-n93k12",
+      "company": "EFG International AG",
+      "title": "IT Trading & Treasury Solutions Specialist",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-11",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5969",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "The IT Treasury and Trading team delivers efficient, effective support and IT solutions for applications and processes in client order execution, trading, treasury, and lending/collateral management. The team comprises both functional and technical experts supporting a Trading/Treasury room of approximately 50 traders. This role ensures continuity in client services and drives ongoing improvements in deliverable quality."
+            ],
+            "responsibilities": [
+              "Run the Bank: end-to-end support on the IT trading platforms used for Securities Lending & Collateral, Islamic Finance, Securities and Derivatives execution and trading, spanning from application maintenance to analysis and resolution on daily incidents, liaising with external vendors where applicable.",
+              "Run the Bank: act as entry point to trading desk for broader issues that require liaising with other IT departments to cover the full stack (core banking and other linked applications, IT infa server, database, network, …) or with Operations teams (Securities, Derivatives, FX back office, middle office)",
+              "Change the Bank: coordinate and execute various IT projects aimed at evolving or upgrading the IT trading platforms, either developed and released internally or by application providers: collection of business needs, solution design and documentation, development where applicable and/or vendor coordination, creation of test cases catalogue and execution of IT tests, support to user acceptance test, rollout and post production support",
+              "Change the Bank: development of departmental applications aimed at covering gaps of the existing IT applications, mainly in the area of system integration and reporting",
+              "Change the Bank: management of tools for the automation of health checks on trading IT platforms to eventually guarantee the service to internal clients"
+            ],
+            "requirements": [
+              "A university degree, preferably in computer science, finance or an equivalent educational background",
+              "Very good knowledge of programming languages (Java; Pyton; C++, SQL, Powershell, …), application server (Windows mainly, Linux) and database systems (Oracle, MS SQL)",
+              "Good knowledge of financial products (Forex, Securities, Derivatives, Sec Lending) and main bank processes (order/execution on the market of the plain vanilla products)",
+              "Very good analytic skill, tech curiosity, proactivity in identifying the best tech solution to a business need",
+              "Capability to work under constant pressure",
+              "Flexibility (request to work by shift; during bank-holiday or Saturday)",
+              "Capability to integrate in a wider IT team and good team player",
+              "Good communication skills (Italian-English are a must, French is a plus)"
+            ],
+            "benefits": [
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results",
+              "Passionate: Being committed and striving for excellence",
+              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "<p>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</p><p style=\"margin-left: 0.375in; text-align: justify;\"> </p>"
+            ],
+            "process": [],
+            "highlights": [
+              "Run the Bank: end-to-end support on the IT trading platforms used for Securities Lending & Collateral, Islamic Finance, Securities and Derivatives execution and trading, spanning from application maintenance to analysis and resolution on daily incidents, liaising with external vendors where applicable.",
+              "Run the Bank: act as entry point to trading desk for broader issues that require liaising with other IT departments to cover the full stack (core banking and other linked applications, IT infa server, database, network, …) or with Operations teams (Securities, Derivatives, FX back office, middle office)",
+              "Change the Bank: coordinate and execute various IT projects aimed at evolving or upgrading the IT trading platforms, either developed and released internally or by application providers: collection of business needs, solution design and documentation, development where applicable and/or vendor coordination, creation of test cases catalogue and execution of IT tests, support to user acceptance test, rollout and post production support",
+              "A university degree, preferably in computer science, finance or an equivalent educational background",
+              "Very good knowledge of programming languages (Java; Pyton; C++, SQL, Powershell, …), application server (Windows mainly, Linux) and database systems (Oracle, MS SQL)",
+              "Good knowledge of financial products (Forex, Securities, Derivatives, Sec Lending) and main bank processes (order/execution on the market of the plain vanilla products)",
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "A university degree",
+              "Very good knowledge of programming languages (Java",
+              "Good knowledge of financial products (Forex",
+              "Very good analytic skill",
+              "Capability to work under constant pressure",
+              "Run the Bank",
+              "Change the Bank"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-08-05T22:24:24.579Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "sourceLang": "en",
+      "salaryMin": 72500,
+      "salaryMax": 97500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-02-11",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "country": "CH",
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
         "completeness": 25
       }
     },
