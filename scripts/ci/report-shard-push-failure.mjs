@@ -19,6 +19,8 @@
  */
 
 import { pathToFileURL } from 'node:url';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 
 function arg(name) {
@@ -27,11 +29,30 @@ function arg(name) {
 }
 
 /**
- * @param {{ locale: string, shards: string[], runUrl?: string }} input
+ * @param {{ locale: string, shards: string[], runUrl?: string, reasons?: Record<string,string> }} input
  * @returns {{ title: string, description: string }}
  */
-export function buildFailureIssue({ locale, shards, runUrl }) {
+export function buildFailureIssue({ locale, shards, runUrl, reasons = {} }) {
   const list = shards.map((s) => `- \`${s}-${locale}\``).join('\n');
+  // Lead with the cause the push step actually recorded, when it recorded one.
+  // The ordered checklist below starts at auth because auth is the most common
+  // cause — but #5220/#5221/#5222 were all shrink-guard refusals, and reading
+  // the list top-down sent the diagnosis to deploy keys and repo owners before
+  // the third item said "the build stopped emitting this section". A cause
+  // that is already known should not be re-derived from a ranked guess.
+  const known = shards.filter((s) => reasons[s]);
+  const detected = known.length
+    ? [
+        '### ⚠️ Causa rilevata dallo step di push',
+        '',
+        ...known.map((s) => `- \`${s}-${locale}\`: ${reasons[s]}`),
+        '',
+        'Parti da qui: la lista ordinata sotto è una graduatoria di ipotesi, questa è',
+        'una misura. In particolare uno `shrink guard refused` **non è un guasto di auth** —',
+        'il push non è mai stato tentato.',
+        '',
+      ]
+    : [];
   return {
     // Stable across runs → dedup key. No run id / timestamp in the first 60 chars.
     title: `Shard push failed (${locale}): section shard(s) not published`,
@@ -47,6 +68,7 @@ export function buildFailureIssue({ locale, shards, runUrl }) {
       // bullet list would swallow the paragraph after it.
       runUrl ? `Run: ${runUrl}` : null,
       '',
+      ...detected,
       '### Conseguenza',
       'Il sottoalbero resta in `dist/` (nessun 404), ma lo shard continua a servire',
       'la versione precedente: le pagine di quella sezione **invecchiano a ogni deploy**',
@@ -87,7 +109,20 @@ async function main() {
       ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
       : undefined;
 
-  const { title, description } = buildFailureIssue({ locale, shards, runUrl });
+  // push-section-shard.sh drops one line per shard it refused, naming the real
+  // cause. Absent file = cause not recorded (e.g. an auth failure inside the
+  // push itself) — the ranked checklist still carries the issue.
+  const reasons = {};
+  for (const s of shards) {
+    try {
+      const raw = readFileSync(join(process.env.RUNNER_TEMP || '/tmp', `shard-fail-reason-${s}-${locale}`), 'utf8').trim();
+      if (raw) reasons[s] = raw;
+    } catch {
+      /* no recorded reason for this shard */
+    }
+  }
+
+  const { title, description } = buildFailureIssue({ locale, shards, runUrl, reasons });
   await createGithubIssue({
     title,
     description,

@@ -190,13 +190,33 @@ push_section_shard() {
     # <LOCALE>=true allows a verified INTENTIONAL shrink to proceed — still
     # logged loudly (never silent), per AGENTS.md Non-Negotiable #2 (never
     # downgrade a real regression to a silent pass).
+    # A refused shrink is self-perpetuating: the push never lands, so
+    # .shard-filecount never advances and the NEXT deploy re-trips identically.
+    # Only a human ends it — either with the env override below (break-glass,
+    # unpinned) or with a pinned entry in section-shard-shrink-acks.json, which
+    # matches one exact prev->new transition and goes inert once it lands
+    # (issues #5220/#5221/#5222 — giura fr/en/de refused the same legitimate
+    # 4948->1259 correction on every deploy while serving fabricated pages).
     SHARD_SHRINK_GUARD_PCT="${SHARD_SHRINK_GUARD_PCT:-50}"
     shrink_override_var="SHARD_SHRINK_GUARD_OVERRIDE_${SECTION_UPPER}_${LOC_UPPER}"
     if [ "$prev_n" -gt 0 ] && [ "$(( n * 100 ))" -lt "$(( prev_n * (100 - SHARD_SHRINK_GUARD_PCT) ))" ]; then
-      if [ "${!shrink_override_var:-}" = "true" ]; then
-        echo "::warning::$section-$loc shard would shrink $prev_n -> $n files (>${SHARD_SHRINK_GUARD_PCT}%) — $shrink_override_var=true set, proceeding with an INTENTIONAL shrink push (verify this was expected)"
+      shrink_acked=0; ack_msg="override not set; acks not consulted"
+      if [ "${!shrink_override_var:-}" != "true" ]; then
+        # Fails CLOSED: any non-zero exit (no entry, moved baseline, below the
+        # floor, unreadable file) leaves shrink_acked=0 and the push is refused.
+        if ack_msg="$(node "$repo_root/scripts/lib/shrink-ack-check.mjs" \
+            --section "$section" --locale "$loc" --prev "$prev_n" --new "$n" 2>&1)"; then
+          shrink_acked=1
+        fi
+      fi
+      if [ "${!shrink_override_var:-}" = "true" ] || [ "$shrink_acked" = 1 ]; then
+        echo "::warning::$section-$loc shard would shrink $prev_n -> $n files (>${SHARD_SHRINK_GUARD_PCT}%) — proceeding with an INTENTIONAL shrink push (verify this was expected): $ack_msg"
       else
-        echo "::error::$section-$loc shard would shrink $prev_n -> $n files (>${SHARD_SHRINK_GUARD_PCT}%) — refusing push (suspected build regression). If this shrink is verified intentional, set $shrink_override_var=true"
+        echo "::error::$section-$loc shard would shrink $prev_n -> $n files (>${SHARD_SHRINK_GUARD_PCT}%) — refusing push (suspected build regression). Not acknowledged: $ack_msg. If this shrink is verified intentional, add a pinned entry to scripts/lib/section-shard-shrink-acks.json (preferred) or set $shrink_override_var=true"
+        # Hand the REAL cause to report-shard-push-failure.mjs so the filed issue
+        # leads with it instead of a generic checklist that starts at auth.
+        printf 'shrink guard refused: %s -> %s files (>%s%%)' "$prev_n" "$n" "$SHARD_SHRINK_GUARD_PCT" \
+          > "${RUNNER_TEMP:-/tmp}/shard-fail-reason-$section-$loc" 2>/dev/null || true
         exit 1
       fi
     fi

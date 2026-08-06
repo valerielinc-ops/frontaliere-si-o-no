@@ -1,0 +1,24 @@
+{
+  "_comment": "Acknowledged INTENTIONAL section-shard shrinks, pinned to one exact transition. Read by scripts/lib/shrink-ack-check.mjs, which push-section-shard.sh consults ONLY when its shrink guard has already tripped. Why this exists instead of the bare SHARD_SHRINK_GUARD_OVERRIDE_<SECTION>_<LOCALE>=true env var: that boolean disables the guard for as long as it is set, so the run that legitimises one correction also blinds the shard to every later collapse — and nothing forces anyone to take it back out. An entry here is pinned to `from` (the shard's CURRENT .shard-filecount) so it goes inert the moment the acknowledged push lands and the counter moves: the next deploy compares against the NEW baseline and no ack matches. `min_new` is a floor, not a target — an upward drift never needs a new ack (a smaller shrink simply stops tripping the guard), while a genuine collapse to a near-empty tree stays refused. Adding an entry is a claim that a HUMAN verified the shrink against the shard's real content; put the evidence in `reason` and the issue in `issue`.",
+
+  "giura": {
+    "fr": {
+      "from": 4948,
+      "min_new": 880,
+      "issue": 5220,
+      "reason": "PR #5172 (issue #5136) stopped rescueSwissCityFromText from matching the German word 'alle' in free-text job descriptions, which had been publishing foreign and other-canton jobs as located in Alle (JU) — a 1.900-inhabitant Jura village. Measured on the live shard on 2026-08-06: 2056 of its 4937 job pages declared addressLocality 'Alle' against 66 for Delemont, the cantonal capital, plus 2571 more with no addressLocality at all. The build now emits 1259 files. The same correction ALREADY shipped on giura-it (10249 -> 7065, -31%), which stayed under the 50% threshold and pushed on 2026-08-06T06:02Z: fr/en/de tripped only because Alle was a larger share of their smaller trees. Blocking them keeps 2056 fabricated pages live and leaves the locales inconsistent with IT."
+    },
+    "en": {
+      "from": 4835,
+      "min_new": 840,
+      "issue": 5221,
+      "reason": "Same correction as giura/fr — see that entry. Build emits 1203 files."
+    },
+    "de": {
+      "from": 4737,
+      "min_new": 780,
+      "issue": 5222,
+      "reason": "Same correction as giura/fr — see that entry. Build emits 1125 files."
+    }
+  }
+}
