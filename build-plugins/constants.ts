@@ -714,8 +714,14 @@ export function countHtmlBodyWords(html: string): number {
 /** Minimum word count for a page to be considered indexable (not thin content). */
 export const MIN_INDEXABLE_WORDS = 50;
 
-/** Shared below-floor tag -- reused by both content-gated robots helpers below. */
-const ROBOTS_NOINDEX_FOLLOW = '\n <meta name="robots" content="noindex,follow">';
+/**
+ * Shared below-floor tag -- reused by both content-gated robots helpers below.
+ * Exported so callers that already hold a pre-computed word count (avoiding a
+ * redundant {@link countHtmlBodyWords} re-scan of the same body -- see
+ * jobsSeoPagesPlugin.ts's expired-soft-landing loop) can branch on it directly
+ * instead of going through {@link robotsMetaEnhancedForContent}.
+ */
+export const ROBOTS_NOINDEX_FOLLOW = '\n <meta name="robots" content="noindex,follow">';
 
 /** Matches an emitted robots meta tag whatever its `content` value is. */
 const ROBOTS_META_TAG_RE = /<meta\s+name=["']?robots["']?[^>]*>/i;
