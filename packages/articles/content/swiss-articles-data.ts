@@ -5653,6 +5653,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'votazioni-federali-svizzera-funzionano',
+    category: 'pratico',
+    date: '2026-08-06T01:14:18.777Z',
+    image: '/images/blog/votazioni-federali-svizzera-funzionano.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

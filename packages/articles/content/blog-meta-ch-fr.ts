@@ -1885,6 +1885,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.marina-carobbio-guscetti-fiducia-istituzioni.title': 'Au travail pour le bien public : « J\'ai confiance dans les institutions »',
     'blog.article.marina-carobbio-guscetti-fiducia-istituzioni.excerpt': 'La présidente du Conseil d\'État Marina Carobbio Guscetti a attiré l\'attention sur la valeur des institutions lors de la cérémonie d\'ouverture du Locarno Film Festival.',
     'blog.article.marina-carobbio-guscetti-fiducia-istituzioni.imageAlt': 'Marina Carobbio Guscetti lors de la cérémonie d\'ouverture du Festival du film de Locarno',
+    'blog.article.votazioni-federali-svizzera-funzionano.title': 'Votations fédérales suisses : comment fonctionnent les référendums cantonaux',
+    'blog.article.votazioni-federali-svizzera-funzionano.excerpt': 'Découvrez les règles pour les votations fédérales, les taux d\'imposition et l\'accord frontalier 2024 pour les travailleurs transfrontaliers',
+    'blog.article.votazioni-federali-svizzera-funzionano.imageAlt': 'Bâtiments fédéraux suisses avec des symboles de la démocratie directe',
 };
 
 export default blogMetaChFr;
