@@ -34,6 +34,21 @@
  *   0 — every audit passed
  *   1 — one or more audits failed (gate or threshold)
  *   2 — dist/ missing or fatal error
+ *
+ * Machine-readable failure list (issue #4828)
+ * ------------------------------------------
+ * On every completed run this prints ONE line in a stable format:
+ *
+ *   audit-all: failed-audits=<name>[,<name>...]        (empty when all passed)
+ *
+ * `validate-dist-postbuild` parses it so the `integrity-verdict` classifier
+ * can see WHICH auditor failed instead of the opaque bundle name `audit:all`.
+ * Before this line existed, one red cosmetic auditor (e.g. `text-html-ratio`)
+ * arrived at the classifier as the unclassifiable name `audit:all`, hit
+ * default-deny, and sequestered `publish` — the exact failure mode #4828
+ * tracks, re-entering through the bundle. Printed unconditionally (not behind
+ * `verbose`) because the consumer is a machine, not a reader; a missing line
+ * makes the workflow fall back to the opaque name, i.e. fail closed.
  */
 import { stat } from 'node:fs/promises';
 import { runAudits, filterAuditors, DEFAULT_DIST } from './lib/audit-runner.mjs';
@@ -132,6 +147,10 @@ async function main() {
     }
     console.log('══════════════════════════════════════════════════════════════════════');
   }
+
+  // Machine-readable, unconditional, single line — see the header block.
+  // Consumed by the "Publish gate results" step of validate-dist-postbuild.
+  console.log(`audit-all: failed-audits=${fails.map((r) => r.name).join(',')}`);
 
   process.exit(fails.length === 0 ? 0 : 1);
 }
