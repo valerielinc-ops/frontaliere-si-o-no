@@ -15,10 +15,15 @@
  * Fail-safe: any internal error, or body we can't confidently extract from the
  * command string (e.g. unrecognized `--body`/`--body-file` shape) → exit 0
  * (never block PR creation on this hook's own inability to parse the command).
+ *
+ * Blocking uses EXIT_BLOCK (2), not 1: for PreToolUse hooks Claude Code treats
+ * 1 as a NON-blocking error and runs the tool anyway, so this gate printed
+ * «PR bloccata» and then let `gh pr create` through. See lib/hook-exit-codes.mjs.
  */
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
 
 const HEADER_IMPL_RE = /^\s{0,3}#{2,3}\s+Implementato\b/im;
 const HEADER_NON_RE = /^\s{0,3}#{2,3}\s+Non implementato\b/im;
@@ -121,7 +126,7 @@ async function main() {
       '`## Non implementato (ancora)` nel PR body (Non-Negotiable #8, REVIEW.md).\n' +
       'Aggiungi le sezioni mancanti al `--body`/`--body-file` prima di rilanciare `gh pr create`.\n\n',
   );
-  process.exit(1);
+  process.exit(EXIT_BLOCK);
 }
 
 // Only run when executed directly (e.g. `node pr-body-check-gate.mjs` as a

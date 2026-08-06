@@ -5,6 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { resolve } from 'node:path';
 import { extractPrBody } from '../scripts/ci/pr-body-check-gate.mjs';
+import { EXIT_BLOCK } from '../scripts/ci/lib/hook-exit-codes.mjs';
 
 /**
  * Analogous to sibling-check-gate's PreToolUse contract: this hook intercepts
@@ -87,25 +88,25 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     expect(res.status).toBe(0);
   });
 
-  it('blocks (exit 1) when `## Non implementato` is missing', () => {
+  it('blocks (EXIT_BLOCK=2) when `## Non implementato` is missing', () => {
     const cmd = `gh pr create --title "x" --body '${MISSING_NON}'`;
     const res = runGate(cmd);
-    expect(res.status).toBe(1);
+    expect(res.status).toBe(EXIT_BLOCK);
     expect(res.stderr).toMatch(/Non implementato/);
     expect(res.stderr).toMatch(/PR bloccata/);
   });
 
-  it('blocks (exit 1) when `## Implementato` is missing', () => {
+  it('blocks (EXIT_BLOCK=2) when `## Implementato` is missing', () => {
     const cmd = `gh pr create --title "x" --body '${MISSING_IMPL}'`;
     const res = runGate(cmd);
-    expect(res.status).toBe(1);
+    expect(res.status).toBe(EXIT_BLOCK);
     expect(res.stderr).toMatch(/Implementato/);
   });
 
-  it('blocks (exit 1) when both headers are missing (## Summary/## Test plan variant)', () => {
+  it('blocks (EXIT_BLOCK=2) when both headers are missing (## Summary/## Test plan variant)', () => {
     const cmd = `gh pr create --title "x" --body '${MISSING_BOTH}'`;
     const res = runGate(cmd);
-    expect(res.status).toBe(1);
+    expect(res.status).toBe(EXIT_BLOCK);
     expect(res.stderr).toMatch(/Implementato/);
     expect(res.stderr).toMatch(/Non implementato/);
   });
@@ -120,14 +121,14 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     expect(res.status).toBe(0);
   });
 
-  it('blocks (exit 1) when a header is missing via --body-file', () => {
+  it('blocks (EXIT_BLOCK=2) when a header is missing via --body-file', () => {
     const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-'));
     createdDirs.push(dir);
     const file = join(dir, 'body.md');
     writeFileSync(file, MISSING_NON, 'utf8');
     const cmd = `gh pr create --title "x" --body-file ${file}`;
     const res = runGate(cmd);
-    expect(res.status).toBe(1);
+    expect(res.status).toBe(EXIT_BLOCK);
     expect(res.stderr).toMatch(/Non implementato/);
   });
 

@@ -12,6 +12,14 @@
  * pr-body-check-gate.mjs (shipped in #3332).
  *
  * Fail-safe: any internal error → exit 0 (never block PR on script failure).
+ *
+ * Exit codes are Claude Code hook semantics, NOT Unix convention: for
+ * PreToolUse only **2** blocks the tool call. 1 is a "non-blocking error" —
+ * stderr is shown and `gh pr create` runs anyway. This gate printed
+ * "PR bloccata" and exited 1, so it had never actually blocked anything; the
+ * message asserted an enforcement that did not happen, which is the same
+ * class of defect as the silent skip below (#5195) — a guard that reads as a
+ * guard without being one. Use EXIT_BLOCK, never a bare 1.
  */
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -22,6 +30,7 @@ import {
   ALLOW_UNRESOLVED_ENV,
   unresolvedBaseOverrideActive,
 } from './lib/resolve-merge-base.mjs';
+import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const checkScript = join(__dirname, 'check-sibling-patterns.mjs');
@@ -138,7 +147,7 @@ async function main() {
           : 'Rimedio: `git fetch --deepen=500 origin` (clone shallow) e riprova, oppure\n' +
             `procedi deliberatamente con ${ALLOW_UNRESOLVED_ENV}=1.\n\n`),
     );
-    process.exit(override ? 0 : 1);
+    process.exit(override ? 0 : EXIT_BLOCK);
   }
 
   if (candidates.length === 0) {
@@ -186,7 +195,7 @@ async function main() {
       'positivo (es. "falso positivo — solo lessicalmente simile ma semanticamente\n' +
       'diverso"). Un semplice rinvio a follow-up NON bypassa questo gate.\n\n',
   );
-  process.exit(1);
+  process.exit(EXIT_BLOCK);
 }
 
 // Only run when executed directly (e.g. as a PreToolUse hook), not on import.

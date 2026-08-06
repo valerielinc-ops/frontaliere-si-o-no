@@ -29,6 +29,7 @@ import {
   unresolvedBaseOverrideActive,
   ALLOW_UNRESOLVED_ENV,
 } from '../scripts/ci/lib/resolve-merge-base.mjs';
+import { EXIT_BLOCK } from '../scripts/ci/lib/hook-exit-codes.mjs';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SIBLING_SCRIPT = path.join(REPO_ROOT, 'scripts/ci/check-sibling-patterns.mjs');
@@ -240,7 +241,11 @@ describe('unresolvable base is a blocking skip, not a silent pass', () => {
       tool_input: { command: 'gh pr create --title t --body "## Implementato\nx\n"' },
     });
     const r = run('node', [GATE_SCRIPT], { cwd: tmpRepo, input: payload });
-    expect(r.status).not.toBe(0);
+    // EXIT_BLOCK (2), not 1: a PreToolUse hook that exits 1 is a NON-blocking
+    // error and `gh pr create` runs anyway — the gate would print its refusal
+    // and be ignored.
+    expect(r.status).toBe(EXIT_BLOCK);
+    expect(EXIT_BLOCK).toBe(2);
     expect(r.stderr).toContain('sweep sibling NON ESEGUITO');
     expect(r.stderr).toContain('NON equivale a "nessun candidato"');
   });
