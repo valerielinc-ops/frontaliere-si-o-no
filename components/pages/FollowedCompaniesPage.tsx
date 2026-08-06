@@ -32,9 +32,25 @@ import { Building2, Loader2, ArrowUpRight } from 'lucide-react';
 import { getLocale } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
-import { deleteAlert, listFollowedCompanies } from '@/services/jobAlertService';
+import { deleteAlert, listFollowedCompanies, updateAlert } from '@/services/jobAlertService';
 import type { JobAlert } from '@/services/jobAlertService';
 import { reportCaughtError } from '@/services/errorReporter';
+
+/**
+ * The cadences a followed employer can carry, in escalating patience.
+ *
+ * `immediate` is the one CompanyAlert introduced and the only one routed to the
+ * event-driven sender: `isImmediateCompanyAlert`
+ * (scripts/lib/company-alert-routing.mjs) requires `frequency === 'immediate'`,
+ * and scripts/send-job-alerts.mjs claims everything else. So picking `daily` or
+ * `weekly` here is not a cosmetic preference — it hands the alert to the digest,
+ * where this employer's new ads arrive grouped with the subscriber's other
+ * alerts instead of in their own email. The copy under the control says so,
+ * because a user who picks "weekly" and then waits for a dedicated email would
+ * read the silence as the follow being broken.
+ */
+const CADENCES = ['immediate', 'daily', 'weekly'] as const;
+type Cadence = (typeof CADENCES)[number];
 
 interface PageStrings {
   title: string;
@@ -46,7 +62,13 @@ interface PageStrings {
   viewJobs: string;
   immediateBadge: string;
   digestBadge: string;
+  weeklyBadge: string;
+  cadenceLabel: string;
+  cadenceImmediate: string;
+  cadenceDaily: string;
+  cadenceWeekly: string;
   loadError: string;
+  saveError: string;
 }
 
 const STRINGS: Record<Locale, PageStrings> = {
@@ -58,9 +80,15 @@ const STRINGS: Record<Locale, PageStrings> = {
     emptyHint: 'Apri un annuncio e tocca «Segui questa azienda» per iniziare.',
     unfollow: 'Smetti di seguire',
     viewJobs: 'Vedi tutte le offerte',
-    immediateBadge: 'Avviso immediato',
-    digestBadge: 'Nel riepilogo',
+    immediateBadge: 'Email appena pubblica un annuncio.',
+    digestBadge: 'Nel riepilogo giornaliero, insieme agli altri avvisi.',
+    weeklyBadge: 'Nel riepilogo settimanale, insieme agli altri avvisi.',
+    cadenceLabel: 'Quando avvisarti',
+    cadenceImmediate: 'Subito',
+    cadenceDaily: 'Ogni giorno',
+    cadenceWeekly: 'Ogni settimana',
     loadError: 'Non sono riuscito a caricare le aziende seguite. Ricarica la pagina.',
+    saveError: 'Non sono riuscito a salvare la frequenza. Riprova.',
   },
   en: {
     title: 'Companies I follow',
@@ -70,9 +98,15 @@ const STRINGS: Record<Locale, PageStrings> = {
     emptyHint: 'Open a job ad and tap "Follow this company" to start.',
     unfollow: 'Stop following',
     viewJobs: 'See all jobs',
-    immediateBadge: 'Immediate alert',
-    digestBadge: 'In the digest',
+    immediateBadge: 'Emailed as soon as they post.',
+    digestBadge: 'In the daily digest, alongside your other alerts.',
+    weeklyBadge: 'In the weekly digest, alongside your other alerts.',
+    cadenceLabel: 'When to notify you',
+    cadenceImmediate: 'Right away',
+    cadenceDaily: 'Daily',
+    cadenceWeekly: 'Weekly',
     loadError: "Couldn't load your followed companies. Reload the page.",
+    saveError: "Couldn't save the frequency. Please try again.",
   },
   de: {
     title: 'Meine gefolgten Unternehmen',
@@ -82,9 +116,15 @@ const STRINGS: Record<Locale, PageStrings> = {
     emptyHint: 'Öffne eine Anzeige und tippe auf «Diesem Unternehmen folgen».',
     unfollow: 'Nicht mehr folgen',
     viewJobs: 'Alle Stellen ansehen',
-    immediateBadge: 'Sofortige Benachrichtigung',
-    digestBadge: 'In der Übersicht',
+    immediateBadge: 'E-Mail, sobald eine Stelle erscheint.',
+    digestBadge: 'In der täglichen Übersicht, zusammen mit deinen anderen Alerts.',
+    weeklyBadge: 'In der wöchentlichen Übersicht, zusammen mit deinen anderen Alerts.',
+    cadenceLabel: 'Wann benachrichtigen',
+    cadenceImmediate: 'Sofort',
+    cadenceDaily: 'Täglich',
+    cadenceWeekly: 'Wöchentlich',
     loadError: 'Gefolgte Unternehmen konnten nicht geladen werden. Bitte Seite neu laden.',
+    saveError: 'Die Frequenz konnte nicht gespeichert werden. Bitte erneut versuchen.',
   },
   fr: {
     title: 'Mes entreprises suivies',
@@ -94,9 +134,15 @@ const STRINGS: Record<Locale, PageStrings> = {
     emptyHint: 'Ouvrez une annonce et touchez « Suivre cette entreprise » pour commencer.',
     unfollow: 'Ne plus suivre',
     viewJobs: 'Voir toutes les offres',
-    immediateBadge: 'Alerte immédiate',
-    digestBadge: 'Dans le récapitulatif',
+    immediateBadge: 'E-mail dès la publication d\'une offre.',
+    digestBadge: 'Dans le récapitulatif quotidien, avec vos autres alertes.',
+    weeklyBadge: 'Dans le récapitulatif hebdomadaire, avec vos autres alertes.',
+    cadenceLabel: 'Quand vous prévenir',
+    cadenceImmediate: 'Tout de suite',
+    cadenceDaily: 'Chaque jour',
+    cadenceWeekly: 'Chaque semaine',
     loadError: 'Impossible de charger vos entreprises suivies. Rechargez la page.',
+    saveError: 'Impossible d\'enregistrer la fréquence. Réessayez.',
   },
 };
 
@@ -125,6 +171,44 @@ export function companyHubPath(slug: string, locale: Locale): string {
   return `${prefix}/aziende/${encodeURIComponent(slug)}/`;
 }
 
+/**
+ * Segmented cadence picker for one followed employer.
+ *
+ * A local control rather than the `FrequencyToggle` inside
+ * SubscriptionPreferencesController: that one is a two-value daily/weekly
+ * switch bound to that file's `SectionStrings`, and CompanyAlert's whole point
+ * is the THIRD value it does not model (`immediate`). Widening it would have
+ * changed the generic-alert editor's UI for a page it does not serve.
+ */
+const CadenceToggle: React.FC<{
+  value: Cadence;
+  labels: Record<Cadence, string>;
+  groupLabel: string;
+  busy: boolean;
+  onChange: (next: Cadence) => void;
+}> = ({ value, labels, groupLabel, busy, onChange }) => (
+  <div
+    role="group"
+    aria-label={groupLabel}
+    className="mt-2 flex w-full flex-wrap overflow-hidden rounded-lg border border-edge bg-surface"
+  >
+    {CADENCES.map((c) => (
+      <button
+        key={c}
+        type="button"
+        onClick={() => c !== value && onChange(c)}
+        disabled={busy}
+        aria-pressed={c === value}
+        className={`flex-1 min-w-[86px] px-3 py-2 min-h-[44px] text-xs font-bold transition-colors ${
+          c === value ? 'bg-accent text-on-accent' : 'text-body hover:bg-surface-alt'
+        } ${busy ? 'opacity-60 cursor-wait' : ''}`}
+      >
+        {labels[c]}
+      </button>
+    ))}
+  </div>
+);
+
 export const FollowedCompaniesPage: React.FC = () => {
   const locale = getLocale();
   const S = STRINGS[locale] || STRINGS.it;
@@ -132,6 +216,7 @@ export const FollowedCompaniesPage: React.FC = () => {
   const [alerts, setAlerts] = useState<JobAlert[] | null>(null);
   const [error, setError] = useState('');
   const [busyId, setBusyId] = useState<string | null>(null);
+  const [cadenceBusyId, setCadenceBusyId] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -162,6 +247,31 @@ export const FollowedCompaniesPage: React.FC = () => {
       setBusyId(null);
     }
   }, [S.loadError]);
+
+  const handleCadence = useCallback(async (alert: JobAlert, next: Cadence) => {
+    if (!alert.email) return;
+    const previous = (alert.frequency || 'immediate') as Cadence;
+    if (previous === next) return;
+    setCadenceBusyId(alert.id);
+    setError('');
+    // Optimistic: the row is the only reader of this value and the write is a
+    // single field, so showing the new cadence immediately and rolling back on
+    // failure beats a spinner that blocks the other rows.
+    setAlerts((prev) => (prev || []).map((a) => (a.id === alert.id ? { ...a, frequency: next } : a)));
+    try {
+      // `frequencyOverride: true` for the same reason JobAlertForm's picker
+      // sets it: an explicit choice must survive the adaptive-cadence engine,
+      // which would otherwise be free to move this alert back on its own and
+      // make the control look like it silently forgot the setting.
+      await updateAlert(alert.email, alert.id, { frequency: next, frequencyOverride: true });
+    } catch (err) {
+      reportCaughtError(err, 'followedCompanies.cadence');
+      setAlerts((prev) => (prev || []).map((a) => (a.id === alert.id ? { ...a, frequency: previous } : a)));
+      setError(S.saveError);
+    } finally {
+      setCadenceBusyId(null);
+    }
+  }, [S.saveError]);
 
   if (authLoading) {
     return (
@@ -201,13 +311,20 @@ export const FollowedCompaniesPage: React.FC = () => {
           {alerts.map((alert) => {
             const slug = String(alert.specificCompanyKey || '');
             const busy = busyId === alert.id;
+            const cadenceBusy = cadenceBusyId === alert.id;
+            // Anything not explicitly daily/weekly is the CompanyAlert default.
+            // Never fall back to 'daily' on an unknown value: that would render
+            // a row claiming the digest owns an alert the immediate sender is
+            // in fact still sending.
+            const cadence: Cadence =
+              alert.frequency === 'daily' || alert.frequency === 'weekly' ? alert.frequency : 'immediate';
             return (
               <li key={alert.id} className="rounded-lg border border-edge bg-surface px-4 py-3">
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
                     <p className="text-sm font-semibold text-heading truncate">{companyLabelFromSlug(slug)}</p>
                     <p className="mt-1 text-xs text-muted">
-                      {alert.frequency === 'immediate' ? S.immediateBadge : S.digestBadge}
+                      {cadence === 'immediate' ? S.immediateBadge : cadence === 'daily' ? S.digestBadge : S.weeklyBadge}
                     </p>
                   </div>
                   <button
@@ -221,6 +338,17 @@ export const FollowedCompaniesPage: React.FC = () => {
                     {S.unfollow}
                   </button>
                 </div>
+                <CadenceToggle
+                  value={cadence}
+                  groupLabel={`${S.cadenceLabel} — ${companyLabelFromSlug(slug)}`}
+                  labels={{
+                    immediate: S.cadenceImmediate,
+                    daily: S.cadenceDaily,
+                    weekly: S.cadenceWeekly,
+                  }}
+                  busy={cadenceBusy || busy}
+                  onChange={(next) => void handleCadence(alert, next)}
+                />
                 <a
                   href={companyHubPath(slug, locale)}
                   className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-accent hover:underline"

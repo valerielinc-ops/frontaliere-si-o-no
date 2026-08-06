@@ -9,9 +9,10 @@
  * full description and 5 ad slots, matching the active job detail view.
  */
 
-import { useEffect, useRef, useState, type MouseEvent } from 'react';
+import { Suspense, useEffect, useRef, useState, type MouseEvent } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Briefcase, Building2, Calendar, CheckCircle2, ChevronDown, Clock, Euro, Eye, Loader2, Mail, MapPin, Search, Shield, Users } from 'lucide-react';
-import { useLocale, t } from '@/services/i18n';
+import { useLocale, t, type Locale } from '@/services/i18n';
+import CompanyFollowCta from '@/components/community/CompanyFollowCta';
 import { Analytics } from '@/services/analytics';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
 import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
@@ -419,7 +420,30 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
  );
 
+ /**
+  * CompanyAlert (#5012) — «Segui questa azienda» on an EXPIRED ad.
+  *
+  * The highest-intent placement the feature has: the reader arrived for a job
+  * that no longer exists, so "tell me when this employer posts again" is the
+  * only action left that still does something for them. Rendered next to the
+  * company banner in both layouts below, gated and not, because the component
+  * handles the anonymous case itself (email capture + double opt-in).
+  */
+ const companyFollowCta = job.company ? (
+   <Suspense fallback={null}>
+     <CompanyFollowCta
+       company={job.company}
+       companyKey={job.companyKey ?? null}
+       locale={locale as Locale}
+       surface="company_follow_expired"
+       sourceJobSlug={job.slug ?? null}
+       sourceJobTitle={job.title ?? null}
+     />
+   </Suspense>
+ ) : null;
+
  const companyBanner = job.company && companyHref && (
+ <>
  <button
  type="button"
  onClick={handleCompanyClick}
@@ -442,6 +466,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
  </div>
  </button>
+ {companyFollowCta}
+ </>
  );
 
  const relatedJobsSection = relatedJobs.length > 0 && (

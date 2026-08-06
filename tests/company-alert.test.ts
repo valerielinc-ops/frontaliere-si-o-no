@@ -686,11 +686,38 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
     // itself early-returned null.
     const board = readRepoFile('components/community/JobBoard.tsx');
     expect(board.includes('{userId && userEmail && selectedJob.company && (')).toBe(false);
-    expect(board).toContain('{selectedJob.company && (');
 
     const button = readRepoFile('components/community/CompanyFollowButton.tsx');
     expect(button.includes('if (!slug || !userId || !email) return null;')).toBe(false);
     expect(button).toContain('if (!signedIn) { setStatus(\'capture\'); return; }');
+  });
+
+  it('renders the CTA in the AUTH-GATED branch too, not only the unlocked one', () => {
+    // The defect this pins, measured live on 2026-08-06: the CTA existed only
+    // after `if (!hasAccess) return <gate/>`, so a logged-out visitor — the
+    // anonymous-capture path's whole target — never saw it on any job page.
+    // Nothing caught it because the gating was 1200 lines above the call site,
+    // in control flow, while the component's own comment claimed the opposite.
+    const board = readRepoFile('components/community/JobBoard.tsx');
+    const gateBranch = board.indexOf('if (!hasAccess) {');
+    const gateCta = board.indexOf("companyFollowCta(selectedJob, 'company_follow_gate')");
+    const unlockedCta = board.indexOf("companyFollowCta(selectedJob, 'company_follow_button')");
+
+    expect(gateBranch).toBeGreaterThan(0);
+    // Inside the gated branch…
+    expect(gateCta).toBeGreaterThan(gateBranch);
+    // …and again in the unlocked detail that follows it.
+    expect(unlockedCta).toBeGreaterThan(gateCta);
+
+    // ONE definition feeding both surfaces, and it is the SHARED component:
+    // a second <CompanyFollowButton> literal in this file would be a second set
+    // of analytics/cache callbacks free to drift from the other three surfaces.
+    expect(board.split('<CompanyFollowCta').length - 1).toBe(1);
+    expect(board.includes('<CompanyFollowButton')).toBe(false);
+
+    // The surfaces must stay separable in analytics — the gated CTA competes
+    // with the sign-in for the same click.
+    expect(readRepoFile('services/analytics.ts')).toContain("'company_follow_gate'");
   });
 
   it('reuses the site\'s ONE opt-in mechanism instead of a second one', () => {
@@ -721,7 +748,11 @@ describe('CTA on the SSG employer pages /aziende/<slug>/ (#5012 requisito 1)', (
     // the SAME CompanyFollowButton: a copy would be a second surface free to
     // drift from the matcher, silently.
     const mount = readRepoFile('components/community/CompanyFollowMount.tsx');
-    expect(mount).toContain("import CompanyFollowButton from './CompanyFollowButton'");
+    // Mounts the shared CTA, which renders the SAME CompanyFollowButton every
+    // other surface uses — never a second copy of the button here.
+    expect(mount).toContain("import CompanyFollowCta, { type CompanyFollowSurface } from './CompanyFollowCta'");
+    expect(readRepoFile('components/community/CompanyFollowCta.tsx'))
+      .toContain("import CompanyFollowButton from './CompanyFollowButton'");
     expect(mount).toContain("attribute: 'data-company-follow-mount'");
     expect(mount).toContain("mountedAttribute: 'data-company-follow-mounted'");
   });
@@ -808,6 +839,29 @@ describe('CTA on the SSG employer pages /aziende/<slug>/ (#5012 requisito 1)', (
     const html = companyFollowMountPlaceholder({ company: 'Acme', locale: 'xx', surface: 'employer_profile' });
     expect(html).toContain('Segui questa azienda');
   });
+
+  it('the placeholder\'s data-surface reaches analytics instead of being dropped', () => {
+    // `readProps` read `data-surface` and the tracker then hardcoded
+    // 'company_follow_button', so the full profile page and the thin
+    // below-floor stub were indistinguishable in the data — the prop was live
+    // on one line and dead on the next.
+    const mount = readRepoFile('components/community/CompanyFollowMount.tsx');
+    expect(mount).toContain("employer_profile: 'company_follow_profile'");
+    expect(mount).toContain("employer_below_floor: 'company_follow_below_floor'");
+    // The mapped value must reach the CTA, not be read and dropped.
+    expect(mount).toContain("surface: ANALYTICS_SURFACE[el.dataset.surface || ''] || 'company_follow_profile'");
+    expect(mount).toContain('surface={t.props.surface}');
+
+    const analytics = readRepoFile('services/analytics.ts');
+    expect(analytics).toContain("'company_follow_profile'");
+    expect(analytics).toContain("'company_follow_below_floor'");
+
+    // Both surface values must still be emitted by the plugin, or the mapping
+    // above silently degrades to its fallback.
+    const plugin = readRepoFile('build-plugins/employerProfilePagesPlugin.ts');
+    expect(plugin).toContain("surface: 'employer_profile'");
+    expect(plugin).toContain("surface: 'employer_below_floor'");
+  });
 });
 
 describe('«Le mie aziende seguite» page (#5012 phase 2)', () => {
@@ -861,6 +915,109 @@ describe('«Le mie aziende seguite» page (#5012 phase 2)', () => {
     const fn = /export async function listFollowedCompanies[\s\S]*?\n\}/.exec(svc)?.[0] || '';
     expect(fn).toContain('getUserAlerts(userId)');
     expect(fn.includes('query(')).toBe(false);
+  });
+});
+
+describe('the CTA reaches every job-detail surface (#5012)', () => {
+  // A job detail is drawn by FOUR components depending on the ad's state, each
+  // with its own auth gate. Phase 2 wired the CTA into one of them.
+  const SURFACES: Array<[string, string]> = [
+    ['components/community/JobBoard.tsx', 'company_follow_gate'],
+    ['components/community/JobBoard.tsx', 'company_follow_button'],
+    ['components/community/JobExpiredView.tsx', 'company_follow_expired'],
+    ['components/community/JobOrphanView.tsx', 'company_follow_orphan'],
+  ];
+
+  it.each(SURFACES)('%s renders the CTA as %s', (file, surface) => {
+    expect(readRepoFile(file)).toContain(surface);
+  });
+
+  it('every surface name is a member of the analytics union AND of CompanyFollowSurface', () => {
+    // Two unions, one truth: the tracker's and the component's. A name in the
+    // component that the tracker does not know is a type error at build time;
+    // the reverse is a surface nobody reports.
+    const analytics = readRepoFile('services/analytics.ts');
+    const cta = readRepoFile('components/community/CompanyFollowCta.tsx');
+    for (const name of [
+      'company_follow_button', 'company_follow_gate', 'company_follow_profile',
+      'company_follow_below_floor', 'company_follow_orphan', 'company_follow_expired',
+    ]) {
+      expect(analytics, `${name} missing from analytics`).toContain(`'${name}'`);
+      expect(cta, `${name} missing from CompanyFollowSurface`).toContain(`'${name}'`);
+    }
+  });
+
+  it('the orphan view follows only an employer the slug actually matched', () => {
+    // slugParts.company is null when no known employer matched. Following a
+    // guessed name would persist an alert key that never matches a job — an
+    // subscription that silently never fires.
+    const orphan = readRepoFile('components/community/JobOrphanView.tsx');
+    expect(orphan).toContain('const companyFollowCta = slugParts.company ?');
+    // …and reuses the ONE derived key, rather than re-deriving a second one
+    // that could disagree about which employer the slug names.
+    expect(orphan).toContain('const derivedCompanyKey = useMemo(');
+    expect(orphan).toContain('companyKey={derivedCompanyKey || null}');
+  });
+
+  it('the alerts cache is shared, so a follow from any surface invalidates it', () => {
+    // It used to be file-private to JobBoard.tsx: a follow from the expired,
+    // orphan or SSG employer surface left every cached eligibility read in the
+    // session one write behind.
+    const cache = readRepoFile('services/userAlertsCache.ts');
+    expect(cache).toContain('export function invalidateUserAlertsCache');
+    expect(cache).toContain('export function fetchUserAlertsCached');
+    expect(readRepoFile('components/community/CompanyFollowCta.tsx'))
+      .toContain("import { invalidateUserAlertsCache } from '@/services/userAlertsCache'");
+    const board = readRepoFile('components/community/JobBoard.tsx');
+    expect(board).toContain("from '@/services/userAlertsCache'");
+    expect(board.includes('let cachedUserAlerts')).toBe(false);
+  });
+});
+
+describe('cadence per followed company (#5012 fase 2 — frequenze)', () => {
+  const page = () => readRepoFile('components/pages/FollowedCompaniesPage.tsx');
+
+  it('offers the three cadences the router partition actually knows', () => {
+    // Any value outside this set would land in the digest by default while the
+    // UI implied something else: `isImmediateCompanyAlert` claims exactly
+    // `immediate`, scripts/send-job-alerts.mjs claims the rest.
+    expect(page()).toContain("const CADENCES = ['immediate', 'daily', 'weekly'] as const");
+  });
+
+  it('pins the manual pick so the adaptive engine cannot undo it', () => {
+    // Same contract as JobAlertForm's picker: without frequencyOverride the
+    // cadence engine is free to move the alert back and the control looks like
+    // it silently forgot the setting.
+    expect(page()).toContain('frequencyOverride: true');
+    expect(page()).toContain('updateAlert(alert.email, alert.id, { frequency: next, frequencyOverride: true })');
+  });
+
+  it('never shows an unknown cadence as "digest"', () => {
+    // Falling back to 'daily' would print "in the daily digest" over an alert
+    // the IMMEDIATE sender is in fact still sending — a row that lies about
+    // which pipeline owns it.
+    expect(page()).toContain(
+      "alert.frequency === 'daily' || alert.frequency === 'weekly' ? alert.frequency : 'immediate'",
+    );
+  });
+
+  it('rolls the row back when the write fails', () => {
+    // Optimistic + rollback: a failed save that left the new value on screen
+    // would tell the user they are on a cadence the backend never stored.
+    const src = page();
+    expect(src).toContain('followedCompanies.cadence');
+    expect(src).toContain('frequency: previous');
+  });
+
+  it('ships the cadence copy in all four locales', () => {
+    const src = page();
+    for (const key of ['cadenceLabel', 'cadenceImmediate', 'cadenceDaily', 'cadenceWeekly', 'weeklyBadge', 'saveError']) {
+      // 4 locale blocks + the one PageStrings field declaration = 5. A missing
+      // locale drops to 4 and fails here rather than rendering `undefined` to
+      // a German or French reader.
+      expect(src.split(`${key}:`).length - 1, `${key} is not in all four locales`).toBe(5);
+      expect(src, `${key} missing from PageStrings`).toContain(`${key}: string;`);
+    }
   });
 });
 

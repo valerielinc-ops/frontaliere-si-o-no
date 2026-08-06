@@ -2071,7 +2071,16 @@ export const Analytics = {
   * counts during funnel analysis.
   */
  trackJobAlertCtaClick: (
- surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_match_pill' | 'job_board_filters' | 'company_follow_button',
+ // The six CompanyAlert (#5012) surfaces report apart because the question each
+ // one answers differs: 'company_follow_button' is the unlocked job detail,
+ // 'company_follow_gate' the auth-gated one (there the CTA competes with the
+ // sign-in for a single click — cannibalisation is invisible if they share a
+ // name), 'company_follow_expired' and 'company_follow_orphan' the two dead-ad
+ // views where following is the only conversion left, 'company_follow_profile'
+ // the SSG employer page and 'company_follow_below_floor' its thin
+ // under-MIN_ACTIVE_JOBS variant. The union is mirrored by CompanyFollowSurface
+ // in components/community/CompanyFollowCta.tsx.
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_match_pill' | 'job_board_filters' | 'company_follow_button' | 'company_follow_gate' | 'company_follow_profile' | 'company_follow_below_floor' | 'company_follow_orphan' | 'company_follow_expired',
  action: 'open' | 'dismiss' | 'accept' | 'success' | 'error',
  keyword?: string,
  ) => {
