@@ -280,6 +280,58 @@ try {
 }
 report.clientIds = clientIds.size;
 
+/**
+ * Second, independent check: does the edge answer the SAME url differently
+ * depending on whether the caller sends `Origin`?
+ *
+ * This is the mechanism behind the whole file, caught directly instead of
+ * through its consequences. When the CDN answered `Vary: Origin` next to a
+ * constant `Access-Control-Allow-Origin: *`, the edge kept two variants of
+ * each object and the purge only ever cleared the one no browser requests.
+ * The site then served visitors a copy up to 24h old while every header check
+ * read current — including, on 2026-08-06, a ten-hour-old `App.js`.
+ *
+ * A zone rule now rewrites that `Vary` (the response provably does not vary by
+ * origin), but nothing in this repo owns that rule, so this asserts the
+ * property rather than trusting it. Re-checked once before failing: the two
+ * requests are not atomic, and an object legitimately refreshed between them
+ * would otherwise read as divergence.
+ */
+const divergent = [];
+for (const url of Object.keys(report.surfaces)) {
+  const withOrigin = report.surfaces[url].lastModified;
+  let bare;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      bare = (await getText(url, { 'User-Agent': BROWSER_HEADERS['User-Agent'] })).lastModified;
+    } catch { bare = null; }
+    if (!withOrigin || !bare || withOrigin === bare) break;
+    // Disagreed — re-read the Origin side once before believing it.
+    try {
+      report.surfaces[url].lastModified = (await getText(url, BROWSER_HEADERS)).lastModified;
+    } catch { /* keep the first reading */ }
+  }
+  const now = report.surfaces[url].lastModified;
+  if (now && bare && now !== bare) divergent.push({ url, withOrigin: now, withoutOrigin: bare });
+}
+report.divergent = divergent;
+
+if (divergent.length > 0) {
+  console.error('');
+  console.error('[hydrated-parity] ❌ the edge is serving a DIFFERENT copy to browsers than to checkers.');
+  for (const d of divergent) {
+    console.error(`[hydrated-parity]    ${d.url}`);
+    console.error(`[hydrated-parity]      Origin sent (a browser) : ${d.withOrigin}`);
+    console.error(`[hydrated-parity]      no Origin (curl, CI)    : ${d.withoutOrigin}`);
+  }
+  console.error('');
+  console.error('[hydrated-parity]    Every other check reads the second copy and stays green while');
+  console.error('[hydrated-parity]    visitors get the first. Look at the `Vary` header on these paths:');
+  console.error('[hydrated-parity]    a `Vary: Origin` next to a constant `Access-Control-Allow-Origin: *`');
+  console.error('[hydrated-parity]    fragments the edge cache into a variant no purge ever clears.');
+  process.exit(1);
+}
+
 // A rendered article whose id the client does not hold is one hydration drops.
 const missing = [];
 for (const s of slugs) {

@@ -79,10 +79,18 @@ export const CDN_FRESHNESS_BUCKET_MS = 5 * 60 * 1000;
  *
  * i.e. production served a ten-hour-old bundle to real visitors while every
  * header check read current. Nothing in this file can fix that — a bundle URL
- * cannot be rotated from application code. The only repair is at the edge:
- * stop varying, by serving `Access-Control-Allow-Origin: *` on these public,
- * read-only assets. Until then, treat "deployed" and "served to browsers" as
- * different claims and verify the second one with a browser.
+ * cannot be rotated from application code.
+ *
+ * That half was repaired at the edge on 2026-08-06: these responses already
+ * carried a CONSTANT `Access-Control-Allow-Origin: *`, so the `Vary: Origin`
+ * beside it was simply wrong — the body does not vary by origin — and a zone
+ * rule (`cdn-cors-vary-fix`, http_response_headers_transform) now rewrites it
+ * to `Vary: Accept-Encoding` on /assets/* and /data/*.
+ *
+ * No script in this repo owns that rule, so do not assume it is still there:
+ * `scripts/ci/check-hydrated-article-parity.mjs` asserts the property directly
+ * by fetching each surface with and without `Origin` and comparing. Keep
+ * treating "deployed" and "served to browsers" as different claims.
  */
 export function cdnFreshUrl(url: string, bucketMs: number = CDN_FRESHNESS_BUCKET_MS): string {
   const token = Math.floor(Date.now() / bucketMs);

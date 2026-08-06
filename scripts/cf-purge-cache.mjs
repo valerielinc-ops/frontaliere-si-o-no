@@ -206,9 +206,13 @@ try {
     // the purge returned 200 for 19 URLs and the copy the browser received did
     // not move for 28 hours, while curl saw the fresh one throughout.
     console.log(
-      '⚠️  Targeted purge does NOT clear a `Vary: Origin` variant. A file the SPA '
-      + 'fetches cross-origin keeps serving its old copy to browsers after this ✅ — '
-      + 'those must rotate their URL instead (services/cdnDataBase.ts → cdnFreshUrl).',
+      '⚠️  Targeted purge clears the variant matching THIS request, which sends no '
+      + '`Origin`. If a response ever varies on `Origin` again, the copy browsers get '
+      + 'survives this ✅ untouched. A zone rule now rewrites that header on '
+      + 'cdn.frontaliereticino.ch /assets/* and /data/* (the responses answer every '
+      + 'origin identically, so varying on it was wrong), and '
+      + 'scripts/ci/check-hydrated-article-parity.mjs asserts the property rather than '
+      + 'trusting it — because nothing in this repo owns that rule.',
     );
   } else {
     console.log(`✅ Cloudflare edge cache purged (zone ${zoneId}).`);
