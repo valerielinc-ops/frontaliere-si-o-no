@@ -116,6 +116,7 @@ import { employerProfilePagesLinksPlugin } from './build-plugins/employerProfile
 import { faqHubLinksPlugin } from './build-plugins/faqHubLinksPlugin';
 import { frSalaireNetLandingPlugin } from './build-plugins/frSalaireNetLandingPlugin';
 import { holidaysLandingsPlugin } from './build-plugins/holidaysLandingsPlugin';
+import { topicClusterHubsPlugin } from './build-plugins/topicClusterHubsPlugin';
 import { bfsSalaryLandingsPlugin } from './build-plugins/bfsSalaryLandingsPlugin';
 import { bfsSalaryLinksPlugin } from './build-plugins/bfsSalaryLinksPlugin';
 import { minimumWageLandingsPlugin } from './build-plugins/minimumWageLandingsPlugin';
@@ -258,6 +259,12 @@ export default defineConfig(({ mode }) => {
  // comparison (2 page types × 4 locales = 8 static pages). Dataset-driven
  // (data/seo/frontaliere-holidays.json). Curated set, no floor loop.
  holidaysLandingsPlugin(__dirname),
+ // #5001 — article topic hubs. One hub per (section × locale × curated
+ // topic); membership derived from the #5107 TF-IDF similarity graph, names
+ // curated (a component cannot name itself — see topicClusters.ts). Topics
+ // under the article floor emit a noindex,follow bridge at the same URL, so
+ // no topic URL ever 404s.
+ topicClusterHubsPlugin(__dirname),
  // #4481 — BFS salary-by-age / salary-by-education landings (5 ages + 4
  // education levels × 4 locales = 36 static pages). Dataset-driven
  // (data/seo/bfs-salary-by-age.json). CTA → net-salary calculator.

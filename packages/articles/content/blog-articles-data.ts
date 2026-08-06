@@ -27921,6 +27921,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'aumento-dei-frontalieri-attivi-in-svizzera',
+ category: 'fiscale',
+ date: '2026-08-06T22:46:20.932Z',
+ image: '/images/blog/aumento-dei-frontalieri-attivi-in-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

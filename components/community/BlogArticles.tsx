@@ -1337,10 +1337,33 @@ function BlogArticles({
  useEffect(() => {
  if (!selectedArticle) return;
  let cancelled = false;
+ let idleHandle: number | undefined;
+
  // Slim listing index — the cross-link sidebar's relevance ranking
  // (getRelatedJobsForArticle) only reads title/company/category/slug, never
  // descriptions, so the index suffices and avoids pulling the ~10MB-gz full
  // locale file on every article view (the monolith is no longer shipped).
+ //
+ // DEFERRED TO IDLE (issue #5001 punto 3). "Slim" is relative: measured
+ // 2026-08-06 the index is 3,4 MB transferred / 27,8 MB decoded, and this
+ // effect fired immediately on mount at High priority — 40% of an article
+ // page's 8,1 MB, downloading while the page was still painting. Lighthouse
+ // mobile on a real article: LCP 26,5 s, FCP 12,7 s, score 35.
+ //
+ // Nothing above the fold depends on it: `relatedJobs` feeds a sidebar and a
+ // below-content block, both of which render nothing until the data lands
+ // (`relatedJobs.length > 0 &&`). Deferring therefore changes no pixel of
+ // first paint — it only stops the fetch from competing with it.
+ //
+ // Same `requestIdleCallback`-with-timeout idiom as `GptAdSlot.tsx` and
+ // `JobBoard.tsx`, so the fallback behaviour on browsers without it is the
+ // one already used elsewhere in this codebase.
+ const ric: (cb: () => void) => void = (window as { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback
+ ? (cb) => { idleHandle = (window as unknown as { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback(cb, { timeout: 4000 }); }
+ : (cb) => { idleHandle = window.setTimeout(cb, 1500); };
+
+ ric(() => {
+ if (cancelled) return;
  fetch(cdnDataUrl(`/data/jobs-${locale}-index.json`))
  .then(res => {
  if (!res.ok) throw new Error(`${res.status}`);
@@ -1353,7 +1376,15 @@ function BlogArticles({
  // Index unreachable — skip the cross-link sidebar; the article still
  // renders fully.
  });
- return () => { cancelled = true; };
+ });
+
+ return () => {
+ cancelled = true;
+ if (idleHandle === undefined) return;
+ const cancelIdle = (window as { cancelIdleCallback?: (h: number) => void }).cancelIdleCallback;
+ if (cancelIdle) cancelIdle(idleHandle);
+ else window.clearTimeout(idleHandle);
+ };
  }, [selectedArticle, locale]);
 
  const relatedJobs = useMemo(() => {

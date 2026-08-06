@@ -9300,6 +9300,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalierieticinoaumento.title': 'Leichte Zunahme der Grenzgänger im Tessin: die Zahlen',
     'blog.article.frontalierieticinoaumento.excerpt': 'Die Zahl der Grenzgänger im Tessin stieg gegenüber dem Vorquartal um 0,6% auf insgesamt 79.121 Personen.',
     'blog.article.frontalierieticinoaumento.imageAlt': 'Lugano See und Berge',
+    'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.title': 'Zunahme der aktiven Grenzgänger in der Schweiz',
+    'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.excerpt': 'Zweites Quartal 2026: 79\'121 aktive Grenzgänger im Tessin, +0,6% gegenüber dem ersten Quartal.',
+    'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.imageAlt': 'Eine Foto eines Grenzgängers in der Schweiz',
 };
 
 export default blogMetaDe;
