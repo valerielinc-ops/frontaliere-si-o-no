@@ -1885,6 +1885,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.marina-carobbio-guscetti-fiducia-istituzioni.title': 'Working for the public good: “I trust institutions”',
     'blog.article.marina-carobbio-guscetti-fiducia-istituzioni.excerpt': 'The President of the State Council Marina Carobbio Guscetti drew attention to the value of institutions during the opening ceremony of the Locarno Film Festival.',
     'blog.article.marina-carobbio-guscetti-fiducia-istituzioni.imageAlt': 'Marina Carobbio Guscetti at the Locarno Film Festival opening ceremony',
+    'blog.article.votazioni-federali-svizzera-funzionano.title': 'Federal votes Switzerland: how cantonal referendums work',
+    'blog.article.votazioni-federali-svizzera-funzionano.excerpt': 'Learn about the rules for federal voting, tax rates, and the 2024 border agreement for cross-border workers',
+    'blog.article.votazioni-federali-svizzera-funzionano.imageAlt': 'Swiss federal buildings with symbols of direct democracy',
 };
 
 export default blogMetaChEn;

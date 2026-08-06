@@ -654,6 +654,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'raffreddare-le-citta-svizzere-il-lavoro-e-appena-iniziato': { it: 'raffreddare-le-citta-svizzere-il-lavoro-e-appena-iniziato', en: 'slug-en', de: 'slug-de', fr: 'slug-fr' },
  'snl-ricorso-lago-maggiore': { it: 'snl-ricorso-lago-maggiore', en: 'snl-ricorso-lago-maggiore', de: 'snl-ricorso-lago-maggiore', fr: 'snl-ricorso-lago-maggiore' },
  'marina-carobbio-guscetti-fiducia-istituzioni': { it: 'marina-carobbio-guscetti-fiducia-istituzioni', en: 'marina-carobbio-guscetti-confidence-in-institutions', de: 'marina-carobbio-guscetti-vertrauen-in-der-verwaltung', fr: 'marina-carobbio-guscetti-confiance-dans-les-institutions' },
+ 'votazioni-federali-svizzera-funzionano': { it: 'votazioni-federali-svizzera-funzionano', en: 'swiss-federal-votes-how-they-work', de: 'schweizerische-bundeswahlen-wie-funktionieren-sie', fr: 'votes-federaux-suisse-fonctionnent' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
