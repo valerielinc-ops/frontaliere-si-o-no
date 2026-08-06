@@ -9303,6 +9303,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalierieticinoaumento.title': 'Légère augmentation des travailleurs frontaliers au Tessin : les chiffres',
     'blog.article.frontalierieticinoaumento.excerpt': 'Le nombre de frontaliers au Tessin a augmenté de 0,6 % par rapport au trimestre précédent, avec un total de 79 121 personnes.',
     'blog.article.frontalierieticinoaumento.imageAlt': 'Vue de Lugano sur le lac et les montagnes',
+    'blog.article.prezzi-proprieta-svizzera-aumentano.title': 'Acheter une maison reste un grand désir. Et les prix montent',
+    'blog.article.prezzi-proprieta-svizzera-aumentano.excerpt': 'L\'indice ImmoScout24 a également enregistré une hausse pour le mois de juillet',
+    'blog.article.prezzi-proprieta-svizzera-aumentano.imageAlt': 'Locarno, lac Majeur, photographie DSLR',
 };
 
 export default blogMetaFr;
