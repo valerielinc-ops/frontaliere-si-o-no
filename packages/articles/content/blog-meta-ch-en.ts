@@ -1882,6 +1882,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.snl-ricorso-lago-maggiore.title': 'SNL appeal on Lake Maggiore: risks for the territory',
     'blog.article.snl-ricorso-lago-maggiore.excerpt': 'SNL\'s appeal opens a new phase of confrontation on the cantonal financing of navigation on the Verbano, with possible repercussions on workers and the local economy.',
     'blog.article.snl-ricorso-lago-maggiore.imageAlt': 'View of Lake Maggiore near Locarno with ferries and mountains in the background',
+    'blog.article.marina-carobbio-guscetti-fiducia-istituzioni.title': 'Working for the public good: “I trust institutions”',
+    'blog.article.marina-carobbio-guscetti-fiducia-istituzioni.excerpt': 'The President of the State Council Marina Carobbio Guscetti drew attention to the value of institutions during the opening ceremony of the Locarno Film Festival.',
+    'blog.article.marina-carobbio-guscetti-fiducia-istituzioni.imageAlt': 'Marina Carobbio Guscetti at the Locarno Film Festival opening ceremony',
 };
 
 export default blogMetaChEn;
