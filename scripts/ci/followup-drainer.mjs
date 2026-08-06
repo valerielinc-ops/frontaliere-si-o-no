@@ -978,7 +978,18 @@ function runDrain() {
       continue; // prova il prossimo in coda
     }
 
-    if (body && detectWorkflowScoped(`${cand.title}\n${body}`)) {
+    // Il parcheggio workflow-scoped ha senso SOLO se issue-fix non può pushare quei file.
+    // Dal 2026-08-06 può, quando `mint-app-token.mjs` conia (App con `workflows: write`), e
+    // questo stesso workflow conia lo stesso token qualche step più su — quindi la presenza
+    // di APP_TOKEN è il segnale giusto, non una supposizione.
+    //
+    // Senza questa condizione la follow-up verrebbe parcheggiata come TERMINALE con una
+    // motivazione ormai falsa («manca lo scope workflows»): non solo non arriverebbe mai alla
+    // capability appena sbloccata, ma lascerebbe agli atti una spiegazione sbagliata di
+    // perché. Un parcheggio motivato male è peggio di nessun parcheggio — nessuno lo rimette
+    // in discussione.
+    const issueFixCanPushWorkflows = Boolean(process.env.APP_TOKEN);
+    if (!issueFixCanPushWorkflows && body && detectWorkflowScoped(`${cand.title}\n${body}`)) {
       const wfRefs = [...new Set((body.match(WORKFLOW_PATH_RE) || []).concat(
         (body.match(BARE_YML_RE) || []).filter((y) => !NON_WORKFLOW_YML.has(y.toLowerCase())),
       ))].slice(0, 5).join(', ');
