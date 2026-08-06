@@ -235,6 +235,82 @@ describe('dedupeClerJobsByStableId — #3836', () => {
   });
 });
 
+// ──────────────────────────────────────────────────────────────
+// dedupeClerJobsByStableId — #5230 requisition-LESS slugs
+//
+// #3836's fixture above models only roles whose slug ends in a 3-4 digit
+// requisition id, so Rule K always fired and the suite stayed green. The live
+// feed also publishes postings with NO requisition suffix at all — the
+// apprenticeship/internship roles, whose slug is pure title text. Those fell
+// through to Rule C's whole-URL key, which differs between the two
+// career-section paths, so each was emitted TWICE. That is what the parser
+// quality audit caught as banca-cler 18/22 (82%) duplicate listings, its only
+// CRITICAL crawler.
+//
+// The pre-existing "(Rule K inapplicable)" test above does not cover this: it
+// feeds the SAME url twice, so it passes under any keying scheme. These cases
+// vary the ancestor segment, which is the thing that actually drifts.
+// ──────────────────────────────────────────────────────────────
+
+// Real slugs observed in data/jobs/by-crawler/banca-cler.json (2026-08-06).
+const CLER_NO_REQ_SLUGS = [
+  'du-willst-mehr-als-nur-einen-schreibtischjob-aka-lehrstelle-kauffrau-kaufmann-efz-bank-region-bern',
+  'du-willst-mehr-als-nur-einen-schreibtischjob-aka-lehrstelle-kauffrau-kaufmann-efz-bank-region-base',
+  'du-willst-lernen-wie-man-beim-thema-zahlen-fuer-ein-echtes-aha-sorgt-aka-bem-praktikum-region-basel',
+];
+
+describe('dedupeClerJobsByStableId — #5230 requisition-less slugs', () => {
+  it('collapses a requisition-less posting served under both career sections', () => {
+    const slug = CLER_NO_REQ_SLUGS[0];
+    const listings = [
+      { link: { url: `/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/${slug}` } },
+      { link: { url: `/de/bank-cler/jobs-und-karriere-2026/suchen-und-bewerben/offene-stellen/${slug}` } },
+    ];
+    expect(dedupeClerJobsByStableId(listings, getListingUrl)).toHaveLength(1);
+  });
+
+  it('collapses 6 requisition-less listings into 3 distinct jobs', () => {
+    const listings = CLER_NO_REQ_SLUGS.flatMap((slug) => [
+      { link: { url: `/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/${slug}` } },
+      { link: { url: `/de/bank-cler/jobs-und-karriere-2026/suchen-und-bewerben/offene-stellen/${slug}` } },
+    ]);
+    expect(listings).toHaveLength(6);
+    expect(dedupeClerJobsByStableId(listings, getListingUrl)).toHaveLength(3);
+  });
+
+  it('still prefers the canonical career section for a requisition-less survivor', () => {
+    const slug = CLER_NO_REQ_SLUGS[0];
+    const listings = [
+      { link: { url: `/de/bank-cler/jobs-und-karriere-2026/suchen-und-bewerben/offene-stellen/${slug}` } },
+      { link: { url: `/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/${slug}` } },
+    ];
+    const unique = dedupeClerJobsByStableId(listings, getListingUrl);
+    expect(unique).toHaveLength(1);
+    expect(unique[0].link.url).toContain('jobs-und-karriere-2026');
+  });
+
+  // The opposite failure, and the worse one: a 1-digit trailing run is a slug
+  // DISAMBIGUATOR, not a requisition id. Reading it as one keyed every such
+  // slug to `req:cler.ch:2`, merging unrelated postings onto a single record —
+  // an over-collapse DROPS a real job rather than duplicating one.
+  it('does not merge distinct postings whose slugs both end in a 1-digit suffix', () => {
+    const listings = [
+      { link: { url: '/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/du-willst-lernen-wie-man-beim-thema-zahlen-fuer-ein-echtes-aha-sorgt-aka-bem-praktikum-region-bern-2' } },
+      { link: { url: '/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/kundenberaterin-basis-thun-w-m-2' } },
+    ];
+    expect(dedupeClerJobsByStableId(listings, getListingUrl)).toHaveLength(2);
+  });
+
+  it('still collapses a 1-digit-suffixed posting across the career-section split', () => {
+    const slug = 'du-willst-lernen-wie-man-beim-thema-zahlen-fuer-ein-echtes-aha-sorgt-aka-bem-praktikum-region-bern-2';
+    const listings = [
+      { link: { url: `/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/${slug}` } },
+      { link: { url: `/de/bank-cler/jobs-und-karriere-2026/suchen-und-bewerben/offene-stellen/${slug}` } },
+    ];
+    expect(dedupeClerJobsByStableId(listings, getListingUrl)).toHaveLength(1);
+  });
+});
+
 describe('htmlToMarkdown — Cler job pages', () => {
   it('extracts full description from Job 1 (Geschäftsstellenleiterin)', () => {
     const md = htmlToMarkdown(FIXTURE_JOB1_HTML);

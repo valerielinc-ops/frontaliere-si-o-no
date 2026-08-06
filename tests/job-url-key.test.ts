@@ -107,19 +107,74 @@ describe('mergeUrlKey Bank Cler requisition rule (Rule K — slug-drift class)',
   it('does NOT change keys for non-Cler hosts (host-gated, no re-key)', () => {
     expect(mergeUrlKey('https://example.com/careers/title-2589')).toBe('url:https://example.com/careers/title-2589');
   });
-  // #4205 item 3 — Rule K is host-gated on cler.ch but ALSO requires the leaf
-  // to end in a digit run (trailingDigitRunFromLeaf); a cler.ch URL whose
-  // leaf carries no trailing digits (host matches, per-job token doesn't)
-  // falls through Rule K/L/R/X to Rule C, which always returns a non-empty
-  // `url:`-prefixed key for any non-empty input — never ''. This confirms the
-  // whole-URL fallback stays a STABLE, non-empty key (so callers like
+  // #4205 item 3 — a cler.ch LISTING url (the leaf IS the `offene-stellen`
+  // segment, there is no per-job slug after it) has no per-job token at all,
+  // so it falls through Rule K/L/R/X to Rule C, which always returns a
+  // non-empty `url:`-prefixed key — never ''. This confirms the whole-URL
+  // fallback stays a STABLE, non-empty key (so callers like
   // dedupeClerJobsByStableId never mistake it for "no derivable id").
-  it('falls back to a stable whole-URL key when the cler.ch leaf has no trailing digit run', () => {
+  // Scope note (#5230): the leaf-based key added below is gated on the
+  // `/offene-stellen/<slug>` DETAIL shape precisely so this listing url keeps
+  // its whole-URL key instead of collapsing every locale's listing onto one.
+  it('falls back to a stable whole-URL key for a cler.ch listing url (no per-job slug)', () => {
     const url = 'https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen';
     const key = mergeUrlKey(url);
     expect(key).toBe(`url:${url.toLowerCase()}`);
     expect(key).not.toBe('');
     expect(mergeUrlKey(url)).toBe(mergeUrlKey(url));
+  });
+
+  // #5230 — the audit's only CRITICAL crawler was banca-cler at 18/22 (82%)
+  // "duplicate listings". Cause: Rule K only fired when the leaf ENDED in a
+  // digit run. Cler's apprenticeship/internship slugs carry no requisition
+  // suffix, so they fell through to Rule C's whole-URL key — and cler.ch
+  // still serves every posting under BOTH the legacy `…/jobs-und-karriere/…`
+  // and the relaunched `…/jobs-und-karriere-2026/…` ancestor (verified
+  // 2026-08-06: both HTTP 200, same <title>, each SELF-canonical), so the same
+  // job was emitted twice. This is #3497's duplication, still live for every
+  // non-numeric slug.
+  const LEGACY = 'https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen';
+  const RELAUNCH = 'https://www.cler.ch/de/bank-cler/jobs-und-karriere-2026/suchen-und-bewerben/offene-stellen';
+
+  it('collapses a requisition-less slug across the jobs-und-karriere-2026 ancestor split', () => {
+    const slug = 'du-willst-mehr-als-nur-einen-schreibtischjob-aka-lehrstelle-kauffrau-kaufmann-efz-bank-region-bern';
+    expect(mergeUrlKey(`${LEGACY}/${slug}`)).toBe(`req:cler.ch:slug:${slug}`);
+    expect(mergeUrlKey(`${LEGACY}/${slug}`)).toBe(mergeUrlKey(`${RELAUNCH}/${slug}`));
+  });
+
+  it('collapses a requisition-less slug across the de/it locale path variants', () => {
+    // Same posting, German and Italian career sections — different locale,
+    // different section wording, identical leaf.
+    const slug = 'du-willst-lernen-wie-man-beim-thema-zahlen-fuer-ein-echtes-aha-sorgt-aka-bem-praktikum-region-basel';
+    const de = `https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/${slug}`;
+    const it = `https://www.cler.ch/it/banca-cler/jobs-und-karriere/cercare-candidatura/offene-stellen/${slug}`;
+    expect(mergeUrlKey(de)).toBe(mergeUrlKey(it));
+  });
+
+  // The other half of #5230: trailingDigitRunFromLeaf returns ANY trailing run,
+  // so a 1-digit slug disambiguator was read as a requisition id. Every Cler
+  // slug ending in `-2` keyed to `req:cler.ch:2` — silently merging unrelated
+  // postings (an over-collapse DROPS a real job, worse than duplicating one).
+  it('does not mistake a 1-digit slug disambiguator for a requisition id', () => {
+    const bern = `${LEGACY}/du-willst-lernen-wie-man-beim-thema-zahlen-fuer-ein-echtes-aha-sorgt-aka-bem-praktikum-region-bern-2`;
+    const other = `${LEGACY}/kundenberaterin-basis-thun-w-m-2`;
+    expect(mergeUrlKey(bern)).not.toBe('req:cler.ch:2');
+    expect(mergeUrlKey(bern)).not.toBe(mergeUrlKey(other));
+  });
+
+  it('still collapses a disambiguator-suffixed slug across the ancestor split', () => {
+    const slug = 'du-willst-lernen-wie-man-beim-thema-zahlen-fuer-ein-echtes-aha-sorgt-aka-bem-praktikum-region-bern-2';
+    expect(mergeUrlKey(`${LEGACY}/${slug}`)).toBe(mergeUrlKey(`${RELAUNCH}/${slug}`));
+  });
+
+  it('keeps the 3-4 digit requisition id winning over the leaf key', () => {
+    const slug = 'consulente-alla-clientela-privata-individuale-lugano-f-m-2690';
+    expect(mergeUrlKey(`${LEGACY}/${slug}`)).toBe('req:cler.ch:2690');
+  });
+
+  it('does NOT apply the leaf key to non-Cler hosts (host-gated)', () => {
+    const url = 'https://example.com/careers/offene-stellen/lehrstelle-kauffrau-efz-region-bern';
+    expect(mergeUrlKey(url)).toBe(`url:${url}`);
   });
 });
 

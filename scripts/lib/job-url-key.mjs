@@ -95,6 +95,37 @@ export const UMANTIS_VACANCY_PATH_RE = /\/vacancies\/(\d+)(?:\/|$)/;
 // all of them (#3497). Host-gated so no other crawler's key changes.
 const CLER_HOST_RE = /(?:^|\/\/)(?:www\.)?cler\.ch(?:[:/]|$)/;
 
+// #5230 — Rule K's requisition extraction only fires when the leaf ENDS in a
+// digit run, and that assumption leaks in both directions:
+//
+//   OVER-COLLAPSE. `trailingDigitRunFromLeaf` returns any trailing run, so a
+//   slug DISAMBIGUATOR (`…-bem-praktikum-region-bern-2`) is read as a
+//   requisition id and keys to `req:cler.ch:2` — which every other Cler slug
+//   ending in `-2` also maps to, silently merging unrelated postings onto one
+//   key. Cler requisition ids are 3-4 digits (see comment above), so a 1-2
+//   digit trailing run is never one; require CLER_MIN_REQ_DIGITS.
+//
+//   UNDER-COLLAPSE (the #5230 failure). Many Cler postings carry NO requisition
+//   suffix at all — the apprenticeship/internship slugs are pure title text
+//   (`…-aka-lehrstelle-kauffrau-kaufmann-efz-bank-region-bern`). Those fall
+//   through Rule K to Rule C's whole-URL key, which is exactly what #3497 was
+//   about: the site still serves every posting under BOTH the legacy
+//   `…/jobs-und-karriere/…` and the relaunched `…/jobs-und-karriere-2026/…`
+//   ancestor (verified 2026-08-06 — both return HTTP 200 with the same title
+//   and a SELF-referencing canonical, so neither path retires), and the two
+//   whole-URL keys differ → the same posting is emitted twice. Rule K fixed
+//   this for numeric slugs only; non-numeric slugs stayed duplicated.
+//
+// The fix for the second case is to key on the LEAF, which is the posting's
+// identity across every ancestor/locale variant Cler publishes (the Italian
+// path `…/it/banca-cler/jobs-und-karriere/cercare-candidatura/offene-stellen/…`
+// carries the SAME leaf as the German one). Gated on the `/offene-stellen/<leaf>`
+// detail shape so LISTING urls — where the leaf is the shared `offene-stellen`
+// segment itself — keep falling through to the whole-URL key instead of
+// collapsing every locale's listing page onto one key.
+const CLER_MIN_REQ_DIGITS = 3;
+const CLER_DETAIL_LEAF_RE = /\/offene-stellen\/([^/?#]+)$/i;
+
 // ETA SA (Swatch Group) job urls: eta.ch/…/vacancies/detail/<reqId>. Same
 // slug-drift class as Cler above — eta.ch's requisition id is only 4 digits
 // (below the generic \b\d{6,}\b threshold) and the site toggles an ANCESTOR
@@ -354,7 +385,14 @@ export function mergeUrlKey(url) {
   // CLER_HOST_RE above for the incident this caused.
   if (CLER_HOST_RE.test(u)) {
     const req = trailingDigitRunFromLeaf(leaf);
-    if (req) return `req:cler.ch:${req}`;
+    // Only a 3-4 digit run is a real requisition id — a shorter one is a slug
+    // disambiguator and would collide unrelated postings (see #5230 above).
+    if (req.length >= CLER_MIN_REQ_DIGITS) return `req:cler.ch:${req}`;
+    // No requisition id in the slug: key on the detail leaf so the posting
+    // survives the `jobs-und-karriere` → `jobs-und-karriere-2026` ancestor
+    // split (and the de/it locale paths) instead of duplicating under Rule C.
+    const detailLeaf = u.split(/[?#]/)[0].match(CLER_DETAIL_LEAF_RE);
+    if (detailLeaf) return `req:cler.ch:slug:${detailLeaf[1]}`;
   }
 
   // Rule L — ETA SA (Swatch Group) requisition id (host-gated). Same
