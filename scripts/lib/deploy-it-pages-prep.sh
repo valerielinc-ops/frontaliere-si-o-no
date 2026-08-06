@@ -835,8 +835,35 @@ main() {
   PREP_CWD="$(pwd)"
   export PREP_CWD
 
+  # ── EARLY-CDN-PUSH MODE (deploy.yml "Push generated assets to CDN (early)") ─
+  # Runs section 2 ALONE and returns. deploy.yml hoists it ahead of the IT
+  # section-shard fan-out so the #2569 marker turns ~40min earlier and the
+  # en/de/fr ordering gate stops living on the edge of its 2700s budget (run
+  # 31076991699: matched with 0s to spare; run 31062047677: all three timed
+  # out). See that step's comment for why the payload bytes are identical at
+  # either call site. Everything else in this script still runs, in the
+  # original order, from the normal (unflagged) invocation below.
+  if [ "${DEPLOY_CDN_PUSH_ONLY:-}" = "1" ]; then
+    run_nonfatal "Push generated assets to CDN repo (early phase)" step_push_cdn
+    if [ -n "${CDN_BASE:-}" ]; then
+      echo "✅ early CDN push complete — CDN_BASE exported, the full prep will skip its own push"
+    else
+      # NOT an error: the full prep below still performs the push at its
+      # original position, exactly as before this phase existed.
+      echo "::warning::[deploy-it-pages-prep] early CDN push did not publish (CDN_BASE unset) — the full prep will retry it at its original position"
+    fi
+    return 0
+  fi
+
   run_fatal "SPA fallback" step_spa_fallback                        # FATAL
-  run_nonfatal "Push generated assets to CDN repo" step_push_cdn     # non-fatal
+  # Skipped iff the early phase above already published THIS build's payload
+  # (it exported CDN_BASE into $GITHUB_ENV, which GitHub injects into this
+  # step's env). Unset → push here, i.e. the pre-hoist behaviour verbatim.
+  if [ -n "${CDN_BASE:-}" ]; then
+    echo "CDN_BASE=$CDN_BASE already set by the early CDN push phase — skipping the CDN push (payload for this build is live)"
+  else
+    run_nonfatal "Push generated assets to CDN repo" step_push_cdn   # non-fatal
+  fi
   run_nonfatal "Offload og refs + data base into dist" step_offload  # non-fatal
   run_nonfatal "Prune superseded CDN asset hashes" step_prune_cdn    # non-fatal
   run_fatal "Drop dist/assets after CDN push" step_drop_assets       # FATAL
