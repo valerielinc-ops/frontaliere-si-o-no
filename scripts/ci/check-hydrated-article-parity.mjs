@@ -37,16 +37,24 @@
  * survived 28 hours. Do not "simplify" these headers away.
  *
  * WHAT IT COMPARES
- *   side A — the article slugs the SSG wrote into `.ssg-article-grid`.
- *   side B — the literal text of the data surfaces the client itself loads:
- *            the registry chunk, the slug map, and the runtime overlay index.
+ *   side A — the articles the SSG wrote into `.ssg-article-grid`, resolved
+ *            from their URL slug to their id through the publisher's
+ *            `slugs.json`.
+ *   side B — the ids the client actually holds: the compiled registry chunk
+ *            plus the runtime overlay index.
  *
- * A slug in A that appears nowhere in B is an article the client cannot
- * render or cannot link: hydration drops it. That is the failure, and it is
- * reported per-slug rather than as a count, because the count alone reads as
- * noise while the slugs read as an outage.
+ * ON IDS, NEVER ON SLUGS. The registry is keyed by `id`; the URL carries a
+ * per-locale `slug`, and the two differ on most evergreen articles
+ * (`stipendio-netto-2026` vs `stipendio-netto-frontaliere-2026`) and on EVERY
+ * non-Italian URL. Grepping rendered slugs inside the bundles is what made an
+ * earlier investigation report "zero matches" against a perfectly healthy
+ * corpus and go after the wrong root cause.
  *
- * Exit 0 when every rendered slug is present in the client's data, 1 otherwise.
+ * An id in A that is missing from B is an article hydration drops. Reported
+ * per-article, not as a count: a count reads as noise, the list reads as an
+ * outage.
+ *
+ * Exit 0 when the client holds every rendered article, 1 otherwise.
  * Network trouble reaching a surface is exit 1 as well: this gate exists to be
  * believed, so it must never pass by failing to look.
  *
@@ -67,6 +75,8 @@ const has = (name) => args.includes(`--${name}`);
 
 const SITE = flag('base', 'https://frontaliereticino.ch').replace(/\/$/, '');
 const CDN = flag('cdn', 'https://cdn.frontaliereticino.ch').replace(/\/$/, '');
+/** The publisher's API — the authority on which slug belongs to which id. */
+const API = flag('api', 'https://nanakokyobashi-rgb.github.io/frontaliere-articles').replace(/\/$/, '');
 const SECTION = flag('section', 'frontaliere');
 const LOCALE = flag('locale', 'it');
 const AS_JSON = has('json');
@@ -117,12 +127,23 @@ const CLIENT_SURFACES = SECTION === 'svizzera'
  */
 const OVERLAY_BUCKET = Math.floor(Date.now() / (5 * 60 * 1000));
 /**
- * `--overlay=` overrides the URL. It exists so this gate can be verified BY
- * MUTATION rather than trusted: pointing it at the un-bucketed
- * `…/blog-index-<section>-<locale>.json` reproduces the pre-fix client and
- * must turn the gate red. A gate that stays green when aimed at the known
- * defect is worse than no gate, so re-run that mutation whenever this file
- * changes.
+ * `--overlay=` overrides the URL, so this gate can be aimed at the pre-fix
+ * client (the un-bucketed `…/blog-index-<section>-<locale>.json`) and checked
+ * against a known defect instead of trusted.
+ *
+ * Done on 2026-08-06 while production still had the drift: the gate named
+ * exactly the six articles a browser had been dropping —
+ * `frontalierieticinoaumento`, `frontaliere-nascita-figlio-anagrafe-2026`,
+ * `borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga`,
+ * `disavanzo-cantonale-ticino-frontalieri`,
+ * `nascita-figlio-frontaliero-entro-20km`,
+ * `mendrisio-strada-serpiano-urgenti-lavori` — matching the Chrome
+ * measurement exactly.
+ *
+ * Be aware that this mutation reproduces ONLY while the stale variant is still
+ * being served: once the edge copy catches up, the same command passes because
+ * there is genuinely nothing missing. A green result from it therefore proves
+ * nothing on its own — it is not a substitute for the recorded run above.
  */
 const OVERLAY_URL = flag(
   'overlay',
@@ -209,20 +230,62 @@ if (slugs.length === 0) {
   );
 }
 
-// Every client surface, fetched the way the client fetches it.
-let clientText = '';
-for (const url of [...CLIENT_SURFACES, OVERLAY_URL]) {
+/**
+ * Compare on ids, never on slugs.
+ *
+ * The registry the client renders from is keyed by `id`; the URL carries a
+ * per-locale `slug`, and the two differ on most evergreen articles
+ * (`stipendio-netto-2026` vs `stipendio-netto-frontaliere-2026`) and on EVERY
+ * non-Italian URL. Grepping rendered slugs inside the bundles is what made an
+ * earlier investigation report "zero matches" on a healthy corpus and chase
+ * the wrong root cause. So: resolve each rendered slug to its id through the
+ * publisher's own `slugs.json`, then ask whether the client HAS that id.
+ *
+ * That is the question this gate exists to answer — can the client render what
+ * the server rendered — and it is deliberately NOT the same as "can it build
+ * the href", which the runtime slug map answers separately.
+ */
+const reverseKey = SECTION === 'svizzera' ? 'swissReverse' : 'blogReverse';
+let reverse;
+try {
+  const r = await getText(`${API}/slugs.json`, { 'User-Agent': BROWSER_HEADERS['User-Agent'] });
+  reverse = JSON.parse(r.body)?.[reverseKey]?.[LOCALE];
+  if (!reverse || typeof reverse !== 'object') {
+    fail(`slugs.json has no ${reverseKey}.${LOCALE} map — cannot resolve rendered slugs to ids`);
+  }
+} catch (err) {
+  fail(`could not read the publisher's slugs.json — refusing to pass without looking: ${err.message}`);
+}
+
+// Ids the client actually holds: the compiled registry plus the runtime
+// overlay, both fetched the way the client fetches them.
+const clientIds = new Set();
+for (const url of CLIENT_SURFACES) {
   try {
     const r = await getText(url, BROWSER_HEADERS);
-    clientText += `\n${r.body}`;
     report.surfaces[url] = { bytes: r.body.length, lastModified: r.lastModified };
+    for (const m of r.body.matchAll(/\bid:"([a-z0-9][a-z0-9-]*)"/g)) clientIds.add(m[1]);
   } catch (err) {
     fail(`client surface unreadable (${url}): ${err.message}`);
   }
 }
+try {
+  const r = await getText(OVERLAY_URL, BROWSER_HEADERS);
+  report.surfaces[OVERLAY_URL] = { bytes: r.body.length, lastModified: r.lastModified };
+  for (const a of JSON.parse(r.body)?.articles ?? []) {
+    if (a && typeof a.id === 'string') clientIds.add(a.id);
+  }
+} catch (err) {
+  fail(`overlay index unreadable (${OVERLAY_URL}): ${err.message}`);
+}
+report.clientIds = clientIds.size;
 
-// A slug the client's own data never mentions is one it cannot render or link.
-const missing = slugs.filter((s) => !clientText.includes(s));
+// A rendered article whose id the client does not hold is one hydration drops.
+const missing = [];
+for (const s of slugs) {
+  const id = reverse[s] ?? s; // an id-shaped URL resolves to itself
+  if (!clientIds.has(id)) missing.push(id === s ? s : `${s} (id: ${id})`);
+}
 report.missing = missing;
 
 if (AS_JSON) console.log(JSON.stringify(report, null, 2));
