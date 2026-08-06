@@ -194,6 +194,38 @@ template-based crawler gets this by construction. A bespoke runner
 `writeJobsCrawlerSlice`. `SKIP_SHRINK_GUARD=1` remains the manual, human-only
 override for a local re-run; it is not the automated path.
 
+### Extraction completeness — catching a partial parse at the source
+
+The shrink guard is a **relative** check (new count vs. prior slice). It cannot
+catch a crawler that was partial from its very first run, nor a slice that
+erodes gradually, and it reports the damage downstream, hours later, where a
+broken parser and a legitimate expiry look identical.
+
+The upstream check is `assertExtractionComplete()`
+(`scripts/lib/extraction-completeness.mjs`). Many boards publish their own
+total — `Job offers (14)` in a profile tab, `totalNumber` in an API payload,
+`123 results` above a list. Where one exists, hold the extractor to it:
+a selector that stops matching then fails **at extraction**, loudly, instead of
+returning a fraction and exiting 0.
+
+This matters because 106 of the 117 bespoke `update-*-jobs.mjs` crawlers
+validate their extraction only by checking it is non-empty, and the shared
+pipelines are no stricter (`crawler-template.mjs` soft-returns on zero
+listings). `update-grace-jobs.mjs` is the reference adoption: it parses the
+hotelcareer profile tab and reconciles before writing anything.
+
+Two rules, mirroring the shrink guard's:
+
+- **A missing declared total is a failure, not a free pass.** If the counter
+  cannot be located, completeness is unverifiable — and a check that cannot
+  check must not report success, or it becomes the thing it was added to
+  prevent.
+- **Over-extraction fails too.** Matching more than the source declares means
+  the selector is picking up navigation or related-job links.
+
+Per-crawler escape hatch (grace: `JOBS_GRACE_SKIP_COUNT_CHECK=1`) for the case
+where the mismatch is understood; it never reports the run as verified.
+
 ## Slug Lifecycle & SEO Continuity
 
 When a job's slug changes (via relocalize or hardenJobLocaleFields), the old slug is preserved in `previousSlugs[]` on the job object. The build plugin (`jobsSeoPagesPlugin`) uses `previousSlugs` to generate **bridge pages** (canonical redirect pages) so old indexed URLs don't 404.

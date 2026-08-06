@@ -43,6 +43,14 @@ const STRONG_PHRASES = [
   'this job posting is no longer active',
   'job posting is no longer active',
   'sorry, this position is no longer open',
+  // "job ad"/"job advert" wording (hotelcareer.com and the StepStone family).
+  // NOT covered by 'this job is no longer available' above: substring matching
+  // breaks on the interposed noun ("this job **ad** is no longer available"),
+  // so the tombstone read as "still live" and every genuine expiry became
+  // unprovable evidence for the shrink guard (#5200).
+  'job ad is no longer available',
+  'job advert is no longer available',
+  'job ad is no longer online',
   // Italian
   'questa posizione non è più disponibile',
   'questa offerta non è più disponibile',
@@ -61,6 +69,12 @@ const STRONG_PHRASES = [
   'stellenangebot nicht mehr verfügbar',
   'stelle nicht mehr offen',
   'bewerbung geschlossen',
+  // hotelcareer.de / stepstone wording. Both spellings are needed: the live
+  // page interposes "leider", which defeats a substring match on the shorter
+  // form, and neither is reachable from 'diese stelle ist nicht mehr
+  // verfügbar' because "Stellenanzeige" is a different noun (#5200).
+  'stellenanzeige ist leider nicht mehr verfügbar',
+  'stellenanzeige ist nicht mehr verfügbar',
   // French
   'cette offre n\'est plus disponible',
   'ce poste n\'est plus disponible',
