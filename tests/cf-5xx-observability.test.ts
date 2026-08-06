@@ -222,3 +222,47 @@ describe('history file', () => {
     expect(rendered).toContain('worker-shard=6');
   });
 });
+
+describe('byHostStatusCache — the cross-tab that decides the next move', () => {
+  const rows = [
+    { hour: 'h', edgeStatus: 502, originStatus: 0, cacheStatus: 'none', host: 'cdn.frontaliereticino.ch', count: 235 },
+    { hour: 'h', edgeStatus: 503, originStatus: 0, cacheStatus: 'hit', host: 'frontaliereticino.ch', count: 175 },
+    { hour: 'h', edgeStatus: 503, originStatus: 0, cacheStatus: 'none', host: 'frontaliereticino.ch', count: 22 },
+  ];
+
+  it('keeps host, status and cache outcome together instead of as three marginals', () => {
+    // The marginals cannot express this: byHost says 197 on the apex, byCacheStatus says 175
+    // hits somewhere, and neither says the hits were on the apex. That gap forced a live
+    // GraphQL query on 2026-08-06 to answer the question the reopened #5082 turns on.
+    const s = summarizeDiagnostics(rows);
+    expect(s.byHostStatusCache['frontaliereticino.ch|503|hit']).toBe(175);
+    expect(s.byHostStatusCache['cdn.frontaliereticino.ch|502|none']).toBe(235);
+    expect(s.byHostStatusCache['frontaliereticino.ch|503|none']).toBe(22);
+  });
+
+  it('does not disturb the marginals a prior snapshot already recorded', () => {
+    // The one history line written before the cross-tab existed must stay readable.
+    const s = summarizeDiagnostics(rows);
+    expect(s.total).toBe(432);
+    expect(s.byHost['frontaliereticino.ch']).toBe(197);
+    expect(s.byCacheStatus.hit).toBe(175);
+  });
+
+  it('still counts staleRescuable only on the surface that HAS serve_stale', () => {
+    // 175 cached-copy 5xx exist, but on the apex — where the rule is not configured. Counting
+    // them would claim the mitigation was working when it demonstrably is not.
+    expect(summarizeDiagnostics(rows).staleRescuable).toBe(0);
+  });
+
+  it('flags the servable rows in the report so the asymmetry is visible without jq', () => {
+    const rendered = renderReport([
+      {
+        ts: '2026-08-06T06:18:00Z', total5xx: 432, synthesized5xx: 432, staleRescuable5xx: 0,
+        bySurface: { 'cdn-r2': { total: 235 } },
+        byHostStatusCache: summarizeDiagnostics(rows).byHostStatusCache,
+      },
+    ] as never);
+    expect(rendered).toContain('copia servibile');
+    expect(rendered).toMatch(/frontaliereticino\.ch\s+503\s+hit/);
+  });
+});
