@@ -190,19 +190,28 @@ jobs:
       # ── Round cap + capability guard (deterministico, prima di Claude) ────
       # Conta i marker `<!-- REDFLAG_FIX_ROUND: N -->` già sulla PR. A N>=2 →
       # escalation a needs-human, STOP senza Claude. Altrimenti incrementa.
-      # Capability guard: se la PR tocca .github/workflows/** e non c'è PAT, il
-      # push verrebbe rifiutato (scope workflows) → skip senza bruciare un turno.
-      # NB HAS_PAT resta legato SOLO a GITHUB_PAT (non `|| env.APP_TOKEN` come
-      # negli altri sibling migrati): la App installation token NON ha lo scope
-      # `workflows` (vedi issue-fix.yml capability guard) → un push di .github/
-      # workflows/** autenticato col solo APP_TOKEN fallirebbe comunque.
+      # Capability guard: se la PR tocca .github/workflows/** e non c'è nessun token
+      # capace, il push verrebbe rifiutato (scope workflows) → skip senza bruciare
+      # un turno.
+      #
+      # HAS_PAT accetta ORA anche APP_TOKEN. Fino al 2026-08-06 era legato al solo
+      # GITHUB_PAT, e il commento lo giustificava con "la App installation token NON
+      # ha lo scope workflows": era vero, ha smesso di esserlo quando alla App
+      # `frontaliere-automation` è stato concesso `workflows: write`. Lasciarlo com'era
+      # avrebbe fatto continuare a saltare i fix su .github/workflows/** con la
+      # motivazione "serve un PAT abilitato" mentre il push sarebbe passato — cioè la
+      # stessa capability sbloccata in un posto e ancora rifiutata nel gemello.
+      #
+      # Allineato al push step più sotto, che era già token-aware
+      # (`env.APP_TOKEN || env.GITHUB_PAT`): erano i due lati della stessa decisione,
+      # tenuti in disaccordo.
       - name: Round cap + capability guard + tier
         id: guard
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
-          HAS_PAT: ${{ env.GITHUB_PAT != '' }}
+          HAS_PAT: ${{ env.APP_TOKEN != '' || env.GITHUB_PAT != '' }}
         run: |
           set -uo pipefail
           MAX_ROUNDS=2

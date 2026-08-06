@@ -92,3 +92,31 @@ describe('issue-fix.yml — App token wiring', () => {
     expect(prompt).toContain('CF_API_TOKEN');
   });
 });
+
+describe('i sibling che assumevano l\'assenza dello scope (review round 1)', () => {
+  const redflag = readFileSync(resolve(__dirname, '../.github/workflows/pr-redflag-fixer.yml'), 'utf8');
+  const drainer = readFileSync(resolve(__dirname, '../scripts/ci/followup-drainer.mjs'), 'utf8');
+
+  it('il 🔴-fixer accetta anche APP_TOKEN come capability', () => {
+    // Era legato al solo GITHUB_PAT, con un commento che lo giustificava dicendo che la App
+    // non ha lo scope workflows — vero fino al 2026-08-06. Lasciarlo avrebbe fatto saltare i
+    // fix su .github/workflows/** con la motivazione "serve un PAT abilitato" mentre il push
+    // sarebbe passato: la stessa capability sbloccata in un posto e ancora rifiutata nel gemello.
+    expect(redflag).toMatch(/HAS_PAT: \$\{\{ env\.APP_TOKEN != '' \|\| env\.GITHUB_PAT != '' \}\}/);
+  });
+
+  it('il guard e il push step del 🔴-fixer sono d\'accordo sulla stessa condizione', () => {
+    // Erano i due lati della stessa decisione, tenuti in disaccordo: il push era già
+    // token-aware mentre il guard no, quindi il guard saltava fix che il push avrebbe fatto.
+    const condizioni = [...redflag.matchAll(/env\.APP_TOKEN != '' \|\| env\.GITHUB_PAT != ''/g)];
+    expect(condizioni.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it('il drainer non parcheggia più come terminale quando issue-fix può pushare', () => {
+    // Il parcheggio è TERMINALE (fu-parked) e porta una motivazione scritta. Con la capability
+    // sbloccata quella motivazione è falsa, e una follow-up archiviata con una spiegazione
+    // sbagliata non viene più rimessa in discussione da nessuno.
+    expect(drainer).toMatch(/const issueFixCanPushWorkflows = Boolean\(process\.env\.APP_TOKEN\)/);
+    expect(drainer).toMatch(/if \(!issueFixCanPushWorkflows && body && detectWorkflowScoped/);
+  });
+});
