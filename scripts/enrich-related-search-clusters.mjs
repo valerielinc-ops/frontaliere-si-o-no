@@ -38,6 +38,7 @@ import { lineDelimitedObjectMap, serializeWithLineDelimited } from './lib/relate
 // truth shared with the commit gate (scripts/lib/assert-file-size-ceiling.mjs)
 // so the in-writer check and the CI staging check can never drift (#1576, #1651, #1658).
 import { OUTPUT_SIZE_LIMIT_BYTES } from './lib/related-search-output-limit.mjs';
+import { isPromptPlaceholder } from './lib/prompt-placeholder.mjs';
 
 // ── Paths ──────────────────────────────────────────────────────────────
 const __filename = fileURLToPath(import.meta.url);
@@ -227,12 +228,26 @@ function validateEnrichment(parsed) {
   const intro = typeof parsed.intro === 'string' ? parsed.intro.trim() : '';
   const faqs = Array.isArray(parsed.faqs) ? parsed.faqs : [];
   if (!intro) return { ok: false, reason: 'missing intro' };
+  // The model handing the JSON skeleton back instead of filling it passes every
+  // check below — non-empty strings, exactly FAQ_COUNT entries — so without this
+  // the echo is accepted, stamped `cachedFor`, and never retried. 76 of 7,089
+  // entries in data/related-search-enriched.json are in that state (oldest
+  // 2026-07-13), and because a non-blank intro is the only exemption from
+  // MIN_JOBS_FOR_INDEXABLE_CLUSTER, each one buys a zero-job cluster an
+  // indexable page whose whole body is this prompt. Rejecting spends the retry
+  // the loop already has instead of poisoning the corpus.
+  if (isPromptPlaceholder(intro)) {
+    return { ok: false, reason: 'intro is the unfilled prompt placeholder' };
+  }
   if (faqs.length !== FAQ_COUNT) return { ok: false, reason: `expected ${FAQ_COUNT} faqs, got ${faqs.length}` };
   for (const f of faqs) {
     if (!f || typeof f.q !== 'string' || typeof f.a !== 'string') {
       return { ok: false, reason: 'malformed faq entry' };
     }
     if (!f.q.trim() || !f.a.trim()) return { ok: false, reason: 'empty faq field' };
+    if (isPromptPlaceholder(f.q) || isPromptPlaceholder(f.a)) {
+      return { ok: false, reason: 'faq field is the unfilled prompt placeholder' };
+    }
   }
   return { ok: true, intro, faqs };
 }
