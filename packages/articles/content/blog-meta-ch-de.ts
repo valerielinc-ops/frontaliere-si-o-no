@@ -1882,6 +1882,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.snl-ricorso-lago-maggiore.title': 'SNL-Klage am Lago Maggiore: Risiken für das Gebiet',
     'blog.article.snl-ricorso-lago-maggiore.excerpt': 'Der Einspruch von SNL eröffnet eine neue Phase der Konfrontation bei der kantonalen Finanzierung der Schifffahrt auf dem Verbano, mit möglichen Auswirkungen auf die Arbeitnehmer und die lokale Wirtschaft.',
     'blog.article.snl-ricorso-lago-maggiore.imageAlt': 'Blick auf den Lago Maggiore bei Locarno mit Fähren und Alpen im Hintergrund',
+    'blog.article.marina-carobbio-guscetti-fiducia-istituzioni.title': 'Für das Gemeinwohl arbeiten: «Ich habe Vertrauen in die Institutionen»',
+    'blog.article.marina-carobbio-guscetti-fiducia-istituzioni.excerpt': 'Staatsratspräsidentin Marina Carobbio Guscetti machte bei der Eröffnungsfeier des Locarno Film Festivals auf den Wert der Institutionen aufmerksam.',
+    'blog.article.marina-carobbio-guscetti-fiducia-istituzioni.imageAlt': 'Marina Carobbio Guscetti bei der Eröffnungsfeier des Locarno Film Festivals',
 };
 
 export default blogMetaChDe;

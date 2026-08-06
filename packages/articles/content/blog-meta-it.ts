@@ -9290,6 +9290,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nascita-figlio-frontaliero-entro-20km.title': 'Nascita figlio frontaliero entro 20 km: anagrafe 2026',
     'blog.article.nascita-figlio-frontaliero-entro-20km.excerpt': 'Guida pratica per frontalieri entro 20 km dal confine: iscrizione anagrafico del neonato, assegni familiari e procedure consolari secondo le norme 2026.',
     'blog.article.nascita-figlio-frontaliero-entro-20km.imageAlt': 'Frontaliere con passeggino vicino al valico di Brogeda, Alpi svizzere sullo sfondo',
+    'blog.article.disavanzo-cantonale-ticino-frontalieri.title': 'Disavanzo cantonale Ticino: -49,7 milioni, miglioramento per frontalieri',
+    'blog.article.disavanzo-cantonale-ticino-frontalieri.excerpt': 'Il disavanzo stimato a -49,7 milioni di franchi a giugno 2025 migliora di 8,3 milioni rispetto al preventivo, con impatto diretto su AVS/AI e salari cantonali',
+    'blog.article.disavanzo-cantonale-ticino-frontalieri.imageAlt': 'Panorama di Bellinzona con montagne in background',
 };
 
 export default blogMetaIt;
