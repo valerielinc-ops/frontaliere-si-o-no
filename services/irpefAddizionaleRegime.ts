@@ -32,7 +32,7 @@
  * MEF/comune-by-comune source; it is tracked separately. What IS derivable
  * from the committed data, and is fixed here, is the no-surcharge regime.
  */
-import type { Municipality } from '@/data/municipalities';
+import type { Municipality } from '../data/municipalities';
 
 /**
  * Italian provinces whose comuni levy NO addizionale comunale IRPEF because

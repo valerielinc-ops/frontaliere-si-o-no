@@ -35,7 +35,7 @@
  * DGALN/DHUP "Carte des loyers" 2025, with `rentSource` and `rentObs`
  * observation counts per commune — and must NOT be labelled an estimate.
  */
-import { MUNICIPALITIES } from '@/data/municipalities';
+import { MUNICIPALITIES } from '../data/municipalities';
 
 /** Only the fields this module needs, so callers can pass partial records. */
 export interface RentBearingMunicipality {
