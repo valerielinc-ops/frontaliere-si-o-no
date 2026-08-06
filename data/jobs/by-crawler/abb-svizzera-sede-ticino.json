@@ -1320,11 +1320,13 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "global-quality-specialist-ups-abb-svizzera-sede-ticino-quartino-ticino"
+          "global-quality-specialist-ups-abb-svizzera-sede-ticino-quartino-ticino",
+          "process-quality-specialista-80-100-abb-svizzera-sede-ticino-quartino"
         ]
       },
       "previousSlugs": [
-        "global-quality-specialist-ups-abb-svizzera-sede-ticino-quartino-ticino"
+        "global-quality-specialist-ups-abb-svizzera-sede-ticino-quartino-ticino",
+        "process-quality-specialista-80-100-abb-svizzera-sede-ticino-quartino"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1342,9 +1344,9 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 85500,
-      "salaryMax": 150000
+      "salaryMax": 150000,
+      "needsRetranslation": true
     },
     {
       "id": "company-h2l5v5",

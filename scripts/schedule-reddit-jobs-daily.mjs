@@ -40,6 +40,7 @@ import {
 
 import { getAccessToken, submitPost, userAgent } from './lib/reddit-client.mjs';
 import { buildJobPost } from './lib/reddit-templates.mjs';
+import { automationEligibleSubs } from './lib/redditAutomationPolicy.mjs';
 
 // Re-export the channel-agnostic helpers so tests can import them from
 // this module directly (mirrors the FB scheduler).
@@ -128,24 +129,19 @@ export function loadSubreddits(repoRoot) {
 // ── Pure utilities (exported for tests) ─────────────────────
 
 /**
- * Resolve the automation-enabled subreddit names routed for a topic.
- * Returns an array of `{ name, config }` for subs whose
- * `subreddits[name].allowsAutomation === true`, preserving routing order.
+ * Resolve the subreddits automation may post to for a topic, in routing order.
+ * Delegates to the shared policy module: a sub qualifies only when the data
+ * file enables it AND the policy list approves it.
  *
  * @param {object} config — parsed reddit-subreddits.json
  * @param {string} topic — e.g. 'jobs' | 'articles'
  * @returns {Array<{ name: string, config: object }>}
  */
-export function eligibleSubsForTopic(config, topic) {
-  const routed = Array.isArray(config?.routing?.[topic]) ? config.routing[topic] : [];
-  const out = [];
-  for (const name of routed) {
-    const sub = config?.subreddits?.[name];
-    if (sub && sub.allowsAutomation === true) {
-      out.push({ name, config: sub });
-    }
-  }
-  return out;
+export function eligibleSubsForTopic(config, topic, opts) {
+  // `allowsAutomation` is the operator switch; the policy list is the
+  // authorisation. Both must agree — see scripts/lib/redditAutomationPolicy.mjs
+  // for why this is not decided by the data file alone.
+  return automationEligibleSubs(config, topic, opts);
 }
 
 /**

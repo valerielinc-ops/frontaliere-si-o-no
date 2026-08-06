@@ -18,6 +18,8 @@ import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
+import { findLocalizationViolations } from './lib/whats-new-localization-guard.mjs';
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 
@@ -31,6 +33,10 @@ const LOCALE_FILES = {
 };
 
 const applyMode = process.argv.includes('--apply');
+// `--strict` makes an unpublishable set a hard failure (exit 1). Default is
+// exit 0 with a loud message: the pre-push hook runs this, and a missing
+// translation must never block a push — but it must never ship either.
+const strictMode = process.argv.includes('--strict');
 
 // ── Load AI model service ──
 let callLLM;
@@ -186,22 +192,13 @@ const AVAILABLE_ROUTES = [
 // ── Generate i18n translations ──
 async function generateTranslations(items) {
   if (!callLLM) {
-    // Fallback: Italian-only, raw commit descriptions, no links
-    const result = {};
-    for (const locale of ['it', 'en', 'de', 'fr']) {
-      result[locale] = {};
-      result[locale][`whatsNew.${versionKey}.title`] = locale === 'it'
-        ? 'Aggiornamenti e miglioramenti'
-        : locale === 'en' ? 'Updates and improvements'
-        : locale === 'de' ? 'Aktualisierungen und Verbesserungen'
-        : 'Mises à jour et améliorations';
-      for (const item of items) {
-        result[locale][item.titleKeyBase] = item.description.slice(0, 50);
-        result[locale][item.descKeyBase] = item.description;
-        item.link = null;
-      }
-    }
-    return result;
+    // NO FALLBACK TO COMMIT TEXT. This used to copy `item.description` (the raw
+    // English commit subject) into all four locales — that is how
+    // 'stop rebuilding dist in cathedral-seo-gates-check,' reached it-core.ts,
+    // de-core.ts and fr-core.ts. Without a translator there is nothing
+    // publishable, so publish nothing and leave the entries pending for a run
+    // that has one.
+    return null;
   }
 
   const routeCatalog = AVAILABLE_ROUTES.map(r =>
@@ -263,12 +260,17 @@ IDs da usare nell'ordine: ${items.map(i => `"${i.id}"`).join(', ')}`;
     const result = {};
     for (const locale of ['it', 'en', 'de', 'fr']) {
       result[locale] = {};
-      result[locale][`whatsNew.${versionKey}.title`] = data.releaseTitle?.[locale] || data.releaseTitle?.it || 'Updates';
+      // Same rule for the release title: `|| data.releaseTitle?.it` put the
+      // ITALIAN heading on the English, German and French modals.
+      result[locale][`whatsNew.${versionKey}.title`] = data.releaseTitle?.[locale];
       for (let i = 0; i < items.length; i++) {
         const item = items[i];
         const aiItem = data.items?.[i] || {};
-        result[locale][item.titleKeyBase] = aiItem.title?.[locale] || item.description.slice(0, 50);
-        result[locale][item.descKeyBase] = aiItem.desc?.[locale] || item.description;
+        // No `|| item.description` fallback: a key the model did not return is
+        // left UNDEFINED so the localization guard rejects the whole set,
+        // rather than silently substituting the commit subject.
+        result[locale][item.titleKeyBase] = aiItem.title?.[locale];
+        result[locale][item.descKeyBase] = aiItem.desc?.[locale];
       }
     }
 
@@ -292,27 +294,35 @@ IDs da usare nell'ordine: ${items.map(i => `"${i.id}"`).join(', ')}`;
     return result;
   } catch (err) {
     console.error(`⚠️  AI translation failed: ${err.message}`);
-    console.error('   Falling back to raw commit descriptions.');
-    return generateTranslations.__fallback(items);
+    // Previously: `return generateTranslations.__fallback(items)`, which wrote
+    // the raw commit descriptions into all four locales. A failed translator
+    // means there is nothing to publish, not that we publish the commit log.
+    return null;
   }
 }
 
-// Fallback for when AI fails — no links assigned
-generateTranslations.__fallback = function (items) {
-  const result = {};
-  for (const locale of ['it', 'en', 'de', 'fr']) {
-    result[locale] = {};
-    result[locale][`whatsNew.${versionKey}.title`] = 'Aggiornamenti';
-    for (const item of items) {
-      result[locale][item.titleKeyBase] = item.description.slice(0, 50);
-      result[locale][item.descKeyBase] = item.description;
-      item.link = null;
-    }
-  }
-  return result;
-};
-
 const translations = await generateTranslations(items);
+
+// ── Localization guard — the property, checked before anything is written ──
+// Nothing reaches a locale file unless it is demonstrably a written release
+// note in four languages. See scripts/lib/whats-new-localization-guard.mjs for
+// why this is a structural gate and not a reviewer's job.
+const violations =
+  translations === null
+    ? ['no translations were produced (translator unavailable or failed)']
+    : findLocalizationViolations({ translations, items, versionKey });
+
+if (violations.length > 0) {
+  console.error('');
+  console.error('🚫 What\'s New NOT published — the entry is not properly localized:');
+  for (const v of violations) console.error(`   • ${v}`);
+  console.error('');
+  console.error(`   ${pending.length} pending entr${pending.length === 1 ? 'y' : 'ies'} left untouched in ${PENDING_FILE.replace(ROOT + '/', '')};`);
+  console.error('   re-run with a working translator (GEMINI_API_KEY / GH_MODELS_PAT) to publish them.');
+  console.error('   Nothing was written: an untranslated note in it/de/fr is worse than no note.');
+  if (flushScores) await flushScores();
+  process.exit(strictMode ? 1 : 0);
+}
 
 // ── Generate RELEASES array entry ──
 const releaseEntry = `  {

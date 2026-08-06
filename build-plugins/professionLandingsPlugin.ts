@@ -39,6 +39,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
 import { resolveProfessionLandingsFlushed } from './shared/buildSignals';
@@ -429,8 +430,18 @@ function renderPage(opts: {
   dateStamp: string;
   distDir?: string;
   snapshot: ProfessionJobsSnapshot;
+  /**
+   * Locales whose landing for THIS profession the build will actually write.
+   * The `MIN_INDEXABLE_WORDS` floor below is evaluated per (profession,
+   * locale), so it can drop DE while keeping IT — and an hreflang block built
+   * from the full locale list would then advertise a page nothing wrote (the
+   * #5114 class). Pass 1 of the caller's two-pass render supplies an empty
+   * set: it only needs `wordCount`, which is computed from the body and does
+   * not depend on the hreflang block.
+   */
+  eligibleLocales?: ReadonlySet<string>;
 }): RenderResult {
-  const { locale, id, dateStamp, distDir, snapshot } = opts;
+  const { locale, id, dateStamp, distDir, snapshot, eligibleLocales = new Set<string>() } = opts;
   const copy = buildProfessionLandingCopy(locale, id, {
     liveCount: snapshot.liveCount,
     fresh30Count: snapshot.fresh30Count,
@@ -441,15 +452,15 @@ function renderPage(opts: {
   const urlPath = buildProfessionLandingPath(locale, id);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
 
-  // Hreflang
-  const hreflangLines = PROFESSION_LOCALES.map((alt) => {
-    const altPath = buildProfessionLandingPath(alt, id);
-    return `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altPath}">`;
+  // Hreflang (4 locales + x-default), emitted only when every locale's landing
+  // for this profession is actually written this build — otherwise nothing,
+  // since a partial set trades audit-hreflang's [missingTarget] for [tooFew]
+  // (#5114).
+  const alternates = buildLocaleAlternateBlock({
+    eligibleLocales,
+    hrefFor: (alt) => `${BASE_URL}${buildProfessionLandingPath(alt as ProfessionLocale, id)}`,
+    indent: '    ',
   });
-  hreflangLines.push(
-    `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${buildProfessionLandingPath('it', id)}">`,
-  );
-  const alternates = hreflangLines.join('\n');
 
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
   const jobBoardUrl = `${BASE_URL}${buildJobBoardUrl(locale)}`;
@@ -690,13 +701,33 @@ export function professionLandingsPlugin(rootDir: string): Plugin {
       let thinSkipped = 0;
 
       for (const id of PROFESSION_IDS) {
-        const alternates = PROFESSION_LOCALES.map(
+        // ── Pass 1: which locales clear the indexability floor? ────────────
+        // The floor is per (profession, locale), so it can drop DE while
+        // keeping IT. Deciding it BEFORE any page is rendered for real is what
+        // makes it impossible to advertise a landing that never gets written
+        // (#5114 class). `wordCount` is derived from the body alone, so this
+        // pass is not affected by the empty hreflang block it renders with.
+        // The set is per-profession, hence computed inside this loop.
+        const eligibleLocales = new Set<string>(
+          PROFESSION_LOCALES.filter(
+            (alt) =>
+              renderPage({ locale: alt, id, dateStamp, distDir, snapshot: snapshots[id] })
+                .wordCount >= MIN_INDEXABLE_WORDS,
+          ),
+        );
+
+        // Sitemap alternates track the same set: an ineligible locale has no
+        // page, so advertising it would point the crawler at a 404.
+        const alternates = PROFESSION_LOCALES.filter((alt) => eligibleLocales.has(alt)).map(
           (alt) => `${alt}|${BASE_URL}${buildProfessionLandingPath(alt, id)}`,
         );
-        alternates.push(`x-default|${BASE_URL}${buildProfessionLandingPath('it', id)}`);
+        if (eligibleLocales.has('it')) {
+          alternates.push(`x-default|${BASE_URL}${buildProfessionLandingPath('it', id)}`);
+        }
 
         let itWasWritten = false;
 
+        // ── Pass 2: render for real, with the settled alternate set ────────
         for (const locale of PROFESSION_LOCALES) {
           const rendered = renderPage({
             locale,
@@ -704,6 +735,7 @@ export function professionLandingsPlugin(rootDir: string): Plugin {
             dateStamp,
             distDir,
             snapshot: snapshots[id],
+            eligibleLocales,
           });
 
           if (rendered.wordCount < MIN_INDEXABLE_WORDS) {

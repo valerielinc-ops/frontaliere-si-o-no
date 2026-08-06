@@ -116,6 +116,7 @@ import {
   FAQ_HUB_ROUTES,
   isFaqHubPath,
   parseFaqHubPath,
+  parseFaqEntryPath,
 } from '../data/faq-hub/routes';
 import { isSeoHubPath, localeFromHubPath } from '../build-plugins/seoHubsData';
 import CANTON_URL_SLUGS_RAW from '../data/canton-url-slugs.json';
@@ -2819,6 +2820,18 @@ export function parsePath(pathname: string): ParseResult {
          locale: parsed.locale as Locale,
        };
      }
+   }
+   // Per-question pages, `<hub>/<entry id>/` (issue #5008). Same chrome and
+   // the same staticOverlay contract as the hub: the build-time answer stays
+   // visible outside `#root` instead of being replaced by a generic sub-tab
+   // view. Matched structurally, so the router does not have to bundle the
+   // 340 KB question corpus to recognise 412 URLs.
+   const entry = parseFaqEntryPath(pathname);
+   if (entry) {
+     return {
+       route: { activeTab: 'guida', guidaSubTab: 'permits', staticOverlay: true },
+       locale: entry.locale as Locale,
+     };
    }
  }
 

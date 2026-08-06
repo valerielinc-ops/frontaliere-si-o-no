@@ -1,16 +1,16 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-08-05T11:51:17.241Z",
+  "generatedAt": "2026-08-05T23:01:29.616Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6110,
-  "avgDurationMs": 6110,
+  "durationMs": 5736,
+  "avgDurationMs": 5736,
   "durationHistory": [
-    6110
+    5736
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "employmentType": "PART_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-05T11:51:13.014Z",
+      "crawledAt": "2026-08-05T23:01:25.504Z",
       "id": "pkb-private-bank-649a7b6c1241",
       "firstSeenAt": "2026-08-03T22:25:34.929Z",
       "_qualityScore": 86,
@@ -63,7 +63,7 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-05T11:51:13.344Z",
+      "crawledAt": "2026-08-05T23:01:25.813Z",
       "id": "pkb-private-bank-a98c1a99f4f2",
       "firstSeenAt": "2026-07-28T11:43:51.581Z",
       "_qualityScore": 88,
@@ -93,7 +93,7 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-05T11:51:13.665Z",
+      "crawledAt": "2026-08-05T23:01:26.126Z",
       "id": "pkb-private-bank-14e6e40f691f",
       "firstSeenAt": "2026-07-10T10:40:31.816Z",
       "_qualityScore": 88,

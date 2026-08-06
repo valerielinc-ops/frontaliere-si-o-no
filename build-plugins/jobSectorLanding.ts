@@ -698,8 +698,14 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     /sviluppator|sviluppatore|programmator|programmatore|developer|software[ -]engineer|full[ -]?stack|front[ -]?end|back[ -]?end|devops|softwareentwickl|d[eé]veloppeur|programmeur/i,
   ristorazione:
     /ristora|ristoratore|ristorant|cuoc[ho]|cameri[eè]r|chef|sous[ -]chef|gastronom|hospitality|food[ -]service|restaurant|kellner|koch|k[oö]chin|service[ -]de[ -]table|cuisinier|serveur|waiter|waitress|bistro|pizzeri/i,
+  // The `operatore[ -]socio[ -]sanitar` literals required a single space (or
+  // hyphen) at both joins, so the two spellings Ticinese employers actually
+  // publish were both invisible and the hub read 0 with real inventory live
+  // (#5203): the gender-inclusive slash — "Operatore/trice socio sanitario/a"
+  // — and the closed compound — "Operatori Sociosanitari". The role-noun
+  // group now spells the optional `/suffix` out and the join is optional.
   oss:
-    /operatore[ -]socio[ -]sanitar|operatori[ -]socio[ -]sanitar|\boss\b|\bosa\b|operatore[ -]socio[ -]assistenz|healthcare[ -]assistant|nursing[ -]assistant|nurse[ -]aide|pflegeassistent|pflegehelfer|fachperson[ -]gesundheit|aide[ -]soignant|aide[ -]a[ -]domicile|auxiliaire[ -]de[ -]vie/i,
+    /operat(?:ore|rice|ori|rici)(?:\/\w+)?[ -]socio[ -]?(?:sanitar|assistenz)|socio[ -]?sanitari|\boss\b|\bosa\b|healthcare[ -]assistant|nursing[ -]assistant|nurse[ -]aide|pflegeassistent|pflegehelfer|fachperson[ -]gesundheit|aide[ -]soignant|aide[ -]a[ -]domicile|auxiliaire[ -]de[ -]vie/i,
   logistica:
     /logistic[ao]|logistico|logisticien|logistique|magazzin|magazziner|warehouse|warehouseman|lagerist|lagerlogistik|logistiker|carrellis|fork[ -]?lift|carrelli[ -]elevator|spediz|spedizionier|shipping[ -]clerk|customs[ -]broker|forwarder|spediteur|cargo[ -]handler/i,
   apprendistato:

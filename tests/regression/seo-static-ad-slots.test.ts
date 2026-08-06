@@ -203,7 +203,8 @@ describe('SEO SSG-family end-of-content multiplex (#4485)', () => {
     { file: 'build-plugins/careerLandingsPlugin.ts', count: 1 },
     { file: 'build-plugins/costOfLivingLandingsPlugin.ts', count: 1 },
     { file: 'build-plugins/comparisonsHubPlugin.ts', count: 1 },
-    { file: 'build-plugins/faqHubPlugin.ts', count: 1 },
+    // 2 render templates since #5008: the hub page and the per-question page.
+    { file: 'build-plugins/faqHubPlugin.ts', count: 2 },
     { file: 'build-plugins/frontalierePillarPlugin.ts', count: 1 },
     { file: 'build-plugins/exchangeRatePagesPlugin.ts', count: 2 },
     { file: 'build-plugins/employerProfilePagesPlugin.ts', count: 1 },

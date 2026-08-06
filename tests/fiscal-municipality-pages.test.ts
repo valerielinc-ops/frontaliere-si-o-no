@@ -81,7 +81,8 @@ describe('fiscal above-floor page render (#4484)', () => {
     expect(urlPath).toBe('/tasse-frontalieri-comune/como/');
     expect(wordCount).toBeGreaterThan(50);
     expect(html).toContain('vecchio vs nuovo regime');
-    expect(html).toMatch(/name=["']?robots["']?\s+content=["']?index,follow/);
+    expect(html).toMatch(/name=["']?robots["']?\s+content=["']?index, follow/);
+    expect(html).toContain('max-image-preview:large');
     // A real EUR figure from the numeric scenario must appear (anti-thin):
     // a euro sign plus a thousands-grouped amount (e.g. "60.280 €").
     expect(html).toContain('€');
@@ -132,7 +133,8 @@ describe('fiscal page "vivere a" cross-link is gated on the Ticino corridor (iss
     // The page must still be a real, indexable page (no thin-content regression
     // just because a card was dropped).
     expect(wordCount).toBeGreaterThan(50);
-    expect(html).toMatch(/name=["']?robots["']?\s+content=["']?index,follow/);
+    expect(html).toMatch(/name=["']?robots["']?\s+content=["']?index, follow/);
+    expect(html).toContain('max-image-preview:large');
   });
 
   it('the bridge page for a below-floor comune outside the Ticino corridor also omits the "vivere a" link', () => {

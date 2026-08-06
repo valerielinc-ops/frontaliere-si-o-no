@@ -39,6 +39,7 @@ import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { renderJobCardHtml, JOB_CARD_ICON_SYMBOLS, localizedContract, type JobCardJob } from './shared/jobCardHtml';
 import { buildListItemJobPosting } from './shared/jobPostingListItem';
 import { renderEmployerCtaBlock } from './shared/employerCtaBlock';
+import { companyFollowMountPlaceholder } from './shared/companyFollowMountPlaceholder';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { escHtml as esc } from './shared/htmlEscape';
 import { WriteCollector } from './batchWrite';
@@ -486,6 +487,7 @@ ${breadcrumbHtml(locale, name)}
 <p class="text-[15px] text-muted m-0">${esc(introProse(profile, allActiveJobs, locale).split('. ')[0])}.</p>
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">${tiles}</div>
 </header>
+${companyFollowMountPlaceholder({ company: name, companyKey: profile.companyKey, locale, surface: 'employer_profile' })}
 <section class="mb-7"><p class="my-2.5 leading-relaxed text-body">${esc(introProse(profile, allActiveJobs, locale))}</p></section>
 <section class="mb-2">
 <h2 class="text-lg font-bold text-strong mb-3">${esc(JOBS_HEADING[locale])} (${profile.activeJobs})</h2>
@@ -521,6 +523,7 @@ function emitEmployerBelowFloorBridge(rec: BelowFloorRecord, locale: Locale): st
 ${breadcrumbHtml(locale, rec.name)}
 <h1 class="text-2xl font-bold text-strong mb-3">${esc(rec.name)}</h1>
 <p class="text-body mb-5">${esc(lede[locale])}</p>
+${companyFollowMountPlaceholder({ company: rec.name, companyKey: null, locale, surface: 'employer_below_floor' })}
 <ul class="space-y-2 list-none p-0 m-0">
 <li><a href="${esc(cantonPath)}" class="text-sm font-semibold text-link">${esc(ALL_JOBS_IN[locale])} ${esc(canton)} →</a></li>
 <li><a href="${esc(weekly)}" class="text-sm font-semibold text-link">${esc(WEEKLY_LINK_LABEL[locale])} →</a></li>

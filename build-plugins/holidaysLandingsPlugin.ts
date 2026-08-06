@@ -25,6 +25,7 @@ const __dirname_holidays = np.dirname(fileURLToPath(import.meta.url));
 
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { CALC_HREF } from './shared/calcHref';
 import { formatUpdatedDate } from './shared/humanDate';
 import { WriteCollector } from './batchWrite';
@@ -501,8 +502,18 @@ function renderPage(opts: {
   page: HolidayPageId;
   dateStamp: string;
   distDir?: string;
+  /**
+   * Locales whose page for THIS `page` id the build will actually write. The
+   * `MIN_INDEXABLE_WORDS` floor below is evaluated per locale (and per page
+   * id), so it can drop DE while keeping IT — and an hreflang block built
+   * from the full `HOLIDAY_LOCALES` list would then advertise a page nothing
+   * wrote (the #5114 `missingTarget` class). Pass 1 of the caller's two-pass
+   * render leaves this at the empty default: it only reads `wordCount`, which
+   * is derived from the body and does not depend on the hreflang block.
+   */
+  eligibleLocales?: ReadonlySet<string>;
 }): RenderResult {
-  const { locale, page, dateStamp, distDir } = opts;
+  const { locale, page, dateStamp, distDir, eligibleLocales = new Set<string>() } = opts;
   const L = COPY[locale];
   const ds = loadDataset();
   const years = [...ds.meta.years].sort((a, b) => a - b);
@@ -523,14 +534,15 @@ function renderPage(opts: {
   const tiCount = holidays.filter((h) => h.ticino).length;
   const bridges = computeBridges(holidays, y1, locale);
 
-  // hreflang (4 locales + x-default IT)
-  const hreflangLines = HOLIDAY_LOCALES.map(
-    (alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${buildHolidaysLandingPath(alt, page)}">`,
-  );
-  hreflangLines.push(
-    `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${buildHolidaysLandingPath('it', page)}">`,
-  );
-  const alternates = hreflangLines.join('\n');
+  // hreflang (4 locales + x-default IT), emitted only when every locale's
+  // page for this `page` id is actually written this build — otherwise
+  // nothing, since a partial set only trades audit-hreflang's [missingTarget]
+  // for [tooFew] (#5114).
+  const alternates = buildLocaleAlternateBlock({
+    eligibleLocales,
+    hrefFor: (alt) => `${BASE_URL}${buildHolidaysLandingPath(alt as HolidayLocale, page)}`,
+    indent: '    ',
+  });
 
   const isTicino = page === 'ticino';
   const title = isTicino ? L.ticino.title(y1, y2) : L.chVsIt.title(y1);
@@ -800,14 +812,34 @@ export function holidaysLandingsPlugin(rootDir: string): Plugin {
       let thinSkipped = 0;
 
       for (const pageId of HOLIDAY_PAGE_IDS) {
-        const altLinks = HOLIDAY_LOCALES.map(
+        // ── Pass 1: which locales clear the indexability floor? ────────────
+        // The floor is per-locale AND per page id, so it can drop DE while
+        // keeping IT for the same page. Settling the set BEFORE any page is
+        // rendered for real is what makes it impossible to advertise a
+        // landing that never gets written (#5114 class). `wordCount` derives
+        // from the body alone, so this pass is unaffected by the empty
+        // hreflang block it renders with.
+        const eligibleLocales = new Set<string>(
+          HOLIDAY_LOCALES.filter(
+            (locale) =>
+              renderPage({ locale, page: pageId, dateStamp, distDir }).wordCount >=
+              MIN_INDEXABLE_WORDS,
+          ),
+        );
+
+        // Sitemap alternates track the same set: an ineligible locale has no
+        // page, so advertising it would point the crawler at a 404.
+        const altLinks = HOLIDAY_LOCALES.filter((alt) => eligibleLocales.has(alt)).map(
           (alt) => `${alt}|${BASE_URL}${buildHolidaysLandingPath(alt, pageId)}`,
         );
-        altLinks.push(`x-default|${BASE_URL}${buildHolidaysLandingPath('it', pageId)}`);
+        if (eligibleLocales.has('it')) {
+          altLinks.push(`x-default|${BASE_URL}${buildHolidaysLandingPath('it', pageId)}`);
+        }
 
+        // ── Pass 2: render for real, with the settled alternate set ────────
         let itWasWritten = false;
         for (const locale of HOLIDAY_LOCALES) {
-          const rendered = renderPage({ locale, page: pageId, dateStamp, distDir });
+          const rendered = renderPage({ locale, page: pageId, dateStamp, distDir, eligibleLocales });
           if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
             thinSkipped++;
             console.warn(

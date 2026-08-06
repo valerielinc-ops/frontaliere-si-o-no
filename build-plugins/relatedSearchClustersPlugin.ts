@@ -48,9 +48,10 @@ import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
 
 import { WriteCollector } from './batchWrite';
-import { BASE_URL, buildCanonicalBridgePage } from './constants';
+import { BASE_URL, buildCanonicalBridgePage, replaceRobotsMeta } from './constants';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { ORPHAN_LANDING_SECTION } from './orphanQueryData';
@@ -1567,24 +1568,21 @@ function buildJsonLd(opts: {
 
 function renderHreflang(
   hreflang: ReadonlyArray<{ locale: Locale; url: string }>,
-  fallbackUrl: string,
+  _fallbackUrl: string,
 ): string {
-  // Per audit:hreflang gate: a page WITH hreflang must declare all 4 locales
-  // + x-default (5 entries minimum). Most clusters exist in only 1-2 locales,
-  // so emitting partial hreflang trips the [tooFew] check. Strategy: only
-  // emit hreflang when we have ALL 4 locale alternates; otherwise omit
-  // entirely (single-locale pages don't need hreflang and the audit doesn't
-  // flag pages with zero hreflang entries).
-  const distinctLocales = new Set(hreflang.map((h) => h.locale));
-  if (distinctLocales.size < 4) return '';
-  const lines: string[] = [];
-  for (const alt of hreflang) {
-    lines.push(`    <link rel="alternate" hreflang="${alt.locale}" href="${alt.url}">`);
-  }
-  const itAlt = hreflang.find((h) => h.locale === 'it');
-  const xDefaultUrl = itAlt?.url || hreflang[0]?.url || fallbackUrl;
-  lines.push(`    <link rel="alternate" hreflang="x-default" href="${xDefaultUrl}">`);
-  return lines.join('\n');
+  // The all-or-nothing rule (4 locales + x-default, or nothing at all) now
+  // lives in ONE place — shared/localeAlternateBlock.ts — because
+  // jobsSeoPagesPlugin's three search-landing emitters need the identical
+  // rule and a second literal copy is exactly the drift AGENTS.md #6
+  // forbids. This plugin was already correct: its alternates come from
+  // `byKeywordCity`, i.e. contexts the build planned. #5114 was the OTHER
+  // emitter, which templated all four locales unconditionally.
+  const byLocale = new Map(hreflang.map((h) => [h.locale as string, h.url]));
+  return buildLocaleAlternateBlock({
+    eligibleLocales: byLocale.keys(),
+    hrefFor: (locale) => byLocale.get(locale)!,
+    indent: '    ',
+  });
 }
 
 // Memoize renderJobBoardCommuterContext: pure function, ~52k calls per build
@@ -2732,6 +2730,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       const trafficFilter = getTrafficEvidenceFilter(rootDir);
       let clusterFullCount = 0;
       let clusterThinCount = 0;
+      let clusterNoindexCount = 0;
       let clusterBytesSaved = 0;
 
       // Cache fast path. If inputs haven't changed since the last emit,
@@ -3200,13 +3199,48 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           if (__clOtherExtras) for (const p of __clOtherExtras) __clCrossLocaleProbes.push(p);
         }
         const __clAllPaths = [out.urlPath, ...__clMirrorPaths, ...__clCrossLocaleProbes];
-        const __clDecision = trafficFilter.decideMulti(__clAllPaths, 'gsc-keyword-landing');
+        // `primaryPath` pins the inert-band age gate to the URL we are about
+        // to emit. Every other entry above is an evidence-only probe.
+        //
+        // Timed (issue #5130 follow-up, AGENTS.md #6 — same split applied to
+        // jobsSeoPagesPlugin's ph:ejp:shell in this PR). `render-cluster-page`
+        // measured 111,523 ms over 80,368 pages on run 31036546298 as ONE
+        // opaque bucket covering render + decide + thin conversion, and
+        // `cluster tier: full=5601 thin=74767` says 93% take the thin path — so
+        // buildClusterThinHtml re-scans a freshly-built document on more than
+        // nine pages out of ten with no timer of its own.
+        const __tClDecide = profileStart();
+        const __clDecision = trafficFilter.decideMulti(__clAllPaths, 'gsc-keyword-landing', {
+          primaryPath: out.urlPath,
+        });
         const __clAction: 'full' | 'thin' = __clDecision.action === 'thin' ? 'thin' : 'full';
-        const __clHtml = __clAction === 'thin'
-          ? buildClusterThinHtml(out.html, locale)
+        // Inert band (issue #5168): zero traffic evidence in any source AND
+        // discoverable for at least `noindexMinAgeDays`. These leave the index
+        // but stay crawlable (`follow`) — internal link equity and the SPA
+        // navigation value survive, and no URL 404s, so nothing breaks for a
+        // visitor or for an inbound link. The band is sized entirely by the
+        // threshold in data/url-pruning-approved-patterns.json.
+        const __clNoindex = __clDecision.noindex === true;
+        profileRecord('cluster-decide', __tClDecide);
+        // Enrichment is spent only where it can still pay: a page leaving the
+        // index gains nothing from more prose, while the thin pages that stay
+        // indexed are exactly the residual near-duplicate surface. Same reason
+        // the byte cost lands on ~half the thinned set instead of all of it.
+        //
+        // `cluster-thin` covers the whole post-render document surgery — the
+        // thin conversion AND the robots-meta rewrite — because both re-scan
+        // the freshly-built HTML and both are candidates for the same fix.
+        const __tClThin = profileStart();
+        const __clThinned = __clAction === 'thin'
+          ? buildClusterThinHtml(out.html, locale, { enrich: !__clNoindex })
           : out.html;
+        const __clHtml = __clNoindex
+          ? replaceRobotsMeta(__clThinned, 'noindex,follow')
+          : __clThinned;
+        profileRecord('cluster-thin', __tClThin);
         const __clDelta = __clAction === 'thin' ? out.html.length - __clHtml.length : 0;
         if (__clAction === 'thin') clusterThinCount++; else clusterFullCount++;
+        if (__clNoindex) clusterNoindexCount++;
 
         const indexPath = path.join(distDir, out.urlPath, 'index.html');
         const flatPath = path.join(distDir, out.urlPath.replace(/\/+$/, '') + '.html');
@@ -3412,6 +3446,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         console.log(
           `\x1b[36m[related-search-clusters]\x1b[0m cluster tier: ` +
           `full=${clusterFullCount} thin=${clusterThinCount} ` +
+          `noindex=${clusterNoindexCount} ` +
           `bytes_saved=${fmtBytes(clusterBytesSaved)}`,
         );
         console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${trafficFilter.summary()}`);

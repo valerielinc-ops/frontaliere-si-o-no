@@ -274,6 +274,7 @@
     "audit:orphan-sitemap-pages:rebaseline": "node scripts/audit-orphan-pages-in-sitemaps.mjs --rebaseline",
     "data:related-search-candidates": "node scripts/audit-related-search-candidates.mjs",
     "audit:image-object-license": "node scripts/audit-image-object-license.mjs",
+    "audit:discover-eligibility": "node scripts/audit-discover-eligibility.mjs",
     "audit:no-literal-markdown": "node scripts/audit-no-literal-markdown.mjs",
     "audit:faqpage-validity": "node scripts/audit-faqpage-validity.mjs",
     "audit:parser-quality": "node scripts/audit-parser-quality.mjs",

@@ -5635,6 +5635,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'snl-ricorso-lago-maggiore',
+    category: 'novita',
+    date: '2026-08-05T22:48:05.740Z',
+    image: '/images/blog/snl-ricorso-lago-maggiore.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
