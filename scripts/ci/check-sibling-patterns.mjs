@@ -60,6 +60,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 import { readFileSync } from 'node:fs';
+import { resolveMergeBase, formatUnresolvableMergeBaseMessage } from './lib/resolve-merge-base.mjs';
 
 const argv = process.argv.slice(2);
 const STRICT = argv.includes('--strict');
@@ -160,6 +161,10 @@ function resolveBase() {
   }
   return 'HEAD~1';
 }
+
+// resolveMergeBase / formatUnresolvableMergeBaseMessage: see
+// scripts/ci/lib/resolve-merge-base.mjs (issue #5195 — shared with
+// check-below-floor-bridge.mjs, which had the same verbatim antipattern).
 
 /**
  * Estrae espressioni verbatim dalle righe RIMOSSE del diff (prefisso `-`).
@@ -409,8 +414,28 @@ export const PATTERN_CLASSES = [
 function main() {
   const base = resolveBase();
   // merge-base per il three-dot: cambiamenti del branch dalla divergenza.
-  const mergeBase =
-    git(['merge-base', base, 'HEAD'], { allowFail: true }).trim() || base;
+  const { mergeBase, deepened } = resolveMergeBase(base);
+
+  if (!mergeBase) {
+    // Issue #5195: niente fallback silenzioso su `base` — su un clone shallow
+    // quel fallback confrontava alberi non imparentati e produceva centinaia
+    // di falsi positivi (ogni file che differisce da `base`, non solo quelli
+    // del branch). Bail-out esplicito invece: candidate-surfacer inattendibile
+    // è peggio di nessun candidate-surfacer.
+    const msg = `check-sibling-patterns: ${formatUnresolvableMergeBaseMessage(base, deepened)}`;
+    if (JSON_OUT) {
+      console.log(
+        JSON.stringify(
+          { base, mergeBase: null, changedCode: [], candidates: [], skipped: true, reason: 'unresolvable-merge-base' },
+          null,
+          2,
+        ),
+      );
+    } else {
+      console.log(msg);
+    }
+    process.exit(0); // advisory pass-through anche in --strict: un base fasullo non può produrre un verdetto
+  }
 
   // Diff del working tree vs base (committed + staged + unstaged): copre tutto
   // ciò che il branch introdurrà, anche se il fixer non ha ancora committato.
