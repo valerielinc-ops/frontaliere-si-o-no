@@ -397,7 +397,8 @@
       "previousSlugsByLocale": {
         "it": [
           "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-4213fa",
-          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
+          "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-4e482e"
         ],
         "en": [
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxp9xp",
@@ -410,10 +411,10 @@
       "previousSlugs": [
         "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-4213fa",
         "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
-        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxp9xp"
+        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxp9xp",
+        "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-4e482e"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -432,7 +433,8 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Pharmacien / Pharmacienne (f/h/d)",
@@ -2127,16 +2129,16 @@
         "fr": "Apotheker / Apothekerin für FPH-Weiterbildung (m/m)"
       },
       "id": "galenica-381a6632ed8d",
-      "previousSlugs": [
-        "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-bern"
+          "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-bern",
+          "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern-ny8fn0"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-bern",
+        "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern-ny8fn0"
+      ],
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -2155,7 +2157,9 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "needsRetranslation": true
     },
     {
       "title": "Sachbearbeiter / Sachbearbeiterin Debitorenbuchhaltung und Inkasso (w/m/d)",
@@ -9398,9 +9402,6 @@
       "id": "galenica-38be919a0774",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-coop-vitality-assistente-di-farmacia-afc-zurich-1nc091",
-          "galenica-coop-vitality-assistente-di-farmacia-afc-langenthal-1nc090",
-          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-oberwil-bl",
           "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-basel",
           "galenica-coop-vitality-assistente-di-farmacia-afc-tenero",
           "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc08v",
@@ -9417,7 +9418,10 @@
           "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpx",
           "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-langenthal",
           "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-kriens",
-          "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpa"
+          "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpa",
+          "assistente-di-farmacia-afc-coop-vitality-galenica-bern-1nc09r",
+          "assistente-di-farmacia-afc-coop-vitality-galenica-bern-1nc0bi",
+          "assistente-di-farmacia-afc-coop-vitality-galenica-s-antonino"
         ],
         "en": [
           "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-zurich",
@@ -9476,7 +9480,10 @@
         "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nc09u",
         "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq0",
         "galenica-coop-vitality-vich-assistente-di-farmacia-afc-tenero",
-        "galenica-coop-vitality-shopping-arena-sg-assistente-di-farmacia-afc-tenero"
+        "galenica-coop-vitality-shopping-arena-sg-assistente-di-farmacia-afc-tenero",
+        "assistente-di-farmacia-afc-coop-vitality-galenica-bern-1nc09r",
+        "assistente-di-farmacia-afc-coop-vitality-galenica-bern-1nc0bi",
+        "assistente-di-farmacia-afc-coop-vitality-galenica-s-antonino"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 70500,
@@ -13128,12 +13135,14 @@
       "id": "galenica-f24cf3002989",
       "previousSlugs": [
         "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc0e4",
-        "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc129"
+        "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc129",
+        "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc1tq"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc0e4",
-          "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc129"
+          "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc129",
+          "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc1tq"
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
@@ -13971,7 +13980,10 @@
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-balerna",
           "galenica-amavita-assistant-e-en-pharmacie-cfc-balerna",
           "galenica-amavita-apotheke-assistant-e-en-pharmacie-cfc-balerna",
-          "galenica-amavita-assistente-di-farmacia-afc-lugano"
+          "galenica-amavita-assistente-di-farmacia-afc-lugano",
+          "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc0ex",
+          "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc0zn",
+          "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc11e"
         ],
         "en": [
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lugano",
@@ -13999,7 +14011,10 @@
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-balerna",
         "galenica-amavita-assistant-e-en-pharmacie-cfc-balerna",
         "galenica-amavita-apotheke-assistant-e-en-pharmacie-cfc-balerna",
-        "galenica-amavita-assistente-di-farmacia-afc-lugano"
+        "galenica-amavita-assistente-di-farmacia-afc-lugano",
+        "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc0ex",
+        "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc0zn",
+        "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc11e"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 70500,
@@ -14446,7 +14461,9 @@
           "employee-in-logistics-afc-unione-farmaceutica-distribuzione-sa-galenica-lugano",
           "employe-e-in-logistique-afc-unione-farmaceutica-distribuzione-sa-galenica-lugano",
           "impiegato-a-in-logistica-afc-unione-farmaceutica-distribuzione-sa-galenica-lugano",
-          "galenica-unione-farmaceutica-distribuzione-sa-impiegato-a-in-logistica-afc-lugano"
+          "galenica-unione-farmaceutica-distribuzione-sa-impiegato-a-in-logistica-afc-lugano",
+          "angestellte-r-in-logistik-afc-unione-farmaceutica-distribuzione-sa-galenica-lugano-1nc1vg",
+          "employee-in-afc-logistics-unione-farmaceutica-distribuzione-sa-galenica-lugano"
         ],
         "en": [
           "galenica-unione-farmaceutica-distribuzione-sa-logistiker-in-efz-lugano",
@@ -14470,10 +14487,11 @@
         "impiegato-a-in-logistica-afc-unione-farmaceutica-distribuzione-sa-galenica-lugano",
         "galenica-unione-farmaceutica-distribuzione-sa-impiegato-a-in-logistica-afc-lugano",
         "logistiker-in-efz-unione-farmaceutica-distribuzione-sa-galenica-lugano",
-        "afc-logistikmitarbeiter-in-unione-farmaceutica-distribuzione-sa-galenica-lugano"
+        "afc-logistikmitarbeiter-in-unione-farmaceutica-distribuzione-sa-galenica-lugano",
+        "angestellte-r-in-logistik-afc-unione-farmaceutica-distribuzione-sa-galenica-lugano-1nc1vg",
+        "employee-in-afc-logistics-unione-farmaceutica-distribuzione-sa-galenica-lugano"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -14490,7 +14508,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Assistente di farmacia AFC",

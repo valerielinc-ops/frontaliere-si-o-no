@@ -730,12 +730,14 @@
       },
       "previousSlugs": [
         "anlagenfuhrer-in-team-butter-100-emmi-ch",
-        "anlagen-leader-team-butter-100-emmi-suhr"
+        "anlagen-leader-team-butter-100-emmi-suhr",
+        "anlagenfuhrer-in-team-butter-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "anlagenfuhrer-in-team-butter-100-emmi-ch",
-          "anlagen-leader-team-butter-100-emmi-suhr"
+          "anlagen-leader-team-butter-100-emmi-suhr",
+          "anlagenfuhrer-in-team-butter-emmi-ch"
         ],
         "en": [
           "anlagenfuhrer-in-team-butter-100-emmi-ch"
@@ -745,7 +747,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T12:44:31.476Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -757,7 +758,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "emmi-eeccd7d399c1",
@@ -924,7 +926,8 @@
         "maschinenfuhrer-in-emmi-emmen-cegxx1",
         "conducteur-conductrice-de-machines-emmi-emmen",
         "maschinenfuhrer-in-emmi-emmen",
-        "operatore-macchina-emmi-emmen-luzern"
+        "operatore-macchina-emmi-emmen-luzern",
+        "operatore-macchina-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -932,7 +935,8 @@
           "conduttore-della-macchina-in-emmi-emmen",
           "maschinenfuhrer-in-emmi-emmen-cegxx1",
           "maschinenfuhrer-in-emmi-emmen",
-          "operatore-macchina-emmi-emmen-luzern"
+          "operatore-macchina-emmi-emmen-luzern",
+          "operatore-macchina-emmi-emmen"
         ],
         "en": [
           "maschinenfuhrer-in-emmi-emmen"
@@ -943,7 +947,6 @@
         ]
       },
       "firstSeenAt": "2026-06-18T12:13:27.095Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -955,7 +958,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "emmi-168117ec6f5c",
@@ -3909,13 +3913,15 @@
       "previousSlugs": [
         "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-6",
         "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch",
-        "apprendistato-come-anlagenfuhrer-in-cfc-2027-emmi-bischofszell"
+        "apprendistato-come-anlagenfuhrer-in-cfc-2027-emmi-bischofszell",
+        "lehre-als-anlagenfuhrer-in-efz-2026-emmi-ch-3"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-6",
           "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch",
-          "apprendistato-come-anlagenfuhrer-in-cfc-2027-emmi-bischofszell"
+          "apprendistato-come-anlagenfuhrer-in-cfc-2027-emmi-bischofszell",
+          "lehre-als-anlagenfuhrer-in-efz-2026-emmi-ch-3"
         ],
         "en": [
           "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-6"
@@ -3925,7 +3931,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T13:12:51.036Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -3937,7 +3942,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "emmi-fa467bd7cced",
@@ -4962,7 +4968,8 @@
         "tecnologia-del-latte-di-apprendista-cfc-2027-emmi-saignelegier-jura",
         "apprentice-milk-technologist-cfc-2027-emmi-saignelegier-jura",
         "auszubildender-milchtechnologe-cfc-2027-emmi-saignelegier-jura",
-        "apprendista-tecnologo-del-latte-afc-2027-emmi-saignelegier-jura"
+        "apprendista-tecnologo-del-latte-afc-2027-emmi-saignelegier-jura",
+        "apprenti-e-technologue-du-lait-cfc-2026-emmi-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4977,7 +4984,8 @@
           "auszubildender-milchtechnologe-cfc-2027-emmi-courgenay-jura",
           "tecnologia-del-latte-di-apprendista-cfc-2027-emmi-courgenay-jura",
           "tecnologia-del-latte-di-apprendista-cfc-2027-emmi-saignelegier-jura",
-          "apprendista-tecnologo-del-latte-afc-2027-emmi-saignelegier-jura"
+          "apprendista-tecnologo-del-latte-afc-2027-emmi-saignelegier-jura",
+          "apprenti-e-technologue-du-lait-cfc-2026-emmi-ch-2"
         ],
         "en": [
           "apprentice-milk-technologist-cfc-2027-emmi-courgenay-jura",
@@ -4989,7 +4997,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T12:11:04.793Z",
-      "needsRetranslation": true,
       "salaryMin": 50500,
       "salaryMax": 77000,
       "baseSalary": {
@@ -5001,7 +5008,8 @@
           "maxValue": 77000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "emmi-752f72ff9afc",
@@ -5162,16 +5170,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ai-platform-engineer-emmi-ch",
-        "ai-platform-ingegnere-emmi-ostermundigen-bern"
+        "ai-platform-ingegnere-emmi-ostermundigen-bern",
+        "ai-platform-ingegnere-emmi-ostermundigen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ai-platform-engineer-emmi-ch",
-          "ai-platform-ingegnere-emmi-ostermundigen-bern"
+          "ai-platform-ingegnere-emmi-ostermundigen-bern",
+          "ai-platform-ingegnere-emmi-ostermundigen"
         ]
       },
       "firstSeenAt": "2026-07-15T22:19:42.389Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5183,7 +5192,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "emmi-10d6ae4c0fd1",
@@ -5815,7 +5825,8 @@
           "schichtleiter-in-emmi-ch",
           "schichtleiter-in-emmi-bischofszell",
           "schichtleiter-in-100-emmi-bischofszell",
-          "capo-turno-emmi-bischofszell-thurgau"
+          "capo-turno-emmi-bischofszell-thurgau",
+          "capo-turno-emmi-bischofszell"
         ],
         "en": [
           "schichtleiter-in-emmi-bischofszell"
@@ -5829,10 +5840,10 @@
         "schichtleiter-in-emmi-ch",
         "schichtleiter-in-emmi-bischofszell",
         "schichtleiter-in-100-emmi-bischofszell",
-        "capo-turno-emmi-bischofszell-thurgau"
+        "capo-turno-emmi-bischofszell-thurgau",
+        "capo-turno-emmi-bischofszell"
       ],
       "firstSeenAt": "2026-07-20T23:32:26.508Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5844,7 +5855,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "emmi-33ff201cf0b5",

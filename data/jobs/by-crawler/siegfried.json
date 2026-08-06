@@ -1273,12 +1273,20 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "mechaniker-in-a-siegfried-ch",
-        "meccanico-a-siegfried-zofingen"
+        "meccanico-a-siegfried-zofingen",
+        "mecanicien-m-f-d-siegfried-zofingen",
+        "meccanico-m-f-d-siegfried-zofingen",
+        "mechanic-m-f-d-siegfried-zofingen",
+        "mechaniker-m-w-d-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mechaniker-in-a-siegfried-ch",
-          "meccanico-a-siegfried-zofingen"
+          "meccanico-a-siegfried-zofingen",
+          "mecanicien-m-f-d-siegfried-zofingen",
+          "meccanico-m-f-d-siegfried-zofingen",
+          "mechanic-m-f-d-siegfried-zofingen",
+          "mechaniker-m-w-d-siegfried-ch"
         ],
         "en": [
           "mechaniker-in-a-siegfried-ch"
@@ -1288,7 +1296,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:13:20.607Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1301,7 +1308,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "needsRetranslation": true
     },
     {
       "id": "siegfried-8039947a8afd",

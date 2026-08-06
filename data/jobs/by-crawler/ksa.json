@@ -133,12 +133,14 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau",
-        "infermiere-diplomato-infermiere-kantonsspital-aarau-ksa-aarau"
+        "infermiere-diplomato-infermiere-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-dialyse-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-          "infermiere-diplomato-infermiere-kantonsspital-aarau-ksa-aarau"
+          "infermiere-diplomato-infermiere-kantonsspital-aarau-ksa-aarau",
+          "dipl-pflegefachfrau-pflegefachmann-dialyse-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9ztmqm"
@@ -152,7 +154,6 @@
         ]
       },
       "firstSeenAt": "2026-07-11T11:38:53.676Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -164,7 +165,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-d06935f7da80",
@@ -4733,14 +4735,16 @@
         "it": [
           "dipl-expertin-experte-intensivpflege-oder-dipl-pflegefachfrau-pflegefachmann-mit-erfahrung",
           "dipl-expertin-experte-intensivpflege-o-dipl-pflegefachfrau-pflegefachmann-con-erfahrung-in-neonatologie-kantonsspital-aarau-ksa-aarau",
-          "tirocinante-legale-al-100-kanton-aargau-aarau-583152"
+          "tirocinante-legale-al-100-kanton-aargau-aarau-583152",
+          "dipl-expertin-experte-intensivpflege-o-dipl-pflegefachfrau-pflegefachmann-con-erfahrung-in-neonatologie-kantonsspital"
         ]
       },
       "previousSlugs": [
         "dipl-expertin-experte-intensivpflege-oder-dipl-pflegefachfrau-pflegefachmann-mit-erfahrung",
         "dipl-expertin-experte-intensivpflege-o-dipl-pflegefachfrau-pflegefachmann-con-erfahrung-in-neonatologie-kantonsspital-aarau-ksa-aarau",
         "rechtspraktikant-rechtspraktikantin-100-kanton-aargau-ch",
-        "tirocinante-legale-al-100-kanton-aargau-aarau-583152"
+        "tirocinante-legale-al-100-kanton-aargau-aarau-583152",
+        "dipl-expertin-experte-intensivpflege-o-dipl-pflegefachfrau-pflegefachmann-con-erfahrung-in-neonatologie-kantonsspital"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
       "salaryMin": 62000,
@@ -4840,7 +4844,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4852,7 +4855,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-860cd5cd29b0",
@@ -7922,7 +7926,7 @@
       "titleByLocale": {
         "it": "Dipl. Fisioterapie/in",
         "en": "Dipl. Physiotherapeut/in",
-        "de": "Dipl. Physiotherapeut/in",
+        "de": "Dipl. Physio-Tab.",
         "fr": "Dipl. Physiothérapeute"
       },
       "description": "Dipl. Physiotherapeut/in — Kantonsspital Aarau (KSA), Aarau",
@@ -7993,7 +7997,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "retranslationAttempts": 1
     },
     {
       "id": "ksa-216675efc898",

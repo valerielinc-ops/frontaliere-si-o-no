@@ -57,7 +57,8 @@
         ],
         "it": [
           "it-business-analyst-credit-it-ubp-ch",
-          "it-business-analista-credit-it-union-bancaire-privee-geneva-switzerland"
+          "it-business-analista-credit-it-union-bancaire-privee-geneva-switzerland",
+          "it-business-analyst-risikomanagement-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "it-business-analyst-credit-it-ubp-ch"
@@ -69,10 +70,10 @@
       "previousSlugs": [
         "it-business-analyst-credit-it-ubp-ch",
         "it-business-analyst-credit-it-union-bancaire-privee-geneva-switzerland",
-        "it-business-analista-credit-it-union-bancaire-privee-geneva-switzerland"
+        "it-business-analista-credit-it-union-bancaire-privee-geneva-switzerland",
+        "it-business-analyst-risikomanagement-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-05-17T11:17:35.564Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -84,7 +85,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ubp-e60991c9c92c",

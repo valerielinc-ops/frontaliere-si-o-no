@@ -823,12 +823,14 @@
         "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-cseb-ch",
         "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-bassa-scuo",
         "assistent-in-gesundheit-e-soziales-pflegehelfer-in-srk-o-sozialbetreuer-in-50-90-center-da-sanadad-engiadina-bassa-scuol",
-        "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-bassa-scuol"
+        "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-bassa-scuol",
+        "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-bassa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-cseb-ch",
-          "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-bassa-scuol"
+          "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-bassa-scuol",
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-bassa"
         ],
         "en": [
           "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-cseb-ch"
@@ -841,7 +843,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -854,7 +855,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "cseb-5fa447124a26",
@@ -911,13 +913,15 @@
       "previousSlugs": [
         "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol",
         "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch",
-        "analista-biomedico-in-hf-med-techn-assistente-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol"
+        "analista-biomedico-in-hf-med-techn-assistente-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol",
+        "analyste-biomedical-in-hf-med-techn-assistant-de-laboratoire-en-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
           "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol",
           "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch",
-          "analista-biomedico-in-hf-med-techn-assistente-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol"
+          "analista-biomedico-in-hf-med-techn-assistente-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol",
+          "analyste-biomedical-in-hf-med-techn-assistant-de-laboratoire-en-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "en": [
           "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol"
@@ -930,7 +934,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T11:55:25.784Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -943,7 +946,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "cseb-3e74b504b5fc",

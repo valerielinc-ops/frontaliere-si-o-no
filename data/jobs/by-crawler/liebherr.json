@@ -3520,16 +3520,21 @@
       },
       "previousSlugs": [
         "service-techniker-turmdrehkrane-m-w-liebherr-reiden",
-        "servizio-tecnico-torre-gru-m-w-liebherr-reiden"
+        "servizio-tecnico-torre-gru-m-w-liebherr-reiden",
+        "gru-a-torre-di-clerk-tecnico-m-w-liebherr-reiden",
+        "gru-a-torre-di-servizio-m-f-liebherr-reiden",
+        "grues-a-tour-de-location-et-de-service-m-f-liebherr-reiden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "service-techniker-turmdrehkrane-m-w-liebherr-reiden",
-          "servizio-tecnico-torre-gru-m-w-liebherr-reiden"
+          "servizio-tecnico-torre-gru-m-w-liebherr-reiden",
+          "gru-a-torre-di-clerk-tecnico-m-w-liebherr-reiden",
+          "gru-a-torre-di-servizio-m-f-liebherr-reiden",
+          "grues-a-tour-de-location-et-de-service-m-f-liebherr-reiden"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.408Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -3541,7 +3546,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "liebherr-0836de1a03e3",
@@ -5305,17 +5311,18 @@
         "it": [
           "diagnostics-mechatronics-technician-m-f-x-liebherr-bulle",
           "diagnostics-mechatronics-m-f-x-liebherr-bulle",
-          "diagnostica-meccatronica-tecnica-m-f-x-liebherr-bulle"
+          "diagnostica-meccatronica-tecnica-m-f-x-liebherr-bulle",
+          "diagnostics-technician-m-f-x-liebherr-bulle"
         ]
       },
       "previousSlugs": [
         "diagnostics-mechatronics-technician-m-f-x-liebherr-bulle",
         "diagnostics-mechatronics-m-f-x-liebherr-bulle",
         "warranty-investigation-technician-m-f-x-liebherr-bulle",
-        "diagnostica-meccatronica-tecnica-m-f-x-liebherr-bulle"
+        "diagnostica-meccatronica-tecnica-m-f-x-liebherr-bulle",
+        "diagnostics-technician-m-f-x-liebherr-bulle"
       ],
       "firstSeenAt": "2026-07-01T22:41:16.361Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5327,7 +5334,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "liebherr-6301c72cfc83",

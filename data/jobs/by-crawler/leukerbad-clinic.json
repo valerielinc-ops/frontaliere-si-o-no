@@ -144,7 +144,6 @@
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
       "crawledAt": "2026-08-06T11:58:29.641Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:22:23.632Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -157,7 +156,18 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "chief-physician-in-internal-medicine-with-fmh-leukerbad-clinic-leukerbad",
+          "medecin-chef-en-medecine-interne-avec-fmh-leukerbad-clinic-leukerbad"
+        ]
+      },
+      "previousSlugs": [
+        "chief-physician-in-internal-medicine-with-fmh-leukerbad-clinic-leukerbad",
+        "medecin-chef-en-medecine-interne-avec-fmh-leukerbad-clinic-leukerbad"
+      ]
     },
     {
       "id": "leukerbad-clinic-24f51169b1e8",
@@ -205,15 +215,18 @@
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
       "crawledAt": "2026-08-06T11:58:29.641Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad",
-        "assistente-medico-pratico-m-f-leukerbad-clinic-leukerbad"
+        "assistente-medico-pratico-m-f-leukerbad-clinic-leukerbad",
+        "assistant-e-medical-e-leukerbad-clinic-leukerbad",
+        "assistente-a-medico-a-m-f-leukerbad-clinic-leukerbad"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad",
-          "assistente-medico-pratico-m-f-leukerbad-clinic-leukerbad"
+          "assistente-medico-pratico-m-f-leukerbad-clinic-leukerbad",
+          "assistant-e-medical-e-leukerbad-clinic-leukerbad",
+          "assistente-a-medico-a-m-f-leukerbad-clinic-leukerbad"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad"
@@ -234,7 +247,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "leukerbad-clinic-d80ce36d545a",
@@ -285,12 +299,14 @@
       "needsRetranslation": false,
       "previousSlugs": [
         "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
-        "applicazione-spontanea-per-una-posizione-di-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains"
+        "applicazione-spontanea-per-una-posizione-di-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains",
+        "candidatura-spontanea-per-una-posizione-di-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
           "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
-          "applicazione-spontanea-per-una-posizione-di-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains"
+          "applicazione-spontanea-per-una-posizione-di-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains",
+          "candidatura-spontanea-per-una-posizione-di-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains"
         ],
         "en": [
           "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche"
@@ -1062,12 +1078,14 @@
       "needsRetranslation": false,
       "previousSlugs": [
         "candidature-spontanee-pour-un-poste-d-infirmier-ere-diplome-e-leukerbad-clinic-loeche-les",
-        "applicazione-spontanea-per-una-posizione-diplome-e-infirmier-ere-leukerbad-clinic-loeche-les-bains"
+        "applicazione-spontanea-per-una-posizione-diplome-e-infirmier-ere-leukerbad-clinic-loeche-les-bains",
+        "candidature-spontanee-pour-un-poste-d-infirmier-diplome-leukerbad-clinic-leukerbad"
       ],
       "previousSlugsByLocale": {
         "it": [
           "candidature-spontanee-pour-un-poste-d-infirmier-ere-diplome-e-leukerbad-clinic-loeche-les",
-          "applicazione-spontanea-per-una-posizione-diplome-e-infirmier-ere-leukerbad-clinic-loeche-les-bains"
+          "applicazione-spontanea-per-una-posizione-diplome-e-infirmier-ere-leukerbad-clinic-loeche-les-bains",
+          "candidature-spontanee-pour-un-poste-d-infirmier-diplome-leukerbad-clinic-leukerbad"
         ],
         "en": [
           "candidature-spontanee-pour-un-poste-d-infirmier-ere-diplome-e-leukerbad-clinic-loeche-les"

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "emil-frey",
-  "assembledAt": "2026-08-06T11:34:18.605Z",
+  "assembledAt": "2026-08-06T10:21:11.207Z",
   "jobs": [
     {
       "id": "emil-frey-9eb73a66d657",
@@ -1672,7 +1672,8 @@
         "automobil-mechatroniker-in-efz-emil-frey-au-wadenswil",
         "automotive-mechatronics-specialist-efz-emil-frey-au-wadenswil",
         "mecatronique-automobile-specialiste-efz-emil-frey-au-wadenswil",
-        "automobil-fachmann-frau-cfc-emil-frey-au-wadenswil"
+        "automobil-fachmann-frau-cfc-emil-frey-au-wadenswil",
+        "efz-as-automotive-specialist-emil-frey-au-wadenswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1680,7 +1681,8 @@
           "automobil-mechatroniker-in-efz-emil-frey-au-wadenswil",
           "automotive-mechatronics-specialist-efz-emil-frey-au-wadenswil",
           "mecatronique-automobile-specialiste-efz-emil-frey-au-wadenswil",
-          "automobil-fachmann-frau-cfc-emil-frey-au-wadenswil"
+          "automobil-fachmann-frau-cfc-emil-frey-au-wadenswil",
+          "efz-as-automotive-specialist-emil-frey-au-wadenswil"
         ],
         "en": [
           "automobil-fachmann-frau-efz-emil-frey-au-wadenswil",
@@ -1695,7 +1697,6 @@
         ]
       },
       "firstSeenAt": "2026-06-25T22:17:36.442Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1707,7 +1708,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "emil-frey-1e6d585ab686",
@@ -3584,13 +3586,15 @@
       "previousSlugs": [
         "logistiker-in-hochregallager-emil-frey-harkingen",
         "specialiste-de-la-logistique-dans-un-entrepot-a-haute-hauteur-emil-frey-harkingen",
-        "impiegato-a-in-logistica-hochregallager-emil-frey-harkingen"
+        "impiegato-a-in-logistica-hochregallager-emil-frey-harkingen",
+        "logistics-specialist-high-bay-warehouse-emil-frey-harkingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-hochregallager-emil-frey-harkingen",
           "specialiste-de-la-logistique-dans-un-entrepot-a-haute-hauteur-emil-frey-harkingen",
-          "impiegato-a-in-logistica-hochregallager-emil-frey-harkingen"
+          "impiegato-a-in-logistica-hochregallager-emil-frey-harkingen",
+          "logistics-specialist-high-bay-warehouse-emil-frey-harkingen"
         ],
         "en": [
           "logistiker-in-hochregallager-emil-frey-harkingen"
@@ -3600,7 +3604,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:11:05.036Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3612,7 +3615,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "emil-frey-c742d5276071",

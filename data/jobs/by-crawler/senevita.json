@@ -163,13 +163,17 @@
       "previousSlugs": [
         "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-seengen-ag",
         "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-ag-seengen",
-        "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-seengen-ag"
+        "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-seengen-ag",
+        "apprentissage-professionnel-en-sante-efz-senevita-seengen-ag",
+        "healthcare-professional-apprenticeship-efz-senevita-seengen-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-seengen-ag",
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-ag-seengen",
-          "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-seengen-ag"
+          "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-seengen-ag",
+          "apprentissage-professionnel-en-sante-efz-senevita-seengen-ag",
+          "healthcare-professional-apprenticeship-efz-senevita-seengen-ag"
         ],
         "en": [
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-seengen-ag"
@@ -1721,12 +1725,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-zug-spitex-senevita-zug",
-        "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-zug-spitex-senevita-zg"
+        "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-zug-spitex-senevita-zg",
+        "healthcare-professional-efz-in-hourly-or-monthly-salary-40-100-region-zug-spitex-senevita-zug-zg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-zug-spitex-senevita-zug",
-          "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-zug-spitex-senevita-zg"
+          "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-zug-spitex-senevita-zg",
+          "healthcare-professional-efz-in-hourly-or-monthly-salary-40-100-region-zug-spitex-senevita-zug-zg"
         ],
         "en": [
           "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-zug-spitex-senevita-zug"
@@ -3062,7 +3068,9 @@
         "specialiste-en-sante-efz-40-80-senevita-bern-be",
         "fachfrau-mann-gesundheit-efz-berufsbildner-in-80-100-senevita-bern-be",
         "fachfrau-mann-gesundheit-efz-berufsbildner-in-80-100-senevita-be-bern",
-        "specialista-di-salute-efz-70-100-senevita-bern-be"
+        "specialista-di-salute-efz-70-100-senevita-bern-be",
+        "specialista-della-salute-efz-40-70-senevita-bern-be",
+        "specialista-della-salute-efz-50-senevita-bern-be"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3073,7 +3081,9 @@
           "specialiste-en-sante-efz-40-80-senevita-bern-be",
           "fachfrau-mann-gesundheit-efz-berufsbildner-in-80-100-senevita-bern-be",
           "fachfrau-mann-gesundheit-efz-berufsbildner-in-80-100-senevita-be-bern",
-          "specialista-di-salute-efz-70-100-senevita-bern-be"
+          "specialista-di-salute-efz-70-100-senevita-bern-be",
+          "specialista-della-salute-efz-40-70-senevita-bern-be",
+          "specialista-della-salute-efz-50-senevita-bern-be"
         ],
         "en": [
           "healthcare-professional-efz-40-80-senevita-bern-be"
@@ -3235,7 +3245,8 @@
         "lehrstelle-als-fachfrau-mann-gesundheit-fage-senevita-zurich-zh",
         "apprentissage-en-tant-que-specialiste-de-la-sante-fage-senevita-zurich-zh",
         "fachfrau-mann-gesundheit-efz-80-100-senevita-zh-zurich",
-        "fachfrau-mann-gesundheit-cfc-80-100-senevita-zurich-zh"
+        "fachfrau-mann-gesundheit-cfc-80-100-senevita-zurich-zh",
+        "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zurich-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3245,7 +3256,8 @@
           "lehrstelle-als-fachfrau-mann-gesundheit-fage-senevita-zurich-zh",
           "apprentissage-en-tant-que-specialiste-de-la-sante-fage-senevita-zurich-zh",
           "fachfrau-mann-gesundheit-efz-80-100-senevita-zh-zurich",
-          "fachfrau-mann-gesundheit-cfc-80-100-senevita-zurich-zh"
+          "fachfrau-mann-gesundheit-cfc-80-100-senevita-zurich-zh",
+          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zurich-zh"
         ],
         "en": [
           "apprenticeship-as-a-specialist-in-health-fage-senevita-zurich-zh",
@@ -4128,13 +4140,17 @@
       "previousSlugs": [
         "fachfrau-mann-gesundheit-efz-50-100-im-tagesdienst-senevita-dietikon-zh",
         "fachfrau-mann-gesundheit-efz-50-100-im-tagesdienst-senevita-zh-dietikon",
-        "fachfrau-mann-gesundheit-cfc-50-100-im-tagesdienst-senevita-dietikon-zh"
+        "fachfrau-mann-gesundheit-cfc-50-100-im-tagesdienst-senevita-dietikon-zh",
+        "fachfrau-mann-gesundheit-efz-im-nachtdienst-50-100-senevita-dietikon-zh",
+        "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-dietikon-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-efz-50-100-im-tagesdienst-senevita-dietikon-zh",
           "fachfrau-mann-gesundheit-efz-50-100-im-tagesdienst-senevita-zh-dietikon",
-          "fachfrau-mann-gesundheit-cfc-50-100-im-tagesdienst-senevita-dietikon-zh"
+          "fachfrau-mann-gesundheit-cfc-50-100-im-tagesdienst-senevita-dietikon-zh",
+          "fachfrau-mann-gesundheit-efz-im-nachtdienst-50-100-senevita-dietikon-zh",
+          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-dietikon-zh"
         ],
         "en": [
           "fachfrau-mann-gesundheit-efz-50-100-im-tagesdienst-senevita-dietikon-zh"
@@ -4856,14 +4872,16 @@
         "fachfrau-fachmann-gesundheit-fage-efz-80-100-nur-spatdienst-senevita-burgdorf-be",
         "fachfrau-fachmann-gesundheit-fage-efz-50-100-nur-spatdienst-senevita-burgdorf-be",
         "fachfrau-fachmann-gesundheit-fage-efz-50-100-nur-spatdienst-senevita-be-burgdorf",
-        "specialista-della-salute-fage-efz-80-100-solo-turno-serale-senevita-burgdorf-be"
+        "specialista-della-salute-fage-efz-80-100-solo-turno-serale-senevita-burgdorf-be",
+        "fachfrau-fachmann-gesundheit-fage-cfc-80-100-nur-spatdienst-senevita-burgdorf-be"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-fage-efz-80-100-nur-spatdienst-senevita-burgdorf-be",
           "fachfrau-fachmann-gesundheit-fage-efz-50-100-nur-spatdienst-senevita-burgdorf-be",
           "fachfrau-fachmann-gesundheit-fage-efz-50-100-nur-spatdienst-senevita-be-burgdorf",
-          "specialista-della-salute-fage-efz-80-100-solo-turno-serale-senevita-burgdorf-be"
+          "specialista-della-salute-fage-efz-80-100-solo-turno-serale-senevita-burgdorf-be",
+          "fachfrau-fachmann-gesundheit-fage-cfc-80-100-nur-spatdienst-senevita-burgdorf-be"
         ],
         "de": [
           "fachfrau-fachmann-gesundheit-fage-efz-50-100-nur-spatdienst-senevita-be-burgdorf"
@@ -8524,7 +8542,10 @@
         "assistent-in-gesundheit-soziales-pflegehelfer-in-50-100-senevita-studen-be",
         "assistant-en-sante-et-affaires-sociales-assistant-infirmier-en-50-100-senevita-studen-be",
         "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-40-100-senevita-be-munsingen",
-        "assistente-sanita-e-affari-sociali-assistente-infermieristico-src-50-100-senevita-munsingen-be"
+        "assistente-sanita-e-affari-sociali-assistente-infermieristico-src-50-100-senevita-munsingen-be",
+        "assistant-in-health-social-services-nursing-assistant-srk-40-60-senevita-munsingen-be",
+        "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-40-60-senevita-munsingen-be",
+        "assistente-assistenza-sanitaria-e-affari-sociali-assistente-infermieristico-src-40-60-senevita-munsingen-be"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8537,7 +8558,10 @@
           "assistent-in-gesundheit-soziales-pflegehelfer-in-50-100-senevita-studen-be",
           "assistant-en-sante-et-affaires-sociales-assistant-infirmier-en-50-100-senevita-studen-be",
           "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-40-100-senevita-be-munsingen",
-          "assistente-sanita-e-affari-sociali-assistente-infermieristico-src-50-100-senevita-munsingen-be"
+          "assistente-sanita-e-affari-sociali-assistente-infermieristico-src-50-100-senevita-munsingen-be",
+          "assistant-in-health-social-services-nursing-assistant-srk-40-60-senevita-munsingen-be",
+          "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-40-60-senevita-munsingen-be",
+          "assistente-assistenza-sanitaria-e-affari-sociali-assistente-infermieristico-src-40-60-senevita-munsingen-be"
         ],
         "en": [
           "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-50-100-senevita-munsingen-be",

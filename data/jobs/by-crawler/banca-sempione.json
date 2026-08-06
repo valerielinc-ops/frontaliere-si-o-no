@@ -183,12 +183,16 @@
         "global-wealth-management-privatbanker-lugano-banca-del-sempione-lugano",
         "global-wealth-management-consulente-alla-clientela-private-banker-banca-del-sempione-lugano",
         "gestion-mondiale-de-patrimoine-banquier-prive-lugano-banca-del-sempione-lugano",
-        "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
+        "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano",
+        "global-wealth-management-client-advisor-private-banker-banca-del-sempione-lugano-ommoy5",
+        "global-wealth-management-privatbanker-banca-del-sempione-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "global-wealth-management-privatbanker-lugano-banca-del-sempione-lugano",
-          "global-wealth-management-consulente-alla-clientela-private-banker-banca-del-sempione-lugano"
+          "global-wealth-management-consulente-alla-clientela-private-banker-banca-del-sempione-lugano",
+          "global-wealth-management-client-advisor-private-banker-banca-del-sempione-lugano-ommoy5",
+          "global-wealth-management-privatbanker-banca-del-sempione-lugano"
         ],
         "en": [
           "global-wealth-management-client-advisor-private-banker-banca-del-sempione-lugano",
@@ -204,7 +208,6 @@
       },
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -223,7 +226,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Global Wealth Management – Private Banking Assistant (Zurich)",

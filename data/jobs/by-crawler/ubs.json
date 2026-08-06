@@ -5705,12 +5705,14 @@
       },
       "previousSlugs": [
         "2027-bem-bankeinstieg-nach-matura-zh-september-ubs-zurich",
-        "2027-bem-ingresso-bancario-a-matura-zh-settembre-ubs-zurich"
+        "2027-bem-ingresso-bancario-a-matura-zh-settembre-ubs-zurich",
+        "2027-bem-ingresso-bancario-a-matura-gr-settembre-ubs-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "2027-bem-bankeinstieg-nach-matura-zh-september-ubs-zurich",
-          "2027-bem-ingresso-bancario-a-matura-zh-settembre-ubs-zurich"
+          "2027-bem-ingresso-bancario-a-matura-zh-settembre-ubs-zurich",
+          "2027-bem-ingresso-bancario-a-matura-gr-settembre-ubs-rolle"
         ],
         "en": [
           "2027-bem-bankeinstieg-nach-matura-zh-september-ubs-zurich"
@@ -6220,12 +6222,14 @@
       },
       "previousSlugs": [
         "client-advisor-wm-apac-ch-south-east-asia-japan-in-zurich-geneva-ubs-aargau-solothurn",
-        "consulente-clienti-wm-apac-ch-sud-est-asiatico-e-giappone-a-zurigo-ginevra-ubs-aargau-solothurn"
+        "consulente-clienti-wm-apac-ch-sud-est-asiatico-e-giappone-a-zurigo-ginevra-ubs-aargau-solothurn",
+        "client-consulente-wm-apac-ch-south-east-asia-japan-in-zurich-geneva-ubs-aargau-solothurn-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "client-advisor-wm-apac-ch-south-east-asia-japan-in-zurich-geneva-ubs-aargau-solothurn",
-          "consulente-clienti-wm-apac-ch-sud-est-asiatico-e-giappone-a-zurigo-ginevra-ubs-aargau-solothurn"
+          "consulente-clienti-wm-apac-ch-sud-est-asiatico-e-giappone-a-zurigo-ginevra-ubs-aargau-solothurn",
+          "client-consulente-wm-apac-ch-south-east-asia-japan-in-zurich-geneva-ubs-aargau-solothurn-switzerland-zurich"
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.694Z",
@@ -6300,18 +6304,21 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "client-account-manager-apac-switzerland-ubs-zurich"
+        "client-account-manager-apac-switzerland-ubs-zurich",
+        "client-account-manager-apac-switzerland-ubs",
+        "client-account-manager-apac-switzerland-ubs-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "client-account-manager-apac-switzerland-ubs-zurich"
+          "client-account-manager-apac-switzerland-ubs-zurich",
+          "client-account-manager-apac-switzerland-ubs",
+          "client-account-manager-apac-switzerland-ubs-2"
         ],
         "fr": [
           "client-account-manager-apac-switzerland-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.694Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -6324,7 +6331,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "ubs-55a5ac1ce745",

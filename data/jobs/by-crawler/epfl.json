@@ -3364,14 +3364,18 @@
         "postdoc-nella-biofisica-sperimentale-epfl-lausanne",
         "postdoc-in-experimental-biophysics-epfl-lausanne",
         "postdoc-in-experimenteller-biophysik-epfl-lausanne",
-        "postdoc-en-biophysique-experimentale-epfl-lausanne"
+        "postdoc-en-biophysique-experimentale-epfl-lausanne",
+        "postdoc-in-der-photoelektrochemie-epfl-lausanne",
+        "postdoc-in-photoelektrochemie-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postdoc-nella-biofisica-sperimentale-epfl-lausanne",
           "postdoc-in-experimental-biophysics-epfl-lausanne",
           "postdoc-in-experimenteller-biophysik-epfl-lausanne",
-          "postdoc-en-biophysique-experimentale-epfl-lausanne"
+          "postdoc-en-biophysique-experimentale-epfl-lausanne",
+          "postdoc-in-der-photoelektrochemie-epfl-lausanne",
+          "postdoc-in-photoelektrochemie-epfl-lausanne"
         ],
         "en": [
           "postdoc-in-experimental-biophysics-epfl-lausanne"
@@ -3386,7 +3390,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T13:42:50.059Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3399,7 +3402,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-09d95276d981",

@@ -755,7 +755,8 @@
         "sozialarbeiter-in-oder-sozialpadagoge-in-kanton-gr-ch",
         "travailleur-social-ou-educateur-social-kantonale-verwaltung-graubunden-chur",
         "sozialarbeiter-in-kanton-gr-ch",
-        "lavoratore-sociale-kantonale-verwaltung-graubunden-landquart-ee7052"
+        "lavoratore-sociale-kantonale-verwaltung-graubunden-landquart-ee7052",
+        "lavoratore-sociale-kantonale-verwaltung-graubunden-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -764,7 +765,8 @@
           "sozialarbeiter-in-oder-sozialpadagoge-in-kanton-gr-ch",
           "travailleur-social-ou-educateur-social-kantonale-verwaltung-graubunden-chur",
           "sozialarbeiter-in-kanton-gr-ch",
-          "lavoratore-sociale-kantonale-verwaltung-graubunden-landquart-ee7052"
+          "lavoratore-sociale-kantonale-verwaltung-graubunden-landquart-ee7052",
+          "lavoratore-sociale-kantonale-verwaltung-graubunden-landquart"
         ],
         "en": [
           "social-worker-or-social-educator-kantonale-verwaltung-graubunden-chur",
@@ -2471,16 +2473,19 @@
         ],
         "it": [
           "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
-          "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur"
+          "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur",
+          "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-cazis",
+          "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-zuoz"
         ]
       },
       "previousSlugs": [
         "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
         "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur",
-        "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur"
+        "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur",
+        "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-cazis",
+        "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-zuoz"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2493,7 +2498,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     }
   ]
 }

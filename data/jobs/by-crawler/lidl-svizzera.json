@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lidl-svizzera",
-  "assembledAt": "2026-08-06T11:33:01.341Z",
+  "assembledAt": "2026-08-06T10:45:26.870Z",
   "jobs": [
     {
       "id": "company-xjb6tr",
@@ -204,7 +204,8 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-vendeuse-m-w-d-40-lidl-svizzera-oron",
-          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-oron-vloilh"
+          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-oron-vloilh",
+          "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy"
         ],
         "en": [
           "vendeur-vendeuse-m-w-d-40-lidl-svizzera-oron-vloilh"
@@ -215,8 +216,11 @@
       },
       "previousSlugs": [
         "vendeur-vendeuse-m-w-d-40-lidl-svizzera-oron",
-        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-oron-vloilh"
+        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-oron-vloilh",
+        "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy"
       ],
+      "salaryMin": 24200,
+      "salaryMax": 36600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -231,9 +235,7 @@
       "addressRegion": "VD",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "salaryMin": 24200,
-      "salaryMax": 36600
+      "needsRetranslation": true
     },
     {
       "id": "company-1s7m1i",
@@ -624,7 +626,13 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-dubendorf",
-          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-dubendorf-c9ml9c"
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-dubendorf-c9ml9c",
+          "seller-m-f-d-20-80-dubendorf-lidl-svizzera-dubendorf-eb9a44",
+          "seller-m-p-d-20-802-dubendorf-lidl-svizzera-dubendorf",
+          "seller-m-w-d-20-802-dubendorf-lidl-svizzera-dubendorf",
+          "vendeur-m-w-d-20-802-dubendorf-lidl-svizzera-dubendorf",
+          "venditore-m-f-d-20-80-dubendorf-lidl-svizzera-dubendorf-938719",
+          "venditore-m-f-d-20-80-dubendorf-lidl-svizzera-dubendorf-eb9a44"
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-dubendorf-c9ml9c"
@@ -635,7 +643,13 @@
       },
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-dubendorf",
-        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-dubendorf-c9ml9c"
+        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-dubendorf-c9ml9c",
+        "seller-m-f-d-20-80-dubendorf-lidl-svizzera-dubendorf-eb9a44",
+        "seller-m-p-d-20-802-dubendorf-lidl-svizzera-dubendorf",
+        "seller-m-w-d-20-802-dubendorf-lidl-svizzera-dubendorf",
+        "vendeur-m-w-d-20-802-dubendorf-lidl-svizzera-dubendorf",
+        "venditore-m-f-d-20-80-dubendorf-lidl-svizzera-dubendorf-938719",
+        "venditore-m-f-d-20-80-dubendorf-lidl-svizzera-dubendorf-eb9a44"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1516,12 +1530,14 @@
       "previousSlugsByLocale": {
         "it": [
           "lehre-detailhandel-eba-oder-efz-beginn-2027-lidl-svizzera-spiez",
-          "lehre-commercio-al-dettaglio-afp-o-cfc-beginn-2027-lidl-svizzera-spiez-rltxob"
+          "lehre-commercio-al-dettaglio-afp-o-cfc-beginn-2027-lidl-svizzera-spiez-rltxob",
+          "lehrstelle-detailhandel-eba-oder-efz-beginn-2026-lidl-svizzera-spiez"
         ]
       },
       "previousSlugs": [
         "lehre-detailhandel-eba-oder-efz-beginn-2027-lidl-svizzera-spiez",
-        "lehre-commercio-al-dettaglio-afp-o-cfc-beginn-2027-lidl-svizzera-spiez-rltxob"
+        "lehre-commercio-al-dettaglio-afp-o-cfc-beginn-2027-lidl-svizzera-spiez-rltxob",
+        "lehrstelle-detailhandel-eba-oder-efz-beginn-2026-lidl-svizzera-spiez"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1537,9 +1553,9 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-furizt",
@@ -1975,7 +1991,13 @@
         "it": [
           "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-lidl-svizzera-conthey",
           "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-lidl-svizzera-conthey-cpdrqd",
-          "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-conthey-lidl-svizzera-conthey"
+          "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-conthey-lidl-svizzera-conthey",
+          "afp-o-cfc-imparare-al-dettaglio-inizio-2026-conthey-lidl-svizzera-conthey",
+          "afp-oder-cfc-retail-learning-anfang-2026-conthey-lidl-svizzera-conthey",
+          "afp-or-cfc-retail-learning-early-2026-conthey-lidl-svizzera-conthey",
+          "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2026-conthey-lidl-svizzera-conthey",
+          "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2026-lidl-svizzera-conthey",
+          "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2026-lidl-svizzera-conthey-ka2l6a"
         ],
         "en": [
           "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-lidl-svizzera-conthey-cpdrqd"
@@ -1987,7 +2009,13 @@
       "previousSlugs": [
         "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-lidl-svizzera-conthey",
         "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-lidl-svizzera-conthey-cpdrqd",
-        "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-conthey-lidl-svizzera-conthey"
+        "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-conthey-lidl-svizzera-conthey",
+        "afp-o-cfc-imparare-al-dettaglio-inizio-2026-conthey-lidl-svizzera-conthey",
+        "afp-oder-cfc-retail-learning-anfang-2026-conthey-lidl-svizzera-conthey",
+        "afp-or-cfc-retail-learning-early-2026-conthey-lidl-svizzera-conthey",
+        "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2026-conthey-lidl-svizzera-conthey",
+        "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2026-lidl-svizzera-conthey",
+        "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2026-lidl-svizzera-conthey-ka2l6a"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -2625,7 +2653,8 @@
         "it": [
           "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-lidl-svizzera-noville",
           "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-lidl-svizzera-noville-y9bkgt",
-          "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-noville-lidl-svizzera-noville"
+          "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-noville-lidl-svizzera-noville",
+          "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2026-lidl-svizzera-noville"
         ],
         "en": [
           "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-lidl-svizzera-noville-y9bkgt"
@@ -2637,7 +2666,8 @@
       "previousSlugs": [
         "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-lidl-svizzera-noville",
         "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-lidl-svizzera-noville-y9bkgt",
-        "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-noville-lidl-svizzera-noville"
+        "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-noville-lidl-svizzera-noville",
+        "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2026-lidl-svizzera-noville"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -2706,7 +2736,9 @@
         "it": [
           "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-lidl-svizzera-yverdon-les-bains",
           "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-lidl-svizzera-yverdon-les-bains-pmhren",
-          "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-yverdon-les-bains-lidl-svizzera-yverdon-les-bains"
+          "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-yverdon-les-bains-lidl-svizzera-yverdon-les-bains",
+          "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2026-lidl-svizzera-yverdon-les-bains",
+          "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2026-yverdon-les-bains-lidl-svizzera-yverdon-les-bains"
         ],
         "en": [
           "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-lidl-svizzera-yverdon-les-bains-pmhren"
@@ -2718,7 +2750,9 @@
       "previousSlugs": [
         "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-lidl-svizzera-yverdon-les-bains",
         "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-lidl-svizzera-yverdon-les-bains-pmhren",
-        "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-yverdon-les-bains-lidl-svizzera-yverdon-les-bains"
+        "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-yverdon-les-bains-lidl-svizzera-yverdon-les-bains",
+        "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2026-lidl-svizzera-yverdon-les-bains",
+        "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2026-yverdon-les-bains-lidl-svizzera-yverdon-les-bains"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -5436,7 +5470,8 @@
         "it": [
           "ch-venditore-venditrice-con-responsabilita-del-turno-m-w-d-60-80-lidl-svizzera-st-moritz",
           "venditore-venditrice-con-responsabilita-di-turno-m-f-60-80-lidl-svizzera-st-moritz",
-          "venditore-venditrice-m-f-d-20-40-lidl-svizzera-st-moritz"
+          "venditore-venditrice-m-f-d-20-40-lidl-svizzera-st-moritz",
+          "268-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-lidl-svizzera-locarno"
         ],
         "fr": [
           "ch-vendeur-vendeur-responsable-du-quart-m-f-d-60-80-lidl-svizzera-st-moritz",
@@ -5449,7 +5484,8 @@
         "venditore-venditrice-con-responsabilita-di-turno-m-f-60-80-lidl-svizzera-st-moritz",
         "venditore-venditrice-m-f-d-20-40-lidl-svizzera-st-moritz",
         "ch-vendeur-vendeur-responsable-du-quart-m-f-d-60-80-lidl-svizzera-st-moritz",
-        "ch-vendeur-vendeur-responsable-du-poste-m-f-d-60-80-lidl-svizzera-st-moritz"
+        "ch-vendeur-vendeur-responsable-du-poste-m-f-d-60-80-lidl-svizzera-st-moritz",
+        "268-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-lidl-svizzera-locarno"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -5465,9 +5501,9 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 54800,
-      "salaryMax": 84000
+      "salaryMax": 84000,
+      "needsRetranslation": true
     },
     {
       "id": "company-xfxcs3",
@@ -7210,7 +7246,10 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-altendorf",
-          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-altendorf-ym72xl"
+          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-altendorf-ym72xl",
+          "seller-m-f-d-20-40-altendorf-lidl-svizzera-altendorf-2ad7b3",
+          "vendeur-m-f-j-20-40-altendorf-lidl-svizzera-altendorf-2ad7b3",
+          "venditore-m-f-d-20-40-altendorf-lidl-svizzera-altendorf-2ad7b3"
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-altendorf-ym72xl"
@@ -7221,7 +7260,10 @@
       },
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-altendorf",
-        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-altendorf-ym72xl"
+        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-altendorf-ym72xl",
+        "seller-m-f-d-20-40-altendorf-lidl-svizzera-altendorf-2ad7b3",
+        "vendeur-m-f-j-20-40-altendorf-lidl-svizzera-altendorf-2ad7b3",
+        "venditore-m-f-d-20-40-altendorf-lidl-svizzera-altendorf-2ad7b3"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -7792,7 +7834,8 @@
         "it": [
           "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach",
           "allrounder-verkauf-m-w-d-20-40-arbon-lidl-svizzera-arbon",
-          "allrounder-verkauf-m-w-d-40-trimbach-lidl-svizzera-trimbach"
+          "allrounder-verkauf-m-w-d-40-trimbach-lidl-svizzera-trimbach",
+          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-bachenbulach"
         ],
         "en": [
           "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach-dd6j6x",
@@ -7805,7 +7848,8 @@
         "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach-dd6j6x",
         "allrounder-verkauf-m-w-d-20-40-arbon-lidl-svizzera-arbon",
         "allrounder-verkauf-m-w-d-40-trimbach-lidl-svizzera-trimbach",
-        "all-rounder-sale-m-f-d-40-60-lidl-svizzera-bachenbulach"
+        "all-rounder-sale-m-f-d-40-60-lidl-svizzera-bachenbulach",
+        "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-bachenbulach"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -7821,9 +7865,9 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 44100,
-      "salaryMax": 66900
+      "salaryMax": 66900,
+      "needsRetranslation": true
     },
     {
       "id": "company-mjaa4c",
@@ -7954,7 +7998,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-romanshorn",
-          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-romanshorn-k8j36j"
+          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-romanshorn-k8j36j",
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-romanshorn"
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-romanshorn-k8j36j"
@@ -7965,7 +8010,8 @@
       },
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-romanshorn",
-        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-romanshorn-k8j36j"
+        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-romanshorn-k8j36j",
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-romanshorn"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -9227,7 +9273,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-bachenbulach",
-          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-bachenbulach-9hd0bm"
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-bachenbulach-9hd0bm",
+          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-bachenbulach"
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-bachenbulach-9hd0bm"
@@ -9238,7 +9285,8 @@
       },
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-bachenbulach",
-        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-bachenbulach-9hd0bm"
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-bachenbulach-9hd0bm",
+        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-bachenbulach"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -9546,7 +9594,8 @@
           "venditore-m-f-d-40-60-riden-lidl-svizzera-reiden",
           "seller-m-f-d-40-60-riden-lidl-svizzera-reiden",
           "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-reiden-5cksze",
-          "vendeur-m-f-j-40-60-riden-lidl-svizzera-reiden"
+          "vendeur-m-f-j-40-60-riden-lidl-svizzera-reiden",
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-reiden"
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-40-lidl-svizzera-reiden-t0pvnk",
@@ -9566,7 +9615,8 @@
         "venditore-m-f-d-40-60-riden-lidl-svizzera-reiden",
         "seller-m-f-d-40-60-riden-lidl-svizzera-reiden",
         "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-reiden-5cksze",
-        "vendeur-m-f-j-40-60-riden-lidl-svizzera-reiden"
+        "vendeur-m-f-j-40-60-riden-lidl-svizzera-reiden",
+        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-reiden"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -9583,9 +9633,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
-      "needsRetranslation": true,
       "salaryMin": 27800,
-      "salaryMax": 42400
+      "salaryMax": 42400,
+      "needsRetranslation": true
     },
     {
       "id": "company-igswfn",
@@ -9799,7 +9849,8 @@
           "seller-m-f-d-20-80-2-1-lidl-svizzera-aarau-ag",
           "verkaufer-verkauferin-m-w-d-20-80-2-1-lidl-svizzera-aarau-ag-qv19et",
           "vendeur-m-f-j-20-80-2-1-lidl-svizzera-aarau-ag",
-          "verkaufer-verkauferin-m-w-d-20-80-2-1-lidl-svizzera-aarau-ag"
+          "verkaufer-verkauferin-m-w-d-20-80-2-1-lidl-svizzera-aarau-ag",
+          "verkaufer-verkauferin-m-w-d-20-80-2-1-lidl-svizzera-aarau-ag-gpevn5"
         ],
         "en": [
           "ch-verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-aarau-ag-s6c1mt",
@@ -9820,7 +9871,8 @@
         "seller-m-f-d-20-80-2-1-lidl-svizzera-aarau-ag",
         "verkaufer-verkauferin-m-w-d-20-80-2-1-lidl-svizzera-aarau-ag-qv19et",
         "vendeur-m-f-j-20-80-2-1-lidl-svizzera-aarau-ag",
-        "verkaufer-verkauferin-m-w-d-20-80-2-1-lidl-svizzera-aarau-ag"
+        "verkaufer-verkauferin-m-w-d-20-80-2-1-lidl-svizzera-aarau-ag",
+        "verkaufer-verkauferin-m-w-d-20-80-2-1-lidl-svizzera-aarau-ag-gpevn5"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -9837,9 +9889,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
-      "needsRetranslation": true,
       "salaryMin": 49600,
-      "salaryMax": 75200
+      "salaryMax": 75200,
+      "needsRetranslation": true
     },
     {
       "id": "company-9mg3qe",
@@ -10217,7 +10269,9 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-horw",
-          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-horw-768217"
+          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-horw-768217",
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-horw",
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-oensingen"
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-horw-768217"
@@ -10228,7 +10282,9 @@
       },
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-horw",
-        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-horw-768217"
+        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-horw-768217",
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-horw",
+        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-oensingen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -10297,7 +10353,9 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-kriens",
-          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-kriens-8andme"
+          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-kriens-8andme",
+          "365-verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-kriens",
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-kriens"
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-kriens-8andme"
@@ -10308,7 +10366,9 @@
       },
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-kriens",
-        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-kriens-8andme"
+        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-kriens-8andme",
+        "365-verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-kriens",
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-kriens"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -10377,7 +10437,9 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-romerswil",
-          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-romerswil-4wjp9q"
+          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-romerswil-4wjp9q",
+          "191-verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-romerswil",
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-romerswil"
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-romerswil-4wjp9q"
@@ -10388,7 +10450,9 @@
       },
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-romerswil",
-        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-romerswil-4wjp9q"
+        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-romerswil-4wjp9q",
+        "191-verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-romerswil",
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-romerswil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -10812,7 +10876,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 55600,
-      "salaryMax": 84800
+      "salaryMax": 84800,
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-ebikon"
+      ]
     },
     {
       "id": "company-hv35c5",
@@ -11045,7 +11117,8 @@
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis",
           "venditore-m-f-d-20-40-sois-lidl-svizzera-thusis-e19576",
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-oyadbu",
-          "assistente-alle-vendite-m-f-d-20-80-dubendorf-lidl-svizzera-dubendorf"
+          "assistente-alle-vendite-m-f-d-20-80-dubendorf-lidl-svizzera-dubendorf",
+          "assistente-vendite-l-f-d-20-80-zug-lidl-svizzera-zug"
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-oyadbu"
@@ -11058,7 +11131,8 @@
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis",
         "venditore-m-f-d-20-40-sois-lidl-svizzera-thusis-e19576",
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-oyadbu",
-        "assistente-alle-vendite-m-f-d-20-80-dubendorf-lidl-svizzera-dubendorf"
+        "assistente-alle-vendite-m-f-d-20-80-dubendorf-lidl-svizzera-dubendorf",
+        "assistente-vendite-l-f-d-20-80-zug-lidl-svizzera-zug"
       ],
       "salaryMin": 23000,
       "salaryMax": 34800
@@ -11266,7 +11340,9 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-cham",
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-cham-s8n3ut"
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-cham-s8n3ut",
+          "deputy-store-manager-m-f-d-60-80-lidl-svizzera-winterthur",
+          "deputy-store-manager-m-f-d-80-100-dottingen-lidl-svizzera-dottingen"
         ],
         "en": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-cham-s8n3ut",
@@ -11279,7 +11355,9 @@
       "previousSlugs": [
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-cham",
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-cham-s8n3ut",
-        "stv-branch-manager-stv-branch-manager-m-f-d-80-100-cham-lidl-svizzera-cham"
+        "stv-branch-manager-stv-branch-manager-m-f-d-80-100-cham-lidl-svizzera-cham",
+        "deputy-store-manager-m-f-d-60-80-lidl-svizzera-winterthur",
+        "deputy-store-manager-m-f-d-80-100-dottingen-lidl-svizzera-dottingen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -11516,8 +11594,6 @@
       "postalCode": "1950",
       "previousSlugsByLocale": {
         "it": [
-          "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-conthey-98tdrr",
-          "gerant-adjoint-gerante-adjointe-m-w-d-80-100-courgevaux-lidl-svizzera-courgevaux",
           "assistant-manager-m-f-d-80-100-courgevaux-lidl-svizzera-courgevaux",
           "stellvertretender-manager-m-w-d-80-100-courgevaux-lidl-svizzera-courgevaux",
           "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-courgevaux-lw0dm5",
@@ -11531,7 +11607,13 @@
           "stellvertretender-manager-m-f-d-80-100-oron-lidl-svizzera-oron",
           "assistant-manager-m-f-d-80-100-oron-lidl-svizzera-oron",
           "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-oron-fbg2bz",
-          "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-oron"
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-oron",
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-la-chaux-de-fonds",
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-neuchatel",
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-reconvilier",
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-100-neuchatel-lidl-svizzera-neuchatel",
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-marly",
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-matran"
         ],
         "en": [
           "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-conthey-98tdrr",
@@ -11551,7 +11633,13 @@
           "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-moudon-8vk3vl",
           "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-moudon",
           "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-oron-fbg2bz",
-          "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-oron"
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-oron",
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-la-chaux-de-fonds",
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-neuchatel",
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-reconvilier",
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-100-neuchatel-lidl-svizzera-neuchatel",
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-marly",
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-matran"
         ]
       },
       "previousSlugs": [
@@ -11570,11 +11658,17 @@
         "stellvertretender-manager-m-f-d-80-100-oron-lidl-svizzera-oron",
         "assistant-manager-m-f-d-80-100-oron-lidl-svizzera-oron",
         "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-oron-fbg2bz",
-        "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-oron"
+        "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-oron",
+        "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-la-chaux-de-fonds",
+        "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-neuchatel",
+        "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-reconvilier",
+        "gerant-adjoint-gerante-adjointe-m-w-d-80-100-neuchatel-lidl-svizzera-neuchatel",
+        "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-marly",
+        "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-matran"
       ],
-      "needsRetranslation": true,
       "salaryMin": 48400,
-      "salaryMax": 73200
+      "salaryMax": 73200,
+      "needsRetranslation": true
     },
     {
       "id": "company-azl494",
@@ -13132,11 +13226,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-horw"
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-horw",
+          "289-stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-horw"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-horw"
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-horw",
+        "289-stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-horw"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -13153,9 +13249,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
-      "needsRetranslation": true,
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-6vm9sr",
@@ -13653,14 +13749,21 @@
         ],
         "de": [
           "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-bulle-115lp6"
+        ],
+        "it": [
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-bulle"
+        ],
+        "fr": [
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-bulle"
         ]
       },
       "previousSlugs": [
-        "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-bulle-115lp6"
+        "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-bulle-115lp6",
+        "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-bulle"
       ],
-      "needsRetranslation": true,
       "salaryMin": 54800,
-      "salaryMax": 83200
+      "salaryMax": 83200,
+      "needsRetranslation": true
     },
     {
       "id": "company-4hrwqv",
@@ -13790,11 +13893,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "ch-allrounder-verkauf-m-w-d-20-40-lidl-svizzera-zurich"
+          "ch-allrounder-verkauf-m-w-d-20-40-lidl-svizzera-zurich",
+          "ch-allrounder-verkauf-m-w-d-60-lidl-svizzera-zurich"
         ]
       },
       "previousSlugs": [
-        "ch-allrounder-verkauf-m-w-d-20-40-lidl-svizzera-zurich"
+        "ch-allrounder-verkauf-m-w-d-20-40-lidl-svizzera-zurich",
+        "ch-allrounder-verkauf-m-w-d-60-lidl-svizzera-zurich"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -13811,9 +13916,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-4e97nd",
@@ -14045,14 +14150,18 @@
         ],
         "de": [
           "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-h3lbhq"
+        ],
+        "it": [
+          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly"
         ]
       },
       "previousSlugs": [
-        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-h3lbhq"
+        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-h3lbhq",
+        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly"
       ],
-      "needsRetranslation": true,
       "salaryMin": 27400,
-      "salaryMax": 41600
+      "salaryMax": 41600,
+      "needsRetranslation": true
     },
     {
       "id": "company-75fgii",
@@ -14841,14 +14950,18 @@
         ],
         "fr": [
           "abpacker-m-w-d-40-60-lidl-svizzera-bern-oevhqy"
+        ],
+        "it": [
+          "abpacker-m-w-d-40-60-lidl-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "abpacker-m-w-d-40-60-lidl-svizzera-bern-oevhqy"
+        "abpacker-m-w-d-40-60-lidl-svizzera-bern-oevhqy",
+        "abpacker-m-w-d-40-60-lidl-svizzera-bern"
       ],
-      "needsRetranslation": true,
       "salaryMin": 41100,
-      "salaryMax": 62400
+      "salaryMax": 62400,
+      "needsRetranslation": true
     },
     {
       "id": "company-1ppvb1",
@@ -15067,7 +15180,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre",
-          "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre-8xwpko"
+          "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre-8xwpko",
+          "venditore-venditrice-m-f-d-40-60-1-sierre-lidl-svizzera-sierre"
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre-8xwpko"
@@ -15078,7 +15192,8 @@
       },
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre",
-        "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre-8xwpko"
+        "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre-8xwpko",
+        "venditore-venditrice-m-f-d-40-60-1-sierre-lidl-svizzera-sierre"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -15163,7 +15278,8 @@
           "gestione-clienti-gestione-clienti-self-checkout-40-60-lidl-svizzera-bern",
           "customer-advisor-self-checkout-40-60-lidl-svizzera-bern",
           "self-checkout-de-conseiller-client-40-60-lidl-svizzera-bern",
-          "kundenbetreuer-kundenbetreuerin-self-checkout-40-60-lidl-svizzera-bern"
+          "kundenbetreuer-kundenbetreuerin-self-checkout-40-60-lidl-svizzera-bern",
+          "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen"
         ],
         "en": [
           "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok"
@@ -15181,7 +15297,8 @@
         "kundenbetreuer-kundenbetreuerin-self-checkout-40-60-lidl-svizzera-bern",
         "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
         "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen",
-        "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
+        "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen",
+        "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -15701,10 +15818,6 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-1-lidl-svizzera-muri-ag",
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-1-lidl-svizzera-muri-ag-2vjlxu",
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-amriswil-8lr9r2",
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-amriswil",
           "vice-direttore-di-filiale-m-f-d-80-100-arbon-lidl-svizzera-arbon",
           "deputy-branch-manager-m-f-d-80-100-arbon-lidl-svizzera-arbon",
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-arbon-7yj2pu",
@@ -15716,7 +15829,15 @@
           "stv-filialleiterin-stv-filialleiterin-m-f-d-80-100-romanhorn-romanshorn-lidl-svizzera-romanshorn",
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-romanshorn",
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-herisau-qsuhpr",
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-herisau"
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-herisau",
+          "stv-branch-manager-stv-branch-manager-m-p-d-80-100-berna-lidl-svizzera-bern",
+          "stv-branch-manager-stv-branch-manager-m-w-d-80-100-berne-lidl-svizzera-bern",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-100-lidl-svizzera-zurich",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-60-80-lidl-svizzera-winterthur",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-baar",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-visp",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-neftenbach"
         ],
         "en": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-1-lidl-svizzera-muri-ag-2vjlxu",
@@ -15751,7 +15872,15 @@
         "stv-filialleiterin-stv-filialleiterin-m-f-d-80-100-romanhorn-romanshorn-lidl-svizzera-romanshorn",
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-romanshorn",
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-herisau-qsuhpr",
-        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-herisau"
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-herisau",
+        "stv-branch-manager-stv-branch-manager-m-p-d-80-100-berna-lidl-svizzera-bern",
+        "stv-branch-manager-stv-branch-manager-m-w-d-80-100-berne-lidl-svizzera-bern",
+        "stv-filialleiter-stv-filialleiterin-m-w-d-100-lidl-svizzera-zurich",
+        "stv-filialleiter-stv-filialleiterin-m-w-d-60-80-lidl-svizzera-winterthur",
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-baar",
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern",
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-visp",
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-neftenbach"
       ],
       "country": "CH",
       "sourceLang": "de",
@@ -15770,9 +15899,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
-      "needsRetranslation": true,
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-w7rb1h",
@@ -16735,7 +16864,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-ins",
-          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-ins-24orvs"
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-ins-24orvs",
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-ins"
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-ins-24orvs"
@@ -16746,7 +16876,8 @@
       },
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-ins",
-        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-ins-24orvs"
+        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-ins-24orvs",
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-ins"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -17201,7 +17332,11 @@
         "venditore-m-f-d-20-80-1-1-lidl-svizzera-zurich",
         "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-zurich-b8omjv",
         "venditore-venditrice-m-f-d-20-80-1-1-lidl-svizzera-zurich",
-        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-zurich-b8onai"
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-zurich-b8onai",
+        "ch-venditore-venditrice-m-f-d-40-lidl-svizzera-zurich",
+        "venditore-m-f-d-20-80-1-1-1-lidl-svizzera-zurich-98d7dd",
+        "venditore-venditore-m-f-d-20-80-lidl-svizzera-zurich",
+        "venditore-venditore-m-f-d-40-lidl-svizzera-zurich-db1835"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17209,7 +17344,11 @@
           "venditore-m-f-d-20-80-1-1-lidl-svizzera-zurich",
           "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-zurich-b8omjv",
           "venditore-venditrice-m-f-d-20-80-1-1-lidl-svizzera-zurich",
-          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-zurich-b8onai"
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-zurich-b8onai",
+          "ch-venditore-venditrice-m-f-d-40-lidl-svizzera-zurich",
+          "venditore-m-f-d-20-80-1-1-1-lidl-svizzera-zurich-98d7dd",
+          "venditore-venditore-m-f-d-20-80-lidl-svizzera-zurich",
+          "venditore-venditore-m-f-d-40-lidl-svizzera-zurich-db1835"
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-zurich-b8omjv",
@@ -19147,13 +19286,25 @@
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-m9ujuy",
         "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-m9ujuy",
         "seller-with-shift-responsibility-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil",
-        "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil"
+        "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil",
+        "seller-with-shift-responsibility-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil-5067f4",
+        "seller-with-shift-responsibility-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil-dd7af2",
+        "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil-5067f4",
+        "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil-dd7af2",
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-5fmrq5",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-5fmrq5"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil",
           "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-51vyzo",
-          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-m9ujuy"
+          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-m9ujuy",
+          "seller-with-shift-responsibility-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil-5067f4",
+          "seller-with-shift-responsibility-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil-dd7af2",
+          "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil-5067f4",
+          "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil-dd7af2",
+          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-5fmrq5",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-5fmrq5"
         ],
         "en": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-51vyzo",
@@ -19209,9 +19360,9 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 58800,
-      "salaryMax": 89200
+      "salaryMax": 89200,
+      "needsRetranslation": true
     },
     {
       "id": "company-njac6o",
@@ -19620,7 +19771,10 @@
       "postalCode": "8001",
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wallisellen"
+          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wallisellen",
+          "allrounder-vendita-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz3",
+          "allrounder-vente-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz3",
+          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz3"
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz9",
@@ -19632,11 +19786,14 @@
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wallisellen",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz9",
         "all-rounder-sale-m-f-d-20-40-wallisellen-lidl-svizzera-wallisellen",
-        "allrounder-verkauf-m-w-d-20-40-wallisellen-lidl-svizzera-wallisellen"
+        "allrounder-verkauf-m-w-d-20-40-wallisellen-lidl-svizzera-wallisellen",
+        "allrounder-vendita-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz3",
+        "allrounder-vente-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz3",
+        "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz3"
       ],
-      "needsRetranslation": true,
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-vibzh1",
@@ -20101,11 +20258,15 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "ch-allrounder-verkauf-m-w-d-20-40-lidl-svizzera-baden-dattwil"
+          "ch-allrounder-verkauf-m-w-d-20-40-lidl-svizzera-baden-dattwil",
+          "ch-allrounder-vendita-m-w-d-20-40-lidl-svizzera-baden-dattwil-jt6fmf",
+          "ch-allrounder-verkauf-m-w-d-20-40-lidl-svizzera-baden-dattwil-jt6fmf"
         ]
       },
       "previousSlugs": [
-        "ch-allrounder-verkauf-m-w-d-20-40-lidl-svizzera-baden-dattwil"
+        "ch-allrounder-verkauf-m-w-d-20-40-lidl-svizzera-baden-dattwil",
+        "ch-allrounder-vendita-m-w-d-20-40-lidl-svizzera-baden-dattwil-jt6fmf",
+        "ch-allrounder-verkauf-m-w-d-20-40-lidl-svizzera-baden-dattwil-jt6fmf"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -20619,14 +20780,18 @@
         "vendeur-m-f-j-20-80-train-lidl-svizzera-zug",
         "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zug-x5rj2g",
         "venditore-m-f-d-20-80-zugo-lidl-svizzera-zug",
-        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zug-x52pi6"
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zug-x52pi6",
+        "venditore-m-f-d-20-80-treno-lidl-svizzera-zug-2d843d",
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zug-8dph4a"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zug",
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zug-x5rj2g",
           "venditore-m-f-d-20-80-zugo-lidl-svizzera-zug",
-          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zug-x52pi6"
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zug-x52pi6",
+          "venditore-m-f-d-20-80-treno-lidl-svizzera-zug-2d843d",
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zug-8dph4a"
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zug-x5rj2g",
@@ -21132,7 +21297,8 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuer-kundenbetreuerin-self-checkout-20-40-lidl-svizzera-fluelen",
-          "kundenbetreuer-kundenbetreuerin-self-checkout-20-40-lidl-svizzera-fluelen-htikly"
+          "kundenbetreuer-kundenbetreuerin-self-checkout-20-40-lidl-svizzera-fluelen-htikly",
+          "kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-fluelen"
         ],
         "en": [
           "kundenbetreuer-kundenbetreuerin-self-checkout-20-40-lidl-svizzera-fluelen-htikly"
@@ -21143,7 +21309,8 @@
       },
       "previousSlugs": [
         "kundenbetreuer-kundenbetreuerin-self-checkout-20-40-lidl-svizzera-fluelen",
-        "kundenbetreuer-kundenbetreuerin-self-checkout-20-40-lidl-svizzera-fluelen-htikly"
+        "kundenbetreuer-kundenbetreuerin-self-checkout-20-40-lidl-svizzera-fluelen-htikly",
+        "kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-fluelen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -21536,7 +21703,12 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-dietikon",
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-dietikon-pv2x9z"
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-dietikon-pv2x9z",
+          "vice-direttore-di-filiale-m-f-d-80-100-baar-lidl-svizzera-baar",
+          "vice-direttore-di-filiale-m-f-d-80-100-brugg-lidl-svizzera-brugg",
+          "vice-direttore-di-filiale-m-f-d-80-100-ebikon-lidl-svizzera-ebikon",
+          "vice-direttore-di-filiale-m-f-d-80-100-visp-lidl-svizzera-visp",
+          "vice-direttore-di-filiale-m-f-d-80-100-wettingen-lidl-svizzera-wettingen"
         ],
         "en": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-dietikon-pv2x9z"
@@ -21547,7 +21719,12 @@
       },
       "previousSlugs": [
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-dietikon",
-        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-dietikon-pv2x9z"
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-dietikon-pv2x9z",
+        "vice-direttore-di-filiale-m-f-d-80-100-baar-lidl-svizzera-baar",
+        "vice-direttore-di-filiale-m-f-d-80-100-brugg-lidl-svizzera-brugg",
+        "vice-direttore-di-filiale-m-f-d-80-100-ebikon-lidl-svizzera-ebikon",
+        "vice-direttore-di-filiale-m-f-d-80-100-visp-lidl-svizzera-visp",
+        "vice-direttore-di-filiale-m-f-d-80-100-wettingen-lidl-svizzera-wettingen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -22007,14 +22184,22 @@
         "venditore-venditrice-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren",
         "assistente-alle-vendite-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren",
         "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5myf",
-        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5m52"
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5m52",
+        "seller-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren-41781d",
+        "vendeur-m-f-j-20-80-1-schlieren-lidl-svizzera-schlieren-41781d",
+        "venditore-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren-3ad6eb",
+        "venditore-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren-41781d"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren",
           "venditore-venditrice-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren",
           "assistente-alle-vendite-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren",
-          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5m52"
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5m52",
+          "seller-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren-41781d",
+          "vendeur-m-f-j-20-80-1-schlieren-lidl-svizzera-schlieren-41781d",
+          "venditore-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren-3ad6eb",
+          "venditore-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren-41781d"
         ],
         "en": [
           "seller-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren-3ad6eb",
@@ -22063,9 +22248,9 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 58800,
-      "salaryMax": 89200
+      "salaryMax": 89200,
+      "needsRetranslation": true
     },
     {
       "id": "company-yckctb",
@@ -22099,13 +22284,15 @@
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
         "allrounder-verkauf-m-w-d-20-40-1-schlieren-lidl-svizzera-schlieren",
         "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren-6a5258",
-        "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren"
+        "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren",
+        "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
           "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-schlieren-yckdlp",
           "allrounder-verkauf-m-w-d-20-40-1-schlieren-lidl-svizzera-schlieren",
-          "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren-6a5258"
+          "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren-6a5258",
+          "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren"
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
@@ -22154,9 +22341,9 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-38a0y",
@@ -22513,7 +22700,11 @@
         "venditore-m-f-d-20-80-1-baden-lidl-svizzera-baden-ce36ab",
         "seller-m-f-d-20-80-1-baden-lidl-svizzera-baden-ce36ab",
         "vendeur-m-f-j-20-80-1-baden-lidl-svizzera-baden-ce36ab",
-        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-k3sykc"
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-k3sykc",
+        "seller-m-f-d-20-80-1-baden-lidl-svizzera-baden-6cbdda",
+        "vendeur-m-f-j-20-80-1-baden-lidl-svizzera-baden-6cbdda",
+        "venditore-m-f-d-20-80-1-baden-lidl-svizzera-baden-6cbdda",
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-baden-dattwil-lmwduj"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -22523,7 +22714,11 @@
           "vendeur-m-f-j-20-80-1-baden-lidl-svizzera-baden",
           "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-kggziw",
           "venditore-m-f-d-20-80-1-baden-lidl-svizzera-baden-ce36ab",
-          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-k3sykc"
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-k3sykc",
+          "seller-m-f-d-20-80-1-baden-lidl-svizzera-baden-6cbdda",
+          "vendeur-m-f-j-20-80-1-baden-lidl-svizzera-baden-6cbdda",
+          "venditore-m-f-d-20-80-1-baden-lidl-svizzera-baden-6cbdda",
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-baden-dattwil-lmwduj"
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-kggziw",
@@ -22698,12 +22893,14 @@
         "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
         "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
         "allrounder-verkauf-m-w-d-20-40-1-winterthur-lidl-svizzera-winterthur",
-        "all-rounder-sale-m-f-d-20-40-1-winterthur-lidl-svizzera-winterthur"
+        "all-rounder-sale-m-f-d-20-40-1-winterthur-lidl-svizzera-winterthur",
+        "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
-          "allrounder-verkauf-m-w-d-20-40-1-winterthur-lidl-svizzera-winterthur"
+          "allrounder-verkauf-m-w-d-20-40-1-winterthur-lidl-svizzera-winterthur",
+          "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur"
         ],
         "en": [
           "all-rounder-sale-m-f-d-20-40-1-winterthur-lidl-svizzera-winterthur-9053ef",
@@ -22753,9 +22950,9 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-nsmt00",
@@ -23062,11 +23259,17 @@
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-seewen-v352fv",
         "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-seewen-v352fv",
         "seller-with-shift-responsibility-m-f-d-60-80-seewen-lidl-svizzera-seewen",
-        "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-seewen-lidl-svizzera-seewen"
+        "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-seewen-lidl-svizzera-seewen",
+        "seller-with-shift-responsibility-m-f-d-60-80-seewen-lidl-svizzera-seewen-9a8705",
+        "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-seewen-lidl-svizzera-seewen-9a8705",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-seewen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-seewen-v352fv"
+          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-seewen-v352fv",
+          "seller-with-shift-responsibility-m-f-d-60-80-seewen-lidl-svizzera-seewen-9a8705",
+          "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-seewen-lidl-svizzera-seewen-9a8705",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-seewen"
         ],
         "en": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-seewen-v352fv",
@@ -23080,9 +23283,9 @@
           "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-seewen-lidl-svizzera-seewen"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 54800,
-      "salaryMax": 83200
+      "salaryMax": 83200,
+      "needsRetranslation": true
     },
     {
       "id": "company-h5tlo8",
@@ -23148,11 +23351,15 @@
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-stans-0yqbqb",
         "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-stans-0yqbqb",
         "seller-with-shift-responsibility-m-f-d-60-80-stans-lidl-svizzera-stans",
-        "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-stans-lidl-svizzera-stans"
+        "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-stans-lidl-svizzera-stans",
+        "seller-with-shift-responsibility-m-w-d-60-802-stans-lidl-svizzera-stans",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-stans-0yqbqb"
+          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-stans-0yqbqb",
+          "seller-with-shift-responsibility-m-w-d-60-802-stans-lidl-svizzera-stans",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-stans"
         ],
         "en": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-stans-0yqbqb",
@@ -23166,9 +23373,9 @@
           "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-stans-lidl-svizzera-stans"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 55600,
-      "salaryMax": 84800
+      "salaryMax": 84800,
+      "needsRetranslation": true
     },
     {
       "id": "company-m5eaje",
@@ -24094,7 +24301,8 @@
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich",
-          "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-xwwn8l"
+          "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-xwwn8l",
+          "deputy-branch-manager-m-f-d-80-100-zurich-lidl-svizzera-zurich"
         ],
         "en": [
           "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-xwwn8l"
@@ -24105,7 +24313,8 @@
       },
       "previousSlugs": [
         "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich",
-        "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-xwwn8l"
+        "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-xwwn8l",
+        "deputy-branch-manager-m-f-d-80-100-zurich-lidl-svizzera-zurich"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -24122,9 +24331,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-yhm50p",
@@ -24526,13 +24735,15 @@
       "previousSlugs": [
         "vice-direttore-di-filiale-m-f-d-80-100-regensdorf-lidl-svizzera-regensdorf",
         "vice-direttore-di-filiale-vice-direttore-di-filiale-m-f-d-80-100-regensdorf-lidl-svizzera-regensdorf",
-        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-regensdorf-7gwwme"
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-regensdorf-7gwwme",
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vice-direttore-di-filiale-m-f-d-80-100-regensdorf-lidl-svizzera-regensdorf",
           "vice-direttore-di-filiale-vice-direttore-di-filiale-m-f-d-80-100-regensdorf-lidl-svizzera-regensdorf",
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-regensdorf-7gwwme"
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-regensdorf-7gwwme",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-regensdorf"
         ],
         "en": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-regensdorf-7gwwme"
@@ -24544,9 +24755,9 @@
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-regensdorf-7gwwme"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-lka18a",
@@ -24980,7 +25191,9 @@
           "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-1zdp8x",
           "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-kscbfg",
           "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo",
-          "erlernt-im-einzelhandel-cfp-oder-afc-start-2026-gravesano-lidl-svizzera-gravesano"
+          "erlernt-im-einzelhandel-cfp-oder-afc-start-2026-gravesano-lidl-svizzera-gravesano",
+          "apprentis-dans-le-commerce-de-detail-pfc-ou-afc-debut-2026-lidl-svizzera-gravesano",
+          "learned-in-retail-cfp-or-afc-start-2026-lidl-svizzera-gravesano"
         ],
         "de": [
           "erlernt-im-einzelhandel-cfp-oder-afc-start-2026-gravesano-lidl-svizzera-gravesano-ixk693"
@@ -24997,11 +25210,13 @@
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-1zdp8x",
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-kscbfg",
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo",
-        "erlernt-im-einzelhandel-cfp-oder-afc-start-2026-gravesano-lidl-svizzera-gravesano"
+        "erlernt-im-einzelhandel-cfp-oder-afc-start-2026-gravesano-lidl-svizzera-gravesano",
+        "apprentis-dans-le-commerce-de-detail-pfc-ou-afc-debut-2026-lidl-svizzera-gravesano",
+        "learned-in-retail-cfp-or-afc-start-2026-lidl-svizzera-gravesano"
       ],
-      "needsRetranslation": true,
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "needsRetranslation": true
     },
     {
       "id": "company-kscbfg",
@@ -25064,9 +25279,21 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6600",
-      "needsRetranslation": true,
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-locarno",
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno",
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-lidl-svizzera-locarno"
+        ]
+      },
+      "previousSlugs": [
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-locarno",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-lidl-svizzera-locarno"
+      ]
     },
     {
       "id": "company-3t5gz5",
@@ -25133,16 +25360,24 @@
       "previousSlugs": [
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-3t5gz5",
         "ausbildung-im-einzelhandel-cfp-oder-efz-anfang-2026-biasca-lidl-svizzera-biasca",
-        "apprendista-nel-commercial-dettaglio-cfp-o-afc-inizio-2026-biasca-lidl-svizzera-biasca"
+        "apprendista-nel-commercial-dettaglio-cfp-o-afc-inizio-2026-biasca-lidl-svizzera-biasca",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-biasca",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-biasca",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-biasca-3",
+        "ausbildung-im-einzelhandel-cfp-oder-efz-anfang-2026-lidl-svizzera-biasca-3t5gz5"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-3t5gz5"
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-3t5gz5",
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-biasca",
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-biasca",
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-biasca-3",
+          "ausbildung-im-einzelhandel-cfp-oder-efz-anfang-2026-lidl-svizzera-biasca-3t5gz5"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "needsRetranslation": true
     },
     {
       "id": "company-4olb0q",
@@ -25192,11 +25427,15 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-arbedo-castione"
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-arbedo-castione",
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-arbedo-castione",
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-arbedo-castione-3"
         ]
       },
       "previousSlugs": [
-        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-arbedo-castione"
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-arbedo-castione",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-arbedo-castione",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-arbedo-castione-3"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -25268,7 +25507,8 @@
           "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-sant-antonino-kp8dxh",
           "ausbildung-im-einzelhandel-cfp-oder-efz-anfang-2026-sant-antonino-lidl-svizzera-sant-antonino",
           "apprenticeship-in-retail-trade-cfp-or-efz-start-of-2026-sant-antonino-lidl-svizzera-sant-antonino",
-          "apprentissage-dans-le-commerce-de-detail-cfp-ou-efz-debut-2026-sant-antonino-lidl-svizzera-sant-antonino"
+          "apprentissage-dans-le-commerce-de-detail-cfp-ou-efz-debut-2026-sant-antonino-lidl-svizzera-sant-antonino",
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-sant-antonino-3"
         ],
         "en": [
           "apprenticeship-in-retail-trade-cfp-or-efz-start-of-2026-sant-antonino-lidl-svizzera-sant-antonino"
@@ -25285,7 +25525,8 @@
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-sant-antonino-kp8dxh",
         "ausbildung-im-einzelhandel-cfp-oder-efz-anfang-2026-sant-antonino-lidl-svizzera-sant-antonino",
         "apprenticeship-in-retail-trade-cfp-or-efz-start-of-2026-sant-antonino-lidl-svizzera-sant-antonino",
-        "apprentissage-dans-le-commerce-de-detail-cfp-ou-efz-debut-2026-sant-antonino-lidl-svizzera-sant-antonino"
+        "apprentissage-dans-le-commerce-de-detail-cfp-ou-efz-debut-2026-sant-antonino-lidl-svizzera-sant-antonino",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-sant-antonino-3"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

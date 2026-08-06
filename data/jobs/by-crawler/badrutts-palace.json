@@ -152,13 +152,15 @@
       "previousSlugs": [
         "reservations-agent-m-w-d-badrutts-palace-ch",
         "reservations-supervisor-m-w-d-badrutts-palace-ch",
-        "prenotazione-agente-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        "prenotazione-agente-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "reservations-agent-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "reservations-agent-m-w-d-badrutts-palace-ch",
           "reservations-supervisor-m-w-d-badrutts-palace-ch",
-          "prenotazione-agente-m-f-d-badrutt-s-palace-hotel-st-moritz"
+          "prenotazione-agente-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "reservations-agent-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "de": [
           "reservations-agent-m-w-d-badrutts-palace-ch"
@@ -237,7 +239,11 @@
         "plumber-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "klempner-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "legname-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "plumber-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "plumber-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "klempner-badrutt-s-palace-hotel-st-moritz",
+        "legname-badrutt-s-palace-hotel-st-moritz",
+        "plombier-m-p-p-badrutt-s-palace-hotel-st-moritz",
+        "plumber-badrutts-palace-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -248,7 +254,11 @@
           "fitnesstrainer-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "entraineur-fitness-m-f-d-badrutt-s-palace-hotel-st-moritz",
           "fitness-trainer-m-w-d-badrutts-palace-ch",
-          "legname-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "legname-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "klempner-badrutt-s-palace-hotel-st-moritz",
+          "legname-badrutt-s-palace-hotel-st-moritz",
+          "plombier-m-p-p-badrutt-s-palace-hotel-st-moritz",
+          "plumber-badrutts-palace-ch"
         ],
         "en": [
           "fitness-trainer-m-w-d-badrutt-s-palace-hotel-st-moritz"
@@ -265,7 +275,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T21:48:55.223Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -278,7 +287,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "badrutts-palace-a7df20059638",
@@ -434,7 +444,8 @@
         "revenue-manager-badrutt-s-palace-hotel-st-moritz",
         "revenue-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "revenue-manager-m-f-d-badrutts-palace-ch",
-        "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -445,7 +456,8 @@
           "revenue-manager-badrutt-s-palace-hotel-st-moritz",
           "revenue-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "revenue-manager-m-f-d-badrutts-palace-ch",
-          "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz"
+          "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "revenue-manager-m-w-d-badrutts-palace-ch"
@@ -456,7 +468,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T11:52:11.757Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -469,7 +480,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "badrutts-palace-609d64358bff",
@@ -753,7 +765,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-15T11:51:40.950Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -766,7 +777,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "kontoinhaber-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "kontoinhaber-m-w-d-badrutt-s-palace-hotel-st-moritz"
+      ]
     },
     {
       "id": "badrutts-palace-0f3aef9db00e",
@@ -1076,7 +1096,8 @@
         "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch",
         "pr-marketing-koordinator-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "pr-marketing-coordinateur-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "direttore-of-brand-marketing-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        "direttore-of-brand-marketing-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "leiter-brand-marketing-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1085,14 +1106,16 @@
           "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch",
           "pr-marketing-koordinator-m-f-d-badrutt-s-palace-hotel-st-moritz",
           "pr-marketing-coordinateur-m-f-d-badrutt-s-palace-hotel-st-moritz",
-          "direttore-of-brand-marketing-m-f-d-badrutt-s-palace-hotel-st-moritz"
+          "direttore-of-brand-marketing-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "leiter-brand-marketing-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch"
         ],
         "de": [
           "director-of-brand-amp-marketing-m-f-d-badrutts-palace-ch",
-          "pr-marketing-koordinator-m-f-d-badrutt-s-palace-hotel-st-moritz"
+          "pr-marketing-koordinator-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "leiter-brand-marketing-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "fr": [
           "director-of-brand-amp-marketing-m-f-d-badrutts-palace-ch",
@@ -1100,7 +1123,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:22:28.662Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1113,7 +1135,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "badrutts-palace-efb1838faf84",
@@ -1167,18 +1190,27 @@
         "responsabile-servizi-tecnici-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "assistant-responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "assistant-responsable-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "assistente-responsabile-dei-servizi-tecnici-m-p-g-badrutt-s-palace-hotel-st-moritz"
+        "assistente-responsabile-dei-servizi-tecnici-m-p-g-badrutt-s-palace-hotel-st-moritz",
+        "head-of-technical-services-m-w-d-badrutts-palace-ch",
+        "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-head-of-technical-services-m-w-d-badrutts-palace-ch",
           "responsabile-servizi-tecnici-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "assistant-responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
-          "assistente-responsabile-dei-servizi-tecnici-m-p-g-badrutt-s-palace-hotel-st-moritz"
+          "assistente-responsabile-dei-servizi-tecnici-m-p-g-badrutt-s-palace-hotel-st-moritz",
+          "head-of-technical-services-m-w-d-badrutts-palace-ch",
+          "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "fr": [
           "assistant-head-of-technical-services-m-w-d-badrutts-palace-ch",
           "assistant-responsable-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        ],
+        "de": [
+          "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
       "firstSeenAt": "2026-08-01T11:18:35.714Z",

@@ -4761,16 +4761,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "junior-executive-assistant-tax-legal-deloitte-geneva",
-        "junior-executive-assistant-tax-legal-deloitte-zurich"
+        "junior-executive-assistant-tax-legal-deloitte-zurich",
+        "junior-executive-assistent-tax-legal-deloitte-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "junior-executive-assistant-tax-legal-deloitte-geneva",
-          "junior-executive-assistant-tax-legal-deloitte-zurich"
+          "junior-executive-assistant-tax-legal-deloitte-zurich",
+          "junior-executive-assistent-tax-legal-deloitte-geneva"
         ]
       },
       "firstSeenAt": "2026-07-21T11:28:52.135Z",
-      "needsRetranslation": true,
       "salaryMin": 51100,
       "salaryMax": 77500,
       "baseSalary": {
@@ -4782,7 +4783,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "deloitte-c9a44e9ff9eb",

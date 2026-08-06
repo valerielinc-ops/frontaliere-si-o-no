@@ -756,7 +756,6 @@
       "experienceLevel": "",
       "sector": "IT",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "AG",
         "location": "Zofingen"
@@ -779,7 +778,16 @@
       },
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-software-ingegnere-java-w-m-d-postfinance-bern"
+        ]
+      },
+      "previousSlugs": [
+        "senior-software-ingegnere-java-w-m-d-postfinance-bern"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Sachbearbeiterin-Accounts-Payable-&-Receivable/74072-de_DE",
@@ -1155,7 +1163,15 @@
       "addressCountry": "CH",
       "addressRegion": "AG",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "java-spring-boot-ingegnere-w-m-d-postfinance-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "java-spring-boot-ingegnere-w-m-d-postfinance-zofingen"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/74190-de_DE",

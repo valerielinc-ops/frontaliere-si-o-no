@@ -5081,7 +5081,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-08-06T12:00:32.052Z",
-      "needsRetranslation": true,
       "addressLocality": "Olten",
       "postalCode": "4600",
       "streetAddress": "Bahnhofstrasse 12",
@@ -5100,12 +5099,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-olten",
-        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-olten"
+        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-olten",
+        "chef-cook-efz-apprenticeship-2026-zfv-unternehmungen-olten",
+        "chef-cuisinier-efz-apprentissage-2026-zfv-unternehmungen-olten",
+        "kochin-koch-cfc-apprendistato-2026-zfv-unternehmungen-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-olten",
-          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-olten"
+          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-olten",
+          "chef-cook-efz-apprenticeship-2026-zfv-unternehmungen-olten",
+          "chef-cuisinier-efz-apprentissage-2026-zfv-unternehmungen-olten",
+          "kochin-koch-cfc-apprendistato-2026-zfv-unternehmungen-olten"
         ],
         "en": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-olten"
@@ -5126,7 +5131,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zfv-unternehmungen-67c6b13c8c9e",

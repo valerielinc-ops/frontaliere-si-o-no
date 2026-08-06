@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bkw",
-  "assembledAt": "2026-08-06T11:40:22.606Z",
+  "assembledAt": "2026-08-06T09:50:28.534Z",
   "jobs": [
     {
       "id": "bkw-4f0a6bacc40f",
@@ -11463,7 +11463,8 @@
         "service-technician-all-bkw-oensingen",
         "technicien-de-service-tous-bkw-oensingen",
         "servicemonteur-in-alle-bkw-ch-4",
-        "tecnico-di-assistenza-tutti-bkw-winterthur"
+        "tecnico-di-assistenza-tutti-bkw-winterthur",
+        "servicemonteur-in-alle-bkw-ch-5"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11471,7 +11472,8 @@
           "servicemonteur-in-alle-bkw-ch",
           "installatore-di-servizio-in-tutti-bkw-winterthur",
           "servicemonteur-in-alle-bkw-ch-4",
-          "tecnico-di-assistenza-tutti-bkw-winterthur"
+          "tecnico-di-assistenza-tutti-bkw-winterthur",
+          "servicemonteur-in-alle-bkw-ch-5"
         ],
         "en": [
           "service-technician-all-bkw-oensingen",
@@ -11549,13 +11551,15 @@
         "techniker-in-gebaudeautomation-alle-bkw-ch",
         "tecnico-in-building-automation-tutti-bkw-urdorf",
         "technicien-in-automatisation-des-batiments-tous-bkw-urdorf",
-        "technician-in-building-automation-tutti-bkw-urdorf"
+        "technician-in-building-automation-tutti-bkw-urdorf",
+        "building-automation-technician-all-bkw-urdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "techniker-in-gebaudeautomation-alle-bkw-ch",
           "tecnico-in-building-automation-tutti-bkw-urdorf",
-          "technician-in-building-automation-tutti-bkw-urdorf"
+          "technician-in-building-automation-tutti-bkw-urdorf",
+          "building-automation-technician-all-bkw-urdorf"
         ],
         "en": [
           "techniker-in-gebaudeautomation-alle-bkw-ch"
@@ -11566,7 +11570,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T11:46:37.880Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -11578,7 +11581,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bkw-b9944e05b2ce",
@@ -11947,12 +11951,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-in-bereich-luftung-klima-alle-bkw-ch",
-        "head-in-area-ventilation-clima-tutti-bkw-st-gallen"
+        "head-in-area-ventilation-clima-tutti-bkw-st-gallen",
+        "leiter-in-bereich-luftung-klima-alle-bkw-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-bereich-luftung-klima-alle-bkw-ch",
-          "head-in-area-ventilation-clima-tutti-bkw-st-gallen"
+          "head-in-area-ventilation-clima-tutti-bkw-st-gallen",
+          "leiter-in-bereich-luftung-klima-alle-bkw-ch-2"
+        ],
+        "de": [
+          "leiter-in-bereich-luftung-klima-alle-bkw-ch-2"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.669Z",
@@ -14898,13 +14907,15 @@
       "previousSlugs": [
         "chef-de-projet-sanitaire-raboud-energie-sa-bkw-ch",
         "health-project-manager-raboud-energy-sa-bkw-bulle",
-        "responsabile-del-progetto-sanitario-raboud-energy-sa-bkw-bulle"
+        "responsabile-del-progetto-sanitario-raboud-energy-sa-bkw-bulle",
+        "chef-de-projet-sanitaire-raboud-energie-sa-bkw-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-projet-sanitaire-raboud-energie-sa-bkw-ch",
           "health-project-manager-raboud-energy-sa-bkw-bulle",
-          "responsabile-del-progetto-sanitario-raboud-energy-sa-bkw-bulle"
+          "responsabile-del-progetto-sanitario-raboud-energy-sa-bkw-bulle",
+          "chef-de-projet-sanitaire-raboud-energie-sa-bkw-bulle"
         ],
         "en": [
           "chef-de-projet-sanitaire-raboud-energie-sa-bkw-ch"
@@ -14914,7 +14925,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:17:41.443Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -14926,7 +14936,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bkw-46963a6bb1fc",
@@ -15327,7 +15338,8 @@
         "chef-de-projet-elektroplanung-alle-bkw-visp",
         "responsabile-di-progetto-elektroplanung-alle-bkw-visp",
         "responsabile-di-progetto-elektroplanung-alle-bkw-visp-slncxi",
-        "responsabile-di-progetto-elektroplanung-alle-bkw-baden"
+        "responsabile-di-progetto-elektroplanung-alle-bkw-baden",
+        "projektleiter-in-elektroplanung-alle-bkw-ch-3"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15339,7 +15351,8 @@
           "chef-de-projet-elektroplanung-alle-bkw-visp",
           "responsabile-di-progetto-elektroplanung-alle-bkw-visp",
           "responsabile-di-progetto-elektroplanung-alle-bkw-visp-slncxi",
-          "responsabile-di-progetto-elektroplanung-alle-bkw-baden"
+          "responsabile-di-progetto-elektroplanung-alle-bkw-baden",
+          "projektleiter-in-elektroplanung-alle-bkw-ch-3"
         ],
         "en": [
           "projektleiter-in-elektroplanung-alle-bkw-ch-2",
@@ -16080,16 +16093,17 @@
       },
       "previousSlugs": [
         "projektleiter-in-elektroplanung-alle-bkw-ch",
-        "responsabile-di-progetto-per-la-pianificazione-elettrica-tutti-bkw-koniz"
+        "responsabile-di-progetto-per-la-pianificazione-elettrica-tutti-bkw-koniz",
+        "project-manager-in-electrical-planning-all-bkw-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-elektroplanung-alle-bkw-ch",
-          "responsabile-di-progetto-per-la-pianificazione-elettrica-tutti-bkw-koniz"
+          "responsabile-di-progetto-per-la-pianificazione-elettrica-tutti-bkw-koniz",
+          "project-manager-in-electrical-planning-all-bkw-visp"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.781Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -16101,7 +16115,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bkw-bdde1f302375",
@@ -26698,7 +26713,12 @@
         "elektroinstallateur-in-efz-alle-bkw-ch-6",
         "installatore-trice-elettrico-a-in-cfc-alle-bkw-wangen-a-v7jffq",
         "elektroinstallateur-in-efz-alle-bkw-ch-4",
-        "installatore-trice-elettrico-a-in-cfc-alle-bkw-wangen-a"
+        "installatore-trice-elettrico-a-in-cfc-alle-bkw-wangen-a",
+        "electrical-installer-in-efz-all-bkw-wangen-a-0f831a",
+        "electrical-installer-in-efz-all-bkw-wangen-a-344d07",
+        "electrical-installer-in-efz-all-bkw-wangen-a-a",
+        "installateur-electrique-dans-efz-tous-bkw-wangen-a-344d07",
+        "installateur-electrique-dans-efz-tous-bkw-wangen-a-a"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -26708,7 +26728,12 @@
           "elektroinstallateur-in-efz-alle-bkw-ch-6",
           "installatore-trice-elettrico-a-in-cfc-alle-bkw-wangen-a-v7jffq",
           "elektroinstallateur-in-efz-alle-bkw-ch-4",
-          "installatore-trice-elettrico-a-in-cfc-alle-bkw-wangen-a"
+          "installatore-trice-elettrico-a-in-cfc-alle-bkw-wangen-a",
+          "electrical-installer-in-efz-all-bkw-wangen-a-0f831a",
+          "electrical-installer-in-efz-all-bkw-wangen-a-344d07",
+          "electrical-installer-in-efz-all-bkw-wangen-a-a",
+          "installateur-electrique-dans-efz-tous-bkw-wangen-a-344d07",
+          "installateur-electrique-dans-efz-tous-bkw-wangen-a-a"
         ],
         "en": [
           "elektroinstallateur-in-efz-alle-bkw-ch-3",
@@ -26719,7 +26744,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T22:00:33.811Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -26731,7 +26755,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bkw-3c019e28bbd7",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ottos",
-  "assembledAt": "2026-08-06T11:53:55.217Z",
+  "assembledAt": "2026-08-06T10:51:42.967Z",
   "jobs": [
     {
       "id": "ottos-99b7c701e026",
@@ -2238,13 +2238,15 @@
         "verkaufsmitarbeiter-in-mobel-otto-s-ag-aathal",
         "personnel-de-vente-en-mobilier-otto-s-ag-aathal",
         "mobili-per-rappresentanti-vendite-otto-s-ag-aathal",
-        "vendeur-vendeuse-de-meubles-otto-s-ag-aathal"
+        "vendeur-vendeuse-de-meubles-otto-s-ag-aathal",
+        "mobili-per-rappresentanti-vendite-otto-s-ag-baldegg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-mobel-ottos-aathal",
           "verkaufsmitarbeiter-in-mobel-otto-s-ag-aathal",
-          "mobili-per-rappresentanti-vendite-otto-s-ag-aathal"
+          "mobili-per-rappresentanti-vendite-otto-s-ag-aathal",
+          "mobili-per-rappresentanti-vendite-otto-s-ag-baldegg"
         ],
         "en": [
           "verkaufsmitarbeiter-in-mobel-otto-s-ag-aathal"
@@ -5974,19 +5976,34 @@
       "previousSlugs": [
         "verkaufsmitarbeiter-in-textil-sport-ottos-kloten",
         "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-kloten",
-        "dipendenti-di-vendita-tessile-sport-otto-s-ag-kloten"
+        "dipendenti-di-vendita-tessile-sport-otto-s-ag-kloten",
+        "venditore-sport-tessile-h-f-otto-s-ag-la-chaux-de-fonds",
+        "textile-seller-sport-h-f-otto-s-ag-la-chaux-de-fonds",
+        "textilverkaufer-sport-h-f-otto-s-ag-la-chaux-de-fonds",
+        "vendeur-textile-sport-h-f-ottos-la-chaux-de-fonds",
+        "vendeur-textile-sport-m-w-d-otto-s-ag-la-chaux-de-fonds"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-textil-sport-ottos-kloten",
           "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-kloten",
-          "dipendenti-di-vendita-tessile-sport-otto-s-ag-kloten"
+          "dipendenti-di-vendita-tessile-sport-otto-s-ag-kloten",
+          "venditore-sport-tessile-h-f-otto-s-ag-la-chaux-de-fonds",
+          "textile-seller-sport-h-f-otto-s-ag-la-chaux-de-fonds",
+          "textilverkaufer-sport-h-f-otto-s-ag-la-chaux-de-fonds",
+          "vendeur-textile-sport-h-f-ottos-la-chaux-de-fonds",
+          "vendeur-textile-sport-m-w-d-otto-s-ag-la-chaux-de-fonds"
         ],
         "en": [
-          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-kloten"
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-kloten",
+          "textile-seller-sport-h-f-otto-s-ag-la-chaux-de-fonds"
         ],
         "fr": [
-          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-kloten"
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-kloten",
+          "vendeur-textile-sport-h-f-ottos-la-chaux-de-fonds"
+        ],
+        "de": [
+          "textilverkaufer-sport-h-f-otto-s-ag-la-chaux-de-fonds"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:55.125Z",

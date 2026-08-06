@@ -9433,12 +9433,14 @@
       "pensum": "90-100%",
       "previousSlugs": [
         "greffier-ere-stagiaire-etat-de-fribourg-ch",
-        "registrazione-etat-de-fribourg-bulle"
+        "registrazione-etat-de-fribourg-bulle",
+        "registrar-etat-de-fribourg-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "greffier-ere-stagiaire-etat-de-fribourg-ch",
-          "registrazione-etat-de-fribourg-bulle"
+          "registrazione-etat-de-fribourg-bulle",
+          "registrar-etat-de-fribourg-bulle"
         ],
         "en": [
           "greffier-ere-stagiaire-etat-de-fribourg-ch"
@@ -9448,7 +9450,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:56:12.865Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9461,7 +9462,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-7a2ec8b33229",

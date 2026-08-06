@@ -1290,7 +1290,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-03T21:19:38.757Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1303,7 +1302,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "ch-expert-m-f-d-apple-retail-switzerland-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ch-expert-m-f-d-apple-retail-switzerland-ch"
+      ]
     },
     {
       "id": "apple-retail-switzerland-9ea4c7a211dc",

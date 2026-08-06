@@ -1938,12 +1938,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "network-reliability-engineer-proton-ch",
-        "network-reliability-ingegnere-proton-geneva-paris"
+        "network-reliability-ingegnere-proton-geneva-paris",
+        "network-reliability-ingegnere-proton-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "network-reliability-engineer-proton-ch",
-          "network-reliability-ingegnere-proton-geneva-paris"
+          "network-reliability-ingegnere-proton-geneva-paris",
+          "network-reliability-ingegnere-proton-geneva"
         ],
         "de": [
           "network-reliability-engineer-proton-ch"
@@ -1953,7 +1955,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:50:13.800Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1966,7 +1967,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "proton-895906bfa11f",

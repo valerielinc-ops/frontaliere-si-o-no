@@ -52,12 +52,16 @@
       "hiringOrganizationName": "EVAM",
       "previousSlugs": [
         "2-assistant-e-s-sociaux-ales-en-antenne-en-cdi-a-100-evam-vaud-ch",
-        "2-100-cdi-assistente-sociale-evam-vevey"
+        "2-100-cdi-assistente-sociale-evam-vevey",
+        "assistente-sociale-100-cdi-evam-vevey",
+        "social-assistant-100-cdi-evam-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
           "2-assistant-e-s-sociaux-ales-en-antenne-en-cdi-a-100-evam-vaud-ch",
-          "2-100-cdi-assistente-sociale-evam-vevey"
+          "2-100-cdi-assistente-sociale-evam-vevey",
+          "assistente-sociale-100-cdi-evam-vevey",
+          "social-assistant-100-cdi-evam-vevey"
         ],
         "en": [
           "2-assistant-e-s-sociaux-ales-en-antenne-en-cdi-a-100-evam-vaud-ch"
@@ -67,7 +71,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:13.369Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -79,7 +82,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "evam-vaud-6931372",

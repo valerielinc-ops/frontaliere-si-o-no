@@ -231,12 +231,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "responsable-de-laboratoire-igv-etat-de-vaud-lausanne",
-        "responsabile-laboratorio-igv-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "responsabile-laboratorio-igv-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "administrative-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-de-laboratoire-igv-etat-de-vaud-lausanne",
-          "responsabile-laboratorio-igv-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "responsabile-laboratorio-igv-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "administrative-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "responsable-de-laboratoire-igv-etat-de-vaud-lausanne"
@@ -311,12 +313,14 @@
       "previousSlugs": [
         "analyste-financier-ere-etat-de-vaud-lausanne",
         "finanzanalyst-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "analista-finanziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "analista-finanziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "responsabile-finanziario-a-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "analyste-financier-ere-etat-de-vaud-lausanne",
-          "analista-finanziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "analista-finanziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "responsabile-finanziario-a-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "analyste-financier-ere-etat-de-vaud-lausanne"
@@ -327,7 +331,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -339,7 +342,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-vaud-5588",
@@ -946,12 +950,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne",
-        "riscaldamento-tecnico-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "riscaldamento-tecnico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "giurista-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "jurist-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne",
-          "riscaldamento-tecnico-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "riscaldamento-tecnico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "giurista-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "jurist-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne"
@@ -1186,22 +1194,24 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chef-fe-de-mandat-d-audit-etat-de-vaud-lausanne",
-        "capo-di-audit-mandate-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "capo-di-audit-mandate-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "leiter-in-des-beratungs-und-integrationsbereichs-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-mandat-d-audit-etat-de-vaud-lausanne",
-          "capo-di-audit-mandate-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "capo-di-audit-mandate-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "leiter-in-des-beratungs-und-integrationsbereichs-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "chef-fe-de-mandat-d-audit-etat-de-vaud-lausanne"
         ],
         "de": [
-          "chef-fe-de-mandat-d-audit-etat-de-vaud-lausanne"
+          "chef-fe-de-mandat-d-audit-etat-de-vaud-lausanne",
+          "leiter-in-des-beratungs-und-integrationsbereichs-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1213,7 +1223,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-vaud-5663",
@@ -1902,12 +1913,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistant-e-bureautique-et-applications-etat-de-vaud-lausanne",
-        "assistente-e-applicazioni-dell-ufficio-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "assistente-e-applicazioni-dell-ufficio-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "integratore-di-applicazioni-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-e-bureautique-et-applications-etat-de-vaud-lausanne",
-          "assistente-e-applicazioni-dell-ufficio-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "assistente-e-applicazioni-dell-ufficio-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "integratore-di-applicazioni-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "assistant-e-bureautique-et-applications-etat-de-vaud-lausanne"
@@ -1917,7 +1930,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:22.967Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1929,7 +1941,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-vaud-5672",
@@ -2061,12 +2074,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conseiller-ere-en-personnel-etat-de-vaud-prilly",
-        "consigliere-etat-de-vaud-administration-cantonale-vaudoise-prilly"
+        "consigliere-etat-de-vaud-administration-cantonale-vaudoise-prilly",
+        "personalberater-in-etat-de-vaud-administration-cantonale-vaudoise-aigle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-ere-en-personnel-etat-de-vaud-prilly",
-          "consigliere-etat-de-vaud-administration-cantonale-vaudoise-prilly"
+          "consigliere-etat-de-vaud-administration-cantonale-vaudoise-prilly",
+          "personalberater-in-etat-de-vaud-administration-cantonale-vaudoise-aigle"
         ],
         "en": [
           "conseiller-ere-en-personnel-etat-de-vaud-prilly"
@@ -3343,12 +3358,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "juriste-etat-de-vaud-lausanne",
-        "ufficiale-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "ufficiale-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "stagiaire-juriste-etat-de-vaud-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "juriste-etat-de-vaud-lausanne",
-          "ufficiale-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "ufficiale-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "stagiaire-juriste-etat-de-vaud-lausanne"
         ],
         "en": [
           "juriste-etat-de-vaud-lausanne"
@@ -3582,12 +3599,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "secretaire-d-unite-etat-de-vaud-renens-vd",
-        "segretario-dell-unita-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
+        "segretario-dell-unita-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "giurista-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "jurist-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "secretaire-d-unite-etat-de-vaud-renens-vd",
-          "segretario-dell-unita-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
+          "segretario-dell-unita-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+          "giurista-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+          "jurist-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
         ],
         "en": [
           "secretaire-d-unite-etat-de-vaud-renens-vd"

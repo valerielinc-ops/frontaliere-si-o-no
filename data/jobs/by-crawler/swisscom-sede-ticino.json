@@ -535,13 +535,21 @@
       "previousSlugs": [
         "apprentissage-employe-e-de-commerce-de-detail-cfc-swisscom-sede-ticino-balerna",
         "apprentissage-employe-e-de-commerce-cfc-swisscom-fribourg-drxxn6",
-        "imparare-swc-trade-dipendente-swisscom-sede-ticino-fribourg"
+        "imparare-swc-trade-dipendente-swisscom-sede-ticino-fribourg",
+        "apprentissage-employe-e-de-commerce-de-detail-cfc-swisscom-sede-ticino-bellinzona",
+        "apprentissage-employe-e-de-commerce-de-detail-cfc-swisscom-sede-ticino-chur",
+        "apprentissage-employe-e-de-commerce-de-detail-cfc-swisscom-sede-ticino-grancia",
+        "apprentissage-employe-e-du-commerce-de-detail-cfc-swisscom-sede-ticino-balerna"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-employe-e-de-commerce-de-detail-cfc-swisscom-sede-ticino-balerna",
           "apprentissage-employe-e-de-commerce-cfc-swisscom-fribourg-drxxn6",
-          "imparare-swc-trade-dipendente-swisscom-sede-ticino-fribourg"
+          "imparare-swc-trade-dipendente-swisscom-sede-ticino-fribourg",
+          "apprentissage-employe-e-de-commerce-de-detail-cfc-swisscom-sede-ticino-bellinzona",
+          "apprentissage-employe-e-de-commerce-de-detail-cfc-swisscom-sede-ticino-chur",
+          "apprentissage-employe-e-de-commerce-de-detail-cfc-swisscom-sede-ticino-grancia",
+          "apprentissage-employe-e-du-commerce-de-detail-cfc-swisscom-sede-ticino-balerna"
         ],
         "en": [
           "apprentissage-employe-e-de-commerce-cfc-swisscom-fribourg-drxxn6"
@@ -3337,12 +3345,14 @@
         "senior-business-controller-swisscom-bern-drxhi4",
         "controleur-principal-des-entreprises-swisscom-sede-ticino-bern",
         "controller-aziendale-senior-swisscom-sede-ticino-bern",
-        "senior-business-controller-swisscom-sede-ticino-bern"
+        "senior-business-controller-swisscom-sede-ticino-bern",
+        "senior-business-controller-swisscom-bern-193l66"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-business-controller-swisscom-bern-drxhi4",
-          "controller-aziendale-senior-swisscom-sede-ticino-bern"
+          "controller-aziendale-senior-swisscom-sede-ticino-bern",
+          "senior-business-controller-swisscom-bern-193l66"
         ],
         "fr": [
           "controleur-principal-des-entreprises-swisscom-sede-ticino-bern",
@@ -3351,7 +3361,6 @@
       },
       "firstSeenAt": "2026-06-30T23:28:29.592Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 175000,
       "salaryMax": 307500,
       "currency": "CHF",
@@ -3366,7 +3375,8 @@
         }
       },
       "addressRegion": "BE",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Senior-SAP-Technology-Consultant_R-0005423-1",
@@ -3501,13 +3511,17 @@
         "devops-ingegnere-swisscom-sede-ticino-bern",
         "devops-engineer-swisscom-bern-r9vbxv",
         "devops-engineer-swisscom-sede-ticino-bern",
-        "devops-ingegnere-swisscom-sede-ticino-bern-d524ff"
+        "devops-ingegnere-swisscom-sede-ticino-bern-d524ff",
+        "devops-ingegnere-nextcloud-swisscom-sede-ticino-bern",
+        "devops-ingenieur-ansible-swisscom-sede-ticino-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "devops-engineer-swisscom-bern-on9t50",
           "devops-engineer-swisscom-bern-r9vbxv",
-          "devops-ingegnere-swisscom-sede-ticino-bern-d524ff"
+          "devops-ingegnere-swisscom-sede-ticino-bern-d524ff",
+          "devops-ingegnere-nextcloud-swisscom-sede-ticino-bern",
+          "devops-ingenieur-ansible-swisscom-sede-ticino-bern"
         ],
         "en": [
           "devops-engineer-swisscom-sede-ticino-bern"
@@ -4136,15 +4150,27 @@
         "senior-data-analyst-data-engineer-swisscom-sede-ticino-zurich",
         "senior-data-analyst-data-engineer-swisscom-zurich-dyrj2g",
         "senior-data-analyste-data-ingenieur-swisscom-sede-ticino-zurich",
-        "senior-cyber-security-analista-swisscom-sede-ticino-zurich"
+        "senior-cyber-security-analista-swisscom-sede-ticino-zurich",
+        "senior-security-ingegnere-iam-swisscom-sede-ticino-zurich",
+        "senior-security-ingenieur-iam-swisscom-sede-ticino-zurich",
+        "senior-security-engineer-iam-swisscom-sede-ticino-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-cyber-security-analyst-swisscom-zurich-7uipbw",
-          "senior-cyber-security-analista-swisscom-sede-ticino-zurich"
+          "senior-cyber-security-analista-swisscom-sede-ticino-zurich",
+          "senior-security-ingegnere-iam-swisscom-sede-ticino-zurich",
+          "senior-security-ingenieur-iam-swisscom-sede-ticino-zurich",
+          "senior-security-engineer-iam-swisscom-sede-ticino-zurich"
         ],
         "fr": [
           "senior-cyber-security-analyst-swisscom-zurich-7uipbw"
+        ],
+        "en": [
+          "senior-security-engineer-iam-swisscom-sede-ticino-zurich"
+        ],
+        "de": [
+          "senior-security-ingenieur-iam-swisscom-sede-ticino-zurich"
         ]
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",

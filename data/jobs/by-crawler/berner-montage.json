@@ -129,19 +129,22 @@
       "previousSlugs": [
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-aargau-berner-montage-ch",
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-aargau-montagetechnik-berner-ag-visp",
-        "rappresentante-commerciale-m-w-d-nel-settore-edile-regione-argovia-montagetechnik-berner-ag-visp"
+        "rappresentante-commerciale-m-w-d-nel-settore-edile-regione-argovia-montagetechnik-berner-ag-visp",
+        "rappresentante-commerciale-nel-settore-edile-per-la-regione-di-solothurn-montagetechnik-berner-ag-visp",
+        "rappresentante-commerciale-nel-settore-edile-per-la-regione-emmental-montagetechnik-berner-ag-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-aargau-berner-montage-ch",
-          "rappresentante-commerciale-m-w-d-nel-settore-edile-regione-argovia-montagetechnik-berner-ag-visp"
+          "rappresentante-commerciale-m-w-d-nel-settore-edile-regione-argovia-montagetechnik-berner-ag-visp",
+          "rappresentante-commerciale-nel-settore-edile-per-la-regione-di-solothurn-montagetechnik-berner-ag-visp",
+          "rappresentante-commerciale-nel-settore-edile-per-la-regione-emmental-montagetechnik-berner-ag-visp"
         ],
         "de": [
           "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-aargau-montagetechnik-berner-ag-visp"
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -154,7 +157,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "berner-montage-af1a6856eb90",
@@ -449,13 +453,15 @@
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-berner-montage-c",
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-berner-montage",
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-montagetechnik-berner-ag-visp",
-        "rappresentante-commerciale-m-w-d-nel-settore-edile-regione-thurgau-schaffhausen-montagetechnik-berner-ag-visp"
+        "rappresentante-commerciale-m-w-d-nel-settore-edile-regione-thurgau-schaffhausen-montagetechnik-berner-ag-visp",
+        "sales-representative-in-construction-for-the-emmental-region-montagetechnik-berner-ag-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-berner-montage-c",
           "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-berner-montage",
-          "rappresentante-commerciale-m-w-d-nel-settore-edile-regione-thurgau-schaffhausen-montagetechnik-berner-ag-visp"
+          "rappresentante-commerciale-m-w-d-nel-settore-edile-regione-thurgau-schaffhausen-montagetechnik-berner-ag-visp",
+          "sales-representative-in-construction-for-the-emmental-region-montagetechnik-berner-ag-visp"
         ],
         "de": [
           "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-montagetechnik-berner-ag-visp",
@@ -463,7 +469,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -476,7 +481,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "berner-montage-ec3510eb9306",

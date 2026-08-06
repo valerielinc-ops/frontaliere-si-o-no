@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-re",
-  "assembledAt": "2026-08-06T12:07:01.098Z",
+  "assembledAt": "2026-08-06T11:12:51.004Z",
   "jobs": [
     {
       "id": "swiss-re-eb683c9f7002",
@@ -20743,7 +20743,9 @@
         "engineering-manager-swiss-re-ch-4",
         "directeur-technique-swiss-re-hyderabad-in-acf044",
         "engineering-manager-swiss-re-ch-3",
-        "engineering-manager-swiss-re-ch-xrky2f"
+        "engineering-manager-swiss-re-ch-xrky2f",
+        "senior-portfolio-manager-swiss-re-ch-2",
+        "senior-portfolio-manager-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -20753,21 +20755,24 @@
           "engineering-manager-swiss-re-ch-4",
           "directeur-technique-swiss-re-hyderabad-in-acf044",
           "engineering-manager-swiss-re-ch-3",
-          "engineering-manager-swiss-re-ch-xrky2f"
+          "engineering-manager-swiss-re-ch-xrky2f",
+          "senior-portfolio-manager-swiss-re-ch-2",
+          "senior-portfolio-manager-swiss-re-ch"
         ],
         "en": [
           "manager-underwriting-portfolio-engineering-swiss-re-ch",
-          "engineering-manager-swiss-re-ch"
+          "engineering-manager-swiss-re-ch",
+          "senior-portfolio-manager-swiss-re-ch"
         ],
         "de": [
           "engineering-manager-swiss-re-ch-4"
         ],
         "fr": [
-          "directeur-technique-swiss-re-hyderabad-in-acf044"
+          "directeur-technique-swiss-re-hyderabad-in-acf044",
+          "senior-portfolio-manager-swiss-re-ch-2"
         ]
       },
       "firstSeenAt": "2026-07-31T22:10:06.501Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -20780,7 +20785,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-re-3b8d91fa2639",

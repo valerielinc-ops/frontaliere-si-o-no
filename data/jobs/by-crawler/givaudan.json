@@ -771,31 +771,6 @@
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB119256EXTERNALENGLOBAL/head-of-procurement-im-s",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "en": [
-          "head-of-procurement-im-s-givaudan-vernier",
-          "head-of-procurement-im-s-givaudan-ch"
-        ],
-        "it": [
-          "responsabile-procurement-im-s-givaudan-kemptthal-switzerland",
-          "leiter-procurement-im-s-givaudan-kemptthal-switzerland",
-          "responsable-procurement-im-s-givaudan-kemptthal-switzerland",
-          "global-head-of-im-s-givaudan-ch",
-          "global-responsabile-im-s-givaudan-kemptthal-switzerland",
-          "global-leiter-im-s-givaudan-kemptthal-switzerland",
-          "global-responsable-im-s-givaudan-kemptthal-switzerland",
-          "head-of-procurement-im-s-givaudan-ch",
-          "responsabile-procurement-im-s-givaudan-vernier-switzerland"
-        ],
-        "de": [
-          "leiter-procurement-im-s-givaudan-kemptthal-switzerland",
-          "head-of-procurement-im-s-givaudan-ch"
-        ],
-        "fr": [
-          "responsable-procurement-im-s-givaudan-kemptthal-switzerland",
-          "head-of-procurement-im-s-givaudan-ch"
-        ]
-      },
       "previousSlugs": [
         "responsabile-procurement-im-s-givaudan-kemptthal-switzerland",
         "leiter-procurement-im-s-givaudan-kemptthal-switzerland",
@@ -806,8 +781,35 @@
         "global-responsable-im-s-givaudan-kemptthal-switzerland",
         "head-of-procurement-im-s-givaudan-ch",
         "head-of-procurement-im-s-givaudan-vernier",
-        "responsabile-procurement-im-s-givaudan-vernier-switzerland"
+        "responsabile-procurement-im-s-givaudan-vernier-switzerland",
+        "responsabile-procurement-im-s-givaudan-vernier"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-procurement-im-s-givaudan-kemptthal-switzerland",
+          "leiter-procurement-im-s-givaudan-kemptthal-switzerland",
+          "responsable-procurement-im-s-givaudan-kemptthal-switzerland",
+          "global-head-of-im-s-givaudan-ch",
+          "global-responsabile-im-s-givaudan-kemptthal-switzerland",
+          "global-leiter-im-s-givaudan-kemptthal-switzerland",
+          "global-responsable-im-s-givaudan-kemptthal-switzerland",
+          "head-of-procurement-im-s-givaudan-ch",
+          "responsabile-procurement-im-s-givaudan-vernier-switzerland",
+          "responsabile-procurement-im-s-givaudan-vernier"
+        ],
+        "en": [
+          "head-of-procurement-im-s-givaudan-vernier",
+          "head-of-procurement-im-s-givaudan-ch"
+        ],
+        "de": [
+          "leiter-procurement-im-s-givaudan-kemptthal-switzerland",
+          "head-of-procurement-im-s-givaudan-ch"
+        ],
+        "fr": [
+          "responsable-procurement-im-s-givaudan-kemptthal-switzerland",
+          "head-of-procurement-im-s-givaudan-ch"
+        ]
+      },
       "firstSeenAt": "2026-07-15T10:57:54.323Z",
       "salaryMin": 83500,
       "salaryMax": 126500,

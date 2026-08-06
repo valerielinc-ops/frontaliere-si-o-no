@@ -1607,12 +1607,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "modeleur-bim-audemars-piguet-meyrin-ge-switzerland",
-        "modelli-bim-audemars-piguet-meyrin-ge-switzerland"
+        "modelli-bim-audemars-piguet-meyrin-ge-switzerland",
+        "modeleur-bim-audemars-piguet-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
           "modeleur-bim-audemars-piguet-meyrin-ge-switzerland",
-          "modelli-bim-audemars-piguet-meyrin-ge-switzerland"
+          "modelli-bim-audemars-piguet-meyrin-ge-switzerland",
+          "modeleur-bim-audemars-piguet-meyrin"
         ],
         "en": [
           "modeleur-bim-audemars-piguet-meyrin-ge-switzerland"
@@ -1622,7 +1624,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T12:04:43.363Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1634,7 +1635,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "audemars-piguet-dff34037e4b2",

@@ -1223,12 +1223,16 @@
         "gestionnaire-de-projet-de-ti-demandes-de-rh-et-de-services-ministeriels-f-m-d-laderach-schweiz-ag-bilten",
         "it-projektleiter-hr-corporate-service-applikationen-w-m-d-laderach-schweiz-ag-bilten",
         "gestionnaire-de-projet-en-ti-ressources-humaines-et-applications-des-services-ministeriels-f-m-d-laderach-schweiz-ag",
-        "it-projektleiter-hr-corporate-service-applikationen-m-w-d-laderach-schweiz-ag-bilten"
+        "it-projektleiter-hr-corporate-service-applikationen-m-w-d-laderach-schweiz-ag-bilten",
+        "it-project-manager-hr-corporate-service-applications-w-m-d-laderach-schweiz-ag-bilten",
+        "it-projektleiter-risorse-umane-corporate-service-applikationen-m-w-d-laderach-schweiz-ag-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-projektleiter-hr-corporate-service-applikationen-w-m-d-laderach-bilten",
-          "gestionnaire-de-projet-de-ti-demandes-de-rh-et-de-services-ministeriels-f-m-d-laderach-schweiz-ag-bilten"
+          "gestionnaire-de-projet-de-ti-demandes-de-rh-et-de-services-ministeriels-f-m-d-laderach-schweiz-ag-bilten",
+          "it-project-manager-hr-corporate-service-applications-w-m-d-laderach-schweiz-ag-bilten",
+          "it-projektleiter-risorse-umane-corporate-service-applikationen-m-w-d-laderach-schweiz-ag-bilten"
         ],
         "fr": [
           "it-projektleiter-hr-corporate-service-applikationen-w-m-d-laderach-schweiz-ag-bilten",
@@ -1237,7 +1241,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T10:59:46.912Z",
-      "needsRetranslation": true,
       "salaryMin": 118500,
       "salaryMax": 159500,
       "baseSalary": {
@@ -1251,7 +1254,8 @@
         }
       },
       "country": "CH",
-      "addressRegion": "GL"
+      "addressRegion": "GL",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-e8c955ddc032",

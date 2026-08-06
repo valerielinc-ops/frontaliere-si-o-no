@@ -1062,12 +1062,14 @@
       },
       "previousSlugs": [
         "restaurant-supervisor-marriott-geneva",
-        "restaurant-supervisore-marriott-international-geneva"
+        "restaurant-supervisore-marriott-international-geneva",
+        "restaurant-supervisor-marriott-international-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "restaurant-supervisor-marriott-geneva",
-          "restaurant-supervisore-marriott-international-geneva"
+          "restaurant-supervisore-marriott-international-geneva",
+          "restaurant-supervisor-marriott-international-geneva"
         ],
         "de": [
           "restaurant-supervisor-marriott-geneva"
@@ -1077,7 +1079,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:20:33.156Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1090,7 +1091,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "marriott-a5a171f60c17",
@@ -1486,7 +1488,8 @@
         "hotel-techniker-marriott-international-zurich",
         "technicien-d-hotel-marriott-international-zurich",
         "hoteltechniker-marriott-international-zurich",
-        "esperto-di-pulizia-alberghiera-marriott-international-zurich"
+        "esperto-di-pulizia-alberghiera-marriott-international-zurich",
+        "esperto-di-pulizia-dell-hotel-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1496,7 +1499,8 @@
           "hotel-techniker-marriott-international-zurich",
           "technicien-d-hotel-marriott-international-zurich",
           "hoteltechniker-marriott-international-zurich",
-          "esperto-di-pulizia-alberghiera-marriott-international-zurich"
+          "esperto-di-pulizia-alberghiera-marriott-international-zurich",
+          "esperto-di-pulizia-dell-hotel-marriott-international-zurich"
         ],
         "en": [
           "hotel-technician-marriott-zurich"
@@ -2617,14 +2621,16 @@
         "dienstleiter-qualitatsmanager-langfristig-w-verbier-marriott-international-verbier",
         "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier",
         "responsabile-di-turno-e-qualita-a-lungo-termine-w-verbier-marriott-international-verbier",
-        "commission-de-cuisine-hiver-26-27-w-verbier-marriott-international-verbier"
+        "commission-de-cuisine-hiver-26-27-w-verbier-marriott-international-verbier",
+        "commis-cuisine-langfristig-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-rang-marriott-geneva",
           "cook-apprentice-marriott-geneva",
           "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
-          "responsabile-di-turno-e-qualita-a-lungo-termine-w-verbier-marriott-international-verbier"
+          "responsabile-di-turno-e-qualita-a-lungo-termine-w-verbier-marriott-international-verbier",
+          "commis-cuisine-langfristig-w-verbier-marriott-international-verbier"
         ],
         "en": [
           "chef-de-rang-marriott-geneva",
@@ -2643,7 +2649,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:24:03.470Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2656,7 +2661,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "marriott-bd22c6da3886",

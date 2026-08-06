@@ -324,20 +324,21 @@
       "previousSlugs": [
         "customer-consulente-100-team-zurich-corner-banca-wallisellen",
         "customer-consulente-60-team-zurich-corner-banca-wallisellen",
-        "customer-advisor-100-team-zurich-corner-banca-wallisellen"
+        "customer-advisor-100-team-zurich-corner-banca-wallisellen",
+        "conseiller-client-60-team-zurich-corner-banca-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "customer-consulente-100-team-zurich-corner-banca-wallisellen",
           "customer-consulente-60-team-zurich-corner-banca-wallisellen",
-          "customer-advisor-100-team-zurich-corner-banca-wallisellen"
+          "customer-advisor-100-team-zurich-corner-banca-wallisellen",
+          "conseiller-client-60-team-zurich-corner-banca-wallisellen"
         ],
         "fr": [
           "customer-advisor-100-team-zurich-corner-banca-wallisellen"
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.985Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -352,7 +353,8 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-365d1802d2a9",
@@ -708,20 +710,26 @@
       "previousSlugs": [
         "customer-analytics-officer-corner-banca-lugano",
         "customer-analytics-officer-corner-banca-wallisellen",
-        "responsabile-customer-analytics-corner-banca-lugano"
+        "responsabile-customer-analytics-corner-banca-lugano",
+        "responsabile-customer-analytics-corner-banca-wallisellen",
+        "specialiste-de-l-analyse-des-clients-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "customer-analytics-officer-corner-banca-lugano",
           "customer-analytics-officer-corner-banca-wallisellen",
-          "responsabile-customer-analytics-corner-banca-lugano"
+          "responsabile-customer-analytics-corner-banca-lugano",
+          "responsabile-customer-analytics-corner-banca-wallisellen",
+          "specialiste-de-l-analyse-des-clients-corner-banca-lugano"
         ],
         "en": [
           "customer-analytics-officer-corner-banca-wallisellen"
+        ],
+        "fr": [
+          "specialiste-de-l-analyse-des-clients-corner-banca-lugano"
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.980Z",
-      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -738,7 +746,8 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-31e07dd63549",
@@ -1004,7 +1013,6 @@
       "sourceLang": "en",
       "crawledAt": "2026-08-06T11:31:24.677Z",
       "firstSeenAt": "2026-07-08T22:13:15.973Z",
-      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -1021,7 +1029,16 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "grc-gouvernance-risque-et-conformite-services-bancaires-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "grc-gouvernance-risque-et-conformite-services-bancaires-corner-banca-lugano"
+      ]
     },
     {
       "id": "corner-banca-97e747498000",
@@ -1178,19 +1195,24 @@
       "crawledAt": "2026-08-06T11:31:24.672Z",
       "previousSlugs": [
         "fi-administration-e-business-support-corner-banca-lugano",
-        "amministrazione-fi-e-supporto-commerciale-corner-banca-lugano"
+        "amministrazione-fi-e-supporto-commerciale-corner-banca-lugano",
+        "amministrazione-fi-e-supporto-commerciale-2-corner-banca-lugano",
+        "fi-administration-e-business-support-2-corner-banca-lugano",
+        "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fi-administration-e-business-support-corner-banca-lugano",
-          "amministrazione-fi-e-supporto-commerciale-corner-banca-lugano"
+          "amministrazione-fi-e-supporto-commerciale-corner-banca-lugano",
+          "amministrazione-fi-e-supporto-commerciale-2-corner-banca-lugano",
+          "fi-administration-e-business-support-2-corner-banca-lugano",
+          "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano"
         ],
         "fr": [
           "fi-administration-e-business-support-corner-banca-lugano"
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.970Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1207,7 +1229,8 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-373e7d69efb6",
