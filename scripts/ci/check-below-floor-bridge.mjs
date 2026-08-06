@@ -75,6 +75,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { resolve as resolvePath } from 'node:path';
+import { resolveMergeBase, formatUnresolvableMergeBaseMessage } from './lib/resolve-merge-base.mjs';
 
 // ---------------------------------------------------------------------------
 // Pure, unit-tested core (tests/check-below-floor-bridge.test.ts)
@@ -295,7 +296,19 @@ function isTargetFile(f) {
 
 function main() {
   const base = resolveBase();
-  const mergeBase = git(['merge-base', base, 'HEAD'], { allowFail: true }).trim() || base;
+  const { mergeBase, deepened } = resolveMergeBase(base);
+
+  if (!mergeBase) {
+    // Issue #5195: no silent fallback to `base` — on a shallow clone that
+    // fallback compared unrelated trees and produced false-positive gaps.
+    const msg = `check-below-floor-bridge: ${formatUnresolvableMergeBaseMessage(base, deepened)}`;
+    if (JSON_OUT) {
+      console.log(JSON.stringify({ base, changedTargets: [], gapsByFile: [], selfMap: null }, null, 2));
+    } else {
+      console.log(msg);
+    }
+    process.exit(0);
+  }
 
   const changedRaw = git(['diff', '--name-only', '--diff-filter=ACMR', mergeBase], { allowFail: true });
   const changedAll = changedRaw.split('\n').map((s) => s.trim()).filter(Boolean);
