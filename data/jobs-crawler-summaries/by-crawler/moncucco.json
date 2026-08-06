@@ -1,16 +1,16 @@
 {
   "key": "moncucco",
   "label": "Gruppo Ospedaliero Moncucco",
-  "generatedAt": "2026-08-05T22:35:47.786Z",
-  "total": 3,
+  "generatedAt": "2026-08-06T12:15:21.426Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 3418,
-  "avgDurationMs": 3418,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 3216,
+  "avgDurationMs": 3216,
   "durationHistory": [
-    3418
+    3216
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "applyUrl": "https://www.moncucco.ch/infermiere_capo_reparto_area_internistica.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-05T22:35:45.788Z",
+      "crawledAt": "2026-08-06T12:15:19.617Z",
       "firstSeenAt": "2026-08-05T11:36:52.216Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -50,8 +50,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "moncucco-a2843a5a57e0",
       "slug": "medico-del-centro-per-la-cura-dell-obesita-lugano-moncucco",
@@ -130,5 +129,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
