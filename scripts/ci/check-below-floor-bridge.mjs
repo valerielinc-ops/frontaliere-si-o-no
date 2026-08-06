@@ -75,7 +75,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { resolve as resolvePath } from 'node:path';
-import { resolveMergeBase, formatUnresolvableMergeBaseMessage } from './lib/resolve-merge-base.mjs';
+import { resolveMergeBase, formatUnresolvableMergeBaseVerdict } from './lib/resolve-merge-base.mjs';
 
 // ---------------------------------------------------------------------------
 // Pure, unit-tested core (tests/check-below-floor-bridge.test.ts)
@@ -296,18 +296,37 @@ function isTargetFile(f) {
 
 function main() {
   const base = resolveBase();
-  const { mergeBase, deepened } = resolveMergeBase(base);
+  const resolution = resolveMergeBase(base);
+  const { mergeBase } = resolution;
 
   if (!mergeBase) {
     // Issue #5195: no silent fallback to `base` — on a shallow clone that
     // fallback compared unrelated trees and produced false-positive gaps.
-    const msg = `check-below-floor-bridge: ${formatUnresolvableMergeBaseMessage(base, deepened)}`;
+    //
+    // Sibling of the same defect in check-sibling-patterns.mjs, and here it was
+    // the worse half: the JSON carried NO `skipped` marker at all, so the skip
+    // payload was byte-identical to a clean run and the workflow reported the
+    // reassuring empty-gaps case. `skipped`/`reason` are additive — the
+    // workflow parser still reads `gapsByFile.length` unconditionally (PR #3749).
+    const verdict = formatUnresolvableMergeBaseVerdict('check-below-floor-bridge', base, resolution);
+    process.stderr.write(verdict.banner);
     if (JSON_OUT) {
-      console.log(JSON.stringify({ base, changedTargets: [], gapsByFile: [], selfMap: null }, null, 2));
-    } else {
-      console.log(msg);
+      console.log(
+        JSON.stringify(
+          {
+            base,
+            changedTargets: [],
+            gapsByFile: [],
+            selfMap: null,
+            skipped: true,
+            reason: 'unresolvable-merge-base',
+          },
+          null,
+          2,
+        ),
+      );
     }
-    process.exit(0);
+    process.exit(STRICT && verdict.blocking ? 1 : 0);
   }
 
   const changedRaw = git(['diff', '--name-only', '--diff-filter=ACMR', mergeBase], { allowFail: true });

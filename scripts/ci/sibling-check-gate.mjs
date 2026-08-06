@@ -12,12 +12,25 @@
  * pr-body-check-gate.mjs (shipped in #3332).
  *
  * Fail-safe: any internal error → exit 0 (never block PR on script failure).
+ *
+ * Exit codes are Claude Code hook semantics, NOT Unix convention: for
+ * PreToolUse only **2** blocks the tool call. 1 is a "non-blocking error" —
+ * stderr is shown and `gh pr create` runs anyway. This gate printed
+ * "PR bloccata" and exited 1, so it had never actually blocked anything; the
+ * message asserted an enforcement that did not happen, which is the same
+ * class of defect as the silent skip below (#5195) — a guard that reads as a
+ * guard without being one. Use EXIT_BLOCK, never a bare 1.
  */
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, basename, resolve } from 'node:path';
 import { extractPrBody } from './pr-body-check-gate.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
+import {
+  ALLOW_UNRESOLVED_ENV,
+  unresolvedBaseOverrideActive,
+} from './lib/resolve-merge-base.mjs';
+import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const checkScript = join(__dirname, 'check-sibling-patterns.mjs');
@@ -109,11 +122,32 @@ async function main() {
   }
 
   let candidates;
+  let result;
   try {
-    const result = JSON.parse(jsonOutput);
+    result = JSON.parse(jsonOutput);
     candidates = Array.isArray(result?.candidates) ? result.candidates : [];
   } catch {
     process.exit(0); // JSON parse error → fail-safe
+  }
+
+  // Issue #5195, second half. check-sibling-patterns.mjs emits
+  // `skipped: true` when it could not compute a merge-base — a deliberate
+  // "I did not run" signal. This gate used to read only `candidates` and so
+  // treated that as `candidates.length === 0` → exit 0, ZERO output, PR
+  // created. That is the failure mode the shallow-clone fix was supposed to
+  // remove, not relocate: 640 false positives at least got read, a silent
+  // all-clear never does. An un-run analysis blocks, and says so.
+  if (result?.skipped) {
+    const override = unresolvedBaseOverrideActive();
+    process.stderr.write(
+      `\n🚫 sibling-check-gate: sweep sibling NON ESEGUITO (${result.reason ?? 'sconosciuto'}).\n` +
+        'Nessun file gemello è stato verificato: questo NON equivale a "nessun candidato".\n' +
+        (override
+          ? `${ALLOW_UNRESOLVED_ENV} attivo → PR consentita senza verifica sibling (scelta dichiarata).\n\n`
+          : 'Rimedio: `git fetch --deepen=500 origin` (clone shallow) e riprova, oppure\n' +
+            `procedi deliberatamente con ${ALLOW_UNRESOLVED_ENV}=1.\n\n`),
+    );
+    process.exit(override ? 0 : EXIT_BLOCK);
   }
 
   if (candidates.length === 0) {
@@ -161,7 +195,7 @@ async function main() {
       'positivo (es. "falso positivo — solo lessicalmente simile ma semanticamente\n' +
       'diverso"). Un semplice rinvio a follow-up NON bypassa questo gate.\n\n',
   );
-  process.exit(1);
+  process.exit(EXIT_BLOCK);
 }
 
 // Only run when executed directly (e.g. as a PreToolUse hook), not on import.
