@@ -197,6 +197,19 @@ try {
     console.log(
       '⏳ Not sleeping (targeted mode has no immediate-live-probe race like the full-zone path) — propagation is best-effort, up to ~30s worst case across edge PoPs (Cloudflare documented ceiling).',
     );
+    // Say what this success does NOT cover, because the gap is invisible and
+    // reading the ✅ above as "the browser now gets the new copy" cost 28 hours
+    // on issue #4974. A `files` purge clears the variant matching the purge
+    // REQUEST, which sends no `Origin`. Any response carrying `Vary: Origin`
+    // also has a second, separate variant — the one a cross-origin `fetch()`
+    // from the app receives — and this call does not touch it. Verified live:
+    // the purge returned 200 for 19 URLs and the copy the browser received did
+    // not move for 28 hours, while curl saw the fresh one throughout.
+    console.log(
+      '⚠️  Targeted purge does NOT clear a `Vary: Origin` variant. A file the SPA '
+      + 'fetches cross-origin keeps serving its old copy to browsers after this ✅ — '
+      + 'those must rotate their URL instead (services/cdnDataBase.ts → cdnFreshUrl).',
+    );
   } else {
     console.log(`✅ Cloudflare edge cache purged (zone ${zoneId}).`);
     console.log(`⏳ Settling ${PURGE_SETTLE_MS}ms for the purge to propagate across edge PoPs before the caller probes LIVE_BASE_URL...`);
