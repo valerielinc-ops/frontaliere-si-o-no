@@ -114,6 +114,63 @@ La freschezza dell'apex ora è `APEX_EDGE_TTL_SECONDS` (300s) in
 `scripts/cf-locale-failover-setup.mjs`, senza purge. Invariante in
 `tests/cf-zone-purge-blast-radius.test.ts`.
 
+## Aggiornamento 2026-08-06 (#5231 / #5232) — il difetto era nel monitor
+
+Due issue nuove su asset del CDN, aperte alle 06:18Z, **dopo** la fix di #5165. Non erano
+un rientro del purge di zona: su `main` la guardia `CF_PURGE_ZONE_WIDE` c'è e lo step di
+purge non è più in `post-deploy-validate-live.yml`. Rimisurando a `datetimeMinute`:
+
+| URL | 5xx | quando | richieste sue, 23h | ore con 5xx |
+|---|---|---|---|---|
+| `/assets/vendor-fdb-auth.js` | 24 | **tutti nel minuto** `2026-08-05T16:03Z` | 22.387 (0,107%) | 1 su 23 |
+| `/assets/borderWaitFormat.js` | 21 | **tutti nel minuto** `2026-08-05T15:41Z` | 22.577 (0,093%) | 1 su 23 |
+
+Entrambi zero in **ognuna** delle ~14 ore successive, entrambi `200`/`HIT` alla verifica.
+`cf-status-report.mjs` non ha dimensione temporale: un outage di 23h e un blip di 60 secondi
+finito ieri pomeriggio sono lo **stesso intero**. `cf-5xx-issue-sync.mjs` selezionava su
+quell'intero e dichiarava in docblock di filare su «sustained 5xx volume» — cosa che nessun
+test poteva osservare.
+
+La soglia sceglieva anche la **cosa sbagliata**: `i18n.js` è fallito con lo stesso meccanismo
+nella stessa finestra, ma nel suo minuto sfortunato sono atterrate 2 richieste invece di 24,
+quindi è rimasto muto. A superare `MIN_COUNT` non era la gravità: era la popolarità
+dell'asset nel minuto in cui è caduto.
+
+Ora `--by-hour` porta le righe orarie fino al feeder, che scarta le voci il cui ultimo 5xx è
+più vecchio di `CF_5XX_MAX_AGE_HOURS` (2h) e scrive la forma del burst nel corpo della issue.
+È la stessa chiamata che `isSelfHealedPage404` fa già per i 404 stantii, e non può mascherare
+un outage vero: un outage in corso ha età 0. **Fallisce aperto e rumoroso** se le righe orarie
+mancano. Invariante in `tests/cf-5xx-recency.test.ts`.
+
+### Il volume di fetch verso origin NON era guidato dal purge
+
+Va corretta la sezione qui sopra. #5165 dava le ~60.000 fetch verso origin in 23h come
+«spiegabili solo dai purge ripetuti». Misurato **dopo** la rimozione del purge, stessa
+finestra, stesso host, solo `eyeball`:
+
+| | |
+|---|---|
+| richieste | 2.638.021 |
+| hit | 2.567.006 (**97,31%**) |
+| fetch verso origin | **71.012** |
+| 502 | 239 (0,34% delle fetch verso origin) |
+
+Le fetch verso origin non sono scese: sono **71.012**, e sono **piatte a 2.666-3.272 ogni
+ora**, comprese le ore senza deploy né purge. Il driver non era il purge ed è strutturale:
+gli asset escono da R2 con `cache-control: public, max-age=600, must-revalidate`, quindi ogni
+oggetto ricontrolla l'origin ogni ~10 minuti. Si legge in `byCacheStatus`: `miss` 41.124,
+**`revalidated` 23.146**, `expired` 1.498. Non c'è nessun edge TTL di 7 giorni su `/assets/`.
+
+I 502 però **non** sono distribuiti su quelle fetch: 00:00-03:00Z hanno avuto 11.450 fetch
+verso origin e **0** 502; 14:00-18:00Z ne hanno avute 17.453 e **139**. Un tasso di guasto
+uniforme è escluso. Il meccanismo per-oggetto (scadenza a 600s → refill da R2 che fallisce →
+ogni richiesta per quell'oggetto sintetizza 502 finché un refill riesce) spiega la forma
+mono-path/mono-minuto, ma **cosa raggruppi i minuti cattivi in certe ore resta non misurato**:
+serve più di una finestra prima di toccare qualcosa.
+
+Nota utile: `byCacheStatus` ora riporta `stale: 3`. Per il criterio della §2 qui sopra è il
+segno **conclusivo** che `serve_stale` scatta davvero — la prima volta da quando esiste.
+
 ## Trappole note
 
 - **`curl -I` non misura la cache: manda `HEAD`, e Cloudflare non serve mai una
@@ -142,6 +199,15 @@ La freschezza dell'apex ora è `APEX_EDGE_TTL_SECONDS` (300s) in
   filtrano già su `eyeball` di default.
 - **Non chiudere una issue 5xx al merge di una mitigazione.** Il criterio è osservativo: nessun
   nuovo evento sulla *sua* superficie per almeno due finestre di deploy complete.
+- **Un totale su 23h non dice se il guasto è ancora in corso.** La finestra del monitor è
+  *trailing*: un incidente finito alle 16:03Z resta dentro la finestra fino alle 15:03Z del
+  giorno dopo, e ne esce solo scorrendo. Prima di diagnosticare una issue `cloudflare-5xx`,
+  guarda la **forma**, non il totale — `node scripts/cf-status-report.mjs --json --class=5
+  --by-hour` (o `datetimeMinute` a mano per i burst stretti). Costato #5231 e #5232.
+- **`detail` è troncato, `detailByHour` no.** La query DETAIL è limitata da `--limit` (50 dal
+  feeder): misurato il 2026-08-06, `detail` sommava 328 dei 462 5xx della finestra. Le righe
+  orarie sono limitate solo dal tetto del dataset e sommavano 462, esatto come
+  `summaryByClass`. Per un totale di zona fidati del sommario, non di `detail`.
 
 ## Da guardare, non ancora indagato
 
