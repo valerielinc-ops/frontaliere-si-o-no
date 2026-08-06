@@ -208595,7 +208595,6 @@
           "kochin-koch-m-w-d-coop-genossenschaft-chur-g9vlif",
           "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
           "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden",
-          "cucinare-cucinare-f-m-d-coop-genossenschaft-chur",
           "cook-m-w-d-coop-genossenschaft-chur-4j1lnt",
           "cuire-m-w-d-coop-genossenschaft-chur-b9c935",
           "cuire-m-w-d-coop-genossenschaft-chur-4j1lnt"
@@ -208620,7 +208619,6 @@
         "kochin-koch-m-w-d-coop-genossenschaft-chur-g9vlif",
         "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
         "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden",
-        "cucinare-cucinare-f-m-d-coop-genossenschaft-chur",
         "cook-m-w-d-coop-genossenschaft-chur-4j1lnt",
         "cuire-m-w-d-coop-genossenschaft-chur-b9c935",
         "cuire-m-w-d-coop-genossenschaft-chur-4j1lnt"
@@ -210219,7 +210217,7 @@
     },
     {
       "id": "company-cncnay",
-      "slug": "lagerist-in-coop-genossenschaft-oberentfelden-aargau",
+      "slug": "magazziniere-a-coop-genossenschaft-oberentfelden",
       "company": "Coop Genossenschaft",
       "title": "Lagerist:in",
       "location": "Oberentfelden",
@@ -210254,8 +210252,8 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "lagerist-in-coop-genossenschaft-oberentfelden-aargau-cncnay",
-        "en": "lagerist-in-coop-genossenschaft-oberentfelden-aargau-cncnay",
+        "it": "magazziniere-a-coop-genossenschaft-oberentfelden",
+        "en": "warehouse-worker-coop-genossenschaft-oberentfelden",
         "de": "lagerist-in-coop-genossenschaft-oberentfelden-aargau-cncnay",
         "fr": "lageriste-in-coop-genossenschaft-oberentfelden-aargau"
       },
@@ -210291,7 +210289,11 @@
           "lageriste-in-coop-genossenschaft-oberentfelden"
         ],
         "it": [
-          "lagerist-in-coop-genossenschaft-oberentfelden-aargau"
+          "lagerist-in-coop-genossenschaft-oberentfelden-aargau",
+          "lagerist-in-coop-genossenschaft-oberentfelden-aargau-cncnay"
+        ],
+        "en": [
+          "lagerist-in-coop-genossenschaft-oberentfelden-aargau-cncnay"
         ]
       },
       "previousSlugs": [
