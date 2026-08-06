@@ -12,7 +12,7 @@
     "https://fincons.applytojob.com/apply/jobs/?city=lugano"
   ],
   "notes": "Dedicated Fincons crawler parses the Lugano landing page iframe source hosted on JazzHR and keeps the public Lugano positions in sync.",
-  "updatedAt": "2026-08-05T22:20:48.206Z",
+  "updatedAt": "2026-08-06T11:39:42.415Z",
   "seedMetaByUrl": {
     "https://fincons.applytojob.com/apply/MuAijinxCZ/Accounts-Payable-Accounting-Specialist": {
       "location": "Lugano",
@@ -25,6 +25,12 @@
       "canton": "TI",
       "company": "Fincons Group",
       "postedDate": "2026-06-17"
+    },
+    "https://fincons.applytojob.com/apply/7OqPcl4U5Q/Senior-C-NET-Engineer": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Fincons Group",
+      "postedDate": "2026-08-06"
     },
     "https://fincons.applytojob.com/apply/p8SZrdkyWF/Senior-Test-Engineer": {
       "location": "Lugano",
