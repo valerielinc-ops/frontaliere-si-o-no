@@ -2,8 +2,8 @@
 // Extracted from components/community/JobBoard.tsx so that build plugins can
 // reuse them at build time. No React/DOM dependencies.
 
-import type { Locale } from '@/services/i18n';
-import type { JobListing } from '@/components/community/JobBoard';
+import type { Locale } from './i18n';
+import type { JobListing } from '../components/community/JobBoard';
 import { RELATED_SEARCH_JUNK_TERMS, isJunkSearchKeyword } from './relatedSearchJunkTerms.mjs';
 import {
  SEARCH_QUERY_BOILERPLATE_PHRASES,
