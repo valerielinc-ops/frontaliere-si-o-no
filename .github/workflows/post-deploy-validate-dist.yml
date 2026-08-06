@@ -1644,12 +1644,23 @@ jobs:
   # scripts/ci/classify-validate-dist-failures.mjs — default-deny: anything
   # not explicitly listed as a quality gate blocks.
   #
-  # This job MUST stay green. A failed job's outputs do not cross the
-  # reusable-workflow boundary, so a red verdict job would silently make
-  # `integrity_ok` empty — which the caller reads as "not true" and skips
-  # publish. That is the safe direction, but it would also make a quality-only
-  # failure indistinguishable from an infra failure, so the script always
-  # exits 0 and carries the verdict in its output instead.
+  # This job SHOULD stay green, and the script always exits 0 so the verdict
+  # travels as an output rather than as an exit code.
+  #
+  # CORRECTED (#4828, measured — this line used to read "a failed job's outputs
+  # do not cross the reusable-workflow boundary", which is FALSE and was the
+  # stated justification for the whole design). Probe run 31081857672: a job
+  # that wrote an output and THEN exited 1 (conclusion `failure`) still
+  # delivered that output to the caller through the reusable-workflow boundary.
+  # Probe run 31081032808: a reusable workflow whose OVERALL conclusion is
+  # `failure` still delivers outputs set by a green job.
+  #
+  # What actually loses the value is narrower and more mundane: a step that
+  # never runs, or dies BEFORE writing to $GITHUB_OUTPUT, writes nothing —
+  # then `integrity_ok` is empty and the caller reads it as "not true". That
+  # is the safe direction, but it makes a quality-only failure
+  # indistinguishable from an infra failure, so the step below writes an
+  # explicit fail-closed verdict even when the classifier cannot run.
   #
   # It does NOT make anything green: the three gate jobs keep their own
   # results, this workflow still reports FAILURE to the caller, and
@@ -1677,10 +1688,11 @@ jobs:
       # Pinning it to deploy_ref broke production on run 31055982487
       # (2026-08-05T23:20): the build predated the merge of #5179, so the
       # checked-out tree had no scripts/ci/classify-validate-dist-failures.mjs,
-      # node exited MODULE_NOT_FOUND, and this job — documented above as one
-      # that MUST stay green — went RED. A failed job's outputs do not cross
-      # the reusable-workflow boundary, so `integrity_ok` reached the caller
-      # EMPTY and `publish` was sequestered with no verdict recorded anywhere.
+      # node exited MODULE_NOT_FOUND, the step died BEFORE writing anything to
+      # $GITHUB_OUTPUT, and `integrity_ok` reached the caller EMPTY — so
+      # `publish` was sequestered with no verdict recorded anywhere. (Not
+      # because the job was red: a failed job's outputs do cross the boundary,
+      # probe run 31081857672. The value was simply never written.)
       # Any future rename, move or crash of the classifier reproduces it.
       - name: Checkout (workflow ref — see comment)
         continue-on-error: true
@@ -1733,12 +1745,13 @@ jobs:
 
           # The classifier always exits 0 and carries its verdict in
           # $GITHUB_OUTPUT. If it cannot run AT ALL — file missing, syntax
-          # error, node crash, checkout above skipped — nothing would be
-          # written, this step would die, and the job's outputs would never
-          # reach the caller (run 31055982487). Emit the fail-closed verdict
-          # ourselves in that case, so `publish` is blocked by a value the
-          # caller can SEE and this workflow's step summary can explain,
-          # instead of by an empty string nobody can attribute.
+          # error, node crash, checkout above skipped — nothing is written and
+          # `integrity_ok` reaches the caller EMPTY (run 31055982487). Emit the
+          # fail-closed verdict ourselves in that case, so `publish` is blocked
+          # by a value the caller can SEE and the step summary can explain,
+          # instead of by an empty string nobody can attribute. This is the
+          # part that actually matters: the loss comes from never writing the
+          # value, not from the job's colour.
           if ! node scripts/ci/classify-validate-dist-failures.mjs --failed "$FAILED"; then
             echo "::error::integrity classifier could not run — failing closed (integrity_ok=false)"
             {
@@ -1748,8 +1761,9 @@ jobs:
             } >> "$GITHUB_OUTPUT"
           fi
 
-          # This job MUST stay green (see the block comment above the job):
-          # a red job's outputs do not cross the reusable-workflow boundary.
+          # Exit 0 so the verdict is unambiguous and the summary step below
+          # renders (see the corrected block comment above the job — a red job
+          # would NOT by itself lose the output).
           # It asserts nothing about dist/ — the three gate jobs keep their own
           # results, validate-dist still reports FAILURE, and
           # validate-dist-report still opens the tracking issue. Nothing is

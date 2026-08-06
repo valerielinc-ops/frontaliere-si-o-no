@@ -43,8 +43,14 @@
  *
  * Writes `integrity_ok=true|false` (+ `blocking_gates`, `quality_gates`) to
  * $GITHUB_OUTPUT when set. Always exits 0 — the verdict is the output, not
- * the exit code, so this job stays green and its value survives the
- * reusable-workflow boundary (outputs of a FAILED job do not).
+ * the exit code — so the verdict is unambiguous and the caller's step summary
+ * can render it.
+ *
+ * This used to say "outputs of a FAILED job do not [survive the boundary]".
+ * That is FALSE, measured on probe runs 31081857672 (a job that wrote an
+ * output and then exited 1 still delivered it) and 31081032808 (a reusable
+ * workflow whose overall conclusion is `failure` still delivers outputs).
+ * The value is lost only when the step never writes it — see #4828.
  */
 
 /**
@@ -225,9 +231,9 @@ async function main() {
         `quality_gates=${verdict.quality.join(',')}\n`,
     );
   }
-  // Always 0: the verdict travels as an output. A non-zero exit here would
-  // make this job red, and a failed job's outputs do not cross the
-  // reusable-workflow boundary — which would silently re-sequester publish.
+  // Always 0: the verdict travels as an output, never as an exit code, so a
+  // quality-only failure stays distinguishable from an infra failure. (A
+  // non-zero exit would NOT by itself lose the output — see the header note.)
   process.exit(0);
 }
 

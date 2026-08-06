@@ -195,10 +195,11 @@ describe('audit:all bundle expansion (#4828)', () => {
 describe('verdict-job availability sentinel (#4828)', () => {
   it('NEGATIVE CASE: the classifier-unavailable sentinel blocks', () => {
     // Emitted by the workflow when the classifier cannot run at all. Before
-    // this sentinel existed the step just died, the verdict job went red, and
-    // a red job's outputs do not cross the reusable-workflow boundary — so
+    // this sentinel existed the step died BEFORE writing to $GITHUB_OUTPUT, so
     // `integrity_ok` reached the caller EMPTY (run 31055982487,
-    // MODULE_NOT_FOUND). Empty also blocks, but attributes to nothing.
+    // MODULE_NOT_FOUND). Empty also blocks, but attributes to nothing — and
+    // note the loss came from never writing the value, not from the job's
+    // colour: a failed job's outputs DO cross the boundary (probe 31081857672).
     const v = evaluateIntegrity(['__CLASSIFIER_UNAVAILABLE__']);
     expect(v.integrityOk).toBe(false);
     expect(v.blocking).toEqual(['__CLASSIFIER_UNAVAILABLE__']);
