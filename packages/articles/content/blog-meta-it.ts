@@ -9302,9 +9302,6 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalierieticinoaumento.title': 'Lieve aumento dei lavoratori frontalieri in Ticino: le cifre',
     'blog.article.frontalierieticinoaumento.excerpt': 'Il numero di frontalieri in Ticino è aumentato del 0,6% rispetto al trimestre precedente, con un totale di 79.121 persone.',
     'blog.article.frontalierieticinoaumento.imageAlt': 'Vista di Lugano con lago e monti',
-    'blog.article.prezzi-proprieta-svizzera-aumentano.title': 'Comprare casa resta un grande desiderio. E i prezzi salgono',
-    'blog.article.prezzi-proprieta-svizzera-aumentano.excerpt': 'L\'indice di ImmoScout24 ha fatto segnare un rialzo anche per il mese di luglio',
-    'blog.article.prezzi-proprieta-svizzera-aumentano.imageAlt': 'Immagini di Locarno, lago maggiore, fotorealistica DSLR',
 };
 
 export default blogMetaIt;

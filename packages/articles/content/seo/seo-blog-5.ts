@@ -59663,45 +59663,6 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-prezzi-proprieta-svizzera-aumentano': {
-    title: 'Comprare casa resta un grande desiderio. E i prezzi salgono',
-    description: 'L\'indice di ImmoScout24 ha fatto segnare un rialzo anche per il mese di luglio. Dati aggiornati 2026 per frontalieri in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, resta, grande',
-    ogTitle: 'Prezzi immobiliari in Svizzera: aumentano i prezzi',
-    ogDescription: 'L\'indice di ImmoScout24 ha fatto segnare un rialzo anche per il mese di luglio',
-    canonicalPath: '/articoli-frontaliere/prezzi-proprieta-svizzera-aumentano',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Comprare casa resta un grande desiderio. E i prezzi salgono",
-      "description": "L'indice di ImmoScout24 ha fatto segnare un rialzo anche per il mese di luglio. Dati aggiornati 2026 per frontalieri in Ticino.",
-      "image": {
-        "@type": "ImageObject",
-        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
-        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
-        "creditText": "Frontaliere Ticino",
-        "url": `${BASE_URL}/images/blog/prezzi-proprieta-svizzera-aumentano.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Immagini di Locarno, lago maggiore, fotorealistica DSLR"
-      },
-      "datePublished": "2026-08-06T10:28:22+00:00",
-      "dateModified": "2026-08-06T10:28:22+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/prezzi-proprieta-svizzera-aumentano/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
 };
 
 export default BLOG_SEO_METADATA_5;
