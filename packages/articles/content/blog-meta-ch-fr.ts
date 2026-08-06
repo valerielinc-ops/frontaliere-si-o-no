@@ -1888,6 +1888,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.votazioni-federali-svizzera-funzionano.title': 'Votations fédérales suisses : comment fonctionnent les référendums cantonaux',
     'blog.article.votazioni-federali-svizzera-funzionano.excerpt': 'Découvrez les règles pour les votations fédérales, les taux d\'imposition et l\'accord frontalier 2024 pour les travailleurs transfrontaliers',
     'blog.article.votazioni-federali-svizzera-funzionano.imageAlt': 'Bâtiments fédéraux suisses avec des symboles de la démocratie directe',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.title': 'Cantons et taux : comparaison 2026 et stratégies d\'optimisation',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.excerpt': 'Les taux d\'imposition cantonaux en Suisse varient considérablement d\'un canton à l\'autre et d\'un échelon à l\'autre. Le canton de Zurich est l\'un de ceux qui nécessitent le plus d\'attention en matière d\'impôts.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.imageAlt': 'Max 125 caratteri',
 };
 
 export default blogMetaChFr;

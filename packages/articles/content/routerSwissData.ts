@@ -655,6 +655,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'snl-ricorso-lago-maggiore': { it: 'snl-ricorso-lago-maggiore', en: 'snl-ricorso-lago-maggiore', de: 'snl-ricorso-lago-maggiore', fr: 'snl-ricorso-lago-maggiore' },
  'marina-carobbio-guscetti-fiducia-istituzioni': { it: 'marina-carobbio-guscetti-fiducia-istituzioni', en: 'marina-carobbio-guscetti-confidence-in-institutions', de: 'marina-carobbio-guscetti-vertrauen-in-der-verwaltung', fr: 'marina-carobbio-guscetti-confiance-dans-les-institutions' },
  'votazioni-federali-svizzera-funzionano': { it: 'votazioni-federali-svizzera-funzionano', en: 'swiss-federal-votes-how-they-work', de: 'schweizerische-bundeswahlen-wie-funktionieren-sie', fr: 'votes-federaux-suisse-fonctionnent' },
+ 'imposta-cantonale-confronto-svizzera-2026-canton-zurigo': { it: 'imposta-cantonale-confronto-svizzera-2026-canton-zurigo', en: 'imposta-cantonale-confronto-svizzera-2026-canton-zurigo', de: 'imposta-cantonale-confronto-svizzera-2026-canton-zurigo', fr: 'imposta-cantonale-confronto-svizzera-2026-canton-zurigo' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
