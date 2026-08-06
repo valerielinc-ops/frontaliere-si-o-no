@@ -9288,6 +9288,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nascita-figlio-frontaliero-entro-20km.title': 'Geburt des Grenzgängers im Umkreis von 20 km: Meldeamt 2026',
     'blog.article.nascita-figlio-frontaliero-entro-20km.excerpt': 'Praktischer Leitfaden für Grenzgänger innerhalb von 20 km von der Grenze: Registrierung des Neugeborenen, Familienzulagen und konsularische Verfahren gemäß den Normen 2026.',
     'blog.article.nascita-figlio-frontaliero-entro-20km.imageAlt': 'Grenzgänger mit Kinderwagen beim Zollposten Brogeda, Schweizer Alpen im Hintergrund',
+    'blog.article.disavanzo-cantonale-ticino-frontalieri.title': 'Kantonales Defizit Tessin: -49,7 Mio., Verbesserung für Grenzgänger',
+    'blog.article.disavanzo-cantonale-ticino-frontalieri.excerpt': 'Das im Juni 2025 auf -49,7 Millionen Franken geschätzte Defizit verbessert sich gegenüber dem Voranschlag um 8,3 Millionen Franken, was sich direkt auf die AHV/IV und die kantonalen Löhne auswirkt',
+    'blog.article.disavanzo-cantonale-ticino-frontalieri.imageAlt': 'Panoramafoto von Bellinzona mit Bergblick',
 };
 
 export default blogMetaDe;

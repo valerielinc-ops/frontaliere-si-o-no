@@ -9289,6 +9289,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nascita-figlio-frontaliero-entro-20km.title': 'Birth of a border child within 20 km: registry 2026',
     'blog.article.nascita-figlio-frontaliero-entro-20km.excerpt': 'Practical guide for border workers within 20 km of the border: registration of the newborn, family allowances and consular procedures according to the 2026 regulations.',
     'blog.article.nascita-figlio-frontaliero-entro-20km.imageAlt': 'Cross-border worker with stroller near Brogeda border checkpoint, Swiss Alps background',
+    'blog.article.disavanzo-cantonale-ticino-frontalieri.title': 'Cantonal deficit Ticino: -49.7 million, improvement for border workers',
+    'blog.article.disavanzo-cantonale-ticino-frontalieri.excerpt': 'The deficit estimated at -49.7 million francs in June 2025 improves by 8.3 million compared to the budget, with a direct impact on AVS/AI and cantonal wages',
+    'blog.article.disavanzo-cantonale-ticino-frontalieri.imageAlt': 'Panoramic view of Bellinzona with mountain background',
 };
 
 export default blogMetaEn;
