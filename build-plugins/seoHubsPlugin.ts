@@ -42,7 +42,7 @@ import {
 import { ARTICLE_SECTIONS, type ArticleSection } from '../services/articleSections';
 import { finalizeMeta } from '../services/seo/meta-descriptions';
 import { readArticleArchiveUnionSlugs } from './shared/articleArchiveUnion';
-import { readArticleSlugs, readBlogUrlSlugs } from './shared/articleReaders';
+import { readArticleExcerpts, readArticleSlugs, readBlogUrlSlugs } from './shared/articleReaders';
 import { WriteCollector } from './batchWrite';
 import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -948,35 +948,11 @@ function readCompanySlugs(fs: typeof fsT, np: typeof npT, rootDir: string): stri
   return [];
 }
 
-/**
- * Read per-article excerpts from `services/locales/blog-meta-{locale}.ts`.
- * Used to render the articles hub items as cards (rule #17 step 6 — actual
- * data area carries 1-line previews instead of plain anchors).
- */
-function readArticleExcerpts(
-  fs: typeof fsT,
-  np: typeof npT,
-  rootDir: string,
-  locale: HubLocale,
-  metaPrefix = 'blog-meta',
-): Map<string, string> {
-  const file = np.resolve(rootDir, 'services/locales', `${metaPrefix}-${locale}.ts`);
-  const out = new Map<string, string>();
-  try {
-    if (!fs.existsSync(file)) return out;
-    const src = fs.readFileSync(file, 'utf-8');
-    const rx = /'blog\.article\.([^']+?)\.excerpt':\s*'((?:[^'\\]|\\.)*)'/g;
-    let m: RegExpExecArray | null;
-    while ((m = rx.exec(src)) !== null) {
-      const slug = m[1];
-      const excerpt = m[2].replace(/\\'/g, "'").replace(/\\"/g, '"');
-      out.set(slug, excerpt);
-    }
-  } catch (err) {
-    console.warn(`[seo-hubs] failed to read excerpts from ${metaPrefix}-${locale}.ts`, err);
-  }
-  return out;
-}
+// `readArticleExcerpts` (was a private copy here) now lives in
+// `packages/articles/engine/shared/articleReaders.ts` alongside the title and
+// slug readers it belongs with — the topic-cluster hubs (#5001) parse the same
+// meta files, and a second literal copy of that regex is exactly the drift
+// that module was created to prevent (AGENTS.md #6). Imported at the top.
 
 interface BuildHtmlArgs {
   locale: HubLocale;

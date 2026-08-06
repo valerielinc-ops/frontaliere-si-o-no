@@ -69,6 +69,75 @@ export function readArticleSlugs(
 }
 
 /**
+ * `id → date` out of a section's registry, for chronological ordering.
+ *
+ * Read with a regex and not an import for the reason the article engine
+ * already gives elsewhere: the registry is a TS module with extensionless
+ * relative specifiers, and this code runs under plain Node ESM on the
+ * fast-publish path.
+ *
+ * An unreadable registry yields an empty map, and callers' sorts then leave
+ * the order exactly as it was — degrading to the previous behaviour rather
+ * than to an empty or arbitrarily shuffled listing.
+ *
+ * Lives here (moved from `articleHubPagesPlugin.ts`, #5001) because the
+ * archive and the topic-cluster hubs must order the same articles the same
+ * way. `build-plugins/seoHubsPlugin.ts` keeps its own copy on purpose — see
+ * the note above its `emitSeoHubs` export block.
+ */
+export function readArticleDates(
+  fs: typeof fsT,
+  np: typeof npT,
+  rootDir: string,
+  registryFile: string,
+): Map<string, string> {
+  const out = new Map<string, string>();
+  try {
+    const src = fs.readFileSync(np.join(rootDir, registryFile), 'utf-8');
+    const rx = /\{\s*id:\s*'([^']+)',\s*category:\s*'[^']*',\s*date:\s*'([^']+)'/g;
+    let m: RegExpExecArray | null;
+    while ((m = rx.exec(src)) !== null) out.set(m[1], m[2]);
+  } catch { /* registry absent — keep insertion order */ }
+  return out;
+}
+
+/**
+ * Read per-article excerpts from `{metaDir}/{metaPrefix}-{locale}.ts`, keyed
+ * by `BlogArticleId` exactly as {@link readArticleSlugs} keys its titles.
+ *
+ * Hoisted here (issue #5001) from a private copy in `seoHubsPlugin.ts`: the
+ * topic-cluster hubs need the same excerpts, both to render card previews and
+ * to feed the TF-IDF topic assignment, and a second literal copy of this regex
+ * is the drift this module exists to prevent (AGENTS.md #6). `seoHubsPlugin`
+ * now calls this one.
+ */
+export function readArticleExcerpts(
+  fs: typeof fsT,
+  np: typeof npT,
+  rootDir: string,
+  locale: HubLocale,
+  metaPrefix = 'blog-meta',
+  metaDir = 'services/locales',
+): Map<string, string> {
+  const file = np.resolve(rootDir, metaDir, `${metaPrefix}-${locale}.ts`);
+  const out = new Map<string, string>();
+  try {
+    if (!fs.existsSync(file)) return out;
+    const src = fs.readFileSync(file, 'utf-8');
+    const rx = /'blog\.article\.([^']+?)\.excerpt':\s*'((?:[^'\\]|\\.)*)'/g;
+    let m: RegExpExecArray | null;
+    while ((m = rx.exec(src)) !== null) {
+      const slug = m[1];
+      const excerpt = m[2].replace(/\\'/g, "'").replace(/\\"/g, '"');
+      out.set(slug, excerpt);
+    }
+  } catch (err) {
+    console.warn(`[seo-hubs] failed to read excerpts from ${metaPrefix}-${locale}.ts`, err);
+  }
+  return out;
+}
+
+/**
  * Read the `BlogArticleId` → per-locale URL-slug map from
  * `services/routerBlogData.ts` (the `BLOG_SLUGS` constant). Mirrors the
  * parser in `ogPagesPlugin`.

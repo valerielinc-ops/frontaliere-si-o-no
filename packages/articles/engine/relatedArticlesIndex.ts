@@ -199,22 +199,50 @@ export function tokenize(text: string): string[] {
 export type RelatedArticlesMap = Map<string, string[]>;
 
 /**
- * Build the related-articles map for the whole corpus in one pass.
+ * The TF-IDF view of one corpus: vectors, inverted index, and the two
+ * primitives every ranking here is built from (cosine + candidate lookup).
  *
- * Computed once per render run and shared by every page, not recomputed per
- * page: the inbound-fairness pass and the orphan repair are corpus-level
- * properties and cannot be decided one page at a time.
+ * Extracted so the topic-cluster assignment in `./topicClusters.ts` scores
+ * against the SAME vocabulary, the same document-frequency ceiling and the
+ * same candidate bound as the related-links ranking. Two copies of this would
+ * drift the moment one of the constants above is tuned, and the two rankings
+ * would then disagree about what "similar" means on the same corpus — which
+ * is exactly the kind of split-brain the repo's shared-module rule exists to
+ * prevent.
+ *
+ * `cosine` here is RAW: no editorial nudges. {@link buildRelatedArticlesIndex}
+ * layers SAME_CATEGORY_BONUS on top itself, so its output is unchanged by the
+ * extraction.
  */
-export function buildRelatedArticlesIndex(articles: readonly RelatedArticleInput[]): RelatedArticlesMap {
-  // Stable input order → stable output. Everything downstream depends on this.
-  const docs = [...articles].sort((a, b) => a.articleId.localeCompare(b.articleId));
-  const result: RelatedArticlesMap = new Map();
-  if (docs.length <= 1) {
-    for (const d of docs) result.set(d.articleId, []);
-    return result;
-  }
+export interface CorpusModel {
+  /** Input docs, sorted by `articleId`. Stable order in, stable order out. */
+  readonly docs: readonly RelatedArticleInput[];
+  /** Token → inverse document frequency. Domain-ubiquitous tokens are absent. */
+  readonly idf: ReadonlyMap<string, number>;
+  /** articleId → token → term frequency. */
+  readonly tokensById: ReadonlyMap<string, ReadonlyMap<string, number>>;
+  /** Raw TF-IDF cosine between two articles. */
+  cosine(aId: string, bId: string): number;
+  /** L2 norm of an arbitrary token bag under this corpus's idf. */
+  normOfTokens(tokens: ReadonlyMap<string, number>): number;
+  /**
+   * TF-IDF cosine between an article and an arbitrary token bag (a topic's
+   * seed vocabulary, say). `bagNorm` is {@link normOfTokens} of that bag,
+   * passed in so a caller scoring one bag against the whole corpus computes
+   * it once instead of per article.
+   */
+  cosineWithBag(id: string, bag: ReadonlyMap<string, number>, bagNorm: number): number;
+  /** Articles worth scoring against `id`: those sharing one of its rarest tokens. */
+  candidatesFor(id: string): string[];
+}
 
-  // ── term vectors + inverted index ──────────────────────────────────────
+/**
+ * Build the TF-IDF model for a corpus. Pure and deterministic: same input
+ * order, same numbers out.
+ */
+export function buildCorpusModel(articles: readonly RelatedArticleInput[]): CorpusModel {
+  const docs = [...articles].sort((a, b) => a.articleId.localeCompare(b.articleId));
+
   const tokensById = new Map<string, Map<string, number>>();
   const documentFrequency = new Map<string, number>();
 
@@ -248,58 +276,96 @@ export function buildRelatedArticlesIndex(articles: readonly RelatedArticleInput
     }
   }
 
-  /** L2 norm of each doc's TF-IDF vector, for cosine normalisation. */
-  const norm = new Map<string, number>();
-  for (const doc of docs) {
+  const normOfTokens = (tokens: ReadonlyMap<string, number>): number => {
     let sum = 0;
-    for (const [t, tf] of tokensById.get(doc.articleId)!) {
+    for (const [t, tf] of tokens) {
       const w = (idf.get(t) ?? 0) * tf;
       sum += w * w;
     }
-    norm.set(doc.articleId, Math.sqrt(sum) || 1);
+    return Math.sqrt(sum) || 1;
+  };
+
+  /** L2 norm of each doc's TF-IDF vector, for cosine normalisation. */
+  const norm = new Map<string, number>();
+  for (const doc of docs) norm.set(doc.articleId, normOfTokens(tokensById.get(doc.articleId)!));
+
+  const dot = (a: ReadonlyMap<string, number>, b: ReadonlyMap<string, number>): number => {
+    // Iterate the smaller vector.
+    const [small, large] = a.size <= b.size ? [a, b] : [b, a];
+    let sum = 0;
+    for (const [t, tf] of small) {
+      const w = idf.get(t);
+      if (w === undefined) continue;
+      const other = large.get(t);
+      if (other === undefined) continue;
+      sum += w * tf * w * other;
+    }
+    return sum;
+  };
+
+  return {
+    docs,
+    idf,
+    tokensById,
+    normOfTokens,
+    cosine(aId, bId) {
+      const d = dot(tokensById.get(aId)!, tokensById.get(bId)!);
+      return d === 0 ? 0 : d / (norm.get(aId)! * norm.get(bId)!);
+    },
+    cosineWithBag(id, bag, bagNorm) {
+      const d = dot(tokensById.get(id)!, bag);
+      return d === 0 ? 0 : d / (norm.get(id)! * bagNorm);
+    },
+    candidatesFor(id) {
+      const seeds = [...tokensById.get(id)!.keys()]
+        .filter((t) => idf.has(t))
+        // Rarest first — highest IDF discriminates most.
+        .sort((a, b) => (idf.get(b)! - idf.get(a)!) || a.localeCompare(b))
+        .slice(0, CANDIDATE_SEED_TOKENS);
+      const seen = new Set<string>();
+      for (const t of seeds) {
+        for (const other of postings.get(t) ?? []) {
+          if (other !== id) seen.add(other);
+          if (seen.size >= MAX_CANDIDATES) break;
+        }
+        if (seen.size >= MAX_CANDIDATES) break;
+      }
+      return [...seen].sort();
+    },
+  };
+}
+
+/**
+ * Build the related-articles map for the whole corpus in one pass.
+ *
+ * Computed once per render run and shared by every page, not recomputed per
+ * page: the inbound-fairness pass and the orphan repair are corpus-level
+ * properties and cannot be decided one page at a time.
+ */
+export function buildRelatedArticlesIndex(articles: readonly RelatedArticleInput[]): RelatedArticlesMap {
+  // Stable input order → stable output. Everything downstream depends on this.
+  const docs = [...articles].sort((a, b) => a.articleId.localeCompare(b.articleId));
+  const result: RelatedArticlesMap = new Map();
+  if (docs.length <= 1) {
+    for (const d of docs) result.set(d.articleId, []);
+    return result;
   }
+
+  // ── term vectors + inverted index ──────────────────────────────────────
+  const model = buildCorpusModel(docs);
+  const { candidatesFor } = model;
 
   const categoryById = new Map(docs.map((d) => [d.articleId, d.category ?? '']));
   const dateById = new Map(docs.map((d) => [d.articleId, d.datePub ?? '']));
 
   /** Raw topical similarity, before any fairness adjustment. */
   const similarity = (aId: string, bId: string): number => {
-    const a = tokensById.get(aId)!;
-    const b = tokensById.get(bId)!;
-    // Iterate the smaller vector.
-    const [small, large] = a.size <= b.size ? [a, b] : [b, a];
-    let dot = 0;
-    for (const [t, tf] of small) {
-      const w = idf.get(t);
-      if (w === undefined) continue;
-      const other = large.get(t);
-      if (other === undefined) continue;
-      dot += w * tf * w * other;
-    }
-    if (dot === 0) return 0;
-    let score = dot / (norm.get(aId)! * norm.get(bId)!);
+    const score = model.cosine(aId, bId);
+    if (score === 0) return 0;
     if (categoryById.get(aId) && categoryById.get(aId) === categoryById.get(bId)) {
-      score *= SAME_CATEGORY_BONUS;
+      return score * SAME_CATEGORY_BONUS;
     }
     return score;
-  };
-
-  /** Candidates worth scoring for `doc`: articles sharing one of its rarest tokens. */
-  const candidatesFor = (id: string): string[] => {
-    const seeds = [...tokensById.get(id)!.keys()]
-      .filter((t) => idf.has(t))
-      // Rarest first — highest IDF discriminates most.
-      .sort((a, b) => (idf.get(b)! - idf.get(a)!) || a.localeCompare(b))
-      .slice(0, CANDIDATE_SEED_TOKENS);
-    const seen = new Set<string>();
-    for (const t of seeds) {
-      for (const other of postings.get(t) ?? []) {
-        if (other !== id) seen.add(other);
-        if (seen.size >= MAX_CANDIDATES) break;
-      }
-      if (seen.size >= MAX_CANDIDATES) break;
-    }
-    return [...seen].sort();
   };
 
   const inbound = new Map<string, number>(docs.map((d) => [d.articleId, 0]));

@@ -60,7 +60,12 @@ import type npT from 'node:path';
 import { getSiteShell, type ArticleLocale } from './siteShell';
 import { ARTICLE_SECTIONS, type ArticleSection } from '../articleSections';
 import { readArticleArchiveUnionSlugs } from './shared/articleArchiveUnion';
-import { readArticleSlugs, readBlogUrlSlugs } from './shared/articleReaders';
+import {
+  readArticleDates,
+  readArticleExcerpts,
+  readArticleSlugs,
+  readBlogUrlSlugs,
+} from './shared/articleReaders';
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
 
 /** Alias kept so the extracted bodies below read exactly as they did upstream. */
@@ -504,35 +509,11 @@ function buildHubClosingHtml(locale: HubLocale): string {
       </section>`;
 }
 
-/**
- * Read per-article excerpts from `services/locales/blog-meta-{locale}.ts`.
- * Used to render the articles hub items as cards (rule #17 step 6 — actual
- * data area carries 1-line previews instead of plain anchors).
- */
-function readArticleExcerpts(
-  fs: typeof fsT,
-  np: typeof npT,
-  rootDir: string,
-  locale: HubLocale,
-  metaPrefix = 'blog-meta',
-): Map<string, string> {
-  const file = np.resolve(rootDir, 'services/locales', `${metaPrefix}-${locale}.ts`);
-  const out = new Map<string, string>();
-  try {
-    if (!fs.existsSync(file)) return out;
-    const src = fs.readFileSync(file, 'utf-8');
-    const rx = /'blog\.article\.([^']+?)\.excerpt':\s*'((?:[^'\\]|\\.)*)'/g;
-    let m: RegExpExecArray | null;
-    while ((m = rx.exec(src)) !== null) {
-      const slug = m[1];
-      const excerpt = m[2].replace(/\\'/g, "'").replace(/\\"/g, '"');
-      out.set(slug, excerpt);
-    }
-  } catch (err) {
-    console.warn(`[seo-hubs] failed to read excerpts from ${metaPrefix}-${locale}.ts`, err);
-  }
-  return out;
-}
+// `readArticleExcerpts` was a third byte-identical copy of the meta-excerpt
+// parse (alongside `seoHubsPlugin.ts`'s and this package's own readers).
+// Hoisted to `./shared/articleReaders` in #5001 — same default `metaDir`, so
+// behaviour is unchanged and `render-article-hub-pages-narrow-vs-full` still
+// compares byte-for-byte.
 
 interface BuildHtmlArgs {
   locale: HubLocale;
@@ -975,32 +956,13 @@ interface RenderArticleHubCoreArgs {
  * never skipped. No crash, no warning spam (the readers return `[]`/empty
  * maps when the seed files are present-but-empty).
  */
-/**
- * `id → date` out of a section's registry, for the archive's chronological order.
- *
- * Read with a regex and not an import for the reason the rest of this file
- * already gives: the registry is a TS module with extensionless relative
- * specifiers, and this code runs under plain Node ESM on the fast-publish path.
- *
- * An unreadable registry yields an empty map, and the sort below then leaves
- * the order exactly as it was — degrading to the previous behaviour rather
- * than to an empty or arbitrarily shuffled archive.
- */
-function readArticleDates(
-  fs: typeof fsT,
-  np: typeof npT,
-  rootDir: string,
-  registryFile: string,
-): Map<string, string> {
-  const out = new Map<string, string>();
-  try {
-    const src = fs.readFileSync(np.join(rootDir, registryFile), 'utf-8');
-    const rx = /\{\s*id:\s*'([^']+)',\s*category:\s*'[^']*',\s*date:\s*'([^']+)'/g;
-    let m: RegExpExecArray | null;
-    while ((m = rx.exec(src)) !== null) out.set(m[1], m[2]);
-  } catch { /* registry absent — keep insertion order */ }
-  return out;
-}
+// `readArticleDates` moved to `./shared/articleReaders` (#5001), joining the
+// title/excerpt/slug readers it belongs with. The topic-cluster hubs order
+// their listings by the same dates as this archive, and a third literal copy
+// of that registry regex is the drift AGENTS.md #6 forbids. The site's own
+// copy in `build-plugins/seoHubsPlugin.ts` stays where it is — see the note
+// above `emitSeoHubs`'s export block for why those two cores are deliberately
+// separate.
 
 function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
   const {

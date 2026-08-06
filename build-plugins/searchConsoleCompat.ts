@@ -29,6 +29,7 @@ import {
 import { EVENTS_INDEX_PATH } from '../scripts/lib/events-utils.mjs';
 import { isExchangeSsgPath } from './exchangeRateSsgData';
 import { isFiscalMunicipalityPath } from './fiscalMunicipalityData';
+import { resolveTopicClusterHubCanonical } from './topicClusterHubsData';
 import { isFrenchBorderMunicipalityPath } from './frenchBorderMunicipalityData';
 import { isGermanBorderMunicipalityPath } from './germanBorderMunicipalityData';
 import { isLiechtensteinBorderMunicipalityPath } from './liechtensteinBorderMunicipalityData';
@@ -612,6 +613,30 @@ export function resolveSearchConsoleCompatTarget(
  kind: 'legacy',
  locale,
  };
+ }
+
+ // Article topic hubs (topicClusterHubsPlugin.ts, issue #5001): every topic in
+ // the curated taxonomy is emitted for every (section × locale) on EVERY build
+ // — above the article floor as an indexable hub, below it as a noindex,follow
+ // bridge — always at the SAME URL. So a URL in this family always has a live
+ // target today, even if GSC captured it as 404 before the family existed.
+ //
+ // Paginated hub URLs resolve to the hub's page 1 rather than to themselves:
+ // a topic's article count moves with the corpus, so `/…/page-9/` may have
+ // been live and indexed when the topic was larger, while page 1 is the page
+ // guaranteed to exist for every topic on every build.
+ // Both helpers read a module-load-precomputed Set (the taxonomy is curated,
+ // so the URL space is a constant), keeping this O(1) per call inside the
+ // 150k+-path compat loop.
+ {
+ const topicHubCanonical = resolveTopicClusterHubCanonical(path);
+ if (topicHubCanonical) {
+ return {
+ canonicalPath: topicHubCanonical,
+ kind: 'legacy',
+ locale,
+ };
+ }
  }
 
  // Per-municipality FRANCE border pages (frenchBorderMunicipalityPagesPlugin.ts,
