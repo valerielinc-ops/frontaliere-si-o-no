@@ -68,7 +68,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { resolveJobDiffKey } from './job-match-key.mjs';
-import { capSlugArray, recordSlugMutation } from './slug-history-journal.mjs';
+import { recordSlugMutation } from './slug-history-journal.mjs';
 
 /** Locales carrying their own slug bucket. Mirrors dedicated-crawler-common's
  *  LOCALES, duplicated here on purpose: this module must stay a leaf so the
@@ -167,28 +167,90 @@ export function reachableSlugs(job) {
   return out;
 }
 
+/** The bucket `locale` occupied in the PREVIOUS on-disk version of a job. */
+function priorBucket(beforeJob, locale) {
+  const arr = locale === null
+    ? beforeJob?.previousSlugs
+    : beforeJob?.previousSlugsByLocale?.[locale];
+  const out = [];
+  if (Array.isArray(arr)) for (const s of arr) { const n = normalize(s); if (n) out.push(n); }
+  return out;
+}
+
+/**
+ * Bank `slug` — a slug with PROVEN history, i.e. one the on-disk version could
+ * already serve — into `bucket`, without letting the cap swallow it.
+ *
+ * Why this is not a plain `capSlugArray([slug, ...bucket], cap)` (issue #5229):
+ * `capSlugArray` keeps the NEWEST `cap` entries, and a rescued slug is inserted
+ * at the OLDEST position, so it was always the first entry evicted. Whenever
+ * the destination bucket came out of the write at/over cap, the guard was a
+ * guaranteed no-op that reported the benign-looking 'cap-trim' outcome — the
+ * silent loss it exists to prevent, wearing the name of the one eviction that
+ * is legitimate.
+ *
+ * The cap is only a real explanation when the bucket was ALREADY full BEFORE
+ * the write: that is routine LRU eviction, and it is exactly the condition
+ * `scan-prev-slug-losses.mjs`'s `classifyCapTrim()` requires before it excuses
+ * a disappearance. When instead the WRITE itself filled the bucket by adding
+ * entries, the pressure is the writer's, and a slug that was already serving
+ * outranks one that has never been published: make room by dropping the
+ * newest entry this write introduced. Guard and tripwire then agree about what
+ * counts as a loss, which is the property this module claims to have.
+ *
+ * @returns {{ next: string[], outcome: 'present'|'restored'|'cap-trim' }}
+ */
+function bankPreservingHistory(slug, bucket, prior, cap) {
+  if (bucket.includes(slug)) return { next: bucket, outcome: 'present' };
+  // Oldest-first position: a rescued slug is older than whatever is banked.
+  if (bucket.length < cap) return { next: [slug, ...bucket], outcome: 'restored' };
+
+  // The bucket was ALREADY at cap before this write: the eviction is the
+  // documented LRU rotation, `classifyCapTrim()` excuses it, and fighting it
+  // here would freeze the bucket forever — no genuine rename could ever be
+  // captured again once a job's history filled up. Concede, but journal.
+  if (prior.length >= cap) return { next: bucket, outcome: 'cap-trim' };
+
+  // The WRITE created the pressure. Make room by dropping the newest entry it
+  // introduced: a slug that has never been published loses to one that was
+  // already serving.
+  const priorSet = new Set(prior);
+  for (let i = bucket.length - 1; i >= 0; i--) {
+    if (priorSet.has(bucket[i])) continue; // proven history — never sacrificed
+    const next = bucket.slice();
+    next.splice(i, 1);
+    return { next: [slug, ...next], outcome: 'restored' };
+  }
+  return { next: bucket, outcome: 'cap-trim' };
+}
+
 /**
  * Re-capture `slug` into `job`'s history under `locale`.
  *
  * Returns 'restored' when the slug survives the write, 'cap-trim' when the
- * destination bucket is legitimately full (documented LRU eviction — the
- * scanner classifies this as not-a-loss), or 'present' when already there.
+ * destination bucket was already legitimately full BEFORE this write
+ * (documented LRU eviction — the scanner classifies this as not-a-loss), or
+ * 'present' when already there.
  */
-function recapture(job, slug, locale) {
+function recapture(job, slug, locale, beforeJob) {
   const norm = normalize(slug);
   if (!norm) return 'present';
 
   if (locale === null) {
     // Unattributed legacy entry → flat array only.
     if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
-    if (job.previousSlugs.includes(norm)) return 'present';
-    // Oldest-first position: a rescued slug is older than whatever is already
-    // banked, so it is the first to be evicted if the array is over cap.
-    const next = capSlugArray([norm, ...job.previousSlugs], GUARD_LEGACY_CAP, {
-      jobId: job.id, locale: null, source: 'slug-preservation-guard/flat',
-    });
+    const { next, outcome } = bankPreservingHistory(
+      norm, job.previousSlugs, priorBucket(beforeJob, null), GUARD_LEGACY_CAP,
+    );
     job.previousSlugs = next;
-    return next.includes(norm) ? 'restored' : 'cap-trim';
+    if (outcome === 'cap-trim') {
+      recordSlugMutation({
+        jobId: job.id || '<unkeyed>', locale: null, slug: norm, action: 'cap-trim',
+        source: 'slug-preservation-guard/flat',
+        reason: `bucket-full-before-write cap=${GUARD_LEGACY_CAP}`,
+      });
+    }
+    return outcome;
   }
 
   if (!job.previousSlugsByLocale || typeof job.previousSlugsByLocale !== 'object') {
@@ -197,22 +259,28 @@ function recapture(job, slug, locale) {
   const bucket = Array.isArray(job.previousSlugsByLocale[locale])
     ? job.previousSlugsByLocale[locale]
     : [];
-  if (bucket.includes(norm)) return 'present';
-  const next = capSlugArray([norm, ...bucket], GUARD_PER_LOCALE_CAP, {
-    jobId: job.id, locale, source: 'slug-preservation-guard',
-  });
-  job.previousSlugsByLocale[locale] = next;
+  const banked = bankPreservingHistory(
+    norm, bucket, priorBucket(beforeJob, locale), GUARD_PER_LOCALE_CAP,
+  );
+  job.previousSlugsByLocale[locale] = banked.next;
 
-  if (!next.includes(norm)) return 'cap-trim';
+  if (banked.outcome === 'cap-trim') {
+    recordSlugMutation({
+      jobId: job.id || '<unkeyed>', locale, slug: norm, action: 'cap-trim',
+      source: 'slug-preservation-guard',
+      reason: `bucket-full-before-write cap=${GUARD_PER_LOCALE_CAP}`,
+    });
+    return 'cap-trim';
+  }
+  if (banked.outcome === 'present') return 'present';
 
   // Keep the flat legacy mirror in sync so consumers that never migrated to
   // previousSlugsByLocale still emit the redirect.
   if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
-  if (!job.previousSlugs.includes(norm)) {
-    job.previousSlugs = capSlugArray([norm, ...job.previousSlugs], GUARD_LEGACY_CAP, {
-      jobId: job.id, locale, source: 'slug-preservation-guard/mirror',
-    });
-  }
+  const mirrored = bankPreservingHistory(
+    norm, job.previousSlugs, priorBucket(beforeJob, null), GUARD_LEGACY_CAP,
+  );
+  job.previousSlugs = mirrored.next;
   return 'restored';
 }
 
@@ -276,7 +344,7 @@ export function preserveSlugHistory(filePath, nextValue, opts = {}) {
       if (afterSlugs.has(slug)) continue;
       if (denylist.has(denylistKey(base, slug))) continue; // removed on purpose
 
-      const outcome = recapture(job, slug, locale);
+      const outcome = recapture(job, slug, locale, before);
       if (outcome === 'restored') {
         restored++;
         touched.add(key);

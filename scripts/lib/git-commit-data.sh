@@ -647,6 +647,75 @@ function mergeAppendOnlySet(remoteArr, localArr, warnings, pathLabel) {
   return merged;
 }
 
+/**
+ * Keep a job's ACTIVE slugs from being deleted by conflict resolution (#5229).
+ *
+ * `slug` and `slugByLocale.<locale>` are SCALARS, so two writers that renamed
+ * the same locale resolve through mergeValue()'s last branch — "Scalar
+ * conflict … Keeping local" — and the losing side simply ceases to exist.
+ * For a title or a description that is the right call. For a slug it retires
+ * an URL Google has already indexed and leaves the redirect machinery with no
+ * target, which is the whole failure this file's #4887 fix set out to end:
+ * that fix gave the ARCHIVE arrays (`previousSlugs`,
+ * `previousSlugsByLocale.*`) append-only union semantics, but the ACTIVE
+ * fields kept last-writer-wins, so the loss just moved one field over. It is
+ * also invisible to `tests/slug-write-encapsulation.test.ts`, whose AST walk
+ * only parses `scripts/**` `.ts|.mjs|.js` — this merge is embedded in a `.sh`.
+ *
+ * The repair does not change WHICH slug goes live (local still wins, so no
+ * other merge semantics shift): it banks the discarded one into the
+ * append-only archive that is already merged correctly, turning a silent 404
+ * into a redirect.
+ */
+function preserveDroppedActiveSlugs(remoteObj, localObj, merged, warnings, pathLabel) {
+  if (!isPlainObject(merged)) return;
+  const hasActive = typeof merged.slug === 'string' || isPlainObject(merged.slugByLocale);
+  const looksLikeJob = typeof merged.url === 'string'
+    || Array.isArray(merged.previousSlugs)
+    || isPlainObject(merged.previousSlugsByLocale);
+  if (!hasActive || !looksLikeJob) return;
+
+  const reachable = new Set();
+  const note = (v) => { if (typeof v === 'string' && v.trim()) reachable.add(v.trim()); };
+  note(merged.slug);
+  if (isPlainObject(merged.slugByLocale)) for (const v of Object.values(merged.slugByLocale)) note(v);
+  if (Array.isArray(merged.previousSlugs)) for (const v of merged.previousSlugs) note(v);
+  if (isPlainObject(merged.previousSlugsByLocale)) {
+    for (const arr of Object.values(merged.previousSlugsByLocale)) {
+      if (Array.isArray(arr)) for (const v of arr) note(v);
+    }
+  }
+
+  // Newest position: a slug that was live until this very merge is the most
+  // recent entry in the history. capSlugArray keeps the newest `cap`.
+  const bank = (slug, locale) => {
+    if (typeof slug !== 'string') return;
+    const norm = slug.trim();
+    if (!norm || reachable.has(norm)) return;
+    reachable.add(norm);
+    if (locale) {
+      if (!isPlainObject(merged.previousSlugsByLocale)) merged.previousSlugsByLocale = {};
+      if (!Array.isArray(merged.previousSlugsByLocale[locale])) merged.previousSlugsByLocale[locale] = [];
+      merged.previousSlugsByLocale[locale].push(norm);
+    }
+    if (!Array.isArray(merged.previousSlugs)) merged.previousSlugs = [];
+    merged.previousSlugs.push(norm);
+    warnings.push(
+      `Active slug displaced at ${pathLabel}${locale ? `.slugByLocale.${locale}` : '.slug'} ` +
+      `-> banked into previousSlugs (${norm})`
+    );
+  };
+
+  const remoteMap = isPlainObject(remoteObj?.slugByLocale) ? remoteObj.slugByLocale : {};
+  const localMap = isPlainObject(localObj?.slugByLocale) ? localObj.slugByLocale : {};
+  for (const locale of new Set([...Object.keys(remoteMap), ...Object.keys(localMap)])) {
+    bank(remoteMap[locale], locale);
+    bank(localMap[locale], locale);
+  }
+  bank(remoteObj?.slug, '');
+  bank(localObj?.slug, '');
+}
+
 function mergeArrayByDelta(baseArr, remoteArr, localArr) {
   const baseFp = baseArr.map((v) => stableStringify(v));
   const remoteFp = remoteArr.map((v) => stableStringify(v));
@@ -823,6 +892,7 @@ function mergeValue(baseValue, remoteValue, localValue, warnings, pathLabel, for
       );
       if (next !== undefined) merged[key] = next;
     }
+    preserveDroppedActiveSlugs(remoteObj, localObj, merged, warnings, pathLabel);
     return merged;
   }
 

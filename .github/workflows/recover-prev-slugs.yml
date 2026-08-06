@@ -33,9 +33,16 @@ on:
         type: choice
         options: ['false', 'true']
       tripwire_threshold:
-        description: 'Open GH issue if slugs lost in window exceed this'
+        # Counted against recoverable_slugs (slugs still unreachable today),
+        # NOT the far larger total_lost. The old default of 10 was calibrated
+        # for that older, noisier number; carrying it over to this one would
+        # have silenced #5229 itself, whose 9 permanently-lost URLs sit just
+        # under it. A still-missing slug is an indexed URL serving 404, so the
+        # bar belongs near zero — 3 absorbs the odd job deleted between scan
+        # and cross-reference without swallowing a real regression.
+        description: 'Open GH issue if slugs STILL missing after recovery exceed this'
         required: false
-        default: '10'
+        default: '3'
         type: string
 
 permissions:
@@ -150,42 +157,71 @@ jobs:
             "🛟 Recover ${{ steps.scan.outputs.recoverable_slugs }} previousSlugs across ${{ steps.scan.outputs.recoverable_jobs }} jobs"
 
       - name: Trip the writer-regression wire
-        if: steps.scan.outputs.total_lost != '0' && (github.event.inputs.dry_run || 'false') != 'true'
+        if: steps.scan.outputs.recoverable_slugs != '0' && (github.event.inputs.dry_run || 'false') != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          THRESHOLD: ${{ github.event.inputs.tripwire_threshold || '10' }}
+          THRESHOLD: ${{ github.event.inputs.tripwire_threshold || '3' }}
           TOTAL: ${{ steps.scan.outputs.total_lost }}
+          STILL_LOST: ${{ steps.scan.outputs.recoverable_slugs }}
           WINDOW: ${{ github.event.inputs.since || '24 hours ago' }}
         run: |
           set -euo pipefail
-          if [ "$TOTAL" -le "$THRESHOLD" ]; then
-            echo "Lost $TOTAL slugs in window — under threshold ($THRESHOLD), no issue."
+          # Trip on what is STILL missing, not on `total_lost` (issue #5229).
+          #
+          # `total_lost` counts loss EVENTS in the window's git history, which
+          # makes it unfit for the job in two ways. It keeps counting losses a
+          # later commit — or an earlier run of this very workflow — already
+          # healed; and it cannot decay, because the window is wall-clock while
+          # the history inside it is immutable, so a fix merged mid-window
+          # still leaves the pre-fix half of that window re-reported for the
+          # next 24h. #5229 fired at 52 with 44 of those predating the very fix
+          # it was blaming and 43 already healed, and it re-listed five of the
+          # exact commits #5157 had already named. A wire that re-fires on
+          # evidence of a fixed bug trains its readers to close it unread.
+          #
+          # `recoverable_slugs` is cross-referenced against the working tree, so
+          # it counts only slugs no longer reachable anywhere today. It decays
+          # to 0 once a fix lands, which is the property a tripwire has to have.
+          if [ "$STILL_LOST" -le "$THRESHOLD" ]; then
+            echo "Still-missing $STILL_LOST slugs — under threshold ($THRESHOLD), no issue."
             exit 0
           fi
-          echo "🚨 Tripwire: $TOTAL slugs lost in window (threshold $THRESHOLD)"
-          # Pull the top offending commits from the events log so the issue
-          # body points at the regression-introducing change.
-          top_commits=$(jq -r '.commit' /tmp/prev-slug-recovery/events.jsonl 2>/dev/null \
+          echo "🚨 Tripwire: $STILL_LOST slugs still missing (threshold $THRESHOLD; $TOTAL loss events in window)"
+          # Name only the commits behind the STILL-MISSING slugs. Listing every
+          # commit in the window buries the few that matter under the many that
+          # were healed, and sends the next reader `git show`-ing innocent ones.
+          jq -r '.[] as $r | $r.slugs[] | "\($r.file) \($r.jobId) \(.)"' \
+            /tmp/prev-slug-recovery/recoverable.json | sort -u \
+            > /tmp/prev-slug-recovery/still-lost-keys.txt
+          top_commits=$(jq -r '. as $e | $e.lost[] | "\($e.file) \($e.jobId) \(.) \($e.commit)"' \
+              /tmp/prev-slug-recovery/events.jsonl 2>/dev/null \
+            | awk 'NR==FNR { keep[$1 " " $2 " " $3]=1; next } (($1 " " $2 " " $3) in keep) { print $4 }' \
+                /tmp/prev-slug-recovery/still-lost-keys.txt - \
             | sort | uniq -c | sort -rn | head -10 \
-            | awk '{ printf "- `%s` (%s losses)\\n", $2, $1 }')
+            | awk '{ printf "- `%s` (%s unhealed)\n", $2, $1 }')
           body=$(cat <<EOF
-          The writer-attribution pipeline (PR #429) recovered **${TOTAL}** previousSlugs entries
-          that were silently dropped within the **${WINDOW}** window.
+          **${STILL_LOST}** previousSlugs entries dropped inside the **${WINDOW}** window are
+          still unreachable — auto-recovery could not restore them. (${TOTAL} loss events
+          were seen in the window overall; the remainder were already healed.)
 
-          Threshold is ${THRESHOLD}. Anything above means a crawler bypass of
-          \`addPreviousSlugForLocale\` / \`captureLostSlugs\` has slipped in.
+          Threshold is ${THRESHOLD}. Anything above means a slug-mutation path is escaping
+          BOTH \`addPreviousSlugForLocale\` / \`captureLostSlugs\` AND the write-boundary
+          guard in \`scripts/lib/slug-preservation-guard.mjs\`.
 
-          ## Top offending commits
+          ## Commits behind the still-missing slugs
 
           ${top_commits}
 
           ## Next steps
 
           1. Read the scan + backfill output in [run #${{ github.run_id }}](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
-          2. \`git show <commit>\` each offending commit and look for new slug-mutation
-             paths that don't journal via \`scripts/lib/slug-history-journal.mjs\`.
-          3. Instrument the missed path, re-run \`scripts/scan-prev-slug-losses.mjs\`
-             locally to confirm 0 net loss.
+          2. \`git show <commit>\` each commit above and look for a slug-mutation path
+             that reaches a slice WITHOUT passing \`writeJsonAtomic\` — the guard only
+             sees writes that go through it. Two known classes: the 3-way JSON merge in
+             \`scripts/lib/git-commit-data.sh\` (runs after node exits) and any direct
+             \`fs.writeFileSync\` to \`data/jobs/by-crawler/\`.
+          3. Re-run \`scripts/scan-prev-slug-losses.mjs\` locally and confirm the
+             recoverable count — not the total — reaches 0.
 
           Auto-recovery has already restored what it could. This issue tracks the
           regression that caused the loss, not the recovery itself.
