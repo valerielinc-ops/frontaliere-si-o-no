@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-06T08:16:08.386Z",
+  "generatedAt": "2026-08-06T08:31:16.785Z",
   "entries": [
     {
       "at": "2026-08-06T00:11:36.287Z",
@@ -22,6 +22,17 @@
       "registrySlugs": 267218,
       "pendingSlugs": 80,
       "pendingImpressions": 9120,
+      "pendingClicks": 345
+    },
+    {
+      "at": "2026-08-06T08:31:16.785Z",
+      "orphanRecords": 45279,
+      "orphanSlugs": 42805,
+      "orphanImpressions": 234740,
+      "orphanClicks": 7817,
+      "registrySlugs": 267666,
+      "pendingSlugs": 79,
+      "pendingImpressions": 9119,
       "pendingClicks": 345
     }
   ]
