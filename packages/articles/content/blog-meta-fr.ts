@@ -9291,6 +9291,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nascita-figlio-frontaliero-entro-20km.title': 'Naissance d\'un enfant frontalier dans un rayon de 20 km : état civil 2026',
     'blog.article.nascita-figlio-frontaliero-entro-20km.excerpt': 'Guide pratique pour les frontaliers à moins de 20 km de la frontière : enregistrement du nouveau-né, allocations familiales et procédures consulaires selon les normes 2026.',
     'blog.article.nascita-figlio-frontaliero-entro-20km.imageAlt': 'Travailleur frontalier avec poussette près du poste de douane de Brogeda, Alpes suisses en arrière-plan',
+    'blog.article.disavanzo-cantonale-ticino-frontalieri.title': 'Déficit cantonal Tessin : -49,7 millions, amélioration pour les frontaliers',
+    'blog.article.disavanzo-cantonale-ticino-frontalieri.excerpt': 'Le déficit estimé à -49,7 millions de francs en juin 2025 s\'améliore de 8,3 millions par rapport au budget, avec un impact direct sur l\'AVS/AI et les salaires cantonaux',
+    'blog.article.disavanzo-cantonale-ticino-frontalieri.imageAlt': 'Vue panoramique de Bellinzona avec fond montagneux',
 };
 
 export default blogMetaFr;
