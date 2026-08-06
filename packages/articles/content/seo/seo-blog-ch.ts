@@ -24353,6 +24353,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-marina-carobbio-guscetti-fiducia-istituzioni': {
+    title: 'Al lavoro per il bene pubblico: «Io ho fiducia nelle istituzioni"',
+    description: 'La presidente del Consiglio di Stato Marina Carobbio Guscetti ha parlato durante la cerimonia d\'apertura del Locarno Film Festival e ha richiamato l\'attenzione',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, bene, pubblico, fiducia',
+    ogTitle: 'Marina Carobbio Guscetti: «Io ho fiducia nelle istituzioni»',
+    ogDescription: 'La presidente del Consiglio di Stato Marina Carobbio Guscetti ha parlato durante la cerimonia d\'apertura del Locarno Film Festival e ha richiamato l\'attenzione',
+    canonicalPath: '/articoli-svizzera/marina-carobbio-guscetti-fiducia-istituzioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Al lavoro per il bene pubblico: «Io ho fiducia nelle istituzioni\"",
+      "description": "La presidente del Consiglio di Stato Marina Carobbio Guscetti ha parlato durante la cerimonia d'apertura del Locarno Film Festival e ha richiamato l'attenzione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/marina-carobbio-guscetti-fiducia-istituzioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Marina Carobbio Guscetti alla cerimonia d'apertura del Locarno Film Festival"
+      },
+      "datePublished": "2026-08-06T00:24:25+00:00",
+      "dateModified": "2026-08-06T00:24:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/marina-carobbio-guscetti-fiducia-istituzioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

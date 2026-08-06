@@ -5644,6 +5644,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'marina-carobbio-guscetti-fiducia-istituzioni',
+    category: 'novita',
+    date: '2026-08-06T00:24:25.553Z',
+    image: '/images/blog/marina-carobbio-guscetti-fiducia-istituzioni.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

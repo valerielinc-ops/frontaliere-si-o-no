@@ -1882,6 +1882,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.snl-ricorso-lago-maggiore.title': 'Recours SNL sur le Lac Majeur : risques pour le territoire',
     'blog.article.snl-ricorso-lago-maggiore.excerpt': 'Le recours de SNL ouvre une nouvelle phase d\'affrontement sur le financement cantonal de la navigation sur le Verbano, avec des répercussions possibles sur les travailleurs et l\'économie locale.',
     'blog.article.snl-ricorso-lago-maggiore.imageAlt': 'Vue du lac Majeur près de Locarno avec des ferries et des montagnes en arrière-plan',
+    'blog.article.marina-carobbio-guscetti-fiducia-istituzioni.title': 'Au travail pour le bien public : « J\'ai confiance dans les institutions »',
+    'blog.article.marina-carobbio-guscetti-fiducia-istituzioni.excerpt': 'La présidente du Conseil d\'État Marina Carobbio Guscetti a attiré l\'attention sur la valeur des institutions lors de la cérémonie d\'ouverture du Locarno Film Festival.',
+    'blog.article.marina-carobbio-guscetti-fiducia-istituzioni.imageAlt': 'Marina Carobbio Guscetti lors de la cérémonie d\'ouverture du Festival du film de Locarno',
 };
 
 export default blogMetaChFr;
