@@ -41,6 +41,11 @@ const { injectContextualLinksWith } = await import(
   '../packages/articles/engine/shared/contextualLinkInjector.ts'
 );
 const { transformHreflang } = await import('./hreflangPostprocessPlugin.ts');
+// Plain ESM leaf (it + infra/cloudflare-worker/locale-router.js), so this
+// resolves inside the worker thread without the tsx loader.
+const { allowExternallyServedTargets } = await import(
+  '../scripts/lib/externally-served-paths.mjs'
+);
 // Per-phase profiler — bucketed into the same SerializedBuckets shape the
 // coordinator merges via ingestBuckets() before printing the unified
 // [post-walk-profile] table. tsx loader (execArgv in coordinator) makes
@@ -79,7 +84,16 @@ const readSibling = (siblingPath) => {
     return null;
   }
 };
-const existsCheck = (absPath) => existingHtmlSet.has(absPath);
+// Article sections are routed away from this build and have no file here on
+// purpose (ARTICOLIFRONTALIERE/ARTICOLISVIZZERA_BUILD_EMIT_SKIP). Their URLs
+// answer 200 from the articles-repo shards, so an alternate pointing there is
+// reachable, not broken — the exemption scripts/audit-hreflang.mjs already
+// applies in targetExists(). Mirrored in postWalkCoordinatorPlugin.ts; both
+// paths must agree or the verdict depends on POST_WALK_WORKERS.
+const existsCheck = allowExternallyServedTargets(
+  (absPath) => existingHtmlSet.has(absPath),
+  distDir,
+);
 
 let bridgeConverted = 0;
 let bridgeSkipped = 0;
