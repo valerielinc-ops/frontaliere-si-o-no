@@ -29,6 +29,9 @@
 
 import React, { useCallback, useEffect, useState } from 'react';
 import { Building2, Loader2, ArrowUpRight } from 'lucide-react';
+import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
+import { handleCompanyLogoError } from '@/services/logoService';
+import { cdnImageUrl } from '@/services/cdnImageBase';
 import { getLocale } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
@@ -69,6 +72,8 @@ interface PageStrings {
   cadenceWeekly: string;
   loadError: string;
   saveError: string;
+  unfollowAll: string;
+  unfollowAllConfirm: string;
 }
 
 const STRINGS: Record<Locale, PageStrings> = {
@@ -89,6 +94,8 @@ const STRINGS: Record<Locale, PageStrings> = {
     cadenceWeekly: 'Ogni settimana',
     loadError: 'Non sono riuscito a caricare le aziende seguite. Ricarica la pagina.',
     saveError: 'Non sono riuscito a salvare la frequenza. Riprova.',
+    unfollowAll: 'Smetti di seguire tutte',
+    unfollowAllConfirm: 'Vuoi smettere di seguire tutte le aziende? Non riceverai piu\' queste email.',
   },
   en: {
     title: 'Companies I follow',
@@ -107,6 +114,8 @@ const STRINGS: Record<Locale, PageStrings> = {
     cadenceWeekly: 'Weekly',
     loadError: "Couldn't load your followed companies. Reload the page.",
     saveError: "Couldn't save the frequency. Please try again.",
+    unfollowAll: 'Stop following all',
+    unfollowAllConfirm: 'Stop following every company? You will no longer receive these emails.',
   },
   de: {
     title: 'Meine gefolgten Unternehmen',
@@ -125,6 +134,8 @@ const STRINGS: Record<Locale, PageStrings> = {
     cadenceWeekly: 'Wöchentlich',
     loadError: 'Gefolgte Unternehmen konnten nicht geladen werden. Bitte Seite neu laden.',
     saveError: 'Die Frequenz konnte nicht gespeichert werden. Bitte erneut versuchen.',
+    unfollowAll: 'Allen nicht mehr folgen',
+    unfollowAllConfirm: 'Allen Unternehmen nicht mehr folgen? Du erhaeltst diese E-Mails dann nicht mehr.',
   },
   fr: {
     title: 'Mes entreprises suivies',
@@ -143,6 +154,8 @@ const STRINGS: Record<Locale, PageStrings> = {
     cadenceWeekly: 'Chaque semaine',
     loadError: 'Impossible de charger vos entreprises suivies. Rechargez la page.',
     saveError: 'Impossible d\'enregistrer la fréquence. Réessayez.',
+    unfollowAll: 'Ne plus suivre aucune',
+    unfollowAllConfirm: 'Ne plus suivre aucune entreprise ? Vous ne recevrez plus ces e-mails.',
   },
 };
 
@@ -273,6 +286,35 @@ export const FollowedCompaniesPage: React.FC = () => {
     }
   }, [S.saveError]);
 
+  const [bulkBusy, setBulkBusy] = useState(false);
+  const handleUnfollowAll = useCallback(async () => {
+    const rows = alerts || [];
+    if (!rows.length) return;
+    // eslint-disable-next-line no-alert -- one destructive, irreversible action;
+    // the site has no confirm-dialog primitive and silently dropping every
+    // follow on a mis-tap is worse than a native prompt.
+    if (typeof window !== 'undefined' && !window.confirm(S.unfollowAllConfirm)) return;
+    setBulkBusy(true);
+    setError('');
+    // Sequential, not Promise.all: each row is its own Firestore write and a
+    // partial failure must leave the rows it did not reach untouched AND still
+    // visible — a parallel burst that half-fails would render a list that
+    // disagrees with the backend in both directions.
+    const failed: JobAlert[] = [];
+    for (const alert of rows) {
+      if (!alert.email) { failed.push(alert); continue; }
+      try {
+        await deleteAlert(alert.email, alert.id);
+      } catch (err) {
+        reportCaughtError(err, 'followedCompanies.unfollowAll');
+        failed.push(alert);
+      }
+    }
+    setAlerts(failed);
+    if (failed.length) setError(S.loadError);
+    setBulkBusy(false);
+  }, [S.loadError, S.unfollowAllConfirm, alerts]);
+
   if (authLoading) {
     return (
       <div className="max-w-2xl mx-auto px-4 py-12 text-center">
@@ -306,8 +348,23 @@ export const FollowedCompaniesPage: React.FC = () => {
         </div>
       )}
 
+      {user?.uid && alerts !== null && alerts.length > 1 && (
+        <div className="mt-6 flex justify-end">
+          <button
+            type="button"
+            onClick={() => void handleUnfollowAll()}
+            disabled={bulkBusy}
+            aria-busy={bulkBusy}
+            className="inline-flex items-center gap-2 px-3 py-2 min-h-[44px] text-xs font-semibold rounded-lg border border-edge text-muted hover:bg-surface-raised hover:text-body disabled:opacity-60"
+          >
+            {bulkBusy && <Loader2 className="w-3 h-3 animate-spin" aria-hidden="true" />}
+            {S.unfollowAll}
+          </button>
+        </div>
+      )}
+
       {user?.uid && alerts !== null && alerts.length > 0 && (
-        <ul className="mt-6 space-y-3">
+        <ul className="mt-3 space-y-3">
           {alerts.map((alert) => {
             const slug = String(alert.specificCompanyKey || '');
             const busy = busyId === alert.id;
@@ -316,13 +373,34 @@ export const FollowedCompaniesPage: React.FC = () => {
             // Never fall back to 'daily' on an unknown value: that would render
             // a row claiming the digest owns an alert the immediate sender is
             // in fact still sending.
+            // The alert stores only the slug, so the logo is resolved from it
+            // through the SAME map the job cards use — `companyKey` first, then
+            // the display name. No new data source, no second normalisation.
+            const logoUrl = cdnImageUrl(
+              resolveCompanyLogoUrl({ company: companyLabelFromSlug(slug), companyKey: slug }),
+            );
             const cadence: Cadence =
               alert.frequency === 'daily' || alert.frequency === 'weekly' ? alert.frequency : 'immediate';
             return (
               <li key={alert.id} className="rounded-lg border border-edge bg-surface px-4 py-3">
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <p className="text-sm font-semibold text-heading truncate">{companyLabelFromSlug(slug)}</p>
+                    <div className="flex items-center gap-2 min-w-0">
+                      {logoUrl ? (
+                        <img
+                          src={logoUrl}
+                          alt=""
+                          width={24}
+                          height={24}
+                          loading="lazy"
+                          onError={handleCompanyLogoError}
+                          className="w-6 h-6 rounded object-contain bg-surface-alt shrink-0"
+                        />
+                      ) : (
+                        <Building2 className="w-5 h-5 text-muted shrink-0" aria-hidden="true" />
+                      )}
+                      <p className="text-sm font-semibold text-heading truncate">{companyLabelFromSlug(slug)}</p>
+                    </div>
                     <p className="mt-1 text-xs text-muted">
                       {cadence === 'immediate' ? S.immediateBadge : cadence === 'daily' ? S.digestBadge : S.weeklyBadge}
                     </p>

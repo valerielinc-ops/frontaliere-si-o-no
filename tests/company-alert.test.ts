@@ -1021,6 +1021,63 @@ describe('cadence per followed company (#5012 fase 2 — frequenze)', () => {
   });
 });
 
+describe('CTA on the per-employer city hubs /aziende-che-assumono/ (#5012)', () => {
+  it('the weekly-employers company×city page emits the island', () => {
+    // The last SSG surface that names ONE employer and had no follow CTA. Its
+    // route is `staticOverlay: true` (services/router.ts, parseCompanyCityPath),
+    // so the CTA has to be an island exactly like the employer profile's.
+    const plugin = readRepoFile('build-plugins/weeklyEmployersPlugin.ts');
+    expect(plugin).toContain("from './shared/companyFollowMountPlaceholder'");
+    expect(plugin).toContain("surface: 'employer_city'");
+    // Same normalisation as the page's own URL: the employer key the stats
+    // record carries, not a re-slugified display name.
+    expect(plugin).toContain('companyKey: stats.employerKey');
+  });
+
+  it('the new surface is mapped and reportable end to end', () => {
+    expect(readRepoFile('components/community/CompanyFollowMount.tsx'))
+      .toContain("employer_city: 'company_follow_city'");
+    expect(readRepoFile('components/community/CompanyFollowCta.tsx')).toContain("'company_follow_city'");
+    expect(readRepoFile('services/analytics.ts')).toContain("'company_follow_city'");
+  });
+
+  it('the route really is a hydrating staticOverlay page', () => {
+    // An island on a route the SPA does not recognise renders a dead skeleton —
+    // the exact failure mode #5012 shipped once already.
+    const router = readRepoFile('services/router.ts');
+    expect(router).toContain('const companyCityMatch = parseCompanyCityPath(pathname)');
+    expect(router).toContain("route: { activeTab: 'job-board', staticOverlay: true }");
+  });
+});
+
+describe('«aziende seguite» — logo and bulk unfollow (#5012)', () => {
+  const page = () => readRepoFile('components/pages/FollowedCompaniesPage.tsx');
+
+  it('resolves the logo through the shared map, not a new source', () => {
+    expect(page()).toContain("import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization'");
+    expect(page()).toContain('resolveCompanyLogoUrl({ company: companyLabelFromSlug(slug), companyKey: slug })');
+    // Broken/missing logos fall back to the same handler the job cards use.
+    expect(page()).toContain('onError={handleCompanyLogoError}');
+  });
+
+  it('unfollow-all confirms first and deletes sequentially', () => {
+    const src = page();
+    expect(src).toContain('window.confirm(S.unfollowAllConfirm)');
+    // Sequential: a partial failure must keep the rows it could not delete
+    // visible instead of clearing a list the backend still holds.
+    expect(src).toContain('for (const alert of rows)');
+    expect(src.includes('Promise.all(rows')).toBe(false);
+    expect(src).toContain('setAlerts(failed)');
+  });
+
+  it('ships the bulk-unfollow copy in all four locales', () => {
+    const src = page();
+    for (const key of ['unfollowAll', 'unfollowAllConfirm']) {
+      expect(src.split(`${key}:`).length - 1, `${key} is not in all four locales`).toBe(5);
+    }
+  });
+});
+
 describe('the follow CTA copy exists in all four locales (#5012 phase 2)', () => {
   it.each(['it', 'en', 'de', 'fr'])('%s-core carries every companyFollow key', (loc) => {
     const src = readRepoFile(`services/locales/${loc}-core.ts`);

@@ -2077,10 +2077,11 @@ export const Analytics = {
  // sign-in for a single click — cannibalisation is invisible if they share a
  // name), 'company_follow_expired' and 'company_follow_orphan' the two dead-ad
  // views where following is the only conversion left, 'company_follow_profile'
- // the SSG employer page and 'company_follow_below_floor' its thin
- // under-MIN_ACTIVE_JOBS variant. The union is mirrored by CompanyFollowSurface
+ // the SSG employer page, 'company_follow_below_floor' its thin
+ // under-MIN_ACTIVE_JOBS variant and 'company_follow_city' the per-employer
+ // «aziende che assumono» city hub. The union is mirrored by CompanyFollowSurface
  // in components/community/CompanyFollowCta.tsx.
- surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_match_pill' | 'job_board_filters' | 'company_follow_button' | 'company_follow_gate' | 'company_follow_profile' | 'company_follow_below_floor' | 'company_follow_orphan' | 'company_follow_expired',
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_match_pill' | 'job_board_filters' | 'company_follow_button' | 'company_follow_gate' | 'company_follow_profile' | 'company_follow_below_floor' | 'company_follow_orphan' | 'company_follow_expired' | 'company_follow_city',
  action: 'open' | 'dismiss' | 'accept' | 'success' | 'error',
  keyword?: string,
  ) => {

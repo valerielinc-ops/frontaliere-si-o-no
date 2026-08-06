@@ -60,6 +60,7 @@ const VALID_LOCALES: readonly string[] = ['it', 'en', 'de', 'fr'];
 const ANALYTICS_SURFACE: Record<string, CompanyFollowSurface> = {
   employer_profile: 'company_follow_profile',
   employer_below_floor: 'company_follow_below_floor',
+  employer_city: 'company_follow_city',
 };
 
 const CompanyFollowMount: React.FC = () => {

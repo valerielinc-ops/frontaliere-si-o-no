@@ -19,9 +19,13 @@
  * MOST useful thing left to offer: the ad is gone, and "tell me when they post
  * again" is the only action that still means anything.
  *
- * Four call sites is exactly where a copied invocation starts drifting — one
- * gets the cache invalidation, another forgets `onUnsubscribed`, a third
- * reports under the wrong surface. Hence one component, four props.
+ * Plus the SSG islands: the employer profile page, its below-floor variant and
+ * the per-employer «aziende che assumono» city hub, all mounted through
+ * CompanyFollowMount.
+ *
+ * Seven call sites is well past where a copied invocation starts drifting — one
+ * gets the cache invalidation, another forgets `onUnsubscribed`, a third reports
+ * under the wrong surface. Hence one component, one set of callbacks.
  *
  * ── AUTH ──────────────────────────────────────────────────────────────────
  * `useAuth()` is standalone (no provider), so a caller that has no session in
@@ -50,7 +54,8 @@ export type CompanyFollowSurface =
   | 'company_follow_profile'
   | 'company_follow_below_floor'
   | 'company_follow_orphan'
-  | 'company_follow_expired';
+  | 'company_follow_expired'
+  | 'company_follow_city';
 
 export interface CompanyFollowCtaProps {
   company: string;
