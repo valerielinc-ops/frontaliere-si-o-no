@@ -53,13 +53,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicetechniker-in-mechanik-m-w-d-swisslog-buchs-switzerland",
-        "tecnico-a-di-servizio-mechanik-m-w-d-swisslog-buchs"
+        "servicetechniker-in-mechanik-m-w-d-swisslog-buchs-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-mechanik-m-w-d-swisslog-buchs-switzerland",
-          "tecnico-a-di-servizio-mechanik-m-w-d-swisslog-buchs"
+          "servicetechniker-in-mechanik-m-w-d-swisslog-buchs-switzerland"
         ],
         "en": [
           "servicetechniker-in-mechanik-m-w-d-swisslog-buchs-switzerland"
@@ -136,16 +134,14 @@
         "controls-software-service-engineer-siemens-m-w-d-swisslog-buchs-switzerland",
         "controls-software-service-ingegnere-swisslog-buchs",
         "controls-software-service-engineer-swisslog-buchs-switzerland",
-        "controls-software-service-ingenieur-swisslog-buchs",
-        "controls-software-service-ingegnere-siemens-m-w-d-swisslog-buchs"
+        "controls-software-service-ingenieur-swisslog-buchs"
       ],
       "previousSlugsByLocale": {
         "it": [
           "controls-software-service-engineer-siemens-m-w-d-swisslog-buchs-switzerland",
           "controls-software-service-ingegnere-swisslog-buchs",
           "controls-software-service-engineer-swisslog-buchs-switzerland",
-          "controls-software-service-ingenieur-swisslog-buchs",
-          "controls-software-service-ingegnere-siemens-m-w-d-swisslog-buchs"
+          "controls-software-service-ingenieur-swisslog-buchs"
         ],
         "en": [
           "controls-software-service-engineer-swisslog-buchs-switzerland"
@@ -221,14 +217,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-in-efz-swisslog-buchs-switzerland",
-        "automatiker-in-cfc-swisslog-buchs",
-        "automatiker-in-cfc-swisslog-buchs-switzerland"
+        "automatiker-in-cfc-swisslog-buchs"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-efz-swisslog-buchs-switzerland",
-          "automatiker-in-cfc-swisslog-buchs",
-          "automatiker-in-cfc-swisslog-buchs-switzerland"
+          "automatiker-in-cfc-swisslog-buchs"
         ],
         "en": [
           "automatiker-in-efz-swisslog-buchs-switzerland"
@@ -304,15 +298,13 @@
       "previousSlugs": [
         "working-student-quality-60-m-w-d-swisslog-buchs-switzerland",
         "qualita-degli-studenti-di-lavoro-m-f-d-swisslog-buchs-switzerland",
-        "working-student-quality-m-w-d-swisslog-buchs-switzerland",
-        "qualita-degli-studenti-di-lavoro-60-m-f-d-swisslog-buchs-switzerland"
+        "working-student-quality-m-w-d-swisslog-buchs-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "working-student-quality-60-m-w-d-swisslog-buchs-switzerland",
           "qualita-degli-studenti-di-lavoro-m-f-d-swisslog-buchs-switzerland",
-          "working-student-quality-m-w-d-swisslog-buchs-switzerland",
-          "qualita-degli-studenti-di-lavoro-60-m-f-d-swisslog-buchs-switzerland"
+          "working-student-quality-m-w-d-swisslog-buchs-switzerland"
         ],
         "fr": [
           "working-student-quality-m-w-d-swisslog-buchs-switzerland"
@@ -383,13 +375,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland",
-        "tecnico-di-manutenzione-m-f-d-swisslog-buchs-switzerland"
+        "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland",
-          "tecnico-di-manutenzione-m-f-d-swisslog-buchs-switzerland"
+          "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland"
         ],
         "en": [
           "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland"
@@ -480,12 +470,12 @@
     },
     {
       "id": "swisslog-0eb581e2e3de",
-      "slug": "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland",
+      "slug": "apprendista-informatico-m-f-d-swisslog-buchs-switzerland",
       "slugByLocale": {
         "de": "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland",
-        "it": "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland",
+        "it": "apprendista-informatico-m-f-d-swisslog-buchs-switzerland",
         "en": "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland",
-        "fr": "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland"
+        "fr": "apprentis-en-informatique-m-f-d-swisslog-buchs-switzerland"
       },
       "company": "Swisslog",
       "companyKey": "swisslog",
@@ -542,7 +532,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-05T22:29:21.809Z"
+      "firstSeenAt": "2026-08-05T22:29:21.809Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland"
+        ],
+        "fr": [
+          "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland"
+      ]
     }
   ]
 }

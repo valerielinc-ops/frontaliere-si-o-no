@@ -113,13 +113,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-mitarbeiterin-empfang-befristet-bis-01-03-2027-middle-office-diakoniewerk",
-        "collaboratore-trice-mitarbeiterin-empfang-befristet-bis-01-03-2027-middle-office-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
+        "mitarbeiter-mitarbeiterin-empfang-befristet-bis-01-03-2027-middle-office-diakoniewerk"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-mitarbeiterin-empfang-befristet-bis-01-03-2027-middle-office-diakoniewerk",
-          "collaboratore-trice-mitarbeiterin-empfang-befristet-bis-01-03-2027-middle-office-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
+          "mitarbeiter-mitarbeiterin-empfang-befristet-bis-01-03-2027-middle-office-diakoniewerk"
         ],
         "en": [
           "mitarbeiter-mitarbeiterin-empfang-befristet-bis-01-03-2027-middle-office-diakoniewerk"
@@ -144,12 +142,12 @@
     },
     {
       "id": "diakoniewerk-neumuenster-bb9af788f156",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk",
+      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-spitex-old-age-centre-hottingen-diakoniewerk-neumunster",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk"
+        "it": "dipl-infermieristica-professionale-dipl-infermieristica-spitex-old-age-centre-hottingen-diakoniewerk-neumunster",
+        "en": "dipl-nursing-professional-dipl-nursing-specialist-spitex-old-age-centre-hottingen-diakoniewerk-neumunster",
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-spitex-old-age-centre-hottingen"
       },
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Alterszentrum Hottingen",
       "companyKey": "diakoniewerk-neumuenster",
@@ -212,7 +210,14 @@
           "old-age-center-hottingen-dipl-nursing-professional-dipl-nursing-specialist-spitex-old-age-centre-hottingen-spital",
           "dipl-nursing-professional-dipl-nursing-specialist-night-watch-spitex-in-the-hottingen-old-age-centre-diakoniewerk",
           "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-infermieristica-spitex-old-age-centre-hottingen-spital",
-          "centre-de-vieillesse-hottingen-dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-spitex-old"
+          "centre-de-vieillesse-hottingen-dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-spitex-old",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk"
         ]
       },
       "previousSlugs": [
@@ -221,17 +226,18 @@
         "old-age-center-hottingen-dipl-nursing-professional-dipl-nursing-specialist-spitex-old-age-centre-hottingen-spital",
         "dipl-nursing-professional-dipl-nursing-specialist-night-watch-spitex-in-the-hottingen-old-age-centre-diakoniewerk",
         "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-infermieristica-spitex-old-age-centre-hottingen-spital",
-        "centre-de-vieillesse-hottingen-dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-spitex-old"
+        "centre-de-vieillesse-hottingen-dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-spitex-old",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk"
       ]
     },
     {
       "id": "diakoniewerk-neumuenster-248f74fa28d3",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-visit-spital-zollikerberg-zuhause-diakoniewerk",
+      "slug": "dipl-infermieristica-professionale-dipl-specialista-infermieristica-visita-spital-zollikerberg-a-casa-diakoniewerk",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-visit-spital-zollikerberg-zuhause-diakoniewerk",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-visit-spital-zollikerberg-zuhause-diakoniewerk",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-visit-spital-zollikerberg-zuhause-diakoniewerk",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-visit-spital-zollikerberg-zuhause-diakoniewerk"
+        "it": "dipl-infermieristica-professionale-dipl-specialista-infermieristica-visita-spital-zollikerberg-a-casa-diakoniewerk",
+        "en": "dipl-nursing-professional-dipl-nursing-specialist-visit-spital-zollikerberg-at-home-diakoniewerk-neumunster",
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-visite-spital-zollikerberg-a-domicile"
       },
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
       "companyKey": "diakoniewerk-neumuenster",
@@ -290,22 +296,30 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-nursing-professional-dipl-nursing-specialist-visit-spital-zollikerberg-at-home-spital-zollikerberg-zollikerberg",
-          "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-visite-spital-zollikerberg-a-domicile"
+          "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-visite-spital-zollikerberg-a-domicile",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-visit-spital-zollikerberg-zuhause-diakoniewerk"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-visit-spital-zollikerberg-zuhause-diakoniewerk"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-visit-spital-zollikerberg-zuhause-diakoniewerk"
         ]
       },
       "previousSlugs": [
         "dipl-nursing-professional-dipl-nursing-specialist-visit-spital-zollikerberg-at-home-spital-zollikerberg-zollikerberg",
-        "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-visite-spital-zollikerberg-a-domicile"
+        "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-visite-spital-zollikerberg-a-domicile",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-visit-spital-zollikerberg-zuhause-diakoniewerk"
       ]
     },
     {
       "id": "diakoniewerk-neumuenster-6c6a92505e13",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-diakoniewerk-neumunster-gesundheitswelt",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-diakoniewerk-neumuenster-zollikerberg",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-diakoniewerk-neumuenster-zollikerberg",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-diakoniewerk-neumuenster-zollikerberg"
+        "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-diakoniewerk-neumunster-gesundheitswelt",
+        "en": "dipl-nursing-professional-dipl-nursing-professional-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-diakoniewerk-neumunster"
       },
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
       "companyKey": "diakoniewerk-neumuenster",
@@ -350,11 +364,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-diakoniewerk-neumuenster-zollikerberg",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-diakoniewerk-neumuenster-zollikerberg"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-diakoniewerk-neumuenster-zollikerberg"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-diakoniewerk-neumuenster-zollikerberg"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-diakoniewerk-neumuenster-zollikerberg",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -376,8 +398,8 @@
       "slugByLocale": {
         "de": "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-und-akutgeriatrie-diakoniewerk",
         "it": "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-e-akutgeriatrie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
-        "en": "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-und-akutgeriatrie-diakoniewerk",
-        "fr": "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-und-akutgeriatrie-diakoniewerk"
+        "en": "specialist-nursing-focus-on-internal-medicine-and-acute-care-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
+        "fr": "soins-infirmiers-specialises-focus-sur-la-medecine-interne-et-les-soins-aigus-diakoniewerk-neumunster-gesundheitswelt"
       },
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
       "companyKey": "diakoniewerk-neumuenster",
@@ -424,6 +446,12 @@
         "it": [
           "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-und-akutgeriatrie-diakoniewerk",
           "soins-infirmiers-specialises-focus-sur-la-medecine-interne-et-les-soins-aigus-diakoniewerk-neumunster-gesundheitswelt"
+        ],
+        "en": [
+          "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-und-akutgeriatrie-diakoniewerk"
+        ],
+        "fr": [
+          "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-und-akutgeriatrie-diakoniewerk"
         ]
       },
       "previousSlugs": [
@@ -495,14 +523,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-chirurgie-gynakologie-mitarbeitende-im-fokus-kopie",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-chirurgie-gynakologie-mitarbeitende-im-fokus",
-        "dipl-infermieristica-professionale-dipl-infermieristica-chirurgia-e-ginecologia-concentrati-sul-personale-copia"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-chirurgie-gynakologie-mitarbeitende-im-fokus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-chirurgie-gynakologie-mitarbeitende-im-fokus-kopie",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-chirurgie-gynakologie-mitarbeitende-im-fokus",
-          "dipl-infermieristica-professionale-dipl-infermieristica-chirurgia-e-ginecologia-concentrati-sul-personale-copia"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-chirurgie-gynakologie-mitarbeitende-im-fokus"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-chirurgie-gynakologie-mitarbeitende-im-fokus-kopie"
@@ -576,13 +602,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitende-arztin-leitenden-arzt-chirurgie-arztbereich-diakoniewerk-neumuenster-zollikerberg",
-        "principale-medico-principale-chirurgia-divisione-medica-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital"
+        "leitende-arztin-leitenden-arzt-chirurgie-arztbereich-diakoniewerk-neumuenster-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitenden-arzt-chirurgie-arztbereich-diakoniewerk-neumuenster-zollikerberg",
-          "principale-medico-principale-chirurgia-divisione-medica-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital"
+          "leitende-arztin-leitenden-arzt-chirurgie-arztbereich-diakoniewerk-neumuenster-zollikerberg"
         ],
         "en": [
           "leitende-arztin-leitenden-arzt-chirurgie-arztbereich-diakoniewerk-neumuenster-zollikerberg"
