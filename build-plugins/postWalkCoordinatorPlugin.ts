@@ -69,6 +69,7 @@ import {
 import type { BlogLinkLocale } from './blogContextualLinksData';
 import { transformFlatRedirect } from './flatHtmlRedirectPlugin';
 import { transformHreflang } from './hreflangPostprocessPlugin';
+import { allowExternallyServedTargets } from '../scripts/lib/externally-served-paths.mjs';
 import { shouldEmitPath } from './shared/localeEmitFilter';
 import { collectHtml } from './shared/distHtmlWalk';
 import {
@@ -187,6 +188,16 @@ function runSingleThreaded(
     writeFailures: [],
   };
 
+  // Article sections are routed away from this build and have no file here on
+  // purpose (ARTICOLIFRONTALIERE/ARTICOLISVIZZERA_BUILD_EMIT_SKIP). Their URLs
+  // answer 200 from the articles-repo shards, so an alternate pointing there
+  // is reachable, not broken — the exemption scripts/audit-hreflang.mjs
+  // already applies in targetExists(). Mirrored in postWalkWorker.mjs.
+  const hreflangExists = allowExternallyServedTargets(
+    (absPath: string) => existingHtmlSet.has(absPath),
+    distDir,
+  );
+
   const readSibling = (siblingPath: string): string | null => {
     if (!existingHtmlSet.has(siblingPath)) return null;
     try {
@@ -266,7 +277,7 @@ function runSingleThreaded(
         html,
         distDir,
         baseUrl,
-        (absPath) => existingHtmlSet.has(absPath),
+        hreflangExists,
         path.relative(distDir, filePath).split(path.sep).join('/'),
       );
       profileRecord('hreflang-transform', __tHl);
