@@ -8407,7 +8407,7 @@
       },
       "slugByLocale": {
         "it": "magazziniere-a-coop-genossenschaft-oberentfelden-aargau",
-        "en": "warehouse-worker-coop-genossenschaft-oberentfelden-aargau",
+        "en": "warehouse-associate-coop-genossenschaft-oberentfelden-aargau",
         "de": "lagerist-in-coop-genossenschaft-oberentfelden-aargau-cncnay",
         "fr": "lageriste-in-coop-genossenschaft-oberentfelden-aargau"
       },
@@ -8427,12 +8427,14 @@
           "lagerist-in-coop-genossenschaft-oberentfelden-aargau-cncnay"
         ],
         "en": [
-          "lagerist-in-coop-genossenschaft-oberentfelden-aargau-cncnay"
+          "lagerist-in-coop-genossenschaft-oberentfelden-aargau-cncnay",
+          "warehouse-worker-coop-genossenschaft-oberentfelden-aargau"
         ]
       },
       "previousSlugs": [
         "lagerist-in-coop-genossenschaft-oberentfelden-aargau",
-        "lagerist-in-coop-genossenschaft-oberentfelden-aargau-cncnay"
+        "lagerist-in-coop-genossenschaft-oberentfelden-aargau-cncnay",
+        "warehouse-worker-coop-genossenschaft-oberentfelden-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
