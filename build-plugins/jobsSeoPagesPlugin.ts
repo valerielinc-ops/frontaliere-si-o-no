@@ -219,6 +219,47 @@ function logBuildMem(label: string, collector?: unknown): void {
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
+/**
+ * Role x Ticino combo pages — driven by internal search demand
+ * (Medico, Infermiere, Autista, Cuoco, Piastrellista, …).
+ *
+ * Hoisted to module scope and exported so the boundary invariants can be
+ * pinned by `tests/profession-matcher-boundaries.test.ts`; the table is
+ * static, so nothing is lost by lifting it out of the plugin closure.
+ *
+ * ## Boundary defect, same class as PROFESSION_MATCHERS / SECTOR_MATCHERS
+ *
+ * Every entry sits inside `\b(…)\b`, so a role noun only ever matched the
+ * exact inflections spelled out here. The Italian plural was missing across
+ * the board — "Infermieri", "Medici assistenti", "autisti/e" and "Cuochi"
+ * matched nothing — and the German feminine/compound forms
+ * ("Krankenpflegerin", "Pflegefachfrau", "Oberarzt", "Elektroinstallateur")
+ * never matched either. See #5204/#5205 for the same defect in the two
+ * sibling taxonomies.
+ *
+ * The inflections are enumerated rather than left open-ended on purpose: a
+ * bare `infermier` stem also swallows "servizio infermieristico" (the
+ * adjective — an admin post, not a nurse), and a bare `contabil` stem
+ * swallows "Servizio Centrale di Contabilità". Both were measured as real
+ * false positives against the corpus before being tightened back out.
+ */
+export const ROLE_COMBO_MATCHERS: ReadonlyArray<{
+  key: string;
+  match: RegExp;
+  labels: Record<'it' | 'en' | 'de' | 'fr', string>;
+}> = [
+  { key: 'medico', match: /\b(medic[oai]|\w*[aä]rzt(?:in|e)?|doctor|médecin|assistente di studio medico|medical)\b/i, labels: { it: 'Medico', en: 'Doctor', de: 'Arzt', fr: 'Médecin' } },
+  { key: 'infermiere', match: /\b(infermier[eia]|nurse|krankenpfleger(?:in)?|krankenpflege|pflegefach\w*|infirmi[eè]r\w*|pflege)\b/i, labels: { it: 'Infermiere', en: 'Nurse', de: 'Krankenpfleger', fr: 'Infirmier' } },
+  { key: 'autista', match: /\b(autist[aei]|driver|fahrer|\w*fahrer(?:in)?|chauffeur\w*|conducent[ei]|camionist[ai])\b/i, labels: { it: 'Autista', en: 'Driver', de: 'Fahrer', fr: 'Chauffeur' } },
+  { key: 'cuoco', match: /\b(cuoc(?:[oa]|h[ie])|chef|koch|köch\w*|cuisinier|aiuto cuoco|pizzaiol[oi])\b/i, labels: { it: 'Cuoco', en: 'Chef', de: 'Koch', fr: 'Cuisinier' } },
+  { key: 'piastrellista', match: /\b(piastrellist[ai]|tiler|plattenleger(?:in)?|carreleur|murator[ei]|mason)\b/i, labels: { it: 'Piastrellista', en: 'Tiler', de: 'Plattenleger', fr: 'Carreleur' } },
+  { key: 'elettricista', match: /\b(elettricist[ai]|electrician|elektriker(?:in)?|électricien|elektroinstallateur(?:in)?)\b/i, labels: { it: 'Elettricista', en: 'Electrician', de: 'Elektriker', fr: 'Électricien' } },
+  { key: 'vendita', match: /\b(vendit[oa]r[ei]|addett[oa] (alle )?vendite?|sales|verk[aä]ufer(?:in)?|vendeur|vendeuse|shop assistant|commess[oaei])\b/i, labels: { it: 'Vendita', en: 'Sales', de: 'Verkauf', fr: 'Vente' } },
+  { key: 'educatore', match: /\b(educator[ei]|educatric[ei]|educator|erzieher(?:in)?|éducateur|éducatrice)\b/i, labels: { it: 'Educatore', en: 'Educator', de: 'Erzieher', fr: 'Éducateur' } },
+  { key: 'contabile', match: /\b(contabil[ei]|accountant|buchhalter(?:in)?|comptable|ragionier[ei])\b/i, labels: { it: 'Contabile', en: 'Accountant', de: 'Buchhalter', fr: 'Comptable' } },
+  { key: 'meccanico', match: /\b(meccanic[oai]|mechanic|mechaniker(?:in)?|mécanicien)\b/i, labels: { it: 'Meccanico', en: 'Mechanic', de: 'Mechaniker', fr: 'Mécanicien' } },
+];
+
 const HUB_SEO_CONTEXT_SUMMARY: Record<'it' | 'en' | 'de' | 'fr', string> = {
  it: 'Guida frontalieri: salario, permesso G, fisco, rientro',
  en: 'Cross-border guide: salary, G permit, tax, weekly return',
@@ -9381,18 +9422,7 @@ ${staticAnalyticsHtml}
 
  // 4) ruolo + Ticino combinations — from internal search demand
  // Users search for specific roles: Medico, Infermiere, Autista, Cuoco, Piastrellista, etc.
- const roleTypes: { key: string; match: RegExp; labels: Record<'it' | 'en' | 'de' | 'fr', string> }[] = [
- { key: 'medico', match: /\b(medic[oa]|arzt|doctor|médecin|assistente di studio medico|medical)\b/i, labels: { it: 'Medico', en: 'Doctor', de: 'Arzt', fr: 'Médecin' } },
- { key: 'infermiere', match: /\b(infermier[ea]|nurse|krankenpfleger|infirmier|pflege)\b/i, labels: { it: 'Infermiere', en: 'Nurse', de: 'Krankenpfleger', fr: 'Infirmier' } },
- { key: 'autista', match: /\b(autista|driver|fahrer|chauffeur|conducente)\b/i, labels: { it: 'Autista', en: 'Driver', de: 'Fahrer', fr: 'Chauffeur' } },
- { key: 'cuoco', match: /\b(cuoc[oa]|chef|koch|cuisinier|aiuto cuoco)\b/i, labels: { it: 'Cuoco', en: 'Chef', de: 'Koch', fr: 'Cuisinier' } },
- { key: 'piastrellista', match: /\b(piastrellista|tiler|plattenleger|carreleur|muratore|mason)\b/i, labels: { it: 'Piastrellista', en: 'Tiler', de: 'Plattenleger', fr: 'Carreleur' } },
- { key: 'elettricista', match: /\b(elettricista|electrician|elektriker|électricien)\b/i, labels: { it: 'Elettricista', en: 'Electrician', de: 'Elektriker', fr: 'Électricien' } },
- { key: 'vendita', match: /\b(vendit[oa]r[ei]|addett[oa] (alle )?vendite?|sales|verkäufer|vendeur|shop assistant|commess[oa])\b/i, labels: { it: 'Vendita', en: 'Sales', de: 'Verkauf', fr: 'Vente' } },
- { key: 'educatore', match: /\b(educator[ei]|educatric[ei]|educator|erzieher|éducateur)\b/i, labels: { it: 'Educatore', en: 'Educator', de: 'Erzieher', fr: 'Éducateur' } },
- { key: 'contabile', match: /\b(contabil[ei]|accountant|buchhalter|comptable|ragionier)\b/i, labels: { it: 'Contabile', en: 'Accountant', de: 'Buchhalter', fr: 'Comptable' } },
- { key: 'meccanico', match: /\b(meccanic[oa]|mechanic|mechaniker|mécanicien)\b/i, labels: { it: 'Meccanico', en: 'Mechanic', de: 'Mechaniker', fr: 'Mécanicien' } },
- ];
+ const roleTypes = ROLE_COMBO_MATCHERS;
  for (const role of roleTypes) {
  const comboKey = `${role.key}-ticino`;
  if (searchLeaderMap.has(comboKey)) { comboCount++; continue; }
