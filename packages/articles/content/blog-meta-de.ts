@@ -9291,6 +9291,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disavanzo-cantonale-ticino-frontalieri.title': 'Kantonales Defizit Tessin: -49,7 Mio., Verbesserung für Grenzgänger',
     'blog.article.disavanzo-cantonale-ticino-frontalieri.excerpt': 'Das im Juni 2025 auf -49,7 Millionen Franken geschätzte Defizit verbessert sich gegenüber dem Voranschlag um 8,3 Millionen Franken, was sich direkt auf die AHV/IV und die kantonalen Löhne auswirkt',
     'blog.article.disavanzo-cantonale-ticino-frontalieri.imageAlt': 'Panoramafoto von Bellinzona mit Bergblick',
+    'blog.article.borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.title': 'Taschen: Zürich schliesst grün, New York gönnt sich eine Flucht',
+    'blog.article.borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.excerpt': 'Die Abkühlung der Spannungen zwischen Washington und Teheran hält den Swiss Market Index über der Linie.',
+    'blog.article.borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.imageAlt': 'Ein sonniger Tag in Lugano, mit Blick auf den See.',
 };
 
 export default blogMetaDe;
