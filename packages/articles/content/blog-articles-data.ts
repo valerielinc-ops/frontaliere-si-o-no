@@ -27894,6 +27894,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga',
+ category: 'fiscale',
+ date: '2026-08-06T04:02:21.153Z',
+ image: '/images/blog/borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

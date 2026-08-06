@@ -9292,6 +9292,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disavanzo-cantonale-ticino-frontalieri.title': 'Cantonal deficit Ticino: -49.7 million, improvement for border workers',
     'blog.article.disavanzo-cantonale-ticino-frontalieri.excerpt': 'The deficit estimated at -49.7 million francs in June 2025 improves by 8.3 million compared to the budget, with a direct impact on AVS/AI and cantonal wages',
     'blog.article.disavanzo-cantonale-ticino-frontalieri.imageAlt': 'Panoramic view of Bellinzona with mountain background',
+    'blog.article.borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.title': 'Bags: Zurich closes in green, New York allows itself a getaway',
+    'blog.article.borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.excerpt': 'Cooling tensions between Washington and Tehran keep the Swiss Market Index above the line.',
+    'blog.article.borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.imageAlt': 'A sunny day in Lugano, with a view of the lake.',
 };
 
 export default blogMetaEn;

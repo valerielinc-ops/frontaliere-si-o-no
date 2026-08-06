@@ -9293,6 +9293,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disavanzo-cantonale-ticino-frontalieri.title': 'Disavanzo cantonale Ticino: -49,7 milioni, miglioramento per frontalieri',
     'blog.article.disavanzo-cantonale-ticino-frontalieri.excerpt': 'Il disavanzo stimato a -49,7 milioni di franchi a giugno 2025 migliora di 8,3 milioni rispetto al preventivo, con impatto diretto su AVS/AI e salari cantonali',
     'blog.article.disavanzo-cantonale-ticino-frontalieri.imageAlt': 'Panorama di Bellinzona con montagne in background',
+    'blog.article.borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.title': 'Borse: Zurigo chiude in verde, New York si concede una fuga',
+    'blog.article.borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.excerpt': 'Il raffreddamento delle tensioni tra Washington e Teheran mantiene lo Swiss Market Index sopra la linea.',
+    'blog.article.borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.imageAlt': 'Una giornata di sole a Lugano, con la vista sul lago.',
 };
 
 export default blogMetaIt;
