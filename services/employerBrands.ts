@@ -22,7 +22,7 @@
  */
 
 import type { Locale } from './i18n';
-import { baseCompanySlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
+import { baseCompanySlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 
 export interface EmployerBenefit {
   /** Short label, e.g. "Formazione continua" */

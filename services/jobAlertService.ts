@@ -13,7 +13,7 @@
  */
 
 import type { Firestore } from 'firebase/firestore';
-import { canonicalCompanyProfileSlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
+import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 
 // ── Types ────────────────────────────────────────────────────
 
