@@ -1,0 +1,143 @@
+name: Hydrated article parity
+
+# Does the client actually have the articles the server rendered?
+#
+# Every other article check looks at ONE surface, and that is precisely why
+# none of them caught this. Measured 2026-08-06 on the live hub: the article's
+# own URL returned 200, the sitemap listed it, the RSS carried it, the news
+# ticker showed it, the corpus API was current — and the hub still lost it on
+# hydration, because the data the client fetches did not have it. 104 articles
+# in the HTML, 7 after React took over. It stood for 28 hours with every gate
+# green.
+#
+# So this gate compares TWO surfaces and fails on divergence:
+#   the slugs the SSG wrote into the hub  vs  the data the client itself loads.
+#
+# WHEN it runs is part of the design. The divergence opens BETWEEN deploys —
+# the corpus publishes an article, the shard HTML gets it within a minute, and
+# nothing rebuilds the site. So the primary trigger is the publisher's own
+# `articles-published` dispatch, the same event sync-articles-sitemaps.yml
+# keys on. A post-deploy-only check would look exactly when the two surfaces
+# are least likely to disagree.
+#
+# The schedule is a safety net for a dispatch that never arrives (token
+# rotated, API outage), not the mechanism.
+
+on:
+  repository_dispatch:
+    types: [articles-published]
+  schedule:
+    # Every two hours, offset off the hour to stay clear of the deploy cron
+    # and of sync-articles-sitemaps' 5:23/17:23.
+    - cron: '41 */2 * * *'
+  workflow_dispatch:
+    inputs:
+      section:
+        description: 'Which section to check (both = frontaliere and svizzera)'
+        type: choice
+        options: [both, frontaliere, svizzera]
+        default: both
+      open_issue:
+        description: 'Open/refresh a GitHub issue when the check fails'
+        type: boolean
+        default: true
+
+concurrency:
+  group: hydrated-article-parity
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  parity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      # Retry rather than fail on the first read.
+      #
+      # On the dispatch path this runs seconds after the publisher pushed the
+      # shard and purged the edge, so a single red read says "not there YET",
+      # not "not there". The window is deliberately longer than the overlay's
+      # own five-minute freshness bucket (services/articlesOverlay.ts), because
+      # anything shorter would report by-design bounded staleness as a defect.
+      - name: Check hydrated article parity
+        id: check
+        env:
+          SECTION_INPUT: ${{ github.event.inputs.section || 'both' }}
+        run: |
+          set -uo pipefail
+          if [ "$SECTION_INPUT" = "both" ]; then
+            sections="frontaliere svizzera"
+          else
+            sections="$SECTION_INPUT"
+          fi
+
+          rc=0
+          : > parity-report.txt
+          for section in $sections; do
+            attempt=1
+            ok=0
+            while [ "$attempt" -le 8 ]; do
+              echo "::group::${section} — attempt ${attempt}/8"
+              if node scripts/ci/check-hydrated-article-parity.mjs \
+                   --section="$section" 2>&1 | tee "parity-${section}.txt"; then
+                ok=1
+                echo "::endgroup::"
+                break
+              fi
+              echo "::endgroup::"
+              attempt=$((attempt + 1))
+              [ "$attempt" -le 8 ] && sleep 45
+            done
+            if [ "$ok" -ne 1 ]; then
+              rc=1
+              {
+                echo "### ${section}"
+                echo ''
+                echo '```'
+                cat "parity-${section}.txt"
+                echo '```'
+                echo ''
+              } >> parity-report.txt
+            fi
+          done
+          exit "$rc"
+
+      # Stable title (ISSUES.md: dedup a MONTE) — this condition is by
+      # definition the same one every time it recurs, so the helper comments on
+      # the canonical issue instead of minting a new one per run.
+      - name: Open or refresh the issue
+        if: failure() && steps.check.outcome == 'failure' && github.event.inputs.open_issue != 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          [ -s parity-report.txt ] || exit 0
+          BODY=$(printf '%s\n' \
+            'The hub renders articles the client does not have. React drops them on hydration, so a visitor sees an older list than a crawler does.' \
+            '' \
+            "Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
+            '' \
+            'First things to look at, in order:' \
+            '' \
+            '1. `last-modified` of each surface below. Fresh at origin but stale here means the edge is serving an unpurged `Vary: Origin` variant — the purge reports success and changes nothing.' \
+            '2. Whether the corpus published the missing ids (`manifest.json` `commit`/`counts`).' \
+            '3. `services/articlesOverlay.ts` — the overlay is what makes a new article appear without a redeploy.' \
+            '' \
+            "$(cat parity-report.txt)")
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Hydrated article parity: the hub renders articles the client does not have" \
+            --description "$BODY" \
+            --priority high \
+            --label validation-failure \
+            --workflow "${{ github.workflow }}"

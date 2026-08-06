@@ -36,3 +36,43 @@ export function cdnDataUrl(path: string): string {
   const base = cdnDataBase();
   return base ? base + path : path;
 }
+
+/**
+ * How long a CDN data file published BETWEEN deploys may stay invisible, and
+ * the resolution of its edge cache key. One object per bucket, so the CDN
+ * still absorbs effectively all of the traffic.
+ */
+export const CDN_FRESHNESS_BUCKET_MS = 5 * 60 * 1000;
+
+/**
+ * Rotate the url of a CDN file whose CONTENT CHANGES BETWEEN DEPLOYS.
+ *
+ * WHY A URL AND NOT A PURGE. These files are refreshed out-of-band and their
+ * publishers purge the exact url afterwards. The purge REPORTS SUCCESS and the
+ * served copy does not move — measured 2026-08-06, 19 urls, HTTP 200, zero
+ * effect. The responses carry `Vary: Origin`, so the edge keeps a SEPARATE
+ * variant for requests that send an `Origin` header, and a cross-origin
+ * `fetch()` from the app is the only caller that sends one. Cloudflare's
+ * purge-by-url clears the variant matching the purge request, which carries no
+ * `Origin`. The app's variant is never cleared and lives to its `max-age`.
+ *
+ * That asymmetry is why the defect behind issue #4974 stood for 28 hours with
+ * every check green: `curl`, a direct navigation and every no-Origin CI probe
+ * were served the FRESH variant, and only a browser inside the page got the
+ * stale one. Measured on one url within the same second:
+ *
+ *   Origin sent (a browser)  → last-modified 2026-08-05T19:08:32Z
+ *   no Origin  (a checker)   → last-modified 2026-08-06T07:50:46Z
+ *
+ * `cache: 'no-store'` does NOT help: it governs the browser's own cache, not
+ * the edge's, and was verified to still return the stale variant. Only a
+ * different url reaches a different cache entry.
+ *
+ * Use this for every CDN file a publisher rewrites between deploys. Do NOT use
+ * it for build artefacts — those change only on deploy, and the post-deploy
+ * `purge_everything` clears all variants at once.
+ */
+export function cdnFreshUrl(url: string, bucketMs: number = CDN_FRESHNESS_BUCKET_MS): string {
+  const token = Math.floor(Date.now() / bucketMs);
+  return `${url}${url.includes('?') ? '&' : '?'}v=${token}`;
+}
