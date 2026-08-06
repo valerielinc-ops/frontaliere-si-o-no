@@ -63,7 +63,12 @@
  * tie breaks on a stable key.
  */
 
-import { buildCorpusModel, tokenize, type RelatedArticleInput } from './relatedArticlesIndex';
+import {
+  buildCorpusModel,
+  tokenize,
+  type CorpusModel,
+  type RelatedArticleInput,
+} from './relatedArticlesIndex';
 
 /**
  * Minimum raw cosine for an edge to exist at all. Below this the pair shares
@@ -122,11 +127,15 @@ export interface TopicAssignment {
  */
 export function buildTopicComponents(
   articles: readonly RelatedArticleInput[],
-  opts: { threshold?: number; mutualK?: number } = {},
+  opts: { threshold?: number; mutualK?: number; model?: CorpusModel } = {},
 ): string[][] {
   const threshold = opts.threshold ?? TOPIC_EDGE_THRESHOLD;
   const mutualK = opts.mutualK ?? TOPIC_MUTUAL_K;
-  const model = buildCorpusModel(articles);
+  // `model` is an optimisation, not a variant: building it is the expensive
+  // part, and `assignArticlesToTopics` already has one for the same corpus.
+  // Without this the model is rebuilt twice per call — four times per build
+  // across the two article sections.
+  const model = opts.model ?? buildCorpusModel(articles);
   const ids = model.docs.map((d) => d.articleId);
 
   // Each unordered pair scored once (`id < other` skips the mirror).
@@ -249,7 +258,7 @@ export function assignArticlesToTopics(
   // then inherit the winner. Components with no assigned member stay
   // unassigned: propagation spreads a decision, it never invents one.
   let propagatedCount = 0;
-  for (const members of buildTopicComponents(articles, opts)) {
+  for (const members of buildTopicComponents(articles, { ...opts, model })) {
     if (members.length < 2) continue;
     const votes = new Map<string, number>();
     for (const m of members) {

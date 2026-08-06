@@ -247,6 +247,61 @@ describe('topic clustering', () => {
   });
 });
 
+describe('hreflang invariant: every locale renders the same article set', () => {
+  const itTitles = new Map([
+    ['a', 'Imposta alla fonte'],
+    ['b', 'Treni TILO'],
+    ['c', 'Cassa malati'],
+  ]);
+  const itExcerpts = new Map([
+    ['a', 'aliquote'],
+    ['b', 'abbonamenti'],
+    ['c', 'premi'],
+  ]);
+  const dates = new Map([['a', '2026-01-01']]);
+
+  it('keeps an article whose locale meta chunk has no entry for it', async () => {
+    const { buildLocaleRows } = await import('../build-plugins/topicClusterHubsPlugin');
+    // `de` is missing 'c' entirely — the case that would otherwise drop the
+    // article from the German hub alone and split the hreflang cluster.
+    const rows = buildLocaleRows({
+      locale: 'de',
+      itTitles,
+      itExcerpts,
+      localeTitles: new Map([['a', 'Quellensteuer'], ['b', 'TILO-Züge']]),
+      localeExcerpts: new Map([['a', 'Sätze']]),
+      urlSlugs: {},
+      dates,
+    });
+
+    expect([...rows.keys()].sort()).toEqual(['a', 'b', 'c']);
+    // Translated where available…
+    expect(rows.get('a')!.title).toBe('Quellensteuer');
+    // …and falling back to Italian rather than disappearing.
+    expect(rows.get('c')!.title).toBe('Cassa malati');
+    expect(rows.get('b')!.excerpt).toBe('abbonamenti');
+  });
+
+  it('produces the identical id set for all four locales', async () => {
+    const { buildLocaleRows } = await import('../build-plugins/topicClusterHubsPlugin');
+    const idSets = TOPIC_HUB_LOCALES.map((locale) =>
+      [
+        ...buildLocaleRows({
+          locale,
+          itTitles,
+          itExcerpts,
+          // Each locale is missing a different id.
+          localeTitles: new Map([[locale === 'it' ? 'a' : locale === 'en' ? 'b' : 'c', 'x']]),
+          localeExcerpts: new Map(),
+          urlSlugs: {},
+          dates,
+        }).keys(),
+      ].sort(),
+    );
+    for (const set of idSets) expect(set).toEqual(idSets[0]);
+  });
+});
+
 describe('searchConsoleCompat self-map', () => {
   it('resolves every topic hub to a live target instead of leaving it 404', async () => {
     const { resolveSearchConsoleCompatTarget } = await import(

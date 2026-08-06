@@ -230,30 +230,79 @@ function articleHref(locale: TopicHubLocale, section: TopicHubSection, urlSlug: 
 }
 
 /**
- * Read one section's article rows for one locale. Titles/excerpts come from
- * that locale's meta chunk; ids, URL slugs and dates are locale-independent.
+ * Read one section's article rows for one locale, over the ITALIAN master id
+ * set, falling back to the Italian title/excerpt when this locale's meta chunk
+ * has no entry for an id.
+ *
+ * The master set and the fallback are what make the hreflang guarantee hold BY
+ * CONSTRUCTION rather than by coincidence. Membership and the above/below-floor
+ * decision are computed once on the Italian corpus; if the rendered row set
+ * were instead built from each locale's own meta chunk, an id present in `it`
+ * and missing in `de` would silently drop only from the German hub. In the
+ * worst case that page falls under MIN_INDEXABLE_WORDS and becomes a
+ * `noindex` bridge while the other three locales stay indexable hubs on the
+ * same hreflang cluster — the exact violation this plugin's header claims is
+ * impossible.
+ *
+ * The four `blog-meta-*.ts` chunks happen to carry identical id sets today,
+ * but nothing enforces that at build time. `articleHubPagesPlugin.ts` defends
+ * against the same gap the same way (`localeBySlug.get(slug) ?? itBySlug.get(slug)`).
  */
+export function buildLocaleRows(args: {
+  locale: TopicHubLocale;
+  itTitles: ReadonlyMap<string, string>;
+  itExcerpts: ReadonlyMap<string, string>;
+  localeTitles: ReadonlyMap<string, string>;
+  localeExcerpts: ReadonlyMap<string, string>;
+  urlSlugs: Record<string, Record<string, string>>;
+  dates: ReadonlyMap<string, string>;
+}): Map<string, ArticleRow> {
+  const { locale, itTitles, itExcerpts, localeTitles, localeExcerpts, urlSlugs, dates } = args;
+  const rows = new Map<string, ArticleRow>();
+  // Iterate the ITALIAN ids, never the locale's own: that is the invariant.
+  for (const [id, itTitle] of itTitles) {
+    rows.set(id, {
+      id,
+      title: localeTitles.get(id) ?? itTitle,
+      excerpt: localeExcerpts.get(id) ?? itExcerpts.get(id) ?? '',
+      urlSlug: urlSlugs[id]?.[locale] ?? id,
+      date: dates.get(id) ?? '',
+    });
+  }
+  return rows;
+}
+
 function readSectionRows(
   rootDir: string,
   section: TopicHubSection,
   locale: TopicHubLocale,
   urlSlugs: Record<string, Record<string, string>>,
   dates: Map<string, string>,
+  itTitles: ReadonlyMap<string, string>,
+  itExcerpts: ReadonlyMap<string, string>,
 ): Map<string, ArticleRow> {
   const cfg = sectionCfg(section);
-  const titles = readArticleSlugs(fs, np, rootDir, locale as 'it', cfg.metaPrefix);
-  const excerpts = readArticleExcerpts(fs, np, rootDir, locale as 'it', cfg.metaPrefix);
-  const rows = new Map<string, ArticleRow>();
-  for (const { slug, title } of titles) {
-    rows.set(slug, {
-      id: slug,
-      title,
-      excerpt: excerpts.get(slug) ?? '',
-      urlSlug: urlSlugs[slug]?.[locale] ?? slug,
-      date: dates.get(slug) ?? '',
-    });
-  }
-  return rows;
+  const localeTitles =
+    locale === 'it'
+      ? itTitles
+      : new Map(
+          readArticleSlugs(fs, np, rootDir, locale as 'it', cfg.metaPrefix).map((a) => [
+            a.slug,
+            a.title,
+          ]),
+        );
+  const localeExcerpts =
+    locale === 'it' ? itExcerpts : readArticleExcerpts(fs, np, rootDir, locale as 'it', cfg.metaPrefix);
+
+  return buildLocaleRows({
+    locale,
+    itTitles,
+    itExcerpts,
+    localeTitles,
+    localeExcerpts,
+    urlSlugs,
+    dates,
+  });
 }
 
 function renderBreadcrumb(
@@ -538,9 +587,19 @@ export function computeSectionTopics(
   const urlSlugs = readBlogUrlSlugs(fs, np, rootDir, cfg.slugDataFile, cfg.slugConst);
   const dates = readArticleDates(fs, np, rootDir, cfg.registryFile);
 
+  // Italian is the master: it decides which ids exist, and every locale renders
+  // that same id set (see readSectionRows for why this is load-bearing).
+  const itTitles = new Map(
+    readArticleSlugs(fs, np, rootDir, 'it', cfg.metaPrefix).map((a) => [a.slug, a.title]),
+  );
+  const itExcerpts = readArticleExcerpts(fs, np, rootDir, 'it', cfg.metaPrefix);
+
   const rowsByLocale = new Map<TopicHubLocale, Map<string, ArticleRow>>();
   for (const locale of TOPIC_HUB_LOCALES) {
-    rowsByLocale.set(locale, readSectionRows(rootDir, section, locale, urlSlugs, dates));
+    rowsByLocale.set(
+      locale,
+      readSectionRows(rootDir, section, locale, urlSlugs, dates, itTitles, itExcerpts),
+    );
   }
 
   // Membership from the Italian corpus only — see the module header.
