@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import ts from 'typescript';
+import { topLevelNames } from '../scripts/ci/lib/duplicateDeclarations.mjs';
 
 /**
  * `main` shipped a duplicate-symbol SyntaxError.
@@ -36,38 +36,6 @@ function sourceFilesUnder(dir: string): string[] {
     .filter((e) => e.isFile() && (e.name.endsWith('.ts') || e.name.endsWith('.mts')))
     .filter((e) => !e.name.endsWith('.d.ts'))
     .map((e) => path.join(dir, e.name));
-}
-
-/** Every name bound at the TOP LEVEL of a module — the scope that can collide. */
-function topLevelNames(src: string, fileName: string): string[] {
-  const sf = ts.createSourceFile(fileName, src, ts.ScriptTarget.ESNext, true);
-  const names: string[] = [];
-
-  const pushBindingName = (name: ts.BindingName): void => {
-    if (ts.isIdentifier(name)) {
-      names.push(name.text);
-      return;
-    }
-    // Destructuring at module scope: `const { a, b } = …`
-    for (const el of name.elements) {
-      if (ts.isBindingElement(el)) pushBindingName(el.name);
-    }
-  };
-
-  for (const stmt of sf.statements) {
-    if (ts.isVariableStatement(stmt)) {
-      for (const decl of stmt.declarationList.declarations) pushBindingName(decl.name);
-    } else if (
-      (ts.isFunctionDeclaration(stmt) || ts.isClassDeclaration(stmt)) &&
-      stmt.name !== undefined
-    ) {
-      names.push(stmt.name.text);
-    } else if (ts.isEnumDeclaration(stmt)) {
-      names.push(stmt.name.text);
-    }
-    // Interfaces and type aliases are erased and legally merge — not collisions.
-  }
-  return names;
 }
 
 const FILES = PLUGIN_DIRS.flatMap(sourceFilesUnder);
