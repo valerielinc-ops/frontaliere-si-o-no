@@ -56,17 +56,27 @@ describe('shard push scripts — safety rail invariants (issue #4881)', () => {
         expect(script).toMatch(/SHARD_SHRINK_GUARD_PCT="\$\{SHARD_SHRINK_GUARD_PCT:-50\}"/);
       });
 
-      it('refuses the push on an unguarded shrink with a hard error, never a downgraded warning', () => {
+      // The guard's own `if … fi`, delimited by its closing `fi` at the block's
+      // indent rather than a fixed character window. A fixed window silently
+      // stops covering the block when the block grows (it did: the shrink-ack
+      // branch pushed `exit 1` past 1200 chars), and it can just as silently
+      // start matching unrelated code below the guard — both directions make
+      // the assertions stop meaning what they say.
+      const guardBlock = (() => {
         const idx = script.indexOf('SHARD_SHRINK_GUARD_PCT="${SHARD_SHRINK_GUARD_PCT:-50}"');
         expect(idx).toBeGreaterThan(-1);
-        const guardBlock = script.slice(idx, idx + 1200);
+        const rest = script.slice(idx);
+        const end = rest.search(/\n {4}fi\n/);
+        expect(end).toBeGreaterThan(-1);
+        return rest.slice(0, end);
+      })();
+
+      it('refuses the push on an unguarded shrink with a hard error, never a downgraded warning', () => {
         expect(guardBlock).toMatch(/::error::/);
         expect(guardBlock).toMatch(/exit 1/);
       });
 
       it('logs loudly (::warning::) when the override is used — never silent (AGENTS.md #2)', () => {
-        const idx = script.indexOf('SHARD_SHRINK_GUARD_PCT="${SHARD_SHRINK_GUARD_PCT:-50}"');
-        const guardBlock = script.slice(idx, idx + 1200);
         expect(guardBlock).toMatch(overrideVarPattern);
         expect(guardBlock).toMatch(/::warning::.*proceeding with an INTENTIONAL shrink push/);
       });
