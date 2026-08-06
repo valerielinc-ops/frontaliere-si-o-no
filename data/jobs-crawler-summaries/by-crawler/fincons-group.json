@@ -1,18 +1,56 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-08-05T22:20:48.442Z",
-  "total": 3,
-  "newCount": 0,
+  "generatedAt": "2026-08-06T11:39:42.715Z",
+  "total": 4,
+  "newCount": 1,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1261,
-  "avgDurationMs": 1261,
+  "durationMs": 1501,
+  "avgDurationMs": 1501,
   "durationHistory": [
-    1261
+    1501
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Senior C# / .NET Engineer",
+      "slug": "senior-c-net-engineer-fincons-group-lugano-switzerland",
+      "url": "https://fincons.applytojob.com/apply/7OqPcl4U5Q/Senior-C-NET-Engineer",
+      "applyUrl": "https://fincons.applytojob.com/apply/7OqPcl4U5Q/Senior-C-NET-Engineer",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-08-06",
+      "validThrough": "2026-11-04",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Mid Level",
+        "uniqueJobCode": "job_20260806112921_WOJ1NF7J6VQ3WF62",
+        "listingLocation": "Lugano, Switzerland",
+        "listingDepartment": ""
+      },
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Accounts Payable & Accounting Specialist",
