@@ -110,21 +110,69 @@ describe('#5130 — the same split is applied to the cluster sibling (AGENTS.md 
     expect(CLUSTER_CODE).toContain("profileRecord('cluster-thin'");
   });
 
+  /**
+   * The per-context EMIT block: from the render call to the end-of-iteration
+   * timer. Scoping matters now that the plugin has a second, legitimate
+   * producer — the locale-shard render-skip path decides for contexts this
+   * shard does not render (#5242). Counting decisions file-wide would make
+   * "exactly once" meaningless; counting them per branch keeps it exact.
+   */
+  function sliceBetween(from: string, to: string): string {
+    const start = CLUSTER_CODE.indexOf(from);
+    const end = CLUSTER_CODE.indexOf(to);
+    // Fail loudly on a moved anchor instead of silently slicing garbage — a
+    // bad slice would otherwise read as "zero decisions", i.e. a green-looking
+    // shape assertion that stopped inspecting anything.
+    expect(start, `anchor not found: ${from}`).toBeGreaterThan(-1);
+    expect(end, `anchor not found: ${to}`).toBeGreaterThan(start);
+    return CLUSTER_CODE.slice(start, end);
+  }
+
+  const EMIT_BLOCK = () =>
+    sliceBetween('const out = renderClusterPage({', "profileRecord('render-cluster-page'");
+  const SKIP_BLOCK = () =>
+    sliceBetween('if (!shouldEmitLocale(locale)) {', 'const altKey = altKeyByCtx.get(ctx)');
+
   it('keeps the decision before the thin conversion and each timer on its own phase', () => {
-    // Both calls now take a trailing options argument (`primaryPath` for the
-    // decision, `enrich` for the thin build — issue #5168), so match up to the
-    // last positional arg rather than the closing paren.
-    const decideAt = CLUSTER_CODE.indexOf("trafficFilter.decideMulti(__clAllPaths, 'gsc-keyword-landing'");
-    const decideRecordAt = CLUSTER_CODE.indexOf("profileRecord('cluster-decide'");
-    const thinAt = CLUSTER_CODE.indexOf('buildClusterThinHtml(out.html, locale');
-    const thinRecordAt = CLUSTER_CODE.indexOf("profileRecord('cluster-thin'");
+    // The decision moved behind `decideClusterEmission()` (#5242) — it builds
+    // the candidate paths and calls `decideMulti` itself — but the property
+    // #5130 defends is unchanged: the tier is decided from candidate PATHS
+    // before the HTML is touched, and neither timer swallows the other's phase.
+    const block = EMIT_BLOCK();
+    const decideAt = block.indexOf('const __clEmission = decideClusterEmission({');
+    const decideRecordAt = block.indexOf("profileRecord('cluster-decide'");
+    const thinAt = block.indexOf('buildClusterThinHtml(out.html, locale');
+    const thinRecordAt = block.indexOf("profileRecord('cluster-thin'");
     expect(decideAt).toBeGreaterThan(-1);
+    expect(thinAt).toBeGreaterThan(-1);
     expect(decideAt).toBeLessThan(decideRecordAt);
     expect(decideRecordAt).toBeLessThan(thinAt);
     expect(thinAt).toBeLessThan(thinRecordAt);
   });
 
   it('still decides exactly once', () => {
-    expect(CLUSTER_CODE.split("decideMulti(__clAllPaths, 'gsc-keyword-landing'").length - 1).toBe(1);
+    // Two levels, because the decision now has an indirection the old
+    // single-call-site count could not see through:
+    //
+    //   1. the emit block takes exactly ONE decision, and
+    //   2. that decision resolves to exactly ONE `decideMulti` in the whole
+    //      file — otherwise a duplicate hidden INSIDE `decideClusterEmission`
+    //      would keep (1) at one and re-introduce the double work #5130
+    //      exists to prevent.
+    expect(EMIT_BLOCK().split('decideClusterEmission(').length - 1).toBe(1);
+    expect(CLUSTER_CODE.split('.decideMulti(').length - 1).toBe(1);
+  });
+
+  it('times the render-skip path decision on its own phase, and takes it once', () => {
+    // The second producer runs the same decision for the locales this shard
+    // does not render, so it carries the same per-page cost — it gets its own
+    // phase name rather than hiding inside the untimed remainder, which is the
+    // whole point of #5130.
+    const block = SKIP_BLOCK();
+    expect(block.split('decideClusterEmission(').length - 1).toBe(1);
+    const decideAt = block.indexOf('decideClusterEmission({');
+    const recordAt = block.indexOf("profileRecord('cluster-decide-skip'");
+    expect(decideAt).toBeGreaterThan(-1);
+    expect(recordAt).toBeGreaterThan(decideAt);
   });
 });
