@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Wed, 05 Aug 2026 21:13:49 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2026 00:13:15 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -16,6 +16,56 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Birth of a border child within 20 km: registry 2026</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/newborn-cross-border-worker-within-20km/</link>
+      <description><![CDATA[Practical guide for border workers within 20 km of the border: registration of the newborn, family allowances and consular procedures according to the 2026 regulations.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- New Frontier Agreement in force from 1 January 2024
+- AVS/AI/IPG rate 5.3% on income from work
+- Italian personal income tax: 23% up to 28,000 euros, 35% up to 50,000, 43% over
+
+## Key facts
+- **What**: New Frontier Agreement signed on 23 December 2020
+- When: Entered into force 1 January 2024
+- Where: Canton of Ticino and border regions Italy-Switzerland
+- Who: Frontier workers with G permit
+- Amount: Deductible €10,000 for new frontier workers, €7,500 for old
+- Swiss rate: AVS/AI/IPG 5.3% employee, AD/AC 1.1% (cap CHF 148'200)
+- Italian rate: IRPEF 23% up to €28'000, 35% €28'001–50'000, 43% over
+
+Lead: The birth of a child for border families residing within 20 km of the border involves specific administrative requirements both in Switzerland and in Italy. According to current legislation, the registration of the newborn must be carried out at the civil registry office of the Italian municipality of residence within ten days of birth, presenting the birth certificate issued by the Swiss hospital and the G permit of the working parent. For border workers, the family allowance is managed by INPS on the basis of tax residence in Italy, while Swiss social security contributions (AVS/AI/IPG 5.3%, AD/AC 1.1% with a ceiling of CHF 148'200, LAINF 0.7-1.5% and LPP 7–18% by age group) are withheld directly at source by the Swiss employer. The source tax remains unique in Switzerland;
+## Tax and social security aspects
+The management of labour income for border workers remains unchanged: the tax at source is withheld exclusively in Switzerland, with rates established by federal and cantonal law and administered by the AFC/ESTV. On the salary, the AVS/AI/IPG contributions equal to 5.3% for the employee share, the AD/AC at 1.1% with a limit of CHF 148'200, the LAINF between 0.7% and 1.5% and the LPP between 7% and 18% depending on the age of the worker (calculated from the age of 25) apply. In Italy, foreign income must be declared in form 730, EC framework, where a tax credit is obtained that avoids double taxation according to the convention of 9 December 1976. The Italian IRPEF rates are: 23% up to €28,000, 35% from €28,001 to €50,000 and 43% over €50,000.
+
+With regard to family allowances, INPS recognizes the right to the benefit if at least one parent is a tax resident in Italy and the family unit resides within 20 km of the border. The amount varies according to the number of children and total income, but is not subject to Swiss contributions. The new tax agreement, signed on 23 December 2020 and ratified in Italy with Law 83 of 13 June 2023, also introduces the possibility of choosing health insurance (LAMal) through a right of option for G border workers, with an annual deductible that can vary from CHF 300 to CHF 2500 for adults.
+
+### Scenario Comparison
+Let's consider two situations
+
+## Useful tools for your case
+To verify your within/over 20 km tax scenario, use the [net salary calculator](nav:calculator) and the [tax return guide](nav:tax-return).
+1. Obtain the international birth certificate from the Swiss hospital within 24 hours of the birth.
+2. Translate the birth certificate into Italian if it was issued in German or French (service offered by border towns).
+3. Present yourself to the Italian municipality's record office within ten days of the birth, bringing:
+   - Original and translated birth certificate
+   - Valid identity document for the parent
+   - Current permit G
+   - State of family or self-declaration of residence
+4. Request the registration of the newborn at the local population register (AIRE if applicable).
+5. Notify the INPS by filling out the SR163 form or by using the INPS portal, providing details of the child and the requesting parent.
+6. Verify with the Swiss employer that the AVS/AI/IPG 5.3%, AD/AC 1.1%, LAINF 0.7-1.5% and LPP 7-18% contributions are correctly applied to the salary.
+7. Check that only the tax is withheld in Switzerland and that the tax credit is claimed in the 730 tax return the following year.
+8. If you wish to exercise the right of option for the LAMal, submit the application to the chosen Swiss sickness fund within three months of starting work.
+
+Important deadlines: The anagrafic registration must be made within 10 days of birth, and the annual deadline for filing income tax returns in Italy (usually 30 June). The transitional regime for old border residents remains valid until 31 December 2033, while the new €10,000 threshold applies to all new permit G's issued after 17 July 2023.
+
+For further information on calculating and verifying the impact on net pay, use the dedicated tool: [Calculator for salary](nav:calculator).]]></content:encoded>
+      <pubDate>Thu, 06 Aug 2026 00:13:15 GMT</pubDate>
+      <guid isPermaLink="true">https://frontaliereticino.ch/en/cross-border-articles/newborn-cross-border-worker-within-20km/</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/nascita-figlio-frontaliero-entro-20km.webp" medium="image"/>
+    </item>
     <item>
       <title>Urgent work must be done on the road leading to Serpiano</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/mendrisio-road-serpiano-urgent-work/</link>
@@ -3133,55 +3183,6 @@ For a precise net salary calculation, use our [tax comparator](nav:calculator): 
       <guid isPermaLink="true">https://frontaliereticino.ch/en/cross-border-articles/swiss-franc-pressure-rise/</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/franco-svizzero-tornano-le-pressioni-al-rialzo.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Frontier workers: it matters where you work, not the company headquarters</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/employer-headquarters-cross-border-tax/</link>
-      <description><![CDATA[The Revenue Agency clarifies: the tax regime of frontier workers depends on the place of the physical service, not on the employer's address.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- The employer's registered office may be outside the border area
-- Counts the physical place where the work is performed
-- Basic requirement: residence within 20 km of the border
-- The limits for teleworking set at 25% per year have been confirmed
-
-## Key facts
-- **What**: Answer question no. 126/2026 Revenue Agency
-- When: Enforcement of post-Agreement 2020 legislation
-- Where: Border area (Lombardy, Piedmont, Ticino, Graubünden)
-- Who: Scientific informant resident in Ticino
-- Amount: Deductible of 10,000 euros for new frontier workers
-
-The Revenue Agency has dissolved an interpretative knot that burdened thousands of cross-border workers through the answer to call no. 126/2026. The case under consideration concerns a worker residing in a Swiss border municipality in the Canton of Ticino, employed as a scientific informant of the drug. The professional operates entirely in Lombardy, therefore within 20 km of the Swiss border, but on behalf of a company that has its registered office in Veneto, a region totally unrelated to the map of border areas. The central question was whether the geographical location of the employer's administrative headquarters could preclude access to the preferential tax regime provided for by the New Agreement between Italy and Switzerland.
-
-### The primacy of physical performance
-
-The Tax Office has determined that the tax status of the worker is governed by
-## Old and new border crossers: the differences in the withdrawal
-
-The Revenue Agency's clarification fits into a tax system now divided into two distinct tracks. The so-called old frontier workers are those who worked in Switzerland for at least one day between 31 December 2018 and 17 July 2023. For this category, the agreement guarantees the maintenance of the exclusive taxation regime at source in Switzerland, with a total IRPEF exemption in Italy. This right remains valid even in the event of a change of employer, provided that the interruption of the relationship does not exceed 12 months and that the new employment remains in the border area.
-
-### The New Hire Mechanism
-
-For those who started the business from 18 July 2023, the situation changes radically towards a competing taxation model. In this scenario, Switzerland applies a reduced source tax, equal to 80% of the ordinary tax calculated according to the cantonal tables. The worker is then required to present the [dichiarazione dei redditi](nav:tax-return) in Italy. Here, the entire income is subject to IRPEF taxation, but with specific mitigation mechanisms: an exemption deductible of 10,000 euros and the full deductibility of Swiss mandatory social security contributions, such as [AVS](nav:pension) and [LPP](nav:pension). To avoid double taxation, a tax credit is recognized for what has already been paid to the Swiss authorities.
-
-A critical aspect concerns the management of the smart
-## Procedures and checks for the worker
-
-To benefit correctly from the tax regime, the worker must ensure that their contractual and logistical situation complies with the parameters defined by interpello 126/2026. The first step is to verify the kilometric distance between the municipality of residence and the border, which must be less than or equal to 20 km. Subsequently, it is necessary for the employment contract or a statement from the employer to clearly specify that the performance takes place within the border area, regardless of where the company's legal headquarters is located. This document is essential in case of checks by Italian tax authorities.
-
-### Declaration obligations and deadlines
-
-New border workers must pay particular attention to the completion of specific tables in the Redditi or 730 model. It is necessary to report the Swiss gross income, deduct pension contributions and apply the €10,000 exemption. The calculation of the tax credit requires proof of payments made in Switzerland for income tax at source. Even old border workers, although enjoying exemption, must monitor any changes in their situation, such as exceeding the 12-month inactivity limit that could make them lose the transitional regime of favor.
-
-The tax authority's decision represents a revolution for Italian companies located far from the border that intend to take advantage of professionals residing in Switzerland. The possibility of correctly classifying these workers as border workers, even with headquarters in Venice or Rome, opens up new recruitment opportunities without creating tax uncertainty for the employee. To calculate with precision the impact of taxes on the payroll and check the actual net, it is possible to use the dedicated [calculator](nav:calculator), which takes into account the current tax rates and the allowances provided for by law 83/2023.
-
-It is recommended to always keep copies of residence certificates and time sheets that attest to physical presence in the border area, especially for itinerant professions such as scientific informants. Compliance with the requirements for daily commuting remains an indispensable pillar for maintaining access to the tax benefits provided by the Italian-Swiss order.
-
-*Source: [quifinanza.it](https://quifinanza.it/fisco-tasse/frontalieri-italia-svizzera-sede-datore-2026/1007281/)*]]></content:encoded>
-      <pubDate>Thu, 30 Jul 2026 06:17:09 GMT</pubDate>
-      <guid isPermaLink="true">https://frontaliereticino.ch/en/cross-border-articles/employer-headquarters-cross-border-tax/</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/sede-legale-datore-frontalieri.webp" medium="image"/>
     </item>
   </channel>
 </rss>

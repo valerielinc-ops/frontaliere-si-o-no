@@ -9287,6 +9287,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mendrisio-strada-serpiano-urgenti-lavori.title': 'Vanno fatti lavori urgenti alla strada che porta a Serpiano',
     'blog.article.mendrisio-strada-serpiano-urgenti-lavori.excerpt': 'Il Municipio di Mendrisio ha richiesto un credito di 1,2 milioni di franchi per la messa in sicurezza dei cigli stradali e dei tre ponti.',
     'blog.article.mendrisio-strada-serpiano-urgenti-lavori.imageAlt': 'Lavori in corso sulla strada a Serpiano',
+    'blog.article.nascita-figlio-frontaliero-entro-20km.title': 'Nascita figlio frontaliero entro 20 km: anagrafe 2026',
+    'blog.article.nascita-figlio-frontaliero-entro-20km.excerpt': 'Guida pratica per frontalieri entro 20 km dal confine: iscrizione anagrafico del neonato, assegni familiari e procedure consolari secondo le norme 2026.',
+    'blog.article.nascita-figlio-frontaliero-entro-20km.imageAlt': 'Frontaliere con passeggino vicino al valico di Brogeda, Alpi svizzere sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -59468,6 +59468,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nascita-figlio-frontaliero-entro-20km': {
+    title: 'Nascita figlio frontaliero entro 20 km: anagrafe 2026',
+    description: 'Guida completa per frontalieri entro 20 km dal confine: iscrizione anagrafica del neonato, assegni familiari INPS, pratiche consolari e dettagli fiscali secondo',
+    keywords: 'frontalieri, ticino, svizzera, italia, nascita, figlio, frontaliero, entro',
+    ogTitle: 'Nascita figlio frontaliero entro 20 km: anagrafe 2026',
+    ogDescription: 'Scopri le procedure per l\'iscrizione anagrafica, gli assegni familiari e gli adempimenti fiscali per i frontalieri entro 20 km dal confine nel 2026.',
+    canonicalPath: '/articoli-frontaliere/nascita-figlio-frontaliero-entro-20km',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nascita figlio frontaliero entro 20 km: anagrafe 2026",
+      "description": "Guida completa per frontalieri entro 20 km dal confine: iscrizione anagrafica del neonato, assegni familiari INPS, pratiche consolari e dettagli fiscali secondo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nascita-figlio-frontaliero-entro-20km.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere con passeggino vicino al valico di Brogeda, Alpi svizzere sullo sfondo"
+      },
+      "datePublished": "2026-08-06T00:13:15+00:00",
+      "dateModified": "2026-08-06T00:13:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nascita-figlio-frontaliero-entro-20km/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

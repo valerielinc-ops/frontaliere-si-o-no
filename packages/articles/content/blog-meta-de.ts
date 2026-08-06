@@ -9285,6 +9285,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mendrisio-strada-serpiano-urgenti-lavori.title': 'Es müssen dringende Arbeiten an der Straße nach Serpiano durchgeführt werden',
     'blog.article.mendrisio-strada-serpiano-urgenti-lavori.excerpt': 'Die Gemeinde Mendrisio beantragte einen Kredit von 1,2 Millionen Franken für die Sicherung der Strassenränder und der drei Brücken.',
     'blog.article.mendrisio-strada-serpiano-urgenti-lavori.imageAlt': 'Straßenbauarbeiten in Serpiano',
+    'blog.article.nascita-figlio-frontaliero-entro-20km.title': 'Geburt des Grenzgängers im Umkreis von 20 km: Meldeamt 2026',
+    'blog.article.nascita-figlio-frontaliero-entro-20km.excerpt': 'Praktischer Leitfaden für Grenzgänger innerhalb von 20 km von der Grenze: Registrierung des Neugeborenen, Familienzulagen und konsularische Verfahren gemäß den Normen 2026.',
+    'blog.article.nascita-figlio-frontaliero-entro-20km.imageAlt': 'Grenzgänger mit Kinderwagen beim Zollposten Brogeda, Schweizer Alpen im Hintergrund',
 };
 
 export default blogMetaDe;
