@@ -44,6 +44,7 @@ import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { WriteCollector } from './batchWrite';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
+import { HUB_SLUG_BY_LOCALE } from './seoHubsData';
 import {
   readArticleDates,
   readArticleExcerpts,
@@ -212,9 +213,16 @@ function sectionCfg(section: TopicHubSection) {
   }>)[section];
 }
 
+/**
+ * Path of the section's flat archive, the page every hub links back to.
+ *
+ * The `tutti`/`all`/`alle`/`tous` map comes from `seoHubsData` rather than a
+ * local literal: it already exists there and backs the archive the article
+ * engine emits. A fourth copy would drift the day one locale's slug changes,
+ * and every hub would then link at a 404 (AGENTS.md #6).
+ */
 function archivePath(locale: TopicHubLocale, section: TopicHubSection): string {
-  const allSlug: Record<TopicHubLocale, string> = { it: 'tutti', en: 'all', de: 'alle', fr: 'tous' };
-  return `${LOCALE_PREFIX[locale]}/${sectionCfg(section).indexSlug[locale]}/${allSlug[locale]}/`;
+  return `${LOCALE_PREFIX[locale]}/${sectionCfg(section).indexSlug[locale]}/${HUB_SLUG_BY_LOCALE[locale].tutti}/`;
 }
 
 function articleHref(locale: TopicHubLocale, section: TopicHubSection, urlSlug: string): string {
