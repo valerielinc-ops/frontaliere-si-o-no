@@ -56,6 +56,8 @@
  *   node scripts/ci/check-hydrated-article-parity.mjs --json
  */
 
+import { readFileSync } from 'node:fs';
+
 const args = process.argv.slice(2);
 const flag = (name, fallback) => {
   const hit = args.find((a) => a.startsWith(`--${name}=`));
@@ -75,10 +77,23 @@ if (SECTION !== 'frontaliere' && SECTION !== 'svizzera') {
 }
 
 /**
- * The IT hub paths. Other locales are served from their own shards under
- * different prefixes; pass --hub= to point this at one of those.
+ * The hub path, derived from the section-slug map rather than written out
+ * here. `scripts/lib/section-shard-slugs.json` declares itself the single
+ * source of truth for these slugs and documents the derivation: `it` sits at
+ * the root, every other locale under its own prefix. Reading it means a slug
+ * rename cannot leave this gate probing a 404 and reporting "no cards" — which
+ * would be a red gate for a reason that is not the defect.
  */
-const DEFAULT_HUB = SECTION === 'svizzera' ? '/articoli-svizzera/' : '/articoli-frontaliere/';
+const SECTION_KEY = SECTION === 'svizzera' ? 'articolisvizzera' : 'articolifrontaliere';
+const SLUGS = JSON.parse(
+  readFileSync(new URL('../lib/section-shard-slugs.json', import.meta.url), 'utf8'),
+);
+const slug = SLUGS[SECTION_KEY]?.[LOCALE];
+if (!slug) {
+  console.error(`[hydrated-parity] no slug for ${SECTION_KEY}/${LOCALE} in section-shard-slugs.json`);
+  process.exit(1);
+}
+const DEFAULT_HUB = LOCALE === 'it' ? `/${slug}/` : `/${LOCALE}/${slug}/`;
 const HUB = flag('hub', DEFAULT_HUB);
 
 /** The client surfaces, exactly as the app requests them. */

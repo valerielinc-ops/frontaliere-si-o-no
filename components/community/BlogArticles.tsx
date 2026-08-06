@@ -3,9 +3,9 @@ import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
 import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18nParams, getLocale, t as translate } from '@/services/i18n';
 import { fetchArticleOverlay, mergeOverlay } from '@/services/articlesOverlay';
-import { runtimeArticleRecords, fetchArticleBodyParts, publishRuntimeArticleBody } from '@/services/runtimeArticleResolution';
+import { runtimeArticleRecords, fetchArticleBodyParts, publishRuntimeArticleBody, publishedSlugsForIds } from '@/services/runtimeArticleResolution';
 import type { Locale } from '@/services/i18n';
-import { buildPath, preloadBlogData } from '@/services/router';
+import { buildPath, preloadBlogData, learnRuntimeBlogSlugs, learnRuntimeSwissSlugs } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import { stripMarkdownPlain } from '@/build-plugins/shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from '@/build-plugins/shared/faqQuestionPrefixes';
@@ -1253,9 +1253,30 @@ function BlogArticles({
    (max: string, a: { date?: string }) => (a.date && a.date > max ? a.date : max),
    '',
  );
- void fetchArticleOverlay(section, getLocale(), data.length, bundledNewest || undefined).then((overlay) => {
+ void fetchArticleOverlay(section, getLocale(), data.length, bundledNewest || undefined).then(async (overlay) => {
    const { articles: merged, added } = mergeOverlay(seeded.articles, overlay, getLocale());
-   if (added > 0) setArticles(merged);
+   if (added === 0) return;
+
+   // Teach the router these articles' slugs BEFORE the cards paint, not
+   // after. `buildPath` falls back to the raw id when it has no slug, and on
+   // en/de/fr the slug is localized and never equals the id — so the card
+   // would go on screen linking a 404. Caught by
+   // scripts/ci/check-hydrated-article-parity.mjs on svizzera/de and verified
+   // live: the id URL 404s while the real slug URL serves.
+   //
+   // The cost lands only when the bundle is genuinely behind (`added > 0`),
+   // and `loadPublishedSlugMaps` caches the document, so a visitor pays for it
+   // once. Learning first costs those cards a moment; publishing a dead link
+   // costs the visitor the article.
+   const knownIds = new Set(seeded.articles.map((a: { id: string }) => a.id));
+   const freshIds = merged
+     .filter((a: { id: string }) => !knownIds.has(a.id))
+     .map((a: { id: string }) => a.id);
+   const pairs = await publishedSlugsForIds(section, freshIds).catch(() => []);
+   const learn = section === 'svizzera' ? learnRuntimeSwissSlugs : learnRuntimeBlogSlugs;
+   for (const [id, slugs] of pairs) learn(id, slugs);
+
+   setArticles(merged);
  }).catch(() => {});
  }).catch(() => {});
  }, [section]);
