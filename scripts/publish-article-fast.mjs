@@ -37,7 +37,17 @@
 //      `/images/blog/<file>` refs to the CDN URL. Applied to every written
 //      file (index + bridge), matching blogImageCdnFinalizePlugin's
 //      unconditional whole-dist walk in the full build.
-//   6. scripts/offload-generated-images-cdn.mjs, unmodified, as a subprocess
+//   6. renderArticleHubPages({section}) (issue #4881 Fase 1) — re-renders the
+//      section's `/tutti/` archive + pagination for all 4 locales so the
+//      just-published article is immediately LISTED, not merely reachable by
+//      direct URL. Calls the SAME renderArticleHubPagesCore the full build's
+//      emitSeoHubs uses (build-plugins/seoHubsPlugin.ts) — byte-identical by
+//      construction, proven in
+//      tests/render-article-hub-pages-narrow-vs-full.test.ts. Not run through
+//      steps 2-5: those are article-body specific (flat bridge, this
+//      article's own related-picks, hero image) and don't apply to an
+//      archive listing page.
+//   7. scripts/offload-generated-images-cdn.mjs, unmodified, as a subprocess
 //      (CDN_BASE=https://cdn.frontaliereticino.ch — the same value deploy.yml
 //      exports for the en/de/fr shard runners, which process an analogously
 //      pruned single-locale dist). Converts the hardcoded `/assets/...`
@@ -49,22 +59,19 @@
 //      guarded *delete* step is gated on a target dir physically existing —
 //      the rewrite regexes run unconditionally, exactly the shard-dist case
 //      the script's own comments already document).
-//   7. renderArticleHubPages({section}) (issue #4881 Fase 1) — re-renders the
-//      section's `/tutti/` archive + pagination for all 4 locales so the
-//      just-published article is immediately LISTED, not merely reachable by
-//      direct URL. Calls the SAME renderArticleHubPagesCore the full build's
-//      emitSeoHubs uses (build-plugins/seoHubsPlugin.ts) — byte-identical by
-//      construction, proven in
-//      tests/render-article-hub-pages-narrow-vs-full.test.ts. Not run through
-//      steps 2-6: those are article-body specific (flat bridge, this
-//      article's own related-picks, hero image) and don't apply to an
-//      archive listing page.
+//
+//      RUNS LAST, AFTER the archive render (issue #5270). It used to run
+//      before it, so archive pages were written past the only pass that
+//      rewrites `/assets/...` to the CDN — and since the deploy deletes
+//      `dist/assets`, every archive page shipped 9 same-origin asset refs
+//      that are guaranteed 404s (no CSS, no SPA, no AdSense loader; measured
+//      live across all 4 locales and both sections).
 //
 // Writes a summary JSON describing what was rendered, for stream B
 // (incremental shard push) and stream C (fast-publish workflow) to consume:
 //   { id, section, shards: [{locale, subtree, paths, url}, ...], cdnUploads: [{local, key}, ...] }
 //   `paths` per shard = [article index.html, article flat bridge, ...that
-//   locale's hub-archive pages from step 7].
+//   locale's hub-archive pages from step 6].
 //
 // Known gap fixed here, not in the shared renderer: ogPagesPlugin's
 // resolveImagePath() verifies a candidate hero image exists by checking
@@ -75,7 +82,7 @@
 //
 // DANGER (learned the hard way while building this script — see git history
 // for the incident): the images/ symlink is torn down again immediately
-// after step 1, BEFORE step 6 runs. offload-generated-images-cdn.mjs deletes
+// after step 1, BEFORE step 7 runs. offload-generated-images-cdn.mjs deletes
 // files under its TARGETS dirs (thumbnails/brands/insurers/…), and a symlink
 // as an INTERMEDIATE path component is transparent to that delete — it
 // deleted through distDir/images straight into the real public/images/*,
@@ -133,7 +140,7 @@ async function main() {
   // and this script only ever does ONE render per invocation anyway).
   // Without this, CDN_PRECONNECT_HINT is empty at render time, ogPagesPlugin
   // never emits its own preconnect (normally placed right before the
-  // blog-chunk preload links), and step 6's offload script — which DOES get
+  // blog-chunk preload links), and step 7's offload script — which DOES get
   // CDN_BASE below — then finds no existing same-origin preconnect to dedup
   // against and injects a redundant preconnect+dns-prefetch pair of its own
   // at the very top of <head> instead: a real, confirmed byte-identity
@@ -180,7 +187,7 @@ async function main() {
 
   // Remove the symlink itself (unlink — the final path component IS the
   // symlink, so this never follows it into public/images). Must happen
-  // before any of steps 2-6, none of which need distDir/images to exist.
+  // before any of steps 2-7, none of which need distDir/images to exist.
   fs.rmSync(scratchImagesLink, { force: true });
 
   if (entries.length === 0) {
@@ -231,7 +238,48 @@ async function main() {
     fs.writeFileSync(flatAbs, finalBridgeHtml, 'utf-8');
   }
 
-  // ── Step 6: offload-generated-images-cdn.mjs, unmodified, via subprocess ──
+  // ── Step 6: article-hub archive pages (issue #4881 Fase 1) ──
+  // Re-renders each section's `/tutti/` archive + pagination into the SAME
+  // scratch distDir so the newly-published article is immediately LISTED,
+  // not just reachable by direct URL — otherwise it stays orphaned (no
+  // internal link points at it) until the next full deploy. Uses the SAME
+  // renderArticleHubPagesCore the full build's emitSeoHubs calls (see
+  // build-plugins/seoHubsPlugin.ts, #4881), so hub-page bytes are provably
+  // identical to what a full build emits for this section (see
+  // tests/render-article-hub-pages-narrow-vs-full.test.ts) — no second
+  // implementation, no copy-pasted rendering chrome.
+  //
+  // Not postprocessed through steps 2-5 above: those are article-body
+  // specific (flat-redirect bridge, contextual links keyed off THIS
+  // article's own related-articles picks, hero-image CDN rewrite) and do
+  // not apply to an archive listing page (no hero image, no flat bridge).
+  //
+  // BUT IT MUST RUN BEFORE THE CDN OFFLOAD, and used to run after (issue
+  // #5270). The archive HTML carries the same hardcoded `/assets/...`
+  // strings the article pages do (articleHubPagesPlugin.ts emits
+  // `src="/assets/${entryJs}"` as plain text). The offload below is what
+  // turns those into CDN URLs — and the deploy DELETES `dist/assets`, so the
+  // origin does not host them at all. Rendering the archive after the
+  // offload therefore shipped every archive page with 9 same-origin asset
+  // refs that are all guaranteed 404s: measured live on 2026-08-06, all four
+  // locales and both sections served with no CSS, no SPA bundle and no
+  // AdSense loader. A full build was unaffected (there the offload runs
+  // after the whole build, archive included), so the breakage appeared only
+  // after a fast publish and healed at the next deploy — which is why it
+  // stayed invisible.
+  //
+  // The previous ordering grouped this under "not postprocessed through steps
+  // 2-6". That rationale is right for steps 2-5, which are per-article, and
+  // wrong for the offload, which is a whole-dist pass every emitted page
+  // needs — archive included.
+  const { renderArticleHubPages } = await import('../build-plugins/seoHubsPlugin.ts');
+  const hubResult = await renderArticleHubPages({
+    rootDir: ROOT_DIR,
+    distDir,
+    section: args.section,
+  });
+
+  // ── Step 7: offload-generated-images-cdn.mjs, unmodified, via subprocess ──
   // The script hardcodes distDir = path.resolve(process.cwd(), 'dist'), so we
   // spawn it with cwd = a temp dir containing a `dist` symlink to our real
   // scratch --out dir — the same trick, not a fork of its logic.
@@ -253,28 +301,6 @@ async function main() {
   } finally {
     fs.rmSync(tmpDir, { recursive: true, force: true });
   }
-
-  // ── Step 7: article-hub archive pages (issue #4881 Fase 1) ──
-  // Re-renders each section's `/tutti/` archive + pagination into the SAME
-  // scratch distDir so the newly-published article is immediately LISTED,
-  // not just reachable by direct URL — otherwise it stays orphaned (no
-  // internal link points at it) until the next full deploy. Uses the SAME
-  // renderArticleHubPagesCore the full build's emitSeoHubs calls (see
-  // build-plugins/seoHubsPlugin.ts, #4881), so hub-page bytes are provably
-  // identical to what a full build emits for this section (see
-  // tests/render-article-hub-pages-narrow-vs-full.test.ts) — no second
-  // implementation, no copy-pasted rendering chrome.
-  //
-  // Not postprocessed through steps 2-6 above: those are article-body
-  // specific (flat-redirect bridge, contextual links keyed off THIS
-  // article's own related-articles picks, hero-image CDN rewrite) and do
-  // not apply to an archive listing page (no hero image, no flat bridge).
-  const { renderArticleHubPages } = await import('../build-plugins/seoHubsPlugin.ts');
-  const hubResult = await renderArticleHubPages({
-    rootDir: ROOT_DIR,
-    distDir,
-    section: args.section,
-  });
 
   // ── Summary JSON for stream B (shard push) / stream C (workflow) ──
   const sectionShardKey = args.section === 'frontaliere' ? 'articolifrontaliere' : 'articolisvizzera';
