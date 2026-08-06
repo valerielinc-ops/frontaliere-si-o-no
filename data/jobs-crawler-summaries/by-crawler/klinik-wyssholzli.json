@@ -1,16 +1,16 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-08-05T22:20:00.068Z",
-  "total": 10,
+  "generatedAt": "2026-08-06T11:35:56.899Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 4064,
-  "avgDurationMs": 4064,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 5516,
+  "avgDurationMs": 5516,
   "durationHistory": [
-    4064
+    5516
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -311,8 +311,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Mitarbeiterin Administration Mit Zusatzfunktion It Support 60–100% 06/2026",
       "slug": "amministrazione-dei-dipendenti-con-funzione-aggiuntiva-supporto-it-60-100-06-2026-klinik-wyssholzli-herzogenbuchsee",
@@ -345,7 +344,6 @@
       "salaryMax": 119000,
       "currency": "CHF",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -386,7 +384,6 @@
       "salaryMax": 119000,
       "currency": "CHF",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -395,5 +392,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
