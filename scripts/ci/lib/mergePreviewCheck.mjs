@@ -38,16 +38,16 @@ const CHECKED_PATH_RE = /^build-plugins\/(shared\/)?[^/]+\.m?ts$/;
 
 /** True for the same file set `tests/build-plugins-no-duplicate-declarations.test.ts` checks. */
 export function isMergePreviewCheckedPath(path) {
-  return CHECKED_PATH_RE.test(path);
+  return CHECKED_PATH_RE.test(path) && !path.endsWith('.d.ts');
 }
 
-function git(args) {
-  return execFileSync('git', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+function git(cwd, args) {
+  return execFileSync('git', args, { cwd, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
 }
 
-function fetchShaQuiet(sha) {
+function fetchShaQuiet(cwd, sha) {
   try {
-    git(['fetch', '--depth=1', 'origin', sha]);
+    execFileSync('git', ['fetch', '--depth=1', '--quiet', 'origin', sha], { cwd, stdio: 'ignore' });
     return true;
   } catch {
     return false;
@@ -55,27 +55,28 @@ function fetchShaQuiet(sha) {
 }
 
 /**
- * @param {{ headSha: string, baseSha: string, mergeBaseSha: string }} args
+ * @param {{ headSha: string, baseSha: string, mergeBaseSha: string, cwd?: string }} args
  *   `baseSha` = current main tip (caller reads it FRESH, right before this
  *   call). `mergeBaseSha` = merge-base of baseSha and headSha (e.g. from the
  *   GitHub compare API — avoids needing local history deep enough to compute
- *   it via `git merge-base`).
+ *   it via `git merge-base`). `cwd` = git repo to operate in (default:
+ *   process cwd, i.e. the CI job's checkout); overridable for tests.
  * @returns {{ ok: boolean, reason: string, dupesByFile?: Record<string,string[]> }}
  */
-export function checkMergePreviewDuplicates({ headSha, baseSha, mergeBaseSha }) {
+export function checkMergePreviewDuplicates({ headSha, baseSha, mergeBaseSha, cwd = process.cwd() }) {
   if (!headSha || !baseSha || !mergeBaseSha) {
     return { ok: true, reason: 'merge-preview: sha mancante (head/base/merge-base) — skip conservativo' };
   }
 
   for (const sha of new Set([headSha, baseSha, mergeBaseSha])) {
-    if (!fetchShaQuiet(sha)) {
+    if (!fetchShaQuiet(cwd, sha)) {
       return { ok: true, reason: `merge-preview: impossibile fetchare ${sha.slice(0, 12)} (rete o sha non raggiungibile per hash esatto) — skip, non blocca` };
     }
   }
 
   let tree;
   try {
-    tree = git(['merge-tree', '--write-tree', '--merge-base', mergeBaseSha, baseSha, headSha]);
+    tree = git(cwd, ['merge-tree', '--write-tree', '--merge-base', mergeBaseSha, baseSha, headSha]);
   } catch (e) {
     // merge-tree esce non-zero su conflitto reale o storia non risolvibile:
     // non è compito di QUESTO gate (i conflitti veri sono già coperti dal
@@ -87,7 +88,7 @@ export function checkMergePreviewDuplicates({ headSha, baseSha, mergeBaseSha }) 
 
   let files;
   try {
-    files = git(['ls-tree', '-r', '--name-only', treeOid])
+    files = git(cwd, ['ls-tree', '-r', '--name-only', treeOid])
       .split('\n')
       .map((s) => s.trim())
       .filter(Boolean)
@@ -100,7 +101,7 @@ export function checkMergePreviewDuplicates({ headSha, baseSha, mergeBaseSha }) 
   for (const f of files) {
     let content;
     try {
-      content = git(['show', `${treeOid}:${f}`]);
+      content = git(cwd, ['show', `${treeOid}:${f}`]);
     } catch {
       continue; // file non leggibile dal tree risultante -> skip quel file
     }
