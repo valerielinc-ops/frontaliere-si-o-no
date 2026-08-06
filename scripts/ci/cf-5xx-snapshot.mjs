@@ -69,6 +69,7 @@ export function summarizeDiagnostics(rows) {
   const byStatus = {};
   const byHost = {};
   const byCacheStatus = {};
+  const byHostStatusCache = {};
   let total = 0;
   let synthesized = 0;
   let rescuable = 0; // on a serve_stale surface AND a cached copy existed
@@ -82,6 +83,16 @@ export function summarizeDiagnostics(rows) {
     byHost[r.host] = (byHost[r.host] || 0) + n;
     const cache = r.cacheStatus == null ? 'unknown' : String(r.cacheStatus);
     byCacheStatus[cache] = (byCacheStatus[cache] || 0) + n;
+    // The CROSS-TAB, not a fourth marginal. The three above answer "how many 5xx", "on which
+    // host" and "with which cache outcome" separately — and separately they cannot answer the
+    // one question that actually decides the next move: *which surface* had a servable copy.
+    // That gap cost a live GraphQL query to resolve by hand on 2026-08-06, and it is the
+    // question the reopened #5082 turns on: 175 of 443 5xx carried `cache=hit`, all of them on
+    // the apex rules where serve_stale is NOT configured, while every CDN 5xx (where it IS
+    // configured) carried `cache=none`. Cardinality stays trivial — a handful of hosts times a
+    // handful of statuses times a handful of cache outcomes.
+    const xtab = `${r.host}|${r.edgeStatus}|${cache}`;
+    byHostStatusCache[xtab] = (byHostStatusCache[xtab] || 0) + n;
     if (isSynthesizedByEdge(r)) synthesized += n;
     // Host alone is enough to know whether the surface has serve_stale: only the CDN does.
     if (couldServeStaleHaveHelped({ surface: classifySurface({ host: r.host }), cacheStatus: r.cacheStatus })) {
@@ -101,6 +112,9 @@ export function summarizeDiagnostics(rows) {
     byStatus,
     byHost,
     byCacheStatus,
+    // Keyed "<host>|<edgeStatus>|<cacheStatus>". Kept alongside the marginals rather than
+    // replacing them so the single history line written before this existed stays readable.
+    byHostStatusCache,
   };
 }
 
@@ -145,6 +159,7 @@ export function buildSnapshot({ diagnostics, paths, windowHours, until, zoneName
     byStatus: diag.byStatus,
     byHost: diag.byHost,
     byCacheStatus: diag.byCacheStatus,
+    byHostStatusCache: diag.byHostStatusCache,
     byHour: diag.byHour,
     bySurface: surf.bySurface,
     topPaths: surf.topPaths,
@@ -197,6 +212,19 @@ export function renderReport(history) {
     );
   }
   const last = history[history.length - 1];
+  // The line that answers "would serve_stale have helped, and WHERE" at a glance. A 5xx with a
+  // cache outcome that implies a servable copy, on a surface without serve_stale, is the
+  // population worth acting on — see the reopened #5082.
+  if (last?.byHostStatusCache && Object.keys(last.byHostStatusCache).length) {
+    lines.push('');
+    lines.push('Ultimo snapshot, incrocio host x status x cache (una copia servibile esisteva?):');
+    const rows = Object.entries(last.byHostStatusCache).sort((a, b) => b[1] - a[1]);
+    for (const [key, n] of rows.slice(0, 12)) {
+      const [host, status, cache] = key.split('|');
+      const servable = ['hit', 'expired', 'revalidated', 'stale', 'updating'].includes(cache);
+      lines.push(`  ${host.padEnd(28)} ${status}  ${cache.padEnd(11)} ${String(n).padStart(5)}${servable ? '   <- copia servibile' : ''}`);
+    }
+  }
   if (last?.byHour && Object.keys(last.byHour).length) {
     lines.push('');
     lines.push('Ultimo snapshot, 5xx per ora (confronta con gli orari dei run di deploy.yml):');
