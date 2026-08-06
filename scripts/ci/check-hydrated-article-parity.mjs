@@ -65,6 +65,9 @@
  */
 
 import { readFileSync } from 'node:fs';
+import {
+  renderedSlugs, idsInRegistryChunk, missingFromClient, divergentSurfaces,
+} from '../lib/hydratedParity.mjs';
 
 const args = process.argv.slice(2);
 const flag = (name, fallback) => {
@@ -172,32 +175,6 @@ async function getText(url, headers) {
   };
 }
 
-/**
- * Slugs the SSG wrote into the hub's article grid.
- *
- * Scoped to `.ssg-article-grid` on purpose: the page also links articles from
- * the nav, the footer and the related rails, and those are not the list under
- * test. Anchored on the grid's own card class so a layout change that drops
- * the grid surfaces as "0 rendered" (a hard failure below) rather than as a
- * silently passing empty set.
- */
-function renderedSlugs(html) {
-  if (!html.includes('ssg-article-grid')) return [];
-  const prefix = HUB.replace(/\/$/, '');
-  const href = new RegExp(`href="${prefix}/([a-z0-9][a-z0-9-]{4,})/"`);
-  const out = new Set();
-  // Anchors carrying the grid's own card class, whatever the attribute order.
-  // Matching the card rather than "everything after the grid marker" keeps the
-  // nav, the footer and the related rails out of the comparison — they link
-  // articles too, and counting them would make this gate red for reasons that
-  // are not the defect.
-  for (const [tag] of html.matchAll(/<a\b[^>]*>/g)) {
-    if (!tag.includes('ssg-art-card')) continue;
-    const m = tag.match(href);
-    if (m) out.add(m[1]);
-  }
-  return [...out];
-}
 
 function fail(msg) {
   console.error(`[hydrated-parity] ${msg}`);
@@ -220,7 +197,7 @@ try {
   fail(`could not read the hub — refusing to pass without looking: ${err.message}`);
 }
 
-const slugs = renderedSlugs(hub.body);
+const slugs = renderedSlugs(hub.body, HUB);
 report.renderedCount = slugs.length;
 if (slugs.length === 0) {
   fail(
@@ -264,7 +241,7 @@ for (const url of CLIENT_SURFACES) {
   try {
     const r = await getText(url, BROWSER_HEADERS);
     report.surfaces[url] = { bytes: r.body.length, lastModified: r.lastModified };
-    for (const m of r.body.matchAll(/\bid:"([a-z0-9][a-z0-9-]*)"/g)) clientIds.add(m[1]);
+    for (const id of idsInRegistryChunk(r.body)) clientIds.add(id);
   } catch (err) {
     fail(`client surface unreadable (${url}): ${err.message}`);
   }
@@ -297,23 +274,23 @@ report.clientIds = clientIds.size;
  * requests are not atomic, and an object legitimately refreshed between them
  * would otherwise read as divergence.
  */
-const divergent = [];
+const readings = {};
 for (const url of Object.keys(report.surfaces)) {
-  const withOrigin = report.surfaces[url].lastModified;
   let bare;
   for (let attempt = 0; attempt < 2; attempt += 1) {
     try {
       bare = (await getText(url, { 'User-Agent': BROWSER_HEADERS['User-Agent'] })).lastModified;
     } catch { bare = null; }
+    const withOrigin = report.surfaces[url].lastModified;
     if (!withOrigin || !bare || withOrigin === bare) break;
     // Disagreed — re-read the Origin side once before believing it.
     try {
       report.surfaces[url].lastModified = (await getText(url, BROWSER_HEADERS)).lastModified;
     } catch { /* keep the first reading */ }
   }
-  const now = report.surfaces[url].lastModified;
-  if (now && bare && now !== bare) divergent.push({ url, withOrigin: now, withoutOrigin: bare });
+  readings[url] = { withOrigin: report.surfaces[url].lastModified, withoutOrigin: bare };
 }
+const divergent = divergentSurfaces(readings);
 report.divergent = divergent;
 
 if (divergent.length > 0) {
@@ -333,11 +310,7 @@ if (divergent.length > 0) {
 }
 
 // A rendered article whose id the client does not hold is one hydration drops.
-const missing = [];
-for (const s of slugs) {
-  const id = reverse[s] ?? s; // an id-shaped URL resolves to itself
-  if (!clientIds.has(id)) missing.push(id === s ? s : `${s} (id: ${id})`);
-}
+const missing = missingFromClient(slugs, reverse, clientIds);
 report.missing = missing;
 
 if (AS_JSON) console.log(JSON.stringify(report, null, 2));
