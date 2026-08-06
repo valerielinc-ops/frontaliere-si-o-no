@@ -16,6 +16,25 @@ on:
     # NB: usiamo `*.md` (root) + `docs/**`, NON `**/*.md`: `public/**/*.md`
     # (es. press-kit) è copiato verbatim da Vite (publicDir) nel dist → resta
     # dist-bound e deve poter deployare.
+    #
+    # ⚠️ NON allargare questa lista per curare la "deploy starvation" — è la
+    # leva sbagliata, misurato il 2026-08-06 sulle ultime 48h (#5251):
+    #   - 141 run di deploy: 121 cancellati, 10 success, 8 failure, 2 attivi.
+    #   - `paths-ignore` NON si applica a `workflow_dispatch`, e 40 dei 141 run
+    #     (28%) arrivano proprio da lì: 15 workflow di dati chiamano
+    #     scripts/lib/trigger-deploy.sh dopo aver committato (i push fatti con
+    #     GITHUB_TOKEN non innescano workflow, quindi dispatchano a mano).
+    #     Publisher jobs sync, Auto-translate, prezzi carburante, newsletter QA,
+    #     ALTEN, 404 sweep — sono TUTTI di quella famiglia. Allargare la
+    #     denylist ne intercetta zero.
+    #   - Dei 101 run da `push`, solo 2 hanno un commit di dati automatico:
+    #     su quel canale questa lista sta già facendo il suo lavoro.
+    #   - E i 121 run cancellati sono GRATIS: verificati uno per uno via REST,
+    #     121 su 121 avevano zero job avviati (cancellati mentre erano ancora
+    #     `pending`). Zero minuti-runner, e newest-wins garantisce che il build
+    #     successivo contenga comunque ogni commit superato.
+    # Il limite vero è la durata del build: mediana 130 min, e mediana del
+    # divario fra due build che PARTONO 128 min — la coda è satura, non affamata.
     paths-ignore:
       - 'data/border-wait-current.json'
       # Browser-servable copy of the same file (services/borderWaitCurrentService.ts,
@@ -505,6 +524,61 @@ jobs:
 
       - name: Validate locale shard output
         run: node scripts/ci/validate-locale-shard-build.mjs dist
+
+      # ── CDN payload FIRST, before anything publishes (#2569 margin) ───────
+      # This is ONLY the "Push generated assets to CDN repo" phase of
+      # deploy-it-pages-prep.sh, hoisted out of that script and run here. The
+      # rest of the prep (offload / prune / drop-assets / tar / audit) still
+      # runs in "Deploy prep (IT → Pages + CDN)" below, in its original order —
+      # in particular the IT offload still runs AFTER the section pushes, which
+      # is the ordering the section-shard comment below depends on.
+      #
+      # WHY THE HOIST. The #2569 gate ("Wait for IT CDN push" on the en/de/fr
+      # legs) polls cdn-build-id.txt for THIS build's id. The marker only turns
+      # when the IT leg reaches its CDN push — and until now that was ~40min
+      # after the IT build ended, behind 31min of section-shard pushes, 5min of
+      # packing, 1min of uploads and 4min of strip. Measured on run 31076991699
+      # (a run that SUCCEEDED): the de leg waited 2714s against a 2700s budget
+      # and matched on the LAST of its 181 polls. Zero margin. The same
+      # structure timed all three non-IT legs out on run 31062047677.
+      #
+      # Nothing between here and the old call site writes any of the paths the
+      # CDN payload is staged from (dist/og, dist/data, dist/assets,
+      # dist/job-canon, dist/images/events/catalog, public/images/*):
+      #   - push-section-shard.sh copies dist/<sub> into $RUNNER_TEMP and runs
+      #     the offload there with cwd=$RUNNER_TEMP/... — and
+      #     offload-generated-images-cdn.mjs resolves its dist as
+      #     path.resolve(process.cwd(), 'dist'), so it can only touch the
+      #     staged subtree;
+      #   - "Pack section shard dist" / "Upload shard batch N" only read;
+      #   - strip-section-subtree.sh only `rm -rf`s dist/<sub>.
+      # So the bytes published here are identical to the bytes the old call
+      # site would have published. The gate predicate is UNCHANGED
+      # (cdn-build-id.txt == DEPLOY_BUILD_ID, marker written last, in the same
+      # atomic publish as the payload) — it is simply satisfied ~40min earlier.
+      #
+      # #2569 is not weakened, it is EXTENDED: the 25 IT section shards pushed
+      # by the next step used to go live BEFORE this build's CDN payload
+      # existed (they run the same CDN offload on their staged copy — see
+      # CDN_BASE_FIXED in push-section-shard.sh — but were never gated). After
+      # the hoist they publish after it.
+      #
+      # continue-on-error + the CDN_BASE handshake: on success the script
+      # exports CDN_BASE into $GITHUB_ENV, and "Deploy prep" then SKIPS its own
+      # CDN push. If this fails, CDN_BASE stays unset and "Deploy prep" runs
+      # the push exactly where it always did — so the failure path is
+      # byte-identical to the pre-hoist behaviour, plus one free retry.
+      - name: Push generated assets to CDN (early — ahead of the shard pushes)
+        id: cdn-push-early
+        if: matrix.locale == 'it'
+        continue-on-error: true
+        env:
+          CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
+          CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
+          DEPLOY_BUILD_ID: ${{ needs.matrix-setup.outputs.build_id }}
+          # Runs ONLY step_push_cdn (+ nothing else) and returns.
+          DEPLOY_CDN_PUSH_ONLY: '1'
+        run: bash scripts/lib/deploy-it-pages-prep.sh
 
       # ── Section shards (keep the IT apex under the 10 GB Pages cap) ────────
       # Push each oversized job-board section (ticino/svizzera/zurigo) to its
@@ -1727,27 +1801,35 @@ jobs:
         continue-on-error: true
         env:
           DEPLOY_BUILD_ID: ${{ needs.matrix-setup.outputs.build_id }}
-          # The non-IT gate must out-wait TWO serial delays before the marker
-          # turns: (1) the IT leg reaching its CDN force-push, and (2) — the real
-          # bottleneck — GitHub Pages PUBLISHING that push on the frontaliere-cdn
-          # repo. The CDN payload is now ~1.27 GB (all ACTIVE content: 11.6k stable
-          # JS/CSS chunks + offloaded /data JSON + og images; the assets/ janitor
-          # finds 0 orphans → nothing to prune), OVER the Pages ~1 GB soft limit, so
-          # the Pages publish latency has ballooned: the git push lands fast but the
-          # live marker lags it by ~22min while Pages rebuilds the oversized site.
-          # #2872 measured: gate started 10:36:28, IT push succeeded 10:45:38, marker
-          # went live 11:07:42 — a 31min gate-start→publish window. The prior 1800s
-          # (30min) budget expired 11:06:34, just 68s SHORT of the marker, timing out
-          # ALL THREE non-IT shards (en/de/fr) into stale-live. This was NOT a
-          # transient/expired-key failure (the earlier theory in #2786/#2806/#2807):
-          # it is structural Pages-publish latency on the >1 GB CDN. 2700s (45min)
-          # restores margin over the measured 31min; the gate still exits the instant
-          # the marker matches, so the budget is a ceiling, not a fixed wait.
-          # STOPGAP: as the CDN keeps growing, publish latency grows with it — the
-          # durable fix is to get the CDN off GitHub Pages' 1 GB-limited, slow-publish
-          # path (e.g. Cloudflare R2: no size limit, instant PUT, marker visible in
-          # seconds) or split it back under 1 GB. Tracked for #2872 follow-up.
+          # HISTORY, because the number looks arbitrary otherwise. 2700s was set
+          # for #2872, when CDN_TARGET was still 'pages' and the marker lagged
+          # the IT force-push by ~22min of GitHub Pages publish latency on a
+          # >1 GB CDN repo (the prior 1800s budget expired 68s short of the
+          # marker and timed out all three non-IT shards). That is NOT the
+          # binding delay anymore: the repo variable CDN_TARGET is 'r2', and on
+          # R2 the marker is a `no-store` PUT that the cache-busted poll sees in
+          # seconds. Verified on run 31076991699 — "Deploy prep (IT → Pages +
+          # CDN)" started 08:34:38 and the marker was live by 08:38:12, i.e.
+          # BEFORE that step had even finished.
+          #
+          # What the gate actually waits for now is the IT leg's POSITION in its
+          # own job: the CDN push used to sit behind 31min of section-shard
+          # pushes + 5min of packing + 4min of strip. On that same green run the
+          # de leg burned 2714s of the 2700s budget and matched on the LAST of
+          # its 181 polls — zero margin, recorded as a plain success. The
+          # "Push generated assets to CDN (early …)" step above now hoists that
+          # push ahead of the section fan-out, which is what buys the margin
+          # back; this budget is the backstop, and the near-miss warning below
+          # is what makes a shrinking margin visible before it becomes a
+          # timeout. The gate still exits the instant the marker matches, so the
+          # budget is a ceiling, not a fixed wait.
           CDN_WAIT_TIMEOUT_S: 2700
+          # Matching inside this many seconds of the budget still publishes the
+          # shard (exit 0) but emits a ::warning:: + a job-summary row. Without
+          # it, "matched with 0s to spare" and "matched in 20s" are the same
+          # green check — which is exactly how run 31076991699 was read as
+          # healthy one deploy before 31062047677 timed out all three legs.
+          CDN_WAIT_MARGIN_WARN_S: 600
           # When CDN_TARGET=r2 the marker is published to R2 (no-store); the gate
           # then cache-busts each poll so it sees R2's strong read-after-write id
           # immediately — the 2700s budget becomes a near-no-op (match in seconds).
@@ -1776,48 +1858,139 @@ jobs:
           SHARD_FR_DEPLOY_KEY: ${{ secrets.SHARD_FR_DEPLOY_KEY }}
         run: bash scripts/lib/push-locale-shard.sh ${{ matrix.locale }} dist
 
-      - name: Surface a stale-locale shard push failure (#2658)
-        # A push failure leaves the live ${{ matrix.locale }} shard serving STALE
-        # content while the deploy still goes green. Don't fail the deploy (the
-        # continue-on-error resilience is deliberate) — but make it LOUD: warning
-        # annotation + a deduped tracking issue so the stale locale is never
-        # shipped silently. Self-resolves on the next green push (reopen-within).
-        # Also fires when the #2569 CDN ordering guard timed out (cdn-gate
-        # failure → push-shard SKIPPED): the shard is intentionally NOT published
-        # ahead of the IT CDN push, so the live locale stays stale and must be
-        # surfaced the same way.
-        if: matrix.locale != 'it' && (steps.push-shard.outcome == 'failure' || steps.cdn-gate.outcome == 'failure')
+      # ── The two ways this locale can end up unpublished, told APART ───────
+      # Both leave the live locale STALE behind a green deploy, and until now
+      # both were reported by ONE step with ONE issue title whose body read
+      # "Probabili cause: errore transiente di rete, conflitto di push, deploy
+      # key shard scaduta". For a gate timeout that diagnosis is simply wrong,
+      # and it has already cost real triage: on 2026-08-06 run 31062047677 the
+      # IT leg's BUILD failed, so the CDN marker never turned and all three
+      # non-IT gates burned their full 2700s — and issues #5224 (fr), #5225
+      # (en) and #5227 (de) were filed blaming the shard deploy keys. The keys
+      # were fine. Nothing in the issue pointed at the IT leg.
+      #
+      # So: two steps, two titles, two bodies, mutually exclusive `if:`s
+      # (cdn-gate failure ⟹ push-shard SKIPPED, never 'failure').
+      - name: Surface an unpublished locale shard (#2569 CDN ordering gate timed out)
+        # The gate ran out of budget waiting for the IT leg's CDN push, so the
+        # shard was deliberately not published ahead of the CDN. Loud, but NOT
+        # fatal: aborting here would take down the other 26 shards for one
+        # locale's ordering problem, which is exactly the tolerance the
+        # continue-on-error posture exists to preserve.
+        if: matrix.locale != 'it' && steps.cdn-gate.outcome == 'failure'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Via env, never interpolated into the `run:` text: CDN_LAST_SEEN is
+          # the body of a file fetched over the network.
+          LOCALE: ${{ matrix.locale }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          BRANCH: ${{ github.ref_name }}
+          WORKFLOW: ${{ github.workflow }}
+          CDN_WAITED_S: ${{ steps.cdn-gate.outputs.cdn_waited_s }}
+          CDN_TIMEOUT_S: ${{ steps.cdn-gate.outputs.cdn_timeout_s }}
+          CDN_EXPECTED: ${{ steps.cdn-gate.outputs.cdn_expected }}
+          CDN_LAST_SEEN: ${{ steps.cdn-gate.outputs.cdn_last_seen }}
         run: |
-          echo "::warning title=Stale locale shard::Push of the ${{ matrix.locale }} shard did not publish (push failure, or the #2569 CDN ordering guard timed out waiting for the IT CDN push) — the live ${{ matrix.locale }} pages serve STALE content until the next successful deploy. Deploy stays green by design (transient-tolerant); investigate the shard repo / deploy key / IT CDN push."
+          echo "::error title=Locale shard NOT published (#2569 gate timeout)::The ${LOCALE} shard was NOT pushed: the #2569 CDN ordering gate timed out after ${CDN_WAITED_S}s of a ${CDN_TIMEOUT_S}s budget waiting for the IT leg to publish CDN build id ${CDN_EXPECTED} (last seen '${CDN_LAST_SEEN}'). Live ${LOCALE} pages serve STALE content until the next deploy. Look at the IT leg of this run, not at the ${LOCALE} shard repo."
+          {
+            echo "🛑 **${LOCALE} shard NOT published — #2569 CDN ordering gate timed out**"
+            echo ""
+            echo "- waited: \`${CDN_WAITED_S}s\` of \`${CDN_TIMEOUT_S}s\`"
+            echo "- expected CDN build id: \`${CDN_EXPECTED}\`"
+            echo "- last seen on the CDN: \`${CDN_LAST_SEEN:-<none>}\`"
+            echo "- the live \`${LOCALE}\` pages stay STALE until the next successful deploy"
+          } >> "$GITHUB_STEP_SUMMARY"
           node scripts/lib/github-issue-creator.mjs \
-            --title "Deploy: ${{ matrix.locale }} locale shard push failed (stale live locale)" \
-            --description "## Push locale shard fallito — locale live STALE
-          Il push dello shard \`${{ matrix.locale }}\` è fallito: le pagine live di quel locale servono contenuto **stale** finché un deploy successivo non ripush con successo. Il deploy resta verde per design (resilienza a errori transienti dello shard-repo), ma la mancata propagazione è ora segnalata.
-          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          **Locale:** ${{ matrix.locale }}
-          **Branch:** ${{ github.ref_name }}
-          Probabili cause: errore transiente di rete/artifact-service, conflitto di push, deploy key shard scaduta." \
+            --title "Deploy: guard di ordinamento CDN #2569 scaduto (${{ matrix.locale }}) — shard non pubblicato" \
+            --description "## Guard di ordinamento CDN (#2569) scaduto — shard \`${LOCALE}\` NON pubblicato
+
+          Lo shard \`${LOCALE}\` **non è stato pushato**. Non è un errore dello shard repo: il guard di ordinamento ha esaurito il budget aspettando che il leg **IT** pubblicasse il payload CDN di questa build, quindi lo shard è stato volutamente tenuto indietro invece di andare live davanti alla CDN.
+
+          | | |
+          |---|---|
+          | atteso | \`${CDN_WAITED_S}s\` su un budget di \`${CDN_TIMEOUT_S}s\` |
+          | build id CDN atteso | \`${CDN_EXPECTED}\` |
+          | ultimo id visto sulla CDN | \`${CDN_LAST_SEEN:-<nessuno>}\` |
+          | locale | \`${LOCALE}\` |
+          | branch | \`${BRANCH}\` |
+
+          **Run:** ${RUN_URL}
+
+          **Dove guardare — il leg IT di questo run, non lo shard \`${LOCALE}\`:**
+          1. il leg \`build-locale (it)\` è fallito o è stato lento? Se il suo Build fallisce, il marker non viene mai scritto e tutti e tre i leg non-IT scadono (successo esatto: run 31062047677).
+          2. lo step \`Push generated assets to CDN (early …)\` del leg IT ha pubblicato? Se ha loggato \`CDN_BASE unset\` la push è fallita.
+          3. \`curl -s https://cdn.frontaliereticino.ch/cdn-build-id.txt\` corrisponde a \`${CDN_EXPECTED}\`?
+
+          Il deploy resta verde per design: un solo shard indietro non deve abortire gli altri 26." \
             --priority 1 \
             --reopen-within-hours 6 \
             --label Bug \
-            --workflow "${{ github.workflow }}"
+            --workflow "${WORKFLOW}"
 
-      - name: Resolve stale-locale shard issue on successful push (#2658)
-        # Mirror of the surfacing step: a green push closes the canonical
-        # stale-locale issue if open (close↔reopen on ONE issue, no per-run storm).
+      - name: Surface a stale-locale shard push failure (#2658)
+        # The gate passed and the push itself failed — THIS is the shard-repo /
+        # deploy-key / transient-network case. A push failure leaves the live
+        # ${{ matrix.locale }} shard serving STALE content while the deploy
+        # still goes green. Don't fail the deploy (the continue-on-error
+        # resilience is deliberate) — but make it LOUD: annotation + a deduped
+        # tracking issue so the stale locale is never shipped silently.
+        # Self-resolves on the next green push (reopen-within).
+        if: matrix.locale != 'it' && steps.push-shard.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Bound here, not interpolated into the `run:` text, so the issue
+          # TITLE below is a literal string identical to the one the resolve
+          # step closes. Title drift between the two is the failure mode that
+          # leaves a permanently-open issue — tests/deploy-cdn-ordering-gate
+          # compares them character for character.
+          LOCALE: ${{ matrix.locale }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          BRANCH: ${{ github.ref_name }}
+          WORKFLOW: ${{ github.workflow }}
+        run: |
+          echo "::error title=Stale locale shard::Push of the ${LOCALE} shard FAILED (the #2569 CDN ordering gate passed — this is a shard-repo/deploy-key/network failure) — the live ${LOCALE} pages serve STALE content until the next successful deploy. Deploy stays green by design (transient-tolerant)."
+          {
+            echo "🛑 **${LOCALE} shard push FAILED** — the #2569 ordering gate passed, so this is a shard-repo / deploy-key / network failure. Live \`${LOCALE}\` pages stay STALE."
+          } >> "$GITHUB_STEP_SUMMARY"
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Deploy: ${{ matrix.locale }} locale shard push failed (stale live locale)" \
+            --description "## Push locale shard fallito — locale live STALE
+          Il push dello shard \`${LOCALE}\` è fallito: le pagine live di quel locale servono contenuto **stale** finché un deploy successivo non ripush con successo. Il deploy resta verde per design (resilienza a errori transienti dello shard-repo), ma la mancata propagazione è ora segnalata.
+          **Run:** ${RUN_URL}
+          **Locale:** ${LOCALE}
+          **Branch:** ${BRANCH}
+          Il guard di ordinamento CDN (#2569) è PASSATO in questo run — la causa non è la CDN. Probabili cause: errore transiente di rete/artifact-service, conflitto di push, deploy key shard scaduta." \
+            --priority 1 \
+            --reopen-within-hours 6 \
+            --label Bug \
+            --workflow "${WORKFLOW}"
+
+      - name: Resolve stale-locale shard issues on successful push (#2658)
+        # Mirror of BOTH surfacing steps: a green push closes whichever of the
+        # two canonical issues is open (close↔reopen on ONE issue per cause, no
+        # per-run storm). Both titles must be resolved here — a shard that was
+        # held back by a gate timeout last run and pushes fine this run has an
+        # open "#2569 scaduto" issue, and only this step can close it.
         if: matrix.locale != 'it' && steps.push-shard.outcome == 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LOCALE: ${{ matrix.locale }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          WORKFLOW: ${{ github.workflow }}
         run: |
-          node scripts/lib/github-issue-creator.mjs \
-            --resolve \
-            --title "Deploy: ${{ matrix.locale }} locale shard push failed (stale live locale)" \
-            --workflow "${{ github.workflow }}" \
-            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          for title in \
+            "Deploy: ${{ matrix.locale }} locale shard push failed (stale live locale)" \
+            "Deploy: guard di ordinamento CDN #2569 scaduto (${{ matrix.locale }}) — shard non pubblicato"
+          do
+            node scripts/lib/github-issue-creator.mjs \
+              --resolve \
+              --title "$title" \
+              --workflow "${WORKFLOW}" \
+              --run-url "${RUN_URL}"
+          done
 
       - name: Report failure to GitHub Issues (build)
         if: failure()
