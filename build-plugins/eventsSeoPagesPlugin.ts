@@ -42,6 +42,7 @@ import { SLUG_TABLES } from '../services/routeSlugs.data';
 import path from 'node:path';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
+import { shouldEmitLocale, EMIT_ALL_LOCALES } from './shared/localeEmitFilter';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
@@ -3186,6 +3187,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       let pagesWritten = 0;
       let thinPages = 0;
       let totalComuni = 0;
+      let skippedLocaleRenders = 0;
 
       const emit = (rendered: { urlPath: string; html: string; wordCount: number }) => {
         if (rendered.wordCount < MIN_INDEXABLE_WORDS) thinPages += 1;
@@ -3221,6 +3223,33 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const digestEvents = new Map(DIGESTS.map((d) => [d.key, d.filter(events, { todayIso: dateStamp })]));
 
         for (const locale of LOCALES) {
+          // Per-locale matrix shard (BUILD_LOCALE): render nothing for a locale
+          // this shard does not own. `WriteCollector.add()` already DISCARDS
+          // those writes as its very first action (batchWrite.ts:196
+          // `_skippedByLocale++; return;`), so the HTML was being built and
+          // thrown away — on the `it` shard, 3 of every 4 rendered pages.
+          // Skipping the render therefore cannot change a single byte that
+          // ships: the chokepoint that decides what ships already rejects them.
+          //
+          // This is the documented purpose of shouldEmitLocale ("Hot emit loops
+          // call shouldEmitLocale to `continue` past the expensive render/minify
+          // work for non-target locales — the CPU win", localeEmitFilter.ts).
+          //
+          // MEMORY, which is why this is urgent (#5130 follow-up): this plugin
+          // is the largest single memory event in the build. Run 31062047677
+          // (`it`) went 10,145 → 12,281 MB RSS across it and was OOM-killed;
+          // the same spike in run 31036546298 was 9,891 → 11,839 and survived,
+          // then fell back to 11,496 — so it is ~2 GB of TRANSIENT allocation,
+          // three quarters of which is rendered-then-discarded HTML. heapUsed
+          // moved +10 MB across the spike, which is why no --max-old-space-size
+          // ever helped: the bulk is outside V8.
+          //
+          // The sitemap and the cross-locale hreflang alternates are built
+          // OUTSIDE these loops (perCantonSitemap / detailSlugs / buildSitemap),
+          // so they stay complete for all four locales — the shard still
+          // publishes correct alternates pointing at the other shards' URLs.
+          // No-op on the default all-locale build (EMIT_ALL_LOCALES).
+          if (!shouldEmitLocale(locale)) { skippedLocaleRenders += 1; continue; }
           const detailHref = detailHrefFor(locale);
           emit(renderHubPage({ locale, canton, events, byComune, dateStamp, weekendDays, distDir, detailHref, otherCantons, otherEvents }));
           for (const comune of comuni) {
@@ -3321,6 +3350,8 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           const reservedBaseSlugs = reserveLiveSiblingSlugs(liveSameComune, detailSlugs);
           const pastSlugFor = assignEventSlugs(list, reservedBaseSlugs);
           for (const locale of LOCALES) {
+            // Same shard gate as the main render loop above.
+            if (!shouldEmitLocale(locale)) { skippedLocaleRenders += 1; continue; }
             const detailHref = detailHrefFor(locale);
             for (const ev of list) {
               emit(
@@ -3346,6 +3377,8 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // early return near the top of this function already guards the whole
       // plugin, so once we're here the national hub always belongs too.
       for (const locale of LOCALES) {
+        // Same shard gate as the render loops above.
+        if (!shouldEmitLocale(locale)) { skippedLocaleRenders += 1; continue; }
         const detailHref = detailHrefFor(locale);
         emit(renderEventsIndexPage({ locale, cantonStats, events: all, dateStamp, weekendDays, distDir, detailHref }));
       }
@@ -3374,7 +3407,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       }
 
       console.log(
-        `\x1b[36m[events-pages]\x1b[0m Generated ${pagesWritten} pages (${totalComuni} comuni × ${cantons.length} canton(s) × ${LOCALES.length} locales + hubs) from ${all.length} events — flushed ${flushed} files in ${((Date.now() - t0) / 1000).toFixed(1)}s${thinPages ? ` (${thinPages} thin → noindex)` : ''} — inbound link locales: ${reached.join(',') || 'none'}`,
+        `\x1b[36m[events-pages]\x1b[0m Generated ${pagesWritten} pages (${totalComuni} comuni × ${cantons.length} canton(s) × ${LOCALES.length} locales + hubs) from ${all.length} events — flushed ${flushed} files in ${((Date.now() - t0) / 1000).toFixed(1)}s${thinPages ? ` (${thinPages} thin → noindex)` : ''} — inbound link locales: ${reached.join(',') || 'none'}${EMIT_ALL_LOCALES ? '' : `, ${skippedLocaleRenders} non-owned-locale renders skipped`}`,
       );
     },
   };
