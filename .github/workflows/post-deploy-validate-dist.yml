@@ -1078,16 +1078,51 @@ jobs:
         id: gate-results
         if: always()
         run: |
-          if [ -s /tmp/post-build-timings.txt ]; then
-            printf 'failed_gates=%s\n' \
-              "$(awk '!/rc=0$/ {printf "%s%s", sep, $1; sep=","}' /tmp/post-build-timings.txt)" \
-              >> "$GITHUB_OUTPUT"
-          else
+          set -uo pipefail
+          if [ ! -s /tmp/post-build-timings.txt ]; then
             # No row recorded ⇒ the job died before/inside the gate step.
             # Sentinel is an unclassified gate name, so the default-deny
             # classifier blocks publish on it.
             echo 'failed_gates=__UNKNOWN__' >> "$GITHUB_OUTPUT"
+            exit 0
           fi
+
+          FAILED="$(awk '!/rc=0$/ {printf "%s%s", sep, $1; sep=","}' /tmp/post-build-timings.txt)"
+
+          # `audit:all` is a BUNDLE: one row for 12 auditors, some structural
+          # (footer-root-presence, jsonld-no-nested-scripts) and some purely
+          # cosmetic (title-length, text-html-ratio). Handing that one opaque
+          # name to a default-deny classifier means any cosmetic auditor
+          # sequesters `publish` — issue #4828, observed again on run
+          # 31077435060 where audit:all was red ONLY for h1-title-duplicates,
+          # text-html-ratio and no-literal-markdown while every structural
+          # auditor passed.
+          #
+          # Expand it into `audit:all/<auditor>` names so each is classified on
+          # its own merits. scripts/audit-all.mjs prints the list as
+          # `audit-all: failed-audits=a,b,c`.
+          #
+          # FAIL-CLOSED: if the marker line is absent (older script, crash
+          # before the summary, OOM) the opaque `audit:all` name is kept, and
+          # default-deny blocks exactly as it does today. Expansion can only
+          # ever make the verdict MORE informed, never assume success.
+          if printf '%s' "$FAILED" | grep -qw 'audit:all'; then
+            SUBS="$(sed -n 's/^audit-all: failed-audits=//p' /tmp/g10.log | tail -n1)"
+            if [ -n "${SUBS:-}" ]; then
+              EXPANDED="$(printf '%s' "$SUBS" | tr ',' '\n' \
+                | awk 'NF {printf "%saudit:all/%s", sep, $0; sep=","}')"
+              echo "audit:all expanded to: ${EXPANDED}"
+              FAILED="$(printf '%s' "$FAILED" \
+                | tr ',' '\n' \
+                | awk -v e="$EXPANDED" '{ if ($0=="audit:all") print e; else print }' \
+                | awk 'NF {printf "%s%s", sep, $0; sep=","}')"
+            else
+              echo "audit:all failed but no failed-audits marker in /tmp/g10.log — keeping opaque name (fail-closed)"
+            fi
+          fi
+
+          echo "failed_gates=${FAILED}"
+          printf 'failed_gates=%s\n' "$FAILED" >> "$GITHUB_OUTPUT"
 
       # bfs-depth baseline-candidate dump moved to validate-dist-postbuild-bfs
       # (this file) — audit:max-bfs-depth (and its /tmp/g19.log) now runs
@@ -1630,18 +1665,36 @@ jobs:
       blocking_gates: ${{ steps.verdict.outputs.blocking_gates }}
       quality_gates: ${{ steps.verdict.outputs.quality_gates }}
     steps:
-      - name: Checkout (build SHA via deploy_ref, else caller default)
+      # NOT pinned to `deploy_ref`, unlike every other job in this file.
+      #
+      # The gate jobs check out the BUILD's SHA so the validator scripts match
+      # the code that produced dist/. This job validates nothing about dist/ —
+      # it maps gate NAMES emitted by THIS workflow definition onto a
+      # classification table. That table therefore has to come from the same
+      # commit as this workflow file, not from whatever the build happened to
+      # be built from.
+      #
+      # Pinning it to deploy_ref broke production on run 31055982487
+      # (2026-08-05T23:20): the build predated the merge of #5179, so the
+      # checked-out tree had no scripts/ci/classify-validate-dist-failures.mjs,
+      # node exited MODULE_NOT_FOUND, and this job — documented above as one
+      # that MUST stay green — went RED. A failed job's outputs do not cross
+      # the reusable-workflow boundary, so `integrity_ok` reached the caller
+      # EMPTY and `publish` was sequestered with no verdict recorded anywhere.
+      # Any future rename, move or crash of the classifier reproduces it.
+      - name: Checkout (workflow ref — see comment)
+        continue-on-error: true
         uses: actions/checkout@v5
-        with:
-          ref: ${{ inputs.deploy_ref }}
 
       - name: Setup Node.js
+        continue-on-error: true
         uses: actions/setup-node@v5
         with:
           node-version: '22'
 
       - name: Classify gate failures
         id: verdict
+        if: always()
         env:
           # A job that was cancelled or never ran contributes no gate names.
           # Its `result` is folded in below so "cancelled" cannot read as
@@ -1677,7 +1730,32 @@ jobs:
           done
 
           echo "collected failed gates: ${FAILED:-(none)}"
-          node scripts/ci/classify-validate-dist-failures.mjs --failed "$FAILED"
+
+          # The classifier always exits 0 and carries its verdict in
+          # $GITHUB_OUTPUT. If it cannot run AT ALL — file missing, syntax
+          # error, node crash, checkout above skipped — nothing would be
+          # written, this step would die, and the job's outputs would never
+          # reach the caller (run 31055982487). Emit the fail-closed verdict
+          # ourselves in that case, so `publish` is blocked by a value the
+          # caller can SEE and this workflow's step summary can explain,
+          # instead of by an empty string nobody can attribute.
+          if ! node scripts/ci/classify-validate-dist-failures.mjs --failed "$FAILED"; then
+            echo "::error::integrity classifier could not run — failing closed (integrity_ok=false)"
+            {
+              echo "integrity_ok=false"
+              echo "blocking_gates=__CLASSIFIER_UNAVAILABLE__"
+              echo "quality_gates="
+            } >> "$GITHUB_OUTPUT"
+          fi
+
+          # This job MUST stay green (see the block comment above the job):
+          # a red job's outputs do not cross the reusable-workflow boundary.
+          # It asserts nothing about dist/ — the three gate jobs keep their own
+          # results, validate-dist still reports FAILURE, and
+          # validate-dist-report still opens the tracking issue. Nothing is
+          # downgraded here (AGENTS.md non-negotiables #1, #2); the verdict is
+          # the output, never the exit code.
+          exit 0
 
       - name: Summary
         if: always()

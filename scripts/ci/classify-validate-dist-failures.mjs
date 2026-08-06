@@ -67,6 +67,32 @@ export const QUALITY_GATES = Object.freeze({
   'audit:orphan-sitemap-pages': 'orphan pages; URLs resolve',
   // Completeness of job records (salary, postcode, …) in already-live pages.
   'validate:jobs-quality': 'job record completeness; pages serve correctly',
+
+  // ── `audit:all` sub-auditors (#4828) ───────────────────────────────────
+  // `audit:all` is a bundle of 12 auditors reported under ONE gate name.
+  // Left opaque it is unclassifiable, so default-deny blocked `publish`
+  // whenever any of the 12 went red — including the purely cosmetic ones.
+  // Run 31077435060 is the proof: audit:all red for h1-title-duplicates +
+  // text-html-ratio + no-literal-markdown only, every structural auditor
+  // green, and `publish` skipped.
+  //
+  // validate-dist-postbuild now expands the bundle into `audit:all/<name>`.
+  // Only auditors whose failure describes a defect on a page that RENDERS
+  // AND SERVES are listed here. The four deliberately NOT listed —
+  // `audit:all/footer-root-presence` (hydration-safe shell: a failure means
+  // pages may be broken shells), `audit:all/jsonld-no-nested-scripts`
+  // (nested <script> wrappers can break the document), plus
+  // `audit:all/faqpage-validity` and `audit:all/image-object-license`
+  // (structured-data validity we submit alongside the URL) — stay blocking
+  // through default-deny, as does any auditor registered in future.
+  'audit:all/title-length': 'title over the length ratchet; page serves',
+  'audit:all/title-no-disambig-hash': 'cosmetic title suffix; page serves',
+  'audit:all/h1-title-duplicates': 'h1 duplicates title; page serves',
+  'audit:all/text-html-ratio': 'thin text/markup ratio; page serves',
+  'audit:all/content-duplicates': 'near-duplicate bodies; pages serve',
+  'audit:all/page-weight': 'page byte budget; page serves',
+  'audit:all/no-literal-markdown': 'unrendered markdown in <main>; page serves',
+  'audit:all/salary-landing-template': 'landing template drift; page serves',
 });
 
 /**

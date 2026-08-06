@@ -77,7 +77,15 @@ describe('validate-dist failure classification', () => {
   it('keeps the quality allowlist small and explicit', () => {
     // A growing allowlist is how "not a blind continue-on-error" erodes.
     // If this number goes up, it should be a deliberate, reviewed decision.
-    expect(Object.keys(QUALITY_GATES).length).toBeLessThanOrEqual(6);
+    //
+    // Raised 6 → 14 deliberately when `audit:all` was expanded into
+    // `audit:all/<auditor>` (#4828). The bundle used to arrive as ONE opaque
+    // name and blocked publish for any of its 12 auditors, cosmetic included.
+    // Eight of the twelve are now classified individually; the top-level
+    // gates are unchanged at four.
+    expect(Object.keys(QUALITY_GATES).length).toBeLessThanOrEqual(14);
+    const topLevel = Object.keys(QUALITY_GATES).filter((g) => !g.startsWith('audit:all/'));
+    expect(topLevel).toHaveLength(4);
     // Every entry carries a rationale string, not a bare flag.
     for (const [gate, why] of Object.entries(QUALITY_GATES)) {
       expect(String(why).length, `${gate} needs a rationale`).toBeGreaterThan(10);
@@ -100,6 +108,106 @@ describe('validate-dist failure classification', () => {
     for (const gate of MUST_BLOCK) {
       expect(QUALITY_GATES, `${gate} must never be allowlisted`).not.toHaveProperty(gate);
       expect(evaluateIntegrity([gate]).integrityOk).toBe(false);
+    }
+  });
+});
+
+describe('audit:all bundle expansion (#4828)', () => {
+  // `audit:all` runs 12 auditors and reports ONE gate name. Handed to a
+  // default-deny classifier that name is unclassifiable, so ANY of the 12
+  // going red sequestered publish. Run 31077435060 is the recorded case:
+  // audit:all red for h1-title-duplicates + text-html-ratio +
+  // no-literal-markdown, every structural auditor green, `publish` skipped.
+  const RUN_31077435060_SUB_AUDITS = [
+    'audit:all/h1-title-duplicates',
+    'audit:all/text-html-ratio',
+    'audit:all/no-literal-markdown',
+  ];
+
+  it('the opaque bundle name still blocks — the fail-closed fallback', () => {
+    // When scripts/audit-all.mjs prints no `failed-audits=` marker (older
+    // script, OOM, crash before the summary) the workflow keeps the opaque
+    // name. Expansion must never be load-bearing for safety.
+    const v = evaluateIntegrity(['audit:all']);
+    expect(v.integrityOk).toBe(false);
+    expect(v.blocking).toEqual(['audit:all']);
+    expect(QUALITY_GATES).not.toHaveProperty('audit:all');
+  });
+
+  it('lets publish run when only cosmetic sub-auditors failed', () => {
+    const v = evaluateIntegrity(RUN_31077435060_SUB_AUDITS);
+    expect(v.integrityOk).toBe(true);
+    expect(v.blocking).toEqual([]);
+    expect(v.quality).toEqual(RUN_31077435060_SUB_AUDITS);
+  });
+
+  it('NEGATIVE CASE: a structural sub-auditor still blocks', () => {
+    // The four auditors deliberately left off the allowlist. If any of these
+    // ever reads as quality, a broken shell or a broken document gets
+    // announced to Google — the failure this whole gate exists to prevent.
+    const MUST_BLOCK = [
+      'audit:all/footer-root-presence',
+      'audit:all/jsonld-no-nested-scripts',
+      'audit:all/faqpage-validity',
+      'audit:all/image-object-license',
+    ];
+    for (const gate of MUST_BLOCK) {
+      expect(QUALITY_GATES, `${gate} must never be allowlisted`).not.toHaveProperty(gate);
+      const v = evaluateIntegrity([gate]);
+      expect(v.integrityOk, `${gate} must block publish`).toBe(false);
+      expect(v.blocking).toContain(gate);
+    }
+  });
+
+  it('NEGATIVE CASE: one structural sub-auditor overrides many cosmetic ones', () => {
+    const v = evaluateIntegrity([
+      ...RUN_31077435060_SUB_AUDITS,
+      'audit:all/footer-root-presence',
+    ]);
+    expect(v.integrityOk).toBe(false);
+    expect(v.blocking).toEqual(['audit:all/footer-root-presence']);
+    expect(v.quality).toEqual(RUN_31077435060_SUB_AUDITS);
+  });
+
+  it('DEFAULT-DENY survives inside the namespace', () => {
+    // A 13th auditor registered in scripts/audit-all.mjs tomorrow arrives as
+    // `audit:all/<new>` and must block until someone classifies it. The
+    // prefix is not a wildcard.
+    const v = evaluateIntegrity(['audit:all/auditor-added-next-quarter']);
+    expect(v.integrityOk).toBe(false);
+    expect(v.blocking).toEqual(['audit:all/auditor-added-next-quarter']);
+  });
+
+  it('NEGATIVE CASE: expansion does not rescue a red sitemap validator', () => {
+    // The full failed-gate set of run 31077435060. Even with the bundle
+    // expanded, `validate:sitemap-pages` was red (106'276 noindex URLs in
+    // sitemaps) and publish must stay blocked: publish submits the sitemap
+    // URL set verbatim.
+    const v = evaluateIntegrity([
+      'validate:sitemap-pages',
+      ...RUN_31077435060_SUB_AUDITS,
+    ]);
+    expect(v.integrityOk).toBe(false);
+    expect(v.blocking).toEqual(['validate:sitemap-pages']);
+  });
+});
+
+describe('verdict-job availability sentinel (#4828)', () => {
+  it('NEGATIVE CASE: the classifier-unavailable sentinel blocks', () => {
+    // Emitted by the workflow when the classifier cannot run at all. Before
+    // this sentinel existed the step just died, the verdict job went red, and
+    // a red job's outputs do not cross the reusable-workflow boundary — so
+    // `integrity_ok` reached the caller EMPTY (run 31055982487,
+    // MODULE_NOT_FOUND). Empty also blocks, but attributes to nothing.
+    const v = evaluateIntegrity(['__CLASSIFIER_UNAVAILABLE__']);
+    expect(v.integrityOk).toBe(false);
+    expect(v.blocking).toEqual(['__CLASSIFIER_UNAVAILABLE__']);
+    expect(QUALITY_GATES).not.toHaveProperty('__CLASSIFIER_UNAVAILABLE__');
+  });
+
+  it('NEGATIVE CASE: a gate job that died outside its gate step blocks', () => {
+    for (const s of ['__UNKNOWN__', '__UNKNOWN__:postbuild', '__UNKNOWN__:bfs']) {
+      expect(evaluateIntegrity([s]).integrityOk, `${s} must block`).toBe(false);
     }
   });
 });
