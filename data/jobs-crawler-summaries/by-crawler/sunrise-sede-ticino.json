@@ -1,16 +1,16 @@
 {
   "key": "sunrise-sede-ticino",
   "label": "Sunrise Communications AG",
-  "generatedAt": "2026-08-05T22:32:42.956Z",
+  "generatedAt": "2026-08-06T11:35:12.560Z",
   "total": 25,
   "newCount": 8,
   "updatedCount": 9,
   "removedCount": 16,
   "unchangedCount": 0,
-  "durationMs": 11110,
-  "avgDurationMs": 11110,
+  "durationMs": 10331,
+  "avgDurationMs": 10331,
   "durationHistory": [
-    11110
+    10331
   ],
   "newJobs": [
     {
@@ -138,37 +138,6 @@
       }
     },
     {
-      "title": "Store Manager St. Gallen Shopping Arena 80-100%",
-      "slug": "store-manager-st-gallen-shopping-arena-80-100-sunrise-st-gallen",
-      "url": "https://careers.sunrise.ch/it/it/job/REQ_30036791/store-manager-st-gallen-shopping-arena-80-100",
-      "applyUrl": "https://sunrise.wd3.myworkdayjobs.com/Sunrise/job/St-Gallen/Store-Manager-St-Gallen-Shopping-Arena-80-100-_REQ_30036791-1/apply",
-      "company": "Sunrise Communications AG",
-      "companyKey": "sunrise-sede-ticino",
-      "companyDomain": "sunrise.ch",
-      "location": "St. Gallen",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "postalCode": "9001",
-      "canton": "SG",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Tecnologia & IT",
-      "source": "sunrise-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-03",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 74,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 10,
-        "completeness": 17
-      }
-    },
-    {
       "title": "Sales Agent Chur 60-100%",
       "slug": "sales-agent-chur-60-100-sunrise-chur",
       "url": "https://careers.sunrise.ch/it/it/job/REQ_30036805/sales-agent-chur-60-100",
@@ -250,6 +219,37 @@
       "source": "sunrise-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-08-05",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 74,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 17
+      }
+    },
+    {
+      "title": "Sales Agent St. Gallen Shopping Arena 60-100%",
+      "slug": "sales-agent-st-gallen-shopping-arena-60-100-sunrise-st-gallen",
+      "url": "https://careers.sunrise.ch/it/it/job/REQ_30036830/sales-agent-st-gallen-shopping-arena-60-100",
+      "applyUrl": "https://sunrise.wd3.myworkdayjobs.com/Sunrise/job/St-Gallen/Sales-Agent-St-Gallen-Shopping-Arena-60-100-_REQ_30036830/apply",
+      "company": "Sunrise Communications AG",
+      "companyKey": "sunrise-sede-ticino",
+      "companyDomain": "sunrise.ch",
+      "location": "St. Gallen",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "postalCode": "9001",
+      "canton": "SG",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Tecnologia & IT",
+      "source": "sunrise-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-06",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
