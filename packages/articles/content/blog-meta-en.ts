@@ -9298,6 +9298,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-nascita-figlio-anagrafe-2026.title': 'Birth of a child for border workers: registration and cheques 2026 over 20 km',
     'blog.article.frontaliere-nascita-figlio-anagrafe-2026.excerpt': 'Operational guide for border workers Ticino-Italy: child birth, personal registration, family allowances and consular practices in compliance with the new tax agreement 2024 and the 1976 convention.',
     'blog.article.frontaliere-nascita-figlio-anagrafe-2026.imageAlt': 'Cross-border worker with newborn baby at Brogeda customs office, Italy-Switzerland border',
+    'blog.article.frontalierieticinoaumento.title': 'Slight increase in frontier workers in Ticino: the figures',
+    'blog.article.frontalierieticinoaumento.excerpt': 'The number of border workers in Ticino increased by 0.6% compared to the previous quarter, with a total of 79,121 people.',
+    'blog.article.frontalierieticinoaumento.imageAlt': 'Lugano lake and mountains view',
 };
 
 export default blogMetaEn;

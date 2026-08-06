@@ -9299,6 +9299,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-nascita-figlio-anagrafe-2026.title': 'Nascita figlio per frontalieri: iscrizione anagrafe e assegni 2026 oltre 20 km',
     'blog.article.frontaliere-nascita-figlio-anagrafe-2026.excerpt': 'Guida operativa per frontalieri Ticino-Italia: nascita figlio, iscrizione anagrafica, assegni familiari e pratiche consolari nel rispetto del nuovo accordo fiscale 2024 e convenzione 1976.',
     'blog.article.frontaliere-nascita-figlio-anagrafe-2026.imageAlt': 'Frontaliere con figlio appena nato presso ufficio doganale di Brogeda, confine italo-svizzero',
+    'blog.article.frontalierieticinoaumento.title': 'Lieve aumento dei lavoratori frontalieri in Ticino: le cifre',
+    'blog.article.frontalierieticinoaumento.excerpt': 'Il numero di frontalieri in Ticino è aumentato del 0,6% rispetto al trimestre precedente, con un totale di 79.121 persone.',
+    'blog.article.frontalierieticinoaumento.imageAlt': 'Vista di Lugano con lago e monti',
 };
 
 export default blogMetaIt;
