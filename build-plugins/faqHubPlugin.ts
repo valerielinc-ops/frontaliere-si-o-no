@@ -48,6 +48,7 @@ import {
   FAQ_HUB_LOCALES,
   FAQ_HUB_CATEGORY_LABELS,
   buildFaqHubPath,
+  buildFaqEntryPath,
   getFaqHubByCategory,
 } from '../data/faq-hub';
 import type { FaqHubCategory, FaqHubEntry, FaqHubLocale, FaqHubLocalizedString } from '../data/faq-hub';
@@ -323,7 +324,11 @@ function resolveRelatedHref(href: string | FaqHubLocalizedString, locale: FaqHub
   return typeof href === 'string' ? href : href[locale];
 }
 
-function renderEntry(entry: FaqHubEntry, locale: FaqHubLocale): string {
+function renderEntry(
+  entry: FaqHubEntry,
+  locale: FaqHubLocale,
+  linkedIds?: ReadonlySet<string>,
+): string {
   const q = entry.question[locale];
   const a = linkifyCitations(entry.answer[locale], entry.sources);
   const related = entry.relatedLinks ?? [];
@@ -338,8 +343,15 @@ function renderEntry(entry: FaqHubEntry, locale: FaqHubLocale): string {
           )
           .join('')}</ul>`
       : '';
+  // Linked only when a page was actually emitted for this entry IN THIS
+  // LOCALE — never optimistically. A dangling internal link is the silent-skip
+  // failure the below-floor-bridge rule exists to prevent. The answer stays
+  // inline either way, so the hub keeps working as one scannable page.
+  const heading = linkedIds?.has(entry.id)
+    ? `<a href="${esc(buildFaqEntryPath(locale, entry.id))}" class="fh-lnk">${esc(q)}</a>`
+    : esc(q);
   return `<article id="${esc(entry.id)}" class="fh-q">
-  <h3 class="fh-qt">${esc(q)}</h3>
+  <h3 class="fh-qt">${heading}</h3>
   <p class="fh-qa">${mdLinks(a)}</p>
   ${relatedHtml}
 </article>`;
@@ -348,10 +360,11 @@ function renderEntry(entry: FaqHubEntry, locale: FaqHubLocale): string {
 function renderCategorySection(
   category: FaqHubCategory,
   locale: FaqHubLocale,
+  linkedIds?: ReadonlySet<string>,
 ): { html: string; entries: ReadonlyArray<FaqHubEntry> } {
   const entries = getFaqHubByCategory(category);
   const label = FAQ_HUB_CATEGORY_LABELS[category][locale];
-  const body = entries.map((e) => renderEntry(e, locale)).join('');
+  const body = entries.map((e) => renderEntry(e, locale, linkedIds)).join('');
   const html = `<section id="cat-${esc(category)}" class="fh-cat">
   <h2 data-speakable class="fh-cath">${esc(label)}</h2>
   ${body}
@@ -404,6 +417,8 @@ function renderPage(
   dateStamp: string,
   distDir?: string,
   eligibleLocales: ReadonlySet<string> = new Set(),
+  /** Entry ids that have their own page IN THIS LOCALE; anything else stays unlinked. */
+  linkedIds?: ReadonlySet<string>,
 ): RenderResult {
   const copy = COPY[locale];
   const urlPath = buildFaqHubPath(locale);
@@ -424,7 +439,7 @@ function renderPage(
   const sections: string[] = [];
   const allEntries: FaqHubEntry[] = [];
   for (const cat of FAQ_HUB_CATEGORIES) {
-    const { html, entries } = renderCategorySection(cat, locale);
+    const { html, entries } = renderCategorySection(cat, locale, linkedIds);
     sections.push(html);
     for (const e of entries) allEntries.push(e);
   }
@@ -556,6 +571,323 @@ function renderPage(
   return { urlPath, html, wordCount, faqCount: allEntries.length };
 }
 
+// ── Per-question pages ───────────────────────────────────────────
+//
+// WHY THESE EXIST (issue #5008).
+//
+// The issue's premise is that Reddit outranks this site on informational
+// queries — "permesso G", "tasse frontalieri", the practical questions people
+// actually type. The half of that premise worth acting on is not "post on
+// Reddit"; it is that a Reddit thread beats us because it is ONE URL whose
+// entire content answers ONE question, and we had 103 researched, sourced
+// answers hidden behind four URLs. A search engine ranking a page, and an LLM
+// deciding what to cite, both work at the granularity of a URL. An answer that
+// does not have one is an answer that cannot win.
+//
+// So each entry also gets its own page: 103 questions × 4 locales = 412 pages,
+// each with the question as its <h1>, the full sourced answer as its body, and
+// links to its sibling questions. The hub keeps every answer inline and becomes
+// their index.
+//
+// Thin content was the obvious risk (Non-Negotiable #4) and was measured before
+// building this, not after: 0 of 103 answers fall under MIN_INDEXABLE_WORDS on
+// the answer text alone, before page chrome. The per-page word-count gate below
+// is kept anyway, so an entry edited down to a stub demotes itself instead of
+// shipping thin.
+
+interface FaqEntryCopy {
+  readonly backToHub: string;
+  readonly answerHeading: string;
+  readonly sourcesHeading: string;
+  readonly siblingsHeading: string;
+  readonly seeAlsoHeading: string;
+  readonly heroSubtitle: (category: string) => string;
+}
+
+const ENTRY_COPY: Record<FaqHubLocale, FaqEntryCopy> = {
+  it: {
+    backToHub: 'Tutte le domande frequenti dei frontalieri',
+    answerHeading: 'Risposta',
+    sourcesHeading: 'Fonti ufficiali',
+    siblingsHeading: 'Altre domande su questo tema',
+    seeAlsoHeading: 'Approfondisci',
+    heroSubtitle: (c) => `Risposta con fonti ufficiali — ${c}`,
+  },
+  en: {
+    backToHub: 'All cross-border worker FAQs',
+    answerHeading: 'Answer',
+    sourcesHeading: 'Official sources',
+    siblingsHeading: 'Other questions on this topic',
+    seeAlsoHeading: 'Read more',
+    heroSubtitle: (c) => `Answered with official sources — ${c}`,
+  },
+  de: {
+    backToHub: 'Alle häufigen Fragen für Grenzgänger',
+    answerHeading: 'Antwort',
+    sourcesHeading: 'Offizielle Quellen',
+    siblingsHeading: 'Weitere Fragen zu diesem Thema',
+    seeAlsoHeading: 'Mehr dazu',
+    heroSubtitle: (c) => `Antwort mit offiziellen Quellen — ${c}`,
+  },
+  fr: {
+    backToHub: 'Toutes les questions fréquentes des frontaliers',
+    answerHeading: 'Réponse',
+    sourcesHeading: 'Sources officielles',
+    siblingsHeading: 'Autres questions sur ce thème',
+    seeAlsoHeading: 'Pour aller plus loin',
+    heroSubtitle: (c) => `Réponse avec sources officielles — ${c}`,
+  },
+};
+
+/** How many sibling questions each entry page links to. */
+const SIBLING_LINKS = 6;
+
+/**
+ * Per locale, the entries whose own page this build will write.
+ *
+ * The floor is evaluated PER LOCALE and BEFORE anything is rendered, which is
+ * what lets two separate guarantees hold at once:
+ *
+ *  - the hub in locale L links only questions that have a page in L, so no
+ *    internal link dangles (the silent-skip failure the below-floor-bridge
+ *    rule exists to prevent);
+ *  - the hreflang block is built by `buildLocaleAlternateBlock` from this same
+ *    set, so a locale can never be advertised unless it was planned (#5114).
+ *
+ * This deliberately replaces the all-or-nothing skip this plugin carried
+ * before: dropping a question from ALL FOUR locales because one was thin threw
+ * away three good pages to avoid one bad hreflang block. The shared module
+ * already expresses "incomplete set → emit no alternates", so the pages can
+ * ship and simply go without hreflang — which `audit-hreflang` tolerates,
+ * unlike a partial block.
+ *
+ * Conservative by construction: the rendered body is the answer PLUS fixed
+ * chrome (breadcrumb, sources, sibling links, disclaimer), which can only add
+ * words, so an entry that passes here cannot fail the real per-page gate.
+ *
+ * The answer is `esc()`d before counting because that is what the page
+ * actually contains. 7 answers in the corpus use comparison operators in prose
+ * — the French one reads `enfants < 21 ans … ordinaire >CHF 120 000` — and
+ * `countHtmlBodyWords` strips `<…>` as a tag, which silently ate 53 of that
+ * answer's 93 words. `mdLinks()` escapes before emitting, so the rendered HTML
+ * was never affected; counting the raw string measured a page that does not
+ * exist.
+ */
+function entryPageEligibleLocales(entry: FaqHubEntry): Set<FaqHubLocale> {
+  return new Set(
+    FAQ_HUB_LOCALES.filter(
+      (loc) => countHtmlBodyWords(esc(plainAnswer(entry, loc))) >= MIN_INDEXABLE_WORDS,
+    ),
+  );
+}
+
+/** Entry ids that have a page in `locale` — what the hub uses to decide linking. */
+function linkedIdsForLocale(locale: FaqHubLocale, byEntry: Map<string, Set<FaqHubLocale>>): Set<string> {
+  const out = new Set<string>();
+  for (const [id, locales] of byEntry) if (locales.has(locale)) out.add(id);
+  return out;
+}
+
+/** Answer text with markdown link syntax flattened — for meta/JSON-LD. */
+function plainAnswer(entry: FaqHubEntry, locale: FaqHubLocale): string {
+  return entry.answer[locale].replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Sibling questions from the same category, chosen deterministically.
+ *
+ * Rotating the category list from this entry's own position — rather than
+ * always taking the first N — is what stops every page in a category from
+ * emitting the same six links and concentrating all the inbound link equity on
+ * the category's first entries. Same failure mode, and same fix, as the
+ * related-articles picker in packages/articles/engine/relatedArticlesIndex.ts.
+ */
+function siblingEntries(entry: FaqHubEntry, linkedIds: ReadonlySet<string>): FaqHubEntry[] {
+  const siblings = getFaqHubByCategory(entry.category).filter((e) => linkedIds.has(e.id));
+  const self = siblings.findIndex((e) => e.id === entry.id);
+  const start = self < 0 ? 0 : self;
+  const out: FaqHubEntry[] = [];
+  for (let i = 1; i < siblings.length && out.length < SIBLING_LINKS; i++) {
+    out.push(siblings[(start + i) % siblings.length]);
+  }
+  return out;
+}
+
+function renderEntryPage(
+  entry: FaqHubEntry,
+  locale: FaqHubLocale,
+  dateStamp: string,
+  linkedIds: ReadonlySet<string>,
+  eligibleLocales: ReadonlySet<string>,
+  distDir?: string,
+): RenderResult {
+  const copy = COPY[locale];
+  const ecopy = ENTRY_COPY[locale];
+  const question = entry.question[locale];
+  const categoryLabel = FAQ_HUB_CATEGORY_LABELS[entry.category][locale];
+
+  const urlPath = buildFaqEntryPath(locale, entry.id);
+  const canonicalUrl = `${BASE_URL}${urlPath}`;
+  const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
+  const hubParentUrl = `${BASE_URL}${GUIDA_HUB_PATH[locale]}`;
+  const hubUrl = `${BASE_URL}${buildFaqHubPath(locale)}`;
+
+  // Hreflang via the ONE builder every locale-scoped emitter now uses (#5179).
+  // The all-or-nothing rule lives there, not here: an incomplete set emits
+  // nothing, because a partial block only trades audit-hreflang's
+  // [missingTarget] for [tooFew]. Keeping a local copy of that rule is exactly
+  // the duplication that PR removed.
+  const alternates = buildLocaleAlternateBlock({
+    eligibleLocales,
+    hrefFor: (alt) => `${BASE_URL}${buildFaqEntryPath(alt as FaqHubLocale, entry.id)}`,
+    indent: '    ',
+  });
+
+  const answerHtml = mdLinks(linkifyCitations(entry.answer[locale], entry.sources));
+
+  const sourcesHtml =
+    entry.sources && entry.sources.length > 0
+      ? `<section class="fh-rls"><h2 class="fh-rlh">${esc(ecopy.sourcesHeading)}</h2><ul class="fh-rll">${entry.sources
+          .map(
+            (src) =>
+              `<li class="fh-rli"><a href="${esc(src)}" class="fh-lnk" rel="nofollow noopener" target="_blank">${esc(
+                src.replace(/^https?:\/\//, '').replace(/\/$/, ''),
+              )}</a></li>`,
+          )
+          .join('')}</ul></section>`
+      : '';
+
+  const related = entry.relatedLinks ?? [];
+  const relatedHtml =
+    related.length > 0
+      ? `<section class="fh-rls"><h2 class="fh-rlh">${esc(ecopy.seeAlsoHeading)}</h2><ul class="fh-rll">${related
+          .map(
+            (l) =>
+              `<li class="fh-rli"><a href="${esc(resolveRelatedHref(l.href, locale))}" class="fh-lnk">${esc(
+                l.label[locale],
+              )}</a></li>`,
+          )
+          .join('')}</ul></section>`
+      : '';
+
+  const siblings = siblingEntries(entry, linkedIds);
+  const siblingsHtml =
+    siblings.length > 0
+      ? `<section class="fh-rls"><h2 class="fh-rlh">${esc(ecopy.siblingsHeading)}</h2><ul class="fh-rll">${siblings
+          .map(
+            (sib) =>
+              `<li class="fh-rli"><a href="${esc(buildFaqEntryPath(locale, sib.id))}" class="fh-lnk">${esc(
+                sib.question[locale],
+              )}</a></li>`,
+          )
+          .join('')}</ul></section>`
+      : '';
+
+  const body = `
+    <nav class="fh-bc" aria-label="Breadcrumb">
+      <a href="${esc(homeUrl)}" class="fh-lnk">${esc(copy.breadcrumbHome)}</a>
+      <span> / </span>
+      <a href="${esc(hubParentUrl)}" class="fh-lnk">${esc(copy.breadcrumbHub)}</a>
+      <span> / </span>
+      <a href="${esc(hubUrl)}" class="fh-lnk">${esc(copy.h1)}</a>
+      <span> / </span>
+      <span>${esc(categoryLabel)}</span>
+    </nav>
+    <header class="fh-hd">
+      <p class="fh-eyebrow">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+    </header>
+    <section class="fh-q" data-speakable>
+      <h2 class="fh-qt">${esc(ecopy.answerHeading)}</h2>
+      <p class="fh-qa">${answerHtml}</p>
+    </section>
+    ${sourcesHtml}
+    ${relatedHtml}
+    ${siblingsHtml}
+    <p class="fh-disc">${esc(copy.disclaimer)}</p>
+    <p class="fh-back"><a href="${esc(hubUrl)}" class="fh-lnk">${esc(ecopy.backToHub)}</a></p>
+  `;
+
+  const wordCount = countHtmlBodyWords(body);
+  const bodyHtml = `<main class="fh-main">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
+
+  const breadcrumbLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: homeUrl },
+      { '@type': 'ListItem', position: 2, name: copy.breadcrumbHub, item: hubParentUrl },
+      { '@type': 'ListItem', position: 3, name: copy.h1, item: hubUrl },
+      { '@type': 'ListItem', position: 4, name: question, item: canonicalUrl },
+    ],
+  });
+
+  // One Question per page, with the full answer text — the same body the HTML
+  // shows. A page whose structured data disagrees with its visible answer is
+  // worse than one with no structured data (#4398).
+  const faqLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: locale,
+    url: canonicalUrl,
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: { '@type': 'Answer', text: plainAnswer(entry, locale) },
+      },
+    ],
+  });
+
+  const articleLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: question,
+    description: guardArticleJsonLdDescription(plainAnswer(entry, locale)),
+    image: `${BASE_URL}/og-image.png`,
+    inLanguage: locale,
+    url: canonicalUrl,
+    datePublished: dateStamp,
+    dateModified: dateStamp,
+    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Frontaliere Ticino',
+      url: `${BASE_URL}/`,
+      logo: imageObjectLd({ url: `${BASE_URL}/icons/icon-512x512.png`, width: 512, height: 512 }),
+    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+    isPartOf: { '@type': 'WebPage', '@id': hubUrl },
+    articleSection: categoryLabel,
+    speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '[data-speakable]'] },
+  });
+
+  const html = buildSeoPageHtml({
+    locale,
+    // The question IS the title. It is what the user typed, so it is also the
+    // best possible title-tag: no keyword assembly, no promise the body has to
+    // live up to separately.
+    title: question,
+    description: plainAnswer(entry, locale),
+    canonicalUrl,
+    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    ogType: 'article',
+    ogLocale: OG_LOCALE[locale],
+    hreflangHtml: alternates,
+    jsonLdScripts: [breadcrumbLd, faqLd, articleLd],
+    bodyHtml,
+    distDir,
+    hubChrome: {
+      hubKey: 'guida',
+      activeSubTab: 'permits',
+      // hubChrome's hero emits the page's only <h1> — so the <h1> is the
+      // question verbatim, which is exactly the heading this page should have.
+      hero: { title: question, subtitle: ecopy.heroSubtitle(categoryLabel), variant: 'green' },
+    },
+  });
+
+  return { urlPath, html, wordCount, faqCount: 1 };
+}
+
 // ── Sitemap ──────────────────────────────────────────────────────
 
 function buildSitemapXml(
@@ -619,6 +951,13 @@ export function faqHubPlugin(rootDir: string): Plugin {
         alternates.push(`x-default|${BASE_URL}${buildFaqHubPath('it')}`);
       }
 
+      // Same idea one level down: which entries get their own page, per locale.
+      // Settled here, before any render, so the hub can link only what exists
+      // and the entry hreflang can advertise only what was planned.
+      const entryLocales = new Map<string, Set<FaqHubLocale>>(
+        ALL_FAQ_HUB.map((entry) => [entry.id, entryPageEligibleLocales(entry)] as const),
+      );
+
       const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
       let pagesWritten = 0;
       let thinSkipped = 0;
@@ -626,7 +965,7 @@ export function faqHubPlugin(rootDir: string): Plugin {
 
       // ── Pass 2: render for real, with the settled alternate set ────────
       for (const locale of FAQ_HUB_LOCALES) {
-        const rendered = renderPage(locale, dateStamp, distDir, eligibleLocales);
+        const rendered = renderPage(locale, dateStamp, distDir, eligibleLocales, linkedIdsForLocale(locale, entryLocales));
 
         if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
           thinSkipped++;
@@ -657,6 +996,50 @@ export function faqHubPlugin(rootDir: string): Plugin {
         pagesWritten++;
       }
 
+      // ── Per-question pages ──────────────────────────────────────
+      let entryPagesWritten = 0;
+      let entryLocalesSkipped = 0;
+      for (const entry of ALL_FAQ_HUB) {
+        const locales = entryLocales.get(entry.id)!;
+        entryLocalesSkipped += FAQ_HUB_LOCALES.length - locales.size;
+        if (locales.size === 0) continue;
+
+        const linkedIds = new Set([entry.id]);
+        // Sitemap alternates FILTER rather than void — reciprocity only needs
+        // every advertised alternate to be a <loc> the site publishes, and the
+        // `tooFew` rule is an HTML-block rule, not a sitemap one (#5179).
+        const entryAlternates = FAQ_HUB_LOCALES.filter((alt) => locales.has(alt)).map(
+          (alt) => `${alt}|${BASE_URL}${buildFaqEntryPath(alt, entry.id)}`,
+        );
+        if (locales.has('it')) {
+          entryAlternates.push(`x-default|${BASE_URL}${buildFaqEntryPath('it', entry.id)}`);
+        }
+
+        for (const locale of locales) {
+          const rendered = renderEntryPage(
+            entry,
+            locale,
+            dateStamp,
+            linkedIdsForLocale(locale, entryLocales),
+            locales,
+            distDir,
+          );
+          // Belt and braces: entryPageEligibleLocales() is conservative (chrome
+          // only adds words), so this cannot fire. If it ever does, the
+          // predicate and the renderer have drifted — skip rather than ship thin.
+          if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
+            console.warn(
+              `\x1b[33m[faq-hub]\x1b[0m entry ${entry.id} rendered thin in ${locale} (${rendered.wordCount}) — skipped`,
+            );
+            continue;
+          }
+          collector.add(np.join(distDir, rendered.urlPath, 'index.html'), rendered.html);
+          collector.add(np.join(distDir, rendered.urlPath.replace(/\/+$/, '') + '.html'), rendered.html);
+          sitemapEntries.push({ canonical: rendered.urlPath, alternates: entryAlternates });
+          entryPagesWritten++;
+        }
+      }
+
       if (sitemapEntries.length > 0) {
         try {
           const xml = buildSitemapXml(sitemapEntries, dateStamp);
@@ -671,8 +1054,19 @@ export function faqHubPlugin(rootDir: string): Plugin {
       const t0 = Date.now();
       const written = await collector.flush();
       console.log(
-        `\x1b[36m[faq-hub]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s · total entries: ${ALL_FAQ_HUB.length}`,
+        `\x1b[36m[faq-hub]\x1b[0m Generated ${pagesWritten} hub + ${entryPagesWritten} per-question pages ` +
+          `(${thinSkipped} hub / ${entryLocalesSkipped} question-locale skipped as thin) — flushed ${written} files in ` +
+          `${((Date.now() - t0) / 1000).toFixed(1)}s · total entries: ${ALL_FAQ_HUB.length}`,
       );
     },
   };
 }
+
+// ── Test hooks ───────────────────────────────────────────────────
+// Named `__…ForTest` following holidaysLandingsPlugin / minimumWageLandingsPlugin:
+// the renderers stay private, the tests drive them without a dist/ tree.
+export const __renderFaqEntryPageForTest = renderEntryPage;
+export const __renderFaqHubPageForTest = renderPage;
+export const __faqEntryPageEligibleLocalesForTest = entryPageEligibleLocales;
+export const __faqLinkedIdsForLocaleForTest = linkedIdsForLocale;
+export const __faqSiblingEntriesForTest = siblingEntries;

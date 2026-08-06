@@ -149,7 +149,14 @@ describe('FAQ hub (AE-5) — new fisco entries link internally per-locale (#3653
       for (const id of NEW_ENTRY_IDS) {
         const articleHtml = extractArticle(html, id);
         expect(articleHtml, `${locale}: entry "${id}" missing from rendered page`).not.toBe('');
-        const question = new RegExp(`<h3 ${attrEq('class', 'fh-qt')}>([^<]+)</h3>`).exec(articleHtml)?.[1];
+        // Inner HTML, then tags stripped: the heading wraps the question in an
+        // <a> to its own per-question page (#5008), so a text-only capture
+        // (`[^<]+`) matched nothing. What the test means is "the question text
+        // is there and non-empty", which is markup-shape independent.
+        const questionInner = new RegExp(
+          `<h3 ${attrEq('class', 'fh-qt')}>([\\s\\S]*?)</h3>`,
+        ).exec(articleHtml)?.[1];
+        const question = questionInner?.replace(/<[^>]+>/g, '').trim();
         const answer = new RegExp(`<p ${attrEq('class', 'fh-qa')}>([\\s\\S]*?)</p>`).exec(articleHtml)?.[1];
         expect(question && question.trim().length > 0, `${locale}: entry "${id}" has empty question`).toBe(
           true,

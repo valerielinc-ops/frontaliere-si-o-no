@@ -61,6 +61,9 @@ export {
   FAQ_HUB_ROUTES,
   parseFaqHubPath,
   isFaqHubPath,
+  buildFaqEntryPath,
+  parseFaqEntryPath,
+  isFaqEntryPath,
 } from './routes';
 
 // ── Category labels per locale ────────────────────────────────────
