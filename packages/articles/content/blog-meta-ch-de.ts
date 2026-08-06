@@ -1891,6 +1891,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.title': 'Kantone und Steuersätze: Vergleich 2026 und Optimierungsstrategien',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.excerpt': 'Die kantonalen Steuersätze in der Schweiz variieren stark zwischen den verschiedenen Kantonen und Staffeln. Der Kanton Zürich gehört zu den Kantonen, die die meiste Aufmerksamkeit in Bezug auf Steuern erfordern.',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.imageAlt': 'Max 125 caratteri',
+    'blog.article.lex-netflix-cinema-svizzero-2025.title': 'Lex Netflix: Investitionen in Schweizer Kino bis 2025 um 25 % gestiegen',
+    'blog.article.lex-netflix-cinema-svizzero-2025.excerpt': 'Im Jahr 2025 investierten die Streaming-Plattformen 19,9 Millionen Franken in das Schweizer Kino, ein Anstieg von 25% gegenüber dem Vorjahr, dank der Verpflichtung von 4% auf das Schweizer Bruttoeinkommen.',
+    'blog.article.lex-netflix-cinema-svizzero-2025.imageAlt': 'Schweizer Filmcrew bei der Arbeit an einer lokalen Produktion im Jahr 2025',
 };
 
 export default blogMetaChDe;

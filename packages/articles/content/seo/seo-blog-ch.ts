@@ -24470,6 +24470,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lex-netflix-cinema-svizzero-2025': {
+    title: 'Lex Netflix: investimenti nel cinema svizzero in crescita del 25% nel 2025',
+    description: 'Nel 2025 gli investimenti nel cinema svizzero sono cresciuti del 25% grazie alla Lex Netflix: 19,9 milioni di franchi destinati alla produzione elvetica da 22',
+    keywords: 'frontalieri, ticino, svizzera, italia, netflix, investimenti, cinema, svizzero',
+    ogTitle: 'Lex Netflix: investimenti cinema svizzero in crescita del 25% nel 2025',
+    ogDescription: 'Scopri come la Lex Netflix ha aumentato del 25% gli investimenti nel cinema svizzero nel 2025, con 19,9 milioni di franchi destinati alla produzione nazionale',
+    canonicalPath: '/articoli-svizzera/lex-netflix-cinema-svizzero-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lex Netflix: investimenti nel cinema svizzero in crescita del 25% nel 2025",
+      "description": "Nel 2025 gli investimenti nel cinema svizzero sono cresciuti del 25% grazie alla Lex Netflix: 19,9 milioni di franchi destinati alla produzione elvetica da 22",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lex-netflix-cinema-svizzero-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Squadra cinematografica svizzera al lavoro su una produzione locale nel 2025"
+      },
+      "datePublished": "2026-08-06T10:24:03+00:00",
+      "dateModified": "2026-08-06T10:24:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lex-netflix-cinema-svizzero-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

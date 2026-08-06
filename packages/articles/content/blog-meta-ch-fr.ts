@@ -1891,6 +1891,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.title': 'Cantons et taux : comparaison 2026 et stratégies d\'optimisation',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.excerpt': 'Les taux d\'imposition cantonaux en Suisse varient considérablement d\'un canton à l\'autre et d\'un échelon à l\'autre. Le canton de Zurich est l\'un de ceux qui nécessitent le plus d\'attention en matière d\'impôts.',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.imageAlt': 'Max 125 caratteri',
+    'blog.article.lex-netflix-cinema-svizzero-2025.title': 'Investimenti Netflix nel cinema svizzero in crescita del 25% nel 2025',
+    'blog.article.lex-netflix-cinema-svizzero-2025.excerpt': 'En 2025, les plateformes de streaming ont investi 19,9 millions de francs dans le cinéma suisse, soit une augmentation de 25% par rapport à l\'année précédente, grâce à l\'obligation de 4% sur le revenu brut suisse.',
+    'blog.article.lex-netflix-cinema-svizzero-2025.imageAlt': 'Équipe de cinéma suisse travaillant sur une production locale en 2025',
 };
 
 export default blogMetaChFr;
