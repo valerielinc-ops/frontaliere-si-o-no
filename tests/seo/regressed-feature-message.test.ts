@@ -60,15 +60,19 @@ describe('formatRegressedFeature — the two counts cannot be misread', () => {
   });
 });
 
-describe('the three rate-ratchet audits all use it — no local copy to drift', () => {
+describe('every rate-ratchet audit uses it — no local copy left to drift', () => {
   it.each([
     'scripts/audit-title-length.mjs',
     'scripts/audit-h1-title-duplicates.mjs',
     'scripts/audit-text-html-ratio.mjs',
+    'scripts/audit-title-no-disambig-hash.mjs',
+    'scripts/audit-dist-multi.mjs',
   ])('%s', async (path) => {
     const src = await import('node:fs').then((fs) => fs.readFileSync(path, 'utf8'));
     expect(src).toContain('formatRegressedFeature');
-    // The hand-rolled shape that caused this is gone from all three.
+    // Both hand-rolled shapes that put a sampled count next to a full-corpus
+    // baseline are gone: the summary one and the console one.
     expect(src).not.toMatch(/allowed, \$\{r\.count\} vs \$\{r\.max\}/);
+    expect(src).not.toMatch(/\$\{f\.count\} offenders \(baseline/);
   });
 });

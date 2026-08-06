@@ -434,7 +434,7 @@ async function standalone() {
         .filter((o) => o.feature === feat)
         .sort((a, b) => b.metric - a.metric);
       if (rate != null) {
-        console.error(`\nFeature "${feat}": rate ${rate}% (allowed ≤ ${maxRate}%) — ${count} offenders / ${featScanned} scanned vs baseline ${cap}`);
+        console.error(`\n${formatRegressedFeature({ feature: feat, count, max: cap, rate, maxRate }, SAMPLE_RATE)} — ${featScanned} scanned`);
       } else {
         console.error(`\nFull offender list for feature "${feat}" (${count} pages, baseline ${cap}, +${count - cap}):`);
       }

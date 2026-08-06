@@ -542,9 +542,9 @@ async function standalone() {
     }
     for (const f of regr) {
       if (f.rate != null) {
-        console.error(`  Feature "${f.feature}": rate ${f.rate}% (allowed ≤ ${f.maxRate}%) — ${f.count} offenders / ${f.scanned} scanned vs baseline ${f.max}`);
+        console.error(`  ${formatRegressedFeature(f, SAMPLE_RATE)} — ${f.scanned} scanned`);
       } else {
-        console.error(`  Feature "${f.feature}": ${f.count} offenders (baseline allows ${f.max})`);
+        console.error(`  ${formatRegressedFeature(f, SAMPLE_RATE)}`);
       }
     }
     for (const f of regr) {
