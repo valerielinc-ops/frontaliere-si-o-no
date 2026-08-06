@@ -9295,6 +9295,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.title': 'Bags: Zurich closes in green, New York allows itself a getaway',
     'blog.article.borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.excerpt': 'Cooling tensions between Washington and Tehran keep the Swiss Market Index above the line.',
     'blog.article.borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga.imageAlt': 'A sunny day in Lugano, with a view of the lake.',
+    'blog.article.frontaliere-nascita-figlio-anagrafe-2026.title': 'Birth of a child for border workers: registration and cheques 2026 over 20 km',
+    'blog.article.frontaliere-nascita-figlio-anagrafe-2026.excerpt': 'Operational guide for border workers Ticino-Italy: child birth, personal registration, family allowances and consular practices in compliance with the new tax agreement 2024 and the 1976 convention.',
+    'blog.article.frontaliere-nascita-figlio-anagrafe-2026.imageAlt': 'Cross-border worker with newborn baby at Brogeda customs office, Italy-Switzerland border',
 };
 
 export default blogMetaEn;

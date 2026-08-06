@@ -59585,6 +59585,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-nascita-figlio-anagrafe-2026': {
+    title: 'Nascita figlio per frontalieri: iscrizione anagrafe e assegni 2026 oltre 20 km',
+    description: 'Guida completa per frontalieri Ticino-Italia: nascita figlio, iscrizione anagrafica entro 10 giorni, assegni familiari INPS e pratiche consolari nel rispetto',
+    keywords: 'frontalieri, ticino, svizzera, italia, nascita, figlio, iscrizione, anagrafe',
+    ogTitle: 'Nascita figlio frontalieri: assegni INPS e anagrafe 2026 oltre 20 km',
+    ogDescription: 'Scopri le procedure obbligatorie per la nascita di un figlio da genitori frontalieri Ticino-Italia: iscrizione anagrafica, assegni familiari INPS e documenti',
+    canonicalPath: '/articoli-frontaliere/frontaliere-nascita-figlio-anagrafe-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nascita figlio per frontalieri: iscrizione anagrafe e assegni 2026 oltre 20 km",
+      "description": "Guida completa per frontalieri Ticino-Italia: nascita figlio, iscrizione anagrafica entro 10 giorni, assegni familiari INPS e pratiche consolari nel rispetto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-nascita-figlio-anagrafe-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere con figlio appena nato presso ufficio doganale di Brogeda, confine italo-svizzero"
+      },
+      "datePublished": "2026-08-06T05:29:36+00:00",
+      "dateModified": "2026-08-06T05:29:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-nascita-figlio-anagrafe-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
