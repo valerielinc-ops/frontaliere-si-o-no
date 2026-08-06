@@ -68,9 +68,21 @@ export const CDN_FRESHNESS_BUCKET_MS = 5 * 60 * 1000;
  * the edge's, and was verified to still return the stale variant. Only a
  * different url reaches a different cache entry.
  *
- * Use this for every CDN file a publisher rewrites between deploys. Do NOT use
- * it for build artefacts — those change only on deploy, and the post-deploy
- * `purge_everything` clears all variants at once.
+ * Use this for every CDN file a publisher rewrites between deploys.
+ *
+ * It does NOT reach the build artefacts (`assets/*.js`), whose URLs Vite emits
+ * — and those are affected too. The post-deploy `purge_everything` does not
+ * clear the browser's variant either; measured 2026-08-06 in Chrome:
+ *
+ *   assets/App.js   browser (Origin sent) → 2026-08-05T20:48:17Z
+ *                   same URL, no Origin   → 2026-08-06T06:23:27Z
+ *
+ * i.e. production served a ten-hour-old bundle to real visitors while every
+ * header check read current. Nothing in this file can fix that — a bundle URL
+ * cannot be rotated from application code. The only repair is at the edge:
+ * stop varying, by serving `Access-Control-Allow-Origin: *` on these public,
+ * read-only assets. Until then, treat "deployed" and "served to browsers" as
+ * different claims and verify the second one with a browser.
  */
 export function cdnFreshUrl(url: string, bucketMs: number = CDN_FRESHNESS_BUCKET_MS): string {
   const token = Math.floor(Date.now() / bucketMs);
