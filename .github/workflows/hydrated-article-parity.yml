@@ -84,32 +84,40 @@ jobs:
 
           rc=0
           : > parity-report.txt
+          # All eight handed-off landings, the same set the article-hub
+          # watchdog probes. The defect is per-locale: a slug that is not the
+          # id only exists on en/de/fr, and checking `it` alone missed a live
+          # 404 on svizzera/de (found exactly this way).
           for section in $sections; do
-            attempt=1
-            ok=0
-            while [ "$attempt" -le 8 ]; do
-              echo "::group::${section} — attempt ${attempt}/8"
-              if node scripts/ci/check-hydrated-article-parity.mjs \
-                   --section="$section" 2>&1 | tee "parity-${section}.txt"; then
-                ok=1
+            for locale in it en de fr; do
+              label="${section}/${locale}"
+              attempt=1
+              ok=0
+              while [ "$attempt" -le 8 ]; do
+                echo "::group::${label} — attempt ${attempt}/8"
+                if node scripts/ci/check-hydrated-article-parity.mjs \
+                     --section="$section" --locale="$locale" 2>&1 \
+                     | tee "parity-${section}-${locale}.txt"; then
+                  ok=1
+                  echo "::endgroup::"
+                  break
+                fi
                 echo "::endgroup::"
-                break
+                attempt=$((attempt + 1))
+                [ "$attempt" -le 8 ] && sleep 45
+              done
+              if [ "$ok" -ne 1 ]; then
+                rc=1
+                {
+                  echo "### ${label}"
+                  echo ''
+                  echo '```'
+                  cat "parity-${section}-${locale}.txt"
+                  echo '```'
+                  echo ''
+                } >> parity-report.txt
               fi
-              echo "::endgroup::"
-              attempt=$((attempt + 1))
-              [ "$attempt" -le 8 ] && sleep 45
             done
-            if [ "$ok" -ne 1 ]; then
-              rc=1
-              {
-                echo "### ${section}"
-                echo ''
-                echo '```'
-                cat "parity-${section}.txt"
-                echo '```'
-                echo ''
-              } >> parity-report.txt
-            fi
           done
           exit "$rc"
 
