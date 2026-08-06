@@ -27,6 +27,15 @@
  *      (dai marker `<!-- COLLISION:N -->`) non è ancora incluso in head — il
  *      vero hazard #1454. Behind per soli commit main NON correlati → consentito
  *      (evita starvation/livelock sotto main trafficato). 0 behind → consentito.
+ *   5. Merge-preview duplicate-declaration gate (#5215): SOLO se la PR tocca
+ *      build-plugins/**. Il gate 4 è ancestry-only (un peer mergiato è incluso
+ *      in head?) e non coglie #5187+#5170: due PR che aggiungono lo STESSO
+ *      helper in righe diverse dello stesso file si fondono SENZA conflitto
+ *      git ma producono un binding duplicato a livello di modulo che esbuild
+ *      rifiuta. Qui si costruisce il merge REALE (head + main tip letta ORA)
+ *      via `git merge-tree --write-tree` (nessuna mutazione working-tree) e si
+ *      ri-passa il detector AST di #5212 sul risultato. Best-effort: qualunque
+ *      impossibilità di verificare → skip, non blocca (mergePreviewCheck.mjs).
  *
  * Se tutti i gate passano → squash-merge con PAT (stesso meccanismo di prima:
  * PRIMARY_TOKEN=GITHUB_PAT per il cascade deploy/followup, fallback GITHUB_TOKEN).
@@ -43,6 +52,7 @@ import { execFileSync } from 'node:child_process';
 import { VITEST_CHECK_NAME, REDFLAG_IMPORTANT_RE, REVIEW_WORKFLOW_DRIFT_FILES } from './lib/constants.mjs';
 import { latestCompletedVitestConclusion } from './lib/vitestCheck.mjs';
 import { checkClosesLines } from '../lib/pr-body-closes-check.mjs';
+import { checkMergePreviewDuplicates } from './lib/mergePreviewCheck.mjs';
 
 const REPO = process.env.GITHUB_REPOSITORY || '';
 const PR = process.argv[2];
@@ -488,6 +498,38 @@ function main() {
       console.log(`Gate collision (#2424 preciso): ${decision.reason} → consentito ✔`);
     } else {
       console.log(`Gate collision: collision-risk ma 0 dietro main → consentito ✔`);
+    }
+  }
+
+  // 5. Merge-preview duplicate-declaration gate (#5215), SOLO se la PR tocca
+  // build-plugins/**: legge la tip di main ORA (non un valore cache di gate
+  // precedenti) e verifica che il merge REALE PR-head+main risultante non
+  // dichiari due volte un binding a livello di modulo — la classe
+  // #5187+#5170, che git fonde SENZA conflitto (righe diverse dello stesso
+  // file) e che il gate collision (ancestry-only, punto 4) non può cogliere.
+  // Best-effort: qualunque impossibilità di verificare (fetch, merge-base) →
+  // skip (non blocca) — vedi mergePreviewCheck.mjs.
+  let touchesBuildPlugins = false;
+  try {
+    touchesBuildPlugins = gh(['api', `repos/${REPO}/pulls/${PR}/files`, '--paginate', '--jq', '.[].filename'],
+      { json: false }).split('\n').some((f) => f.trim().startsWith('build-plugins/'));
+  } catch (e) {
+    console.log(`merge-preview: impossibile leggere i file della PR (${String(e).slice(0, 120)}) — skip gate (non blocca).`);
+  }
+  if (touchesBuildPlugins) {
+    let freshMainSha = '';
+    let mergeBaseSha = '';
+    try {
+      freshMainSha = gh(['api', `repos/${REPO}/commits/main`, '--jq', '.sha'], { json: false }).trim();
+      mergeBaseSha = gh(['api', `repos/${REPO}/compare/${freshMainSha}...${head}`, '--jq', '.merge_base_commit.sha'],
+        { json: false }).trim();
+    } catch (e) {
+      console.log(`merge-preview: impossibile leggere main/merge-base freschi (${String(e).slice(0, 120)}) — skip gate (non blocca).`);
+    }
+    if (freshMainSha && mergeBaseSha) {
+      const preview = checkMergePreviewDuplicates({ headSha: head, baseSha: freshMainSha, mergeBaseSha });
+      console.log(`Gate merge-preview: ${preview.reason}`);
+      if (!preview.ok) return fail(preview.reason);
     }
   }
 
