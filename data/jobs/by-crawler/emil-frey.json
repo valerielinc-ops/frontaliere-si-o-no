@@ -1604,7 +1604,6 @@
         ]
       },
       "firstSeenAt": "2026-06-25T22:17:36.468Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1616,7 +1615,9 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "emil-frey-14aa1c3dc9ef",
@@ -2406,7 +2407,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:09:36.370Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2418,7 +2418,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "emil-frey-5314ea2b529b",

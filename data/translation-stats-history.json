@@ -11398,5 +11398,119 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-06T13:59:12.763Z",
+    "label": "before",
+    "total": 26449,
+    "needsRetranslation": 1388,
+    "suppressed": 40,
+    "incomplete": 122,
+    "complete": 26327,
+    "missingByLocale": {
+      "it": 65,
+      "en": 37,
+      "de": 50,
+      "fr": 53
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 36
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 11
+      },
+      {
+        "company": "IKEA",
+        "pending": 9
+      },
+      {
+        "company": "Rituals Cosmetics Switzerland",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Sulzer",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 3
+      },
+      {
+        "company": "Hans Ziegler AG Hauptsitz",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-06T15:16:59.265Z",
+    "label": "after",
+    "total": 26449,
+    "needsRetranslation": 546,
+    "suppressed": 40,
+    "incomplete": 112,
+    "complete": 26337,
+    "missingByLocale": {
+      "it": 64,
+      "en": 36,
+      "de": 50,
+      "fr": 52
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 36
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 11
+      },
+      {
+        "company": "IKEA",
+        "pending": 9
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Sulzer",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 3
+      },
+      {
+        "company": "Hans Ziegler AG Hauptsitz",
+        "pending": 2
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 2
+      }
+    ]
   }
 ]
