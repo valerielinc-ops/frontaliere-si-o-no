@@ -9303,6 +9303,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalierieticinoaumento.title': 'Légère augmentation des travailleurs frontaliers au Tessin : les chiffres',
     'blog.article.frontalierieticinoaumento.excerpt': 'Le nombre de frontaliers au Tessin a augmenté de 0,6 % par rapport au trimestre précédent, avec un total de 79 121 personnes.',
     'blog.article.frontalierieticinoaumento.imageAlt': 'Vue de Lugano sur le lac et les montagnes',
+    'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.title': 'Augmentation du nombre de frontaliers actifs en Suisse',
+    'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.excerpt': 'Deuxième trimestre 2026: 79 121 frontaliers actifs au Tessin, +0,6% par rapport au premier trimestre.',
+    'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.imageAlt': 'Une photo d\'un frontalier travaillant en Suisse',
 };
 
 export default blogMetaFr;

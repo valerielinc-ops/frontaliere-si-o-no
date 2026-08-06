@@ -9302,6 +9302,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalierieticinoaumento.title': 'Lieve aumento dei lavoratori frontalieri in Ticino: le cifre',
     'blog.article.frontalierieticinoaumento.excerpt': 'Il numero di frontalieri in Ticino è aumentato del 0,6% rispetto al trimestre precedente, con un totale di 79.121 persone.',
     'blog.article.frontalierieticinoaumento.imageAlt': 'Vista di Lugano con lago e monti',
+    'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.title': 'Aumento dei frontalieri attivi in Svizzera',
+    'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.excerpt': 'Secondo trimestre 2026: 79\'121 frontalieri attivi in Ticino, +0,6% rispetto al primo trimestre.',
+    'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.imageAlt': 'Una foto di un frontaliere che lavora in Svizzera',
 };
 
 export default blogMetaIt;

@@ -24509,6 +24509,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rischio-bolla-svizzera-2026': {
+    title: 'Il pericolo di una bolla immobiliare continua ad aumentare',
+    description: 'L\'UBS Swiss Real Estate Bubble Index si è attestato a 0,72 punti nel secondo trimestre 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pericolo, bolla, immobiliare, continua',
+    ogTitle: 'Il pericolo di una bolla immobiliare continua ad aumentare',
+    ogDescription: 'L\'UBS Swiss Real Estate Bubble Index si è attestato a 0,72 punti nel secondo trimestre 2026',
+    canonicalPath: '/articoli-svizzera/rischio-bolla-svizzera-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il pericolo di una bolla immobiliare continua ad aumentare",
+      "description": "L'UBS Swiss Real Estate Bubble Index si è attestato a 0,72 punti nel secondo trimestre 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rischio-bolla-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena di Lugano con edifici residenziali e nuvole"
+      },
+      "datePublished": "2026-08-06T11:33:37+00:00",
+      "dateModified": "2026-08-06T11:33:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rischio-bolla-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-easyjet-apollon-acquisizione': {
+    title: 'EasyJet passa al fondo americano Apollo per 6,23 miliardi di franchi',
+    description: 'EasyJet ha confermato l\'acquisizione da parte del fondo statunitense di private equity Apollo per 5,7 miliardi di sterline (6,23 miliardi di franchi).',
+    keywords: 'frontalieri, ticino, svizzera, italia, easyjet, passa, fondo, americano',
+    ogTitle: 'EasyJet acquisita da Apollo per 6,23 miliardi di franchi',
+    ogDescription: 'EasyJet ha confermato l\'acquisizione da parte del fondo statunitense di private equity Apollo per 5,7 miliardi di sterline (6,23 miliardi di franchi).',
+    canonicalPath: '/articoli-svizzera/easyjet-apollon-acquisizione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "EasyJet passa al fondo americano Apollo per 6,23 miliardi di franchi",
+      "description": "EasyJet ha confermato l'acquisizione da parte del fondo statunitense di private equity Apollo per 5,7 miliardi di sterline (6,23 miliardi di franchi).",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/easyjet-apollon-acquisizione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "EasyJet, aereo di EasyJet, acquisizione da parte di Apollo, sede di EasyJet a Luton"
+      },
+      "datePublished": "2026-08-06T23:19:27+00:00",
+      "dateModified": "2026-08-06T23:19:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/easyjet-apollon-acquisizione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

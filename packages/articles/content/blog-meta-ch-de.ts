@@ -1894,6 +1894,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lex-netflix-cinema-svizzero-2025.title': 'Lex Netflix: Investitionen in Schweizer Kino bis 2025 um 25 % gestiegen',
     'blog.article.lex-netflix-cinema-svizzero-2025.excerpt': 'Im Jahr 2025 investierten die Streaming-Plattformen 19,9 Millionen Franken in das Schweizer Kino, ein Anstieg von 25% gegenüber dem Vorjahr, dank der Verpflichtung von 4% auf das Schweizer Bruttoeinkommen.',
     'blog.article.lex-netflix-cinema-svizzero-2025.imageAlt': 'Schweizer Filmcrew bei der Arbeit an einer lokalen Produktion im Jahr 2025',
+    'blog.article.rischio-bolla-svizzera-2026.title': 'Die Gefahr einer Immobilienblase nimmt weiter zu',
+    'blog.article.rischio-bolla-svizzera-2026.excerpt': 'Der UBS Swiss Real Estate Bubble Index lag im 2. Quartal 2026 bei 0,72 Punkten',
+    'blog.article.rischio-bolla-svizzera-2026.imageAlt': 'Lugano-Landschaft mit Wohngebäuden und Wolken',
+    'blog.article.easyjet-apollon-acquisizione.title': 'EasyJet wechselt für 6,23 Milliarden Franken in den amerikanischen Apollo-Fonds',
+    'blog.article.easyjet-apollon-acquisizione.excerpt': 'Die Übernahme soll bis zum Ende des ersten Quartals des nächsten Jahres abgeschlossen sein',
+    'blog.article.easyjet-apollon-acquisizione.imageAlt': 'EasyJet, Flugzeug von EasyJet, Übernahme durch Apollo, Hauptsitz von EasyJet in Luton',
 };
 
 export default blogMetaChDe;

@@ -9301,6 +9301,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalierieticinoaumento.title': 'Slight increase in frontier workers in Ticino: the figures',
     'blog.article.frontalierieticinoaumento.excerpt': 'The number of border workers in Ticino increased by 0.6% compared to the previous quarter, with a total of 79,121 people.',
     'blog.article.frontalierieticinoaumento.imageAlt': 'Lugano lake and mountains view',
+    'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.title': 'Increase in active border workers in Switzerland',
+    'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.excerpt': 'Second quarter 2026: 79,121 border workers active in Ticino, +0.6% compared to the first quarter.',
+    'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.imageAlt': 'A photo of a cross-border worker in Switzerland',
 };
 
 export default blogMetaEn;
