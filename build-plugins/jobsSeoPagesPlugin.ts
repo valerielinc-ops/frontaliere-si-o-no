@@ -11,7 +11,7 @@ import path from 'path';
 import os from 'node:os';
 import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
-import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, ROBOTS_INDEX_ENHANCED, robotsMetaEnhancedForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
+import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, ROBOTS_INDEX_ENHANCED, ROBOTS_NOINDEX_FOLLOW, robotsMetaEnhancedForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
 import { buildSimplePage, asyncCssHeadBlock, rootShell, esc as escHtml } from './htmlTemplate';
 import { railGutters } from './shared/railGutters';
 import { buildSeoPageHtml } from './shared/seoPageShell';
@@ -12618,15 +12618,24 @@ ${staticAnalyticsHtml}
  recordPhase('ejp:body', __tEjpBody);
 
  const __tEjpWcRobots = phaseTimer();
- // Track IT word count for sitemap inclusion decision
- if (locale === 'it') {
- itBodyWordCount = countHtmlBodyWords(staticBody);
- }
-
  // Make robots directive conditional on actual content quality.
  // Pages with >= MIN_INDEXABLE_WORDS of real text get index,follow (SEO value
  // from long-tail searches). Pages below threshold get noindex,follow.
- const expiredRobotsTag = robotsMetaForContent(staticBody);
+ //
+ // 'it' branches to the same countHtmlBodyWords(staticBody) >= MIN_INDEXABLE_WORDS
+ // check that robotsMetaForContent()/robotsMetaEnhancedForContent() does
+ // internally (see constants.ts), but reuses the word count already needed
+ // for the sitemap-inclusion decision below instead of re-scanning the same
+ // unmutated staticBody a second time. Run 31065272867 (issue #5252) measured
+ // this phase at 57.9s across 183,445 soft-landings with every 'it' page
+ // paying for the scan twice.
+ let expiredRobotsTag: string;
+ if (locale === 'it') {
+ itBodyWordCount = countHtmlBodyWords(staticBody);
+ expiredRobotsTag = itBodyWordCount >= MIN_INDEXABLE_WORDS ? ROBOTS_INDEX_ENHANCED : ROBOTS_NOINDEX_FOLLOW;
+ } else {
+ expiredRobotsTag = robotsMetaForContent(staticBody);
+ }
  recordPhase('ejp:wc-robots', __tEjpWcRobots);
 
  const __tEjpJsonld = phaseTimer();
