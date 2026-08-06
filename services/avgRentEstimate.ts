@@ -164,3 +164,40 @@ export function rentAxisNote(locale: Locale): string {
       return 'L\'affitto è una stima di zona: il dataset contiene solo 32 valori distinti per 518 comuni, quindi ordinare su questo asse produce molti pari merito e le differenze piccole non sono significative.';
   }
 }
+
+/**
+ * Disclosure for a COMPOSITE score that folds the rent estimate into a single
+ * number alongside sourced axes — `components/vita/LivabilityIndex.tsx`.
+ *
+ * Distinct from `rentAxisNote`, and needed because the two surfaces gate
+ * disclosure differently for a good reason on one side and a bad one on the
+ * other. `BorderMunicipalitiesMap` colours BY rent only while `colorMode ===
+ * 'rent'`, so revealing the note only then is correct: outside that mode the
+ * estimate drives nothing the reader sees. The livability index copied that
+ * conditional to `sortBy === 'rent'` — but there the rent axis is never
+ * inactive. It carries W_RENT of the composite score in EVERY row and EVERY
+ * sort mode, so the default view (sorted by score, which is the whole point of
+ * the page) presented an estimate-driven ranking with no disclosure at all.
+ *
+ * Measured on the committed dataset: dropping the rent axis moves 513 of 518
+ * ranks, mean shift 61 positions, max 415. The estimate does not merely break
+ * ties, it decides the ordering — so the note has to be unconditional and has
+ * to name the weight.
+ *
+ * The weight is a PARAMETER, not baked into the copy, so the sentence cannot
+ * drift from the `W_RENT` constant it describes (the failure mode of the
+ * hardcoded "25%" already sitting in the `livability.weightRent` i18n key).
+ */
+export function rentScoreShareNote(weightPercent: number, locale: Locale): string {
+  const pct = `${Math.round(weightPercent)}%`;
+  switch (lang(locale)) {
+    case 'en':
+      return `Rent accounts for ${pct} of the overall score and is a zone-level estimate, not a measured per-town figure: the dataset holds only 32 distinct values for 518 municipalities. The ranking inherits that coarseness — treat nearby positions as equivalent.`;
+    case 'de':
+      return `Die Miete macht ${pct} der Gesamtpunktzahl aus und ist eine Schätzung auf Zonenebene, kein für den einzelnen Ort gemessener Wert: der Datensatz enthält nur 32 verschiedene Werte für 518 Gemeinden. Die Rangliste übernimmt diese Ungenauigkeit — nahe beieinander liegende Plätze sind als gleichwertig zu lesen.`;
+    case 'fr':
+      return `Le loyer représente ${pct} du score global et constitue une estimation au niveau de la zone, et non une valeur mesurée par commune : le jeu de données ne contient que 32 valeurs distinctes pour 518 communes. Le classement hérite de cette imprécision — considérez les positions voisines comme équivalentes.`;
+    default:
+      return `L'affitto pesa per il ${pct} del punteggio complessivo ed è una stima di zona, non un dato rilevato per singolo comune: il dataset contiene solo 32 valori distinti per 518 comuni. La classifica eredita quell'approssimazione — le posizioni vicine vanno lette come equivalenti.`;
+  }
+}
