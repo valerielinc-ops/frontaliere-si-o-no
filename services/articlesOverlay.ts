@@ -38,6 +38,13 @@ export interface OverlayArticle {
   image?: string;
   hasCalculator?: boolean;
   authorSlug?: string;
+  /**
+   * The article's slug for THIS index's locale, when the publisher emits one.
+   * Optional and forward-looking: with it the list can link a brand-new
+   * article without asking for the ~550 KB slugs.json (see the mount effect in
+   * components/community/BlogArticles.tsx).
+   */
+  slug?: string;
 }
 
 export type OverlaySection = 'frontaliere' | 'svizzera';

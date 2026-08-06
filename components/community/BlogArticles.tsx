@@ -1257,24 +1257,37 @@ function BlogArticles({
    const { articles: merged, added } = mergeOverlay(seeded.articles, overlay, getLocale());
    if (added === 0) return;
 
-   // Teach the router these articles' slugs BEFORE the cards paint, not
-   // after. `buildPath` falls back to the raw id when it has no slug, and on
-   // en/de/fr the slug is localized and never equals the id — so the card
-   // would go on screen linking a 404. Caught by
-   // scripts/ci/check-hydrated-article-parity.mjs on svizzera/de and verified
-   // live: the id URL 404s while the real slug URL serves.
+   // Teach the router these articles' slugs BEFORE the cards paint.
+   // `buildPath` falls back to the raw id when it has no slug, so a card for
+   // an article this build never saw links whatever the id happens to be.
+   // Caught by scripts/ci/check-hydrated-article-parity.mjs on svizzera/de and
+   // verified live: /de/schweiz-artikel/rischio-bolla-svizzera-2026/ (the id)
+   // 404s while the real slug URL serves.
    //
-   // The cost lands only when the bundle is genuinely behind (`added > 0`),
-   // and `loadPublishedSlugMaps` caches the document, so a visitor pays for it
-   // once. Learning first costs those cards a moment; publishing a dead link
-   // costs the visitor the article.
-   const knownIds = new Set(seeded.articles.map((a: { id: string }) => a.id));
-   const freshIds = merged
-     .filter((a: { id: string }) => !knownIds.has(a.id))
-     .map((a: { id: string }) => a.id);
-   const pairs = await publishedSlugsForIds(section, freshIds).catch(() => []);
+   // ITALIAN IS SKIPPED, and that is measured rather than assumed. slugs.json
+   // is ~550 KB gzipped and tests/runtime-article-resolution.test.ts pins it
+   // OFF the common path. Against the published corpus on 2026-08-06, of the
+   // 300 most recently published articles ZERO have an Italian slug that
+   // differs from their id (1 in 1000; 176 in the whole corpus, all older
+   // evergreens that ship in the bundle). So on `it` the fallback is already
+   // the right URL and the fetch would buy nothing, every time. On en/de/fr
+   // roughly 140 of the newest 150 differ, which is where the dead links are.
    const learn = section === 'svizzera' ? learnRuntimeSwissSlugs : learnRuntimeBlogSlugs;
-   for (const [id, slugs] of pairs) learn(id, slugs);
+   const locale = getLocale();
+   const knownIds = new Set(seeded.articles.map((a: { id: string }) => a.id));
+   const fresh = merged.filter((a: { id: string }) => !knownIds.has(a.id));
+
+   // A slug carried by the index itself costs nothing — prefer it, and let the
+   // network path wither if the publisher ever starts emitting one.
+   const needSlug: string[] = [];
+   for (const a of fresh as Array<{ id: string; slug?: string }>) {
+     if (a.slug) learn(a.id, { [locale]: a.slug });
+     else needSlug.push(a.id);
+   }
+   if (locale !== 'it' && needSlug.length > 0) {
+     const pairs = await publishedSlugsForIds(section, needSlug).catch(() => []);
+     for (const [id, slugs] of pairs) learn(id, slugs);
+   }
 
    setArticles(merged);
  }).catch(() => {});
