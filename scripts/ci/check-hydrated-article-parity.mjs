@@ -146,12 +146,20 @@ async function getText(url, headers) {
  * silently passing empty set.
  */
 function renderedSlugs(html) {
-  const grid = html.split('ssg-article-grid').slice(1).join('ssg-article-grid');
-  if (!grid) return [];
+  if (!html.includes('ssg-article-grid')) return [];
   const prefix = HUB.replace(/\/$/, '');
-  const re = new RegExp(`href="${prefix}/([a-z0-9][a-z0-9-]{4,})/"`, 'g');
+  const href = new RegExp(`href="${prefix}/([a-z0-9][a-z0-9-]{4,})/"`);
   const out = new Set();
-  for (const m of grid.matchAll(re)) out.add(m[1]);
+  // Anchors carrying the grid's own card class, whatever the attribute order.
+  // Matching the card rather than "everything after the grid marker" keeps the
+  // nav, the footer and the related rails out of the comparison — they link
+  // articles too, and counting them would make this gate red for reasons that
+  // are not the defect.
+  for (const [tag] of html.matchAll(/<a\b[^>]*>/g)) {
+    if (!tag.includes('ssg-art-card')) continue;
+    const m = tag.match(href);
+    if (m) out.add(m[1]);
+  }
   return [...out];
 }
 
