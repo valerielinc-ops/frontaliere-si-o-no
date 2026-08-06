@@ -24431,6 +24431,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-cantonale-confronto-svizzera-2026-canton-zurigo': {
+    title: 'Cantoni e aliquote: confronto 2026 e strategie di ottimizzazione',
+    description: 'Le aliquote di imposta cantonale in Svizzera variano notevolmente tra i diversi cantoni e scaglioni. Il canton Zurigo è uno di quelli che richiede più',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantoni, aliquote, confronto, strategie',
+    ogTitle: 'Confronto 2026 delle aliquote di imposta cantonale in Svizzera: differenze tra cantoni, scaglioni e strategie di ottimizzazione lecita.',
+    ogDescription: 'Le aliquote di imposta cantonale in Svizzera variano notevolmente tra i diversi cantoni e scaglioni. Il canton Zurigo è uno di quelli che richiede più',
+    canonicalPath: '/articoli-svizzera/imposta-cantonale-confronto-svizzera-2026-canton-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cantoni e aliquote: confronto 2026 e strategie di ottimizzazione",
+      "description": "Le aliquote di imposta cantonale in Svizzera variano notevolmente tra i diversi cantoni e scaglioni. Il canton Zurigo è uno di quelli che richiede più",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-cantonale-confronto-svizzera-2026-canton-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Max 125 caratteri"
+      },
+      "datePublished": "2026-08-06T03:55:28+00:00",
+      "dateModified": "2026-08-06T03:55:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-cantonale-confronto-svizzera-2026-canton-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

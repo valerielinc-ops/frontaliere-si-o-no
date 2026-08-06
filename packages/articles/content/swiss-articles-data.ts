@@ -5662,6 +5662,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'imposta-cantonale-confronto-svizzera-2026-canton-zurigo',
+    category: 'fiscale',
+    date: '2026-08-06T03:55:28.788Z',
+    image: '/images/blog/imposta-cantonale-confronto-svizzera-2026-canton-zurigo.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

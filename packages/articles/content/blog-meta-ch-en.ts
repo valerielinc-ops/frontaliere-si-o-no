@@ -1888,6 +1888,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.votazioni-federali-svizzera-funzionano.title': 'Federal votes Switzerland: how cantonal referendums work',
     'blog.article.votazioni-federali-svizzera-funzionano.excerpt': 'Learn about the rules for federal voting, tax rates, and the 2024 border agreement for cross-border workers',
     'blog.article.votazioni-federali-svizzera-funzionano.imageAlt': 'Swiss federal buildings with symbols of direct democracy',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.title': 'Cantons and rates: 2026 comparison and optimisation strategies',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.excerpt': 'Cantonal tax rates in Switzerland vary greatly between different cantons and brackets. The canton of Zurich is one of those that requires the most attention when it comes to taxes.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.imageAlt': 'Max 125 caratteri',
 };
 
 export default blogMetaChEn;

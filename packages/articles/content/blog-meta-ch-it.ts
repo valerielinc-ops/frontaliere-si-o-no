@@ -1888,6 +1888,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.votazioni-federali-svizzera-funzionano.title': 'Votazioni federali svizzera: come funzionano i referendum cantonali',
     'blog.article.votazioni-federali-svizzera-funzionano.excerpt': 'Scopri le regole per i votazioni federali, le aliquote fiscali e l\'accordo frontalieri 2024 per i lavoratori cross-border',
     'blog.article.votazioni-federali-svizzera-funzionano.imageAlt': 'Edifici federali svizzeri con simboli di democrazia diretta',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.title': 'Cantoni e aliquote: confronto 2026 e strategie di ottimizzazione',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.excerpt': 'Le aliquote di imposta cantonale in Svizzera variano notevolmente tra i diversi cantoni e scaglioni. Il canton Zurigo è uno di quelli che richiede più attenzione per quanto riguarda le imposte.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.imageAlt': 'Max 125 caratteri',
 };
 
 export default blogMetaChIt;

@@ -1888,6 +1888,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.votazioni-federali-svizzera-funzionano.title': 'Eidgenössische Abstimmungen Schweiz: Wie funktionieren kantonale Volksentscheide?',
     'blog.article.votazioni-federali-svizzera-funzionano.excerpt': 'Entdecken Sie die Regeln für eidgenössische Abstimmungen, Steuersätze und die Grenzvereinbarung 2024 für grenzüberschreitende Arbeitnehmer',
     'blog.article.votazioni-federali-svizzera-funzionano.imageAlt': 'Schweizer Bundesgebäude mit Symbolen der direkten Demokratie',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.title': 'Kantone und Steuersätze: Vergleich 2026 und Optimierungsstrategien',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.excerpt': 'Die kantonalen Steuersätze in der Schweiz variieren stark zwischen den verschiedenen Kantonen und Staffeln. Der Kanton Zürich gehört zu den Kantonen, die die meiste Aufmerksamkeit in Bezug auf Steuern erfordern.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.imageAlt': 'Max 125 caratteri',
 };
 
 export default blogMetaChDe;
