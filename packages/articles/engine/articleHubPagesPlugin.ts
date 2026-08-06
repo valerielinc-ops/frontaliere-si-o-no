@@ -60,7 +60,12 @@ import type npT from 'node:path';
 import { getSiteShell, type ArticleLocale } from './siteShell';
 import { ARTICLE_SECTIONS, type ArticleSection } from '../articleSections';
 import { readArticleArchiveUnionSlugs } from './shared/articleArchiveUnion';
-import { readArticleDates, readArticleSlugs, readBlogUrlSlugs } from './shared/articleReaders';
+import {
+  readArticleDates,
+  readArticleExcerpts,
+  readArticleSlugs,
+  readBlogUrlSlugs,
+} from './shared/articleReaders';
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
 
 /** Alias kept so the extracted bodies below read exactly as they did upstream. */
@@ -504,35 +509,11 @@ function buildHubClosingHtml(locale: HubLocale): string {
       </section>`;
 }
 
-/**
- * Read per-article excerpts from `services/locales/blog-meta-{locale}.ts`.
- * Used to render the articles hub items as cards (rule #17 step 6 — actual
- * data area carries 1-line previews instead of plain anchors).
- */
-function readArticleExcerpts(
-  fs: typeof fsT,
-  np: typeof npT,
-  rootDir: string,
-  locale: HubLocale,
-  metaPrefix = 'blog-meta',
-): Map<string, string> {
-  const file = np.resolve(rootDir, 'services/locales', `${metaPrefix}-${locale}.ts`);
-  const out = new Map<string, string>();
-  try {
-    if (!fs.existsSync(file)) return out;
-    const src = fs.readFileSync(file, 'utf-8');
-    const rx = /'blog\.article\.([^']+?)\.excerpt':\s*'((?:[^'\\]|\\.)*)'/g;
-    let m: RegExpExecArray | null;
-    while ((m = rx.exec(src)) !== null) {
-      const slug = m[1];
-      const excerpt = m[2].replace(/\\'/g, "'").replace(/\\"/g, '"');
-      out.set(slug, excerpt);
-    }
-  } catch (err) {
-    console.warn(`[seo-hubs] failed to read excerpts from ${metaPrefix}-${locale}.ts`, err);
-  }
-  return out;
-}
+// `readArticleExcerpts` was a third byte-identical copy of the meta-excerpt
+// parse (alongside `seoHubsPlugin.ts`'s and this package's own readers).
+// Hoisted to `./shared/articleReaders` in #5001 — same default `metaDir`, so
+// behaviour is unchanged and `render-article-hub-pages-narrow-vs-full` still
+// compares byte-for-byte.
 
 interface BuildHtmlArgs {
   locale: HubLocale;

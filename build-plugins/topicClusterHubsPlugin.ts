@@ -43,6 +43,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { WriteCollector } from './batchWrite';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import {
   readArticleDates,
   readArticleExcerpts,
@@ -357,7 +358,13 @@ ${tiles}
   <ul class="mt-2">${cards}</ul>
 ${renderPagination(locale, section, topicKey, page, totalPages)}
 ${renderTopicNav(locale, section, topicKey, eligible)}`;
-  const bodyHtml = `<div class="mx-auto w-full max-w-3xl px-4 py-8">${body}</div>`;
+  // End-of-content multiplex, same as the 28 sibling static landings. The
+  // helper returns '' for a non-indexable page, so the below-floor bridges
+  // never carry an ad unit.
+  const wordCount = countHtmlBodyWords(body);
+  const bodyHtml = `<div class="mx-auto w-full max-w-3xl px-4 py-8">${body}${endOfContentMultiplexHtml(
+    { indexable: wordCount >= MIN_INDEXABLE_WORDS },
+  )}</div>`;
 
   const breadcrumbLd = {
     '@context': 'https://schema.org',
@@ -421,7 +428,7 @@ ${renderTopicNav(locale, section, topicKey, eligible)}`;
 
   // Counted on the page's own content, not on the full document: the shell
   // adds nav and footer chrome that no thin-content floor should credit.
-  return { urlPath, html, wordCount: countHtmlBodyWords(body), indexable: true };
+  return { urlPath, html, wordCount, indexable: true };
 }
 
 /**
