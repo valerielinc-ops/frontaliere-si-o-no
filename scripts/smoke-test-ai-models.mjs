@@ -125,9 +125,19 @@ const mistralAuthFailures = mistralLatestAttempted.filter(r => r.status === 'htt
 const mistralTransientFailures = mistralLatestAttempted.filter(
   r => r.status === 'timeout' || r.status === 'net' || /^http_5\d\d$/.test(r.status),
 );
+// HTTP 402 (Payment Required) is Mistral's response for a lapsed/suspended
+// subscription — same ENVIRONMENT-problem class as a dead key (401/403), not
+// evidence of an alias regression: the discovery alias pass never gets far
+// enough to matter when the account itself is rejected. Without this branch
+// every model in the chain returns 402 with an identical detail message
+// ("Check your subscription on https://admin.mistral.ai/subscription") and
+// falls through to the final else-if, misfiring the #892 regression gate on a
+// billing issue instead of a code bug (observed run 31087900465 / issue #5245).
+const mistralPaymentFailures = mistralLatestAttempted.filter(r => r.status === 'http_402');
 const allAttemptedFailed = mistralLatestAttempted.length > 0 && mistralLatestAttempted.every(r => r.status !== 'pass');
 const allFailuresAreAuth = mistralLatestAttempted.length > 0 && mistralAuthFailures.length === mistralLatestAttempted.length;
 const allFailuresAreTransient = mistralLatestAttempted.length > 0 && mistralTransientFailures.length === mistralLatestAttempted.length;
+const allFailuresArePayment = mistralLatestAttempted.length > 0 && mistralPaymentFailures.length === mistralLatestAttempted.length;
 if (hasMistralKey && mistralLatest.length > 0 && mistralLatestAttempted.length === 0) {
   // Every `-latest` model was pre-flight skipped (shared daily quota exhausted by
   // earlier production runs, provider cooldown, etc.). The alias chain was never
@@ -155,6 +165,16 @@ if (hasMistralKey && mistralLatest.length > 0 && mistralLatestAttempted.length =
       `-latest model(s) failed with transient infrastructure errors (5xx/timeout/net). ` +
       `Not an alias-regression signal (see #892/#1645); not failing the smoke run. ` +
       `If this recurs, check the Mistral API status.`,
+  );
+} else if (hasMistralKey && allAttemptedFailed && allFailuresArePayment) {
+  // Lapsed/suspended subscription, not an alias regression. Surface clearly but
+  // do NOT fail the run (no code fix would help; the subscription must be
+  // renewed at https://admin.mistral.ai/subscription).
+  console.error(
+    `\n⚠️  Mistral -latest: all ${mistralLatestAttempted.length} attempted -latest ` +
+      `model(s) failed with HTTP 402 (Payment Required). The Mistral subscription is ` +
+      `likely lapsed — check https://admin.mistral.ai/subscription. NOT an alias ` +
+      `regression (see #892); not failing the smoke run.`,
   );
 } else if (hasMistralKey && allAttemptedFailed) {
   console.error(
