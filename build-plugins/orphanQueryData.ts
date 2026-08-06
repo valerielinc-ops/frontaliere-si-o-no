@@ -231,28 +231,171 @@ export function jobMatchesCluster(job: OrphanCountableJob, cluster: OrphanQueryC
     ...normalizeTokens(job.addressLocality),
   ]);
 
+  return matchesClusterFacts(titleTokens, locTokens, clusterMatchFacts(cluster));
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Hoisting the invariants out of the (clusters x jobs) pair loop
+//
+// `orphanQueryLandingPlugin` calls `filterMatchingJobs(jobs, cluster, 15)` once
+// per cluster — 500 clusters (DEFAULT_MAX_LANDINGS) over ~26k jobs = ~13M
+// (job, cluster) pairs per build, twice (the emission pass and the hub-hreflang
+// availability pass both go through `renderClusterPage`). Deploy 31065272867
+// measured the `it` leg at wall_s=190.98 cpu_s=197.50 while the plugin's own
+// emit is 0.7 s — i.e. essentially the whole plugin is this pair loop.
+//
+// A local profile over the committed corpus (25,658 jobs x 500 clusters =
+// 12.8M pairs, 222.5 s) split the per-pair body as:
+//     isJobActiveForLocale -> wordCount(description)   16.39 s   75.0 %
+//     titleTokens Set (3x normalizeTokens)              4.43 s   20.3 %
+//     locTokens   Set (2x normalizeTokens)              0.97 s    4.5 %
+//     the actual match logic                            0.05 s    0.2 %
+// (measured over a 50-cluster subset; x10 => ~218 s, matching the 222.5 s run.)
+//
+// Every one of those top three is a pure function of (job, locale) or of `job`
+// alone — NOTHING in them reads the cluster beyond `cluster.locale`, and there
+// are exactly four locales. `specificRegions` / `allRolesGeneric` are likewise
+// pure functions of the cluster. So the whole per-pair body is memoisable:
+// 12.8M evaluations collapse to at most `jobs.length x 4`.
+//
+// This changes NO decision. The memoised values are the same values the inline
+// code computed, and the two consumers (`tokenMatchesStem`,
+// `localityMatchesCity`) only ever ask "does ANY token match?" — a predicate
+// that is invariant under both de-duplication and iteration order, which is why
+// a `string[]` here is interchangeable with the `Set<string>` above.
+// `jobMatchesCluster` keeps its original un-memoised body so an ad-hoc object
+// (tests, callers outside a build) behaves exactly as before.
+// ─────────────────────────────────────────────────────────────────────────────
+
+interface ClusterMatchFacts {
+  readonly roleTokens: readonly string[];
+  readonly specificRegions: readonly string[];
+  readonly allRolesGeneric: boolean;
+}
+
+const clusterFactsCache = new WeakMap<OrphanQueryCluster, ClusterMatchFacts>();
+
+/** Cluster-only derived state (identical for every job). */
+function clusterMatchFacts(cluster: OrphanQueryCluster): ClusterMatchFacts {
+  const hit = clusterFactsCache.get(cluster);
+  if (hit) return hit;
   // A *specific* locality (city) is enforced against the job location; *broad*
   // tokens (svizzera/ticino/ch) only mean site-wide coverage.
   const specificRegions = cluster.regionTokens.filter((r) => !BROAD_REGION_TOKENS.has(r));
   const allRolesGeneric =
     cluster.roleTokens.length === 0 || cluster.roleTokens.every((r) => GENERIC_ROLE_STEMS.has(r));
+  const facts: ClusterMatchFacts = { roleTokens: cluster.roleTokens, specificRegions, allRolesGeneric };
+  clusterFactsCache.set(cluster, facts);
+  return facts;
+}
 
+/**
+ * The role+region decision, byte-for-byte the branch sequence that used to live
+ * inline in `jobMatchesCluster`. Both call sites (the public per-job function
+ * and the indexed loop) go through this, so there is exactly one copy of it.
+ */
+function matchesClusterFacts(
+  titleTokens: Iterable<string>,
+  locTokens: Iterable<string>,
+  facts: ClusterMatchFacts,
+): boolean {
   // Pure geographic search ("jobs in <city>"): no occupational intent, just a
   // named city → match by locality alone.
-  if (specificRegions.length > 0 && allRolesGeneric) {
-    return specificRegions.some((rtok) => localityMatchesCity(locTokens, rtok));
+  if (facts.specificRegions.length > 0 && facts.allRolesGeneric) {
+    return facts.specificRegions.some((rtok) => localityMatchesCity(locTokens, rtok));
   }
 
   // Role: need at least 1 overlap (prefix-tolerant for stems).
-  if (!cluster.roleTokens.some((stem) => tokenMatchesStem(titleTokens, stem))) return false;
+  if (!facts.roleTokens.some((stem) => tokenMatchesStem(titleTokens, stem))) return false;
 
   // Region: a named city must appear in the job location; broad-only tokens
   // (or no region tokens) leave coverage unconstrained / site-wide.
-  if (specificRegions.length > 0) {
-    if (!specificRegions.some((rtok) => localityMatchesCity(locTokens, rtok))) return false;
+  if (facts.specificRegions.length > 0) {
+    if (!facts.specificRegions.some((rtok) => localityMatchesCity(locTokens, rtok))) return false;
   }
 
   return true;
+}
+
+/** Per-job derived state. Locale-keyed fields are filled lazily, per locale. */
+interface JobMatchEntry {
+  /** normalizeTokens(location) + normalizeTokens(addressLocality), de-duped. */
+  locTokens?: string[];
+  /** firstParsableMs(postedDate, datePosted) — the sort key, locale-invariant. */
+  postedMs: number;
+  activeByLocale: Partial<Record<OrphanLandingLocale, boolean>>;
+  titleTokensByLocale: Partial<Record<OrphanLandingLocale, string[]>>;
+}
+
+interface JobMatchIndex {
+  readonly length: number;
+  readonly entries: JobMatchEntry[];
+}
+
+// Keyed on the jobs ARRAY identity: the plugin loads the corpus once and then
+// loops, so one index serves all 500 clusters and both passes. A WeakMap means
+// the index dies with the array (no build-lifetime leak), and `length` is
+// re-checked so a caller that swaps the corpus can never read a stale index.
+const jobIndexCache = new WeakMap<object, JobMatchIndex>();
+
+function getJobIndex(jobs: readonly OrphanCountableJob[]): JobMatchIndex {
+  const key = jobs as unknown as object;
+  const hit = jobIndexCache.get(key);
+  if (hit && hit.length === jobs.length) return hit;
+  const entries: JobMatchEntry[] = new Array(jobs.length);
+  for (let i = 0; i < jobs.length; i++) {
+    const j = jobs[i];
+    entries[i] = {
+      // Same call, same argument order as the old inline comparator.
+      postedMs: firstParsableMs(j?.postedDate, j?.datePosted),
+      activeByLocale: {},
+      titleTokensByLocale: {},
+    };
+  }
+  const index: JobMatchIndex = { length: jobs.length, entries };
+  jobIndexCache.set(key, index);
+  return index;
+}
+
+function entryLocTokens(entry: JobMatchEntry, job: OrphanCountableJob): string[] {
+  let t = entry.locTokens;
+  if (t === undefined) {
+    t = [...new Set<string>([...normalizeTokens(job.location), ...normalizeTokens(job.addressLocality)])];
+    entry.locTokens = t;
+  }
+  return t;
+}
+
+function entryTitleTokens(
+  entry: JobMatchEntry,
+  job: OrphanCountableJob,
+  locale: OrphanLandingLocale,
+): string[] {
+  let t = entry.titleTokensByLocale[locale];
+  if (t === undefined) {
+    t = [
+      ...new Set<string>([
+        ...normalizeTokens(job.title),
+        ...normalizeTokens(job.titleByLocale?.[locale]),
+        ...normalizeTokens(job.company),
+      ]),
+    ];
+    entry.titleTokensByLocale[locale] = t;
+  }
+  return t;
+}
+
+function entryActive(
+  entry: JobMatchEntry,
+  job: OrphanCountableJob,
+  locale: OrphanLandingLocale,
+): boolean {
+  let a = entry.activeByLocale[locale];
+  if (a === undefined) {
+    a = isJobActiveForLocale(job, locale);
+    entry.activeByLocale[locale] = a;
+  }
+  return a;
 }
 
 /** Return up to `limit` jobs matching a cluster, sorted by postedDate desc. */
@@ -261,17 +404,37 @@ export function filterMatchingJobs<T extends OrphanCountableJob>(
   cluster: OrphanQueryCluster,
   limit = 15,
 ): T[] {
-  const matches = jobs.filter((j) => jobMatchesCluster(j, cluster));
-  matches.sort((a, b) => {
-    // First *parsable* date (not first truthy): a malformed `postedDate`
-    // ("30/05/26") is truthy and sorts lexically above ISO strings, floating a
-    // stale job to the top of the slice and pushing a fresh one out of the
-    // indexed list. See firstParsableMs.
-    const ad = firstParsableMs(a.postedDate, a.datePosted);
-    const bd = firstParsableMs(b.postedDate, b.datePosted);
-    return bd - ad;
-  });
-  return matches.slice(0, limit);
+  const index = getJobIndex(jobs);
+  const facts = clusterMatchFacts(cluster);
+  const locale = cluster.locale;
+
+  // Collect INDICES (not jobs) so the sort below can read the precomputed
+  // `postedMs` without re-parsing dates inside the comparator. Indices are
+  // pushed in `jobs` order, exactly the order `jobs.filter(...)` produced.
+  const matched: number[] = [];
+  for (let i = 0; i < jobs.length; i++) {
+    const entry = index.entries[i];
+    if (!entryActive(entry, jobs[i], locale)) continue;
+    if (!matchesClusterFacts(entryTitleTokens(entry, jobs[i], locale), entryLocTokens(entry, jobs[i]), facts)) {
+      continue;
+    }
+    matched.push(i);
+  }
+
+  // First *parsable* date (not first truthy): a malformed `postedDate`
+  // ("30/05/26") is truthy and sorts lexically above ISO strings, floating a
+  // stale job to the top of the slice and pushing a fresh one out of the
+  // indexed list. See firstParsableMs.
+  //
+  // `postedMs` is precomputed per job, so the comparator sees exactly the
+  // values the old inline `firstParsableMs(...)` calls returned. Array#sort is
+  // stable (V8 TimSort) and the input is in the same order as before, so equal
+  // timestamps keep the same relative order the old `matches.sort` produced.
+  matched.sort((a, b) => index.entries[b].postedMs - index.entries[a].postedMs);
+
+  const out: T[] = [];
+  for (let i = 0; i < matched.length && i < limit; i++) out.push(jobs[matched[i]]);
+  return out;
 }
 
 /** Median of a number array; returns 0 for empty input. */
