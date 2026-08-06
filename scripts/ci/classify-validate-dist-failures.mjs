@@ -43,8 +43,14 @@
  *
  * Writes `integrity_ok=true|false` (+ `blocking_gates`, `quality_gates`) to
  * $GITHUB_OUTPUT when set. Always exits 0 — the verdict is the output, not
- * the exit code, so this job stays green and its value survives the
- * reusable-workflow boundary (outputs of a FAILED job do not).
+ * the exit code — so the verdict is unambiguous and the caller's step summary
+ * can render it.
+ *
+ * This used to say "outputs of a FAILED job do not [survive the boundary]".
+ * That is FALSE, measured on probe runs 31081857672 (a job that wrote an
+ * output and then exited 1 still delivered it) and 31081032808 (a reusable
+ * workflow whose overall conclusion is `failure` still delivers outputs).
+ * The value is lost only when the step never writes it — see #4828.
  */
 
 /**
@@ -67,6 +73,32 @@ export const QUALITY_GATES = Object.freeze({
   'audit:orphan-sitemap-pages': 'orphan pages; URLs resolve',
   // Completeness of job records (salary, postcode, …) in already-live pages.
   'validate:jobs-quality': 'job record completeness; pages serve correctly',
+
+  // ── `audit:all` sub-auditors (#4828) ───────────────────────────────────
+  // `audit:all` is a bundle of 12 auditors reported under ONE gate name.
+  // Left opaque it is unclassifiable, so default-deny blocked `publish`
+  // whenever any of the 12 went red — including the purely cosmetic ones.
+  // Run 31077435060 is the proof: audit:all red for h1-title-duplicates +
+  // text-html-ratio + no-literal-markdown only, every structural auditor
+  // green, and `publish` skipped.
+  //
+  // validate-dist-postbuild now expands the bundle into `audit:all/<name>`.
+  // Only auditors whose failure describes a defect on a page that RENDERS
+  // AND SERVES are listed here. The four deliberately NOT listed —
+  // `audit:all/footer-root-presence` (hydration-safe shell: a failure means
+  // pages may be broken shells), `audit:all/jsonld-no-nested-scripts`
+  // (nested <script> wrappers can break the document), plus
+  // `audit:all/faqpage-validity` and `audit:all/image-object-license`
+  // (structured-data validity we submit alongside the URL) — stay blocking
+  // through default-deny, as does any auditor registered in future.
+  'audit:all/title-length': 'title over the length ratchet; page serves',
+  'audit:all/title-no-disambig-hash': 'cosmetic title suffix; page serves',
+  'audit:all/h1-title-duplicates': 'h1 duplicates title; page serves',
+  'audit:all/text-html-ratio': 'thin text/markup ratio; page serves',
+  'audit:all/content-duplicates': 'near-duplicate bodies; pages serve',
+  'audit:all/page-weight': 'page byte budget; page serves',
+  'audit:all/no-literal-markdown': 'unrendered markdown in <main>; page serves',
+  'audit:all/salary-landing-template': 'landing template drift; page serves',
 });
 
 /**
@@ -199,9 +231,9 @@ async function main() {
         `quality_gates=${verdict.quality.join(',')}\n`,
     );
   }
-  // Always 0: the verdict travels as an output. A non-zero exit here would
-  // make this job red, and a failed job's outputs do not cross the
-  // reusable-workflow boundary — which would silently re-sequester publish.
+  // Always 0: the verdict travels as an output, never as an exit code, so a
+  // quality-only failure stays distinguishable from an infra failure. (A
+  // non-zero exit would NOT by itself lose the output — see the header note.)
   process.exit(0);
 }
 
