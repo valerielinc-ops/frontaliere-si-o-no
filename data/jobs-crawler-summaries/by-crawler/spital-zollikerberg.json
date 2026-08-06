@@ -1,19 +1,21 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-08-05T22:19:45.668Z",
+  "generatedAt": "2026-08-06T11:31:32.864Z",
   "total": 10,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 36707,
-  "avgDurationMs": 36707,
+  "unchangedCount": 1,
+  "durationMs": 39898,
+  "avgDurationMs": 39898,
   "durationHistory": [
-    36707
+    39898
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-zollikerberg-2339ee93b91b",
       "slug": "endoskopie-assistent-assistentin-im-medizinischen-ambulatorium-mit-geregelten",
@@ -44,7 +46,7 @@
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -53,7 +55,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
