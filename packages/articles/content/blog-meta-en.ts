@@ -9286,6 +9286,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mendrisio-strada-serpiano-urgenti-lavori.title': 'Urgent work must be done on the road leading to Serpiano',
     'blog.article.mendrisio-strada-serpiano-urgenti-lavori.excerpt': 'The Municipality of Mendrisio has requested a credit of 1.2 million francs for the safety of the roads and the three bridges.',
     'blog.article.mendrisio-strada-serpiano-urgenti-lavori.imageAlt': 'Roadworks at Serpiano',
+    'blog.article.nascita-figlio-frontaliero-entro-20km.title': 'Birth of a border child within 20 km: registry 2026',
+    'blog.article.nascita-figlio-frontaliero-entro-20km.excerpt': 'Practical guide for border workers within 20 km of the border: registration of the newborn, family allowances and consular procedures according to the 2026 regulations.',
+    'blog.article.nascita-figlio-frontaliero-entro-20km.imageAlt': 'Cross-border worker with stroller near Brogeda border checkpoint, Swiss Alps background',
 };
 
 export default blogMetaEn;
