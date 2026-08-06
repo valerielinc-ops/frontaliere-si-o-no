@@ -116,6 +116,7 @@ import { employerProfilePagesLinksPlugin } from './build-plugins/employerProfile
 import { faqHubLinksPlugin } from './build-plugins/faqHubLinksPlugin';
 import { frSalaireNetLandingPlugin } from './build-plugins/frSalaireNetLandingPlugin';
 import { holidaysLandingsPlugin } from './build-plugins/holidaysLandingsPlugin';
+import { seoHeroCardsPlugin } from './build-plugins/seoHeroCardsPlugin';
 import { bfsSalaryLandingsPlugin } from './build-plugins/bfsSalaryLandingsPlugin';
 import { bfsSalaryLinksPlugin } from './build-plugins/bfsSalaryLinksPlugin';
 import { minimumWageLandingsPlugin } from './build-plugins/minimumWageLandingsPlugin';
@@ -578,6 +579,12 @@ export default defineConfig(({ mode }) => {
  // content dump dir from WRITE_COLLISION_DUMP env var.
  writeRegistryResetPlugin({ rootDir: __dirname }),
  ...allPlugins.map(withProfile),
+ // #5001 punto 2 — genera le hero card richieste dalle famiglie SEO statiche.
+ // DEVE stare dopo `allPlugins`: legge il registry che `renderSeoHeroImage`
+ // riempie mentre gli emettitori scrivono il markup, quindi se girasse prima
+ // troverebbe il registry vuoto (e lo dice, invece di non fare nulla in
+ // silenzio).
+ seoHeroCardsPlugin(__dirname),
  // Prints the collision summary and writes dist/.write-collisions.json after
  // every other plugin's closeBundle has flushed. enforce/order makes it the
  // last hook in the chain.

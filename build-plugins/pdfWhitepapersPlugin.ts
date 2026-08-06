@@ -1,5 +1,6 @@
 import path from 'path';
 import { clampMetaDescription } from './shared/titleSuffix';
+import { renderSeoHeroImage } from './shared/seoHeroImage';
 import { createHash } from 'node:crypto';
 import type { Plugin } from 'vite';
 import { BASE_URL, ANALYTICS_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
@@ -501,6 +502,7 @@ nav a{color:#2563eb;text-decoration:none}
 <article>
 <h1>${esc(guide.title)}</h1>
 <p class="subtitle">${esc(guide.subtitle)}</p>
+${renderSeoHeroImage({ family: 'guides', key: guide.articleSlug, locale: 'it', headline: guide.title, eyebrow: guide.subtitle, alt: guide.title })}
 <div class="download-box">
 <a class="download-btn" href="${pdfUrl}" download>📥 Scarica PDF (${pdfSizeKb} KB)</a>
 <p class="meta">Formato PDF · Gratuito · Aggiornato ${dateStamp}</p>

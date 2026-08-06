@@ -38,6 +38,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderSeoHeroImage } from './shared/seoHeroImage';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { formatUpdatedSentence } from './shared/humanDate';
@@ -466,6 +467,7 @@ function renderPage(
            remains the most descriptive copy for the page topic. -->
       <h2 class="fh-h1">${esc(copy.h1)}</h2>
     </header>
+    ${renderSeoHeroImage({ family: 'faq-hub', key: 'hub', locale, headline: copy.h1, eyebrow: copy.breadcrumbHub, alt: copy.h1 })}
     <section class="fh-tldr" data-speakable aria-label="TL;DR">
       <h2 class="fh-tldh">${esc(copy.tldrTitle)}</h2>
       ${tldrHtml}
@@ -796,6 +798,7 @@ function renderEntryPage(
     <header class="fh-hd">
       <p class="fh-eyebrow">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
     </header>
+    ${renderSeoHeroImage({ family: 'faq-hub', key: entry.id, locale, headline: question, eyebrow: categoryLabel, alt: question })}
     <section class="fh-q" data-speakable>
       <h2 class="fh-qt">${esc(ecopy.answerHeading)}</h2>
       <p class="fh-qa">${answerHtml}</p>
