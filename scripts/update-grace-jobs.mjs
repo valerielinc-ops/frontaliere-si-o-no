@@ -28,12 +28,16 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
-import { selectGraceDescription } from './lib/grace-job-parser.mjs';
+import {
+  selectGraceDescription,
+  parseDeclaredJobTotal,
+  reconcileGraceListings,
+  classifyGraceProbe,
+} from './lib/grace-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
-import { STRONG_PHRASES } from './lib/validate-job-url.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -286,8 +290,11 @@ async function discoverListings() {
     await dismissConsent(page);
     await page.waitForTimeout(2000);
 
-    // Extract job listings from the main_link anchors
-    const listings = await page.evaluate((baseUrl) => {
+    // Extract job listings from the main_link anchors, plus the count the
+    // source itself declares in the company-profile tab bar ("Job offers (N)")
+    // so the extraction can be checked for completeness instead of merely
+    // being non-empty (#5200).
+    const { listings, declaredTotalRaw } = await page.evaluate((baseUrl) => {
       const seen = new Set();
       const results = [];
       const detailHrefRe = /\/jobs\/grace-la-margna-st-moritz-120155\/[^/?#]+-\d+(?:[?#].*)?$/i;
@@ -314,11 +321,31 @@ async function discoverListings() {
         seen.add(full);
         results.push({ title, href: full, relHref: href, location, empType });
       }
-      return results;
+      const jobsTab = document.querySelector('#companyProfileTabBar li[data-js-tab="jobs"]')
+        || document.querySelector('[data-js-tab="jobs"]');
+      return { listings: results, declaredTotalRaw: (jobsTab?.textContent || '').trim() };
     }, BASE_URL);
 
     console.log(`📋 Total Grace La Margna jobs discovered: ${listings.length}`);
     for (const l of listings) console.log(`  📄 ${l.title} (${l.location || 'St. Moritz'})`);
+
+    // Completeness gate (#5200). A non-zero count is NOT evidence the parse
+    // worked: the previous code only rejected a literally empty result, so an
+    // extraction of 1-out-of-14 exited 0 and looked exactly like a legitimate
+    // shrink. Reconciling against the source-declared total makes a partial
+    // extraction fail here, loudly, instead of downstream at the shrink guard.
+    const declaredTotal = parseDeclaredJobTotal(declaredTotalRaw);
+    const reconciliation = reconcileGraceListings({
+      extracted: listings,
+      declaredTotal,
+      declaredTotalRaw,
+      skipCountCheck: process.env.JOBS_GRACE_SKIP_COUNT_CHECK === '1',
+    });
+    console.log(
+      reconciliation.verified
+        ? `🔒 Completeness verified: extracted ${reconciliation.extractedCount} === declared ${reconciliation.declaredTotal}`
+        : `⚠️ Completeness check SKIPPED (JOBS_GRACE_SKIP_COUNT_CHECK=1) — extracted ${reconciliation.extractedCount}, declared ${reconciliation.declaredTotal ?? 'unknown'}`,
+    );
 
     if (listings.length === 0) throw new Error('No job listings found — page structure may have changed');
 
@@ -464,16 +491,19 @@ async function fetchJobDetails(listings) {
  * unprovable and permanently bricked the crawler (10 consecutive failed
  * runs, #5138). This validator reuses the same browser + challenge-retry
  * (`withBrowser`/`gotoGracePage`/`isChallengePage`) the crawler already uses
- * to resolve the challenge, so a disappeared job can actually be probed:
- * HTTP 404/410, redirect back to the generic listing URL, or a "no longer
- * available" phrase are definitive-dead; anything else (still live, or the
- * challenge never resolves) stays fail-open, so a blocked probe still can
- * never masquerade as proof.
+ * to resolve the challenge, so a disappeared job can actually be probed.
+ *
+ * Classification lives in `classifyGraceProbe` (pure, unit-tested). #5200
+ * widened it because hotelcareer NEVER 404s an expired ad — it answers 200
+ * with a tombstone on the ad's own URL, or bounces to a role search page that
+ * is not the company listing URL. The old rules (404/410, or an exact redirect
+ * to CAREERS_URL) matched neither, so every genuine expiry read back as
+ * "still live", the shrink was never corroborated, and the guard rejected the
+ * write on every single run — a permanent deadlock mistaken for a transient.
  */
 async function verifyGraceJobUrlsBrowser(jobs, { timeoutMs } = {}) {
   return withBrowser(async (context) => {
     const results = [];
-    const genericListing = CAREERS_URL.replace(/\/+$/, '');
     for (const j of jobs) {
       const page = await context.newPage();
       try {
@@ -486,22 +516,10 @@ async function verifyGraceJobUrlsBrowser(jobs, { timeoutMs } = {}) {
           continue;
         }
         const status = response ? response.status() : 0;
-        if (status === 404 || status === 410) {
-          results.push({ id: j.id, valid: false, status, reason: `http-${status}`, definitive: true });
-          continue;
-        }
-        const finalUrl = page.url().replace(/\/+$/, '');
-        if (finalUrl === genericListing) {
-          results.push({ id: j.id, valid: false, status, reason: 'redirect-to-generic-listing', definitive: true });
-          continue;
-        }
-        const bodyText = compact((await page.locator('body').textContent().catch(() => '')) || '').toLowerCase();
-        const closedPhrase = STRONG_PHRASES.find((p) => bodyText.includes(p));
-        if (closedPhrase) {
-          results.push({ id: j.id, valid: false, status, reason: `phrase:${closedPhrase}`, definitive: true });
-          continue;
-        }
-        results.push({ id: j.id, valid: true, status, reason: 'still-live-or-ambiguous' });
+        const finalUrl = page.url();
+        const bodyText = compact((await page.locator('body').textContent().catch(() => '')) || '');
+        const pageTitle = await page.title().catch(() => '');
+        results.push({ id: j.id, ...classifyGraceProbe({ status, finalUrl, bodyText, pageTitle }) });
       } finally {
         await page.close();
       }
