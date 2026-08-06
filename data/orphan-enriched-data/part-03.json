@@ -3156,10 +3156,10 @@
         "fr": "apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-rotkreuz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-rotkreuz",
-        "en": "/en/find-jobs-ticino/apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-rotkreuz",
-        "de": "/de/jobs-im-tessin/apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-rotkreuz",
-        "fr": "/fr/trouver-emploi-tessin/apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-rotkreuz"
+        "it": "/cerca-lavoro-soletta/apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-rotkreuz",
+        "en": "/en/find-jobs-solothurn/apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-rotkreuz",
+        "de": "/de/jobs-in-solothurn/apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-rotkreuz",
+        "fr": "/fr/trouver-emploi-soleure/apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-rotkreuz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -3262,10 +3262,10 @@
         "fr": "apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern-hauptsitz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern-hauptsitz",
-        "en": "/en/find-jobs-graubunden/apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern-hauptsitz",
+        "it": "/cerca-lavoro-lucerna/apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern-hauptsitz",
+        "en": "/en/find-jobs-lucerne/apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern-hauptsitz",
         "de": "/de/jobs-im-graubunden/apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern-hauptsitz",
-        "fr": "/fr/trouver-emploi-grisons/apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern-hauptsitz"
+        "fr": "/fr/trouver-emploi-lucerne/apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern-hauptsitz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -3898,14 +3898,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "apprenti-operateur-trice-de-batiments-et-d-infrastructures-services-de-conciergerie-afc-us",
+        "en": "apprenti-operateur-trice-de-batiments-et-d-infrastructures-services-de-conciergerie-afc-us",
+        "it": "apprenti-operateur-trice-de-batiments-et-d-infrastructures-services-de-conciergerie-afc-us",
+        "de": "apprenti-operateur-trice-de-batiments-et-d-infrastructures-services-de-conciergerie-afc-us"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-tessin/apprenti-operateur-trice-de-batiments-et-d-infrastructures-services-de-conciergerie-afc-us",
+        "en": "/en/find-jobs-ticino/apprenti-operateur-trice-de-batiments-et-d-infrastructures-services-de-conciergerie-afc-us",
+        "it": "/cerca-lavoro-ticino/apprenti-operateur-trice-de-batiments-et-d-infrastructures-services-de-conciergerie-afc-us",
+        "de": "/de/jobs-im-tessin/apprenti-operateur-trice-de-batiments-et-d-infrastructures-services-de-conciergerie-afc-us"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -4267,14 +4278,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "it": "apprenticeship-baker-pastry-maker-confectioner-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "apprenticeship-baker-pastry-maker-confectioner-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "apprenticeship-baker-pastry-maker-confectioner-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "apprenticeship-baker-pastry-maker-confectioner-100-eoc-ente-ospedaliero-cantonale-bellinzona"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/apprenticeship-baker-pastry-maker-confectioner-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "/en/find-jobs-ticino/apprenticeship-baker-pastry-maker-confectioner-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "/de/jobs-im-tessin/apprenticeship-baker-pastry-maker-confectioner-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "/fr/trouver-emploi-tessin/apprenticeship-baker-pastry-maker-confectioner-100-eoc-ente-ospedaliero-cantonale-bellinzona"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -4613,14 +4635,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "apprentissage-boulanger-patissier-confiseur-cfp-100-permette-di-combinare-efficacemente-ap",
+        "en": "apprentissage-boulanger-patissier-confiseur-cfp-100-permette-di-combinare-efficacemente-ap",
+        "de": "apprentissage-boulanger-patissier-confiseur-cfp-100-permette-di-combinare-efficacemente-ap",
+        "it": "apprentissage-boulanger-patissier-confiseur-cfp-100-permette-di-combinare-efficacemente-ap"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-tessin/apprentissage-boulanger-patissier-confiseur-cfp-100-permette-di-combinare-efficacemente-ap",
+        "en": "/en/find-jobs-ticino/apprentissage-boulanger-patissier-confiseur-cfp-100-permette-di-combinare-efficacemente-ap",
+        "de": "/de/jobs-im-tessin/apprentissage-boulanger-patissier-confiseur-cfp-100-permette-di-combinare-efficacemente-ap",
+        "it": "/cerca-lavoro-ticino/apprentissage-boulanger-patissier-confiseur-cfp-100-permette-di-combinare-efficacemente-ap"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -4785,10 +4818,10 @@
         "fr": "apprentissage-kaufmann-kauffrau-efz-branche-bank-debut-de-l-apprentissage-aout-2027-raiffeisen-cazis"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/apprentissage-kaufmann-kauffrau-efz-branche-bank-debut-de-l-apprentissage-aout-2027-raiffeisen-cazis",
-        "en": "/en/find-jobs-graubunden/apprentissage-kaufmann-kauffrau-efz-branche-bank-debut-de-l-apprentissage-aout-2027-raiffeisen-cazis",
+        "it": "/cerca-lavoro-argovia/apprentissage-kaufmann-kauffrau-efz-branche-bank-debut-de-l-apprentissage-aout-2027-raiffeisen-cazis",
+        "en": "/en/find-jobs-aargau/apprentissage-kaufmann-kauffrau-efz-branche-bank-debut-de-l-apprentissage-aout-2027-raiffeisen-cazis",
         "de": "/de/jobs-im-graubunden/apprentissage-kaufmann-kauffrau-efz-branche-bank-debut-de-l-apprentissage-aout-2027-raiffeisen-cazis",
-        "fr": "/fr/trouver-emploi-grisons/apprentissage-kaufmann-kauffrau-efz-branche-bank-debut-de-l-apprentissage-aout-2027-raiffeisen-cazis"
+        "fr": "/fr/trouver-emploi-argovie/apprentissage-kaufmann-kauffrau-efz-branche-bank-debut-de-l-apprentissage-aout-2027-raiffeisen-cazis"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -6645,14 +6678,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "assistant-e-de-cabinet-medical-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer",
+        "it": "assistant-e-de-cabinet-medical-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer",
+        "de": "assistant-e-de-cabinet-medical-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer",
+        "en": "assistant-e-de-cabinet-medical-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-tessin/assistant-e-de-cabinet-medical-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer",
+        "it": "/cerca-lavoro-ticino/assistant-e-de-cabinet-medical-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer",
+        "de": "/de/jobs-im-tessin/assistant-e-de-cabinet-medical-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer",
+        "en": "/en/find-jobs-ticino/assistant-e-de-cabinet-medical-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -7917,10 +7961,10 @@
         "it": "assistente-alle-vendite-alimentari-coop-genossenschaft-emmen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/assistente-alle-vendite-alimentari-coop-genossenschaft-emmen",
-        "en": "/en/find-jobs-bern/assistente-alle-vendite-alimentari-coop-genossenschaft-emmen",
+        "it": "/cerca-lavoro-zurigo/assistente-alle-vendite-alimentari-coop-genossenschaft-emmen",
+        "en": "/en/find-jobs-zurich/assistente-alle-vendite-alimentari-coop-genossenschaft-emmen",
         "de": "/de/jobs-im-graubunden/assistente-alle-vendite-alimentari-coop-genossenschaft-emmen",
-        "fr": "/fr/trouver-emploi-berne/assistente-alle-vendite-alimentari-coop-genossenschaft-emmen"
+        "fr": "/fr/trouver-emploi-zurich/assistente-alle-vendite-alimentari-coop-genossenschaft-emmen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -8492,14 +8536,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "de": "assistenzarzt-fur-klinische-tatigkeit-100-permette-di-combinare-efficacemente-approccio-lo",
+        "en": "assistenzarzt-fur-klinische-tatigkeit-100-permette-di-combinare-efficacemente-approccio-lo",
+        "fr": "assistenzarzt-fur-klinische-tatigkeit-100-permette-di-combinare-efficacemente-approccio-lo",
+        "it": "assistenzarzt-fur-klinische-tatigkeit-100-permette-di-combinare-efficacemente-approccio-lo"
+      },
+      "localePaths": {
+        "de": "/de/jobs-im-tessin/assistenzarzt-fur-klinische-tatigkeit-100-permette-di-combinare-efficacemente-approccio-lo",
+        "en": "/en/find-jobs-ticino/assistenzarzt-fur-klinische-tatigkeit-100-permette-di-combinare-efficacemente-approccio-lo",
+        "fr": "/fr/trouver-emploi-tessin/assistenzarzt-fur-klinische-tatigkeit-100-permette-di-combinare-efficacemente-approccio-lo",
+        "it": "/cerca-lavoro-ticino/assistenzarzt-fur-klinische-tatigkeit-100-permette-di-combinare-efficacemente-approccio-lo"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -9189,14 +9244,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "de": "audit-berufseinstieg-im-bereich-handel-industrie-dienstleistungen-herbst-2026-pwc-switzerland-lugano",
+        "en": "audit-berufseinstieg-im-bereich-handel-industrie-dienstleistungen-herbst-2026-pwc-switzerland-lugano",
+        "it": "audit-berufseinstieg-im-bereich-handel-industrie-dienstleistungen-herbst-2026-pwc-switzerland-lugano",
+        "fr": "audit-berufseinstieg-im-bereich-handel-industrie-dienstleistungen-herbst-2026-pwc-switzerland-lugano"
+      },
+      "localePaths": {
+        "de": "/de/jobs-in-st-gallen/audit-berufseinstieg-im-bereich-handel-industrie-dienstleistungen-herbst-2026-pwc-switzerland-lugano",
+        "en": "/en/find-jobs-ticino/audit-berufseinstieg-im-bereich-handel-industrie-dienstleistungen-herbst-2026-pwc-switzerland-lugano",
+        "it": "/cerca-lavoro-ticino/audit-berufseinstieg-im-bereich-handel-industrie-dienstleistungen-herbst-2026-pwc-switzerland-lugano",
+        "fr": "/fr/trouver-emploi-tessin/audit-berufseinstieg-im-bereich-handel-industrie-dienstleistungen-herbst-2026-pwc-switzerland-lugano"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -10109,10 +10175,10 @@
         "fr": "automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
-        "en": "/en/find-jobs-ticino/automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
-        "de": "/de/jobs-im-tessin/automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
-        "fr": "/fr/trouver-emploi-tessin/automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino"
+        "it": "/cerca-lavoro-soletta/automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
+        "en": "/en/find-jobs-solothurn/automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
+        "de": "/de/jobs-in-solothurn/automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
+        "fr": "/fr/trouver-emploi-soleure/automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -10161,10 +10227,10 @@
         "fr": "automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
-        "en": "/en/find-jobs-ticino/automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
-        "de": "/de/jobs-im-tessin/automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
-        "fr": "/fr/trouver-emploi-tessin/automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino"
+        "it": "/cerca-lavoro-soletta/automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
+        "en": "/en/find-jobs-solothurn/automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
+        "de": "/de/jobs-in-solothurn/automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
+        "fr": "/fr/trouver-emploi-soleure/automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -10539,10 +10605,10 @@
         "fr": "bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
-        "en": "/en/find-jobs-ticino/bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
-        "de": "/de/jobs-im-tessin/bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
-        "fr": "/fr/trouver-emploi-tessin/bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon"
+        "it": "/cerca-lavoro-lucerna/bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
+        "en": "/en/find-jobs-lucerne/bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
+        "de": "/de/jobs-in-luzern/bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
+        "fr": "/fr/trouver-emploi-lucerne/bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -12240,10 +12306,10 @@
         "fr": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-birsfelden"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/butcher-meat-specialist-meat-specialist-coop-genossenschaft-birsfelden",
-        "en": "/en/find-jobs-ticino/butcher-meat-specialist-meat-specialist-coop-genossenschaft-birsfelden",
-        "de": "/de/jobs-im-tessin/butcher-meat-specialist-meat-specialist-coop-genossenschaft-birsfelden",
-        "fr": "/fr/trouver-emploi-tessin/butcher-meat-specialist-meat-specialist-coop-genossenschaft-birsfelden"
+        "it": "/cerca-lavoro-basilea/butcher-meat-specialist-meat-specialist-coop-genossenschaft-birsfelden",
+        "en": "/en/find-jobs-basel/butcher-meat-specialist-meat-specialist-coop-genossenschaft-birsfelden",
+        "de": "/de/jobs-in-basel/butcher-meat-specialist-meat-specialist-coop-genossenschaft-birsfelden",
+        "fr": "/fr/trouver-emploi-bale/butcher-meat-specialist-meat-specialist-coop-genossenschaft-birsfelden"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -13369,10 +13435,10 @@
         "fr": "care-professional-m-f-d-60-80-luzerner-psychiatrie-lups-sursee"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/care-professional-m-f-d-60-80-luzerner-psychiatrie-lups-sursee",
-        "en": "/en/find-jobs-ticino/care-professional-m-f-d-60-80-luzerner-psychiatrie-lups-sursee",
-        "de": "/de/jobs-im-tessin/care-professional-m-f-d-60-80-luzerner-psychiatrie-lups-sursee",
-        "fr": "/fr/trouver-emploi-tessin/care-professional-m-f-d-60-80-luzerner-psychiatrie-lups-sursee"
+        "it": "/cerca-lavoro-lucerna/care-professional-m-f-d-60-80-luzerner-psychiatrie-lups-sursee",
+        "en": "/en/find-jobs-lucerne/care-professional-m-f-d-60-80-luzerner-psychiatrie-lups-sursee",
+        "de": "/de/jobs-in-luzern/care-professional-m-f-d-60-80-luzerner-psychiatrie-lups-sursee",
+        "fr": "/fr/trouver-emploi-lucerne/care-professional-m-f-d-60-80-luzerner-psychiatrie-lups-sursee"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -13638,10 +13704,10 @@
         "it": "casse-servizi-per-assistenti-vendite-coop-genossenschaft-sins"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/casse-servizi-per-assistenti-vendite-coop-genossenschaft-sins",
-        "en": "/en/find-jobs-aargau/casse-servizi-per-assistenti-vendite-coop-genossenschaft-sins",
+        "it": "/cerca-lavoro-nidvaldo/casse-servizi-per-assistenti-vendite-coop-genossenschaft-sins",
+        "en": "/en/find-jobs-nidwalden/casse-servizi-per-assistenti-vendite-coop-genossenschaft-sins",
         "de": "/de/jobs-im-basel/casse-servizi-per-assistenti-vendite-coop-genossenschaft-sins",
-        "fr": "/fr/trouver-emploi-argovie/casse-servizi-per-assistenti-vendite-coop-genossenschaft-sins"
+        "fr": "/fr/trouver-emploi-nidwald/casse-servizi-per-assistenti-vendite-coop-genossenschaft-sins"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -13902,10 +13968,10 @@
         "fr": "ch-seller-m-w-d-40-lidl-svizzera-zurich"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/ch-seller-m-w-d-40-lidl-svizzera-zurich",
-        "en": "/en/find-jobs-ticino/ch-seller-m-w-d-40-lidl-svizzera-zurich",
-        "de": "/de/jobs-im-tessin/ch-seller-m-w-d-40-lidl-svizzera-zurich",
-        "fr": "/fr/trouver-emploi-tessin/ch-seller-m-w-d-40-lidl-svizzera-zurich"
+        "it": "/cerca-lavoro-zurigo/ch-seller-m-w-d-40-lidl-svizzera-zurich",
+        "en": "/en/find-jobs-zurich/ch-seller-m-w-d-40-lidl-svizzera-zurich",
+        "de": "/de/jobs-in-zurich/ch-seller-m-w-d-40-lidl-svizzera-zurich",
+        "fr": "/fr/trouver-emploi-zurich/ch-seller-m-w-d-40-lidl-svizzera-zurich"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -15723,14 +15789,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "collaborateur-en-fusions-et-acquisitions-affaires-fiscales-pwc-switzerland-lausanne-2apxxj",
+        "de": "collaborateur-en-fusions-et-acquisitions-affaires-fiscales-pwc-switzerland-lausanne-2apxxj",
+        "fr": "collaborateur-en-fusions-et-acquisitions-affaires-fiscales-pwc-switzerland-lausanne-2apxxj",
+        "it": "collaborateur-en-fusions-et-acquisitions-affaires-fiscales-pwc-switzerland-lausanne-2apxxj"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-ticino/collaborateur-en-fusions-et-acquisitions-affaires-fiscales-pwc-switzerland-lausanne-2apxxj",
+        "de": "/de/jobs-im-tessin/collaborateur-en-fusions-et-acquisitions-affaires-fiscales-pwc-switzerland-lausanne-2apxxj",
+        "fr": "/fr/trouver-emploi-tessin/collaborateur-en-fusions-et-acquisitions-affaires-fiscales-pwc-switzerland-lausanne-2apxxj",
+        "it": "/cerca-lavoro-ticino/collaborateur-en-fusions-et-acquisitions-affaires-fiscales-pwc-switzerland-lausanne-2apxxj"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -16263,14 +16340,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "collaborateur-trice-service-manora-50-manor-ag-locarno",
+        "en": "collaborateur-trice-service-manora-50-manor-ag-locarno",
+        "it": "collaborateur-trice-service-manora-50-manor-ag-locarno",
+        "de": "collaborateur-trice-service-manora-50-manor-ag-locarno"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-tessin/collaborateur-trice-service-manora-50-manor-ag-locarno/",
+        "en": "/en/find-jobs-ticino/collaborateur-trice-service-manora-50-manor-ag-locarno/",
+        "it": "/cerca-lavoro-ticino/collaborateur-trice-service-manora-50-manor-ag-locarno",
+        "de": "/de/jobs-im-tessin/collaborateur-trice-service-manora-50-manor-ag-locarno"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -16310,14 +16398,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "collaborateur-trice-service-manora-50-manor-ag-locarno",
+        "en": "collaborateur-trice-service-manora-50-manor-ag-locarno",
+        "it": "collaborateur-trice-service-manora-50-manor-ag-locarno",
+        "de": "collaborateur-trice-service-manora-50-manor-ag-locarno"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-tessin/collaborateur-trice-service-manora-50-manor-ag-locarno/",
+        "en": "/en/find-jobs-ticino/collaborateur-trice-service-manora-50-manor-ag-locarno/",
+        "it": "/cerca-lavoro-ticino/collaborateur-trice-service-manora-50-manor-ag-locarno",
+        "de": "/de/jobs-im-tessin/collaborateur-trice-service-manora-50-manor-ag-locarno"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -16453,14 +16552,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "collaborateur-trice-service-manora-50-manor-ag-locarno",
+        "en": "collaborateur-trice-service-manora-50-manor-ag-locarno",
+        "it": "collaborateur-trice-service-manora-50-manor-ag-locarno",
+        "de": "collaborateur-trice-service-manora-50-manor-ag-locarno"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-tessin/collaborateur-trice-service-manora-50-manor-ag-locarno/",
+        "en": "/en/find-jobs-ticino/collaborateur-trice-service-manora-50-manor-ag-locarno/",
+        "it": "/cerca-lavoro-ticino/collaborateur-trice-service-manora-50-manor-ag-locarno",
+        "de": "/de/jobs-im-tessin/collaborateur-trice-service-manora-50-manor-ag-locarno"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -17410,10 +17520,10 @@
         "fr": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken",
-        "en": "/en/find-jobs-st-gallen/collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken",
+        "it": "/cerca-lavoro-berna/collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken",
+        "en": "/en/find-jobs-bern/collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken",
         "de": "/de/jobs-im-st-gallen/collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken",
-        "fr": "/fr/trouver-emploi-saint-gall/collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken"
+        "fr": "/fr/trouver-emploi-berne/collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -19627,15 +19737,26 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "it": "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca",
+        "de": "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca",
+        "en": "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca",
+        "fr": "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca/",
+        "de": "/de/jobs-im-tessin/consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca/",
+        "en": "/en/find-jobs-ticino/consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca",
+        "fr": "/fr/trouver-emploi-tessin/consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
-        "translation-cache"
+        "translation-cache",
+        "all-known-slugs"
       ]
     },
     {
@@ -19674,15 +19795,26 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "it": "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca",
+        "de": "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca",
+        "en": "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca",
+        "fr": "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca/",
+        "de": "/de/jobs-im-tessin/consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca/",
+        "en": "/en/find-jobs-ticino/consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca",
+        "fr": "/fr/trouver-emploi-tessin/consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
-        "translation-cache"
+        "translation-cache",
+        "all-known-slugs"
       ]
     },
     {
@@ -20264,10 +20396,10 @@
         "fr": "consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-hinwil-9fc665"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-hinwil-9fc665",
-        "en": "/en/find-jobs-ticino/consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-hinwil-9fc665",
-        "de": "/de/jobs-im-tessin/consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-hinwil-9fc665",
-        "fr": "/fr/trouver-emploi-tessin/consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-hinwil-9fc665"
+        "it": "/cerca-lavoro-zurigo/consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-hinwil-9fc665",
+        "en": "/en/find-jobs-zurich/consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-hinwil-9fc665",
+        "de": "/de/jobs-in-zurich/consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-hinwil-9fc665",
+        "fr": "/fr/trouver-emploi-zurich/consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-hinwil-9fc665"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -20318,10 +20450,10 @@
         "fr": "consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-widnau-g99lex"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-widnau-g99lex",
-        "en": "/en/find-jobs-bern/consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-widnau-g99lex",
+        "it": "/cerca-lavoro-san-gallo/consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-widnau-g99lex",
+        "en": "/en/find-jobs-st-gallen/consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-widnau-g99lex",
         "de": "/de/jobs-im-bern/consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-widnau-g99lex",
-        "fr": "/fr/trouver-emploi-berne/consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-widnau-g99lex"
+        "fr": "/fr/trouver-emploi-saint-gall/consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-widnau-g99lex"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -20734,10 +20866,10 @@
         "fr": "cook-m-f-d-coop-genossenschaft-koniz-8f5ee0"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/cook-m-f-d-coop-genossenschaft-koniz-8f5ee0",
-        "en": "/en/find-jobs-ticino/cook-m-f-d-coop-genossenschaft-koniz-8f5ee0",
-        "de": "/de/jobs-im-tessin/cook-m-f-d-coop-genossenschaft-koniz-8f5ee0",
-        "fr": "/fr/trouver-emploi-tessin/cook-m-f-d-coop-genossenschaft-koniz-8f5ee0"
+        "it": "/cerca-lavoro-berna/cook-m-f-d-coop-genossenschaft-koniz-8f5ee0",
+        "en": "/en/find-jobs-bern/cook-m-f-d-coop-genossenschaft-koniz-8f5ee0",
+        "de": "/de/jobs-in-bern/cook-m-f-d-coop-genossenschaft-koniz-8f5ee0",
+        "fr": "/fr/trouver-emploi-berne/cook-m-f-d-coop-genossenschaft-koniz-8f5ee0"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -21338,14 +21470,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "it": "culinary-training-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+        "en": "culinary-training-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+        "de": "culinary-training-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+        "fr": "culinary-training-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/culinary-training-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+        "en": "/en/find-jobs-ticino/culinary-training-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+        "de": "/de/jobs-im-tessin/culinary-training-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+        "fr": "/fr/trouver-emploi-tessin/culinary-training-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -22123,10 +22266,10 @@
         "fr": "data-center-techniker-switzerland-basel-on-site-reboot-monkey-basel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/data-center-techniker-switzerland-basel-on-site-reboot-monkey-basel",
-        "en": "/en/find-jobs-ticino/data-center-techniker-switzerland-basel-on-site-reboot-monkey-basel",
-        "de": "/de/jobs-im-tessin/data-center-techniker-switzerland-basel-on-site-reboot-monkey-basel",
-        "fr": "/fr/trouver-emploi-tessin/data-center-techniker-switzerland-basel-on-site-reboot-monkey-basel"
+        "it": "/cerca-lavoro-basilea/data-center-techniker-switzerland-basel-on-site-reboot-monkey-basel",
+        "en": "/en/find-jobs-basel/data-center-techniker-switzerland-basel-on-site-reboot-monkey-basel",
+        "de": "/de/jobs-in-basel/data-center-techniker-switzerland-basel-on-site-reboot-monkey-basel",
+        "fr": "/fr/trouver-emploi-bale/data-center-techniker-switzerland-basel-on-site-reboot-monkey-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -22232,10 +22375,10 @@
         "fr": "data-center-techniker-switzerland-zug-on-site-reboot-monkey-zug"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/data-center-techniker-switzerland-zug-on-site-reboot-monkey-zug",
-        "en": "/en/find-jobs-ticino/data-center-techniker-switzerland-zug-on-site-reboot-monkey-zug",
-        "de": "/de/jobs-im-tessin/data-center-techniker-switzerland-zug-on-site-reboot-monkey-zug",
-        "fr": "/fr/trouver-emploi-tessin/data-center-techniker-switzerland-zug-on-site-reboot-monkey-zug"
+        "it": "/cerca-lavoro-zugo/data-center-techniker-switzerland-zug-on-site-reboot-monkey-zug",
+        "en": "/en/find-jobs-zug/data-center-techniker-switzerland-zug-on-site-reboot-monkey-zug",
+        "de": "/de/jobs-in-zug/data-center-techniker-switzerland-zug-on-site-reboot-monkey-zug",
+        "fr": "/fr/trouver-emploi-zoug/data-center-techniker-switzerland-zug-on-site-reboot-monkey-zug"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -22286,10 +22429,10 @@
         "fr": "data-center-techniker-switzerland-zurich-on-site-reboot-monkey-zurich"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/data-center-techniker-switzerland-zurich-on-site-reboot-monkey-zurich",
-        "en": "/en/find-jobs-ticino/data-center-techniker-switzerland-zurich-on-site-reboot-monkey-zurich",
-        "de": "/de/jobs-im-tessin/data-center-techniker-switzerland-zurich-on-site-reboot-monkey-zurich",
-        "fr": "/fr/trouver-emploi-tessin/data-center-techniker-switzerland-zurich-on-site-reboot-monkey-zurich"
+        "it": "/cerca-lavoro-zurigo/data-center-techniker-switzerland-zurich-on-site-reboot-monkey-zurich",
+        "en": "/en/find-jobs-zurich/data-center-techniker-switzerland-zurich-on-site-reboot-monkey-zurich",
+        "de": "/de/jobs-in-zurich/data-center-techniker-switzerland-zurich-on-site-reboot-monkey-zurich",
+        "fr": "/fr/trouver-emploi-zurich/data-center-techniker-switzerland-zurich-on-site-reboot-monkey-zurich"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -22388,14 +22531,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "debut-de-carriere-dans-le-conseil-fiscal-en-suisse-centrale-pwc-switzerland-luzern",
+        "de": "debut-de-carriere-dans-le-conseil-fiscal-en-suisse-centrale-pwc-switzerland-luzern",
+        "fr": "debut-de-carriere-dans-le-conseil-fiscal-en-suisse-centrale-pwc-switzerland-luzern",
+        "it": "debut-de-carriere-dans-le-conseil-fiscal-en-suisse-centrale-pwc-switzerland-luzern"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-ticino/debut-de-carriere-dans-le-conseil-fiscal-en-suisse-centrale-pwc-switzerland-luzern",
+        "de": "/de/jobs-im-tessin/debut-de-carriere-dans-le-conseil-fiscal-en-suisse-centrale-pwc-switzerland-luzern",
+        "fr": "/fr/trouver-emploi-tessin/debut-de-carriere-dans-le-conseil-fiscal-en-suisse-centrale-pwc-switzerland-luzern",
+        "it": "/cerca-lavoro-ticino/debut-de-carriere-dans-le-conseil-fiscal-en-suisse-centrale-pwc-switzerland-luzern"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -22600,10 +22754,10 @@
         "fr": "deine-aufgaben-hirslanden-search-264"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/deine-aufgaben-hirslanden-search-264",
-        "en": "/en/find-jobs-ticino/deine-aufgaben-hirslanden-search-264",
-        "de": "/de/jobs-im-tessin/deine-aufgaben-hirslanden-search-264",
-        "fr": "/fr/trouver-emploi-tessin/deine-aufgaben-hirslanden-search-264"
+        "it": "/cerca-lavoro-berna/deine-aufgaben-hirslanden-search-264",
+        "en": "/en/find-jobs-bern/deine-aufgaben-hirslanden-search-264",
+        "de": "/de/jobs-in-bern/deine-aufgaben-hirslanden-search-264",
+        "fr": "/fr/trouver-emploi-berne/deine-aufgaben-hirslanden-search-264"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -23380,10 +23534,10 @@
         "fr": "dipl-expert-anesthesia-care-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/dipl-expert-anesthesia-care-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "en": "/en/find-jobs-ticino/dipl-expert-anesthesia-care-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "de": "/de/jobs-im-tessin/dipl-expert-anesthesia-care-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "fr": "/fr/trouver-emploi-tessin/dipl-expert-anesthesia-care-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "it": "/cerca-lavoro-san-gallo/dipl-expert-anesthesia-care-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "en": "/en/find-jobs-st-gallen/dipl-expert-anesthesia-care-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "de": "/de/jobs-in-st-gallen/dipl-expert-anesthesia-care-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "fr": "/fr/trouver-emploi-saint-gall/dipl-expert-anesthesia-care-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -23989,10 +24143,10 @@
         "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk-neumunster-gesundheitswelt"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk-neumunster-gesundheitswelt",
-        "en": "/en/find-jobs-lucerne/dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk-neumunster-gesundheitswelt",
+        "it": "/cerca-lavoro-zurigo/dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk-neumunster-gesundheitswelt",
+        "en": "/en/find-jobs-zurich/dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk-neumunster-gesundheitswelt",
         "de": "/de/jobs-im-luzern/dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk-neumunster-gesundheitswelt",
-        "fr": "/fr/trouver-emploi-lucerne/dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk-neumunster-gesundheitswelt"
+        "fr": "/fr/trouver-emploi-zurich/dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk-neumunster-gesundheitswelt"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -24043,10 +24197,10 @@
         "fr": "dipl-pflegefachfrau-mann-80-90-kssg-ch"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/dipl-pflegefachfrau-mann-80-90-kssg-ch",
-        "en": "/en/find-jobs-ticino/dipl-pflegefachfrau-mann-80-90-kssg-ch",
-        "de": "/de/jobs-im-tessin/dipl-pflegefachfrau-mann-80-90-kssg-ch",
-        "fr": "/fr/trouver-emploi-tessin/dipl-pflegefachfrau-mann-80-90-kssg-ch"
+        "it": "/cerca-lavoro-san-gallo/dipl-pflegefachfrau-mann-80-90-kssg-ch",
+        "en": "/en/find-jobs-st-gallen/dipl-pflegefachfrau-mann-80-90-kssg-ch",
+        "de": "/de/jobs-in-st-gallen/dipl-pflegefachfrau-mann-80-90-kssg-ch",
+        "fr": "/fr/trouver-emploi-saint-gall/dipl-pflegefachfrau-mann-80-90-kssg-ch"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -26591,10 +26745,10 @@
         "fr": "duales-studium-2027-bachelor-of-science-bwl-digital-business-management-standort-grenzach-roche-grenzach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/duales-studium-2027-bachelor-of-science-bwl-digital-business-management-standort-grenzach-roche-grenzach",
-        "en": "/en/find-jobs-basel/duales-studium-2027-bachelor-of-science-bwl-digital-business-management-standort-grenzach-roche-grenzach",
+        "it": "/cerca-lavoro-argovia/duales-studium-2027-bachelor-of-science-bwl-digital-business-management-standort-grenzach-roche-grenzach",
+        "en": "/en/find-jobs-aargau/duales-studium-2027-bachelor-of-science-bwl-digital-business-management-standort-grenzach-roche-grenzach",
         "de": "/de/jobs-im-basel/duales-studium-2027-bachelor-of-science-bwl-digital-business-management-standort-grenzach-roche-grenzach",
-        "fr": "/fr/trouver-emploi-bale/duales-studium-2027-bachelor-of-science-bwl-digital-business-management-standort-grenzach-roche-grenzach"
+        "fr": "/fr/trouver-emploi-argovie/duales-studium-2027-bachelor-of-science-bwl-digital-business-management-standort-grenzach-roche-grenzach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -27108,14 +27262,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "de": "einzelhandelsmitarbeiter-in-afc-herrenbekleidung-100-manor-ag-locarno",
+        "it": "einzelhandelsmitarbeiter-in-afc-herrenbekleidung-100-manor-ag-locarno",
+        "fr": "einzelhandelsmitarbeiter-in-afc-herrenbekleidung-100-manor-ag-locarno",
+        "en": "einzelhandelsmitarbeiter-in-afc-herrenbekleidung-100-manor-ag-locarno"
+      },
+      "localePaths": {
+        "de": "/de/jobs-im-tessin/einzelhandelsmitarbeiter-in-afc-herrenbekleidung-100-manor-ag-locarno",
+        "it": "/cerca-lavoro-ticino/einzelhandelsmitarbeiter-in-afc-herrenbekleidung-100-manor-ag-locarno",
+        "fr": "/fr/trouver-emploi-tessin/einzelhandelsmitarbeiter-in-afc-herrenbekleidung-100-manor-ag-locarno",
+        "en": "/en/find-jobs-ticino/einzelhandelsmitarbeiter-in-afc-herrenbekleidung-100-manor-ag-locarno"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -29364,10 +29529,10 @@
         "fr": "speech-pedia-specialiste-10-13-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-36973"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/fachperson-logopala-10-13-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
-        "en": "/en/find-jobs-bern/fachperson-logopala-10-13-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
+        "it": "/cerca-lavoro-zurigo/fachperson-logopala-10-13-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
+        "en": "/en/find-jobs-zurich/fachperson-logopala-10-13-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
         "de": "/de/jobs-im-bern/fachperson-logopala-10-13-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
-        "fr": "/fr/trouver-emploi-berne/fachperson-logopala-10-13-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
+        "fr": "/fr/trouver-emploi-zurich/fachperson-logopala-10-13-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
       },
       "sourceUrl": "https://www.ksml.apps.be.ch/ksml?q=stellen%2fad%2f36973",
       "googleStatus": "unknown",
@@ -29476,14 +29641,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "de": "fahrer-auf-abruf-amag-group-bellinzona",
+        "it": "fahrer-auf-abruf-amag-group-bellinzona",
+        "fr": "fahrer-auf-abruf-amag-group-bellinzona",
+        "en": "fahrer-auf-abruf-amag-group-bellinzona"
+      },
+      "localePaths": {
+        "de": "/de/jobs-im-tessin/fahrer-auf-abruf-amag-group-bellinzona",
+        "it": "/cerca-lavoro-ticino/fahrer-auf-abruf-amag-group-bellinzona",
+        "fr": "/fr/trouver-emploi-tessin/fahrer-auf-abruf-amag-group-bellinzona",
+        "en": "/en/find-jobs-ticino/fahrer-auf-abruf-amag-group-bellinzona"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -30952,10 +31128,10 @@
         "fr": "franchising-partner-coop-pronto-avec-ou-sans-station-service-coop-genossenschaft-allschwil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/franchising-partner-coop-pronto-avec-ou-sans-station-service-coop-genossenschaft-allschwil",
-        "en": "/en/find-jobs-ticino/franchising-partner-coop-pronto-avec-ou-sans-station-service-coop-genossenschaft-allschwil",
-        "de": "/de/jobs-im-tessin/franchising-partner-coop-pronto-avec-ou-sans-station-service-coop-genossenschaft-allschwil",
-        "fr": "/fr/trouver-emploi-tessin/franchising-partner-coop-pronto-avec-ou-sans-station-service-coop-genossenschaft-allschwil"
+        "it": "/cerca-lavoro-basilea/franchising-partner-coop-pronto-avec-ou-sans-station-service-coop-genossenschaft-allschwil",
+        "en": "/en/find-jobs-basel/franchising-partner-coop-pronto-avec-ou-sans-station-service-coop-genossenschaft-allschwil",
+        "de": "/de/jobs-in-basel/franchising-partner-coop-pronto-avec-ou-sans-station-service-coop-genossenschaft-allschwil",
+        "fr": "/fr/trouver-emploi-bale/franchising-partner-coop-pronto-avec-ou-sans-station-service-coop-genossenschaft-allschwil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -31224,10 +31400,10 @@
         "fr": "fresh-products-salesperson-coop-genossenschaft-winterthur"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/fresh-products-salesperson-coop-genossenschaft-winterthur",
-        "en": "/en/find-jobs-ticino/fresh-products-salesperson-coop-genossenschaft-winterthur",
-        "de": "/de/jobs-im-tessin/fresh-products-salesperson-coop-genossenschaft-winterthur",
-        "fr": "/fr/trouver-emploi-tessin/fresh-products-salesperson-coop-genossenschaft-winterthur"
+        "it": "/cerca-lavoro-zurigo/fresh-products-salesperson-coop-genossenschaft-winterthur",
+        "en": "/en/find-jobs-zurich/fresh-products-salesperson-coop-genossenschaft-winterthur",
+        "de": "/de/jobs-in-zurich/fresh-products-salesperson-coop-genossenschaft-winterthur",
+        "fr": "/fr/trouver-emploi-zurich/fresh-products-salesperson-coop-genossenschaft-winterthur"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -31624,14 +31800,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "general-competition-2026-nurses-with-specialization-mental-health-and-nurses-at-the-cantonal-socio-psychiatric-organization-osc-mendrisio-so",
+        "it": "general-competition-2026-nurses-with-specialization-mental-health-and-nurses-at-the-cantonal-socio-psychiatric-organization-osc-mendrisio-so",
+        "de": "general-competition-2026-nurses-with-specialization-mental-health-and-nurses-at-the-cantonal-socio-psychiatric-organization-osc-mendrisio-so",
+        "fr": "general-competition-2026-nurses-with-specialization-mental-health-and-nurses-at-the-cantonal-socio-psychiatric-organization-osc-mendrisio-so"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-ticino/general-competition-2026-nurses-with-specialization-mental-health-and-nurses-at-the-cantonal-socio-psychiatric-organization-osc-mendrisio-so",
+        "it": "/cerca-lavoro-ticino/general-competition-2026-nurses-with-specialization-mental-health-and-nurses-at-the-cantonal-socio-psychiatric-organization-osc-mendrisio-so",
+        "de": "/de/jobs-im-tessin/general-competition-2026-nurses-with-specialization-mental-health-and-nurses-at-the-cantonal-socio-psychiatric-organization-osc-mendrisio-so",
+        "fr": "/fr/trouver-emploi-tessin/general-competition-2026-nurses-with-specialization-mental-health-and-nurses-at-the-cantonal-socio-psychiatric-organization-osc-mendrisio-so"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -31665,14 +31852,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "geologue-junior-f-m-j-80-100-chantier-naval-n2-deuxieme-tube-du-saint-gothard-a-airolo-afry-airolo",
+        "en": "geologue-junior-f-m-j-80-100-chantier-naval-n2-deuxieme-tube-du-saint-gothard-a-airolo-afry-airolo",
+        "it": "geologue-junior-f-m-j-80-100-chantier-naval-n2-deuxieme-tube-du-saint-gothard-a-airolo-afry-airolo",
+        "de": "geologue-junior-f-m-j-80-100-chantier-naval-n2-deuxieme-tube-du-saint-gothard-a-airolo-afry-airolo"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-tessin/geologue-junior-f-m-j-80-100-chantier-naval-n2-deuxieme-tube-du-saint-gothard-a-airolo-afry-airolo",
+        "en": "/en/find-jobs-ticino/geologue-junior-f-m-j-80-100-chantier-naval-n2-deuxieme-tube-du-saint-gothard-a-airolo-afry-airolo",
+        "it": "/cerca-lavoro-ticino/geologue-junior-f-m-j-80-100-chantier-naval-n2-deuxieme-tube-du-saint-gothard-a-airolo-afry-airolo",
+        "de": "/de/jobs-im-tessin/geologue-junior-f-m-j-80-100-chantier-naval-n2-deuxieme-tube-du-saint-gothard-a-airolo-afry-airolo"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -32031,10 +32229,10 @@
         "fr": "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
-        "en": "/en/find-jobs-lucerne/gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
+        "it": "/cerca-lavoro-san-gallo/gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
+        "en": "/en/find-jobs-st-gallen/gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
         "de": "/de/jobs-im-luzern/gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
-        "fr": "/fr/trouver-emploi-lucerne/gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon"
+        "fr": "/fr/trouver-emploi-saint-gall/gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -32630,10 +32828,10 @@
         "fr": "gestore-immobiliare-commerciale-l-f-d-basilea-80-100-implenia-basel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/gestore-immobiliare-commerciale-l-f-d-basilea-80-100-implenia-basel",
-        "en": "/en/find-jobs-ticino/gestore-immobiliare-commerciale-l-f-d-basilea-80-100-implenia-basel",
-        "de": "/de/jobs-im-tessin/gestore-immobiliare-commerciale-l-f-d-basilea-80-100-implenia-basel",
-        "fr": "/fr/trouver-emploi-tessin/gestore-immobiliare-commerciale-l-f-d-basilea-80-100-implenia-basel"
+        "it": "/cerca-lavoro-basilea/gestore-immobiliare-commerciale-l-f-d-basilea-80-100-implenia-basel",
+        "en": "/en/find-jobs-basel/gestore-immobiliare-commerciale-l-f-d-basilea-80-100-implenia-basel",
+        "de": "/de/jobs-in-basel/gestore-immobiliare-commerciale-l-f-d-basilea-80-100-implenia-basel",
+        "fr": "/fr/trouver-emploi-bale/gestore-immobiliare-commerciale-l-f-d-basilea-80-100-implenia-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -33758,10 +33956,10 @@
         "fr": "hotel-service-employee-a-80-hirslanden-klinik-bern-besetzung-per-01"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/hotel-service-employee-a-80-hirslanden-klinik-bern-besetzung-per-01",
-        "en": "/en/find-jobs-ticino/hotel-service-employee-a-80-hirslanden-klinik-bern-besetzung-per-01",
-        "de": "/de/jobs-im-tessin/hotel-service-employee-a-80-hirslanden-klinik-bern-besetzung-per-01",
-        "fr": "/fr/trouver-emploi-tessin/hotel-service-employee-a-80-hirslanden-klinik-bern-besetzung-per-01"
+        "it": "/cerca-lavoro-berna/hotel-service-employee-a-80-hirslanden-klinik-bern-besetzung-per-01",
+        "en": "/en/find-jobs-bern/hotel-service-employee-a-80-hirslanden-klinik-bern-besetzung-per-01",
+        "de": "/de/jobs-in-bern/hotel-service-employee-a-80-hirslanden-klinik-bern-besetzung-per-01",
+        "fr": "/fr/trouver-emploi-berne/hotel-service-employee-a-80-hirslanden-klinik-bern-besetzung-per-01"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -35340,14 +35538,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "infirmiere-er-en-soins-generaux-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offe",
+        "en": "infirmiere-er-en-soins-generaux-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offe",
+        "de": "infirmiere-er-en-soins-generaux-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offe",
+        "it": "infirmiere-er-en-soins-generaux-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offe"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-tessin/infirmiere-er-en-soins-generaux-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offe",
+        "en": "/en/find-jobs-ticino/infirmiere-er-en-soins-generaux-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offe",
+        "de": "/de/jobs-im-tessin/infirmiere-er-en-soins-generaux-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offe",
+        "it": "/cerca-lavoro-ticino/infirmiere-er-en-soins-generaux-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offe"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -36042,14 +36251,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "ingenieur-electronique-telecommunication-f-m-d-80-100-bellinzone-afry-bellinzona",
+        "it": "ingenieur-electronique-telecommunication-f-m-d-80-100-bellinzone-afry-bellinzona",
+        "en": "ingenieur-electronique-telecommunication-f-m-d-80-100-bellinzone-afry-bellinzona",
+        "de": "ingenieur-electronique-telecommunication-f-m-d-80-100-bellinzone-afry-bellinzona"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-tessin/ingenieur-electronique-telecommunication-f-m-d-80-100-bellinzone-afry-bellinzona",
+        "it": "/cerca-lavoro-ticino/ingenieur-electronique-telecommunication-f-m-d-80-100-bellinzone-afry-bellinzona",
+        "en": "/en/find-jobs-ticino/ingenieur-electronique-telecommunication-f-m-d-80-100-bellinzone-afry-bellinzona",
+        "de": "/de/jobs-im-tessin/ingenieur-electronique-telecommunication-f-m-d-80-100-bellinzone-afry-bellinzona"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -36474,10 +36694,10 @@
         "fr": "insurance-advisor-field-sales-a-80-100-helsana-ticino"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/insurance-advisor-field-sales-a-80-100-helsana-ticino",
-        "en": "/en/find-jobs-ticino/insurance-advisor-field-sales-a-80-100-helsana-ticino",
-        "de": "/de/jobs-im-tessin/insurance-advisor-field-sales-a-80-100-helsana-ticino",
-        "fr": "/fr/trouver-emploi-tessin/insurance-advisor-field-sales-a-80-100-helsana-ticino"
+        "it": "/cerca-lavoro-berna/insurance-advisor-field-sales-a-80-100-helsana-ticino",
+        "en": "/en/find-jobs-bern/insurance-advisor-field-sales-a-80-100-helsana-ticino",
+        "de": "/de/jobs-in-bern/insurance-advisor-field-sales-a-80-100-helsana-ticino",
+        "fr": "/fr/trouver-emploi-berne/insurance-advisor-field-sales-a-80-100-helsana-ticino"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -37178,15 +37398,26 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "it": "java-senior-engineer-fincons-group-lugano-ticino-switzerland",
+        "en": "java-senior-engineer-fincons-group-lugano-ticino-switzerland",
+        "de": "java-senior-engineer-fincons-group-lugano-ticino-switzerland",
+        "fr": "java-senior-engineer-fincons-group-lugano-ticino-switzerland"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/java-senior-engineer-fincons-group-lugano-ticino-switzerland",
+        "en": "/en/find-jobs-ticino/java-senior-engineer-fincons-group-lugano-ticino-switzerland",
+        "de": "/de/jobs-im-tessin/java-senior-engineer-fincons-group-lugano-ticino-switzerland",
+        "fr": "/fr/trouver-emploi-tessin/java-senior-engineer-fincons-group-lugano-ticino-switzerland"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
-        "translation-cache"
+        "translation-cache",
+        "all-known-slugs"
       ]
     },
     {
@@ -37790,14 +38021,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "de": "koch-kochin-und-oder-diatkoch-diatkochin-permette-di-combinare-efficacemente-approccio-loc",
+        "en": "koch-kochin-und-oder-diatkoch-diatkochin-permette-di-combinare-efficacemente-approccio-loc",
+        "it": "koch-kochin-und-oder-diatkoch-diatkochin-permette-di-combinare-efficacemente-approccio-loc",
+        "fr": "koch-kochin-und-oder-diatkoch-diatkochin-permette-di-combinare-efficacemente-approccio-loc"
+      },
+      "localePaths": {
+        "de": "/de/jobs-in-zurich/koch-kochin-und-oder-diatkoch-diatkochin-permette-di-combinare-efficacemente-approccio-loc",
+        "en": "/en/find-jobs-zurich/koch-kochin-und-oder-diatkoch-diatkochin-permette-di-combinare-efficacemente-approccio-loc",
+        "it": "/cerca-lavoro-zurigo/koch-kochin-und-oder-diatkoch-diatkochin-permette-di-combinare-efficacemente-approccio-loc",
+        "fr": "/fr/trouver-emploi-zurich/koch-kochin-und-oder-diatkoch-diatkochin-permette-di-combinare-efficacemente-approccio-loc"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -40526,14 +40768,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "de": "levatrice-ostetrica-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedali",
+        "it": "levatrice-ostetrica-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedali",
+        "en": "levatrice-ostetrica-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedali",
+        "fr": "levatrice-ostetrica-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedali"
+      },
+      "localePaths": {
+        "de": "/de/jobs-im-tessin/levatrice-ostetrica-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedali",
+        "it": "/cerca-lavoro-ticino/levatrice-ostetrica-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedali",
+        "en": "/en/find-jobs-ticino/levatrice-ostetrica-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedali",
+        "fr": "/fr/trouver-emploi-tessin/levatrice-ostetrica-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedali"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -41653,10 +41906,10 @@
         "fr": "macellaio-specialista-della-carne-coop-genossenschaft-balgach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zugo/macellaio-specialista-della-carne-coop-genossenschaft-balgach",
-        "en": "/en/find-jobs-zug/macellaio-specialista-della-carne-coop-genossenschaft-balgach",
+        "it": "/cerca-lavoro-san-gallo/macellaio-specialista-della-carne-coop-genossenschaft-balgach",
+        "en": "/en/find-jobs-st-gallen/macellaio-specialista-della-carne-coop-genossenschaft-balgach",
         "de": "/de/jobs-im-zurich/macellaio-specialista-della-carne-coop-genossenschaft-balgach",
-        "fr": "/fr/trouver-emploi-zoug/macellaio-specialista-della-carne-coop-genossenschaft-balgach"
+        "fr": "/fr/trouver-emploi-saint-gall/macellaio-specialista-della-carne-coop-genossenschaft-balgach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -42130,10 +42383,10 @@
         "fr": "manor-kassierer-in-non-food-50-thun-kassiererin-non-food"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/manor-kassierer-in-non-food-50-thun-kassiererin-non-food",
-        "en": "/en/find-jobs-ticino/manor-kassierer-in-non-food-50-thun-kassiererin-non-food",
-        "de": "/de/jobs-im-tessin/manor-kassierer-in-non-food-50-thun-kassiererin-non-food",
-        "fr": "/fr/trouver-emploi-tessin/manor-kassierer-in-non-food-50-thun-kassiererin-non-food"
+        "it": "/cerca-lavoro-zurigo/manor-kassierer-in-non-food-50-thun-kassiererin-non-food",
+        "en": "/en/find-jobs-zurich/manor-kassierer-in-non-food-50-thun-kassiererin-non-food",
+        "de": "/de/jobs-in-zurich/manor-kassierer-in-non-food-50-thun-kassiererin-non-food",
+        "fr": "/fr/trouver-emploi-zurich/manor-kassierer-in-non-food-50-thun-kassiererin-non-food"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -42488,14 +42741,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "de": "maurer-pemsa-locarno",
+        "en": "maurer-pemsa-locarno",
+        "it": "maurer-pemsa-locarno",
+        "fr": "maurer-pemsa-locarno"
+      },
+      "localePaths": {
+        "de": "/de/jobs-im-tessin/maurer-pemsa-locarno",
+        "en": "/en/find-jobs-ticino/maurer-pemsa-locarno",
+        "it": "/cerca-lavoro-ticino/maurer-pemsa-locarno",
+        "fr": "/fr/trouver-emploi-tessin/maurer-pemsa-locarno"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -42867,10 +43131,10 @@
         "fr": "med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-operative-urologie-bethesda-unisp"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-operative-urologie-bethesda-unisp",
-        "en": "/en/find-jobs-ticino/med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-operative-urologie-bethesda-unisp",
-        "de": "/de/jobs-im-tessin/med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-operative-urologie-bethesda-unisp",
-        "fr": "/fr/trouver-emploi-tessin/med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-operative-urologie-bethesda-unisp"
+        "it": "/cerca-lavoro-basilea/med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-operative-urologie-bethesda-unisp",
+        "en": "/en/find-jobs-basel/med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-operative-urologie-bethesda-unisp",
+        "de": "/de/jobs-in-basel/med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-operative-urologie-bethesda-unisp",
+        "fr": "/fr/trouver-emploi-bale/med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-operative-urologie-bethesda-unisp"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -43026,14 +43290,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "medecin-assistant-pneumologie-permette-di-combinare-efficacemente-approccio-locale-e-visio",
+        "it": "medecin-assistant-pneumologie-permette-di-combinare-efficacemente-approccio-locale-e-visio",
+        "en": "medecin-assistant-pneumologie-permette-di-combinare-efficacemente-approccio-locale-e-visio",
+        "de": "medecin-assistant-pneumologie-permette-di-combinare-efficacemente-approccio-locale-e-visio"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-tessin/medecin-assistant-pneumologie-permette-di-combinare-efficacemente-approccio-locale-e-visio",
+        "it": "/cerca-lavoro-ticino/medecin-assistant-pneumologie-permette-di-combinare-efficacemente-approccio-locale-e-visio",
+        "en": "/en/find-jobs-ticino/medecin-assistant-pneumologie-permette-di-combinare-efficacemente-approccio-locale-e-visio",
+        "de": "/de/jobs-im-tessin/medecin-assistant-pneumologie-permette-di-combinare-efficacemente-approccio-locale-e-visio"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -43121,14 +43396,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "medecin-chef-de-clinique-en-dermatologie-50-a-100-permette-di-combinare-efficacemente-appr",
+        "en": "medecin-chef-de-clinique-en-dermatologie-50-a-100-permette-di-combinare-efficacemente-appr",
+        "de": "medecin-chef-de-clinique-en-dermatologie-50-a-100-permette-di-combinare-efficacemente-appr",
+        "it": "medecin-chef-de-clinique-en-dermatologie-50-a-100-permette-di-combinare-efficacemente-appr"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-tessin/medecin-chef-de-clinique-en-dermatologie-50-a-100-permette-di-combinare-efficacemente-appr",
+        "en": "/en/find-jobs-ticino/medecin-chef-de-clinique-en-dermatologie-50-a-100-permette-di-combinare-efficacemente-appr",
+        "de": "/de/jobs-im-tessin/medecin-chef-de-clinique-en-dermatologie-50-a-100-permette-di-combinare-efficacemente-appr",
+        "it": "/cerca-lavoro-ticino/medecin-chef-de-clinique-en-dermatologie-50-a-100-permette-di-combinare-efficacemente-appr"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -44107,14 +44393,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "de": "mitarbeiter-economat-bike-lounge-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "it": "mitarbeiter-economat-bike-lounge-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "fr": "mitarbeiter-economat-bike-lounge-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "en": "mitarbeiter-economat-bike-lounge-m-w-d-kulm-hotel-st-moritz-st-moritz"
+      },
+      "localePaths": {
+        "de": "/de/jobs-im-tessin/mitarbeiter-economat-bike-lounge-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "it": "/cerca-lavoro-ticino/mitarbeiter-economat-bike-lounge-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "fr": "/fr/trouver-emploi-tessin/mitarbeiter-economat-bike-lounge-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "en": "/en/find-jobs-ticino/mitarbeiter-economat-bike-lounge-m-w-d-kulm-hotel-st-moritz-st-moritz"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -44540,10 +44837,10 @@
         "fr": "mitarbeiter-in-innendienst-generalagentur-m-w-d-100"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/mitarbeiter-in-innendienst-generalagentur-m-w-d-100",
-        "en": "/en/find-jobs-ticino/mitarbeiter-in-innendienst-generalagentur-m-w-d-100",
-        "de": "/de/jobs-im-tessin/mitarbeiter-in-innendienst-generalagentur-m-w-d-100",
-        "fr": "/fr/trouver-emploi-tessin/mitarbeiter-in-innendienst-generalagentur-m-w-d-100"
+        "it": "/cerca-lavoro-lucerna/mitarbeiter-in-innendienst-generalagentur-m-w-d-100",
+        "en": "/en/find-jobs-lucerne/mitarbeiter-in-innendienst-generalagentur-m-w-d-100",
+        "de": "/de/jobs-in-luzern/mitarbeiter-in-innendienst-generalagentur-m-w-d-100",
+        "fr": "/fr/trouver-emploi-lucerne/mitarbeiter-in-innendienst-generalagentur-m-w-d-100"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -44795,14 +45092,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "it": "miu-miu-filialleiter-saint-moritz-prada-group-mendrisio",
+        "en": "miu-miu-filialleiter-saint-moritz-prada-group-mendrisio",
+        "de": "miu-miu-filialleiter-saint-moritz-prada-group-mendrisio",
+        "fr": "miu-miu-filialleiter-saint-moritz-prada-group-mendrisio"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/miu-miu-filialleiter-saint-moritz-prada-group-mendrisio",
+        "en": "/en/find-jobs-ticino/miu-miu-filialleiter-saint-moritz-prada-group-mendrisio",
+        "de": "/de/jobs-im-tessin/miu-miu-filialleiter-saint-moritz-prada-group-mendrisio",
+        "fr": "/fr/trouver-emploi-tessin/miu-miu-filialleiter-saint-moritz-prada-group-mendrisio"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -47093,10 +47401,10 @@
         "fr": "operatore-macchina-emmi-emmen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/operatore-macchina-emmi-emmen",
-        "en": "/en/find-jobs-st-gallen/operatore-macchina-emmi-emmen",
+        "it": "/cerca-lavoro-lucerna/operatore-macchina-emmi-emmen",
+        "en": "/en/find-jobs-lucerne/operatore-macchina-emmi-emmen",
         "de": "/de/jobs-im-st-gallen/operatore-macchina-emmi-emmen",
-        "fr": "/fr/trouver-emploi-saint-gall/operatore-macchina-emmi-emmen"
+        "fr": "/fr/trouver-emploi-lucerne/operatore-macchina-emmi-emmen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -51818,10 +52126,10 @@
         "fr": "principali-hirslanden-klinik-search-5yox0h"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/principali-hirslanden-klinik-search-5yox0h",
-        "en": "/en/find-jobs-ticino/principali-hirslanden-klinik-search-5yox0h",
-        "de": "/de/jobs-im-tessin/principali-hirslanden-klinik-search-5yox0h",
-        "fr": "/fr/trouver-emploi-tessin/principali-hirslanden-klinik-search-5yox0h"
+        "it": "/cerca-lavoro-vaud/principali-hirslanden-klinik-search-5yox0h",
+        "en": "/en/find-jobs-vaud/principali-hirslanden-klinik-search-5yox0h",
+        "de": "/de/jobs-in-der-waadt/principali-hirslanden-klinik-search-5yox0h",
+        "fr": "/fr/trouver-emploi-vaud/principali-hirslanden-klinik-search-5yox0h"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -51872,10 +52180,10 @@
         "fr": "principali-hirslanden-klinik-search-6wi1jz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/principali-hirslanden-klinik-search-6wi1jz",
-        "en": "/en/find-jobs-ticino/principali-hirslanden-klinik-search-6wi1jz",
-        "de": "/de/jobs-im-tessin/principali-hirslanden-klinik-search-6wi1jz",
-        "fr": "/fr/trouver-emploi-tessin/principali-hirslanden-klinik-search-6wi1jz"
+        "it": "/cerca-lavoro-vaud/principali-hirslanden-klinik-search-6wi1jz",
+        "en": "/en/find-jobs-vaud/principali-hirslanden-klinik-search-6wi1jz",
+        "de": "/de/jobs-in-der-waadt/principali-hirslanden-klinik-search-6wi1jz",
+        "fr": "/fr/trouver-emploi-vaud/principali-hirslanden-klinik-search-6wi1jz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -51926,10 +52234,10 @@
         "fr": "principali-hirslanden-klinik-search-89pum0"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/principali-hirslanden-klinik-search-89pum0",
-        "en": "/en/find-jobs-ticino/principali-hirslanden-klinik-search-89pum0",
-        "de": "/de/jobs-im-tessin/principali-hirslanden-klinik-search-89pum0",
-        "fr": "/fr/trouver-emploi-tessin/principali-hirslanden-klinik-search-89pum0"
+        "it": "/cerca-lavoro-vaud/principali-hirslanden-klinik-search-89pum0",
+        "en": "/en/find-jobs-vaud/principali-hirslanden-klinik-search-89pum0",
+        "de": "/de/jobs-in-der-waadt/principali-hirslanden-klinik-search-89pum0",
+        "fr": "/fr/trouver-emploi-vaud/principali-hirslanden-klinik-search-89pum0"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -53186,10 +53494,10 @@
         "fr": "designer-bim-dans-le-secteur-electrique-pemsa-geneve"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/progettista-bim-nel-settore-elettrico-pemsa-geneve",
-        "en": "/en/find-jobs-bern/progettista-bim-nel-settore-elettrico-pemsa-geneve",
+        "it": "/cerca-lavoro-ginevra/progettista-bim-nel-settore-elettrico-pemsa-geneve",
+        "en": "/en/find-jobs-geneva/progettista-bim-nel-settore-elettrico-pemsa-geneve",
         "de": "/de/jobs-im-bern/progettista-bim-nel-settore-elettrico-pemsa-geneve",
-        "fr": "/fr/trouver-emploi-berne/progettista-bim-nel-settore-elettrico-pemsa-geneve"
+        "fr": "/fr/trouver-emploi-geneve/progettista-bim-nel-settore-elettrico-pemsa-geneve"
       },
       "sourceUrl": "https://www.pemsa.ch/it/job/progettista-bim-nel-settore-elettrico-2683747",
       "googleStatus": "unknown",
@@ -53989,10 +54297,10 @@
         "fr": "psychologue-assistant-ou-psychologue-specialiste-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/psychologue-assistant-ou-psychologue-specialiste-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "/en/find-jobs-ticino/psychologue-assistant-ou-psychologue-specialiste-psychiatrische-dienste-aargau-pdag-windisch",
-        "de": "/de/jobs-im-tessin/psychologue-assistant-ou-psychologue-specialiste-psychiatrische-dienste-aargau-pdag-windisch",
-        "fr": "/fr/trouver-emploi-tessin/psychologue-assistant-ou-psychologue-specialiste-psychiatrische-dienste-aargau-pdag-windisch"
+        "it": "/cerca-lavoro-argovia/psychologue-assistant-ou-psychologue-specialiste-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "/en/find-jobs-aargau/psychologue-assistant-ou-psychologue-specialiste-psychiatrische-dienste-aargau-pdag-windisch",
+        "de": "/de/jobs-im-aargau/psychologue-assistant-ou-psychologue-specialiste-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "/fr/trouver-emploi-argovie/psychologue-assistant-ou-psychologue-specialiste-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -54040,10 +54348,10 @@
         "fr": "qc-labtech-hplc-m-w-d-50-100-lonza-ch"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
-        "en": "/en/find-jobs-ticino/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
-        "de": "/de/jobs-im-tessin/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
-        "fr": "/fr/trouver-emploi-tessin/qc-labtech-hplc-m-w-d-50-100-lonza-ch"
+        "it": "/cerca-lavoro-vallese/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
+        "en": "/en/find-jobs-valais/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
+        "de": "/de/jobs-im-wallis/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
+        "fr": "/fr/trouver-emploi-valais/qc-labtech-hplc-m-w-d-50-100-lonza-ch"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -54108,10 +54416,10 @@
         "fr": "qc-labtech-hplc-m-w-d-50-100-lonza-ch"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
-        "en": "/en/find-jobs-ticino/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
-        "de": "/de/jobs-im-tessin/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
-        "fr": "/fr/trouver-emploi-tessin/qc-labtech-hplc-m-w-d-50-100-lonza-ch"
+        "it": "/cerca-lavoro-vallese/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
+        "en": "/en/find-jobs-valais/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
+        "de": "/de/jobs-im-wallis/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
+        "fr": "/fr/trouver-emploi-valais/qc-labtech-hplc-m-w-d-50-100-lonza-ch"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -54186,10 +54494,10 @@
         "fr": "qc-labtech-hplc-m-w-d-50-100-lonza-ch"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
-        "en": "/en/find-jobs-ticino/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
-        "de": "/de/jobs-im-tessin/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
-        "fr": "/fr/trouver-emploi-tessin/qc-labtech-hplc-m-w-d-50-100-lonza-ch"
+        "it": "/cerca-lavoro-vallese/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
+        "en": "/en/find-jobs-valais/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
+        "de": "/de/jobs-im-wallis/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
+        "fr": "/fr/trouver-emploi-valais/qc-labtech-hplc-m-w-d-50-100-lonza-ch"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -54254,10 +54562,10 @@
         "fr": "qc-labtech-hplc-m-w-d-50-100-lonza-ch"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
-        "en": "/en/find-jobs-ticino/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
-        "de": "/de/jobs-im-tessin/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
-        "fr": "/fr/trouver-emploi-tessin/qc-labtech-hplc-m-w-d-50-100-lonza-ch"
+        "it": "/cerca-lavoro-vallese/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
+        "en": "/en/find-jobs-valais/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
+        "de": "/de/jobs-im-wallis/qc-labtech-hplc-m-w-d-50-100-lonza-ch",
+        "fr": "/fr/trouver-emploi-valais/qc-labtech-hplc-m-w-d-50-100-lonza-ch"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -55013,10 +55321,10 @@
         "fr": "regional-train-driver-railcare-hunzenschwil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/regional-train-driver-railcare-hunzenschwil",
-        "en": "/en/find-jobs-ticino/regional-train-driver-railcare-hunzenschwil",
-        "de": "/de/jobs-im-tessin/regional-train-driver-railcare-hunzenschwil",
-        "fr": "/fr/trouver-emploi-tessin/regional-train-driver-railcare-hunzenschwil"
+        "it": "/cerca-lavoro-argovia/regional-train-driver-railcare-hunzenschwil",
+        "en": "/en/find-jobs-aargau/regional-train-driver-railcare-hunzenschwil",
+        "de": "/de/jobs-im-aargau/regional-train-driver-railcare-hunzenschwil",
+        "fr": "/fr/trouver-emploi-argovie/regional-train-driver-railcare-hunzenschwil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -61624,10 +61932,10 @@
         "fr": "sales-consultant-garden-jumbo-division-der-coop-genossenschaft-schattdorf-4e336a"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/sales-consultant-garden-jumbo-division-der-coop-genossenschaft-schattdorf-4e336a",
-        "en": "/en/find-jobs-ticino/sales-consultant-garden-jumbo-division-der-coop-genossenschaft-schattdorf-4e336a",
-        "de": "/de/jobs-im-tessin/sales-consultant-garden-jumbo-division-der-coop-genossenschaft-schattdorf-4e336a",
-        "fr": "/fr/trouver-emploi-tessin/sales-consultant-garden-jumbo-division-der-coop-genossenschaft-schattdorf-4e336a"
+        "it": "/cerca-lavoro-uri/sales-consultant-garden-jumbo-division-der-coop-genossenschaft-schattdorf-4e336a",
+        "en": "/en/find-jobs-uri/sales-consultant-garden-jumbo-division-der-coop-genossenschaft-schattdorf-4e336a",
+        "de": "/de/jobs-in-uri/sales-consultant-garden-jumbo-division-der-coop-genossenschaft-schattdorf-4e336a",
+        "fr": "/fr/trouver-emploi-uri/sales-consultant-garden-jumbo-division-der-coop-genossenschaft-schattdorf-4e336a"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -63427,10 +63735,10 @@
         "fr": "seller-in-food-coop-genossenschaft-interlaken-da20b4"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/seller-in-food-coop-genossenschaft-interlaken-da20b4",
-        "en": "/en/find-jobs-ticino/seller-in-food-coop-genossenschaft-interlaken-da20b4",
-        "de": "/de/jobs-im-tessin/seller-in-food-coop-genossenschaft-interlaken-da20b4",
-        "fr": "/fr/trouver-emploi-tessin/seller-in-food-coop-genossenschaft-interlaken-da20b4"
+        "it": "/cerca-lavoro-berna/seller-in-food-coop-genossenschaft-interlaken-da20b4",
+        "en": "/en/find-jobs-bern/seller-in-food-coop-genossenschaft-interlaken-da20b4",
+        "de": "/de/jobs-in-bern/seller-in-food-coop-genossenschaft-interlaken-da20b4",
+        "fr": "/fr/trouver-emploi-berne/seller-in-food-coop-genossenschaft-interlaken-da20b4"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -63482,10 +63790,10 @@
         "fr": "seller-in-food-coop-genossenschaft-ostermundigen-5bi52k"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/seller-in-food-coop-genossenschaft-ostermundigen-5bi52k",
-        "en": "/en/find-jobs-ticino/seller-in-food-coop-genossenschaft-ostermundigen-5bi52k",
-        "de": "/de/jobs-im-tessin/seller-in-food-coop-genossenschaft-ostermundigen-5bi52k",
-        "fr": "/fr/trouver-emploi-tessin/seller-in-food-coop-genossenschaft-ostermundigen-5bi52k"
+        "it": "/cerca-lavoro-berna/seller-in-food-coop-genossenschaft-ostermundigen-5bi52k",
+        "en": "/en/find-jobs-bern/seller-in-food-coop-genossenschaft-ostermundigen-5bi52k",
+        "de": "/de/jobs-in-bern/seller-in-food-coop-genossenschaft-ostermundigen-5bi52k",
+        "fr": "/fr/trouver-emploi-berne/seller-in-food-coop-genossenschaft-ostermundigen-5bi52k"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -63536,10 +63844,10 @@
         "fr": "seller-in-food-coop-genossenschaft-solothurn-o6jb85"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/seller-in-food-coop-genossenschaft-solothurn-o6jb85",
-        "en": "/en/find-jobs-ticino/seller-in-food-coop-genossenschaft-solothurn-o6jb85",
-        "de": "/de/jobs-im-tessin/seller-in-food-coop-genossenschaft-solothurn-o6jb85",
-        "fr": "/fr/trouver-emploi-tessin/seller-in-food-coop-genossenschaft-solothurn-o6jb85"
+        "it": "/cerca-lavoro-soletta/seller-in-food-coop-genossenschaft-solothurn-o6jb85",
+        "en": "/en/find-jobs-solothurn/seller-in-food-coop-genossenschaft-solothurn-o6jb85",
+        "de": "/de/jobs-in-solothurn/seller-in-food-coop-genossenschaft-solothurn-o6jb85",
+        "fr": "/fr/trouver-emploi-soleure/seller-in-food-coop-genossenschaft-solothurn-o6jb85"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -63720,10 +64028,10 @@
         "fr": "seller-in-food-coop-genossenschaft-zurich-5657fd"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/seller-in-food-coop-genossenschaft-zurich-5657fd",
-        "en": "/en/find-jobs-ticino/seller-in-food-coop-genossenschaft-zurich-5657fd",
-        "de": "/de/jobs-im-tessin/seller-in-food-coop-genossenschaft-zurich-5657fd",
-        "fr": "/fr/trouver-emploi-tessin/seller-in-food-coop-genossenschaft-zurich-5657fd"
+        "it": "/cerca-lavoro-zurigo/seller-in-food-coop-genossenschaft-zurich-5657fd",
+        "en": "/en/find-jobs-zurich/seller-in-food-coop-genossenschaft-zurich-5657fd",
+        "de": "/de/jobs-in-zurich/seller-in-food-coop-genossenschaft-zurich-5657fd",
+        "fr": "/fr/trouver-emploi-zurich/seller-in-food-coop-genossenschaft-zurich-5657fd"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -63774,10 +64082,10 @@
         "fr": "seller-in-food-coop-genossenschaft-zurich-98364c"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/seller-in-food-coop-genossenschaft-zurich-98364c",
-        "en": "/en/find-jobs-ticino/seller-in-food-coop-genossenschaft-zurich-98364c",
-        "de": "/de/jobs-im-tessin/seller-in-food-coop-genossenschaft-zurich-98364c",
-        "fr": "/fr/trouver-emploi-tessin/seller-in-food-coop-genossenschaft-zurich-98364c"
+        "it": "/cerca-lavoro-zurigo/seller-in-food-coop-genossenschaft-zurich-98364c",
+        "en": "/en/find-jobs-zurich/seller-in-food-coop-genossenschaft-zurich-98364c",
+        "de": "/de/jobs-in-zurich/seller-in-food-coop-genossenschaft-zurich-98364c",
+        "fr": "/fr/trouver-emploi-zurich/seller-in-food-coop-genossenschaft-zurich-98364c"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -65090,10 +65398,10 @@
         "fr": "senior-physician-in-geriatrics-a-klinik-barmelweid-barmelweid"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/senior-physician-in-geriatrics-a-klinik-barmelweid-barmelweid",
-        "en": "/en/find-jobs-ticino/senior-physician-in-geriatrics-a-klinik-barmelweid-barmelweid",
-        "de": "/de/jobs-im-tessin/senior-physician-in-geriatrics-a-klinik-barmelweid-barmelweid",
-        "fr": "/fr/trouver-emploi-tessin/senior-physician-in-geriatrics-a-klinik-barmelweid-barmelweid"
+        "it": "/cerca-lavoro-argovia/senior-physician-in-geriatrics-a-klinik-barmelweid-barmelweid",
+        "en": "/en/find-jobs-aargau/senior-physician-in-geriatrics-a-klinik-barmelweid-barmelweid",
+        "de": "/de/jobs-im-aargau/senior-physician-in-geriatrics-a-klinik-barmelweid-barmelweid",
+        "fr": "/fr/trouver-emploi-argovie/senior-physician-in-geriatrics-a-klinik-barmelweid-barmelweid"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -65199,10 +65507,10 @@
         "fr": "senior-program-manager-sintesi-avanzata-80-100-lonza-ch"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/senior-program-manager-sintesi-avanzata-80-100-lonza-ch",
-        "en": "/en/find-jobs-ticino/senior-program-manager-sintesi-avanzata-80-100-lonza-ch",
-        "de": "/de/jobs-im-tessin/senior-program-manager-sintesi-avanzata-80-100-lonza-ch",
-        "fr": "/fr/trouver-emploi-tessin/senior-program-manager-sintesi-avanzata-80-100-lonza-ch"
+        "it": "/cerca-lavoro-vallese/senior-program-manager-sintesi-avanzata-80-100-lonza-ch",
+        "en": "/en/find-jobs-valais/senior-program-manager-sintesi-avanzata-80-100-lonza-ch",
+        "de": "/de/jobs-im-wallis/senior-program-manager-sintesi-avanzata-80-100-lonza-ch",
+        "fr": "/fr/trouver-emploi-valais/senior-program-manager-sintesi-avanzata-80-100-lonza-ch"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -70884,12 +71192,12 @@
         {
           "query": "software ticino",
           "clicks": 0,
-          "impressions": 23
+          "impressions": 24
         },
         {
           "query": "web developer ticino",
           "clicks": 0,
-          "impressions": 21
+          "impressions": 22
         },
         {
           "query": "software house canton ticino",
@@ -70967,17 +71275,17 @@
           "impressions": 2
         },
         {
+          "query": "web developer lugano",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
           "query": "offerte lavoro in canton ticino",
           "clicks": 1,
           "impressions": 1
-        },
-        {
-          "query": "9 site:.ch",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 174,
+      "totalImpressions": 177,
       "totalClicks": 1,
       "topQuery": "software house ticino",
       "title": "Sviluppatori",
@@ -72303,10 +72611,10 @@
         "fr": "technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino",
-        "en": "/en/find-jobs-ticino/technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino",
-        "de": "/de/jobs-im-tessin/technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino",
-        "fr": "/fr/trouver-emploi-tessin/technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino"
+        "it": "/cerca-lavoro-turgovia/technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino",
+        "en": "/en/find-jobs-thurgau/technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino",
+        "de": "/de/jobs-im-thurgau/technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino",
+        "fr": "/fr/trouver-emploi-thurgovie/technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -76115,10 +76423,10 @@
         "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-baden-7d364b"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-dans-la-nourriture-coop-genossenschaft-baden-7d364b",
-        "en": "/en/find-jobs-ticino/vendeur-dans-la-nourriture-coop-genossenschaft-baden-7d364b",
-        "de": "/de/jobs-im-tessin/vendeur-dans-la-nourriture-coop-genossenschaft-baden-7d364b",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-dans-la-nourriture-coop-genossenschaft-baden-7d364b"
+        "it": "/cerca-lavoro-argovia/vendeur-dans-la-nourriture-coop-genossenschaft-baden-7d364b",
+        "en": "/en/find-jobs-aargau/vendeur-dans-la-nourriture-coop-genossenschaft-baden-7d364b",
+        "de": "/de/jobs-im-aargau/vendeur-dans-la-nourriture-coop-genossenschaft-baden-7d364b",
+        "fr": "/fr/trouver-emploi-argovie/vendeur-dans-la-nourriture-coop-genossenschaft-baden-7d364b"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -76224,10 +76532,10 @@
         "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-interlaken-qmtnz3"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-dans-la-nourriture-coop-genossenschaft-interlaken-qmtnz3",
-        "en": "/en/find-jobs-ticino/vendeur-dans-la-nourriture-coop-genossenschaft-interlaken-qmtnz3",
-        "de": "/de/jobs-im-tessin/vendeur-dans-la-nourriture-coop-genossenschaft-interlaken-qmtnz3",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-dans-la-nourriture-coop-genossenschaft-interlaken-qmtnz3"
+        "it": "/cerca-lavoro-berna/vendeur-dans-la-nourriture-coop-genossenschaft-interlaken-qmtnz3",
+        "en": "/en/find-jobs-bern/vendeur-dans-la-nourriture-coop-genossenschaft-interlaken-qmtnz3",
+        "de": "/de/jobs-in-bern/vendeur-dans-la-nourriture-coop-genossenschaft-interlaken-qmtnz3",
+        "fr": "/fr/trouver-emploi-berne/vendeur-dans-la-nourriture-coop-genossenschaft-interlaken-qmtnz3"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -76334,10 +76642,10 @@
         "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-wadenswil-j2kkqf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-wadenswil-j2kkqf",
-        "en": "/en/find-jobs-ticino/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-wadenswil-j2kkqf",
-        "de": "/de/jobs-im-tessin/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-wadenswil-j2kkqf",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-wadenswil-j2kkqf"
+        "it": "/cerca-lavoro-zurigo/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-wadenswil-j2kkqf",
+        "en": "/en/find-jobs-zurich/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-wadenswil-j2kkqf",
+        "de": "/de/jobs-in-zurich/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-wadenswil-j2kkqf",
+        "fr": "/fr/trouver-emploi-zurich/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-wadenswil-j2kkqf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -76388,10 +76696,10 @@
         "fr": "vendeur-dans-les-produits-food-fresh-coop-genossenschaft-winterthur-brfcwn"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-dans-les-produits-food-fresh-coop-genossenschaft-winterthur-brfcwn",
-        "en": "/en/find-jobs-ticino/vendeur-dans-les-produits-food-fresh-coop-genossenschaft-winterthur-brfcwn",
-        "de": "/de/jobs-im-tessin/vendeur-dans-les-produits-food-fresh-coop-genossenschaft-winterthur-brfcwn",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-dans-les-produits-food-fresh-coop-genossenschaft-winterthur-brfcwn"
+        "it": "/cerca-lavoro-zurigo/vendeur-dans-les-produits-food-fresh-coop-genossenschaft-winterthur-brfcwn",
+        "en": "/en/find-jobs-zurich/vendeur-dans-les-produits-food-fresh-coop-genossenschaft-winterthur-brfcwn",
+        "de": "/de/jobs-in-zurich/vendeur-dans-les-produits-food-fresh-coop-genossenschaft-winterthur-brfcwn",
+        "fr": "/fr/trouver-emploi-zurich/vendeur-dans-les-produits-food-fresh-coop-genossenschaft-winterthur-brfcwn"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -76497,10 +76805,10 @@
         "fr": "vendeur-de-nourriture-coop-genossenschaft-baden"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-de-nourriture-coop-genossenschaft-baden",
-        "en": "/en/find-jobs-ticino/vendeur-de-nourriture-coop-genossenschaft-baden",
-        "de": "/de/jobs-im-tessin/vendeur-de-nourriture-coop-genossenschaft-baden",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-de-nourriture-coop-genossenschaft-baden"
+        "it": "/cerca-lavoro-argovia/vendeur-de-nourriture-coop-genossenschaft-baden",
+        "en": "/en/find-jobs-aargau/vendeur-de-nourriture-coop-genossenschaft-baden",
+        "de": "/de/jobs-im-aargau/vendeur-de-nourriture-coop-genossenschaft-baden",
+        "fr": "/fr/trouver-emploi-argovie/vendeur-de-nourriture-coop-genossenschaft-baden"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -76607,10 +76915,10 @@
         "fr": "vendeur-de-produits-frais-coop-genossenschaft-niederrohrdorf-65c5b6"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-de-produits-frais-coop-genossenschaft-niederrohrdorf-65c5b6",
-        "en": "/en/find-jobs-ticino/vendeur-de-produits-frais-coop-genossenschaft-niederrohrdorf-65c5b6",
-        "de": "/de/jobs-im-tessin/vendeur-de-produits-frais-coop-genossenschaft-niederrohrdorf-65c5b6",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-de-produits-frais-coop-genossenschaft-niederrohrdorf-65c5b6"
+        "it": "/cerca-lavoro-argovia/vendeur-de-produits-frais-coop-genossenschaft-niederrohrdorf-65c5b6",
+        "en": "/en/find-jobs-aargau/vendeur-de-produits-frais-coop-genossenschaft-niederrohrdorf-65c5b6",
+        "de": "/de/jobs-im-aargau/vendeur-de-produits-frais-coop-genossenschaft-niederrohrdorf-65c5b6",
+        "fr": "/fr/trouver-emploi-argovie/vendeur-de-produits-frais-coop-genossenschaft-niederrohrdorf-65c5b6"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -77096,10 +77404,10 @@
         "fr": "vendeur-euse-produits-frais-coop-genossenschaft-zurich-d8275d"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-euse-produits-frais-coop-genossenschaft-zurich-d8275d",
-        "en": "/en/find-jobs-ticino/vendeur-euse-produits-frais-coop-genossenschaft-zurich-d8275d",
-        "de": "/de/jobs-im-tessin/vendeur-euse-produits-frais-coop-genossenschaft-zurich-d8275d",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-euse-produits-frais-coop-genossenschaft-zurich-d8275d"
+        "it": "/cerca-lavoro-zurigo/vendeur-euse-produits-frais-coop-genossenschaft-zurich-d8275d",
+        "en": "/en/find-jobs-zurich/vendeur-euse-produits-frais-coop-genossenschaft-zurich-d8275d",
+        "de": "/de/jobs-in-zurich/vendeur-euse-produits-frais-coop-genossenschaft-zurich-d8275d",
+        "fr": "/fr/trouver-emploi-zurich/vendeur-euse-produits-frais-coop-genossenschaft-zurich-d8275d"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -77368,10 +77676,10 @@
         "fr": "vendeur-m-f-j-20-40-altendorf-lidl-svizzera-altendorf-2ad7b3"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-m-f-j-20-40-altendorf-lidl-svizzera-altendorf-2ad7b3",
-        "en": "/en/find-jobs-ticino/vendeur-m-f-j-20-40-altendorf-lidl-svizzera-altendorf-2ad7b3",
-        "de": "/de/jobs-im-tessin/vendeur-m-f-j-20-40-altendorf-lidl-svizzera-altendorf-2ad7b3",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-m-f-j-20-40-altendorf-lidl-svizzera-altendorf-2ad7b3"
+        "it": "/cerca-lavoro-svitto/vendeur-m-f-j-20-40-altendorf-lidl-svizzera-altendorf-2ad7b3",
+        "en": "/en/find-jobs-schwyz/vendeur-m-f-j-20-40-altendorf-lidl-svizzera-altendorf-2ad7b3",
+        "de": "/de/jobs-in-schwyz/vendeur-m-f-j-20-40-altendorf-lidl-svizzera-altendorf-2ad7b3",
+        "fr": "/fr/trouver-emploi-schwytz/vendeur-m-f-j-20-40-altendorf-lidl-svizzera-altendorf-2ad7b3"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -77532,10 +77840,10 @@
         "fr": "vendeur-produits-frais-coop-genossenschaft-hunenberg-ncgcyb"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-produits-frais-coop-genossenschaft-hunenberg-ncgcyb",
-        "en": "/en/find-jobs-ticino/vendeur-produits-frais-coop-genossenschaft-hunenberg-ncgcyb",
-        "de": "/de/jobs-im-tessin/vendeur-produits-frais-coop-genossenschaft-hunenberg-ncgcyb",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-produits-frais-coop-genossenschaft-hunenberg-ncgcyb"
+        "it": "/cerca-lavoro-zugo/vendeur-produits-frais-coop-genossenschaft-hunenberg-ncgcyb",
+        "en": "/en/find-jobs-zug/vendeur-produits-frais-coop-genossenschaft-hunenberg-ncgcyb",
+        "de": "/de/jobs-in-zug/vendeur-produits-frais-coop-genossenschaft-hunenberg-ncgcyb",
+        "fr": "/fr/trouver-emploi-zoug/vendeur-produits-frais-coop-genossenschaft-hunenberg-ncgcyb"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78319,10 +78627,10 @@
         "fr": "vendeur-vendeuse-caisses-services-coop-genossenschaft-hallau"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-vendeuse-caisses-services-coop-genossenschaft-hallau",
-        "en": "/en/find-jobs-ticino/vendeur-vendeuse-caisses-services-coop-genossenschaft-hallau",
-        "de": "/de/jobs-im-tessin/vendeur-vendeuse-caisses-services-coop-genossenschaft-hallau",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-vendeuse-caisses-services-coop-genossenschaft-hallau"
+        "it": "/cerca-lavoro-sciaffusa/vendeur-vendeuse-caisses-services-coop-genossenschaft-hallau",
+        "en": "/en/find-jobs-schaffhausen/vendeur-vendeuse-caisses-services-coop-genossenschaft-hallau",
+        "de": "/de/jobs-in-schaffhausen/vendeur-vendeuse-caisses-services-coop-genossenschaft-hallau",
+        "fr": "/fr/trouver-emploi-schaffhouse/vendeur-vendeuse-caisses-services-coop-genossenschaft-hallau"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78427,10 +78735,10 @@
         "fr": "vendeur-vendeuse-de-produits-frais-coop-genossenschaft-schaffhausen-9fac33"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-vendeuse-de-produits-frais-coop-genossenschaft-schaffhausen-9fac33",
-        "en": "/en/find-jobs-ticino/vendeur-vendeuse-de-produits-frais-coop-genossenschaft-schaffhausen-9fac33",
-        "de": "/de/jobs-im-tessin/vendeur-vendeuse-de-produits-frais-coop-genossenschaft-schaffhausen-9fac33",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-vendeuse-de-produits-frais-coop-genossenschaft-schaffhausen-9fac33"
+        "it": "/cerca-lavoro-sciaffusa/vendeur-vendeuse-de-produits-frais-coop-genossenschaft-schaffhausen-9fac33",
+        "en": "/en/find-jobs-schaffhausen/vendeur-vendeuse-de-produits-frais-coop-genossenschaft-schaffhausen-9fac33",
+        "de": "/de/jobs-in-schaffhausen/vendeur-vendeuse-de-produits-frais-coop-genossenschaft-schaffhausen-9fac33",
+        "fr": "/fr/trouver-emploi-schaffhouse/vendeur-vendeuse-de-produits-frais-coop-genossenschaft-schaffhausen-9fac33"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79377,10 +79685,10 @@
         "fr": "venditore-a-prodotti-freschi-coop-genossenschaft-ilanz-glion"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/venditore-a-prodotti-freschi-coop-genossenschaft-ilanz-glion",
-        "en": "/en/find-jobs-ticino/venditore-a-prodotti-freschi-coop-genossenschaft-ilanz-glion",
-        "de": "/de/jobs-im-tessin/venditore-a-prodotti-freschi-coop-genossenschaft-ilanz-glion",
-        "fr": "/fr/trouver-emploi-tessin/venditore-a-prodotti-freschi-coop-genossenschaft-ilanz-glion"
+        "it": "/cerca-lavoro-grigioni/venditore-a-prodotti-freschi-coop-genossenschaft-ilanz-glion",
+        "en": "/en/find-jobs-graubunden/venditore-a-prodotti-freschi-coop-genossenschaft-ilanz-glion",
+        "de": "/de/jobs-in-graubunden/venditore-a-prodotti-freschi-coop-genossenschaft-ilanz-glion",
+        "fr": "/fr/trouver-emploi-grisons/venditore-a-prodotti-freschi-coop-genossenschaft-ilanz-glion"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79740,10 +80048,10 @@
         "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-buchs-zh"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-friburgo/venditore-in-cassa-servizi-coop-genossenschaft-buchs-zh",
-        "en": "/en/find-jobs-fribourg/venditore-in-cassa-servizi-coop-genossenschaft-buchs-zh",
+        "it": "/cerca-lavoro-zurigo/venditore-in-cassa-servizi-coop-genossenschaft-buchs-zh",
+        "en": "/en/find-jobs-zurich/venditore-in-cassa-servizi-coop-genossenschaft-buchs-zh",
         "de": "/de/jobs-im-freiburg/venditore-in-cassa-servizi-coop-genossenschaft-buchs-zh",
-        "fr": "/fr/trouver-emploi-fribourg/venditore-in-cassa-servizi-coop-genossenschaft-buchs-zh"
+        "fr": "/fr/trouver-emploi-zurich/venditore-in-cassa-servizi-coop-genossenschaft-buchs-zh"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -80636,10 +80944,10 @@
         "fr": "verkaufer-in-food-coop-aarau-bahnhofplatz-3d-aargau-2"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/verkaufer-in-food-coop-aarau-bahnhofplatz-3d-aargau-2",
-        "en": "/en/find-jobs-ticino/verkaufer-in-food-coop-aarau-bahnhofplatz-3d-aargau-2",
-        "de": "/de/jobs-im-tessin/verkaufer-in-food-coop-aarau-bahnhofplatz-3d-aargau-2",
-        "fr": "/fr/trouver-emploi-tessin/verkaufer-in-food-coop-aarau-bahnhofplatz-3d-aargau-2"
+        "it": "/cerca-lavoro-argovia/verkaufer-in-food-coop-aarau-bahnhofplatz-3d-aargau-2",
+        "en": "/en/find-jobs-aargau/verkaufer-in-food-coop-aarau-bahnhofplatz-3d-aargau-2",
+        "de": "/de/jobs-im-aargau/verkaufer-in-food-coop-aarau-bahnhofplatz-3d-aargau-2",
+        "fr": "/fr/trouver-emploi-argovie/verkaufer-in-food-coop-aarau-bahnhofplatz-3d-aargau-2"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -80743,10 +81051,10 @@
         "fr": "verkaufer-in-food-coop-genossenschaft-domat-ems"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/verkaufer-in-food-coop-genossenschaft-domat-ems",
-        "en": "/en/find-jobs-aargau/verkaufer-in-food-coop-genossenschaft-domat-ems",
-        "de": "/de/jobs-im-aargau/verkaufer-in-food-coop-genossenschaft-domat-ems",
-        "fr": "/fr/trouver-emploi-argovie/verkaufer-in-food-coop-genossenschaft-domat-ems"
+        "it": "/cerca-lavoro-grigioni/verkaufer-in-food-coop-genossenschaft-domat-ems",
+        "en": "/en/find-jobs-graubunden/verkaufer-in-food-coop-genossenschaft-domat-ems",
+        "de": "/de/jobs-in-graubunden/verkaufer-in-food-coop-genossenschaft-domat-ems",
+        "fr": "/fr/trouver-emploi-grisons/verkaufer-in-food-coop-genossenschaft-domat-ems"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -81697,10 +82005,10 @@
         "fr": "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel",
-        "en": "/en/find-jobs-ticino/verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel",
-        "de": "/de/jobs-im-tessin/verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel",
-        "fr": "/fr/trouver-emploi-tessin/verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel"
+        "it": "/cerca-lavoro-berna/verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel",
+        "en": "/en/find-jobs-bern/verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel",
+        "de": "/de/jobs-in-bern/verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel",
+        "fr": "/fr/trouver-emploi-berne/verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -82020,10 +82328,10 @@
         "fr": "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-oftringen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-oftringen",
-        "en": "/en/find-jobs-zurich/verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-oftringen",
+        "it": "/cerca-lavoro-berna/verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-oftringen",
+        "en": "/en/find-jobs-bern/verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-oftringen",
         "de": "/de/jobs-im-zurich/verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-oftringen",
-        "fr": "/fr/trouver-emploi-zurich/verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-oftringen"
+        "fr": "/fr/trouver-emploi-berne/verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-oftringen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -84125,10 +84433,10 @@
         "fr": "your-responsibilities-hirslanden-klinik-search-6610ef"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/your-responsibilities-hirslanden-klinik-search-6610ef",
-        "en": "/en/find-jobs-ticino/your-responsibilities-hirslanden-klinik-search-6610ef",
-        "de": "/de/jobs-im-tessin/your-responsibilities-hirslanden-klinik-search-6610ef",
-        "fr": "/fr/trouver-emploi-tessin/your-responsibilities-hirslanden-klinik-search-6610ef"
+        "it": "/cerca-lavoro-argovia/your-responsibilities-hirslanden-klinik-search-6610ef",
+        "en": "/en/find-jobs-aargau/your-responsibilities-hirslanden-klinik-search-6610ef",
+        "de": "/de/jobs-im-aargau/your-responsibilities-hirslanden-klinik-search-6610ef",
+        "fr": "/fr/trouver-emploi-argovie/your-responsibilities-hirslanden-klinik-search-6610ef"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -84326,10 +84634,10 @@
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun",
-        "en": "/en/find-jobs-graubunden/zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun",
-        "de": "/de/jobs-in-graubunden/zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun",
-        "fr": "/fr/trouver-emploi-grisons/zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun"
+        "it": "/cerca-lavoro-lucerna/zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun",
+        "en": "/en/find-jobs-lucerne/zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun",
+        "de": "/de/jobs-in-luzern/zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun",
+        "fr": "/fr/trouver-emploi-lucerne/zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
