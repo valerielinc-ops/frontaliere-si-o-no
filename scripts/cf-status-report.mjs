@@ -45,6 +45,25 @@
  *   node scripts/cf-status-report.mjs --limit=50       # rows per detail query
  *   node scripts/cf-status-report.mjs --json           # machine-readable
  *   node scripts/cf-status-report.mjs --all-sources    # include Worker-internal rows
+ *   node scripts/cf-status-report.mjs --json --by-hour # + per-hour rows (burst shape)
+ *
+ * ─── --by-hour, and why the flat report is not enough ──────────────────────
+ * The SUMMARY/DETAIL queries above have NO time dimension: they return one
+ * total per (status, host, path) over the whole window. A 23h outage and a
+ * 60-second blip that happened 14 hours ago are therefore the SAME NUMBER to
+ * every consumer of this report.
+ *
+ * That is not hypothetical. Issues #5231 and #5232 were filed at 06:18Z on
+ * 2026-08-06 for `vendor-fdb-auth.js` (24) and `borderWaitFormat.js` (21).
+ * Re-queried with `datetimeMinute`, all 24 landed inside the single minute
+ * 2026-08-05T16:03Z and all 21 inside 2026-08-05T15:41Z — both already over
+ * ~14 hours before the issues existed, both zero in every hour since, and both
+ * serving 200/HIT when checked. The flat report could not have said so.
+ *
+ * `--by-hour` adds `detailByHour` to the JSON payload: the same rows keyed by
+ * `datetimeHour`, so a consumer can tell "still failing" from "failed once,
+ * yesterday". Row count is bounded above by the number of 5xx events in the
+ * window (a few hundred here), so the 10k cap cannot bite.
  *
  * By default only `requestSource: eyeball` rows (real client requests) are
  * counted. Worker-internal rows are excluded because the locale-router's
@@ -73,6 +92,7 @@ function parseArgs(argv) {
     limit: 30,
     json: false,
     allSources: false,
+    byHour: false,
   };
   for (const arg of argv) {
     const m = arg.match(/^--([^=]+)(?:=(.*))?$/);
@@ -86,6 +106,7 @@ function parseArgs(argv) {
       case 'limit': opts.limit = Number(val); break;
       case 'json': opts.json = true; break;
       case 'all-sources': opts.allSources = true; break;
+      case 'by-hour': opts.byHour = true; break;
       case 'help':
         console.log('See header comment for usage.');
         process.exit(0);
@@ -128,6 +149,24 @@ query($zone:String!,$since:Time!,$until:Time!,$limit:Int!,$filter:ZoneHttpReques
     }
   }}
 }`;
+
+// Same rows as DETAIL_QUERY plus `datetimeHour`, so a consumer can see the
+// SHAPE of the errors over time and not just their 23h total. Deliberately a
+// separate query rather than an extra dimension on DETAIL_QUERY: adding the
+// hour there would make `limit` cap (url, hour) pairs instead of urls, silently
+// understating every url's total once the cap is reached. Here the limit is the
+// dataset ceiling and the row count is bounded by the number of 5xx events.
+const HOURLY_DETAIL_QUERY = `
+query($zone:String!,$limit:Int!,$filter:ZoneHttpRequestsAdaptiveGroupsFilter_InputObject){
+  viewer{ zones(filter:{zoneTag:$zone}){
+    httpRequestsAdaptiveGroups(limit:$limit,filter:$filter,orderBy:[count_DESC]){
+      count dimensions{ datetimeHour edgeResponseStatus clientRequestHTTPHost clientRequestPath }
+    }
+  }}
+}`;
+
+/** Row cap for the hourly query — the dataset ceiling, never expected to bind. */
+const HOURLY_ROW_LIMIT = 10000;
 
 function classOf(status) {
   if (status >= 500) return '5xx';
@@ -173,13 +212,15 @@ async function main() {
 
   const vars = { zone: zoneId, since: sinceISO, until: untilISO, filter: baseFilter };
 
-  const [summaryData, detailData] = await Promise.all([
+  const [summaryData, detailData, hourlyData] = await Promise.all([
     cfGraphQL(token, SUMMARY_QUERY, vars),
     cfGraphQL(token, DETAIL_QUERY, { ...vars, limit: opts.limit }),
+    opts.byHour ? cfGraphQL(token, HOURLY_DETAIL_QUERY, { ...vars, limit: HOURLY_ROW_LIMIT }) : null,
   ]);
 
   const summaryRows = summaryData.viewer.zones[0]?.httpRequestsAdaptiveGroups || [];
   const detailRows = detailData.viewer.zones[0]?.httpRequestsAdaptiveGroups || [];
+  const hourlyRows = hourlyData ? hourlyData.viewer.zones[0]?.httpRequestsAdaptiveGroups || [] : null;
 
   // Aggregate summary by status code and by class.
   const byStatus = new Map();
@@ -203,6 +244,18 @@ async function main() {
             url: r.dimensions.clientRequestHTTPHost + r.dimensions.clientRequestPath,
             count: r.count,
           })),
+          // Present ONLY under --by-hour. Consumers must treat "absent" as
+          // "recency unknown" and fail open, never as "no recent errors".
+          ...(hourlyRows
+            ? {
+                detailByHour: hourlyRows.map((r) => ({
+                  status: r.dimensions.edgeResponseStatus,
+                  url: r.dimensions.clientRequestHTTPHost + r.dimensions.clientRequestPath,
+                  hour: r.dimensions.datetimeHour,
+                  count: r.count,
+                })),
+              }
+            : {}),
         },
         null,
         2,
