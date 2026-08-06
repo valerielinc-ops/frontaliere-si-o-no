@@ -9301,6 +9301,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalierieticinoaumento.title': 'Slight increase in frontier workers in Ticino: the figures',
     'blog.article.frontalierieticinoaumento.excerpt': 'The number of border workers in Ticino increased by 0.6% compared to the previous quarter, with a total of 79,121 people.',
     'blog.article.frontalierieticinoaumento.imageAlt': 'Lugano lake and mountains view',
+    'blog.article.prezzi-proprieta-svizzera-aumentano.title': 'Buying a home remains a great desire. And prices go up',
+    'blog.article.prezzi-proprieta-svizzera-aumentano.excerpt': 'The ImmoScout24 index also showed an increase for the month of July',
+    'blog.article.prezzi-proprieta-svizzera-aumentano.imageAlt': 'Locarno, lake maggiore, DSLR photography',
 };
 
 export default blogMetaEn;

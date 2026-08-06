@@ -9300,6 +9300,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalierieticinoaumento.title': 'Leichte Zunahme der Grenzgänger im Tessin: die Zahlen',
     'blog.article.frontalierieticinoaumento.excerpt': 'Die Zahl der Grenzgänger im Tessin stieg gegenüber dem Vorquartal um 0,6% auf insgesamt 79.121 Personen.',
     'blog.article.frontalierieticinoaumento.imageAlt': 'Lugano See und Berge',
+    'blog.article.prezzi-proprieta-svizzera-aumentano.title': 'Ein Haus zu kaufen bleibt ein grosser Wunsch. Und die Preise steigen',
+    'blog.article.prezzi-proprieta-svizzera-aumentano.excerpt': 'Der Index von ImmoScout24 verzeichnete auch im Juli einen Anstieg',
+    'blog.article.prezzi-proprieta-svizzera-aumentano.imageAlt': 'Locarno, See Maggiore, DSLR Fotografie',
 };
 
 export default blogMetaDe;
