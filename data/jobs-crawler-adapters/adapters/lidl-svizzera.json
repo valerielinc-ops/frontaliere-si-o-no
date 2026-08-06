@@ -137,6 +137,7 @@
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-1-stans-674353",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-1-regensdorf-705728",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-bern-704655",
+    "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-luzern-728428",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-matten-bei-interlaken-727194",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-sarnen-681605",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-bellach-706891",
@@ -342,6 +343,7 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-marly-695473",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-matran-721192",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-oron-731612",
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-vernier-731860",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-courgevaux-705947",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-bulle-695660",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-conthey-724853",
@@ -350,11 +352,10 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-marly-669259",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-matran-721194",
     "https://team.lidl.ch/it/jobs/ch-lavoro-per-studenti-vendita-m-f-d-20-60-biasca-679101",
-    "https://team.lidl.ch/it/jobs/ch-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-st-moritz-728439",
-    "https://team.lidl.ch/it/jobs/tuttofare-vendita-m-f-d-20-40-gravesano-695023"
+    "https://team.lidl.ch/it/jobs/ch-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-st-moritz-728439"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-08-05T22:19:24.839Z",
+  "updatedAt": "2026-08-06T11:31:08.016Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-kreuzlingen-727482": {
       "location": "Kreuzlingen",
@@ -2471,6 +2472,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
+    "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-luzern-728428": {
+      "location": "Luzern",
+      "addressLocality": "Luzern",
+      "canton": "LU",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-luzern-707617": {
       "location": "Luzern",
       "addressLocality": "Luzern",
@@ -3362,15 +3372,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/it/jobs/tuttofare-vendita-m-f-d-20-40-gravesano-695023": {
-      "location": "Gravesano",
-      "addressLocality": "Gravesano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-collombey-muraz-709685": {
       "location": "Collombey-Muraz",
       "addressLocality": "Collombey-Muraz",
@@ -3398,15 +3399,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-conthey-648471": {
-      "location": "Conthey",
-      "addressLocality": "Conthey",
-      "canton": "VS",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-conthey-725866": {
       "location": "Conthey",
       "addressLocality": "Conthey",
@@ -3416,6 +3408,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
+    "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-conthey-648471": {
+      "location": "Conthey",
+      "addressLocality": "Conthey",
+      "canton": "VS",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-martigny-726014": {
       "location": "Martigny",
       "addressLocality": "Martigny",
@@ -3424,6 +3425,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
+    },
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-vernier-731860": {
+      "location": "Vernier",
+      "addressLocality": "Vernier",
+      "canton": "GE",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
     },
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-geneve-726043": {
       "location": "Genève",
