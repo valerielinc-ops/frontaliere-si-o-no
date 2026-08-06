@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useDeferredValue, Suspense } from 'react';
+import AvgRentValue from '@/components/shared/AvgRentValue';
 import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { useTranslation } from '../../services/i18n';
 import { PROVINCE_NAMES } from '../../services/provinceList';
@@ -508,7 +509,7 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
  </div>
  <div className="bg-surface-alt/50 rounded-xl p-3">
  <p className="text-sm text-muted mb-1">{t('guide.municipalities.detail.avgRent')}</p>
- <p className="font-bold text-strong">€{municipality.avgRentMonthly}/{t('guide.municipalities.detail.perMonth')}</p>
+ <p className="font-bold text-strong"><AvgRentValue municipality={municipality} suffix={`/${t('guide.municipalities.detail.perMonth')}`} /></p>
  </div>
  <div className="bg-surface-alt/50 rounded-xl p-3">
  <p className="text-sm text-muted mb-1">{t('guide.municipalities.detail.distance')}</p>

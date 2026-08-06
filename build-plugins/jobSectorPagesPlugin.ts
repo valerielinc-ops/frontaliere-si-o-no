@@ -206,9 +206,19 @@ const CROSS_CANTON_RAIL_HEADING: Record<JobBoardLocale, string> = {
  * so thin sectors don't push traffic toward alternatives the hub itself
  * barely justifies. Returns '' when the sector has no slug for the locale
  * or the target canton doesn't resolve — never a dead link.
+ *
+ * `count === 0` is the deliberate exception (#5203). The owner decided on
+ * 2026-07-16 that TI sector hubs carry no minimum-inventory threshold, so a
+ * sector with genuinely no Ticino listings — `camerieri`, `sicurezza` and
+ * `agricoltura` are really empty, not mis-matched — stays live and indexed.
+ * At exactly zero the "don't dilute a weak signal" rationale above does not
+ * apply: there is no signal to dilute and no listing to compete with, and the
+ * only useful thing the page can offer a high-intent visitor is where the same
+ * work IS available. Suppressing the rail there leaves a dead end. The 1-2
+ * band keeps the original gate: those hubs do have listings to show.
  */
 function renderCrossCantonSectorRail(locale: JobBoardLocale, sector: SectorHubKey, count: number): string {
-  if (count < CROSS_CANTON_MIN_INVENTORY) return '';
+  if (count > 0 && count < CROSS_CANTON_MIN_INVENTORY) return '';
   const slug = SECTOR_HUB_SLUG[locale]?.[sector];
   if (!slug) return '';
   const items = CROSS_CANTON_LINK_TARGETS.map(({ code, label }) => {

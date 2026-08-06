@@ -4,7 +4,13 @@
  * After {@link faqHubPlugin} writes the 4 locale FAQ-hub landings into
  * `dist/`, this plugin walks the 4 `/guida-frontaliere/` (and locale twin)
  * hub root pages and injects a single contextual anchor into each so
- * Google / users can discover the 100-Q&A FAQ hub from the guide pillar.
+ * Google / users can discover the FAQ hub from the guide pillar.
+ *
+ * The anchor labels carry the live entry count, read from `ALL_FAQ_HUB` at
+ * build time. They used to hard-code `100` in all four locales while the
+ * corpus had grown to 103 — the plugin had no data dependency on the corpus
+ * at all, which is exactly why it could desync unnoticed. `faqHubPlugin`
+ * already derives every count it prints the same way.
  *
  * Idempotent: if the target href is already present in the HTML we skip
  * that file. One link per target per file, no duplicate injection on
@@ -22,6 +28,11 @@
 import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
+
+import { ALL_FAQ_HUB } from '../data/faq-hub';
+
+/** Live corpus size — never hard-code this, see the header. */
+const TOTAL_FAQ_COUNT = ALL_FAQ_HUB.length;
 
 interface LinkTarget {
   /** Absolute file path to the index.html (both index.html and flat .html get patched). */
@@ -83,7 +94,7 @@ export function faqHubLinksPlugin(rootDir: string): Plugin {
           indexPath: np.join(distDir, 'guida-frontaliere', 'index.html'),
           flatPath: np.join(distDir, 'guida-frontaliere.html'),
           href: '/domande-frequenti-frontalieri/',
-          label: 'Apri le 100 domande frequenti dei frontalieri',
+          label: `Apri le ${TOTAL_FAQ_COUNT} domande frequenti dei frontalieri`,
           intro:
             'Hai domande specifiche su fisco, permessi, LAMal, AVS, stipendio, trasporti o diritti del lavoro? Consulta le risposte dettagliate con fonti ufficiali.',
         },
@@ -92,7 +103,7 @@ export function faqHubLinksPlugin(rootDir: string): Plugin {
           indexPath: np.join(distDir, 'en', 'cross-border-guide', 'index.html'),
           flatPath: np.join(distDir, 'en', 'cross-border-guide.html'),
           href: '/en/frequently-asked-questions/',
-          label: 'Browse the 100 cross-border FAQs',
+          label: `Browse the ${TOTAL_FAQ_COUNT} cross-border FAQs`,
           intro:
             'Have specific questions on taxes, permits, LAMal, AVS/LPP, pay, transport or labour rights? See detailed answers with official sources.',
         },
@@ -101,7 +112,7 @@ export function faqHubLinksPlugin(rootDir: string): Plugin {
           indexPath: np.join(distDir, 'de', 'grenzgaenger-ratgeber', 'index.html'),
           flatPath: np.join(distDir, 'de', 'grenzgaenger-ratgeber.html'),
           href: '/de/haeufige-fragen/',
-          label: 'Zu den 100 häufigen Fragen für Grenzgänger',
+          label: `Zu den ${TOTAL_FAQ_COUNT} häufigen Fragen für Grenzgänger`,
           intro:
             'Haben Sie spezifische Fragen zu Steuern, Bewilligungen, KVG/LAMal, AHV/BVG, Lohn, Verkehr oder Arbeitsrecht? Hier finden Sie ausführliche Antworten mit offiziellen Quellen.',
         },
@@ -110,7 +121,7 @@ export function faqHubLinksPlugin(rootDir: string): Plugin {
           indexPath: np.join(distDir, 'fr', 'guide-frontalier', 'index.html'),
           flatPath: np.join(distDir, 'fr', 'guide-frontalier.html'),
           href: '/fr/questions-frequentes/',
-          label: 'Voir les 100 questions fréquentes des frontaliers',
+          label: `Voir les ${TOTAL_FAQ_COUNT} questions fréquentes des frontaliers`,
           intro:
             'Des questions précises sur la fiscalité, les permis, LAMal, AVS/LPP, le salaire, les transports ou le droit du travail ? Consultez les réponses détaillées avec sources officielles.',
         },

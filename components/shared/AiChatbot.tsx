@@ -811,10 +811,19 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  <Bot size={14} className="text-accent" />
  </div>
  )}
+ {/* The user's own words. Session-replay tools capture rendered TEXT
+ NODES, not just inputs: posthog-js masks `<input>` by default
+ (`maskAllInputs`) but `maskTextSelector` is undefined, so a message
+ bubble is recorded verbatim — and replay is sampled at 30%
+ (`services/posthog.ts`). Clarity has no masking configured in this repo
+ either. Redacting the analytics event (#5196) does nothing about that
+ copy; these two attributes do. `ph-no-capture` is PostHog's opt-out,
+ `data-clarity-mask` is Clarity's. */}
  <div
+ {...(msg.role === 'user' ? { 'data-clarity-mask': 'true' } : {})}
  className={`max-w-[80%] px-3 py-2 rounded-2xl text-sm ${
  msg.role === 'user'
- ? 'bg-accent-strong text-on-accent rounded-br-md whitespace-pre-wrap'
+ ? 'ph-no-capture bg-accent-strong text-on-accent rounded-br-md whitespace-pre-wrap'
  : 'bg-surface-raised text-heading rounded-bl-md'
  }`}
  >
@@ -910,8 +919,13 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  <p className="text-xs font-medium text-link text-center">frontaliereticino.ch</p>
  <p className="text-sm text-subtle text-center mt-1 mb-3">{t('chatbot.authSubtitle')}</p>
 
+ {/* The raw, untruncated question rendered immediately above the email
+ field. In a single replay frame this ties the question to the address
+ the user is about to type — the worst shape this data can take. The
+ label stays visible; only the question itself is masked. */}
  <div className="text-sm text-accent bg-accent-subtle border border-accent-border rounded-lg p-2 mb-3">
- <span className="font-semibold">{t('chatbot.authContinueQuestion')}:</span> {pendingQuestion}
+ <span className="font-semibold">{t('chatbot.authContinueQuestion')}:</span>{' '}
+ <span className="ph-no-capture" data-clarity-mask="true">{pendingQuestion}</span>
  </div>
 
  <div ref={googleButtonRef} className="mb-2 flex justify-center min-h-[1px]" />

@@ -127,6 +127,38 @@ interface ProfessionMatcher {
  * `gesundheitswesen` category catches psychologists, OSS, doctors AND nurses).
  * False positives compound on featured-jobs cards which a user sees and
  * judges immediately — so the bar for inclusion has to be the title itself.
+ *
+ * ## Stem vs whole word: why a trailing `\b` is not free (#5204, #5205)
+ *
+ * These alternations mix two kinds of alternative and they need *different*
+ * right-hand boundaries:
+ *
+ * - **stems** (`autist`, `operai`, `impiegat`, `camerier`, `cuoc`, `saldator`)
+ *   are prefixes by construction — the inflection is supposed to follow.
+ *   A trailing `\b` after the group makes them match nothing at all:
+ *   `/\b(autist)\b/` cannot match "Autista", because `t`→`a` is not a word
+ *   boundary. Wrapping the whole group in `\b(...)\b` therefore silently
+ *   deletes every stem in it.
+ * - **whole words** (`engineer`, `cook`, `mason`, `truck driver`) need the
+ *   trailing `\b` kept: without it `engineer` swallows "Engineering
+ *   Manager" (a field, not the role) and `cook` swallows "Cookie
+ *   consent manager".
+ *
+ * That is why the sibling matchers below that carry no trailing `\b` at all
+ * (muratore, psicologo, farmacista, ostetrica, …) never had the bug: their
+ * alternations are stem-only. Keep the two kinds separated when editing, and
+ * see `tests/profession-matcher-boundaries.test.ts`, which pins both
+ * directions with real corpus titles.
+ *
+ * Second boundary rule: a **leading** `\b` blocks German compounds. `\boptiker`
+ * cannot match "Augenoptiker", `\bschweisser` cannot match
+ * "Aluminiumschweisser" — in DE the role noun is routinely the tail of a
+ * compound, so stems that legitimately appear compounded carry no leading `\b`.
+ *
+ * Third: Italian job titles are written gender-inclusive with a slash
+ * ("Operatore/trice socio sanitario/a", "Tecnico/a di radiologia"), which
+ * breaks any literal multi-word phrase. Phrases that must survive it spell the
+ * optional `/suffix` out.
  */
 const PROFESSION_MATCHERS: Record<ProfessionId, ProfessionMatcher> = {
   infermiere: {
@@ -135,30 +167,47 @@ const PROFESSION_MATCHERS: Record<ProfessionId, ProfessionMatcher> = {
     exclude: /\b(assistenzpsycholog|psychotherap|sozialarbeit|tieräpfleg)/i,
   },
   operaio: {
-    title: /\b(operai|produktionsmitarbeit|production worker|tornitor|fresator|saldator|magazzinier|aiuto-?reparto|lagerist|lagermitarbeit|aiuto-?cucina|hilfsarbeiter)\b/i,
+    // Stem-only alternation — the trailing `\b` used to void every entry
+    // ("Operaio/a", "Produktionsmitarbeiter:in", "Tornitore" all missed).
+    title: /\b(operai|produktionsmitarbeit|production worker|tornitor|fresator|saldator|magazzinier|aiuto-?reparto|lagerist|lagermitarbeit|aiuto-?cucina|hilfsarbeiter)/i,
   },
   impiegato: {
-    title: /\b(impiegat|sachbearbeiter|kaufm[äa]nn|kauffrau|kfm-?angestellte|administrative assistant|administrative officer|amministrativ|back-?office clerk|front-?office clerk|customer service representative|sekret[äa]r|segretari)\b/i,
+    // Stem-only alternation — see operaio.
+    title: /\b(impiegat|sachbearbeiter|kaufm[äa]nn|kauffrau|kfm-?angestellte|administrative assistant|administrative officer|amministrativ|back-?office clerk|front-?office clerk|customer service representative|sekret[äa]r|segretari)/i,
   },
   ingegnere: {
-    title: /\b(ingegner|ingenieur|ingénieur|engineer|engineering specialist)\b/i,
+    // The clearest case of the two boundaries pulling opposite ways. The
+    // English `engineer` MUST keep its trailing `\b` — without it every
+    // "… Engineering Manager" (the field, not the role) lands here. The
+    // Italian/French stems must NOT have it, and did: `ingegner\b` matched
+    // no Italian title at all, so the entire IT side of this profession was
+    // riding on the English alternative. `[eia]\b` admits
+    // ingegnere/ingegneri/ingegnera while keeping out "ingegneria" (the
+    // discipline); `(?!bau)` keeps out "Ingenieurbau" draughtsman roles.
+    title: /\b(?:(ingegner[eia]\b|ing[ée]nieur(?!bau)|ingenieur(?!bau))|(engineer|engineering specialist)\b)/i,
   },
   educatore: {
     title: /\b(educator|educatore|educatrice|erzieher|éducateur|educateur|sozialp[äa]dagog|fachperson betreuung|operatore socio-?educativ|asilo nido|nido d'?infanzia)/i,
   },
   autista: {
-    title: /\b(autist|chauffeur|conducente|camionist|berufsfahrer|lkw-?fahrer|truck driver|delivery driver)\b/i,
+    // Stem-only alternation — the trailing `\b` voided `autist` against the
+    // only forms that actually occur ("Autista", "Autisti", "Chauffeure").
+    title: /\b(autist|chauffeur|conducente|camionist|berufsfahrer|lkw-?fahrer|truck driver|delivery driver)/i,
   },
   muratore: {
     title: /\b(murator|maurer|mason|maçon|macon|carpentier|carpentiere|bauarbeiter|construction worker|capomastr|casserator)/i,
   },
   cuoco: {
-    title: /\b(cuoc|cuisinier|koch|cook|chef de partie|chef de cuisine|sous chef|küchenchef|capo cuoc|pizzaiol)\b/i,
+    // Split boundary: `cook` and `koch` MUST stay whole-word — without the
+    // trailing `\b`, `cook` matches "Cookie consent manager" and `koch`
+    // matches "Kochfunktion". The Italian/French stems must NOT have it.
+    title: /\b(?:(cuoc|pizzaiol|capo cuoc|cuisinier|küchenchef)|(koch|cook|chef de partie|chef de cuisine|sous chef)\b)/i,
     // "Chef de rang" / "Chef de Réception" are hospitality service titles, not kitchen.
     exclude: /\b(chef de rang|chef de réception|chef d'équipe|chef de service|chef sommelier)\b/i,
   },
   cameriere: {
-    title: /\b(camerier|kellner|waiter|waitress|serveur|serveuse|chef de rang|commis de salle|barista|barkeeper)\b/i,
+    // Stem-only alternation — see operaio.
+    title: /\b(camerier|kellner|waiter|waitress|serveur|serveuse|chef de rang|commis de salle|barista|barkeeper)/i,
   },
   elettricista: {
     title: /\b(elettricist|elektriker|electrician|électricien|electricien|elektromonteur|elektroinstallat)/i,
@@ -182,15 +231,26 @@ const PROFESSION_MATCHERS: Record<ProfessionId, ProfessionMatcher> = {
     title: /\b(dentalassistent|dentalhygien|assistente dentale|igienista dentale|assistante dentaire|dental assistant|dental hygienist|prophylaxeassistent)/i,
   },
   'tecnico-radiologia': {
-    title: /(radiologiefach|fachperson mtr|tecnico di radiologia|technicien en radiologie|radiographer|\bmtra\b)/i,
+    // "Tecnico/a di radiologia medica" and "Tecnici / tecniche di radiologia"
+    // are how EOC actually writes it — the bare literal matched neither.
+    title: /(radiologiefach|fachperson mtr|tecnic[oi](?:\/\w+)?(?:\s*\/\s*tecnich[ei])?\s+di\s+radiologia|technicien en radiologie|radiographer|\bmtra\b)/i,
     // Reject physician titles (Radiologe / medico radiologo are MDs, not TRM).
     exclude: /\b(arzt|ärztin|medico|facharzt|oberarzt)\b/i,
   },
   oss: {
-    title: /(\boss\b|operat(ore|rice) socio|fachfrau gesundheit|fachmann gesundheit|\bfage\b|assistant en soins|aide-?soignant)/i,
+    // `operat(ore|rice) socio` required a literal single space, so the two
+    // forms EOC/LIS actually publish were both invisible: the gender-inclusive
+    // slash ("Operatore/trice socio sanitario/a") and the closed compound
+    // ("Operatori Sociosanitari"). Note `socio` stays open-ended, as before,
+    // so socio-assistenziale keeps resolving here — consistent with
+    // SECTOR_MATCHERS.oss, which already lists `operatore socio assistenz`.
+    title: /(\boss\b|operat(?:ore|rice|ori|rici)(?:\/\w+)?\s+socio|socio-?sanitari|sociosanitari|fachfrau gesundheit|fachmann gesundheit|\bfage\b|assistant en soins|aide-?soignant)/i,
   },
   'ottico-optometrista': {
-    title: /\b(ottic[oa]\b|optometrist|optiker|opticien)/i,
+    // No leading `\b` on the DE/FR stems: the role noun is the tail of a
+    // compound ("Augenoptiker", "Augenoptikerin"). `ottic[oa]` keeps both
+    // boundaries — it is a bare adjective in Italian and needs them.
+    title: /(\bottic[oa]\b|optometrist|optiker|opticien)/i,
     // "ottico/ottica" is a common bare adjective in physics/tech titles
     // (fibra ottica, sensore ottico, ottica adattiva) — reject those so the
     // landing only features eyewear-profession ads.
@@ -206,10 +266,16 @@ const PROFESSION_MATCHERS: Record<ProfessionId, ProfessionMatcher> = {
     title: /\b(macella|metzger|fleischfach|boucher\b|butcher)/i,
   },
   saldatore: {
-    title: /\b(saldator|schweisser|schweißer|soudeur|welder)/i,
+    // No leading `\b`: DE compounds the role noun ("Aluminiumschweisser").
+    title: /(saldator|schweisser|schweißer|soudeur|welder)/i,
   },
   architetto: {
-    title: /\b(architetto|architekt(:in|\/-?in)?|architecte)\b/i,
+    // `architetto\b` missed the plural/feminine ("architetti", "architetta");
+    // `architett[oaie]\b` catches them without letting in "Architettura", the
+    // discipline. `architekt(?!ur)` does the same job for DE and additionally
+    // covers the inclusive suffixes (ArchitektIn, Architekt:in, Architekt/-in)
+    // the old hand-listed group only half-covered.
+    title: /\b(architett[oaie]\b|architekt(?!ur)|architecte)/i,
     // The crawler dataset is dominated by IT/solution architects — reject any
     // title with a tech qualifier so featured cards only show building architects.
     exclude: /(software|solution|cloud|system|enterprise|data|\bit\b|\bict\b|security|\bai\b|infrastructure|network|platform|application|technical|test|\bsap\b|\biam\b|\berp\b|domain|business|pega|\bot\b|tagetik|informatique|logiciel)/i,

@@ -219,6 +219,47 @@ function logBuildMem(label: string, collector?: unknown): void {
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
+/**
+ * Role x Ticino combo pages — driven by internal search demand
+ * (Medico, Infermiere, Autista, Cuoco, Piastrellista, …).
+ *
+ * Hoisted to module scope and exported so the boundary invariants can be
+ * pinned by `tests/profession-matcher-boundaries.test.ts`; the table is
+ * static, so nothing is lost by lifting it out of the plugin closure.
+ *
+ * ## Boundary defect, same class as PROFESSION_MATCHERS / SECTOR_MATCHERS
+ *
+ * Every entry sits inside `\b(…)\b`, so a role noun only ever matched the
+ * exact inflections spelled out here. The Italian plural was missing across
+ * the board — "Infermieri", "Medici assistenti", "autisti/e" and "Cuochi"
+ * matched nothing — and the German feminine/compound forms
+ * ("Krankenpflegerin", "Pflegefachfrau", "Oberarzt", "Elektroinstallateur")
+ * never matched either. See #5204/#5205 for the same defect in the two
+ * sibling taxonomies.
+ *
+ * The inflections are enumerated rather than left open-ended on purpose: a
+ * bare `infermier` stem also swallows "servizio infermieristico" (the
+ * adjective — an admin post, not a nurse), and a bare `contabil` stem
+ * swallows "Servizio Centrale di Contabilità". Both were measured as real
+ * false positives against the corpus before being tightened back out.
+ */
+export const ROLE_COMBO_MATCHERS: ReadonlyArray<{
+  key: string;
+  match: RegExp;
+  labels: Record<'it' | 'en' | 'de' | 'fr', string>;
+}> = [
+  { key: 'medico', match: /\b(medic[oai]|\w*[aä]rzt(?:in|e)?|doctor|médecin|assistente di studio medico|medical)\b/i, labels: { it: 'Medico', en: 'Doctor', de: 'Arzt', fr: 'Médecin' } },
+  { key: 'infermiere', match: /\b(infermier[eia]|nurse|krankenpfleger(?:in)?|krankenpflege|pflegefach\w*|infirmi[eè]r\w*|pflege)\b/i, labels: { it: 'Infermiere', en: 'Nurse', de: 'Krankenpfleger', fr: 'Infirmier' } },
+  { key: 'autista', match: /\b(autist[aei]|driver|fahrer|\w*fahrer(?:in)?|chauffeur\w*|conducent[ei]|camionist[ai])\b/i, labels: { it: 'Autista', en: 'Driver', de: 'Fahrer', fr: 'Chauffeur' } },
+  { key: 'cuoco', match: /\b(cuoc(?:[oa]|h[ie])|chef|koch|köch\w*|cuisinier|aiuto cuoco|pizzaiol[oi])\b/i, labels: { it: 'Cuoco', en: 'Chef', de: 'Koch', fr: 'Cuisinier' } },
+  { key: 'piastrellista', match: /\b(piastrellist[ai]|tiler|plattenleger(?:in)?|carreleur|murator[ei]|mason)\b/i, labels: { it: 'Piastrellista', en: 'Tiler', de: 'Plattenleger', fr: 'Carreleur' } },
+  { key: 'elettricista', match: /\b(elettricist[ai]|electrician|elektriker(?:in)?|électricien|elektroinstallateur(?:in)?)\b/i, labels: { it: 'Elettricista', en: 'Electrician', de: 'Elektriker', fr: 'Électricien' } },
+  { key: 'vendita', match: /\b(vendit[oa]r[ei]|addett[oa] (alle )?vendite?|sales|verk[aä]ufer(?:in)?|vendeur|vendeuse|shop assistant|commess[oaei])\b/i, labels: { it: 'Vendita', en: 'Sales', de: 'Verkauf', fr: 'Vente' } },
+  { key: 'educatore', match: /\b(educator[ei]|educatric[ei]|educator|erzieher(?:in)?|éducateur|éducatrice)\b/i, labels: { it: 'Educatore', en: 'Educator', de: 'Erzieher', fr: 'Éducateur' } },
+  { key: 'contabile', match: /\b(contabil[ei]|accountant|buchhalter(?:in)?|comptable|ragionier[ei])\b/i, labels: { it: 'Contabile', en: 'Accountant', de: 'Buchhalter', fr: 'Comptable' } },
+  { key: 'meccanico', match: /\b(meccanic[oai]|mechanic|mechaniker(?:in)?|mécanicien)\b/i, labels: { it: 'Meccanico', en: 'Mechanic', de: 'Mechaniker', fr: 'Mécanicien' } },
+];
+
 const HUB_SEO_CONTEXT_SUMMARY: Record<'it' | 'en' | 'de' | 'fr', string> = {
  it: 'Guida frontalieri: salario, permesso G, fisco, rientro',
  en: 'Cross-border guide: salary, G permit, tax, weekly return',
@@ -8680,6 +8721,16 @@ ${staticAnalyticsHtml}
         // necessarily emit. Registering those would make the plan
         // over-inclusive and silently disarm the stale-landing repair.
         registerKeywordLandingPaths('jobs-seo-pages', [kwCanonicalPath]);
+        // #5168: this class now carries `noindexMinAgeDays`, so the decision
+        // below also reports a `noindex` band -- and this call site
+        // deliberately does NOT consume it. The band was measured on
+        // sitemap-search-clusters (292 795 URLs, 98,0 % with zero impressions
+        // in 90 days); the cluster-shaped URLs THIS plugin advertises live in
+        // sitemap-jobs instead and measure nothing like it -- 209 URLs, of
+        // which 60 (29 %) earn impressions, averaging 103 each against 17 for
+        // a cluster canonical. Applying the same band here would de-index a
+        // family where nearly a third of the pages rank. Consume the field
+        // only after measuring THIS surface on its own.
         const __kwDecision = trafficFilter.decideMulti(__kwCandidatePaths, 'gsc-keyword-landing');
  const __kwAction: 'full' | 'thin' = __kwDecision.action === 'thin' ? 'thin' : 'full';
  const __kwFullBody = `<h1>${esc(itCopy.heading)}</h1>\n <p>${esc(kwDesc)}</p>\n ${kwQueryIntro}\n ${kwIntro}\n <p>${esc(kwCta)}</p>\n <ul class="s-0WjlyL">${kwListHtml}</ul>\n <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n ${kwMarketSection}\n ${renderJobBoardListingDensityProse(locale, { subject: _kwQuery || kwQueryDisplay || itCopy.heading, location: _kwCity ? _kwCity.charAt(0).toUpperCase() + _kwCity.slice(1) : getCantonDisplayLabel(DEFAULT_CANTON, locale), resultCount: kwJobs.length, companyCount: kwUniqueCompanies.length, locationCount: kwUniqueLocations.length })}\n ${kwCommuterBlock}`;
@@ -8913,6 +8964,16 @@ ${staticAnalyticsHtml}
         // necessarily emit. Registering those would make the plan
         // over-inclusive and silently disarm the stale-landing repair.
         registerKeywordLandingPaths('jobs-seo-pages', [canonicalPath]);
+        // #5168: this class now carries `noindexMinAgeDays`, so the decision
+        // below also reports a `noindex` band -- and this call site
+        // deliberately does NOT consume it. The band was measured on
+        // sitemap-search-clusters (292 795 URLs, 98,0 % with zero impressions
+        // in 90 days); the cluster-shaped URLs THIS plugin advertises live in
+        // sitemap-jobs instead and measure nothing like it -- 209 URLs, of
+        // which 60 (29 %) earn impressions, averaging 103 each against 17 for
+        // a cluster canonical. Applying the same band here would de-index a
+        // family where nearly a third of the pages rank. Consume the field
+        // only after measuring THIS surface on its own.
         const __ssDecision = trafficFilter.decideMulti(__ssCandidatePaths, 'gsc-keyword-landing');
  const __ssAction: 'full' | 'thin' = __ssDecision.action === 'thin' ? 'thin' : 'full';
  const __ssBody = __ssAction === 'thin'
@@ -9119,6 +9180,16 @@ ${staticAnalyticsHtml}
         // necessarily emit. Registering those would make the plan
         // over-inclusive and silently disarm the stale-landing repair.
         registerKeywordLandingPaths('jobs-seo-pages', [canonicalPath]);
+        // #5168: this class now carries `noindexMinAgeDays`, so the decision
+        // below also reports a `noindex` band -- and this call site
+        // deliberately does NOT consume it. The band was measured on
+        // sitemap-search-clusters (292 795 URLs, 98,0 % with zero impressions
+        // in 90 days); the cluster-shaped URLs THIS plugin advertises live in
+        // sitemap-jobs instead and measure nothing like it -- 209 URLs, of
+        // which 60 (29 %) earn impressions, averaging 103 each against 17 for
+        // a cluster canonical. Applying the same band here would de-index a
+        // family where nearly a third of the pages rank. Consume the field
+        // only after measuring THIS surface on its own.
         const __cmDecision = trafficFilter.decideMulti(__cmCandidatePaths, 'gsc-keyword-landing');
  const __cmAction: 'full' | 'thin' = __cmDecision.action === 'thin' ? 'thin' : 'full';
  const __cmBody = __cmAction === 'thin'
@@ -9351,18 +9422,7 @@ ${staticAnalyticsHtml}
 
  // 4) ruolo + Ticino combinations — from internal search demand
  // Users search for specific roles: Medico, Infermiere, Autista, Cuoco, Piastrellista, etc.
- const roleTypes: { key: string; match: RegExp; labels: Record<'it' | 'en' | 'de' | 'fr', string> }[] = [
- { key: 'medico', match: /\b(medic[oa]|arzt|doctor|médecin|assistente di studio medico|medical)\b/i, labels: { it: 'Medico', en: 'Doctor', de: 'Arzt', fr: 'Médecin' } },
- { key: 'infermiere', match: /\b(infermier[ea]|nurse|krankenpfleger|infirmier|pflege)\b/i, labels: { it: 'Infermiere', en: 'Nurse', de: 'Krankenpfleger', fr: 'Infirmier' } },
- { key: 'autista', match: /\b(autista|driver|fahrer|chauffeur|conducente)\b/i, labels: { it: 'Autista', en: 'Driver', de: 'Fahrer', fr: 'Chauffeur' } },
- { key: 'cuoco', match: /\b(cuoc[oa]|chef|koch|cuisinier|aiuto cuoco)\b/i, labels: { it: 'Cuoco', en: 'Chef', de: 'Koch', fr: 'Cuisinier' } },
- { key: 'piastrellista', match: /\b(piastrellista|tiler|plattenleger|carreleur|muratore|mason)\b/i, labels: { it: 'Piastrellista', en: 'Tiler', de: 'Plattenleger', fr: 'Carreleur' } },
- { key: 'elettricista', match: /\b(elettricista|electrician|elektriker|électricien)\b/i, labels: { it: 'Elettricista', en: 'Electrician', de: 'Elektriker', fr: 'Électricien' } },
- { key: 'vendita', match: /\b(vendit[oa]r[ei]|addett[oa] (alle )?vendite?|sales|verkäufer|vendeur|shop assistant|commess[oa])\b/i, labels: { it: 'Vendita', en: 'Sales', de: 'Verkauf', fr: 'Vente' } },
- { key: 'educatore', match: /\b(educator[ei]|educatric[ei]|educator|erzieher|éducateur)\b/i, labels: { it: 'Educatore', en: 'Educator', de: 'Erzieher', fr: 'Éducateur' } },
- { key: 'contabile', match: /\b(contabil[ei]|accountant|buchhalter|comptable|ragionier)\b/i, labels: { it: 'Contabile', en: 'Accountant', de: 'Buchhalter', fr: 'Comptable' } },
- { key: 'meccanico', match: /\b(meccanic[oa]|mechanic|mechaniker|mécanicien)\b/i, labels: { it: 'Meccanico', en: 'Mechanic', de: 'Mechaniker', fr: 'Mécanicien' } },
- ];
+ const roleTypes = ROLE_COMBO_MATCHERS;
  for (const role of roleTypes) {
  const comboKey = `${role.key}-ticino`;
  if (searchLeaderMap.has(comboKey)) { comboCount++; continue; }
@@ -12677,6 +12737,24 @@ ${staticAnalyticsHtml}
  const jsonLdScripts = breadcrumbLd + (jobPostingLd ? '\n ' + jobPostingLd : '');
  recordPhase('ejp:jsonld', __tEjpJsonld);
 
+ // Tier decision FIRST. It reads only `__slCandidatePaths` (hoisted above the
+ // body) and the traffic set — never the HTML — so hoisting it above the build
+ // is behaviour-neutral: same inputs, same counters, same result, and no other
+ // decideMulti call happens in between. Two reasons to do it here (#5130
+ // follow-up):
+ //   1. it makes the decision's own cost attributable instead of hiding inside
+ //      ph:ejp:shell;
+ //   2. 149,099 of 178,828 soft-landings (83%, run 31036546298) are THIN — the
+ //      full article body is built, minified and then thrown away for five
+ //      pages out of six. Having the decision before the build is the
+ //      precondition for skipping that work, which is the next step once these
+ //      timers say what it is worth.
+ const __tEjpDecide = phaseTimer();
+ const __slDecision = trafficFilter.decideMulti(__slCandidatePaths, 'soft-landing-expired');
+ const __slAction: 'full' | 'thin' =
+ __slDecision.action === 'thin' ? 'thin' : 'full';
+ recordPhase('ejp:decide', __tEjpDecide);
+
  const __tEjpShell = phaseTimer();
  // Bot-gated Auto Ads loader (meta + adsense-loader) ONLY on real-traffic
  // expired pages (__slKeepProse): immediate Auto Ads (anchor/vignette/in-page)
@@ -12691,6 +12769,8 @@ ${staticAnalyticsHtml}
  selfUrl, hreflangLinks, jsonLdScripts, expiredWindowData,
  staticBody, __slAdSnippet
  );
+ recordPhase('ejp:shell', __tEjpShell);
+
  // Tiered emission for soft-landings. Same filter + evidence flow as
  // previousSlug bridges: URL with traffic stays full; URL without and
  // matching an approved pattern becomes a thin shell (HEAD verbatim,
@@ -12701,20 +12781,23 @@ ${staticAnalyticsHtml}
  // prose gate and the thin-shell gate can never diverge. (Reviewer HIGH #1
  // cross-locale safety net + PR #743 legacy-locale bridge probe are baked
  // into that builder.)
- const __slDecision = trafficFilter.decideMulti(__slCandidatePaths, 'soft-landing-expired');
- const __slAction: 'full' | 'thin' =
- __slDecision.action === 'thin' ? 'thin' : 'full';
+ //
+ // Timed separately (ph:ejp:thin): it re-scans the whole freshly-built
+ // document — stripScriptsAndStyles + an <h1> match + a canonical match + a
+ // JSON-LD parse + a lazy `[\s\S]*?` article replace — on 149k pages, and
+ // none of that was attributable before.
+ const __tEjpThin = phaseTimer();
  const softLandingHtml =
  __slAction === 'thin'
  ? buildSoftLandingThinHtml(__slFullHtml, locale)
  : __slFullHtml;
+ recordPhase('ejp:thin', __tEjpThin);
  if (__slAction === 'thin') {
  softLandingThinCount++;
  softLandingBytesSaved += __slFullHtml.length - softLandingHtml.length;
  } else {
  softLandingFullCount++;
  }
- recordPhase('ejp:shell', __tEjpShell);
 
  // Dedup membership: __slPathKey is computed and checked at the top of
  // this locale iteration (hoisted to avoid running the full ph:ejp:*

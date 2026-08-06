@@ -159,6 +159,53 @@ describe('employerProfilePagesPlugin', () => {
     expect(positions).toEqual(Array.from({ length: positions.length }, (_, i) => i + 1));
   });
 
+  // CompanyAlert (#5012 phase 2). The issue names this surface FIRST — "ogni
+  // pagina azienda deve avere un pulsante/CTA: Segui questa azienda" — and it is
+  // the top of the funnel: /aziende/<slug>/ is indexed and takes organic
+  // "lavorare in X" traffic from visitors who are NOT looking at one specific
+  // ad. These pages are staticOverlay, so the CTA is a hydration island; these
+  // tests pin the emitted contract the island reads.
+  it('emits the "Segui questa azienda" hydration placeholder on the profile page', () => {
+    const html = read('aziende/acme-corp/index.html');
+    expect(html).toContain('data-company-follow-mount');
+    expect(html).toMatch(/data-surface=["']?employer_profile["']?/);
+  });
+
+  it('passes name + companyKey, NOT the pre-computed slug', () => {
+    // companyAlertKey(company, companyKey) IS canonicalCompanyProfileSlug — the
+    // same function that builds this page's URL. Handing the button the two raw
+    // inputs makes it re-derive the token through the ONE shared normalisation,
+    // so the URL and the persisted alert key cannot disagree. Emitting the slug
+    // would be a second way to produce that token (#5151's whole review).
+    const html = read('aziende/acme-corp/index.html');
+    expect(html).toMatch(/data-company=["']?Acme Corp["']?/);
+    expect(html).toMatch(/data-company-key=["']?acme["']?/);
+  });
+
+  it('emits the placeholder on the below-floor bridge too', () => {
+    // The bridge is noindex but reachable, and a company just under the floor is
+    // exactly one worth following: the next ad it posts is the reason to return.
+    const html = read('aziende/small-co/index.html');
+    expect(html).toContain('data-company-follow-mount');
+    expect(html).toMatch(/data-surface=["']?employer_below_floor["']?/);
+  });
+
+  it('localises the placeholder skeleton label and carries the page locale', () => {
+    // data-locale is what the mounted alert is created in — a German reader must
+    // not end up with an Italian-locale alert. The skeleton label mirrors the
+    // hydrated button so hydration swaps no visible text.
+    for (const [rel, label] of [
+      ['aziende/acme-corp/index.html', 'Segui questa azienda'],
+      ['en/aziende/acme-corp/index.html', 'Follow this company'],
+      ['de/aziende/acme-corp/index.html', 'Diesem Unternehmen folgen'],
+      ['fr/aziende/acme-corp/index.html', 'Suivre cette entreprise'],
+    ] as const) {
+      const html = read(rel);
+      expect(html, rel).toContain(label);
+      expect(html, rel).toMatch(/data-locale=["']?(it|en|de|fr)["']?/);
+    }
+  });
+
   it('renders the benefit-first publisher CTA (reused shared block)', () => {
     const html = read('aziende/acme-corp/index.html');
     expect(html).toMatch(/data-employer-cta=["']?employer_profile["']?/);

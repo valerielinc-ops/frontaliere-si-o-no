@@ -13,6 +13,7 @@
  */
 
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import AvgRentValue from '@/components/shared/AvgRentValue';
 import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { reportCaughtError } from '@/services/errorReporter';
 import { savePartialProfile } from '@/services/profileFirestore';
@@ -1496,7 +1497,7 @@ const UserProfile: React.FC = () => {
  {t('profile.muniFascia')}: {selectedMuni.fascia}
  </span>
  <span className="px-2 py-0.5 bg-accent-subtle text-accent text-xs font-bold rounded-md">
- {t('profile.muniRent')}: €{selectedMuni.avgRentMonthly}/m
+ {t('profile.muniRent')}: <AvgRentValue municipality={selectedMuni} suffix="/m" />
  </span>
  </div>
  )}
