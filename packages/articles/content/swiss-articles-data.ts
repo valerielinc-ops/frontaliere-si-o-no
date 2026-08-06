@@ -5680,6 +5680,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'rischio-bolla-svizzera-2026',
+    category: 'fiscale',
+    date: '2026-08-06T11:33:37.697Z',
+    image: '/images/blog/rischio-bolla-svizzera-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'easyjet-apollon-acquisizione',
+    category: 'fiscale',
+    date: '2026-08-06T23:19:27.868Z',
+    image: '/images/blog/easyjet-apollon-acquisizione.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
