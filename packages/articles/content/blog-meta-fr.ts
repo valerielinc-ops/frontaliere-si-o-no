@@ -9324,6 +9324,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.compatta-usata-frontalieri-varese-milano.title': 'SUV ou compact d\'occasion : le choix le plus intelligent',
     'blog.article.compatta-usata-frontalieri-varese-milano.excerpt': 'Pour les frontaliers Varese-Milan-Tessin, un compact d\'occasion réduit les coûts d\'exploitation et facilite les déplacements quotidiens par rapport à un SUV, selon VareseNoi.it',
     'blog.article.compatta-usata-frontalieri-varese-milano.imageAlt': 'Voiture compacte d\'occasion au poste frontalier de Brogeda',
+    'blog.article.caldo-lavoro-frontalieri-ticino.title': 'Caldo torride et travail : nouveaux mesures',
+    'blog.article.caldo-lavoro-frontalieri-ticino.excerpt': 'Les syndicats UNIA, OCST, USS et VPOD demandent des seuils d\'intervention basés sur des indices scientifiques pour protéger les travailleurs pendant les vagues de chaleur au Tessin',
+    'blog.article.caldo-lavoro-frontalieri-ticino.imageAlt': 'Ouvriers du bâtiment en pause à l\'ombre lors d\'une vague de chaleur à Lugano, Tessin',
 };
 
 export default blogMetaFr;

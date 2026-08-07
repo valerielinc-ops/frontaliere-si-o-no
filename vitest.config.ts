@@ -226,6 +226,12 @@ export default defineConfig({
  // but Vite import-analysis runs before mocks → alias to a stub so
  // resolution succeeds and the mock can take over at module-load time.
  '@google-cloud/recaptcha-enterprise': path.resolve(__dirname, 'tests/stubs/recaptcha-enterprise.ts'),
+ // `virtual:seo-blog-shard-index` is emitted by seoBlogShardIndexPlugin, which
+ // lives in vite.config.ts — this config only runs `[react()]`, so the
+ // specifier would fail import analysis in every test that pulls in
+ // services/seoService.ts. The stub is an empty map, which routes lookups down
+ // seoService's load-all fallback (pre-sharding behaviour).
+ 'virtual:seo-blog-shard-index': path.resolve(__dirname, 'tests/stubs/seo-blog-shard-index.ts'),
  },
  // `functions/src/*.js` has its own nested node_modules (separate deploy
  // bundle, same pinned firebase-admin version — see package.json /

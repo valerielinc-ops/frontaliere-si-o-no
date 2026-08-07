@@ -1912,6 +1912,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.casse-di-disoccupazione-superati-i-problemi-tecnici.title': 'Casse di disoccupazione, superati in gran parte i problemi tecnici',
     'blog.article.casse-di-disoccupazione-superati-i-problemi-tecnici.excerpt': 'Dopo mesi di ritardi nei pagamenti, la SECO annuncia che i disservizi del nuovo sistema informatico sono stati risolti. Restano però alcune criticità.',
     'blog.article.casse-di-disoccupazione-superati-i-problemi-tecnici.imageAlt': 'una scena di lavoro nella sede della SECO a Berna, con impiegati che risolvono problemi tecnici al computer',
+    'blog.article.rimborsi-730-sostituti-imposta.title': 'Rimborsi 730: ora compensabili anche con imposte sostitutive in F24',
+    'blog.article.rimborsi-730-sostituti-imposta.excerpt': 'Secondo quanto comunicato nel maggio 2026, i sostituti d’imposta possono recuperare i rimborsi dal modello 730 compensandoli in F24 anche con alcune imposte sostitutive sulle retribuzioni',
+    'blog.article.rimborsi-730-sostituti-imposta.imageAlt': 'Lavoratore frontaliero italiano che controlla documenti fiscali in ufficio a Lugano',
 };
 
 export default blogMetaChIt;

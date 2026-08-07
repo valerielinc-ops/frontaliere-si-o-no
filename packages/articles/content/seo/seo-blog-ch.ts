@@ -24743,6 +24743,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rimborsi-730-sostituti-imposta': {
+    title: 'Rimborsi 730: ora compensabili anche con imposte sostitutive in F24',
+    description: 'Secondo quanto comunicato nel maggio 2026, i sostituti d’imposta possono recuperare i rimborsi dal modello 730 tramite F24 anche con imposte sostitutive sulle',
+    keywords: 'frontalieri, ticino, svizzera, italia, rimborsi, compensabili, anche, imposte',
+    ogTitle: 'Rimborsi 730 ora compensabili con imposte sostitutive in F24',
+    ogDescription: 'Chiarimento delle Entrate del luglio 2026 sull’ampliamento del monte ritenute per il recupero dei rimborsi 730 tramite F24',
+    canonicalPath: '/articoli-svizzera/rimborsi-730-sostituti-imposta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rimborsi 730: ora compensabili anche con imposte sostitutive in F24",
+      "description": "Secondo quanto comunicato nel maggio 2026, i sostituti d’imposta possono recuperare i rimborsi dal modello 730 tramite F24 anche con imposte sostitutive sulle",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rimborsi-730-sostituti-imposta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore frontaliero italiano che controlla documenti fiscali in ufficio a Lugano"
+      },
+      "datePublished": "2026-08-07T04:42:27+00:00",
+      "dateModified": "2026-08-07T04:42:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rimborsi-730-sostituti-imposta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
