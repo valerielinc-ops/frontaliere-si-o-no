@@ -36,7 +36,8 @@ name: Article Hub Landing Watchdog
 on:
   schedule:
     # Twice a day, offset from the corpus's publish windows so a run lands
-    # after them rather than during. Cheap: 9 HTTP GETs.
+    # after them rather than during. Cheap: 19 HTTP GETs — 3 API documents
+    # plus the 8 landings and their 8 /tutti/ archives.
     - cron: '40 6,18 * * *'
   workflow_dispatch: {}
 
@@ -62,7 +63,7 @@ jobs:
         with:
           node-version: '22'
 
-      # No `npm ci`: the probe imports two first-party ESM modules and uses
+      # No `npm ci`: the probe imports three first-party ESM modules and uses
       # global fetch, nothing else. Installing 1.4 GB of node_modules to make
       # nine HTTP requests would be the slowest part of the run by an order of
       # magnitude.
