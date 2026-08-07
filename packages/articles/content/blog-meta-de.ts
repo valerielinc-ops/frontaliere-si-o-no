@@ -9336,6 +9336,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.los-vencedores-falkland-pablo-aparo.title': 'Los Vencedores: Der Falkland-Film aus der Sicht der Einwohner',
     'blog.article.los-vencedores-falkland-pablo-aparo.excerpt': 'Der Regisseur Pablo Aparo präsentiert in Locarno seinen Dokumentarfilm, der den Falklandkonflikt aus der Sicht der Bewohner der Inseln erzählt.',
     'blog.article.los-vencedores-falkland-pablo-aparo.imageAlt': 'Piazza Grande in Locarno während des Filmfestivals mit Leinwand und Publikum',
+    'blog.article.caldo-ticino-direttiva-consiglio-stato.title': 'Hitzewellen: Vpod schreibt an den Staatsrat',
+    'blog.article.caldo-ticino-direttiva-consiglio-stato.excerpt': 'Die Gewerkschaft fordert eine Ad-hoc-Richtlinie und Infrastrukturinvestitionen gegen die Hitze im Tessin.',
+    'blog.article.caldo-ticino-direttiva-consiglio-stato.imageAlt': 'Sonnige Straße in Bellinzona mit Menschen im Schatten während einer Hitzewelle',
 };
 
 export default blogMetaDe;
