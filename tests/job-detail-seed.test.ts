@@ -315,9 +315,20 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
   describe('JobBoard consumption', () => {
     const src = fs.readFileSync(path.resolve(root, 'components/community/JobBoard.tsx'), 'utf-8');
 
-    it('reads window.__JOB_SEED__ via readSeededJob (memoised once per mount)', () => {
+    it('reads window.__JOB_SEED__ via readSeededJob (memoised, keyed on the route)', () => {
       expect(src).toMatch(/window as unknown as Record<string, unknown>\)\.__JOB_SEED__/);
-      expect(src).toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[\]\)/);
+      // Memoised — the global must NOT be re-read on every render. That was and
+      // remains the point of this assertion.
+      expect(src).toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[[^\]]*\]\)/);
+      // ...but NOT with an empty dep list (PR #5328). __JOB_SEED__ is an inline
+      // script belonging to ONE job-detail document and is never cleared by SPA
+      // navigation, so a `[]` memo pinned the seed for the whole session: the
+      // previous job got prepended to a later listing via `finalize`, and the
+      // load effect took the requestIdleCallback branch on pages where the index
+      // is the above-the-fold content. Keyed on the route, the pathname guard in
+      // readSeededJob can actually fire.
+      expect(src).not.toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[\]\)/);
+      expect(src).toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[initialJobSlug\]\)/);
     });
 
     it('seeds the initial jobs state with the build-injected record', () => {
