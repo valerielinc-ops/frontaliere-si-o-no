@@ -7,6 +7,13 @@
  * Also writes sitemap-jobs.xml and patches it into the main sitemap index.
  */
 
+// Import statici, NON `await import()` dentro closeBundle (#5001): closeBundle e'
+// un hook Rollup async/parallelo, quindi quell'await sospende il plugin e un
+// altro plugin `enforce:'post'` puo' girare per intero prima che questo
+// riprenda. E' gia' costato due bug silenziosi (pdfWhitepapersPlugin,
+// staticPagesPlugin): le hero card venivano drenate prima di essere registrate.
+import fs from 'node:fs';
+import np from 'node:path';
 import path from 'path';
 import os from 'node:os';
 import { Worker } from 'node:worker_threads';
@@ -693,8 +700,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // emitting a literal "undefined" segment in a sector-hub canonical URL —
  // see assertSectorHubTablesComplete() doc comment in ./jobSectorLanding.
  assertSectorHubTablesComplete();
- const fs = await import('node:fs');
- const np = await import('node:path');
  const distDir = np.resolve(rootDir, 'dist');
  const jobsPath = np.resolve(rootDir, 'data/jobs.json');
 

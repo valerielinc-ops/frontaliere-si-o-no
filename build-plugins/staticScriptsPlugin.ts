@@ -47,6 +47,10 @@
  * same recovery instead of being permanently stranded on a stale chunk.
  */
 
+// Import statico, NON `await import()` dentro closeBundle (#5001): quell'await
+// sospende il plugin e un altro plugin `enforce:'post'` puo' girare per intero
+// prima che riprenda — gia' costato due bug silenziosi questa settimana.
+import fs from 'fs';
 import path from 'path';
 import type { Plugin } from 'vite';
 import {
@@ -68,7 +72,6 @@ export function staticScriptsPlugin(rootDir: string): Plugin {
     name: 'static-scripts',
     apply: 'build',
     async closeBundle() {
-      const fs = await import('fs');
       const outDir = path.resolve(rootDir, 'dist', 'assets');
       fs.mkdirSync(outDir, { recursive: true });
 
