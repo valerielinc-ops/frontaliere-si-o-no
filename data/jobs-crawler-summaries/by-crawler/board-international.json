@@ -1,16 +1,16 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-08-07T01:24:23.590Z",
+  "generatedAt": "2026-08-07T10:29:13.761Z",
   "total": 10,
   "newCount": 1,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 2598,
-  "avgDurationMs": 2598,
+  "durationMs": 3591,
+  "avgDurationMs": 3591,
   "durationHistory": [
-    2598
+    3591
   ],
   "newJobs": [
     {
@@ -259,7 +259,6 @@
       "streetAddress": "",
       "postalCode": "6830",
       "firstSeenAt": "2026-05-17T09:46:35.164Z",
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -337,7 +336,6 @@
       "streetAddress": "",
       "postalCode": "6830",
       "firstSeenAt": "2026-06-11T22:16:20.916Z",
-      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
