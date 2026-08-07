@@ -74,7 +74,17 @@ concurrency:
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # 45 min, measured — NOT a guess. 6 URLs x numberOfRuns:3 costs ~4-5 min per
+    # URL on a runner (mobile leg, 2026-08-07: 10:42:39 → 11:00:06 for 5 URLs),
+    # so one leg needs ~29 min including setup + the reachability probe.
+    #
+    # The previous value was 15, which this job could never finish in: a run
+    # dispatched 2026-08-07 was still on URL 5 of 6 at the 20-minute mark. So
+    # even on the days the deploy chain did fire, the audit would have been
+    # cancelled mid-collection — GitHub reports a `timeout-minutes` overrun as
+    # `cancelled`, which is indistinguishable at a glance from the concurrency
+    # cancellations upstream. Two independent faults were hiding each other.
+    timeout-minutes: 45
     # Only audit after a SUCCESSFUL deploy (prod now reflects the new build), or
     # on the daily cron / a manual dispatch. A failed/cancelled deploy left prod
     # on the old build — auditing it via workflow_run would measure something
