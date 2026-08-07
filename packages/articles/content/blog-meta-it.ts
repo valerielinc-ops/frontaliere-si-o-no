@@ -9332,6 +9332,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.title': 'La libertà del mercato vale anche per chi lavora?',
     'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.excerpt': 'Lorenzo Onderka, sostenitore di Avanti con Ticino&Lavoro, solleva una domanda interessante sulla libertà del mercato e la sua applicazione nel settore pubblico.',
     'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.imageAlt': 'Un frontaliere che cerca un lavoro in Ticino',
+    'blog.article.vpod-direttiva-canicola-scuole.title': 'VPOD chiede direttiva anti-canicola per Stato e scuole ticinesi',
+    'blog.article.vpod-direttiva-canicola-scuole.excerpt': 'Il sindacato VPOD richiede al Consiglio di Stato una direttiva strutturata per gestire le ondate di calore negli uffici pubblici e nelle scuole, ispirandosi al modello ginevrino',
+    'blog.article.vpod-direttiva-canicola-scuole.imageAlt': 'Scuola pubblica ticinese durante un\'ondata di calore con misure di protezione per studenti e personale',
 };
 
 export default blogMetaIt;

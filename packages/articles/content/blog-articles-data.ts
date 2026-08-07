@@ -28011,6 +28011,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vpod-direttiva-canicola-scuole',
+ category: 'pratico',
+ date: '2026-08-07T18:10:09.414Z',
+ image: '/images/blog/vpod-direttiva-canicola-scuole.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
