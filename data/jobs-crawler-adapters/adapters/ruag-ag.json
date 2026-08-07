@@ -31,7 +31,6 @@
     "https://jobs.ruag.ch/offene-stellen/technische-r-redaktorin/517c6a48-e036-4916-a626-9f636afdb19c",
     "https://jobs.ruag.ch/offene-stellen/communication-systems-engineer/a2517b91-9812-4de0-86fb-e99437441d62",
     "https://jobs.ruag.ch/offene-stellen/ict-system-administrator-c5i/eb0c421b-aeb4-4b83-80a3-20586766217c",
-    "https://jobs.ruag.ch/offene-stellen/cyber-security-specialist-c5i/416172ed-e99c-4dc1-a7c8-b94dfed2ae1a",
     "https://jobs.ruag.ch/offene-stellen/principal-system-engineering-c5i/b7442824-223a-425e-95e2-b238924212da",
     "https://jobs.ruag.ch/offene-stellen/software-engineer-tactical-communications/921b2141-f6eb-4424-81e4-1391a7fa1856",
     "https://jobs.ruag.ch/offene-stellen/bauleiterin-hochbau/b71a07a8-5b0d-4aa6-8152-7ef481f5cedb",
@@ -65,12 +64,12 @@
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-mediamatiker-in-efz-2027/5457a25f-95ff-4eef-b31e-95f8be924a6d",
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027/41aac842-03c6-4077-b4ff-30c372f6a069",
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027/6d6f25f0-2262-4a3d-a7fe-5c7f598981a2",
-    "https://jobs.ruag.ch/open-vacancies/senior-software-engineer-c5i/6d33c977-7809-4202-9a86-3f80e474104c",
     "https://jobs.ruag.ch/offene-stellen/legal-counsel/9e7711a0-4521-4fdf-a1e4-99dcd29eb969",
-    "https://jobs.ruag.ch/offene-stellen/compliance-investigation-officer/f1721f91-de32-4fdb-8e82-992eff94a200"
+    "https://jobs.ruag.ch/offene-stellen/compliance-investigation-officer/f1721f91-de32-4fdb-8e82-992eff94a200",
+    "https://jobs.ruag.ch/offene-stellen/teamleader-project-management/cd3f740e-3ee3-4796-8833-e7dac463e74a"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-08-07T10:24:52.885Z",
+  "updatedAt": "2026-08-07T22:05:44.306Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
@@ -197,12 +196,6 @@
       "canton": "ZH",
       "company": "RUAG AG",
       "postedDate": "2026-07-13"
-    },
-    "https://jobs.ruag.ch/offene-stellen/cyber-security-specialist-c5i/416172ed-e99c-4dc1-a7c8-b94dfed2ae1a": {
-      "location": "Thun",
-      "canton": "BE",
-      "company": "RUAG AG",
-      "postedDate": "2026-07-14"
     },
     "https://jobs.ruag.ch/offene-stellen/principal-system-engineering-c5i/b7442824-223a-425e-95e2-b238924212da": {
       "location": "Thun",
@@ -402,12 +395,6 @@
       "company": "RUAG AG",
       "postedDate": "2026-08-01"
     },
-    "https://jobs.ruag.ch/open-vacancies/senior-software-engineer-c5i/6d33c977-7809-4202-9a86-3f80e474104c": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "RUAG AG",
-      "postedDate": "2026-08-03"
-    },
     "https://jobs.ruag.ch/offene-stellen/legal-counsel/9e7711a0-4521-4fdf-a1e4-99dcd29eb969": {
       "location": "Bern",
       "canton": "BE",
@@ -419,6 +406,12 @@
       "canton": "BE",
       "company": "RUAG AG",
       "postedDate": "2026-08-06"
+    },
+    "https://jobs.ruag.ch/offene-stellen/teamleader-project-management/cd3f740e-3ee3-4796-8833-e7dac463e74a": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "RUAG AG",
+      "postedDate": "2026-08-07"
     }
   }
 }
