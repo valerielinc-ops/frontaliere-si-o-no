@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ubp",
-  "assembledAt": "2026-08-06T12:00:20.495Z",
+  "assembledAt": "2026-08-07T01:10:10.969Z",
   "jobs": [
     {
       "id": "ubp-66596982e1f3",
@@ -33,7 +33,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/383",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:16.122Z",
+      "crawledAt": "2026-08-07T01:10:06.688Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -57,8 +57,8 @@
         ],
         "it": [
           "it-business-analyst-credit-it-ubp-ch",
-          "it-business-analista-credit-it-union-bancaire-privee-geneva-switzerland",
-          "it-business-analyst-risikomanagement-union-bancaire-privee-geneva-switzerland"
+          "it-business-analyst-risikomanagement-union-bancaire-privee-geneva-switzerland",
+          "it-business-analista-credit-it-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "it-business-analyst-credit-it-ubp-ch"
@@ -69,10 +69,11 @@
       },
       "previousSlugs": [
         "it-business-analyst-credit-it-ubp-ch",
+        "it-business-analyst-risikomanagement-union-bancaire-privee-geneva-switzerland",
         "it-business-analyst-credit-it-union-bancaire-privee-geneva-switzerland",
-        "it-business-analista-credit-it-union-bancaire-privee-geneva-switzerland",
-        "it-business-analyst-risikomanagement-union-bancaire-privee-geneva-switzerland"
+        "it-business-analista-credit-it-union-bancaire-privee-geneva-switzerland"
       ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:35.564Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
@@ -85,8 +86,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ubp-e60991c9c92c",
@@ -119,7 +119,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/627",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:15.562Z",
+      "crawledAt": "2026-08-07T01:10:06.057Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -202,7 +202,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1027",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:15.009Z",
+      "crawledAt": "2026-08-07T01:10:05.514Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -233,8 +233,8 @@
           "assistant-relationship-manager-latam-union-bancaire-privee-geneva-switzerland"
         ]
       },
-      "firstSeenAt": "2026-05-17T11:17:16.114Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T11:17:16.114Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -279,7 +279,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1011",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:14.462Z",
+      "crawledAt": "2026-08-07T01:10:04.860Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -373,7 +373,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1072",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:13.887Z",
+      "crawledAt": "2026-08-07T01:10:04.325Z",
       "addressLocality": "Hong Kong, Hong Kong",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -449,7 +449,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/47",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:13.226Z",
+      "crawledAt": "2026-08-07T01:10:03.764Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -531,7 +531,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1112",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:12.669Z",
+      "crawledAt": "2026-08-07T01:10:03.230Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -613,7 +613,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1108",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:12.102Z",
+      "crawledAt": "2026-08-07T01:10:02.688Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -695,7 +695,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1193",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:11.550Z",
+      "crawledAt": "2026-08-07T01:10:02.148Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -730,8 +730,8 @@
           "it-service-delivery-ubp-ch"
         ]
       },
-      "firstSeenAt": "2026-06-16T23:58:59.872Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-16T23:58:59.872Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -776,7 +776,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1010",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:10.997Z",
+      "crawledAt": "2026-08-07T01:10:01.582Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -862,7 +862,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1186",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:10.404Z",
+      "crawledAt": "2026-08-07T01:10:00.994Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -889,8 +889,8 @@
           "senior-wealth-planner-zurigo-union-bancaire-privee-zurich-switzerland"
         ]
       },
-      "firstSeenAt": "2026-06-18T23:49:58.466Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-18T23:49:58.466Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -935,7 +935,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1198",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:09.785Z",
+      "crawledAt": "2026-08-07T01:10:00.457Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -972,8 +972,8 @@
           "intern-investment-operations-controls-temporary-6-months-ubp-ch"
         ]
       },
-      "firstSeenAt": "2026-06-19T22:51:14.302Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-19T22:51:14.302Z",
       "salaryMin": 51100,
       "salaryMax": 77500,
       "baseSalary": {
@@ -1018,7 +1018,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1201",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:09.231Z",
+      "crawledAt": "2026-08-07T01:09:59.908Z",
       "addressLocality": "Hong Kong, Hong Kong",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1104,7 +1104,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1237",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:08.672Z",
+      "crawledAt": "2026-08-07T01:09:59.361Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1186,7 +1186,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1271",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:08.128Z",
+      "crawledAt": "2026-08-07T01:09:58.823Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1268,7 +1268,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1245",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:07.479Z",
+      "crawledAt": "2026-08-07T01:09:58.183Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1346,7 +1346,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/946",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:06.892Z",
+      "crawledAt": "2026-08-07T01:09:57.630Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1431,7 +1431,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1292",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:06.348Z",
+      "crawledAt": "2026-08-07T01:09:57.088Z",
       "addressLocality": "Madrid, Spain",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1458,8 +1458,8 @@
           "junior-iberia-latam-m-f-x-union-bancaire-privee-madrid-spain"
         ]
       },
-      "firstSeenAt": "2026-07-01T12:48:41.231Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-01T12:48:41.231Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1504,7 +1504,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/254",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:05.694Z",
+      "crawledAt": "2026-08-07T01:09:56.459Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1541,8 +1541,8 @@
           "technical-analyst-ubp-ch"
         ]
       },
-      "firstSeenAt": "2026-07-01T12:48:39.693Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-01T12:48:39.693Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1587,7 +1587,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1217",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:05.092Z",
+      "crawledAt": "2026-08-07T01:09:55.920Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1672,7 +1672,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1310",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:04.553Z",
+      "crawledAt": "2026-08-07T01:09:55.387Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1706,8 +1706,8 @@
           "operations-transformation-manager-ubp-ch"
         ]
       },
-      "firstSeenAt": "2026-07-08T11:36:00.305Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T11:36:00.305Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1752,7 +1752,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1311",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:03.974Z",
+      "crawledAt": "2026-08-07T01:09:54.832Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1789,6 +1789,7 @@
           "microsoft-cloud-digital-workplace-architect-ubp-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T11:35:59.544Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1801,8 +1802,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ubp-035f7aff21c2",
@@ -1835,7 +1835,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1308",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:03.365Z",
+      "crawledAt": "2026-08-07T01:09:54.237Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1932,7 +1932,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1216",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:02.823Z",
+      "crawledAt": "2026-08-07T01:09:53.696Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2014,7 +2014,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/290",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:02.050Z",
+      "crawledAt": "2026-08-07T01:09:53.149Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2051,6 +2051,7 @@
           "investment-specialist-equities-aerospace-defence-ubp-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-09T22:39:10.978Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2063,8 +2064,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ubp-e9ba804bbd4b",
@@ -2097,7 +2097,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1331",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:01.468Z",
+      "crawledAt": "2026-08-07T01:09:52.606Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2131,8 +2131,8 @@
           "ebanking-it-l3-support-consultant-ubp-ch"
         ]
       },
-      "firstSeenAt": "2026-07-13T12:20:16.612Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T12:20:16.612Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -2177,7 +2177,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/504",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:00.839Z",
+      "crawledAt": "2026-08-07T01:09:52.066Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2259,7 +2259,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/587",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:00:00.292Z",
+      "crawledAt": "2026-08-07T01:09:51.491Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2298,6 +2298,7 @@
           "qa-engineer-ebanking-private-banking-wealth-management-ubp-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-09T22:39:11.548Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2310,8 +2311,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ubp-b9b77cd4ef7e",
@@ -2344,7 +2344,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1393",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:59:59.748Z",
+      "crawledAt": "2026-08-07T01:09:50.930Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2361,8 +2361,8 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1393",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-21T11:48:06.870Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-21T11:48:06.870Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
       "baseSalary": {
@@ -2407,7 +2407,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1391",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:59:58.818Z",
+      "crawledAt": "2026-08-07T01:09:50.393Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2440,8 +2440,8 @@
           "programme-pmo-and-delivery-lead-ubp-ch"
         ]
       },
-      "firstSeenAt": "2026-07-23T22:10:38.347Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-23T22:10:38.347Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
       "baseSalary": {
@@ -2486,7 +2486,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1389",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:59:58.077Z",
+      "crawledAt": "2026-08-07T01:09:49.859Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2527,8 +2527,8 @@
         "entreprise-functional-architect-consultant-ubp-ch",
         "enterprise-functional-architetto-union-bancaire-privee-geneva-switzerland"
       ],
-      "firstSeenAt": "2026-07-27T12:46:58.571Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-27T12:46:58.571Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2573,7 +2573,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1307",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:59:57.512Z",
+      "crawledAt": "2026-08-07T01:09:49.321Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2651,7 +2651,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/986",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:59:56.878Z",
+      "crawledAt": "2026-08-07T01:09:48.774Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2686,8 +2686,8 @@
         "wm-business-risk-manager-union-bancaire-privee-geneva-switzerland",
         "gestore-del-rischio-business-di-wm-union-bancaire-privee-geneva-switzerland"
       ],
-      "firstSeenAt": "2026-07-28T11:30:12.370Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-28T11:30:12.370Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2732,7 +2732,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/588",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:59:56.335Z",
+      "crawledAt": "2026-08-07T01:09:48.214Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2749,8 +2749,8 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/588",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-28T22:26:48.586Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-28T22:26:48.586Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2803,7 +2803,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1444",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:59:55.787Z",
+      "crawledAt": "2026-08-07T01:09:47.671Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2881,7 +2881,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1437",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:59:55.202Z",
+      "crawledAt": "2026-08-07T01:09:47.119Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2962,7 +2962,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1438",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:59:54.665Z",
+      "crawledAt": "2026-08-07T01:09:46.574Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3040,7 +3040,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1447",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:59:54.115Z",
+      "crawledAt": "2026-08-07T01:09:46.028Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3116,7 +3116,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1381",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:59:53.536Z",
+      "crawledAt": "2026-08-07T01:09:45.477Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3149,8 +3149,8 @@
           "appway-developer-support-client-lifecycle-management-clm-kyc-ubp-ch"
         ]
       },
-      "firstSeenAt": "2026-08-03T22:15:04.508Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-03T22:15:04.508Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -3195,7 +3195,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1276",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:59:52.935Z",
+      "crawledAt": "2026-08-07T01:09:44.905Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3222,8 +3222,8 @@
           "assistente-alla-gestione-della-ricchezza-eastern-europe-team-zurich-union-bancaire-privee-zurich-switzerland"
         ]
       },
-      "firstSeenAt": "2026-08-03T22:15:04.008Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-03T22:15:04.008Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3268,7 +3268,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1451",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:59:52.378Z",
+      "crawledAt": "2026-08-07T01:09:44.312Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3346,7 +3346,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1460",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:59:51.819Z",
+      "crawledAt": "2026-08-07T01:09:43.766Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3363,10 +3363,14 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1460",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-05T22:42:49.558Z",
+      "previousSlugs": [
+        "quantitative-analyst-alm-junior-treasury-dealer-temporary-12-months-ubp-ch",
+        "quantitative-analista-alm-junior-treasury-dealer-temporary-12-months-union-bancaire-privee-geneva-switzerland"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "quantitative-analyst-alm-junior-treasury-dealer-temporary-12-months-ubp-ch"
+          "quantitative-analyst-alm-junior-treasury-dealer-temporary-12-months-ubp-ch",
+          "quantitative-analista-alm-junior-treasury-dealer-temporary-12-months-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "quantitative-analyst-alm-junior-treasury-dealer-temporary-12-months-ubp-ch"
@@ -3375,9 +3379,7 @@
           "quantitative-analyst-alm-junior-treasury-dealer-temporary-12-months-ubp-ch"
         ]
       },
-      "previousSlugs": [
-        "quantitative-analyst-alm-junior-treasury-dealer-temporary-12-months-ubp-ch"
-      ],
+      "firstSeenAt": "2026-08-05T22:42:49.558Z",
       "salaryMin": 51100,
       "salaryMax": 77500,
       "baseSalary": {
@@ -3422,7 +3424,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1392",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:59:50.910Z",
+      "crawledAt": "2026-08-07T01:09:43.175Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3474,6 +3476,71 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "ubp-b432540e168a",
+      "slug": "project-manager-consultant-ubp-ch",
+      "slugByLocale": {
+        "en": "project-manager-consultant-ubp-ch",
+        "it": "project-manager-consultant-ubp-ch",
+        "de": "project-manager-consultant-ubp-ch",
+        "fr": "project-manager-consultant-ubp-ch"
+      },
+      "company": "Union Bancaire Privée",
+      "companyKey": "ubp",
+      "companyDomain": "ubp.com",
+      "title": "Project Manager (Consultant)",
+      "titleByLocale": {
+        "en": "Project Manager (Consultant)",
+        "it": "Project Manager (Consulente)",
+        "de": "Project Manager (Berater)",
+        "fr": "Project Manager (Consultant)"
+      },
+      "description": "Mission\n\n• Within the COO IT Change unit, the role is responsible for coordinating execution and performing business analysis across a portfolio of IT projects and small demands in the Asia Core Banking domain. Focus areas include digital transformation (ebanking, CRM) and regulatory initiatives (Payments, Regulatory reporting).\n\nChallenges\n\n• Manage a diverse array of projects with multiple stakeholders.\n\n• Daily interactions and coordination with an external software/vendor partner responsible for delivery.\n\nMain Responsibilities\n\n• Partner with business and IT stakeholders, including an external vendor, across a wide and diverse project agenda.\n\n• Ensure stakeholder and sponsor involvement and commitment.\n\n• Define clear scope and requirements; manage scope changes.\n\n• Identify and manage project risks and conflicts.\n\n• Oversee budgeting processes and control project spend.\n\n• Plan and manage IT resources.\n\n• Implement technical solutions in line with the bank’s software development lifecycle, in partnership with the main software vendor in charge of the delivery.\n\n• Coordinate and participate in testing; obtain customer sign-off.\n\n• Publish project reporting; build and maintain KPIs and KRIs.\n\n• Collect and formalize lessons learned among stakeholders; ensure their application to future projects.\n\nRequested Skills & Experience\n\n• Overall knowledge of Private Banking processes and IT banking architecture - Familiarity with Asia is a plus (e.g., regulatory environment).\n\n• Experience in the Financial sector (mandatory); experience in Private Banking (mandatory).\n\n• Strong vendor management capabilities.\n\n• Ability to bridge the gap between business and technical teams.\n\n• Comfortable with both Waterfall and Agile methodologies.\n\n• Planning and budget control.\n\nEducation : Engineer (or equivalent technical education).\n Experience : At least 10 years (senior level).\n Languages : English: Fluent.\n\nPersonal Skills & Attributes\n\n• Excellent verbal and written communication skills.\n\n• Strong analytical and problem-solving skills.\n\n• Proactive, Drive, leadership, and positive attitude; stress resistant.\n\n• Team player, resourceful, and independent.\n\nSwiss Residence : Optional.\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+      "descriptionByLocale": {
+        "en": "Mission\n\n• Within the COO IT Change unit, the role is responsible for coordinating execution and performing business analysis across a portfolio of IT projects and small demands in the Asia Core Banking domain. Focus areas include digital transformation (ebanking, CRM) and regulatory initiatives (Payments, Regulatory reporting).\n\nChallenges\n\n• Manage a diverse array of projects with multiple stakeholders.\n\n• Daily interactions and coordination with an external software/vendor partner responsible for delivery.\n\nMain Responsibilities\n\n• Partner with business and IT stakeholders, including an external vendor, across a wide and diverse project agenda.\n\n• Ensure stakeholder and sponsor involvement and commitment.\n\n• Define clear scope and requirements; manage scope changes.\n\n• Identify and manage project risks and conflicts.\n\n• Oversee budgeting processes and control project spend.\n\n• Plan and manage IT resources.\n\n• Implement technical solutions in line with the bank’s software development lifecycle, in partnership with the main software vendor in charge of the delivery.\n\n• Coordinate and participate in testing; obtain customer sign-off.\n\n• Publish project reporting; build and maintain KPIs and KRIs.\n\n• Collect and formalize lessons learned among stakeholders; ensure their application to future projects.\n\nRequested Skills & Experience\n\n• Overall knowledge of Private Banking processes and IT banking architecture - Familiarity with Asia is a plus (e.g., regulatory environment).\n\n• Experience in the Financial sector (mandatory); experience in Private Banking (mandatory).\n\n• Strong vendor management capabilities.\n\n• Ability to bridge the gap between business and technical teams.\n\n• Comfortable with both Waterfall and Agile methodologies.\n\n• Planning and budget control.\n\nEducation : Engineer (or equivalent technical education).\n Experience : At least 10 years (senior level).\n Languages : English: Fluent.\n\nPersonal Skills & Attributes\n\n• Excellent verbal and written communication skills.\n\n• Strong analytical and problem-solving skills.\n\n• Proactive, Drive, leadership, and positive attitude; stress resistant.\n\n• Team player, resourceful, and independent.\n\nSwiss Residence : Optional.\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "it": "Mission\n\n• Within the COO IT Change unit, the role is responsible for coordinating execution and performing business analysis across a portfolio of IT projects and small demands in the Asia Core Banking domain. Focus areas include digital transformation (ebanking, CRM) and regulatory initiatives (Payments, Regulatory reporting).\n\nChallenges\n\n• Manage a diverse array of projects with multiple stakeholders.\n\n• Daily interactions and coordination with an external software/vendor partner responsible for delivery.\n\nMain Responsibilities\n\n• Partner with business and IT stakeholders, including an external vendor, across a wide and diverse project agenda.\n\n• Ensure stakeholder and sponsor involvement and commitment.\n\n• Define clear scope and requirements; manage scope changes.\n\n• Identify and manage project risks and conflicts.\n\n• Oversee budgeting processes and control project spend.\n\n• Plan and manage IT resources.\n\n• Implement technical solutions in line with the bank’s software development lifecycle, in partnership with the main software vendor in charge of the delivery.\n\n• Coordinate and participate in testing; obtain customer sign-off.\n\n• Publish project reporting; build and maintain KPIs and KRIs.\n\n• Collect and formalize lessons learned among stakeholders; ensure their application to future projects.\n\nRequested Skills & Experience\n\n• Overall knowledge of Private Banking processes and IT banking architecture - Familiarity with Asia is a plus (e.g., regulatory environment).\n\n• Experience in the Financial sector (mandatory); experience in Private Banking (mandatory).\n\n• Strong vendor management capabilities.\n\n• Ability to bridge the gap between business and technical teams.\n\n• Comfortable with both Waterfall and Agile methodologies.\n\n• Planning and budget control.\n\nEducation : Engineer (or equivalent technical education).\n Experience : At least 10 years (senior level).\n Languages : English: Fluent.\n\nPersonal Skills & Attributes\n\n• Excellent verbal and written communication skills.\n\n• Strong analytical and problem-solving skills.\n\n• Proactive, Drive, leadership, and positive attitude; stress resistant.\n\n• Team player, resourceful, and independent.\n\nSwiss Residence : Optional.\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "de": "Mission\n\n• Within the COO IT Change unit, the role is responsible for coordinating execution and performing business analysis across a portfolio of IT projects and small demands in the Asia Core Banking domain. Focus areas include digital transformation (ebanking, CRM) and regulatory initiatives (Payments, Regulatory reporting).\n\nChallenges\n\n• Manage a diverse array of projects with multiple stakeholders.\n\n• Daily interactions and coordination with an external software/vendor partner responsible for delivery.\n\nMain Responsibilities\n\n• Partner with business and IT stakeholders, including an external vendor, across a wide and diverse project agenda.\n\n• Ensure stakeholder and sponsor involvement and commitment.\n\n• Define clear scope and requirements; manage scope changes.\n\n• Identify and manage project risks and conflicts.\n\n• Oversee budgeting processes and control project spend.\n\n• Plan and manage IT resources.\n\n• Implement technical solutions in line with the bank’s software development lifecycle, in partnership with the main software vendor in charge of the delivery.\n\n• Coordinate and participate in testing; obtain customer sign-off.\n\n• Publish project reporting; build and maintain KPIs and KRIs.\n\n• Collect and formalize lessons learned among stakeholders; ensure their application to future projects.\n\nRequested Skills & Experience\n\n• Overall knowledge of Private Banking processes and IT banking architecture - Familiarity with Asia is a plus (e.g., regulatory environment).\n\n• Experience in the Financial sector (mandatory); experience in Private Banking (mandatory).\n\n• Strong vendor management capabilities.\n\n• Ability to bridge the gap between business and technical teams.\n\n• Comfortable with both Waterfall and Agile methodologies.\n\n• Planning and budget control.\n\nEducation : Engineer (or equivalent technical education).\n Experience : At least 10 years (senior level).\n Languages : English: Fluent.\n\nPersonal Skills & Attributes\n\n• Excellent verbal and written communication skills.\n\n• Strong analytical and problem-solving skills.\n\n• Proactive, Drive, leadership, and positive attitude; stress resistant.\n\n• Team player, resourceful, and independent.\n\nSwiss Residence : Optional.\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "fr": "Mission\n\n• Within the COO IT Change unit, the role is responsible for coordinating execution and performing business analysis across a portfolio of IT projects and small demands in the Asia Core Banking domain. Focus areas include digital transformation (ebanking, CRM) and regulatory initiatives (Payments, Regulatory reporting).\n\nChallenges\n\n• Manage a diverse array of projects with multiple stakeholders.\n\n• Daily interactions and coordination with an external software/vendor partner responsible for delivery.\n\nMain Responsibilities\n\n• Partner with business and IT stakeholders, including an external vendor, across a wide and diverse project agenda.\n\n• Ensure stakeholder and sponsor involvement and commitment.\n\n• Define clear scope and requirements; manage scope changes.\n\n• Identify and manage project risks and conflicts.\n\n• Oversee budgeting processes and control project spend.\n\n• Plan and manage IT resources.\n\n• Implement technical solutions in line with the bank’s software development lifecycle, in partnership with the main software vendor in charge of the delivery.\n\n• Coordinate and participate in testing; obtain customer sign-off.\n\n• Publish project reporting; build and maintain KPIs and KRIs.\n\n• Collect and formalize lessons learned among stakeholders; ensure their application to future projects.\n\nRequested Skills & Experience\n\n• Overall knowledge of Private Banking processes and IT banking architecture - Familiarity with Asia is a plus (e.g., regulatory environment).\n\n• Experience in the Financial sector (mandatory); experience in Private Banking (mandatory).\n\n• Strong vendor management capabilities.\n\n• Ability to bridge the gap between business and technical teams.\n\n• Comfortable with both Waterfall and Agile methodologies.\n\n• Planning and budget control.\n\nEducation : Engineer (or equivalent technical education).\n Experience : At least 10 years (senior level).\n Languages : English: Fluent.\n\nPersonal Skills & Attributes\n\n• Excellent verbal and written communication skills.\n\n• Strong analytical and problem-solving skills.\n\n• Proactive, Drive, leadership, and positive attitude; stress resistant.\n\n• Team player, resourceful, and independent.\n\nSwiss Residence : Optional.\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
+      },
+      "location": "Geneva, Switzerland",
+      "canton": "GE",
+      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1387",
+      "source": "Union Bancaire Privée Oracle HCM API",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-07T01:09:42.639Z",
+      "addressLocality": "Geneva, Switzerland",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6900",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Banca / Gestione patrimoniale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-06",
+      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1387",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-07T01:09:42.639Z"
     },
     {
       "id": "ubp-3d8a65cc31b9",
@@ -3560,89 +3627,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
-    },
-    {
-      "id": "ubp-b67ddb14bb9e",
-      "slug": "tirocinante-pricing-analista-securities-master-file-temporary-6-months-union-bancaire-privee-geneva-switzerland",
-      "slugByLocale": {
-        "it": "tirocinante-pricing-analista-securities-master-file-temporary-6-months-union-bancaire-privee-geneva-switzerland",
-        "en": "intern-pricing-analyst-securities-master-file-temporary-6-months-ubp-ch",
-        "de": "praktikant-pricing-analyst-securities-master-file-temporary-6-months-union-bancaire-privee-geneva-switzerland",
-        "fr": "stagiaire-pricing-analyste-securities-master-file-temporary-6-months-union-bancaire-privee-geneva-switzerland"
-      },
-      "company": "Union Bancaire Privée",
-      "companyKey": "ubp",
-      "companyDomain": "ubp.com",
-      "title": "Intern - Pricing Analyst - Securities Master File (Temporary 6 months)",
-      "titleByLocale": {
-        "it": "Tirocinante - Pricing Analista - Securities Master File (Temporary 6 months)",
-        "en": "Intern - Pricing Analyst - Securities Master File (Temporary 6 months)",
-        "de": "Praktikant - Pricing Analyst - Securities Master File (Temporary 6 months)",
-        "fr": "Stagiaire - Pricing Analyste - Securities Master File (Temporary 6 months)"
-      },
-      "description": "• Mission\n The Intern Pricing Analyst – Securities Master File (6 months) is a critical role within the bank’s Private Banking domain, responsible for the accuracy, timeliness, and integrity of security prices across all asset types.\nEmbedded in the Securities Master File team, this role focuses on the full pricing lifecycle: sourcing, validation, monitoring, exception handling, and controls (including delta checks, missing and stale prices), ensuring robust data quality for front office, risk, operations, performance, and client reporting.\n\n• Duration: 6 months (interim mission)\n\n• Team: Securities Master File (SMF)\n\n• Scope: Pricing for all instruments within Private Banking\n\n• Stakeholders: Front Office, Risk, Operations, Performance, Client Reporting, IT, Procurement, Data Vendors\n\n• Key Responsibilities\n• Ensure daily acquisition and validation of prices for all in-scope instruments (equities, fixed income, funds, ETFs, money market, structured products, derivatives, private placement, hedge funds).\n\n• Execute daily pricing control framework:\n• Delta price checks vs prior valid prices and tolerances.\n\n• Missing and stale price detection and remediation.\n\n• Ensure pricing hierarchy is well applied according to approved sourcing policies.\n\n• Investigate discrepancies between vendors and coordinate vendor queries, challenges, and corrections.\n\n• Resolve breaks by applying alternative sources, manual validation, or price challenges; document rationales and evidence.\n\n• Pricing exceptions; perform root-cause analysis (stale feeds, mapping, instrument reference data gaps, pricing source provider).\n\n• Coordinate with Corporate Actions, Fund Desk, and Operations to align price effective dates and event impacts (splits, coupons, redemptions, suspensions).\n\n• Execute daily, weekly, and monthly pricing quality KPIs and attestations (e.g., completeness %, stale rate, exception aging, SLA adherence).\n\n• Contribute to enhancement of pricing rules, dashboards, and controls to reduce false positives and improve STP.\n\n• Participate in testing and validation of system changes impacting pricing\n\n• Update and maintain operational procedures (process flows, risks, controls, KPIs) specific to pricing.\n\n• Core Competencies\n• Behave Ethically\n\n• Communicate Effectively\n\n• Foster Teamwork\n\n• Creativity/Innovation\n\n• Organize\n\n• Solve Problems\n\n• Specific Competencies\n• Economic, mathematical, or quantitative education.\n\n• Solid knowledge of financial instruments and pricing conventions across asset classes.\n\n• Strong prioritization, especially under cut-off pressure and incident scenarios.\n\n• Familiarity with pricing controls: delta checks, stale/missing detection, vendor waterfall logic\n\n• Other Skills/Abilities\n\n• Open mind and team orientation\n• Be open to others’ ideas; balance personal and team interests.\n\n• Express opinions and criticism constructively.\n\n• Innovation and development\n• Seek opportunities to improve existing controls and processes.\n\n• Be a continuous learner and adopt change with a positive attitude.\n\n• Professional business culture\n• Think in Problem–Action–Results terms.\n\n• Go beyond specific assignments and take ownership.\n\n• Be proactive and driven with a strong client service ethic.\n\n• Quality, internal & external regulation\n• Consistently comply with internal policies, vendor contracts, and relevant regulations.\n\n• Seek opportunities to improve quality in all aspects of the pricing process.\n\n• Maintain quality standards despite schedule pressures.\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-      "descriptionByLocale": {
-        "it": "• Missione L’Analista dei prezzi interni – Securities Master File (6 mesi) è un ruolo fondamentale nel dominio Private Banking della banca, responsabile dell’accuratezza, della tempestività e dell’integrità dei prezzi di sicurezza in tutti i tipi di asset. Inserito nel team Securities Master File, questo ruolo si concentra sul ciclo di vita dei prezzi completo: sourcing, validazione, monitoraggio, gestione delle eccezioni e controlli (compresi i controlli delta, i prezzi mancanti e stanti), garantendo una robusta qualità dei dati per l'ufficio frontale, il rischio, le operazioni, le prestazioni e la segnalazione dei clienti.\n• Durata: 6 mesi ( missione intermedia)\n• Team: Securities Master File (SMF)\n• Ambito: Prezzo per tutti gli strumenti del Private Banking\n• Stakeholders: Front Office, Risk, Operazioni, Performance, Reporting client, IT, Procurement, Data Vendors\n• Responsabilità chiave\n• Assicurare l'acquisizione quotidiana e la validazione dei prezzi per tutti gli strumenti in-scope (equità, reddito fisso, fondi, ETF, mercato monetario, prodotti strutturati, derivati, collocamento privato, fondi di copertura).\n• Eseguire il framework giornaliero di controllo dei prezzi:\n• Controlli dei prezzi del Delta rispetto a prezzi e tolleranze valide precedenti.\n• Rilevamento e risanamento dei prezzi mancanti e stanti.\n• Assicurare la gerarchia dei prezzi è ben applicata in base alle politiche di approvvigionamento approvate.\n• Indaga le discrepanze tra i fornitori e coordina le domande dei fornitori, le sfide e le correzioni.\n• Risolvere le interruzioni applicando fonti alternative, la validazione manuale o le sfide dei prezzi; documentare razionali e prove.\n• Eccezioni di prezzo; eseguire analisi a causa delle radici ( feed di fiabe, mappatura, gap di dati di riferimento dello strumento, fornitore di fonti di prezzi).\n• Coordinare le azioni aziendali, il Fondo e le operazioni per allineare le date e gli impatti degli eventi effettivi dei prezzi (split, coupon, redenzioni, sospensioni).\n• Eseguire KPI e attestazioni di qualità dei prezzi giornalieri, settimanali e mensili (ad esempio, completezza %, tasso di stallo, invecchiamento delle eccezioni, adesione SLA).\n• Contribuire alla valorizzazione delle regole di prezzo, dashboard e controlli per ridurre i falsi positivi e migliorare STP.\n• Partecipazione a test e validazione dei cambiamenti di sistema che influiscono sui prezzi\n• Aggiornare e mantenere le procedure operative (flussi di processo, rischi, controlli, KPI) specifiche per i prezzi.\n• Competenze fondamentali\n• Behave Etica\n• Comunicare efficacemente\n• Foster Teamwork\n• Creatività/innovazione\n• Organizzare\n• risolvere i problemi\n• Competenze specifiche\n• Istruzione economica, matematica o quantitativa.\n• Una solida conoscenza degli strumenti finanziari e delle convenzioni sui prezzi nelle classi di asset.\n• Forte prioritizzazione, soprattutto in situazioni di pressione di taglio e incidenti.\n• Familiarità con i controlli dei prezzi: controlli delta, rilevamento stallo/missivo, logica della cascata del venditore\n• Altre abilità/abilità\n• Aprire la mente e l'orientamento del team\n• Essere aperti alle idee altrui; bilanciare gli interessi personali e di squadra.\n• esprimere opinioni e critiche costruttivamente.\n• Innovazione e sviluppo\n• Cercate opportunità per migliorare i controlli e i processi esistenti.\n• Essere un apprendimento continuo e adottare il cambiamento con un atteggiamento positivo.\n• Cultura aziendale professionale\n• Pensa ai termini Problem–Action–Risultati.\n• Andare oltre incarichi specifici e prendere la proprietà.\n• Sii proattivo e guidato con un forte servizio client etico.\n• Qualità, regolazione interna ed esterna\n• Coerentemente rispettare le politiche interne, i contratti dei fornitori e le normative pertinenti.\n• Cercate opportunità per migliorare la qualità in tutti gli aspetti del processo di prezzi.\n• Mantenere gli standard di qualità nonostante le pressioni del programma. Competenze fondamentali: Aderenza ai valori dell’azienda: Dedicazione, Convizione, Agility e Responsabilità - Rispetto dei regolamenti e delle direttive interne",
-        "en": "• Mission\nThe Intern Pricing Analyst – Securities Master File (6 months) is a critical role within the bank’s Private Banking domain, responsible for the accuracy, timeliness, and integrity of security prices across all asset types.\nEmbedded in the Securities Master File team, this role focuses on the full pricing lifecycle: sourcing, validation, monitoring, exception handling, and controls (including delta checks, missing and stale prices), ensuring robust data quality for front office, risk, operations, performance, and client reporting.\n\n• Duration: 6 months (interim mission)\n\n• Team: Securities Master File (SMF)\n\n• Scope: Pricing for all instruments within Private Banking\n\n• Stakeholders: Front Office, Risk, Operations, Performance, Client Reporting, IT, Procurement, Data Vendors\n\n• Key Responsibilities\n• Ensure daily acquisition and validation of prices for all in-scope instruments (equities, fixed income, funds, ETFs, money market, structured products, derivatives, private placement, hedge funds).\n\n• Execute daily pricing control framework:\n• Delta price checks vs prior valid prices and tolerances.\n\n• Missing and stale price detection and remediation.\n\n• Ensure pricing hierarchy is well applied according to approved sourcing policies.\n\n• Investigate discrepancies between vendors and coordinate vendor queries, challenges, and corrections.\n\n• Resolve breaks by applying alternative sources, manual validation, or price challenges; document rationales and evidence.\n\n• Pricing exceptions; perform root-cause analysis (stale feeds, mapping, instrument reference data gaps, pricing source provider).\n\n• Coordinate with Corporate Actions, Fund Desk, and Operations to align price effective dates and event impacts (splits, coupons, redemptions, suspensions).\n\n• Execute daily, weekly, and monthly pricing quality KPIs and attestations (e.g., completeness %, stale rate, exception aging, SLA adherence).\n\n• Contribute to enhancement of pricing rules, dashboards, and controls to reduce false positives and improve STP.\n\n• Participate in testing and validation of system changes impacting pricing\n\n• Update and maintain operational procedures (process flows, risks, controls, KPIs) specific to pricing.\n\n• Core Competencies\n• Behave Ethically\n\n• Communicate Effectively\n\n• Foster Teamwork\n\n• Creativity/Innovation\n\n• Organize\n\n• Solve Problems\n\n• Specific Competencies\n• Economic, mathematical, or quantitative education.\n\n• Solid knowledge of financial instruments and pricing conventions across asset classes.\n\n• Strong prioritization, especially under cut-off pressure and incident scenarios.\n\n• Familiarity with pricing controls: delta checks, stale/missing detection, vendor waterfall logic\n\n• Other Skills/Abilities\n\n• Open mind and team orientation\n• Be open to others’ ideas; balance personal and team interests.\n\n• Express opinions and criticism constructively.\n\n• Innovation and development\n• Seek opportunities to improve existing controls and processes.\n\n• Be a continuous learner and adopt change with a positive attitude.\n\n• Professional business culture\n• Think in Problem–Action–Results terms.\n\n• Go beyond specific assignments and take ownership.\n\n• Be proactive and driven with a strong client service ethic.\n\n• Quality, internal & external regulation\n• Consistently comply with internal policies, vendor contracts, and relevant regulations.\n\n• Seek opportunities to improve quality in all aspects of the pricing process.\n\n• Maintain quality standards despite schedule pressures.\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "de": "• Mission Der Intern Pricing Analyst – Securities Master File (6 Monate) ist eine wichtige Rolle innerhalb der Private Banking-Domäne der Bank und verantwortlich für die Genauigkeit, Aktualität und Integrität der Sicherheitspreise für alle Anlagearten. Eingebettet in das Securities Master File-Team konzentriert sich diese Rolle auf den gesamten Preislebenszyklus: Beschaffung, Validierung, Überwachung, Ausnahmebehandlung und Kontrollen (einschließlich Delta-Checks, fehlende und veraltete Preise), um eine robuste Datenqualität für Front Office, Risiko, Betrieb, Leistung und Kundenberichterstattung zu gewährleisten.\n• Dauer: 6 Monate (Interimsmission)\n• Team: Securities Master File (SMF)\n• Umfang: Preisgestaltung für alle Instrumente im Private Banking\n• Stakeholder: Front Office, Risk, Operations, Performance, Client Reporting, IT, Procurement, Data Vendors\n• Hauptverantwortungen\n• Sicherstellung des täglichen Erwerbs und der Validierung der Preise für alle in-scope-Instrumente (Aktien, Fixed Income, Fonds, ETFs, Geldmarkt, strukturierte Produkte, Derivate, Privatplatzierung, Hedgefonds).\n• Tägliches Preiskontroll-Framework durchführen:\n• Delta-Preisprüfungen gegenüber früheren gültigen Preisen und Toleranzen.\n• Fehlende und veraltete Preiserkennung und -sanierung.\n• Stellen Sie sicher, dass die Preishierarchie gemäß den genehmigten Beschaffungsrichtlinien gut angewendet wird.\n• Untersuchen Sie Diskrepanzen zwischen Anbietern und koordinieren Sie Anfragen, Herausforderungen und Korrekturen von Anbietern.\n• Beheben Sie Pausen, indem Sie alternative Quellen, manuelle Validierung oder Preisherausforderungen anwenden; Begründen und Beweise dokumentieren.\n• Preisausnahmen; führen Sie eine Root-Cause-Analyse durch (Stale Feeds, Mapping, Datenlücken bei Instrumentenreferenzen, Anbieter von Preisquellen).\n• Koordination mit Corporate Actions, Fund Desk und Operations, um die effektiven Preisdaten und die Auswirkungen von Ereignissen (Splits, Coupons, Rücknahmen, Aussetzungen) abzustimmen.\n• Führen Sie tägliche, wöchentliche und monatliche Preisqualitäts-KPIs und -Bescheinigungen aus (z. B. Vollständigkeitsgrad, abgestandene Rate, Ausnahmealterung, SLA-Einhaltung).\n• Beitrag zur Verbesserung von Preisregeln, Dashboards und Kontrollen, um falsche Positive zu reduzieren und STP zu verbessern.\n• Teilnahme am Testen und Validieren von Systemänderungen, die sich auf die Preisgestaltung auswirken\n• Aktualisieren und pflegen Sie die betrieblichen Verfahren (Prozessflüsse, Risiken, Kontrollen, KPIs) speziell für die Preisgestaltung.\n• Kernkompetenzen\n• Verhalten Sie sich ethisch\n• Effektiv kommunizieren\n• Teamwork fördern\n• Kreativität/Innovation\n• Organisieren\n• Probleme lösen\n• spezifische Kompetenzen\n• Wirtschaftliche, mathematische oder quantitative Bildung.\n• Solides Wissen über Finanzinstrumente und Preiskonventionen in allen Anlageklassen.\n• Starke Priorisierung, insbesondere unter Abschaltdruck und Störfallszenarien.\n• Vertrautheit mit Preiskontrollen: Delta-Checks, veraltete / fehlende Erkennung, Verkäufer-Wasserfall-Logik\n• Andere Fähigkeiten/Fähigkeiten\n• Open Mind und Teamorientierung\n• Seien Sie offen für die Ideen anderer; balancieren Sie persönliche und Teaminteressen.\n• Meinungen und Kritik konstruktiv ausdrücken.\n• Innovation und Entwicklung\n• Suchen Sie nach Möglichkeiten, bestehende Kontrollen und Prozesse zu verbessern.\n• Seien Sie ein kontinuierlicher Lernender und nehmen Sie Veränderungen mit einer positiven Einstellung an.\n• Professionelle Unternehmenskultur\n• Denken Sie in Problem-Aktion-Ergebnisse Begriffe.\n• Gehen Sie über bestimmte Aufgaben hinaus und übernehmen Sie das Eigentum.\n• Seien Sie proaktiv und angetrieben von einer starken Kundendienstethik.\n• Qualität, interne & externe Regulierung\n• Konsequente Einhaltung interner Richtlinien, Lieferantenverträge und relevanter Vorschriften.\n• Suchen Sie nach Möglichkeiten, die Qualität in allen Aspekten des Preisprozesses zu verbessern.\n• Einhaltung der Qualitätsstandards trotz Zeitplandruck. Kernkompetenzen : Einhaltung der Werte des Unternehmens: Hingabe, Überzeugung, Agilität und Verantwortung - Einhaltung von Vorschriften und internen Richtlinien",
-        "fr": "• Mission L'analyste des prix des stagiaires – Fichier principal des titres (6 mois) est un rôle essentiel dans le domaine de la banque Private Banking, responsable de l'exactitude, de l'actualité et de l'intégrité des prix de la sécurité pour tous les types d'actifs. Intégré à l'équipe du fichier principal des valeurs mobilières, ce rôle se concentre sur le cycle de vie complet des prix : approvisionnement, validation, surveillance, traitement des exceptions et contrôles (y compris les vérifications du delta, les prix manquants et les prix inexistants), assurant une qualité solide des données pour le front office, les risques, les opérations, les performances et les rapports clients.\n• Durée: 6 mois (mission provisoire)\n• Équipe : fichier principal de titres (SMF)\n• Portée: Tarification pour tous les instruments de la banque privée\n• Intervenants : Front Office, Risque, Opérations, Performance, Rapports clients, TI, Approvisionnement, Fournisseurs de données\n• Principales responsabilités\n• Assurer l'acquisition quotidienne et la validation des prix pour tous les instruments de portée (équités, revenus fixes, fonds, ETF, marché monétaire, produits structurés, dérivés, placement privé, fonds spéculatifs).\n• Exécuter le cadre de contrôle quotidien des prix:\n• Contrôle des prix Delta par rapport aux prix et tolérances antérieurs valables.\n• Détection et remise en état des prix manquants et inexistants.\n• Veiller à ce que la hiérarchie des prix soit bien appliquée conformément aux politiques d'approvisionnement approuvées.\n• Étudier les divergences entre les fournisseurs et coordonner les demandes, les défis et les corrections.\n• Résoudre les ruptures en appliquant des sources alternatives, une validation manuelle ou des défis de prix; documenter les justifications et les preuves.\n• Exceptions en matière de tarification; analyse des causes profondes (feeds inexistants, cartographie, lacunes dans les données de référence des instruments, fournisseur de sources de tarification).\n• Coordonner avec les actions de l'entreprise, le bureau des fonds et les opérations afin d'aligner les dates d'entrée en vigueur des prix et les impacts des événements (splits, coupons, rachats, suspensions).\n• Exécuter quotidiennement, hebdomadairement et mensuellement des ICR et des attestations de qualité des prix (par exemple, exhaustivité %, taux d'écart, exception au vieillissement, adhésion à l'ALS).\n• Contribuer à l'amélioration des règles de prix, des tableaux de bord et des contrôles pour réduire les faux positifs et améliorer le STP.\n• Participer à l'essai et à la validation des changements de système ayant une incidence sur les prix\n• Mettre à jour et maintenir les procédures opérationnelles (flux de processus, risques, contrôles, ICR) spécifiques à la tarification.\n• Compétences de base\n• Être éthique\n• Communiquer efficacement\n• Favoriser le travail d'équipe\n• Créativité/innovation\n• Organiser\n• Résoudre les problèmes\n• Compétences spécifiques\n• Enseignement économique, mathématique ou quantitatif.\n• Connaissance approfondie des instruments financiers et des conventions de tarification entre les classes d'actifs.\n• Priorité élevée, en particulier dans les scénarios de pression de coupure et d'incident.\n• Familiarité avec les contrôles de prix: contrôles delta, détection des pannes, logique de chute des fournisseurs\n• Autres compétences\n• Ouverture de l'esprit et orientation de l'équipe\n• Être ouvert aux autres ; équilibrer les intérêts personnels et d'équipe.\n• Exprimer des opinions et des critiques constructives.\n• Innovation et développement\n• Chercher des possibilités d'améliorer les contrôles et les processus existants.\n• Être un apprenant continu et adopter le changement avec une attitude positive.\n• Culture professionnelle des entreprises\n• Pensez en termes de Problème–Action–Résultats.\n• Allez au-delà des missions spécifiques et prenez possession.\n• Soyez proactif et animé par une éthique forte du service à la clientèle.\n• Qualité, réglementation interne et externe\n• Respecter de façon cohérente les politiques internes, les contrats avec les fournisseurs et les règlements pertinents.\n• Chercher des possibilités d'améliorer la qualité dans tous les aspects du processus de tarification.\n• Maintenir les normes de qualité malgré les pressions exercées sur le calendrier. Compétences de base : Adhérence aux valeurs de l'entreprise : Dédicace, Conviction, Agilité et Responsabilité - Respect des règlements et des directives internes"
-      },
-      "location": "Geneva, Switzerland",
-      "canton": "GE",
-      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1197",
-      "source": "Union Bancaire Privée Oracle HCM API",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-05T11:36:54.734Z",
-      "addressLocality": "Geneva, Switzerland",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Banca / Gestione patrimoniale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-19",
-      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1197",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "intern-pricing-analyst-securities-master-file-temporary-6-months-ubp-ch",
-        "intern-pricing-analyst-securities-master-file-temporary-6-months-union-bancaire-privee-geneva-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "intern-pricing-analyst-securities-master-file-temporary-6-months-ubp-ch"
-        ],
-        "en": [
-          "intern-pricing-analyst-securities-master-file-temporary-6-months-union-bancaire-privee-geneva-switzerland"
-        ],
-        "de": [
-          "intern-pricing-analyst-securities-master-file-temporary-6-months-ubp-ch"
-        ],
-        "fr": [
-          "intern-pricing-analyst-securities-master-file-temporary-6-months-ubp-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-19T22:51:14.869Z",
-      "salaryMin": 51100,
-      "salaryMax": 77500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51100,
-          "maxValue": 77500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
