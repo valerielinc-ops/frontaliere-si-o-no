@@ -667,6 +667,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'un-anno-dallo-shock-dei-dazi-esportatori-incerti': { it: 'un-anno-dallo-shock-dei-dazi-esportatori-incerti', en: 'one-year-after-us-tariff-shock-swiss-exporters-uncertain', de: 'ein-jahr-nach-dem-us-zollschock-schweizer-exporteure-unsicher', fr: 'un-an-apres-le-choc-des-tarifs-usa-exportateurs-suisses-incertains' },
  'costo-vita-svizzera-2026-san-gallo': { it: 'costo-vita-svizzera-2026-san-gallo', en: 'cost-of-living-switzerland-2026-st-gallen', de: 'lebenskosten-schweiz-2026-sankt-gallen', fr: 'cout-de-vie-suisse-2026-saint-gall' },
  'premi-lamal-2026-ginevra-guida': { it: 'premi-lamal-2026-ginevra-guida', en: 'lamal-premiums-2026-geneva-guide', de: 'lamal-praemien-2026-genf-leitfaden', fr: 'primes-lamal-2026-geneve-guide' },
+ 'reno-siccita-economia-svizzera': { it: 'reno-siccita-economia-svizzera', en: 'rhine-drought-swiss-economy', de: 'rhein-duerre-schweizer-wirtschaft', fr: 'rhin-secheresse-economie-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

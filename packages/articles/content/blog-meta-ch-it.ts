@@ -1924,6 +1924,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-lamal-2026-ginevra-guida.title': 'Premi LAMal 2026 a Ginevra: franchigia, cambio cassa e sussidi',
     'blog.article.premi-lamal-2026-ginevra-guida.excerpt': 'Guida ai premi cassa malati 2026 nel canton Ginevra: franchigie CHF 300–2500, diritto d\'opzione per frontalieri, confronto nazionale e passaggi per cambiare assicurazione.',
     'blog.article.premi-lamal-2026-ginevra-guida.imageAlt': 'Vista del Lago di Ginevra con il Jet d\'Eau sullo sfondo delle Alpi',
+    'blog.article.reno-siccita-economia-svizzera.title': 'Reno in secca: allarme per l\'economia svizzera',
+    'blog.article.reno-siccita-economia-svizzera.excerpt': 'Livello minimo storico, trasporti a rischio: 10% delle importazioni via fiume, carburanti in crisi.',
+    'blog.article.reno-siccita-economia-svizzera.imageAlt': 'Il Reno in secca vicino a Basilea, una nave cargo con basso pescaggio',
 };
 
 export default blogMetaChIt;
