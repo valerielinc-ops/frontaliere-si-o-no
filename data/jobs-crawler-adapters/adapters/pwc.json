@@ -11,8 +11,14 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-08-07T01:09:41.976Z",
+  "updatedAt": "2026-08-07T10:11:58.399Z",
   "seedMetaByUrl": {
+    "https://jobs.pwc.ch/job-vacancies/senior-manager-tax-accounting/cd8b3ca8-2465-43a1-b203-363db5808aeb": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-06"
+    },
     "https://jobs.pwc.ch/job-vacancies/senior-associate-controlling-advisory-operations/eaafb013-89b3-4c30-a38e-9b05dd6318ef": {
       "location": "Zürich",
       "canton": "ZH",
