@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ruag-ag",
-  "assembledAt": "2026-08-06T11:59:36.297Z",
+  "assembledAt": "2026-08-07T01:15:28.424Z",
   "jobs": [
     {
       "title": "Facility Manager Technics / BetriebselektrikerIn 80 - 100% (w/m/d)",
@@ -591,10 +591,10 @@
       "firstSeenAt": "2026-07-01T23:08:13.002Z",
       "previousSlugsByLocale": {
         "it": [
-          "project-management-officer-c5i-100-w-m-d-ruag-ag-thun",
           "project-management-officer-c5i-100-f-m-d-ruag-ag-thun",
           "teamleader-project-management-80-100-w-m-d-ruag-ag-bern",
-          "chef-d-equipe-gestion-de-projet-80-100-f-m-j-ruag-ag-bern"
+          "chef-d-equipe-gestion-de-projet-80-100-f-m-j-ruag-ag-bern",
+          "project-management-officer-c5i-100-w-m-d-ruag-ag-thun"
         ],
         "de": [
           "teamleader-project-management-80-100-w-m-d-ruag-ag-bern"
@@ -604,10 +604,10 @@
         ]
       },
       "previousSlugs": [
-        "project-management-officer-c5i-100-w-m-d-ruag-ag-thun",
         "project-management-officer-c5i-100-f-m-d-ruag-ag-thun",
         "teamleader-project-management-80-100-w-m-d-ruag-ag-bern",
-        "chef-d-equipe-gestion-de-projet-80-100-f-m-j-ruag-ag-bern"
+        "chef-d-equipe-gestion-de-projet-80-100-f-m-j-ruag-ag-bern",
+        "project-management-officer-c5i-100-w-m-d-ruag-ag-thun"
       ],
       "needsRetranslation": true
     },
@@ -857,9 +857,9 @@
       "firstSeenAt": "2026-07-02T22:37:51.768Z",
       "previousSlugsByLocale": {
         "it": [
-          "strategische-r-einkauferin-immobilien-bauleistungen-generalplaner-generalunternehmer-80-100-w-m-d-ruag-ag-emmen",
           "acheteur-strategique-en-immobilier-services-de-construction-planificateur-general-contractant-general-80-100-m-j-ruag-ag",
-          "acquirente-strategico-in-immobili-servizi-di-costruzione-pianificatore-generale-appaltatore-generale-80-100-w-m-d-ruag-a"
+          "acquirente-strategico-in-immobili-servizi-di-costruzione-pianificatore-generale-appaltatore-generale-80-100-w-m-d-ruag-a",
+          "strategische-r-einkauferin-immobilien-bauleistungen-generalplaner-generalunternehmer-80-100-w-m-d-ruag-ag-emmen"
         ],
         "en": [
           "strategische-r-einkauferin-immobilien-bauleistungen-generalplaner-generalunternehmer-80-100-w-m-d-ruag-ag-emmen"
@@ -869,9 +869,9 @@
         ]
       },
       "previousSlugs": [
-        "strategische-r-einkauferin-immobilien-bauleistungen-generalplaner-generalunternehmer-80-100-w-m-d-ruag-ag-emmen",
         "acheteur-strategique-en-immobilier-services-de-construction-planificateur-general-contractant-general-80-100-m-j-ruag-ag",
-        "acquirente-strategico-in-immobili-servizi-di-costruzione-pianificatore-generale-appaltatore-generale-80-100-w-m-d-ruag-a"
+        "acquirente-strategico-in-immobili-servizi-di-costruzione-pianificatore-generale-appaltatore-generale-80-100-w-m-d-ruag-a",
+        "strategische-r-einkauferin-immobilien-bauleistungen-generalplaner-generalunternehmer-80-100-w-m-d-ruag-ag-emmen"
       ]
     },
     {
@@ -2391,8 +2391,8 @@
       "firstSeenAt": "2026-07-23T12:24:33.845Z",
       "previousSlugsByLocale": {
         "it": [
-          "konfigurationsmanagerin-80-w-m-d-ruag-ag-thun",
-          "beschaffungsspezialist-80-100-w-m-d-ruag-ag-thun"
+          "beschaffungsspezialist-80-100-w-m-d-ruag-ag-thun",
+          "konfigurationsmanagerin-80-w-m-d-ruag-ag-thun"
         ],
         "en": [
           "konfigurationsmanagerin-80-w-m-d-ruag-ag-thun"
@@ -2402,8 +2402,8 @@
         ]
       },
       "previousSlugs": [
-        "konfigurationsmanagerin-80-w-m-d-ruag-ag-thun",
-        "beschaffungsspezialist-80-100-w-m-d-ruag-ag-thun"
+        "beschaffungsspezialist-80-100-w-m-d-ruag-ag-thun",
+        "konfigurationsmanagerin-80-w-m-d-ruag-ag-thun"
       ]
     },
     {
@@ -2774,7 +2774,6 @@
         }
       },
       "firstSeenAt": "2026-07-27T12:44:27.503Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-principal-developpement-des-affaires-et-strategie-air-100-p-m-d-ruag-ag-emmen"
@@ -2782,7 +2781,8 @@
       },
       "previousSlugs": [
         "gestionnaire-principal-developpement-des-affaires-et-strategie-air-100-p-m-d-ruag-ag-emmen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Technische/r SachbearbeiterIn 80-100 (w/m/d)",
@@ -2842,20 +2842,20 @@
       "firstSeenAt": "2026-07-27T22:19:12.852Z",
       "previousSlugsByLocale": {
         "it": [
-          "technische-r-sachbearbeiterin-80-100-w-m-d-ruag-ag-emmen",
-          "technicien-electrique-80-100-m-j-ruag-ag-emmen"
-        ],
-        "en": [
+          "technicien-electrique-80-100-m-j-ruag-ag-emmen",
           "technische-r-sachbearbeiterin-80-100-w-m-d-ruag-ag-emmen"
         ],
         "fr": [
-          "technische-r-sachbearbeiterin-80-100-w-m-d-ruag-ag-emmen",
-          "technicien-electrique-80-100-m-j-ruag-ag-emmen"
+          "technicien-electrique-80-100-m-j-ruag-ag-emmen",
+          "technische-r-sachbearbeiterin-80-100-w-m-d-ruag-ag-emmen"
+        ],
+        "en": [
+          "technische-r-sachbearbeiterin-80-100-w-m-d-ruag-ag-emmen"
         ]
       },
       "previousSlugs": [
-        "technische-r-sachbearbeiterin-80-100-w-m-d-ruag-ag-emmen",
-        "technicien-electrique-80-100-m-j-ruag-ag-emmen"
+        "technicien-electrique-80-100-m-j-ruag-ag-emmen",
+        "technische-r-sachbearbeiterin-80-100-w-m-d-ruag-ag-emmen"
       ]
     },
     {
@@ -2914,64 +2914,6 @@
         }
       },
       "firstSeenAt": "2026-07-27T22:19:12.852Z"
-    },
-    {
-      "title": "Strategy & Portfolio Manager 80-100 (w/m/d)",
-      "slug": "strategy-portfolio-manager-80-100-w-m-d-ruag-ag-emmen",
-      "url": "https://jobs.ruag.ch/offene-stellen/strategy-portfolio-manager/874a4392-ad68-49e1-a8aa-9b497899c867",
-      "applyUrl": "https://jobs.ruag.ch/apply/ats/874a4392-ad68-49e1-a8aa-9b497899c867",
-      "company": "RUAG AG",
-      "companyKey": "ruag-ag",
-      "companyDomain": "ruag.ch",
-      "location": "Emmen",
-      "addressLocality": "Emmen",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "canton": "LU",
-      "country": "CH",
-      "category": "other",
-      "sector": "Aerospazio e difesa",
-      "source": "ruag-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-27",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "validThrough": "2053-12-12",
-      "description": "## Responsabilita\n\n- Entwicklung und Umsetzung von Strategien zur nachhaltigen Weiterentwicklung von Geschäft, Portfolio und Marktsegmenten\n- Nachverfolgung der Umsetzung der Unternehmensstrategie sowie strategischer Initiativen\n- Erstellung und Aufbereitung von qualitativ hochstehenden Unterlagen zwecks Präsentation auf GL / VR Stufe\n- Strategische Steuerung und Koordination des RUAG – weiten Portfolios in Abstimmung mit den Business Areas\n- Zusammenarbeit mit funktionsübergreifenden Teams zur Gewährleistung erfolgreicher Projektdurchführung\n- Mitarbeit und Strategieabgleich zu möglichen Zukunftsszenarien mittels Markt- und Technologie-Scouting und Ideengenerierung innerhalb und ausserhalb von RUAG\n- Zusammenarbeit mit Geschäftsleitung, Kader und externen Partnern, um Entwicklungsinitiativen mit der Gesamtstrategie abzustimmen\n\n## Requisiti\n\n- Abgeschlossene Ausbildung an Fachhochschule oder Universität, vorzugsweise technische und/oder betriebswirtschaftliche Grundausbildung mit relevanter Weiterbildung (z.B. CAS, MAS, MBA)\n- Berufserfahrung in ähnlicher Position von mind. 2-3 Jahre Voraussetzung\n- Ausgeprägte analytische und konzeptionelle Fähigkeiten zur Entwicklung von Handlungsoptionen und Zielbildern\n- Fähigkeit, komplexe Sachverhalte rasch zu erfassen, zu strukturieren und adressatengerecht aufzubereiten\n- Fähigkeit, unterschiedliche Interessen auf Management- und Fachebene zu integrieren um tragfähige Entscheidungsgrundlagen zu schaffen\n- Erfahrung oder Verständnis in der Führung bereichsübergreifender strategischer Initiativen und Transformationsvorhaben\n- Erfahrung im Bereich Beratung von Vorteil\n- Verhandlungssicher in Deutsch, Englisch und Französisch von Vorteil\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nStefanie Pascarella\nTalent Acquisition Specialist\n+41 58 461 75 62",
-      "titleByLocale": {
-        "it": "Strategia & Portfolio Manager 80-100 (f/m/d)",
-        "en": "Strategy & Portfolio Manager 80-100 (w/m/d)",
-        "de": "Strategy & Portfolio Manager 80-100 (w/m/d)",
-        "fr": "Gestionnaire de stratégie et de portefeuille 80-100 (f/m/d)"
-      },
-      "descriptionByLocale": {
-        "it": "## Responsabilità\n\n- Sviluppo e attuazione di strategie per lo sviluppo sostenibile dei segmenti di business, portafoglio e mercato\n- Seguito dell'attuazione della strategia aziendale e delle iniziative strategiche\n- Preparazione e preparazione di documenti di alta qualità per la presentazione a livello GL / VR\n- Gestione strategica e coordinamento della RUAG – un ampio portafoglio in coordinamento con le aree aziendali\n- Collaborazione con team interfunzionali per garantire l'implementazione del progetto di successo\n- Confronto di collaborazione e strategia di possibili scenari futuri attraverso lo scouting del mercato e della tecnologia e la generazione di idee all'interno e all'esterno di RUAG\n- Lavorare con la gestione, i quadri e i partner esterni per allineare le iniziative di sviluppo con la strategia globale\n\n## Requisiti\n\n- Formazione completa presso l'università o l'università tecnica, preferibilmente l'istruzione tecnica e/o aziendale con un'ulteriore formazione rilevante (ad esempio CAS, MAS, MBA)\n- Forte capacità analitiche e concettuali per lo sviluppo di opzioni per l'azione e le immagini di destinazione\n- Capacità di catturare rapidamente, strutturare e preparare problemi complessi per gli utenti\n- Capacità di integrare interessi diversi a livello gestionale e specialistico per creare una base sostenibile per il processo decisionale\n- Esperienza o comprensione nelle principali iniziative strategiche e progetti di trasformazione\n- L'esperienza nella consulenza è utile\n- Negotiable in tedesco, inglese e francese è un vantaggio\n\n## Vantaggi\n\n## I vantaggi\n\nIl vostro benessere è importante per noi. Ecco perché avete molti vantaggi con noi. Questi includono, ad esempio:\n\n## Processo di candidatura\n\n## Ecco come funziona il nostro processo di applicazione\n\nContenuto esterno da YouTube A questo punto, un video da YouTube è integrato, che è bloccato a causa delle impostazioni dei cookie. Se il video deve ancora essere visualizzato, si prega di consentire i cookie qui.\n\nInformazioni importanti sul processo di applicazione:\n• Prima dell'inizio del lavoro, vi verrà chiesto di fornire una penalità e un record di esecuzione.\n• Accettiamo le applicazioni esclusivamente attraverso il nostro portale di lavoro jobs.ruag.ch. Purtroppo non possiamo accettare sia le richieste di posta elettronica che di lettere.\n\n## Contatto\n\nStefanie Pascarella\nTalent Acquisizione Specialista\n+41 58 461 75 62",
-        "en": "## Responsibility\n\n- Development and implementation of strategies for the sustainable development of business, portfolio and market segments\n- Follow-up of the implementation of corporate strategy and strategic initiatives\n- Preparation and preparation of high-quality documents for presentation at GL / VR level\n- Strategic management and coordination of the RUAG – a wide portfolio in coordination with the business areas\n- Collaboration with cross-functional teams to ensure successful project implementation\n- Collaboration and strategy comparison of possible future scenarios through market and technology scouting and idea generation within and outside RUAG\n- Working with management, cadre and external partners to align development initiatives with the overall strategy\n\n## Requirements\n\n- Completed training at technical college or university, preferably basic technical and/or business education with relevant further education (e.g. CAS, MAS, MBA)\n- Strong analytical and conceptual skills for developing options for action and target images\n- Ability to quickly capture, structure and prepare complex issues for users\n- Ability to integrate different interests at management and specialist level to create a sustainable basis for decision-making\n- Experience or understanding in leading cross-cutting strategic initiatives and transformation projects\n- Experience in consulting is beneficial\n- Negotiable in German, English and French is an advantage\n\n## Vantaggi’\n\n## Your advantages\n\nYour well-being is important to us. That is why you have many advantages with us. These include, for example:\n\n## Processo di candidatura\n\n## This is how our application process works\n\nExternal content from YouTube At this point, a video from YouTube is integrated, which is blocked due to the cookie settings. If the video should still be displayed, please allow the cookies here.\n\nImportant information about the application process:\n• Before the start of employment, you will be asked to provide a penalty and enforcement record.\n• We accept applications exclusively through our job portal jobs.ruag.ch. Unfortunately, we cannot accept both e-mail and letter applications.\n\n## Contatto\n\nStefanie Pascarella\nTalent Acquisition Specialist\n+41 58 461 75 62",
-        "de": "## Responsabilita\n\n- Entwicklung und Umsetzung von Strategien zur nachhaltigen Weiterentwicklung von Geschäft, Portfolio und Marktsegmenten\n- Nachverfolgung der Umsetzung der Unternehmensstrategie sowie strategischer Initiativen\n- Erstellung und Aufbereitung von qualitativ hochstehenden Unterlagen zwecks Präsentation auf GL / VR Stufe\n- Strategische Steuerung und Koordination des RUAG – weiten Portfolios in Abstimmung mit den Business Areas\n- Zusammenarbeit mit funktionsübergreifenden Teams zur Gewährleistung erfolgreicher Projektdurchführung\n- Mitarbeit und Strategieabgleich zu möglichen Zukunftsszenarien mittels Markt- und Technologie-Scouting und Ideengenerierung innerhalb und ausserhalb von RUAG\n- Zusammenarbeit mit Geschäftsleitung, Kader und externen Partnern, um Entwicklungsinitiativen mit der Gesamtstrategie abzustimmen\n\n## Requisiti\n\n- Abgeschlossene Ausbildung an Fachhochschule oder Universität, vorzugsweise technische und/oder betriebswirtschaftliche Grundausbildung mit relevanter Weiterbildung (z.B. CAS, MAS, MBA)\n- Ausgeprägte analytische und konzeptionelle Fähigkeiten zur Entwicklung von Handlungsoptionen und Zielbildern\n- Fähigkeit, komplexe Sachverhalte rasch zu erfassen, zu strukturieren und adressatengerecht aufzubereiten\n- Fähigkeit, unterschiedliche Interessen auf Management- und Fachebene zu integrieren um tragfähige Entscheidungsgrundlagen zu schaffen\n- Erfahrung oder Verständnis in der Führung bereichsübergreifender strategischer Initiativen und Transformationsvorhaben\n- Erfahrung im Bereich Beratung von Vorteil\n- Verhandlungssicher in Deutsch, Englisch und Französisch von Vorteil\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betreibungsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nStefanie Pascarella\nTalent Acquisition Specialist\n+41 58 461 75 62",
-        "fr": "## Responsabilité\n\n- Élaboration et mise en œuvre de stratégies pour le développement durable des secteurs des entreprises, des portefeuilles et des marchés\n- Suivi de la mise en œuvre de la stratégie d'entreprise et des initiatives stratégiques\n- Préparation et préparation de documents de qualité pour présentation au niveau GL/VR\n- Gestion stratégique et coordination du RUAG – un large portefeuille en coordination avec les secteurs d'activité\n- Collaboration avec les équipes interfonctionnelles pour assurer le succès de la mise en œuvre du projet\n- Collaboration et comparaison stratégique de scénarios futurs possibles par le biais du dépistage du marché et de la technologie et de la production d'idées à l'intérieur et à l'extérieur du RUAG\n- Collaborer avec la direction, les cadres et les partenaires externes pour aligner les initiatives de développement sur la stratégie globale\n\n## Exigences\n\n- Achevé la formation au collège technique ou à l'université, de préférence une formation technique de base et/ou d'entreprise avec une formation complémentaire pertinente (par exemple CAS, MAS, MBA)\n- Fortes compétences analytiques et conceptuelles pour développer des options d'action et des images cibles\n- Capacité à saisir, structurer et préparer rapidement des problèmes complexes pour les utilisateurs\n- Capacité d'intégrer différents intérêts au niveau de la direction et des spécialistes pour créer une base durable pour la prise de décisions\n- Expérience ou compréhension des initiatives stratégiques transversales et des projets de transformation\n- L'expérience du conseil est bénéfique\n- Négociable en allemand, anglais et français est un avantage\n\n## Vantaggi\n\n## Vos avantages\n\nVotre bien-être est important pour nous. C'est pourquoi vous avez beaucoup d'avantages avec nous. Il s'agit, par exemple:\n\n## Processus de candidature\n\n## C'est ainsi que fonctionne notre processus de demande\n\nContenu externe de YouTube À ce stade, une vidéo de YouTube est intégrée, qui est bloquée en raison des paramètres des cookies. Si la vidéo doit encore être affichée, veuillez autoriser les cookies ici.\n\nRenseignements importants sur le processus de demande :\n• Avant le début de l'emploi, on vous demandera de fournir une pénalité et un dossier d'exécution.\n• Nous acceptons les candidatures exclusivement via notre portail d'emploi jobs.ruag.ch. Malheureusement, nous ne pouvons accepter tant les demandes de courrier électronique que les demandes de lettre.\n\n## Contatto\n\nStefanie Pascarella\nSpécialiste en acquisition de talents\n+41 58 461 75 62"
-      },
-      "slugByLocale": {
-        "it": "strategy-portfolio-manager-80-100-w-m-d-ruag-ag-emmen",
-        "en": "strategy-portfolio-manager-80-100-w-m-d-ruag-ag-emmen",
-        "de": "strategy-portfolio-manager-80-100-w-m-d-ruag-ag-emmen",
-        "fr": "gestionnaire-de-strategie-et-de-portefeuille-80-100-f-m-d-ruag-ag-emmen"
-      },
-      "id": "ruag-ag-41fac9b86a36",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-28T11:44:28.811Z",
-      "needsRetranslation": true
     },
     {
       "title": "Trade Compliance Manager 80-100% (w/m/d)",
@@ -3416,8 +3358,8 @@
       "firstSeenAt": "2026-07-31T12:23:22.898Z",
       "previousSlugsByLocale": {
         "it": [
-          "qualitatsinspektor-elektrische-fertigung-100-w-m-d-ruag-ag-emmen",
-          "ispettore-di-qualita-100-m-d-ruag-ag-emmen"
+          "ispettore-di-qualita-100-m-d-ruag-ag-emmen",
+          "qualitatsinspektor-elektrische-fertigung-100-w-m-d-ruag-ag-emmen"
         ],
         "en": [
           "qualitatsinspektor-elektrische-fertigung-100-w-m-d-ruag-ag-emmen"
@@ -3427,8 +3369,8 @@
         ]
       },
       "previousSlugs": [
-        "qualitatsinspektor-elektrische-fertigung-100-w-m-d-ruag-ag-emmen",
-        "ispettore-di-qualita-100-m-d-ruag-ag-emmen"
+        "ispettore-di-qualita-100-m-d-ruag-ag-emmen",
+        "qualitatsinspektor-elektrische-fertigung-100-w-m-d-ruag-ag-emmen"
       ]
     },
     {
@@ -3768,6 +3710,64 @@
       "previousSlugs": [
         "legal-counsel-80-100-w-m-d-ruag-ag-bern"
       ]
+    },
+    {
+      "title": "Compliance Investigation Officer 80-100% (w/m/d)",
+      "slug": "compliance-investigation-officer-80-100-w-m-d-ruag-ag-bern",
+      "url": "https://jobs.ruag.ch/offene-stellen/compliance-investigation-officer/f1721f91-de32-4fdb-8e82-992eff94a200",
+      "applyUrl": "https://jobs.ruag.ch/apply/ats/f1721f91-de32-4fdb-8e82-992eff94a200",
+      "company": "RUAG AG",
+      "companyKey": "ruag-ag",
+      "companyDomain": "ruag.ch",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "admin",
+      "sector": "Aerospazio e difesa",
+      "source": "ruag-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-06",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "validThrough": "2053-12-20",
+      "description": "## Responsabilita\n\n- Selbstständige Planung, Koordination und Durchführung von internen Untersuchungen im zugewiesenen Verantwortungsbereich mit Schwerpunkt \"Persönliche Integrität\"\n- Erstellung strukturierter Untersuchungspläne sowie sorgfältige Dokumentation sämtlicher Untersuchungshandlungen\n- Vorbereitung, Durchführung und Auswertung von Interviews\n- Analyse und Prüfung von Dokumenten sowie weiteren relevanten Belegen\n- Enge Zusammenarbeit mit internen und externen Schnittstellen\n- Erstellung aussagekräftiger Untersuchungsberichte und Aufbereitung der Ergebnisse für relevante Stakeholder\n- Mitarbeit bei der Weiterentwicklung und Optimierung von Prozessen, bei entsprechender Eignung Übernahme der Stellvertretung der Head of Investigation\n\n## Requisiti\n\n- Abgeschlossenes juristisches Universitäts- oder Hochschulstudium\n- Erfahrung in internen Untersuchungen\n- Sehr gutes Verständnis für Compliance-Anforderungen, Governance und relevante Prozesse\n- Ausgeprägte Kommunikations- und Präsentationskompetenz sowie die Fähigkeit, komplexe Sachverhalte adressatengerecht aufzubereiten\n- Fliessende Deutschkenntnisse, gute Englischkenntnisse, weitere Sprachkenntnisse in Französisch und Italienisch von Vorteil\n- Einwandfreier Leumund und hohe persönliche Integrität\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betriebsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nChristian Hausheer\nSenior Manager Talent Acquisition\n+41 58 488 70 49",
+      "titleByLocale": {
+        "it": "Compliance Investigation Officer 80-100% (w/m/d)",
+        "de": "Compliance Investigation Officer 80-100% (w/m/d)",
+        "en": "Compliance Investigation Officer 80-100% (w/m/d)",
+        "fr": "Compliance Investigation Officer 80-100% (w/m/d)"
+      },
+      "descriptionByLocale": {
+        "it": "## Responsabilita\n\n- Selbstständige Planung, Koordination und Durchführung von internen Untersuchungen im zugewiesenen Verantwortungsbereich mit Schwerpunkt \"Persönliche Integrität\"\n- Erstellung strukturierter Untersuchungspläne sowie sorgfältige Dokumentation sämtlicher Untersuchungshandlungen\n- Vorbereitung, Durchführung und Auswertung von Interviews\n- Analyse und Prüfung von Dokumenten sowie weiteren relevanten Belegen\n- Enge Zusammenarbeit mit internen und externen Schnittstellen\n- Erstellung aussagekräftiger Untersuchungsberichte und Aufbereitung der Ergebnisse für relevante Stakeholder\n- Mitarbeit bei der Weiterentwicklung und Optimierung von Prozessen, bei entsprechender Eignung Übernahme der Stellvertretung der Head of Investigation\n\n## Requisiti\n\n- Abgeschlossenes juristisches Universitäts- oder Hochschulstudium\n- Erfahrung in internen Untersuchungen\n- Sehr gutes Verständnis für Compliance-Anforderungen, Governance und relevante Prozesse\n- Ausgeprägte Kommunikations- und Präsentationskompetenz sowie die Fähigkeit, komplexe Sachverhalte adressatengerecht aufzubereiten\n- Fliessende Deutschkenntnisse, gute Englischkenntnisse, weitere Sprachkenntnisse in Französisch und Italienisch von Vorteil\n- Einwandfreier Leumund und hohe persönliche Integrität\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betriebsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nChristian Hausheer\nSenior Manager Talent Acquisition\n+41 58 488 70 49",
+        "de": "## Responsabilita\n\n- Selbstständige Planung, Koordination und Durchführung von internen Untersuchungen im zugewiesenen Verantwortungsbereich mit Schwerpunkt \"Persönliche Integrität\"\n- Erstellung strukturierter Untersuchungspläne sowie sorgfältige Dokumentation sämtlicher Untersuchungshandlungen\n- Vorbereitung, Durchführung und Auswertung von Interviews\n- Analyse und Prüfung von Dokumenten sowie weiteren relevanten Belegen\n- Enge Zusammenarbeit mit internen und externen Schnittstellen\n- Erstellung aussagekräftiger Untersuchungsberichte und Aufbereitung der Ergebnisse für relevante Stakeholder\n- Mitarbeit bei der Weiterentwicklung und Optimierung von Prozessen, bei entsprechender Eignung Übernahme der Stellvertretung der Head of Investigation\n\n## Requisiti\n\n- Abgeschlossenes juristisches Universitäts- oder Hochschulstudium\n- Erfahrung in internen Untersuchungen\n- Sehr gutes Verständnis für Compliance-Anforderungen, Governance und relevante Prozesse\n- Ausgeprägte Kommunikations- und Präsentationskompetenz sowie die Fähigkeit, komplexe Sachverhalte adressatengerecht aufzubereiten\n- Fliessende Deutschkenntnisse, gute Englischkenntnisse, weitere Sprachkenntnisse in Französisch und Italienisch von Vorteil\n- Einwandfreier Leumund und hohe persönliche Integrität\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betriebsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nChristian Hausheer\nSenior Manager Talent Acquisition\n+41 58 488 70 49",
+        "en": "## Responsabilita\n\n- Selbstständige Planung, Koordination und Durchführung von internen Untersuchungen im zugewiesenen Verantwortungsbereich mit Schwerpunkt \"Persönliche Integrität\"\n- Erstellung strukturierter Untersuchungspläne sowie sorgfältige Dokumentation sämtlicher Untersuchungshandlungen\n- Vorbereitung, Durchführung und Auswertung von Interviews\n- Analyse und Prüfung von Dokumenten sowie weiteren relevanten Belegen\n- Enge Zusammenarbeit mit internen und externen Schnittstellen\n- Erstellung aussagekräftiger Untersuchungsberichte und Aufbereitung der Ergebnisse für relevante Stakeholder\n- Mitarbeit bei der Weiterentwicklung und Optimierung von Prozessen, bei entsprechender Eignung Übernahme der Stellvertretung der Head of Investigation\n\n## Requisiti\n\n- Abgeschlossenes juristisches Universitäts- oder Hochschulstudium\n- Erfahrung in internen Untersuchungen\n- Sehr gutes Verständnis für Compliance-Anforderungen, Governance und relevante Prozesse\n- Ausgeprägte Kommunikations- und Präsentationskompetenz sowie die Fähigkeit, komplexe Sachverhalte adressatengerecht aufzubereiten\n- Fliessende Deutschkenntnisse, gute Englischkenntnisse, weitere Sprachkenntnisse in Französisch und Italienisch von Vorteil\n- Einwandfreier Leumund und hohe persönliche Integrität\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betriebsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nChristian Hausheer\nSenior Manager Talent Acquisition\n+41 58 488 70 49",
+        "fr": "## Responsabilita\n\n- Selbstständige Planung, Koordination und Durchführung von internen Untersuchungen im zugewiesenen Verantwortungsbereich mit Schwerpunkt \"Persönliche Integrität\"\n- Erstellung strukturierter Untersuchungspläne sowie sorgfältige Dokumentation sämtlicher Untersuchungshandlungen\n- Vorbereitung, Durchführung und Auswertung von Interviews\n- Analyse und Prüfung von Dokumenten sowie weiteren relevanten Belegen\n- Enge Zusammenarbeit mit internen und externen Schnittstellen\n- Erstellung aussagekräftiger Untersuchungsberichte und Aufbereitung der Ergebnisse für relevante Stakeholder\n- Mitarbeit bei der Weiterentwicklung und Optimierung von Prozessen, bei entsprechender Eignung Übernahme der Stellvertretung der Head of Investigation\n\n## Requisiti\n\n- Abgeschlossenes juristisches Universitäts- oder Hochschulstudium\n- Erfahrung in internen Untersuchungen\n- Sehr gutes Verständnis für Compliance-Anforderungen, Governance und relevante Prozesse\n- Ausgeprägte Kommunikations- und Präsentationskompetenz sowie die Fähigkeit, komplexe Sachverhalte adressatengerecht aufzubereiten\n- Fliessende Deutschkenntnisse, gute Englischkenntnisse, weitere Sprachkenntnisse in Französisch und Italienisch von Vorteil\n- Einwandfreier Leumund und hohe persönliche Integrität\n\n## Vantaggi\n\n## Deine Vorteile\n\nDein Wohlbefinden liegt uns am Herzen. Deshalb hast du bei uns viele Vorteile. Dazu gehören zum Beispiel:\n\n## Processo di candidatura\n\n## So funktioniert unser Bewerbungsprozess\n\nExterner Inhalt von YouTube An dieser Stelle ist ein Video von YouTube eingebunden, das aufgrund der Cookie-Einstellungen blockiert wird. Falls das Video trotzdem angezeigt werden soll, bitte hier die Cookies zulassen .\n\nWichtige Hinweise zum Bewerbungsprozess:\n• Vor Anstellungsbeginn wirst du darum gebeten, einen Straf- und Betriebsregisterauszug vorzuweisen.\n• Bewerbungen nehmen wir ausschliesslich über unser Stellenportal jobs.ruag.ch entgegen. E-Mail- wie auch Briefbewerbungen können wir leider nicht akzeptieren.\n\n## Contatto\n\nChristian Hausheer\nSenior Manager Talent Acquisition\n+41 58 488 70 49"
+      },
+      "slugByLocale": {
+        "it": "compliance-investigation-officer-80-100-w-m-d-ruag-ag-bern",
+        "en": "compliance-investigation-officer-80-100-w-m-d-ruag-ag-bern",
+        "de": "compliance-investigation-officer-80-100-w-m-d-ruag-ag-bern",
+        "fr": "compliance-investigation-officer-80-100-w-m-d-ruag-ag-bern"
+      },
+      "id": "ruag-ag-5e5a01159d8f",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-07T01:15:28.423Z"
     }
   ]
 }
