@@ -9333,6 +9333,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vpod-direttiva-canicola-scuole.title': 'VPOD fordert Anti-Kaninchen-Richtlinie für Tessiner Staat und Schulen',
     'blog.article.vpod-direttiva-canicola-scuole.excerpt': 'Die Gewerkschaft VPOD ersucht den Staatsrat um eine strukturierte Richtlinie zur Bewältigung von Hitzewellen in öffentlichen Ämtern und Schulen, die sich am Genfer Modell orientiert',
     'blog.article.vpod-direttiva-canicola-scuole.imageAlt': 'Tessin öffentliche Schule während einer Hitzewelle mit Schutzmaßnahmen für Schüler und Personal',
+    'blog.article.los-vencedores-falkland-pablo-aparo.title': 'Los Vencedores: Der Falkland-Film aus der Sicht der Einwohner',
+    'blog.article.los-vencedores-falkland-pablo-aparo.excerpt': 'Der Regisseur Pablo Aparo präsentiert in Locarno seinen Dokumentarfilm, der den Falklandkonflikt aus der Sicht der Bewohner der Inseln erzählt.',
+    'blog.article.los-vencedores-falkland-pablo-aparo.imageAlt': 'Piazza Grande in Locarno während des Filmfestivals mit Leinwand und Publikum',
 };
 
 export default blogMetaDe;

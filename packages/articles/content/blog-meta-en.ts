@@ -9334,6 +9334,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vpod-direttiva-canicola-scuole.title': 'VPOD requests anti-canicola directive for Ticino State and schools',
     'blog.article.vpod-direttiva-canicola-scuole.excerpt': 'The VPOD union asks the Council of State for a structured directive to manage heat waves in public offices and schools, inspired by the Geneva model',
     'blog.article.vpod-direttiva-canicola-scuole.imageAlt': 'Ticino public school during a heatwave with protective measures for students and staff',
+    'blog.article.los-vencedores-falkland-pablo-aparo.title': 'Los Vencedores: the film about the Falklands seen by the inhabitants',
+    'blog.article.los-vencedores-falkland-pablo-aparo.excerpt': 'The director Pablo Aparo presents at Locarno his documentary that tells the conflict of the Falklands from the point of view of the residents of the islands.',
+    'blog.article.los-vencedores-falkland-pablo-aparo.imageAlt': 'Locarno Piazza Grande during film festival with screen and audience',
 };
 
 export default blogMetaEn;
