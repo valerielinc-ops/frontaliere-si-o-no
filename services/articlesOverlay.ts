@@ -23,7 +23,7 @@
  * cannot rewrite a published page's metadata.
  */
 
-import { cdnDataUrl } from '@/services/cdnDataBase';
+import { cdnDataUrl, cdnFreshUrl } from '@/services/cdnDataBase';
 import { mergeArticleMetaOverlay } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 
@@ -38,6 +38,13 @@ export interface OverlayArticle {
   image?: string;
   hasCalculator?: boolean;
   authorSlug?: string;
+  /**
+   * The article's slug for THIS index's locale, when the publisher emits one.
+   * Optional and forward-looking: with it the list can link a brand-new
+   * article without asking for the ~550 KB slugs.json (see the mount effect in
+   * components/community/BlogArticles.tsx).
+   */
+  slug?: string;
 }
 
 export type OverlaySection = 'frontaliere' | 'svizzera';
@@ -59,7 +66,9 @@ async function fetchIndex(
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
   try {
-    const res = await fetch(cdnDataUrl(path), { signal: controller.signal });
+    // cdnFreshUrl, not the bare path: this index is rewritten between deploys
+    // and its edge copy is NOT reachable by a purge. See cdnDataBase.ts.
+    const res = await fetch(cdnFreshUrl(cdnDataUrl(path)), { signal: controller.signal });
     if (!res.ok) return null;
     const body = await res.json() as { articles?: unknown; total?: unknown; oldest?: unknown };
     if (!Array.isArray(body?.articles)) return null;

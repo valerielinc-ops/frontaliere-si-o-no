@@ -41,6 +41,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { formatUpdatedSentence } from './shared/humanDate';
+import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { WriteCollector } from './batchWrite';
 import {
   ALL_FAQ_HUB,
@@ -561,7 +562,16 @@ function renderPage(
       hubKey: 'guida',
       activeSubTab: 'permits',
       hero: {
-        title: copy.heroTitle,
+        // The hero is this page's only <h1>, and when the copy makes it the
+        // same sentence as the <title> the page ships a duplicate pair
+        // (Semrush "Duplicate H1 and title tags", audit:h1-title-duplicates).
+        // It hides in plain sight because the brand suffix normally tells the
+        // two apart — but buildTitleWithBrand DROPS the brand once the
+        // headline passes 45 chars, and every FAQ headline does. Measured on
+        // the 2026-08-06 deploy: 67 of the 100 sampled offenders were these
+        // pages. Differentiating the H1 (never the title) is the house rule:
+        // titleSuffix.ts says to fix long headlines at source, not by cutting.
+        title: differentiateH1FromTitle(copy.heroTitle, copy.title, locale),
         subtitle: copy.heroSubtitle,
         variant: 'green',
       },
@@ -881,7 +891,20 @@ function renderEntryPage(
       activeSubTab: 'permits',
       // hubChrome's hero emits the page's only <h1> — so the <h1> is the
       // question verbatim, which is exactly the heading this page should have.
-      hero: { title: question, subtitle: ecopy.heroSubtitle(categoryLabel), variant: 'green' },
+      //
+      // But `title:` above is that SAME question, so <title> and <h1> match
+      // word for word and the page ships a duplicate pair (Semrush "Duplicate
+      // H1 and title tags"). The brand suffix normally tells the two apart;
+      // buildTitleWithBrand drops it once the headline passes 45 chars, and a
+      // question always does. Both arguments are `question` on purpose —
+      // salaryHubArticles.ts does the same for the same reason — so the H1
+      // always gains the locale-aware tag while the <title>, and its keywords,
+      // are left exactly as they are.
+      hero: {
+        title: differentiateH1FromTitle(question, question, locale),
+        subtitle: ecopy.heroSubtitle(categoryLabel),
+        variant: 'green',
+      },
     },
   });
 

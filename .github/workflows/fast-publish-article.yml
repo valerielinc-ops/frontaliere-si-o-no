@@ -224,10 +224,31 @@ jobs:
       # which pinged immediately after dispatching deploy.yml on the false
       # assumption "deploy takes ~2-3 min" (worst measured deploy:
       # 2h04m37s — Google was being sent to crawl a 404).
+      # Exit 2 means "reachable, Pages has not caught up yet" — the push landed
+      # and the pages arrive on their own. That used to be reported as the same
+      # failure as "the push did not land", which on 2026-08-06 opened a
+      # priority:high issue during a GitHub Pages major_outage for four URLs
+      # that were serving correctly minutes later. A false alarm there is not
+      # free: it feeds the issue-fix loop and burns shared Claude quota.
+      #
+      # Still NOT treated as success: `delayed` is surfaced as an output so the
+      # indexing pings below stay gated on a genuine `success`, because pinging
+      # Google at bytes that are not being served yet is the thing this step
+      # exists to prevent.
       - name: Verify shard URLs are live
         id: verify
         if: steps.render.outcome == 'success'
-        run: node scripts/wait-for-live-article-shards.mjs /tmp/fast-publish/summary.json
+        run: |
+          set +e
+          node scripts/wait-for-live-article-shards.mjs /tmp/fast-publish/summary.json
+          code=$?
+          set -e
+          if [ "$code" = "2" ]; then
+            echo "delayed=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::Shard push landed; Pages has not caught up. No incident, no ping."
+            exit 0
+          fi
+          exit "$code"
 
       # Deliberately NOT publishing the client-side data chunks here (#4881 Fase
       # 3-bis, reverted). The page shards rendered above are self-contained static
@@ -250,7 +271,7 @@ jobs:
       # possible. --ticker-only builds the registry in a temp dir purely to compute it
       # and uploads nothing else.
       - name: Publish news-ticker payload
-        if: steps.verify.outcome == 'success'
+        if: steps.verify.outcome == 'success' && steps.verify.outputs.delayed != 'true'
         continue-on-error: true
         run: npx -y tsx@4 scripts/publish-article-chunks.mjs --ticker-only
 
@@ -270,7 +291,7 @@ jobs:
       # previous R2 copy (or fall open to the origin passthrough) until this
       # step succeeds on a later run or the next full deploy.
       - name: Publish edge files (sitemap/RSS + llms.txt pushable origin)
-        if: steps.verify.outcome == 'success'
+        if: steps.verify.outcome == 'success' && steps.verify.outputs.delayed != 'true'
         continue-on-error: true
         run: node scripts/publish-edge-files.mjs
 
@@ -281,7 +302,7 @@ jobs:
       # deploy — so without a direct submit here a fast-published article would
       # reach Google in minutes and Bing/Yandex only hours later.
       - name: Notify search engines (Google Indexing API + IndexNow)
-        if: steps.verify.outcome == 'success'
+        if: steps.verify.outcome == 'success' && steps.verify.outputs.delayed != 'true'
         continue-on-error: true
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
