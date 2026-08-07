@@ -468,12 +468,12 @@
     },
     {
       "id": "climeworks-0f254997051d",
-      "slug": "commercial-growth-lead-100-climeworks-opfikon-zurich",
+      "slug": "piombo-di-crescita-commerciale-100-climeworks-opfikon-zurich",
       "slugByLocale": {
-        "it": "commercial-growth-lead-100-climeworks-opfikon-zurich",
         "en": "commercial-growth-lead-100-climeworks-opfikon-zurich",
-        "de": "commercial-growth-lead-100-climeworks-opfikon-zurich",
-        "fr": "commercial-growth-lead-100-climeworks-opfikon-zurich"
+        "it": "piombo-di-crescita-commerciale-100-climeworks-opfikon-zurich",
+        "de": "kommerzieller-wachstumsvorsprung-100-climeworks-opfikon-zurich",
+        "fr": "croissance-commerciale-du-plomb-100-climeworks-opfikon-zurich"
       },
       "company": "Climeworks",
       "companyKey": "climeworks",
@@ -557,7 +557,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-07T01:10:38.025Z"
+      "firstSeenAt": "2026-08-07T01:10:38.025Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commercial-growth-lead-100-climeworks-opfikon-zurich"
+        ],
+        "de": [
+          "commercial-growth-lead-100-climeworks-opfikon-zurich"
+        ],
+        "fr": [
+          "commercial-growth-lead-100-climeworks-opfikon-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "commercial-growth-lead-100-climeworks-opfikon-zurich"
+      ]
     },
     {
       "id": "climeworks-81a8f1260c6e",

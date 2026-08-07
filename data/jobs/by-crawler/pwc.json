@@ -6501,7 +6501,7 @@
         "it": "gestione-dei-mercati-finanziari-pwc-switzerland-zurich",
         "en": "manager-capital-markets-pwc-switzerland-zurich",
         "de": "manager-capital-markets-pwc-zurich",
-        "fr": "gestionnaire-marches-des-capitaux-pwc-switzerland-zurich"
+        "fr": "manager-capital-markets-pwc-zurich"
       },
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -6520,12 +6520,11 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "previousSlugsByLocale": {
-        "fr": [
-          "manager-capital-markets-pwc-zurich",
-          "gestionnaire-marches-des-capitaux-pwc-switzerland-zurich"
-        ],
         "it": [
           "manager-capital-markets-pwc-zurich"
+        ],
+        "fr": [
+          "gestionnaire-marches-des-capitaux-pwc-switzerland-zurich"
         ]
       },
       "previousSlugs": [
