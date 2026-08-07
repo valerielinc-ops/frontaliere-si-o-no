@@ -29,6 +29,15 @@
  * the hub is fresh exactly when it shows what the corpus most recently
  * published.
  *
+ * Plus, on the landing AND on its `/tutti/` archive: no same-origin
+ * `/assets/…` reference (issue #5270). That one is not a staleness question,
+ * it is a "was this page ever put through the CDN offload" question, and it
+ * needs to be asked HERE for the same reason the rest of this probe does —
+ * the two pages have different writers in two different repos, and asserting
+ * the ordering in one repo's source leaves the other repo's publishes
+ * unguarded. `scripts/lib/article-archive-assets.mjs` documents the failure
+ * mode and owns the pattern.
+ *
  * Usage:
  *   node scripts/check-article-hub-landings.mjs
  *   MIN_CARDS=50 SITE_ORIGIN=https://frontaliereticino.ch node scripts/...
@@ -40,6 +49,10 @@
 import { appendFileSync } from 'node:fs';
 
 import { SECTION_ROUTES } from '../infra/cloudflare-worker/locale-router.js';
+import {
+  ARCHIVE_ALL_SLUG,
+  countSameOriginAssetRefs,
+} from './lib/article-archive-assets.mjs';
 import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
 import { EXTERNALLY_SERVED_SECTIONS } from './lib/externally-served-paths.mjs';
 
@@ -139,11 +152,55 @@ async function main() {
       }
     }
 
+    const strayAssets = countSameOriginAssetRefs(html);
+    if (strayAssets > 0) {
+      problems.push(`${strayAssets} same-origin /assets/ refs — all 404, page renders unstyled`);
+    }
+
     if (problems.length > 0) {
       lines.push(`FAIL ${label} ${url} — ${problems.join('; ')}`);
       failed++;
     } else {
       lines.push(`ok   ${label} ${url} — ${cards} cards, newest article linked`);
+    }
+
+    // ── The /tutti/ archive, same section, same locale ────────────────────
+    //
+    // Added after #5270: the landing and the archive have DIFFERENT writers,
+    // and only the landing was watched. The landing is refreshed by swapping
+    // the card grid inside already-offloaded HTML, so its asset refs survive;
+    // the archive is re-rendered whole by `renderArticleHubPages`, which emits
+    // fresh `/assets/…` text that only the CDN offload rewrites. When the
+    // publisher ran that offload BEFORE the archive render, the landing stayed
+    // healthy and the archive shipped 9 dead refs — 200 OK, no CSS, no SPA.
+    //
+    // Two producers write these pages (this repo's fast-publish and the
+    // corpus's own copy of the same script, which no mirror keeps in sync), so
+    // a source-order test in either repo only covers half the traffic. This
+    // asks the served bytes, which is the only question that stays answerable
+    // when the next handoff moves the writer again.
+    const archiveUrl = `${SITE_ORIGIN}${route.prefix}/${ARCHIVE_ALL_SLUG[route.locale]}/`;
+    const archiveLabel = `${label} archive`;
+    try {
+      const res = await fetch(archiveUrl, {
+        headers: { 'User-Agent': 'check-article-hub-landings' },
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const archiveHtml = await res.text();
+      const stray = countSameOriginAssetRefs(archiveHtml);
+      if (stray > 0) {
+        lines.push(
+          `FAIL ${archiveLabel} ${archiveUrl} — ${stray} same-origin /assets/ refs `
+          + '(404: no CSS, no SPA bundle, no AdSense loader) — the CDN offload ran '
+          + 'BEFORE the archive was rendered (issue #5270)',
+        );
+        failed++;
+      } else {
+        lines.push(`ok   ${archiveLabel} ${archiveUrl} — asset refs on the CDN`);
+      }
+    } catch (err) {
+      lines.push(`FAIL ${archiveLabel} ${archiveUrl} — ${err.message}`);
+      failed++;
     }
   }
 
@@ -158,11 +215,13 @@ async function main() {
     );
   }
 
+  // Two pages per route since #5270: the landing and its /tutti/ archive.
+  const probed = routes.length * 2;
   if (failed > 0) {
-    console.error(`::error::${failed} of ${routes.length} article-hub landings are degraded`);
+    console.error(`::error::${failed} of ${probed} article-hub pages are degraded`);
     process.exit(1);
   }
-  console.log(`[hub-landings] all ${routes.length} landings healthy`);
+  console.log(`[hub-landings] all ${probed} pages healthy (${routes.length} landings + archives)`);
 }
 
 main().catch((err) => {
