@@ -9327,6 +9327,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.siccit-importazioni-granoturco-svizzera.title': 'Dürre: Maisimporte zollfrei für Tessiner Züchter',
     'blog.article.siccit-importazioni-granoturco-svizzera.excerpt': 'Außerordentliche Maßnahme des WBF bis zum 31. Oktober 2026, um den von der Krise betroffenen Landwirten Futter zu garantieren. Maisimporte bis zu 60% Trockenmasse zollfrei.',
     'blog.article.siccit-importazioni-granoturco-svizzera.imageAlt': 'Castelgrande am Bodensee mit Goldlicht',
+    'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.title': 'Gilt die Freiheit des Marktes auch für diejenigen, die arbeiten?',
+    'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.excerpt': 'Lorenzo Onderka, Förderer von Avanti con Ticino&Lavoro, wirft eine interessante Frage nach der Freiheit des Marktes und seiner Anwendung im öffentlichen Sektor auf.',
+    'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.imageAlt': 'Ein Frontalier, der in Ticino nach einem Job sucht',
 };
 
 export default blogMetaDe;
