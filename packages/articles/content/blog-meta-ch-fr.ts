@@ -1915,6 +1915,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.rimborsi-730-sostituti-imposta.title': 'Remboursements 730 : indemnisables en F24',
     'blog.article.rimborsi-730-sostituti-imposta.excerpt': 'Selon ce qui a été communiqué en mai 2026, les substituts d’impôt peuvent récupérer les remboursements du modèle 730 en les compensant dans F24 même avec des impôts de substitution sur les salaires',
     'blog.article.rimborsi-730-sostituti-imposta.imageAlt': 'Travailleur frontalier italien vérifiant des documents fiscaux à Lugano',
+    'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.title': 'Un an aprs les chocs des droits, les exportateurs restent dans l\'incertitude',
+    'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.excerpt': 'Un an après les droits américains à 39%, le taux sur les marchandises suisses est à 12,5% mais reste imprévisible : négociations, jugements et nouvelles enquêtes tiennent les exportateurs en alerte',
+    'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.imageAlt': 'Vue aérienne de la zone industrielle de Zurich avec conteneurs et machines suisses prêts pour l\'exportation',
 };
 
 export default blogMetaChFr;

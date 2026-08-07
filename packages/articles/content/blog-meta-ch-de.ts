@@ -1915,6 +1915,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.rimborsi-730-sostituti-imposta.title': 'Rückerstattungen 730: jetzt auch mit Ersatzsteuern in F24 ausgleichbar',
     'blog.article.rimborsi-730-sostituti-imposta.excerpt': 'Wie im Mai 2026 mitgeteilt, können Steuersubstitute Rückerstattungen aus dem Vordruck 730 zurückfordern, indem sie sie in F24 auch mit einigen Ersatzsteuern auf Löhne und Gehälter ausgleichen',
     'blog.article.rimborsi-730-sostituti-imposta.imageAlt': 'Italienischer Grenzgänger prüft Steuerunterlagen im Luganer Büro',
+    'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.title': 'Ein Jahr nach dem Zollschock sind die Exporteure immer noch unsicher',
+    'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.excerpt': 'Ein Jahr nach den US-Zöllen von 39% liegt der Zollsatz auf Schweizer Waren bei 12,5%, bleibt aber unberechenbar: Verhandlungen, Urteile und neue Untersuchungen halten die Exporteure auf dem Laufenden',
+    'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.imageAlt': 'Luftaufnahme des Industriegebiets Zürich mit Containern und schweizerischen Maschinen für den Export',
 };
 
 export default blogMetaChDe;

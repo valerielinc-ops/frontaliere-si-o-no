@@ -5743,6 +5743,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'un-anno-dallo-shock-dei-dazi-esportatori-incerti',
+    category: 'pratico',
+    date: '2026-08-07T16:02:29.813Z',
+    image: '/images/blog/un-anno-dallo-shock-dei-dazi-esportatori-incerti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
