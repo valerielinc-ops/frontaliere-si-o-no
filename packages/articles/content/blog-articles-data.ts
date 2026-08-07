@@ -28002,6 +28002,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'liberta-del-mercato-vale-anch-per-chi-lavora',
+ category: 'pratico',
+ date: '2026-08-07T13:50:56.826Z',
+ image: '/images/blog/liberta-del-mercato-vale-anch-per-chi-lavora.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
