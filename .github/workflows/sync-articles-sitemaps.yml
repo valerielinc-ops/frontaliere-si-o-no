@@ -92,10 +92,23 @@ jobs:
           #
           # public/images/blog is a DIRECTORY on purpose — the pull writes one
           # file per new article and the set is not known ahead of time.
+          # public/sitemap-articles-archive.xml was MISSING from this list while
+          # scripts/pull-articles-api.mjs has written it since #4974 — so every
+          # run produced the file and this step threw it away unstaged. It never
+          # reached the repo, Vite never copied it into dist/, sitemapAliasPlugin
+          # (which builds the index by discovering dist/sitemap-*.xml) never saw
+          # it, and the published index carries 86 entries with that one absent.
+          # Measured 2026-08-07 against the live index and the eight article
+          # shard trees: the `/{section}/{all}/` hubs and their page-N chain
+          # (156 URLs in the archive sitemap) answer 200, are self-canonical and
+          # indexable, and are announced by none of the 86 sitemaps. That is the
+          # exact condition #4974 added the file to fix; only the staging was
+          # missing, so the fix never reached the index.
           FILES=(
             packages/articles/content
             public/sitemap-blog.xml
             public/sitemap-blog-ch.xml
+            public/sitemap-articles-archive.xml
             public/rss.xml public/rss-it.xml public/rss-en.xml public/rss-de.xml public/rss-fr.xml
             public/rss-svizzera.xml public/rss-svizzera-it.xml public/rss-svizzera-en.xml
             public/rss-svizzera-de.xml public/rss-svizzera-fr.xml

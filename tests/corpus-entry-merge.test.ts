@@ -26,6 +26,9 @@
  */
 import { describe, expect, it } from 'vitest';
 import { localOnlyIds, mergeEntries, parseSlugIds } from '../scripts/lib/corpus-entry-merge.mjs';
+import { readFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const LOCAL_ONLY = ['caldo-torrido-lavoro-ticino', 'rimborsi-730-sostituti-imposta', 'lavoro-forzato-catene-svizzere'];
 
@@ -284,5 +287,39 @@ describe('corpus entry merge — the whole incident, end to end', () => {
     // And all three are accounted for across the tree, not just one or two.
     const restored = new Set(results.flatMap((r) => r.preserved));
     expect([...restored].sort()).toEqual([...LOCAL_ONLY].sort());
+  });
+});
+
+describe('il pull cabla davvero la preservazione delle voci', () => {
+  // Il modulo puro sopra e' testato a fondo, ma la sua UTILITA' dipende dal
+  // fatto che `pull-articles-corpus.mjs` lo chiami attorno a `mirrorTree`.
+  // Dopo il merge con main — che ha portato la propria guardia sulle rimozioni
+  // (`corpus-removal-guard.mjs`) — questo cablaggio e' l'unico pezzo che resta
+  // solo nostro, e un rebase distratto lo perderebbe senza rompere nulla:
+  // il sync tornerebbe verde e le voci solo-locali sparirebbero in silenzio.
+  const src = readFileSync(
+    resolve(dirname(fileURLToPath(import.meta.url)), '..', 'scripts/pull-articles-corpus.mjs'),
+    'utf-8',
+  );
+
+  it('legge le voci solo-locali PRIMA del mirror e le rimette DOPO', () => {
+    const iSnapshot = src.indexOf('localOnlyIds({');
+    const iMirror = src.indexOf('mirrorTree(src, DEST');
+    const iMerge = src.indexOf('mergeEntries(');
+    expect(iSnapshot).toBeGreaterThan(-1);
+    expect(iMirror).toBeGreaterThan(iSnapshot);
+    expect(iMerge).toBeGreaterThan(iMirror);
+  });
+
+  it('rifiuta invece di degradare quando una superficie non e\' ricomponibile', () => {
+    // Un ripristino parziale sembra un successo e si scopre giorni dopo da un
+    // 404 o da un gate rosso sulla PR di qualcun altro.
+    expect(src).toContain('const unmerged = []');
+    expect(src).toContain('could not preserve these local-only entries — refusing');
+  });
+
+  it('convive con la guardia sulle rimozioni arrivata da main', () => {
+    expect(src).toContain('corpus-removal-guard.mjs');
+    expect(src).toContain('corpus-entry-merge.mjs');
   });
 });
