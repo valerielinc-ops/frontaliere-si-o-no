@@ -8126,7 +8126,7 @@
         "it": "zenbu-sushi-chef-60-80-two-spice-ag-dietlikon",
         "en": "zenbu-sushi-koch-kochin-60-80-two-spice-ag-dietlikon-x30fpg",
         "de": "zenbu-sushi-koch-kochin-60-80-two-spice-ag-dietlikon-x30fpg",
-        "fr": "zenbu-sushi-koch-kochin-60-80-two-spice-ag-dietlikon-x30fpg"
+        "fr": "sushi-zenbu-chef-60-80-two-spice-ag-dietlikon"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -8135,6 +8135,9 @@
           "zenbu-sushi-koch-kochin-60-80-two-spice-ag-dietlikon",
           "zenbu-sushi-koch-kochin-60-80-two-spice-ag-dietlikon-x30fpg",
           "zenbu-sushi-koch-kochin-60-80-two-spice-dietlikon"
+        ],
+        "fr": [
+          "zenbu-sushi-koch-kochin-60-80-two-spice-ag-dietlikon-x30fpg"
         ]
       },
       "previousSlugs": [
@@ -9028,12 +9031,6 @@
         "it": [
           "polydesigner-in-3d-coop-genossenschaft-zurich"
         ],
-        "en": [
-          "polydesigner-in-3d-coop-genossenschaft-zurich-qqky5j"
-        ],
-        "fr": [
-          "polydesigner-in-3d-coop-genossenschaft-zurich-qqky5j"
-        ],
         "de": [
           "polydesigner-in-3d-coop-city-zurich-qqky5j",
           "polydesigner-in-3d-coop-genossenschaft-zurich-qqky5j"
@@ -9371,16 +9368,12 @@
           "teammember-food-m-w-d-marche-restaurants-schweiz-ag-dietlikon",
           "teammember-food-m-w-d-marche-restaurants-schweiz-ag-dietlikon-2",
           "teammember-food-m-w-d-marche-dietlikon-2"
-        ],
-        "fr": [
-          "teammember-food-m-w-d-marche-restaurants-schweiz-ag-dietlikon-d7prix"
         ]
       },
       "previousSlugs": [
         "teammember-food-m-w-d-marche-restaurants-schweiz-ag-dietlikon",
         "teammember-food-m-w-d-marche-restaurants-schweiz-ag-dietlikon-2",
-        "teammember-food-m-w-d-marche-dietlikon-2",
-        "teammember-food-m-w-d-marche-restaurants-schweiz-ag-dietlikon-d7prix"
+        "teammember-food-m-w-d-marche-dietlikon-2"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -14825,9 +14818,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
-          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
@@ -14835,9 +14826,7 @@
       },
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
-        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
-        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
