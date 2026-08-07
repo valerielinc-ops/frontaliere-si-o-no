@@ -15,6 +15,7 @@
 
 import fs from 'node:fs';
 import np from 'node:path';
+import os from 'node:os';
 import { describe, it, expect } from 'vitest';
 
 import {
@@ -417,14 +418,39 @@ describe('topic hubs — non annunciare una sezione che il build non spedisce', 
     expect(src).toContain('ARTICOLISVIZZERA_BUILD_EMIT_SKIP');
   });
 
-  it('salta la sezione PRIMA di calcolarne i topic, non dopo', () => {
+  it('salta la sezione PRIMA di renderla, non dopo', () => {
     // Saltare a valle lascerebbe comunque le entry in sitemap: e' il punto.
+    //
+    // Il bersaglio era `computeSectionTopics(rootDir, section)`, che stava
+    // inline nel loop. Ora il corpo del loop e' `renderTopicHubSectionCore`
+    // (condiviso col fast publish), e computeSectionTopics vive dentro quella
+    // funzione — definita PRIMA del loop, quindi cercarla a valle del loop
+    // restituisce -1 e l'asserzione passerebbe/fallirebbe per il motivo
+    // sbagliato. Il bersaglio giusto e' la chiamata al core: e' li' che la
+    // sezione viene calcolata e resa.
     const loop = src.indexOf('for (const section of TOPIC_HUB_SECTIONS)');
     const guard = src.indexOf('buildEmitSkip[section]', loop);
-    const compute = src.indexOf('computeSectionTopics(rootDir, section)', loop);
+    const render = src.indexOf('renderTopicHubSectionCore({', loop);
     expect(loop).toBeGreaterThan(-1);
     expect(guard).toBeGreaterThan(-1);
-    expect(guard).toBeLessThan(compute);
+    expect(render, 'chiamata al core non trovata dopo il loop').toBeGreaterThan(-1);
+    expect(guard).toBeLessThan(render);
+  });
+
+  it('non applica il gate al percorso fast-publish (#5001)', () => {
+    // Il gate dice «il BUILD non spedisce questa sezione», non «queste pagine
+    // non devono esistere». Entrambe le sezioni articoli hanno
+    // BUILD_EMIT_SKIP=true di default (deploy.yml: true se la repo var non e'
+    // esplicitamente 'false') proprio perche' le serve il fast publish
+    // — deploy.yml: «excluded from full-replace push (served by fast-publish
+    // only)». Se il gate finisse nel core condiviso, renderTopicClusterHubPages
+    // salterebbe entrambe le sezioni e la fix di freschezza diventerebbe codice
+    // morto in silenzio, con tutti i test ancora verdi.
+    const coreStart = src.indexOf('function renderTopicHubSectionCore(');
+    const coreEnd = src.indexOf('\n}', coreStart);
+    expect(coreStart).toBeGreaterThan(-1);
+    expect(src.slice(coreStart, coreEnd)).not.toContain('BUILD_EMIT_SKIP');
+    expect(src.slice(coreStart, coreEnd)).not.toContain('buildEmitSkip');
   });
 
   it('scrive la sitemap solo se qualcosa e\' stato davvero reso', () => {
@@ -438,4 +464,145 @@ describe('topic hubs — non annunciare una sezione che il build non spedisce', 
     expect(guardZone).toMatch(/console\.log/);
     expect(guardZone).toContain('BUILD_EMIT_SKIP');
   });
+});
+
+/**
+ * Fast-publish freshness (#5001 follow-up).
+ *
+ * The hubs were emitted only by the site build, so an article published
+ * through `scripts/publish-article-fast.mjs` joined its topic hub at the next
+ * full deploy — while `/tutti/`, which the article engine re-renders, listed
+ * it within minutes. `renderTopicClusterHubPages` is what closes that window,
+ * and these assert the three properties the fast path actually depends on:
+ *
+ *  - every path it REPORTS is a file it WROTE (the report drives the shard
+ *    push — a phantom entry fails the push, a missing one silently drops a
+ *    page from the deploy);
+ *  - the reported paths sit under the section's own subtree, which is what
+ *    lets them ride the existing per-locale push leg with no new shard, key
+ *    or workflow change;
+ *  - the HTML carries the SPA asset refs, because the pages are rendered
+ *    before the CDN offload precisely so the offload can rewrite them
+ *    (regression guard for the #5270 class: hubs shipped with same-origin
+ *    `/assets/...` refs that are guaranteed 404s after the deploy drops
+ *    `dist/assets`).
+ */
+describe('fast-publish topic hub render', () => {
+  const rootDir = np.resolve(__dirname, '..');
+  const available = fs.existsSync(np.join(rootDir, 'services/locales/blog-meta-ch-it.ts'));
+
+  // `svizzera` is the smaller section (~636 articles vs ~3.100): same code
+  // path, a fraction of the render.
+  const renderSvizzera = async () => {
+    const { renderTopicClusterHubPages } = await import(
+      '../build-plugins/topicClusterHubsPlugin'
+    );
+    const distDir = fs.mkdtempSync(np.join(os.tmpdir(), 'topic-hub-test-'));
+    const result = await renderTopicClusterHubPages({
+      rootDir,
+      distDir,
+      section: 'svizzera',
+    });
+    return { distDir, result };
+  };
+
+  it.runIf(available)(
+    'writes every path it reports, for every locale',
+    async () => {
+      const { distDir, result } = await renderSvizzera();
+      try {
+        const all = TOPIC_HUB_LOCALES.flatMap((l) => result.pathsByLocale[l]);
+        expect(all.length).toBeGreaterThan(0);
+        expect(result.written).toBe(all.length);
+        for (const rel of all) {
+          expect(fs.existsSync(np.join(distDir, rel)), rel).toBe(true);
+        }
+        // Every locale renders — a locale silently dropping out would leave
+        // its hreflang siblings pointing at stale pages.
+        for (const locale of TOPIC_HUB_LOCALES) {
+          expect(result.pathsByLocale[locale].length, locale).toBeGreaterThan(0);
+        }
+      } finally {
+        fs.rmSync(distDir, { recursive: true, force: true });
+      }
+    },
+    180_000,
+  );
+
+  it.runIf(available)(
+    'covers every canonical topic-hub URL of the section, hub or bridge',
+    async () => {
+      const { distDir, result } = await renderSvizzera();
+      try {
+        const written = new Set(
+          TOPIC_HUB_LOCALES.flatMap((l) => result.pathsByLocale[l]),
+        );
+        // The URL space is fixed by the curated taxonomy, so page 1 of every
+        // topic must exist on every build — that is what makes the
+        // searchConsoleCompat self-map honest.
+        for (const locale of TOPIC_HUB_LOCALES) {
+          for (const topic of TOPIC_CLUSTERS) {
+            const rel = np.join(
+              buildTopicHubPath(locale, 'svizzera', topic.key).slice(1),
+              'index.html',
+            );
+            expect(written.has(rel), rel).toBe(true);
+          }
+        }
+      } finally {
+        fs.rmSync(distDir, { recursive: true, force: true });
+      }
+    },
+    180_000,
+  );
+
+  it.runIf(available)(
+    'emits the flat sibling with identical bytes, and keeps both under the section subtree',
+    async () => {
+      const { distDir, result } = await renderSvizzera();
+      try {
+        // `scripts/lib/section-shard-slugs.json`'s `articolisvizzera.it` slug —
+        // the shard subtree the fast path pushes this locale's files into.
+        // Hub paths must live under it or the push would need a new leg.
+        for (const rel of result.pathsByLocale.it) {
+          expect(rel.startsWith('articoli-svizzera/'), rel).toBe(true);
+        }
+        for (const rel of result.pathsByLocale.en) {
+          expect(rel.startsWith('en/swiss-articles/'), rel).toBe(true);
+        }
+
+        const indexRel = result.pathsByLocale.it.find((p) => p.endsWith('/index.html'))!;
+        const flatRel = indexRel.replace(/\/index\.html$/, '.html');
+        expect(result.pathsByLocale.it).toContain(flatRel);
+        expect(fs.readFileSync(np.join(distDir, flatRel), 'utf-8')).toBe(
+          fs.readFileSync(np.join(distDir, indexRel), 'utf-8'),
+        );
+      } finally {
+        fs.rmSync(distDir, { recursive: true, force: true });
+      }
+    },
+    180_000,
+  );
+
+  it.runIf(available)(
+    'renders the full SPA shell, so the CDN offload has asset refs to rewrite',
+    async () => {
+      const { distDir, result } = await renderSvizzera();
+      try {
+        const indexRel = result.pathsByLocale.it.find((p) => p.endsWith('/index.html'))!;
+        const html = fs.readFileSync(np.join(distDir, indexRel), 'utf-8');
+        // Minified output — match on attribute names, not quoted values.
+        expect(html).toMatch(/id=["']?root/);
+        expect(html).toMatch(/seo-static-content/);
+        expect(html).toMatch(/rel=["']?canonical/);
+        expect(html).toMatch(/hreflang=/);
+        // The asset ref the offload rewrites. Absent it, the page ships with
+        // no CSS and no SPA bundle after the deploy drops `dist/assets`.
+        expect(html).toMatch(/\/assets\//);
+      } finally {
+        fs.rmSync(distDir, { recursive: true, force: true });
+      }
+    },
+    180_000,
+  );
 });
