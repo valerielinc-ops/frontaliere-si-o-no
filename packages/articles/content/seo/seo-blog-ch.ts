@@ -24700,6 +24700,9 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-cantonale-confronto-svizzera-2026-canton-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
   'blog-rimborsi-730-sostituti-imposta': {
     title: 'Rimborsi 730: ora compensabili anche con imposte sostitutive in F24',
     description: 'Secondo quanto comunicato nel maggio 2026, i sostituti d’imposta possono recuperare i rimborsi dal modello 730 tramite F24 anche con imposte sostitutive sulle',
@@ -24726,6 +24729,18 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "datePublished": "2026-08-07T04:42:27+00:00",
       "dateModified": "2026-08-07T04:42:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rimborsi-730-sostituti-imposta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
   'blog-lavoro-forzato-catene-svizzere': {
     title: 'Vero o falso: lavoro forzato nelle catene di approvvigionamento svizzere',
     description: 'Gli USA applicano un dazio del 12,5% alla Svizzera per mancato divieto d\'importazione di beni da lavoro forzato, contro il 10% all\'UE. Scopri cosa significa',
@@ -24761,23 +24776,6 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavoro-forzato-catene-svizzere/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
-        "name": "Marco Ferrari",
-        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rimborsi-730-sostituti-imposta/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

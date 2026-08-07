@@ -59854,6 +59854,9 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/graffio-nella-barba-locarno-film-festival/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
   'blog-caldo-torrido-lavoro-ticino': {
     title: 'Lavoro nel caldo torrido in Ticino: Governo apre a nuove misure per i lavoratori',
     description: 'Sindacati UNIA, OCST, USS e VPOD incontrano Consiglio di Stato: oltre 100 ricoveri per caldo sui lavoratori. Governo preoccupato apre a nuove misure strutturali',
@@ -59889,10 +59892,6 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caldo-torrido-lavoro-ticino/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

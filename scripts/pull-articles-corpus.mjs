@@ -49,6 +49,7 @@ import path from 'node:path';
 import os from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
+import { localOnlyIds, mergeEntries } from './lib/corpus-entry-merge.mjs';
 
 const REMOTE = process.env.ARTICLES_CORPUS_REMOTE
   ?? 'https://github.com/nanakokyobashi-rgb/frontaliere-articles.git';
@@ -59,6 +60,13 @@ const CHECK_ONLY = process.argv.includes('--check');
 // Opt-in, never the default. See MAX_DELETIONS: removing content this repo
 // published is an editorial decision, not a step in a routine sync.
 const ALLOW_DELETIONS = process.argv.includes('--allow-deletions');
+
+/**
+ * The registries that DEFINE an article id. A site-published article is one
+ * whose id these carry and upstream's copies do not; every other surface keys
+ * off the same id, so this is the only place the question has to be asked.
+ */
+const REGISTRY_FILES = ['routerBlogData.ts', 'routerSwissData.ts'];
 
 /** Body files below this count mean something went wrong upstream, not a real shrink. */
 const MIN_BODY_FILES = 5000;
@@ -280,8 +288,85 @@ function main() {
     // bounded by the deletion guard above, and every removed path is named in the
     // log, so a mirror that un-lists a live article is visible in the run rather
     // than discovered later from a 404.
+    // ── Snapshot BEFORE the overwrite ────────────────────────────────────
+    //
+    // Not deleting protects a site-published article's per-article files; it
+    // does nothing for its ENTRIES inside files nanako also owns, which the
+    // mirror is about to overwrite wholesale. Read those entries now, while
+    // they still exist on disk.
+    //
+    // Every shared file is scanned, not a curated list of "the surfaces we know
+    // about". A curated list is exactly what would go stale the next time the
+    // generator gains a file, and the failure mode of a stale list here is a
+    // silent half-restore (#5289). Cheap enough to be unconditional: the corpus
+    // is ~15k small files and the ones that mention a local-only id are a
+    // couple of dozen.
+    const preserveIds = localOnlyIds({
+      localSources: REGISTRY_FILES
+        .map((f) => path.join(DEST, f))
+        .filter((p) => fs.existsSync(p))
+        .map((p) => fs.readFileSync(p, 'utf-8')),
+      upstreamSources: REGISTRY_FILES
+        .map((f) => path.join(src, f))
+        .filter((p) => fs.existsSync(p))
+        .map((p) => fs.readFileSync(p, 'utf-8')),
+    });
+
+    const snapshots = [];
+    if (preserveIds.size > 0) {
+      console.log(
+        `[pull-articles-corpus] ${preserveIds.size} article id(s) exist only downstream: `
+        + `${[...preserveIds].join(', ')}`,
+      );
+      for (const rel of srcFiles) {
+        if (!dstFiles.has(rel)) continue; // upstream-only: nothing of ours to lose
+        const abs = path.join(DEST, rel);
+        let text;
+        try { text = fs.readFileSync(abs, 'utf-8'); } catch { continue; }
+        const ids = [...preserveIds].filter((id) => text.includes(id));
+        if (ids.length > 0) snapshots.push({ rel, text, ids });
+      }
+    }
+
     mirrorTree(src, DEST, ALLOW_DELETIONS);
     console.log(`[pull-articles-corpus] synced ${srcN} files into packages/articles/content/`);
+
+    // ── Put the local-only entries back ──────────────────────────────────
+    //
+    // Refuses rather than degrades, like everything else in this script: an id
+    // that was in a file before the mirror and is not in it afterwards means a
+    // surface this could not merge. Reporting that as an error is the point —
+    // a partial restore looks like success and is discovered days later from a
+    // 404 or a red gate on somebody else's PR.
+    const unmerged = [];
+    for (const snap of snapshots) {
+      const abs = path.join(DEST, snap.rel);
+      const upstreamText = fs.readFileSync(abs, 'utf-8');
+      const { text, preserved, upstreamWins, missing } =
+        mergeEntries(upstreamText, snap.text, snap.ids);
+
+      if (preserved.length > 0) {
+        fs.writeFileSync(abs, text);
+        console.log(`[pull-articles-corpus] ${snap.rel}: preserved ${preserved.join(', ')}`);
+      }
+      // Not a warning: upstream carrying the id is the normal, correct end
+      // state — the article finally made it up and we stop shadowing it.
+      for (const id of upstreamWins) {
+        console.log(`[pull-articles-corpus] ${snap.rel}: ${id} now comes from upstream`);
+      }
+      for (const id of missing) unmerged.push(`${snap.rel}: ${id}`);
+    }
+
+    if (unmerged.length > 0) {
+      console.error(
+        '[pull-articles-corpus] could not preserve these local-only entries — refusing:\n'
+        + unmerged.map((u) => `    ${u}`).join('\n')
+        + '\n  The sync ran, so the checkout is now upstream\'s copy for those files.'
+        + '\n  Restore them from the previous commit and teach'
+        + ' scripts/lib/corpus-entry-merge.mjs the shape it did not recognise.',
+      );
+      process.exit(1);
+    }
   } finally {
     fs.rmSync(tmp, { recursive: true, force: true });
   }
