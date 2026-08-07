@@ -1,16 +1,16 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-08-07T10:13:22.621Z",
+  "generatedAt": "2026-08-07T21:47:39.242Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 11395,
-  "avgDurationMs": 11395,
+  "durationMs": 9839,
+  "avgDurationMs": 9839,
   "durationHistory": [
-    11395
+    9839
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -25,7 +25,7 @@
       "location": "Zurich",
       "canton": "ZH",
       "country": "CH",
-      "slug": "store-style-advisor-zurich-airport-zegna",
+      "slug": "store-style-consulente-zurich-airport-ermenegildo-zegna-group-zurich",
       "department": "Sales Channels & Retail Excellence/Retail",
       "category": "Sales Channels & Retail Excellence/Retail",
       "datePosted": "2026-08-07",
@@ -41,7 +41,6 @@
       },
       "sourceLang": "en",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "ermenegildo-zegna-logistica-c5d21ec58740",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -50,11 +49,11 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "firstSeenAt": "2026-08-07T01:15:25.380Z",
-      "_qualityScore": 78,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 14
       }
     },
