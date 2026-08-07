@@ -91,7 +91,7 @@ export const BUILD_ID = DEPLOY_BUILD_ID_OVERRIDE || String(Date.now());
  * prerendered pages and 404'd from HTML cached under the old name). This
  * invariant is pinned by `tests/stable-asset-names.test.ts`.
  */
-function assertPublicAssetExists(relPath: string): void {
+export function readPublicAsset(relPath: string): string {
   // Walk up from `build-plugins/constants.ts` to the repo root.
   // process.cwd() is unreliable (depends on how Vite was invoked); the
   // file's own location is the stable anchor.
@@ -101,7 +101,11 @@ function assertPublicAssetExists(relPath: string): void {
   while (dir !== '/' && !fs.existsSync(path.join(dir, 'package.json'))) {
     dir = path.dirname(dir);
   }
-  fs.readFileSync(path.join(dir, 'public', 'assets', relPath), 'utf-8');
+  return fs.readFileSync(path.join(dir, 'public', 'assets', relPath), 'utf-8');
+}
+
+function assertPublicAssetExists(relPath: string): void {
+  readPublicAsset(relPath);
 }
 
 assertPublicAssetExists('seo-static.css');
