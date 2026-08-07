@@ -1,18 +1,19 @@
 {
   "key": "szb-chb",
   "label": "Spitalzentrum Biel / Centre hospitalier Bienne",
-  "generatedAt": "2026-08-07T01:13:35.466Z",
-  "total": 12,
-  "newCount": 1,
-  "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 8870,
-  "avgDurationMs": 8870,
+  "generatedAt": "2026-08-07T10:16:50.864Z",
+  "total": 11,
+  "newCount": 0,
+  "updatedCount": 10,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 11077,
+  "avgDurationMs": 11077,
   "durationHistory": [
-    8870
+    11077
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "szb-chb-6e435eb1c268",
       "slug": "diplomierte-r-pflegefachfrau-mann-80-100-chirurgie-szb-chb-biel-bienne",
@@ -20,13 +21,13 @@
       "companyKey": "szb-chb",
       "companyDomain": "szb-chb.ch",
       "title": "Diplomierte/r Pflegefachfrau/-mann 80-100%, Chirurgie",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Biel/Bienne",
       "canton": "BE",
       "url": "https://jobs.szb-chb.ch/Vacancies/4056/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:13:28.678Z",
+      "crawledAt": "2026-08-07T10:16:42.188Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "featured": false,
       "postedDate": "2026-08-07",
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4056/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-08-07T01:13:28.678Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "szb-chb-c7b5a771eeaf",
       "slug": "mitarbeiterin-mitarbeiter-casemanagement-80-90-szb-chb-biel-bienne",
@@ -64,7 +64,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4532/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:13:29.152Z",
+      "crawledAt": "2026-08-07T10:16:42.892Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4531/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:13:29.626Z",
+      "crawledAt": "2026-08-07T10:16:43.648Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4398/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:13:30.098Z",
+      "crawledAt": "2026-08-07T10:16:44.402Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4552/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:13:30.578Z",
+      "crawledAt": "2026-08-07T10:16:45.159Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4530/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:13:31.073Z",
+      "crawledAt": "2026-08-07T10:16:45.872Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4537/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:13:31.792Z",
+      "crawledAt": "2026-08-07T10:16:46.625Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4496/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:13:32.255Z",
+      "crawledAt": "2026-08-07T10:16:47.376Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -323,7 +323,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4549/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:13:32.756Z",
+      "crawledAt": "2026-08-07T10:16:48.106Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -360,7 +360,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4366/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:13:33.230Z",
+      "crawledAt": "2026-08-07T10:16:48.860Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -385,8 +385,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "szb-chb-ea82af63482a",
       "slug": "esperto-di-tessuto-20-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
@@ -418,7 +417,6 @@
       "salaryMin": 20600,
       "salaryMax": 31200,
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -426,7 +424,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "szb-chb-e268b1f65632",
       "slug": "apprendistato-kaufmann-frau-cfc-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
@@ -434,7 +434,6 @@
       "companyKey": "szb-chb",
       "companyDomain": "szb-chb.ch",
       "title": "Lehrstelle Kaufmann/-frau EFZ",
-      "needsRetranslation": true,
       "location": "Biel/Bienne",
       "canton": "BE",
       "url": "https://jobs.szb-chb.ch/Vacancies/4473/Description/1",
@@ -458,7 +457,7 @@
       "firstSeenAt": "2026-07-20T12:34:18.489Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
