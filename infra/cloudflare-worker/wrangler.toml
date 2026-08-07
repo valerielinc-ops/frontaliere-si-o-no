@@ -182,6 +182,12 @@ routes = [
   # it 404 for four hours — the object was there (200 on the CDN host), the
   # Worker was deployed with the entry, and nothing routed to it.
   { pattern = "frontaliereticino.ch/sitemap-articles-archive.xml", zone_name = "frontaliereticino.ch" },
+  # Article topic hubs (#5001), one file per section. Same "a route is REQUIRED"
+  # lesson as the line above — an EDGE_PUSHED_FILES entry without a route is a
+  # 404 that looks like a publish bug. No wildcard, same reason as every sitemap
+  # route here.
+  { pattern = "frontaliereticino.ch/sitemap-topics-frontaliere.xml", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/sitemap-topics-svizzera.xml", zone_name = "frontaliereticino.ch" },
   # Pushable-origin edge files, rollout step 2 (issue #4881 residual — llms.txt
   # family, see locale-router.js EDGE_PUSHED_FILES). Same no-wildcard rationale
   # as /sitemap-blog-ch.xml above: AI crawlers (GPTBot, ClaudeBot, PerplexityBot,
