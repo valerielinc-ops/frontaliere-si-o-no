@@ -63,6 +63,21 @@ let firstPaintWindowOpen = true;
 let queuedMetaSection: string | null = null;
 let queuedTrackSection: string | null = null;
 let deadlineTimer: ReturnType<typeof setTimeout> | null = null;
+/**
+ * Undo for whatever the current arm registered.
+ *
+ * `armFirstPaintWindowClose` schedules the close three ways — a `load`
+ * listener, an idle callback, a `setTimeout` fallback — and none of them is
+ * recallable once armed. Arming a second time without undoing the first leaves
+ * an **orphan close**: it still holds a reference to the module-level flag, so
+ * it fires against whatever window is open *then*, not the one it was armed
+ * for. Production arms once, so it never saw this; the test seam re-arms per
+ * test, and jsdom hands the module a document that is already `complete`, so
+ * the module-eval arm parks a `setTimeout(close, 0)` that the first test's
+ * first macrotask cashes in — closing the window the test had just reopened
+ * and flushing the queue it was asserting had been withheld.
+ */
+let disarmFirstPaintWindowClose: (() => void) | null = null;
 
 const applyMetaTags = (section: string) => {
  const runUpdate = () => import('@/services/seoService').then(m => m.updateMetaTags(section)).catch(err => reportCaughtError(err, 'seo.updateMetaTags'));
@@ -91,6 +106,10 @@ const closeFirstPaintWindow = () => {
  if (!firstPaintWindowOpen) return;
  firstPaintWindowOpen = false;
  if (deadlineTimer !== null) { clearTimeout(deadlineTimer); deadlineTimer = null; }
+ // Nothing armed can still do useful work — drop the listeners rather than
+ // leave two permanent no-op subscriptions on `window`.
+ disarmFirstPaintWindowClose?.();
+ disarmFirstPaintWindowClose = null;
  const metaSection = queuedMetaSection;
  const trackSection = queuedTrackSection;
  queuedMetaSection = null;
@@ -114,14 +133,29 @@ const closeFirstPaintWindow = () => {
  * change must retitle the document now, not on the next idle slice.
  */
 const armFirstPaintWindowClose = () => {
+ // Always supersede the previous arm — see `disarmFirstPaintWindowClose`.
+ disarmFirstPaintWindowClose?.();
+ disarmFirstPaintWindowClose = null;
  if (typeof window === 'undefined' || typeof document === 'undefined') {
   closeFirstPaintWindow();
   return;
  }
+ let idleHandle: number | null = null;
+ let idleFallback: number | null = null;
  const idle = () => {
   const ric = (window as unknown as { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number }).requestIdleCallback;
-  if (typeof ric === 'function') ric(closeFirstPaintWindow, { timeout: IDLE_TIMEOUT_MS });
-  else window.setTimeout(closeFirstPaintWindow, 0);
+  if (typeof ric === 'function') idleHandle = ric(closeFirstPaintWindow, { timeout: IDLE_TIMEOUT_MS });
+  else idleFallback = window.setTimeout(closeFirstPaintWindow, 0);
+ };
+ disarmFirstPaintWindowClose = () => {
+  window.removeEventListener('pointerdown', closeFirstPaintWindow);
+  window.removeEventListener('keydown', closeFirstPaintWindow);
+  window.removeEventListener('load', idle);
+  const cancelIdle = (window as unknown as { cancelIdleCallback?: (h: number) => void }).cancelIdleCallback;
+  if (idleHandle !== null && typeof cancelIdle === 'function') cancelIdle(idleHandle);
+  if (idleFallback !== null) window.clearTimeout(idleFallback);
+  idleHandle = null;
+  idleFallback = null;
  };
  // A deliberate interaction closes the window immediately. Without this, a
  // client-side navigation started before `load` would leave the previous
@@ -148,7 +182,14 @@ const armQueueDeadline = () => {
  deadlineTimer = window.setTimeout(closeFirstPaintWindow, LOAD_DEADLINE_MS) as unknown as ReturnType<typeof setTimeout>;
 };
 
-/** @internal — reset module state between tests (isolate: false workers share one registry). */
+/**
+ * @internal — reset module state between tests.
+ *
+ * The suite runs `isolate: true`, so the registry is per *file*, not per test:
+ * one module evaluation is shared by every test in the file, and its arm
+ * outlives each of them. That is why re-arming here has to supersede the
+ * previous arm rather than stack on it.
+ */
 export const _resetRuntimeSeoForTests = () => {
  runtimeSeoEnabled = false;
  firstPaintWindowOpen = true;

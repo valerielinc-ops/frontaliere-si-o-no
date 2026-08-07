@@ -177,6 +177,35 @@ describe('runtime SEO stays out of the initial load window', () => {
     expect(seoUpdateMetaTags).toHaveBeenCalledWith('guida');
   });
 
+  it('supersedes the previous arm, so an earlier scheduled close cannot fire against a new window', async () => {
+    // Arm once the way *module evaluation* is armed under jsdom: the document
+    // is already `complete` and there is no `requestIdleCallback`, so the arm
+    // parks a bare `setTimeout(close, 0)`.
+    Object.defineProperty(document, 'readyState', { configurable: true, get: () => 'complete' });
+    delete (window as unknown as { requestIdleCallback?: unknown }).requestIdleCallback;
+    helpers._resetRuntimeSeoForTests();
+
+    // …then arm the way every test above is armed.
+    (window as unknown as { requestIdleCallback: unknown }).requestIdleCallback =
+      (cb: () => void) => { idleCallbacks.push(cb); return idleCallbacks.length; };
+    Object.defineProperty(document, 'readyState', { configurable: true, get: () => 'loading' });
+    helpers._resetRuntimeSeoForTests();
+    helpers.enableRuntimeSeo();
+
+    helpers.updateMetaTags(ARTICLE_SECTION);
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    // The first arm's timer is due by now. It must have been recalled: left
+    // alive it closes a window it was never armed for and flushes a queue the
+    // caller is still filling. That is the shape of the CI-only failure — a
+    // warm module cache leaves no macrotask between module evaluation and the
+    // first test, so the orphan timer survives into it; a cold one drains it
+    // harmlessly beforehand, which is why it reproduced only on CI.
+    expect(helpers._isFirstPaintWindowOpen()).toBe(true);
+    expect(seoUpdateMetaTags).not.toHaveBeenCalled();
+    expect(loadBlogMeta).not.toHaveBeenCalled();
+  });
+
   it('stays inert while runtime SEO is disabled', async () => {
     helpers._resetRuntimeSeoForTests(); // leaves runtimeSeoEnabled false
 
