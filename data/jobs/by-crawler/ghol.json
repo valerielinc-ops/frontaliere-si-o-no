@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-08-06T11:56:16.652Z",
+  "assembledAt": "2026-08-07T01:27:59.270Z",
   "jobs": [
     {
       "id": "ghol-0fd5acb09556",
@@ -47,7 +47,7 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-06T11:56:14.136Z",
+      "crawledAt": "2026-08-07T01:27:56.311Z",
       "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
@@ -148,7 +148,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-06T11:56:14.135Z",
+      "crawledAt": "2026-08-07T01:27:56.310Z",
       "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
@@ -257,7 +257,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-06T11:56:14.134Z",
+      "crawledAt": "2026-08-07T01:27:56.309Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -334,7 +334,7 @@
       "applyUrl": "https://app.beehire.com/invite/j92t_xzbO",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-06T11:56:14.134Z",
+      "crawledAt": "2026-08-07T01:27:56.308Z",
       "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
@@ -423,7 +423,7 @@
       "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-06T11:56:14.132Z",
+      "crawledAt": "2026-08-07T01:27:56.307Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -500,7 +500,7 @@
       "applyUrl": "https://app.beehire.com/invite/iMHZFWFWX",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-06T11:56:14.131Z",
+      "crawledAt": "2026-08-07T01:27:56.305Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -592,7 +592,8 @@
       "applyUrl": "https://app.beehire.com/invite/iNewpVG3m",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-06T11:56:14.129Z",
+      "crawledAt": "2026-08-07T01:27:56.302Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "infermiera-in-privato-servizio-privato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -600,8 +601,8 @@
         "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "notfallkrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -610,8 +611,8 @@
           "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -638,8 +639,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ghol-4bea4bccd510",
@@ -686,7 +686,7 @@
       "applyUrl": "https://app.beehire.com/invite/v6aaZampn",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-06T11:56:14.128Z",
+      "crawledAt": "2026-08-07T01:27:56.301Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -763,7 +763,7 @@
       "applyUrl": "https://app.beehire.com/invite/CsBCCNTDM",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-06T11:56:14.127Z",
+      "crawledAt": "2026-08-07T01:27:56.299Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle",
