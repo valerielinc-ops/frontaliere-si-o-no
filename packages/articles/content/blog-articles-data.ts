@@ -28029,6 +28029,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'caldo-ticino-direttiva-consiglio-stato',
+ category: 'novita',
+ date: '2026-08-07T21:03:36.347Z',
+ image: '/images/blog/caldo-ticino-direttiva-consiglio-stato.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
