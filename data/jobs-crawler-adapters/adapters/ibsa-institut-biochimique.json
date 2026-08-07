@@ -10,25 +10,17 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://career.ibsagroup.com/job/Manno-Pharmaceutical-Technology-Technician-TI-6928/1361758555/",
     "https://career.ibsagroup.com/job/Manno-Pharmaceutical-Technology-Technician-TI-6928/1361831455/",
     "https://career.ibsagroup.com/job/Grancia-CMO-Manager-TI-6916/1350206155/",
-    "https://career.ibsagroup.com/job/Lugano-Pazzallo-QC-Analysis-Technician-TI-6912/1359553455/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-Accounting-Officer-TI-6926/1343827855/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-Jr-Clinical-&-Safety-Compliance-Specialist-TI-6926/1361803055/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-Jr-Medical-Writing-Specialist-TI-6926/1360401955/",
-    "https://career.ibsagroup.com/job/Collina-d'Oro-Dossier-Compliance-Specialist-TI-6926/1354804755/"
+    "https://career.ibsagroup.com/job/Collina-d'Oro-Dossier-Compliance-Specialist-TI-6926/1354804755/",
+    "https://career.ibsagroup.com/job/Collina-d'Oro-Clinical-Research-Officer-TI-6926/1348468855/"
   ],
   "notes": "Dedicated IBSA crawler seeds from career.ibsagroup.com TI search and canonicalizes detail URLs under /job/.../:jobId/.",
-  "updatedAt": "2026-08-06T11:41:40.230Z",
+  "updatedAt": "2026-08-07T01:12:30.606Z",
   "seedMetaByUrl": {
-    "https://career.ibsagroup.com/job/Manno-Pharmaceutical-Technology-Technician-TI-6928/1361758555/": {
-      "location": "Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "company": "IBSA Institut Biochimique",
-      "companyDomain": "ibsa.ch"
-    },
     "https://career.ibsagroup.com/job/Manno-Pharmaceutical-Technology-Technician-TI-6928/1361831455/": {
       "location": "Ticino",
       "canton": "TI",
@@ -37,13 +29,6 @@
       "companyDomain": "ibsa.ch"
     },
     "https://career.ibsagroup.com/job/Grancia-CMO-Manager-TI-6916/1350206155/": {
-      "location": "Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "company": "IBSA Institut Biochimique",
-      "companyDomain": "ibsa.ch"
-    },
-    "https://career.ibsagroup.com/job/Lugano-Pazzallo-QC-Analysis-Technician-TI-6912/1359553455/": {
       "location": "Ticino",
       "canton": "TI",
       "country": "CH",
@@ -72,6 +57,13 @@
       "companyDomain": "ibsa.ch"
     },
     "https://career.ibsagroup.com/job/Collina-d'Oro-Dossier-Compliance-Specialist-TI-6926/1354804755/": {
+      "location": "Ticino",
+      "canton": "TI",
+      "country": "CH",
+      "company": "IBSA Institut Biochimique",
+      "companyDomain": "ibsa.ch"
+    },
+    "https://career.ibsagroup.com/job/Collina-d'Oro-Clinical-Research-Officer-TI-6926/1348468855/": {
       "location": "Ticino",
       "canton": "TI",
       "country": "CH",

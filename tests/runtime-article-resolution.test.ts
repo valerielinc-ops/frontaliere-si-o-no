@@ -18,6 +18,7 @@ import {
   publishRuntimeArticleBody,
   articlesApiBase,
   __resetRuntimeArticleResolution,
+  publishedSlugsForIds,
   runtimeArticleRecords,
 } from '@/services/runtimeArticleResolution';
 import {
@@ -517,5 +518,48 @@ describe('static article fallback across the #root handoff', () => {
     restoreStaticArticleFallback();
     restoreStaticArticleFallback();
     expect(document.querySelectorAll('main.seo-static-content')).toHaveLength(1);
+  });
+});
+
+// A card the overlay adds carries an id, and `buildPath` turns an id into a
+// URL through the bundled slug map → the runtime one → the raw id. For an
+// article this build never saw the first two miss, so the fallback publishes
+// the id as if it were the slug. Wherever the slug is localized that URL does
+// not exist: measured live 2026-08-06,
+// /de/schweiz-artikel/rischio-bolla-svizzera-2026/ → 404 while the real
+// /de/schweiz-artikel/schweizer-immobilien-bubble-risiko-2026/ → 200.
+// The list could therefore paint a card that sends every visitor to a 404.
+describe('publishedSlugsForIds — the forward map that keeps a new card clickable', () => {
+  it('returns the published slugs for an id whose slug is NOT the id', async () => {
+    stubFetch(fullyPublished);
+    const pairs = await publishedSlugsForIds('frontaliere', ['stipendio-netto-2026']);
+    expect(pairs).toHaveLength(1);
+    const [id, slugs] = pairs[0];
+    expect(id).toBe('stipendio-netto-2026');
+    expect(slugs.it).toBe('stipendio-netto-frontaliere-2026');
+    expect(slugs.de).toBe('nettolohn-grenzgaenger-2026');
+  });
+
+  it('reads the swiss half for a swiss section', async () => {
+    stubFetch(fullyPublished);
+    const pairs = await publishedSlugsForIds('svizzera', ['come-funzionano-votazioni-federali-ch']);
+    expect(pairs[0][1].de).toBe('wie-funktionieren-eidgenoessische-abstimmungen');
+  });
+
+  it('skips an id the published maps do not know, rather than inventing one', async () => {
+    stubFetch(fullyPublished);
+    const pairs = await publishedSlugsForIds('frontaliere', ['mai-pubblicato', 'stipendio-netto-2026']);
+    expect(pairs.map(([id]) => id)).toEqual(['stipendio-netto-2026']);
+  });
+
+  it('asks for nothing when there is nothing to ask about', async () => {
+    const fetchMock = stubFetch(fullyPublished);
+    expect(await publishedSlugsForIds('frontaliere', [])).toEqual([]);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('fails OPEN when slugs.json is unreachable — no slugs, never a throw', async () => {
+    stubFetch((u) => (u.includes('/slugs.json') ? { ok: false, status: 503 } : { ok: false, status: 404 }));
+    await expect(publishedSlugsForIds('frontaliere', ['stipendio-netto-2026'])).resolves.toEqual([]);
   });
 });

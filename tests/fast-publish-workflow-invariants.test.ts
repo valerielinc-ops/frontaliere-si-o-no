@@ -130,3 +130,44 @@ describe('producer wiring stays connected', () => {
     expect(read('scripts/load-rc-env.mjs')).toContain('fetchTemplateViaRest');
   });
 });
+
+// A shard push that landed but is not being served yet is NOT an incident, and
+// telling the two apart is the whole point of exit code 2. On 2026-08-06 (run
+// 31093424415) four URLs timed out during a GitHub Pages `major_outage`, the
+// run failed, a priority:high issue was opened — and all four were serving
+// correctly when checked afterwards. A false alarm there is not free: it feeds
+// the issue-fix loop and burns the shared Claude quota this repo guards.
+//
+// The trap in "just don't fail on it" is that a step exiting 0 reports
+// `outcome == 'success'`, which would let the search-engine ping fire at bytes
+// that are not being served — precisely what the verification exists to stop.
+// So `delayed` must gate every side-effect too, and these pin both halves.
+describe('fast-publish: a delayed publish is not a failure, and not a success either', () => {
+  const workflow = read('.github/workflows/fast-publish-article.yml');
+  const probe = read('scripts/wait-for-live-article-shards.mjs');
+
+  it('the probe separates "not reachable" from "reachable but stale"', () => {
+    expect(probe).toMatch(/process\.exit\(2\)/);
+    // Exit 1 must stay reserved for the case where the push did not land.
+    const oneIdx = probe.lastIndexOf('process.exit(1)');
+    expect(probe.slice(Math.max(0, oneIdx - 600), oneIdx)).toMatch(/NOT REACHABLE|absent/);
+  });
+
+  it('documents exit 2, so a caller cannot mistake it for success', () => {
+    expect(probe).toMatch(/\*\s+2 =/);
+  });
+
+  it('treats exit 2 as non-fatal in the workflow', () => {
+    expect(workflow).toMatch(/delayed=true/);
+  });
+
+  it('still refuses to ping search engines while the bytes are stale', () => {
+    // The gate is what stops "not fatal" from silently becoming "as good as
+    // live". Every side-effecting step must carry it, not just the ping.
+    const gated = workflow.match(/steps\.verify\.outputs\.delayed != 'true'/g) ?? [];
+    expect(gated.length).toBeGreaterThanOrEqual(3);
+    const notify = workflow.slice(workflow.indexOf('Notify search engines') - 400,
+                                  workflow.indexOf('Notify search engines') + 200);
+    expect(notify).toContain("steps.verify.outputs.delayed != 'true'");
+  });
+});

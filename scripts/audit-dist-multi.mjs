@@ -40,7 +40,7 @@ import { TYPES_ACCEPT_IN_LANGUAGE_LIST } from '../services/seo/inlanguage-whitel
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { classifyFeature as classifyFeatureRatioOriginal } from './audit-text-html-ratio.mjs';
 import { classifyFeature as classifyFeatureTitleOriginal } from './audit-title-length.mjs';
-import { evaluateMixAdjustedTotalRegression, extrapolateSampledCount } from './lib/mixAdjustedRateGate.mjs';
+import { evaluateMixAdjustedTotalRegression, extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
 
 // See audit-text-html-ratio.mjs's identical constant for the rationale.
 // Currently dormant here (this standalone `npm run audit:dist-multi` tool
@@ -1472,7 +1472,7 @@ export async function runRatio(audit, baselinePath = RATIO_BASELINE_PATH) {
       console.error(`  Total offenders: ${offenders.length} (baseline allows ${baseTotal})`);
     }
     for (const f of featureRegressions) {
-      console.error(`  Feature "${f.feature}": ${f.count} offenders (baseline allows ${f.max})`);
+      console.error(`  ${formatRegressedFeature(f, SAMPLE_RATE)}`);
     }
     console.error('');
     console.error('How to fix');
@@ -1575,7 +1575,7 @@ export async function runTitle(audit, baselinePath = TITLE_BASELINE_PATH) {
       const baseOff = base ? Number(base.offenders ?? 0) : 0;
       const rateCap = baseRate + Math.min((baseRate * tol.relPct) / 100, tol.maxDeltaPp) + tol.absPp;
       if (curRate > rateCap && extrapolateSampledCount(curOff, SAMPLE_RATE) > baseOff + tol.minAbsDelta) {
-        regressedFeatures.push({ feature: f, count: curOff, max: baseOff, rate: curRate, maxRate: rateCap });
+        regressedFeatures.push({ feature: f, count: curOff, countFull: extrapolateSampledCount(curOff, SAMPLE_RATE), max: baseOff, rate: curRate, maxRate: rateCap });
       }
     }
     const { regression: totalRegression } = evaluateMixAdjustedTotalRegression({
@@ -1587,7 +1587,7 @@ export async function runTitle(audit, baselinePath = TITLE_BASELINE_PATH) {
       console.error(`\nREGRESSION: total offenders ${offenders.length} exceeds mix-adjusted expected rate`);
     }
     for (const f of regressedFeatures) {
-      console.error(`REGRESSION: feature "${f.feature}" rate ${f.rate.toFixed(3)}% (allowed ≤ ${f.maxRate.toFixed(3)}%) — ${f.count} offenders (baseline ${f.max})`);
+      console.error(`REGRESSION: ${formatRegressedFeature({ ...f, rate: Number(f.rate.toFixed(3)), maxRate: Number(f.maxRate.toFixed(3)) }, SAMPLE_RATE)}`);
     }
     regression = totalRegression || regressedFeatures.length > 0;
   } else {
@@ -1676,7 +1676,7 @@ export async function runH1(audit, baselinePath = H1_BASELINE_PATH) {
       const baseOff = base ? Number(base.offenders ?? 0) : 0;
       const rateCap = baseRate + Math.min((baseRate * tol.relPct) / 100, tol.maxDeltaPp) + tol.absPp;
       if (curRate > rateCap && extrapolateSampledCount(curOff, SAMPLE_RATE) > baseOff + tol.minAbsDelta) {
-        regressedFeatures.push({ feature: f, count: curOff, max: baseOff, rate: curRate, maxRate: rateCap });
+        regressedFeatures.push({ feature: f, count: curOff, countFull: extrapolateSampledCount(curOff, SAMPLE_RATE), max: baseOff, rate: curRate, maxRate: rateCap });
       }
     }
     const { regression: totalRegression } = evaluateMixAdjustedTotalRegression({
@@ -1688,7 +1688,7 @@ export async function runH1(audit, baselinePath = H1_BASELINE_PATH) {
       console.error(`\nREGRESSION: total offenders ${offenders.length} exceeds mix-adjusted expected rate`);
     }
     for (const f of regressedFeatures) {
-      console.error(`REGRESSION: feature "${f.feature}" rate ${f.rate.toFixed(3)}% (allowed ≤ ${f.maxRate.toFixed(3)}%) — ${f.count} offenders (baseline ${f.max})`);
+      console.error(`REGRESSION: ${formatRegressedFeature({ ...f, rate: Number(f.rate.toFixed(3)), maxRate: Number(f.maxRate.toFixed(3)) }, SAMPLE_RATE)}`);
     }
     regression = totalRegression || regressedFeatures.length > 0;
   } else {

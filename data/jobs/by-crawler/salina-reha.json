@@ -1,6 +1,6 @@
 {
   "crawlerKey": "salina-reha",
-  "assembledAt": "2026-08-06T11:32:59.740Z",
+  "assembledAt": "2026-08-07T01:07:28.268Z",
   "jobs": [
     {
       "id": "salina-reha-10c29626bdde",
@@ -33,7 +33,7 @@
       "url": "https://link.ostendis.com/publication/pflegehilfe-assistent-in-gesundheit-und-soziales/7rzoopncdjwobvfw1kgwm6v7xkc0s6moxl43vvtottwjhjycydxdxp7i5hlfw0g3",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:32:57.427Z",
+      "crawledAt": "2026-08-07T01:07:25.650Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -50,6 +50,7 @@
       "applyUrl": "https://link.ostendis.com/publication/pflegehilfe-assistent-in-gesundheit-und-soziales/7rzoopncdjwobvfw1kgwm6v7xkc0s6moxl43vvtottwjhjycydxdxp7i5hlfw0g3",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "pflegehilfe-assistent-in-gesundheit-und-soziales-60-salina-rheinfelden",
         "assistenza-assistente-salute-60-salina-rehaklinik-rheinfelden-rheinfelden",
@@ -122,7 +123,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fachaerztin-ambulant/zltjilsrep8my2zyizc3ca3su3flqwjdd1yiqkbphkwk4dxd7qffb76pmeuvvl8d",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:32:55.632Z",
+      "crawledAt": "2026-08-07T01:07:23.242Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -141,11 +142,13 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "previousSlugs": [
-        "facharzt-facharztin-ambulant-60-100-salina-rheinfelden"
+        "facharzt-facharztin-ambulant-60-100-salina-rheinfelden",
+        "medico-specialista-ambulatoriale-60-100-salina-rehaklinik-rheinfelden-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharzt-facharztin-ambulant-60-100-salina-rheinfelden"
+          "facharzt-facharztin-ambulant-60-100-salina-rheinfelden",
+          "medico-specialista-ambulatoriale-60-100-salina-rehaklinik-rheinfelden-rheinfelden"
         ]
       },
       "firstSeenAt": "2026-05-20T06:04:07.242Z",
@@ -167,7 +170,7 @@
       "slug": "psicoterapeuta-salina-rehaklinik-rheinfelden-rheinfelden",
       "slugByLocale": {
         "it": "psicoterapeuta-salina-rehaklinik-rheinfelden-rheinfelden",
-        "en": "psychotherapist-salina-rehaklinik-rheinfelden-rheinfelden",
+        "en": "psychotherapeut-in-salina-rehaklinik-rheinfelden",
         "de": "psychotherapeut-in-salina-rheinfelden",
         "fr": "psychotherapeute-salina-rehaklinik-rheinfelden-rheinfelden"
       },
@@ -177,7 +180,7 @@
       "title": "Psychotherapeut/in",
       "titleByLocale": {
         "it": "Psicoterapeuta",
-        "en": "Psychotherapist",
+        "en": "Psychotherapeut/in",
         "de": "Psychotherapeut/in",
         "fr": "Psychothérapeute"
       },
@@ -193,7 +196,7 @@
       "url": "https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:32:54.161Z",
+      "crawledAt": "2026-08-07T01:07:21.348Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -241,17 +244,22 @@
           "Compétences linguistiques supplémentaires"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "psychotherapeut-in-salina-rheinfelden",
         "psychotherapeut-in-salina-rehaklinik-rheinfelden-rheinfelden",
+        "psychotherapist-salina-rehaklinik-rheinfelden-rheinfelden",
+        "psicoterapeuta-salina-rehaklinik-rheinfelden-rheinfelden",
         "psychotherapeut-in-salina-rehaklinik-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychotherapeut-in-salina-rheinfelden"
+          "psychotherapeut-in-salina-rheinfelden",
+          "psicoterapeuta-salina-rehaklinik-rheinfelden-rheinfelden"
         ],
         "en": [
           "psychotherapeut-in-salina-rehaklinik-rheinfelden-rheinfelden",
+          "psychotherapist-salina-rehaklinik-rheinfelden-rheinfelden",
           "psychotherapeut-in-salina-rehaklinik-rheinfelden"
         ]
       },
@@ -273,9 +281,9 @@
       "id": "salina-reha-28a187c1cdab",
       "slug": "apprendistato-come-medizinische-r-praxisassistent-in-mpa-cfc-salina-rehaklinik-rheinfelden",
       "slugByLocale": {
-        "de": "lehrstelle-als-medizinische-r-praxisassistent-in-mpa-efz-salina-rheinfelden",
         "it": "apprendistato-come-medizinische-r-praxisassistent-in-mpa-cfc-salina-rehaklinik-rheinfelden",
         "en": "apprenticeship-as-medical-assistant-mpa-efz-salina-rehaklinik-rheinfelden-rheinfelden",
+        "de": "lehrstelle-als-medizinische-r-praxisassistent-in-mpa-efz-salina-rheinfelden",
         "fr": "apprentissage-comme-assistant-medical-mpa-efz-salina-rehaklinik-rheinfelden-rheinfelden"
       },
       "company": "Salina Rehaklinik Rheinfelden",
@@ -283,24 +291,24 @@
       "companyDomain": "salina-reha.ch",
       "title": "Lehrstelle als Medizinische/-r Praxisassistent/-in (MPA) EFZ",
       "titleByLocale": {
-        "de": "Lehrstelle als Medizinische/-r Praxisassistent/-in (MPA) EFZ",
         "it": "Apprendistato come Medizinische/-r Praxisassistent/-in (MPA) CFC",
         "en": "Apprenticeship as Medical Assistant (MPA) EFZ",
+        "de": "Lehrstelle als Medizinische/-r Praxisassistent/-in (MPA) EFZ",
         "fr": "Apprentissage comme assistant médical (MPA) EFZ"
       },
       "description": "Salina Rehaklinik\n\nLehrstelle als Medizinische/-r Praxisassistent/-in (MPA) EFZ\n100%\n per 1. August 2027\n• Lehrstelle\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n Ihr Team\n Freuen Sie sich auf ein herzliches, motiviertes und hilfsbereites Team, das Sie während Ihrer gesamten Lehrzeit begleitet und unterstützt. Bei uns erhalten Sie spannende Einblicke in den abwechslungsreichen Berufsalltag und übernehmen von Beginn an verantwortungsvolle Aufgaben.\n\nWas Sie erwartet\n\n• Freundlicher Empfang und Betreuung unserer Patientinnen und Patienten\n\n• Unterstützung der Ärztinnen und Ärzte bei Untersuchungen und Behandlungen\n\n• Durchführung von Blutentnahmen, Laborarbeiten sowie weiteren spannenden medizinischen Tätigkeiten\n\n• Organisation von Terminen und Übernahme administrativer Aufgaben\n\n• Arbeiten mit modernen medizinischen Geräten\n\n• Eine abwechslungsreiche und praxisnahe Ausbildung mit vielseitigen Einsatzgebieten\n\n• Persönliche Begleitung und Unterstützung während der gesamten Lehrzeit\n\nWas Sie mitbringen\n\n• Interesse an Medizin und Gesundheit\n\n• Freude am Umgang mit Menschen\n\n• Teamfähigkeit und Verantwortungsbewusstsein\n\n• Motivation, Lernbereitschaft und Zuverlässigkeit\n\n• Freundliches, gepflegtes und respektvolles Auftreten\n\nInteressiert?\n Jetzt bewerben Vanessa Busam freut sich auf Ihre Online-Bewerbung.\n\nVanessa Busam\n Stv. Co-Leiterin Fachärztehaus\n+41 61 836 67 30\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
       "descriptionByLocale": {
-        "de": "Salina Rehaklinik\n\nLehrstelle als Medizinische/-r Praxisassistent/-in (MPA) EFZ\n100%\n per 1. August 2027\n• Lehrstelle\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n Ihr Team\n Freuen Sie sich auf ein herzliches, motiviertes und hilfsbereites Team, das Sie während Ihrer gesamten Lehrzeit begleitet und unterstützt. Bei uns erhalten Sie spannende Einblicke in den abwechslungsreichen Berufsalltag und übernehmen von Beginn an verantwortungsvolle Aufgaben.\n\nWas Sie erwartet\n\n• Freundlicher Empfang und Betreuung unserer Patientinnen und Patienten\n\n• Unterstützung der Ärztinnen und Ärzte bei Untersuchungen und Behandlungen\n\n• Durchführung von Blutentnahmen, Laborarbeiten sowie weiteren spannenden medizinischen Tätigkeiten\n\n• Organisation von Terminen und Übernahme administrativer Aufgaben\n\n• Arbeiten mit modernen medizinischen Geräten\n\n• Eine abwechslungsreiche und praxisnahe Ausbildung mit vielseitigen Einsatzgebieten\n\n• Persönliche Begleitung und Unterstützung während der gesamten Lehrzeit\n\nWas Sie mitbringen\n\n• Interesse an Medizin und Gesundheit\n\n• Freude am Umgang mit Menschen\n\n• Teamfähigkeit und Verantwortungsbewusstsein\n\n• Motivation, Lernbereitschaft und Zuverlässigkeit\n\n• Freundliches, gepflegtes und respektvolles Auftreten\n\nInteressiert?\n Jetzt bewerben Vanessa Busam freut sich auf Ihre Online-Bewerbung.\n\nVanessa Busam\n Stv. Co-Leiterin Fachärztehaus\n+41 61 836 67 30\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
-        "it": "Clinica di riabilitazione Salina\n\nApprendistato come assistente medico (MPA) EFZ\n100%\n al 1 agosto 2027\n• Apprendista\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik e Park-Hotel am Rhein AG impiegano circa 1.000 persone. Per ottenere la migliore riabilitazione possibile, i team interdisciplinari lavorano insieme, con le competenze e l'esperienza di ogni individuo che contribuiscono al successo. La clinica di riabilitazione Salina (ambulatorio di riabilitazione, specialisti e terapie) offre un concetto interdisciplinare per la prevenzione, la diagnosi e il trattamento del supporto e del sistema muscolo-scheletrico. Il centro di competenza medica comprende moderne strutture diagnostiche e terapeutiche con un team competente di specialisti, terapisti e personale di cura.\n La tua squadra\n Attendere con ansia un team caldo, motivato e disponibile che vi accompagnerà e vi sosterrà in tutto il vostro apprendistato. Con noi, si otterrà interessanti intuizioni nella variegata giornata di lavoro e assumere compiti responsabili fin dall'inizio.\n\nCosa aspettarsi\n\n• Accoglienza amichevole e cura dei nostri pazienti\n\n• Supporto per medici in esami e trattamenti\n\n• Attuazione del campionamento del sangue, del lavoro di laboratorio e di altre attività mediche emozionanti\n\n• Organizzazione di appuntamenti e amministrazione\n\n• Lavorare con dispositivi medici moderni\n\n• Una formazione varia e pratica con aree applicative versatili\n\n• Sostegno personale e sostegno per tutto il periodo di apprendistato\n\nCosa porti\n\n• Interessi in medicina e salute\n\n• La gioia di affrontare le persone\n\n• Lavoro di squadra e responsabilità\n\n• Motivazione, volontà di imparare e affidabilità\n\n• Aspetto amichevole, coltivato e rispettoso\n\nInteressante?\n Ora applicare Vanessa Busam è impaziente per la vostra applicazione online.\n\nVanessa Busam\n Stv. Co-Head del centro medico specializzato\n+41 61 836 67 30\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
-        "en": "Salina rehab clinic\n\nApprenticeship as Medical Assistant (MPA) EFZ\n100%\n per 1 August 2027\n• Apprentice\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik and Park-Hotel am Rhein AG employ around 1,000 people. To achieve the best possible rehabilitation, interdisciplinary teams work together, with each individual’s expertise and experience contributing to success. The Salina rehabilitation clinic (rehabilitation clinic, specialists and therapies) offers an interdisciplinary concept for the prevention, diagnosis and treatment of the support and musculoskeletal system. The medical competence centre comprises modern diagnostic and therapeutic facilities with a competent team of specialists, therapists and nursing staff.\n Your team\n Look forward to a warm, motivated and helpful team that will accompany and support you throughout your apprenticeship. With us, you will get exciting insights into the varied working day and take on responsible tasks right from the start.\n\nWhat to expect\n\n• Friendly reception and care of our patients\n\n• Support for doctors in examinations and treatments\n\n• Implementation of blood sampling, laboratory work and other exciting medical activities\n\n• Organisation of appointments and administration\n\n• Working with modern medical devices\n\n• A varied and practical training with versatile application areas\n\n• Personal support and support throughout the entire apprenticeship period\n\nWhat you bring\n\n• Interest in medicine and health\n\n• The joy of dealing with people\n\n• Teamwork and responsibility\n\n• Motivation, willingness to learn and reliability\n\n• Friendly, cultivated and respectful appearance\n\nInterested?\n Now apply Vanessa Busam is looking forward to your online application.\n\nVanessa Busam\n Stv. Co-Head of Specialist Medical Center\n+41 61 836 67 30\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
-        "fr": "Clinique de désintox de Salina\n\nApprentissage comme assistant médical (MPA) EFZ\n100%\n pour le 1er août 2027\n• Apprentissage\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik et Park-Hotel am Rhein AG emploient environ 1000 personnes. Pour réaliser la meilleure réhabilitation possible, les équipes interdisciplinaires travaillent ensemble, avec l'expertise et l'expérience de chaque individu contribuant au succès. La clinique de réadaptation Salina (clinique de réadaptation, spécialistes et thérapies) offre un concept interdisciplinaire pour la prévention, le diagnostic et le traitement du soutien et du système musculosquelettique. Le centre de compétence médicale comprend des installations modernes de diagnostic et de thérapie avec une équipe compétente de spécialistes, de thérapeutes et de personnel infirmier.\n Votre équipe\n Soyez heureux d'avoir une équipe chaleureuse, motivée et serviable qui vous accompagnera et vous soutiendra tout au long de votre apprentissage. Avec nous, vous obtiendrez des informations passionnantes sur la journée de travail variée et assumerez des tâches responsables dès le début.\n\nÀ quoi s'attendre\n\n• Accueil amical et soins de nos patients\n\n• Soutien aux médecins aux examens et aux traitements\n\n• Mise en œuvre d'échantillonnages sanguins, de travaux de laboratoire et d'autres activités médicales passionnantes\n\n• Organisation des nominations et administration\n\n• Travailler avec des dispositifs médicaux modernes\n\n• Une formation variée et pratique avec des domaines d'application polyvalents\n\n• Soutien personnel pendant toute la période d'apprentissage\n\nCe que vous apportez\n\n• Intérêt pour la médecine et la santé\n\n• La joie de traiter avec les gens\n\n• Travail d'équipe et responsabilité\n\n• Motivation, volonté d'apprendre et fiabilité\n\n• Aspect amical, cultivé et respectueux\n\nIntéressé ?\n Maintenant appliquer Vanessa Busam est impatient de votre application en ligne.\n\nVanessa Busam\n Stv. Co-chef du centre médical spécialisé\n+41 61 836 67 30\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden"
+        "it": "Clinica di riabilitazione Salina\n\nApprendistato come assistente medico (MPA) EFZ\n100%\nal 1 agosto 2027\n• Apprendista\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik e Park-Hotel am Rhein AG impiegano circa 1.000 persone. Per ottenere la migliore riabilitazione possibile, i team interdisciplinari lavorano insieme, con le competenze e l'esperienza di ogni individuo che contribuiscono al successo. La clinica di riabilitazione Salina (ambulatorio di riabilitazione, specialisti e terapie) offre un concetto interdisciplinare per la prevenzione, la diagnosi e il trattamento del supporto e del sistema muscolo-scheletrico. Il centro di competenza medica comprende moderne strutture diagnostiche e terapeutiche con un team competente di specialisti, terapisti e personale di cura.\nLa tua squadra\nAttendere con ansia un team caldo, motivato e disponibile che vi accompagnerà e vi sosterrà in tutto il vostro apprendistato. Con noi, si otterrà interessanti intuizioni nella variegata giornata di lavoro e assumere compiti responsabili fin dall'inizio.\n\nCosa aspettarsi\n\n• Accoglienza amichevole e cura dei nostri pazienti\n\n• Supporto per medici in esami e trattamenti\n\n• Attuazione del campionamento del sangue, del lavoro di laboratorio e di altre attività mediche emozionanti\n\n• Organizzazione di appuntamenti e amministrazione\n\n• Lavorare con dispositivi medici moderni\n\n• Una formazione varia e pratica con aree applicative versatili\n\n• Sostegno personale e sostegno per tutto il periodo di apprendistato\n\nCosa porti\n\n• Interessi in medicina e salute\n\n• La gioia di affrontare le persone\n\n• Lavoro di squadra e responsabilità\n\n• Motivazione, volontà di imparare e affidabilità\n\n• Aspetto amichevole, coltivato e rispettoso\n\nInteressante?\nOra applicare Vanessa Busam è impaziente per la vostra applicazione online.\n\nVanessa Busam\nStv. Co-Head del centro medico specializzato\n+41 61 836 67 30\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
+        "en": "Salina rehab clinic\n\nApprenticeship as Medical Assistant (MPA) EFZ\n100%\nper 1 August 2027\n• Apprentice\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik and Park-Hotel am Rhein AG employ around 1,000 people. To achieve the best possible rehabilitation, interdisciplinary teams work together, with each individual’s expertise and experience contributing to success. The Salina rehabilitation clinic (rehabilitation clinic, specialists and therapies) offers an interdisciplinary concept for the prevention, diagnosis and treatment of the support and musculoskeletal system. The medical competence centre comprises modern diagnostic and therapeutic facilities with a competent team of specialists, therapists and nursing staff.\nYour team\nLook forward to a warm, motivated and helpful team that will accompany and support you throughout your apprenticeship. With us, you will get exciting insights into the varied working day and take on responsible tasks right from the start.\n\nWhat to expect\n\n• Friendly reception and care of our patients\n\n• Support for doctors in examinations and treatments\n\n• Implementation of blood sampling, laboratory work and other exciting medical activities\n\n• Organisation of appointments and administration\n\n• Working with modern medical devices\n\n• A varied and practical training with versatile application areas\n\n• Personal support and support throughout the entire apprenticeship period\n\nWhat you bring\n\n• Interest in medicine and health\n\n• The joy of dealing with people\n\n• Teamwork and responsibility\n\n• Motivation, willingness to learn and reliability\n\n• Friendly, cultivated and respectful appearance\n\nInterested?\nNow apply Vanessa Busam is looking forward to your online application.\n\nVanessa Busam\nStv. Co-Head of Specialist Medical Center\n+41 61 836 67 30\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
+        "de": "Salina Rehaklinik\n\nLehrstelle als Medizinische/-r Praxisassistent/-in (MPA) EFZ\n100%\nper 1. August 2027\n• Lehrstelle\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\nIhr Team\nFreuen Sie sich auf ein herzliches, motiviertes und hilfsbereites Team, das Sie während Ihrer gesamten Lehrzeit begleitet und unterstützt. Bei uns erhalten Sie spannende Einblicke in den abwechslungsreichen Berufsalltag und übernehmen von Beginn an verantwortungsvolle Aufgaben.\n\nWas Sie erwartet\n\n• Freundlicher Empfang und Betreuung unserer Patientinnen und Patienten\n\n• Unterstützung der Ärztinnen und Ärzte bei Untersuchungen und Behandlungen\n\n• Durchführung von Blutentnahmen, Laborarbeiten sowie weiteren spannenden medizinischen Tätigkeiten\n\n• Organisation von Terminen und Übernahme administrativer Aufgaben\n\n• Arbeiten mit modernen medizinischen Geräten\n\n• Eine abwechslungsreiche und praxisnahe Ausbildung mit vielseitigen Einsatzgebieten\n\n• Persönliche Begleitung und Unterstützung während der gesamten Lehrzeit\n\nWas Sie mitbringen\n\n• Interesse an Medizin und Gesundheit\n\n• Freude am Umgang mit Menschen\n\n• Teamfähigkeit und Verantwortungsbewusstsein\n\n• Motivation, Lernbereitschaft und Zuverlässigkeit\n\n• Freundliches, gepflegtes und respektvolles Auftreten\n\nInteressiert?\nJetzt bewerben Vanessa Busam freut sich auf Ihre Online-Bewerbung.\n\nVanessa Busam\nStv. Co-Leiterin Fachärztehaus\n+41 61 836 67 30\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
+        "fr": "Clinique de désintox de Salina\n\nApprentissage comme assistant médical (MPA) EFZ\n100%\npour le 1er août 2027\n• Apprentissage\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik et Park-Hotel am Rhein AG emploient environ 1000 personnes. Pour réaliser la meilleure réhabilitation possible, les équipes interdisciplinaires travaillent ensemble, avec l'expertise et l'expérience de chaque individu contribuant au succès. La clinique de réadaptation Salina (clinique de réadaptation, spécialistes et thérapies) offre un concept interdisciplinaire pour la prévention, le diagnostic et le traitement du soutien et du système musculosquelettique. Le centre de compétence médicale comprend des installations modernes de diagnostic et de thérapie avec une équipe compétente de spécialistes, de thérapeutes et de personnel infirmier.\nVotre équipe\nSoyez heureux d'avoir une équipe chaleureuse, motivée et serviable qui vous accompagnera et vous soutiendra tout au long de votre apprentissage. Avec nous, vous obtiendrez des informations passionnantes sur la journée de travail variée et assumerez des tâches responsables dès le début.\n\nÀ quoi s'attendre\n\n• Accueil amical et soins de nos patients\n\n• Soutien aux médecins aux examens et aux traitements\n\n• Mise en œuvre d'échantillonnages sanguins, de travaux de laboratoire et d'autres activités médicales passionnantes\n\n• Organisation des nominations et administration\n\n• Travailler avec des dispositifs médicaux modernes\n\n• Une formation variée et pratique avec des domaines d'application polyvalents\n\n• Soutien personnel pendant toute la période d'apprentissage\n\nCe que vous apportez\n\n• Intérêt pour la médecine et la santé\n\n• La joie de traiter avec les gens\n\n• Travail d'équipe et responsabilité\n\n• Motivation, volonté d'apprendre et fiabilité\n\n• Aspect amical, cultivé et respectueux\n\nIntéressé ?\nMaintenant appliquer Vanessa Busam est impatient de votre application en ligne.\n\nVanessa Busam\nStv. Co-chef du centre médical spécialisé\n+41 61 836 67 30\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden"
       },
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://link.ostendis.com/publication/lehrstelle-als-medizinische-praxisassistent-in-mpa-efz/4r3tr37rq4zfe4myjnmuw2pif2chtsgv2uelk70255t7x6cq624ibdjscckodcrj",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:32:52.649Z",
+      "crawledAt": "2026-08-07T01:07:19.025Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -316,12 +324,16 @@
       "postedDate": "2026-08-06",
       "applyUrl": "https://link.ostendis.com/publication/lehrstelle-als-medizinische-praxisassistent-in-mpa-efz/4r3tr37rq4zfe4myjnmuw2pif2chtsgv2uelk70255t7x6cq624ibdjscckodcrj",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "lehrstelle-als-medizinische-r-praxisassistent-in-mpa-efz-salina-rheinfelden",
+        "apprendistato-come-medizinische-r-praxisassistent-in-mpa-cfc-salina-rehaklinik-rheinfelden"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-medizinische-r-praxisassistent-in-mpa-efz-salina-rheinfelden"
+          "lehrstelle-als-medizinische-r-praxisassistent-in-mpa-efz-salina-rheinfelden",
+          "apprendistato-come-medizinische-r-praxisassistent-in-mpa-cfc-salina-rehaklinik-rheinfelden"
         ],
         "en": [
           "lehrstelle-als-medizinische-r-praxisassistent-in-mpa-efz-salina-rheinfelden"
@@ -330,9 +342,7 @@
           "lehrstelle-als-medizinische-r-praxisassistent-in-mpa-efz-salina-rheinfelden"
         ]
       },
-      "previousSlugs": [
-        "lehrstelle-als-medizinische-r-praxisassistent-in-mpa-efz-salina-rheinfelden"
-      ],
+      "firstSeenAt": "2026-08-06T11:32:52.649Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -344,8 +354,7 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-06T11:32:52.649Z"
+      }
     }
   ]
 }

@@ -1894,6 +1894,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lex-netflix-cinema-svizzero-2025.title': 'Lex Netflix: Investitionen in Schweizer Kino bis 2025 um 25 % gestiegen',
     'blog.article.lex-netflix-cinema-svizzero-2025.excerpt': 'Im Jahr 2025 investierten die Streaming-Plattformen 19,9 Millionen Franken in das Schweizer Kino, ein Anstieg von 25% gegenüber dem Vorjahr, dank der Verpflichtung von 4% auf das Schweizer Bruttoeinkommen.',
     'blog.article.lex-netflix-cinema-svizzero-2025.imageAlt': 'Schweizer Filmcrew bei der Arbeit an einer lokalen Produktion im Jahr 2025',
+    'blog.article.rischio-bolla-svizzera-2026.title': 'Die Gefahr einer Immobilienblase nimmt weiter zu',
+    'blog.article.rischio-bolla-svizzera-2026.excerpt': 'Der UBS Swiss Real Estate Bubble Index lag im 2. Quartal 2026 bei 0,72 Punkten',
+    'blog.article.rischio-bolla-svizzera-2026.imageAlt': 'Lugano-Landschaft mit Wohngebäuden und Wolken',
+    'blog.article.easyjet-apollon-acquisizione.title': 'EasyJet wechselt für 6,23 Milliarden Franken in den amerikanischen Apollo-Fonds',
+    'blog.article.easyjet-apollon-acquisizione.excerpt': 'Die Übernahme soll bis zum Ende des ersten Quartals des nächsten Jahres abgeschlossen sein',
+    'blog.article.easyjet-apollon-acquisizione.imageAlt': 'EasyJet, Flugzeug von EasyJet, Übernahme durch Apollo, Hauptsitz von EasyJet in Luton',
+    'blog.article.disoccupazione-svizzera-luglio-2026-seco.title': '3 % Arbeitslosigkeit in der Schweiz: die Daten des SECO',
+    'blog.article.disoccupazione-svizzera-luglio-2026-seco.excerpt': 'Im Juli steigt die Arbeitslosigkeit in der Schweiz auf 3%, mit 139’300 Mitgliedern bei den RAV. Das Tessin verzeichnet 2,8%, während Graubünden bei 1,1% stabil bleibt.',
+    'blog.article.disoccupazione-svizzera-luglio-2026-seco.imageAlt': 'Arbeitsmarktamter und SECO Arbeitslosenstatistik in der Schweiz',
+    'blog.article.costo-vita-2026-zurigo-analisi.title': 'Lebenshaltungskosten 2026 im Kanton Zürich: Daten und Analysen',
+    'blog.article.costo-vita-2026-zurigo-analisi.excerpt': 'Aktualisierte Lebenshaltungskostenanalyse 2026 in Zürich: Mieten, KVG-Prämien, AHV-Beiträge von 5,3% und Quellensteuern für Arbeitnehmende.',
+    'blog.article.costo-vita-2026-zurigo-analisi.imageAlt': 'Zürcher Skyline mit Büros und Fluss im Jahr 2026',
 };
 
 export default blogMetaChDe;
