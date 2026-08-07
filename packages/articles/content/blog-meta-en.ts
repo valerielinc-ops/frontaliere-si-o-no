@@ -9328,6 +9328,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.siccit-importazioni-granoturco-svizzera.title': 'Drought: duty-free maize imports for Ticino farmers',
     'blog.article.siccit-importazioni-granoturco-svizzera.excerpt': 'Extraordinary measure of the DEFR until 31 October 2026 to guarantee fodder to farmers affected by the crisis. Imports of maize up to 60% dry matter duty free.',
     'blog.article.siccit-importazioni-granoturco-svizzera.imageAlt': 'Castelgrande on Lake Garda at sunrise',
+    'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.title': 'Does the freedom of the market also apply to those who work?',
+    'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.excerpt': 'Lorenzo Onderka, supporter of Avanti con Ticino&Lavoro, raises an interesting question about market freedom and its application in the public sector.',
+    'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.imageAlt': 'A foreigner looking for a job in Ticino',
 };
 
 export default blogMetaEn;

@@ -9329,6 +9329,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.siccit-importazioni-granoturco-svizzera.title': 'Siccità: importazioni granoturco senza dazi per allevatori ticinesi',
     'blog.article.siccit-importazioni-granoturco-svizzera.excerpt': 'Misura straordinaria del DEFR fino al 31 ottobre 2026 per garantire foraggio agli allevatori colpiti dalla crisi. Importazioni di granoturco fino al 60% di sostanza secca senza tasse.',
     'blog.article.siccit-importazioni-granoturco-svizzera.imageAlt': 'Castelgrande sul lago di Garda con luce dorata',
+    'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.title': 'La libertà del mercato vale anche per chi lavora?',
+    'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.excerpt': 'Lorenzo Onderka, sostenitore di Avanti con Ticino&Lavoro, solleva una domanda interessante sulla libertà del mercato e la sua applicazione nel settore pubblico.',
+    'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.imageAlt': 'Un frontaliere che cerca un lavoro in Ticino',
 };
 
 export default blogMetaIt;

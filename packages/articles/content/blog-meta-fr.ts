@@ -9330,6 +9330,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.siccit-importazioni-granoturco-svizzera.title': 'Siccità: maïs sans droits pour les éleveurs',
     'blog.article.siccit-importazioni-granoturco-svizzera.excerpt': 'Mesure extraordinaire du DEFR jusqu\'au 31 octobre 2026 pour garantir du fourrage aux éleveurs touchés par la crise. Importations de maïs jusqu\'à 60 % de matière sèche hors taxes.',
     'blog.article.siccit-importazioni-granoturco-svizzera.imageAlt': 'Castelgrande au bord du Lac de Garde au lever du soleil',
+    'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.title': 'La liberté du marché vaut-elle aussi pour ceux qui travaillent ?',
+    'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.excerpt': 'Lorenzo Onderka, partisan d\'Avanti con Ticino&Lavoro, soulève une question intéressante sur la liberté du marché et son application dans le secteur public.',
+    'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.imageAlt': 'Un frontalier qui cherche un emploi en Suisse',
 };
 
 export default blogMetaFr;
