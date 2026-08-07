@@ -15,8 +15,8 @@
 //   └─ inlined popularity map     3,598,764 B raw  (88% of the chunk)
 //      48,890 entries, of which 31,878 have exactly 1 view
 //
-// and build-plugins/staticPagesPlugin.ts (sectionChunks: 'cerca-lavoro-ticino'
-// → ['JobBoard']) emits a `<link rel="modulepreload">` for that chunk in the
+// and build-plugins/staticPagesPlugin.ts maps that page's section slug to the
+// JobBoard chunk (sectionChunks), so it emits a `modulepreload` for it in the
 // static shell — i.e. the browser fetches all 812 KB at HIGH priority, before
 // anything the page paints with. The map's entire job is to rank a 4-card strip
 // that renders below the fold and only when 3+ matches exist.
