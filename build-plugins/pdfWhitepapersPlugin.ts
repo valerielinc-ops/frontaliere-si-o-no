@@ -5,7 +5,14 @@ import path from 'path';
 // guides finivano con un <img> verso un webp mai generato.
 import fs from 'node:fs';
 import { clampMetaDescription } from './shared/titleSuffix';
-import { renderSeoHeroImage } from './shared/seoHeroImage';
+import {
+  renderSeoHeroImage,
+  seoHeroImageObject,
+  seoHeroImageUrl,
+  SEO_HERO_WIDTH,
+  SEO_HERO_HEIGHT,
+  type SeoHeroImageOpts,
+} from './shared/seoHeroImage';
 import { createHash } from 'node:crypto';
 import type { Plugin } from 'vite';
 import { BASE_URL, ANALYTICS_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
@@ -442,12 +449,20 @@ function generateLandingPage(guide: PdfGuide, pdfSizeKb: string, dateStamp: stri
  const hreflangLinks = '';
  const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
+ // One description of the hero, used three times: the <img>, `DigitalDocument.image`
+ // and `og:image`, all deriving their URL from this single (family, key, locale).
+ const hero: SeoHeroImageOpts = {
+ family: 'guides', key: guide.articleSlug, locale: 'it',
+ headline: guide.title, eyebrow: guide.subtitle, alt: guide.title,
+ };
+
  const jsonLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'DigitalDocument',
  name: guide.title,
  description: guide.subtitle,
  url: canonical,
+ image: seoHeroImageObject(hero),
  encodingFormat: 'application/pdf',
  encoding: { '@type': 'MediaObject', contentUrl: pdfUrl, encodingFormat: 'application/pdf' },
  author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
@@ -484,9 +499,12 @@ ${hreflangLinks}
 <meta property="og:description" content="${esc(clampMetaDescription(guide.subtitle))}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:site_name" content="Frontaliere Ticino">
-<meta property="og:image" content="${BASE_URL}/icons/icon-512x512.png">
-<meta property="og:image:width" content="512">
-<meta property="og:image:height" content="512">
+<!-- Was /icons/icon-512x512.png: a 512x512 square app icon, below the 1200-wide
+     minimum a large Discover/Twitter card needs and not about this guide at all. -->
+<meta property="og:image" content="${seoHeroImageUrl(hero)}">
+<meta property="og:image:width" content="${SEO_HERO_WIDTH}">
+<meta property="og:image:height" content="${SEO_HERO_HEIGHT}">
+<meta property="og:image:type" content="image/webp">
 <meta property="og:image:alt" content="${esc(guide.title)}">
 <script type="application/ld+json">${jsonLd}</script>
 <script type="application/ld+json">${breadcrumbLd}</script>
@@ -507,7 +525,7 @@ nav a{color:#2563eb;text-decoration:none}
 <article>
 <h1>${esc(guide.title)}</h1>
 <p class="subtitle">${esc(guide.subtitle)}</p>
-${renderSeoHeroImage({ family: 'guides', key: guide.articleSlug, locale: 'it', headline: guide.title, eyebrow: guide.subtitle, alt: guide.title })}
+${renderSeoHeroImage(hero)}
 <div class="download-box">
 <a class="download-btn" href="${pdfUrl}" download>📥 Scarica PDF (${pdfSizeKb} KB)</a>
 <p class="meta">Formato PDF · Gratuito · Aggiornato ${dateStamp}</p>

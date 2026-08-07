@@ -38,7 +38,14 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { renderSeoHeroImage } from './shared/seoHeroImage';
+import {
+  renderSeoHeroImage,
+  seoHeroImageObject,
+  seoHeroImageUrl,
+  SEO_HERO_WIDTH,
+  SEO_HERO_HEIGHT,
+  type SeoHeroImageOpts,
+} from './shared/seoHeroImage';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { formatUpdatedSentence } from './shared/humanDate';
@@ -423,6 +430,12 @@ function renderPage(
   linkedIds?: ReadonlySet<string>,
 ): RenderResult {
   const copy = COPY[locale];
+  // One description of the hero, used three times: the <img>, `Article.image`
+  // and `og:image`. Declared before the body because the body consumes it
+  // first; all three derive their URL from this single (family, key, locale).
+  const hero: SeoHeroImageOpts = {
+    family: 'faq-hub', key: 'hub', locale, headline: copy.h1, eyebrow: copy.breadcrumbHub, alt: copy.h1,
+  };
   const urlPath = buildFaqHubPath(locale);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
@@ -468,7 +481,7 @@ function renderPage(
            remains the most descriptive copy for the page topic. -->
       <h2 class="fh-h1">${esc(copy.h1)}</h2>
     </header>
-    ${renderSeoHeroImage({ family: 'faq-hub', key: 'hub', locale, headline: copy.h1, eyebrow: copy.breadcrumbHub, alt: copy.h1 })}
+    ${renderSeoHeroImage(hero)}
     <section class="fh-tldr" data-speakable aria-label="TL;DR">
       <h2 class="fh-tldh">${esc(copy.tldrTitle)}</h2>
       ${tldrHtml}
@@ -518,7 +531,7 @@ function renderPage(
     '@type': 'Article',
     headline: copy.h1,
     description: guardArticleJsonLdDescription(copy.description),
-    image: `${BASE_URL}/og-image.png`,
+    image: seoHeroImageObject(hero),
     inLanguage: locale,
     url: canonicalUrl,
     datePublished: dateStamp,
@@ -556,6 +569,11 @@ function renderPage(
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogType: 'article',
     ogLocale: OG_LOCALE[locale],
+    ogImage: seoHeroImageUrl(hero),
+    ogImageWidth: SEO_HERO_WIDTH,
+    ogImageHeight: SEO_HERO_HEIGHT,
+    ogImageType: 'image/webp',
+    ogImageAlt: copy.h1,
     hreflangHtml: alternates,
     jsonLdScripts: [breadcrumbLd, faqLd, articleLd],
     bodyHtml,
@@ -737,6 +755,12 @@ function renderEntryPage(
   const ecopy = ENTRY_COPY[locale];
   const question = entry.question[locale];
   const categoryLabel = FAQ_HUB_CATEGORY_LABELS[entry.category][locale];
+  // Per-entry hero: the question IS the headline on the card, in the JSON-LD
+  // caption and in og:image:alt. `entry.id` keys it, so the 416 entry pages
+  // get 416 distinct cards rather than one shared family image.
+  const hero: SeoHeroImageOpts = {
+    family: 'faq-hub', key: entry.id, locale, headline: question, eyebrow: categoryLabel, alt: question,
+  };
 
   const urlPath = buildFaqEntryPath(locale, entry.id);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
@@ -808,7 +832,7 @@ function renderEntryPage(
     <header class="fh-hd">
       <p class="fh-eyebrow">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
     </header>
-    ${renderSeoHeroImage({ family: 'faq-hub', key: entry.id, locale, headline: question, eyebrow: categoryLabel, alt: question })}
+    ${renderSeoHeroImage(hero)}
     <section class="fh-q" data-speakable>
       <h2 class="fh-qt">${esc(ecopy.answerHeading)}</h2>
       <p class="fh-qa">${answerHtml}</p>
@@ -856,7 +880,7 @@ function renderEntryPage(
     '@type': 'Article',
     headline: question,
     description: guardArticleJsonLdDescription(plainAnswer(entry, locale)),
-    image: `${BASE_URL}/og-image.png`,
+    image: seoHeroImageObject(hero),
     inLanguage: locale,
     url: canonicalUrl,
     datePublished: dateStamp,
@@ -885,6 +909,11 @@ function renderEntryPage(
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogType: 'article',
     ogLocale: OG_LOCALE[locale],
+    ogImage: seoHeroImageUrl(hero),
+    ogImageWidth: SEO_HERO_WIDTH,
+    ogImageHeight: SEO_HERO_HEIGHT,
+    ogImageType: 'image/webp',
+    ogImageAlt: question,
     hreflangHtml: alternates,
     jsonLdScripts: [breadcrumbLd, faqLd, articleLd],
     bodyHtml,

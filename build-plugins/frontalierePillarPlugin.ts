@@ -19,7 +19,14 @@ import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
-import { renderSeoHeroImage } from './shared/seoHeroImage';
+import {
+  renderSeoHeroImage,
+  seoHeroImageObject,
+  seoHeroImageUrl,
+  SEO_HERO_WIDTH,
+  SEO_HERO_HEIGHT,
+  type SeoHeroImageOpts,
+} from './shared/seoHeroImage';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
@@ -67,6 +74,13 @@ const TILE_STYLES = [STAT_TILE_ACCENT, STAT_TILE_SUCCESS, STAT_TILE_BASE] as con
 
 function renderPage(locale: FrontalierePillarLocale, dateStamp: string, distDir: string) {
   const copy = FRONTALIERE_PILLAR_COPY[locale];
+  // One description of the hero, used three times: the <img>, `Article.image`
+  // and `og:image`. Declared up here rather than next to the JSON-LD because
+  // on this page `bodyHtml` is built first — all three still derive their URL
+  // from this single (family, key, locale).
+  const hero: SeoHeroImageOpts = {
+    family: 'frontaliere-pillar', key: 'pillar', locale, headline: copy.h1, eyebrow: copy.eyebrow, alt: copy.h1,
+  };
   const urlPath = buildFrontalierePillarPath(locale);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
@@ -151,7 +165,7 @@ ${breadcrumbHtml}
 <p style="${HERO_EYEBROW_STYLE}">${esc(copy.eyebrow)}</p>
 <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
 <p style="${LEDE_STYLE}">${esc(copy.lede)}</p>
-${renderSeoHeroImage({ family: 'frontaliere-pillar', key: 'pillar', locale, headline: copy.h1, eyebrow: copy.eyebrow, alt: copy.h1 })}
+${renderSeoHeroImage(hero)}
 <div class="mt-4 grid gap-3 sm:grid-cols-3">
 ${tilesHtml}
 </div>
@@ -187,7 +201,7 @@ ${sourcesHtml}
     '@type': 'Article',
     headline: copy.h1,
     description: guardArticleJsonLdDescription(copy.description),
-    image: `${BASE_URL}/og-image.png`,
+    image: seoHeroImageObject(hero),
     inLanguage: locale,
     url: canonicalUrl,
     datePublished: dateStamp,
@@ -214,6 +228,11 @@ ${sourcesHtml}
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogType: 'article',
     ogLocale: OG_LOCALE[locale],
+    ogImage: seoHeroImageUrl(hero),
+    ogImageWidth: SEO_HERO_WIDTH,
+    ogImageHeight: SEO_HERO_HEIGHT,
+    ogImageType: 'image/webp',
+    ogImageAlt: copy.h1,
     hreflangHtml: hreflangLines.join('\n'),
     jsonLdScripts: [breadcrumbLd, faqLd, articleLd],
     bodyHtml: bodyHtmlWithAd,

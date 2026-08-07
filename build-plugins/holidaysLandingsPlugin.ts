@@ -25,7 +25,14 @@ const __dirname_holidays = np.dirname(fileURLToPath(import.meta.url));
 
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { renderSeoHeroImage } from './shared/seoHeroImage';
+import {
+  renderSeoHeroImage,
+  seoHeroImageObject,
+  seoHeroImageUrl,
+  SEO_HERO_WIDTH,
+  SEO_HERO_HEIGHT,
+  type SeoHeroImageOpts,
+} from './shared/seoHeroImage';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { CALC_HREF } from './shared/calcHref';
 import { formatUpdatedDate } from './shared/humanDate';
@@ -573,12 +580,18 @@ function renderPage(opts: {
     })),
   };
 
+  // One description of the hero, used three times: the <img>, `Article.image`
+  // and `og:image`. Declared once so the JSON-LD and the OG tag cannot end up
+  // naming a different card than the one on the page — they all derive their
+  // URL from this single (family, key, locale).
+  const hero: SeoHeroImageOpts = { family: 'holidays', key: page, locale, headline: h1, eyebrow, alt: h1 };
+
   const articleLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: h1,
     description: guardArticleJsonLdDescription(description),
-    image: `${BASE_URL}/og-image.png`,
+    image: seoHeroImageObject(hero),
     inLanguage: locale,
     url: canonicalUrl,
     datePublished: dateStamp,
@@ -686,7 +699,7 @@ function renderPage(opts: {
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(lede)}</p>
     </header>
-    ${renderSeoHeroImage({ family: 'holidays', key: page, locale, headline: h1, eyebrow, alt: h1 })}
+    ${renderSeoHeroImage(hero)}
     <p class="text-sm font-medium text-accent mt-1">${esc(L.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
     ${statTilesHtml}
     <div class="s-KZc0LQ"><a href="${esc(calcUrl)}" class="s-cta">${esc(L.ctaCalc)}</a></div>
@@ -738,6 +751,13 @@ function renderPage(opts: {
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogType: 'article',
     ogLocale: OG_LOCALE[locale],
+    // Without this the page shared the site-wide /og-image.png with every
+    // other page on the site. The card carries this page's own headline.
+    ogImage: seoHeroImageUrl(hero),
+    ogImageWidth: SEO_HERO_WIDTH,
+    ogImageHeight: SEO_HERO_HEIGHT,
+    ogImageType: 'image/webp',
+    ogImageAlt: h1,
     hreflangHtml: alternates,
     jsonLdScripts: [
       JSON.stringify(breadcrumbLd),

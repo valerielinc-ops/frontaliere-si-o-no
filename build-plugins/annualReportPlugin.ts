@@ -47,7 +47,14 @@ import {
   MIN_INDEXABLE_WORDS,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { renderSeoHeroImage } from './shared/seoHeroImage';
+import {
+  renderSeoHeroImage,
+  seoHeroImageObject,
+  seoHeroImageUrl,
+  SEO_HERO_WIDTH,
+  SEO_HERO_HEIGHT,
+  type SeoHeroImageOpts,
+} from './shared/seoHeroImage';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
@@ -796,12 +803,18 @@ function renderReport(opts: {
     ],
   });
 
+  // One description of the hero, used three times: the <img>, `Article.image`
+  // and `og:image`, all deriving their URL from this single triple.
+  const hero: SeoHeroImageOpts = {
+    family: 'annual-report', key: 'report', locale, headline: copy.h1, eyebrow: copy.kicker, alt: copy.h1,
+  };
+
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: copy.h1,
     description: guardArticleJsonLdDescription(copy.description),
-    image: `${BASE_URL}/og-image.png`,
+    image: seoHeroImageObject(hero),
     inLanguage: locale,
     url: canonicalUrl,
     datePublished: agg.generatedAt,
@@ -863,7 +876,7 @@ function renderReport(opts: {
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(copy.introP)}</p>
     </header>
-    ${renderSeoHeroImage({ family: 'annual-report', key: 'report', locale, headline: copy.h1, eyebrow: copy.kicker, alt: copy.h1 })}
+    ${renderSeoHeroImage(hero)}
     ${statCards}
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(copy.findingsH2)}</h2>
@@ -931,6 +944,11 @@ function renderReport(opts: {
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogType: 'article',
     ogLocale: OG_LOCALE[locale],
+    ogImage: seoHeroImageUrl(hero),
+    ogImageWidth: SEO_HERO_WIDTH,
+    ogImageHeight: SEO_HERO_HEIGHT,
+    ogImageType: 'image/webp',
+    ogImageAlt: copy.h1,
     hreflangHtml: buildHreflang(),
     jsonLdScripts: [breadcrumbLd, articleLd, datasetLd],
     bodyHtml,

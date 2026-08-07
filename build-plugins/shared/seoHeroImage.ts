@@ -35,6 +35,24 @@
  * is that contract: it is what the generator scans for.
  */
 
+import { imageObjectLd, type ImageObjectLd } from '../../services/seo/imageObjectLd';
+
+/**
+ * Canonical origin. Deliberately NOT `import { BASE_URL } from '../constants'`.
+ *
+ * `constants.ts` calls `assertPublicAssetExists('seo-static.css')` at module
+ * scope, so importing it makes this module unloadable wherever `public/` is
+ * not materialized — which per CLAUDE.md is every sparse worktree in this
+ * repo, the documented way to check one out. The runtime half of
+ * `tests/seo/discover-hero-image.test.ts` imports this file; it must not need
+ * a 1.8 GB asset tree to answer a question about a URL string.
+ *
+ * The duplication is pinned rather than tolerated: that test reads
+ * `constants.ts` as TEXT and fails if the two literals ever differ, which
+ * costs nothing and needs no import.
+ */
+const SEO_HERO_ORIGIN = 'https://frontaliereticino.ch';
+
 /** Card geometry. 1200×630 is the Discover/OG large-card aspect. */
 export const SEO_HERO_WIDTH = 1200;
 export const SEO_HERO_HEIGHT = 630;
@@ -187,18 +205,81 @@ export function renderSeoHeroImage(opts: SeoHeroImageOpts): string {
 }
 
 /**
- * NOT YET EMITTED — deliberately absent, not forgotten.
- *
- * The natural companion to the hero is an `ImageObject` in each page's
- * structured data, with the dimensions declared: that is the shape #5104
- * established after finding `NewsArticle.image` shipping a bare URL string.
- * It is not wired here because each of the seven families builds its own
- * JSON-LD, and wiring six of seven would be worse than wiring none — a
- * structured-data surface that disagrees with itself per family is harder to
- * reason about than one that is uniformly absent.
- *
- * An earlier revision of this file exported `seoHeroImageObject`/
- * `seoHeroImageUrl` for that purpose and no plugin called them. Dead code
- * that advertises a capability the pages do not have is worse than no code:
- * it reads as done. Removed until the JSON-LD wiring lands with it.
+ * Absolute URL of the card. The relative {@link seoHeroCardPath} is right for
+ * `<img src>`; JSON-LD and `og:image` are both consumed off-page (by a crawler
+ * that may have the markup without the page's origin) and need the origin.
  */
+export function seoHeroImageUrl(opts: SeoHeroImageOpts): string {
+  return `${SEO_HERO_ORIGIN}${seoHeroCardPath(opts.family, opts.key, opts.locale)}`;
+}
+
+/**
+ * The hero as an `ImageObject`, for the page's `Article.image`.
+ *
+ * WHY AN OBJECT AND NOT THE URL STRING
+ * ────────────────────────────────────
+ * schema.org allows `image` to be a bare URL and every one of these families
+ * shipped exactly that — pointing, moreover, at the site-wide
+ * `/og-image.png` rather than at anything about the page. #5104 already
+ * settled this once for `NewsArticle.image`: a bare string carries no
+ * dimensions, so a consumer cannot tell a 1200×630 card from a 512×512 app
+ * icon without fetching it, and Google's large-card eligibility is stated in
+ * pixels. The declared `width`/`height` are the same two constants the
+ * `<img>` declares, from the same place, so the two cannot drift.
+ *
+ * WHY IT GOES THROUGH `imageObjectLd`
+ * ───────────────────────────────────
+ * Hand-rolling the object here would ship five missing GSC licensable-image
+ * fields on ~514 URLs at once, and `tests/seo/image-object-license-fields.ts`
+ * is a hard CI gate on exactly that. The shared builder is the only way to
+ * emit an ImageObject on this site.
+ *
+ * WHY IT REGISTERS THE CARD TOO
+ * ─────────────────────────────
+ * Same contract as {@link renderSeoHeroImage}: referencing the card IS the
+ * request for it. A family that emitted only the structured data would
+ * otherwise advertise a WebP nobody renders — the same 404-hero failure that
+ * `pdfWhitepapersPlugin` shipped, just in JSON-LD where no browser would ever
+ * make it visible. Registration is keyed by `src`, so a page that calls both
+ * (all of them do) still enqueues one render.
+ */
+export function seoHeroImageObject(opts: SeoHeroImageOpts): ImageObjectLd {
+  const src = seoHeroCardPath(opts.family, opts.key, opts.locale);
+  if (drained) LATE_REQUESTS.add(`${opts.family}/${opts.key}/${opts.locale}`);
+  CARD_REQUESTS.set(src, {
+    family: opts.family,
+    key: opts.key,
+    locale: opts.locale,
+    headline: opts.headline ?? opts.alt,
+    eyebrow: opts.eyebrow ?? '',
+  });
+  return imageObjectLd({
+    contentUrl: `${SEO_HERO_ORIGIN}${src}`,
+    width: SEO_HERO_WIDTH,
+    height: SEO_HERO_HEIGHT,
+    // The card prints this headline over the brand background, so the caption
+    // describes the image truthfully — same string, same reason, as the alt.
+    caption: opts.alt,
+    inLanguage: opts.locale,
+    // True in the literal sense: the same call site also feeds `og:image`.
+    representativeOfPage: true,
+  });
+}
+
+/**
+ * {@link seoHeroImageObject} as a standalone JSON-LD document.
+ *
+ * For the one family that has no `Article` node to hang `image` on:
+ * `staticPagesPlugin` carries page structured data as a pre-serialized string
+ * assembled ~2400 lines before the hero exists, and the glossary's only
+ * page-level node is a `DefinedTerm`. Parsing that string back to reach it
+ * would be a new failure mode on 42 URLs to save one `<script>` tag; emitting
+ * the ImageObject as its own node — with `representativeOfPage` doing the
+ * linking — does not. Wrapping here rather than letting the caller write
+ * `@context` by hand keeps the field choices above the only ones in effect.
+ */
+export function seoHeroImageObjectDocument(
+  opts: SeoHeroImageOpts,
+): ImageObjectLd & { '@context': 'https://schema.org' } {
+  return { '@context': 'https://schema.org', ...seoHeroImageObject(opts) };
+}

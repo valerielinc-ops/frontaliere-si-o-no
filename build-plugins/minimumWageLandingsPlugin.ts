@@ -27,7 +27,14 @@ const __dirname_minwage = np.dirname(fileURLToPath(import.meta.url));
 
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { renderSeoHeroImage } from './shared/seoHeroImage';
+import {
+  renderSeoHeroImage,
+  seoHeroImageObject,
+  seoHeroImageUrl,
+  SEO_HERO_WIDTH,
+  SEO_HERO_HEIGHT,
+  type SeoHeroImageOpts,
+} from './shared/seoHeroImage';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { CALC_HREF } from './shared/calcHref';
 import { formatUpdatedDate } from './shared/humanDate';
@@ -831,12 +838,20 @@ function renderPage(opts: {
       acceptedAnswer: { '@type': 'Answer', text: f.a },
     })),
   };
+  // One description of the hero, used three times: the <img>, `Article.image`
+  // and `og:image`. Declared once so all three name the same card — and via
+  // `pageKey(page)`, never `String(page)`: that produced "[object Object]" and
+  // collapsed all seven pages of this family onto one shared card.
+  const hero: SeoHeroImageOpts = {
+    family: 'minimum-wage', key: pageKey(page), locale, headline: h1, eyebrow, alt: h1,
+  };
+
   const articleLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: h1,
     description: guardArticleJsonLdDescription(description),
-    image: `${BASE_URL}/og-image.png`,
+    image: seoHeroImageObject(hero),
     inLanguage: locale,
     url: canonicalUrl,
     datePublished: dateStamp,
@@ -870,7 +885,7 @@ function renderPage(opts: {
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(lede)}</p>
     </header>
-    ${renderSeoHeroImage({ family: 'minimum-wage', key: pageKey(page), locale, headline: h1, eyebrow, alt: h1 })}
+    ${renderSeoHeroImage(hero)}
     ${updatedLine}
     ${statTilesHtml}
     ${ctaBlock}
@@ -893,6 +908,11 @@ function renderPage(opts: {
     robots: indexable ? 'index,follow' : 'noindex,follow',
     ogType: 'article',
     ogLocale: OG_LOCALE[locale],
+    ogImage: seoHeroImageUrl(hero),
+    ogImageWidth: SEO_HERO_WIDTH,
+    ogImageHeight: SEO_HERO_HEIGHT,
+    ogImageType: 'image/webp',
+    ogImageAlt: h1,
     hreflangHtml: alternates,
     jsonLdScripts: [
       JSON.stringify(breadcrumbLd),

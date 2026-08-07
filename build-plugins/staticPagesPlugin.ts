@@ -37,7 +37,14 @@ import { GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from '../servic
 // mai generato. Stesso difetto trovato in review su `pdfWhitepapersPlugin`.
 import fs from 'node:fs';
 import np from 'node:path';
-import { renderSeoHeroImage } from './shared/seoHeroImage';
+import {
+  renderSeoHeroImage,
+  seoHeroImageObjectDocument,
+  seoHeroImageUrl,
+  SEO_HERO_WIDTH,
+  SEO_HERO_HEIGHT,
+  type SeoHeroImageOpts,
+} from './shared/seoHeroImage';
 
 /** Etichetta della card glossario, nella lingua della pagina. */
 const GLOSSARY_HERO_EYEBROW: Record<'it' | 'en' | 'de' | 'fr', string> = {
@@ -4686,6 +4693,34 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  ? seoData.h1
  : h1Fallback;
  const h1Text = differentiateH1FromTitle(h1RawText, capTitle70(seoData.title), h1Locale);
+
+ // #5001 punto 2 — la hero del glossario, descritta UNA volta e usata tre:
+ // l'<img> nel body, l'ImageObject in JSON-LD e og:image. Sta qui, in scope di
+ // `buildPage`, e non dentro il ramo `guideSlugs` piu' sotto, perche' gli altri
+ // due consumatori vivono nella shell: un `const` dentro quel ramo era
+ // invisibile a entrambi. Una sola (family, key, locale) => i tre non possono
+ // nominare card diverse.
+ const glossaryHero: SeoHeroImageOpts | null = firstSeg === 'glossario-frontaliere'
+ ? {
+ family: 'glossario',
+ key: urlSegs.length > (localePrefixes.includes(urlSegs[0] ?? '') ? 2 : 1)
+ ? (urlSegs[urlSegs.length - 1] as string)
+ : 'index',
+ locale: h1Locale,
+ headline: h1Text,
+ eyebrow: GLOSSARY_HERO_EYEBROW[h1Locale],
+ alt: h1Text,
+ }
+ : null;
+
+ // og:image: la card quando c'e', altrimenti il default di sito invariato.
+ // Le tre shell qui sotto avevano la stessa PNG cablata tre volte; ora leggono
+ // queste quattro, cosi' una pagina con hero non puo' dichiararne un'altra.
+ const ogImageUrl = glossaryHero ? seoHeroImageUrl(glossaryHero) : `${BASE_URL}/og-image.png`;
+ const ogImageW = glossaryHero ? SEO_HERO_WIDTH : 1200;
+ const ogImageH = glossaryHero ? SEO_HERO_HEIGHT : 630;
+ const ogImageMime = glossaryHero ? 'image/webp' : 'image/png';
+
  if (comparatorSlugs.includes(firstSeg)) {
  rootHtml = `<div class="s-wWmcGm"><div style="${sp};height:9rem;margin-bottom:1.5rem"></div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><div class="s-d0FtpK"><div style="${sp};height:12rem"></div><div style="${sp};height:12rem"></div></div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (guideSlugs.includes(firstSeg)) {
@@ -4696,20 +4731,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // NON fanno parte di quel gap e restano invariate: questo ramo e' condiviso, e
  // allargarlo qui toccherebbe famiglie che nessuna misura ha indicato come
  // difettose.
- const glossaryTermKey = urlSegs.length > (localePrefixes.includes(urlSegs[0] ?? '') ? 2 : 1)
- ? urlSegs[urlSegs.length - 1]
- : 'index';
- const glossaryHero = firstSeg === 'glossario-frontaliere'
- ? renderSeoHeroImage({
- family: 'glossario',
- key: glossaryTermKey,
- locale: h1Locale,
- headline: h1Text,
- eyebrow: GLOSSARY_HERO_EYEBROW[h1Locale],
- alt: h1Text,
- })
- : '';
- rootHtml = `<div class="s-wWmcGm"><div style="${sp};height:7rem;margin-bottom:1.5rem"></div>${glossaryHero}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}${editorialSourcesHtml}</article><div class="s-1oTdPl">${`<div style="${sp};height:5rem"></div>`.repeat(4)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`;
+ const glossaryHeroHtml = glossaryHero ? renderSeoHeroImage(glossaryHero) : '';
+ rootHtml = `<div class="s-wWmcGm"><div style="${sp};height:7rem;margin-bottom:1.5rem"></div>${glossaryHeroHtml}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}${editorialSourcesHtml}</article><div class="s-1oTdPl">${`<div style="${sp};height:5rem"></div>`.repeat(4)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (fiscoSlugs.includes(firstSeg)) {
  rootHtml = `<div class="s-wWmcGm"><div class="s-34uchz">${`<div style="${sp};width:6rem;height:2.25rem;border-radius:9999px"></div>`.repeat(5)}</div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}${editorialSourcesHtml}</article><div style="${sp};height:14rem;margin-top:1.5rem"></div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (swissSlugs.has(firstSeg) && !isSwissDetailPage) {
@@ -4849,6 +4872,17 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  ? `\n <script type="application/ld+json">${inlineScriptJson({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1","[data-speakable]","article p:first-of-type"]})}</script>`
  : '';
 
+ // L'ImageObject della hero. Nodo a se' e non `image:` dentro il DefinedTerm
+ // perche' su queste pagine la structured data e' una STRINGA gia' serializzata
+ // (`seoData.sd`), assemblata ~2400 righe piu' su e per una parte dei termini
+ // scritta a mano in services/seo/seo-pages.ts: raggiungere quel nodo vorrebbe
+ // dire ri-parsare la stringa. Stessa forma di `speakableLd` qui sopra —
+ // variabile locale, nessuna mutazione di `seoData.sd`, che e' condiviso tra la
+ // scrittura directory e quella flat e verrebbe cosi' appeso due volte.
+ const heroImageLd = glossaryHero
+ ? `\n <script type="application/ld+json">${inlineScriptJson(seoHeroImageObjectDocument(glossaryHero))}</script>`
+ : '';
+
  // SPA shell: loads the app directly at the correct URL (no redirect)
  const isStaticOnly = STATIC_ONLY_PATHS.has(canonicalPath) || STATIC_ONLY_PATHS.has(canonicalPath.replace(/\/$/, ''));
 
@@ -4867,10 +4901,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  <meta property="og:url" content="${fullUrl}">
  <meta property="og:title" content="${esc(seoData.ogT)}">
  <meta property="og:description" content="${esc(clampMetaDescription(seoData.ogD))}">
- <meta property="og:image" content="${BASE_URL}/og-image.png">
- <meta property="og:image:width" content="1200">
- <meta property="og:image:height" content="630">
- <meta property="og:image:type" content="image/png">
+ <meta property="og:image" content="${ogImageUrl}">
+ <meta property="og:image:width" content="${ogImageW}">
+ <meta property="og:image:height" content="${ogImageH}">
+ <meta property="og:image:type" content="${ogImageMime}">
  <meta property="og:image:alt" content="${esc(seoData.ogT)}">
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
@@ -4881,7 +4915,7 @@ ${hrefTags}
  <style>body{font-family:Inter,system-ui,sans-serif;max-width:800px;margin:0 auto;padding:2rem 1rem;background:#f8fafc;color:var(--color-heading)}a{color:var(--color-link);text-decoration:underline}a:hover{color:#1d4ed8}h1{font-size:1.5rem;font-weight:700;margin-bottom:0.5rem}h2{font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem}nav{margin-top:2rem;padding-top:1rem;border-top:1px solid #e2e8f0;font-size:0.9rem}nav a{margin-right:1rem}.byline{font-size:0.85rem;color:var(--color-subtle);margin-bottom:1rem}</style>
  </head>
  <body>
- <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}
+ <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}${heroImageLd}
  <main>
  <h1>${esc(differentiateH1FromTitle((seoData.h1 && seoData.h1.trim().length > 0 ? seoData.h1 : seoData.title).replace(' | Frontaliere Ticino', ''), capTitle70(seoData.title), (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it'))}</h1>
  <p class="byline">By <a href="/chi-siamo/" rel="author">Redazione Frontaliere Ticino</a> · Last updated: <time datetime="2026-04-10">April 10, 2026</time></p>
@@ -5011,10 +5045,10 @@ ${hubChromeSplit.bodyHtml}
  <meta property="og:url" content="${fullUrl}">
  <meta property="og:title" content="${esc(seoData.ogT)}">
  <meta property="og:description" content="${esc(clampMetaDescription(seoData.ogD))}">
- <meta property="og:image" content="${BASE_URL}/og-image.png">
- <meta property="og:image:width" content="1200">
- <meta property="og:image:height" content="630">
- <meta property="og:image:type" content="image/png">
+ <meta property="og:image" content="${ogImageUrl}">
+ <meta property="og:image:width" content="${ogImageW}">
+ <meta property="og:image:height" content="${ogImageH}">
+ <meta property="og:image:type" content="${ogImageMime}">
  <meta property="og:image:alt" content="${esc(seoData.ogT)}">
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
@@ -5031,7 +5065,7 @@ ${hrefTags}
  ${ANALYTICS_SNIPPET}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}
+ <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}${heroImageLd}
  ${bodySection}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
@@ -5052,10 +5086,10 @@ ${hrefTags}
  <meta property="og:url" content="${fullUrl}">
  <meta property="og:title" content="${esc(seoData.ogT)}">
  <meta property="og:description" content="${esc(clampMetaDescription(seoData.ogD))}">
- <meta property="og:image" content="${BASE_URL}/og-image.png">
- <meta property="og:image:width" content="1200">
- <meta property="og:image:height" content="630">
- <meta property="og:image:type" content="image/png">
+ <meta property="og:image" content="${ogImageUrl}">
+ <meta property="og:image:width" content="${ogImageW}">
+ <meta property="og:image:height" content="${ogImageH}">
+ <meta property="og:image:type" content="${ogImageMime}">
  <meta property="og:image:alt" content="${esc(seoData.ogT)}">
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
@@ -5067,7 +5101,7 @@ ${hrefTags}
  ${ANALYTICS_SNIPPET}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}
  </head>
  <body>
- <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}
+ <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}${heroImageLd}
  <style>${skeletonAnim}</style>
  <div id="root"><main id="main-content">${rootHtml}</main></div>
  </body>
