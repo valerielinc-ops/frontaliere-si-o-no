@@ -206,6 +206,12 @@ jobs:
         env:
           PAT: ${{ secrets.ARTICLES_REPO_PAT }}
           GH_TOKEN: ${{ secrets.ARTICLES_REPO_PAT }}
+          # Read-only, and deliberately NOT the PAT: the commit range below is
+          # read from THIS repo, and GITHUB_TOKEN already has `contents: read`
+          # here. Reaching for the corpus PAT to read the site would widen its
+          # blast radius for prose.
+          SITE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SITE_REPO: ${{ github.repository }}
           WORK: ${{ steps.stage.outputs.work }}
           SHA: ${{ github.sha }}
         run: |
@@ -228,41 +234,136 @@ jobs:
           git push --force origin "HEAD:${TARGET_BRANCH}"
           echo "pushed ${TARGET_BRANCH}"
 
+          # ── Facts for the body, gathered before it is written ──────────────
+          # What this PR actually changes in the corpus, read off the commit
+          # that was just made rather than restated by hand.
+          changed_paths=$(git show --name-only --format= HEAD | sed '/^$/d')
+          n_changed=$(printf '%s\n' "$changed_paths" | sed '/^$/d' | wc -l | tr -d ' ')
+          n_deleted=$(git show --name-status --format= HEAD | grep -c '^D' || true)
+
+          # The site commits this PR is carrying. The boundary is not guessed:
+          # every lockstep commit stamps `frontaliere-si-o-no@<sha8>` in its
+          # subject, so the newest one already on this repo's engine/ history IS
+          # the last thing that landed, and everything the site has done to the
+          # mirrored paths since then is what this PR brings.
+          #
+          # Best-effort by design. This is PR prose, not a safety property: the
+          # push has already happened by this point, so every call is guarded
+          # and the whole thing degrades to the head commit alone rather than
+          # failing a mirror that has done its real work.
+          prev=$(gh api "repos/nanakokyobashi-rgb/frontaliere-articles/commits?path=engine&per_page=30" \
+                   --jq '.[].commit.message' 2>/dev/null \
+                 | grep -oiE 'frontaliere-si-o-no@[0-9a-f]{7,40}' | head -1 | cut -d@ -f2 || true)
+          carried=''
+          if [ -n "${prev:-}" ]; then
+            carried=$(GH_TOKEN="$SITE_TOKEN" gh api \
+                        "repos/${SITE_REPO}/commits?path=packages/articles/engine&sha=${SHA}&per_page=50" \
+                        --jq '.[] | "\(.sha[0:8]) \(.commit.message | split("\n")[0])"' 2>/dev/null \
+                      | awk -v p="$(printf '%s' "$prev" | cut -c1-8)" \
+                            'index($0, p) == 1 { exit } n++ < 30 { print }' || true)
+          fi
+          if [ -z "${carried:-}" ]; then
+            # fetch-depth is 1, so this is the one commit the checkout has — the
+            # honest floor when the boundary cannot be read.
+            carried=$(git -C "$GITHUB_WORKSPACE" log -1 --format='%h %s' 2>/dev/null || true)
+          fi
+
+          # ── The body ───────────────────────────────────────────────────────
+          # `## Implementato` and `## Non implementato (ancora)` are not
+          # decoration: nanako gates every PR body on them
+          # (scripts/ci/pr-body-contract.mjs → scripts/lib/pr-body-sections-check.mjs,
+          # the module this repo also ships). A body without them fails the
+          # `contract` check, and a red check means the PR cannot auto-merge —
+          # which means the engine keeps diverging, which is the exact failure
+          # this workflow was created to end. Shipping a mirror that opens PRs
+          # its own destination rejects is a mirror that does not deliver.
+          #
+          # Both headers must be LITERAL (`#{2,3}` + the exact wording, with
+          # "(ancora)"), and each section needs real content — bare `- ` bullets
+          # are rejected too. The first bullet under each is unconditional, so
+          # the contract holds even when the lookups above return nothing.
+          #
+          # printf into a file, not a heredoc and not an inline --body.
+          #
+          # A heredoc cannot work here: its terminator must sit at column 0,
+          # and column 0 ends this `run: |` block scalar, so the workflow
+          # stops being parseable YAML. `<<-` does not rescue it either — it
+          # strips leading TABS only, and YAML forbids tabs for indentation.
+          # An inline --body has the same problem for its blank lines. Found
+          # by running `bash -n` over every run block in this file rather
+          # than by watching the step fail on the one run where drift exists.
+          #
+          # The markers below are load-bearing: tests/workflows/articles-engine-mirror.test.ts
+          # slices exactly this region out and RUNS it under bash with stubbed
+          # inputs, then feeds the output to the same checker nanako runs. Do
+          # not remove them, and keep every input to the region a variable set
+          # above it.
+          # >>> pr-body >>>
+          # awk, not `paste -sd', '`: paste reads its -d argument as a LIST of
+          # delimiters to cycle through, so ', ' joins with a comma, then a
+          # space, then a comma — a,b c,d. Reproduced on both BSD and GNU paste.
+          #
+          # And the cap lives inside awk rather than in a `head`: head closing
+          # the pipe early SIGPIPEs its producer, which under `set -o pipefail`
+          # is a non-zero pipeline and, under `set -e`, kills the step. Hit
+          # exactly that — exit 141 — on a commit touching more paths than the
+          # cap, while testing this block.
+          paths_inline=$(printf '%s\n' "$changed_paths" \
+                         | awk 'NF { n++; if (n <= 25) { printf "%s`%s`", sep, $0; sep = ", " } }
+                                END { if (n > 25) printf ", and %d more", n - 25; print "" }')
+
+          body=$(mktemp)
+          printf '%s\n' \
+            'Automated by `mirror-articles-engine.yml` in valerielinc-ops/frontaliere-si-o-no.' \
+            '' \
+            'The site owns `packages/articles/engine/`; this repo executes it. This PR' \
+            'carries that folder down, and **only** that folder — `content/` belongs to' \
+            'this repo and the mirror never touches it (asserted on the staged diff,' \
+            'fail-closed).' \
+            '' \
+            "A PR rather than a direct push, so this repo's CI and the shell-contract" \
+            'parity golden run before an engine change reaches the generator that' \
+            'publishes articles. An open PR here means the two engines have diverged.' \
+            '' \
+            'Refs valerielinc-ops/frontaliere-si-o-no#4974' \
+            '' \
+            '## Implementato' \
+            > "$body"
+          printf -- '- Lockstep of `engine/` (plus `index.ts` and `articleSections.ts`) with valerielinc-ops/frontaliere-si-o-no@%s — %s path(s) updated in this repo, %s removed.\n' \
+            "${SHA:0:8}" "$n_changed" "$n_deleted" >> "$body"
+          if [ -n "${carried:-}" ]; then
+            printf '%s\n' '- Site commits this PR carries down, newest first (paths `packages/articles/engine/`, `index.ts`, `articleSections.ts`):' >> "$body"
+            printf '%s\n' "$carried" \
+              | awk 'NF { s = $1; $1 = ""; sub(/^ /, ""); printf "  - `%s` — %s\n", s, $0 }' >> "$body"
+          fi
+          if [ -n "${paths_inline:-}" ]; then
+            printf -- '- Paths updated here: %s\n' "$paths_inline" >> "$body"
+          fi
+          printf '%s\n' \
+            '' \
+            '## Non implementato (ancora)' \
+            '- No live page is regenerated by this PR. Until it merges, this repo keeps rendering articles from the engine on `main`; merging triggers `publish-api.yml` (it watches `engine/**`), which rebuilds `dist/api/` and the CDN surface. Pages already published take the change at their next regeneration, not here.' \
+            '- The `host/` half of `SiteShellContract` does not travel with this PR: it lives in the site repo. If the diff above touches `engine/siteShell.ts`, its `host/` counterpart has to ship in the same round, or the engine raises `TypeError: <member> is not a function` at render time behind a green CI — `tests/packages-articles-confinement.test.ts` proves imports, and the contract has no import shape for it to see.' \
+            '- `content/` stays out of scope by construction: the fail-closed allowlist on the staged diff refuses any path outside `engine/`, `index.ts` and `articleSections.ts`. Corpus changes travel the other way, pulled back by `scripts/pull-articles-corpus.mjs`.' \
+            >> "$body"
+          # <<< pr-body <<<
+
           # One PR at a time. If one is already open this push updated it in
           # place, which is the desired behaviour: the open PR IS the drift
-          # alarm, and a second one would split the signal.
+          # alarm, and a second one would split the signal. Its body is refreshed
+          # rather than left alone: the branch is derived state rebuilt from
+          # nanako's main on every run, so a body describing the previous run
+          # describes a diff that no longer exists — and a stale body is how a
+          # PR opened before this fix would keep failing `contract` forever.
           open=$(gh pr list --repo nanakokyobashi-rgb/frontaliere-articles \
                    --head "${TARGET_BRANCH}" --state open --json number \
-                   --jq 'length')
-          if [ "$open" -gt 0 ]; then
-            echo "existing PR updated in place"
+                   --jq '.[0].number // empty')
+          if [ -n "$open" ]; then
+            echo "existing PR #$open updated in place"
+            gh pr edit "$open" --repo nanakokyobashi-rgb/frontaliere-articles \
+              --body-file "$body" \
+              || echo "::warning::could not refresh the body of PR #$open — check it against the contract by hand"
           else
-            # printf into a file, not a heredoc and not an inline --body.
-            #
-            # A heredoc cannot work here: its terminator must sit at column 0,
-            # and column 0 ends this `run: |` block scalar, so the workflow
-            # stops being parseable YAML. `<<-` does not rescue it either — it
-            # strips leading TABS only, and YAML forbids tabs for indentation.
-            # An inline --body has the same problem for its blank lines. Found
-            # by running `bash -n` over every run block in this file rather
-            # than by watching the step fail on the one run where drift exists.
-            body=$(mktemp)
-            printf '%s\n' \
-              'Automated by `mirror-articles-engine.yml` in valerielinc-ops/frontaliere-si-o-no.' \
-              '' \
-              'The site owns `packages/articles/engine/`; this repo executes it. This PR' \
-              'carries that folder down, and **only** that folder — `content/` belongs to' \
-              'this repo and the mirror never touches it (asserted on the staged diff,' \
-              'fail-closed).' \
-              '' \
-              "A PR rather than a direct push, so this repo's CI and the shell-contract" \
-              'parity golden run before an engine change reaches the generator that' \
-              'publishes articles. An open PR here means the two engines have diverged.' \
-              '' \
-              'Refs valerielinc-ops/frontaliere-si-o-no#4974' \
-              > "$body"
-            printf '\nFrom commit `%s`.\n' "${SHA:0:8}" >> "$body"
-
             gh pr create --repo nanakokyobashi-rgb/frontaliere-articles \
               --head "${TARGET_BRANCH}" --base main \
               --title "🔗 Lockstep engine/ with the site" \
