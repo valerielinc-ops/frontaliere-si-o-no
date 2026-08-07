@@ -26,6 +26,29 @@ import path from 'node:path';
  *
  * Hence the inversion. `workflow_dispatch` stays — a human may still need it,
  * e.g. to seed a fresh corpus — but nothing may fire it automatically.
+ *
+ * ── The same hole, one workflow over (#5289) ──────────────────────────────
+ * `generate-article.yml` got the same treatment at cutover and only half of
+ * it: its `schedule:` was commented out, `workflow_dispatch` was kept "so it
+ * can still be run by hand". Nothing enforced the "by hand" half, and
+ * `workflow_dispatch` is not a synonym for a human. On 2026-08-06 at
+ * 09:51:54Z `refresh-bfs-stats.yml` saw the BFS quarter roll 2026-Q1 →
+ * 2026-Q2 and ran `gh workflow run generate-article.yml`; that workflow's
+ * last step dispatches ITSELF, so one quarterly nudge became ~22h of
+ * unattended writes to `packages/articles/content/`.
+ *
+ * The damage was not the writes — it was what the writes did to the pull.
+ * Five articles existed downstream and nowhere upstream, so
+ * `scripts/pull-articles-corpus.mjs` measured a LARGER local tree and refused
+ * (correctly). The sitemap sync stopped, `tests/blog-slugs-sitemap-sync.test.ts`
+ * went red on `main` itself, and every PR in the repo lost auto-merge. When
+ * nanako later published enough articles for the counts to cross back over,
+ * the pull went through and its `mirrorTree` deleted all five. They answer
+ * 200 today with no corpus entry behind them.
+ *
+ * The second describe below locks the missing half: the producer runs only
+ * when a dispatcher passes `confirm_corpus_write=yes`, and nothing in the
+ * repo can pass it on its own.
  */
 
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -80,6 +103,67 @@ describe('the corpus mirror cannot fire on its own (#4974 item 3)', () => {
       `these workflows still dispatch the mirror: ${offenders.join(', ')}. Each ` +
         'dispatch is a path to deleting nanako-generated articles — the mirror ' +
         'replaces its content/ wholesale from this repo.',
+    ).toEqual([]);
+  });
+});
+
+describe('the article producer cannot fire on its own (#5289)', () => {
+  const GEN = 'generate-article.yml';
+
+  it(`${GEN} declares the confirm_corpus_write input`, () => {
+    const live = withoutComments(WF(GEN));
+    expect(
+      /^\s+confirm_corpus_write:/m.test(live),
+      'the cutover guard is an INPUT, not an actor check, on purpose: ' +
+        'refresh-bfs-stats.yml and this workflow\'s own self-trigger both dispatch ' +
+        'as the same App identity a human uses through `gh`, so no actor test can ' +
+        'separate them. An input only arrives from whoever typed it.',
+    ).toBe(true);
+  });
+
+  it(`${GEN}'s generating job runs only with confirm_corpus_write=yes`, () => {
+    const live = withoutComments(WF(GEN));
+    expect(
+      /confirm_corpus_write\s*==\s*'yes'/.test(live),
+      'the job that writes packages/articles/content/ must be gated on ' +
+        "`github.event.inputs.confirm_corpus_write == 'yes'`. Without the gate, a " +
+        'single dispatch from any workflow restarts an unattended producer in a ' +
+        'repo that is a pure consumer since the 2026-08-02 cutover (#4974 item 3).',
+    ).toBe(true);
+  });
+
+  it('the self-trigger cannot carry the confirmation forward', () => {
+    // The chain is the amplifier: one authorized dispatch must stay one
+    // article, not become a producer. trigger-self.sh builds its payload from
+    // a fixed shape (retry_count / no_changes_streak / section / url) — adding
+    // a passthrough here re-creates the two-writer state.
+    const sh = fs.readFileSync(path.join(ROOT, 'scripts', 'lib', 'trigger-self.sh'), 'utf-8');
+    expect(
+      sh.includes('confirm_corpus_write'),
+      'trigger-self.sh must NOT forward confirm_corpus_write — that would let a ' +
+        'hand-authorized run chain into an unattended one, which is exactly how ' +
+        '2026-08-06 09:51 became 22h of corpus writes.',
+    ).toBe(false);
+  });
+
+  it('no workflow dispatches the producer', () => {
+    const dir = path.join(ROOT, '.github', 'workflows');
+    const offenders: string[] = [];
+
+    for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.yml'))) {
+      if (file === GEN) continue; // its own self-trigger is gated by the input
+      const live = withoutComments(fs.readFileSync(path.join(dir, file), 'utf-8'));
+      if (/gh workflow run\s+generate-article\.yml/.test(live)) offenders.push(file);
+      if (/workflows\/generate-article\.yml\/dispatches/.test(live)) offenders.push(file);
+    }
+
+    expect(
+      [...new Set(offenders)],
+      `these workflows dispatch the retired producer: ${offenders.join(', ')}. ` +
+        'refresh-bfs-stats.yml was the one that did it on 2026-08-06 and it cost ' +
+        'five orphaned articles plus a repo-wide merge block. Raise an issue for ' +
+        'the editorial signal instead — generation lives in ' +
+        'nanakokyobashi-rgb/frontaliere-articles.',
     ).toEqual([]);
   });
 });
