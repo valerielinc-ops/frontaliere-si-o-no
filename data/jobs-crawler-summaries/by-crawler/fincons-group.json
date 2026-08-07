@@ -1,16 +1,16 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-08-07T01:07:53.854Z",
+  "generatedAt": "2026-08-07T10:12:25.553Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 1401,
-  "avgDurationMs": 1401,
+  "unchangedCount": 0,
+  "durationMs": 1239,
+  "avgDurationMs": 1239,
   "durationHistory": [
-    1401
+    1239
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -100,6 +100,48 @@
       }
     },
     {
+      "title": "Senior C# / .NET Engineer",
+      "slug": "senior-c-net-engineer-fincons-group-lugano-switzerland",
+      "url": "https://fincons.applytojob.com/apply/7OqPcl4U5Q/Senior-C-NET-Engineer",
+      "applyUrl": "https://fincons.applytojob.com/apply/7OqPcl4U5Q/Senior-C-NET-Engineer",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-08-06",
+      "validThrough": "2026-11-04",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Mid Level",
+        "uniqueJobCode": "job_20260806112921_WOJ1NF7J6VQ3WF62",
+        "listingLocation": "Lugano, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-403699ae0470",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-06T11:39:42.712Z",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
       "title": "Senior Test Engineer",
       "slug": "senior-test-engineer-fincons-group-lugano-ticino-switzerland",
       "url": "https://fincons.applytojob.com/apply/p8SZrdkyWF/Senior-Test-Engineer",
@@ -143,48 +185,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Senior C# / .NET Engineer",
-      "slug": "senior-c-net-engineer-fincons-group-lugano-switzerland",
-      "url": "https://fincons.applytojob.com/apply/7OqPcl4U5Q/Senior-C-NET-Engineer",
-      "applyUrl": "https://fincons.applytojob.com/apply/7OqPcl4U5Q/Senior-C-NET-Engineer",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-08-06",
-      "validThrough": "2026-11-04",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Mid Level",
-        "uniqueJobCode": "job_20260806112921_WOJ1NF7J6VQ3WF62",
-        "listingLocation": "Lugano, Switzerland",
-        "listingDepartment": ""
-      },
-      "id": "fincons-group-403699ae0470",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-06T11:39:42.712Z",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 21,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
