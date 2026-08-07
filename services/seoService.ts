@@ -21,6 +21,7 @@ import { resolveJobCanton } from '../build-plugins/shared/cantonSection';
 import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription, truncateHeadline, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS } from '../build-plugins/shared/titleSuffix';
 import { truncateCodeUnits } from '../build-plugins/shared/safeTruncate';
 import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescription } from '../build-plugins/shared/borderCrossingTitle';
+import { BLOG_SEO_SHARD_IDS, type BlogSeoShardId } from '../build-plugins/shared/blogSeoShards';
 
 /**
  * Retry a dynamic import once after clearing SW caches.
@@ -883,28 +884,89 @@ async function loadPagesSeoChunk(): Promise<Record<string, SEOMetadata>> {
  return _pagesChunkCache;
 }
 
+/**
+ * Per-shard loaders for the blog SEO metadata.
+ *
+ * The specifiers must stay literal — that is what lets Rollup keep each shard a
+ * separate lazy chunk. Keys and ORDER mirror `BLOG_SEO_SHARD_IDS`;
+ * `tests/seo-blog-shard-index.test.ts` fails if the two drift, including when a new
+ * `seo-blog-N.ts` lands on disk and nothing here loads it.
+ */
+const BLOG_SEO_SHARD_LOADERS: Record<BlogSeoShardId, () => Promise<{ default: Record<string, SEOMetadata> }>> = {
+ 'blog': () => retryImport(() => import('./seo/seo-blog'), 'blog'),
+ 'blog-2': () => retryImport(() => import('./seo/seo-blog-2'), 'blog-2'),
+ 'blog-3': () => retryImport(() => import('./seo/seo-blog-3'), 'blog-3'),
+ 'blog-4': () => retryImport(() => import('./seo/seo-blog-4'), 'blog-4'),
+ 'blog-5': () => retryImport(() => import('./seo/seo-blog-5'), 'blog-5'),
+ 'blog-6': () => retryImport(() => import('./seo/seo-blog-6'), 'blog-6'),
+ 'blog-7': () => retryImport(() => import('./seo/seo-blog-7'), 'blog-7'),
+ 'blog-ch': () => retryImport(() => import('./seo/seo-blog-ch'), 'blog-ch'),
+};
+
+const _blogShardPromises = new Map<BlogSeoShardId, Promise<Record<string, SEOMetadata>>>();
+
+/** Load one shard, deduped across concurrent callers. */
+function loadBlogSeoShard(id: BlogSeoShardId): Promise<Record<string, SEOMetadata>> {
+ let promise = _blogShardPromises.get(id);
+ if (!promise) {
+ promise = BLOG_SEO_SHARD_LOADERS[id]().then((m) => m.default);
+ // Drop a rejected shard so a transient chunk 404 can be retried instead of
+ // poisoning every later lookup with the same cached rejection.
+ promise.catch(() => { _blogShardPromises.delete(id); });
+ _blogShardPromises.set(id, promise);
+ }
+ return promise;
+}
+
+/**
+ * `blog-<id> → shard ordinal`, emitted by `build-plugins/seoBlogShardIndexPlugin.ts`.
+ *
+ * Resolves to `{}` whenever the virtual module is unavailable — under Vitest, where
+ * `vitest.config.ts` aliases it to an empty stub because the build plugins are not
+ * loaded, and on any load failure. An empty index simply routes every lookup down the
+ * load-all fallback, i.e. the exact behaviour this replaced.
+ */
+let _blogShardIndexPromise: Promise<Record<string, number>> | null = null;
+function loadBlogSeoShardIndex(): Promise<Record<string, number>> {
+ if (!_blogShardIndexPromise) {
+ _blogShardIndexPromise = import('virtual:seo-blog-shard-index')
+ .then((m) => (m.default ?? {}) as Record<string, number>)
+ .catch(() => ({}));
+ }
+ return _blogShardIndexPromise;
+}
+
+/**
+ * Resolve ONE blog SEO entry, fetching only the shard that owns it.
+ *
+ * Falls back to loading every shard when the index has no answer or the answer does
+ * not pan out — a new article whose build predates the index, a corrupt mapping, a
+ * failed chunk. The fallback is the pre-existing code path, so the worst case is the
+ * old cost, never a missing entry: this feeds the canonical/title/JSON-LD of the
+ * site's main SEO surface.
+ */
+async function loadBlogSeoEntry(sectionKey: string): Promise<SEOMetadata | undefined> {
+ const index = await loadBlogSeoShardIndex();
+ const ordinal = index[sectionKey];
+ const shardId = typeof ordinal === 'number' ? BLOG_SEO_SHARD_IDS[ordinal] : undefined;
+ if (shardId) {
+ try {
+ const entry = (await loadBlogSeoShard(shardId))[sectionKey];
+ if (entry) return entry;
+ } catch { /* fall through to the load-all path */ }
+ }
+ return (await loadBlogSeoChunk())[sectionKey];
+}
+
+/**
+ * Every shard, merged. Kept for `getAllSeoMetadata()` (tests + build tooling) and as
+ * the fallback behind `loadBlogSeoEntry`. Merging in `BLOG_SEO_SHARD_IDS` order is
+ * what preserves last-shard-wins for the ~983 keys defined in two shards.
+ */
 async function loadBlogSeoChunk(): Promise<Record<string, SEOMetadata>> {
  if (_blogChunkCache) return _blogChunkCache;
- const [
- { default: entries1 },
- { default: entries2 },
- { default: entries3 },
- { default: entries4 },
- { default: entries5 },
- { default: entries6 },
- { default: entries7 },
- { default: entriesCh },
- ] = await Promise.all([
- retryImport(() => import('./seo/seo-blog'), 'blog'),
- retryImport(() => import('./seo/seo-blog-2'), 'blog-2'),
- retryImport(() => import('./seo/seo-blog-3'), 'blog-3'),
- retryImport(() => import('./seo/seo-blog-4'), 'blog-4'),
- retryImport(() => import('./seo/seo-blog-5'), 'blog-5'),
- retryImport(() => import('./seo/seo-blog-6'), 'blog-6'),
- retryImport(() => import('./seo/seo-blog-7'), 'blog-7'),
- retryImport(() => import('./seo/seo-blog-ch'), 'blog-ch'),
- ]);
- _blogChunkCache = { ...entries1, ...entries2, ...entries3, ...entries4, ...entries5, ...entries6, ...entries7, ...entriesCh };
+ const shards = await Promise.all(BLOG_SEO_SHARD_IDS.map((id) => loadBlogSeoShard(id)));
+ _blogChunkCache = Object.assign({}, ...shards) as Record<string, SEOMetadata>;
  return _blogChunkCache;
 }
 
@@ -924,11 +986,10 @@ async function getSeoEntry(sectionKey: string): Promise<SEOMetadata> {
  // 1. Check core entries (already in memory — glossary, border-crossing)
  if (SEO_METADATA[sectionKey]) return SEO_METADATA[sectionKey];
 
- // 2. Lazy-load blog chunk for blog-* keys
+ // 2. Lazy-load ONLY the shard that owns this blog-* key (falls back to all)
  if (sectionKey.startsWith('blog-')) {
  try {
- const blogEntries = await loadBlogSeoChunk();
- const entry = blogEntries[sectionKey];
+ const entry = await loadBlogSeoEntry(sectionKey);
  if (entry) return normalizeSeoEntry(entry);
  } catch { /* fall through to default */ }
  }
