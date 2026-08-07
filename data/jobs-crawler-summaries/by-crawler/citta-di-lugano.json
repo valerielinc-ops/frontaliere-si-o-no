@@ -1,16 +1,16 @@
 {
   "key": "citta-di-lugano",
   "label": "Città di Lugano",
-  "generatedAt": "2026-08-07T01:20:46.151Z",
+  "generatedAt": "2026-08-07T10:27:27.976Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9127,
-  "avgDurationMs": 9127,
+  "durationMs": 10093,
+  "avgDurationMs": 10093,
   "durationHistory": [
-    9127
+    10093
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -44,7 +44,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-07T12:17:55.652Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -311,7 +310,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-07T12:17:55.652Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
