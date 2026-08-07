@@ -86,11 +86,18 @@ jobs:
 
       - name: Read the field criterion
         id: check
+        # ONE invocation produces both outputs: markdown on stdout and the
+        # machine-readable report via --json-out. Calling the script twice would
+        # double every CrUX request against a shared PAGESPEED_API_KEY (also used
+        # by lighthouse-ci.yml, post-deploy-validate-live.yml and
+        # scripts/audit-cls-live.mjs) for no benefit.
+        #
         # Exit 1 means "criterion not met", which is the expected state and must
         # not fail the job. Exit 2 means "no verdict" and is handled below.
         run: |
           set +e
-          node scripts/check-cwv-field-criterion.mjs --markdown > /tmp/criterion.md 2>/tmp/criterion.err
+          node scripts/check-cwv-field-criterion.mjs --markdown --json-out /tmp/criterion.json \
+            > /tmp/criterion.md 2>/tmp/criterion.err
           code=$?
           set -e
           echo "code=$code" >> "$GITHUB_OUTPUT"
@@ -103,19 +110,24 @@ jobs:
           cat /tmp/criterion.md 2>/dev/null || true
           cat /tmp/criterion.err 2>/dev/null || true
 
-      - name: Capture machine-readable reading
+      - name: Count watchlist drift
         id: json
         if: steps.check.outputs.code != '2'
+        # No `|| echo 0` fallback. If the report is missing or malformed this step
+        # FAILS, which surfaces as a red job and the "Report failure" reporter
+        # below. Defaulting to 0 would mean a real watchlist regression goes
+        # unreported with no signal — the same silent blindness this workflow
+        # exists to eliminate.
         run: |
-          set +e
-          node scripts/check-cwv-field-criterion.mjs --json > /tmp/criterion.json 2>/dev/null
-          set -e
+          set -euo pipefail
           drift=$(node -e "
-            const r = require('/tmp/criterion.json');
-            const d = (r.watchlist || []).filter(w => w.available && w.drift && w.drift.length);
-            console.log(d.length);
-          " 2>/dev/null || echo 0)
+            const { readFileSync } = require('node:fs');
+            const r = JSON.parse(readFileSync('/tmp/criterion.json', 'utf8'));
+            if (!Array.isArray(r.watchlist)) throw new Error('report has no watchlist array');
+            console.log(r.watchlist.filter(w => w.available && w.drift && w.drift.length).length);
+          ")
           echo "drift=$drift" >> "$GITHUB_OUTPUT"
+          echo "watchlist entries drifting: $drift"
 
       # Blindness → loud. The whole point of exit 2.
       - name: Open issue when the field data cannot be read

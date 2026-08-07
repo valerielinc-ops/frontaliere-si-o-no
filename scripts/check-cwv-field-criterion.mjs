@@ -57,6 +57,7 @@
  */
 
 import { pathToFileURL } from 'node:url';
+import { writeFileSync } from 'node:fs';
 
 const ORIGIN = 'https://frontaliereticino.ch';
 const API = 'https://chromeuxreport.googleapis.com/v1';
@@ -137,6 +138,16 @@ export const WATCHLIST = [
 /** A watchlist URL is flagged when it drifts this far above its own baseline. */
 export const WATCHLIST_DRIFT = 1.15;
 
+/**
+ * When the WATCHLIST numbers above were measured. A hardcoded baseline silently
+ * stops meaning anything once the site has moved on — drift is then computed
+ * against a stale snapshot and either screams forever or never fires. There is
+ * no automatic refresh on purpose (a self-updating baseline can rebaseline a
+ * regression away), so instead the script says out loud when it has gone stale.
+ */
+export const BASELINE_DATE = '2026-08-07';
+export const BASELINE_STALE_AFTER_DAYS = 120;
+
 const METRICS = ['largest_contentful_paint', 'interaction_to_next_paint', 'cumulative_layout_shift'];
 const KEY_OF = { lcp: 'largest_contentful_paint', inp: 'interaction_to_next_paint', cls: 'cumulative_layout_shift' };
 
@@ -189,10 +200,45 @@ function evaluate(value, max) {
   return { state: value <= max ? 'pass' : 'fail', pass: value <= max, value };
 }
 
+/**
+ * The "sustained" half of the rule: pick the most recent history window that
+ * ENDS STRICTLY BEFORE the current record's window.
+ *
+ * Do NOT assume a fixed offset into the array. The two CrUX endpoints are not
+ * aligned 1:1 — measured 2026-08-07, `records:queryRecord` returned the window
+ * ending 2026-08-05 while `records:queryHistoryRecord`'s last point ended
+ * 2026-08-01. So `points[length - 1]` is ALREADY a distinct earlier window, and
+ * the `points[length - 2]` shortcut silently skipped one (comparing against
+ * 2026-07-25 / INP 402 instead of 2026-08-01 / INP 426). Comparing dates is
+ * correct whatever offset the API happens to use on a given day.
+ *
+ * @param {Array<{end: string}>|undefined} points oldest-first history points
+ * @param {{lastDate: {year: number, month: number, day: number}}|undefined} period current record period
+ */
+export function selectPreviousWindow(points, period) {
+  if (!Array.isArray(points) || !points.length || !period?.lastDate) return null;
+  const { year, month, day } = period.lastDate;
+  const curEnd = Date.UTC(year, month - 1, day);
+  for (let i = points.length - 1; i >= 0; i--) {
+    const [y, m, d] = String(points[i].end).split('-').map(Number);
+    if (Number.isNaN(y) || Number.isNaN(m) || Number.isNaN(d)) continue;
+    if (Date.UTC(y, m - 1, d) < curEnd) return points[i];
+  }
+  return null;
+}
+
 async function main() {
   const args = process.argv.slice(2);
   const asJson = args.includes('--json');
   const asMarkdown = args.includes('--markdown');
+  // `--json-out <path>` writes the machine-readable report as a side effect of
+  // the SAME run that prints the human/markdown output. The workflow used to
+  // invoke this script twice (once --markdown, once --json), which doubled every
+  // CrUX call and, worse, swallowed a failure of the second invocation into a
+  // default of `drift=0` — a real watchlist regression could then go unreported
+  // with no signal at all, the exact blindness this script exists to prevent.
+  const jsonOutIdx = args.indexOf('--json-out');
+  const jsonOut = jsonOutIdx !== -1 ? args[jsonOutIdx + 1] : null;
 
   // ---- origin: the binding measurement -----------------------------------
   const cur = await crux('records:queryRecord', { origin: ORIGIN });
@@ -207,13 +253,19 @@ async function main() {
     process.exit(2);
   }
 
-  const hist = await crux('records:queryHistoryRecord', { origin: ORIGIN });
-  const history = hist.status === 200 ? readHistory(hist.json) : null;
+  // History is only needed for the "sustained" half of the rule. If it cannot be
+  // read we simply cannot prove sustained, which conservatively means NOT MET —
+  // that is a verdict, not a blindness, so it must not exit 2.
+  let history = null;
+  try {
+    const hist = await crux('records:queryHistoryRecord', { origin: ORIGIN });
+    if (hist.status === 200) history = readHistory(hist.json);
+    else console.error(`[warn] history unavailable (HTTP ${hist.status}) — "sustained" cannot be proven this run.`);
+  } catch (err) {
+    console.error(`[warn] history fetch failed (${err?.message || err}) — "sustained" cannot be proven this run.`);
+  }
 
-  // The "sustained" half of the rule: the previous distinct 28-day window.
-  // history.points is oldest-first and its last entry overlaps the current
-  // record, so the previous window is the second-to-last point.
-  const prev = history && history.points.length >= 2 ? history.points[history.points.length - 2] : null;
+  const prev = selectPreviousWindow(history?.points, current.period);
 
   const results = {};
   for (const [short, spec] of Object.entries(CRITERION)) {
@@ -245,14 +297,30 @@ async function main() {
   };
 
   // ---- watchlist ----------------------------------------------------------
+  // Every fetch here is wrapped: the watchlist is NON-BINDING and is read AFTER
+  // the binding origin verdict is already computed. Letting a transient network
+  // error on one of these URLs escape would reach main().catch() and exit 2,
+  // throwing away a perfectly good binding verdict and opening the
+  // "criterion unreadable" issue — the opposite of the narrow issue policy this
+  // script exists to enforce. A failed watchlist entry is `available: false`.
   const watch = [];
   for (const entry of WATCHLIST) {
-    const r = await crux('records:queryRecord', { url: entry.url });
+    let r;
+    try {
+      r = await crux('records:queryRecord', { url: entry.url });
+    } catch (err) {
+      watch.push({ url: entry.url, available: false, note: `fetch failed: ${err?.message || err}` });
+      continue;
+    }
     if (r.status !== 200) {
       watch.push({ url: entry.url, available: false, note: r.status === 404 ? 'no CrUX data (below reporting threshold)' : `HTTP ${r.status}` });
       continue;
     }
     const rec = readRecord(r.json);
+    if (!rec) {
+      watch.push({ url: entry.url, available: false, note: '200 with no metrics' });
+      continue;
+    }
     const row = { url: entry.url, available: true, drift: [] };
     for (const short of ['inp', 'cls', 'lcp']) {
       row[short] = rec[short];
@@ -264,8 +332,17 @@ async function main() {
     watch.push(row);
   }
 
+  const baselineAgeDays = Math.floor((Date.now() - Date.parse(`${BASELINE_DATE}T00:00:00Z`)) / 864e5);
+  const baselineStale = baselineAgeDays > BASELINE_STALE_AFTER_DAYS;
+  if (baselineStale) {
+    console.error(`[warn] the watchlist baselines are ${baselineAgeDays} days old (measured ${BASELINE_DATE}). Drift is being compared against a stale snapshot — re-measure and update WATCHLIST + BASELINE_DATE deliberately.`);
+  }
+
   const report = {
     generatedAt: new Date().toISOString(),
+    baselineDate: BASELINE_DATE,
+    baselineAgeDays,
+    baselineStale,
     source: 'CrUX API records:queryRecord + records:queryHistoryRecord, formFactor PHONE',
     origin: ORIGIN,
     collectionPeriod: current.period,
@@ -276,6 +353,12 @@ async function main() {
     watchlist: watch,
     verdict: bindingPass ? 'MET' : 'NOT MET',
   };
+
+  if (jsonOut) {
+    // Let a write failure be fatal-by-exception rather than silently producing
+    // no file: the caller reads this to decide whether to raise a drift issue.
+    writeFileSync(jsonOut, JSON.stringify(report, null, 2));
+  }
 
   if (asJson) {
     console.log(JSON.stringify(report, null, 2));

@@ -26,6 +26,9 @@ const {
   WATCHLIST,
   WATCHLIST_DRIFT,
   SUSTAINED_WINDOWS,
+  BASELINE_DATE,
+  BASELINE_STALE_AFTER_DAYS,
+  selectPreviousWindow,
 } = await import('../scripts/check-cwv-field-criterion.mjs');
 
 describe('CWV field criterion for #5001', () => {
@@ -97,6 +100,48 @@ describe('CWV field criterion for #5001', () => {
   it('keeps the drift tolerance tight enough to mean something', () => {
     expect(WATCHLIST_DRIFT).toBeGreaterThan(1);
     expect(WATCHLIST_DRIFT).toBeLessThanOrEqual(1.25);
+  });
+
+  it('dates the watchlist baselines so staleness can be reported', () => {
+    expect(BASELINE_DATE).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(Number.isNaN(Date.parse(`${BASELINE_DATE}T00:00:00Z`))).toBe(false);
+    expect(BASELINE_STALE_AFTER_DAYS).toBeGreaterThan(0);
+  });
+});
+
+describe('selectPreviousWindow — the "sustained" comparison window', () => {
+  // Real shapes observed 2026-08-07: queryRecord ended 2026-08-05 while
+  // queryHistoryRecord's last point ended 2026-08-01. The two endpoints are NOT
+  // aligned, which is exactly why a fixed array offset is wrong.
+  const points = [
+    { end: '2026-07-11', inp: 367 },
+    { end: '2026-07-18', inp: 378 },
+    { end: '2026-07-25', inp: 402 },
+    { end: '2026-08-01', inp: 426 },
+  ];
+  const period = { lastDate: { year: 2026, month: 8, day: 5 } };
+
+  it('picks the most recent window ending strictly before the current one', () => {
+    // The `points[length - 2]` shortcut would have returned 2026-07-25 (402),
+    // silently skipping a whole window.
+    expect(selectPreviousWindow(points, period)).toEqual({ end: '2026-08-01', inp: 426 });
+  });
+
+  it('skips history points that overlap or postdate the current window', () => {
+    const withOverlap = [...points, { end: '2026-08-05', inp: 440 }, { end: '2026-08-12', inp: 999 }];
+    expect(selectPreviousWindow(withOverlap, period)).toEqual({ end: '2026-08-01', inp: 426 });
+  });
+
+  it('returns null rather than guessing when nothing qualifies', () => {
+    expect(selectPreviousWindow(points, { lastDate: { year: 2026, month: 7, day: 1 } })).toBeNull();
+    expect(selectPreviousWindow([], period)).toBeNull();
+    expect(selectPreviousWindow(undefined, period)).toBeNull();
+    expect(selectPreviousWindow(points, undefined)).toBeNull();
+  });
+
+  it('ignores malformed dates instead of throwing', () => {
+    const dirty = [{ end: 'not-a-date' }, { end: '2026-07-25', inp: 402 }, { end: '' }];
+    expect(selectPreviousWindow(dirty, period)).toEqual({ end: '2026-07-25', inp: 402 });
   });
 });
 
