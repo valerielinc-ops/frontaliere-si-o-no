@@ -123,22 +123,35 @@ jobs:
       # that dispatch is what re-lit the retired producer on 2026-08-06 (#5289).
       # The editorial signal is kept; only the write is dropped. An issue also
       # survives a failed run, which a fire-and-forget dispatch never did.
+      #
+      # The title carries NO quarter, on purpose (#5121, guarded by
+      # tests/monitor-issue-dedup.test.ts). github-issue-creator.mjs dedups on
+      # the first 60 chars of the title: a title that moves with the data never
+      # matches its own canonical issue, so every run mints a duplicate and the
+      # serialized fixer burns a turn on each. The quarter is a VALUE, not an
+      # entity — it belongs in the body, which the helper replays verbatim in
+      # the `🔁 Recurrence` comment, so a reader still sees which quarter fired.
       - name: Raise editorial signal for the new quarter (new quarter only)
         if: steps.refresh.outputs.new_quarter != ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NEW_QUARTER: ${{ steps.refresh.outputs.new_quarter }}
+          PREV_QUARTER: ${{ steps.refresh.outputs.prev_quarter }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
-            --title "Nuovo trimestre BFS ${NEW_QUARTER}: serve l'articolo di annuncio" \
-            --description "Il dataset BFS dei frontalieri e' passato a \`${NEW_QUARTER}\` — i valori su \`/statistiche/\` sono gia' aggiornati (Firestore riscritto da questo run).
+            --title "Nuovo trimestre BFS: serve l'articolo di annuncio" \
+            --description "**Trimestre da annunciare: \`${NEW_QUARTER}\`** — precedente in Firestore: \`${PREV_QUARTER:-n/d}\`.
+
+          Il dataset BFS dei frontalieri e' passato a \`${NEW_QUARTER}\` — i valori su \`/statistiche/\` sono gia' aggiornati (Firestore riscritto da questo run).
 
           Manca l'articolo che lo annuncia agli iscritti.
 
           **Va generato in \`nanakokyobashi-rgb/frontaliere-articles\`**, non qui: dal cutover del 2026-08-02 (#4974 item 3) questo repo e' un consumatore puro e \`packages/articles/content/\` viene rifatto da \`scripts/pull-articles-corpus.mjs\` a ogni sync. Un articolo creato qui blocca il sync e viene poi cancellato — e' successo con cinque articoli il 2026-08-06/07 (#5289).
 
           Sorgente storica del prompt: \`url=stats-bfs://${NEW_QUARTER}\`.
+
+          Il titolo e' volutamente privo del trimestre (#5121): e' il corpo a portarlo. Se questa issue e' ancora aperta quando arriva il trimestre successivo, il segnale atterra come commento \`🔁 Recurrence\` qui sotto — **leggi l'ultimo commento per sapere quale trimestre e' in attesa di articolo**, non solo il testo di apertura.
 
           Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
             --priority 3 \
