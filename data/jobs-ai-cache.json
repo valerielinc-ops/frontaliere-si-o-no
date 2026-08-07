@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-07T21:50:55.314Z",
+  "savedAt": "2026-08-07T21:51:28.429Z",
   "entries": [
     {
       "key": "e68307708c64b150530c3a40842a710d44306eca72d77a3302754154368f5424",
@@ -217235,7 +217235,7 @@
     },
     {
       "key": "7966c426c86800c49194d482bea1aa7e14543664a7999801ed2388ffb8e23ae0",
-      "touchedAt": 1786098824681,
+      "touchedAt": 1786139419244,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -217253,16 +217253,16 @@
     },
     {
       "key": "94e2df269dee06298ca5f282e72f6d0b4f7f43028a60f3fca25a492c6a34831f",
-      "touchedAt": 1786098871817,
+      "touchedAt": 1786139434892,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, which meets the criteria for a real single job detail page."
       }
     },
     {
       "key": "8fdc8149e0005a7ec7b3cd4cab8ed4b0713d90211efadb31d2dda43d4d006509",
-      "touchedAt": 1786098871981,
+      "touchedAt": 1786139435081,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -217271,7 +217271,7 @@
     },
     {
       "key": "ffeb3c1ab37bf7b287f08d02547139ecc658e62274bfd79b1dbceeff9f0b81eb",
-      "touchedAt": 1786098923083,
+      "touchedAt": 1786139456593,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -217280,7 +217280,7 @@
     },
     {
       "key": "b03f570e810de6d62c3cc8640d25243610ba95b34ba2e77e927b76992242c7f9",
-      "touchedAt": 1786098923326,
+      "touchedAt": 1786139456893,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -217298,7 +217298,7 @@
     },
     {
       "key": "fa0aa6dc77f991f4a0004c3ab17d06cb23b97989d5eb7e91cbd6ed1ee8df71e3",
-      "touchedAt": 1786098923849,
+      "touchedAt": 1786139457193,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -217307,7 +217307,7 @@
     },
     {
       "key": "5b1de8db828d285d7de6dee4e62f327bad34f53d9000d36371d33be52c73cf5d",
-      "touchedAt": 1786098924167,
+      "touchedAt": 1786139457522,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -217316,7 +217316,7 @@
     },
     {
       "key": "32e1402990b3e790d0bcbc60b7c010f2f8009154a656c75ed6f83c9289a5863a",
-      "touchedAt": 1786098924519,
+      "touchedAt": 1786139457905,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -217325,7 +217325,7 @@
     },
     {
       "key": "219b9fef2e1c3a706139e8f158487e582a9d185e8f166d3ef937b4231ddfb923",
-      "touchedAt": 1786098924833,
+      "touchedAt": 1786139458264,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -217334,7 +217334,7 @@
     },
     {
       "key": "a7542ab1565e4de7f563c1736150afe0d016c70c098c532a69f1b97fe778f86d",
-      "touchedAt": 1786098925174,
+      "touchedAt": 1786139458637,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -217352,7 +217352,7 @@
     },
     {
       "key": "dcf22e8201d68314f17fedfd39ac03482b935fe2a8465ae9a2fa32bdafeb104d",
-      "touchedAt": 1786098925672,
+      "touchedAt": 1786139459227,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -217361,7 +217361,7 @@
     },
     {
       "key": "6a6d7d6c1ad36d7d354192538bcea996dd20e9298c95dc886c82e15cab6d0870",
-      "touchedAt": 1786098925920,
+      "touchedAt": 1786139459516,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -217370,7 +217370,7 @@
     },
     {
       "key": "46734863ea7c2b0d338df282e6686f62ba9319c6c01242c6ea643ccc400aac72",
-      "touchedAt": 1786098926201,
+      "touchedAt": 1786139459816,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -217379,7 +217379,7 @@
     },
     {
       "key": "1dce6013e7d9d98701fba923c7be819d434522cdf4c459663e9e99fa7f93e8e6",
-      "touchedAt": 1786098926471,
+      "touchedAt": 1786139460108,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -218104,6 +218104,123 @@
         "isJob": true,
         "confidence": 0.97,
         "reason": "Concrete apprenticeship role with specific title (Apprenti(e) opérateur(trice) en horlogerie AFP, option assemblage), detailed responsibilities (2-year training, assembly tasks), clear requirements (school certificate, technical interest), training locations (ETA Granges + Longines), contact person (Laetitia Musumeci), workplace location (St-Imier), and application instructions. Single job posting, not a generic career listing."
+      }
+    },
+    {
+      "key": "3f3f3a8eb28f5e006c27d9d72e6514cd5a3a453346d2ca8761db74ff679d6559",
+      "touchedAt": 1786139458919,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "acac6268f1fe9e908fe14a56f4a89cda11a6c4c63d722c3cdb91082c204bf732",
+      "touchedAt": 1786139460439,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Finanzplaner (m/w/d)), responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "6267bdab744b6c5af1c794cdd3b2db167bc9b04a9bcc20747692e2e604c3a7bc",
+      "touchedAt": 1786139460723,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title ('ESPECIALISTA DE NEGOCIOS ESPECIALES'), responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "f78db947a1966bdaeebdd894467e749888014da80a48f6fb99f5d752684fb090",
+      "touchedAt": 1786139461015,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title ('INGENIERO DE RIESGOS'), responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "f430701442d231f10e2a48ee70ce21d6397a8edab1b6b9113b61d1808a85f7e2",
+      "touchedAt": 1786139461561,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "728b6ae1f496ef36833b849adb7fc511580f6c80583486b0e6119d4d91c63b30",
+      "touchedAt": 1786139461845,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "d58f19d8371d5ae379fade889adb04f3d22a53d0440dd9141f75c0410d26c11b",
+      "touchedAt": 1786139462364,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, which meets the rules for a real single job detail page."
+      }
+    },
+    {
+      "key": "80754ef24ef4e31cf7c825c005bc02f37afe4fb04105693bab26e8d0471661ca",
+      "touchedAt": 1786139462637,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "569b673292e444a2e155083b3edfd3a58da5c6b69d4b87c5907e21d4feb3847c",
+      "touchedAt": 1786139462972,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Data Platform & Analytics Internship), responsibilities/requirements, and application context, which meets the rules for a real single job detail page."
+      }
+    },
+    {
+      "key": "5a29698863815c13c7b44f685f7a828e6f021e86ad425b8d42192f497ad0d5c1",
+      "touchedAt": 1786139463253,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Ingeniero de Riesgos JR), responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "920c20519f02a3aa7f9cdd8bdab0a33fae425abe7a84e6428d765beb6b438d5f",
+      "touchedAt": 1786139463789,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, which meets the rules for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "37077a3b6e46931a9d09f28b15bb041d98acbf4227dc5449f8e7aa50e422e643",
+      "touchedAt": 1786139466658,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title ('INGENIERO DE RIESGOS JR'), responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "cb03623941d0086f1dace29590bc616a916e07f4b391a17d0721f0f4709e9305",
+      "touchedAt": 1786139467612,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, which meets the criteria for a real single job detail page."
       }
     }
   ]
