@@ -9347,6 +9347,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.produttore-islandese-hollywood-lezione.title': 'Da pescatore a Hollywood: la lezione di un produttore',
     'blog.article.produttore-islandese-hollywood-lezione.excerpt': 'Sigurjón \'Joni\' Sighvatsson, da una comunità di pescatori islandese a Hollywood. Un percorso che parla di adattabilità e visione, utile anche per chi vive di lavoro transfrontaliero.',
     'blog.article.produttore-islandese-hollywood-lezione.imageAlt': 'Set cinematografico a Locarno con lago e montagne sullo sfondo',
+    'blog.article.bucalettere-centralizzate-anziani-sindacati.title': 'Bucalettere centralizzate: anziani e sindacati insorgono',
+    'blog.article.bucalettere-centralizzate-anziani-sindacati.excerpt': 'La revisione della legge federale sulle poste propone cassette centralizzate. Sindacato Transfair e Federazione dei pensionati critici.',
+    'blog.article.bucalettere-centralizzate-anziani-sindacati.imageAlt': 'Cassette postali tradizionali in una via residenziale di Lugano, Ticino',
 };
 
 export default blogMetaIt;

@@ -9346,6 +9346,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.produttore-islandese-hollywood-lezione.title': 'As a Fisherman in Hollywood: A Producer\'s Lesson',
     'blog.article.produttore-islandese-hollywood-lezione.excerpt': 'Sigurjón \'Joni\' Sighvatsson, from an Icelandic fishing community in Hollywood. A path that speaks of adaptability and vision, also useful for those who work across borders.',
     'blog.article.produttore-islandese-hollywood-lezione.imageAlt': 'Film set in Locarno with lake and mountains in the background',
+    'blog.article.bucalettere-centralizzate-anziani-sindacati.title': 'Centralized Bucalettere: Elderly people and trade unions arise',
+    'blog.article.bucalettere-centralizzate-anziani-sindacati.excerpt': 'The revision of the Federal Postal Law proposes centralized boxes. Transfair Trade Union and Federation of Critical Pensioners.',
+    'blog.article.bucalettere-centralizzate-anziani-sindacati.imageAlt': 'Traditional mailboxes on a residential street in Lugano, Ticino',
 };
 
 export default blogMetaEn;
