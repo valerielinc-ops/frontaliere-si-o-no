@@ -1,18 +1,19 @@
 {
   "key": "forel-klinik",
   "label": "Forel Klinik",
-  "generatedAt": "2026-08-07T01:16:22.640Z",
-  "total": 8,
-  "newCount": 3,
-  "updatedCount": 4,
+  "generatedAt": "2026-08-07T10:24:27.348Z",
+  "total": 7,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5556,
-  "avgDurationMs": 5556,
+  "unchangedCount": 0,
+  "durationMs": 6533,
+  "avgDurationMs": 6533,
   "durationHistory": [
-    5556
+    6533
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "forel-klinik-0d131a918a14",
       "slug": "mitarbeiter-in-hauswirtschaft-m-w-d-60-100-forel-klinik-ellikon-an-der-thur",
@@ -26,7 +27,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/75a4d4b7-f2e9-4f08-9fc8-558c1cf419e1/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:16:17.904Z",
+      "crawledAt": "2026-08-07T10:24:21.778Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-08-07",
       "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/75a4d4b7-f2e9-4f08-9fc8-558c1cf419e1/detail?lang=DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-08-07T01:16:17.904Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 17
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/3753b756-a74d-4a84-9bcd-df7dca809453/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:16:19.310Z",
+      "crawledAt": "2026-08-07T10:24:23.280Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -77,11 +79,12 @@
       "featured": false,
       "postedDate": "2026-08-07",
       "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/3753b756-a74d-4a84-9bcd-df7dca809453/detail?lang=DE",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-08-07T01:16:19.310Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/e1b7c323-8d9e-42b9-92c2-6128a2a383ea/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:16:20.253Z",
+      "crawledAt": "2026-08-07T10:24:24.282Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,16 +116,15 @@
       "featured": false,
       "postedDate": "2026-08-07",
       "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/e1b7c323-8d9e-42b9-92c2-6128a2a383ea/detail?lang=DE",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-08-07T01:16:20.253Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "forel-klinik-e5e0cb8d0d8a",
       "slug": "assistenzarzt-arztin-m-w-d-ambulatorium-80-100-forel-klinik-zurich",
@@ -130,13 +132,13 @@
       "companyKey": "forel-klinik",
       "companyDomain": "forel-klinik.ch",
       "title": "Assistenzarzt/-ärztin (m/w/d) Ambulatorium 80-100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.dualoo.com/portal/w1f713hy/5b318605-02a2-4cae-b216-c987e69a65d2/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:16:18.374Z",
+      "crawledAt": "2026-08-07T10:24:22.283Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -152,11 +154,11 @@
       "postedDate": "2026-08-06",
       "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/5b318605-02a2-4cae-b216-c987e69a65d2/detail?lang=DE",
       "firstSeenAt": "2026-08-06T12:18:30.068Z",
-      "_qualityScore": 73,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -167,13 +169,13 @@
       "companyKey": "forel-klinik",
       "companyDomain": "forel-klinik.ch",
       "title": "Assistenzarzt/-ärztin (m/w/d) Tagesklinik 80-100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.dualoo.com/portal/w1f713hy/9322c695-18a9-433d-8b09-f29b17460a4d/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:16:18.843Z",
+      "crawledAt": "2026-08-07T10:24:22.784Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -189,11 +191,11 @@
       "postedDate": "2026-08-06",
       "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/9322c695-18a9-433d-8b09-f29b17460a4d/detail?lang=DE",
       "firstSeenAt": "2026-08-06T12:18:30.502Z",
-      "_qualityScore": 73,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -210,7 +212,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/dda2bd84-3973-44a0-a684-3bb61cbc4403/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:16:20.726Z",
+      "crawledAt": "2026-08-07T10:24:24.784Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -226,11 +228,11 @@
       "postedDate": "2026-08-06",
       "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/dda2bd84-3973-44a0-a684-3bb61cbc4403/detail?lang=DE",
       "firstSeenAt": "2026-08-06T12:18:31.793Z",
-      "_qualityScore": 78,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -247,7 +249,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/ddebd3a5-dc3b-4638-b15a-a5f235d4d6d1/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:16:19.777Z",
+      "crawledAt": "2026-08-07T10:24:23.786Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -273,46 +275,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "forel-klinik-22f23655cbe1",
-      "slug": "testa-di-pulizia-m-f-d-ad-interim-80-100-forel-klinik-ellikon-an-der-thur",
-      "company": "Forel Klinik",
-      "companyKey": "forel-klinik",
-      "companyDomain": "forel-klinik.ch",
-      "title": "Leitung Hauswirtschaft (m/w/d) ad interim 80-100%",
-      "needsRetranslation": false,
-      "location": "Ellikon an der Thur",
-      "canton": "ZH",
-      "url": "https://jobs.dualoo.com/portal/w1f713hy/514b0328-2330-45d7-9c56-24221f1e6bab/detail?lang=DE",
-      "source": "Forel Klinik Dedicated Parser (Dualoo)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-06T12:18:30.926Z",
-      "addressLocality": "Ellikon an der Thur",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8548",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-01",
-      "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/514b0328-2330-45d7-9c56-24221f1e6bab/detail?lang=DE",
-      "firstSeenAt": "2026-07-01T22:17:17.870Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
