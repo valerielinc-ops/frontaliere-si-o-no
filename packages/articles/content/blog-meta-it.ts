@@ -9335,6 +9335,18 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vpod-direttiva-canicola-scuole.title': 'VPOD chiede direttiva anti-canicola per Stato e scuole ticinesi',
     'blog.article.vpod-direttiva-canicola-scuole.excerpt': 'Il sindacato VPOD richiede al Consiglio di Stato una direttiva strutturata per gestire le ondate di calore negli uffici pubblici e nelle scuole, ispirandosi al modello ginevrino',
     'blog.article.vpod-direttiva-canicola-scuole.imageAlt': 'Scuola pubblica ticinese durante un\'ondata di calore con misure di protezione per studenti e personale',
+    'blog.article.los-vencedores-falkland-pablo-aparo.title': 'Los Vencedores: il film sulle Falkland vista dagli abitanti',
+    'blog.article.los-vencedores-falkland-pablo-aparo.excerpt': 'Il regista Pablo Aparo presenta a Locarno il suo documentario che racconta il conflitto delle Falkland dal punto di vista dei residenti delle isole.',
+    'blog.article.los-vencedores-falkland-pablo-aparo.imageAlt': 'Piazza Grande a Locarno durante il festival del cinema con schermo e pubblico',
+    'blog.article.caldo-ticino-direttiva-consiglio-stato.title': 'Ondate di calore: la Vpod scrive al Consiglio di Stato',
+    'blog.article.caldo-ticino-direttiva-consiglio-stato.excerpt': 'Il sindacato chiede una direttiva ad hoc e investimenti infrastrutturali contro il caldo in Ticino.',
+    'blog.article.caldo-ticino-direttiva-consiglio-stato.imageAlt': 'Strada di Bellinzona assolata con persone all\'ombra durante un\'ondata di calore',
+    'blog.article.devastazione-vagone-como-fermo.title': 'Devasta un vagone e insulta i passeggeri: 34enne fermato sul treno',
+    'blog.article.devastazione-vagone-como-fermo.excerpt': 'Un 34enne italiano, alterato da alcol, ha devastato un vagone sulla linea di Como-lago, strappando cartellonistica e rompendo estintori. Fermato dalla Polizia di Stato.',
+    'blog.article.devastazione-vagone-como-fermo.imageAlt': 'Interno di un treno regionale con cartellonistica strappata e estintore danneggiato, agenti di polizia in servizio',
+    'blog.article.produttore-islandese-hollywood-lezione.title': 'Da pescatore a Hollywood: la lezione di un produttore',
+    'blog.article.produttore-islandese-hollywood-lezione.excerpt': 'Sigurjón \'Joni\' Sighvatsson, da una comunità di pescatori islandese a Hollywood. Un percorso che parla di adattabilità e visione, utile anche per chi vive di lavoro transfrontaliero.',
+    'blog.article.produttore-islandese-hollywood-lezione.imageAlt': 'Set cinematografico a Locarno con lago e montagne sullo sfondo',
 };
 
 export default blogMetaIt;

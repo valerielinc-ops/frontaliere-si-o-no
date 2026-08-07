@@ -1,57 +1,16 @@
 {
   "key": "csvp-poschiavo",
   "label": "Centro Sanitario Valposchiavo (CSVP)",
-  "generatedAt": "2026-08-07T10:26:43.904Z",
-  "total": 1,
+  "generatedAt": "2026-08-07T21:59:28.089Z",
+  "total": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5165,
-  "avgDurationMs": 5165,
-  "durationHistory": [
-    5165
-  ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "csvp-poschiavo-57fc66b5d6fd",
-      "slug": "responsabile-del-servizio-tecnico-csvp-poschiavo-poschiavo",
-      "company": "Centro Sanitario Valposchiavo (CSVP)",
-      "companyKey": "csvp-poschiavo",
-      "companyDomain": "csvp.ch",
-      "title": "Responsabile del servizio tecnico",
-      "needsRetranslation": false,
-      "location": "Poschiavo",
-      "canton": "GR",
-      "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/916-responsabile-del-servizio-tecnico",
-      "source": "CSVP Dedicated Parser (Joomla HTML)",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-07T10:26:40.402Z",
-      "addressLocality": "Poschiavo",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7742",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-14",
-      "applyUrl": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/916-responsabile-del-servizio-tecnico",
-      "firstSeenAt": "2026-07-14T12:34:47.657Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }

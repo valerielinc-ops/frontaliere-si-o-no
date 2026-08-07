@@ -1029,14 +1029,62 @@ jobs:
           ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
         run: |
           set -uo pipefail
-          for section in $(bash scripts/lib/deploy-shard-sections.sh); do
+          # Bounded-parallel (cap 4, same driver + same longest-first order as
+          # the push and pack steps above, memoised in $RUNNER_TEMP so this
+          # reuses their walk of dist instead of paying for a third one).
+          #
+          # Was a strict sequential loop, and it is the one step in the shard
+          # tail with NO reason to be: each section's work is `find | wc -l`
+          # then `rm -rf` on its OWN dist/<sub>, and the section subtrees are
+          # disjoint by construction (scripts/lib/section-shard-slugs.json maps
+          # each section to a distinct URL slug), so removing them concurrently
+          # lands on exactly the same tree as removing them one after another —
+          # `rm -rf` of disjoint paths commutes. It is also inode/IO-bound, not
+          # CPU-bound, on a runner sitting idle at this point in the job.
+          #
+          # Measured (build-locale (it), 25 runs 08-04→08-07): median 230 s,
+          # p90 478 s, max 747 s of pure wall. ~29% of the ~1.05M stripped
+          # files are ticino's, so the parallel floor is ticino itself
+          # (max(0.29·T, T/4)), not T.
+          #
+          # This raises NO ceiling the push step's cap-4 protects: strip frees
+          # disk, never allocates it, and holds no clone/stage. The one piece of
+          # shared state — the per-locale stripped-file tally that
+          # push-locale-shard.sh's shrink guard reads — stopped being shared:
+          # strip-section-subtree.sh now writes one private file per section and
+          # tally-stripped-sections.sh folds them (see both headers).
+          source scripts/lib/bounded-parallel.sh
+
+          strip_one() {
+            local section="$1" skip_var
             skip_var="$(echo "$section" | tr a-z A-Z)_BUILD_EMIT_SKIP"
             if [ "${!skip_var:-}" = "true" ]; then
               echo "$section-it: BUILD_EMIT_SKIP=true — build never emitted this section, no ok-marker, nothing to strip"
-              continue
+              return 0
             fi
             bash scripts/lib/strip-section-subtree.sh "$section" it dist
-          done
+          }
+
+          # Degrade to the plain list rather than strip nothing: a partial list
+          # here would leave a section in the apex (artifact back over the 10 GB
+          # Pages cap) with no signal, so the fan-out must always cover the full
+          # set — only the ORDER is an optimisation.
+          order="$(bp_section_order dist it)" || {
+            echo "::warning::could not order the section list — stripping in list order"
+            order="$(bash scripts/lib/deploy-shard-sections.sh)"
+          }
+          # Step exit status is UNCHANGED from the previous sequential loop,
+          # which ran under `set -uo pipefail` (no `-e`) and so never aborted
+          # nor failed the step on a strip error. Only the VISIBILITY changes:
+          # a failing section used to vanish, and now names itself.
+          export BP_FAILED_FILE="$RUNNER_TEMP/shard-strip-failed-it.txt"
+          bp_run_bounded 4 strip_one $order || true
+          if [ -s "$BP_FAILED_FILE" ]; then
+            echo "::warning::section strip failed for: $(paste -sd, "$BP_FAILED_FILE") — those subtrees stay in the IT apex (artifact may exceed the 10 GB Pages cap)"
+          fi
+          # Authoritative fold of the per-section tallies, AFTER the fan-out has
+          # joined — push-locale-shard.sh's shrink guard reads the result.
+          echo "[strip] stripped $(bash scripts/lib/tally-stripped-sections.sh it) file(s) across the IT section shards"
 
       # ── IT shard → GitHub Pages + CDN (Pages-serving shard) ──────────────
       # deploy-it-pages-prep.sh runs the monolith's post-build bash IN ORDER:
@@ -1670,14 +1718,33 @@ jobs:
           ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
         run: |
           set -uo pipefail
-          for section in $(bash scripts/lib/deploy-shard-sections.sh); do
+          # Bounded-parallel, identical to the IT-leg strip step above — see that
+          # step's comment for why concurrent strips are output-identical and why
+          # they raise no ceiling the push step's cap protects.
+          source scripts/lib/bounded-parallel.sh
+
+          LOC='${{ matrix.locale }}'
+          strip_one() {
+            local section="$1" skip_var
             skip_var="$(echo "$section" | tr a-z A-Z)_BUILD_EMIT_SKIP"
             if [ "${!skip_var:-}" = "true" ]; then
-              echo "$section-${{ matrix.locale }}: BUILD_EMIT_SKIP=true — build never emitted this section, no ok-marker, nothing to strip"
-              continue
+              echo "$section-$LOC: BUILD_EMIT_SKIP=true — build never emitted this section, no ok-marker, nothing to strip"
+              return 0
             fi
-            bash scripts/lib/strip-section-subtree.sh "$section" "${{ matrix.locale }}" dist
-          done
+            bash scripts/lib/strip-section-subtree.sh "$section" "$LOC" dist
+          }
+
+          order="$(bp_section_order dist "$LOC")" || {
+            echo "::warning::could not order the section list — stripping in list order"
+            order="$(bash scripts/lib/deploy-shard-sections.sh)"
+          }
+          # Same exit-status contract as the IT-leg step: unchanged, visibility only.
+          export BP_FAILED_FILE="$RUNNER_TEMP/shard-strip-failed-$LOC.txt"
+          bp_run_bounded 4 strip_one $order || true
+          if [ -s "$BP_FAILED_FILE" ]; then
+            echo "::warning::section strip failed for: $(paste -sd, "$BP_FAILED_FILE") — those subtrees stay in the $LOC shard (artifact may exceed the 10 GB Pages cap)"
+          fi
+          echo "[strip] stripped $(bash scripts/lib/tally-stripped-sections.sh "$LOC") file(s) across the $LOC section shards"
 
       - name: Offload shard refs to CDN
         if: matrix.locale != 'it'

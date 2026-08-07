@@ -665,6 +665,10 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'casse-di-disoccupazione-superati-i-problemi-tecnici': { it: 'casse-di-disoccupazione-superati-i-problemi-tecnici', en: 'cases-of-unemployment-superated-the-technical-problems', de: 'arbeitslosenfursorge-uberwunden-technische-probleme', fr: 'caisses-de-chomage-surmontes-de-problemes-techniques' },
  'rimborsi-730-sostituti-imposta': { it: 'rimborsi-730-sostituti-imposta', en: '730-refunds-substitute-tax', de: '730-erstattungen-ersatzsteuer', fr: 'remboursements-730-impot-substitutif' },
  'un-anno-dallo-shock-dei-dazi-esportatori-incerti': { it: 'un-anno-dallo-shock-dei-dazi-esportatori-incerti', en: 'one-year-after-us-tariff-shock-swiss-exporters-uncertain', de: 'ein-jahr-nach-dem-us-zollschock-schweizer-exporteure-unsicher', fr: 'un-an-apres-le-choc-des-tarifs-usa-exportateurs-suisses-incertains' },
+ 'costo-vita-svizzera-2026-san-gallo': { it: 'costo-vita-svizzera-2026-san-gallo', en: 'cost-of-living-switzerland-2026-st-gallen', de: 'lebenskosten-schweiz-2026-sankt-gallen', fr: 'cout-de-vie-suisse-2026-saint-gall' },
+ 'premi-lamal-2026-ginevra-guida': { it: 'premi-lamal-2026-ginevra-guida', en: 'lamal-premiums-2026-geneva-guide', de: 'lamal-praemien-2026-genf-leitfaden', fr: 'primes-lamal-2026-geneve-guide' },
+ 'reno-siccita-economia-svizzera': { it: 'reno-siccita-economia-svizzera', en: 'rhine-drought-swiss-economy', de: 'rhein-duerre-schweizer-wirtschaft', fr: 'rhin-secheresse-economie-suisse' },
+ 'premi-lamal-2026-bern-guida': { it: 'premi-lamal-2026-bern-guida', en: 'lamal-premiums-2026-bern', de: 'lamal-praemien-2026-bern', fr: 'primes-lamal-2026-berne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

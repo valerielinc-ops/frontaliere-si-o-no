@@ -60092,6 +60092,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-los-vencedores-falkland-pablo-aparo': {
+    title: 'Los Vencedores: il film sulle Falkland vista dagli abitanti',
+    description: 'Il regista Pablo Aparo presenta a Locarno il documentario \'Los vencedores\', che racconta il conflitto delle Falkland dal punto di vista degli abitanti delle',
+    keywords: 'frontalieri, ticino, svizzera, italia, vencedores, film, sulle, falkland',
+    ogTitle: 'Los Vencedores: film sulle Falkland vista dagli abitanti a Locarno',
+    ogDescription: 'Il regista Pablo Aparo presenta a Locarno il documentario \'Los vencedores\', che racconta il conflitto delle Falkland dal punto di vista degli abitanti delle',
+    canonicalPath: '/articoli-frontaliere/los-vencedores-falkland-pablo-aparo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Los Vencedores: il film sulle Falkland vista dagli abitanti",
+      "description": "Il regista Pablo Aparo presenta a Locarno il documentario 'Los vencedores', che racconta il conflitto delle Falkland dal punto di vista degli abitanti delle",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/los-vencedores-falkland-pablo-aparo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza Grande a Locarno durante il festival del cinema con schermo e pubblico"
+      },
+      "datePublished": "2026-08-07T20:32:45+00:00",
+      "dateModified": "2026-08-07T20:32:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/los-vencedores-falkland-pablo-aparo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-caldo-ticino-direttiva-consiglio-stato': {
+    title: 'Ondate di calore: la Vpod scrive al Consiglio di Stato',
+    description: 'La Vpod chiede una direttiva ad hoc e investimenti infrastrutturali contro le ondate di calore in Ticino. Senza correttivi, risposte tardive. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, ondate, calore, vpod, scrive',
+    ogTitle: 'Ondate di calore: la Vpod scrive al Consiglio di Stato',
+    ogDescription: 'La Vpod chiede una direttiva ad hoc e investimenti infrastrutturali contro le ondate di calore in Ticino.',
+    canonicalPath: '/articoli-frontaliere/caldo-ticino-direttiva-consiglio-stato',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ondate di calore: la Vpod scrive al Consiglio di Stato",
+      "description": "La Vpod chiede una direttiva ad hoc e investimenti infrastrutturali contro le ondate di calore in Ticino. Senza correttivi, risposte tardive. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/caldo-ticino-direttiva-consiglio-stato.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada di Bellinzona assolata con persone all'ombra durante un'ondata di calore"
+      },
+      "datePublished": "2026-08-07T21:03:36+00:00",
+      "dateModified": "2026-08-07T21:03:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caldo-ticino-direttiva-consiglio-stato/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-devastazione-vagone-como-fermo': {
+    title: 'Devasta un vagone e insulta i passeggeri: 34enne fermato sul treno',
+    description: 'Un 34enne alterato da alcol ha devastato un treno a Como-lago, strappando cartellonistica e rompendo estintori. Fermato dalla polizia. Ecco cosa fare in caso di',
+    keywords: 'frontalieri, ticino, svizzera, italia, devasta, vagone, insulta, passeggeri',
+    ogTitle: 'Devasta un vagone a Como-lago: fermato 34enne',
+    ogDescription: 'Un uomo alterato da alcol ha devastato un vagone, strappando cartellonistica e rompendo estintori. Bloccato il convoglio. Ecco come gestire i disagi per i',
+    canonicalPath: '/articoli-frontaliere/devastazione-vagone-como-fermo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Devasta un vagone e insulta i passeggeri: 34enne fermato sul treno",
+      "description": "Un 34enne alterato da alcol ha devastato un treno a Como-lago, strappando cartellonistica e rompendo estintori. Fermato dalla polizia. Ecco cosa fare in caso di",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/devastazione-vagone-como-fermo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno di un treno regionale con cartellonistica strappata e estintore danneggiato, agenti di polizia in servizio"
+      },
+      "datePublished": "2026-08-07T22:04:41+00:00",
+      "dateModified": "2026-08-07T22:04:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/devastazione-vagone-como-fermo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-produttore-islandese-hollywood-lezione': {
+    title: 'Da pescatore a Hollywood: la lezione di un produttore',
+    description: 'La storia del produttore islandese Sigurjón \'Joni\' Sighvatsson insegna adattabilità e visione, competenze chiave per chi vive di lavoro transfrontaliero tra',
+    keywords: 'frontalieri, ticino, svizzera, italia, pescatore, hollywood, lezione, produttore',
+    ogTitle: 'Da pescatore a Hollywood: lezione per frontalieri',
+    ogDescription: 'La storia del produttore islandese Sigurjón \'Joni\' Sighvatsson insegna adattabilità e visione, competenze chiave per chi vive di lavoro transfrontaliero tra',
+    canonicalPath: '/articoli-frontaliere/produttore-islandese-hollywood-lezione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Da pescatore a Hollywood: la lezione di un produttore",
+      "description": "La storia del produttore islandese Sigurjón 'Joni' Sighvatsson insegna adattabilità e visione, competenze chiave per chi vive di lavoro transfrontaliero tra",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/produttore-islandese-hollywood-lezione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Set cinematografico a Locarno con lago e montagne sullo sfondo"
+      },
+      "datePublished": "2026-08-07T22:23:32+00:00",
+      "dateModified": "2026-08-07T22:23:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/produttore-islandese-hollywood-lezione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

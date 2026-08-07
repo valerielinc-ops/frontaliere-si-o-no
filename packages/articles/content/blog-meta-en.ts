@@ -9334,6 +9334,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vpod-direttiva-canicola-scuole.title': 'VPOD requests anti-canicola directive for Ticino State and schools',
     'blog.article.vpod-direttiva-canicola-scuole.excerpt': 'The VPOD union asks the Council of State for a structured directive to manage heat waves in public offices and schools, inspired by the Geneva model',
     'blog.article.vpod-direttiva-canicola-scuole.imageAlt': 'Ticino public school during a heatwave with protective measures for students and staff',
+    'blog.article.los-vencedores-falkland-pablo-aparo.title': 'Los Vencedores: the film about the Falklands seen by the inhabitants',
+    'blog.article.los-vencedores-falkland-pablo-aparo.excerpt': 'The director Pablo Aparo presents at Locarno his documentary that tells the conflict of the Falklands from the point of view of the residents of the islands.',
+    'blog.article.los-vencedores-falkland-pablo-aparo.imageAlt': 'Locarno Piazza Grande during film festival with screen and audience',
+    'blog.article.caldo-ticino-direttiva-consiglio-stato.title': 'Heat waves: Vpod writes to the Council of State',
+    'blog.article.caldo-ticino-direttiva-consiglio-stato.excerpt': 'The union calls for an ad hoc directive and infrastructure investments against the heat in Ticino.',
+    'blog.article.caldo-ticino-direttiva-consiglio-stato.imageAlt': 'Sunny street in Bellinzona with people in the shade during a heatwave',
+    'blog.article.devastazione-vagone-como-fermo.title': 'Devastate a car and insult passengers: 34-year-old stopped on the train',
+    'blog.article.devastazione-vagone-como-fermo.excerpt': 'A 34-year-old Italian, impaired by alcohol, devastated a wagon on the Como-lago line, tearing up signs and breaking fire extinguishers. Stopped by the State Police.',
+    'blog.article.devastazione-vagone-como-fermo.imageAlt': 'Interior of a regional train with torn signage and damaged fire extinguisher, police officers on duty',
+    'blog.article.produttore-islandese-hollywood-lezione.title': 'As a Fisherman in Hollywood: A Producer\'s Lesson',
+    'blog.article.produttore-islandese-hollywood-lezione.excerpt': 'Sigurjón \'Joni\' Sighvatsson, from an Icelandic fishing community in Hollywood. A path that speaks of adaptability and vision, also useful for those who work across borders.',
+    'blog.article.produttore-islandese-hollywood-lezione.imageAlt': 'Film set in Locarno with lake and mountains in the background',
 };
 
 export default blogMetaEn;

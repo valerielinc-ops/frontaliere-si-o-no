@@ -1918,6 +1918,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.title': 'One Year After Tariff Shock, Exporters Still Uncertain',
     'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.excerpt': 'One year after the 39% US duties, the rate on Swiss goods is 12.5% but remains unpredictable: negotiations, rulings and new investigations keep exporters on their toes',
     'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.imageAlt': 'Aerial view of Zurich industrial zone with shipping containers and Swiss machinery for export',
+    'blog.article.costo-vita-svizzera-2026-san-gallo.title': 'Cost of living Switzerland 2026: canton St Gallen analysis',
+    'blog.article.costo-vita-svizzera-2026-san-gallo.excerpt': 'Italian personal income tax rates 23-35-43%, AVS 5.3%, border deductible €10,000, 2024 agreement, non-EU/EEA Switzerland',
+    'blog.article.costo-vita-svizzera-2026-san-gallo.imageAlt': 'Frontalier in St. Gallen old town with modern buildings in background',
+    'blog.article.premi-lamal-2026-ginevra-guida.title': 'LAMal 2026 awards in Geneva: deductible, cash changeover and subsidies',
+    'blog.article.premi-lamal-2026-ginevra-guida.excerpt': 'Guide to sick pay premiums 2026 in the canton of Geneva: deductibles CHF 300–2500, right of option for border workers, national comparison and steps to change insurance.',
+    'blog.article.premi-lamal-2026-ginevra-guida.imageAlt': 'View of Lake Geneva with the Jet d\'Eau against the Alps backdrop',
+    'blog.article.reno-siccita-economia-svizzera.title': 'Dry Rhine: Alarm for Swiss Economy',
+    'blog.article.reno-siccita-economia-svizzera.excerpt': 'Historical minimum level, transport at risk: 10% of imports by river, fuels in crisis.',
+    'blog.article.reno-siccita-economia-svizzera.imageAlt': 'Low water levels on the Rhine near Basel, cargo ship with shallow draft',
+    'blog.article.premi-lamal-2026-bern-guida.title': 'LAMal 2026 Awards in Bern: How to Choose the Right Deductible',
+    'blog.article.premi-lamal-2026-bern-guida.excerpt': 'Guide to the 2026 cash premiums in the canton of Bern: cantonal differences, optimal deductible, cash changeover and subsidies. National comparison.',
+    'blog.article.premi-lamal-2026-bern-guida.imageAlt': 'Guide to 2026 LAMal premiums in the canton of Bern',
 };
 
 export default blogMetaChEn;

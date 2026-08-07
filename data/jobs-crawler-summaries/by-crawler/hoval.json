@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-08-07T10:12:42.137Z",
+  "generatedAt": "2026-08-07T21:52:20.260Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14111,
-  "avgDurationMs": 14111,
+  "durationMs": 14171,
+  "avgDurationMs": 14171,
   "durationHistory": [
-    14111
+    14171
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,7 +41,6 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-28T11:43:47.058Z",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -151,7 +150,6 @@
       "currency": "CHF",
       "postalCode": "4500",
       "firstSeenAt": "2026-06-29T13:46:41.228Z",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,

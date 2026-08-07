@@ -1918,6 +1918,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.title': 'Ein Jahr nach dem Zollschock sind die Exporteure immer noch unsicher',
     'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.excerpt': 'Ein Jahr nach den US-Zöllen von 39% liegt der Zollsatz auf Schweizer Waren bei 12,5%, bleibt aber unberechenbar: Verhandlungen, Urteile und neue Untersuchungen halten die Exporteure auf dem Laufenden',
     'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.imageAlt': 'Luftaufnahme des Industriegebiets Zürich mit Containern und schweizerischen Maschinen für den Export',
+    'blog.article.costo-vita-svizzera-2026-san-gallo.title': 'Lebenshaltungskosten Schweiz 2026: Analyse Kanton St. Gallen',
+    'blog.article.costo-vita-svizzera-2026-san-gallo.excerpt': 'Italienische IRPEF-Sätze 23-35-43%, AHV 5,3%, Grenzgänger-Franchise € 10\'000, Abkommen 2024, Nicht-EU/EWR-Schweiz',
+    'blog.article.costo-vita-svizzera-2026-san-gallo.imageAlt': 'Grenzgänger in der Altstadt von St. Gallen mit modernen Gebäuden im Hintergrund',
+    'blog.article.premi-lamal-2026-ginevra-guida.title': 'KVG-Prämien 2026 in Genf: Franchise, Kassenwechsel und Beiträge',
+    'blog.article.premi-lamal-2026-ginevra-guida.excerpt': 'Leitfaden zu den Krankenkassenprämien 2026 im Kanton Genf: Franchisen CHF 300–2500, Optionsrecht für Grenzgänger, Landesvergleich und Wechselschritte.',
+    'blog.article.premi-lamal-2026-ginevra-guida.imageAlt': 'Blick auf den Genfersee mit dem Jet d\'Eau vor den Alpen',
+    'blog.article.reno-siccita-economia-svizzera.title': 'Trockenrhein: Alarm für die Schweizer Wirtschaft',
+    'blog.article.reno-siccita-economia-svizzera.excerpt': 'Historisches Tief, Transport mit Risiko: 10% der Importe über den Fluss, Treibstoff in der Krise.',
+    'blog.article.reno-siccita-economia-svizzera.imageAlt': 'Niedriger Wasserstand des Rheins bei Basel, Frachtschiff mit geringem Tiefgang',
+    'blog.article.premi-lamal-2026-bern-guida.title': 'KVG-Prämien 2026 in Bern: So wählen Sie die richtige Franchise',
+    'blog.article.premi-lamal-2026-bern-guida.excerpt': 'Leitfaden zu den Krankenkassenprämien 2026 im Kanton Bern: kantonale Unterschiede, optimale Franchise, Kassenwechsel und Beiträge. Nationaler Vergleich.',
+    'blog.article.premi-lamal-2026-bern-guida.imageAlt': 'Leitfaden zu den LAMal-Prämien 2026 im Kanton Bern',
 };
 
 export default blogMetaChDe;

@@ -9333,6 +9333,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vpod-direttiva-canicola-scuole.title': 'VPOD fordert Anti-Kaninchen-Richtlinie für Tessiner Staat und Schulen',
     'blog.article.vpod-direttiva-canicola-scuole.excerpt': 'Die Gewerkschaft VPOD ersucht den Staatsrat um eine strukturierte Richtlinie zur Bewältigung von Hitzewellen in öffentlichen Ämtern und Schulen, die sich am Genfer Modell orientiert',
     'blog.article.vpod-direttiva-canicola-scuole.imageAlt': 'Tessin öffentliche Schule während einer Hitzewelle mit Schutzmaßnahmen für Schüler und Personal',
+    'blog.article.los-vencedores-falkland-pablo-aparo.title': 'Los Vencedores: Der Falkland-Film aus der Sicht der Einwohner',
+    'blog.article.los-vencedores-falkland-pablo-aparo.excerpt': 'Der Regisseur Pablo Aparo präsentiert in Locarno seinen Dokumentarfilm, der den Falklandkonflikt aus der Sicht der Bewohner der Inseln erzählt.',
+    'blog.article.los-vencedores-falkland-pablo-aparo.imageAlt': 'Piazza Grande in Locarno während des Filmfestivals mit Leinwand und Publikum',
+    'blog.article.caldo-ticino-direttiva-consiglio-stato.title': 'Hitzewellen: Vpod schreibt an den Staatsrat',
+    'blog.article.caldo-ticino-direttiva-consiglio-stato.excerpt': 'Die Gewerkschaft fordert eine Ad-hoc-Richtlinie und Infrastrukturinvestitionen gegen die Hitze im Tessin.',
+    'blog.article.caldo-ticino-direttiva-consiglio-stato.imageAlt': 'Sonnige Straße in Bellinzona mit Menschen im Schatten während einer Hitzewelle',
+    'blog.article.devastazione-vagone-como-fermo.title': 'Verwüstet einen Waggon und beleidigt Fahrgäste: 34-Jähriger im Zug angehalten',
+    'blog.article.devastazione-vagone-como-fermo.excerpt': 'Ein 34-jähriger Italiener, der durch Alkohol gestört wurde, verwüstete einen Waggon auf der Strecke Como-Lago, riss Plakate ab und zerbrach Feuerlöscher. Von der Staatspolizei gestoppt.',
+    'blog.article.devastazione-vagone-como-fermo.imageAlt': 'Innenraum eines Regionalzugs mit zerrissener Beschilderung und beschädigtem Feuerlöscher, Polizisten im Einsatz',
+    'blog.article.produttore-islandese-hollywood-lezione.title': 'Vom Fischer nach Hollywood: Die Lektion eines Produzenten',
+    'blog.article.produttore-islandese-hollywood-lezione.excerpt': 'Sigurjón \'Joni\' Sighvatsson, aus einer isländischen Fischergemeinde in Hollywood. Ein Weg, der von Anpassungsfähigkeit und Vision spricht und auch für diejenigen nützlich ist, die grenzüberschreitend arbeiten.',
+    'blog.article.produttore-islandese-hollywood-lezione.imageAlt': 'Filmset in Locarno mit See und Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

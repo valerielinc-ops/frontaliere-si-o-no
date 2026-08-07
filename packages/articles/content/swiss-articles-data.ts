@@ -5752,6 +5752,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'costo-vita-svizzera-2026-san-gallo',
+    category: 'pratico',
+    date: '2026-08-07T20:01:00.997Z',
+    image: '/images/blog/costo-vita-svizzera-2026-san-gallo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'premi-lamal-2026-ginevra-guida',
+    category: 'pratico',
+    date: '2026-08-07T20:56:09.960Z',
+    image: '/images/blog/premi-lamal-2026-ginevra-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'reno-siccita-economia-svizzera',
+    category: 'pratico',
+    date: '2026-08-07T22:13:14.214Z',
+    image: '/images/blog/reno-siccita-economia-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'premi-lamal-2026-bern-guida',
+    category: 'pratico',
+    date: '2026-08-07T22:49:53.113Z',
+    image: '/images/blog/premi-lamal-2026-bern-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

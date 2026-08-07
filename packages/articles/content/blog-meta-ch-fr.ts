@@ -1918,6 +1918,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.title': 'Un an aprs les chocs des droits, les exportateurs restent dans l\'incertitude',
     'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.excerpt': 'Un an après les droits américains à 39%, le taux sur les marchandises suisses est à 12,5% mais reste imprévisible : négociations, jugements et nouvelles enquêtes tiennent les exportateurs en alerte',
     'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.imageAlt': 'Vue aérienne de la zone industrielle de Zurich avec conteneurs et machines suisses prêts pour l\'exportation',
+    'blog.article.costo-vita-svizzera-2026-san-gallo.title': 'Coût de la vie Suisse 2026 : analyse canton de Saint-Gall',
+    'blog.article.costo-vita-svizzera-2026-san-gallo.excerpt': 'Taux IRPEF italien 23-35-43%, AVS 5,3%, franchise frontalière 10\'000 € , accord 2024, Suisse hors UE/EEE',
+    'blog.article.costo-vita-svizzera-2026-san-gallo.imageAlt': 'Frontalier dans la vieille ville de Saint-Gall avec bâtiments modernes en arrière-plan',
+    'blog.article.premi-lamal-2026-ginevra-guida.title': 'Prix LAMal 2026 à Genève : franchise, changement de caisse et subventions',
+    'blog.article.premi-lamal-2026-ginevra-guida.excerpt': 'Guide des primes caisse-maladie 2026 dans le canton de Genève : franchises CHF 300–2500, droit d\'option pour frontaliers, comparaison nationale et passages pour changer d\'assurance.',
+    'blog.article.premi-lamal-2026-ginevra-guida.imageAlt': 'Vue du lac Léman avec le Jet d\'Eau sur fond des Alpes',
+    'blog.article.reno-siccita-economia-svizzera.title': 'Rhin à sec : alerte pour l\'économie suisse',
+    'blog.article.reno-siccita-economia-svizzera.excerpt': 'Niveau minimum historique, transports à risque : 10 % des importations par voie fluviale, carburants en crise.',
+    'blog.article.reno-siccita-economia-svizzera.imageAlt': 'Bas niveau des eaux du Rhin près de Bâle, cargo à faible tirant d\'eau',
+    'blog.article.premi-lamal-2026-bern-guida.title': 'Prix LAMal 2026 à Berne : comment choisir la bonne franchise',
+    'blog.article.premi-lamal-2026-bern-guida.excerpt': 'Guide des primes caisse-maladie 2026 dans le canton de Berne : différences cantonales, franchise optimale, change de caisse et allocations. Comparaison nationale.',
+    'blog.article.premi-lamal-2026-bern-guida.imageAlt': 'Guide des primes LAMal 2026 dans le canton de Berne',
 };
 
 export default blogMetaChFr;

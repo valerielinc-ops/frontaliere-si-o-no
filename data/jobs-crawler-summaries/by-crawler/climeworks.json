@@ -1,16 +1,16 @@
 {
   "key": "climeworks",
   "label": "Climeworks",
-  "generatedAt": "2026-08-07T10:10:50.426Z",
+  "generatedAt": "2026-08-07T21:43:57.868Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3396,
-  "avgDurationMs": 3396,
+  "durationMs": 3515,
+  "avgDurationMs": 3515,
   "durationHistory": [
-    3396
+    3515
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T10:10:47.319Z",
+      "crawledAt": "2026-08-07T21:43:54.608Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,7 +40,6 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
       "remote": true,
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:24:43.541Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -62,7 +61,7 @@
       "url": "https://climeworks.recruitee.com/o/commercial-growth-lead-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T10:10:47.327Z",
+      "crawledAt": "2026-08-07T21:43:54.616Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -76,13 +75,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://climeworks.recruitee.com/o/commercial-growth-lead-100",
       "remote": true,
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:10:38.025Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -98,7 +96,7 @@
       "url": "https://climeworks.recruitee.com/o/hse-facility-senior-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T10:10:47.338Z",
+      "crawledAt": "2026-08-07T21:43:54.625Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -112,7 +110,6 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://climeworks.recruitee.com/o/hse-facility-senior-manager-100",
       "remote": false,
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T21:37:32.354Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -134,7 +131,7 @@
       "url": "https://climeworks.recruitee.com/o/senior-synthetic-chemist-sorbent-innovation-lead-80100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T10:10:47.343Z",
+      "crawledAt": "2026-08-07T21:43:54.627Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -148,7 +145,6 @@
       "postedDate": "2026-06-24",
       "applyUrl": "https://climeworks.recruitee.com/o/senior-synthetic-chemist-sorbent-innovation-lead-80100",
       "remote": true,
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T13:10:05.390Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -170,7 +166,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T10:10:47.345Z",
+      "crawledAt": "2026-08-07T21:43:54.629Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -184,7 +180,6 @@
       "postedDate": "2026-06-12",
       "applyUrl": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "remote": true,
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-03T21:37:32.360Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -206,7 +201,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-mechanical-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T10:10:47.349Z",
+      "crawledAt": "2026-08-07T21:43:54.631Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -220,7 +215,6 @@
       "postedDate": "2026-04-29",
       "applyUrl": "https://climeworks.recruitee.com/o/lead-mechanical-engineer-100-101",
       "remote": true,
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-03T21:37:32.366Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -242,7 +236,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T10:10:47.352Z",
+      "crawledAt": "2026-08-07T21:43:54.634Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -256,7 +250,6 @@
       "postedDate": "2026-02-10",
       "applyUrl": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "remote": true,
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-03T21:37:32.367Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {

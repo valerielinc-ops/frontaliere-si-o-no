@@ -28020,6 +28020,42 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'los-vencedores-falkland-pablo-aparo',
+ category: 'novita',
+ date: '2026-08-07T20:32:45.830Z',
+ image: '/images/blog/los-vencedores-falkland-pablo-aparo.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'caldo-ticino-direttiva-consiglio-stato',
+ category: 'novita',
+ date: '2026-08-07T21:03:36.347Z',
+ image: '/images/blog/caldo-ticino-direttiva-consiglio-stato.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'devastazione-vagone-como-fermo',
+ category: 'pratico',
+ date: '2026-08-07T22:04:41.219Z',
+ image: '/images/blog/devastazione-vagone-como-fermo.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'produttore-islandese-hollywood-lezione',
+ category: 'novita',
+ date: '2026-08-07T22:23:32.152Z',
+ image: '/images/blog/produttore-islandese-hollywood-lezione.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

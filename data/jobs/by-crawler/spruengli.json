@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spruengli",
-  "assembledAt": "2026-08-07T10:13:40.175Z",
+  "assembledAt": "2026-08-07T21:45:11.381Z",
   "jobs": [
     {
       "id": "spruengli-f40c4796f848",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/116352/1252/pub/2/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.819Z",
+      "crawledAt": "2026-08-07T21:45:08.263Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "streetAddress": "Postfach 1462",
@@ -53,6 +53,22 @@
       "jobReqId": "1252",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich",
+        "barista-100-cafe-bar-aeroporto-di-zurigo-confiserie-sprungli-ag-zurich-flughafen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich",
+          "barista-100-cafe-bar-aeroporto-di-zurigo-confiserie-sprungli-ag-zurich-flughafen"
+        ],
+        "en": [
+          "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich"
+        ],
+        "fr": [
+          "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich"
+        ]
+      },
       "firstSeenAt": "2026-08-06T11:58:33.371Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -65,21 +81,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich"
-        ],
-        "en": [
-          "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich"
-        ],
-        "fr": [
-          "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich"
-      ]
+      }
     },
     {
       "id": "spruengli-86ef3d502e38",
@@ -112,7 +114,7 @@
       "url": "https://apply.refline.ch/116352/1064/pub/76/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.818Z",
+      "crawledAt": "2026-08-07T21:45:08.262Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "streetAddress": "Bahnhofstrasse 9",
@@ -151,6 +153,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:28:54.320Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -195,7 +198,7 @@
       "url": "https://apply.refline.ch/116352/1207/pub/34/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.817Z",
+      "crawledAt": "2026-08-07T21:45:08.261Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -239,6 +242,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:28:54.319Z",
+      "needsRetranslation": true,
       "salaryMin": 22100,
       "salaryMax": 33500,
       "baseSalary": {
@@ -283,7 +287,7 @@
       "url": "https://apply.refline.ch/116352/1206/pub/26/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.816Z",
+      "crawledAt": "2026-08-07T21:45:08.259Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 25",
@@ -330,6 +334,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:18:24.558Z",
+      "needsRetranslation": true,
       "salaryMin": 49600,
       "salaryMax": 75200,
       "baseSalary": {
@@ -374,7 +379,7 @@
       "url": "https://apply.refline.ch/116352/1232/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.815Z",
+      "crawledAt": "2026-08-07T21:45:08.258Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -428,7 +433,8 @@
           "maxValue": 55800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spruengli-3a39ba0200e3",
@@ -461,7 +467,7 @@
       "url": "https://apply.refline.ch/116352/1233/pub/16/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.814Z",
+      "crawledAt": "2026-08-07T21:45:08.257Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -562,7 +568,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spruengli-6c08318f0560",
@@ -595,7 +602,7 @@
       "url": "https://apply.refline.ch/116352/1229/pub/14/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.813Z",
+      "crawledAt": "2026-08-07T21:45:08.256Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 25",
@@ -642,6 +649,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:18:24.556Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -686,7 +694,7 @@
       "url": "https://apply.refline.ch/116352/1125/pub/52/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.812Z",
+      "crawledAt": "2026-08-07T21:45:08.255Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -739,6 +747,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:18:24.555Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -783,7 +792,7 @@
       "url": "https://apply.refline.ch/116352/1112/pub/14/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.812Z",
+      "crawledAt": "2026-08-07T21:45:08.254Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -826,6 +835,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:18:24.555Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -870,7 +880,7 @@
       "url": "https://apply.refline.ch/116352/1237/pub/9/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.811Z",
+      "crawledAt": "2026-08-07T21:45:08.253Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -961,7 +971,7 @@
       "url": "https://apply.refline.ch/116352/1190/pub/36/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.810Z",
+      "crawledAt": "2026-08-07T21:45:08.251Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1031,6 +1041,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:18:24.553Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1075,7 +1086,7 @@
       "url": "https://apply.refline.ch/116352/1239/pub/9/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.808Z",
+      "crawledAt": "2026-08-07T21:45:08.249Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1156,7 +1167,7 @@
       "url": "https://apply.refline.ch/116352/1251/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.807Z",
+      "crawledAt": "2026-08-07T21:45:08.248Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1236,7 +1247,7 @@
       "url": "https://apply.refline.ch/116352/1250/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.806Z",
+      "crawledAt": "2026-08-07T21:45:08.247Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1311,7 +1322,7 @@
       "url": "https://apply.refline.ch/116352/1246/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.805Z",
+      "crawledAt": "2026-08-07T21:45:08.244Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1346,6 +1357,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:18:14.564Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1390,7 +1402,7 @@
       "url": "https://apply.refline.ch/116352/1247/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.804Z",
+      "crawledAt": "2026-08-07T21:45:08.243Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1490,7 +1502,7 @@
       "url": "https://apply.refline.ch/116352/1172/pub/37/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.803Z",
+      "crawledAt": "2026-08-07T21:45:08.242Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 10A",
@@ -1576,7 +1588,7 @@
       "url": "https://apply.refline.ch/116352/1193/pub/31/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.802Z",
+      "crawledAt": "2026-08-07T21:45:08.241Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Bahnhofplatz",
@@ -1618,6 +1630,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:00:50.640Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1662,7 +1675,7 @@
       "url": "https://apply.refline.ch/116352/1240/pub/6/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.800Z",
+      "crawledAt": "2026-08-07T21:45:08.238Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 10A",
@@ -1748,7 +1761,7 @@
       "url": "https://apply.refline.ch/116352/1203/pub/17/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.799Z",
+      "crawledAt": "2026-08-07T21:45:08.237Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "streetAddress": "Postfach 1462",
@@ -1789,6 +1802,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:00:50.638Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1833,7 +1847,7 @@
       "url": "https://apply.refline.ch/116352/1201/pub/25/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.798Z",
+      "crawledAt": "2026-08-07T21:45:08.235Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1876,6 +1890,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:00:50.635Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1920,7 +1935,7 @@
       "url": "https://apply.refline.ch/116352/1223/pub/13/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:13:36.796Z",
+      "crawledAt": "2026-08-07T21:45:08.233Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1954,6 +1969,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:00:50.630Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2052,7 +2068,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -24821,6 +24821,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costo-vita-svizzera-2026-san-gallo': {
+    title: 'Costo della vita Svizzera 2026: analisi canton San Gallo',
+    description: 'Analisi 2026 del costo della vita in Svizzera: aliquote IRPEF 23-35-43%, AVS 5,3%, franchigia frontalieri €10\'000, accordo 2024. Dati verificati per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, costo, vita, analisi, canton',
+    ogTitle: 'Costo della vita Svizzera 2026: analisi canton San Gallo',
+    ogDescription: 'IRPEF italiana 23-35-43%, AVS 5,3%, franchigia frontalieri €10\'000. Guida pratica per frontalieri in Svizzera con dati verificati fonte ufficiale.',
+    canonicalPath: '/articoli-svizzera/costo-vita-svizzera-2026-san-gallo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Costo della vita Svizzera 2026: analisi canton San Gallo",
+      "description": "Analisi 2026 del costo della vita in Svizzera: aliquote IRPEF 23-35-43%, AVS 5,3%, franchigia frontalieri €10'000, accordo 2024. Dati verificati per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costo-vita-svizzera-2026-san-gallo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliero nel centro storico di San Gallo con edifici moderni sullo sfondo"
+      },
+      "datePublished": "2026-08-07T20:01:01+00:00",
+      "dateModified": "2026-08-07T20:01:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/costo-vita-svizzera-2026-san-gallo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-lamal-2026-ginevra-guida': {
+    title: 'Premi LAMal 2026 a Ginevra: franchigia, cambio cassa e sussidi',
+    description: 'Guida ai premi cassa malati 2026 nel canton Ginevra: franchigie CHF 300–2500, diritto d\'opzione frontalieri, confronto nazionale e passi per cambiare',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, lamal, ginevra, franchigia',
+    ogTitle: 'Premi LAMal 2026 Ginevra: guida a franchigia e cambio cassa',
+    ogDescription: 'Guida ai premi cassa malati 2026 nel canton Ginevra: franchigie CHF 300–2500, diritto d\'opzione frontalieri, confronto nazionale e passi per cambiare',
+    canonicalPath: '/articoli-svizzera/premi-lamal-2026-ginevra-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi LAMal 2026 a Ginevra: franchigia, cambio cassa e sussidi",
+      "description": "Guida ai premi cassa malati 2026 nel canton Ginevra: franchigie CHF 300–2500, diritto d'opzione frontalieri, confronto nazionale e passi per cambiare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-2026-ginevra-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Ginevra con il Jet d'Eau sullo sfondo delle Alpi"
+      },
+      "datePublished": "2026-08-07T20:56:09+00:00",
+      "dateModified": "2026-08-07T20:56:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-2026-ginevra-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-reno-siccita-economia-svizzera': {
+    title: 'Reno in secca: allarme per l\'economia svizzera',
+    description: 'Il livello del Reno ai minimi storici: 10% delle importazioni a rischio, carburanti in crisi, +8,5 centesimi al litro. Ecco le conseguenze per consumatori e',
+    keywords: 'frontalieri, ticino, svizzera, italia, reno, secca, allarme, economia',
+    ogTitle: 'Reno in secca: allarme per l\'economia svizzera',
+    ogDescription: 'Livello minimo storico, trasporti a rischio: 10% delle importazioni via fiume, carburanti in crisi. Ecco le conseguenze per consumatori e imprese.',
+    canonicalPath: '/articoli-svizzera/reno-siccita-economia-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Reno in secca: allarme per l'economia svizzera",
+      "description": "Il livello del Reno ai minimi storici: 10% delle importazioni a rischio, carburanti in crisi, +8,5 centesimi al litro. Ecco le conseguenze per consumatori e",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/reno-siccita-economia-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Reno in secca vicino a Basilea, una nave cargo con basso pescaggio"
+      },
+      "datePublished": "2026-08-07T22:13:14+00:00",
+      "dateModified": "2026-08-07T22:13:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/reno-siccita-economia-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-lamal-2026-bern-guida': {
+    title: 'Premi LAMal 2026 a Berna: come scegliere la franchigia giusta',
+    description: 'Premi cassa malati 2026 nel canton Berna: franchigia ottimale, cambio cassa, sussidi e confronto nazionale. Guida pratica per risparmiare. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, lamal, berna, scegliere',
+    ogTitle: 'Premi LAMal 2026 a Berna: come scegliere la franchigia giusta',
+    ogDescription: 'Guida ai premi cassa malati 2026 nel canton Berna: franchigia ottimale, cambio cassa, sussidi e confronto nazionale. Consigli pratici per risparmiare.',
+    canonicalPath: '/articoli-svizzera/premi-lamal-2026-bern-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi LAMal 2026 a Berna: come scegliere la franchigia giusta",
+      "description": "Premi cassa malati 2026 nel canton Berna: franchigia ottimale, cambio cassa, sussidi e confronto nazionale. Guida pratica per risparmiare. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-2026-bern-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guida ai premi LAMal 2026 nel canton Berna"
+      },
+      "datePublished": "2026-08-07T22:49:53+00:00",
+      "dateModified": "2026-08-07T22:49:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-2026-bern-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

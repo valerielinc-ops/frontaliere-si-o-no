@@ -13,19 +13,21 @@
  *
  * Fetch flow (single canton):
  *
- *     fetchJobsForCanton('TI')
+ *     fetchJobsForCanton('TI', 'it')
  *           │
  *           ▼
  *     ┌─────────────────────┐
  *     │  IDB cache lookup   │  (frontaliere-jobs-cache › canton-shards)
- *     │  key = 'TI'         │
- *     └─────────────────────┘
- *      │ miss              │ hit (record has etag)
- *      │                   │
+ *     │  key = 'TI:it'      │  ← canton shard key + locale; shards are
+ *     └─────────────────────┘    locale-flattened, so the locale is part of
+ *      │ miss              │     the identity, not a detail.
+ *      │                   │ hit (record has etag)
  *      ▼                   ▼
- *    GET                  HEAD  /public/data/jobs-by-canton/TI.json
+ *    GET                  GET   /data/jobs-by-canton/TI-it.json
  *      │                  │  + If-None-Match: <etag>
- *      │                  │
+ *      │                  │  (GET, not HEAD: HEAD does not reliably echo the
+ *      │                  │   ETag across every CDN edge — see
+ *      │                  │   revalidateWithEtag.)
  *      │            ┌─────┴─────┐
  *      │            │  status?  │
  *      │            └─────┬─────┘
@@ -48,6 +50,7 @@
 
 import { expandCantonGroup } from './cantonList';
 import { cdnDataUrl } from './cdnDataBase';
+import { jobCantonShardPath, resolveCantonShardKey } from './jobCantonShards';
 import type { Locale } from './i18n';
 
 /**
@@ -63,25 +66,42 @@ export const AGGREGATE_CANTON_CODE = '_AGGREGATE_' as const;
 /** Default cantons fetched when callers don't specify (backward-compat = TI/GR/VS). */
 export const DEFAULT_AGGREGATE_CANTONS: readonly string[] = ['TI', 'GR', 'VS'] as const;
 
-/** Per-canton shards are not yet emitted to dist/ (planned future deploy).
- * Until they ship, requesting them generates a noisy 404 in DevTools on every
- * job-board mount even though the SPA gracefully falls back to the legacy
- * locale-wide index. Gate the shard fetch behind this flag so we stop poking
- * a path we know returns 404. Flip to `true` in the same PR that lands the
- * shard pipeline. (S10a 2026-05-20) */
-export const CANTON_SHARDS_ENABLED = false;
+/** Per-canton shards ARE emitted since the shard pipeline landed (S10a): the
+ * `localeJobsSplitPlugin` writes `dist/data/jobs-by-canton/<KEY>-<locale>.json`
+ * for all 24 canton URL keys × 4 locales inside the same loop that writes the
+ * locale index, and the deploy's `cp -r dist/data` carries them to the CDN.
+ *
+ * Turning this on is what stops every canton SERP from downloading all 26
+ * cantons and filtering client-side. The fallback below it is intact: a shard
+ * that 404s still degrades to the full locale index, so a bad deploy costs
+ * bandwidth, never correctness. (S10a flipped 2026-08-07) */
+export const CANTON_SHARDS_ENABLED = true;
 
-const SHARD_BASE_PATH = '/data/jobs-by-canton';
 const IDB_DB_NAME = 'frontaliere-jobs-cache';
-const IDB_DB_VERSION = 1;
+/** v2: the cache key gained a locale segment (see CantonCacheRecord). v1
+ * records were keyed by canton alone and would serve Italian slugs/titles to a
+ * German page once per-locale shards landed, so the upgrade drops the store
+ * and recreates it rather than migrating. */
+const IDB_DB_VERSION = 2;
 const IDB_STORE_NAME = 'canton-shards';
 const SESSION_DEFAULT_CANTON_KEY = 'frontaliere:defaultCanton';
 
 interface CantonCacheRecord {
+ /** Primary key: `<CANTON_KEY>:<locale>`. The locale segment is load-bearing —
+  * shards are locale-flattened (a job's `slug` and `title` differ per locale),
+  * so a canton-only key would serve a German visitor the Italian slugs cached
+  * by an earlier Italian visit and emit wrong URLs. */
+ readonly cacheKey: string;
  readonly cantonCode: string;
+ readonly locale: string;
  readonly etag: string | null;
  readonly fetchedAt: number;
  readonly jobs: ReadonlyArray<Job>;
+}
+
+/** IDB primary key for one shard. */
+function cantonCacheKey(cantonKey: string, locale: string): string {
+ return `${cantonKey}:${locale}`;
 }
 
 interface FetchAggregatedJobsOptions {
@@ -112,9 +132,14 @@ function openCantonCacheDb(): Promise<IDBDatabase | null> {
   }
   request.onupgradeneeded = () => {
    const db = request.result;
-   if (!db.objectStoreNames.contains(IDB_STORE_NAME)) {
-    db.createObjectStore(IDB_STORE_NAME, { keyPath: 'cantonCode' });
+   // v1 keyed records by canton alone. Those entries cannot be re-keyed in
+   // place and holding them would mean serving one locale's slugs to another,
+   // so drop the store and recreate it on the locale-aware keyPath. The cost
+   // is one cold fetch per canton after the upgrade.
+   if (db.objectStoreNames.contains(IDB_STORE_NAME)) {
+    db.deleteObjectStore(IDB_STORE_NAME);
    }
+   db.createObjectStore(IDB_STORE_NAME, { keyPath: 'cacheKey' });
   };
   request.onsuccess = () => {
    resolve(request.result);
@@ -128,12 +153,12 @@ function openCantonCacheDb(): Promise<IDBDatabase | null> {
  });
 }
 
-function idbGet(db: IDBDatabase, cantonCode: string): Promise<CantonCacheRecord | null> {
+function idbGet(db: IDBDatabase, cacheKey: string): Promise<CantonCacheRecord | null> {
  return new Promise((resolve) => {
   try {
    const tx = db.transaction(IDB_STORE_NAME, 'readonly');
    const store = tx.objectStore(IDB_STORE_NAME);
-   const req = store.get(cantonCode);
+   const req = store.get(cacheKey);
    req.onsuccess = () => {
     const value = req.result as CantonCacheRecord | undefined;
     resolve(value ?? null);
@@ -164,16 +189,25 @@ function idbPut(db: IDBDatabase, record: CantonCacheRecord): Promise<void> {
 // Network helpers
 // --------------------------------------------------------------------------
 
-function buildShardUrl(cantonCode: string): string {
+/**
+ * URL of one shard. `cantonCode` is normalised through
+ * {@link resolveCantonShardKey} because the two callers speak different
+ * dialects: the listing path passes the URL group key (`'BASILEA'`) while the
+ * bridge path passes the raw BFS code off the slug map (`'BS'`). Without the
+ * normalisation the bridge fetch 404s and an indexed job URL falls through to
+ * JobOrphanView — the exact regression this pipeline must not introduce.
+ */
+function buildShardUrl(cantonCode: string, locale: string): string {
+ const key = resolveCantonShardKey(cantonCode);
  // Encode just in case a code contains characters needing escaping (e.g. '_AGGREGATE_').
- return cdnDataUrl(`${SHARD_BASE_PATH}/${encodeURIComponent(cantonCode)}.json`);
+ return cdnDataUrl(jobCantonShardPath(encodeURIComponent(key), encodeURIComponent(locale)));
 }
 
-async function fetchShardDirect(cantonCode: string): Promise<{
+async function fetchShardDirect(cantonCode: string, locale: string): Promise<{
  readonly jobs: ReadonlyArray<Job>;
  readonly etag: string | null;
 }> {
- const url = buildShardUrl(cantonCode);
+ const url = buildShardUrl(cantonCode, locale);
  const res = await fetch(url, { method: 'GET' });
  if (res.status === 404) {
   // Canton not yet built — keep the SPA alive, just log a warning.
@@ -194,9 +228,10 @@ async function fetchShardDirect(cantonCode: string): Promise<{
 
 async function revalidateWithEtag(
  cantonCode: string,
+ locale: string,
  etag: string,
 ): Promise<{ readonly status: 304 | 200; readonly jobs?: ReadonlyArray<Job>; readonly etag?: string | null }> {
- const url = buildShardUrl(cantonCode);
+ const url = buildShardUrl(cantonCode, locale);
  // Use GET + If-None-Match. HEAD on GitHub Pages does NOT echo ETag reliably for
  // every CDN edge, and a conditional GET is what `Pragma: cache` was designed for.
  const res = await fetch(url, {
@@ -248,36 +283,43 @@ async function revalidateWithEtag(
  *   - IDB unavailable: degrades to a plain GET each time — correctness over
  *     bandwidth.
  */
-export async function fetchJobsForCanton(cantonCode: string): Promise<Job[]> {
+export async function fetchJobsForCanton(cantonCode: string, locale: Locale): Promise<Job[]> {
  if (typeof cantonCode !== 'string' || cantonCode.length === 0) {
   throw new Error('[jobsService] fetchJobsForCanton: cantonCode must be a non-empty string');
  }
+ if (typeof locale !== 'string' || locale.length === 0) {
+  throw new Error('[jobsService] fetchJobsForCanton: locale must be a non-empty string');
+ }
 
- // Short-circuit when shards aren't deployed yet — saves the inevitable 404
- // and lets the JobBoard caller hit its legacy-loader fallback immediately.
+ // Kill switch. Shards ARE deployed (the flag is on); this is the one-character
+ // revert if they ever stop serving — returning [] sends every caller straight
+ // to the full-locale-index fallback without first eating a 404 per canton.
  if (!CANTON_SHARDS_ENABLED) {
   return [];
  }
 
  const db = await openCantonCacheDb();
+ const cacheKey = cantonCacheKey(resolveCantonShardKey(cantonCode), locale);
 
  // No IDB available — straight GET, no cache.
  if (db === null) {
-  const { jobs } = await fetchShardDirect(cantonCode);
+  const { jobs } = await fetchShardDirect(cantonCode, locale);
   return [...jobs];
  }
 
- const cached = await idbGet(db, cantonCode);
+ const cached = await idbGet(db, cacheKey);
 
  // Cache hit with ETag → revalidate.
  if (cached && cached.etag) {
   try {
-   const result = await revalidateWithEtag(cantonCode, cached.etag);
+   const result = await revalidateWithEtag(cantonCode, locale, cached.etag);
    if (result.status === 304) {
     return [...cached.jobs];
    }
    const fresh: CantonCacheRecord = {
+    cacheKey,
     cantonCode,
+    locale,
     etag: result.etag ?? null,
     fetchedAt: Date.now(),
     jobs: result.jobs ?? [],
@@ -294,9 +336,11 @@ export async function fetchJobsForCanton(cantonCode: string): Promise<Job[]> {
  }
 
  // Cache miss (or cached without ETag) → fresh GET.
- const { jobs, etag } = await fetchShardDirect(cantonCode);
+ const { jobs, etag } = await fetchShardDirect(cantonCode, locale);
  const record: CantonCacheRecord = {
+  cacheKey,
   cantonCode,
+  locale,
   etag,
   fetchedAt: Date.now(),
   jobs,
@@ -322,10 +366,11 @@ export async function fetchJobsForCanton(cantonCode: string): Promise<Job[]> {
  */
 export async function fetchAggregatedJobs(
  cantonCodes: ReadonlyArray<string> = DEFAULT_AGGREGATE_CANTONS,
+ locale: Locale = 'it',
  options: FetchAggregatedJobsOptions = {},
 ): Promise<Job[]> {
  const settled = await Promise.allSettled(
-  cantonCodes.map((code) => fetchJobsForCanton(code)),
+  cantonCodes.map((code) => fetchJobsForCanton(code, locale)),
  );
  const merged: Job[] = [];
  settled.forEach((result, idx) => {

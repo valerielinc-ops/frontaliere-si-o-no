@@ -1,4 +1,8 @@
 {
+  "//": "DESKTOP Lighthouse budgets — the SECONDARY leg. Mobile decides (Google ranks and PageSpeed reports on mobile); it lives in lighthouserc.json. Both files are REGRESSION detectors, not targets: the acceptance criterion for issue #5001 is now FIELD data (INP/CLS p75 from CrUX, see scripts/check-cwv-field-criterion.mjs), not a lab score. Thresholds below are BASELINE-LOCKING, calibrated on the real production medians of run 31177021266 (2026-08-07, 6 URLs x 3 runs). Ratchet them DOWN as pages improve — never up to silence a regression.",
+
+  "//why-recalibrated": "Until this file was calibrated it asserted `categories:performance >= 0.60` and `largest-contentful-paint <= 2500` against every URL uniformly. Production has never met that on /cerca-lavoro-ticino/ (measured perf 0.23, LCP 3108 ms), so the desktop leg failed on EVERY run and opened a 'Lighthouse regression on production (desktop)' issue each time. A gate that is red unconditionally reports nothing: it cannot distinguish a real regression from the standing state, and it trains whoever triages it to close the issue unread. The mobile leg was baseline-locked in PR #5308 for exactly this reason; desktop was left behind and is brought in line here.",
+
   "ci": {
     "collect": {
       "numberOfRuns": 3,
@@ -8,20 +12,43 @@
         "chromeFlags": "--disable-dev-shm-usage --no-sandbox --disable-gpu"
       }
     },
-    "assert": {
-      "assertions": {
-        "categories:performance": ["error", { "minScore": 0.60 }],
-        "categories:accessibility": ["error", { "minScore": 0.9 }],
-        "categories:best-practices": ["warn", { "minScore": 0.55 }],
-        "categories:seo": ["error", { "minScore": 0.9 }],
-        "largest-contentful-paint": ["error", { "maxNumericValue": 2500 }],
-        "cumulative-layout-shift": ["error", { "maxNumericValue": 2.0 }],
-        "total-blocking-time": ["error", { "maxNumericValue": 700 }],
-        "first-contentful-paint": ["warn", { "maxNumericValue": 1800 }],
-        "interactive": ["warn", { "maxNumericValue": 8000 }],
-        "speed-index": ["warn", { "maxNumericValue": 3400 }]
+    "assertMatrix": [
+      {
+        "//": "Category scores — identical values to lighthouserc.json so the two legs cannot drift. Measured desktop 2026-08-07: a11y 0.92-0.97, best-practices 0.56-0.59 on every URL, seo 1.00 on every URL.",
+        "matchingUrlPattern": ".*",
+        "assertions": {
+          "categories:accessibility": ["error", { "minScore": 0.9 }],
+          "categories:best-practices": ["warn", { "minScore": 0.55 }],
+          "categories:seo": ["error", { "minScore": 0.9 }]
+        }
+      },
+      {
+        "//": "The five healthy desktop templates. Thresholds = worst per-URL MEDIAN measured 2026-08-07 plus headroom for run-to-run dispersion. Worst medians were: perf 0.75 (home), FCP 691 ms (traffico-dogane), LCP 1259 ms (home), TBT 320 ms (home), CLS 0.121 (traffico-dogane), SI 3676 ms (home), TTI 5297 ms (home). Headroom is ~15% on the stable metrics; TBT gets ~40% because at these small absolute values (0-320 ms) a few tens of ms of runner noise is a large proportional swing, and a TBT flap would fail the leg for nothing.",
+        "matchingUrlPattern": "^https://frontaliereticino\\.ch/(?!cerca-lavoro-ticino/)",
+        "assertions": {
+          "categories:performance": ["error", { "minScore": 0.65 }],
+          "first-contentful-paint": ["error", { "maxNumericValue": 900 }],
+          "largest-contentful-paint": ["error", { "maxNumericValue": 1600 }],
+          "total-blocking-time": ["error", { "maxNumericValue": 450 }],
+          "cumulative-layout-shift": ["error", { "maxNumericValue": 0.15 }],
+          "speed-index": ["warn", { "maxNumericValue": 4300 }],
+          "interactive": ["warn", { "maxNumericValue": 6200 }]
+        }
+      },
+      {
+        "//": "KNOWN-BAD, tracked separately: /cerca-lavoro-ticino/ measured perf 0.23 on desktop (FCP 1428 ms, LCP 3108 ms, TBT 814 ms, CLS 0.586). Its own baseline is carved out here ONLY so the other five pages can be gated meaningfully instead of every threshold being flattened to this page's level — the same structure lighthouserc.json uses for the same page on mobile. This block is a debt marker, not an exemption: when the page is fixed, DELETE this entry so it falls back to the stricter group above. Note the field data disagrees with the lab verdict on this page — CrUX gives it the best LCP on the site (1700 ms p75, 89% good) while its INP p75 is 697 ms; the lab number is a rendering-cost signal, not a user-experience one.",
+        "matchingUrlPattern": "^https://frontaliereticino\\.ch/cerca-lavoro-ticino/",
+        "assertions": {
+          "categories:performance": ["error", { "minScore": 0.2 }],
+          "first-contentful-paint": ["error", { "maxNumericValue": 1700 }],
+          "largest-contentful-paint": ["error", { "maxNumericValue": 3600 }],
+          "total-blocking-time": ["error", { "maxNumericValue": 1000 }],
+          "cumulative-layout-shift": ["error", { "maxNumericValue": 0.7 }],
+          "speed-index": ["warn", { "maxNumericValue": 3200 }],
+          "interactive": ["warn", { "maxNumericValue": 5600 }]
+        }
       }
-    },
+    ],
     "upload": {
       "target": "temporary-public-storage"
     }

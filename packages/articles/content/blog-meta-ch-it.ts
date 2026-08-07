@@ -1918,6 +1918,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.title': 'A un anno dallo shock dei dazi, esportatori ancora nell\'incertezza',
     'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.excerpt': 'Un anno dopo i dazi USA al 39%, l\'aliquota sulle merci svizzere è al 12,5% ma resta imprevedibile: negoziati, sentenze e nuove indagini tengono gli esportatori in allerta',
     'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.imageAlt': 'Vista aerea della zona industriale di Zurigo con container e macchinari svizzeri pronti per l\'esportazione',
+    'blog.article.costo-vita-svizzera-2026-san-gallo.title': 'Costo della vita Svizzera 2026: analisi canton San Gallo',
+    'blog.article.costo-vita-svizzera-2026-san-gallo.excerpt': 'Aliquote IRPEF italiana 23-35-43%, AVS 5,3%, franchigia frontalieri €10\'000, accordo 2024, Svizzera non UE/SEE',
+    'blog.article.costo-vita-svizzera-2026-san-gallo.imageAlt': 'Frontaliero nel centro storico di San Gallo con edifici moderni sullo sfondo',
+    'blog.article.premi-lamal-2026-ginevra-guida.title': 'Premi LAMal 2026 a Ginevra: franchigia, cambio cassa e sussidi',
+    'blog.article.premi-lamal-2026-ginevra-guida.excerpt': 'Guida ai premi cassa malati 2026 nel canton Ginevra: franchigie CHF 300–2500, diritto d\'opzione per frontalieri, confronto nazionale e passaggi per cambiare assicurazione.',
+    'blog.article.premi-lamal-2026-ginevra-guida.imageAlt': 'Vista del Lago di Ginevra con il Jet d\'Eau sullo sfondo delle Alpi',
+    'blog.article.reno-siccita-economia-svizzera.title': 'Reno in secca: allarme per l\'economia svizzera',
+    'blog.article.reno-siccita-economia-svizzera.excerpt': 'Livello minimo storico, trasporti a rischio: 10% delle importazioni via fiume, carburanti in crisi.',
+    'blog.article.reno-siccita-economia-svizzera.imageAlt': 'Il Reno in secca vicino a Basilea, una nave cargo con basso pescaggio',
+    'blog.article.premi-lamal-2026-bern-guida.title': 'Premi LAMal 2026 a Berna: come scegliere la franchigia giusta',
+    'blog.article.premi-lamal-2026-bern-guida.excerpt': 'Guida ai premi cassa malati 2026 nel canton Berna: differenze cantonali, franchigia ottimale, cambio cassa e sussidi. Confronto nazionale.',
+    'blog.article.premi-lamal-2026-bern-guida.imageAlt': 'Guida ai premi LAMal 2026 nel canton Berna',
 };
 
 export default blogMetaChIt;

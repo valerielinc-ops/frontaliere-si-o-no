@@ -2189,6 +2189,27 @@ export const Analytics = {
  trackReverseBridgeClick: (canton: string, matchedCount: number) => {
  log('calculator_reverse_bridge_click', { bridge_canton: canton, bridge_matched_count: matchedCount });
  },
+
+ /**
+  * Escape hatch for telemetry modules that emit their own event name and
+  * payload rather than going through a named `track*` wrapper — currently
+  * `services/webVitals.ts` (Core Web Vitals) and `services/mobileUxMonitor.ts`.
+  *
+  * It exists because both of those modules already called `Analytics.log(...)`
+  * and this object never exposed it. They wrote `(Analytics as any).log?.(…)`,
+  * so the optional call resolved to `undefined` and silently did nothing:
+  * measured 2026-08-07, GA4 had received ZERO `web_vitals` and ZERO
+  * `mobile_ux` events in 90 days, while `dead_click` — which calls the
+  * module-private `log()` directly — had 8,477. The CWV telemetry looked
+  * implemented, shipped in the bundle, cost users the `web-vitals` download,
+  * and reported nothing.
+  *
+  * Prefer a named `track*` wrapper for new events; use this only when the
+  * event name is genuinely dynamic.
+  */
+ log: (eventName: string, params?: Record<string, any>) => {
+ log(eventName, params);
+ },
 };
 
 // ─── Protect Analytics methods from external modification ──────
