@@ -60248,6 +60248,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bucalettere-centralizzate-anziani-sindacati': {
+    title: 'Bucalettere centralizzate: anziani e sindacati insorgono',
+    description: 'La revisione della legge federale sulle poste propone cassette centralizzate. Transfair e Federazione pensionati criticano: rischi per anziani e posti di',
+    keywords: 'frontalieri, ticino, svizzera, italia, bucalettere, centralizzate, anziani, sindacati',
+    ogTitle: 'Bucalettere centralizzate: anziani e sindacati insorgono',
+    ogDescription: 'La revisione della legge federale sulle poste propone cassette centralizzate. Transfair e Federazione pensionati criticano: rischi per anziani e posti di',
+    canonicalPath: '/articoli-frontaliere/bucalettere-centralizzate-anziani-sindacati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bucalettere centralizzate: anziani e sindacati insorgono",
+      "description": "La revisione della legge federale sulle poste propone cassette centralizzate. Transfair e Federazione pensionati criticano: rischi per anziani e posti di",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bucalettere-centralizzate-anziani-sindacati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cassette postali tradizionali in una via residenziale di Lugano, Ticino"
+      },
+      "datePublished": "2026-08-07T23:52:03+00:00",
+      "dateModified": "2026-08-07T23:52:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bucalettere-centralizzate-anziani-sindacati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

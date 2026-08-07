@@ -9348,6 +9348,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.produttore-islandese-hollywood-lezione.title': 'De pêcheur à Hollywood : la leçon d\'un producteur',
     'blog.article.produttore-islandese-hollywood-lezione.excerpt': 'Sigurjón \'Joni\' Sighvatsson, d\'une communauté de pêcheurs islandaise à Hollywood. Un parcours qui parle d\'adaptabilité et de vision, également utile pour ceux qui vivent d\'un travail transfrontalier.',
     'blog.article.produttore-islandese-hollywood-lezione.imageAlt': 'Plateau de tournage à Locarno avec lac et montagnes en arrière-plan',
+    'blog.article.bucalettere-centralizzate-anziani-sindacati.title': 'Buffet centralisé : les seniors et les syndicats s\'insurgent',
+    'blog.article.bucalettere-centralizzate-anziani-sindacati.excerpt': 'La révision de la loi fédérale sur les postes propose des caisses centralisées. Syndicat Transfair et Fédération des retraités critiques.',
+    'blog.article.bucalettere-centralizzate-anziani-sindacati.imageAlt': 'Boîtes aux lettres traditionnelles dans une rue résidentielle de Lugano, Tessin',
 };
 
 export default blogMetaFr;

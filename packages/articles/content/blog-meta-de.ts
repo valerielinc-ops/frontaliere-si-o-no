@@ -9345,6 +9345,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.produttore-islandese-hollywood-lezione.title': 'Vom Fischer nach Hollywood: Die Lektion eines Produzenten',
     'blog.article.produttore-islandese-hollywood-lezione.excerpt': 'Sigurjón \'Joni\' Sighvatsson, aus einer isländischen Fischergemeinde in Hollywood. Ein Weg, der von Anpassungsfähigkeit und Vision spricht und auch für diejenigen nützlich ist, die grenzüberschreitend arbeiten.',
     'blog.article.produttore-islandese-hollywood-lezione.imageAlt': 'Filmset in Locarno mit See und Bergen im Hintergrund',
+    'blog.article.bucalettere-centralizzate-anziani-sindacati.title': 'Zentrale Briefkästen: Ältere Menschen und Gewerkschaften erheben sich',
+    'blog.article.bucalettere-centralizzate-anziani-sindacati.excerpt': 'Die Revision des Bundespostgesetzes schlägt zentrale Briefkästen vor. Gewerkschaft Transfair und Verband der kritischen Rentner.',
+    'blog.article.bucalettere-centralizzate-anziani-sindacati.imageAlt': 'Traditionelle Briefkästen in einer Wohnstraße in Lugano, Tessin',
 };
 
 export default blogMetaDe;
