@@ -53,7 +53,22 @@ permissions:
 jobs:
   parity:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # 15 minuti erano meno del BUDGET DI RETRY che questo job si concede.
+    #
+    # 8 landing × 8 tentativi × 45 s di attesa = ~44 minuti se ogni landing
+    # esaurisce la scala. Misurato il 2026-08-07: il job e' morto al landing 3
+    # su 8, quindi non ha MAI raggiunto lo step che apre la issue — il gate era
+    # piu' rumoroso proprio dove veniva zittito, ed e' per questo che le due
+    # issue #5279/#5280 non nominano nessun articolo.
+    #
+    # Alzare il timeout da solo pagherebbe 44 minuti di runner su una coda gia'
+    # satura (vedi deploy-publish.yml). La scala di retry esiste per UNA
+    # condizione — un articolo appena dispatchato non ancora propagato — che si
+    # risolve in pochi minuti; 8 tentativi erano tarati su un check che ora
+    # impiega 15 secondi invece di minuti. Ridotta a 3 tentativi (~1,5 min per
+    # landing, ~12 min nel caso peggiore) e timeout a 25: il caso peggiore
+    # rientra con margine e il job arriva sempre a riportare.
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v5
         with:
@@ -93,8 +108,8 @@ jobs:
               label="${section}/${locale}"
               attempt=1
               ok=0
-              while [ "$attempt" -le 8 ]; do
-                echo "::group::${label} — attempt ${attempt}/8"
+              while [ "$attempt" -le 3 ]; do
+                echo "::group::${label} — attempt ${attempt}/3"
                 if node scripts/ci/check-hydrated-article-parity.mjs \
                      --section="$section" --locale="$locale" 2>&1 \
                      | tee "parity-${section}-${locale}.txt"; then
@@ -104,7 +119,7 @@ jobs:
                 fi
                 echo "::endgroup::"
                 attempt=$((attempt + 1))
-                [ "$attempt" -le 8 ] && sleep 45
+                [ "$attempt" -le 3 ] && sleep 45
               done
               if [ "$ok" -ne 1 ]; then
                 rc=1

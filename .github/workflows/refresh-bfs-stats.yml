@@ -8,6 +8,11 @@ name: Refresh BFS Stats
 # the freshest values, no notification fires). Only an actual quarter change
 # (e.g. 2025-Q4 → 2026-Q1) dispatches generate-article.yml so the editorial
 # team announces the new dataset to subscribers.
+#
+# That dispatch is best-effort by design while the article generator is being
+# cut over to nanako (issue #4974): if generate-article.yml is disabled, the
+# step warns and passes instead of failing — see its own comment for why, and
+# for what that changes. The Firestore refresh above is never best-effort.
 
 on:
   schedule:
@@ -114,12 +119,66 @@ jobs:
           fi
           URL="stats-bfs://${NEW_QUARTER}"
           echo "🚀 Dispatching generate-article.yml with url=$URL"
-          gh workflow run generate-article.yml \
-            --ref main \
-            -f url="$URL"
-          echo "## 📰 Generate-article dispatch" >> "$GITHUB_STEP_SUMMARY"
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "Dispatched with \`url=$URL\` for new quarter \`$NEW_QUARTER\`." >> "$GITHUB_STEP_SUMMARY"
+          if gh workflow run generate-article.yml --ref main -f url="$URL"; then
+            {
+              echo "## 📰 Generate-article dispatch"
+              echo ""
+              echo "Dispatched with \`url=$URL\` for new quarter \`$NEW_QUARTER\`."
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          # ── The dispatch target can be legitimately absent ──────────────────
+          # generate-article.yml is the LAST workflow in the ordered cutover to
+          # nanakokyobashi-rgb/frontaliere-articles (issue #4974,
+          # docs/articles-generator-migration.md §5 step 5) and is
+          # `disabled_manually` for the duration, which makes the dispatch API
+          # answer HTTP 422 "Cannot trigger a 'workflow_dispatch' on a disabled
+          # workflow". That is expected infrastructure state, not a fault here:
+          # the BFS refresh itself — the whole point of this job — already
+          # succeeded and wrote Firestore several steps ago.
+          #
+          # Letting it fail the job is not free. refresh-bfs-stats.mjs
+          # re-dispatches on EVERY run until the quarter's article is registered
+          # in data/article-source-urls.json (its "Quarter invariato ma articolo
+          # non ancora pubblicato" branch), and that registration can only happen
+          # via the very workflow that is disabled — so this step would fail
+          # twice a day, forever, each time re-opening the same CI-failure issue.
+          # A workflow that fails every night is noise that hides real breakage.
+          #
+          # SEMANTIC CHANGE, stated deliberately: with the target disabled this
+          # job now GREEN-passes with a ::warning:: annotation instead of going
+          # red. The BFS dataset on /statistiche/ keeps refreshing; what is
+          # skipped is only the editorial announcement article, which cannot be
+          # produced on this side at all right now. The moment generate-article
+          # is re-enabled here (or its nanako-side equivalent takes the dispatch)
+          # this step resumes dispatching with no further change.
+          #
+          # The state is read back from the API rather than grepped out of the
+          # error text: `.state` is a machine-readable enum, the 422 prose is
+          # not, and a message reword must not turn a known no-op back into a
+          # nightly red build. Any OTHER dispatch failure (bad token, missing
+          # ref, rate limit) leaves state == "active" and still fails the job.
+          #
+          # The lookup failing is NOT the same as "disabled": a 403 from a token
+          # without the actions scope, or a network blip, would otherwise buy a
+          # blanket pass on every dispatch failure there is. Unknown ⇒ loud.
+          if ! STATE="$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/generate-article.yml" --jq '.state')"; then
+            echo "::error::Dispatch of generate-article.yml failed AND its state could not be read — failing loudly rather than assuming it is disabled."
+            exit 1
+          fi
+          if [ "$STATE" != "active" ]; then
+            echo "::warning::generate-article.yml is '$STATE' (generator cutover to nanako, issue #4974) — skipping the ${NEW_QUARTER} announcement dispatch. The BFS dataset was still refreshed."
+            {
+              echo "## 📰 Generate-article dispatch skipped"
+              echo ""
+              echo "\`generate-article.yml\` is \`$STATE\` (article-generator cutover to nanako, issue #4974)."
+              echo "Firestore was still refreshed for quarter \`$NEW_QUARTER\`; only the announcement article is deferred."
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          echo "::error::Dispatch of generate-article.yml failed while the workflow is active — real failure."
+          exit 1
 
       - name: Report failure to GitHub Issues
         if: failure()

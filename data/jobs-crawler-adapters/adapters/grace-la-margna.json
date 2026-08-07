@@ -8,6 +8,6 @@
     "browser_scraping"
   ],
   "seedUrls": [],
-  "notes": "Grace La Margna St. Moritz — 5*-superior boutique hotel in St. Moritz (GR). Jobs via hotelcareer.com (StepStone). Requires Playwright browser-based scraping due to Cloudflare protection. KNOWN ISSUE 2026-04-06: Cloudflare challenge tightened, crawler blocked. Hotel website grace-lamargna.ch also unreachable. 15 existing jobs preserved in slice. Will retry when Cloudflare conditions improve.",
-  "updatedAt": "2026-04-06T17:40:00.000Z"
+  "notes": "Grace La Margna St. Moritz — 5*-superior boutique hotel in St. Moritz (GR). Jobs via hotelcareer.com (StepStone). Requires Playwright browser-based scraping: hotelcareer.com fronts everything with a Cloudflare challenge that a plain fetch cannot clear (a bare GET returns HTTP 200 with a ~1.9KB 'Challenge Validation' shell). SMALL BY NATURE, NOT BROKEN (2026-08-07): the 14 winter-season postings expired end of July 2026 and the hotel has advertised exactly ONE open position on every run since — the source's own company-profile tab reads 'Job offers (1)', and the crawler's completeness gate reconciles against it, so 1 extracted job IS a complete crawl. That contraction is what fired the parser-health shrink alerts #5016 / #5138 / #5200 / #5255; none of them was a parser defect. The evidence-gated write (#5016/#5017) proved the 13 dropped ads gone at their own URLs and persisted the 1-job slice on 2026-08-07. Do not 'fix' a low job count here without first checking that tab counter.",
+  "updatedAt": "2026-08-07T00:00:00.000Z"
 }
