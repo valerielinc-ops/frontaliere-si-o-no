@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-07T05:10:50.106Z",
+  "updatedAt": "2026-08-07T06:37:49.150Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -1649,10 +1649,12 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-07-29T06:26:58.011Z",
-      "seen": 24,
-      "unsupportedSightings": 0,
-      "unsupportedRuns": [],
+      "lastSeen": "2026-08-07T06:37:49.150Z",
+      "seen": 25,
+      "unsupportedSightings": 1,
+      "unsupportedRuns": [
+        "31151112549"
+      ],
       "supportedSightings": 0,
       "names": [
         "Dipartimento degli affari esteri",
@@ -1660,8 +1662,17 @@
         "Dipartimento Federale degli Affari Esteri",
         "Dipartimento federale degli affari esteri"
       ],
-      "recentKeys": [],
+      "recentKeys": [
+        "31151112549:unknown"
+      ],
       "evidence": [
+        {
+          "at": "2026-08-07T06:37:49.150Z",
+          "runId": "31151112549",
+          "articleId": "unknown",
+          "support": "absent",
+          "name": "Dipartimento federale degli affari esteri"
+        },
         {
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
@@ -1708,13 +1719,6 @@
           "at": "2026-07-29T06:26:58.011Z",
           "runId": "corpus-scan",
           "articleId": "svizzeri-bloccati-medio-oriente",
-          "support": "unknown",
-          "name": "Dipartimento federale degli affari esteri"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "svizzera-canada-mercati-alternativi-trump",
           "support": "unknown",
           "name": "Dipartimento federale degli affari esteri"
         }
@@ -6637,11 +6641,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-02T07:50:36.855Z",
-      "seen": 47,
+      "lastSeen": "2026-08-07T06:37:49.150Z",
+      "seen": 48,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 34,
+      "supportedSightings": 35,
       "names": [
         "Ufficio Regionale della Disoccupazione",
         "Ufficio Regionale di Collocamento",
@@ -6651,6 +6655,13 @@
       ],
       "recentKeys": [],
       "evidence": [
+        {
+          "at": "2026-08-07T06:37:49.150Z",
+          "runId": "31151112549",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Uffici regionali di collocamento"
+        },
         {
           "at": "2026-08-02T07:50:36.855Z",
           "runId": "30736687890",
@@ -6692,13 +6703,6 @@
           "articleId": "unknown",
           "support": "present",
           "name": "Uffici regionali di collocamento"
-        },
-        {
-          "at": "2026-08-01T22:09:25.271Z",
-          "runId": "30719344144",
-          "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio regionale di collocamento"
         },
         {
           "at": "2026-08-01T22:09:25.271Z",
@@ -6787,11 +6791,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-07T05:10:50.106Z",
-      "seen": 48,
+      "lastSeen": "2026-08-07T06:37:49.150Z",
+      "seen": 52,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 9,
+      "supportedSightings": 13,
       "names": [
         "Ufficio Federale di Statistica",
         "Ufficio delle strade del Canton Ticino",
@@ -6802,9 +6806,30 @@
       "recentKeys": [],
       "evidence": [
         {
-          "at": "2026-08-07T05:10:50.106Z",
-          "runId": "31148287060",
-          "articleId": "caldo-torrido-lavoro-ticino",
+          "at": "2026-08-07T06:37:49.150Z",
+          "runId": "31151112549",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale di statistica"
+        },
+        {
+          "at": "2026-08-07T06:37:49.150Z",
+          "runId": "31151112549",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale di statistica"
+        },
+        {
+          "at": "2026-08-07T06:37:49.150Z",
+          "runId": "31151112549",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale di statistica"
+        },
+        {
+          "at": "2026-08-07T06:37:49.150Z",
+          "runId": "31151112549",
+          "articleId": "unknown",
           "support": "present",
           "name": "Ufficio federale di statistica"
         },
@@ -6833,27 +6858,6 @@
           "at": "2026-08-07T05:10:50.106Z",
           "runId": "31148287060",
           "articleId": "caldo-torrido-lavoro-ticino",
-          "support": "present",
-          "name": "Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-08-06T10:28:23.012Z",
-          "runId": "31091578990",
-          "articleId": "prezzi-proprieta-svizzera-aumentano",
-          "support": "present",
-          "name": "Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-08-06T10:28:23.012Z",
-          "runId": "31091578990",
-          "articleId": "prezzi-proprieta-svizzera-aumentano",
-          "support": "present",
-          "name": "Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-08-06T10:28:23.012Z",
-          "runId": "31091578990",
-          "articleId": "prezzi-proprieta-svizzera-aumentano",
           "support": "present",
           "name": "Ufficio federale di statistica"
         }
