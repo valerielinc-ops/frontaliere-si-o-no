@@ -1,16 +1,16 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-08-06T11:45:10.468Z",
+  "generatedAt": "2026-08-07T01:31:55.076Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4972,
-  "avgDurationMs": 4972,
+  "durationMs": 5067,
+  "avgDurationMs": 5067,
   "durationHistory": [
-    4972
+    5067
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,8 +33,9 @@
       "employmentType": "PART_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-06T11:45:07.264Z",
+      "crawledAt": "2026-08-07T01:31:51.637Z",
       "id": "pkb-private-bank-649a7b6c1241",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-03T22:25:34.929Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
@@ -63,8 +64,9 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-06T11:45:07.642Z",
+      "crawledAt": "2026-08-07T01:31:52.010Z",
       "id": "pkb-private-bank-14e6e40f691f",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-10T10:40:31.816Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -105,7 +107,7 @@
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
