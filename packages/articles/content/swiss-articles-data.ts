@@ -19,24 +19,6 @@ import { cdnBlogImage } from './blogImageCdnMirror';
 export type { Article };
 
 const RAW_SWISS_ARTICLES: Article[] = [
-   {
-    id: 'lavoro-forzato-catene-svizzere',
-    category: 'pratico',
-    date: '2026-08-07T05:35:08.558Z',
-    image: '/images/blog/lavoro-forzato-catene-svizzere.webp',
-    hasCalculator: true,
-    authorSlug: 'redazione',
-    authorName: 'Redazione Frontaliere Ticino',
-   },
-   {
-    id: 'rimborsi-730-sostituti-imposta',
-    category: 'fiscale',
-    date: '2026-08-07T04:42:27.683Z',
-    image: '/images/blog/rimborsi-730-sostituti-imposta.webp',
-    hasCalculator: true,
-    authorSlug: 'marco-ferrari',
-    authorName: 'Marco Ferrari',
-   },
   {
     id: 'costo-vita-svizzera-2026',
     category: 'pratico',
