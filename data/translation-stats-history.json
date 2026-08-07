@@ -11398,5 +11398,119 @@
         "pending": 12
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-07T08:46:10.167Z",
+    "label": "before",
+    "total": 26722,
+    "needsRetranslation": 14359,
+    "suppressed": 25,
+    "incomplete": 806,
+    "complete": 25916,
+    "missingByLocale": {
+      "it": 637,
+      "en": 349,
+      "de": 231,
+      "fr": 417
+    },
+    "topPending": [
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 197
+      },
+      {
+        "company": "Cartier",
+        "pending": 90
+      },
+      {
+        "company": "Roche",
+        "pending": 46
+      },
+      {
+        "company": "Migros Restaurant",
+        "pending": 41
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 37
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 27
+      },
+      {
+        "company": "OTTO'S AG",
+        "pending": 20
+      },
+      {
+        "company": "Manor AG",
+        "pending": 17
+      },
+      {
+        "company": "TRAVECO Transporte AG",
+        "pending": 17
+      },
+      {
+        "company": "PostFinance",
+        "pending": 15
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-07T08:57:37.778Z",
+    "label": "after",
+    "total": 26722,
+    "needsRetranslation": 1308,
+    "suppressed": 23,
+    "incomplete": 806,
+    "complete": 25916,
+    "missingByLocale": {
+      "it": 637,
+      "en": 349,
+      "de": 231,
+      "fr": 417
+    },
+    "topPending": [
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 197
+      },
+      {
+        "company": "Cartier",
+        "pending": 90
+      },
+      {
+        "company": "Roche",
+        "pending": 46
+      },
+      {
+        "company": "Migros Restaurant",
+        "pending": 41
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 37
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 27
+      },
+      {
+        "company": "OTTO'S AG",
+        "pending": 20
+      },
+      {
+        "company": "Manor AG",
+        "pending": 17
+      },
+      {
+        "company": "TRAVECO Transporte AG",
+        "pending": 17
+      },
+      {
+        "company": "PostFinance",
+        "pending": 15
+      }
+    ]
   }
 ]

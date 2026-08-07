@@ -71,7 +71,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:13.369Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -258,7 +257,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:13.349Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -344,7 +342,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:55:16.511Z",
-      "needsRetranslation": true,
       "salaryMin": 66800,
       "salaryMax": 101200,
       "baseSalary": {
@@ -431,7 +428,6 @@
         "un-responsabile-amministrativo-100-contratto-a-tempo-determinato-di-9-mesi-evam-lausanne"
       ],
       "firstSeenAt": "2026-07-04T10:58:13.308Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -532,7 +528,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:18:15.824Z",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -701,7 +696,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:18:15.753Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -769,7 +763,11 @@
         "litigation-specialist-100-cdi-evam-lausanne",
         "litigment-specialist-100-cdi-evam-lausanne",
         "specialiste-contentieux-100-cdi-evam-vaud-ch",
-        "specialista-hr-100-contratto-permanente-evam-lausanne"
+        "specialista-hr-100-contratto-permanente-evam-lausanne",
+        "specialista-hr-100-contratto-a-tempo-determinato-evam-lausanne",
+        "hr-specialist-100-csd-evam-lausanne",
+        "hr-spezialist-100-csd-evam-lausanne",
+        "specialiste-rh-100-cdd-evam-vaud-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -778,18 +776,25 @@
           "litigation-specialist-100-cdi-evam-lausanne",
           "litigment-specialist-100-cdi-evam-lausanne",
           "specialiste-contentieux-100-cdi-evam-vaud-ch",
-          "specialista-hr-100-contratto-permanente-evam-lausanne"
+          "specialista-hr-100-contratto-permanente-evam-lausanne",
+          "specialista-hr-100-contratto-a-tempo-determinato-evam-lausanne",
+          "hr-specialist-100-csd-evam-lausanne",
+          "hr-spezialist-100-csd-evam-lausanne",
+          "specialiste-rh-100-cdd-evam-vaud-ch"
         ],
         "en": [
           "specialiste-rh-100-cdi-evam-vaud-ch",
-          "litigation-specialist-100-cdi-evam-lausanne"
+          "litigation-specialist-100-cdi-evam-lausanne",
+          "hr-specialist-100-csd-evam-lausanne"
         ],
         "de": [
           "specialiste-rh-100-cdi-evam-vaud-ch",
-          "litigment-specialist-100-cdi-evam-lausanne"
+          "litigment-specialist-100-cdi-evam-lausanne",
+          "hr-spezialist-100-csd-evam-lausanne"
         ],
         "fr": [
-          "specialiste-contentieux-100-cdi-evam-vaud-ch"
+          "specialiste-contentieux-100-cdi-evam-vaud-ch",
+          "specialiste-rh-100-cdd-evam-vaud-ch"
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:13.195Z",
@@ -867,7 +872,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:13.137Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1026,7 +1030,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:55:16.191Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1102,7 +1105,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:13.051Z",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -1177,7 +1179,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:18:15.507Z",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -1336,7 +1337,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:55:16.078Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1501,7 +1501,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T12:45:40.545Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1754,7 +1753,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:53:35.977Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
