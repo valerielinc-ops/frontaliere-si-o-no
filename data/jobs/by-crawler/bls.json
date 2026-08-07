@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-08-06T09:50:38.089Z",
+  "assembledAt": "2026-08-07T01:07:49.283Z",
   "jobs": [
     {
       "id": "bls-5df13e4373ee",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/junior-betriebsplaner-in-bus/a564855b-b74c-48e0-994f-4865aa551b52",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:37:06.109Z",
+      "crawledAt": "2026-08-07T01:07:37.158Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -79,8 +79,8 @@
           "junior-planner-in-autobus-bls-ag-burgdorf"
         ]
       },
-      "firstSeenAt": "2026-07-13T13:12:39.014Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T13:12:39.014Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -90,99 +90,6 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
-    },
-    {
-      "id": "bls-15bf19ec1942",
-      "slug": "team-leader-in-tunneltechnik-lotschberg-base-tunnel-lbt-bls-ag-bern",
-      "slugByLocale": {
-        "it": "team-leader-in-tunneltechnik-lotschberg-base-tunnel-lbt-bls-ag-bern",
-        "en": "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch",
-        "de": "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch",
-        "fr": "chef-d-equipe-tunneltechnik-lotschberg-tunnel-de-base-lbt-bls-ag-bern"
-      },
-      "company": "BLS AG",
-      "companyKey": "bls",
-      "companyDomain": "bls.ch",
-      "title": "Teamleiter:in Tunneltechnik Lötschberg-Basistunnel (LBT)",
-      "titleByLocale": {
-        "it": "Team Leader: in Tunneltechnik Lötschberg Base Tunnel (LBT)",
-        "en": "Team Leader: in Tunneltechnik Lötschberg Base Tunnel (LBT)",
-        "de": "Teamleiter:in Tunneltechnik Lötschberg-Basistunnel (LBT)",
-        "fr": "Chef d'équipe: Tunneltechnik Lötschberg Tunnel de base (LBT)"
-      },
-      "description": "Herr Berner ist mit seiner Familie im Nu auf der Moosalp, und Frau Walliser erreicht ihren Arbeitsplatz in Bern in gut einer Stunde. Wie viele andere profitieren sie täglich vom Lötschberg-Basistunnel und damit indirekt von deiner Arbeit. Gemeinsam mit deinem Team sorgst du mit modernen Technologien und einer professionellen Instandhaltung dafür, dass sich der Tunnel jederzeit in einem erstklassigen Zustand befindet. So erreichen unsere Kundinnen und Kunden ihr Ziel sicher, zuverlässig und pünktlich.\n\nDas wartet auf dich:\n\n• Personelle sowie fachliche Führung und Entwicklung von rund 9 Mitarbeitenden\n\n• Sicherstellung der Betriebsbereitschaft technischer Anlagen\n\n• Budget- und Kostenkontrolle im Verantwortungsbereich\n\n• Zusammenarbeit mit internen und externen Anspruchsgruppen\n\n• Koordination von Störungen und technischen Einsätzen\n\n• Mitarbeit in Teilprojekten\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Elektroinstallateur:in EFZ oder eine vergleichbare technische Grundausbildung, vorzugsweise im Bereich Gebäudetechnik\n\n• Mehrjährige Berufserfahrung in der Gebäudetechnik\n\n• Fundierte Kenntnisse von technischen Anlagen und Systemen\n\n• Erfahrung im Projektmanagement, idealerweise ergänzt durch Führungserfahrung\n\n• Gute IT-Kentnisse\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-      "descriptionByLocale": {
-        "it": "Il signor Berner è sul Moosalp con la sua famiglia in poco tempo, e la signora Walliser raggiunge il suo lavoro a Berna in poco più di un'ora. Come molti altri, beneficiano quotidianamente del tunnel di base di Lötschberg e quindi indirettamente dal vostro lavoro. Insieme al vostro team, userete le moderne tecnologie e la manutenzione professionale per garantire che il tunnel sia in condizioni di prima classe in ogni momento. In questo modo, i nostri clienti raggiungono la loro destinazione in modo sicuro, affidabile e puntuale.\n\nTi aspetta:\n\n• Gestione e sviluppo del personale e professionale di circa 9 dipendenti\n\n• Garantire la disponibilità operativa di attrezzature tecniche\n\n• Bilancio e controllo dei costi nel settore della responsabilità\n\n• Cooperazione con gli stakeholder interni ed esterni\n\n• Coordinamento delle interruzioni e delle operazioni tecniche\n\n• Partecipazione ai sottoprogetti\n\nQuesto è ciò che portate con voi:\n\n• Formazione completa come installatore elettrico: in EFZ o formazione tecnica di base comparabile, preferibilmente nel campo della tecnologia costruttiva\n\n• Diversi anni di esperienza professionale nella tecnologia dell'edilizia\n\n• Conoscenza delle installazioni e dei sistemi tecnici\n\n• Esperienza nella gestione del progetto, idealmente integrata da esperienza di leadership\n\n• Buona conoscenza IT\n\nI vostri vantaggi – si può aspettare a:\n\n• Prendi una seconda classe GA, una prima classe GA. Abbonamento di classe o di mezza quota.\n\n• Lavora dove ti si addice meglio. Sia in ufficio o in ufficio.\n\n• Condividi il tuo tempo di lavoro liberamente. Promuoviamo il lavoro part-time, il top e la condivisione del lavoro\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno\n\n• Sono a vostra disposizione un sostegno finanziario per l'ulteriore istruzione esterna e un'emozionante offerta di apprendimento interno e corsi.\n\n• Con eventi stagionali e corsi sosteniamo la vostra salute.\n\nInformazioni sulla BLS\n\nCon quasi 4.000 dipendenti, BLS è la seconda più grande compagnia ferroviaria in Svizzera. Inoltre, siamo anche una compagnia di navigazione, un'azienda immobiliare, una ferrovia di trasporto internazionale, una compagnia di autobus e auto di trasporto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci collega? Forte di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
-        "en": "Mr. Berner is on the Moosalp with his family in no time, and Mrs. Walliser reaches her job in Bern in just over an hour. Like many others, they benefit daily from the Lötschberg Base Tunnel and thus indirectly from your work. Together with your team, you will use modern technologies and professional maintenance to ensure that the tunnel is in first-class condition at all times. In this way, our customers reach their destination safely, reliably and on time.\n\nThis is waiting for you:\n\n• Personnel and professional management and development of around 9 employees\n\n• Ensuring the operational readiness of technical equipment\n\n• Budget and cost control in the area of responsibility\n\n• Cooperation with internal and external stakeholders\n\n• Coordination of disruptions and technical operations\n\n• Participation in subprojects\n\nThis is what you bring with you:\n\n• Completed training as an electrical installer: in EFZ or comparable basic technical training, preferably in the field of building technology\n\n• Several years of professional experience in building technology\n\n• Sound knowledge of technical installations and systems\n\n• Experience in project management, ideally complemented by leadership experience\n\n• Good IT knowledge\n\nYour advantages – you can look forward to:\n\n• Get a GA 2nd class, a GA 1st class. Class or a half-tax subscription.\n\n• Work where it suits you best. Whether in the home office or in the office.\n\n• Share your working time freely. We promote part-time work, top and job sharing\n\n• It is possible to buy an additional five to ten holiday days per year\n\n• Financial support for external further education as well as an exciting internal learning and course offer are at your disposal.\n\n• With seasonal events and courses we support your health.\n\nAbout the BLS\n\nWith almost 4,000 employees, BLS is the second largest railway company in Switzerland. Moreover, we are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What connects us? Proud of what we do every day. Mobility has many facets for us. And lots of exciting jobs.",
-        "de": "Herr Berner ist mit seiner Familie im Nu auf der Moosalp, und Frau Walliser erreicht ihren Arbeitsplatz in Bern in gut einer Stunde. Wie viele andere profitieren sie täglich vom Lötschberg-Basistunnel und damit indirekt von deiner Arbeit. Gemeinsam mit deinem Team sorgst du mit modernen Technologien und einer professionellen Instandhaltung dafür, dass sich der Tunnel jederzeit in einem erstklassigen Zustand befindet. So erreichen unsere Kundinnen und Kunden ihr Ziel sicher, zuverlässig und pünktlich.\n\nDas wartet auf dich:\n\n• Personelle sowie fachliche Führung und Entwicklung von rund 9 Mitarbeitenden\n\n• Sicherstellung der Betriebsbereitschaft technischer Anlagen\n\n• Budget- und Kostenkontrolle im Verantwortungsbereich\n\n• Zusammenarbeit mit internen und externen Anspruchsgruppen\n\n• Koordination von Störungen und technischen Einsätzen\n\n• Mitarbeit in Teilprojekten\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Elektroinstallateur:in EFZ oder eine vergleichbare technische Grundausbildung, vorzugsweise im Bereich Gebäudetechnik\n\n• Mehrjährige Berufserfahrung in der Gebäudetechnik\n\n• Fundierte Kenntnisse von technischen Anlagen und Systemen\n\n• Erfahrung im Projektmanagement, idealerweise ergänzt durch Führungserfahrung\n\n• Gute IT-Kentnisse\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-        "fr": "M. Berner est sur le Moosalp avec sa famille en un rien de temps, et Mme Walliser atteint son emploi à Berne en un peu plus d'une heure. Comme beaucoup d'autres, ils bénéficient quotidiennement du tunnel de base de Lötschberg et donc indirectement de votre travail. Avec votre équipe, vous utiliserez les technologies modernes et l'entretien professionnel pour vous assurer que le tunnel est toujours en état de première classe. De cette façon, nos clients atteignent leur destination en toute sécurité, de manière fiable et à temps.\n\nCeci vous attend :\n\n• Personnel et gestion professionnelle et perfectionnement d'environ 9 employés\n\n• Assurer la disponibilité opérationnelle du matériel technique\n\n• Budget et contrôle des coûts dans le domaine de responsabilité\n\n• Coopération avec les parties prenantes internes et externes\n\n• Coordination des perturbations et des opérations techniques\n\n• Participation aux sous-projets\n\nC'est ce que vous apportez avec vous :\n\n• Formation complète en tant qu'installateur électrique: en EFZ ou formation technique de base comparable, de préférence dans le domaine de la technologie du bâtiment\n\n• Plusieurs années d'expérience professionnelle dans la technologie du bâtiment\n\n• Bonne connaissance des installations et systèmes techniques\n\n• Expérience en gestion de projet, idéalement complétée par une expérience en leadership\n\n• Bonnes connaissances en TI\n\nVos avantages – vous pouvez vous attendre à:\n\n• Obtenez un GA 2ème classe, un GA 1ère classe. Classe ou demi-abonnement.\n\n• Travaillez là où ça vous convient le mieux. Que ce soit au bureau à domicile ou au bureau.\n\n• Partagez votre temps de travail librement. Nous encourageons le travail à temps partiel, le top et le partage de l'emploi\n\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an\n\n• Un soutien financier pour la formation continue externe ainsi qu'un apprentissage interne passionnant et une offre de cours sont à votre disposition.\n\n• Avec des événements saisonniers et des cours, nous soutenons votre santé.\n\nÀ propos du BLS\n\nAvec près de 4 000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? Fier de ce qu'on fait tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-tunneltechnik-loetschberg-basistunnel-lbt/87090c34-c9fd-4541-a605-c35c2780277d",
-      "source": "BLS AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:37:05.047Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3001",
-      "streetAddress": "Freiburgstrasse 130",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Ferrovia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-19",
-      "validThrough": "2026-08-18",
-      "pensum": "80-100%",
-      "salary": "113925",
-      "applyUrl": "https://jobs.bls.ch/apply/ats/87090c34-c9fd-4541-a605-c35c2780277d",
-      "requirements": [
-        "Abgeschlossene Ausbildung als Elektroinstallateur:in EFZ oder eine vergleichbare technische Grundausbildung, vorzugsweise im Bereich Gebäudetechnik",
-        "Mehrjährige Berufserfahrung in der Gebäudetechnik",
-        "Fundierte Kenntnisse von technischen Anlagen und Systemen",
-        "Erfahrung im Projektmanagement, idealerweise ergänzt durch Führungserfahrung",
-        "Gute IT-Kentnisse"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Mehrjährige Berufserfahrung in der Gebäudetechnik",
-          "Fundierte Kenntnisse von technischen Anlagen und Systemen",
-          "Erfahrung im Projektmanagement, idealerweise ergänzt durch Führungserfahrung",
-          "Gute IT-Kentnisse"
-        ]
-      },
-      "previousSlugs": [
-        "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch",
-        "team-leader-in-tunneltechnik-lotschberg-base-tunnel-lbt-bls-ag-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch",
-          "team-leader-in-tunneltechnik-lotschberg-base-tunnel-lbt-bls-ag-bern"
-        ],
-        "fr": [
-          "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-20T12:20:28.123Z",
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -219,7 +126,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/junior-produktemanager-in-autoverlad/05b45652-0fb7-46c8-ae2b-861a6f8737b2",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:37:04.019Z",
+      "crawledAt": "2026-08-07T01:07:36.202Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -271,8 +178,8 @@
           "junior-produktemanager-in-autoverlad-bls-ch"
         ]
       },
-      "firstSeenAt": "2026-07-20T12:20:22.725Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-20T12:20:22.725Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -282,206 +189,6 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
-    },
-    {
-      "id": "bls-5128aee955ab",
-      "slug": "kaltesystemtechniker-in-luftung-e-klima-bls-ag-bern",
-      "slugByLocale": {
-        "it": "kaltesystemtechniker-in-luftung-e-klima-bls-ag-bern",
-        "en": "refrigeration-system-technician-in-ventilation-and-air-conditioning-bls-ag-bern",
-        "de": "kaltesystemtechniker-in-luftung-und-klima-bls-ch",
-        "fr": "technicien-du-systeme-de-refrigeration-en-ventilation-et-climatisation-bls-ag-bern"
-      },
-      "company": "BLS AG",
-      "companyKey": "bls",
-      "companyDomain": "bls.ch",
-      "title": "Kältesystemtechniker: in Lüftung und Klima",
-      "titleByLocale": {
-        "it": "Kältesystemtechniker: in Lüftung e Klima",
-        "en": "Refrigeration system technician: in ventilation and air conditioning",
-        "de": "Kältesystemtechniker: in Lüftung und Klima",
-        "fr": "Technicien du système de réfrigération: en ventilation et climatisation"
-      },
-      "description": "Die Gebäudelüftungsanlagen unseres Lötschberg-Basistunnels und dem Streckennetz der BLS Netz AG sind wichtige Mosaiksteine im eng verzahnten Räderwerk der BLS. Mit deinem Wissen und Können sorgst du für einwandfrei funktionierende Anlagen und ermöglichst dadurch unseren Kund:innen ein optimales Reiseerlebnis.\n\nDas wartet auf dich:\n\n• Ausführung der Instandhaltung für die Gebäudelüftungsanlagen auf dem Streckennetz der BLS Netz AG und dem Lötschberg-Basistunnel (LBT)\n\n• Neu- und Umbauarbeiten an Gebäudelüftungsanlagen\n\n• Selbständige Behebung von Störungen (2nd-Level) sowie nachhaltige Fehleranalyse und -behebung\n\n• Mitarbeit an Optimierungen und Weiterentwicklungen bestehender Anlagen zur Effizienz- und Qualitätssteigerung\n\n• Aktive Mitgestaltung eines sicheren und reibungslosen Bahnbetriebs\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Kältesystem-Monteur:in oder Elektroinstallateur:in EFZ oder eine äquivalente Ausbildung mit nachgewiesener Erfahrung in diesem Bereich\n\n• Kenntnisse im Umgang mit Wasser-, Luft- und Kälteanlagen\n\n• Sicherer Umgang mit brennbaren Kältemitteln gemäss EKAS 6517\n\n• Elektro-Anschlussbewilligung NIV Art. 15\n\n• Führerausweis der Kategorie B/BE\n\n• Gute IT-Anwenderkenntnisse zur Unterstützung bei Fehleranalysen und Dokumentation\n\n• Bereitschaft zu Nachteinsätzen (ca. 15–20 Schichten pro Jahr)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-      "descriptionByLocale": {
-        "it": "I sistemi di ventilazione degli edifici del nostro tunnel di base Lötschberg e la rete di rotta di BLS Netz AG sono importanti pietre a mosaico nelle ruote strettamente collegate di BLS. Con le vostre conoscenze e competenze, assicuratevi che i sistemi funzionino correttamente e quindi consentire ai nostri clienti di godere di un'esperienza di viaggio ottimale.\n\nTi aspetta:\n\n• Attuazione della manutenzione per i sistemi di ventilazione degli edifici sulla rete stradale di BLS Netz AG e la galleria di base Lötschberg (LBT)\n\n• Lavori di costruzione e conversione per sistemi di ventilazione edilizio\n\n• Risoluzione dei problemi indipendente (2 ° livello) e analisi e correzione degli errori sostenuti\n\n• Cooperazione nell'ottimizzazione e sviluppo degli impianti esistenti per aumentare l'efficienza e la qualità\n\n• Co-creazione attiva di operazioni ferroviarie sicure e lisce\n\nQuesto è ciò che portate con voi:\n\n• Formazione completa come installatore del sistema di refrigerazione:in o installatore elettrico:in EGZ o formazione equivalente con esperienza comprovata in questo campo\n\n• Conoscenza delle attrezzature acqua, aria e refrigerazione\n\n• Gestione sicura dei refrigeranti combustibile secondo EKAS 6517\n\n• Permesso di collegamento elettrico NIV Art. 15\n\n• Categoria B/BE patente di guida\n\n• Buona conoscenza degli utenti IT per supportare l'analisi degli errori e la documentazione\n\n• Prontezza per incarichi notturni (circa 15-20 turni all'anno)\n\nI vostri vantaggi – si può aspettare a:\n\n• Promuoviamo la pianificazione più flessibile dei vostri tour e turni possibili\n\n• Prendi una seconda classe GA, una prima classe GA. Abbonamento di classe o di mezza quota.\n\n• Hai tempo libero quando gli altri lavorano. Per i penny di notte e nei fine settimana ci sono supplementi.\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno.\n\n• Sono a vostra disposizione un sostegno finanziario per l'ulteriore istruzione esterna e un'emozionante offerta di apprendimento interno e corsi.\n\n• Con eventi stagionali e corsi sosteniamo la vostra salute\n\nInformazioni sulla BLS\n\nCon quasi 4.000 dipendenti, BLS è la seconda più grande compagnia ferroviaria in Svizzera. Inoltre, siamo anche una compagnia di navigazione, un'azienda immobiliare, una ferrovia di trasporto internazionale, una compagnia di autobus e auto di trasporto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci collega? Forte di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
-        "en": "The building ventilation systems of our Lötschberg Base Tunnel and the route network of BLS Netz AG are important mosaic stones in the closely interlinked wheels of BLS. With your knowledge and skills, you ensure that systems function properly and thus enable our customers to enjoy an optimal travel experience.\n\nThis is waiting for you:\n\n• Implementation of maintenance for the building ventilation systems on the route network of BLS Netz AG and the Lötschberg Base Tunnel (LBT)\n\n• Construction and conversion work for building ventilation systems\n\n• Independent troubleshooting (2nd level) and sustained error analysis and correction\n\n• Cooperation in optimizations and further developments of existing plants to increase efficiency and quality\n\n• Active co-creation of safe and smooth railway operations\n\nThis is what you bring with you:\n\n• Completed training as refrigeration system installer:in or electrical installer:in EGZ or equivalent training with proven experience in this field\n\n• Knowledge of water, air and refrigeration equipment\n\n• Safe handling of combustible refrigerants according to EKAS 6517\n\n• Electrical connection permit NIV Art. 15\n\n• Category B/BE driving licence\n\n• Good IT user knowledge to support error analysis and documentation\n\n• Readiness for night assignments (about 15–20 shifts per year)\n\nYour advantages – you can look forward to:\n\n• We promote the most flexible planning of your tours and shifts possible\n\n• Get a GA 2nd class, a GA 1st class. Class or a half-tax subscription.\n\n• You have free time when others work. For pennies at night and on weekends there are surcharges.\n\n• It is possible to buy an additional five to ten holiday days per year.\n\n• Financial support for external further education and an exciting internal learning and course offer are at your disposal.\n\n• With seasonal events and courses we support your health\n\nAbout the BLS\n\nWith almost 4,000 employees, BLS is the second largest railway company in Switzerland. Moreover, we are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What connects us? Proud of what we do every day. Mobility has many facets for us. And lots of exciting jobs.",
-        "de": "Die Gebäudelüftungsanlagen unseres Lötschberg-Basistunnels und dem Streckennetz der BLS Netz AG sind wichtige Mosaiksteine im eng verzahnten Räderwerk der BLS. Mit deinem Wissen und Können sorgst du für einwandfrei funktionierende Anlagen und ermöglichst dadurch unseren Kund:innen ein optimales Reiseerlebnis.\n\nDas wartet auf dich:\n\n• Ausführung der Instandhaltung für die Gebäudelüftungsanlagen auf dem Streckennetz der BLS Netz AG und dem Lötschberg-Basistunnel (LBT)\n\n• Neu- und Umbauarbeiten an Gebäudelüftungsanlagen\n\n• Selbständige Behebung von Störungen (2nd-Level) sowie nachhaltige Fehleranalyse und -behebung\n\n• Mitarbeit an Optimierungen und Weiterentwicklungen bestehender Anlagen zur Effizienz- und Qualitätssteigerung\n\n• Aktive Mitgestaltung eines sicheren und reibungslosen Bahnbetriebs\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Kältesystem-Monteur:in oder Elektroinstallateur:in EFZ oder eine äquivalente Ausbildung mit nachgewiesener Erfahrung in diesem Bereich\n\n• Kenntnisse im Umgang mit Wasser-, Luft- und Kälteanlagen\n\n• Sicherer Umgang mit brennbaren Kältemitteln gemäss EKAS 6517\n\n• Elektro-Anschlussbewilligung NIV Art. 15\n\n• Führerausweis der Kategorie B/BE\n\n• Gute IT-Anwenderkenntnisse zur Unterstützung bei Fehleranalysen und Dokumentation\n\n• Bereitschaft zu Nachteinsätzen (ca. 15–20 Schichten pro Jahr)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-        "fr": "Les systèmes de ventilation du bâtiment de notre Tunnel de base de Lötschberg et le réseau d'itinéraire de BLS Netz AG sont des pierres de mosaïque importantes dans les roues étroitement liées de BLS. Grâce à vos connaissances et compétences, vous veillez à ce que les systèmes fonctionnent correctement et permettent à nos clients de profiter d'une expérience de voyage optimale.\n\nCeci vous attend :\n\n• Mise en œuvre de l'entretien des systèmes de ventilation des bâtiments sur le réseau routier de BLS Netz AG et du tunnel de base de Lötschberg (LBT)\n\n• Travaux de construction et de conversion de systèmes de ventilation des bâtiments\n\n• Dépannage indépendant (2e niveau) et analyse et correction d'erreurs soutenues\n\n• Coopération en matière d ' optimisation et de développement des installations existantes pour accroître l ' efficacité et la qualité\n\n• Co-création active d'une exploitation ferroviaire sûre et sans heurt\n\nC'est ce que vous apportez avec vous :\n\n• Formation terminée en tant qu'installateur de systèmes de réfrigération:dans ou en tant qu'installateur électrique:dans EGZ ou formation équivalente ayant une expérience avérée dans ce domaine\n\n• Connaissance de l'eau, de l'air et du matériel de réfrigération\n\n• Manipulation sûre des réfrigérants combustibles selon EKAS 6517\n\n• Permis de raccordement électrique NIV Art. 15\n\n• Permis de conduire de catégorie B/BE\n\n• Bonne connaissance de l'utilisateur de TI pour soutenir l'analyse et la documentation des erreurs\n\n• Préparation aux affectations de nuit (environ 15 à 20 équipes par an)\n\nVos avantages – vous pouvez vous attendre à:\n\n• Nous favorisons la planification la plus flexible possible de vos visites et de vos déplacements\n\n• Obtenez un GA 2ème classe, un GA 1ère classe. Classe ou demi-abonnement.\n\n• Vous avez du temps libre quand les autres travaillent. Pour les centimes la nuit et le week-end il y a des suppléments.\n\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an.\n\n• Un soutien financier pour une formation complémentaire externe et une offre de cours et d'apprentissage interne passionnants sont à votre disposition.\n\n• Avec des événements saisonniers et des cours, nous soutenons votre santé\n\nÀ propos du BLS\n\nAvec près de 4 000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? Fier de ce qu'on fait tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bls.ch/offene-stellen/kaeltesystemtechniker-in-lueftung-und-klima/2a7b3bed-4367-4ac7-b091-f2a5cbb4e352",
-      "source": "BLS AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:37:03.162Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3001",
-      "streetAddress": "Freiburgstrasse 130",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Ferrovia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-15",
-      "validThrough": "2026-08-14",
-      "pensum": "80-100%",
-      "salary": "98179",
-      "applyUrl": "https://jobs.bls.ch/apply/ats/2a7b3bed-4367-4ac7-b091-f2a5cbb4e352",
-      "requirements": [
-        "Abgeschlossene Ausbildung als Kältesystem-Monteur:in oder Elektroinstallateur:in EFZ oder eine äquivalente Ausbildung mit nachgewiesener Erfahrung in diesem Bereich",
-        "Kenntnisse im Umgang mit Wasser-, Luft- und Kälteanlagen",
-        "Sicherer Umgang mit brennbaren Kältemitteln gemäss EKAS 6517",
-        "Elektro-Anschlussbewilligung NIV Art. 15",
-        "Führerausweis der Kategorie B/BE",
-        "Gute IT-Anwenderkenntnisse zur Unterstützung bei Fehleranalysen und Dokumentation",
-        "Bereitschaft zu Nachteinsätzen (ca. 15–20 Schichten pro Jahr)"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Kenntnisse im Umgang mit Wasser-, Luft- und Kälteanlagen",
-          "Sicherer Umgang mit brennbaren Kältemitteln gemäss EKAS 6517",
-          "Elektro-Anschlussbewilligung NIV Art. 15",
-          "Führerausweis der Kategorie B/BE",
-          "Gute IT-Anwenderkenntnisse zur Unterstützung bei Fehleranalysen und Dokumentation",
-          "Bereitschaft zu Nachteinsätzen (ca. 15–20 Schichten pro Jahr)"
-        ]
-      },
-      "previousSlugs": [
-        "kaltesystemtechniker-in-luftung-und-klima-bls-ch",
-        "refrigeration-system-technician-in-ventilation-and-air-conditioning-bls-ag-bern",
-        "techniciens-en-systemes-de-refrigeration-en-ventilation-et-climatisation-bls-ag-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kaltesystemtechniker-in-luftung-und-klima-bls-ch",
-          "refrigeration-system-technician-in-ventilation-and-air-conditioning-bls-ag-bern",
-          "techniciens-en-systemes-de-refrigeration-en-ventilation-et-climatisation-bls-ag-bern"
-        ],
-        "en": [
-          "kaltesystemtechniker-in-luftung-und-klima-bls-ch"
-        ],
-        "fr": [
-          "techniciens-en-systemes-de-refrigeration-en-ventilation-et-climatisation-bls-ag-bern",
-          "kaltesystemtechniker-in-luftung-und-klima-bls-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-19T11:47:54.009Z",
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
-    },
-    {
-      "id": "bls-cfb4d105162d",
-      "slug": "responsabile-della-costruzione-nella-costruzione-ferroviaria-bls-ag-bern",
-      "slugByLocale": {
-        "it": "responsabile-della-costruzione-nella-costruzione-ferroviaria-bls-ag-bern",
-        "en": "construction-manager-in-railway-construction-bls-ag-bern",
-        "de": "baufuhrer-in-bahnbau-bls-ch",
-        "fr": "directeur-de-la-construction-dans-la-construction-ferroviaire-bls-ag-bern"
-      },
-      "company": "BLS AG",
-      "companyKey": "bls",
-      "companyDomain": "bls.ch",
-      "title": "Bauführer:in Bahnbau",
-      "titleByLocale": {
-        "it": "Responsabile della costruzione: nella costruzione ferroviaria",
-        "en": "Construction manager: in railway construction",
-        "de": "Bauführer:in Bahnbau",
-        "fr": "Directeur de la construction: dans la construction ferroviaire"
-      },
-      "description": "Wenn nachts die letzten Züge durchs Berner Oberland rollen, läuft deine Arbeit oft erst richtig an. Mit Übersicht, technischem Gespür und einem starken Team realisierst du komplexe Bauprojekte und erneuerst die Fahrbahn dort, wo täglich tausende Menschen unterwegs sind. So bleibt die BLS zuverlässig in der Spur – heute und morgen.\n\nDas wartet auf dich:\n\n• Führst komplexe Bauprojekte mit Schwerpunkt Fahrbahn durch und wirkst bei der Planung der Ausführung mit\n\n• Gemeinsam mit Fachbereichen die Bahntechnik aufeinander abstimmen\n\n• Verantwortung für Kosten, Qualität und Termine im Bahnbau übernehmen\n\n• Personal, Maschinen und Intervalle vorausschauend und effizient planen\n\n• Sicherheit auf Baustellen aktiv prägen und Standards konsequent umsetzen\n\nDas bringst du mit:\n\n• Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation\n\n• Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen\n\n• Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren\n\n• Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich\n\n• Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-      "descriptionByLocale": {
-        "it": "Quando gli ultimi treni rotolano attraverso l'Oberland Bernese di notte, il vostro lavoro inizia spesso correttamente. Con una panoramica, un tocco tecnico e un team forte, realizzerai progetti di costruzione complessi e rinnovi la strada dove migliaia di persone viaggiano ogni giorno. Così il BLS rimane affidabile in pista – oggi e domani.\n\nTi aspetta:\n\n• Realizza complessi progetti di costruzione con un focus sulla strada e contribuisce alla pianificazione dell'esecuzione\n\n• Insieme a aree specializzate, coordinare la tecnologia ferroviaria\n\n• Assumendo responsabilità per costi, qualità e scadenze nella costruzione ferroviaria\n\n• Progettazione del personale, delle macchine e degli intervalli prevedibilmente ed efficiente\n\n• Formare attivamente la sicurezza sui cantieri e implementare costantemente gli standard\n\nQuesto è ciò che portate con voi:\n\n• Ulteriori corsi di formazione come direttore di costruzione:in, tecnico:in HF o qualifica equivalente\n\n• Utilizzare conoscenze di base su strade, automazione o energia in particolare\n\n• Coordinare in modo sicuro diversi stakeholder con una chiara presenza\n\n• Confidentemente comunicare in tedesco – verbalmente e per iscritto\n\n• Sii flessibile lungo le linee BLS con patente di guida di categoria B\n\nI vostri vantaggi – si può aspettare a:\n\n• Prendi una seconda classe di GA, una di prima classe. Abbonamento di classe o di mezza quota.\n\n• Lavora dove ti sta meglio. Sia in ufficio o in ufficio.\n\n• Condividi il tuo tempo di lavoro liberamente. Promuoviamo il lavoro part-time, il top e la condivisione del lavoro\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno\n\n• Sono a vostra disposizione un sostegno finanziario per l'ulteriore istruzione esterna e un'emozionante offerta di apprendimento interno e corsi.\n\n• Con eventi stagionali e corsi sosteniamo la vostra salute.\n\nInformazioni sulla BLS\n\nCon quasi 4.000 dipendenti, BLS è la seconda compagnia ferroviaria più grande della Svizzera. Inoltre, siamo anche una compagnia di navigazione, un'azienda immobiliare, una ferrovia di trasporto internazionale, una compagnia di autobus e auto di trasporto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci collega? L'orgoglio di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E un sacco di lavori interessanti.",
-        "en": "When the last trains roll through the Bernese Oberland at night, your work often starts properly. With an overview, technical flair and a strong team, you will realize complex construction projects and renew the road where thousands of people travel every day. So the BLS remains reliably on track – today and tomorrow.\n\nThis is waiting for you:\n\n• Carries out complex construction projects with a focus on the roadway and contributes to the planning of the execution\n\n• Together with specialist areas, coordinate railway technology\n\n• Assuming responsibility for costs, quality and deadlines in railway construction\n\n• Planning personnel, machines and intervals predictively and efficiently\n\n• Actively shape safety on construction sites and consistently implement standards\n\nThis is what you bring with you:\n\n• Further training as a construction manager:in, technician:in HF or equivalent qualification\n\n• Use basic knowledge in roadways, automation or energy specifically\n\n• Safely coordinate different stakeholders with a clear presence\n\n• Confidently communicate in German – verbally and in writing\n\n• Be flexible along BLS lines with category B driving licence\n\nYour advantages – you can look forward to:\n\n• Get a GA 2nd class, a GA 1st. Class or a half-tax subscription.\n\n• Work where it suits you best. Whether in the home office or in the office.\n\n• Share your working time freely. We promote part-time work, top and job sharing\n\n• It is possible to buy an additional five to ten holiday days per year\n\n• Financial support for external further education as well as an exciting internal learning and course offer are at your disposal.\n\n• With seasonal events and courses we support your health.\n\nAbout the BLS\n\nWith almost 4,000 employees, BLS is the second largest railway company in Switzerland. Moreover, we are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What connects us? The pride of what we do every day. Mobility has many facets for us. And lots of exciting jobs.",
-        "de": "Wenn nachts die letzten Züge durchs Berner Oberland rollen, läuft deine Arbeit oft erst richtig an. Mit Übersicht, technischem Gespür und einem starken Team realisierst du komplexe Bauprojekte und erneuerst die Fahrbahn dort, wo täglich tausende Menschen unterwegs sind. So bleibt die BLS zuverlässig in der Spur – heute und morgen.\n\nDas wartet auf dich:\n\n• Führst komplexe Bauprojekte mit Schwerpunkt Fahrbahn durch und wirkst bei der Planung der Ausführung mit\n\n• Gemeinsam mit Fachbereichen die Bahntechnik aufeinander abstimmen\n\n• Verantwortung für Kosten, Qualität und Termine im Bahnbau übernehmen\n\n• Personal, Maschinen und Intervalle vorausschauend und effizient planen\n\n• Sicherheit auf Baustellen aktiv prägen und Standards konsequent umsetzen\n\nDas bringst du mit:\n\n• Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation\n\n• Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen\n\n• Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren\n\n• Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich\n\n• Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-        "fr": "Lorsque les derniers trains traversent l'Oberland bernois la nuit, votre travail commence souvent correctement. Avec un aperçu, un style technique et une équipe forte, vous réaliserez des projets de construction complexes et renouvelerez la route où des milliers de personnes voyagent chaque jour. Le BLS reste donc sur la bonne voie – aujourd'hui et demain.\n\nCeci vous attend :\n\n• Réalisation de projets de construction complexes avec un accent sur la route et contribue à la planification de l'exécution\n\n• Avec des domaines spécialisés, coordonner la technologie ferroviaire\n\n• Responsable des coûts, de la qualité et des délais dans la construction ferroviaire\n\n• Personnel de planification, machines et intervalles prédictivement et efficacement\n\n• Former activement la sécurité sur les chantiers de construction et mettre en œuvre les normes\n\nVoici ce que vous apportez avec vous :\n\n• Formation continue en tant que responsable de la construction:in, technicien:in HF ou qualification équivalente\n\n• Utiliser les connaissances de base dans les routes, l'automatisation ou l'énergie spécifiquement\n\n• Coordonner en toute sécurité les différentes parties prenantes avec une présence claire\n\n• Communiquer avec confiance en allemand – verbalement et par écrit\n\n• Être flexible sur les lignes BLS avec permis de conduire de catégorie B\n\nVos avantages – vous pouvez attendre avec impatience:\n\n• Obtenez un GA 2ème classe, un GA 1ère. Classe ou abonnement à moitié taxe.\n\n• Travaillez là où ça vous convient le mieux. Que ce soit au bureau à domicile ou au bureau.\n\n• Partagez votre temps de travail librement. Nous encourageons le travail à temps partiel, le top et le partage de l'emploi\n\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an\n\n• Un soutien financier pour la formation continue externe ainsi qu'un apprentissage interne passionnant et une offre de cours sont à votre disposition.\n\n• Avec des événements saisonniers et des cours, nous soutenons votre santé.\n\nA propos du BLS\n\nAvec près de 4 000 employés, BLS est la deuxième entreprise ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? La fierté de ce que nous faisons tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bls.ch/offene-stellen/baufuehrer-in-bahnbau/adcb2459-2080-47bc-964b-82d7764e2de5",
-      "source": "BLS AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:37:02.305Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3001",
-      "streetAddress": "Freiburgstrasse 130",
-      "category": "Risorse Umane",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Ferrovia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-20",
-      "validThrough": "2026-08-19",
-      "pensum": "80-100%",
-      "salary": "109546",
-      "applyUrl": "https://jobs.bls.ch/apply/ats/adcb2459-2080-47bc-964b-82d7764e2de5",
-      "requirements": [
-        "Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation",
-        "Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen",
-        "Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren",
-        "Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich",
-        "Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation",
-          "Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen",
-          "Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren",
-          "Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich",
-          "Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein"
-        ]
-      },
-      "previousSlugs": [
-        "baufuhrer-in-bahnbau-bls-ch",
-        "responsabile-della-costruzione-nella-costruzione-ferroviaria-bls-ag-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "baufuhrer-in-bahnbau-bls-ch",
-          "responsabile-della-costruzione-nella-costruzione-ferroviaria-bls-ag-bern"
-        ],
-        "en": [
-          "baufuhrer-in-bahnbau-bls-ch"
-        ],
-        "fr": [
-          "baufuhrer-in-bahnbau-bls-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T11:35:29.865Z",
-      "needsRetranslation": true,
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -518,7 +225,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/dd034dae-6852-48aa-9341-ddcb2703eeda",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:37:01.395Z",
+      "crawledAt": "2026-08-07T01:07:35.290Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -577,8 +284,8 @@
           "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
         ]
       },
-      "firstSeenAt": "2026-07-21T22:12:15.491Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-21T22:12:15.491Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -624,7 +331,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/66a57cf3-3129-460e-9433-b7cc2d9f708d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:37:00.531Z",
+      "crawledAt": "2026-08-07T01:07:34.404Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -677,8 +384,8 @@
           "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez"
         ]
       },
-      "firstSeenAt": "2026-07-21T22:12:14.673Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-21T22:12:14.673Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -692,96 +399,6 @@
         }
       },
       "addressRegion": "FR"
-    },
-    {
-      "id": "bls-a98acf1c2ebe",
-      "slug": "senior-sap-application-manager-in-bw-bls-ag-bern",
-      "slugByLocale": {
-        "it": "senior-sap-application-manager-in-bw-bls-ag-bern",
-        "en": "senior-sap-applikations-manager-in-bw-bls-ch",
-        "de": "senior-sap-applikations-manager-in-bw-bls-ch",
-        "fr": "gestionnaire-principal-des-applications-sap-en-bw-bls-ag-bern"
-      },
-      "company": "BLS AG",
-      "companyKey": "bls",
-      "companyDomain": "bls.ch",
-      "title": "Senior SAP Applikations-Manager:in BW",
-      "titleByLocale": {
-        "it": "Senior SAP Application Manager: in BW",
-        "en": "Senior SAP Applikations-Manager:in BW",
-        "de": "Senior SAP Applikations-Manager:in BW",
-        "fr": "Gestionnaire principal des applications SAP : en BW"
-      },
-      "description": "Die BLS setzt voll auf SAP und somit voll auf dich! Als Senior SAP Applikations-Manager:in BW hast du Einfluss auf das gesamte Unternehmen. Egal ob in den Zügen, den Werkstätten oder den Geschäftsprozessen. Dank deiner Arbeit schaffen wir es Tag für Tag, unsere Fahrgäste sicher und pünktlich an ihr Ziel zu bringen. Überall steckt deine Arbeit drin – ein tolles Gefühl!\n\nDas wartet auf dich:\n\n• Unsere Geschäftsbereiche zu neuen SAP Analytics- und Planungslösungen auf der Basis von SAP Business Warehouse (BW/4HANA), der SAP Analytics Cloud und Analysis for Office beraten und diese in enger Zusammenarbeit mit den Geschäftsbereichen umsetzen\n\n• (Teil-)Leitung und Betreuung von SAP-Analytics- & Planungsprojekten über den kompletten Lebenszyklus - von der Analyse, über die Konzeption bis hin zur Realisierung und dem Betrieb (Front- & Backend)\n\n• Analytics- und Planungslösungen modellieren und Coding Aufgaben übernehmen\n\n• Workshops und Schulungen durchführen\n\n• In interdisziplinären Teams arbeiten\n\nDas bringst du mit:\n\n• Abgeschlossenes Studium (FH, Universität) in Informatik, Wirtschaftsinformatik oder ein vergleichbares Studium\n\n• Mehrjährige, fundierte Erfahrung in der Konzeption und bei der Implementierung von SAP Analytics (BW4, AFO, SAC) und Planungs-Lösungen (SAC)\n\n• Sehr gute Programmierkenntnisse in ABAP und SQL, Kenntnisse in JavaScript von Vorteil\n\n• Analytisches Denken, Eigeninitiative, Kommunikationsstärke gepaart mit Flair für die Gestaltung intuitiver, moderner und visuell ansprechender Analytics- und Planungslösungen\n\n• Fliessende Deutsch- und gute Englisch-Kenntnisse in Wort und Schrift\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-      "descriptionByLocale": {
-        "it": "BLS si basa pienamente su SAP e quindi completamente su di voi! Come Senior SAP Applications Manager: in BW hai un'influenza sull'intera azienda. Che si tratti di treni, workshop o processi aziendali. Grazie al vostro lavoro, siamo in grado di portare i nostri passeggeri a destinazione in modo sicuro e in tempo ogni giorno. Il vostro lavoro è ovunque – una grande sensazione!\n\nTi aspetta:\n\n• Consultare le nostre business unit sulle nuove soluzioni SAP Analytics e di pianificazione basate su SAP Business Warehouse (BW/4HANA), SAP Analytics Cloud e Analisi per Office e implementarle in stretta collaborazione con le business unit\n\n• (Partial) gestione e supporto dei progetti di analisi e pianificazione SAP su tutto il ciclo di vita - dall'analisi, dal concepimento all'implementazione e al funzionamento (front & backend)\n\n• Modelli di analisi e soluzioni di pianificazione e prendere le attività di codifica\n\n• Condurre workshop e formazione\n\n• Lavorare in team interdisciplinari\n\nQuesto è ciò che portate con voi:\n\n• Studi completi (FH, università) in informatica, informatica aziendale o studi comparabili\n\n• Diversi anni di profonda esperienza nella concezione e realizzazione di SAP Analytics (BW4, AFO, SAC) e soluzioni di pianificazione (SAC)\n\n• Conoscenza di programmazione molto buona in ABAP e SQL, la conoscenza in JavaScript è vantaggioso\n\n• Il pensiero analitico, l'iniziativa, la forza di comunicazione accoppiata con il tocco per la progettazione di soluzioni di analisi e pianificazione intuitive, moderne e visivamente accattivanti\n\n• Flusso tedesco e buone abilità inglesi in parola e scrittura\n\nI vostri vantaggi – si può aspettare a:\n\n• Prendi una seconda classe GA, una prima classe GA. Abbonamento di classe o di mezza quota\n\n• Lavora dove ti si addice meglio. Sia in ufficio o in ufficio\n\n• Condividi il tuo tempo di lavoro liberamente. Promuoviamo il lavoro part-time, il top e la condivisione del lavoro\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno e prendere un sabbatico di 40 giorni lavorativi ogni sette anni.\n\n• Con eventi stagionali e corsi sosteniamo la vostra salute.\n\n• Supporto finanziario per la formazione esterna, un programma di sviluppo di leadership e un'emozionante offerta di apprendimento interno e corso sono a vostra disposizione.\n\nCon quasi 4.000 dipendenti, BLS è la seconda più grande compagnia ferroviaria in Svizzera. Inoltre, siamo anche una compagnia di navigazione, un'azienda immobiliare, una ferrovia di trasporto internazionale, una compagnia di autobus e auto di trasporto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci collega? Forte di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
-        "en": "BLS relies fully on SAP and therefore fully on you! As Senior SAP Applications Manager: in BW you have an influence on the entire company. Whether on trains, workshops or business processes. Thanks to your work, we manage to get our passengers to their destination safely and on time every day. Your work is everywhere – a great feeling!\n\nThis is waiting for you:\n\n• Advise our business units on new SAP Analytics and planning solutions based on SAP Business Warehouse (BW/4HANA), SAP Analytics Cloud and Analysis for Office and implement them in close cooperation with the business units\n\n• (Partial) management and support of SAP analytics & planning projects over the entire life cycle - from analysis, conception to implementation and operation (front & backend)\n\n• Model analytics and planning solutions and take on coding tasks\n\n• Conducting workshops and training\n\n• Working in interdisciplinary teams\n\nThis is what you bring with you:\n\n• Completed studies (FH, university) in computer science, business informatics or comparable studies\n\n• Several years of profound experience in the conception and implementation of SAP Analytics (BW4, AFO, SAC) and planning solutions (SAC)\n\n• Very good programming knowledge in ABAP and SQL, knowledge in JavaScript is advantageous\n\n• Analytical thinking, initiative, communication strength paired with flair for the design of intuitive, modern and visually appealing analytics and planning solutions\n\n• Flowing German and good English skills in word and writing\n\nYour advantages – you can look forward to:\n\n• Get a GA 2nd class, a GA 1st class. Class or half-tax subscription\n\n• Work where it suits you best. Whether at home office or office\n\n• Share your working time freely. We promote part-time work, top and job sharing\n\n• It is possible to buy an additional five to ten days of holiday per year and to take a sabbatical of 40 working days every seven years.\n\n• With seasonal events and courses we support your health.\n\n• Financial support for external training, a leadership development program and an exciting internal learning and course offer are at your disposal.\n\nWith almost 4,000 employees, BLS is the second largest railway company in Switzerland. Moreover, we are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What connects us? Proud of what we do every day. Mobility has many facets for us. And lots of exciting jobs.",
-        "de": "Die BLS setzt voll auf SAP und somit voll auf dich! Als Senior SAP Applikations-Manager:in BW hast du Einfluss auf das gesamte Unternehmen. Egal ob in den Zügen, den Werkstätten oder den Geschäftsprozessen. Dank deiner Arbeit schaffen wir es Tag für Tag, unsere Fahrgäste sicher und pünktlich an ihr Ziel zu bringen. Überall steckt deine Arbeit drin – ein tolles Gefühl!\n\nDas wartet auf dich:\n\n• Unsere Geschäftsbereiche zu neuen SAP Analytics- und Planungslösungen auf der Basis von SAP Business Warehouse (BW/4HANA), der SAP Analytics Cloud und Analysis for Office beraten und diese in enger Zusammenarbeit mit den Geschäftsbereichen umsetzen\n\n• (Teil-)Leitung und Betreuung von SAP-Analytics- & Planungsprojekten über den kompletten Lebenszyklus - von der Analyse, über die Konzeption bis hin zur Realisierung und dem Betrieb (Front- & Backend)\n\n• Analytics- und Planungslösungen modellieren und Coding Aufgaben übernehmen\n\n• Workshops und Schulungen durchführen\n\n• In interdisziplinären Teams arbeiten\n\nDas bringst du mit:\n\n• Abgeschlossenes Studium (FH, Universität) in Informatik, Wirtschaftsinformatik oder ein vergleichbares Studium\n\n• Mehrjährige, fundierte Erfahrung in der Konzeption und bei der Implementierung von SAP Analytics (BW4, AFO, SAC) und Planungs-Lösungen (SAC)\n\n• Sehr gute Programmierkenntnisse in ABAP und SQL, Kenntnisse in JavaScript von Vorteil\n\n• Analytisches Denken, Eigeninitiative, Kommunikationsstärke gepaart mit Flair für die Gestaltung intuitiver, moderner und visuell ansprechender Analytics- und Planungslösungen\n\n• Fliessende Deutsch- und gute Englisch-Kenntnisse in Wort und Schrift\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-        "fr": "BLS s'appuie entièrement sur SAP et donc sur vous ! En tant que Senior SAP Applications Manager : en BW vous avez une influence sur toute l'entreprise. Qu'il s'agisse de trains, d'ateliers ou de processus opérationnels. Grâce à votre travail, nous parvenons à amener nos passagers à destination en toute sécurité et à temps tous les jours. Votre travail est partout – un grand sentiment!\n\nCeci vous attend :\n\n• Conseiller nos unités d'affaires sur les nouvelles solutions SAP Analytics et de planification basées sur SAP Business Warehouse (BW/4HANA), SAP Analytics Cloud et Analysis for Office et les mettre en œuvre en étroite collaboration avec les unités d'affaires\n\n• Gestion (partielle) et soutien des projets d'analyse et de planification SAP tout au long du cycle de vie - de l'analyse, de la conception à la mise en œuvre et à l'exploitation (avant et arrière-plan)\n\n• Solutions d'analyse et de planification des modèles et des tâches de codage\n\n• Organisation d ' ateliers et de formations\n\n• Travail en équipes interdisciplinaires\n\nC'est ce que vous apportez avec vous :\n\n• Études complétées (FH, université) en informatique, informatique des entreprises ou études comparables\n\n• Plusieurs années d'expérience profonde dans la conception et la mise en œuvre de SAP Analytics (BW4, AFO, SAC) et de solutions de planification (SAC)\n\n• Très bonne connaissance de la programmation en ABAP et SQL, connaissance en JavaScript est avantageux\n\n• Pensée analytique, initiative, force de communication jumelée au style pour la conception de solutions analytiques et de planification intuitives, modernes et visuellement attrayantes\n\n• L'allemand et les bonnes compétences en anglais dans la parole et l'écriture\n\nVos avantages – vous pouvez vous attendre à:\n\n• Obtenez un GA 2ème classe, un GA 1ère classe. Abonnement classe ou demi-taxe\n\n• Travaillez là où ça vous convient le mieux. Que ce soit au bureau ou au bureau\n\n• Partagez votre temps de travail librement. Nous encourageons le travail à temps partiel, le top et le partage de l'emploi\n\n• Il est possible d'acheter un supplément de cinq à dix jours de vacances par an et de prendre un sabbat de 40 jours ouvrables tous les sept ans.\n\n• Avec des événements saisonniers et des cours, nous soutenons votre santé.\n\n• Un soutien financier pour la formation externe, un programme de perfectionnement en leadership et une offre de cours et d'apprentissage interne passionnante sont à votre disposition.\n\nAvec près de 4 000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? Fier de ce qu'on fait tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bls.ch/offene-stellen/senior-sap-applikations-manager-in-bw/0e392cd3-6e6f-4eca-8557-b7661f67095c",
-      "source": "BLS AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:36:59.780Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3008",
-      "streetAddress": "Europaplatz",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Trasporti / Ferrovia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-26",
-      "validThrough": "2026-08-25",
-      "pensum": "80-100%",
-      "applyUrl": "https://jobs.bls.ch/apply/ats/0e392cd3-6e6f-4eca-8557-b7661f67095c",
-      "requirements": [
-        "Abgeschlossenes Studium (FH, Universität) in Informatik, Wirtschaftsinformatik oder ein vergleichbares Studium",
-        "Mehrjährige, fundierte Erfahrung in der Konzeption und bei der Implementierung von SAP Analytics (BW4, AFO, SAC) und Planungs-Lösungen (SAC)",
-        "Sehr gute Programmierkenntnisse in ABAP und SQL, Kenntnisse in JavaScript von Vorteil",
-        "Analytisches Denken, Eigeninitiative, Kommunikationsstärke gepaart mit Flair für die Gestaltung intuitiver, moderner und visuell ansprechender Analytics- und Planungslösungen",
-        "Fliessende Deutsch- und gute Englisch-Kenntnisse in Wort und Schrift"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Abgeschlossenes Studium (FH, Universität) in Informatik, Wirtschaftsinformatik oder ein vergleichbares Studium",
-          "Sehr gute Programmierkenntnisse in ABAP und SQL, Kenntnisse in JavaScript von Vorteil",
-          "Fliessende Deutsch- und gute Englisch-Kenntnisse in Wort und Schrift"
-        ]
-      },
-      "previousSlugs": [
-        "gestionnaire-principal-des-applications-sap-en-bw-bls-ag-bern",
-        "senior-sap-applikations-manager-in-bw-bls-ch",
-        "senior-sap-application-manager-in-bw-bls-ag-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gestionnaire-principal-des-applications-sap-en-bw-bls-ag-bern",
-          "senior-sap-applikations-manager-in-bw-bls-ch",
-          "senior-sap-application-manager-in-bw-bls-ag-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-27T22:13:31.784Z",
-      "needsRetranslation": true,
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
     },
     {
       "id": "bls-1aefdd194b87",
@@ -814,7 +431,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/produktionsplaner-in-regelplanung/d8365f87-cb27-47ca-ae73-85c1bcc1d1ea",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:36:58.929Z",
+      "crawledAt": "2026-08-07T01:07:33.708Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -865,106 +482,8 @@
           "produktionsplaner-in-regelplanung-bls-ag-bern"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T11:38:10.034Z",
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
-    },
-    {
-      "id": "bls-772b4cce0ae1",
-      "slug": "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
-      "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
-        "en": "electrical-installer-in-installer-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
-        "de": "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
-        "fr": "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf"
-      },
-      "company": "BLS AG",
-      "companyKey": "bls",
-      "companyDomain": "bls.ch",
-      "title": "Elektroinstallateur:in / Monteur:in Signaltechnik",
-      "titleByLocale": {
-        "it": "Installatore/trice elettrico/a:in / Monteur:in Signaltechnik",
-        "en": "Electrical installer:in / Installer:in Signaltechnik",
-        "de": "Elektroinstallateur:in / Monteur:in Signaltechnik",
-        "fr": "Installateur électrique:in / Installateur:in Signaltechnik"
-      },
-      "description": "Die Technologie im Bahnverkehr wandelt sich rasant. Neue Systeme und Sicherungsanlagen machen das Zugfahren trotz dichter Fahrpläne noch sicherer. Diese Entwicklung geschieht nicht einfach so. Sie basiert auf dem Können von Menschen wie dir und deinem Ehrgeiz, der 100-prozentigen Sicherheit im Schienenverkehr jeden Tag noch ein bisschen näher zu kommen.\n\nDas wartet auf dich:\n\n• Neubau von Stellwerken, Bahnübergängen, Zugsicherungs- und Signalanlagen\n\n• Wartungs- und Instandsetzungen an vorhandenen Stellwerken, Bahnübergängen, Zugsicherungs- und Signalanlagen durchführen\n\n• Selbständiges lokalisieren und beheben der Störungen an allen Bahnsicherungsanlagen der Region Mittelland\n\n• Periodische Piketteinsätze\n\nDas bringst du mit:\n\n• Elektroinstallateur:in EFZ, Automatiker:in EFZ oder gleichwertige Ausbildung\n\n• Freude an Aussenarbeit zu jeder Tags- und Nachtzeit (ca. 10% Nachtschicht) und an einzelnen Wochenenden\n\n• Erfahrung im Führen von Neu- und Umbauprojekten von Vorteil\n\n• Führerausweis Kat. B\n\n• Bereitschaft zu kontinuierlichen Aus- und Weiterbildungen\n\n• Gute Gesundheit mit uneingeschränktem Hör- und Sehvermögen\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-      "descriptionByLocale": {
-        "it": "La tecnologia nel trasporto ferroviario sta cambiando rapidamente. Nuovi sistemi e sistemi di sicurezza rendono il viaggio in treno ancora più sicuro nonostante gli orari stretti. Questo sviluppo non accade solo. Si basa sulle competenze di persone come te e la tua ambizione di ottenere un po 'più vicino al 100% di sicurezza nel trasporto ferroviario ogni giorno.\n\nTi aspetta:\n\n• Nuova costruzione di scatole di segnale, passaggi di livello, protezione del treno e attrezzature di segnalazione\n\n• Eseguire la manutenzione e le riparazioni presso le caselle di segnale esistenti, passaggi di livello, protezione del treno e attrezzature di segnalazione\n\n• Localizzazione indipendente e riparazione di interruzioni in tutte le strutture di sicurezza ferroviaria nella regione di Mittelland\n\n• Picchette periodiche\n\nQuesto è ciò che portate con voi:\n\n• Installatore elettrico: in EFZ, operatore automatico: in EFZ o formazione equivalente\n\n• Godetevi il lavoro all'aperto in qualsiasi momento del giorno e della notte (circa il 10% di turno notturno) e nei singoli fine settimana\n\n• L'esperienza nella gestione di nuovi e progetti di ristrutturazione è un vantaggio\n\n• Patente di guida Cat. B\n\n• Prontezza per l'istruzione continua e la formazione\n\n• Buona salute con l'udito e la visione completa\n\nI vostri vantaggi – si può aspettare a:\n\n• Promuoviamo la pianificazione più flessibile dei vostri tour e turni possibili\n\n• Prendi una seconda classe GA, una prima classe GA. Abbonamento di classe o di mezza quota.\n\n• Hai tempo libero quando gli altri lavorano. Per i penny di notte e nei fine settimana ci sono supplementi.\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno.\n\n• Sono a vostra disposizione un sostegno finanziario per l'ulteriore istruzione esterna e un'emozionante offerta di apprendimento interno e corsi.\n\n• Con eventi stagionali e corsi sosteniamo la vostra salute\n\nInformazioni sulla BLS\n\nCon quasi 4.000 dipendenti, BLS è la seconda più grande compagnia ferroviaria in Svizzera. Inoltre, siamo anche una compagnia di navigazione, un'azienda immobiliare, una ferrovia di trasporto internazionale, una compagnia di autobus e auto di trasporto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci collega? Forte di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
-        "en": "The technology in rail transport is changing rapidly. New systems and safety systems make train travel even safer despite tight schedules. This development does not just happen. It is based on the skills of people like you and your ambition to get a little closer to 100% safety in rail transport every day.\n\nThis is waiting for you:\n\n• New construction of signal boxes, level crossings, train protection and signalling equipment\n\n• Carry out maintenance and repairs at existing signal boxes, level crossings, train protection and signalling equipment\n\n• Independent localization and repair of disruptions at all railway safety facilities in the Mittelland region\n\n• Periodic piquettes\n\nThis is what you bring with you:\n\n• Electrical installer:in EFZ, automatic operator:in EFZ or equivalent training\n\n• Enjoy outdoor work at any time of day and night (about 10% night shift) and on individual weekends\n\n• Experience in managing new and renovation projects is an advantage\n\n• Driving licence Cat. B\n\n• Readiness for continuous education and training\n\n• Good health with full hearing and vision\n\nYour advantages – you can look forward to:\n\n• We promote the most flexible planning of your tours and shifts possible\n\n• Get a GA 2nd class, a GA 1st class. Class or a half-tax subscription.\n\n• You have free time when others work. For pennies at night and on weekends there are surcharges.\n\n• It is possible to buy an additional five to ten holiday days per year.\n\n• Financial support for external further education and an exciting internal learning and course offer are at your disposal.\n\n• With seasonal events and courses we support your health\n\nAbout the BLS\n\nWith almost 4,000 employees, BLS is the second largest railway company in Switzerland. Moreover, we are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What connects us? Proud of what we do every day. Mobility has many facets for us. And lots of exciting jobs.",
-        "de": "Die Technologie im Bahnverkehr wandelt sich rasant. Neue Systeme und Sicherungsanlagen machen das Zugfahren trotz dichter Fahrpläne noch sicherer. Diese Entwicklung geschieht nicht einfach so. Sie basiert auf dem Können von Menschen wie dir und deinem Ehrgeiz, der 100-prozentigen Sicherheit im Schienenverkehr jeden Tag noch ein bisschen näher zu kommen.\n\nDas wartet auf dich:\n\n• Neubau von Stellwerken, Bahnübergängen, Zugsicherungs- und Signalanlagen\n\n• Wartungs- und Instandsetzungen an vorhandenen Stellwerken, Bahnübergängen, Zugsicherungs- und Signalanlagen durchführen\n\n• Selbständiges lokalisieren und beheben der Störungen an allen Bahnsicherungsanlagen der Region Mittelland\n\n• Periodische Piketteinsätze\n\nDas bringst du mit:\n\n• Elektroinstallateur:in EFZ, Automatiker:in EFZ oder gleichwertige Ausbildung\n\n• Freude an Aussenarbeit zu jeder Tags- und Nachtzeit (ca. 10% Nachtschicht) und an einzelnen Wochenenden\n\n• Erfahrung im Führen von Neu- und Umbauprojekten von Vorteil\n\n• Führerausweis Kat. B\n\n• Bereitschaft zu kontinuierlichen Aus- und Weiterbildungen\n\n• Gute Gesundheit mit uneingeschränktem Hör- und Sehvermögen\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-        "fr": "La technologie du transport ferroviaire évolue rapidement. De nouveaux systèmes et systèmes de sécurité rendent les trains encore plus sûrs malgré des horaires serrés. Cette évolution ne se produit pas seulement. Il est basé sur les compétences de personnes comme vous et votre ambition de se rapprocher un peu plus de 100% de la sécurité dans le transport ferroviaire chaque jour.\n\nCeci vous attend :\n\n• Nouvelle construction de boîtes de signalisation, passages à niveau, équipements de protection et de signalisation des trains\n\n• Entretien et réparation des boîtes de signalisation existantes, des passages à niveau, de l'équipement de protection et de signalisation des trains\n\n• Localisation et réparation indépendantes des perturbations dans toutes les installations de sécurité ferroviaire de la région de Mittelland\n\n• Piquettes périodiques\n\nC'est ce que vous apportez avec vous :\n\n• Installation électrique:dans EFZ, opérateur automatique:dans EFZ ou formation équivalente\n\n• Profitez du travail en plein air à n'importe quel moment du jour et de la nuit (environ 10% de la nuit) et le week-end individuel\n\n• L'expérience dans la gestion de projets nouveaux et de rénovation est un avantage\n\n• Permis de conduire Cat. B\n\n• Préparation à l'éducation et à la formation continues\n\n• Bonne santé avec pleine ouïe et vision\n\nVos avantages – vous pouvez vous attendre à:\n\n• Nous favorisons la planification la plus flexible possible de vos visites et de vos déplacements\n\n• Obtenez un GA 2ème classe, un GA 1ère classe. Classe ou demi-abonnement.\n\n• Vous avez du temps libre quand les autres travaillent. Pour les centimes la nuit et le week-end il y a des suppléments.\n\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an.\n\n• Un soutien financier pour une formation complémentaire externe et une offre de cours et d'apprentissage interne passionnants sont à votre disposition.\n\n• Avec des événements saisonniers et des cours, nous soutenons votre santé\n\nÀ propos du BLS\n\nAvec près de 4 000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? Fier de ce qu'on fait tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
-      },
-      "location": "Hasle bei Burgdorf",
-      "canton": "BE",
-      "url": "https://jobs.bls.ch/offene-stellen/elektroinstallateur-in-monteur-in-signaltechnik/f9f80fc2-eb10-485c-99b6-121e4f34f898",
-      "source": "BLS AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:36:58.090Z",
-      "addressLocality": "Hasle bei Burgdorf",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3415",
-      "category": "Tecnica",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Ferrovia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-29",
-      "validThrough": "2026-08-28",
-      "pensum": "80-100%",
-      "salary": "90860",
-      "applyUrl": "https://jobs.bls.ch/apply/ats/f9f80fc2-eb10-485c-99b6-121e4f34f898",
-      "requirements": [
-        "Elektroinstallateur:in EFZ, Automatiker:in EFZ oder gleichwertige Ausbildung",
-        "Freude an Aussenarbeit zu jeder Tags- und Nachtzeit (ca. 10% Nachtschicht) und an einzelnen Wochenenden",
-        "Erfahrung im Führen von Neu- und Umbauprojekten von Vorteil",
-        "Führerausweis Kat. B",
-        "Bereitschaft zu kontinuierlichen Aus- und Weiterbildungen",
-        "Gute Gesundheit mit uneingeschränktem Hör- und Sehvermögen"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Elektroinstallateur:in EFZ, Automatiker:in EFZ oder gleichwertige Ausbildung",
-          "Freude an Aussenarbeit zu jeder Tags- und Nachtzeit (ca. 10% Nachtschicht) und an einzelnen Wochenenden",
-          "Erfahrung im Führen von Neu- und Umbauprojekten von Vorteil",
-          "Führerausweis Kat. B",
-          "Bereitschaft zu kontinuierlichen Aus- und Weiterbildungen",
-          "Gute Gesundheit mit uneingeschränktem Hör- und Sehvermögen"
-        ]
-      },
-      "previousSlugs": [
-        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
-        "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
-          "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf"
-        ],
-        "en": [
-          "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
-        ],
-        "fr": [
-          "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-29T11:38:08.799Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1010,7 +529,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-security-bahnproduktion/cc7f35ab-c2f8-4a13-b3d3-3873fb67088e",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:36:57.241Z",
+      "crawledAt": "2026-08-07T01:07:32.795Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1060,8 +579,8 @@
           "leiter-in-security-bahnproduktion-bls-ch"
         ]
       },
-      "firstSeenAt": "2026-08-01T10:49:18.239Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-01T10:49:18.239Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1107,7 +626,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/operatrice-operatore-di-sala-operativa/b6563f4f-7ab2-4d50-b20b-fa3a8dec7dfe",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-06T11:36:56.513Z",
+      "crawledAt": "2026-08-07T01:07:32.127Z",
       "addressLocality": "Beura-cardezza",
       "addressCountry": "CH",
       "country": "CH",
@@ -1138,8 +657,8 @@
           "Diploma di scuola superiore"
         ]
       },
-      "firstSeenAt": "2026-07-30T22:19:48.191Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-30T22:19:48.191Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1184,7 +703,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/applikations-manager-in-iam/fd2c2f22-9bec-4fb3-8d6c-80fb0d3db40d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:36:55.779Z",
+      "crawledAt": "2026-08-07T01:07:31.224Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1230,8 +749,8 @@
           "applikations-manager-in-iam-bls-ch"
         ]
       },
-      "firstSeenAt": "2026-07-27T12:37:59.826Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-27T12:37:59.826Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1277,7 +796,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/tecnico-di-preparazione-dei-treni-pdt/ae78f81d-0c6c-446a-877f-5dfbc60c8096",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-06T11:36:54.930Z",
+      "crawledAt": "2026-08-07T01:07:30.471Z",
       "addressLocality": "Beura-cardezza",
       "addressCountry": "CH",
       "country": "CH",
@@ -1310,8 +829,8 @@
           "La conoscenza delle lingue inglese e tedesco"
         ]
       },
-      "firstSeenAt": "2026-07-30T22:19:48.942Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-30T22:19:48.942Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1356,7 +875,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-business-partner-finance-bahnproduktion/265c3f03-9dda-4d26-bae5-b02fde879552",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:36:54.165Z",
+      "crawledAt": "2026-08-07T01:07:29.604Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1403,8 +922,8 @@
           "leiter-in-business-partner-finance-bahnproduktion-bls-ch"
         ]
       },
-      "firstSeenAt": "2026-08-04T22:17:58.008Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-04T22:17:58.008Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1414,6 +933,487 @@
           "@type": "QuantitativeValue",
           "minValue": 94500,
           "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE"
+    },
+    {
+      "id": "bls-64f371d3ab25",
+      "slug": "senior-organisationsentwickler-in-bls-ag-bern",
+      "slugByLocale": {
+        "de": "senior-organisationsentwickler-in-bls-ch",
+        "it": "senior-organisationsentwickler-in-bls-ag-bern",
+        "en": "senior-organisationsentwickler-in-bls-ag-bern",
+        "fr": "senior-organisationsentwickler-in-bls-ag-bern"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Senior Organisationsentwickler:in",
+      "titleByLocale": {
+        "de": "Senior Organisationsentwickler:in",
+        "it": "Senior Organisationsentwickler:in",
+        "en": "Senior Organisationsentwickler:in",
+        "fr": "Senior Organisationsentwickler:in"
+      },
+      "description": "Veränderung gelingt nicht mit Folien, sondern mit Menschen. Genau hier setzt du an. Gemeinsam mit deinen Auftraggeber:innen unterstützt du die Bereiche der BLS dabei, sich weiterzuentwickeln und Herausforderungen aktiv anzupacken. Du bringst Themen vom Papier in den Alltag, schaffst Orientierung und begleitest Führungskräfte sowie Teams durch anspruchsvolle Veränderungsprozesse. Dabei erkennst du, wo Entwicklung nötig ist, verbindest unterschiedliche Perspektiven und bringst Bewegung in festgefahrene Themen. Es zählt nicht, wie viele Konzepte entstehen, sondern die Wirkung, die du gemeinsam mit anderen erzielst.\n\nDas wartet auf dich:\n\n• Entwicklungs- und Veränderungsinitiativen von der Analyse über die Konzeption bis zur Umsetzung führen\n\n• Führungskräfte in ihrer Entwicklung – als Coach, Sparringpartner:in und als inspirierende Reisebegleiter:in in unserer Führungsentwicklung begleiten & beraten\n\n• Entwicklungsfelder in Veränderungsvorhaben ganzheitlich erkennen und diese mit wirksamen Massnahmen begleiten\n\n• Veränderungen so gestalten, dass sie bei Mitarbeitenden ankommen und im Alltag spürbar werden\n\n• In einer Organisation mit gesellschaftlicher Bedeutung die Balance zwischen Stabilität und Weiterentwicklung mitgestalten\n\nDas bringst du mit:\n\n• Mehrjährige Erfahrung in Organisations-, Führungsentwicklung oder Veränderungsmanagement sowie Konfliktbearbeitung\n\n• Nachweisbare Erfolge bei der Umsetzung von Veränderungsvorhaben in einem anspruchsvollen Umfeld\n\n• Fähigkeit, Menschen, Teams und Führungskräfte für Veränderungen zu gewinnen und auf einen gemeinsamen Kurs zu bringen\n\n• Gutes Gespür für organisationale Zusammenhänge sowie für die Wirkung von Strukturen, Prozessen und Kultur\n\n• Klare, adressatengerechte Kommunikation sowie die Fähigkeit, auch in anspruchsvollen Situationen Orientierung zu geben\n\n• Eine Aus- und Weiterbildung, die dich für diese Aufgabe befähigt. Entscheidend für uns sind jedoch deine Erfahrung, deine Wirkung und deine Umsetzungsstärke\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "descriptionByLocale": {
+        "de": "Veränderung gelingt nicht mit Folien, sondern mit Menschen. Genau hier setzt du an. Gemeinsam mit deinen Auftraggeber:innen unterstützt du die Bereiche der BLS dabei, sich weiterzuentwickeln und Herausforderungen aktiv anzupacken. Du bringst Themen vom Papier in den Alltag, schaffst Orientierung und begleitest Führungskräfte sowie Teams durch anspruchsvolle Veränderungsprozesse. Dabei erkennst du, wo Entwicklung nötig ist, verbindest unterschiedliche Perspektiven und bringst Bewegung in festgefahrene Themen. Es zählt nicht, wie viele Konzepte entstehen, sondern die Wirkung, die du gemeinsam mit anderen erzielst.\n\nDas wartet auf dich:\n\n• Entwicklungs- und Veränderungsinitiativen von der Analyse über die Konzeption bis zur Umsetzung führen\n\n• Führungskräfte in ihrer Entwicklung – als Coach, Sparringpartner:in und als inspirierende Reisebegleiter:in in unserer Führungsentwicklung begleiten & beraten\n\n• Entwicklungsfelder in Veränderungsvorhaben ganzheitlich erkennen und diese mit wirksamen Massnahmen begleiten\n\n• Veränderungen so gestalten, dass sie bei Mitarbeitenden ankommen und im Alltag spürbar werden\n\n• In einer Organisation mit gesellschaftlicher Bedeutung die Balance zwischen Stabilität und Weiterentwicklung mitgestalten\n\nDas bringst du mit:\n\n• Mehrjährige Erfahrung in Organisations-, Führungsentwicklung oder Veränderungsmanagement sowie Konfliktbearbeitung\n\n• Nachweisbare Erfolge bei der Umsetzung von Veränderungsvorhaben in einem anspruchsvollen Umfeld\n\n• Fähigkeit, Menschen, Teams und Führungskräfte für Veränderungen zu gewinnen und auf einen gemeinsamen Kurs zu bringen\n\n• Gutes Gespür für organisationale Zusammenhänge sowie für die Wirkung von Strukturen, Prozessen und Kultur\n\n• Klare, adressatengerechte Kommunikation sowie die Fähigkeit, auch in anspruchsvollen Situationen Orientierung zu geben\n\n• Eine Aus- und Weiterbildung, die dich für diese Aufgabe befähigt. Entscheidend für uns sind jedoch deine Erfahrung, deine Wirkung und deine Umsetzungsstärke\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "it": "Veränderung gelingt nicht mit Folien, sondern mit Menschen. Genau hier setzt du an. Gemeinsam mit deinen Auftraggeber:innen unterstützt du die Bereiche der BLS dabei, sich weiterzuentwickeln und Herausforderungen aktiv anzupacken. Du bringst Themen vom Papier in den Alltag, schaffst Orientierung und begleitest Führungskräfte sowie Teams durch anspruchsvolle Veränderungsprozesse. Dabei erkennst du, wo Entwicklung nötig ist, verbindest unterschiedliche Perspektiven und bringst Bewegung in festgefahrene Themen. Es zählt nicht, wie viele Konzepte entstehen, sondern die Wirkung, die du gemeinsam mit anderen erzielst.\n\nDas wartet auf dich:\n\n• Entwicklungs- und Veränderungsinitiativen von der Analyse über die Konzeption bis zur Umsetzung führen\n\n• Führungskräfte in ihrer Entwicklung – als Coach, Sparringpartner:in und als inspirierende Reisebegleiter:in in unserer Führungsentwicklung begleiten & beraten\n\n• Entwicklungsfelder in Veränderungsvorhaben ganzheitlich erkennen und diese mit wirksamen Massnahmen begleiten\n\n• Veränderungen so gestalten, dass sie bei Mitarbeitenden ankommen und im Alltag spürbar werden\n\n• In einer Organisation mit gesellschaftlicher Bedeutung die Balance zwischen Stabilität und Weiterentwicklung mitgestalten\n\nDas bringst du mit:\n\n• Mehrjährige Erfahrung in Organisations-, Führungsentwicklung oder Veränderungsmanagement sowie Konfliktbearbeitung\n\n• Nachweisbare Erfolge bei der Umsetzung von Veränderungsvorhaben in einem anspruchsvollen Umfeld\n\n• Fähigkeit, Menschen, Teams und Führungskräfte für Veränderungen zu gewinnen und auf einen gemeinsamen Kurs zu bringen\n\n• Gutes Gespür für organisationale Zusammenhänge sowie für die Wirkung von Strukturen, Prozessen und Kultur\n\n• Klare, adressatengerechte Kommunikation sowie die Fähigkeit, auch in anspruchsvollen Situationen Orientierung zu geben\n\n• Eine Aus- und Weiterbildung, die dich für diese Aufgabe befähigt. Entscheidend für uns sind jedoch deine Erfahrung, deine Wirkung und deine Umsetzungsstärke\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "en": "Veränderung gelingt nicht mit Folien, sondern mit Menschen. Genau hier setzt du an. Gemeinsam mit deinen Auftraggeber:innen unterstützt du die Bereiche der BLS dabei, sich weiterzuentwickeln und Herausforderungen aktiv anzupacken. Du bringst Themen vom Papier in den Alltag, schaffst Orientierung und begleitest Führungskräfte sowie Teams durch anspruchsvolle Veränderungsprozesse. Dabei erkennst du, wo Entwicklung nötig ist, verbindest unterschiedliche Perspektiven und bringst Bewegung in festgefahrene Themen. Es zählt nicht, wie viele Konzepte entstehen, sondern die Wirkung, die du gemeinsam mit anderen erzielst.\n\nDas wartet auf dich:\n\n• Entwicklungs- und Veränderungsinitiativen von der Analyse über die Konzeption bis zur Umsetzung führen\n\n• Führungskräfte in ihrer Entwicklung – als Coach, Sparringpartner:in und als inspirierende Reisebegleiter:in in unserer Führungsentwicklung begleiten & beraten\n\n• Entwicklungsfelder in Veränderungsvorhaben ganzheitlich erkennen und diese mit wirksamen Massnahmen begleiten\n\n• Veränderungen so gestalten, dass sie bei Mitarbeitenden ankommen und im Alltag spürbar werden\n\n• In einer Organisation mit gesellschaftlicher Bedeutung die Balance zwischen Stabilität und Weiterentwicklung mitgestalten\n\nDas bringst du mit:\n\n• Mehrjährige Erfahrung in Organisations-, Führungsentwicklung oder Veränderungsmanagement sowie Konfliktbearbeitung\n\n• Nachweisbare Erfolge bei der Umsetzung von Veränderungsvorhaben in einem anspruchsvollen Umfeld\n\n• Fähigkeit, Menschen, Teams und Führungskräfte für Veränderungen zu gewinnen und auf einen gemeinsamen Kurs zu bringen\n\n• Gutes Gespür für organisationale Zusammenhänge sowie für die Wirkung von Strukturen, Prozessen und Kultur\n\n• Klare, adressatengerechte Kommunikation sowie die Fähigkeit, auch in anspruchsvollen Situationen Orientierung zu geben\n\n• Eine Aus- und Weiterbildung, die dich für diese Aufgabe befähigt. Entscheidend für uns sind jedoch deine Erfahrung, deine Wirkung und deine Umsetzungsstärke\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "fr": "Veränderung gelingt nicht mit Folien, sondern mit Menschen. Genau hier setzt du an. Gemeinsam mit deinen Auftraggeber:innen unterstützt du die Bereiche der BLS dabei, sich weiterzuentwickeln und Herausforderungen aktiv anzupacken. Du bringst Themen vom Papier in den Alltag, schaffst Orientierung und begleitest Führungskräfte sowie Teams durch anspruchsvolle Veränderungsprozesse. Dabei erkennst du, wo Entwicklung nötig ist, verbindest unterschiedliche Perspektiven und bringst Bewegung in festgefahrene Themen. Es zählt nicht, wie viele Konzepte entstehen, sondern die Wirkung, die du gemeinsam mit anderen erzielst.\n\nDas wartet auf dich:\n\n• Entwicklungs- und Veränderungsinitiativen von der Analyse über die Konzeption bis zur Umsetzung führen\n\n• Führungskräfte in ihrer Entwicklung – als Coach, Sparringpartner:in und als inspirierende Reisebegleiter:in in unserer Führungsentwicklung begleiten & beraten\n\n• Entwicklungsfelder in Veränderungsvorhaben ganzheitlich erkennen und diese mit wirksamen Massnahmen begleiten\n\n• Veränderungen so gestalten, dass sie bei Mitarbeitenden ankommen und im Alltag spürbar werden\n\n• In einer Organisation mit gesellschaftlicher Bedeutung die Balance zwischen Stabilität und Weiterentwicklung mitgestalten\n\nDas bringst du mit:\n\n• Mehrjährige Erfahrung in Organisations-, Führungsentwicklung oder Veränderungsmanagement sowie Konfliktbearbeitung\n\n• Nachweisbare Erfolge bei der Umsetzung von Veränderungsvorhaben in einem anspruchsvollen Umfeld\n\n• Fähigkeit, Menschen, Teams und Führungskräfte für Veränderungen zu gewinnen und auf einen gemeinsamen Kurs zu bringen\n\n• Gutes Gespür für organisationale Zusammenhänge sowie für die Wirkung von Strukturen, Prozessen und Kultur\n\n• Klare, adressatengerechte Kommunikation sowie die Fähigkeit, auch in anspruchsvollen Situationen Orientierung zu geben\n\n• Eine Aus- und Weiterbildung, die dich für diese Aufgabe befähigt. Entscheidend für uns sind jedoch deine Erfahrung, deine Wirkung und deine Umsetzungsstärke\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/senior-organisationsentwickler-in/56c78840-393b-442c-8798-035d2e83027e",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-07T01:07:28.708Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3008",
+      "streetAddress": "Freiburgstrasse 130",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-07",
+      "validThrough": "2026-09-05",
+      "pensum": "60-100%",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/56c78840-393b-442c-8798-035d2e83027e",
+      "requirements": [
+        "Mehrjährige Erfahrung in Organisations-, Führungsentwicklung oder Veränderungsmanagement sowie Konfliktbearbeitung",
+        "Nachweisbare Erfolge bei der Umsetzung von Veränderungsvorhaben in einem anspruchsvollen Umfeld",
+        "Fähigkeit, Menschen, Teams und Führungskräfte für Veränderungen zu gewinnen und auf einen gemeinsamen Kurs zu bringen",
+        "Gutes Gespür für organisationale Zusammenhänge sowie für die Wirkung von Strukturen, Prozessen und Kultur",
+        "Klare, adressatengerechte Kommunikation sowie die Fähigkeit, auch in anspruchsvollen Situationen Orientierung zu geben",
+        "Eine Aus- und Weiterbildung, die dich für diese Aufgabe befähigt. Entscheidend für uns sind jedoch deine Erfahrung, deine Wirkung und deine Umsetzungsstärke"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Mehrjährige Erfahrung in Organisations-, Führungsentwicklung oder Veränderungsmanagement sowie Konfliktbearbeitung",
+          "Nachweisbare Erfolge bei der Umsetzung von Veränderungsvorhaben in einem anspruchsvollen Umfeld",
+          "Fähigkeit, Menschen, Teams und Führungskräfte für Veränderungen zu gewinnen und auf einen gemeinsamen Kurs zu bringen",
+          "Gutes Gespür für organisationale Zusammenhänge sowie für die Wirkung von Strukturen, Prozessen und Kultur",
+          "Klare, adressatengerechte Kommunikation sowie die Fähigkeit, auch in anspruchsvollen Situationen Orientierung zu geben",
+          "Eine Aus- und Weiterbildung, die dich für diese Aufgabe befähigt. Entscheidend für uns sind jedoch deine Erfahrung, deine Wirkung und deine Umsetzungsstärke"
+        ]
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-organisationsentwickler-in-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-organisationsentwickler-in-bls-ch"
+      ],
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-08-07T01:07:28.708Z"
+    },
+    {
+      "id": "bls-15bf19ec1942",
+      "slug": "team-leader-in-tunneltechnik-lotschberg-base-tunnel-lbt-bls-ag-bern",
+      "slugByLocale": {
+        "it": "team-leader-in-tunneltechnik-lotschberg-base-tunnel-lbt-bls-ag-bern",
+        "en": "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch",
+        "de": "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch",
+        "fr": "chef-d-equipe-tunneltechnik-lotschberg-tunnel-de-base-lbt-bls-ag-bern"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Teamleiter:in Tunneltechnik Lötschberg-Basistunnel (LBT)",
+      "titleByLocale": {
+        "it": "Team Leader: in Tunneltechnik Lötschberg Base Tunnel (LBT)",
+        "en": "Team Leader: in Tunneltechnik Lötschberg Base Tunnel (LBT)",
+        "de": "Teamleiter:in Tunneltechnik Lötschberg-Basistunnel (LBT)",
+        "fr": "Chef d'équipe: Tunneltechnik Lötschberg Tunnel de base (LBT)"
+      },
+      "description": "Herr Berner ist mit seiner Familie im Nu auf der Moosalp, und Frau Walliser erreicht ihren Arbeitsplatz in Bern in gut einer Stunde. Wie viele andere profitieren sie täglich vom Lötschberg-Basistunnel und damit indirekt von deiner Arbeit. Gemeinsam mit deinem Team sorgst du mit modernen Technologien und einer professionellen Instandhaltung dafür, dass sich der Tunnel jederzeit in einem erstklassigen Zustand befindet. So erreichen unsere Kundinnen und Kunden ihr Ziel sicher, zuverlässig und pünktlich.\n\nDas wartet auf dich:\n\n• Personelle sowie fachliche Führung und Entwicklung von rund 9 Mitarbeitenden\n\n• Sicherstellung der Betriebsbereitschaft technischer Anlagen\n\n• Budget- und Kostenkontrolle im Verantwortungsbereich\n\n• Zusammenarbeit mit internen und externen Anspruchsgruppen\n\n• Koordination von Störungen und technischen Einsätzen\n\n• Mitarbeit in Teilprojekten\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Elektroinstallateur:in EFZ oder eine vergleichbare technische Grundausbildung, vorzugsweise im Bereich Gebäudetechnik\n\n• Mehrjährige Berufserfahrung in der Gebäudetechnik\n\n• Fundierte Kenntnisse von technischen Anlagen und Systemen\n\n• Erfahrung im Projektmanagement, idealerweise ergänzt durch Führungserfahrung\n\n• Gute IT-Kentnisse\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "descriptionByLocale": {
+        "it": "Il signor Berner è sul Moosalp con la sua famiglia in poco tempo, e la signora Walliser raggiunge il suo lavoro a Berna in poco più di un'ora. Come molti altri, beneficiano quotidianamente del tunnel di base di Lötschberg e quindi indirettamente dal vostro lavoro. Insieme al vostro team, userete le moderne tecnologie e la manutenzione professionale per garantire che il tunnel sia in condizioni di prima classe in ogni momento. In questo modo, i nostri clienti raggiungono la loro destinazione in modo sicuro, affidabile e puntuale.\n\nTi aspetta:\n\n• Gestione e sviluppo del personale e professionale di circa 9 dipendenti\n\n• Garantire la disponibilità operativa di attrezzature tecniche\n\n• Bilancio e controllo dei costi nel settore della responsabilità\n\n• Cooperazione con gli stakeholder interni ed esterni\n\n• Coordinamento delle interruzioni e delle operazioni tecniche\n\n• Partecipazione ai sottoprogetti\n\nQuesto è ciò che portate con voi:\n\n• Formazione completa come installatore elettrico: in EFZ o formazione tecnica di base comparabile, preferibilmente nel campo della tecnologia costruttiva\n\n• Diversi anni di esperienza professionale nella tecnologia dell'edilizia\n\n• Conoscenza delle installazioni e dei sistemi tecnici\n\n• Esperienza nella gestione del progetto, idealmente integrata da esperienza di leadership\n\n• Buona conoscenza IT\n\nI vostri vantaggi – si può aspettare a:\n\n• Prendi una seconda classe GA, una prima classe GA. Abbonamento di classe o di mezza quota.\n\n• Lavora dove ti si addice meglio. Sia in ufficio o in ufficio.\n\n• Condividi il tuo tempo di lavoro liberamente. Promuoviamo il lavoro part-time, il top e la condivisione del lavoro\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno\n\n• Sono a vostra disposizione un sostegno finanziario per l'ulteriore istruzione esterna e un'emozionante offerta di apprendimento interno e corsi.\n\n• Con eventi stagionali e corsi sosteniamo la vostra salute.\n\nInformazioni sulla BLS\n\nCon quasi 4.000 dipendenti, BLS è la seconda più grande compagnia ferroviaria in Svizzera. Inoltre, siamo anche una compagnia di navigazione, un'azienda immobiliare, una ferrovia di trasporto internazionale, una compagnia di autobus e auto di trasporto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci collega? Forte di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
+        "en": "Mr. Berner is on the Moosalp with his family in no time, and Mrs. Walliser reaches her job in Bern in just over an hour. Like many others, they benefit daily from the Lötschberg Base Tunnel and thus indirectly from your work. Together with your team, you will use modern technologies and professional maintenance to ensure that the tunnel is in first-class condition at all times. In this way, our customers reach their destination safely, reliably and on time.\n\nThis is waiting for you:\n\n• Personnel and professional management and development of around 9 employees\n\n• Ensuring the operational readiness of technical equipment\n\n• Budget and cost control in the area of responsibility\n\n• Cooperation with internal and external stakeholders\n\n• Coordination of disruptions and technical operations\n\n• Participation in subprojects\n\nThis is what you bring with you:\n\n• Completed training as an electrical installer: in EFZ or comparable basic technical training, preferably in the field of building technology\n\n• Several years of professional experience in building technology\n\n• Sound knowledge of technical installations and systems\n\n• Experience in project management, ideally complemented by leadership experience\n\n• Good IT knowledge\n\nYour advantages – you can look forward to:\n\n• Get a GA 2nd class, a GA 1st class. Class or a half-tax subscription.\n\n• Work where it suits you best. Whether in the home office or in the office.\n\n• Share your working time freely. We promote part-time work, top and job sharing\n\n• It is possible to buy an additional five to ten holiday days per year\n\n• Financial support for external further education as well as an exciting internal learning and course offer are at your disposal.\n\n• With seasonal events and courses we support your health.\n\nAbout the BLS\n\nWith almost 4,000 employees, BLS is the second largest railway company in Switzerland. Moreover, we are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What connects us? Proud of what we do every day. Mobility has many facets for us. And lots of exciting jobs.",
+        "de": "Herr Berner ist mit seiner Familie im Nu auf der Moosalp, und Frau Walliser erreicht ihren Arbeitsplatz in Bern in gut einer Stunde. Wie viele andere profitieren sie täglich vom Lötschberg-Basistunnel und damit indirekt von deiner Arbeit. Gemeinsam mit deinem Team sorgst du mit modernen Technologien und einer professionellen Instandhaltung dafür, dass sich der Tunnel jederzeit in einem erstklassigen Zustand befindet. So erreichen unsere Kundinnen und Kunden ihr Ziel sicher, zuverlässig und pünktlich.\n\nDas wartet auf dich:\n\n• Personelle sowie fachliche Führung und Entwicklung von rund 9 Mitarbeitenden\n\n• Sicherstellung der Betriebsbereitschaft technischer Anlagen\n\n• Budget- und Kostenkontrolle im Verantwortungsbereich\n\n• Zusammenarbeit mit internen und externen Anspruchsgruppen\n\n• Koordination von Störungen und technischen Einsätzen\n\n• Mitarbeit in Teilprojekten\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Elektroinstallateur:in EFZ oder eine vergleichbare technische Grundausbildung, vorzugsweise im Bereich Gebäudetechnik\n\n• Mehrjährige Berufserfahrung in der Gebäudetechnik\n\n• Fundierte Kenntnisse von technischen Anlagen und Systemen\n\n• Erfahrung im Projektmanagement, idealerweise ergänzt durch Führungserfahrung\n\n• Gute IT-Kentnisse\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "fr": "M. Berner est sur le Moosalp avec sa famille en un rien de temps, et Mme Walliser atteint son emploi à Berne en un peu plus d'une heure. Comme beaucoup d'autres, ils bénéficient quotidiennement du tunnel de base de Lötschberg et donc indirectement de votre travail. Avec votre équipe, vous utiliserez les technologies modernes et l'entretien professionnel pour vous assurer que le tunnel est toujours en état de première classe. De cette façon, nos clients atteignent leur destination en toute sécurité, de manière fiable et à temps.\n\nCeci vous attend :\n\n• Personnel et gestion professionnelle et perfectionnement d'environ 9 employés\n\n• Assurer la disponibilité opérationnelle du matériel technique\n\n• Budget et contrôle des coûts dans le domaine de responsabilité\n\n• Coopération avec les parties prenantes internes et externes\n\n• Coordination des perturbations et des opérations techniques\n\n• Participation aux sous-projets\n\nC'est ce que vous apportez avec vous :\n\n• Formation complète en tant qu'installateur électrique: en EFZ ou formation technique de base comparable, de préférence dans le domaine de la technologie du bâtiment\n\n• Plusieurs années d'expérience professionnelle dans la technologie du bâtiment\n\n• Bonne connaissance des installations et systèmes techniques\n\n• Expérience en gestion de projet, idéalement complétée par une expérience en leadership\n\n• Bonnes connaissances en TI\n\nVos avantages – vous pouvez vous attendre à:\n\n• Obtenez un GA 2ème classe, un GA 1ère classe. Classe ou demi-abonnement.\n\n• Travaillez là où ça vous convient le mieux. Que ce soit au bureau à domicile ou au bureau.\n\n• Partagez votre temps de travail librement. Nous encourageons le travail à temps partiel, le top et le partage de l'emploi\n\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an\n\n• Un soutien financier pour la formation continue externe ainsi qu'un apprentissage interne passionnant et une offre de cours sont à votre disposition.\n\n• Avec des événements saisonniers et des cours, nous soutenons votre santé.\n\nÀ propos du BLS\n\nAvec près de 4 000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? Fier de ce qu'on fait tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-tunneltechnik-loetschberg-basistunnel-lbt/87090c34-c9fd-4541-a605-c35c2780277d",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-07T01:07:27.982Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3001",
+      "streetAddress": "Freiburgstrasse 130",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-19",
+      "validThrough": "2026-08-18",
+      "pensum": "50-100%",
+      "salary": "113925",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/87090c34-c9fd-4541-a605-c35c2780277d",
+      "requirements": [
+        "Abgeschlossene Ausbildung als Elektroinstallateur:in EFZ oder eine vergleichbare technische Grundausbildung, vorzugsweise im Bereich Gebäudetechnik",
+        "Mehrjährige Berufserfahrung in der Gebäudetechnik",
+        "Fundierte Kenntnisse von technischen Anlagen und Systemen",
+        "Erfahrung im Projektmanagement, idealerweise ergänzt durch Führungserfahrung",
+        "Gute IT-Kentnisse"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Mehrjährige Berufserfahrung in der Gebäudetechnik",
+          "Fundierte Kenntnisse von technischen Anlagen und Systemen",
+          "Erfahrung im Projektmanagement, idealerweise ergänzt durch Führungserfahrung",
+          "Gute IT-Kentnisse"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch",
+        "team-leader-in-tunneltechnik-lotschberg-base-tunnel-lbt-bls-ag-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch",
+          "team-leader-in-tunneltechnik-lotschberg-base-tunnel-lbt-bls-ag-bern"
+        ],
+        "fr": [
+          "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-20T12:20:28.123Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE"
+    },
+    {
+      "id": "bls-5128aee955ab",
+      "slug": "kaltesystemtechniker-in-luftung-e-klima-bls-ag-bern",
+      "slugByLocale": {
+        "it": "kaltesystemtechniker-in-luftung-e-klima-bls-ag-bern",
+        "en": "refrigeration-system-technician-in-ventilation-and-air-conditioning-bls-ag-bern",
+        "de": "kaltesystemtechniker-in-luftung-und-klima-bls-ch",
+        "fr": "technicien-du-systeme-de-refrigeration-en-ventilation-et-climatisation-bls-ag-bern"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Kältesystemtechniker: in Lüftung und Klima",
+      "titleByLocale": {
+        "it": "Kältesystemtechniker: in Lüftung e Klima",
+        "en": "Refrigeration system technician: in ventilation and air conditioning",
+        "de": "Kältesystemtechniker: in Lüftung und Klima",
+        "fr": "Technicien du système de réfrigération: en ventilation et climatisation"
+      },
+      "description": "Die Gebäudelüftungsanlagen unseres Lötschberg-Basistunnels und dem Streckennetz der BLS Netz AG sind wichtige Mosaiksteine im eng verzahnten Räderwerk der BLS. Mit deinem Wissen und Können sorgst du für einwandfrei funktionierende Anlagen und ermöglichst dadurch unseren Kund:innen ein optimales Reiseerlebnis.\n\nDas wartet auf dich:\n\n• Ausführung der Instandhaltung für die Gebäudelüftungsanlagen auf dem Streckennetz der BLS Netz AG und dem Lötschberg-Basistunnel (LBT)\n\n• Neu- und Umbauarbeiten an Gebäudelüftungsanlagen\n\n• Selbständige Behebung von Störungen (2nd-Level) sowie nachhaltige Fehleranalyse und -behebung\n\n• Mitarbeit an Optimierungen und Weiterentwicklungen bestehender Anlagen zur Effizienz- und Qualitätssteigerung\n\n• Aktive Mitgestaltung eines sicheren und reibungslosen Bahnbetriebs\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Kältesystem-Monteur:in oder Elektroinstallateur:in EFZ oder eine äquivalente Ausbildung mit nachgewiesener Erfahrung in diesem Bereich\n\n• Kenntnisse im Umgang mit Wasser-, Luft- und Kälteanlagen\n\n• Sicherer Umgang mit brennbaren Kältemitteln gemäss EKAS 6517\n\n• Elektro-Anschlussbewilligung NIV Art. 15\n\n• Führerausweis der Kategorie B/BE\n\n• Gute IT-Anwenderkenntnisse zur Unterstützung bei Fehleranalysen und Dokumentation\n\n• Bereitschaft zu Nachteinsätzen (ca. 15–20 Schichten pro Jahr)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "descriptionByLocale": {
+        "it": "I sistemi di ventilazione degli edifici del nostro tunnel di base Lötschberg e la rete di rotta di BLS Netz AG sono importanti pietre a mosaico nelle ruote strettamente collegate di BLS. Con le vostre conoscenze e competenze, assicuratevi che i sistemi funzionino correttamente e quindi consentire ai nostri clienti di godere di un'esperienza di viaggio ottimale.\n\nTi aspetta:\n\n• Attuazione della manutenzione per i sistemi di ventilazione degli edifici sulla rete stradale di BLS Netz AG e la galleria di base Lötschberg (LBT)\n\n• Lavori di costruzione e conversione per sistemi di ventilazione edilizio\n\n• Risoluzione dei problemi indipendente (2 ° livello) e analisi e correzione degli errori sostenuti\n\n• Cooperazione nell'ottimizzazione e sviluppo degli impianti esistenti per aumentare l'efficienza e la qualità\n\n• Co-creazione attiva di operazioni ferroviarie sicure e lisce\n\nQuesto è ciò che portate con voi:\n\n• Formazione completa come installatore del sistema di refrigerazione:in o installatore elettrico:in EGZ o formazione equivalente con esperienza comprovata in questo campo\n\n• Conoscenza delle attrezzature acqua, aria e refrigerazione\n\n• Gestione sicura dei refrigeranti combustibile secondo EKAS 6517\n\n• Permesso di collegamento elettrico NIV Art. 15\n\n• Categoria B/BE patente di guida\n\n• Buona conoscenza degli utenti IT per supportare l'analisi degli errori e la documentazione\n\n• Prontezza per incarichi notturni (circa 15-20 turni all'anno)\n\nI vostri vantaggi – si può aspettare a:\n\n• Promuoviamo la pianificazione più flessibile dei vostri tour e turni possibili\n\n• Prendi una seconda classe GA, una prima classe GA. Abbonamento di classe o di mezza quota.\n\n• Hai tempo libero quando gli altri lavorano. Per i penny di notte e nei fine settimana ci sono supplementi.\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno.\n\n• Sono a vostra disposizione un sostegno finanziario per l'ulteriore istruzione esterna e un'emozionante offerta di apprendimento interno e corsi.\n\n• Con eventi stagionali e corsi sosteniamo la vostra salute\n\nInformazioni sulla BLS\n\nCon quasi 4.000 dipendenti, BLS è la seconda più grande compagnia ferroviaria in Svizzera. Inoltre, siamo anche una compagnia di navigazione, un'azienda immobiliare, una ferrovia di trasporto internazionale, una compagnia di autobus e auto di trasporto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci collega? Forte di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
+        "en": "The building ventilation systems of our Lötschberg Base Tunnel and the route network of BLS Netz AG are important mosaic stones in the closely interlinked wheels of BLS. With your knowledge and skills, you ensure that systems function properly and thus enable our customers to enjoy an optimal travel experience.\n\nThis is waiting for you:\n\n• Implementation of maintenance for the building ventilation systems on the route network of BLS Netz AG and the Lötschberg Base Tunnel (LBT)\n\n• Construction and conversion work for building ventilation systems\n\n• Independent troubleshooting (2nd level) and sustained error analysis and correction\n\n• Cooperation in optimizations and further developments of existing plants to increase efficiency and quality\n\n• Active co-creation of safe and smooth railway operations\n\nThis is what you bring with you:\n\n• Completed training as refrigeration system installer:in or electrical installer:in EGZ or equivalent training with proven experience in this field\n\n• Knowledge of water, air and refrigeration equipment\n\n• Safe handling of combustible refrigerants according to EKAS 6517\n\n• Electrical connection permit NIV Art. 15\n\n• Category B/BE driving licence\n\n• Good IT user knowledge to support error analysis and documentation\n\n• Readiness for night assignments (about 15–20 shifts per year)\n\nYour advantages – you can look forward to:\n\n• We promote the most flexible planning of your tours and shifts possible\n\n• Get a GA 2nd class, a GA 1st class. Class or a half-tax subscription.\n\n• You have free time when others work. For pennies at night and on weekends there are surcharges.\n\n• It is possible to buy an additional five to ten holiday days per year.\n\n• Financial support for external further education and an exciting internal learning and course offer are at your disposal.\n\n• With seasonal events and courses we support your health\n\nAbout the BLS\n\nWith almost 4,000 employees, BLS is the second largest railway company in Switzerland. Moreover, we are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What connects us? Proud of what we do every day. Mobility has many facets for us. And lots of exciting jobs.",
+        "de": "Die Gebäudelüftungsanlagen unseres Lötschberg-Basistunnels und dem Streckennetz der BLS Netz AG sind wichtige Mosaiksteine im eng verzahnten Räderwerk der BLS. Mit deinem Wissen und Können sorgst du für einwandfrei funktionierende Anlagen und ermöglichst dadurch unseren Kund:innen ein optimales Reiseerlebnis.\n\nDas wartet auf dich:\n\n• Ausführung der Instandhaltung für die Gebäudelüftungsanlagen auf dem Streckennetz der BLS Netz AG und dem Lötschberg-Basistunnel (LBT)\n\n• Neu- und Umbauarbeiten an Gebäudelüftungsanlagen\n\n• Selbständige Behebung von Störungen (2nd-Level) sowie nachhaltige Fehleranalyse und -behebung\n\n• Mitarbeit an Optimierungen und Weiterentwicklungen bestehender Anlagen zur Effizienz- und Qualitätssteigerung\n\n• Aktive Mitgestaltung eines sicheren und reibungslosen Bahnbetriebs\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Kältesystem-Monteur:in oder Elektroinstallateur:in EFZ oder eine äquivalente Ausbildung mit nachgewiesener Erfahrung in diesem Bereich\n\n• Kenntnisse im Umgang mit Wasser-, Luft- und Kälteanlagen\n\n• Sicherer Umgang mit brennbaren Kältemitteln gemäss EKAS 6517\n\n• Elektro-Anschlussbewilligung NIV Art. 15\n\n• Führerausweis der Kategorie B/BE\n\n• Gute IT-Anwenderkenntnisse zur Unterstützung bei Fehleranalysen und Dokumentation\n\n• Bereitschaft zu Nachteinsätzen (ca. 15–20 Schichten pro Jahr)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "fr": "Les systèmes de ventilation du bâtiment de notre Tunnel de base de Lötschberg et le réseau d'itinéraire de BLS Netz AG sont des pierres de mosaïque importantes dans les roues étroitement liées de BLS. Grâce à vos connaissances et compétences, vous veillez à ce que les systèmes fonctionnent correctement et permettent à nos clients de profiter d'une expérience de voyage optimale.\n\nCeci vous attend :\n\n• Mise en œuvre de l'entretien des systèmes de ventilation des bâtiments sur le réseau routier de BLS Netz AG et du tunnel de base de Lötschberg (LBT)\n\n• Travaux de construction et de conversion de systèmes de ventilation des bâtiments\n\n• Dépannage indépendant (2e niveau) et analyse et correction d'erreurs soutenues\n\n• Coopération en matière d ' optimisation et de développement des installations existantes pour accroître l ' efficacité et la qualité\n\n• Co-création active d'une exploitation ferroviaire sûre et sans heurt\n\nC'est ce que vous apportez avec vous :\n\n• Formation terminée en tant qu'installateur de systèmes de réfrigération:dans ou en tant qu'installateur électrique:dans EGZ ou formation équivalente ayant une expérience avérée dans ce domaine\n\n• Connaissance de l'eau, de l'air et du matériel de réfrigération\n\n• Manipulation sûre des réfrigérants combustibles selon EKAS 6517\n\n• Permis de raccordement électrique NIV Art. 15\n\n• Permis de conduire de catégorie B/BE\n\n• Bonne connaissance de l'utilisateur de TI pour soutenir l'analyse et la documentation des erreurs\n\n• Préparation aux affectations de nuit (environ 15 à 20 équipes par an)\n\nVos avantages – vous pouvez vous attendre à:\n\n• Nous favorisons la planification la plus flexible possible de vos visites et de vos déplacements\n\n• Obtenez un GA 2ème classe, un GA 1ère classe. Classe ou demi-abonnement.\n\n• Vous avez du temps libre quand les autres travaillent. Pour les centimes la nuit et le week-end il y a des suppléments.\n\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an.\n\n• Un soutien financier pour une formation complémentaire externe et une offre de cours et d'apprentissage interne passionnants sont à votre disposition.\n\n• Avec des événements saisonniers et des cours, nous soutenons votre santé\n\nÀ propos du BLS\n\nAvec près de 4 000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? Fier de ce qu'on fait tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/kaeltesystemtechniker-in-lueftung-und-klima/2a7b3bed-4367-4ac7-b091-f2a5cbb4e352",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-07T01:07:27.238Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3001",
+      "streetAddress": "Freiburgstrasse 130",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-15",
+      "validThrough": "2026-08-14",
+      "pensum": "50-100%",
+      "salary": "98179",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/2a7b3bed-4367-4ac7-b091-f2a5cbb4e352",
+      "requirements": [
+        "Abgeschlossene Ausbildung als Kältesystem-Monteur:in oder Elektroinstallateur:in EFZ oder eine äquivalente Ausbildung mit nachgewiesener Erfahrung in diesem Bereich",
+        "Kenntnisse im Umgang mit Wasser-, Luft- und Kälteanlagen",
+        "Sicherer Umgang mit brennbaren Kältemitteln gemäss EKAS 6517",
+        "Elektro-Anschlussbewilligung NIV Art. 15",
+        "Führerausweis der Kategorie B/BE",
+        "Gute IT-Anwenderkenntnisse zur Unterstützung bei Fehleranalysen und Dokumentation",
+        "Bereitschaft zu Nachteinsätzen (ca. 15–20 Schichten pro Jahr)"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Kenntnisse im Umgang mit Wasser-, Luft- und Kälteanlagen",
+          "Sicherer Umgang mit brennbaren Kältemitteln gemäss EKAS 6517",
+          "Elektro-Anschlussbewilligung NIV Art. 15",
+          "Führerausweis der Kategorie B/BE",
+          "Gute IT-Anwenderkenntnisse zur Unterstützung bei Fehleranalysen und Dokumentation",
+          "Bereitschaft zu Nachteinsätzen (ca. 15–20 Schichten pro Jahr)"
+        ]
+      },
+      "previousSlugs": [
+        "kaltesystemtechniker-in-luftung-und-klima-bls-ch",
+        "refrigeration-system-technician-in-ventilation-and-air-conditioning-bls-ag-bern",
+        "techniciens-en-systemes-de-refrigeration-en-ventilation-et-climatisation-bls-ag-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kaltesystemtechniker-in-luftung-und-klima-bls-ch",
+          "refrigeration-system-technician-in-ventilation-and-air-conditioning-bls-ag-bern",
+          "techniciens-en-systemes-de-refrigeration-en-ventilation-et-climatisation-bls-ag-bern"
+        ],
+        "en": [
+          "kaltesystemtechniker-in-luftung-und-klima-bls-ch"
+        ],
+        "fr": [
+          "techniciens-en-systemes-de-refrigeration-en-ventilation-et-climatisation-bls-ag-bern",
+          "kaltesystemtechniker-in-luftung-und-klima-bls-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-19T11:47:54.009Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE"
+    },
+    {
+      "id": "bls-cfb4d105162d",
+      "slug": "responsabile-della-costruzione-nella-costruzione-ferroviaria-bls-ag-bern",
+      "slugByLocale": {
+        "it": "responsabile-della-costruzione-nella-costruzione-ferroviaria-bls-ag-bern",
+        "en": "construction-manager-in-railway-construction-bls-ag-bern",
+        "de": "baufuhrer-in-bahnbau-bls-ch",
+        "fr": "directeur-de-la-construction-dans-la-construction-ferroviaire-bls-ag-bern"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Bauführer:in Bahnbau",
+      "titleByLocale": {
+        "it": "Responsabile della costruzione: nella costruzione ferroviaria",
+        "en": "Construction manager: in railway construction",
+        "de": "Bauführer:in Bahnbau",
+        "fr": "Directeur de la construction: dans la construction ferroviaire"
+      },
+      "description": "Wenn nachts die letzten Züge durchs Berner Oberland rollen, läuft deine Arbeit oft erst richtig an. Mit Übersicht, technischem Gespür und einem starken Team realisierst du komplexe Bauprojekte und erneuerst die Fahrbahn dort, wo täglich tausende Menschen unterwegs sind. So bleibt die BLS zuverlässig in der Spur – heute und morgen.\n\nDas wartet auf dich:\n\n• Führst komplexe Bauprojekte mit Schwerpunkt Fahrbahn durch und wirkst bei der Planung der Ausführung mit\n\n• Gemeinsam mit Fachbereichen die Bahntechnik aufeinander abstimmen\n\n• Verantwortung für Kosten, Qualität und Termine im Bahnbau übernehmen\n\n• Personal, Maschinen und Intervalle vorausschauend und effizient planen\n\n• Sicherheit auf Baustellen aktiv prägen und Standards konsequent umsetzen\n\nDas bringst du mit:\n\n• Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation\n\n• Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen\n\n• Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren\n\n• Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich\n\n• Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "descriptionByLocale": {
+        "it": "Quando gli ultimi treni rotolano attraverso l'Oberland Bernese di notte, il vostro lavoro inizia spesso correttamente. Con una panoramica, un tocco tecnico e un team forte, realizzerai progetti di costruzione complessi e rinnovi la strada dove migliaia di persone viaggiano ogni giorno. Così il BLS rimane affidabile in pista – oggi e domani.\n\nTi aspetta:\n\n• Realizza complessi progetti di costruzione con un focus sulla strada e contribuisce alla pianificazione dell'esecuzione\n\n• Insieme a aree specializzate, coordinare la tecnologia ferroviaria\n\n• Assumendo responsabilità per costi, qualità e scadenze nella costruzione ferroviaria\n\n• Progettazione del personale, delle macchine e degli intervalli prevedibilmente ed efficiente\n\n• Formare attivamente la sicurezza sui cantieri e implementare costantemente gli standard\n\nQuesto è ciò che portate con voi:\n\n• Ulteriori corsi di formazione come direttore di costruzione:in, tecnico:in HF o qualifica equivalente\n\n• Utilizzare conoscenze di base su strade, automazione o energia in particolare\n\n• Coordinare in modo sicuro diversi stakeholder con una chiara presenza\n\n• Confidentemente comunicare in tedesco – verbalmente e per iscritto\n\n• Sii flessibile lungo le linee BLS con patente di guida di categoria B\n\nI vostri vantaggi – si può aspettare a:\n\n• Prendi una seconda classe di GA, una di prima classe. Abbonamento di classe o di mezza quota.\n\n• Lavora dove ti sta meglio. Sia in ufficio o in ufficio.\n\n• Condividi il tuo tempo di lavoro liberamente. Promuoviamo il lavoro part-time, il top e la condivisione del lavoro\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno\n\n• Sono a vostra disposizione un sostegno finanziario per l'ulteriore istruzione esterna e un'emozionante offerta di apprendimento interno e corsi.\n\n• Con eventi stagionali e corsi sosteniamo la vostra salute.\n\nInformazioni sulla BLS\n\nCon quasi 4.000 dipendenti, BLS è la seconda compagnia ferroviaria più grande della Svizzera. Inoltre, siamo anche una compagnia di navigazione, un'azienda immobiliare, una ferrovia di trasporto internazionale, una compagnia di autobus e auto di trasporto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci collega? L'orgoglio di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E un sacco di lavori interessanti.",
+        "en": "When the last trains roll through the Bernese Oberland at night, your work often starts properly. With an overview, technical flair and a strong team, you will realize complex construction projects and renew the road where thousands of people travel every day. So the BLS remains reliably on track – today and tomorrow.\n\nThis is waiting for you:\n\n• Carries out complex construction projects with a focus on the roadway and contributes to the planning of the execution\n\n• Together with specialist areas, coordinate railway technology\n\n• Assuming responsibility for costs, quality and deadlines in railway construction\n\n• Planning personnel, machines and intervals predictively and efficiently\n\n• Actively shape safety on construction sites and consistently implement standards\n\nThis is what you bring with you:\n\n• Further training as a construction manager:in, technician:in HF or equivalent qualification\n\n• Use basic knowledge in roadways, automation or energy specifically\n\n• Safely coordinate different stakeholders with a clear presence\n\n• Confidently communicate in German – verbally and in writing\n\n• Be flexible along BLS lines with category B driving licence\n\nYour advantages – you can look forward to:\n\n• Get a GA 2nd class, a GA 1st. Class or a half-tax subscription.\n\n• Work where it suits you best. Whether in the home office or in the office.\n\n• Share your working time freely. We promote part-time work, top and job sharing\n\n• It is possible to buy an additional five to ten holiday days per year\n\n• Financial support for external further education as well as an exciting internal learning and course offer are at your disposal.\n\n• With seasonal events and courses we support your health.\n\nAbout the BLS\n\nWith almost 4,000 employees, BLS is the second largest railway company in Switzerland. Moreover, we are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What connects us? The pride of what we do every day. Mobility has many facets for us. And lots of exciting jobs.",
+        "de": "Wenn nachts die letzten Züge durchs Berner Oberland rollen, läuft deine Arbeit oft erst richtig an. Mit Übersicht, technischem Gespür und einem starken Team realisierst du komplexe Bauprojekte und erneuerst die Fahrbahn dort, wo täglich tausende Menschen unterwegs sind. So bleibt die BLS zuverlässig in der Spur – heute und morgen.\n\nDas wartet auf dich:\n\n• Führst komplexe Bauprojekte mit Schwerpunkt Fahrbahn durch und wirkst bei der Planung der Ausführung mit\n\n• Gemeinsam mit Fachbereichen die Bahntechnik aufeinander abstimmen\n\n• Verantwortung für Kosten, Qualität und Termine im Bahnbau übernehmen\n\n• Personal, Maschinen und Intervalle vorausschauend und effizient planen\n\n• Sicherheit auf Baustellen aktiv prägen und Standards konsequent umsetzen\n\nDas bringst du mit:\n\n• Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation\n\n• Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen\n\n• Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren\n\n• Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich\n\n• Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "fr": "Lorsque les derniers trains traversent l'Oberland bernois la nuit, votre travail commence souvent correctement. Avec un aperçu, un style technique et une équipe forte, vous réaliserez des projets de construction complexes et renouvelerez la route où des milliers de personnes voyagent chaque jour. Le BLS reste donc sur la bonne voie – aujourd'hui et demain.\n\nCeci vous attend :\n\n• Réalisation de projets de construction complexes avec un accent sur la route et contribue à la planification de l'exécution\n\n• Avec des domaines spécialisés, coordonner la technologie ferroviaire\n\n• Responsable des coûts, de la qualité et des délais dans la construction ferroviaire\n\n• Personnel de planification, machines et intervalles prédictivement et efficacement\n\n• Former activement la sécurité sur les chantiers de construction et mettre en œuvre les normes\n\nVoici ce que vous apportez avec vous :\n\n• Formation continue en tant que responsable de la construction:in, technicien:in HF ou qualification équivalente\n\n• Utiliser les connaissances de base dans les routes, l'automatisation ou l'énergie spécifiquement\n\n• Coordonner en toute sécurité les différentes parties prenantes avec une présence claire\n\n• Communiquer avec confiance en allemand – verbalement et par écrit\n\n• Être flexible sur les lignes BLS avec permis de conduire de catégorie B\n\nVos avantages – vous pouvez attendre avec impatience:\n\n• Obtenez un GA 2ème classe, un GA 1ère. Classe ou abonnement à moitié taxe.\n\n• Travaillez là où ça vous convient le mieux. Que ce soit au bureau à domicile ou au bureau.\n\n• Partagez votre temps de travail librement. Nous encourageons le travail à temps partiel, le top et le partage de l'emploi\n\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an\n\n• Un soutien financier pour la formation continue externe ainsi qu'un apprentissage interne passionnant et une offre de cours sont à votre disposition.\n\n• Avec des événements saisonniers et des cours, nous soutenons votre santé.\n\nA propos du BLS\n\nAvec près de 4 000 employés, BLS est la deuxième entreprise ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? La fierté de ce que nous faisons tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/baufuehrer-in-bahnbau/adcb2459-2080-47bc-964b-82d7764e2de5",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-07T01:07:26.492Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3001",
+      "streetAddress": "Freiburgstrasse 130",
+      "category": "Risorse Umane",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-20",
+      "validThrough": "2026-08-19",
+      "pensum": "50-100%",
+      "salary": "109546",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/adcb2459-2080-47bc-964b-82d7764e2de5",
+      "requirements": [
+        "Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation",
+        "Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen",
+        "Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren",
+        "Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich",
+        "Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation",
+          "Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen",
+          "Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren",
+          "Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich",
+          "Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein"
+        ]
+      },
+      "previousSlugs": [
+        "baufuhrer-in-bahnbau-bls-ch",
+        "responsabile-della-costruzione-nella-costruzione-ferroviaria-bls-ag-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "baufuhrer-in-bahnbau-bls-ch",
+          "responsabile-della-costruzione-nella-costruzione-ferroviaria-bls-ag-bern"
+        ],
+        "en": [
+          "baufuhrer-in-bahnbau-bls-ch"
+        ],
+        "fr": [
+          "baufuhrer-in-bahnbau-bls-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-21T11:35:29.865Z",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE"
+    },
+    {
+      "id": "bls-772b4cce0ae1",
+      "slug": "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
+      "slugByLocale": {
+        "it": "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
+        "en": "electrical-installer-in-installer-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
+        "de": "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
+        "fr": "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Elektroinstallateur:in / Monteur:in Signaltechnik",
+      "titleByLocale": {
+        "it": "Installatore/trice elettrico/a:in / Monteur:in Signaltechnik",
+        "en": "Electrical installer:in / Installer:in Signaltechnik",
+        "de": "Elektroinstallateur:in / Monteur:in Signaltechnik",
+        "fr": "Installateur électrique:in / Installateur:in Signaltechnik"
+      },
+      "description": "Die Technologie im Bahnverkehr wandelt sich rasant. Neue Systeme und Sicherungsanlagen machen das Zugfahren trotz dichter Fahrpläne noch sicherer. Diese Entwicklung geschieht nicht einfach so. Sie basiert auf dem Können von Menschen wie dir und deinem Ehrgeiz, der 100-prozentigen Sicherheit im Schienenverkehr jeden Tag noch ein bisschen näher zu kommen.\n\nDas wartet auf dich:\n\n• Neubau von Stellwerken, Bahnübergängen, Zugsicherungs- und Signalanlagen\n\n• Wartungs- und Instandsetzungen an vorhandenen Stellwerken, Bahnübergängen, Zugsicherungs- und Signalanlagen durchführen\n\n• Selbständiges lokalisieren und beheben der Störungen an allen Bahnsicherungsanlagen der Region Mittelland\n\n• Periodische Piketteinsätze\n\nDas bringst du mit:\n\n• Elektroinstallateur:in EFZ, Automatiker:in EFZ oder gleichwertige Ausbildung\n\n• Freude an Aussenarbeit zu jeder Tags- und Nachtzeit (ca. 10% Nachtschicht) und an einzelnen Wochenenden\n\n• Erfahrung im Führen von Neu- und Umbauprojekten von Vorteil\n\n• Führerausweis Kat. B\n\n• Bereitschaft zu kontinuierlichen Aus- und Weiterbildungen\n\n• Gute Gesundheit mit uneingeschränktem Hör- und Sehvermögen\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "descriptionByLocale": {
+        "it": "La tecnologia nel trasporto ferroviario sta cambiando rapidamente. Nuovi sistemi e sistemi di sicurezza rendono il viaggio in treno ancora più sicuro nonostante gli orari stretti. Questo sviluppo non accade solo. Si basa sulle competenze di persone come te e la tua ambizione di ottenere un po 'più vicino al 100% di sicurezza nel trasporto ferroviario ogni giorno.\n\nTi aspetta:\n\n• Nuova costruzione di scatole di segnale, passaggi di livello, protezione del treno e attrezzature di segnalazione\n\n• Eseguire la manutenzione e le riparazioni presso le caselle di segnale esistenti, passaggi di livello, protezione del treno e attrezzature di segnalazione\n\n• Localizzazione indipendente e riparazione di interruzioni in tutte le strutture di sicurezza ferroviaria nella regione di Mittelland\n\n• Picchette periodiche\n\nQuesto è ciò che portate con voi:\n\n• Installatore elettrico: in EFZ, operatore automatico: in EFZ o formazione equivalente\n\n• Godetevi il lavoro all'aperto in qualsiasi momento del giorno e della notte (circa il 10% di turno notturno) e nei singoli fine settimana\n\n• L'esperienza nella gestione di nuovi e progetti di ristrutturazione è un vantaggio\n\n• Patente di guida Cat. B\n\n• Prontezza per l'istruzione continua e la formazione\n\n• Buona salute con l'udito e la visione completa\n\nI vostri vantaggi – si può aspettare a:\n\n• Promuoviamo la pianificazione più flessibile dei vostri tour e turni possibili\n\n• Prendi una seconda classe GA, una prima classe GA. Abbonamento di classe o di mezza quota.\n\n• Hai tempo libero quando gli altri lavorano. Per i penny di notte e nei fine settimana ci sono supplementi.\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno.\n\n• Sono a vostra disposizione un sostegno finanziario per l'ulteriore istruzione esterna e un'emozionante offerta di apprendimento interno e corsi.\n\n• Con eventi stagionali e corsi sosteniamo la vostra salute\n\nInformazioni sulla BLS\n\nCon quasi 4.000 dipendenti, BLS è la seconda più grande compagnia ferroviaria in Svizzera. Inoltre, siamo anche una compagnia di navigazione, un'azienda immobiliare, una ferrovia di trasporto internazionale, una compagnia di autobus e auto di trasporto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci collega? Forte di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
+        "en": "The technology in rail transport is changing rapidly. New systems and safety systems make train travel even safer despite tight schedules. This development does not just happen. It is based on the skills of people like you and your ambition to get a little closer to 100% safety in rail transport every day.\n\nThis is waiting for you:\n\n• New construction of signal boxes, level crossings, train protection and signalling equipment\n\n• Carry out maintenance and repairs at existing signal boxes, level crossings, train protection and signalling equipment\n\n• Independent localization and repair of disruptions at all railway safety facilities in the Mittelland region\n\n• Periodic piquettes\n\nThis is what you bring with you:\n\n• Electrical installer:in EFZ, automatic operator:in EFZ or equivalent training\n\n• Enjoy outdoor work at any time of day and night (about 10% night shift) and on individual weekends\n\n• Experience in managing new and renovation projects is an advantage\n\n• Driving licence Cat. B\n\n• Readiness for continuous education and training\n\n• Good health with full hearing and vision\n\nYour advantages – you can look forward to:\n\n• We promote the most flexible planning of your tours and shifts possible\n\n• Get a GA 2nd class, a GA 1st class. Class or a half-tax subscription.\n\n• You have free time when others work. For pennies at night and on weekends there are surcharges.\n\n• It is possible to buy an additional five to ten holiday days per year.\n\n• Financial support for external further education and an exciting internal learning and course offer are at your disposal.\n\n• With seasonal events and courses we support your health\n\nAbout the BLS\n\nWith almost 4,000 employees, BLS is the second largest railway company in Switzerland. Moreover, we are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What connects us? Proud of what we do every day. Mobility has many facets for us. And lots of exciting jobs.",
+        "de": "Die Technologie im Bahnverkehr wandelt sich rasant. Neue Systeme und Sicherungsanlagen machen das Zugfahren trotz dichter Fahrpläne noch sicherer. Diese Entwicklung geschieht nicht einfach so. Sie basiert auf dem Können von Menschen wie dir und deinem Ehrgeiz, der 100-prozentigen Sicherheit im Schienenverkehr jeden Tag noch ein bisschen näher zu kommen.\n\nDas wartet auf dich:\n\n• Neubau von Stellwerken, Bahnübergängen, Zugsicherungs- und Signalanlagen\n\n• Wartungs- und Instandsetzungen an vorhandenen Stellwerken, Bahnübergängen, Zugsicherungs- und Signalanlagen durchführen\n\n• Selbständiges lokalisieren und beheben der Störungen an allen Bahnsicherungsanlagen der Region Mittelland\n\n• Periodische Piketteinsätze\n\nDas bringst du mit:\n\n• Elektroinstallateur:in EFZ, Automatiker:in EFZ oder gleichwertige Ausbildung\n\n• Freude an Aussenarbeit zu jeder Tags- und Nachtzeit (ca. 10% Nachtschicht) und an einzelnen Wochenenden\n\n• Erfahrung im Führen von Neu- und Umbauprojekten von Vorteil\n\n• Führerausweis Kat. B\n\n• Bereitschaft zu kontinuierlichen Aus- und Weiterbildungen\n\n• Gute Gesundheit mit uneingeschränktem Hör- und Sehvermögen\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "fr": "La technologie du transport ferroviaire évolue rapidement. De nouveaux systèmes et systèmes de sécurité rendent les trains encore plus sûrs malgré des horaires serrés. Cette évolution ne se produit pas seulement. Il est basé sur les compétences de personnes comme vous et votre ambition de se rapprocher un peu plus de 100% de la sécurité dans le transport ferroviaire chaque jour.\n\nCeci vous attend :\n\n• Nouvelle construction de boîtes de signalisation, passages à niveau, équipements de protection et de signalisation des trains\n\n• Entretien et réparation des boîtes de signalisation existantes, des passages à niveau, de l'équipement de protection et de signalisation des trains\n\n• Localisation et réparation indépendantes des perturbations dans toutes les installations de sécurité ferroviaire de la région de Mittelland\n\n• Piquettes périodiques\n\nC'est ce que vous apportez avec vous :\n\n• Installation électrique:dans EFZ, opérateur automatique:dans EFZ ou formation équivalente\n\n• Profitez du travail en plein air à n'importe quel moment du jour et de la nuit (environ 10% de la nuit) et le week-end individuel\n\n• L'expérience dans la gestion de projets nouveaux et de rénovation est un avantage\n\n• Permis de conduire Cat. B\n\n• Préparation à l'éducation et à la formation continues\n\n• Bonne santé avec pleine ouïe et vision\n\nVos avantages – vous pouvez vous attendre à:\n\n• Nous favorisons la planification la plus flexible possible de vos visites et de vos déplacements\n\n• Obtenez un GA 2ème classe, un GA 1ère classe. Classe ou demi-abonnement.\n\n• Vous avez du temps libre quand les autres travaillent. Pour les centimes la nuit et le week-end il y a des suppléments.\n\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an.\n\n• Un soutien financier pour une formation complémentaire externe et une offre de cours et d'apprentissage interne passionnants sont à votre disposition.\n\n• Avec des événements saisonniers et des cours, nous soutenons votre santé\n\nÀ propos du BLS\n\nAvec près de 4 000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? Fier de ce qu'on fait tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
+      },
+      "location": "Hasle bei Burgdorf",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/elektroinstallateur-in-monteur-in-signaltechnik/f9f80fc2-eb10-485c-99b6-121e4f34f898",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-07T01:07:25.763Z",
+      "addressLocality": "Hasle bei Burgdorf",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3415",
+      "category": "Tecnica",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-29",
+      "validThrough": "2026-08-27",
+      "pensum": "50-100%",
+      "salary": "90860",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/f9f80fc2-eb10-485c-99b6-121e4f34f898",
+      "requirements": [
+        "Elektroinstallateur:in EFZ, Automatiker:in EFZ oder gleichwertige Ausbildung",
+        "Freude an Aussenarbeit zu jeder Tags- und Nachtzeit (ca. 10% Nachtschicht) und an einzelnen Wochenenden",
+        "Erfahrung im Führen von Neu- und Umbauprojekten von Vorteil",
+        "Führerausweis Kat. B",
+        "Bereitschaft zu kontinuierlichen Aus- und Weiterbildungen",
+        "Gute Gesundheit mit uneingeschränktem Hör- und Sehvermögen"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Elektroinstallateur:in EFZ, Automatiker:in EFZ oder gleichwertige Ausbildung",
+          "Freude an Aussenarbeit zu jeder Tags- und Nachtzeit (ca. 10% Nachtschicht) und an einzelnen Wochenenden",
+          "Erfahrung im Führen von Neu- und Umbauprojekten von Vorteil",
+          "Führerausweis Kat. B",
+          "Bereitschaft zu kontinuierlichen Aus- und Weiterbildungen",
+          "Gute Gesundheit mit uneingeschränktem Hör- und Sehvermögen"
+        ]
+      },
+      "previousSlugs": [
+        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
+        "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
+          "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf"
+        ],
+        "en": [
+          "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
+        ],
+        "fr": [
+          "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-29T11:38:08.799Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
