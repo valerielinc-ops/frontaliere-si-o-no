@@ -9310,6 +9310,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.palestina-locarno-territorio-aziende-genocidio.title': 'Enough complicity',
     'blog.article.palestina-locarno-territorio-aziende-genocidio.excerpt': 'A group of people demonstrate against the companies that finance the genocide in Palestine in Locarno',
     'blog.article.palestina-locarno-territorio-aziende-genocidio.imageAlt': 'A group of people protest against companies that finance the genocide in Palestine in Locarno',
+    'blog.article.frontalieri-ticino-aumento-2026.title': 'Border workers in Ticino: +0.6% quarterly, -0.6% annually',
+    'blog.article.frontalieri-ticino-aumento-2026.excerpt': 'At 79,121, slight growth in the second quarter of 2026. Decline on an annual basis, sign of weakness.',
+    'blog.article.frontalieri-ticino-aumento-2026.imageAlt': 'Cross-border worker at Brogeda border checkpoint in Chiasso holding documents',
 };
 
 export default blogMetaEn;
