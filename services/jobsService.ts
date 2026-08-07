@@ -13,19 +13,21 @@
  *
  * Fetch flow (single canton):
  *
- *     fetchJobsForCanton('TI')
+ *     fetchJobsForCanton('TI', 'it')
  *           │
  *           ▼
  *     ┌─────────────────────┐
  *     │  IDB cache lookup   │  (frontaliere-jobs-cache › canton-shards)
- *     │  key = 'TI'         │
- *     └─────────────────────┘
- *      │ miss              │ hit (record has etag)
- *      │                   │
+ *     │  key = 'TI:it'      │  ← canton shard key + locale; shards are
+ *     └─────────────────────┘    locale-flattened, so the locale is part of
+ *      │ miss              │     the identity, not a detail.
+ *      │                   │ hit (record has etag)
  *      ▼                   ▼
- *    GET                  HEAD  /public/data/jobs-by-canton/TI.json
+ *    GET                  GET   /data/jobs-by-canton/TI-it.json
  *      │                  │  + If-None-Match: <etag>
- *      │                  │
+ *      │                  │  (GET, not HEAD: HEAD does not reliably echo the
+ *      │                  │   ETag across every CDN edge — see
+ *      │                  │   revalidateWithEtag.)
  *      │            ┌─────┴─────┐
  *      │            │  status?  │
  *      │            └─────┬─────┘
@@ -289,8 +291,9 @@ export async function fetchJobsForCanton(cantonCode: string, locale: Locale): Pr
   throw new Error('[jobsService] fetchJobsForCanton: locale must be a non-empty string');
  }
 
- // Short-circuit when shards aren't deployed yet — saves the inevitable 404
- // and lets the JobBoard caller hit its legacy-loader fallback immediately.
+ // Kill switch. Shards ARE deployed (the flag is on); this is the one-character
+ // revert if they ever stop serving — returning [] sends every caller straight
+ // to the full-locale-index fallback without first eating a 404 per canton.
  if (!CANTON_SHARDS_ENABLED) {
   return [];
  }
