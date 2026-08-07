@@ -28020,6 +28020,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'los-vencedores-falkland-pablo-aparo',
+ category: 'novita',
+ date: '2026-08-07T20:32:45.830Z',
+ image: '/images/blog/los-vencedores-falkland-pablo-aparo.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

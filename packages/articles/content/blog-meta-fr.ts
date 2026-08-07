@@ -9336,6 +9336,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vpod-direttiva-canicola-scuole.title': 'VPOD demande une directive anti-canicola pour l\'État et les écoles tessinoises',
     'blog.article.vpod-direttiva-canicola-scuole.excerpt': 'Le syndicat VPOD demande au Conseil d\'État une directive structurée pour gérer les vagues de chaleur dans les bureaux publics et les écoles, en s\'inspirant du modèle genevois',
     'blog.article.vpod-direttiva-canicola-scuole.imageAlt': 'École publique tessinoise pendant une vague de chaleur avec mesures de protection pour élèves et personnel',
+    'blog.article.los-vencedores-falkland-pablo-aparo.title': 'Los Vencedores : le film sur les Falkland vu par les habitants',
+    'blog.article.los-vencedores-falkland-pablo-aparo.excerpt': 'Le réalisateur Pablo Aparo présente à Locarno son documentaire qui raconte le conflit des Falkland du point de vue des habitants des îles.',
+    'blog.article.los-vencedores-falkland-pablo-aparo.imageAlt': 'Place Piazza Grande à Locarno durant le festival du film avec écran et public',
 };
 
 export default blogMetaFr;
