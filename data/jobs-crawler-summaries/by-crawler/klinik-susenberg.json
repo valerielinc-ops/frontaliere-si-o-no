@@ -1,16 +1,16 @@
 {
   "key": "klinik-susenberg",
   "label": "Klinik Susenberg",
-  "generatedAt": "2026-08-06T12:18:22.054Z",
-  "total": 5,
+  "generatedAt": "2026-08-07T01:16:16.548Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4986,
-  "avgDurationMs": 4986,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4180,
+  "avgDurationMs": 4180,
   "durationHistory": [
-    4986
+    4180
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/10-Operative-Leitung-Verwaltung-Services-2026-08-05.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T12:18:18.688Z",
+      "crawledAt": "2026-08-07T01:16:13.432Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson_HF_FH_mit_Zusatzfunktion_BB_80-100_2026-08-05.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T12:18:19.562Z",
+      "crawledAt": "2026-08-07T01:16:14.228Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/15-dipl._Pflegefachperson_HF-FH_PC_u._Stv._LPF_August_2026-07-02-.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T12:18:19.326Z",
+      "crawledAt": "2026-08-07T01:16:13.948Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -144,7 +144,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/16-FAGE-BB-80-100-per_sofort_2026-07-02-.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T12:18:19.442Z",
+      "crawledAt": "2026-08-07T01:16:14.091Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -171,8 +171,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "klinik-susenberg-25a246e88366",
       "slug": "gestione-operativa-amministrazione-e-servizi-klinik-susenberg-zurich",
@@ -215,5 +214,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
