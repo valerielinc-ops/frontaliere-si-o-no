@@ -2700,12 +2700,23 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // with no job list, so pointing 9 140 pages at one buys nothing.
  //
  // Same barrier contract as employerProfilePagesLinksPlugin (buildSignals.ts:
- // `closeBundle` hooks run in parallel, so a cross-plugin read needs an
- // explicit signal, never an ordering assumption). No deadlock is possible:
- // employerProfilePagesPlugin awaits no signal of ours, is registered
- // unconditionally in vite.config.ts, and resolves this one on EVERY exit of
- // its `closeBundle` — including the SKIP_EMPLOYER_PROFILE_PAGES=1 fast-exit,
- // which resolves `[]` and simply leaves every job page unlinked.
+ // a cross-plugin read needs an explicit signal, never a "it happens to have
+ // been written already" assumption). The producer resolves this on EVERY
+ // exit of its `closeBundle` — including the SKIP_EMPLOYER_PROFILE_PAGES=1
+ // fast-exit, which resolves `[]` and simply leaves every job page unlinked.
+ //
+ // What the signal does NOT buy is freedom from registration order (#5330).
+ // The original version of this comment said "no deadlock is possible"
+ // because closeBundle hooks run in parallel — they do not on deploy:
+ // deploy.yml sets SEQUENTIAL_PROFILE=1 and profilePlugin then marks every
+ // wrapped closeBundle `sequential: true`. Serialized, a signal can only
+ // travel FORWARD through the vite.config.ts array, and employer-profile-pages
+ // was registered ~60 entries AFTER this plugin: the await never settled, the
+ // event loop drained, node exited 0, and `vite build` reported success having
+ // emitted nothing past this line — six critical IT landings included.
+ // employerProfilePagesPlugin is now registered immediately before this
+ // plugin, and tests/build-plugin-order.test.ts derives that constraint from
+ // these very imports so the next cross-plugin `await` is covered on sight.
  const emittedEmployerHubs = new Map<string, string>();
  for (const emitted of await employerProfilesFlushed) {
  const m = /^(?:\/(en|de|fr))?\/aziende\/([^/]+)\/$/.exec(emitted.path);
