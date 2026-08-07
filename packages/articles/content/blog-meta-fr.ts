@@ -9333,6 +9333,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.title': 'La liberté du marché vaut-elle aussi pour ceux qui travaillent ?',
     'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.excerpt': 'Lorenzo Onderka, partisan d\'Avanti con Ticino&Lavoro, soulève une question intéressante sur la liberté du marché et son application dans le secteur public.',
     'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.imageAlt': 'Un frontalier qui cherche un emploi en Suisse',
+    'blog.article.vpod-direttiva-canicola-scuole.title': 'VPOD demande une directive anti-canicola pour l\'État et les écoles tessinoises',
+    'blog.article.vpod-direttiva-canicola-scuole.excerpt': 'Le syndicat VPOD demande au Conseil d\'État une directive structurée pour gérer les vagues de chaleur dans les bureaux publics et les écoles, en s\'inspirant du modèle genevois',
+    'blog.article.vpod-direttiva-canicola-scuole.imageAlt': 'École publique tessinoise pendant une vague de chaleur avec mesures de protection pour élèves et personnel',
 };
 
 export default blogMetaFr;

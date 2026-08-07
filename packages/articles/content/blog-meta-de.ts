@@ -9330,6 +9330,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.title': 'Gilt die Freiheit des Marktes auch für diejenigen, die arbeiten?',
     'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.excerpt': 'Lorenzo Onderka, Förderer von Avanti con Ticino&Lavoro, wirft eine interessante Frage nach der Freiheit des Marktes und seiner Anwendung im öffentlichen Sektor auf.',
     'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.imageAlt': 'Ein Frontalier, der in Ticino nach einem Job sucht',
+    'blog.article.vpod-direttiva-canicola-scuole.title': 'VPOD fordert Anti-Kaninchen-Richtlinie für Tessiner Staat und Schulen',
+    'blog.article.vpod-direttiva-canicola-scuole.excerpt': 'Die Gewerkschaft VPOD ersucht den Staatsrat um eine strukturierte Richtlinie zur Bewältigung von Hitzewellen in öffentlichen Ämtern und Schulen, die sich am Genfer Modell orientiert',
+    'blog.article.vpod-direttiva-canicola-scuole.imageAlt': 'Tessin öffentliche Schule während einer Hitzewelle mit Schutzmaßnahmen für Schüler und Personal',
 };
 
 export default blogMetaDe;

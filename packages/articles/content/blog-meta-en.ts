@@ -9331,6 +9331,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.title': 'Does the freedom of the market also apply to those who work?',
     'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.excerpt': 'Lorenzo Onderka, supporter of Avanti con Ticino&Lavoro, raises an interesting question about market freedom and its application in the public sector.',
     'blog.article.liberta-del-mercato-vale-anch-per-chi-lavora.imageAlt': 'A foreigner looking for a job in Ticino',
+    'blog.article.vpod-direttiva-canicola-scuole.title': 'VPOD requests anti-canicola directive for Ticino State and schools',
+    'blog.article.vpod-direttiva-canicola-scuole.excerpt': 'The VPOD union asks the Council of State for a structured directive to manage heat waves in public offices and schools, inspired by the Geneva model',
+    'blog.article.vpod-direttiva-canicola-scuole.imageAlt': 'Ticino public school during a heatwave with protective measures for students and staff',
 };
 
 export default blogMetaEn;
