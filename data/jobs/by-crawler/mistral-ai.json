@@ -1,7 +1,71 @@
 {
   "crawlerKey": "mistral-ai",
-  "assembledAt": "2026-08-06T11:48:39.473Z",
+  "assembledAt": "2026-08-07T01:17:11.273Z",
   "jobs": [
+    {
+      "id": "mistral-ai-213c6a7ec392",
+      "slug": "applied-scientist-research-engineer-emea-mistral-ai-ch",
+      "slugByLocale": {
+        "en": "applied-scientist-research-engineer-emea-mistral-ai-ch",
+        "it": "applied-scientist-research-engineer-emea-mistral-ai-ch",
+        "de": "applied-scientist-research-engineer-emea-mistral-ai-ch",
+        "fr": "applied-scientist-research-engineer-emea-mistral-ai-ch"
+      },
+      "company": "Mistral AI",
+      "companyKey": "mistral-ai",
+      "companyDomain": "mistral.ai",
+      "title": "Applied Scientist/Research Engineer, EMEA",
+      "titleByLocale": {
+        "en": "Applied Scientist/Research Engineer, EMEA",
+        "it": "Applied Scientist/Ricerca Ingegnere, EMEA",
+        "de": "Applied Scientist/Forschung Ingenieur, EMEA",
+        "fr": "Applied Scientist/Recherche Ingénieur, EMEA"
+      },
+      "description": "About Mistral\n Mistral provides full-stack AI solutions: from frontier models to developer tools, applications, and compute. We partner with enterprises tackling the hardest problems—across high-stakes industries like finance, manufacturing, defense, healthcare, and the public sector—co-creating customized AI systems that they can run on their terms.\n We are a dynamic, collaborative team passionate about AI and its potential to transform society. Our diverse workforce thrives in competitive environments and is committed to driving innovation. Our teams are distributed between Europe, North America, Asia and the Middle East. We are creative, low-ego and team-spirited.\n\nThe Role\n As an Applied Scientist/Research Engineer on the Mistral AI research team, you will drive key research efforts and partner with clients to solve challenging problems in artificial intelligence. Your work will focus on building and applying advanced models across text, image, and speech, aiming to deliver real, measurable impact. Collaborating closely with internal and external teams in science, engineering, and product, you will play a central role in developing AI solutions with tangible results.\n\nWhat You Will Do\n\n• Run pre-training, post-training and deploy state of the art models on clusters with thousands of GPUs.\n\n• Generate and curate data for pre-training and post-training, working on evaluations and making sure the model's performance beats expectations.\n\n• Develop the necessary tools and frameworks to facilitate data generation, model training, evaluation and deployment.\n\n• Collaborate with cross-functional teams to tackle complex use cases using agents and retrieval pipelines.\n\n• Manage research projects and communications with client research teams.\n\nWhat We're Looking For\n\n• Fluent in English with excellent communication skills — at ease explaining complex technical concepts to both technical and non-technical audiences.\n\n• Expert with PyTorch or JAX.\n\n• Not afraid of contributing to a big codebase; finds their way around independently with little guidance.\n\n• Writes clean, readable, high-performance, fault-tolerant Python code.\n\n• Doesn’t need roadmaps: moves independently and navigates uncertainty with confidence.\n\n• Low-ego, collaborative and eager to learn.\n\n• Track record of success through personal projects, professional projects or academia.\n\nNice to have\n\n• PhD / Master in a relevant field (Mathematics, Physics, Machine Learning) — exceptional candidates from other backgrounds welcome.\n\n• Research experience in agents, multimodal models, world models, robotics, diffusion models, cybersecurity, 3D understanding/generation, or time-series analysis.\n\n• Contributions to a large open-source or industry codebase.\n\n• Publications in top academic journals or conferences.\n\n• Enjoys improving existing code: typing, tests, CI pipelines.\n\nWhat We Offer\n We offer a comprehensive benefits package designed to support your well-being, growth, and work-life balance. Benefits vary by country and may include healthcare coverage, parental leave, retirement plans, relocation support, wellness programs, meal and transportation allowances, and other location-specific perks.\n For the most up-to-date details on benefits available in your location, please refer to our Benefits page .\n\nPrivacy Policy\n Your privacy matters to us. You can learn more about how we handle your personal data in our Applicant Privacy Policy .",
+      "descriptionByLocale": {
+        "en": "About Mistral\n Mistral provides full-stack AI solutions: from frontier models to developer tools, applications, and compute. We partner with enterprises tackling the hardest problems—across high-stakes industries like finance, manufacturing, defense, healthcare, and the public sector—co-creating customized AI systems that they can run on their terms.\n We are a dynamic, collaborative team passionate about AI and its potential to transform society. Our diverse workforce thrives in competitive environments and is committed to driving innovation. Our teams are distributed between Europe, North America, Asia and the Middle East. We are creative, low-ego and team-spirited.\n\nThe Role\n As an Applied Scientist/Research Engineer on the Mistral AI research team, you will drive key research efforts and partner with clients to solve challenging problems in artificial intelligence. Your work will focus on building and applying advanced models across text, image, and speech, aiming to deliver real, measurable impact. Collaborating closely with internal and external teams in science, engineering, and product, you will play a central role in developing AI solutions with tangible results.\n\nWhat You Will Do\n\n• Run pre-training, post-training and deploy state of the art models on clusters with thousands of GPUs.\n\n• Generate and curate data for pre-training and post-training, working on evaluations and making sure the model's performance beats expectations.\n\n• Develop the necessary tools and frameworks to facilitate data generation, model training, evaluation and deployment.\n\n• Collaborate with cross-functional teams to tackle complex use cases using agents and retrieval pipelines.\n\n• Manage research projects and communications with client research teams.\n\nWhat We're Looking For\n\n• Fluent in English with excellent communication skills — at ease explaining complex technical concepts to both technical and non-technical audiences.\n\n• Expert with PyTorch or JAX.\n\n• Not afraid of contributing to a big codebase; finds their way around independently with little guidance.\n\n• Writes clean, readable, high-performance, fault-tolerant Python code.\n\n• Doesn’t need roadmaps: moves independently and navigates uncertainty with confidence.\n\n• Low-ego, collaborative and eager to learn.\n\n• Track record of success through personal projects, professional projects or academia.\n\nNice to have\n\n• PhD / Master in a relevant field (Mathematics, Physics, Machine Learning) — exceptional candidates from other backgrounds welcome.\n\n• Research experience in agents, multimodal models, world models, robotics, diffusion models, cybersecurity, 3D understanding/generation, or time-series analysis.\n\n• Contributions to a large open-source or industry codebase.\n\n• Publications in top academic journals or conferences.\n\n• Enjoys improving existing code: typing, tests, CI pipelines.\n\nWhat We Offer\n We offer a comprehensive benefits package designed to support your well-being, growth, and work-life balance. Benefits vary by country and may include healthcare coverage, parental leave, retirement plans, relocation support, wellness programs, meal and transportation allowances, and other location-specific perks.\n For the most up-to-date details on benefits available in your location, please refer to our Benefits page .\n\nPrivacy Policy\n Your privacy matters to us. You can learn more about how we handle your personal data in our Applicant Privacy Policy .",
+        "it": "About Mistral\n Mistral provides full-stack AI solutions: from frontier models to developer tools, applications, and compute. We partner with enterprises tackling the hardest problems—across high-stakes industries like finance, manufacturing, defense, healthcare, and the public sector—co-creating customized AI systems that they can run on their terms.\n We are a dynamic, collaborative team passionate about AI and its potential to transform society. Our diverse workforce thrives in competitive environments and is committed to driving innovation. Our teams are distributed between Europe, North America, Asia and the Middle East. We are creative, low-ego and team-spirited.\n\nThe Role\n As an Applied Scientist/Research Engineer on the Mistral AI research team, you will drive key research efforts and partner with clients to solve challenging problems in artificial intelligence. Your work will focus on building and applying advanced models across text, image, and speech, aiming to deliver real, measurable impact. Collaborating closely with internal and external teams in science, engineering, and product, you will play a central role in developing AI solutions with tangible results.\n\nWhat You Will Do\n\n• Run pre-training, post-training and deploy state of the art models on clusters with thousands of GPUs.\n\n• Generate and curate data for pre-training and post-training, working on evaluations and making sure the model's performance beats expectations.\n\n• Develop the necessary tools and frameworks to facilitate data generation, model training, evaluation and deployment.\n\n• Collaborate with cross-functional teams to tackle complex use cases using agents and retrieval pipelines.\n\n• Manage research projects and communications with client research teams.\n\nWhat We're Looking For\n\n• Fluent in English with excellent communication skills — at ease explaining complex technical concepts to both technical and non-technical audiences.\n\n• Expert with PyTorch or JAX.\n\n• Not afraid of contributing to a big codebase; finds their way around independently with little guidance.\n\n• Writes clean, readable, high-performance, fault-tolerant Python code.\n\n• Doesn’t need roadmaps: moves independently and navigates uncertainty with confidence.\n\n• Low-ego, collaborative and eager to learn.\n\n• Track record of success through personal projects, professional projects or academia.\n\nNice to have\n\n• PhD / Master in a relevant field (Mathematics, Physics, Machine Learning) — exceptional candidates from other backgrounds welcome.\n\n• Research experience in agents, multimodal models, world models, robotics, diffusion models, cybersecurity, 3D understanding/generation, or time-series analysis.\n\n• Contributions to a large open-source or industry codebase.\n\n• Publications in top academic journals or conferences.\n\n• Enjoys improving existing code: typing, tests, CI pipelines.\n\nWhat We Offer\n We offer a comprehensive benefits package designed to support your well-being, growth, and work-life balance. Benefits vary by country and may include healthcare coverage, parental leave, retirement plans, relocation support, wellness programs, meal and transportation allowances, and other location-specific perks.\n For the most up-to-date details on benefits available in your location, please refer to our Benefits page .\n\nPrivacy Policy\n Your privacy matters to us. You can learn more about how we handle your personal data in our Applicant Privacy Policy .",
+        "de": "About Mistral\n Mistral provides full-stack AI solutions: from frontier models to developer tools, applications, and compute. We partner with enterprises tackling the hardest problems—across high-stakes industries like finance, manufacturing, defense, healthcare, and the public sector—co-creating customized AI systems that they can run on their terms.\n We are a dynamic, collaborative team passionate about AI and its potential to transform society. Our diverse workforce thrives in competitive environments and is committed to driving innovation. Our teams are distributed between Europe, North America, Asia and the Middle East. We are creative, low-ego and team-spirited.\n\nThe Role\n As an Applied Scientist/Research Engineer on the Mistral AI research team, you will drive key research efforts and partner with clients to solve challenging problems in artificial intelligence. Your work will focus on building and applying advanced models across text, image, and speech, aiming to deliver real, measurable impact. Collaborating closely with internal and external teams in science, engineering, and product, you will play a central role in developing AI solutions with tangible results.\n\nWhat You Will Do\n\n• Run pre-training, post-training and deploy state of the art models on clusters with thousands of GPUs.\n\n• Generate and curate data for pre-training and post-training, working on evaluations and making sure the model's performance beats expectations.\n\n• Develop the necessary tools and frameworks to facilitate data generation, model training, evaluation and deployment.\n\n• Collaborate with cross-functional teams to tackle complex use cases using agents and retrieval pipelines.\n\n• Manage research projects and communications with client research teams.\n\nWhat We're Looking For\n\n• Fluent in English with excellent communication skills — at ease explaining complex technical concepts to both technical and non-technical audiences.\n\n• Expert with PyTorch or JAX.\n\n• Not afraid of contributing to a big codebase; finds their way around independently with little guidance.\n\n• Writes clean, readable, high-performance, fault-tolerant Python code.\n\n• Doesn’t need roadmaps: moves independently and navigates uncertainty with confidence.\n\n• Low-ego, collaborative and eager to learn.\n\n• Track record of success through personal projects, professional projects or academia.\n\nNice to have\n\n• PhD / Master in a relevant field (Mathematics, Physics, Machine Learning) — exceptional candidates from other backgrounds welcome.\n\n• Research experience in agents, multimodal models, world models, robotics, diffusion models, cybersecurity, 3D understanding/generation, or time-series analysis.\n\n• Contributions to a large open-source or industry codebase.\n\n• Publications in top academic journals or conferences.\n\n• Enjoys improving existing code: typing, tests, CI pipelines.\n\nWhat We Offer\n We offer a comprehensive benefits package designed to support your well-being, growth, and work-life balance. Benefits vary by country and may include healthcare coverage, parental leave, retirement plans, relocation support, wellness programs, meal and transportation allowances, and other location-specific perks.\n For the most up-to-date details on benefits available in your location, please refer to our Benefits page .\n\nPrivacy Policy\n Your privacy matters to us. You can learn more about how we handle your personal data in our Applicant Privacy Policy .",
+        "fr": "About Mistral\n Mistral provides full-stack AI solutions: from frontier models to developer tools, applications, and compute. We partner with enterprises tackling the hardest problems—across high-stakes industries like finance, manufacturing, defense, healthcare, and the public sector—co-creating customized AI systems that they can run on their terms.\n We are a dynamic, collaborative team passionate about AI and its potential to transform society. Our diverse workforce thrives in competitive environments and is committed to driving innovation. Our teams are distributed between Europe, North America, Asia and the Middle East. We are creative, low-ego and team-spirited.\n\nThe Role\n As an Applied Scientist/Research Engineer on the Mistral AI research team, you will drive key research efforts and partner with clients to solve challenging problems in artificial intelligence. Your work will focus on building and applying advanced models across text, image, and speech, aiming to deliver real, measurable impact. Collaborating closely with internal and external teams in science, engineering, and product, you will play a central role in developing AI solutions with tangible results.\n\nWhat You Will Do\n\n• Run pre-training, post-training and deploy state of the art models on clusters with thousands of GPUs.\n\n• Generate and curate data for pre-training and post-training, working on evaluations and making sure the model's performance beats expectations.\n\n• Develop the necessary tools and frameworks to facilitate data generation, model training, evaluation and deployment.\n\n• Collaborate with cross-functional teams to tackle complex use cases using agents and retrieval pipelines.\n\n• Manage research projects and communications with client research teams.\n\nWhat We're Looking For\n\n• Fluent in English with excellent communication skills — at ease explaining complex technical concepts to both technical and non-technical audiences.\n\n• Expert with PyTorch or JAX.\n\n• Not afraid of contributing to a big codebase; finds their way around independently with little guidance.\n\n• Writes clean, readable, high-performance, fault-tolerant Python code.\n\n• Doesn’t need roadmaps: moves independently and navigates uncertainty with confidence.\n\n• Low-ego, collaborative and eager to learn.\n\n• Track record of success through personal projects, professional projects or academia.\n\nNice to have\n\n• PhD / Master in a relevant field (Mathematics, Physics, Machine Learning) — exceptional candidates from other backgrounds welcome.\n\n• Research experience in agents, multimodal models, world models, robotics, diffusion models, cybersecurity, 3D understanding/generation, or time-series analysis.\n\n• Contributions to a large open-source or industry codebase.\n\n• Publications in top academic journals or conferences.\n\n• Enjoys improving existing code: typing, tests, CI pipelines.\n\nWhat We Offer\n We offer a comprehensive benefits package designed to support your well-being, growth, and work-life balance. Benefits vary by country and may include healthcare coverage, parental leave, retirement plans, relocation support, wellness programs, meal and transportation allowances, and other location-specific perks.\n For the most up-to-date details on benefits available in your location, please refer to our Benefits page .\n\nPrivacy Policy\n Your privacy matters to us. You can learn more about how we handle your personal data in our Applicant Privacy Policy ."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://jobs.ashbyhq.com/mistral.ai/2ed434c7-2e1d-4acd-acb2-01edaa4a1208",
+      "source": "Mistral AI Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-07T01:17:08.511Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ricerca",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Intelligenza Artificiale / Ricerca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-29",
+      "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/2ed434c7-2e1d-4acd-acb2-01edaa4a1208",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-08-07T01:17:08.511Z"
+    },
     {
       "id": "mistral-ai-f6ecdeb0c60d",
       "slug": "ricerca-ingegnere-data-infrastructure-mistral-ai-zurich",
@@ -33,7 +97,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/8c71b069-0eda-40d1-8cb1-4094fd9c81de",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:48:36.806Z",
+      "crawledAt": "2026-08-07T01:17:08.510Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -118,7 +182,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/51f36c7f-b51f-4f88-ad1d-60d3cd013115",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:48:36.805Z",
+      "crawledAt": "2026-08-07T01:17:08.509Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -149,6 +213,7 @@
           "software-engineer-network-automation-wan-edge-mistral-ai-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T12:55:17.943Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -162,8 +227,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "mistral-ai-b513ad3d7ad7",
@@ -196,7 +260,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/6f5451cb-ecb6-45af-8a03-6bb658c6c5a1",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:48:36.804Z",
+      "crawledAt": "2026-08-07T01:17:08.508Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -224,8 +288,8 @@
           "applied-ai-technical-lead-forward-deployed-ai-engineer-mistral-ai-ch"
         ]
       },
-      "firstSeenAt": "2026-07-31T22:24:20.994Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:24:20.994Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -271,7 +335,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0b0c3fab-5c79-43e7-b66c-de7fef7d28b7",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:48:36.802Z",
+      "crawledAt": "2026-08-07T01:17:08.507Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -286,10 +350,14 @@
       "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/0b0c3fab-5c79-43e7-b66c-de7fef7d28b7",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-05T22:48:49.497Z",
+      "previousSlugs": [
+        "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch",
+        "applied-ai-ingegnere-ml-infrastructure-ingegnere-devops-emea-mistral-ai-lausanne"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch"
+          "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch",
+          "applied-ai-ingegnere-ml-infrastructure-ingegnere-devops-emea-mistral-ai-lausanne"
         ],
         "de": [
           "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch"
@@ -298,9 +366,8 @@
           "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch"
         ]
       },
-      "previousSlugs": [
-        "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-05T22:48:49.497Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -313,8 +380,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "mistral-ai-e3c420a3b774",
@@ -347,7 +413,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/395b93c4-2185-4c83-990f-5325cd739e0e",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:48:36.801Z",
+      "crawledAt": "2026-08-07T01:17:08.506Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -362,10 +428,14 @@
       "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/395b93c4-2185-4c83-990f-5325cd739e0e",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-05T22:48:49.496Z",
+      "previousSlugs": [
+        "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch",
+        "applied-ai-ingegnere-site-reliability-ingegnere-emea-mistral-ai-lausanne"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch"
+          "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch",
+          "applied-ai-ingegnere-site-reliability-ingegnere-emea-mistral-ai-lausanne"
         ],
         "de": [
           "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch"
@@ -374,9 +444,8 @@
           "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch"
         ]
       },
-      "previousSlugs": [
-        "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-05T22:48:49.496Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -389,8 +458,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "mistral-ai-4e88609166a7",
@@ -423,7 +491,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0e578cff-741d-4870-9c2c-aac85f9de266",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:48:36.799Z",
+      "crawledAt": "2026-08-07T01:17:08.505Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -500,7 +568,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:48:36.798Z",
+      "crawledAt": "2026-08-07T01:17:08.504Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -533,8 +601,8 @@
           "scientifique-ai-zurich-mistral-ai-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-14T22:36:36.714Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-14T22:36:36.714Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -580,7 +648,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/556595b2-d78b-486e-a3b2-14ad533f8caa",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:48:36.797Z",
+      "crawledAt": "2026-08-07T01:17:08.502Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -657,7 +725,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/e91d8785-a4a1-4fc5-b214-21d285005cd0",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:48:36.792Z",
+      "crawledAt": "2026-08-07T01:17:08.498Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
