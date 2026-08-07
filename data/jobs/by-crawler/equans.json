@@ -5564,8 +5564,7 @@
           "immobilienbewirtschafter-in-equans-switzerland-schlieren"
         ],
         "de": [
-          "immobilienbewirtschafter-in-equans-switzerland-schlieren",
-          "immobilienbewirtschafter-in-equans-schlieren"
+          "immobilienbewirtschafter-in-equans-switzerland-schlieren"
         ]
       },
       "firstSeenAt": "2026-07-30T11:17:38.662Z",
@@ -5814,8 +5813,7 @@
           "responsable-de-la-mise-en-service-in-equans-switzerland-basel"
         ],
         "de": [
-          "inbetriebnahmeleiter-in-equans-switzerland-basel",
-          "inbetriebnahmeleiter-in-equans-basel"
+          "inbetriebnahmeleiter-in-equans-switzerland-basel"
         ]
       },
       "firstSeenAt": "2026-07-31T11:39:00.130Z",
@@ -6125,8 +6123,7 @@
           "betriebssanitater-in-equans-switzerland-zug"
         ],
         "de": [
-          "betriebssanitater-in-equans-switzerland-zug",
-          "betriebssanitater-in-equans-zug"
+          "betriebssanitater-in-equans-switzerland-zug"
         ],
         "fr": [
           "betriebssanitater-in-equans-switzerland-zug"
@@ -6700,8 +6697,7 @@
           "hr-sachbearbeiter-in-fr-de-equans-switzerland-zurich-mubduz"
         ],
         "fr": [
-          "hr-sachbearbeiter-in-fr-de-equans-switzerland-zurich",
-          "hr-sachbearbeiter-in-fr-de-equans-zurich"
+          "hr-sachbearbeiter-in-fr-de-equans-switzerland-zurich"
         ]
       },
       "firstSeenAt": "2026-08-01T10:51:24.132Z",
@@ -7459,8 +7455,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hauswart-in-bern-equans-bern",
-        "hauswart-in-bern-equans-switzerland-bern",
-        "housekeeper-berna-equans-switzerland-bern"
+        "hauswart-in-bern-equans-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7473,8 +7468,7 @@
           "hauswart-in-bern-equans-bern"
         ],
         "de": [
-          "hauswart-in-bern-equans-switzerland-bern",
-          "hauswart-in-bern-equans-bern"
+          "hauswart-in-bern-equans-switzerland-bern"
         ]
       },
       "firstSeenAt": "2026-08-05T22:22:26.871Z",
@@ -7547,7 +7541,6 @@
           "disponent-in-equans-switzerland-st-gallen"
         ],
         "de": [
-          "disponent-in-equans-st-gallen",
           "disponent-in-equans-switzerland-st-gallen"
         ],
         "fr": [
@@ -7574,12 +7567,12 @@
     },
     {
       "id": "equans-1ff006e35411",
-      "slug": "projektleiter-elektro-m-w-d-equans-switzerland-biel",
+      "slug": "project-manager-electric-f-m-d-equans-switzerland-biel",
       "slugByLocale": {
         "de": "projektleiter-elektro-w-m-d-equans-biel",
-        "it": "projektleiter-elektro-m-w-d-equans-switzerland-biel",
+        "it": "project-manager-electric-f-m-d-equans-switzerland-biel",
         "en": "projektleiter-elektro-w-m-d-equans-biel",
-        "fr": "projektleiter-elektro-w-m-d-equans-biel"
+        "fr": "gestionnaire-de-projet-electric-f-m-d-equans-switzerland-biel"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7626,11 +7619,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-elektro-w-m-d-equans-biel",
+          "projektleiter-elektro-m-w-d-equans-switzerland-biel"
+        ],
+        "fr": [
           "projektleiter-elektro-w-m-d-equans-biel"
         ]
       },
       "previousSlugs": [
-        "projektleiter-elektro-w-m-d-equans-biel"
+        "projektleiter-elektro-w-m-d-equans-biel",
+        "projektleiter-elektro-m-w-d-equans-switzerland-biel"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -7648,12 +7646,12 @@
     },
     {
       "id": "equans-bfa93520756b",
-      "slug": "financial-business-partner-equans-bern",
+      "slug": "partner-finanziari-equans-switzerland-bern",
       "slugByLocale": {
         "de": "financial-business-partner-equans-bern",
-        "it": "financial-business-partner-equans-bern",
+        "it": "partner-finanziari-equans-switzerland-bern",
         "en": "financial-business-partner-equans-bern",
-        "fr": "financial-business-partner-equans-bern"
+        "fr": "partenaires-financiers-equans-switzerland-bern"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7710,7 +7708,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T10:14:26.410Z"
+      "firstSeenAt": "2026-08-07T10:14:26.410Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-business-partner-equans-bern"
+        ],
+        "fr": [
+          "financial-business-partner-equans-bern"
+        ]
+      },
+      "previousSlugs": [
+        "financial-business-partner-equans-bern"
+      ]
     },
     {
       "id": "equans-dba9a4a54ff8",
@@ -7718,8 +7727,8 @@
       "slugByLocale": {
         "de": "bauleitender-elektroinstallateur-w-m-d-equans-bern",
         "it": "bauleitender-installatore-trice-elettrico-a-m-w-d-equans-switzerland-bern",
-        "en": "bauleitender-elektroinstallateur-w-m-d-equans-bern",
-        "fr": "bauleitender-elektroinstallateur-w-m-d-equans-bern"
+        "en": "construction-manager-electrical-installer-f-m-d-equans-switzerland-bern",
+        "fr": "installateur-electrique-f-m-d-equans-switzerland-bern"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7766,6 +7775,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "bauleitender-elektroinstallateur-w-m-d-equans-bern"
+        ],
+        "en": [
+          "bauleitender-elektroinstallateur-w-m-d-equans-bern"
+        ],
+        "fr": [
           "bauleitender-elektroinstallateur-w-m-d-equans-bern"
         ]
       },

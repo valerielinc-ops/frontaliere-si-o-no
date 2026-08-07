@@ -275,12 +275,12 @@
     },
     {
       "id": "h-ju-hopital-du-jura-461e1d37d474",
-      "slug": "ambulancier-ere-es-h-ju-hopital-du-jura-delemont",
+      "slug": "es-ambulatoriale-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
         "fr": "ambulancier-ere-es-h-ju-hopital-du-jura-delemont",
-        "it": "ambulancier-ere-es-h-ju-hopital-du-jura-delemont",
-        "en": "ambulancier-ere-es-h-ju-hopital-du-jura-delemont",
-        "de": "ambulancier-ere-es-h-ju-hopital-du-jura-delemont"
+        "it": "es-ambulatoriale-hopital-du-jura-h-ju-delemont",
+        "en": "ambulatory-es-hopital-du-jura-h-ju-delemont",
+        "de": "ambulante-es-hopital-du-jura-h-ju-delemont"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -336,7 +336,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T10:12:07.876Z"
+      "firstSeenAt": "2026-08-07T10:12:07.876Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ambulancier-ere-es-h-ju-hopital-du-jura-delemont"
+        ],
+        "en": [
+          "ambulancier-ere-es-h-ju-hopital-du-jura-delemont"
+        ],
+        "de": [
+          "ambulancier-ere-es-h-ju-hopital-du-jura-delemont"
+        ]
+      },
+      "previousSlugs": [
+        "ambulancier-ere-es-h-ju-hopital-du-jura-delemont"
+      ]
     },
     {
       "id": "h-ju-hopital-du-jura-5cb1e59dbfea",

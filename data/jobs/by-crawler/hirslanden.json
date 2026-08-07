@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hirslanden-dc43b61ce9cd",
-      "slug": "med-praxisassistentin-med-praxisassistent-a-60-80-hirslanden-munchenstein-kt-basel-land",
+      "slug": "assistente-medico-med-assistente-pratico-a-60-80-hirslanden-klinik-munchenstein-kt",
       "slugByLocale": {
         "de": "med-praxisassistentin-med-praxisassistent-a-60-80-hirslanden-munchenstein-kt-basel-land",
-        "it": "med-praxisassistentin-med-praxisassistent-a-60-80-hirslanden-munchenstein-kt-basel-land",
-        "en": "med-praxisassistentin-med-praxisassistent-a-60-80-hirslanden-munchenstein-kt-basel-land",
-        "fr": "med-praxisassistentin-med-praxisassistent-a-60-80-hirslanden-munchenstein-kt-basel-land"
+        "it": "assistente-medico-med-assistente-pratico-a-60-80-hirslanden-klinik-munchenstein-kt",
+        "en": "med-practice-assistant-med-practical-assistant-a-60-80-hirslanden-klinik-munchenstein-kt",
+        "fr": "assistant-de-medecine-assistant-de-medecine-a-60-80-hirslanden-klinik-munchenstein-kt"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -67,11 +67,19 @@
       "firstSeenAt": "2026-08-07T10:24:43.629Z",
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistentin-med-praxisassistent-a-40-hirslanden-munchenstein-kt-basel-land"
+          "med-praxisassistentin-med-praxisassistent-a-40-hirslanden-munchenstein-kt-basel-land",
+          "med-praxisassistentin-med-praxisassistent-a-60-80-hirslanden-munchenstein-kt-basel-land"
+        ],
+        "en": [
+          "med-praxisassistentin-med-praxisassistent-a-60-80-hirslanden-munchenstein-kt-basel-land"
+        ],
+        "fr": [
+          "med-praxisassistentin-med-praxisassistent-a-60-80-hirslanden-munchenstein-kt-basel-land"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistentin-med-praxisassistent-a-40-hirslanden-munchenstein-kt-basel-land"
+        "med-praxisassistentin-med-praxisassistent-a-40-hirslanden-munchenstein-kt-basel-land",
+        "med-praxisassistentin-med-praxisassistent-a-60-80-hirslanden-munchenstein-kt-basel-land"
       ]
     },
     {
@@ -363,8 +371,6 @@
         "taches-principales-hirslanden-search-2-2",
         "taches-principales-hirslanden-search-43",
         "taches-principales-hirslanden-search-44",
-        "90-billing-employee-hirslanden-klinik-lausanne",
-        "principali-hirslanden-klinik-search-6ae5f6",
         "employe-e-de-facturation-a-90-hirslanden-klinik-lausanne"
       ],
       "previousSlugsByLocale": {
@@ -825,7 +831,6 @@
           "deine-aufgaben-hirslanden-search-264",
           "deine-aufgaben-hirslanden-search-261",
           "deine-aufgaben-hirslanden-search-265",
-          "le-tue-domande-hirslanden-klinik-search",
           "deine-aufgaben-hirslanden-search-266",
           "deine-aufgaben-hirslanden-search-268"
         ],
@@ -2128,7 +2133,6 @@
           "taches-principales-hirslanden-search",
           "principali-hirslanden-klinik-search-0uzj7u",
           "principali-hirslanden-klinik-search-4x5vrb",
-          "principali-hirslanden-klinik-search",
           "principali-hirslanden-klinik-search-5cuhqa",
           "principali-hirslanden-klinik-search-5wh7cz",
           "principali-hirslanden-klinik-search-5yox0h",
@@ -8097,18 +8101,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-logistique-et-administratif-du-bloc-operatoire-a-100-hirslanden-lausanne",
-        "gestionnaire-logistique-et-administratif-du-bloc-operatoire-a-100-hirslanden-klinik-lausanne",
-        "logistik-und-verwaltungsleiter-der-100-operativen-einheit-hirslanden-klinik-lausanne",
-        "responsabile-logistico-e-amministrativo-dell-unita-operativa-al-100-hirslanden-klinik-lausanne"
+        "gestionnaire-logistique-et-administratif-du-bloc-operatoire-a-100-hirslanden-klinik-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-logistique-et-administratif-du-bloc-operatoire-a-100-hirslanden-lausanne",
-          "gestionnaire-logistique-et-administratif-du-bloc-operatoire-a-100-hirslanden-klinik-lausanne",
-          "responsabile-logistico-e-amministrativo-dell-unita-operativa-al-100-hirslanden-klinik-lausanne"
+          "gestionnaire-logistique-et-administratif-du-bloc-operatoire-a-100-hirslanden-klinik-lausanne"
         ],
         "de": [
-          "logistik-und-verwaltungsleiter-der-100-operativen-einheit-hirslanden-klinik-lausanne",
           "gestionnaire-logistique-et-administratif-du-bloc-operatoire-a-100-hirslanden-lausanne"
         ],
         "en": [
@@ -8486,8 +8486,6 @@
         "infirmier-ere-a-80-flex-en-cdd-hirslanden-lausanne",
         "krankenschwester-bei-80-flex-in-cdd-hirslanden-klinik-lausanne",
         "infirmier-ere-a-80-flex-hirslanden-lausanne",
-        "krankenschwester-bei-80-flex-hirslanden-klinik-lausanne",
-        "infermiera-all-80-flex-in-cdd-hirslanden-klinik-lausanne",
         "infermiera-in-cdd-al-90-flex-hirslanden-klinik-lausanne",
         "krankenschwester-in-cdd-bei-90-flex-hirslanden-klinik-lausanne",
         "nurse-in-cdd-at-90-flex-hirslanden-klinik-lausanne",
@@ -8498,7 +8496,6 @@
         "it": [
           "infirmier-ere-a-80-flex-en-cdd-hirslanden-lausanne",
           "infirmier-ere-a-80-flex-hirslanden-lausanne",
-          "infermiera-all-80-flex-in-cdd-hirslanden-klinik-lausanne",
           "infermiera-in-cdd-al-90-flex-hirslanden-klinik-lausanne",
           "krankenschwester-in-cdd-bei-90-flex-hirslanden-klinik-lausanne",
           "nurse-in-cdd-at-90-flex-hirslanden-klinik-lausanne",
@@ -8512,7 +8509,6 @@
         "de": [
           "infirmier-ere-a-80-flex-en-cdd-hirslanden-lausanne",
           "krankenschwester-bei-80-flex-in-cdd-hirslanden-klinik-lausanne",
-          "krankenschwester-bei-80-flex-hirslanden-klinik-lausanne",
           "infirmier-ere-a-80-flex-hirslanden-lausanne",
           "krankenschwester-in-cdd-bei-90-flex-hirslanden-klinik-lausanne"
         ],
@@ -20787,7 +20783,6 @@
           "deine-aufgaben-hirslanden-search-170",
           "your-responsibilities-hirslanden-klinik-search-e81461",
           "your-responsibilities-hirslanden-klinik-search-fca6d3",
-          "mansioni-richieste-hirslanden-klinik-search-804132",
           "mansioni-richieste-hirslanden-klinik-search-07581f",
           "mansioni-richieste-hirslanden-klinik-search-28b734",
           "mansioni-richieste-hirslanden-klinik-search-5698dc",
@@ -28627,8 +28622,6 @@
         "miglior-giorno-hirslanden-klinik-search-9p34hx",
         "miglior-giorno-hirslanden-klinik-search-9p37gp",
         "miglior-giorno-hirslanden-klinik-search-rnl1sz",
-        "user-safety-safe-hirslanden-klinik-biel-bienne",
-        "miglior-giorno-hirslanden-klinik-search-486716",
         "certified-midwife-ch5087-hirslanden-klinik-biel-bienne"
       ],
       "previousSlugsByLocale": {
@@ -31346,14 +31339,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-patientendisposition-80-100-hirslanden-st-gallen",
-        "mitarbeiterin-mitarbeiter-patientendisposition-a-80-100-hirslanden-st-gallen",
-        "mitarbeiterin-collaboratore-trice-patientendisposition-80-100-hirslanden-klinik-st-gallen"
+        "mitarbeiterin-mitarbeiter-patientendisposition-a-80-100-hirslanden-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-patientendisposition-80-100-hirslanden-st-gallen",
-          "mitarbeiterin-mitarbeiter-patientendisposition-a-80-100-hirslanden-st-gallen",
-          "mitarbeiterin-collaboratore-trice-patientendisposition-80-100-hirslanden-klinik-st-gallen"
+          "mitarbeiterin-mitarbeiter-patientendisposition-a-80-100-hirslanden-st-gallen"
         ]
       },
       "firstSeenAt": "2026-08-07T01:09:07.721Z",
@@ -31432,13 +31423,11 @@
         }
       },
       "previousSlugs": [
-        "med-praxisassistentin-praxisassistent-a-notfall-20-60-im-stundenlohn-hirslanden-bern",
-        "med-praxisassistentin-praxisassistent-a-emergenza-20-60-nel-salario-orario-hirslanden-klinik-bern"
+        "med-praxisassistentin-praxisassistent-a-notfall-20-60-im-stundenlohn-hirslanden-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistentin-praxisassistent-a-notfall-20-60-im-stundenlohn-hirslanden-bern",
-          "med-praxisassistentin-praxisassistent-a-emergenza-20-60-nel-salario-orario-hirslanden-klinik-bern"
+          "med-praxisassistentin-praxisassistent-a-notfall-20-60-im-stundenlohn-hirslanden-bern"
         ],
         "en": [
           "med-praxisassistentin-praxisassistent-a-notfall-20-60-im-stundenlohn-hirslanden-bern"

@@ -15123,8 +15123,8 @@
       "slugByLocale": {
         "de": "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch",
         "it": "mpa-o-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-m-w-d-solothurner-spitaler-soh-olten",
-        "en": "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch",
-        "fr": "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch"
+        "en": "mpa-or-specialist-health-specialist-surgical-consultation-hours-f-m-d-solothurner-spitaler-soh-olten",
+        "fr": "mpa-ou-specialiste-specialiste-de-la-sante-heures-de-consultation-chirurgicale-f-m-d-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -15171,6 +15171,12 @@
       "workplace": "Kantonsspital Olten",
       "previousSlugsByLocale": {
         "it": [
+          "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch"
+        ],
+        "en": [
+          "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch"
+        ],
+        "fr": [
           "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch"
         ]
       },

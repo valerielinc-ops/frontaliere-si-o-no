@@ -252,13 +252,11 @@
         }
       },
       "previousSlugs": [
-        "sozialarbeiter-in-im-kjz-dietikon-kanton-zuerich-dietikon",
-        "lavoratore-sociale-a-kjz-dietikon-kantonale-verwaltung-zurich-dietikon"
+        "sozialarbeiter-in-im-kjz-dietikon-kanton-zuerich-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-im-kjz-dietikon-kanton-zuerich-dietikon",
-          "lavoratore-sociale-a-kjz-dietikon-kantonale-verwaltung-zurich-dietikon"
+          "sozialarbeiter-in-im-kjz-dietikon-kanton-zuerich-dietikon"
         ],
         "en": [
           "sozialarbeiter-in-im-kjz-dietikon-kanton-zuerich-dietikon"
@@ -694,12 +692,12 @@
     },
     {
       "id": "kanton-zuerich-6cc41e8ea2a2",
-      "slug": "koch-kochin-kanton-zuerich-hinwil",
+      "slug": "cucinare-cucinare-kantonale-verwaltung-zurich-hinwil",
       "slugByLocale": {
         "de": "koch-kochin-kanton-zuerich-hinwil",
-        "it": "koch-kochin-kanton-zuerich-hinwil",
+        "it": "cucinare-cucinare-kantonale-verwaltung-zurich-hinwil",
         "en": "koch-kochin-kantonale-verwaltung-zurich-hinwil",
-        "fr": "koch-kochin-kanton-zuerich-hinwil"
+        "fr": "cuire-faire-cuire-kantonale-verwaltung-zurich-hinwil"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -758,7 +756,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T10:35:16.351Z"
+      "firstSeenAt": "2026-08-07T10:35:16.351Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-kanton-zuerich-hinwil"
+        ],
+        "fr": [
+          "koch-kochin-kanton-zuerich-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-kanton-zuerich-hinwil"
+      ]
     },
     {
       "id": "kanton-zuerich-16afdeb6704e",
@@ -3658,12 +3667,12 @@
     },
     {
       "id": "kanton-zuerich-9bc1bd64be69",
-      "slug": "hr-berater-in-kanton-zuerich-zurich-flughafen",
+      "slug": "risorse-umane-berater-in-kantonale-verwaltung-zurich-zurich-flughafen",
       "slugByLocale": {
         "de": "hr-berater-in-kanton-zuerich-zurich-flughafen",
-        "it": "hr-berater-in-kanton-zuerich-zurich-flughafen",
-        "en": "hr-berater-in-kanton-zuerich-zurich-flughafen",
-        "fr": "hr-berater-in-kanton-zuerich-zurich-flughafen"
+        "it": "risorse-umane-berater-in-kantonale-verwaltung-zurich-zurich-flughafen",
+        "en": "hr-consultants-kantonale-verwaltung-zurich-zurich-flughafen",
+        "fr": "ressources-humaines-berater-in-kantonale-verwaltung-zurich-zurich-flughafen"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3722,7 +3731,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T10:34:50.207Z"
+      "firstSeenAt": "2026-08-07T10:34:50.207Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-berater-in-kanton-zuerich-zurich-flughafen"
+        ],
+        "en": [
+          "hr-berater-in-kanton-zuerich-zurich-flughafen"
+        ],
+        "fr": [
+          "hr-berater-in-kanton-zuerich-zurich-flughafen"
+        ]
+      },
+      "previousSlugs": [
+        "hr-berater-in-kanton-zuerich-zurich-flughafen"
+      ]
     },
     {
       "id": "kanton-zuerich-43286b2bf10e",
@@ -7017,13 +7040,11 @@
         }
       },
       "previousSlugs": [
-        "teamleiter-in-datenplattform-services-kanton-zuerich-zurich",
-        "team-leader-in-servizi-della-piattaforma-dati-kantonale-verwaltung-zurich-zurich"
+        "teamleiter-in-datenplattform-services-kanton-zuerich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-datenplattform-services-kanton-zuerich-zurich",
-          "team-leader-in-servizi-della-piattaforma-dati-kantonale-verwaltung-zurich-zurich"
+          "teamleiter-in-datenplattform-services-kanton-zuerich-zurich"
         ],
         "en": [
           "teamleiter-in-datenplattform-services-kanton-zuerich-zurich"
@@ -9055,8 +9076,7 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-qualifizierung-fur-stellensuchende-kanton-zuerich-zurich",
-          "teamleiter-in-qualifizierung-per-stellensuchende-kantonale-verwaltung-zurich"
+          "teamleiter-in-qualifizierung-fur-stellensuchende-kanton-zuerich-zurich"
         ],
         "en": [
           "teamleiter-in-qualifizierung-fur-stellensuchende-kantonale-verwaltung-zurich-zurich"
@@ -9067,7 +9087,6 @@
       },
       "previousSlugs": [
         "teamleiter-in-qualifizierung-fur-stellensuchende-kanton-zuerich-zurich",
-        "teamleiter-in-qualifizierung-per-stellensuchende-kantonale-verwaltung-zurich",
         "teamleiter-in-qualifizierung-fur-stellensuchende-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
@@ -9314,14 +9333,12 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "fachverantwortliche-r-offentliche-statistik-kanton-zuerich-zurich",
-        "fachverantwortliche-r-offentliche-statistik-kantonale-verwaltung-zurich-zurich",
-        "statistiche-responsabili-pubbliche-kantonale-verwaltung-zurich-zurich"
+        "fachverantwortliche-r-offentliche-statistik-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachverantwortliche-r-offentliche-statistik-kanton-zuerich-zurich",
-          "fachverantwortliche-r-offentliche-statistik-kantonale-verwaltung-zurich-zurich",
-          "statistiche-responsabili-pubbliche-kantonale-verwaltung-zurich-zurich"
+          "fachverantwortliche-r-offentliche-statistik-kantonale-verwaltung-zurich-zurich"
         ],
         "en": [
           "fachverantwortliche-r-offentliche-statistik-kantonale-verwaltung-zurich-zurich"
@@ -9894,14 +9911,12 @@
       "pensum": "50%",
       "previousSlugs": [
         "mediothekar-in-kanton-zuerich-wetzikon",
-        "mediothekar-kantonale-verwaltung-zurich-wetzikon",
         "mediothekar-in-kanton-zuerich-zurich",
         "mediothekar-en-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mediothekar-in-kanton-zuerich-wetzikon",
-          "mediothekar-kantonale-verwaltung-zurich-wetzikon",
           "mediothekar-in-kanton-zuerich-zurich",
           "mediothekar-en-kantonale-verwaltung-zurich-zurich"
         ],
@@ -12750,14 +12765,12 @@
       "pensum": "100%",
       "previousSlugs": [
         "sachbearbeiter-in-inkasso-kanton-zuerich-8001-zurich",
-        "sachbearbeiter-in-inkasso-kantonale-verwaltung-zurich-8001-zurich",
-        "case-handler-in-raccolta-debito-kantonale-verwaltung-zurich-8001-zurich"
+        "sachbearbeiter-in-inkasso-kantonale-verwaltung-zurich-8001-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-inkasso-kanton-zuerich-8001-zurich",
-          "sachbearbeiter-in-inkasso-kantonale-verwaltung-zurich-8001-zurich",
-          "case-handler-in-raccolta-debito-kantonale-verwaltung-zurich-8001-zurich"
+          "sachbearbeiter-in-inkasso-kantonale-verwaltung-zurich-8001-zurich"
         ],
         "en": [
           "sachbearbeiter-in-inkasso-kantonale-verwaltung-zurich-8001-zurich"

@@ -9444,12 +9444,12 @@
     },
     {
       "id": "etat-de-fribourg-cdf32e9f4295",
-      "slug": "berufsberater-in-etat-de-fribourg-ch",
+      "slug": "consigliere-professionale-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "berufsberater-in-etat-de-fribourg-ch",
-        "it": "berufsberater-in-etat-de-fribourg-ch",
-        "en": "berufsberater-in-etat-de-fribourg-ch",
-        "fr": "berufsberater-in-etat-de-fribourg-ch"
+        "it": "consigliere-professionale-etat-de-fribourg-fribourg",
+        "en": "professional-counsellor-etat-de-fribourg-fribourg",
+        "fr": "conseiller-professionnel-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9509,7 +9509,21 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-08-07T10:32:11.883Z"
+      "firstSeenAt": "2026-08-07T10:32:11.883Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsberater-in-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "berufsberater-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "berufsberater-in-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufsberater-in-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-e70b22fb945b",

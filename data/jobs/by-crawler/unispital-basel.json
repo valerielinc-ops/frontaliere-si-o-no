@@ -3090,7 +3090,6 @@
           "administrative-r-collaboratore-trice-in-universitatsspital-basel-qe5qcp",
           "administrative-r-mitarbeiter-in-case-management-unispital-basel-ch",
           "chef-d-equipe-universitatsspital-basel-basel",
-          "administrative-r-collaboratore-trice-in-universitatsspital-basel",
           "teamleiter-in-universitatsspital-basel-basel"
         ],
         "en": [
@@ -6364,8 +6363,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
-          "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel"
+          "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch"
         ],
         "fr": [
           "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
@@ -8921,7 +8919,6 @@
           "senior-physician-angiology-universitatsspital-basel-basel",
           "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
           "oberarztin-oberarzt-angiologie-unispital-basel-ch",
-          "medico-senior-ambulatorio-universitatsspital-basel-basel",
           "medecin-principal-angiologie-universitatsspital-basel-basel"
         ],
         "en": [
@@ -9250,10 +9247,10 @@
       "id": "unispital-basel-3d7fae1f96c7",
       "slug": "dipl-specialista-hf-fh-unita-di-cura-intensiva-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "dipl-specialista-hf-fh-unita-di-cura-intensiva-universitatsspital-basel-basel",
+        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-intensivstation-universitatsspital-basel-basel",
         "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-intensivstation-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-intensivstation-unispital-basel-ch",
-        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-unite-de-soins-intensifs-universitatsspital-basel-basel"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-intensivstation-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -9295,14 +9292,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-intensivstation-unispital-basel-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-intensivstation-unispital-basel-ch",
+        "dipl-specialiste-des-soins-infirmiers-hf-fh-unite-de-soins-intensifs-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-intensivstation-unispital-basel-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-intensivstation-universitatsspital-basel-basel"
+          "dipl-specialiste-des-soins-infirmiers-hf-fh-unite-de-soins-intensifs-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-08-06T11:40:59.660Z",
@@ -9406,7 +9404,7 @@
         "de": "med-praxisassistentin-praxisassistent-efz-lehrstelle-unispital-basel-ch",
         "it": "med-praxisassistentin-praxisassistent-cfc-apprendistato-universitatsspital-basel",
         "en": "med-praxisassistentin-praxisassistent-efz-lehrstelle-universitatsspital-basel-basel",
-        "fr": "med-praxisassistentin-praxisassistent-efz-lehrstelle-universitatsspital-basel-basel"
+        "fr": "med-praxisassistantine-praxisassisant-efz-apprentissage-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -9452,10 +9450,14 @@
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistentin-praxisassistent-efz-lehrstelle-unispital-basel-ch"
+        ],
+        "fr": [
+          "med-praxisassistentin-praxisassistent-efz-lehrstelle-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistentin-praxisassistent-efz-lehrstelle-unispital-basel-ch"
+        "med-praxisassistentin-praxisassistent-efz-lehrstelle-unispital-basel-ch",
+        "med-praxisassistentin-praxisassistent-efz-lehrstelle-universitatsspital-basel-basel"
       ],
       "salaryMin": 52000,
       "salaryMax": 78500,

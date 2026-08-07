@@ -41,9 +41,9 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern",
-        "en": "logistiker-in-swiss-armed-forces-vtg-bern-cupr4v",
+        "en": "logistician-in-swiss-armed-forces-vtg-bern",
         "de": "logistiker-in-swiss-armed-forces-vtg-bern-cupr4v",
-        "fr": "logistiker-in-swiss-armed-forces-vtg-bern-cupr4v"
+        "fr": "logisticien-in-swiss-armed-forces-vtg-bern"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -55,14 +55,16 @@
           "impiegato-a-in-logistica-confederazione-svizzera-rivera"
         ],
         "en": [
-          "logistiker-in-confederazione-svizzera-rivera"
+          "logistiker-in-confederazione-svizzera-rivera",
+          "logistiker-in-swiss-armed-forces-vtg-bern-cupr4v"
         ],
         "de": [
           "logistiker-in-confederazione-rivera",
           "logistiker-in-confederazione-svizzera-rivera"
         ],
         "fr": [
-          "logistiker-in-confederazione-svizzera-rivera"
+          "logistiker-in-confederazione-svizzera-rivera",
+          "logistiker-in-swiss-armed-forces-vtg-bern-cupr4v"
         ]
       },
       "previousSlugs": [
@@ -3369,8 +3371,7 @@
           "spezialist-in-fordertechnik-confederazione-andermatt",
           "tecnologia-del-trasportatore-specializzato-in-confederazione-svizzera-andermatt",
           "specialist-in-conveyor-technology-confederazione-svizzera-andermatt",
-          "specialiste-technologie-des-convoyeurs-confederazione-svizzera-andermatt",
-          "specialista-delle-infrastrutture-sanitaria-swiss-armed-forces-vtg-bern"
+          "specialiste-technologie-des-convoyeurs-confederazione-svizzera-andermatt"
         ],
         "en": [
           "infrastructure-specialist-in-sanitary-swiss-armed-forces-vtg-bern",
@@ -3404,8 +3405,7 @@
         "spezialist-in-fordertechnik-confederazione-andermatt",
         "tecnologia-del-trasportatore-specializzato-in-confederazione-svizzera-andermatt",
         "specialist-in-conveyor-technology-confederazione-svizzera-andermatt",
-        "specialiste-technologie-des-convoyeurs-confederazione-svizzera-andermatt",
-        "specialista-delle-infrastrutture-sanitaria-swiss-armed-forces-vtg-bern"
+        "specialiste-technologie-des-convoyeurs-confederazione-svizzera-andermatt"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000

@@ -5988,12 +5988,12 @@
     },
     {
       "id": "pdag-5851b30055a5",
-      "slug": "assistenzarztin-assistenzarzt-ambulatorium-aarau-pdag-aarau",
+      "slug": "assistente-medico-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-ambulatorium-aarau-pdag-aarau",
-        "it": "assistenzarztin-assistenzarzt-ambulatorium-aarau-pdag-aarau",
-        "en": "assistenzarztin-assistenzarzt-ambulatorium-aarau-pdag-aarau",
-        "fr": "assistenzarztin-assistenzarzt-ambulatorium-aarau-pdag-aarau"
+        "it": "assistente-medico-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau",
+        "en": "assistant-physician-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau",
+        "fr": "medecin-adjoint-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -6049,16 +6049,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T10:28:39.775Z"
+      "firstSeenAt": "2026-08-07T10:28:39.775Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-ambulatorium-aarau-pdag-aarau"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-ambulatorium-aarau-pdag-aarau"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-ambulatorium-aarau-pdag-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-ambulatorium-aarau-pdag-aarau"
+      ]
     },
     {
       "id": "pdag-d0ec73128306",
-      "slug": "assistenzpsychologin-assistenzpsychologe-ambulatorium-aarau-pdag-aarau",
+      "slug": "assistente-psicologo-assistente-psicologo-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau",
       "slugByLocale": {
         "de": "assistenzpsychologin-assistenzpsychologe-ambulatorium-aarau-pdag-aarau",
-        "it": "assistenzpsychologin-assistenzpsychologe-ambulatorium-aarau-pdag-aarau",
-        "en": "assistenzpsychologin-assistenzpsychologe-ambulatorium-aarau-pdag-aarau",
-        "fr": "assistenzpsychologin-assistenzpsychologe-ambulatorium-aarau-pdag-aarau"
+        "it": "assistente-psicologo-assistente-psicologo-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau",
+        "en": "assistant-psychologist-assistant-psychologist-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau",
+        "fr": "assistant-psychologue-assistant-psychologue-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -6114,7 +6128,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T10:28:39.773Z"
+      "firstSeenAt": "2026-08-07T10:28:39.773Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzpsychologin-assistenzpsychologe-ambulatorium-aarau-pdag-aarau"
+        ],
+        "en": [
+          "assistenzpsychologin-assistenzpsychologe-ambulatorium-aarau-pdag-aarau"
+        ],
+        "fr": [
+          "assistenzpsychologin-assistenzpsychologe-ambulatorium-aarau-pdag-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzpsychologin-assistenzpsychologe-ambulatorium-aarau-pdag-aarau"
+      ]
     }
   ]
 }

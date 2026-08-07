@@ -24,12 +24,12 @@
         "en": "Customer Advisor:in",
         "fr": "Conseiller client:in"
       },
-      "slug": "kundenberater-in-post",
+      "slug": "consulente-clienti-in-die-schweizerische-post-wil-sg",
       "slugByLocale": {
-        "it": "kundenberater-in-post",
-        "en": "kundenberater-in-die-schweizerische-post-wil-sg",
+        "it": "consulente-clienti-in-die-schweizerische-post-wil-sg",
+        "en": "customer-advisor-in-die-schweizerische-post-wil-sg",
         "de": "kundenberater-in-die-schweizerische-post-wil-sg",
-        "fr": "kundenberater-in-die-schweizerische-post-wil-sg"
+        "fr": "conseiller-client-in-die-schweizerische-post-wil-sg"
       },
       "sourceLang": "de",
       "department": "",
@@ -63,7 +63,22 @@
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-08-07T10:19:35.533Z"
+      "firstSeenAt": "2026-08-07T10:19:35.533Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-post"
+        ],
+        "en": [
+          "kundenberater-in-die-schweizerische-post-wil-sg"
+        ],
+        "fr": [
+          "kundenberater-in-die-schweizerische-post-wil-sg"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-post",
+        "kundenberater-in-die-schweizerische-post-wil-sg"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74420-de_DE",
@@ -164,12 +179,12 @@
         "en": "Delivery:in letters and packages",
         "fr": "Livraison:en lettres et en colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-lausen",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-lausen",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-lausen",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-lausen"
       },
       "sourceLang": "de",
       "department": "",
@@ -188,11 +203,19 @@
       "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
-          "zusteller-in-briefe-und-pakete-post-2"
+          "zusteller-in-briefe-und-pakete-post-2",
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post-2"
+        "zusteller-in-briefe-und-pakete-post-2",
+        "zusteller-in-briefe-und-pakete-post"
       ],
       "id": "posta-svizzera-centro-regionale-2cbbfb9bda29",
       "salaryMin": 62000,
@@ -2467,8 +2490,7 @@
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ],
         "de": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-jvxvay",
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-jvxvay"
         ]
       },
       "previousSlugs": [
@@ -2533,7 +2555,6 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post-u3qamb",
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -4121,12 +4142,12 @@
         "en": "Apprenticeship as a retail trade expert EFZ",
         "fr": "Apprentissage en tant qu'expert en commerce de détail EFZ"
       },
-      "slug": "lehre-als-detailhandelsfachmann-frau-efz-post",
+      "slug": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-thun",
       "slugByLocale": {
-        "it": "lehre-als-detailhandelsfachmann-frau-efz-post",
-        "en": "lehre-als-detailhandelsfachmann-frau-efz-post",
+        "it": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-thun",
+        "en": "apprenticeship-as-a-retail-trade-expert-efz-die-schweizerische-post-thun",
         "de": "lehre-als-detailhandelsfachmann-frau-efz-post",
-        "fr": "lehre-als-detailhandelsfachmann-frau-efz-post"
+        "fr": "apprentissage-en-tant-qu-expert-en-commerce-de-detail-efz-die-schweizerische-post-thun"
       },
       "sourceLang": "de",
       "department": "",
@@ -4145,11 +4166,19 @@
       "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-detailhandelsfachmann-frau-efz-post-2"
+          "lehre-als-detailhandelsfachmann-frau-efz-post-2",
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
+        ],
+        "en": [
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
+        ],
+        "fr": [
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
         ]
       },
       "previousSlugs": [
-        "lehre-als-detailhandelsfachmann-frau-efz-post-2"
+        "lehre-als-detailhandelsfachmann-frau-efz-post-2",
+        "lehre-als-detailhandelsfachmann-frau-efz-post"
       ],
       "id": "posta-svizzera-centro-regionale-6f07d43e209f",
       "salaryMin": 57500,
@@ -4898,8 +4927,7 @@
       },
       "previousSlugs": [
         "lehre-als-detailhandelsfachmann-frau-efz-post",
-        "lehre-als-detailhandelsfachmann-frau-efz-post-2",
-        "lehre-als-detailhandelsfachmann-frau-efz-post-pz3m2t"
+        "lehre-als-detailhandelsfachmann-frau-efz-post-2"
       ]
     },
     {
@@ -5451,7 +5479,6 @@
           "praxisintegriertes-bachelorstudium-in-informatik-post"
         ],
         "en": [
-          "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
           "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
         ],
         "fr": [
@@ -5460,8 +5487,7 @@
       },
       "previousSlugs": [
         "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
-        "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
+        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
       ],
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
@@ -6239,12 +6265,12 @@
         "en": "Teaching as a logistician: mixed delivery (letters and packages) in EFZ Distribution",
         "fr": "Enseignement en tant que logisticien: livraison mixte (lettres et colis) dans EFZ Distribution"
       },
-      "slug": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-e02c20",
       "slugByLocale": {
-        "it": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-e02c20",
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-nanikon",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-e02c20"
       },
       "sourceLang": "de",
       "department": "",
@@ -6263,11 +6289,19 @@
       "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-2"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-2",
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-2"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-2",
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
       ],
       "id": "posta-svizzera-centro-regionale-fa18a3e098e5",
       "salaryMin": 62000,
@@ -10671,7 +10705,6 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post-1at680",
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -12358,11 +12391,11 @@
         "en": "Building Manager/Manager Northern and Neuchâtel Region",
         "de": "Gebäudemanager/Manager Region Nord und Neuenburg"
       },
-      "slug": "gerante-gerant-d-immeubles-region-nord-vaudoise-et-neuchateloise-post",
+      "slug": "manager-manager-regione-nord-e-neuchatel-la-poste-suisse-teletravail",
       "slugByLocale": {
-        "it": "gerante-gerant-d-immeubles-region-nord-vaudoise-et-neuchateloise-post",
-        "en": "gerante-gerant-d-immeubles-region-nord-vaudoise-et-neuchateloise-post",
-        "de": "gerante-gerant-d-immeubles-region-nord-vaudoise-et-neuchateloise-post",
+        "it": "manager-manager-regione-nord-e-neuchatel-la-poste-suisse-teletravail",
+        "en": "building-manager-manager-northern-and-neuchatel-region-la-poste-suisse-teletravail",
+        "de": "gebaudemanager-manager-region-nord-und-neuenburg-la-poste-suisse-teletravail",
         "fr": "gerante-gerant-d-immeubles-region-nord-vaudoise-et-neuchateloise-la-poste-suisse-teletravail"
       },
       "sourceLang": "fr",
@@ -12397,7 +12430,21 @@
       "addressLocality": "télétravail",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-08-07T10:19:35.533Z"
+      "firstSeenAt": "2026-08-07T10:19:35.533Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gerante-gerant-d-immeubles-region-nord-vaudoise-et-neuchateloise-post"
+        ],
+        "en": [
+          "gerante-gerant-d-immeubles-region-nord-vaudoise-et-neuchateloise-post"
+        ],
+        "de": [
+          "gerante-gerant-d-immeubles-region-nord-vaudoise-et-neuchateloise-post"
+        ]
+      },
+      "previousSlugs": [
+        "gerante-gerant-d-immeubles-region-nord-vaudoise-et-neuchateloise-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Conseill%C3%A8reConseiller-%C3%A0-la-Client%C3%A8le/74392-fr_FR",
@@ -13773,7 +13820,6 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
           "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },

@@ -3462,8 +3462,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kundenberater-w-m-d-versicherung-region-oberburen-uzwil-teilzeit-vollzeit-helvetia",
-        "consulente-clienti-f-m-d-regione-di-assicurazione-oberburen-uzwil-part-time-fulltime-helvetia-versicherungen-oberburen",
-        "consulente-clienti-f-m-d-regione-assicurativa-oberburen-uzwil-part-time-full-time-helvetia-versicherungen-oberburen"
+        "consulente-clienti-f-m-d-regione-di-assicurazione-oberburen-uzwil-part-time-fulltime-helvetia-versicherungen-oberburen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7084,7 +7083,7 @@
       "slugByLocale": {
         "de": "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia",
         "en": "legal-counsel-m-f-d-legal-service-provision-corporate-clients-part-time-full-time-helvetia-versicherungen-basel",
-        "fr": "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia-versicherungen-basel",
+        "fr": "conseiller-juridique-m-f-d-service-juridique-fourniture-clients-corporatifs-a-temps-partiel-a-temps-plein-helvetia",
         "it": "legal-counsel-m-w-d-rechtsdienst-previdenza-unternehmenskunden-teilzeit-vollzeit-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
@@ -7134,12 +7133,12 @@
           "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia"
         ],
         "fr": [
-          "conseiller-juridique-m-f-d-service-juridique-fourniture-clients-corporatifs-a-temps-partiel-a-temps-plein-helvetia"
+          "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia-versicherungen-basel"
         ]
       },
       "previousSlugs": [
         "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia",
-        "conseiller-juridique-m-f-d-service-juridique-fourniture-clients-corporatifs-a-temps-partiel-a-temps-plein-helvetia"
+        "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia-versicherungen-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -10536,8 +10535,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-w-m-d-im-innendienst-auf-der-generalagentur-zurich-nord-teilzeit-vollzeit",
-          "sachbearbeiter-m-w-d-im-servizio-interno-auf-der-agenzia-generale-zurich-nord-teilzeit-vollzeit-helvetia-versicherungen-kloten"
+          "sachbearbeiter-w-m-d-im-innendienst-auf-der-generalagentur-zurich-nord-teilzeit-vollzeit"
         ],
         "en": [
           "sachbearbeiter-w-m-d-im-innendienst-auf-der-generalagentur-zurich-nord-teilzeit-vollzeit"
@@ -10547,8 +10545,7 @@
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-w-m-d-im-innendienst-auf-der-generalagentur-zurich-nord-teilzeit-vollzeit",
-        "sachbearbeiter-m-w-d-im-servizio-interno-auf-der-agenzia-generale-zurich-nord-teilzeit-vollzeit-helvetia-versicherungen-kloten"
+        "sachbearbeiter-w-m-d-im-innendienst-auf-der-generalagentur-zurich-nord-teilzeit-vollzeit"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -10566,12 +10563,12 @@
     },
     {
       "id": "helvetia-4d95bd51a4af",
-      "slug": "kundenberater-w-m-d-versicherung-sissach-baselland-teilzeit-vollzeit-helvetia-sissach",
+      "slug": "consulente-clienti-f-m-d-assicurazione-sissach-baselland-part-time-fulltime-helvetia-versicherungen-sissach",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-versicherung-sissach-baselland-teilzeit-vollzeit-helvetia-sissach",
-        "it": "kundenberater-w-m-d-versicherung-sissach-baselland-teilzeit-vollzeit-helvetia-sissach",
-        "en": "kundenberater-w-m-d-versicherung-sissach-baselland-teilzeit-vollzeit-helvetia-sissach",
-        "fr": "kundenberater-w-m-d-versicherung-sissach-baselland-teilzeit-vollzeit-helvetia-sissach"
+        "it": "consulente-clienti-f-m-d-assicurazione-sissach-baselland-part-time-fulltime-helvetia-versicherungen-sissach",
+        "en": "customer-consultant-f-m-d-insurance-sissach-baselland-part-time-full-time-helvetia-versicherungen-sissach",
+        "fr": "consultant-client-f-m-d-assurance-sissach-baselland-temps-partiel-temps-plein-helvetia-versicherungen-sissach"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -10627,7 +10624,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T10:08:12.395Z"
+      "firstSeenAt": "2026-08-07T10:08:12.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-versicherung-sissach-baselland-teilzeit-vollzeit-helvetia-sissach"
+        ],
+        "en": [
+          "kundenberater-w-m-d-versicherung-sissach-baselland-teilzeit-vollzeit-helvetia-sissach"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-versicherung-sissach-baselland-teilzeit-vollzeit-helvetia-sissach"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-versicherung-sissach-baselland-teilzeit-vollzeit-helvetia-sissach"
+      ]
     },
     {
       "id": "helvetia-b3bdbc9e88ef",
@@ -10684,7 +10695,6 @@
         "esperto-di-business-aziendale-m-f-d-liestal-part-time-full-time-helvetia-versicherungen-liestal",
         "expert-en-clientele-entreprise-h-f-liestal-temps-partiel-plein-temps-helvetia-versicherungen-liestal",
         "expert-en-clients-entreprises-m-f-d-liestal-part-time-full-time-helvetia-versicherungen-liestal",
-        "experts-en-affaires-client-en-m-j-helvetia-versicherungen-liestal",
         "expert-clients-entreprises-m-w-d-liestal-temps-partiel-plein-temps-helvetia-versicherungen-liestal"
       ],
       "previousSlugsByLocale": {

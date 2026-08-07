@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau",
         "it": "assistenzarztin-assistenzarzt-per-allgemeine-innere-medizin-a-spital-emmental-langnau",
-        "en": "assistenzarztin-assistenzarzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau",
-        "fr": "assistenzarztin-assistenzarzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau"
+        "en": "assistant-doctor-for-general-internal-medicine-a-spital-emmental-langnau",
+        "fr": "medecin-assistant-en-medecine-interne-generale-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -63,16 +63,14 @@
           "assistenzarztin-assistenzarzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau"
         ],
         "en": [
-          "assistant-doctor-for-general-internal-medicine-a-spital-emmental-langnau"
+          "assistenzarztin-assistenzarzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau"
         ],
         "fr": [
-          "medecin-assistant-en-medecine-interne-generale-a-spital-emmental-langnau"
+          "assistenzarztin-assistenzarzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau",
-        "assistant-doctor-for-general-internal-medicine-a-spital-emmental-langnau",
-        "medecin-assistant-en-medecine-interne-generale-a-spital-emmental-langnau"
+        "assistenzarztin-assistenzarzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -144,16 +142,14 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
-          "hrm-generalist-in-a-spital-emmental-burgdorf",
-          "generalista-hrm-specialista-hrm-a-spital-emmental-burgdorf"
+          "hrm-generalist-in-a-spital-emmental-burgdorf"
         ],
         "de": [
           "hrm-generalist-in-a-spital-emmental-burgdorf"
         ]
       },
       "previousSlugs": [
-        "hrm-generalist-in-a-spital-emmental-burgdorf",
-        "generalista-hrm-specialista-hrm-a-spital-emmental-burgdorf"
+        "hrm-generalist-in-a-spital-emmental-burgdorf"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
