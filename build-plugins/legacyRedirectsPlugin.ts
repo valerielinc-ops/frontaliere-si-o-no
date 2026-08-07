@@ -142,6 +142,56 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/fr/articles-frontalier/frontaliers-tessin-baisse-donnees-2025/': '/fr/articles-frontalier/frontaliers-tessin-donnees-baisse-fin-2025/',
  '/fr/articles-frontalier/frontaliers-tessin-donnees-baisse-q4-2025/': '/fr/articles-frontalier/frontaliers-tessin-donnees-baisse-fin-2025/',
  '/fr/articles-frontalier/frontaliers-tessin-baisse-donnees-q4-2025/': '/fr/articles-frontalier/frontaliers-tessin-donnees-baisse-fin-2025/',
+ // ── Runaway `generate-article.yml` cleanup (2026-08-06) — four retired articles ──
+ // A self-dispatching workflow (now deleted + disabled) wrote five articles straight
+ // into the site repo. One (`rimborsi-730-sostituti-imposta`) was carried into the
+ // corpus and stays; these four are withdrawn. The corpus mirror already deleted them
+ // from BOTH repos, so the next shard deploy drops the pages — without an entry here
+ // all 16 URLs (4 articles × 4 locales) would go from 200 to a bare 404 with no signal
+ // for the crawler. Verified live 200 on the apex host on 2026-08-06.
+ //
+ // Why a redirect bridge and not an HTTP 410: nothing in this repo can emit one. The
+ // origin is a static shard, `legacyRedirectsPlugin` emits a 200 "Pagina spostata"
+ // bridge (`noindex,follow` + canonical + meta-refresh), and infra/cloudflare-worker
+ // only upgrades an ALREADY-404 origin response to a 301 — it has no 410 path. The
+ // bridge's `noindex` is what de-indexes the retired URL; the target only steers the
+ // human. So the real choice here is the target, and it differs per retirement reason.
+ //
+ // (1) `prezzi-proprieta-svizzera-aumentano` — unpublishable, not merely wrong: it
+ // invents five non-existent Swiss laws (LRLO, LIIS, LTI, LFL, a "1972 border law"),
+ // attributes never-published prices to ImmoScout24, contradicts its own figures and
+ // ends on a literal "*Un agente immobiliare*" placeholder. No article is an
+ // equivalent, so pointing it at a topically-adjacent real one would launder the
+ // fabrication's link equity onto a page that does not answer the query. It goes to
+ // the section root instead — same treatment as the H.9 archival block below.
+ '/articoli-frontaliere/prezzi-proprieta-svizzera-aumentano/': '/articoli-frontaliere/',
+ '/en/cross-border-articles/swiss-property-prices-rise/': '/en/cross-border-articles/',
+ '/de/grenzgaenger-artikel/schweizer-immobilienpreise-steigen/': '/de/grenzgaenger-artikel/',
+ '/fr/articles-frontalier/prix-immobilier-suisse-augmentent/': '/fr/articles-frontalier/',
+ // (2) `caldo-torrido-lavoro-ticino` — true duplicate: the corpus already carries
+ // `caldo-lavoro-frontalieri-ticino` off the same ticinonews.ch source. Textbook
+ // consolidation onto the surviving original.
+ '/articoli-frontaliere/caldo-torrido-lavoro-ticino/': '/articoli-frontaliere/caldo-lavoro-frontalieri-ticino/',
+ '/en/cross-border-articles/hot-weather-work-ticino/': '/en/cross-border-articles/heat-work-cross-border-ticino/',
+ '/de/grenzgaenger-artikel/heisses-wetter-arbeit-tessin/': '/de/grenzgaenger-artikel/hitze-arbeitsgrenze-tessin/',
+ '/fr/articles-frontalier/chaleur-torrida-travail-tessin/': '/fr/articles-frontalier/chaleur-travail-frontalier-tessin/',
+ // (3) `lavoro-forzato-catene-svizzere` — true duplicate of the corpus'
+ // `lavoro-forzato-svizzera`, same swissinfo.ch source. NB the EN pair differs by a
+ // single letter: retired `forced-labour-…` (British) → surviving `forced-labor-…`.
+ '/articoli-svizzera/lavoro-forzato-catene-svizzere/': '/articoli-svizzera/lavoro-forzato-svizzera/',
+ '/en/swiss-articles/forced-labour-swiss-supply-chains/': '/en/swiss-articles/forced-labor-swiss-supply-chains/',
+ '/de/schweiz-artikel/zwangsarbeit-schweizer-lieferketten/': '/de/schweiz-artikel/zwangsarbeit-in-schweizer-lieferketten/',
+ '/fr/articles-suisse/travail-force-chaines-approvisionnement-suisse/': '/fr/articles-suisse/travail-force-dans-les-chaines-dapprovisionnement-suisses/',
+ // (4) `vivere-maslianico-lavorare-ticino-frontaliere` — substantive tax error: it
+ // presents the €10,000 / €7,500 franchigia as an exemption from the SWISS imposta
+ // alla fonte, when it is an ITALIAN IRPEF exemption. The search intent ("live in
+ // Maslianico, work in Ticino") is legitimate and still served — by the Maslianico
+ // border-municipality page, which is generated from controlled municipality data
+ // rather than LLM prose and so cannot reproduce the error.
+ '/articoli-frontaliere/vivere-maslianico-lavorare-ticino-frontaliere/': '/vivere-in-ticino/comuni-di-frontiera/maslianico/',
+ '/en/cross-border-articles/live-maslianico-work-ticino-cross-border/': '/en/living-in-ticino/border-municipalities/maslianico/',
+ '/de/grenzgaenger-artikel/in-maslianico-wohnen-arbeiten-tessin-grenzganger/': '/de/leben-im-tessin/grenzgemeinden/maslianico/',
+ '/fr/articles-frontalier/vivre-maslianico-travailler-tessin-frontalier/': '/fr/vivre-au-tessin/communes-frontiere/maslianico/',
  // ── Bing blocked URLs (2026-03-27) — old slugs → current canonical ──
  // IT: category or slug renames
  '/compara-servizi/cambio-valuta/': '/compara-servizi/cambio-franco-euro/',
