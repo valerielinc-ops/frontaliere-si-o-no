@@ -223,6 +223,22 @@ function wordCount(s) {
   return String(s || '').trim().split(/\s+/).filter(Boolean).length;
 }
 
+// A cached entry whose intro/FAQ is the unfilled prompt placeholder must not
+// count as a cache hit: the hash-match check below only proves the candidate
+// itself hasn't changed, not that what's cached for it is real content. Before
+// this guard, an echo accepted prior to the isPromptPlaceholder check in
+// validateEnrichment() stayed `cachedFor`-stamped forever and was never
+// retried — 76 of 7,089 entries in data/related-search-enriched.json were
+// stuck this way as of 2026-08-06 (oldest stamped 2026-07-13). Re-enrichment
+// now self-heals stale placeholder entries on the next run instead of
+// requiring a manual purge.
+function isPlaceholderCacheEntry(existing) {
+  if (!existing) return false;
+  if (isPromptPlaceholder(existing.intro)) return true;
+  const faqs = Array.isArray(existing.faqs) ? existing.faqs : [];
+  return faqs.some((f) => isPromptPlaceholder(f?.q) || isPromptPlaceholder(f?.a));
+}
+
 function validateEnrichment(parsed) {
   if (!parsed || typeof parsed !== 'object') return { ok: false, reason: 'not an object' };
   const intro = typeof parsed.intro === 'string' ? parsed.intro.trim() : '';
@@ -491,7 +507,7 @@ async function main() {
     const key = `${c.locale}::${c.slug}`;
     const expected = cacheKey(c);
     const existing = state.entries[key];
-    if (!args.force && existing && existing.cachedFor === expected) {
+    if (!args.force && existing && existing.cachedFor === expected && !isPlaceholderCacheEntry(existing)) {
       cachedHits++;
       continue;
     }
