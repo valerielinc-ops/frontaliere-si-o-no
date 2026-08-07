@@ -24665,6 +24665,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-cantonale-confronto-svizzera-2026-canton-basilea': {
+    title: 'Imposta cantonale confronto Svizzera 2026 canton Basilea',
+    description: 'Confronto aliquote cantonali Svizzera 2026: dati su Basilea, franchigia frontalieri €10\'000, contributi AVS 5,3%, AD/AC 1,1%, LAINF 0,7-1,5%, LPP 7-18%',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, cantonale, confronto, canton',
+    ogTitle: 'Imposta cantonale Svizzera 2026: confronto focus Basilea',
+    ogDescription: 'Aliquote cantonali 2026 in Svizzera con dettagli su Basilea: franchigia frontalieri, contributi sociali (AVS 5,3%, AD/AC 1,1%, LAINF 0,7-1,5%, LPP 7-18%) e',
+    canonicalPath: '/articoli-svizzera/imposta-cantonale-confronto-svizzera-2026-canton-basilea/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta cantonale confronto Svizzera 2026 canton Basilea",
+      "description": "Confronto aliquote cantonali Svizzera 2026: dati su Basilea, franchigia frontalieri €10'000, contributi AVS 5,3%, AD/AC 1,1%, LAINF 0,7-1,5%, LPP 7-18%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-cantonale-confronto-svizzera-2026-canton-basilea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Basilea sul fiume Reno con edifici uffici e architettura svizzera tradizionale"
+      },
+      "datePublished": "2026-08-07T03:42:43+00:00",
+      "dateModified": "2026-08-07T03:42:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-cantonale-confronto-svizzera-2026-canton-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

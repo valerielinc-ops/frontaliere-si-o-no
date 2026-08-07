@@ -9315,9 +9315,6 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-aumento-2026.title': 'Frontaliers au Tessin : +0,6 % par trimestre, -0,6 % par an',
     'blog.article.frontalieri-ticino-aumento-2026.excerpt': 'À 79 121, légère croissance au deuxième trimestre 2026. Baisse sur une base annuelle, signe de faiblesse.',
     'blog.article.frontalieri-ticino-aumento-2026.imageAlt': 'Travailleur frontalier au poste frontalier de Brogeda à Chiasso avec des documents en main',
-    'blog.article.vivere-maslianico-lavorare-ticino-frontaliere.title': 'Vivre à Maslianico et travailler au Tessin en tant que frontalier : guide 2024',
-    'blog.article.vivere-maslianico-lavorare-ticino-frontaliere.excerpt': 'Taxe à la source uniquement en Suisse, nouvel accord en vigueur depuis le 1er janvier 2024, franchise jusqu\'à 10\'000 euros pour les nouveaux frontaliers',
-    'blog.article.vivere-maslianico-lavorare-ticino-frontaliere.imageAlt': 'Frontalier franchissant la douane de Brogeda pour entrer au Tessin',
 };
 
 export default blogMetaFr;

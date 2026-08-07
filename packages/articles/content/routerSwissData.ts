@@ -661,6 +661,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'easyjet-apollon-acquisizione': { it: 'easyjet-apollon-acquisizione', en: 'easyjet-apollon-acquisition', de: 'easyjet-apollon-ubernahme', fr: 'easyjet-apollon-acquisition' },
  'disoccupazione-svizzera-luglio-2026-seco': { it: 'disoccupazione-svizzera-luglio-2026-seco', en: 'switzerland-unemployment-july-2026-seco', de: 'arbeitslosigkeit-schweiz-juli-2026-seco', fr: 'chomage-suisse-juillet-2026-seco' },
  'costo-vita-2026-zurigo-analisi': { it: 'costo-vita-2026-zurigo-analisi', en: 'cost-of-living-switzerland-2026-zurich-canton', de: 'lebenskosten-schweiz-2026-kanton-zuerich', fr: 'cout-de-la-vie-suisse-2026-canton-zurich' },
+ 'imposta-cantonale-confronto-svizzera-2026-canton-basilea': { it: 'imposta-cantonale-confronto-svizzera-2026-canton-basilea', en: 'canton-tax-comparison-switzerland-2026-basel-canton', de: 'kantonaler-steuervergleich-schweiz-2026-kanton-basel', fr: 'comparaison-impots-cantonaux-suisse-2026-canton-de-bale' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

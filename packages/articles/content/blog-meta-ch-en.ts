@@ -1906,6 +1906,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.costo-vita-2026-zurigo-analisi.title': 'Cost of living 2026 in the Canton of Zurich: data and analysis',
     'blog.article.costo-vita-2026-zurigo-analisi.excerpt': 'Updated 2026 analysis on the cost of living in Zurich: rents, LAMal premiums, AVS contributions at 5.3% and taxes at source for workers.',
     'blog.article.costo-vita-2026-zurigo-analisi.imageAlt': 'Zurich city skyline with offices and river in 2026',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.title': 'Cantonal tax comparison Switzerland 2026 canton Basel',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.excerpt': '2026 comparison of cantonal rates in Switzerland: focus on Basel with data on AD/AC 1.1%, LAINF 0.7-1.5%, LPP 7–18% and border deductibles €10,000.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.imageAlt': 'Aerial view of Basel on the Rhine river with office buildings and traditional Swiss architecture',
 };
 
 export default blogMetaChEn;

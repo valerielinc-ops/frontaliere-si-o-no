@@ -1906,6 +1906,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.costo-vita-2026-zurigo-analisi.title': 'Coût de la vie 2026 dans le canton de Zurich : données et analyse',
     'blog.article.costo-vita-2026-zurigo-analisi.excerpt': 'Analyse actualisée 2026 sur le coût de la vie à Zurich : loyers, primes LAMal, cotisations AVS à 5,3% et impôts à la source pour les travailleurs.',
     'blog.article.costo-vita-2026-zurigo-analisi.imageAlt': 'Panorama urbain de Zurich avec bureaux et rivières en 2026',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.title': 'Impôt cantonal comparaison Suisse 2026 canton Bâle',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.excerpt': 'Comparaison 2026 des taux cantonaux en Suisse : focus sur Bâle avec des données sur AD/AC 1,1%, LAA 0,7–1,5%, LPP 7–18% et franchise frontalière € 10\'000.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.imageAlt': 'Vue aérienne de Bâle sur le Rhin avec immeubles de bureaux et architecture suisse traditionnelle',
 };
 
 export default blogMetaChFr;

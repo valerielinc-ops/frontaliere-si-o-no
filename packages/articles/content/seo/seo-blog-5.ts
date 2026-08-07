@@ -59819,45 +59819,6 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-vivere-maslianico-lavorare-ticino-frontaliere': {
-    title: 'Vivere a Maslianico e lavorare in Ticino da frontaliere: guida 2024',
-    description: 'Guida completa per frontalieri che vivono a Maslianico e lavorano in Ticino: imposta alla fonte solo in Svizzera, nuovo accordo in vigore dal 1° gennaio 2024',
-    keywords: 'frontalieri, ticino, svizzera, italia, vivere, maslianico, lavorare, 2024',
-    ogTitle: 'Vivere a Maslianico e lavorare in Ticino da frontaliere: guida 2024',
-    ogDescription: 'Imposta alla fonte solo in Svizzera, nuovo accordo Frontalieri dal 1° gennaio 2024, franchigia fino a 10\'000 euro per nuovi frontalieri. Guida pratica per chi',
-    canonicalPath: '/articoli-frontaliere/vivere-maslianico-lavorare-ticino-frontaliere',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Vivere a Maslianico e lavorare in Ticino da frontaliere: guida 2024",
-      "description": "Guida completa per frontalieri che vivono a Maslianico e lavorano in Ticino: imposta alla fonte solo in Svizzera, nuovo accordo in vigore dal 1° gennaio 2024",
-      "image": {
-        "@type": "ImageObject",
-        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
-        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
-        "creditText": "Frontaliere Ticino",
-        "url": `${BASE_URL}/images/blog/vivere-maslianico-lavorare-ticino-frontaliere.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Frontaliere che attraversa il valico di Brogeda entrando in Ticino verso Lugano"
-      },
-      "datePublished": "2026-08-07T03:39:55+00:00",
-      "dateModified": "2026-08-07T03:39:55+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-maslianico-lavorare-ticino-frontaliere/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
 };
 
 export default BLOG_SEO_METADATA_5;
