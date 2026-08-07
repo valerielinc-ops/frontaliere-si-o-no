@@ -1,6 +1,4 @@
 import { describe, expect, it } from 'vitest';
-import fs from 'node:fs';
-import path from 'node:path';
 
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import { CANTON_SHARD_KEYS } from '../services/jobCantonShards';
@@ -77,20 +75,37 @@ describe('canton URL-slug registry integrity', () => {
     }
   });
 
-  it('the shard key set is exactly the registry canton set', () => {
+  it('the shard key set is exactly the registry canton set, uppercased', () => {
+    // Honest about its own strength: both sides derive from the same JSON, so
+    // this cannot catch a bad registry — the assertions above do that. What it
+    // pins is CANTON_SHARD_KEYS' DERIVATION: that it still reads this file,
+    // still uppercases, and still takes the keys rather than the members. Drop
+    // the `.toUpperCase()` in jobCantonShards and this is the test that fails.
     expect([...CANTON_SHARD_KEYS].sort()).toEqual(
       Object.keys(RAW.cantons).map((k) => k.toUpperCase()).sort(),
     );
+    expect(CANTON_SHARD_KEYS.every((k) => k === k.toUpperCase())).toBe(true);
   });
 
-  it('the Cloud Functions copy of the registry has not drifted', () => {
-    // functions/src/lib/cantonUrlSlugs.json is a second physical copy (Cloud
-    // Functions cannot import from data/). Nothing automated syncs it, so the
-    // only thing standing between the two is this assertion: a drift would let
-    // a function emit a canton URL the SPA has no shard for.
-    const fnPath = path.resolve(__dirname, '..', 'functions/src/lib/cantonUrlSlugs.json');
-    const fn = JSON.parse(fs.readFileSync(fnPath, 'utf-8')) as CantonUrlSlugsShape;
-    expect(Object.keys(fn.cantons).sort()).toEqual(Object.keys(RAW.cantons).sort());
-    expect(fn.cantonGroups ?? {}).toEqual(RAW.cantonGroups ?? {});
+  // The parity of functions/src/lib/cantonUrlSlugs.json (the Cloud Functions
+  // copy of this registry) is NOT asserted here on purpose:
+  // tests/canton-url-slugs-parity.test.ts already locks the two files together
+  // and covers `aggregate` as well, and that file is named in the `_syncNote`
+  // of the duplicate itself. A second, weaker copy of that assertion would be
+  // exactly the duplication the shard work spent two PRs removing.
+
+  it('exercises the sentinel and unknown-code branches, which CANTON_CODES never reaches', () => {
+    // CANTON_CODES holds only the 26 real BFS codes, so every assertion above
+    // walks the happy path. These two inputs are the ones real callers pass
+    // that are NOT cantons: `getDefaultCantonForVisit()` returns the aggregate
+    // sentinel, and a slug map entry can carry a stale/garbage canton. Both
+    // must round-trip untouched rather than resolve to some arbitrary key —
+    // the shard fetch's own 404 handling is what covers them downstream.
+    expect(resolveCantonGroup('_AGGREGATE_')).toBe('_AGGREGATE_');
+    expect(CANTON_SHARD_KEYS).not.toContain('_AGGREGATE_');
+    expect(resolveCantonGroup('ZZ')).toBe('ZZ');
+    expect(resolveCantonGroup('')).toBe('');
+    expect(expandCantonGroup('_AGGREGATE_')).toEqual(['_AGGREGATE_']);
+    expect(expandCantonGroup('')).toEqual([]);
   });
 });
