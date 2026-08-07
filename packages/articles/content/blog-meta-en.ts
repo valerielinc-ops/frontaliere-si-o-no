@@ -9322,6 +9322,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.compatta-usata-frontalieri-varese-milano.title': 'Used SUV or compact: the smartest choice',
     'blog.article.compatta-usata-frontalieri-varese-milano.excerpt': 'For border crossers Varese-Milan-Ticino, a used compact reduces operating costs and facilitates daily travel compared to an SUV, according to VareseNoi.it',
     'blog.article.compatta-usata-frontalieri-varese-milano.imageAlt': 'Used compact car at Brogeda border crossing between Italy and Switzerland',
+    'blog.article.caldo-lavoro-frontalieri-ticino.title': 'Torrid heat and work: unions meet the Ticino Government for new measures',
+    'blog.article.caldo-lavoro-frontalieri-ticino.excerpt': 'UNIA, OCST, USS and VPOD unions call for intervention thresholds based on scientific indices to protect workers during heatwaves in Ticino',
+    'blog.article.caldo-lavoro-frontalieri-ticino.imageAlt': 'Construction workers resting in the shade during a heatwave in Lugano, Ticino',
 };
 
 export default blogMetaEn;

@@ -59936,6 +59936,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-caldo-lavoro-frontalieri-ticino': {
+    title: 'Caldo torrido e lavoro: sindacati incontrano Governo ticinese per nuove misure',
+    description: 'Sindacati UNIA, OCST, USS e VPOD incontrano Governo ticinese dopo oltre 100 ricoveri per caldo sui lavoratori. Chiesto modello Vallese con soglie scientifiche',
+    keywords: 'frontalieri, ticino, svizzera, italia, caldo, torrido, lavoro, sindacati',
+    ogTitle: 'Caldo torrido e lavoro in Ticino: sindacati chiedono misure urgenti',
+    ogDescription: 'Oltre 100 ricoveri per effetti del caldo sui lavoratori in Ticino. Sindacati UNIA, OCST, USS e VPOD chiedono soglie scientifiche di intervento sul modello',
+    canonicalPath: '/articoli-frontaliere/caldo-lavoro-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caldo torrido e lavoro: sindacati incontrano Governo ticinese per nuove misure",
+      "description": "Sindacati UNIA, OCST, USS e VPOD incontrano Governo ticinese dopo oltre 100 ricoveri per caldo sui lavoratori. Chiesto modello Vallese con soglie scientifiche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/caldo-lavoro-frontalieri-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori edili in pausa all'ombra durante un'ondata di caldo a Lugano, Ticino"
+      },
+      "datePublished": "2026-08-07T08:10:45+00:00",
+      "dateModified": "2026-08-07T08:10:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caldo-lavoro-frontalieri-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
