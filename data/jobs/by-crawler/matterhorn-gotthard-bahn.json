@@ -1096,15 +1096,11 @@
         "identifier": "PERS-471 / 500",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
-      "previousSlugs": [
-        "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard",
-        "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-zermatt",
-        "installatore-trice-elettrico-a-fachspezialist-elektro-e-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-zermatt"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard",
-          "installatore-trice-elettrico-a-fachspezialist-elektro-e-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-zermatt"
+          "installatore-trice-elettrico-a-fachspezialist-elektro-e-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-zermatt",
+          "electrical-installer-specialist-in-electrical-and-safety-systems-m-w-d-matterhorn-gotthard-bahn-zermatt"
         ],
         "en": [
           "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-zermatt"
@@ -1113,8 +1109,12 @@
           "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-zermatt"
         ]
       },
-      "firstSeenAt": "2026-08-07T10:24:01.623Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard",
+        "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-zermatt",
+        "installatore-trice-elettrico-a-fachspezialist-elektro-e-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-zermatt",
+        "electrical-installer-specialist-in-electrical-and-safety-systems-m-w-d-matterhorn-gotthard-bahn-zermatt"
+      ],
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1127,7 +1127,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-08-07T10:24:01.623Z",
+      "needsRetranslation": true
     }
   ]
 }

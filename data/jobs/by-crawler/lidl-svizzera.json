@@ -62,7 +62,9 @@
           "venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio",
           "343-venditore-venditrice-luni-f-d-20-40-lidl-svizzera-minusio",
           "343-venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio",
-          "venditore-venditrice-m-f-d-40-60-lidl-svizzera-minusio"
+          "venditore-venditrice-m-f-d-40-60-lidl-svizzera-minusio",
+          "343-venditore-vendeur-l-f-d-20-40-lidl-svizzera-minusio",
+          "343-venditore-verkaufer-m-w-d-20-40-lidl-svizzera-minusio"
         ],
         "en": [
           "seller-seller-m-f-d-20-40-lidl-svizzera-minusio"
@@ -73,8 +75,12 @@
         "343-venditore-venditrice-luni-f-d-20-40-lidl-svizzera-minusio",
         "343-venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio",
         "venditore-venditrice-m-f-d-40-60-lidl-svizzera-minusio",
-        "seller-seller-m-f-d-20-40-lidl-svizzera-minusio"
+        "seller-seller-m-f-d-20-40-lidl-svizzera-minusio",
+        "343-venditore-vendeur-l-f-d-20-40-lidl-svizzera-minusio",
+        "343-venditore-verkaufer-m-w-d-20-40-lidl-svizzera-minusio"
       ],
+      "salaryMin": 23600,
+      "salaryMax": 36200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -89,9 +95,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "salaryMin": 23600,
-      "salaryMax": 36200
+      "needsRetranslation": true
     },
     {
       "id": "company-s4cm0d",
@@ -442,7 +446,8 @@
           "vendeur-vendeuse-m-w-d-60-etoy-lidl-svizzera-etoy",
           "seller-h-f-d-60-etoy-lidl-svizzera-etoy",
           "verkaufer-h-w-d-60-etoy-lidl-svizzera-etoy",
-          "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy-8vp5j0"
+          "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy-8vp5j0",
+          "verkaufer-m-w-d-60-etoy-lidl-svizzera-etoy"
         ],
         "en": [
           "seller-h-f-d-60-etoy-lidl-svizzera-etoy",
@@ -462,8 +467,11 @@
         "vendeur-vendeuse-m-w-d-60-etoy-lidl-svizzera-etoy",
         "seller-h-f-d-60-etoy-lidl-svizzera-etoy",
         "verkaufer-h-w-d-60-etoy-lidl-svizzera-etoy",
-        "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy-8vp5j0"
+        "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy-8vp5j0",
+        "verkaufer-m-w-d-60-etoy-lidl-svizzera-etoy"
       ],
+      "salaryMin": 24200,
+      "salaryMax": 36600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -478,9 +486,7 @@
       "addressRegion": "VD",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "salaryMin": 24200,
-      "salaryMax": 36600
+      "needsRetranslation": true
     },
     {
       "id": "company-9m9tz1",

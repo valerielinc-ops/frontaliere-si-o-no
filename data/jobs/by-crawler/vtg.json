@@ -56,7 +56,8 @@
         ],
         "en": [
           "logistiker-in-confederazione-svizzera-rivera",
-          "logistiker-in-swiss-armed-forces-vtg-bern-cupr4v"
+          "logistiker-in-swiss-armed-forces-vtg-bern-cupr4v",
+          "logistician-in-confederazione-svizzera-rivera"
         ],
         "de": [
           "logistiker-in-confederazione-rivera",
@@ -64,7 +65,8 @@
         ],
         "fr": [
           "logistiker-in-confederazione-svizzera-rivera",
-          "logistiker-in-swiss-armed-forces-vtg-bern-cupr4v"
+          "logistiker-in-swiss-armed-forces-vtg-bern-cupr4v",
+          "logisticien-in-confederazione-svizzera-rivera"
         ]
       },
       "previousSlugs": [
@@ -72,8 +74,12 @@
         "logistiker-in-swiss-armed-forces-vtg-bern-cupr4v",
         "logistiker-in-confederazione-rivera",
         "impiegato-a-in-logistica-confederazione-svizzera-rivera",
-        "logistiker-in-confederazione-svizzera-rivera"
+        "logistiker-in-confederazione-svizzera-rivera",
+        "logistician-in-confederazione-svizzera-rivera",
+        "logisticien-in-confederazione-svizzera-rivera"
       ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -88,9 +94,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salaryMin": 49500,
-      "salaryMax": 75000
+      "country": "CH"
     },
     {
       "id": "company-f018y2",
