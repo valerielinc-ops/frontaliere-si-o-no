@@ -24860,6 +24860,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-lamal-2026-ginevra-guida': {
+    title: 'Premi LAMal 2026 a Ginevra: franchigia, cambio cassa e sussidi',
+    description: 'Guida ai premi cassa malati 2026 nel canton Ginevra: franchigie CHF 300–2500, diritto d\'opzione frontalieri, confronto nazionale e passi per cambiare',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, lamal, ginevra, franchigia',
+    ogTitle: 'Premi LAMal 2026 Ginevra: guida a franchigia e cambio cassa',
+    ogDescription: 'Guida ai premi cassa malati 2026 nel canton Ginevra: franchigie CHF 300–2500, diritto d\'opzione frontalieri, confronto nazionale e passi per cambiare',
+    canonicalPath: '/articoli-svizzera/premi-lamal-2026-ginevra-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi LAMal 2026 a Ginevra: franchigia, cambio cassa e sussidi",
+      "description": "Guida ai premi cassa malati 2026 nel canton Ginevra: franchigie CHF 300–2500, diritto d'opzione frontalieri, confronto nazionale e passi per cambiare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-2026-ginevra-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Ginevra con il Jet d'Eau sullo sfondo delle Alpi"
+      },
+      "datePublished": "2026-08-07T20:56:09+00:00",
+      "dateModified": "2026-08-07T20:56:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-2026-ginevra-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

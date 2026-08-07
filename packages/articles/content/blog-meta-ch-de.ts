@@ -1921,6 +1921,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.costo-vita-svizzera-2026-san-gallo.title': 'Lebenshaltungskosten Schweiz 2026: Analyse Kanton St. Gallen',
     'blog.article.costo-vita-svizzera-2026-san-gallo.excerpt': 'Italienische IRPEF-Sätze 23-35-43%, AHV 5,3%, Grenzgänger-Franchise € 10\'000, Abkommen 2024, Nicht-EU/EWR-Schweiz',
     'blog.article.costo-vita-svizzera-2026-san-gallo.imageAlt': 'Grenzgänger in der Altstadt von St. Gallen mit modernen Gebäuden im Hintergrund',
+    'blog.article.premi-lamal-2026-ginevra-guida.title': 'KVG-Prämien 2026 in Genf: Franchise, Kassenwechsel und Beiträge',
+    'blog.article.premi-lamal-2026-ginevra-guida.excerpt': 'Leitfaden zu den Krankenkassenprämien 2026 im Kanton Genf: Franchisen CHF 300–2500, Optionsrecht für Grenzgänger, Landesvergleich und Wechselschritte.',
+    'blog.article.premi-lamal-2026-ginevra-guida.imageAlt': 'Blick auf den Genfersee mit dem Jet d\'Eau vor den Alpen',
 };
 
 export default blogMetaChDe;

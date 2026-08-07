@@ -1921,6 +1921,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.costo-vita-svizzera-2026-san-gallo.title': 'Coût de la vie Suisse 2026 : analyse canton de Saint-Gall',
     'blog.article.costo-vita-svizzera-2026-san-gallo.excerpt': 'Taux IRPEF italien 23-35-43%, AVS 5,3%, franchise frontalière 10\'000 € , accord 2024, Suisse hors UE/EEE',
     'blog.article.costo-vita-svizzera-2026-san-gallo.imageAlt': 'Frontalier dans la vieille ville de Saint-Gall avec bâtiments modernes en arrière-plan',
+    'blog.article.premi-lamal-2026-ginevra-guida.title': 'Prix LAMal 2026 à Genève : franchise, changement de caisse et subventions',
+    'blog.article.premi-lamal-2026-ginevra-guida.excerpt': 'Guide des primes caisse-maladie 2026 dans le canton de Genève : franchises CHF 300–2500, droit d\'option pour frontaliers, comparaison nationale et passages pour changer d\'assurance.',
+    'blog.article.premi-lamal-2026-ginevra-guida.imageAlt': 'Vue du lac Léman avec le Jet d\'Eau sur fond des Alpes',
 };
 
 export default blogMetaChFr;

@@ -1921,6 +1921,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.costo-vita-svizzera-2026-san-gallo.title': 'Costo della vita Svizzera 2026: analisi canton San Gallo',
     'blog.article.costo-vita-svizzera-2026-san-gallo.excerpt': 'Aliquote IRPEF italiana 23-35-43%, AVS 5,3%, franchigia frontalieri €10\'000, accordo 2024, Svizzera non UE/SEE',
     'blog.article.costo-vita-svizzera-2026-san-gallo.imageAlt': 'Frontaliero nel centro storico di San Gallo con edifici moderni sullo sfondo',
+    'blog.article.premi-lamal-2026-ginevra-guida.title': 'Premi LAMal 2026 a Ginevra: franchigia, cambio cassa e sussidi',
+    'blog.article.premi-lamal-2026-ginevra-guida.excerpt': 'Guida ai premi cassa malati 2026 nel canton Ginevra: franchigie CHF 300–2500, diritto d\'opzione per frontalieri, confronto nazionale e passaggi per cambiare assicurazione.',
+    'blog.article.premi-lamal-2026-ginevra-guida.imageAlt': 'Vista del Lago di Ginevra con il Jet d\'Eau sullo sfondo delle Alpi',
 };
 
 export default blogMetaChIt;
