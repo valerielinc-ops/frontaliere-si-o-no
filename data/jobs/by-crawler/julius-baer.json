@@ -244,8 +244,6 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-05T22:40:48.656Z",
       "salaryMin": 189000,
       "salaryMax": 331500,
       "currency": "CHF",
@@ -258,7 +256,8 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-05T22:40:48.656Z"
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/HR-Generalist---Processes-and-Governance--50---60-----9-months-fix-term-contract_r-19423",
@@ -443,7 +442,6 @@
           "remote-access-engineer-citrix-netscaler-zscaler-private-access-100-f-m-d-julius-baer"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -490,8 +488,8 @@
       "slugByLocale": {
         "it": "responsabile-del-rischio-business-pianificazione-patrimoniale-gps-zurigo-100-f-m-d-julius-baer-zurich",
         "en": "gps-wealth-planning-business-risk-manager-zurich-100-f-m-d-julius-baer",
-        "de": "gps-wealth-planning-business-risk-manager-zurich-100-f-m-d-julius-baer",
-        "fr": "responsable-risque-business-planification-de-patrimoine-gps-zurich-100-f-m-d-julius-baer-zurich"
+        "fr": "responsable-risque-business-planification-de-patrimoine-gps-zurich-100-f-m-d-julius-baer-zurich",
+        "de": "gps-wealth-planning-business-risk-manager-zurich-100-f-m-d-julius-baer"
       },
       "category": "risk",
       "datePosted": "2026-08-04",
@@ -504,7 +502,6 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-04T11:35:00.606Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -612,8 +609,8 @@
       "slugByLocale": {
         "it": "senior-system-architect-ml-ai-100-f-m-d-julius-baer",
         "en": "senior-system-architect-ml-ai-100-f-m-d-julius-baer",
-        "de": "senior-system-architect-ml-ai-100-f-m-d-julius-baer",
-        "fr": "architecte-systeme-senior-ml-ai-100-f-m-d-julius-baer-zurich"
+        "fr": "architecte-systeme-senior-ml-ai-100-f-m-d-julius-baer-zurich",
+        "de": "senior-system-architect-ml-ai-100-f-m-d-julius-baer"
       },
       "category": "technology",
       "datePosted": "2026-08-04",
@@ -626,7 +623,6 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-04T11:35:00.606Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
