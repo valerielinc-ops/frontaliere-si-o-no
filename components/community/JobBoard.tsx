@@ -84,7 +84,10 @@ import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader'
 import PopularSearchChips from '@/components/community/PopularSearchChips';
 import EmployerBrandHub from '@/components/jobs/EmployerBrandHub';
 import { getEmployerBrandBySlug } from '@/services/employerBrands';
-import popularityData from '@/data/job-popularity.json';
+// NOT a static `import … from '@/data/job-popularity.json'`: Rollup inlines a
+// static JSON import into this chunk, which put 3.6 MB of a 4.1 MB JobBoard.js
+// on the modulepreloaded critical path of /cerca-lavoro-ticino/ (#5001).
+import { loadJobPopularity, EMPTY_JOB_POPULARITY } from '@/services/jobPopularityService';
 import type { JobNetEstimate } from '@/services/jobNetEstimate';
 import {
  ArrowLeft,
@@ -2266,7 +2269,40 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const deferredBehaviorData = useDeferredValue(behaviorData);
  const deferredJobMatchProfile = useDeferredValue(jobMatchProfile);
  const deferredUserProfile = useDeferredValue(userProfile);
- const popularity = popularityData as Record<string, number>;
+ // Job-popularity map, fetched instead of bundled (#5001 — see
+ // services/jobPopularityService.ts for the measurement that motivated it).
+ // Starts as the frozen empty map: getTrendingByLocation() returns [] for it
+ // and TrendingSection only renders at 3+ matches, so the pre-load state is
+ // simply "no trending strip yet" — the same thing an offline user already saw.
+ const [popularity, setPopularity] = useState<Record<string, number>>(EMPTY_JOB_POPULARITY);
+
+ // Fetch it at idle, and only when personalization is on — it feeds nothing
+ // else. Deferring past the authoritative job index keeps it from competing
+ // with the listing paint. Mirrors the requestIdleCallback+timeout fallback
+ // used by the seeded-detail index load below.
+ useEffect(() => {
+ if (!enablePersonalization) return;
+ let cancelled = false;
+ const start = (): void => {
+ loadJobPopularity()
+ .then((data) => {
+ if (cancelled) return;
+ // Keep the frozen empty map on a miss so memo deps stay stable.
+ if (Object.keys(data).length > 0) setPopularity(data);
+ })
+ .catch(() => { /* loadJobPopularity never rejects; belt-and-braces */ });
+ };
+ const w = window as unknown as {
+ requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+ cancelIdleCallback?: (handle: number) => void;
+ };
+ if (typeof w.requestIdleCallback === 'function') {
+ const handle = w.requestIdleCallback(start, { timeout: 5000 });
+ return () => { cancelled = true; w.cancelIdleCallback?.(handle); };
+ }
+ const timer = setTimeout(start, 2000);
+ return () => { cancelled = true; clearTimeout(timer); };
+ }, [enablePersonalization]);
 
  // Load behavior data on mount and update last visit
  useEffect(() => {
