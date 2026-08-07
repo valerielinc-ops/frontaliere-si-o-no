@@ -1,23 +1,23 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-08-07T10:11:32.816Z",
-  "total": 13,
+  "generatedAt": "2026-08-07T21:44:07.751Z",
+  "total": 14,
   "newCount": 1,
   "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 8,
-  "durationMs": 6059,
-  "avgDurationMs": 6059,
+  "unchangedCount": 9,
+  "durationMs": 6579,
+  "avgDurationMs": 6579,
   "durationHistory": [
-    6059
+    6579
   ],
   "newJobs": [
     {
-      "title": "Senior Financial Accountant / Fachspezialist Rechnungswesen (m/w/d) 100%",
+      "title": "Elektroinstallateur/ Automatiker/in (m/w/d) 100%",
       "company": "EMS-Chemie AG",
       "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d/2f08313e-23ed-4ff6-99ea-57918393e378",
+      "url": "https://jobs.ems-group.com/offene-stellen/elektroinstallateur-automatiker-in-m-w-d/211dd557-2fa2-4b01-8403-92eb77225a26",
       "location": "Domat/Ems",
       "canton": "GR",
       "country": "CH",
@@ -30,11 +30,11 @@
       "category": "science",
       "postedDate": "2026-08-07",
       "source": "company-website",
-      "slug": "senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d-100-ems-chemie-domat-ems",
-      "_qualityScore": 64,
+      "slug": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-domat-ems",
+      "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 10,
         "translation": 8,
         "completeness": 17
       }
@@ -177,6 +177,39 @@
   "removedJobs": [],
   "unchangedJobs": [
     {
+      "title": "Elektroinstallateur/ Automatiker/in (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/elektroinstallateur-automatiker-in-m-w-d/211dd557-2fa2-4b01-8403-92eb77225a26",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "postedDate": "2026-08-07",
+      "source": "company-website",
+      "slug": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-ag-domat-ems",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "ems-chemie-d5da149d12fb",
+      "sourceLang": "it",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 16,
+        "completeness": 22
+      }
+    },
+    {
       "title": "Senior Financial Accountant / Fachspezialist Rechnungswesen (m/w/d) 100%",
       "company": "EMS-Chemie AG",
       "companyKey": "ems-chemie",
@@ -195,17 +228,18 @@
       "source": "company-website",
       "slug": "senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d-100-ems-chemie-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "ems-chemie-45d517a8e3c5",
       "sourceLang": "it",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "currency": "CHF",
-      "_qualityScore": 82,
+      "firstSeenAt": "2026-08-07T10:11:32.814Z",
+      "needsRetranslation": true,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
