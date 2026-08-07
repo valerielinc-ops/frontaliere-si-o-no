@@ -60229,9 +60229,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "senior-deep-learning-ingegnere-nvidia-ufficio-zurich-zurich",
-        "en": "senior-deep-learning-ingegnere-nvidia-ufficio-zurich-zurich",
-        "de": "senior-deep-learning-ingegnere-nvidia-ufficio-zurich-zurich",
-        "fr": "senior-deep-learning-ingegnere-nvidia-ufficio-zurich-zurich"
+        "en": "senior-deep-learning-engineer-nvidia-zurich-ch",
+        "de": "senior-deep-learning-ingenieur-nvidia-ufficio-zurich-zurich",
+        "fr": "senior-deep-learning-ingenieur-nvidia-ufficio-zurich-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/senior-deep-learning-ingegnere-nvidia-ufficio-zurich-zurich",
@@ -60245,6 +60245,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
