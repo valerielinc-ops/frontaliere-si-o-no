@@ -27930,6 +27930,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio',
+ category: 'novita',
+ date: '2026-08-07T00:24:46.158Z',
+ image: '/images/blog/di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

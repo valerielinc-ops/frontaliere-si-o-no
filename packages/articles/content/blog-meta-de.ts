@@ -9303,6 +9303,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.title': 'Zunahme der aktiven Grenzgänger in der Schweiz',
     'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.excerpt': 'Zweites Quartal 2026: 79\'121 aktive Grenzgänger im Tessin, +0,6% gegenüber dem ersten Quartal.',
     'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.imageAlt': 'Eine Foto eines Grenzgängers in der Schweiz',
+    'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.title': 'Mehr Renten: Renten sinken, decken immer weniger das letzte Gehalt ab',
+    'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.excerpt': 'Die seit 2002 um 16% gesunkenen Renten decken weniger als 60% des letzten Gehalts ab.',
+    'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.imageAlt': 'Arbeitsloser mit trauriger Miene beim Ansehen seines abnehmenden Gehalts mit dem Alter.',
 };
 
 export default blogMetaDe;

@@ -9304,6 +9304,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.title': 'Increase in active border workers in Switzerland',
     'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.excerpt': 'Second quarter 2026: 79,121 border workers active in Ticino, +0.6% compared to the first quarter.',
     'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.imageAlt': 'A photo of a cross-border worker in Switzerland',
+    'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.title': 'More pensions: pensions are falling, they cover the last salary less and less',
+    'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.excerpt': 'Retirement pensions decreased by 16% since 2002, cover less than 60% of the last salary.',
+    'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.imageAlt': 'Frontalier with sad expression looking at decreasing salary with age.',
 };
 
 export default blogMetaEn;
