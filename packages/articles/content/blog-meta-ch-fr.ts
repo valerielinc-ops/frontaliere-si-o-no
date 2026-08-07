@@ -1909,6 +1909,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.title': 'Impôt cantonal comparaison Suisse 2026 canton Bâle',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.excerpt': 'Comparaison 2026 des taux cantonaux en Suisse : focus sur Bâle avec des données sur AD/AC 1,1%, LAA 0,7–1,5%, LPP 7–18% et franchise frontalière € 10\'000.',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.imageAlt': 'Vue aérienne de Bâle sur le Rhin avec immeubles de bureaux et architecture suisse traditionnelle',
+    'blog.article.rimborsi-730-sostituti-imposta.title': 'Remboursements 730 : indemnisables en F24',
+    'blog.article.rimborsi-730-sostituti-imposta.excerpt': 'Selon ce qui a été communiqué en mai 2026, les substituts d’impôt peuvent récupérer les remboursements du modèle 730 en les compensant dans F24 même avec des impôts de substitution sur les salaires',
+    'blog.article.rimborsi-730-sostituti-imposta.imageAlt': 'Travailleur frontalier italien vérifiant des documents fiscaux à Lugano',
 };
 
 export default blogMetaChFr;
