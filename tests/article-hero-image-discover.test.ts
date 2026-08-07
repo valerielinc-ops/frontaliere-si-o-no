@@ -37,8 +37,16 @@ describe('article pages emit a real hero image element (#5005)', () => {
     // them the image is a layout shift, which Auto Ads inherits — and
     // Non-Negotiable #7 says CLS from ads is fixed by reserving space, never
     // by suppressing the ad.
-    expect(SOURCE).toMatch(/heroFigureHtml\s*=\s*[\s\S]{0,400}?width="\$\{HERO_WIDTH\}"/);
-    expect(SOURCE).toMatch(/heroFigureHtml\s*=\s*[\s\S]{0,400}?height="\$\{HERO_HEIGHT\}"/);
+    //
+    // These were `${HERO_WIDTH}`/`${HERO_HEIGHT}` — one constant pair for the
+    // whole corpus. That reserved the RIGHT box only for the files that happen
+    // to be 1200x675; measured, the corpus heights run 179..2469. They are now
+    // the per-article measured size (`en.imgW`/`en.imgH`, from
+    // resolveHeroSize → shared/imageIntrinsicSize.ts), which is strictly
+    // stronger: it is the same guarantee, per file.
+    // Behavioural coverage: tests/article-hero-image-integrity.test.ts.
+    expect(SOURCE).toMatch(/heroFigureHtml\s*=\s*[\s\S]{0,400}?width="\$\{en\.imgW\}"/);
+    expect(SOURCE).toMatch(/heroFigureHtml\s*=\s*[\s\S]{0,400}?height="\$\{en\.imgH\}"/);
   });
 
   it('gives the hero an accessible name that is never empty', () => {
@@ -77,24 +85,37 @@ describe('article NewsArticle JSON-LD carries image dimensions (#5001)', () => {
   });
 
   it('declares a width at or above the Discover large-card floor', () => {
-    expect(SOURCE).toMatch(/const HERO_WIDTH = (\d+);/);
-    const width = Number(SOURCE.match(/const HERO_WIDTH = (\d+);/)![1]);
+    // The floor now lives on the LAST-RESORT constant — the value used only
+    // when a hero file cannot be opened or parsed. Real pages declare their own
+    // file's measured width, which the corpus keeps at 1200; the floor is what
+    // guarantees the unmeasurable case still claims large-card eligibility
+    // rather than dropping below it.
+    expect(SOURCE).toMatch(/const HERO_FALLBACK_WIDTH = (\d+);/);
+    const width = Number(SOURCE.match(/const HERO_FALLBACK_WIDTH = (\d+);/)![1]);
     expect(width).toBeGreaterThanOrEqual(1200);
+    expect(SOURCE).toContain('export const DISCOVER_MIN_IMAGE_WIDTH = 1200;');
   });
 });
 
-describe('the hero size lives in one constant', () => {
+describe('the hero size is measured once and read everywhere', () => {
   it('og:image, the ImageObject and the <img> all read the same numbers', () => {
     // Four copies of `1200`/`675` across og tags, the Event ImageObject, the
     // NewsArticle ImageObject and the <img> attributes is a drift waiting to
     // happen — and here the drift is CLS, not cosmetics (AGENTS.md #6: a
     // literal duplicated in ≥2 places gets extracted, not copy-pasted).
-    expect(SOURCE).toContain('<meta property="og:image:width" content="${HERO_WIDTH}">');
-    expect(SOURCE).toContain('<meta property="og:image:height" content="${HERO_HEIGHT}">');
+    //
+    // The single source is no longer a constant but the per-article measured
+    // pair `en.imgW`/`en.imgH`. Same rule, one rung stronger: the three
+    // declarations cannot disagree with each other OR with the file.
+    expect(SOURCE).toContain('<meta property="og:image:width" content="${en.imgW}">');
+    expect(SOURCE).toContain('<meta property="og:image:height" content="${en.imgH}">');
     expect(SOURCE).not.toContain('<meta property="og:image:width" content="1200">');
     expect(SOURCE).not.toContain('<meta property="og:image:height" content="675">');
     // No stray literal left in an ImageObject width/height either.
     expect(SOURCE).not.toMatch(/width: 1200,\s*\n\s*height: 675,/);
+    // And the pair really is measured from the file, not re-derived.
+    expect(SOURCE).toContain("import { readImageIntrinsicSize } from './shared/imageIntrinsicSize'");
+    expect(SOURCE).toMatch(/const imSize = resolveHeroSize\(im\);/);
   });
 });
 
