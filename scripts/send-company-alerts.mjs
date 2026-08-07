@@ -33,6 +33,24 @@
  * (scripts/lib/alert-sent-jobs.mjs, shared with the digest) is the second,
  * independent guard: even a bad window can never mail the same job twice.
  *
+ * ── ONE EMAIL PER RECIPIENT, NOT PER ALERT (residuo #5283) ────────────────
+ * This runner used to iterate ALERTS and send one email each. Following ten
+ * employers that published inside the same 6h window therefore produced ten
+ * emails, arriving within seconds of each other, each naming one company —
+ * which is also why MAX_COMPANY_ALERTS_PER_USER sat at 10 with a comment
+ * saying the cap was standing in for grouping that did not exist yet.
+ *
+ * Now the run groups by recipient first: every alert of one address becomes a
+ * SECTION of a single message. The three consequences worth knowing:
+ *
+ *   - The per-inbox ceiling for a run is 1 message, whatever the follow count.
+ *     That is what freed the cap (now 20, see services/jobAlertService.ts).
+ *   - `sentJobIds` stays PER ALERT. Grouping changes what one email covers, not
+ *     what "already sent" means, so every alert whose section was rendered gets
+ *     its own map updated — and only if the message actually went out.
+ *   - PER_RUN_CAP now counts recipients, not emails (they were the same thing
+ *     before). See the constant.
+ *
  * Environment:
  *   ENABLE_JOB_ALERTS=true         — same master switch as the digest
  *   GOOGLE_APPLICATION_CREDENTIALS — Firebase service account
@@ -48,13 +66,13 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { buildAlertProfile, scoreJobForAlert } from '../services/jobAlertMatching.mjs';
-import { buildCompanyAlertEmail, COMPANY_ALERT_TEMPLATE_ID, COMPANY_ALERT_MAX_CARDS } from '../services/companyAlertEmail.mjs';
+import { buildCompanyAlertEmail, COMPANY_ALERT_TEMPLATE_ID, COMPANY_ALERT_MAX_TOTAL_CARDS } from '../services/companyAlertEmail.mjs';
 import { nlNormLocale } from '../services/newsletter-template.mjs';
 import { isAddressSuppressed, isJobAlertExcluded } from '../services/emailSuppression.mjs';
 import { generateAutologinCode, makeAuthenticatedUrl } from '../services/newsletterUrls.mjs';
 import { normalizeSentMap, filterUnsentJobs, mergeSentJobs, DEDUP_WINDOW_MS } from './lib/alert-sent-jobs.mjs';
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl, BASE_URL } from './lib/job-alert-unsub-urls.mjs';
-import { commitInChunks } from './lib/firestore-batch.mjs';
+import { commitInChunks, FIRESTORE_BATCH_SIZE } from './lib/firestore-batch.mjs';
 import { isImmediateCompanyAlert } from './lib/company-alert-routing.mjs';
 /**
  * `/aziende-seguite/` per locale — ONE literal segment for every language, like
@@ -87,13 +105,46 @@ const DRY_RUN = process.argv.includes('--dry-run');
 const IMMEDIATE_WINDOW_MS = Math.max(1, Number(process.env.COMPANY_ALERT_WINDOW_HOURS) || 6) * 60 * 60 * 1000;
 
 /**
- * Per-run cap on emails, mirroring blast-publisher-ads.mjs's PER_RUN_CAP. The
- * workflow can fire many times an hour when several crawler groups land; this
- * bounds a pathological run (a crawler re-keying its whole slice so every job
- * looks first-seen) before it eats the shared cascade quota the digest and the
- * newsletter also draw on.
+ * Per-run cap on RECIPIENTS, mirroring blast-publisher-ads.mjs's PER_RUN_CAP.
+ * The workflow can fire many times an hour when several crawler groups land;
+ * this bounds a pathological run (a crawler re-keying its whole slice so every
+ * job looks first-seen) before it eats the shared cascade quota the digest and
+ * the newsletter also draw on.
+ *
+ * THE UNIT CHANGED, THE NUMBER DID NOT. Before grouping, one email was one
+ * alert, so "300 emails" and "300 alerts" were the same sentence and the cap
+ * silently metered two different things at once. Now one email is one
+ * recipient, and 300 means 300 messages — which is the unit the quota it
+ * protects is actually denominated in, so the cap got MORE accurate, not less.
+ *
+ * The side effect is that a capped run now covers more alerts than before (up
+ * to COMPANY_ALERT_MAX_TOTAL_CARDS sections each) for the same 300 messages.
+ * That is the point of the change; it is not a loosening, because the ESP
+ * charges and rate-limits per message, not per alert.
  */
 const PER_RUN_CAP = 300;
+
+/**
+ * Chunk size for the post-send `sentJobIds` writeback.
+ *
+ * The item handed to `commitInChunks` is a RECIPIENT, and its applyFn adds one
+ * `batch.update` per rendered section — up to COMPANY_ALERT_MAX_TOTAL_CARDS of
+ * them, since a section needs at least one card to exist. commitInChunks
+ * assumes at most one op per item to keep its slice length a safe bound on
+ * ops-per-batch, so the bound is restored here by dividing: 400 / 20 = 20
+ * recipients per batch, i.e. never more than 400 ops, the same ceiling the
+ * shared helper enforces for single-op callers.
+ *
+ * Per-recipient batching is not an optimisation, it is atomicity: all of one
+ * email's alerts land in ONE batch, so a chunk boundary can never mark half an
+ * email's employers as sent and leave the other half to be re-mailed on the
+ * next run — a duplicate for exactly the jobs the reader already received.
+ *
+ * Exported so tests/company-alert.test.ts can assert the invariant
+ * (`DEDUP_CHUNK_SIZE × COMPANY_ALERT_MAX_TOTAL_CARDS ≤ FIRESTORE_BATCH_SIZE`)
+ * instead of restating the arithmetic as a source-scan.
+ */
+export const DEDUP_CHUNK_SIZE = Math.max(1, Math.floor(FIRESTORE_BATCH_SIZE / COMPANY_ALERT_MAX_TOTAL_CARDS));
 
 const TARGET_EMAIL_RAW = (process.env.TARGET_EMAIL || '').trim().toLowerCase();
 const ALLOWED_EMAILS = TARGET_EMAIL_RAW ? new Set([TARGET_EMAIL_RAW]) : null;
@@ -143,6 +194,170 @@ export function selectNewlyPublishedJobs(jobs, nowMs, windowMs = IMMEDIATE_WINDO
   });
 }
 
+/**
+ * Display name for a followed employer.
+ *
+ * The alert persists only the canonical slug, so de-slug from a job the
+ * employer just posted (authoritative, correctly cased) and fall back to a
+ * title-cased slug when the field is missing.
+ *
+ * @param {object} alert
+ * @param {object[]} jobs
+ * @returns {string}
+ */
+function companyDisplayName(alert, jobs) {
+  return String(jobs?.[0]?.company || '').trim()
+    || String(alert?.specificCompanyKey || '')
+      .split('-')
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(' ');
+}
+
+/**
+ * Bucket the run's alerts by recipient address — the unit of ONE email.
+ *
+ * Keyed on the lowercased/trimmed address because every other writer of
+ * `job_alert_subscribers/{email}` keys it that way; a mixed-case duplicate here
+ * would split one person into two inboxes and undo the grouping silently.
+ * Alerts with no address are dropped rather than bucketed under '' — there is
+ * nowhere to send them and an empty key would collapse unrelated alerts into
+ * one nonsensical email.
+ *
+ * Pure — no IO — so tests/company-alert.test.ts can assert the grouping without
+ * Firestore.
+ *
+ * @param {object[]} alerts
+ * @returns {Map<string, object[]>}
+ */
+export function groupAlertsByRecipient(alerts) {
+  const byRecipient = new Map();
+  for (const alert of alerts || []) {
+    const key = String(alert?.email || '').toLowerCase().trim();
+    if (!key) continue;
+    if (!byRecipient.has(key)) byRecipient.set(key, []);
+    byRecipient.get(key).push(alert);
+  }
+  return byRecipient;
+}
+
+/**
+ * Turn ONE recipient's alerts into the ranked employer sections their email
+ * will carry — matching, per-alert dedup and ordering, and nothing else.
+ *
+ * Each returned section keeps its own `alert`, `sentMap` and job list: the
+ * dedup record is per alert and stays per alert, because "already sent" is a
+ * property of the subscription, not of the message that happened to carry it.
+ * An alert with no unsent match yields NO section, so it is never marked, never
+ * counted and never named in the subject.
+ *
+ * Ranking: freshest job first (that employer headlines the subject line), ties
+ * broken by company name so a run is reproducible — a retry after a failed send
+ * must compose the identical email, or the card budget would cut somewhere else
+ * and mail a different set of jobs.
+ *
+ * Pure: no Firestore, no clock beyond `nowMs`.
+ *
+ * @param {object[]} alerts   One recipient's immediate CompanyAlerts.
+ * @param {object[]} newJobs  Jobs first seen inside the novelty window.
+ * @param {number} nowMs
+ * @param {number} [dedupWindowMs]
+ * @returns {Array<{alert: object, locale: string, sentMap: object, jobs: object[], companyName: string, freshestMs: number}>}
+ */
+export function buildRecipientSections(alerts, newJobs, nowMs, dedupWindowMs = DEDUP_WINDOW_MS) {
+  const sections = [];
+  for (const alert of alerts || []) {
+    const locale = nlNormLocale(alert.locale);
+    // The SAME matcher the digest uses. `scoreJobForAlert` treats
+    // specificCompanyKey as a hard filter that folds brand aliases on both
+    // sides (#5151) — re-implementing "job belongs to this employer" here
+    // would be the fifth copy of the normalisation that PR spent its review
+    // deleting.
+    const profile = buildAlertProfile(alert, null, {});
+    const matched = (newJobs || []).filter((job) => scoreJobForAlert(job, profile, locale) > 0);
+    if (matched.length === 0) continue;
+
+    const sentMap = normalizeSentMap(alert.sentJobIds);
+    const unsent = filterUnsentJobs(matched, sentMap, nowMs, dedupWindowMs)
+      .sort((a, b) => toMillis(b.firstSeenAt) - toMillis(a.firstSeenAt));
+    if (unsent.length === 0) continue;
+
+    sections.push({
+      alert,
+      locale,
+      sentMap,
+      jobs: unsent,
+      companyName: companyDisplayName(alert, unsent),
+      freshestMs: toMillis(unsent[0]?.firstSeenAt),
+    });
+  }
+  sections.sort((a, b) => (b.freshestMs - a.freshestMs) || a.companyName.localeCompare(b.companyName));
+  return sections;
+}
+
+/**
+ * The URL the RFC 8058 `List-Unsubscribe` header must carry.
+ *
+ * ONE section → the per-alert link, exactly as before grouping: unfollowing
+ * that employer IS "stop sending me this", and it is the narrowest action that
+ * honours the click (it leaves the reader's keyword alerts alone).
+ *
+ * SEVERAL sections → the all-alerts link. One-click has to stop the message the
+ * reader is looking at, and unfollowing an arbitrary one of six employers would
+ * not: the next run mails them again, the Unsubscribe button looks broken, and
+ * that is how a mailbox provider learns to file this sender under spam. There
+ * is no "stop all company follows" token — the two HMAC shapes in
+ * scripts/lib/job-alert-unsub-urls.mjs are per-alert and all-alerts — so
+ * all-alerts is the honest reading, and the body keeps the per-employer link
+ * inside every section for the reader who wants the narrower thing.
+ *
+ * Both URLs stay pure HMAC and work with no session; whichever this returns is
+ * also rendered in the body, which tests/company-alert.test.ts pins.
+ *
+ * @param {Array<{unsubscribeUrl?: string, [key: string]: unknown}>} renderedSections Sections the email ACTUALLY rendered.
+ * @param {string} unsubscribeAllUrl
+ * @returns {string}
+ */
+export function pickOneClickUnsubscribeUrl(renderedSections, unsubscribeAllUrl) {
+  const sections = renderedSections || [];
+  return sections.length === 1 && sections[0]?.unsubscribeUrl
+    ? sections[0].unsubscribeUrl
+    : unsubscribeAllUrl;
+}
+
+/**
+ * Which sends may write their dedup records back.
+ *
+ * A failed send must NOT mark its jobs as sent: the next run would skip them
+ * and the reader never hears about the job at all — a permanent, invisible
+ * loss. Grouping makes that check per RECIPIENT, which is now exactly the unit
+ * of one message: either the whole email went out, or none of its employers
+ * count as delivered.
+ *
+ * `ambiguousDelivery` (#4911) is the one case that inverts. The cascade sets it
+ * when a provider ACCEPTED the message and then failed on the response, so the
+ * email may well be sitting in the inbox already; re-sending it is how the
+ * reader gets the duplicate this whole change exists to remove. The flag was
+ * added precisely so callers could tell "never sent" from "unknown, do not
+ * resend blindly" — so an ambiguous send is treated as delivered here, and the
+ * cost of being wrong is bounded: only those jobs are missed, and the next ad
+ * from the same employer still arrives.
+ *
+ * Pure — no IO.
+ *
+ * @param {object[]} emails      What was handed to the cascade (`to` per item).
+ * @param {object[]} failedItems `result.failed` from sendEmailCascade.
+ * @returns {object[]} the subset whose `sentJobIds` may be persisted.
+ */
+export function selectPersistableSends(emails, failedItems) {
+  const blocked = new Set(
+    (failedItems || [])
+      .filter((f) => !f?.ambiguousDelivery)
+      .map((f) => String(f?.recipient?.email || f?.to || '').toLowerCase().trim())
+      .filter(Boolean),
+  );
+  return (emails || []).filter((e) => e && !blocked.has(String(e.to || '').toLowerCase().trim()));
+}
+
 function loadNewJobs(nowMs) {
   if (!fs.existsSync(JOBS_PATH)) {
     console.warn(`   ⚠️  ${JOBS_PATH} missing — run scripts/assemble-jobs-dataset.mjs first.`);
@@ -165,11 +380,21 @@ async function sendBatch(emails) {
       tags: [
         // The template's identity in the only registry this repo has for one.
         { name: 'type', value: COMPANY_ALERT_TEMPLATE_ID },
+        // The HEADLINE alert — the employer the subject names. A grouped send
+        // covers several alerts and an ESP tag holds one value; picking the
+        // headline keeps the tag meaning the same thing it always meant
+        // ("which followed employer triggered this"), and `sections` below
+        // carries the part the single id cannot.
         { name: 'alert_id', value: e.alertId },
+        { name: 'sections', value: String(e.sectionCount) },
       ],
       headers: {
         'Feedback-ID': `${COMPANY_ALERT_TEMPLATE_ID}:${e.alertId}:frontaliere-ticino`,
-        // RFC 8058 one-click unsubscribe, same contract as the digest.
+        // RFC 8058 one-click unsubscribe, same contract as the digest — and the
+        // SAME URL the body renders (per-alert for a 1-section email, all-alerts
+        // for a grouped one; see where `unsubscribeUrl` is chosen below). A
+        // header that unsubscribed from something the body never offered is an
+        // unsubscribe the reader cannot verify.
         'List-Unsubscribe': `<${e.unsubscribeUrl}>`,
         'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
       },
@@ -251,31 +476,31 @@ async function main() {
     console.log(`   🚫 Hard-suppressed: ${before - alerts.length} alert(s) skipped`);
   }
 
+  // ── ONE EMAIL PER RECIPIENT ──────────────────────────────────────────────
+  // Sorted so the PER_RUN_CAP cut is deterministic: a run that hits the cap and
+  // a retry of that run must defer the SAME addresses, or a recipient could sit
+  // just past the boundary on every attempt and never be mailed at all.
+  const alertsByRecipient = groupAlertsByRecipient(alerts);
+  const recipients = [...alertsByRecipient.keys()].sort();
+  console.log(`   Recipients in scope: ${recipients.length} (from ${alerts.length} alert(s))`);
+
   const emailsToSend = [];
-  for (const alert of alerts) {
+  for (let i = 0; i < recipients.length; i += 1) {
     if (emailsToSend.length >= PER_RUN_CAP) {
-      console.log(`   📉 PER_RUN_CAP (${PER_RUN_CAP}) reached — remaining alerts deferred to the next run`);
+      console.log(`   📉 PER_RUN_CAP (${PER_RUN_CAP} recipients) reached — ${recipients.length - i} recipient(s) deferred to the next run`);
       break;
     }
-    const locale = nlNormLocale(alert.locale);
-    // The SAME matcher the digest uses. `scoreJobForAlert` treats
-    // specificCompanyKey as a hard filter that folds brand aliases on both
-    // sides (#5151) — re-implementing "job belongs to this employer" here
-    // would be the fifth copy of the normalisation that PR spent its review
-    // deleting.
-    const profile = buildAlertProfile(alert, null, {});
-    const matched = newJobs.filter((job) => scoreJobForAlert(job, profile, locale) > 0);
-    if (matched.length === 0) continue;
+    const recipient = recipients[i];
+    const sections = buildRecipientSections(alertsByRecipient.get(recipient), newJobs, now, DEDUP_WINDOW_MS);
+    if (sections.length === 0) continue;
 
-    const sentMap = normalizeSentMap(alert.sentJobIds);
-    const unsent = filterUnsentJobs(matched, sentMap, now, DEDUP_WINDOW_MS);
-    if (unsent.length === 0) {
-      console.log(`   ⏭️  Alert ${alert.id}: ${matched.length} match(es), all already sent → skip`);
-      continue;
-    }
-
-    const shown = unsent.slice(0, COMPANY_ALERT_MAX_CARDS);
-    const recipient = String(alert.email || '').toLowerCase().trim();
+    const headline = sections[0];
+    // The headline alert's locale governs the WHOLE message. A recipient is one
+    // person with one reading language; when their alerts disagree (possible —
+    // the locale is stamped per alert at creation) rendering half the sections
+    // in German would be worse than picking the language of the employer whose
+    // job triggered the send.
+    const locale = headline.locale;
     const autologinCode = generateAutologinCode(recipient);
     const wrapUrl = (raw) => makeAuthenticatedUrl(raw, recipient, {
       autologinCode,
@@ -296,44 +521,63 @@ async function main() {
     // pure HMAC and never depend on a session, so a failed exchange still
     // leaves a working way out — which is the part that must never break.
     const manageUrl = wrapUrl(
-      `${BASE_URL}${followedCompaniesPath(locale)}?utm_source=${COMPANY_ALERT_TEMPLATE_ID}&utm_campaign=alert_${alert.id}`,
+      `${BASE_URL}${followedCompaniesPath(locale)}?utm_source=${COMPANY_ALERT_TEMPLATE_ID}&utm_campaign=alert_${headline.alert.id}`,
     );
-    // Display name: the alert stores only the canonical slug, so de-slug from
-    // the job the employer just posted (authoritative, correctly cased) and
-    // fall back to a title-cased slug when the field is missing.
-    const companyName = String(shown[0]?.company || '').trim()
-      || String(alert.specificCompanyKey || '').split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    const unsubscribeAllUrl = makeAllAlertsUnsubscribeUrl(recipient);
 
-    // ONE derivation, reused for the body link and the RFC 8058 header — the
-    // two must be the same URL or a one-click unsubscribe and a clicked link
-    // diverge.
-    const unsubscribeUrl = makeAlertUnsubscribeUrl(alert.id, recipient);
-
-    const { subject, html, text } = buildCompanyAlertEmail({
-      companyName,
-      companySlug: String(alert.specificCompanyKey),
-      jobs: shown,
+    // The template is handed EVERY candidate section and hands back the ones it
+    // rendered, already trimmed to the card budget. Reading the dedup set off
+    // the return value rather than off this input is the whole guarantee that a
+    // job cannot be marked sent without having been rendered.
+    const built = buildCompanyAlertEmail({
+      sections: sections.map((section) => ({
+        alertId: section.alert.id,
+        companyName: section.companyName,
+        companySlug: String(section.alert.specificCompanyKey),
+        jobs: section.jobs,
+        // Per-section unsubscribe: pure HMAC, no session needed, one per alert.
+        unsubscribeUrl: makeAlertUnsubscribeUrl(section.alert.id, recipient),
+      })),
       email: recipient,
       locale,
       manageUrl,
-      unsubscribeUrl,
-      unsubscribeAllUrl: makeAllAlertsUnsubscribeUrl(recipient),
+      unsubscribeAllUrl,
       wrapUrl,
       baseUrl: BASE_URL,
     });
 
+    const rendered = built.sections;
+    const byAlertId = new Map(sections.map((section) => [section.alert.id, section]));
+
+    // RFC 8058 one-click target — see pickOneClickUnsubscribeUrl. Derived from
+    // the RENDERED sections, not the candidates: an email whose second section
+    // was dropped by the card budget is a one-section email and must carry the
+    // per-alert link, not the global one.
+    const oneClickUnsubscribeUrl = pickOneClickUnsubscribeUrl(rendered, unsubscribeAllUrl);
+
     emailsToSend.push({
       to: recipient,
-      alertId: alert.id,
-      ref: alert.ref,
-      subject,
-      html,
-      text,
-      unsubscribeUrl,
-      sentMap,
-      sentJobs: shown,
-      matchCount: shown.length,
+      alertId: headline.alert.id,
+      sectionCount: rendered.length,
+      subject: built.subject,
+      html: built.html,
+      text: built.text,
+      unsubscribeUrl: oneClickUnsubscribeUrl,
+      // One writeback per RENDERED section. A section the card budget dropped
+      // has no entry here, so its jobs stay unsent and surface next run.
+      dedupWrites: rendered
+        .map((section) => {
+          const source = byAlertId.get(section.alertId);
+          return source?.alert?.ref
+            ? { ref: source.alert.ref, sentMap: source.sentMap, sentJobs: section.jobs, matchCount: section.jobs.length }
+            : null;
+        })
+        .filter(Boolean),
     });
+
+    if (rendered.length < sections.length) {
+      console.log(`   📦 ${recipient}: ${sections.length} employer(s) with new jobs, ${rendered.length} in this email — the rest roll into the next run`);
+    }
   }
 
   if (emailsToSend.length === 0) {
@@ -341,29 +585,42 @@ async function main() {
     return;
   }
 
+  const totalSections = emailsToSend.reduce((sum, e) => sum + e.sectionCount, 0);
+  console.log(`   ✉️  ${emailsToSend.length} email(s) covering ${totalSections} followed employer(s)`);
+
   if (DRY_RUN) {
     console.log(`   🔵 DRY RUN — would send ${emailsToSend.length} email(s)`);
-    for (const e of emailsToSend) console.log(`      → ${e.to}: ${e.subject}`);
+    for (const e of emailsToSend) console.log(`      → ${e.to} (${e.sectionCount} section(s)): ${e.subject}`);
     return;
   }
 
   const result = await sendBatch(emailsToSend);
   console.log(`   ✅ Sent ${result.sent.length} · ❌ failed ${result.failed.length}`);
 
-  // Persist the dedup map + counters. A failed send must NOT mark its jobs as
-  // sent, or the next run would skip them and the user never hears about the
-  // job at all — the failure would be permanent and invisible.
-  const failedTo = new Set(result.failed.map((f) => String(f.recipient?.email || '').toLowerCase()));
+  // Persist the dedup map + counters, per alert, for the sends that went out —
+  // see selectPersistableSends for the failure semantics (and why an ambiguous
+  // delivery counts as sent). Grouping does NOT move the dedup record: it stays
+  // on each alert, because "already sent" belongs to the subscription, not to
+  // whichever email happened to carry it.
   const { FieldValue } = await import('firebase-admin/firestore');
-  const toUpdate = emailsToSend.filter((e) => e.ref && !failedTo.has(e.to));
+  const toUpdate = selectPersistableSends(emailsToSend, result.failed)
+    .filter((e) => e.dedupWrites.length > 0);
+  // One item = one recipient = one email, and its whole writeback lands in a
+  // single batch (DEDUP_CHUNK_SIZE keeps ops under the 400 cap). All-or-nothing
+  // per email: a chunk that fails leaves every one of that email's employers
+  // unmarked, so the next run re-sends the whole message rather than a
+  // half-remembered fragment of it.
   await commitInChunks(db, toUpdate, (batch, e) => {
-    batch.update(e.ref, {
-      lastMatchedAt: FieldValue.serverTimestamp(),
-      matchCount: FieldValue.increment(e.matchCount),
-      sentJobIds: mergeSentJobs(e.sentMap, e.sentJobs, now, DEDUP_WINDOW_MS),
-    });
-  });
-  console.log('   📊 Firestore updated');
+    for (const write of e.dedupWrites) {
+      batch.update(write.ref, {
+        lastMatchedAt: FieldValue.serverTimestamp(),
+        matchCount: FieldValue.increment(write.matchCount),
+        sentJobIds: mergeSentJobs(write.sentMap, write.sentJobs, now, DEDUP_WINDOW_MS),
+      });
+    }
+  }, { chunkSize: DEDUP_CHUNK_SIZE });
+  const updatedAlerts = toUpdate.reduce((sum, e) => sum + e.dedupWrites.length, 0);
+  console.log(`   📊 Firestore updated — ${updatedAlerts} alert(s) across ${toUpdate.length} delivered email(s)`);
 }
 
 const invokedDirectly = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);

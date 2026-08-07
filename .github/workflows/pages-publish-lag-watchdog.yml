@@ -100,13 +100,18 @@ jobs:
             --title "Pages publish lag: built content not yet live" \
             --description "${{ steps.check.outputs.summary }}
 
-          ### Why this happens
-          \`deploy.yml\` only builds; \`deploy-publish.yml\` does the actual publish under a single-slot concurrency group (cancel-in-progress: false). A burst of push-triggered builds can supersede most pending publish attempts before they ever run — deploy-starvation. Nothing is permanently lost (the next successful publish carries every earlier commit forward), but content can sit invisible for hours.
+          ### Why this happens — TWO different failures, same symptom
+          \`deploy.yml\` only builds; \`deploy-publish.yml\` does the actual publish under a single-slot concurrency group (cancel-in-progress: false). This report reads identically for both, so start by telling them apart:
+
+          1. **Deploy-starvation (self-limiting).** A burst of push-triggered builds supersedes most pending publish attempts before they ever run. Nothing is permanently lost — the next successful publish carries every earlier commit forward — but content can sit invisible for hours. Drains on its own once arrivals slow down.
+          2. **The queue is jammed (NOT self-limiting).** A publish run parked at the \`github-pages\` environment gate is not "running", so no Actions-side deadline applies to it, and \`cancel-in-progress: false\` means GitHub never evicts it — run 31118787881 held the group 14 h on 2026-08-06 while \`deploy-publish.yml\` went 0-for-300 runs over ten days. No-op runs made it worse: \`workflow_run: [completed]\` fires for cancelled builds, and a run joins its concurrency group BEFORE its job \`if:\` is evaluated, so a 2-second no-op could evict a real queued publish on arrival.
+
+          Both causes of (2) are fixed — a conditional concurrency group in \`deploy-publish.yml\`, plus \`scripts/ci/unwedge-pages-deploy-queue.mjs\`, which this workflow already ran immediately before the check above. **If this issue keeps reopening, the wedge is recurring and the queue is where to look, not the watchdog.**
 
           ### What to check
           - \`gh run list --workflow=deploy-publish.yml --repo ${{ github.repository }}\` for a run of skipped/cancelled conclusions in this window.
+          - \`gh api repos/${{ github.repository }}/actions/workflows/deploy-publish.yml/runs --jq '.workflow_runs[] | select(.status=="waiting") | .id'\` — a non-empty result is cause (2), live.
           - \`gh api repos/${{ github.repository }}/deployments?environment=github-pages\` for the actual publish cadence.
-          - If publishes are stuck (not just delayed), investigate \`deploy-publish.yml\`'s concurrency group directly.
 
           Issue auto-resolves on the next watchdog run once the lag clears." \
             --priority 2 \

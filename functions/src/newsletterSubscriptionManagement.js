@@ -94,7 +94,13 @@ const MAX_ALERTS_PER_USER = 10;
 // in services/jobAlertService.ts for the reasoning. Mirrored here because the
 // functions bundle cannot import outside `functions/`; parity is pinned by
 // tests/company-alert.test.ts.
-const MAX_COMPANY_ALERTS_PER_USER = 10;
+//
+// Raised 10 → 20 with the per-recipient grouping in
+// scripts/send-company-alerts.mjs (residuo #5283): the old 10 was standing in
+// for grouping that did not exist, not for a real limit on how many employers
+// someone may follow. It is pinned to COMPANY_ALERT_MAX_TOTAL_CARDS so a
+// recipient's entire follow set always fits in one email.
+const MAX_COMPANY_ALERTS_PER_USER = 20;
 const ALERT_LIST_FIELDS = ['keywords', 'locations', 'sectors'];
 
 function parseCsvList(value) {

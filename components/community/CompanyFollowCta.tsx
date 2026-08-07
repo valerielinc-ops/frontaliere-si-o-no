@@ -38,6 +38,7 @@ import React, { Suspense } from 'react';
 import type { Locale } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
 import { Analytics } from '@/services/analytics';
+import type { findCompanyAlert } from '@/services/jobAlertService';
 import { invalidateUserAlertsCache } from '@/services/userAlertsCache';
 import CompanyFollowButton from './CompanyFollowButton';
 
@@ -47,6 +48,12 @@ import CompanyFollowButton from './CompanyFollowButton';
  * orphan views have no other conversion left, and the SSG employer pages take
  * organic search traffic the job detail never sees. Collapsing them into one
  * name would make each of those unanswerable.
+ *
+ * `company_follow_suggestion` is the newest and the odd one out: it is the only
+ * surface where the site CHOSE the employer instead of the reader arriving on
+ * one. Its conversion rate is therefore not a UI measurement but the only
+ * available verdict on the ranking in services/employerSuggestions.ts — which,
+ * with slug + active-ad count as its entire input, needs one.
  */
 export type CompanyFollowSurface =
   | 'company_follow_button'
@@ -55,7 +62,8 @@ export type CompanyFollowSurface =
   | 'company_follow_below_floor'
   | 'company_follow_orphan'
   | 'company_follow_expired'
-  | 'company_follow_city';
+  | 'company_follow_city'
+  | 'company_follow_suggestion';
 
 export interface CompanyFollowCtaProps {
   company: string;
@@ -68,6 +76,24 @@ export interface CompanyFollowCtaProps {
   /** Session override — see the AUTH note above. */
   userId?: string | null;
   email?: string | null;
+  /**
+   * "Is this employer already followed?", answered by the CALLER.
+   *
+   * `CompanyFollowButton` resolves its initial follow/unfollow state by calling
+   * `findCompanyAlert`, which runs `getUserAlerts` — an uncached collectionGroup
+   * query, one per mounted button. That is right for the six surfaces that know
+   * nothing about the visitor's alerts, and redundant for a caller that just
+   * read the whole list and derived what to render FROM it: the suggestions on
+   * /aziende-seguite/ are, by construction, the employers that list says are
+   * not followed. Five buttons there would otherwise re-ask Firestore five
+   * times for a list already sitting in the page's state.
+   *
+   * Pass a STABLE function reference. It reaches the button's `lookup` prop,
+   * which is in its effect's dependency array, so a fresh closure on every
+   * render would re-run the lookup and reset a button the user had just
+   * flipped to "following".
+   */
+  lookupAlert?: typeof findCompanyAlert;
 }
 
 const CompanyFollowCta: React.FC<CompanyFollowCtaProps> = ({
@@ -80,6 +106,7 @@ const CompanyFollowCta: React.FC<CompanyFollowCtaProps> = ({
   sourceJobTitle = null,
   userId,
   email,
+  lookupAlert,
 }) => {
   const { user } = useAuth();
   // An employer with no name has no alert key either: rendering would strand an
@@ -100,6 +127,10 @@ const CompanyFollowCta: React.FC<CompanyFollowCtaProps> = ({
         sourceJobSlug={sourceJobSlug}
         sourceJobUrl={sourceJobUrl}
         sourceJobTitle={sourceJobTitle}
+        // `undefined` falls through to the button's own default
+        // (`findCompanyAlert`), so the six surfaces that pass nothing keep
+        // querying exactly as before.
+        lookup={lookupAlert}
         onSubscribed={() => {
           Analytics.trackJobAlertCtaClick(surface, 'success', String(company));
           Analytics.trackJobAlertCreated({

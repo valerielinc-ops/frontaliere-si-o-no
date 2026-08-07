@@ -120,17 +120,35 @@ export const MAX_ALERTS_PER_USER = 10;
  * consumed every slot and made the next keyword alert fail with «Maximum 10
  * active alerts per user», a message that names neither the cause nor the fix.
  *
- * Same number rather than a bigger one on purpose: the immediate sender mails
- * ONE email per alert per run, so this budget is also the ceiling on how many
- * CompanyAlert emails a single run can put in one inbox. Raising it is a
- * deliverability decision, and it should come with per-recipient grouping in
- * scripts/send-company-alerts.mjs, not before it.
+ * 20, RAISED FROM 10 ONCE GROUPING EXISTED (residuo #5283). The old value was
+ * not about how many employers a person may reasonably follow — it was a
+ * deliverability brake: scripts/send-company-alerts.mjs mailed ONE email per
+ * alert per run, so this budget doubled as the ceiling on how many CompanyAlert
+ * messages a single run could drop into one inbox, and 10 at once is already
+ * indefensible. That sender now groups by recipient, so the per-inbox ceiling
+ * for a run is exactly 1 message no matter what this number says, and the brake
+ * has nothing left to brake.
+ *
+ * 20 and not "unlimited" because the message still has to fit: the email's card
+ * budget is COMPANY_ALERT_MAX_TOTAL_CARDS = 20 (services/companyAlertEmail.mjs),
+ * and pinning the follow cap to the same 20 buys a property worth having — even
+ * the pathological run in which EVERY followed employer publishes inside the
+ * same window renders one card each and still fits in ONE email. A larger cap
+ * would start deferring sections to the next run as a matter of routine rather
+ * than as the rare overflow it is meant to be. If this number moves, move the
+ * card budget with it.
+ *
+ * What grouping did NOT fix, and what a future raise must look at first: this
+ * sender has no per-recipient cooldown, so following more employers still means
+ * a higher chance that any given run has something to say. That is a frequency
+ * argument, not a burst argument, and it is the reason 20 is a doubling rather
+ * than an order of magnitude.
  *
  * Mirrored in functions/src/newsletterSubscriptionManagement.js and
  * functions/src/jobAlertBackfillCore.js (the functions bundle cannot import
  * outside `functions/`) — parity pinned by tests/company-alert.test.ts.
  */
-export const MAX_COMPANY_ALERTS_PER_USER = 10;
+export const MAX_COMPANY_ALERTS_PER_USER = 20;
 
 // ── Lazy Firestore init ──────────────────────────────────────
 

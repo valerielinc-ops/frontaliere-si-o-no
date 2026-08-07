@@ -143,6 +143,38 @@ jobs:
           bash scripts/lib/git-push-with-retry.sh \
             --regenerate-cmd "node scripts/pull-articles-api.mjs && git add -- ${FILES[*]}"
 
+      # ── The invariant this job is the only actor able to maintain ───────────
+      #
+      # The two pulls above read from two DIFFERENT sources. The registries
+      # (`packages/articles/content/router{Blog,Swiss}Data.ts`) come from the
+      # corpus repo's git `main`; the sitemaps come from the API it publishes to
+      # GitHub Pages. Neither pull compares itself against the other — every
+      # guard in both scripts is internal (a manifest count, a non-shrink check
+      # against the previously committed copy). So this job can converge on a
+      # pair that disagrees, and nothing here would notice.
+      #
+      # When it does disagree, the symptom lands nowhere near the cause:
+      # `tests/blog-slugs-sitemap-sync.test.ts` goes red on EVERY open PR,
+      # including the ones that never touched an article. That is exactly how
+      # #5289 presented — three articles sat in the registries with no sitemap
+      # entry, and the visible effect was that no PR in the repo could merge.
+      # The alarm belongs on the job that writes the pair, not on unrelated
+      # contributors.
+      #
+      # Ordering is deliberate: AFTER the commit and push, never before.
+      # Verification must not gate the fix — landing fresher sitemaps is what
+      # clears the PR gate, so a failing check must never be the reason they
+      # stay behind. By the time this runs the artifacts are already on main;
+      # a red here is diagnostic and blocks nothing.
+      #
+      # One benign case can trip it: the corpus repo's git `main` can be a
+      # article or two ahead of the API build it publishes, so a pull that
+      # straddles a publish sees a registry entry whose sitemap URL does not
+      # exist yet. That self-heals on the next run. A red that PERSISTS across
+      # runs is the real thing and means the two sources have genuinely parted.
+      - name: Verify registry ↔ sitemap convergence
+        run: node scripts/ci/check-blog-slugs-sitemap-sync.mjs
+
       # ── Google News freshness: the commit above is not the publish ──────────
       #
       # /sitemap-news.xml is registered in EDGE_PUSHED_FILES, so the Worker
