@@ -44,9 +44,11 @@ interface CantonUrlSlugsShape {
 
 const RAW = CANTON_URL_SLUGS_RAW as unknown as CantonUrlSlugsShape;
 
-/** Directory (under dist/) holding the shard files. Mirrors the constant the
- * runtime fetch layer has been pointing at since 2026-05-20
- * (`services/jobsService.ts` → SHARD_BASE_PATH). */
+/** Directory (under dist/) holding the shard files. This is the path the
+ * runtime fetch layer has pointed at since 2026-05-20; it used to be a private
+ * `SHARD_BASE_PATH` constant inside `services/jobsService.ts`, which now builds
+ * its URLs through this module instead so emitter and consumer share one
+ * definition. */
 export const JOB_CANTON_SHARD_DIR = '/data/jobs-by-canton';
 
 /** The locales the index — and therefore the shards — are emitted for. */
