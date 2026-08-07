@@ -117,3 +117,35 @@ network problem — the local repo is unmaintained.
    for all of them.
 
 Why this happens and how it was found: `docs/AGENTS-HISTORY.md#git-repo-maintenance`.
+
+## `git push` hangs on a shallow clone (thin-pack delta search)
+
+Symptom: `git push` hangs for tens of minutes even on a fresh, small diff
+(a handful of files), and each hung `pack-objects` process holds ~1.8-1.9GB
+of RSS. This looks like the section above but has a different cause:
+`git count-objects -vH` is clean, no disjoint packs.
+
+The distinguishing factor: the clone/checkout is **shallow** (limited
+history) — true for every CI checkout (`actions/checkout@v5` default) and
+for any local clone made with `--depth`. On a shallow clone,
+`git push` runs `pack-objects --thin --shallow`, which tries to build a
+thin pack (only the objects the remote doesn't have) against the shallow
+boundary. With no full history available locally to negotiate a base
+against, it falls back to scanning the delta window across every reachable
+object instead of just the new ones. `public/` and `data/` alone are
+~3.5GB tracked, so even a 6-file diff triggers a full-tree delta search.
+
+Fix — skip the thin-pack negotiation and push full objects instead (the
+diff itself is small, so the extra bytes are cheap; the broken negotiation
+was the actual cost):
+
+```bash
+git -c pack.window=0 -c pack.threads=1 push --no-thin origin <branch>
+```
+
+Measured on the same stuck push in issue #5258: >85 minutes without the
+flags, ~1 second with them. `--no-thin` alone does not require
+`--no-verify` or `--force` — only add those if you separately need to skip
+the pre-push hook or rewrite a branch you solely own.
+
+Why this happens and how it was found: `docs/AGENTS-HISTORY.md#shallow-clone-thin-pack`.

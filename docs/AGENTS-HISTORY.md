@@ -73,6 +73,16 @@ Fix: rimosso `.git/refs/.DS_Store`; `git repack -a -d -b` (consolidamento full +
 
 Concausa disco: al momento del fix il disco era al 98% (12GB liberi) per un leak di ~20 directory worktree orfane sotto `.claude/worktrees/` (non registrate in `git worktree list`, zero processi attivi via `lsof`, alcune risalenti al 17 giugno) — probabile buco (d) del pattern `worktree-branch-leak` sopra, ma a livello di **filesystem** invece che di `git worktree`/branch: una directory rimasta orfana quando l'operazione di rimozione worktree non è arrivata a completamento. Rimosse dopo verifica incrociata `git worktree list` (assenti) + `lsof +D` (nessun processo con cwd lì) per non toccare worktree di sessioni parallele realmente attive.
 
+## shallow-clone-thin-pack
+
+Issue #5258: `git push` non completava anche per diff minuscoli (2 commit, 6 file, 961 inserzioni sopra `origin/main`) — piantato sull'enumerazione oggetti oltre 40 minuti su due sessioni agent separate. Diverso dall'incidente `git-repo-maintenance` sopra: qui `git count-objects -vH` era pulito, nessun pack disgiunto.
+
+Diagnosi: il clone/checkout era **shallow** (storia limitata) — vero per ogni checkout CI (`actions/checkout@v5` default) e per qualunque clone locale con `--depth`. Su uno shallow clone, `git push` esegue `pack-objects --thin --shallow`: senza basi locali complete con cui negoziare, la ricerca della delta window degenera in una scansione completa su tutti gli oggetti raggiungibili invece che sui soli oggetti nuovi. `public/` (~1,8GB) e `data/` (~1,7GB) sono tracciati, quindi l'albero è enorme anche quando il diff è piccolo. Prova diretta: 5 processi `pack-objects --all-progress-implied --revs --stdout --thin --delta-base-offset -q --shallow` appesi in parallelo, 40-85 minuti di elapsed, 1,8-1,9GB di RSS ciascuno (9,2GB totali trattenuti sulla macchina).
+
+Un primo tentativo di aggiramento (non più necessario, vedi sotto) usava la Git Data API per costruire il commit blob-per-blob (`blob → tree con base_tree → commit → ref`), verificato via confronto degli SHA di tree content-addressed contro `git rev-parse HEAD^{tree}`.
+
+Fix effettivo, più semplice, percorso git normale: `git -c pack.window=0 -c pack.threads=1 push --no-thin origin <branch>` — salta la ricerca thin-pack e spedisce oggetti pieni. Misurato sullo stesso push bloccato: da >85 minuti a ~1 secondo. Runbook: `docs/LOCAL-DEV.md#git-push-hangs-on-a-shallow-clone-thin-pack-delta-search`.
+
 ## below-floor-bridge-self-map
 
 PR #3594 ha fixato 6 build plugin (`professionCantonLandings.ts`, `weeklyEmployersChCantonPages.ts`, `jobMarketSnapshotChCantonPages.ts`, `jobsSeoPagesPlugin.ts` editorial-canton loops, `seoHubsPlugin.ts`) che skippavano silenziosamente (`continue`) l'emissione di una pagina canton sotto floor (`MIN_JOBS_FOR_CANTON_PAGE`), producendo un 404 reale su una URL che Google aveva già indicizzato. Fix strutturale: **ogni loop canton-scoped con un floor/soglia DEVE emettere, invece dello skip, una bridge page `noindex,follow` alla STESSA URL** (pattern `renderBelowFloorBridge` / `emitEditorialBelowFloorBridge` / `emitCantonHubBelowFloorBridge`) — la URL non 404-a mai, anche sotto floor.
