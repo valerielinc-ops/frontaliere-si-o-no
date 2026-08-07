@@ -1924,6 +1924,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-lamal-2026-ginevra-guida.title': 'KVG-Prämien 2026 in Genf: Franchise, Kassenwechsel und Beiträge',
     'blog.article.premi-lamal-2026-ginevra-guida.excerpt': 'Leitfaden zu den Krankenkassenprämien 2026 im Kanton Genf: Franchisen CHF 300–2500, Optionsrecht für Grenzgänger, Landesvergleich und Wechselschritte.',
     'blog.article.premi-lamal-2026-ginevra-guida.imageAlt': 'Blick auf den Genfersee mit dem Jet d\'Eau vor den Alpen',
+    'blog.article.reno-siccita-economia-svizzera.title': 'Trockenrhein: Alarm für die Schweizer Wirtschaft',
+    'blog.article.reno-siccita-economia-svizzera.excerpt': 'Historisches Tief, Transport mit Risiko: 10% der Importe über den Fluss, Treibstoff in der Krise.',
+    'blog.article.reno-siccita-economia-svizzera.imageAlt': 'Niedriger Wasserstand des Rheins bei Basel, Frachtschiff mit geringem Tiefgang',
 };
 
 export default blogMetaChDe;

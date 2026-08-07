@@ -1924,6 +1924,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-lamal-2026-ginevra-guida.title': 'LAMal 2026 awards in Geneva: deductible, cash changeover and subsidies',
     'blog.article.premi-lamal-2026-ginevra-guida.excerpt': 'Guide to sick pay premiums 2026 in the canton of Geneva: deductibles CHF 300–2500, right of option for border workers, national comparison and steps to change insurance.',
     'blog.article.premi-lamal-2026-ginevra-guida.imageAlt': 'View of Lake Geneva with the Jet d\'Eau against the Alps backdrop',
+    'blog.article.reno-siccita-economia-svizzera.title': 'Dry Rhine: Alarm for Swiss Economy',
+    'blog.article.reno-siccita-economia-svizzera.excerpt': 'Historical minimum level, transport at risk: 10% of imports by river, fuels in crisis.',
+    'blog.article.reno-siccita-economia-svizzera.imageAlt': 'Low water levels on the Rhine near Basel, cargo ship with shallow draft',
 };
 
 export default blogMetaChEn;
