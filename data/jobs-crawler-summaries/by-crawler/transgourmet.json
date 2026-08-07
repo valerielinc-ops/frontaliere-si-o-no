@@ -1,18 +1,19 @@
 {
   "key": "transgourmet",
   "label": "Transgourmet",
-  "generatedAt": "2026-08-07T10:19:14.969Z",
-  "total": 21,
-  "newCount": 2,
-  "updatedCount": 18,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6507,
-  "avgDurationMs": 6507,
+  "generatedAt": "2026-08-07T21:44:09.954Z",
+  "total": 20,
+  "newCount": 0,
+  "updatedCount": 20,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6144,
+  "avgDurationMs": 6144,
   "durationHistory": [
-    6507
+    6144
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "transgourmet-d1ce1b5e-b77",
       "slug": "leiterin-leiter-kulinarik-transgourmet-moosseedorf",
@@ -25,7 +26,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/leiterin-leiter-kulinarik/d1ce1b5e-b77c-40a7-a3ca-280f7962aa90",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:19:09.460Z",
+      "crawledAt": "2026-08-07T21:44:04.879Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -42,11 +43,12 @@
       "postedDate": "2026-08-07",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=169000",
-      "_qualityScore": 69,
+      "firstSeenAt": "2026-08-07T10:19:09.460Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/test-engineer/4786de28-fc2b-4416-a45c-c88909486913",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:19:09.464Z",
+      "crawledAt": "2026-08-07T21:44:04.882Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -79,16 +81,15 @@
       "postedDate": "2026-08-06",
       "pensum": "80-100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=164126",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-08-07T10:19:09.464Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "transgourmet-375a4ad8-526",
       "slug": "responsable-de-magasin-transgourmet-latena",
@@ -101,7 +102,7 @@
       "url": "https://jobs.transgourmet.ch/postes-vacantes/responsable-de-magasin/375a4ad8-5269-40fd-a48b-fe009c2ebd69",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-07T10:19:09.473Z",
+      "crawledAt": "2026-08-07T21:44:04.886Z",
       "addressLocality": "Laténa",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -139,7 +140,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-non-food/52fee2fe-c007-44c5-a65f-635291981646",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:19:09.480Z",
+      "crawledAt": "2026-08-07T21:44:04.889Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -177,7 +178,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/system-engineer-windows/2a865910-d4ae-4120-a898-efd5b532a67e",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:19:09.484Z",
+      "crawledAt": "2026-08-07T21:44:04.891Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -215,7 +216,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/abteilungsleiterin-abteilungsleiter-molkerei/99d37dd8-1318-4d84-9fa3-56b0a0d6fb7b",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:19:09.485Z",
+      "crawledAt": "2026-08-07T21:44:04.892Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -253,7 +254,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/abteilungsleiterin-abteilungsleiter-metzgerei/0bd82d54-00c7-481b-bcde-3a34164c2f09",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:19:09.488Z",
+      "crawledAt": "2026-08-07T21:44:04.893Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -291,7 +292,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/chauffeuse-chauffeur-kat-c-bern/f8df7113-64d2-4135-afcc-95b784eb44b4",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:19:09.492Z",
+      "crawledAt": "2026-08-07T21:44:04.893Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -329,7 +330,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-kundencenter/0c58beab-3962-43d0-ab75-f943b228d32f",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:19:09.494Z",
+      "crawledAt": "2026-08-07T21:44:04.894Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -367,7 +368,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in/ec3f59d4-0ee8-45df-91a0-9cd8427ddd33",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:19:09.496Z",
+      "crawledAt": "2026-08-07T21:44:04.894Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -405,7 +406,7 @@
       "url": "https://jobs.transgourmet.ch/postes-vacantes/chauffeuse-chauffeur-cat-c/e409b323-0a35-4a78-adc3-f97bb66416fe",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-07T10:19:09.497Z",
+      "crawledAt": "2026-08-07T21:44:04.895Z",
       "addressLocality": "Gals",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -443,7 +444,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/nachtlogistikerin-nachtlogistiker/02920716-1913-4628-949c-695424f4420e",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:19:09.505Z",
+      "crawledAt": "2026-08-07T21:44:04.900Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -480,7 +481,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/linux-system-administrator/74f7cf7c-dae8-4dee-a904-967abaab171b",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:19:09.499Z",
+      "crawledAt": "2026-08-07T21:44:04.896Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -518,7 +519,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/assistant-category-management-non-food/db4e176e-3bdc-4111-9186-370fe51ebfb7",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:19:09.501Z",
+      "crawledAt": "2026-08-07T21:44:04.897Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -556,7 +557,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/chauffeuse-chauffeur-kat-c/0149d4f5-e441-45df-9326-5286982c8e6e",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:19:09.502Z",
+      "crawledAt": "2026-08-07T21:44:04.900Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -592,7 +593,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-bereitstellung-mitarbeiter-bereitstellung/4b66d7c3-4136-47e2-b212-1d3645daf99a",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:19:09.506Z",
+      "crawledAt": "2026-08-07T21:44:04.900Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -629,7 +630,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/kommissioniererin-kommissionierer/75222981-fdea-4776-a3ed-9b9edea180cf",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:19:09.509Z",
+      "crawledAt": "2026-08-07T21:44:04.901Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -665,7 +666,7 @@
       "url": "https://jobs.transgourmet.ch/postes-vacantes/collaboratrice-collaborateur-des-arrivages/fa2e39fb-5748-44dd-86b8-a76543b37633",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-07T10:19:09.514Z",
+      "crawledAt": "2026-08-07T21:44:04.904Z",
       "addressLocality": "Gals",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -703,7 +704,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-metzgerei/9d860179-c1b1-4c61-bbfd-76fac3939ee0",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:19:09.513Z",
+      "crawledAt": "2026-08-07T21:44:04.904Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -741,7 +742,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-markt/57aaf462-20f3-4c1f-8b7c-cff06ebbe1c8",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:19:09.514Z",
+      "crawledAt": "2026-08-07T21:44:04.905Z",
       "addressLocality": "Gamsen",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -768,8 +769,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "transgourmet-cf1ffd74-342",
       "slug": "mitarbeiterin-addetto-a-alle-vendite-allrounder-80-100-transgourmet-hinwil",
@@ -811,5 +811,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
