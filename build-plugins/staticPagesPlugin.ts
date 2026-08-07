@@ -43,7 +43,7 @@ import { renderSeoHeroImage } from './shared/seoHeroImage';
 const GLOSSARY_HERO_EYEBROW: Record<'it' | 'en' | 'de' | 'fr', string> = {
  it: 'Glossario frontalieri',
  en: 'Cross-border glossary',
- de: 'Grenzgaenger-Glossar',
+ de: 'Grenzgänger-Glossar',
  fr: 'Glossaire frontaliers',
 };
 import { translateSchema, type SupportedLocale } from '../services/seo/schema-translators';

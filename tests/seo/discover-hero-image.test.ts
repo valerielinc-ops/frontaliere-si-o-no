@@ -110,6 +110,31 @@ describe('Discover hero image — fleet guard', () => {
     }
   });
 
+  it('keeps EVERY build plugin free of an await import() at the top of closeBundle', () => {
+    // Guardia di FLOTTA, non solo sugli emettitori hero: la prima versione di
+    // questo test guardava le sole famiglie editoriali e per questo non vide
+    // `jobsSeoPagesPlugin`, `jobRecencyPagesPlugin`, `jobSectorPagesPlugin`,
+    // `preloadLocalePlugin` e `webpPlugin` — cinque occorrenze della stessa
+    // classe, trovate in review.
+    //
+    // Perche' e' una classe e non un dettaglio: `closeBundle` e' un hook
+    // Rollup async/parallelo. Un `await` come prima istruzione sospende il
+    // plugin, e un altro plugin `enforce:'post'` puo' girare per INTERO prima
+    // che riprenda. E' gia' costato due bug silenziosi in questa stessa
+    // settimana — hero card drenate prima di essere registrate, quindi pagine
+    // con un <img> verso un file mai generato.
+    const dir = np.join(ROOT, 'build-plugins');
+    const offenders: string[] = [];
+    for (const f of fs.readdirSync(dir)) {
+      if (!f.endsWith('.ts')) continue;
+      const src = fs.readFileSync(np.join(dir, f), 'utf-8');
+      if (/async closeBundle\(\)\s*\{\s*(?:\/\/[^\n]*\n\s*)*const\s+\w+\s*=\s*await\s+import\(/.test(src)) {
+        offenders.push(f);
+      }
+    }
+    expect(offenders, 'await import() come prima istruzione di closeBundle').toEqual([]);
+  });
+
   it('keeps every hero emitter free of an await before its render loop', () => {
     // L'invariante che la guardia sopra sorveglia a runtime, qui sul sorgente
     // per il caso che l'ha rotta: un `await import(...)` come prima istruzione
