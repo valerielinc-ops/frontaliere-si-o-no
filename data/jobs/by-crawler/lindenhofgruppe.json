@@ -4062,12 +4062,10 @@
       "applyUrl": "https://bewerben.lindenhofgruppe.ch/teamleiterin-apotheke-de-f2811.html?agid=20",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe"
+          "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe",
+          "teamleiter-in-per-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe-alle"
         ],
         "en": [
           "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe"
@@ -4076,8 +4074,10 @@
           "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe"
         ]
       },
-      "firstSeenAt": "2026-08-07T10:31:17.043Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe",
+        "teamleiter-in-per-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe-alle"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4089,7 +4089,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-07T10:31:17.043Z",
+      "needsRetranslation": true
     },
     {
       "id": "lindenhofgruppe-0e76875be4ca",

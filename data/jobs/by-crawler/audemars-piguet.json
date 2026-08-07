@@ -779,19 +779,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "indirect-purchasing-category-expert-manufacturing-audemars-piguet-le-brassus-vd",
-        "produzione-di-esperti-della-categoria-di-acquisto-indiretta-audemars-piguet-le-brassus-vd-switzerland"
+        "produzione-di-esperti-della-categoria-di-acquisto-indiretta-audemars-piguet-le-brassus-vd-switzerland",
+        "indirect-purchasing-category-expert-manufacturing-audemars-piguet-alle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "indirect-purchasing-category-expert-manufacturing-audemars-piguet-le-brassus-vd",
-          "produzione-di-esperti-della-categoria-di-acquisto-indiretta-audemars-piguet-le-brassus-vd-switzerland"
+          "produzione-di-esperti-della-categoria-di-acquisto-indiretta-audemars-piguet-le-brassus-vd-switzerland",
+          "indirect-purchasing-category-expert-manufacturing-audemars-piguet-alle"
         ],
         "de": [
           "indirect-purchasing-category-expert-manufacturing-audemars-piguet-le-brassus-vd"
         ]
       },
       "firstSeenAt": "2026-06-18T22:18:46.679Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -803,7 +804,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "audemars-piguet-f0798be3a7df",

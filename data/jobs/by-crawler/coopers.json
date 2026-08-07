@@ -4148,19 +4148,20 @@
       },
       "previousSlugs": [
         "senior-java-ee-engineer-m-w-d-coopers-luzern",
-        "senior-java-ee-ingegnere-m-w-d-coopers-group-ag-luzern"
+        "senior-java-ee-ingegnere-m-w-d-coopers-group-ag-luzern",
+        "senior-java-ingenieur-m-w-d-coopers-group-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-java-ee-engineer-m-w-d-coopers-luzern",
-          "senior-java-ee-ingegnere-m-w-d-coopers-group-ag-luzern"
+          "senior-java-ee-ingegnere-m-w-d-coopers-group-ag-luzern",
+          "senior-java-ingenieur-m-w-d-coopers-group-ag-luzern"
         ],
         "fr": [
           "senior-java-ee-engineer-m-w-d-coopers-luzern"
         ]
       },
       "firstSeenAt": "2026-08-05T23:04:52.003Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -4172,7 +4173,8 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "coopers-6c93be36de97",
