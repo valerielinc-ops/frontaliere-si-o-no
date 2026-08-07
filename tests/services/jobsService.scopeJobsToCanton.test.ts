@@ -1,15 +1,23 @@
 /**
  * Regression 2026-05-19 — JobBoard legacy-fallback canton filter.
  *
- * Context: the per-canton shards at /data/jobs-by-canton/{CODE}.json are not
- * yet emitted in production (every shard 404s). JobBoard's fallback path
- * loads the locale-wide monolith (`/data/jobs-it.json`, ~13 MB, TI-dominant).
- * Without a post-filter, every non-TI /cerca-lavoro-{canton}/ SERP renders a
- * TI-biased listing — user-visible bug reported on /cerca-lavoro-basilea/.
+ * Context: when this regression was filed the per-canton shards at
+ * /data/jobs-by-canton/ were not emitted at all (every shard 404'd), so
+ * JobBoard's fallback path loaded the locale-wide corpus and filtered it
+ * client-side. Without that post-filter every non-TI /cerca-lavoro-{canton}/
+ * SERP rendered a TI-biased listing — user-visible bug reported on
+ * /cerca-lavoro-basilea/.
  *
- * `scopeJobsToCanton` is the pure helper that filters the legacy payload to
- * the URL-driven canton before it reaches React state. Aggregator routes
+ * `scopeJobsToCanton` is the pure helper that filters the corpus to the
+ * URL-driven canton before it reaches React state. Aggregator routes
  * (`_AGGREGATE_`) keep the full list.
+ *
+ * STILL LOAD-BEARING after the shard pipeline landed (S10a, 2026-08-07), for
+ * two reasons: it remains the filter on the fallback path (shard 404 / CDN
+ * lag), and it is now also the SPECIFICATION of what a shard contains —
+ * `buildCantonShards(index)[KEY]` is asserted equal to `scopeJobsToCanton(
+ * index, KEY)` in tests/job-canton-shards.test.ts, which is what proves
+ * sharding did not change any canton SERP's contents.
  */
 
 import { describe, it, expect } from 'vitest';
