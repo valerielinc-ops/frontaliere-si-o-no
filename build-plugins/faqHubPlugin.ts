@@ -624,6 +624,25 @@ function renderPage(
 // the answer text alone, before page chrome. The per-page word-count gate below
 // is kept anyway, so an entry edited down to a stub demotes itself instead of
 // shipping thin.
+//
+// WHAT THE WORD-COUNT GATE DID NOT CATCH, AND WHY THE SIBLING EXCERPTS EXIST.
+//
+// `audit:text-html-ratio` measures visible-text bytes over TOTAL page bytes,
+// and a page can clear MIN_INDEXABLE_WORDS comfortably while failing it — these
+// pages did, all 412 of them, at 7.31-9.79 % against a 10 % floor. The cause was
+// never thin content: `<main>` is itself ~43 % text. It is that ONE answer
+// (~2 KB) has to carry ~9.7 KB of <head>, ~8.9 KB of shared hub-chrome subnav
+// and ~4.2 KB of JSON-LD — fixed chrome the hub pages amortise over 103 answers
+// and these pages could not. Reducing that chrome was not on the table: it is
+// shared with every other SEO template, and the JSON-LD is the point of the
+// page. So the fix was to give the page more of what it was short of.
+//
+// The sibling block therefore renders each linked question WITH the opening of
+// its answer (see `answerSnippet`), which roughly doubles the visible text and
+// lands every locale at 13.6-16.7 % — measured by re-running the audit's own
+// `extractVisibleText` over the rendered HTML, plus the fixed 651 bytes the
+// later CDN-rewrite build stage adds to every page. If this block is ever cut
+// back to bare links, the 10 % gate fails again on all 412 pages.
 
 interface FaqEntryCopy {
   readonly backToHub: string;
@@ -669,8 +688,15 @@ const ENTRY_COPY: Record<FaqHubLocale, FaqEntryCopy> = {
   },
 };
 
-/** How many sibling questions each entry page links to. */
-const SIBLING_LINKS = 6;
+/**
+ * How many sibling questions each entry page links to.
+ *
+ * Categories hold 10 entries (13 for `fisco`), so 8 links a clear majority of
+ * each category's neighbours while still leaving the rotation in
+ * {@link siblingEntries} something to rotate — the cluster stays a cluster
+ * rather than every page emitting an identical index of its category.
+ */
+const SIBLING_LINKS = 8;
 
 /**
  * Characters of a sibling's own answer shown beneath its link.
@@ -885,12 +911,12 @@ function renderEntryPage(
       : '';
 
   // Each sibling carries the opening of its own answer, not just its question.
-  // A bare list of six questions asks the reader to click to find out whether
-  // any of them is the one they actually meant; with the answer's first
-  // sentences under it the block answers some of them outright and the click is
-  // an informed one. It is also the only substantial body text on this page
-  // that is not the single answer itself — see the ratio note in
-  // `renderEntryPage`'s header comment.
+  // A bare list of questions asks the reader to click to find out whether any
+  // of them is the one they actually meant; with the answer's first sentences
+  // under it the block answers some of them outright and the click is an
+  // informed one. It is also the only substantial body text on this page that
+  // is not the single answer itself — see the text-to-HTML note in the
+  // "Per-question pages" banner above before trimming it back.
   const siblings = siblingEntries(entry, linkedIds);
   const siblingsHtml =
     siblings.length > 0
