@@ -25,3 +25,14 @@ interface ImportMetaEnv {
 interface ImportMeta {
  readonly env: ImportMetaEnv;
 }
+
+// `blog-<id> → shard ordinal` map, generated at build time by
+// build-plugins/seoBlogShardIndexPlugin.ts and dynamically imported by
+// services/seoService.ts so one article page fetches one seo-blog shard instead of
+// all eight. Under Vitest the build plugins are absent, so vitest.config.ts aliases
+// this specifier to tests/stubs/seo-blog-shard-index.ts (an empty map → load-all
+// fallback).
+declare module 'virtual:seo-blog-shard-index' {
+ const shardIndex: Record<string, number>;
+ export default shardIndex;
+}

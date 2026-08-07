@@ -9323,6 +9323,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.compatta-usata-frontalieri-varese-milano.title': 'SUV o compatta usata: la scelta più intelligente',
     'blog.article.compatta-usata-frontalieri-varese-milano.excerpt': 'Per i frontalieri Varese-Milano-Ticino, una compatta usata riduce costi di gestione e facilita gli spostamenti quotidiani rispetto a un SUV, secondo VareseNoi.it',
     'blog.article.compatta-usata-frontalieri-varese-milano.imageAlt': 'Auto compatta usata al valico di Brogeda tra Italia e Svizzera',
+    'blog.article.caldo-lavoro-frontalieri-ticino.title': 'Caldo torrido e lavoro: sindacati incontrano Governo ticinese per nuove misure',
+    'blog.article.caldo-lavoro-frontalieri-ticino.excerpt': 'Sindacati UNIA, OCST, USS e VPOD chiedono soglie di intervento basate su indici scientifici per proteggere lavoratori durante le ondate di caldo in Ticino',
+    'blog.article.caldo-lavoro-frontalieri-ticino.imageAlt': 'Lavoratori edili in pausa all\'ombra durante un\'ondata di caldo a Lugano, Ticino',
 };
 
 export default blogMetaIt;
