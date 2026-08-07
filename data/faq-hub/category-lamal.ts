@@ -16,6 +16,9 @@ export const FAQ_lamal: ReadonlyArray<FaqHubEntry> = [
       de: 'Müssen Grenzgänger zwingend eine KVG-Versicherung abschliessen?',
       fr: 'Les frontaliers doivent-ils obligatoirement souscrire une assurance LAMal ?',
     },
+    titleShort: {
+      fr: 'Les frontaliers doivent-ils souscrire une assurance LAMal ?',
+    },
     answer: {
       it:
         "In linea di principio sì: l'art. 3 cpv. 1 LAMal e l'OAMal art. 1 cpv. 2 lett. d stabiliscono l'obbligo di assicurazione per chi lavora in Svizzera, frontalieri inclusi [fonte: Fedlex LAMal RS 832.10]. Entro 3 mesi dall'inizio dell'attività occorre scegliere: (a) polizza LAMal svizzera; (b) esercitare il diritto di opzione e restare iscritti al SSN italiano tramite formulario E106/S1 consegnato all'Istituto comune LAMal del Cantone Ticino; (c) per i residenti in Italia, Francia, Germania o Austria con Paese dell'UE/AELS, una copertura equivalente nel Paese di residenza. L'assenza di copertura dopo i 3 mesi comporta iscrizione d'ufficio con supplemento fino al 50% sui premi arretrati (art. 5 cpv. 2 LAMal).",
@@ -86,6 +89,10 @@ export const FAQ_lamal: ReadonlyArray<FaqHubEntry> = [
       de: 'Welche KVG-Franchise ist für einen Grenzgänger am günstigsten?',
       fr: 'Quelle franchise LAMal est la plus avantageuse pour un frontalier ?',
     },
+    titleShort: {
+      en: 'Which LAMal deductible is best for a cross-border worker?',
+      fr: 'Quelle franchise LAMal choisir en tant que frontalier ?',
+    },
     answer: {
       it:
         "L'art. 64 LAMal e l'OPre fissano franchigie ordinarie da CHF 300 (base) fino a CHF 2.500 (franchigia massima volontaria) [fonte: Fedlex OPre RS 832.102 art. 93]. Per un frontaliere in salute con <1 visita/anno, una franchigia alta (CHF 2.500) abbatte il premio del 40% circa e conviene se le prestazioni annue restano sotto CHF 2.700 (franchigia + 10% quota-parte fino a CHF 700). Per chi ha cure continuative (gravidanza, malattia cronica) la franchigia base CHF 300 è preferibile. L'UFSP pubblica un calcolatore di convenienza su priminfo.admin.ch. Il cambio di franchigia si effettua entro il 30 novembre, effettivo dal 1° gennaio. Per i minori la franchigia massima è CHF 600.",
@@ -109,6 +116,9 @@ export const FAQ_lamal: ReadonlyArray<FaqHubEntry> = [
       en: 'Is a cross-border worker under LAMal entitled to premium subsidies?',
       de: 'Hat ein Grenzgänger mit KVG Anrecht auf Prämienverbilligung?',
       fr: 'Un frontalier sous LAMal a-t-il droit aux subventions de primes ?',
+    },
+    titleShort: {
+      en: 'Are cross-border workers entitled to LAMal premium subsidies?',
     },
     answer: {
       it:
@@ -157,6 +167,11 @@ export const FAQ_lamal: ReadonlyArray<FaqHubEntry> = [
       en: 'What is the difference between standard, family-doctor and HMO models?',
       de: 'Was ist der Unterschied zwischen Standardmodell, Hausarzt und HMO?',
       fr: 'Quelle différence entre modèle standard, médecin de famille et HMO ?',
+    },
+    titleShort: {
+      it: 'Qual è la differenza tra modello base, medico di famiglia e HMO?',
+      en: 'What is the difference between standard, family-doctor and HMO?',
+      fr: 'Modèle standard, médecin de famille ou HMO : quelle différence ?',
     },
     answer: {
       it:

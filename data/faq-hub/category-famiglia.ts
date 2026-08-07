@@ -16,6 +16,9 @@ export const FAQ_famiglia: ReadonlyArray<FaqHubEntry> = [
       de: 'Wie funktionieren die FamZG-Familienzulagen für Grenzgänger?',
       fr: 'Comment fonctionnent les allocations familiales LAFam pour frontaliers ?',
     },
+    titleShort: {
+      fr: 'Allocations familiales LAFam du frontalier : comment ça marche ?',
+    },
     answer: {
       it:
         "La LAFam (RS 836.2) prevede assegni familiari per ogni lavoratore soggetto ad AVS [fonte: Fedlex LAFam RS 836.2]. In Ticino nel 2026 sono CHF 200/mese per figlio fino a 16 anni (o fino a 25 se in formazione) e CHF 250 per figlio in formazione 16-25. In base al Regolamento UE 883/2004 art. 67, il frontaliere con figli residenti in Italia riceve il differenziale se l'assegno italiano (ANF o Assegno Unico Universale INPS) è inferiore a quello svizzero. La prassi: INPS calcola e paga l'Assegno Unico in Italia, il datore di lavoro svizzero integra la differenza tramite la Cassa di compensazione per assegni familiari (CCAF) cantonale. Il frontaliere deve fornire al datore e alla cassa CH il certificato di famiglia aggiornato + attestato INPS sull'importo dell'Assegno Unico.",
@@ -55,6 +58,10 @@ export const FAQ_famiglia: ReadonlyArray<FaqHubEntry> = [
       en: 'How do I apply for the Italian Universal Child Allowance as a cross-border worker?',
       de: 'Wie beantrage ich den italienischen Assegno Unico als Grenzgänger?',
       fr: 'Comment demander l\'Assegno Unico italien en tant que frontalier ?',
+    },
+    titleShort: {
+      it: 'Come richiedere l\'Assegno Unico Universale da frontaliere?',
+      en: 'How to apply for the Italian Universal Child Allowance (AUU)?',
     },
     answer: {
       it:
@@ -104,6 +111,9 @@ export const FAQ_famiglia: ReadonlyArray<FaqHubEntry> = [
       de: 'Gibt es einen Vaterschaftsurlaub in der Schweiz für Grenzgänger?',
       fr: 'Existe-t-il un congé paternité en Suisse pour les frontaliers ?',
     },
+    titleShort: {
+      en: 'Is there paternity leave in Switzerland for cross-border workers?',
+    },
     answer: {
       it:
         "Sì. Dal 1° gennaio 2021 la LIPG (art. 16i-16j) prevede 2 settimane (10 giorni lavorativi) di congedo di paternità retribuito all'80% max CHF 220/giorno, da fruire entro 6 mesi dal parto [fonte: Fedlex LIPG RS 834.1]. Domanda con formulario 318.750 alla cassa di compensazione AVS. Il frontaliere padre lavoratore in Svizzera ha pieno diritto. In Italia il congedo padre è 10 giorni obbligatori retribuiti al 100% INPS (L. 234/2021), utilizzabili entro 5 mesi dalla nascita. L'EU Reg. 883/2004 consente all'uomo frontaliere di cumulare entrambi i congedi perché sono prestazioni distinte nei due Paesi, ma con tetto del salario effettivo. Alcuni CCL svizzeri prevedono congedi più generosi (es. UBS 20 giorni, Swisscom 4 settimane).",
@@ -150,6 +160,10 @@ export const FAQ_famiglia: ReadonlyArray<FaqHubEntry> = [
       de: 'Können Kinder von Grenzgängern Schweizer Stipendien erhalten?',
       fr: 'Les enfants de frontaliers peuvent-ils recevoir des bourses d\'études suisses ?',
     },
+    titleShort: {
+      it: 'I figli di frontalieri hanno diritto a borse di studio svizzere?',
+      fr: 'Bourses d\'études suisses pour les enfants de frontaliers ?',
+    },
     answer: {
       it:
         "Le borse di studio cantonali sono riservate ai residenti in Svizzera (Legge cantonale borse di studio ticinese, art. 3) [fonte: Ti.ch, Ufficio aiuti studio]. I figli di frontalieri con permesso G residenti in Italia non possono quindi accedervi. Possono invece ottenere le borse di studio italiane regionali (Lombardia: Dote Scuola) o nazionali (DSU per università) con criteri ISEE. Eccezione: i figli di frontalieri iscritti a scuole universitarie professionali (SUP) o politecnici svizzeri (USI Lugano, SUPSI) possono beneficiare di sconti tasse interne o borse di merito erogate dall'ateneo stesso, indipendentemente dalla residenza. Le borse di talento di SUPSI sono 2.000-8.000 CHF/anno in base al merito. Tutte le università svizzere applicano tasse universitarie uniformi ai residenti UE/AELS (CHF 1.500-2.000/semestre).",
@@ -172,6 +186,11 @@ export const FAQ_famiglia: ReadonlyArray<FaqHubEntry> = [
       en: 'Can my non-EU spouse live with me in Italy as a cross-border worker?',
       de: 'Kann mein Ehepartner aus einem Drittstaat mit mir als Grenzgänger in Italien leben?',
       fr: 'Mon conjoint non-UE peut-il vivre avec moi en Italie en tant que frontalier ?',
+    },
+    titleShort: {
+      en: 'Can my non-EU spouse join me in Italy as a cross-border worker?',
+      de: 'Grenzgänger: Darf mein Drittstaaten-Ehepartner in Italien leben?',
+      fr: 'Frontalier : mon conjoint non-UE peut-il me rejoindre en Italie ?',
     },
     answer: {
       it:
@@ -219,6 +238,9 @@ export const FAQ_famiglia: ReadonlyArray<FaqHubEntry> = [
       de: 'Kann ein Grenzgänger italienische ANF-Rückstände einfordern?',
       fr: 'Un frontalier peut-il réclamer les arriérés d\'ANF italiens ?',
     },
+    titleShort: {
+      it: 'Il frontaliere può richiedere gli arretrati dell\'ANF italiano?',
+    },
     answer: {
       it:
         "L'Assegno per il Nucleo Familiare (ANF) è stato abolito dal 1° marzo 2022 per i nuclei con figli e sostituito dall'AUU [fonte: Normattiva, dlgs 230/2021]. Tuttavia ANF resta per nuclei «senza figli» (coniuge invalido, fratelli a carico, ecc.). Per gli arretrati ANF fino a febbraio 2022 il frontaliere può presentare domanda tardiva all'INPS entro 5 anni dall'avvio del diritto (prescrizione quinquennale art. 6 L. 138/1943). Serve il modulo SR16 + dichiarazione dei redditi familiari. L'ANF italiano aveva scaglioni di reddito annuo, 7 tipologie di nucleo, 30 fasce di importo. Il frontaliere che non ha richiesto l'ANF per anni 2017-2021 può ancora recuperarlo via tardiva. Per i periodi 2022-2026 AUU: recupero via INPS con conguaglio.",
@@ -241,6 +263,11 @@ export const FAQ_famiglia: ReadonlyArray<FaqHubEntry> = [
       en: 'Can I care for my elderly parents in Italy as a cross-border worker?',
       de: 'Kann ich als Grenzgänger meine betagten Eltern in Italien pflegen?',
       fr: 'Puis-je m\'occuper de mes parents âgés en Italie en tant que frontalier ?',
+    },
+    titleShort: {
+      it: 'Posso assistere i genitori anziani in Italia da frontaliere?',
+      en: 'Can I care for elderly parents in Italy as a cross-border worker?',
+      fr: 'Frontalier : puis-je m\'occuper de mes parents âgés en Italie ?',
     },
     answer: {
       it:

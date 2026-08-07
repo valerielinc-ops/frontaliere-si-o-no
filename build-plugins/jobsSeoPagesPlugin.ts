@@ -13303,6 +13303,35 @@ ${staticAnalyticsHtml}
  // Skip if an active job page already occupies this path (buffered writes
  // are invisible to fs.existsSync — use the activeJobDirs set instead).
  if (activeJobDirs.has(oldRelPath.replace(/\/+$/, ''))) continue;
+ // …and skip when ANY locale's active-job emit claimed this
+ // (canton, locale, slug) tuple — including a locale THIS shard build
+ // did not render. `activeJobDirs` alone is not a sufficient guard:
+ // it is filled ~500 lines below `emittedActiveJobPaths`, AFTER the
+ // `if (!shouldEmitLocale(locale)) continue` early-exit, so in a
+ // per-locale shard build it only ever holds the locales that build
+ // owns. The sharded jobs sitemap gates on `emittedActiveJobPaths`
+ // instead (see the "URL list for the sharded sitemap" block above),
+ // and it is written by the IT/main build for ALL four locales. A path
+ // that is in `emittedActiveJobPaths` but not in `activeJobDirs` is
+ // therefore a URL the sitemap ADVERTISES as an active job page while
+ // this loop still considers it free to overwrite with a bridge.
+ //
+ // That is exactly how
+ // /en/find-jobs-zurich/foreman-timber-construction-m-f-d-80-100-implenia-rumlang/
+ // — an active EN job page, listed in sitemap-jobs-zurigo.xml — ended up
+ // serving another job's previousSlug bridge, canonical pointing at
+ // /en/find-jobs-zurich/baufuhrer-holzbau-m-w-d-80-100-implenia-ch/
+ // (which is in NO sitemap). audit:sitemap-canonicals fails that as a
+ // non-self-canonicalising <loc>, and it is right to: the sitemap must
+ // never advertise a bridge (see INCLUDE_PREV_SLUG_SITEMAP_ENTRIES=false
+ // above — bridges are deliberately kept OUT of the sitemap). Suppressing
+ // the bridge here keeps the advertised page alive AND keeps the sitemap
+ // honest; pruning the URL from the sitemap instead would leave the real
+ // page clobbered.
+ //
+ // Same key shape and delimiter as the sitemap gate (Phase 8a), built
+ // from the same `sharedResolveJobCanton` result.
+ if (emittedActiveJobPaths.has(`${jobCantonForBridge}:${locale}:${oldSlug}`)) continue;
  const __tPrevSlugBridge = startTimer();
  const outDir = np.join(distDir, oldRelPath);
  // Always generate bridge pages — they take priority over any compat/legacy
@@ -13521,6 +13550,14 @@ ${staticAnalyticsHtml}
  // Skip if an active job page already occupies this path (another
  // job's slug happens to collide across locales — active wins).
  if (activeJobDirs.has(relPathKey)) continue;
+ // Same asymmetry as the previousSlugs bridge above: `activeJobDirs`
+ // only covers the locales THIS shard build rendered, while the
+ // sharded jobs sitemap advertises every (canton, locale, slug) in
+ // `emittedActiveJobPaths`. This path is built from the legacy
+ // `sectionByLocale[baseLocale]` segment, which is precisely what
+ // `buildCantonAwareSection(locale, 'TI')` early-returns — hence the
+ // 'TI' canton in the key.
+ if (emittedActiveJobPaths.has(`TI:${baseLocale}:${foreignSlug}`)) continue;
  const outDir = np.join(distDir, relPath.replace(/^\//, ''));
  const indexFile = np.join(outDir, 'index.html');
  // Skip if a previousSlugs bridge already covered this path for
