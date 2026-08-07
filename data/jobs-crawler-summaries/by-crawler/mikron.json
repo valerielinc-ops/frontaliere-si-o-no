@@ -1,55 +1,19 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-08-07T01:19:22.643Z",
+  "generatedAt": "2026-08-07T10:28:55.911Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 14914,
-  "avgDurationMs": 14914,
+  "durationMs": 14087,
+  "avgDurationMs": 14087,
   "durationHistory": [
-    14914
+    14087
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "url": "https://www.mikron.com/en/manufacturing-methodology-engineer-mfd",
-      "applyUrl": "https://www.mikron.com/en/manufacturing-methodology-engineer-mfd",
-      "title": "Manufacturing Methodology Engineer - (m/f/d)",
-      "company": "Mikron Group",
-      "companyKey": "mikron",
-      "location": "Boudry",
-      "canton": "NE",
-      "country": "CH",
-      "postalCode": "2017",
-      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
-      "slug": "manufacturing-methodology-engineer-m-f-d-mikron",
-      "sourceLang": "fr",
-      "category": "technology",
-      "datePosted": "2026-07-21",
-      "source": "mikron-html-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Manifattura / Precision Manufacturing",
-      "_targetScope": {
-        "canton": "NE",
-        "location": "Boudry"
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-21T22:49:15.173Z",
-      "addressLocality": "Boudry",
-      "addressCountry": "CH",
-      "addressRegion": "NE",
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
-        "completeness": 15
-      }
-    },
     {
       "url": "https://www.mikron.com/en/giovane-ingegnere-meccanico-madrelingua-francese",
       "applyUrl": "https://www.mikron.com/en/giovane-ingegnere-meccanico-madrelingua-francese",
@@ -121,10 +85,7 @@
         "translation": 23,
         "completeness": 15
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "url": "https://www.mikron.com/en/rettificatori-di-utensili-metallo-duro-su-affilatrici-cnc",
       "applyUrl": "https://www.mikron.com/en/rettificatori-di-utensili-metallo-duro-su-affilatrici-cnc",
@@ -153,15 +114,53 @@
       "addressLocality": "Agno",
       "addressCountry": "CH",
       "addressRegion": "TI",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "retranslationAttempts": 1,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 88,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
+        "translation": 23,
+        "completeness": 15
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "url": "https://www.mikron.com/en/manufacturing-methodology-engineer-mfd",
+      "applyUrl": "https://www.mikron.com/en/manufacturing-methodology-engineer-mfd",
+      "title": "Manufacturing Methodology Engineer - (m/f/d)",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "slug": "manufacturing-methodology-engineer-m-f-d-mikron",
+      "sourceLang": "fr",
+      "category": "technology",
+      "datePosted": "2026-07-21",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-21T22:49:15.173Z",
+      "addressLocality": "Boudry",
+      "addressCountry": "CH",
+      "addressRegion": "NE",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
         "translation": 23,
         "completeness": 20
       }
