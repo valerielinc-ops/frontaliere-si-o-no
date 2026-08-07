@@ -1909,6 +1909,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.title': 'Kantonssteuer Vergleich Schweiz 2026 Kanton Basel',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.excerpt': 'Vergleich 2026 der kantonalen Steuersätze in der Schweiz: Fokus auf Basel mit Daten zu AD/AC 1,1%, UVG 0,7-1,5%, BVG 7-18% und Grenzfranchise € 10\'000.',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.imageAlt': 'Luftaufnahme von Basel am Rhein mit Bürogebäuden und traditioneller Schweizer Architektur',
+    'blog.article.rimborsi-730-sostituti-imposta.title': 'Rückerstattungen 730: jetzt auch mit Ersatzsteuern in F24 ausgleichbar',
+    'blog.article.rimborsi-730-sostituti-imposta.excerpt': 'Wie im Mai 2026 mitgeteilt, können Steuersubstitute Rückerstattungen aus dem Vordruck 730 zurückfordern, indem sie sie in F24 auch mit einigen Ersatzsteuern auf Löhne und Gehälter ausgleichen',
+    'blog.article.rimborsi-730-sostituti-imposta.imageAlt': 'Italienischer Grenzgänger prüft Steuerunterlagen im Luganer Büro',
 };
 
 export default blogMetaChDe;
