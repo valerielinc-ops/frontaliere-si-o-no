@@ -9326,6 +9326,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.caldo-lavoro-frontalieri-ticino.title': 'Caldo torrido e lavoro: sindacati incontrano Governo ticinese per nuove misure',
     'blog.article.caldo-lavoro-frontalieri-ticino.excerpt': 'Sindacati UNIA, OCST, USS e VPOD chiedono soglie di intervento basate su indici scientifici per proteggere lavoratori durante le ondate di caldo in Ticino',
     'blog.article.caldo-lavoro-frontalieri-ticino.imageAlt': 'Lavoratori edili in pausa all\'ombra durante un\'ondata di caldo a Lugano, Ticino',
+    'blog.article.siccit-importazioni-granoturco-svizzera.title': 'Siccità: importazioni granoturco senza dazi per allevatori ticinesi',
+    'blog.article.siccit-importazioni-granoturco-svizzera.excerpt': 'Misura straordinaria del DEFR fino al 31 ottobre 2026 per garantire foraggio agli allevatori colpiti dalla crisi. Importazioni di granoturco fino al 60% di sostanza secca senza tasse.',
+    'blog.article.siccit-importazioni-granoturco-svizzera.imageAlt': 'Castelgrande sul lago di Garda con luce dorata',
 };
 
 export default blogMetaIt;

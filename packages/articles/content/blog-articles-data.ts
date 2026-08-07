@@ -27993,6 +27993,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'siccit-importazioni-granoturco-svizzera',
+ category: 'pratico',
+ date: '2026-08-07T09:30:25.829Z',
+ image: '/images/blog/siccit-importazioni-granoturco-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
