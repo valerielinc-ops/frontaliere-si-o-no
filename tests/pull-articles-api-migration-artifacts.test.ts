@@ -536,8 +536,17 @@ describe('pull-articles-api: sitemap-news candidates', () => {
       ...baseRoutes(),
       'sitemap-news-candidates.xml': urlset([newsUrlBlock(LOC_B, null)]),
     };
-    const before = urlset([newsUrlBlock(LOC_A, hoursAgo(2))]);
-    const dir = makeCheckout({ newsEntries: [newsUrlBlock(LOC_A, hoursAgo(2))] });
+    // ONE timestamp for both sides. `hoursAgo` is `Date.now()`-derived and
+    // millisecond-precise, so calling it twice let a 1 ms tick between these
+    // two lines produce two different `<news:publication_date>` values — the
+    // assertion below compares the served copy byte-for-byte against
+    // `before`, so that tick failed the test with a 1 ms diff that had
+    // nothing to do with the behaviour under test (green locally, red in CI
+    // under load). The fixture must be identical by construction, not by
+    // winning a race.
+    const publishedAt = hoursAgo(2);
+    const before = urlset([newsUrlBlock(LOC_A, publishedAt)]);
+    const dir = makeCheckout({ newsEntries: [newsUrlBlock(LOC_A, publishedAt)] });
 
     const { code } = await run(dir);
 
