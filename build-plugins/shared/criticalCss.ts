@@ -1,4 +1,5 @@
-import { BASE_URL } from '../constants';
+import { BASE_URL, SEO_STATIC_CSS_FILENAME, readPublicAsset } from '../constants';
+import { deriveSeoStaticFirstPaintReserve } from './seoStaticFirstPaintReserve';
 
 /**
  * Single source of truth for the first-paint CRITICAL CSS served to every
@@ -399,6 +400,443 @@ export const SEO_ARTICLE_SHELL_RESERVE_CSS =
   '.s-OCic8j{margin:10px 0 0;line-height:1.6}';
 
 /**
+ * Theme tokens the {@link TAILWIND_UTILITY_RESERVE_CSS} rules below resolve
+ * against, mirrored from the ASYNC `index.css` `@layer theme` `:root` block.
+ *
+ * Without them the reserve is INERT, not merely approximate: Tailwind v4
+ * utilities are emitted as `calc(var(--spacing)*3)` /
+ * `var(--text-sm)`, and a `var()` with no fallback and no definition makes the
+ * whole declaration invalid-at-computed-value-time — i.e. the browser drops it.
+ * So every token referenced by a reserved utility has to be declared here for
+ * the reserve to do anything at first paint.
+ *
+ * Values are copied verbatim from the built sheet (Tailwind v4.1.18 defaults;
+ * `index.css`'s own `@theme` block only overrides the font stacks). They live in
+ * `@layer base` with the utilities — see {@link TAILWIND_UTILITY_RESERVE_CSS}
+ * for why the layer matters.
+ */
+export const TAILWIND_THEME_TOKENS_RESERVE_CSS =
+  ':root{--aspect-video:16/9;--container-2xl:42rem;--container-3xl:48rem;--container-4xl:56rem;--container-5xl:64rem;--container-6xl:72rem;--container-7xl:80rem;--font-display:"Space Grotesk",ui-sans-serif,system-ui,-apple-system,sans-serif;--font-weight-bold:700;--font-weight-light:300;--font-weight-medium:500;--font-weight-normal:400;--font-weight-semibold:600;--leading-relaxed:1.625;--leading-snug:1.375;--leading-tight:1.25;--spacing:.25rem;--text-2xl:1.5rem;--text-2xl--line-height:calc(2/1.5);--text-3xl:1.875rem;--text-3xl--line-height:1.2;--text-4xl:2.25rem;--text-4xl--line-height:calc(2.5/2.25);--text-5xl:3rem;--text-5xl--line-height:1;--text-7xl:4.5rem;--text-7xl--line-height:1;--text-8xl:6rem;--text-8xl--line-height:1;--text-9xl:8rem;--text-9xl--line-height:1;--text-base:1rem;--text-base--line-height:1.5;--text-lg:1.125rem;--text-lg--line-height:calc(1.75/1.125);--text-sm:.875rem;--text-sm--line-height:calc(1.25/.875);--text-xl:1.25rem;--text-xl--line-height:calc(1.75/1.25);--text-xs:.75rem;--text-xs--line-height:calc(1/.75);--tracking-tight:-.025em;--tracking-wide:.025em;--tracking-wider:.05em}';
+
+/**
+ * Tailwind PREFLIGHT subset, mirrored from the ASYNC `index.css` `@layer base`
+ * into this SYNCHRONOUS first-paint block.
+ *
+ * Why (CLS fix, issue #5001 point 3): every reserve above this line pins a
+ * CONTAINER (the rail grid, `main.seo-static-content`, the hero/stat-tile and
+ * article-shell wrappers). None of them pins the UA defaults that Tailwind
+ * resets, so until `index.css` `media="print"`-swaps in (~250-400ms) every raw
+ * element inside those containers still carries its user-agent box:
+ *   - `*{margin:0;padding:0}` missing → `<p>` keeps `margin:1em 0`, `<h1>`
+ *     `margin:.67em 0`, `<ul>/<ol>` `padding-left:40px`, `<dd>`
+ *     `margin-left:40px`, `<figure>` `margin:1em 40px`;
+ *   - `h1..h6{font-size:inherit;font-weight:inherit}` missing → every heading
+ *     paints at its UA size/weight and then snaps to the utility/`seo-static.css`
+ *     value;
+ *   - `ol,ul,menu{list-style:none}` missing → every list item paints with a
+ *     marker and re-flows when the marker goes;
+ *   - `img,svg,…{display:block}` + `img,video{max-width:100%;height:auto}`
+ *     missing → the article hero `<img class="w-full h-auto">` paints at its
+ *     intrinsic 1200px width as an inline box on a text baseline.
+ * Measured on the local A/B harness (production HTML, only critical.css
+ * differing), buffered `layout-shift` attribution at 1350px:
+ * `/vivere-in-ticino/comuni-di-frontiera/albiolo/` desktop CLS 0.421,
+ * `/articoli-frontaliere/lamal-vs-cmi-frontaliere/` 0.524 — dominated by exactly
+ * these per-element resets cascading into the container height.
+ *
+ * Only the LAYOUT half of preflight is mirrored (box metrics, font metrics,
+ * list markers, replaced-element display). Colour/appearance resets stay out:
+ * they are paint, not layout, and every byte here is render-blocking.
+ *
+ * In `@layer base` — same reason as the `*,::after,::before` reset already in
+ * {@link CRITICAL_CSS}: unlayered it would outrank `index.css`'s own
+ * `@layer utilities` FOREVER, not just until the sheet lands.
+ */
+export const TAILWIND_PREFLIGHT_RESERVE_CSS =
+  '*,:after,:before,::backdrop{box-sizing:border-box;margin:0;padding:0}' +
+  'hr{height:0;border-top-width:1px}' +
+  'h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}' +
+  'b,strong{font-weight:bolder}' +
+  'small{font-size:80%}' +
+  'sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}' +
+  'sub{bottom:-.25em}' +
+  'sup{top:-.5em}' +
+  'summary{display:list-item}' +
+  'ol,ul,menu{list-style:none}' +
+  'img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}' +
+  'img,video{max-width:100%;height:auto}';
+
+/**
+ * Tailwind UTILITY subset, mirrored from the ASYNC `index.css`
+ * `@layer utilities`/`@layer components` into this SYNCHRONOUS first-paint
+ * block.
+ *
+ * Why (CLS fix, issue #5001 point 3): `AGENTS.md → Static SEO Pages` mandates
+ * "Body styling HTML statico: Tailwind utilities only". That makes the whole
+ * static SEO surface depend on `index.css` for its layout — and `index.css` is
+ * loaded NON-render-blocking (the `media="print"` swap in
+ * `htmlTemplate.asyncCssHeadBlock`). Every `.s-*` reserve above this line was
+ * written for the plugins that emit hashed atomic classes; the families that
+ * follow the AGENTS rule literally and emit raw utilities had NOTHING reserved.
+ * The dominant desktop shift on those pages is the block→grid/flex collapse the
+ * swap performs: measured on
+ * `/vivere-in-ticino/comuni-di-frontiera/albiolo/` (1350px), a single shift of
+ * 0.4206 at 252ms whose sources are `dl.mt-5.grid.sm:grid-cols-2.lg:grid-cols-4`
+ * (400px tall stacked block → 154px 4-column grid), `header.p-5.sm:p-7`
+ * (padding 0 → 28px) and the `div.mx-auto.max-w-6xl.px-4.sm:px-6.lg:px-8`
+ * wrapper (padding-inline 0 → 32px, so the whole column re-wraps).
+ *
+ * Scope: the utilities that the static SEO bodies ACTUALLY use, derived by
+ * scanning the `<body>` of one live page per `sitemap.xml` child sitemap (76
+ * pages with `main.seo-static-content`, 2026-08-07) and keeping every
+ * `index.css` rule whose selector is exactly one of those classes. Only
+ * layout-affecting declarations are kept (box metrics, display/flex/grid, font
+ * metrics, list-style, border WIDTH, `scrollbar-width`/`-webkit-line-clamp` —
+ * both change the box); colours, backgrounds, radii, shadows and transitions
+ * are paint and stay out. `var(--tw-*)` runtime overrides are resolved to their
+ * fallback because those custom properties do not exist at first paint.
+ *
+ * In `@layer base`, NOT unlayered — this is what makes the copy safe to keep:
+ * `index.css`'s own `@layer utilities` sorts after `base`, so the moment the
+ * async sheet lands the authoritative rule wins and a stale value here can only
+ * ever affect the pre-swap frame. A hand-copied Tailwind value that drifts is
+ * therefore a first-paint approximation, never a permanent wrong layout.
+ * (Layer order is fixed by first appearance: critical.css declares `base`
+ * first, so the merged order is `base` → `properties` → `theme` → `components`
+ * → `utilities`.)
+ *
+ * Pure space reservation (AGENTS.md §7): no ad, content or markup is added or
+ * removed — the in-flow `<ins>` slots are the same boxes before and after.
+ */
+export const TAILWIND_UTILITY_RESERVE_CSS =
+  '.jc-card{border-style:solid;border-width:1px;min-height:72px;padding:calc(var(--spacing)*3)}' +
+  '.jc-link{display:block}' +
+  '.jc-row{align-items:flex-start;gap:calc(var(--spacing)*3);display:flex}' +
+  '.jc-logoslot{height:calc(var(--spacing)*10);width:calc(var(--spacing)*10);border-style:solid;border-width:1px;flex-shrink:0;justify-content:center;align-items:center;display:flex;overflow:hidden}' +
+  '.jc-logoimg{height:calc(var(--spacing)*7);width:calc(var(--spacing)*7)}' +
+  '.jc-meta{min-width:calc(var(--spacing)*0);flex:1}' +
+  '.jc-title{font-family:var(--font-display);font-size:var(--text-sm);line-height:var(--leading-tight);font-weight:var(--font-weight-bold)}' +
+  '.jc-sub{margin-top:calc(var(--spacing)*.5);-webkit-line-clamp:2;font-size:var(--text-xs);line-height:var(--text-xs--line-height);-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden}' +
+  '.jc-salary{margin-top:calc(var(--spacing)*1);align-items:center;gap:calc(var(--spacing)*1);font-size:var(--text-xs);line-height:var(--text-xs--line-height);font-weight:var(--font-weight-semibold);display:inline-flex}' +
+  '.jc-chips{margin-top:calc(var(--spacing)*2);align-items:center;gap:calc(var(--spacing)*2);font-size:var(--text-xs);line-height:var(--text-xs--line-height);flex-wrap:wrap;display:flex}' +
+  '.jc-chip{align-items:center;gap:calc(var(--spacing)*1);display:inline-flex}' +
+  '.jc-chip-pill{padding-inline:calc(var(--spacing)*1.5);padding-block:calc(var(--spacing)*.5)}' +
+  '.jc-newbadge{margin-left:calc(var(--spacing)*1.5);align-items:center;gap:calc(var(--spacing)*.5);padding-inline:calc(var(--spacing)*1.5);padding-block:calc(var(--spacing)*.5);font-size:var(--text-xs);line-height:var(--text-xs--line-height);font-weight:var(--font-weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;display:inline-flex}' +
+  '.ec-card{border-style:solid;border-width:1px;padding:calc(var(--spacing)*3)}' +
+  '.ec-link{display:block}' +
+  '.ec-row{align-items:center;gap:calc(var(--spacing)*3);display:flex}' +
+  '.ec-logoslot{border-style:solid;border-width:1px;flex-shrink:0;justify-content:center;align-items:center;display:flex;overflow:hidden}' +
+  '.ec-logoimg{height:calc(var(--spacing)*7);width:calc(var(--spacing)*7)}' +
+  '.ec-title{font-family:var(--font-display);font-size:var(--text-sm);line-height:var(--leading-tight);font-weight:var(--font-weight-bold)}' +
+  '.ec-sub{margin-top:calc(var(--spacing)*1);font-size:var(--text-xs);line-height:var(--leading-snug)}' +
+  '.ec-meta{min-width:calc(var(--spacing)*0);flex:1}' +
+  '.ec-cmpct{align-items:center;gap:calc(var(--spacing)*2.5);border-style:solid;border-width:1px;display:flex;padding:calc(var(--spacing)*3)}' +
+  '.sr-only{white-space:nowrap;border-width:0;width:1px;height:1px;margin:-1px;padding:0;position:absolute;overflow:hidden}' +
+  '.absolute{position:absolute}' +
+  '.relative{position:relative}' +
+  '.static{position:static}' +
+  '.inset-y-0{inset-block:calc(var(--spacing)*0)}' +
+  '.-top-4{top:calc(var(--spacing)*-4)}' +
+  '.top-0{top:calc(var(--spacing)*0)}' +
+  '.top-2{top:calc(var(--spacing)*2)}' +
+  '.-right-4{right:calc(var(--spacing)*-4)}' +
+  '.right-0{right:calc(var(--spacing)*0)}' +
+  '.bottom-0{bottom:calc(var(--spacing)*0)}' +
+  '.left-2{left:calc(var(--spacing)*2)}' +
+  '.m-0{margin:calc(var(--spacing)*0)}' +
+  '.-mx-1{margin-inline:calc(var(--spacing)*-1)}' +
+  '.mx-2{margin-inline:calc(var(--spacing)*2)}' +
+  '.mx-auto{margin-inline:auto}' +
+  '.my-1{margin-block:calc(var(--spacing)*1)}' +
+  '.my-2{margin-block:calc(var(--spacing)*2)}' +
+  '.my-2\\.5{margin-block:calc(var(--spacing)*2.5)}' +
+  '.my-3{margin-block:calc(var(--spacing)*3)}' +
+  '.my-4{margin-block:calc(var(--spacing)*4)}' +
+  '.my-6{margin-block:calc(var(--spacing)*6)}' +
+  '.my-8{margin-block:calc(var(--spacing)*8)}' +
+  '.my-10{margin-block:calc(var(--spacing)*10)}' +
+  '.-mt-2{margin-top:calc(var(--spacing)*-2)}' +
+  '.mt-0\\.5{margin-top:calc(var(--spacing)*.5)}' +
+  '.mt-1{margin-top:calc(var(--spacing)*1)}' +
+  '.mt-1\\.5{margin-top:calc(var(--spacing)*1.5)}' +
+  '.mt-2{margin-top:calc(var(--spacing)*2)}' +
+  '.mt-3{margin-top:calc(var(--spacing)*3)}' +
+  '.mt-4{margin-top:calc(var(--spacing)*4)}' +
+  '.mt-5{margin-top:calc(var(--spacing)*5)}' +
+  '.mt-6{margin-top:calc(var(--spacing)*6)}' +
+  '.mt-8{margin-top:calc(var(--spacing)*8)}' +
+  '.mt-10{margin-top:calc(var(--spacing)*10)}' +
+  '.mb-1{margin-bottom:calc(var(--spacing)*1)}' +
+  '.mb-1\\.5{margin-bottom:calc(var(--spacing)*1.5)}' +
+  '.mb-2{margin-bottom:calc(var(--spacing)*2)}' +
+  '.mb-2\\.5{margin-bottom:calc(var(--spacing)*2.5)}' +
+  '.mb-3{margin-bottom:calc(var(--spacing)*3)}' +
+  '.mb-4{margin-bottom:calc(var(--spacing)*4)}' +
+  '.mb-5{margin-bottom:calc(var(--spacing)*5)}' +
+  '.mb-6{margin-bottom:calc(var(--spacing)*6)}' +
+  '.mb-7{margin-bottom:calc(var(--spacing)*7)}' +
+  '.ml-2{margin-left:calc(var(--spacing)*2)}' +
+  '.ml-5{margin-left:calc(var(--spacing)*5)}' +
+  '.line-clamp-2{-webkit-line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden}' +
+  '.block{display:block}' +
+  '.flex{display:flex}' +
+  '.grid{display:grid}' +
+  '.hidden{display:none}' +
+  '.inline{display:inline}' +
+  '.inline-block{display:inline-block}' +
+  '.inline-flex{display:inline-flex}' +
+  '.aspect-video{aspect-ratio:var(--aspect-video)}' +
+  '.h-1\\.5{height:calc(var(--spacing)*1.5)}' +
+  '.h-2{height:calc(var(--spacing)*2)}' +
+  '.h-2\\.5{height:calc(var(--spacing)*2.5)}' +
+  '.h-3{height:calc(var(--spacing)*3)}' +
+  '.h-3\\.5{height:calc(var(--spacing)*3.5)}' +
+  '.h-9{height:calc(var(--spacing)*9)}' +
+  '.h-12{height:calc(var(--spacing)*12)}' +
+  '.h-auto{height:auto}' +
+  '.h-full{height:100%}' +
+  '.min-h-\\[44px\\]{min-height:44px}' +
+  '.w-1\\.5{width:calc(var(--spacing)*1.5)}' +
+  '.w-2\\.5{width:calc(var(--spacing)*2.5)}' +
+  '.w-3{width:calc(var(--spacing)*3)}' +
+  '.w-3\\.5{width:calc(var(--spacing)*3.5)}' +
+  '.w-8{width:calc(var(--spacing)*8)}' +
+  '.w-9{width:calc(var(--spacing)*9)}' +
+  '.w-12{width:calc(var(--spacing)*12)}' +
+  '.w-\\[68px\\]{width:68px}' +
+  '.w-full{width:100%}' +
+  '.max-w-2xl{max-width:var(--container-2xl)}' +
+  '.max-w-3xl{max-width:var(--container-3xl)}' +
+  '.max-w-4xl{max-width:var(--container-4xl)}' +
+  '.max-w-5xl{max-width:var(--container-5xl)}' +
+  '.max-w-6xl{max-width:var(--container-6xl)}' +
+  '.max-w-7xl{max-width:var(--container-7xl)}' +
+  '.max-w-\\[820px\\]{max-width:820px}' +
+  '.max-w-prose{max-width:65ch}' +
+  '.min-w-0{min-width:calc(var(--spacing)*0)}' +
+  '.min-w-\\[420px\\]{min-width:420px}' +
+  '.flex-1{flex:1}' +
+  '.flex-shrink-0{flex-shrink:0}' +
+  '.shrink-0{flex-shrink:0}' +
+  '.flex-grow{flex-grow:1}' +
+  '.list-disc{list-style-type:disc}' +
+  '.list-none{list-style-type:none}' +
+  '.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}' +
+  '.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}' +
+  '.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}' +
+  '.grid-cols-\\[68px_32px_1fr_88px\\]{grid-template-columns:68px 32px 1fr 88px}' +
+  '.flex-col{flex-direction:column}' +
+  '.flex-wrap{flex-wrap:wrap}' +
+  '.items-baseline{align-items:baseline}' +
+  '.items-center{align-items:center}' +
+  '.justify-between{justify-content:space-between}' +
+  '.justify-center{justify-content:center}' +
+  '.gap-0\\.5{gap:calc(var(--spacing)*.5)}' +
+  '.gap-1{gap:calc(var(--spacing)*1)}' +
+  '.gap-1\\.5{gap:calc(var(--spacing)*1.5)}' +
+  '.gap-2{gap:calc(var(--spacing)*2)}' +
+  '.gap-2\\.5{gap:calc(var(--spacing)*2.5)}' +
+  '.gap-3{gap:calc(var(--spacing)*3)}' +
+  '.gap-4{gap:calc(var(--spacing)*4)}' +
+  '.gap-5{gap:calc(var(--spacing)*5)}' +
+  '.gap-6{gap:calc(var(--spacing)*6)}' +
+  '.gap-x-3{column-gap:calc(var(--spacing)*3)}' +
+  '.gap-y-1{row-gap:calc(var(--spacing)*1)}' +
+  '.truncate{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}' +
+  '.overflow-hidden{overflow:hidden}' +
+  '.overflow-x-auto{overflow-x:auto}' +
+  '.overflow-x-hidden{overflow-x:hidden}' +
+  '.border{border-style:solid;border-width:1px}' +
+  '.border-t{border-top-width:1px}' +
+  '.border-b{border-bottom-width:1px}' +
+  '.p-0{padding:calc(var(--spacing)*0)}' +
+  '.p-2{padding:calc(var(--spacing)*2)}' +
+  '.p-3{padding:calc(var(--spacing)*3)}' +
+  '.p-4{padding:calc(var(--spacing)*4)}' +
+  '.p-5{padding:calc(var(--spacing)*5)}' +
+  '.p-6{padding:calc(var(--spacing)*6)}' +
+  '.px-1{padding-inline:calc(var(--spacing)*1)}' +
+  '.px-2\\.5{padding-inline:calc(var(--spacing)*2.5)}' +
+  '.px-3{padding-inline:calc(var(--spacing)*3)}' +
+  '.px-3\\.5{padding-inline:calc(var(--spacing)*3.5)}' +
+  '.px-4{padding-inline:calc(var(--spacing)*4)}' +
+  '.px-5{padding-inline:calc(var(--spacing)*5)}' +
+  '.py-0\\.5{padding-block:calc(var(--spacing)*.5)}' +
+  '.py-1{padding-block:calc(var(--spacing)*1)}' +
+  '.py-1\\.5{padding-block:calc(var(--spacing)*1.5)}' +
+  '.py-2{padding-block:calc(var(--spacing)*2)}' +
+  '.py-2\\.5{padding-block:calc(var(--spacing)*2.5)}' +
+  '.py-3{padding-block:calc(var(--spacing)*3)}' +
+  '.py-3\\.5{padding-block:calc(var(--spacing)*3.5)}' +
+  '.py-4{padding-block:calc(var(--spacing)*4)}' +
+  '.py-6{padding-block:calc(var(--spacing)*6)}' +
+  '.pt-2{padding-top:calc(var(--spacing)*2)}' +
+  '.pt-6{padding-top:calc(var(--spacing)*6)}' +
+  '.pr-3{padding-right:calc(var(--spacing)*3)}' +
+  '.pr-8{padding-right:calc(var(--spacing)*8)}' +
+  '.pb-1{padding-bottom:calc(var(--spacing)*1)}' +
+  '.pb-3{padding-bottom:calc(var(--spacing)*3)}' +
+  '.pb-14{padding-bottom:calc(var(--spacing)*14)}' +
+  '.pl-3{padding-left:calc(var(--spacing)*3)}' +
+  '.pl-5{padding-left:calc(var(--spacing)*5)}' +
+  '.text-center{text-align:center}' +
+  '.text-left{text-align:left}' +
+  '.text-right{text-align:right}' +
+  '.font-display{font-family:var(--font-display)}' +
+  '.text-2xl{font-size:var(--text-2xl);line-height:var(--text-2xl--line-height)}' +
+  '.text-3xl{font-size:var(--text-3xl);line-height:var(--text-3xl--line-height)}' +
+  '.text-4xl{font-size:var(--text-4xl);line-height:var(--text-4xl--line-height)}' +
+  '.text-7xl{font-size:var(--text-7xl);line-height:var(--text-7xl--line-height)}' +
+  '.text-8xl{font-size:var(--text-8xl);line-height:var(--text-8xl--line-height)}' +
+  '.text-base{font-size:var(--text-base);line-height:var(--text-base--line-height)}' +
+  '.text-lg{font-size:var(--text-lg);line-height:var(--text-lg--line-height)}' +
+  '.text-sm{font-size:var(--text-sm);line-height:var(--text-sm--line-height)}' +
+  '.text-xl{font-size:var(--text-xl);line-height:var(--text-xl--line-height)}' +
+  '.text-xs{font-size:var(--text-xs);line-height:var(--text-xs--line-height)}' +
+  '.text-\\[11px\\]{font-size:11px}' +
+  '.text-\\[13px\\]{font-size:13px}' +
+  '.text-\\[15px\\]{font-size:15px}' +
+  '.text-\\[26px\\]{font-size:26px}' +
+  '.leading-5{line-height:calc(var(--spacing)*5)}' +
+  '.leading-6{line-height:calc(var(--spacing)*6)}' +
+  '.leading-7{line-height:calc(var(--spacing)*7)}' +
+  '.leading-none{line-height:1}' +
+  '.leading-relaxed{line-height:var(--leading-relaxed)}' +
+  '.leading-snug{line-height:var(--leading-snug)}' +
+  '.leading-tight{line-height:var(--leading-tight)}' +
+  '.font-bold{font-weight:var(--font-weight-bold)}' +
+  '.font-light{font-weight:var(--font-weight-light)}' +
+  '.font-medium{font-weight:var(--font-weight-medium)}' +
+  '.font-normal{font-weight:var(--font-weight-normal)}' +
+  '.font-semibold{font-weight:var(--font-weight-semibold)}' +
+  '.tracking-tight{letter-spacing:var(--tracking-tight)}' +
+  '.tracking-wide{letter-spacing:var(--tracking-wide)}' +
+  '.tracking-wider{letter-spacing:var(--tracking-wider)}' +
+  '.whitespace-nowrap{white-space:nowrap}' +
+  '.uppercase{text-transform:uppercase}' +
+  '.scrollbar-hide{-ms-overflow-style:none;scrollbar-width:none}' +
+  '.scrollbar-hide::-webkit-scrollbar{display:none}' +
+  '@media(min-width:40rem){' +
+    '.jc-card{padding:calc(var(--spacing)*4)}' +
+    '.jc-logoslot{height:calc(var(--spacing)*14);width:calc(var(--spacing)*14)}' +
+    '.jc-logoimg{height:calc(var(--spacing)*10);width:calc(var(--spacing)*10)}' +
+    '.jc-title{font-size:var(--text-base);line-height:var(--text-base--line-height)}' +
+    '.jc-sub{font-size:var(--text-sm);line-height:var(--text-sm--line-height)}' +
+    '.jc-salary{font-size:var(--text-sm);line-height:var(--text-sm--line-height)}' +
+    '.jc-chips{margin-top:calc(var(--spacing)*3);gap:calc(var(--spacing)*1.5)}' +
+    '.jc-newbadge{margin-left:calc(var(--spacing)*2)}' +
+    '.ec-card{padding:calc(var(--spacing)*4)}' +
+    '.ec-logoimg{height:calc(var(--spacing)*9);width:calc(var(--spacing)*9)}' +
+    '.ec-title{font-size:var(--text-base);line-height:var(--text-base--line-height)}' +
+    '.ec-sub{font-size:var(--text-sm);line-height:var(--text-sm--line-height)}' +
+    '.sm\\:col-span-2{grid-column:span 2/span 2}' +
+    '.sm\\:h-10{height:calc(var(--spacing)*10)}' +
+    '.sm\\:h-14{height:calc(var(--spacing)*14)}' +
+    '.sm\\:w-10{width:calc(var(--spacing)*10)}' +
+    '.sm\\:w-14{width:calc(var(--spacing)*14)}' +
+    '.sm\\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}' +
+    '.sm\\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}' +
+    '.sm\\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}' +
+    '.sm\\:flex-row{flex-direction:row}' +
+    '.sm\\:items-start{align-items:flex-start}' +
+    '.sm\\:justify-between{justify-content:space-between}' +
+    '.sm\\:gap-4{gap:calc(var(--spacing)*4)}' +
+    '.sm\\:gap-8{gap:calc(var(--spacing)*8)}' +
+    '.sm\\:p-6{padding:calc(var(--spacing)*6)}' +
+    '.sm\\:p-7{padding:calc(var(--spacing)*7)}' +
+    '.sm\\:p-8{padding:calc(var(--spacing)*8)}' +
+    '.sm\\:p-10{padding:calc(var(--spacing)*10)}' +
+    '.sm\\:px-6{padding-inline:calc(var(--spacing)*6)}' +
+    '.sm\\:text-2xl{font-size:var(--text-2xl);line-height:var(--text-2xl--line-height)}' +
+    '.sm\\:text-3xl{font-size:var(--text-3xl);line-height:var(--text-3xl--line-height)}' +
+    '.sm\\:text-4xl{font-size:var(--text-4xl);line-height:var(--text-4xl--line-height)}' +
+    '.sm\\:text-5xl{font-size:var(--text-5xl);line-height:var(--text-5xl--line-height)}' +
+    '.sm\\:text-8xl{font-size:var(--text-8xl);line-height:var(--text-8xl--line-height)}' +
+    '.sm\\:text-9xl{font-size:var(--text-9xl);line-height:var(--text-9xl--line-height)}' +
+    '.sm\\:text-lg{font-size:var(--text-lg);line-height:var(--text-lg--line-height)}' +
+    '.sm\\:text-xl{font-size:var(--text-xl);line-height:var(--text-xl--line-height)}' +
+  '}' +
+  '@media(min-width:1400px){' +
+    '.xlw\\:mx-auto{margin-inline:auto}' +
+    '.xlw\\:flex{display:flex}' +
+    '.xlw\\:grid{display:grid}' +
+    '.xlw\\:max-w-\\[1768px\\]{max-width:1768px}' +
+    '.xlw\\:flex-col{flex-direction:column}' +
+    '.xlw\\:gap-4{gap:calc(var(--spacing)*4)}' +
+  '}' +
+  '@media(min-width:48rem){' +
+    '.md\\:static{position:static}' +
+    '.md\\:line-clamp-2{-webkit-line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden}' +
+    '.md\\:grid{display:grid}' +
+    '.md\\:hidden{display:none}' +
+    '.md\\:h-\\[18px\\]{height:18px}' +
+    '.md\\:min-h-0{min-height:calc(var(--spacing)*0)}' +
+    '.md\\:w-\\[18px\\]{width:18px}' +
+    '.md\\:w-full{width:100%}' +
+    '.md\\:shrink{flex-shrink:1}' +
+    '.md\\:grid-cols-8{grid-template-columns:repeat(8,minmax(0,1fr))}' +
+    '.md\\:flex-col{flex-direction:column}' +
+    '.md\\:gap-0\\.5{gap:calc(var(--spacing)*.5)}' +
+    '.md\\:overflow-x-visible{overflow-x:visible}' +
+    '.md\\:px-1{padding-inline:calc(var(--spacing)*1)}' +
+    '.md\\:py-1\\.5{padding-block:calc(var(--spacing)*1.5)}' +
+    '.md\\:py-3{padding-block:calc(var(--spacing)*3)}' +
+    '.md\\:pr-0{padding-right:calc(var(--spacing)*0)}' +
+    '.md\\:whitespace-normal{white-space:normal}' +
+  '}' +
+  '@media(min-width:64rem){' +
+    '.lg\\:col-span-3{grid-column:span 3/span 3}' +
+    '.lg\\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}' +
+    '.lg\\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}' +
+    '.lg\\:grid-cols-\\[0\\.85fr_1\\.15fr\\]{grid-template-columns:.85fr 1.15fr}' +
+    '.lg\\:grid-cols-\\[1\\.1fr_0\\.9fr\\]{grid-template-columns:1.1fr .9fr}' +
+    '.lg\\:px-8{padding-inline:calc(var(--spacing)*8)}' +
+  '}';
+
+/**
+ * `seo-static.css` LAYOUT subset, DERIVED from that ASYNC sheet at build time
+ * (`deriveSeoStaticFirstPaintReserve`) instead of hand-copied — the
+ * generalisation of {@link SEO_STATIC_HERO_RESERVE_CSS} /
+ * {@link SEO_SEARCH_HUB_RESERVE_CSS} / {@link SEO_ARTICLE_SHELL_RESERVE_CSS},
+ * which each pinned one family's `.s-*` classes and left the rest of the sheet
+ * (~1000 layout-bearing rules, ~40 static families) unreserved.
+ *
+ * Why (CLS fix, issue #5001 point 3): `seo-static.css` is the second
+ * `media="print"`-swapped sheet on every static SEO page, and it owns the box of
+ * every family the three blocks above do not cover. Measured residual with the
+ * Tailwind reserve in place but this block absent (local A/B harness on the
+ * production HTML, only critical.css differing, desktop 1350px):
+ * `/articoli-frontaliere/lamal-vs-cmi-frontaliere/` 0.061 (the whole
+ * `.ft-blog-article` prose column — padding, section margins, heading metrics),
+ * `/lavoro-argovia-infermiere/` 0.054 (`.cl-fun`),
+ * `/cerca-lavoro-ticino/ricerca/` 0.414 (`.s-USY9TF`/`.s-MwMbiH` city blocks).
+ * With it: 0.0002 / 0.0019 / 0.0000 — the hub number is with JS off, because its
+ * remaining full-page 0.106 is the SPA removing the static `nav.seo-hub-subnav`
+ * at hydration (~935ms), which no stylesheet can reserve.
+ *
+ * It also covers the BODY FONT, which no per-family block could: the sheet sets
+ * `body{font-family:"Manrope",…}`, overriding the metric-matched Inter stack
+ * declared at the top of {@link CRITICAL_CSS}. Manrope is never loaded (no
+ * `@font-face` anywhere, no webfont link on any sampled page), so the swap
+ * re-metrics EVERY text node from Inter to the generic `sans-serif` — visible in
+ * the trace as a per-element `dw`/`dh` on essentially the whole document.
+ * Mirroring the declaration makes first paint agree with the end state; ALIGNING
+ * the two stacks instead would change what the page finally looks like, which is
+ * a typography decision, not a reserve — left to the owner (see the PR).
+ *
+ * Why deriving is what makes this safe to keep: see the module header of
+ * `./seoStaticFirstPaintReserve`. Short version — unlayered like the sheet
+ * itself and emitted BEFORE it, so `seo-static.css` always wins on equal
+ * specificity once it lands, and the projection cannot drift from its source
+ * because it IS its source.
+ *
+ * Pure space reservation (AGENTS.md §7).
+ */
+export const SEO_STATIC_SHEET_RESERVE_CSS = deriveSeoStaticFirstPaintReserve(
+  readPublicAsset(SEO_STATIC_CSS_FILENAME),
+);
+
+/**
  * `*,::after,::before{border:0 solid #e5e7eb}` below is wrapped in
  * `@layer base` (matching the identical reset's layer in the ASYNC
  * `index.css`) — NOT unlayered like the rest of this file's reserve blocks.
@@ -425,7 +863,17 @@ export const CRITICAL_CSS =
   SEO_STATIC_HERO_RESERVE_CSS +
   SEO_SEARCH_HUB_RESERVE_CSS +
   SEO_ARTICLE_SHELL_RESERVE_CSS +
-  ROOT_HEADER_RESERVE_CSS;
+  ROOT_HEADER_RESERVE_CSS +
+  // Layered half: mirrors of `index.css` (Tailwind). `@layer base` keeps them
+  // strictly BELOW `index.css`'s own `@layer utilities`, so once the async
+  // sheet lands the authoritative rule wins and these can only ever govern the
+  // pre-swap frame.
+  `@layer base{${TAILWIND_THEME_TOKENS_RESERVE_CSS}${TAILWIND_PREFLIGHT_RESERVE_CSS}${TAILWIND_UTILITY_RESERVE_CSS}}` +
+  // Unlayered half: a mirror of `seo-static.css`, which is itself unlayered —
+  // emitted here FIRST so the real sheet wins on equal specificity when it
+  // lands. Kept last so it also supersedes the older hand-written `.s-*`
+  // reserves above wherever the two describe the same selector.
+  SEO_STATIC_SHEET_RESERVE_CSS;
 
 /**
  * Filename `staticScriptsPlugin.ts` writes {@link CRITICAL_CSS} to under
