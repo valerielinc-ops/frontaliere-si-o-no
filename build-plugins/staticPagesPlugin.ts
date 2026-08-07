@@ -1817,9 +1817,27 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Un solo indice id → path, letto dagli stessi registri gia' parsati qui
  // sopra, cosi' i tre consumatori (img, og:image, ImageObject) non possono
  // nominare file diversi.
+ // Regex propria, non `blogArticlesStatic`: quella richiede
+ // id/category/date/image ADIACENTI, e 12 articoli su 3.741 hanno `updatedAt`
+ // in mezzo, quindi ne restano fuori. Per le CARD dell'hub e' innocuo (12 voci
+ // su 100 mostrate), ma qui un id mancante ricadrebbe sulla hero dell'hub —
+ // esattamente il bug che questo indice esiste per chiudere. `[^{}]` non
+ // attraversa il confine dell'oggetto, quindi non puo' accoppiare l'id di un
+ // articolo con l'immagine del successivo.
+ //
+ // Deliberatamente NON allargo la regex di `blogArticlesStatic`: quella governa
+ // anche la griglia di card e `numberOfItems` dell'ItemList, e cambiarla qui
+ // sarebbe un drive-by su una superficie che nessuna misura ha indicato rotta.
  const heroImageByArticleId: Record<string, string> = {};
- for (const a of [...blogArticlesStatic, ...swissArticlesStatic]) {
- if (a.id && a.image && !heroImageByArticleId[a.id]) heroImageByArticleId[a.id] = a.image;
+ for (const rel of ['blog-articles-data.ts', 'swiss-articles-data.ts']) {
+ try {
+ const src = fs.readFileSync(np.resolve(rootDir, 'data', rel), 'utf-8');
+ const rx = /\{\s*id:\s*'([^']+)',\s*category:\s*'[^']+',\s*date:\s*'[^']+',[^{}]*?image:\s*'([^']+)'/g;
+ let m: RegExpExecArray | null;
+ while ((m = rx.exec(src)) !== null) {
+ if (!heroImageByArticleId[m[1]]) heroImageByArticleId[m[1]] = m[2];
+ }
+ } catch { /* non-fatal, come le letture di registro qui sopra */ }
  }
 
  // Dimensioni REALI della hero, lette dall'header del file, mai dall'attributo
