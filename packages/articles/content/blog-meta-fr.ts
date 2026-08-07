@@ -9315,6 +9315,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-aumento-2026.title': 'Frontaliers au Tessin : +0,6 % par trimestre, -0,6 % par an',
     'blog.article.frontalieri-ticino-aumento-2026.excerpt': 'À 79 121, légère croissance au deuxième trimestre 2026. Baisse sur une base annuelle, signe de faiblesse.',
     'blog.article.frontalieri-ticino-aumento-2026.imageAlt': 'Travailleur frontalier au poste frontalier de Brogeda à Chiasso avec des documents en main',
+    'blog.article.graffio-nella-barba-locarno-film-festival.title': 'La rayure dans la barbe du directeur artistique au Locarno Film Festival',
+    'blog.article.graffio-nella-barba-locarno-film-festival.excerpt': 'Dans la barbe molle et volumineuse du directeur artistique se cache une déclaration d’intention pour le cinéma suisse, avec des investissements en hausse de 25 % en 2025.',
+    'blog.article.graffio-nella-barba-locarno-film-festival.imageAlt': 'Barbe bien entretenue du directeur artistique au Festival du film de Locarno devant la Piazza Grande',
 };
 
 export default blogMetaFr;
