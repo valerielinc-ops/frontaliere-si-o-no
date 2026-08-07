@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-08-07T01:19:23.705Z",
+  "generatedAt": "2026-08-07T10:35:18.570Z",
   "total": 21,
   "newCount": 0,
   "updatedCount": 21,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 92250,
-  "avgDurationMs": 92250,
+  "durationMs": 91865,
+  "avgDurationMs": 91865,
   "durationHistory": [
-    92250
+    91865
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -452,7 +452,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-5f787a06ff5b",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-07-27T12:40:12.918Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -687,46 +687,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-assistant_accademia_mendrisio_fmaa.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-assistant_accademia_mendrisio_fmaa.pdf",
-      "title": "Assistente di Ricerca.",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "assistente-di-ricerca-usi-mendrisio",
-      "department": "Academy of Architecture",
-      "category": "staff",
-      "datePosted": "2026-07-10",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "id": "usi-universita-della-svizzera-italiana-e0ffeaa92fff",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-07-10T10:25:30.321Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
