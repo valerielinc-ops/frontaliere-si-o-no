@@ -1927,6 +1927,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.reno-siccita-economia-svizzera.title': 'Trockenrhein: Alarm für die Schweizer Wirtschaft',
     'blog.article.reno-siccita-economia-svizzera.excerpt': 'Historisches Tief, Transport mit Risiko: 10% der Importe über den Fluss, Treibstoff in der Krise.',
     'blog.article.reno-siccita-economia-svizzera.imageAlt': 'Niedriger Wasserstand des Rheins bei Basel, Frachtschiff mit geringem Tiefgang',
+    'blog.article.premi-lamal-2026-bern-guida.title': 'KVG-Prämien 2026 in Bern: So wählen Sie die richtige Franchise',
+    'blog.article.premi-lamal-2026-bern-guida.excerpt': 'Leitfaden zu den Krankenkassenprämien 2026 im Kanton Bern: kantonale Unterschiede, optimale Franchise, Kassenwechsel und Beiträge. Nationaler Vergleich.',
+    'blog.article.premi-lamal-2026-bern-guida.imageAlt': 'Leitfaden zu den LAMal-Prämien 2026 im Kanton Bern',
 };
 
 export default blogMetaChDe;

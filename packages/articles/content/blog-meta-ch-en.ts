@@ -1927,6 +1927,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.reno-siccita-economia-svizzera.title': 'Dry Rhine: Alarm for Swiss Economy',
     'blog.article.reno-siccita-economia-svizzera.excerpt': 'Historical minimum level, transport at risk: 10% of imports by river, fuels in crisis.',
     'blog.article.reno-siccita-economia-svizzera.imageAlt': 'Low water levels on the Rhine near Basel, cargo ship with shallow draft',
+    'blog.article.premi-lamal-2026-bern-guida.title': 'LAMal 2026 Awards in Bern: How to Choose the Right Deductible',
+    'blog.article.premi-lamal-2026-bern-guida.excerpt': 'Guide to the 2026 cash premiums in the canton of Bern: cantonal differences, optimal deductible, cash changeover and subsidies. National comparison.',
+    'blog.article.premi-lamal-2026-bern-guida.imageAlt': 'Guide to 2026 LAMal premiums in the canton of Bern',
 };
 
 export default blogMetaChEn;

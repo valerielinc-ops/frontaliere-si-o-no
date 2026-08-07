@@ -5779,6 +5779,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'premi-lamal-2026-bern-guida',
+    category: 'pratico',
+    date: '2026-08-07T22:49:53.113Z',
+    image: '/images/blog/premi-lamal-2026-bern-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
