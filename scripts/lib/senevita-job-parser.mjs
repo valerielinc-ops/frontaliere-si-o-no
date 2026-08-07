@@ -90,38 +90,113 @@ const REGION_TO_CANTON = {
 /* ── Listing page ─────────────────────────────────────────── */
 
 /**
+ * Opening tag of a job card, whatever element rexx decides to render it as.
+ *
+ * Deliberately matches on the `joboffer_container` CLASS and nothing else about
+ * the tag — see parseSenevitaListing() below for why the tag name is off limits.
+ * `\b` on both sides so a future `joboffer_container_v2` does not match by prefix.
+ */
+const CARD_OPEN_RE = /<[a-z][a-z0-9]*\b[^>]*\bjoboffer_container\b[^>]*>/gi;
+
+/** The URL a card navigates to, read out of its opening tag. */
+const CARD_HREF_RE = /onclick="window\.location\.href='([^']+)'"/i;
+
+/**
+ * Source-declared job total. rexx renders it on the listing container as
+ * `<section … data-count="172" data-all-count="172">`: `data-all-count` is the
+ * unfiltered total the ATS says it holds, straight out of its own database.
+ * Used by fetchAllSenevitaJobs() to reconcile what we extracted against what
+ * the source claims exists (see there).
+ */
+export function parseSenevitaDeclaredTotal(html) {
+  if (!html || typeof html !== 'string') return null;
+  const m = html.match(/\bdata-all-count="(\d{1,5})"/i);
+  if (!m) return null;
+  const value = Number(m[1]);
+  return Number.isInteger(value) && value >= 0 ? value : null;
+}
+
+/**
  * Parse one Senevita listing page. Returns array of `{ url, jobId, title, location }`.
+ *
+ * ── Why this is written tag-agnostically (#5246) ──────────────────────────
+ * The first version anchored on the literal string `<div class="joboffer_container"`
+ * followed, in that exact order, by the `onclick` attribute. On 2026-08-02 rexx
+ * systems re-rendered the very same cards as `<article class="joboffer_container"
+ * onclick="…">` — same class, same children, same URLs, one different tag name.
+ * The regex matched nothing at all, `fetchAllSenevitaJobs()` returned `[]`, and
+ * the crawler reported zero jobs for four consecutive runs.
+ *
+ * A card's identity on this ATS is its class and the URL it navigates to; the
+ * element it happens to be painted with is a rendering detail rexx has now
+ * changed once and can change again. So we bind to the class, read the URL out
+ * of the opening tag with a separate, attribute-order-independent regex, and
+ * take each card's body as "everything up to the next card's opening tag".
+ *
+ * That last point also retires the old terminator lookahead, which tried to spot
+ * the end of the LAST card by naming the markup that follows it
+ * (`pagebar`/`joblist_navigator`/`paging`/`joboffer_seperator`). That is a second
+ * hostage to the source's layout, for no gain: the fields we read (title anchor,
+ * `job_standort`) are the first of their kind inside the card, so an over-long
+ * final slice cannot pull in the wrong values.
  */
 export function parseSenevitaListing(html) {
   if (!html || typeof html !== 'string') return [];
+
+  // Collect card offsets first; a card's body runs to the next card's start
+  // (or to the end of the document for the last one).
+  const cards = [];
+  CARD_OPEN_RE.lastIndex = 0;
+  let m;
+  while ((m = CARD_OPEN_RE.exec(html)) !== null) {
+    cards.push({ tag: m[0], bodyStart: m.index + m[0].length });
+  }
+
   const out = [];
   const seen = new Set();
-  // Each card is a `<div class="joboffer_container" onclick="…URL…">` wrapper
-  // that contains a title block and an informations block. We anchor on the
-  // `window.location.href='…'` URL since it always appears in the opening tag
-  // — robust against the nested </div> structure inside the card.
-  const cardRe = /<div class="joboffer_container"\s+onclick="window\.location\.href='([^']+)'"[^>]*>([\s\S]*?)(?=<div class="joboffer_container"|<\/div>\s*<div class="(?:pagebar|joblist_navigator|paging|joboffer_seperator))/gi;
-  let m;
-  while ((m = cardRe.exec(html)) !== null) {
-    const url = m[1];
+  for (let i = 0; i < cards.length; i += 1) {
+    const hrefMatch = cards[i].tag.match(CARD_HREF_RE);
+    if (!hrefMatch) continue;
+    const url = hrefMatch[1];
     const idMatch = url.match(/-j(\d+)\.html$/);
     if (!idMatch) continue;
     const jobId = idMatch[1];
     if (seen.has(jobId)) continue;
     seen.add(jobId);
-    const block = m[2];
-    const titleMatch = block.match(/<a[^>]*>([\s\S]*?)<\/a>/i);
-    const title = titleMatch
-      ? decodeEntities(normalizeSpace(stripHtml(titleMatch[1])))
-      : '';
+
+    const bodyEnd = i + 1 < cards.length ? cards[i + 1].bodyStart - cards[i + 1].tag.length : html.length;
+    const block = html.slice(cards[i].bodyStart, bodyEnd);
+
+    // Prefer the anchor that points at this card's own detail URL — it is the
+    // title link by construction, so we never mistake a sibling link for it.
+    const titleHtml = matchOwnAnchorText(block, jobId) ?? firstAnchorText(block);
+    const title = titleHtml ? decodeEntities(normalizeSpace(stripHtml(titleHtml))) : '';
     if (!title || title.length < 3) continue;
-    const locMatch = block.match(/joboffer_informations[^>]*>([\s\S]*?)<\/div>/i);
+
+    // Location: rexx puts it in `<span class="job_standort">BE Muri b. Bern</span>`
+    // inside the informations box. Fall back to the whole informations block for
+    // older/other renderings, which is what this parser used to read.
+    const standortMatch = block.match(/<span[^>]*\bjob_standort\b[^>]*>([\s\S]*?)<\/span>/i);
+    const locMatch = standortMatch || block.match(/joboffer_informations[^>]*>([\s\S]*?)<\/div>/i);
     const location = locMatch
       ? decodeEntities(normalizeSpace(stripHtml(locMatch[1]))).replace(/^[\s,]+/, '')
       : '';
     out.push({ url, jobId, title, location });
   }
   return out;
+}
+
+/** First `<a>` in the block whose href is this card's own detail page. */
+function matchOwnAnchorText(block, jobId) {
+  const re = new RegExp(`<a[^>]*href="[^"]*-j${jobId}\\.html"[^>]*>([\\s\\S]*?)<\\/a>`, 'i');
+  const m = block.match(re);
+  return m ? m[1] : null;
+}
+
+/** First `<a>` in the block, regardless of target. */
+function firstAnchorText(block) {
+  const m = block.match(/<a[^>]*>([\s\S]*?)<\/a>/i);
+  return m ? m[1] : null;
 }
 
 /* ── Detail page ──────────────────────────────────────────── */
@@ -173,6 +248,7 @@ export async function fetchAllSenevitaJobs() {
   // Step 1 — walk listing pages
   const listings = [];
   const seenIds = new Set();
+  let declaredTotal = null;
   for (let start = 0; start < 1000; start += LISTING_PAGE_SIZE) {
     const url = `${BASE_URL}/stellenangebote.html?start=${start}`;
     let html;
@@ -183,6 +259,7 @@ export async function fetchAllSenevitaJobs() {
       console.warn(`  ⚠️ Pagination failed at start=${start}: ${err?.message || err}`);
       break;
     }
+    if (declaredTotal === null) declaredTotal = parseSenevitaDeclaredTotal(html);
     const rows = parseSenevitaListing(html);
     let added = 0;
     for (const r of rows) {
@@ -195,6 +272,39 @@ export async function fetchAllSenevitaJobs() {
     if (added === 0) break;
     if (rows.length < LISTING_PAGE_SIZE) break;
     await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
+  }
+
+  // ── Completeness reconciliation (#5246) ────────────────────────────────
+  // What broke here was not a fetch: every page came back 200 with all 172
+  // cards on it, and the extractor quietly matched none of them. "Some links
+  // found" is not a success criterion when the source publishes its own total,
+  // so we compare the two and fail loudly on the first run that disagrees —
+  // rather than writing a truncated (or empty) slice and waiting for a
+  // downstream guard to notice hours later. Same reasoning as #5200 for
+  // grace-la-margna; see scripts/lib/grace-job-parser.mjs.
+  //
+  // Deliberately NOT fail-closed on a missing counter, unlike grace: this
+  // crawler has never depended on `data-all-count`, and turning its absence
+  // into a hard failure would let a cosmetic rexx change take down a crawler
+  // that is otherwise working. A missing counter therefore warns and continues
+  // — no worse than the status quo — while a counter that disagrees with what
+  // we extracted stops the run.
+  //
+  // The 90% floor absorbs the one benign disagreement possible here: jobs
+  // added or expired by the ATS between the first page fetch and the last.
+  // A selector break does not land in that band — it lands at 0%.
+  const COMPLETENESS_FLOOR = 0.9;
+  if (declaredTotal === null) {
+    console.warn('  ⚠️ Source-declared total (data-all-count) not found — completeness unverified.');
+  } else if (listings.length < Math.floor(declaredTotal * COMPLETENESS_FLOOR)) {
+    throw new Error(
+      `Senevita listing extraction is incomplete: found ${listings.length} of ${declaredTotal} jobs `
+      + `declared by the source (floor: ${Math.round(COMPLETENESS_FLOOR * 100)}%). `
+      + 'The listing markup most likely changed — check parseSenevitaListing() against '
+      + `${BASE_URL}/stellenangebote.html before trusting this run.`,
+    );
+  } else {
+    console.log(`  ✅ Completeness: ${listings.length}/${declaredTotal} declared by source`);
   }
 
   if (!listings.length) {

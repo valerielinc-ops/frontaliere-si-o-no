@@ -84,3 +84,39 @@ export function divergentSurfaces(readings) {
   }
   return out;
 }
+
+/**
+ * Is an edge-variant divergence a failure, or a warning?
+ *
+ * Divergence is the MECHANISM, not the outcome. The outcome this gate exists
+ * to judge is whether the client holds every article the server rendered —
+ * and the runtime overlay is designed to close exactly the gap a stale
+ * registry chunk opens (`services/articlesOverlay.ts`; it is fetched under a
+ * five-minute rotating key, so it is never the stale variant). When the
+ * overlay does its job the visitor sees the whole hub, and the divergence has
+ * cost nobody anything yet.
+ *
+ * Measured 2026-08-07 on production: the browser's copy of
+ * `blog-articles-data.js` was 18h old and lacked 9 of the 100 rendered
+ * articles — and the overlay supplied all 9. Net missing: 0, on all eight
+ * section/locale landings.
+ *
+ * Treating that as a hard failure had a cost the failure itself did not. The
+ * caller retries a red verdict eight times at 45s (the workflow's ladder,
+ * built for an article that has not propagated YET), so a global and
+ * non-transient condition — an unpurged edge variant lives to its `max-age`,
+ * up to 24h — burned 5m28s per landing across eight landings: ~44 minutes
+ * against a 15-minute job. The job was cancelled at landing 3 of 8 on every
+ * run for seven hours, so the gate could never reach the step that reports.
+ * It was loudest exactly where it was silenced (#5279, #5280).
+ *
+ * So: fatal when the client really lost an article (divergence is then the
+ * explanation, and worth failing on), a warning when the overlay absorbed it,
+ * and fatal on demand via `strict` for a caller that wants to assert the zone
+ * property directly — as a single cheap probe, never behind a retry ladder.
+ */
+export function divergenceVerdict({ divergent, missing, strict } = {}) {
+  if (!divergent?.length) return 'none';
+  if (strict || missing?.length) return 'fatal';
+  return 'warn';
+}

@@ -58,15 +58,49 @@
  * Network trouble reaching a surface is exit 1 as well: this gate exists to be
  * believed, so it must never pass by failing to look.
  *
+ * ============================================================================
+ * THE VERDICT COMES BEFORE THE DIAGNOSIS — AND WHY THAT ORDER IS THE FIX
+ * ============================================================================
+ *
+ * The `Origin` divergence above is the MECHANISM. The question this gate
+ * answers is the OUTCOME: does the client hold what the server rendered. Those
+ * are not the same, because the runtime overlay exists precisely to close the
+ * gap a stale registry chunk opens — it is fetched under a five-minute
+ * rotating key, so it is never the stale variant.
+ *
+ * This file used to `exit(1)` on divergence BEFORE comparing anything, so a
+ * red run never said which articles were lost — only that the edge was split.
+ * Measured 2026-08-07 on production: the browser's `blog-articles-data.js` was
+ * 18h old and lacked 9 of the 100 rendered articles; the overlay supplied all
+ * 9; net missing 0 on all eight landings. The gate was red while every visitor
+ * saw a whole hub.
+ *
+ * That inversion had a cost the condition itself did not. The caller retries a
+ * red verdict 8× at 45s — a ladder built for an article that has not
+ * propagated YET — but an unpurged edge variant lives to its `max-age`, up to
+ * 24h, and is global, so it failed identically on all eight landings:
+ * 5m28s each, ~44 minutes against a `timeout-minutes: 15` job. Every run from
+ * 02:55 to 09:50 was cancelled at landing 3 of 8, so the gate never reached
+ * the step that opens the issue; a timeout scanner reported it instead, as two
+ * duplicate issues that named nothing (#5279, #5280).
+ *
+ * So the order is now: compare, then diagnose. Divergence fails the run when
+ * an article was really lost — it is then the explanation, and worth failing
+ * on — and warns when the overlay absorbed it. `--fail-on-divergence` restores
+ * the hard failure for a caller that wants to assert the zone property
+ * directly; run that as a single cheap probe, never behind a retry ladder.
+ *
  * Usage:
  *   node scripts/ci/check-hydrated-article-parity.mjs
  *   node scripts/ci/check-hydrated-article-parity.mjs --section=svizzera
  *   node scripts/ci/check-hydrated-article-parity.mjs --json
+ *   node scripts/ci/check-hydrated-article-parity.mjs --fail-on-divergence
  */
 
 import { readFileSync } from 'node:fs';
 import {
   renderedSlugs, idsInRegistryChunk, missingFromClient, divergentSurfaces,
+  divergenceVerdict,
 } from '../lib/hydratedParity.mjs';
 
 const args = process.argv.slice(2);
@@ -83,6 +117,12 @@ const API = flag('api', 'https://nanakokyobashi-rgb.github.io/frontaliere-articl
 const SECTION = flag('section', 'frontaliere');
 const LOCALE = flag('locale', 'it');
 const AS_JSON = has('json');
+/**
+ * Assert the zone property directly: fail on edge divergence even when the
+ * overlay absorbed it. For a dedicated single probe — never behind a retry
+ * ladder, because this condition does not heal within a retry window.
+ */
+const STRICT_DIVERGENCE = has('fail-on-divergence');
 
 if (SECTION !== 'frontaliere' && SECTION !== 'svizzera') {
   console.error(`[hydrated-parity] unknown --section=${SECTION} (frontaliere|svizzera)`);
@@ -234,18 +274,26 @@ try {
   fail(`could not read the publisher's slugs.json — refusing to pass without looking: ${err.message}`);
 }
 
-// Ids the client actually holds: the compiled registry plus the runtime
-// overlay, both fetched the way the client fetches them.
-const clientIds = new Set();
+/**
+ * Ids the client actually holds, kept in TWO sets rather than one.
+ *
+ * The compiled chunks are cacheable for a long time and are the surface the
+ * `Origin` split makes stale; the overlay is refetched under a five-minute
+ * rotating key and is not. Keeping them apart is what lets this gate say how
+ * much of the hub is standing on the overlay alone — the headroom that decides
+ * whether a stale chunk is survivable or an outage.
+ */
+const chunkIds = new Set();
 for (const url of CLIENT_SURFACES) {
   try {
     const r = await getText(url, BROWSER_HEADERS);
     report.surfaces[url] = { bytes: r.body.length, lastModified: r.lastModified };
-    for (const id of idsInRegistryChunk(r.body)) clientIds.add(id);
+    for (const id of idsInRegistryChunk(r.body)) chunkIds.add(id);
   } catch (err) {
     fail(`client surface unreadable (${url}): ${err.message}`);
   }
 }
+const clientIds = new Set(chunkIds);
 try {
   const r = await getText(OVERLAY_URL, BROWSER_HEADERS);
   report.surfaces[OVERLAY_URL] = { bytes: r.body.length, lastModified: r.lastModified };
@@ -256,6 +304,25 @@ try {
   fail(`overlay index unreadable (${OVERLAY_URL}): ${err.message}`);
 }
 report.clientIds = clientIds.size;
+
+/**
+ * The verdict, computed BEFORE the diagnosis below.
+ *
+ * A rendered article whose id the client does not hold is one hydration drops.
+ * This is the question the gate exists to answer, so nothing may pre-empt it —
+ * a run that fails without naming the lost articles has reported the weather,
+ * not the defect.
+ */
+const missing = missingFromClient(slugs, reverse, clientIds);
+report.missing = missing;
+
+/**
+ * How many rendered articles only the overlay can still render. Zero means the
+ * compiled chunks are current; a number climbing toward the overlay's own
+ * window is the early warning that the next stale chunk WILL drop articles.
+ */
+const absorbedByOverlay = missingFromClient(slugs, reverse, chunkIds);
+report.absorbedByOverlay = absorbedByOverlay;
 
 /**
  * Second, independent check: does the edge answer the SAME url differently
@@ -293,25 +360,29 @@ for (const url of Object.keys(report.surfaces)) {
 const divergent = divergentSurfaces(readings);
 report.divergent = divergent;
 
-if (divergent.length > 0) {
-  console.error('');
-  console.error('[hydrated-parity] ❌ the edge is serving a DIFFERENT copy to browsers than to checkers.');
-  for (const d of divergent) {
-    console.error(`[hydrated-parity]    ${d.url}`);
-    console.error(`[hydrated-parity]      Origin sent (a browser) : ${d.withOrigin}`);
-    console.error(`[hydrated-parity]      no Origin (curl, CI)    : ${d.withoutOrigin}`);
-  }
-  console.error('');
-  console.error('[hydrated-parity]    Every other check reads the second copy and stays green while');
-  console.error('[hydrated-parity]    visitors get the first. Look at the `Vary` header on these paths:');
-  console.error('[hydrated-parity]    a `Vary: Origin` next to a constant `Access-Control-Allow-Origin: *`');
-  console.error('[hydrated-parity]    fragments the edge cache into a variant no purge ever clears.');
-  process.exit(1);
-}
+/**
+ * Fatal when an article was really lost — divergence is then the explanation
+ * and worth failing on — a warning when the overlay absorbed it, and fatal on
+ * demand under `--fail-on-divergence`. See divergenceVerdict() for what the
+ * old unconditional failure cost.
+ */
+const verdict = divergenceVerdict({ divergent, missing, strict: STRICT_DIVERGENCE });
+report.divergenceVerdict = verdict;
 
-// A rendered article whose id the client does not hold is one hydration drops.
-const missing = missingFromClient(slugs, reverse, clientIds);
-report.missing = missing;
+function printDivergence(stream) {
+  for (const d of divergent) {
+    stream(`[hydrated-parity]    ${d.url}`);
+    stream(`[hydrated-parity]      Origin sent (a browser) : ${d.withOrigin}`);
+    stream(`[hydrated-parity]      no Origin (curl, CI)    : ${d.withoutOrigin}`);
+  }
+  stream('');
+  stream('[hydrated-parity]    Every other check reads the second copy and stays green while');
+  stream('[hydrated-parity]    visitors get the first. Look at the `Vary` header on these paths:');
+  stream('[hydrated-parity]    a `Vary: Origin` next to a constant `Access-Control-Allow-Origin: *`');
+  stream('[hydrated-parity]    fragments the edge cache into a variant no purge ever clears.');
+  stream('[hydrated-parity]    This does NOT heal on retry: the unpurged variant lives to its');
+  stream('[hydrated-parity]    `max-age`, up to 24h. Re-running is spent time, not a second chance.');
+}
 
 if (AS_JSON) console.log(JSON.stringify(report, null, 2));
 
@@ -331,11 +402,36 @@ if (missing.length > 0) {
   console.error('[hydrated-parity]    A stale last-modified here while the origin is current means the');
   console.error('[hydrated-parity]    edge is serving an unpurged `Vary: Origin` variant — see the header');
   console.error('[hydrated-parity]    comment in this file and services/articlesOverlay.ts.');
+  if (divergent.length > 0) {
+    console.error('');
+    console.error('[hydrated-parity]    The edge IS split right now, which is very likely the cause:');
+    printDivergence((l) => console.error(l));
+  }
+  process.exit(1);
+}
+
+if (verdict === 'fatal') {
+  // Only reachable under --fail-on-divergence: parity holds, but the caller
+  // asked for the zone property itself to be asserted.
+  console.error('');
+  console.error('[hydrated-parity] ❌ the edge is serving a DIFFERENT copy to browsers than to checkers.');
+  printDivergence((l) => console.error(l));
   process.exit(1);
 }
 
 if (!AS_JSON) {
   console.log(`[hydrated-parity] ✅ all ${slugs.length} rendered articles are present in the client's data (${SECTION}/${LOCALE}).`);
+  if (verdict === 'warn') {
+    console.log('');
+    console.log('[hydrated-parity] ⚠️  the edge is serving a DIFFERENT copy to browsers than to checkers,');
+    console.log(`[hydrated-parity]    and the runtime overlay is absorbing it: ${absorbedByOverlay.length}/${slugs.length} rendered`);
+    console.log('[hydrated-parity]    articles are reaching the visitor through the overlay ALONE.');
+    printDivergence((l) => console.log(l));
+    console.log('');
+    console.log('[hydrated-parity]    Not failing: every rendered article still reaches the visitor. But');
+    console.log('[hydrated-parity]    this is the overlay spending its headroom — if that count approaches');
+    console.log('[hydrated-parity]    the overlay window, the next stale chunk drops articles for real.');
+  }
   for (const [url, meta] of Object.entries(report.surfaces)) {
     console.log(`[hydrated-parity]    ${meta.lastModified ?? 'unknown'}  ${url}`);
   }

@@ -1,0 +1,165 @@
+name: Refresh GSC marquee demand
+
+# Company-keyed search demand, committed so the BUILD can read it.
+#
+# ── WHY THIS WORKFLOW EXISTS ────────────────────────────────────────────────
+# build-plugins/shared/employerProfileConfig.mjs counts the employer-profile
+# indexability floor in ANNUNCI (MIN_ACTIVE_JOBS = 5, BRIDGE_FLOOR = 2) and its
+# block comment explains, with the measurements, why it cannot yet count
+# DOMANDA: `gsc.pages` in data/evidence-index.json is circular as a promotion
+# signal (a noindex page earns zero impressions by construction), and
+# `gsc.queries` — the non-circular signal — carries no company key, with both
+# ways of attaching one failing on measured data (name-in-query poisons the top
+# of the ranking: 55 % of `bell-suisse-sa`'s 2 668 impressions come from an
+# unrelated language school; topLandingPage attribution collapses to 10 of 208
+# below-floor companies).
+#
+# That comment names the missing piece and nothing else:
+# scripts/identify-top-marquee-by-gsc.mjs already extracts employer NAMES from
+# "{company} jobs" / "lavoro {company}" query shapes and cross-references
+# data/marquee-companies-list.json (committed, 118 companies) — "Its output,
+# data/gsc-top-marquee-candidates.json, is not committed and no workflow
+# invokes it, so it is not build input today. Scheduling it and committing the
+# artifact is a workflow change." This is that change, and ONLY that change: no
+# floor is moved here. Making the artifact exist is the precondition; deciding
+# what the floor does with it is a change to the generator AND the plugin
+# together (the second, structural blocker that same comment describes —
+# BelowFloorRecord has no cantons[]/cities[]/salaryMedianChf, so the plugin
+# cannot render a full page for a promoted company without re-deriving the
+# generator's aggregates).
+#
+# ── WEEKLY, NOT DAILY ───────────────────────────────────────────────────────
+# The extractor reads a 90-day GSC window, so one day of new data moves ~1/90
+# of the corpus while costing one commit on `main`. `data/**` is NOT in
+# deploy.yml's paths-ignore (only a handful of named files are), so every
+# commit here is a potential full SEO build — median 130 min, on a queue
+# deploy.yml's own comment measures as saturated rather than starved. Weekly is
+# the cadence at which the artifact actually changes.
+#
+# ── AND IT DOES NOT DISPATCH A DEPLOY ───────────────────────────────────────
+# Deliberate. A push made with GITHUB_TOKEN does not trigger workflows (GitHub
+# anti-recursion), which is why the ~15 data workflows that DO need a rebuild
+# call scripts/lib/trigger-deploy.sh explicitly — and why deploy.yml's comment
+# measures those manual dispatches as 40 of 141 deploy runs in 48 h. Nothing
+# reads this artifact at build time yet, so dispatching a 130-minute build for
+# it would buy nothing and cost a deploy slot. Whoever wires the floor onto
+# this file inherits that decision: by then the next scheduled deploy (several
+# a day) picks the file up on its own, and a dedicated dispatch is still only
+# warranted if the freshness of the floor is worth a build.
+
+on:
+  schedule:
+    - cron: '55 2 * * 1' # Monday 02:55 UTC — weekly, off the busy :00/:30 slots
+  workflow_dispatch:
+
+concurrency:
+  group: refresh-gsc-marquee-demand
+  cancel-in-progress: false
+
+permissions:
+  contents: write # commit data/gsc-top-marquee-candidates.json
+  issues: write # github-issue-creator on failure
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # No `npm ci`. identify-top-marquee-by-gsc.mjs imports node builtins and
+      # scripts/lib/google-service-account-token.mjs, nothing else — installing
+      # 1.4 GB of node_modules to sign a JWT and POST twice would be the whole
+      # runtime of this job. tests/gsc-marquee-demand-refresh.test.ts asserts
+      # the script stays dependency-free, so a future import cannot silently
+      # turn this omission into a broken cron.
+
+      # Canonical secret hydration for a Google API caller in this repo (same
+      # step as sync-gsc-orphans.yml / build-evidence-and-tune.yml): the
+      # project's Firebase service account doubles as the Search Console
+      # credential. scripts/load-rc-env.mjs is deliberately NOT run — it is the
+      # Remote Config → env bridge, and this script needs no RC parameter at
+      # all; the site URL and the lookback window are constants in the script.
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON is empty — the GSC pull cannot authenticate"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      # Exits 0 even when it degrades, and — since #5012's follow-up — writes
+      # NOTHING when it does, so a bad read can never replace a good demand
+      # table with an empty one. A degraded run therefore reaches the commit
+      # step with a clean tree and no-ops there; the reason is a `::warning::`
+      # annotation on this run.
+      - name: Pull company-keyed demand from Search Console
+        run: node scripts/identify-top-marquee-by-gsc.mjs
+
+      - name: Commit demand table
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ ! -f data/gsc-top-marquee-candidates.json ]; then
+            echo "No artifact produced (degraded run) — nothing to commit."
+            exit 0
+          fi
+          git add data/gsc-top-marquee-candidates.json
+          git pull --rebase --autostash origin main
+          if git diff --cached --quiet; then
+            echo "Demand table unchanged — nothing to commit."
+            exit 0
+          fi
+          git commit -m "chore(gsc): refresh marquee demand table $(date -u +%Y-%m-%d)"
+          # Retry-on-rebase loop — same pattern as build-evidence-and-tune.yml
+          # (#794/#804/#805/#806). Concurrent producers on main (crawlers,
+          # scheduled refreshers, post-merge auto-commits) regularly out-race a
+          # single push.
+          MAX_ATTEMPTS=5
+          BACKOFF_BASE=3
+          attempt=1
+          while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
+            if git push origin HEAD:main; then
+              echo "✅ Pushed marquee demand table."
+              exit 0
+            fi
+            echo "⚠️ Push rejected (attempt $attempt/$MAX_ATTEMPTS) — fetch + rebase, then retry…"
+            git fetch origin main || true
+            if ! git -c rebase.autoStash=true rebase origin/main; then
+              echo "⚠️ Rebase conflict on the demand table — aborting and resetting."
+              git rebase --abort || true
+              exit 1
+            fi
+            sleep $((BACKOFF_BASE * attempt))
+            attempt=$((attempt + 1))
+          done
+          echo "❌ Push failed after $MAX_ATTEMPTS attempts — leaving the demand table uncommitted."
+          exit 1
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

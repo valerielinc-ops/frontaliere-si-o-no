@@ -90,6 +90,17 @@ function buildResponseHtml({ title, message, showResubscribe, email, token, loca
 }
 
 const MAX_ALERTS_PER_USER = 10;
+// Company-pinned alerts get their own budget — see MAX_COMPANY_ALERTS_PER_USER
+// in services/jobAlertService.ts for the reasoning. Mirrored here because the
+// functions bundle cannot import outside `functions/`; parity is pinned by
+// tests/company-alert.test.ts.
+//
+// Raised 10 → 20 with the per-recipient grouping in
+// scripts/send-company-alerts.mjs (residuo #5283): the old 10 was standing in
+// for grouping that did not exist, not for a real limit on how many employers
+// someone may follow. It is pinned to COMPANY_ALERT_MAX_TOTAL_CARDS so a
+// recipient's entire follow set always fits in one email.
+const MAX_COMPANY_ALERTS_PER_USER = 20;
 const ALERT_LIST_FIELDS = ['keywords', 'locations', 'sectors'];
 
 function parseCsvList(value) {
@@ -530,14 +541,19 @@ export async function handleSubscriptionManagement({ action, email, token, local
 
  try {
  const alertsCol = db.collection('job_alert_subscribers').doc(normalizedEmail).collection('alerts');
- // Enforce 10-alert cap (count active docs).
+ // Enforce the cap of the KIND being created (count active docs). Two budgets:
+ // following employers must not consume the keyword-alert allowance, or the
+ // feature that asks users to follow ten companies breaks the next saved search
+ // with a message that names neither cause nor fix.
+ const creatingCompanyPin = Boolean(companyPin);
  const existing = await alertsCol.get();
  let activeCount = 0;
  existing.forEach((d) => {
  const data = d.data() || {};
- if (data.active !== false) activeCount += 1;
+ if (data.active === false) return;
+ if (Boolean(data.specificCompanyKey) === creatingCompanyPin) activeCount += 1;
  });
- if (activeCount >= MAX_ALERTS_PER_USER) {
+ if (activeCount >= (creatingCompanyPin ? MAX_COMPANY_ALERTS_PER_USER : MAX_ALERTS_PER_USER)) {
  return { status: 400, json: { success: false, error: 'alert_limit_reached' } };
  }
 

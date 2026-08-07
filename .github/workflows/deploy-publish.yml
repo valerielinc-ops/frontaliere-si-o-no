@@ -31,8 +31,45 @@ permissions:
 # One Pages publish cycle at a time, newest-wins (cancel-in-progress: false →
 # GitHub's 1 running + 1 pending cap drops the superseded middle). Decoupled
 # from deploy.yml's build lock: a new build can run while this publish proceeds.
+#
+# ⚠️ The group is CONDITIONAL on the upstream build having SUCCEEDED. Do not
+# collapse it back to a bare `pages-deploy` — a bare group is what stopped this
+# workflow finishing for ten days. Last successful run: 30310076907,
+# 2026-07-27T22:15Z. The 300 runs after it (2026-08-01T20:25Z → 2026-08-07T05:40Z)
+# scored 0 success / 200 skipped / 65 cancelled / 33 failure.
+#
+# Why a no-op run is not free. `workflow_run` fires on `types: [completed]`,
+# which includes the build runs that deploy.yml's own newest-wins lock CANCELS —
+# and per deploy.yml's paths-ignore comment (#5251, measured 2026-08-06) that is
+# 121 of 141 build runs in 48 h. Each of those completions creates a run HERE.
+# Every job below is guarded by `conclusion == 'success'`, so such a run is a
+# ~2-second no-op: 200 of the last 300 runs, two thirds of everything entering
+# the group. It burns zero runner minutes — but a run joins its concurrency
+# group BEFORE any job `if:` is evaluated, and an arrival into a full group
+# (1 running + 1 pending) cancels the PENDING member. So a 2-second no-op evicts
+# a real queued publish. Measured 2026-08-06: run 31100206740 queued at 12:09:26
+# behind the live publish 31096435063; no-op 31100260885 arrived at 12:10:14 and
+# cancelled it at 12:10:15, then took the slot at 12:14:47 and skipped at
+# 12:14:48 — one second of work in exchange for a whole publish.
+#
+# Routing no-ops to a per-run group leaves only real publishes contending, so
+# the newest-wins semantics this comment has always claimed finally describe
+# what happens: one publish running, the newest pending, the middle dropped —
+# correct on a linear `main`, because the newer build already contains the
+# superseded commits (the same invariant deploy.yml relies on).
+#
+# Edge cases, deliberately unchanged. Two legitimate publishes back to back: the
+# second queues and waits — `cancel-in-progress` stays FALSE so an in-flight
+# `actions/deploy-pages` is never interrupted mid-upload. That is not
+# conservatism for its own sake: bursts of cancelled deployments are what latch
+# Pages into status=errored and freeze the site on an old build (prod outage
+# 2026-06-05 — see the "Reset Pages errored state" step below, which exists
+# solely to dig out of it). A publish that dies half-way reaches a terminal
+# conclusion and releases the group like any other run. A publish that wedges
+# WITHOUT reaching a terminal conclusion is the remaining hole — see the comment
+# on the `deploy` job's `environment:` below.
 concurrency:
-  group: pages-deploy
+  group: ${{ github.event.workflow_run.conclusion == 'success' && 'pages-deploy' || format('pages-deploy-noop-{0}', github.run_id) }}
   cancel-in-progress: false
 
 jobs:
@@ -59,6 +96,33 @@ jobs:
       issues: write
       actions: read       # cross-run download-artifact
       deployments: read   # the extended server-side poll reads /deployments + /statuses
+    # ⚠️ This `environment:` is the single point where a run can WEDGE, and it
+    # cannot be removed: actions/deploy-pages binds the Pages deployment to this
+    # run through the environment's OIDC identity.
+    #
+    # A job parked at an environment gate is not "running", so GitHub applies no
+    # Actions-side deadline to it — not `timeout-minutes`, not the 360-min job
+    # default. Proven 2026-08-06: run 31118787881's `deploy` job entered
+    # `waiting` at 16:09:08Z and was still there 14 h later (840+ min, i.e. past
+    # 2× the default), with `/actions/runs/31118787881/pending_deployments`
+    # reporting `wait_timer: 0`, `reviewers: []` and
+    # `/environments/github-pages/deployment_protection_rules` empty — nothing
+    # to approve, nothing to time out. Its `github-pages` deployment (5782748003)
+    # never left state=waiting either.
+    #
+    # With `cancel-in-progress: false` that wedge is permanent: the run holds
+    # `pages-deploy` forever and every later publish queues behind it and is
+    # evicted by the next arrival. Measured: run 31119921972 sat pending
+    # 7 h 13 m (16:27:59Z → 23:40:35Z) as the ONLY other run in the group and
+    # never started a single job. For scale, a healthy run clears this gate in
+    # 4-6 s (30299092721: 6 s; 31096435063: 4 s; worst observed 7 m 28 s on
+    # 30310076907, and that included concurrency queueing).
+    #
+    # The "Reset Pages errored state" step below cannot rescue this: it runs
+    # INSIDE this job, i.e. downstream of the very gate that wedges. The escape
+    # hatch is scripts/ci/unwedge-pages-deploy-queue.mjs, run hourly by
+    # pages-publish-lag-watchdog.yml, which cancels runs stuck in `waiting` and
+    # nothing else.
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url || steps.deployment_first.outputs.page_url }}
