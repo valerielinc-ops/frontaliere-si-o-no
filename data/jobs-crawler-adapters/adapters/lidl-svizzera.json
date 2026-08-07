@@ -66,7 +66,6 @@
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-kt-schwyz-march-oberer-zurichsee-m-w-d-80-100-einsiedeln-697843",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-chur-704426",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-einsiedeln-672999",
-    "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-luzern-706777",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-sarnen-666226",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-solothurn-629947",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-st-gallen-704427",
@@ -133,7 +132,6 @@
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-winterthur-727555",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-zurich-727562",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-zwingen-727530",
-    "https://team.lidl.ch/de/jobs/manager-nachhaltigkeit-einkauf-80-100-m-w-d-weinfelden-711714",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-1-stans-674353",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-1-regensdorf-705728",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-bern-704655",
@@ -141,6 +139,7 @@
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-matten-bei-interlaken-727194",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-sarnen-681605",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-bellach-706891",
+    "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-biel-bienne-728471",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-rothrist-712369",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-seewen-685896",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-1-winterthur-705230",
@@ -340,6 +339,7 @@
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-payerne-663191",
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-conthey-648471",
     "https://team.lidl.ch/fr/jobs/gerant-gerante-de-magasin-suppleant-e-h-f-d-80-100-sierre-656566",
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-etoy-731866",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-marly-695473",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-matran-721192",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-oron-731612",
@@ -355,7 +355,7 @@
     "https://team.lidl.ch/it/jobs/ch-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-st-moritz-728439"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-08-06T11:31:08.016Z",
+  "updatedAt": "2026-08-07T01:06:01.275Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-kreuzlingen-727482": {
       "location": "Kreuzlingen",
@@ -447,15 +447,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/de/jobs/manager-nachhaltigkeit-einkauf-80-100-m-w-d-weinfelden-711714": {
-      "location": "Weinfelden",
-      "addressLocality": "Weinfelden",
-      "canton": "TG",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
     "https://team.lidl.ch/de/jobs/verantwortlicher-fur-die-autoflotte-mobilitat-m-w-d-80-100-weinfelden-721959": {
       "location": "Weinfelden",
       "addressLocality": "Weinfelden",
@@ -537,7 +528,7 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/de/jobs/fachexperte-technisches-facility-management-m-w-d-80-100-weinfelden-724995": {
+    "https://team.lidl.ch/de/jobs/sachbearbeiter-sachbearbeiterin-qualitatssicherung-and-nachhaltigkeit-m-w-d-80-100-weinfelden-730812": {
       "location": "Weinfelden",
       "addressLocality": "Weinfelden",
       "canton": "TG",
@@ -546,7 +537,7 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/de/jobs/sachbearbeiter-sachbearbeiterin-qualitatssicherung-and-nachhaltigkeit-m-w-d-80-100-weinfelden-730812": {
+    "https://team.lidl.ch/de/jobs/fachexperte-technisches-facility-management-m-w-d-80-100-weinfelden-724995": {
       "location": "Weinfelden",
       "addressLocality": "Weinfelden",
       "canton": "TG",
@@ -2589,15 +2580,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-luzern-706777": {
-      "location": "Luzern",
-      "addressLocality": "Luzern",
-      "canton": "LU",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-biel-bienne-702324": {
       "location": "Biel/Bienne",
       "addressLocality": "Biel/Bienne",
@@ -2617,6 +2599,15 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-60-biel-bienne-708468": {
+      "location": "Biel/Bienne",
+      "addressLocality": "Biel/Bienne",
+      "canton": "BE",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-biel-bienne-728471": {
       "location": "Biel/Bienne",
       "addressLocality": "Biel/Bienne",
       "canton": "BE",
@@ -3281,6 +3272,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
+    },
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-etoy-731866": {
+      "location": "Etoy",
+      "addressLocality": "Etoy",
+      "canton": "VD",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-588255": {
       "location": "Locarno",
