@@ -87,7 +87,6 @@
         "fachspezialist-personenschaden-w-m-d-mobiliar-ch",
         "specialista-in-lesioni-personali-f-m-d-die-mobiliar-bern"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-19T13:05:22.180Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -202,9 +201,9 @@
       "companyDomain": "mobiliar.ch",
       "title": "Intranet & Analytics Manager (w/m/d)",
       "titleByLocale": {
-        "de": "Intranet & Analytics Manager (w/m/d)",
-        "en": "Intranet & Analytics Manager (f/m/d)",
         "it": "Responsabile Intranet & Analytics (f/m/d)",
+        "en": "Intranet & Analytics Manager (f/m/d)",
+        "de": "Intranet & Analytics Manager (w/m/d)",
         "fr": "Gestionnaire Intranet & Analytics (f/m/d)"
       },
       "description": "Das erwartet dich:\nDu bist Teil der Unternehmenskommunikation und arbeitest an der Schnittstelle zwischen digitalen Plattformen, Analytics und Kommunikation. Gemeinsam mit agilen Entwicklerteams und verschiedenen Organisationseinheiten gestaltest du unser Intranet als zentrale Informations- und Serviceplattform mit.\n\nDas bewirkst du bei uns:\nDu sorgst dafür, dass Intranet-Seiten und -Services klar strukturiert, verständlich und intuitiv nutzbar sind. Durch deine Beratung und dein Projektmanagement unterstützt du interne Bereiche dabei, ihre Inhalte zielgerichtet und wirkungsvoll im Intranet umzusetzen und stärkst die Qualität der digitalen Auftritte. Dabei setzt du KI ein, um Inhalte effizient zu erstellen und zu strukturieren. Mit Tests von neuen Funktionen und Upgrades sicherst du mit dem Team zusammen einen stabilen und modernen Betrieb des Intranets. Ebenso nutzt du quantitative und qualitative Nutzerdaten gezielt, um Optimierungspotenziale für die Weiterentwicklung zu erkennen.\n\nDarüber hinaus koordinierst du die Reporting-Aktivitäten der Unternehmenskommunikation. Damit schaffst du Transparenz über die Wirkung unserer Aktivitäten und lieferst datenbasierte Entscheidungsgrundlagen für die Unternehmenskommunikation sowie weitere Organisationseinheiten.\n\nDas bringst du mit:\n• Erfahrung im Umgang mit digitalen Plattformen, idealerweise im Intranet auf SharePoint-Basis oder Webumfeld\n\n• Verständnis für Unternehmenskommunikation und Freude an der verständlichen Aufbereitung von Inhalten\n\n• Ausgeprägtes Interesse an Usability, Informationsarchitektur und nutzerorientierter Gestaltung\n\n• Analytische Fähigkeiten zur Auswertung von Nutzungsdaten und Feedback sowie zur Ableitung von Handlungsempfehlungen\n\n• Erfahrung im Umgang mit Reporting-Tools für diverse Kommunikationsbereiche und Offenheit für den Einsatz von KI im Arbeitsalltag\n\n• Strukturierte, selbständige und teamorientierte Arbeitsweise mit hoher Qualitätsorientierung\n\n• Fliessende Deutschkenntnisse, weitere Sprachkenntnisse sind von Vorteil\n\nBei uns arbeiten:\nDich erwartet ein engagiertes Team in einer dynamischen, lösungsorientierten und kommunikativen Organisation. Wir legen Wert auf Zusammenarbeit, Offenheit für neue Ideen und eine Kultur, in der sich Mitarbeitende einbringen und weiterentwickeln können.\n\nDas bieten wir:\nVereinbarkeit\n\nWir ermöglichen flexible Arbeitsmodelle und bieten 20 Wochen Mutterschafts- sowie 6 Wochen Vaterschaftsurlaub, überdurchschnittliche Familienzulagen und eine nachhaltig finanzierte Pensionskasse.\n\nWeiterbildung und Entwicklung\n\nWir bieten ein vielfältiges internes Kursangebot sowie die Teilnahme an möglichen Auslandsprogrammen an. Bei jobrelevanten, externen Weiterbildungen beteiligen wir uns grosszügig.\n\nVergünstigungen\n\nWir bieten dir unter anderem bis zu 25% Prämienrabatt, ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\npresent\n\nWeitere Anstellungsbedingungen\n\ngo_to_link\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\n Beschreibung\n Aktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt",
@@ -253,6 +252,7 @@
         ]
       },
       "sfJobId": "1165233755",
+      "firstSeenAt": "2026-08-06T11:34:34.026Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -265,8 +265,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-08-06T11:34:34.026Z"
+      "addressRegion": "BE"
     },
     {
       "id": "mobiliar-2a5d31cae49b",

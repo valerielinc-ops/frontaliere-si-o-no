@@ -54,22 +54,34 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manager-policy-gavi-le-grand-saconnex",
-        "gestione-politica-gavi-the-vaccine-alliance-le-grand-saconnex"
+        "gestione-politica-gavi-the-vaccine-alliance-le-grand-saconnex",
+        "responsabile-senior-politica-gavi-the-vaccine-alliance-le-grand-saconnex",
+        "senior-manager-policy-gavi-le-grand-saconnex",
+        "senior-manager-politik-gavi-the-vaccine-alliance-le-grand-saconnex",
+        "gestionnaire-principal-politiques-gavi-the-vaccine-alliance-le-grand-saconnex"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manager-policy-gavi-le-grand-saconnex",
-          "gestione-politica-gavi-the-vaccine-alliance-le-grand-saconnex"
+          "gestione-politica-gavi-the-vaccine-alliance-le-grand-saconnex",
+          "responsabile-senior-politica-gavi-the-vaccine-alliance-le-grand-saconnex",
+          "senior-manager-policy-gavi-le-grand-saconnex",
+          "senior-manager-politik-gavi-the-vaccine-alliance-le-grand-saconnex",
+          "gestionnaire-principal-politiques-gavi-the-vaccine-alliance-le-grand-saconnex"
         ],
         "de": [
-          "manager-policy-gavi-le-grand-saconnex"
+          "manager-policy-gavi-le-grand-saconnex",
+          "senior-manager-politik-gavi-the-vaccine-alliance-le-grand-saconnex"
         ],
         "fr": [
-          "manager-policy-gavi-le-grand-saconnex"
+          "manager-policy-gavi-le-grand-saconnex",
+          "gestionnaire-principal-politiques-gavi-the-vaccine-alliance-le-grand-saconnex"
+        ],
+        "en": [
+          "senior-manager-policy-gavi-le-grand-saconnex"
         ]
       },
       "firstSeenAt": "2026-08-05T22:32:42.148Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
