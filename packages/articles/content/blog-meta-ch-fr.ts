@@ -1912,6 +1912,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.casse-di-disoccupazione-superati-i-problemi-tecnici.title': 'Caisses de chômage, les problèmes techniques sont en grande partie surmontés',
     'blog.article.casse-di-disoccupazione-superati-i-problemi-tecnici.excerpt': 'Après des mois de retards de paiement, le SECO annonce que les dysfonctionnements du nouveau système informatique ont été résolus. Il reste cependant quelques points critiques.',
     'blog.article.casse-di-disoccupazione-superati-i-problemi-tecnici.imageAlt': 'une scène de travail à la direction de la sécurité sociale (SECO) à Berne, avec des employés qui résolvent des problèmes techniques aux ordinateurs',
+    'blog.article.rimborsi-730-sostituti-imposta.title': 'Remboursements 730 : indemnisables en F24',
+    'blog.article.rimborsi-730-sostituti-imposta.excerpt': 'Selon ce qui a été communiqué en mai 2026, les substituts d’impôt peuvent récupérer les remboursements du modèle 730 en les compensant dans F24 même avec des impôts de substitution sur les salaires',
+    'blog.article.rimborsi-730-sostituti-imposta.imageAlt': 'Travailleur frontalier italien vérifiant des documents fiscaux à Lugano',
 };
 
 export default blogMetaChFr;
