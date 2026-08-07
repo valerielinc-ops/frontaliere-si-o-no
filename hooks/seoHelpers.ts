@@ -123,6 +123,14 @@ const armFirstPaintWindowClose = () => {
   if (typeof ric === 'function') ric(closeFirstPaintWindow, { timeout: IDLE_TIMEOUT_MS });
   else window.setTimeout(closeFirstPaintWindow, 0);
  };
+ // A deliberate interaction closes the window immediately. Without this, a
+ // client-side navigation started before `load` would leave the previous
+ // page's <title> in place until the flush — and "on first user interaction"
+ // is what `enableRuntimeSeo` was documented to mean in the first place.
+ // Scroll is deliberately NOT in the list: it would fire for nearly every
+ // visitor and put the payload straight back into the paint window.
+ window.addEventListener('pointerdown', closeFirstPaintWindow, { once: true, passive: true });
+ window.addEventListener('keydown', closeFirstPaintWindow, { once: true, passive: true });
  if (document.readyState === 'complete') {
   idle();
   return;

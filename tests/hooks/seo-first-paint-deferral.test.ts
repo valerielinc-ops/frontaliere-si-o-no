@@ -142,6 +142,27 @@ describe('runtime SEO stays out of the initial load window', () => {
     await vi.waitFor(() => expect(seoUpdateMetaTags).toHaveBeenCalledWith('guida'));
   });
 
+  it('closes the window on a deliberate interaction, so a pre-load SPA nav retitles at once', async () => {
+    helpers.updateMetaTags(ARTICLE_SECTION);
+    expect(helpers._isFirstPaintWindowOpen()).toBe(true);
+
+    window.dispatchEvent(new Event('pointerdown'));
+
+    expect(helpers._isFirstPaintWindowOpen()).toBe(false);
+    await vi.waitFor(() => expect(seoUpdateMetaTags).toHaveBeenCalledWith(ARTICLE_SECTION));
+  });
+
+  it('does not let a scroll close the window', async () => {
+    helpers.updateMetaTags(ARTICLE_SECTION);
+
+    window.dispatchEvent(new Event('scroll'));
+    window.dispatchEvent(new Event('touchstart'));
+
+    expect(helpers._isFirstPaintWindowOpen()).toBe(true);
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    expect(seoUpdateMetaTags).not.toHaveBeenCalled();
+  });
+
   it('flushes on the hard deadline when `load` never fires', async () => {
     vi.useFakeTimers();
     helpers.updateMetaTags('guida');
