@@ -16,9 +16,24 @@
 /** Fields included in the slim index file (listing + filtering + routing + the
  * header/JSON-LD identification fields the detail view reads). Detail-only
  * fields (description, requirements, baseSalary, streetAddress, …) are excluded
- * and fetched on demand from /data/job-detail/<id>.json. */
+ * and fetched on demand from /data/job-detail/<id>.json.
+ *
+ * `previousSlugs` / `previousSlugsByLocale` are DELIBERATELY ABSENT. They are
+ * the slug-rename history, and the SPA already has a purpose-built, deployed
+ * resolver for it: the sharded slug map (`services/jobSlugShards.ts` →
+ * /data/jobs-slug-map/{00..ff}.json, ~16 KB br per shard, fetched per-slug via
+ * `ensureJobSlugEntriesLoaded`). Carrying them here too duplicated that data
+ * into every listing payload: measured on prod 2026-08-07, they were
+ * 11.676.354 of the 27.957.668 bytes of jobs-it-index.json (41,8% raw /
+ * 28,2% gzip) and they inflated the main-thread `registerJobSlugMap` Map from
+ * 21.164 to 77.710 entries. Combined JSON.parse + registerJobSlugMap dropped
+ * from 104,6 ms to 42,2 ms (median, desktop) by removing them — the INP lever,
+ * since this work runs on the main thread after the SSG paint.
+ *
+ * Historic-slug URLs still resolve; see `tests/slim-index-previous-slugs-dedup.test.ts`
+ * for the end-to-end proof (alias slug → shard → canonical slug + id + canton). */
 export const SLIM_INDEX_FIELDS: ReadonlySet<string> = new Set([
-  'id', 'slug', 'previousSlugs', 'previousSlugsByLocale',
+  'id', 'slug',
   'title',
   'company', 'companyKey', 'companyDomain', 'url',
   'location', 'canton',

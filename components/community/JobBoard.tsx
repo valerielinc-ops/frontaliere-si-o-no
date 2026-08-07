@@ -1705,6 +1705,23 @@ function readSearchQueryFromUrl(): string {
  }
 }
 
+/**
+ * `window.__BRIDGE_TARGET_SLUG__` — written into the static HTML of a job
+ * BRIDGE page (a URL that is one of the job's old slugs) by
+ * build-plugins/jobsSeoPagesPlugin, carrying the job's CURRENT slug. Its mere
+ * presence is the repo-wide marker for "this URL is a job page", which ~15 dist
+ * validators also key off (e.g. scripts/validate-canonical.mjs).
+ *
+ * A module-level reader rather than a hook so the slug-filter parsers can
+ * consult it from ANY position in the component — including the `searchQuery`
+ * useState initializer, which runs before any hook declared further down.
+ */
+function readBridgeTargetSlug(): string | undefined {
+ if (typeof window === 'undefined') return undefined;
+ const value = (window as unknown as Record<string, unknown>).__BRIDGE_TARGET_SLUG__;
+ return typeof value === 'string' && value ? value : undefined;
+}
+
 function readPageFromUrl(): number {
  if (typeof window === 'undefined') return 1;
  try {
@@ -2149,7 +2166,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  useEffect(() => {
  isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
  }, []);
- const [searchQuery, setSearchQuery] = useState(() => parseSearchSlugFilter(initialJobSlug) || readSearchQueryFromUrl());
+ // Bridge-page guard (see readBridgeTargetSlug): on a job bridge page the URL
+ // segment is the job's OLD slug, not a search keyword. 13 historic slugs start
+ // with ricerca-/search-/suche-/recherche- (measured on prod 2026-08-07) and
+ // would otherwise seed the search box, filtering the listing on a job URL.
+ const [searchQuery, setSearchQuery] = useState(() => (readBridgeTargetSlug() ? null : parseSearchSlugFilter(initialJobSlug)) || readSearchQueryFromUrl());
  const deferredSearchQuery = useDeferredValue(searchQuery);
  // Search input is uncontrolled (defaultValue, no `value` prop): keystrokes paint
  // natively in the DOM with zero React involvement, so typing never waits on this
@@ -2593,7 +2614,29 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  const authResolved = !authLoading;
  const hasAccess = isLoggedIn || emailAccessGranted || isCrawlerVisitor;
+ // Bridge detection: the plugin writes window.__BRIDGE_TARGET_SLUG__ in the static HTML for old URLs.
+ // Hoisted above the slug-filter memos below: its presence is the authoritative
+ // "this URL is a JOB page, not a filter landing" signal, and they need it.
+ const bridgeTargetSlug = useMemo(() => readBridgeTargetSlug(), []);
+
+ // A bridge page IS a job page. Its URL is a job's OLD slug, and a handful of
+ // those old slugs happen to start with a filter-landing prefix — measured on
+ // prod 2026-08-07: 8 aliases start with azienda-/company-/unternehmen-/entreprise-
+ // and 13 with ricerca-/search-/suche-/recherche-. Parsing them as company /
+ // location / search landings sends an INDEXED URL to the wrong page.
+ //
+ // `parseCompanySlugFilter` used to catch the company ones by scanning
+ // `jobs[].previousSlugs`, but the slim index no longer carries that field
+ // (build-plugins/shared/slimJobIndex.ts). `parseSearchSlugFilter` never had
+ // the guard at all, so the 13 search-prefixed aliases mis-parsed already —
+ // same class of bug, closed here in the same PR (AGENTS.md §6).
+ //
+ // The build-injected global is the right signal: synchronous, present at
+ // first paint, and set by the very plugin that emits the bridge page.
+ const isBridgePage = !!bridgeTargetSlug;
+
  const companySlugFilter = useMemo(() => {
+  if (isBridgePage) return null;
   const filter = parseCompanySlugFilter(initialJobSlug, jobs);
   if (!filter) return null;
   // If the build plugin seeded expired data specifically for this slug, the URL is
@@ -2602,9 +2645,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // window globals from a previous SPA navigation triggering a false positive.
   if (initialJobSlug && seededJobMatchesSlug(initialJobSlug)) return null;
   return filter;
- }, [initialJobSlug, jobs]);
- const locationSlugFilter = useMemo(() => parseLocationSlugFilter(initialJobSlug), [initialJobSlug]);
- const searchSlugFilter = useMemo(() => parseSearchSlugFilter(initialJobSlug), [initialJobSlug]);
+ }, [initialJobSlug, jobs, isBridgePage]);
+ const locationSlugFilter = useMemo(
+ () => (isBridgePage ? null : parseLocationSlugFilter(initialJobSlug)),
+ [initialJobSlug, isBridgePage],
+ );
+ const searchSlugFilter = useMemo(
+ () => (isBridgePage ? null : parseSearchSlugFilter(initialJobSlug)),
+ [initialJobSlug, isBridgePage],
+ );
  // Title-cased search keyword for the search-landing H1 (e.g. "verkaufsberater
  // in tessin" → "Verkaufsberater In Tessin"). Keeps the keyword in the H1 after
  // hydration instead of falling back to the generic job-board title.
@@ -2613,22 +2662,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  [searchSlugFilter],
  );
 
- // Bridge detection: the plugin writes window.__BRIDGE_TARGET_SLUG__ in the static HTML for old URLs
- const bridgeTargetSlug = useMemo(
- () => (typeof window !== 'undefined' ? ((window as any).__BRIDGE_TARGET_SLUG__ as string | undefined) : undefined),
- [],
- );
-
  useEffect(() => {
  const syncFromUrl = () => {
- const next = parseSearchSlugFilter(initialJobSlug) || readSearchQueryFromUrl();
+ // Same bridge-page guard as `searchSlugFilter` above (the third call site of
+ // parseSearchSlugFilter): on a job bridge page the URL segment is a job's old
+ // slug, not a search keyword, so it must not become the search query.
+ const next = (isBridgePage ? null : parseSearchSlugFilter(initialJobSlug)) || readSearchQueryFromUrl();
  applySearchQuery((prev) => (prev === next ? prev : next));
  setPage(readPageFromUrl());
  setAdRefreshKey((k) => k + 1);
  };
  window.addEventListener('popstate', syncFromUrl);
  return () => window.removeEventListener('popstate', syncFromUrl);
- }, [initialJobSlug]);
+ }, [initialJobSlug, isBridgePage]);
 
  useEffect(() => {
  const next = searchSlugFilter || readSearchQueryFromUrl();
@@ -2950,11 +2996,34 @@ const JobBoard: React.FC<JobBoardProps> = ({
  [initialJobSlug],
  );
 
+ // Historic-slug (previousSlugs) → canonical-slug resolution, resolved from the
+ // SHARDED slug map rather than from the listing payload. The slim index no
+ // longer carries `previousSlugs`/`previousSlugsByLocale` (they duplicated
+ // /data/jobs-slug-map/{00..ff}.json and were 41,8% of jobs-it-index.json —
+ // see build-plugins/shared/slimJobIndex.ts), so `matchesRouteSlug` alone can
+ // no longer match a renamed job by its old slug. The bridge effect below
+ // fetches the ~16 KB shard covering the route slug and records the mapping
+ // here; `lookupSlug` then finds the job by its CURRENT slug.
+ //
+ // Stored as an {alias, canonical} pair rather than a bare string so a stale
+ // value from a previous navigation can never be applied to a different slug
+ // (no reset effect needed — the pair simply stops matching).
+ //
+ // NB this is the SECOND line of defence, not the first: a hard load of an
+ // indexed legacy URL lands on the SSG bridge page, which already bakes
+ // `window.__BRIDGE_TARGET_SLUG__` (bridgeTargetSlug) into the HTML. This tier
+ // covers SPA soft-navigation to an old slug and any bridge page served
+ // without that global.
+ const [aliasCanonical, setAliasCanonical] = useState<{ alias: string; canonical: string } | null>(null);
+
  const selectedJob = useMemo(() => {
  if (companySlugFilter || locationSlugFilter || searchSlugFilter || editorialLandingDescriptor) return null;
  if (!initialJobSlug) return null;
  // When navigating via a previousSlug (bridge), use the current slug for job lookup
- const lookupSlug = bridgeTargetSlug || initialJobSlug;
+ const routeSlug = bridgeTargetSlug || initialJobSlug;
+ const lookupSlug = aliasCanonical && aliasCanonical.alias === routeSlug
+ ? aliasCanonical.canonical
+ : routeSlug;
  // Primary lookup: the canton-scoped `jobs` array.
  const scoped = jobs.find((j) => matchesRouteSlug(j, lookupSlug));
  if (scoped) return scoped;
@@ -2968,7 +3037,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // fetch landing before the wholesale `setJobs` of the full load clobbers a merged
  // record), closing the timing race that intermittently showed the orphan banner.
  return unscopedJobs.find((j) => matchesRouteSlug(j, lookupSlug)) || null;
- }, [jobs, unscopedJobs, initialJobSlug, bridgeTargetSlug, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor]);
+ }, [jobs, unscopedJobs, initialJobSlug, bridgeTargetSlug, aliasCanonical, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor]);
 
  // Cross-canton bridge resolution: when a bridge URL (e.g.
  // /cerca-lavoro-ticino/<old-slug>/) points to a job that now lives in a
@@ -2999,6 +3068,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  await ensureJobSlugEntriesLoaded([targetSlug]);
  if (cancelled) return;
  const meta = getJobMetaForSlug(targetSlug);
+ // Historic-slug resolution (see `aliasCanonical` above). The shard just
+ // fetched carries every previousSlugs* alias as a lookup key, so if this
+ // route slug is a legacy alias we now know the job's CURRENT slug —
+ // record it so `selectedJob` can find the job in the already-loaded
+ // `jobs`/`unscopedJobs` arrays. This runs BEFORE the canton/id guard
+ // below on purpose: a renamed job in an ALREADY-LOADED canton hits that
+ // guard's early return, and without this line an indexed legacy URL
+ // would fall through to JobOrphanView.
+ const canonicalSlug = meta?.canonicalSlug;
+ if (canonicalSlug && canonicalSlug !== targetSlug) {
+ setAliasCanonical({ alias: targetSlug, canonical: canonicalSlug });
+ }
  if (!meta?.canton || !meta?.id) return;
  // Skip if we already have any job from this canton — the target really
  // is missing (expired or never crawled) and a re-fetch won't help.
