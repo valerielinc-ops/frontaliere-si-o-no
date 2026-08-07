@@ -349,7 +349,7 @@ async function getActiveJobCountLabel(locale: Locale): Promise<string | null> {
  return `${rounded}+`;
  }
  try {
- // Read the count from the ~600 B shard manifest instead of downloading a
+ // Read the count from the 221 B (br) shard manifest instead of downloading a
  // 21k-record index just to call `.size` on it. This runs on EVERY job-board
  // listing page, so before the canton-shard pipeline it pulled the full
  // locale index into every canton SERP on its own — independently of

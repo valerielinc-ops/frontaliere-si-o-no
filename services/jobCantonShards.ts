@@ -120,7 +120,8 @@ export function jobCantonShardPath(cantonKey: string, locale: string): string {
 export const JOB_CANTON_MANIFEST_PATH = `${JOB_CANTON_SHARD_DIR}/manifest.json`;
 
 /**
- * Shard-set manifest (~600 B). Counts are locale-invariant — the four locales
+ * Shard-set manifest (measured 332 B raw / 221 B br at 24 canton keys).
+ * Counts are locale-invariant — the four locales
  * hold the same job set, only its strings differ — so one file serves all of
  * them.
  *
