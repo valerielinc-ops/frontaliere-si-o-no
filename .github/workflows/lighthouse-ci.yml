@@ -85,7 +85,16 @@ jobs:
   # ───────────────────────────────────────────────────────────────────────
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # 20 min, sized on the retry loop's WORST case, which is a total outage —
+    # precisely the case this job exists to report. 6 URLs x (4 attempts x
+    # `curl --max-time 25` + 3 x `sleep 12` between them) = 6 x 136s ≈ 13.6 min.
+    # A tighter budget would have GitHub kill the job before it reaches the
+    # `run_audit=false` + `::warning::` write below; `lighthouse` needs this job,
+    # and its `if:` carries no `always()`, so the audit would then be skipped
+    # silently — the exact failure mode the probe is meant to make loud. When the
+    # probe was a step inside the 45-min `lighthouse` job it inherited that
+    # headroom; as its own job it needs its own.
+    timeout-minutes: 20
     if: >-
       github.event_name == 'workflow_dispatch' ||
       github.event_name == 'schedule' ||
@@ -150,7 +159,8 @@ jobs:
     runs-on: ubuntu-latest
     # 45 min, measured — NOT a guess. 6 URLs x numberOfRuns:3 costs ~4-5 min per
     # URL on a runner (mobile leg, 2026-08-07: 10:42:39 → 11:00:06 for 5 URLs),
-    # so one leg needs ~29 min including setup + the reachability probe.
+    # so one leg needs ~27 min of collection plus checkout/setup. The probe is no
+    # longer part of this budget — it is its own job now (see `probe` above).
     #
     # The previous value was 15, which this job could never finish in: a run
     # dispatched 2026-08-07 was still on URL 5 of 6 at the 20-minute mark. So
