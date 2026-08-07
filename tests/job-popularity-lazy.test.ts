@@ -144,6 +144,40 @@ describe('loadJobPopularity', () => {
     expect(await loadJobPopularity()).toEqual({});
   });
 
+  // The map was a build-time import (trusted) before #5313; fetching it makes it
+  // an external payload. A truthy non-numeric value survives
+  // getTrendingByLocation's `popularity[slug]` truthiness filter and then poisons
+  // `b.views - a.views` with NaN — an inconsistent comparator, i.e. an arbitrary
+  // "top 4" instead of a loud failure. Sanitising at the boundary covers every
+  // consumer at once (reviewer adversarial check on #5313).
+  it('drops non-numeric, non-finite and non-positive values', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        good: 12,
+        str: '34',
+        nan: Number.NaN,
+        inf: Number.POSITIVE_INFINITY,
+        zero: 0,
+        neg: -5,
+        nul: null,
+        obj: { views: 9 },
+        bool: true,
+      }),
+    }));
+    expect(await loadJobPopularity()).toEqual({ good: 12 });
+  });
+
+  it('resolves to {} when every value is unusable (and never yields NaN)', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ a: 'x', b: Number.NaN }),
+    }));
+    const map = await loadJobPopularity();
+    expect(map).toEqual({});
+    expect(Object.values(map).some(Number.isNaN)).toBe(false);
+  });
+
   it('exposes a frozen empty map for the pre-load state', () => {
     expect(Object.isFrozen(EMPTY_JOB_POPULARITY)).toBe(true);
     expect(Object.keys(EMPTY_JOB_POPULARITY)).toEqual([]);
