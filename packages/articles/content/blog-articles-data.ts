@@ -41,6 +41,15 @@ export interface Article {
 
 const RAW_ARTICLES = [
  {
+ id: 'caldo-torrido-lavoro-ticino',
+ category: 'pratico',
+ date: '2026-08-07T05:10:47.870Z',
+ image: '/images/blog/caldo-torrido-lavoro-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
  id: 'stipendio-netto-2026',
  category: 'fiscale',
  date: '2026-01-15',
