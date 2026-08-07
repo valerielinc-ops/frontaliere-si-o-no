@@ -32,8 +32,8 @@ name: Lighthouse CI
 #   - schedule (daily 04:17 UTC) → the SAFETY NET, and the reason this workflow
 #     produces numbers at all. The workflow_run trigger above is necessary but
 #     NOT sufficient: it fires only when deploy-publish concludes `success`, and
-#     measured 2026-08-07 that has not happened in its last 40 runs (22
-#     cancelled, 3 failure, 15 skipped). Upstream, deploy.yml is cancelled 50 of
+#     measured 2026-08-07 that has not happened in its last 40 runs (23
+#     cancelled, 3 failure, 14 skipped). Upstream, deploy.yml is cancelled 50 of
 #     its last 60 runs — by design, since `pages-build-run` uses GitHub's
 #     1-running + 1-pending cap and a deploy burst drops the superseded middle.
 #     Net effect: the audit's own last run was 2026-06-22 and every one of its
@@ -72,55 +72,37 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  lighthouse:
+  # ───────────────────────────────────────────────────────────────────────
+  # probe: ask production ONCE whether it is reachable, and from which URLs.
+  #
+  # This is deliberately its own job rather than a step inside `lighthouse`.
+  # The audit matrix has two legs (mobile + desktop); as a step it ran once per
+  # leg, doubling the datacenter-IP curl traffic against prod to 2 x 6 URLs x up
+  # to 4 attempts = 48 requests per run. That is precisely the traffic shape the
+  # comment below blames for the historical Cloudflare 429/1027 failures — the
+  # probe could have started causing the very condition it exists to detect.
+  # One job, one probe, both legs consume the same answer.
+  # ───────────────────────────────────────────────────────────────────────
+  probe:
     runs-on: ubuntu-latest
-    # 45 min, measured — NOT a guess. 6 URLs x numberOfRuns:3 costs ~4-5 min per
-    # URL on a runner (mobile leg, 2026-08-07: 10:42:39 → 11:00:06 for 5 URLs),
-    # so one leg needs ~29 min including setup + the reachability probe.
-    #
-    # The previous value was 15, which this job could never finish in: a run
-    # dispatched 2026-08-07 was still on URL 5 of 6 at the 20-minute mark. So
-    # even on the days the deploy chain did fire, the audit would have been
-    # cancelled mid-collection — GitHub reports a `timeout-minutes` overrun as
-    # `cancelled`, which is indistinguishable at a glance from the concurrency
-    # cancellations upstream. Two independent faults were hiding each other.
-    timeout-minutes: 45
-    # Only audit after a SUCCESSFUL deploy (prod now reflects the new build), or
-    # on the daily cron / a manual dispatch. A failed/cancelled deploy left prod
-    # on the old build — auditing it via workflow_run would measure something
-    # this run did not produce; the cron measures prod-as-it-is, which is always
-    # a valid question to ask.
+    # 20 min, sized on the retry loop's WORST case, which is a total outage —
+    # precisely the case this job exists to report. 6 URLs x (4 attempts x
+    # `curl --max-time 25` + 3 x `sleep 12` between them) = 6 x 136s ≈ 13.6 min.
+    # A tighter budget would have GitHub kill the job before it reaches the
+    # `run_audit=false` + `::warning::` write below; `lighthouse` needs this job,
+    # and its `if:` carries no `always()`, so the audit would then be skipped
+    # silently — the exact failure mode the probe is meant to make loud. When the
+    # probe was a step inside the 45-min `lighthouse` job it inherited that
+    # headroom; as its own job it needs its own.
+    timeout-minutes: 20
     if: >-
       github.event_name == 'workflow_dispatch' ||
       github.event_name == 'schedule' ||
       github.event.workflow_run.conclusion == 'success'
-
-    # Mobile and desktop are separate legs with separate configs and separate
-    # tracked issues. fail-fast: false — a mobile regression must not cancel the
-    # desktop leg (or vice versa); both signals are wanted every run.
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - form_factor: mobile
-            config: ./lighthouserc.json
-          - form_factor: desktop
-            config: ./lighthouserc.desktop.json
-
-    env:
-      GH_TOKEN: ${{ github.token }}
-      GH_REPO: ${{ github.repository }}
-
+    outputs:
+      run_audit: ${{ steps.probe.outputs.run_audit }}
+      urls: ${{ steps.probe.outputs.urls }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: '22'
-          cache: 'npm'
-
       # Probe production reachability BEFORE running Lighthouse.
       #
       # Lighthouse audits live prod. When prod is unreachable from the GitHub
@@ -172,20 +154,71 @@ jobs:
             { echo "urls<<__EOF__"; printf '%s' "$reachable"; echo "__EOF__"; } >> "$GITHUB_OUTPUT"
           fi
 
+  lighthouse:
+    needs: probe
+    runs-on: ubuntu-latest
+    # 45 min, measured — NOT a guess. 6 URLs x numberOfRuns:3 costs ~4-5 min per
+    # URL on a runner (mobile leg, 2026-08-07: 10:42:39 → 11:00:06 for 5 URLs),
+    # so one leg needs ~27 min of collection plus checkout/setup. The probe is no
+    # longer part of this budget — it is its own job now (see `probe` above).
+    #
+    # The previous value was 15, which this job could never finish in: a run
+    # dispatched 2026-08-07 was still on URL 5 of 6 at the 20-minute mark. So
+    # even on the days the deploy chain did fire, the audit would have been
+    # cancelled mid-collection — GitHub reports a `timeout-minutes` overrun as
+    # `cancelled`, which is indistinguishable at a glance from the concurrency
+    # cancellations upstream. Two independent faults were hiding each other.
+    timeout-minutes: 45
+    # Only audit after a SUCCESSFUL deploy (prod now reflects the new build), or
+    # on the daily cron / a manual dispatch. A failed/cancelled deploy left prod
+    # on the old build — auditing it via workflow_run would measure something
+    # this run did not produce; the cron measures prod-as-it-is, which is always
+    # a valid question to ask.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'schedule' ||
+      github.event.workflow_run.conclusion == 'success'
+
+    # Mobile and desktop are separate legs with separate configs and separate
+    # tracked issues. fail-fast: false — a mobile regression must not cancel the
+    # desktop leg (or vice versa); both signals are wanted every run.
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - form_factor: mobile
+            config: ./lighthouserc.json
+          - form_factor: desktop
+            config: ./lighthouserc.desktop.json
+
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
       - name: Run Lighthouse CI against production
         id: lhci
         # continue-on-error: a budget breach must NOT fail the job — it is
         # surfaced as a tracked issue (next step), not as a red check that would
         # decay into noise. The job stays green; the issue is the durable signal.
         continue-on-error: true
-        if: steps.probe.outputs.run_audit == 'true'
+        if: needs.probe.outputs.run_audit == 'true'
         uses: treosh/lighthouse-ci-action@v12
         with:
           # URLs come from the reachability probe above: only paths that returned
           # 200 are audited (Lighthouse aborts the whole run on any 404/redirect
           # — see issue diagnosed 2026-05-26 where 4/6 stale slugs 404'd and
           # blanked every audit incl. CLS).
-          urls: ${{ steps.probe.outputs.urls }}
+          urls: ${{ needs.probe.outputs.urls }}
           # lhci rejects both budgetPath + configPath:assert.assertions
           # ("Cannot use both budgets AND assertions"). Assertions in the config
           # supersede budgets — they cover the same timings plus category-level
@@ -217,11 +250,20 @@ jobs:
       # the canonical issue instead (matches the other post-deploy reporters in
       # deploy.yml / post-deploy-validate-*.yml). Paired with the resolve step.
       - name: Open issue on regression
-        if: steps.probe.outputs.run_audit == 'true' && steps.lhci.outcome == 'failure'
+        if: needs.probe.outputs.run_audit == 'true' && steps.lhci.outcome == 'failure'
         run: |
           set -uo pipefail
           RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          DEPLOY_URL="${{ github.event.workflow_run.html_url }}"
+          # `workflow_run.html_url` only exists on the workflow_run trigger. On
+          # the daily cron and on a manual dispatch there is no triggering
+          # deploy at all, and labelling those "manual dispatch" indiscriminately
+          # sent whoever triaged the issue looking for a deploy that never
+          # existed. Name the actual trigger instead.
+          case "${{ github.event_name }}" in
+            workflow_run) TRIGGER="${{ github.event.workflow_run.html_url }}" ;;
+            schedule)     TRIGGER="scheduled daily audit (cron 17 4 * * *) — no triggering deploy" ;;
+            *)            TRIGGER="manual dispatch — no triggering deploy" ;;
+          esac
           node scripts/lib/github-issue-creator.mjs \
             --title "Lighthouse regression on production (${{ matrix.form_factor }})" \
             --priority 2 \
@@ -238,14 +280,14 @@ jobs:
           **Why it matters (funnel):** the CLS budget guards AdSense RPM (layout shift → revenue loss); the SEO category score gates organic indexability.
 
           **Audit run:** $RUN_URL (Lighthouse reports artifact attached to the run; public HTML report linked in the LHCI step log).
-          **Triggering deploy:** ${DEPLOY_URL:-manual dispatch}
+          **Triggered by:** ${TRIGGER}
 
           **Next step:** open the run, read the per-URL assertion failures (which template + which metric), reproduce locally / via audit replay, fix the root cause. This issue auto-closes when a later post-deploy audit passes again."
 
       # Recovery → auto-close the canonical issue so a fixed gate doesn't leave a
       # stale open issue (mirror of the failure reporter; best-effort, exits 0).
       - name: Resolve issue on recovery
-        if: steps.probe.outputs.run_audit == 'true' && steps.lhci.outcome == 'success'
+        if: needs.probe.outputs.run_audit == 'true' && steps.lhci.outcome == 'success'
         run: |
           set -uo pipefail
           RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
