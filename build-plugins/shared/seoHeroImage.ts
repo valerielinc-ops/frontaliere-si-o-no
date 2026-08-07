@@ -143,23 +143,18 @@ export function renderSeoHeroImage(opts: SeoHeroImageOpts): string {
 }
 
 /**
- * `ImageObject` for the page's structured data, with the dimensions declared.
+ * NOT YET EMITTED — deliberately absent, not forgotten.
  *
- * A bare image URL string is what #5104 found wrong on `NewsArticle.image`;
- * an `ImageObject` with width/height is what replaced it. Same shape here so
- * the two surfaces agree.
+ * The natural companion to the hero is an `ImageObject` in each page's
+ * structured data, with the dimensions declared: that is the shape #5104
+ * established after finding `NewsArticle.image` shipping a bare URL string.
+ * It is not wired here because each of the seven families builds its own
+ * JSON-LD, and wiring six of seven would be worse than wiring none — a
+ * structured-data surface that disagrees with itself per family is harder to
+ * reason about than one that is uniformly absent.
+ *
+ * An earlier revision of this file exported `seoHeroImageObject`/
+ * `seoHeroImageUrl` for that purpose and no plugin called them. Dead code
+ * that advertises a capability the pages do not have is worse than no code:
+ * it reads as done. Removed until the JSON-LD wiring lands with it.
  */
-export function seoHeroImageObject(baseUrl: string, opts: SeoHeroImageOpts): Record<string, unknown> {
-  return {
-    '@type': 'ImageObject',
-    url: `${baseUrl}${seoHeroCardPath(opts.family, opts.key, opts.locale)}`,
-    width: SEO_HERO_WIDTH,
-    height: SEO_HERO_HEIGHT,
-    caption: opts.alt,
-  };
-}
-
-/** Absolute card URL, for `og:image`. */
-export function seoHeroImageUrl(baseUrl: string, opts: SeoHeroImageOpts): string {
-  return `${baseUrl}${seoHeroCardPath(opts.family, opts.key, opts.locale)}`;
-}
