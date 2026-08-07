@@ -1,16 +1,16 @@
 {
   "key": "gavi",
   "label": "Gavi, the Vaccine Alliance",
-  "generatedAt": "2026-08-06T11:35:16.755Z",
-  "total": 2,
+  "generatedAt": "2026-08-07T01:12:05.967Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5923,
-  "avgDurationMs": 5923,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5368,
+  "avgDurationMs": 5368,
   "durationHistory": [
-    5923
+    5368
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2515&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:35:12.541Z",
+      "crawledAt": "2026-08-07T01:12:02.652Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -43,6 +43,7 @@
       "postedDate": "2026-07-27",
       "applyUrl": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2515&portal=Global",
       "jobReqId": "VN2515",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T22:32:42.148Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -53,8 +54,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "gavi-5ae9ea8ec55c",
       "slug": "responsabile-senior-politica-gavi-the-vaccine-alliance-le-grand-saconnex",
@@ -88,6 +88,7 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -96,5 +97,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

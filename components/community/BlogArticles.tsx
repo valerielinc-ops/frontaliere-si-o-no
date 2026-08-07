@@ -3,9 +3,9 @@ import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
 import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18nParams, getLocale, t as translate } from '@/services/i18n';
 import { fetchArticleOverlay, mergeOverlay } from '@/services/articlesOverlay';
-import { runtimeArticleRecords, fetchArticleBodyParts, publishRuntimeArticleBody } from '@/services/runtimeArticleResolution';
+import { runtimeArticleRecords, fetchArticleBodyParts, publishRuntimeArticleBody, publishedSlugsForIds } from '@/services/runtimeArticleResolution';
 import type { Locale } from '@/services/i18n';
-import { buildPath, preloadBlogData } from '@/services/router';
+import { buildPath, preloadBlogData, learnRuntimeBlogSlugs, learnRuntimeSwissSlugs } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import { stripMarkdownPlain } from '@/build-plugins/shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from '@/build-plugins/shared/faqQuestionPrefixes';
@@ -1253,9 +1253,43 @@ function BlogArticles({
    (max: string, a: { date?: string }) => (a.date && a.date > max ? a.date : max),
    '',
  );
- void fetchArticleOverlay(section, getLocale(), data.length, bundledNewest || undefined).then((overlay) => {
+ void fetchArticleOverlay(section, getLocale(), data.length, bundledNewest || undefined).then(async (overlay) => {
    const { articles: merged, added } = mergeOverlay(seeded.articles, overlay, getLocale());
-   if (added > 0) setArticles(merged);
+   if (added === 0) return;
+
+   // Teach the router these articles' slugs BEFORE the cards paint.
+   // `buildPath` falls back to the raw id when it has no slug, so a card for
+   // an article this build never saw links whatever the id happens to be.
+   // Caught by scripts/ci/check-hydrated-article-parity.mjs on svizzera/de and
+   // verified live: /de/schweiz-artikel/rischio-bolla-svizzera-2026/ (the id)
+   // 404s while the real slug URL serves.
+   //
+   // ITALIAN IS SKIPPED, and that is measured rather than assumed. slugs.json
+   // is ~550 KB gzipped and tests/runtime-article-resolution.test.ts pins it
+   // OFF the common path. Against the published corpus on 2026-08-06, of the
+   // 300 most recently published articles ZERO have an Italian slug that
+   // differs from their id (1 in 1000; 176 in the whole corpus, all older
+   // evergreens that ship in the bundle). So on `it` the fallback is already
+   // the right URL and the fetch would buy nothing, every time. On en/de/fr
+   // roughly 140 of the newest 150 differ, which is where the dead links are.
+   const learn = section === 'svizzera' ? learnRuntimeSwissSlugs : learnRuntimeBlogSlugs;
+   const locale = getLocale();
+   const knownIds = new Set(seeded.articles.map((a: { id: string }) => a.id));
+   const fresh = merged.filter((a: { id: string }) => !knownIds.has(a.id));
+
+   // A slug carried by the index itself costs nothing — prefer it, and let the
+   // network path wither if the publisher ever starts emitting one.
+   const needSlug: string[] = [];
+   for (const a of fresh as Array<{ id: string; slug?: string }>) {
+     if (a.slug) learn(a.id, { [locale]: a.slug });
+     else needSlug.push(a.id);
+   }
+   if (locale !== 'it' && needSlug.length > 0) {
+     const pairs = await publishedSlugsForIds(section, needSlug).catch(() => []);
+     for (const [id, slugs] of pairs) learn(id, slugs);
+   }
+
+   setArticles(merged);
  }).catch(() => {});
  }).catch(() => {});
  }, [section]);
@@ -1303,10 +1337,33 @@ function BlogArticles({
  useEffect(() => {
  if (!selectedArticle) return;
  let cancelled = false;
+ let idleHandle: number | undefined;
+
  // Slim listing index — the cross-link sidebar's relevance ranking
  // (getRelatedJobsForArticle) only reads title/company/category/slug, never
  // descriptions, so the index suffices and avoids pulling the ~10MB-gz full
  // locale file on every article view (the monolith is no longer shipped).
+ //
+ // DEFERRED TO IDLE (issue #5001 punto 3). "Slim" is relative: measured
+ // 2026-08-06 the index is 3,4 MB transferred / 27,8 MB decoded, and this
+ // effect fired immediately on mount at High priority — 40% of an article
+ // page's 8,1 MB, downloading while the page was still painting. Lighthouse
+ // mobile on a real article: LCP 26,5 s, FCP 12,7 s, score 35.
+ //
+ // Nothing above the fold depends on it: `relatedJobs` feeds a sidebar and a
+ // below-content block, both of which render nothing until the data lands
+ // (`relatedJobs.length > 0 &&`). Deferring therefore changes no pixel of
+ // first paint — it only stops the fetch from competing with it.
+ //
+ // Same `requestIdleCallback`-with-timeout idiom as `GptAdSlot.tsx` and
+ // `JobBoard.tsx`, so the fallback behaviour on browsers without it is the
+ // one already used elsewhere in this codebase.
+ const ric: (cb: () => void) => void = (window as { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback
+ ? (cb) => { idleHandle = (window as unknown as { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback(cb, { timeout: 4000 }); }
+ : (cb) => { idleHandle = window.setTimeout(cb, 1500); };
+
+ ric(() => {
+ if (cancelled) return;
  fetch(cdnDataUrl(`/data/jobs-${locale}-index.json`))
  .then(res => {
  if (!res.ok) throw new Error(`${res.status}`);
@@ -1319,7 +1376,15 @@ function BlogArticles({
  // Index unreachable — skip the cross-link sidebar; the article still
  // renders fully.
  });
- return () => { cancelled = true; };
+ });
+
+ return () => {
+ cancelled = true;
+ if (idleHandle === undefined) return;
+ const cancelIdle = (window as { cancelIdleCallback?: (h: number) => void }).cancelIdleCallback;
+ if (cancelIdle) cancelIdle(idleHandle);
+ else window.clearTimeout(idleHandle);
+ };
  }, [selectedArticle, locale]);
 
  const relatedJobs = useMemo(() => {

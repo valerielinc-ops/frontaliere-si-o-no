@@ -59663,6 +59663,240 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumento-dei-frontalieri-attivi-in-svizzera': {
+    title: 'Aumento dei frontalieri attivi in Svizzera | Frontaliere Ticino',
+    description: 'Secondo trimestre 2026: 79\'121 frontalieri attivi in Ticino, +0,6% rispetto al primo trimestre. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumento, attivi, secondo, trimestre',
+    ogTitle: 'Aumento dei frontalieri attivi in Svizzera',
+    ogDescription: 'Secondo trimestre 2026: 79\'121 frontalieri attivi in Ticino, +0,6% rispetto al primo trimestre.',
+    canonicalPath: '/articoli-frontaliere/aumento-dei-frontalieri-attivi-in-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento dei frontalieri attivi in Svizzera",
+      "description": "Secondo trimestre 2026: 79'121 frontalieri attivi in Ticino, +0,6% rispetto al primo trimestre. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aumento-dei-frontalieri-attivi-in-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una foto di un frontaliere che lavora in Svizzera"
+      },
+      "datePublished": "2026-08-06T22:46:21+00:00",
+      "dateModified": "2026-08-06T22:46:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-dei-frontalieri-attivi-in-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio': {
+    title: 'Di più pensioni: rendite in calo, coprono sempre meno l\'ultimo stipendio',
+    description: 'Rendite pensionistiche diminuite del 16% dal 2002, coprono meno del 60% dell\'ultimo stipendio. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensioni, rendite, calo, coprono',
+    ogTitle: 'Di più pensioni: rendite in calo, coprono sempre meno l\'ultimo stipendio',
+    ogDescription: 'Rendite pensionistiche diminuite del 16% dal 2002, coprono meno del 60% dell\'ultimo stipendio.',
+    canonicalPath: '/articoli-frontaliere/di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più pensioni: rendite in calo, coprono sempre meno l'ultimo stipendio",
+      "description": "Rendite pensionistiche diminuite del 16% dal 2002, coprono meno del 60% dell'ultimo stipendio. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore frontaliere con lo sguardo triste mentre guarda il proprio stipendio scendere con l'età."
+      },
+      "datePublished": "2026-08-07T00:24:46+00:00",
+      "dateModified": "2026-08-07T00:24:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-palestina-locarno-territorio-aziende-genocidio': {
+    title: 'Basta complicità | Frontaliere Ticino',
+    description: 'Un gruppo di persone manifesta contro le aziende che finanziano il genocidio in Palestina a Locarno. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, basta, complicità, gruppo, persone',
+    ogTitle: 'Basta complicità',
+    ogDescription: 'Un gruppo di persone manifesta contro le aziende che finanziano il genocidio in Palestina a Locarno',
+    canonicalPath: '/articoli-frontaliere/palestina-locarno-territorio-aziende-genocidio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Basta complicità",
+      "description": "Un gruppo di persone manifesta contro le aziende che finanziano il genocidio in Palestina a Locarno. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/palestina-locarno-territorio-aziende-genocidio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un gruppo di persone manifesta contro le aziende che finanziano il genocidio in Palestina a Locarno"
+      },
+      "datePublished": "2026-08-07T01:46:36+00:00",
+      "dateModified": "2026-08-07T01:46:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/palestina-locarno-territorio-aziende-genocidio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-ticino-aumento-2026': {
+    title: 'Frontalieri in Ticino: +0,6% trimestrale, -0,6% annuo',
+    description: '79.121 frontalieri in Ticino nel 2° trimestre 2026. Calo annuo dello 0,6%. Dati BFS. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trimestrale, annuo, quota, lieve',
+    ogTitle: 'Frontalieri in Ticino: +0,6% trimestrale, -0,6% annuo',
+    ogDescription: '79.121 frontalieri in Ticino nel 2° trimestre 2026. Calo annuo dello 0,6%.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-aumento-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri in Ticino: +0,6% trimestrale, -0,6% annuo",
+      "description": "79.121 frontalieri in Ticino nel 2° trimestre 2026. Calo annuo dello 0,6%. Dati BFS. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-aumento-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliero al valico di Brogeda a Chiasso con documenti in mano"
+      },
+      "datePublished": "2026-08-07T02:30:15+00:00",
+      "dateModified": "2026-08-07T02:30:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-aumento-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-graffio-nella-barba-locarno-film-festival': {
+    title: 'Il graffio nella barba del direttore artistico al Locarno Film Festival',
+    description: 'Nella soffice e voluminosa barba del direttore artistico del Locarno Film Festival si cela una dichiarazione d’intenti: investimenti nel cinema elvetico in',
+    keywords: 'frontalieri, ticino, svizzera, italia, graffio, nella, barba, direttore',
+    ogTitle: 'Il graffio nella barba del direttore artistico al Locarno Film Festival',
+    ogDescription: 'Investimenti nel cinema elvetico +25% nel 2025: la dichiarazione d’intenti del direttore artistico del Locarno Film Festival si legge nella cura della sua',
+    canonicalPath: '/articoli-frontaliere/graffio-nella-barba-locarno-film-festival',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il graffio nella barba del direttore artistico al Locarno Film Festival",
+      "description": "Nella soffice e voluminosa barba del direttore artistico del Locarno Film Festival si cela una dichiarazione d’intenti: investimenti nel cinema elvetico in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/graffio-nella-barba-locarno-film-festival.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Barba curata del direttore artistico al Locarno Film Festival davanti a Piazza Grande"
+      },
+      "datePublished": "2026-08-07T03:55:24+00:00",
+      "dateModified": "2026-08-07T03:55:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/graffio-nella-barba-locarno-film-festival/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-caldo-torrido-lavoro-ticino': {
+    title: 'Lavoro nel caldo torrido in Ticino: Governo apre a nuove misure per i lavoratori',
+    description: 'Sindacati UNIA, OCST, USS e VPOD incontrano Consiglio di Stato: oltre 100 ricoveri per caldo sui lavoratori. Governo preoccupato apre a nuove misure strutturali',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, caldo, torrido, governo',
+    ogTitle: 'Lavoro nel caldo torrido in Ticino: Governo apre a nuove misure',
+    ogDescription: 'Oltre 100 ricoveri al pronto soccorso per effetti del caldo sui lavoratori ticinesi. Sindacati e Governo trattano nuove misure ispirate al modello del Canton',
+    canonicalPath: '/articoli-frontaliere/caldo-torrido-lavoro-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro nel caldo torrido in Ticino: Governo apre a nuove misure per i lavoratori",
+      "description": "Sindacati UNIA, OCST, USS e VPOD incontrano Consiglio di Stato: oltre 100 ricoveri per caldo sui lavoratori. Governo preoccupato apre a nuove misure strutturali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/caldo-torrido-lavoro-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori edili in pausa all'ombra durante un'ondata di caldo in Ticino, vicino al confine italo-svizzero"
+      },
+      "datePublished": "2026-08-07T05:10:47+00:00",
+      "dateModified": "2026-08-07T05:10:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caldo-torrido-lavoro-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

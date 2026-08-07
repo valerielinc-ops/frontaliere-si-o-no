@@ -24509,6 +24509,279 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rischio-bolla-svizzera-2026': {
+    title: 'Il pericolo di una bolla immobiliare continua ad aumentare',
+    description: 'L\'UBS Swiss Real Estate Bubble Index si è attestato a 0,72 punti nel secondo trimestre 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pericolo, bolla, immobiliare, continua',
+    ogTitle: 'Il pericolo di una bolla immobiliare continua ad aumentare',
+    ogDescription: 'L\'UBS Swiss Real Estate Bubble Index si è attestato a 0,72 punti nel secondo trimestre 2026',
+    canonicalPath: '/articoli-svizzera/rischio-bolla-svizzera-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il pericolo di una bolla immobiliare continua ad aumentare",
+      "description": "L'UBS Swiss Real Estate Bubble Index si è attestato a 0,72 punti nel secondo trimestre 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rischio-bolla-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena di Lugano con edifici residenziali e nuvole"
+      },
+      "datePublished": "2026-08-06T11:33:37+00:00",
+      "dateModified": "2026-08-06T11:33:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rischio-bolla-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-easyjet-apollon-acquisizione': {
+    title: 'EasyJet passa al fondo americano Apollo per 6,23 miliardi di franchi',
+    description: 'EasyJet ha confermato l\'acquisizione da parte del fondo statunitense di private equity Apollo per 5,7 miliardi di sterline (6,23 miliardi di franchi).',
+    keywords: 'frontalieri, ticino, svizzera, italia, easyjet, passa, fondo, americano',
+    ogTitle: 'EasyJet acquisita da Apollo per 6,23 miliardi di franchi',
+    ogDescription: 'EasyJet ha confermato l\'acquisizione da parte del fondo statunitense di private equity Apollo per 5,7 miliardi di sterline (6,23 miliardi di franchi).',
+    canonicalPath: '/articoli-svizzera/easyjet-apollon-acquisizione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "EasyJet passa al fondo americano Apollo per 6,23 miliardi di franchi",
+      "description": "EasyJet ha confermato l'acquisizione da parte del fondo statunitense di private equity Apollo per 5,7 miliardi di sterline (6,23 miliardi di franchi).",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/easyjet-apollon-acquisizione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "EasyJet, aereo di EasyJet, acquisizione da parte di Apollo, sede di EasyJet a Luton"
+      },
+      "datePublished": "2026-08-06T23:19:27+00:00",
+      "dateModified": "2026-08-06T23:19:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/easyjet-apollon-acquisizione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-disoccupazione-svizzera-luglio-2026-seco': {
+    title: 'Disoccupazione in Svizzera al 3%: i dati SECO | Frontaliere Ticino',
+    description: 'La disoccupazione in Svizzera sale al 3% a luglio 2026. In Ticino il tasso raggiunge il 2,8%, nei Grigioni l\'1,1%. Tutti i dati e le procedure URC.',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, dati, seco, luglio',
+    ogTitle: 'Disoccupazione in Svizzera al 3%: i dati SECO',
+    ogDescription: 'A luglio il tasso di disoccupazione in Svizzera sale al 3%. Dati regionali: Ticino al 2,8%, Grigioni all\'1,1%. Analisi e procedure URC.',
+    canonicalPath: '/articoli-svizzera/disoccupazione-svizzera-luglio-2026-seco/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione in Svizzera al 3%: i dati SECO",
+      "description": "La disoccupazione in Svizzera sale al 3% a luglio 2026. In Ticino il tasso raggiunge il 2,8%, nei Grigioni l'1,1%. Tutti i dati e le procedure URC.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disoccupazione-svizzera-luglio-2026-seco.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uffici del mercato del lavoro e rilevazioni disoccupazione SECO in Svizzera"
+      },
+      "datePublished": "2026-08-07T02:01:34+00:00",
+      "dateModified": "2026-08-07T02:01:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/disoccupazione-svizzera-luglio-2026-seco/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-costo-vita-2026-zurigo-analisi': {
+    title: 'Costo della vita 2026 nel Canton Zurigo: dati e analisi',
+    description: 'Scopri il costo della vita 2026 nel Canton Zurigo: affitti, premi LAMal, contributi AVS al 5,3% e regole fiscali per lavoratori e frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, costo, vita, canton, zurigo',
+    ogTitle: 'Costo della vita 2026 nel Canton Zurigo: Analisi Completa',
+    ogDescription: 'Dati aggiornati 2026 su tasse, affitti e assicurazioni nel Canton Zurigo. Scopri come gestire il budget e le trattenute fiscali.',
+    canonicalPath: '/articoli-svizzera/costo-vita-2026-zurigo-analisi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Costo della vita 2026 nel Canton Zurigo: dati e analisi",
+      "description": "Scopri il costo della vita 2026 nel Canton Zurigo: affitti, premi LAMal, contributi AVS al 5,3% e regole fiscali per lavoratori e frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costo-vita-2026-zurigo-analisi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama urbano di Zurigo con uffici e fiumi nel 2026"
+      },
+      "datePublished": "2026-08-07T02:54:08+00:00",
+      "dateModified": "2026-08-07T02:54:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/costo-vita-2026-zurigo-analisi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-cantonale-confronto-svizzera-2026-canton-basilea': {
+    title: 'Imposta cantonale confronto Svizzera 2026 canton Basilea',
+    description: 'Confronto aliquote cantonali Svizzera 2026: dati su Basilea, franchigia frontalieri €10\'000, contributi AVS 5,3%, AD/AC 1,1%, LAINF 0,7-1,5%, LPP 7-18%',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, cantonale, confronto, canton',
+    ogTitle: 'Imposta cantonale Svizzera 2026: confronto focus Basilea',
+    ogDescription: 'Aliquote cantonali 2026 in Svizzera con dettagli su Basilea: franchigia frontalieri, contributi sociali (AVS 5,3%, AD/AC 1,1%, LAINF 0,7-1,5%, LPP 7-18%) e',
+    canonicalPath: '/articoli-svizzera/imposta-cantonale-confronto-svizzera-2026-canton-basilea/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta cantonale confronto Svizzera 2026 canton Basilea",
+      "description": "Confronto aliquote cantonali Svizzera 2026: dati su Basilea, franchigia frontalieri €10'000, contributi AVS 5,3%, AD/AC 1,1%, LAINF 0,7-1,5%, LPP 7-18%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-cantonale-confronto-svizzera-2026-canton-basilea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Basilea sul fiume Reno con edifici uffici e architettura svizzera tradizionale"
+      },
+      "datePublished": "2026-08-07T03:42:43+00:00",
+      "dateModified": "2026-08-07T03:42:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-cantonale-confronto-svizzera-2026-canton-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rimborsi-730-sostituti-imposta': {
+    title: 'Rimborsi 730: ora compensabili anche con imposte sostitutive in F24',
+    description: 'Secondo quanto comunicato nel maggio 2026, i sostituti d’imposta possono recuperare i rimborsi dal modello 730 tramite F24 anche con imposte sostitutive sulle',
+    keywords: 'frontalieri, ticino, svizzera, italia, rimborsi, compensabili, anche, imposte',
+    ogTitle: 'Rimborsi 730 ora compensabili con imposte sostitutive in F24',
+    ogDescription: 'Chiarimento delle Entrate del luglio 2026 sull’ampliamento del monte ritenute per il recupero dei rimborsi 730 tramite F24',
+    canonicalPath: '/articoli-svizzera/rimborsi-730-sostituti-imposta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rimborsi 730: ora compensabili anche con imposte sostitutive in F24",
+      "description": "Secondo quanto comunicato nel maggio 2026, i sostituti d’imposta possono recuperare i rimborsi dal modello 730 tramite F24 anche con imposte sostitutive sulle",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rimborsi-730-sostituti-imposta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore frontaliero italiano che controlla documenti fiscali in ufficio a Lugano"
+      },
+      "datePublished": "2026-08-07T04:42:27+00:00",
+      "dateModified": "2026-08-07T04:42:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rimborsi-730-sostituti-imposta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lavoro-forzato-catene-svizzere': {
+    title: 'Vero o falso: lavoro forzato nelle catene di approvvigionamento svizzere',
+    description: 'Gli USA applicano un dazio del 12,5% alla Svizzera per mancato divieto d\'importazione di beni da lavoro forzato, contro il 10% all\'UE. Scopri cosa significa',
+    keywords: 'frontalieri, ticino, svizzera, italia, vero, falso, lavoro, forzato',
+    ogTitle: 'Dazio USA 12,5% su Svizzera per lavoro forzato nelle importazioni',
+    ogDescription: 'Gli USA applicano un dazio del 12,5% alla Svizzera per mancato divieto d\'importazione di beni da lavoro forzato, contro il 10% all\'UE. Scopri cosa significa',
+    canonicalPath: '/articoli-svizzera/lavoro-forzato-catene-svizzere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vero o falso: lavoro forzato nelle catene di approvvigionamento svizzere",
+      "description": "Gli USA applicano un dazio del 12,5% alla Svizzera per mancato divieto d'importazione di beni da lavoro forzato, contro il 10% all'UE. Scopri cosa significa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-forzato-catene-svizzere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Hub logistico svizzero per catene di approvvigionamento nazionale"
+      },
+      "datePublished": "2026-08-07T05:35:08+00:00",
+      "dateModified": "2026-08-07T05:35:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavoro-forzato-catene-svizzere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

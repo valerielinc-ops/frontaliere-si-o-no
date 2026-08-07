@@ -25,6 +25,7 @@ const __dirname_holidays = np.dirname(fileURLToPath(import.meta.url));
 
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderSeoHeroImage } from './shared/seoHeroImage';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { CALC_HREF } from './shared/calcHref';
 import { formatUpdatedDate } from './shared/humanDate';
@@ -685,6 +686,7 @@ function renderPage(opts: {
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(lede)}</p>
     </header>
+    ${renderSeoHeroImage({ family: 'holidays', key: page, locale, headline: h1, eyebrow, alt: h1 })}
     <p class="text-sm font-medium text-accent mt-1">${esc(L.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
     ${statTilesHtml}
     <div class="s-KZc0LQ"><a href="${esc(calcUrl)}" class="s-cta">${esc(L.ctaCalc)}</a></div>

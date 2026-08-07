@@ -1,16 +1,16 @@
 {
   "key": "fusalp",
   "label": "Fusalp",
-  "generatedAt": "2026-08-06T12:13:21.906Z",
+  "generatedAt": "2026-08-07T01:15:33.909Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16580,
-  "avgDurationMs": 16580,
+  "durationMs": 15393,
+  "avgDurationMs": 15393,
   "durationHistory": [
-    16580
+    15393
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-80_zurich",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T12:13:12.830Z",
+      "crawledAt": "2026-08-07T01:15:24.796Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,6 +40,7 @@
       "featured": false,
       "postedDate": "2026-07-21",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/sales-associate-80_zurich",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-21T12:23:44.903Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {

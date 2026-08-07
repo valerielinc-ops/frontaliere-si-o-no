@@ -98,6 +98,10 @@ import {
   parseHolidaysLandingPath,
 } from '../build-plugins/holidaysLandingsData';
 import {
+  isTopicClusterHubPath,
+  resolveTopicClusterHubSection,
+} from '../build-plugins/topicClusterHubsData';
+import {
   SALARY_LANDING_ROUTES,
   isSalaryLandingPath,
   parseSalaryLandingPath,
@@ -2675,6 +2679,27 @@ export function parsePath(pathname: string): ParseResult {
        return { route: { activeTab: 'guida', staticOverlay: true }, locale: parsed.locale as Locale };
      }
    }
+ }
+
+ // #5001 — article topic hubs: /{section-hub}/{argomenti|topics|themen|sujets}/
+ // /{topic}/ (+ /page-N/), both article sections × 4 locales. Static HTML
+ // emitted outside `#root`.
+ //
+ // This branch MUST stay ahead of the `topMatch.tab === 'blog'` article-slug
+ // parser further down: that one reads the segment after the section hub as an
+ // article slug, so `/articoli-frontaliere/argomenti/tasse-e-imposte/` would
+ // resolve to a `blogSlug: 'argomenti'` that never exists, and the hub would
+ // hydrate into a deferred-article view instead of staying on screen.
+ if (isTopicClusterHubPath(pathname)) {
+   const section = resolveTopicClusterHubSection(pathname);
+   return {
+     route: {
+       activeTab: 'blog',
+       ...(section === 'svizzera' ? { blogSection: 'svizzera' as const } : {}),
+       staticOverlay: true,
+     },
+     locale,
+   };
  }
 
  // #4481 — BFS salary-by-age / salary-by-education landings

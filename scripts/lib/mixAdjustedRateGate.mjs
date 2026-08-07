@@ -74,6 +74,41 @@ export function extrapolateSampledCount(count, sampleRate) {
 }
 
 /**
+ * Render one regressed feature so the two counts cannot be misread.
+ *
+ * WHY THIS EXISTS. The message used to be `spa-locale(2.182% > 1.87% allowed,
+ * 30 vs 31)`. Those two numbers are on DIFFERENT SCALES: 30 is what a 25 %
+ * sample saw, 31 is the baseline's full-corpus count — four times apart. Read
+ * literally it says "offenders went from 31 down to 30", i.e. the exact
+ * opposite of what the gate just decided. The real comparison there was ~120
+ * against 31.
+ *
+ * That misreading is not hypothetical: on 2026-08-06 it led to a written
+ * conclusion that two red features were harmless denominator artifacts and
+ * that the ratchet could safely be re-baselined — which would have cemented a
+ * three-to-fourfold regression. A gate that decides correctly and then reports
+ * its decision ambiguously is one bad afternoon away from being switched off.
+ *
+ * So: counts are printed on ONE scale, the scale is named, and the raw sampled
+ * figure is kept in brackets because it is what a reader will find in the log.
+ */
+export function formatRegressedFeature(entry, sampleRate = 1) {
+  const r = entry ?? {};
+  const name = r.feature ?? r.feat ?? '?';
+  const baseline = Number(r.max ?? r.cap ?? 0);
+  const sampled = Number(r.count ?? 0);
+  const full = Math.round(
+    typeof r.countFull === 'number' ? r.countFull : extrapolateSampledCount(sampled, sampleRate),
+  );
+  const sampledNote = full !== sampled
+    ? ` — ${sampled} seen in a ${Math.round(sampleRate * 100)} % sample`
+    : '';
+
+  if (r.rate == null) return `${name}(${full} > ${baseline} allowed${sampledNote})`;
+  return `${name}(rate ${r.rate}% > ${r.maxRate}% allowed; offenders ~${full} vs ${baseline} baseline${sampledNote})`;
+}
+
+/**
  * @param {number} baselineScanned the baseline's recorded scanned count for this feature
  * @param {number} sampleRate 0 < rate <= 1; 1 (or omitted) = no sampling active
  * @returns {boolean} true if drawing zero pages from this feature by pure sampling

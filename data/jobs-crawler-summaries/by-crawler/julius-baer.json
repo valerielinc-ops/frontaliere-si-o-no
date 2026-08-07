@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-08-06T11:32:42.001Z",
-  "total": 90,
+  "generatedAt": "2026-08-07T01:07:22.182Z",
+  "total": 89,
   "newCount": 2,
-  "updatedCount": 86,
+  "updatedCount": 84,
   "removedCount": 1,
-  "unchangedCount": 2,
-  "durationMs": 61217,
-  "avgDurationMs": 61217,
+  "unchangedCount": 3,
+  "durationMs": 46910,
+  "avgDurationMs": 46910,
   "durationHistory": [
-    61217
+    46910
   ],
   "newJobs": [
     {
@@ -214,13 +214,13 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "firstSeenAt": "2026-08-05T22:40:48.656Z",
       "needsRetranslation": true,
-      "_qualityScore": 75,
+      "firstSeenAt": "2026-08-05T22:40:48.656Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -320,8 +320,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "firstSeenAt": "2026-06-29T22:17:29.935Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-29T22:17:29.935Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -356,8 +356,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "firstSeenAt": "2026-08-04T11:35:00.606Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-04T11:35:00.606Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -393,6 +393,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-04T11:35:00.606Z",
+      "needsRetranslation": true,
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -427,8 +428,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "firstSeenAt": "2026-08-04T11:35:00.606Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-04T11:35:00.606Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -674,6 +675,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-07-31T11:37:22.793Z",
+      "needsRetranslation": true,
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1141,86 +1143,6 @@
   ],
   "removedJobs": [
     {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Compliance-Officer-100---f-m-d---Temporary-until-31122026_r-19106-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Compliance-Officer-100---f-m-d---Temporary-until-31122026_r-19106-2",
-      "title": "Junior Compliance Officer 100% (f/m/d), Temporary until 31.12.2026",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "junior-compliance-officer-100-f-m-d-temporary-until-31-12-2026-julius-baer",
-      "category": "risk",
-      "datePosted": "2026-07-14",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "ENTRY",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-07-15T10:59:12.546Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
-  "unchangedJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Backend-Developer---C--100---f-m-d---Contract-through-our-external-payroll-partner--immediate-start-until-31082027--possible-extension-_r-19335-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Backend-Developer---C--100---f-m-d---Contract-through-our-external-payroll-partner--immediate-start-until-31082027--possible-extension-_r-19335-1",
-      "title": "Senior Backend Developer - C# 100% (f/m/d) (Contract through our external payroll partner, immediate start until 31.08.2027, possible extension)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "senior-backend-sviluppatore-c-100-f-m-d-contrasportare-attraverso-il-nostro-partner-payroll-esterno-avviare",
-      "category": "technology",
-      "datePosted": "2026-08-05",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-05T22:40:48.656Z",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/T-Working-Student----Technology-Governance---Third-Party-Risk-Management--60---100---f-m-d-_r-18388-3",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/T-Working-Student----Technology-Governance---Third-Party-Risk-Management--60---100---f-m-d-_r-18388-3",
       "title": "IT Working Student - Technology Governance & Third Party Risk Management 60 - 100% (f/m/d)",
@@ -1255,6 +1177,125 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Compliance-Working-Student---Monitoring---Control-Execution-60---80---f-m-d-_r-19017-2",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Compliance-Working-Student---Monitoring---Control-Execution-60---80---f-m-d-_r-19017-2",
+      "title": "Compliance Working Student – Monitoring & Control Execution 60 - 80% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "compliance-working-student-monitoring-control-execution-60-80-f-m-d-julius-baer",
+      "category": "risk",
+      "datePosted": "2026-07-03",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "PART_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "MID",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-07-03T22:08:33.634Z",
+      "salaryMin": 58800,
+      "salaryMax": 89200,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Platform-Engineer---Runtime-Platform-and-Cloud-Development-Environment-100---f-m-d-_r-18086-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Platform-Engineer---Runtime-Platform-and-Cloud-Development-Environment-100---f-m-d-_r-18086-1",
+      "title": "Platform Engineer – .NET Runtime Platform and Cloud Development Environment 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "platform-engineer-net-runtime-platform-and-cloud-development-environment-100-f-m-d-julius-baer",
+      "category": "technology",
+      "datePosted": "2026-04-16",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "MID",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Backend-Developer---C--100---f-m-d---Contract-through-our-external-payroll-partner--immediate-start-until-31082027--possible-extension-_r-19335-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Backend-Developer---C--100---f-m-d---Contract-through-our-external-payroll-partner--immediate-start-until-31082027--possible-extension-_r-19335-1",
+      "title": "Senior Backend Developer - C# 100% (f/m/d) (Contract through our external payroll partner, immediate start until 31.08.2027, possible extension)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "senior-backend-sviluppatore-c-100-f-m-d-contrasportare-attraverso-il-nostro-partner-payroll-esterno-avviare",
+      "category": "technology",
+      "datePosted": "2026-08-05",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-05T22:40:48.656Z",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 20,
         "translation": 25,
         "completeness": 14
       }

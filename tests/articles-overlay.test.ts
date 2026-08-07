@@ -156,3 +156,78 @@ describe('fetchArticleOverlay — the date trigger catches what the count misses
     expect(fn).toHaveBeenCalledTimes(1);
   });
 });
+
+// The index is fetched under a ROTATING url, and that is not a detail.
+//
+// Measured 2026-08-06: the publisher purged these urls and the purge returned
+// success, yet the copy the app received did not move for 28 hours. The
+// responses carry `Vary: Origin`, so the edge holds a separate variant for
+// requests that send one — and a cross-origin fetch from the app is the only
+// caller that does. Purge-by-url clears the variant the purge itself matches,
+// which sends no `Origin`, so the app's variant is never cleared.
+//
+// That is why `curl`, a direct navigation and every no-Origin CI probe read
+// fresh while the browser read stale, and why the only lever that reaches a
+// different cache entry is a different url. `cache: 'no-store'` was verified
+// NOT to help: it governs the browser's cache, not the edge's.
+describe('fetchArticleOverlay — the url carries a bounded freshness key', () => {
+  beforeEach(() => { vi.restoreAllMocks(); });
+
+  const urlsFrom = (fn: ReturnType<typeof vi.fn>) =>
+    fn.mock.calls.map((c) => String(c[0]));
+
+  const stubOk = (body: unknown = { total: 1, articles: [{ id: 'a', title: 'A' }] }) => {
+    const fn = vi.fn((_u: string) => Promise.resolve({
+      ok: true, json: () => Promise.resolve(body),
+    } as unknown as Response));
+    vi.stubGlobal('fetch', fn);
+    return fn;
+  };
+
+  it('appends a version token, so it cannot be served the unpurgeable variant', async () => {
+    const fn = stubOk();
+    await fetchArticleOverlay('frontaliere', 'it');
+    expect(urlsFrom(fn)[0]).toMatch(/blog-index-frontaliere-it\.json\?v=\d+$/);
+  });
+
+  it('reuses one url inside a bucket, so the CDN still absorbs the traffic', async () => {
+    const fn = stubOk();
+    const now = vi.spyOn(Date, 'now');
+    now.mockReturnValue(1_000_000_000_000);
+    await fetchArticleOverlay('frontaliere', 'it');
+    now.mockReturnValue(1_000_000_000_000 + 60_000); // +1 min, same bucket
+    await fetchArticleOverlay('frontaliere', 'it');
+    const [a, b] = urlsFrom(fn);
+    // Assert the token is there before asserting it is stable, else this test
+    // passes for the wrong reason on a build that dropped versioning entirely.
+    expect(a).toMatch(/\?v=\d+$/);
+    expect(a).toBe(b);
+  });
+
+  it('moves to a new url once the bucket rolls, bounding how stale a list can be', async () => {
+    const fn = stubOk();
+    const now = vi.spyOn(Date, 'now');
+    now.mockReturnValue(1_000_000_000_000);
+    await fetchArticleOverlay('frontaliere', 'it');
+    now.mockReturnValue(1_000_000_000_000 + 5 * 60_000); // +5 min, next bucket
+    await fetchArticleOverlay('frontaliere', 'it');
+    const [a, b] = urlsFrom(fn);
+    expect(a).not.toBe(b);
+  });
+
+  it('versions the full index too — the escalation path must not be stale either', async () => {
+    const fn = stubOk();
+    // Force the escalation: 0 bundled + 1 in the window, against a corpus of 3000.
+    vi.stubGlobal('fetch', vi.fn((u: string) => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve(String(u).includes('-full')
+        ? { total: 3000, articles: [{ id: 'a', title: 'A' }, { id: 'b', title: 'B' }] }
+        : { total: 3000, articles: [{ id: 'a', title: 'A' }] }),
+    } as unknown as Response)));
+    await fetchArticleOverlay('frontaliere', 'it', 0);
+    const calls = (globalThis.fetch as unknown as ReturnType<typeof vi.fn>).mock.calls
+      .map((c: unknown[]) => String(c[0]));
+    expect(calls.some((u) => /-full\.json\?v=\d+$/.test(u))).toBe(true);
+    void fn;
+  });
+});

@@ -1,18 +1,19 @@
 {
   "key": "swisslog",
   "label": "Swisslog",
-  "generatedAt": "2026-08-06T11:32:18.000Z",
+  "generatedAt": "2026-08-07T01:06:58.736Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7741,
-  "avgDurationMs": 7741,
+  "durationMs": 7878,
+  "avgDurationMs": 7878,
   "durationHistory": [
-    7741
+    7878
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "swisslog-0fdca037d51d",
       "slug": "software-project-manager-m-w-d-swisslog-buchs-switzerland",
@@ -25,7 +26,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/software-project-manager-mwd-4385",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:32:14.801Z",
+      "crawledAt": "2026-08-07T01:06:55.952Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -42,16 +43,15 @@
       "postedDate": "2026-08-06",
       "applyUrl": "https://www.swisslog.com/de-de/karriere/offene-stellen/software-project-manager-mwd-4385",
       "jobReqId": "4385",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-08-06T11:32:14.801Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "swisslog-0eb581e2e3de",
       "slug": "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland",
@@ -64,7 +64,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:32:14.802Z",
+      "crawledAt": "2026-08-07T01:06:55.954Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -102,7 +102,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/working-student-quality-60-mwd-4396",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:32:14.804Z",
+      "crawledAt": "2026-08-07T01:06:55.955Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -140,7 +140,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/instandhaltungstechniker-mwd-4384",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:32:14.803Z",
+      "crawledAt": "2026-08-07T01:06:55.955Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -178,7 +178,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/controls-software-service-engineer-siemens-mwd-3751",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:32:14.804Z",
+      "crawledAt": "2026-08-07T01:06:55.956Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -216,7 +216,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:32:14.807Z",
+      "crawledAt": "2026-08-07T01:06:55.958Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -254,7 +254,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/servicetechnikerin-mechanik-mwd-4094",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:32:14.808Z",
+      "crawledAt": "2026-08-07T01:06:55.959Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -285,7 +285,7 @@
   "unchangedJobs": [
     {
       "id": "swisslog-be15f303b0a1",
-      "slug": "kuka-dummy-role-swisslog-buchs-switzerland",
+      "slug": "kuka-dummy-role-swisslog-argovia",
       "company": "Swisslog",
       "companyKey": "swisslog",
       "companyDomain": "swisslog.com",
@@ -315,7 +315,7 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "firstSeenAt": "2026-08-05T22:29:21.810Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
