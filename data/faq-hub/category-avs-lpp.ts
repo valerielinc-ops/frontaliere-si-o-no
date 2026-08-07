@@ -16,6 +16,9 @@ export const FAQ_avsLpp: ReadonlyArray<FaqHubEntry> = [
       de: 'Welche AHV/IV/EO-Beiträge zahlt ein Grenzgänger 2026?',
       fr: 'Quelles cotisations AVS/AI/APG paie un frontalier en 2026 ?',
     },
+    titleShort: {
+      en: 'AVS/AI/APG 2026: what does a cross-border worker pay?',
+    },
     answer: {
       it:
         "Il frontaliere paga i contributi al 1° pilastro secondo la LAVS (RS 831.10): 8,7% AVS + 1,4% AI + 0,5% IPG = 10,6% totale ripartito metà dipendente e metà datore [fonte: Fedlex LAVS RS 831.10, art. 5]. Si aggiungono 2,2% per l'assicurazione disoccupazione (AD/LAC) fino a CHF 148.200/anno (2025, rivalutato annualmente) e 1% sull'eccedenza (contributo di solidarietà). L'aliquota della quota dipendente è quindi 5,3% AVS/AI/IPG + 1,1% AD = 6,4% del salario lordo. I contributi sono obbligatori anche per i lavoratori a tempo parziale che superano CHF 2.500/anno. Le prestazioni AVS sono esportabili: l'accordo CH-UE 2002 garantisce il pagamento della rendita AVS in Italia senza riduzioni.",
@@ -80,6 +83,9 @@ export const FAQ_avsLpp: ReadonlyArray<FaqHubEntry> = [
       de: 'Kann ich die 2. Säule auszahlen lassen, wenn ich die Schweiz verlasse?',
       fr: 'Puis-je retirer le 2e pilier si je quitte la Suisse ?',
     },
+    titleShort: {
+      de: 'Kann ich die 2. Säule beim Wegzug aus der Schweiz beziehen?',
+    },
     answer: {
       it:
         "Solo in parte. L'art. 25f LFLP (RS 831.42) stabilisce che la «parte obbligatoria» del 2° pilastro (LPP obbligatoria) non può essere riscattata in contanti se si trasferisce la residenza in uno Stato UE/AELS con obbligo di assicurazione pensionistica [fonte: Fedlex LFLP RS 831.42]. La parte sovraobbligatoria (eccedenze versate oltre il minimo LPP) può invece essere riscattata immediatamente. La parte obbligatoria può essere versata su un conto di libero passaggio o conto vincolato svizzero, disponibile solo al compimento dell'età di riferimento o per casi speciali (acquisto abitazione primaria, indipendenza economica). Per il frontaliere che rientra definitivamente in Italia senza futuri rapporti svizzeri, il 2° pilastro diventa rendita futura integrativa esportabile.",
@@ -127,6 +133,12 @@ export const FAQ_avsLpp: ReadonlyArray<FaqHubEntry> = [
       de: 'Steht die AHV-Hinterlassenenrente auch dem italienischen Ehepartner eines Grenzgängers zu?',
       fr: 'La rente de survivants AVS est-elle due au conjoint italien d\'un frontalier ?',
     },
+    titleShort: {
+      it: 'La reversibilità AVS spetta al coniuge italiano del frontaliere?',
+      en: 'Is the AVS survivor pension due to the Italian spouse?',
+      de: 'Erhält der italienische Ehepartner die AHV-Hinterlassenenrente?',
+      fr: 'La rente de survivants AVS est-elle due au conjoint italien ?',
+    },
     answer: {
       it:
         "Sì. L'art. 23 LAVS riconosce la rendita vedovile al coniuge superstite se il defunto aveva almeno 1 anno di contributi AVS [fonte: Fedlex LAVS RS 831.10]. La rendita è pari all'80% della rendita di vecchiaia ipotetica. Per la vedova senza figli è richiesta un'età minima di 45 anni e almeno 5 anni di matrimonio. Per il vedovo dopo la votazione sentenza federale BGE 139 V 297 (parità di trattamento), il diritto sussiste fino a quando ha figli minori di 18 anni, con estensione normativa in discussione in Parlamento nel 2025. I figli ricevono la rendita di orfano (40% AVS). Le prestazioni sono esportabili in Italia via Reg. UE 883/2004 e pagate dalla Cassa svizzera di compensazione Ginevra.",
@@ -150,6 +162,9 @@ export const FAQ_avsLpp: ReadonlyArray<FaqHubEntry> = [
       en: 'How are Italian and Swiss contribution periods totalised?',
       de: 'Wie werden italienische und schweizerische Beitragszeiten totalisiert?',
       fr: 'Comment sont totalisées les périodes italiennes et suisses ?',
+    },
+    titleShort: {
+      de: 'Wie totalisiert man italienische und Schweizer Beitragszeiten?',
     },
     answer: {
       it:
@@ -198,6 +213,12 @@ export const FAQ_avsLpp: ReadonlyArray<FaqHubEntry> = [
       de: 'Was ist der BVG-Koordinationsabzug und wie wirkt er sich auf den Lohn aus?',
       fr: 'Qu\'est-ce que la déduction de coordination LPP et son impact sur le salaire ?',
     },
+    titleShort: {
+      it: 'Deduzione di coordinamento LPP: come incide sul salario?',
+      en: 'LPP coordination deduction: how does it affect your salary?',
+      de: 'BVG-Koordinationsabzug: wie wirkt er sich auf den Lohn aus?',
+      fr: 'Déduction de coordination LPP : quel impact sur le salaire ?',
+    },
     answer: {
       it:
         "La «deduzione di coordinamento» è la quota di salario già coperta dall'AVS che non entra nel calcolo LPP (art. 8 LPP) [fonte: Fedlex LPP RS 831.40]. Nel 2025 la deduzione è CHF 26.460, ossia 7/8 della rendita AVS massima (CHF 30.240). Il salario LPP coordinato è: salario annuo - CHF 26.460, capped a CHF 90.720 - CHF 26.460 = CHF 64.260. Solo su questa parte si calcolano i contributi LPP obbligatori (7-18% a seconda dell'età). Dal 1° gennaio 2026 la riforma LPP (approvata votazione del 22/09/2024) riduce la deduzione a 20% del salario AVS, con un minimo di CHF 7.980, migliorando la copertura dei salari bassi e dei part-time [fonte: UFAS, Riforma LPP in vigore dal 01/2026].",
@@ -221,6 +242,12 @@ export const FAQ_avsLpp: ReadonlyArray<FaqHubEntry> = [
       en: 'How is the AVS pension computed for a cross-border worker with 30 years of Swiss contributions?',
       de: 'Wie wird die AHV-Rente bei 30 Jahren schweizerischer Beitragszeit berechnet?',
       fr: 'Comment calcule-t-on la rente AVS avec 30 ans de cotisations suisses ?',
+    },
+    titleShort: {
+      it: 'Come si calcola la rendita AVS con 30 anni di contributi?',
+      en: 'How is the AVS pension calculated after 30 years in Switzerland?',
+      de: 'Wie wird die AHV-Rente bei 30 Beitragsjahren berechnet?',
+      fr: 'Comment calcule-t-on la rente AVS avec 30 ans de cotisations ?',
     },
     answer: {
       it:

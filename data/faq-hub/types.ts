@@ -51,6 +51,23 @@ export type FaqHubEntry = Readonly<{
   id: string;
   category: FaqHubCategory;
   question: FaqHubLocalizedString;
+  /**
+   * Short form used ONLY for the `<title>` tag of the per-question page, when
+   * the question itself exceeds the 66-char budget `audit:title-length`
+   * enforces.
+   *
+   * Deliberately NOT a full `FaqHubLocalizedString`: question length varies by
+   * language (a German compound blows the budget where the English does not),
+   * so this is per-locale optional and only the locales that actually overflow
+   * carry an entry. Every other surface — `<h1>`, the FAQPage JSON-LD `name`,
+   * the hub cards, the OG tags — keeps the question verbatim, because the
+   * long-tail natural-language phrasing is the whole point of the FAQ hub
+   * (#5008) and must not be shortened for a title-tag budget.
+   *
+   * `build-plugins/shared/titleSuffix.ts` forbids mid-headline `…` truncation:
+   * a short form is authored copy, never a machine-clipped question.
+   */
+  titleShort?: Readonly<Partial<Record<FaqHubLocale, string>>>;
   answer: FaqHubLocalizedString;
   relatedLinks?: ReadonlyArray<FaqHubRelatedLink>;
   sources?: ReadonlyArray<string>;

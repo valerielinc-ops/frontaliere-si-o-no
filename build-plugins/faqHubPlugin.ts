@@ -673,6 +673,79 @@ const ENTRY_COPY: Record<FaqHubLocale, FaqEntryCopy> = {
 const SIBLING_LINKS = 6;
 
 /**
+ * Characters of a sibling's own answer shown beneath its link.
+ *
+ * Sized against the corpus, not picked round: the SHORTEST answer once
+ * citations are dropped is 393 characters (de), so every sibling in every
+ * locale has a full budget to give and no snippet is silently stubby. It is
+ * also a snippet, deliberately — roughly a meta-description — so a page never
+ * republishes enough of a sibling to compete with the sibling's own page for
+ * the sibling's own question.
+ */
+const SIBLING_EXCERPT_CHARS = 240;
+
+/** `[fonte: X]` / `[source: X]` / `[Quelle: X]`, with the space that precedes it. */
+const CITATION_IN_SNIPPET_RX = /\s*\[(?:fonte|source|quelle)\s*:\s*[^\]]*\]/gi;
+
+/**
+ * A sentence end: terminal punctuation, any closing quote/bracket, whitespace,
+ * and then something that opens a new sentence.
+ *
+ * The lookahead is the whole point. These answers are dense with `art. 38`,
+ * `RS 831.10`, `8.7%` and `dlgs 230/2021`, so splitting on `.` alone truncates
+ * mid-clause — requiring the next non-space character to be an opening capital
+ * (or an opening quote/parenthesis) rejects every one of those.
+ */
+const SENTENCE_END_RX = /[.!?][)\]»"']*\s+(?=[A-ZÀ-ÖØ-Þ«"'(])/g;
+
+/**
+ * A clean, snippet-length opening of an answer — what each sibling link shows
+ * beneath it, so the block reads as a set of answers rather than a set of
+ * anchors.
+ *
+ * Citations are DROPPED here rather than flattened. `[fonte: Fedlex LAVS RS
+ * 831.10]` earns its place where the full answer states the rule it supports,
+ * but inside a 240-character teaser it spends a sixth of the budget on a
+ * reference the reader cannot follow from here — the live link lives on the
+ * sibling's own page, one click away. {@link plainAnswer} has already flattened
+ * `[label](href)` markdown; this drops what that leaves behind.
+ *
+ * The cut prefers a sentence end and only falls back to a word boundary (with
+ * an ellipsis) when the window holds none, so a snippet normally ends as a
+ * finished thought.
+ */
+function answerSnippet(
+  entry: FaqHubEntry,
+  locale: FaqHubLocale,
+  maxChars: number = SIBLING_EXCERPT_CHARS,
+): string {
+  const text = plainAnswer(entry, locale)
+    .replace(CITATION_IN_SNIPPET_RX, '')
+    // Dropping a citation can strand the space before the punctuation that
+    // followed it ("… entro 8 giorni ." → "… entro 8 giorni.").
+    .replace(/\s+([,.;:)])/g, '$1')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (text.length <= maxChars) return text;
+
+  // Reach a little past the cap so a sentence ending just beyond it can still
+  // close the snippet cleanly instead of being forced into an ellipsis.
+  const window = text.slice(0, maxChars + 40);
+  let cut = -1;
+  for (const m of window.matchAll(SENTENCE_END_RX)) {
+    const end = (m.index ?? 0) + m[0].replace(/\s+$/, '').length;
+    // Keep the LAST qualifying end — the fullest snippet the budget allows.
+    if (end >= maxChars * 0.55) cut = end;
+  }
+  if (cut > 0) return text.slice(0, cut);
+
+  const hard = text.slice(0, maxChars);
+  const lastSpace = hard.lastIndexOf(' ');
+  const trimmed = lastSpace > maxChars * 0.6 ? hard.slice(0, lastSpace) : hard;
+  return `${trimmed.replace(/[\s,;:]+$/, '')}…`;
+}
+
+/**
  * Per locale, the entries whose own page this build will write.
  *
  * The floor is evaluated PER LOCALE and BEFORE anything is rendered, which is
@@ -754,6 +827,11 @@ function renderEntryPage(
   const copy = COPY[locale];
   const ecopy = ENTRY_COPY[locale];
   const question = entry.question[locale];
+  // The <title> is the question, UNLESS the question overflows the 66-char
+  // budget and an authored short form exists for this locale (see
+  // FaqHubEntry.titleShort). Only <title> uses it: <h1>, JSON-LD and OG all
+  // keep the question verbatim below.
+  const titleTag = entry.titleShort?.[locale] ?? question;
   const categoryLabel = FAQ_HUB_CATEGORY_LABELS[entry.category][locale];
   // Per-entry hero: the question IS the headline on the card, in the JSON-LD
   // caption and in og:image:alt. `entry.id` keys it, so the 416 entry pages
@@ -806,6 +884,13 @@ function renderEntryPage(
           .join('')}</ul></section>`
       : '';
 
+  // Each sibling carries the opening of its own answer, not just its question.
+  // A bare list of six questions asks the reader to click to find out whether
+  // any of them is the one they actually meant; with the answer's first
+  // sentences under it the block answers some of them outright and the click is
+  // an informed one. It is also the only substantial body text on this page
+  // that is not the single answer itself — see the ratio note in
+  // `renderEntryPage`'s header comment.
   const siblings = siblingEntries(entry, linkedIds);
   const siblingsHtml =
     siblings.length > 0
@@ -814,7 +899,7 @@ function renderEntryPage(
             (sib) =>
               `<li class="fh-rli"><a href="${esc(buildFaqEntryPath(locale, sib.id))}" class="fh-lnk">${esc(
                 sib.question[locale],
-              )}</a></li>`,
+              )}</a><p class="fh-tocc">${esc(answerSnippet(sib, locale))}</p></li>`,
           )
           .join('')}</ul></section>`
       : '';
@@ -902,8 +987,10 @@ function renderEntryPage(
     locale,
     // The question IS the title. It is what the user typed, so it is also the
     // best possible title-tag: no keyword assembly, no promise the body has to
-    // live up to separately.
-    title: question,
+    // live up to separately. The one exception is length — a question past 66
+    // chars is truncated in the SERP, so those carry an authored `titleShort`
+    // and `titleTag` resolves to it.
+    title: titleTag,
     description: plainAnswer(entry, locale),
     canonicalUrl,
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
@@ -924,16 +1011,27 @@ function renderEntryPage(
       // hubChrome's hero emits the page's only <h1> — so the <h1> is the
       // question verbatim, which is exactly the heading this page should have.
       //
-      // But `title:` above is that SAME question, so <title> and <h1> match
-      // word for word and the page ships a duplicate pair (Semrush "Duplicate
-      // H1 and title tags"). The brand suffix normally tells the two apart;
-      // buildTitleWithBrand drops it once the headline passes 45 chars, and a
-      // question always does. Both arguments are `question` on purpose —
-      // salaryHubArticles.ts does the same for the same reason — so the H1
-      // always gains the locale-aware tag while the <title>, and its keywords,
-      // are left exactly as they are.
+      // But `title:` above is normally that SAME question, so <title> and <h1>
+      // match word for word and the page ships a duplicate pair (Semrush
+      // "Duplicate H1 and title tags"). The brand suffix normally tells the two
+      // apart; buildTitleWithBrand drops it once the headline passes 45 chars,
+      // and a question always does. So the H1 always gains the locale-aware tag
+      // while the <title>, and its keywords, are left exactly as they are —
+      // salaryHubArticles.ts does the same for the same reason.
+      //
+      // Argument order matters and is easy to get backwards: the signature is
+      // (h1, title, locale) and the helper RETURNS THE FIRST ARGUMENT. So the
+      // H1 is always `question` — the full, unshortened phrasing — and the
+      // string it must differ FROM is `titleTag`, i.e. whatever the <title>
+      // actually ended up being. Passing `titleTag` first would silently make
+      // the H1 the shortened form on exactly the pages that carry a
+      // `titleShort`, which is the opposite of what this file wants.
+      //
+      // With no `titleShort` the two are identical, so the H1 gains the
+      // locale-aware tag exactly as before. With one, they already differ and
+      // the helper returns the question untouched.
       hero: {
-        title: differentiateH1FromTitle(question, question, locale),
+        title: differentiateH1FromTitle(question, titleTag, locale),
         subtitle: ecopy.heroSubtitle(categoryLabel),
         variant: 'green',
       },

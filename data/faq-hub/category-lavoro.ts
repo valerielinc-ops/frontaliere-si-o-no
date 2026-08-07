@@ -16,6 +16,10 @@ export const FAQ_lavoro: ReadonlyArray<FaqHubEntry> = [
       de: 'Sind Schweizer Arbeitsvermittler für die Bewerber kostenlos?',
       fr: 'Les agences de placement suisses sont-elles gratuites pour le candidat ?',
     },
+    titleShort: {
+      it: 'Agenzie di collocamento svizzere: sono gratuite per il candidato?',
+      fr: 'Agences de placement suisses : gratuites pour le candidat ?',
+    },
     answer: {
       it:
         "Sì, obbligatoriamente gratuite per il candidato. La Legge sul collocamento e il personale a prestito (LC, RS 823.11) art. 9 vieta di addebitare commissioni al lavoratore [fonte: Fedlex LC RS 823.11]. Le agenzie incassano la commissione dal datore di lavoro cliente. Il lavoratore interinale (temporaneo) è pagato dalla agenzia stessa (Adecco, Randstad, Manpower, Kelly) secondo il CCL per il lavoro a prestito, con minimi salariali garantiti e indennità di anzianità. In caso di richiesta di pagamento di fee o abbonamento da parte dell'agenzia, occorre segnalare alla SECO (cantone Ticino: Ufficio per la sorveglianza del mercato del lavoro). Le agenzie online gratuite più usate sono jobs.ch, jobup.ch, jobsuchmaschine.ch. I frontalieri possono registrarsi all'URC (Ufficio regionale di collocamento) svizzero solo se disoccupati con formulario U1.",
@@ -73,6 +77,10 @@ export const FAQ_lavoro: ReadonlyArray<FaqHubEntry> = [
       de: 'Kann ich mich als Grenzgänger beim RAV (Regionale Arbeitsvermittlung) anmelden?',
       fr: 'Puis-je m\'inscrire à l\'ORP en tant que frontalier ?',
     },
+    titleShort: {
+      it: 'Il frontaliere può iscriversi all\'URC (ufficio di collocamento)?',
+      de: 'Kann sich ein Grenzgänger beim RAV (Arbeitsvermittlung) anmelden?',
+    },
     answer: {
       it:
         "Iscrizione come lavoratore occupato: no. L'URC assiste solo le persone iscritte alla disoccupazione svizzera, cioè residenti in Svizzera. Il frontaliere residente in Italia in cerca di lavoro può consultare liberamente i siti ufficiali come arbeit.swiss (SECO) e gli URC cantonali online [fonte: SECO, sito URC]. Può partecipare a eventi e fiere dell'impiego. Se perde il lavoro, secondo Regolamento UE 883/2004 art. 65 l'URC svizzero può fornire assistenza al collocamento se il frontaliere accede ai servizi italiani NASpI contemporaneamente, ma l'indennità è italiana [fonte: Eur-Lex reg. 883/2004]. I Centri per l'Impiego italiani (CPI) della Regione Lombardia hanno sportelli transfrontalieri (es. Como, Varese) con supporto dedicato ai frontalieri. Esistono anche gli EURES (European Employment Services) per la mobilità UE.",
@@ -96,6 +104,10 @@ export const FAQ_lavoro: ReadonlyArray<FaqHubEntry> = [
       en: 'Can cross-border workers take part in Swiss public competitions?',
       de: 'Können Grenzgänger an öffentlichen Wettbewerben in der Schweiz teilnehmen?',
       fr: 'Les frontaliers peuvent-ils participer aux concours publics suisses ?',
+    },
+    titleShort: {
+      de: 'Öffentliche Wettbewerbe in der Schweiz: auch für Grenzgänger?',
+      fr: 'Concours publics suisses : ouverts aux frontaliers ?',
     },
     answer: {
       it:
@@ -200,6 +212,11 @@ export const FAQ_lavoro: ReadonlyArray<FaqHubEntry> = [
       en: 'What are the main cultural differences in Ticino job interviews?',
       de: 'Was sind die wichtigsten kulturellen Unterschiede bei Bewerbungsgesprächen im Tessin?',
       fr: 'Quelles sont les principales différences culturelles dans les entretiens au Tessin ?',
+    },
+    titleShort: {
+      it: 'Quali differenze culturali nei colloqui di lavoro in Ticino?',
+      de: 'Was ist bei Bewerbungsgesprächen im Tessin kulturell anders?',
+      fr: 'Quelles différences culturelles dans les entretiens au Tessin ?',
     },
     answer: {
       it:

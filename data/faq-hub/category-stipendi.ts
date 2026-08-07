@@ -16,6 +16,10 @@ export const FAQ_stipendi: ReadonlyArray<FaqHubEntry> = [
       de: 'Ist der 13. Monatslohn in der Schweiz für Grenzgänger obligatorisch?',
       fr: 'Le 13e mois est-il obligatoire pour les frontaliers en Suisse ?',
     },
+    titleShort: {
+      en: 'Is the 13th-month salary mandatory in Switzerland?',
+      de: 'Ist der 13. Monatslohn in der Schweiz für Grenzgänger Pflicht?',
+    },
     answer: {
       it:
         "Il Codice delle obbligazioni (CO) art. 322 non impone l'obbligo legale della tredicesima: è un «beneficio consuetudinario» che deve essere esplicitamente previsto dal contratto individuale o dal contratto collettivo di lavoro (CCL) [fonte: Fedlex CO RS 220]. In Ticino la quasi totalità dei CCL applicabili (industria, edilizia, banche, sanità) prevede la tredicesima pari a 1/12 dello stipendio annuo, versata a dicembre o ripartita. Alcuni CCL includono anche la quattordicesima. Se il contratto individuale non menziona la tredicesima e non è coperto da CCL, il datore non è obbligato a versarla. La prassi ticinese è comunque estesa. Il pagamento è subordinato alla presenza effettiva: in caso di assunzione o dimissione nel corso dell'anno si versa pro-rata temporis.",
@@ -119,6 +123,11 @@ export const FAQ_stipendi: ReadonlyArray<FaqHubEntry> = [
       de: 'Habe ich als Grenzgänger Anspruch auf Verpflegungs- und Kilometerpauschale?',
       fr: 'Ai-je droit à l\'indemnité repas et kilométrique en tant que frontalier ?',
     },
+    titleShort: {
+      en: 'Do cross-border workers get meal and mileage allowances?',
+      de: 'Erhalten Grenzgänger Verpflegungs- und Kilometerpauschale?',
+      fr: 'Ai-je droit à l\'indemnité repas et kilométrique ?',
+    },
     answer: {
       it:
         "Dipende dal CCL e dal contratto. L'Ordinanza sui costi (RS 642.118.1) e la circolare 22 AFC fissano i massimi deducibili senza certificato: CHF 15 per pasto fuori sede e CHF 0,70/km per uso auto privata [fonte: AFC, circolare 22]. Nel settore edile il CCL mantello prevede indennità pasto CHF 18 quando il cantiere è distante oltre 8 km, e indennità trasporto CHF 0,45/km oppure biglietto del treno rimborsato. Le indennità rimborsate spese effettive (Spesen) non sono parte del salario e non sono imponibili né alla fonte né all'IRPEF [fonte: art. 327a CO]. Se sono forfetarie e superano i limiti ordinariamente ammessi, la parte eccedente è reddito tassabile. Il datore deve documentare la politica rimborsi.",
@@ -142,6 +151,9 @@ export const FAQ_stipendi: ReadonlyArray<FaqHubEntry> = [
       de: 'Wie werden Überstunden und Nachtarbeit vergütet?',
       fr: 'Comment sont rémunérés les heures supplémentaires et le travail de nuit ?',
     },
+    titleShort: {
+      fr: 'Heures supplémentaires et travail de nuit : quelle rémunération ?',
+    },
     answer: {
       it:
         "Gli straordinari (Überzeit) oltre le 45 ore/settimana in uffici e 50 ore/settimana in industria sono pagati al 125% o compensati in tempo libero (art. 13 LL, RS 822.11) [fonte: Fedlex LL]. Il lavoro di notte regolare (23:00-06:00) prevede un supplemento di tempo del 10% (art. 17b LL) e un supplemento salariale del 25% per lavoro notturno occasionale. Il lavoro domenicale è compensato con il 50% supplementare. Gli straordinari contrattuali (Überstunden, tra 40 e 45 ore) sono pagati al 125% o compensati in riposo, salvo diversa clausola nel CCL. La tredicesima NON include gli straordinari né il supplemento notturno in assenza di clausola esplicita. Il datore deve registrare le ore (ordinanza 3 OLL3) e il frontaliere ha diritto a consultare il registro.",
@@ -164,6 +176,12 @@ export const FAQ_stipendi: ReadonlyArray<FaqHubEntry> = [
       en: 'With CHF 70,000 gross per year, what is a cross-border worker\'s real income?',
       de: 'Mit CHF 70 000 Bruttojahreslohn, was verdient ein Grenzgänger tatsächlich?',
       fr: 'Avec CHF 70 000 brut annuel, combien gagne réellement un frontalier ?',
+    },
+    titleShort: {
+      it: 'Con 70.000 CHF lordi, quanto guadagna davvero un frontaliere?',
+      en: 'With CHF 70,000 gross, what is a cross-border worker\'s net pay?',
+      de: 'Mit CHF 70 000 brutto: was verdient ein Grenzgänger netto?',
+      fr: 'Avec CHF 70 000 brut, combien gagne réellement un frontalier ?',
     },
     answer: {
       it:
@@ -222,6 +240,12 @@ export const FAQ_stipendi: ReadonlyArray<FaqHubEntry> = [
       en: 'What is the Lohnausweis and what is it used for in the Italian tax return?',
       de: 'Was ist der Lohnausweis und wozu dient er in der italienischen Steuererklärung?',
       fr: 'Qu\'est-ce que le Lohnausweis et à quoi sert-il dans la déclaration italienne ?',
+    },
+    titleShort: {
+      it: 'Lohnausweis: cos\'è e a cosa serve nella dichiarazione italiana?',
+      en: 'Lohnausweis: what is it for in the Italian tax return?',
+      de: 'Wozu dient der Lohnausweis in der italienischen Steuererklärung?',
+      fr: 'Lohnausweis : à quoi sert-il dans la déclaration italienne ?',
     },
     answer: {
       it:

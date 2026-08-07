@@ -51,6 +51,10 @@ export const FAQ_diritti: ReadonlyArray<FaqHubEntry> = [
       de: 'Hat der aus der Schweiz entlassene Grenzgänger Anspruch auf italienische NASpI?',
       fr: 'La NASpI italienne est-elle due au frontalier licencié en Suisse ?',
     },
+    titleShort: {
+      en: 'Can a cross-border worker dismissed in Switzerland claim NASpI?',
+      de: 'Hat der entlassene Grenzgänger Anspruch auf italienische NASpI?',
+    },
     answer: {
       it:
         "Sì. Secondo il Regolamento UE 883/2004 art. 65, il frontaliere totalmente disoccupato ha diritto all'indennità nello Stato di residenza (Italia), sulla base delle contribuzioni versate all'estero [fonte: Eur-Lex reg. 883/2004]. Si chiede la NASpI (Nuova Assicurazione Sociale per l'Impiego) all'INPS online via SPID entro 68 giorni dalla cessazione, allegando il formulario U1 rilasciato dalla cassa di disoccupazione cantonale svizzera (Ticino: Cassa AD Bellinzona). La NASpI è pari al 75% della retribuzione media mensile imponibile ultimi 4 anni (fino a EUR 1.425/mese 2026), con durata max 24 mesi e riduzione del 3% al mese dal 4° mese. Il frontaliere in disoccupazione parziale (es. riduzione oraria) riceve indennità dalla cassa AD svizzera [fonte: art. 22-24 LAC].",
@@ -74,6 +78,10 @@ export const FAQ_diritti: ReadonlyArray<FaqHubEntry> = [
       en: 'Am I eligible for short-time work compensation (RHT) as a cross-border worker?',
       de: 'Kann ich als Grenzgänger Kurzarbeitsentschädigung (KAE) beziehen?',
       fr: 'Puis-je bénéficier de la réduction de l\'horaire de travail (RHT) en tant que frontalier ?',
+    },
+    titleShort: {
+      en: 'Can cross-border workers get short-time work compensation (RHT)?',
+      fr: 'Les frontaliers ont-ils droit à la RHT (chômage partiel) ?',
     },
     answer: {
       it:
@@ -121,6 +129,12 @@ export const FAQ_diritti: ReadonlyArray<FaqHubEntry> = [
       en: 'Am I protected against workplace discrimination as a cross-border worker?',
       de: 'Bin ich als Grenzgänger vor Arbeitsplatz-Diskriminierung geschützt?',
       fr: 'Suis-je protégé contre la discrimination au travail en tant que frontalier ?',
+    },
+    titleShort: {
+      it: 'Discriminazione sul lavoro: il frontaliere è tutelato?',
+      en: 'Workplace discrimination: are cross-border workers protected?',
+      de: 'Sind Grenzgänger vor Diskriminierung am Arbeitsplatz geschützt?',
+      fr: 'Discrimination au travail : le frontalier est-il protégé ?',
     },
     answer: {
       it:
@@ -227,6 +241,9 @@ export const FAQ_diritti: ReadonlyArray<FaqHubEntry> = [
       en: 'Must the employer issue a work certificate (Arbeitszeugnis)?',
       de: 'Muss der Arbeitgeber ein Arbeitszeugnis ausstellen?',
       fr: 'L\'employeur est-il obligé de délivrer un certificat de travail ?',
+    },
+    titleShort: {
+      it: 'Certificato di lavoro (Arbeitszeugnis): è obbligatorio?',
     },
     answer: {
       it:
