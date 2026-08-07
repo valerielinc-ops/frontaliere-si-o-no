@@ -24587,6 +24587,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disoccupazione-svizzera-luglio-2026-seco': {
+    title: 'Disoccupazione in Svizzera al 3%: i dati SECO | Frontaliere Ticino',
+    description: 'La disoccupazione in Svizzera sale al 3% a luglio 2026. In Ticino il tasso raggiunge il 2,8%, nei Grigioni l\'1,1%. Tutti i dati e le procedure URC.',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, dati, seco, luglio',
+    ogTitle: 'Disoccupazione in Svizzera al 3%: i dati SECO',
+    ogDescription: 'A luglio il tasso di disoccupazione in Svizzera sale al 3%. Dati regionali: Ticino al 2,8%, Grigioni all\'1,1%. Analisi e procedure URC.',
+    canonicalPath: '/articoli-svizzera/disoccupazione-svizzera-luglio-2026-seco/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione in Svizzera al 3%: i dati SECO",
+      "description": "La disoccupazione in Svizzera sale al 3% a luglio 2026. In Ticino il tasso raggiunge il 2,8%, nei Grigioni l'1,1%. Tutti i dati e le procedure URC.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disoccupazione-svizzera-luglio-2026-seco.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uffici del mercato del lavoro e rilevazioni disoccupazione SECO in Svizzera"
+      },
+      "datePublished": "2026-08-07T02:01:34+00:00",
+      "dateModified": "2026-08-07T02:01:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/disoccupazione-svizzera-luglio-2026-seco/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

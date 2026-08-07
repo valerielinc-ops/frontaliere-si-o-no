@@ -659,6 +659,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lex-netflix-cinema-svizzero-2025': { it: 'lex-netflix-cinema-svizzero-2025', en: 'lex-netflix-swiss-cinema-2025', de: 'lex-netflix-schweizer-kino-2025', fr: 'lex-netflix-cinema-suisse-2025' },
  'rischio-bolla-svizzera-2026': { it: 'rischio-bolla-svizzera-2026', en: 'swiss-real-estate-bubble-risk-2026', de: 'schweizer-immobilien-bubble-risiko-2026', fr: 'risque-de-bulle-immobiliere-suisse-2026' },
  'easyjet-apollon-acquisizione': { it: 'easyjet-apollon-acquisizione', en: 'easyjet-apollon-acquisition', de: 'easyjet-apollon-ubernahme', fr: 'easyjet-apollon-acquisition' },
+ 'disoccupazione-svizzera-luglio-2026-seco': { it: 'disoccupazione-svizzera-luglio-2026-seco', en: 'switzerland-unemployment-july-2026-seco', de: 'arbeitslosigkeit-schweiz-juli-2026-seco', fr: 'chomage-suisse-juillet-2026-seco' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

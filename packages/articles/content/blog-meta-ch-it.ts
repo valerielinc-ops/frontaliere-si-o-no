@@ -1900,6 +1900,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.easyjet-apollon-acquisizione.title': 'EasyJet passa al fondo americano Apollo per 6,23 miliardi di franchi',
     'blog.article.easyjet-apollon-acquisizione.excerpt': 'L\'acquisizione dovrebbe concludersi entro la fine del primo trimestre del prossimo anno',
     'blog.article.easyjet-apollon-acquisizione.imageAlt': 'EasyJet, aereo di EasyJet, acquisizione da parte di Apollo, sede di EasyJet a Luton',
+    'blog.article.disoccupazione-svizzera-luglio-2026-seco.title': 'Disoccupazione in Svizzera al 3%: i dati SECO',
+    'blog.article.disoccupazione-svizzera-luglio-2026-seco.excerpt': 'A luglio la disoccupazione in Svizzera sale al 3%, con 139’300 iscritti agli URC. Il Ticino registra il 2,8%, mentre i Grigioni restano stabili all\'1,1%.',
+    'blog.article.disoccupazione-svizzera-luglio-2026-seco.imageAlt': 'Uffici del mercato del lavoro e rilevazioni disoccupazione SECO in Svizzera',
 };
 
 export default blogMetaChIt;

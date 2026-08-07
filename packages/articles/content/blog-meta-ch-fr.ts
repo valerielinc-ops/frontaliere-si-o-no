@@ -1900,6 +1900,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.easyjet-apollon-acquisizione.title': 'EasyJet passe au fonds américain Apollo pour 6,23 milliards de francs',
     'blog.article.easyjet-apollon-acquisizione.excerpt': 'L\'acquisition devrait être finalisée d\'ici la fin du premier trimestre de l\'année prochaine',
     'blog.article.easyjet-apollon-acquisizione.imageAlt': 'EasyJet, avion d\'EasyJet, acquisition par Apollo, siège d\'EasyJet à Luton',
+    'blog.article.disoccupazione-svizzera-luglio-2026-seco.title': 'Chômage en Suisse à 3% : les données SECO',
+    'blog.article.disoccupazione-svizzera-luglio-2026-seco.excerpt': 'En juillet, le chômage en Suisse atteint 3 %, avec 139’300 inscrits aux ORP. Le Tessin enregistre 2,8 %, tandis que les Grisons restent stables à 1,1 %.',
+    'blog.article.disoccupazione-svizzera-luglio-2026-seco.imageAlt': 'Bureaux du marché du travail et statistiques du chômage SECO en Suisse',
 };
 
 export default blogMetaChFr;
