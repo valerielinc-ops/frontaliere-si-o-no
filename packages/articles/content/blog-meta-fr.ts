@@ -9342,6 +9342,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.caldo-ticino-direttiva-consiglio-stato.title': 'Vagues de chaleur : le VPOD écrit au Conseil d\'État',
     'blog.article.caldo-ticino-direttiva-consiglio-stato.excerpt': 'Le syndicat demande une directive ad hoc et des investissements dans les infrastructures contre la chaleur au Tessin.',
     'blog.article.caldo-ticino-direttiva-consiglio-stato.imageAlt': 'Rue ensoleillée à Bellinzona avec des personnes à l\'ombre lors d\'une canicule',
+    'blog.article.devastazione-vagone-como-fermo.title': 'Il dévaste un wagon et insulte les passagers : 34 ans arrêté dans le train',
+    'blog.article.devastazione-vagone-como-fermo.excerpt': 'Un Italien de 34 ans, altéré par l\'alcool, a dévasté un wagon sur la ligne de Como-lago, déchirant des panneaux et cassant des extincteurs. Arrêté par la police d\'État.',
+    'blog.article.devastazione-vagone-como-fermo.imageAlt': 'Intérieur d\'un train régional avec signalétique déchirée et extincteur endommagé, policiers en service',
 };
 
 export default blogMetaFr;
