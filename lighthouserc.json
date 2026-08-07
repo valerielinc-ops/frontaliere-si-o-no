@@ -1,4 +1,5 @@
 {
+  "//": "MOBILE Lighthouse budgets — the form factor that decides (Google ranks and PageSpeed reports on mobile). Desktop lives in lighthouserc.desktop.json. Thresholds below are BASELINE-LOCKING, calibrated on real production data from run 31172476486 (2026-08-07, 6 URLs x 3 runs). They are a REGRESSION detector, not the target: issue #5001 wants mobile > 90 and nothing here is anywhere near that. Ratchet them down as pages improve — never up to silence a regression.",
   "ci": {
     "collect": {
       "numberOfRuns": 3,
@@ -25,20 +26,43 @@
         "chromeFlags": "--disable-dev-shm-usage --no-sandbox --disable-gpu"
       }
     },
-    "assert": {
-      "assertions": {
-        "categories:performance": ["warn", { "minScore": 0.99 }],
-        "categories:accessibility": ["warn", { "minScore": 0.99 }],
-        "categories:best-practices": ["warn", { "minScore": 0.99 }],
-        "categories:seo": ["warn", { "minScore": 0.99 }],
-        "largest-contentful-paint": ["warn", { "maxNumericValue": 1 }],
-        "cumulative-layout-shift": ["warn", { "maxNumericValue": 0.001 }],
-        "total-blocking-time": ["warn", { "maxNumericValue": 1 }],
-        "first-contentful-paint": ["warn", { "maxNumericValue": 1 }],
-        "interactive": ["warn", { "maxNumericValue": 1 }],
-        "speed-index": ["warn", { "maxNumericValue": 1 }]
+    "assertMatrix": [
+      {
+        "//": "Category scores — same values as the desktop config so the two do not drift. Measured 2026-08-07: a11y 0.92-0.97, best-practices 0.61 on every URL, seo >= 0.99 on every URL (it never even warned at 0.99).",
+        "matchingUrlPattern": ".*",
+        "assertions": {
+          "categories:accessibility": ["error", { "minScore": 0.9 }],
+          "categories:best-practices": ["warn", { "minScore": 0.55 }],
+          "categories:seo": ["error", { "minScore": 0.9 }]
+        }
+      },
+      {
+        "//": "The five healthy-ish templates. Thresholds = worst per-URL MEDIAN measured 2026-08-07 plus ~15% for run-to-run dispersion. Worst medians were: perf 0.40 (home), FCP 2539 ms (home), LCP 6457 ms (home), TBT 1880 ms (home), CLS 0.36 (traffico-dogane), SI 6918 ms (aziende), TTI 23768 ms (aziende).",
+        "matchingUrlPattern": "^https://frontaliereticino\\.ch/(?!cerca-lavoro-ticino/)",
+        "assertions": {
+          "categories:performance": ["error", { "minScore": 0.35 }],
+          "first-contentful-paint": ["error", { "maxNumericValue": 3000 }],
+          "largest-contentful-paint": ["error", { "maxNumericValue": 7400 }],
+          "total-blocking-time": ["error", { "maxNumericValue": 2200 }],
+          "cumulative-layout-shift": ["error", { "maxNumericValue": 0.45 }],
+          "speed-index": ["warn", { "maxNumericValue": 8000 }],
+          "interactive": ["warn", { "maxNumericValue": 27500 }]
+        }
+      },
+      {
+        "//": "KNOWN-BAD, tracked separately: /cerca-lavoro-ticino/ measured perf 0.03 on mobile — by far the worst template on the site (TBT 3310 ms, CLS 0.87, FCP 7006 ms). Its own baseline is carved out here ONLY so the other five pages can be gated meaningfully instead of every threshold being flattened to this page's level. This block is a debt marker, not an exemption: when the page is fixed, DELETE this entry so it falls back to the stricter group above.",
+        "matchingUrlPattern": "^https://frontaliereticino\\.ch/cerca-lavoro-ticino/",
+        "assertions": {
+          "categories:performance": ["error", { "minScore": 0.02 }],
+          "first-contentful-paint": ["error", { "maxNumericValue": 8100 }],
+          "largest-contentful-paint": ["error", { "maxNumericValue": 8600 }],
+          "total-blocking-time": ["error", { "maxNumericValue": 3900 }],
+          "cumulative-layout-shift": ["error", { "maxNumericValue": 1.0 }],
+          "speed-index": ["warn", { "maxNumericValue": 12000 }],
+          "interactive": ["warn", { "maxNumericValue": 31500 }]
+        }
       }
-    },
+    ],
     "upload": {
       "target": "temporary-public-storage"
     }
