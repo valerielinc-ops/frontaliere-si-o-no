@@ -1,28 +1,28 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-08-06T11:46:18.624Z",
-  "total": 16,
+  "generatedAt": "2026-08-07T01:09:19.843Z",
+  "total": 15,
   "newCount": 1,
-  "updatedCount": 15,
-  "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 35206,
-  "avgDurationMs": 35206,
+  "updatedCount": 13,
+  "removedCount": 2,
+  "unchangedCount": 1,
+  "durationMs": 33113,
+  "avgDurationMs": 33113,
   "durationHistory": [
-    35206
+    33113
   ],
   "newJobs": [
     {
-      "url": "https://jobs.postfinance.ch/job/Security-Officer-Kryptographie/74412-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Security-Officer-Kryptographie/74412-de_DE",
-      "title": "Security Officer Kryptographie",
+      "url": "https://jobs.postfinance.ch/job/Security-Officer-Kryptographie-%28wmd%29/74412-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Security-Officer-Kryptographie-%28wmd%29/74412-de_DE",
+      "title": "Security Officer Kryptographie (w/m/d)",
       "company": "PostFinance",
       "companyKey": "postfinance",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "security-officer-kryptographie-postfinance",
+      "slug": "security-officer-kryptographie-w-m-d-postfinance",
       "sourceLang": "de",
       "department": [
         "Informatik und Digital Services"
@@ -43,12 +43,13 @@
         "location": "Bern"
       },
       "crawledAt": "",
-      "_qualityScore": 58,
+      "postedDate": "06.08.26",
+      "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 6,
-        "completeness": 9
+        "completeness": 11
       }
     }
   ],
@@ -62,7 +63,7 @@
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "fachverantwortliche-r-data-leakage-prevention-postfinance",
+      "slug": "fachverantwortliche-r-data-leakage-prevention-postfinance-bern",
       "sourceLang": "de",
       "department": [
         "Informatik und Digital Services"
@@ -77,7 +78,7 @@
       "experienceLevel": "",
       "sector": "IT",
       "workload": "80-100%",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -126,11 +127,11 @@
       "id": "postfinance-d5dbcaad5f86",
       "firstSeenAt": "2026-08-05T11:43:40.821Z",
       "crawledAt": "",
-      "_qualityScore": 71,
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 12,
-        "translation": 25,
+        "translation": 23,
         "completeness": 9
       }
     },
@@ -158,7 +159,7 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -183,7 +184,7 @@
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "mitarbeiter-in-buchungsabwicklung-postfinance",
+      "slug": "collaboratore-trice-buchungsabwicklung-postfinance-bern",
       "sourceLang": "de",
       "department": [
         "Büro-Finanzen und Revision"
@@ -198,7 +199,7 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -238,7 +239,7 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -263,7 +264,7 @@
       "location": "Zürich",
       "canton": "ZH",
       "country": "CH",
-      "slug": "regionenleiter-in-zurich-zentralschweiz-postfinance",
+      "slug": "regionenleiter-in-zurich-zentralschweiz-postfinance-zurich",
       "sourceLang": "de",
       "department": [
         "Verkauf und Kundenberatung"
@@ -278,7 +279,7 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": {
         "canton": "ZH",
         "location": "Zürich"
@@ -326,11 +327,11 @@
       "id": "postfinance-52609885ddde",
       "firstSeenAt": "2026-08-03T22:14:08.925Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 23,
         "completeness": 9
       }
     },
@@ -366,11 +367,11 @@
       "id": "postfinance-fa4d4e2d7d10",
       "firstSeenAt": "2026-07-30T22:11:33.278Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 23,
         "completeness": 9
       }
     },
@@ -398,7 +399,7 @@
       "experienceLevel": "",
       "sector": "IT",
       "workload": "80-100%",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": {
         "canton": "AG",
         "location": "Zofingen"
@@ -423,7 +424,7 @@
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "sachbearbeiter-in-accounts-payable-receivable-postfinance",
+      "slug": "sachbearbeiter-in-accounts-payable-receivable-postfinance-bern",
       "sourceLang": "de",
       "department": [
         "Büro-Finanzen und Revision"
@@ -438,7 +439,7 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -486,11 +487,11 @@
       "id": "postfinance-32e4aa77a438",
       "firstSeenAt": "2026-07-27T22:10:24.138Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 23,
         "completeness": 9
       }
     },
@@ -526,24 +527,67 @@
       "id": "postfinance-20bf7ac3db12",
       "firstSeenAt": "2026-07-27T22:10:24.138Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 23,
         "completeness": 9
       }
     },
     {
-      "url": "https://jobs.postfinance.ch/job/Entwicklerin-Testautomatisierung/74230-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Entwicklerin-Testautomatisierung/74230-de_DE",
-      "title": "Entwickler:in Testautomatisierung",
+      "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/74190-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/74190-de_DE",
+      "title": "Kundenbetreuer:in Customer Center",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Niederurnen",
+      "canton": "GL",
+      "country": "CH",
+      "slug": "kundenbetreuer-in-customer-center-postfinance",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "28.07.26",
+      "validThrough": "29.08.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "GL",
+        "location": "Niederurnen"
+      },
+      "id": "postfinance-c8993d3e0261",
+      "firstSeenAt": "2026-08-06T11:46:18.620Z",
+      "postedDate": "28.07.26",
+      "crawledAt": "",
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 11
+      }
+    }
+  ],
+  "removedJobs": [
+    {
+      "url": "https://jobs.postfinance.ch/job/Security-Officer-Kryptographie/74412-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Security-Officer-Kryptographie/74412-de_DE",
+      "title": "Security Officer Kryptographie",
       "company": "PostFinance",
       "companyKey": "postfinance",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "sviluppatore-in-test-automation-postfinance-bern",
+      "slug": "security-officer-kryptographie-postfinance",
       "sourceLang": "de",
       "department": [
         "Informatik und Digital Services"
@@ -551,32 +595,32 @@
       "category": [
         "Informatik und Digital Services"
       ],
-      "datePosted": "06.07.26",
-      "validThrough": "10.08.26",
+      "datePosted": "06.08.26",
+      "validThrough": "27.08.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "60-100%",
+      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
       },
-      "id": "postfinance-6e993c44c784",
-      "firstSeenAt": "2026-07-27T22:10:24.138Z",
       "crawledAt": "",
+      "id": "postfinance-75883be57bb9",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "addressRegion": "BE",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 82,
+      "firstSeenAt": "2026-08-06T11:46:18.620Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -618,6 +662,7 @@
       "addressCountry": "CH",
       "addressRegion": "AG",
       "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -625,47 +670,55 @@
         "translation": 25,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
-      "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/74190-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/74190-de_DE",
-      "title": "Kundenbetreuer:in Customer Center",
+      "url": "https://jobs.postfinance.ch/job/Entwicklerin-Testautomatisierung/74230-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Entwicklerin-Testautomatisierung/74230-de_DE",
+      "title": "Entwickler:in Testautomatisierung",
       "company": "PostFinance",
       "companyKey": "postfinance",
-      "location": "Niederurnen",
-      "canton": "GL",
+      "location": "Bern",
+      "canton": "BE",
       "country": "CH",
-      "slug": "kundenbetreuer-in-customer-center-postfinance",
+      "slug": "sviluppatore-in-test-automation-postfinance-bern",
       "sourceLang": "de",
       "department": [
-        "Verkauf und Kundenberatung"
+        "Informatik und Digital Services"
       ],
       "category": [
-        "Verkauf und Kundenberatung"
+        "Informatik und Digital Services"
       ],
-      "datePosted": "28.07.26",
-      "validThrough": "29.08.26",
+      "datePosted": "06.07.26",
+      "validThrough": "10.08.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "needsRetranslation": true,
+      "workload": "60-100%",
       "_targetScope": {
-        "canton": "GL",
-        "location": "Niederurnen"
+        "canton": "BE",
+        "location": "Bern"
       },
+      "id": "postfinance-6e993c44c784",
+      "firstSeenAt": "2026-07-27T22:10:24.138Z",
       "crawledAt": "",
-      "postedDate": "28.07.26",
-      "_qualityScore": 60,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "addressRegion": "BE",
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
-        "completeness": 11
+        "translation": 25,
+        "completeness": 14
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
