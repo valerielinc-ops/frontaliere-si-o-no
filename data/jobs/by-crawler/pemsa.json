@@ -58,7 +58,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T01:12:30.156Z"
+      "firstSeenAt": "2026-08-07T01:12:30.156Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "installation-of-ventilation-systems-pemsa-rivera"
+        ]
+      },
+      "previousSlugs": [
+        "installation-of-ventilation-systems-pemsa-rivera"
+      ]
     },
     {
       "title": "Installatore di impianti di riscaldamento VD",
@@ -231,7 +239,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-06T11:37:56.117Z"
+      "firstSeenAt": "2026-08-06T11:37:56.117Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Manovale edile",
@@ -2057,7 +2067,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-03T22:16:21.747Z"
+      "firstSeenAt": "2026-08-03T22:16:21.747Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Giardiniere paesaggista AFC / AFC (m/f/d)",
@@ -2240,7 +2252,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-03T22:16:21.747Z"
+      "firstSeenAt": "2026-08-03T22:16:21.747Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Imbianchino AFC / AEP (m/f/d)",
@@ -2297,7 +2311,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-03T22:16:21.747Z"
+      "firstSeenAt": "2026-08-03T22:16:21.747Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Installatore elettrico AFC / AEC (m/f/d)",
@@ -4715,7 +4731,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-30T11:22:37.420Z"
+      "firstSeenAt": "2026-07-30T11:22:37.420Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Progettista di ingegneria civile (M/F/D)",
@@ -4837,7 +4855,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-30T11:22:37.420Z"
+      "firstSeenAt": "2026-07-30T11:22:37.420Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Falegname/a ebanista di laboratorio",
@@ -11145,7 +11165,8 @@
         "designer-bim-dans-le-secteur-electrique-pemsa-geneve",
         "elektroprojektierer-pemsa-geneve"
       ],
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "IDRAULICO Impianti Sanitari",

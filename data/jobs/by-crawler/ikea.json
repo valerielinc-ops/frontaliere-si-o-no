@@ -1099,7 +1099,8 @@
         "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
         "ikea-cuisine-collaborateur-40-ikea-aubonne",
         "ikea-kuchenmitarbeiter-40-ikea-aubonne",
-        "ikea-kuchenbeitrag-40-ikea-aubonne"
+        "ikea-kuchenbeitrag-40-ikea-aubonne",
+        "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1109,7 +1110,8 @@
           "ikea-restaurant-kitchen-associate-20-ikea-vernier-geneve-switzerland",
           "mitarbeiter-in-restaurant-kuche-ikea-20-ikea-vernier-geneve-switzerland",
           "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
-          "ikea-cuisine-collaborateur-40-ikea-aubonne"
+          "ikea-cuisine-collaborateur-40-ikea-aubonne",
+          "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
         ],
         "de": [
           "ikea-kuchenmitarbeiter-40-ikea-aubonne",
@@ -1583,7 +1585,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "ikea-2a01ae57ed31",
@@ -2444,7 +2448,6 @@
           "mitarbeiter-in-ikea-bistro-schwedenshop-samstags-30-ikea-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-06T11:32:29.232Z",
       "salaryMin": 18600,
       "salaryMax": 28200,

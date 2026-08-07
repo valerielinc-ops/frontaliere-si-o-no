@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "stadler-rail-6e9873fbb4f7",
-      "slug": "lackierer-in-stadler-rail-ch",
+      "slug": "pittore-in-stadler-rail-altenrhein",
       "slugByLocale": {
         "de": "lackierer-in-stadler-rail-ch",
-        "it": "lackierer-in-stadler-rail-ch",
-        "en": "lackierer-in-stadler-rail-ch",
-        "fr": "lackierer-in-stadler-rail-ch"
+        "it": "pittore-in-stadler-rail-altenrhein",
+        "en": "painter-in-stadler-rail-altenrhein",
+        "fr": "peintre-stadler-rail-altenrhein"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -17,16 +17,16 @@
       "title": "Lackierer:in",
       "titleByLocale": {
         "de": "Lackierer:in",
-        "it": "Lackierer:in",
-        "en": "Lackierer:in",
-        "fr": "Lackierer:in"
+        "it": "pittore:in",
+        "en": "painter:in",
+        "fr": "peintre:"
       },
       "description": "Lackierer:in bei Stadler Rail in Altenrhein.\n\nStadler ist ein weltweit tätiger Schweizer Hersteller von Schienenfahrzeugen mit Hauptsitz in Bussnang (Kanton Thurgau). Das 1942 gegründete Unternehmen entwickelt und produziert Voll-, Regional- und S-Bahnen, Strassenbahnen, Lokomotiven sowie Zahnradbahnen und beschäftigt mehrere tausend Mitarbeitende in der Schweiz. Stadler bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in einem innovativen Schweizer Industrieunternehmen.",
       "descriptionByLocale": {
         "de": "Lackierer:in bei Stadler Rail in Altenrhein.\n\nStadler ist ein weltweit tätiger Schweizer Hersteller von Schienenfahrzeugen mit Hauptsitz in Bussnang (Kanton Thurgau). Das 1942 gegründete Unternehmen entwickelt und produziert Voll-, Regional- und S-Bahnen, Strassenbahnen, Lokomotiven sowie Zahnradbahnen und beschäftigt mehrere tausend Mitarbeitende in der Schweiz. Stadler bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in einem innovativen Schweizer Industrieunternehmen.",
-        "it": "Lackierer:in bei Stadler Rail in Altenrhein.\n\nStadler ist ein weltweit tätiger Schweizer Hersteller von Schienenfahrzeugen mit Hauptsitz in Bussnang (Kanton Thurgau). Das 1942 gegründete Unternehmen entwickelt und produziert Voll-, Regional- und S-Bahnen, Strassenbahnen, Lokomotiven sowie Zahnradbahnen und beschäftigt mehrere tausend Mitarbeitende in der Schweiz. Stadler bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in einem innovativen Schweizer Industrieunternehmen.",
-        "en": "Lackierer:in bei Stadler Rail in Altenrhein.\n\nStadler ist ein weltweit tätiger Schweizer Hersteller von Schienenfahrzeugen mit Hauptsitz in Bussnang (Kanton Thurgau). Das 1942 gegründete Unternehmen entwickelt und produziert Voll-, Regional- und S-Bahnen, Strassenbahnen, Lokomotiven sowie Zahnradbahnen und beschäftigt mehrere tausend Mitarbeitende in der Schweiz. Stadler bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in einem innovativen Schweizer Industrieunternehmen.",
-        "fr": "Lackierer:in bei Stadler Rail in Altenrhein.\n\nStadler ist ein weltweit tätiger Schweizer Hersteller von Schienenfahrzeugen mit Hauptsitz in Bussnang (Kanton Thurgau). Das 1942 gegründete Unternehmen entwickelt und produziert Voll-, Regional- und S-Bahnen, Strassenbahnen, Lokomotiven sowie Zahnradbahnen und beschäftigt mehrere tausend Mitarbeitende in der Schweiz. Stadler bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in einem innovativen Schweizer Industrieunternehmen."
+        "it": "pittore: a Stadler Rail ad Altenrhein.\n\nStadler è un produttore svizzero globale di veicoli ferroviari con sede a Bussnang (Canton di Thurgau). Fondata nel 1942, l'azienda sviluppa e produce ferrovie complete, regionali e S-Bahn, tram, locomotive e cog e impiega diverse migliaia di persone in Svizzera. Stadler offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di sviluppo in un'azienda industriale svizzera innovativa.",
+        "en": "painter: at Stadler Rail in Altenrhein.\n\nStadler is a globally active Swiss manufacturer of rail vehicles with headquarters in Bussnang (Canton of Thurgau). Founded in 1942, the company develops and produces full, regional and S-Bahns, trams, locomotives and cog railways and employs several thousand people in Switzerland. Stadler offers a modern working environment, attractive employment conditions and a wide range of development opportunities in an innovative Swiss industrial company.",
+        "fr": "peintre : à Stadler Rail à Altenrhein.\n\nStadler est un constructeur suisse actif mondial de véhicules ferroviaires dont le siège est à Bussnang (Canton de Thurgau). Fondée en 1942, la société développe et produit des S-Bahns, des tramways, des locomotives et des chemins de fer et emploie plusieurs milliers de personnes en Suisse. Stadler offre un environnement de travail moderne, des conditions d'emploi attrayantes et un large éventail de possibilités de développement dans une entreprise industrielle suisse innovante."
       },
       "location": "Altenrhein",
       "canton": "SG",
@@ -52,7 +52,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -65,7 +64,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T10:29:56.318Z"
+      "firstSeenAt": "2026-08-07T10:29:56.318Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lackierer-in-stadler-rail-ch"
+        ],
+        "en": [
+          "lackierer-in-stadler-rail-ch"
+        ],
+        "fr": [
+          "lackierer-in-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lackierer-in-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-ad270e23e431",
@@ -11585,7 +11598,6 @@
       "previousSlugs": [
         "projektleiter-in-fur-spezialfahrzeuge-im-italienischen-markt-stadler-rail-ch",
         "project-manager-per-veicoli-speciali-nel-mercato-italiano-stadler-rail-bussnang",
-        "responsabile-di-progetto-per-spezialfahrzeuge-im-italienischen-markt-stadler-rail-bussnang",
         "responsabile-di-progetto-auftragsabwicklung-spezialfahrzeuge-stadler-rail-bussnang",
         "project-manager-order-processing-special-vehicles-stadler-rail-bussnang",
         "projektleiter-in-auftragsabwicklung-spezialfahrzeuge-stadler-rail-ch",
@@ -11596,7 +11608,6 @@
         "it": [
           "projektleiter-in-fur-spezialfahrzeuge-im-italienischen-markt-stadler-rail-ch",
           "project-manager-per-veicoli-speciali-nel-mercato-italiano-stadler-rail-bussnang",
-          "responsabile-di-progetto-per-spezialfahrzeuge-im-italienischen-markt-stadler-rail-bussnang",
           "responsabile-di-progetto-auftragsabwicklung-spezialfahrzeuge-stadler-rail-bussnang",
           "project-manager-order-processing-special-vehicles-stadler-rail-bussnang",
           "projektleiter-in-auftragsabwicklung-spezialfahrzeuge-stadler-rail-ch",
@@ -11773,8 +11784,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-flottenbetreuung-stadler-rail-ch",
         "it": "collaboratore-trice-flottenbetreuung-stadler-rail-st-margrethen",
-        "en": "mitarbeiter-in-flottenbetreuung-stadler-rail-ch",
-        "fr": "mitarbeiter-in-flottenbetreuung-stadler-rail-ch"
+        "en": "associate-flottenbetreuung-stadler-rail-st-margrethen",
+        "fr": "collaborateur-trice-flottenbetreuung-stadler-rail-st-margrethen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -11789,9 +11800,9 @@
       "description": "PROFIL\n\n• Abgeschlossene Ausbildung als Fachmann Betriebsunterhalt oder eine vergleichbare handwerkliche Grundausbildung\n\n• Berufserfahrung im Facility Management oder in einem industriellen Umfeld\n\n• Selbständigkeit, hohe Zuverlässigkeit und Flexibilität, teamfähig, hilfsbereit, motiviert ehrlich und belastbar\n\n• Führerausweis Kategorie B (Kat. BE von Vorteil)\n\n• Gute Deutschkenntnisse (mind. Niveau B1)\n\nAUFGABEN\n\n• Übernahme sämtlicher infrastruktureller Aufgaben im Facility Management\n\n• Durchführung von ungeplanten Reparaturen am Rollmaterial (Züge)\n\n• Überwachung sowie regelmässige Instandhaltung von Gebäuden und Rollmaterial\n\n• Erstellung von Arbeitsrapporten, Schadensberichten und Materialbestellformularen\n\n• Koordination und Terminvereinbarung mit Drittfirmen sowie abteilungsübergreifenden Teams",
       "descriptionByLocale": {
         "de": "PROFIL\n\n• Abgeschlossene Ausbildung als Fachmann Betriebsunterhalt oder eine vergleichbare handwerkliche Grundausbildung\n\n• Berufserfahrung im Facility Management oder in einem industriellen Umfeld\n\n• Selbständigkeit, hohe Zuverlässigkeit und Flexibilität, teamfähig, hilfsbereit, motiviert ehrlich und belastbar\n\n• Führerausweis Kategorie B (Kat. BE von Vorteil)\n\n• Gute Deutschkenntnisse (mind. Niveau B1)\n\nAUFGABEN\n\n• Übernahme sämtlicher infrastruktureller Aufgaben im Facility Management\n\n• Durchführung von ungeplanten Reparaturen am Rollmaterial (Züge)\n\n• Überwachung sowie regelmässige Instandhaltung von Gebäuden und Rollmaterial\n\n• Erstellung von Arbeitsrapporten, Schadensberichten und Materialbestellformularen\n\n• Koordination und Terminvereinbarung mit Drittfirmen sowie abteilungsübergreifenden Teams",
-        "it": "PROFIL\n\n• Abgeschlossene Ausbildung als Fachmann Betriebsunterhalt oder eine vergleichbare handwerkliche Grundausbildung\n\n• Berufserfahrung im Facility Management oder in einem industriellen Umfeld\n\n• Selbständigkeit, hohe Zuverlässigkeit und Flexibilität, teamfähig, hilfsbereit, motiviert ehrlich und belastbar\n\n• Führerausweis Kategorie B (Kat. BE von Vorteil)\n\n• Gute Deutschkenntnisse (mind. Niveau B1)\n\nAUFGABEN\n\n• Übernahme sämtlicher infrastruktureller Aufgaben im Facility Management\n\n• Durchführung von ungeplanten Reparaturen am Rollmaterial (Züge)\n\n• Überwachung sowie regelmässige Instandhaltung von Gebäuden und Rollmaterial\n\n• Erstellung von Arbeitsrapporten, Schadensberichten und Materialbestellformularen\n\n• Koordination und Terminvereinbarung mit Drittfirmen sowie abteilungsübergreifenden Teams",
-        "en": "PROFIL\n\n• Abgeschlossene Ausbildung als Fachmann Betriebsunterhalt oder eine vergleichbare handwerkliche Grundausbildung\n\n• Berufserfahrung im Facility Management oder in einem industriellen Umfeld\n\n• Selbständigkeit, hohe Zuverlässigkeit und Flexibilität, teamfähig, hilfsbereit, motiviert ehrlich und belastbar\n\n• Führerausweis Kategorie B (Kat. BE von Vorteil)\n\n• Gute Deutschkenntnisse (mind. Niveau B1)\n\nAUFGABEN\n\n• Übernahme sämtlicher infrastruktureller Aufgaben im Facility Management\n\n• Durchführung von ungeplanten Reparaturen am Rollmaterial (Züge)\n\n• Überwachung sowie regelmässige Instandhaltung von Gebäuden und Rollmaterial\n\n• Erstellung von Arbeitsrapporten, Schadensberichten und Materialbestellformularen\n\n• Koordination und Terminvereinbarung mit Drittfirmen sowie abteilungsübergreifenden Teams",
-        "fr": "PROFIL\n\n• Abgeschlossene Ausbildung als Fachmann Betriebsunterhalt oder eine vergleichbare handwerkliche Grundausbildung\n\n• Berufserfahrung im Facility Management oder in einem industriellen Umfeld\n\n• Selbständigkeit, hohe Zuverlässigkeit und Flexibilität, teamfähig, hilfsbereit, motiviert ehrlich und belastbar\n\n• Führerausweis Kategorie B (Kat. BE von Vorteil)\n\n• Gute Deutschkenntnisse (mind. Niveau B1)\n\nAUFGABEN\n\n• Übernahme sämtlicher infrastruktureller Aufgaben im Facility Management\n\n• Durchführung von ungeplanten Reparaturen am Rollmaterial (Züge)\n\n• Überwachung sowie regelmässige Instandhaltung von Gebäuden und Rollmaterial\n\n• Erstellung von Arbeitsrapporten, Schadensberichten und Materialbestellformularen\n\n• Koordination und Terminvereinbarung mit Drittfirmen sowie abteilungsübergreifenden Teams"
+        "it": "PROFESSIONALE\n\n• Formazione completa come specialista in manutenzione o formazione artigianale comparabile\n\n• Esperienza professionale nella gestione delle strutture o in un ambiente industriale\n\n• Autooccupazione, elevata affidabilità e flessibilità, in grado di lavorare di squadra, disponibile, motivato onestamente e resilientemente\n\n• Categoria B (Advantage Categoria BE)\n\n• Buona conoscenza del tedesco (livello minimo B1)\n\nTASKS\n\n• Assumere tutti i compiti infrastrutturali nella gestione delle strutture\n\n• Attuazione delle riparazioni non pianificate sul materiale rotabile (treni)\n\n• Monitoraggio e manutenzione periodica degli edifici e del materiale rotabile\n\n• Preparazione delle relazioni di lavoro, dei rapporti di danno e dei moduli di ordine materiale\n\n• Accordo di coordinamento e di nomina con società di terze parti e team cross-departmental",
+        "en": "PROFILE\n\n• Completed training as a specialist in maintenance or comparable basic craft training\n\n• Professional experience in facility management or in an industrial environment\n\n• Self-employment, high reliability and flexibility, capable of teamwork, helpful, motivated honestly and resiliently\n\n• Category B (Advantage Category BE)\n\n• Good knowledge of German (minor level B1)\n\nTASKS\n\n• Taking over all infrastructural tasks in facility management\n\n• Implementation of unplanned repairs on rolling stock (trains)\n\n• Monitoring and regular maintenance of buildings and rolling stock\n\n• Preparation of work reports, damage reports and material order forms\n\n• Coordination and appointment agreement with third-party companies and cross-departmental teams",
+        "fr": "PROFIL\n\n• Formation complétée en tant que spécialiste de l'entretien ou formation de base comparable\n\n• Expérience professionnelle en gestion d'installations ou dans un environnement industriel\n\n• Travail indépendant, grande fiabilité et flexibilité, capable de travailler en équipe, utile, motivé honnêtement et résilient\n\n• Catégorie B (catégorie d'avantages BE)\n\n• Bonne connaissance de l'allemand (niveau B1)\n\nTÂCHES\n\n• Prise en charge de toutes les tâches d'infrastructure dans la gestion des installations\n\n• Réparations non prévues du matériel roulant (trains)\n\n• Surveillance et entretien régulier des bâtiments et du matériel roulant\n\n• Préparation des rapports de travail, des rapports de dommages et des formulaires d'ordre matériel\n\n• Accord de coordination et de nomination avec des sociétés tierces et des équipes interministérielles"
       },
       "location": "St. Margrethen",
       "canton": "SG",
@@ -11817,9 +11828,14 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-flottenbetreuung-stadler-rail-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-flottenbetreuung-stadler-rail-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-flottenbetreuung-stadler-rail-ch"
         ]
       },

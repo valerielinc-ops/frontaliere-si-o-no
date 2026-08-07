@@ -201,14 +201,12 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-dialyse-kantonsspital-aarau-ksa-aarau",
-        "infermiere-diplomato-infermiere-kantonsspital-aarau-ksa-aarau"
+        "dipl-pflegefachfrau-pflegefachmann-dialyse-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-          "dipl-pflegefachfrau-pflegefachmann-dialyse-kantonsspital-aarau-ksa-aarau",
-          "infermiere-diplomato-infermiere-kantonsspital-aarau-ksa-aarau"
+          "dipl-pflegefachfrau-pflegefachmann-dialyse-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9ztmqm"
@@ -859,7 +857,7 @@
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-2",
         "en": "dipl-nursing-specialist-nursing-specialist-hf-fh-with-ndk-monitoring-care-kantonsspital-aarau-ksa-aarau",
-        "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-9zut0b",
+        "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch",
         "fr": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-hf-fh-avec-suivi-ndk-kantonsspital-aarau-ksa"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -903,14 +901,16 @@
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-9zut0b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
         ],
         "de": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-9zut0b"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
@@ -1013,7 +1013,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9zvgm1",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2-9zvgm1"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -1061,8 +1061,7 @@
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-2767b3",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2-9zvgm1",
         "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2"
+        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1078,8 +1077,7 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2-9zvgm1",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2-9zvgm1"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
@@ -1886,7 +1884,6 @@
       "department": "Praktikum FA Berufsbildung",
       "previousSlugs": [
         "berufswahlpraktikum-dentalassistent-dentalassistentin-29-09-2026-ksa-ch",
-        "assistente-dentale-assistente-dentale-29-09-2026-kantonsspital-aarau-ksa-aarau",
         "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-23-07-2026-kantonsspital-aarau-ksa-aarau",
         "assistente-dentale-assistente-dentale-21-07-2026-kantonsspital-aarau-ksa-aarau",
         "vocational-elective-internship-dental-assistant-dental-assistant-21-07-2026-kantonsspital-aarau-ksa-aarau",
@@ -1911,7 +1908,6 @@
       "previousSlugsByLocale": {
         "it": [
           "berufswahlpraktikum-dentalassistent-dentalassistentin-29-09-2026-ksa-ch",
-          "assistente-dentale-assistente-dentale-29-09-2026-kantonsspital-aarau-ksa-aarau",
           "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-23-07-2026-kantonsspital-aarau-ksa-aarau",
           "assistente-dentale-assistente-dentale-21-07-2026-kantonsspital-aarau-ksa-aarau",
           "vocational-elective-internship-dental-assistant-dental-assistant-21-07-2026-kantonsspital-aarau-ksa-aarau",
@@ -2636,7 +2632,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkax",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2684,8 +2680,7 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-64caf8",
         "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2701,8 +2696,7 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -3937,7 +3931,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-6",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-6",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkas",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5-9ztkas"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3985,8 +3979,7 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5-9ztkas",
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-4b0cb4",
         "registered-nurse-nursing-specialist-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5"
+        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4002,8 +3995,7 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5-9ztkas",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5-9ztkas"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -4342,7 +4334,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9zu4ig",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4391,8 +4383,7 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-755135",
         "registered-nurse-nursing-specialist-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4409,8 +4400,7 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -4588,7 +4578,7 @@
       "slugByLocale": {
         "it": "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau",
         "en": "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau",
-        "de": "pflegeexpertin-pflegeexperte-ksa-ch-9ztkci",
+        "de": "pflegeexpertin-pflegeexperte-ksa-ch",
         "fr": "expert-en-soins-expert-en-soins-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -4632,7 +4622,8 @@
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
-        "pflegeexpertin-pflegeexperte-ksa-ch"
+        "pflegeexpertin-pflegeexperte-ksa-ch",
+        "pflegeexpertin-pflegeexperte-ksa-ch-9ztkci"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4642,7 +4633,8 @@
           "pflegeexpertin-pflegeexperte-ksa-ch"
         ],
         "de": [
-          "pflegeexpertin-pflegeexperte-ksa-ch"
+          "pflegeexpertin-pflegeexperte-ksa-ch",
+          "pflegeexpertin-pflegeexperte-ksa-ch-9ztkci"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -6384,7 +6376,7 @@
         "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
         "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau",
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
+        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -6455,8 +6447,7 @@
         ],
         "fr": [
           "med-praxissing-in-notfall-kantonsspital-aarau-ksa-aarau",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
@@ -7001,8 +6992,7 @@
           "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ],
         "de": [
-          "med-praxisassistent-in-ksa-ch",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+          "med-praxisassistent-in-ksa-ch"
         ],
         "en": [
           "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
@@ -7786,8 +7776,7 @@
           "betriebstechniker-in-kantonsspital-aarau-ksa-aarau"
         ],
         "de": [
-          "betriebstechniker-in-ksa-ch",
-          "betriebstechniker-in-kantonsspital-aarau-ksa-aarau"
+          "betriebstechniker-in-ksa-ch"
         ],
         "en": [
           "betriebstechniker-in-kantonsspital-aarau-ksa-aarau"
@@ -7820,8 +7809,8 @@
       "slugByLocale": {
         "de": "bma-hf-berufswahlpraktikum-fur-oberstufenschuler-innen-10-09-2026-ksa-ch",
         "it": "bma-hf-berufswahlpraktikum-per-oberstufenschuler-innen-10-09-2026-kantonsspital-aarau-ksa-aarau",
-        "en": "bma-hf-berufswahlpraktikum-fur-oberstufenschuler-innen-10-09-2026-ksa-ch",
-        "fr": "bma-hf-berufswahlpraktikum-fur-oberstufenschuler-innen-10-09-2026-ksa-ch"
+        "en": "bma-hf-vocational-elective-internship-for-high-school-students-10-09-2026-kantonsspital-aarau-ksa-aarau",
+        "fr": "bma-hf-stage-professionnel-au-choix-pour-les-lyceens-10-09-2026-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -7830,15 +7819,15 @@
       "titleByLocale": {
         "de": "BMA HF Berufswahlpraktikum für Oberstufenschüler/innen 10.09.2026",
         "it": "BMA HF Berufswahlpraktikum per Oberstufenschüler/innen 10.09.2026",
-        "en": "BMA HF Berufswahlpraktikum für Oberstufenschüler/innen 10.09.2026",
-        "fr": "BMA HF Berufswahlpraktikum für Oberstufenschüler/innen 10.09.2026"
+        "en": "BMA HF Vocational elective internship for high school students 10.09.2026",
+        "fr": "BMA HF Stage professionnel au choix pour les lycéens 10.09.2026"
       },
       "description": "Wir bieten dir während einem Tag einen spannenden ersten Einblick in die Berufswelt der biomedizinischen Analytiker/in HF. Interaktiv, praktisch und informativ ermöglichen wir dir das Schnuppern unseres Berufes am Kantonsspital Aarau in zwei Fachbereichen: Do, 10.09.2026 Fachbereich Mikrobiologie und Histologie Für das Berufswahlpraktikum kannst du dich als interessierte/r und wissbegierige/r Oberstufenschüler/in ab 14 Jahre hier bewerben. Bitte sende ein Motivationsschreiben, wieso du den Beruf Dipl. BMA HF am KSA schnuppern möchtest sowie einen aktuellen Lebenslauf und Schulzeugnis mit deiner Bewerbung ein. Die maximale Teilnehmerzahl beschränkt sich auf vier Schüler/innen pro Berufswahlpraktikum.",
       "descriptionByLocale": {
         "de": "Wir bieten dir während einem Tag einen spannenden ersten Einblick in die Berufswelt der biomedizinischen Analytiker/in HF. Interaktiv, praktisch und informativ ermöglichen wir dir das Schnuppern unseres Berufes am Kantonsspital Aarau in zwei Fachbereichen: Do, 10.09.2026 Fachbereich Mikrobiologie und Histologie Für das Berufswahlpraktikum kannst du dich als interessierte/r und wissbegierige/r Oberstufenschüler/in ab 14 Jahre hier bewerben. Bitte sende ein Motivationsschreiben, wieso du den Beruf Dipl. BMA HF am KSA schnuppern möchtest sowie einen aktuellen Lebenslauf und Schulzeugnis mit deiner Bewerbung ein. Die maximale Teilnehmerzahl beschränkt sich auf vier Schüler/innen pro Berufswahlpraktikum.",
-        "it": "Wir bieten dir während einem Tag einen spannenden ersten Einblick in die Berufswelt der biomedizinischen Analytiker/in HF. Interaktiv, praktisch und informativ ermöglichen wir dir das Schnuppern unseres Berufes am Kantonsspital Aarau in zwei Fachbereichen: Do, 10.09.2026 Fachbereich Mikrobiologie und Histologie Für das Berufswahlpraktikum kannst du dich als interessierte/r und wissbegierige/r Oberstufenschüler/in ab 14 Jahre hier bewerben. Bitte sende ein Motivationsschreiben, wieso du den Beruf Dipl. BMA HF am KSA schnuppern möchtest sowie einen aktuellen Lebenslauf und Schulzeugnis mit deiner Bewerbung ein. Die maximale Teilnehmerzahl beschränkt sich auf vier Schüler/innen pro Berufswahlpraktikum.",
-        "en": "Wir bieten dir während einem Tag einen spannenden ersten Einblick in die Berufswelt der biomedizinischen Analytiker/in HF. Interaktiv, praktisch und informativ ermöglichen wir dir das Schnuppern unseres Berufes am Kantonsspital Aarau in zwei Fachbereichen: Do, 10.09.2026 Fachbereich Mikrobiologie und Histologie Für das Berufswahlpraktikum kannst du dich als interessierte/r und wissbegierige/r Oberstufenschüler/in ab 14 Jahre hier bewerben. Bitte sende ein Motivationsschreiben, wieso du den Beruf Dipl. BMA HF am KSA schnuppern möchtest sowie einen aktuellen Lebenslauf und Schulzeugnis mit deiner Bewerbung ein. Die maximale Teilnehmerzahl beschränkt sich auf vier Schüler/innen pro Berufswahlpraktikum.",
-        "fr": "Wir bieten dir während einem Tag einen spannenden ersten Einblick in die Berufswelt der biomedizinischen Analytiker/in HF. Interaktiv, praktisch und informativ ermöglichen wir dir das Schnuppern unseres Berufes am Kantonsspital Aarau in zwei Fachbereichen: Do, 10.09.2026 Fachbereich Mikrobiologie und Histologie Für das Berufswahlpraktikum kannst du dich als interessierte/r und wissbegierige/r Oberstufenschüler/in ab 14 Jahre hier bewerben. Bitte sende ein Motivationsschreiben, wieso du den Beruf Dipl. BMA HF am KSA schnuppern möchtest sowie einen aktuellen Lebenslauf und Schulzeugnis mit deiner Bewerbung ein. Die maximale Teilnehmerzahl beschränkt sich auf vier Schüler/innen pro Berufswahlpraktikum."
+        "it": "Durante un giorno, vi offriamo una prima emozionante intuizione nel mondo professionale degli analisti biomedici in HF. Interattivo, pratico e informativo vi permettono di assaggiare la nostra professione presso l'Ospedale di Canton Aarau in due aree tematiche: Do, 10.09.2026 Facoltà di Microbiologia e Istologia Per lo stage professionale si può applicare qui come studente di scuola superiore interessato e inquisitivo da 14 anni. Si prega di inviare una lettera di motivazione, perché la professione Dipl. BMA HF al KSA vorrebbe sniffare in così come un CV corrente e un certificato di scuola con la vostra applicazione. Il numero massimo di partecipanti è limitato a quattro alunni per tirocinio professionale.",
+        "en": "During one day, we offer you an exciting first insight into the professional world of biomedical analysts in HF. Interactive, practical and informative we enable you to taste our profession at the Canton Hospital Aarau in two subject areas: Do, 10.09.2026 Faculty of Microbiology and Histology For the vocational internship you can apply here as an interested and inquisitive high school student from 14 years of age. Please send a letter of motivation, why you the profession Dipl. BMA HF at the KSA would like to sniff in as well as a current CV and school certificate with your application. The maximum number of participants is limited to four pupils per vocational internship.",
+        "fr": "Pendant une journée, nous vous offrons un premier aperçu du monde professionnel des analystes biomédicaux en HF. Interactive, pratique et informative, nous vous permettons de goûter notre profession à l'Hôpital de Canton Aarau dans deux domaines : Do, 10.09.2026 Faculté de Microbiologie et d'Histologie Pour le stage professionnel, vous pouvez postuler ici en tant qu'étudiant intéressé et curieux à partir de 14 ans. S'il vous plaît envoyez une lettre de motivation, pourquoi vous la profession Dipl. BMA HF à la KSA aimerait renifler ainsi qu'un CV et un certificat scolaire actuels avec votre demande. Le nombre maximal de participants est limité à quatre élèves par stage professionnel."
       },
       "location": "Aarau",
       "canton": "AG",
@@ -7865,9 +7854,14 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "bma-hf-berufswahlpraktikum-fur-oberstufenschuler-innen-10-09-2026-ksa-ch"
+        ],
+        "en": [
+          "bma-hf-berufswahlpraktikum-fur-oberstufenschuler-innen-10-09-2026-ksa-ch"
+        ],
+        "fr": [
           "bma-hf-berufswahlpraktikum-fur-oberstufenschuler-innen-10-09-2026-ksa-ch"
         ]
       },

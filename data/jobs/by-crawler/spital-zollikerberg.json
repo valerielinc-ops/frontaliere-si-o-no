@@ -128,8 +128,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum",
-        "old-age-center-hottingen-dipl-nursing-professional-dipl-nursing-specialist-spitex-old-age-centre-hottingen-spital",
-        "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-infermieristica-spitex-old-age-centre-hottingen-spital"
+        "old-age-center-hottingen-dipl-nursing-professional-dipl-nursing-specialist-spitex-old-age-centre-hottingen-spital"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -235,9 +234,9 @@
     },
     {
       "id": "spital-zollikerberg-58e3f3245760",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-zollikerberg-zollikerberg",
+      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-zollikerberg-zollikerberg",
+        "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-zollikerberg-zollikerberg",
         "en": "dipl-nursing-professional-dipl-nursing-professional-spital-zollikerberg-zollikerberg",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-zollikerberg-zollikerberg",
         "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-spital-zollikerberg-zollikerberg"
@@ -282,7 +281,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-zollikerberg-zollikerberg",
         "dipl-infermieristica-professionale-dipl-piscina-professionale-spital-zollikerberg-zollikerberg",
         "dipl-nursing-professional-dipl-care-professional-pool-spital-zollikerberg-zollikerberg",
         "dipl-pflegefachfrau-dipl-pflegefachmann-pool-spital-zollikerberg-zollikerberg",
@@ -291,7 +289,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-zollikerberg-zollikerberg",
           "dipl-infermieristica-professionale-dipl-piscina-professionale-spital-zollikerberg-zollikerberg",
           "dipl-nursing-professional-dipl-care-professional-pool-spital-zollikerberg-zollikerberg",
           "dipl-pflegefachfrau-dipl-pflegefachmann-pool-spital-zollikerberg-zollikerberg",
@@ -458,18 +455,14 @@
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "previousSlugs": [
         "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg",
-        "dipl-expert-dipl-experts-anesthesia-care-nds-hf-stationary-spital-zollikerberg-zollikerberg",
-        "dipl-esperto-dipl-esperti-anestesia-cura-nds-hf-stazionario-spital-zollikerberg-zollikerberg",
         "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg",
-          "dipl-esperto-dipl-esperti-anestesia-cura-nds-hf-stazionario-spital-zollikerberg-zollikerberg"
+          "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg"
         ],
         "en": [
           "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg",
-          "dipl-expert-dipl-experts-anesthesia-care-nds-hf-stationary-spital-zollikerberg-zollikerberg",
           "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg-zollikerberg"
         ],
         "fr": [
