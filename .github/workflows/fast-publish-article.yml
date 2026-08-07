@@ -72,7 +72,11 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: read
+  # `write` for the topic-sitemap commit below, and for that alone. The commit
+  # goes out with GITHUB_TOKEN, which by GitHub's anti-recursion rule triggers
+  # no workflow — so it does NOT start a deploy per fast publish (same property
+  # sync-articles-sitemaps.yml already relies on for its own public/ commits).
+  contents: write
   issues: write
 
 jobs:
@@ -328,6 +332,83 @@ jobs:
         if: steps.verify.outcome == 'success' && steps.verify.outputs.delayed != 'true'
         continue-on-error: true
         run: node scripts/publish-edge-files.mjs
+
+      # ── The topic hubs' own sitemap (#5001) ────────────────────────────────
+      #
+      # This job is the ONLY producer of the topic-hub pages: both article
+      # sections run BUILD_EMIT_SKIP=true, so the full build renders none of
+      # them ("served by fast-publish only", deploy.yml). Whoever writes the
+      # pages owes the claim about them — otherwise you get exactly what was
+      # live on 2026-08-07: 536 hub URLs answering 200 and named by no sitemap
+      # in the 86-entry index nor by robots.txt, while the leftover apex
+      # sitemap-topics.xml from the last pre-#5290 build still announced 36
+      # page-N URLs no shard had.
+      #
+      # Deliberately AFTER "Verify shard URLs are live": the file describes
+      # pages that must already be serving. Announcing first would be #5290
+      # again, one producer over.
+      #
+      # Two destinations, because they answer two different questions:
+      #   - R2 (EDGE_PUSHED_FILES) → what the crawler FETCHES. Live within the
+      #     5-min TTL, and purged immediately, so the list tracks the shards.
+      #   - public/ commit → what the crawler DISCOVERS. sitemapAliasPlugin
+      #     builds dist/sitemap.xml by discovering dist/sitemap-*.xml, and Vite
+      #     copies public/ into dist/ — so committing the file is what puts it
+      #     in the index that robots.txt already points at. No robots.txt entry
+      #     is added: an unconditional `Sitemap:` line would announce the file
+      #     whether or not anyone had produced it, which is the failure mode
+      #     this whole step exists to avoid.
+      #
+      # Fails open like every other post-push step here: the article is already
+      # live and the hubs are already pushed. A missed publish means the sitemap
+      # is one fast-publish behind, not that anything 404s.
+      - name: Publish + commit the topic-hub sitemap
+        if: steps.verify.outcome == 'success' && steps.verify.outputs.delayed != 'true'
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          SUMMARY_PATH=/tmp/fast-publish/summary.json
+          DIST_DIR=/tmp/fast-publish/dist
+          COUNT="$(jq '(.edgeFiles // []) | length' "$SUMMARY_PATH")"
+          if [ "$COUNT" -eq 0 ]; then
+            echo "No edge files in summary (topic-hub render produced no indexable hub) — nothing to publish"
+            exit 0
+          fi
+
+          pathname="$(jq -r '.edgeFiles[0].pathname' "$SUMMARY_PATH")"
+          dist_path="$(jq -r '.edgeFiles[0].distPath' "$SUMMARY_PATH")"
+          url_count="$(jq -r '.edgeFiles[0].urlCount' "$SUMMARY_PATH")"
+          echo "topic sitemap: $pathname — $url_count URL(s), all rendered and pushed by this run"
+
+          # 1. Edge: publish the RENDERED bytes, never a re-derivation.
+          node scripts/publish-edge-files.mjs --only="$pathname" --from-dir="$DIST_DIR" \
+            || echo "::warning::edge publish failed for $pathname — the previous R2 copy keeps serving"
+
+          # 2. Repo: same bytes into public/, so the next build's sitemap index
+          #    names the file. Skipped when byte-identical — a fast publish that
+          #    moved no hub must not spend a commit.
+          cp "$DIST_DIR/$dist_path" "public/$dist_path"
+          # `git status --porcelain`, not `git diff --quiet`: on the very first
+          # run the file is UNTRACKED, and `git diff` reports a clean tree for
+          # an untracked file — the check that looks obviously right would skip
+          # precisely the one commit that matters, forever.
+          if [ -z "$(git status --porcelain -- "public/$dist_path")" ]; then
+            echo "public/$dist_path unchanged — no commit"
+            exit 0
+          fi
+          git config user.name "Valerie Linc"
+          git config user.email "valerielinc@gmail.com"
+          git add -- "public/$dist_path"
+          git commit -q -m "🗺️ Topic-hub sitemap: $dist_path ($url_count URL)"
+          # Races every other writer to main, exactly like sync-articles-sitemaps.yml.
+          # --regenerate-cmd re-copies the rendered file after a conflicting
+          # rebase, so the retry publishes THIS run's render rather than
+          # replaying a snapshot that lost.
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "cp $DIST_DIR/$dist_path public/$dist_path && git add -- public/$dist_path" \
+            || echo "::warning::topic-sitemap commit did not land — the R2 copy above is already live; the index picks it up on a later run"
 
       # Google Indexing API AND IndexNow (Bing/Yandex), with the same verified
       # URL list. IndexNow is included deliberately: its normal driver
