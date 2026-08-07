@@ -13,7 +13,7 @@
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
   "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.",
-  "updatedAt": "2026-08-07T01:06:57.708Z",
+  "updatedAt": "2026-08-07T10:20:51.259Z",
   "seedMetaByUrl": {
     "https://careers.aristongroup.com/job/Langenfeld-KEY-ACCOUNT-MANAGEMENT-VENTILATION-%28MWD%29-IM-GEBIET-BADEN-W%C3%9CRTTEMBERG-Lang-40764/1224230001/": {
       "location": "Langenfeld (Rheinland), DE, 40764",
@@ -81,12 +81,6 @@
       "company": "Ariston Group",
       "postedDate": "2026-07-29"
     },
-    "https://careers.aristongroup.com/job/Bern-SERVICETECHNIKER-W%C3%84RMEPUMPEN-%28MW%29-Bern-3004/1402868933/": {
-      "location": "Bern, CH, 3004",
-      "canton": "BE",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-09"
-    },
     "https://careers.aristongroup.com/job/Maerstetten-TECNICO-DI-SERVIZIO-PER-IMPIANTI-DI-RISCALDAMENTO-A-GASOLIO-Beda-6930/1420717933/": {
       "location": "Bedano, CH, 6930",
       "canton": "TI",
@@ -99,23 +93,11 @@
       "company": "Ariston Group",
       "postedDate": "2026-07-11"
     },
-    "https://careers.aristongroup.com/job/Grosses-Fontaines-TECHNICIENNE-DE-SERVICE-MAZOUT-R%C3%89GION-NEUCH%C3%82TEL-Font-2046/1403021733/": {
-      "location": "Fontaines, CH, 2046",
-      "canton": "",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-09"
-    },
     "https://careers.aristongroup.com/job/Gerlafingen-TEAMLEITER-SERVICE-GAS-%28MW%29-Gerl-4563/1383520233/": {
       "location": "Gerlafingen, CH, 4563",
       "canton": "SO",
       "company": "Ariston Group",
       "postedDate": "2026-07-10"
-    },
-    "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-RE-REGION-GEN%C3%88VE-Gen%C3%A8-1202/1403027133/": {
-      "location": "Genève, CH, 1202",
-      "canton": "GE",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-09"
     },
     "https://careers.aristongroup.com/job/SALES-PROJECT-Sing-138538/1403158733/": {
       "location": "Singapore, SG, 138538",
@@ -158,6 +140,24 @@
       "canton": "VD",
       "company": "Ariston Group",
       "postedDate": "2026-07-14"
+    },
+    "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-RE-REGION-GEN%C3%88VE-Gen%C3%A8-1202/1403027133/": {
+      "location": "Genève, CH, 1202",
+      "canton": "GE",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-07"
+    },
+    "https://careers.aristongroup.com/job/Bern-SERVICETECHNIKER-W%C3%84RMEPUMPEN-%28MW%29-Bern-3004/1402868933/": {
+      "location": "Bern, CH, 3004",
+      "canton": "BE",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-07"
+    },
+    "https://careers.aristongroup.com/job/Grosses-Fontaines-TECHNICIENNE-DE-SERVICE-MAZOUT-R%C3%89GION-NEUCH%C3%82TEL-Font-2046/1403021733/": {
+      "location": "Fontaines, CH, 2046",
+      "canton": "",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-07"
     }
   }
 }
