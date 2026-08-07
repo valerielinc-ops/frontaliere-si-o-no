@@ -10,6 +10,7 @@ import react from '@vitejs/plugin-react';
 
 /* ── Custom build plugins (extracted for clarity) ─────────────── */
 import { buildIdPlugin } from './build-plugins/buildIdPlugin';
+import { seoBlogShardIndexPlugin, RESOLVED_SEO_BLOG_SHARD_INDEX_ID } from './build-plugins/seoBlogShardIndexPlugin';
 import { newsTickerDataPlugin } from './build-plugins/newsTickerDataPlugin';
 import { staticScriptsPlugin } from './build-plugins/staticScriptsPlugin';
 import { asyncCssPlugin } from './build-plugins/asyncCssPlugin';
@@ -155,6 +156,11 @@ export default defineConfig(({ mode }) => {
  // wrapper just returns them unchanged.
  ...react(),
  prepareOutDirPlugin(__dirname),
+ // Emits `virtual:seo-blog-shard-index` (blog-<id> → seo-blog shard ordinal).
+ // Core, not SEO-gated: services/seoService.ts imports the virtual module, so
+ // a FAST_BUILD that skipped this plugin would fail to resolve it. Costs one
+ // read of the eight seo-blog*.ts sources per build.
+ seoBlogShardIndexPlugin(__dirname),
  // ── Content-hash manifest DISABLED 2026-04-28 ────────────────
  // Was bootstrapping a SHA256 manifest used by WriteCollector to skip
  // writes for unchanged HTML across builds. Net ROI in this repo turned
@@ -752,6 +758,12 @@ export default defineConfig(({ mode }) => {
  return 'assets/[name]-[hash][extname]';
  },
  manualChunks(id) {
+ // Name the blog SEO shard index explicitly. Without this Rollup derives the
+ // filename from the virtual module id and emits `_virtual_seo-blog-shard-index.js`;
+ // chunk names are stable (no hash), so that spelling would become a permanent
+ // public URL. Still a standalone chunk either way — it is dynamic-only, imported
+ // by seoService just for `blog-*` keys.
+ if (id === RESOLVED_SEO_BLOG_SHARD_INDEX_ID) return 'seo-blog-shard-index';
  // Vendor chunks for node_modules
  if (id.includes('node_modules')) {
  // Keep React core separate so it's not pulled into vendor-charts by recharts
