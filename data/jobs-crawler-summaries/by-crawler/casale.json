@@ -1,55 +1,19 @@
 {
   "key": "casale",
   "label": "Casale SA",
-  "generatedAt": "2026-08-06T11:32:44.245Z",
+  "generatedAt": "2026-08-07T01:10:26.235Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 2136,
-  "avgDurationMs": 2136,
+  "unchangedCount": 1,
+  "durationMs": 2365,
+  "avgDurationMs": 2365,
   "durationHistory": [
-    2136
+    2365
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "url": "https://recruit.casale.ch/o/apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc",
-      "applyUrl": "https://recruit.casale.ch/o/apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc/c/new",
-      "title": "Apprenticeship - Laboratory Technician in Chemistry AFC – Chemical and Pharmaceutical Technologist AFC",
-      "company": "Casale SA",
-      "companyKey": "casale",
-      "location": "Lugano, Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giulio Pocobelli 6",
-      "slug": "apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc-casale-lugano",
-      "category": "engineering",
-      "datePosted": "2026-02-23",
-      "source": "casale-careers-crawler",
-      "sourceLang": "en",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Ingegneria / Chimica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "casale-7e2513dafd4a",
-      "firstSeenAt": "2026-04-13T21:19:25.409Z",
-      "_qualityScore": 83,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 15
-      }
-    },
     {
       "url": "https://recruit.casale.ch/o/expediter-1",
       "applyUrl": "https://recruit.casale.ch/o/expediter-1/c/new",
@@ -126,43 +90,6 @@
   "removedJobs": [],
   "unchangedJobs": [
     {
-      "url": "https://recruit.casale.ch/o/apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc",
-      "applyUrl": "https://recruit.casale.ch/o/apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc/c/new",
-      "title": "Apprenticeship - Laboratory Technician in Chemistry AFC – Chemical and Pharmaceutical Technologist AFC",
-      "company": "Casale SA",
-      "companyKey": "casale",
-      "location": "Lugano, Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giulio Pocobelli 6",
-      "slug": "apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc-casale-lugano",
-      "category": "engineering",
-      "datePosted": "2026-02-23",
-      "source": "casale-careers-crawler",
-      "sourceLang": "en",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Ingegneria / Chimica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "casale-7e2513dafd4a",
-      "firstSeenAt": "2026-04-13T21:19:25.409Z",
-      "needsRetranslation": true,
-      "_qualityScore": 83,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 15
-      }
-    },
-    {
       "url": "https://recruit.casale.ch/o/expediter-1",
       "applyUrl": "https://recruit.casale.ch/o/expediter-1/c/new",
       "title": "Expediter",
@@ -232,6 +159,47 @@
         "richness": 24,
         "translation": 25,
         "completeness": 15
+      }
+    },
+    {
+      "url": "https://recruit.casale.ch/o/apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc",
+      "applyUrl": "https://recruit.casale.ch/o/apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc/c/new",
+      "title": "Apprenticeship - Laboratory Technician in Chemistry AFC – Chemical and Pharmaceutical Technologist AFC",
+      "company": "Casale SA",
+      "companyKey": "casale",
+      "location": "Lugano, Ticino",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Via Giulio Pocobelli 6",
+      "slug": "apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc-casale-lugano",
+      "category": "engineering",
+      "datePosted": "2026-02-23",
+      "source": "casale-careers-crawler",
+      "sourceLang": "en",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Ingegneria / Chimica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "casale-7e2513dafd4a",
+      "firstSeenAt": "2026-04-13T21:19:25.409Z",
+      "salaryMin": 42640,
+      "salaryMax": 61000,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true,
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
       }
     }
   ]
