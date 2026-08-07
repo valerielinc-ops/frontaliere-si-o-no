@@ -9316,9 +9316,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.graffio-nella-barba-locarno-film-festival.title': 'The scratch on the beard of the artistic director at the Locarno Film Festival',
     'blog.article.graffio-nella-barba-locarno-film-festival.excerpt': 'In the soft and voluminous beard of the artistic director lies a declaration of intent for Swiss cinema, with investments increasing by 25% in 2025.',
     'blog.article.graffio-nella-barba-locarno-film-festival.imageAlt': 'Well-groomed beard of the artistic director at Locarno Film Festival in front of Piazza Grande',
-    'blog.article.caldo-torrido-lavoro-ticino.title': 'Work in the scorching heat in Ticino: Government opens new measures for workers',
-    'blog.article.caldo-torrido-lavoro-ticino.excerpt': 'UNIA, OCST, USS and VPOD trade unions meet the State Council: over 100 admissions to the emergency room due to the effects of the heat on Ticino workers',
-    'blog.article.caldo-torrido-lavoro-ticino.imageAlt': 'Construction workers resting in the shade during a heatwave in Ticino, near the Italian-Swiss border',
+    'blog.article.claudio-simonetti-monsieur-peur.title': 'Claudio simonetti, monsieur peur: the special pardo at the Locarno film festival',
+    'blog.article.claudio-simonetti-monsieur-peur.excerpt': 'Horror soundtrack composer awarded a special Pardo at the Locarno Film Festival for scoring the genre from Deep Red onwards',
+    'blog.article.claudio-simonetti-monsieur-peur.imageAlt': 'Claudio Simonetti conducting Profondo rosso score at Locarno Film Festival',
+    'blog.article.compatta-usata-frontalieri-varese-milano.title': 'Used SUV or compact: the smartest choice',
+    'blog.article.compatta-usata-frontalieri-varese-milano.excerpt': 'For border crossers Varese-Milan-Ticino, a used compact reduces operating costs and facilitates daily travel compared to an SUV, according to VareseNoi.it',
+    'blog.article.compatta-usata-frontalieri-varese-milano.imageAlt': 'Used compact car at Brogeda border crossing between Italy and Switzerland',
 };
 
 export default blogMetaEn;
