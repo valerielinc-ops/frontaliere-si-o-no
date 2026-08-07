@@ -32,7 +32,11 @@ import { Building2, Loader2, ArrowUpRight } from 'lucide-react';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
-import { cdnDataUrl } from '@/services/cdnDataBase';
+import {
+  employerHubPath,
+  employerOpenRolesLabel,
+  fetchEmployerHubCounts,
+} from '@/hooks/useEmployerHub';
 import { getLocale } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
@@ -75,7 +79,6 @@ interface PageStrings {
   saveError: string;
   unfollowAll: string;
   unfollowAllConfirm: string;
-  openRoles: (n: number) => string;
 }
 
 const STRINGS: Record<Locale, PageStrings> = {
@@ -98,7 +101,6 @@ const STRINGS: Record<Locale, PageStrings> = {
     saveError: 'Non sono riuscito a salvare la frequenza. Riprova.',
     unfollowAll: 'Smetti di seguire tutte',
     unfollowAllConfirm: 'Vuoi smettere di seguire tutte le aziende? Non riceverai piu\' queste email.',
-    openRoles: (n: number) => (n === 1 ? '1 annuncio attivo' : `${n} annunci attivi`),
   },
   en: {
     title: 'Companies I follow',
@@ -119,7 +121,6 @@ const STRINGS: Record<Locale, PageStrings> = {
     saveError: "Couldn't save the frequency. Please try again.",
     unfollowAll: 'Stop following all',
     unfollowAllConfirm: 'Stop following every company? You will no longer receive these emails.',
-    openRoles: (n: number) => (n === 1 ? '1 open role' : `${n} open roles`),
   },
   de: {
     title: 'Meine gefolgten Unternehmen',
@@ -140,7 +141,6 @@ const STRINGS: Record<Locale, PageStrings> = {
     saveError: 'Die Frequenz konnte nicht gespeichert werden. Bitte erneut versuchen.',
     unfollowAll: 'Allen nicht mehr folgen',
     unfollowAllConfirm: 'Allen Unternehmen nicht mehr folgen? Du erhaeltst diese E-Mails dann nicht mehr.',
-    openRoles: (n: number) => (n === 1 ? '1 offene Stelle' : `${n} offene Stellen`),
   },
   fr: {
     title: 'Mes entreprises suivies',
@@ -161,7 +161,6 @@ const STRINGS: Record<Locale, PageStrings> = {
     saveError: 'Impossible d\'enregistrer la fréquence. Réessayez.',
     unfollowAll: 'Ne plus suivre aucune',
     unfollowAllConfirm: 'Ne plus suivre aucune entreprise ? Vous ne recevrez plus ces e-mails.',
-    openRoles: (n: number) => (n === 1 ? '1 offre active' : `${n} offres actives`),
   },
 };
 
@@ -181,14 +180,6 @@ export function companyLabelFromSlug(slug: string): string {
     .join(' ');
 }
 
-/**
- * `/aziende/<slug>/` — ONE literal segment for every locale (see
- * services/companyAlertEmail.mjs and build-plugins/employerProfilePagesPlugin.ts).
- */
-export function companyHubPath(slug: string, locale: Locale): string {
-  const prefix = locale === 'it' ? '' : `/${locale}`;
-  return `${prefix}/aziende/${encodeURIComponent(slug)}/`;
-}
 
 /**
  * Segmented cadence picker for one followed employer.
@@ -248,11 +239,11 @@ export const FollowedCompaniesPage: React.FC = () => {
   const [jobCounts, setJobCounts] = useState<Record<string, number> | null>(null);
   useEffect(() => {
     let cancelled = false;
-    fetch(cdnDataUrl('/data/employer-job-counts.json'))
-      .then((r) => (r.ok ? r.json() : null))
-      .then((data) => {
-        if (!cancelled && data && typeof data === 'object') setJobCounts(data as Record<string, number>);
-      })
+    // `fetchEmployerHubCounts` is the ONE reader of that map (hooks/useEmployerHub.ts),
+    // module-cached: the job-detail surfaces that link the hub already warmed it,
+    // so arriving here from a CompanyAlert email usually costs no request at all.
+    fetchEmployerHubCounts()
+      .then((data) => { if (!cancelled && data) setJobCounts(data); })
       .catch(() => { /* decorative — a missing count is not an error state */ });
     return () => { cancelled = true; };
   }, []);
@@ -428,7 +419,7 @@ export const FollowedCompaniesPage: React.FC = () => {
                       <div className="min-w-0">
                         <p className="text-sm font-semibold text-heading truncate">{companyLabelFromSlug(slug)}</p>
                         {typeof jobCounts?.[slug] === 'number' && (
-                          <p className="text-xs text-muted">{S.openRoles(jobCounts[slug])}</p>
+                          <p className="text-xs text-muted">{employerOpenRolesLabel(jobCounts[slug], locale)}</p>
                         )}
                       </div>
                     </div>
@@ -459,7 +450,7 @@ export const FollowedCompaniesPage: React.FC = () => {
                   onChange={(next) => void handleCadence(alert, next)}
                 />
                 <a
-                  href={companyHubPath(slug, locale)}
+                  href={employerHubPath(slug, locale)}
                   className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-accent hover:underline"
                 >
                   {S.viewJobs}

@@ -1089,11 +1089,15 @@ describe('the three deferred items (#5012 — closing the «Non implementato» l
     expect(plugin).toContain("np.join(distDir, 'data')");
 
     const page = readRepoFile('components/pages/FollowedCompaniesPage.tsx');
-    expect(page).toContain("cdnDataUrl('/data/employer-job-counts.json')");
+    // The reader of that map lives in hooks/useEmployerHub.ts — one fetch, one
+    // cache, shared with the job surfaces that link the hub. This page consumes
+    // it instead of opening a second one.
+    expect(page).toContain('fetchEmployerHubCounts()');
+    expect(readRepoFile('hooks/useEmployerHub.ts')).toContain("'/data/employer-job-counts.json'");
     // Decorative: a failed fetch must not become an error state on a page whose
     // job is letting people unsubscribe.
     expect(page).toContain('.catch(() => {');
-    expect(page).toContain('S.openRoles(jobCounts[slug])');
+    expect(page).toContain('employerOpenRolesLabel(jobCounts[slug], locale)');
   });
 
   it('the email\'s manage link deep-links to the page that manages follows', () => {

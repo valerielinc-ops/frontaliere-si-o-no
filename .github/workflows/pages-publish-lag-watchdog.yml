@@ -15,6 +15,17 @@ name: Pages Publish-Lag Watchdog
 # scheduled cron, dedup issue on degraded (scripts/lib/github-issue-creator.mjs
 # stable-title dedup), auto-resolve on recovery, self-alert if the monitor
 # itself crashes instead of taking the intentional degraded path.
+#
+# It also ACTS, not only reports (added 2026-08-07). Deploy-starvation as
+# described above is self-limiting — the queue drains as soon as arrivals slow
+# down. There is a second, non-self-limiting failure in the same group: a
+# publish run parked at the `github-pages` environment gate holds `pages-deploy`
+# with no deadline of any kind, and `cancel-in-progress: false` means GitHub
+# will never evict it. Run 31118787881 held it for 14 h on 2026-08-06 while
+# 31119921972 sat pending 7 h 13 m without starting a job, and deploy-publish.yml
+# went 0-for-300 runs / ten days without a success. The unwedge step below
+# cancels exactly that state — runs in status `waiting`, nothing else — so the
+# stall is bounded by this cron instead of by someone noticing.
 
 on:
   schedule:
@@ -31,8 +42,13 @@ concurrency:
 
 permissions:
   contents: read
-  deployments: read # /deployments + /deployments/{id}/statuses (see deploy-publish.yml:L61)
+  deployments: read # /deployments + /deployments/{id}/statuses (same read as the
+                    # `deployments: read` on deploy-publish.yml's `deploy` job)
   issues: write
+  actions: write # list deploy-publish runs + POST /actions/runs/{id}/cancel (unwedge step).
+                 # `read` is not enough: cancelling is a write. Scoped by the script
+                 # itself, which only ever addresses deploy-publish.yml runs whose
+                 # status is `waiting`.
 
 jobs:
   watchdog:
@@ -46,6 +62,23 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: '22'
+
+      # Runs BEFORE the lag check, on purpose. Cancelling a wedged run frees
+      # `pages-deploy` so the newest pending publish can start immediately,
+      # rather than waiting for the next hourly tick. It does NOT change what
+      # the lag check then reports: lag is measured from the last SUCCESSFUL
+      # github-pages deployment, which a cancellation cannot advance — so a
+      # wedge that has already cost hours still opens its issue, and only the
+      # next tick (once a publish has actually landed) resolves it. Unwedging
+      # silently instead would hide a recurring GitHub-side fault.
+      #
+      # continue-on-error: this step must never be able to suppress the lag
+      # check. A crash here surfaces as an ::error:: annotation from the script.
+      - name: Unwedge the pages-deploy queue (cancel runs stuck at the environment gate)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/ci/unwedge-pages-deploy-queue.mjs
 
       - name: Check publish lag
         id: check
