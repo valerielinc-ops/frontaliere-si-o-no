@@ -9321,6 +9321,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.compatta-usata-frontalieri-varese-milano.title': 'Gebrauchtes SUV oder Kompakt: die klügste Wahl',
     'blog.article.compatta-usata-frontalieri-varese-milano.excerpt': 'Für Grenzgänger Varese-Mailand-Tessin senkt ein gebrauchtes Kompaktfahrzeug die Betriebskosten und erleichtert die tägliche Fortbewegung im Vergleich zu einem SUV, so VareseNoi.it',
     'blog.article.compatta-usata-frontalieri-varese-milano.imageAlt': 'Gebrauchter Kompaktwagen an der Grenzkontrolle Brogeda',
+    'blog.article.caldo-lavoro-frontalieri-ticino.title': 'Hitze und Arbeit: Gewerkschaften treffen Tessiner Regierung',
+    'blog.article.caldo-lavoro-frontalieri-ticino.excerpt': 'Gewerkschaften UNIA, OCST, SGB und VPOD fordern auf wissenschaftlichen Indizes basierende Interventionsschwellen zum Schutz der Arbeitnehmer bei Hitzewellen im Tessin',
+    'blog.article.caldo-lavoro-frontalieri-ticino.imageAlt': 'Bauarbeiter im Schatten während einer Hitzewelle in Lugano, Tessiner',
 };
 
 export default blogMetaDe;
