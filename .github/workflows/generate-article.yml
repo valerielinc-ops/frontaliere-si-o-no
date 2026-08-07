@@ -11,6 +11,31 @@ on:
       # during the observation window if the nanako side needs to be compared
       # against it. Re-enabling means deleting these comment markers; it is not
       # a code change, which is what makes the rollback cheap.
+      #
+      # ── #5289: "by hand" was never ENFORCED ─────────────────────────────
+      # Commenting out `schedule:` closed one door and left two open, because
+      # `workflow_dispatch` is not the same thing as "a human". On 2026-08-06
+      # at 09:51:54Z `refresh-bfs-stats.yml` detected a new BFS quarter
+      # (2026-Q1 → 2026-Q2) and ran `gh workflow run generate-article.yml`.
+      # That one dispatch re-lit the producer, and because the last step of
+      # this job dispatches ITSELF, the chain then ran unattended for ~22h
+      # (~20 runs) writing packages/articles/content/ — exactly the two-writer
+      # state the comment above says the migration exists to remove.
+      #
+      # What it cost, measured: five articles were committed here between
+      # 2026-08-06 10:28 and 2026-08-07 05:35. None of them exists in nanako's
+      # corpus, so `scripts/pull-articles-corpus.mjs` saw a downstream tree
+      # LARGER than upstream and refused (its shrink guard doing its job) —
+      # which froze the sitemap sync and left tests/blog-slugs-sitemap-sync.ts
+      # red on main itself, blocking every PR in the repo. Then, once nanako
+      # published enough new articles for the counts to cross back over, the
+      # pull succeeded and its mirrorTree DELETED all five. They are still
+      # live (HTTP 200) with no corpus entry behind them.
+      #
+      # So the guard below makes "by hand" explicit: the job only runs when
+      # the dispatcher passes confirm_corpus_write=yes. The self-trigger step
+      # does not pass it (see "Self-trigger next run" at the bottom), so a
+      # chain cannot restart itself, and neither can another workflow.
   # schedule:  # DISABLED AT CUTOVER — see above
   # # Every 30 minutes.  Body expansion is now capped at 600 words/field
   # # and translation uses dynamic maxTokens + sub-chunking, so free-tier
@@ -19,6 +44,11 @@ on:
   # - cron: '7,37 * * * *'
   workflow_dispatch:
     inputs:
+      confirm_corpus_write:
+        description: 'CUTOVER GUARD (#5289) — the corpus is owned by nanakokyobashi-rgb/frontaliere-articles. Type "yes" to let this retired producer write packages/articles/content/ anyway. Anything else and the job is skipped. Automation must NOT set this.'
+        required: false
+        type: string
+        default: ''
       url:
         description: 'Optional: specific article URL to generate from (leave empty for auto-scan)'
         required: false
@@ -61,8 +91,52 @@ permissions:
   issues: write
 
 jobs:
+  # Fires on exactly the dispatches the guard turns away, so a blocked run is
+  # a run that SAYS it was blocked. A skipped job with no explanation reads as
+  # "the workflow is broken" — which is how the 2026-08-06 chain went 22h
+  # unnoticed in the first place, from the opposite direction.
+  cutover-notice:
+    if: github.event.inputs.confirm_corpus_write != 'yes'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Explain why nothing was generated
+        run: |
+          {
+            echo "## 🚫 Generazione saltata — questo produttore e' in pensione (#4974 item 3)"
+            echo ""
+            echo "Gli articoli **nascono in \`nanakokyobashi-rgb/frontaliere-articles\`** dal cutover"
+            echo "del 2026-08-02. Questo workflow scrive \`packages/articles/content/\`, che a valle"
+            echo "e' una **copia** rifatta da \`scripts/pull-articles-corpus.mjs\` a ogni sync: cio'"
+            echo "che nasce qui non risale a monte, blocca il sync (guardia anti-shrink) e viene"
+            echo "poi cancellato dal primo sync che riesce. Cinque articoli hanno fatto"
+            echo "esattamente quel giro il 2026-08-06/07 — vedi #5289."
+            echo ""
+            echo "| | |"
+            echo "|---|---|"
+            echo "| Trigger | \`${{ github.event_name }}\` |"
+            echo "| Chi ha lanciato | \`${{ github.triggering_actor }}\` |"
+            echo "| \`confirm_corpus_write\` | \`${{ github.event.inputs.confirm_corpus_write || '(non passato)' }}\` |"
+            echo ""
+            echo "**Se sei un umano e lo vuoi davvero** (confronto contro nanako nella finestra"
+            echo "di osservazione), rilancia passando \`confirm_corpus_write=yes\`:"
+            echo ""
+            echo '```'
+            echo "gh workflow run generate-article.yml --ref main -f confirm_corpus_write=yes"
+            echo '```'
+            echo ""
+            echo "L'automazione non deve passarlo: e' il flag che distingue «a mano» da «da sola»."
+          } >> "$GITHUB_STEP_SUMMARY"
+
   generate:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    # `confirm_corpus_write == 'yes'` is the cutover guard (#5289). It is an
+    # input, not a check on the actor, on purpose: `refresh-bfs-stats.yml` and
+    # this job's own self-trigger both dispatch as the same App identity a
+    # human would use through `gh`, so no actor test can separate them. An
+    # input can only arrive from whoever typed it.
+    if: >-
+      github.event.inputs.confirm_corpus_write == 'yes'
+      && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
     # Opt-in self-hosted routing. Defaults to GitHub-hosted, so nothing breaks if
     # no self-hosted runner exists. Set repo variable ARTICLE_RUNNER=self-hosted
     # (or dispatch with runner=self-hosted) once an Oracle-free-VM runner with the
@@ -984,6 +1058,13 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
+      # Note (#5289): this dispatch CANNOT carry `confirm_corpus_write`.
+      # trigger-self.sh builds its payload from a fixed shape — retry_count,
+      # no_changes_streak, section, url — so a chain started by hand runs
+      # exactly once more and then stops at the guard above. That is the
+      # intended shape: one authorized run is one article, not a producer.
+      # If you ever add a passthrough here, you have re-created the two-writer
+      # state that cost five orphaned articles and a repo-wide merge block.
       - name: Self-trigger next run
         if: steps.decide_trigger.outputs.should_trigger == 'true'
         continue-on-error: true
