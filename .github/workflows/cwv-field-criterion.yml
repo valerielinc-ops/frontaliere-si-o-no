@@ -1,0 +1,204 @@
+name: CWV Field Criterion (#5001)
+
+# Reads the FIELD acceptance criterion for issue #5001 and reports whether it is
+# met. This is the gate that decides whether #5001 can close; the Lighthouse
+# workflow (lighthouse-ci.yml) is the lab anti-regression guard and decides
+# nothing about closure.
+#
+# WHY THIS EXISTS SEPARATELY FROM cwv-monitor.yml
+# ----------------------------------------------
+# cwv-monitor.yml watches the #4302 money-page list via PostHog `$web_vitals`.
+# PostHog ingestion stopped on 2026-07-23 — every event type fell from ~90-100k
+# a day to under 30 — and data/cwv-monitor-history.json duly recorded `n=0` for
+# all nine pages on 2026-08-05 without anything going red. That monitor is
+# blind and cannot currently answer "is the criterion met".
+#
+# This workflow reads CrUX instead: the source Google itself ranks on, publicly
+# available, independent of the site's own telemetry pipeline. It cannot be
+# starved by a billing cap or a broken emitter.
+#
+# ISSUE POLICY — deliberately narrow, so this never becomes noise:
+#   - criterion NOT MET      -> NO issue. That is the known standing state and
+#                               #5001 already tracks it. Opening an issue every
+#                               week for a five-month project is how a signal
+#                               gets muted.
+#   - watchlist URL drifting -> issue. A tracked page rotting past its own
+#                               baseline is new information.
+#   - no data / API failure  -> issue. Blindness must be loud; that is the exact
+#                               failure that let the PostHog monitor log nulls
+#                               for two weeks unnoticed.
+# Every run writes the full reading to the job summary regardless, so the
+# history is durable and free.
+#
+# Zero-Claude (plain node + gh), per the frugality rules in AGENTS.md.
+
+on:
+  schedule:
+    # Weekly, Thursday 07:55 UTC. CrUX refreshes daily but each reading is a
+    # trailing 28-day window, so a daily run would mostly re-report the same
+    # number. Placed clear of the other 07:xx crons (cwv-monitor Wednesday
+    # 07:40, posthog-error-monitor Tuesday 07:25).
+    - cron: '55 7 * * 4'
+  workflow_dispatch:
+
+concurrency:
+  group: cwv-field-criterion
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  criterion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        # load-rc-env.mjs needs firebase-admin to read Remote Config; the
+        # checker itself only uses node built-ins + fetch.
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load RC secrets
+        # Provides PAGESPEED_API_KEY (the CrUX API key).
+        run: node scripts/load-rc-env.mjs
+
+      - name: Read the field criterion
+        id: check
+        # ONE invocation produces both outputs: markdown on stdout and the
+        # machine-readable report via --json-out. Calling the script twice would
+        # double every CrUX request against a shared PAGESPEED_API_KEY (also used
+        # by lighthouse-ci.yml, post-deploy-validate-live.yml and
+        # scripts/audit-cls-live.mjs) for no benefit.
+        #
+        # Exit 1 means "criterion not met", which is the expected state and must
+        # not fail the job. Exit 2 means "no verdict" and is handled below.
+        run: |
+          set +e
+          node scripts/check-cwv-field-criterion.mjs --markdown --json-out /tmp/criterion.json \
+            > /tmp/criterion.md 2>/tmp/criterion.err
+          code=$?
+          set -e
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          {
+            echo "## Criterio di campo #5001"
+            echo ""
+            cat /tmp/criterion.md 2>/dev/null || true
+            if [ -s /tmp/criterion.err ]; then echo ""; echo '```'; cat /tmp/criterion.err; echo '```'; fi
+          } >> "$GITHUB_STEP_SUMMARY"
+          cat /tmp/criterion.md 2>/dev/null || true
+          cat /tmp/criterion.err 2>/dev/null || true
+
+      - name: Count watchlist drift
+        id: json
+        if: steps.check.outputs.code != '2'
+        # No `|| echo 0` fallback. If the report is missing or malformed this step
+        # FAILS, which surfaces as a red job and the "Report failure" reporter
+        # below. Defaulting to 0 would mean a real watchlist regression goes
+        # unreported with no signal — the same silent blindness this workflow
+        # exists to eliminate.
+        run: |
+          set -euo pipefail
+          drift=$(node -e "
+            const { readFileSync } = require('node:fs');
+            const r = JSON.parse(readFileSync('/tmp/criterion.json', 'utf8'));
+            if (!Array.isArray(r.watchlist)) throw new Error('report has no watchlist array');
+            console.log(r.watchlist.filter(w => w.available && w.drift && w.drift.length).length);
+          ")
+          echo "drift=$drift" >> "$GITHUB_OUTPUT"
+          echo "watchlist entries drifting: $drift"
+
+      # Blindness → loud. The whole point of exit 2.
+      - name: Open issue when the field data cannot be read
+        if: steps.check.outputs.code == '2'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "CWV field criterion unreadable (#5001 gate blind)" \
+            --priority 2 \
+            --label funnel-seo \
+            --workflow "CWV Field Criterion" \
+            --reopen-within-hours 24 \
+            --description "\`scripts/check-cwv-field-criterion.mjs\` exited 2 — it could not obtain a CrUX reading, so **the acceptance criterion for #5001 currently has no verdict**.
+
+          This is reported as an issue on purpose. The precedent is \`cwv-monitor.yml\`, which kept recording \`n=0\` into \`data/cwv-monitor-history.json\` for every page after PostHog ingestion stopped on 2026-07-23 and never went red — two weeks of blindness that looked exactly like two weeks of silence.
+
+          **Run:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          **Likely causes:** \`PAGESPEED_API_KEY\` missing/expired in Remote Config, CrUX API quota, or the origin dropping below the CrUX reporting threshold. Check the run log for the HTTP status."
+
+      # A tracked page rotting past its own baseline is new information.
+      - name: Open issue on watchlist drift
+        if: steps.check.outputs.code != '2' && steps.json.outputs.drift != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          BODY=$(cat /tmp/criterion.md)
+          node scripts/lib/github-issue-creator.mjs \
+            --title "CWV field regression on a tracked page (#5001 watchlist)" \
+            --priority 2 \
+            --label funnel-monetization \
+            --label funnel-seo \
+            --workflow "CWV Field Criterion" \
+            --reopen-within-hours 168 \
+            --description "One or more pages on the #5001 watchlist have drifted more than 15% above their 2026-08-07 CrUX baseline.
+
+          $BODY
+
+          **Run:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          **Why it matters (funnel):** CLS gates AdSense RPM and INP is what users actually feel on the job-search templates, which carry 56% of mobile organic clicks. Fix the page, or re-baseline deliberately in \`scripts/check-cwv-field-criterion.mjs\` with the reason written down."
+
+      - name: Resolve the drift issue when the watchlist is clean again
+        if: steps.check.outputs.code != '2' && steps.json.outputs.drift == '0'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --resolve \
+            --title "CWV field regression on a tracked page (#5001 watchlist)" \
+            --workflow "CWV Field Criterion" \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 3 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

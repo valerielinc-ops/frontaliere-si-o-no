@@ -181,7 +181,10 @@ function describeElement(el: Element): string {
 function logMobileUx(action: string, params: Record<string, string | number>): void {
  if (!isAnalyticsGranted()) return;
  import('@/services/analytics').then(({ Analytics }) => {
- (Analytics as any).log?.('mobile_ux', {
+ // Same silent no-op as services/webVitals.ts: `(Analytics as any).log?.(…)`
+ // resolved to undefined, so GA4 received 0 `mobile_ux` events in 90 days.
+ // Typed call — a future rename breaks the build, not the telemetry.
+ Analytics.log('mobile_ux', {
  action,
  device_type: getDeviceType(),
  screen_width: window.innerWidth || 0,

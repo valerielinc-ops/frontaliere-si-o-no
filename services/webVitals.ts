@@ -100,7 +100,11 @@ function sendToGA4(metric: WebVitalMetric) {
  const attribution = getMetricAttribution(metric);
 
  import('@/services/analytics').then(({ Analytics }) => {
- (Analytics as any).log?.('web_vitals', {
+ // Typed, non-optional call. This was `(Analytics as any).log?.(…)`, and
+ // because `Analytics` exposed no `log` the `?.` swallowed every event:
+ // GA4 received 0 `web_vitals` in 90 days. Keeping it typed means the next
+ // time the member moves, the build fails instead of the data disappearing.
+ Analytics.log('web_vitals', {
  metric_name: metric.name,
  metric_value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
  metric_rating: metric.rating,
