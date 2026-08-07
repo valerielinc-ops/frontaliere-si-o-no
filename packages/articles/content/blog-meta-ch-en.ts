@@ -1909,6 +1909,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.title': 'Cantonal tax comparison Switzerland 2026 canton Basel',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.excerpt': '2026 comparison of cantonal rates in Switzerland: focus on Basel with data on AD/AC 1.1%, LAINF 0.7-1.5%, LPP 7–18% and border deductibles €10,000.',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.imageAlt': 'Aerial view of Basel on the Rhine river with office buildings and traditional Swiss architecture',
+    'blog.article.rimborsi-730-sostituti-imposta.title': 'Refunds 730: now also compensable with substitute taxes in F24',
+    'blog.article.rimborsi-730-sostituti-imposta.excerpt': 'According to what was communicated in May 2026, tax substitutes can recover refunds from the 730 model by offsetting them in F24 also with some substitute taxes on salaries',
+    'blog.article.rimborsi-730-sostituti-imposta.imageAlt': 'Italian cross-border worker reviewing tax documents in Lugano office',
 };
 
 export default blogMetaChEn;
