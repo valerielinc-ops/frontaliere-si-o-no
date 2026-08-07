@@ -46,6 +46,35 @@ let cached: Record<string, number> | null = null;
 let inFlight: Promise<Record<string, number>> | null = null;
 
 /**
+ * Keep only finite positive view counts.
+ *
+ * WHY, and why HERE. Before #5313 this map was a build-time JSON import: its
+ * values were whatever the repo had committed, i.e. trusted. Fetching it makes
+ * it an EXTERNAL payload, and a truthy non-numeric value (a string from a
+ * corrupted/partial CDN object) survives every existing downstream guard:
+ * `getTrendingByLocation` filters on `popularity[slug]` being truthy, then
+ * sorts with `b.views - a.views` → NaN, which makes the comparator inconsistent
+ * and the "top 4" arbitrary; `TrendingSection` would render the raw value.
+ * Both consumers would fail SOFTLY and wrongly instead of loudly.
+ *
+ * Sanitising at the loader boundary fixes every consumer at one point rather
+ * than hardening each of them separately. Cost: one pass over ~49k entries,
+ * ~5 ms, and it runs at idle — off the critical path by construction.
+ *
+ * Dropping (rather than coercing to 0) is deliberate: a job with an unusable
+ * count must be invisible to `getTrendingByLocation`, whose own contract is
+ * "only jobs WITH popularity data" — a 0 would still be a key in the map.
+ */
+function sanitize(raw: Record<string, unknown>): Record<string, number> {
+  const out: Record<string, number> = {};
+  for (const key of Object.keys(raw)) {
+    const v = raw[key];
+    if (typeof v === 'number' && Number.isFinite(v) && v > 0) out[key] = v;
+  }
+  return out;
+}
+
+/**
  * Load the popularity map. Cached after the first successful load; concurrent
  * callers share one request. Never throws.
  */
@@ -61,7 +90,7 @@ export async function loadJobPopularity(): Promise<Record<string, number>> {
       // Guard the shape: a 200 serving an HTML error page (or the array shape of
       // a different data file) must not be handed to the scorer as a map.
       if (!data || typeof data !== 'object' || Array.isArray(data)) return {};
-      cached = data as Record<string, number>;
+      cached = sanitize(data as Record<string, unknown>);
       return cached;
     } catch {
       return {};
