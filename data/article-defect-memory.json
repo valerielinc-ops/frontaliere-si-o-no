@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-07T00:54:07.305Z",
+  "updatedAt": "2026-08-07T05:10:50.106Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -6787,11 +6787,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-06T10:28:23.012Z",
-      "seen": 43,
+      "lastSeen": "2026-08-07T05:10:50.106Z",
+      "seen": 48,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 4,
+      "supportedSightings": 9,
       "names": [
         "Ufficio Federale di Statistica",
         "Ufficio delle strade del Canton Ticino",
@@ -6802,9 +6802,37 @@
       "recentKeys": [],
       "evidence": [
         {
-          "at": "2026-08-06T10:28:23.012Z",
-          "runId": "31091578990",
-          "articleId": "prezzi-proprieta-svizzera-aumentano",
+          "at": "2026-08-07T05:10:50.106Z",
+          "runId": "31148287060",
+          "articleId": "caldo-torrido-lavoro-ticino",
+          "support": "present",
+          "name": "Ufficio federale di statistica"
+        },
+        {
+          "at": "2026-08-07T05:10:50.106Z",
+          "runId": "31148287060",
+          "articleId": "caldo-torrido-lavoro-ticino",
+          "support": "present",
+          "name": "Ufficio federale di statistica"
+        },
+        {
+          "at": "2026-08-07T05:10:50.106Z",
+          "runId": "31148287060",
+          "articleId": "caldo-torrido-lavoro-ticino",
+          "support": "present",
+          "name": "Ufficio federale di statistica"
+        },
+        {
+          "at": "2026-08-07T05:10:50.106Z",
+          "runId": "31148287060",
+          "articleId": "caldo-torrido-lavoro-ticino",
+          "support": "present",
+          "name": "Ufficio federale di statistica"
+        },
+        {
+          "at": "2026-08-07T05:10:50.106Z",
+          "runId": "31148287060",
+          "articleId": "caldo-torrido-lavoro-ticino",
           "support": "present",
           "name": "Ufficio federale di statistica"
         },
@@ -6827,34 +6855,6 @@
           "runId": "31091578990",
           "articleId": "prezzi-proprieta-svizzera-aumentano",
           "support": "present",
-          "name": "Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "traffico-da-record",
-          "support": "unknown",
-          "name": "Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "stipendio-frontalieri-6250-mese",
-          "support": "unknown",
-          "name": "Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "industria-farmaceutica-svizzera-dati",
-          "support": "unknown",
-          "name": "Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-07-29T06:26:58.011Z",
-          "runId": "corpus-scan",
-          "articleId": "giugno-pernottamenti-calo",
-          "support": "unknown",
           "name": "Ufficio federale di statistica"
         }
       ]

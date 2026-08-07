@@ -9317,6 +9317,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.graffio-nella-barba-locarno-film-festival.title': 'Il graffio nella barba del direttore artistico al Locarno Film Festival',
     'blog.article.graffio-nella-barba-locarno-film-festival.excerpt': 'Nella soffice e voluminosa barba del direttore artistico si cela una dichiarazione d’intenti per il cinema elvetico, con investimenti in aumento del 25% nel 2025.',
     'blog.article.graffio-nella-barba-locarno-film-festival.imageAlt': 'Barba curata del direttore artistico al Locarno Film Festival davanti a Piazza Grande',
+    'blog.article.caldo-torrido-lavoro-ticino.title': 'Lavoro nel caldo torrido in Ticino: Governo apre a nuove misure per i lavoratori',
+    'blog.article.caldo-torrido-lavoro-ticino.excerpt': 'Sindacati UNIA, OCST, USS e VPOD incontrano il Consiglio di Stato: oltre 100 ricoveri al pronto soccorso per effetti del caldo sui lavoratori ticinesi',
+    'blog.article.caldo-torrido-lavoro-ticino.imageAlt': 'Lavoratori edili in pausa all\'ombra durante un\'ondata di caldo in Ticino, vicino al confine italo-svizzero',
 };
 
 export default blogMetaIt;

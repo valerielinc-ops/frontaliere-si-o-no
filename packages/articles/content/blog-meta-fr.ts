@@ -9318,6 +9318,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.graffio-nella-barba-locarno-film-festival.title': 'La rayure dans la barbe du directeur artistique au Locarno Film Festival',
     'blog.article.graffio-nella-barba-locarno-film-festival.excerpt': 'Dans la barbe molle et volumineuse du directeur artistique se cache une déclaration d’intention pour le cinéma suisse, avec des investissements en hausse de 25 % en 2025.',
     'blog.article.graffio-nella-barba-locarno-film-festival.imageAlt': 'Barbe bien entretenue du directeur artistique au Festival du film de Locarno devant la Piazza Grande',
+    'blog.article.caldo-torrido-lavoro-ticino.title': 'Chaleur torride au Tessin : mesures pour les travailleurs',
+    'blog.article.caldo-torrido-lavoro-ticino.excerpt': 'Syndicats UNIA, OCST, USS et VPOD rencontrent le Conseil d\'État : plus de 100 admissions aux urgences en raison de la chaleur sur les travailleurs tessinois',
+    'blog.article.caldo-torrido-lavoro-ticino.imageAlt': 'Ouvriers du bâtiment en pause à l\'ombre durant une vague de chaleur au Tessin, près de la frontière italo-suisse',
 };
 
 export default blogMetaFr;

@@ -59858,6 +59858,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-caldo-torrido-lavoro-ticino': {
+    title: 'Lavoro nel caldo torrido in Ticino: Governo apre a nuove misure per i lavoratori',
+    description: 'Sindacati UNIA, OCST, USS e VPOD incontrano Consiglio di Stato: oltre 100 ricoveri per caldo sui lavoratori. Governo preoccupato apre a nuove misure strutturali',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, caldo, torrido, governo',
+    ogTitle: 'Lavoro nel caldo torrido in Ticino: Governo apre a nuove misure',
+    ogDescription: 'Oltre 100 ricoveri al pronto soccorso per effetti del caldo sui lavoratori ticinesi. Sindacati e Governo trattano nuove misure ispirate al modello del Canton',
+    canonicalPath: '/articoli-frontaliere/caldo-torrido-lavoro-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro nel caldo torrido in Ticino: Governo apre a nuove misure per i lavoratori",
+      "description": "Sindacati UNIA, OCST, USS e VPOD incontrano Consiglio di Stato: oltre 100 ricoveri per caldo sui lavoratori. Governo preoccupato apre a nuove misure strutturali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/caldo-torrido-lavoro-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori edili in pausa all'ombra durante un'ondata di caldo in Ticino, vicino al confine italo-svizzero"
+      },
+      "datePublished": "2026-08-07T05:10:47+00:00",
+      "dateModified": "2026-08-07T05:10:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caldo-torrido-lavoro-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
