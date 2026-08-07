@@ -9313,6 +9313,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-aumento-2026.title': 'Border workers in Ticino: +0.6% quarterly, -0.6% annually',
     'blog.article.frontalieri-ticino-aumento-2026.excerpt': 'At 79,121, slight growth in the second quarter of 2026. Decline on an annual basis, sign of weakness.',
     'blog.article.frontalieri-ticino-aumento-2026.imageAlt': 'Cross-border worker at Brogeda border checkpoint in Chiasso holding documents',
+    'blog.article.vivere-maslianico-lavorare-ticino-frontaliere.title': 'Living in Maslianico and working in Ticino as a border worker: guide 2024',
+    'blog.article.vivere-maslianico-lavorare-ticino-frontaliere.excerpt': 'Tax at source only in Switzerland, new agreement in force from 1 January 2024, exemption up to 10,000 euros for new border workers',
+    'blog.article.vivere-maslianico-lavorare-ticino-frontaliere.imageAlt': 'Frontalier crossing Brogeda border into Ticino with Lugano visible',
 };
 
 export default blogMetaEn;
