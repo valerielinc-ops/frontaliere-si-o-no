@@ -72,7 +72,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:04:38.287Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -218,22 +217,45 @@
       "hotelName": "Tschuggen Grand Hotel",
       "previousSlugs": [
         "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
-        "responsabile-prenotazioni-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa"
+        "responsabile-prenotazioni-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa",
+        "executive-housekeeping-manager-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa",
+        "executive-housekeeping-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-arosa",
+        "executive-housekeeping-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+        "gestionnaire-executif-du-menage-m-f-d-en-emploi-annuel-permanent-tschuggen-collection-arosa",
+        "assistente-responsabile-della-prenotazione-m-w-d-tschuggen-collection-arosa",
+        "assistant-reservation-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-arosa",
+        "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+        "gestionnaire-adjoint-des-reservations-m-w-d-tschuggen-collection-arosa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
-          "responsabile-prenotazioni-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa"
+          "responsabile-prenotazioni-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa",
+          "executive-housekeeping-manager-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa",
+          "executive-housekeeping-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-arosa",
+          "executive-housekeeping-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+          "gestionnaire-executif-du-menage-m-f-d-en-emploi-annuel-permanent-tschuggen-collection-arosa",
+          "assistente-responsabile-della-prenotazione-m-w-d-tschuggen-collection-arosa",
+          "assistant-reservation-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-arosa",
+          "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+          "gestionnaire-adjoint-des-reservations-m-w-d-tschuggen-collection-arosa"
         ],
         "en": [
-          "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+          "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+          "executive-housekeeping-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-arosa",
+          "assistant-reservation-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-arosa",
+          "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
         ],
         "fr": [
-          "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+          "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+          "gestionnaire-executif-du-menage-m-f-d-en-emploi-annuel-permanent-tschuggen-collection-arosa",
+          "gestionnaire-adjoint-des-reservations-m-w-d-tschuggen-collection-arosa"
+        ],
+        "de": [
+          "executive-housekeeping-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
         ]
       },
       "firstSeenAt": "2026-08-01T10:55:36.238Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -323,8 +345,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-9455882682ad",
@@ -392,7 +413,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:15:34.466Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -473,7 +493,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:15:33.506Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -554,7 +573,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:15:32.483Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -633,7 +651,6 @@
           "chef-de-partie-entremetier-m-f-d-summer-season-2026-tschuggen-collection-arosa"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T22:28:54.015Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -812,8 +829,7 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }

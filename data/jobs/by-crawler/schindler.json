@@ -62,8 +62,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "schindler-76c469d8faf2",
@@ -226,7 +225,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:14.691Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -307,7 +305,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:50.192Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -335,16 +332,16 @@
       "companyDomain": "schindler.com",
       "title": "Manager für Cookie-Einwilligungen",
       "titleByLocale": {
+        "de": "Manager für Cookie-Einwilligungen",
         "it": "Manager per Cookie-Einwilligungen",
         "en": "Manager for cookie consents",
-        "de": "Manager für Cookie-Einwilligungen",
         "fr": "Gestionnaire pour les consentements de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage für 2027 in St. Gallen",
       "descriptionByLocale": {
+        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage für 2027 in St. Gallen",
         "it": "Mobility | dal 1874 | in tutto il mondo in uso\n\nLa formazione professionale di Schindler allena più di 300 studenti in tutta la Svizzera, quindi non sei mai sola. Tutto il nostro team si impegna ogni giorno per voi in modo da essere un professionista altamente qualificato alla fine del vostro apprendistato.\n\nApprendistato come produttore di impianti e apparati* in EFZ con un focus sull'assemblaggio degli ascensori per il 2027 a St. Gallen",
         "en": "Mobility | since 1874 | worldwide in use\n\nSchindler Vocational Training trains more than 300 learners throughout Switzerland – so you are never alone. Our entire team is committed to you every day so that you are a highly qualified professional at the end of your apprenticeship.\n\nApprenticeship as plant and apparatus manufacturer* in EFZ with a focus on lift assembly for 2027 in St. Gallen",
-        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage für 2027 in St. Gallen",
         "fr": "Mobilité à travers le monde depuis 1874\n\nSchindler Formation professionnelle forme plus de 300 apprenants en Suisse – vous n'êtes donc jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un professionnel hautement qualifié à la fin de votre apprentissage.\n\nApprentissage en tant que fabricant d'installations et d'appareils* dans EFZ avec un accent sur l'assemblage de levage pour 2027 à St. Gallen"
       },
       "location": "St. Gallen",
@@ -369,13 +366,6 @@
       "jobReqId": "1375687533",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "manager-fur-cookie-einwilligungen-schindler-st-gallen",
-        "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7",
-        "manager-per-cookie-einwilligungen-schindler-st-gallen-kf0ro7",
-        "gestionnaire-pour-les-consentements-de-cookies-schindler-st-gallen",
-        "manager-per-cookie-einwilligungen-schindler-st-gallen-nrkv7s"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "manager-fur-cookie-einwilligungen-schindler-st-gallen",
@@ -392,8 +382,13 @@
           "manager-fur-cookie-einwilligungen-schindler-st-gallen"
         ]
       },
-      "firstSeenAt": "2026-08-07T01:08:27.671Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "manager-fur-cookie-einwilligungen-schindler-st-gallen",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen-kf0ro7",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-st-gallen",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen-nrkv7s"
+      ],
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -405,7 +400,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-07T01:08:27.671Z"
     },
     {
       "id": "schindler-a4a2b0d71e03",
@@ -466,7 +462,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:17:15.855Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -541,7 +536,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:17:15.011Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -569,16 +563,16 @@
       "companyDomain": "schindler.com",
       "title": "Automechaniker*in als Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%",
       "titleByLocale": {
+        "de": "Automechaniker*in als Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%",
         "it": "Automechaniker*in come Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%",
         "en": "Car mechanic as elevator fitter* in the St. Gallen region (m/f/d) 80-100 %",
-        "de": "Automechaniker*in als Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%",
         "fr": "Mécanicien automobile comme élévateur* dans la région de St. Gallen (m/f/d) 80-100 %"
       },
       "description": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nAutomechaniker*in als Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Montage von Aufzügen von A-Z sowohl mechanisch auch als elektrisch\n\n• Planung und Koordination deiner Aufgaben in Absprache mit der Kundschaft und anderen Ansprechpartnern auf der Baustelle\n\n• Vorbereitung und Feineinstellung bis zur internen Abnahme\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre und mehrjährige Berufserfahrung im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• 1-2 Jahre Berufserfahrung im erlernten Beruf\n\n• Selbstständiges Arbeiten auf der Baustelle macht dir Spass\n\n• Du bist fit und schwindelfrei\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Entschädigung für deine Mittagsverpflegung und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
       "descriptionByLocale": {
+        "de": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nAutomechaniker*in als Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Montage von Aufzügen von A-Z sowohl mechanisch auch als elektrisch\n\n• Planung und Koordination deiner Aufgaben in Absprache mit der Kundschaft und anderen Ansprechpartnern auf der Baustelle\n\n• Vorbereitung und Feineinstellung bis zur internen Abnahme\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre und mehrjährige Berufserfahrung im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• 1-2 Jahre Berufserfahrung im erlernten Beruf\n\n• Selbstständiges Arbeiten auf der Baustelle macht dir Spass\n\n• Du bist fit und schwindelfrei\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Entschädigung für deine Mittagsverpflegung und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
         "it": "Più di due miliardi di persone si affidano a Schindler ogni giorno. I nostri molti anni di esperienza e di forza innovativa ci rendono il numero uno nel settore dell'ascensore e delle scale mobili svizzere. Nell'ambito della famiglia Schindler, progetta posti per tutti più accessibili, inclusivi e sostenibili. Uniamo innovazione, sicurezza e inclusione e diversità all'interno dell'azienda. Diventa parte della nostra storia di successo di 150 anni e modella il futuro della mobilità.\n\nInsieme un piano come\n\nMeccanico dell'automobile come montante dell'ascensore* nella regione di St. Gallen (m/f/d) 80-100 %\n\nLa tua giornata – il tuo piano! Progetta la tua settimana di 40 ore secondo le tue esigenze. Alleghiamo grande importanza per il vostro ulteriore sviluppo e vi offriamo esattamente ciò di cui avete bisogno. Scopri di più su di noi in questo video\n\nLe nuove sfide:\n\n• Montaggio indipendente di ascensori A-Z sia meccanicamente che elettricamente\n\n• Pianificazione e coordinamento dei vostri compiti in consultazione con i clienti e altri contatti sul cantiere\n\n• Preparazione e regolazione fine fino alla rimozione interna\n\nLe vostre condizioni ideali:\n\n• Apprendistato completo e diversi anni di esperienza professionale nel settore meccanico, elettrico o idraulico (ad esempio polimeccanico, meccanico automobilistico, fabbricante di impianti e apparecchi o installatore elettrico)\n\n• 1-2 anni di esperienza professionale nella professione imparata\n\n• Lavorare indipendentemente sul cantiere ti fa divertire\n\n• Sei in forma e senza vertigini\n\n• Licenza valida del conducente – non si può fare senza di esso\n\nI nostri vantaggi:\n\n• Allenamento di 2 mesi a salario pieno nel nostro campo di sollevamento per la vostra preparazione ottimale per il vostro nuovo lavoro.\n\n• Compensazione per il vostro pranzo e la pulizia dei vostri vestiti di lavoro, che naturalmente sarà fornito da noi gratuitamente.\n\n• Ottime opportunità di sviluppo: lo sviluppo del personale è vissuto con noi. Forniamo ai nostri dipendenti vari programmi di talento nazionali e internazionali e li sosteniamo temporaneamente e finanziariamente con formazione e formazione ulteriore.\n\n• Bilancio della vita lavorativa: 40h settimana, 25-30 giorni di vacanza, orari di lavoro flessibili, lavoro part-time e congedo non pagato.\n\n• Ambiente di lavoro sano: elevati standard di salute e sicurezza e gestione della salute professionale, compresa la consulenza sociale e la promozione della salute.\n\n• Benefici del dipendente: partecipazione generosa al trasporto pubblico e abbonamento fitness, sconti della flotta, acquisto ridotto del denaro Reka, premi assicurativi ridotti e vari benefici.\n\nSei pronto a fare nuove strade? Diventa parte di #TeamSchindler!\n\nUlteriori informazioni sono disponibili su: www.schindler.ch/karriere",
         "en": "Over two billion people rely on Schindler every day. Our many years of experience and innovative strength make us number one in the Swiss elevator and escalator business. As part of the Schindler family, you design places for everyone more accessible, inclusive and sustainable. We combine innovation, security and inclusion and diversity within the company. Become part of our 150-year success story and shape the future of mobility.\n\nTogether one floor up as\n\nCar mechanic as elevator fitter* in the St. Gallen region (m/f/d) 80-100 %\n\nYour day – your plan! Design your 40-hour week according to your needs. We attach great importance to your further development and offer you exactly what you need. Learn more about us in this video\n\nYour new challenges:\n\n• Independent assembly of A-Z elevators both mechanically and electrically\n\n• Planning and coordination of your tasks in consultation with customers and other contacts on the construction site\n\n• Preparation and fine adjustment until internal removal\n\nYour ideal conditions:\n\n• Completed apprenticeship and several years of professional experience in the mechanical, electrical or hydraulic sector (e.g. polymechanic, car mechanic, plant and apparatus manufacturer or electrical installer)\n\n• 1-2 years of professional experience in the learned profession\n\n• Working independently on the construction site makes you fun\n\n• You are fit and vertigo-free\n\n• Valid driver’s license – you can’t do without it\n\nOur benefits:\n\n• 2-month training at full wage in our lift camp for your optimal preparation for your new job.\n\n• Compensation for your lunchtime meal and the cleaning of your work clothes, which of course will be provided by us free of charge.\n\n• Excellent development opportunities: Personnel development is lived with us. We provide our employees with various national and international talent programs and support them temporarily and financially with training and further education.\n\n• Work-life balance: 40h week, 25 to 30 days of vacation, flexible working hours, part-time work and unpaid leave.\n\n• Healthy working environment: High health & safety standards and own occupational health management including social advice and health promotion.\n\n• Employee benefits: generous participation in the public transport and fitness subscription, fleet discounts, reduced purchase of Reka money, reduced insurance premiums and various benefits.\n\nAre you ready to go new ways? Become part of #TeamSchindler!\n\nFurther information can be found at: www.schindler.ch/karriere",
-        "de": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nAutomechaniker*in als Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Montage von Aufzügen von A-Z sowohl mechanisch auch als elektrisch\n\n• Planung und Koordination deiner Aufgaben in Absprache mit der Kundschaft und anderen Ansprechpartnern auf der Baustelle\n\n• Vorbereitung und Feineinstellung bis zur internen Abnahme\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre und mehrjährige Berufserfahrung im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• 1-2 Jahre Berufserfahrung im erlernten Beruf\n\n• Selbstständiges Arbeiten auf der Baustelle macht dir Spass\n\n• Du bist fit und schwindelfrei\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Entschädigung für deine Mittagsverpflegung und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
         "fr": "Plus de deux milliards de personnes dépendent de Schindler chaque jour. Nos nombreuses années d'expérience et de force innovante font de nous la première entreprise suisse d'ascenseur et d'escalator. Dans le cadre de la famille Schindler, vous concevez des lieux pour tous plus accessibles, inclusifs et durables. Nous combinons innovation, sécurité, inclusion et diversité au sein de l'entreprise. Faites partie de notre réussite de 150 ans et façonnez l'avenir de la mobilité.\n\nEnsemble un étage vers le haut comme\n\nMécanicien automobile comme élévateur* dans la région de St. Gallen (m/f/d) 80-100 %\n\nVotre journée – votre plan! Concevez votre semaine de 40 heures selon vos besoins. Nous attachons une grande importance à votre développement et vous offrons exactement ce dont vous avez besoin. En savoir plus sur nous dans cette vidéo\n\nVos nouveaux défis :\n\n• Montage indépendant d'ascenseurs A-Z mécaniquement et électriquement\n\n• Planification et coordination de vos tâches en consultation avec les clients et autres contacts sur le chantier\n\n• Préparation et réglage fin jusqu'à enlèvement interne\n\nVos conditions idéales:\n\n• Apprentissage terminé et plusieurs années d'expérience professionnelle dans le secteur mécanique, électrique ou hydraulique (p. ex. polymécanique, mécanicien automobile, fabricant d'installations et d'appareils ou installateur électrique)\n\n• 1-2 ans d'expérience professionnelle dans la profession savante\n\n• Travailler indépendamment sur le chantier vous rend amusant\n\n• Vous êtes en forme et sans vertige\n\n• Permis de conduire valide – vous ne pouvez pas faire sans\n\nNos avantages :\n\n• Entraînement de 2 mois à plein salaire dans notre camp de levage pour votre préparation optimale à votre nouvel emploi.\n\n• Compensation pour votre repas du midi et le nettoyage de vos vêtements de travail, qui bien sûr seront fournis gratuitement par nous.\n\n• Excellentes possibilités de perfectionnement : Le perfectionnement du personnel est vécu avec nous. Nous fournissons à nos employés divers programmes nationaux et internationaux de talents et les soutenons temporairement et financièrement dans la formation et la formation continue.\n\n• Équilibre travail-vie privée : 40h semaine, 25 à 30 jours de vacances, horaires flexibles, travail à temps partiel et congés non rémunérés.\n\n• Environnement de travail sain: normes élevées en matière de santé et de sécurité et gestion de la santé au travail, y compris conseils sociaux et promotion de la santé.\n\n• Avantages sociaux: participation généreuse à l'abonnement transport public et fitness, rabais sur flotte, réduction de l'achat de l'argent Reka, réduction des primes d'assurance et diverses prestations.\n\nÊtes-vous prêt à aller de nouvelles façons ? Faites partie de #TeamSchindler !\n\nDe plus amples informations sont disponibles à l'adresse suivante: www.schindler.ch/karriere"
       },
       "location": "St. Gallen",
@@ -603,9 +597,6 @@
       "jobReqId": "1424072733",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "automechaniker-in-als-aufzugsmonteur-in-region-st-gallen-m-w-d-80-100-schindler-st-gallen"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "automechaniker-in-als-aufzugsmonteur-in-region-st-gallen-m-w-d-80-100-schindler-st-gallen"
@@ -617,8 +608,9 @@
           "automechaniker-in-als-aufzugsmonteur-in-region-st-gallen-m-w-d-80-100-schindler-st-gallen"
         ]
       },
-      "firstSeenAt": "2026-08-07T01:08:26.392Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "automechaniker-in-als-aufzugsmonteur-in-region-st-gallen-m-w-d-80-100-schindler-st-gallen"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -630,7 +622,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-07T01:08:26.392Z"
     },
     {
       "id": "schindler-1ab44b3e4495",
@@ -691,7 +684,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:43:26.122Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -842,7 +834,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T12:05:21.302Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -870,16 +861,16 @@
       "companyDomain": "schindler.com",
       "title": "Elektriker*in als Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%",
       "titleByLocale": {
+        "de": "Elektriker*in als Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%",
         "it": "Elektriker*in come Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%",
         "en": "Electrician as elevator fitter in the St. Gallen region (m/f/d) 80-100 %",
-        "de": "Elektriker*in als Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%",
         "fr": "Électricien en tant qu'installateur d'ascenseur dans la région de St. Gallen (m/f/d) 80-100 %"
       },
       "description": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nElektriker*in als Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Montage von Aufzügen von A-Z sowohl mechanisch auch als elektrisch\n\n• Planung und Koordination deiner Aufgaben in Absprache mit der Kundschaft und anderen Ansprechpartnern auf der Baustelle\n\n• Vorbereitung und Feineinstellung bis zur internen Abnahme\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre und mehrjährige Berufserfahrung im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• 1-2 Jahre Berufserfahrung im erlernten Beruf\n\n• Selbstständiges Arbeiten auf der Baustelle macht dir Spass\n\n• Du bist fit und schwindelfrei\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Entschädigung für deine Mittagsverpflegung und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
       "descriptionByLocale": {
+        "de": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nElektriker*in als Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Montage von Aufzügen von A-Z sowohl mechanisch auch als elektrisch\n\n• Planung und Koordination deiner Aufgaben in Absprache mit der Kundschaft und anderen Ansprechpartnern auf der Baustelle\n\n• Vorbereitung und Feineinstellung bis zur internen Abnahme\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre und mehrjährige Berufserfahrung im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• 1-2 Jahre Berufserfahrung im erlernten Beruf\n\n• Selbstständiges Arbeiten auf der Baustelle macht dir Spass\n\n• Du bist fit und schwindelfrei\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Entschädigung für deine Mittagsverpflegung und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
         "it": "Più di due miliardi di persone si affidano a Schindler ogni giorno. I nostri molti anni di esperienza e di forza innovativa ci rendono il numero uno nel settore dell'ascensore e delle scale mobili svizzere. Nell'ambito della famiglia Schindler, progetta posti per tutti più accessibili, inclusivi e sostenibili. Uniamo innovazione, sicurezza e inclusione e diversità all'interno dell'azienda. Diventa parte della nostra storia di successo di 150 anni e modella il futuro della mobilità.\n\nInsieme un piano come\n\nElettricista come montacarichi nella regione di St. Gallen (m/f/d) 80-100 %\n\nLa tua giornata – il tuo piano! Progetta la tua settimana di 40 ore secondo le tue esigenze. Alleghiamo grande importanza per il vostro ulteriore sviluppo e vi offriamo esattamente ciò di cui avete bisogno. Scopri di più su di noi in questo video\n\nLe nuove sfide:\n\n• Montaggio indipendente di ascensori A-Z sia meccanicamente che elettricamente\n\n• Pianificazione e coordinamento dei vostri compiti in consultazione con i clienti e altri contatti sul cantiere\n\n• Preparazione e regolazione fine fino alla rimozione interna\n\nLe vostre condizioni ideali:\n\n• Apprendistato completo e diversi anni di esperienza professionale nel settore meccanico, elettrico o idraulico (ad esempio polimeccanico, meccanico automobilistico, fabbricante di impianti e apparecchi o installatore elettrico)\n\n• 1-2 anni di esperienza professionale nella professione imparata\n\n• Lavorare indipendentemente sul cantiere ti fa divertire\n\n• Sei in forma e senza vertigini\n\n• Licenza valida del conducente – non si può fare senza di esso\n\nI nostri vantaggi:\n\n• Allenamento di 2 mesi a salario pieno nel nostro campo di sollevamento per la vostra preparazione ottimale per il vostro nuovo lavoro.\n\n• Compensazione per il vostro pranzo e la pulizia dei vostri vestiti di lavoro, che naturalmente sarà fornito da noi gratuitamente.\n\n• Ottime opportunità di sviluppo: lo sviluppo del personale è vissuto con noi. Forniamo ai nostri dipendenti vari programmi di talento nazionali e internazionali e li sosteniamo temporaneamente e finanziariamente con formazione e formazione ulteriore.\n\n• Bilancio della vita lavorativa: 40h settimana, 25-30 giorni di vacanza, orari di lavoro flessibili, lavoro part-time e congedo non pagato.\n\n• Ambiente di lavoro sano: elevati standard di salute e sicurezza e gestione della salute professionale, compresa la consulenza sociale e la promozione della salute.\n\n• Benefici del dipendente: partecipazione generosa al trasporto pubblico e abbonamento fitness, sconti della flotta, acquisto ridotto del denaro Reka, premi assicurativi ridotti e vari benefici.\n\nSei pronto a fare nuove strade? Diventa parte di #TeamSchindler!\n\nUlteriori informazioni sono disponibili su: www.schindler.ch/karriere",
         "en": "Over two billion people rely on Schindler every day. Our many years of experience and innovative strength make us number one in the Swiss elevator and escalator business. As part of the Schindler family, you design places for everyone more accessible, inclusive and sustainable. We combine innovation, security and inclusion and diversity within the company. Become part of our 150-year success story and shape the future of mobility.\n\nTogether one floor up as\n\nElectrician as elevator fitter in the St. Gallen region (m/f/d) 80-100 %\n\nYour day – your plan! Design your 40-hour week according to your needs. We attach great importance to your further development and offer you exactly what you need. Learn more about us in this video\n\nYour new challenges:\n\n• Independent assembly of A-Z elevators both mechanically and electrically\n\n• Planning and coordination of your tasks in consultation with customers and other contacts on the construction site\n\n• Preparation and fine adjustment until internal removal\n\nYour ideal conditions:\n\n• Completed apprenticeship and several years of professional experience in the mechanical, electrical or hydraulic sector (e.g. polymechanic, car mechanic, plant and apparatus manufacturer or electrical installer)\n\n• 1-2 years of professional experience in the learned profession\n\n• Working independently on the construction site makes you fun\n\n• You are fit and vertigo-free\n\n• Valid driver’s license – you can’t do without it\n\nOur benefits:\n\n• 2-month training at full wage in our lift camp for your optimal preparation for your new job.\n\n• Compensation for your lunchtime meal and the cleaning of your work clothes, which of course will be provided by us free of charge.\n\n• Excellent development opportunities: Personnel development is lived with us. We provide our employees with various national and international talent programs and support them temporarily and financially with training and further education.\n\n• Work-life balance: 40h week, 25 to 30 days of vacation, flexible working hours, part-time work and unpaid leave.\n\n• Healthy working environment: High health & safety standards and own occupational health management including social advice and health promotion.\n\n• Employee benefits: generous participation in the public transport and fitness subscription, fleet discounts, reduced purchase of Reka money, reduced insurance premiums and various benefits.\n\nAre you ready to go new ways? Become part of #TeamSchindler!\n\nFurther information can be found at: www.schindler.ch/karriere",
-        "de": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nElektriker*in als Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Montage von Aufzügen von A-Z sowohl mechanisch auch als elektrisch\n\n• Planung und Koordination deiner Aufgaben in Absprache mit der Kundschaft und anderen Ansprechpartnern auf der Baustelle\n\n• Vorbereitung und Feineinstellung bis zur internen Abnahme\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre und mehrjährige Berufserfahrung im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• 1-2 Jahre Berufserfahrung im erlernten Beruf\n\n• Selbstständiges Arbeiten auf der Baustelle macht dir Spass\n\n• Du bist fit und schwindelfrei\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Entschädigung für deine Mittagsverpflegung und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
         "fr": "Plus de deux milliards de personnes dépendent de Schindler chaque jour. Nos nombreuses années d'expérience et de force innovante font de nous la première entreprise suisse d'ascenseur et d'escalator. Dans le cadre de la famille Schindler, vous concevez des lieux pour tous plus accessibles, inclusifs et durables. Nous combinons innovation, sécurité, inclusion et diversité au sein de l'entreprise. Faites partie de notre réussite de 150 ans et façonnez l'avenir de la mobilité.\n\nEnsemble un étage vers le haut comme\n\nÉlectricien en tant qu'installateur d'ascenseur dans la région de St. Gallen (m/f/d) 80-100 %\n\nVotre journée – votre plan! Concevez votre semaine de 40 heures selon vos besoins. Nous attachons une grande importance à votre développement et vous offrons exactement ce dont vous avez besoin. En savoir plus sur nous dans cette vidéo\n\nVos nouveaux défis :\n\n• Montage indépendant d'ascenseurs A-Z mécaniquement et électriquement\n\n• Planification et coordination de vos tâches en consultation avec les clients et autres contacts sur le chantier\n\n• Préparation et réglage fin jusqu'à enlèvement interne\n\nVos conditions idéales:\n\n• Apprentissage terminé et plusieurs années d'expérience professionnelle dans le secteur mécanique, électrique ou hydraulique (p. ex. polymécanique, mécanicien automobile, fabricant d'installations et d'appareils ou installateur électrique)\n\n• 1-2 ans d'expérience professionnelle dans la profession savante\n\n• Travailler indépendamment sur le chantier vous rend amusant\n\n• Vous êtes en forme et sans vertige\n\n• Permis de conduire valide – vous ne pouvez pas faire sans\n\nNos avantages :\n\n• Entraînement de 2 mois à plein salaire dans notre camp de levage pour votre préparation optimale à votre nouvel emploi.\n\n• Compensation pour votre repas du midi et le nettoyage de vos vêtements de travail, qui bien sûr seront fournis gratuitement par nous.\n\n• Excellentes possibilités de perfectionnement : Le perfectionnement du personnel est vécu avec nous. Nous fournissons à nos employés divers programmes nationaux et internationaux de talents et les soutenons temporairement et financièrement dans la formation et la formation continue.\n\n• Équilibre travail-vie privée : 40h semaine, 25 à 30 jours de vacances, horaires flexibles, travail à temps partiel et congés non rémunérés.\n\n• Environnement de travail sain: normes élevées en matière de santé et de sécurité et gestion de la santé au travail, y compris conseils sociaux et promotion de la santé.\n\n• Avantages sociaux: participation généreuse à l'abonnement transport public et fitness, rabais sur flotte, réduction de l'achat de l'argent Reka, réduction des primes d'assurance et diverses prestations.\n\nÊtes-vous prêt à aller de nouvelles façons ? Faites partie de #TeamSchindler !\n\nDe plus amples informations sont disponibles à l'adresse suivante: www.schindler.ch/karriere"
       },
       "location": "St. Gallen",
@@ -904,9 +895,6 @@
       "jobReqId": "1424070233",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "elektriker-in-als-aufzugsmonteur-in-region-st-gallen-m-w-d-80-100-schindler-st-gallen"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "elektriker-in-als-aufzugsmonteur-in-region-st-gallen-m-w-d-80-100-schindler-st-gallen"
@@ -918,8 +906,9 @@
           "elektriker-in-als-aufzugsmonteur-in-region-st-gallen-m-w-d-80-100-schindler-st-gallen"
         ]
       },
-      "firstSeenAt": "2026-08-07T01:08:27.021Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "elektriker-in-als-aufzugsmonteur-in-region-st-gallen-m-w-d-80-100-schindler-st-gallen"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -931,7 +920,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-07T01:08:27.021Z"
     },
     {
       "id": "schindler-4571639240c8",
@@ -947,16 +937,16 @@
       "companyDomain": "schindler.com",
       "title": "Landmaschinenmechaniker*in als Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%",
       "titleByLocale": {
+        "de": "Landmaschinenmechaniker*in als Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%",
         "it": "Landmaschinenmechaniker*in come Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%",
         "en": "Agricultural machinery mechanic as elevator fitter* in the St. Gallen region (m/f/d) 80-100 %",
-        "de": "Landmaschinenmechaniker*in als Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%",
         "fr": "Mécanicien des machines agricoles comme élévateur* dans la région de St. Gallen (m/f/d) 80-100 %"
       },
       "description": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nLandmaschinenmechaniker*in als Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Montage von Aufzügen von A-Z sowohl mechanisch auch als elektrisch\n\n• Planung und Koordination deiner Aufgaben in Absprache mit der Kundschaft und anderen Ansprechpartnern auf der Baustelle\n\n• Vorbereitung und Feineinstellung bis zur internen Abnahme\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre und mehrjährige Berufserfahrung im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• 1-2 Jahre Berufserfahrung im erlernten Beruf\n\n• Selbstständiges Arbeiten auf der Baustelle macht dir Spass\n\n• Du bist fit und schwindelfrei\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Entschädigung für deine Mittagsverpflegung und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
       "descriptionByLocale": {
+        "de": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nLandmaschinenmechaniker*in als Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Montage von Aufzügen von A-Z sowohl mechanisch auch als elektrisch\n\n• Planung und Koordination deiner Aufgaben in Absprache mit der Kundschaft und anderen Ansprechpartnern auf der Baustelle\n\n• Vorbereitung und Feineinstellung bis zur internen Abnahme\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre und mehrjährige Berufserfahrung im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• 1-2 Jahre Berufserfahrung im erlernten Beruf\n\n• Selbstständiges Arbeiten auf der Baustelle macht dir Spass\n\n• Du bist fit und schwindelfrei\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Entschädigung für deine Mittagsverpflegung und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
         "it": "Più di due miliardi di persone si affidano a Schindler ogni giorno. I nostri molti anni di esperienza e di forza innovativa ci rendono il numero uno nel settore dell'ascensore e delle scale mobili svizzere. Nell'ambito della famiglia Schindler, progetta posti per tutti più accessibili, inclusivi e sostenibili. Uniamo innovazione, sicurezza e inclusione e diversità all'interno dell'azienda. Diventa parte della nostra storia di successo di 150 anni e modella il futuro della mobilità.\n\nInsieme un piano come\n\nMeccanica di macchine agricole come montacarichi di ascensore* nella regione di St. Gallen (m/f/d) 80-100 %\n\nLa tua giornata – il tuo piano! Progetta la tua settimana di 40 ore secondo le tue esigenze. Alleghiamo grande importanza per il vostro ulteriore sviluppo e vi offriamo esattamente ciò di cui avete bisogno. Scopri di più su di noi in questo video\n\nLe nuove sfide:\n\n• Montaggio indipendente di ascensori A-Z sia meccanicamente che elettricamente\n\n• Pianificazione e coordinamento dei vostri compiti in consultazione con i clienti e altri contatti sul cantiere\n\n• Preparazione e regolazione fine fino alla rimozione interna\n\nLe vostre condizioni ideali:\n\n• Apprendistato completo e diversi anni di esperienza professionale nel settore meccanico, elettrico o idraulico (ad esempio polimeccanico, meccanico automobilistico, fabbricante di impianti e apparecchi o installatore elettrico)\n\n• 1-2 anni di esperienza professionale nella professione imparata\n\n• Lavorare indipendentemente sul cantiere ti fa divertire\n\n• Sei in forma e senza vertigini\n\n• Licenza valida del conducente – non si può fare senza di esso\n\nI nostri vantaggi:\n\n• Allenamento di 2 mesi a salario pieno nel nostro campo di sollevamento per la vostra preparazione ottimale per il vostro nuovo lavoro.\n\n• Compensazione per il vostro pranzo e la pulizia dei vostri vestiti di lavoro, che naturalmente sarà fornito da noi gratuitamente.\n\n• Ottime opportunità di sviluppo: lo sviluppo del personale è vissuto con noi. Forniamo ai nostri dipendenti vari programmi di talento nazionali e internazionali e li sosteniamo temporaneamente e finanziariamente con formazione e formazione ulteriore.\n\n• Bilancio della vita lavorativa: 40h settimana, 25-30 giorni di vacanza, orari di lavoro flessibili, lavoro part-time e congedo non pagato.\n\n• Ambiente di lavoro sano: elevati standard di salute e sicurezza e gestione della salute professionale, compresa la consulenza sociale e la promozione della salute.\n\n• Benefici del dipendente: partecipazione generosa al trasporto pubblico e abbonamento fitness, sconti della flotta, acquisto ridotto del denaro Reka, premi assicurativi ridotti e vari benefici.\n\nSei pronto a fare nuove strade? Diventa parte di #TeamSchindler!\n\nUlteriori informazioni sono disponibili su: www.schindler.ch/karriere",
         "en": "Over two billion people rely on Schindler every day. Our many years of experience and innovative strength make us number one in the Swiss elevator and escalator business. As part of the Schindler family, you design places for everyone more accessible, inclusive and sustainable. We combine innovation, security and inclusion and diversity within the company. Become part of our 150-year success story and shape the future of mobility.\n\nTogether one floor up as\n\nAgricultural machinery mechanic as elevator fitter* in the St. Gallen region (m/f/d) 80-100 %\n\nYour day – your plan! Design your 40-hour week according to your needs. We attach great importance to your further development and offer you exactly what you need. Learn more about us in this video\n\nYour new challenges:\n\n• Independent assembly of A-Z elevators both mechanically and electrically\n\n• Planning and coordination of your tasks in consultation with customers and other contacts on the construction site\n\n• Preparation and fine adjustment until internal removal\n\nYour ideal conditions:\n\n• Completed apprenticeship and several years of professional experience in the mechanical, electrical or hydraulic sector (e.g. polymechanic, car mechanic, plant and apparatus manufacturer or electrical installer)\n\n• 1-2 years of professional experience in the learned profession\n\n• Working independently on the construction site makes you fun\n\n• You are fit and vertigo-free\n\n• Valid driver’s license – you can’t do without it\n\nOur benefits:\n\n• 2-month training at full wage in our lift camp for your optimal preparation for your new job.\n\n• Compensation for your lunchtime meal and the cleaning of your work clothes, which of course will be provided by us free of charge.\n\n• Excellent development opportunities: Personnel development is lived with us. We provide our employees with various national and international talent programs and support them temporarily and financially with training and further education.\n\n• Work-life balance: 40h week, 25 to 30 days of vacation, flexible working hours, part-time work and unpaid leave.\n\n• Healthy working environment: High health & safety standards and own occupational health management including social advice and health promotion.\n\n• Employee benefits: generous participation in the public transport and fitness subscription, fleet discounts, reduced purchase of Reka money, reduced insurance premiums and various benefits.\n\nAre you ready to go new ways? Become part of #TeamSchindler!\n\nFurther information can be found at: www.schindler.ch/karriere",
-        "de": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nLandmaschinenmechaniker*in als Aufzugsmonteur*in Region St. Gallen (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Montage von Aufzügen von A-Z sowohl mechanisch auch als elektrisch\n\n• Planung und Koordination deiner Aufgaben in Absprache mit der Kundschaft und anderen Ansprechpartnern auf der Baustelle\n\n• Vorbereitung und Feineinstellung bis zur internen Abnahme\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre und mehrjährige Berufserfahrung im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• 1-2 Jahre Berufserfahrung im erlernten Beruf\n\n• Selbstständiges Arbeiten auf der Baustelle macht dir Spass\n\n• Du bist fit und schwindelfrei\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Entschädigung für deine Mittagsverpflegung und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
         "fr": "Plus de deux milliards de personnes dépendent de Schindler chaque jour. Nos nombreuses années d'expérience et de force innovante font de nous la première entreprise suisse d'ascenseur et d'escalator. Dans le cadre de la famille Schindler, vous concevez des lieux pour tous plus accessibles, inclusifs et durables. Nous combinons innovation, sécurité, inclusion et diversité au sein de l'entreprise. Faites partie de notre réussite de 150 ans et façonnez l'avenir de la mobilité.\n\nEnsemble un étage vers le haut comme\n\nMécanicien des machines agricoles comme élévateur* dans la région de St. Gallen (m/f/d) 80-100 %\n\nVotre journée – votre plan! Concevez votre semaine de 40 heures selon vos besoins. Nous attachons une grande importance à votre développement et vous offrons exactement ce dont vous avez besoin. En savoir plus sur nous dans cette vidéo\n\nVos nouveaux défis :\n\n• Montage indépendant d'ascenseurs A-Z mécaniquement et électriquement\n\n• Planification et coordination de vos tâches en consultation avec les clients et autres contacts sur le chantier\n\n• Préparation et réglage fin jusqu'à enlèvement interne\n\nVos conditions idéales:\n\n• Apprentissage terminé et plusieurs années d'expérience professionnelle dans le secteur mécanique, électrique ou hydraulique (p. ex. polymécanique, mécanicien automobile, fabricant d'installations et d'appareils ou installateur électrique)\n\n• 1-2 ans d'expérience professionnelle dans la profession savante\n\n• Travailler indépendamment sur le chantier vous rend amusant\n\n• Vous êtes en forme et sans vertige\n\n• Permis de conduire valide – vous ne pouvez pas faire sans\n\nNos avantages :\n\n• Entraînement de 2 mois à plein salaire dans notre camp de levage pour votre préparation optimale à votre nouvel emploi.\n\n• Compensation pour votre repas du midi et le nettoyage de vos vêtements de travail, qui bien sûr seront fournis gratuitement par nous.\n\n• Excellentes possibilités de perfectionnement : Le perfectionnement du personnel est vécu avec nous. Nous fournissons à nos employés divers programmes nationaux et internationaux de talents et les soutenons temporairement et financièrement dans la formation et la formation continue.\n\n• Équilibre travail-vie privée : 40h semaine, 25 à 30 jours de vacances, horaires flexibles, travail à temps partiel et congés non rémunérés.\n\n• Environnement de travail sain: normes élevées en matière de santé et de sécurité et gestion de la santé au travail, y compris conseils sociaux et promotion de la santé.\n\n• Avantages sociaux: participation généreuse à l'abonnement transport public et fitness, rabais sur flotte, réduction de l'achat de l'argent Reka, réduction des primes d'assurance et diverses prestations.\n\nÊtes-vous prêt à aller de nouvelles façons ? Faites partie de #TeamSchindler !\n\nDe plus amples informations sont disponibles à l'adresse suivante: www.schindler.ch/karriere"
       },
       "location": "St. Gallen",
@@ -981,9 +971,6 @@
       "jobReqId": "1424072033",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "landmaschinenmechaniker-in-als-aufzugsmonteur-in-region-st-gallen-m-w-d-80-100-schindler"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "landmaschinenmechaniker-in-als-aufzugsmonteur-in-region-st-gallen-m-w-d-80-100-schindler"
@@ -995,7 +982,9 @@
           "landmaschinenmechaniker-in-als-aufzugsmonteur-in-region-st-gallen-m-w-d-80-100-schindler"
         ]
       },
-      "firstSeenAt": "2026-08-07T01:08:19.927Z",
+      "previousSlugs": [
+        "landmaschinenmechaniker-in-als-aufzugsmonteur-in-region-st-gallen-m-w-d-80-100-schindler"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1007,7 +996,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-07T01:08:19.927Z"
     },
     {
       "id": "schindler-49d79c6d04ce",
@@ -1082,8 +1072,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "schindler-1399c7ecb418",
@@ -1232,7 +1221,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:17:35.545Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1305,7 +1293,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:28.777Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1539,7 +1526,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:22:44.794Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1693,7 +1679,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:19:25.684Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1767,8 +1752,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "schindler-af11f019be4a",
@@ -2077,7 +2061,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:34:19.548Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2265,9 +2248,9 @@
       "title": "Gestore consenso ai cookie",
       "titleByLocale": {
         "it": "Gestore consenso ai cookie",
+        "fr": "Consentement du gestionnaire aux cookies",
         "en": "Manager consent to cookies",
-        "de": "Zustimmung des Managers zu Cookies",
-        "fr": "Gestore consenso ai cookie"
+        "de": "Zustimmung des Managers zu Cookies"
       },
       "description": "Mobilità | dal 1874 | in tutto il mondo\n\nSchindler Formazione Professionale forma oltre 300 apprendisti in tutta la Svizzera - quindi non siete mai soli. Il nostro team si impegna ogni giorno per farti diventare un dipendente qualificato alla fine del tuo apprendistato.\n\nLa Schindler Elettronica SA, con sede a Locarno, è leader nel campo dello sviluppo e della produzione di com-ponenti elettronici per ascensori.\n\nPosto di Apprendistato Elettronico/a AFC per il 2027 a Locarno",
       "descriptionByLocale": {
@@ -2298,8 +2281,6 @@
       "jobReqId": "1375715533",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-07T01:07:37.902Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "fr": [
           "consentement-du-gestionnaire-aux-cookies-schindler-locarno"
@@ -2319,7 +2300,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-07T01:07:37.902Z"
     },
     {
       "id": "schindler-a71b58653d3b",
@@ -2390,7 +2372,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:22.938Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2463,7 +2444,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:16:49.552Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2536,7 +2516,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T14:00:37.760Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2564,16 +2543,16 @@
       "companyDomain": "schindler.com",
       "title": "Manager für Cookie-Einwilligungen",
       "titleByLocale": {
+        "de": "Manager für Cookie-Einwilligungen",
         "it": "Manager per Cookie-Einwilligungen",
         "en": "Manager for cookie consents",
-        "de": "Manager für Cookie-Einwilligungen",
         "fr": "Gestionnaire pour les consentements de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Fachmann*frau Kundendialog EFZ für 2027 in Ebikon",
       "descriptionByLocale": {
+        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Fachmann*frau Kundendialog EFZ für 2027 in Ebikon",
         "it": "Mobility | dal 1874 | in tutto il mondo in uso\n\nLa formazione professionale di Schindler allena più di 300 studenti in tutta la Svizzera, quindi non sei mai sola. Tutto il nostro team si impegna ogni giorno per voi in modo da essere un professionista altamente qualificato alla fine del vostro apprendistato.\n\nApprendistato come esperto*donna cliente dialogo EFZ per 2027 in Ebikon",
         "en": "Mobility | since 1874 | worldwide in use\n\nSchindler Vocational Training trains more than 300 learners throughout Switzerland – so you are never alone. Our entire team is committed to you every day so that you are a highly qualified professional at the end of your apprenticeship.\n\nApprenticeship as an expert*woman customer dialogue EFZ for 2027 in Ebikon",
-        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Fachmann*frau Kundendialog EFZ für 2027 in Ebikon",
         "fr": "Mobilité à travers le monde depuis 1874\n\nSchindler Formation professionnelle forme plus de 300 apprenants en Suisse – vous n'êtes donc jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un professionnel hautement qualifié à la fin de votre apprentissage.\n\nApprentissage en tant qu'expert* femme dialogue client EFZ pour 2027 à Ebikon"
       },
       "location": "Ebikon",
@@ -2598,31 +2577,6 @@
       "jobReqId": "1373001933",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-r4si95",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon-6",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-r4tp9f",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon-7",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-r4uc8y",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon-8",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-5q2l5c",
-        "manager-for-cookie-consents-schindler-ebikon",
-        "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon-8fd086",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-bw0jgk",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-qbido7",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-qckpmk",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-5otxjs",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-634kz6",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon-2",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-bvd24w",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-r4vs5k",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-r4uf7q",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-r4uyhs",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon-3",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon-4",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon-5"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "manager-fur-cookie-einwilligungen-schindler-ebikon",
@@ -2646,6 +2600,9 @@
           "manager-per-cookie-einwilligungen-schindler-ebikon-r4uf7q",
           "manager-per-cookie-einwilligungen-schindler-ebikon-r4uyhs"
         ],
+        "fr": [
+          "manager-fur-cookie-einwilligungen-schindler-ebikon"
+        ],
         "en": [
           "manager-fur-cookie-einwilligungen-schindler-ebikon-3",
           "manager-fur-cookie-einwilligungen-schindler-ebikon-4",
@@ -2655,13 +2612,34 @@
           "manager-fur-cookie-einwilligungen-schindler-ebikon-8",
           "manager-for-cookie-consents-schindler-ebikon",
           "manager-fur-cookie-einwilligungen-schindler-ebikon-2"
-        ],
-        "fr": [
-          "manager-fur-cookie-einwilligungen-schindler-ebikon"
         ]
       },
-      "firstSeenAt": "2026-08-07T01:08:06.575Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "manager-fur-cookie-einwilligungen-schindler-ebikon",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4si95",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-6",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4tp9f",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-7",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4uc8y",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-8",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-5q2l5c",
+        "manager-for-cookie-consents-schindler-ebikon",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon-8fd086",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-bw0jgk",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-qbido7",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-qckpmk",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-5otxjs",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-634kz6",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-2",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-bvd24w",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4vs5k",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4uf7q",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4uyhs",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-3",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-4",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-5",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon"
+      ],
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -2673,7 +2651,8 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-07T01:08:06.575Z"
     },
     {
       "id": "schindler-570660d7c9c4",
@@ -2766,16 +2745,16 @@
       "companyDomain": "schindler.com",
       "title": "Servicetechniker*in in der Stadt Zürich (m/w/d) 80-100%",
       "titleByLocale": {
+        "de": "Servicetechniker*in in der Stadt Zürich (m/w/d) 80-100%",
         "it": "Tecnico di servizio nella città di Zurigo (m/f/d) 80-100 %",
         "en": "Service technician in the city of Zurich (m/f/d) 80-100 %",
-        "de": "Servicetechniker*in in der Stadt Zürich (m/w/d) 80-100%",
         "fr": "Technicien de service dans la ville de Zurich (m/f/d) 80-100 %"
       },
       "description": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nServicetechniker*in in der Stadt Zürich (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n\n• Behebung von Störungen\n\n• Ausführung von kleineren Reparaturen\n\n• Interessante Piketteinsätze\n\n• Kundenkommunikation\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Eigenes Firmenfahrzeug , welches du auch privat nutzen darfst.\n\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
       "descriptionByLocale": {
+        "de": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nServicetechniker*in in der Stadt Zürich (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n\n• Behebung von Störungen\n\n• Ausführung von kleineren Reparaturen\n\n• Interessante Piketteinsätze\n\n• Kundenkommunikation\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Eigenes Firmenfahrzeug , welches du auch privat nutzen darfst.\n\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
         "it": "Più di due miliardi di persone si affidano a Schindler ogni giorno. I nostri molti anni di esperienza e di forza innovativa ci rendono il numero uno nel settore dell'ascensore e delle scale mobili svizzere. Nell'ambito della famiglia Schindler, progetta posti per tutti più accessibili, inclusivi e sostenibili. Uniamo innovazione, sicurezza e inclusione e diversità all'interno dell'azienda. Diventa parte della nostra storia di successo di 150 anni e modella il futuro della mobilità.\n\nInsieme un piano come\n\nTecnico di servizio nella città di Zurigo (m/f/d) 80-100 %\n\nLa tua giornata – il tuo piano! Progetta la tua settimana di 40 ore secondo le tue esigenze. Alleghiamo grande importanza per il vostro ulteriore sviluppo e vi offriamo esattamente ciò di cui avete bisogno. Scopri di più su di noi in questo video\n\nLe nuove sfide:\n\n• Pianificazione e esecuzione indipendente dei lavori di manutenzione secondo i cicli specificati\n\n• Rimediazione degli incidenti\n\n• Esecuzione delle riparazioni minori\n\n• Picchette interessanti\n\n• Comunicazione dei clienti\n\nLe vostre condizioni ideali:\n\n• Apprendistato completo nel settore meccanico, elettrico o idraulico (ad esempio polimeccanico, meccanico automobilistico, fabbricante di impianti e apparecchi o installatore elettrico)\n\n• Alcuni anni di esperienza professionale, idealmente con il contatto del cliente\n\n• Modi impeccabili e una grande disponibilità ad imparare\n\n• Buona conoscenza della lingua locale, altre lingue benefiche\n\n• Licenza valida del conducente – non si può fare senza di esso\n\nI nostri vantaggi:\n\n• Allenamento di 2 mesi a salario pieno nel nostro campo di sollevamento per la vostra preparazione ottimale per il vostro nuovo lavoro.\n\n• Proprio veicolo aziendale, che è anche possibile utilizzare privatamente.\n\n• Compensazione per i vostri pasti a pranzo, indennità equa per pikett e la pulizia dei vostri vestiti di lavoro, che naturalmente sarà fornito gratuitamente da noi.\n\n• Ottime opportunità di sviluppo: lo sviluppo del personale è vissuto con noi. Forniamo ai nostri dipendenti vari programmi di talento nazionali e internazionali e li sosteniamo temporaneamente e finanziariamente con formazione e formazione ulteriore.\n\n• Bilancio della vita lavorativa: 40h settimana, 25-30 giorni di vacanza, orari di lavoro flessibili, lavoro part-time e congedo non pagato.\n\n• Ambiente di lavoro sano: elevati standard di salute e sicurezza e gestione della salute professionale, compresa la consulenza sociale e la promozione della salute.\n\n• Benefici del dipendente: partecipazione generosa al trasporto pubblico e abbonamento fitness, sconti della flotta, acquisto ridotto del denaro Reka, premi assicurativi ridotti e vari benefici.\n\nSei pronto a fare nuove strade? Diventa parte di #TeamSchindler!\n\nUlteriori informazioni sono disponibili su: www.schindler.ch/karriere",
         "en": "Over two billion people rely on Schindler every day. Our many years of experience and innovative strength make us number one in the Swiss elevator and escalator business. As part of the Schindler family, you design places for everyone more accessible, inclusive and sustainable. We combine innovation, security and inclusion and diversity within the company. Become part of our 150-year success story and shape the future of mobility.\n\nTogether one floor up as\n\nService technician in the city of Zurich (m/f/d) 80-100 %\n\nYour day – your plan! Design your 40-hour week according to your needs. We attach great importance to your further development and offer you exactly what you need. Learn more about us in this video\n\nYour new challenges:\n\n• Independent planning and execution of maintenance work according to specified cycles\n\n• Remediation of incidents\n\n• Execution of minor repairs\n\n• Interesting piquettes\n\n• Customer communications\n\nYour ideal conditions:\n\n• Completed apprenticeship in the mechanical, electrical or hydraulic sector (e.g. polymechanic, car mechanic, plant and apparatus manufacturer or electrical installer)\n\n• Some years of professional experience, ideally with customer contact\n\n• Impeccable manners and a high willingness to learn\n\n• Good knowledge of the local language, other languages beneficial\n\n• Valid driver’s license – you can’t do without it\n\nOur benefits:\n\n• 2-month training at full wage in our lift camp for your optimal preparation for your new job.\n\n• Own company vehicle, which you can also use privately.\n\n• Compensation for your lunchtime meals, fair on-call allowance for pikett and the cleaning of your work clothes, which of course will be provided free of charge by us.\n\n• Excellent development opportunities: Personnel development is lived with us. We provide our employees with various national and international talent programs and support them temporarily and financially with training and further education.\n\n• Work-life balance: 40h week, 25 to 30 days of vacation, flexible working hours, part-time work and unpaid leave.\n\n• Healthy working environment: High health & safety standards and own occupational health management including social advice and health promotion.\n\n• Employee benefits: generous participation in the public transport and fitness subscription, fleet discounts, reduced purchase of Reka money, reduced insurance premiums and various benefits.\n\nAre you ready to go new ways? Become part of #TeamSchindler!\n\nFurther information can be found at: www.schindler.ch/karriere",
-        "de": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nServicetechniker*in in der Stadt Zürich (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n\n• Behebung von Störungen\n\n• Ausführung von kleineren Reparaturen\n\n• Interessante Piketteinsätze\n\n• Kundenkommunikation\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Eigenes Firmenfahrzeug , welches du auch privat nutzen darfst.\n\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
         "fr": "Plus de deux milliards de personnes dépendent de Schindler chaque jour. Nos nombreuses années d'expérience et de force innovante font de nous la première entreprise suisse d'ascenseur et d'escalator. Dans le cadre de la famille Schindler, vous concevez des lieux pour tous plus accessibles, inclusifs et durables. Nous combinons innovation, sécurité, inclusion et diversité au sein de l'entreprise. Faites partie de notre réussite de 150 ans et façonnez l'avenir de la mobilité.\n\nEnsemble un étage vers le haut comme\n\nTechnicien de service dans la ville de Zurich (m/f/d) 80-100 %\n\nVotre journée – votre plan! Concevez votre semaine de 40 heures selon vos besoins. Nous attachons une grande importance à votre développement et vous offrons exactement ce dont vous avez besoin. En savoir plus sur nous dans cette vidéo\n\nVos nouveaux défis :\n\n• Planification et exécution indépendantes des travaux d'entretien selon des cycles spécifiés\n\n• Réparation des incidents\n\n• Exécution de réparations mineures\n\n• Piquettes intéressantes\n\n• Communications avec les clients\n\nVos conditions idéales:\n\n• Apprentissage terminé dans le secteur mécanique, électrique ou hydraulique (p. ex. polymécanique, mécanicien automobile, fabricant d'installations et d'appareils ou installateur électrique)\n\n• Quelques années d'expérience professionnelle, idéalement avec contact client\n\n• Des manières impeccables et une grande volonté d'apprendre\n\n• Bonne connaissance de la langue locale, autres langues bénéfiques\n\n• Permis de conduire valide – vous ne pouvez pas faire sans\n\nNos avantages :\n\n• Entraînement de 2 mois à plein salaire dans notre camp de levage pour votre préparation optimale à votre nouvel emploi.\n\n• Automobile, que vous pouvez également utiliser en privé.\n\n• Indemnisation pour vos repas à l'heure du déjeuner, l'indemnité de garde pour le pikett et le nettoyage de vos vêtements de travail, qui bien sûr seront fournis gratuitement par nous.\n\n• Excellentes possibilités de perfectionnement : Le perfectionnement du personnel est vécu avec nous. Nous fournissons à nos employés divers programmes nationaux et internationaux de talents et les soutenons temporairement et financièrement dans la formation et la formation continue.\n\n• Équilibre travail-vie privée : 40h semaine, 25 à 30 jours de vacances, horaires flexibles, travail à temps partiel et congés non rémunérés.\n\n• Environnement de travail sain: normes élevées en matière de santé et de sécurité et gestion de la santé au travail, y compris conseils sociaux et promotion de la santé.\n\n• Avantages sociaux: participation généreuse à l'abonnement transport public et fitness, rabais sur flotte, réduction de l'achat de l'argent Reka, réduction des primes d'assurance et diverses prestations.\n\nÊtes-vous prêt à aller de nouvelles façons ? Faites partie de #TeamSchindler !\n\nDe plus amples informations sont disponibles à l'adresse suivante: www.schindler.ch/karriere"
       },
       "location": "Zürich",
@@ -2800,9 +2779,6 @@
       "jobReqId": "1423997433",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "servicetechniker-in-in-der-stadt-zurich-m-w-d-80-100-schindler-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-in-der-stadt-zurich-m-w-d-80-100-schindler-zurich"
@@ -2814,7 +2790,9 @@
           "servicetechniker-in-in-der-stadt-zurich-m-w-d-80-100-schindler-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-07T01:08:14.871Z",
+      "previousSlugs": [
+        "servicetechniker-in-in-der-stadt-zurich-m-w-d-80-100-schindler-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2826,7 +2804,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-07T01:08:14.871Z"
     },
     {
       "id": "schindler-e580ebc409d5",
@@ -2877,7 +2856,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-21T11:22:11.412Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3018,7 +2996,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-17T22:19:31.338Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -3095,7 +3072,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:25.077Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3248,7 +3224,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:42.530Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3501,7 +3476,6 @@
         ]
       },
       "firstSeenAt": "2026-05-27T13:46:29.633Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -3574,7 +3548,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:07:08.421Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3803,7 +3776,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:43.279Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3899,7 +3871,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:38.786Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3962,7 +3933,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-05T11:28:19.039Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -4041,7 +4011,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:01:56.085Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4120,7 +4089,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:16:02.327Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4183,7 +4151,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-16T11:24:30.837Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -4496,7 +4463,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:35.929Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -4524,17 +4490,17 @@
       "companyDomain": "schindler.com",
       "title": "Technicien de projets / Chef de projets (m/f/d) 80-100%",
       "titleByLocale": {
+        "fr": "Technicien de projets / Chef de projets (m/f/d) 80-100%",
         "it": "Project Technician / Project Manager (m/e/d) 80-100%",
         "en": "Project Technician / Project Manager (m/e/d) 80-100%",
-        "de": "Projekttechniker / Projektleiter (m/e/d) 80-100%",
-        "fr": "Technicien de projets / Chef de projets (m/f/d) 80-100%"
+        "de": "Projekttechniker / Projektleiter (m/e/d) 80-100%"
       },
       "description": "Plus de deux milliards de personnes font confiance à Schindler chaque jour. Notre expérience de longue date et notre esprit innovant nous positionnent en tant que leader dans le secteur suisse des ascenseurs et des escaliers mécaniques. En tant que membre de la famille Schindler, tu contribues à rendre les lieux plus accessibles, inclusifs et durables pour tous. Nous combinons innovation, sécurité ainsi qu'inclusion et diversité au sein de l'entreprise. Rejoins notre histoire de succès de 150 ans et façonne l'avenir de la mobilité.\n\nEnsemble, montons d'un étage :\n\nTechnicien de projets / Chef de projets (m/f/d) 80-100%\n\nTa journée - ton plan ! Organise ta semaine de 40 heures selon tes besoins. Nous accordons une grande importance à ton développement et te proposons exactement ce dont tu as besoin. Pour en savoir plus sur nous, consulte cette vidéo\n\nTa nouvelle mission :\n\n• La gestion des commandes et la conduite de projets d'ascenseurs standardisés, de l'ouverture de la commande, la planification, l'approvisionnement jusqu'à la réalisation\n\n• Soutien lors des clarifications du projet, notamment les clarifications techniques auprès des clients et fournisseurs ainsi que la demande d’offres pour le matériel tiers à commander localement et pour les prestations fournies par des tiers\n\n• Etablissement des plans de travaux préliminaires et d’implantation\n\n• Vente d’options et de suppléments dans le cadre de l’exécution des commandes\n\n• La commande du matériel et des prestations relatifs aux ascenseurs\n\n• La coordination et l'encadrement de l'équipe de gestion de projet\n\nTes qualités idéales :\n\n• Formation de base de constructeur de machines, mécanicien polyvalent, dessinateur en bâtiment ou génie civil\n\n• Une première expérience dans la conduite d'équipe\n\n• Connaissances en gestion de projet constituent un avantage\n\n• Maîtrise de MS Office, connaissances de SAP et de CAO un avantage\n\n• Bonne connaissance de la langue locale, d'autres langues un avantage\n\nNos avantages\n\nEs-tu prêt à emprunter de nouvelles voies ? Rejoins le #TeamSchindler !\n\nPour plus d'informations, consulte : www.schindler.ch/karriere",
       "descriptionByLocale": {
+        "fr": "Plus de deux milliards de personnes font confiance à Schindler chaque jour. Notre expérience de longue date et notre esprit innovant nous positionnent en tant que leader dans le secteur suisse des ascenseurs et des escaliers mécaniques. En tant que membre de la famille Schindler, tu contribues à rendre les lieux plus accessibles, inclusifs et durables pour tous. Nous combinons innovation, sécurité ainsi qu'inclusion et diversité au sein de l'entreprise. Rejoins notre histoire de succès de 150 ans et façonne l'avenir de la mobilité.\n\nEnsemble, montons d'un étage :\n\nTechnicien de projets / Chef de projets (m/f/d) 80-100%\n\nTa journée - ton plan ! Organise ta semaine de 40 heures selon tes besoins. Nous accordons une grande importance à ton développement et te proposons exactement ce dont tu as besoin. Pour en savoir plus sur nous, consulte cette vidéo\n\nTa nouvelle mission :\n\n• La gestion des commandes et la conduite de projets d'ascenseurs standardisés, de l'ouverture de la commande, la planification, l'approvisionnement jusqu'à la réalisation\n\n• Soutien lors des clarifications du projet, notamment les clarifications techniques auprès des clients et fournisseurs ainsi que la demande d’offres pour le matériel tiers à commander localement et pour les prestations fournies par des tiers\n\n• Etablissement des plans de travaux préliminaires et d’implantation\n\n• Vente d’options et de suppléments dans le cadre de l’exécution des commandes\n\n• La commande du matériel et des prestations relatifs aux ascenseurs\n\n• La coordination et l'encadrement de l'équipe de gestion de projet\n\nTes qualités idéales :\n\n• Formation de base de constructeur de machines, mécanicien polyvalent, dessinateur en bâtiment ou génie civil\n\n• Une première expérience dans la conduite d'équipe\n\n• Connaissances en gestion de projet constituent un avantage\n\n• Maîtrise de MS Office, connaissances de SAP et de CAO un avantage\n\n• Bonne connaissance de la langue locale, d'autres langues un avantage\n\nNos avantages\n\nEs-tu prêt à emprunter de nouvelles voies ? Rejoins le #TeamSchindler !\n\nPour plus d'informations, consulte : www.schindler.ch/karriere",
         "it": "Più di due miliardi di persone si fidano di Schindler ogni giorno. La nostra lunga esperienza e lo spirito innovativo ci collocano come leader nel settore degli ascensori e delle scale mobili svizzere. Come membro della famiglia Schindler, stai aiutando a rendere i luoghi più accessibili, inclusivi e sostenibili per tutti. Uniamo innovazione, sicurezza e inclusione e diversità all'interno dell'azienda. Unisciti alla nostra storia di successo di 150 anni e modella il futuro della mobilità.\n\nInsieme, andiamo di sopra:\n\nProject Technician / Project Manager (m/e/d) 80-100%\n\nLa tua giornata - il tuo piano! Organizza la tua settimana di 40 ore secondo le tue esigenze. Alleghiamo grande importanza per il vostro sviluppo e vi offriamo esattamente ciò di cui avete bisogno. Per saperne di più su di noi, guarda questo video\n\nLa vostra nuova missione:\n\n• La gestione degli ordini e la conduzione di progetti di ascensori standardizzati, dall'apertura dell'ordine, dalla pianificazione, dalla fornitura fino alla realizzazione\n\n• Supporto per chiarimenti del progetto, inclusi chiarimenti tecnici a clienti e fornitori, nonché la richiesta di offerte per apparecchiature di terze parti da ordinare localmente e per servizi di terze parti\n\n• Preparazione dei piani di lavoro preliminari e attuazione\n\n• Vendita di opzioni e integratori per l'esecuzione dell'ordine\n\n• Controllo delle attrezzature e dei servizi relativi agli ascensori\n\n• Coordinamento e supervisione del team di gestione del progetto\n\nLe tue qualità ideali:\n\n• Formazione di base di costruttori di macchine, meccanica multiuso, progettisti di costruzione e ingegneria civile\n\n• Una prima esperienza nella leadership del team\n\n• La conoscenza della gestione del progetto è un vantaggio\n\n• Mastery di MS Office, conoscenza di SAP e CAD un vantaggio\n\n• Buona conoscenza della lingua locale, altre lingue un vantaggio\n\nI nostri vantaggi\n\nSiete pronti a prendere nuove strade? Iscriviti a #TeamSchindler!\n\nPer ulteriori informazioni, visitare: www.schindler.ch/karriere",
         "en": "More than two billion people trust Schindler every day. Our long-standing experience and innovative spirit position us as a leader in the Swiss elevator and escalator industry. As a member of the Schindler family, you are helping to make places more accessible, inclusive and sustainable for all. We combine innovation, security and inclusion and diversity within the company. Join our 150-year success story and shape the future of mobility.\n\nTogether, let's go upstairs:\n\nProject Technician / Project Manager (m/e/d) 80-100%\n\nYour day - your plan! Organize your 40-hour week according to your needs. We attach great importance to your development and offer you exactly what you need. To learn more about us, check out this video\n\nYour new mission:\n\n• The management of orders and the conduct of standardized elevator projects, from the opening of the order, the planning, the supply until the realization\n\n• Support for clarifications of the project, including technical clarifications to customers and suppliers as well as the request for tenders for third party equipment to be ordered locally and for third party services\n\n• Preparation of preliminary work plans and implementation\n\n• Sale of options and supplements in order execution\n\n• Control of equipment and services related to elevators\n\n• Coordination and supervision of the project management team\n\nYour ideal qualities:\n\n• Basic training of machine builders, multi-purpose mechanic, building and civil engineering designers\n\n• A first experience in team leadership\n\n• Project management knowledge is an advantage\n\n• Mastery of MS Office, knowledge of SAP and CAD an advantage\n\n• Good knowledge of the local language, other languages an advantage\n\nOur benefits\n\nAre you ready to take new paths? Join #TeamSchindler!\n\nFor more information, visit: www.schindler.ch/karriere",
-        "de": "Mehr als zwei Milliarden Menschen vertrauen Schindler täglich. Unsere langjährige Erfahrung und unser Innovationsgeist positionieren uns als Marktführer in der Schweizer Aufzugs- und Rolltreppe. Als Mitglied der Familie Schindler tragen Sie dazu bei, Orte für alle zugänglicher, inklusiver und nachhaltiger zu machen. Wir verbinden Innovation, Sicherheit und Inklusion und Vielfalt im Unternehmen. Schließen Sie sich unserer 150-jährigen Erfolgsgeschichte an und gestalten Sie die Zukunft der Mobilität.\n\nZusammen gehen wir nach oben:\n\nProjekttechniker / Projektleiter (m/e/d) 80-100%\n\nDein Tag - dein Plan! Organisieren Sie Ihre 40-Stunden-Woche nach Ihren Bedürfnissen. Wir legen großen Wert auf Ihre Entwicklung und bieten Ihnen genau das, was Sie brauchen. Um mehr über uns zu erfahren, schauen Sie sich dieses Video an\n\nIhre neue Mission:\n\n• Die Verwaltung von Aufträgen und die Durchführung von standardisierten Aufzugsprojekten, von der Eröffnung des Auftrags, der Planung, der Lieferung bis zur Realisierung\n\n• Unterstützung bei Klarstellungen des Projekts, einschließlich technischer Klarstellungen an Kunden und Lieferanten sowie der Aufforderung zur Einreichung von Ausschreibungen für vor Ort zu bestellende Drittgeräte und für Dienstleistungen Dritter\n\n• Vorbereitung der vorläufigen Arbeitspläne und Durchführung\n\n• Verkauf von Optionen und Ergänzungen in Auftrag Ausführung\n\n• Kontrolle von Ausrüstung und Dienstleistungen im Zusammenhang mit Aufzügen\n\n• Koordination und Überwachung des Projektmanagementteams\n\nIhre idealen Qualitäten:\n\n• Grundausbildung von Maschinenbauern, Mehrzweckmechanikern, Bau- und Bauingenieuren\n\n• Erste Erfahrungen in der Teamführung\n\n• Projektmanagementwissen ist von Vorteil\n\n• Beherrschung von MS Office, Kenntnisse von SAP und CAD im Vorteil\n\n• Gute Kenntnisse der Landessprache, andere Sprachen von Vorteil\n\nUnsere Vorteile\n\nBist du bereit, neue Wege zu gehen? Mach mit bei #TeamSchindler!\n\nWeitere Informationen finden Sie unter: www.schindler.ch/karriere",
-        "fr": "Plus de deux milliards de personnes font confiance à Schindler chaque jour. Notre expérience de longue date et notre esprit innovant nous positionnent en tant que leader dans le secteur suisse des ascenseurs et des escaliers mécaniques. En tant que membre de la famille Schindler, tu contribues à rendre les lieux plus accessibles, inclusifs et durables pour tous. Nous combinons innovation, sécurité ainsi qu'inclusion et diversité au sein de l'entreprise. Rejoins notre histoire de succès de 150 ans et façonne l'avenir de la mobilité.\n\nEnsemble, montons d'un étage :\n\nTechnicien de projets / Chef de projets (m/f/d) 80-100%\n\nTa journée - ton plan ! Organise ta semaine de 40 heures selon tes besoins. Nous accordons une grande importance à ton développement et te proposons exactement ce dont tu as besoin. Pour en savoir plus sur nous, consulte cette vidéo\n\nTa nouvelle mission :\n\n• La gestion des commandes et la conduite de projets d'ascenseurs standardisés, de l'ouverture de la commande, la planification, l'approvisionnement jusqu'à la réalisation\n\n• Soutien lors des clarifications du projet, notamment les clarifications techniques auprès des clients et fournisseurs ainsi que la demande d’offres pour le matériel tiers à commander localement et pour les prestations fournies par des tiers\n\n• Etablissement des plans de travaux préliminaires et d’implantation\n\n• Vente d’options et de suppléments dans le cadre de l’exécution des commandes\n\n• La commande du matériel et des prestations relatifs aux ascenseurs\n\n• La coordination et l'encadrement de l'équipe de gestion de projet\n\nTes qualités idéales :\n\n• Formation de base de constructeur de machines, mécanicien polyvalent, dessinateur en bâtiment ou génie civil\n\n• Une première expérience dans la conduite d'équipe\n\n• Connaissances en gestion de projet constituent un avantage\n\n• Maîtrise de MS Office, connaissances de SAP et de CAO un avantage\n\n• Bonne connaissance de la langue locale, d'autres langues un avantage\n\nNos avantages\n\nEs-tu prêt à emprunter de nouvelles voies ? Rejoins le #TeamSchindler !\n\nPour plus d'informations, consulte : www.schindler.ch/karriere"
+        "de": "Mehr als zwei Milliarden Menschen vertrauen Schindler täglich. Unsere langjährige Erfahrung und unser Innovationsgeist positionieren uns als Marktführer in der Schweizer Aufzugs- und Rolltreppe. Als Mitglied der Familie Schindler tragen Sie dazu bei, Orte für alle zugänglicher, inklusiver und nachhaltiger zu machen. Wir verbinden Innovation, Sicherheit und Inklusion und Vielfalt im Unternehmen. Schließen Sie sich unserer 150-jährigen Erfolgsgeschichte an und gestalten Sie die Zukunft der Mobilität.\n\nZusammen gehen wir nach oben:\n\nProjekttechniker / Projektleiter (m/e/d) 80-100%\n\nDein Tag - dein Plan! Organisieren Sie Ihre 40-Stunden-Woche nach Ihren Bedürfnissen. Wir legen großen Wert auf Ihre Entwicklung und bieten Ihnen genau das, was Sie brauchen. Um mehr über uns zu erfahren, schauen Sie sich dieses Video an\n\nIhre neue Mission:\n\n• Die Verwaltung von Aufträgen und die Durchführung von standardisierten Aufzugsprojekten, von der Eröffnung des Auftrags, der Planung, der Lieferung bis zur Realisierung\n\n• Unterstützung bei Klarstellungen des Projekts, einschließlich technischer Klarstellungen an Kunden und Lieferanten sowie der Aufforderung zur Einreichung von Ausschreibungen für vor Ort zu bestellende Drittgeräte und für Dienstleistungen Dritter\n\n• Vorbereitung der vorläufigen Arbeitspläne und Durchführung\n\n• Verkauf von Optionen und Ergänzungen in Auftrag Ausführung\n\n• Kontrolle von Ausrüstung und Dienstleistungen im Zusammenhang mit Aufzügen\n\n• Koordination und Überwachung des Projektmanagementteams\n\nIhre idealen Qualitäten:\n\n• Grundausbildung von Maschinenbauern, Mehrzweckmechanikern, Bau- und Bauingenieuren\n\n• Erste Erfahrungen in der Teamführung\n\n• Projektmanagementwissen ist von Vorteil\n\n• Beherrschung von MS Office, Kenntnisse von SAP und CAD im Vorteil\n\n• Gute Kenntnisse der Landessprache, andere Sprachen von Vorteil\n\nUnsere Vorteile\n\nBist du bereit, neue Wege zu gehen? Mach mit bei #TeamSchindler!\n\nWeitere Informationen finden Sie unter: www.schindler.ch/karriere"
       },
       "location": "Fribourg",
       "canton": "FR",
@@ -4558,6 +4524,19 @@
       "jobReqId": "1394585833",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-07T01:07:54.237Z",
       "previousSlugs": [
         "technicien-de-projets-chef-de-projets-m-f-d-80-100-schindler-fribourg",
         "project-technician-project-manager-m-e-d-80-100-schindler-fribourg"
@@ -4573,20 +4552,6 @@
         "en": [
           "technicien-de-projets-chef-de-projets-m-f-d-80-100-schindler-fribourg"
         ]
-      },
-      "firstSeenAt": "2026-08-07T01:07:54.237Z",
-      "needsRetranslation": true,
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
       }
     },
     {
@@ -4654,7 +4619,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:28:23.430Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4738,7 +4702,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:17.660Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -4814,7 +4777,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:07:31.318Z",
-      "needsRetranslation": true,
       "salaryMin": 27800,
       "salaryMax": 42400,
       "baseSalary": {
@@ -5047,7 +5009,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:25.810Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5132,7 +5093,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:17:24.800Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -5383,7 +5343,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:29.285Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5460,7 +5419,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T12:19:03.250Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5640,7 +5598,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:04.959Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5787,21 +5744,22 @@
         "cookie-consent-manager-schindler-sion",
         "cookie-einwilligungsmanager-schindler-sion",
         "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
-        "cookie-consent-manager-schindler-bussigny-qcnbsr"
+        "cookie-consent-manager-schindler-bussigny-qcnbsr",
+        "cookie-consent-manager-schindler-bussigny"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny"
         ],
         "en": [
-          "cookie-consent-manager-schindler-bussigny-qcnbsr"
+          "cookie-consent-manager-schindler-bussigny-qcnbsr",
+          "cookie-consent-manager-schindler-bussigny"
         ],
         "de": [
           "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny"
         ]
       },
       "firstSeenAt": "2026-07-01T12:43:42.016Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -5872,7 +5830,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:06.115Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -6039,7 +5996,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:15:41.720Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -6112,7 +6068,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T12:43:39.515Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6195,7 +6150,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:10.022Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6274,7 +6228,6 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:09:38.189Z",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 102800,
       "baseSalary": {
@@ -6347,7 +6300,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:17:10.627Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -6422,7 +6374,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:41.105Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -6495,7 +6446,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T12:18:21.218Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -6572,7 +6522,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:28.033Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6933,7 +6882,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-10T22:16:31.314Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -7012,7 +6960,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:18:28.542Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -7075,7 +7022,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-24T12:22:40.555Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -7153,7 +7099,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:18:25.358Z",
-      "needsRetranslation": true,
       "salaryMin": 44700,
       "salaryMax": 76200,
       "baseSalary": {
@@ -7236,8 +7181,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
