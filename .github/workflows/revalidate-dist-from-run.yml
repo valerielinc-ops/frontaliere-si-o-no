@@ -1,0 +1,428 @@
+name: Revalidate dist completeness from prior run
+
+# Fast-feedback replay of ONE gate: `scripts/ci/assert-dist-complete.mjs`.
+#
+# Why this exists
+# ---------------
+# That gate runs three times in `post-deploy-validate-dist.yml` (once in each of
+# validate-dist-source / -postbuild / -postbuild-bfs). When it fails, the only
+# way to learn whether a fix worked was to re-run the whole "Publish to GitHub
+# Pages (deploy + validate)" pipeline — a build plus three ~60-140 min audit
+# jobs, i.e. HOURS, and most of that work is the audits the gate never reaches
+# anyway (it is a precondition: on failure it exits 2 and every audit after it
+# is skipped).
+#
+# The artifacts of a past deploy run are reusable, exactly as
+# `audit-dist-from-run.yml` already demonstrates. This workflow reuses the same
+# input (`deploy_run_id`) and the same rehydrate sequence, but stops at the
+# gate: no `npm run audit:*`, no validators, no live smoke, no social posting.
+# That turns the fix→verdict loop from hours into the time it takes to fetch and
+# rehydrate a dist — typically 20-40 min, and bounded here at 60.
+#
+# Relationship to the other two replay entry points:
+#   • post-deploy-validate-dist.yml — the real gate, in the real pipeline. This
+#     workflow can never replace it; it only tells you the same verdict sooner.
+#   • audit-dist-from-run.yml       — the heavyweight replay (timeout 240,
+#     runs the audits). Use it once THIS one is green.
+#
+# NOTE on replaying an OLD run (same caveat as audit-dist-from-run.yml): the
+# rehydrate scripts prefer that run's own shard artifacts and fall back to a
+# `git clone` of the shard repo (whose main branch holds the LATEST push) when
+# they have expired. They log the fallback — a replay of an expired run
+# therefore mixes trunk-of-then with shards-of-now, and a verdict from it is
+# about that mixture, not about the original deploy.
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_run_id:
+        description: 'Run ID of the deploy/build run whose `github-pages` + shard artifacts to reuse (numeric).'
+        required: true
+        type: string
+      sample:
+        description: 'URLs sampled per sitemap. Empty = the script default (40). Ignored when `full` is checked.'
+        required: false
+        default: ''
+        type: string
+      full:
+        description: 'Check EVERY sitemap URL instead of a sample. Exhaustive counts, several minutes slower.'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  actions: read     # cross-run download-artifact (github-pages + shard tars)
+
+jobs:
+  revalidate:
+    runs-on: ubuntu-latest
+    # The heavy jobs this replays are capped at no timeout / 240 min because
+    # they run the audits. This one does the shared prefix (checkout, artifact
+    # download, extract, rehydrate ~27 GB of shards) and then one cheap Node
+    # walk, so 60 min is generous. If it hits the cap the cause is the
+    # rehydrate — read the step log for `falling back to git clone`.
+    timeout-minutes: 60
+    # No job-level `permissions:` on purpose. A job-level block REPLACES the
+    # workflow-level one rather than extending it, so writing `actions: read`
+    # here would set `contents` to none and break the checkout above. The
+    # workflow-level block already grants exactly the two scopes needed:
+    # `contents: read` for checkout, `actions: read` for the cross-run
+    # artifact download. (validate-dist-postbuild gets away with an
+    # actions-only job block because it is a `workflow_call` callee and
+    # inherits the caller's token scopes; this workflow has no caller.)
+    steps:
+      # Checkout at the repo default (not at the deploy's SHA): the point of
+      # this workflow is to test whether YOUR FIX to the gate / to the
+      # rehydrate scripts produces a different verdict on the same artifacts.
+      # `post-deploy-validate-dist.yml` pins `ref: inputs.deploy_ref` because
+      # there the validators must match the built code; here the code under
+      # test is deliberately the newer one. Dispatch this workflow from the
+      # branch you want to test (the ref selector in the Actions UI).
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      # Reclaim ~25 GB of preinstalled SDKs we never use. Verbatim from
+      # post-deploy-validate-dist.yml, which added it after run 26287421188
+      # OOM'd the runner mid artifact-extract: the github-pages tarball
+      # (~1.8 GB) + dist extraction + node_modules crowded a 14 GB default
+      # partition, and the rehydrate below adds ~27 GB on top. Best-effort:
+      # `|| true` keeps the job green if a path was already pruned by a
+      # future image refresh.
+      - name: Free disk space on runner
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
+            /opt/hostedtoolcache/CodeQL /usr/local/share/powershell \
+            /usr/local/share/chromium /usr/local/lib/node_modules \
+            /usr/local/share/boost /usr/share/swift 2>/dev/null || true
+          sudo docker image prune -af 2>/dev/null || true
+          df -h /
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # `assert-dist-complete.mjs` itself imports only Node builtins
+      # (node:fs/promises, node:path, node:url) and the rehydrate scripts use
+      # gh/git/jq/tar, so strictly speaking nothing here needs node_modules.
+      # The install is kept anyway, on the same cache key as the jobs this
+      # replays: it is a cache HIT in the normal case (~20 s) and it keeps this
+      # workflow a drop-in prefix if a future step needs a dependency. Dropping
+      # it would trade a verified-identical environment for ~20 s.
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      # Cross-run read of the BUILD run's artifact, keyed on `deploy_run_id`
+      # + the job token (needs `actions: read`, declared above).
+      - name: Download GitHub Pages artifact
+        uses: actions/download-artifact@v7
+        with:
+          name: github-pages
+          path: /tmp/github-pages-artifact
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Only dist/ — no data/ restore. See the "Steps deliberately dropped"
+      # note at the bottom of this file for why jobs.json and friends are not
+      # needed by the rehydrate scripts or by the gate.
+      - name: Extract dist/
+        run: |
+          set -euo pipefail
+          # Pages artifact wraps a single artifact.tar — extract into dist/.
+          rm -rf dist && mkdir -p dist
+          tar -xf /tmp/github-pages-artifact/artifact.tar -C dist
+          echo "trunk artifact restored: $(find dist -type f | wc -l) files"
+
+      - name: Restore shard clone cache
+        continue-on-error: true
+        uses: actions/cache/restore@v5
+        with:
+          path: ${{ runner.temp }}/shard-clone-cache
+          # A dispatch of this workflow is its own run, so the run-scoped key
+          # used by post-deploy-validate-dist.yml can never hit here. Keep the
+          # same cache PATH and a prefix restore-key so a repeated dispatch
+          # against the same deploy_run_id reuses whatever the previous
+          # dispatch cloned instead of re-cloning shard repos. Best-effort by
+          # construction: a miss falls straight through to the unchanged
+          # download/clone path in the rehydrate scripts.
+          key: revalidate-shard-clone-cache-${{ inputs.deploy_run_id }}-${{ github.run_id }}
+          restore-keys: |
+            revalidate-shard-clone-cache-${{ inputs.deploy_run_id }}-
+
+      # ── The proven rehydrate sequence ────────────────────────────────────
+      # Copied from post-deploy-validate-dist.yml's `validate-dist-postbuild`
+      # job, `env:` block included, because that is the sequence the gate was
+      # written against: locale shards first and HARD-fail (an incomplete
+      # locale shard is a real gate), section shards strictly AFTER and
+      # soft-fail (they warn and degrade). Sections must not run concurrently
+      # with the locale pass — rehydrate_section writes into
+      # dist/$loc/<section>, nested inside the subtree rehydrate_locale wipes
+      # and repopulates.
+      #
+      # On the hand-listed 27 `*_SHARD_LIVE` vars: audit-dist-from-run.yml uses
+      # `toJSON(vars)` + a jq eval instead, which cannot drift when a section is
+      # added to scripts/lib/section-shard-slugs.json. This job keeps the
+      # explicit list (byte-identical to the job it replays, so the two produce
+      # the same env by inspection) and adds the drift check the explicit form
+      # otherwise lacks: the guard below reads the section SSOT and warns for
+      # any section whose var is not DECLARED here at all. GitHub sets a
+      # declared var to the empty string when the repo variable is unset, so
+      # `${!var+set}` distinguishes "declared, currently off" from "missing
+      # from the list" — which is exactly the drift being guarded.
+      - name: Rehydrate locale then section shards into dist/ (when sharding active)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          LOCALE_SHARDS_LIVE: ${{ vars.LOCALE_SHARDS_LIVE }}
+          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
+          SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
+          ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
+          ARGOVIA_SHARD_LIVE: ${{ vars.ARGOVIA_SHARD_LIVE }}
+          APPENZELLO_SHARD_LIVE: ${{ vars.APPENZELLO_SHARD_LIVE }}
+          BASILEA_SHARD_LIVE: ${{ vars.BASILEA_SHARD_LIVE }}
+          BERNA_SHARD_LIVE: ${{ vars.BERNA_SHARD_LIVE }}
+          FRIBURGO_SHARD_LIVE: ${{ vars.FRIBURGO_SHARD_LIVE }}
+          GINEVRA_SHARD_LIVE: ${{ vars.GINEVRA_SHARD_LIVE }}
+          GLARONA_SHARD_LIVE: ${{ vars.GLARONA_SHARD_LIVE }}
+          GRIGIONI_SHARD_LIVE: ${{ vars.GRIGIONI_SHARD_LIVE }}
+          GIURA_SHARD_LIVE: ${{ vars.GIURA_SHARD_LIVE }}
+          LUCERNA_SHARD_LIVE: ${{ vars.LUCERNA_SHARD_LIVE }}
+          NEUCHATEL_SHARD_LIVE: ${{ vars.NEUCHATEL_SHARD_LIVE }}
+          NIDVALDO_SHARD_LIVE: ${{ vars.NIDVALDO_SHARD_LIVE }}
+          OBVALDO_SHARD_LIVE: ${{ vars.OBVALDO_SHARD_LIVE }}
+          SCIAFFUSA_SHARD_LIVE: ${{ vars.SCIAFFUSA_SHARD_LIVE }}
+          SOLETTA_SHARD_LIVE: ${{ vars.SOLETTA_SHARD_LIVE }}
+          SVITTO_SHARD_LIVE: ${{ vars.SVITTO_SHARD_LIVE }}
+          TURGOVIA_SHARD_LIVE: ${{ vars.TURGOVIA_SHARD_LIVE }}
+          URI_SHARD_LIVE: ${{ vars.URI_SHARD_LIVE }}
+          VAUD_SHARD_LIVE: ${{ vars.VAUD_SHARD_LIVE }}
+          VALLESE_SHARD_LIVE: ${{ vars.VALLESE_SHARD_LIVE }}
+          ZUGO_SHARD_LIVE: ${{ vars.ZUGO_SHARD_LIVE }}
+          SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
+          ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
+          ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
+          SHARD_CLONE_CACHE_DIR: ${{ runner.temp }}/shard-clone-cache
+        run: |
+          set -uo pipefail
+          mkdir -p /tmp/revalidate-report
+
+          # Drift guard on the hand-listed env: block above. A section present
+          # in the SSOT but absent from that list arrives here UNDECLARED, its
+          # subtree is never rehydrated, and the gate then reports it as
+          # missing content of the SITE — the exact wrong-root-cause the gate
+          # exists to prevent (issue #4857). Name it here instead.
+          MISSING_VARS=""
+          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+            live_var="$(echo "$section" | tr 'a-z' 'A-Z')_SHARD_LIVE"
+            if [ -z "${!live_var+set}" ]; then
+              MISSING_VARS="$MISSING_VARS $live_var"
+            fi
+          done
+          if [ -n "$MISSING_VARS" ]; then
+            echo "::warning::This workflow's env: block does not declare:$MISSING_VARS — those sections will NOT be rehydrated and the gate below will read their subtrees as absent. Add them to .github/workflows/revalidate-dist-from-run.yml before trusting a failure."
+            echo "MISSING_SHARD_VARS:$MISSING_VARS" > /tmp/revalidate-report/shard-var-drift.txt
+          else
+            echo "shard var coverage: all $(jq -r '[keys[] | select(startswith("_")|not)] | length' scripts/lib/section-shard-slugs.json) sections declared"
+          fi
+
+          LOCALE_RC=0
+          bash scripts/lib/rehydrate-locale-shards.sh 2>&1 | tee /tmp/revalidate-report/rehydrate-locale.log
+          LOCALE_RC=${PIPESTATUS[0]}
+
+          bash scripts/lib/rehydrate-section-shards.sh 2>&1 | tee /tmp/revalidate-report/rehydrate-sections.log
+
+          echo "dist/ now holds $(find dist -type f | wc -l) files"
+
+          if [ "$LOCALE_RC" -ne 0 ]; then
+            exit "$LOCALE_RC"
+          fi
+
+      # THE gate, and the only thing this workflow runs. Output is split so the
+      # artifact carries every half: `--json` puts the machine-readable
+      # per-sitemap table on stdout, the human "INCONCLUSIVE / How to fix" block
+      # goes to stderr regardless of --json (see the script's main()), and
+      # `--report=` writes the COMPLETE offender list — not the 5 examples per
+      # sitemap the console shows.
+      #
+      # Two flags are passed for "check everything", on purpose:
+      #   --full                — the script's own flag.
+      #   --sample=100000000    — the same thing expressed through --sample,
+      #                           since sampleEvenly() returns the whole list
+      #                           once the requested count reaches its length.
+      # Either alone is enough for the current script; both together also do the
+      # right thing against a build of the script that predates `--full`, which
+      # would otherwise silently fall back to a 40-URL sample and report a
+      # narrower verdict than the dispatch asked for. Unknown flags are ignored
+      # by its arg parser, so this is safe in both directions. Nothing in
+      # assert-dist-complete.mjs is modified by this workflow.
+      - name: Assert dist/ is the complete logical site
+        id: gate
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_SAMPLE: ${{ inputs.sample }}
+          INPUT_FULL: ${{ inputs.full }}
+          NODE_OPTIONS: '--max-old-space-size=4096'
+        run: |
+          set -uo pipefail
+          mkdir -p /tmp/revalidate-report
+          OUT=/tmp/revalidate-report/assert-dist-complete.json
+          ERR=/tmp/revalidate-report/assert-dist-complete.txt
+          REPORT=/tmp/revalidate-report/missing-urls.json
+
+          ARGS=(--json "--report=$REPORT")
+          if [ "$INPUT_FULL" = "true" ]; then
+            echo "mode: FULL — every sitemap URL is checked"
+            ARGS+=(--full --sample=100000000)
+          elif [ -n "$INPUT_SAMPLE" ]; then
+            case "$INPUT_SAMPLE" in
+              ''|*[!0-9]*)
+                echo "::error::sample must be a positive integer, got: $INPUT_SAMPLE"
+                exit 1 ;;
+            esac
+            echo "mode: SAMPLE $INPUT_SAMPLE URLs per sitemap"
+            ARGS+=("--sample=$INPUT_SAMPLE")
+          else
+            echo "mode: SAMPLE (script default, 40 URLs per sitemap)"
+          fi
+
+          RC=0
+          node scripts/ci/assert-dist-complete.mjs "${ARGS[@]}" > "$OUT" 2> "$ERR" || RC=$?
+
+          # Echo the diagnostic into the job log too — the maintainer should not
+          # have to download the artifact to see WHY it failed.
+          cat "$ERR"
+
+          # A sampled failure names at most 5 URLs per sitemap, which is the
+          # "fix five, wait hours, meet the next five" loop this whole workflow
+          # exists to break. dist/ is already rehydrated at this point, so the
+          # exhaustive pass is just a second walk of a tree we already paid for
+          # — a few minutes, no re-download. Do it automatically rather than
+          # making the maintainer spend another dispatch on it.
+          if [ "$RC" -ne 0 ] && [ "$INPUT_FULL" != "true" ]; then
+            echo "──────────────────────────────────────────────────────────────"
+            echo "Gate failed on a sample. Re-running FULL against the SAME"
+            echo "rehydrated dist/ to produce the complete offender list."
+            echo "──────────────────────────────────────────────────────────────"
+            node scripts/ci/assert-dist-complete.mjs \
+              --json --full --sample=100000000 "--report=$REPORT" \
+              > /tmp/revalidate-report/assert-dist-complete-full.json \
+              2> /tmp/revalidate-report/assert-dist-complete-full.txt || true
+            tail -60 /tmp/revalidate-report/assert-dist-complete-full.txt
+          fi
+
+          echo "gate_rc=$RC" >> "$GITHUB_OUTPUT"
+          exit "$RC"
+
+      # ALWAYS — a failing gate is precisely the run whose report is worth
+      # keeping, and the whole point of this workflow is that the maintainer
+      # gets the full picture from ONE dispatch instead of an iteration per
+      # discovered problem.
+      - name: Upload completeness report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist-completeness-${{ inputs.deploy_run_id }}-${{ github.run_id }}
+          path: /tmp/revalidate-report/
+          retention-days: 14
+          if-no-files-found: warn
+
+      - name: Post summary to job
+        if: always()
+        env:
+          # Dispatch inputs reach the shell as DATA, never as script text.
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          GATE_RC: ${{ steps.gate.outputs.gate_rc }}
+        run: |
+          set -uo pipefail
+          OUT=/tmp/revalidate-report/assert-dist-complete.json
+          ERR=/tmp/revalidate-report/assert-dist-complete.txt
+          {
+            echo "## dist completeness replay of deploy run \`$INPUT_DEPLOY_RUN_ID\`"
+            echo ''
+            if [ -s "$OUT" ] && jq -e . "$OUT" >/dev/null 2>&1; then
+              VERDICT=$(jq -r 'if .ok then "PASS" else "INCONCLUSIVE — dist/ is not the complete logical site" end' "$OUT")
+              echo "**$VERDICT**"
+              echo ''
+              jq -r '"Sampled \(.sampledTotal) sitemap URLs, \(.missingTotal) missing (\(.overallMissingPct)%)."' "$OUT"
+              echo ''
+              echo '| Sitemap | Sampled | Missing | Missing% |'
+              echo '|---|---:|---:|---:|'
+              jq -r '.perSitemap | to_entries[]
+                     | select(.value.missing > 0)
+                     | "| \(.key) | \(.value.sampled) | \(.value.missing) | \(if .value.sampled > 0 then ((.value.missing / .value.sampled) * 1000 | round / 10) else 0 end) |"' "$OUT"
+              echo ''
+              if jq -e '.failures | length > 0' "$OUT" >/dev/null 2>&1; then
+                echo '### Example missing URLs (the gate records up to 5 per failing sitemap)'
+                echo ''
+                echo '```'
+                jq -r '.failures[] | "\(.name): \(.missing)/\(.sampled) missing (\(.missingPct)%)",
+                                     (.examples[] | "    " + .)' "$OUT"
+                echo '```'
+              fi
+            else
+              echo '**The gate produced no JSON** — it aborted before sampling (unreadable dist/, or no sitemap*.xml in it). Raw output:'
+              echo ''
+              echo '```'
+              tail -40 "$ERR" 2>/dev/null || echo '(no output captured)'
+              echo '```'
+            fi
+            REPORT=/tmp/revalidate-report/missing-urls.json
+            if [ -s "$REPORT" ] && jq -e . "$REPORT" >/dev/null 2>&1; then
+              echo ''
+              echo '### Complete offender list'
+              echo ''
+              jq -r '"Mode `\(.mode)`. **\(.missingTotal)** URL(s) with no page file, listed in full in `missing-urls.json` (in the artifact) — every one of them, not a sample of five per sitemap."' "$REPORT"
+              echo ''
+              jq -r '.missingBySitemap // {} | to_entries[] | "- `\(.key)` — \(.value.missing) of \(.value.total) URL(s) missing"' "$REPORT"
+            else
+              echo ''
+              echo '> No `missing-urls.json` was produced. That means this checkout of `scripts/ci/assert-dist-complete.mjs` predates its `--report=` flag: the per-sitemap counts above are complete, but the URL lists are capped at 5 examples per sitemap. Re-dispatch from a branch that has the flag to get the full work list.'
+            fi
+            if [ -f /tmp/revalidate-report/shard-var-drift.txt ]; then
+              echo ''
+              echo '> ⚠️ This workflow is missing shard env vars — see the rehydrate step warning. A failure above may be an artefact of that, not of the site.'
+            fi
+            echo ''
+            echo "Full report (JSON + offender list + rehydrate logs): the \`dist-completeness-$INPUT_DEPLOY_RUN_ID-${{ github.run_id }}\` artifact on this run."
+            echo ''
+            echo "gate exit code: \`${GATE_RC:-<step did not run>}\` (0 = complete, 2 = incomplete/inconclusive)"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+# ── Steps deliberately dropped from validate-dist-postbuild ─────────────────
+# Each was read before dropping; none is reachable from the two rehydrate
+# scripts or from assert-dist-complete.mjs.
+#
+#   • Prepare Firebase credentials / Load secrets from Remote Config
+#       Feed the social-posting and registry steps (FB_PAGE_ACCESS_TOKEN,
+#       LINKEDIN_POST_*). assert-dist-complete.mjs imports only node:fs/promises,
+#       node:path and node:url and reads nothing but dist/; the rehydrate
+#       scripts use gh/git/jq/tar with GH_TOKEN only. Dropping them also keeps
+#       an owner-equivalent service account off a runner that does not need it.
+#   • Download master jobs.json  →  data/jobs.json, public/data/jobs.json,
+#     data/jobs-crawler-summaries.json
+#       Consumed by validate:translation-completeness and
+#       validate:crawler-summaries, neither of which runs here.
+#   • Download pre-deploy sitemap snapshot / previous-slug winners
+#       Both already `continue-on-error: true` upstream; consumed by the
+#       IndexNow diff and the slug-history validators, not by this gate.
+#   • Migrate all-known-job-slugs to canton-aware paths
+#       Writes data/all-known-job-slugs*.json for the audits; runs AFTER the
+#       gate upstream, so it cannot affect the gate's verdict by construction.
+#   • Save cross-job shard clone cache
+#       Its purpose upstream is sharing a clone between the three parallel
+#       jobs of one run. This workflow has one job. The restore above still
+#       reads whatever a previous dispatch left, and a save is added below the
+#       value line only if repeated dispatches prove to be re-cloning.
+#   • Post-build validations + SEO audits / source validators / build size
+#     summary / sitemap diff vs live
+#       The entire point: they are the hours this workflow exists to skip.

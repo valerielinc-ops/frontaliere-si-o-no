@@ -16,6 +16,10 @@ export const FAQ_vitaQuotidiana: ReadonlyArray<FaqHubEntry> = [
       de: 'Wie viel kostet das Leben in Lugano im Vergleich zu Varese oder Como?',
       fr: 'Quel est le coût de la vie à Lugano comparé à Varese ou Côme ?',
     },
+    titleShort: {
+      en: 'How much does it cost to live in Lugano vs Varese or Como?',
+      de: 'Lebenshaltungskosten: Lugano im Vergleich zu Varese oder Como?',
+    },
     answer: {
       it:
         "L'indice UFSE (Ufficio federale di statistica) 2024 mostra un differenziale medio del +68% tra Lugano e Varese a parità di paniere [fonte: UFSE, Indice prezzi al consumo 2024]. Un appartamento di 70 mq a Lugano costa CHF 1.800-2.300/mese, a Varese EUR 650-850. Un caffè a Lugano CHF 4,50, a Varese EUR 1,20. La spesa alimentare settimanale per una famiglia di 4 persone: CHF 300-400 Lugano vs EUR 180-220 Varese. I trasporti pubblici Lugano abbonamento CHF 80/mese, Varese EUR 30. Istruzione pubblica gratuita in entrambi i Paesi, ma il materiale scolastico costa di più in Svizzera. La bolletta elettrica media annuale: CHF 900 Lugano vs EUR 650 Varese. Un frontaliere che mantiene la residenza in Italia beneficia dei costi più bassi mantenendo lo stipendio elevato.",
@@ -108,6 +112,9 @@ export const FAQ_vitaQuotidiana: ReadonlyArray<FaqHubEntry> = [
       de: 'Wie viel kostet es, eine Wohnung in Lugano oder Mendrisio zu mieten?',
       fr: 'Combien coûte la location d\'un appartement à Lugano ou Mendrisio ?',
     },
+    titleShort: {
+      de: 'Wie viel kostet eine Mietwohnung in Lugano oder Mendrisio?',
+    },
     answer: {
       it:
         "L'indice ufficiale dei canoni (OCA, TI-USTAT 2024) indica: Lugano centro CHF 24/mq/mese (appartamento 60 mq ≈ CHF 1.450 al mese + CHF 200 spese), Mendrisio centro CHF 18/mq (60 mq ≈ CHF 1.090), Bellinzona CHF 16/mq, Locarno CHF 19/mq [fonte: TI.ch USTAT, canoni locazione 2024]. Il frontaliere può affittare come privato in Svizzera per uso secondario (pied-à-terre) o per trasferirsi in permesso B. La locazione è regolata dal CO art. 253-274g. Cauzione massima 3 mesi d'affitto su conto bancario vincolato. Gli annunci appaiono su homegate.ch, immoscout24.ch, comparis.ch. Il contratto prevede preavviso 3 mesi per la risoluzione. I costi energetici (riscaldamento, acqua calda) sono separati e regolati da nebenkosten annuale. Allarga il tuo raggio a Capriasca o Cadro per canoni minori.",
@@ -155,6 +162,9 @@ export const FAQ_vitaQuotidiana: ReadonlyArray<FaqHubEntry> = [
       de: 'Kann ich meine Kinder in die Schweizer öffentliche Schule einschreiben?',
       fr: 'Puis-je inscrire mes enfants à l\'école publique suisse ?',
     },
+    titleShort: {
+      de: 'Können meine Kinder die öffentliche Schweizer Schule besuchen?',
+    },
     answer: {
       it:
         "Solo se la famiglia è effettivamente residente in Svizzera (permesso B/C). La scuola pubblica ticinese (Scuola dell'Infanzia 3-6 anni, scuola elementare 6-11, media 11-15, liceo 15-19) è gratuita e obbligatoria per i residenti (Legge cantonale sulla scuola, art. 1) [fonte: Ti.ch DECS]. I figli di frontalieri con permesso G residenti in Italia frequentano la scuola italiana. Eccezioni: scuole private internazionali a Lugano (es. TASIS, Franklin College) aperte a chiunque paghi la retta (CHF 25.000-45.000/anno). Alcuni Comuni ticinesi accettano figli di dipendenti strategici come «ospiti» con autorizzazione speciale DECS (rari, principalmente edilizia). Per i figli di frontalieri il Cantone offre formazione duale (apprendistato) con lavoro + scuola 1-2 giorni/settimana per residenti.",
@@ -177,6 +187,10 @@ export const FAQ_vitaQuotidiana: ReadonlyArray<FaqHubEntry> = [
       en: 'Is grocery shopping cheaper in Switzerland or in Italy?',
       de: 'Ist der Lebensmitteleinkauf in der Schweiz oder in Italien günstiger?',
       fr: 'Est-il plus avantageux de faire les courses en Suisse ou en Italie ?',
+    },
+    titleShort: {
+      de: 'Lebensmitteleinkauf: Ist die Schweiz oder Italien günstiger?',
+      fr: 'Les courses sont-elles moins chères en Suisse ou en Italie ?',
     },
     answer: {
       it:

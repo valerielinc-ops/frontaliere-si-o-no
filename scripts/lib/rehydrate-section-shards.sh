@@ -10,6 +10,17 @@ set -uo pipefail
 # Requires GH_TOKEN, DEPLOY_RUN_ID, and one <SECTION>_SHARD_LIVE env var per
 # entry in section-shard-slugs.json (set by the calling workflow step).
 #
+# KNOWN LIMITATION (issue #5327, class of bug behind #5290's incident): every
+# `rm -rf "dist/$sub"` below (tar/cache/clone rehydrate paths) REPLACES the
+# subtree instead of MERGING it. For a `*_BUILD_EMIT_SKIP` section the deploy
+# doesn't strip dist/$sub, so the trunk can hold legitimate pages under that
+# prefix (e.g. legacyRedirectsPlugin.ts bridges, see the completeness-check
+# comment in rehydrate_section() below) that this rm -rf silently destroys if
+# the fetched shard content doesn't include the same pages. #5290 fixed the
+# instance (sitemap-topics.xml), not the mechanism — see #5327 for the fix
+# options (non-destructive merge vs assert-trunk-subtree-empty) and why they
+# need validation against a real run before landing on this shared script.
+#
 # deploy.yml uploads section tars BATCHED (~5 sections/artifact per
 # scripts/lib/section-shard-batches.json — GitHub Actions doesn't
 # parallelize `uses:` steps natively, and background:/wait-all: on

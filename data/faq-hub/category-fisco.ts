@@ -19,6 +19,12 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
       de: 'Wie ändert sich die Quellensteuer für Grenzgänger im Tessin ab 2026?',
       fr: "Comment change l'impôt à la source pour les frontaliers au Tessin dès 2026 ?",
     },
+    titleShort: {
+      it: 'Imposta alla fonte frontalieri in Ticino: cosa cambia dal 2026?',
+      en: 'Ticino withholding tax 2026: what changes for cross-border workers',
+      de: 'Quellensteuer für Grenzgänger im Tessin: was ändert sich 2026?',
+      fr: 'Impôt à la source des frontaliers au Tessin : nouveautés 2026',
+    },
     answer: {
       it:
         "Dal 1° gennaio 2024 è operativo il nuovo Accordo CH-IT sui frontalieri firmato il 23/12/2020 e ratificato con la Legge italiana 13 giugno 2023 n. 83 [fonte: Fedlex SR 0.642.045.43]. I «nuovi frontalieri» (assunti dopo il 17/07/2023) sono tassati in Svizzera alla fonte con aliquota piena e poi dichiarano il reddito in Italia con credito d'imposta fino all'80% del prelievo svizzero [fonte: Agenzia Entrate, Circ. 4/E 2024]. I «vecchi frontalieri» restano con tassazione esclusiva in Svizzera più ristorni ai Comuni italiani fino al 2033. Per il 2026 la franchigia IRPEF italiana sale a 10.000 € e la deduzione forfetaria sanitaria è 3.000 € [fonte: AFC Ticino, scheda 2026].",
@@ -74,6 +80,11 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
       de: 'Was ist der steuerliche Unterschied zwischen «alten» und «neuen» Grenzgängern?',
       fr: 'Quelle est la différence fiscale entre « anciens » et « nouveaux » frontaliers ?',
     },
+    titleShort: {
+      en: '«Old» vs «new» cross-border workers: what is the tax difference?',
+      de: '«Alte» und «neue» Grenzgänger: was ist steuerlich anders?',
+      fr: 'Différence fiscale entre « anciens » et « nouveaux » frontaliers ?',
+    },
     answer: {
       it:
         "Lo spartiacque è il 17 luglio 2023, data di entrata in vigore dell'Accordo [fonte: Fedlex SR 0.642.045.43]. I «vecchi frontalieri» (che lavoravano in Ticino, Grigioni o Vallese tra il 31/12/2018 e il 17/07/2023 e risiedono entro 20 km dal confine) restano tassati solo in Svizzera; il Canton Ticino versa ogni anno il 38,8% del gettito ai Comuni italiani di confine come ristorno, fino al 2033 [fonte: Accordo CH-IT art. 9 transitorio]. I «nuovi frontalieri» invece pagano l'imposta alla fonte svizzera ma dichiarano integralmente il reddito in Italia, con credito d'imposta fino all'80%. Applicano la franchigia IRPEF (10.000 € nel 2026) e la deduzione sanitaria (3.000 €) [fonte: Legge 13/06/2023 n. 83 art. 3]. Le aliquote effettive sono quindi molto diverse.",
@@ -113,6 +124,12 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
       en: 'How does the €10,000 IRPEF exemption work for new cross-border workers?',
       de: 'Wie funktioniert der IRPEF-Freibetrag von 10 000 € für neue Grenzgänger?',
       fr: 'Comment fonctionne la franchise IRPEF de 10 000 € pour les nouveaux frontaliers ?',
+    },
+    titleShort: {
+      it: 'Franchigia IRPEF 10.000 € per i nuovi frontalieri: come funziona?',
+      en: '€10,000 IRPEF exemption for new cross-border workers: how it works',
+      de: 'IRPEF-Freibetrag von 10 000 € für neue Grenzgänger erklärt',
+      fr: 'Franchise IRPEF de 10 000 € pour les nouveaux frontaliers',
     },
     answer: {
       it:
@@ -154,6 +171,12 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
       de: 'Was ist der pauschale Gesundheitsabzug von 3 000 € für Grenzgänger?',
       fr: 'Qu\'est-ce que la déduction santé forfaitaire de 3 000 € pour frontaliers ?',
     },
+    titleShort: {
+      it: 'Deduzione forfetaria sanitaria di 3.000 € per i frontalieri',
+      en: '€3,000 flat healthcare deduction for cross-border workers',
+      de: 'Was ist der Gesundheits-Pauschalabzug von 3 000 € für Grenzgänger?',
+      fr: 'Déduction santé forfaitaire de 3 000 € pour les frontaliers',
+    },
     answer: {
       it:
         "L'art. 1, comma 175, legge di bilancio 2024 e la L. 83/2023 art. 5 consentono ai nuovi frontalieri di dedurre un importo forfetario di 3.000 € dal reddito imponibile a titolo di contributi sanitari obbligatori versati in Svizzera (LAMal e LAINF) [fonte: Normattiva, Legge 213/2023]. La deduzione è alternativa alla deduzione analitica dei contributi effettivi (documentati con polizza LAMal). Si applica solo ai nuovi frontalieri tassati in Italia e non ai vecchi. In dichiarazione va riportata nel quadro RP, rigo RP26 codice 10. Chi ha una polizza LAMal con franchigia alta e premio basso (<3.000 €/anno) di solito preferisce il forfait; chi ha famiglia numerosa con premi oltre 5.000 € conviene andare in analitico.",
@@ -177,6 +200,9 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
       en: 'How do I compute the tax credit on Swiss tax already paid?',
       de: 'Wie berechne ich die Steueranrechnung für bereits gezahlte Schweizer Steuern?',
       fr: 'Comment calculer le crédit d\'impôt sur l\'impôt suisse déjà payé ?',
+    },
+    titleShort: {
+      de: 'Wie berechne ich die Steueranrechnung für Schweizer Steuern?',
     },
     answer: {
       it:
@@ -212,6 +238,12 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
       en: 'Which sections of Italian Redditi PF 2026 must a new cross-border worker fill?',
       de: 'Welche Abschnitte der italienischen Steuererklärung Redditi PF 2026 füllt ein neuer Grenzgänger aus?',
       fr: 'Quels cadres du formulaire Redditi PF 2026 doit remplir un nouveau frontalier ?',
+    },
+    titleShort: {
+      it: 'Quali quadri del Redditi PF 2026 compila un nuovo frontaliere?',
+      en: 'Which Redditi PF 2026 sections must new cross-border workers fill?',
+      de: 'Redditi PF 2026: welche Abschnitte für neue Grenzgänger?',
+      fr: 'Redditi PF 2026 : quels cadres pour un nouveau frontalier ?',
     },
     answer: {
       it:
@@ -259,6 +291,10 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
       de: 'Wie funktionieren die Rückzahlungen an italienische Grenzgemeinden?',
       fr: 'Comment fonctionnent les ristournes aux communes italiennes frontalières ?',
     },
+    titleShort: {
+      de: 'Wie laufen die Rückzahlungen an italienische Grenzgemeinden ab?',
+      fr: 'Comment fonctionnent les ristournes aux communes frontalières ?',
+    },
     answer: {
       it:
         "L'accordo CH-IT del 1974 e l'Accordo 2020 prevedono che la Svizzera retroceda ai Comuni italiani di confine (Lombardia, Piemonte) una quota dell'imposta alla fonte sui «vecchi frontalieri»: 38,8% per il 2024-2033, poi 0% [fonte: Accordo 23/12/2020 art. 9]. Il Canton Ticino raccoglie, trasferisce alla Confederazione che bonifica al MEF italiano, il quale ripartisce per 180 Comuni in base al numero di frontalieri residenti. I Comuni usano i ristorni per infrastrutture, trasporti e opere sociali. Per i «nuovi frontalieri» non c'è ristorno: l'Italia tassa direttamente. Elenco dei Comuni beneficiari è l'Allegato 1 del DM 10 ottobre 2023 [fonte: DM 10/10/2023, MEF].",
@@ -282,6 +318,9 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
       en: 'Are Swiss 2nd pillar buy-ins deductible in Italy?',
       de: 'Sind Einkäufe in die schweizerische 2. Säule in Italien abzugsfähig?',
       fr: 'Les rachats du 2e pilier suisse sont-ils déductibles en Italie ?',
+    },
+    titleShort: {
+      de: 'Sind Einkäufe in die Schweizer 2. Säule in Italien abzugsfähig?',
     },
     answer: {
       it:
@@ -322,6 +361,9 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
       de: 'Gehört der schweizerische 13. Monatslohn in die italienische Steuererklärung?',
       fr: 'Le 13e mois suisse entre-t-il dans la déclaration italienne ?',
     },
+    titleShort: {
+      de: 'Schweizer 13. Monatslohn in der italienischen Steuererklärung?',
+    },
     answer: {
       it:
         "Sì. Per il nuovo frontaliere la tredicesima è reddito da lavoro dipendente ex art. 51 TUIR e va sommata alla base imponibile IRPEF nel quadro RC [fonte: Istruzioni Redditi PF 2026]. Se è versata con il cedolino di dicembre la ritenuta alla fonte svizzera è calcolata sulla tabella annualizzata; il controvalore in euro va convertito al cambio medio BCE dell'anno di percezione (principio di cassa). Il credito d'imposta copre la ritenuta svizzera. Attenzione a premi una tantum o gratifiche straordinarie: vanno anch'essi dichiarati e non beneficiano di regimi agevolati italiani. Per i vecchi frontalieri la tredicesima resta tassata solo in Svizzera e non entra nella Redditi PF.",
@@ -344,6 +386,12 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
       en: 'Where can I find a complete, up-to-date guide to cross-border worker taxation for 2026?',
       de: 'Wo finde ich einen vollständigen, aktuellen Leitfaden zur Besteuerung von Grenzgängern für 2026?',
       fr: 'Où trouver un guide complet et à jour sur la fiscalité des frontaliers pour 2026 ?',
+    },
+    titleShort: {
+      it: 'Guida completa alla tassazione dei frontalieri 2026',
+      en: 'Where to find the complete 2026 cross-border taxation guide?',
+      de: 'Wo finde ich den Leitfaden zur Grenzgänger-Besteuerung 2026?',
+      fr: 'Où trouver un guide complet de la fiscalité frontalière 2026 ?',
     },
     answer: {
       it: "L'Accordo Italia-Svizzera del 23/12/2020, in vigore dal 1° gennaio 2024 e ratificato dalla Legge 83/2023, distingue due regimi: i «vecchi frontalieri» (residenti in Italia già attivi in Svizzera prima del 17/07/2023) restano tassati solo alla fonte in Svizzera, con ristorno ai Comuni italiani di confine; i «nuovi frontalieri» sono tassati sia in Svizzera sia in Italia, con franchigia di 10.000 € e credito d'imposta per evitare la doppia imposizione. Per il quadro normativo completo, le tabelle di calcolo e gli scenari pratici aggiornati al 2026 consulta la guida di riferimento e la panoramica pratica qui sotto, oltre alle tabelle ufficiali di imposta alla fonte del Cantone Ticino.",
@@ -409,6 +457,11 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
       de: 'Ändert eine Heirat oder Kinder die Steuern, die ich als Grenzgänger zahle?',
       fr: 'Le mariage ou les enfants changent-ils les impôts que je paie en tant que frontalier ?',
     },
+    titleShort: {
+      en: 'Do marriage and children change my cross-border worker taxes?',
+      de: 'Ändern Heirat und Kinder die Steuern für Grenzgänger?',
+      fr: 'Mariage et enfants changent-ils les impôts du frontalier ?',
+    },
     answer: {
       it: "Sì, ma l'effetto dipende dal tuo regime. Per i «vecchi frontalieri» (tassati solo in Svizzera) stato civile e figli incidono sulla tabella di imposta alla fonte applicata dal datore di lavoro (coniugato monoreddito, coniugato doppio reddito, con figli a carico). Per i «nuovi frontalieri» (tassati anche in Italia) contano inoltre le detrazioni per carichi di famiglia previste dal TUIR nella dichiarazione dei redditi italiana, oltre alla franchigia di 10.000 € valida indipendentemente dallo stato civile. L'impatto esatto sullo stipendio netto varia molto in base a reddito, cantone e numero di figli: per una stima puntuale con i tuoi dati consulta gli approfondimenti dedicati qui sotto.",
       en: "Yes, but the effect depends on your regime. For 'old' cross-border workers (taxed only in Switzerland), marital status and children affect which withholding-tax table the employer applies (single-earner married, dual-earner married, with dependent children). For 'new' cross-border workers (also taxed in Italy), family-dependant deductions under the Italian TUIR also apply in the Italian tax return, on top of the €10,000 exemption that applies regardless of marital status. The exact impact on net salary varies a lot by income, canton and number of children: see the dedicated deep-dives below for a precise estimate with your own figures.",
@@ -472,6 +525,12 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
       en: 'Does the 20 km distance from the border affect my cross-border tax status?',
       de: 'Wirkt sich die 20-km-Grenzdistanz auf meinen steuerlichen Grenzgängerstatus aus?',
       fr: 'La distance de 20 km à la frontière a-t-elle un impact sur mon statut fiscal de frontalier ?',
+    },
+    titleShort: {
+      it: 'I 20 km dal confine incidono sullo status fiscale di frontaliere?',
+      en: 'Does the 20 km border distance affect my cross-border tax status?',
+      de: 'Beeinflusst die 20-km-Zone den steuerlichen Grenzgängerstatus?',
+      fr: 'La zone des 20 km change-t-elle mon statut fiscal de frontalier ?',
     },
     answer: {
       it: "La qualifica di «frontaliere» ai fini fiscali richiede di risiedere in un Comune italiano il cui territorio ricade, anche solo parzialmente, entro 20 km in linea d'aria dal confine svizzero, oltre a rientrare quotidianamente (o comunque con regolarità) alla propria residenza. Chi risiede oltre questa fascia perde l'accesso al regime frontaliere (vecchio o nuovo) e viene tassato secondo le regole ordinarie previste per i residenti italiani con reddito estero, senza franchigia né ristorno ai Comuni. La distanza si misura dal confine, non dal luogo di lavoro in Svizzera. Per i dettagli su Comuni ammessi e casi limite consulta l'approfondimento dedicato qui sotto.",

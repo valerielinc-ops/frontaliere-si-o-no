@@ -16,6 +16,10 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
       de: 'Darf ich mein Auto mit italienischem Kennzeichen zur Arbeit in der Schweiz benutzen?',
       fr: 'Puis-je utiliser ma voiture immatriculée en Italie pour me rendre au travail en Suisse ?',
     },
+    titleShort: {
+      de: 'Darf ich mit italienischem Kennzeichen in die Schweiz pendeln?',
+      fr: 'Voiture immatriculée en Italie : puis-je travailler en Suisse ?',
+    },
     answer: {
       it:
         "Sì, il frontaliere con permesso G può usare liberamente l'auto italiana per il pendolarismo quotidiano tra Italia e Svizzera, senza sdoganarla [fonte: AFD — Amministrazione federale delle dogane, scheda «Veicoli esteri»]. L'auto va però usata principalmente in Italia e non per spostamenti interni alla Svizzera (tranne il tragitto casa-lavoro). L'uso di un'auto italiana per viaggi privati prolungati in Svizzera può richiedere sdoganamento. Serve la vignetta autostradale svizzera (CHF 40/anno + CHF 40 eVignette 2026). La responsabilità civile italiana è valida tramite Carta Verde, ma si consiglia di informare l'assicurazione dell'uso frontaliero (possibile sovrappremio del 5-10%). Se si acquista auto in Svizzera con targa CH, il frontaliere residente in Italia deve pagare IVA e immatricolarla in Italia entro 6 mesi.",
@@ -54,6 +58,10 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
       en: 'Is the Swiss motorway vignette mandatory for cross-border workers?',
       de: 'Ist die Schweizer Autobahnvignette für Grenzgänger obligatorisch?',
       fr: 'La vignette autoroutière suisse est-elle obligatoire pour les frontaliers ?',
+    },
+    titleShort: {
+      it: 'Vignetta autostradale svizzera obbligatoria per i frontalieri?',
+      fr: 'Vignette autoroutière suisse obligatoire pour les frontaliers ?',
     },
     answer: {
       it:
@@ -102,6 +110,9 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
       de: 'Gibt es Park-&-Ride und Carpooling-Angebote für Grenzgänger?',
       fr: 'Y a-t-il des parkings relais et du covoiturage pour frontaliers ?',
     },
+    titleShort: {
+      en: 'Park-and-ride and carpooling options for cross-border workers?',
+    },
     answer: {
       it:
         "Sì. La Rete dei parcheggi scambiatori (park&rail/park&ride) del Canton Ticino offre 12 strutture principali a Mendrisio, Chiasso, Balerna, Bellinzona, Lugano [fonte: TI.ch, mobilità]. Abbonamento annuale CHF 480 a Mendrisio FFS, CHF 720 a Lugano Cornaredo. Per carpooling la piattaforma ufficiale è Hitchhiker.ch (gratuita) e BlaBlaCar usata da frontalieri su tratte Como-Lugano, Varese-Lugano. Il datore di lavoro può organizzare navette aziendali (es. CSCS Manno, AlpTransit Bodio) e beneficiare di incentivi fiscali cantonali per la «mobilità aziendale». Dal 2026 il Cantone Ticino ha introdotto la «Tessera Mobilità Frontalieri» che dà sconti del 30% sugli abbonamenti Arcobaleno se l'orario di lavoro è compatibile con la riduzione del traffico di confine (piano Mobilità 2030).",
@@ -125,6 +136,9 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
       de: 'Muss ich die italienische Kfz-Steuer zahlen, wenn ich in der Schweiz arbeite?',
       fr: 'Dois-je payer la taxe auto italienne si je travaille en Suisse ?',
     },
+    titleShort: {
+      de: 'Muss ich als Grenzgänger die italienische Kfz-Steuer zahlen?',
+    },
     answer: {
       it:
         "Sì. Il frontaliere residente in Italia con auto immatricolata in Italia paga normalmente il bollo alla Regione di residenza, perché l'imposta segue la residenza anagrafica (art. 5 dlgs 504/1992) [fonte: Normattiva, dlgs 504/1992]. Nessuna esenzione frontaliera. Se l'auto è intestata a una società svizzera (auto aziendale) e il frontaliere la usa come fringe benefit, il bollo è pagato in Svizzera dal datore di lavoro e l'uso privato va tassato come prestazione in natura nel Lohnausweis (0,9% del valore mensile). L'auto aziendale con targa CH può circolare liberamente in Italia solo per spostamenti professionali; uso privato prolungato rischia contestazione per violazione art. 132 CdS italiano. Se l'azienda fornisce un'auto anche per i week-end, conviene richiedere l'immatricolazione provvisoria italiana.",
@@ -147,6 +161,9 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
       en: 'Is it cheaper to insure the car in Italy or in Switzerland?',
       de: 'Lohnt sich die Autoversicherung in Italien oder in der Schweiz?',
       fr: 'Est-il plus avantageux d\'assurer la voiture en Italie ou en Suisse ?',
+    },
+    titleShort: {
+      fr: 'Vaut-il mieux assurer la voiture en Italie ou en Suisse ?',
     },
     answer: {
       it:
@@ -194,6 +211,9 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
       de: 'Wenn ich ein Auto in der Schweiz kaufe, kann ich es nach Italien bringen?',
       fr: 'Si j\'achète une voiture en Suisse, puis-je la ramener en Italie ?',
     },
+    titleShort: {
+      de: 'Kann ich ein in der Schweiz gekauftes Auto nach Italien bringen?',
+    },
     answer: {
       it:
         "Sì, ma con dogana. L'auto acquistata in Svizzera e trasferita in Italia è un'importazione soggetta a IVA italiana 22%, eventuale dazio 10% (Reg. UE 952/2013) e immatricolazione [fonte: Agenzia Dogane, sezione auto esteri]. Un'auto nuova (<6 mesi o <6.000 km) paga sempre IVA italiana anche se l'IVA svizzera è stata pagata. Un'auto usata UE-origine può essere esente da IVA dimostrando l'IVA già pagata. Occorre poi targa italiana (PRA), certificato di conformità (CoC), revisione, tassa di immatricolazione (IPT, regione-specifica, CHF equivalente ~EUR 150-800 a seconda della potenza). Il frontaliere può far entrare l'auto come «importazione di beni personali» con esenzione IVA se trasferisce la residenza (permesso C in Svizzera → AIRE + trasferimento in Italia).",
@@ -216,6 +236,12 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
       en: 'How much time do you lose at border crossings in cross-border commuting?',
       de: 'Wie viel Zeit verliert man an den Grenzübergängen im Grenzgängerverkehr?',
       fr: 'Combien de temps perd-on aux passages frontaliers en tant que frontalier ?',
+    },
+    titleShort: {
+      it: 'Quanto tempo si perde ai valichi di confine da frontaliere?',
+      en: 'How much time do cross-border commuters lose at border crossings?',
+      de: 'Wie viel Zeit verlieren Grenzgänger an den Grenzübergängen?',
+      fr: 'Combien de temps perd-on aux passages frontaliers ?',
     },
     answer: {
       it:
@@ -255,6 +281,9 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
       en: 'Can I deduct commuting costs from tax?',
       de: 'Kann ich Fahrtkosten zwischen Wohnort und Arbeit steuerlich absetzen?',
       fr: 'Puis-je déduire les frais de transport domicile-travail ?',
+    },
+    titleShort: {
+      de: 'Kann ich die Fahrtkosten für den Arbeitsweg steuerlich absetzen?',
     },
     answer: {
       it:

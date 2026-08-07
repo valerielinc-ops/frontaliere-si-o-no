@@ -33,11 +33,23 @@ describe('faq hub — <h1> must not repeat <title>', () => {
   });
 
   it('compares the per-question H1 against the title that page actually ships', () => {
-    // The page's <title> is `question`, not `copy.title`. Comparing against
+    // The page's <title> is `titleTag`, not `copy.title`. Comparing against
     // the wrong string type-checks, ships, and silently never fires — the
     // first version of this fix did exactly that.
-    expect(plugin).toContain('differentiateH1FromTitle(question, question, locale)');
+    //
+    // `titleTag` is the question UNLESS the question overflows the 66-char
+    // budget and the entry carries an authored `titleShort` for this locale.
+    // The three assertions below pin the whole chain — the title is derived
+    // from titleShort, `title:` ships exactly that, and the H1 is compared
+    // against exactly that — so the two can never drift apart again.
+    expect(plugin).toContain('const titleTag = entry.titleShort?.[locale] ?? question;');
+    expect(plugin).toContain('title: titleTag,');
+    expect(plugin).toContain('differentiateH1FromTitle(question, titleTag, locale)');
     expect(plugin).not.toContain('differentiateH1FromTitle(question, copy.title');
+    // Argument order is the trap: the helper returns its FIRST argument, so
+    // `titleTag` first would make the shortened form the <h1> on exactly the
+    // entries that carry a `titleShort`. Pin against that specific inversion.
+    expect(plugin).not.toContain('differentiateH1FromTitle(titleTag, question, locale)');
   });
 
   it('actually changes a real offender, and leaves its title alone', () => {

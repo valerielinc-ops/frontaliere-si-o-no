@@ -43,9 +43,21 @@
  *   node scripts/ci/assert-dist-complete.mjs
  *   node scripts/ci/assert-dist-complete.mjs --dist=/tmp/dist-prod --sample=60
  *   node scripts/ci/assert-dist-complete.mjs --json
+ *
+ * Fixing every offender in ONE pass
+ * ---------------------------------
+ * The default 40-URL sample answers "is this dist complete?" cheaply, but it is
+ * the wrong tool for "which URLs do I have to fix?": it names at most 5 example
+ * URLs per sitemap, so a maintainer fixes those, re-runs the ~hours-long publish
+ * pipeline, and meets the next five. `--full --report=<path>` checks EVERY
+ * sitemap URL and writes the COMPLETE offender list as JSON, so one run yields
+ * the whole work list. `--full` costs a stat() per URL (~240k on this site)
+ * instead of ~2.7k, which is why it is opt-in rather than the default.
+ *
+ *   node scripts/ci/assert-dist-complete.mjs --full --report=/tmp/missing.json
  */
 
-import { readdir, readFile, access, stat } from 'node:fs/promises';
+import { readdir, readFile, access, stat, writeFile } from 'node:fs/promises';
 import { join, dirname, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -63,8 +75,14 @@ for (const a of argv) {
 
 const resolvePath = (p) => (isAbsolute(p) ? p : join(ROOT, p));
 const DIST = resolvePath(String(args.get('dist') ?? 'dist'));
-const SAMPLE_PER_SITEMAP = Number(args.get('sample') ?? 40);
 const MODE_JSON = Boolean(args.get('json'));
+// `--full` (or `--sample=0`) means "no sampling": sampleEvenly() returns the
+// whole list once the requested count reaches its length, so Infinity is the
+// no-op sample rather than a special case threaded through the walk.
+const MODE_FULL = Boolean(args.get('full'));
+const rawSample = Number(args.get('sample') ?? 40);
+const SAMPLE_PER_SITEMAP = MODE_FULL || rawSample === 0 ? Infinity : rawSample;
+const REPORT_PATH = args.get('report') ? resolvePath(String(args.get('report'))) : null;
 
 /**
  * Thresholds. A rehydrated dist samples at ~0% missing; a trunk-only dist
@@ -219,18 +237,51 @@ async function main() {
     const sample = sampleEvenly(locs, SAMPLE_PER_SITEMAP);
     let missing = 0;
     const examples = [];
+    // Every offender, not just the 5 shown on the console — this is what makes
+    // `--report` a complete work list instead of another sampled hint.
+    const missingUrls = [];
     for (const loc of sample) {
       const rel = urlToRelPath(loc);
       if (rel === null) continue;
       if (!(await hasDistFile(rel))) {
         missing++;
+        missingUrls.push(loc);
         if (examples.length < 5) examples.push(loc);
       }
     }
-    perSitemap[file] = { sampled: sample.length, missing, examples };
+    perSitemap[file] = { sampled: sample.length, missing, examples, missingUrls, total: locs.length };
   }
 
   const result = evaluateDistCompleteness({ perSitemap });
+
+  // Written on success too: a green run's report is the baseline a later red
+  // run gets diffed against, and an always-present path keeps the workflow's
+  // upload step from having to branch on the gate's exit code.
+  if (REPORT_PATH) {
+    const report = {
+      dist: DIST,
+      mode: MODE_FULL || SAMPLE_PER_SITEMAP === Infinity ? 'full' : `sample:${SAMPLE_PER_SITEMAP}`,
+      ok: result.ok,
+      sampledTotal: result.sampledTotal,
+      missingTotal: result.missingTotal,
+      overallMissingPct: result.overallMissingPct,
+      failures: result.failures,
+      missingBySitemap: Object.fromEntries(
+        Object.entries(perSitemap)
+          .filter(([, row]) => row.missing > 0)
+          .map(([name, row]) => [name, { total: row.total, sampled: row.sampled, missing: row.missing, urls: row.missingUrls }]),
+      ),
+    };
+    try {
+      await writeFile(REPORT_PATH, JSON.stringify(report, null, 2) + '\n', 'utf-8');
+      // stderr, never stdout: under `--json` stdout must stay parseable JSON,
+      // and callers redirect it to a file (see revalidate-dist-from-run.yml).
+      console.error(`Report written to ${REPORT_PATH} (${result.missingTotal} missing URL(s) listed in full).`);
+    } catch (err) {
+      // A report is a diagnostic aid; losing it must not change the verdict.
+      console.error(`WARN: could not write report to ${REPORT_PATH}: ${err.message}`);
+    }
+  }
 
   if (MODE_JSON) {
     process.stdout.write(JSON.stringify({ dist: DIST, perSitemap, ...result }, null, 2) + '\n');
@@ -280,6 +331,17 @@ async function main() {
   console.error('Do NOT read the aborted audits as a site defect: a partial dist makes every');
   console.error('dist-walking audit report absent subtrees as unreachable/thin/orphan content.');
   console.error('');
+  if (!REPORT_PATH) {
+    console.error('Only 5 example URLs per sitemap are shown above, and only a sample was');
+    console.error('checked. To get EVERY offending URL in one pass — instead of re-running the');
+    console.error('publish pipeline once per fix — re-run against the same dist with:');
+    console.error('');
+    console.error('  node scripts/ci/assert-dist-complete.mjs --full --report=/tmp/missing.json');
+    console.error('');
+    console.error('and to do that without a rebuild, replay a prior deploy\'s artifacts with the');
+    console.error('`Revalidate dist from prior run` workflow (workflow_dispatch, deploy_run_id).');
+    console.error('');
+  }
   process.exit(2);
 }
 

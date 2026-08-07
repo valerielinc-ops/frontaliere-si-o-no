@@ -56,6 +56,11 @@ export const FAQ_permessi: ReadonlyArray<FaqHubEntry> = [
       de: 'Gilt die 20-km- oder 45-Minuten-Regel für Grenzgänger noch?',
       fr: 'La règle des 20 km ou 45 minutes pour frontaliers est-elle encore en vigueur ?',
     },
+    titleShort: {
+      it: 'Esiste ancora la regola dei 20 km o 45 minuti per i frontalieri?',
+      en: 'Is the 20 km / 45 min rule for cross-border workers still valid?',
+      fr: 'Frontaliers : la règle des 20 km ou 45 minutes existe-t-elle ?',
+    },
     answer: {
       it:
         "Sì, in forma aggiornata. L'Accordo fiscale CH-IT 2020 (art. 2) definisce «frontaliere» il lavoratore residente in uno dei comuni il cui territorio si trovi, in tutto o in parte, entro la zona di 20 km dal confine [fonte: Fedlex SR 0.642.045.43]. La SEM esige inoltre il rientro quotidiano (o almeno settimanale) al domicilio. La vecchia regola dei 45 minuti dalla frontiera è stata abbandonata nel 2004 per tutti i cittadini UE/AELS grazie all'Accordo sulla libera circolazione (ALC). Oggi il permesso G non richiede un tempo massimo di pendolarismo ma solo il rientro settimanale. Per i fini fiscali i 20 km restano rilevanti per distinguere vecchi/nuovi frontalieri e per i ristorni ai Comuni.",
@@ -127,6 +132,9 @@ export const FAQ_permessi: ReadonlyArray<FaqHubEntry> = [
       de: 'Kann ich meine Familie mit der G-Bewilligung in die Schweiz bringen?',
       fr: 'Puis-je faire venir ma famille en Suisse avec le permis G ?',
     },
+    titleShort: {
+      de: 'Familiennachzug mit der G-Bewilligung in die Schweiz möglich?',
+    },
     answer: {
       it:
         "Il permesso G non prevede diritto automatico al ricongiungimento in Svizzera perché non conferisce residenza (art. 42 LStrI si applica ai permessi di dimora). Tuttavia il Regolamento ALC Allegato I, art. 3, consente al coniuge e ai figli di cittadini UE/AELS di installarsi nel luogo di lavoro del lavoratore se vi sono motivi comprovati (scuola internazionale, formazione) [fonte: Fedlex ALC SR 0.142.112.681]. In pratica, il ricongiungimento richiede in Svizzera un alloggio adeguato e risorse sufficienti, e va richiesto al Servizio migrazione. Più comune è il contrario: il frontaliere mantiene la famiglia in Italia e rientra ogni sera. Se si vuole stabilmente convivere in Svizzera conviene convertire in permesso B, che dà pieno diritto al ricongiungimento.",
@@ -149,6 +157,9 @@ export const FAQ_permessi: ReadonlyArray<FaqHubEntry> = [
       en: 'Must I register with AIRE if I hold a G permit?',
       de: 'Muss ich mich beim AIRE registrieren, wenn ich eine G-Bewilligung habe?',
       fr: 'Dois-je m\'inscrire à l\'AIRE si je détiens un permis G ?',
+    },
+    titleShort: {
+      de: 'Muss ich mich mit G-Bewilligung beim AIRE registrieren?',
     },
     answer: {
       it:
@@ -258,6 +269,9 @@ export const FAQ_permessi: ReadonlyArray<FaqHubEntry> = [
       en: 'Can spouse and children hold a family G permit?',
       de: 'Können Ehepartner und Kinder eine G-Familienbewilligung haben?',
       fr: 'Le conjoint et les enfants peuvent-ils avoir un permis G familial ?',
+    },
+    titleShort: {
+      fr: 'Conjoint et enfants peuvent-ils avoir un permis G familial ?',
     },
     answer: {
       it:
