@@ -9325,6 +9325,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.caldo-lavoro-frontalieri-ticino.title': 'Torrid heat and work: unions meet the Ticino Government for new measures',
     'blog.article.caldo-lavoro-frontalieri-ticino.excerpt': 'UNIA, OCST, USS and VPOD unions call for intervention thresholds based on scientific indices to protect workers during heatwaves in Ticino',
     'blog.article.caldo-lavoro-frontalieri-ticino.imageAlt': 'Construction workers resting in the shade during a heatwave in Lugano, Ticino',
+    'blog.article.siccit-importazioni-granoturco-svizzera.title': 'Drought: duty-free maize imports for Ticino farmers',
+    'blog.article.siccit-importazioni-granoturco-svizzera.excerpt': 'Extraordinary measure of the DEFR until 31 October 2026 to guarantee fodder to farmers affected by the crisis. Imports of maize up to 60% dry matter duty free.',
+    'blog.article.siccit-importazioni-granoturco-svizzera.imageAlt': 'Castelgrande on Lake Garda at sunrise',
 };
 
 export default blogMetaEn;
