@@ -47,6 +47,7 @@ import {
   MIN_INDEXABLE_WORDS,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderSeoHeroImage } from './shared/seoHeroImage';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
@@ -862,6 +863,7 @@ function renderReport(opts: {
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(copy.introP)}</p>
     </header>
+    ${renderSeoHeroImage({ family: 'annual-report', key: 'report', locale, headline: copy.h1, eyebrow: copy.kicker, alt: copy.h1 })}
     ${statCards}
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(copy.findingsH2)}</h2>

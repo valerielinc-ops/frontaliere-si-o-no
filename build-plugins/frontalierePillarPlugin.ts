@@ -19,6 +19,7 @@ import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
+import { renderSeoHeroImage } from './shared/seoHeroImage';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
@@ -150,6 +151,7 @@ ${breadcrumbHtml}
 <p style="${HERO_EYEBROW_STYLE}">${esc(copy.eyebrow)}</p>
 <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
 <p style="${LEDE_STYLE}">${esc(copy.lede)}</p>
+${renderSeoHeroImage({ family: 'frontaliere-pillar', key: 'pillar', locale, headline: copy.h1, eyebrow: copy.eyebrow, alt: copy.h1 })}
 <div class="mt-4 grid gap-3 sm:grid-cols-3">
 ${tilesHtml}
 </div>

@@ -41,6 +41,7 @@ import {
   DRIVEBY_AD_SNIPPET,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderSeoHeroImage } from './shared/seoHeroImage';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { CITY_HUB_KEYS } from './cityJobsHub';
 import { adSlotHtml } from './lib/adSlotHtml';
@@ -645,6 +646,7 @@ function renderReport(opts: {
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(copy.ledeIntro)}</p>
     </header>
+    ${renderSeoHeroImage({ family: 'market-report', key: 'report', locale, headline: copy.h1, eyebrow: copy.updatedLabel, alt: copy.h1 })}
     ${statCards}
     ${DRIVEBY_AD_SNIPPET}
     <section class="s-KZc0LQ">
