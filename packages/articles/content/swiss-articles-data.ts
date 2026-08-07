@@ -5698,6 +5698,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'disoccupazione-svizzera-luglio-2026-seco',
+    category: 'novita',
+    date: '2026-08-07T02:01:34.869Z',
+    image: '/images/blog/disoccupazione-svizzera-luglio-2026-seco.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

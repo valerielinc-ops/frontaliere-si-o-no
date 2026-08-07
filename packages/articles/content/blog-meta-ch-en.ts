@@ -1900,6 +1900,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.easyjet-apollon-acquisizione.title': 'EasyJet switches to the American fund Apollo for 6.23 billion francs',
     'blog.article.easyjet-apollon-acquisizione.excerpt': 'The acquisition is expected to close by the end of the first quarter of next year',
     'blog.article.easyjet-apollon-acquisizione.imageAlt': 'EasyJet, aircraft of EasyJet, acquisition by Apollo, EasyJet\'s headquarters in Luton',
+    'blog.article.disoccupazione-svizzera-luglio-2026-seco.title': 'Unemployment in Switzerland at 3%: SECO DATA',
+    'blog.article.disoccupazione-svizzera-luglio-2026-seco.excerpt': 'In July, unemployment in Switzerland rose to 3%, with 139,300 URC members. Ticino recorded 2.8%, while Graubünden remained stable at 1.1%.',
+    'blog.article.disoccupazione-svizzera-luglio-2026-seco.imageAlt': 'Labor market offices and SECO unemployment statistical tracking in Switzerland',
 };
 
 export default blogMetaChEn;
