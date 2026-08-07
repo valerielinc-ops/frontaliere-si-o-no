@@ -9311,6 +9311,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.palestina-locarno-territorio-aziende-genocidio.title': 'Basta complicità',
     'blog.article.palestina-locarno-territorio-aziende-genocidio.excerpt': 'Un gruppo di persone manifesta contro le aziende che finanziano il genocidio in Palestina a Locarno',
     'blog.article.palestina-locarno-territorio-aziende-genocidio.imageAlt': 'Un gruppo di persone manifesta contro le aziende che finanziano il genocidio in Palestina a Locarno',
+    'blog.article.frontalieri-ticino-aumento-2026.title': 'Frontalieri in Ticino: +0,6% trimestrale, -0,6% annuo',
+    'blog.article.frontalieri-ticino-aumento-2026.excerpt': 'A quota 79.121, lieve crescita nel secondo trimestre 2026. Calo su base annuale, segnale debolezza.',
+    'blog.article.frontalieri-ticino-aumento-2026.imageAlt': 'Frontaliero al valico di Brogeda a Chiasso con documenti in mano',
 };
 
 export default blogMetaIt;

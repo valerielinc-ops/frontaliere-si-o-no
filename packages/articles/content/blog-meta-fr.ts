@@ -9312,6 +9312,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.palestina-locarno-territorio-aziende-genocidio.title': 'Assez de complicité',
     'blog.article.palestina-locarno-territorio-aziende-genocidio.excerpt': 'Un groupe de personnes manifeste contre les entreprises qui financent le génocide en Palestine à Locarno',
     'blog.article.palestina-locarno-territorio-aziende-genocidio.imageAlt': 'Un groupe de personnes manifeste contre les entreprises qui financent le génocide en Palestine à Locarno',
+    'blog.article.frontalieri-ticino-aumento-2026.title': 'Frontaliers au Tessin : +0,6 % par trimestre, -0,6 % par an',
+    'blog.article.frontalieri-ticino-aumento-2026.excerpt': 'À 79 121, légère croissance au deuxième trimestre 2026. Baisse sur une base annuelle, signe de faiblesse.',
+    'blog.article.frontalieri-ticino-aumento-2026.imageAlt': 'Travailleur frontalier au poste frontalier de Brogeda à Chiasso avec des documents en main',
 };
 
 export default blogMetaFr;

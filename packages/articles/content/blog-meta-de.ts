@@ -9309,6 +9309,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.palestina-locarno-territorio-aziende-genocidio.title': 'Schluss mit Komplizenschaft',
     'blog.article.palestina-locarno-territorio-aziende-genocidio.excerpt': 'Eine Gruppe von Menschen demonstriert gegen die Unternehmen, die den Völkermord in Palästina in Locarno finanzieren',
     'blog.article.palestina-locarno-territorio-aziende-genocidio.imageAlt': 'Ein Grupp von Menschen protestiert gegen Unternehmen, die den Genozid in Palästina finanzieren, in Locarno',
+    'blog.article.frontalieri-ticino-aumento-2026.title': 'Grenzgänger im Tessin: +0,6% vierteljährlich, -0,6% jährlich',
+    'blog.article.frontalieri-ticino-aumento-2026.excerpt': 'Auf 79.121, leichtes Wachstum im zweiten Quartal 2026. Rückgang auf Jahresbasis, Schwäche-Signal.',
+    'blog.article.frontalieri-ticino-aumento-2026.imageAlt': 'Grenzarbeiter am Grenzübergang Brogeda in Chiasso mit Dokumenten in der Hand',
 };
 
 export default blogMetaDe;
