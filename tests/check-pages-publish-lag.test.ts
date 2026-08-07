@@ -184,9 +184,18 @@ describe('evaluatePublishLag — stalled-queue signal', () => {
     ).toEqual({ degraded: true, reason: 'lag' });
   });
 
-  it('reports the age reason when both signals would fire', () => {
+  it('reports the stalled-queue reason when BOTH signals fire — cause over symptom', () => {
+    // A stopped queue explains the age. Reporting `lag` here would send the
+    // on-call to "the pipeline may still be moving, check the cadence", which
+    // is the wrong first move when the queue has actually stopped.
     expect(
       evaluatePublishLag({ ...young, ageMinutes: 600, buildInFlight: false, buildIdleMinutes: 500 }),
+    ).toEqual({ degraded: true, reason: 'stalled-queue' });
+  });
+
+  it('still reports lag when the age is exceeded but the queue is demonstrably alive', () => {
+    expect(
+      evaluatePublishLag({ ...young, ageMinutes: 600, buildInFlight: true, buildIdleMinutes: 500 }),
     ).toEqual({ degraded: true, reason: 'lag' });
   });
 });
