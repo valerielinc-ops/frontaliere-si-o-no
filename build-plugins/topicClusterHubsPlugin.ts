@@ -644,7 +644,44 @@ export function topicClusterHubsPlugin(rootDir: string): Plugin {
       let bridgePages = 0;
       let thin = 0;
 
+      // Build-time emit skip, same flags seoHubsPlugin.ts and
+      // staticPagesPlugin.ts already honour for the article sections.
+      //
+      // WHY THIS MATTERS HERE. These hubs live UNDER the article sections
+      // (`/articoli-frontaliere/topics/…`, `/en/cross-border-articles/topics/…`).
+      // When a section's emit is skipped the deploy excludes its whole subtree
+      // from the shard push — so pages written here never reach production,
+      // while `sitemap-topics.xml`, which is written at the apex, ships and
+      // advertises them. Measured 2026-08-07 on the live site:
+      //
+      //   /en/cross-border-articles/topics/salaries/page-9/  → 404
+      //   /en/cross-border-articles/topics/salaries/         → 404
+      //   /articoli-frontaliere/topics/                      → 404
+      //
+      // and `nanakokyobashi-rgb/frontaliere-articolifrontaliere-en` has no
+      // `topics/` directory at all. The corpus HAS the engine (topicClusters.ts
+      // and topicTaxonomy.ts are mirrored) but does not render these hubs, so
+      // nobody produces them: the sitemap was submitting thousands of 404s to
+      // search engines, and `scripts/ci/assert-dist-complete.mjs` — which runs
+      // in post-deploy-validate-dist.yml — was about to go red on
+      // `sitemap-topics.xml: 40/40 sampled URLs missing (100%)`.
+      //
+      // This is the plugin's own rule applied one level up: it already settles
+      // the eligible topic set before rendering so the sibling nav never links
+      // a page that is not written (#5114 class). A section that is not pushed
+      // is the same thing at section scale.
+      const buildEmitSkip: Record<TopicHubSection, boolean> = {
+        frontaliere: process.env.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP === 'true',
+        svizzera: process.env.ARTICOLISVIZZERA_BUILD_EMIT_SKIP === 'true',
+      };
+
       for (const section of TOPIC_HUB_SECTIONS) {
+        if (buildEmitSkip[section]) {
+          console.log(
+            `\x1b[33m[topic-hubs]\x1b[0m ${section}: emit skipped (BUILD_EMIT_SKIP) — no pages, no sitemap entries`,
+          );
+          continue;
+        }
         const { byTopic, rowsByLocale, directCount, propagatedCount, unassignedCount, total } =
           computeSectionTopics(rootDir, section);
 
