@@ -9340,6 +9340,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.caldo-ticino-direttiva-consiglio-stato.title': 'Heat waves: Vpod writes to the Council of State',
     'blog.article.caldo-ticino-direttiva-consiglio-stato.excerpt': 'The union calls for an ad hoc directive and infrastructure investments against the heat in Ticino.',
     'blog.article.caldo-ticino-direttiva-consiglio-stato.imageAlt': 'Sunny street in Bellinzona with people in the shade during a heatwave',
+    'blog.article.devastazione-vagone-como-fermo.title': 'Devastate a car and insult passengers: 34-year-old stopped on the train',
+    'blog.article.devastazione-vagone-como-fermo.excerpt': 'A 34-year-old Italian, impaired by alcohol, devastated a wagon on the Como-lago line, tearing up signs and breaking fire extinguishers. Stopped by the State Police.',
+    'blog.article.devastazione-vagone-como-fermo.imageAlt': 'Interior of a regional train with torn signage and damaged fire extinguisher, police officers on duty',
 };
 
 export default blogMetaEn;

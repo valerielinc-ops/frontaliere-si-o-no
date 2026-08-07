@@ -9341,6 +9341,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.caldo-ticino-direttiva-consiglio-stato.title': 'Ondate di calore: la Vpod scrive al Consiglio di Stato',
     'blog.article.caldo-ticino-direttiva-consiglio-stato.excerpt': 'Il sindacato chiede una direttiva ad hoc e investimenti infrastrutturali contro il caldo in Ticino.',
     'blog.article.caldo-ticino-direttiva-consiglio-stato.imageAlt': 'Strada di Bellinzona assolata con persone all\'ombra durante un\'ondata di calore',
+    'blog.article.devastazione-vagone-como-fermo.title': 'Devasta un vagone e insulta i passeggeri: 34enne fermato sul treno',
+    'blog.article.devastazione-vagone-como-fermo.excerpt': 'Un 34enne italiano, alterato da alcol, ha devastato un vagone sulla linea di Como-lago, strappando cartellonistica e rompendo estintori. Fermato dalla Polizia di Stato.',
+    'blog.article.devastazione-vagone-como-fermo.imageAlt': 'Interno di un treno regionale con cartellonistica strappata e estintore danneggiato, agenti di polizia in servizio',
 };
 
 export default blogMetaIt;

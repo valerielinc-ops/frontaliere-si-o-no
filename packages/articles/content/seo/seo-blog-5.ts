@@ -60170,6 +60170,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-devastazione-vagone-como-fermo': {
+    title: 'Devasta un vagone e insulta i passeggeri: 34enne fermato sul treno',
+    description: 'Un 34enne alterato da alcol ha devastato un treno a Como-lago, strappando cartellonistica e rompendo estintori. Fermato dalla polizia. Ecco cosa fare in caso di',
+    keywords: 'frontalieri, ticino, svizzera, italia, devasta, vagone, insulta, passeggeri',
+    ogTitle: 'Devasta un vagone a Como-lago: fermato 34enne',
+    ogDescription: 'Un uomo alterato da alcol ha devastato un vagone, strappando cartellonistica e rompendo estintori. Bloccato il convoglio. Ecco come gestire i disagi per i',
+    canonicalPath: '/articoli-frontaliere/devastazione-vagone-como-fermo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Devasta un vagone e insulta i passeggeri: 34enne fermato sul treno",
+      "description": "Un 34enne alterato da alcol ha devastato un treno a Como-lago, strappando cartellonistica e rompendo estintori. Fermato dalla polizia. Ecco cosa fare in caso di",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/devastazione-vagone-como-fermo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno di un treno regionale con cartellonistica strappata e estintore danneggiato, agenti di polizia in servizio"
+      },
+      "datePublished": "2026-08-07T22:04:41+00:00",
+      "dateModified": "2026-08-07T22:04:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/devastazione-vagone-como-fermo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

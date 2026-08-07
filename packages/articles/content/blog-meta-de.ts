@@ -9339,6 +9339,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.caldo-ticino-direttiva-consiglio-stato.title': 'Hitzewellen: Vpod schreibt an den Staatsrat',
     'blog.article.caldo-ticino-direttiva-consiglio-stato.excerpt': 'Die Gewerkschaft fordert eine Ad-hoc-Richtlinie und Infrastrukturinvestitionen gegen die Hitze im Tessin.',
     'blog.article.caldo-ticino-direttiva-consiglio-stato.imageAlt': 'Sonnige Straße in Bellinzona mit Menschen im Schatten während einer Hitzewelle',
+    'blog.article.devastazione-vagone-como-fermo.title': 'Verwüstet einen Waggon und beleidigt Fahrgäste: 34-Jähriger im Zug angehalten',
+    'blog.article.devastazione-vagone-como-fermo.excerpt': 'Ein 34-jähriger Italiener, der durch Alkohol gestört wurde, verwüstete einen Waggon auf der Strecke Como-Lago, riss Plakate ab und zerbrach Feuerlöscher. Von der Staatspolizei gestoppt.',
+    'blog.article.devastazione-vagone-como-fermo.imageAlt': 'Innenraum eines Regionalzugs mit zerrissener Beschilderung und beschädigtem Feuerlöscher, Polizisten im Einsatz',
 };
 
 export default blogMetaDe;
