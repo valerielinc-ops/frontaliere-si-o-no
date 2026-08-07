@@ -1906,6 +1906,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.costo-vita-2026-zurigo-analisi.title': 'Lebenshaltungskosten 2026 im Kanton Zürich: Daten und Analysen',
     'blog.article.costo-vita-2026-zurigo-analisi.excerpt': 'Aktualisierte Lebenshaltungskostenanalyse 2026 in Zürich: Mieten, KVG-Prämien, AHV-Beiträge von 5,3% und Quellensteuern für Arbeitnehmende.',
     'blog.article.costo-vita-2026-zurigo-analisi.imageAlt': 'Zürcher Skyline mit Büros und Fluss im Jahr 2026',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.title': 'Kantonssteuer Vergleich Schweiz 2026 Kanton Basel',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.excerpt': 'Vergleich 2026 der kantonalen Steuersätze in der Schweiz: Fokus auf Basel mit Daten zu AD/AC 1,1%, UVG 0,7-1,5%, BVG 7-18% und Grenzfranchise € 10\'000.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.imageAlt': 'Luftaufnahme von Basel am Rhein mit Bürogebäuden und traditioneller Schweizer Architektur',
 };
 
 export default blogMetaChDe;
