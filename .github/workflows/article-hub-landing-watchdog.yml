@@ -13,15 +13,31 @@ name: Article Hub Landing Watchdog
 # watches what is actually served. This does, from outside, so the next handoff
 # that leaves a path unowned surfaces as an issue instead of as silence.
 #
-# SCOPE — the eight handed-off landings only, derived from the Worker's own
-# SECTION_ROUTES via EXTERNALLY_SERVED_SECTIONS. Article DETAIL pages and the
-# /tutti/ archives have their own publisher-side validation in nanako's
-# fast-publish workflow.
+# SCOPE — the eight handed-off landings AND their eight /tutti/ archives,
+# derived from the Worker's own SECTION_ROUTES via EXTERNALLY_SERVED_SECTIONS.
+#
+# The archives used to be out of scope, on the stated grounds that they "have
+# their own publisher-side validation in nanako's fast-publish workflow". They
+# did not. Issue #5270: `publish-article-fast.mjs` ran the CDN offload BEFORE
+# re-rendering the archive, so every archive page shipped 9 same-origin
+# `/assets/…` refs that 404 — no CSS, no SPA bundle, no AdSense loader — while
+# still answering 200. The landing was unaffected (it is refreshed by swapping
+# a grid inside already-offloaded HTML) which is precisely why watching only
+# the landing saw nothing.
+#
+# Worse, the ordering lives in TWO copies of that script — this repo's and
+# nanako's — and no mirror carries `scripts/`. #5271 fixed this repo's copy on
+# 2026-08-06 and the live archive then alternated healthy/broken depending on
+# which repo had published last. A source-order test in either repo covers half
+# the publishes; this probe covers the served bytes, which is all of them.
+#
+# Article DETAIL pages remain out of scope.
 
 on:
   schedule:
     # Twice a day, offset from the corpus's publish windows so a run lands
-    # after them rather than during. Cheap: 9 HTTP GETs.
+    # after them rather than during. Cheap: 19 HTTP GETs — 3 API documents
+    # plus the 8 landings and their 8 /tutti/ archives.
     - cron: '40 6,18 * * *'
   workflow_dispatch: {}
 
@@ -47,10 +63,10 @@ jobs:
         with:
           node-version: '22'
 
-      # No `npm ci`: the probe imports two first-party ESM modules and uses
+      # No `npm ci`: the probe imports three first-party ESM modules and uses
       # global fetch, nothing else. Installing 1.4 GB of node_modules to make
-      # nine HTTP requests would be the slowest part of the run by an order of
-      # magnitude.
+      # nineteen HTTP requests would be the slowest part of the run by an order
+      # of magnitude.
       - name: Probe the article-hub landings
         id: health
         run: node scripts/check-article-hub-landings.mjs
@@ -68,9 +84,10 @@ jobs:
             --title "Article hub landing degraded: missing grid or stale article set" \
             --description "## Article-hub landing watchdog tripped
 
-          One or more of the eight handed-off article-hub landings is degraded:
-          no \`ssg-article-grid\` marker, too few cards, or it no longer links
-          the newest article the corpus published.
+          One or more of the eight handed-off article-hub landings — or one of their
+          eight \`/tutti/\` archives — is degraded: no \`ssg-article-grid\` marker, too few
+          cards, it no longer links the newest article the corpus published, or it
+          still carries same-origin \`/assets/\` references.
 
           ### Probe report
           \`\`\`
@@ -88,6 +105,16 @@ jobs:
           - **stale** → the corpus refresher is skipping the page. Its per-page fail-closed reasons
             are logged verbatim (meta coverage, image CDN leak, unbalanced grid).
           - **HTTP != 200** → shard or Worker routing problem, not a content one.
+          - **same-origin \`/assets/\` refs** → that page was written AFTER the CDN offload
+            instead of before it, so its \`/assets/…\` strings were never rewritten and every
+            one of them 404s: the page renders with no CSS, no SPA bundle and no AdSense
+            loader while still answering 200 (issue #5270). Two publishers can cause it and
+            they keep SEPARATE copies of \`scripts/publish-article-fast.mjs\` — this repo's and
+            nanako's — because no mirror carries \`scripts/\`. Check which one pushed last
+            (\`gh api repos/valerielinc-ops/frontaliere-<section>-<loc>/commits\`: the fast-push
+            message carries the publisher's commit SHA) and fix the ordering in THAT copy:
+            \`renderArticleHubPages\` must run BEFORE the
+            \`offload-generated-images-cdn.mjs\` subprocess.
 
           This issue auto-resolves on the next watchdog run once the landings are healthy again." \
             --priority 2 \
