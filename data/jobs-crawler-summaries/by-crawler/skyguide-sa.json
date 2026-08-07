@@ -1,16 +1,16 @@
 {
   "key": "skyguide-sa",
   "label": "Skyguide",
-  "generatedAt": "2026-08-07T01:11:21.142Z",
+  "generatedAt": "2026-08-07T10:14:09.706Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5916,
-  "avgDurationMs": 5916,
+  "durationMs": 6302,
+  "avgDurationMs": 6302,
   "durationHistory": [
-    5916
+    6302
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -79,6 +79,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-06-29T14:06:51.228Z",
       "streetAddress": "",
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
