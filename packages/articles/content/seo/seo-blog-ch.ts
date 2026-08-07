@@ -24704,6 +24704,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casse-di-disoccupazione-superati-i-problemi-tecnici': {
+    title: 'Casse di disoccupazione, superati in gran parte i problemi tecnici',
+    description: 'La SECO annuncia che i problemi tecnici del nuovo sistema informatico SIPAD 2.0 sono stati superati. I ritardi nei pagamenti delle indennità di disoccupazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, casse, disoccupazione, superati, gran',
+    ogTitle: 'Casse di disoccupazione, superati in gran parte i problemi tecnici',
+    ogDescription: 'La SECO annuncia che i problemi tecnici del nuovo sistema informatico SIPAD 2.0 sono stati superati. I ritardi nei pagamenti delle indennità di disoccupazione',
+    canonicalPath: '/articoli-svizzera/casse-di-disoccupazione-superati-i-problemi-tecnici/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casse di disoccupazione, superati in gran parte i problemi tecnici",
+      "description": "La SECO annuncia che i problemi tecnici del nuovo sistema informatico SIPAD 2.0 sono stati superati. I ritardi nei pagamenti delle indennità di disoccupazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/casse-di-disoccupazione-superati-i-problemi-tecnici.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "una scena di lavoro nella sede della SECO a Berna, con impiegati che risolvono problemi tecnici al computer"
+      },
+      "datePublished": "2026-08-07T05:27:14+00:00",
+      "dateModified": "2026-08-07T05:27:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/casse-di-disoccupazione-superati-i-problemi-tecnici/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
   'blog-rimborsi-730-sostituti-imposta': {
     title: 'Rimborsi 730: ora compensabili anche con imposte sostitutive in F24',
     description: 'Secondo quanto comunicato nel maggio 2026, i sostituti d’imposta possono recuperare i rimborsi dal modello 730 tramite F24 anche con imposte sostitutive sulle',
@@ -24739,45 +24778,6 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rimborsi-730-sostituti-imposta/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-lavoro-forzato-catene-svizzere': {
-    title: 'Vero o falso: lavoro forzato nelle catene di approvvigionamento svizzere',
-    description: 'Gli USA applicano un dazio del 12,5% alla Svizzera per mancato divieto d\'importazione di beni da lavoro forzato, contro il 10% all\'UE. Scopri cosa significa',
-    keywords: 'frontalieri, ticino, svizzera, italia, vero, falso, lavoro, forzato',
-    ogTitle: 'Dazio USA 12,5% su Svizzera per lavoro forzato nelle importazioni',
-    ogDescription: 'Gli USA applicano un dazio del 12,5% alla Svizzera per mancato divieto d\'importazione di beni da lavoro forzato, contro il 10% all\'UE. Scopri cosa significa',
-    canonicalPath: '/articoli-svizzera/lavoro-forzato-catene-svizzere/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Vero o falso: lavoro forzato nelle catene di approvvigionamento svizzere",
-      "description": "Gli USA applicano un dazio del 12,5% alla Svizzera per mancato divieto d'importazione di beni da lavoro forzato, contro il 10% all'UE. Scopri cosa significa",
-      "image": {
-        "@type": "ImageObject",
-        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
-        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
-        "creditText": "Frontaliere Ticino",
-        "url": `${BASE_URL}/images/blog/lavoro-forzato-catene-svizzere.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Hub logistico svizzero per catene di approvvigionamento nazionale"
-      },
-      "datePublished": "2026-08-07T05:35:08+00:00",
-      "dateModified": "2026-08-07T05:35:08+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavoro-forzato-catene-svizzere/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

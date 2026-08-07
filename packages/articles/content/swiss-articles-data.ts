@@ -5726,6 +5726,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorName: 'Marco Ferrari',
    },
    {
+    id: 'casse-di-disoccupazione-superati-i-problemi-tecnici',
+    category: 'pratico',
+    date: '2026-08-07T05:27:14.916Z',
+    image: '/images/blog/casse-di-disoccupazione-superati-i-problemi-tecnici.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
     id: 'rimborsi-730-sostituti-imposta',
     category: 'fiscale',
     date: '2026-08-07T04:42:27.683Z',
@@ -5733,15 +5742,6 @@ const RAW_SWISS_ARTICLES: Article[] = [
     hasCalculator: true,
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
-   },
-   {
-    id: 'lavoro-forzato-catene-svizzere',
-    category: 'pratico',
-    date: '2026-08-07T05:35:08.558Z',
-    image: '/images/blog/lavoro-forzato-catene-svizzere.webp',
-    hasCalculator: true,
-    authorSlug: 'redazione',
-    authorName: 'Redazione Frontaliere Ticino',
    },
 ];
 
