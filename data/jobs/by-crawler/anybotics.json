@@ -1,6 +1,6 @@
 {
   "crawlerKey": "anybotics",
-  "assembledAt": "2026-08-07T01:22:26.395Z",
+  "assembledAt": "2026-08-07T10:24:59.451Z",
   "jobs": [
     {
       "id": "anybotics-74337a3d76ea",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "architettura-del-sistema-vp-anybotics-zurich-switzerland",
         "en": "vp-system-architecture-anybotics-ch",
-        "de": "vp-systemarchitektur-anybotics-zurich-switzerland",
+        "de": "vp-system-architecture-anybotics-zurich-switzerland",
         "fr": "vp-architecture-du-systeme-anybotics-zurich-switzerland"
       },
       "company": "ANYbotics",
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "it": "Architettura del sistema VP",
         "en": "VP System Architecture",
-        "de": "VP Systemarchitektur",
+        "de": "VP System Architecture",
         "fr": "VP Architecture du système"
       },
       "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs VP of System Architecture, you will define the architectural direction for the next generation of ANYbotics robot platforms. You will shape how a shared modular foundation supports multiple robot variants, operational design domains, and future business models.\n\nThis is a senior, cross-functional role spanning the full technology spectrum, from AI and autonomy through hardware, software, mechatronics, functional safety, system integration, and factory industrialization. You will help determine how our robots evolve from strong individual products into a scalable family of platforms, balancing reuse, flexibility, performance, manufacturability, and long-term maintainability.\n\nThis role is not just about technical design. It is also about setting direction, driving alignment across teams, and helping the organisation make strong architectural decisions as we scale.\n\nMarket & Our Technology\n\nANYbotics is pioneering autonomous robotic platforms for industrial inspection and operations in challenging environments. From explosion-proof systems in oil and gas to agile robotic platforms for utilities and other industrial settings, our technology is built for environments where safety, reliability, and uptime are critical.\n\nSystem Architecture is central to how we scale. The challenge is not only to build great robots, but to create the modular architecture, interfaces, and platform strategy that allow multiple variants to be derived from a shared core. This includes anticipating future customer needs, new domains, certification requirements, and external integrations such as fleet management, predictive maintenance, and digital twins.\n\nWith the right architecture in place, ANYbotics can move faster, reuse more effectively, and expand into new markets without rebuilding from scratch each time.\n\nAbout us\n\nANYbotics is a leading robotics company specialising in advanced autonomous systems. With a successful Series B financing round closed and strong momentum in the market, we are entering an important phase of growth and international expansion.\n\nOur mission is to transform industrial inspection and operations through world-class robotics. We combine deep robotics expertise with real customer deployments in demanding industrial environments. This is an opportunity to join at a stage where the technology is proven, the ambition is high, and the architectural decisions made now will have a major impact on the company’s future.\n\nYour Contributions\n\n•\n Define and govern the reference system architecture across hardware and software domains focusing on modules interfaces\n\n•\n Build a modular platform strategy that enables multiple robot variants and operational domains to be derived from a shared architectural foundation\n\n•\n Drive architectural decisions on interfaces, middleware, data models, integration patterns, and the software backbone that supports future platform scaling\n\n•\n Define how reuse, configuration, and hardware-specific adaptation are handled so new variants can be developed without unnecessary redesign\n\n•\n Lead platform-level trade-offs across performance, agility, endurance, safety, manufacturability, and cost\n\n•\n Embed diagnostics, functional safety, cybersecurity, over-the-air updates, and certification requirements into the architecture from the outset\n\n•\n Partner with senior engineering leaders across software and hardware domains, and through the system engineering community to align on direction, influence execution, and translate long-term architecture into practical delivery\n\nYour Profile\n\n•\n MSc in Systems Engineering, Electronics, Robotics, Computer Science, or a related field\n\n•\n Significant experience in system architecture and modularity leadership within robotics, autonomous systems, medical devices, automotive, aerospace, or other complex mechatronic environments\n\n•\n Proven track record of architecting and evolving complex platforms rather than one-off systems\n\n•\n Experience defining modular architectures and enabling reuse across multiple product variants\n\n•\n Strong understanding of hardware and software co-design principles across sensors, actuators, compute, control systems, middleware, and power management\n\n•\n Good understanding of autonomy-related systems such as perception, localisation, navigation, motion planning, or fleet-level coordination\n\n•\n Experience with real-time systems, platform middleware, and system integration (V model) in complex industrial or safety-relevant environments\n\n•\n Ability to translate customer needs, business direction, and technical constraints into clear architectural decisions\n\n•\n Experience balancing performance, safety, manufacturability, scalability, and product maturity in real-world systems\n\n•\n Proven ability to influence across teams, drive alignment, and lead change without relying solely on formal authority\n\n•\n Strong communication and influence skills, sound judgement, and the ability to simplify complex architectural questions for a broad technical audience\n\n•\n Proven ability to translate company strategy and mid- to long-term technology vision into a clear, executable roadmap, along with effective governance to drive its execution.\n\nBonus Points\n\n•\n Experience with safety-critical or regulated robotic systems\n\n•\n Familiarity with Ex certification or related industrial safety constraints\n\n•\n Experience with large-scale simulation environments, digital twins, or platform-level validation frameworks\n\n•\n Track record of reducing time to market through platform reuse and stronger architectural discipline\n\n•\n Experience embedding certification and safety pathways into architectural frameworks\n\n•\n Experience supporting products that scale across multiple variants, deployment environments, or different operational design domains\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
@@ -33,7 +33,7 @@
       "url": "https://jobs.lever.co/anybotics/456ebeb5-37c3-4531-8bdf-ead40406eb49",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T01:22:23.684Z",
+      "crawledAt": "2026-08-07T10:24:56.260Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,13 +50,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vp-system-architecture-anybotics-ch",
+        "vp-systemarchitektur-anybotics-zurich-switzerland",
+        "architettura-del-sistema-vp-anybotics-zurich-switzerland",
         "vp-system-architecture-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vp-system-architecture-anybotics-ch"
+          "vp-system-architecture-anybotics-ch",
+          "architettura-del-sistema-vp-anybotics-zurich-switzerland"
         ],
         "de": [
+          "vp-systemarchitektur-anybotics-zurich-switzerland",
           "vp-system-architecture-anybotics-zurich-switzerland"
         ],
         "fr": [
@@ -64,6 +68,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:18:39.699Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -109,7 +114,7 @@
       "url": "https://jobs.lever.co/anybotics/32d2b35b-b255-416c-9ad7-ce2462cc89f0",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T01:22:23.383Z",
+      "crawledAt": "2026-08-07T10:24:55.959Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -125,11 +130,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verification-testing-engineer-anybotics-ch"
+        "verification-testing-engineer-anybotics-ch",
+        "verification-testing-ingegnere-anybotics-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verification-testing-engineer-anybotics-ch"
+          "verification-testing-engineer-anybotics-ch",
+          "verification-testing-ingegnere-anybotics-zurich"
         ],
         "de": [
           "verification-testing-engineer-anybotics-ch"
@@ -184,7 +191,7 @@
       "url": "https://jobs.lever.co/anybotics/7e305a48-4628-4a6a-b054-0367b6f6e586",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T01:22:23.081Z",
+      "crawledAt": "2026-08-07T10:24:55.657Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -205,13 +212,15 @@
         "elektrotechnik-praktikum-anybotics-zurich",
         "genie-electrique-stage-anybotics-zurich",
         "software-engineering-internship-anybotics-ch",
-        "software-engineering-internship-ai-platform-anybotics-ch"
+        "software-engineering-internship-ai-platform-anybotics-ch",
+        "interno-di-ingegneria-del-software-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingegneria-elettrica-stage-anybotics-zurich",
           "software-engineering-internship-anybotics-ch",
-          "software-engineering-internship-ai-platform-anybotics-ch"
+          "software-engineering-internship-ai-platform-anybotics-ch",
+          "interno-di-ingegneria-del-software-anybotics-zurich-switzerland"
         ],
         "en": [
           "electrical-engineering-internship-anybotics-ch"
@@ -226,6 +235,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:50:16.522Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -271,7 +281,7 @@
       "url": "https://jobs.lever.co/anybotics/63f0c6db-0a1f-4a4a-87dd-9a43c9c2bdd2",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T01:22:22.779Z",
+      "crawledAt": "2026-08-07T10:24:55.356Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -287,11 +297,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-reinforcement-learning-engineer-anybotics-ch"
+        "senior-reinforcement-learning-engineer-anybotics-ch",
+        "senior-reinforcement-learning-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-reinforcement-learning-engineer-anybotics-ch"
+          "senior-reinforcement-learning-engineer-anybotics-ch",
+          "senior-reinforcement-learning-ingegnere-anybotics-zurich-switzerland"
         ],
         "de": [
           "senior-reinforcement-learning-engineer-anybotics-ch"
@@ -346,7 +358,7 @@
       "url": "https://jobs.lever.co/anybotics/16980988-bb5a-44f8-b688-ef7053de2899",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T01:22:22.477Z",
+      "crawledAt": "2026-08-07T10:24:55.054Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -362,14 +374,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-product-quality-engineer-anybotics-ch"
+        "senior-product-quality-engineer-anybotics-ch",
+        "senior-product-quality-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-product-quality-engineer-anybotics-ch"
+          "senior-product-quality-engineer-anybotics-ch",
+          "senior-product-quality-ingegnere-anybotics-zurich-switzerland"
         ]
       },
       "firstSeenAt": "2026-07-06T12:59:44.319Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -415,7 +430,7 @@
       "url": "https://jobs.lever.co/anybotics/8ba02712-b54a-4447-a73e-6384563feda1",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T01:22:22.175Z",
+      "crawledAt": "2026-08-07T10:24:54.753Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -431,11 +446,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-procurement-specialist-anybotics-ch"
+        "senior-procurement-specialist-anybotics-ch",
+        "senior-procurement-specialista-anybotics-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-procurement-specialist-anybotics-ch"
+          "senior-procurement-specialist-anybotics-ch",
+          "senior-procurement-specialista-anybotics-zurich"
         ],
         "de": [
           "senior-procurement-specialist-anybotics-ch"
@@ -490,7 +507,7 @@
       "url": "https://jobs.lever.co/anybotics/e893a06a-66ad-4068-a95b-3d26fa2e52a1",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T01:22:21.873Z",
+      "crawledAt": "2026-08-07T10:24:54.451Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -506,11 +523,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+        "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
+        "senior-manager-struttura-e-sistemi-dei-prodotti-plm-mes-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+          "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
+          "senior-manager-struttura-e-sistemi-dei-prodotti-plm-mes-anybotics-zurich-switzerland"
         ],
         "de": [
           "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
@@ -520,6 +539,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:18:39.094Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -565,7 +585,7 @@
       "url": "https://jobs.lever.co/anybotics/fd173f45-9f01-40b2-b46a-aca5133f6861",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T01:22:21.571Z",
+      "crawledAt": "2026-08-07T10:24:54.150Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -582,12 +602,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-electronics-engineer-anybotics-ch",
-        "senior-electrical-engineer-anybotics-ch"
+        "senior-electrical-engineer-anybotics-ch",
+        "senior-electronics-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-electronics-engineer-anybotics-ch",
-          "senior-electrical-engineer-anybotics-ch"
+          "senior-electrical-engineer-anybotics-ch",
+          "senior-electronics-ingegnere-anybotics-zurich-switzerland"
         ],
         "en": [
           "senior-electronics-engineer-anybotics-ch"
@@ -645,7 +667,7 @@
       "url": "https://jobs.lever.co/anybotics/b73e0848-ce51-4d45-8e0d-8abe63698ff6",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T01:22:21.269Z",
+      "crawledAt": "2026-08-07T10:24:53.848Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -661,11 +683,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "robotics-test-engineer-anybotics-ch"
+        "robotics-test-engineer-anybotics-ch",
+        "robotics-test-ingegnere-anybotics-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "robotics-test-engineer-anybotics-ch"
+          "robotics-test-engineer-anybotics-ch",
+          "robotics-test-ingegnere-anybotics-zurich"
         ],
         "de": [
           "robotics-test-engineer-anybotics-ch"
@@ -720,7 +744,7 @@
       "url": "https://jobs.lever.co/anybotics/9755ae0f-f740-40bc-bc13-be52c505748b",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T01:22:20.966Z",
+      "crawledAt": "2026-08-07T10:24:53.547Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -736,14 +760,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "robotics-lab-technician-intern-anybotics-ch"
+        "robotics-lab-technician-intern-anybotics-ch",
+        "robotics-lab-technician-tirocinante-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "robotics-lab-technician-intern-anybotics-ch"
+          "robotics-lab-technician-intern-anybotics-ch",
+          "robotics-lab-technician-tirocinante-anybotics-zurich-switzerland"
         ]
       },
       "firstSeenAt": "2026-07-14T22:46:20.867Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -789,7 +816,7 @@
       "url": "https://jobs.lever.co/anybotics/f13a84f8-23ff-489f-ad1a-aa56a8c7eb6d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T01:22:20.664Z",
+      "crawledAt": "2026-08-07T10:24:53.245Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -805,11 +832,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "production-technician-ii-robotics-anybotics-ch"
+        "production-technician-ii-robotics-anybotics-ch",
+        "tecnologia-di-produzione-ii-robotics-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "production-technician-ii-robotics-anybotics-ch"
+          "production-technician-ii-robotics-anybotics-ch",
+          "tecnologia-di-produzione-ii-robotics-anybotics-zurich-switzerland"
         ],
         "de": [
           "production-technician-ii-robotics-anybotics-ch"
@@ -864,7 +893,7 @@
       "url": "https://jobs.lever.co/anybotics/74b68707-86aa-4efc-9efb-94ca5ad82698",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T01:22:20.361Z",
+      "crawledAt": "2026-08-07T10:24:52.943Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -880,11 +909,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-data-management-internship-anybotics-ch"
+        "product-data-management-internship-anybotics-ch",
+        "gestione-dei-dati-del-prodotto-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-data-management-internship-anybotics-ch"
+          "product-data-management-internship-anybotics-ch",
+          "gestione-dei-dati-del-prodotto-anybotics-zurich-switzerland"
         ],
         "de": [
           "product-data-management-internship-anybotics-ch"
@@ -939,7 +970,7 @@
       "url": "https://jobs.lever.co/anybotics/53462ccd-2b76-4cd5-b8c5-32c329e3c05d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T01:22:20.059Z",
+      "crawledAt": "2026-08-07T10:24:52.642Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -955,11 +986,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pcb-layout-designer-ecad-engineer-anybotics-ch"
+        "pcb-layout-designer-ecad-engineer-anybotics-ch",
+        "pcb-layout-designer-ecad-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pcb-layout-designer-ecad-engineer-anybotics-ch"
+          "pcb-layout-designer-ecad-engineer-anybotics-ch",
+          "pcb-layout-designer-ecad-ingegnere-anybotics-zurich-switzerland"
         ],
         "de": [
           "pcb-layout-designer-ecad-engineer-anybotics-ch"
@@ -1014,7 +1047,7 @@
       "url": "https://jobs.lever.co/anybotics/41220f43-53f8-4336-94a1-eaed97c34784",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T01:22:19.757Z",
+      "crawledAt": "2026-08-07T10:24:52.340Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1031,11 +1064,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manufacturing-engineer-anybotics-ch",
-        "manufacturing-engineer-anybotics-zurich-switzerland"
+        "manufacturing-engineer-anybotics-zurich-switzerland",
+        "manufacturing-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manufacturing-engineer-anybotics-ch"
+          "manufacturing-engineer-anybotics-ch",
+          "manufacturing-ingegnere-anybotics-zurich-switzerland"
         ],
         "en": [
           "manufacturing-engineer-anybotics-zurich-switzerland"
@@ -1093,7 +1128,7 @@
       "url": "https://jobs.lever.co/anybotics/b8d4bf79-20ea-44b0-84e2-cd644dc8e58a",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T01:22:19.456Z",
+      "crawledAt": "2026-08-07T10:24:52.038Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1109,11 +1144,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "industrialization-electronics-test-engineer-anybotics-ch"
+        "industrialization-electronics-test-engineer-anybotics-ch",
+        "industrialization-electronics-test-ingegnere-anybotics-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "industrialization-electronics-test-engineer-anybotics-ch"
+          "industrialization-electronics-test-engineer-anybotics-ch",
+          "industrialization-electronics-test-ingegnere-anybotics-zurich"
         ],
         "de": [
           "industrialization-electronics-test-engineer-anybotics-ch"
@@ -1158,8 +1195,8 @@
       },
       "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200+ people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs a Field Engineer at ANYbotics, you will lead the customer adoption journey. You will own the strategic execution of multi-site projects, ensuring our solutions are not only successfully deployed but deeply integrated into our customers' workflows. This is a high-impact role where you will represent ANYbotics on the ground, implement the robotics solution, facilitate change management, and align customer success with our operational goals. You will act as the trusted advisor for stakeholders, managing project timelines, orchestrating deployments, and ensuring our technology delivers measurable value and business impact.\n\nJoining our team means you’ll continuously expand your skills in robotics, field operations, and customer success management. Each project brings distinct challenges that require adaptability, curiosity, and a passion for solving problems. Your insights and experiences from the field will directly shape the future of our technology, as you collaborate with our research and development teams to enhance and refine our offerings.\n\nANYbotics is committed to building a diverse, inclusive team where everyone’s perspective is valued. We welcome all applicants who are excited about advancing robotics and making a tangible impact. By joining us, you’ll find a supportive environment that fosters professional growth and encourages you to bring your full, authentic self to the team.\n\nThe Market & Our Technology\n\nANYbotics transforms industrial environments in the energy, process, and utility sectors by introducing robotics to applications previously beyond reach. Our mobile robot, ANYmal, uses legs for extreme mobility in complex environments, camera- and LIDAR-based sensing for full autonomy, and AI for high-quality inspection results. With software developed almost entirely in-house, ANYmal performs autonomous inspection missions for large asset operators and industrial service providers pioneering robotics technology for inspection and maintenance.\n\nYour Contributions\n\n• Lead Deployment Projects: Lead complex, multi-site customer projects from onboarding through to operational autonomy. Ensure smooth deployments, manage timelines and value delivery.\n\n• Stakeholder & Change Management: Act as the primary point of contact for customer leadership and operations teams. Drive user adoption by navigating organizational dynamics, identifying resistance, and championing the value of robotics within their operational culture.\n\n• Field Operations Leadership: Coordinate the operational work of field technicians and internal specialists. Set priorities, allocate resources, and resolve on-site hurdles to maintain project momentum and quality.\n\n• Trusted Advisory: Consult with global industrial clients to integrate robotics into their broader business workflows. Act as the bridge between their operational challenges and our technical teams, ensuring our roadmap aligns with their needs.\n\n• Value Realization & Training: Lead training and enablement sessions for diverse audiences, from on-the-ground operators to plant management, tailoring your approach to maximize user confidence and system utilization.\n\n• Strategic Feedback Loop: Translate field insights and recurring operational themes into actionable requirements for our Product and R&D teams, ensuring the voice of the customer drives our innovation.\n\nYour Profile\n\n• Education: Degree in engineering, robotics or a related field\n\n• Experience: Proven track record in customer-facing role, ideally within robotics, industrial automation, or complex technical systems.\n\n• Communication: Excellent communicator, comfortable presenting to both executive leadership and operational teams. Ability to simplify complex technical concepts into clear, business-focused outcomes.\n\n• Change Management: Demonstrated ability to manage stakeholder relationships, navigate organizational dynamics, and drive user adoption in industrial environments.\n\n• Operational Leadership: Strong capability to coordinate teams, manage on-site priorities, and maintain project continuity in high-pressure, international settings.\n\n• Travel: Enthusiastic about frequent international travel (up to 60%) and comfortable working directly in customer environments.\n\n• Mindset: Collaborative, empathetic, and relentlessly focused on the customer's path to success\n\nBonus Points\n\n• Experience with deploying robots or other automation systems\n\n• Experience with Linux and command-line usage\n\n• Familiarity with network infrastructure\n\n• Proficiency in German or other languages (French, Spanish, Portuguese, etc.)\n\nJoin us in building an inclusive and diverse team where your unique skills and experiences will be valued and appreciated as we Build the Future of Robotics!\n\nWe’re an international robotics company with the A-team spread across the Globe. This role gives you the opportunity to be part of growing our EU presence while staying connected to our global team. To be eligible, you’ll need to have the legal right to live and work in Spain. Ideally you reside in Barcelona, or are open to relocate. This is not a remote position\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
       "descriptionByLocale": {
-        "en": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200+ people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs a Field Engineer at ANYbotics, you will lead the customer adoption journey. You will own the strategic execution of multi-site projects, ensuring our solutions are not only successfully deployed but deeply integrated into our customers' workflows. This is a high-impact role where you will represent ANYbotics on the ground, implement the robotics solution, facilitate change management, and align customer success with our operational goals. You will act as the trusted advisor for stakeholders, managing project timelines, orchestrating deployments, and ensuring our technology delivers measurable value and business impact.\n\nJoining our team means you’ll continuously expand your skills in robotics, field operations, and customer success management. Each project brings distinct challenges that require adaptability, curiosity, and a passion for solving problems. Your insights and experiences from the field will directly shape the future of our technology, as you collaborate with our research and development teams to enhance and refine our offerings.\n\nANYbotics is committed to building a diverse, inclusive team where everyone’s perspective is valued. We welcome all applicants who are excited about advancing robotics and making a tangible impact. By joining us, you’ll find a supportive environment that fosters professional growth and encourages you to bring your full, authentic self to the team.\n\nThe Market & Our Technology\n\nANYbotics transforms industrial environments in the energy, process, and utility sectors by introducing robotics to applications previously beyond reach. Our mobile robot, ANYmal, uses legs for extreme mobility in complex environments, camera- and LIDAR-based sensing for full autonomy, and AI for high-quality inspection results. With software developed almost entirely in-house, ANYmal performs autonomous inspection missions for large asset operators and industrial service providers pioneering robotics technology for inspection and maintenance.\n\nYour Contributions\n\n• Lead Deployment Projects: Lead complex, multi-site customer projects from onboarding through to operational autonomy. Ensure smooth deployments, manage timelines and value delivery.\n\n• Stakeholder & Change Management: Act as the primary point of contact for customer leadership and operations teams. Drive user adoption by navigating organizational dynamics, identifying resistance, and championing the value of robotics within their operational culture.\n\n• Field Operations Leadership: Coordinate the operational work of field technicians and internal specialists. Set priorities, allocate resources, and resolve on-site hurdles to maintain project momentum and quality.\n\n• Trusted Advisory: Consult with global industrial clients to integrate robotics into their broader business workflows. Act as the bridge between their operational challenges and our technical teams, ensuring our roadmap aligns with their needs.\n\n• Value Realization & Training: Lead training and enablement sessions for diverse audiences, from on-the-ground operators to plant management, tailoring your approach to maximize user confidence and system utilization.\n\n• Strategic Feedback Loop: Translate field insights and recurring operational themes into actionable requirements for our Product and R&D teams, ensuring the voice of the customer drives our innovation.\n\nYour Profile\n\n• Education: Degree in engineering, robotics or a related field\n\n• Experience: Proven track record in customer-facing role, ideally within robotics, industrial automation, or complex technical systems.\n\n• Communication: Excellent communicator, comfortable presenting to both executive leadership and operational teams. Ability to simplify complex technical concepts into clear, business-focused outcomes.\n\n• Change Management: Demonstrated ability to manage stakeholder relationships, navigate organizational dynamics, and drive user adoption in industrial environments.\n\n• Operational Leadership: Strong capability to coordinate teams, manage on-site priorities, and maintain project continuity in high-pressure, international settings.\n\n• Travel: Enthusiastic about frequent international travel (up to 60%) and comfortable working directly in customer environments.\n\n• Mindset: Collaborative, empathetic, and relentlessly focused on the customer's path to success\n\nBonus Points\n\n• Experience with deploying robots or other automation systems\n\n• Experience with Linux and command-line usage\n\n• Familiarity with network infrastructure\n\n• Proficiency in German or other languages (French, Spanish, Portuguese, etc.)\n\nJoin us in building an inclusive and diverse team where your unique skills and experiences will be valued and appreciated as we Build the Future of Robotics!\n\nWe’re an international robotics company with the A-team spread across the Globe. This role gives you the opportunity to be part of growing our EU presence while staying connected to our global team. To be eligible, you’ll need to have the legal right to live and work in Spain. Ideally you reside in Barcelona, or are open to relocate. This is not a remote position\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
         "it": "ANYbotics è una società tecnologica in rapida crescita dedicata a modellare il futuro della robotica mobile in più settori. Unisciti al nostro team altamente talentuoso e motivato di oltre 200 persone e lavori sulla tecnologia robot all'avanguardia.\n\nL'opportunità\n\nIn qualità di ingegnere di campo presso ANYbotics, guiderai il viaggio di adozione del cliente. Possiederai l'esecuzione strategica di progetti multi-sito, garantendo che le nostre soluzioni non siano solo implementate con successo ma profondamente integrate nei flussi di lavoro dei nostri clienti. Questo è un ruolo di alto impatto in cui rappresenterai ANYbotics sul terreno, implementare la soluzione robotica, facilitare la gestione dei cambiamenti e allineare il successo del cliente con i nostri obiettivi operativi. Potrai agire come consulente di fiducia per le parti interessate, la gestione dei tempi del progetto, l'organizzazione delle distribuzioni, e garantire la nostra tecnologia offre un valore misurabile e un impatto aziendale.\n\nUnisciti al nostro team significa che espanderai continuamente le tue competenze in robotica, operazioni sul campo e gestione del successo del cliente. Ogni progetto pone diverse sfide che richiedono adattabilità, curiosità e passione per risolvere i problemi. Le tue intuizioni e le tue esperienze sul campo plasmano direttamente il futuro della nostra tecnologia, collaborando con i nostri team di ricerca e sviluppo per migliorare e affinare le nostre offerte.\n\nANYbotics si impegna a costruire un team diversificato e inclusivo dove la prospettiva di tutti è apprezzata. Accogliamo favorevolmente tutti i candidati che sono entusiasti di promuovere la robotica e di fare un impatto tangibile. Unendoci, troverai un ambiente di supporto che favorisce la crescita professionale e ti incoraggia a portare il tuo sé pieno e autentico alla squadra.\n\nIl mercato e la nostra tecnologia\n\nANYbotics trasforma gli ambienti industriali nei settori dell'energia, del processo e dell'utilità introducendo la robotica a applicazioni precedentemente al di là della portata. Il nostro robot mobile, ANYmal, utilizza le gambe per una mobilità estrema in ambienti complessi, per il rilevamento basato su telecamere e LIDAR per una piena autonomia e per l'intelligenza artificiale per risultati di ispezione di alta qualità. Con il software sviluppato quasi interamente in-house, ANYmal esegue missioni di ispezione autonomi per grandi operatori di asset e fornitori di servizi industriali pionieristica tecnologia robotica per l'ispezione e la manutenzione.\n\nI tuoi contributi\n\n• Lead Deployment Projects: Progetti di clienti complessi e multi-sito dall'imbarco fino all'autonomia operativa. Assicurare distribuzioni fluide, gestire le linee temporali e la consegna del valore.\n\n• Stakeholder & Change Management: Agite come punto di contatto primario per i team di leadership e operazioni del cliente. Guida l'adozione dell'utente navigando le dinamiche organizzative, identificando la resistenza e sostenendo il valore della robotica all'interno della loro cultura operativa.\n\n• Leadership delle operazioni sul campo: coordinare il lavoro operativo dei tecnici sul campo e degli specialisti interni. Impostare le priorità, allocare le risorse e risolvere gli ostacoli in loco per mantenere slancio e qualità del progetto.\n\n• Consulenza Fiducia: Consultare con clienti industriali globali per integrare la robotica nei flussi di lavoro aziendali più ampi. Agire come ponte tra le loro sfide operative e i nostri team tecnici, assicurando che la nostra roadmap si allinei alle loro esigenze.\n\n• Realizzazione e formazione del valore: sessioni di formazione e abilitazione di piombo per il pubblico vario, dagli operatori on-the-ground alla gestione delle piante, adattando il vostro approccio per massimizzare la fiducia degli utenti e l'utilizzo del sistema.\n\n• Strategic Feedback Loop: Tradurre intuizioni sul campo e ricorrenti temi operativi in requisiti attuabili per i nostri team di prodotto e R&D, garantendo la voce del cliente guida la nostra innovazione.\n\nIl tuo profilo\n\n• Istruzione: Laurea in ingegneria, robotica o un campo correlato\n\n• Esperienza: Provato record di traccia nel ruolo di customer-facing, idealmente all'interno di robotica, automazione industriale, o sistemi tecnici complessi.\n\n• Comunicazione: Eccellente comunicatore, confortevole presentando sia la leadership esecutiva che le squadre operative. Capacità di semplificare i concetti tecnici complessi in risultati chiari e focalizzati sul business.\n\n• Gestione dei cambiamenti: capacità dimostrata di gestire le relazioni degli stakeholder, navigare in dinamiche organizzative e guidare l'adozione degli utenti in ambienti industriali.\n\n• Leadership operativa: forte capacità di coordinare i team, gestire le priorità in loco e mantenere la continuità del progetto in ambienti internazionali ad alta pressione.\n\n• Viaggi: Enthusiastic su frequenti viaggi internazionali (fino al 60%) e comodo lavoro direttamente negli ambienti dei clienti.\n\n• Mindset: collaborativo, empatico, e senza sosta focalizzato sul percorso del cliente al successo\n\nPunti bonus\n\n• Esperienza con l'implementazione di robot o altri sistemi di automazione\n\n• Esperienza con Linux e utilizzo della riga di comando\n\n• Familiarità con le infrastrutture di rete\n\n• Competenza in tedesco o in altre lingue (francese, spagnolo, portoghese, ecc.)\n\nUnisciti a noi nella costruzione di un team inclusivo e diversificato dove le tue competenze e le tue esperienze uniche saranno apprezzate e apprezzate come Costruiamo il Futuro della Robotica!\n\nSiamo una società di robotica internazionale con la A-team diffusa in tutto il mondo. Questo ruolo ti dà l'opportunità di partecipare alla crescita della nostra presenza nell'UE, rimanendo in contatto con il nostro team globale. Per essere idonei, avrete bisogno di avere il diritto legale di vivere e lavorare in Spagna. Idealmente si risiede a Barcellona, o sono aperti a trasferirsi. Questa non è una posizione remota\n\nPolitica dell'Agenzia: Attualmente non stiamo collaborando con aziende di ricerca esterne o agenzie di reclutamento. Qualsiasi profilo o curriculum inviato ai dipendenti di ANYbotics senza un preventivo accordo scritto sarà considerato la divulgazione pubblica e la proprietà di ANYbotics, che non comporta alcuna responsabilità o tassa per il successivo assunzione.",
+        "en": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200+ people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs a Field Engineer at ANYbotics, you will lead the customer adoption journey. You will own the strategic execution of multi-site projects, ensuring our solutions are not only successfully deployed but deeply integrated into our customers' workflows. This is a high-impact role where you will represent ANYbotics on the ground, implement the robotics solution, facilitate change management, and align customer success with our operational goals. You will act as the trusted advisor for stakeholders, managing project timelines, orchestrating deployments, and ensuring our technology delivers measurable value and business impact.\n\nJoining our team means you’ll continuously expand your skills in robotics, field operations, and customer success management. Each project brings distinct challenges that require adaptability, curiosity, and a passion for solving problems. Your insights and experiences from the field will directly shape the future of our technology, as you collaborate with our research and development teams to enhance and refine our offerings.\n\nANYbotics is committed to building a diverse, inclusive team where everyone’s perspective is valued. We welcome all applicants who are excited about advancing robotics and making a tangible impact. By joining us, you’ll find a supportive environment that fosters professional growth and encourages you to bring your full, authentic self to the team.\n\nThe Market & Our Technology\n\nANYbotics transforms industrial environments in the energy, process, and utility sectors by introducing robotics to applications previously beyond reach. Our mobile robot, ANYmal, uses legs for extreme mobility in complex environments, camera- and LIDAR-based sensing for full autonomy, and AI for high-quality inspection results. With software developed almost entirely in-house, ANYmal performs autonomous inspection missions for large asset operators and industrial service providers pioneering robotics technology for inspection and maintenance.\n\nYour Contributions\n\n• Lead Deployment Projects: Lead complex, multi-site customer projects from onboarding through to operational autonomy. Ensure smooth deployments, manage timelines and value delivery.\n\n• Stakeholder & Change Management: Act as the primary point of contact for customer leadership and operations teams. Drive user adoption by navigating organizational dynamics, identifying resistance, and championing the value of robotics within their operational culture.\n\n• Field Operations Leadership: Coordinate the operational work of field technicians and internal specialists. Set priorities, allocate resources, and resolve on-site hurdles to maintain project momentum and quality.\n\n• Trusted Advisory: Consult with global industrial clients to integrate robotics into their broader business workflows. Act as the bridge between their operational challenges and our technical teams, ensuring our roadmap aligns with their needs.\n\n• Value Realization & Training: Lead training and enablement sessions for diverse audiences, from on-the-ground operators to plant management, tailoring your approach to maximize user confidence and system utilization.\n\n• Strategic Feedback Loop: Translate field insights and recurring operational themes into actionable requirements for our Product and R&D teams, ensuring the voice of the customer drives our innovation.\n\nYour Profile\n\n• Education: Degree in engineering, robotics or a related field\n\n• Experience: Proven track record in customer-facing role, ideally within robotics, industrial automation, or complex technical systems.\n\n• Communication: Excellent communicator, comfortable presenting to both executive leadership and operational teams. Ability to simplify complex technical concepts into clear, business-focused outcomes.\n\n• Change Management: Demonstrated ability to manage stakeholder relationships, navigate organizational dynamics, and drive user adoption in industrial environments.\n\n• Operational Leadership: Strong capability to coordinate teams, manage on-site priorities, and maintain project continuity in high-pressure, international settings.\n\n• Travel: Enthusiastic about frequent international travel (up to 60%) and comfortable working directly in customer environments.\n\n• Mindset: Collaborative, empathetic, and relentlessly focused on the customer's path to success\n\nBonus Points\n\n• Experience with deploying robots or other automation systems\n\n• Experience with Linux and command-line usage\n\n• Familiarity with network infrastructure\n\n• Proficiency in German or other languages (French, Spanish, Portuguese, etc.)\n\nJoin us in building an inclusive and diverse team where your unique skills and experiences will be valued and appreciated as we Build the Future of Robotics!\n\nWe’re an international robotics company with the A-team spread across the Globe. This role gives you the opportunity to be part of growing our EU presence while staying connected to our global team. To be eligible, you’ll need to have the legal right to live and work in Spain. Ideally you reside in Barcelona, or are open to relocate. This is not a remote position\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
         "de": "ANYbotics ist ein schnell wachsendes Technologieunternehmen, das sich der Gestaltung der Zukunft der mobilen Robotik in verschiedenen Branchen verschrieben hat. Schließen Sie sich unserem hochtalentierten und motivierten Team von über 200 Mitarbeitern an und arbeiten Sie an modernster Robotertechnologie.\n\nDie Chance\n\nAls Field Engineer bei ANYbotics leiten Sie die Customer Adoption Journey. Sie besitzen die strategische Durchführung von Multi-Site-Projekten, um sicherzustellen, dass unsere Lösungen nicht nur erfolgreich eingesetzt, sondern auch tief in die Workflows unserer Kunden integriert werden. Dies ist eine wichtige Rolle, bei der Sie ANYbotics vor Ort vertreten, die Robotiklösung implementieren, das Change Management erleichtern und den Kundenerfolg an unseren operativen Zielen ausrichten. Sie fungieren als vertrauenswürdiger Berater für Stakeholder, verwalten Projektzeitpläne, orchestrieren Bereitstellungen und stellen sicher, dass unsere Technologie messbaren Wert und geschäftliche Auswirkungen liefert.\n\nDer Beitritt zu unserem Team bedeutet, dass Sie Ihre Fähigkeiten in Robotik, Außendienst und Kundenerfolgsmanagement kontinuierlich erweitern. Jedes Projekt bringt unterschiedliche Herausforderungen mit sich, die Anpassungsfähigkeit, Neugier und eine Leidenschaft für die Lösung von Problemen erfordern. Ihre Erkenntnisse und Erfahrungen aus diesem Bereich werden die Zukunft unserer Technologie direkt prägen, da Sie mit unseren Forschungs- und Entwicklungsteams zusammenarbeiten, um unsere Angebote zu verbessern und zu verfeinern.\n\nANYbotics engagiert sich für den Aufbau eines vielfältigen, inklusiven Teams, in dem die Perspektive aller geschätzt wird. Wir begrüßen alle Bewerber, die sich für die Weiterentwicklung der Robotik und für eine spürbare Wirkung interessieren. Wenn Sie sich uns anschließen, finden Sie eine unterstützende Umgebung, die das berufliche Wachstum fördert und Sie ermutigt, Ihr volles, authentisches Selbst in das Team zu bringen.\n\nDer Markt & unsere Technologie\n\nANYbotics transformiert industrielle Umgebungen in den Bereichen Energie, Prozess und Versorgungssektor, indem Robotik in Anwendungen eingeführt wird, die zuvor unerreichbar waren. Unser mobiler Roboter ANYmal nutzt Beine für extreme Mobilität in komplexen Umgebungen, Kamera- und LIDAR-basierte Sensorik für volle Autonomie und KI für hochwertige Inspektionsergebnisse. Mit fast vollständig intern entwickelter Software führt ANYmal autonome Inspektionsmissionen für große Anlagenbetreiber und Industriedienstleister durch, die zukunftsweisende Robotik-Technologie für Inspektion und Wartung einsetzen.\n\nIhre Beiträge\n\n• Lead Deployment Projects: Führen Sie komplexe Kundenprojekte mit mehreren Standorten vom Onboarding bis zur operativen Autonomie. Sicherstellen reibungsloser Bereitstellungen, Verwalten von Zeitplänen und Wertlieferung.\n\n• Stakeholder & Change Management: Handeln Sie als primärer Ansprechpartner für Customer Leadership und Operations Teams. Fördern Sie die Benutzerakzeptanz, indem Sie die Organisationsdynamik navigieren, Widerstände identifizieren und sich für den Wert der Robotik in ihrer Betriebskultur einsetzen.\n\n• Field Operations Leadership: Koordinieren Sie die operative Arbeit von Außendiensttechnikern und internen Spezialisten. Setzen Sie Prioritäten, verteilen Sie Ressourcen und lösen Sie Hürden vor Ort, um die Projektdynamik und -qualität zu erhalten.\n\n• Trusted Advisory: Konsultieren Sie globale Industriekunden, um Robotik in ihre breiteren Geschäftsprozesse zu integrieren. Handeln Sie als Brücke zwischen ihren operativen Herausforderungen und unseren technischen Teams und stellen Sie sicher, dass unsere Roadmap ihren Bedürfnissen entspricht.\n\n• Value Realization & Training: Führen Sie Schulungen und Enablement-Sitzungen für verschiedene Zielgruppen, vom Betreiber vor Ort bis zum Anlagenmanagement, und passen Sie Ihren Ansatz an, um das Vertrauen der Benutzer und die Systemauslastung zu maximieren.\n\n• Strategische Feedback-Schleife: Übersetzen Sie Field Insights und wiederkehrende operative Themen in umsetzbare Anforderungen für unsere Produkt- und F & E-Teams und stellen Sie sicher, dass die Stimme des Kunden unsere Innovation antreibt.\n\nIhr Profil\n\n• Ausbildung: Abschluss in Ingenieurwissenschaften, Robotik oder einem verwandten Bereich\n\n• Erfahrung: Nachgewiesene Erfolgsbilanz in der kundenorientierten Rolle, idealerweise in der Robotik, Industrieautomation oder komplexen technischen Systemen.\n\n• Kommunikation: Ausgezeichneter Kommunikator, komfortable Präsentation sowohl für Führungskräfte als auch für operative Teams. Fähigkeit, komplexe technische Konzepte in klare, geschäftsorientierte Ergebnisse zu vereinfachen.\n\n• Change Management: Demonstrierte Fähigkeit, Stakeholder-Beziehungen zu verwalten, organisatorische Dynamiken zu steuern und die Benutzerakzeptanz in industriellen Umgebungen zu fördern.\n\n• Operative Führung: Starke Fähigkeit, Teams zu koordinieren, Prioritäten vor Ort zu verwalten und die Projektkontinuität in internationalen Hochdruckumgebungen aufrechtzuerhalten.\n\n• Reisen: Begeistert über häufige internationale Reisen (bis zu 60%) und komfortables Arbeiten direkt in Kundenumgebungen.\n\n• Mindset: Kollaborativ, empathisch und unermüdlich auf den Weg des Kunden zum Erfolg fokussiert\n\nBonuspunkte\n\n• Erfahrung mit dem Einsatz von Robotern oder anderen Automatisierungssystemen\n\n• Erfahrung mit Linux und Befehlszeilennutzung\n\n• Vertrautheit mit der Netzinfrastruktur\n\n• Kenntnisse in Deutsch oder anderen Sprachen (Französisch, Spanisch, Portugiesisch usw.)\n\nBegleiten Sie uns beim Aufbau eines integrativen und vielfältigen Teams, in dem Ihre einzigartigen Fähigkeiten und Erfahrungen geschätzt und geschätzt werden, während wir die Zukunft der Robotik aufbauen!\n\nWir sind ein internationales Robotik-Unternehmen mit dem A-Team auf der ganzen Welt verteilt. Diese Rolle gibt Ihnen die Möglichkeit, Teil des Ausbaus unserer EU-Präsenz zu sein und gleichzeitig mit unserem globalen Team verbunden zu bleiben. Um berechtigt zu sein, müssen Sie das gesetzliche Recht haben, in Spanien zu leben und zu arbeiten. Idealerweise wohnen Sie in Barcelona oder sind offen für einen Umzug. Dies ist keine entfernte Position\n\nAgenturpolitik: Wir arbeiten derzeit nicht mit externen Suchfirmen oder Rekrutierungsagenturen zusammen. Alle Profile oder Lebensläufe, die an ANYbotics-Mitarbeiter ohne vorherige schriftliche Vereinbarung eingereicht werden, gelten als öffentliche Offenlegung und als Eigentum von ANYbotics, ohne Haftung oder Gebühr für die spätere Einstellung.",
         "fr": "Anybotics est une société technologique en croissance rapide dédiée à façonner l'avenir de la robotique mobile dans plusieurs industries. Rejoignez notre équipe hautement talentueuse et motivée de plus de 200 personnes et travaillez sur la technologie robot de pointe.\n\nL'opportunité\n\nEn tant qu'ingénieur de terrain chez Anybotics, vous dirigerez le parcours d'adoption client. Vous posséderez l'exécution stratégique de projets multi-sites, garantissant que nos solutions sont non seulement déployées avec succès mais profondément intégrées dans les flux de travail de nos clients. Il s'agit d'un rôle à fort impact où vous représenterez tout le monde sur le terrain, mettre en œuvre la solution robotique, faciliter la gestion du changement et aligner le succès client sur nos objectifs opérationnels. Vous agirez comme conseiller de confiance pour les intervenants, gérerez les échéanciers des projets, orchestrez les déploiements et assurez-vous que notre technologie offre une valeur mesurable et un impact opérationnel.\n\nEn rejoignant notre équipe, vous développerez continuellement vos compétences en robotique, en opérations sur le terrain et en gestion du succès client. Chaque projet présente des défis distincts qui exigent une adaptabilité, une curiosité et une passion pour résoudre des problèmes. Vos idées et expériences sur le terrain façonneront directement l'avenir de notre technologie, en collaborant avec nos équipes de recherche et développement pour améliorer et affiner nos offres.\n\nAnybotics s'engage à construire une équipe diversifiée et inclusive où tout le monde apprécie sa perspective. Nous accueillons tous les candidats qui sont impatients de faire progresser la robotique et d'avoir un impact tangible. En vous joignant à nous, vous trouverez un environnement de soutien qui favorise la croissance professionnelle et vous encourage à apporter votre plein et authentique moi à l'équipe.\n\nLe marché et notre technologie\n\nAnybotics transforme les environnements industriels dans les secteurs de l'énergie, des procédés et des services publics en introduisant la robotique dans des applications jusque-là hors de portée. Notre robot mobile, Anymal, utilise des jambes pour une mobilité extrême dans des environnements complexes, la détection à base de caméra et de LIDAR pour une pleine autonomie, et l'IA pour des résultats d'inspection de haute qualité. Avec des logiciels presque entièrement développés à l'interne, Anymal effectue des missions d'inspection autonomes pour les grands opérateurs d'actifs et les fournisseurs de services industriels pionniers en robotique pour l'inspection et l'entretien.\n\nVos contributions\n\n• Projets de déploiement principal : Diriger des projets clients complexes et multisites, depuis l'embarquement jusqu'à l'autonomie opérationnelle. Assurer des déploiements en douceur, gérer les délais et la valeur de livraison.\n\n• Gestion des intervenants et du changement : agir comme principal point de contact pour le leadership des clients et les équipes opérationnelles. Favoriser l'adoption par les utilisateurs en naviguant sur la dynamique organisationnelle, en identifiant la résistance et en défendant la valeur de la robotique dans leur culture opérationnelle.\n\n• Leadership des opérations sur le terrain : Coordonner le travail opérationnel des techniciens de terrain et des spécialistes internes. Établir des priorités, allouer des ressources et résoudre les obstacles sur place pour maintenir l'élan et la qualité du projet.\n\n• Avis de confiance : Consultez les clients industriels mondiaux pour intégrer la robotique à leurs flux de travail plus larges. Faire le pont entre leurs défis opérationnels et nos équipes techniques, en veillant à ce que notre feuille de route corresponde à leurs besoins.\n\n• Réalisation de valeur et formation : Dirigez des séances de formation et de facilitation pour divers publics, des opérateurs sur le terrain à la gestion des installations, en adaptant votre approche pour maximiser la confiance des utilisateurs et l'utilisation du système.\n\n• Loop de rétroaction stratégique: Traduisez des informations sur le terrain et des thèmes opérationnels récurrents en exigences réalisables pour nos équipes Produit et R-D, en assurant la voix du client conduit notre innovation.\n\nVotre profil\n\n• Études : Diplôme en génie, robotique ou domaine connexe\n\n• Expérience : Expérience éprouvée dans le rôle du client, idéalement dans la robotique, l'automatisation industrielle ou des systèmes techniques complexes.\n\n• Communication : Excellent communicateur, à l'aise avec les équipes de direction et opérationnelles. Capacité de simplifier les concepts techniques complexes en des résultats clairs et axés sur l'entreprise.\n\n• Gestion du changement : Capacité démontrée de gérer les relations avec les intervenants, de naviguer dans la dynamique organisationnelle et de favoriser l'adoption des utilisateurs dans les environnements industriels.\n\n• Leadership opérationnel : Forte capacité de coordonner les équipes, de gérer les priorités sur place et de maintenir la continuité des projets dans des contextes internationaux à haute pression.\n\n• Voyage: Enthousiaste sur les voyages internationaux fréquents (jusqu'à 60%) et confortable travaillant directement dans les environnements clients.\n\n• Mindset: Collaboration, empathie, et sans relâche axé sur la voie du succès du client\n\nPoints bonus\n\n• Expérience du déploiement de robots ou d'autres systèmes d'automatisation\n\n• Expérience avec Linux et utilisation en ligne de commande\n\n• Familiarité avec l'infrastructure réseau\n\n• Maîtrise de l'allemand ou d'autres langues (français, espagnol, portugais, etc.)\n\nRejoignez-nous dans la construction d'une équipe inclusive et diversifiée où vos compétences et expériences uniques seront valorisées et appréciées alors que nous construisons l'avenir de la robotique!\n\nNous sommes une entreprise internationale de robotique avec l'équipe A répandue dans le Globe. Ce rôle vous donne l'occasion de participer à l'accroissement de notre présence dans l'UE tout en restant connecté à notre équipe mondiale. Pour être éligible, vous devrez avoir le droit légal de vivre et de travailler en Espagne. Idéalement, vous résidez à Barcelone, ou êtes ouvert à la réinstallation. Ce n'est pas une position distante\n\nPolitique de l'Agence : Nous ne sommes pas en partenariat avec des entreprises de recherche externes ou des agences de recrutement. Tous les profils ou curriculum vitae soumis à des employés d'Anybotics sans accord écrit préalable seront considérés comme une divulgation publique et la propriété d'Anybotics, ce qui n'implique aucune responsabilité ni aucun droit pour l'embauche ultérieure."
       },
@@ -1168,7 +1205,7 @@
       "url": "https://jobs.lever.co/anybotics/ea8d77e2-423f-4e79-9836-10da898d60d4",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T01:22:19.150Z",
+      "crawledAt": "2026-08-07T10:24:51.734Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1183,6 +1220,23 @@
       "applyUrl": "https://jobs.lever.co/anybotics/ea8d77e2-423f-4e79-9836-10da898d60d4",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-field-engineer-industrial-robotics-anybotics-ch",
+        "senior-field-ingegnere-industrial-robotics-anybotics-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-field-engineer-industrial-robotics-anybotics-ch",
+          "senior-field-ingegnere-industrial-robotics-anybotics-zurich"
+        ],
+        "de": [
+          "senior-field-engineer-industrial-robotics-anybotics-ch"
+        ],
+        "fr": [
+          "senior-field-engineer-industrial-robotics-anybotics-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-06T11:36:58.675Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1196,21 +1250,7 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-06T11:36:58.675Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-field-engineer-industrial-robotics-anybotics-ch"
-        ],
-        "de": [
-          "senior-field-engineer-industrial-robotics-anybotics-ch"
-        ],
-        "fr": [
-          "senior-field-engineer-industrial-robotics-anybotics-ch"
-        ]
-      },
-      "previousSlugs": [
-        "senior-field-engineer-industrial-robotics-anybotics-ch"
-      ]
+      "needsRetranslation": true
     }
   ]
 }

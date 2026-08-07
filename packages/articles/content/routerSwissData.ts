@@ -665,6 +665,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'rimborsi-730-sostituti-imposta': { it: 'rimborsi-730-sostituti-imposta', en: '730-refunds-substitute-tax', de: '730-erstattungen-ersatzsteuer', fr: 'remboursements-730-impot-substitutif' },
  'lavoro-forzato-catene-svizzere': { it: 'lavoro-forzato-catene-svizzere', en: 'forced-labour-swiss-supply-chains', de: 'zwangsarbeit-schweizer-lieferketten', fr: 'travail-force-chaines-approvisionnement-suisse' },
  'casse-di-disoccupazione-superati-i-problemi-tecnici': { it: 'casse-di-disoccupazione-superati-i-problemi-tecnici', en: 'cases-of-unemployment-superated-the-technical-problems', de: 'arbeitslosenfursorge-uberwunden-technische-probleme', fr: 'caisses-de-chomage-surmontes-de-problemes-techniques' },
+ 'rimborsi-730-sostituti-imposta': { it: 'rimborsi-730-sostituti-imposta', en: '730-refunds-substitute-tax', de: '730-erstattungen-ersatzsteuer', fr: 'remboursements-730-impot-substitutif' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

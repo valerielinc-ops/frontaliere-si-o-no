@@ -6,13 +6,23 @@ name: Refresh BFS Stats
 # Two runs/day cover the BFS publication window for new quarters; subsequent
 # revisions of the same quarter just overwrite Firestore (clients still see
 # the freshest values, no notification fires). Only an actual quarter change
-# (e.g. 2025-Q4 → 2026-Q1) dispatches generate-article.yml so the editorial
-# team announces the new dataset to subscribers.
+# (e.g. 2025-Q4 → 2026-Q1) raises the editorial signal, so the editorial team
+# announces the new dataset to subscribers.
 #
-# That dispatch is best-effort by design while the article generator is being
-# cut over to nanako (issue #4974): if generate-article.yml is disabled, the
-# step warns and passes instead of failing — see its own comment for why, and
-# for what that changes. The Firestore refresh above is never best-effort.
+# That signal used to be `gh workflow run generate-article.yml`. It is an
+# ISSUE now (#5289). The cutover of 2026-08-02 (#4974 item 3) moved article
+# generation to nanakokyobashi-rgb/frontaliere-articles and commented out
+# generate-article.yml's `schedule:`, but nothing updated this dispatch — so
+# on 2026-08-06 at 09:51:54Z the 2026-Q1 → 2026-Q2 rollover re-lit the retired
+# producer here. Because that workflow's last step dispatches itself, one
+# quarterly nudge became ~22h of unattended corpus writes: five articles born
+# in the consumer repo, the sitemap sync blocked by the anti-shrink guard in
+# scripts/pull-articles-corpus.mjs, every PR in the repo unable to merge, and
+# finally all five articles deleted by the first sync that got through.
+#
+# A cross-repo dispatch to nanako would be the eventual shape. It is not done
+# here on purpose: it needs GITHUB_PAT_NANAKO and a receiving trigger on that
+# side, which is a change in a repo this workflow cannot test against.
 
 on:
   schedule:
@@ -23,8 +33,10 @@ on:
 
 permissions:
   contents: read
-  actions: write
-  issues: write     # for github-issue-creator on failure
+  # `actions: write` is gone with the generate-article dispatch (#5289): this
+  # workflow no longer starts any other workflow, so the token that could is
+  # the one thing worth removing rather than leaving lying around.
+  issues: write     # github-issue-creator: new-quarter signal + failure report
 
 concurrency:
   group: refresh-bfs-stats
@@ -107,78 +119,50 @@ jobs:
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Dispatch generate-article (new quarter only)
+      # Was: `gh workflow run generate-article.yml`. See the header comment —
+      # that dispatch is what re-lit the retired producer on 2026-08-06 (#5289).
+      # The editorial signal is kept; only the write is dropped. An issue also
+      # survives a failed run, which a fire-and-forget dispatch never did.
+      #
+      # The title carries NO quarter, on purpose (#5121, guarded by
+      # tests/monitor-issue-dedup.test.ts). github-issue-creator.mjs dedups on
+      # the first 60 chars of the title: a title that moves with the data never
+      # matches its own canonical issue, so every run mints a duplicate and the
+      # serialized fixer burns a turn on each. The quarter is a VALUE, not an
+      # entity — it belongs in the body, which the helper replays verbatim in
+      # the `🔁 Recurrence` comment, so a reader still sees which quarter fired.
+      - name: Raise editorial signal for the new quarter (new quarter only)
         if: steps.refresh.outputs.new_quarter != ''
+        continue-on-error: true
         env:
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NEW_QUARTER: ${{ steps.refresh.outputs.new_quarter }}
+          PREV_QUARTER: ${{ steps.refresh.outputs.prev_quarter }}
         run: |
-          if [ -z "${GH_TOKEN:-}" ]; then
-            echo "❌ No PAT/token available to dispatch generate-article.yml."
-            exit 1
-          fi
-          URL="stats-bfs://${NEW_QUARTER}"
-          echo "🚀 Dispatching generate-article.yml with url=$URL"
-          if gh workflow run generate-article.yml --ref main -f url="$URL"; then
-            {
-              echo "## 📰 Generate-article dispatch"
-              echo ""
-              echo "Dispatched with \`url=$URL\` for new quarter \`$NEW_QUARTER\`."
-            } >> "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Nuovo trimestre BFS: serve l'articolo di annuncio" \
+            --description "**Trimestre da annunciare: \`${NEW_QUARTER}\`** — precedente in Firestore: \`${PREV_QUARTER:-n/d}\`.
 
-          # ── The dispatch target can be legitimately absent ──────────────────
-          # generate-article.yml is the LAST workflow in the ordered cutover to
-          # nanakokyobashi-rgb/frontaliere-articles (issue #4974,
-          # docs/articles-generator-migration.md §5 step 5) and is
-          # `disabled_manually` for the duration, which makes the dispatch API
-          # answer HTTP 422 "Cannot trigger a 'workflow_dispatch' on a disabled
-          # workflow". That is expected infrastructure state, not a fault here:
-          # the BFS refresh itself — the whole point of this job — already
-          # succeeded and wrote Firestore several steps ago.
-          #
-          # Letting it fail the job is not free. refresh-bfs-stats.mjs
-          # re-dispatches on EVERY run until the quarter's article is registered
-          # in data/article-source-urls.json (its "Quarter invariato ma articolo
-          # non ancora pubblicato" branch), and that registration can only happen
-          # via the very workflow that is disabled — so this step would fail
-          # twice a day, forever, each time re-opening the same CI-failure issue.
-          # A workflow that fails every night is noise that hides real breakage.
-          #
-          # SEMANTIC CHANGE, stated deliberately: with the target disabled this
-          # job now GREEN-passes with a ::warning:: annotation instead of going
-          # red. The BFS dataset on /statistiche/ keeps refreshing; what is
-          # skipped is only the editorial announcement article, which cannot be
-          # produced on this side at all right now. The moment generate-article
-          # is re-enabled here (or its nanako-side equivalent takes the dispatch)
-          # this step resumes dispatching with no further change.
-          #
-          # The state is read back from the API rather than grepped out of the
-          # error text: `.state` is a machine-readable enum, the 422 prose is
-          # not, and a message reword must not turn a known no-op back into a
-          # nightly red build. Any OTHER dispatch failure (bad token, missing
-          # ref, rate limit) leaves state == "active" and still fails the job.
-          #
-          # The lookup failing is NOT the same as "disabled": a 403 from a token
-          # without the actions scope, or a network blip, would otherwise buy a
-          # blanket pass on every dispatch failure there is. Unknown ⇒ loud.
-          if ! STATE="$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/generate-article.yml" --jq '.state')"; then
-            echo "::error::Dispatch of generate-article.yml failed AND its state could not be read — failing loudly rather than assuming it is disabled."
-            exit 1
-          fi
-          if [ "$STATE" != "active" ]; then
-            echo "::warning::generate-article.yml is '$STATE' (generator cutover to nanako, issue #4974) — skipping the ${NEW_QUARTER} announcement dispatch. The BFS dataset was still refreshed."
-            {
-              echo "## 📰 Generate-article dispatch skipped"
-              echo ""
-              echo "\`generate-article.yml\` is \`$STATE\` (article-generator cutover to nanako, issue #4974)."
-              echo "Firestore was still refreshed for quarter \`$NEW_QUARTER\`; only the announcement article is deferred."
-            } >> "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-          echo "::error::Dispatch of generate-article.yml failed while the workflow is active — real failure."
-          exit 1
+          Il dataset BFS dei frontalieri e' passato a \`${NEW_QUARTER}\` — i valori su \`/statistiche/\` sono gia' aggiornati (Firestore riscritto da questo run).
+
+          Manca l'articolo che lo annuncia agli iscritti.
+
+          **Va generato in \`nanakokyobashi-rgb/frontaliere-articles\`**, non qui: dal cutover del 2026-08-02 (#4974 item 3) questo repo e' un consumatore puro e \`packages/articles/content/\` viene rifatto da \`scripts/pull-articles-corpus.mjs\` a ogni sync. Un articolo creato qui blocca il sync e viene poi cancellato — e' successo con cinque articoli il 2026-08-06/07 (#5289).
+
+          Sorgente storica del prompt: \`url=stats-bfs://${NEW_QUARTER}\`.
+
+          Il titolo e' volutamente privo del trimestre (#5121): e' il corpo a portarlo. Se questa issue e' ancora aperta quando arriva il trimestre successivo, il segnale atterra come commento \`🔁 Recurrence\` qui sotto — **leggi l'ultimo commento per sapere quale trimestre e' in attesa di articolo**, non solo il testo di apertura.
+
+          Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --priority 3 \
+            --reopen-within-hours 720
+          {
+            echo "## 📰 Segnale editoriale nuovo trimestre"
+            echo ""
+            echo "Aperta una issue per l'articolo di annuncio di \`${NEW_QUARTER}\`."
+            echo "La generazione vive in \`nanakokyobashi-rgb/frontaliere-articles\` (#4974 item 3),"
+            echo "quindi questo workflow **non** dispaccia piu' \`generate-article.yml\` (#5289)."
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Report failure to GitHub Issues
         if: failure()

@@ -11,21 +11,20 @@ name: Pages Publish-Lag Watchdog
 # articles weren't visible for hours and only surfaced because a journalist
 # personally asked. This workflow catches that gap automatically instead.
 #
+# Two signals (sized and justified next to the constants in the script):
+#   - AGE: content pending longer than the worst LEGITIMATE merge->live
+#     latency (9h). Tolerant on purpose — the pipeline's own worst legitimate
+#     case is ~7.6h, measured, and a threshold under it pages when nothing is
+#     wrong. It was 4h until 2026-08-07 and fired 14 times in three weeks,
+#     half of them self-resolving with no human action.
+#   - STALLED QUEUE: content pending while deploy.yml shows no activity at
+#     all (4h). Catches a STOPPED pipeline quickly, which is what the age
+#     threshold gives up when it is set tolerantly.
+#
 # Same shape as border-live-data-watchdog.yml / app-auth-health-monitor.yml:
 # scheduled cron, dedup issue on degraded (scripts/lib/github-issue-creator.mjs
 # stable-title dedup), auto-resolve on recovery, self-alert if the monitor
 # itself crashes instead of taking the intentional degraded path.
-#
-# It also ACTS, not only reports (added 2026-08-07). Deploy-starvation as
-# described above is self-limiting — the queue drains as soon as arrivals slow
-# down. There is a second, non-self-limiting failure in the same group: a
-# publish run parked at the `github-pages` environment gate holds `pages-deploy`
-# with no deadline of any kind, and `cancel-in-progress: false` means GitHub
-# will never evict it. Run 31118787881 held it for 14 h on 2026-08-06 while
-# 31119921972 sat pending 7 h 13 m without starting a job, and deploy-publish.yml
-# went 0-for-300 runs / ten days without a success. The unwedge step below
-# cancels exactly that state — runs in status `waiting`, nothing else — so the
-# stall is bounded by this cron instead of by someone noticing.
 
 on:
   schedule:
@@ -42,13 +41,13 @@ concurrency:
 
 permissions:
   contents: read
-  deployments: read # /deployments + /deployments/{id}/statuses (same read as the
-                    # `deployments: read` on deploy-publish.yml's `deploy` job)
+  deployments: read # /deployments + /deployments/{id}/statuses (see deploy-publish.yml:L61)
+  actions: write # il reaper cancella le run incastrate (unwedge-pages-deploy-queue.mjs) # /actions/workflows/deploy.yml/runs — the stalled-queue signal.
+  # Without it that call 403s and the script's fail-open catch silently
+  # disables the second signal, leaving only the (deliberately tolerant)
+  # age threshold. The watchdog would still go green; it would just stop
+  # detecting a stopped pipeline.
   issues: write
-  actions: write # list deploy-publish runs + POST /actions/runs/{id}/cancel (unwedge step).
-                 # `read` is not enough: cancelling is a write. Scoped by the script
-                 # itself, which only ever addresses deploy-publish.yml runs whose
-                 # status is `waiting`.
 
 jobs:
   watchdog:
@@ -63,18 +62,13 @@ jobs:
         with:
           node-version: '22'
 
-      # Runs BEFORE the lag check, on purpose. Cancelling a wedged run frees
-      # `pages-deploy` so the newest pending publish can start immediately,
-      # rather than waiting for the next hourly tick. It does NOT change what
-      # the lag check then reports: lag is measured from the last SUCCESSFUL
-      # github-pages deployment, which a cancellation cannot advance — so a
-      # wedge that has already cost hours still opens its issue, and only the
-      # next tick (once a publish has actually landed) resolves it. Unwedging
-      # silently instead would hide a recurring GitHub-side fault.
-      #
-      # continue-on-error: this step must never be able to suppress the lag
-      # check. A crash here surfaces as an ::error:: annotation from the script.
       - name: Unwedge the pages-deploy queue (cancel runs stuck at the environment gate)
+        # Prima del check, non dopo: la lag si misura dall'ultimo deploy RIUSCITO,
+        # che una cancellazione non fa avanzare — quindi sbloccare qui non
+        # maschera nulla, e se la coda era incastrata il prossimo run trova la
+        # strada libera. Cancella SOLO run in stato `waiting` da oltre 45 minuti:
+        # mai `in_progress`, così il reaper non può diventare la causa
+        # dell'outage che previene.
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -100,18 +94,18 @@ jobs:
             --title "Pages publish lag: built content not yet live" \
             --description "${{ steps.check.outputs.summary }}
 
-          ### Why this happens — TWO different failures, same symptom
-          \`deploy.yml\` only builds; \`deploy-publish.yml\` does the actual publish under a single-slot concurrency group (cancel-in-progress: false). This report reads identically for both, so start by telling them apart:
+          ### Why this happens
+          \`deploy.yml\` only builds; \`deploy-publish.yml\` does the actual publish under a single-slot concurrency group (cancel-in-progress: false). A burst of push-triggered builds can supersede most pending publish attempts before they ever run — deploy-starvation. Nothing is permanently lost (the next successful publish carries every earlier commit forward), but content can sit invisible for hours.
 
-          1. **Deploy-starvation (self-limiting).** A burst of push-triggered builds supersedes most pending publish attempts before they ever run. Nothing is permanently lost — the next successful publish carries every earlier commit forward — but content can sit invisible for hours. Drains on its own once arrivals slow down.
-          2. **The queue is jammed (NOT self-limiting).** A publish run parked at the \`github-pages\` environment gate is not "running", so no Actions-side deadline applies to it, and \`cancel-in-progress: false\` means GitHub never evicts it — run 31118787881 held the group 14 h on 2026-08-06 while \`deploy-publish.yml\` went 0-for-300 runs over ten days. No-op runs made it worse: \`workflow_run: [completed]\` fires for cancelled builds, and a run joins its concurrency group BEFORE its job \`if:\` is evaluated, so a 2-second no-op could evict a real queued publish on arrival.
-
-          Both causes of (2) are fixed — a conditional concurrency group in \`deploy-publish.yml\`, plus \`scripts/ci/unwedge-pages-deploy-queue.mjs\`, which this workflow already ran immediately before the check above. **If this issue keeps reopening, the wedge is recurring and the queue is where to look, not the watchdog.**
+          The summary above says which signal fired. **Publish LAG** means the pipeline may still be moving, just slower than its worst measured legitimate case (~7.6h) — check the cadence before assuming a fault. **Build queue STALLED** means no deploy.yml run is queued, running, or recently active while content waits: the pipeline has stopped, and that is always a real fault.
 
           ### What to check
           - \`gh run list --workflow=deploy-publish.yml --repo ${{ github.repository }}\` for a run of skipped/cancelled conclusions in this window.
-          - \`gh api repos/${{ github.repository }}/actions/workflows/deploy-publish.yml/runs --jq '.workflow_runs[] | select(.status=="waiting") | .id'\` — a non-empty result is cause (2), live.
           - \`gh api repos/${{ github.repository }}/deployments?environment=github-pages\` for the actual publish cadence.
+          - If publishes are stuck (not just delayed), investigate \`deploy-publish.yml\`'s concurrency group directly.
+          - On a STALLED verdict, start at the build half instead: \`gh run list --workflow=deploy.yml --repo ${{ github.repository }}\` — if the newest run is hours old and none is in progress, pushes to main have stopped triggering builds at all.
+
+          Note: a github-pages deployment can reach \`success\` server-side even when the \`deploy-publish.yml\` run shows cancelled/failure (issue #987 — \`actions/deploy-pages\` aborts at its 10-min polling cap while Pages finishes the publish anyway). Trust the Deployments API over the run conclusion.
 
           Issue auto-resolves on the next watchdog run once the lag clears." \
             --priority 2 \
