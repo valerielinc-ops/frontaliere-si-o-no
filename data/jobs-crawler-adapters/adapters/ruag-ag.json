@@ -55,7 +55,6 @@
     "https://jobs.ruag.ch/offene-stellen/senior-business-development-strategy-manager-air/68447b2a-32dc-4bfc-a57e-a673f7ad4b39",
     "https://jobs.ruag.ch/offene-stellen/technische-r-sachbearbeiterin/ea378ccc-d2e0-458f-8c14-b384cb3d6df3",
     "https://jobs.ruag.ch/offene-stellen/network-engineer-c5i/2c8f2241-c6d6-4dae-992b-982d9285a7b4",
-    "https://jobs.ruag.ch/offene-stellen/strategy-portfolio-manager/874a4392-ad68-49e1-a8aa-9b497899c867",
     "https://jobs.ruag.ch/offene-stellen/trade-compliance-manager/dc0b49eb-620a-473b-9fbf-e01d578db690",
     "https://jobs.ruag.ch/offene-stellen/director-business-development-suisse-romandie/133ffbe6-ef50-4332-be73-3c90b20c1e80",
     "https://jobs.ruag.ch/emplois-vacantes/director-business-development-suisse-romandie/7957f9e1-959f-42ac-9178-700bcaf47dd3",
@@ -67,10 +66,11 @@
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027/41aac842-03c6-4077-b4ff-30c372f6a069",
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027/6d6f25f0-2262-4a3d-a7fe-5c7f598981a2",
     "https://jobs.ruag.ch/open-vacancies/senior-software-engineer-c5i/6d33c977-7809-4202-9a86-3f80e474104c",
-    "https://jobs.ruag.ch/offene-stellen/legal-counsel/9e7711a0-4521-4fdf-a1e4-99dcd29eb969"
+    "https://jobs.ruag.ch/offene-stellen/legal-counsel/9e7711a0-4521-4fdf-a1e4-99dcd29eb969",
+    "https://jobs.ruag.ch/offene-stellen/compliance-investigation-officer/f1721f91-de32-4fdb-8e82-992eff94a200"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-08-06T11:59:35.671Z",
+  "updatedAt": "2026-08-07T01:15:27.739Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
@@ -342,12 +342,6 @@
       "company": "RUAG AG",
       "postedDate": "2026-07-27"
     },
-    "https://jobs.ruag.ch/offene-stellen/strategy-portfolio-manager/874a4392-ad68-49e1-a8aa-9b497899c867": {
-      "location": "Emmen",
-      "canton": "LU",
-      "company": "RUAG AG",
-      "postedDate": "2026-07-28"
-    },
     "https://jobs.ruag.ch/offene-stellen/trade-compliance-manager/dc0b49eb-620a-473b-9fbf-e01d578db690": {
       "location": "Bern",
       "canton": "BE",
@@ -419,6 +413,12 @@
       "canton": "BE",
       "company": "RUAG AG",
       "postedDate": "2026-08-04"
+    },
+    "https://jobs.ruag.ch/offene-stellen/compliance-investigation-officer/f1721f91-de32-4fdb-8e82-992eff94a200": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "RUAG AG",
+      "postedDate": "2026-08-06"
     }
   }
 }
