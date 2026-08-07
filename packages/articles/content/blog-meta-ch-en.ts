@@ -1918,6 +1918,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.title': 'One Year After Tariff Shock, Exporters Still Uncertain',
     'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.excerpt': 'One year after the 39% US duties, the rate on Swiss goods is 12.5% but remains unpredictable: negotiations, rulings and new investigations keep exporters on their toes',
     'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.imageAlt': 'Aerial view of Zurich industrial zone with shipping containers and Swiss machinery for export',
+    'blog.article.costo-vita-svizzera-2026-san-gallo.title': 'Cost of living Switzerland 2026: canton St Gallen analysis',
+    'blog.article.costo-vita-svizzera-2026-san-gallo.excerpt': 'Italian personal income tax rates 23-35-43%, AVS 5.3%, border deductible €10,000, 2024 agreement, non-EU/EEA Switzerland',
+    'blog.article.costo-vita-svizzera-2026-san-gallo.imageAlt': 'Frontalier in St. Gallen old town with modern buildings in background',
 };
 
 export default blogMetaChEn;
