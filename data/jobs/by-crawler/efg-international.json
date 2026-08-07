@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-08-07T10:09:50.806Z",
+  "assembledAt": "2026-08-07T21:52:13.920Z",
   "jobs": [
     {
       "id": "efg-6384",
@@ -135,7 +135,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.434Z",
+      "crawledAt": "2026-08-07T21:52:05.885Z",
       "slugByLocale": {
         "it": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
         "en": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
@@ -160,7 +160,8 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-20T22:01:00.554Z"
+      "firstSeenAt": "2026-07-20T22:01:00.554Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6336",
@@ -356,7 +357,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.434Z",
+      "crawledAt": "2026-08-07T21:52:05.884Z",
       "slugByLocale": {
         "it": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
         "en": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
@@ -382,7 +383,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1204",
       "country": "CH",
-      "firstSeenAt": "2026-06-25T22:13:58.906Z"
+      "firstSeenAt": "2026-06-25T22:13:58.906Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6327",
@@ -527,7 +529,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.432Z",
+      "crawledAt": "2026-08-07T21:52:05.882Z",
       "slugByLocale": {
         "it": "ricevitore-efg-international-ag-zurich",
         "en": "receptionist-efg-international-ag-zurich",
@@ -566,7 +568,8 @@
       },
       "previousSlugs": [
         "receptionist-efg-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6326",
@@ -705,7 +708,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.431Z",
+      "crawledAt": "2026-08-07T21:52:05.881Z",
       "slugByLocale": {
         "it": "cash-reconciliation-specialista-efg-international-ag-geneve",
         "en": "cash-reconciliation-specialist-efg-geneve",
@@ -758,7 +761,8 @@
         "back-office-cash-reconciliation-specialist-efg-geneve",
         "back-office-cash-reconciliation-spezialist-efg-international-ag-geneve",
         "back-office-cash-reconciliation-specialiste-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6317",
@@ -883,7 +887,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.429Z",
+      "crawledAt": "2026-08-07T21:52:05.879Z",
       "slugByLocale": {
         "it": "iam-support-specialista-efg-international-ag-geneve",
         "en": "iam-support-specialist-efg-geneve",
@@ -922,7 +926,8 @@
       },
       "previousSlugs": [
         "iam-support-specialist-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6219",
@@ -973,7 +978,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.428Z",
+      "crawledAt": "2026-08-07T21:52:05.877Z",
       "slugByLocale": {
         "it": "data-ops-ingegnere-efg-international-ag-geneve",
         "en": "data-ops-engineer-efg-geneve",
@@ -1016,7 +1021,8 @@
         "data-ops-engineer-efg-geneve",
         "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6210",
@@ -1039,7 +1045,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "General Services Employee",
-        "de": "Mitarbeiter für allgemeine Dienstleistungen",
+        "de": "General Services Employee",
         "it": "Servizi generali Dipendenti",
         "fr": "Services généraux Employé"
       },
@@ -1067,11 +1073,11 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.427Z",
+      "crawledAt": "2026-08-07T21:52:05.875Z",
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
-        "de": "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
+        "de": "general-services-employee-efg-international-ag-geneve",
         "fr": "services-generaux-employe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -1104,14 +1110,17 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
+          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
           "general-services-employee-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
+        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "general-services-employee-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -1237,7 +1246,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.425Z",
+      "crawledAt": "2026-08-07T21:52:05.873Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -1282,7 +1291,8 @@
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
         "pb-support-specialist-middle-east-ch-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -1435,7 +1445,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.424Z",
+      "crawledAt": "2026-08-07T21:52:05.871Z",
       "slugByLocale": {
         "it": "learning-development-specialista-efg-international-ag-lugano-n932z9",
         "en": "learning-development-specialist-efg-international-ag-lugano-n932z9",
@@ -1643,7 +1653,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.422Z",
+      "crawledAt": "2026-08-07T21:52:05.869Z",
       "slugByLocale": {
         "it": "responsabile-pubblicita-media-e-marketing-strategico-efg-international-ag-zurich",
         "en": "advertising-media-and-strategic-marketing-manager-efg-zurich",
@@ -1679,7 +1689,8 @@
       },
       "previousSlugs": [
         "advertising-media-and-strategic-marketing-manager-efg-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6137",
@@ -1833,7 +1844,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.421Z",
+      "crawledAt": "2026-08-07T21:52:05.867Z",
       "slugByLocale": {
         "it": "international-payroll-specialista-efg-international-ag-lugano-n9331q",
         "en": "international-payroll-specialist-efg-international-ag-lugano-n9331q",
@@ -1968,7 +1979,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.418Z",
+      "crawledAt": "2026-08-07T21:52:05.865Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -2150,7 +2161,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.417Z",
+      "crawledAt": "2026-08-07T21:52:05.863Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -2188,7 +2199,8 @@
         "cybersecurity-internal-penetration-tester-efg-geneve",
         "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6064",
@@ -2239,7 +2251,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.415Z",
+      "crawledAt": "2026-08-07T21:52:05.861Z",
       "slugByLocale": {
         "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
@@ -2283,7 +2295,8 @@
         "client-services-officer-geneva-talent-pool-efg-international-ag-geneve",
         "client-services-officer-geneva-talent-pool-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6046",
@@ -2334,7 +2347,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.413Z",
+      "crawledAt": "2026-08-07T21:52:05.859Z",
       "slugByLocale": {
         "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
@@ -2377,7 +2390,8 @@
         "senior-private-markets-product-specialist-efg-zurich",
         "specialiste-principal-des-produits-des-marches-prives-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -2428,7 +2442,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.412Z",
+      "crawledAt": "2026-08-07T21:52:05.858Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -2466,7 +2480,8 @@
         "epm-onestream-developer-business-data-analyst-efg-lugano"
       ],
       "firstSeenAt": "2026-04-13T10:28:21.934Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5984",
@@ -2489,7 +2504,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Switchboard operator",
-        "it": "Operatore di commutazione",
+        "it": "Switchboard operator",
         "de": "Schaltstelle-Operator",
         "fr": "Opérateur de central"
       },
@@ -2517,11 +2532,11 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.410Z",
+      "crawledAt": "2026-08-07T21:52:05.856Z",
       "slugByLocale": {
-        "it": "operatore-di-commutazione-efg-international-ag-lugano",
+        "it": "switchboard-operator-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
+        "de": "schaltstelle-operator-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -2547,17 +2562,22 @@
       "firstSeenAt": "2026-07-10T10:26:15.024Z",
       "previousSlugsByLocale": {
         "it": [
-          "switchboard-operator-efg-lugano"
+          "switchboard-operator-efg-lugano",
+          "operatore-di-commutazione-efg-international-ag-lugano"
         ],
         "de": [
           "switchboard-operator-efg-lugano",
+          "schaltnetzbetreiber-efg-international-ag-lugano",
           "schaltstelle-operator-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
+        "operatore-di-commutazione-efg-international-ag-lugano",
+        "schaltnetzbetreiber-efg-international-ag-lugano",
         "schaltstelle-operator-efg-international-ag-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-5967",
@@ -2704,7 +2724,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.404Z",
+      "crawledAt": "2026-08-07T21:52:05.847Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "foundation-manager-efg-international-ag-lugano-n93k14",
@@ -2764,7 +2784,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5892",
@@ -2815,7 +2836,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.403Z",
+      "crawledAt": "2026-08-07T21:52:05.845Z",
       "slugByLocale": {
         "it": "data-ingegnere-efg-international-ag-geneve",
         "en": "data-engineer-efg-geneve",
@@ -2885,7 +2906,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Group Financial Controller",
-        "fr": "Contrôleur financier du groupe",
+        "fr": "Group Financial Controller",
         "it": "Gruppo Controllore finanziario",
         "de": "Konzern Finanzverantwortlicher"
       },
@@ -3019,7 +3040,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.402Z",
+      "crawledAt": "2026-08-07T21:52:05.841Z",
       "slugByLocale": {
         "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -3057,7 +3078,8 @@
       "previousSlugs": [
         "group-financial-controller-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6385",
@@ -3180,7 +3202,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-07T10:09:48.393Z",
+      "crawledAt": "2026-08-07T21:52:05.831Z",
       "slugByLocale": {
         "it": "business-risk-manager-pb-coo-brm-efg-lugano",
         "en": "business-risk-manager-pb-coo-brm-efg-lugano",
@@ -3207,7 +3229,8 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-08-04T22:14:55.681Z"
+      "firstSeenAt": "2026-08-04T22:14:55.681Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -3522,7 +3545,8 @@
         "network-proxy-support-team-lead-efg-geneve",
         "network-proxy-support-capo-team-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6334",
@@ -3687,7 +3711,8 @@
       },
       "previousSlugs": [
         "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6266",
@@ -3939,7 +3964,8 @@
         "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
         "cis-specialist-onboarding-recensioni-periodiche-compliance-officer-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6203",
@@ -3961,7 +3987,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "fr": "EFG Programme d'études supérieures 2026 - Fonctions corporatives - Ressources humaines - Lugano",
+        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
         "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
         "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
       },
@@ -4046,7 +4072,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6177",
@@ -4306,7 +4333,8 @@
         "pb-support-specialist-americas-geneva-efg-geneve",
         "pb-specialist-americas-ginevra-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5799",
@@ -4489,7 +4517,8 @@
       "previousSlugs": [
         "business-analyst-legal-compliance-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5869",
@@ -4718,7 +4747,8 @@
         "bi-solution-specialiste-efg-international-ag-geneve",
         "bi-solution-specialista-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6280",
@@ -4810,197 +4840,8 @@
       "previousSlugs": [
         "regulatory-reporting-analyst-efg-geneve"
       ],
-      "country": "CH"
-    },
-    {
-      "id": "efg-6212",
-      "slug": "finanza-data-analytics-power-bi-internship-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Finance Data Analytics & Power BI Internship",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "## Our Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nEFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.\n\n## Our Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nWe are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.\n\n## What are we looking for?</strong><br/>We are seeking a talented and motivated university student to join our finance team as a <strong>Finance Data Analytics & Power BI Intern</strong> for a 7-month contract. The successful candidate will play a critical role in leveraging Power BI to improve reporting, controls, and operational efficiency within the finance department. Responsibilities will be centred on utilizing Power BI to enhance the accuracy, transparency, and efficiency of financial data reconciliation, with a particular focus on complex revenue streams such as forex, derivatives, and structured products.</p> <p><strong>Key Responsibilities & Achievements\n\n## Power BI Reconciliation\n\n- Assist in the reconciliation of net other income revenue, using Power BI to cross-validate accounting data from multiple sources (statutory and consolidation levels), ensuring data integrity and consistency.\n\n- Support the automation of reconciliation processes, reducing manual effort and minimizing errors in financial reporting.\n\n## Dashboard Development\n\n- Collaborate with technical Power BI specialists to design, develop, and maintain interactive dashboards and reports tailored for financial data reconciliation and control.\n\n- Enhance real-time visibility for finance teams, enabling faster identification and resolution of reconciliation discrepancies.\n\n## Process Improvement\n\n- Conduct in-depth analysis of existing reconciliation workflows and lead discussions with key stakeholders to define and implement a target operating model, integrating Power BI as a core tool for reconciliation and reporting.\n\n- Project manage the transformation of reconciliation processes, from requirements gathering to implementation and user training.\n\n## Internal Controls & Compliance\n\n- Strengthen the Internal Control Signoff (ICS) process by embedding automated reconciliation checks within Power BI reports, supporting audit readiness and compliance with IFRS standards.\n\n- Contribute to the update of the Accounting Manual, reflecting improved reconciliation practices and Power BI integration.\n\n## Stakeholder Engagement\n\n- Act as a bridge between finance, IT, and management teams, ensuring alignment of reconciliation objectives and smooth adoption of new Power BI tools.\n\n## Qualifications\n\n- University student, preferably in Finance.\n\n- Project management or Finance competencies (including basic knowledge of derivatives).\n\n- Fluent in English.\n\n- Rigorous, result-driven, and good relationship skills are required qualities for this position.\n\n- Able to work from the Geneva Office, reporting to a UK – London based line manager.\n\nThis is a unique opportunity for a competent university student to gain hands-on experience in a dynamic financial services environment. If you have the skills and enthusiasm we are looking for and are excited about the opportunity to enhance our finance functions through advanced data analytics and reporting, please apply today.\n\n## INFORMATION\n\nThe internship will last 7 months starting asap and his based in Geneva",
-      "requirements": [
-        "University student, preferably in Finance.",
-        "Project management or Finance competencies (including basic knowledge of derivatives).",
-        "Fluent in English.",
-        "Rigorous, result-driven, and good relationship skills are required qualities for this position.",
-        "Able to work from the Geneva Office, reporting to a UK – London based line manager."
-      ],
-      "featured": false,
-      "postedDate": "2026-04-17",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6212",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Finance Data Analytics & Power BI Internship",
-        "it": "Finanza Analisi dei dati e Internamento BI Potenza",
-        "de": "Finanzen Data Analytics & Power BI Internship",
-        "fr": "Finance Data Analytics & Power BI Stage"
-      },
-      "descriptionByLocale": {
-        "en": "## Our Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nEFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.\n\n## Our Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nWe are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.\n\n## What are we looking for?</strong><br/>We are seeking a talented and motivated university student to join our finance team as a <strong>Finance Data Analytics & Power BI Intern</strong> for a 7-month contract. The successful candidate will play a critical role in leveraging Power BI to improve reporting, controls, and operational efficiency within the finance department. Responsibilities will be centred on utilizing Power BI to enhance the accuracy, transparency, and efficiency of financial data reconciliation, with a particular focus on complex revenue streams such as forex, derivatives, and structured products.</p> <p><strong>Key Responsibilities & Achievements\n\n## Power BI Reconciliation\n\n- Assist in the reconciliation of net other income revenue, using Power BI to cross-validate accounting data from multiple sources (statutory and consolidation levels), ensuring data integrity and consistency.\n\n- Support the automation of reconciliation processes, reducing manual effort and minimizing errors in financial reporting.\n\n## Dashboard Development\n\n- Collaborate with technical Power BI specialists to design, develop, and maintain interactive dashboards and reports tailored for financial data reconciliation and control.\n\n- Enhance real-time visibility for finance teams, enabling faster identification and resolution of reconciliation discrepancies.\n\n## Process Improvement\n\n- Conduct in-depth analysis of existing reconciliation workflows and lead discussions with key stakeholders to define and implement a target operating model, integrating Power BI as a core tool for reconciliation and reporting.\n\n- Project manage the transformation of reconciliation processes, from requirements gathering to implementation and user training.\n\n## Internal Controls & Compliance\n\n- Strengthen the Internal Control Signoff (ICS) process by embedding automated reconciliation checks within Power BI reports, supporting audit readiness and compliance with IFRS standards.\n\n- Contribute to the update of the Accounting Manual, reflecting improved reconciliation practices and Power BI integration.\n\n## Stakeholder Engagement\n\n- Act as a bridge between finance, IT, and management teams, ensuring alignment of reconciliation objectives and smooth adoption of new Power BI tools.\n\n## Qualifications\n\n- University student, preferably in Finance.\n\n- Project management or Finance competencies (including basic knowledge of derivatives).\n\n- Fluent in English.\n\n- Rigorous, result-driven, and good relationship skills are required qualities for this position.\n\n- Able to work from the Geneva Office, reporting to a UK – London based line manager.\n\nThis is a unique opportunity for a competent university student to gain hands-on experience in a dynamic financial services environment. If you have the skills and enthusiasm we are looking for and are excited about the opportunity to enhance our finance functions through advanced data analytics and reporting, please apply today.\n\n## INFORMATION\n\nThe internship will last 7 months starting asap and his based in Geneva",
-        "it": "La nostra azienda\n\nEFG International è un gruppo bancario privato globale, che offre servizi di private banking e asset management. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si sforza di essere un datore di lavoro di scelta.\n\nEFG si impegna a fornire un ambiente di lavoro equo e inclusivo fondato sul principio del rispetto reciproco. Unire il nostro team significa sperimentare un ambiente di supporto, dove i vostri contributi sono valutati e riconosciuti. Crediamo fermamente che la diversità dei nostri team ci dia un vantaggio competitivo favorendo un migliore processo decisionale e una maggiore innovazione.\n\nIl nostro scopo e missione\n\nIncoraggiare le menti imprenditoriali a creare valore – oggi e per il futuro.\n\nSiamo una banca privata, offrendo soluzioni personalizzate su scala globale a clienti privati e istituzionali. Il nostro successo sostenibile si basa sui nostri talenti e su come collaboriamo con i nostri clienti e comunità per creare valore duraturo.\n\nCosa stiamo cercando?\nStiamo cercando uno studente universitario di talento e motivato per unirsi al nostro team di finanza Data Analytics & Power BI Intern per un contratto di 7 mesi. Il candidato di successo svolgerà un ruolo fondamentale nel sfruttare Power BI per migliorare la reportistica, i controlli e l'efficienza operativa all'interno del dipartimento finanziario. Le responsabilità saranno incentrate sull'utilizzo di Power BI per migliorare l'accuratezza, la trasparenza e l'efficienza della riconciliazione dei dati finanziari, con particolare attenzione ai flussi di ricavi complessi come forex, derivati e prodotti strutturati.\nResponsabilità e risultati chiave\n\nRiconciliazione del potere BI\n- Assistere nella riconciliazione di altri ricavi netti, utilizzando Power BI per ottenere dati contabili cross-validate da fonti multiple (livello di statutory e consolidamento), garantendo l'integrità e la coerenza dei dati.\n- Sostenere l'automazione dei processi di riconciliazione, ridurre lo sforzo manuale e minimizzare gli errori nel reporting finanziario.\n\nSviluppo di Dashboard\n- Collabora con specialisti tecnici Power BI per progettare, sviluppare e mantenere cruscotti interattivi e report personalizzati per la riconciliazione e il controllo dei dati finanziari.\n- Migliorare la visibilità in tempo reale per i team finanziari, consentendo un'identificazione più rapida e una risoluzione delle discrepanze di riconciliazione.\n\nMiglioramento del processo\n- Condurre un'analisi approfondita dei flussi di lavoro di riconciliazione esistenti e condurre discussioni con i principali stakeholder per definire e implementare un modello operativo di destinazione, integrando Power BI come strumento fondamentale per la riconciliazione e la reportistica.\n- Il progetto gestisce la trasformazione dei processi di riconciliazione, dalla raccolta dei requisiti all'implementazione e alla formazione degli utenti.\n\nControlli interni e conformità\n- Rafforzare il processo di Controllo Interno (ICS) incorporando controlli automatizzati di riconciliazione all'interno dei rapporti Power BI, supportando la disponibilità di audit e il rispetto degli standard IFRS.\n- Contribuisci all'aggiornamento del Manuale di Contabilità, riflettendo le migliori pratiche di riconciliazione e l'integrazione Power BI.\n\nStakeholder Engagement\n- Agire come ponte tra i team di finanza, IT e management, garantendo l'allineamento degli obiettivi di riconciliazione e l'adozione regolare di nuovi strumenti Power BI.\n\nQualifiche\n- Studente universitario, preferibilmente in Finanza.\n- Competenze di gestione del progetto o di finanza (compresa la conoscenza di base dei derivati).\n- Fluente in inglese.\n- Rigoroso, risultato-driven e buone capacità di relazione sono qualità richieste per questa posizione.\n- In grado di lavorare dall'ufficio di Ginevra, segnalando ad un manager di linea con sede nel Regno Unito.\n\nQuesta è un'opportunità unica per uno studente universitario competente per acquisire esperienza pratica in un ambiente dinamico dei servizi finanziari. Se avete le competenze e l'entusiasmo che stiamo cercando e sono entusiasti dell'opportunità di migliorare le nostre funzioni finanziarie attraverso l'analisi avanzata dei dati e la segnalazione, si prega di applicare oggi.\n\nINFORMAZIONI\n\nLo stage durerà 7 mesi a partire da asap e la sua sede a Ginevra",
-        "de": "Unsere Firma\n\nEFG International ist eine globale Privatbankengruppe, die private Bank- und Vermögensverwaltungsdienstleistungen anbietet. Wir bedienen Kunden in über 40 Standorten weltweit. EFG International bietet ein stimulierendes und dynamisches Arbeitsumfeld und ist bestrebt, Arbeitgeber der Wahl zu sein.\n\nEFG verpflichtet sich, ein gerechtes und integratives Arbeitsumfeld zu schaffen, das auf dem Grundsatz der gegenseitigen Achtung beruht. Mit unserem Team zu verbinden bedeutet, eine unterstützende Umgebung zu erleben, in der Ihre Beiträge geschätzt und anerkannt werden. Wir sind der festen Überzeugung, dass die Vielfalt unserer Teams uns einen Wettbewerbsvorteil bietet, indem wir eine bessere Entscheidungsfindung und mehr Innovation fördern.\n\nUnsere Aufgabe und Mission\n\nUnternehmergeist zu stärken, um Mehrwert zu schaffen – heute und für die Zukunft.\n\nWir sind eine private Bank und bieten personalisierte Lösungen weltweit an private und institutionelle Kunden. Unser nachhaltiger Erfolg basiert auf unseren Talenten und darauf, wie wir mit unseren Kunden und Gemeinschaften zusammenarbeiten, um dauerhaften Wert zu schaffen.\n\nWas suchen wir?\nWir suchen einen talentierten und motivierten Universitätsstudenten, um als Finanzdaten Analytics & Power BI Intern für einen 7-monatigen Vertrag bei unserem Finanzteam beizutreten. Der erfolgreiche Kandidat wird eine entscheidende Rolle bei der Nutzung von Power BI spielen, um Reporting, Controls und operative Effizienz innerhalb der Finanzabteilung zu verbessern. Die Verantwortung wird sich auf die Nutzung von Power BI konzentrieren, um die Genauigkeit, Transparenz und Effizienz der Finanzdatenabgleich zu verbessern, wobei sich insbesondere auf komplexe Umsatzströme wie Forex, Derivate und strukturierte Produkte konzentrieren.\nSchlüsselkompetenzen und Erfolge\n\nPower BI Versöhnung\n- Assist bei der Versöhnung von Netto-anderen Einkommenseinnahmen, die Power BI verwenden, um Buchhaltungsdaten aus mehreren Quellen (Statistik- und Konsolidierungsebenen) zu kreuzen, um die Datenintegrität und Konsistenz zu gewährleisten.\n- Unterstützung der Automatisierung von Versöhnungsprozessen, der Reduzierung des manuellen Aufwands und der Minimierung von Fehlern in der Finanzberichterstattung.\n\nDashboard Entwicklung\n- Mit technischen Power BI-Spezialisten zusammenarbeiten, um interaktive Dashboards und Berichte zu entwerfen, zu entwickeln und aufrechtzuerhalten, die auf die finanzielle Datenabgleich und -kontrolle zugeschnitten sind.\n- Verbessern Sie die Echtzeitsicht für Finanzteams und ermöglichen eine schnellere Identifikation und Auflösung von Versöhnungsdiskriminalitäten.\n\nProzessverbesserung\n- Führen Sie eine eingehende Analyse bestehender Abgleichs-Workflows durch und führen Sie Gespräche mit wichtigen Stakeholdern, um ein Ziel-Betriebsmodell zu definieren und umzusetzen, indem Power BI als Kerninstrument für Abgleich und Berichterstattung integriert wird.\n- Das Projekt verwaltet die Transformation von Versöhnungsprozessen, von Anforderungen, die sich an die Umsetzung und die Schulung der Nutzer richten.\n\nInterne Kontrolle und Compliance\n- Stärkung des internen Control Signoff (ICS) Prozesses durch die Einführung automatisierter Versöhnungsprüfungen in Power BI-Berichte, die Unterstützung der Auditbereitschaft und die Einhaltung der IFRS-Standards.\n- Beitrag zur Aktualisierung des Buchhaltungshandbuchs, das verbesserte Versöhnungspraktiken und die Integration von Power BI widerspiegelt.\n\nStakeholder Engagement\n- Aktivieren Sie als Brücke zwischen Finanz-, IT- und Management-Teams, um die Ausrichtung der Versöhnungsziele und die reibungslose Einführung neuer Power BI-Tools zu gewährleisten.\n\nQualifikationen\n- Universitätsstudent, vorzugsweise in Finance.\n- Projektmanagement oder Finanzkompetenzen (einschließlich Grundkenntnisse von Derivaten).\n- Fluent auf Englisch.\n- Rigorous, Ergebnis-getrieben, und gute Beziehung Fähigkeiten sind für diese Position erforderlich.\n- Able an die Arbeit vom Genfer Büro, berichtet an einen britischen – Londoner Linienleiter.\n\nDies ist eine einzigartige Gelegenheit für einen kompetenten Universitätsstudenten, praktische Erfahrungen in einem dynamischen Finanzdienstumfeld zu sammeln. Wenn Sie die Fähigkeiten und Begeisterung haben, die wir suchen und freuen uns über die Möglichkeit, unsere Finanzfunktionen durch fortschrittliche Datenanalysen und Berichterstattung zu verbessern, wenden Sie sich bitte heute an.\n\nINFORMATIONEN\n\nDas Praktikum wird 7 Monate ab Asap und seinen Sitz in Genf dauern",
-        "fr": "Notre société\n\nEFG International est un groupe mondial de banques privées qui offre des services de banque privée et de gestion d'actifs. Nous servons des clients dans plus de 40 endroits dans le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix.\n\nEFG s'engage à créer un environnement de travail équitable et inclusif fondé sur le principe du respect mutuel. Rejoindre notre équipe signifie vivre un environnement favorable, où vos contributions sont appréciées et reconnues. Nous croyons fermement que la diversité de nos équipes nous donne un avantage concurrentiel en favorisant une meilleure prise de décision et une plus grande innovation.\n\nNotre but et notre mission\n\nAutoriser les esprits entrepreneurs à créer de la valeur – aujourd'hui et pour l'avenir.\n\nNous sommes une banque privée, offrant des solutions personnalisées à l'échelle mondiale aux clients privés et institutionnels. Notre succès durable repose sur nos talents et sur la façon dont nous collaborons avec nos clients et nos collectivités pour créer une valeur durable.\n\nQu'est-ce qu'on cherche ?\nNous recherchons un étudiant universitaire talentueux et motivé pour rejoindre notre équipe financière en tant que stagiaire Finance Data Analytics & Power BI pour un contrat de 7 mois. Le candidat retenu jouera un rôle essentiel en tirant parti de Power BI pour améliorer les rapports, les contrôles et l'efficacité opérationnelle au sein du ministère des Finances. Les responsabilités seront axées sur l'utilisation de Power BI pour améliorer l'exactitude, la transparence et l'efficacité du rapprochement des données financières, en mettant particulièrement l'accent sur les flux de revenus complexes tels que le forex, les produits dérivés et les produits structurés.\nPrincipales responsabilités et réalisations\n\nRéconciliation du pouvoir BI\n- Aider au rapprochement des autres recettes nettes en utilisant Power BI pour valider les données comptables provenant de sources multiples (niveaux statutaire et de consolidation), en assurant l'intégrité et la cohérence des données.\n- Soutenir l'automatisation des processus de rapprochement, réduire l'effort manuel et réduire au minimum les erreurs dans les rapports financiers.\n\nDéveloppement des tableaux de bord\n- Collaborer avec des spécialistes techniques de Power BI pour concevoir, développer et maintenir des tableaux de bord interactifs et des rapports adaptés au rapprochement et au contrôle des données financières.\n- Améliorer la visibilité en temps réel des équipes financières, ce qui permet d'identifier et de résoudre plus rapidement les écarts de rapprochement.\n\nAmélioration des processus\n- Procéder à une analyse approfondie des flux de travail de rapprochement existants et mener des discussions avec les principales parties prenantes en vue de définir et de mettre en œuvre un modèle opérationnel cible, en intégrant Power BI comme outil de base pour la réconciliation et l'établissement de rapports.\n- Le projet gère la transformation des processus de rapprochement, de la collecte des besoins à la mise en oeuvre et à la formation des utilisateurs.\n\nContrôles internes et conformité\n- Renforcer le processus de signature du contrôle interne (CSI) en intégrant des vérifications automatisées de rapprochement dans les rapports Power BI, en appuyant la préparation à l'audit et le respect des normes IFRS.\n- Contribuer à la mise à jour du Manuel de comptabilité, reflétant les meilleures pratiques de rapprochement et l'intégration de Power BI.\n\nEngagement des parties prenantes\n- Agir comme un pont entre les équipes de finance, de TI et de gestion, en assurant l'alignement des objectifs de rapprochement et l'adoption sans heurt de nouveaux outils Power BI.\n\nCompétences\n- Étudiant universitaire, de préférence en finance.\n- Compétences en gestion de projet ou en finance (y compris connaissance de base des produits dérivés).\n- En anglais.\n- Des qualités rigoureuses, axées sur les résultats et de bonnes relations sont requises pour ce poste.\n- Peut travailler depuis le bureau de Genève, relevant d'un gestionnaire de ligne basé au Royaume-Uni – Londres.\n\nC'est une occasion unique pour un étudiant universitaire compétent d'acquérir une expérience pratique dans un environnement de services financiers dynamique. Si vous avez les compétences et l'enthousiasme que nous recherchons et êtes excités par la possibilité d'améliorer nos fonctions financières grâce à l'analyse avancée des données et à la production de rapports, veuillez postuler aujourd'hui.\n\nRENSEIGNEMENTS\n\nLe stage durera 7 mois à partir du moment où il sera basé à Genève"
-      },
-      "requirementsByLocale": {
-        "en": [
-          "University student, preferably in Finance.",
-          "Project management or Finance competencies (including basic knowledge of derivatives).",
-          "Fluent in English.",
-          "Rigorous, result-driven, and good relationship skills are required qualities for this position.",
-          "Able to work from the Geneva Office, reporting to a UK – London based line manager."
-        ]
-      },
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [],
-            "requirements": [
-              "University student, preferably in Finance.",
-              "Project management or Finance competencies (including basic knowledge of derivatives).",
-              "Fluent in English.",
-              "Rigorous, result-driven, and good relationship skills are required qualities for this position.",
-              "Able to work from the Geneva Office, reporting to a UK – London based line manager."
-            ],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "University student, preferably in Finance.",
-              "Project management or Finance competencies (including basic knowledge of derivatives).",
-              "Fluent in English."
-            ],
-            "keywords": [
-              "University student",
-              "Project management or Finance competencies (including basic knowledge of derivatives).",
-              "Fluent in English.",
-              "Rigorous",
-              "Able to work from the Geneva Office"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Power BI Reconciliation",
-                "paragraphs": [],
-                "bullets": [
-                  "Assist in the reconciliation of net other income revenue, using Power BI to cross-validate accounting data from multiple sources (statutory and consolidation levels), ensuring data integrity and consistency.",
-                  "Support the automation of reconciliation processes, reducing manual effort and minimizing errors in financial reporting."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "Dashboard Development",
-                "paragraphs": [],
-                "bullets": [
-                  "Collaborate with technical Power BI specialists to design, develop, and maintain interactive dashboards and reports tailored for financial data reconciliation and control.",
-                  "Enhance real-time visibility for finance teams, enabling faster identification and resolution of reconciliation discrepancies."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "Process Improvement",
-                "paragraphs": [],
-                "bullets": [
-                  "Conduct in-depth analysis of existing reconciliation workflows and lead discussions with key stakeholders to define and implement a target operating model, integrating Power BI as a core tool for reconciliation and reporting.",
-                  "Project manage the transformation of reconciliation processes, from requirements gathering to implementation and user training."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "Internal Controls & Compliance",
-                "paragraphs": [],
-                "bullets": [
-                  "Strengthen the Internal Control Signoff (ICS) process by embedding automated reconciliation checks within Power BI reports, supporting audit readiness and compliance with IFRS standards.",
-                  "Contribute to the update of the Accounting Manual, reflecting improved reconciliation practices and Power BI integration."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "Stakeholder Engagement",
-                "paragraphs": [],
-                "bullets": [
-                  "Act as a bridge between finance, IT, and management teams, ensuring alignment of reconciliation objectives and smooth adoption of new Power BI tools."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "INFORMATION",
-                "paragraphs": [
-                  "The internship will last 7 months starting asap and his based in Geneva"
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-06-08T12:48:41.629Z",
-      "slugByLocale": {
-        "it": "finanza-data-analytics-power-bi-internship-efg-international-ag-geneve",
-        "en": "finance-data-analytics-power-bi-internship-efg-geneve",
-        "de": "finanzen-data-analytics-power-bi-internship-efg-international-ag-geneve",
-        "fr": "finance-data-analytics-power-bi-internship-efg-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-17",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.910Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "finance-data-analytics-power-bi-internship-efg-geneve",
-          "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve"
-        ],
-        "de": [
-          "finance-data-analytics-power-bi-internship-efg-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "finance-data-analytics-power-bi-internship-efg-geneve",
-        "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve"
-      ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     }
   ]
 }
