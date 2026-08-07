@@ -222,10 +222,19 @@ export function filterUnignored(changedFiles, globs) {
  * The alerting decision, extracted from main() so the criterion is pinned by
  * unit tests instead of living only inside a network-bound code path.
  *
- * Order matters: `pendingCount === 0` short-circuits everything. With nothing
- * dist-affecting waiting, a large age just means main has been quiet, and a
- * silent build queue is the correct state rather than a fault — neither signal
- * may fire.
+ * Order matters, twice over:
+ *
+ * 1. `pendingCount === 0` short-circuits everything. With nothing
+ *    dist-affecting waiting, a large age just means main has been quiet, and a
+ *    silent build queue is the correct state rather than a fault — neither
+ *    signal may fire.
+ * 2. When BOTH signals are true, the verdict is `stalled-queue`, not `lag`.
+ *    They are not equally informative: a stopped build queue explains the age,
+ *    so reporting `lag` would be reporting the symptom and hiding the cause.
+ *    The two verdicts also route the on-call differently — `lag` says "the
+ *    pipeline may still be moving, check the cadence", which is precisely the
+ *    wrong first move when the queue has actually stopped. `stalled-queue` is
+ *    the strictly more specific and more actionable of the two, so it wins.
  *
  * @param {object} o
  * @param {number} o.ageMinutes            age of the last successful publish
@@ -248,10 +257,11 @@ export function evaluatePublishLag({
   buildIdleMinutes = null,
 }) {
   if (pendingCount <= 0) return { degraded: false, reason: null };
-  if (ageMinutes > lagHours * 60) return { degraded: true, reason: 'lag' };
+  // Checked FIRST so it wins when both hold — see (2) above.
   if (!buildInFlight && buildIdleMinutes !== null && buildIdleMinutes > stalledQueueMinutes) {
     return { degraded: true, reason: 'stalled-queue' };
   }
+  if (ageMinutes > lagHours * 60) return { degraded: true, reason: 'lag' };
   return { degraded: false, reason: null };
 }
 
