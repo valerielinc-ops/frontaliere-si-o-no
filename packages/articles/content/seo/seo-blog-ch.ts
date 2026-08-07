@@ -24782,6 +24782,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-un-anno-dallo-shock-dei-dazi-esportatori-incerti': {
+    title: 'A un anno dallo shock dei dazi, esportatori ancora nell\'incertezza',
+    description: 'Un anno dopo i dazi USA al 39% sulle merci svizzere, l\'aliquota è al 12,5% ma resta imprevedibile. Esportatori in allerta per possibili nuovi inasprimenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, anno, dallo, shock, dazi',
+    ogTitle: 'Dazi USA sulle esportazioni svizzere: incertezza persiste dopo un anno dallo shock',
+    ogDescription: 'Un anno dopo i dazi USA al 39% sulle merci svizzere, l\'aliquota è al 12,5% ma resta imprevedibile. Esportatori in allerta per possibili nuovi inasprimenti',
+    canonicalPath: '/articoli-svizzera/un-anno-dallo-shock-dei-dazi-esportatori-incerti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A un anno dallo shock dei dazi, esportatori ancora nell'incertezza",
+      "description": "Un anno dopo i dazi USA al 39% sulle merci svizzere, l'aliquota è al 12,5% ma resta imprevedibile. Esportatori in allerta per possibili nuovi inasprimenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/un-anno-dallo-shock-dei-dazi-esportatori-incerti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea della zona industriale di Zurigo con container e macchinari svizzeri pronti per l'esportazione"
+      },
+      "datePublished": "2026-08-07T16:02:29+00:00",
+      "dateModified": "2026-08-07T16:02:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/un-anno-dallo-shock-dei-dazi-esportatori-incerti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

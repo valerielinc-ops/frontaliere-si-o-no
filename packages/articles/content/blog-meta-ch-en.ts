@@ -1915,6 +1915,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.rimborsi-730-sostituti-imposta.title': 'Refunds 730: now also compensable with substitute taxes in F24',
     'blog.article.rimborsi-730-sostituti-imposta.excerpt': 'According to what was communicated in May 2026, tax substitutes can recover refunds from the 730 model by offsetting them in F24 also with some substitute taxes on salaries',
     'blog.article.rimborsi-730-sostituti-imposta.imageAlt': 'Italian cross-border worker reviewing tax documents in Lugano office',
+    'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.title': 'One Year After Tariff Shock, Exporters Still Uncertain',
+    'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.excerpt': 'One year after the 39% US duties, the rate on Swiss goods is 12.5% but remains unpredictable: negotiations, rulings and new investigations keep exporters on their toes',
+    'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.imageAlt': 'Aerial view of Zurich industrial zone with shipping containers and Swiss machinery for export',
 };
 
 export default blogMetaChEn;

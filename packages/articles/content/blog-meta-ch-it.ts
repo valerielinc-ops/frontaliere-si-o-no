@@ -1915,6 +1915,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.rimborsi-730-sostituti-imposta.title': 'Rimborsi 730: ora compensabili anche con imposte sostitutive in F24',
     'blog.article.rimborsi-730-sostituti-imposta.excerpt': 'Secondo quanto comunicato nel maggio 2026, i sostituti d’imposta possono recuperare i rimborsi dal modello 730 compensandoli in F24 anche con alcune imposte sostitutive sulle retribuzioni',
     'blog.article.rimborsi-730-sostituti-imposta.imageAlt': 'Lavoratore frontaliero italiano che controlla documenti fiscali in ufficio a Lugano',
+    'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.title': 'A un anno dallo shock dei dazi, esportatori ancora nell\'incertezza',
+    'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.excerpt': 'Un anno dopo i dazi USA al 39%, l\'aliquota sulle merci svizzere è al 12,5% ma resta imprevedibile: negoziati, sentenze e nuove indagini tengono gli esportatori in allerta',
+    'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.imageAlt': 'Vista aerea della zona industriale di Zurigo con container e macchinari svizzeri pronti per l\'esportazione',
 };
 
 export default blogMetaChIt;
