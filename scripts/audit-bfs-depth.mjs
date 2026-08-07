@@ -53,7 +53,7 @@ import { join, relative, isAbsolute, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import https from 'node:https';
 import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
-import { extrapolateSampledCount } from './lib/mixAdjustedRateGate.mjs';
+import { extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
 
 // See audit-text-html-ratio.mjs's identical constant for the rationale.
 // Currently dormant here — this script runs in the validate-dist-postbuild-bfs
@@ -632,9 +632,9 @@ async function main() {
       console.error('------------------');
       for (const r of regressions) {
         if (r.curRate != null) {
-          console.error(`  ${r.name}: rate ${r.curRate}% below crawl depth (allowed ≤ ${r.rateCap}%, baseline ${r.prevRate}%) — ${r.current} URLs vs baseline ${r.prev}, deepest now ${r.deepest}`);
+          console.error(`  ${formatRegressedFeature({ feature: r.name, count: r.current, max: r.prev, rate: r.curRate, maxRate: r.rateCap }, SAMPLE_RATE)} — deepest now ${r.deepest}`);
         } else {
-          console.error(`  ${r.name}: ${r.current} URLs at depth > ${MAX_DEPTH} (baseline allows ${r.prev}, deepest now ${r.deepest})`);
+          console.error(`  ${formatRegressedFeature({ feature: r.name, count: r.current, max: r.prev }, SAMPLE_RATE)} URL(s) at depth > ${MAX_DEPTH}, deepest now ${r.deepest}`);
         }
       }
       console.error('');
@@ -642,7 +642,7 @@ async function main() {
       // enough to diagnose without downloading the dist artifact.
       for (const r of regressions) {
         const full = perSitemap[r.name]?.offendersList || [];
-        console.error(`Full offender list for sitemap "${r.name}" (${r.current} URLs at depth > ${MAX_DEPTH}, baseline ${r.prev}, +${r.current - r.prev}):`);
+        console.error(`Full offender list for sitemap ${formatRegressedFeature({ feature: r.name, count: r.current, max: r.prev }, SAMPLE_RATE)} at depth > ${MAX_DEPTH}:`);
         for (const o of full) {
           console.error(`  depth=${o.depth}  ${o.url}`);
         }

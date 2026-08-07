@@ -29,7 +29,7 @@ import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
 import { insertBounded } from './lib/boundedTopN.mjs';
 import { classifyEmployerLandingFeature } from './lib/employerLandingSections.mjs';
 import { classifyProfessionLandingFeature } from './lib/professionLandingsSections.mjs';
-import { evaluateMixAdjustedTotalRegression, extrapolateSampledCount } from './lib/mixAdjustedRateGate.mjs';
+import { evaluateMixAdjustedTotalRegression, extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
 
 // Same process as audit-all.mjs (which sets this from AUDIT_SAMPLE_RATE
 // before calling runAudits()) when running as a registered auditor there;
@@ -299,7 +299,7 @@ export function createAuditor(opts = {}) {
             // compares it to baseOff (always unsampled) — see
             // scripts/lib/mixAdjustedRateGate.mjs's module header.
             if (curRate > rateCap && extrapolateSampledCount(curOff, SAMPLE_RATE) > baseOff + tol.minAbsDelta) {
-              regressedFeatures.push({ feature: f, count: curOff, max: baseOff, rate: Number(curRate.toFixed(3)), maxRate: Number(rateCap.toFixed(3)), scanned: scannedByFeature[f] });
+              regressedFeatures.push({ feature: f, count: curOff, countFull: extrapolateSampledCount(curOff, SAMPLE_RATE), max: baseOff, rate: Number(curRate.toFixed(3)), maxRate: Number(rateCap.toFixed(3)), scanned: scannedByFeature[f] });
             }
           }
           const baseTotalRate = Number(baseline.totalRatePct ?? 0);
@@ -394,7 +394,7 @@ export function createAuditor(opts = {}) {
         : '';
       const humanSummary = passed
         ? `${offenders.length} offender(s) within baseline (threshold ${threshold} %), ${nearFloor.total} page(s) in near-floor band (${threshold}-${warnThreshold} %), ${ejpDrift.total} EJP-marked index,follow shell(s) tracked for drift`
-        : `${offenders.length} offender(s) ≤ ${threshold} %${missingFeatureNote} — regressed features: ${regressedFeatures.map(r => r.rate != null ? `${r.feature}(${r.rate}% > ${r.maxRate}% allowed, ${r.count} vs ${r.max})` : `${r.feature}(${r.count}>${r.max})`).join(', ') || (totalCapInfo ? `total rate cap exceeded (actual ${totalCapInfo.actual}% > mix-adjusted expected ${totalCapInfo.expected}% + tolerance = ${totalCapInfo.cap}%)` : 'total rate cap exceeded')}`;
+        : `${offenders.length} offender(s) ≤ ${threshold} %${missingFeatureNote} — regressed features: ${regressedFeatures.map((r) => formatRegressedFeature(r, SAMPLE_RATE)).join(', ') || (totalCapInfo ? `total rate cap exceeded (actual ${totalCapInfo.actual}% > mix-adjusted expected ${totalCapInfo.expected}% + tolerance = ${totalCapInfo.cap}%)` : 'total rate cap exceeded')}`;
 
       return {
         passed,
@@ -542,9 +542,9 @@ async function standalone() {
     }
     for (const f of regr) {
       if (f.rate != null) {
-        console.error(`  Feature "${f.feature}": rate ${f.rate}% (allowed ≤ ${f.maxRate}%) — ${f.count} offenders / ${f.scanned} scanned vs baseline ${f.max}`);
+        console.error(`  ${formatRegressedFeature(f, SAMPLE_RATE)} — ${f.scanned} scanned`);
       } else {
-        console.error(`  Feature "${f.feature}": ${f.count} offenders (baseline allows ${f.max})`);
+        console.error(`  ${formatRegressedFeature(f, SAMPLE_RATE)}`);
       }
     }
     for (const f of regr) {

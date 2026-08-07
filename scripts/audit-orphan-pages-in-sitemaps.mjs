@@ -80,7 +80,7 @@ import { join, relative, isAbsolute, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import https from 'node:https';
 import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
-import { extrapolateSampledCount } from './lib/mixAdjustedRateGate.mjs';
+import { extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
 
 // See audit-text-html-ratio.mjs's identical constant for the rationale.
 // Currently dormant here — same validate-dist-postbuild-bfs job as
@@ -846,7 +846,7 @@ async function main() {
       for (const r of cmp.regressions) {
         lines.push(
           `  ${r.sitemap}: orphan-rate ${r.prevRate}% → ${r.curRate}% (cap ${r.rateCap}%), ` +
-            `count ${r.prev} → ${r.current} (+${r.current - r.prev})`,
+            `${formatRegressedFeature({ feature: r.name ?? r.sitemap ?? "sitemap", count: r.current, max: r.prev }, SAMPLE_RATE)}`,
         );
         for (const u of r.newOrphans) lines.push(`    - ${u}`);
       }

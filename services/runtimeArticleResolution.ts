@@ -231,6 +231,41 @@ export async function resolveArticleBySlug(
   };
 }
 
+/**
+ * Forward `id → {locale: slug}` pairs for articles this build never shipped.
+ *
+ * A list card's href comes from `buildPath` → the BUNDLED slug map → the
+ * runtime one → the raw id. For an article the overlay just added, the first
+ * two miss, and the fallback publishes a URL that does not exist wherever the
+ * slug is localized. Measured live 2026-08-06:
+ *
+ *   /de/schweiz-artikel/schweizer-immobilien-bubble-risiko-2026/ → 200
+ *   /de/schweiz-artikel/rischio-bolla-svizzera-2026/             → 404  ← the id
+ *
+ * So the list can put the card on screen and still send every visitor who
+ * clicks it to a 404. `slugs.json` is authoritative for exactly this mapping
+ * and is already fetched-and-cached here for the reverse direction; this reads
+ * the forward half of the same document.
+ *
+ * Fail-open like everything else in this file: no maps, no pairs, and the
+ * caller keeps whatever behaviour it had.
+ */
+export async function publishedSlugsForIds(
+  section: OverlaySection,
+  ids: readonly string[],
+): Promise<Array<[string, Partial<Record<Locale, string>>]>> {
+  if (ids.length === 0) return [];
+  const maps = await loadPublishedSlugMaps().catch(() => null);
+  if (!maps) return [];
+  const forward = maps[section].forward;
+  const out: Array<[string, Partial<Record<Locale, string>>]> = [];
+  for (const id of ids) {
+    const slugs = forward[id];
+    if (slugs) out.push([id, slugs]);
+  }
+  return out;
+}
+
 // ── the records the SPA needs to render a runtime-resolved article ──────────
 
 const runtimeRecords: Record<OverlaySection, Map<string, OverlayArticle>> = {

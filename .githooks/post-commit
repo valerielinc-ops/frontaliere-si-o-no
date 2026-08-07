@@ -49,33 +49,55 @@ if [ ! -f "$PENDING_FILE" ]; then
   echo '[]' > "$PENDING_FILE"
 fi
 
-# Use node to safely manipulate JSON
-node -e "
-const fs = require('fs');
-const file = '$PENDING_FILE';
+# Use node to safely manipulate JSON.
+#
+# Every value crosses into node through the ENVIRONMENT, never by being pasted
+# into the script text. The previous version interpolated them inside single-
+# quoted JS string literals, so one apostrophe in a commit message closed the
+# literal and the whole script died with a SyntaxError — the entry was dropped
+# and nothing said so, because the success message is printed only on exit 0.
+# Italian subjects hit this constantly ("e'", "l'articolo", "un'ora"), and so
+# would any author named O'Brien. Caught 2026-08-06 on a commit whose subject
+# contained "e' arrivato".
+WN_FILE="$PENDING_FILE" \
+WN_HASH="$COMMIT_HASH" \
+WN_DATE="$COMMIT_DATE" \
+WN_TYPE="$RELEASE_TYPE" \
+WN_SCOPE="$SCOPE" \
+WN_DESC="$DESC" \
+WN_AUTHOR="$COMMIT_AUTHOR" \
+WN_MSG="$COMMIT_MSG" \
+node -e '
+const fs = require("fs");
+const env = process.env;
+const file = env.WN_FILE;
 let entries = [];
-try { entries = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { entries = []; }
+try { entries = JSON.parse(fs.readFileSync(file, "utf8")); } catch { entries = []; }
 if (!Array.isArray(entries)) entries = [];
 
 // Avoid duplicate entries for the same commit
-if (entries.some(e => e.hash === '$COMMIT_HASH')) process.exit(0);
+if (entries.some((e) => e.hash === env.WN_HASH)) process.exit(0);
 
 entries.push({
-  hash: '$COMMIT_HASH',
-  date: '$COMMIT_DATE',
-  type: '$RELEASE_TYPE',
-  scope: $(node -e "process.stdout.write(JSON.stringify('$SCOPE'))"),
-  description: $(node -e "process.stdout.write(JSON.stringify('$DESC'))"),
-  author: '$COMMIT_AUTHOR',
-  fullMessage: $(node -e "process.stdout.write(JSON.stringify('$COMMIT_MSG'))")
+  hash: env.WN_HASH,
+  date: env.WN_DATE,
+  type: env.WN_TYPE,
+  scope: env.WN_SCOPE || "",
+  description: env.WN_DESC || "",
+  author: env.WN_AUTHOR,
+  fullMessage: env.WN_MSG || "",
 });
 
-fs.writeFileSync(file, JSON.stringify(entries, null, 2) + '\n');
-"
+fs.writeFileSync(file, JSON.stringify(entries, null, 2) + "\n");
+'
+WN_STATUS=$?
 
-# Check if the file was updated
-if [ $? -eq 0 ]; then
-  PENDING_COUNT=$(node -e "try{const e=require('./$PENDING_FILE');console.log(e.length)}catch{console.log(0)}")
+if [ "$WN_STATUS" -eq 0 ]; then
+  PENDING_COUNT=$(WN_FILE="$PENDING_FILE" node -e 'try{console.log(JSON.parse(require("fs").readFileSync(process.env.WN_FILE,"utf8")).length)}catch{console.log(0)}')
   echo "📋 WhatsNew: tracked user-facing commit ($RELEASE_TYPE) — $PENDING_COUNT pending entries"
   echo "   Pre-push auto-sync is enabled (update-whats-new -- --apply + auto-commit)."
+else
+  # Say it. A dropped entry used to look exactly like a commit that was never
+  # user-facing, which is why this went unnoticed.
+  echo "⚠️  WhatsNew: could not record this commit (node exited $WN_STATUS) — entry NOT tracked." >&2
 fi

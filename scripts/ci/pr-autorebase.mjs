@@ -73,7 +73,25 @@ const PR_COST_MS = Number(process.env.AUTOREBASE_PR_COST_MS || 30_000);
 // fra le due la PR resta CHIUSA e nessuno la riapre (vedi reopenToRetrigger).
 // Non si entra senza il tempo di uscirne — con margine largo rispetto a due
 // chiamate API che nel caso peggiore ritentano.
-const REOPEN_COST_MS = Number(process.env.AUTOREBASE_REOPEN_COST_MS || 20_000);
+/** Tentativi di reopen e pausa fra uno e l'altro — vedi reopenToRetrigger. */
+const REOPEN_ATTEMPTS = Number(process.env.AUTOREBASE_REOPEN_ATTEMPTS || 4);
+const REOPEN_RETRY_SLEEP_S = Number(process.env.AUTOREBASE_REOPEN_RETRY_SLEEP_S || 5);
+/**
+ * DERIVATO dai due sopra, non scritto a mano: il guard vale solo se il tempo
+ * riservato copre davvero il peggior caso della sezione critica. Con un numero
+ * fisso, alzare i tentativi o la pausa lo renderebbe silenziosamente
+ * insufficiente — e un budget che sottostima è esattamente il modo in cui il
+ * job muore fra `close` e `reopen` lasciando la PR chiusa.
+ * close + N chiamate reopen (≈3s l'una, generoso su un'API degradata) + le pause.
+ */
+const REOPEN_COST_MS = Number(process.env.AUTOREBASE_REOPEN_COST_MS
+  || 3_000 + REOPEN_ATTEMPTS * 3_000 + (REOPEN_ATTEMPTS - 1) * REOPEN_RETRY_SLEEP_S * 1_000);
+/**
+ * Etichetta che dice al worktree-branch-janitor di NON cancellare l'head ref di
+ * questa PR. Si applica solo quando la coppia close+reopen si è rotta a metà:
+ * la chiusura si recupera a mano, la perdita del branch no.
+ */
+const REOPEN_FAILED_LABEL = 'autorebase-reopen-failed';
 
 const budget = runBudgetFromEnv();
 const CONFLICT_MARKER = '<!-- AUTOREBASE_CONFLICT -->';
@@ -194,17 +212,37 @@ function reopenToRetrigger(num) {
     console.log(`PR #${num}: close fallito (${String(e).slice(0, 120)}) — skip reopen, PR intatta.`);
     return false;
   }
-  // Da qui la PR È CHIUSA: mai uscire senza riaprirla. Retry una volta, poi
-  // ::error forte (visibile nel run) — invariante "mai lasciare la PR chiusa".
-  for (let attempt = 1; attempt <= 2; attempt++) {
+  // Da qui la PR È CHIUSA: mai uscire senza riaprirla. Retry con pausa, poi
+  // ::error forte — invariante "mai lasciare la PR chiusa".
+  //
+  // La pausa non è cosmetica. Il 2026-08-06, durante un `major_outage` di
+  // GitHub Actions, entrambi i tentativi immediati sono falliti sulla stessa
+  // API degradata (`Could not open the pull request`) e #5269 è rimasta chiusa.
+  // Due chiamate a distanza di millisecondi campionano lo stesso istante di
+  // un'API che sta fallendo: distanziarle è ciò che le rende due tentativi.
+  for (let attempt = 1; attempt <= REOPEN_ATTEMPTS; attempt++) {
     try {
       gh(['pr', 'reopen', String(num), '--repo', REPO], { json: false });
       return true;
     } catch (e) {
-      if (attempt === 2) {
-        console.log(`::error::PR #${num} chiusa ma reopen FALLITO due volte (${String(e).slice(0, 120)}) — riaprire a mano!`);
-        return false;
+      if (attempt < REOPEN_ATTEMPTS) {
+        try { execFileSync('sleep', [String(REOPEN_RETRY_SLEEP_S)]); } catch { /* best effort */ }
+        continue;
       }
+      // Esauriti i tentativi. L'`::error::` da solo non basta: nel run è
+      // visibile a chi lo apre, e nel frattempo `delete-closed-unmerged` del
+      // worktree-branch-janitor vede una PR closed-unmerged e CANCELLA il
+      // branch — 8 secondi dopo, il 2026-08-06. Da lì il lavoro non è piu'
+      // raggiungibile da remoto e la PR non è nemmeno riapribile (GitHub
+      // rifiuta il reopen di una PR il cui head ref non esiste piu').
+      //
+      // La chiusura è recuperabile a mano; la cancellazione del branch no. La
+      // label è il segnale che ferma proprio quella: il janitor la legge e
+      // risparmia l'head ref. Vedi .github/workflows/worktree-branch-janitor.yml.
+      gh(['pr', 'edit', String(num), '--repo', REPO, '--add-label', REOPEN_FAILED_LABEL],
+        { json: false, allowFail: true });
+      console.log(`::error::PR #${num} chiusa ma reopen FALLITO ${REOPEN_ATTEMPTS} volte (${String(e).slice(0, 120)}) — etichettata \`${REOPEN_FAILED_LABEL}\` per salvarne il branch; riaprire a mano.`);
+      return false;
     }
   }
   return false;

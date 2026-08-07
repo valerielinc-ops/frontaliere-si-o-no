@@ -17,8 +17,12 @@
  *   node scripts/wait-for-live-article-shards.mjs <summary-json-path>
  *
  * Exit codes:
- *   0 = every shard URL verified live
- *   1 = timeout with at least one shard still not live, or bad input
+ *   0 = every shard URL verified live and serving the pushed bytes
+ *   1 = at least one shard URL is NOT REACHABLE (the push did not land), or
+ *       bad input — a real incident
+ *   2 = every shard URL is reachable but at least one still serves older
+ *       bytes: the push landed and Pages has not caught up. Not a success (do
+ *       not ping search engines at it yet) and not an incident either.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -150,7 +154,39 @@ while (Date.now() < deadline) {
   await sleep(intervalMs);
 }
 
+// ── Two very different failures, told apart ──────────────────────────────
+//
+// "200 but stale" and "still 404" were reported as one outcome, and both
+// failed the run and opened a priority:high issue. They are not the same
+// thing:
+//
+//   still 404  → the push did not land. The article is not readable. Real.
+//   200, stale → the push landed and Pages has not caught up yet. The article
+//                arrives on its own; nothing is broken and nobody must act.
+//
+// Measured 2026-08-06 (run 31093424415): four URLs timed out during a GitHub
+// Pages `major_outage`, an urgent issue was opened, and all four were serving
+// correctly when checked afterwards — a false alarm that also fed the
+// issue-fix loop and burned shared Claude quota, which this file's own header
+// says to avoid.
+//
+// Exit 2 is the delayed case. It still is NOT a success: the pushed bytes are
+// not being served yet, so the caller must not ping Google/IndexNow at them —
+// it simply is not an incident either.
 const stillDown = urls.filter((_, i) => !lastResults[i]);
-console.error(`❌ Timed out after ${Math.round(timeoutMs / 1000)}s — ${stillDown.length}/${urls.length} shard URL(s) never served the pushed content (200 but stale, or still 404):`);
-for (const url of stillDown) console.error(`   - ${url}`);
-process.exit(1);
+const finalStatuses = await runWithConcurrency(
+  stillDown, Math.max(1, stillDown.length), (url) => checkLink(url, 8000, { cacheBust: true }),
+);
+const absent = stillDown.filter((_, i) => !finalStatuses[i]);
+const stale = stillDown.filter((_, i) => Boolean(finalStatuses[i]));
+
+if (absent.length > 0) {
+  console.error(`❌ Timed out after ${Math.round(timeoutMs / 1000)}s — ${absent.length}/${urls.length} shard URL(s) are NOT REACHABLE (the push did not land):`);
+  for (const url of absent) console.error(`   - ${url}`);
+  for (const url of stale) console.error(`   - ${url}  (reachable, still serving older bytes)`);
+  process.exit(1);
+}
+
+console.warn(`::warning::Timed out after ${Math.round(timeoutMs / 1000)}s — ${stale.length}/${urls.length} shard URL(s) are LIVE but still serving older bytes. The push landed; Pages has not caught up. Not an incident: no ping should fire yet, and the pages arrive on their own.`);
+for (const url of stale) console.warn(`   - ${url}`);
+process.exit(2);

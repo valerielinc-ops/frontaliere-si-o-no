@@ -70,6 +70,15 @@ jobs:
           # tiene lo stato più vivo.
           prs_open=$(gh pr list --repo "$REPO" --state open --limit 300 \
             --json state,headRefName 2>/dev/null || echo '[]')
+          # Head ref di PR marcate `autorebase-reopen-failed`: la coppia
+          # close+reopen si e' rotta a meta' e la PR e' rimasta chiusa per un
+          # guasto, non per una decisione. Il branch e' l'unica copia rimasta
+          # del lavoro e va risparmiato finche' un umano non decide.
+          # (2026-08-06: #5269 chiusa cosi' durante un major_outage di GitHub;
+          # il branch e' stato cancellato, e con esso #5275 che lo condivideva.)
+          prs_rescue=$(gh pr list --repo "$REPO" --state all --limit 300 \
+            --label autorebase-reopen-failed --json headRefName \
+            --jq '[.[].headRefName]' 2>/dev/null || echo '[]')
           prs_all=$(gh pr list --repo "$REPO" --state all --limit 400 \
             --json state,headRefName 2>/dev/null || echo '[]')
           prs=$(jq -s 'add' <(echo "$prs_open") <(echo "$prs_all") 2>/dev/null || echo '[]')
@@ -145,6 +154,10 @@ jobs:
               fi
             fi
 
+            if printf '%s' "$prs_rescue" | grep -qF "\"$NAME\""; then
+            echo "::warning::origin/$NAME — PR marcata autorebase-reopen-failed: KEEP (unica copia del lavoro, chiusa da un guasto non da una decisione)"
+            flagged=$((flagged+1)); continue
+            fi
             echo "::warning::origin/$NAME STALE — $REASON → delete"
             if [ "${DRY_RUN:-false}" = "true" ]; then echo "(dry-run) skip delete $NAME"; continue; fi
             if gh api -X DELETE "repos/$REPO/git/refs/heads/$NAME" 2>/dev/null; then
@@ -191,6 +204,26 @@ jobs:
             echo "skip: PR #$PR_NUM is OPEN again (close+reopen retrigger) — head ref $HEAD_REF kept"
             exit 0
           fi
+          # La rete di sicurezza per quando il close+reopen si rompe A META'.
+          #
+          # Il `sleep 8` sopra copre la finestra normale (la riapertura arriva
+          # ~2s dopo). Non copre il caso in cui la riapertura NON arriva mai:
+          # il 2026-08-06, durante un major_outage di GitHub, entrambi i
+          # tentativi di `gh pr reopen` su #5269 sono falliti, la PR e' rimasta
+          # chiusa, e questo job ne ha cancellato il branch 8 secondi dopo. Da
+          # li' il lavoro non era piu' raggiungibile da remoto E la PR non era
+          # nemmeno riapribile, perche' GitHub rifiuta il reopen di una PR il
+          # cui head ref non esiste piu'.
+          #
+          # pr-autorebase.mjs etichetta la PR quando gli succede. La chiusura si
+          # recupera a mano; la cancellazione del branch no — quindi davanti a
+          # quell'etichetta questo job non tocca nulla.
+          LABELS=$(gh pr view "$PR_NUM" --repo "$REPO" --json labels --jq '[.labels[].name] | join(",")' 2>/dev/null || echo "")
+          case ",$LABELS," in
+            *,autorebase-reopen-failed,*)
+              echo "::warning::PR #$PR_NUM closed by a broken close+reopen (autorebase-reopen-failed) — head ref $HEAD_REF KEPT so the work stays recoverable"
+              exit 0 ;;
+          esac
           if gh api -X DELETE "repos/$REPO/git/refs/heads/$HEAD_REF" 2>/dev/null; then
             echo "deleted origin/$HEAD_REF (PR closed unmerged)"
           else
