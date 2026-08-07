@@ -1912,6 +1912,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.casse-di-disoccupazione-superati-i-problemi-tecnici.title': 'Unemployment funds, largely overcome technical problems',
     'blog.article.casse-di-disoccupazione-superati-i-problemi-tecnici.excerpt': 'After months of late payments, SECO announces that the disruptions of the new IT system have been resolved. However, some critical issues remain.',
     'blog.article.casse-di-disoccupazione-superati-i-problemi-tecnici.imageAlt': 'a scene of work at the SECO headquarters in Bern, with employees resolving technical issues on computers',
+    'blog.article.rimborsi-730-sostituti-imposta.title': 'Refunds 730: now also compensable with substitute taxes in F24',
+    'blog.article.rimborsi-730-sostituti-imposta.excerpt': 'According to what was communicated in May 2026, tax substitutes can recover refunds from the 730 model by offsetting them in F24 also with some substitute taxes on salaries',
+    'blog.article.rimborsi-730-sostituti-imposta.imageAlt': 'Italian cross-border worker reviewing tax documents in Lugano office',
 };
 
 export default blogMetaChEn;

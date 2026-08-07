@@ -1912,6 +1912,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.casse-di-disoccupazione-superati-i-problemi-tecnici.title': 'Arbeitslosenkassen, technische Probleme weitestgehend überwunden',
     'blog.article.casse-di-disoccupazione-superati-i-problemi-tecnici.excerpt': 'Nach monatelangen Zahlungsverzögerungen gibt das SECO bekannt, dass die Störungen des neuen IT-Systems behoben sind. Es gibt jedoch noch einige kritische Punkte.',
     'blog.article.casse-di-disoccupazione-superati-i-problemi-tecnici.imageAlt': 'ein Bild von Arbeitnehmern im SECO-Hauptquartier in Bern, die technische Probleme lösen',
+    'blog.article.rimborsi-730-sostituti-imposta.title': 'Rückerstattungen 730: jetzt auch mit Ersatzsteuern in F24 ausgleichbar',
+    'blog.article.rimborsi-730-sostituti-imposta.excerpt': 'Wie im Mai 2026 mitgeteilt, können Steuersubstitute Rückerstattungen aus dem Vordruck 730 zurückfordern, indem sie sie in F24 auch mit einigen Ersatzsteuern auf Löhne und Gehälter ausgleichen',
+    'blog.article.rimborsi-730-sostituti-imposta.imageAlt': 'Italienischer Grenzgänger prüft Steuerunterlagen im Luganer Büro',
 };
 
 export default blogMetaChDe;
