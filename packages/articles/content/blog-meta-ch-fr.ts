@@ -1912,6 +1912,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.rimborsi-730-sostituti-imposta.title': 'Remboursements 730 : indemnisables en F24',
     'blog.article.rimborsi-730-sostituti-imposta.excerpt': 'Selon ce qui a été communiqué en mai 2026, les substituts d’impôt peuvent récupérer les remboursements du modèle 730 en les compensant dans F24 même avec des impôts de substitution sur les salaires',
     'blog.article.rimborsi-730-sostituti-imposta.imageAlt': 'Travailleur frontalier italien vérifiant des documents fiscaux à Lugano',
+    'blog.article.lavoro-forzato-catene-svizzere.title': 'Vrai ou faux : travail forcé dans les chaînes d\'approvisionnement suisses',
+    'blog.article.lavoro-forzato-catene-svizzere.excerpt': 'Les États-Unis imposent un droit de douane de 12,5 % à la Suisse pour ne pas avoir interdit l\'importation de biens soumis au travail forcé, tandis que l\'UE en applique un de 10 %.',
+    'blog.article.lavoro-forzato-catene-svizzere.imageAlt': 'Pôle logistique suisse pour chaînes d\'approvisionnement nationales',
 };
 
 export default blogMetaChFr;

@@ -1912,6 +1912,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.rimborsi-730-sostituti-imposta.title': 'Refunds 730: now also compensable with substitute taxes in F24',
     'blog.article.rimborsi-730-sostituti-imposta.excerpt': 'According to what was communicated in May 2026, tax substitutes can recover refunds from the 730 model by offsetting them in F24 also with some substitute taxes on salaries',
     'blog.article.rimborsi-730-sostituti-imposta.imageAlt': 'Italian cross-border worker reviewing tax documents in Lugano office',
+    'blog.article.lavoro-forzato-catene-svizzere.title': 'True or False: Forced Labor in Swiss Supply Chains',
+    'blog.article.lavoro-forzato-catene-svizzere.excerpt': 'The US imposes a 12.5% duty on Switzerland for failure to prohibit the import of goods with forced labour, while the EU applies a 10% one.',
+    'blog.article.lavoro-forzato-catene-svizzere.imageAlt': 'Swiss logistics hub for national supply chains',
 };
 
 export default blogMetaChEn;
