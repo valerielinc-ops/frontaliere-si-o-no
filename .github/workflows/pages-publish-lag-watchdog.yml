@@ -11,6 +11,16 @@ name: Pages Publish-Lag Watchdog
 # articles weren't visible for hours and only surfaced because a journalist
 # personally asked. This workflow catches that gap automatically instead.
 #
+# Two signals (sized and justified next to the constants in the script):
+#   - AGE: content pending longer than the worst LEGITIMATE merge->live
+#     latency (9h). Tolerant on purpose — the pipeline's own worst legitimate
+#     case is ~7.6h, measured, and a threshold under it pages when nothing is
+#     wrong. It was 4h until 2026-08-07 and fired 14 times in three weeks,
+#     half of them self-resolving with no human action.
+#   - STALLED QUEUE: content pending while deploy.yml shows no activity at
+#     all (4h). Catches a STOPPED pipeline quickly, which is what the age
+#     threshold gives up when it is set tolerantly.
+#
 # Same shape as border-live-data-watchdog.yml / app-auth-health-monitor.yml:
 # scheduled cron, dedup issue on degraded (scripts/lib/github-issue-creator.mjs
 # stable-title dedup), auto-resolve on recovery, self-alert if the monitor
@@ -32,6 +42,11 @@ concurrency:
 permissions:
   contents: read
   deployments: read # /deployments + /deployments/{id}/statuses (see deploy-publish.yml:L61)
+  actions: read # /actions/workflows/deploy.yml/runs — the stalled-queue signal.
+  # Without it that call 403s and the script's fail-open catch silently
+  # disables the second signal, leaving only the (deliberately tolerant)
+  # age threshold. The watchdog would still go green; it would just stop
+  # detecting a stopped pipeline.
   issues: write
 
 jobs:
@@ -70,10 +85,15 @@ jobs:
           ### Why this happens
           \`deploy.yml\` only builds; \`deploy-publish.yml\` does the actual publish under a single-slot concurrency group (cancel-in-progress: false). A burst of push-triggered builds can supersede most pending publish attempts before they ever run — deploy-starvation. Nothing is permanently lost (the next successful publish carries every earlier commit forward), but content can sit invisible for hours.
 
+          The summary above says which signal fired. **Publish LAG** means the pipeline may still be moving, just slower than its worst measured legitimate case (~7.6h) — check the cadence before assuming a fault. **Build queue STALLED** means no deploy.yml run is queued, running, or recently active while content waits: the pipeline has stopped, and that is always a real fault.
+
           ### What to check
           - \`gh run list --workflow=deploy-publish.yml --repo ${{ github.repository }}\` for a run of skipped/cancelled conclusions in this window.
           - \`gh api repos/${{ github.repository }}/deployments?environment=github-pages\` for the actual publish cadence.
           - If publishes are stuck (not just delayed), investigate \`deploy-publish.yml\`'s concurrency group directly.
+          - On a STALLED verdict, start at the build half instead: \`gh run list --workflow=deploy.yml --repo ${{ github.repository }}\` — if the newest run is hours old and none is in progress, pushes to main have stopped triggering builds at all.
+
+          Note: a github-pages deployment can reach \`success\` server-side even when the \`deploy-publish.yml\` run shows cancelled/failure (issue #987 — \`actions/deploy-pages\` aborts at its 10-min polling cap while Pages finishes the publish anyway). Trust the Deployments API over the run conclusion.
 
           Issue auto-resolves on the next watchdog run once the lag clears." \
             --priority 2 \
