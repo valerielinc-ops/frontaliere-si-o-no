@@ -24743,6 +24743,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-forzato-catene-svizzere': {
+    title: 'Vero o falso: lavoro forzato nelle catene di approvvigionamento svizzere',
+    description: 'Gli USA applicano un dazio del 12,5% alla Svizzera per mancato divieto d\'importazione di beni da lavoro forzato, contro il 10% all\'UE. Scopri cosa significa',
+    keywords: 'frontalieri, ticino, svizzera, italia, vero, falso, lavoro, forzato',
+    ogTitle: 'Dazio USA 12,5% su Svizzera per lavoro forzato nelle importazioni',
+    ogDescription: 'Gli USA applicano un dazio del 12,5% alla Svizzera per mancato divieto d\'importazione di beni da lavoro forzato, contro il 10% all\'UE. Scopri cosa significa',
+    canonicalPath: '/articoli-svizzera/lavoro-forzato-catene-svizzere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vero o falso: lavoro forzato nelle catene di approvvigionamento svizzere",
+      "description": "Gli USA applicano un dazio del 12,5% alla Svizzera per mancato divieto d'importazione di beni da lavoro forzato, contro il 10% all'UE. Scopri cosa significa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-forzato-catene-svizzere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Hub logistico svizzero per catene di approvvigionamento nazionale"
+      },
+      "datePublished": "2026-08-07T05:35:08+00:00",
+      "dateModified": "2026-08-07T05:35:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavoro-forzato-catene-svizzere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

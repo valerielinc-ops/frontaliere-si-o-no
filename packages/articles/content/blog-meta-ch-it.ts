@@ -1912,6 +1912,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.rimborsi-730-sostituti-imposta.title': 'Rimborsi 730: ora compensabili anche con imposte sostitutive in F24',
     'blog.article.rimborsi-730-sostituti-imposta.excerpt': 'Secondo quanto comunicato nel maggio 2026, i sostituti d’imposta possono recuperare i rimborsi dal modello 730 compensandoli in F24 anche con alcune imposte sostitutive sulle retribuzioni',
     'blog.article.rimborsi-730-sostituti-imposta.imageAlt': 'Lavoratore frontaliero italiano che controlla documenti fiscali in ufficio a Lugano',
+    'blog.article.lavoro-forzato-catene-svizzere.title': 'Vero o falso: lavoro forzato nelle catene di approvvigionamento svizzere',
+    'blog.article.lavoro-forzato-catene-svizzere.excerpt': 'Gli USA impongono un dazio del 12,5% alla Svizzera per mancato divieto d\'importazione di beni con lavoro forzato, mentre l\'UE ne applica uno del 10%.',
+    'blog.article.lavoro-forzato-catene-svizzere.imageAlt': 'Hub logistico svizzero per catene di approvvigionamento nazionale',
 };
 
 export default blogMetaChIt;

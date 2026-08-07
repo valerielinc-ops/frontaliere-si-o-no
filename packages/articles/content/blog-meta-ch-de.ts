@@ -1912,6 +1912,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.rimborsi-730-sostituti-imposta.title': 'Rückerstattungen 730: jetzt auch mit Ersatzsteuern in F24 ausgleichbar',
     'blog.article.rimborsi-730-sostituti-imposta.excerpt': 'Wie im Mai 2026 mitgeteilt, können Steuersubstitute Rückerstattungen aus dem Vordruck 730 zurückfordern, indem sie sie in F24 auch mit einigen Ersatzsteuern auf Löhne und Gehälter ausgleichen',
     'blog.article.rimborsi-730-sostituti-imposta.imageAlt': 'Italienischer Grenzgänger prüft Steuerunterlagen im Luganer Büro',
+    'blog.article.lavoro-forzato-catene-svizzere.title': 'Richtig oder falsch: Zwangsarbeit in Schweizer Lieferketten',
+    'blog.article.lavoro-forzato-catene-svizzere.excerpt': 'Die USA verhängen einen Zoll von 12,5% gegen die Schweiz wegen Nicht-Importverbots von Zwangsarbeitsgütern, während die EU einen Zoll von 10% erhebt.',
+    'blog.article.lavoro-forzato-catene-svizzere.imageAlt': 'Schweizer Logistikzentrum für nationale Lieferketten',
 };
 
 export default blogMetaChDe;
