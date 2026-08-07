@@ -33,6 +33,13 @@
  * SHRANK leaves the checkout untouched. A silent truncation here would delete
  * live articles from the site's own lists.
  *
+ * The file-count floor below is NOT that guarantee on its own, and 2026-08-07
+ * proved it: commit 10c8c8178 deleted three live articles while adding three
+ * others, the counts cancelled, and the floor never fired. A count cannot see
+ * an article leave. So the REGISTRY is checked by name as well — see
+ * scripts/lib/corpus-removal-guard.mjs for the incident and the criterion that
+ * separates a deliberate retirement from an accidental loss.
+ *
  * Usage: node scripts/pull-articles-corpus.mjs [--check]
  *   --check  report what would change, write nothing, exit 1 if stale
  */
@@ -41,6 +48,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { spawnSync } from 'node:child_process';
+
+import { ARTICLES_API_BASE } from './lib/articles-api-base.mjs';
+import {
+  ARTICLE_REGISTRY_FILES,
+  ARTICLE_SECTION_KEYS,
+  readSlugRegistry,
+} from './lib/article-slug-registry.mjs';
+import { evaluateCorpusRemoval, parseRedirectSources } from './lib/corpus-removal-guard.mjs';
 
 const REMOTE = process.env.ARTICLES_CORPUS_REMOTE
   ?? 'https://github.com/nanakokyobashi-rgb/frontaliere-articles.git';
@@ -73,6 +88,48 @@ function countFiles(dir) {
   };
   walk(dir);
   return n;
+}
+
+/**
+ * Read both slug registries out of a tree. `resolveFile` maps the site-relative
+ * registry path onto wherever that tree keeps it — the corpus checkout is
+ * `content/<name>.ts`, this repo is `packages/articles/content/<name>.ts`.
+ */
+function readRegistries(resolveFile) {
+  const out = {};
+  for (const section of ARTICLE_SECTION_KEYS) {
+    const { file, constName } = ARTICLE_REGISTRY_FILES[section];
+    out[section] = readSlugRegistry(resolveFile(file), constName);
+  }
+  return out;
+}
+
+/**
+ * `counts` from the published manifest, or null when it cannot be read.
+ *
+ * Null is NOT a failure here. This is the second of two gates and the weaker
+ * one; the removal guard runs regardless. Turning a GitHub Pages hiccup into a
+ * blocked corpus sync would stop new articles reaching the site's own lists to
+ * defend against a case the other gate already covers — the wrong trade.
+ */
+async function fetchManifestCounts(attempts = 3) {
+  const url = `${ARTICLES_API_BASE}/manifest.json`;
+  for (let i = 1; i <= attempts; i++) {
+    try {
+      const res = await fetch(url, { redirect: 'follow' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const counts = (await res.json())?.counts;
+      if (counts && typeof counts === 'object') return counts;
+      throw new Error('manifest has no counts object');
+    } catch (err) {
+      if (i === attempts) {
+        console.warn(`[pull-articles-corpus] manifest counts unavailable (${err.message}) — skipping the count gate`);
+        return null;
+      }
+      await new Promise((r) => setTimeout(r, 500 * i));
+    }
+  }
+  return null;
 }
 
 /** Recursive copy of `src` onto `dst`, deleting anything in `dst` that src lacks. */
@@ -133,6 +190,87 @@ try {
   const delta = srcN - dstN;
   console.log(`[pull-articles-corpus] upstream ${srcN} files, local ${dstN} (${delta >= 0 ? '+' : ''}${delta})`);
 
+  // ── Registry gate: no article leaves the site unless a human said so ────────
+  //
+  // The file counts above net out — that is how three live articles were
+  // deleted on 2026-08-07 without either floor firing. Compare the registries
+  // by article id instead, and let a removal through only when the site's
+  // retirement ledger (legacyRedirectsPlugin's `redirects` table) already
+  // carries a bridge for its canonical URL. Rationale and incident:
+  // scripts/lib/corpus-removal-guard.mjs.
+  //
+  // Both sides resolve by BASENAME onto the tree that is actually about to be
+  // overwritten. `slugDataFile` names the `services/` symlink, which resolves to
+  // the same bytes — but DEST is the directory mirrorTree writes, so reading it
+  // directly keeps the comparison about the thing being changed.
+  const local = readRegistries((f) => path.join(DEST, path.basename(f)));
+  const incoming = readRegistries((f) => path.join(src, path.basename(f)));
+
+  let ledgerSrc = '';
+  try {
+    ledgerSrc = fs.readFileSync(path.join(ROOT, 'build-plugins', 'legacyRedirectsPlugin.ts'), 'utf-8');
+  } catch (err) {
+    // Fail CLOSED. Without the ledger every removal reads as unledgered, and
+    // that is the correct reading: we cannot prove any of them was intended.
+    console.error(`[pull-articles-corpus] cannot read the retirement ledger (${err.message}) — refusing`);
+    process.exit(1);
+  }
+
+  const verdict = evaluateCorpusRemoval({
+    local,
+    incoming,
+    retiredPaths: parseRedirectSources(ledgerSrc),
+    manifestCounts: await fetchManifestCounts(),
+  });
+
+  for (const section of ARTICLE_SECTION_KEYS) {
+    console.log(
+      `[pull-articles-corpus] ${section}: ${Object.keys(local[section]).length} → ` +
+      `${Object.keys(incoming[section]).length} articles (+${verdict.additions[section]} new)`,
+    );
+  }
+  for (const r of verdict.removals.filter((r) => r.ledgered)) {
+    console.log(`[pull-articles-corpus] retired (bridged): ${r.section}/${r.id} → ${r.canonical}`);
+    if (r.unbridgedLocalePaths.length) {
+      console.warn(
+        `[pull-articles-corpus] ⚠️  ${r.id}: ${r.unbridgedLocalePaths.length} locale URL(s) have no ` +
+        `bridge and will 404 after the next shard deploy — ${r.unbridgedLocalePaths.join(' ')}`,
+      );
+    }
+  }
+
+  if (!verdict.ok) {
+    for (const p of verdict.parseFailures) {
+      console.error(
+        `::error::[pull-articles-corpus] ${p.side} ${p.section} registry parsed to ${p.size} entries — ` +
+        'that is a parse failure, not a corpus. The generator\'s emit shape most likely changed; ' +
+        'fix scripts/lib/article-slug-registry.mjs before syncing, or this guard is blind.',
+      );
+    }
+    for (const r of verdict.unledgered) {
+      console.error(
+        `::error::[pull-articles-corpus] upstream drops ${r.section}/${r.id} but nothing retired it — ` +
+        `live URLs: ${r.paths.join(' ')}`,
+      );
+    }
+    for (const s of verdict.shortfalls) {
+      console.error(
+        `::error::[pull-articles-corpus] ${s.section}: incoming tree has ${s.incoming} articles, ` +
+        `the published manifest already serves ${s.published} — snapshot is behind, refusing`,
+      );
+    }
+    console.error(
+      '[pull-articles-corpus] nothing written. Two legitimate ways forward:\n' +
+      '  (a) the article should live → restore it in the corpus repo, which OWNS it ' +
+      '(nanakokyobashi-rgb/frontaliere-articles), then re-run this sync;\n' +
+      '  (b) the article should go → add its four locale URLs to the `redirects` table in ' +
+      'build-plugins/legacyRedirectsPlugin.ts (pattern: PR #5299), then re-run.\n' +
+      'Editing the sitemaps or the registry by hand is neither: the page stays live on the ' +
+      'shard and only the site forgets it.',
+    );
+    process.exit(1);
+  }
+
   if (CHECK_ONLY) {
     if (delta !== 0) {
       console.error('[pull-articles-corpus] corpus is stale — run without --check to sync');
@@ -145,8 +283,9 @@ try {
   // Mirror in Node rather than shelling out to rsync: rsync is present on a
   // GitHub runner but not everywhere this might be run, and a missing binary
   // surfaced as `status: null` with an empty stderr — a failure mode that reads
-  // like nothing at all. An article DELETED upstream disappears here too; safe
-  // because of the shrink guard above.
+  // like nothing at all. An article DELETED upstream disappears here too — safe
+  // now because the registry gate above has already proved every such removal
+  // was a deliberate, bridged retirement.
   mirrorTree(src, DEST);
   console.log(`[pull-articles-corpus] synced ${srcN} files into packages/articles/content/`);
 } finally {
