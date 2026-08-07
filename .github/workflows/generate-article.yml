@@ -101,6 +101,15 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Explain why nothing was generated
+        env:
+          # Via env and quoted below, never interpolated into the script text:
+          # `confirm_corpus_write` is free-form input and would otherwise reach
+          # the shell as code (scripts/ci/check-workflow-input-injection.mjs).
+          # The irony is worth naming — a guard against unattended writes must
+          # not itself hand the shell to whoever dispatches it.
+          CONFIRM_VALUE: ${{ github.event.inputs.confirm_corpus_write }}
+          TRIGGERING_ACTOR: ${{ github.triggering_actor }}
+          EVENT_NAME: ${{ github.event_name }}
         run: |
           {
             echo "## 🚫 Generazione saltata — questo produttore e' in pensione (#4974 item 3)"
@@ -114,9 +123,9 @@ jobs:
             echo ""
             echo "| | |"
             echo "|---|---|"
-            echo "| Trigger | \`${{ github.event_name }}\` |"
-            echo "| Chi ha lanciato | \`${{ github.triggering_actor }}\` |"
-            echo "| \`confirm_corpus_write\` | \`${{ github.event.inputs.confirm_corpus_write || '(non passato)' }}\` |"
+            echo "| Trigger | \`${EVENT_NAME}\` |"
+            echo "| Chi ha lanciato | \`${TRIGGERING_ACTOR}\` |"
+            echo "| \`confirm_corpus_write\` | \`${CONFIRM_VALUE:-(non passato)}\` |"
             echo ""
             echo "**Se sei un umano e lo vuoi davvero** (confronto contro nanako nella finestra"
             echo "di osservazione), rilancia passando \`confirm_corpus_write=yes\`:"
