@@ -115,6 +115,7 @@ const JSDOM_TS_FILES = [
   'tests/frontaliere-checklist.test.ts',
   'tests/functions/error-response.test.ts',
   'tests/gamification.test.ts',
+  'tests/hooks/seo-first-paint-deferral.test.ts',
   'tests/hooks/useNavigationState.test.ts',
   'tests/hooks/useNewsletterState.test.ts',
   'tests/hooks/useSimulationState.test.ts',
