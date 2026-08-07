@@ -30,6 +30,22 @@ import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
 import { GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from '../services/seo/glossaryTermDefinitions';
+// Statici, NON `await import()` dentro closeBundle (#5001). Quel doppio await
+// sospendeva il plugin prima di arrivare al render delle pagine, e
+// `seoHeroCardsPlugin` drena il registry delle hero card nello stesso tick
+// sincrono: le 42 URL del glossario sarebbero uscite con un <img> verso un webp
+// mai generato. Stesso difetto trovato in review su `pdfWhitepapersPlugin`.
+import fs from 'node:fs';
+import np from 'node:path';
+import { renderSeoHeroImage } from './shared/seoHeroImage';
+
+/** Etichetta della card glossario, nella lingua della pagina. */
+const GLOSSARY_HERO_EYEBROW: Record<'it' | 'en' | 'de' | 'fr', string> = {
+ it: 'Glossario frontalieri',
+ en: 'Cross-border glossary',
+ de: 'Grenzgaenger-Glossar',
+ fr: 'Glossaire frontaliers',
+};
 import { translateSchema, type SupportedLocale } from '../services/seo/schema-translators';
 import { renderHubChromeSplit, type HubKey, type HubLocale } from './shared/hubChrome';
 import { railGutters } from './shared/railGutters';
@@ -1028,8 +1044,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  apply: 'build',
  enforce: 'post',
  async closeBundle() {
- const fs = await import('node:fs');
- const np = await import('node:path');
 
  const distDir = np.resolve(rootDir, 'dist');
 
@@ -4675,7 +4689,27 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  if (comparatorSlugs.includes(firstSeg)) {
  rootHtml = `<div class="s-wWmcGm"><div style="${sp};height:9rem;margin-bottom:1.5rem"></div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><div class="s-d0FtpK"><div style="${sp};height:12rem"></div><div style="${sp};height:12rem"></div></div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (guideSlugs.includes(firstSeg)) {
- rootHtml = `<div class="s-wWmcGm"><div style="${sp};height:7rem;margin-bottom:1.5rem"></div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}${editorialSourcesHtml}</article><div class="s-1oTdPl">${`<div style="${sp};height:5rem"></div>`.repeat(4)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`;
+ // #5001 punto 2 — hero SOLO per il glossario. Misurato sulle sitemap live: le
+ // 42 URL di `sitemap-glossario.xml` sono tutte italiane, tutte sotto
+ // `glossario-frontaliere`, e tutte senza un solo `<img>`. Le altre voci di
+ // `guideSlugs` (guida-frontaliere e varianti, domande-frequenti-frontalieri)
+ // NON fanno parte di quel gap e restano invariate: questo ramo e' condiviso, e
+ // allargarlo qui toccherebbe famiglie che nessuna misura ha indicato come
+ // difettose.
+ const glossaryTermKey = urlSegs.length > (localePrefixes.includes(urlSegs[0] ?? '') ? 2 : 1)
+ ? urlSegs[urlSegs.length - 1]
+ : 'index';
+ const glossaryHero = firstSeg === 'glossario-frontaliere'
+ ? renderSeoHeroImage({
+ family: 'glossario',
+ key: glossaryTermKey,
+ locale: h1Locale,
+ headline: h1Text,
+ eyebrow: GLOSSARY_HERO_EYEBROW[h1Locale],
+ alt: h1Text,
+ })
+ : '';
+ rootHtml = `<div class="s-wWmcGm"><div style="${sp};height:7rem;margin-bottom:1.5rem"></div>${glossaryHero}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}${editorialSourcesHtml}</article><div class="s-1oTdPl">${`<div style="${sp};height:5rem"></div>`.repeat(4)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (fiscoSlugs.includes(firstSeg)) {
  rootHtml = `<div class="s-wWmcGm"><div class="s-34uchz">${`<div style="${sp};width:6rem;height:2.25rem;border-radius:9999px"></div>`.repeat(5)}</div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}${editorialSourcesHtml}</article><div style="${sp};height:14rem;margin-top:1.5rem"></div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (swissSlugs.has(firstSeg) && !isSwissDetailPage) {

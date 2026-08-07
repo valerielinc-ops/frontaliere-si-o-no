@@ -41,6 +41,7 @@ const EDITORIAL_FAMILIES: ReadonlyArray<{ family: string; plugin: string }> = [
   { family: 'frontaliere-pillar', plugin: 'build-plugins/frontalierePillarPlugin.ts' },
   { family: 'guides', plugin: 'build-plugins/pdfWhitepapersPlugin.ts' },
   { family: 'faq-hub', plugin: 'build-plugins/faqHubPlugin.ts' },
+  { family: 'glossario', plugin: 'build-plugins/staticPagesPlugin.ts' },
 ];
 
 const read = (rel: string): string => fs.readFileSync(np.join(ROOT, rel), 'utf-8');
