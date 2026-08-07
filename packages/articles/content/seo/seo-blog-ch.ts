@@ -24821,6 +24821,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costo-vita-svizzera-2026-san-gallo': {
+    title: 'Costo della vita Svizzera 2026: analisi canton San Gallo',
+    description: 'Analisi 2026 del costo della vita in Svizzera: aliquote IRPEF 23-35-43%, AVS 5,3%, franchigia frontalieri €10\'000, accordo 2024. Dati verificati per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, costo, vita, analisi, canton',
+    ogTitle: 'Costo della vita Svizzera 2026: analisi canton San Gallo',
+    ogDescription: 'IRPEF italiana 23-35-43%, AVS 5,3%, franchigia frontalieri €10\'000. Guida pratica per frontalieri in Svizzera con dati verificati fonte ufficiale.',
+    canonicalPath: '/articoli-svizzera/costo-vita-svizzera-2026-san-gallo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Costo della vita Svizzera 2026: analisi canton San Gallo",
+      "description": "Analisi 2026 del costo della vita in Svizzera: aliquote IRPEF 23-35-43%, AVS 5,3%, franchigia frontalieri €10'000, accordo 2024. Dati verificati per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costo-vita-svizzera-2026-san-gallo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliero nel centro storico di San Gallo con edifici moderni sullo sfondo"
+      },
+      "datePublished": "2026-08-07T20:01:01+00:00",
+      "dateModified": "2026-08-07T20:01:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/costo-vita-svizzera-2026-san-gallo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

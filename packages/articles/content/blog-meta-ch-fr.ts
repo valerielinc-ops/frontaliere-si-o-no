@@ -1918,6 +1918,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.title': 'Un an aprs les chocs des droits, les exportateurs restent dans l\'incertitude',
     'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.excerpt': 'Un an après les droits américains à 39%, le taux sur les marchandises suisses est à 12,5% mais reste imprévisible : négociations, jugements et nouvelles enquêtes tiennent les exportateurs en alerte',
     'blog.article.un-anno-dallo-shock-dei-dazi-esportatori-incerti.imageAlt': 'Vue aérienne de la zone industrielle de Zurich avec conteneurs et machines suisses prêts pour l\'exportation',
+    'blog.article.costo-vita-svizzera-2026-san-gallo.title': 'Coût de la vie Suisse 2026 : analyse canton de Saint-Gall',
+    'blog.article.costo-vita-svizzera-2026-san-gallo.excerpt': 'Taux IRPEF italien 23-35-43%, AVS 5,3%, franchise frontalière 10\'000 € , accord 2024, Suisse hors UE/EEE',
+    'blog.article.costo-vita-svizzera-2026-san-gallo.imageAlt': 'Frontalier dans la vieille ville de Saint-Gall avec bâtiments modernes en arrière-plan',
 };
 
 export default blogMetaChFr;

@@ -5752,6 +5752,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'costo-vita-svizzera-2026-san-gallo',
+    category: 'pratico',
+    date: '2026-08-07T20:01:00.997Z',
+    image: '/images/blog/costo-vita-svizzera-2026-san-gallo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
