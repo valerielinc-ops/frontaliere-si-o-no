@@ -24938,6 +24938,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-lamal-2026-bern-guida': {
+    title: 'Premi LAMal 2026 a Berna: come scegliere la franchigia giusta',
+    description: 'Premi cassa malati 2026 nel canton Berna: franchigia ottimale, cambio cassa, sussidi e confronto nazionale. Guida pratica per risparmiare. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, lamal, berna, scegliere',
+    ogTitle: 'Premi LAMal 2026 a Berna: come scegliere la franchigia giusta',
+    ogDescription: 'Guida ai premi cassa malati 2026 nel canton Berna: franchigia ottimale, cambio cassa, sussidi e confronto nazionale. Consigli pratici per risparmiare.',
+    canonicalPath: '/articoli-svizzera/premi-lamal-2026-bern-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi LAMal 2026 a Berna: come scegliere la franchigia giusta",
+      "description": "Premi cassa malati 2026 nel canton Berna: franchigia ottimale, cambio cassa, sussidi e confronto nazionale. Guida pratica per risparmiare. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-2026-bern-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guida ai premi LAMal 2026 nel canton Berna"
+      },
+      "datePublished": "2026-08-07T22:49:53+00:00",
+      "dateModified": "2026-08-07T22:49:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-2026-bern-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

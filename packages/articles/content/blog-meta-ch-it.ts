@@ -1927,6 +1927,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.reno-siccita-economia-svizzera.title': 'Reno in secca: allarme per l\'economia svizzera',
     'blog.article.reno-siccita-economia-svizzera.excerpt': 'Livello minimo storico, trasporti a rischio: 10% delle importazioni via fiume, carburanti in crisi.',
     'blog.article.reno-siccita-economia-svizzera.imageAlt': 'Il Reno in secca vicino a Basilea, una nave cargo con basso pescaggio',
+    'blog.article.premi-lamal-2026-bern-guida.title': 'Premi LAMal 2026 a Berna: come scegliere la franchigia giusta',
+    'blog.article.premi-lamal-2026-bern-guida.excerpt': 'Guida ai premi cassa malati 2026 nel canton Berna: differenze cantonali, franchigia ottimale, cambio cassa e sussidi. Confronto nazionale.',
+    'blog.article.premi-lamal-2026-bern-guida.imageAlt': 'Guida ai premi LAMal 2026 nel canton Berna',
 };
 
 export default blogMetaChIt;

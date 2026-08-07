@@ -1927,6 +1927,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.reno-siccita-economia-svizzera.title': 'Rhin à sec : alerte pour l\'économie suisse',
     'blog.article.reno-siccita-economia-svizzera.excerpt': 'Niveau minimum historique, transports à risque : 10 % des importations par voie fluviale, carburants en crise.',
     'blog.article.reno-siccita-economia-svizzera.imageAlt': 'Bas niveau des eaux du Rhin près de Bâle, cargo à faible tirant d\'eau',
+    'blog.article.premi-lamal-2026-bern-guida.title': 'Prix LAMal 2026 à Berne : comment choisir la bonne franchise',
+    'blog.article.premi-lamal-2026-bern-guida.excerpt': 'Guide des primes caisse-maladie 2026 dans le canton de Berne : différences cantonales, franchise optimale, change de caisse et allocations. Comparaison nationale.',
+    'blog.article.premi-lamal-2026-bern-guida.imageAlt': 'Guide des primes LAMal 2026 dans le canton de Berne',
 };
 
 export default blogMetaChFr;
