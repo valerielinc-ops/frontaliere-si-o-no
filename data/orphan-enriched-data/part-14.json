@@ -64314,10 +64314,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "senior-software-entwickler-ai-networking-nvidia-ufficio-zurich-zurich",
-        "en": "senior-software-entwickler-ai-networking-nvidia-ufficio-zurich-zurich",
+        "it": "senior-software-sviluppatore-ai-networking-nvidia-ufficio-zurich-zurich",
+        "en": "senior-software-developer-ai-networking-nvidia-zurich-ch",
         "de": "senior-software-entwickler-ai-networking-nvidia-ufficio-zurich-zurich",
-        "fr": "senior-software-entwickler-ai-networking-nvidia-ufficio-zurich-zurich"
+        "fr": "senior-software-developpeur-ai-networking-nvidia-ufficio-zurich-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-basilea/senior-software-entwickler-ai-networking-nvidia-ufficio-zurich-zurich",
@@ -64331,6 +64331,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
