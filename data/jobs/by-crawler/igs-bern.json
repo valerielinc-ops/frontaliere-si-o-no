@@ -1,6 +1,6 @@
 {
   "crawlerKey": "igs-bern",
-  "assembledAt": "2026-08-06T11:43:25.322Z",
+  "assembledAt": "2026-08-07T01:13:00.641Z",
   "jobs": [
     {
       "id": "igs-bern-53da410315b2",
@@ -34,7 +34,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job160824?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:43:22.064Z",
+      "crawledAt": "2026-08-07T01:12:57.437Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job161595?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:43:21.549Z",
+      "crawledAt": "2026-08-07T01:12:56.906Z",
       "addressLocality": "Moosseedorf",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -132,15 +132,17 @@
       "pensumMin": 50,
       "pensumMax": 50,
       "pensum": "50%",
-      "firstSeenAt": "2026-08-05T22:43:24.350Z",
+      "previousSlugs": [
+        "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch",
+        "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-cfc-50-70-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch"
+          "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch",
+          "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-cfc-50-70-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch"
-      ],
+      "firstSeenAt": "2026-08-05T22:43:24.350Z",
       "salaryMin": 48000,
       "salaryMax": 72800,
       "baseSalary": {
@@ -159,9 +161,9 @@
       "id": "igs-bern-2284618357b7",
       "slug": "assistenzpsycholog-in-80-interessengemeinschaft-sozialpsychiatrie-bern-bern",
       "slugByLocale": {
-        "de": "assistenzpsycholog-in-80-igs-bern-ch",
         "it": "assistenzpsycholog-in-80-interessengemeinschaft-sozialpsychiatrie-bern-bern",
         "en": "assistenzpsycholog-in-80-interessengemeinschaft-sozialpsychiatrie-bern-bern",
+        "de": "assistenzpsycholog-in-80-igs-bern-ch",
         "fr": "assistenzpsycholog-in-80-interessengemeinschaft-sozialpsychiatrie-bern-bern"
       },
       "company": "Interessengemeinschaft Sozialpsychiatrie Bern",
@@ -169,16 +171,16 @@
       "companyDomain": "igsbern.ch",
       "title": "Assistenzpsycholog:in (80 %)",
       "titleByLocale": {
-        "de": "Assistenzpsycholog:in (80 %)",
         "it": "Assistenzpsycholog:in (80 %)",
         "en": "Assistenzpsycholog:in (80 %)",
+        "de": "Assistenzpsycholog:in (80 %)",
         "fr": "Assistenzpsycholog:in (80 %)"
       },
       "description": "Ihre Aufgaben\n• Diagnostische Abklärungen bei Kindern, Jugendlichen und jungen Erwachsen (mit Fokus auf Psychosen oder ein erhöhtes Risiko für die Entwicklung einer Psychose)\n• Therapeutische Tätigkeit im Rahmen des Angebots einer modularen kognitiv-verhaltenstherapeutischen Therapie für Personen mit einem erhöhten Psychoserisiko oder psychotischen Ersterkrankungen\n• Verbindungsperson zu den ambulanten, teilstationären und stationären Angeboten der Soteria Bern, Mitarbeit bei einzelnen Gruppentherapien sowie Übernahme einer begrenzten Zahl ambulanter Therapien Ihr Profil\n• Abgeschlossenes Hochschulstudium in Psychologie\n• Vom BAG anerkannte Psychotherapieausbildung (begonnen oder abgeschlossen)\n• Grosses Interesse an Psychopathologie\n• Selbständige und strukturierte Arbeitsweise\n• Vorerfahrungen insbesondere mit dem klinischen Bild psychotischer Störungen\n• Interesse an klinischer Forschung Unser Angebot\n• Eine spannende, anspruchsvolle und vielseitige diagnostische und therapeutische Tätigkeit\n• Mitarbeit in einem vielfältigen, interdisziplinären Team\n• Interne Weiterbildungs- und Supervisionsmöglichkeiten\n• Möglichkeit zur Teilnahme an Forschungsprojekten Arbeitsort: FETZ Bern, Hallerstrasse 10, 3012 Bern Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständige Bewerbung! Nähere Auskünfte erteilen Ihnen gerne: Christian Schenkel, Betrieblicher Leiter der Soteria Bern christian.schenkel@igsbern.ch , Tel. 031 305 06 60 Dr. med. Eva Burkhardt, Oberärztin FETZ eva.burkhardt@upz-bern.ch , Tel. 058 630 70 36",
       "descriptionByLocale": {
-        "de": "Ihre Aufgaben\n• Diagnostische Abklärungen bei Kindern, Jugendlichen und jungen Erwachsen (mit Fokus auf Psychosen oder ein erhöhtes Risiko für die Entwicklung einer Psychose)\n• Therapeutische Tätigkeit im Rahmen des Angebots einer modularen kognitiv-verhaltenstherapeutischen Therapie für Personen mit einem erhöhten Psychoserisiko oder psychotischen Ersterkrankungen\n• Verbindungsperson zu den ambulanten, teilstationären und stationären Angeboten der Soteria Bern, Mitarbeit bei einzelnen Gruppentherapien sowie Übernahme einer begrenzten Zahl ambulanter Therapien Ihr Profil\n• Abgeschlossenes Hochschulstudium in Psychologie\n• Vom BAG anerkannte Psychotherapieausbildung (begonnen oder abgeschlossen)\n• Grosses Interesse an Psychopathologie\n• Selbständige und strukturierte Arbeitsweise\n• Vorerfahrungen insbesondere mit dem klinischen Bild psychotischer Störungen\n• Interesse an klinischer Forschung Unser Angebot\n• Eine spannende, anspruchsvolle und vielseitige diagnostische und therapeutische Tätigkeit\n• Mitarbeit in einem vielfältigen, interdisziplinären Team\n• Interne Weiterbildungs- und Supervisionsmöglichkeiten\n• Möglichkeit zur Teilnahme an Forschungsprojekten Arbeitsort: FETZ Bern, Hallerstrasse 10, 3012 Bern Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständige Bewerbung! Nähere Auskünfte erteilen Ihnen gerne: Christian Schenkel, Betrieblicher Leiter der Soteria Bern christian.schenkel@igsbern.ch , Tel. 031 305 06 60 Dr. med. Eva Burkhardt, Oberärztin FETZ eva.burkhardt@upz-bern.ch , Tel. 058 630 70 36",
         "it": "Ihre Aufgaben\n• Diagnostische Abklärungen bei Kindern, Jugendlichen und jungen Erwachsen (mit Fokus auf Psychosen oder ein erhöhtes Risiko für die Entwicklung einer Psychose)\n• Therapeutische Tätigkeit im Rahmen des Angebots einer modularen kognitiv-verhaltenstherapeutischen Therapie für Personen mit einem erhöhten Psychoserisiko oder psychotischen Ersterkrankungen\n• Verbindungsperson zu den ambulanten, teilstationären und stationären Angeboten der Soteria Bern, Mitarbeit bei einzelnen Gruppentherapien sowie Übernahme einer begrenzten Zahl ambulanter Therapien Ihr Profil\n• Abgeschlossenes Hochschulstudium in Psychologie\n• Vom BAG anerkannte Psychotherapieausbildung (begonnen oder abgeschlossen)\n• Grosses Interesse an Psychopathologie\n• Selbständige und strukturierte Arbeitsweise\n• Vorerfahrungen insbesondere mit dem klinischen Bild psychotischer Störungen\n• Interesse an klinischer Forschung Unser Angebot\n• Eine spannende, anspruchsvolle und vielseitige diagnostische und therapeutische Tätigkeit\n• Mitarbeit in einem vielfältigen, interdisziplinären Team\n• Interne Weiterbildungs- und Supervisionsmöglichkeiten\n• Möglichkeit zur Teilnahme an Forschungsprojekten Arbeitsort: FETZ Bern, Hallerstrasse 10, 3012 Bern Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständige Bewerbung! Nähere Auskünfte erteilen Ihnen gerne: Christian Schenkel, Betrieblicher Leiter der Soteria Bern christian.schenkel@igsbern.ch , Tel. 031 305 06 60 Dr. med. Eva Burkhardt, Oberärztin FETZ eva.burkhardt@upz-bern.ch , Tel. 058 630 70 36",
         "en": "Ihre Aufgaben\n• Diagnostische Abklärungen bei Kindern, Jugendlichen und jungen Erwachsen (mit Fokus auf Psychosen oder ein erhöhtes Risiko für die Entwicklung einer Psychose)\n• Therapeutische Tätigkeit im Rahmen des Angebots einer modularen kognitiv-verhaltenstherapeutischen Therapie für Personen mit einem erhöhten Psychoserisiko oder psychotischen Ersterkrankungen\n• Verbindungsperson zu den ambulanten, teilstationären und stationären Angeboten der Soteria Bern, Mitarbeit bei einzelnen Gruppentherapien sowie Übernahme einer begrenzten Zahl ambulanter Therapien Ihr Profil\n• Abgeschlossenes Hochschulstudium in Psychologie\n• Vom BAG anerkannte Psychotherapieausbildung (begonnen oder abgeschlossen)\n• Grosses Interesse an Psychopathologie\n• Selbständige und strukturierte Arbeitsweise\n• Vorerfahrungen insbesondere mit dem klinischen Bild psychotischer Störungen\n• Interesse an klinischer Forschung Unser Angebot\n• Eine spannende, anspruchsvolle und vielseitige diagnostische und therapeutische Tätigkeit\n• Mitarbeit in einem vielfältigen, interdisziplinären Team\n• Interne Weiterbildungs- und Supervisionsmöglichkeiten\n• Möglichkeit zur Teilnahme an Forschungsprojekten Arbeitsort: FETZ Bern, Hallerstrasse 10, 3012 Bern Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständige Bewerbung! Nähere Auskünfte erteilen Ihnen gerne: Christian Schenkel, Betrieblicher Leiter der Soteria Bern christian.schenkel@igsbern.ch , Tel. 031 305 06 60 Dr. med. Eva Burkhardt, Oberärztin FETZ eva.burkhardt@upz-bern.ch , Tel. 058 630 70 36",
+        "de": "Ihre Aufgaben\n• Diagnostische Abklärungen bei Kindern, Jugendlichen und jungen Erwachsen (mit Fokus auf Psychosen oder ein erhöhtes Risiko für die Entwicklung einer Psychose)\n• Therapeutische Tätigkeit im Rahmen des Angebots einer modularen kognitiv-verhaltenstherapeutischen Therapie für Personen mit einem erhöhten Psychoserisiko oder psychotischen Ersterkrankungen\n• Verbindungsperson zu den ambulanten, teilstationären und stationären Angeboten der Soteria Bern, Mitarbeit bei einzelnen Gruppentherapien sowie Übernahme einer begrenzten Zahl ambulanter Therapien Ihr Profil\n• Abgeschlossenes Hochschulstudium in Psychologie\n• Vom BAG anerkannte Psychotherapieausbildung (begonnen oder abgeschlossen)\n• Grosses Interesse an Psychopathologie\n• Selbständige und strukturierte Arbeitsweise\n• Vorerfahrungen insbesondere mit dem klinischen Bild psychotischer Störungen\n• Interesse an klinischer Forschung Unser Angebot\n• Eine spannende, anspruchsvolle und vielseitige diagnostische und therapeutische Tätigkeit\n• Mitarbeit in einem vielfältigen, interdisziplinären Team\n• Interne Weiterbildungs- und Supervisionsmöglichkeiten\n• Möglichkeit zur Teilnahme an Forschungsprojekten Arbeitsort: FETZ Bern, Hallerstrasse 10, 3012 Bern Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständige Bewerbung! Nähere Auskünfte erteilen Ihnen gerne: Christian Schenkel, Betrieblicher Leiter der Soteria Bern christian.schenkel@igsbern.ch , Tel. 031 305 06 60 Dr. med. Eva Burkhardt, Oberärztin FETZ eva.burkhardt@upz-bern.ch , Tel. 058 630 70 36",
         "fr": "Ihre Aufgaben\n• Diagnostische Abklärungen bei Kindern, Jugendlichen und jungen Erwachsen (mit Fokus auf Psychosen oder ein erhöhtes Risiko für die Entwicklung einer Psychose)\n• Therapeutische Tätigkeit im Rahmen des Angebots einer modularen kognitiv-verhaltenstherapeutischen Therapie für Personen mit einem erhöhten Psychoserisiko oder psychotischen Ersterkrankungen\n• Verbindungsperson zu den ambulanten, teilstationären und stationären Angeboten der Soteria Bern, Mitarbeit bei einzelnen Gruppentherapien sowie Übernahme einer begrenzten Zahl ambulanter Therapien Ihr Profil\n• Abgeschlossenes Hochschulstudium in Psychologie\n• Vom BAG anerkannte Psychotherapieausbildung (begonnen oder abgeschlossen)\n• Grosses Interesse an Psychopathologie\n• Selbständige und strukturierte Arbeitsweise\n• Vorerfahrungen insbesondere mit dem klinischen Bild psychotischer Störungen\n• Interesse an klinischer Forschung Unser Angebot\n• Eine spannende, anspruchsvolle und vielseitige diagnostische und therapeutische Tätigkeit\n• Mitarbeit in einem vielfältigen, interdisziplinären Team\n• Interne Weiterbildungs- und Supervisionsmöglichkeiten\n• Möglichkeit zur Teilnahme an Forschungsprojekten Arbeitsort: FETZ Bern, Hallerstrasse 10, 3012 Bern Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständige Bewerbung! Nähere Auskünfte erteilen Ihnen gerne: Christian Schenkel, Betrieblicher Leiter der Soteria Bern christian.schenkel@igsbern.ch , Tel. 031 305 06 60 Dr. med. Eva Burkhardt, Oberärztin FETZ eva.burkhardt@upz-bern.ch , Tel. 058 630 70 36"
       },
       "needsRetranslation": true,
@@ -187,7 +189,7 @@
       "url": "https://www.publicjobs.ch/jobs/psychologie-psychotherapie/~job161634?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:43:21.032Z",
+      "crawledAt": "2026-08-07T01:12:56.379Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -202,20 +204,21 @@
       "postedDate": "2026-08-06",
       "applyUrl": "https://www.publicjobs.ch/jobs/psychologie-psychotherapie/~job161634?ext",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "assistenzpsycholog-in-80-igs-bern-ch",
+        "assistenzpsycholog-in-80-interessengemeinschaft-sozialpsychiatrie-bern-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzpsycholog-in-80-igs-bern-ch"
+          "assistenzpsycholog-in-80-igs-bern-ch",
+          "assistenzpsycholog-in-80-interessengemeinschaft-sozialpsychiatrie-bern-bern"
         ]
       },
-      "previousSlugs": [
-        "assistenzpsycholog-in-80-igs-bern-ch"
-      ],
+      "firstSeenAt": "2026-08-06T11:43:21.032Z",
       "salaryMin": 54800,
       "salaryMax": 83200,
       "baseSalary": {
@@ -228,8 +231,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-08-06T11:43:21.032Z"
+      "addressRegion": "BE"
     }
   ]
 }
