@@ -296,12 +296,22 @@ describe('a bridge page is never mis-parsed as a filter landing', () => {
   // Before this PR that staleness was masked — companySlugFilter took precedence
   // over selectedJob — but once the filters short-circuit on isBridgePage, a
   // stale global nulls the NEW route's filter and re-renders the previous job.
-  it('the bridge global is scoped to the pathname that shipped it', () => {
-    expect(src).toMatch(/const BRIDGE_GLOBAL_PATHNAME: string \| null =/);
-    // The reader refuses the global once we have navigated away.
+  it('the build-seeded globals are scoped to the pathname that shipped them', () => {
+    expect(src).toMatch(/const SEEDED_GLOBALS_PATHNAME: string \| null =/);
     expect(src).toMatch(
-      /if \(window\.location\.pathname !== BRIDGE_GLOBAL_PATHNAME\) return undefined;/,
+      /function onSeededDocument\(\): boolean \{[\s\S]*?window\.location\.pathname === SEEDED_GLOBALS_PATHNAME/,
     );
+    // Both readers of a build-injected global go through it.
+    expect(src).toMatch(/function readBridgeTargetSlug\(\)[\s\S]{0,200}?if \(!onSeededDocument\(\)\) return undefined;/);
+    expect(src).toMatch(/function readSeededJob\(\)[\s\S]{0,900}?if \(!onSeededDocument\(\)\) return null;/);
+  });
+
+  it('__JOB_SEED__ does not leak into a later route (stale-seed class)', () => {
+    // A stale seed prepends the previous job to the listing via `finalize`, and
+    // routes the load effect down the requestIdleCallback branch on a page where
+    // the index is the above-the-fold content. Both need the memo to re-run.
+    expect(src).toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[initialJobSlug\]\)/);
+    expect(src).not.toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[\]\)/);
   });
 
   it('bridgeTargetSlug re-reads per route instead of pinning at mount', () => {

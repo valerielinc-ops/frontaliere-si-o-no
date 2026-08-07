@@ -759,6 +759,16 @@ function normalizeIncomingJob(raw: any): JobListing {
  */
 function readSeededJob(): JobListing | null {
  try {
+ // Same document-scoping as the bridge global: __JOB_SEED__ is an inline
+ // script belonging to ONE job-detail page and is never cleared by SPA
+ // navigation, so without this the docstring's "returns null on SPA
+ // navigation" was simply untrue. A stale seed did real damage: `finalize`
+ // prepends it to the listing (a Ticino job at the top of the Zurich board
+ // after /cerca-lavoro-ticino/<job>/ → /cerca-lavoro-zurigo/), and the
+ // `if (seededJob)` branch of the load effect defers the index fetch to
+ // requestIdleCallback — correct on a detail page where the index is
+ // below-the-fold, wrong on a listing where the index IS the content.
+ if (!onSeededDocument()) return null;
  const raw = (window as unknown as Record<string, unknown>).__JOB_SEED__;
  if (raw && typeof raw === 'object'
  && typeof (raw as { slug?: unknown }).slug === 'string'
@@ -1739,13 +1749,21 @@ function readSearchQueryFromUrl(): string {
  * load, so this is the pathname the inline script belongs to. If it ever were
  * evaluated later, the global would simply be absent and the reader returns
  * undefined — resolution falls back to the shard path, which still resolves.
+ *
+ * Shared by every build-seeded global read in this file (`__BRIDGE_TARGET_SLUG__`,
+ * `__JOB_SEED__`): they are all inline scripts belonging to ONE document, so
+ * they are all valid under exactly the same condition.
  */
-const BRIDGE_GLOBAL_PATHNAME: string | null =
+const SEEDED_GLOBALS_PATHNAME: string | null =
  typeof window !== 'undefined' ? window.location.pathname : null;
 
+/** True while we are still on the page whose HTML carried the inline seeds. */
+function onSeededDocument(): boolean {
+ return typeof window !== 'undefined' && window.location.pathname === SEEDED_GLOBALS_PATHNAME;
+}
+
 function readBridgeTargetSlug(): string | undefined {
- if (typeof window === 'undefined') return undefined;
- if (window.location.pathname !== BRIDGE_GLOBAL_PATHNAME) return undefined;
+ if (!onSeededDocument()) return undefined;
  const value = (window as unknown as Record<string, unknown>).__BRIDGE_TARGET_SLUG__;
  return typeof value === 'string' && value ? value : undefined;
 }
@@ -2098,7 +2116,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // Build-injected slim record for THIS active job-detail page (window.__JOB_SEED__),
  // or null on board pages / SPA navigation. Read once per mount.
- const seededJob = useMemo(() => readSeededJob(), []);
+ // Dep on `initialJobSlug`, NOT `[]`: the guard inside readSeededJob is inert
+ // unless the memo actually re-runs after a soft-navigation (same reason as
+ // bridgeTargetSlug below). At mount the pathname matches, so the seeded
+ // first paint is unchanged; only later routes now correctly see null.
+ const seededJob = useMemo(() => readSeededJob(), [initialJobSlug]);
  // Seed the jobs array so `selectedJob` resolves on the first frame — no orphan
  // flash, no wait on the ~1.2 MB (gzip) slim index. The full index load below
  // replaces this array; `finalize` re-applies any detail fetched meanwhile and
