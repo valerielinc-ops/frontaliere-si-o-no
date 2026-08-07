@@ -18,11 +18,21 @@
  *
  * Exit codes:
  *   0 = every shard URL verified live and serving the pushed bytes
- *   1 = at least one shard URL is NOT REACHABLE (the push did not land), or
- *       bad input — a real incident
- *   2 = every shard URL is reachable but at least one still serves older
- *       bytes: the push landed and Pages has not caught up. Not a success (do
- *       not ping search engines at it yet) and not an incident either.
+ *   1 = at least one shard URL is unreachable AND its shard push was not
+ *       confirmed landed (so the push really may not have landed), or bad
+ *       input — a real incident
+ *   2 = the pushed bytes are not being served yet, but every URL that is not
+ *       serving them belongs to a shard whose push IS confirmed landed —
+ *       either reachable-but-stale, or not published yet by Pages. Not a
+ *       success (do not ping search engines at it yet) and not an incident.
+ *
+ * Environment:
+ *   FAST_PUBLISH_PUSHED_LOCALES — comma-separated `shards[].locale` values
+ *     whose git push the caller has CONFIRMED landed on the shard remote. See
+ *     the classification block at the bottom of this file for why the probe
+ *     cannot derive this itself. Absent/empty ⇒ nothing is confirmed ⇒ the
+ *     conservative pre-existing behaviour (any unreachable URL is an incident),
+ *     which keeps every other caller unchanged.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -110,6 +120,24 @@ if (expected.size > 0) {
   console.log(`🔐 Content verification active for ${expected.size}/${urls.length} URL(s) (sha256 of the pushed HTML).`);
 }
 
+// url -> locale, so a confirmed-pushed locale can be matched back to the URL
+// this probe polls. Keyed on url because that is what the poll loop carries.
+const localeByUrl = new Map();
+for (const shard of shards) {
+  if (shard?.url && shard?.locale) localeByUrl.set(shard.url, String(shard.locale));
+}
+const confirmedPushed = new Set(
+  String(process.env.FAST_PUBLISH_PUSHED_LOCALES || '')
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean),
+);
+if (confirmedPushed.size > 0) {
+  console.log(`📦 Shard push confirmed landed for locale(s): ${[...confirmedPushed].join(', ')}`);
+}
+/** True when the caller vouched that this URL's shard push reached the remote. */
+const pushConfirmed = (url) => confirmedPushed.has(localeByUrl.get(url));
+
 async function servesExpectedContent(url) {
   const want = expected.get(url);
   if (!want) return true; // status-only for this URL
@@ -156,19 +184,47 @@ while (Date.now() < deadline) {
 
 // ── Two very different failures, told apart ──────────────────────────────
 //
-// "200 but stale" and "still 404" were reported as one outcome, and both
-// failed the run and opened a priority:high issue. They are not the same
-// thing:
+// "the pushed bytes are not being served yet" and "the push did not land" were
+// reported as one outcome, and both failed the run and opened a priority:high
+// issue. They are not the same thing:
 //
-//   still 404  → the push did not land. The article is not readable. Real.
-//   200, stale → the push landed and Pages has not caught up yet. The article
-//                arrives on its own; nothing is broken and nobody must act.
+//   push did not land  → the article is not readable and never will be on its
+//                        own. Someone must act. Real incident.
+//   push landed        → the article arrives by itself as soon as the shard's
+//                        Pages build publishes. Nothing is broken.
 //
-// Measured 2026-08-06 (run 31093424415): four URLs timed out during a GitHub
-// Pages `major_outage`, an urgent issue was opened, and all four were serving
-// correctly when checked afterwards — a false alarm that also fed the
-// issue-fix loop and burned shared Claude quota, which this file's own header
-// says to avoid.
+// The reachability of the URL CANNOT decide between them, and this is the whole
+// correction over the first version of this block. That version read:
+//
+//     still 404  → the push did not land
+//     200, stale → the push landed, Pages has not caught up
+//
+// which holds only for a RE-publish, where the URL already 200s from the
+// previous build. For a brand-new article — the ordinary case — the URL 404s
+// for the entire propagation window precisely BECAUSE the push landed and Pages
+// has not published it yet. So the common case was permanently misfiled under
+// "the push did not land".
+//
+// Measured twice:
+//   2026-08-06, run 31093424415 — four URLs timed out during a GitHub Pages
+//     `major_outage`; all four were serving correctly when checked afterwards.
+//   2026-08-07, run 31148285623 — all four shard pushes confirmed on the remote
+//     (`4c263cc..9469552` and siblings), en/de/fr live in ~40s, `it` still 404
+//     at the 300s deadline. Reported as "the push did not land", run failed,
+//     issue #5250 re-opened at priority:high, page a healthy 200 afterwards.
+//     Healthy runs converge in 7-8 polls, so that locale was a Pages queue
+//     outlier, nothing more.
+// A false alarm there is not free: it feeds the issue-fix loop and burns shared
+// Claude quota, which this file's own header says to avoid.
+//
+// The fact that actually separates the two is whether the git push reached the
+// shard remote, and this process cannot observe that — it only ever sees the
+// public URL. The caller can, and does: fast-publish-article.yml's shard-push
+// step waits on each locale's push and exports the confirmed ones as
+// FAST_PUBLISH_PUSHED_LOCALES. Unreachable + confirmed pushed ⇒ delayed.
+// Unreachable + NOT confirmed ⇒ still an incident, so a genuinely lost push
+// stays as loud as it was, and a caller that supplies nothing keeps the old
+// conservative behaviour unchanged.
 //
 // Exit 2 is the delayed case. It still is NOT a success: the pushed bytes are
 // not being served yet, so the caller must not ping Google/IndexNow at them —
@@ -177,16 +233,24 @@ const stillDown = urls.filter((_, i) => !lastResults[i]);
 const finalStatuses = await runWithConcurrency(
   stillDown, Math.max(1, stillDown.length), (url) => checkLink(url, 8000, { cacheBust: true }),
 );
-const absent = stillDown.filter((_, i) => !finalStatuses[i]);
+const unreachable = stillDown.filter((_, i) => !finalStatuses[i]);
 const stale = stillDown.filter((_, i) => Boolean(finalStatuses[i]));
 
+// Unreachable, but the push is vouched for: the shard's Pages build simply has
+// not published the commit yet. Same bucket as `stale` — delayed, not broken.
+const unpublished = unreachable.filter((url) => pushConfirmed(url));
+const absent = unreachable.filter((url) => !pushConfirmed(url));
+const secs = Math.round(timeoutMs / 1000);
+
 if (absent.length > 0) {
-  console.error(`❌ Timed out after ${Math.round(timeoutMs / 1000)}s — ${absent.length}/${urls.length} shard URL(s) are NOT REACHABLE (the push did not land):`);
+  console.error(`❌ Timed out after ${secs}s — ${absent.length}/${urls.length} shard URL(s) are NOT REACHABLE and their push is not confirmed landed:`);
   for (const url of absent) console.error(`   - ${url}`);
+  for (const url of unpublished) console.error(`   - ${url}  (push confirmed landed, Pages has not published it yet)`);
   for (const url of stale) console.error(`   - ${url}  (reachable, still serving older bytes)`);
   process.exit(1);
 }
 
-console.warn(`::warning::Timed out after ${Math.round(timeoutMs / 1000)}s — ${stale.length}/${urls.length} shard URL(s) are LIVE but still serving older bytes. The push landed; Pages has not caught up. Not an incident: no ping should fire yet, and the pages arrive on their own.`);
-for (const url of stale) console.warn(`   - ${url}`);
+console.warn(`::warning::Timed out after ${secs}s — ${unpublished.length + stale.length}/${urls.length} shard URL(s) are not serving the pushed bytes yet, but every one of their shard pushes is confirmed landed. Pages has not caught up. Not an incident: no ping should fire yet, and the pages arrive on their own.`);
+for (const url of unpublished) console.warn(`   - ${url}  (push landed, not published yet)`);
+for (const url of stale) console.warn(`   - ${url}  (reachable, still serving older bytes)`);
 process.exit(2);

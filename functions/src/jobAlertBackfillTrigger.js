@@ -63,8 +63,12 @@ export async function handleNewsletterSubscriberCreated(
   // so a pre-existing user-disabled backfill doc is never mistaken for absent.
   const existingAlerts = await alertsRef.get();
   const existingBackfillDoc = existingAlerts.docs.find((d) => d.id === ALERT_ID);
+  // Company follows are NOT counted here (#5012): they hold their own budget
+  // (MAX_COMPANY_ALERTS_PER_USER), and letting them block the backfill would
+  // mean a user who follows ten employers silently never gets the keyword alert
+  // this trigger exists to create.
   const activeOtherCount = existingAlerts.docs.filter(
-    (d) => d.id !== ALERT_ID && d.data().active === true,
+    (d) => d.id !== ALERT_ID && d.data().active === true && !d.data().specificCompanyKey,
   ).length;
   if (!existingBackfillDoc && activeOtherCount >= MAX_ALERTS_PER_USER) {
     return { created: false, reason: 'capped' };

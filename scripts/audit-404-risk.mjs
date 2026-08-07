@@ -373,10 +373,41 @@ async function listShardTree(repo) {
       `https://github.com/${repo}.git`, dir,
     ], { maxBuffer: 64 * 1024 * 1024 });
     try {
-      const { stdout } = await execFileP('git', ['-C', dir, 'ls-tree', '-r', '--name-only', 'HEAD'], {
+      // `-z`, and it is load-bearing — NOT a micro-optimisation.
+      //
+      // With its default `core.quotePath=true`, git QUOTES any path containing
+      // a non-ASCII byte: it wraps the name in literal double quotes and
+      // octal-escapes the bytes, so
+      //
+      //   de/grenzgaenger-artikel/88-jährige-frau-…/index.html
+      //
+      // comes back as the 46-character-longer
+      //
+      //   "de/grenzgaenger-artikel/88-j\303\244hrige-frau-…/index.html"
+      //
+      // treeEntryToRoute() then fails to strip `/index.html` (the string ends
+      // in `"`, not `l`) and normPath() percent-encodes the quote and the
+      // backslashes, so the served set gains a junk `/%22de/…` route and LOSES
+      // the real one. Every URL whose slug carries an umlaut or an accent then
+      // reads as "no served page".
+      //
+      // That is issue #5244 exactly: 85 reported 404s, every single one of
+      // them percent-encoded (`%C3%A4`, `%C3%B6`, `%C3%A0`, …) and every
+      // single one returning HTTP 200 live. It survived six recurrences and a
+      // `needs-human` parking because the offenders look like the publish-skew
+      // this audit already knows about — but skew moves between runs, and this
+      // is deterministic: the same slugs, every day, for as long as they
+      // contain a non-ASCII character.
+      //
+      // `-z` emits NUL-separated raw bytes and is not subject to
+      // `core.quotePath` at all, so this cannot regress if a runner's global
+      // git config differs. (Checked 2026-08-07: the shards store NFC, the
+      // same normalisation the sitemap emits, so no case folding is needed
+      // here — only the quoting was ever wrong.)
+      const { stdout } = await execFileP('git', ['-C', dir, 'ls-tree', '-r', '--name-only', '-z', 'HEAD'], {
         maxBuffer: 256 * 1024 * 1024,
       });
-      const entries = stdout.split('\n').filter(Boolean);
+      const entries = stdout.split('\0').filter(Boolean);
       // Free: the commit is already local from the --depth 1 clone.
       let generation = null;
       try {

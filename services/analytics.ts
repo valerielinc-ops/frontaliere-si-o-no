@@ -2071,7 +2071,25 @@ export const Analytics = {
   * counts during funnel analysis.
   */
  trackJobAlertCtaClick: (
- surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_match_pill' | 'job_board_filters' | 'company_follow_button',
+ // The CompanyAlert (#5012) surfaces report apart because the question each
+ // one answers differs: 'company_follow_button' is the unlocked job detail,
+ // 'company_follow_gate' the auth-gated one (there the CTA competes with the
+ // sign-in for a single click — cannibalisation is invisible if they share a
+ // name), 'company_follow_expired' and 'company_follow_orphan' the two dead-ad
+ // views where following is the only conversion left, 'company_follow_profile'
+ // the SSG employer page, 'company_follow_below_floor' its thin
+ // under-MIN_ACTIVE_JOBS variant and 'company_follow_city' the per-employer
+ // «aziende che assumono» city hub. The union is mirrored by CompanyFollowSurface
+ // in components/community/CompanyFollowCta.tsx.
+ //
+ // 'company_follow_suggestion' (fase 3) is the «altre aziende da seguire» block
+ // at the bottom of /aziende-seguite/, and it is the only surface where the SITE
+ // picked the employer rather than the reader arriving on one. Its click-through
+ // is the only feedback there is on the ranking in
+ // services/employerSuggestions.ts, whose entire input is how many ads an
+ // employer has open and whether you already follow it — folding it into
+ // 'company_follow_button' would leave that criterion unmeasurable.
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_match_pill' | 'job_board_filters' | 'company_follow_button' | 'company_follow_gate' | 'company_follow_profile' | 'company_follow_below_floor' | 'company_follow_orphan' | 'company_follow_expired' | 'company_follow_city' | 'company_follow_suggestion',
  action: 'open' | 'dismiss' | 'accept' | 'success' | 'error',
  keyword?: string,
  ) => {

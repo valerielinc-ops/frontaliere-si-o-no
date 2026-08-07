@@ -5,6 +5,7 @@ import path from 'node:path';
 import { employerProfilePagesPlugin } from '../build-plugins/employerProfilePagesPlugin';
 import { resolveSearchConsoleCompatTarget } from '../build-plugins/searchConsoleCompat';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
+import { TITLE_MAX_CHARS } from '../build-plugins/shared/titleSuffix';
 import committedDataset from '../data/employer-profiles.json';
 
 /**
@@ -74,6 +75,17 @@ beforeAll(async () => {
       ],
       belowFloor: [
         { slug: 'small-co', name: 'Small Co', activeJobs: 3, sector: 'Altro', canton: 'TI' },
+        // 54-char legal name: BOTH title candidates overflow TITLE_MAX_CHARS
+        // (66), so this exercises composePlaceTitle's truncateHeadline
+        // fallback on the bridge — which had no length budget at all before
+        // the 2026-08-07 title change.
+        {
+          slug: 'ente-ospedaliero-cantonale-della-svizzera-italiana-sagl',
+          name: 'Ente Ospedaliero Cantonale Della Svizzera Italiana Sagl',
+          activeJobs: 2,
+          sector: null,
+          canton: 'TI',
+        },
       ],
     }),
   );
@@ -117,9 +129,62 @@ describe('employerProfilePagesPlugin', () => {
     const html = read('aziende/acme-corp/index.html');
     expect(html).toContain('name=robots content="index, follow');
     expect(html).toContain('max-image-preview:large');
-    expect(html).toContain('Lavorare in Acme Corp');
+    expect(html).toContain('Offerte di lavoro Acme Corp');
     expect(html).toContain('6'); // active jobs
     expect(html).toContain("CHF 100"); // median salary formatted
+  });
+
+  // Search-intent title/H1 (2026-08-07). GSC 90 d on data/evidence-index.json:
+  // "offerte di lavoro" 46 341 impr / 7 227 click, while "lavorare in" has ZERO
+  // brand-attached queries (all 41 matches are geographic) and "working at" has
+  // zero queries at all. These assertions pin the phrase, not the prose — if a
+  // future rewrite drops the head phrase from either the <title> or the <h1>,
+  // that is the regression this test exists to catch.
+  it('leads the <title> with the company and carries the searched phrase', () => {
+    for (const [rel, expected] of [
+      ['aziende/acme-corp/index.html', 'Acme Corp: offerte di lavoro e stipendi'],
+      ['en/aziende/acme-corp/index.html', 'Acme Corp: jobs and salaries'],
+      ['de/aziende/acme-corp/index.html', 'Acme Corp: offene Stellen und Gehalt'],
+      ['fr/aziende/acme-corp/index.html', 'Acme Corp: offres d’emploi et salaires'],
+    ] as const) {
+      const title = read(rel).match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '';
+      expect(title, rel).toContain(expected);
+      // Brand-first: the SERP line is scanned left-to-right and Google bolds
+      // the matched brand, so the company name owns character 0.
+      expect(title.startsWith('Acme Corp'), `${rel} brand-first: ${title}`).toBe(true);
+      // The retired editorial phrasings must not creep back in.
+      expect(title).not.toMatch(/Lavorare in|Working at|Arbeiten bei|Travailler chez/);
+    }
+  });
+
+  it('leads the <h1> with the phrase, and never repeats the <title> verbatim', () => {
+    // The asymmetry (title = "{name}: {phrase}…", h1 = "{phrase} {name}") is
+    // what guarantees title !== h1 BY CONSTRUCTION — it replaces the old
+    // TITLE_SUFFIX_SHORT trick added after audit:h1-title-duplicates flagged
+    // 157 offenders on validate-dist run 29794187475.
+    for (const [rel, h1Text] of [
+      ['aziende/acme-corp/index.html', 'Offerte di lavoro Acme Corp'],
+      ['en/aziende/acme-corp/index.html', 'Jobs at Acme Corp'],
+      ['de/aziende/acme-corp/index.html', 'Offene Stellen bei Acme Corp'],
+      ['fr/aziende/acme-corp/index.html', 'Offres d’emploi chez Acme Corp'],
+    ] as const) {
+      const html = read(rel);
+      const h1 = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)?.[1] ?? '';
+      const title = html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '';
+      expect(h1, rel).toBe(h1Text);
+      expect(title, `${rel} title must differ from h1`).not.toBe(h1);
+    }
+  });
+
+  it('keeps BreadcrumbList + ItemList naming in step with the visible H1', () => {
+    // Structured data must not advertise a heading the page does not show.
+    const html = read('aziende/acme-corp/index.html');
+    const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+      .map((m) => JSON.parse(m[1]));
+    const crumb = scripts.find((s) => s['@type'] === 'BreadcrumbList');
+    expect(crumb.itemListElement[1].name).toBe('Offerte di lavoro Acme Corp');
+    const itemList = scripts.find((s) => s['@type'] === 'ItemList');
+    expect(itemList.name).toBe('Offerte di lavoro Acme Corp');
   });
 
   // text-html-ratio follow-up (validate-dist run 29794187475, PR #4611
@@ -216,6 +281,23 @@ describe('employerProfilePagesPlugin', () => {
     const html = read('aziende/small-co/index.html');
     expect(html).toContain('name=robots content=noindex,follow');
     expect(html).toContain('Small Co');
+    // The bridge shares the full page's brand-first title shape, and its <h1>
+    // is the bare company name, so the two can never collide.
+    const title = html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '';
+    expect(title).toContain('Small Co: offerte di lavoro');
+    expect(title).not.toContain('Lavorare in');
+  });
+
+  it('holds the title budget on a name too long for either candidate', () => {
+    // Both candidates overflow at 54 chars of legal name, so composePlaceTitle
+    // falls through to truncateHeadline — the recovery path that did not exist
+    // on this emit site before 2026-08-07 (audit:title-length, #4593).
+    const html = read('aziende/ente-ospedaliero-cantonale-della-svizzera-italiana-sagl/index.html');
+    const title = html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '';
+    expect(title.length, `overflow title: ${title}`).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+    expect(title.startsWith('Ente Ospedaliero Cantonale')).toBe(true);
+    // Brand suffix must be dropped rather than pushing past the cap.
+    expect(title).not.toContain('| Frontaliere Ticino');
   });
 
   it('writes a sitemap listing the indexable IT canonical only', () => {
