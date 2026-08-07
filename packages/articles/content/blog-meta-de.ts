@@ -9312,6 +9312,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-aumento-2026.title': 'Grenzgänger im Tessin: +0,6% vierteljährlich, -0,6% jährlich',
     'blog.article.frontalieri-ticino-aumento-2026.excerpt': 'Auf 79.121, leichtes Wachstum im zweiten Quartal 2026. Rückgang auf Jahresbasis, Schwäche-Signal.',
     'blog.article.frontalieri-ticino-aumento-2026.imageAlt': 'Grenzarbeiter am Grenzübergang Brogeda in Chiasso mit Dokumenten in der Hand',
+    'blog.article.graffio-nella-barba-locarno-film-festival.title': 'Das Kratzen im Bart des künstlerischen Leiters beim Locarno Film Festival',
+    'blog.article.graffio-nella-barba-locarno-film-festival.excerpt': 'Im weichen und voluminösen Bart des künstlerischen Leiters verbirgt sich eine Absichtserklärung für das Schweizer Kino, mit Investitionen, die bis 2025 um 25% steigen.',
+    'blog.article.graffio-nella-barba-locarno-film-festival.imageAlt': 'Gepflegter Bart des künstlerischen Leiters beim Locarno Film Festival vor der Piazza Grande',
 };
 
 export default blogMetaDe;

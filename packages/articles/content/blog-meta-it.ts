@@ -9314,6 +9314,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-aumento-2026.title': 'Frontalieri in Ticino: +0,6% trimestrale, -0,6% annuo',
     'blog.article.frontalieri-ticino-aumento-2026.excerpt': 'A quota 79.121, lieve crescita nel secondo trimestre 2026. Calo su base annuale, segnale debolezza.',
     'blog.article.frontalieri-ticino-aumento-2026.imageAlt': 'Frontaliero al valico di Brogeda a Chiasso con documenti in mano',
+    'blog.article.graffio-nella-barba-locarno-film-festival.title': 'Il graffio nella barba del direttore artistico al Locarno Film Festival',
+    'blog.article.graffio-nella-barba-locarno-film-festival.excerpt': 'Nella soffice e voluminosa barba del direttore artistico si cela una dichiarazione d’intenti per il cinema elvetico, con investimenti in aumento del 25% nel 2025.',
+    'blog.article.graffio-nella-barba-locarno-film-festival.imageAlt': 'Barba curata del direttore artistico al Locarno Film Festival davanti a Piazza Grande',
 };
 
 export default blogMetaIt;
