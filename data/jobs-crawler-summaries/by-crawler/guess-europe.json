@@ -1,16 +1,16 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-08-06T12:15:14.433Z",
+  "generatedAt": "2026-08-07T01:14:40.239Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 2614,
-  "avgDurationMs": 2614,
+  "durationMs": 2530,
+  "avgDurationMs": 2530,
   "durationHistory": [
-    2614
+    2530
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -266,6 +266,7 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-03T22:27:08.641Z",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -302,6 +303,7 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-03T12:38:55.276Z",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -338,6 +340,7 @@
       "salaryMax": 106000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-21T22:27:52.823Z",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -381,6 +384,7 @@
       "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-03T12:38:55.276Z",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -417,6 +421,7 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-09T22:38:35.232Z",
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
