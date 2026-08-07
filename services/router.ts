@@ -18,6 +18,7 @@ import { getLocale, type Locale } from './i18n';
 import { SLUG_TABLES, type SlugTable } from './routeSlugs.data';
 import { cdnDataUrl } from './cdnDataBase';
 import { buildJobSlugRecord, jobSlugShardKey, jobSlugShardPath } from './jobSlugShards';
+import { resolveCantonGroup as resolveCantonGroupShared } from './cantonList';
 import {
  CITY_HUB_KEYS,
  CITY_HUB_DISPLAY_NAME,
@@ -979,34 +980,30 @@ const CANTON_URL_SLUGS = CANTON_URL_SLUGS_RAW as unknown as CantonUrlSlugsFile;
 /** Reserved sentinel for the Switzerland-wide aggregator route. */
 export const JOB_BOARD_CANTON_AGGREGATE = '_AGGREGATE_';
 
-/**
- * Member BFS canton code → URL group key (e.g. `'AI' → 'APPENZELLO'`,
- * `'BS' → 'BASILEA'`). Built once from `CANTON_URL_SLUGS.cantonGroups`.
- * Half-canton merge (2026-05-10): AI+AR collapse into a single URL group
- * `APPENZELLO`; BL+BS into `BASILEA`. Internal BFS/quorum logic still
- * tags jobs with the real BFS code; call {@link resolveCantonGroup} at
- * the URL-emission boundary to collapse onto the group key.
- */
-const CANTON_MEMBER_TO_GROUP: ReadonlyMap<string, string> = (() => {
- const map = new Map<string, string>();
- const groups = CANTON_URL_SLUGS.cantonGroups ?? {};
- for (const [groupKey, def] of Object.entries(groups)) {
-  for (const member of def?.members ?? []) {
-   map.set(String(member).toUpperCase(), groupKey);
-  }
- }
- return map;
-})();
+// Member BFS canton code → URL group key (`'AI' → 'APPENZELLO'`, `'BS' →
+// 'BASILEA'`) now lives in services/cantonList.ts as `resolveCantonGroup`.
+// Half-canton merge (2026-05-10): AI+AR collapse into a single URL group
+// `APPENZELLO`; BL+BS into `BASILEA`. Internal BFS/quorum logic still tags jobs
+// with the real BFS code; call {@link resolveCantonGroup} at the URL-emission
+// boundary to collapse onto the group key.
 
 /**
  * Resolve a real BFS canton code to its URL canton group key. AI/AR collapse
  * to `APPENZELLO`; BL/BS collapse to `BASILEA`; every other code (and the
  * `_AGGREGATE_` sentinel) round-trips unchanged.
+ *
+ * Thin re-export of the shared implementation in `services/cantonList.ts`.
+ * It used to invert `CANTON_URL_SLUGS.cantonGroups` into its own private
+ * member→group map; `services/jobCantonShards.ts` then needed the same
+ * inversion for shard addressing, and a second copy of a normalisation whose
+ * absence had already caused half-canton 404s is precisely the drift AGENTS.md
+ * §6 forbids. One implementation now, consumed from both.
+ *
+ * Kept as a named export because callers (build plugins, tests, the canton URL
+ * builder below) import it from the router.
  */
 export function resolveCantonGroup(cantonCode: string): string {
- const code = String(cantonCode || '').toUpperCase().trim();
- if (!code) return code;
- return CANTON_MEMBER_TO_GROUP.get(code) ?? code;
+ return resolveCantonGroupShared(cantonCode);
 }
 
 /**

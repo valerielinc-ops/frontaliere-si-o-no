@@ -36,7 +36,7 @@
 // the vite.config plugin graph, where alias VALUE imports fail at config load.
 
 import CANTON_URL_SLUGS_RAW from '../data/canton-url-slugs.json';
-import { expandCantonGroup } from './cantonList';
+import { expandCantonGroup, resolveCantonGroup } from './cantonList';
 
 interface CantonUrlSlugsShape {
   cantons: Record<string, unknown>;
@@ -68,23 +68,6 @@ export const CANTON_SHARD_KEYS: ReadonlyArray<string> = Object.freeze(
 );
 
 /**
- * Member BFS code → shard key (`'AI' → 'APPENZELLO'`, `'BS' → 'BASILEA'`).
- * Derived by INVERTING `expandCantonGroup` over CANTON_SHARD_KEYS rather than
- * re-declaring the grouping: there is exactly one grouping table
- * (`data/canton-url-slugs.json` → `cantonGroups`) and this map is a view of it,
- * so it cannot disagree with `expandCantonGroup` / `scopeJobsToCanton`.
- */
-const MEMBER_TO_SHARD_KEY: ReadonlyMap<string, string> = (() => {
-  const map = new Map<string, string>();
-  for (const key of CANTON_SHARD_KEYS) {
-    for (const member of expandCantonGroup(key)) {
-      map.set(member, key);
-    }
-  }
-  return map;
-})();
-
-/**
  * Normalise any canton code to the key its shard file is named after.
  *
  * Load-bearing: callers pass canton codes from two different layers.
@@ -96,11 +79,16 @@ const MEMBER_TO_SHARD_KEY: ReadonlyMap<string, string> = (() => {
  *
  * Unknown codes (and the `_AGGREGATE_` sentinel) round-trip unchanged; the
  * caller's 404 handling covers them.
+ *
+ * Delegates to `cantonList.resolveCantonGroup` — the single home for the
+ * member→group inversion, shared with `services/router.ts`'s URL-emission
+ * boundary. A shard key and a URL canton key are the same thing by
+ * construction, which is the property that keeps a bridge URL and the shard it
+ * fetches in agreement. Named separately because this is the shard layer's
+ * concept and its call sites read better for it.
  */
 export function resolveCantonShardKey(cantonCode: string): string {
-  const code = String(cantonCode || '').toUpperCase().trim();
-  if (!code) return code;
-  return MEMBER_TO_SHARD_KEY.get(code) ?? code;
+  return resolveCantonGroup(cantonCode);
 }
 
 /** File name of one shard. Locale is part of the name because the slim index
