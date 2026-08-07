@@ -9312,9 +9312,6 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-aumento-2026.title': 'Grenzgänger im Tessin: +0,6% vierteljährlich, -0,6% jährlich',
     'blog.article.frontalieri-ticino-aumento-2026.excerpt': 'Auf 79.121, leichtes Wachstum im zweiten Quartal 2026. Rückgang auf Jahresbasis, Schwäche-Signal.',
     'blog.article.frontalieri-ticino-aumento-2026.imageAlt': 'Grenzarbeiter am Grenzübergang Brogeda in Chiasso mit Dokumenten in der Hand',
-    'blog.article.vivere-maslianico-lavorare-ticino-frontaliere.title': 'Leben in Maslianico und Arbeiten im Tessin als Grenzgänger: Leitfaden 2024',
-    'blog.article.vivere-maslianico-lavorare-ticino-frontaliere.excerpt': 'Quellensteuer nur in der Schweiz, neues Abkommen gültig ab 1. Januar 2024, Selbstbehalt bis 10\'000 Euro für neue Grenzgänger',
-    'blog.article.vivere-maslianico-lavorare-ticino-frontaliere.imageAlt': 'Grenzgänger der den Brogeda Grenzübergang nach Tessin überquert',
 };
 
 export default blogMetaDe;

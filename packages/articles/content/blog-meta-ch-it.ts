@@ -1906,6 +1906,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.costo-vita-2026-zurigo-analisi.title': 'Costo della vita 2026 nel Canton Zurigo: dati e analisi',
     'blog.article.costo-vita-2026-zurigo-analisi.excerpt': 'Analisi aggiornata 2026 sul costo della vita a Zurigo: affitti, premi LAMal, contributi AVS al 5,3% e imposte alla fonte per i lavoratori.',
     'blog.article.costo-vita-2026-zurigo-analisi.imageAlt': 'Panorama urbano di Zurigo con uffici e fiumi nel 2026',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.title': 'Imposta cantonale confronto Svizzera 2026 canton Basilea',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.excerpt': 'Confronto 2026 delle aliquote cantonali in Svizzera: focus su Basilea con dati su AD/AC 1,1%, LAINF 0,7–1,5%, LPP 7–18% e franchigia frontalieri €10\'000.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-basilea.imageAlt': 'Vista aerea di Basilea sul fiume Reno con edifici uffici e architettura svizzera tradizionale',
 };
 
 export default blogMetaChIt;

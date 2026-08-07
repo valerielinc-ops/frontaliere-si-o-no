@@ -9314,9 +9314,6 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-aumento-2026.title': 'Frontalieri in Ticino: +0,6% trimestrale, -0,6% annuo',
     'blog.article.frontalieri-ticino-aumento-2026.excerpt': 'A quota 79.121, lieve crescita nel secondo trimestre 2026. Calo su base annuale, segnale debolezza.',
     'blog.article.frontalieri-ticino-aumento-2026.imageAlt': 'Frontaliero al valico di Brogeda a Chiasso con documenti in mano',
-    'blog.article.vivere-maslianico-lavorare-ticino-frontaliere.title': 'Vivere a Maslianico e lavorare in Ticino da frontaliere: guida 2024',
-    'blog.article.vivere-maslianico-lavorare-ticino-frontaliere.excerpt': 'Imposta alla fonte solo in Svizzera, nuovo accordo in vigore dal 1° gennaio 2024, franchigia fino a 10\'000 euro per nuovi frontalieri',
-    'blog.article.vivere-maslianico-lavorare-ticino-frontaliere.imageAlt': 'Frontaliere che attraversa il valico di Brogeda entrando in Ticino verso Lugano',
 };
 
 export default blogMetaIt;
