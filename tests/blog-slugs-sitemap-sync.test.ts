@@ -2,6 +2,18 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 
+import {
+  IN_TRANSIT_WINDOW_MS,
+  MAX_PRODUCER_SKEW_MS,
+  frontierOf,
+  hours,
+  parseSitemapEntries,
+  partitionMissingSlugs,
+  partitionStaleUrls,
+  skewMs,
+  type SitemapEntry,
+} from './helpers/sitemapTransitWindow';
+
 // Canonical blog article URL bases per locale (matches sitemap-blog.xml entries).
 const BLOG_URL_BASE: Record<string, string> = {
   it: 'https://frontaliereticino.ch/articoli-frontaliere/',
@@ -34,6 +46,28 @@ const SWISS_LOC_PATTERNS: Record<string, RegExp> = {
   fr: /^https:\/\/frontaliereticino\.ch\/fr\/articles-suisse\/([^/]+)\/$/,
 };
 
+// ─── The race this gate has to survive (issue #5298) ─────────────────────────
+//
+// Registry and sitemaps are written to main by two producers that are not in
+// phase: `feat(article):` commits add an article to the registry without ever
+// touching the section sitemaps, and `🗺️ Sync` commits mirror nanako's corpus
+// over the registry while pulling the published sitemaps over HTTP — two
+// sources read at two instants, so one commit can be inconsistent in EITHER
+// direction. That is why the sign of this gate's failure inverted over a day
+// at constant code, and why it was red on branches that had changed nothing.
+//
+// Every check below excuses exactly one thing: an item that sits at or beyond
+// the OPPOSING producer's frontier. Everything behind that frontier — the
+// whole body of the corpus, which is what #3012/#3120 are about — is asserted
+// exactly as before. tests/sitemap-transit-window.test.ts pins both halves:
+// that a real in-transit state passes, and that a real desync still fails.
+// See tests/helpers/sitemapTransitWindow.ts for the measurements behind the
+// two constants.
+
+function readSitemap(name: string): string {
+  return readFileSync(path.resolve(__dirname, '..', 'public', name), 'utf-8');
+}
+
 // sitemap-blog.xml structure: <loc> has the IT canonical URL only.
 // EN/DE/FR slugs appear as `hreflang="LOCALE" href="URL"` in <xhtml:link> elements.
 // Extract all locale→URL pairs from both <loc> (IT) and xhtml:link hreflang hrefs.
@@ -65,29 +99,54 @@ function buildValidSlugSets(
   return sets;
 }
 
+/** id → publication date, from the section's *-articles-data.ts registry. */
+function datesById(articles: ReadonlyArray<{ id: string; date: string }>): Map<string, string> {
+  return new Map(articles.map(a => [a.id, a.date]));
+}
+
+/**
+ * The sitemap's own frontier FOR ONE SECTION: the newest `<url>` block whose
+ * `<loc>` belongs to that section's hub. Section-scoped on purpose — the blog
+ * and swiss pipelines publish at independent cadences, so the newest blog
+ * entry says nothing about how far the swiss half has got.
+ */
+function sitemapFrontier(entries: readonly SitemapEntry[], itPattern: RegExp): string | undefined {
+  return frontierOf(
+    entries.filter(e => e.loc && itPattern.test(e.loc)).map(e => e.timestamp),
+  );
+}
+
+function announce(what: string, frontierLabel: string, frontier: string | undefined, rows: string[]): void {
+  if (!rows.length) return;
+  console.info(
+    `ℹ️ ${rows.length} ${what} beyond the ${frontierLabel} frontier (${frontier}) — in transit, not asserted:\n${rows.join('\n')}`,
+  );
+}
+
 // Guard: every BLOG_SLUG locale URL must be present in sitemap-blog.xml.
 // IT slugs → <loc>. EN/DE/FR slugs → <xhtml:link hreflang> href.
 // Catches: slug renamed in routerBlogData.ts but sitemap not regenerated (#3012 class).
 describe('BLOG_SLUGS ↔ sitemap-blog.xml sync (gate: prevents #3012 class bug)', () => {
   it('every BLOG_SLUG must appear in sitemap-blog.xml (IT: <loc>, others: hreflang href)', async () => {
     const { BLOG_SLUGS } = await import('../services/routerBlogData');
-    const xml = readFileSync(path.resolve(__dirname, '..', 'public', 'sitemap-blog.xml'), 'utf-8');
+    const { ARTICLES } = await import('../data/blog-articles-data');
+    const xml = readSitemap('sitemap-blog.xml');
     const { locUrls, hreflangUrls } = extractSitemapUrls(xml);
+    const frontier = sitemapFrontier(parseSitemapEntries(xml), BLOG_LOC_PATTERNS.it);
 
-    const missing: string[] = [];
-    for (const [articleId, slugMap] of Object.entries(BLOG_SLUGS)) {
-      for (const [locale, slug] of Object.entries(slugMap)) {
-        const base = BLOG_URL_BASE[locale];
-        if (!base) continue;
-        const url = `${base}${slug}/`;
-        const present = locale === 'it' ? locUrls.has(url) : hreflangUrls.get(locale)?.has(url);
-        if (!present) missing.push(`${articleId} [${locale}]: ${url}`);
-      }
-    }
+    const { reported, inTransit } = partitionMissingSlugs({
+      slugs: BLOG_SLUGS as Record<string, Record<string, string>>,
+      dates: datesById(ARTICLES),
+      urlBase: BLOG_URL_BASE,
+      locUrls,
+      hreflangUrls,
+      sitemapFrontier: frontier,
+    });
+    announce('BLOG_SLUGS', 'sitemap-blog.xml', frontier, inTransit);
 
     expect(
-      missing,
-      `BLOG_SLUGS entries missing from sitemap-blog.xml (${missing.length}):\n${missing.join('\n')}`,
+      reported,
+      `BLOG_SLUGS entries missing from sitemap-blog.xml (${reported.length}) — each is OLDER than the sitemap's own frontier (${frontier}), so the sitemap was regenerated past it and still lacks it:\n${reported.join('\n')}`,
     ).toHaveLength(0);
   });
 
@@ -95,31 +154,21 @@ describe('BLOG_SLUGS ↔ sitemap-blog.xml sync (gate: prevents #3012 class bug)'
   // Catches: old/pre-collision slug still in sitemap after rename in routerBlogData.ts.
   it('every blog URL in sitemap-blog.xml must correspond to a BLOG_SLUG', async () => {
     const { BLOG_SLUGS } = await import('../services/routerBlogData');
-    const xml = readFileSync(path.resolve(__dirname, '..', 'public', 'sitemap-blog.xml'), 'utf-8');
-    const { locUrls, hreflangUrls } = extractSitemapUrls(xml);
-    const validSlugs = buildValidSlugSets(BLOG_SLUGS as Record<string, Record<string, string>>);
+    const { ARTICLES } = await import('../data/blog-articles-data');
+    const xml = readSitemap('sitemap-blog.xml');
+    const registryFrontier = frontierOf(ARTICLES.map(a => a.date));
 
-    const stale: string[] = [];
-
-    for (const url of locUrls) {
-      const match = url.match(BLOG_LOC_PATTERNS.it);
-      if (match && !validSlugs.it.has(match[1])) stale.push(`[it] <loc>: ${url}`);
-    }
-
-    for (const [locale, urls] of hreflangUrls) {
-      const pattern = BLOG_LOC_PATTERNS[locale];
-      if (!pattern) continue;
-      for (const url of urls) {
-        const match = url.match(pattern);
-        if (match && !validSlugs[locale]?.has(match[1])) {
-          stale.push(`[${locale}] hreflang href: ${url}`);
-        }
-      }
-    }
+    const { reported, inTransit } = partitionStaleUrls({
+      entries: parseSitemapEntries(xml),
+      validSlugs: buildValidSlugSets(BLOG_SLUGS as Record<string, Record<string, string>>),
+      patterns: BLOG_LOC_PATTERNS,
+      registryFrontier,
+    });
+    announce('sitemap-blog.xml URLs', 'blog registry', registryFrontier, inTransit);
 
     expect(
-      stale,
-      `sitemap-blog.xml URLs not in BLOG_SLUGS — stale after de-collision? (${stale.length}):\n${stale.join('\n')}`,
+      reported,
+      `sitemap-blog.xml URLs not in BLOG_SLUGS — stale after de-collision? (${reported.length}). Each is OLDER than the registry's own frontier (${registryFrontier}), so the registry has moved past it and still does not carry it:\n${reported.join('\n')}`,
     ).toHaveLength(0);
   });
 
@@ -127,31 +176,21 @@ describe('BLOG_SLUGS ↔ sitemap-blog.xml sync (gate: prevents #3012 class bug)'
   // sitemap-news.xml is a subset — not all articles are there, but every entry must be valid.
   it('every blog URL in sitemap-news.xml must correspond to a BLOG_SLUG', async () => {
     const { BLOG_SLUGS } = await import('../services/routerBlogData');
-    const xml = readFileSync(path.resolve(__dirname, '..', 'public', 'sitemap-news.xml'), 'utf-8');
-    const { locUrls, hreflangUrls } = extractSitemapUrls(xml);
-    const validSlugs = buildValidSlugSets(BLOG_SLUGS as Record<string, Record<string, string>>);
+    const { ARTICLES } = await import('../data/blog-articles-data');
+    const xml = readSitemap('sitemap-news.xml');
+    const registryFrontier = frontierOf(ARTICLES.map(a => a.date));
 
-    const stale: string[] = [];
-
-    for (const url of locUrls) {
-      const match = url.match(BLOG_LOC_PATTERNS.it);
-      if (match && !validSlugs.it.has(match[1])) stale.push(`[it] <loc>: ${url}`);
-    }
-
-    for (const [locale, urls] of hreflangUrls) {
-      const pattern = BLOG_LOC_PATTERNS[locale];
-      if (!pattern) continue;
-      for (const url of urls) {
-        const match = url.match(pattern);
-        if (match && !validSlugs[locale]?.has(match[1])) {
-          stale.push(`[${locale}] hreflang href: ${url}`);
-        }
-      }
-    }
+    const { reported, inTransit } = partitionStaleUrls({
+      entries: parseSitemapEntries(xml),
+      validSlugs: buildValidSlugSets(BLOG_SLUGS as Record<string, Record<string, string>>),
+      patterns: BLOG_LOC_PATTERNS,
+      registryFrontier,
+    });
+    announce('sitemap-news.xml blog URLs', 'blog registry', registryFrontier, inTransit);
 
     expect(
-      stale,
-      `sitemap-news.xml URLs not in BLOG_SLUGS — stale after de-collision? (${stale.length}):\n${stale.join('\n')}`,
+      reported,
+      `sitemap-news.xml URLs not in BLOG_SLUGS — stale after de-collision? (${reported.length}). Each is OLDER than the registry's own frontier (${registryFrontier}):\n${reported.join('\n')}`,
     ).toHaveLength(0);
   });
 });
@@ -166,9 +205,11 @@ describe('BLOG_SLUGS ↔ sitemap-blog.xml sync (gate: prevents #3012 class bug)'
 describe('SWISS_SLUGS ↔ sitemap-blog-ch.xml / sitemap-news.xml sync (gate: prevents #3120 recidivism)', () => {
   it('every non-shadowed SWISS_SLUG must appear in sitemap-blog-ch.xml (IT: <loc>, others: hreflang href)', async () => {
     const { SWISS_SLUGS } = await import('../services/routerSwissData');
+    const { SWISS_ARTICLES } = await import('../data/swiss-articles-data');
     const { loadSwissArticleCanonicalOverrides } = await import('../build-plugins/shared/swissArticleCanonicalOverrides');
-    const xml = readFileSync(path.resolve(__dirname, '..', 'public', 'sitemap-blog-ch.xml'), 'utf-8');
+    const xml = readSitemap('sitemap-blog-ch.xml');
     const { locUrls, hreflangUrls } = extractSitemapUrls(xml);
+    const frontier = sitemapFrontier(parseSitemapEntries(xml), SWISS_LOC_PATTERNS.it);
 
     // Issue #3010 item 1 correction (2026-07-03): a canonical-overridden
     // article's <url> block is intentionally DROPPED from sitemap-blog-ch.xml
@@ -176,33 +217,39 @@ describe('SWISS_SLUGS ↔ sitemap-blog-ch.xml / sitemap-news.xml sync (gate: pre
     // own IT slug is a key in the override map. Excluded here, asserted
     // ABSENT in the dedicated test below instead.
     const overrides = loadSwissArticleCanonicalOverrides({ readFileSync }, path.resolve(__dirname, '..', 'data', 'swiss-article-canonical-overrides.json'));
+    const shadowedIds = new Set(
+      Object.entries(SWISS_SLUGS as Record<string, Record<string, string>>)
+        .filter(([, slugMap]) => slugMap.it && Object.prototype.hasOwnProperty.call(overrides, slugMap.it))
+        .map(([id]) => id),
+    );
 
-    const missing: string[] = [];
-    for (const [articleId, slugMap] of Object.entries(SWISS_SLUGS as Record<string, Record<string, string>>)) {
-      const itSlug = (slugMap as Record<string, string>).it;
-      if (itSlug && Object.prototype.hasOwnProperty.call(overrides, itSlug)) continue; // shadowed, dropped on purpose
-      for (const [locale, slug] of Object.entries(slugMap)) {
-        const base = SWISS_URL_BASE[locale];
-        if (!base) continue;
-        const url = `${base}${slug}/`;
-        const present = locale === 'it' ? locUrls.has(url) : hreflangUrls.get(locale)?.has(url);
-        if (!present) missing.push(`${articleId} [${locale}]: ${url}`);
-      }
-    }
+    const { reported, inTransit } = partitionMissingSlugs({
+      slugs: SWISS_SLUGS as Record<string, Record<string, string>>,
+      dates: datesById(SWISS_ARTICLES),
+      urlBase: SWISS_URL_BASE,
+      locUrls,
+      hreflangUrls,
+      sitemapFrontier: frontier,
+      skipIds: shadowedIds,
+    });
+    announce('SWISS_SLUGS', 'sitemap-blog-ch.xml', frontier, inTransit);
 
     expect(
-      missing,
-      `SWISS_SLUGS entries missing from sitemap-blog-ch.xml (${missing.length}):\n${missing.join('\n')}`,
+      reported,
+      `SWISS_SLUGS entries missing from sitemap-blog-ch.xml (${reported.length}) — each is OLDER than the sitemap's own frontier (${frontier}):\n${reported.join('\n')}`,
     ).toHaveLength(0);
   });
 
   it('every shadowed (canonical-overridden) SWISS_SLUG is ABSENT from sitemap-blog-ch.xml (IT: <loc>, others: hreflang href)', async () => {
     const { SWISS_SLUGS } = await import('../services/routerSwissData');
     const { loadSwissArticleCanonicalOverrides } = await import('../build-plugins/shared/swissArticleCanonicalOverrides');
-    const xml = readFileSync(path.resolve(__dirname, '..', 'public', 'sitemap-blog-ch.xml'), 'utf-8');
+    const xml = readSitemap('sitemap-blog-ch.xml');
     const { locUrls, hreflangUrls } = extractSitemapUrls(xml);
     const overrides = loadSwissArticleCanonicalOverrides({ readFileSync }, path.resolve(__dirname, '..', 'data', 'swiss-article-canonical-overrides.json'));
 
+    // No transit window here, on purpose: this asserts ABSENCE. A producer
+    // running late can only make a URL missing, never make a shadowed one
+    // appear — so every hit is a real self-canonical violation.
     const stillPresent: string[] = [];
     for (const [articleId, slugMap] of Object.entries(SWISS_SLUGS as Record<string, Record<string, string>>)) {
       const itSlug = (slugMap as Record<string, string>).it;
@@ -225,31 +272,21 @@ describe('SWISS_SLUGS ↔ sitemap-blog-ch.xml / sitemap-news.xml sync (gate: pre
   // Guard: every swiss URL in sitemap-blog-ch.xml must correspond to a current SWISS_SLUG.
   it('every swiss URL in sitemap-blog-ch.xml must correspond to a SWISS_SLUG', async () => {
     const { SWISS_SLUGS } = await import('../services/routerSwissData');
-    const xml = readFileSync(path.resolve(__dirname, '..', 'public', 'sitemap-blog-ch.xml'), 'utf-8');
-    const { locUrls, hreflangUrls } = extractSitemapUrls(xml);
-    const validSlugs = buildValidSlugSets(SWISS_SLUGS as Record<string, Record<string, string>>);
+    const { SWISS_ARTICLES } = await import('../data/swiss-articles-data');
+    const xml = readSitemap('sitemap-blog-ch.xml');
+    const registryFrontier = frontierOf(SWISS_ARTICLES.map(a => a.date));
 
-    const stale: string[] = [];
-
-    for (const url of locUrls) {
-      const match = url.match(SWISS_LOC_PATTERNS.it);
-      if (match && !validSlugs.it.has(match[1])) stale.push(`[it] <loc>: ${url}`);
-    }
-
-    for (const [locale, urls] of hreflangUrls) {
-      const pattern = SWISS_LOC_PATTERNS[locale];
-      if (!pattern) continue;
-      for (const url of urls) {
-        const match = url.match(pattern);
-        if (match && !validSlugs[locale]?.has(match[1])) {
-          stale.push(`[${locale}] hreflang href: ${url}`);
-        }
-      }
-    }
+    const { reported, inTransit } = partitionStaleUrls({
+      entries: parseSitemapEntries(xml),
+      validSlugs: buildValidSlugSets(SWISS_SLUGS as Record<string, Record<string, string>>),
+      patterns: SWISS_LOC_PATTERNS,
+      registryFrontier,
+    });
+    announce('sitemap-blog-ch.xml URLs', 'swiss registry', registryFrontier, inTransit);
 
     expect(
-      stale,
-      `sitemap-blog-ch.xml URLs not in SWISS_SLUGS — stale after de-collision? (${stale.length}):\n${stale.join('\n')}`,
+      reported,
+      `sitemap-blog-ch.xml URLs not in SWISS_SLUGS — stale after de-collision? (${reported.length}). Each is OLDER than the registry's own frontier (${registryFrontier}):\n${reported.join('\n')}`,
     ).toHaveLength(0);
   });
 
@@ -258,33 +295,27 @@ describe('SWISS_SLUGS ↔ sitemap-blog-ch.xml / sitemap-news.xml sync (gate: pre
   // hreflang alternates were built from a stale or wrong-registry slug (e.g.
   // read from routerBlogData instead of routerSwissData) shows up here as a
   // URL under the swiss hub shape that no current SWISS_SLUG resolves to.
+  //
+  // This is also the assertion that reported #5298: on 10c8c817 the sync
+  // commit removed `rimborsi-730-sostituti-imposta` from routerSwissData.ts
+  // (+1 −2) in the very same commit that added its <url> block here.
   it('every swiss URL in sitemap-news.xml must correspond to a current SWISS_SLUG', async () => {
     const { SWISS_SLUGS } = await import('../services/routerSwissData');
-    const xml = readFileSync(path.resolve(__dirname, '..', 'public', 'sitemap-news.xml'), 'utf-8');
-    const { locUrls, hreflangUrls } = extractSitemapUrls(xml);
-    const validSlugs = buildValidSlugSets(SWISS_SLUGS as Record<string, Record<string, string>>);
+    const { SWISS_ARTICLES } = await import('../data/swiss-articles-data');
+    const xml = readSitemap('sitemap-news.xml');
+    const registryFrontier = frontierOf(SWISS_ARTICLES.map(a => a.date));
 
-    const stale: string[] = [];
-
-    for (const url of locUrls) {
-      const match = url.match(SWISS_LOC_PATTERNS.it);
-      if (match && !validSlugs.it.has(match[1])) stale.push(`[it] <loc>: ${url}`);
-    }
-
-    for (const [locale, urls] of hreflangUrls) {
-      const pattern = SWISS_LOC_PATTERNS[locale];
-      if (!pattern) continue;
-      for (const url of urls) {
-        const match = url.match(pattern);
-        if (match && !validSlugs[locale]?.has(match[1])) {
-          stale.push(`[${locale}] hreflang href: ${url}`);
-        }
-      }
-    }
+    const { reported, inTransit } = partitionStaleUrls({
+      entries: parseSitemapEntries(xml),
+      validSlugs: buildValidSlugSets(SWISS_SLUGS as Record<string, Record<string, string>>),
+      patterns: SWISS_LOC_PATTERNS,
+      registryFrontier,
+    });
+    announce('sitemap-news.xml swiss URLs', 'swiss registry', registryFrontier, inTransit);
 
     expect(
-      stale,
-      `sitemap-news.xml URLs not in SWISS_SLUGS — stale after de-collision? (${stale.length}):\n${stale.join('\n')}`,
+      reported,
+      `sitemap-news.xml URLs not in SWISS_SLUGS — stale after de-collision? (${reported.length}). Each is OLDER than the registry's own frontier (${registryFrontier}):\n${reported.join('\n')}`,
     ).toHaveLength(0);
   });
 
@@ -319,5 +350,38 @@ describe('SWISS_SLUGS ↔ sitemap-blog-ch.xml / sitemap-news.xml sync (gate: pre
     // <url> block emit `fakeBlogSlugs[sharedId].en` instead).
     expect(blogValidSlugs.en.has(match![1])).toBe(false);
     expect(fakeSwissSlugs[sharedId].en).not.toEqual(fakeBlogSlugs[sharedId].en);
+  });
+});
+
+// ─── The backstop that keeps the transit window from going blind ─────────────
+//
+// The window excuses items beyond the opposing frontier. If a producer STOPS,
+// its frontier freezes and every subsequent article sits beyond it — tolerated
+// forever, gate blind, exactly the outcome #5298 says not to accept. This
+// bounds the whole arrangement: the two producers may be minutes or hours
+// apart, never days. Only the two COMPLETE sitemaps are checked;
+// sitemap-news.xml is a rolling recency window whose frontier legitimately
+// lags whenever nothing news-shaped has been published.
+describe('registry ↔ sitemap producer skew stays inside the sync cadence (gate: keeps the #5298 window bounded)', () => {
+  it.each([
+    ['blog', 'sitemap-blog.xml'],
+    ['swiss', 'sitemap-blog-ch.xml'],
+  ] as const)('%s registry and %s frontiers stay within the sync cadence', async (section, sitemapName) => {
+    const patterns = section === 'blog' ? BLOG_LOC_PATTERNS : SWISS_LOC_PATTERNS;
+    const articles = section === 'blog'
+      ? (await import('../data/blog-articles-data')).ARTICLES
+      : (await import('../data/swiss-articles-data')).SWISS_ARTICLES;
+
+    const registryFrontier = frontierOf(articles.map(a => a.date));
+    const mapFrontier = sitemapFrontier(parseSitemapEntries(readSitemap(sitemapName)), patterns.it);
+
+    expect(registryFrontier, `${section} registry carries no parseable publication date`).toBeTruthy();
+    expect(mapFrontier, `${sitemapName} carries no parseable ${section} entry timestamp`).toBeTruthy();
+
+    const lag = Math.abs(skewMs(registryFrontier, mapFrontier));
+    expect(
+      lag <= MAX_PRODUCER_SKEW_MS,
+      `${section} registry frontier (${registryFrontier}) and ${sitemapName} frontier (${mapFrontier}) are ${hours(lag)} apart — beyond the ${hours(MAX_PRODUCER_SKEW_MS)} bound. One of the two producers has stopped: that is not the publish-to-sync window the transit tolerance (${hours(IN_TRANSIT_WINDOW_MS)}) exists for, and while it lasts the tolerance would hide real desyncs.`,
+    ).toBe(true);
   });
 });
