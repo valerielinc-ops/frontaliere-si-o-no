@@ -71,12 +71,47 @@ describe('Soft-landing SEO pages for expired jobs', () => {
 });
 
 describe('SPA does not override static HTML metadata for expired job pages', () => {
-  it('seoService.ts skips metadata update when __EXPIRED_JOB_DATA__ is present', () => {
-    // The updateMetaTags function must detect expired job pages via the build-plugin-seeded
-    // window.__EXPIRED_JOB_DATA__ and bail out before overwriting static HTML metadata
-    expect(seoServiceSource).toContain('__EXPIRED_JOB_DATA__');
+  it('seoService.ts skips metadata update for the seeded expired job page', () => {
     // The guard must check isJobDetailPage && !jobSeo (job not in active dataset)
     expect(seoServiceSource).toContain('isJobDetailPage && !jobSeo');
+    // ...and bail out via the SLUG-SPECIFIC match, not a presence check.
+    expect(seoServiceSource).toMatch(
+      /if \(route\.jobSlug && seededJobMatchesSlug\(route\.jobSlug\)\) \{/,
+    );
+  });
+
+  it('seoService.ts does NOT bail on a mere presence check of the stale global', () => {
+    // Regression guard (PR #5328). __EXPIRED_JOB_DATA__ is baked into ONE expired
+    // page's static HTML and is never cleared by SPA navigation. Returning early
+    // just because the global EXISTS left an unrelated active job page wearing the
+    // previous job's canonical/title/JobPosting JSON-LD — shipped to Google.
+    // The old shape must not come back.
+    expect(seoServiceSource).not.toMatch(
+      /'slug' in \(expiredData as Record<string, unknown>\)/,
+    );
+    expect(seoServiceSource).not.toMatch(
+      /const expiredData = \(window as unknown as Record<string, unknown>\)\.__EXPIRED_JOB_DATA__/,
+    );
+  });
+
+  it('the slug matcher lives in ONE dependency-free module, shared by both readers', () => {
+    // services/seoService must not import the React hook module just to reuse the
+    // guard (it would drag the expired-job fetch machinery into a core chunk).
+    expect(seoServiceSource).toMatch(/from '\.\/seededExpiredJob'/);
+    expect(seoServiceSource).not.toMatch(/from '@\/hooks\/useExpiredJob'/);
+    const shared = fs.readFileSync(
+      path.resolve(root, 'services/seededExpiredJob.ts'),
+      'utf-8',
+    );
+    expect(shared).not.toMatch(/from 'react'/);
+    // Matches all four name kinds — a bare `job.slug === slug` would reject
+    // expired pages legitimately served under a locale or historic slug.
+    for (const field of ['slugByLocale', 'previousSlugs', 'previousSlugsByLocale']) {
+      expect(shared).toContain(field);
+    }
+    // useExpiredJob re-exports rather than keeping a second copy.
+    const hookSrc = fs.readFileSync(path.resolve(root, 'hooks/useExpiredJob.ts'), 'utf-8');
+    expect(hookSrc).toMatch(/export \{ seededJobMatchesSlug \} from '@\/services\/seededExpiredJob'/);
   });
 
   it('JobBoard.tsx preserves metadata when expiredJob is detected', () => {

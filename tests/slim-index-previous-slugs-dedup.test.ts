@@ -192,6 +192,40 @@ describe('PROOF: a historic slug still resolves without the index carrying it', 
     const unknown = 'questo-slug-non-e-mai-esistito';
     expect(shards[jobSlugShardKey(unknown)][unknown]).toBeUndefined();
   });
+
+  // Reviewer question (#5325): with TWO renames, does an alias resolve to the
+  // slug that is really current, or to an intermediate slug that is itself
+  // historic by now? Answer: to the current one, BY CONSTRUCTION —
+  // buildJobSlugRecord builds ONE record per job whose `_default` is the job's
+  // current slug, and points EVERY alias at that same record. It is a flat
+  // alias -> job mapping, not a chain of hops, so there is no intermediate to
+  // land on and no hop count that can degrade. Production data backs the
+  // premise that the crawler accumulates renames rather than overwriting the
+  // last one: 19.860 of 21.164 records carry >= 1 alias, 61.064 aliases total
+  // (~3 per renamed job), measured 2026-08-07.
+  it('a job renamed TWICE resolves BOTH old slugs to the CURRENT one', () => {
+    const twiceRenamed = {
+      id: 'acme-0007',
+      canton: 'TI',
+      slug: 'terzo-slug-corrente-acme-lugano',
+      slugByLocale: { it: 'terzo-slug-corrente-acme-lugano' },
+      // Oldest first, exactly how the crawler appends them.
+      previousSlugs: ['primo-slug-originale-acme-lugano', 'secondo-slug-intermedio-acme-lugano'],
+    };
+    const s = buildJobSlugShards([twiceRenamed as SlugMapJobEntry]);
+    for (const oldSlug of twiceRenamed.previousSlugs) {
+      const record = s[jobSlugShardKey(oldSlug)][oldSlug];
+      expect(record, `"${oldSlug}" must resolve`).toBeDefined();
+      // The current slug — never the intermediate one.
+      expect(record._default).toBe('terzo-slug-corrente-acme-lugano');
+      expect(record._id).toBe('acme-0007');
+    }
+    // And explicitly: the oldest alias does NOT land on the intermediate slug.
+    const oldest = twiceRenamed.previousSlugs[0];
+    expect(s[jobSlugShardKey(oldest)][oldest]._default).not.toBe(
+      'secondo-slug-intermedio-acme-lugano',
+    );
+  });
 });
 
 describe('JobBoard consumes the shard mapping instead of the index field', () => {
@@ -257,6 +291,40 @@ describe('a bridge page is never mis-parsed as a filter landing', () => {
     expect(guarded).toBe(callSites.length);
   });
 
+  // Reviewer question (#5325): bridgeTargetSlug was a `useMemo(..., [])`, so on
+  // SPA soft-navigation (no remount) it stayed pinned to the page we arrived on.
+  // Before this PR that staleness was masked — companySlugFilter took precedence
+  // over selectedJob — but once the filters short-circuit on isBridgePage, a
+  // stale global nulls the NEW route's filter and re-renders the previous job.
+  it('the build-seeded globals are scoped to the pathname that shipped them', () => {
+    expect(src).toMatch(/const SEEDED_GLOBALS_PATHNAME: string \| null =/);
+    expect(src).toMatch(
+      /function onSeededDocument\(\): boolean \{[\s\S]*?window\.location\.pathname === SEEDED_GLOBALS_PATHNAME/,
+    );
+    // Both readers of a build-injected global go through it.
+    expect(src).toMatch(/function readBridgeTargetSlug\(\)[\s\S]{0,200}?if \(!onSeededDocument\(\)\) return undefined;/);
+    expect(src).toMatch(/function readSeededJob\(\)[\s\S]{0,900}?if \(!onSeededDocument\(\)\) return null;/);
+  });
+
+  it('__JOB_SEED__ does not leak into a later route (stale-seed class)', () => {
+    // A stale seed prepends the previous job to the listing via `finalize`, and
+    // routes the load effect down the requestIdleCallback branch on a page where
+    // the index is the above-the-fold content. Both need the memo to re-run.
+    expect(src).toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[initialJobSlug\]\)/);
+    expect(src).not.toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[\]\)/);
+  });
+
+  it('bridgeTargetSlug re-reads per route instead of pinning at mount', () => {
+    // A `[]` dep list would defeat the pathname guard above: the memo would
+    // never re-run, so the stale value would survive every soft-navigation.
+    expect(src).toMatch(
+      /const bridgeTargetSlug = useMemo\(\(\) => readBridgeTargetSlug\(\), \[initialJobSlug\]\)/,
+    );
+    expect(src).not.toMatch(
+      /const bridgeTargetSlug = useMemo\(\(\) => readBridgeTargetSlug\(\), \[\]\)/,
+    );
+  });
+
   it('the useState initializer uses the module-level reader (no hook-order trap)', () => {
     // `isBridgePage` is declared far below the initializer, so referencing it
     // there would be a TDZ error. The module-level reader has no such constraint.
@@ -264,8 +332,9 @@ describe('a bridge page is never mis-parsed as a filter landing', () => {
     expect(src).toMatch(
       /useState\(\(\) => \(readBridgeTargetSlug\(\) \? null : parseSearchSlugFilter\(initialJobSlug\)\) \|\| readSearchQueryFromUrl\(\)\)/,
     );
-    // Single source of truth: the hook reads the same helper.
-    expect(src).toMatch(/const bridgeTargetSlug = useMemo\(\(\) => readBridgeTargetSlug\(\), \[\]\)/);
+    // Single source of truth: the hook reads the same helper (dep list asserted
+    // separately, in the per-route re-read test above).
+    expect(src).toMatch(/const bridgeTargetSlug = useMemo\(\(\) => readBridgeTargetSlug\(\)/);
   });
 
   it('bridgeTargetSlug is declared before the filter memos that read it', () => {

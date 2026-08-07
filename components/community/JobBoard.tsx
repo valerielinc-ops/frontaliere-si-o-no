@@ -759,6 +759,16 @@ function normalizeIncomingJob(raw: any): JobListing {
  */
 function readSeededJob(): JobListing | null {
  try {
+ // Same document-scoping as the bridge global: __JOB_SEED__ is an inline
+ // script belonging to ONE job-detail page and is never cleared by SPA
+ // navigation, so without this the docstring's "returns null on SPA
+ // navigation" was simply untrue. A stale seed did real damage: `finalize`
+ // prepends it to the listing (a Ticino job at the top of the Zurich board
+ // after /cerca-lavoro-ticino/<job>/ → /cerca-lavoro-zurigo/), and the
+ // `if (seededJob)` branch of the load effect defers the index fetch to
+ // requestIdleCallback — correct on a detail page where the index is
+ // below-the-fold, wrong on a listing where the index IS the content.
+ if (!onSeededDocument()) return null;
  const raw = (window as unknown as Record<string, unknown>).__JOB_SEED__;
  if (raw && typeof raw === 'object'
  && typeof (raw as { slug?: unknown }).slug === 'string'
@@ -1630,7 +1640,15 @@ function matchesRouteSlug(job: JobListing, routeSlug: string): boolean {
  for (const locale of (['it', 'en', 'de', 'fr'] as const)) {
  if (deriveLocalizedJobSlug(job, locale) === target) return true;
  }
- // Check legacy slug aliases (renamed active jobs) — both flat and locale-aware
+ // Legacy slug aliases (renamed active jobs), flat and locale-aware.
+ // NB: records loaded from the slim locale index NO LONGER carry these fields
+ // (build-plugins/shared/slimJobIndex.ts dropped them — they duplicated the
+ // sharded slug map). Historic-slug resolution now happens BEFORE this call, by
+ // mapping the route slug to the job's current slug via `aliasCanonical`; see
+ // `selectedJob`. These two checks are kept as a defensive no-op for any caller
+ // that still passes a full (non-slim) record — e.g. tests, or a future
+ // per-canton shard payload built from data/jobs.json — and must not be read as
+ // "the historic fallback happens here".
  if (job.previousSlugs?.includes(target)) return true;
  if (job.previousSlugsByLocale) {
  for (const arr of Object.values(job.previousSlugsByLocale)) {
@@ -1715,9 +1733,37 @@ function readSearchQueryFromUrl(): string {
  * A module-level reader rather than a hook so the slug-filter parsers can
  * consult it from ANY position in the component — including the `searchQuery`
  * useState initializer, which runs before any hook declared further down.
+ *
+ * SCOPED TO THE PAGE THAT SHIPPED IT. The global is baked into the static HTML
+ * of ONE bridge URL and is never updated (nor cleared) by SPA navigation, so
+ * after a soft-navigation off that page it is stale. That staleness used to be
+ * harmless — `companySlugFilter` took precedence over `selectedJob` — but now
+ * that the filters short-circuit on `isBridgePage`, an uncleared global would
+ * null out the NEW route's company/location/search filter and re-render the
+ * previous job on, say, /cerca-lavoro-ticino/azienda-coop/. Honouring it only
+ * while we are still on the originating pathname keeps it a first-paint signal.
+ * Mirrors `seededJobMatchesSlug`, which guards __EXPIRED_JOB_DATA__ the same way
+ * ("prevents stale window globals from a previous SPA navigation").
+ *
+ * Captured at module load: the chunk is evaluated during the document's initial
+ * load, so this is the pathname the inline script belongs to. If it ever were
+ * evaluated later, the global would simply be absent and the reader returns
+ * undefined — resolution falls back to the shard path, which still resolves.
+ *
+ * Shared by every build-seeded global read in this file (`__BRIDGE_TARGET_SLUG__`,
+ * `__JOB_SEED__`): they are all inline scripts belonging to ONE document, so
+ * they are all valid under exactly the same condition.
  */
+const SEEDED_GLOBALS_PATHNAME: string | null =
+ typeof window !== 'undefined' ? window.location.pathname : null;
+
+/** True while we are still on the page whose HTML carried the inline seeds. */
+function onSeededDocument(): boolean {
+ return typeof window !== 'undefined' && window.location.pathname === SEEDED_GLOBALS_PATHNAME;
+}
+
 function readBridgeTargetSlug(): string | undefined {
- if (typeof window === 'undefined') return undefined;
+ if (!onSeededDocument()) return undefined;
  const value = (window as unknown as Record<string, unknown>).__BRIDGE_TARGET_SLUG__;
  return typeof value === 'string' && value ? value : undefined;
 }
@@ -2070,7 +2116,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // Build-injected slim record for THIS active job-detail page (window.__JOB_SEED__),
  // or null on board pages / SPA navigation. Read once per mount.
- const seededJob = useMemo(() => readSeededJob(), []);
+ // Dep on `initialJobSlug`, NOT `[]`: the guard inside readSeededJob is inert
+ // unless the memo actually re-runs after a soft-navigation (same reason as
+ // bridgeTargetSlug below). At mount the pathname matches, so the seeded
+ // first paint is unchanged; only later routes now correctly see null.
+ const seededJob = useMemo(() => readSeededJob(), [initialJobSlug]);
  // Seed the jobs array so `selectedJob` resolves on the first frame — no orphan
  // flash, no wait on the ~1.2 MB (gzip) slim index. The full index load below
  // replaces this array; `finalize` re-applies any detail fetched meanwhile and
@@ -2617,7 +2667,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Bridge detection: the plugin writes window.__BRIDGE_TARGET_SLUG__ in the static HTML for old URLs.
  // Hoisted above the slug-filter memos below: its presence is the authoritative
  // "this URL is a JOB page, not a filter landing" signal, and they need it.
- const bridgeTargetSlug = useMemo(() => readBridgeTargetSlug(), []);
+ // Deps on `initialJobSlug`, NOT `[]`: on SPA soft-navigation this component is
+ // not remounted, so a `[]` memo would pin the bridge slug of the page we
+ // arrived on and keep reporting "job bridge" for every later route. Re-reading
+ // per route lets the pathname guard inside readBridgeTargetSlug do its job.
+ const bridgeTargetSlug = useMemo(() => readBridgeTargetSlug(), [initialJobSlug]);
 
  // A bridge page IS a job page. Its URL is a job's OLD slug, and a handful of
  // those old slugs happen to start with a filter-landing prefix — measured on

@@ -10,6 +10,7 @@
 
 import { useEffect, useState } from 'react';
 import { cdnDataUrl } from '@/services/cdnDataBase';
+import { expiredJobMatchesSlug } from '@/services/seededExpiredJob';
 
 export interface ExpiredJob {
  slug: string;
@@ -65,16 +66,10 @@ function fetchExpiredDetail(key: string): Promise<ExpiredJob | null> {
  });
 }
 
+/** Same four-way slug match as the seeded-global guard — shared so the index
+ * lookup and the window-global lookup cannot drift (AGENTS.md §6). */
 function matchExpiredSlug(job: ExpiredJob, slug: string): boolean {
- if (job.slug === slug) return true;
- if (job.slugByLocale && Object.values(job.slugByLocale).some((s) => s === slug)) return true;
- if (job.previousSlugs && job.previousSlugs.includes(slug)) return true;
- if (job.previousSlugsByLocale) {
- for (const arr of Object.values(job.previousSlugsByLocale)) {
- if (Array.isArray(arr) && arr.includes(slug)) return true;
- }
- }
- return false;
+ return expiredJobMatchesSlug(job, slug);
 }
 
 /**
@@ -103,28 +98,12 @@ function getSeededExpiredJob(): ExpiredJob | null {
  * (e.g. "azienda-multiservizi-bellinzona-amb") from company filter slugs
  * (e.g. "azienda-migros") — the seeded data is slug-specific so stale window
  * globals from a previous SPA page load cannot produce a false match.
+ *
+ * Re-exported from services/seededExpiredJob so services/seoService can apply
+ * the SAME guard without importing this React module. Kept as a named re-export
+ * (not moved outright) so existing import sites stay valid.
  */
-export function seededJobMatchesSlug(slug: string): boolean {
-  try {
-    const raw = (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__;
-    if (!raw || typeof raw !== 'object') return false;
-    const job = raw as {
-      slug?: string;
-      slugByLocale?: Record<string, string>;
-      previousSlugs?: string[];
-      previousSlugsByLocale?: Record<string, string[]>;
-    };
-    if (job.slug === slug) return true;
-    if (job.slugByLocale && Object.values(job.slugByLocale).some((s) => s === slug)) return true;
-    if (job.previousSlugs && job.previousSlugs.includes(slug)) return true;
-    if (job.previousSlugsByLocale) {
-      for (const arr of Object.values(job.previousSlugsByLocale)) {
-        if (Array.isArray(arr) && arr.includes(slug)) return true;
-      }
-    }
-    return false;
-  } catch { return false; }
-}
+export { seededJobMatchesSlug } from '@/services/seededExpiredJob';
 
 /**
  * Returns true when the build plugin injected expired job data into this page.

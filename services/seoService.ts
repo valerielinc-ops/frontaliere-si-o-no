@@ -10,6 +10,7 @@ import { resolveCompanyLogoUrl, isMultiLocation } from './jobDataNormalization';
 import { reportCaughtError } from './errorReporter';
 import { bustAssetHttpCache, isChunkLoadError } from './resilientImport';
 import { cdnDataUrl } from './cdnDataBase';
+import { seededJobMatchesSlug } from './seededExpiredJob';
 import { normalizeStructuredData } from './seo/schema-normalizers';
 import { GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from './seo/glossaryTermDefinitions';
 import { cdnBlogImage } from './seo/blogImageCdn';
@@ -1605,12 +1606,20 @@ export async function updateMetaTags(section: string): Promise<void> {
  // the build plugin seeded expired job data, skip all dynamic metadata updates
  // to prevent overwriting with generic listing-page defaults.
  if (isJobDetailPage && !jobSeo) {
- try {
- const expiredData = (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__;
- if (expiredData && typeof expiredData === 'object' && 'slug' in (expiredData as Record<string, unknown>)) {
+ // MUST be slug-specific, not a presence check. `__EXPIRED_JOB_DATA__` is
+ // baked into the static HTML of ONE expired job page and the SPA never
+ // updates or clears it, so after a soft-navigation the global still
+ // describes the page we came FROM. A presence-only check therefore fired
+ // on an unrelated active job page whose resolve had raced or which is not
+ // in the global dataset (the very case this branch exists for), returned
+ // early, and left that page wearing the PREVIOUS job's canonical, title
+ // and JobPosting JSON-LD — served to Google. Matching the slug (canonical,
+ // per-locale, or historic) keeps the intended behaviour on real expired
+ // pages while refusing a stale global. Same class as the
+ // __BRIDGE_TARGET_SLUG__ staleness fixed in this PR.
+ if (route.jobSlug && seededJobMatchesSlug(route.jobSlug)) {
  return; // Preserve static HTML metadata for expired job pages
  }
- } catch { /* SSR or missing — continue with dynamic metadata */ }
  // For active job detail pages where the job couldn't be resolved from
  // /data/jobs.json (async load race, or job not in the global dataset),
  // preserve whatever metadata JobBoard.tsx already set (title, OG tags,
