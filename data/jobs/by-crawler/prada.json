@@ -168,13 +168,11 @@
       "crawledAt": "2026-08-07T10:13:06.107Z",
       "previousSlugs": [
         "prada-runner-sankt-moritz-prada-group-saint-moritz",
-        "assistant-logistique-prada-saint-moritz-prada-group-saint-moritz",
-        "addetto-alla-logistica-prada-sankt-moritz-prada-group-saint-moritz"
+        "assistant-logistique-prada-saint-moritz-prada-group-saint-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "prada-runner-sankt-moritz-prada-group-saint-moritz",
-          "addetto-alla-logistica-prada-sankt-moritz-prada-group-saint-moritz"
+          "prada-runner-sankt-moritz-prada-group-saint-moritz"
         ],
         "fr": [
           "prada-runner-sankt-moritz-prada-group-saint-moritz",
@@ -201,8 +199,8 @@
       "id": "prada-21213d3a79e1",
       "slug": "client-consulente-prada-group-macau-client-advisor",
       "slugByLocale": {
-        "en": "client-advisor-prada-group-macau-client-advisor",
         "it": "client-consulente-prada-group-macau-client-advisor",
+        "en": "client-advisor-prada-group-macau-client-advisor",
         "de": "client-berater-prada-group-macau-client-advisor",
         "fr": "client-conseiller-prada-group-macau-client-advisor"
       },
@@ -239,6 +237,7 @@
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
       "crawledAt": "2026-08-07T01:15:14.623Z",
+      "firstSeenAt": "2026-08-06T12:12:47.167Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -253,7 +252,6 @@
       },
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-06T12:12:47.167Z",
       "previousSlugsByLocale": {
         "it": [
           "client-advisor-prada-group-macau-client-advisor"

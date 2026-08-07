@@ -24,12 +24,12 @@
         "en": "Security Officer Cryptography (f/m/d)",
         "fr": "Cryptographie des agents de sécurité (f/m/d)"
       },
-      "slug": "security-officer-kryptographie-w-m-d-postfinance",
+      "slug": "cryptography-f-m-d-postfinance-bern",
       "slugByLocale": {
-        "it": "security-officer-kryptographie-w-m-d-postfinance",
+        "it": "cryptography-f-m-d-postfinance-bern",
         "en": "security-officer-kryptographie-w-m-d-postfinance",
         "de": "security-officer-kryptographie-w-m-d-postfinance",
-        "fr": "security-officer-kryptographie-w-m-d-postfinance"
+        "fr": "cryptographie-des-agents-de-securite-f-m-d-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -53,7 +53,8 @@
       "postedDate": "06.08.26",
       "previousSlugsByLocale": {
         "it": [
-          "security-officer-kryptographie-postfinance"
+          "security-officer-kryptographie-postfinance",
+          "security-officer-kryptographie-w-m-d-postfinance"
         ],
         "en": [
           "security-officer-kryptographie-postfinance"
@@ -62,11 +63,13 @@
           "security-officer-kryptographie-postfinance"
         ],
         "fr": [
-          "security-officer-kryptographie-postfinance"
+          "security-officer-kryptographie-postfinance",
+          "security-officer-kryptographie-w-m-d-postfinance"
         ]
       },
       "previousSlugs": [
-        "security-officer-kryptographie-postfinance"
+        "security-officer-kryptographie-postfinance",
+        "security-officer-kryptographie-w-m-d-postfinance"
       ],
       "id": "postfinance-e7ef2195f503",
       "salaryMin": 68500,
