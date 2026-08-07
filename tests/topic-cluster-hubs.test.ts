@@ -37,6 +37,8 @@ import {
   isTopicClusterHubPath,
   resolveTopicClusterHubCanonical,
   resolveTopicClusterHubSection,
+  topicSitemapFileName,
+  topicSitemapPathname,
   TOPIC_HUB_CANONICAL_PATHS,
   TOPIC_HUB_LOCALES,
   TOPIC_HUB_SECTIONS,
@@ -454,9 +456,17 @@ describe('topic hubs — non annunciare una sezione che il build non spedisce', 
   });
 
   it('scrive la sitemap solo se qualcosa e\' stato davvero reso', () => {
-    // Con entrambe le sezioni skippate non deve restare un sitemap-topics.xml
-    // che punta al nulla.
-    expect(src).toMatch(/if \(sitemapEntries\.length > 0\) \{[\s\S]{0,400}?sitemap-topics\.xml/);
+    // Con la sezione skippata non deve restare una sitemap che punta al nulla.
+    // La garanzia non e' piu' un `if` nel loop del build: la sitemap la scrive
+    // il core, dalla lista delle pagine che il core stesso ha appena
+    // accodato — quindi saltare la sezione salta anche la sua sitemap, e nel
+    // loop del build non esiste piu' un punto in cui scriverne una per una
+    // sezione non renderizzata.
+    expect(src).toMatch(/const indexable = emitted\.filter\(\(e\) => e\.indexable\);/);
+    expect(src).toMatch(/if \(indexable\.length > 0\) \{[\s\S]{0,300}?topicSitemapFileName\(section\)/);
+    // E il loop del build non deve poter scrivere una sitemap da solo.
+    const loop = src.indexOf('for (const section of TOPIC_HUB_SECTIONS)');
+    expect(src.slice(loop)).not.toMatch(/writeFileSync\([^)]*sitemap/);
   });
 
   it('lo dice nel log invece di saltare in silenzio', () => {
@@ -513,7 +523,10 @@ describe('fast-publish topic hub render', () => {
       try {
         const all = TOPIC_HUB_LOCALES.flatMap((l) => result.pathsByLocale[l]);
         expect(all.length).toBeGreaterThan(0);
-        expect(result.written).toBe(all.length);
+        // +1 for the section sitemap, which the same collector writes but which
+        // is NOT in pathsByLocale: that list drives the per-locale shard push
+        // and the sitemap is an apex file (see RenderTopicClusterHubsResult).
+        expect(result.written).toBe(all.length + 1);
         for (const rel of all) {
           expect(fs.existsSync(np.join(distDir, rel)), rel).toBe(true);
         }
@@ -605,4 +618,243 @@ describe('fast-publish topic hub render', () => {
     },
     180_000,
   );
+
+  it.runIf(available)(
+    'produces the section sitemap, and every URL in it is a file this render wrote',
+    async () => {
+      const { distDir, result } = await renderSvizzera();
+      try {
+        expect(result.sitemapPath).toBe(topicSitemapFileName('svizzera'));
+        const xml = fs.readFileSync(np.join(distDir, result.sitemapPath!), 'utf-8');
+
+        // Direction 1 — announced ⊆ written. Not "the reported list matches
+        // the reported list": each <loc> is resolved to a real file on disk,
+        // which is the claim a crawler actually cashes in.
+        const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) =>
+          m[1].replace('https://frontaliereticino.ch', ''),
+        );
+        expect(locs.length).toBeGreaterThan(0);
+        const missing = locs.filter(
+          (p) => !fs.existsSync(np.join(distDir, p.slice(1), 'index.html')),
+        );
+        expect(missing, `announced but never written: ${missing.slice(0, 5).join(', ')}`).toEqual(
+          [],
+        );
+
+        // Direction 2 — every indexable page written is announced. Without
+        // this half a sitemap can be perfectly accurate about nothing.
+        const { auditTopicSitemapCoverage } = await import(
+          '../build-plugins/topicClusterHubsPlugin'
+        );
+        const audit = auditTopicSitemapCoverage(xml, result.announcedUrlPaths);
+        expect(audit.announcedNotWritten).toEqual([]);
+        expect(audit.writtenNotAnnounced).toEqual([]);
+
+        // Pagination is where the two sides drifted: the sitemap must carry
+        // page-N URLs, not just the 14 bare topic paths, or "no phantom
+        // pagination" would be true only because there is no pagination.
+        expect(locs.filter((p) => /\/page-\d+\/$/.test(p)).length).toBeGreaterThan(0);
+      } finally {
+        fs.rmSync(distDir, { recursive: true, force: true });
+      }
+    },
+    180_000,
+  );
+
+  it.runIf(available)(
+    'keeps the sitemap out of the shard push — it is an apex file',
+    async () => {
+      const { distDir, result } = await renderSvizzera();
+      try {
+        // In a shard subtree this file would sit at
+        // `articoli-svizzera/sitemap-topics-svizzera.xml`, a URL no crawler
+        // is told about and the Worker does not serve from the apex.
+        for (const locale of TOPIC_HUB_LOCALES) {
+          expect(result.pathsByLocale[locale]).not.toContain(result.sitemapPath);
+          for (const rel of result.pathsByLocale[locale]) {
+            expect(rel.endsWith('.html'), rel).toBe(true);
+          }
+        }
+        expect(np.dirname(result.sitemapPath!)).toBe('.');
+      } finally {
+        fs.rmSync(distDir, { recursive: true, force: true });
+      }
+    },
+    180_000,
+  );
+});
+
+/**
+ * The two directions the sitemap can be wrong, on fixtures — so the failure
+ * modes are pinned independently of whatever the live corpus happens to do.
+ *
+ * The measurement this replaces (2026-08-07, live `sitemap-topics.xml` vs the
+ * eight article shard trees, GitHub `git/trees?recursive=1`):
+ *
+ *   536 URLs announced, 532 distinct URLs on the shards
+ *    36 announced with no file behind them — ALL of them `page-N`
+ *    32 written and announced by nothing
+ *
+ * Per topic (identical in all four locales, membership being locale-independent):
+ *   frontaliere/accordi-e-politica  16 pages announced,  9 written  (−7)
+ *   frontaliere/pensioni-avs-lpp     4 announced,       11 written  (+7)
+ *   frontaliere/famiglia-e-scuola    9 announced,        8 written  (−1)
+ *   svizzera/casa-e-affitti          2 announced,        1 written  (−1)
+ *   svizzera/tasse-e-imposte         4 announced,        5 written  (+1)
+ *
+ * Note the shape: pages are not lost, they MOVE — ~170 articles migrated from
+ * `accordi-e-politica` to `pensioni-avs-lpp` between the two producers. Both
+ * of them run the same `renderTopicHubSectionCore` with the same
+ * `Math.ceil(members.length / TOPIC_HUB_PAGE_SIZE)`, so the pagination RULE
+ * was never in disagreement — the corpus snapshot under it was. The file was
+ * written by the full build; the pages by a fast publish, at another moment.
+ * That is why the fix is "one producer writes both", not a filter over the
+ * output of two.
+ */
+describe('topic sitemap coverage audit', () => {
+  const p1 = buildTopicHubPath('fr', 'svizzera', 'casa-affitti');
+  const p2 = buildTopicHubPath('fr', 'svizzera', 'casa-affitti', 2);
+  const xmlFor = (paths: readonly string[]) =>
+    `<?xml version="1.0" encoding="UTF-8"?><urlset>${paths
+      .map((p) => `<url><loc>https://frontaliereticino.ch${p}</loc></url>`)
+      .join('')}</urlset>`;
+
+  const audit = async (announced: readonly string[], written: readonly string[]) => {
+    const { auditTopicSitemapCoverage } = await import(
+      '../build-plugins/topicClusterHubsPlugin'
+    );
+    return auditTopicSitemapCoverage(xmlFor(announced), written);
+  };
+
+  it('fails a sitemap that announces a page nobody wrote', async () => {
+    // The exact live case: /fr/articles-suisse/sujets/logement-et-loyers/page-2/
+    // answered 404 with a cache-buster while page 1 answered 200.
+    expect((await audit([p1, p2], [p1])).announcedNotWritten).toEqual([p2]);
+  });
+
+  it('fails a sitemap that leaves a written page unannounced', async () => {
+    expect((await audit([p1], [p1, p2])).writtenNotAnnounced).toEqual([p2]);
+  });
+
+  it('passes a sitemap that announces exactly the pages that were written', async () => {
+    const result = await audit([p1, p2], [p1, p2]);
+    expect(result.announcedNotWritten).toEqual([]);
+    expect(result.writtenNotAnnounced).toEqual([]);
+  });
+});
+
+/**
+ * A thin page N must bridge at ITS OWN url.
+ *
+ * The old code called `renderBridgePage` without a page number for both the
+ * below-floor topic AND the thin page-N case, so the second one wrote its
+ * bridge over page 1: the indexable page 1 emitted moments earlier was
+ * replaced by a `noindex` bridge, page N was never written, and page 1 stayed
+ * in the sitemap as indexable. Three wrong outcomes from one missing argument,
+ * and none of them visible in a count of files written.
+ */
+describe('thin pagination bridges land on their own URL', () => {
+  const eligible = new Set(TOPIC_CLUSTERS.map((t) => t.key));
+
+  it('bridges page 5 at page 5, not at page 1', async () => {
+    const { __renderTopicBridgeForTest } = await import(
+      '../build-plugins/topicClusterHubsPlugin'
+    );
+    const bridge = __renderTopicBridgeForTest({
+      locale: 'it',
+      section: 'frontaliere',
+      topicKey: 'pensioni',
+      memberCount: 1,
+      eligible,
+      page: 5,
+    });
+    expect(bridge.urlPath).toBe(buildTopicHubPath('it', 'frontaliere', 'pensioni', 5));
+    expect(bridge.indexable).toBe(false);
+  });
+
+  it('still bridges a below-floor topic at page 1 when no page is given', async () => {
+    const { __renderTopicBridgeForTest } = await import(
+      '../build-plugins/topicClusterHubsPlugin'
+    );
+    const bridge = __renderTopicBridgeForTest({
+      locale: 'it',
+      section: 'frontaliere',
+      topicKey: 'pensioni',
+      memberCount: 3,
+      eligible,
+    });
+    expect(bridge.urlPath).toBe(buildTopicHubPath('it', 'frontaliere', 'pensioni'));
+  });
+});
+
+/**
+ * The apex wiring. The sitemap being CORRECT and the sitemap being REACHABLE
+ * are two different failures, and #5001 shipped with only the first one solved:
+ * measured 2026-08-07, /sitemap-topics.xml answered 200 with 536 URLs while
+ * appearing 0 times in the 86-entry sitemap index and 0 times in robots.txt.
+ * A sitemap nothing links to is a file, not a sitemap.
+ */
+describe('topic sitemap is announced where crawlers look', () => {
+  const worker = fs.readFileSync(
+    np.resolve(__dirname, '../infra/cloudflare-worker/locale-router.js'),
+    'utf8',
+  );
+  const wrangler = fs.readFileSync(
+    np.resolve(__dirname, '../infra/cloudflare-worker/wrangler.toml'),
+    'utf8',
+  );
+
+  it('registers both sections in EDGE_PUSHED_FILES', () => {
+    for (const section of TOPIC_HUB_SECTIONS) {
+      expect(worker).toContain(`'${topicSitemapPathname(section)}':`);
+    }
+  });
+
+  it('routes both paths to the Worker — a table entry without a route is a 404', () => {
+    // Learned on /sitemap-articles-archive.xml: entry present, object in R2,
+    // and four hours of 404 because nothing routed the request to the Worker.
+    for (const section of TOPIC_HUB_SECTIONS) {
+      expect(wrangler).toContain(`frontaliereticino.ch${topicSitemapPathname(section)}"`);
+    }
+  });
+
+  it('has the fast publish — the only producer of these pages — publish it', () => {
+    const wf = fs.readFileSync(
+      np.resolve(__dirname, '../.github/workflows/fast-publish-article.yml'),
+      'utf8',
+    );
+    // Published from the RENDERED dist, never re-derived from a fresh corpus
+    // read: re-deriving is what made the two sides disagree in the first place.
+    expect(wf).toContain('--from-dir=');
+    expect(wf).toMatch(/publish-edge-files\.mjs --only=/);
+    // …and committed into public/, which is how sitemapAliasPlugin's
+    // dist/sitemap-*.xml discovery gets it into the index robots.txt points at.
+    expect(wf).toContain('public/$dist_path');
+    // Only after the pages are confirmed live.
+    const verify = wf.indexOf('id: verify');
+    const publish = wf.indexOf('Publish + commit the topic-hub sitemap');
+    expect(verify).toBeGreaterThan(-1);
+    expect(publish).toBeGreaterThan(verify);
+  });
+
+  it('lets sitemapAliasPlugin discover the filename instead of patching the index by hand', () => {
+    const plugin = fs.readFileSync(
+      np.resolve(__dirname, '../build-plugins/topicClusterHubsPlugin.ts'),
+      'utf8',
+    );
+    // The hand-patch used to run BEFORE sitemapAliasPlugin regenerated the
+    // index from scratch, so it never reached production. Auto-discovery is
+    // also what correctly omits the file when nobody produced it.
+    // Matched as a CALL/DEFINITION, not as a substring: the comment that
+    // records why it is gone names it, and a bare `toContain` would forbid
+    // ever explaining the removal.
+    expect(plugin).not.toMatch(/function patchSitemapIndex|patchSitemapIndex\(/);
+    expect(plugin).not.toMatch(/sitemapindex|<\/sitemapindex>/);
+    const { SITEMAP_FILE_PATTERN_OK } = {
+      SITEMAP_FILE_PATTERN_OK: /^sitemap-[a-z0-9][a-z0-9-]*\.xml$/i,
+    };
+    for (const section of TOPIC_HUB_SECTIONS) {
+      expect(SITEMAP_FILE_PATTERN_OK.test(topicSitemapFileName(section)), section).toBe(true);
+    }
+  });
 });

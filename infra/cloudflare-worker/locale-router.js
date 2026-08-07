@@ -795,6 +795,23 @@ export const EDGE_PUSHED_FILES = {
   '/sitemap-articles-archive.xml': { cdnKey: '/edge/sitemap-articles-archive.xml', contentType: 'application/xml; charset=utf-8' },
   '/sitemap-glossario.xml': { cdnKey: '/edge/sitemap-glossario.xml', contentType: 'application/xml; charset=utf-8' },
   '/sitemap-news.xml': { cdnKey: '/edge/sitemap-news.xml', contentType: 'application/xml; charset=utf-8' },
+  // Article topic hubs (#5001). Registered for FRESHNESS in the strict sense:
+  // these two files are the only sitemaps on this list whose PAGES are not
+  // produced by the full build at all. Both article sections run with
+  // BUILD_EMIT_SKIP=true (deploy.yml) — "served by fast-publish only" — so
+  // `scripts/publish-article-fast.mjs` writes the hub pages, pushes them to
+  // the section shards, and writes these two files from that same render.
+  //
+  // The committed public/ copies keep the apex origin (and therefore the
+  // sitemap index, which sitemapAliasPlugin builds by discovering
+  // dist/sitemap-*.xml) honest between deploys; the R2 copy pushed on every
+  // fast publish is what keeps the URL list in step with the shards, which is
+  // the half that was missing. Measured 2026-08-07 before this: the apex
+  // sitemap-topics.xml announced 36 page-N URLs that no shard had, and missed
+  // 32 that every shard did — a full-build snapshot describing a fast-publish
+  // filesystem.
+  '/sitemap-topics-frontaliere.xml': { cdnKey: '/edge/sitemap-topics-frontaliere.xml', contentType: 'application/xml; charset=utf-8' },
+  '/sitemap-topics-svizzera.xml': { cdnKey: '/edge/sitemap-topics-svizzera.xml', contentType: 'application/xml; charset=utf-8' },
   '/llms.txt': { cdnKey: '/edge/llms.txt', contentType: 'text/plain; charset=utf-8', source: 'generated' },
   '/llms-full.txt': { cdnKey: '/edge/llms-full.txt', contentType: 'text/plain; charset=utf-8', source: 'generated' },
   '/.well-known/llms.txt': {

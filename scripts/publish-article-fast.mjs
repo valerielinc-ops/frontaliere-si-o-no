@@ -83,10 +83,15 @@
 //
 // Writes a summary JSON describing what was rendered, for stream B
 // (incremental shard push) and stream C (fast-publish workflow) to consume:
-//   { id, section, shards: [{locale, subtree, paths, url}, ...], cdnUploads: [{local, key}, ...] }
+//   { id, section, shards: [{locale, subtree, paths, url}, ...],
+//     cdnUploads: [{local, key}, ...], edgeFiles: [{pathname, distPath, urlCount}, ...] }
 //   `paths` per shard = [article index.html, article flat bridge, ...that
 //   locale's hub-archive pages from step 6, ...that locale's topic-hub pages
 //   from step 6b].
+//   `edgeFiles` = APEX artifacts, not shard ones: today just this section's
+//   `sitemap-topics-<section>.xml`, written by step 6b from the very pages it
+//   rendered. The workflow publishes it to R2 (EDGE_PUSHED_FILES) and commits
+//   it into public/ so the next build's sitemap index names it.
 //
 // Known gap fixed here, not in the shared renderer: ogPagesPlugin's
 // resolveImagePath() verifies a candidate hero image exists by checking
@@ -313,7 +318,7 @@ async function main() {
   // Non-blocking: a topic-hub failure must not cost the article its publish.
   // The hubs heal at the next full build; the article does not get a second
   // chance at being fast.
-  let topicHubResult = { written: 0, pathsByLocale: {} };
+  let topicHubResult = { written: 0, pathsByLocale: {}, sitemapPath: null, announcedUrlPaths: [] };
   try {
     const { renderTopicClusterHubPages } = await import(
       '../build-plugins/topicClusterHubsPlugin.ts'
@@ -324,7 +329,10 @@ async function main() {
       section: args.section,
     });
     console.log(
-      `[publish-article-fast] topic hubs: ${topicHubResult.written} file scritti per la sezione ${args.section}`,
+      `[publish-article-fast] topic hubs: ${topicHubResult.written} file scritti per la sezione ${args.section}` +
+        (topicHubResult.sitemapPath
+          ? ` (+ ${topicHubResult.sitemapPath}, ${topicHubResult.announcedUrlPaths.length} URL annunciate)`
+          : ' (nessun hub indicizzabile → nessuna sitemap)'),
     );
   } catch (err) {
     console.error(
@@ -423,7 +431,26 @@ async function main() {
     }
   }
 
-  const summary = { id: args.id, section: args.section, shards, cdnUploads };
+  // Apex artifacts this run produced, for stream C to publish to the edge and
+  // commit into public/. Kept OUT of `shards[].paths` on purpose: those go
+  // into a section shard subtree, and this file is served from the apex.
+  //
+  // `renderTopicClusterHubPages` writes it from the pages it just wrote, so
+  // the list of URLs in it is exactly the list of pages the shard push below
+  // is about to deliver — the two halves of "announce what someone actually
+  // wrote" travel together or not at all. Empty when step 6b failed or
+  // produced no indexable hub; the workflow skips the publish rather than
+  // pushing a stale copy.
+  const edgeFiles = [];
+  if (topicHubResult.sitemapPath) {
+    edgeFiles.push({
+      pathname: `/${topicHubResult.sitemapPath}`,
+      distPath: topicHubResult.sitemapPath,
+      urlCount: topicHubResult.announcedUrlPaths.length,
+    });
+  }
+
+  const summary = { id: args.id, section: args.section, shards, cdnUploads, edgeFiles };
   const summaryPath = path.resolve(args.summary);
   fs.mkdirSync(path.dirname(summaryPath), { recursive: true });
   fs.writeFileSync(summaryPath, JSON.stringify(summary, null, 2) + '\n', 'utf-8');
