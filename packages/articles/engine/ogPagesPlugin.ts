@@ -18,6 +18,7 @@ import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
 import { ARTICLE_SECTION_DESCRIPTORS, extractBlogEntryPositions, blogKeyToArticleId } from './shared/articleSectionDescriptors';
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
+import { readImageIntrinsicSize } from './shared/imageIntrinsicSize';
 
 /**
  * Empty SPA mount point, mirroring build-plugins/htmlTemplate.ts `rootShell`.
@@ -67,6 +68,38 @@ function articleRootShell(hasSpaBundle: boolean): string {
  * post-walk worker thread.
  */
 const ARTICLE_FOOTER_ROOT = '<div id="footer-root"></div>';
+
+/**
+ * Hero-image size of LAST RESORT — used only when the resolved hero file
+ * cannot be opened or its header cannot be parsed.
+ *
+ * This pair used to be the size declared on EVERY article page, on the premise
+ * (stated in the comment it replaces) that "every blog hero this pipeline
+ * produces is 1200x675". Measuring the files rather than sampling them shows
+ * the premise held for the width and failed for the height: across
+ * public/images/blog/*.webp the width is 1200 essentially everywhere, but the
+ * height spans 179..2469 — so several hundred article pages declared a height
+ * their file does not have, in the <img>, in og:image:height and in the JSON-LD
+ * ImageObject at once. Real sizes now come from resolveHeroSize(), which reads
+ * the file header; see shared/imageIntrinsicSize.ts.
+ *
+ * 1200px wide is not incidental: it is Google Discover's documented floor for
+ * the large-image card that `max-image-preview:large` opts into.
+ */
+const HERO_FALLBACK_WIDTH = 1200;
+const HERO_FALLBACK_HEIGHT = 675;
+
+/**
+ * Google Discover's large-image-card width floor.
+ *
+ * Now that the emitter declares the file's REAL width instead of asserting
+ * 1200, a hero that is actually narrower stops being invisible: it used to be
+ * covered by the constant, which claimed eligibility the bytes did not support.
+ * `resolveHeroSize` logs each such file once — a build-time report, not a gate,
+ * because the page is still better off with a real (if small) image than with
+ * none, and the remedy is re-encoding the asset, not failing the deploy.
+ */
+export const DISCOVER_MIN_IMAGE_WIDTH = 1200;
 
 export interface RenderedArticleEntry {
  articleId: string;
@@ -189,15 +222,37 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  ? new Set([opts.onlyArticleId])
  : (opts.onlyArticleIds && opts.onlyArticleIds.length ? new Set(opts.onlyArticleIds) : undefined);
 
- // Source of truth fallback for article images (kept in BlogArticles list)
+ // Source-of-truth fallback for article images, used by resolveImagePath when
+ // the SEO entry's own candidate has no file in distDir.
+ //
+ // This used to scrape `components/community/BlogArticles.tsx`, where the
+ // `image:` literals lived when it was written. They moved to the article data
+ // module years ago — `grep -c "image: '/images/" components/community/
+ // BlogArticles.tsx` returns 0 — so the map has been EMPTY on every build
+ // since, and the rung it feeds never fired. Repointed at the real registries.
+ //
+ // Several candidate paths, first hit wins, because this engine renders from
+ // two different roots: the site (`data/…` + `packages/articles/content/…`)
+ // and the corpus repo (`content/…`). A path that does not exist is skipped,
+ // not fatal — the same tolerance the previous single-file read had.
+ for (const rel of [
+ 'packages/articles/content/blog-articles-data.ts',
+ 'packages/articles/content/swiss-articles-data.ts',
+ 'data/blog-articles-data.ts',
+ 'data/swiss-articles-data.ts',
+ 'content/blog-articles-data.ts',
+ 'content/swiss-articles-data.ts',
+ 'components/community/BlogArticles.tsx',
+ ]) {
  try {
- const blogSrc = fs.readFileSync(np.resolve(rootDir, 'components/community/BlogArticles.tsx'), 'utf-8');
+ const src = fs.readFileSync(np.resolve(rootDir, rel), 'utf-8');
  const re = /\{\s*id:\s*'([^']+)'\s*,[\s\S]*?\bimage:\s*'([^']+)'/g;
  let m: RegExpExecArray | null;
- while ((m = re.exec(blogSrc)) !== null) {
- blogImageById[m[1]] = m[2];
+ while ((m = re.exec(src)) !== null) {
+ if (!blogImageById[m[1]]) blogImageById[m[1]] = m[2];
  }
- } catch { /* non-fatal */ }
+ } catch { /* file absent from this root — try the next */ }
+ }
 
  // ── Article-section descriptors ─────────────────────────────
  // The emit logic below runs once per section. Section #0 (frontaliere) is the
@@ -318,8 +373,27 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  };
 
  const resolveImagePath = (candidate: string, articleId: string): string => {
- const norm = (p: string) => (p.startsWith('/') ? p : `/${p}`).replace(/\/+/g, '/');
- const fileExists = (publicPath: string) => fs.existsSync(np.join(distDir, publicPath.replace(/^\/+/, '')));
+ // `norm('')` used to return '/', and '/' then passed `fileExists` because
+ // np.join(distDir, '') is distDir itself — a directory that always exists.
+ // So an article whose hero file was absent from distDir resolved to '/', the
+ // site ROOT, and shipped `<img src="/">` + `og:image=<BASE_URL>/` + a JSON-LD
+ // ImageObject pointing at the same place. All three then serve text/html,
+ // not an image: the page has no valid <img> at all and drops out of Google
+ // Discover eligibility, silently, with no build error. Measured live on
+ // 2026-08-07: 92 pages (23 it + 69 en/de/fr), all HTTP 200.
+ //
+ // Two guards, because either alone still leaves a hole: an empty path is
+ // never a path, and only a regular FILE is an image.
+ const norm = (p: string) => (p ? (p.startsWith('/') ? p : `/${p}`).replace(/\/+/g, '/') : '');
+ const fileExists = (publicPath: string) => {
+ const rel = publicPath.replace(/^\/+/, '');
+ if (!rel) return false;
+ try {
+ return fs.statSync(np.join(distDir, rel)).isFile();
+ } catch {
+ return false;
+ }
+ };
  const fromSameBase = (p: string): string | null => {
  const ext = np.extname(p);
  const base = ext ? p.slice(0, -ext.length) : p;
@@ -341,6 +415,35 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (altFromList) return altFromList;
 
  return DEFAULT_IMG;
+ };
+
+ /**
+  * Intrinsic size of a resolved hero, measured from the FILE, cached per path.
+  *
+  * The corpus shares heroes (`/images/places/lugano-view.webp` backs 11
+  * articles) and a section render walks thousands of entries, so the same file
+  * would otherwise be re-opened once per article.
+  *
+  * The fallback is only for a file we cannot open or parse. It is NOT a
+  * "usually right" default: measured across the live corpus the width is 1200
+  * everywhere, but the height ranges from 179 to 2469, so a fixed 675 was
+  * wrong on hundreds of pages. Never widen this fallback into the common path.
+  */
+ const heroSizeCache = new Map<string, { width: number; height: number }>();
+ const resolveHeroSize = (imgPath: string): { width: number; height: number } => {
+ const cached = heroSizeCache.get(imgPath);
+ if (cached) return cached;
+ const measured = readImageIntrinsicSize(np.join(distDir, imgPath.replace(/^\/+/, '')));
+ const size = measured ?? { width: HERO_FALLBACK_WIDTH, height: HERO_FALLBACK_HEIGHT };
+ if (measured && measured.width < DISCOVER_MIN_IMAGE_WIDTH) {
+ // Once per file (the cache guarantees it), so a shared hero used by
+ // eleven articles does not print eleven times.
+ console.warn(
+ `[og-pages] hero below the Discover large-card floor: ${imgPath} is ${measured.width}px wide (< ${DISCOVER_MIN_IMAGE_WIDTH})`,
+ );
+ }
+ heroSizeCache.set(imgPath, size);
+ return size;
  };
 
  /* ── 1. Parse blog SEO entries from this section's seo files ─ */
@@ -386,6 +489,14 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  ogD: string;
  path: string;
  img: string;
+ /**
+  * Hero size MEASURED from the resolved file's own header (never read from a
+  * `width=` attribute or a hand-authored structuredData literal — those are
+  * exactly what drifted). Falls back to HERO_FALLBACK_* when the file cannot
+  * be measured; see resolveHeroSize.
+  */
+ imgW: number;
+ imgH: number;
  datePub: string;
  dateMod: string;
  /** Source structuredData @type (e.g. 'Event', 'BlogPosting', 'Article') */
@@ -428,6 +539,9 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const cp = b.match(/canonicalPath:\s*'([^']+)'/)?.[1] ?? '';
  const imRaw = b.match(/\/images\/[^'"`\s,}]+/)?.[0] ?? DEFAULT_IMG;
  const im = resolveImagePath(imRaw, articleId);
+ // Measured here, next to the resolution that produced the path, so the
+ // size and the URL can never be computed from two different candidates.
+ const imSize = resolveHeroSize(im);
  const datePub = b.match(/"datePublished":\s*"([^"]+)"/)?.[1] ?? '';
  // dateModified: prefer updatedAt from blog-articles-data.ts, then sitemap <lastmod>,
  // then the SEO metadata literal (if any). BUILD_DATE_ISO in seo-blog.ts is a variable
@@ -468,7 +582,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (cp.startsWith(SECTION.canonicalPrefix)) {
  const authorSlug = articleAuthorSlugById[articleId] || '';
  const authorName = articleAuthorNameById[articleId] || '';
- entries.push({ key, articleId, title, desc, keywords, ogT, ogD, path: cp, img: im, datePub, dateMod, sdType, sdAuthorHasId, sdBlock, authorSlug, authorName });
+ entries.push({ key, articleId, title, desc, keywords, ogT, ogD, path: cp, img: im, imgW: imSize.width, imgH: imSize.height, datePub, dateMod, sdType, sdAuthorHasId, sdBlock, authorSlug, authorName });
  }
  }
 
@@ -758,20 +872,6 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
  const LOC_TAG: Record<string, string> = { it: 'it_CH', en: 'en_US', de: 'de_CH', fr: 'fr_CH' };
-
- // Hero-image intrinsic size. Every blog hero this pipeline produces is
- // 1200x675 (sampled across the live CDN + /images/places: all exactly that),
- // which is also what og:image:width/height and the Event branch's ImageObject
- // already asserted — as three separate literals. One constant, because the
- // <img> below now carries the same numbers and a fourth copy is a drift
- // waiting to happen: the width/height attributes are what reserve the box
- // before the bytes arrive, so a stale literal here is CLS on every article
- // page, which Auto Ads then inherits (Non-Negotiable #7 — reserve space).
- //
- // 1200px wide is not incidental: it is Google Discover's documented floor for
- // the large-image card that `max-image-preview:large` opts into.
- const HERO_WIDTH = 1200;
- const HERO_HEIGHT = 675;
 
  // Race-free SPA bundle hash extraction (SiteShellContract.resolveSpaBundle —
  // see build-plugins/spaBundleResolver.ts for the real site-side implementation).
@@ -1069,8 +1169,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  description: sdStr('description') || localizedDesc,
  image: imageObjectLd({
  url: imgU,
- width: HERO_WIDTH,
- height: HERO_HEIGHT,
+ width: en.imgW,
+ height: en.imgH,
  }),
  url: full,
  inLanguage: locale,
@@ -1126,8 +1226,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // news article, did not.
  image: imageObjectLd({
  url: imgU,
- width: HERO_WIDTH,
- height: HERO_HEIGHT,
+ width: en.imgW,
+ height: en.imgH,
  caption: heroAlt,
  }),
  url: full,
@@ -1272,8 +1372,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta property="og:title" content="${esc(localizedTitle)}">
  <meta property="og:description" content="${esc(clampMetaDescription(localizedDesc))}">
  <meta property="og:image" content="${imgU}">
- <meta property="og:image:width" content="${HERO_WIDTH}">
- <meta property="og:image:height" content="${HERO_HEIGHT}">
+ <meta property="og:image:width" content="${en.imgW}">
+ <meta property="og:image:height" content="${en.imgH}">
  <meta property="og:image:type" content="${en.img?.includes('.webp') ? 'image/webp' : 'image/jpeg'}">
  <meta property="og:image:alt" content="${esc(localizedTitle)}">
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
@@ -1305,13 +1405,16 @@ ${href}
  //
  // Same `en.img` URL as the preload on purpose, so the preload finally has its
  // consumer and resolves to one request rather than two. width/height are the
- // intrinsic size (see HERO_WIDTH/HERO_HEIGHT) so the box is reserved before
- // the bytes land — no CLS for Auto Ads to inherit. The `/images/blog/...`
+ // MEASURED intrinsic size of this article's own file (resolveHeroSize), not a
+ // shared constant, so the box reserved matches the bytes that land — no CLS
+ // for Auto Ads to inherit, and no width declared that the file contradicts.
+ // Same numbers feed og:image:width/height and the JSON-LD ImageObject, so the
+ // three sources cannot disagree. The `/images/blog/...`
  // src is rewritten to the CDN downstream by rewriteBlogImageRefs(), which is
  // attribute-agnostic (it matches the path, not the surrounding attribute) and
  // therefore already covers src= exactly as it covers the preload's href=.
  const heroFigureHtml =
- `<figure class="my-4"><img src="${en.img}" alt="${esc(heroAlt)}" width="${HERO_WIDTH}" height="${HERO_HEIGHT}" fetchpriority="high" decoding="async" class="w-full h-auto rounded-lg"></figure>`;
+ `<figure class="my-4"><img src="${en.img}" alt="${esc(heroAlt)}" width="${en.imgW}" height="${en.imgH}" fetchpriority="high" decoding="async" class="w-full h-auto rounded-lg"></figure>`;
 
  const blogPreloads = [
  `<link rel="preload" as="image" href="${en.img}" fetchpriority="high">`,

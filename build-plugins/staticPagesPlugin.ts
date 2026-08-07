@@ -88,6 +88,9 @@ import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescr
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { ARTICLE_SECTION_DESCRIPTORS } from './shared/articleSectionDescriptors';
+// Stesso misuratore dell'emitter articoli (packages/articles/engine): una sola
+// definizione di "quanto e' larga davvero questa immagine", non due.
+import { readImageIntrinsicSize } from '../packages/articles/engine/shared/imageIntrinsicSize';
 import { baseCompanySlug } from './shared/companyProfileSlug.mjs';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import {
@@ -1799,6 +1802,60 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
  } catch { /* non-fatal */ }
 
+ // #5001 — hero PER ARTICOLO per le pagine di dettaglio che questo plugin
+ // rende ancora.
+ //
+ // `blogHeroImageStatic`/`swissHeroImageStatic` sono la hero dell'HUB: la
+ // prima voce del registro ordinato per data. Il ramo `isBlogDetailPage` piu'
+ // sotto le usava anche sulle pagine ARTICOLO, quindi ogni articolo rimasto a
+ // questo renderer serviva l'immagine di un altro articolo — la stessa per
+ // tutti. Misurato il 2026-08-07 sul sito live: 44 URL italiane + 135
+ // en/de/fr mostravano `fondo-liberta-svizzera-multe.webp`, mentre il JSON-LD
+ // della stessa pagina nominava l'immagine giusta e `og:image` una terza cosa
+ // ancora (`/og-image.png`).
+ //
+ // Un solo indice id → path, letto dagli stessi registri gia' parsati qui
+ // sopra, cosi' i tre consumatori (img, og:image, ImageObject) non possono
+ // nominare file diversi.
+ // Regex propria, non `blogArticlesStatic`: quella richiede
+ // id/category/date/image ADIACENTI, e 12 articoli su 3.741 hanno `updatedAt`
+ // in mezzo, quindi ne restano fuori. Per le CARD dell'hub e' innocuo (12 voci
+ // su 100 mostrate), ma qui un id mancante ricadrebbe sulla hero dell'hub —
+ // esattamente il bug che questo indice esiste per chiudere. `[^{}]` non
+ // attraversa il confine dell'oggetto, quindi non puo' accoppiare l'id di un
+ // articolo con l'immagine del successivo.
+ //
+ // Deliberatamente NON allargo la regex di `blogArticlesStatic`: quella governa
+ // anche la griglia di card e `numberOfItems` dell'ItemList, e cambiarla qui
+ // sarebbe un drive-by su una superficie che nessuna misura ha indicato rotta.
+ const heroImageByArticleId: Record<string, string> = {};
+ for (const rel of ['blog-articles-data.ts', 'swiss-articles-data.ts']) {
+ try {
+ const src = fs.readFileSync(np.resolve(rootDir, 'data', rel), 'utf-8');
+ const rx = /\{\s*id:\s*'([^']+)',\s*category:\s*'[^']+',\s*date:\s*'[^']+',[^{}]*?image:\s*'([^']+)'/g;
+ let m: RegExpExecArray | null;
+ while ((m = rx.exec(src)) !== null) {
+ if (!heroImageByArticleId[m[1]]) heroImageByArticleId[m[1]] = m[2];
+ }
+ } catch { /* non-fatal, come le letture di registro qui sopra */ }
+ }
+
+ // Dimensioni REALI della hero, lette dall'header del file, mai dall'attributo
+ // `width=` o dai literal `structuredData.image` scritti a mano: erano proprio
+ // quelli a mentire (JSON-LD `1344`, attributo `800`, file `1200`). distDir
+ // prima — a closeBundle Vite ha gia' copiato public/ — poi public/ come rete
+ // per i driver che rendono in una dir di scratch.
+ const staticHeroSizeCache = new Map<string, { width: number; height: number } | null>();
+ const resolveStaticHeroSize = (imgPath: string): { width: number; height: number } | null => {
+ if (staticHeroSizeCache.has(imgPath)) return staticHeroSizeCache.get(imgPath) ?? null;
+ const rel = imgPath.replace(/^\/+/, '');
+ const size = rel
+ ? (readImageIntrinsicSize(np.join(distDir, rel)) ?? readImageIntrinsicSize(np.resolve(rootDir, 'public', rel)))
+ : null;
+ staticHeroSizeCache.set(imgPath, size);
+ return size;
+ };
+
  const swissSlugs = new Set(['articoli-svizzera', 'swiss-articles', 'schweiz-artikel', 'articles-suisse']);
  const swissArticleIdByLocale: Record<'it' | 'en' | 'de' | 'fr', Record<string, string>> = {
  it: {}, en: {}, de: {}, fr: {},
@@ -1878,9 +1935,21 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const localeChunk = stableChunkFile(`${locale}-${localeChunkKey}`);
  tags.push(`<link rel="modulepreload" href="/assets/${localeChunk}">`);
  }
- // Preload blog hero image on article listing pages
- if (blogHeroImageStatic && blogSlugs.has(firstSeg)) {
- tags.push(`<link rel="preload" as="image" fetchpriority="high" href="${blogHeroImageStatic}">`);
+ // Preload blog hero image on article listing pages.
+ // #5001: su una pagina di DETTAGLIO va preloadata la hero DI QUELL'ARTICOLO.
+ // Preloadare quella dell'hub significava un fetch ad alta priorita' per
+ // un'immagine che la pagina non mostra, e — dopo il fix del ramo detail —
+ // per una che non compare piu' nel documento affatto.
+ if (blogSlugs.has(firstSeg)) {
+ const isDetail = segs.length > (localePrefixes.includes(segs[0] ?? '') ? 2 : 1);
+ const detailLocale = (localePrefixes.includes(segs[0] ?? '') ? segs[0] : 'it') as 'it' | 'en' | 'de' | 'fr';
+ const detailId = isDetail
+ ? (blogArticleIdByLocale[detailLocale]?.[segs[segs.length - 1] ?? ''] ?? blogArticleIdByLocale.it[segs[segs.length - 1] ?? ''])
+ : undefined;
+ const preloadHero = (isDetail && detailId ? heroImageByArticleId[detailId] : '') || blogHeroImageStatic;
+ if (preloadHero) {
+ tags.push(`<link rel="preload" as="image" fetchpriority="high" href="${preloadHero}">`);
+ }
  }
  return tags.length ? '\n ' + tags.join('\n ') : '';
  };
@@ -4713,13 +4782,67 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
  : null;
 
- // og:image: la card quando c'e', altrimenti il default di sito invariato.
- // Le tre shell qui sotto avevano la stessa PNG cablata tre volte; ora leggono
- // queste quattro, cosi' una pagina con hero non puo' dichiararne un'altra.
- const ogImageUrl = glossaryHero ? seoHeroImageUrl(glossaryHero) : `${BASE_URL}/og-image.png`;
- const ogImageW = glossaryHero ? SEO_HERO_WIDTH : 1200;
- const ogImageH = glossaryHero ? SEO_HERO_HEIGHT : 630;
- const ogImageMime = glossaryHero ? 'image/webp' : 'image/png';
+ // #5001 punto 1/3 — la hero dell'ARTICOLO, risolta una volta sola come sopra
+ // per il glossario. `articleId` e' gia' in scope (risolto dallo slug della
+ // URL); se il registro non lo conosce restiamo sul comportamento precedente,
+ // cosi' nessuna pagina peggiora. `size` e' MISURATO dal file: e' il numero che
+ // finisce nell'attributo, in og:image:width/height e nell'ImageObject.
+ const blogDetailHeroSrc = (isBlogDetailPage && articleId && heroImageByArticleId[articleId]) || '';
+ const blogDetailHeroSize = blogDetailHeroSrc ? resolveStaticHeroSize(blogDetailHeroSrc) : null;
+ const blogDetailHeroMime = /\.png$/i.test(blogDetailHeroSrc)
+ ? 'image/png'
+ : /\.avif$/i.test(blogDetailHeroSrc)
+ ? 'image/avif'
+ : /\.jpe?g$/i.test(blogDetailHeroSrc)
+ ? 'image/jpeg'
+ : 'image/webp';
+
+ // og:image: la card quando c'e', poi la hero dell'articolo, altrimenti il
+ // default di sito invariato. Le tre shell qui sotto avevano la stessa PNG
+ // cablata tre volte; ora leggono queste quattro, cosi' una pagina con hero
+ // non puo' dichiararne un'altra.
+ const ogImageUrl = glossaryHero
+ ? seoHeroImageUrl(glossaryHero)
+ : blogDetailHeroSrc
+ ? `${BASE_URL}${blogDetailHeroSrc}`
+ : `${BASE_URL}/og-image.png`;
+ const ogImageW = glossaryHero ? SEO_HERO_WIDTH : blogDetailHeroSize ? blogDetailHeroSize.width : 1200;
+ const ogImageH = glossaryHero ? SEO_HERO_HEIGHT : blogDetailHeroSize ? blogDetailHeroSize.height : 630;
+ const ogImageMime = glossaryHero ? 'image/webp' : blogDetailHeroSrc ? blogDetailHeroMime : 'image/png';
+
+ // #5001 punto 3 — la terza sorgente. L'ImageObject del JSON-LD viene dal
+ // blocco `structuredData` scritto a mano nei sorgenti SEO, e su queste pagine
+ // dichiarava `"width": 1344, "height": 756` su file che ne misurano 1200 di
+ // larghezza e un'altezza che varia per file. Qui viene riallineato a
+ // `ogImageUrl` + le dimensioni MISURATE, cioe' agli stessi valori che vanno
+ // nell'<img> e in og:image.
+ //
+ // Variabile LOCALE, nessuna mutazione di `seoData.sd`: quell'oggetto viene da
+ // `seoMap` ed e' condiviso tra le locale della stessa pagina (stessa cautela
+ // dell'heroImageLd del glossario ~200 righe piu' sotto).
+ const sdForPage = ((): string | undefined => {
+ if (!seoData.sd || !blogDetailHeroSrc) return seoData.sd;
+ const sdSeparator = '</script>\n <script type="application/ld+json">';
+ try {
+ return seoData.sd.split(sdSeparator).map((part) => {
+ const obj = JSON.parse(part) as Record<string, unknown>;
+ const img = obj.image;
+ if (!img || typeof img !== 'object' || Array.isArray(img)) return part;
+ if ((img as Record<string, unknown>)['@type'] !== 'ImageObject') return part;
+ obj.image = {
+ ...(img as Record<string, unknown>),
+ url: ogImageUrl,
+ contentUrl: ogImageUrl,
+ width: ogImageW,
+ height: ogImageH,
+ };
+ return inlineScriptJson(obj);
+ }).join(sdSeparator);
+ } catch {
+ // Un blocco non parsabile non deve far perdere il JSON-LD alla pagina.
+ return seoData.sd;
+ }
+ })();
 
  if (comparatorSlugs.includes(firstSeg)) {
  rootHtml = `<div class="s-wWmcGm"><div style="${sp};height:9rem;margin-bottom:1.5rem"></div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><div class="s-d0FtpK"><div style="${sp};height:12rem"></div><div style="${sp};height:12rem"></div></div><nav class="s-eazYqN">${navHtml}</nav></div>`;
@@ -4747,8 +4870,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // branch also owns article DETAIL pages, and widening its condition would
  // put every published svizzera article through a code path it has never
  // been rendered by.
+ // Stessa coppia 800x320 cablata del ramo blog: qui la pagina e'
+ // un hub, non un articolo, ma il numero dichiarato mente sul file
+ // esattamente allo stesso modo. Fixato nella stessa classe (AGENTS.md #6).
+ const swissHeroSize = resolveStaticHeroSize(swissHeroImageStatic);
  const heroImg = swissHeroImageStatic
- ? `<img class="s-zYpvpO" src="${swissHeroImageStatic}" alt="${esc(seoData.ogT)}" width="800" height="320" fetchpriority="high">`
+ ? `<img class="s-zYpvpO" src="${swissHeroImageStatic}" alt="${esc(seoData.ogT)}" width="${swissHeroSize?.width ?? 1200}" height="${swissHeroSize?.height ?? 675}" fetchpriority="high">`
  : `<div style="${sp};height:16rem;margin-bottom:1.5rem"></div>`;
  const swissListSlug = firstSeg;
  const swissLocalePrefix = localePrefixes.includes(urlSegs[0] ?? '') ? urlSegs[0] : '';
@@ -4766,7 +4893,17 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  });
  rootHtml = `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article>${renderArticleHubGridBlock(swissCardsHtml, locale)}<nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (blogSlugs.includes(firstSeg)) {
- const heroImg = blogHeroImageStatic ? `<img class="s-zYpvpO" src="${blogHeroImageStatic}" alt="${esc(seoData.ogT)}" width="800" height="320" fetchpriority="high">` : `<div style="${sp};height:16rem;margin-bottom:1.5rem"></div>`;
+ // #5001 — su una pagina di DETTAGLIO la hero e' quella dell'articolo, con le
+ // dimensioni misurate dal file; l'hub tiene la sua (prima voce del registro).
+ // La coppia 800x320 era cablata: sul file reale (1200 di larghezza,
+ // altezza variabile) e' insieme un dato falso servito ai crawler e la
+ // riserva di spazio sbagliata, cioe' CLS che Auto Ads eredita
+ // (Non-Negotiable #7 — si riserva lo spazio, non si sopprime l'annuncio).
+ const heroSrc = blogDetailHeroSrc || blogHeroImageStatic;
+ const heroSize = blogDetailHeroSrc ? blogDetailHeroSize : resolveStaticHeroSize(blogHeroImageStatic);
+ const heroImg = heroSrc
+ ? `<img class="s-zYpvpO" src="${heroSrc}" alt="${esc(seoData.ogT)}" width="${heroSize?.width ?? 1200}" height="${heroSize?.height ?? 675}" fetchpriority="high">`
+ : `<div style="${sp};height:16rem;margin-bottom:1.5rem"></div>`;
  // Ad placeholders reserve vertical space so React hydration doesn't cause layout shifts (CLS).
  // The reserve is read from the AD_SLOTS registry, never hand-copied: the old
  // `.s-1zvlaE` class pinned a flat 180px while claiming to "match AdSenseBanner's
@@ -4915,7 +5052,7 @@ ${hrefTags}
  <style>body{font-family:Inter,system-ui,sans-serif;max-width:800px;margin:0 auto;padding:2rem 1rem;background:#f8fafc;color:var(--color-heading)}a{color:var(--color-link);text-decoration:underline}a:hover{color:#1d4ed8}h1{font-size:1.5rem;font-weight:700;margin-bottom:0.5rem}h2{font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem}nav{margin-top:2rem;padding-top:1rem;border-top:1px solid #e2e8f0;font-size:0.9rem}nav a{margin-right:1rem}.byline{font-size:0.85rem;color:var(--color-subtle);margin-bottom:1rem}</style>
  </head>
  <body>
- <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}${heroImageLd}
+ <script type="application/ld+json">${breadcrumbJsonLd}</script>${sdForPage ? `\n <script type="application/ld+json">${sdForPage}</script>` : ''}${speakableLd}${heroImageLd}
  <main>
  <h1>${esc(differentiateH1FromTitle((seoData.h1 && seoData.h1.trim().length > 0 ? seoData.h1 : seoData.title).replace(' | Frontaliere Ticino', ''), capTitle70(seoData.title), (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it'))}</h1>
  <p class="byline">By <a href="/chi-siamo/" rel="author">Redazione Frontaliere Ticino</a> · Last updated: <time datetime="2026-04-10">April 10, 2026</time></p>
@@ -5065,7 +5202,7 @@ ${hrefTags}
  ${ANALYTICS_SNIPPET}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}${heroImageLd}
+ <script type="application/ld+json">${breadcrumbJsonLd}</script>${sdForPage ? `\n <script type="application/ld+json">${sdForPage}</script>` : ''}${speakableLd}${heroImageLd}
  ${bodySection}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
@@ -5101,7 +5238,7 @@ ${hrefTags}
  ${ANALYTICS_SNIPPET}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}
  </head>
  <body>
- <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}${heroImageLd}
+ <script type="application/ld+json">${breadcrumbJsonLd}</script>${sdForPage ? `\n <script type="application/ld+json">${sdForPage}</script>` : ''}${speakableLd}${heroImageLd}
  <style>${skeletonAnim}</style>
  <div id="root"><main id="main-content">${rootHtml}</main></div>
  </body>
