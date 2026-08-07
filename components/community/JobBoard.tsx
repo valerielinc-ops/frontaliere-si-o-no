@@ -2275,6 +2275,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // and TrendingSection only renders at 3+ matches, so the pre-load state is
  // simply "no trending strip yet" — the same thing an offline user already saw.
  const [popularity, setPopularity] = useState<Record<string, number>>(EMPTY_JOB_POPULARITY);
+ // Deferred for the same reason as the three values above (#4302): it is an
+ // enhancement-only input that lands via a post-mount effect, and its arrival
+ // re-runs getTrendingByLocation over the whole loaded list. Deferring lets
+ // React yield that recompute to a concurrent tap instead of queueing the tap
+ // behind it. Output unchanged, only the scheduling.
+ const deferredPopularity = useDeferredValue(popularity);
 
  // Fetch it at idle, and only when personalization is on — it feeds nothing
  // else. Deferring past the authoritative job index keeps it from competing
@@ -2471,8 +2477,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const userLocation = userProfile?.municipality ?? null;
  const trendingJobs = useMemo(() => {
  if (!enablePersonalization) return [];
- return getTrendingByLocation(jobs, popularity, userLocation);
- }, [enablePersonalization, jobs, popularity, userLocation]);
+ return getTrendingByLocation(jobs, deferredPopularity, userLocation);
+ }, [enablePersonalization, jobs, deferredPopularity, userLocation]);
 
  // Count of jobs whose personal score is boosted by any signal (behavior,
  // tax/onboarding profile, or job-match survey profile). Feeds both the
@@ -9348,7 +9354,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  logoUrl: companyLogoUrl(j),
  href: j.slug ? buildPath({ activeTab: 'job-board' as any, jobSlug: j.slug }, locale) : undefined,
  }))}
- popularity={popularity}
+ popularity={deferredPopularity}
  heading={t('jobBoard.trending.heading')}
  ariaLabel={t('jobBoard.trending.aria')}
  onJobClick={(slug) => {
