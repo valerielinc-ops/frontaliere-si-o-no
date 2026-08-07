@@ -19,6 +19,18 @@
 #      the apex (apex stays >10 GB and the Pages deploy keeps failing, but the
 #      section is never left UNSERVED: safe degradation, never a 404).
 #
+# CONCURRENCY-SAFE: deploy.yml fans this out over the sections with the shared
+# bounded-parallel driver, so several invocations run at once. Every path this
+# script touches is section-scoped and therefore disjoint — dist/<sub> is one
+# section's own subtree — EXCEPT the per-locale stripped-file accumulator, which
+# used to be a read-modify-write shared by all of them. It is now one PRIVATE
+# file per section, folded into the accumulator by tally-stripped-sections.sh
+# (see the tally block at the bottom) — shared mutable state removed rather than
+# locked. A lost update there is not cosmetic: it under-reports the tally, which
+# makes push-locale-shard.sh's shrink guard reconstruct too small a pre-strip
+# size and refuse the (correctly) smaller main shard — the exact jul20 freeze
+# the tally exists to prevent.
+#
 # Usage: strip-section-subtree.sh <section> <locale> <dist_dir>
 # ─────────────────────────────────────────────────────────────────────────────
 set -uo pipefail
@@ -77,8 +89,19 @@ n_stripped="$(find "${dist_dir:?}/$sub" -type f 2>/dev/null | wc -l | tr -d ' ')
 [[ "$n_stripped" =~ ^[0-9]+$ ]] || n_stripped=0
 # Guarded `${dist_dir:?}` so an unset var can never expand `rm -rf /$sub`.
 rm -rf "${dist_dir:?}/$sub"
-acc="${RUNNER_TEMP:-/tmp}/shard-stripped-$loc"
-prev_acc="$(cat "$acc" 2>/dev/null || echo 0)"
-[[ "$prev_acc" =~ ^[0-9]+$ ]] || prev_acc=0
-printf '%s' "$(( prev_acc + n_stripped ))" > "$acc"
+# Per-section tally file, NOT a read-modify-write of the shared accumulator.
+# deploy.yml fans this script out over the sections, so `read $acc; write
+# $acc+n` would lose updates and UNDER-report the total — and this total is
+# exactly what push-locale-shard.sh's shrink guard uses to reconstruct the
+# pre-strip shard size, so an under-report makes it read a PLANNED split as a
+# >50% build regression and refuse the push (the jul20 freeze this tally was
+# added to prevent). Writing one private file per section removes the shared
+# mutable state instead of guarding it: no lock, no `flock` dependency, and the
+# same value whatever the interleaving. `tally-stripped-sections.sh` folds them
+# into $acc; the fan-out in deploy.yml calls it once after `wait` (authoritative),
+# and the call below keeps a standalone/sequential invocation self-contained.
+acc_dir="${RUNNER_TEMP:-/tmp}/shard-stripped-$loc.d"
+mkdir -p "$acc_dir"
+printf '%s' "$n_stripped" > "$acc_dir/$section"
+bash "$(dirname "${BASH_SOURCE[0]}")/tally-stripped-sections.sh" "$loc" >/dev/null 2>&1 || true
 echo "stripped $dist_dir/$sub from dist ($n_stripped files; now served by the $section-$loc shard via the Worker)"
