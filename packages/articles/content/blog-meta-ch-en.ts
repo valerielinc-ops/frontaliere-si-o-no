@@ -1921,6 +1921,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.costo-vita-svizzera-2026-san-gallo.title': 'Cost of living Switzerland 2026: canton St Gallen analysis',
     'blog.article.costo-vita-svizzera-2026-san-gallo.excerpt': 'Italian personal income tax rates 23-35-43%, AVS 5.3%, border deductible €10,000, 2024 agreement, non-EU/EEA Switzerland',
     'blog.article.costo-vita-svizzera-2026-san-gallo.imageAlt': 'Frontalier in St. Gallen old town with modern buildings in background',
+    'blog.article.premi-lamal-2026-ginevra-guida.title': 'LAMal 2026 awards in Geneva: deductible, cash changeover and subsidies',
+    'blog.article.premi-lamal-2026-ginevra-guida.excerpt': 'Guide to sick pay premiums 2026 in the canton of Geneva: deductibles CHF 300–2500, right of option for border workers, national comparison and steps to change insurance.',
+    'blog.article.premi-lamal-2026-ginevra-guida.imageAlt': 'View of Lake Geneva with the Jet d\'Eau against the Alps backdrop',
 };
 
 export default blogMetaChEn;
