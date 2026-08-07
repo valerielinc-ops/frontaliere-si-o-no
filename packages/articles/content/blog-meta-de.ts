@@ -9315,6 +9315,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.graffio-nella-barba-locarno-film-festival.title': 'Das Kratzen im Bart des künstlerischen Leiters beim Locarno Film Festival',
     'blog.article.graffio-nella-barba-locarno-film-festival.excerpt': 'Im weichen und voluminösen Bart des künstlerischen Leiters verbirgt sich eine Absichtserklärung für das Schweizer Kino, mit Investitionen, die bis 2025 um 25% steigen.',
     'blog.article.graffio-nella-barba-locarno-film-festival.imageAlt': 'Gepflegter Bart des künstlerischen Leiters beim Locarno Film Festival vor der Piazza Grande',
+    'blog.article.caldo-torrido-lavoro-ticino.title': 'Arbeit im Tessiner Sommerwetter: Regierung öffnet sich für neue Arbeitsmassnahmen',
+    'blog.article.caldo-torrido-lavoro-ticino.excerpt': 'Gewerkschaften UNIA, OCST, SGB und VPOD treffen sich mit dem Staatsrat: Über 100 Einweisungen in die Notaufnahme wegen Hitzeeinflüssen auf die Tessiner Arbeitnehmer',
+    'blog.article.caldo-torrido-lavoro-ticino.imageAlt': 'Bauarbeiter in der Schattenpause während einer Hitzewelle im Tessin, nahe der italienisch-schweizerischen Grenze',
 };
 
 export default blogMetaDe;

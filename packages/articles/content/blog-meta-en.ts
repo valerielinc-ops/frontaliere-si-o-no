@@ -9316,6 +9316,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.graffio-nella-barba-locarno-film-festival.title': 'The scratch on the beard of the artistic director at the Locarno Film Festival',
     'blog.article.graffio-nella-barba-locarno-film-festival.excerpt': 'In the soft and voluminous beard of the artistic director lies a declaration of intent for Swiss cinema, with investments increasing by 25% in 2025.',
     'blog.article.graffio-nella-barba-locarno-film-festival.imageAlt': 'Well-groomed beard of the artistic director at Locarno Film Festival in front of Piazza Grande',
+    'blog.article.caldo-torrido-lavoro-ticino.title': 'Work in the scorching heat in Ticino: Government opens new measures for workers',
+    'blog.article.caldo-torrido-lavoro-ticino.excerpt': 'UNIA, OCST, USS and VPOD trade unions meet the State Council: over 100 admissions to the emergency room due to the effects of the heat on Ticino workers',
+    'blog.article.caldo-torrido-lavoro-ticino.imageAlt': 'Construction workers resting in the shade during a heatwave in Ticino, near the Italian-Swiss border',
 };
 
 export default blogMetaEn;
