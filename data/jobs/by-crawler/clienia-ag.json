@@ -1045,8 +1045,6 @@
         "diplomierte-pflegefachperson-im-tagesdienst-70-80-clienia-ag-pfaffikon",
         "infirmier-diplome-en-service-diurne-70-80-clienia-ag-pfaffikon",
         "diplomata-infermiera-professionale-nel-servizio-diurno-psychiatriezentrum-munsingen-munsingen",
-        "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon",
-        "infermiere-diplomata-in-servizio-diurno-70-80-clienia-ag-pfaffikon",
         "graduated-day-care-professional-60-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
@@ -7896,8 +7894,7 @@
         ],
         "it": [
           "eidg-anerk-psychotherapeutin-psychotherapeuten-oder-fachpsychologin-fachpsychologen-40-80",
-          "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-80-clienia-ag-zurich",
-          "eidg-anerk-psychotherapeutin-psychotherapeuten-o-fachpsychologin-fachpsychologen-40-80-clienia-ag-pfaffikon"
+          "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-80-clienia-ag-zurich"
         ],
         "en": [
           "eidg-anerk-psychotherapeutin-psychotherapeuten-oder-fachpsychologin-fachpsychologen-40-80"
@@ -7908,8 +7905,7 @@
       },
       "previousSlugs": [
         "eidg-anerk-psychotherapeutin-psychotherapeuten-oder-fachpsychologin-fachpsychologen-40-80",
-        "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-80-clienia-ag-zurich",
-        "eidg-anerk-psychotherapeutin-psychotherapeuten-o-fachpsychologin-fachpsychologen-40-80-clienia-ag-pfaffikon"
+        "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-80-clienia-ag-zurich"
       ],
       "firstSeenAt": "2026-08-03T13:02:46.169Z",
       "salaryMin": 58800,
@@ -8085,8 +8081,8 @@
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-oder-fage-m-w-d-80-100-clienia-ag-zurich",
         "it": "medizinische-r-praxisassistent-in-o-fage-m-w-d-80-100-clienia-ag-pfaffikon",
-        "en": "medizinische-r-praxisassistent-in-oder-fage-m-w-d-80-100-clienia-ag-pfaffikon",
-        "fr": "medizinische-r-praxisassistent-in-oder-fage-m-w-d-80-100-clienia-ag-pfaffikon"
+        "en": "medical-assistant-or-fage-m-f-d-80-100-clienia-ag-pfaffikon-zh",
+        "fr": "assistant-medical-ou-fage-m-f-j-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -8132,10 +8128,17 @@
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-oder-fage-m-w-d-80-100-clienia-ag-zurich"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-oder-fage-m-w-d-80-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-oder-fage-m-w-d-80-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-oder-fage-m-w-d-80-100-clienia-ag-zurich"
+        "medizinische-r-praxisassistent-in-oder-fage-m-w-d-80-100-clienia-ag-zurich",
+        "medizinische-r-praxisassistent-in-oder-fage-m-w-d-80-100-clienia-ag-pfaffikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

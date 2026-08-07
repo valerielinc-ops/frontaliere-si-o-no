@@ -14736,13 +14736,11 @@
         }
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-solothurner-spitaeler-olten",
-        "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-ag-soh-olten"
+        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-solothurner-spitaeler-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-solothurner-spitaeler-olten",
-          "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-ag-soh-olten"
+          "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-solothurner-spitaeler-olten"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-solothurner-spitaeler-olten"
@@ -14758,8 +14756,8 @@
       "slugByLocale": {
         "de": "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-solothurner",
         "it": "mpa-o-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-m-w-d-solothurner-spitaler-ag-soh-olten",
-        "en": "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-solothurner",
-        "fr": "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-solothurner"
+        "en": "mpa-or-specialist-health-specialist-surgical-consultation-hours-f-m-d-solothurner-spitaler-ag-soh-olten",
+        "fr": "mpa-ou-specialiste-specialiste-de-la-sante-heures-de-consultation-chirurgicale-f-m-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14804,6 +14802,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-solothurner"
+        ],
+        "en": [
+          "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-solothurner"
+        ],
+        "fr": [
           "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-solothurner"
         ]
       },

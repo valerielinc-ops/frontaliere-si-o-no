@@ -64,15 +64,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "previousSlugsByLocale": {
-        "fr": [
-          "chimiste-msat-chromatographie-80-100-m-m-j-lonza-ch"
-        ]
-      },
-      "previousSlugs": [
-        "chimiste-msat-chromatographie-80-100-m-m-j-lonza-ch"
-      ]
+      "addressRegion": "VS"
     },
     {
       "id": "lonza-afc9949d8e67",
@@ -202,19 +194,13 @@
         "it": [
           "senior-bioprocess-engineer-downstream-processing-dsp-80-100-m-f-d-lonza-ch",
           "responsabile-produzione-dsp-80-100-m-f-g-lonza-ch",
-          "manager-produzione-dsp-80-100-m-f-d-lonza-ch",
           "manager-manufacturing-dsp-80-100-m-f-d-lonza-ch"
-        ],
-        "fr": [
-          "gestionnaire-fabrication-dsp-80-100-m-f-j-lonza-ch"
         ]
       },
       "previousSlugs": [
         "senior-bioprocess-engineer-downstream-processing-dsp-80-100-m-f-d-lonza-ch",
         "responsabile-produzione-dsp-80-100-m-f-g-lonza-ch",
-        "manager-produzione-dsp-80-100-m-f-d-lonza-ch",
-        "manager-manufacturing-dsp-80-100-m-f-d-lonza-ch",
-        "gestionnaire-fabrication-dsp-80-100-m-f-j-lonza-ch"
+        "manager-manufacturing-dsp-80-100-m-f-d-lonza-ch"
       ],
       "firstSeenAt": "2026-08-07T10:14:43.753Z",
       "salaryMin": 120000,
@@ -281,20 +267,11 @@
       "crawledAt": "2026-08-07T10:14:43.049Z",
       "jobReqId": "R78166",
       "previousSlugs": [
-        "manufacturing-specialist-m-w-d-lonza-ch",
-        "manufacturing-specialista-m-w-d-lonza-ch-4a63bc",
-        "manufacturing-spezialist-m-w-d-lonza-ch",
-        "manufacturing-specialiste-m-w-d-lonza-ch-4a63bc"
+        "manufacturing-specialist-m-w-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manufacturing-specialist-m-w-d-lonza-ch"
-        ],
-        "de": [
-          "manufacturing-spezialist-m-w-d-lonza-ch"
-        ],
-        "fr": [
-          "manufacturing-specialiste-m-w-d-lonza-ch-4a63bc"
         ]
       },
       "firstSeenAt": "2026-08-07T10:14:43.049Z",
@@ -362,16 +339,11 @@
       "crawledAt": "2026-08-07T10:14:42.388Z",
       "jobReqId": "R78063",
       "previousSlugs": [
-        "associate-principal-scientist-extractables-leachables-80-100-lonza-ch",
-        "associati-principali-scienziati-estratti-leachables-80-100-lonza-ch",
-        "chercheur-principal-associe-extractions-et-lessivables-80-100-lonza-ch"
+        "associate-principal-scientist-extractables-leachables-80-100-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "associate-principal-scientist-extractables-leachables-80-100-lonza-ch"
-        ],
-        "fr": [
-          "chercheur-principal-associe-extractions-et-lessivables-80-100-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-08-07T10:14:42.388Z",
@@ -440,14 +412,12 @@
       "jobReqId": "R78158",
       "previousSlugs": [
         "demand-manager-logistique-80-100-m-w-d-lonza-ch",
-        "demand-manager-logistica-80-100-m-w-d-lonza-ch",
-        "demand-manager-logistics-80-100-m-w-d-lonza-ch"
+        "demand-manager-logistica-80-100-m-w-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "demand-manager-logistique-80-100-m-w-d-lonza-ch",
-          "demand-manager-logistica-80-100-m-w-d-lonza-ch",
-          "demand-manager-logistics-80-100-m-w-d-lonza-ch"
+          "demand-manager-logistica-80-100-m-w-d-lonza-ch"
         ],
         "fr": [
           "demand-manager-logistique-80-100-m-w-d-lonza-ch"
@@ -470,12 +440,12 @@
     },
     {
       "id": "lonza-5b606df8295a",
-      "slug": "supply-planning-manager-lonza-ch",
+      "slug": "gestione-della-pianificazione-del-rifornimento-lonza-ch",
       "slugByLocale": {
         "en": "supply-planning-manager-lonza-ch",
-        "it": "supply-planning-manager-lonza-ch",
-        "de": "supply-planning-manager-lonza-ch",
-        "fr": "supply-planning-manager-lonza-ch"
+        "it": "gestione-della-pianificazione-del-rifornimento-lonza-ch",
+        "de": "versorgungsplanungsmanager-lonza-ch",
+        "fr": "gestionnaire-de-la-planification-des-approvisionnements-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -520,21 +490,19 @@
       "previousSlugs": [
         "gestionnaire-de-la-planification-des-approvisionnements-lonza-ch",
         "versorgungsplanungsmanager-lonza-ch",
-        "gestione-della-pianificazione-del-rifornimento-lonza-ch",
         "supply-planning-manager-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-la-planification-des-approvisionnements-lonza-ch",
           "versorgungsplanungsmanager-lonza-ch",
-          "gestione-della-pianificazione-del-rifornimento-lonza-ch",
           "supply-planning-manager-lonza-ch"
         ],
         "de": [
-          "versorgungsplanungsmanager-lonza-ch"
+          "supply-planning-manager-lonza-ch"
         ],
         "fr": [
-          "gestionnaire-de-la-planification-des-approvisionnements-lonza-ch"
+          "supply-planning-manager-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-08-07T10:14:41.047Z",
@@ -558,8 +526,8 @@
       "slugByLocale": {
         "en": "qa-manager-supply-chain-systems-specialist-80-100-f-m-d-lonza-ch",
         "it": "qa-manager-supply-chain-systems-specialist-80-100-f-m-d-lonza-ch",
-        "de": "qa-manager-supply-chain-systems-specialist-80-100-f-m-d-lonza-ch",
-        "fr": "qa-manager-supply-chain-systems-specialist-80-100-f-m-d-lonza-ch"
+        "de": "qa-manager-lieferkette-systems-spezialist-80-100-f-m-d-lonza-ch",
+        "fr": "qa-manager-chaine-d-approvisionnement-systems-specialiste-80-100-f-m-d-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -619,12 +587,6 @@
         "it": [
           "qa-manager-chaine-d-approvisionnement-systems-specialiste-80-100-f-m-d-lonza-ch",
           "qa-manager-lieferkette-systems-spezialist-80-100-f-m-d-lonza-ch"
-        ],
-        "de": [
-          "qa-manager-lieferkette-systems-spezialist-80-100-f-m-d-lonza-ch"
-        ],
-        "fr": [
-          "qa-manager-chaine-d-approvisionnement-systems-specialiste-80-100-f-m-d-lonza-ch"
         ]
       },
       "previousSlugs": [
@@ -638,8 +600,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-efz-80-100-m-w-d-lonza-ch",
         "it": "installatore-trice-elettrico-a-cfc-80-100-m-w-d-lonza-ch",
-        "en": "elektroinstallateur-efz-80-100-m-w-d-lonza-ch",
-        "fr": "elektroinstallateur-efz-80-100-m-w-d-lonza-ch"
+        "en": "electrical-installer-efz-80-100-m-w-d-lonza-ch",
+        "fr": "installateur-electrique-efz-80-100-m-w-d-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -683,6 +645,12 @@
       "jobReqId": "R78465",
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-efz-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "elektroinstallateur-efz-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
           "elektroinstallateur-efz-80-100-m-w-d-lonza-ch"
         ]
       },
@@ -1063,12 +1031,12 @@
     },
     {
       "id": "lonza-bc58aea926ab",
-      "slug": "qc-microbiology-analyst-f-m-d-lonza-ch",
+      "slug": "qc-microbiology-analista-f-m-d-lonza-ch",
       "slugByLocale": {
         "de": "qc-microbiology-analyst-f-m-d-lonza-ch",
-        "it": "qc-microbiology-analyst-f-m-d-lonza-ch",
+        "it": "qc-microbiology-analista-f-m-d-lonza-ch",
         "en": "qc-microbiology-analyst-f-m-d-lonza-ch",
-        "fr": "qc-microbiology-analyst-f-m-d-lonza-ch"
+        "fr": "qc-microbiology-analyste-f-m-d-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -1123,7 +1091,18 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-07T10:14:35.358Z"
+      "firstSeenAt": "2026-08-07T10:14:35.358Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "qc-microbiology-analyst-f-m-d-lonza-ch"
+        ],
+        "fr": [
+          "qc-microbiology-analyst-f-m-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "qc-microbiology-analyst-f-m-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-ccb174921241",
@@ -1191,12 +1170,12 @@
     },
     {
       "id": "lonza-dca380a9e1da",
-      "slug": "anlagenmeister-launch-plant-80-100-m-w-d-lonza-ch",
+      "slug": "pianta-di-lancio-master-80-100-m-f-d-lonza-ch",
       "slugByLocale": {
         "de": "anlagenmeister-launch-plant-80-100-m-w-d-lonza-ch",
-        "it": "anlagenmeister-launch-plant-80-100-m-w-d-lonza-ch",
+        "it": "pianta-di-lancio-master-80-100-m-f-d-lonza-ch",
         "en": "anlagenmeister-launch-plant-80-100-m-w-d-lonza-ch",
-        "fr": "anlagenmeister-launch-plant-80-100-m-w-d-lonza-ch"
+        "fr": "plant-maitre-de-lancement-80-100-m-f-d-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -1251,7 +1230,18 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-07T10:14:33.728Z"
+      "firstSeenAt": "2026-08-07T10:14:33.728Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenmeister-launch-plant-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "anlagenmeister-launch-plant-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenmeister-launch-plant-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-9371fd979dc0",
@@ -1406,8 +1396,8 @@
       "slugByLocale": {
         "de": "tagesmitarbeiter-energie-und-entsorgung-80-100-m-w-d-lonza-ch",
         "it": "tagesmitarbeiter-energie-e-entsorgung-80-100-m-w-d-lonza-ch",
-        "en": "tagesmitarbeiter-energie-und-entsorgung-80-100-m-w-d-lonza-ch",
-        "fr": "tagesmitarbeiter-energie-und-entsorgung-80-100-m-w-d-lonza-ch"
+        "en": "daily-employee-energy-and-disposal-80-100-m-f-d-lonza-ch",
+        "fr": "employe-quotidien-energie-et-elimination-80-100-m-f-j-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -1451,6 +1441,12 @@
       "jobReqId": "R78341",
       "previousSlugsByLocale": {
         "it": [
+          "tagesmitarbeiter-energie-und-entsorgung-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "tagesmitarbeiter-energie-und-entsorgung-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
           "tagesmitarbeiter-energie-und-entsorgung-80-100-m-w-d-lonza-ch"
         ]
       },
@@ -4418,7 +4414,7 @@
       "slugByLocale": {
         "de": "operator-utilities-mitarbeiter-technischer-unterhalt-80-100-m-w-d-lonza-ch",
         "it": "operatore-utilities-collaboratore-trice-technischer-unterhalt-80-100-m-w-d-lonza-ch",
-        "en": "operator-utilities-mitarbeiter-technischer-unterhalt-80-100-m-w-d-lonza-ch",
+        "en": "operator-utilities-employee-technical-maintenance-80-100-m-f-d-lonza-ch",
         "fr": "operator-utilities-mitarbeiter-technischer-unterhalt-80-100-m-w-d-lonza-ch"
       },
       "company": "Lonza",
@@ -4468,6 +4464,9 @@
         ],
         "de": [
           "operateur-utilities-mitarbeiter-technischer-unterhalt-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "operator-utilities-mitarbeiter-technischer-unterhalt-80-100-m-w-d-lonza-ch"
         ]
       },
       "previousSlugs": [
@@ -5027,8 +5026,6 @@
         "laborant-m-w-qc-mammalian-lonza-ch",
         "laboratoire-m-f-qc-mammalian-lonza-ch",
         "laborant-in-qc-lonza-ch",
-        "laboratoire-m-f-qc-mammalien-lonza-ch",
-        "laboratorio-m-f-qc-mammalian-lonza-ch",
         "laborant-m-w-d-qc-mammalian-lonza-ch"
       ],
       "previousSlugsByLocale": {
@@ -10360,7 +10357,6 @@
           "operations-support-specialist-lonza-ch"
         ],
         "en": [
-          "operations-support-specialist-lonza-ch-l6n4v4",
           "operations-support-specialist-lonza-ch"
         ],
         "de": [

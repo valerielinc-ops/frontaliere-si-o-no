@@ -9506,9 +9506,6 @@
         "opticien-h-f-d-fielmann-group-zurich",
         "opticien-h-f-x-fielmann-group-zurich",
         "ottico-m-f-d-fielmann-group-zurich",
-        "optician-f-m-d-fielmann-group-zurich",
-        "opticien-f-m-d-fielmann-group-zurich",
-        "ottico-f-m-d-fielmann-group-zurich",
         "opticians-m-w-d-fielmann-group-zurich",
         "opticiens-m-j-fielmann-group-zurich"
       ],
@@ -9524,12 +9521,10 @@
         ],
         "en": [
           "augenoptiker-m-w-d-fielmann-group-zurich",
-          "optician-f-m-d-fielmann-group-zurich",
           "opticians-m-w-d-fielmann-group-zurich"
         ],
         "fr": [
           "augenoptiker-m-w-d-fielmann-group-zurich",
-          "opticien-f-m-d-fielmann-group-zurich",
           "opticiens-m-j-fielmann-group-zurich"
         ]
       },
@@ -9634,8 +9629,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-fur-den-bereich-empfang-kasse-w-m-d-fielmann-ch",
         "it": "collaboratore-trice-per-den-bereich-empfang-kasse-m-w-d-fielmann-group-zug",
-        "en": "mitarbeiter-fur-den-bereich-empfang-kasse-w-m-d-fielmann-ch",
-        "fr": "mitarbeiter-fur-den-bereich-empfang-kasse-w-m-d-fielmann-ch"
+        "en": "employees-for-the-reception-counter-f-m-d-area-fielmann-group-zug",
+        "fr": "employes-pour-la-zone-reception-compteur-f-m-d-fielmann-group-zug"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -9681,6 +9676,12 @@
       "jobReqId": "R-13709",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-fur-den-bereich-empfang-kasse-w-m-d-fielmann-ch"
+        ],
+        "en": [
+          "mitarbeiter-fur-den-bereich-empfang-kasse-w-m-d-fielmann-ch"
+        ],
+        "fr": [
           "mitarbeiter-fur-den-bereich-empfang-kasse-w-m-d-fielmann-ch"
         ]
       },

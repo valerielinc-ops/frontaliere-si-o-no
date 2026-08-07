@@ -134,8 +134,7 @@
         "gerant-e-junior-d-immeubles-cdd-jusqu-au-30-11-2026-livit-ag-geneve",
         "gerant-e-junior-cdd-jusqu-au-30-11-2026-livit-ag-geneve",
         "gerant-e-junior-cdd-jusqu-au-30-11-2026-livit-geneve",
-        "gerant-e-d-immeubles-junior-cdd-jusqu-au-30-11-2026-livit-geneve",
-        "junior-building-manager-cdd-fino-al-30-11-2026-livit-ag-geneve"
+        "gerant-e-d-immeubles-junior-cdd-jusqu-au-30-11-2026-livit-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -143,8 +142,7 @@
           "gerant-e-junior-d-immeubles-cdd-jusqu-au-30-11-2026-livit-ag-geneve",
           "gerant-e-junior-cdd-jusqu-au-30-11-2026-livit-ag-geneve",
           "gerant-e-junior-cdd-jusqu-au-30-11-2026-livit-geneve",
-          "gerant-e-d-immeubles-junior-cdd-jusqu-au-30-11-2026-livit-geneve",
-          "junior-building-manager-cdd-fino-al-30-11-2026-livit-ag-geneve"
+          "gerant-e-d-immeubles-junior-cdd-jusqu-au-30-11-2026-livit-geneve"
         ],
         "en": [
           "gerant-e-junior-d-immeubles-cdd-jusqu-au-30-11-2026-livit-geneve"
@@ -1483,7 +1481,6 @@
       "previousSlugsByLocale": {
         "it": [
           "kaufmann-frau-efz-immobilien-august-2027-livit-zurich",
-          "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-zurich",
           "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-zurich-6h6uiq",
           "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-zurich"
         ],
@@ -1493,7 +1490,6 @@
       },
       "previousSlugs": [
         "kaufmann-frau-efz-immobilien-august-2027-livit-zurich",
-        "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-zurich",
         "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-zurich-6h6uiq",
         "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-zurich"
       ],
@@ -1563,7 +1559,6 @@
       "previousSlugsByLocale": {
         "it": [
           "kaufmann-frau-efz-immobilien-august-2027-livit-solothurn",
-          "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-solothurn",
           "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-solothurn-kgo8ff",
           "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-solothurn"
         ],
@@ -1573,7 +1568,6 @@
       },
       "previousSlugs": [
         "kaufmann-frau-efz-immobilien-august-2027-livit-solothurn",
-        "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-solothurn",
         "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-solothurn-kgo8ff",
         "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-solothurn"
       ],
@@ -1643,7 +1637,6 @@
       "previousSlugsByLocale": {
         "it": [
           "kaufmann-frau-efz-immobilien-august-2027-livit-st-gallen",
-          "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-st-gallen",
           "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-st-gallen-37upj0",
           "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-st-gallen"
         ],
@@ -1653,7 +1646,6 @@
       },
       "previousSlugs": [
         "kaufmann-frau-efz-immobilien-august-2027-livit-st-gallen",
-        "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-st-gallen",
         "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-st-gallen-37upj0",
         "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-st-gallen"
       ],
@@ -1673,12 +1665,12 @@
     },
     {
       "id": "livit-7b7e1544b6a0",
-      "slug": "gerant-e-d-immeubles-livit-ag-geneve",
+      "slug": "direttore-della-costruzione-livit-ag-geneve-28c4cc",
       "slugByLocale": {
         "fr": "gerant-e-d-immeubles-livit-geneve",
-        "it": "gerant-e-d-immeubles-livit-ag-geneve",
-        "en": "gerant-e-d-immeubles-livit-geneve",
-        "de": "gerant-e-d-immeubles-livit-geneve"
+        "it": "direttore-della-costruzione-livit-ag-geneve-28c4cc",
+        "en": "building-manager-livit-ag-geneve",
+        "de": "gebaudeverwalter-livit-ag-geneve"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -1724,11 +1716,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gerant-e-d-immeubles-livit-geneve",
+          "gerant-e-d-immeubles-livit-ag-geneve"
+        ],
+        "en": [
+          "gerant-e-d-immeubles-livit-geneve"
+        ],
+        "de": [
           "gerant-e-d-immeubles-livit-geneve"
         ]
       },
       "previousSlugs": [
-        "gerant-e-d-immeubles-livit-geneve"
+        "gerant-e-d-immeubles-livit-geneve",
+        "gerant-e-d-immeubles-livit-ag-geneve"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

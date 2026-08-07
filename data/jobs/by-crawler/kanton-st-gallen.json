@@ -6065,18 +6065,14 @@
       },
       "previousSlugs": [
         "teamleiter-in-erstintegration-kanton-st-gallen-ch",
-        "team-leader-first-integration-kanton-st-gallen-wil",
-        "team-leader-prima-integrazione-kanton-st-gallen-wil",
         "teamleiter-in-erstintegration-kanton-st-gallen-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-erstintegration-kanton-st-gallen-ch",
-          "team-leader-prima-integrazione-kanton-st-gallen-wil"
+          "teamleiter-in-erstintegration-kanton-st-gallen-ch"
         ],
         "en": [
           "teamleiter-in-erstintegration-kanton-st-gallen-ch",
-          "team-leader-first-integration-kanton-st-gallen-wil",
           "teamleiter-in-erstintegration-kanton-st-gallen-wil"
         ],
         "fr": [
@@ -6163,12 +6159,12 @@
     },
     {
       "id": "kanton-st-gallen-c74260b19659",
-      "slug": "fachverantwortliche-r-e-voting-m-w-d-kanton-st-gallen-ch",
+      "slug": "votazione-responsabile-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "fachverantwortliche-r-e-voting-m-w-d-kanton-st-gallen-ch",
-        "it": "fachverantwortliche-r-e-voting-m-w-d-kanton-st-gallen-ch",
-        "en": "fachverantwortliche-r-e-voting-m-w-d-kanton-st-gallen-ch",
-        "fr": "fachverantwortliche-r-e-voting-m-w-d-kanton-st-gallen-ch"
+        "it": "votazione-responsabile-m-f-d-kanton-st-gallen-st-gallen",
+        "en": "responsible-e-voting-m-f-d-kanton-st-gallen-st-gallen",
+        "fr": "vote-electronique-responsable-m-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -6224,16 +6220,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T10:11:58.058Z"
+      "firstSeenAt": "2026-08-07T10:11:58.058Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachverantwortliche-r-e-voting-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "fachverantwortliche-r-e-voting-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "fachverantwortliche-r-e-voting-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachverantwortliche-r-e-voting-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-ec22ee1f17c8",
-      "slug": "fachmitarbeiter-in-voting-services-m-w-d-kanton-st-gallen-ch",
+      "slug": "servizi-di-votazione-specialista-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "fachmitarbeiter-in-voting-services-m-w-d-kanton-st-gallen-ch",
-        "it": "fachmitarbeiter-in-voting-services-m-w-d-kanton-st-gallen-ch",
+        "it": "servizi-di-votazione-specialista-m-f-d-kanton-st-gallen-st-gallen",
         "en": "fachmitarbeiter-in-voting-services-m-w-d-kanton-st-gallen-ch",
-        "fr": "fachmitarbeiter-in-voting-services-m-w-d-kanton-st-gallen-ch"
+        "fr": "services-de-vote-specialises-m-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -6289,7 +6299,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T10:11:57.574Z"
+      "firstSeenAt": "2026-08-07T10:11:57.574Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmitarbeiter-in-voting-services-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "fachmitarbeiter-in-voting-services-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachmitarbeiter-in-voting-services-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-e659f47066c4",

@@ -1982,14 +1982,12 @@
       "crawledAt": "2026-08-07T10:29:33.945Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-12",
-        "lernender-detailhandel-m-w-d-aldi-suisse",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-worb"
+        "lernender-detailhandel-m-w-d-aldi-suisse"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse-12",
-          "lernender-detailhandel-m-w-d-aldi-suisse",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-worb"
+          "lernender-detailhandel-m-w-d-aldi-suisse"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -2018,12 +2016,12 @@
     },
     {
       "id": "aldi-suisse-d62e689ca929",
-      "slug": "lernender-detailhandel-m-w-d-aldi-suisse",
+      "slug": "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-bern",
       "slugByLocale": {
-        "it": "lernender-detailhandel-m-w-d-aldi-suisse",
-        "en": "lernender-detailhandel-m-w-d-aldi-suisse",
+        "it": "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-bern",
+        "en": "retail-apprentice-m-w-d-aldi-suisse-bern",
         "de": "lernender-detailhandel-m-w-d-aldi-suisse",
-        "fr": "lernender-detailhandel-m-w-d-aldi-suisse"
+        "fr": "apprenti-e-commerce-de-detail-m-w-d-aldi-suisse-bern"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -2094,11 +2092,19 @@
       "crawledAt": "2026-08-07T10:29:33.944Z",
       "previousSlugsByLocale": {
         "it": [
-          "lernender-detailhandel-m-w-d-aldi-suisse-13"
+          "lernender-detailhandel-m-w-d-aldi-suisse-13",
+          "lernender-detailhandel-m-w-d-aldi-suisse"
+        ],
+        "en": [
+          "lernender-detailhandel-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "lernender-detailhandel-m-w-d-aldi-suisse"
         ]
       },
       "previousSlugs": [
-        "lernender-detailhandel-m-w-d-aldi-suisse-13"
+        "lernender-detailhandel-m-w-d-aldi-suisse-13",
+        "lernender-detailhandel-m-w-d-aldi-suisse"
       ],
       "salaryMin": 61000,
       "salaryMax": 93500,

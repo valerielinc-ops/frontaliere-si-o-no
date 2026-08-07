@@ -3194,8 +3194,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch",
         "it": "fachperson-gesundheit-per-la-nachtwache-psychiatrische-dienste-graubunden-chur",
-        "en": "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch",
-        "fr": "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch"
+        "en": "health-professional-for-the-night-watch-psychiatrische-dienste-graubunden-chur",
+        "fr": "professionnels-de-la-sante-pour-la-veille-nocturne-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3247,6 +3247,12 @@
           "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch",
           "fachperson-gesundheit-pdgr-ch-2",
           "fachperson-gesundheit-pdgr-ch-3"
+        ],
+        "en": [
+          "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch"
+        ],
+        "fr": [
+          "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch"
         ]
       },
       "previousSlugs": [

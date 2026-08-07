@@ -430,12 +430,12 @@
     },
     {
       "id": "totalenergies-0cf145ed3346",
-      "slug": "administrative-assistant-fixed-term-contract-totalenergies-geneve",
+      "slug": "assistente-amministrativo-contratto-a-termine-fisso-totalenergies-geneve",
       "slugByLocale": {
         "en": "administrative-assistant-fixed-term-contract-totalenergies-geneve",
-        "it": "administrative-assistant-fixed-term-contract-totalenergies-geneve",
+        "it": "assistente-amministrativo-contratto-a-termine-fisso-totalenergies-geneve",
         "de": "administrative-assistant-fixed-term-contract-totalenergies-geneve",
-        "fr": "administrative-assistant-fixed-term-contract-totalenergies-geneve"
+        "fr": "assistant-administratif-contrat-a-duree-determinee-totalenergies-geneve"
       },
       "company": "TotalEnergies",
       "companyKey": "totalenergies",
@@ -493,7 +493,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T10:09:17.503Z"
+      "firstSeenAt": "2026-08-07T10:09:17.503Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-assistant-fixed-term-contract-totalenergies-geneve"
+        ],
+        "fr": [
+          "administrative-assistant-fixed-term-contract-totalenergies-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-assistant-fixed-term-contract-totalenergies-geneve"
+      ]
     },
     {
       "id": "totalenergies-743aafd004c6",

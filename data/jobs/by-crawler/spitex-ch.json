@@ -781,9 +781,9 @@
       "slug": "fachfrau-fachmann-gesundheit-efz-spitex-ch-sirnach",
       "slugByLocale": {
         "de": "fage-efz-spitex-ch-sirnach",
-        "it": "fachfrau-fachmann-gesundheit-efz-spitex-ch-sirnach",
-        "en": "fachfrau-fachmann-gesundheit-efz-spitex-ch-sirnach",
-        "fr": "fachfrau-fachmann-gesundheit-efz-spitex-ch-sirnach"
+        "it": "fage-cfc-spitex-regio-tannzapfenland-sirnach",
+        "en": "professional-health-efz-spitex-regio-tannzapfenland-sirnach",
+        "fr": "sante-professionnelle-efz-spitex-regio-tannzapfenland-sirnach"
       },
       "company": "Spitex Regio Tannzapfenland",
       "companyKey": "spitex-ch",
@@ -1004,8 +1004,7 @@
         "dipl-infirmiere-en-psychiatrie-hf-40-60-spitex-genossenschaft-oberaargau-land-herzogenbuchsee",
         "pflegefachperson-hf-psychiatrie-40-80-spitex-region-olten-olten",
         "pflegefachperson-hf-psychiatrie-40-80-spitex-region-olten",
-        "dipl-pflegefachperson-hf-psychiatrie-60-80-spitex-ch-urtenen-schonbuhl",
-        "dipl-cura-professionale-hf-psichiatria-60-80-spitex-grauholz-urtenen-schonbuhl"
+        "dipl-pflegefachperson-hf-psychiatrie-60-80-spitex-ch-urtenen-schonbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1019,8 +1018,7 @@
           "dipl-infirmiere-en-psychiatrie-hf-40-60-spitex-genossenschaft-oberaargau-land-herzogenbuchsee",
           "pflegefachperson-hf-psychiatrie-40-80-spitex-region-olten-olten",
           "pflegefachperson-hf-psychiatrie-40-80-spitex-region-olten",
-          "dipl-pflegefachperson-hf-psychiatrie-60-80-spitex-ch-urtenen-schonbuhl",
-          "dipl-cura-professionale-hf-psichiatria-60-80-spitex-grauholz-urtenen-schonbuhl"
+          "dipl-pflegefachperson-hf-psychiatrie-60-80-spitex-ch-urtenen-schonbuhl"
         ],
         "en": [
           "nurse-hf-psychiatry-40-80-spitex-region-olten-olten",
@@ -1099,13 +1097,11 @@
         }
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-40-spitex-ch-rheineck",
-        "dipl-professionista-hf-fh-40-spitex-am-alten-rhein-rheineck"
+        "dipl-pflegefachperson-hf-fh-40-spitex-ch-rheineck"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-40-spitex-ch-rheineck",
-          "dipl-professionista-hf-fh-40-spitex-am-alten-rhein-rheineck"
+          "dipl-pflegefachperson-hf-fh-40-spitex-ch-rheineck"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-40-spitex-ch-rheineck"
@@ -1119,10 +1115,10 @@
       "id": "spitex-ch-49deac22d4cc",
       "slug": "professionista-hf-spitexverein-albula-churwalden-lenzerheide-lai",
       "slugByLocale": {
-        "it": "professionista-hf-spitexverein-albula-churwalden-lenzerheide-lai",
-        "en": "care-professional-hf-spitexverein-albula-churwalden-lenzerheide-lai",
+        "it": "pflegefachperson-hf-spitexverein-albula-churwalden-lenzerheide-lai",
+        "en": "pflegefachperson-hf-spitexverein-albula-churwalden-lenzerheide-lai",
         "de": "pflegefachperson-hf-spitex-ch-lenzerheide-lai",
-        "fr": "soins-professionnels-hf-spitexverein-albula-churwalden-lenzerheide-lai"
+        "fr": "pflegefachperson-hf-spitexverein-albula-churwalden-lenzerheide-lai"
       },
       "company": "Spitexverein Albula/Churwalden",
       "companyKey": "spitex-ch",
@@ -1167,20 +1163,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-hf-spitex-ch-lenzerheide-lai",
-        "pflegefachperson-hf-spitexverein-albula-churwalden-lenzerheide-lai",
-        "professionista-hf-spitexverein-albula-churwalden-lenzerheide-lai"
+        "care-professional-hf-spitexverein-albula-churwalden-lenzerheide-lai",
+        "soins-professionnels-hf-spitexverein-albula-churwalden-lenzerheide-lai"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-spitex-ch-lenzerheide-lai",
-          "pflegefachperson-hf-spitexverein-albula-churwalden-lenzerheide-lai",
-          "professionista-hf-spitexverein-albula-churwalden-lenzerheide-lai"
+          "pflegefachperson-hf-spitex-ch-lenzerheide-lai"
         ],
         "en": [
-          "pflegefachperson-hf-spitexverein-albula-churwalden-lenzerheide-lai"
+          "care-professional-hf-spitexverein-albula-churwalden-lenzerheide-lai"
         ],
         "fr": [
-          "pflegefachperson-hf-spitexverein-albula-churwalden-lenzerheide-lai"
+          "soins-professionnels-hf-spitexverein-albula-churwalden-lenzerheide-lai"
         ]
       },
       "firstSeenAt": "2026-08-06T11:59:03.454Z",
@@ -1323,8 +1317,7 @@
       "firstSeenAt": "2026-08-06T11:59:01.079Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachmann-fachfrau-gesundheit-mit-einsatzplanung-70-100-spitex-ch-glattbrugg",
-          "fachmann-fachfrau-gesundheit-con-einsatzplanung-70-100-alterszentrum-gibeleich-glattbrugg"
+          "fachmann-fachfrau-gesundheit-mit-einsatzplanung-70-100-spitex-ch-glattbrugg"
         ],
         "en": [
           "fachmann-fachfrau-gesundheit-mit-einsatzplanung-70-100-spitex-ch-glattbrugg"
@@ -1334,8 +1327,7 @@
         ]
       },
       "previousSlugs": [
-        "fachmann-fachfrau-gesundheit-mit-einsatzplanung-70-100-spitex-ch-glattbrugg",
-        "fachmann-fachfrau-gesundheit-con-einsatzplanung-70-100-alterszentrum-gibeleich-glattbrugg"
+        "fachmann-fachfrau-gesundheit-mit-einsatzplanung-70-100-spitex-ch-glattbrugg"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -1910,12 +1902,12 @@
     },
     {
       "id": "spitex-ch-4472cd9540dd",
-      "slug": "dipl-pflegefachperson-hf-fh-40-50-flexpool-wochenende-einsatze-im-fruhdienst-spitex-ch",
+      "slug": "dipl-infermiera-hf-fh-40-50-flexpool-fine-settimana-incarichi-in-servizio-anticipato-spitex-regio-tannzapfenland-sirnach",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-40-50-flexpool-wochenende-einsatze-im-fruhdienst-spitex-ch",
-        "it": "dipl-pflegefachperson-hf-fh-40-50-flexpool-wochenende-einsatze-im-fruhdienst-spitex-ch",
-        "en": "dipl-pflegefachperson-hf-fh-40-50-flexpool-wochenende-einsatze-im-fruhdienst-spitex-ch",
-        "fr": "dipl-pflegefachperson-hf-fh-40-50-flexpool-wochenende-einsatze-im-fruhdienst-spitex-ch"
+        "it": "dipl-infermiera-hf-fh-40-50-flexpool-fine-settimana-incarichi-in-servizio-anticipato-spitex-regio-tannzapfenland-sirnach",
+        "en": "dipl-nurse-hf-fh-40-50-flexpool-weekend-assignments-in-early-service-spitex-regio-tannzapfenland-sirnach",
+        "fr": "dipl-nurse-hf-fh-40-50-flexpool-week-end-affectations-en-service-precoce-spitex-regio-tannzapfenland-sirnach"
       },
       "company": "Spitex Regio Tannzapfenland",
       "companyKey": "spitex-ch",
@@ -1971,16 +1963,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T10:11:54.099Z"
+      "firstSeenAt": "2026-08-07T10:11:54.099Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-40-50-flexpool-wochenende-einsatze-im-fruhdienst-spitex-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-40-50-flexpool-wochenende-einsatze-im-fruhdienst-spitex-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-40-50-flexpool-wochenende-einsatze-im-fruhdienst-spitex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-40-50-flexpool-wochenende-einsatze-im-fruhdienst-spitex-ch"
+      ]
     },
     {
       "id": "spitex-ch-d46c08230699",
-      "slug": "dipl-pflegefachperson-hf-fh-60-100-fallfuhrung-spitex-spitex-ch-sirnach",
+      "slug": "dipl-infermiera-hf-fh-60-100-gestione-caso-spitex-spitex-regio-tannzapfenland-sirnach",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-60-100-fallfuhrung-spitex-spitex-ch-sirnach",
-        "it": "dipl-pflegefachperson-hf-fh-60-100-fallfuhrung-spitex-spitex-ch-sirnach",
-        "en": "dipl-pflegefachperson-hf-fh-60-100-fallfuhrung-spitex-spitex-ch-sirnach",
-        "fr": "dipl-pflegefachperson-hf-fh-60-100-fallfuhrung-spitex-spitex-ch-sirnach"
+        "it": "dipl-infermiera-hf-fh-60-100-gestione-caso-spitex-spitex-regio-tannzapfenland-sirnach",
+        "en": "dipl-nurse-hf-fh-60-100-case-management-spitex-spitex-regio-tannzapfenland-sirnach",
+        "fr": "dipl-infirmiere-hf-fh-60-a-100-gestion-de-cas-spitex-spitex-regio-tannzapfenland-sirnach"
       },
       "company": "Spitex Regio Tannzapfenland",
       "companyKey": "spitex-ch",
@@ -2036,16 +2042,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T10:11:53.418Z"
+      "firstSeenAt": "2026-08-07T10:11:53.418Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-60-100-fallfuhrung-spitex-spitex-ch-sirnach"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-60-100-fallfuhrung-spitex-spitex-ch-sirnach"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-60-100-fallfuhrung-spitex-spitex-ch-sirnach"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-60-100-fallfuhrung-spitex-spitex-ch-sirnach"
+      ]
     },
     {
       "id": "spitex-ch-14015abefb05",
-      "slug": "dipl-pflegefachperson-hf-fh-60-100-schlusselposition-beim-aufbau-unseres-palliative-care",
+      "slug": "dipl-hf-fh-professionale-per-la-cura-60-100-posizione-chiave-nella-costruzione-del-nostro-team-di-assistenza-palliativa",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-60-100-schlusselposition-beim-aufbau-unseres-palliative-care",
-        "it": "dipl-pflegefachperson-hf-fh-60-100-schlusselposition-beim-aufbau-unseres-palliative-care",
-        "en": "dipl-pflegefachperson-hf-fh-60-100-schlusselposition-beim-aufbau-unseres-palliative-care",
-        "fr": "dipl-pflegefachperson-hf-fh-60-100-schlusselposition-beim-aufbau-unseres-palliative-care"
+        "it": "dipl-hf-fh-professionale-per-la-cura-60-100-posizione-chiave-nella-costruzione-del-nostro-team-di-assistenza-palliativa",
+        "en": "dipl-hf-fh-care-professional-60-100-key-position-in-building-our-palliative-care-team-spitex-regio-tannzapfenland",
+        "fr": "dipl-hf-fh-professionnel-de-soins-60-a-100-poste-cle-dans-la-construction-de-notre-equipe-de-soins-palliatifs-spitex"
       },
       "company": "Spitex Regio Tannzapfenland",
       "companyKey": "spitex-ch",
@@ -2101,7 +2121,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T10:11:52.537Z"
+      "firstSeenAt": "2026-08-07T10:11:52.537Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-60-100-schlusselposition-beim-aufbau-unseres-palliative-care"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-60-100-schlusselposition-beim-aufbau-unseres-palliative-care"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-60-100-schlusselposition-beim-aufbau-unseres-palliative-care"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-60-100-schlusselposition-beim-aufbau-unseres-palliative-care"
+      ]
     },
     {
       "id": "spitex-ch-18fedf4a410f",
@@ -2109,8 +2143,8 @@
       "slugByLocale": {
         "de": "eine-mitarbeiterin-einen-mitarbeiter-fur-den-mahlzeitendienst-im-stundenlohn-fur",
         "it": "eine-mitarbeiterin-einen-collaboratore-trice-per-den-mahlzeitendienst-im-stundenlohn-per-ferienablosung-ihre-arbeitseinsatze-sind-von-ca-11-bis-ca-13-uhr-auch-an-wochenenden-e-feie",
-        "en": "eine-mitarbeiterin-einen-mitarbeiter-fur-den-mahlzeitendienst-im-stundenlohn-fur",
-        "fr": "eine-mitarbeiterin-einen-mitarbeiter-fur-den-mahlzeitendienst-im-stundenlohn-fur"
+        "en": "an-employee-for-the-meal-service-in-the-hourly-wage-for-holiday-repayment-your-work-assignments-are-from-about-11-a-m-to",
+        "fr": "un-employe-pour-le-service-de-repas-dans-le-salaire-horaire-pour-le-remboursement-des-jours-feries-vos-taches-sont-d"
       },
       "company": "Zweckverband Pflege und Betreuung Mittleres Tösstal",
       "companyKey": "spitex-ch",
@@ -2156,6 +2190,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "eine-mitarbeiterin-einen-mitarbeiter-fur-den-mahlzeitendienst-im-stundenlohn-fur"
+        ],
+        "en": [
+          "eine-mitarbeiterin-einen-mitarbeiter-fur-den-mahlzeitendienst-im-stundenlohn-fur"
+        ],
+        "fr": [
           "eine-mitarbeiterin-einen-mitarbeiter-fur-den-mahlzeitendienst-im-stundenlohn-fur"
         ]
       },

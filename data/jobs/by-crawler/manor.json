@@ -76,9 +76,9 @@
       },
       "postedDate": "2026-08-07",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-verkauf-50-zug-mitarbeiterin-verkauf-50",
+      "slug": "collaboratore-trice-in-vendita-50-manor-ag-zug-mitarbeiterin-verkauf-50",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-verkauf-50-zug-mitarbeiterin-verkauf-50",
+        "it": "collaboratore-trice-in-vendita-50-manor-ag-zug-mitarbeiterin-verkauf-50",
         "en": "manor-mitarbeiter-in-verkauf-50-zug-mitarbeiterin-verkauf-50",
         "de": "manor-mitarbeiter-in-verkauf-50-zug-mitarbeiterin-verkauf-50",
         "fr": "manor-mitarbeiter-in-verkauf-50-zug-mitarbeiterin-verkauf-50"
@@ -109,7 +109,15 @@
       "addressRegion": "ZG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-07T10:23:22.129Z"
+      "firstSeenAt": "2026-08-07T10:23:22.129Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-verkauf-50-zug-mitarbeiterin-verkauf-50"
+        ]
+      },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-verkauf-50-zug-mitarbeiterin-verkauf-50"
+      ]
     },
     {
       "title": "Mitarbeiter*in Logistik 100%",
@@ -130,12 +138,12 @@
       },
       "postedDate": "2026-08-07",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
+      "slug": "collaboratore-trice-in-logistik-100-manor-ag-mohlin-mitarbeiterin-logistik-100",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
-        "en": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
+        "it": "collaboratore-trice-in-logistik-100-manor-ag-mohlin-mitarbeiterin-logistik-100",
+        "en": "employee-in-logistics-100-manor-ag-mohlin-mitarbeiterin-logistik-100",
         "de": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
-        "fr": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100"
+        "fr": "employe-en-logistique-100-manor-ag-mohlin-mitarbeiterin-logistik-100"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik 100%",
@@ -163,7 +171,21 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-07T10:23:22.129Z"
+      "firstSeenAt": "2026-08-07T10:23:22.129Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100"
+        ]
+      },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100"
+      ]
     },
     {
       "title": "Mitarbeiter*in Service 40%",

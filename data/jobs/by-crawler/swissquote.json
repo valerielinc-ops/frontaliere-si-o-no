@@ -1110,12 +1110,12 @@
     },
     {
       "id": "swissquote-3e4e5e45c71f",
-      "slug": "compliance-officer-sanctions-swissquote-gland",
+      "slug": "ufficiale-di-compliance-sanzioni-swissquote-gland",
       "slugByLocale": {
         "en": "compliance-officer-sanctions-swissquote-gland",
-        "it": "compliance-officer-sanctions-swissquote-gland",
+        "it": "ufficiale-di-compliance-sanzioni-swissquote-gland",
         "de": "compliance-officer-sanctions-swissquote-gland",
-        "fr": "compliance-officer-sanctions-swissquote-gland"
+        "fr": "agent-de-conformite-sanctions-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -1172,7 +1172,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T10:28:44.925Z"
+      "firstSeenAt": "2026-08-07T10:28:44.925Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-officer-sanctions-swissquote-gland"
+        ],
+        "fr": [
+          "compliance-officer-sanctions-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-officer-sanctions-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-b9691328a6fc",

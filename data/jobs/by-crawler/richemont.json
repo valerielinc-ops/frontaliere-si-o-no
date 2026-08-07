@@ -2847,15 +2847,12 @@
       "previousSlugs": [
         "charge-e-de-projet-r-i-modelisation-materiaux-richemont-delemont",
         "projektmanager-r-i-modellierungsmaterialien-richemont-delemont",
-        "project-manager-r-i-modelling-materials-richemont-delemont",
         "project-manager-r-i-materials-modeling-richemont-delemont",
         "project-manager-r-i-materials-modelling-richemont-delemont",
         "project-manager-r-i-modeling-materials-richemont-delemont",
         "r-i-materials-modeling-project-manager-richemont-delemont",
         "r-i-project-manager-materials-modeling-richemont-delemont",
-        "r-i-project-manager-materials-modelling-richemont-delemont",
-        "projektleiter-r-i-materialmodellierung-richemont-delemont",
-        "responsabile-progetto-r-i-modellazione-materiali-richemont-delemont"
+        "r-i-project-manager-materials-modelling-richemont-delemont"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3237,10 +3234,7 @@
         "chef-de-progetto-r-i-qualita-richemont-neuchatel",
         "responsabile-progetto-r-i-qualita-richemont-neuchatel",
         "responsabile-di-progetto-r-i-qualita-richemont-neuchatel",
-        "projektleiter-r-i-qualitat-richemont-neuchatel",
-        "project-leader-r-i-qualita-richemont-neuchatel",
-        "r-i-quality-project-manager-richemont-neuchatel",
-        "r-i-qualitatsprojektleiter-richemont-neuchatel"
+        "projektleiter-r-i-qualitat-richemont-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3248,11 +3242,7 @@
           "responsabile-progetti-r-i-qualita-richemont-neuchatel",
           "chef-de-progetto-r-i-qualita-richemont-neuchatel",
           "responsabile-progetto-r-i-qualita-richemont-neuchatel",
-          "responsabile-di-progetto-r-i-qualita-richemont-neuchatel",
-          "project-leader-r-i-qualita-richemont-neuchatel"
-        ],
-        "en": [
-          "r-i-quality-project-manager-richemont-neuchatel"
+          "responsabile-di-progetto-r-i-qualita-richemont-neuchatel"
         ],
         "de": [
           "projektleiter-r-i-qualitat-richemont-neuchatel"
@@ -3910,8 +3900,7 @@
           "workshop-manager-panerai-neuchatel"
         ],
         "de": [
-          "responsable-d-ateliers-richemont-neuchatel",
-          "workshop-manager-panerai-neuchatel"
+          "responsable-d-ateliers-richemont-neuchatel"
         ]
       },
       "firstSeenAt": "2026-06-26T22:54:29.740Z",
@@ -14283,8 +14272,8 @@
       "slugByLocale": {
         "it": "upstream-supply-chain-project-intern-richemont-bellevue",
         "en": "upstream-supply-chain-project-intern-richemont-bellevue",
-        "de": "upstream-supply-chain-project-intern-richemont-bellevue",
-        "fr": "upstream-supply-chain-project-intern-richemont-bellevue"
+        "de": "upstream-lieferkette-project-praktikant-richemont-bellevue",
+        "fr": "upstream-chaine-d-approvisionnement-project-stagiaire-richemont-bellevue"
       },
       "company": "Richemont",
       "companyKey": "richemont",

@@ -3784,7 +3784,6 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-2",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital",
         "dipl-pflegefachfrau-mann-hf-fh-con-fachverantwortung-berufsbildung-lindenhofgruppe-sonnenhofspital"
       ],
@@ -3792,7 +3791,6 @@
         "it": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-2",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital",
           "dipl-pflegefachfrau-mann-hf-fh-con-fachverantwortung-berufsbildung-lindenhofgruppe-sonnenhofspital"
         ],
@@ -3943,7 +3941,6 @@
       "previousSlugs": [
         "medizinische-r-codierer-in-lindenhofgruppe-ch",
         "medizinische-r-codierer-in-lindenhofgruppe-muristalden",
-        "codice-medico-lindenhofgruppe-muristalden-09a30b",
         "codice-medico-lindenhofgruppe-muristalden",
         "medical-coder-lindenhofgruppe-muristalden",
         "codeur-medical-lindenhofgruppe-muristalden"
@@ -3952,7 +3949,6 @@
         "it": [
           "medizinische-r-codierer-in-lindenhofgruppe-ch",
           "medizinische-r-codierer-in-lindenhofgruppe-muristalden",
-          "codice-medico-lindenhofgruppe-muristalden-09a30b",
           "codice-medico-lindenhofgruppe-muristalden",
           "medical-coder-lindenhofgruppe-muristalden",
           "codeur-medical-lindenhofgruppe-muristalden"
@@ -3966,8 +3962,7 @@
           "codeur-medical-lindenhofgruppe-muristalden"
         ],
         "de": [
-          "medizinische-r-codierer-in-lindenhofgruppe-muristalden",
-          "medizinische-r-codierer-in-lindenhofgruppe-ch"
+          "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
         ]
       },
       "firstSeenAt": "2026-08-05T22:46:48.405Z",
@@ -3990,8 +3985,8 @@
       "slugByLocale": {
         "de": "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe",
         "it": "teamleiter-in-per-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe",
-        "en": "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe",
-        "fr": "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe"
+        "en": "team-leader-for-specialist-pharmacy-or-pharmaceutical-assistant-assistant-lindenhofgruppe-lindenhofgruppe",
+        "fr": "chef-d-equipe-pour-pharmacie-specialisee-ou-assistant-assistant-pharmaceutique-lindenhofgruppe-lindenhofgruppe"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -4036,6 +4031,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe"
+        ],
+        "en": [
+          "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe"
+        ],
+        "fr": [
           "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe"
         ]
       },
