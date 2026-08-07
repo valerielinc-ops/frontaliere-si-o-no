@@ -1900,6 +1900,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.easyjet-apollon-acquisizione.title': 'EasyJet wechselt für 6,23 Milliarden Franken in den amerikanischen Apollo-Fonds',
     'blog.article.easyjet-apollon-acquisizione.excerpt': 'Die Übernahme soll bis zum Ende des ersten Quartals des nächsten Jahres abgeschlossen sein',
     'blog.article.easyjet-apollon-acquisizione.imageAlt': 'EasyJet, Flugzeug von EasyJet, Übernahme durch Apollo, Hauptsitz von EasyJet in Luton',
+    'blog.article.disoccupazione-svizzera-luglio-2026-seco.title': '3 % Arbeitslosigkeit in der Schweiz: die Daten des SECO',
+    'blog.article.disoccupazione-svizzera-luglio-2026-seco.excerpt': 'Im Juli steigt die Arbeitslosigkeit in der Schweiz auf 3%, mit 139’300 Mitgliedern bei den RAV. Das Tessin verzeichnet 2,8%, während Graubünden bei 1,1% stabil bleibt.',
+    'blog.article.disoccupazione-svizzera-luglio-2026-seco.imageAlt': 'Arbeitsmarktamter und SECO Arbeitslosenstatistik in der Schweiz',
+    'blog.article.costo-vita-2026-zurigo-analisi.title': 'Lebenshaltungskosten 2026 im Kanton Zürich: Daten und Analysen',
+    'blog.article.costo-vita-2026-zurigo-analisi.excerpt': 'Aktualisierte Lebenshaltungskostenanalyse 2026 in Zürich: Mieten, KVG-Prämien, AHV-Beiträge von 5,3% und Quellensteuern für Arbeitnehmende.',
+    'blog.article.costo-vita-2026-zurigo-analisi.imageAlt': 'Zürcher Skyline mit Büros und Fluss im Jahr 2026',
 };
 
 export default blogMetaChDe;

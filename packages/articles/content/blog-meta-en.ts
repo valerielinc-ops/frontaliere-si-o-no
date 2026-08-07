@@ -9304,6 +9304,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.title': 'Increase in active border workers in Switzerland',
     'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.excerpt': 'Second quarter 2026: 79,121 border workers active in Ticino, +0.6% compared to the first quarter.',
     'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.imageAlt': 'A photo of a cross-border worker in Switzerland',
+    'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.title': 'More pensions: pensions are falling, they cover the last salary less and less',
+    'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.excerpt': 'Retirement pensions decreased by 16% since 2002, cover less than 60% of the last salary.',
+    'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.imageAlt': 'Frontalier with sad expression looking at decreasing salary with age.',
+    'blog.article.palestina-locarno-territorio-aziende-genocidio.title': 'Enough complicity',
+    'blog.article.palestina-locarno-territorio-aziende-genocidio.excerpt': 'A group of people demonstrate against the companies that finance the genocide in Palestine in Locarno',
+    'blog.article.palestina-locarno-territorio-aziende-genocidio.imageAlt': 'A group of people protest against companies that finance the genocide in Palestine in Locarno',
+    'blog.article.frontalieri-ticino-aumento-2026.title': 'Border workers in Ticino: +0.6% quarterly, -0.6% annually',
+    'blog.article.frontalieri-ticino-aumento-2026.excerpt': 'At 79,121, slight growth in the second quarter of 2026. Decline on an annual basis, sign of weakness.',
+    'blog.article.frontalieri-ticino-aumento-2026.imageAlt': 'Cross-border worker at Brogeda border checkpoint in Chiasso holding documents',
 };
 
 export default blogMetaEn;

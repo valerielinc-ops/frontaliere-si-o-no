@@ -1,16 +1,16 @@
 {
   "key": "hrc",
   "label": "Hôpital Riviera-Chablais (HRC)",
-  "generatedAt": "2026-08-06T11:36:08.091Z",
+  "generatedAt": "2026-08-07T01:05:54.156Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4931,
-  "avgDurationMs": 4931,
+  "durationMs": 3365,
+  "avgDurationMs": 3365,
   "durationHistory": [
-    4931
+    3365
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/infirmiers-aux-urgences-adultes-hf-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-06T11:36:04.846Z",
+      "crawledAt": "2026-08-07T01:05:51.865Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/assistant-en-soins-et-sante-communautaire-assc-hf-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-06T11:36:04.929Z",
+      "crawledAt": "2026-08-07T01:05:51.885Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/chef-dunite-administrative-hf-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-06T11:36:04.950Z",
+      "crawledAt": "2026-08-07T01:05:51.888Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",

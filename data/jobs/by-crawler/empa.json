@@ -1,6 +1,6 @@
 {
   "crawlerKey": "empa",
-  "assembledAt": "2026-08-06T11:49:47.065Z",
+  "assembledAt": "2026-08-07T01:17:40.194Z",
   "jobs": [
     {
       "id": "empa-8d5a51c62388",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/673276/2176/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:49:43.446Z",
+      "crawledAt": "2026-08-07T01:17:36.559Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -114,7 +114,7 @@
       "url": "https://apply.refline.ch/673276/2181/pub/4/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:49:43.445Z",
+      "crawledAt": "2026-08-07T01:17:36.558Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -150,8 +150,8 @@
           "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.182Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:39:25.182Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -196,7 +196,7 @@
       "url": "https://apply.refline.ch/673276/2199/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:49:43.444Z",
+      "crawledAt": "2026-08-07T01:17:36.557Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -226,8 +226,8 @@
           "apprendista-fachperson-betriebsunterhalt-cfc-o-afp-a-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.178Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:39:25.178Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -272,7 +272,7 @@
       "url": "https://apply.refline.ch/673276/2204/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:49:43.443Z",
+      "crawledAt": "2026-08-07T01:17:36.555Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -302,8 +302,8 @@
           "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.174Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:39:25.174Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -348,7 +348,7 @@
       "url": "https://apply.refline.ch/673276/2193/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:49:43.442Z",
+      "crawledAt": "2026-08-07T01:17:36.554Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -423,7 +423,7 @@
       "url": "https://apply.refline.ch/673276/2194/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:49:43.441Z",
+      "crawledAt": "2026-08-07T01:17:36.553Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -443,6 +443,7 @@
       "jobReqId": "2194",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:39:25.171Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -455,8 +456,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "empa-9ba3f17d58f2",
@@ -489,7 +489,7 @@
       "url": "https://apply.refline.ch/673276/2195/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:49:43.440Z",
+      "crawledAt": "2026-08-07T01:17:36.552Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -554,7 +554,7 @@
       "url": "https://apply.refline.ch/673276/2203/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:49:43.438Z",
+      "crawledAt": "2026-08-07T01:17:36.550Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -590,8 +590,8 @@
           "lernende-r-physiklaborant-in-efz-a-empa-st-gallen"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.169Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:39:25.169Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -636,7 +636,7 @@
       "url": "https://apply.refline.ch/673276/2206/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:49:43.437Z",
+      "crawledAt": "2026-08-07T01:17:36.548Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -717,7 +717,7 @@
       "url": "https://apply.refline.ch/673276/2208/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:49:43.435Z",
+      "crawledAt": "2026-08-07T01:17:36.546Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -753,8 +753,8 @@
           "postdoc-in-applied-laser-physics-empa-thun"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.165Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:39:25.165Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -799,7 +799,7 @@
       "url": "https://apply.refline.ch/673276/2207/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:49:43.434Z",
+      "crawledAt": "2026-08-07T01:17:36.544Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -819,6 +819,7 @@
       "jobReqId": "2207",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:39:25.164Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -831,8 +832,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "empa-3f0d824112e5",
@@ -865,7 +865,7 @@
       "url": "https://apply.refline.ch/673276/2209/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:49:43.432Z",
+      "crawledAt": "2026-08-07T01:17:36.542Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -903,8 +903,8 @@
           "position-postdoc-dans-l-histopathologie-par-rayons-x-3d-des-tumeurs-colorectales-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.163Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:39:25.163Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -949,7 +949,7 @@
       "url": "https://apply.refline.ch/673276/2213/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:49:43.431Z",
+      "crawledAt": "2026-08-07T01:17:36.540Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1028,7 +1028,7 @@
       "url": "https://apply.refline.ch/673276/2179/pub/5/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:49:43.430Z",
+      "crawledAt": "2026-08-07T01:17:36.539Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1063,8 +1063,8 @@
           "position-du-ph-d-sur-les-batteries-tout-etat-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.154Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:39:25.154Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1109,7 +1109,7 @@
       "url": "https://apply.refline.ch/673276/2197/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:49:43.429Z",
+      "crawledAt": "2026-08-07T01:17:36.538Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -1134,16 +1134,16 @@
         "laboratoire-d-apprentissage-de-physique-a-empa-thun-fb5508",
         "apprentissage-laboratoire-de-physique-en-a-empa-thun",
         "laboratoire-d-apprentissage-de-physique-a-empa-thun",
-        "apprendista-physiklaborant-in-a-empa-thun-fb5508",
         "apprendista-physiklaborant-in-a-empa-thun",
-        "apprentice-physiklaborant-in-a-empa-thun"
+        "apprentice-physiklaborant-in-a-empa-thun",
+        "apprendista-physiklaborant-in-a-empa-thun-fb5508"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-physiklaborant-in-a-empa-thun",
-          "apprendista-physiklaborant-in-a-empa-thun-fb5508",
           "apprendista-physiklaborant-in-a-empa-thun",
-          "apprentice-physiklaborant-in-a-empa-thun"
+          "apprentice-physiklaborant-in-a-empa-thun",
+          "apprendista-physiklaborant-in-a-empa-thun-fb5508"
         ],
         "en": [
           "lernende-r-physiklaborant-in-a-empa-thun"
@@ -1155,6 +1155,7 @@
           "lernende-r-physiklaborant-in-a-empa-thun"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:14:30.867Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1167,8 +1168,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "empa-80536c1ce262",
@@ -1201,7 +1201,7 @@
       "url": "https://apply.refline.ch/673276/2214/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:49:43.427Z",
+      "crawledAt": "2026-08-07T01:17:36.536Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1221,8 +1221,8 @@
       "jobReqId": "2214",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-07T22:14:30.855Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-07T22:14:30.855Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1267,7 +1267,7 @@
       "url": "https://apply.refline.ch/673276/2217/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:49:43.426Z",
+      "crawledAt": "2026-08-07T01:17:36.534Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1348,7 +1348,7 @@
       "url": "https://apply.refline.ch/673276/2218/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:49:43.424Z",
+      "crawledAt": "2026-08-07T01:17:36.533Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1368,6 +1368,7 @@
       "jobReqId": "2218",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-20T22:55:02.889Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1380,8 +1381,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "empa-b087086e4595",
@@ -1414,7 +1414,7 @@
       "url": "https://apply.refline.ch/673276/2219/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:49:43.422Z",
+      "crawledAt": "2026-08-07T01:17:36.532Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1462,9 +1462,9 @@
       "id": "empa-d5c944130420",
       "slug": "gruppenleiter-in-elektro-80-100-a-empa-dubendorf",
       "slugByLocale": {
-        "de": "gruppenleiter-in-elektro-80-100-a-empa-dubendorf",
         "it": "gruppenleiter-in-elektro-80-100-a-empa-dubendorf",
         "en": "gruppenleiter-in-elektro-80-100-a-empa-dubendorf",
+        "de": "gruppenleiter-in-elektro-80-100-a-empa-dubendorf",
         "fr": "gruppenleiter-in-elektro-80-100-a-empa-dubendorf"
       },
       "company": "Empa",
@@ -1472,16 +1472,16 @@
       "companyDomain": "empa.ch",
       "title": "Gruppenleiter/in Elektro 80% - 100% (a)",
       "titleByLocale": {
-        "de": "Gruppenleiter/in Elektro 80% - 100% (a)",
         "it": "Gruppenleiter/in Elektro 80% - 100% (a)",
         "en": "Gruppenleiter/in Elektro 80% - 100% (a)",
+        "de": "Gruppenleiter/in Elektro 80% - 100% (a)",
         "fr": "Gruppenleiter/in Elektro 80% - 100% (a)"
       },
       "description": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nGruppenleiter/in Elektro 80% - 100% (a)\n\nDie Gruppe Elektro innerhalb des Technischen Dienstes sorgt für den sicheren und zuverlässigen Betrieb einer hochmodernen Forschungsinfrastruktur. Unsere elektrotechnischen Anlagen reichen von klassischen Gebäudetechnikanlagen bis hin zu anspruchsvollen Forschungs- und Spezialinstallationen. Zur Verstärkung unseres Teams suchen wir eine engagierte Führungspersönlichkeit, die ihr fundiertes Elektrofachwissen mit Freude an Führung, Ausbildung und praktischer Mitarbeit verbindet. Die Funktion umfasst sowohl Führungsverantwortung als auch die aktive Mitarbeit an komplexen technischen Anlagen.\n\nIhre Aufgaben\n\n• Fachliche und personelle Führung der Gruppe Elektro sowie Förderung und Weiterentwicklung der Mitarbeitenden und Lernenden\n\n• Verantwortung für den sicheren, wirtschaftlichen und störungsfreien Betrieb der elektrotechnischen Infrastruktur\n\n• Aktive Mitarbeit bei anspruchsvollen Installations-, Störungsbehebungs- und Instandhaltungsarbeiten\n\n• Planung und Umsetzung von Wartungs-, Instandhaltungs- und Optimierungsmassnahmen\n\n• Sicherstellung der Verfügbarkeit und Betriebssicherheit von Hoch- und Niederspannungsanlagen sowie weiterer elektrotechnischer Systeme\n\n• Unterstützung von Infrastruktur- und Elektroprojekten sowie Einbringen von Optimierungsvorschlägen\n\n• Verantwortung für die Ausbildung unserer Lernenden Elektroinstallateur/innen EFZ\n\n• Teilnahme am Pikettdienst gemäss Einsatzplanung\n\nIhr Profil\n\n• Ausbildung als Elektroinstallateur/in EFZ mit einer Weiterbildung Elektro-Projektleitung oder einer vergleichbaren Qualifikation\n\n• Berufsbildner/innenkurs von Vorteil\n\n• Mehrjährige Berufs- und Führungserfahrung im Bereich Elektro\n\n• Fundierte Kenntnisse elektrotechnischer Anlagen, Normen und Vorschriften (NIV, NIN, ESTI, SUVA etc.)\n\n• Erfahrung im Betrieb und in der Instandhaltung von Mittel- und Niederspannungsanlagen\n\n• Freude an der Führung von Mitarbeitenden sowie an der Ausbildung von Lernenden\n\n• Strukturierte, lösungsorientierte und verantwortungsbewusste Arbeitsweise\n\n• Hands-on-Mentalität sowie Freude daran, auch selbst technisch tätig zu sein\n\nUnser Angebot\n\nBei uns erwartet Sie eine abwechslungsreiche Führungsfunktion in einem einzigartigen Forschungsumfeld. Sie übernehmen Verantwortung für eine vielseitige Elektroinfrastruktur und arbeiten täglich mit engagierten Fachspezialist/innen zusammen. Dabei verbinden Sie Führungsaufgaben mit praktischer technischer Tätigkeit und leisten einen direkten Beitrag zum Erfolg der Forschung an der Empa.\n\nWir bieten Ihnen:\n\n• Eine verantwortungsvolle Führungsposition mit grossem Gestaltungsspielraum\n\n• Technische Anlagen und spannende Herausforderungen\n\n• Ein motiviertes und kollegiales Team\n\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Fortschrittliche Arbeitsbedingungen und Sozialleistungen des ETH-Bereichs\n\n• Arbeitsort Dübendorf\n\n• Eintrittsdatum per 01.10.2026 oder nach Vereinbarung\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung. Bitte reichen Sie diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
       "descriptionByLocale": {
-        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nGruppenleiter/in Elektro 80% - 100% (a)\n\nDie Gruppe Elektro innerhalb des Technischen Dienstes sorgt für den sicheren und zuverlässigen Betrieb einer hochmodernen Forschungsinfrastruktur. Unsere elektrotechnischen Anlagen reichen von klassischen Gebäudetechnikanlagen bis hin zu anspruchsvollen Forschungs- und Spezialinstallationen. Zur Verstärkung unseres Teams suchen wir eine engagierte Führungspersönlichkeit, die ihr fundiertes Elektrofachwissen mit Freude an Führung, Ausbildung und praktischer Mitarbeit verbindet. Die Funktion umfasst sowohl Führungsverantwortung als auch die aktive Mitarbeit an komplexen technischen Anlagen.\n\nIhre Aufgaben\n\n• Fachliche und personelle Führung der Gruppe Elektro sowie Förderung und Weiterentwicklung der Mitarbeitenden und Lernenden\n\n• Verantwortung für den sicheren, wirtschaftlichen und störungsfreien Betrieb der elektrotechnischen Infrastruktur\n\n• Aktive Mitarbeit bei anspruchsvollen Installations-, Störungsbehebungs- und Instandhaltungsarbeiten\n\n• Planung und Umsetzung von Wartungs-, Instandhaltungs- und Optimierungsmassnahmen\n\n• Sicherstellung der Verfügbarkeit und Betriebssicherheit von Hoch- und Niederspannungsanlagen sowie weiterer elektrotechnischer Systeme\n\n• Unterstützung von Infrastruktur- und Elektroprojekten sowie Einbringen von Optimierungsvorschlägen\n\n• Verantwortung für die Ausbildung unserer Lernenden Elektroinstallateur/innen EFZ\n\n• Teilnahme am Pikettdienst gemäss Einsatzplanung\n\nIhr Profil\n\n• Ausbildung als Elektroinstallateur/in EFZ mit einer Weiterbildung Elektro-Projektleitung oder einer vergleichbaren Qualifikation\n\n• Berufsbildner/innenkurs von Vorteil\n\n• Mehrjährige Berufs- und Führungserfahrung im Bereich Elektro\n\n• Fundierte Kenntnisse elektrotechnischer Anlagen, Normen und Vorschriften (NIV, NIN, ESTI, SUVA etc.)\n\n• Erfahrung im Betrieb und in der Instandhaltung von Mittel- und Niederspannungsanlagen\n\n• Freude an der Führung von Mitarbeitenden sowie an der Ausbildung von Lernenden\n\n• Strukturierte, lösungsorientierte und verantwortungsbewusste Arbeitsweise\n\n• Hands-on-Mentalität sowie Freude daran, auch selbst technisch tätig zu sein\n\nUnser Angebot\n\nBei uns erwartet Sie eine abwechslungsreiche Führungsfunktion in einem einzigartigen Forschungsumfeld. Sie übernehmen Verantwortung für eine vielseitige Elektroinfrastruktur und arbeiten täglich mit engagierten Fachspezialist/innen zusammen. Dabei verbinden Sie Führungsaufgaben mit praktischer technischer Tätigkeit und leisten einen direkten Beitrag zum Erfolg der Forschung an der Empa.\n\nWir bieten Ihnen:\n\n• Eine verantwortungsvolle Führungsposition mit grossem Gestaltungsspielraum\n\n• Technische Anlagen und spannende Herausforderungen\n\n• Ein motiviertes und kollegiales Team\n\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Fortschrittliche Arbeitsbedingungen und Sozialleistungen des ETH-Bereichs\n\n• Arbeitsort Dübendorf\n\n• Eintrittsdatum per 01.10.2026 oder nach Vereinbarung\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung. Bitte reichen Sie diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
         "it": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nGruppenleiter/in Elektro 80% - 100% (a)\n\nDie Gruppe Elektro innerhalb des Technischen Dienstes sorgt für den sicheren und zuverlässigen Betrieb einer hochmodernen Forschungsinfrastruktur. Unsere elektrotechnischen Anlagen reichen von klassischen Gebäudetechnikanlagen bis hin zu anspruchsvollen Forschungs- und Spezialinstallationen. Zur Verstärkung unseres Teams suchen wir eine engagierte Führungspersönlichkeit, die ihr fundiertes Elektrofachwissen mit Freude an Führung, Ausbildung und praktischer Mitarbeit verbindet. Die Funktion umfasst sowohl Führungsverantwortung als auch die aktive Mitarbeit an komplexen technischen Anlagen.\n\nIhre Aufgaben\n\n• Fachliche und personelle Führung der Gruppe Elektro sowie Förderung und Weiterentwicklung der Mitarbeitenden und Lernenden\n\n• Verantwortung für den sicheren, wirtschaftlichen und störungsfreien Betrieb der elektrotechnischen Infrastruktur\n\n• Aktive Mitarbeit bei anspruchsvollen Installations-, Störungsbehebungs- und Instandhaltungsarbeiten\n\n• Planung und Umsetzung von Wartungs-, Instandhaltungs- und Optimierungsmassnahmen\n\n• Sicherstellung der Verfügbarkeit und Betriebssicherheit von Hoch- und Niederspannungsanlagen sowie weiterer elektrotechnischer Systeme\n\n• Unterstützung von Infrastruktur- und Elektroprojekten sowie Einbringen von Optimierungsvorschlägen\n\n• Verantwortung für die Ausbildung unserer Lernenden Elektroinstallateur/innen EFZ\n\n• Teilnahme am Pikettdienst gemäss Einsatzplanung\n\nIhr Profil\n\n• Ausbildung als Elektroinstallateur/in EFZ mit einer Weiterbildung Elektro-Projektleitung oder einer vergleichbaren Qualifikation\n\n• Berufsbildner/innenkurs von Vorteil\n\n• Mehrjährige Berufs- und Führungserfahrung im Bereich Elektro\n\n• Fundierte Kenntnisse elektrotechnischer Anlagen, Normen und Vorschriften (NIV, NIN, ESTI, SUVA etc.)\n\n• Erfahrung im Betrieb und in der Instandhaltung von Mittel- und Niederspannungsanlagen\n\n• Freude an der Führung von Mitarbeitenden sowie an der Ausbildung von Lernenden\n\n• Strukturierte, lösungsorientierte und verantwortungsbewusste Arbeitsweise\n\n• Hands-on-Mentalität sowie Freude daran, auch selbst technisch tätig zu sein\n\nUnser Angebot\n\nBei uns erwartet Sie eine abwechslungsreiche Führungsfunktion in einem einzigartigen Forschungsumfeld. Sie übernehmen Verantwortung für eine vielseitige Elektroinfrastruktur und arbeiten täglich mit engagierten Fachspezialist/innen zusammen. Dabei verbinden Sie Führungsaufgaben mit praktischer technischer Tätigkeit und leisten einen direkten Beitrag zum Erfolg der Forschung an der Empa.\n\nWir bieten Ihnen:\n\n• Eine verantwortungsvolle Führungsposition mit grossem Gestaltungsspielraum\n\n• Technische Anlagen und spannende Herausforderungen\n\n• Ein motiviertes und kollegiales Team\n\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Fortschrittliche Arbeitsbedingungen und Sozialleistungen des ETH-Bereichs\n\n• Arbeitsort Dübendorf\n\n• Eintrittsdatum per 01.10.2026 oder nach Vereinbarung\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung. Bitte reichen Sie diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
         "en": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nGruppenleiter/in Elektro 80% - 100% (a)\n\nDie Gruppe Elektro innerhalb des Technischen Dienstes sorgt für den sicheren und zuverlässigen Betrieb einer hochmodernen Forschungsinfrastruktur. Unsere elektrotechnischen Anlagen reichen von klassischen Gebäudetechnikanlagen bis hin zu anspruchsvollen Forschungs- und Spezialinstallationen. Zur Verstärkung unseres Teams suchen wir eine engagierte Führungspersönlichkeit, die ihr fundiertes Elektrofachwissen mit Freude an Führung, Ausbildung und praktischer Mitarbeit verbindet. Die Funktion umfasst sowohl Führungsverantwortung als auch die aktive Mitarbeit an komplexen technischen Anlagen.\n\nIhre Aufgaben\n\n• Fachliche und personelle Führung der Gruppe Elektro sowie Förderung und Weiterentwicklung der Mitarbeitenden und Lernenden\n\n• Verantwortung für den sicheren, wirtschaftlichen und störungsfreien Betrieb der elektrotechnischen Infrastruktur\n\n• Aktive Mitarbeit bei anspruchsvollen Installations-, Störungsbehebungs- und Instandhaltungsarbeiten\n\n• Planung und Umsetzung von Wartungs-, Instandhaltungs- und Optimierungsmassnahmen\n\n• Sicherstellung der Verfügbarkeit und Betriebssicherheit von Hoch- und Niederspannungsanlagen sowie weiterer elektrotechnischer Systeme\n\n• Unterstützung von Infrastruktur- und Elektroprojekten sowie Einbringen von Optimierungsvorschlägen\n\n• Verantwortung für die Ausbildung unserer Lernenden Elektroinstallateur/innen EFZ\n\n• Teilnahme am Pikettdienst gemäss Einsatzplanung\n\nIhr Profil\n\n• Ausbildung als Elektroinstallateur/in EFZ mit einer Weiterbildung Elektro-Projektleitung oder einer vergleichbaren Qualifikation\n\n• Berufsbildner/innenkurs von Vorteil\n\n• Mehrjährige Berufs- und Führungserfahrung im Bereich Elektro\n\n• Fundierte Kenntnisse elektrotechnischer Anlagen, Normen und Vorschriften (NIV, NIN, ESTI, SUVA etc.)\n\n• Erfahrung im Betrieb und in der Instandhaltung von Mittel- und Niederspannungsanlagen\n\n• Freude an der Führung von Mitarbeitenden sowie an der Ausbildung von Lernenden\n\n• Strukturierte, lösungsorientierte und verantwortungsbewusste Arbeitsweise\n\n• Hands-on-Mentalität sowie Freude daran, auch selbst technisch tätig zu sein\n\nUnser Angebot\n\nBei uns erwartet Sie eine abwechslungsreiche Führungsfunktion in einem einzigartigen Forschungsumfeld. Sie übernehmen Verantwortung für eine vielseitige Elektroinfrastruktur und arbeiten täglich mit engagierten Fachspezialist/innen zusammen. Dabei verbinden Sie Führungsaufgaben mit praktischer technischer Tätigkeit und leisten einen direkten Beitrag zum Erfolg der Forschung an der Empa.\n\nWir bieten Ihnen:\n\n• Eine verantwortungsvolle Führungsposition mit grossem Gestaltungsspielraum\n\n• Technische Anlagen und spannende Herausforderungen\n\n• Ein motiviertes und kollegiales Team\n\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Fortschrittliche Arbeitsbedingungen und Sozialleistungen des ETH-Bereichs\n\n• Arbeitsort Dübendorf\n\n• Eintrittsdatum per 01.10.2026 oder nach Vereinbarung\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung. Bitte reichen Sie diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
+        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nGruppenleiter/in Elektro 80% - 100% (a)\n\nDie Gruppe Elektro innerhalb des Technischen Dienstes sorgt für den sicheren und zuverlässigen Betrieb einer hochmodernen Forschungsinfrastruktur. Unsere elektrotechnischen Anlagen reichen von klassischen Gebäudetechnikanlagen bis hin zu anspruchsvollen Forschungs- und Spezialinstallationen. Zur Verstärkung unseres Teams suchen wir eine engagierte Führungspersönlichkeit, die ihr fundiertes Elektrofachwissen mit Freude an Führung, Ausbildung und praktischer Mitarbeit verbindet. Die Funktion umfasst sowohl Führungsverantwortung als auch die aktive Mitarbeit an komplexen technischen Anlagen.\n\nIhre Aufgaben\n\n• Fachliche und personelle Führung der Gruppe Elektro sowie Förderung und Weiterentwicklung der Mitarbeitenden und Lernenden\n\n• Verantwortung für den sicheren, wirtschaftlichen und störungsfreien Betrieb der elektrotechnischen Infrastruktur\n\n• Aktive Mitarbeit bei anspruchsvollen Installations-, Störungsbehebungs- und Instandhaltungsarbeiten\n\n• Planung und Umsetzung von Wartungs-, Instandhaltungs- und Optimierungsmassnahmen\n\n• Sicherstellung der Verfügbarkeit und Betriebssicherheit von Hoch- und Niederspannungsanlagen sowie weiterer elektrotechnischer Systeme\n\n• Unterstützung von Infrastruktur- und Elektroprojekten sowie Einbringen von Optimierungsvorschlägen\n\n• Verantwortung für die Ausbildung unserer Lernenden Elektroinstallateur/innen EFZ\n\n• Teilnahme am Pikettdienst gemäss Einsatzplanung\n\nIhr Profil\n\n• Ausbildung als Elektroinstallateur/in EFZ mit einer Weiterbildung Elektro-Projektleitung oder einer vergleichbaren Qualifikation\n\n• Berufsbildner/innenkurs von Vorteil\n\n• Mehrjährige Berufs- und Führungserfahrung im Bereich Elektro\n\n• Fundierte Kenntnisse elektrotechnischer Anlagen, Normen und Vorschriften (NIV, NIN, ESTI, SUVA etc.)\n\n• Erfahrung im Betrieb und in der Instandhaltung von Mittel- und Niederspannungsanlagen\n\n• Freude an der Führung von Mitarbeitenden sowie an der Ausbildung von Lernenden\n\n• Strukturierte, lösungsorientierte und verantwortungsbewusste Arbeitsweise\n\n• Hands-on-Mentalität sowie Freude daran, auch selbst technisch tätig zu sein\n\nUnser Angebot\n\nBei uns erwartet Sie eine abwechslungsreiche Führungsfunktion in einem einzigartigen Forschungsumfeld. Sie übernehmen Verantwortung für eine vielseitige Elektroinfrastruktur und arbeiten täglich mit engagierten Fachspezialist/innen zusammen. Dabei verbinden Sie Führungsaufgaben mit praktischer technischer Tätigkeit und leisten einen direkten Beitrag zum Erfolg der Forschung an der Empa.\n\nWir bieten Ihnen:\n\n• Eine verantwortungsvolle Führungsposition mit grossem Gestaltungsspielraum\n\n• Technische Anlagen und spannende Herausforderungen\n\n• Ein motiviertes und kollegiales Team\n\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Fortschrittliche Arbeitsbedingungen und Sozialleistungen des ETH-Bereichs\n\n• Arbeitsort Dübendorf\n\n• Eintrittsdatum per 01.10.2026 oder nach Vereinbarung\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung. Bitte reichen Sie diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
         "fr": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nGruppenleiter/in Elektro 80% - 100% (a)\n\nDie Gruppe Elektro innerhalb des Technischen Dienstes sorgt für den sicheren und zuverlässigen Betrieb einer hochmodernen Forschungsinfrastruktur. Unsere elektrotechnischen Anlagen reichen von klassischen Gebäudetechnikanlagen bis hin zu anspruchsvollen Forschungs- und Spezialinstallationen. Zur Verstärkung unseres Teams suchen wir eine engagierte Führungspersönlichkeit, die ihr fundiertes Elektrofachwissen mit Freude an Führung, Ausbildung und praktischer Mitarbeit verbindet. Die Funktion umfasst sowohl Führungsverantwortung als auch die aktive Mitarbeit an komplexen technischen Anlagen.\n\nIhre Aufgaben\n\n• Fachliche und personelle Führung der Gruppe Elektro sowie Förderung und Weiterentwicklung der Mitarbeitenden und Lernenden\n\n• Verantwortung für den sicheren, wirtschaftlichen und störungsfreien Betrieb der elektrotechnischen Infrastruktur\n\n• Aktive Mitarbeit bei anspruchsvollen Installations-, Störungsbehebungs- und Instandhaltungsarbeiten\n\n• Planung und Umsetzung von Wartungs-, Instandhaltungs- und Optimierungsmassnahmen\n\n• Sicherstellung der Verfügbarkeit und Betriebssicherheit von Hoch- und Niederspannungsanlagen sowie weiterer elektrotechnischer Systeme\n\n• Unterstützung von Infrastruktur- und Elektroprojekten sowie Einbringen von Optimierungsvorschlägen\n\n• Verantwortung für die Ausbildung unserer Lernenden Elektroinstallateur/innen EFZ\n\n• Teilnahme am Pikettdienst gemäss Einsatzplanung\n\nIhr Profil\n\n• Ausbildung als Elektroinstallateur/in EFZ mit einer Weiterbildung Elektro-Projektleitung oder einer vergleichbaren Qualifikation\n\n• Berufsbildner/innenkurs von Vorteil\n\n• Mehrjährige Berufs- und Führungserfahrung im Bereich Elektro\n\n• Fundierte Kenntnisse elektrotechnischer Anlagen, Normen und Vorschriften (NIV, NIN, ESTI, SUVA etc.)\n\n• Erfahrung im Betrieb und in der Instandhaltung von Mittel- und Niederspannungsanlagen\n\n• Freude an der Führung von Mitarbeitenden sowie an der Ausbildung von Lernenden\n\n• Strukturierte, lösungsorientierte und verantwortungsbewusste Arbeitsweise\n\n• Hands-on-Mentalität sowie Freude daran, auch selbst technisch tätig zu sein\n\nUnser Angebot\n\nBei uns erwartet Sie eine abwechslungsreiche Führungsfunktion in einem einzigartigen Forschungsumfeld. Sie übernehmen Verantwortung für eine vielseitige Elektroinfrastruktur und arbeiten täglich mit engagierten Fachspezialist/innen zusammen. Dabei verbinden Sie Führungsaufgaben mit praktischer technischer Tätigkeit und leisten einen direkten Beitrag zum Erfolg der Forschung an der Empa.\n\nWir bieten Ihnen:\n\n• Eine verantwortungsvolle Führungsposition mit grossem Gestaltungsspielraum\n\n• Technische Anlagen und spannende Herausforderungen\n\n• Ein motiviertes und kollegiales Team\n\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Fortschrittliche Arbeitsbedingungen und Sozialleistungen des ETH-Bereichs\n\n• Arbeitsort Dübendorf\n\n• Eintrittsdatum per 01.10.2026 oder nach Vereinbarung\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung. Bitte reichen Sie diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt."
       },
       "location": "Dübendorf",
@@ -1489,7 +1489,7 @@
       "url": "https://apply.refline.ch/673276/2220/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:49:43.418Z",
+      "crawledAt": "2026-08-07T01:17:36.527Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1508,10 +1508,9 @@
       "hiringOrganizationName": "Empa",
       "jobReqId": "2220",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-06T11:49:43.418Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1523,8 +1522,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-06T11:49:43.418Z"
+      }
     }
   ]
 }

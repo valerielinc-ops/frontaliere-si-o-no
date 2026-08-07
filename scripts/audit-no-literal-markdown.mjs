@@ -52,8 +52,10 @@ const CODE_BLOCK_RE = /<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi;
 // text nodes are scanned, matching the canonical sibling auditors
 // (audit-content-duplicates.mjs, audit-text-html-ratio.mjs). Order matters:
 // script/style block *contents* must go first (TAG_RE removes only the tags,
-// not the JS body between them); replace tags with a space so text either side
-// of a tag boundary can't merge into a false `**`.
+// not the JS body between them); replace tags with a NEWLINE so text either
+// side of a tag boundary can neither merge into a false `**` nor let one
+// element's `**` pair with another's — see extractMainBody for the measured
+// case that forced the newline.
 const TAG_RE = /<[^>]+>/g;
 
 function extractMainBody(html) {
@@ -62,7 +64,24 @@ function extractMainBody(html) {
   const startIdx = openMatch.index + openMatch[0].length;
   const closeIdx = html.slice(startIdx).search(MAIN_CLOSE);
   const raw = closeIdx < 0 ? html.slice(startIdx) : html.slice(startIdx, startIdx + closeIdx);
-  return raw.replace(CODE_BLOCK_RE, ' ').replace(TAG_RE, ' ');
+  // Tags become a NEWLINE, not a space, and that choice is the gate's
+  // precision. LITERAL_BOLD_RE already refuses to cross `\n`, so a newline
+  // makes a bold run that opens in one element and closes in another
+  // impossible to match — by construction, not by tuning.
+  //
+  // Measured 2026-08-06: 24 of 25 offenders were real, but the 25th was this
+  // artifact. Globus brands its food hall `***delicatessa` — verified on the
+  // employer's own page, where it appears 12 times including in `<title>` and
+  // `og:title`. Two such job cards on one search page put a `**` in each, and
+  // flattening tags to spaces let the regex match from the second star of the
+  // first brand to the first two of the second, reporting
+  // `**delicatessa 40-60% (w/m/d) — Globus · Luzern    Verkaufsberater:in **`
+  // — a span across two different jobs. Nothing literal was rendered; the
+  // detector merged the page. Stripping the asterisks instead would have
+  // corrupted an employer's brand name to satisfy a false positive.
+  //
+  // Genuine leaked markdown lives inside ONE text node, so it still matches.
+  return raw.replace(CODE_BLOCK_RE, '\n').replace(TAG_RE, '\n');
 }
 
 function isJobDetailPage(absPath) {

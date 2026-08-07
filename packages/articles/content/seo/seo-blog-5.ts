@@ -59702,6 +59702,123 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio': {
+    title: 'Di più pensioni: rendite in calo, coprono sempre meno l\'ultimo stipendio',
+    description: 'Rendite pensionistiche diminuite del 16% dal 2002, coprono meno del 60% dell\'ultimo stipendio. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensioni, rendite, calo, coprono',
+    ogTitle: 'Di più pensioni: rendite in calo, coprono sempre meno l\'ultimo stipendio',
+    ogDescription: 'Rendite pensionistiche diminuite del 16% dal 2002, coprono meno del 60% dell\'ultimo stipendio.',
+    canonicalPath: '/articoli-frontaliere/di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più pensioni: rendite in calo, coprono sempre meno l'ultimo stipendio",
+      "description": "Rendite pensionistiche diminuite del 16% dal 2002, coprono meno del 60% dell'ultimo stipendio. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore frontaliere con lo sguardo triste mentre guarda il proprio stipendio scendere con l'età."
+      },
+      "datePublished": "2026-08-07T00:24:46+00:00",
+      "dateModified": "2026-08-07T00:24:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-palestina-locarno-territorio-aziende-genocidio': {
+    title: 'Basta complicità | Frontaliere Ticino',
+    description: 'Un gruppo di persone manifesta contro le aziende che finanziano il genocidio in Palestina a Locarno. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, basta, complicità, gruppo, persone',
+    ogTitle: 'Basta complicità',
+    ogDescription: 'Un gruppo di persone manifesta contro le aziende che finanziano il genocidio in Palestina a Locarno',
+    canonicalPath: '/articoli-frontaliere/palestina-locarno-territorio-aziende-genocidio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Basta complicità",
+      "description": "Un gruppo di persone manifesta contro le aziende che finanziano il genocidio in Palestina a Locarno. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/palestina-locarno-territorio-aziende-genocidio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un gruppo di persone manifesta contro le aziende che finanziano il genocidio in Palestina a Locarno"
+      },
+      "datePublished": "2026-08-07T01:46:36+00:00",
+      "dateModified": "2026-08-07T01:46:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/palestina-locarno-territorio-aziende-genocidio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-ticino-aumento-2026': {
+    title: 'Frontalieri in Ticino: +0,6% trimestrale, -0,6% annuo',
+    description: '79.121 frontalieri in Ticino nel 2° trimestre 2026. Calo annuo dello 0,6%. Dati BFS. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trimestrale, annuo, quota, lieve',
+    ogTitle: 'Frontalieri in Ticino: +0,6% trimestrale, -0,6% annuo',
+    ogDescription: '79.121 frontalieri in Ticino nel 2° trimestre 2026. Calo annuo dello 0,6%.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-aumento-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri in Ticino: +0,6% trimestrale, -0,6% annuo",
+      "description": "79.121 frontalieri in Ticino nel 2° trimestre 2026. Calo annuo dello 0,6%. Dati BFS. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-aumento-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliero al valico di Brogeda a Chiasso con documenti in mano"
+      },
+      "datePublished": "2026-08-07T02:30:15+00:00",
+      "dateModified": "2026-08-07T02:30:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-aumento-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

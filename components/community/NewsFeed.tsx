@@ -4,6 +4,7 @@ import { buildPath } from '@/services/router';
 import { TICKER_ARTICLES, type TickerArticle } from '@/data/news-ticker-data';
 import { ChevronRight, ChevronLeft, Newspaper } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
+import { cdnFreshUrl } from '@/services/cdnDataBase';
 
 interface NewsFeedProps {
  /**
@@ -71,7 +72,10 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
  useEffect(() => {
  let cancelled = false;
  const run = () => {
- fetch(NEWS_TICKER_LIVE_URL, { cache: 'default' })
+ // cdnFreshUrl: this file is rewritten between deploys and its edge copy is
+ // NOT reachable by the publisher's purge — same class as the article overlay
+ // (issue #4974). See services/cdnDataBase.ts for the measurement.
+ fetch(cdnFreshUrl(NEWS_TICKER_LIVE_URL), { cache: 'default' })
  .then((res) => (res.ok ? res.json() : null))
  .then((data) => {
  if (cancelled || !isTickerArticleArray(data)) return;

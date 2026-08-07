@@ -9306,6 +9306,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.title': 'Augmentation du nombre de frontaliers actifs en Suisse',
     'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.excerpt': 'Deuxième trimestre 2026: 79 121 frontaliers actifs au Tessin, +0,6% par rapport au premier trimestre.',
     'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.imageAlt': 'Une photo d\'un frontalier travaillant en Suisse',
+    'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.title': 'Retraites : des rentes en baisse face aux salaires',
+    'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.excerpt': 'Les rentes de retraite diminuées de 16 % depuis 2002, couvrent moins de 60 % du dernier salaire.',
+    'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.imageAlt': 'Frontalier avec un air triste en regardant son salaire diminuer avec l\'âge.',
+    'blog.article.palestina-locarno-territorio-aziende-genocidio.title': 'Assez de complicité',
+    'blog.article.palestina-locarno-territorio-aziende-genocidio.excerpt': 'Un groupe de personnes manifeste contre les entreprises qui financent le génocide en Palestine à Locarno',
+    'blog.article.palestina-locarno-territorio-aziende-genocidio.imageAlt': 'Un groupe de personnes manifeste contre les entreprises qui financent le génocide en Palestine à Locarno',
+    'blog.article.frontalieri-ticino-aumento-2026.title': 'Frontaliers au Tessin : +0,6 % par trimestre, -0,6 % par an',
+    'blog.article.frontalieri-ticino-aumento-2026.excerpt': 'À 79 121, légère croissance au deuxième trimestre 2026. Baisse sur une base annuelle, signe de faiblesse.',
+    'blog.article.frontalieri-ticino-aumento-2026.imageAlt': 'Travailleur frontalier au poste frontalier de Brogeda à Chiasso avec des documents en main',
 };
 
 export default blogMetaFr;

@@ -1,18 +1,57 @@
 {
   "key": "gkb",
   "label": "Graubündner Kantonalbank",
-  "generatedAt": "2026-08-06T11:34:03.249Z",
-  "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
+  "generatedAt": "2026-08-07T01:11:47.396Z",
+  "total": 11,
+  "newCount": 1,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 13975,
-  "avgDurationMs": 13975,
+  "unchangedCount": 1,
+  "durationMs": 13370,
+  "avgDurationMs": 13370,
   "durationHistory": [
-    13975
+    13370
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "gkb-677e754fb00c",
+      "slug": "immobilienbewirtschafter-in-100-gkb-ch",
+      "company": "Graubündner Kantonalbank",
+      "companyKey": "gkb",
+      "companyDomain": "gkb.ch",
+      "title": "Immobilienbewirtschafter:in (100%)",
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://recruitingapp-2607.umantis.com/Vacancies/1943/Description/1",
+      "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-07T01:11:36.147Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza / Banca",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Banca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-06",
+      "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1943/Application/CheckLogin/1",
+      "department": "Infrastruktur / INFR",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "gkb-61fa6a66bb66",
@@ -26,7 +65,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:33:51.871Z",
+      "crawledAt": "2026-08-07T01:11:37.035Z",
       "addressLocality": "Lenzerheide",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -65,7 +104,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:33:52.828Z",
+      "crawledAt": "2026-08-07T01:11:37.929Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -104,7 +143,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1954/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:33:53.771Z",
+      "crawledAt": "2026-08-07T01:11:38.811Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -122,6 +161,7 @@
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-29T22:05:06.647Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -143,7 +183,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1952/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:33:54.709Z",
+      "crawledAt": "2026-08-07T01:11:39.698Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -182,7 +222,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1950/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:33:55.651Z",
+      "crawledAt": "2026-08-07T01:11:40.593Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -221,7 +261,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1949/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:33:56.625Z",
+      "crawledAt": "2026-08-07T01:11:41.462Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -239,6 +279,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-16T11:12:16.682Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -260,7 +301,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1946/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:33:57.581Z",
+      "crawledAt": "2026-08-07T01:11:42.401Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -278,6 +319,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-09T22:31:04.014Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -299,7 +341,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1945/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:33:58.517Z",
+      "crawledAt": "2026-08-07T01:11:43.293Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -338,7 +380,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1948/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-06T11:33:59.242Z",
+      "crawledAt": "2026-08-07T01:11:44.182Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -356,6 +398,7 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T11:24:58.407Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -364,10 +407,13 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "gkb-d829938f33ae",
-      "slug": "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch",
+      "slug": "servizio-legale-specializzato-conformita-80-100-graubundner-kantonalbank-chur",
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
       "companyDomain": "gkb.ch",
@@ -396,15 +442,17 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "firstSeenAt": "2026-07-03T12:21:57.949Z",
-      "_qualityScore": 85,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "addressRegion": "GR",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

@@ -9305,6 +9305,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.title': 'Aumento dei frontalieri attivi in Svizzera',
     'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.excerpt': 'Secondo trimestre 2026: 79\'121 frontalieri attivi in Ticino, +0,6% rispetto al primo trimestre.',
     'blog.article.aumento-dei-frontalieri-attivi-in-svizzera.imageAlt': 'Una foto di un frontaliere che lavora in Svizzera',
+    'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.title': 'Di più pensioni: rendite in calo, coprono sempre meno l\'ultimo stipendio',
+    'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.excerpt': 'Rendite pensionistiche diminuite del 16% dal 2002, coprono meno del 60% dell\'ultimo stipendio.',
+    'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.imageAlt': 'Lavoratore frontaliere con lo sguardo triste mentre guarda il proprio stipendio scendere con l\'età.',
+    'blog.article.palestina-locarno-territorio-aziende-genocidio.title': 'Basta complicità',
+    'blog.article.palestina-locarno-territorio-aziende-genocidio.excerpt': 'Un gruppo di persone manifesta contro le aziende che finanziano il genocidio in Palestina a Locarno',
+    'blog.article.palestina-locarno-territorio-aziende-genocidio.imageAlt': 'Un gruppo di persone manifesta contro le aziende che finanziano il genocidio in Palestina a Locarno',
+    'blog.article.frontalieri-ticino-aumento-2026.title': 'Frontalieri in Ticino: +0,6% trimestrale, -0,6% annuo',
+    'blog.article.frontalieri-ticino-aumento-2026.excerpt': 'A quota 79.121, lieve crescita nel secondo trimestre 2026. Calo su base annuale, segnale debolezza.',
+    'blog.article.frontalieri-ticino-aumento-2026.imageAlt': 'Frontaliero al valico di Brogeda a Chiasso con documenti in mano',
 };
 
 export default blogMetaIt;

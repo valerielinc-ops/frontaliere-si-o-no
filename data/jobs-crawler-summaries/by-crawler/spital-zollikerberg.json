@@ -1,34 +1,33 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-08-06T11:31:32.864Z",
-  "total": 10,
+  "generatedAt": "2026-08-07T01:05:38.152Z",
+  "total": 7,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 39898,
-  "avgDurationMs": 39898,
+  "unchangedCount": 0,
+  "durationMs": 35924,
+  "avgDurationMs": 35924,
   "durationHistory": [
-    39898
+    35924
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "spital-zollikerberg-2339ee93b91b",
-      "slug": "endoskopie-assistent-assistentin-im-medizinischen-ambulatorium-mit-geregelten",
+      "id": "spital-zollikerberg-c17e8ac42eff",
+      "slug": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-mit-tagestreff",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Endoskopie Assistent / Assistentin im Medizinischen Ambulatorium (mit geregelten Arbeitszeiten)",
+      "title": "Alterszentrum Hottingen Dipl. Pflegefachfrau / Dipl. Pflegefachmann Spitex mit Tagestreff-Verantwortung",
+      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=fde6eb9a-c9ba-440d-afe0-4ac49150e837,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=10ed9039-4a35-44a6-8546-ac51c7b80ba6,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T11:28:12.881Z",
+      "crawledAt": "2026-08-06T11:31:29.658Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -37,16 +36,16 @@
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "OTHER",
-      "experienceLevel": "junior",
+      "experienceLevel": "senior",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=fde6eb9a-c9ba-440d-afe0-4ac49150e837,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=10ed9039-4a35-44a6-8546-ac51c7b80ba6,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -55,5 +54,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

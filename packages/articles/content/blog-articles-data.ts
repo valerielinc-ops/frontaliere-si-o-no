@@ -27930,6 +27930,33 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio',
+ category: 'novita',
+ date: '2026-08-07T00:24:46.158Z',
+ image: '/images/blog/di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+ {
+ id: 'palestina-locarno-territorio-aziende-genocidio',
+ category: 'novita',
+ date: '2026-08-07T01:46:36.068Z',
+ image: '/images/blog/palestina-locarno-territorio-aziende-genocidio.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'frontalieri-ticino-aumento-2026',
+ category: 'novita',
+ date: '2026-08-07T02:30:14.961Z',
+ image: '/images/blog/frontalieri-ticino-aumento-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
