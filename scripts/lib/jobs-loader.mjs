@@ -1,5 +1,26 @@
 /**
- * jobs-loader.mjs — Shared loader for per-canton job shards.
+ * jobs-loader.mjs — Node-side loader for per-canton job shards.
+ *
+ * ⚠️ NOT the shards the SPA fetches. Two different things share the name
+ * "jobs-by-canton" in this repo; keep them apart:
+ *
+ *   THIS FILE  →  data/jobs-by-canton/<CODE>.json          (repo root)
+ *                 raw job records, no locale segment, `_AGGREGATE_` key.
+ *                 Node/scripts only. **Never populated**: `writeCantonJobs`
+ *                 below has no callers, so the directory does not exist and
+ *                 `loadCantonJobs` yields nothing (the sole reader,
+ *                 scripts/cathedral-noindex-flip.mjs, is a no-op today).
+ *
+ *   THE SPA'S  →  dist/data/jobs-by-canton/<KEY>-<locale>.json
+ *                 slim INDEX records, per locale, half-cantons merged onto
+ *                 the URL group key (AI+AR → APPENZELLO, BL+BS → BASILEA),
+ *                 no `_AGGREGATE_` file. Emitted by
+ *                 build-plugins/localeJobsSplitPlugin, addressed by
+ *                 services/jobsService via services/jobCantonShards.ts —
+ *                 which is the single source of truth for that layout.
+ *
+ * Writing into `data/jobs-by-canton/` therefore does NOT feed the job board,
+ * and the two naming schemes are not interchangeable.
  *
  * Decision E4: monolithic `data/jobs.json` is DEPRECATED. All consumers
  * (build-plugins, SPA hydration, scripts) MUST read from per-canton shards

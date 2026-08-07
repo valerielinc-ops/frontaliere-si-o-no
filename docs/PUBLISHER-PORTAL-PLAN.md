@@ -54,7 +54,7 @@ Recommended spine:
 - Static page emit: `build-plugins/jobsSeoPagesPlugin.ts` (already forwards `featured`, lines 4235/4257/8816) via `build-plugins/shared/seoPageShell.ts` → `buildSeoPageHtml`.
 
 ### 2.2 Runtime job delivery (SPA)
-- `services/jobsService.ts`: per-canton shard fetch. `SHARD_BASE_PATH = '/data/jobs-by-canton'` (line 74), URL built via `cdnDataUrl()` (line 169) → **`/data/*` is CDN-offloaded** (consistent with the memory note that SPA-fetched data lives behind the CDN). IDB cache + ETag revalidation. 404 = "canton not yet built", SPA stays alive. **This is the hook for the runtime overlay.**
+- `services/jobsService.ts`: per-canton shard fetch. Shard paths come from `services/jobCantonShards.ts` (`JOB_CANTON_SHARD_DIR = '/data/jobs-by-canton'`, one file per canton key **per locale**: `<KEY>-<locale>.json`), URL built via `cdnDataUrl()` → **`/data/*` is CDN-offloaded** (consistent with the memory note that SPA-fetched data lives behind the CDN). IDB cache (keyed `<KEY>:<locale>`) + ETag revalidation. 404 = "canton not yet built", SPA falls back to the full locale index and stays alive. Shards are emitted by `build-plugins/localeJobsSplitPlugin` and `CANTON_SHARDS_ENABLED` is `true` since 2026-08-07. **This is the hook for the runtime overlay.**
 
 ### 2.3 Auth
 - `services/authService.ts` (Google + Facebook + Google One Tap, lazy Firebase Auth), `services/firebase.ts` (lazy SDK, Remote Config, App Check w/ reCAPTCHA). User profiles in Firestore `users/{uid}` (`firestore.rules`).

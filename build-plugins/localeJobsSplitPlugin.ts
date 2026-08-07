@@ -11,6 +11,12 @@ import {
 // Relative import (no `@/` alias): this file is in the vite.config plugin
 // graph, where alias VALUE imports fail at config load time.
 import { buildJobSlugShards, type SlugMapJobEntry } from '../services/jobSlugShards';
+import {
+ buildCantonShards,
+ cantonShardFileName,
+ CANTON_SHARD_KEYS,
+ type CantonShardManifest,
+} from '../services/jobCantonShards';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -96,6 +102,9 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
 
  const dataDir = path.resolve(outDir, 'data');
  if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+ const cantonShardDir = path.resolve(dataDir, 'jobs-by-canton');
+ if (!fs.existsSync(cantonShardDir)) fs.mkdirSync(cantonShardDir, { recursive: true });
+ let cantonShardManifest: CantonShardManifest | null = null;
 
  for (const locale of LOCALES) {
  // Locale-flattened records (full *ByLocale → base fields). Kept in memory
@@ -123,6 +132,52 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
  fs.writeFileSync(
  path.resolve(dataDir, firstPageIndexFileName(locale)),
  JSON.stringify(firstPageSlim),
+ 'utf-8',
+ );
+
+ // Per-canton shards (S10a). Derived from the SAME `slimJobs` array that
+ // was just written as the index, so a shard is by construction the exact
+ // slice `scopeJobsToCanton(index, KEY)` the SPA computes client-side today
+ // — sharding moves that filter from the browser to the build, it does not
+ // change which jobs a canton SERP renders. `services/jobCantonShards.ts`
+ // owns the bucketing so the emitter and `jobsService`'s fetch layer cannot
+ // disagree about keys or the half-canton merge.
+ //
+ // Every key is written, empty cantons as `[]`: `fetchShardDirect` reads a
+ // 404 as "shards not built" and falls back to the full locale index, so a
+ // missing file would silently restore the full-corpus download for exactly
+ // the small cantons that benefit most.
+ const cantonShards = buildCantonShards(slimJobs as Array<{ canton?: string | null }>);
+ for (const cantonKey of CANTON_SHARD_KEYS) {
+ fs.writeFileSync(
+ path.resolve(cantonShardDir, cantonShardFileName(cantonKey, locale)),
+ JSON.stringify(cantonShards[cantonKey] ?? []),
+ 'utf-8',
+ );
+ }
+ if (locale === 'it') {
+ // Shard manifest — emitted once (counts are locale-invariant: the same
+ // job set, only its strings are localised). Two jobs:
+ //   1. `total` replaces the reason services/seoService.ts used to download
+ //      the whole locale index on every job-board page (it needed nothing
+ //      from it but `map.size` for the "1500+ offerte" title);
+ //   2. `byCanton` lets a consumer reject a truncated set before using it,
+ //      and gives the post-deploy reachability gate a single cheap URL that
+ //      proves the shard directory actually published.
+ cantonShardManifest = {
+ generatedAt: new Date().toISOString(),
+ total: slimJobs.length,
+ locales: [...LOCALES],
+ byCanton: Object.fromEntries(
+ CANTON_SHARD_KEYS.map((k) => [k, (cantonShards[k] ?? []).length]),
+ ),
+ };
+ }
+ }
+ if (cantonShardManifest) {
+ fs.writeFileSync(
+ path.resolve(cantonShardDir, 'manifest.json'),
+ JSON.stringify(cantonShardManifest),
  'utf-8',
  );
  }
@@ -201,7 +256,7 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
  const distDir = path.resolve(rootDir, 'dist');
  const count = generateFiles(distDir);
  if (count > 0) {
- console.log(`[locale-jobs-split] Generated 4 slim index files + 4 first-page slim files + slug map (+ sharded slug map) + ${count} detail files (${count} jobs)`);
+ console.log(`[locale-jobs-split] Generated 4 slim index files + 4 first-page slim files + ${CANTON_SHARD_KEYS.length * LOCALES.length} canton shards + slug map (+ sharded slug map) + ${count} detail files (${count} jobs)`);
  }
  },
  configureServer(server) {

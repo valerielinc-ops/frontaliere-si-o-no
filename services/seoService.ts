@@ -4,8 +4,10 @@
  */
 
 import { getLocale, setLocale, t, getCantonI18nParams, type Locale } from './i18n';
-import { parsePath, buildPath, buildAllLocalePaths, type AppRoute } from './router';
+import { parsePath, buildPath, buildAllLocalePaths, ensureJobSlugEntriesLoaded, getJobMetaForSlug, type AppRoute } from './router';
 import { ALL_GLOSSARY_TERM_IDS, ALL_BORDER_CROSSING_IDS } from './router';
+import { fetchJobsForCanton } from './jobsService';
+import { JOB_CANTON_MANIFEST_PATH, type CantonShardManifest } from './jobCantonShards';
 import { resolveCompanyLogoUrl, isMultiLocation } from './jobDataNormalization';
 import { reportCaughtError } from './errorReporter';
 import { bustAssetHttpCache, isChunkLoadError } from './resilientImport';
@@ -347,9 +349,28 @@ async function getActiveJobCountLabel(locale: Locale): Promise<string | null> {
  return `${rounded}+`;
  }
  try {
- // Count is locale-invariant (same job set, just localised strings) — we
- // ask the loader for the current visitor's locale to share the cache
- // with the SEO meta resolver call that follows on the same page.
+ // Read the count from the 221 B (br) shard manifest instead of downloading a
+ // 21k-record index just to call `.size` on it. This runs on EVERY job-board
+ // listing page, so before the canton-shard pipeline it pulled the full
+ // locale index into every canton SERP on its own — independently of
+ // JobBoard's loader. Sharding the board without fixing this would have
+ // moved the bytes between modules, not removed them.
+ //
+ // Count is locale-invariant (same job set, only its strings are localised),
+ // so one manifest serves all four locales.
+ const res = await fetch(cdnDataUrl(JOB_CANTON_MANIFEST_PATH));
+ if (res.ok) {
+ const manifest = (await res.json()) as Partial<CantonShardManifest> | null;
+ const total = manifest?.total;
+ if (typeof total === 'number' && Number.isFinite(total) && total > 0) {
+ totalActiveJobCount = total;
+ const rounded = Math.floor(total / 100) * 100;
+ return rounded > 0 ? `${rounded}+` : null;
+ }
+ }
+ // Manifest missing (pre-shard deploy, CDN propagation lag) → fall back to
+ // the index. Costlier but correct: the label keeps working on any deploy
+ // where the shard set has not published yet.
  const map = await loadJobsBySlug(locale);
  // Each slug maps to one job object now (per-locale shard has no
  // cross-locale slug aliases). Map.size == active job count.
@@ -359,6 +380,41 @@ async function getActiveJobCountLabel(locale: Locale): Promise<string | null> {
  } catch {
  return null;
  }
+}
+
+/**
+ * Resolve ONE slim job record by slug, cheapest path first.
+ *
+ * Job-detail pages need exactly one record, but the only way to get it used to
+ * be `loadJobsBySlug` — i.e. download and index the entire locale corpus. Now
+ * that per-canton shards exist the same record is two small fetches away, both
+ * of which the page is likely to have already made:
+ *
+ *   1. the slug's ~16 KB slug-map shard → `{ id, canton }`  (the job-detail
+ *      route already ensures this for locale switching / bridge resolution);
+ *   2. that canton's job shard → the record, by stable id  (JobBoard fetches
+ *      the same file for its listing, so this is usually an HTTP/IDB hit).
+ *
+ * Falls back to the full index whenever either step misses — an unknown slug,
+ * a job whose canton is absent, a pre-shard deploy, or CDN propagation lag.
+ * The fallback is what keeps this correct rather than merely fast: it must
+ * stay, because a job-detail page that silently resolves to `null` loses its
+ * JobPosting structured data (CLAUDE.md rule #3) and its meta description.
+ */
+async function loadJobSlimBySlug(cleanSlug: string, locale: Locale): Promise<any | null> {
+ try {
+ await ensureJobSlugEntriesLoaded([cleanSlug]);
+ const meta = getJobMetaForSlug(cleanSlug);
+ if (meta?.id && meta?.canton) {
+ const shard = await fetchJobsForCanton(meta.canton, locale);
+ const hit = shard.find((j) => (j as { id?: unknown }).id === meta.id);
+ if (hit) return hit;
+ }
+ } catch {
+ // Fall through to the corpus-wide loader below.
+ }
+ const map = await loadJobsBySlug(locale);
+ return map.get(cleanSlug) ?? null;
 }
 
 async function resolveJobSeoBySlug(
@@ -374,8 +430,7 @@ async function resolveJobSeoBySlug(
 } | null> {
  const cleanSlug = normalizeSeoText(slug);
  if (!cleanSlug) return null;
- const map = await loadJobsBySlug(locale);
- const slim = map.get(cleanSlug);
+ const slim = await loadJobSlimBySlug(cleanSlug, locale);
  if (!slim) return null;
  // The slim index lacks description + structured-data fields (postalCode,
  // streetAddress, baseSalary). Lazy-fetch the per-job detail and merge so the

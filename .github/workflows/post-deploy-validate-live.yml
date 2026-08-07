@@ -310,6 +310,72 @@ jobs:
           fi
           echo "✅ [validate-live] CDN boot bundle serves 200 from cdn.frontaliereticino.ch"
 
+      # Per-canton job shards must actually SERVE from the CDN.
+      #
+      # This gate exists because the failure it catches is invisible from the
+      # outside: `fetchShardDirect` treats a 404 as "shards not built yet" and
+      # falls back to the full locale index, so a shard set that never published
+      # produces a site that looks perfectly healthy while quietly downloading
+      # ~3.5 MB per canton landing again — the exact silent regression that left
+      # job-popularity.json 404ing for hours (#5313). Nothing else checks it:
+      # the CDN gate above covers /assets/ only, and there is no edge redirect
+      # for /data/ (ensure-image-cdn-redirect.mjs has no such prefix), so a
+      # missing file is a hard 404 with no safety net.
+      #
+      # Three assertions, cheapest first:
+      #   1. the manifest serves        → the directory published at all;
+      #   2. TI-it + BASILEA-de serve   → per-locale naming AND the half-canton
+      #      merge are right (a raw-BFS name like BS-de.json is never emitted,
+      #      so this is what would catch a regression in resolveCantonShardKey);
+      #   3. counts agree with the manifest → the set is not truncated.
+      - name: Verify canton job shards serve from CDN
+        id: canton-shards-gate
+        background: true
+        env:
+          CDN_BASE_URL: https://cdn.frontaliereticino.ch
+        run: |
+          set -uo pipefail
+          base="${CDN_BASE_URL}/data/jobs-by-canton"
+          manifest=""
+          for i in $(seq 1 12); do
+            manifest="$(curl -s --max-time 20 "$base/manifest.json" || true)"
+            printf '%s' "$manifest" | grep -q '"total"' && break
+            echo "  attempt $i: manifest not ready"
+            manifest=""
+            sleep 10
+          done
+          if [ -z "$manifest" ]; then
+            echo "::error::[validate-live] $base/manifest.json not serving after ~2min — the canton shard set did not publish. The SPA silently falls back to the full locale index, so every canton SERP is back to downloading the whole corpus. Failing → rollback."
+            exit 1
+          fi
+          total="$(printf '%s' "$manifest" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{console.log(JSON.parse(s).total)}catch{console.log("")}})')"
+          echo "[validate-live] shard manifest OK — total=$total"
+          # Representative shards: the highest-traffic canton, and a merged
+          # half-canton in a non-default locale.
+          for f in TI-it BASILEA-de; do
+            ok=""
+            for i in $(seq 1 6); do
+              code="$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$base/$f.json" || echo 000)"
+              [ "$code" = "200" ] && { ok=1; break; }
+              echo "  $f attempt $i: $code"
+              sleep 10
+            done
+            if [ -z "$ok" ]; then
+              echo "::error::[validate-live] $base/$f.json does not serve 200 — canton shards are addressed wrong or partially published. Failing → rollback."
+              exit 1
+            fi
+            echo "  ✅ $f.json serves 200"
+          done
+          # Truncation check: the TI shard must hold exactly what the manifest
+          # promised for TI. Catches a half-written or stale-cached shard set.
+          want="$(printf '%s' "$manifest" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{console.log(JSON.parse(s).byCanton.TI)}catch{console.log("")}})')"
+          got="$(curl -s --max-time 30 "$base/TI-it.json" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{console.log(JSON.parse(s).length)}catch{console.log("")}})')"
+          if [ -n "$want" ] && [ -n "$got" ] && [ "$want" != "$got" ]; then
+            echo "::error::[validate-live] TI shard holds $got records but the manifest promises $want — truncated or stale shard set. Failing → rollback."
+            exit 1
+          fi
+          echo "✅ [validate-live] canton shards serve from CDN (TI=$got records, corpus total=$total)"
+
       # CLS ratchet — fails if any audited template's CLS p75 regresses past
       # Google's "needs improvement" threshold (0.25) or by more than 10%/+0.05
       # absolute vs `data/cls-baseline.json`. CLS poor crushes AdSense viewability
@@ -345,11 +411,11 @@ jobs:
           LIVE_BASE_URL: https://frontaliereticino.ch
         run: npx playwright test tests/e2e/seo-visual-regression.spec.ts
 
-      # Rejoin the backgrounded CDN + CLS gates. A failure in either surfaces
-      # here and fails the job. The upload + reporter steps below are
-      # always()/failure()-gated, so they still run on a gate failure (verified
-      # live, probe run 28352484149).
-      - name: Wait for parallel live gates (CDN bundle + CLS)
+      # Rejoin the backgrounded CDN bundle + canton-shard + CLS gates. A failure
+      # in any of them surfaces here and fails the job. The upload + reporter
+      # steps below are always()/failure()-gated, so they still run on a gate
+      # failure (verified live, probe run 28352484149).
+      - name: Wait for parallel live gates (CDN bundle + canton shards + CLS)
         wait-all: true
 
       - name: Upload CLS report
