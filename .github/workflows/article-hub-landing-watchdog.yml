@@ -13,10 +13,25 @@ name: Article Hub Landing Watchdog
 # watches what is actually served. This does, from outside, so the next handoff
 # that leaves a path unowned surfaces as an issue instead of as silence.
 #
-# SCOPE — the eight handed-off landings only, derived from the Worker's own
-# SECTION_ROUTES via EXTERNALLY_SERVED_SECTIONS. Article DETAIL pages and the
-# /tutti/ archives have their own publisher-side validation in nanako's
-# fast-publish workflow.
+# SCOPE — the eight handed-off landings AND their eight /tutti/ archives,
+# derived from the Worker's own SECTION_ROUTES via EXTERNALLY_SERVED_SECTIONS.
+#
+# The archives used to be out of scope, on the stated grounds that they "have
+# their own publisher-side validation in nanako's fast-publish workflow". They
+# did not. Issue #5270: `publish-article-fast.mjs` ran the CDN offload BEFORE
+# re-rendering the archive, so every archive page shipped 9 same-origin
+# `/assets/…` refs that 404 — no CSS, no SPA bundle, no AdSense loader — while
+# still answering 200. The landing was unaffected (it is refreshed by swapping
+# a grid inside already-offloaded HTML) which is precisely why watching only
+# the landing saw nothing.
+#
+# Worse, the ordering lives in TWO copies of that script — this repo's and
+# nanako's — and no mirror carries `scripts/`. #5271 fixed this repo's copy on
+# 2026-08-06 and the live archive then alternated healthy/broken depending on
+# which repo had published last. A source-order test in either repo covers half
+# the publishes; this probe covers the served bytes, which is all of them.
+#
+# Article DETAIL pages remain out of scope.
 
 on:
   schedule:
