@@ -30,6 +30,12 @@
 // CDN miss degrades to "no trending strip", never to a broken board. A failed
 // load is NOT cached, so a later mount retries.
 //
+// NOT the whole story for this page: the popularity map was the SECOND cost on
+// /cerca-lavoro-ticino/. The first is /data/jobs-it-index.json (3.45 MB
+// transferred / 27.8 MB raw / 21,027 records — 49.7% of everything the page
+// downloads), still open. Measurements and the plan are on issue #5001; do not
+// re-derive them here.
+//
 // FRESHNESS: the map changes only when refresh-job-popularity.yml commits it,
 // i.e. only via a deploy — so it needs no cdnFreshUrl() rotation (that helper is
 // for files a publisher rewrites BETWEEN deploys).
