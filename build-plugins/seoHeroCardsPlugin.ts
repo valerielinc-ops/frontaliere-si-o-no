@@ -169,7 +169,15 @@ export function seoHeroCardsPlugin(rootDir: string): Plugin {
       }
 
       const distDir = np.resolve(rootDir, 'dist');
-      if (!fs.existsSync(distDir)) return;
+      if (!fs.existsSync(distDir)) {
+        // Simmetrico agli altri due early-return: un dist/ assente per un
+        // problema di build-order non deve somigliare a «tutto ok, niente da
+        // fare».
+        console.warn(
+          `\x1b[33m[seo-hero-cards]\x1b[0m dist/ assente (${distDir}) — ${requests.length} card non generate`,
+        );
+        return;
+      }
 
       const fontPair = readFontPair(rootDir);
       if (!fontPair) {
@@ -217,12 +225,18 @@ export function seoHeroCardsPlugin(rootDir: string): Plugin {
             },
           });
 
+          // Job attualmente in volo su QUESTO worker, per poterlo nominare se
+          // il worker muore (l'`inflight` globale non dice di chi era).
+          let current: number | null = null;
+
           const dispatch = (): void => {
             if (next >= queue.length) {
+              current = null;
               worker.postMessage('shutdown');
               return;
             }
             const jobId = next++;
+            current = jobId;
             inflight.set(jobId, queue[jobId]);
             worker.postMessage({ jobId, tree: buildCardTree(queue[jobId]) });
           };
@@ -252,8 +266,15 @@ export function seoHeroCardsPlugin(rootDir: string): Plugin {
           });
 
           worker.on('error', (err) => {
+            // Il job che questo worker aveva in volo non tornera' mai: senza
+            // nominarlo resterebbe un hero 404 su UNA pagina, invisibile in un
+            // log che dice solo «worker error».
+            const lost = current !== null ? queue[current] : undefined;
             failed++;
-            console.warn(`\x1b[33m[seo-hero-cards]\x1b[0m worker error: ${err.message}`);
+            console.warn(
+              `\x1b[33m[seo-hero-cards]\x1b[0m worker error: ${err.message}` +
+                (lost ? ` — card persa: ${lost.family}/${lost.key}/${lost.locale}` : ''),
+            );
           });
 
           worker.on('exit', () => {

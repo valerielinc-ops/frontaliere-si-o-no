@@ -870,7 +870,7 @@ function renderPage(opts: {
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(lede)}</p>
     </header>
-    ${renderSeoHeroImage({ family: 'minimum-wage', key: String(page), locale, headline: h1, eyebrow, alt: h1 })}
+    ${renderSeoHeroImage({ family: 'minimum-wage', key: pageKey(page), locale, headline: h1, eyebrow, alt: h1 })}
     ${updatedLine}
     ${statTilesHtml}
     ${ctaBlock}

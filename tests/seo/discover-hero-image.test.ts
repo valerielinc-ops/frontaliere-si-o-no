@@ -95,6 +95,20 @@ describe('Discover hero image — fleet guard', () => {
     mod.resetSeoHeroCardRegistry();
   });
 
+  it('never derives a card key with String() on a non-string', () => {
+    // `String(page)` su un oggetto vale "[object Object]": tutte le pagine
+    // della famiglia collidono sulla stessa chiave di registro e sullo stesso
+    // `src`, l'ultima renderizzata sovrascrive le altre, e ogni pagina mostra
+    // la card di un'altra. E' successo su `minimum-wage` (7 pagine × locale)
+    // perche' `String(...)` era stato usato per zittire un errore di tipo
+    // invece di ricavare una chiave vera — il file aveva gia' `pageKey()`.
+    for (const { plugin } of EDITORIAL_FAMILIES) {
+      const src = read(plugin);
+      const calls = src.match(/key:\s*String\(/g) ?? [];
+      expect(calls.length, `${plugin} costruisce la chiave con String(...)`).toBe(0);
+    }
+  });
+
   it('keeps every hero emitter free of an await before its render loop', () => {
     // L'invariante che la guardia sopra sorveglia a runtime, qui sul sorgente
     // per il caso che l'ha rotta: un `await import(...)` come prima istruzione
