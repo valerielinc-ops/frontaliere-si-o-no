@@ -1,16 +1,16 @@
 {
   "key": "afry",
   "label": "AFRY",
-  "generatedAt": "2026-08-07T10:28:35.110Z",
+  "generatedAt": "2026-08-07T21:50:52.082Z",
   "total": 56,
   "newCount": 0,
   "updatedCount": 55,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 134558,
-  "avgDurationMs": 134558,
+  "durationMs": 139227,
+  "avgDurationMs": 139227,
   "durationHistory": [
-    134558
+    139227
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -675,13 +675,12 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "currency": "CHF",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:39:14.533Z",
-      "_qualityScore": 76,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -747,13 +746,12 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "currency": "CHF",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:39:14.533Z",
-      "_qualityScore": 76,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -1110,13 +1108,12 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "currency": "CHF",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:39:14.533Z",
-      "_qualityScore": 81,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 19
       }
     }
