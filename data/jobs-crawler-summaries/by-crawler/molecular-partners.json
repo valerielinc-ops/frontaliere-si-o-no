@@ -1,16 +1,16 @@
 {
   "key": "molecular-partners",
   "label": "Molecular Partners",
-  "generatedAt": "2026-08-07T10:10:32.020Z",
+  "generatedAt": "2026-08-07T21:41:41.047Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4556,
-  "avgDurationMs": 4556,
+  "durationMs": 4452,
+  "avgDurationMs": 4452,
   "durationHistory": [
-    4556
+    4452
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-senior-accounting-manager_179.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T10:10:29.173Z",
+      "crawledAt": "2026-08-07T21:41:38.145Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,7 +41,6 @@
       "featured": false,
       "postedDate": "2026-07-27",
       "applyUrl": "https://molecularpartners-career.talent-soft.com/job/job-senior-accounting-manager_179.aspx",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T12:32:19.008Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -52,46 +51,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "molecular-partners-b49b35ae4d5d",
-      "slug": "head-of-process-development-80-100-molecular-partners-schlieren",
-      "company": "Molecular Partners",
-      "companyKey": "molecular-partners",
-      "companyDomain": "molecularpartners.com",
-      "title": "Head of Process Development (80-100%)",
-      "location": "Switzerland, Zürich, Schlieren",
-      "canton": "ZH",
-      "url": "https://molecularpartners-career.talent-soft.com/job/job-head-of-process-development-80-100-_178.aspx",
-      "source": "Molecular Partners Dedicated Parser (Talentsoft)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-05T22:19:30.037Z",
-      "addressLocality": "Schlieren",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8952",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Biotecnologie / Farmaceutica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "applyUrl": "https://molecularpartners-career.talent-soft.com/job/job-head-of-process-development-80-100-_178.aspx",
-      "firstSeenAt": "2026-07-03T22:41:40.747Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
