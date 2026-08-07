@@ -9315,9 +9315,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.graffio-nella-barba-locarno-film-festival.title': 'Das Kratzen im Bart des künstlerischen Leiters beim Locarno Film Festival',
     'blog.article.graffio-nella-barba-locarno-film-festival.excerpt': 'Im weichen und voluminösen Bart des künstlerischen Leiters verbirgt sich eine Absichtserklärung für das Schweizer Kino, mit Investitionen, die bis 2025 um 25% steigen.',
     'blog.article.graffio-nella-barba-locarno-film-festival.imageAlt': 'Gepflegter Bart des künstlerischen Leiters beim Locarno Film Festival vor der Piazza Grande',
-    'blog.article.caldo-torrido-lavoro-ticino.title': 'Arbeit im Tessiner Sommerwetter: Regierung öffnet sich für neue Arbeitsmassnahmen',
-    'blog.article.caldo-torrido-lavoro-ticino.excerpt': 'Gewerkschaften UNIA, OCST, SGB und VPOD treffen sich mit dem Staatsrat: Über 100 Einweisungen in die Notaufnahme wegen Hitzeeinflüssen auf die Tessiner Arbeitnehmer',
-    'blog.article.caldo-torrido-lavoro-ticino.imageAlt': 'Bauarbeiter in der Schattenpause während einer Hitzewelle im Tessin, nahe der italienisch-schweizerischen Grenze',
+    'blog.article.claudio-simonetti-monsieur-peur.title': 'Claudio simonetti, monsieur peur: der besondere Pardo beim Locarno Filmfestival',
+    'blog.article.claudio-simonetti-monsieur-peur.excerpt': 'Der Komponist von Horror-Soundtracks wurde beim Locarno Film Festival mit einem besonderen Pardo ausgezeichnet, weil er das Genre von Deep Red ab markiert hat',
+    'blog.article.claudio-simonetti-monsieur-peur.imageAlt': 'Claudio Simonetti dirigiert die Profondo rosso-Musik am Locarno Film Festival',
+    'blog.article.compatta-usata-frontalieri-varese-milano.title': 'Gebrauchtes SUV oder Kompakt: die klügste Wahl',
+    'blog.article.compatta-usata-frontalieri-varese-milano.excerpt': 'Für Grenzgänger Varese-Mailand-Tessin senkt ein gebrauchtes Kompaktfahrzeug die Betriebskosten und erleichtert die tägliche Fortbewegung im Vergleich zu einem SUV, so VareseNoi.it',
+    'blog.article.compatta-usata-frontalieri-varese-milano.imageAlt': 'Gebrauchter Kompaktwagen an der Grenzkontrolle Brogeda',
 };
 
 export default blogMetaDe;

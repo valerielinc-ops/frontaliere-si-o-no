@@ -9317,9 +9317,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.graffio-nella-barba-locarno-film-festival.title': 'Il graffio nella barba del direttore artistico al Locarno Film Festival',
     'blog.article.graffio-nella-barba-locarno-film-festival.excerpt': 'Nella soffice e voluminosa barba del direttore artistico si cela una dichiarazione d’intenti per il cinema elvetico, con investimenti in aumento del 25% nel 2025.',
     'blog.article.graffio-nella-barba-locarno-film-festival.imageAlt': 'Barba curata del direttore artistico al Locarno Film Festival davanti a Piazza Grande',
-    'blog.article.caldo-torrido-lavoro-ticino.title': 'Lavoro nel caldo torrido in Ticino: Governo apre a nuove misure per i lavoratori',
-    'blog.article.caldo-torrido-lavoro-ticino.excerpt': 'Sindacati UNIA, OCST, USS e VPOD incontrano il Consiglio di Stato: oltre 100 ricoveri al pronto soccorso per effetti del caldo sui lavoratori ticinesi',
-    'blog.article.caldo-torrido-lavoro-ticino.imageAlt': 'Lavoratori edili in pausa all\'ombra durante un\'ondata di caldo in Ticino, vicino al confine italo-svizzero',
+    'blog.article.claudio-simonetti-monsieur-peur.title': 'Claudio simonetti, monsieur peur: il pardo speciale al Locarno film festival',
+    'blog.article.claudio-simonetti-monsieur-peur.excerpt': 'Il compositore di colonne sonore horror premiato con un Pardo speciale al Locarno Film Festival per aver segnato il genere da Profondo rosso in poi',
+    'blog.article.claudio-simonetti-monsieur-peur.imageAlt': 'Claudio Simonetti dirige la colonna sonora di Profondo rosso al Locarno Film Festival',
+    'blog.article.compatta-usata-frontalieri-varese-milano.title': 'SUV o compatta usata: la scelta più intelligente',
+    'blog.article.compatta-usata-frontalieri-varese-milano.excerpt': 'Per i frontalieri Varese-Milano-Ticino, una compatta usata riduce costi di gestione e facilita gli spostamenti quotidiani rispetto a un SUV, secondo VareseNoi.it',
+    'blog.article.compatta-usata-frontalieri-varese-milano.imageAlt': 'Auto compatta usata al valico di Brogeda tra Italia e Svizzera',
 };
 
 export default blogMetaIt;
