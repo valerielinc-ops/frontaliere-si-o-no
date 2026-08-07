@@ -1,6 +1,6 @@
 {
   "crawlerKey": "delvitech-sa",
-  "assembledAt": "2026-08-05T22:34:24.911Z",
+  "assembledAt": "2026-08-07T01:19:45.095Z",
   "jobs": [
     {
       "title": "Application Engineer",
@@ -138,7 +138,8 @@
       },
       "previousSlugs": [
         "back-office-specialist-technical-sales-delvitech-sa-mendrisio"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Junior Project Manager",
@@ -204,7 +205,8 @@
       },
       "previousSlugs": [
         "chef-projet-junior-delvitech-sa-mendrisio"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Front-End SW Engineer",
@@ -481,8 +483,8 @@
       "firstSeenAt": "2026-07-08T11:42:12.605Z",
       "previousSlugsByLocale": {
         "it": [
-          "e2e-test-engineer-delvitech-mendrisio",
-          "e2e-test-engineer-delvitech-sa-mendrisio"
+          "e2e-test-engineer-delvitech-sa-mendrisio",
+          "e2e-test-engineer-delvitech-mendrisio"
         ],
         "de": [
           "e2e-test-engineer-delvitech-mendrisio"
@@ -492,8 +494,8 @@
         ]
       },
       "previousSlugs": [
-        "e2e-test-engineer-delvitech-mendrisio",
-        "e2e-test-engineer-delvitech-sa-mendrisio"
+        "e2e-test-engineer-delvitech-sa-mendrisio",
+        "e2e-test-engineer-delvitech-mendrisio"
       ]
     },
     {
@@ -693,7 +695,8 @@
       },
       "previousSlugs": [
         "customer-support-manager-delvitech-mendrisio"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
