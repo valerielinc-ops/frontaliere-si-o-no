@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bosch-thermotechnik-ag",
-  "assembledAt": "2026-08-06T11:33:10.553Z",
+  "assembledAt": "2026-08-07T01:10:49.070Z",
   "jobs": [
     {
       "title": "Lehrstelle Kaufmann-/frau EFZ/M 2027 (m/w/div.)",
@@ -116,11 +116,11 @@
           "mechaniker-w-m-div-ref280421x-bosch-st-niklaus",
           "mecanicien-w-m-div-ref280421x-bosch-thermotechnik-ag-st-niklaus",
           "logistiker-100-w-m-div-ref292961c-bosch-thermotechnik-ag-st-niklaus",
-          "logistiker-100-w-m-div-ref292961c-bosch-st-niklaus",
           "engineer-m-div-bosch-thermotechnik-ag-st-niklaus",
           "ingegnere-m-div-bosch-thermotechnik-ag-st-niklaus",
           "manutenzione-f-m-div-ref285547a-bosch-thermotechnik-ag-st-niklaus",
-          "manutenzione-m-div-ref285547a-bosch-thermotechnik-ag-st-niklaus"
+          "manutenzione-m-div-ref285547a-bosch-thermotechnik-ag-st-niklaus",
+          "logistiker-100-w-m-div-ref292961c-bosch-st-niklaus"
         ],
         "en": [
           "mechanic-w-m-div-ref280421x-bosch-thermotechnik-ag-st-niklaus",
@@ -140,11 +140,11 @@
         "mechaniker-w-m-div-ref280421x-bosch-st-niklaus",
         "mecanicien-w-m-div-ref280421x-bosch-thermotechnik-ag-st-niklaus",
         "logistiker-100-w-m-div-ref292961c-bosch-thermotechnik-ag-st-niklaus",
-        "logistiker-100-w-m-div-ref292961c-bosch-st-niklaus",
         "engineer-m-div-bosch-thermotechnik-ag-st-niklaus",
         "ingegnere-m-div-bosch-thermotechnik-ag-st-niklaus",
         "manutenzione-f-m-div-ref285547a-bosch-thermotechnik-ag-st-niklaus",
-        "manutenzione-m-div-ref285547a-bosch-thermotechnik-ag-st-niklaus"
+        "manutenzione-m-div-ref285547a-bosch-thermotechnik-ag-st-niklaus",
+        "logistiker-100-w-m-div-ref292961c-bosch-st-niklaus"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -507,10 +507,10 @@
       "firstSeenAt": "2026-07-09T12:21:33.795Z",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-logistik-w-m-div-2027-ref289879m-bosch-st-niklaus",
           "apprendistato-konstrukteur-w-m-div-2027-ref289880q-bosch-thermotechnik-ag-st-niklaus",
           "apprendistato-produktionsmechaniker-w-m-div-2027-ref289874t-bosch-thermotechnik-ag-st-niklaus",
-          "lerhstelle-logistik-w-m-div-2027-ref289879m-bosch-st-niklaus"
+          "lerhstelle-logistik-w-m-div-2027-ref289879m-bosch-st-niklaus",
+          "lehrstelle-logistik-w-m-div-2027-ref289879m-bosch-st-niklaus"
         ],
         "en": [
           "lehrstelle-logistik-w-m-div-2027-ref289879m-bosch-st-niklaus"
@@ -520,10 +520,10 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-logistik-w-m-div-2027-ref289879m-bosch-st-niklaus",
         "apprendistato-konstrukteur-w-m-div-2027-ref289880q-bosch-thermotechnik-ag-st-niklaus",
         "apprendistato-produktionsmechaniker-w-m-div-2027-ref289874t-bosch-thermotechnik-ag-st-niklaus",
-        "lerhstelle-logistik-w-m-div-2027-ref289879m-bosch-st-niklaus"
+        "lerhstelle-logistik-w-m-div-2027-ref289879m-bosch-st-niklaus",
+        "lehrstelle-logistik-w-m-div-2027-ref289879m-bosch-st-niklaus"
       ]
     },
     {
@@ -602,7 +602,8 @@
         "apprendistato-kauffrau-kaufmann-ref279222f-bosch-thermotechnik-ag-st-niklaus",
         "lehrstelle-kauffrau-kaufmann-ref279222f-bosch-st-niklaus",
         "lehrstelle-kauffrau-kaufmann-2027-ref289852b-bosch-st-niklaus"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
