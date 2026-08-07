@@ -49,6 +49,7 @@ import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { resolveLiechtensteinBorderMunicipalitiesFlushed } from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import {
   LIECHTENSTEIN_CONTENT,
   type LiechtensteinLocaleContent,
@@ -467,7 +468,8 @@ export function renderBridgePage(params: {
   });
 }
 
-function renderHubPage(params: { locale: LiechtensteinLocale; dateStamp: string; distDir: string }): {
+// Exported for the h1-vs-title regression suite — see the FR plugin's twin.
+export function renderHubPage(params: { locale: LiechtensteinLocale; dateStamp: string; distDir: string }): {
   urlPath: string;
   html: string;
 } {
@@ -476,6 +478,22 @@ function renderHubPage(params: { locale: LiechtensteinLocale; dateStamp: string;
   const content = LIECHTENSTEIN_CONTENT[locale];
   const canonicalPath = LIECHTENSTEIN_HUB_PATH[locale];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+
+  // Same defect and same repair as the FR/DE/AT hubs — see
+  // frenchBorderMunicipalityPagesPlugin.ts's renderHubPage for the full
+  // rationale. `content.hubTitle` is shipped as BOTH <title> and <h1>, and
+  // at 56-59 chars per locale buildTitleWithBrand always drops the brand
+  // suffix, so the two collapse into the Semrush "Duplicate H1 and title
+  // tags" class that audit:h1-title-duplicates gates on.
+  //
+  // This family carried a second, separate defect: its four hubTitles were
+  // 78-96 chars, over the 66-char audit:title-length cap. That one is fixed
+  // at the source in data/liechtensteinCorridorContent.ts (rewritten copy,
+  // never a render-time truncation) — see the `hubTitle` docstring there.
+  //
+  // Second argument = the string handed to buildSeoPageHtml as `title`.
+  // The helper returns its FIRST argument.
+  const hubH1 = differentiateH1FromTitle(content.hubTitle, content.hubTitle, locale);
 
   const cards = LIECHTENSTEIN_ABOVE_FLOOR.map(
     (m) =>
@@ -492,7 +510,7 @@ function renderHubPage(params: { locale: LiechtensteinLocale; dateStamp: string;
       <span>${esc(c.hubLabel)}</span>
     </nav>
     <header class="rounded-md border border-edge bg-surface p-5 sm:p-7">
-      <h1 class="text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(content.hubTitle)}</h1>
+      <h1 class="text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(hubH1)}</h1>
       <p class="mt-3 max-w-3xl text-base leading-7 text-body">${esc(content.hubLede)}</p>
       <p class="mt-3 text-sm text-muted">${esc(c.updated)}: <time datetime="${dateStamp}">${dateStamp}</time></p>
     </header>
