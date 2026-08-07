@@ -59819,6 +59819,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-graffio-nella-barba-locarno-film-festival': {
+    title: 'Il graffio nella barba del direttore artistico al Locarno Film Festival',
+    description: 'Nella soffice e voluminosa barba del direttore artistico del Locarno Film Festival si cela una dichiarazione d’intenti: investimenti nel cinema elvetico in',
+    keywords: 'frontalieri, ticino, svizzera, italia, graffio, nella, barba, direttore',
+    ogTitle: 'Il graffio nella barba del direttore artistico al Locarno Film Festival',
+    ogDescription: 'Investimenti nel cinema elvetico +25% nel 2025: la dichiarazione d’intenti del direttore artistico del Locarno Film Festival si legge nella cura della sua',
+    canonicalPath: '/articoli-frontaliere/graffio-nella-barba-locarno-film-festival',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il graffio nella barba del direttore artistico al Locarno Film Festival",
+      "description": "Nella soffice e voluminosa barba del direttore artistico del Locarno Film Festival si cela una dichiarazione d’intenti: investimenti nel cinema elvetico in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/graffio-nella-barba-locarno-film-festival.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Barba curata del direttore artistico al Locarno Film Festival davanti a Piazza Grande"
+      },
+      "datePublished": "2026-08-07T03:55:24+00:00",
+      "dateModified": "2026-08-07T03:55:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/graffio-nella-barba-locarno-film-festival/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -9313,6 +9313,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-aumento-2026.title': 'Border workers in Ticino: +0.6% quarterly, -0.6% annually',
     'blog.article.frontalieri-ticino-aumento-2026.excerpt': 'At 79,121, slight growth in the second quarter of 2026. Decline on an annual basis, sign of weakness.',
     'blog.article.frontalieri-ticino-aumento-2026.imageAlt': 'Cross-border worker at Brogeda border checkpoint in Chiasso holding documents',
+    'blog.article.graffio-nella-barba-locarno-film-festival.title': 'The scratch on the beard of the artistic director at the Locarno Film Festival',
+    'blog.article.graffio-nella-barba-locarno-film-festival.excerpt': 'In the soft and voluminous beard of the artistic director lies a declaration of intent for Swiss cinema, with investments increasing by 25% in 2025.',
+    'blog.article.graffio-nella-barba-locarno-film-festival.imageAlt': 'Well-groomed beard of the artistic director at Locarno Film Festival in front of Piazza Grande',
 };
 
 export default blogMetaEn;

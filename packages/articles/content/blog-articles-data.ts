@@ -27957,6 +27957,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'graffio-nella-barba-locarno-film-festival',
+ category: 'novita',
+ date: '2026-08-07T03:55:24.335Z',
+ image: '/images/blog/graffio-nella-barba-locarno-film-festival.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
