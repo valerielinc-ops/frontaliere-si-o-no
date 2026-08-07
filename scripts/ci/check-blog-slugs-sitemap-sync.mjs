@@ -18,6 +18,8 @@ import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { readSlugRegistry } from '../lib/article-slug-registry.mjs';
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..', '..');
 
@@ -49,17 +51,13 @@ const SWISS_LOC_PATTERNS = {
   fr: /^https:\/\/frontaliereticino\.ch\/fr\/articles-suisse\/([^/]+)\/$/,
 };
 
-// Uses the same regex as ogPagesPlugin.ts (single source of truth for parsing).
+// Parser shared with scripts/lib/corpus-removal-guard.mjs, which gates the
+// corpus sync BEFORE it writes while this gates CI AFTER. The two must read the
+// registries identically: a drift between them would let a removal through the
+// pre-write guard and then redden `main` here — the exact sequence of
+// 2026-08-07 (site commit 10c8c8178, corpus recovery nanako PR #20).
 function parseSlugsConst(file, constName) {
-  const src = readFileSync(resolve(root, file), 'utf-8');
-  const block = src.match(new RegExp(`const ${constName}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
-  const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
-  const slugs = {};
-  let m;
-  while ((m = rx.exec(block)) !== null) {
-    slugs[m[1]] = { it: m[2], en: m[3], de: m[4], fr: m[5] };
-  }
-  return slugs;
+  return readSlugRegistry(resolve(root, file), constName);
 }
 
 function parseBlogSlugs() {

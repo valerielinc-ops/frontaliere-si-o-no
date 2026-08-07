@@ -2784,6 +2784,63 @@
       ]
     },
     {
+      "slug": "allmendingen",
+      "locale": "it",
+      "path": "/cerca-lavoro-berna/allmendingen/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-berna/allmendingen/"
+      },
+      "queries": [
+        {
+          "query": "coop carriere",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "coop carriere",
+      "title": "Allmendingen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "allmendingen",
+        "en": "allmendingen",
+        "de": "allmendingen",
+        "fr": "allmendingen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/allmendingen",
+        "en": "/en/find-jobs-bern/allmendingen",
+        "de": "/de/jobs-im-bern/allmendingen",
+        "fr": "/fr/trouver-emploi-berne/allmendingen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "amministratore-delegato-100-two-spice-ag-dietlikon",
       "locale": "it",
       "path": "/cerca-lavoro-grigioni/amministratore-delegato-100-two-spice-ag-dietlikon",
@@ -12173,6 +12230,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "business-analyste-m-w-d-card-processing-visa-mastercard-postfinance-bern",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-berne/business-analyste-m-w-d-card-processing-visa-mastercard-postfinance-bern/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-berne/business-analyste-m-w-d-card-processing-visa-mastercard-postfinance-bern/"
+      },
+      "queries": [
+        {
+          "query": "visa card jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "visa card jobs",
+      "title": "Business analyste card processing visa mastercard",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "business-analyste-m-w-d-card-processing-visa-mastercard-postfinance-bern",
+        "en": "business-analyste-m-w-d-card-processing-visa-mastercard-postfinance-bern",
+        "de": "business-analyste-m-w-d-card-processing-visa-mastercard-postfinance-bern",
+        "fr": "business-analyste-m-w-d-card-processing-visa-mastercard-postfinance-bern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/business-analyste-m-w-d-card-processing-visa-mastercard-postfinance-bern",
+        "en": "/en/find-jobs-bern/business-analyste-m-w-d-card-processing-visa-mastercard-postfinance-bern",
+        "de": "/de/jobs-im-bern/business-analyste-m-w-d-card-processing-visa-mastercard-postfinance-bern",
+        "fr": "/fr/trouver-emploi-berne/business-analyste-m-w-d-card-processing-visa-mastercard-postfinance-bern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -25147,10 +25262,10 @@
         "fr": "dipl-pflegefachfrau-pflegefachmann-onkologie-w-m-d-soh-solothurner-spitaeler-olten"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/dipl-pflegefachfrau-pflegefachmann-onkologie-w-m-d-soh-solothurner-spitaeler-olten",
-        "en": "/en/find-jobs-ticino/dipl-pflegefachfrau-pflegefachmann-onkologie-w-m-d-soh-solothurner-spitaeler-olten",
-        "de": "/de/jobs-im-tessin/dipl-pflegefachfrau-pflegefachmann-onkologie-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "/fr/trouver-emploi-tessin/dipl-pflegefachfrau-pflegefachmann-onkologie-w-m-d-soh-solothurner-spitaeler-olten"
+        "it": "/cerca-lavoro-soletta/dipl-pflegefachfrau-pflegefachmann-onkologie-w-m-d-soh-solothurner-spitaeler-olten",
+        "en": "/en/find-jobs-solothurn/dipl-pflegefachfrau-pflegefachmann-onkologie-w-m-d-soh-solothurner-spitaeler-olten",
+        "de": "/de/jobs-in-solothurn/dipl-pflegefachfrau-pflegefachmann-onkologie-w-m-d-soh-solothurner-spitaeler-olten",
+        "fr": "/fr/trouver-emploi-soleure/dipl-pflegefachfrau-pflegefachmann-onkologie-w-m-d-soh-solothurner-spitaeler-olten"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -27201,10 +27316,10 @@
         "fr": "drucktechnologe-login-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/drucktechnologe-login-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen",
-        "en": "/en/find-jobs-ticino/drucktechnologe-login-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen",
-        "de": "/de/jobs-im-tessin/drucktechnologe-login-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen",
-        "fr": "/fr/trouver-emploi-tessin/drucktechnologe-login-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen"
+        "it": "/cerca-lavoro-soletta/drucktechnologe-login-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen",
+        "en": "/en/find-jobs-solothurn/drucktechnologe-login-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen",
+        "de": "/de/jobs-in-solothurn/drucktechnologe-login-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen",
+        "fr": "/fr/trouver-emploi-soleure/drucktechnologe-login-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -37339,7 +37454,7 @@
     {
       "slug": "ingegneri",
       "locale": "it",
-      "path": "/cerca-lavoro-ginevra/ingegneri/",
+      "path": "/cerca-lavoro-ticino/ingegneri/",
       "observedPaths": {
         "it": "/cerca-lavoro-ticino/ingegneri",
         "en": "/en/find-jobs-geneva/ingegneri",
@@ -37403,6 +37518,11 @@
           "impressions": 2
         },
         {
+          "query": "frontalieri",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
           "query": "lavoro ingegnere svizzera",
           "clicks": 0,
           "impressions": 2
@@ -37433,23 +37553,18 @@
           "impressions": 2
         },
         {
+          "query": "buyer lecco",
+          "clicks": 1,
+          "impressions": 1
+        },
+        {
           "query": "ingegneri in svizzera",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "lavorare in svizzera ingegnere",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "lavoro per ingegneri in svizzera",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 94,
-      "totalClicks": 0,
+      "totalImpressions": 96,
+      "totalClicks": 1,
       "topQuery": "lavoro in svizzera per italiani",
       "title": "Ingegneri",
       "titleByLocale": {
@@ -39868,10 +39983,10 @@
         "fr": "koch-kochin-con-zusatzfunktion-stv-geschaftsfuhrer-in-coop-genossenschaft-mels"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/koch-kochin-con-zusatzfunktion-stv-geschaftsfuhrer-in-coop-genossenschaft-mels",
-        "en": "/en/find-jobs-graubunden/koch-kochin-con-zusatzfunktion-stv-geschaftsfuhrer-in-coop-genossenschaft-mels",
+        "it": "/cerca-lavoro-zurigo/koch-kochin-con-zusatzfunktion-stv-geschaftsfuhrer-in-coop-genossenschaft-mels",
+        "en": "/en/find-jobs-zurich/koch-kochin-con-zusatzfunktion-stv-geschaftsfuhrer-in-coop-genossenschaft-mels",
         "de": "/de/jobs-im-graubunden/koch-kochin-con-zusatzfunktion-stv-geschaftsfuhrer-in-coop-genossenschaft-mels",
-        "fr": "/fr/trouver-emploi-grisons/koch-kochin-con-zusatzfunktion-stv-geschaftsfuhrer-in-coop-genossenschaft-mels"
+        "fr": "/fr/trouver-emploi-zurich/koch-kochin-con-zusatzfunktion-stv-geschaftsfuhrer-in-coop-genossenschaft-mels"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -42635,7 +42750,7 @@
     {
       "slug": "logistique",
       "locale": "fr",
-      "path": "/fr/trouver-emploi-schaffhouse/logistique/",
+      "path": "/fr/trouver-emploi-jura/logistique/",
       "observedPaths": {
         "fr": "/fr/trouver-emploi-schaffhouse/logistique",
         "it": "/cerca-lavoro-sciaffusa/logistique",
@@ -42648,6 +42763,11 @@
           "impressions": 3
         },
         {
+          "query": "logistique jura",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "je cherche un job à schaffhouse",
           "clicks": 0,
           "impressions": 1
@@ -42658,7 +42778,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 5,
+      "totalImpressions": 6,
       "totalClicks": 0,
       "topQuery": "recrutement schaffhouse",
       "title": "Logistique",
@@ -78241,10 +78361,10 @@
         "fr": "vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55",
-        "en": "/en/find-jobs-ticino/vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55",
-        "de": "/de/jobs-im-tessin/vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55"
+        "it": "/cerca-lavoro-soletta/vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55",
+        "en": "/en/find-jobs-solothurn/vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55",
+        "de": "/de/jobs-in-solothurn/vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55",
+        "fr": "/fr/trouver-emploi-soleure/vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -82857,10 +82977,10 @@
         "fr": "verkaufer-in-denner-5"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/verkaufer-in-denner-5",
-        "en": "/en/find-jobs-ticino/verkaufer-in-denner-5",
-        "de": "/de/jobs-im-tessin/verkaufer-in-denner-5",
-        "fr": "/fr/trouver-emploi-tessin/verkaufer-in-denner-5"
+        "it": "/cerca-lavoro-argovia/verkaufer-in-denner-5",
+        "en": "/en/find-jobs-aargau/verkaufer-in-denner-5",
+        "de": "/de/jobs-im-aargau/verkaufer-in-denner-5",
+        "fr": "/fr/trouver-emploi-argovie/verkaufer-in-denner-5"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
