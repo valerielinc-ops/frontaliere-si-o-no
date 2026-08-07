@@ -9306,6 +9306,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.title': 'Mehr Renten: Renten sinken, decken immer weniger das letzte Gehalt ab',
     'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.excerpt': 'Die seit 2002 um 16% gesunkenen Renten decken weniger als 60% des letzten Gehalts ab.',
     'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.imageAlt': 'Arbeitsloser mit trauriger Miene beim Ansehen seines abnehmenden Gehalts mit dem Alter.',
+    'blog.article.palestina-locarno-territorio-aziende-genocidio.title': 'Schluss mit Komplizenschaft',
+    'blog.article.palestina-locarno-territorio-aziende-genocidio.excerpt': 'Eine Gruppe von Menschen demonstriert gegen die Unternehmen, die den Völkermord in Palästina in Locarno finanzieren',
+    'blog.article.palestina-locarno-territorio-aziende-genocidio.imageAlt': 'Ein Grupp von Menschen protestiert gegen Unternehmen, die den Genozid in Palästina finanzieren, in Locarno',
 };
 
 export default blogMetaDe;

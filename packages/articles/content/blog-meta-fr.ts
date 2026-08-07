@@ -9309,6 +9309,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.title': 'Retraites : des rentes en baisse face aux salaires',
     'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.excerpt': 'Les rentes de retraite diminuées de 16 % depuis 2002, couvrent moins de 60 % du dernier salaire.',
     'blog.article.di-piu-pensioni-rendite-in-calascoprono-sempre-meno-lultimo-stipendio.imageAlt': 'Frontalier avec un air triste en regardant son salaire diminuer avec l\'âge.',
+    'blog.article.palestina-locarno-territorio-aziende-genocidio.title': 'Assez de complicité',
+    'blog.article.palestina-locarno-territorio-aziende-genocidio.excerpt': 'Un groupe de personnes manifeste contre les entreprises qui financent le génocide en Palestine à Locarno',
+    'blog.article.palestina-locarno-territorio-aziende-genocidio.imageAlt': 'Un groupe de personnes manifeste contre les entreprises qui financent le génocide en Palestine à Locarno',
 };
 
 export default blogMetaFr;

@@ -27939,6 +27939,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'palestina-locarno-territorio-aziende-genocidio',
+ category: 'novita',
+ date: '2026-08-07T01:46:36.068Z',
+ image: '/images/blog/palestina-locarno-territorio-aziende-genocidio.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
