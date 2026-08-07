@@ -9345,6 +9345,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.devastazione-vagone-como-fermo.title': 'Il dévaste un wagon et insulte les passagers : 34 ans arrêté dans le train',
     'blog.article.devastazione-vagone-como-fermo.excerpt': 'Un Italien de 34 ans, altéré par l\'alcool, a dévasté un wagon sur la ligne de Como-lago, déchirant des panneaux et cassant des extincteurs. Arrêté par la police d\'État.',
     'blog.article.devastazione-vagone-como-fermo.imageAlt': 'Intérieur d\'un train régional avec signalétique déchirée et extincteur endommagé, policiers en service',
+    'blog.article.produttore-islandese-hollywood-lezione.title': 'De pêcheur à Hollywood : la leçon d\'un producteur',
+    'blog.article.produttore-islandese-hollywood-lezione.excerpt': 'Sigurjón \'Joni\' Sighvatsson, d\'une communauté de pêcheurs islandaise à Hollywood. Un parcours qui parle d\'adaptabilité et de vision, également utile pour ceux qui vivent d\'un travail transfrontalier.',
+    'blog.article.produttore-islandese-hollywood-lezione.imageAlt': 'Plateau de tournage à Locarno avec lac et montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

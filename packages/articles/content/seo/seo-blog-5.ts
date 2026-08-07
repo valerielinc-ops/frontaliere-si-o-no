@@ -60209,6 +60209,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-produttore-islandese-hollywood-lezione': {
+    title: 'Da pescatore a Hollywood: la lezione di un produttore',
+    description: 'La storia del produttore islandese Sigurjón \'Joni\' Sighvatsson insegna adattabilità e visione, competenze chiave per chi vive di lavoro transfrontaliero tra',
+    keywords: 'frontalieri, ticino, svizzera, italia, pescatore, hollywood, lezione, produttore',
+    ogTitle: 'Da pescatore a Hollywood: lezione per frontalieri',
+    ogDescription: 'La storia del produttore islandese Sigurjón \'Joni\' Sighvatsson insegna adattabilità e visione, competenze chiave per chi vive di lavoro transfrontaliero tra',
+    canonicalPath: '/articoli-frontaliere/produttore-islandese-hollywood-lezione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Da pescatore a Hollywood: la lezione di un produttore",
+      "description": "La storia del produttore islandese Sigurjón 'Joni' Sighvatsson insegna adattabilità e visione, competenze chiave per chi vive di lavoro transfrontaliero tra",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/produttore-islandese-hollywood-lezione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Set cinematografico a Locarno con lago e montagne sullo sfondo"
+      },
+      "datePublished": "2026-08-07T22:23:32+00:00",
+      "dateModified": "2026-08-07T22:23:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/produttore-islandese-hollywood-lezione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

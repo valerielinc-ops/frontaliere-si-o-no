@@ -9343,6 +9343,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.devastazione-vagone-como-fermo.title': 'Devastate a car and insult passengers: 34-year-old stopped on the train',
     'blog.article.devastazione-vagone-como-fermo.excerpt': 'A 34-year-old Italian, impaired by alcohol, devastated a wagon on the Como-lago line, tearing up signs and breaking fire extinguishers. Stopped by the State Police.',
     'blog.article.devastazione-vagone-como-fermo.imageAlt': 'Interior of a regional train with torn signage and damaged fire extinguisher, police officers on duty',
+    'blog.article.produttore-islandese-hollywood-lezione.title': 'As a Fisherman in Hollywood: A Producer\'s Lesson',
+    'blog.article.produttore-islandese-hollywood-lezione.excerpt': 'Sigurjón \'Joni\' Sighvatsson, from an Icelandic fishing community in Hollywood. A path that speaks of adaptability and vision, also useful for those who work across borders.',
+    'blog.article.produttore-islandese-hollywood-lezione.imageAlt': 'Film set in Locarno with lake and mountains in the background',
 };
 
 export default blogMetaEn;

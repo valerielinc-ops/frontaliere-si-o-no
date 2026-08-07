@@ -9344,6 +9344,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.devastazione-vagone-como-fermo.title': 'Devasta un vagone e insulta i passeggeri: 34enne fermato sul treno',
     'blog.article.devastazione-vagone-como-fermo.excerpt': 'Un 34enne italiano, alterato da alcol, ha devastato un vagone sulla linea di Como-lago, strappando cartellonistica e rompendo estintori. Fermato dalla Polizia di Stato.',
     'blog.article.devastazione-vagone-como-fermo.imageAlt': 'Interno di un treno regionale con cartellonistica strappata e estintore danneggiato, agenti di polizia in servizio',
+    'blog.article.produttore-islandese-hollywood-lezione.title': 'Da pescatore a Hollywood: la lezione di un produttore',
+    'blog.article.produttore-islandese-hollywood-lezione.excerpt': 'Sigurjón \'Joni\' Sighvatsson, da una comunità di pescatori islandese a Hollywood. Un percorso che parla di adattabilità e visione, utile anche per chi vive di lavoro transfrontaliero.',
+    'blog.article.produttore-islandese-hollywood-lezione.imageAlt': 'Set cinematografico a Locarno con lago e montagne sullo sfondo',
 };
 
 export default blogMetaIt;

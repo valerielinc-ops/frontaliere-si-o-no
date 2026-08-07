@@ -9342,6 +9342,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.devastazione-vagone-como-fermo.title': 'Verwüstet einen Waggon und beleidigt Fahrgäste: 34-Jähriger im Zug angehalten',
     'blog.article.devastazione-vagone-como-fermo.excerpt': 'Ein 34-jähriger Italiener, der durch Alkohol gestört wurde, verwüstete einen Waggon auf der Strecke Como-Lago, riss Plakate ab und zerbrach Feuerlöscher. Von der Staatspolizei gestoppt.',
     'blog.article.devastazione-vagone-como-fermo.imageAlt': 'Innenraum eines Regionalzugs mit zerrissener Beschilderung und beschädigtem Feuerlöscher, Polizisten im Einsatz',
+    'blog.article.produttore-islandese-hollywood-lezione.title': 'Vom Fischer nach Hollywood: Die Lektion eines Produzenten',
+    'blog.article.produttore-islandese-hollywood-lezione.excerpt': 'Sigurjón \'Joni\' Sighvatsson, aus einer isländischen Fischergemeinde in Hollywood. Ein Weg, der von Anpassungsfähigkeit und Vision spricht und auch für diejenigen nützlich ist, die grenzüberschreitend arbeiten.',
+    'blog.article.produttore-islandese-hollywood-lezione.imageAlt': 'Filmset in Locarno mit See und Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

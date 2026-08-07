@@ -28047,6 +28047,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'produttore-islandese-hollywood-lezione',
+ category: 'novita',
+ date: '2026-08-07T22:23:32.152Z',
+ image: '/images/blog/produttore-islandese-hollywood-lezione.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
