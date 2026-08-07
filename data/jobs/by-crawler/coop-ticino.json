@@ -39,7 +39,7 @@
         "it": "zenbu-sushi-chef-60-80-two-spice-ag-dietlikon",
         "en": "zenbu-sushi-koch-kochin-60-80-two-spice-ag-dietlikon-x30fpg",
         "de": "zenbu-sushi-koch-kochin-60-80-two-spice-ag-dietlikon-x30fpg",
-        "fr": "zenbu-sushi-koch-kochin-60-80-two-spice-ag-dietlikon-x30fpg"
+        "fr": "sushi-zenbu-chef-60-80-two-spice-ag-dietlikon"
       },
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
@@ -64,6 +64,9 @@
           "zenbu-sushi-koch-kochin-60-80-two-spice-ag-dietlikon-x30fpg",
           "zenbu-sushi-koch-kochin-60-80-two-spice-ag-dietlikon",
           "zenbu-sushi-koch-kochin-60-80-two-spice-dietlikon"
+        ],
+        "fr": [
+          "zenbu-sushi-koch-kochin-60-80-two-spice-ag-dietlikon-x30fpg"
         ]
       },
       "previousSlugs": [
@@ -754,14 +757,11 @@
         "verkaufsberater-in-christ-orologi-gioielli-winterthur-zurich",
         "verkaufsberater-in-christ-orologi-gioielli-winterthur-zurich-qt34wb",
         "sales-consultant-in-christ-uhren-schmuck-ag-winterthur",
-        "consultant-en-ventes-christ-uhren-schmuck-ag-winterthur",
-        "consulente-commerciale-in-christ-uhren-schmuck-ag-winterthur"
+        "consultant-en-ventes-christ-uhren-schmuck-ag-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-zurich",
-          "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-zurich-qt34wb",
-          "consulente-commerciale-in-christ-uhren-schmuck-ag-winterthur"
+          "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-zurich"
         ],
         "en": [
           "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-zurich-qt34wb",
@@ -1281,7 +1281,7 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "ristorante-teamleader-f-m-d-marche-restaurants-schweiz-ag-dietlikon",
-        "en": "teamleader-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-45w3dm",
+        "en": "restaurant-team-leader-m-f-d-marche-restaurants-schweiz-ag-dietlikon",
         "de": "teamleader-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-45w3dm",
         "fr": "restaurant-chef-d-equipe-f-m-j-marche-restaurants-schweiz-ag-dietlikon"
       },
@@ -1320,6 +1320,9 @@
           "teamleader-restaurant-m-w-d-marche-dietlikon"
         ],
         "fr": [
+          "teamleader-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-45w3dm"
+        ],
+        "en": [
           "teamleader-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-45w3dm"
         ]
       },
@@ -2402,9 +2405,9 @@
       },
       "slugByLocale": {
         "it": "podolog-in-cfc-coop-city-muttenz-siye64",
-        "en": "podolog-in-efz-coop-city-muttenz-siye64",
+        "en": "podologist-coop-city-muttenz",
         "de": "podolog-in-efz-coop-city-muttenz-siye64",
-        "fr": "podolog-in-efz-coop-city-muttenz-siye64"
+        "fr": "podologue-cfc-coop-city-muttenz"
       },
       "requirementsByLocale": {},
       "addressLocality": "Muttenz",
@@ -2423,11 +2426,18 @@
         }
       },
       "previousSlugs": [
-        "podolog-in-efz-coop-city-muttenz"
+        "podolog-in-efz-coop-city-muttenz",
+        "podolog-in-efz-coop-city-muttenz-siye64"
       ],
       "previousSlugsByLocale": {
         "it": [
           "podolog-in-efz-coop-city-muttenz"
+        ],
+        "en": [
+          "podolog-in-efz-coop-city-muttenz-siye64"
+        ],
+        "fr": [
+          "podolog-in-efz-coop-city-muttenz-siye64"
         ]
       },
       "salaryMin": 107000,
@@ -2563,7 +2573,7 @@
       },
       "slugByLocale": {
         "it": "stv-responsabile-food-coop-city-thun-bern-awzzhx",
-        "en": "stv-leiter-in-food-coop-city-thun-bern-awzzhx",
+        "en": "deputy-head-of-food-department-coop-genossenschaft-thun-bern",
         "de": "stv-leiter-in-food-coop-city-thun-bern-awzzhx",
         "fr": "stv-leiter-dans-la-nourriture-coop-genossenschaft-thun-bern"
       },
@@ -2602,6 +2612,9 @@
         "fr": [
           "stv-leiter-in-food-coop-city-thun-bern-awzzhx",
           "stv-leiter-dans-la-nourriture-coop-genossenschaft-thun-994420"
+        ],
+        "en": [
+          "stv-leiter-in-food-coop-city-thun-bern-awzzhx"
         ]
       },
       "salaryMin": 94500,
@@ -5967,7 +5980,6 @@
           "polydesigner-in-3d-coop-genossenschaft-zurich-qqky5j"
         ],
         "de": [
-          "polydesigner-in-3d-coop-genossenschaft-zurich-qqky5j",
           "polydesigner-in-3d-coop-city-zurich-qqky5j"
         ],
         "fr": [
@@ -6319,7 +6331,6 @@
           "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-dietikon-9005dd"
         ],
         "de": [
-          "verkaufer-in-kassen-services-coop-dietikon-zurich-2mirii",
           "verkaufer-in-kassen-services-coop-genossenschaft-dietikon-2mirii"
         ]
       },
@@ -6416,7 +6427,6 @@
           "vendeur-produits-frais-coop-genossenschaft-sins"
         ],
         "de": [
-          "verkaufer-in-frischprodukte-coop-sins-aargau-oukz9t",
           "verkaufer-in-frischprodukte-coop-genossenschaft-sins-oukz9t"
         ]
       },
@@ -6687,7 +6697,6 @@
           "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-wadenswil"
         ],
         "de": [
-          "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-zurich-hpason",
           "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-wadenswil-hpason"
         ]
       },
@@ -6873,7 +6882,6 @@
           "chef-de-rayonne-en-pain-produits-de-boulangerie-coop-genossenschaft-wadenswil"
         ],
         "de": [
-          "rayonleiter-in-brot-backwaren-coop-wadenswil-zurich-jq1hpu",
           "rayonleiter-in-brot-backwaren-coop-genossenschaft-wadenswil-jq1hpu"
         ]
       },
@@ -7059,7 +7067,6 @@
           "vendeur-dans-la-nourriture-coop-genossenschaft-wurenlos-20d584"
         ],
         "de": [
-          "verkaufer-in-food-coop-wurenlos-aargau-jywghm",
           "verkaufer-in-food-coop-genossenschaft-wurenlos-jywghm"
         ]
       },
@@ -7156,7 +7163,6 @@
           "vendeur-produits-frais-coop-genossenschaft-muri-ag"
         ],
         "de": [
-          "verkaufer-in-frischprodukte-coop-muri-ag-aargau-19cm14",
           "verkaufer-in-frischprodukte-coop-genossenschaft-muri-ag-19cm14"
         ]
       },
@@ -7326,7 +7332,6 @@
           "vendeur-dans-la-nourriture-boissons-vin-coop-genossenschaft-schlieren"
         ],
         "de": [
-          "verkaufer-in-food-getranke-wein-coop-schlieren-zurich-qb6q4p",
           "verkaufer-in-food-getranke-wein-coop-genossenschaft-schlieren-qb6q4p"
         ]
       },
@@ -7413,7 +7418,6 @@
           "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-basel"
         ],
         "de": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-basel-stadt-b6cnbt",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-basel-b6cnbt"
         ]
       },
@@ -7602,7 +7606,6 @@
           "conducteur-de-rayon-dans-le-vin-boissons-coop-genossenschaft-meilen"
         ],
         "de": [
-          "rayonleiter-in-wein-getranke-coop-meilen-zurich-7062m4",
           "rayonleiter-in-wein-getranke-coop-genossenschaft-meilen-7062m4"
         ]
       },
@@ -7701,7 +7704,6 @@
         ],
         "de": [
           "verkaufer-in-food-coop-ehrendingen-aargau-8o4ooe",
-          "verkaufer-in-food-coop-ehrendingen-aargau-lbe32s",
           "verkaufer-in-food-coop-genossenschaft-ehrendingen-lbe32s"
         ],
         "fr": [
@@ -8083,7 +8085,6 @@
           "boulangeries-coop-genossenschaft-zurich"
         ],
         "de": [
-          "backer-in-coop-zurich-5ojuuy",
           "backer-in-coop-genossenschaft-zurich-5ojuuy"
         ]
       },
@@ -8180,7 +8181,6 @@
           "vendeur-dans-la-nourriture-coop-genossenschaft-meilen"
         ],
         "de": [
-          "verkaufer-in-food-coop-meilen-zurich-yzaen8",
           "verkaufer-in-food-coop-genossenschaft-meilen-yzaen8"
         ]
       },
@@ -8437,7 +8437,6 @@
           "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-zurich-765a72"
         ],
         "de": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-9gqlar",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zurich-9gqlar"
         ]
       },
@@ -8723,7 +8722,6 @@
           "vendeur-dans-la-nourriture-coop-genossenschaft-fehraltorf"
         ],
         "de": [
-          "verkaufer-in-food-coop-fehraltorf-zurich-0t8a80",
           "verkaufer-in-food-coop-genossenschaft-fehraltorf-0t8a80"
         ]
       },
@@ -198228,7 +198226,6 @@
           "food-sales-associate-coop-genossenschaft-meggen-dx6x0f"
         ],
         "de": [
-          "verkaufer-in-food-coop-genossenschaft-meggen-1iazli",
           "verkaufer-in-food-coop-meggen-luzern-1iazli",
           "verkaufer-in-food-coop-meggen-luzern-dx6x0f"
         ],
@@ -198238,14 +198235,12 @@
           "vendeur-vendeuse-alimentaire-coop-genossenschaft-meggen-dx6x0f"
         ],
         "it": [
-          "verkaufer-in-food-coop-meggen-luzern-1iazli",
           "verkaufer-in-food-coop-meggen-luzern",
           "verkaufer-in-food-coop-genossenschaft-meggen",
           "addetto-alle-vendite-food-coop-genossenschaft-meggen",
           "verkaufer-in-food-coop-meggen-luzern-dx6x0f",
           "food-sales-associate-coop-genossenschaft-meggen-dx6x0f",
-          "vendeur-vendeuse-alimentaire-coop-genossenschaft-meggen-dx6x0f",
-          "venditore-in-food-coop-genossenschaft-meggen"
+          "vendeur-vendeuse-alimentaire-coop-genossenschaft-meggen-dx6x0f"
         ]
       },
       "previousSlugs": [
@@ -198256,8 +198251,7 @@
         "addetto-alle-vendite-food-coop-genossenschaft-meggen",
         "verkaufer-in-food-coop-meggen-luzern-dx6x0f",
         "food-sales-associate-coop-genossenschaft-meggen-dx6x0f",
-        "vendeur-vendeuse-alimentaire-coop-genossenschaft-meggen-dx6x0f",
-        "venditore-in-food-coop-genossenschaft-meggen"
+        "vendeur-vendeuse-alimentaire-coop-genossenschaft-meggen-dx6x0f"
       ]
     },
     {
@@ -198655,17 +198649,14 @@
           "verkaufer-in-kassen-services-coop-genossenschaft-zurich-qxmk9r"
         ],
         "it": [
-          "verkaufer-in-kassen-services-coop-zurich",
-          "verkaufer-in-kassen-services-coop-zurich-qxmk9r",
-          "venditore-in-cassa-servizi-coop-genossenschaft-zurich-af169a"
+          "verkaufer-in-kassen-services-coop-zurich"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-zurich-qxmk9r",
         "verkaufer-in-kassen-services-coop-zurich",
         "verkaufer-in-kassen-services-coop-zurich-3",
-        "verkaufer-in-kassen-services-coop-genossenschaft-zurich-qxmk9r",
-        "venditore-in-cassa-servizi-coop-genossenschaft-zurich-af169a"
+        "verkaufer-in-kassen-services-coop-genossenschaft-zurich-qxmk9r"
       ]
     },
     {
@@ -198742,16 +198733,13 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-biel-lstkr1"
         ],
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern-lstkr1",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern",
-          "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-biel-c1ce68"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern"
         ]
       },
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern-lstkr1",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-biel-lstkr1",
-        "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-biel-c1ce68"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-biel-lstkr1"
       ]
     },
     {
@@ -198837,17 +198825,14 @@
           "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-j00fia"
         ],
         "it": [
-          "verkaufer-in-frischprodukte-coop-zurich",
-          "verkaufer-in-frischprodukte-coop-zurich-j00fia",
-          "vendita-prodotti-freschi-coop-genossenschaft-zurich-3ef539"
+          "verkaufer-in-frischprodukte-coop-zurich"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-frischprodukte-coop-zurich-j00fia",
         "verkaufer-in-frischprodukte-coop-zurich",
         "verkaufer-in-frischprodukte-coop-zurich-2",
-        "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-j00fia",
-        "vendita-prodotti-freschi-coop-genossenschaft-zurich-3ef539"
+        "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-j00fia"
       ]
     },
     {
@@ -213168,7 +213153,7 @@
       "slugByLocale": {
         "it": "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-sk8304",
         "en": "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-sk8304",
-        "de": "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-sk8304",
+        "de": "poly-3d-designer-w-m-d-coop-genossenschaft-schaffhausen",
         "fr": "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-sk8304"
       },
       "requirementsByLocale": {
@@ -213194,7 +213179,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-sk8304"
+        ]
+      },
+      "previousSlugs": [
+        "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-sk8304"
+      ]
     },
     {
       "id": "company-p8kwz2",
@@ -213272,7 +213265,7 @@
     },
     {
       "id": "company-axts4o",
-      "slug": "teammember-zopf-zopfli-m-w-d-marche-restaurants-schweiz-ag-dietlikon",
+      "slug": "membro-del-team-zopf-zopfli-m-f-d-marche-restaurants-schweiz-ag-dietlikon",
       "company": "Marché Restaurants Schweiz AG",
       "title": "Teammember Zopf + Zöpfli (w/m/d)",
       "location": "Dietlikon",
@@ -213303,10 +213296,10 @@
         "fr": "Tresse de membre de l'équipe + tresse (w/m/d)\n\nMarché Restaurants Suisse SA — Dietlikon, Dietlikon, Suisse\n\nMarché Restaurants Schweiz AG est l'une des 10 entreprises suisses ayant le chiffre d'affaires le plus élevé dans le domaine de la restauration à service complet et, avec la marque « Marché », elle est clairement numéro 1 dans la restauration sur autoroute. Depuis 2014, Marché Restaurants Suisse SA fait partie du groupe Coop en tant que filiale indépendante. Avec nos marques et nos concepts – Marché, Zopf & Zöpfli, Burger King, Popeyes et Firehouse Subs – nous sommes présents non seulement sur les autoroutes ou à l'aéroport de Zurich, mais aussi dans les plus grandes gares suisses de Zurich, Berne et Bâle ainsi que dans certains centres commerciaux populaires en Suisse alémanique. En d'autres termes, nous affinons le quotidien de nos clients, partout où les gens s'accordent une pause gourmande en cours de route. Zopf & Zöpfli est un concept de plats à emporter dans lequel presque tout tourne autour du favori suisse : la tresse. En plus des tresses dans différentes variantes, l'offre dans les plats à emporter Topf & Zöpfli comprend également des salades, du muesli et des boissons.\n\nTâches\n- Accueillir, servir et conseiller les clients\n- Production et vente de produits frais de tresse et de tresse\n- Utilisation de la caisse, y compris la facturation\n- Hygiène et propreté selon les normes HACCP\n\nExigences\n- Orienté vers les services et les prestations de service\n- Bonnes connaissances de l'allemand, d'autres langues sont un avantage\n- Plaisir de manipuler des aliments frais\n- Des caractéristiques"
       },
       "slugByLocale": {
-        "it": "teammember-zopf-zopfli-m-w-d-marche-restaurants-schweiz-ag-dietlikon-axts4o",
-        "en": "teammember-zopf-zopfli-m-w-d-marche-restaurants-schweiz-ag-dietlikon-axts4o",
+        "it": "membro-del-team-zopf-zopfli-m-f-d-marche-restaurants-schweiz-ag-dietlikon",
+        "en": "team-member-zopf-zopfli-m-f-d-marche-restaurants-schweiz-ag-dietlikon",
         "de": "teammember-zopf-zopfli-m-w-d-marche-restaurants-schweiz-ag-dietlikon-axts4o",
-        "fr": "teammember-zopf-zopfli-m-w-d-marche-restaurants-schweiz-ag-dietlikon-axts4o"
+        "fr": "membre-d-equipe-zopf-zopfli-m-f-d-marche-restaurants-schweiz-ag-dietlikon"
       },
       "requirementsByLocale": {},
       "addressLocality": "Dietlikon",
@@ -213325,7 +213318,23 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teammember-zopf-zopfli-m-w-d-marche-restaurants-schweiz-ag-dietlikon-axts4o",
+          "teammember-zopf-zopfli-m-w-d-marche-restaurants-schweiz-ag-dietlikon"
+        ],
+        "en": [
+          "teammember-zopf-zopfli-m-w-d-marche-restaurants-schweiz-ag-dietlikon-axts4o"
+        ],
+        "fr": [
+          "teammember-zopf-zopfli-m-w-d-marche-restaurants-schweiz-ag-dietlikon-axts4o"
+        ]
+      },
+      "previousSlugs": [
+        "teammember-zopf-zopfli-m-w-d-marche-restaurants-schweiz-ag-dietlikon-axts4o",
+        "teammember-zopf-zopfli-m-w-d-marche-restaurants-schweiz-ag-dietlikon"
+      ]
     },
     {
       "id": "company-rb7ga6",
@@ -213957,9 +213966,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-getranke-coop-zurich-csdqz6",
-        "en": "verkaufer-in-food-getranke-coop-zurich-csdqz6",
+        "en": "food-sales-assistant-beverages-coop-zurich",
         "de": "verkaufer-in-food-getranke-coop-zurich-csdqz6",
-        "fr": "verkaufer-in-food-getranke-coop-zurich-csdqz6"
+        "fr": "vendeur-vendeuse-food-boissons-coop-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -213984,7 +213993,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "verkaufer-in-food-getranke-coop-zurich-csdqz6"
+        ],
+        "fr": [
+          "verkaufer-in-food-getranke-coop-zurich-csdqz6"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-getranke-coop-zurich-csdqz6"
+      ]
     },
     {
       "id": "company-f2qo0i",
@@ -214613,7 +214633,7 @@
       },
       "slugByLocale": {
         "it": "aspirant-in-stv-managing-director-in-coop-genossenschaft-basel-3771e3",
-        "en": "aspirant-in-stv-managing-director-in-coop-genossenschaft-basel",
+        "en": "aspirant-deputy-general-manager-coop-genossenschaft-basel",
         "de": "aspirant-in-stv-geschaftsfuhrer-in-coop-basel-stadt-741is2",
         "fr": "aspirant-dans-stv-directeur-general-in-coop-genossenschaft-basel-3771e3"
       },
@@ -216127,7 +216147,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-bern-21du69",
-        "en": "verkaufer-in-food-coop-bern-21du69",
+        "en": "food-sales-assistant-coop-bern",
         "de": "verkaufer-in-lebensmittel-coop-bern",
         "fr": "verkaufer-dans-les-aliments-coop-bern"
       },
@@ -216160,6 +216180,9 @@
           "verkaufer-in-food-coop-bern-21du69"
         ],
         "fr": [
+          "verkaufer-in-food-coop-bern-21du69"
+        ],
+        "en": [
           "verkaufer-in-food-coop-bern-21du69"
         ]
       },
@@ -216722,9 +216745,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-getranke-coop-zurich-p39s2l",
-        "en": "verkaufer-in-food-getranke-coop-zurich-p39s2l",
+        "en": "agent-name-in-food-greases-coop-zurich",
         "de": "verkaufer-in-food-getranke-coop-zurich-p39s2l",
-        "fr": "verkaufer-in-food-getranke-coop-zurich-p39s2l"
+        "fr": "nom-de-l-agent-dans-la-nourriture-paturages-coop-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -216749,7 +216772,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "verkaufer-in-food-getranke-coop-zurich-p39s2l"
+        ],
+        "fr": [
+          "verkaufer-in-food-getranke-coop-zurich-p39s2l"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-getranke-coop-zurich-p39s2l"
+      ]
     },
     {
       "id": "company-8svfk3",

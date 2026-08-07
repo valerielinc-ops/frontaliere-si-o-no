@@ -20699,10 +20699,10 @@
       "id": "jumbo-ccd69e4a-d48",
       "slug": "venditore-in-cassa-servizi-jumbo-willisau",
       "slugByLocale": {
-        "it": "venditore-in-cassa-servizi-jumbo-willisau",
-        "en": "seller-in-cash-registers-services-jumbo-willisau",
         "de": "verkaufer-in-kassen-services-jumbo-willisau-luzern-snsxpq",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-jumbo-willisau"
+        "it": "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-willisau",
+        "en": "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-willisau",
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-willisau"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -20757,27 +20757,6 @@
           "• Am liebsten arbeitet du mit Menschen – mit der Kundschaft und im Team."
         ]
       },
-      "firstSeenAt": "2026-08-07T10:11:28.531Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-kassen-services-jumbo-willisau",
-          "venditore-in-cassa-servizi-jumbo-willisau"
-        ],
-        "de": [
-          "verkaufer-in-kassen-services-jumbo-willisau"
-        ],
-        "en": [
-          "verkaufer-in-kassen-services-jumbo-willisau"
-        ],
-        "fr": [
-          "verkaufer-in-kassen-services-jumbo-willisau"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-in-kassen-services-jumbo-willisau",
-        "venditore-in-cassa-servizi-jumbo-willisau"
-      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -20789,7 +20768,32 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-07T10:11:28.531Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-jumbo-willisau",
+          "venditore-in-cassa-servizi-jumbo-willisau"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-jumbo-willisau",
+          "seller-in-cash-registers-services-jumbo-willisau"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-jumbo-willisau",
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-willisau"
+        ],
+        "de": [
+          "verkaufer-in-kassen-services-jumbo-willisau"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-willisau",
+        "venditore-in-cassa-servizi-jumbo-willisau",
+        "seller-in-cash-registers-services-jumbo-willisau",
+        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-willisau"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-b417ce9b-c9d",
@@ -20895,10 +20899,10 @@
       "id": "jumbo-9a7bba0a-927",
       "slug": "consulente-di-vendita-in-do-it-jumbo-schanis",
       "slugByLocale": {
-        "it": "consulente-di-vendita-in-do-it-jumbo-schanis",
-        "en": "sales-consultant-in-do-it-jumbo-schanis",
         "de": "verkaufsberater-in-do-it-jumbo-schanis-sankt-gallen-itb29j",
-        "fr": "consultant-en-ventes-a-do-it-jumbo-schanis"
+        "it": "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-schanis-483ac6",
+        "en": "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-schanis-483ac6",
+        "fr": "consultant-en-ventes-a-do-it-jumbo-division-der-coop-genossenschaft-schanis-483ac6"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -20954,27 +20958,6 @@
           "• Du kennst dich im Bereich Logistik aus und besitzt einen Staplerschein."
         ]
       },
-      "firstSeenAt": "2026-08-07T10:11:28.526Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-do-it-jumbo-schanis",
-          "consulente-di-vendita-in-do-it-jumbo-schanis"
-        ],
-        "de": [
-          "verkaufsberater-in-do-it-jumbo-schanis"
-        ],
-        "en": [
-          "verkaufsberater-in-do-it-jumbo-schanis"
-        ],
-        "fr": [
-          "verkaufsberater-in-do-it-jumbo-schanis"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-do-it-jumbo-schanis",
-        "consulente-di-vendita-in-do-it-jumbo-schanis"
-      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -20986,7 +20969,32 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-07T10:11:28.526Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-do-it-jumbo-schanis",
+          "consulente-di-vendita-in-do-it-jumbo-schanis"
+        ],
+        "en": [
+          "verkaufsberater-in-do-it-jumbo-schanis",
+          "sales-consultant-in-do-it-jumbo-schanis"
+        ],
+        "fr": [
+          "verkaufsberater-in-do-it-jumbo-schanis",
+          "consultant-en-ventes-a-do-it-jumbo-schanis"
+        ],
+        "de": [
+          "verkaufsberater-in-do-it-jumbo-schanis"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-schanis",
+        "consulente-di-vendita-in-do-it-jumbo-schanis",
+        "sales-consultant-in-do-it-jumbo-schanis",
+        "consultant-en-ventes-a-do-it-jumbo-schanis"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-38f3f452-04c",

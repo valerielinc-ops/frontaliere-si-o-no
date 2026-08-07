@@ -2484,10 +2484,10 @@
       "id": "denner-75707b6a9574",
       "slug": "stv-branch-manager-in-denner-winterthur",
       "slugByLocale": {
-        "it": "stv-branch-manager-in-denner-winterthur",
-        "en": "stv-filialleiter-in-denner-winterthur",
+        "it": "stv-branch-manager-in-denner-ag-winterthur",
+        "en": "stv-branch-manager-in-denner-winterthur",
         "de": "stv-filialleiter-in-denner-ag-winterthur-70fga1",
-        "fr": "directeur-de-succursale-stv-in-denner-winterthur"
+        "fr": "directeur-de-succursale-stv-in-denner-ag-winterthur"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2543,25 +2543,6 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-08-07T21:45:24.829Z",
-      "previousSlugs": [
-        "stv-filialleiter-in-denner-winterthur",
-        "stv-filialleiter-in-denner",
-        "stv-branch-manager-in-denner-winterthur"
-      ],
-      "previousSlugsByLocale": {
-        "fr": [
-          "stv-filialleiter-in-denner-winterthur"
-        ],
-        "de": [
-          "stv-filialleiter-in-denner-winterthur"
-        ],
-        "it": [
-          "stv-filialleiter-in-denner",
-          "stv-branch-manager-in-denner-winterthur"
-        ]
-      },
-      "firstSeenAt": "2026-08-07T10:12:28.866Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "baseSalary": {
@@ -2574,7 +2555,31 @@
           "unitText": "YEAR"
         }
       },
-      "country": "CH"
+      "country": "CH",
+      "firstSeenAt": "2026-08-07T10:12:28.866Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-winterthur"
+        ],
+        "fr": [
+          "stv-filialleiter-in-denner-winterthur",
+          "directeur-de-succursale-stv-in-denner-winterthur"
+        ],
+        "de": [
+          "stv-filialleiter-in-denner-winterthur"
+        ],
+        "en": [
+          "stv-filialleiter-in-denner-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "stv-filialleiter-in-denner-winterthur",
+        "stv-filialleiter-in-denner",
+        "stv-branch-manager-in-denner-winterthur",
+        "directeur-de-succursale-stv-in-denner-winterthur"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "denner-8ea94a2cec47",
