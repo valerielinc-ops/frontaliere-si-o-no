@@ -274,6 +274,52 @@ export function sanitizeJobCompanyField(rawValue, fallback = '') {
   return s;
 }
 
+/**
+ * Strip a markdown bold wrapper that the translation pipeline left around a
+ * WHOLE job title: `**Partner Comercial de Recursos Humanos**` → the title.
+ *
+ * Deliberately the narrowest rule that fixes the observed defect, because
+ * asterisks in a job title are usually REAL CONTENT and removing them
+ * corrupts an employer's own wording:
+ *
+ *   - `Verkaufsberater:in ***delicatessa 40-60% (w/m/d)` — Globus brands its
+ *     food hall `***delicatessa`. Verified on the employer's page, where it
+ *     appears 12 times including `<title>` and `og:title`.
+ *   - `Verkäufer*in`, `Mitarbeiter*in` — the German gender star, a single `*`
+ *     that must never be touched.
+ *   - `Un chargé ou une chargée de communication ***` — trailing source
+ *     decoration, left alone: it is what the employer published.
+ *
+ * So the wrapper is stripped ONLY when the entire trimmed title opens with
+ * `**`, closes with `**`, and carries no other asterisk in between — the one
+ * shape that cannot be anything but markdown.
+ */
+export function sanitizeJobTitleField(rawValue) {
+  const s = String(rawValue ?? '');
+  const t = s.trim();
+  if (t.length < 5 || !t.startsWith('**') || !t.endsWith('**')) return s;
+  const inner = t.slice(2, -2).trim();
+  if (!inner || inner.includes('*')) return s;
+  return inner;
+}
+
+/** Apply {@link sanitizeJobTitleField} to `title` and every `titleByLocale`. */
+function sanitizeJobTitlesInPlace(job) {
+  let fixed = 0;
+  if (typeof job.title === 'string') {
+    const cleaned = sanitizeJobTitleField(job.title);
+    if (cleaned !== job.title) { job.title = cleaned; fixed++; }
+  }
+  if (job.titleByLocale && typeof job.titleByLocale === 'object') {
+    for (const [loc, v] of Object.entries(job.titleByLocale)) {
+      if (typeof v !== 'string') continue;
+      const cleaned = sanitizeJobTitleField(v);
+      if (cleaned !== v) { job.titleByLocale[loc] = cleaned; fixed++; }
+    }
+  }
+  return fixed;
+}
+
 /** "zurich-insurance-sede-ticino" → "Zurich Insurance Sede Ticino". */
 function humanizeCompanyKey(key) {
   return String(key || '')
@@ -338,6 +384,8 @@ export function normalizeParsedJobsForSlice(jobs) {
         companyFixed++;
       }
     }
+
+    sanitizeJobTitlesInPlace(job);
     // Guard on .trim(): an empty/whitespace addressLocality is `typeof string`
     // but carries no city, so it must fall through to the backfill branch
     // rather than persisting an empty locality (which propagates to
@@ -491,7 +539,7 @@ const DATA_STATS = path.join(ROOT, 'data', 'jobs-stats.json');
 // `/data/jobs-stats.json`, which Vite copies from public/. generateJobBoardStats
 // writes both on a full build; the cache-HIT path must restore both too.
 const PUBLIC_STATS = path.join(ROOT, 'public', 'data', 'jobs-stats.json');
-const ASSEMBLE_OUTPUT_CACHE_VERSION = '2026-08-05-canton-pin-job-canton-authoritative-v1';
+const ASSEMBLE_OUTPUT_CACHE_VERSION = '2026-08-06-strip-markdown-bold-wrapper-from-job-titles-v1';
 
 /**
  * Compute a fingerprint of all crawler-slice input files so the assembly can
@@ -1996,6 +2044,17 @@ async function assembleJobs() {
       job.addressLocality = cleanedAddr;
     }
   }
+  // Same shape, for markdown left wrapped around a whole title by the
+  // translation pipeline. Needed HERE and not only in the write-time funnel
+  // because the affected slices are already on disk: without this net the
+  // 0-tolerance audit:no-literal-markdown gate stays red until every crawler
+  // happens to re-run.
+  let sanitizedTitles = 0;
+  for (const job of deduped) sanitizedTitles += sanitizeJobTitlesInPlace(job);
+  if (sanitizedTitles > 0) {
+    console.log(`  🧼 Title sanitize: stripped a markdown bold wrapper from ${sanitizedTitles} job title(s)`);
+  }
+
   if (sanitizedLoc > 0) {
     console.log(`  🧼 Location sanitize: cleaned ${sanitizedLoc} job(s) with leaked body text in location field`);
   }
