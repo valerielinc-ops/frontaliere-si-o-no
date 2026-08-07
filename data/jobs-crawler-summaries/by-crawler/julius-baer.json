@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-08-07T10:20:03.630Z",
-  "total": 87,
+  "generatedAt": "2026-08-07T21:45:01.015Z",
+  "total": 85,
   "newCount": 1,
   "updatedCount": 83,
-  "removedCount": 1,
-  "unchangedCount": 3,
-  "durationMs": 55337,
-  "avgDurationMs": 55337,
+  "removedCount": 2,
+  "unchangedCount": 1,
+  "durationMs": 57382,
+  "avgDurationMs": 57382,
   "durationHistory": [
-    55337
+    57382
   ],
   "newJobs": [
     {
@@ -49,6 +49,42 @@
     }
   ],
   "updatedJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Java-Engineer---HPC-Cluster-Development---Maintenance--100---f-m-d-_r-18375-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Java-Engineer---HPC-Cluster-Development---Maintenance--100---f-m-d-_r-18375-1",
+      "title": "Senior Java Engineer – HPC Cluster Development & Maintenance, 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "senior-java-engineer-hpc-cluster-development-maintenance-100-f-m-d-julius-baer",
+      "category": "technology",
+      "datePosted": "2026-06-01",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "needsRetranslation": true,
+      "_qualityScore": 74,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 9
+      }
+    },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/System-Engineer-100---f-m-d-_r-19085-2",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/System-Engineer-100---f-m-d-_r-19085-2",
@@ -358,7 +394,6 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "needsRetranslation": true,
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -428,7 +463,6 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-04T11:35:00.606Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -710,7 +744,6 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-31T11:37:22.793Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -1070,124 +1103,9 @@
         "translation": 23,
         "completeness": 9
       }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Application-Responsible---Integrator-SaaS-Trading-Solutions-100---f-m-d---Contract-through-our-external-payroll-partner--immediate-start-for-12-months--possible-extension-_r-19334",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Application-Responsible---Integrator-SaaS-Trading-Solutions-100---f-m-d---Contract-through-our-external-payroll-partner--immediate-start-for-12-months--possible-extension-_r-19334",
-      "title": "Application Responsible & Integrator SaaS Trading Solutions 100% (f/m/d) (Contract through our external payroll partner, immediate start for 12 months, possible extension)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "application-responsible-integrator-saas-trading-solutions-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer",
-      "category": "hr",
-      "datePosted": "2026-07-23",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-07-23T22:07:24.034Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 9
-      }
     }
   ],
   "removedJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Backend-Developer---C--100---f-m-d---Contract-through-our-external-payroll-partner--immediate-start-until-31082027--possible-extension-_r-19335-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Backend-Developer---C--100---f-m-d---Contract-through-our-external-payroll-partner--immediate-start-until-31082027--possible-extension-_r-19335-1",
-      "title": "Senior Backend Developer - C# 100% (f/m/d) (Contract through our external payroll partner, immediate start until 31.08.2027, possible extension)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "senior-backend-sviluppatore-c-100-f-m-d-contrasportare-attraverso-il-nostro-partner-payroll-esterno-avviare",
-      "category": "technology",
-      "datePosted": "2026-08-05",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-05T22:40:48.656Z",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
-  "unchangedJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Compliance-Specialist---Conduct-Framework-Employee-Compliance--100---f-m-d-_r-18578-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Compliance-Specialist---Conduct-Framework-Employee-Compliance--100---f-m-d-_r-18578-1",
-      "title": "Junior Compliance Specialist - Conduct Framework Employee Compliance 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "junior-compliance-specialist-conduct-framework-employee-compliance-100-f-m-d-julius-baer",
-      "category": "risk",
-      "datePosted": "2026-06-24",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "ENTRY",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "currency": "CHF",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Compliance-Working-Student---Monitoring---Control-Execution-60---80---f-m-d-_r-19017-2",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Compliance-Working-Student---Monitoring---Control-Execution-60---80---f-m-d-_r-19017-2",
@@ -1256,6 +1174,47 @@
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "currency": "CHF",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Compliance-Specialist---Conduct-Framework-Employee-Compliance--100---f-m-d-_r-18578-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Compliance-Specialist---Conduct-Framework-Employee-Compliance--100---f-m-d-_r-18578-1",
+      "title": "Junior Compliance Specialist - Conduct Framework Employee Compliance 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "junior-compliance-specialist-conduct-framework-employee-compliance-100-f-m-d-julius-baer",
+      "category": "risk",
+      "datePosted": "2026-06-24",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "ENTRY",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "currency": "CHF",
       "crawlerMissStreak": 2,
       "_qualityScore": 82,
