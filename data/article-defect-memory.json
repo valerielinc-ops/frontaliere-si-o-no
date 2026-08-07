@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-07T06:37:49.150Z",
+  "updatedAt": "2026-08-07T07:32:45.738Z",
   "entities": {
     "AASTI": {
       "status": "suspect",
@@ -6791,11 +6791,11 @@
       "statusSource": "auto",
       "statusAt": "2026-07-29T06:26:58.011Z",
       "firstSeen": "2026-07-29T06:26:58.011Z",
-      "lastSeen": "2026-08-07T06:37:49.150Z",
-      "seen": 52,
+      "lastSeen": "2026-08-07T07:32:45.738Z",
+      "seen": 57,
       "unsupportedSightings": 0,
       "unsupportedRuns": [],
-      "supportedSightings": 13,
+      "supportedSightings": 18,
       "names": [
         "Ufficio Federale di Statistica",
         "Ufficio delle strade del Canton Ticino",
@@ -6806,8 +6806,36 @@
       "recentKeys": [],
       "evidence": [
         {
-          "at": "2026-08-07T06:37:49.150Z",
-          "runId": "31151112549",
+          "at": "2026-08-07T07:32:45.738Z",
+          "runId": "31157305383",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale di statistica"
+        },
+        {
+          "at": "2026-08-07T07:32:45.738Z",
+          "runId": "31157305383",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale di statistica"
+        },
+        {
+          "at": "2026-08-07T07:32:45.738Z",
+          "runId": "31157305383",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale di statistica"
+        },
+        {
+          "at": "2026-08-07T07:32:45.738Z",
+          "runId": "31157305383",
+          "articleId": "unknown",
+          "support": "present",
+          "name": "Ufficio federale di statistica"
+        },
+        {
+          "at": "2026-08-07T07:32:45.738Z",
+          "runId": "31157305383",
           "articleId": "unknown",
           "support": "present",
           "name": "Ufficio federale di statistica"
@@ -6830,34 +6858,6 @@
           "at": "2026-08-07T06:37:49.150Z",
           "runId": "31151112549",
           "articleId": "unknown",
-          "support": "present",
-          "name": "Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-08-07T05:10:50.106Z",
-          "runId": "31148287060",
-          "articleId": "caldo-torrido-lavoro-ticino",
-          "support": "present",
-          "name": "Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-08-07T05:10:50.106Z",
-          "runId": "31148287060",
-          "articleId": "caldo-torrido-lavoro-ticino",
-          "support": "present",
-          "name": "Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-08-07T05:10:50.106Z",
-          "runId": "31148287060",
-          "articleId": "caldo-torrido-lavoro-ticino",
-          "support": "present",
-          "name": "Ufficio federale di statistica"
-        },
-        {
-          "at": "2026-08-07T05:10:50.106Z",
-          "runId": "31148287060",
-          "articleId": "caldo-torrido-lavoro-ticino",
           "support": "present",
           "name": "Ufficio federale di statistica"
         }
