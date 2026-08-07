@@ -3,11 +3,21 @@ name: Lighthouse CI
 # Post-deploy performance gate on the 6 representative page templates flagged
 # by Semrush Site Audit (2026-04-24) as "slow" pages.
 #
-# Budgets are defined in lighthouserc.json (assert.assertions) — the single
-# source of truth. Do NOT duplicate the numeric thresholds here: they drift
-# (the old copy claimed perf>=0.85 / CLS<0.1 / TBT<200 while the file actually
-# enforces perf>=0.60 / CLS<2.0 / TBT<700) and a stale copy misleads whoever
-# triages a regression. Read the file for the live numbers.
+# Budgets are defined in lighthouserc.json (MOBILE, the gate that decides) and
+# lighthouserc.desktop.json (desktop, kept for coverage) — the single source of
+# truth. Do NOT duplicate the numeric thresholds here: they drift (an old copy
+# claimed perf>=0.85 / CLS<0.1 / TBT<200 while the file enforced perf>=0.60 /
+# CLS<2.0 / TBT<700) and a stale copy misleads whoever triages a regression.
+# Read the files for the live numbers.
+#
+# ⚠️ MOBILE is the form factor that decides. Until 2026-08-07 this workflow ran
+# `preset: desktop` ONLY, so the gate had never produced a mobile number in its
+# life — while Google ranks and PageSpeed reports on mobile. That blind spot has
+# a real cost on record: a CLS fix validated on desktop alone looked like an
+# improvement and regressed the article template from 75 to 55 on mobile (FCP
+# 1.9s → 12.1s). It was reverted. A mobile leg would have caught it pre-merge.
+# The matrix below runs mobile + desktop as separate legs with separate tracked
+# issues, so a mobile-only regression can never again hide behind a green desktop.
 #
 # Audits PRODUCTION live (https://frontaliereticino.ch). The audit measures the
 # DEPLOYED site, so it only makes sense to run it AFTER a deploy has propagated
@@ -19,6 +29,18 @@ name: Lighthouse CI
 #     build/publish split moved deploy+validate out of "Deploy to GitHub Pages"
 #     (now build-only) into deploy-publish.yml, so we key on the publish run —
 #     keying on the build run would audit prod BEFORE the new dist went live.
+#   - schedule (daily 04:17 UTC) → the SAFETY NET, and the reason this workflow
+#     produces numbers at all. The workflow_run trigger above is necessary but
+#     NOT sufficient: it fires only when deploy-publish concludes `success`, and
+#     measured 2026-08-07 that has not happened in its last 40 runs (22
+#     cancelled, 3 failure, 15 skipped). Upstream, deploy.yml is cancelled 50 of
+#     its last 60 runs — by design, since `pages-build-run` uses GitHub's
+#     1-running + 1-pending cap and a deploy burst drops the superseded middle.
+#     Net effect: the audit's own last run was 2026-06-22 and every one of its
+#     last 6 runs concluded `skipped`. A post-deploy gate chained behind a
+#     workflow that never concludes `success` is a gate that never measures
+#     anything. The cron decouples the signal from that chain — prod is prod
+#     whether or not a deploy landed, so a daily audit is always meaningful.
 #   - workflow_dispatch for manual re-runs.
 #
 # Outcome handling (the audit stays NON-blocking — there is nothing to block
@@ -33,6 +55,10 @@ on:
   workflow_run:
     workflows: ["Publish to GitHub Pages (deploy + validate)"]
     types: [completed]
+  schedule:
+    # Daily 04:17 UTC — off the busy 07:xx monitor cron band, and low-traffic so
+    # the Cloudflare edge is least likely to 429 the runner IP.
+    - cron: '17 4 * * *'
   workflow_dispatch:
 
 permissions:
@@ -48,13 +74,29 @@ concurrency:
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-    # Only audit after a SUCCESSFUL deploy (prod now reflects the new build),
-    # or on a manual dispatch. A failed/cancelled deploy left prod on the old
-    # build — auditing it would measure something this run did not produce.
+    timeout-minutes: 20
+    # Only audit after a SUCCESSFUL deploy (prod now reflects the new build), or
+    # on the daily cron / a manual dispatch. A failed/cancelled deploy left prod
+    # on the old build — auditing it via workflow_run would measure something
+    # this run did not produce; the cron measures prod-as-it-is, which is always
+    # a valid question to ask.
     if: >-
       github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'schedule' ||
       github.event.workflow_run.conclusion == 'success'
+
+    # Mobile and desktop are separate legs with separate configs and separate
+    # tracked issues. fail-fast: false — a mobile regression must not cancel the
+    # desktop leg (or vice versa); both signals are wanted every run.
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - form_factor: mobile
+            config: ./lighthouserc.json
+          - form_factor: desktop
+            config: ./lighthouserc.desktop.json
+
     env:
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
@@ -135,11 +177,12 @@ jobs:
           # blanked every audit incl. CLS).
           urls: ${{ steps.probe.outputs.urls }}
           # lhci rejects both budgetPath + configPath:assert.assertions
-          # ("Cannot use both budgets AND assertions"). Assertions in
-          # lighthouserc.json supersede budgets — they cover the same
-          # timings plus category-level scores (perf/seo/a11y).
-          # lighthouse-budget.json is kept for reference but no longer wired.
-          configPath: ./lighthouserc.json
+          # ("Cannot use both budgets AND assertions"). Assertions in the config
+          # supersede budgets — they cover the same timings plus category-level
+          # scores (perf/seo/a11y). lighthouse-budget.json is kept for reference
+          # but no longer wired. Config is per-matrix-leg: lighthouserc.json is
+          # MOBILE, lighthouserc.desktop.json is desktop.
+          configPath: ${{ matrix.config }}
           uploadArtifacts: true
           temporaryPublicStorage: true
 
@@ -147,7 +190,9 @@ jobs:
         if: steps.lhci.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
-          name: lighthouse-reports
+          # Per-leg name: two matrix legs uploading the same artifact name would
+          # collide (upload-artifact v4+ errors on a duplicate name).
+          name: lighthouse-reports-${{ matrix.form_factor }}
           path: .lighthouseci/
           retention-days: 7
 
@@ -168,15 +213,17 @@ jobs:
           RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           DEPLOY_URL="${{ github.event.workflow_run.html_url }}"
           node scripts/lib/github-issue-creator.mjs \
-            --title "Lighthouse regression on production" \
+            --title "Lighthouse regression on production (${{ matrix.form_factor }})" \
             --priority 2 \
             --label funnel-monetization \
             --label funnel-seo \
             --workflow "Lighthouse CI" \
             --reopen-within-hours 6 \
-            --description "Post-deploy Lighthouse audit exceeded a budget on https://frontaliereticino.ch.
+            --description "Lighthouse audit (**${{ matrix.form_factor }}**) exceeded a budget on https://frontaliereticino.ch.
 
-          **Budgets:** defined in lighthouserc.json (assert.assertions) — read the file for the live thresholds; they are deliberately not duplicated here to avoid drift.
+          **Budgets:** defined in \`${{ matrix.config }}\` (assert.assertions) — read the file for the live thresholds; they are deliberately not duplicated here to avoid drift.
+
+          **Form factor:** \`${{ matrix.form_factor }}\`. Mobile and desktop are tracked as two separate issues on purpose — they regress independently, and a desktop-only green has already hidden a mobile regression once (article template 75 → 55, FCP 1.9s → 12.1s). Mobile is the form factor Google ranks on: treat a mobile regression as the higher priority of the two.
 
           **Why it matters (funnel):** the CLS budget guards AdSense RPM (layout shift → revenue loss); the SEO category score gates organic indexability.
 
@@ -194,6 +241,6 @@ jobs:
           RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           node scripts/lib/github-issue-creator.mjs \
             --resolve \
-            --title "Lighthouse regression on production" \
+            --title "Lighthouse regression on production (${{ matrix.form_factor }})" \
             --workflow "Lighthouse CI" \
             --run-url "$RUN_URL"
