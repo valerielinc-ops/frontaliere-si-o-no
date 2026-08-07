@@ -1,16 +1,16 @@
 {
   "key": "clinique-generale-ste-anne",
   "label": "Clinique Générale Ste-Anne",
-  "generatedAt": "2026-08-07T01:30:06.200Z",
+  "generatedAt": "2026-08-07T10:19:17.017Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3232,
-  "avgDurationMs": 3232,
+  "durationMs": 3085,
+  "avgDurationMs": 3085,
   "durationHistory": [
-    3232
+    3085
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000140227709-physiotherapeute-cabinet-ambulatoire-suivi-hospitalier",
       "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-07T01:30:03.995Z",
+      "crawledAt": "2026-08-07T10:19:14.983Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136139809-aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-",
       "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-07T01:30:03.997Z",
+      "crawledAt": "2026-08-07T10:19:14.985Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -100,7 +100,6 @@
       "companyKey": "clinique-generale-ste-anne",
       "companyDomain": "swissmedical.net",
       "title": "Assistant.e médical.e (H/F) – Ouverture d’un nouveau centre médical",
-      "needsRetranslation": true,
       "location": "Fribourg",
       "canton": "FR",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139249959-assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical",
@@ -125,7 +124,7 @@
       "firstSeenAt": "2026-07-23T12:36:51.026Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
