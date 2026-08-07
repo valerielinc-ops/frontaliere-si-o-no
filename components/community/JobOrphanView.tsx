@@ -10,9 +10,11 @@
  * Authenticated: single-column with JOBDETAIL_END_MULTIPLEX + inline mobile ad.
  */
 
-import { useEffect, useMemo, useRef, useState, type MouseEvent } from 'react';
+import { Suspense, useEffect, useMemo, useRef, useState, type MouseEvent } from 'react';
 import { ArrowLeft, ArrowRight, Briefcase, Building2, CheckCircle2, ChevronDown, Eye, Loader2, Mail, MapPin, Search, Shield } from 'lucide-react';
-import { useLocale, t } from '@/services/i18n';
+import { useLocale, t, type Locale } from '@/services/i18n';
+import { useEmployerHub, employerHubAnchor, employerOpenRolesLabel } from '@/hooks/useEmployerHub';
+import CompanyFollowCta from '@/components/community/CompanyFollowCta';
 import { Analytics } from '@/services/analytics';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
 import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
@@ -202,11 +204,17 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
 
  // Derive companyKey from slug by matching the longest known key contained in it
  // (CRAWLED_COMPANY_LOGOS is keyed by the same companyKey used in adapters/jobs).
- const companyLogoUrl = useMemo(() => {
+ // Hoisted out of the logo memo below (#5012): the follow CTA needs the SAME
+ // derived key, and re-deriving it there would be a second normalisation free
+ // to disagree with this one about which employer the slug names.
+ const derivedCompanyKey = useMemo(() => {
  const keys = Object.keys(CRAWLED_COMPANY_LOGOS).sort((a, b) => b.length - a.length);
- const derivedKey = keys.find((k) => slug.includes(k)) || '';
- return cdnImageUrl(resolveCompanyLogoUrl({ company: slugParts.company || undefined, companyKey: derivedKey }));
- }, [slug, slugParts.company]);
+ return keys.find((k) => slug.includes(k)) || '';
+ }, [slug]);
+ const companyLogoUrl = useMemo(
+ () => cdnImageUrl(resolveCompanyLogoUrl({ company: slugParts.company || undefined, companyKey: derivedCompanyKey })),
+ [derivedCompanyKey, slugParts.company],
+ );
  const activeJobLinks = useMemo(
  () => staticBodyHtml ? extractActiveJobLinks(staticBodyHtml) : [],
  [staticBodyHtml],
@@ -218,6 +226,18 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  const companyHref = companySlug
  ? `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/')
  : null;
+
+ // The evergreen `/aziende/<slug>/` hub for the employer this slug NAMES.
+ //
+ // `slugParts.company` is a heuristic read of the URL (KNOWN_COMPANIES, then
+ // title-case), so it can name an employer that does not exist under that
+ // spelling — which is exactly why the hub link cannot be built from it alone.
+ // `useEmployerHub` resolves it through `canonicalCompanyProfileSlug` and then
+ // requires the result to be present, above the floor, in the map
+ // employerProfilePagesPlugin publishes for the pages it emitted. A guess that
+ // does not match a real hub yields null and nothing is rendered — the same
+ // fail-closed rule the follow CTA below already applies to this guess.
+ const employerHub = useEmployerHub(slugParts.company, derivedCompanyKey, locale as Locale);
 
  const locationSlug = slugParts.location
  ? `${LOCATION_ROUTE_PREFIX[locale] || 'localita'}-${slugifyLocationName(slugParts.location)}`
@@ -379,6 +399,36 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  </div>
  );
 
+ /**
+  * The one permanent destination an orphan slug can still offer.
+  *
+  * A real `<a href>`, unlike the company-name `<button>` in `jobHeaderCard`
+  * below — see `handleCompanyClick`'s comment for the
+  * 404 → 404.html → `location.replace('/')` →
+  * staticOverlay → BLANK PAGE chain a `<button>` exists to prevent. That chain
+  * needs a URL with no page behind it; `useEmployerHub` only returns an href
+  * for a slug the emitter recorded as emitted, so the hazard cannot fire here,
+  * and the `<a>` buys back middle-click, cmd-click and a crawlable link — the
+  * last of which is the whole point (505 hubs, 571 impressions / 29 clicks in
+  * 28 days, against 28 826 / 1 257 of demand that maps onto them).
+  */
+ const employerHubCta = employerHub && slugParts.company && (
+ <a
+ href={employerHub.href}
+ onClick={() => Analytics.trackSelectContent('employer_hub_open', employerHub.slug)}
+ className="mt-3 flex items-center gap-2.5 rounded-xl border border-accent-border bg-accent-subtle px-3.5 py-3 min-h-[44px] text-sm font-semibold text-accent hover:bg-accent-subtle/70 transition-colors"
+ >
+ <Building2 size={16} className="shrink-0" aria-hidden="true" />
+ <span className="min-w-0 flex-1">
+ {employerHubAnchor(slugParts.company, locale as Locale)}
+ <span className="block text-xs font-normal text-subtle mt-0.5">
+ {employerOpenRolesLabel(employerHub.activeJobs, locale as Locale)}
+ </span>
+ </span>
+ <ArrowRight size={14} className="shrink-0" aria-hidden="true" />
+ </a>
+ );
+
  const jobHeaderCard = (
  <div className="rounded-xl border border-edge bg-surface/80 overflow-hidden">
  {/* Amber status bar — reveals the "no longer available" status. Deferred until
@@ -420,11 +470,35 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  )}
  </div>
  )}
+ {employerHubCta}
  </div>
  </div>
  );
 
+ /**
+  * CompanyAlert (#5012) — «Segui questa azienda» on an ORPHAN slug.
+  *
+  * The ad is not in the current dataset, so there is nothing left to apply to;
+  * "tell me when this employer posts again" is the only offer that still helps.
+  * Only rendered when the slug actually MATCHED a known employer
+  * (`slugParts.company` is null otherwise) — a guessed name would be persisted
+  * as the alert's company key and silently never match anything.
+  */
+ const companyFollowCta = slugParts.company ? (
+   <Suspense fallback={null}>
+     <CompanyFollowCta
+       company={slugParts.company}
+       companyKey={derivedCompanyKey || null}
+       locale={locale as Locale}
+       surface="company_follow_orphan"
+       sourceJobSlug={slug}
+       sourceJobTitle={slugParts.title || null}
+     />
+   </Suspense>
+ ) : null;
+
  const companyBanner = slugParts.company && companyHref && (
+ <>
  <button
  type="button"
  onClick={handleCompanyClick}
@@ -455,6 +529,8 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  </div>
  </div>
  </button>
+ {companyFollowCta}
+ </>
  );
 
  const activeJobsSection = activeJobLinks.length > 0 && (

@@ -9,9 +9,11 @@
  * full description and 5 ad slots, matching the active job detail view.
  */
 
-import { useEffect, useRef, useState, type MouseEvent } from 'react';
+import { Suspense, useEffect, useRef, useState, type MouseEvent } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Briefcase, Building2, Calendar, CheckCircle2, ChevronDown, Clock, Euro, Eye, Loader2, Mail, MapPin, Search, Shield, Users } from 'lucide-react';
-import { useLocale, t } from '@/services/i18n';
+import { useLocale, t, type Locale } from '@/services/i18n';
+import { useEmployerHub, employerHubAnchor, employerOpenRolesLabel } from '@/hooks/useEmployerHub';
+import CompanyFollowCta from '@/components/community/CompanyFollowCta';
 import { Analytics } from '@/services/analytics';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
 import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
@@ -207,6 +209,10 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  const companySlug = job.company ? `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(job.company)}` : '';
  const companyHref = companySlug ? `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/') : '';
+ // The evergreen `/aziende/<slug>/` hub for THIS employer, or null when the
+ // build did not emit one (see hooks/useEmployerHub.ts for the floors and for
+ // why an unproven link here is a blank page, not a 404).
+ const employerHub = useEmployerHub(job.company, job.companyKey, locale as Locale);
  const locationSlug = jobLocation ? `${LOCATION_ROUTE_PREFIX[locale] || 'localita'}-${slugifyLocationName(jobLocation)}` : '';
  const locationHref = locationSlug ? `${prefix}/${sectionSlug}/${locationSlug}/`.replace(/\/+/g, '/') : '';
 
@@ -370,7 +376,47 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
  );
 
+ /**
+  * The one link on this page that still leads somewhere permanent.
+  *
+  * A real `<a href>` with a full navigation, NOT the SPA `<button>` the company
+  * name in `jobHeader` below uses. The two are opposites on purpose:
+  *
+  *  · `handleCompanyClick` must stay a <button> because the job-board company
+  *    filter for a rotated-out employer may have no static page — the comment
+  *    on that handler explains the 404 → 404.html → BLANK PAGE chain;
+  *  · this one is only ever rendered when `useEmployerHub` FOUND the slug in
+  *    the map employerProfilePagesPlugin writes for the pages it actually
+  *    emitted, so the 404 the <button> guards against is impossible here. That
+  *    proof is what buys back the `<a href>` — and the href is the point:
+  *    middle-click, cmd-click and "open in new tab" all have to work, and a
+  *    crawler has to see a real internal link, which is the entire mechanism
+  *    by which the hub stops being an orphan (571 impressions / 29 clicks in
+  *    28 days across 505 hubs, against 28 826 / 1 257 of matching demand).
+  *
+  * Rendered inside `jobHeader`, so it lands directly under the job title in
+  * BOTH layouts — including the logged-out auth gate, where it is the only
+  * useful destination a visitor can reach without signing in.
+  */
+ const employerHubCta = employerHub && job.company && (
+ <a
+ href={employerHub.href}
+ onClick={() => Analytics.trackSelectContent('employer_hub_open', employerHub.slug)}
+ className="mt-3 flex items-center gap-2.5 rounded-xl border border-accent-border bg-accent-subtle px-3.5 py-3 min-h-[44px] text-sm font-semibold text-accent hover:bg-accent-subtle/70 transition-colors"
+ >
+ <Building2 size={16} className="shrink-0" aria-hidden="true" />
+ <span className="min-w-0 flex-1">
+ {employerHubAnchor(job.company, locale as Locale)}
+ <span className="block text-xs font-normal text-subtle mt-0.5">
+ {employerOpenRolesLabel(employerHub.activeJobs, locale as Locale)}
+ </span>
+ </span>
+ <ArrowRight size={14} className="shrink-0" aria-hidden="true" />
+ </a>
+ );
+
  const jobHeader = (
+ <>
  <div className="flex items-start gap-4">
  {logoUrl && (
  <img
@@ -417,9 +463,40 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
  </div>
  </div>
+ {employerHubCta}
+ </>
  );
 
+ /**
+  * CompanyAlert (#5012) — «Segui questa azienda» on an EXPIRED ad.
+  *
+  * The highest-intent placement the feature has: the reader arrived for a job
+  * that no longer exists, so "tell me when this employer posts again" is the
+  * only action left that still does something for them. Rendered next to the
+  * company banner in both layouts below, gated and not, because the component
+  * handles the anonymous case itself (email capture + double opt-in).
+  */
+ const companyFollowCta = job.company ? (
+   <Suspense fallback={null}>
+     <CompanyFollowCta
+       company={job.company}
+       companyKey={job.companyKey ?? null}
+       locale={locale as Locale}
+       surface="company_follow_expired"
+       sourceJobSlug={job.slug ?? null}
+       sourceJobTitle={job.title ?? null}
+     />
+   </Suspense>
+ ) : null;
+
+ // The banner deliberately keeps pointing at the in-app company FILTER, not at
+ // the hub: it is a different destination (the live board, scoped to this
+ // employer) and it is the only one that still resolves when no hub was emitted.
+ // The hub link is `employerHubCta` above — one per page, and placed where a
+ // logged-out visitor actually sees it, since this banner renders below the auth
+ // gate and the end-of-page ad in the gated layout.
  const companyBanner = job.company && companyHref && (
+ <>
  <button
  type="button"
  onClick={handleCompanyClick}
@@ -442,6 +519,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
  </div>
  </button>
+ {companyFollowCta}
+ </>
  );
 
  const relatedJobsSection = relatedJobs.length > 0 && (

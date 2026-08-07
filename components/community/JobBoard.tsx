@@ -17,7 +17,7 @@ const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobA
 const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
 const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobDetailAlertPrompt'));
 const JobDetailJobAlertButton = lazyRetry(() => import('@/components/community/JobDetailJobAlertButton'));
-const CompanyFollowButton = lazyRetry(() => import('@/components/community/CompanyFollowButton'));
+const CompanyFollowCta = lazyRetry(() => import('@/components/community/CompanyFollowCta'));
 const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
 const JobBoardFilterAlertCta = lazyRetry(() => import('@/components/community/JobBoardFilterAlertCta'));
 const SavedJobsAlertNudge = lazyRetry(() => import('@/components/community/SavedJobsAlertNudge'));
@@ -130,6 +130,7 @@ import { Analytics } from '@/services/analytics';
 // Type-only: jobAlertService itself is always dynamically imported below (code
 // splitting) — this import is erased at build time, no bundle/runtime impact.
 import type { JobAlert } from '@/services/jobAlertService';
+import { fetchUserAlertsCached, invalidateUserAlertsCache } from '@/services/userAlertsCache';
 import { suggestSimilarTerms } from '@/services/search/fuzzySearchSuggestions';
 import { buildJobCopyAttribution, shouldAttributeCopy } from '@/services/jobCopyAttribution';
 import { wasNewsletterAutologinAttempted } from '@/services/newsletterAutologinSignal';
@@ -290,30 +291,10 @@ function getBroadenHaystack(job: JobListing, locale: string): string {
 // genuinely new impression each time, not a re-fire of the same one. A
 // session-wide once-guard there would silently suppress real per-job
 // impressions, an actual regression beyond this bug's scope — left untouched.
-let cachedUserAlerts: { userId: string; promise: Promise<JobAlert[]> } | null = null;
-
-function fetchUserAlertsCached(
-  userId: string,
-  getUserAlerts: (userId: string) => Promise<JobAlert[]>,
-): Promise<JobAlert[]> {
-  if (cachedUserAlerts && cachedUserAlerts.userId === userId) return cachedUserAlerts.promise;
-  const promise = getUserAlerts(userId);
-  cachedUserAlerts = { userId, promise };
-  // Don't cache a rejected fetch — let the next caller retry rather than replay
-  // a stale failure for the rest of the session.
-  promise.catch(() => {
-    if (cachedUserAlerts?.promise === promise) cachedUserAlerts = null;
-  });
-  return promise;
-}
-
-// Invalidate after ANY successful alert creation in this file (job-match pill,
-// board-filter CTA, job-detail button, job-detail prompt) — all four mutate
-// the same underlying list every cached read reflects, so a stale cache after
-// one surface's subscribe could wrongly show/hide another surface's CTA.
-function invalidateUserAlertsCache(): void {
-  cachedUserAlerts = null;
-}
+// The cache itself moved to services/userAlertsCache.ts (#5012): the CompanyAlert
+// CTA now also writes from the SSG employer pages, the expired view and the
+// orphan view, which cannot reach a file-private cache — their follows used to
+// leave it stale for the rest of the session. Same semantics, one module up.
 
 const shownAlertCtaSurfaces = new Set<string>();
 
@@ -7386,6 +7367,44 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  }
 
+ /**
+  * CompanyAlert (#5012) — «Segui questa azienda» on the job detail, on BOTH
+  * surfaces this component renders: the unlocked detail and the `!hasAccess`
+  * gate.
+  *
+  * It used to exist only in the unlocked branch, so the CTA was invisible to
+  * exactly the visitor phase 2's anonymous email-capture was built for.
+  * Measured live 2026-08-06, logged out, three job pages: the chunk was
+  * downloaded and rendered nothing, because `if (!hasAccess) return <gate/>`
+  * returns before its call site. The component's own comment claimed the
+  * opposite ("Nor is it gated on a session any more"), which is how it passed
+  * review — the gating was in this file's control flow, 1200 lines above, not
+  * in any `userId &&` test near the component.
+  *
+  * The wiring (session, analytics, cache invalidation) lives in
+  * components/community/CompanyFollowCta.tsx because JobOrphanView and
+  * JobExpiredView draw their own gates and need the same CTA — four call sites
+  * is where a copied invocation starts drifting.
+  */
+ const companyFollowCta = (
+   job: JobListing,
+   surface: 'company_follow_button' | 'company_follow_gate',
+ ) => (
+   <Suspense fallback={null}>
+     <CompanyFollowCta
+       company={String(job.company || '')}
+       companyKey={job.companyKey ?? null}
+       locale={locale}
+       surface={surface}
+       sourceJobSlug={job.slug ?? null}
+       sourceJobUrl={job.url ?? null}
+       sourceJobTitle={job.title ?? null}
+       userId={userId}
+       email={userEmail}
+     />
+   </Suspense>
+ );
+
  if (selectedJob) {
  if (!authResolved || newsletterAutologinInFlight) {
  // Use a layout-matching skeleton instead of a tiny spinner to prevent CLS:
@@ -7793,6 +7812,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </div>
  </a>
+
+ {/* CompanyAlert (#5012) — the follow CTA on the GATED detail.
+     Deliberately below the auth gate and directly under the company banner
+     it acts on, mirroring the unlocked layout: the sign-in stays the primary
+     ask, and this is the lower-commitment fallback for the visitor who will
+     not create an account but will leave an address to hear about this
+     employer. Without it the whole anonymous-capture path of phase 2 was
+     unreachable from the job pages, which are the site's entry point from
+     search. */}
+ {companyFollowCta(selectedJob, 'company_follow_gate')}
 
  {/* Similar jobs — gate view (listing-style cards) */}
  {relatedJobs.length > 0 && (
@@ -8624,39 +8653,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* CompanyAlert (#5012): "Segui questa azienda". Unlike the per-ad button
      below this is NOT restricted to publisher ads — following an employer is
      the recurring reason to come back, and every job detail names one.
-     Nor is it gated on a session any more (#5012 phase 2): an ANONYMOUS
-     visitor gets the email-capture + double-opt-in path inside the component.
-     Gating it on `userId && userEmail` hid the CTA from exactly the visitor
-     whose email we do not have yet — the one the feature exists to acquire. */}
- {selectedJob.company && (
- <Suspense fallback={null}>
- <CompanyFollowButton
- company={String(selectedJob.company)}
- companyKey={(selectedJob as { companyKey?: string }).companyKey ?? null}
- userId={userId}
- email={userEmail}
- locale={locale}
- sourceJobSlug={selectedJob.slug ?? null}
- sourceJobUrl={selectedJob.url ?? null}
- sourceJobTitle={selectedJob.title ?? null}
- onSubscribed={() => {
- Analytics.trackJobAlertCtaClick('company_follow_button', 'success', String(selectedJob.company));
- Analytics.trackJobAlertCreated({ keywords: String(selectedJob.company || ''), frequency: 'immediate', surface: 'company_follow_button' });
- invalidateUserAlertsCache();
- }}
- onUnsubscribed={() => { invalidateUserAlertsCache(); }}
- onOptInRequested={() => {
- // Distinct from 'success': the address is captured but the follow is
- // still parked pending confirmation — counting it as a created alert
- // would inflate the funnel with un-consented subscriptions.
- Analytics.trackJobAlertCtaClick('company_follow_button', 'accept', String(selectedJob.company));
- }}
- onErrored={() => {
- Analytics.trackJobAlertCtaClick('company_follow_button', 'error', String(selectedJob.company));
- }}
- />
- </Suspense>
- )}
+     Nor is it gated on a session (#5012 phase 2): an ANONYMOUS visitor gets
+     the email-capture + double-opt-in path inside the component — which is
+     why the same CTA also renders in the `!hasAccess` branch above. */}
+ {companyFollowCta(selectedJob, 'company_follow_button')}
  {isPublisherAd && userId && userEmail && (
  <Suspense fallback={null}>
  <JobDetailJobAlertButton

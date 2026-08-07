@@ -153,6 +153,33 @@ describe('fast-publish: a delayed publish is not a failure, and not a success ei
     expect(probe.slice(Math.max(0, oneIdx - 600), oneIdx)).toMatch(/NOT REACHABLE|absent/);
   });
 
+  // The two halves of the fix for #5250. They live in different files and
+  // nothing links them at runtime: rename either side and the probe silently
+  // falls back to "every 404 is a lost push", which is the pre-fix behaviour
+  // that failed a run and opened a priority:high issue for an article that was
+  // serving correctly minutes later. Exactly the silent-inert class this file
+  // exists for — the exit codes themselves are covered behaviourally in
+  // tests/wait-for-live-article-shards.test.ts.
+  const CONFIRMED_PUSH_ENV = 'FAST_PUBLISH_PUSHED_LOCALES';
+
+  it('the shard-push step publishes which locales actually landed', () => {
+    // Only this step can observe the git push result; the probe only ever sees
+    // the public URL. Must reach the probe's process, i.e. GITHUB_ENV.
+    const pushIdx = workflow.indexOf('Push locale shards');
+    const verifyIdx = workflow.indexOf('Verify shard URLs are live');
+    const pushBlock = workflow.slice(pushIdx, verifyIdx);
+    expect(pushBlock).toContain(`${CONFIRMED_PUSH_ENV}=`);
+    expect(pushBlock).toContain('GITHUB_ENV');
+  });
+
+  it('the probe classifies from that confirmation, not from reachability alone', () => {
+    expect(probe).toContain(CONFIRMED_PUSH_ENV);
+    // A first publish 404s for the whole propagation window BECAUSE the push
+    // landed, so an unreachable URL may only be condemned once its push is
+    // known not to be confirmed.
+    expect(probe).toMatch(/absent\s*=\s*unreachable\.filter\(\(url\) => !pushConfirmed\(url\)\)/);
+  });
+
   it('documents exit 2, so a caller cannot mistake it for success', () => {
     expect(probe).toMatch(/\*\s+2 =/);
   });

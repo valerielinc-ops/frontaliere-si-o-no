@@ -95,14 +95,14 @@
 // for new code (AGENTS.md #6: this construct is already extracted; copying it
 // again would be exactly the drift the extraction exists to prevent).
 //
-// `purgeCdnFiles()` below (targeted `{files:[...]}` purge) has no shared
-// helper to import: cf-analytics.mjs is read-only (GraphQL analytics), and
-// cf-purge-cache.mjs's own purge call is a private, non-exported statement
-// inside a standalone script (`process.exit()` on failure — unsafe to import
-// into this script's non-fatal, best-effort control flow) doing
-// `{purge_everything:true}`, a different call shape than the targeted
-// `{files:[...]}` this script needs. Kept local — a genuinely new construct,
-// not a copy of an existing shared one.
+// `purgeCdnFiles()` below still issues its own HTTP call — cf-purge-cache.mjs
+// does its work at module scope and calls `process.exit()`, so importing it
+// would fire a real purge and could kill this script's non-fatal, best-effort
+// control flow. What it no longer owns is WHICH bodies to send: the
+// `Vary: Origin` variant expansion lives in scripts/lib/cf-purge-variants.mjs
+// and is imported by both purge implementations. That construct was duplicated
+// here as a plain `{files: urls}` — and both copies had the same defect, which
+// is precisely why it is now shared (AGENTS.md #6).
 //
 // CLI (no npm ci in this job — see fast-publish-article.yml's own comment;
 // esbuild is invoked via `npx -y` on demand, exactly like tsx@4 already is):
@@ -125,6 +125,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { computeTickerArticles } from '../build-plugins/newsTickerDataPlugin.ts';
 import { REST_BASE, DEFAULT_ZONE_NAME, resolveZoneId } from './lib/cf-analytics.mjs';
+import { purgeBodiesForUrls } from './lib/cf-purge-variants.mjs';
 
 export const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const CDN_BASE = 'https://cdn.frontaliereticino.ch';
@@ -285,11 +286,22 @@ async function cf(token, method, apiPath, body) {
   return { status: res.status, json };
 }
 
-/** Targeted purge — `files` list, never `purge_everything` (see header comment). */
+/**
+ * Targeted purge — `files` list, never `purge_everything` (see header comment).
+ *
+ * One POST per cache variant: `Vary: Origin` on the CDN host means the copy the
+ * SPA's cross-origin fetch reads is a different edge entry from the one a
+ * header-less purge clears, and these chunks are read by exactly that fetch.
+ * Purging only the header-less entry left the browser on the old chunk until its
+ * own max-age lapsed, with every CI probe reporting fresh — see
+ * scripts/lib/cf-purge-variants.mjs for the measurement.
+ */
 export async function purgeCdnFiles(token, resolvedZoneId, urls) {
-  const { json } = await cf(token, 'POST', `/zones/${resolvedZoneId}/purge_cache`, { files: urls });
-  if (!json?.success) {
-    throw new Error(`[publish-article-chunks] targeted purge failed: ${JSON.stringify(json?.errors)}`);
+  for (const { label, files } of purgeBodiesForUrls(urls)) {
+    const { json } = await cf(token, 'POST', `/zones/${resolvedZoneId}/purge_cache`, { files });
+    if (!json?.success) {
+      throw new Error(`[publish-article-chunks] targeted purge [${label}] failed: ${JSON.stringify(json?.errors)}`);
+    }
   }
 }
 

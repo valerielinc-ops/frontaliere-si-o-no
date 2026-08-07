@@ -78,6 +78,11 @@ import {
   type WeeklyEmployersLocale,
 } from './weeklyEmployersData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
+// «Segui questa azienda» island (#5012). These per-employer hubs are the last
+// SSG surface that names ONE employer and had no follow CTA — and they are
+// reached by visitors browsing employers, not one ad, which is exactly when
+// following is the natural action.
+import { companyFollowMountPlaceholder } from './shared/companyFollowMountPlaceholder';
 import { adSlotHtml, infeedAdListItemHtml } from './lib/adSlotHtml';
 import { shouldPlaceInfeedAd } from '../services/adsenseSlots';
 import {
@@ -3747,6 +3752,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
       <p style="${LEDE_STYLE}">${esc(heroSummary)}</p>
     </div>
   </header>
+  ${companyFollowMountPlaceholder({ company: employer, companyKey: stats.employerKey, locale, surface: 'employer_city' })}
   ${ccStatsHtml}
   ${ccAdviceBannerHtml}
   ${ccCtaHtml}

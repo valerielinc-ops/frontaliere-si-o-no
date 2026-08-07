@@ -215,11 +215,34 @@ describe('subscribeJobAlertOneTap', () => {
   // otherwise mock a size that no longer reaches the cap — turning a real
   // guard into a test that passes for the wrong reason.
   it('propagates the active-alerts cap from createAlert', async () => {
-    getDocsMock.mockResolvedValueOnce({ size: MAX_ALERTS_PER_USER, docs: [] });
+    // `docs`, not `size`: since #5012 the cap counts the alerts of the KIND
+    // being created, so the fixture has to carry documents to classify. A bare
+    // `size` would sail past a guard that now reads the list.
+    getDocsMock.mockResolvedValueOnce({
+      size: MAX_ALERTS_PER_USER,
+      docs: Array.from({ length: MAX_ALERTS_PER_USER }, () => ({ data: () => ({}) })),
+    });
     await expect(
       subscribeJobAlertOneTap('user-1', 'a@b.com', 'Sanità', 'it'),
     ).rejects.toThrow(new RegExp(`Maximum ${MAX_ALERTS_PER_USER}`));
     expect(addDocMock).not.toHaveBeenCalled();
+  });
+
+  it('followed companies do NOT consume the keyword-alert budget (#5012)', async () => {
+    // The whole point of the split: a user who follows ten employers — the
+    // ordinary case for a feature that asks them to — must still be able to
+    // save a search. Before the split this rejected with «Maximum 10 active
+    // alerts per user», a message naming neither the cause nor the fix.
+    getDocsMock.mockResolvedValueOnce({
+      size: MAX_ALERTS_PER_USER,
+      docs: Array.from({ length: MAX_ALERTS_PER_USER }, (_, i) => ({
+        data: () => ({ specificCompanyKey: `employer-${i}` }),
+      })),
+    });
+    await expect(
+      subscribeJobAlertOneTap('user-1', 'a@b.com', 'Sanità', 'it'),
+    ).resolves.toBeTruthy();
+    expect(addDocMock).toHaveBeenCalled();
   });
 
   // Issue #3650 — the job-match profile CTA pre-fills the alert's canton from

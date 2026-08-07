@@ -2,8 +2,11 @@
  * employerProfilePagesPlugin — evergreen employer-profile page per company at
  * `/aziende/<slug>/` (+ `/en|/de|/fr` locale variants). Epic #4462 / sub #4464.
  *
- * WHY: navigational + transactional intent ("lavorare in <azienda>", "<azienda>
- * stipendio", "<azienda> posizioni aperte") has no landing surface today —
+ * WHY: navigational + transactional brand intent ("<azienda> offerte di lavoro",
+ * "<azienda> lavora con noi", "<azienda> jobs", "<azienda> emploi" — the four
+ * shapes Search Console actually records; see the title block comment below,
+ * the "lavorare in <azienda>" phrasing this page was originally named for has
+ * zero brand-attached demand) has no evergreen landing surface today —
  * weeklyEmployers pages are weekly/volatile. These pages are the evergreen home
  * for a company's active jobs, salary median, work locations and hiring trend,
  * and the natural surface for the publisher-acquisition CTA (epic #4445).
@@ -106,9 +109,140 @@ interface EmployerDataset {
 const HOME_LABEL: Record<Locale, string> = { it: 'Home', en: 'Home', de: 'Startseite', fr: 'Accueil' };
 const HUB_LABEL: Record<Locale, string> = { it: 'Aziende', en: 'Companies', de: 'Unternehmen', fr: 'Entreprises' };
 
-const H1_PREFIX: Record<Locale, string> = {
-  it: 'Lavorare in', en: 'Working at', de: 'Arbeiten bei', fr: 'Travailler chez',
+// ── <title> / <h1>: aligned to the phrase people actually type ─────────────
+//
+// Until 2026-08-07 this page shipped «Lavorare in Coop: posizioni aperte e
+// stipendi» over an <h1> of «Lavorare in Coop». Every token there was chosen
+// editorially, and Search Console says all three lose to the phrase the
+// searcher uses. Measured on data/evidence-index.json (`gsc.queries`, 23 111
+// queries, 90-day window, built 2026-08-03):
+//
+//   it  "offerte di lavoro"  46 341 impr /  7 227 click   ← the phrase
+//       "lavora con noi"     11 731      /    724         (brand-navigational)
+//       "stipendi"              994      /     15
+//       "posizioni aperte"      838      /     67
+//       "lavorare in …"           0 brand-attached: all 41 matching queries are
+//                                 geographic ("lavorare in svizzera" 241,
+//                                 "lavorare in ticino" 145), never a company
+//   en  "jobs"              104 254      /  3 631
+//       "careers"               773      /      7
+//       "working at"              0 queries. Zero, not "few".
+//   de  "stellen"            12 786      /    335  ("offene stellen" 5 195/182)
+//       "arbeiten bei"          182      /      0 click
+//   fr  "emploi"             61 255      /  2 962, and the brand-attached shape
+//                                 is confirmed: "groupe mutuel emploi" 985,
+//                                 "hopital du valais emploi" 785, "hfr emploi" 461
+//       "travailler chez"        28      /      0 click (one conversational query)
+//
+// So the four H1 prefixes we were shipping were, in impressions, the weakest
+// candidate available in their own locale — two of them with literally zero
+// clicks in 90 days.
+//
+// BRAND-FIRST IN <title>, PHRASE-FIRST IN <h1>, and the asymmetry is
+// load-bearing. Queries open with the company ("eoc offerte di lavoro", "coop
+// offerte di lavoro"), Google bolds the matched brand, and a SERP line is
+// scanned left-to-right — so <title> leads with the name. <h1> leads with the
+// phrase instead, which is what keeps <title> != <h1> BY CONSTRUCTION: a
+// collision would need `${HEADLINE} ${name}` to equal `${name}: ${phrase}…`,
+// i.e. a company whose legal name both starts with the localized headline and
+// ends with the localized phrase. That replaces the old TITLE_SUFFIX_SHORT
+// trick, which existed for the same reason (audit:h1-title-duplicates, 157
+// offenders on validate-dist run 29794187475, when composePlaceTitle's last
+// candidate fell back to a string byte-identical to the <h1>). Pinned by
+// tests/employer-profile-pages.test.ts.
+//
+// WHY "e stipendi" SURVIVED A REWRITE THAT DELETED EVERY OTHER WEAK TOKEN.
+// It is the only thing separating this page from its sibling
+// /cerca-lavoro-<canton>/azienda-<slug>/ (jobsSeoPagesPlugin, «Offerte di
+// lavoro presso {name} in {canton}») — and that sibling is the page currently
+// HOLDING the brand demand: "eoc offerte di lavoro" is 3 550 impr / 228 click
+// at pos 4.78 with topLandingPage
+// /cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale/. Moving
+// /aziende/ onto the bare phrase with no differentiator would aim two of our
+// own pages at one query. "stipendi" is a real if small brand-attached family
+// ("clinica moncucco stipendi" 234, "medacta stipendi" 172) and a promise this
+// page actually keeps — the median-salary stat tile is right there. The canton
+// token stays OUT for the mirror-image reason: the sibling owns the
+// canton-qualified variant, this page is the Switzerland-wide evergreen answer.
+//
+// WHAT THE SWAP RISKS. Almost nothing. The whole /aziende/ surface owns 12
+// queries / 363 impr / 6 click in that same 90-day window, and every one of
+// them is brand + jobs/careers/gehalt ("kulm hotel st moritz jobs" 111 impr @
+// pos 8.05, "… careers" 91 @ 6.64, "coop gehalt" 8) — queries the NEW titles
+// contain verbatim and the old ones did not. Nothing that ranks today is
+// phrased with "lavorare in" / "working at" / "arbeiten bei" / "travailler chez".
+//
+// NO A/B HERE, DELIBERATELY. The repo's SERP title experiment
+// (services/seoService.ts `applySerpTitleDescriptionVariant`, driven by
+// scripts/seo-serp-autopilot.mjs + Remote Config) is runtime-only and
+// section-gated, its intent vocabulary is calculator-shaped ("oltre 20km",
+// "cambio CHF EUR", "pensione frontalieri", "simulazione") with no company
+// variant, and `grep -rn "serpExperiment\|SERP_EXPERIMENT" build-plugins/`
+// returns nothing — no SSG title ever passes through it. These pages are
+// staticOverlay besides, so the SPA never owns their meta. Job-detail titles
+// are excluded from that experiment for exactly this reason ("these have their
+// own structured title pattern"); the employer profile is the same case.
+// Keeping the phrase in ONE map per role below is what would make a future
+// variant a one-constant swap rather than a rewrite.
+
+/** The searched head phrase, per locale. ONE definition, used by both the
+ * <title> candidates and the <h1> builder — they must never drift apart. */
+const INTENT_PHRASE: Record<Locale, string> = {
+  it: 'offerte di lavoro', en: 'jobs', de: 'offene Stellen', fr: 'offres d’emploi',
 };
+/** Sentence-initial form of {@link INTENT_PHRASE} for the <h1>. Separate map
+ * rather than a capitalize() call: German capitalizes the noun mid-phrase
+ * ("offene Stellen" → "Offene Stellen"), so a naive first-letter uppercase
+ * would be wrong in one of the four locales and right by accident in three. */
+const H1_HEADLINE: Record<Locale, string> = {
+  it: 'Offerte di lavoro', en: 'Jobs', de: 'Offene Stellen', fr: 'Offres d’emploi',
+};
+/** Preposition between the <h1> headline and the company name. IT takes none —
+ * "Offerte di lavoro Coop" is the shape jobsSeoPagesPlugin already uses for
+ * its own company surfaces ("Offerte di lavoro {name} in Svizzera"). */
+const H1_CONNECTOR: Record<Locale, string> = { it: '', en: 'at', de: 'bei', fr: 'chez' };
+/** The differentiator vs. the canton company hub — see the block comment. */
+const PAY_PHRASE: Record<Locale, string> = {
+  it: 'stipendi', en: 'salaries', de: 'Gehalt', fr: 'salaires',
+};
+const AND_WORD: Record<Locale, string> = { it: 'e', en: 'and', de: 'und', fr: 'et' };
+
+/** Visible <h1>, and the same string for the BreadcrumbList leaf + ItemList
+ * name so the structured data never claims a heading the page doesn't show. */
+function employerHeadline(locale: Locale, name: string): string {
+  const connector = H1_CONNECTOR[locale];
+  return connector
+    ? `${H1_HEADLINE[locale]} ${connector} ${name}`
+    : `${H1_HEADLINE[locale]} ${name}`;
+}
+
+/** <title> candidates, longest first, for composePlaceTitle's budget cascade.
+ * The company name is never truncated (composePlaceTitle policy) — the
+ * boilerplate shrinks around it, same rule as job titles (composeSerpJobTitle)
+ * and comune titles. Introduced by the audit:title-length regression #4593
+ * (393 offenders: a fixed single template had no fallback and any long legal
+ * name overflowed TITLE_MAX_CHARS = 66 with no recovery). buildSeoPageHtml
+ * appends " | Frontaliere Ticino" afterwards only when it still fits, so the
+ * short candidate is also what buys the brand suffix back on long names.
+ *
+ * EXPORTED because jobsSeoPagesPlugin links here from every job ad and uses the
+ * longest candidate verbatim as the anchor text: anchor text is a ranking signal
+ * for the TARGET, so it has to be the target's own phrase. It was briefly a
+ * second hardcoded copy of these four strings — one map here and one there is
+ * exactly the drift AGENTS.md #6 forbids, and it would have decayed the moment
+ * either side was retuned against fresh GSC data. */
+/** The four locales this plugin emits — re-exported so a consumer of
+ * {@link employerTitleCandidates} does not have to guess which `Locale` this
+ * file means. */
+export type EmployerProfileLocale = Locale;
+
+export function employerTitleCandidates(locale: Locale, name: string): string[] {
+  return [
+    `${name}: ${INTENT_PHRASE[locale]} ${AND_WORD[locale]} ${PAY_PHRASE[locale]}`,
+    `${name}: ${INTENT_PHRASE[locale]}`,
+  ];
+}
+
 const OPEN_ROLES_LABEL: Record<Locale, string> = {
   it: 'Posizioni aperte', en: 'Open positions', de: 'Offene Stellen', fr: 'Postes ouverts',
 };
@@ -145,26 +279,6 @@ const SECTOR_JOBS_LABEL: Record<Locale, string> = {
 const JOB_BOARD_LABEL: Record<Locale, string> = {
   it: 'Bacheca offerte Ticino', en: 'Ticino job board', de: 'Stellenbörse Tessin', fr: 'Offres d’emploi Tessin',
 };
-const TITLE_SUFFIX: Record<Locale, string> = {
-  it: 'posizioni aperte e stipendi',
-  en: 'open positions and salaries',
-  de: 'offene Stellen und Gehälter',
-  fr: 'postes ouverts et salaires',
-};
-// Short last-resort suffix — MUST differ from the bare "{H1_PREFIX} {name}"
-// string used for <h1> (see renderProfileBody). composePlaceTitle's fallback
-// candidate used to be that exact bare string, so any company name whose
-// full TITLE_SUFFIX candidate overflowed TITLE_MAX_CHARS fell back to a
-// <title> byte-identical to <h1>, tripping audit:h1-title-duplicates (157
-// offenders, validate-dist run 29794187475 — regression from PR #4611's
-// title-length fix). Keeping a (however short) suffix on every candidate
-// guarantees title !== h1 by construction: if even this short candidate
-// overflows, composePlaceTitle's truncateHeadline() fallback always appends
-// "…", which also never equals the untruncated h1 text.
-const TITLE_SUFFIX_SHORT: Record<Locale, string> = {
-  it: 'offerte', en: 'jobs', de: 'Jobs', fr: 'offres',
-};
-
 /** Format a CHF annual amount with Swiss grouping (e.g. "CHF 86’250"). */
 function fmtChf(v: number): string {
   return `CHF ${Math.round(v).toLocaleString('de-CH')}`;
@@ -483,7 +597,7 @@ function renderProfileBody(
   return `<main class="seo-static-content max-w-[820px] mx-auto px-5 pt-6 pb-14 leading-relaxed text-body">
 ${breadcrumbHtml(locale, name)}
 <header class="rounded-2xl border border-edge bg-surface-alt p-5 mb-5">
-<h1 class="text-[26px] font-bold text-strong leading-tight m-0 mb-1.5">${esc(H1_PREFIX[locale])} ${esc(name)}</h1>
+<h1 class="text-[26px] font-bold text-strong leading-tight m-0 mb-1.5">${esc(employerHeadline(locale, name))}</h1>
 <p class="text-[15px] text-muted m-0">${esc(introProse(profile, allActiveJobs, locale).split('. ')[0])}.</p>
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">${tiles}</div>
 </header>
@@ -552,7 +666,7 @@ function breadcrumbLd(locale: Locale, slug: string, name: string): string {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: HOME_LABEL[locale], item: `${BASE_URL}${localePrefix(locale)}/` },
-      { '@type': 'ListItem', position: 2, name: `${H1_PREFIX[locale]} ${name}`, item: `${BASE_URL}${profilePath(locale, slug)}` },
+      { '@type': 'ListItem', position: 2, name: employerHeadline(locale, name), item: `${BASE_URL}${profilePath(locale, slug)}` },
     ],
   });
 }
@@ -612,6 +726,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
       const dateStamp = new Date().toISOString().slice(0, 10);
       const collector = new WriteCollector({ distDir, pluginName: 'employerProfilePagesPlugin' });
       const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
+      const employerJobCounts = new Map<string, number>();
       const emittedProfiles: EmittedEmployerProfile[] = [];
       let profilePages = 0;
       let bridgePages = 0;
@@ -685,7 +800,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
             jsonLdScripts.push(inlineScriptJson({
               '@context': 'https://schema.org',
               '@type': 'ItemList',
-              name: `${H1_PREFIX[locale]} ${profile.name}`,
+              name: employerHeadline(locale, profile.name),
               numberOfItems: itemListElements.length,
               itemListElement: itemListElements,
             }));
@@ -697,26 +812,11 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           // thin profiles (noindex) never carry a manual slot (MFA-safety).
           const bodyWithAd = `${bodyHtml}${endOfContentMultiplexHtml({ indexable })}`;
 
-          // Budget-aware cascade (composePlaceTitle) — was a single fixed
-          // `<prefix> <name>: <suffix>` template with no fallback; a longer
-          // legal company name overflowed TITLE_MAX_CHARS (66) with no
-          // recovery (audit:title-length regression #4593, 393 offenders —
-          // every profile whose name alone left <21-25 chars of budget).
-          // Longest-first candidates, name never truncated (composePlaceTitle
-          // policy) — same "shrink the boilerplate, never the place/name"
-          // pattern as job titles (composeSerpJobTitle) and comune titles.
-          //
-          // The last candidate must NEVER be the bare `${H1_PREFIX} ${name}`
-          // string — that's byte-identical to <h1> (see renderProfileBody),
-          // so falling back to it trips audit:h1-title-duplicates (157
-          // offenders, validate-dist run 29794187475). Short-suffix middle
-          // candidate keeps title != h1 for virtually every name; the
-          // TITLE_SUFFIX_SHORT comment explains why this holds even on
-          // further overflow.
-          const titleCandidates = [
-            `${H1_PREFIX[locale]} ${profile.name}: ${TITLE_SUFFIX[locale]}`,
-            `${H1_PREFIX[locale]} ${profile.name} · ${TITLE_SUFFIX_SHORT[locale]}`,
-          ];
+          // Budget-aware cascade — see employerTitleCandidates() and the
+          // search-intent block comment at the top of this file for the GSC
+          // numbers behind the wording and for why <title> is brand-first
+          // while <h1> is phrase-first.
+          const titleCandidates = employerTitleCandidates(locale, profile.name);
           const html = buildSeoPageHtml({
             locale,
             title: composePlaceTitle(titleCandidates, TITLE_MAX_CHARS, (s) => esc(s).length),
@@ -743,12 +843,14 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           if (locale === 'it' && indexable) {
             sitemapEntries.push({ canonical: urlPath, alternates });
           }
+          if (locale === 'it') employerJobCounts.set(slug, profile.activeJobs);
         }
       }
 
       for (const rec of belowFloor) {
         const slug = rec.slug;
         if (!slug) continue;
+        employerJobCounts.set(slug, rec.activeJobs);
         const hreflangHtml = hreflangFor(slug);
         for (const locale of LOCALES) {
           const urlPath = profilePath(locale, slug);
@@ -756,7 +858,18 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           const bodyHtml = emitEmployerBelowFloorBridge(rec, locale);
           const html = buildSeoPageHtml({
             locale,
-            title: `${H1_PREFIX[locale]} ${rec.name}`,
+            // Same brand-first cascade as the full page. The bridge is
+            // noindex, so this is a browser-tab / share-preview string rather
+            // than a SERP one — but it went through no length budget at all
+            // before, and a 90-char legal name is exactly what
+            // audit:title-length flags. Its <h1> is the bare company name
+            // (emitEmployerBelowFloorBridge), so `{name}: {phrase}` can't
+            // collide with it either.
+            title: composePlaceTitle(
+              employerTitleCandidates(locale, rec.name),
+              TITLE_MAX_CHARS,
+              (s) => esc(s).length,
+            ),
             description: `${rec.name} — ${rec.activeJobs} ${OPEN_ROLES_LABEL[locale].toLowerCase()}.`,
             canonicalUrl,
             robots: 'noindex,follow',
@@ -771,6 +884,36 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           collector.add(np.join(distDir, urlPath, 'index.html'), html);
           collector.add(np.join(distDir, urlPath.replace(/\/+$/, '') + '.html'), html);
           bridgePages++;
+        }
+      }
+
+      // Slim slug → active-jobs map for /aziende-seguite/ (#5012).
+      //
+      // The page lists the employers a user follows and, per the issue, how many
+      // openings each has right now. It stores only the slug, and the full
+      // dataset it would otherwise need (data/employer-profiles.json, 443 KB) is
+      // build input, not a published artifact — shipping it to the CDN for one
+      // private page would be wildly out of proportion. This is the two fields
+      // that page actually reads, ~20 KB for the whole corpus, written into the
+      // same `dist/data/` prefix deploy-it-pages-prep.sh already syncs to R2
+      // with `max-age=600`.
+      //
+      // Only slugs that GOT a page are included: a count linking to a 404 is
+      // worse than no count. Below-floor employers are in — they have a bridge
+      // page at the same URL — with their real (small) number, which is exactly
+      // the signal a follower wants before deciding to unfollow.
+      if (employerJobCounts.size > 0) {
+        try {
+          const counts: Record<string, number> = {};
+          for (const [slug, n] of Array.from(employerJobCounts.entries()).sort()) counts[slug] = n;
+          fs.mkdirSync(np.join(distDir, 'data'), { recursive: true });
+          fs.writeFileSync(
+            np.join(distDir, 'data', 'employer-job-counts.json'),
+            JSON.stringify(counts),
+            'utf-8',
+          );
+        } catch (err) {
+          console.warn('\x1b[33m[employer-profile-pages]\x1b[0m job-counts write failed:', err);
         }
       }
 

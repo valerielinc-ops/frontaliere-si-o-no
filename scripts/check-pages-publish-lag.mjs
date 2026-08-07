@@ -19,6 +19,44 @@
  * hours and only surfaced because a journalist personally asked, instead of
  * being caught by automation before anyone had to notice.
  *
+ * ── THE SECOND FAILURE: THE QUEUE JAMS (added 2026-08-07) ─────────────────
+ * Starvation above is self-limiting: the queue drains as soon as arrivals slow
+ * down, and every superseded commit rides the next publish. The failure that
+ * put `deploy-publish.yml` at 0 successes across 300 runs / ten days
+ * (2026-08-01T20:25Z → 2026-08-07T05:40Z, last success 2026-07-27T22:15Z) is
+ * not self-limiting, and this script reads IDENTICALLY in both cases — same
+ * growing lag, same pending file list — which is why the distinction belongs
+ * here. Two overlapping defects:
+ *
+ *   · `workflow_run: types: [completed]` fires for the build runs deploy.yml's
+ *     own newest-wins lock CANCELS (121 of 141 builds per 48 h, #5251). Those
+ *     runs skip every job, but a run joins its concurrency group BEFORE any
+ *     job `if:` is evaluated, and an arrival into a full group (1 running +
+ *     1 pending) cancels the PENDING member. No-op 31100260885 arrived
+ *     12:10:14, killed queued publish 31100206740 at 12:10:15, then skipped at
+ *     12:14:48: one second of work in exchange for a whole publish. Two thirds
+ *     of everything entering the group was such a no-op.
+ *   · nothing in that group had a deadline. A `deploy` job parked at the
+ *     `github-pages` environment gate is not "running", so neither
+ *     `timeout-minutes` nor the 360-min default applies — run 31118787881 sat
+ *     in `waiting` 14 h with `wait_timer: 0`, no reviewers and no protection
+ *     rules, and `cancel-in-progress: false` meant GitHub would never evict
+ *     it. Run 31119921972 then sat pending 7 h 13 m without starting a job.
+ *
+ * The remedy, and why this script is not it: `.github/workflows/deploy-publish.yml`
+ * routes no-op runs to a per-run concurrency group so only real publishes
+ * contend, and `scripts/ci/unwedge-pages-deploy-queue.mjs` — run hourly by
+ * pages-publish-lag-watchdog.yml immediately BEFORE this check — cancels runs
+ * stuck in `waiting` and nothing else. Both are pinned by
+ * tests/pages-deploy-queue-invariants.test.ts.
+ *
+ * The ordering is deliberate and does NOT mask anything: lag is measured from
+ * the last SUCCESSFUL github-pages deployment, which a cancellation cannot
+ * advance. So a wedge that has already cost hours still opens its issue on this
+ * same tick, and only the following tick — once a publish has actually landed —
+ * resolves it. If the lag issue reopens after an unwedge, the wedge is
+ * recurring and the queue, not this watchdog, is where to look.
+ *
  * This watchdog finds the last successful `github-pages` deployment (GitHub
  * Deployments API) and lists the files changed on `main` since that SHA. It
  * ignores exactly the paths `deploy.yml` itself ignores (parsed directly from

@@ -9,29 +9,71 @@
  * `data/marquee-companies-list.json`, and writes
  * `data/gsc-top-marquee-candidates.json`.
  *
- * Auth: Firebase Service Account at `mcp-gsc-main/service_account_credentials.json`.
- * Memory note `reference_firebase_sa_doubles_as_gsc.md` confirms the same SA
- * has Search Console permissions, so we sign a JWT manually (no new deps).
+ * ── WHAT THIS IS FOR ────────────────────────────────────────────────────
+ * `build-plugins/shared/employerProfileConfig.mjs` counts the employer-profile
+ * indexability floor in ANNUNCI, not in DOMANDA, and its block comment names
+ * this script as the one missing piece: the promotion half needs a
+ * company-keyed demand table, `gsc.queries` in data/evidence-index.json has no
+ * company key, and neither of the two ways of adding one there survives
+ * measurement. This script keys demand by employer NAME instead, which is the
+ * shape that works. Scheduled by .github/workflows/refresh-gsc-marquee-demand.yml
+ * so the artifact is committed and therefore readable at build time; before
+ * that workflow existed, nothing invoked this and the output was never
+ * committed, so the floor could not be made demand-aware at all.
+ *
+ * ── AUTH ────────────────────────────────────────────────────────────────
+ * The project's Firebase service account doubles as a Search Console
+ * credential (same note scripts/lib/evidence/gscFetcher.mjs carries, and the
+ * reason build-evidence-and-tune.yml can pull GSC daily with it). Resolution
+ * order, CI-first:
+ *
+ *   1. GOOGLE_APPLICATION_CREDENTIALS  — the path every workflow's "Prepare
+ *      Firebase credentials" step writes; ALSO already exported by
+ *      ~/.bash_profile on the maintainer's machine.
+ *   2. FIREBASE_SERVICE_ACCOUNT_JSON   — the raw secret, for callers that pass
+ *      it without materialising a file.
+ *   3. mcp-gsc-main/*.json             — the original local-only path this
+ *      script was written against. Kept last and never in the repo: it is a
+ *      developer convenience, and looking there FIRST is what made this script
+ *      unrunnable in CI (that directory does not exist in the repo, so every
+ *      run would have degraded before touching the network).
+ *
+ * The JWT is signed by scripts/lib/google-service-account-token.mjs, not by a
+ * fourth local copy of the same twenty lines — that module exists precisely
+ * because credential-signing code had already been duplicated twice
+ * (AGENTS.md Non-Negotiable #6).
  *
  * Usage:
  *   node scripts/identify-top-marquee-by-gsc.mjs
  *
- * Idempotent. Graceful degradation: if SA missing or GSC API fails, writes
- * empty output with `_error` field and exits 0 (orchestrator can fall back
- * to the hand-curated list).
+ * ── DEGRADATION: LAST-GOOD WINS ─────────────────────────────────────────
+ * Idempotent, and exits 0 on every failure so a scheduled run never goes red
+ * for a transient GSC hiccup. What it does NOT do any more is write an empty
+ * `{ candidates: [], _error }` stub: once this artifact is COMMITTED, that stub
+ * is a data-refresh that replaces a good demand table with an empty one, and a
+ * floor reading it would silently demote everything. A degraded run therefore
+ * writes NOTHING at all — the previous artifact stays exactly as it was, the
+ * failure is logged as a `::warning::` annotation, and a consumer reading a
+ * missing or stale file falls back to the hand-curated list the same way it
+ * would have fallen back to an empty one.
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
-import crypto from 'node:crypto';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { getServiceAccountAccessToken } from './lib/google-service-account-token.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
 const SITE_URL = 'https://frontaliereticino.ch/';
+const GSC_SCOPE = 'https://www.googleapis.com/auth/webmasters.readonly';
 const LOOKBACK_DAYS = 90;
-const ROW_LIMIT = 25000; // GSC max per request
+const ROW_LIMIT = 25000; // GSC hard cap per request
+// Pagination cap. 8 × 25 000 = 200 000 query rows, comfortably above what a
+// 90-day window returns for this property (~795 000 impressions over 93 918
+// distinct pages), so the cap is a runaway guard and not the real limit.
+const MAX_PAGES = 8;
 const MARQUEE_LIST_PATH = path.join(ROOT, 'data', 'marquee-companies-list.json');
 const OUTPUT_PATH = path.join(ROOT, 'data', 'gsc-top-marquee-candidates.json');
 
@@ -49,122 +91,158 @@ function writeOutput(payload) {
   log('💾', `Wrote ${path.relative(ROOT, OUTPUT_PATH)}`);
 }
 
+/**
+ * Abandon the run WITHOUT touching the artifact — see the DEGRADATION note in
+ * the header. `::warning::` so a scheduled run that quietly stops producing
+ * data is still visible in the Actions log instead of looking like a success.
+ */
 function failGracefully(errorMsg) {
   log('⚠️', errorMsg);
-  writeOutput({
-    _generatedAt: new Date().toISOString(),
-    _error: errorMsg,
-    _dataRange: null,
-    candidates: [],
-  });
+  const existing = fs.existsSync(OUTPUT_PATH);
+  console.log(
+    `::warning::identify-top-marquee-by-gsc degraded: ${errorMsg} — ` +
+      `${existing ? 'keeping the previously committed artifact' : 'no artifact written'}.`,
+  );
   process.exit(0);
 }
 
 // ── Service Account discovery ───────────────────────────────────────────
-function loadServiceAccount() {
-  const expected = path.join(ROOT, 'mcp-gsc-main', 'service_account_credentials.json');
-  if (fs.existsSync(expected)) {
+
+/**
+ * Resolve the service-account JSON, CI paths first. Exported for the unit test
+ * that pins the ORDER: a regression to "local directory first" is invisible on
+ * a developer machine and fatal in CI, which is exactly how this script came to
+ * be unschedulable.
+ *
+ * @param {NodeJS.ProcessEnv} env
+ * @returns {{ sa: object, source: string }}
+ */
+export function resolveServiceAccount(env = process.env) {
+  const parse = (text, where) => {
+    let j;
     try {
-      return JSON.parse(fs.readFileSync(expected, 'utf8'));
+      j = JSON.parse(text);
     } catch (e) {
-      throw new Error(`Failed to parse SA at ${expected}: ${e.message}`);
+      throw new Error(`Failed to parse service account from ${where}: ${e.message}`);
     }
-  }
-  // Fallback: any *.json in mcp-gsc-main/ that looks like a SA
-  const dir = path.join(ROOT, 'mcp-gsc-main');
-  if (!fs.existsSync(dir)) {
-    throw new Error(`mcp-gsc-main/ directory not found at ${dir}`);
-  }
-  const candidates = fs.readdirSync(dir).filter((f) => f.endsWith('.json'));
-  for (const f of candidates) {
-    try {
-      const j = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
-      if (j && j.type === 'service_account' && j.private_key && j.client_email) {
-        log('ℹ️', `Using SA fallback: ${f}`);
-        return j;
-      }
-    } catch {
-      // ignore
+    if (!j || j.type !== 'service_account' || !j.private_key || !j.client_email) {
+      throw new Error(`${where} is not a usable service_account JSON`);
     }
-  }
-  throw new Error('No usable service_account JSON found in mcp-gsc-main/');
-}
-
-// ── JWT → access token (no extra deps) ──────────────────────────────────
-function base64url(input) {
-  return Buffer.from(input)
-    .toString('base64')
-    .replace(/=/g, '')
-    .replace(/\+/g, '-')
-    .replace(/\//g, '_');
-}
-
-async function getAccessTokenFromSA(sa) {
-  const now = Math.floor(Date.now() / 1000);
-  const header = { alg: 'RS256', typ: 'JWT', kid: sa.private_key_id };
-  const claims = {
-    iss: sa.client_email,
-    scope: 'https://www.googleapis.com/auth/webmasters.readonly',
-    aud: 'https://oauth2.googleapis.com/token',
-    iat: now,
-    exp: now + 3600,
+    return j;
   };
-  const unsigned = `${base64url(JSON.stringify(header))}.${base64url(JSON.stringify(claims))}`;
-  const signer = crypto.createSign('RSA-SHA256');
-  signer.update(unsigned);
-  signer.end();
-  const sig = signer.sign(sa.private_key);
-  const jwt = `${unsigned}.${base64url(sig)}`;
 
-  const res = await fetch('https://oauth2.googleapis.com/token', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
-      grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-      assertion: jwt,
-    }),
-  });
-  if (!res.ok) {
-    const text = await res.text().catch(() => '');
-    throw new Error(`Token exchange failed: HTTP ${res.status} ${text.slice(0, 300)}`);
+  const credPath = env.GOOGLE_APPLICATION_CREDENTIALS;
+  if (credPath && fs.existsSync(credPath)) {
+    return { sa: parse(fs.readFileSync(credPath, 'utf8'), 'GOOGLE_APPLICATION_CREDENTIALS'), source: 'GOOGLE_APPLICATION_CREDENTIALS' };
   }
-  const data = await res.json();
-  if (!data.access_token) throw new Error('Token exchange returned no access_token');
-  return data.access_token;
+
+  const raw = env.FIREBASE_SERVICE_ACCOUNT_JSON;
+  if (raw && raw.trim()) {
+    return { sa: parse(raw, 'FIREBASE_SERVICE_ACCOUNT_JSON'), source: 'FIREBASE_SERVICE_ACCOUNT_JSON' };
+  }
+
+  // Local-only convenience, never present in the repo. Any *.json in there that
+  // looks like a service account will do; the file name has never been stable.
+  const dir = path.join(ROOT, 'mcp-gsc-main');
+  if (fs.existsSync(dir)) {
+    for (const f of fs.readdirSync(dir).filter((n) => n.endsWith('.json'))) {
+      try {
+        return { sa: parse(fs.readFileSync(path.join(dir, f), 'utf8'), f), source: `mcp-gsc-main/${f}` };
+      } catch {
+        // keep scanning — the directory holds unrelated JSON too
+      }
+    }
+  }
+
+  throw new Error(
+    'no service-account credentials (GOOGLE_APPLICATION_CREDENTIALS, FIREBASE_SERVICE_ACCOUNT_JSON, or mcp-gsc-main/*.json)',
+  );
 }
 
 // ── GSC Search Analytics query ──────────────────────────────────────────
+
+async function gscPost(token, property, body) {
+  const endpoint = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(property)}/searchAnalytics/query`;
+  return fetch(endpoint, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  });
+}
+
+/**
+ * All query rows for the window, PAGINATED.
+ *
+ * `rowLimit` alone caps a Search Analytics response at 25 000 rows and says
+ * nothing about it — the response has no "there is more" field, so a single
+ * request looks complete whatever the real row count is. That is fatal for
+ * THIS artifact specifically: GSC orders rows by clicks descending, so the
+ * rows a 25 000 cut discards are the low-click tail, and the whole point of
+ * the table is to surface BELOW-FLOOR employers, who live in exactly that
+ * tail. A one-shot pull would systematically drop the candidates the file
+ * exists to find, while looking full.
+ *
+ * `startRow` walks past the cut; a short page (fewer than ROW_LIMIT rows) is
+ * the only reliable end-of-data signal. If MAX_PAGES is hit while pages are
+ * still full, the caller records `_truncated: true` so a consumer can reject
+ * an incomplete set instead of reading it as "no more demand" — the same
+ * discipline as reading `counts` out of the corpus manifest before using it.
+ *
+ * The two-property probe is unchanged: this project's GSC access is on the
+ * `sc-domain:` property, but the URL-prefix property is tried first because
+ * that is what the site is canonically configured as; 403/404 falls through.
+ */
 async function querySearchAnalytics(token, siteUrl, startDate, endDate) {
-  // Try canonical site first; if 403, fall back to sc-domain: form. We use
-  // the property exactly as configured in GSC; canonical is the URL property.
   const tryUrls = [siteUrl, 'sc-domain:frontaliereticino.ch'];
   let lastErr = null;
-  for (const candidate of tryUrls) {
-    const endpoint = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(candidate)}/searchAnalytics/query`;
-    const body = {
-      startDate,
-      endDate,
-      dimensions: ['query'],
-      rowLimit: ROW_LIMIT,
-      type: 'web',
-    };
-    const res = await fetch(endpoint, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    });
-    if (res.ok) {
+
+  for (const property of tryUrls) {
+    const rows = [];
+    let truncated = false;
+    let pagesFetched = 0;
+    let ok = true;
+
+    for (let page = 0; page < MAX_PAGES; page++) {
+      const res = await gscPost(token, property, {
+        startDate,
+        endDate,
+        dimensions: ['query'],
+        rowLimit: ROW_LIMIT,
+        startRow: page * ROW_LIMIT,
+        type: 'web',
+      });
+      if (!res.ok) {
+        const text = await res.text().catch(() => '');
+        lastErr = `HTTP ${res.status} on ${property} (page ${page}): ${text.slice(0, 200)}`;
+        // A mid-pagination failure is NOT a "try the other property" signal:
+        // page 0 already proved this one works. Fail the whole pull rather than
+        // silently returning a partial set under a different property.
+        if (page > 0) throw new Error(`Search Analytics pagination failed: ${lastErr}`);
+        ok = false;
+        break;
+      }
       const data = await res.json();
-      log('ℹ️', `GSC property ${candidate} returned ${data.rows?.length || 0} rows`);
-      return data.rows || [];
+      const pageRows = data.rows || [];
+      rows.push(...pageRows);
+      pagesFetched++;
+      if (pageRows.length < ROW_LIMIT) break;
+      // Last allowed page came back FULL ⇒ GSC still had rows to give.
+      if (page === MAX_PAGES - 1) truncated = true;
     }
-    const text = await res.text().catch(() => '');
-    lastErr = `HTTP ${res.status} on ${candidate}: ${text.slice(0, 200)}`;
-    if (res.status !== 403 && res.status !== 404) break;
+
+    if (!ok) {
+      // Only 403/404 mean "wrong property"; anything else is a real error.
+      if (!/HTTP (403|404) /.test(lastErr)) break;
+      continue;
+    }
+
+    log('ℹ️', `GSC property ${property} returned ${rows.length} rows over ${pagesFetched} page(s)${truncated ? ' (TRUNCATED)' : ''}`);
+    return { rows, property, truncated };
   }
+
   throw new Error(`Search Analytics query failed: ${lastErr}`);
 }
 
@@ -374,8 +452,9 @@ async function main() {
 
   let sa;
   try {
-    sa = loadServiceAccount();
-    log('ℹ️', `Loaded SA: ${sa.client_email}`);
+    const resolved = resolveServiceAccount();
+    sa = resolved.sa;
+    log('ℹ️', `Loaded SA: ${sa.client_email} (via ${resolved.source})`);
   } catch (e) {
     return failGracefully(`SA load failed: ${e.message}`);
   }
@@ -388,28 +467,25 @@ async function main() {
 
   let token;
   try {
-    token = await getAccessTokenFromSA(sa);
+    token = await getServiceAccountAccessToken(sa, GSC_SCOPE);
     log('✅', 'Acquired GSC access token');
   } catch (e) {
     return failGracefully(`Auth failed: ${e.message}`);
   }
 
   let rows;
+  let truncated;
   try {
-    rows = await querySearchAnalytics(token, SITE_URL, startStr, endStr);
+    ({ rows, truncated } = await querySearchAnalytics(token, SITE_URL, startStr, endStr));
   } catch (e) {
     return failGracefully(`GSC query failed: ${e.message}`);
   }
 
+  // Zero rows over 90 days on a property that takes ~795 000 impressions in
+  // that window is a broken read, not a measurement of "no demand". Treated as
+  // a degradation so it can never overwrite a good table with an empty one.
   if (!rows.length) {
-    log('⚠️', 'GSC returned 0 rows');
-    writeOutput({
-      _generatedAt: new Date().toISOString(),
-      _dataRange: `${startStr} to ${endStr}`,
-      _note: 'GSC returned no rows for the requested window.',
-      candidates: [],
-    });
-    return;
+    return failGracefully('GSC returned 0 rows for a 90-day window — treating as a failed read, not as zero demand');
   }
 
   const { byToken } = loadMarqueeIndex();
@@ -476,6 +552,11 @@ async function main() {
     _generatedAt: new Date().toISOString(),
     _dataRange: `${startStr} to ${endStr}`,
     _totalGscRows: rows.length,
+    // TRUE ⇒ the pull hit MAX_PAGES with pages still full, so the low-click
+    // tail — where below-floor employers live — is incomplete. A consumer that
+    // promotes on this table must refuse a truncated set rather than read the
+    // missing tail as absent demand. See querySearchAnalytics.
+    _truncated: truncated,
     _candidatesFound: enriched.length,
     _newCandidates: enriched.filter((c) => !c.in_marquee_list || !c.alreadyCrawled).length,
     candidates: enriched,
@@ -502,6 +583,12 @@ async function main() {
   log('✅', `${enriched.length} candidates total · ${payload._newCandidates} actionable (new or not yet crawled)`);
 }
 
-main().catch((err) => {
-  failGracefully(`Unexpected error: ${err.message || err}`);
-});
+// Same guard as scripts/check-pages-publish-lag.mjs: the module now exports
+// `resolveServiceAccount` for its unit test, and a bare `main()` call would run
+// the whole GSC pull (and its process.exit) the moment vitest imported it.
+const invokedDirectly = import.meta.url === pathToFileURL(process.argv[1] ?? '').href;
+if (invokedDirectly) {
+  main().catch((err) => {
+    failGracefully(`Unexpected error: ${err.message || err}`);
+  });
+}

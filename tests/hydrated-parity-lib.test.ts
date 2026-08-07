@@ -6,6 +6,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   renderedSlugs, idsInRegistryChunk, missingFromClient, divergentSurfaces,
+  divergenceVerdict,
 } from '../scripts/lib/hydratedParity.mjs';
 
 const card = (href: string) =>
@@ -97,5 +98,38 @@ describe('divergentSurfaces — the edge answering two ways', () => {
     // A surface with no Last-Modified must not read as a mismatch.
     expect(divergentSurfaces({ u: { withOrigin: null, withoutOrigin: 'X' } })).toEqual([]);
     expect(divergentSurfaces({})).toEqual([]);
+  });
+});
+
+describe('divergenceVerdict — the mechanism is not the outcome', () => {
+  // This is the decision that cost #5279/#5280. Failing unconditionally on a
+  // split edge made the gate red while every visitor saw a whole hub, and —
+  // because the caller retries a red verdict 8× at 45s and this condition is
+  // global and lives to the edge's max-age — turned 8 landings into ~44
+  // minutes against a 15-minute job. It was cancelled before it could report.
+  const split = [{ url: 'https://cdn/assets/blog-articles-data.js', withOrigin: 'A', withoutOrigin: 'B' }];
+
+  it('warns when the overlay absorbed the stale chunk — the visitor lost nothing', () => {
+    // Measured 2026-08-07: the browser's chunk was 18h old and lacked 9 of the
+    // 100 rendered articles; the overlay supplied all 9.
+    expect(divergenceVerdict({ divergent: split, missing: [] })).toBe('warn');
+  });
+
+  it('fails when an article was really lost — divergence is then the explanation', () => {
+    expect(divergenceVerdict({ divergent: split, missing: ['frontalieri-ticino-aumento-2026'] })).toBe('fatal');
+  });
+
+  it('fails on demand, so the zone property can still be asserted directly', () => {
+    expect(divergenceVerdict({ divergent: split, missing: [], strict: true })).toBe('fatal');
+  });
+
+  it('says nothing when the edge is not split, strict or not', () => {
+    expect(divergenceVerdict({ divergent: [], missing: [], strict: true })).toBe('none');
+    expect(divergenceVerdict({ divergent: [], missing: ['perso'] })).toBe('none');
+  });
+
+  it('is total on junk, so a probe that read nothing cannot fabricate a verdict', () => {
+    expect(divergenceVerdict()).toBe('none');
+    expect(divergenceVerdict({})).toBe('none');
   });
 });

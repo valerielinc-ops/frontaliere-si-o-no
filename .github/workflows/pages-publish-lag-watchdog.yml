@@ -42,7 +42,7 @@ concurrency:
 permissions:
   contents: read
   deployments: read # /deployments + /deployments/{id}/statuses (see deploy-publish.yml:L61)
-  actions: read # /actions/workflows/deploy.yml/runs — the stalled-queue signal.
+  actions: write # il reaper cancella le run incastrate (unwedge-pages-deploy-queue.mjs) # /actions/workflows/deploy.yml/runs — the stalled-queue signal.
   # Without it that call 403s and the script's fail-open catch silently
   # disables the second signal, leaving only the (deliberately tolerant)
   # age threshold. The watchdog would still go green; it would just stop
@@ -61,6 +61,18 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: '22'
+
+      - name: Unwedge the pages-deploy queue (cancel runs stuck at the environment gate)
+        # Prima del check, non dopo: la lag si misura dall'ultimo deploy RIUSCITO,
+        # che una cancellazione non fa avanzare — quindi sbloccare qui non
+        # maschera nulla, e se la coda era incastrata il prossimo run trova la
+        # strada libera. Cancella SOLO run in stato `waiting` da oltre 45 minuti:
+        # mai `in_progress`, così il reaper non può diventare la causa
+        # dell'outage che previene.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/ci/unwedge-pages-deploy-queue.mjs
 
       - name: Check publish lag
         id: check

@@ -7,6 +7,10 @@
  *
  * Layout: blue banner → countdown + direct link → job header →
  * Google Sign-In → AdSense → related jobs → CTA
+ *
+ * Deliberately WITHOUT the «Segui questa azienda» CTA and the employer-hub
+ * link that the other three job-detail surfaces carry — see the block comment
+ * above the company banner below for the measurement and the reasoning.
  */
 
 import { useEffect, useRef, useState, type MouseEvent } from 'react';
@@ -401,6 +405,47 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  )} {/* AdSense */} <AdSenseUnit slot="5196931137" className="my-2" />
 
  {/* Company banner */}
+ {/*
+  * NO CompanyFollowCta and NO employer-hub link here — the one job-detail
+  * surface of the four that deliberately has neither (JobBoard gated,
+  * JobOrphanView and JobExpiredView all do). Not an oversight; three
+  * independent reasons, each sufficient on its own.
+  *
+  * 1. THIS PAGE DESTROYS ITSELF IN 3 SECONDS. The countdown effect above runs
+  *    `window.location.href = targetPath` at COUNTDOWN_SECONDS = 0, with no
+  *    cancel path and no user control. Following an employer anonymously is
+  *    click → capture field appears → type an address → submit; that cannot
+  *    complete inside the window, and a half-typed email destroyed by a
+  *    navigation is worse than no CTA at all. For a signed-in reader it is
+  *    worse still: CompanyFollowButton lazy-loads a chunk and fires a
+  *    Firestore getUserAlerts() read on mount, both resolving into a tree that
+  *    is guaranteed to be gone.
+  *
+  * 2. THE PREMISE OF THAT CTA IS FALSE HERE. On the orphan and expired views
+  *    the CTA is the only offer left because the ad no longer exists — both
+  *    files say exactly that. A bridge points at a LIVE ad: the reader is
+  *    three seconds from JobBoard, which already renders the same component
+  *    under `company_follow_gate` / `company_follow_button`. Adding it here
+  *    would not be a fourth placement, it would be the same placement shown
+  *    twice with the first copy unusable — and it would split one surface's
+  *    conversion across two analytics names for no answerable question.
+  *
+  * 3. THE CRAWLER ARGUMENT DOES NOT TRANSFER. What buys back the `<a href>` on
+  *    the other two surfaces is that a crawler must see a real internal link
+  *    into the hub (505 hubs, 571 impressions / 29 clicks in 28 days against
+  *    28 826 / 1 257 of matching demand — hooks/useEmployerHub.ts). A bridge
+  *    page carries a `<link rel="canonical">` to the target job:
+  *    build-plugins/shared/bridgeThinShell.ts preserves HEAD verbatim and
+  *    reads that canonical to build its own prose, so the URL is explicitly
+  *    consolidated away. The hub link would be SPA-rendered anyway
+  *    (useEmployerHub resolves only after a runtime fetch), i.e. absent from
+  *    the static body a JS-less crawler reads. The link equity that matters
+  *    already flows through that static prose to the canonical target, which
+  *    links the hub itself.
+  *
+  * If bridges ever stop auto-redirecting, only reason 1 lapses; 2 and 3 are
+  * properties of what a bridge IS. Pinned by tests/job-bridge-view-surface.test.ts.
+  */}
  {jobData?.company && (() => {
  const companySlug = `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(jobData.company)}`;
  const companyHref = `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/');

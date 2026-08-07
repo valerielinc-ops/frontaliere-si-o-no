@@ -212,12 +212,39 @@ _publish_cdn_r2() {
   #
   # The previous `max-age=31536000,immutable` made edge freshness depend
   # ENTIRELY on cf-purge-cache.mjs `purge_everything`, which runs only in
-  # post-deploy-validate-live.yml behind three gates (deploy-publish.yml's
-  # `workflow_run.conclusion == 'success'`, `steps.propagation.outcome ==
-  # 'success'`, and `continue-on-error: true`). That chain does not clear in
-  # practice — deploy-publish.yml had 0 successes in its last 60 runs when this
-  # was written — so the edge held one build's chunks while R2 served another's:
-  # the cross-chunk version skew behind #5062 / #4644.
+  # post-deploy-validate-live.yml, downstream of deploy-publish.yml. When this
+  # was written that purge was simply not happening — deploy-publish.yml had
+  # 0 successes in its last 60 runs — so the edge held one build's chunks while
+  # R2 served another's: the cross-chunk version skew behind #5062 / #4644.
+  #
+  # The cause was NOT the three `if:` gates on that chain, which is what this
+  # comment used to say. Measured 2026-08-07 over the 300 runs from
+  # 2026-08-01T20:25Z to 2026-08-07T05:40Z (0 success / 200 skipped / 65
+  # cancelled / 33 failure, last success 30310076907 on 2026-07-27T22:15Z): the
+  # `pages-deploy` concurrency QUEUE was jammed, and the gates never got a say.
+  # Two overlapping defects:
+  #
+  #   · deploy-publish.yml triggers on `workflow_run: types: [completed]`, which
+  #     fires for the build runs deploy.yml's own newest-wins lock CANCELS —
+  #     121 of 141 builds per 48 h (#5251). Those runs skip every job, but a run
+  #     joins its concurrency group BEFORE any job `if:` is evaluated, and an
+  #     arrival into a full group (1 running + 1 pending) cancels the PENDING
+  #     member. Run 31100260885 arrived 12:10:14, killed queued publish
+  #     31100206740 at 12:10:15, then skipped at 12:14:48 — two thirds of
+  #     everything entering the group was such a no-op.
+  #   · no run in that group had a deadline of any kind. A `deploy` job parked
+  #     at the `github-pages` environment gate is not "running", so neither
+  #     `timeout-minutes` nor the 360-min default applies: run 31118787881 sat
+  #     in `waiting` for 14 h with nothing to approve, and with
+  #     `cancel-in-progress: false` it pinned the group for all of it.
+  #
+  # Both are fixed: `.github/workflows/deploy-publish.yml` now routes no-op runs
+  # to a per-run group so only real publishes contend, and
+  # scripts/ci/unwedge-pages-deploy-queue.mjs (hourly, from
+  # pages-publish-lag-watchdog.yml) cancels runs stuck in `waiting`. That
+  # restores the purge chain — it does NOT restore `immutable`: everything below
+  # about why the TTL is a backstop and the purge is targeted stands on its own,
+  # and re-coupling edge freshness to a workflow chain would just re-arm this.
   #
   # The TTL is a BACKSTOP, not the freshness mechanism — freshness comes from
   # the targeted purge below, which runs in this same step right after the
@@ -268,8 +295,11 @@ _publish_cdn_r2() {
   # This does NOT replace cf-purge-cache.mjs `purge_everything` in
   # post-deploy-validate-live.yml (still needed for the apex HTML, which the
   # it-apex-html-cache rule holds with `override_origin` 24h). It removes the
-  # CDN bundle's DEPENDENCE on that purge, which is gated behind a workflow
-  # chain that in practice does not run — see the assets/ Cache-Control comment.
+  # CDN bundle's DEPENDENCE on that purge, which sits at the end of a workflow
+  # chain that went ten days without completing once — see the assets/
+  # Cache-Control comment for the queue jam that caused it. The jam is fixed;
+  # the decoupling stays, because the failure mode it protects against is
+  # "the publish chain stopped running", not "this particular bug existed".
   if [ -s "$_assets_log" ]; then
     node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
       || echo "::warning::targeted CDN asset purge failed — edge falls back to the 7d max-age"

@@ -135,7 +135,16 @@ describe('cf-purge-cache.mjs — zone-wide mode is opt-in', () => {
   it('still supports the targeted --files= mode the deploy relies on', () => {
     // Removing this would break scripts/ci/purge-changed-cdn-assets.mjs, which is
     // now the ONLY thing keeping /assets/ fresh at the edge.
-    expect(PURGE_SCRIPT).toMatch(/files: targetFiles/);
+    //
+    // The body is no longer built inline: `Vary: Origin` means the edge holds a
+    // separate entry for the copy browsers read, and a bare `files: [url]`
+    // cleared only the header-less one — measured 2026-08-06, the browser kept
+    // the old bundle for 19h behind a green pipeline. The expansion now lives in
+    // scripts/lib/cf-purge-variants.mjs and is asserted by
+    // tests/cf-purge-vary-origin.test.ts; here we only pin that targeted mode is
+    // still wired to it.
+    expect(PURGE_SCRIPT).toMatch(/purgeBodiesForUrls\(targetFiles\)/);
+    expect(PURGE_SCRIPT).toMatch(/--files=/);
   });
 });
 

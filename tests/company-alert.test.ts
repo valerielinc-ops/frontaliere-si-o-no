@@ -40,16 +40,33 @@ vi.mock('firebase/firestore', () => ({
   getFirestore: vi.fn(() => ({})),
 }));
 
-import { companyAlertKey, MAX_ALERTS_PER_USER, subscribeCompanyAlert } from '@/services/jobAlertService';
 import {
+  companyAlertKey,
+  MAX_ALERTS_PER_USER,
+  MAX_COMPANY_ALERTS_PER_USER,
+  subscribeCompanyAlert,
+} from '@/services/jobAlertService';
+import {
+  allocateCompanyAlertCards,
   buildCompanyAlertEmail,
   companyHubUrl,
+  COMPANY_ALERT_MAX_CARDS,
+  COMPANY_ALERT_MAX_TOTAL_CARDS,
   COMPANY_ALERT_STRINGS,
   COMPANY_ALERT_TEMPLATE_ID,
 } from '@/services/companyAlertEmail.mjs';
 import { isImmediateCompanyAlert } from '../scripts/lib/company-alert-routing.mjs';
 import { companyFollowMountPlaceholder } from '../build-plugins/shared/companyFollowMountPlaceholder';
-import { selectNewlyPublishedJobs } from '../scripts/send-company-alerts.mjs';
+import {
+  buildRecipientSections,
+  DEDUP_CHUNK_SIZE,
+  groupAlertsByRecipient,
+  pickOneClickUnsubscribeUrl,
+  selectNewlyPublishedJobs,
+  selectPersistableSends,
+} from '../scripts/send-company-alerts.mjs';
+import { mergeSentJobs } from '../scripts/lib/alert-sent-jobs.mjs';
+import { FIRESTORE_BATCH_SIZE } from '../scripts/lib/firestore-batch.mjs';
 import {
   flushPendingCompanyFollows,
   pruneExpired,
@@ -686,11 +703,38 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
     // itself early-returned null.
     const board = readRepoFile('components/community/JobBoard.tsx');
     expect(board.includes('{userId && userEmail && selectedJob.company && (')).toBe(false);
-    expect(board).toContain('{selectedJob.company && (');
 
     const button = readRepoFile('components/community/CompanyFollowButton.tsx');
     expect(button.includes('if (!slug || !userId || !email) return null;')).toBe(false);
     expect(button).toContain('if (!signedIn) { setStatus(\'capture\'); return; }');
+  });
+
+  it('renders the CTA in the AUTH-GATED branch too, not only the unlocked one', () => {
+    // The defect this pins, measured live on 2026-08-06: the CTA existed only
+    // after `if (!hasAccess) return <gate/>`, so a logged-out visitor — the
+    // anonymous-capture path's whole target — never saw it on any job page.
+    // Nothing caught it because the gating was 1200 lines above the call site,
+    // in control flow, while the component's own comment claimed the opposite.
+    const board = readRepoFile('components/community/JobBoard.tsx');
+    const gateBranch = board.indexOf('if (!hasAccess) {');
+    const gateCta = board.indexOf("companyFollowCta(selectedJob, 'company_follow_gate')");
+    const unlockedCta = board.indexOf("companyFollowCta(selectedJob, 'company_follow_button')");
+
+    expect(gateBranch).toBeGreaterThan(0);
+    // Inside the gated branch…
+    expect(gateCta).toBeGreaterThan(gateBranch);
+    // …and again in the unlocked detail that follows it.
+    expect(unlockedCta).toBeGreaterThan(gateCta);
+
+    // ONE definition feeding both surfaces, and it is the SHARED component:
+    // a second <CompanyFollowButton> literal in this file would be a second set
+    // of analytics/cache callbacks free to drift from the other three surfaces.
+    expect(board.split('<CompanyFollowCta').length - 1).toBe(1);
+    expect(board.includes('<CompanyFollowButton')).toBe(false);
+
+    // The surfaces must stay separable in analytics — the gated CTA competes
+    // with the sign-in for the same click.
+    expect(readRepoFile('services/analytics.ts')).toContain("'company_follow_gate'");
   });
 
   it('reuses the site\'s ONE opt-in mechanism instead of a second one', () => {
@@ -721,7 +765,11 @@ describe('CTA on the SSG employer pages /aziende/<slug>/ (#5012 requisito 1)', (
     // the SAME CompanyFollowButton: a copy would be a second surface free to
     // drift from the matcher, silently.
     const mount = readRepoFile('components/community/CompanyFollowMount.tsx');
-    expect(mount).toContain("import CompanyFollowButton from './CompanyFollowButton'");
+    // Mounts the shared CTA, which renders the SAME CompanyFollowButton every
+    // other surface uses — never a second copy of the button here.
+    expect(mount).toContain("import CompanyFollowCta, { type CompanyFollowSurface } from './CompanyFollowCta'");
+    expect(readRepoFile('components/community/CompanyFollowCta.tsx'))
+      .toContain("import CompanyFollowButton from './CompanyFollowButton'");
     expect(mount).toContain("attribute: 'data-company-follow-mount'");
     expect(mount).toContain("mountedAttribute: 'data-company-follow-mounted'");
   });
@@ -808,6 +856,29 @@ describe('CTA on the SSG employer pages /aziende/<slug>/ (#5012 requisito 1)', (
     const html = companyFollowMountPlaceholder({ company: 'Acme', locale: 'xx', surface: 'employer_profile' });
     expect(html).toContain('Segui questa azienda');
   });
+
+  it('the placeholder\'s data-surface reaches analytics instead of being dropped', () => {
+    // `readProps` read `data-surface` and the tracker then hardcoded
+    // 'company_follow_button', so the full profile page and the thin
+    // below-floor stub were indistinguishable in the data — the prop was live
+    // on one line and dead on the next.
+    const mount = readRepoFile('components/community/CompanyFollowMount.tsx');
+    expect(mount).toContain("employer_profile: 'company_follow_profile'");
+    expect(mount).toContain("employer_below_floor: 'company_follow_below_floor'");
+    // The mapped value must reach the CTA, not be read and dropped.
+    expect(mount).toContain("surface: ANALYTICS_SURFACE[el.dataset.surface || ''] || 'company_follow_profile'");
+    expect(mount).toContain('surface={t.props.surface}');
+
+    const analytics = readRepoFile('services/analytics.ts');
+    expect(analytics).toContain("'company_follow_profile'");
+    expect(analytics).toContain("'company_follow_below_floor'");
+
+    // Both surface values must still be emitted by the plugin, or the mapping
+    // above silently degrades to its fallback.
+    const plugin = readRepoFile('build-plugins/employerProfilePagesPlugin.ts');
+    expect(plugin).toContain("surface: 'employer_profile'");
+    expect(plugin).toContain("surface: 'employer_below_floor'");
+  });
 });
 
 describe('«Le mie aziende seguite» page (#5012 phase 2)', () => {
@@ -861,6 +932,751 @@ describe('«Le mie aziende seguite» page (#5012 phase 2)', () => {
     const fn = /export async function listFollowedCompanies[\s\S]*?\n\}/.exec(svc)?.[0] || '';
     expect(fn).toContain('getUserAlerts(userId)');
     expect(fn.includes('query(')).toBe(false);
+  });
+});
+
+describe('the CTA reaches every job-detail surface (#5012)', () => {
+  // A job detail is drawn by FOUR components depending on the ad's state, each
+  // with its own auth gate. Phase 2 wired the CTA into one of them.
+  const SURFACES: Array<[string, string]> = [
+    ['components/community/JobBoard.tsx', 'company_follow_gate'],
+    ['components/community/JobBoard.tsx', 'company_follow_button'],
+    ['components/community/JobExpiredView.tsx', 'company_follow_expired'],
+    ['components/community/JobOrphanView.tsx', 'company_follow_orphan'],
+  ];
+
+  it.each(SURFACES)('%s renders the CTA as %s', (file, surface) => {
+    expect(readRepoFile(file)).toContain(surface);
+  });
+
+  it('every surface name is a member of the analytics union AND of CompanyFollowSurface', () => {
+    // Two unions, one truth: the tracker's and the component's. A name in the
+    // component that the tracker does not know is a type error at build time;
+    // the reverse is a surface nobody reports.
+    const analytics = readRepoFile('services/analytics.ts');
+    const cta = readRepoFile('components/community/CompanyFollowCta.tsx');
+    for (const name of [
+      'company_follow_button', 'company_follow_gate', 'company_follow_profile',
+      'company_follow_below_floor', 'company_follow_orphan', 'company_follow_expired',
+    ]) {
+      expect(analytics, `${name} missing from analytics`).toContain(`'${name}'`);
+      expect(cta, `${name} missing from CompanyFollowSurface`).toContain(`'${name}'`);
+    }
+  });
+
+  it('the orphan view follows only an employer the slug actually matched', () => {
+    // slugParts.company is null when no known employer matched. Following a
+    // guessed name would persist an alert key that never matches a job — an
+    // subscription that silently never fires.
+    const orphan = readRepoFile('components/community/JobOrphanView.tsx');
+    expect(orphan).toContain('const companyFollowCta = slugParts.company ?');
+    // …and reuses the ONE derived key, rather than re-deriving a second one
+    // that could disagree about which employer the slug names.
+    expect(orphan).toContain('const derivedCompanyKey = useMemo(');
+    expect(orphan).toContain('companyKey={derivedCompanyKey || null}');
+  });
+
+  it('the alerts cache is shared, so a follow from any surface invalidates it', () => {
+    // It used to be file-private to JobBoard.tsx: a follow from the expired,
+    // orphan or SSG employer surface left every cached eligibility read in the
+    // session one write behind.
+    const cache = readRepoFile('services/userAlertsCache.ts');
+    expect(cache).toContain('export function invalidateUserAlertsCache');
+    expect(cache).toContain('export function fetchUserAlertsCached');
+    expect(readRepoFile('components/community/CompanyFollowCta.tsx'))
+      .toContain("import { invalidateUserAlertsCache } from '@/services/userAlertsCache'");
+    const board = readRepoFile('components/community/JobBoard.tsx');
+    expect(board).toContain("from '@/services/userAlertsCache'");
+    expect(board.includes('let cachedUserAlerts')).toBe(false);
+  });
+});
+
+describe('cadence per followed company (#5012 fase 2 — frequenze)', () => {
+  const page = () => readRepoFile('components/pages/FollowedCompaniesPage.tsx');
+
+  it('offers the three cadences the router partition actually knows', () => {
+    // Any value outside this set would land in the digest by default while the
+    // UI implied something else: `isImmediateCompanyAlert` claims exactly
+    // `immediate`, scripts/send-job-alerts.mjs claims the rest.
+    expect(page()).toContain("const CADENCES = ['immediate', 'daily', 'weekly'] as const");
+  });
+
+  it('pins the manual pick so the adaptive engine cannot undo it', () => {
+    // Same contract as JobAlertForm's picker: without frequencyOverride the
+    // cadence engine is free to move the alert back and the control looks like
+    // it silently forgot the setting.
+    expect(page()).toContain('frequencyOverride: true');
+    expect(page()).toContain('updateAlert(alert.email, alert.id, { frequency: next, frequencyOverride: true })');
+  });
+
+  it('never shows an unknown cadence as "digest"', () => {
+    // Falling back to 'daily' would print "in the daily digest" over an alert
+    // the IMMEDIATE sender is in fact still sending — a row that lies about
+    // which pipeline owns it.
+    expect(page()).toContain(
+      "alert.frequency === 'daily' || alert.frequency === 'weekly' ? alert.frequency : 'immediate'",
+    );
+  });
+
+  it('rolls the row back when the write fails', () => {
+    // Optimistic + rollback: a failed save that left the new value on screen
+    // would tell the user they are on a cadence the backend never stored.
+    const src = page();
+    expect(src).toContain('followedCompanies.cadence');
+    expect(src).toContain('frequency: previous');
+  });
+
+  it('ships the cadence copy in all four locales', () => {
+    const src = page();
+    for (const key of ['cadenceLabel', 'cadenceImmediate', 'cadenceDaily', 'cadenceWeekly', 'weeklyBadge', 'saveError']) {
+      // 4 locale blocks + the one PageStrings field declaration = 5. A missing
+      // locale drops to 4 and fails here rather than rendering `undefined` to
+      // a German or French reader.
+      expect(src.split(`${key}:`).length - 1, `${key} is not in all four locales`).toBe(5);
+      expect(src, `${key} missing from PageStrings`).toContain(`${key}: string;`);
+    }
+  });
+});
+
+describe('CTA on the per-employer city hubs /aziende-che-assumono/ (#5012)', () => {
+  it('the weekly-employers company×city page emits the island', () => {
+    // The last SSG surface that names ONE employer and had no follow CTA. Its
+    // route is `staticOverlay: true` (services/router.ts, parseCompanyCityPath),
+    // so the CTA has to be an island exactly like the employer profile's.
+    const plugin = readRepoFile('build-plugins/weeklyEmployersPlugin.ts');
+    expect(plugin).toContain("from './shared/companyFollowMountPlaceholder'");
+    expect(plugin).toContain("surface: 'employer_city'");
+    // Same normalisation as the page's own URL: the employer key the stats
+    // record carries, not a re-slugified display name.
+    expect(plugin).toContain('companyKey: stats.employerKey');
+  });
+
+  it('the new surface is mapped and reportable end to end', () => {
+    expect(readRepoFile('components/community/CompanyFollowMount.tsx'))
+      .toContain("employer_city: 'company_follow_city'");
+    expect(readRepoFile('components/community/CompanyFollowCta.tsx')).toContain("'company_follow_city'");
+    expect(readRepoFile('services/analytics.ts')).toContain("'company_follow_city'");
+  });
+
+  it('the route really is a hydrating staticOverlay page', () => {
+    // An island on a route the SPA does not recognise renders a dead skeleton —
+    // the exact failure mode #5012 shipped once already.
+    const router = readRepoFile('services/router.ts');
+    expect(router).toContain('const companyCityMatch = parseCompanyCityPath(pathname)');
+    expect(router).toContain("route: { activeTab: 'job-board', staticOverlay: true }");
+  });
+});
+
+describe('«aziende seguite» — logo and bulk unfollow (#5012)', () => {
+  const page = () => readRepoFile('components/pages/FollowedCompaniesPage.tsx');
+
+  it('resolves the logo through the shared map, not a new source', () => {
+    expect(page()).toContain("import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization'");
+    expect(page()).toContain('resolveCompanyLogoUrl({ company: companyLabelFromSlug(slug), companyKey: slug })');
+    // Broken/missing logos fall back to the same handler the job cards use.
+    expect(page()).toContain('onError={handleCompanyLogoError}');
+  });
+
+  it('unfollow-all confirms first and deletes sequentially', () => {
+    const src = page();
+    expect(src).toContain('window.confirm(S.unfollowAllConfirm)');
+    // Sequential: a partial failure must keep the rows it could not delete
+    // visible instead of clearing a list the backend still holds.
+    expect(src).toContain('for (const alert of rows)');
+    expect(src.includes('Promise.all(rows')).toBe(false);
+    expect(src).toContain('setAlerts(failed)');
+  });
+
+  it('ships the bulk-unfollow copy in all four locales', () => {
+    const src = page();
+    for (const key of ['unfollowAll', 'unfollowAllConfirm']) {
+      expect(src.split(`${key}:`).length - 1, `${key} is not in all four locales`).toBe(5);
+    }
+  });
+});
+
+describe('the three deferred items (#5012 — closing the «Non implementato» list)', () => {
+  it('publishes a SLIM count map, not the 443 KB dataset', () => {
+    const plugin = readRepoFile('build-plugins/employerProfilePagesPlugin.ts');
+    expect(plugin).toContain("'employer-job-counts.json'");
+    // Only slugs that got a page: a count linking to a 404 is worse than none.
+    expect(plugin).toContain('employerJobCounts.set(slug, profile.activeJobs)');
+    expect(plugin).toContain('employerJobCounts.set(slug, rec.activeJobs)');
+    // dist/data/ is the prefix deploy-it-pages-prep.sh syncs to R2 (max-age=600).
+    expect(plugin).toContain("np.join(distDir, 'data')");
+
+    const page = readRepoFile('components/pages/FollowedCompaniesPage.tsx');
+    // The reader of that map lives in hooks/useEmployerHub.ts — one fetch, one
+    // cache, shared with the job surfaces that link the hub. This page consumes
+    // it instead of opening a second one.
+    expect(page).toContain('fetchEmployerHubCounts()');
+    expect(readRepoFile('hooks/useEmployerHub.ts')).toContain("'/data/employer-job-counts.json'");
+    // Decorative: a failed fetch must not become an error state on a page whose
+    // job is letting people unsubscribe.
+    expect(page).toContain('.catch(() => {');
+    expect(page).toContain('employerOpenRolesLabel(jobCounts[slug], locale)');
+  });
+
+  it('the email\'s manage link deep-links to the page that manages follows', () => {
+    const sender = readRepoFile('scripts/send-company-alerts.mjs');
+    expect(sender).toContain('followedCompaniesPath(locale)');
+    // Wrapped: /aziende-seguite/ reads the signed-in user, and `wrapUrl` adds
+    // the ne+ac pair App.tsx exchanges on ANY route.
+    expect(sender).toContain('const manageUrl = wrapUrl(');
+    // The way OUT must never depend on that exchange.
+    expect(sender).toContain('makeAlertUnsubscribeUrl(section.alert.id, recipient)');
+  });
+
+  it('the duplicated followed-companies slug matches the router', () => {
+    // The sender runs under plain `node` and cannot import the TS route table,
+    // so the slug is duplicated — and therefore asserted: a drift here sends
+    // every reader of every CompanyAlert email to a 404.
+    const sender = readRepoFile('scripts/send-company-alerts.mjs');
+    const slug = /const FOLLOWED_COMPANIES_SLUG = '([^']+)'/.exec(sender)?.[1];
+    expect(slug).toBeTruthy();
+    expect(readRepoFile('services/routeSlugs.data.ts')).toContain(`followedCompanies: '${slug}'`);
+  });
+
+  it('company follows and keyword alerts hold SEPARATE budgets, mirrored everywhere', () => {
+    // Following ten employers used to consume every alert slot, so the next
+    // saved search failed with «Maximum 10 active alerts per user» — a message
+    // naming neither the cause nor the fix.
+    const svc = readRepoFile('services/jobAlertService.ts');
+    expect(svc).toContain('export const MAX_COMPANY_ALERTS_PER_USER');
+    expect(svc).toContain('const isCompanyPin = Boolean(config.specificCompanyKey)');
+    expect(svc).toContain('sameKind >= kindCap');
+
+    const cf = readRepoFile('functions/src/newsletterSubscriptionManagement.js');
+    expect(cf).toContain('const MAX_COMPANY_ALERTS_PER_USER');
+    expect(cf).toContain('Boolean(data.specificCompanyKey) === creatingCompanyPin');
+
+    // Same number in both places, or the token-mode API and the signed-in UI
+    // disagree about when a user is full.
+    const svcCap = Number(/MAX_COMPANY_ALERTS_PER_USER = (\d+)/.exec(svc)?.[1]);
+    const cfCap = Number(/MAX_COMPANY_ALERTS_PER_USER = (\d+)/.exec(cf)?.[1]);
+    expect(svcCap).toBeGreaterThan(0);
+    expect(cfCap).toBe(svcCap);
+
+    // The newsletter backfill must not be blocked by follows either.
+    expect(readRepoFile('functions/src/jobAlertBackfillTrigger.js'))
+      .toContain('!d.data().specificCompanyKey');
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// RESIDUO #5283: one email per RECIPIENT, not per alert.
+//
+// The defect these pin, in one sentence: scripts/send-company-alerts.mjs
+// iterated ALERTS and sent one email each, so following ten employers that
+// published inside the same 6h window put TEN emails in one inbox within
+// seconds. Everything below is pure — no Firestore, no clock beyond an injected
+// `now` — because the grouping and the dedup are the two things that must be
+// provable, and a test that needs an emulator to prove them will not be run.
+// ─────────────────────────────────────────────────────────────────────────────
+
+const NOW = Date.UTC(2026, 7, 6, 12, 0, 0);
+const hoursAgo = (h: number) => new Date(NOW - h * 3600_000).toISOString();
+
+type FakeAlert = Record<string, unknown>;
+const alertDoc = (id: string, email: string, slug: string, extra: FakeAlert = {}): FakeAlert => ({
+  id,
+  ref: { id: `ref-${id}` },
+  email,
+  locale: 'it',
+  frequency: 'immediate',
+  specificCompanyKey: slug,
+  ...extra,
+});
+const jobDoc = (id: string, company: string, ageHours: number, title = `Ruolo ${id}`) => ({
+  id,
+  title,
+  company,
+  location: 'Lugano',
+  canton: 'TI',
+  firstSeenAt: hoursAgo(ageHours),
+  url: `https://frontaliereticino.ch/lavoro/${id}/`,
+});
+
+describe('grouping: one email per recipient (residuo #5283)', () => {
+  it('buckets every alert of one person into ONE email, case-insensitively', () => {
+    // job_alert_subscribers/{email} is keyed lowercased by every other writer;
+    // a mixed-case bucket here would split one person into two inboxes and undo
+    // the grouping without a single error anywhere.
+    const grouped = groupAlertsByRecipient([
+      alertDoc('a1', 'Foo@Example.COM', 'board-international'),
+      alertDoc('a2', 'foo@example.com', 'lidl'),
+      alertDoc('a3', 'other@example.com', 'migros'),
+    ]);
+    expect([...grouped.keys()].sort()).toEqual(['foo@example.com', 'other@example.com']);
+    expect(grouped.get('foo@example.com')).toHaveLength(2);
+  });
+
+  it('drops address-less alerts instead of collapsing them into one bucket', () => {
+    const grouped = groupAlertsByRecipient([
+      alertDoc('a1', '', 'board-international'),
+      alertDoc('a2', '   ', 'lidl'),
+    ]);
+    expect(grouped.size).toBe(0);
+  });
+
+  it('ranks sections freshest employer first — that is who headlines the subject', () => {
+    // Deterministic ordering is not cosmetic: a retry after a failed send must
+    // compose the identical email, or the card budget cuts somewhere else and
+    // a DIFFERENT set of jobs goes out under the same dedup assumptions.
+    const alerts = [
+      alertDoc('old', 'a@b.ch', 'board-international'),
+      alertDoc('new', 'a@b.ch', 'lidl'),
+    ];
+    const jobs = [jobDoc('j-old', 'Board International SA', 5), jobDoc('j-new', 'Lidl Schweiz AG', 1)];
+    const sections = buildRecipientSections(alerts, jobs, NOW);
+    expect(sections.map((s) => s.alert.id)).toEqual(['new', 'old']);
+    expect(sections.map((s) => s.companyName)).toEqual(['Lidl Schweiz AG', 'Board International SA']);
+  });
+
+  it('gives every alert its OWN sentJobIds — grouping changes the email, not the dedup unit', () => {
+    // "Already sent" is a property of the subscription, not of whichever
+    // message happened to carry it. Two alerts of the same person must not
+    // share a map, or unfollowing one would silently re-open the other.
+    const alerts = [
+      alertDoc('a1', 'a@b.ch', 'board-international', { sentJobIds: { 'j-board': NOW - 1000 } }),
+      alertDoc('a2', 'a@b.ch', 'lidl'),
+    ];
+    const jobs = [jobDoc('j-board', 'Board International SA', 2), jobDoc('j-lidl', 'Lidl Schweiz AG', 1)];
+    const sections = buildRecipientSections(alerts, jobs, NOW);
+    // The Board alert's only match was already sent → no section at all, so it
+    // is neither named in the subject nor marked again.
+    expect(sections.map((s) => s.alert.id)).toEqual(['a2']);
+    expect(sections[0].sentMap).toEqual({});
+  });
+
+  it('a section is dropped entirely when every match is already sent', () => {
+    const alerts = [alertDoc('a1', 'a@b.ch', 'lidl', { sentJobIds: { 'j1': NOW - 1000 } })];
+    expect(buildRecipientSections(alerts, [jobDoc('j1', 'Lidl Schweiz AG', 1)], NOW)).toEqual([]);
+  });
+
+  it('re-admits a job sent BEFORE the dedup window, like the digest does', () => {
+    const alerts = [alertDoc('a1', 'a@b.ch', 'lidl', { sentJobIds: { 'j1': NOW - 40 * 24 * 3600_000 } })];
+    const sections = buildRecipientSections(alerts, [jobDoc('j1', 'Lidl Schweiz AG', 1)], NOW);
+    expect(sections).toHaveLength(1);
+  });
+
+  it('tolerates junk input instead of throwing mid-run', () => {
+    expect(groupAlertsByRecipient(undefined as unknown as object[]).size).toBe(0);
+    expect(buildRecipientSections(undefined as unknown as object[], [], NOW)).toEqual([]);
+    expect(buildRecipientSections([alertDoc('a1', 'a@b.ch', 'lidl')], undefined as unknown as object[], NOW)).toEqual([]);
+  });
+});
+
+describe('the grouped email: one message, a section per employer (residuo #5283)', () => {
+  const sectionFor = (alertId: string, company: string, slug: string, jobs: object[]) => ({
+    alertId,
+    companyName: company,
+    companySlug: slug,
+    jobs,
+    unsubscribeUrl: `https://frontaliereticino.ch/disiscrivi-alert/?alertId=${alertId}&token=t`,
+  });
+  const buildMulti = (locale: string, count: number) => buildCompanyAlertEmail({
+    sections: Array.from({ length: count }, (_, i) =>
+      sectionFor(`a${i}`, `Azienda ${i}`, `azienda-${i}`, [jobDoc(`j${i}`, `Azienda ${i}`, i + 1)])),
+    email: 'a@b.ch',
+    locale,
+    manageUrl: 'https://frontaliereticino.ch/aziende-seguite/',
+    unsubscribeAllUrl: 'https://frontaliereticino.ch/disiscrivi-alert/?all=1',
+  });
+
+  it('the 1-section form is byte-identical to the pre-grouping mono email', () => {
+    // The regression that would hurt most: following ONE employer is the common
+    // case and «Nuova offerta presso X» is the strongest subject this template
+    // has. Grouping must not touch it.
+    const job = jobDoc('j1', 'Board International SA', 1);
+    const shared = {
+      email: 'a@b.ch',
+      locale: 'it',
+      manageUrl: 'https://frontaliereticino.ch/preferenze-newsletter/',
+      unsubscribeAllUrl: 'https://frontaliereticino.ch/disiscrivi-alert/?all=1',
+    };
+    const legacy = buildCompanyAlertEmail({
+      ...shared,
+      companyName: 'Board International SA',
+      companySlug: 'board-international',
+      jobs: [job],
+      unsubscribeUrl: 'https://frontaliereticino.ch/disiscrivi-alert/?x=1',
+    });
+    const grouped = buildCompanyAlertEmail({
+      ...shared,
+      sections: [{
+        alertId: 'a1',
+        companyName: 'Board International SA',
+        companySlug: 'board-international',
+        jobs: [job],
+        unsubscribeUrl: 'https://frontaliereticino.ch/disiscrivi-alert/?x=1',
+      }],
+    });
+    expect(grouped.subject).toBe(legacy.subject);
+    expect(grouped.html).toBe(legacy.html);
+    expect(grouped.text).toBe(legacy.text);
+  });
+
+  it('names BOTH employers when there are two — the name is what gets it opened', () => {
+    const { subject } = buildMulti('it', 2);
+    expect(subject).toBe('Azienda 0 e Azienda 1: 2 nuove offerte');
+    expect(buildMulti('en', 2).subject).toBe('Azienda 0 and Azienda 1: 2 new jobs');
+    expect(buildMulti('de', 2).subject).toBe('Azienda 0 und Azienda 1: 2 neue Stellen');
+    expect(buildMulti('fr', 2).subject).toBe('Azienda 0 et Azienda 1 : 2 nouvelles offres');
+  });
+
+  it('keeps the freshest employer in front and counts the rest, from three up', () => {
+    // Never a bare number: «5 nuove offerte» names nobody and reads like a
+    // newsletter, which is exactly what the dedicated template exists not to be.
+    expect(buildMulti('it', 4).subject).toBe('Azienda 0 e altre 3 aziende: 4 nuove offerte');
+    expect(buildMulti('en', 4).subject).toBe('Azienda 0 and 3 more companies: 4 new jobs');
+    expect(buildMulti('de', 4).subject).toBe('Azienda 0 und 3 weitere Unternehmen: 4 neue Stellen');
+    expect(buildMulti('fr', 4).subject).toBe('Azienda 0 et 3 autres entreprises : 4 nouvelles offres');
+  });
+
+  it('counts what it RENDERS, never the match pool (#3798)', () => {
+    // Three employers with 8 new jobs each = 24 matches, but the email carries
+    // COMPANY_ALERT_MAX_TOTAL_CARDS at most, and the subject must say so.
+    const built = buildCompanyAlertEmail({
+      sections: ['a', 'b', 'c'].map((k, i) =>
+        sectionFor(`alert-${k}`, `Azienda ${k}`, `azienda-${k}`,
+          Array.from({ length: 8 }, (_, j) => jobDoc(`${k}${j}`, `Azienda ${k}`, i + 1)))),
+      email: 'a@b.ch',
+      locale: 'it',
+      manageUrl: 'https://x/',
+      unsubscribeAllUrl: 'https://x/?all=1',
+    });
+    const rendered = built.sections.reduce((n: number, s: { jobs: object[] }) => n + s.jobs.length, 0);
+    expect(rendered).toBeLessThanOrEqual(COMPANY_ALERT_MAX_TOTAL_CARDS);
+    expect(built.subject).toBe(`Azienda a e altre 2 aziende: ${rendered} nuove offerte`);
+  });
+
+  it('renders a header, its jobs and its own hub CTA for every employer', () => {
+    const { html, text } = buildMulti('it', 3);
+    for (let i = 0; i < 3; i += 1) {
+      expect(html).toContain(`/aziende/azienda-${i}/`);
+      expect(html).toContain(`Vedi tutte le offerte di Azienda ${i}`);
+      expect(text).toContain(`Vedi tutte le offerte di Azienda ${i}`);
+      expect(html).toContain(`Ruolo j${i}`);
+    }
+  });
+
+  it('speaks in the plural once it covers more than one employer', () => {
+    // The mono closer says «questa azienda». Left unchanged it would claim a
+    // 4-employer email is about one — the same class of lie as the pre-#5012
+    // «tutte le offerte» filter line.
+    expect(buildMulti('it', 1).html).toContain('segui questa azienda');
+    expect(buildMulti('it', 3).html).toContain('segui queste aziende');
+    expect(buildMulti('it', 3).html).not.toContain('segui questa azienda');
+  });
+
+  it('ships all four locales with the same key set — no partial translation', () => {
+    const itKeys = Object.keys(COMPANY_ALERT_STRINGS.it).sort();
+    for (const loc of ['en', 'de', 'fr'] as const) {
+      expect(Object.keys(COMPANY_ALERT_STRINGS[loc]).sort(), `${loc} drifted from it`).toEqual(itKeys);
+    }
+  });
+
+  it('escapes employer names in the grouped form too', () => {
+    const { html } = buildCompanyAlertEmail({
+      sections: [
+        sectionFor('a1', 'Bürgenstock Hotels & Resort', 'burgenstock-hotels-resort', [jobDoc('j1', 'X', 1)]),
+        sectionFor('a2', 'Coop & Co', 'coop', [jobDoc('j2', 'Y', 2)]),
+      ],
+      email: 'a@b.ch',
+      locale: 'it',
+      manageUrl: 'https://x/',
+      unsubscribeAllUrl: 'https://x/?all=1',
+    });
+    expect(html).toContain('Hotels &amp; Resort');
+    expect(html).not.toContain('Hotels & Resort');
+  });
+
+  it('stays under Gmail\'s 102 KB clip in its worst shape', () => {
+    // Gmail hides everything past ~102 KB behind «Visualizza messaggio
+    // completo» — and what ends up down there is the unsubscribe footer. The
+    // worst shape for the card budget is one card per section (most chrome per
+    // card), with every URL carrying the autologin pair.
+    const wrapUrl = (u: string) => `${u}${u.includes('?') ? '&' : '?'}ne=${'e'.repeat(44)}&ac=${'a'.repeat(32)}&utm_source=company_alert&utm_medium=email`;
+    const built = buildCompanyAlertEmail({
+      sections: Array.from({ length: COMPANY_ALERT_MAX_TOTAL_CARDS }, (_, i) => sectionFor(
+        `alert-${i}`,
+        'Ente Ospedaliero Cantonale',
+        'eoc-ente-ospedaliero-cantonale',
+        [jobDoc(`j${i}`, 'Ente Ospedaliero Cantonale', 1, 'Infermiere specializzato in cure intense (80-100%)')],
+      )),
+      email: 'nome.cognome.lungo@example-domain.com',
+      locale: 'it',
+      manageUrl: wrapUrl('https://frontaliereticino.ch/aziende-seguite/'),
+      unsubscribeAllUrl: `https://frontaliereticino.ch/disiscrivi-alert/?email=x&token=${'c'.repeat(64)}`,
+      wrapUrl,
+    });
+    expect(built.sections).toHaveLength(COMPANY_ALERT_MAX_TOTAL_CARDS);
+    const bodyBytes = Buffer.byteLength(built.html) + Buffer.byteLength(built.text);
+    // Measured ≈ 71 KB when this was written. The assertion is the clip itself,
+    // so a template change is free to grow the email but not to hide the footer.
+    expect(bodyBytes).toBeLessThan(102 * 1024);
+  });
+});
+
+describe('the card budget: what the email may render (residuo #5283)', () => {
+  const section = (name: string, jobs: number) => ({
+    companyName: name,
+    companySlug: name.toLowerCase(),
+    jobs: Array.from({ length: jobs }, (_, i) => ({ id: `${name}-${i}` })),
+  });
+
+  it('caps ONE employer at COMPANY_ALERT_MAX_CARDS', () => {
+    expect(allocateCompanyAlertCards([section('a', 30)])[0].jobs).toHaveLength(COMPANY_ALERT_MAX_CARDS);
+  });
+
+  it('drops sections past the total budget whole, never as empty headers', () => {
+    // A section with no cards is a header advertising nothing.
+    const out = allocateCompanyAlertCards(
+      Array.from({ length: COMPANY_ALERT_MAX_TOTAL_CARDS + 5 }, (_, i) => section(`c${i}`, 1)),
+    );
+    expect(out).toHaveLength(COMPANY_ALERT_MAX_TOTAL_CARDS);
+    expect(out.every((s: { jobs: object[] }) => s.jobs.length > 0)).toBe(true);
+  });
+
+  it('trims the fattest employer first, so nobody is starved out of the email', () => {
+    // Naive "fill in order until full" would let the first, most prolific
+    // employer eat the whole budget and silently drop the other three — who
+    // would then be re-sent next run, i.e. a second email, i.e. the bug.
+    const out = allocateCompanyAlertCards([section('a', 6), section('b', 6), section('c', 6), section('d', 6)]);
+    expect(out).toHaveLength(4);
+    expect(out.reduce((n: number, s: { jobs: object[] }) => n + s.jobs.length, 0)).toBe(COMPANY_ALERT_MAX_TOTAL_CARDS);
+    expect(Math.min(...out.map((s: { jobs: object[] }) => s.jobs.length))).toBeGreaterThan(0);
+    // Water-filling, not truncation: the sizes stay within one card of each other.
+    const sizes = out.map((s: { jobs: object[] }) => s.jobs.length);
+    expect(Math.max(...sizes) - Math.min(...sizes)).toBeLessThanOrEqual(1);
+  });
+
+  it('is idempotent — running it on its own output changes nothing', () => {
+    // The sender feeds candidates in and reads rendered sections back out; if
+    // the two passes disagreed, "what was sent" and "what was marked sent"
+    // would too.
+    const once = allocateCompanyAlertCards([section('a', 9), section('b', 9), section('c', 9)]);
+    expect(allocateCompanyAlertCards(once)).toEqual(once);
+  });
+
+  it('keeps the caller\'s ranking and passes extra fields through', () => {
+    const out = allocateCompanyAlertCards([
+      { ...section('b', 1), alertId: 'a-b' },
+      { ...section('a', 1), alertId: 'a-a' },
+    ]);
+    expect(out.map((s) => s.alertId)).toEqual(['a-b', 'a-a']);
+  });
+
+  it('tolerates junk sections instead of emitting an empty email body', () => {
+    expect(allocateCompanyAlertCards([])).toEqual([]);
+    expect(allocateCompanyAlertCards(undefined as never)).toEqual([]);
+    expect(allocateCompanyAlertCards([{ companyName: 'x', companySlug: 'x' }])).toEqual([]);
+  });
+});
+
+describe('dedup survives grouping (residuo #5283, the non-negotiable)', () => {
+  it('marks EVERY rendered section\'s alert, each with its own key set', () => {
+    // The failure this forbids: an email covering three employers that only
+    // remembers one of them, so the next run re-mails the other two.
+    const alerts = [
+      alertDoc('a1', 'a@b.ch', 'board-international'),
+      alertDoc('a2', 'a@b.ch', 'lidl'),
+      alertDoc('a3', 'a@b.ch', 'migros'),
+    ];
+    const jobs = [
+      jobDoc('j-board', 'Board International SA', 3),
+      jobDoc('j-lidl', 'Lidl Schweiz AG', 1),
+      jobDoc('j-migros', 'Migros Ticino', 2),
+    ];
+    const sections = buildRecipientSections(alerts, jobs, NOW);
+    const built = buildCompanyAlertEmail({
+      sections: sections.map((s) => ({
+        alertId: s.alert.id,
+        companyName: s.companyName,
+        companySlug: String(s.alert.specificCompanyKey),
+        jobs: s.jobs,
+        unsubscribeUrl: `https://x/?alertId=${s.alert.id}`,
+      })),
+      email: 'a@b.ch',
+      locale: 'it',
+      manageUrl: 'https://x/',
+      unsubscribeAllUrl: 'https://x/?all=1',
+    });
+
+    expect(built.sections).toHaveLength(3);
+    const byId = new Map(sections.map((s) => [s.alert.id, s]));
+    for (const rendered of built.sections as unknown as Array<{ alertId: string; jobs: Array<{ id: string }> }>) {
+      const source = byId.get(rendered.alertId)!;
+      const nextMap = mergeSentJobs(source.sentMap, rendered.jobs, NOW);
+      // Its own jobs, and ONLY its own: a shared map would mark a Lidl job as
+      // already sent to the Board alert and hide it there forever.
+      expect(Object.keys(nextMap).sort()).toEqual(rendered.jobs.map((j) => j.id).sort());
+    }
+  });
+
+  it('never marks a section the card budget dropped', () => {
+    // Overflow is deferred, not delivered. Marking it would be a job the reader
+    // is told about exactly never.
+    const alerts = Array.from({ length: COMPANY_ALERT_MAX_TOTAL_CARDS + 3 }, (_, i) =>
+      alertDoc(`a${i}`, 'a@b.ch', `azienda-${i}`));
+    const jobs = alerts.map((_, i) => jobDoc(`j${i}`, `Azienda ${i}`, i + 1));
+    const sections = buildRecipientSections(alerts, jobs, NOW);
+    expect(sections).toHaveLength(COMPANY_ALERT_MAX_TOTAL_CARDS + 3);
+
+    const built = buildCompanyAlertEmail({
+      sections: sections.map((s) => ({
+        alertId: s.alert.id,
+        companyName: s.companyName,
+        companySlug: String(s.alert.specificCompanyKey),
+        jobs: s.jobs,
+        unsubscribeUrl: `https://x/?alertId=${s.alert.id}`,
+      })),
+      email: 'a@b.ch',
+      locale: 'it',
+      manageUrl: 'https://x/',
+      unsubscribeAllUrl: 'https://x/?all=1',
+    });
+    const renderedIds = (built.sections as unknown as Array<{ alertId: string }>).map((s) => s.alertId);
+    expect(renderedIds).toHaveLength(COMPANY_ALERT_MAX_TOTAL_CARDS);
+    // The three deferred alerts keep their sentJobIds untouched, so the next
+    // run — minutes away, this workflow is push-driven — finds them unsent
+    // while the ones just mailed drop out. The order rotates by itself.
+    const deferred = sections.filter((s) => !renderedIds.includes(s.alert.id));
+    expect(deferred).toHaveLength(3);
+    expect(deferred.every((s) => Object.keys(s.sentMap).length === 0)).toBe(true);
+  });
+
+  it('a hard failure blocks the WHOLE recipient — no half-marked email', () => {
+    const emails = [{ to: 'ok@b.ch' }, { to: 'dead@b.ch' }];
+    const persistable = selectPersistableSends(emails, [{ recipient: { email: 'DEAD@b.ch' } }]);
+    expect(persistable.map((e) => e.to)).toEqual(['ok@b.ch']);
+  });
+
+  it('treats an AMBIGUOUS delivery as sent — the one case where not marking is worse', () => {
+    // #4911: the provider accepted the message and then failed on the response,
+    // so it may already be in the inbox. Re-sending it produces exactly the
+    // duplicate this whole change exists to remove; the flag was added so
+    // callers could tell "never sent" from "unknown, do not resend blindly".
+    const persistable = selectPersistableSends(
+      [{ to: 'maybe@b.ch' }],
+      [{ recipient: { email: 'maybe@b.ch' }, ambiguousDelivery: true }],
+    );
+    expect(persistable.map((e) => e.to)).toEqual(['maybe@b.ch']);
+  });
+
+  it('persists everything when nothing failed, and nothing when everything did', () => {
+    const emails = [{ to: 'a@b.ch' }, { to: 'c@d.ch' }];
+    expect(selectPersistableSends(emails, [])).toHaveLength(2);
+    expect(selectPersistableSends(emails, emails.map((e) => ({ recipient: { email: e.to } })))).toHaveLength(0);
+  });
+
+  it('one recipient\'s writeback always fits in ONE Firestore batch', () => {
+    // commitInChunks assumes one op per item to keep its slice length a safe
+    // bound on ops-per-batch; a grouped item adds one update per section. If
+    // this arithmetic broke, a chunk boundary could split an email's employers
+    // across two commits — half marked as sent, half re-mailed next run.
+    expect(DEDUP_CHUNK_SIZE).toBeGreaterThan(0);
+    expect(DEDUP_CHUNK_SIZE * COMPANY_ALERT_MAX_TOTAL_CARDS).toBeLessThanOrEqual(FIRESTORE_BATCH_SIZE);
+  });
+});
+
+describe('unsubscribe in a grouped email (residuo #5283, RFC 8058)', () => {
+  const sections = (n: number) => Array.from({ length: n }, (_, i) => ({
+    alertId: `a${i}`,
+    companyName: `Azienda ${i}`,
+    companySlug: `azienda-${i}`,
+    jobs: [jobDoc(`j${i}`, `Azienda ${i}`, i + 1)],
+    unsubscribeUrl: `https://frontaliereticino.ch/disiscrivi-alert/?alertId=a${i}&token=tok${i}`,
+  }));
+  const ALL = 'https://frontaliereticino.ch/disiscrivi-alert/?email=x&token=tokall&action=unsubscribe_all';
+  const build = (n: number) => buildCompanyAlertEmail({
+    sections: sections(n),
+    email: 'a@b.ch',
+    locale: 'it',
+    manageUrl: 'https://frontaliereticino.ch/aziende-seguite/',
+    unsubscribeAllUrl: ALL,
+  });
+
+  /**
+   * Every href the email renders, un-escaped back to the URL a click actually
+   * sends. Substring-matching the raw html would silently pass on `&amp;`
+   * (which is correct markup) and, worse, would pass on a URL that appears in
+   * a `title=` or in prose rather than in a link somebody can click.
+   */
+  const renderedHrefs = (html: string) =>
+    [...html.matchAll(/href="([^"]+)"/g)].map((m) => m[1].replace(/&amp;/g, '&'));
+
+  it('gives every employer its own per-alert link, in html AND text', () => {
+    // Per-section AND global, not one or the other: the reader who wants out of
+    // one employer must be able to say so, and both shapes are pure HMAC
+    // (scripts/lib/job-alert-unsub-urls.mjs) so neither needs a session — the
+    // property that makes an unsubscribe work from any mail client.
+    const { html, text } = build(3);
+    const hrefs = renderedHrefs(html);
+    for (let i = 0; i < 3; i += 1) {
+      expect(hrefs).toContain(sections(3)[i].unsubscribeUrl);
+      expect(text).toContain(`Smetti di seguire Azienda ${i}`);
+      expect(text).toContain(sections(3)[i].unsubscribeUrl);
+    }
+    expect(hrefs).toContain(ALL);
+    expect(text).toContain(ALL);
+  });
+
+  it('the RFC 8058 header URL is ALWAYS one the body renders', () => {
+    // The non-negotiable: a One-Click header pointing somewhere the reader
+    // cannot also click is an unsubscribe nobody can verify — and the digest's
+    // contract is that the two are the same URL.
+    for (const n of [1, 2, 5]) {
+      const built = build(n);
+      const header = pickOneClickUnsubscribeUrl(built.sections, ALL);
+      expect(renderedHrefs(built.html), `${n} section(s): header URL is not a link in the body`).toContain(header);
+      expect(built.text, `${n} section(s): header URL missing from text`).toContain(header);
+    }
+  });
+
+  it('one-click means the per-alert link when the email covers ONE employer', () => {
+    // Unchanged from before grouping, and the narrowest action that honours the
+    // click: it leaves the reader's keyword alerts alone.
+    expect(pickOneClickUnsubscribeUrl(build(1).sections, ALL)).toBe(sections(1)[0].unsubscribeUrl);
+  });
+
+  it('one-click means ALL alerts when the email covers several', () => {
+    // Unfollowing an arbitrary one of five would not stop the message: the next
+    // run mails the other four, the Unsubscribe button looks broken, and that is
+    // how a mailbox provider learns to file this sender under spam.
+    expect(pickOneClickUnsubscribeUrl(build(5).sections, ALL)).toBe(ALL);
+  });
+
+  it('falls back to the global link rather than emitting an empty header', () => {
+    expect(pickOneClickUnsubscribeUrl([{ }], ALL)).toBe(ALL);
+    expect(pickOneClickUnsubscribeUrl(undefined as never, ALL)).toBe(ALL);
+  });
+});
+
+describe('the follow cap, after grouping (residuo #5283)', () => {
+  it('is pinned to the email\'s card budget, so a follow set always fits in ONE email', () => {
+    // The old 10 was never about how many employers a person may follow: it was
+    // a deliverability brake, because the sender mailed one email per alert per
+    // run. Grouping makes the per-inbox ceiling 1 message whatever this number
+    // says, so the brake had nothing left to brake — and the number that
+    // replaces it is the one the message can actually carry.
+    expect(MAX_COMPANY_ALERTS_PER_USER).toBe(COMPANY_ALERT_MAX_TOTAL_CARDS);
+    expect(MAX_COMPANY_ALERTS_PER_USER).toBeGreaterThan(MAX_ALERTS_PER_USER);
+  });
+
+  it('the sender no longer sends one email per alert', () => {
+    // Structural, and worth pinning: the loop iterates recipients. Reverting to
+    // an alert loop would restore the ten-emails-in-one-inbox defect with every
+    // unit test above still green, because they test the pieces, not the walk.
+    const sender = readRepoFile('scripts/send-company-alerts.mjs');
+    expect(sender).toContain('groupAlertsByRecipient(alerts)');
+    expect(sender).toContain('buildRecipientSections(alertsByRecipient.get(recipient)');
+    expect(sender).toContain('for (let i = 0; i < recipients.length; i += 1)');
+    expect(sender.includes('for (const alert of alerts) {')).toBe(false);
+    // PER_RUN_CAP now counts recipients — the unit changed even though the
+    // number did not, and the log line must not keep saying "emails".
+    expect(sender).toContain('PER_RUN_CAP} recipients) reached');
   });
 });
 

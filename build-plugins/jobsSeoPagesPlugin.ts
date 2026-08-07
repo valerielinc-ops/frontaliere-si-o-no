@@ -192,7 +192,8 @@ import { buildJobPostingSchema, sanitizeLocalityForRegion, type JobInput } from 
 import { normalizeCantonCode, inferAnyCanton } from '../scripts/lib/target-swiss-locations.mjs';
 import { buildListItemJobPosting } from './shared/jobPostingListItem';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
-import { resolveJobsSeoPagesFlushed } from './shared/buildSignals';
+import { employerProfilesFlushed, resolveJobsSeoPagesFlushed } from './shared/buildSignals';
+import { employerTitleCandidates, type EmployerProfileLocale } from './employerProfilePagesPlugin';
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
 import {
   resolveCantonSection as sharedResolveCantonSection,
@@ -2673,6 +2674,47 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  );
  })();
 
+ // ── Evergreen employer hubs: hand the ad's authority to the page that
+ //    outlives it (`/aziende/<slug>/`) ─────────────────────────────────────
+ //
+ // GSC 28d (9 Jul – 6 Aug 2026): the 505 emitted hubs took 571 impressions
+ // and 29 clicks IN TOTAL — 475 of them never got a single impression — while
+ // the brand demand that maps onto those same hubs is worth 28 826 / 1 257.
+ // A ~50:1 gap, and not a quality problem: 115 of the 200 strongest
+ // «lavorare in / da / presso X» query→page pairs land on a SINGLE AD, which
+ // expires and takes its position with it, and ZERO land on the hub
+ // («lavorare in eoc» → an ad, position 9.5, 28 impressions, 0 clicks).
+ //
+ // employerProfilePagesLinksPlugin already closed the BFS-orphan half of this
+ // (one link per hub from the 4 HTML sitemap pages, enough for
+ // `audit:max-bfs-depth`, worth almost nothing as authority). This is the
+ // other half, and it is the one this plugin is uniquely able to do: it owns
+ // the ~9 140 active ad pages that took 23 375 clicks in the same 28 days,
+ // and every one of them is topically about exactly one employer.
+ //
+ // The URL is NOT rebuilt here. `employerProfilesFlushed` carries the paths
+ // employerProfilePagesPlugin actually WROTE this build, so the href is copied
+ // verbatim out of the emitter's own output and the slug is only used as a
+ // lookup key — a drifting key misses the map and yields NO link rather than a
+ // wrong one. Indexable pages only: below-floor bridges are `noindex` shells
+ // with no job list, so pointing 9 140 pages at one buys nothing.
+ //
+ // Same barrier contract as employerProfilePagesLinksPlugin (buildSignals.ts:
+ // `closeBundle` hooks run in parallel, so a cross-plugin read needs an
+ // explicit signal, never an ordering assumption). No deadlock is possible:
+ // employerProfilePagesPlugin awaits no signal of ours, is registered
+ // unconditionally in vite.config.ts, and resolves this one on EVERY exit of
+ // its `closeBundle` — including the SKIP_EMPLOYER_PROFILE_PAGES=1 fast-exit,
+ // which resolves `[]` and simply leaves every job page unlinked.
+ const emittedEmployerHubs = new Map<string, string>();
+ for (const emitted of await employerProfilesFlushed) {
+ const m = /^(?:\/(en|de|fr))?\/aziende\/([^/]+)\/$/.exec(emitted.path);
+ if (m) emittedEmployerHubs.set(`${m[1] ?? 'it'}|${m[2]}`, emitted.path);
+ }
+ console.log(
+ `\x1b[36m[jobs-seo-pages]\x1b[0m employer hubs available for internal linking: ${emittedEmployerHubs.size}`,
+ );
+
  for (const job of validJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const perLocaleSlug = {
@@ -3361,7 +3403,36 @@ ${staticAnalyticsHtml}
  const cLogoImg = renderLogoImg(cLogo, `Logo ${job.company}`, 40, 40);
  const card = `<a href="${cHref}" aria-label="${esc(anchorText)}" class="cb">${cLogoImg}<div><div class="cbt">${companyHeading[locale] || companyHeading.it}</div><div class="cbs">${esc(job.company)} · ${esc(job.location || dc)}</div><div class="cbm">${companyMonitoring[locale] || companyMonitoring.it}</div></div></a>`;
  const ctaLink = `<p class="cbl"><a href="${cHref}">${esc(anchorText)} &rarr;</a></p>`;
- return card + ctaLink;
+ // Second, DIFFERENT destination — the evergreen `/aziende/<slug>/` profile,
+ // not the canton-scoped board hub `cHref` points at. Emitted only when the
+ // slug is in `emittedEmployerHubs`, i.e. only when employerProfilePagesPlugin
+ // wrote an indexable page at that exact path this build (see the map's
+ // construction above); otherwise the ad keeps the two links it has today.
+ //
+ // The anchor mirrors the destination's own <title>
+ // (`employerTitleCandidates` in employerProfilePagesPlugin.ts:
+ // `{name}: {INTENT_PHRASE} {AND_WORD} {PAY_PHRASE}`), because anchor text is
+ // a ranking signal for the TARGET and the target's phrase was re-derived from
+ // GSC on 2026-08-07: brand-first, «offerte di lavoro» as the head phrase
+ // (46 341 impr / 7 227 click in 90 d), «e stipendi» as the differentiator.
+ //
+ // That last token is doing real work HERE too. `anchorText` above points at
+ // `/cerca-lavoro-<canton>/azienda-<slug>/` — the sibling that currently HOLDS
+ // this brand demand ("eoc offerte di lavoro": 3 550 impr / 228 click at pos
+ // 4.78, landing on the canton hub). Two links, on the same page, to two
+ // different pages: the canton token differentiates one, the salary token the
+ // other. Giving both the same phrase would aim two of our own URLs at one
+ // query — the SERP cannibalisation brandCanonicalMap.ts (#1247) exists to
+ // prevent.
+ const hubPath = emittedEmployerHubs.get(`${locale}|${cSlugBanner}`);
+ // Imported, not retyped: `employerTitleCandidates(locale, name)[0]` IS the
+ // destination's longest <title> candidate. A second copy of those four strings
+ // here would drift the first time either side is retuned on fresh GSC data.
+ const hubAnchorText = employerTitleCandidates(locale as EmployerProfileLocale, job.company)[0];
+ const hubLink = hubPath
+ ? `<p class="cbl"><a href="${esc(hubPath)}">${esc(hubAnchorText)} &rarr;</a></p>`
+ : '';
+ return card + ctaLink + hubLink;
  })()}
  ${related.length > 0 ? `<section class="related"><h2>${esc(localeCopy[locale].relatedJobs)}</h2><ul class="rul">${relatedHtml}</ul></section>` : ''}
  ${recentArticlesHtmlFor(locale)}

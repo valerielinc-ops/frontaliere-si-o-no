@@ -75,6 +75,9 @@ import { resolveZoneId as resolveZoneIdShared } from './lib/cf-analytics.mjs';
 // scripts/ci/purge-changed-cdn-assets.mjs, which batches UP TO this value —
 // a drifting second copy there would produce lists this script rejects.
 import { MAX_TARGETED_FILES } from './lib/cf-purge-limits.mjs';
+// Every cache variant the edge keeps for a URL — `Vary: Origin` means the
+// browser's copy is a SEPARATE entry from the one a header-less purge clears.
+import { purgeBodiesForUrls } from './lib/cf-purge-variants.mjs';
 
 const PURGE_SETTLE_MS = Number(process.env.CF_PURGE_SETTLE_MS) || 20_000;
 
@@ -180,19 +183,47 @@ try {
     process.exit(0);
   }
   const zoneId = await resolveZoneId();
-  const purgeBody = targetFiles ? { files: targetFiles } : { purge_everything: true };
   const purgeLabel = targetFiles ? `${targetFiles.length} file(s)` : 'purge_everything';
-  const { json } = await cf('POST', `/zones/${zoneId}/purge_cache`, purgeBody);
-  if (!json?.success) {
-    console.error(`❌ ${purgeLabel} failed: ${JSON.stringify(json?.errors)}`);
-    warnStaleEdge(
-      `${purgeLabel} API call failed: ${JSON.stringify(json?.errors)}`,
-      targetFiles ? `until the next successful purge of these URLs` : undefined,
-    );
-    process.exit(1);
+
+  // TARGETED MODE CLEARS EVERY CACHE VARIANT, NOT JUST THE HEADER-LESS ONE.
+  //
+  // `cdn.frontaliereticino.ch` answers with `Vary: Origin`, so the edge holds
+  // TWO entries per URL: the one a header-less request creates (curl, CI probes)
+  // and the one a cross-origin module `<script>`/`fetch` from the SPA creates —
+  // the only one a real browser ever reads. A `files: ['<url>']` purge clears
+  // the first alone.
+  //
+  // Measured on this zone 2026-08-06, same URL, one minute apart:
+  //   files: ['…/assets/App.js']                → Origin variant stayed HIT, age climbed 20→28
+  //   files: [{url, headers:{Origin: <site>}}]  → Origin variant went MISS
+  //
+  // Not a detail: deploy-it-pages-prep.sh purges exactly these keys after every
+  // R2 sync, so the bundle browsers boot stayed stale up to its `max-age`
+  // (7 days) behind the one CI could see. That shipped an /aziende/<slug>/ page
+  // whose HTML carried a hydration island the served JS knew nothing about —
+  // 19h of a dead «Segui questa azienda» behind a green pipeline (#5012).
+  //
+  // Both calls carry the SAME url list, as separate POSTs rather than one
+  // doubled list, so MAX_TARGETED_FILES keeps meaning "URLs" and not "cache
+  // entries".
+  const purgeVariants = targetFiles
+    ? purgeBodiesForUrls(targetFiles)
+    : [{ label: 'purge_everything', purge_everything: true }];
+
+  for (const { label, ...purgeBody } of purgeVariants) {
+    const { json } = await cf('POST', `/zones/${zoneId}/purge_cache`, purgeBody);
+    if (!json?.success) {
+      console.error(`❌ ${purgeLabel} [${label}] failed: ${JSON.stringify(json?.errors)}`);
+      warnStaleEdge(
+        `${purgeLabel} [${label}] API call failed: ${JSON.stringify(json?.errors)}`,
+        targetFiles ? `until the next successful purge of these URLs` : undefined,
+      );
+      process.exit(1);
+    }
   }
+
   if (targetFiles) {
-    console.log(`✅ Cloudflare edge cache purged for ${targetFiles.length} URL(s) (zone ${zoneId}):`);
+    console.log(`✅ Cloudflare edge cache purged for ${targetFiles.length} URL(s) × ${purgeVariants.length} variant(s) (zone ${zoneId}):`);
     for (const url of targetFiles) console.log(`   - ${url}`);
     console.log(
       '⏳ Not sleeping (targeted mode has no immediate-live-probe race like the full-zone path) — propagation is best-effort, up to ~30s worst case across edge PoPs (Cloudflare documented ceiling).',

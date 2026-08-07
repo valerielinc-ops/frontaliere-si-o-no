@@ -283,6 +283,115 @@ log(`manifest: commit ${String(manifest.commit).slice(0, 8)}, ${manifest.counts.
 
 // Fetch and validate everything first, so a mid-way failure cannot leave public/
 // holding a half-updated set.
+// ── Articles this repo published, which nanako's sitemap cannot know about ───
+//
+// The sitemaps below are served VERBATIM from the corpus repo. That is correct
+// for everything nanako owns — and silently wrong for an article this repo
+// published itself, because `generate-article.yml` still runs create-article.mjs
+// here while the content mirror upward (`mirror-articles-corpus.yml`) is
+// dispatch-only and being retired. Such an article is in the local slug
+// registry, answers HTTP 200, and appears in NO published sitemap. Overwriting
+// public/sitemap-blog*.xml with the upstream copy de-lists a live page from the
+// site's own index.
+//
+// So the staged document is the union: upstream's, plus a synthesized <url> for
+// every registry article upstream has not got. When the content mirror finally
+// carries an article up, upstream starts emitting it and the synthesized block
+// stops being generated — no duplicate, nothing to clean up. One producer
+// writes this file, which is the property modifySitemap()'s removal was
+// protecting; this is a merge inside that one producer, not a second author.
+// (#5289)
+const SECTION_SITEMAPS = {
+  'sitemap-blog.xml': {
+    registry: ['packages/articles/content/routerBlogData.ts', 'BLOG_SLUGS'],
+    bases: {
+      it: 'https://frontaliereticino.ch/articoli-frontaliere/',
+      en: 'https://frontaliereticino.ch/en/cross-border-articles/',
+      de: 'https://frontaliereticino.ch/de/grenzgaenger-artikel/',
+      fr: 'https://frontaliereticino.ch/fr/articles-frontalier/',
+    },
+  },
+  'sitemap-blog-ch.xml': {
+    registry: ['packages/articles/content/routerSwissData.ts', 'SWISS_SLUGS'],
+    bases: {
+      it: 'https://frontaliereticino.ch/articoli-svizzera/',
+      en: 'https://frontaliereticino.ch/en/swiss-articles/',
+      de: 'https://frontaliereticino.ch/de/schweiz-artikel/',
+      fr: 'https://frontaliereticino.ch/fr/articles-suisse/',
+    },
+    // A canonical-overridden swiss article is dropped from this sitemap ON
+    // PURPOSE (issue #3010 item 1). Reinstating it would undo that decision.
+    overrides: 'data/swiss-article-canonical-overrides.json',
+  },
+};
+
+/**
+ * `{ id: {it,en,de,fr} }` out of a registry .ts, or null when the file is not
+ * in this checkout. Same regex as scripts/ci/check-blog-slugs-sitemap-sync.mjs
+ * — these are TypeScript and this is a plain .mjs script with no TS pipeline.
+ *
+ * Absent ≠ empty: a tree without the corpus (the script's own tests, a fixture
+ * run) simply cannot judge and reinstates nothing. A file that EXISTS but
+ * parses to zero entries is corrupt and refuses, because treating it as empty
+ * would silently stop protecting every article at once.
+ */
+function readSlugRegistry(file, constName) {
+  const abs = path.join(ROOT, file);
+  if (!fs.existsSync(abs)) return null;
+  const src = fs.readFileSync(abs, 'utf-8');
+  const declared = src.match(new RegExp(`const ${constName}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
+  const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
+  const out = new Map();
+  let m;
+  while ((m = rx.exec(declared)) !== null) {
+    out.set(m[1], { it: m[2], en: m[3], de: m[4], fr: m[5] });
+  }
+  if (out.size === 0) fail(`could not parse ${constName} out of ${file} — refusing`);
+  return out;
+}
+
+function readOverrideKeys(file) {
+  const abs = path.join(ROOT, file);
+  if (!fs.existsSync(abs)) return new Set();
+  const raw = JSON.parse(fs.readFileSync(abs, 'utf-8'));
+  return new Set(Object.keys(raw?.overrides ?? raw ?? {}));
+}
+
+/** The upstream document plus a <url> for each registry article it lacks. */
+function reinstateLocalArticles(name, xml) {
+  const cfg = SECTION_SITEMAPS[name];
+  if (!cfg) return { xml, added: [] };
+  const registry = readSlugRegistry(...cfg.registry);
+  if (!registry) return { xml, added: [] };
+
+  const shadowed = cfg.overrides ? readOverrideKeys(cfg.overrides) : new Set();
+  const present = new Set(
+    [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim()),
+  );
+
+  const blocks = [];
+  const added = [];
+  for (const [id, slugs] of registry) {
+    if (shadowed.has(slugs.it)) continue;
+    const canonical = `${cfg.bases.it}${slugs.it}/`;
+    if (present.has(canonical)) continue;
+    const alts = ['it', 'en', 'de', 'fr']
+      .map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${cfg.bases[l]}${slugs[l]}/" />`)
+      .join('\n');
+    blocks.push(
+      `  <url>\n    <loc>${canonical}</loc>\n${alts}\n`
+      + `    <xhtml:link rel="alternate" hreflang="x-default" href="${canonical}" />\n`
+      + `    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
+    );
+    added.push(id);
+  }
+  if (blocks.length === 0) return { xml, added: [] };
+
+  const close = xml.lastIndexOf('</urlset>');
+  if (close === -1) fail(`${name} has no </urlset> — refusing`);
+  return { xml: `${xml.slice(0, close)}${blocks.join('\n')}\n${xml.slice(close)}`, added };
+}
+
 const staged = new Map();
 for (const name of SITEMAPS) {
   let xml;
@@ -290,6 +399,14 @@ for (const name of SITEMAPS) {
     xml = await get(name);
   } catch (err) {
     fail(`${name} unavailable: ${err.message}`);
+  }
+
+  // Before the count guards, so the shrink comparison below is made against
+  // the document that will actually be written.
+  const reinstated = reinstateLocalArticles(name, xml);
+  xml = reinstated.xml;
+  for (const id of reinstated.added) {
+    log(`${name}: re-listing ${id} — in the slug registry but absent upstream`);
   }
 
   const urls = countUrls(xml);
@@ -560,6 +677,67 @@ for (const name of FEEDS) {
       fail(`${NEWS_CANDIDATES} is not a sitemap document — refusing`);
     }
 
+    // ── De-listed articles must leave, even inside the window (#5289) ────────
+    //
+    // The merge below is a UNION of what main is serving and what nanako
+    // publishes, and the only thing that ever removes an entry is ageing out of
+    // the 48h window. That assumes every serving entry still corresponds to an
+    // article — and it stops being true the moment the corpus pull removes one.
+    //
+    // That is not hypothetical. `generate-article.yml` writes an article into
+    // this repo (registry + a news entry via create-article.mjs), nanako never
+    // receives it because the content mirror upward is dispatch-only, and the
+    // next pull-articles-corpus.mjs run deletes it from the registry. The news
+    // entry has no such owner, so it stays — pointing Google News at a page the
+    // site has just de-listed, and turning
+    // tests/blog-slugs-sitemap-sync.test.ts red on every open PR until it
+    // expires on its own. `rimborsi-730-sostituti-imposta` did exactly this.
+    //
+    // The registries are parsed with the same regex as
+    // scripts/ci/check-blog-slugs-sitemap-sync.mjs rather than imported: they
+    // are TypeScript and this is a plain .mjs script with no TS pipeline. Only
+    // the IT slug is needed — <loc> in this sitemap is always the IT canonical.
+    // Absent registry ≠ empty registry. A checkout without the corpus (the
+    // script's own tests run against a throwaway tree, and so does anyone
+    // pointing ARTICLES_API_BASE at a fixture) simply cannot judge what is
+    // de-listed, so it prunes nothing. A file that EXISTS but yields no slugs
+    // is the corrupt case and still refuses — parsing it as empty would de-list
+    // the entire sitemap in one run.
+    const itSlugsOf = (file, constName) => {
+      const abs = path.join(ROOT, file);
+      if (!fs.existsSync(abs)) return null;
+      const src = fs.readFileSync(abs, 'utf-8');
+      const declared = src.match(new RegExp(`const ${constName}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
+      const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["']/g;
+      const out = new Set();
+      let m;
+      while ((m = rx.exec(declared)) !== null) out.add(m[2]);
+      if (out.size === 0) fail(`could not parse ${constName} out of ${file} — refusing`);
+      return out;
+    };
+
+    const registries = [
+      {
+        pattern: /^https:\/\/frontaliereticino\.ch\/articoli-frontaliere\/([^/]+)\/$/,
+        slugs: itSlugsOf('packages/articles/content/routerBlogData.ts', 'BLOG_SLUGS'),
+      },
+      {
+        pattern: /^https:\/\/frontaliereticino\.ch\/articoli-svizzera\/([^/]+)\/$/,
+        slugs: itSlugsOf('packages/articles/content/routerSwissData.ts', 'SWISS_SLUGS'),
+      },
+    ].filter((r) => r.slugs !== null);
+
+    // A <loc> that is not article-shaped is not this check's business — say so
+    // by returning false rather than by guessing.
+    const deListed = (block) => {
+      const loc = locOf(block);
+      for (const { pattern, slugs } of registries) {
+        const m = loc.match(pattern);
+        if (m) return !slugs.has(m[1]);
+      }
+      return false;
+    };
+
     const now = Date.now();
     const inWindow = (block) => {
       const at = publishedAtOf(block);
@@ -591,19 +769,31 @@ for (const name of FEEDS) {
     for (const block of currentBlocks) merged.set(locOf(block), block);
     for (const block of candidates) merged.set(locOf(block), block);
 
-    const kept = [...merged.values()].filter(inWindow);
+    const kept = [...merged.values()].filter((b) => inWindow(b) && !deListed(b));
 
     // The guard: anything main is serving that is still inside its window has to
     // come out the other side. A candidate document that silently dropped a live
     // entry would de-list a page from Google News with no other signal.
+    //
+    // De-listed entries are exempt, and have to be: they are dropped ON PURPOSE
+    // just above, so without this the prune would trip the very guard meant to
+    // catch an accidental loss.
     const keptLocs = new Set(kept.map(locOf));
     for (const block of currentBlocks) {
       const loc = locOf(block);
-      if (inWindow(block) && !keptLocs.has(loc)) {
+      if (inWindow(block) && !deListed(block) && !keptLocs.has(loc)) {
         fail(
           `${NEWS_SITEMAP}: ${loc} is still inside the ${NEWS_WINDOW_HOURS}h window but the ` +
             `merge dropped it — refusing`,
         );
+      }
+    }
+
+    // Named, not just counted: dropping an entry from Google News is a visible
+    // act and the run log is where a human would look for it.
+    for (const block of currentBlocks) {
+      if (deListed(block)) {
+        log(`${NEWS_SITEMAP}: dropping ${locOf(block)} — no longer in the slug registry`);
       }
     }
 

@@ -208,7 +208,7 @@ jobs:
           fi
 
           fail=0
-          pids=(); names=()
+          pids=(); names=(); pushed=()
           while IFS= read -r shard_json; do
             locale="$(jq -r '.locale' <<<"$shard_json")"
             mapfile -t rel_paths < <(jq -r '.paths[]' <<<"$shard_json")
@@ -217,8 +217,34 @@ jobs:
           done < <(jq -c '.shards[]' "$SUMMARY_PATH")
 
           for idx in "${!pids[@]}"; do
-            wait "${pids[$idx]}" || { echo "::warning::${names[$idx]}-${SHARD_SECTION} shard push failed — continuing to the next locale"; fail=1; }
+            if wait "${pids[$idx]}"; then
+              pushed+=("${names[$idx]}")
+            else
+              echo "::warning::${names[$idx]}-${SHARD_SECTION} shard push failed — continuing to the next locale"
+              fail=1
+            fi
           done
+
+          # Hand the liveness probe the ONE fact only this step can establish:
+          # which locales' git pushes are CONFIRMED landed on the shard remote.
+          #
+          # Without it the probe has to infer "did the push land?" from "is the
+          # URL reachable?", and for a BRAND-NEW article that inference is
+          # exactly inverted for the whole Pages propagation window: the URL 404s
+          # *because* the shard's Pages build has not published the commit yet,
+          # not because the push failed. Measured (run 31148285623): all four
+          # pushes confirmed, en/de/fr live in ~40s, `it` still 404 at the 300s
+          # deadline — reported as "the push did not land", job failed,
+          # priority:high issue #5250 opened, and the page was serving 200 when
+          # checked afterwards. Healthy runs converge in 7-8 polls (~40s), so
+          # that locale was a queue outlier, not a broken publish.
+          #
+          # Exported even on the partial-failure path (some locales pushed, some
+          # did not) so the probe can tell the two kinds of missing URL apart in
+          # the same run rather than condemning all of them.
+          PUSHED_CSV="$(IFS=,; printf '%s' "${pushed[*]-}")"
+          echo "FAST_PUBLISH_PUSHED_LOCALES=$PUSHED_CSV" >> "$GITHUB_ENV"
+          echo "📦 Shard pushes confirmed landed for locale(s): ${PUSHED_CSV:-<none>}"
           exit "$fail"
 
       # Only pings search engines once the pages are CONFIRMED live — never
@@ -228,17 +254,25 @@ jobs:
       # which pinged immediately after dispatching deploy.yml on the false
       # assumption "deploy takes ~2-3 min" (worst measured deploy:
       # 2h04m37s — Google was being sent to crawl a 404).
-      # Exit 2 means "reachable, Pages has not caught up yet" — the push landed
-      # and the pages arrive on their own. That used to be reported as the same
-      # failure as "the push did not land", which on 2026-08-06 opened a
-      # priority:high issue during a GitHub Pages major_outage for four URLs
-      # that were serving correctly minutes later. A false alarm there is not
-      # free: it feeds the issue-fix loop and burns shared Claude quota.
+      # Exit 2 means "the push landed, Pages has not caught up yet" — the pages
+      # arrive on their own. That used to be reported as the same failure as
+      # "the push did not land", which on 2026-08-06 opened a priority:high
+      # issue during a GitHub Pages major_outage for four URLs that were serving
+      # correctly minutes later. A false alarm there is not free: it feeds the
+      # issue-fix loop and burns shared Claude quota.
+      #
+      # The probe decides which of the two it is from FAST_PUBLISH_PUSHED_LOCALES,
+      # exported by the shard-push step above — NOT from whether the URL answers.
+      # A first publish 404s throughout the propagation window exactly because
+      # the push landed, so reachability misfiles the ordinary case as a lost
+      # push (issue #5250, run 31148285623: `it` 404 at the deadline with its
+      # push confirmed on the remote, healthy 200 shortly after).
       #
       # Still NOT treated as success: `delayed` is surfaced as an output so the
       # indexing pings below stay gated on a genuine `success`, because pinging
       # Google at bytes that are not being served yet is the thing this step
-      # exists to prevent.
+      # exists to prevent. A delayed publish is carried the rest of the way by
+      # the full deploy.yml chain, which is the source of truth anyway.
       - name: Verify shard URLs are live
         id: verify
         if: steps.render.outcome == 'success'
