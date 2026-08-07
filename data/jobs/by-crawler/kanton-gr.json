@@ -760,10 +760,10 @@
       "id": "kanton-gr-2d0ed0c8aa9e",
       "slug": "apprendistato-come-fachmann-frau-betriebsunterhalt-cfc-hausdienst-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "apprendistato-come-fachmann-frau-betriebsunterhalt-cfc-hausdienst-kantonale-verwaltung-graubunden-chur",
-        "en": "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-hausdienst-kantonale-verwaltung-graubunden-chur",
         "de": "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-hausdienst-kanton-gr-ch",
-        "fr": "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-hausdienst-kantonale-verwaltung-graubunden-chur"
+        "it": "apprendistato-come-fachmann-frau-betriebsunterhalt-cfc-hausdienst-kantonale-verwaltung-graubunden-chur",
+        "en": "apprenticeship-as-a-specialist-employee-maintenance-efz-home-service-kantonale-verwaltung-graubunden-chur",
+        "fr": "apprentissage-en-tant-que-specialiste-entretien-des-employes-efz-service-a-domicile-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -809,11 +809,18 @@
         "it": [
           "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-hausdienst-kanton-gr-ch",
           "apprendistato-come-fachmann-frau-betriebsunterhalt-cfc-hausdienst-kantonale-verwaltung-graubunden-chur"
+        ],
+        "en": [
+          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-hausdienst-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
+          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-hausdienst-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-hausdienst-kanton-gr-ch",
-        "apprendistato-come-fachmann-frau-betriebsunterhalt-cfc-hausdienst-kantonale-verwaltung-graubunden-chur"
+        "apprendistato-come-fachmann-frau-betriebsunterhalt-cfc-hausdienst-kantonale-verwaltung-graubunden-chur",
+        "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-hausdienst-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -834,10 +841,10 @@
       "id": "kanton-gr-f53ad4e765b7",
       "slug": "apprendistato-come-automobil-mechatroniker-in-cfc-personenwagen-kantonale-verwaltung-graubunden-scuol",
       "slugByLocale": {
-        "it": "apprendistato-come-automobil-mechatroniker-in-cfc-personenwagen-kantonale-verwaltung-graubunden-scuol",
-        "en": "lehrstelle-als-automobil-mechatroniker-in-efz-personenwagen-kanton-gr-ch",
         "de": "lehrstelle-als-automobil-mechatroniker-in-efz-personenwagen-kanton-gr-ch",
-        "fr": "lehrstelle-als-automobil-mechatroniker-in-efz-personenwagen-kanton-gr-ch"
+        "it": "apprendistato-come-automobil-mechatroniker-in-cfc-personenwagen-kantonale-verwaltung-graubunden-scuol",
+        "en": "apprenticeship-as-an-automotive-mechatronics-engineer-in-efz-passenger-car-kantonale-verwaltung-graubunden-scuol",
+        "fr": "apprentissage-en-tant-qu-ingenieur-mecatronique-automobile-en-efz-voiture-de-tourisme-kantonale-verwaltung-graubunden"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -883,6 +890,12 @@
         "it": [
           "lehrstelle-als-automobil-mechatroniker-in-efz-personenwagen-kanton-gr-ch",
           "apprendistato-come-automobil-mechatroniker-in-cfc-personenwagen-kantonale-verwaltung-graubunden-scuol"
+        ],
+        "en": [
+          "lehrstelle-als-automobil-mechatroniker-in-efz-personenwagen-kanton-gr-ch"
+        ],
+        "fr": [
+          "lehrstelle-als-automobil-mechatroniker-in-efz-personenwagen-kanton-gr-ch"
         ]
       },
       "previousSlugs": [
@@ -908,10 +921,10 @@
       "id": "kanton-gr-a9e38801034c",
       "slug": "fachspezialist-in-previdenza-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "fachspezialist-in-previdenza-kantonale-verwaltung-graubunden-chur",
-        "en": "fachspezialist-in-vorsorge-kanton-gr-ch",
         "de": "fachspezialist-in-vorsorge-kanton-gr-ch",
-        "fr": "fachspezialist-in-vorsorge-kanton-gr-ch"
+        "it": "fachspezialist-in-previdenza-kantonale-verwaltung-graubunden-chur",
+        "en": "specialist-pension-kantonale-verwaltung-graubunden-chur",
+        "fr": "specialiste-pension-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -960,6 +973,12 @@
         "it": [
           "fachspezialist-in-vorsorge-kanton-gr-ch",
           "fachspezialist-in-previdenza-kantonale-verwaltung-graubunden-chur"
+        ],
+        "en": [
+          "fachspezialist-in-vorsorge-kanton-gr-ch"
+        ],
+        "fr": [
+          "fachspezialist-in-vorsorge-kanton-gr-ch"
         ]
       },
       "previousSlugs": [
@@ -983,12 +1002,12 @@
     },
     {
       "id": "kanton-gr-0d8dc215eed2",
-      "slug": "milchtechnologin-milchtechnologe-kantonale-verwaltung-graubunden-landquart",
+      "slug": "tecnologo-del-latte-tecnologo-del-latte-kantonale-verwaltung-graubunden-landquart",
       "slugByLocale": {
-        "it": "milchtechnologin-milchtechnologe-kantonale-verwaltung-graubunden-landquart",
-        "en": "milchtechnologin-milchtechnologe-kantonale-verwaltung-graubunden-landquart",
         "de": "milchtechnologin-milchtechnologe-kanton-gr-ch",
-        "fr": "milchtechnologin-milchtechnologe-kantonale-verwaltung-graubunden-landquart"
+        "it": "tecnologo-del-latte-tecnologo-del-latte-kantonale-verwaltung-graubunden-landquart",
+        "en": "milk-technologist-milk-technologist-kantonale-verwaltung-graubunden-landquart",
+        "fr": "technologue-technologue-du-lait-kantonale-verwaltung-graubunden-landquart"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1037,6 +1056,12 @@
         "it": [
           "milchtechnologin-milchtechnologe-kanton-gr-ch",
           "milchtechnologin-milchtechnologe-kantonale-verwaltung-graubunden-landquart"
+        ],
+        "en": [
+          "milchtechnologin-milchtechnologe-kantonale-verwaltung-graubunden-landquart"
+        ],
+        "fr": [
+          "milchtechnologin-milchtechnologe-kantonale-verwaltung-graubunden-landquart"
         ]
       },
       "previousSlugs": [
@@ -1062,10 +1087,10 @@
       "id": "kanton-gr-dc658ee0de50",
       "slug": "responsabile-sekretariat-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "responsabile-sekretariat-kantonale-verwaltung-graubunden-chur",
-        "en": "leiter-in-sekretariat-kanton-gr-ch",
         "de": "leiter-in-sekretariat-kanton-gr-ch",
-        "fr": "leiter-in-sekretariat-kanton-gr-ch"
+        "it": "responsabile-sekretariat-kantonale-verwaltung-graubunden-chur",
+        "en": "head-secretary-kantonale-verwaltung-graubunden-chur",
+        "fr": "chef-secretaire-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1114,6 +1139,12 @@
         "it": [
           "leiter-in-sekretariat-kanton-gr-ch",
           "responsabile-sekretariat-kantonale-verwaltung-graubunden-chur"
+        ],
+        "en": [
+          "leiter-in-sekretariat-kanton-gr-ch"
+        ],
+        "fr": [
+          "leiter-in-sekretariat-kanton-gr-ch"
         ]
       },
       "previousSlugs": [
@@ -1137,12 +1168,12 @@
     },
     {
       "id": "kanton-gr-41ae87b92f67",
-      "slug": "zivilschutzinstruktor-in-kantonale-verwaltung-graubunden-chur",
+      "slug": "istruttore-di-protezione-civile-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "zivilschutzinstruktor-in-kantonale-verwaltung-graubunden-chur",
-        "en": "zivilschutzinstruktor-in-kantonale-verwaltung-graubunden-chur",
         "de": "zivilschutzinstruktor-in-kanton-gr-ch",
-        "fr": "zivilschutzinstruktor-in-kantonale-verwaltung-graubunden-chur"
+        "it": "istruttore-di-protezione-civile-kantonale-verwaltung-graubunden-chur",
+        "en": "civil-protection-instructor-kantonale-verwaltung-graubunden-chur",
+        "fr": "instructeur-en-protection-civile-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1191,6 +1222,12 @@
         "it": [
           "zivilschutzinstruktor-in-kanton-gr-ch",
           "zivilschutzinstruktor-in-kantonale-verwaltung-graubunden-chur"
+        ],
+        "en": [
+          "zivilschutzinstruktor-in-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
+          "zivilschutzinstruktor-in-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
@@ -1214,12 +1251,12 @@
     },
     {
       "id": "kanton-gr-df11e78e005b",
-      "slug": "sekretar-in-kanton-gr-ch",
+      "slug": "segretario-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "sekretar-in-kanton-gr-ch",
-        "en": "sekretar-in-kanton-gr-ch",
         "de": "sekretar-in-kanton-gr-ch",
-        "fr": "sekretar-in-kanton-gr-ch"
+        "it": "segretario-kantonale-verwaltung-graubunden-chur",
+        "en": "secretary-kantonale-verwaltung-graubunden-chur",
+        "fr": "secretaire-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1277,16 +1314,30 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-08-06T11:34:48.880Z"
+      "firstSeenAt": "2026-08-06T11:34:48.880Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sekretar-in-kanton-gr-ch"
+        ],
+        "en": [
+          "sekretar-in-kanton-gr-ch"
+        ],
+        "fr": [
+          "sekretar-in-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sekretar-in-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-e600a89a7f5e",
-      "slug": "ict-projektleiter-in-digitalisierungsprojekte-kantonale-verwaltung-graubunden-chur",
+      "slug": "ict-project-manager-in-progetti-di-digitalizzazione-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "ict-projektleiter-in-digitalisierungsprojekte-kantonale-verwaltung-graubunden-chur",
-        "en": "ict-projektleiter-in-digitalisierungsprojekte-kantonale-verwaltung-graubunden-chur",
         "de": "ict-projektleiter-in-digitalisierungsprojekte-kanton-gr-ch",
-        "fr": "ict-projektleiter-in-digitalisierungsprojekte-kantonale-verwaltung-graubunden-chur"
+        "it": "ict-project-manager-in-progetti-di-digitalizzazione-kantonale-verwaltung-graubunden-chur",
+        "en": "ict-project-manager-in-digitalisation-projects-kantonale-verwaltung-graubunden-chur",
+        "fr": "chef-de-projet-tic-projets-de-numerisation-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1334,6 +1385,12 @@
       "previousSlugsByLocale": {
         "it": [
           "ict-projektleiter-in-digitalisierungsprojekte-kanton-gr-ch",
+          "ict-projektleiter-in-digitalisierungsprojekte-kantonale-verwaltung-graubunden-chur"
+        ],
+        "en": [
+          "ict-projektleiter-in-digitalisierungsprojekte-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
           "ict-projektleiter-in-digitalisierungsprojekte-kantonale-verwaltung-graubunden-chur"
         ]
       },
@@ -1410,14 +1467,12 @@
       "pensum": "50-80%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-kanton-gr-ch",
-        "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
-        "dipl-professionista-hf-kantonale-verwaltung-graubunden-cazis"
+        "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-kanton-gr-ch",
-          "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
-          "dipl-professionista-hf-kantonale-verwaltung-graubunden-cazis"
+          "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
         ],
         "en": [
           "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
@@ -1593,13 +1648,11 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "leiter-in-bezirkstiefbauamt-ilanz-kanton-gr-ch",
-        "leiter-in-bezirkstiefbauamt-ilanz-kantonale-verwaltung-graubunden-ilanz",
-        "responsabile-bezirkstiefbauamt-ilanz-kantonale-verwaltung-graubunden-ilanz"
+        "leiter-in-bezirkstiefbauamt-ilanz-kantonale-verwaltung-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-bezirkstiefbauamt-ilanz-kanton-gr-ch",
-          "responsabile-bezirkstiefbauamt-ilanz-kantonale-verwaltung-graubunden-ilanz"
+          "leiter-in-bezirkstiefbauamt-ilanz-kanton-gr-ch"
         ],
         "en": [
           "leiter-in-bezirkstiefbauamt-ilanz-kantonale-verwaltung-graubunden-ilanz"
@@ -1676,13 +1729,11 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "jurist-in-im-rechtsdienst-strasse-wald-und-wild-kanton-gr-ch",
-        "jurist-in-im-rechtsdienst-strasse-wald-e-wild-kantonale-verwaltung-graubunden-chur"
+        "jurist-in-im-rechtsdienst-strasse-wald-und-wild-kanton-gr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "jurist-in-im-rechtsdienst-strasse-wald-und-wild-kanton-gr-ch",
-          "jurist-in-im-rechtsdienst-strasse-wald-e-wild-kantonale-verwaltung-graubunden-chur"
+          "jurist-in-im-rechtsdienst-strasse-wald-und-wild-kanton-gr-ch"
         ],
         "en": [
           "jurist-in-im-rechtsdienst-strasse-wald-und-wild-kanton-gr-ch"
@@ -1757,14 +1808,12 @@
       "applicationDeadline": "2026-08-30",
       "previousSlugs": [
         "kontrolleur-in-landwirtschaftlicher-kontrolldienst-graubunden-kanton-gr-ch",
-        "kontrolleur-in-landwirtschaftlicher-kontrolldienst-graubunden-kantonale-verwaltung-graubunden-chur",
-        "ispettore-del-servizio-di-ispezione-agricola-grigioni-kantonale-verwaltung-graubunden-chur"
+        "kontrolleur-in-landwirtschaftlicher-kontrolldienst-graubunden-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kontrolleur-in-landwirtschaftlicher-kontrolldienst-graubunden-kanton-gr-ch",
-          "kontrolleur-in-landwirtschaftlicher-kontrolldienst-graubunden-kantonale-verwaltung-graubunden-chur",
-          "ispettore-del-servizio-di-ispezione-agricola-grigioni-kantonale-verwaltung-graubunden-chur"
+          "kontrolleur-in-landwirtschaftlicher-kontrolldienst-graubunden-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "kontrolleur-in-landwirtschaftlicher-kontrolldienst-graubunden-kantonale-verwaltung-graubunden-chur"
@@ -1842,13 +1891,11 @@
       "pensum": "100%",
       "previousSlugs": [
         "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kanton-gr-ch",
-        "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis",
-        "collaboratore-trice-in-betreuungs-e-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis"
+        "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kanton-gr-ch",
-          "collaboratore-trice-in-betreuungs-e-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis"
+          "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kanton-gr-ch"
         ],
         "en": [
           "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis"
@@ -1925,13 +1972,11 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch",
-        "candidato-a-in-riqualificazione-in-come-bauleiter-in-im-bezirk-3-kantonale-verwaltung-graubunden-samedan"
+        "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch",
-          "candidato-a-in-riqualificazione-in-come-bauleiter-in-im-bezirk-3-kantonale-verwaltung-graubunden-samedan"
+          "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch"
         ],
         "en": [
           "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch"
@@ -2009,14 +2054,12 @@
       "pensum": "80%",
       "previousSlugs": [
         "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kanton-gr-ch",
-        "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur",
-        "specialist-caregivers-riconoscimento-kantonale-verwaltung-graubunden-chur"
+        "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kanton-gr-ch",
-          "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur",
-          "specialist-caregivers-riconoscimento-kantonale-verwaltung-graubunden-chur"
+          "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur"
@@ -2102,8 +2145,7 @@
         "legal-r-employee-in-kantonale-verwaltung-graubunden-chur",
         "avocat-r-employe-in-kantonale-verwaltung-graubunden-chur",
         "juristische-r-mitarbeiter-in-kanton-gr-ch",
-        "juristische-r-mitarbeiter-in-kantonale-verwaltung-graubunden-chur",
-        "collaboratore-trice-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur"
+        "juristische-r-mitarbeiter-in-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2115,8 +2157,7 @@
           "legal-r-employee-in-kantonale-verwaltung-graubunden-chur",
           "avocat-r-employe-in-kantonale-verwaltung-graubunden-chur",
           "juristische-r-mitarbeiter-in-kanton-gr-ch",
-          "juristische-r-mitarbeiter-in-kantonale-verwaltung-graubunden-chur",
-          "collaboratore-trice-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur"
+          "juristische-r-mitarbeiter-in-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "mitarbeiter-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur"
@@ -2204,8 +2245,7 @@
         "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
         "responsabile-amministrativo-kantonale-verwaltung-graubunden-chur",
         "administrative-officer-kantonale-verwaltung-graubunden-chur",
-        "responsable-administratif-kantonale-verwaltung-graubunden-chur",
-        "persona-responsabile-kantonale-verwaltung-graubunden-chur"
+        "responsable-administratif-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2214,8 +2254,7 @@
           "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
           "responsabile-amministrativo-kantonale-verwaltung-graubunden-chur",
           "administrative-officer-kantonale-verwaltung-graubunden-chur",
-          "responsable-administratif-kantonale-verwaltung-graubunden-chur",
-          "persona-responsabile-kantonale-verwaltung-graubunden-chur"
+          "responsable-administratif-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
@@ -2298,13 +2337,11 @@
       "pensum": "60%",
       "previousSlugs": [
         "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch",
-        "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur",
-        "wissenschaftliche-r-collaboratore-trice-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur"
+        "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch",
-          "wissenschaftliche-r-collaboratore-trice-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur"
+          "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch"
         ],
         "en": [
           "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur"
@@ -2387,8 +2424,7 @@
         "ict-supporter-in-kanton-gr-ch",
         "soutien-aux-tic-kantonale-verwaltung-graubunden-chur-0b2e30",
         "supporto-delle-tic-in-kantonale-verwaltung-graubunden-chur-0b2e30",
-        "abteilungsleiter-in-ict-betrieb-kantonale-verwaltung-graubunden-chur",
-        "capo-reparto-in-operazioni-ict-kantonale-verwaltung-graubunden-chur"
+        "abteilungsleiter-in-ict-betrieb-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2398,8 +2434,7 @@
           "ict-supporter-in-kanton-gr-ch",
           "soutien-aux-tic-kantonale-verwaltung-graubunden-chur-0b2e30",
           "supporto-delle-tic-in-kantonale-verwaltung-graubunden-chur-0b2e30",
-          "abteilungsleiter-in-ict-betrieb-kantonale-verwaltung-graubunden-chur",
-          "capo-reparto-in-operazioni-ict-kantonale-verwaltung-graubunden-chur"
+          "abteilungsleiter-in-ict-betrieb-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "ict-supporter-in-kantonale-verwaltung-graubunden-chur",
@@ -2482,13 +2517,11 @@
       "pensum": "50%",
       "previousSlugs": [
         "sachbearbeiter-in-beitragswesen-und-finanzen-kanton-gr-ch",
-        "sachbearbeiter-in-beitragswesen-und-finanzen-kantonale-verwaltung-graubunden-chur",
-        "sachbearbeiter-in-beitragswesen-e-finanzen-kantonale-verwaltung-graubunden-chur"
+        "sachbearbeiter-in-beitragswesen-und-finanzen-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-beitragswesen-und-finanzen-kanton-gr-ch",
-          "sachbearbeiter-in-beitragswesen-e-finanzen-kantonale-verwaltung-graubunden-chur"
+          "sachbearbeiter-in-beitragswesen-und-finanzen-kanton-gr-ch"
         ],
         "en": [
           "sachbearbeiter-in-beitragswesen-und-finanzen-kantonale-verwaltung-graubunden-chur"
@@ -2566,13 +2599,11 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kanton-gr-ch",
-        "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kantonale-verwaltung-graubunden-chur",
-        "zeichner-konstrukteur-in-specializzazione-strassenprojektierung-kantonale-verwaltung-graubunden-chur"
+        "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kanton-gr-ch",
-          "zeichner-konstrukteur-in-specializzazione-strassenprojektierung-kantonale-verwaltung-graubunden-chur"
+          "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kanton-gr-ch"
         ],
         "en": [
           "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kantonale-verwaltung-graubunden-chur"
@@ -2650,14 +2681,12 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch",
-        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur",
-        "project-manager-in-esecuzione-sezione-direttore-in-kantonale-verwaltung-graubunden-chur"
+        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch",
-          "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur",
-          "project-manager-in-esecuzione-sezione-direttore-in-kantonale-verwaltung-graubunden-chur"
+          "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur"
@@ -2739,8 +2768,7 @@
         "segretario-kantonale-verwaltung-graubunden-chur",
         "secretary-kantonale-verwaltung-graubunden-chur",
         "sekretar-in-kanton-gr-ch",
-        "secretaire-kantonale-verwaltung-graubunden-chur",
-        "segretario-aggiunto-generale-kantonale-verwaltung-graubunden-chur"
+        "secretaire-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2749,8 +2777,7 @@
           "segretario-kantonale-verwaltung-graubunden-chur",
           "secretary-kantonale-verwaltung-graubunden-chur",
           "sekretar-in-kanton-gr-ch",
-          "secretaire-kantonale-verwaltung-graubunden-chur",
-          "segretario-aggiunto-generale-kantonale-verwaltung-graubunden-chur"
+          "secretaire-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur",
@@ -2832,13 +2859,11 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch",
-        "maestro-operaio-attore-di-lavoro-kantonale-verwaltung-graubunden-cazis"
+        "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch",
-          "maestro-operaio-attore-di-lavoro-kantonale-verwaltung-graubunden-cazis"
+          "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch"
         ],
         "en": [
           "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch"
@@ -2915,13 +2940,11 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "teamleiter-in-sicherheit-kanton-gr-ch",
-        "team-leader-sicurezza-kantonale-verwaltung-graubunden-cazis"
+        "teamleiter-in-sicherheit-kanton-gr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-sicherheit-kanton-gr-ch",
-          "team-leader-sicurezza-kantonale-verwaltung-graubunden-cazis"
+          "teamleiter-in-sicherheit-kanton-gr-ch"
         ],
         "en": [
           "teamleiter-in-sicherheit-kanton-gr-ch"
@@ -3001,15 +3024,13 @@
         "assistente-sociale-kantonale-verwaltung-graubunden-cazis",
         "sozialarbeiter-in-kanton-gr-ch",
         "sozialarbeiter-in-kanton-gr-ch-2",
-        "sozialarbeiter-in-kanton-gr-ch-7x67hd",
-        "lavoratore-sociale-kantonale-verwaltung-graubunden-cazis"
+        "sozialarbeiter-in-kanton-gr-ch-7x67hd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-sociale-kantonale-verwaltung-graubunden-cazis",
           "sozialarbeiter-in-kanton-gr-ch",
-          "sozialarbeiter-in-kanton-gr-ch-2",
-          "lavoratore-sociale-kantonale-verwaltung-graubunden-cazis"
+          "sozialarbeiter-in-kanton-gr-ch-2"
         ],
         "en": [
           "sozialarbeiter-in-kanton-gr-ch-2"
@@ -3090,13 +3111,11 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "projektleiter-in-biodiversitat-und-landschaftsqualitat-kanton-gr-ch",
-        "projektleiter-in-biodiversitat-und-landschaftsqualitat-kantonale-verwaltung-graubunden-chur",
-        "projektleiter-in-biodiversitat-e-landschaftsqualitat-kantonale-verwaltung-graubunden-chur"
+        "projektleiter-in-biodiversitat-und-landschaftsqualitat-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-biodiversitat-und-landschaftsqualitat-kanton-gr-ch",
-          "projektleiter-in-biodiversitat-e-landschaftsqualitat-kantonale-verwaltung-graubunden-chur"
+          "projektleiter-in-biodiversitat-und-landschaftsqualitat-kanton-gr-ch"
         ],
         "en": [
           "projektleiter-in-biodiversitat-und-landschaftsqualitat-kantonale-verwaltung-graubunden-chur"
@@ -3205,8 +3224,7 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "de": [
-          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
-          "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur"
+          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
         ],
         "it": [
           "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",

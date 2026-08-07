@@ -33,9 +33,9 @@
       },
       "slugByLocale": {
         "it": "infermiera-e-70-80-presso-fonte-3-la-fonte-neggio",
-        "en": "infermiera-e-70-80-presso-fonte-3-la-fonte-neggio",
-        "de": "infermiera-e-70-80-presso-fonte-3-la-fonte-neggio",
-        "fr": "infermiera-e-70-80-presso-fonte-3-la-fonte-neggio"
+        "en": "nursery-70-80-at-source-3-fondazione-la-fonte-neggio",
+        "de": "kindergarten-70-80-an-quelle-3-fondazione-la-fonte-neggio",
+        "fr": "pepinieres-70-80-a-la-source-3-fondazione-la-fonte-neggio"
       },
       "sourceLang": "it",
       "_targetScope": {
@@ -93,9 +93,9 @@
       },
       "slugByLocale": {
         "it": "operatrice-tore-socioassistenziale-50-60-presso-fonte-6-la-fonte-agno",
-        "en": "operatrice-tore-socioassistenziale-50-60-presso-fonte-6-la-fonte-agno",
-        "de": "operatrice-tore-socioassistenziale-50-60-presso-fonte-6-la-fonte-agno",
-        "fr": "operatrice-tore-socioassistenziale-50-60-presso-fonte-6-la-fonte-agno"
+        "en": "socio-assistance-operator-50-60-at-fonte-6-fondazione-la-fonte-agno",
+        "de": "sozio-assistenz-betreiber-50-60-in-fonte-6-fondazione-la-fonte-agno",
+        "fr": "operateur-de-l-assistance-sociale-50-60-a-fonte-6-fondazione-la-fonte-agno"
       },
       "sourceLang": "it",
       "_targetScope": {
@@ -153,9 +153,9 @@
       },
       "slugByLocale": {
         "it": "vegliatrice-tore-60-presso-fonte-3-la-fonte-neggio",
-        "en": "vegliatrice-tore-60-presso-fonte-3-la-fonte-neggio",
-        "de": "vegliatrice-tore-60-presso-fonte-3-la-fonte-neggio",
-        "fr": "vegliatrice-tore-60-presso-fonte-3-la-fonte-neggio"
+        "en": "viewer-s-60-at-source-3-fondazione-la-fonte-neggio",
+        "de": "zuschauer-60-bei-source-3-fondazione-la-fonte-neggio",
+        "fr": "affichage-s-60-a-la-source-3-fondazione-la-fonte-neggio"
       },
       "sourceLang": "it",
       "_targetScope": {
@@ -213,8 +213,8 @@
       },
       "slugByLocale": {
         "it": "apprendistato-fondazione-la-fonte-luganese-malcantone",
-        "en": "intern-fondazione-la-fonte-luganese-malcantone",
-        "de": "praktikant-fondazione-la-fonte-luganese-malcantone",
+        "en": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
+        "de": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
         "fr": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
       },
       "sourceLang": "it",
@@ -226,7 +226,6 @@
       "id": "la-fonte-fbf80dc4d87c",
       "previousSlugsByLocale": {
         "en": [
-          "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
           "intern-fondazione-la-fonte-luganese-malcantone"
         ],
         "fr": [
@@ -236,7 +235,6 @@
           "stagiaire-la-fonte-luganese-malcantone"
         ],
         "de": [
-          "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
           "praktikant-fondazione-la-fonte-luganese-malcantone"
         ]
       },
@@ -244,7 +242,6 @@
         "stagiaire-fondazione-la-fonte-luganese-malcantone",
         "stagiaire-la-fonte-luganese-malcantone",
         "apprendistato-fondazione-la-fonte-lugano",
-        "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
         "intern-fondazione-la-fonte-luganese-malcantone",
         "praktikant-fondazione-la-fonte-luganese-malcantone"
       ],

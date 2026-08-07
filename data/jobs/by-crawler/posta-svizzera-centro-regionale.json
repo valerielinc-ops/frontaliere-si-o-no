@@ -88,12 +88,12 @@
         "en": "Delivery:in packages",
         "fr": "Livraison:en paquets"
       },
-      "slug": "zusteller-in-pakete-post",
+      "slug": "consegna-in-pacchetti-die-schweizerische-post-buchs-ag",
       "slugByLocale": {
-        "it": "zusteller-in-pakete-post",
-        "en": "zusteller-in-pakete-post",
+        "it": "consegna-in-pacchetti-die-schweizerische-post-buchs-ag",
+        "en": "delivery-in-packages-die-schweizerische-post-buchs-ag",
         "de": "zusteller-in-pakete-die-schweizerische-post-buchs-ag",
-        "fr": "zusteller-in-pakete-post"
+        "fr": "livraison-en-paquets-die-schweizerische-post-buchs-ag"
       },
       "sourceLang": "de",
       "department": "",
@@ -127,7 +127,21 @@
       "addressLocality": "Buchs AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-08-06T11:41:42.420Z"
+      "firstSeenAt": "2026-08-06T11:41:42.420Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/SAP-Applikationsmanagerin-Business-Analystin/74345-de_DE",
@@ -214,12 +228,12 @@
         "de": "Business Assistent Corporate Development",
         "en": "Business Assistant Corporate Development"
       },
-      "slug": "business-assistant-corporate-development-post",
+      "slug": "business-assistant-sviluppo-aziendale-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "business-assistant-corporate-development-post",
+        "it": "business-assistant-sviluppo-aziendale-die-schweizerische-post-bern",
         "en": "business-assistant-corporate-development-post",
         "de": "business-assistant-corporate-development-post",
-        "fr": "business-assistant-corporate-development-post"
+        "fr": "assistant-aux-affaires-developpement-corporatif-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -253,7 +267,18 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-08-06T11:41:42.420Z"
+      "firstSeenAt": "2026-08-06T11:41:42.420Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-assistant-corporate-development-post"
+        ],
+        "fr": [
+          "business-assistant-corporate-development-post"
+        ]
+      },
+      "previousSlugs": [
+        "business-assistant-corporate-development-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74457-de_DE",
@@ -280,9 +305,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-siebnen",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-siebnen",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-siebnen",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-siebnen"
       },
       "sourceLang": "de",
       "department": "",
@@ -320,6 +345,12 @@
       "previousSlugsByLocale": {
         "it": [
           "zusteller-in-briefe-und-pakete-post-3",
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -506,12 +537,12 @@
         "en": "Customer Advisor:in",
         "fr": "Conseiller client:in"
       },
-      "slug": "kundenberater-in-post",
+      "slug": "consulente-clienti-in-die-schweizerische-post-winterthur",
       "slugByLocale": {
-        "it": "kundenberater-in-post",
-        "en": "kundenberater-in-die-schweizerische-post-winterthur",
+        "it": "consulente-clienti-in-die-schweizerische-post-winterthur",
+        "en": "customer-advisor-in-die-schweizerische-post-winterthur",
         "de": "kundenberater-in-die-schweizerische-post-winterthur",
-        "fr": "kundenberater-in-die-schweizerische-post-winterthur"
+        "fr": "conseiller-client-in-die-schweizerische-post-winterthur"
       },
       "sourceLang": "de",
       "department": "",
@@ -545,7 +576,22 @@
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-08-06T11:41:42.420Z"
+      "firstSeenAt": "2026-08-06T11:41:42.420Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-post"
+        ],
+        "en": [
+          "kundenberater-in-die-schweizerische-post-winterthur"
+        ],
+        "fr": [
+          "kundenberater-in-die-schweizerische-post-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-post",
+        "kundenberater-in-die-schweizerische-post-winterthur"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Kundenberaterin/74440-de_DE",
@@ -2295,7 +2341,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
-        "en": "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-langnau-im-emmental"
       },
@@ -2321,7 +2367,6 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-post",
-          "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
           "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental"
         ],
         "fr": [
@@ -2335,7 +2380,6 @@
         "zusteller-in-briefe-und-pakete-post-2",
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-post-u3qamb",
-        "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental"
       ],
       "id": "posta-svizzera-centro-regionale-b70af024254b",
@@ -5272,9 +5316,9 @@
       "slug": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
-        "en": "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
+        "en": "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
         "de": "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "fr": "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
+        "fr": "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -5296,16 +5340,15 @@
           "praxisintegriertes-bachelorstudium-in-informatik-post"
         ],
         "en": [
-          "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
+          "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
         ],
         "fr": [
-          "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
+          "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
         ]
       },
       "previousSlugs": [
         "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
-        "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
+        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
       ],
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
@@ -5422,9 +5465,9 @@
       "slug": "apprendistato-come-kaufmann-frau-cfc-dienstleistung-e-administration-die-schweizerische-post-olten",
       "slugByLocale": {
         "it": "apprendistato-come-kaufmann-frau-cfc-dienstleistung-e-administration-die-schweizerische-post-olten",
-        "en": "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post",
+        "en": "teaching-as-a-merchant-efz-service-and-administration-die-schweizerische-post-olten",
         "de": "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post",
-        "fr": "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post"
+        "fr": "enseignement-en-tant-que-marchand-efz-service-et-administration-die-schweizerische-post-olten"
       },
       "sourceLang": "de",
       "department": "",
@@ -5462,6 +5505,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post-2",
+          "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post"
+        ],
+        "en": [
+          "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post"
+        ],
+        "fr": [
           "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post"
         ]
       },
@@ -6459,8 +6508,7 @@
           "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post"
         ],
         "de": [
-          "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post-j7b9hi",
-          "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post"
+          "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post-j7b9hi"
         ]
       },
       "previousSlugs": [
@@ -6728,12 +6776,12 @@
         "en": "Teaching as a logistician: mixed delivery (letters and packages) in EFZ Distribution",
         "fr": "Enseignement en tant que logisticien: livraison mixte (lettres et colis) dans EFZ Distribution"
       },
-      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-bern",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-fdb2d1",
       "slugByLocale": {
-        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-bern",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-fdb2d1",
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-bern",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -6771,12 +6819,20 @@
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4",
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-bern"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
         "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4",
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-bern"
       ]
     },
     {
@@ -8169,9 +8225,9 @@
       "slug": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-heerbrugg",
       "slugByLocale": {
         "it": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-heerbrugg",
-        "en": "lehre-als-detailhandelsfachmann-frau-efz-post",
+        "en": "apprenticeship-as-a-retail-trade-expert-efz-die-schweizerische-post-heerbrugg",
         "de": "lehre-als-detailhandelsfachmann-frau-efz-post",
-        "fr": "lehre-als-detailhandelsfachmann-frau-efz-post"
+        "fr": "apprentissage-en-tant-qu-expert-en-commerce-de-detail-efz-die-schweizerische-post-heerbrugg"
       },
       "sourceLang": "de",
       "department": "",
@@ -8209,6 +8265,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-detailhandelsfachmann-frau-efz-post-7",
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
+        ],
+        "en": [
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
+        ],
+        "fr": [
           "lehre-als-detailhandelsfachmann-frau-efz-post"
         ]
       },
@@ -11661,7 +11723,7 @@
       "slug": "housekeeper-in-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "housekeeper-in-die-schweizerische-post-bern",
-        "en": "housekeeper-in-die-schweizerische-post-bern",
+        "en": "hauswart-in-post",
         "de": "hauswart-in-die-schweizerische-post-bern",
         "fr": "femme-de-menage-die-schweizerische-post-bern"
       },
@@ -11703,9 +11765,6 @@
           "hauswart-in-post"
         ],
         "fr": [
-          "hauswart-in-post"
-        ],
-        "en": [
           "hauswart-in-post"
         ]
       },
@@ -11952,11 +12011,11 @@
         "en": "Advisor/Advisor to the Clientele",
         "de": "Berater/Berater der Kundschaft"
       },
-      "slug": "conseillere-conseiller-a-la-clientele-post",
+      "slug": "consigliere-consigliere-al-cliente-la-poste-suisse-lausanne",
       "slugByLocale": {
-        "it": "conseillere-conseiller-a-la-clientele-post",
-        "en": "conseillere-conseiller-a-la-clientele-post",
-        "de": "conseillere-conseiller-a-la-clientele-post",
+        "it": "consigliere-consigliere-al-cliente-la-poste-suisse-lausanne",
+        "en": "advisor-advisor-to-the-clientele-la-poste-suisse-lausanne",
+        "de": "berater-berater-der-kundschaft-la-poste-suisse-lausanne",
         "fr": "conseillere-conseiller-a-la-clientele-la-poste-suisse-lausanne"
       },
       "sourceLang": "fr",
@@ -11991,7 +12050,21 @@
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-08-06T11:41:42.420Z"
+      "firstSeenAt": "2026-08-06T11:41:42.420Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-conseiller-a-la-clientele-post"
+        ],
+        "en": [
+          "conseillere-conseiller-a-la-clientele-post"
+        ],
+        "de": [
+          "conseillere-conseiller-a-la-clientele-post"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-conseiller-a-la-clientele-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Conductrice-Conducteur-CarPostal/74116-fr_FR",
@@ -12328,11 +12401,11 @@
         "en": "CFC Retail Manager Learning - Bern (French-speaking)",
         "de": "CFC Retail Manager Learning - Bern (französischsprachig)"
       },
-      "slug": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-berne-francophone-post",
+      "slug": "cfc-retail-manager-learning-bern-lingua-francese-la-poste-suisse-bienne",
       "slugByLocale": {
-        "it": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-berne-francophone-post",
-        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-berne-francophone-post",
-        "de": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-berne-francophone-post",
+        "it": "cfc-retail-manager-learning-bern-lingua-francese-la-poste-suisse-bienne",
+        "en": "cfc-retail-manager-learning-bern-french-speaking-la-poste-suisse-bienne",
+        "de": "cfc-retail-manager-learning-bern-franzosischsprachig-la-poste-suisse-bienne",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-berne-francophone-la-poste-suisse-bienne"
       },
       "sourceLang": "fr",
@@ -12367,7 +12440,21 @@
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-08-06T11:41:42.420Z"
+      "firstSeenAt": "2026-08-06T11:41:42.420Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-berne-francophone-post"
+        ],
+        "en": [
+          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-berne-francophone-post"
+        ],
+        "de": [
+          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-berne-francophone-post"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-berne-francophone-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Apprentissage-de-logisticiennelogisticien-CFC-Distribution-Centre-de-tri%E2%80%AF-%E2%80%AFVaud/73821-fr_FR",
@@ -13397,7 +13484,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
+        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -13421,11 +13508,12 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
+          "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },
       "previousSlugs": [
-        "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
+        "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
+        "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
       ],
       "id": "posta-svizzera-centro-regionale-b6979983514b",
       "salaryMin": 60500,

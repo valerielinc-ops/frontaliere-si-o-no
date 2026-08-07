@@ -221,7 +221,7 @@
       "slugByLocale": {
         "it": "sauna-master-m-w-d-kulm-hotel-st-moritz",
         "en": "sauna-master-m-w-d-kulm-hotel-st-moritz",
-        "de": "sauna-master-pool-attendant-m-w-d-kulm-hotel-st-moritz",
+        "de": "saunamaster-m-w-d-kulm-hotel-st-moritz-st-moritz-0bba8e",
         "fr": "maitre-sauna-m-m-j-kulm-hotel-st-moritz-st-moritz-0bba8e"
       },
       "company": "Kulm Hotel St. Moritz",
@@ -268,12 +268,10 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "de": [
-          "saunamaster-m-w-d-kulm-hotel-st-moritz-st-moritz-0bba8e",
           "sauna-master-pool-attendant-m-w-d-kulm-hotel-st-moritz"
         ]
       },
       "previousSlugs": [
-        "saunamaster-m-w-d-kulm-hotel-st-moritz-st-moritz-0bba8e",
         "sauna-master-pool-attendant-m-w-d-kulm-hotel-st-moritz"
       ],
       "firstSeenAt": "2026-07-14T12:07:02.635Z",
@@ -342,6 +340,12 @@
       "department": "Kulm Hotel",
       "pensum": "100%",
       "previousSlugsByLocale": {
+        "fr": [
+          "agent-de-reservation-m-p-d-kulm-hotel-st-moritz-st-moritz-fc52eb",
+          "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz-fc52eb",
+          "reservations-agent-m-w-d-kulm-hotel-st-moritz",
+          "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        ],
         "it": [
           "reservations-agent-m-w-d-kulm-hotel-st-moritz",
           "agente-di-prenotazione-m-w-d-kulm-hotel-st-moritz-st-moritz",
@@ -350,12 +354,6 @@
         ],
         "de": [
           "reservations-agent-m-w-d-kulm-hotel-st-moritz"
-        ],
-        "fr": [
-          "agent-de-reservation-m-p-d-kulm-hotel-st-moritz-st-moritz-fc52eb",
-          "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz-fc52eb",
-          "reservations-agent-m-w-d-kulm-hotel-st-moritz",
-          "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz"
         ]
       },
       "previousSlugs": [
@@ -433,13 +431,12 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
       "previousSlugsByLocale": {
-        "it": [
-          "office-employee-steward-m-w-d-kulm-hotel-st-moritz",
-          "ufficio-dipendente-steward-m-w-d-kulm-hotel-st-moritz-pontresina"
-        ],
         "de": [
           "office-employee-steward-m-w-d-kulm-hotel-st-moritz",
           "buroangestellter-steward-m-w-d-kulm-hotel-st-moritz-pontresina"
+        ],
+        "it": [
+          "office-employee-steward-m-w-d-kulm-hotel-st-moritz"
         ],
         "fr": [
           "office-employee-steward-m-w-d-kulm-hotel-st-moritz"
@@ -468,10 +465,10 @@
       "id": "kulm-hotel-d112a67bc037",
       "slug": "laundry-employee-washer-m-w-d-kulm-hotel-st-moritz",
       "slugByLocale": {
-        "it": "laundry-employee-washer-m-w-d-kulm-hotel-st-moritz",
+        "it": "servizio-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "en": "laundry-employee-m-w-d-kulm-hotel-st-moritz",
-        "de": "laundry-employee-washer-m-w-d-kulm-hotel-st-moritz",
-        "fr": "laundry-employee-washer-m-w-d-kulm-hotel-st-moritz"
+        "de": "wascherei-mitarbeiter-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "fr": "employe-de-blanchisserie-m-m-j-kulm-hotel-st-moritz-st-moritz"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
@@ -516,21 +513,17 @@
       "department": "Kulm Hotel",
       "pensum": "100%",
       "previousSlugsByLocale": {
+        "de": [
+          "laundry-employee-m-w-d-kulm-hotel-st-moritz"
+        ],
         "it": [
           "laundry-employee-m-w-d-kulm-hotel-st-moritz",
           "servizio-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz",
           "servizio-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz-6d5f17",
           "laundry-employee-washer-m-w-d-kulm-hotel-st-moritz"
         ],
-        "de": [
-          "laundry-employee-m-w-d-kulm-hotel-st-moritz",
-          "wascherei-mitarbeiter-m-w-d-kulm-hotel-st-moritz-st-moritz",
-          "laundry-employee-washer-m-w-d-kulm-hotel-st-moritz"
-        ],
         "fr": [
-          "laundry-employee-m-w-d-kulm-hotel-st-moritz",
-          "employe-de-blanchisserie-m-m-j-kulm-hotel-st-moritz-st-moritz",
-          "laundry-employee-washer-m-w-d-kulm-hotel-st-moritz"
+          "laundry-employee-m-w-d-kulm-hotel-st-moritz"
         ]
       },
       "previousSlugs": [
@@ -561,7 +554,7 @@
       "slugByLocale": {
         "it": "servizio-lavanderia-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz-st-moritz-67749c",
         "en": "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz",
-        "de": "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz",
+        "de": "waschebetreuer-presse-bugeleisen-turnant-m-w-d-kulm-hotel-st-moritz-st-moritz-67749c",
         "fr": "lave-linge-presse-repassage-tournant-m-m-j-kulm-hotel-st-moritz-st-moritz-67749c"
       },
       "company": "Kulm Hotel St. Moritz",
@@ -608,23 +601,17 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "fr": [
-          "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz",
-          "lave-linge-presse-repassage-tournant-m-m-j-kulm-hotel-st-moritz-st-moritz-67749c"
+          "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz"
         ],
         "it": [
-          "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz",
-          "servizio-lavanderia-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz-st-moritz-67749c"
+          "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz"
         ],
         "de": [
-          "waschebetreuer-presse-bugeleisen-turnant-m-w-d-kulm-hotel-st-moritz-st-moritz-67749c",
           "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz"
         ]
       },
       "previousSlugs": [
-        "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz",
-        "waschebetreuer-presse-bugeleisen-turnant-m-w-d-kulm-hotel-st-moritz-st-moritz-67749c",
-        "lave-linge-presse-repassage-tournant-m-m-j-kulm-hotel-st-moritz-st-moritz-67749c",
-        "servizio-lavanderia-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz-st-moritz-67749c"
+        "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz"
       ],
       "firstSeenAt": "2026-07-14T12:06:58.597Z",
       "salaryMin": 57500,
@@ -706,8 +693,7 @@
         "housekeeping-director-m-w-d-kulm-hotel-st-moritz",
         "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
         "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz",
-        "supervisore-di-pulizia-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -716,8 +702,7 @@
           "housekeeping-director-m-w-d-kulm-hotel-st-moritz",
           "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
           "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
-          "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz",
-          "supervisore-di-pulizia-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz"
         ],
         "en": [
           "housekeeping-director-m-w-d-kulm-hotel-st-moritz"
@@ -801,16 +786,14 @@
         "assistant-front-office-manager-m-w-d-kulm-hotel-st-moritz",
         "directeur-adjoint-de-la-liaison-m-m-j-kulm-hotel-st-moritz-st-moritz",
         "assistant-event-manager-m-w-d-kulm-hotel-st-moritz",
-        "front-office-agent-m-w-d-kulm-hotel-st-moritz",
-        "agente-di-ufficio-anteriore-m-w-d-kulm-hotel-st-moritz-st-moritz-223128"
+        "front-office-agent-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-front-office-manager-m-w-d-kulm-hotel-st-moritz",
           "directeur-adjoint-de-la-liaison-m-m-j-kulm-hotel-st-moritz-st-moritz",
           "assistant-event-manager-m-w-d-kulm-hotel-st-moritz",
-          "front-office-agent-m-w-d-kulm-hotel-st-moritz",
-          "agente-di-ufficio-anteriore-m-w-d-kulm-hotel-st-moritz-st-moritz-223128"
+          "front-office-agent-m-w-d-kulm-hotel-st-moritz"
         ],
         "en": [
           "assistant-event-manager-m-w-d-kulm-hotel-st-moritz"
@@ -841,7 +824,7 @@
       "id": "kulm-hotel-889f0477e0e4",
       "slug": "florist-m-w-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
-        "it": "florist-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "it": "fiorista-m-w-d-kulm-hotel-st-moritz-pontresina",
         "en": "florist-m-w-d-kulm-hotel-st-moritz",
         "de": "florist-m-w-d-kulm-hotel-st-moritz",
         "fr": "florist-m-w-d-kulm-hotel-st-moritz-pontresina"
@@ -889,19 +872,12 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
       "previousSlugsByLocale": {
-        "it": [
-          "fiorista-m-w-d-kulm-hotel-st-moritz-pontresina",
-          "florist-m-w-d-kulm-hotel-st-moritz"
-        ],
         "fr": [
-          "fleuriste-m-w-d-kulm-hotel-st-moritz-pontresina",
-          "florist-m-w-d-kulm-hotel-st-moritz"
+          "fleuriste-m-w-d-kulm-hotel-st-moritz-pontresina"
         ]
       },
       "previousSlugs": [
-        "fleuriste-m-w-d-kulm-hotel-st-moritz-pontresina",
-        "fiorista-m-w-d-kulm-hotel-st-moritz-pontresina",
-        "florist-m-w-d-kulm-hotel-st-moritz"
+        "fleuriste-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
       "firstSeenAt": "2026-08-04T11:37:44.761Z",
       "salaryMin": 57500,
@@ -1036,8 +1012,7 @@
       "previousSlugsByLocale": {
         "it": [
           "assistente-esecutivo-manager-rooms-division-m-w-d-kulm-hotel-st-moritz-st-moritz",
-          "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz",
-          "executive-assistant-manager-divisione-camere-m-w-d-kulm-hotel-st-moritz-st-moritz"
+          "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz"
         ],
         "fr": [
           "gestionnaire-adjoint-executif-division-des-salles-m-m-j-kulm-hotel-st-moritz-st-moritz"
@@ -1046,8 +1021,7 @@
       "previousSlugs": [
         "assistente-esecutivo-manager-rooms-division-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "gestionnaire-adjoint-executif-division-des-salles-m-m-j-kulm-hotel-st-moritz-st-moritz",
-        "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz",
-        "executive-assistant-manager-divisione-camere-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz"
       ],
       "firstSeenAt": "2026-05-27T23:33:49.949Z",
       "salaryMin": 79000,
@@ -1204,16 +1178,14 @@
         "demi-chef-de-partie-kulm-country-club-m-w-d-kulm-hotel-st-moritz",
         "kitchen-helper-kulm-country-club-m-w-d-kulm-hotel-st-moritz",
         "kuchenhelfer-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz-c331ed",
-        "aide-cuisine-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz-c331ed",
-        "leader-di-meta-partito-kulm-country-club-m-p-d-kulm-hotel-st-moritz-st-moritz-0da109"
+        "aide-cuisine-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz-c331ed"
       ],
       "previousSlugsByLocale": {
         "it": [
           "demi-chef-de-partie-kulm-country-club-m-w-d-kulm-hotel-st-moritz",
           "kitchen-helper-kulm-country-club-m-w-d-kulm-hotel-st-moritz",
           "kuchenhelfer-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz-c331ed",
-          "aide-cuisine-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz-c331ed",
-          "leader-di-meta-partito-kulm-country-club-m-p-d-kulm-hotel-st-moritz-st-moritz-0da109"
+          "aide-cuisine-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz-c331ed"
         ],
         "en": [
           "kitchen-helper-kulm-country-club-m-w-d-kulm-hotel-st-moritz"
@@ -1360,13 +1332,11 @@
       "previousSlugsByLocale": {
         "fr": [
           "commis-de-rang-assistant-waiter-m-w-d-kulm-hotel-st-moritz",
-          "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
-          "commissaire-de-rang-assistant-serveur-m-m-j-kulm-hotel-st-moritz-pontresina"
+          "commis-de-rang-m-w-d-kulm-hotel-st-moritz"
         ],
         "it": [
           "commis-de-rang-assistant-waiter-m-w-d-kulm-hotel-st-moritz",
-          "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
-          "commis-di-sala-assistente-cameriere-m-f-d-kulm-hotel-st-moritz-pontresina"
+          "commis-de-rang-m-w-d-kulm-hotel-st-moritz"
         ],
         "de": [
           "commis-de-rang-assistant-waiter-m-w-d-kulm-hotel-st-moritz"
@@ -1383,9 +1353,7 @@
         "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz",
         "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "commis-de-rang-assistant-waiter-m-w-d-kulm-hotel-st-moritz",
-        "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
-        "commissaire-de-rang-assistant-serveur-m-m-j-kulm-hotel-st-moritz-pontresina",
-        "commis-di-sala-assistente-cameriere-m-f-d-kulm-hotel-st-moritz-pontresina"
+        "commis-de-rang-m-w-d-kulm-hotel-st-moritz"
       ],
       "firstSeenAt": "2026-07-02T22:34:26.552Z",
       "salaryMin": 57500,
@@ -1454,18 +1422,14 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "fr": [
-          "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
-          "commission-de-rang-m-p-d-kulm-hotel-st-moritz-st-moritz"
+          "commis-de-rang-m-w-d-kulm-hotel-st-moritz"
         ],
         "it": [
-          "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
-          "commissione-di-rang-m-w-d-kulm-hotel-st-moritz-st-moritz"
+          "commis-de-rang-m-w-d-kulm-hotel-st-moritz"
         ]
       },
       "previousSlugs": [
-        "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
-        "commission-de-rang-m-p-d-kulm-hotel-st-moritz-st-moritz",
-        "commissione-di-rang-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        "commis-de-rang-m-w-d-kulm-hotel-st-moritz"
       ],
       "firstSeenAt": "2026-07-14T12:06:51.511Z",
       "salaryMin": 57500,
@@ -1533,13 +1497,11 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
       "previousSlugs": [
-        "commis-de-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz",
-        "commissione-di-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "commis-de-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commis-de-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz",
-          "commissione-di-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "commis-de-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz"
         ]
       },
       "firstSeenAt": "2026-07-16T11:56:11.549Z",
@@ -1608,13 +1570,11 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
       "previousSlugs": [
-        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz",
-        "commissione-di-cuisine-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz",
-          "commissione-di-cuisine-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz"
         ],
         "fr": [
           "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz"
@@ -1686,13 +1646,11 @@
       "department": "Kulm Hotel",
       "pensum": "100%",
       "previousSlugs": [
-        "chef-de-rang-room-service-m-w-d-kulm-hotel-st-moritz",
-        "chef-de-rang-servizio-in-camera-m-w-d-kulm-hotel-st-moritz-st-moritz-19915f"
+        "chef-de-rang-room-service-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-rang-room-service-m-w-d-kulm-hotel-st-moritz",
-          "chef-de-rang-servizio-in-camera-m-w-d-kulm-hotel-st-moritz-st-moritz-19915f"
+          "chef-de-rang-room-service-m-w-d-kulm-hotel-st-moritz"
         ],
         "de": [
           "chef-de-rang-room-service-m-w-d-kulm-hotel-st-moritz"
@@ -1766,15 +1724,13 @@
       "previousSlugs": [
         "chef-de-rang-m-w-d-kulm-hotel-st-moritz",
         "chef-de-rang-m-f-d-kulm-hotel-st-moritz-st-moritz",
-        "chef-de-rang-immediate-start-m-w-d-kulm-hotel-st-moritz",
-        "chef-de-rang-partenza-immediata-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "chef-de-rang-immediate-start-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-rang-m-w-d-kulm-hotel-st-moritz",
           "chef-de-rang-m-f-d-kulm-hotel-st-moritz-st-moritz",
-          "chef-de-rang-immediate-start-m-w-d-kulm-hotel-st-moritz",
-          "chef-de-rang-partenza-immediata-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "chef-de-rang-immediate-start-m-w-d-kulm-hotel-st-moritz"
         ],
         "de": [
           "chef-de-rang-immediate-start-m-w-d-kulm-hotel-st-moritz"
@@ -2003,15 +1959,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "fr": [
-          "chef-de-restaurant-adjoint-amaru-m-p-j-kulm-hotel-st-moritz-st-moritz-962bbf"
-        ]
-      },
-      "previousSlugs": [
-        "chef-de-restaurant-adjoint-amaru-m-p-j-kulm-hotel-st-moritz-st-moritz-962bbf"
-      ]
+      }
     },
     {
       "id": "kulm-hotel-6dd397cdebf9",
@@ -2019,7 +1967,7 @@
       "slugByLocale": {
         "it": "assistente-alla-gestione-delle-prenotazioni-m-w-d-kulm-hotel-st-moritz-pontresina",
         "en": "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz",
-        "de": "assistenz-reservierungsleitung-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "de": "assistent-reservations-manager-m-w-d-kulm-hotel-st-moritz-pontresina",
         "fr": "gestionnaire-adjoint-des-reservations-m-w-d-kulm-hotel-st-moritz-pontresina"
       },
       "company": "Kulm Hotel St. Moritz",
@@ -2109,7 +2057,8 @@
           "assistant-personnel-du-directeur-general-m-m-j-kulm-hotel-st-moritz-pontresina",
           "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz",
           "responsabile-prenotazioni-m-w-d-kulm-hotel-st-moritz-pontresina",
-          "assistente-alla-gestione-delle-prenotazioni-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "assistente-alla-gestione-delle-prenotazioni-m-w-d-kulm-hotel-st-moritz-pontresina",
+          "assistente-chef-de-bar-m-w-d-kulm-hotel-st-moritz-pontresina"
         ],
         "en": [
           "assistant-chef-de-bar-m-w-d-kulm-hotel-st-moritz",
@@ -2294,13 +2243,11 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "de": [
-          "allrounder-wuhler-m-w-d-kulm-hotel-st-moritz-st-moritz-350e7f",
-          "allrounder-wuhler-m-w-d-kulm-hotel-st-moritz-st-moritz"
+          "allrounder-wuhler-m-w-d-kulm-hotel-st-moritz-st-moritz-350e7f"
         ]
       },
       "previousSlugs": [
-        "allrounder-wuhler-m-w-d-kulm-hotel-st-moritz-st-moritz-350e7f",
-        "allrounder-wuhler-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        "allrounder-wuhler-m-w-d-kulm-hotel-st-moritz-st-moritz-350e7f"
       ],
       "firstSeenAt": "2026-07-27T22:18:36.997Z",
       "salaryMin": 57500,
