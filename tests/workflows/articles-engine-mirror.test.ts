@@ -1,7 +1,10 @@
 import { describe, it, expect } from 'vitest';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
+import { checkPrBodySections } from '../../scripts/lib/pr-body-sections-check.mjs';
+import { checkClosesLines } from '../../scripts/lib/pr-body-closes-check.mjs';
 
 /**
  * The code half of the two-repo cycle must have a transport, and that transport
@@ -183,6 +186,179 @@ describe('the articles engine has an automatic transport to the corpus (#4974)',
     expect(
       /engine\/siteShell\.ts/.test(live),
       'the run must verify the engine materialised before mirroring it',
+    ).toBe(true);
+  });
+});
+
+/**
+ * A mirror whose PRs the destination rejects is not a mirror.
+ *
+ * nanako gates every PR body on `scripts/ci/pr-body-contract.mjs`, which is
+ * built on the same two modules this repo ships (`scripts/lib/pr-body-*.mjs`,
+ * byte-identical on both sides and watched by the loop-sync manifest). The
+ * first body this workflow ever generated had neither required header, so the
+ * `contract` check went red the moment the PR opened — with `test`, `detect`,
+ * `publish`, `dry-run` and `tests (node --test)` all green. A red required
+ * check means the PR cannot close on its own, which means the engine keeps
+ * diverging, which is the single failure mode this workflow exists to end.
+ * Measured while it was live: site `engine/ogPagesPlugin.ts` at 1612 lines vs
+ * corpus at 1509.
+ *
+ * So the body is not asserted by eye or by regex resemblance. The generating
+ * shell is sliced out of the workflow, RUN under bash with stubbed inputs, and
+ * the bytes it produces are handed to the very checker nanako runs.
+ */
+const BODY_START = '# >>> pr-body >>>';
+const BODY_END = '# <<< pr-body <<<';
+
+/** Run the workflow's own body-building shell with `env` pre-seeded, return the body. */
+function renderPrBody(env: Record<string, string>): string {
+  const from = src.indexOf(BODY_START);
+  const to = src.indexOf(BODY_END);
+  expect(from, `${ENGINE_MIRROR} lost its ${BODY_START} marker`).toBeGreaterThan(-1);
+  expect(to, `${ENGINE_MIRROR} lost its ${BODY_END} marker`).toBeGreaterThan(from);
+
+  const snippet = src.slice(from + BODY_START.length, to);
+  const script = [
+    'set -euo pipefail',
+    // Single-quoted, with any embedded quote escaped the POSIX way: the values
+    // below are fixtures, but a body built from unescaped interpolation is a
+    // body that breaks on the first commit subject containing an apostrophe.
+    ...Object.entries(env).map(([k, v]) => `${k}='${v.replace(/'/g, `'\\''`)}'`),
+    snippet,
+    'cat "$body"',
+    'rm -f "$body"',
+  ].join('\n');
+
+  return execFileSync('bash', ['-c', script], { encoding: 'utf-8' });
+}
+
+const FULL_ENV = {
+  SHA: '0123456789abcdef0123456789abcdef01234567',
+  n_changed: '2',
+  n_deleted: '0',
+  changed_paths: ['engine/ogPagesPlugin.ts', 'engine/siteShell.ts'].join('\n'),
+  carried: [
+    "ab12cd34 fix(seo): hero articolo — l'immagine reale, dimensioni reali",
+    'ef56ab78 feat(engine): indice related-articles topicale',
+  ].join('\n'),
+};
+
+/** Everything the two best-effort lookups can fail to produce, all at once. */
+const DEGRADED_ENV = { SHA: '0123456789abcdef', n_changed: '0', n_deleted: '0', changed_paths: '', carried: '' };
+
+describe('the lockstep PR body satisfies the contract nanako gates on', () => {
+  it('passes the section contract with the lookups populated', () => {
+    const body = renderPrBody(FULL_ENV);
+    const { violations } = checkPrBodySections(body);
+    expect(
+      violations,
+      'the generated PR body must satisfy scripts/lib/pr-body-sections-check.mjs — ' +
+        'nanako runs exactly this module and blocks the PR when it fails:\n' +
+        violations.map((v) => `  ${v.message}`).join('\n'),
+    ).toEqual([]);
+  });
+
+  it('still passes when both best-effort lookups come back empty', () => {
+    // The commit range and the path list are read over the network AFTER the
+    // push has already happened, and are guarded so a failure never fails the
+    // mirror. That guard is only correct if the body is still contract-valid
+    // without them — otherwise a transient API hiccup silently reintroduces the
+    // red `contract` check this whole fix is about.
+    const body = renderPrBody(DEGRADED_ENV);
+    expect(checkPrBodySections(body).violations).toEqual([]);
+  });
+
+  it('carries the two headers literally, with "(ancora)"', () => {
+    // The gate matches `#{2,3}` + the exact wording. `## Summary`, `## Non
+    // implementato` without "(ancora)", or a bold line instead of a heading all
+    // read as "missing" — which is how the first version failed.
+    const body = renderPrBody(FULL_ENV);
+    expect(body).toMatch(/^## Implementato$/m);
+    expect(body).toMatch(/^## Non implementato \(ancora\)$/m);
+  });
+
+  it('says what it is carrying, rather than filling the sections to pass', () => {
+    // The gate accepts any non-empty bullet, so it cannot tell a description
+    // from a placeholder. These assertions can: the section has to name the
+    // commit being mirrored and the commits it brings down.
+    const body = renderPrBody(FULL_ENV);
+    const impl = body.slice(
+      body.indexOf('## Implementato'),
+      body.indexOf('## Non implementato (ancora)'),
+    );
+    expect(impl, 'the mirrored site commit must appear in ## Implementato').toContain('01234567');
+    for (const sha of ['ab12cd34', 'ef56ab78']) {
+      expect(impl, `commit ${sha} is carried by this PR but is not listed`).toContain(sha);
+    }
+
+    const notImpl = body.slice(body.indexOf('## Non implementato (ancora)'));
+    expect(
+      /\bNessun[oa]\b/.test(notImpl),
+      '"Nessuno" would claim there is no deferred scope, and there is: merging ' +
+        'this PR does not regenerate a single already-published page, and the ' +
+        'host/ half of SiteShellContract never travels with the engine',
+    ).toBe(false);
+    expect(notImpl).toMatch(/publish-api\.yml/);
+    expect(notImpl).toMatch(/host\//);
+  });
+
+  it('survives a path list longer than the inline cap, and says so', () => {
+    // The cap used to be a `head -25`, which SIGPIPEs its producer; under
+    // `set -o pipefail` + `set -e` that is a dead step, not a truncated list.
+    // Reproduced on a real commit before the cap moved inside awk.
+    const many = Array.from({ length: 40 }, (_, i) => `engine/file${i}.ts`).join('\n');
+    const body = renderPrBody({ ...FULL_ENV, n_changed: '40', changed_paths: many });
+    expect(body).toContain('`engine/file0.ts`');
+    expect(body).toContain('and 15 more');
+    expect(checkPrBodySections(body).violations).toEqual([]);
+  });
+
+  it('never chains issue refs after one closing keyword', () => {
+    // The other half of nanako's gate: `Closes #a #b` closes only #a, and the
+    // rest stay open in silence.
+    const body = renderPrBody(FULL_ENV);
+    expect(checkClosesLines(body).violations).toEqual([]);
+  });
+});
+
+describe('every workflow that opens a PR produces a contract-conforming body', () => {
+  // The engine mirror is checked byte-for-byte above; this is the cheap sweep
+  // that stops the same omission from arriving in the NEXT workflow. Both
+  // repos gate on the same two headers, so a `gh pr create` anywhere in
+  // .github/workflows without them is a PR that is red before anyone looks.
+  const openers = fs
+    .readdirSync(WF_DIR)
+    .filter((f) => f.endsWith('.yml') || f.endsWith('.yaml'))
+    .map((f) => ({ file: f, raw: fs.readFileSync(path.join(WF_DIR, f), 'utf-8') }))
+    // Only live calls: several workflows mention `gh pr create` in a comment to
+    // explain why they deliberately do NOT open one.
+    .filter(({ raw }) => /gh pr create/.test(withoutComments(raw)));
+
+  it('finds the workflows that open PRs at all', () => {
+    // A sweep that silently matches nothing is a sweep that passes forever.
+    expect(openers.map((o) => o.file)).toContain(ENGINE_MIRROR);
+    expect(openers.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it.each(openers.map((o) => o.file))('%s writes both required headers', (file) => {
+    // Raw source, not `withoutComments`: a `## Implementato` line inside a body
+    // template or an agent prompt starts with `#` and would be stripped as if
+    // it were a YAML comment.
+    //
+    // The optional quote matters: a heredoc and an agent prompt write the header
+    // bare, but a `printf '%s\n' ...` list writes it as `'## Implementato' \`.
+    // Requiring a bare line failed on the engine mirror itself.
+    const raw = openers.find((o) => o.file === file)!.raw;
+    expect(
+      /^[ \t]*['"]?## Implementato\b/m.test(raw),
+      `${file} calls gh pr create but never writes \`## Implementato\` — the ` +
+        'body-contract gate rejects the PR on arrival',
+    ).toBe(true);
+    expect(
+      /^[ \t]*['"]?## Non implementato \(ancora\)/m.test(raw),
+      `${file} calls gh pr create but never writes \`## Non implementato (ancora)\` ` +
+        '— note the literal "(ancora)": the gate rejects the header without it',
     ).toBe(true);
   });
 });
