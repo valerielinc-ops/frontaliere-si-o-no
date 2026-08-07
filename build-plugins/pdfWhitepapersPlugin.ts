@@ -1,5 +1,11 @@
 import path from 'path';
+// Statico, NON `await import('node:fs')` dentro closeBundle (#5001): quell'await
+// sospendeva il plugin prima del loop che registra le hero card, e
+// `seoHeroCardsPlugin` drenava il registry nello stesso tick — le 4 pagine
+// guides finivano con un <img> verso un webp mai generato.
+import fs from 'node:fs';
 import { clampMetaDescription } from './shared/titleSuffix';
+import { renderSeoHeroImage } from './shared/seoHeroImage';
 import { createHash } from 'node:crypto';
 import type { Plugin } from 'vite';
 import { BASE_URL, ANALYTICS_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
@@ -501,6 +507,7 @@ nav a{color:#2563eb;text-decoration:none}
 <article>
 <h1>${esc(guide.title)}</h1>
 <p class="subtitle">${esc(guide.subtitle)}</p>
+${renderSeoHeroImage({ family: 'guides', key: guide.articleSlug, locale: 'it', headline: guide.title, eyebrow: guide.subtitle, alt: guide.title })}
 <div class="download-box">
 <a class="download-btn" href="${pdfUrl}" download>📥 Scarica PDF (${pdfSizeKb} KB)</a>
 <p class="meta">Formato PDF · Gratuito · Aggiornato ${dateStamp}</p>
@@ -615,7 +622,6 @@ export function pdfWhitepapersPlugin(rootDir: string): Plugin {
  name: 'pdf-whitepapers',
  apply: 'build',
  async closeBundle() {
- const fs = await import('node:fs');
  const outDir = path.join(rootDir, 'dist', 'guides');
  fs.mkdirSync(outDir, { recursive: true });
 
