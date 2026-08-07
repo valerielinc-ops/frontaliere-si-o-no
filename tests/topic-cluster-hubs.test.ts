@@ -389,3 +389,53 @@ describe('topic clustering on the published corpus', () => {
     120_000,
   );
 });
+
+// Questi hub vivono SOTTO le sezioni articoli
+// (`/articoli-frontaliere/topics/…`, `/en/cross-border-articles/topics/…`).
+// Quando l'emit di una sezione e' skippato, il deploy esclude il suo sottoalbero
+// dal push verso lo shard: le pagine scritte qui non arrivano mai in produzione,
+// mentre `sitemap-topics.xml` — che sta sull'apex — viene pubblicata e le
+// annuncia. Misurato in produzione il 2026-08-07:
+//
+//   /en/cross-border-articles/topics/salaries/page-9/  → 404
+//   /articoli-frontaliere/topics/                      → 404
+//
+// e lo shard `frontaliere-articolifrontaliere-en` non ha nessuna cartella
+// `topics/`. Il corpus HA l'engine (topicClusters/topicTaxonomy sono
+// mirrorati) ma non rende questi hub: nessuno li produceva, e la sitemap stava
+// sottoponendo migliaia di 404 ai motori di ricerca — con
+// `scripts/ci/assert-dist-complete.mjs` (che gira in post-deploy-validate-dist)
+// prossimo ad andare rosso su «sitemap-topics.xml: 40/40 missing (100%)».
+describe('topic hubs — non annunciare una sezione che il build non spedisce', () => {
+  const src = fs.readFileSync(
+    np.resolve(__dirname, '../build-plugins/topicClusterHubsPlugin.ts'),
+    'utf8',
+  );
+
+  it('consulta gli stessi flag BUILD_EMIT_SKIP degli altri emitter di sezione', () => {
+    expect(src).toContain('ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP');
+    expect(src).toContain('ARTICOLISVIZZERA_BUILD_EMIT_SKIP');
+  });
+
+  it('salta la sezione PRIMA di calcolarne i topic, non dopo', () => {
+    // Saltare a valle lascerebbe comunque le entry in sitemap: e' il punto.
+    const loop = src.indexOf('for (const section of TOPIC_HUB_SECTIONS)');
+    const guard = src.indexOf('buildEmitSkip[section]', loop);
+    const compute = src.indexOf('computeSectionTopics(rootDir, section)', loop);
+    expect(loop).toBeGreaterThan(-1);
+    expect(guard).toBeGreaterThan(-1);
+    expect(guard).toBeLessThan(compute);
+  });
+
+  it('scrive la sitemap solo se qualcosa e\' stato davvero reso', () => {
+    // Con entrambe le sezioni skippate non deve restare un sitemap-topics.xml
+    // che punta al nulla.
+    expect(src).toMatch(/if \(sitemapEntries\.length > 0\) \{[\s\S]{0,400}?sitemap-topics\.xml/);
+  });
+
+  it('lo dice nel log invece di saltare in silenzio', () => {
+    const guardZone = src.slice(src.indexOf('buildEmitSkip[section]'), src.indexOf('buildEmitSkip[section]') + 400);
+    expect(guardZone).toMatch(/console\.log/);
+    expect(guardZone).toContain('BUILD_EMIT_SKIP');
+  });
+});
