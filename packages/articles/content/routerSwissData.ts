@@ -660,6 +660,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'rischio-bolla-svizzera-2026': { it: 'rischio-bolla-svizzera-2026', en: 'swiss-real-estate-bubble-risk-2026', de: 'schweizer-immobilien-bubble-risiko-2026', fr: 'risque-de-bulle-immobiliere-suisse-2026' },
  'easyjet-apollon-acquisizione': { it: 'easyjet-apollon-acquisizione', en: 'easyjet-apollon-acquisition', de: 'easyjet-apollon-ubernahme', fr: 'easyjet-apollon-acquisition' },
  'disoccupazione-svizzera-luglio-2026-seco': { it: 'disoccupazione-svizzera-luglio-2026-seco', en: 'switzerland-unemployment-july-2026-seco', de: 'arbeitslosigkeit-schweiz-juli-2026-seco', fr: 'chomage-suisse-juillet-2026-seco' },
+ 'costo-vita-2026-zurigo-analisi': { it: 'costo-vita-2026-zurigo-analisi', en: 'cost-of-living-switzerland-2026-zurich-canton', de: 'lebenskosten-schweiz-2026-kanton-zuerich', fr: 'cout-de-la-vie-suisse-2026-canton-zurich' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
