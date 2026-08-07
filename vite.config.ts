@@ -197,6 +197,17 @@ export default defineConfig(({ mode }) => {
  // instead of after the heavy SEO plugins have already run.
  localeTableCompletenessPlugin(),
  ogPagesPlugin(__dirname),
+ // MUST stay BEFORE jobsSeoPagesPlugin. `jobsSeoPagesPlugin` does
+ // `await employerProfilesFlushed` (#5273) to link each job ad at the
+ // evergreen `/aziende/<slug>/` hub, and deploy.yml runs the build with
+ // SEQUENTIAL_PROFILE=1, which makes profilePlugin mark EVERY closeBundle
+ // `sequential: true`. Under sequential hooks a signal can only ever travel
+ // FORWARD in this array: registered after its consumer, the producer never
+ // gets to run, the await never settles, the event loop drains and node
+ // exits 0 — a green build missing every page after the deadlock (#5330).
+ // tests/build-plugin-order.test.ts derives this constraint from the
+ // sources, so a new cross-plugin `await` is checked here automatically.
+ employerProfilePagesPlugin(__dirname),
  jobsSeoPagesPlugin(__dirname),
  // Per-job OG images (1200×630) for FB/LinkedIn previews. Reads
  // data/jobs.json + company-logos-manifest, writes dist/og/jobs/<slug>.png.
@@ -257,7 +268,11 @@ export default defineConfig(({ mode }) => {
  // run in any order after the other landing plugins.
  faqHubPlugin(__dirname),
  publisherAdPagesPlugin(__dirname),
- employerProfilePagesPlugin(__dirname),
+ // employerProfilePagesPlugin used to sit here. It moved up next to
+ // ogPagesPlugin because jobsSeoPagesPlugin awaits its flush signal — see
+ // the comment there. It reads no other plugin's dist output (only
+ // data/employer-profiles.json + the jobs corpus) and writes only the
+ // `/aziende/<slug>/` namespace, so nothing else depends on this slot.
  // FR landing — single page targeting "calcul salaire net suisse frontalier"
  // (Semrush CH 880/mo). Self-contained: no router edit, no SPA route. The
  // static HTML serves SEO/first-paint; SPA fallback hydrates on /fr/calculer-salaire/.
