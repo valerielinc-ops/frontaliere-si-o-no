@@ -84,9 +84,10 @@ jobs:
             --title "Article hub landing degraded: missing grid or stale article set" \
             --description "## Article-hub landing watchdog tripped
 
-          One or more of the eight handed-off article-hub landings is degraded:
-          no \`ssg-article-grid\` marker, too few cards, or it no longer links
-          the newest article the corpus published.
+          One or more of the eight handed-off article-hub landings — or one of their
+          eight \`/tutti/\` archives — is degraded: no \`ssg-article-grid\` marker, too few
+          cards, it no longer links the newest article the corpus published, or it
+          still carries same-origin \`/assets/\` references.
 
           ### Probe report
           \`\`\`
@@ -104,6 +105,16 @@ jobs:
           - **stale** → the corpus refresher is skipping the page. Its per-page fail-closed reasons
             are logged verbatim (meta coverage, image CDN leak, unbalanced grid).
           - **HTTP != 200** → shard or Worker routing problem, not a content one.
+          - **same-origin \`/assets/\` refs** → that page was written AFTER the CDN offload
+            instead of before it, so its \`/assets/…\` strings were never rewritten and every
+            one of them 404s: the page renders with no CSS, no SPA bundle and no AdSense
+            loader while still answering 200 (issue #5270). Two publishers can cause it and
+            they keep SEPARATE copies of \`scripts/publish-article-fast.mjs\` — this repo's and
+            nanako's — because no mirror carries \`scripts/\`. Check which one pushed last
+            (\`gh api repos/valerielinc-ops/frontaliere-<section>-<loc>/commits\`: the fast-push
+            message carries the publisher's commit SHA) and fix the ordering in THAT copy:
+            \`renderArticleHubPages\` must run BEFORE the
+            \`offload-generated-images-cdn.mjs\` subprocess.
 
           This issue auto-resolves on the next watchdog run once the landings are healthy again." \
             --priority 2 \
