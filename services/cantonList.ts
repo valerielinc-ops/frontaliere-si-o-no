@@ -88,6 +88,35 @@ export function expandCantonGroup(code: string): string[] {
 }
 
 /**
+ * Resolve a real BFS canton code to its URL/shard group key: AI/AR collapse
+ * onto `APPENZELLO`, BL/BS onto `BASILEA`; every other code (and the
+ * `_AGGREGATE_` sentinel) round-trips unchanged.
+ *
+ * The inverse of {@link expandCantonGroup}, and the ONE home for that
+ * inversion on the services side — `services/router.ts` (URL emission) and
+ * `services/jobCantonShards.ts` (shard addressing) both delegate here rather
+ * than rebuilding their own member→group map from `cantonGroups`.
+ *
+ * That matters concretely: re-deriving this normalisation instead of sharing
+ * it is what produced the half-canton shard 404s (a bridge asked for `BS-it.json`,
+ * a file the URL layer never emits because BL+BS are merged). With one
+ * implementation a change to the `cantonGroups` shape cannot land in one
+ * consumer and silently miss the other.
+ *
+ * Shares MEMBER_TO_GROUP with getCantonLabel, so labels and grouping cannot
+ * disagree either.
+ *
+ * NB: this uppercases its input. Callers that must preserve the corpus's exact
+ * casing (e.g. bucketing jobs by `job.canton`, where `scopeJobsToCanton`
+ * compares case-sensitively) should bucket through `expandCantonGroup` instead.
+ */
+export function resolveCantonGroup(code: string): string {
+  const upper = String(code || '').toUpperCase().trim();
+  if (!upper) return upper;
+  return MEMBER_TO_GROUP.get(upper) ?? upper;
+}
+
+/**
  * 2-letter ISO canton codes (uppercase) — sorted alphabetically for stable
  * UI ordering. Frozen at module load. Always 26 entries (expands AI/AR/BL/BS
  * even though the URL slugs collapse them onto APPENZELLO/BASILEA).

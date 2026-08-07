@@ -12,6 +12,10 @@ import {
   JOB_CANTON_MANIFEST_PATH,
 } from '../services/jobCantonShards';
 import { scopeJobsToCanton } from '../services/jobsService';
+// Compared against `cantonList` rather than `router`: both now delegate to this
+// same function (asserted on the sources below), and importing the router here
+// would drag its whole route/build-plugin graph into a test about 24 map keys.
+import { resolveCantonGroup as sharedResolveCantonGroup } from '../services/cantonList';
 
 const root = path.resolve(__dirname, '..');
 
@@ -124,6 +128,26 @@ describe('shard addressing — the two bugs that would have sent live jobs to Jo
     expect(resolveCantonShardKey('AR')).toBe('APPENZELLO');
     expect(CANTON_SHARD_KEYS).toContain(resolveCantonShardKey('BS'));
     expect(CANTON_SHARD_KEYS).toContain(resolveCantonShardKey('AI'));
+  });
+
+  it('shares ONE member→group inversion with the router, by delegation', () => {
+    // Both the URL-emission boundary and the shard-addressing boundary must
+    // answer identically for every code, or a bridge URL and the shard it
+    // fetches can disagree — which is exactly how the BS/AI 404s happened.
+    // Delegation (not two maps built from the same table) is what makes this
+    // hold for inputs nobody thought to enumerate.
+    const shardSrc = fs.readFileSync(path.resolve(root, 'services/jobCantonShards.ts'), 'utf-8');
+    const routerSrc = fs.readFileSync(path.resolve(root, 'services/router.ts'), 'utf-8');
+    expect(shardSrc).toContain('return resolveCantonGroup(cantonCode);');
+    expect(routerSrc).toContain('return resolveCantonGroupShared(cantonCode);');
+    // Neither may rebuild its own inversion of `cantonGroups`.
+    expect(shardSrc).not.toContain('MEMBER_TO_SHARD_KEY');
+    expect(routerSrc).not.toContain('CANTON_MEMBER_TO_GROUP');
+
+    for (const code of [...CANTON_SHARD_KEYS, 'AI', 'AR', 'BL', 'BS', 'TI', 'ZH', '_AGGREGATE_', '', 'zz']) {
+      expect(resolveCantonShardKey(code), `divergence for "${code}"`)
+        .toBe(sharedResolveCantonGroup(code));
+    }
   });
 
   it('round-trips ordinary canton codes and already-merged group keys unchanged', () => {
