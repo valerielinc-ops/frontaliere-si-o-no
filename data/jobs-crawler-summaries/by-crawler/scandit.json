@@ -1,16 +1,16 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-08-06T11:46:01.830Z",
+  "generatedAt": "2026-08-07T01:16:50.860Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6257,
-  "avgDurationMs": 6257,
+  "durationMs": 5900,
+  "avgDurationMs": 5900,
   "durationHistory": [
-    6257
+    5900
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8093936",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:45:56.810Z",
+      "crawledAt": "2026-08-07T01:16:46.033Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -39,6 +39,7 @@
       "featured": false,
       "postedDate": "2026-07-29",
       "applyUrl": "https://www.scandit.com/careers/job-description/?gh_jid=8093936",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T11:51:58.923Z",
       "_qualityScore": 74,
       "_qualityBreakdown": {
@@ -60,7 +61,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8043068",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:45:56.163Z",
+      "crawledAt": "2026-08-07T01:16:45.416Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,6 +74,7 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://www.scandit.com/careers/job-description/?gh_jid=8043068",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:25:08.146Z",
       "_qualityScore": 76,
       "_qualityBreakdown": {
@@ -94,7 +96,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-06T11:45:56.505Z",
+      "crawledAt": "2026-08-07T01:16:45.725Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
