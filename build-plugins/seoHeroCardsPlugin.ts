@@ -43,6 +43,7 @@ import type { Plugin } from 'vite';
 
 import {
   drainSeoHeroCardRequests,
+  lateSeoHeroCardFamilies,
   seoHeroCardPath,
   SEO_HERO_HEIGHT,
   SEO_HERO_WIDTH,
@@ -270,6 +271,20 @@ export function seoHeroCardsPlugin(rootDir: string): Plugin {
       console.log(
         `\x1b[36m[seo-hero-cards]\x1b[0m ${rendered} card generate (${failed} fallite) in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
       );
+
+      // Chi ha chiesto una card DOPO il drain non l'avra' mai, e la sua pagina
+      // e' gia' stata scritta con un <img> verso quel file: un hero 404. E'
+      // successo davvero (pdfWhitepapersPlugin, `await import` in testa a
+      // closeBundle), ed era invisibile senza una build reale — quindi qui non
+      // resta silenzioso.
+      const late = lateSeoHeroCardFamilies();
+      if (late.length > 0) {
+        console.warn(
+          `\x1b[33m[seo-hero-cards]\x1b[0m ${late.length} card richieste DOPO il drain — le loro pagine puntano a un webp inesistente. ` +
+            `Causa tipica: un \`await\` prima del loop di render nell'emettitore, che sospende closeBundle oltre il drain. ` +
+            `Famiglie: ${late.join(', ')}`,
+        );
+      }
     },
   };
 }

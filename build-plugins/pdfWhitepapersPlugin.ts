@@ -1,4 +1,9 @@
 import path from 'path';
+// Statico, NON `await import('node:fs')` dentro closeBundle (#5001): quell'await
+// sospendeva il plugin prima del loop che registra le hero card, e
+// `seoHeroCardsPlugin` drenava il registry nello stesso tick — le 4 pagine
+// guides finivano con un <img> verso un webp mai generato.
+import fs from 'node:fs';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { renderSeoHeroImage } from './shared/seoHeroImage';
 import { createHash } from 'node:crypto';
@@ -617,7 +622,6 @@ export function pdfWhitepapersPlugin(rootDir: string): Plugin {
  name: 'pdf-whitepapers',
  apply: 'build',
  async closeBundle() {
- const fs = await import('node:fs');
  const outDir = path.join(rootDir, 'dist', 'guides');
  fs.mkdirSync(outDir, { recursive: true });
 

@@ -77,6 +77,36 @@ describe('Discover hero image — fleet guard', () => {
     expect(helper).toMatch(/aspect-ratio/);
   });
 
+  it('reports a card requested after the drain instead of shipping a 404 hero', async () => {
+    const mod = await import('../../build-plugins/shared/seoHeroImage');
+    mod.resetSeoHeroCardRegistry();
+
+    // In tempo: registrata prima del drain.
+    mod.renderSeoHeroImage({ family: 'holidays', key: 'a', locale: 'it', alt: 'A' });
+    expect(mod.drainSeoHeroCardRequests()).toHaveLength(1);
+    expect(mod.lateSeoHeroCardFamilies()).toEqual([]);
+
+    // In ritardo: la pagina e' gia' scritta con un <img> che nessuno rendera'.
+    // E' il caso reale di pdfWhitepapersPlugin (`await import` in testa a
+    // closeBundle), che senza questa guardia era del tutto silenzioso.
+    mod.renderSeoHeroImage({ family: 'guides', key: 'b', locale: 'it', alt: 'B' });
+    expect(mod.lateSeoHeroCardFamilies()).toEqual(['guides/b/it']);
+
+    mod.resetSeoHeroCardRegistry();
+  });
+
+  it('keeps every hero emitter free of an await before its render loop', () => {
+    // L'invariante che la guardia sopra sorveglia a runtime, qui sul sorgente
+    // per il caso che l'ha rotta: un `await import(...)` come prima istruzione
+    // di closeBundle sospende il plugin oltre il drain.
+    for (const { plugin } of EDITORIAL_FAMILIES) {
+      const src = read(plugin);
+      expect(src, `${plugin} usa un await import() dentro closeBundle`).not.toMatch(
+        /async closeBundle\(\)\s*\{\s*(?:\/\/[^\n]*\n\s*)*const\s+\w+\s*=\s*await\s+import\(/,
+      );
+    }
+  });
+
   it('generates the cards from the same registry the markup fills', () => {
     // If the plugin ever stops draining the registry the pages would point at
     // images nobody renders — a 404 hero on every editorial page.

@@ -86,6 +86,30 @@ export interface SeoHeroCardRequest {
  */
 const CARD_REQUESTS = new Map<string, SeoHeroCardRequest>();
 
+/**
+ * Set once the generator has taken the registry. Anything registered after
+ * this point will never be rendered.
+ *
+ * This exists because the ordering invariant is REAL and was broken on the
+ * first try: `closeBundle` is an async/parallel Rollup hook, so `enforce`
+ * decides only when each hook is *started*, not when it finishes. An emitter
+ * that hits an `await` before its render loop yields, and a later plugin's
+ * synchronous first statement can run before it resumes.
+ *
+ * That is exactly what happened to `pdfWhitepapersPlugin`: it opened
+ * `closeBundle` with `await import('node:fs')`, so it suspended before
+ * registering any card, and the generator drained an empty slot for the
+ * `guides` family — while the four pages had already been written with an
+ * `<img>` pointing at a WebP that would never exist. A 404 hero on the whole
+ * family, which is the precise opposite of what this module is for, and
+ * invisible without a real build.
+ *
+ * The import is static now, but "no emitter introduces an await before its
+ * render loop" is not a property anyone can hold in their head across seven
+ * plugins. So the failure mode is made loud instead of silent.
+ */
+let drained = false;
+
 /** Drain the registry. Called once by `seoHeroCardsPlugin` at closeBundle. */
 export function drainSeoHeroCardRequests(): SeoHeroCardRequest[] {
   const out = [...CARD_REQUESTS.values()].sort(
@@ -95,7 +119,24 @@ export function drainSeoHeroCardRequests(): SeoHeroCardRequest[] {
       a.locale.localeCompare(b.locale),
   );
   CARD_REQUESTS.clear();
+  drained = true;
   return out;
+}
+
+/** Test seam: undo {@link drainSeoHeroCardRequests}'s latch. */
+export function resetSeoHeroCardRegistry(): void {
+  CARD_REQUESTS.clear();
+  drained = false;
+}
+
+/**
+ * Families that asked for a card too late to get one. Empty on a healthy
+ * build; `seoHeroCardsPlugin` reports it so a broken hero is a build message
+ * rather than a 404 discovered in production weeks later.
+ */
+const LATE_REQUESTS = new Set<string>();
+export function lateSeoHeroCardFamilies(): string[] {
+  return [...LATE_REQUESTS].sort();
 }
 
 /** Test seam: how many cards are currently queued. */
@@ -124,6 +165,9 @@ function esc(s: unknown): string {
 export function renderSeoHeroImage(opts: SeoHeroImageOpts): string {
   const src = seoHeroCardPath(opts.family, opts.key, opts.locale);
   // Emitting the markup IS the request for the image — see CARD_REQUESTS.
+  // If the generator has already drained, this card will never be rendered and
+  // the page below would ship an <img> at a 404. Record it so the build says so.
+  if (drained) LATE_REQUESTS.add(`${opts.family}/${opts.key}/${opts.locale}`);
   CARD_REQUESTS.set(src, {
     family: opts.family,
     key: opts.key,
