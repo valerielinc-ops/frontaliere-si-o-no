@@ -56,6 +56,7 @@ import { assignArticlesToTopics } from '../packages/articles/engine/topicCluster
 import { TOPIC_CLUSTERS, TOPIC_HUB_SEGMENT } from '../packages/articles/engine/topicTaxonomy';
 import {
   buildTopicHubPath,
+  topicSitemapFileName,
   TOPIC_HUB_LOCALES,
   TOPIC_HUB_MIN_ARTICLES,
   TOPIC_HUB_PAGE_SIZE,
@@ -492,6 +493,16 @@ ${renderTopicNav(locale, section, topicKey, eligible)}`;
  * Below-floor bridge: same URL, `noindex,follow`, real onward links. Emitted
  * instead of skipping so a topic that shrinks below the floor does not turn a
  * previously indexed URL into a 404 (AGENTS.md § Static SEO Pages).
+ *
+ * `page` defaults to 1, which is the below-floor case: the topic has one URL
+ * and this is it. It is passed explicitly for the OTHER caller — a page N of
+ * an above-floor topic that came out thin — and that argument is load-bearing,
+ * not decorative. It used to be absent, so a thin page 5 emitted its bridge at
+ * `buildTopicHubPath(locale, section, topicKey)`, i.e. page 1: the indexable
+ * page 1 written moments earlier was OVERWRITTEN by a `noindex` bridge, page 5
+ * was never written at all, and the sitemap kept announcing page 1 as
+ * indexable. One `continue` in the loop below, three wrong outcomes. A bridge
+ * belongs at the URL whose content was too thin — nowhere else.
  */
 function renderBridgePage(opts: {
   locale: TopicHubLocale;
@@ -499,13 +510,14 @@ function renderBridgePage(opts: {
   topicKey: string;
   memberCount: number;
   eligible: ReadonlySet<string>;
+  page?: number;
   distDir?: string;
 }): RenderedPage {
-  const { locale, section, topicKey, memberCount, eligible, distDir } = opts;
+  const { locale, section, topicKey, memberCount, eligible, page = 1, distDir } = opts;
   const topic = TOPIC_CLUSTERS.find((t) => t.key === topicKey)!;
   const c = COPY[locale];
   const label = topic.label[locale];
-  const urlPath = buildTopicHubPath(locale, section, topicKey);
+  const urlPath = buildTopicHubPath(locale, section, topicKey, page);
 
   const body = `${renderBreadcrumb(locale, section, label)}
   <h1 style="${H1_STYLE}">${esc(c.bridgeTitle(label))}</h1>
@@ -546,26 +558,35 @@ function buildSitemapXml(
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;
 }
 
-function patchSitemapIndex(distDir: string, dateStamp: string): void {
-  const indexPath = np.join(distDir, 'sitemap.xml');
-  if (!fs.existsSync(indexPath)) return;
-  try {
-    let idx = fs.readFileSync(indexPath, 'utf-8');
-    if (!idx.includes('sitemap-topics.xml')) {
-      idx = idx.replace(
-        '</sitemapindex>',
-        `  <sitemap>\n    <loc>${BASE_URL}/sitemap-topics.xml</loc>\n    <lastmod>${dateStamp}</lastmod>\n  </sitemap>\n</sitemapindex>`,
-      );
-    } else {
-      idx = idx.replace(
-        /(<loc>https:\/\/frontaliereticino\.ch\/sitemap-topics\.xml<\/loc>\s*<lastmod>)\d{4}-\d{2}-\d{2}(<\/lastmod>)/,
-        `$1${dateStamp}$2`,
-      );
-    }
-    fs.writeFileSync(indexPath, idx, 'utf-8');
-  } catch (err) {
-    console.warn('[topic-hubs] failed to patch sitemap index', err);
-  }
+/**
+ * Cross-check a rendered `sitemap-topics-<section>.xml` against the set of URL
+ * paths whose HTML the same run wrote. Returns both directions, because both
+ * are defects and they fail differently:
+ *
+ *  - `announcedNotWritten` — a `<loc>` with no page behind it. This is the
+ *    36 phantom `page-N` URLs #5290 half-fixed by silencing the sitemap; a
+ *    crawler follows every one of them into a 404.
+ *  - `writtenNotAnnounced` — an indexable hub nobody points a crawler at.
+ *    Measured at 32 on the same snapshot, and invisible without this side of
+ *    the check: a sitemap can be 100% accurate about pages that no longer
+ *    exist and still miss every page that does.
+ *
+ * Pure (string in, arrays out) and exported so the property can be asserted
+ * without a build, and so callers can assert it on a REAL render rather than
+ * on a fixture that proves only that the fixture is consistent.
+ */
+export function auditTopicSitemapCoverage(
+  xml: string,
+  writtenUrlPaths: Iterable<string>,
+): { announcedNotWritten: string[]; writtenNotAnnounced: string[] } {
+  const written = new Set(writtenUrlPaths);
+  const announced = new Set(
+    [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].replace(BASE_URL, '')),
+  );
+  return {
+    announcedNotWritten: [...announced].filter((p) => !written.has(p)).sort(),
+    writtenNotAnnounced: [...written].filter((p) => !announced.has(p)).sort(),
+  };
 }
 
 /**
@@ -633,9 +654,7 @@ interface TopicHubSectionCoreArgs {
   readonly locales?: readonly TopicHubLocale[];
   /** Queue a write. The plugin and the fast path both funnel into a WriteCollector. */
   readonly add: (filePath: string, content: string) => void;
-  /** Appended to, never read — the fast path passes a throwaway array. */
-  readonly sitemapEntries: Array<{ canonical: string; alternates: readonly string[] }>;
-  /** Dist-RELATIVE path of every file emitted, for the shard push. */
+  /** Dist-RELATIVE path of every PAGE emitted, for the shard push. */
   readonly onPageEmitted?: (locale: TopicHubLocale, relPath: string) => void;
 }
 
@@ -643,6 +662,13 @@ interface TopicHubSectionCoreResult {
   readonly hubPages: number;
   readonly bridgePages: number;
   readonly thin: number;
+  /**
+   * Dist-relative path of the section sitemap, or null when this render
+   * produced no indexable hub at all and therefore has nothing to announce.
+   */
+  readonly sitemapPath: string | null;
+  /** Canonical URL paths listed in that sitemap — every one of them written above. */
+  readonly announcedUrlPaths: readonly string[];
 }
 
 /**
@@ -658,8 +684,7 @@ interface TopicHubSectionCoreResult {
  * no copy-pasted rendering chrome" — applies here unchanged.
  */
 function renderTopicHubSectionCore(args: TopicHubSectionCoreArgs): TopicHubSectionCoreResult {
-  const { rootDir, distDir, section, dateStamp, locales, add, sitemapEntries, onPageEmitted } =
-    args;
+  const { rootDir, distDir, section, dateStamp, locales, add, onPageEmitted } = args;
 
   const { byTopic, rowsByLocale, directCount, propagatedCount, unassignedCount, total } =
     computeSectionTopics(rootDir, section);
@@ -687,14 +712,40 @@ function renderTopicHubSectionCore(args: TopicHubSectionCoreArgs): TopicHubSecti
   let bridgePages = 0;
   let thin = 0;
 
+  /**
+   * The sitemap is derived from THIS list, and this list is appended to only
+   * by `emit()` — i.e. only by the act of queueing the page's own bytes.
+   *
+   * That is the whole fix for the phantom-pagination class. The list used to
+   * be a second array (`sitemapEntries`) filled at a different point in the
+   * loop from the one that wrote the file, so "announced" and "written" were
+   * two claims that merely happened to agree; when the two producers drifted
+   * apart they stopped agreeing and nothing noticed. Now there is one claim:
+   * a URL can only reach the sitemap by having been written, and a page that
+   * is written but not indexable (a bridge) is recorded as not-announced
+   * rather than omitted, so the audit can see it too.
+   */
+  const emitted: Array<{
+    urlPath: string;
+    indexable: boolean;
+    topicKey: string;
+    page: number;
+  }> = [];
+
   /** Emit both the directory index and its flat sibling, reporting each relpath. */
-  const emit = (locale: TopicHubLocale, urlPath: string, html: string): void => {
+  const emit = (
+    locale: TopicHubLocale,
+    urlPath: string,
+    html: string,
+    meta: { indexable: boolean; topicKey: string; page: number },
+  ): void => {
     const indexRel = np.join(urlPath.slice(1), 'index.html');
     const flatRel = `${urlPath.replace(/^\/+/, '').replace(/\/+$/, '')}.html`;
     add(np.join(distDir, indexRel), html);
     add(np.join(distDir, flatRel), html);
     onPageEmitted?.(locale, indexRel);
     onPageEmitted?.(locale, flatRel);
+    emitted.push({ urlPath, ...meta });
   };
 
   for (const topic of TOPIC_CLUSTERS) {
@@ -718,7 +769,11 @@ function renderTopicHubSectionCore(args: TopicHubSectionCoreArgs): TopicHubSecti
           eligible,
           distDir,
         });
-        emit(locale, bridge.urlPath, bridge.html);
+        emit(locale, bridge.urlPath, bridge.html, {
+          indexable: false,
+          topicKey: topic.key,
+          page: 1,
+        });
         bridgePages++;
         continue;
       }
@@ -738,8 +793,9 @@ function renderTopicHubSectionCore(args: TopicHubSectionCoreArgs): TopicHubSecti
         });
         if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
           // Above the article floor but still thin: emit the bridge at
-          // the same URL rather than an indexable near-empty page
-          // (Non-Negotiable #4).
+          // THIS page's URL rather than an indexable near-empty page
+          // (Non-Negotiable #4) — and `page` is what keeps it at this page's
+          // URL instead of stamping it over page 1. See renderBridgePage.
           thin++;
           const bridge = renderBridgePage({
             locale,
@@ -747,28 +803,62 @@ function renderTopicHubSectionCore(args: TopicHubSectionCoreArgs): TopicHubSecti
             topicKey: topic.key,
             memberCount: members.length,
             eligible,
+            page,
             distDir,
           });
-          emit(locale, bridge.urlPath, bridge.html);
+          emit(locale, bridge.urlPath, bridge.html, {
+            indexable: false,
+            topicKey: topic.key,
+            page,
+          });
           bridgePages++;
           continue;
         }
-        emit(locale, rendered.urlPath, rendered.html);
-        hubPages++;
-        sitemapEntries.push({
-          canonical: rendered.urlPath,
-          alternates: [
-            ...TOPIC_HUB_LOCALES.map(
-              (alt) => `${alt}|${BASE_URL}${buildTopicHubPath(alt, section, topic.key, page)}`,
-            ),
-            `x-default|${BASE_URL}${buildTopicHubPath('it', section, topic.key, page)}`,
-          ],
+        emit(locale, rendered.urlPath, rendered.html, {
+          indexable: true,
+          topicKey: topic.key,
+          page,
         });
+        hubPages++;
       }
     }
   }
 
-  return { hubPages, bridgePages, thin };
+  // ── The sitemap, written by the same run that wrote the pages ──────────
+  //
+  // Both producers reach this line: the full build for a section it emits,
+  // and `renderTopicClusterHubPages` for the section a fast publish just
+  // rendered and is about to push. Whoever writes the pages writes the claim
+  // about them, in the same pass, from the same list — which is the property
+  // #5290 was reaching for and could not express while the sitemap was
+  // written by a producer that did not write the pages.
+  //
+  // Nothing rendered indexable ⇒ no file. Not an empty `<urlset>`: "there is
+  // nothing to announce" and "I announce nothing" read the same to a crawler
+  // but not to the sitemap index, which would carry a dead entry.
+  const indexable = emitted.filter((e) => e.indexable);
+  const announcedUrlPaths = indexable.map((e) => e.urlPath);
+  let sitemapPath: string | null = null;
+  if (indexable.length > 0) {
+    sitemapPath = topicSitemapFileName(section);
+    add(
+      np.join(distDir, sitemapPath),
+      buildSitemapXml(
+        indexable.map((e) => ({
+          canonical: e.urlPath,
+          alternates: [
+            ...TOPIC_HUB_LOCALES.map(
+              (alt) => `${alt}|${BASE_URL}${buildTopicHubPath(alt, section, e.topicKey, e.page)}`,
+            ),
+            `x-default|${BASE_URL}${buildTopicHubPath('it', section, e.topicKey, e.page)}`,
+          ],
+        })),
+        dateStamp,
+      ),
+    );
+  }
+
+  return { hubPages, bridgePages, thin, sitemapPath, announcedUrlPaths };
 }
 
 export interface RenderTopicClusterHubsOptions {
@@ -783,6 +873,18 @@ export interface RenderTopicClusterHubsResult {
   readonly written: number;
   /** Dist-relative paths emitted per locale, ready for the shard push. */
   readonly pathsByLocale: Record<TopicHubLocale, string[]>;
+  /**
+   * Dist-relative path of the section sitemap this render produced, or null
+   * when it produced no indexable hub. Deliberately NOT in `pathsByLocale`:
+   * that list drives the per-locale SHARD push and this file is an apex
+   * artifact — pushing it into a shard would bury it under a subtree the
+   * Worker never serves it from. The caller publishes it to the apex
+   * separately (`EDGE_PUSHED_FILES` + `public/`), which is the same split
+   * `sitemap-blog-ch.xml` already lives on.
+   */
+  readonly sitemapPath: string | null;
+  /** The canonical URL paths that sitemap announces — all of them written here. */
+  readonly announcedUrlPaths: readonly string[];
 }
 
 /**
@@ -806,10 +908,21 @@ export interface RenderTopicClusterHubsResult {
  * likewise re-renders the section's entire `/tutti/` archive rather than the
  * pages the new article happens to land on.
  *
- * The sitemap is deliberately NOT written here: `sitemap-topics.xml` is a
- * whole-site artifact covering both sections, and a fast publish only knows
- * about one. It is refreshed by the next full build, exactly as the archive's
- * sitemap entries are.
+ * THE SITEMAP IS WRITTEN HERE, and that is the point.
+ * ───────────────────────────────────────────────────
+ * It used to be skipped, on the reasoning that `sitemap-topics.xml` was a
+ * whole-site artifact covering both sections while a fast publish knows only
+ * one — true of a single shared file, and the reason there is no longer one.
+ * `sitemap-topics-<section>.xml` is exactly the scope this function has, so
+ * "the producer announces what it wrote" costs nothing extra here.
+ *
+ * Leaving it to the next full build did not work, and could not: the build
+ * skips both article sections (BUILD_EMIT_SKIP, see below), so after #5290 it
+ * writes no topic sitemap at all — 536 live URLs with no sitemap naming them.
+ * Before #5290 it wrote one from ITS corpus snapshot while these pages came
+ * from a fast publish at another one, which is where the 36 phantom `page-N`
+ * URLs came from. Same file, two producers, one of them not looking at what
+ * was on disk.
  *
  * IT DOES NOT HONOUR `<SECTION>_BUILD_EMIT_SKIP, AND MUST NOT (#5290).
  * ──────────────────────────────────────────────────────────────────
@@ -840,21 +953,20 @@ export async function renderTopicClusterHubPages(
     TOPIC_HUB_LOCALES.map((l) => [l, [] as string[]]),
   ) as Record<TopicHubLocale, string[]>;
 
-  renderTopicHubSectionCore({
+  const { sitemapPath, announcedUrlPaths } = renderTopicHubSectionCore({
     rootDir,
     distDir,
     section,
     dateStamp: new Date().toISOString().slice(0, 10),
     locales,
     add: (filePath, content) => collector.add(filePath, content),
-    sitemapEntries: [],
     onPageEmitted: (locale, relPath) => {
       pathsByLocale[locale].push(relPath);
     },
   });
 
   const written = await collector.flush();
-  return { written, pathsByLocale };
+  return { written, pathsByLocale, sitemapPath, announcedUrlPaths };
 }
 
 export function topicClusterHubsPlugin(rootDir: string): Plugin {
@@ -872,7 +984,6 @@ export function topicClusterHubsPlugin(rootDir: string): Plugin {
 
       const dateStamp = new Date().toISOString().slice(0, 10);
       const collector = new WriteCollector({ distDir, pluginName: 'topicClusterHubsPlugin' });
-      const sitemapEntries: Array<{ canonical: string; alternates: readonly string[] }> = [];
       let hubPages = 0;
       let bridgePages = 0;
       let thin = 0;
@@ -917,34 +1028,38 @@ export function topicClusterHubsPlugin(rootDir: string): Plugin {
         // point. See that function's header.
         if (buildEmitSkip[section]) {
           console.log(
-            `\x1b[33m[topic-hubs]\x1b[0m ${section}: emit skipped (BUILD_EMIT_SKIP) — no pages, no sitemap entries`,
+            `\x1b[33m[topic-hubs]\x1b[0m ${section}: emit skipped (BUILD_EMIT_SKIP) — no pages, no ${topicSitemapFileName(section)}`,
           );
           continue;
         }
 
+        // The section sitemap is written by the core, from the pages the core
+        // just queued — so skipping the section above skips its sitemap too,
+        // and there is no longer a place where this loop could write one for
+        // a section it did not render (#5290's failure mode, now unreachable
+        // rather than guarded).
+        //
+        // No `patchSitemapIndex` here any more, and none is needed:
+        // `sitemapAliasPlugin` runs `enforce: 'post'` + `closeBundle.order:
+        // 'post'` AFTER this plugin and REGENERATES dist/sitemap.xml by
+        // discovering every dist/sitemap-*.xml. It overwrote the patch this
+        // plugin used to apply, so the patch never reached production —
+        // auto-discovery is what put the file in the index, and it is also
+        // what correctly leaves it out when the file is absent.
         const counts = renderTopicHubSectionCore({
           rootDir,
           distDir,
           section,
           dateStamp,
           add: (filePath, content) => collector.add(filePath, content),
-          sitemapEntries,
         });
         hubPages += counts.hubPages;
         bridgePages += counts.bridgePages;
         thin += counts.thin;
-      }
-
-      if (sitemapEntries.length > 0) {
-        try {
-          fs.writeFileSync(
-            np.join(distDir, 'sitemap-topics.xml'),
-            buildSitemapXml(sitemapEntries, dateStamp),
-            'utf-8',
+        if (counts.sitemapPath) {
+          console.log(
+            `\x1b[36m[topic-hubs]\x1b[0m ${section}: ${counts.sitemapPath} — ${counts.announcedUrlPaths.length} URL annunciate, tutte scritte in questo run`,
           );
-          patchSitemapIndex(distDir, dateStamp);
-        } catch (err) {
-          console.warn('\x1b[33m[topic-hubs]\x1b[0m sitemap write failed:', err);
         }
       }
 

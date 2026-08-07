@@ -54,6 +54,20 @@
  * Usage:
  *   node scripts/publish-edge-files.mjs
  *   node scripts/publish-edge-files.mjs --only=/sitemap-news.xml[,/other.xml]
+ *   node scripts/publish-edge-files.mjs --only=/sitemap-topics-svizzera.xml --from-dir=/tmp/fast-publish/dist
+ *
+ * `--from-dir` resolves the named entries' local files from a RENDERED
+ * directory instead of `public/`. It exists for the third kind of producer on
+ * this table: a file that is neither committed static (`public/`) nor
+ * re-derivable from a bare checkout ('generated'), but is an output of a
+ * render that has already happened in this job and must not be recomputed.
+ * `sitemap-topics-<section>.xml` is that: publish-article-fast.mjs writes it
+ * from the exact page set it just pushed to the shards, and re-deriving it
+ * here from a fresh corpus read would reintroduce the very drift the file
+ * exists to eliminate — the published list has to be the rendered list, not
+ * an equivalent one. Requires `--only`, because pointing the WHOLE table at a
+ * dist dir would publish whatever that dir happens to contain under the other
+ * registered names.
  *
  * `--only` restricts the run to the named registered pathnames. It exists for
  * callers that own exactly ONE of these files and must not touch the rest:
@@ -136,7 +150,12 @@ function runLlmsGenerator() {
  */
 export function selectedEntries(argv = process.argv) {
   const flag = argv.find((a) => a.startsWith('--only='));
-  if (!flag) return Object.entries(EDGE_PUSHED_FILES);
+  if (!flag) {
+    if (argv.some((a) => a.startsWith('--from-dir='))) {
+      throw new Error('--from-dir requires --only (see the header: it must not be applied to the whole table)');
+    }
+    return Object.entries(EDGE_PUSHED_FILES);
+  }
 
   const wanted = flag
     .slice('--only='.length)
@@ -161,14 +180,18 @@ export function selectedEntries(argv = process.argv) {
 function main() {
   const purgeUrls = [];
   const entries = selectedEntries();
+  const fromDirFlag = process.argv.find((a) => a.startsWith('--from-dir='));
+  const fromDir = fromDirFlag ? path.resolve(fromDirFlag.slice('--from-dir='.length)) : null;
 
-  if (entries.some(([, entry]) => entry.source === 'generated')) {
+  // A --from-dir run publishes already-rendered bytes; nothing to generate.
+  if (!fromDir && entries.some(([, entry]) => entry.source === 'generated')) {
     runLlmsGenerator();
   }
 
   for (const [pathname, entry] of entries) {
-    const localFile =
-      entry.source === 'generated'
+    const localFile = fromDir
+      ? path.join(fromDir, pathname.slice(1))
+      : entry.source === 'generated'
         ? path.join(GENERATED_SCRATCH_DIR, pathname.slice(1))
         : path.join(REPO_ROOT, 'public', pathname);
     if (!existsSync(localFile)) {

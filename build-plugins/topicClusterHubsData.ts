@@ -68,6 +68,35 @@ function sectionIndexSlug(section: TopicHubSection, locale: TopicHubLocale): str
     .indexSlug[locale];
 }
 
+/**
+ * The section's own sitemap file, one per section rather than one shared
+ * `sitemap-topics.xml` for both.
+ *
+ * The split is not cosmetic: it is what makes «announce what someone actually
+ * wrote» expressible. Each section's hub pages are written by ONE producer in
+ * ONE run — the full build when that section is emitted, the fast publish
+ * (`renderTopicClusterHubPages`) otherwise — and that run is the only actor
+ * that knows which URLs it wrote. A single shared file would have to be
+ * rewritten by a producer that renders one section and can only GUESS at the
+ * other's current page count; guessing is exactly what put 36 phantom
+ * `page-N` URLs in the live `sitemap-topics.xml` (measured 2026-08-07: the
+ * apex file came from a full build, the pages from a fast publish, two corpus
+ * snapshots apart — `accordi-e-politica` announced 16 pages against 9 written,
+ * `pensioni-avs-lpp` wrote 11 against 4 announced).
+ *
+ * With one file per section each producer overwrites only its own claim, and
+ * a section nobody has produced simply has no file — which is the honest
+ * shape of "nothing to announce" (#5290).
+ */
+export function topicSitemapFileName(section: TopicHubSection): string {
+  return `sitemap-topics-${section}.xml`;
+}
+
+/** Apex pathname of {@link topicSitemapFileName} — the EDGE_PUSHED_FILES key. */
+export function topicSitemapPathname(section: TopicHubSection): string {
+  return `/${topicSitemapFileName(section)}`;
+}
+
 /** Canonical path of a topic hub. `page` 1 is the bare path, as elsewhere on the site. */
 export function buildTopicHubPath(
   locale: TopicHubLocale,
