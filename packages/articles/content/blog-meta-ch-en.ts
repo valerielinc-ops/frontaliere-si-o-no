@@ -1903,6 +1903,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.disoccupazione-svizzera-luglio-2026-seco.title': 'Unemployment in Switzerland at 3%: SECO DATA',
     'blog.article.disoccupazione-svizzera-luglio-2026-seco.excerpt': 'In July, unemployment in Switzerland rose to 3%, with 139,300 URC members. Ticino recorded 2.8%, while Graubünden remained stable at 1.1%.',
     'blog.article.disoccupazione-svizzera-luglio-2026-seco.imageAlt': 'Labor market offices and SECO unemployment statistical tracking in Switzerland',
+    'blog.article.costo-vita-2026-zurigo-analisi.title': 'Cost of living 2026 in the Canton of Zurich: data and analysis',
+    'blog.article.costo-vita-2026-zurigo-analisi.excerpt': 'Updated 2026 analysis on the cost of living in Zurich: rents, LAMal premiums, AVS contributions at 5.3% and taxes at source for workers.',
+    'blog.article.costo-vita-2026-zurigo-analisi.imageAlt': 'Zurich city skyline with offices and river in 2026',
 };
 
 export default blogMetaChEn;

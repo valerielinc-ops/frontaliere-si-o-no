@@ -1903,6 +1903,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.disoccupazione-svizzera-luglio-2026-seco.title': 'Chômage en Suisse à 3% : les données SECO',
     'blog.article.disoccupazione-svizzera-luglio-2026-seco.excerpt': 'En juillet, le chômage en Suisse atteint 3 %, avec 139’300 inscrits aux ORP. Le Tessin enregistre 2,8 %, tandis que les Grisons restent stables à 1,1 %.',
     'blog.article.disoccupazione-svizzera-luglio-2026-seco.imageAlt': 'Bureaux du marché du travail et statistiques du chômage SECO en Suisse',
+    'blog.article.costo-vita-2026-zurigo-analisi.title': 'Coût de la vie 2026 dans le canton de Zurich : données et analyse',
+    'blog.article.costo-vita-2026-zurigo-analisi.excerpt': 'Analyse actualisée 2026 sur le coût de la vie à Zurich : loyers, primes LAMal, cotisations AVS à 5,3% et impôts à la source pour les travailleurs.',
+    'blog.article.costo-vita-2026-zurigo-analisi.imageAlt': 'Panorama urbain de Zurich avec bureaux et rivières en 2026',
 };
 
 export default blogMetaChFr;
