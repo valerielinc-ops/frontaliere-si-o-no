@@ -60,19 +60,43 @@ describe('formatRegressedFeature — the two counts cannot be misread', () => {
   });
 });
 
-describe('every rate-ratchet audit uses it — no local copy left to drift', () => {
+describe('every sampled ratchet uses it — no local copy left to drift', () => {
+  // Sette file, non cinque. I due ultimi sono arrivati dalla review di #5267:
+  // il primo sweep aveva cercato `r.count`/`f.count` e loro usano
+  // `r.current`/`r.prev`, quindi erano invisibili a quella grep pur avendo
+  // ESATTAMENTE lo stesso difetto — conteggio campionato stampato accanto a una
+  // baseline full-corpus — ed essendo entrambi gate reali in
+  // post-deploy-validate-dist.yml. È il motivo per cui questa lista enumera i
+  // file invece di fidarsi di un pattern.
   it.each([
     'scripts/audit-title-length.mjs',
     'scripts/audit-h1-title-duplicates.mjs',
     'scripts/audit-text-html-ratio.mjs',
     'scripts/audit-title-no-disambig-hash.mjs',
     'scripts/audit-dist-multi.mjs',
+    'scripts/audit-bfs-depth.mjs',
+    'scripts/audit-orphan-pages-in-sitemaps.mjs',
   ])('%s', async (path) => {
     const src = await import('node:fs').then((fs) => fs.readFileSync(path, 'utf8'));
     expect(src).toContain('formatRegressedFeature');
-    // Both hand-rolled shapes that put a sampled count next to a full-corpus
-    // baseline are gone: the summary one and the console one.
+    // Ogni forma nota che accosta le due scale senza dirlo.
     expect(src).not.toMatch(/allowed, \$\{r\.count\} vs \$\{r\.max\}/);
     expect(src).not.toMatch(/\$\{f\.count\} offenders \(baseline/);
+    expect(src).not.toMatch(/\$\{r\.current\} URLs vs baseline \$\{r\.prev\}/);
+    expect(src).not.toMatch(/count \$\{r\.prev\} → \$\{r\.current\}/);
+  });
+
+  it('un audit che campiona senza usare il formattatore è un buco', () => {
+    // Guardia contro l'ottavo file: chi importa extrapolateSampledCount sta
+    // confrontando scale diverse e deve saperlo dire.
+    const fs = require('node:fs');
+    const dir = 'scripts';
+    const sampled = fs.readdirSync(dir)
+      .filter((f: string) => f.startsWith('audit-') && f.endsWith('.mjs'))
+      .filter((f: string) => fs.readFileSync(`${dir}/${f}`, 'utf8').includes('extrapolateSampledCount('));
+    const missing = sampled.filter(
+      (f: string) => !fs.readFileSync(`${dir}/${f}`, 'utf8').includes('formatRegressedFeature'),
+    );
+    expect(missing).toEqual([]);
   });
 });
