@@ -33,7 +33,7 @@
       "titleByLocale": {
         "it": "Apotheker / Apothekerin (w/m/d)",
         "en": "Apotheker / Apothekerin (w/m/d)",
-        "de": "Apotheker / Apothekerin (w/m/d)",
+        "de": "Apotheker/Apotherin (w/m/d)",
         "fr": "Apotheker / Apothekerin (w/m/d)"
       },
       "id": "galenica-7071ae16c335",
@@ -52,7 +52,6 @@
           "apotheker-apothekerin-w-m-d-galenica-ag-galenica-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -114,8 +113,7 @@
           "galenica-galenica-ag-senior-hr-consultant-w-m-d-bern"
         ],
         "en": [
-          "galenica-galenica-ag-senior-hr-consultant-w-m-d-bern-nxmnvp",
-          "galenica-galenica-ag-senior-hr-consultant-w-m-d-bern"
+          "galenica-galenica-ag-senior-hr-consultant-w-m-d-bern-nxmnvp"
         ],
         "fr": [
           "galenica-galenica-ag-senior-hr-consultant-w-m-d-bern",
@@ -126,7 +124,6 @@
         "galenica-galenica-ag-senior-hr-consultant-w-m-d-bern",
         "galenica-galenica-ag-senior-hr-consultant-w-m-d-bern-nxmnvp"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -172,12 +169,12 @@
       "slug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-a4522d",
       "slugByLocale": {
         "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-a4522d",
-        "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
+        "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern-nxok3r",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern-nxok3r",
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern-a4522d"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
@@ -188,7 +185,6 @@
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ],
         "en": [
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern-nxok3r",
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ],
         "de": [
@@ -196,10 +192,8 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
-        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern-nxok3r"
+        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -245,12 +239,12 @@
       "slug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-6cd5da",
       "slugByLocale": {
         "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-6cd5da",
-        "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
+        "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxmq4u",
         "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxmq4u",
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-6cd5da"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
@@ -261,7 +255,6 @@
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ],
         "en": [
-          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxmq4u",
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ],
         "de": [
@@ -269,10 +262,8 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
-        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxmq4u"
+        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -337,7 +328,6 @@
       "previousSlugs": [
         "galenica-galenica-ag-data-engineer-w-m-d-bern"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -383,12 +373,12 @@
       "slug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern",
       "slugByLocale": {
         "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern",
-        "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
+        "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxp9xp",
         "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxp9xp",
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-4213fa"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
         "en": "Pharma Assistant (f/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "fr": "Pharma-Assistant / Pharma-Assistante (m/f)"
@@ -401,7 +391,6 @@
           "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-4e482e"
         ],
         "en": [
-          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxp9xp",
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ],
         "de": [
@@ -411,10 +400,8 @@
       "previousSlugs": [
         "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-4213fa",
         "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
-        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxp9xp",
         "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-4e482e"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -468,10 +455,9 @@
         "it": "Pharmacien / Pharmacienne (f/m/d)",
         "en": "Pharmacien / Pharmacienne (f/h/d)",
         "de": "Pharmacien / Pharmacienne (f/h/d)",
-        "fr": "Pharmacien / Pharmacienne (f/h/d)"
+        "fr": "Pharmacien / Pharmacien (f/h/d)"
       },
       "id": "galenica-563db5749323",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -536,7 +522,6 @@
           "galenica-galenica-ag-drogistin-drogist-w-m-d-bern-ny71ad"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -590,7 +575,7 @@
         "it": "Assistant en pharmacie / Assistante en pharmacie (f/m/d)",
         "en": "Assistant en pharmacie / Assistante en pharmacie (f/h/d)",
         "de": "Assistent en pharmacie / Assistante en pharmacie (f/h/d)",
-        "fr": "Assistant en pharmacie / Assistante en pharmacie (f/h/d)"
+        "fr": "Assistant en pharmacie / Assistant en pharmacie (f/h/d)"
       },
       "id": "galenica-f7ce5f95a915",
       "previousSlugs": [
@@ -601,7 +586,6 @@
           "galenica-galenica-ag-assistant-en-pharmacie-assistante-en-pharmacie-f-h-d-bern-ny5u32"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -666,7 +650,6 @@
           "galenica-galenica-ag-sachbearbeiter-kundenservice-retouren-w-m-d-bern-ny70do"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -712,12 +695,12 @@
       "slug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-bc36c2",
       "slugByLocale": {
         "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-bc36c2",
-        "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
+        "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxpxt2",
         "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxpxt2",
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-bc36c2"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
@@ -728,7 +711,6 @@
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ],
         "en": [
-          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxpxt2",
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ],
         "de": [
@@ -736,10 +718,8 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
-        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxpxt2"
+        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -782,22 +762,20 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
+      "slug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-0ad325",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
+        "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-0ad325",
         "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
-        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern-0ad325"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
-        "fr": "Pharma-Assistent / Pharma-Assistentin (w/m/d)"
+        "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
       },
       "id": "galenica-0dc3c5714336",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -816,7 +794,19 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        ],
+        "fr": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+      ]
     },
     {
       "title": "Customer Consultant (w/m/d) Region Zürich",
@@ -853,7 +843,6 @@
         "fr": "Consultant client (w/m/d) Région Zürich"
       },
       "id": "galenica-9927637d9125",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -904,13 +893,12 @@
         "fr": "responsable-de-la-gestion-des-partenaires-p-m-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Partner Management Lead (w/m/d)",
+        "it": "Gestione dei partner Lead (w/m/d)",
         "en": "Partner Management Lead (w/m/d)",
         "de": "Partner Management Lead (w/m/d)",
         "fr": "Responsable de la gestion des partenaires (p/m/d)"
       },
       "id": "galenica-f6d07ad7a0e5",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -956,12 +944,12 @@
       "slug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern",
       "slugByLocale": {
         "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern",
-        "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
+        "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern-nxna24",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern-nxna24",
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
@@ -972,7 +960,6 @@
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ],
         "en": [
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern-nxna24",
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ],
         "de": [
@@ -980,10 +967,8 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
-        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern-nxna24"
+        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1036,7 +1021,7 @@
       "titleByLocale": {
         "it": "Apotheker / Apothekerin (w/m/d)",
         "en": "Apotheker / Apothekerin (w/m/d)",
-        "de": "Apotheker / Apothekerin (w/m/d)",
+        "de": "Apotheker/Apotherin (w/m/d)",
         "fr": "Apotheker / Apothekerin (w/m/d)"
       },
       "id": "galenica-25b3b3a2ecd7",
@@ -1060,7 +1045,6 @@
           "apotheker-apotherin-w-m-d-galenica-galenica-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1111,7 +1095,7 @@
         "fr": "proprietaire-de-la-demande-de-crm-w-m-d-galenica-ag-galenica-bern-974398"
       },
       "titleByLocale": {
-        "it": "CRM Application Owner (w/m/d)",
+        "it": "Titolare dell'applicazione CRM (w/m/d)",
         "en": "CRM Application Owner (w/m/d)",
         "de": "CRM Application Owner (w/m/d)",
         "fr": "Propriétaire de la demande de CRM (w/m/d)"
@@ -1125,7 +1109,6 @@
       "previousSlugs": [
         "galenica-galenica-ag-crm-application-owner-w-m-d-bern"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1190,7 +1173,6 @@
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-als-springer-w-m-d-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1236,12 +1218,12 @@
       "slug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-15bc95",
       "slugByLocale": {
         "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-15bc95",
-        "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
+        "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxpa07",
         "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxpa07",
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
@@ -1252,7 +1234,6 @@
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ],
         "en": [
-          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxpa07",
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ],
         "de": [
@@ -1260,10 +1241,8 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
-        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxpa07"
+        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1335,7 +1314,6 @@
           "galenica-galenica-ag-assistenzjahr-fur-pharmaziestudierende-w-m-d-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1378,34 +1356,31 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
+      "slug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-c81aa7",
       "slugByLocale": {
-        "it": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
+        "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-c81aa7",
         "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
         "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-c81aa7"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
       },
       "id": "galenica-01c44daadccb",
-      "previousSlugs": [
-        "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-c81aa7",
-        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-c81aa7",
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ],
         "fr": [
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
+      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1472,7 +1447,6 @@
         "galenica-galenica-ag-mitarbeiter-mitarbeiterin-koordination-und-administration-aussendienst-w-m-d-bern",
         "collaboratore-trice-mitarbeiterin-koordination-e-administration-aussendienst-m-w-d-ny6fr9"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1551,7 +1525,6 @@
           "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-nxn9c2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1618,7 +1591,6 @@
           "apotheker-apothekerin-come-springer-m-w-d-galenica-ag-galenica-bern-ny8y75"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1683,7 +1655,6 @@
           "galenica-galenica-ag-studentische-aushilfe-w-m-d-bern-ny6hv3"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1726,34 +1697,31 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-senior-softwareentwickler-softwareentwicklerin-w-m-d-bern",
+      "slug": "software-seniorentwickler-softwareentwicklerin-w-m-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-senior-softwareentwickler-softwareentwicklerin-w-m-d-bern",
+        "it": "software-seniorentwickler-softwareentwicklerin-w-m-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-senior-softwareentwickler-softwareentwicklerin-w-m-d-bern",
         "de": "galenica-galenica-ag-senior-softwareentwickler-softwareentwicklerin-w-m-d-bern",
         "fr": "gestionnaire-de-logiciels-et-gestionnaire-de-logiciels-principal-w-m-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Senior Softwareentwickler/Softwareentwicklerin (w/m/d)",
+        "it": "Software seniorentwickler/Softwareentwicklerin (w/m/d)",
         "en": "Senior Softwareentwickler/Softwareentwicklerin (w/m/d)",
         "de": "Senior Softwareentwickler/Softwareentwicklerin (w/m/d)",
         "fr": "Gestionnaire de logiciels et gestionnaire de logiciels principal (w/m/d)"
       },
       "id": "galenica-44aaf3ac70fe",
-      "previousSlugs": [
-        "software-seniorentwickler-softwareentwicklerin-w-m-d-galenica-ag-galenica-bern",
-        "galenica-galenica-ag-senior-softwareentwickler-softwareentwicklerin-w-m-d-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "software-seniorentwickler-softwareentwicklerin-w-m-d-galenica-ag-galenica-bern",
           "galenica-galenica-ag-senior-softwareentwickler-softwareentwicklerin-w-m-d-bern"
         ],
         "fr": [
           "galenica-galenica-ag-senior-softwareentwickler-softwareentwicklerin-w-m-d-bern"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "galenica-galenica-ag-senior-softwareentwickler-softwareentwicklerin-w-m-d-bern"
+      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -1818,7 +1786,6 @@
       "previousSlugs": [
         "galenica-galenica-ag-head-of-marketing-w-m-d-bern"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 106500,
       "salaryMax": 188500,
@@ -1940,7 +1907,6 @@
       "previousSlugs": [
         "galenica-galenica-ag-mitarbeiter-parfumerie-mitarbeiterin-parfumerie-w-m-d-bern"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1997,7 +1963,6 @@
         "fr": "Apothéquer (m/j)"
       },
       "id": "galenica-d8255a8ce9fd",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -2048,10 +2013,10 @@
         "fr": "proprietaire-de-produit-technique-documedis-platform-galenica-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Technical Product Owner Documedis Platform",
+        "it": "Titolare del prodotto tecnico Documedis Piattaforma",
         "en": "Technical Product Owner Documedis Platform",
-        "de": "Technical Product Owner Documedis Platform",
-        "fr": "Technical Product Owner Documedis Platform"
+        "de": "Technical Product Owner Documedis Plattform",
+        "fr": "Propriétaire de produit technique Documedis Platform"
       },
       "id": "galenica-1bce0c122888",
       "previousSlugsByLocale": {
@@ -2064,7 +2029,6 @@
         "titolare-del-prodotto-tecnico-documedis-platform-galenica-galenica-bern",
         "galenica-galenica-technical-product-owner-documedis-platform-bern"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -2129,7 +2093,6 @@
       "previousSlugs": [
         "galenica-galenica-ict-supporter-und-test-engineer-w-m-d-bern"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -2186,18 +2149,16 @@
         "fr": "Apotheker / Apothekerin für FPH-Weiterbildung (m/m)"
       },
       "id": "galenica-381a6632ed8d",
-      "previousSlugs": [
-        "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-bern",
-        "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern-ny8fn0"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-bern",
           "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern-ny8fn0"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-bern",
+        "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern-ny8fn0"
+      ],
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -2216,7 +2177,8 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Sachbearbeiter / Sachbearbeiterin Debitorenbuchhaltung und Inkasso (w/m/d)",
@@ -2249,7 +2211,7 @@
       "titleByLocale": {
         "it": "Sachbearbeiter / Sachbearbeiterin Debitorenbuchhaltung e Inkasso (w/m/d)",
         "en": "Sachbearbeiter / Sachbearbeiterin Debitorenbuchhaltung und Inkasso (w/m/d)",
-        "de": "Sachbearbeiter / Sachbearbeiterin Debitorenbuchhaltung und Inkasso (w/m/d)",
+        "de": "Sachbearbeiter/Sachbearbeiterin Debitorenbuchhaltung und Inkasso (w/m/d)",
         "fr": "Sachbearbeiter / Sachbearbeiterin Debitorenbuchhaltung und Inkasso (w/m/d)"
       },
       "id": "galenica-c3131b32b56c",
@@ -2263,7 +2225,6 @@
           "sachbearbeiter-sachbearbeiterin-debitorenbuchhaltung-e-inkasso-m-w-d-galenica-ag-ga-ny6gc0"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -2317,10 +2278,9 @@
         "it": "Automaticien / Électricien de maintenance industrielle (f/m/d)",
         "en": "Automaticien / Électricien de maintenance industrielle (f/h/d)",
         "de": "Automaticien/Électricien de maintenance industrielle (f/h/d)",
-        "fr": "Automaticien / Électricien de maintenance industrielle (f/h/d)"
+        "fr": "Automatique / Electricien de maintenance industrielle (f/h/d)"
       },
       "id": "galenica-3612333e1d2c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -2377,7 +2337,6 @@
         "fr": "Gestionnaire des comptes créditeurs (m/j)"
       },
       "id": "galenica-76e17de3ea0c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
@@ -2420,22 +2379,20 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-pharmacy-support-w-m-d-bern",
+      "slug": "supporto-farmacia-w-m-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-pharmacy-support-w-m-d-bern",
+        "it": "supporto-farmacia-w-m-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-pharmacy-support-w-m-d-bern",
-        "de": "galenica-galenica-ag-pharmacy-support-w-m-d-bern",
-        "fr": "galenica-galenica-ag-pharmacy-support-w-m-d-bern"
+        "de": "pharmazie-unterstutzung-w-m-d-galenica-ag-galenica-bern",
+        "fr": "soutien-en-pharmacie-m-j-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Pharmacy Support (w/m/d)",
+        "it": "Supporto farmacia (w/m/d)",
         "en": "Pharmacy Support (w/m/d)",
-        "de": "Pharmacy Support (w/m/d)",
-        "fr": "Pharmacy Support (w/m/d)"
+        "de": "Pharmazie-Unterstützung (w/m/d)",
+        "fr": "Soutien en pharmacie (m/j)"
       },
       "id": "galenica-6cc860855108",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -2454,7 +2411,22 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-pharmacy-support-w-m-d-bern"
+        ],
+        "de": [
+          "galenica-galenica-ag-pharmacy-support-w-m-d-bern"
+        ],
+        "fr": [
+          "galenica-galenica-ag-pharmacy-support-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-pharmacy-support-w-m-d-bern"
+      ]
     },
     {
       "title": "Spezialist Payroll (m/w/d)",
@@ -2485,13 +2457,12 @@
         "fr": "tableau-de-paye-de-spezialist-m-m-j-galenica-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Spezialist Payroll (m/w/d)",
+        "it": "La Spezialist Payroll (m/w/d)",
         "en": "Spezialist Payroll (m/w/d)",
         "de": "Spezialist Payroll (m/w/d)",
         "fr": "Tableau de paye de Spezialist (m/m/j)"
       },
       "id": "galenica-8f51718c2167",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -2544,11 +2515,10 @@
       "titleByLocale": {
         "it": "Sachbearbeiter / Sachbearbeiterin Frontoffice (w/m/d)",
         "en": "Sachbearbeiter / Sachbearbeiterin Frontoffice (w/m/d)",
-        "de": "Sachbearbeiter / Sachbearbeiterin Frontoffice (w/m/d)",
+        "de": "Sachbearbeiter/Sachbearbeiterin Frontoffice (w/m/d)",
         "fr": "Siège social"
       },
       "id": "galenica-992cee2a6de8",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -2593,37 +2563,30 @@
       "sourceLang": "en",
       "slug": "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern",
+        "it": "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern-8cfc14",
         "en": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
-        "de": "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern",
+        "de": "assistentin-und-apotheke-f-h-d-galenica-ag-galenica-bern-8cfc14",
         "fr": "assistant-en-pharmacie-f-h-d-galenica-ag-galenica-bern-8cfc14"
       },
       "titleByLocale": {
-        "it": "Assistante en pharmacie (f/h/d)",
+        "it": "Assistente in farmacia (f/h/d)",
         "en": "Assistante en pharmacie (f/h/d)",
-        "de": "Assistante en pharmacie (f/h/d)",
-        "fr": "Assistante en pharmacie (f/h/d)"
+        "de": "Assistentin und Apotheke (f/h/d)",
+        "fr": "Assistant en pharmacie (f/h/d)"
       },
       "id": "galenica-c526b16d9cd0",
-      "previousSlugs": [
-        "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
-        "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern-nxnxqj",
-        "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern-8cfc14",
-        "assistentin-und-apotheke-f-h-d-galenica-ag-galenica-bern-8cfc14"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
-          "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern-8cfc14"
+          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
         ],
         "en": [
           "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern-nxnxqj"
-        ],
-        "de": [
-          "assistentin-und-apotheke-f-h-d-galenica-ag-galenica-bern-8cfc14"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
+        "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern-nxnxqj"
+      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -2666,9 +2629,9 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-senior-hr-consultant-f-h-d-bern",
+      "slug": "senior-risorse-umane-consulente-f-m-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-senior-hr-consultant-f-h-d-bern",
+        "it": "senior-risorse-umane-consulente-f-m-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-senior-hr-consultant-w-m-d-bern",
         "de": "senior-personalwesen-berater-w-m-d-galenica-ag-galenica-bern-4d5f80",
         "fr": "galenica-galenica-ag-senior-hr-consultant-w-m-d-bern"
@@ -2680,20 +2643,21 @@
         "fr": "Senior Ressources Humaines Consultant (f/h/d)"
       },
       "id": "galenica-550ce5665d81",
-      "previousSlugs": [
-        "galenica-galenica-ag-senior-hr-consultant-w-m-d-bern",
-        "senior-risorse-umane-consulente-w-m-d-galenica-ag-galenica-bern-4d5f80"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-ag-senior-hr-consultant-w-m-d-bern",
-          "senior-risorse-umane-consulente-w-m-d-galenica-ag-galenica-bern-4d5f80"
+          "senior-risorse-umane-consulente-w-m-d-galenica-ag-galenica-bern-4d5f80",
+          "galenica-galenica-ag-senior-hr-consultant-f-h-d-bern"
         ],
         "de": [
           "galenica-galenica-ag-senior-hr-consultant-w-m-d-bern"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "galenica-galenica-ag-senior-hr-consultant-w-m-d-bern",
+        "senior-risorse-umane-consulente-w-m-d-galenica-ag-galenica-bern-4d5f80",
+        "galenica-galenica-ag-senior-hr-consultant-f-h-d-bern"
+      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -2740,18 +2704,16 @@
       "slugByLocale": {
         "it": "galenica-galenica-ag-pharmacy-support-f-h-d-bern",
         "en": "galenica-galenica-ag-pharmacy-support-f-h-d-bern",
-        "de": "galenica-galenica-ag-pharmacy-support-f-h-d-bern",
-        "fr": "galenica-galenica-ag-pharmacy-support-f-h-d-bern"
+        "de": "pharmazie-unterstutzung-f-h-d-galenica-ag-galenica-bern",
+        "fr": "soutien-en-pharmacie-f-h-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Pharmacy Support (f/m/d)",
         "en": "Pharmacy Support (f/h/d)",
-        "de": "Pharmacy Support (f/h/d)",
-        "fr": "Pharmacy Support (f/h/d)"
+        "de": "Pharmazie-Unterstützung (f/h/d)",
+        "fr": "Soutien en pharmacie (f/h/d)"
       },
       "id": "galenica-37f59f07f619",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -2770,7 +2732,8 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistant en pharmacie (f/h)",
@@ -2801,7 +2764,7 @@
         "fr": "galenica-galenica-ag-assistant-en-pharmacie-f-h-bern"
       },
       "titleByLocale": {
-        "it": "Assistant en pharmacie (f/h)",
+        "it": "Assistente in farmacia (f/h)",
         "en": "Assistant en pharmacie (f/h)",
         "de": "Assistent en pharmacie (f/h)",
         "fr": "Assistant en pharmacie (f/h)"
@@ -2815,7 +2778,6 @@
       "previousSlugs": [
         "galenica-galenica-ag-assistant-en-pharmacie-f-h-bern"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -2872,7 +2834,6 @@
         "fr": "Gestionnaire junior de l'espace et de l'assortiment (m/j)"
       },
       "id": "galenica-cac5282a9bdd",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 76000,
       "salaryMax": 106000,
@@ -2937,7 +2898,6 @@
           "galenica-galenica-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -2994,7 +2954,6 @@
         "fr": "Pharma-Assistant/ Pharma-Assistant im Kundenservicecenter (p/m/d)"
       },
       "id": "galenica-452776943152",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -3064,7 +3023,6 @@
           "apothequer-m-j-galenica-ag-galenica-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -3121,7 +3079,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-4de22390d72d",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -3176,7 +3133,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-1dcedc10bdfd",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -3241,7 +3197,6 @@
           "galenica-amavita-assistente-di-farmacia-afc-epalinges-1nc11f"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -3296,7 +3251,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-8afe1424f0aa",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -3351,17 +3305,16 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-33a1738ac83f",
-      "previousSlugs": [
-        "galenica-coop-vitality-vich-assistente-di-farmacia-afc-rickenbach-b-wil",
-        "galenica-coop-vitality-shopping-arena-sg-assistente-di-farmacia-afc-rickenbach-b-wil"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-coop-vitality-vich-assistente-di-farmacia-afc-rickenbach-b-wil",
           "galenica-coop-vitality-shopping-arena-sg-assistente-di-farmacia-afc-rickenbach-b-wil"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "galenica-coop-vitality-vich-assistente-di-farmacia-afc-rickenbach-b-wil",
+        "galenica-coop-vitality-shopping-arena-sg-assistente-di-farmacia-afc-rickenbach-b-wil"
+      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -3416,7 +3369,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-d60e9989a680",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -3471,7 +3423,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-ff57cbd9c4e0",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -3526,11 +3477,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-f5a554c80171",
-      "previousSlugs": [
-        "galenica-coop-vitality-shopping-arena-sg-assistente-di-farmacia-afc-zurich",
-        "galenica-coop-vitality-shopping-arena-sg-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
-        "galenica-coop-vitality-shopping-arena-sg-assistant-e-en-pharmacie-cfc-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-coop-vitality-shopping-arena-sg-assistente-di-farmacia-afc-zurich"
@@ -3545,8 +3491,11 @@
           "galenica-coop-vitality-shopping-arena-sg-assistant-e-en-pharmacie-cfc-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugs": [
+        "galenica-coop-vitality-shopping-arena-sg-assistente-di-farmacia-afc-zurich",
+        "galenica-coop-vitality-shopping-arena-sg-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
+        "galenica-coop-vitality-shopping-arena-sg-assistant-e-en-pharmacie-cfc-zurich"
+      ],
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -3563,7 +3512,8 @@
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3600,7 +3550,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-d5e9e1bc4df0",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -3655,7 +3604,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-6e0ea31b9ed1",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -3861,7 +3809,6 @@
           "galenica-amavita-assistant-e-en-pharmacie-cfc-st-moritz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -3916,7 +3863,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-a5bb2f3c58e4",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
@@ -3971,7 +3917,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-f55784659b88",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -4081,7 +4026,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-d33e050e559c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -4136,7 +4080,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-42d5564b0fc0",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4191,7 +4134,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-b2095cdd40e7",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -4246,8 +4188,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-6363a42bc9fe",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -4264,7 +4204,8 @@
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4324,7 +4265,6 @@
           "galenica-amavita-assistant-e-en-pharmacie-cfc-balerna"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -4379,7 +4319,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-1e40dd0a169e",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4434,7 +4373,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-1ea994847b11",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -4519,7 +4457,6 @@
           "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -4574,7 +4511,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-3c4dda09478e",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -4629,7 +4565,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-77200d049cdf",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
@@ -4739,7 +4674,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-413e92fe558a",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -4794,7 +4728,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-61e97033ec14",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -4849,7 +4782,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-31dc7312d91b",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -4959,7 +4891,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-48519f3a9585",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -5014,8 +4945,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-def87906abed",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "currency": "CHF",
@@ -5032,7 +4961,8 @@
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5069,7 +4999,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-811afd84d414",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -5124,7 +5053,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-6c1c48553d5c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -5179,7 +5107,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-aa7d0212fff4",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -5234,7 +5161,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-22a11bfa82a9",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -5289,7 +5215,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-6120c5407d2b",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -5344,7 +5269,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-c713656af27d",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -5454,8 +5378,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-7fea3bf922d5",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -5472,7 +5394,8 @@
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5564,7 +5487,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-40d447c76da7",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -5619,7 +5541,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-0704d56fea89",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -5674,7 +5595,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-b19f62bc5e70",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -5729,7 +5649,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-10365a13b39e",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -5784,7 +5703,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-8b17c5040b25",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -5839,7 +5757,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-db9dcbe01a04",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -5894,7 +5811,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-a676ceb0fdd6",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -5949,7 +5865,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-bfab207b3c77",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -6004,17 +5919,16 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-795595b0125c",
-      "previousSlugs": [
-        "galenica-coop-vitality-vich-assistente-di-farmacia-afc-s-antonino",
-        "galenica-coop-vitality-shopping-arena-sg-assistente-di-farmacia-afc-s-antonino"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-coop-vitality-vich-assistente-di-farmacia-afc-s-antonino",
           "galenica-coop-vitality-shopping-arena-sg-assistente-di-farmacia-afc-s-antonino"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "galenica-coop-vitality-vich-assistente-di-farmacia-afc-s-antonino",
+        "galenica-coop-vitality-shopping-arena-sg-assistente-di-farmacia-afc-s-antonino"
+      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -6069,7 +5983,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-5048d0d32c80",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -6154,7 +6067,6 @@
           "galenica-amavita-assistant-e-en-pharmacie-cfc-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -6209,8 +6121,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-3db8ac25e8ae",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
       "currency": "CHF",
@@ -6227,7 +6137,8 @@
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6264,7 +6175,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-12976cc5cc7b",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -6319,7 +6229,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-959e38475e0b",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -6374,7 +6283,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-61b7e7458273",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -6539,7 +6447,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-c84499e83716",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -6594,7 +6501,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-514cedac014b",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -6649,8 +6555,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-78405c8f57d0",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
       "currency": "CHF",
@@ -6667,7 +6571,8 @@
       "addressLocality": "Le Landeron",
       "addressRegion": "NE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6704,7 +6609,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-798eefb4909c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -6759,8 +6663,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-6a6335b62d44",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -6777,7 +6679,8 @@
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6826,7 +6729,6 @@
           "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-lugano"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -6881,7 +6783,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-6ce1f6650e3c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -6936,7 +6837,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-4cd3d595504f",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -6991,7 +6891,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-f2d7c799b135",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -7040,13 +6939,12 @@
         "fr": "galenica-amavita-droguiste-cfc-tavannes"
       },
       "titleByLocale": {
-        "it": "Droghiere/a AFC",
+        "it": "Droghiere/AFC",
         "en": "Drogist/in EFZ",
         "de": "Drogist/in EFZ",
         "fr": "Droguiste CFC"
       },
       "id": "galenica-a43bf57d79a8",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -7101,7 +6999,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-94eac60d681c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -7156,7 +7053,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-c0745bf16178",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -7211,7 +7107,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-2499840e2207",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
@@ -7321,8 +7216,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-d88ebddddd1b",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -7339,7 +7232,8 @@
       "addressLocality": "Zumikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7431,7 +7325,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-d957410d3f3c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -7486,7 +7379,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-be28a7743a7a",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
@@ -7541,7 +7433,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-3e28e0549475",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -7596,8 +7487,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-1dd58cae5941",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -7614,7 +7503,8 @@
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7651,7 +7541,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-9d33dc7ab947",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -7697,10 +7586,10 @@
         "it": "galenica-galexis-ag-impiegato-a-in-logistica-afc-niederbipp",
         "en": "employee-in-logistics-afc-galexis-ag-galenica-niederbipp",
         "de": "galenica-galexis-ag-logistiker-in-efz-niederbipp",
-        "fr": "employe-e-in-logistique-afc-galexis-ag-galenica-niederbipp"
+        "fr": "galenica-galexis-ag-logisticien-ne-cfc-niederbipp"
       },
       "titleByLocale": {
-        "it": "Impiegato/a in logistica AFC",
+        "it": "Impiegato/a logistica AFC",
         "en": "Employee in Logistics AFC",
         "de": "Logistiker/in EFZ",
         "fr": "Employé/e in Logistique AFC"
@@ -7708,8 +7597,7 @@
       "id": "galenica-14557283d7b9",
       "previousSlugs": [
         "employe-e-in-logistique-afc-galexis-ag-galenica-niederbipp",
-        "galenica-galexis-ag-logistiker-in-efz-niederbipp",
-        "galenica-galexis-ag-logisticien-ne-cfc-niederbipp"
+        "galenica-galexis-ag-logistiker-in-efz-niederbipp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7719,11 +7607,9 @@
           "galenica-galexis-ag-logistiker-in-efz-niederbipp"
         ],
         "fr": [
-          "galenica-galexis-ag-logisticien-ne-cfc-niederbipp",
           "employe-e-in-logistique-afc-galexis-ag-galenica-niederbipp"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -7778,7 +7664,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-9b5bd2e516e2",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -7833,7 +7718,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-3bd01dfbd965",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -7888,7 +7772,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-7fdb06ae9d5c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -8008,7 +7891,6 @@
         "assistente-di-farmacia-afc-sun-store-apotheke-galenica-lugano",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lugano"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -8063,7 +7945,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-ecaee67b5ad6",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -8118,7 +7999,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-cc5fe901067b",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -8173,7 +8053,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-e7f5cb3a9c5c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -8283,7 +8162,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-25e9f27c7655",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -8338,7 +8216,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-7706de038e17",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -8393,7 +8270,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-c3372db8d949",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -8503,7 +8379,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-c76e191154bb",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -8558,7 +8433,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-a1478a172f8e",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
@@ -8613,7 +8487,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-fec251d62527",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -8676,7 +8549,6 @@
           "assistente-di-farmacia-afc-coop-vitality-galenica-mendrisio"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -8788,7 +8660,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-046c630d4bb3",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -8843,7 +8714,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-59e2f55d70f1",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -8910,7 +8780,6 @@
           "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-locarno"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -8965,7 +8834,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-b4a49a8dd2a3",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -9020,7 +8888,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-ef38f97e3afe",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -9130,7 +8997,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-2842ad03c96d",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -9185,7 +9051,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-32417feb253a",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -9240,7 +9105,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-c617ac484e35",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -9380,7 +9244,6 @@
         "assistente-di-farmacia-afc-coop-vitality-galenica-bern-1nc0bi",
         "assistente-di-farmacia-afc-coop-vitality-galenica-s-antonino"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -9435,7 +9298,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-ff5108090caf",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -9490,7 +9352,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-9a299f7cd276",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -9545,8 +9406,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-ccaa9dbdfb75",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -9565,7 +9424,8 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9602,7 +9462,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-364f7c7193a6",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -9657,7 +9516,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-0e21d2878c8d",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
@@ -9712,7 +9570,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-1931c4df36f1",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -9767,7 +9624,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-7791063a08b4",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -9812,7 +9668,7 @@
       "slugByLocale": {
         "it": "impiegato-a-in-logistica-afc-unione-farmaceutica-distribuzione-sa-galenica-bern",
         "en": "employee-in-logistics-afc-unione-farmaceutica-distribuzione-sa-galenica-lugano-1nc1vg",
-        "de": "afc-logistikmitarbeiter-in-unione-farmaceutica-distribuzione-sa-galenica-lugano",
+        "de": "logistiker-in-efz-unione-farmaceutica-distribuzione-sa-galenica-lugano",
         "fr": "employe-e-in-logistique-afc-unione-farmaceutica-distribuzione-sa-galenica-lugano-1nc1vg"
       },
       "titleByLocale": {
@@ -9837,7 +9693,6 @@
         ],
         "de": [
           "galenica-unione-farmaceutica-distribuzione-sa-logistiker-in-efz-lugano",
-          "logistiker-in-efz-unione-farmaceutica-distribuzione-sa-galenica-lugano",
           "afc-logistikmitarbeiter-in-unione-farmaceutica-distribuzione-sa-galenica-lugano"
         ],
         "fr": [
@@ -9857,7 +9712,6 @@
         "employee-in-afc-logistics-unione-farmaceutica-distribuzione-sa-galenica-lugano",
         "afc-logistikmitarbeiter-in-unione-farmaceutica-distribuzione-sa-galenica-lugano"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -9912,7 +9766,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-7b1f06fed0c8",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -9967,7 +9820,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-9788cbcd34ee",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -10022,7 +9874,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-bd4c20e63d7a",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -10077,8 +9928,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-c56697c729cc",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -10095,7 +9944,8 @@
       "addressLocality": "Moutier",
       "addressRegion": "JU",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10132,7 +9982,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-ea902250ef9b",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -10187,7 +10036,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-6e1ef2752ebd",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -10242,7 +10090,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-54442b170df3",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -10297,7 +10144,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-68eae29bbea9",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -10371,7 +10217,6 @@
           "galenica-coop-vitality-shopping-arena-sg-assistant-e-en-pharmacie-cfc-oberwil-bl"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -10426,7 +10271,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-ec68e47686d2",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -10481,7 +10325,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-b70afc02e337",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -10536,7 +10379,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-c3ca70799a25",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -10591,7 +10433,6 @@
         "fr": "Médiamaticien/ne CFC"
       },
       "id": "galenica-42f6bfff9c87",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -10648,7 +10489,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-3dda0b1f35e9",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -10703,7 +10543,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-17633e2e165a",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -10758,7 +10597,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-1989d558259a",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -10813,7 +10651,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-b83772fe06ef",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -10868,7 +10705,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-b93533479390",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -10923,7 +10759,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-9baab66afe13",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -11040,7 +10875,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-0113c57123cb",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -11095,7 +10929,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-34e2c5d9c403",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -11150,7 +10983,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-3e10584dfc81",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -11205,7 +11037,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-b764f53a086c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -11260,7 +11091,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-33a69210e5c2",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -11315,7 +11145,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-82984e1344a3",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -11419,7 +11248,6 @@
         "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc0zn",
         "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc11e"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -11529,7 +11357,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-d6e57a4f1892",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -11584,7 +11411,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-f86ab04e357f",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -11639,7 +11465,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-baa330a4ad17",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -11694,7 +11519,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-8806e35ab8f5",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -11749,7 +11573,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-53c07d324be3",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -11804,7 +11627,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-ae4f7bfb3890",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -11853,13 +11675,12 @@
         "fr": "galenica-galenica-ag-operateur-operatrice-en-informatique-cfc-bern"
       },
       "titleByLocale": {
-        "it": "Operatore/trice informatico/a AFC",
+        "it": "Operatore/trice informatica/a AFC",
         "en": "ICT-Fachmann/-frau EFZ",
         "de": "ICT-Fachmann/-frau EFZ",
         "fr": "Opérateur/Opératrice en informatique CFC"
       },
       "id": "galenica-6b142b4595e9",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -11916,7 +11737,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-bc0c670ccb2b",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -11971,8 +11791,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-ed28c9713a09",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -11989,7 +11807,8 @@
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12026,7 +11845,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-ca3a7de55b47",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -12081,7 +11899,6 @@
         "fr": "Informaticien/ne CFC Développement d'applications"
       },
       "id": "galenica-069108e1177b",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -12138,7 +11955,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-30ab874c8ab1",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
@@ -12193,7 +12009,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-e6b36d17a199",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -12303,7 +12118,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-8077c4e7758e",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -12358,7 +12172,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-faa947a359ed",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -12413,7 +12226,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-010d12fb3f7c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -12468,7 +12280,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-ed0a3f86511f",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -12531,7 +12342,6 @@
           "assistente-di-farmacia-afc-coop-vitality-galenica-canobbio"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -12586,7 +12396,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-95bcca2d7d2c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -12696,7 +12505,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-9f18a5d02847",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -12751,15 +12559,14 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-cca22a30f430",
-      "previousSlugs": [
-        "galenica-coop-vitality-shopping-arena-sg-assistente-di-farmacia-afc-winterthur"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-coop-vitality-shopping-arena-sg-assistente-di-farmacia-afc-winterthur"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "galenica-coop-vitality-shopping-arena-sg-assistente-di-farmacia-afc-winterthur"
+      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -12814,7 +12621,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-c44f535ef726",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -12869,7 +12675,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-2da315d3f910",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -13078,7 +12883,6 @@
           "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-marin-centre"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -13133,7 +12937,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-a8684ee95757",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -13188,7 +12991,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-306715963b45",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -13243,7 +13045,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-48d5598294e5",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -13298,7 +13099,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-ffd4a89acf83",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -13353,7 +13153,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-9866307bba1b",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -13408,7 +13207,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-e616c4a37327",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -13518,7 +13316,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-b686eff678f7",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -13573,7 +13370,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-6b8187b8d9fc",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
@@ -13628,7 +13424,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-311ccace7c9c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -13683,7 +13478,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-8221d305fe35",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -13761,7 +13555,6 @@
           "galenica-amavita-assistant-e-en-pharmacie-cfc-mendrisio"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -13816,7 +13609,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-42b919b7e00e",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -13871,7 +13663,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-da81baa6421a",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -13926,7 +13717,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-c8384f9b35e4",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -13981,7 +13771,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-5f4700d68fdb",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -14036,7 +13825,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-32e7aa66b032",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -14091,7 +13879,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-3e90b4cac537",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -14146,7 +13933,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-d68086db541f",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -14201,7 +13987,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-f4e56b5e29c5",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -14256,7 +14041,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-066618880268",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -14311,7 +14095,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-cf2daf002ee2",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -14421,7 +14204,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-c93013ee32f5",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -14476,7 +14258,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-21b1cb29b92e",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -14531,7 +14312,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-f14a817916a8",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -14586,7 +14366,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-b1efff83954e",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -14641,7 +14420,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-9e3d0031efee",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -14696,7 +14474,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-f5f16d261e7d",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -14751,7 +14528,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-23d6d405bd1c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -14806,7 +14582,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-76e0e7cb3870",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -14861,7 +14636,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-26f5e7f24543",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
@@ -14916,7 +14690,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-adcd4d93994e",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -14971,7 +14744,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-340d0fb48839",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -15049,7 +14821,6 @@
           "galenica-amavita-assistant-e-en-pharmacie-cfc-ascona"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -15104,7 +14875,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-845cc8cc5238",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -15159,7 +14929,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-6eacc659fddf",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -15214,7 +14983,6 @@
         "fr": "Informaticien/ne CFC Exploitation et infrastructure"
       },
       "id": "galenica-996c023b38dd",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -15271,7 +15039,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-ff129594ad70",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -15326,7 +15093,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-6703fb12add1",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -15381,7 +15147,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-5a821d4247da",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -15436,7 +15201,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-ed789825110e",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -15491,7 +15255,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-7577d9410657",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -15546,7 +15309,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-e10b4549b616",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -15656,7 +15418,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-99359da13292",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -15775,7 +15536,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-e582c1833ac0",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -15830,7 +15590,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-dd1531234dcf",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -15885,7 +15644,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-40928295df52",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -15940,7 +15698,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-c3c54db5116a",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -15995,7 +15752,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-d6e4446cb485",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -16050,15 +15806,14 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-977376ad82b3",
-      "previousSlugs": [
-        "galenica-coop-vitality-shopping-arena-sg-assistente-di-farmacia-afc-flims"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-coop-vitality-shopping-arena-sg-assistente-di-farmacia-afc-flims"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "galenica-coop-vitality-shopping-arena-sg-assistente-di-farmacia-afc-flims"
+      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -16113,7 +15868,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-0be709cf16fb",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -16168,7 +15922,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-a10d68b23196",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -16223,7 +15976,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-3887b5ccc70b",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -16278,7 +16030,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-5247d22bf51a",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -16333,7 +16084,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-ffc8a5640905",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -16378,31 +16128,28 @@
       "slugByLocale": {
         "it": "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
-        "de": "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern",
+        "de": "assistentin-und-apotheke-f-h-d-galenica-ag-galenica-bern-d41a4c",
         "fr": "assistant-en-pharmacie-f-h-d-galenica-ag-galenica-bern-d41a4c"
       },
       "titleByLocale": {
-        "it": "Assistante en pharmacie (f/h/d)",
+        "it": "Assistente in farmacia (f/h/d)",
         "en": "Assistante en pharmacie (f/h/d)",
-        "de": "Assistante en pharmacie (f/h/d)",
-        "fr": "Assistante en pharmacie (f/h/d)"
+        "de": "Assistentin und Apotheke (f/h/d)",
+        "fr": "Assistant en pharmacie (f/h/d)"
       },
       "id": "galenica-d35b82c0583c",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
         ],
         "de": [
           "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern-nxncy6",
-          "assistentin-und-apotheke-f-h-d-galenica-ag-galenica-bern-d41a4c",
           "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern"
         ]
       },
       "previousSlugs": [
         "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
         "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern-nxncy6",
-        "assistentin-und-apotheke-f-h-d-galenica-ag-galenica-bern-d41a4c",
         "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",

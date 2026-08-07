@@ -59858,18 +59858,18 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-caldo-torrido-lavoro-ticino': {
-    title: 'Lavoro nel caldo torrido in Ticino: Governo apre a nuove misure per i lavoratori',
-    description: 'Sindacati UNIA, OCST, USS e VPOD incontrano Consiglio di Stato: oltre 100 ricoveri per caldo sui lavoratori. Governo preoccupato apre a nuove misure strutturali',
-    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, caldo, torrido, governo',
-    ogTitle: 'Lavoro nel caldo torrido in Ticino: Governo apre a nuove misure',
-    ogDescription: 'Oltre 100 ricoveri al pronto soccorso per effetti del caldo sui lavoratori ticinesi. Sindacati e Governo trattano nuove misure ispirate al modello del Canton',
-    canonicalPath: '/articoli-frontaliere/caldo-torrido-lavoro-ticino',
+  'blog-claudio-simonetti-monsieur-peur': {
+    title: 'Claudio simonetti, monsieur peur: il pardo speciale al Locarno film festival',
+    description: 'Il compositore di colonne sonore horror Claudio Simonetti premiato con un Pardo speciale al Locarno Film Festival per il suo impatto sul cinema da Profondo',
+    keywords: 'frontalieri, ticino, svizzera, italia, claudio, simonetti, monsieur, peur',
+    ogTitle: 'Claudio Simonetti, Monsieur Peur: Pardo speciale al Locarno Film Festival',
+    ogDescription: 'Il compositore di colonne sonore horror Claudio Simonetti premiato con un Pardo speciale al Locarno Film Festival per il suo impatto sul cinema da Profondo',
+    canonicalPath: '/articoli-frontaliere/claudio-simonetti-monsieur-peur',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Lavoro nel caldo torrido in Ticino: Governo apre a nuove misure per i lavoratori",
-      "description": "Sindacati UNIA, OCST, USS e VPOD incontrano Consiglio di Stato: oltre 100 ricoveri per caldo sui lavoratori. Governo preoccupato apre a nuove misure strutturali",
+      "headline": "Claudio simonetti, monsieur peur: il pardo speciale al Locarno film festival",
+      "description": "Il compositore di colonne sonore horror Claudio Simonetti premiato con un Pardo speciale al Locarno Film Festival per il suo impatto sul cinema da Profondo",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -59877,13 +59877,13 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
         "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
         "creditText": "Frontaliere Ticino",
-        "url": `${BASE_URL}/images/blog/caldo-torrido-lavoro-ticino.webp`,
+        "url": `${BASE_URL}/images/blog/claudio-simonetti-monsieur-peur.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Lavoratori edili in pausa all'ombra durante un'ondata di caldo in Ticino, vicino al confine italo-svizzero"
+        "caption": "Claudio Simonetti dirige la colonna sonora di Profondo rosso al Locarno Film Festival"
       },
-      "datePublished": "2026-08-07T05:10:47+00:00",
-      "dateModified": "2026-08-07T05:10:47+00:00",
+      "datePublished": "2026-08-07T05:52:34+00:00",
+      "dateModified": "2026-08-07T05:52:34+00:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",
@@ -59892,7 +59892,46 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": "https://frontaliereticino.ch/autori/redazione/"
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caldo-torrido-lavoro-ticino/`,
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/claudio-simonetti-monsieur-peur/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-compatta-usata-frontalieri-varese-milano': {
+    title: 'SUV o compatta usata: la scelta più intelligente',
+    description: 'Scopri quando una compatta usata è più intelligente di un SUV per gli spostamenti quotidiani dei frontalieri tra Varese, Milano e Svizzera. Consigli pratici',
+    keywords: 'frontalieri, ticino, svizzera, italia, compatta, usata, scelta, intelligente',
+    ogTitle: 'Compatta usata vs SUV per frontalieri Varese-Milano-Ticino',
+    ogDescription: 'Guida pratica sulla scelta tra compatta usata e SUV per gli spostamenti frontalieri Varese-Milano-Ticino: quando conviene davvero l\'opzione più pratica ed',
+    canonicalPath: '/articoli-frontaliere/compatta-usata-frontalieri-varese-milano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SUV o compatta usata: la scelta più intelligente",
+      "description": "Scopri quando una compatta usata è più intelligente di un SUV per gli spostamenti quotidiani dei frontalieri tra Varese, Milano e Svizzera. Consigli pratici",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/compatta-usata-frontalieri-varese-milano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto compatta usata al valico di Brogeda tra Italia e Svizzera"
+      },
+      "datePublished": "2026-08-07T07:06:38+00:00",
+      "dateModified": "2026-08-07T07:06:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/compatta-usata-frontalieri-varese-milano/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
