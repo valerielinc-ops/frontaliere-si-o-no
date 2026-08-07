@@ -55,4 +55,35 @@ describe('fast-publish pipeline order', () => {
     );
     expect(call).toMatch(/distDir/);
   });
+
+  // The topic hubs (#5001) joined this pipeline after the archive did, and they
+  // carry the SAME hardcoded `/assets/...` refs for the same reason — so they
+  // inherit the #5270 constraint verbatim. Guarded separately rather than by
+  // widening the archive assertion: the two renders can be reordered
+  // independently, and a guard that only checks one of them would go quiet
+  // exactly when the other moved.
+  it('renders the topic-cluster hubs before running the CDN offload', () => {
+    const topicAt = SRC.indexOf('await renderTopicClusterHubPages(');
+    const offloadAt = SRC.indexOf("'offload-generated-images-cdn.mjs'");
+
+    expect(topicAt, 'renderTopicClusterHubPages call site not found').toBeGreaterThan(-1);
+    expect(offloadAt, 'offload-generated-images-cdn.mjs spawn not found').toBeGreaterThan(-1);
+
+    expect(
+      topicAt,
+      'the topic hubs must be rendered BEFORE the CDN offload, or their /assets refs stay same-origin and 404 (issue #5270)',
+    ).toBeLessThan(offloadAt);
+  });
+
+  it('emits the topic hubs into the same scratch dist the offload walks', () => {
+    const at = SRC.indexOf('await renderTopicClusterHubPages(');
+    expect(SRC.slice(at, at + 220)).toMatch(/distDir/);
+  });
+
+  it('forwards the topic-hub relpaths to the shard push', () => {
+    // The hubs are written into the scratch dist, but the deploy only pushes
+    // what `shards[].paths` lists. Rendering them without listing them writes
+    // files nobody ships — the silent half of the same orphan bug.
+    expect(SRC).toMatch(/topicHubResult\.pathsByLocale\[locale\]/);
+  });
 });

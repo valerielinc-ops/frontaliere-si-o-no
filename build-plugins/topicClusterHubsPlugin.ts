@@ -624,6 +624,239 @@ export function computeSectionTopics(
   };
 }
 
+interface TopicHubSectionCoreArgs {
+  readonly rootDir: string;
+  readonly distDir: string;
+  readonly section: TopicHubSection;
+  readonly dateStamp: string;
+  /** Restrict rendering to these locales. Defaults to all four. */
+  readonly locales?: readonly TopicHubLocale[];
+  /** Queue a write. The plugin and the fast path both funnel into a WriteCollector. */
+  readonly add: (filePath: string, content: string) => void;
+  /** Appended to, never read — the fast path passes a throwaway array. */
+  readonly sitemapEntries: Array<{ canonical: string; alternates: readonly string[] }>;
+  /** Dist-RELATIVE path of every file emitted, for the shard push. */
+  readonly onPageEmitted?: (locale: TopicHubLocale, relPath: string) => void;
+}
+
+interface TopicHubSectionCoreResult {
+  readonly hubPages: number;
+  readonly bridgePages: number;
+  readonly thin: number;
+}
+
+/**
+ * Render ONE section's topic hubs. The single implementation behind both the
+ * full build (`topicClusterHubsPlugin` below, both sections) and the fast
+ * publish path (`renderTopicClusterHubPages`, the published section only) —
+ * so a fast-published hub is byte-identical to what the next full build emits
+ * for the same URL BY CONSTRUCTION, not by a comparison test.
+ *
+ * That is the same shape `renderArticleHubPagesCore` has for the `/tutti/`
+ * archive (#4881 Fase 1), and it is deliberate: the archive grew a second
+ * consumer first, and the lesson recorded there — "no second implementation,
+ * no copy-pasted rendering chrome" — applies here unchanged.
+ */
+function renderTopicHubSectionCore(args: TopicHubSectionCoreArgs): TopicHubSectionCoreResult {
+  const { rootDir, distDir, section, dateStamp, locales, add, sitemapEntries, onPageEmitted } =
+    args;
+
+  const { byTopic, rowsByLocale, directCount, propagatedCount, unassignedCount, total } =
+    computeSectionTopics(rootDir, section);
+
+  // Settle the indexable set BEFORE rendering anything, so the
+  // sibling-topic nav on every page advertises only topics that really
+  // get an indexable hub (#5114 class: never link a page that is not
+  // written). Membership is locale-independent, so this set is too.
+  //
+  // Computed over ALL topics regardless of the `locales` filter, for the same
+  // reason membership is: the nav must advertise the same siblings in a
+  // narrowed render as in a full one, or a fast-published page would disagree
+  // with its own hreflang cluster.
+  const eligible = new Set(
+    TOPIC_CLUSTERS.filter((t) => (byTopic.get(t.key)?.length ?? 0) >= TOPIC_HUB_MIN_ARTICLES).map(
+      (t) => t.key,
+    ),
+  );
+
+  console.log(
+    `\x1b[36m[topic-hubs]\x1b[0m ${section}: ${total} articoli → ${directCount} diretti + ${propagatedCount} propagati, ${unassignedCount} senza argomento; ${eligible.size}/${TOPIC_CLUSTERS.length} argomenti sopra il floor`,
+  );
+
+  let hubPages = 0;
+  let bridgePages = 0;
+  let thin = 0;
+
+  /** Emit both the directory index and its flat sibling, reporting each relpath. */
+  const emit = (locale: TopicHubLocale, urlPath: string, html: string): void => {
+    const indexRel = np.join(urlPath.slice(1), 'index.html');
+    const flatRel = `${urlPath.replace(/^\/+/, '').replace(/\/+$/, '')}.html`;
+    add(np.join(distDir, indexRel), html);
+    add(np.join(distDir, flatRel), html);
+    onPageEmitted?.(locale, indexRel);
+    onPageEmitted?.(locale, flatRel);
+  };
+
+  for (const topic of TOPIC_CLUSTERS) {
+    const memberIds = byTopic.get(topic.key) ?? [];
+
+    for (const locale of locales ?? TOPIC_HUB_LOCALES) {
+      const rows = rowsByLocale.get(locale)!;
+      // Newest first, id as the deterministic tie-break — an article the
+      // registry has no date for sorts last but keeps a stable place.
+      const members = memberIds
+        .map((id) => rows.get(id))
+        .filter((r): r is ArticleRow => Boolean(r))
+        .sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id));
+
+      if (!eligible.has(topic.key)) {
+        const bridge = renderBridgePage({
+          locale,
+          section,
+          topicKey: topic.key,
+          memberCount: members.length,
+          eligible,
+          distDir,
+        });
+        emit(locale, bridge.urlPath, bridge.html);
+        bridgePages++;
+        continue;
+      }
+
+      const totalPages = Math.max(1, Math.ceil(members.length / TOPIC_HUB_PAGE_SIZE));
+      for (let page = 1; page <= totalPages; page++) {
+        const rendered = renderHubPage({
+          locale,
+          section,
+          topicKey: topic.key,
+          members,
+          page,
+          totalPages,
+          eligible,
+          dateStamp,
+          distDir,
+        });
+        if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
+          // Above the article floor but still thin: emit the bridge at
+          // the same URL rather than an indexable near-empty page
+          // (Non-Negotiable #4).
+          thin++;
+          const bridge = renderBridgePage({
+            locale,
+            section,
+            topicKey: topic.key,
+            memberCount: members.length,
+            eligible,
+            distDir,
+          });
+          emit(locale, bridge.urlPath, bridge.html);
+          bridgePages++;
+          continue;
+        }
+        emit(locale, rendered.urlPath, rendered.html);
+        hubPages++;
+        sitemapEntries.push({
+          canonical: rendered.urlPath,
+          alternates: [
+            ...TOPIC_HUB_LOCALES.map(
+              (alt) => `${alt}|${BASE_URL}${buildTopicHubPath(alt, section, topic.key, page)}`,
+            ),
+            `x-default|${BASE_URL}${buildTopicHubPath('it', section, topic.key, page)}`,
+          ],
+        });
+      }
+    }
+  }
+
+  return { hubPages, bridgePages, thin };
+}
+
+export interface RenderTopicClusterHubsOptions {
+  readonly rootDir: string;
+  /** Absolute dist directory to render into — the fast path's scratch dir. */
+  readonly distDir: string;
+  readonly section: TopicHubSection;
+  readonly locales?: readonly TopicHubLocale[];
+}
+
+export interface RenderTopicClusterHubsResult {
+  readonly written: number;
+  /** Dist-relative paths emitted per locale, ready for the shard push. */
+  readonly pathsByLocale: Record<TopicHubLocale, string[]>;
+}
+
+/**
+ * Fast-publish entry point (issue #5001 follow-up): re-render one section's
+ * topic hubs into an arbitrary dist directory.
+ *
+ * WHY THE WHOLE SECTION AND NOT JUST THE NEW ARTICLE'S TOPIC
+ * ─────────────────────────────────────────────────────────
+ * Publishing one article does not perturb one hub in isolation. It changes the
+ * corpus the TF-IDF model is built from, so every article's IDF-weighted score
+ * against every topic seed shifts a little and a borderline article can flip
+ * topics; it can push a topic across TOPIC_HUB_MIN_ARTICLES, which rewrites the
+ * sibling-topic nav on EVERY hub of the section; and it moves the "Argomenti"
+ * stat tile. Re-rendering only the new article's own topic would therefore
+ * leave the rest of the section disagreeing with what the next full build
+ * emits — the drift class this function exists to avoid.
+ *
+ * The whole section is affordable: assignment is 381 ms for the 3.103-article
+ * frontaliere corpus and 50 ms for svizzera (measured 2026-08-07), and the
+ * render is string building. This mirrors `renderArticleHubPages`, which
+ * likewise re-renders the section's entire `/tutti/` archive rather than the
+ * pages the new article happens to land on.
+ *
+ * The sitemap is deliberately NOT written here: `sitemap-topics.xml` is a
+ * whole-site artifact covering both sections, and a fast publish only knows
+ * about one. It is refreshed by the next full build, exactly as the archive's
+ * sitemap entries are.
+ *
+ * IT DOES NOT HONOUR `<SECTION>_BUILD_EMIT_SKIP, AND MUST NOT (#5290).
+ * ──────────────────────────────────────────────────────────────────
+ * That flag is checked in `closeBundle` below, and it means «the BUILD does not
+ * ship this section» — deploy.yml excludes such a section from the full-replace
+ * shard push, so pages the build writes there would never reach production
+ * while `sitemap-topics.xml`, written at the apex, would advertise them. #5290
+ * fixed exactly that: thousands of sitemap'd 404s.
+ *
+ * «The build does not ship it» is NOT «these pages must not exist». Both
+ * article sections default to `BUILD_EMIT_SKIP=true`
+ * (deploy.yml:339-340 — true unless the repo var is explicitly 'false'), and
+ * deploy.yml:691 spells out why: «excluded from full-replace push (served by
+ * fast-publish only)». This function IS that fast publish, and it pushes what
+ * it renders through `shards[].paths`. Gating it on the same flag would skip
+ * both sections — every section there is — and silently turn the whole
+ * freshness fix into dead code while every test still passed.
+ *
+ * So: gate the producer that cannot deliver, not the one that can.
+ */
+export async function renderTopicClusterHubPages(
+  opts: RenderTopicClusterHubsOptions,
+): Promise<RenderTopicClusterHubsResult> {
+  const { rootDir, distDir, section, locales } = opts;
+
+  const collector = new WriteCollector({ distDir, pluginName: 'topicClusterHubsPlugin' });
+  const pathsByLocale = Object.fromEntries(
+    TOPIC_HUB_LOCALES.map((l) => [l, [] as string[]]),
+  ) as Record<TopicHubLocale, string[]>;
+
+  renderTopicHubSectionCore({
+    rootDir,
+    distDir,
+    section,
+    dateStamp: new Date().toISOString().slice(0, 10),
+    locales,
+    add: (filePath, content) => collector.add(filePath, content),
+    sitemapEntries: [],
+    onPageEmitted: (locale, relPath) => {
+      pathsByLocale[locale].push(relPath);
+    },
+  });
+
+  const written = await collector.flush();
+  return { written, pathsByLocale };
+}
+
 export function topicClusterHubsPlugin(rootDir: string): Plugin {
   return {
     name: 'topic-cluster-hubs',
@@ -676,111 +909,30 @@ export function topicClusterHubsPlugin(rootDir: string): Plugin {
       };
 
       for (const section of TOPIC_HUB_SECTIONS) {
+        // The gate lives HERE, in the build's own loop, and deliberately NOT
+        // inside `renderTopicHubSectionCore`: it encodes "the BUILD does not
+        // ship this section", which is not the same claim as "these pages must
+        // not exist". `renderTopicClusterHubPages` — the fast-publish entry
+        // point — calls the core directly and is unaffected, which is the whole
+        // point. See that function's header.
         if (buildEmitSkip[section]) {
           console.log(
             `\x1b[33m[topic-hubs]\x1b[0m ${section}: emit skipped (BUILD_EMIT_SKIP) — no pages, no sitemap entries`,
           );
           continue;
         }
-        const { byTopic, rowsByLocale, directCount, propagatedCount, unassignedCount, total } =
-          computeSectionTopics(rootDir, section);
 
-        // Settle the indexable set BEFORE rendering anything, so the
-        // sibling-topic nav on every page advertises only topics that really
-        // get an indexable hub (#5114 class: never link a page that is not
-        // written). Membership is locale-independent, so this set is too.
-        const eligible = new Set(
-          TOPIC_CLUSTERS.filter(
-            (t) => (byTopic.get(t.key)?.length ?? 0) >= TOPIC_HUB_MIN_ARTICLES,
-          ).map((t) => t.key),
-        );
-
-        console.log(
-          `\x1b[36m[topic-hubs]\x1b[0m ${section}: ${total} articoli → ${directCount} diretti + ${propagatedCount} propagati, ${unassignedCount} senza argomento; ${eligible.size}/${TOPIC_CLUSTERS.length} argomenti sopra il floor`,
-        );
-
-        for (const topic of TOPIC_CLUSTERS) {
-          const memberIds = byTopic.get(topic.key) ?? [];
-
-          for (const locale of TOPIC_HUB_LOCALES) {
-            const rows = rowsByLocale.get(locale)!;
-            // Newest first, id as the deterministic tie-break — an article the
-            // registry has no date for sorts last but keeps a stable place.
-            const members = memberIds
-              .map((id) => rows.get(id))
-              .filter((r): r is ArticleRow => Boolean(r))
-              .sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id));
-
-            if (!eligible.has(topic.key)) {
-              const bridge = renderBridgePage({
-                locale,
-                section,
-                topicKey: topic.key,
-                memberCount: members.length,
-                eligible,
-                distDir,
-              });
-              collector.add(np.join(distDir, bridge.urlPath, 'index.html'), bridge.html);
-              collector.add(
-                np.join(distDir, `${bridge.urlPath.replace(/\/+$/, '')}.html`),
-                bridge.html,
-              );
-              bridgePages++;
-              continue;
-            }
-
-            const totalPages = Math.max(1, Math.ceil(members.length / TOPIC_HUB_PAGE_SIZE));
-            for (let page = 1; page <= totalPages; page++) {
-              const rendered = renderHubPage({
-                locale,
-                section,
-                topicKey: topic.key,
-                members,
-                page,
-                totalPages,
-                eligible,
-                dateStamp,
-                distDir,
-              });
-              if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
-                // Above the article floor but still thin: emit the bridge at
-                // the same URL rather than an indexable near-empty page
-                // (Non-Negotiable #4).
-                thin++;
-                const bridge = renderBridgePage({
-                  locale,
-                  section,
-                  topicKey: topic.key,
-                  memberCount: members.length,
-                  eligible,
-                  distDir,
-                });
-                collector.add(np.join(distDir, bridge.urlPath, 'index.html'), bridge.html);
-                collector.add(
-                  np.join(distDir, `${bridge.urlPath.replace(/\/+$/, '')}.html`),
-                  bridge.html,
-                );
-                bridgePages++;
-                continue;
-              }
-              collector.add(np.join(distDir, rendered.urlPath, 'index.html'), rendered.html);
-              collector.add(
-                np.join(distDir, `${rendered.urlPath.replace(/\/+$/, '')}.html`),
-                rendered.html,
-              );
-              hubPages++;
-              sitemapEntries.push({
-                canonical: rendered.urlPath,
-                alternates: [
-                  ...TOPIC_HUB_LOCALES.map(
-                    (alt) => `${alt}|${BASE_URL}${buildTopicHubPath(alt, section, topic.key, page)}`,
-                  ),
-                  `x-default|${BASE_URL}${buildTopicHubPath('it', section, topic.key, page)}`,
-                ],
-              });
-            }
-          }
-        }
+        const counts = renderTopicHubSectionCore({
+          rootDir,
+          distDir,
+          section,
+          dateStamp,
+          add: (filePath, content) => collector.add(filePath, content),
+          sitemapEntries,
+        });
+        hubPages += counts.hubPages;
+        bridgePages += counts.bridgePages;
+        thin += counts.thin;
       }
 
       if (sitemapEntries.length > 0) {

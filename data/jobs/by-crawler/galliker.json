@@ -1,6 +1,6 @@
 {
   "crawlerKey": "galliker",
-  "assembledAt": "2026-08-07T01:10:39.735Z",
+  "assembledAt": "2026-08-07T10:10:48.303Z",
   "jobs": [
     {
       "id": "galliker-aa9e13b653d6",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/878019/0450/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-07T01:10:36.271Z",
+      "crawledAt": "2026-08-07T10:10:44.564Z",
       "addressLocality": "Aclens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -99,7 +99,7 @@
       "url": "https://apply.refline.ch/878019/0449/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:35.852Z",
+      "crawledAt": "2026-08-07T10:10:44.189Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       "url": "https://apply.refline.ch/878019/0439/pub/4/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:35.430Z",
+      "crawledAt": "2026-08-07T10:10:43.814Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -261,7 +261,7 @@
       "url": "https://apply.refline.ch/878019/0416/pub/6/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:35.011Z",
+      "crawledAt": "2026-08-07T10:10:43.435Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -358,7 +358,7 @@
       "url": "https://apply.refline.ch/878019/0413/pub/11/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:34.590Z",
+      "crawledAt": "2026-08-07T10:10:43.056Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -444,7 +444,7 @@
       "url": "https://apply.refline.ch/878019/0411/pub/5/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:34.171Z",
+      "crawledAt": "2026-08-07T10:10:42.679Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -525,7 +525,7 @@
       "url": "https://apply.refline.ch/878019/0407/pub/5/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:33.752Z",
+      "crawledAt": "2026-08-07T10:10:42.295Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -606,7 +606,7 @@
       "url": "https://apply.refline.ch/878019/0382/pub/14/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:33.330Z",
+      "crawledAt": "2026-08-07T10:10:41.920Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -705,7 +705,7 @@
       "url": "https://apply.refline.ch/878019/0046/pub/21/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:32.909Z",
+      "crawledAt": "2026-08-07T10:10:41.536Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -786,7 +786,7 @@
       "url": "https://apply.refline.ch/878019/0447/pub/5/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:32.482Z",
+      "crawledAt": "2026-08-07T10:10:41.162Z",
       "addressLocality": "Safenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -880,7 +880,7 @@
       "url": "https://apply.refline.ch/878019/0446/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:32.064Z",
+      "crawledAt": "2026-08-07T10:10:40.789Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -899,11 +899,12 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0446",
+      "previousSlugs": [
+        "automobilmechatroniker-pw-a-galliker-altishofen",
+        "automobilmechatroniker-pw-a-galliker-transport-ag-altishofen",
+        "specialista-di-meccatronica-automobilistica-pw-a-galliker-transport-ag-altishofen"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "automobilmechatroniker-pw-a-galliker-transport-ag-altishofen",
-          "automobilmechatroniker-pw-a-galliker-altishofen"
-        ],
         "it": [
           "automobilmechatroniker-pw-a-galliker-altishofen",
           "automobilmechatroniker-pw-a-galliker-transport-ag-altishofen",
@@ -912,15 +913,14 @@
         "en": [
           "automobilmechatroniker-pw-a-galliker-transport-ag-altishofen"
         ],
+        "de": [
+          "automobilmechatroniker-pw-a-galliker-transport-ag-altishofen",
+          "automobilmechatroniker-pw-a-galliker-altishofen"
+        ],
         "fr": [
           "automobilmechatroniker-pw-a-galliker-transport-ag-altishofen"
         ]
       },
-      "previousSlugs": [
-        "automobilmechatroniker-pw-a-galliker-altishofen",
-        "automobilmechatroniker-pw-a-galliker-transport-ag-altishofen",
-        "specialista-di-meccatronica-automobilistica-pw-a-galliker-transport-ag-altishofen"
-      ],
       "firstSeenAt": "2026-07-29T11:35:27.634Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -967,7 +967,7 @@
       "url": "https://apply.refline.ch/878019/0376/pub/14/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:31.644Z",
+      "crawledAt": "2026-08-07T10:10:40.414Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1059,7 +1059,7 @@
       "url": "https://apply.refline.ch/878019/0442/pub/6/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:31.221Z",
+      "crawledAt": "2026-08-07T10:10:40.032Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1146,7 +1146,7 @@
       "url": "https://apply.refline.ch/878019/0440/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:30.797Z",
+      "crawledAt": "2026-08-07T10:10:39.646Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1211,7 +1211,7 @@
       "url": "https://apply.refline.ch/878019/0268/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:30.372Z",
+      "crawledAt": "2026-08-07T10:10:39.270Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1292,7 +1292,7 @@
       "url": "https://apply.refline.ch/878019/0147/pub/10/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:29.948Z",
+      "crawledAt": "2026-08-07T10:10:38.895Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1376,7 +1376,7 @@
       "url": "https://apply.refline.ch/878019/0445/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:29.531Z",
+      "crawledAt": "2026-08-07T10:10:38.519Z",
       "addressLocality": "Jona",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1395,14 +1395,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0445",
+      "previousSlugs": [
+        "chauffeur-c-ce-a-jona-galliker-transport-ag-jona"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "chauffeur-c-ce-a-jona-galliker-transport-ag-jona"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-c-ce-a-jona-galliker-transport-ag-jona"
-      ],
       "firstSeenAt": "2026-07-16T11:08:52.859Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1449,7 +1449,7 @@
       "url": "https://apply.refline.ch/878019/0378/pub/13/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:29.110Z",
+      "crawledAt": "2026-08-07T10:10:38.141Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1529,7 +1529,7 @@
       "url": "https://apply.refline.ch/878019/0394/pub/8/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:28.685Z",
+      "crawledAt": "2026-08-07T10:10:37.759Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1594,7 +1594,7 @@
       "url": "https://apply.refline.ch/878019/0231/pub/10/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:28.260Z",
+      "crawledAt": "2026-08-07T10:10:37.385Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1677,7 +1677,7 @@
       "url": "https://apply.refline.ch/878019/0039/pub/55/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:27.840Z",
+      "crawledAt": "2026-08-07T10:10:37.000Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1758,7 +1758,7 @@
       "url": "https://apply.refline.ch/878019/0437/pub/4/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:27.415Z",
+      "crawledAt": "2026-08-07T10:10:36.626Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1867,7 +1867,7 @@
       "url": "https://apply.refline.ch/878019/0425/pub/4/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:26.997Z",
+      "crawledAt": "2026-08-07T10:10:36.252Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1956,7 +1956,7 @@
       "url": "https://apply.refline.ch/878019/0380/pub/6/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:26.578Z",
+      "crawledAt": "2026-08-07T10:10:35.877Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2037,7 +2037,7 @@
       "url": "https://apply.refline.ch/878019/0150/pub/14/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:26.160Z",
+      "crawledAt": "2026-08-07T10:10:35.486Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2126,7 +2126,7 @@
       "url": "https://apply.refline.ch/878019/0417/pub/3/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:25.740Z",
+      "crawledAt": "2026-08-07T10:10:35.110Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2214,7 +2214,7 @@
       "url": "https://apply.refline.ch/878019/0414/pub/4/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:25.320Z",
+      "crawledAt": "2026-08-07T10:10:34.734Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2293,7 +2293,7 @@
       "url": "https://apply.refline.ch/878019/0211/pub/60/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:24.900Z",
+      "crawledAt": "2026-08-07T10:10:34.356Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2382,7 +2382,7 @@
       "url": "https://apply.refline.ch/878019/0126/pub/29/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:24.479Z",
+      "crawledAt": "2026-08-07T10:10:33.981Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2461,7 +2461,7 @@
       "url": "https://apply.refline.ch/878019/0032/pub/24/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:24.057Z",
+      "crawledAt": "2026-08-07T10:10:33.602Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2480,11 +2480,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0032",
+      "previousSlugs": [
+        "carrosserielackierer-pw-a-galliker-altishofen",
+        "carrosserielackierer-pw-a-galliker-transport-ag-altishofen",
+        "pittore-di-carrozzeria-pw-a-galliker-transport-ag-altishofen",
+        "carrosserie-painter-pw-a-galliker-transport-ag-altishofen",
+        "carrosserie-peintre-pw-a-galliker-transport-ag-altishofen",
+        "carrosserie-pittore-pw-a-galliker-transport-ag-altishofen"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "carrosserielackierer-pw-a-galliker-transport-ag-altishofen",
-          "carrosserielackierer-pw-a-galliker-altishofen"
-        ],
         "it": [
           "carrosserielackierer-pw-a-galliker-altishofen",
           "carrosserielackierer-pw-a-galliker-transport-ag-altishofen",
@@ -2497,19 +2501,15 @@
           "carrosserielackierer-pw-a-galliker-transport-ag-altishofen",
           "carrosserie-painter-pw-a-galliker-transport-ag-altishofen"
         ],
+        "de": [
+          "carrosserielackierer-pw-a-galliker-transport-ag-altishofen",
+          "carrosserielackierer-pw-a-galliker-altishofen"
+        ],
         "fr": [
           "carrosserielackierer-pw-a-galliker-transport-ag-altishofen",
           "carrosserie-peintre-pw-a-galliker-transport-ag-altishofen"
         ]
       },
-      "previousSlugs": [
-        "carrosserielackierer-pw-a-galliker-altishofen",
-        "carrosserielackierer-pw-a-galliker-transport-ag-altishofen",
-        "pittore-di-carrozzeria-pw-a-galliker-transport-ag-altishofen",
-        "carrosserie-painter-pw-a-galliker-transport-ag-altishofen",
-        "carrosserie-peintre-pw-a-galliker-transport-ag-altishofen",
-        "carrosserie-pittore-pw-a-galliker-transport-ag-altishofen"
-      ],
       "firstSeenAt": "2026-07-13T12:17:04.952Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -2556,7 +2556,7 @@
       "url": "https://apply.refline.ch/878019/0225/pub/16/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:23.637Z",
+      "crawledAt": "2026-08-07T10:10:33.222Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2575,11 +2575,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0225",
+      "previousSlugs": [
+        "lastwagenreiniger-a-galliker-altishofen",
+        "lastwagenreiniger-a-galliker-transport-ag-altishofen",
+        "nettoyeur-de-camions-a-galliker-transport-ag-altishofen",
+        "pulitore-per-camion-a-galliker-transport-ag-altishofen",
+        "truck-cleaner-a-galliker-transport-ag-altishofen",
+        "pulitore-di-camion-a-galliker-transport-ag-altishofen"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "lastwagenreiniger-a-galliker-transport-ag-altishofen",
-          "lastwagenreiniger-a-galliker-altishofen"
-        ],
         "it": [
           "lastwagenreiniger-a-galliker-altishofen",
           "lastwagenreiniger-a-galliker-transport-ag-altishofen",
@@ -2591,18 +2595,14 @@
         "en": [
           "lastwagenreiniger-a-galliker-transport-ag-altishofen"
         ],
+        "de": [
+          "lastwagenreiniger-a-galliker-transport-ag-altishofen",
+          "lastwagenreiniger-a-galliker-altishofen"
+        ],
         "fr": [
           "lastwagenreiniger-a-galliker-transport-ag-altishofen"
         ]
       },
-      "previousSlugs": [
-        "lastwagenreiniger-a-galliker-altishofen",
-        "lastwagenreiniger-a-galliker-transport-ag-altishofen",
-        "nettoyeur-de-camions-a-galliker-transport-ag-altishofen",
-        "pulitore-per-camion-a-galliker-transport-ag-altishofen",
-        "truck-cleaner-a-galliker-transport-ag-altishofen",
-        "pulitore-di-camion-a-galliker-transport-ag-altishofen"
-      ],
       "firstSeenAt": "2026-07-08T22:12:08.531Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -2649,7 +2649,7 @@
       "url": "https://apply.refline.ch/878019/0125/pub/16/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:23.215Z",
+      "crawledAt": "2026-08-07T10:10:32.848Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2668,12 +2668,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0125",
+      "previousSlugs": [
+        "chauffeur-c-ce-a-galliker-landquart",
+        "chauffeur-c-ce-a-galliker-transport-ag-landquart",
+        "chauffeur-c-ce-per-nachtshuttletransporte-a-galliker-transport-ag-landquart",
+        "chauffeur-c-ce-for-night-shuttle-transport-a-galliker-transport-ag-landquart",
+        "chauffeur-c-ce-fur-nachtshuttletransporte-a-galliker-landquart",
+        "chauffeur-c-ce-pour-le-transport-de-nuit-a-galliker-transport-ag-landquart",
+        "autista-c-ce-a-galliker-transport-ag-landquart"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "chauffeur-c-ce-a-galliker-transport-ag-landquart",
-          "chauffeur-c-ce-fur-nachtshuttletransporte-a-galliker-landquart",
-          "chauffeur-c-ce-a-galliker-landquart"
-        ],
         "it": [
           "chauffeur-c-ce-a-galliker-landquart",
           "chauffeur-c-ce-per-nachtshuttletransporte-a-galliker-transport-ag-landquart",
@@ -2685,19 +2689,15 @@
         "en": [
           "chauffeur-c-ce-for-night-shuttle-transport-a-galliker-transport-ag-landquart"
         ],
+        "de": [
+          "chauffeur-c-ce-a-galliker-transport-ag-landquart",
+          "chauffeur-c-ce-fur-nachtshuttletransporte-a-galliker-landquart",
+          "chauffeur-c-ce-a-galliker-landquart"
+        ],
         "fr": [
           "chauffeur-c-ce-pour-le-transport-de-nuit-a-galliker-transport-ag-landquart"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-c-ce-a-galliker-landquart",
-        "chauffeur-c-ce-a-galliker-transport-ag-landquart",
-        "chauffeur-c-ce-per-nachtshuttletransporte-a-galliker-transport-ag-landquart",
-        "chauffeur-c-ce-for-night-shuttle-transport-a-galliker-transport-ag-landquart",
-        "chauffeur-c-ce-fur-nachtshuttletransporte-a-galliker-landquart",
-        "chauffeur-c-ce-pour-le-transport-de-nuit-a-galliker-transport-ag-landquart",
-        "autista-c-ce-a-galliker-transport-ag-landquart"
-      ],
       "firstSeenAt": "2026-07-06T13:52:09.948Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2708,71 +2708,6 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "galliker-0c8f91b4e563",
-      "slug": "product-owner-application-management-professional-senior-80-100-a-galliker-altishofen",
-      "slugByLocale": {
-        "it": "product-owner-application-management-professional-senior-80-100-a-galliker-altishofen",
-        "en": "product-owner-application-management-professional-senior-80-100-a-galliker-altishofen",
-        "de": "product-owner-application-management-professional-senior-80-100-a-galliker-altishofen",
-        "fr": "proprietaire-du-produit-gestion-des-applications-professionnel-aine-80-100-a-galliker-transport-ag-altishofen"
-      },
-      "company": "Galliker Transport AG",
-      "companyKey": "galliker",
-      "companyDomain": "galliker.com",
-      "title": "Product Owner Application Management Professional/Senior 80-100% (a)",
-      "titleByLocale": {
-        "it": "Product Owner Application Management Professional / Senior 80-100% (a)",
-        "en": "Product Owner Application Management Professional/Senior 80-100% (a)",
-        "de": "Product Owner Application Management Professional/Senior 80-100% (a)",
-        "fr": "Propriétaire du produit Gestion des applications Professionnel/Aîné 80-100% (a)"
-      },
-      "description": "Product Owner Application Management Professional/Senior 80-100% (a)\n Du erkennst Chancen, wo andere Anforderungen sehen? Du übernimmst gerne Verantwortung statt nur Anforderungen? Du willst Entscheidungen treffen und Business-Applikationen gemeinsam mit dem Team spürbar weiterbringen?\n Galliker ist eine der führenden Schweizer Logistik- und Transportfirmen mit nationalen und internationalen Standorten. Vom Standort Altishofen aus betreut ein rund 80-köpfiges Informatikteam europaweit über 20 Filialen und sorgt dank modernster Technologie, Ideenkultur und starkem Teamwork für reibungslose Abläufe im Arbeitsalltag. Als Informatikteam sind wir täglich bestrebt, Technologie und Menschen zusammenzubringen, um schnelle, qualitativ hochwertige und zuverlässige Software und IT-Dienstleistungen unseren internen und externen Kunden zu liefern.\n Wir suchen keinen klassischen Backlog-Verwalter. Wir suchen eine Persönlichkeit mit Drive. Jemanden, der Chancen erkennt, Entscheidungen trifft und Dinge ins Rollen bringt.\n Als Product Owner Application Management übernimmst du die Verantwortung für die Weiterentwicklung unserer geschäftskritischen Applikationen – von ERP, HRM und DMS bis hin zu Lösungen im Bereich Gebäudeinfrastruktur und Flottenmanagement.\n Du arbeitest in einem Team, das Verantwortung ernst nimmt: selbstorganisiert, eigenverantwortlich und mit viel Vertrauen ausgestattet. Wenig Hierarchie. Viel Wirkung. Viel Gestaltungsspielraum.\n Du wartest nicht auf perfekte Voraussetzungen – du schaffst sie? Wenn du ein Umfeld suchst, in dem Vertrauen grösser ist als Kontrolle und Verantwortung grösser als Hierarchie – dann möchten wir dich kennenlernen.\n Aufgabengebiet\n\n• Du setzt die Richtung für unser Product Backlog und schaffst Klarheit über Prioritäten\n• Du schaffst Fokus im Team und hältst Momentum hoch\n• Du verstehst Business-Bedürfnisse, bringst Fachbereiche, Anforderungen und Möglichkeiten zusammen und übersetzt sie in konkrete Wirkung\n• Du entwickelst Vision, Roadmap und nächste Schritte für unsere Applikationslandschaft\n• Du triffst Entscheidungen – pragmatisch, datenbasiert und mit Blick auf den Mehrwert\n• Du sorgst dafür, dass Betrieb und Weiterentwicklung Hand in Hand gehen\n• Du hinterfragst Bestehendes und bringst neue Ideen in die Umsetzung\n• Du übernimmst Ownership – vom Impuls bis zum Resultat\n Anforderungsprofil\n\n• Abgeschlossenes Studium mit Fachrichtung Informatik oder vergleichbare Qualifikation\n• Erfahrung als Product Owner oder in einer vergleichbaren Rolle im Application Management\n• Sehr gutes Verständnis für betriebswirtschaftliche Prozesse und deren Vernetzung, Erfahrung mit Business-Applikationen – idealerweise ERP, HRM, DMS oder ähnlichen Plattformen von Vorteil\n• Kommunikationsstärke und die Fähigkeit, Menschen mitzunehmen\n• Ein agiles Mindset: Verantwortung übernehmen, entscheiden, lernen, weitermachen\n• Sicherheit im Priorisieren – auch wenn nicht alles gleichzeitig möglich ist – sowie ausgeprägte Problemlösungsfähigkeit und Zeitmanagement\n• Machermentalität und Freude daran, Ownership zu übernehmen und Dinge voranzutreiben\n• Den Anspruch, Wirkung zu erzielen statt Aufgaben zu verwalten\n• Sehr gute Deutsch- und Englischkenntnisse (mündlich & schriftlich)\n Angebot\n\n• Spannende, komplexe Transport- und Logistikprojekte\n• Cooles, motiviertes Team\n• Topmoderne IT-Infrastrukturen\n• Viel Eigenverantwortung und Wertschätzung\n• Breites Einsatzgebiet in der Welt von Transport & Logistik mit internationalen Kontakten in Filialen\n• Möglichkeit von gelegentlicher Remotearbeit\n Für diese Stelle berücksichtigen wir nur Direktbewerbungen.\n Bitte beachte, dass wir aufgrund der geltenden schweizerischen Gesetzgebung ausschliesslich Bewerbungen von Schweizer Staatsbürgern, Personen mit einer Aufenthalts- oder Niederlassungsbewilligung (Ausweis B oder C), EU/EFTA-Bürgern sowie Personen mit einer gültigen Arbeitsbewilligung berücksichtigen können.\n Eine Remote-Tätigkeit aus dem Ausland ist nicht möglich.\n Neugierig?\nWir freuen uns darauf, dich kennenzulernen!\nSandra Weiss, Human Resources, Telefon: +41 62 748 80 70 .",
-      "descriptionByLocale": {
-        "it": "Product Owner Application Management Professional/Senior 80-100% (a) Vedete le opportunità dove gli altri vedono le richieste? Ti piace assumerti la responsabilità invece che solo i requisiti? Vuoi prendere decisioni e portare applicazioni aziendali notevolmente avanti insieme al team? Galliker è una delle principali società di logistica e trasporto svizzere con sedi nazionali e internazionali. Dal sito Altishofen, un team IT di circa 80 anni gestisce oltre 20 filiali in tutta Europa e garantisce flussi di lavoro fluidi nel lavoro quotidiano grazie alle più recenti tecnologie, alla cultura dell'idea e al lavoro di squadra. Come team di informatica, ci sforziamo ogni giorno di portare la tecnologia e le persone insieme per fornire software e servizi IT veloci, di alta qualità e affidabili ai nostri clienti interni ed esterni. Non stiamo cercando un amministratore di backlog classico. Stiamo cercando una personalità con Drive. Qualcuno che riconosce le opportunità, prende decisioni, e fa rotolare le cose. In qualità di Product Owner Application Management, vi assumete la responsabilità per l'ulteriore sviluppo delle nostre applicazioni business-critical – da ERP, HRM e DMS a soluzioni nel settore delle infrastrutture edili e della gestione della flotta. Lavori in un team che si assume la responsabilità seriamente: auto-organizzato, auto-responsabile e dotato di molta fiducia. Una piccola gerarchia. Molto effetto. Un sacco di spazio per la manovra. Non state aspettando condizioni perfette – potete farlo? Se siete alla ricerca di un ambiente in cui la fiducia è maggiore del controllo e la responsabilità è maggiore della gerarchia – allora vogliamo conoscervi. Settore\n• Hai impostato la direzione per il nostro backlog del prodotto e fornire chiarezza sulle priorità\n• Si crea concentrazione nel team e mantenere slancio alto\n• Capisci le esigenze aziendali, unisci aree specialistiche, requisiti e possibilità e tradurli in effetti concreti\n• Si sviluppa visione, roadmap e i prossimi passi per il nostro paesaggio applicazione\n• Si prendono decisioni – pragmatiche, basate sui dati e con valore aggiunto in mente\n• Assicurarsi che l'operazione e l'ulteriore sviluppo vadano di pari passo\n• Voi mettete in discussione l'esistente e portate nuove idee nell'attuazione\n• Si prende la proprietà – dal momento al risultato Profilo di richiesta\n• Studi completi con una specializzazione in informatica o qualifica comparabile\n• Esperienza come proprietario di un prodotto o in un ruolo paragonabile nella gestione delle applicazioni\n• Ottima comprensione dei processi aziendali e della loro rete, esperienza con le applicazioni aziendali – idealmente ERP, HRM, DMS o piattaforme simili\n• Forza di comunicazione e capacità di prendere le persone\n• Una mentalità agile: prendersi la responsabilità, decidere, imparare, muoversi\n• Sicurezza nella priorità – anche se non tutto è possibile allo stesso tempo – così come spiccate capacità di problem solving e gestione del tempo\n• La mentalità del creatore e la gioia nel prendere la proprietà e spostare le cose avanti\n• La pretesa di ottenere un impatto invece di gestire i compiti\n• Molto buona conoscenza del tedesco e dell'inglese (verbal & scritto) Offerta\n• Progetti emozionanti, complessi di trasporto e logistica\n• Squadra forte e motivata\n• Moderne infrastrutture IT\n• Molto responsabilità personale e apprezzamento\n• Ampia applicazione nel mondo del trasporto e della logistica con contatti internazionali in filiali\n• Possibilità di lavoro a distanza occasionale Per questa posizione, consideriamo solo applicazioni dirette. Si prega di notare che a causa dell'attuale legislazione svizzera, possiamo considerare solo le domande di cittadini svizzeri, persone con un permesso di soggiorno o di soggiorno (B o carta C), cittadini UE/AELS e persone con un permesso di lavoro valido. Un'attività remota dall'estero non è possibile. Curioso? Non vediamo l'ora di incontrarvi! Sandra Weiss, Risorse Umane, telefono: +41 62 748 80 70 .",
-        "en": "Product Owner Application Management Professional/Senior 80-100% (a) Do you see opportunities where others see demands? Do you like to take responsibility instead of just requirements? You want to make decisions and bring business applications noticeably forward together with the team? Galliker is one of the leading Swiss logistics and transport companies with national and international locations. From the Altishofen site, an approximately 80-strong IT team manages over 20 branches throughout Europe and ensures smooth workflows in everyday work thanks to the latest technology, idea culture and strong teamwork. As a computer science team, we strive every day to bring technology and people together to deliver fast, high-quality and reliable software and IT services to our internal and external customers. We are not looking for a classic backlog administrator. We are looking for a personality with Drive. Someone who recognizes opportunities, makes decisions, and gets things rolling. As Product Owner Application Management, you take responsibility for the further development of our business-critical applications – from ERP, HRM and DMS to solutions in the area of building infrastructure and fleet management. You work in a team that takes responsibility seriously: self-organized, self-responsible and equipped with a lot of trust. Little hierarchy. A lot of effect. A lot of room for manoeuvre. You are not waiting for perfect conditions – you can do them? If you are looking for an environment where trust is greater than control and responsibility is greater than hierarchy – then we want to get to know you. Task area\n• You set the direction for our product backlog and provide clarity about priorities\n• You create focus in the team and keep momentum high\n• You understand business needs, bring together specialist areas, requirements and possibilities and translate them into concrete effects\n• You develop vision, roadmap and next steps for our application landscape\n• You make decisions – pragmatic, data-based and with added value in mind\n• You ensure that operation and further development go hand in hand\n• You question the existing and bring new ideas into the implementation\n• You take ownership – from momentum to result Requirement profile\n• Completed studies with a specialisation in computer science or comparable qualification\n• Experience as a product owner or in a comparable role in application management\n• Very good understanding of business processes and their networking, experience with business applications – ideally ERP, HRM, DMS or similar platforms\n• Communication Strength and Ability to Take People\n• An agile mindset: taking responsibility, deciding, learning, moving on\n• Safety in prioritizing – even if not everything is possible at the same time – as well as pronounced problem-solving skills and time management\n• Maker mentality and joy in taking ownership and moving things forward\n• The claim to achieve impact instead of managing tasks\n• Very good knowledge of German and English (verbal & written) Offer\n• Exciting, complex transport and logistics projects\n• Cool, motivated team\n• Modern IT infrastructures\n• Much personal responsibility and appreciation\n• Broad application in the world of transport & logistics with international contacts in branches\n• Possibility of occasional remote work For this position, we only consider direct applications. Please note that due to current Swiss legislation, we can only consider applications from Swiss citizens, persons with a residence or settlement permit (B or C card), EU/EFTA citizens and persons with a valid work permit. A remote activity from abroad is not possible. Curious? We look forward to meeting you! Sandra Weiss, Human Resources, telephone: +41 62 748 80 70 .",
-        "de": "Product Owner Application Management Professional/Senior 80-100% (a)\nDu erkennst Chancen, wo andere Anforderungen sehen? Du übernimmst gerne Verantwortung statt nur Anforderungen? Du willst Entscheidungen treffen und Business-Applikationen gemeinsam mit dem Team spürbar weiterbringen?\nGalliker ist eine der führenden Schweizer Logistik- und Transportfirmen mit nationalen und internationalen Standorten. Vom Standort Altishofen aus betreut ein rund 80-köpfiges Informatikteam europaweit über 20 Filialen und sorgt dank modernster Technologie, Ideenkultur und starkem Teamwork für reibungslose Abläufe im Arbeitsalltag. Als Informatikteam sind wir täglich bestrebt, Technologie und Menschen zusammenzubringen, um schnelle, qualitativ hochwertige und zuverlässige Software und IT-Dienstleistungen unseren internen und externen Kunden zu liefern.\nWir suchen keinen klassischen Backlog-Verwalter. Wir suchen eine Persönlichkeit mit Drive. Jemanden, der Chancen erkennt, Entscheidungen trifft und Dinge ins Rollen bringt.\nAls Product Owner Application Management übernimmst du die Verantwortung für die Weiterentwicklung unserer geschäftskritischen Applikationen – von ERP, HRM und DMS bis hin zu Lösungen im Bereich Gebäudeinfrastruktur und Flottenmanagement.\nDu arbeitest in einem Team, das Verantwortung ernst nimmt: selbstorganisiert, eigenverantwortlich und mit viel Vertrauen ausgestattet. Wenig Hierarchie. Viel Wirkung. Viel Gestaltungsspielraum.\nDu wartest nicht auf perfekte Voraussetzungen – du schaffst sie? Wenn du ein Umfeld suchst, in dem Vertrauen grösser ist als Kontrolle und Verantwortung grösser als Hierarchie – dann möchten wir dich kennenlernen.\nAufgabengebiet\n\n• Du setzt die Richtung für unser Product Backlog und schaffst Klarheit über Prioritäten\n• Du schaffst Fokus im Team und hältst Momentum hoch\n• Du verstehst Business-Bedürfnisse, bringst Fachbereiche, Anforderungen und Möglichkeiten zusammen und übersetzt sie in konkrete Wirkung\n• Du entwickelst Vision, Roadmap und nächste Schritte für unsere Applikationslandschaft\n• Du triffst Entscheidungen – pragmatisch, datenbasiert und mit Blick auf den Mehrwert\n• Du sorgst dafür, dass Betrieb und Weiterentwicklung Hand in Hand gehen\n• Du hinterfragst Bestehendes und bringst neue Ideen in die Umsetzung\n• Du übernimmst Ownership – vom Impuls bis zum Resultat\nAnforderungsprofil\n\n• Abgeschlossenes Studium mit Fachrichtung Informatik oder vergleichbare Qualifikation\n• Erfahrung als Product Owner oder in einer vergleichbaren Rolle im Application Management\n• Sehr gutes Verständnis für betriebswirtschaftliche Prozesse und deren Vernetzung, Erfahrung mit Business-Applikationen – idealerweise ERP, HRM, DMS oder ähnlichen Plattformen von Vorteil\n• Kommunikationsstärke und die Fähigkeit, Menschen mitzunehmen\n• Ein agiles Mindset: Verantwortung übernehmen, entscheiden, lernen, weitermachen\n• Sicherheit im Priorisieren – auch wenn nicht alles gleichzeitig möglich ist – sowie ausgeprägte Problemlösungsfähigkeit und Zeitmanagement\n• Machermentalität und Freude daran, Ownership zu übernehmen und Dinge voranzutreiben\n• Den Anspruch, Wirkung zu erzielen statt Aufgaben zu verwalten\n• Sehr gute Deutsch- und Englischkenntnisse (mündlich & schriftlich)\nAngebot\n\n• Spannende, komplexe Transport- und Logistikprojekte\n• Cooles, motiviertes Team\n• Topmoderne IT-Infrastrukturen\n• Viel Eigenverantwortung und Wertschätzung\n• Breites Einsatzgebiet in der Welt von Transport & Logistik mit internationalen Kontakten in Filialen\n• Möglichkeit von gelegentlicher Remotearbeit\nFür diese Stelle berücksichtigen wir nur Direktbewerbungen.\nBitte beachte, dass wir aufgrund der geltenden schweizerischen Gesetzgebung ausschliesslich Bewerbungen von Schweizer Staatsbürgern, Personen mit einer Aufenthalts- oder Niederlassungsbewilligung (Ausweis B oder C), EU/EFTA-Bürgern sowie Personen mit einer gültigen Arbeitsbewilligung berücksichtigen können.\nEine Remote-Tätigkeit aus dem Ausland ist nicht möglich.\nNeugierig?\nWir freuen uns darauf, dich kennenzulernen!\nSandra Weiss, Human Resources, Telefon: +41 62 748 80 70 .",
-        "fr": "Propriétaire du produit Gestion des applications Professionnel/Aîné 80-100% (a) Voyez - vous des occasions où d'autres voient des demandes? Aimez-vous prendre la responsabilité au lieu d'exigences ? Vous voulez prendre des décisions et faire avancer les applications commerciales avec l'équipe ? Galliker est l'une des principales entreprises suisses de logistique et de transport avec des emplacements nationaux et internationaux. A partir du site Altishofen, une équipe informatique d'environ 80 personnes gère plus de 20 succursales en Europe et assure des flux de travail en douceur dans le travail quotidien grâce à la dernière technologie, à la culture des idées et au travail d'équipe. En tant qu'équipe informatique, nous nous efforçons chaque jour de rassembler technologie et personnes pour fournir des services informatiques et logiciels rapides, de haute qualité et fiables à nos clients internes et externes. Nous ne cherchons pas un administrateur classique de l'arriéré. Nous cherchons une personnalité avec Drive. Quelqu'un qui reconnaît les opportunités, prend des décisions et fait tourner les choses. En tant que Product Owner Application Management, vous assumez la responsabilité du développement de nos applications critiques pour l'entreprise, depuis ERP, HRM et DMS jusqu'aux solutions dans le domaine de la construction d'infrastructures et de la gestion de la flotte. Vous travaillez dans une équipe qui prend la responsabilité au sérieux : auto-organisée, auto-responsable et équipée de beaucoup de confiance. Petite hiérarchie. Beaucoup d'effet. Beaucoup de marge de manoeuvre. Vous n'attendez pas des conditions parfaites – vous pouvez les faire? Si vous cherchez un environnement où la confiance est plus grande que le contrôle et la responsabilité est plus grande que la hiérarchie, alors nous voulons vous connaître. Domaine d ' activité\n• Vous définissez l'orientation de notre arriéré de produits et fournissez des précisions sur les priorités\n• Vous créez la concentration dans l'équipe et gardez l'élan haut\n• Vous comprenez les besoins des entreprises, rassemblez les domaines spécialisés, les exigences et les possibilités et les traduisez en effets concrets\n• Vous développez vision, feuille de route et prochaines étapes pour notre paysage d'application\n• Vous prenez des décisions – pragmatiques, basées sur des données et avec une valeur ajoutée à l'esprit\n• Vous veillez à ce que le fonctionnement et le développement ultérieur aillent de pair\n• Vous questionnez l'existant et apportez de nouvelles idées dans la mise en œuvre\n• Vous prenez possession – de l'élan au résultat Profil des besoins\n• Études complétées avec spécialisation en informatique ou qualification comparable\n• Expérience en tant que propriétaire de produit ou dans un rôle comparable dans la gestion des applications\n• Très bonne compréhension des processus d'affaires et de leur réseau, expérience avec les applications d'affaires – idéalement ERP, HRM, DMS ou plateformes similaires\n• Force de communication et capacité à attirer les gens\n• Un état d'esprit agile: prendre des responsabilités, décider, apprendre, avancer\n• Sécurité dans la hiérarchisation – même si tout n'est pas possible en même temps – ainsi que la résolution de problèmes et la gestion du temps\n• La mentalité créatrice et la joie de s'approprier et de faire avancer les choses\n• La revendication de l'impact au lieu de la gestion des tâches\n• Très bonne connaissance de l'allemand et de l'anglais (verbal et écrit) Offre\n• Projets passionnants, complexes de transport et de logistique\n• Une équipe cool et motivée\n• Infrastructures informatiques modernes\n• Beaucoup de responsabilité personnelle et d'appréciation\n• Large application dans le monde du transport et de la logistique avec des contacts internationaux dans les branches\n• Possibilité de travail isolé occasionnel Pour cette position, nous ne considérons que les demandes directes. Veuillez noter qu'en raison de la législation suisse en vigueur, nous ne pouvons examiner que les demandes de citoyens suisses, les personnes titulaires d'un permis de séjour ou d'établissement (carte B ou C), les citoyens de l'UE/AELE et les personnes titulaires d'un permis de travail valide. Une activité éloignée de l'étranger n'est pas possible. Curieux ? Nous sommes impatients de vous rencontrer! Sandra Weiss, Ressources humaines, téléphone: +41 62 748 80 70 ."
-      },
-      "needsRetranslation": true,
-      "location": "Altishofen",
-      "canton": "LU",
-      "url": "https://apply.refline.ch/878019/0443/pub/1/index.html",
-      "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:22.793Z",
-      "addressLocality": "Altishofen",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6246",
-      "streetAddress": "Kantonsstrasse 2",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Logistica / Trasporti",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://apply.refline.ch/878019/0443/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "0443",
-      "firstSeenAt": "2026-07-04T10:54:56.075Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
           "unitText": "YEAR"
         }
       }
@@ -2809,7 +2744,7 @@
       "url": "https://apply.refline.ch/878019/0056/pub/11/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:22.370Z",
+      "crawledAt": "2026-08-07T10:10:32.464Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2882,84 +2817,6 @@
       }
     },
     {
-      "id": "galliker-78b270a58f2b",
-      "slug": "application-manager-infrastruttura-flotta-80-100-a-galliker-transport-ag-altishofen",
-      "slugByLocale": {
-        "it": "application-manager-infrastruttura-flotta-80-100-a-galliker-transport-ag-altishofen",
-        "en": "application-manager-infrastructure-fleet-80-100-a-galliker-altishofen",
-        "de": "application-manager-infrastructure-fleet-80-100-a-galliker-altishofen",
-        "fr": "gestionnaire-des-applications-infrastructure-et-flotte-80-100-a-galliker-transport-ag-altishofen"
-      },
-      "company": "Galliker Transport AG",
-      "companyKey": "galliker",
-      "companyDomain": "galliker.com",
-      "title": "Application Manager Infrastructure & Fleet - 80-100% (a)",
-      "titleByLocale": {
-        "it": "Application Manager Infrastruttura & Flotta – 80-100% (a)",
-        "en": "Application Manager Infrastructure & Fleet - 80-100% (a)",
-        "de": "Application Manager Infrastructure & Fleet - 80-100% (a)",
-        "fr": "Gestionnaire des applications Infrastructure et flotte - 80-100 % (a)"
-      },
-      "description": "Application Manager Infrastructure & Fleet - 80-100% (a)\n Komplexe Anwendungen, spannende Projekte und jede Menge Gestaltungsspielraum – klingt nach deinem Ding? Du denkst einen Schritt voraus und findest Lösungen, bevor andere die Anforderung bemerken? Dann wird es Zeit, dass wir uns kennenlernen.\n Galliker ist eine der führenden Schweizer Logistik- und Transportfirmen mit nationalen und internationalen Standorten. Vom Standort Altishofen aus betreut ein rund 80-köpfiges Informatikteam europaweit über 20 Filialen und sorgt dank modernster Technologie, Ideenkultur und starkem Teamwork für reibungslose Abläufe im Arbeitsalltag. Als Informatikteam sind wir täglich bestrebt, Technologie und Menschen zusammenzubringen, um schnelle, qualitativ hochwertige und zuverlässige Software und IT Dienstleistungen unseren internen und externen Kunden zu liefern.\n Wir bewegen uns in einem hochdynamischen Umfeld. Im Bereich der Gebäudeinfrastruktur und der Flotte gilt es eine klare Produktvision umzusetzen und mit unseren IT Dienstleistungen grösstmöglichen Kundennutzen zu schaffen. Wir verbinden Stakeholder Ansprüche mit technischen Lösungen und begleiten sie von der Idee bis zum Go Live.\n Möchtest du Business, IT und externe Partner verbinden und mit Hands-on-Mentalität, Mut für Neues und echtem Handlungsspielraum digitale Lösungen vorantreiben – mit nachhaltigem Mehrwert für Mensch, Betrieb und Umwelt? Hast du den Anspruch, als verlässliche, kompetente Ansprechperson stets beste Unterstützung zu geben, dann bist du unser Application Manager Infrastructure & Fleet.\n Aufgabengebiet\n\n• Betreiben, Unterhalten und Weiterentwickeln unserer Applikationen im Bereich Gebäudeinfrastruktur, Last- und Lademanagement sowie Fahrzeugflotte\n• Konfigurieren von Schnittstellen / Middleware (z.B. mit Lobster)\n• Realisieren von Datenübernahmen aus Drittsystemen\n• Mitwirken und Koordinieren bei der Entwicklung und Einführen von Kundenanbindungen\n• Pflegen der Dokumentation für die zugewiesenen Anwendungen und Schnittstellen\n• Erstellen von Software Anforderungsbeschreibungen\n• Betreuen und Schulen unserer internen Anwenderinnen und Anwender\n Anforderungsprofil\n\n• Abgeschlossene Ausbildung oder Weiterbildung in (Wirtschafts-)Informatik oder eine vergleichbare Qualifikation\n• Erfahrung im Umgang mit Schnittstellen (z. B. API, sFTP) sowie mit Datenbanken (z. B. SQL)\n• Ausgeprägtes analytisches Denkvermögen sowie eine strukturierte und lösungsorientierte Arbeitsweise\n• Kenntnisse in Datenverarbeitungstools (z. B. Lobster) von Vorteil\n• Verständnis von Gebäudeinfrastruktur und/oder Flottenmanagement von Vorteil\n• Hohe Kommunikationsstärke, Teamfähigkeit und Erfahrung in agilen Arbeitsumfeldern\n• Gute Englischkenntnisse in Wort und Schrift\n Angebot\n\n• Spannende und komplexe Projekte im Bereich der Gebäudeinfrastruktur, Last- und Lademanagement sowie unserer Fahrzeugflotte\n• Cooles, motiviertes Team\n• Topmoderne IT-Infrastrukturen\n• Viel Eigenverantwortung und Wertschätzung\n• Breites Einsatzgebiet in der Welt von Transport & Logistik mit internationalen Kontakten in Filialen\n• Möglichkeit von gelegentlicher Remotearbeit\n Für diese Stelle berücksichtigen wir nur Direktbewerbungen.\n Bitte beachte, dass wir aufgrund der geltenden schweizerischen Gesetzgebung ausschliesslich Bewerbungen von Schweizer Staatsbürgern, Personen mit einer Aufenthalts- oder Niederlassungsbewilligung (Ausweis B oder C), EU/EFTA-Bürgern sowie Personen mit einer gültigen Arbeitsbewilligung berücksichtigen können.\n Eine Remote-Tätigkeit aus dem Ausland ist nicht möglich.\n Tönt spannend?\nWir freuen uns auf deine Bewerbung!\nSandra Weiss, Human Resources, Telefon: +41 62 748 80 70 .",
-      "descriptionByLocale": {
-        "it": "Infrastrutture & Fleet - 80-100% (a) Applicazioni complesse, progetti emozionanti e un sacco di corsia creativa – suona come la tua cosa? Pensi un passo avanti e trovare soluzioni prima che altri notano il requisito? Allora è ora di conoscerci. Galliker è una delle principali società di logistica e trasporto svizzere con sedi nazionali e internazionali. Dal sito Altishofen, un team IT di circa 80 anni gestisce oltre 20 filiali in tutta Europa e garantisce flussi di lavoro fluidi nel lavoro quotidiano grazie alle più recenti tecnologie, alla cultura dell'idea e al lavoro di squadra. Come team di informatica, ci sforziamo ogni giorno di portare la tecnologia e le persone insieme per fornire software e servizi IT veloci, di alta qualità e affidabili ai nostri clienti interni ed esterni. Operiamo in un ambiente altamente dinamico. Nel settore delle infrastrutture edilizie e della flotta, è importante implementare una chiara visione del prodotto e creare il più grande vantaggio possibile del cliente con i nostri servizi IT. Uniamo i requisiti degli stakeholder con le soluzioni tecniche e li accompagniamo dall'idea al live. Vuoi collegare partner commerciali, IT e esterni e guidare soluzioni digitali con mentalità hands-on, coraggio per cose nuove e reale ambito di azione – con valore aggiunto sostenibile per persone, operazioni e ambiente? Se aspiri a fornire sempre il miglior supporto come persona di contatto affidabile e competente, allora sei il nostro Application Manager Infrastructure & Fleet. Settore\n• Operazione, manutenzione e ulteriore sviluppo delle nostre applicazioni nel settore delle infrastrutture edilizie, della gestione dei carichi e della flotta dei veicoli\n• Configurazione di interfacce / middleware (ad esempio con Lobster)\n• Realizzazione dei trasferimenti di dati da sistemi di terze parti\n• Partecipazione e coordinamento nello sviluppo e nell'implementazione delle connessioni dei clienti\n• Mantenere la documentazione per le applicazioni e le interfacce assegnate\n• Creazione di descrizioni dei requisiti software\n• Supervisione e scuole dei nostri utenti interni Profilo di richiesta\n• L'istruzione completa o la formazione nella tecnologia dell'informazione (business) o una qualifica comparabile\n• Esperienza nella gestione di interfacce (ad esempio API, sFTP) e database (ad esempio SQL)\n• Forte capacità di pensiero analitico e un metodo di lavoro strutturato e orientato alla soluzione\n• La conoscenza degli strumenti di elaborazione dei dati (ad esempio aragosta) è vantaggiosa\n• La comprensione delle infrastrutture di costruzione e/o della gestione della flotta è utile\n• Alto livello di comunicazione, lavoro di squadra e esperienza in ambienti di lavoro agili\n• Buone competenze in inglese in Word e scrittura Offerta\n• Progetti accattivanti e complessi nel settore delle infrastrutture edili, della gestione del carico e del carico e della nostra flotta di veicoli\n• Squadra forte e motivata\n• Moderne infrastrutture IT\n• Molto responsabilità personale e apprezzamento\n• Ampia applicazione nel mondo del trasporto e della logistica con contatti internazionali in filiali\n• Possibilità di lavoro a distanza occasionale Per questa posizione, consideriamo solo applicazioni dirette. Si prega di notare che a causa dell'attuale legislazione svizzera, possiamo considerare solo le domande di cittadini svizzeri, persone con un permesso di soggiorno o di soggiorno (B o carta C), cittadini UE/AELS e persone con un permesso di lavoro valido. Un'attività remota dall'estero non è possibile. Ti sembra eccitante? Attendiamo con ansia la vostra applicazione! Sandra Weiss, Risorse Umane, telefono: +41 62 748 80 70 .",
-        "en": "Application Manager Infrastructure & Fleet - 80-100% (a) Complex applications, exciting projects and a lot of creative leeway – sounds like your thing? You think a step ahead and find solutions before others notice the requirement? Then it is time for us to get to know each other. Galliker is one of the leading Swiss logistics and transport companies with national and international locations. From the Altishofen site, an approximately 80-strong IT team manages over 20 branches throughout Europe and ensures smooth workflows in everyday work thanks to the latest technology, idea culture and strong teamwork. As a computer science team, we strive every day to bring technology and people together to deliver fast, high-quality and reliable software and IT services to our internal and external customers. We operate in a highly dynamic environment. In the area of building infrastructure and the fleet, it is important to implement a clear product vision and create the greatest possible customer benefit with our IT services. We combine stakeholder requirements with technical solutions and accompany them from the idea to the go live. Do you want to connect business, IT and external partners and drive digital solutions with hands-on mentality, courage for new things and real scope for action – with sustainable added value for people, operations and the environment? If you aspire to always provide the best support as a reliable, competent contact person, then you are our Application Manager Infrastructure & Fleet. Task area\n• Operation, maintenance and further development of our applications in the area of building infrastructure, load and load management and vehicle fleet\n• Configuring interfaces / middleware (e.g. with Lobster)\n• Realization of data transfers from third-party systems\n• Participation and coordination in the development and implementation of customer connections\n• Maintain the documentation for the assigned applications and interfaces\n• Creation of software requirements descriptions\n• Supervising and schools our internal users Requirement profile\n• Completed education or training in (business) information technology or a comparable qualification\n• Experience in handling interfaces (e.g. API, sFTP) and databases (e.g. SQL)\n• Strong analytical thinking skills as well as a structured and solution-oriented working method\n• Knowledge of data processing tools (e.g. lobster) is advantageous\n• Understanding building infrastructure and/or fleet management is beneficial\n• High level of communication, teamwork and experience in agile working environments\n• Good English skills in Word and Writing Offer\n• Exciting and complex projects in the area of building infrastructure, load and load management and our vehicle fleet\n• Cool, motivated team\n• Modern IT infrastructures\n• Much personal responsibility and appreciation\n• Broad application in the world of transport & logistics with international contacts in branches\n• Possibility of occasional remote work For this position, we only consider direct applications. Please note that due to current Swiss legislation, we can only consider applications from Swiss citizens, persons with a residence or settlement permit (B or C card), EU/EFTA citizens and persons with a valid work permit. A remote activity from abroad is not possible. Does it sound exciting? We look forward to your application! Sandra Weiss, Human Resources, telephone: +41 62 748 80 70 .",
-        "de": "Application Manager Infrastructure & Fleet - 80-100% (a)\nKomplexe Anwendungen, spannende Projekte und jede Menge Gestaltungsspielraum – klingt nach deinem Ding? Du denkst einen Schritt voraus und findest Lösungen, bevor andere die Anforderung bemerken? Dann wird es Zeit, dass wir uns kennenlernen.\nGalliker ist eine der führenden Schweizer Logistik- und Transportfirmen mit nationalen und internationalen Standorten. Vom Standort Altishofen aus betreut ein rund 80-köpfiges Informatikteam europaweit über 20 Filialen und sorgt dank modernster Technologie, Ideenkultur und starkem Teamwork für reibungslose Abläufe im Arbeitsalltag. Als Informatikteam sind wir täglich bestrebt, Technologie und Menschen zusammenzubringen, um schnelle, qualitativ hochwertige und zuverlässige Software und IT Dienstleistungen unseren internen und externen Kunden zu liefern.\nWir bewegen uns in einem hochdynamischen Umfeld. Im Bereich der Gebäudeinfrastruktur und der Flotte gilt es eine klare Produktvision umzusetzen und mit unseren IT Dienstleistungen grösstmöglichen Kundennutzen zu schaffen. Wir verbinden Stakeholder Ansprüche mit technischen Lösungen und begleiten sie von der Idee bis zum Go Live.\nMöchtest du Business, IT und externe Partner verbinden und mit Hands-on-Mentalität, Mut für Neues und echtem Handlungsspielraum digitale Lösungen vorantreiben – mit nachhaltigem Mehrwert für Mensch, Betrieb und Umwelt? Hast du den Anspruch, als verlässliche, kompetente Ansprechperson stets beste Unterstützung zu geben, dann bist du unser Application Manager Infrastructure & Fleet.\nAufgabengebiet\n\n• Betreiben, Unterhalten und Weiterentwickeln unserer Applikationen im Bereich Gebäudeinfrastruktur, Last- und Lademanagement sowie Fahrzeugflotte\n• Konfigurieren von Schnittstellen / Middleware (z.B. mit Lobster)\n• Realisieren von Datenübernahmen aus Drittsystemen\n• Mitwirken und Koordinieren bei der Entwicklung und Einführen von Kundenanbindungen\n• Pflegen der Dokumentation für die zugewiesenen Anwendungen und Schnittstellen\n• Erstellen von Software Anforderungsbeschreibungen\n• Betreuen und Schulen unserer internen Anwenderinnen und Anwender\nAnforderungsprofil\n\n• Abgeschlossene Ausbildung oder Weiterbildung in (Wirtschafts-)Informatik oder eine vergleichbare Qualifikation\n• Erfahrung im Umgang mit Schnittstellen (z. B. API, sFTP) sowie mit Datenbanken (z. B. SQL)\n• Ausgeprägtes analytisches Denkvermögen sowie eine strukturierte und lösungsorientierte Arbeitsweise\n• Kenntnisse in Datenverarbeitungstools (z. B. Lobster) von Vorteil\n• Verständnis von Gebäudeinfrastruktur und/oder Flottenmanagement von Vorteil\n• Hohe Kommunikationsstärke, Teamfähigkeit und Erfahrung in agilen Arbeitsumfeldern\n• Gute Englischkenntnisse in Wort und Schrift\nAngebot\n\n• Spannende und komplexe Projekte im Bereich der Gebäudeinfrastruktur, Last- und Lademanagement sowie unserer Fahrzeugflotte\n• Cooles, motiviertes Team\n• Topmoderne IT-Infrastrukturen\n• Viel Eigenverantwortung und Wertschätzung\n• Breites Einsatzgebiet in der Welt von Transport & Logistik mit internationalen Kontakten in Filialen\n• Möglichkeit von gelegentlicher Remotearbeit\nFür diese Stelle berücksichtigen wir nur Direktbewerbungen.\nBitte beachte, dass wir aufgrund der geltenden schweizerischen Gesetzgebung ausschliesslich Bewerbungen von Schweizer Staatsbürgern, Personen mit einer Aufenthalts- oder Niederlassungsbewilligung (Ausweis B oder C), EU/EFTA-Bürgern sowie Personen mit einer gültigen Arbeitsbewilligung berücksichtigen können.\nEine Remote-Tätigkeit aus dem Ausland ist nicht möglich.\nTönt spannend?\nWir freuen uns auf deine Bewerbung!\nSandra Weiss, Human Resources, Telefon: +41 62 748 80 70 .",
-        "fr": "Gestionnaire des applications Infrastructure et flotte - 80-100 % (a) Des applications complexes, des projets passionnants et beaucoup de marge de manœuvre créative – ça ressemble à votre truc ? Vous pensez qu'un pas en avant et de trouver des solutions avant que d'autres remarquent l'exigence? Alors il est temps pour nous de nous connaître. Galliker est l'une des principales entreprises suisses de logistique et de transport avec des emplacements nationaux et internationaux. A partir du site Altishofen, une équipe informatique d'environ 80 personnes gère plus de 20 succursales en Europe et assure des flux de travail en douceur dans le travail quotidien grâce à la dernière technologie, à la culture des idées et au travail d'équipe. En tant qu'équipe informatique, nous nous efforçons chaque jour de rassembler technologie et personnes pour fournir des services informatiques et logiciels rapides, de haute qualité et fiables à nos clients internes et externes. Nous opérons dans un environnement très dynamique. Dans le domaine de la construction d'infrastructures et de la flotte, il est important de mettre en œuvre une vision claire des produits et de créer le plus grand bénéfice client possible avec nos services informatiques. Nous combinons les exigences des parties prenantes avec des solutions techniques et les accompagnons de l'idée jusqu'à la mise en pratique. Voulez-vous connecter les entreprises, les TI et les partenaires externes et conduire des solutions numériques avec une mentalité pratique, du courage pour de nouvelles choses et une réelle marge d'action – avec une valeur ajoutée durable pour les personnes, les opérations et l'environnement ? Si vous aspirez à toujours fournir le meilleur soutien en tant que personne-ressource fiable et compétente, alors vous êtes notre gestionnaire d'applications Infrastructure & Fleet. Domaine d ' activité\n• Exploitation, maintenance et développement de nos applications dans le domaine des infrastructures de construction, de la gestion des charges et des charges et du parc de véhicules\n• Configuration des interfaces / intergiciels (par exemple avec Lobster)\n• Réalisation des transferts de données provenant de systèmes tiers\n• Participation et coordination au développement et à la mise en œuvre des relations avec les clients\n• Maintenez la documentation pour les applications et les interfaces attribuées\n• Création de descriptions des exigences logicielles\n• Superviser et écoles nos utilisateurs internes Profil des besoins\n• Études ou formation terminées dans les technologies de l'information (entreprises) ou une qualification comparable\n• Expérience dans le traitement des interfaces (par exemple API, sFTP) et des bases de données (par exemple SQL)\n• Forte capacité de réflexion analytique ainsi qu'une méthode de travail structurée et orientée vers la solution\n• La connaissance des outils de traitement des données (p. ex. homard) est avantageuse\n• Comprendre l'infrastructure et/ou la gestion de la flotte est bénéfique\n• Niveau élevé de communication, de travail d'équipe et d'expérience dans des environnements de travail agiles\n• Bonnes compétences en anglais en Word and Writing Offre\n• Projets passionnants et complexes dans le domaine des infrastructures de construction, de la gestion des charges et des charges et de notre parc de véhicules\n• Une équipe cool et motivée\n• Infrastructures informatiques modernes\n• Beaucoup de responsabilité personnelle et d'appréciation\n• Large application dans le monde du transport et de la logistique avec des contacts internationaux dans les branches\n• Possibilité de travail isolé occasionnel Pour cette position, nous ne considérons que les demandes directes. Veuillez noter qu'en raison de la législation suisse en vigueur, nous ne pouvons examiner que les demandes de citoyens suisses, les personnes titulaires d'un permis de séjour ou d'établissement (carte B ou C), les citoyens de l'UE/AELE et les personnes titulaires d'un permis de travail valide. Une activité éloignée de l'étranger n'est pas possible. Ça a l'air excitant ? Nous attendons avec impatience votre candidature! Sandra Weiss, Ressources humaines, téléphone: +41 62 748 80 70 ."
-      },
-      "needsRetranslation": true,
-      "location": "Altishofen",
-      "canton": "LU",
-      "url": "https://apply.refline.ch/878019/0397/pub/6/index.html",
-      "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:21.950Z",
-      "addressLocality": "Altishofen",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6246",
-      "streetAddress": "Kantonsstrasse 2",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Logistica / Trasporti",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-03",
-      "applyUrl": "https://apply.refline.ch/878019/0397/pub/6/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "0397",
-      "previousSlugs": [
-        "application-manager-infrastructure-fleet-80-100-a-galliker-altishofen",
-        "application-manager-infrastruttura-flotta-80-100-a-galliker-transport-ag-altishofen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "application-manager-infrastructure-fleet-80-100-a-galliker-altishofen",
-          "application-manager-infrastruttura-flotta-80-100-a-galliker-transport-ag-altishofen"
-        ],
-        "fr": [
-          "application-manager-infrastructure-fleet-80-100-a-galliker-altishofen"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:54:54.982Z",
-      "salaryMin": 114500,
-      "salaryMax": 195000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 114500,
-          "maxValue": 195000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "galliker-995fee846228",
       "slug": "valutatore-del-veicolo-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
@@ -2991,7 +2848,7 @@
       "url": "https://apply.refline.ch/878019/0436/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:21.528Z",
+      "crawledAt": "2026-08-07T10:10:32.090Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3074,7 +2931,7 @@
       "url": "https://apply.refline.ch/878019/0403/pub/6/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:21.104Z",
+      "crawledAt": "2026-08-07T10:10:31.712Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3157,7 +3014,7 @@
       "url": "https://apply.refline.ch/878019/0430/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:20.678Z",
+      "crawledAt": "2026-08-07T10:10:31.338Z",
       "addressLocality": "Möhlin",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3251,7 +3108,7 @@
       "url": "https://apply.refline.ch/878019/0431/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:20.255Z",
+      "crawledAt": "2026-08-07T10:10:30.958Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3342,7 +3199,7 @@
       "url": "https://apply.refline.ch/878019/0219/pub/14/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:19.830Z",
+      "crawledAt": "2026-08-07T10:10:30.585Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3423,7 +3280,7 @@
       "url": "https://apply.refline.ch/878019/0158/pub/9/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:19.408Z",
+      "crawledAt": "2026-08-07T10:10:30.208Z",
       "addressLocality": "Möhlin",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3504,7 +3361,7 @@
       "url": "https://apply.refline.ch/878019/0042/pub/42/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:18.987Z",
+      "crawledAt": "2026-08-07T10:10:29.831Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3585,7 +3442,7 @@
       "url": "https://apply.refline.ch/878019/0043/pub/38/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T01:10:18.562Z",
+      "crawledAt": "2026-08-07T10:10:29.454Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3629,38 +3486,38 @@
       }
     },
     {
-      "id": "galliker-8c85e14f078d",
-      "slug": "autista-notturno-b-be-a-galliker-transport-ag-altishofen",
+      "id": "galliker-0c8f91b4e563",
+      "slug": "product-owner-application-management-professional-senior-80-100-a-galliker-altishofen",
       "slugByLocale": {
-        "it": "autista-notturno-b-be-a-galliker-transport-ag-altishofen",
-        "en": "night-chauffeur-b-be-a-galliker-transport-ag-altishofen",
-        "de": "nachtchauffeur-b-be-a-galliker-transport-ag-altishofen",
-        "fr": "chauffeur-de-nuit-b-be-a-galliker-transport-ag-altishofen"
+        "it": "product-owner-application-management-professional-senior-80-100-a-galliker-altishofen",
+        "en": "product-owner-application-management-professional-senior-80-100-a-galliker-altishofen",
+        "de": "product-owner-application-management-professional-senior-80-100-a-galliker-altishofen",
+        "fr": "proprietaire-du-produit-gestion-des-applications-professionnel-aine-80-100-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
       "companyDomain": "galliker.com",
-      "title": "Nachtchauffeur B/BE (a)",
+      "title": "Product Owner Application Management Professional/Senior 80-100% (a)",
       "titleByLocale": {
-        "it": "autista notturno B/BE (a)",
-        "en": "Night chauffeur B/BE (a)",
-        "de": "Nachtchauffeur B/BE (a)",
-        "fr": "Chauffeur de nuit B/BE (a)"
+        "it": "Product Owner Application Management Professional / Senior 80-100% (a)",
+        "en": "Product Owner Application Management Professional/Senior 80-100% (a)",
+        "de": "Product Owner Application Management Professional/Senior 80-100% (a)",
+        "fr": "Propriétaire du produit Gestion des applications Professionnel/Aîné 80-100% (a)"
       },
-      "description": "Nachtchauffeur B/BE (a)\n Täglich unterstützen wir mit unserem modernen Fuhrpark die Firma Quali-Night im Stückguttransport in der ganzen Schweiz. Zur Verstärkung unseres bewährten Fahrerteams suchen wir per sofort oder nach Vereinbarung einen motivierten Nachtchauffeur B/BE (a).\n Aufgabengebiet\n\n• Stückgut-Transporte mit einem Lieferwagen oder 3.5t. Anhängerfahrzeug\n• Nachtfahrten jeweils Montag-Freitag von 16.00 - 02.00 Uhr\n Anforderungsprofil\n\n• Führerausweis Kat. B, BE\n• Freude an Nachtfahrten, dem Strassenverkehr sowie der Logistik\n• zuverlässig, selbständig, pflichtbewusst\n• professionelles Auftreten und Freude am Kundenkontakt\n• gute Deutschkenntnisse\n Angebot\n\n• Spannender und abwechslungsreicher Arbeitsplatz mit viel Eigenverantwortung\n• Modernste Fahrzeugtechnologie\n• Einwandfrei gewarteter Fuhrpark durch eigene LKW-Werkstatt\n• Weiterbildungsmöglichkeiten in unserer betriebseigenen Fahrschule\n• asa-anerkannte Weiterbildungsstätte für CZV\n Haben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nPaolo Studer, HR Business Partner, Telefon: +41 62 748 80 70.",
+      "description": "Product Owner Application Management Professional/Senior 80-100% (a)\n Du erkennst Chancen, wo andere Anforderungen sehen? Du übernimmst gerne Verantwortung statt nur Anforderungen? Du willst Entscheidungen treffen und Business-Applikationen gemeinsam mit dem Team spürbar weiterbringen?\n Galliker ist eine der führenden Schweizer Logistik- und Transportfirmen mit nationalen und internationalen Standorten. Vom Standort Altishofen aus betreut ein rund 80-köpfiges Informatikteam europaweit über 20 Filialen und sorgt dank modernster Technologie, Ideenkultur und starkem Teamwork für reibungslose Abläufe im Arbeitsalltag. Als Informatikteam sind wir täglich bestrebt, Technologie und Menschen zusammenzubringen, um schnelle, qualitativ hochwertige und zuverlässige Software und IT-Dienstleistungen unseren internen und externen Kunden zu liefern.\n Wir suchen keinen klassischen Backlog-Verwalter. Wir suchen eine Persönlichkeit mit Drive. Jemanden, der Chancen erkennt, Entscheidungen trifft und Dinge ins Rollen bringt.\n Als Product Owner Application Management übernimmst du die Verantwortung für die Weiterentwicklung unserer geschäftskritischen Applikationen – von ERP, HRM und DMS bis hin zu Lösungen im Bereich Gebäudeinfrastruktur und Flottenmanagement.\n Du arbeitest in einem Team, das Verantwortung ernst nimmt: selbstorganisiert, eigenverantwortlich und mit viel Vertrauen ausgestattet. Wenig Hierarchie. Viel Wirkung. Viel Gestaltungsspielraum.\n Du wartest nicht auf perfekte Voraussetzungen – du schaffst sie? Wenn du ein Umfeld suchst, in dem Vertrauen grösser ist als Kontrolle und Verantwortung grösser als Hierarchie – dann möchten wir dich kennenlernen.\n Aufgabengebiet\n\n• Du setzt die Richtung für unser Product Backlog und schaffst Klarheit über Prioritäten\n• Du schaffst Fokus im Team und hältst Momentum hoch\n• Du verstehst Business-Bedürfnisse, bringst Fachbereiche, Anforderungen und Möglichkeiten zusammen und übersetzt sie in konkrete Wirkung\n• Du entwickelst Vision, Roadmap und nächste Schritte für unsere Applikationslandschaft\n• Du triffst Entscheidungen – pragmatisch, datenbasiert und mit Blick auf den Mehrwert\n• Du sorgst dafür, dass Betrieb und Weiterentwicklung Hand in Hand gehen\n• Du hinterfragst Bestehendes und bringst neue Ideen in die Umsetzung\n• Du übernimmst Ownership – vom Impuls bis zum Resultat\n Anforderungsprofil\n\n• Abgeschlossenes Studium mit Fachrichtung Informatik oder vergleichbare Qualifikation\n• Erfahrung als Product Owner oder in einer vergleichbaren Rolle im Application Management\n• Sehr gutes Verständnis für betriebswirtschaftliche Prozesse und deren Vernetzung, Erfahrung mit Business-Applikationen – idealerweise ERP, HRM, DMS oder ähnlichen Plattformen von Vorteil\n• Kommunikationsstärke und die Fähigkeit, Menschen mitzunehmen\n• Ein agiles Mindset: Verantwortung übernehmen, entscheiden, lernen, weitermachen\n• Sicherheit im Priorisieren – auch wenn nicht alles gleichzeitig möglich ist – sowie ausgeprägte Problemlösungsfähigkeit und Zeitmanagement\n• Machermentalität und Freude daran, Ownership zu übernehmen und Dinge voranzutreiben\n• Den Anspruch, Wirkung zu erzielen statt Aufgaben zu verwalten\n• Sehr gute Deutsch- und Englischkenntnisse (mündlich & schriftlich)\n Angebot\n\n• Spannende, komplexe Transport- und Logistikprojekte\n• Cooles, motiviertes Team\n• Topmoderne IT-Infrastrukturen\n• Viel Eigenverantwortung und Wertschätzung\n• Breites Einsatzgebiet in der Welt von Transport & Logistik mit internationalen Kontakten in Filialen\n• Möglichkeit von gelegentlicher Remotearbeit\n Für diese Stelle berücksichtigen wir nur Direktbewerbungen.\n Bitte beachte, dass wir aufgrund der geltenden schweizerischen Gesetzgebung ausschliesslich Bewerbungen von Schweizer Staatsbürgern, Personen mit einer Aufenthalts- oder Niederlassungsbewilligung (Ausweis B oder C), EU/EFTA-Bürgern sowie Personen mit einer gültigen Arbeitsbewilligung berücksichtigen können.\n Eine Remote-Tätigkeit aus dem Ausland ist nicht möglich.\n Neugierig?\nWir freuen uns darauf, dich kennenzulernen!\nSandra Weiss, Human Resources, Telefon: +41 62 748 80 70 .",
       "descriptionByLocale": {
-        "it": "autista notturno B/BE (a)\nOgni giorno sosteniamo l'azienda Quali-Night nel trasporto merci generale in tutta la Svizzera con la nostra flotta moderna. Per rafforzare il nostro team di driver collaudato, stiamo cercando un driver notturno motivato B/BE (a) immediatamente o di accordo.\nSettore\n\n• Trasporti di carico generali con un furgone di consegna o 3.5t. Trailer\n• Guida notturna ogni lunedì-venerdì dalle 16.00 alle 02.00\nProfilo di richiesta\n\n• Patente di guida Cat B, BE\n• Godimento di guida notturna, traffico stradale e logistica\n• Affidabile, indipendente, debita\n• Aspetto professionale e piacere nel contatto con il cliente\n• Buona conoscenza del tedesco\nOfferta\n\n• Posti di lavoro emozionanti e diversificati con un sacco di responsabilità personale\n• L'ultima tecnologia del veicolo\n• Propermanente flotta da proprio laboratorio di camion\n• Ulteriori opportunità di istruzione nella nostra scuola di guida\n• istituto di formazione riconosciuto per CZV\nAbbiamo avuto il tuo interesse?\nAttendiamo con ansia la vostra applicazione.\nPaolo Studer, HR Business Partner, telefono: +41 62 748 80 70.",
-        "en": "Night chauffeur B/BE (a)\nEvery day we support the company Quali-Night in general cargo transport throughout Switzerland with our modern fleet. To strengthen our proven driver team, we are looking for a motivated night driver B/BE (a) immediately or by agreement.\nTask area\n\n• General cargo transports with a delivery van or 3.5t. Trailer\n• Night drives each Monday-Friday from 16.00 - 02.00\nRequirement profile\n\n• Driving licence Cat B, BE\n• Enjoyment of night driving, road traffic and logistics\n• Reliable, independent, dutiful\n• Professional appearance and pleasure in customer contact\n• Good knowledge of German\nOffer\n\n• Exciting and varied workplace with a lot of personal responsibility\n• The latest vehicle technology\n• Properly maintained fleet by own truck workshop\n• Further education opportunities in our own driving school\n• asa-recognized training institution for CZV\nDid we get your interest?\nWe look forward to your application.\nPaolo Studer, HR Business Partner, telephone: +41 62 748 80 70.",
-        "de": "Nachtchauffeur B/BE (a)\nTäglich unterstützen wir mit unserem modernen Fuhrpark die Firma Quali-Night im Stückguttransport in der ganzen Schweiz. Zur Verstärkung unseres bewährten Fahrerteams suchen wir per sofort oder nach Vereinbarung einen motivierten Nachtchauffeur B/BE (a).\nAufgabengebiet\n\n• Stückgut-Transporte mit einem Lieferwagen oder 3.5t. Anhängerfahrzeug\n• Nachtfahrten jeweils Montag-Freitag von 16.00 - 02.00 Uhr\nAnforderungsprofil\n\n• Führerausweis Kat. B, BE\n• Freude an Nachtfahrten, dem Strassenverkehr sowie der Logistik\n• zuverlässig, selbständig, pflichtbewusst\n• professionelles Auftreten und Freude am Kundenkontakt\n• gute Deutschkenntnisse\nAngebot\n\n• Spannender und abwechslungsreicher Arbeitsplatz mit viel Eigenverantwortung\n• Modernste Fahrzeugtechnologie\n• Einwandfrei gewarteter Fuhrpark durch eigene LKW-Werkstatt\n• Weiterbildungsmöglichkeiten in unserer betriebseigenen Fahrschule\n• asa-anerkannte Weiterbildungsstätte für CZV\nHaben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nPaolo Studer, HR Business Partner, Telefon: +41 62 748 80 70.",
-        "fr": "Chauffeur de nuit B/BE (a)\nChaque jour, nous soutenons la société Quali-Night dans le transport de marchandises en général à travers la Suisse avec notre flotte moderne. Pour renforcer notre équipe de chauffeurs éprouvés, nous recherchons un pilote B/BE (a) motivé immédiatement ou d'un commun accord.\nDomaine d ' activité\n\n• Transport de marchandises générales avec une fourgonnette ou 3,5 t. Remorque\n• La nuit conduit chaque lundi au vendredi de 16h00 à 02h00\nProfil des besoins\n\n• Permis de conduire Cat B, BE\n• Profitez de la conduite nocturne, de la circulation routière et de la logistique\n• Fiabilité, indépendance, loyauté\n• Aspect professionnel et plaisir dans le contact client\n• Bonne connaissance de l'allemand\nOffre\n\n• Un lieu de travail passionnant et varié avec beaucoup de responsabilité personnelle\n• La dernière technologie du véhicule\n• Une flotte bien entretenue par son propre atelier de camionnage\n• Possibilités de formation continue dans notre propre école de conduite\n• établissement de formation reconnu pour la CZV\nOn a eu votre intérêt ?\nNous attendons avec impatience votre candidature.\nPaolo Studer, HR Business Partner, téléphone: +41 62 748 80 70."
+        "it": "Product Owner Application Management Professional/Senior 80-100% (a) Vedete le opportunità dove gli altri vedono le richieste? Ti piace assumerti la responsabilità invece che solo i requisiti? Vuoi prendere decisioni e portare applicazioni aziendali notevolmente avanti insieme al team? Galliker è una delle principali società di logistica e trasporto svizzere con sedi nazionali e internazionali. Dal sito Altishofen, un team IT di circa 80 anni gestisce oltre 20 filiali in tutta Europa e garantisce flussi di lavoro fluidi nel lavoro quotidiano grazie alle più recenti tecnologie, alla cultura dell'idea e al lavoro di squadra. Come team di informatica, ci sforziamo ogni giorno di portare la tecnologia e le persone insieme per fornire software e servizi IT veloci, di alta qualità e affidabili ai nostri clienti interni ed esterni. Non stiamo cercando un amministratore di backlog classico. Stiamo cercando una personalità con Drive. Qualcuno che riconosce le opportunità, prende decisioni, e fa rotolare le cose. In qualità di Product Owner Application Management, vi assumete la responsabilità per l'ulteriore sviluppo delle nostre applicazioni business-critical – da ERP, HRM e DMS a soluzioni nel settore delle infrastrutture edili e della gestione della flotta. Lavori in un team che si assume la responsabilità seriamente: auto-organizzato, auto-responsabile e dotato di molta fiducia. Una piccola gerarchia. Molto effetto. Un sacco di spazio per la manovra. Non state aspettando condizioni perfette – potete farlo? Se siete alla ricerca di un ambiente in cui la fiducia è maggiore del controllo e la responsabilità è maggiore della gerarchia – allora vogliamo conoscervi. Settore\n• Hai impostato la direzione per il nostro backlog del prodotto e fornire chiarezza sulle priorità\n• Si crea concentrazione nel team e mantenere slancio alto\n• Capisci le esigenze aziendali, unisci aree specialistiche, requisiti e possibilità e tradurli in effetti concreti\n• Si sviluppa visione, roadmap e i prossimi passi per il nostro paesaggio applicazione\n• Si prendono decisioni – pragmatiche, basate sui dati e con valore aggiunto in mente\n• Assicurarsi che l'operazione e l'ulteriore sviluppo vadano di pari passo\n• Voi mettete in discussione l'esistente e portate nuove idee nell'attuazione\n• Si prende la proprietà – dal momento al risultato Profilo di richiesta\n• Studi completi con una specializzazione in informatica o qualifica comparabile\n• Esperienza come proprietario di un prodotto o in un ruolo paragonabile nella gestione delle applicazioni\n• Ottima comprensione dei processi aziendali e della loro rete, esperienza con le applicazioni aziendali – idealmente ERP, HRM, DMS o piattaforme simili\n• Forza di comunicazione e capacità di prendere le persone\n• Una mentalità agile: prendersi la responsabilità, decidere, imparare, muoversi\n• Sicurezza nella priorità – anche se non tutto è possibile allo stesso tempo – così come spiccate capacità di problem solving e gestione del tempo\n• La mentalità del creatore e la gioia nel prendere la proprietà e spostare le cose avanti\n• La pretesa di ottenere un impatto invece di gestire i compiti\n• Molto buona conoscenza del tedesco e dell'inglese (verbal & scritto) Offerta\n• Progetti emozionanti, complessi di trasporto e logistica\n• Squadra forte e motivata\n• Moderne infrastrutture IT\n• Molto responsabilità personale e apprezzamento\n• Ampia applicazione nel mondo del trasporto e della logistica con contatti internazionali in filiali\n• Possibilità di lavoro a distanza occasionale Per questa posizione, consideriamo solo applicazioni dirette. Si prega di notare che a causa dell'attuale legislazione svizzera, possiamo considerare solo le domande di cittadini svizzeri, persone con un permesso di soggiorno o di soggiorno (B o carta C), cittadini UE/AELS e persone con un permesso di lavoro valido. Un'attività remota dall'estero non è possibile. Curioso? Non vediamo l'ora di incontrarvi! Sandra Weiss, Risorse Umane, telefono: +41 62 748 80 70 .",
+        "en": "Product Owner Application Management Professional/Senior 80-100% (a) Do you see opportunities where others see demands? Do you like to take responsibility instead of just requirements? You want to make decisions and bring business applications noticeably forward together with the team? Galliker is one of the leading Swiss logistics and transport companies with national and international locations. From the Altishofen site, an approximately 80-strong IT team manages over 20 branches throughout Europe and ensures smooth workflows in everyday work thanks to the latest technology, idea culture and strong teamwork. As a computer science team, we strive every day to bring technology and people together to deliver fast, high-quality and reliable software and IT services to our internal and external customers. We are not looking for a classic backlog administrator. We are looking for a personality with Drive. Someone who recognizes opportunities, makes decisions, and gets things rolling. As Product Owner Application Management, you take responsibility for the further development of our business-critical applications – from ERP, HRM and DMS to solutions in the area of building infrastructure and fleet management. You work in a team that takes responsibility seriously: self-organized, self-responsible and equipped with a lot of trust. Little hierarchy. A lot of effect. A lot of room for manoeuvre. You are not waiting for perfect conditions – you can do them? If you are looking for an environment where trust is greater than control and responsibility is greater than hierarchy – then we want to get to know you. Task area\n• You set the direction for our product backlog and provide clarity about priorities\n• You create focus in the team and keep momentum high\n• You understand business needs, bring together specialist areas, requirements and possibilities and translate them into concrete effects\n• You develop vision, roadmap and next steps for our application landscape\n• You make decisions – pragmatic, data-based and with added value in mind\n• You ensure that operation and further development go hand in hand\n• You question the existing and bring new ideas into the implementation\n• You take ownership – from momentum to result Requirement profile\n• Completed studies with a specialisation in computer science or comparable qualification\n• Experience as a product owner or in a comparable role in application management\n• Very good understanding of business processes and their networking, experience with business applications – ideally ERP, HRM, DMS or similar platforms\n• Communication Strength and Ability to Take People\n• An agile mindset: taking responsibility, deciding, learning, moving on\n• Safety in prioritizing – even if not everything is possible at the same time – as well as pronounced problem-solving skills and time management\n• Maker mentality and joy in taking ownership and moving things forward\n• The claim to achieve impact instead of managing tasks\n• Very good knowledge of German and English (verbal & written) Offer\n• Exciting, complex transport and logistics projects\n• Cool, motivated team\n• Modern IT infrastructures\n• Much personal responsibility and appreciation\n• Broad application in the world of transport & logistics with international contacts in branches\n• Possibility of occasional remote work For this position, we only consider direct applications. Please note that due to current Swiss legislation, we can only consider applications from Swiss citizens, persons with a residence or settlement permit (B or C card), EU/EFTA citizens and persons with a valid work permit. A remote activity from abroad is not possible. Curious? We look forward to meeting you! Sandra Weiss, Human Resources, telephone: +41 62 748 80 70 .",
+        "de": "Product Owner Application Management Professional/Senior 80-100% (a)\nDu erkennst Chancen, wo andere Anforderungen sehen? Du übernimmst gerne Verantwortung statt nur Anforderungen? Du willst Entscheidungen treffen und Business-Applikationen gemeinsam mit dem Team spürbar weiterbringen?\nGalliker ist eine der führenden Schweizer Logistik- und Transportfirmen mit nationalen und internationalen Standorten. Vom Standort Altishofen aus betreut ein rund 80-köpfiges Informatikteam europaweit über 20 Filialen und sorgt dank modernster Technologie, Ideenkultur und starkem Teamwork für reibungslose Abläufe im Arbeitsalltag. Als Informatikteam sind wir täglich bestrebt, Technologie und Menschen zusammenzubringen, um schnelle, qualitativ hochwertige und zuverlässige Software und IT-Dienstleistungen unseren internen und externen Kunden zu liefern.\nWir suchen keinen klassischen Backlog-Verwalter. Wir suchen eine Persönlichkeit mit Drive. Jemanden, der Chancen erkennt, Entscheidungen trifft und Dinge ins Rollen bringt.\nAls Product Owner Application Management übernimmst du die Verantwortung für die Weiterentwicklung unserer geschäftskritischen Applikationen – von ERP, HRM und DMS bis hin zu Lösungen im Bereich Gebäudeinfrastruktur und Flottenmanagement.\nDu arbeitest in einem Team, das Verantwortung ernst nimmt: selbstorganisiert, eigenverantwortlich und mit viel Vertrauen ausgestattet. Wenig Hierarchie. Viel Wirkung. Viel Gestaltungsspielraum.\nDu wartest nicht auf perfekte Voraussetzungen – du schaffst sie? Wenn du ein Umfeld suchst, in dem Vertrauen grösser ist als Kontrolle und Verantwortung grösser als Hierarchie – dann möchten wir dich kennenlernen.\nAufgabengebiet\n\n• Du setzt die Richtung für unser Product Backlog und schaffst Klarheit über Prioritäten\n• Du schaffst Fokus im Team und hältst Momentum hoch\n• Du verstehst Business-Bedürfnisse, bringst Fachbereiche, Anforderungen und Möglichkeiten zusammen und übersetzt sie in konkrete Wirkung\n• Du entwickelst Vision, Roadmap und nächste Schritte für unsere Applikationslandschaft\n• Du triffst Entscheidungen – pragmatisch, datenbasiert und mit Blick auf den Mehrwert\n• Du sorgst dafür, dass Betrieb und Weiterentwicklung Hand in Hand gehen\n• Du hinterfragst Bestehendes und bringst neue Ideen in die Umsetzung\n• Du übernimmst Ownership – vom Impuls bis zum Resultat\nAnforderungsprofil\n\n• Abgeschlossenes Studium mit Fachrichtung Informatik oder vergleichbare Qualifikation\n• Erfahrung als Product Owner oder in einer vergleichbaren Rolle im Application Management\n• Sehr gutes Verständnis für betriebswirtschaftliche Prozesse und deren Vernetzung, Erfahrung mit Business-Applikationen – idealerweise ERP, HRM, DMS oder ähnlichen Plattformen von Vorteil\n• Kommunikationsstärke und die Fähigkeit, Menschen mitzunehmen\n• Ein agiles Mindset: Verantwortung übernehmen, entscheiden, lernen, weitermachen\n• Sicherheit im Priorisieren – auch wenn nicht alles gleichzeitig möglich ist – sowie ausgeprägte Problemlösungsfähigkeit und Zeitmanagement\n• Machermentalität und Freude daran, Ownership zu übernehmen und Dinge voranzutreiben\n• Den Anspruch, Wirkung zu erzielen statt Aufgaben zu verwalten\n• Sehr gute Deutsch- und Englischkenntnisse (mündlich & schriftlich)\nAngebot\n\n• Spannende, komplexe Transport- und Logistikprojekte\n• Cooles, motiviertes Team\n• Topmoderne IT-Infrastrukturen\n• Viel Eigenverantwortung und Wertschätzung\n• Breites Einsatzgebiet in der Welt von Transport & Logistik mit internationalen Kontakten in Filialen\n• Möglichkeit von gelegentlicher Remotearbeit\nFür diese Stelle berücksichtigen wir nur Direktbewerbungen.\nBitte beachte, dass wir aufgrund der geltenden schweizerischen Gesetzgebung ausschliesslich Bewerbungen von Schweizer Staatsbürgern, Personen mit einer Aufenthalts- oder Niederlassungsbewilligung (Ausweis B oder C), EU/EFTA-Bürgern sowie Personen mit einer gültigen Arbeitsbewilligung berücksichtigen können.\nEine Remote-Tätigkeit aus dem Ausland ist nicht möglich.\nNeugierig?\nWir freuen uns darauf, dich kennenzulernen!\nSandra Weiss, Human Resources, Telefon: +41 62 748 80 70 .",
+        "fr": "Propriétaire du produit Gestion des applications Professionnel/Aîné 80-100% (a) Voyez - vous des occasions où d'autres voient des demandes? Aimez-vous prendre la responsabilité au lieu d'exigences ? Vous voulez prendre des décisions et faire avancer les applications commerciales avec l'équipe ? Galliker est l'une des principales entreprises suisses de logistique et de transport avec des emplacements nationaux et internationaux. A partir du site Altishofen, une équipe informatique d'environ 80 personnes gère plus de 20 succursales en Europe et assure des flux de travail en douceur dans le travail quotidien grâce à la dernière technologie, à la culture des idées et au travail d'équipe. En tant qu'équipe informatique, nous nous efforçons chaque jour de rassembler technologie et personnes pour fournir des services informatiques et logiciels rapides, de haute qualité et fiables à nos clients internes et externes. Nous ne cherchons pas un administrateur classique de l'arriéré. Nous cherchons une personnalité avec Drive. Quelqu'un qui reconnaît les opportunités, prend des décisions et fait tourner les choses. En tant que Product Owner Application Management, vous assumez la responsabilité du développement de nos applications critiques pour l'entreprise, depuis ERP, HRM et DMS jusqu'aux solutions dans le domaine de la construction d'infrastructures et de la gestion de la flotte. Vous travaillez dans une équipe qui prend la responsabilité au sérieux : auto-organisée, auto-responsable et équipée de beaucoup de confiance. Petite hiérarchie. Beaucoup d'effet. Beaucoup de marge de manoeuvre. Vous n'attendez pas des conditions parfaites – vous pouvez les faire? Si vous cherchez un environnement où la confiance est plus grande que le contrôle et la responsabilité est plus grande que la hiérarchie, alors nous voulons vous connaître. Domaine d ' activité\n• Vous définissez l'orientation de notre arriéré de produits et fournissez des précisions sur les priorités\n• Vous créez la concentration dans l'équipe et gardez l'élan haut\n• Vous comprenez les besoins des entreprises, rassemblez les domaines spécialisés, les exigences et les possibilités et les traduisez en effets concrets\n• Vous développez vision, feuille de route et prochaines étapes pour notre paysage d'application\n• Vous prenez des décisions – pragmatiques, basées sur des données et avec une valeur ajoutée à l'esprit\n• Vous veillez à ce que le fonctionnement et le développement ultérieur aillent de pair\n• Vous questionnez l'existant et apportez de nouvelles idées dans la mise en œuvre\n• Vous prenez possession – de l'élan au résultat Profil des besoins\n• Études complétées avec spécialisation en informatique ou qualification comparable\n• Expérience en tant que propriétaire de produit ou dans un rôle comparable dans la gestion des applications\n• Très bonne compréhension des processus d'affaires et de leur réseau, expérience avec les applications d'affaires – idéalement ERP, HRM, DMS ou plateformes similaires\n• Force de communication et capacité à attirer les gens\n• Un état d'esprit agile: prendre des responsabilités, décider, apprendre, avancer\n• Sécurité dans la hiérarchisation – même si tout n'est pas possible en même temps – ainsi que la résolution de problèmes et la gestion du temps\n• La mentalité créatrice et la joie de s'approprier et de faire avancer les choses\n• La revendication de l'impact au lieu de la gestion des tâches\n• Très bonne connaissance de l'allemand et de l'anglais (verbal et écrit) Offre\n• Projets passionnants, complexes de transport et de logistique\n• Une équipe cool et motivée\n• Infrastructures informatiques modernes\n• Beaucoup de responsabilité personnelle et d'appréciation\n• Large application dans le monde du transport et de la logistique avec des contacts internationaux dans les branches\n• Possibilité de travail isolé occasionnel Pour cette position, nous ne considérons que les demandes directes. Veuillez noter qu'en raison de la législation suisse en vigueur, nous ne pouvons examiner que les demandes de citoyens suisses, les personnes titulaires d'un permis de séjour ou d'établissement (carte B ou C), les citoyens de l'UE/AELE et les personnes titulaires d'un permis de travail valide. Une activité éloignée de l'étranger n'est pas possible. Curieux ? Nous sommes impatients de vous rencontrer! Sandra Weiss, Ressources humaines, téléphone: +41 62 748 80 70 ."
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Altishofen",
       "canton": "LU",
-      "url": "https://apply.refline.ch/878019/0448/pub/2/index.html",
+      "url": "https://apply.refline.ch/878019/0443/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T22:31:16.871Z",
+      "crawledAt": "2026-08-07T01:10:22.793Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3670,126 +3527,108 @@
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "Logistica / Trasporti",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-30",
-      "applyUrl": "https://apply.refline.ch/878019/0448/pub/2/index.html",
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://apply.refline.ch/878019/0443/pub/1/index.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "externalId": "0448",
-      "previousSlugs": [
-        "nachtchauffeur-b-be-a-galliker-altishofen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "nachtchauffeur-b-be-a-galliker-altishofen"
-        ],
-        "en": [
-          "nachtchauffeur-b-be-a-galliker-altishofen"
-        ],
-        "de": [
-          "nachtchauffeur-b-be-a-galliker-altishofen"
-        ],
-        "fr": [
-          "nachtchauffeur-b-be-a-galliker-altishofen"
-        ]
-      },
-      "firstSeenAt": "2026-07-30T22:11:17.034Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "externalId": "0443",
+      "firstSeenAt": "2026-07-04T10:54:56.075Z",
+      "salaryMin": 96000,
+      "salaryMax": 146000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 96000,
+          "maxValue": 146000,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     },
     {
-      "id": "galliker-43ebe38ff2eb",
-      "slug": "personalizzazione-dei-dipendenti-del-centro-di-controllo-a-galliker-transport-ag-altishofen",
+      "id": "galliker-78b270a58f2b",
+      "slug": "application-manager-infrastruttura-flotta-80-100-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
-        "it": "personalizzazione-dei-dipendenti-del-centro-di-controllo-a-galliker-transport-ag-altishofen",
-        "en": "control-room-staff-customizing-a-galliker-transport-ag-altishofen",
-        "de": "leitstandmitarbeiter-customizing-a-galliker-altishofen",
-        "fr": "personnel-de-la-salle-de-controle-personnalisation-a-galliker-transport-ag-altishofen"
+        "it": "application-manager-infrastruttura-flotta-80-100-a-galliker-transport-ag-altishofen",
+        "en": "application-manager-infrastructure-fleet-80-100-a-galliker-altishofen",
+        "de": "application-manager-infrastructure-fleet-80-100-a-galliker-altishofen",
+        "fr": "gestionnaire-des-applications-infrastructure-et-flotte-80-100-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
       "companyDomain": "galliker.com",
-      "title": "Leitstandmitarbeiter Customizing (a)",
+      "title": "Application Manager Infrastructure & Fleet - 80-100% (a)",
       "titleByLocale": {
-        "it": "Personalizzazione dei dipendenti del Centro di Controllo (a)",
-        "en": "Control room staff Customizing (a)",
-        "de": "Leitstandmitarbeiter Customizing (a)",
-        "fr": "Personnel de la salle de contrôle Personnalisation a)"
+        "it": "Application Manager Infrastruttura & Flotta – 80-100% (a)",
+        "en": "Application Manager Infrastructure & Fleet - 80-100% (a)",
+        "de": "Application Manager Infrastructure & Fleet - 80-100% (a)",
+        "fr": "Gestionnaire des applications Infrastructure et flotte - 80-100 % (a)"
       },
-      "description": "Leitstandmitarbeiter Customizing (a)\n Innerhalb unseres Logistikbetriebs betreiben wir eine moderne Produktionsstätte für Customizing-Arbeiten. Ein rund 60-köpfiges Team führt im Kundenauftrag Dienstleistungen wie Konfektionier-, Verpackungs- oder Auszeichnungsaufträge aller Art aus.\n Zur Ergänzung des Führungsteams im Leitstand, suchen wir eine/n Leistandmitarbeiter/in.\n Aufgabengebiet\n\n• Betreuen des logistischen Tagesgeschäftes von namhaften Lagerkunden\n• Buchen von Waren ein- und -ausgängen im Lagerverwaltungssystem LFS v8\n• Anlegen und bearbeiten von Kundenaufträgen im LFS v8\n• Freigeben und überwachen der fristgerechten Bereitstellung von Kundenaufträgen\n• Optimales Bewirtschaften des Lagers nach logistischen Grundsätzen\n• Erledigen von administrativen Aufgaben und Kundenkorrespondenz im Tagesgeschäft\n• Dokumentieren der Kundenprozesse\n• Aufzeigen von Prozessoptimierungen\n• Aufbereiten, kontrollieren und freigeben der Leistungsdaten für die Lagerabrechnung\n Anforderungsprofil\n\n• absolvierte Berufslehre als Logistiker mit Erfahrung in Leitstandtätigkeiten\n• Freude an komplexen Prozessen und deren stetigen Verbesserung\n• Flair für kaufmännisches Arbeiten\n• sehr gute Deutschkenntnisse (Wort / Schrift)\n• versierter EDV-Anwender (MS Office - insbesondere Excel, Word, Outlook – E-Mail)\n• kommunikativ, kundenfreundlich, schriftgewandt\n• Teamplayer\n Angebot\n\n• wunderschöne, moderne, klimatisierte Produktionshallen\n• eine vielfältige, abwechslungsreiche und interessante Auftragspalette\n• viele renommierte Markenkunden\n• ein cooles, motiviertes und kollegiales Team\n Wir bieten dir eine abwechslungsreiche und interessante Tätigkeit in einem zukunftsorientierten Team.\n Haben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nElisha Affentranger, Human Resources, Telefon: +41 62 748 80 70.",
+      "description": "Application Manager Infrastructure & Fleet - 80-100% (a)\n Komplexe Anwendungen, spannende Projekte und jede Menge Gestaltungsspielraum – klingt nach deinem Ding? Du denkst einen Schritt voraus und findest Lösungen, bevor andere die Anforderung bemerken? Dann wird es Zeit, dass wir uns kennenlernen.\n Galliker ist eine der führenden Schweizer Logistik- und Transportfirmen mit nationalen und internationalen Standorten. Vom Standort Altishofen aus betreut ein rund 80-köpfiges Informatikteam europaweit über 20 Filialen und sorgt dank modernster Technologie, Ideenkultur und starkem Teamwork für reibungslose Abläufe im Arbeitsalltag. Als Informatikteam sind wir täglich bestrebt, Technologie und Menschen zusammenzubringen, um schnelle, qualitativ hochwertige und zuverlässige Software und IT Dienstleistungen unseren internen und externen Kunden zu liefern.\n Wir bewegen uns in einem hochdynamischen Umfeld. Im Bereich der Gebäudeinfrastruktur und der Flotte gilt es eine klare Produktvision umzusetzen und mit unseren IT Dienstleistungen grösstmöglichen Kundennutzen zu schaffen. Wir verbinden Stakeholder Ansprüche mit technischen Lösungen und begleiten sie von der Idee bis zum Go Live.\n Möchtest du Business, IT und externe Partner verbinden und mit Hands-on-Mentalität, Mut für Neues und echtem Handlungsspielraum digitale Lösungen vorantreiben – mit nachhaltigem Mehrwert für Mensch, Betrieb und Umwelt? Hast du den Anspruch, als verlässliche, kompetente Ansprechperson stets beste Unterstützung zu geben, dann bist du unser Application Manager Infrastructure & Fleet.\n Aufgabengebiet\n\n• Betreiben, Unterhalten und Weiterentwickeln unserer Applikationen im Bereich Gebäudeinfrastruktur, Last- und Lademanagement sowie Fahrzeugflotte\n• Konfigurieren von Schnittstellen / Middleware (z.B. mit Lobster)\n• Realisieren von Datenübernahmen aus Drittsystemen\n• Mitwirken und Koordinieren bei der Entwicklung und Einführen von Kundenanbindungen\n• Pflegen der Dokumentation für die zugewiesenen Anwendungen und Schnittstellen\n• Erstellen von Software Anforderungsbeschreibungen\n• Betreuen und Schulen unserer internen Anwenderinnen und Anwender\n Anforderungsprofil\n\n• Abgeschlossene Ausbildung oder Weiterbildung in (Wirtschafts-)Informatik oder eine vergleichbare Qualifikation\n• Erfahrung im Umgang mit Schnittstellen (z. B. API, sFTP) sowie mit Datenbanken (z. B. SQL)\n• Ausgeprägtes analytisches Denkvermögen sowie eine strukturierte und lösungsorientierte Arbeitsweise\n• Kenntnisse in Datenverarbeitungstools (z. B. Lobster) von Vorteil\n• Verständnis von Gebäudeinfrastruktur und/oder Flottenmanagement von Vorteil\n• Hohe Kommunikationsstärke, Teamfähigkeit und Erfahrung in agilen Arbeitsumfeldern\n• Gute Englischkenntnisse in Wort und Schrift\n Angebot\n\n• Spannende und komplexe Projekte im Bereich der Gebäudeinfrastruktur, Last- und Lademanagement sowie unserer Fahrzeugflotte\n• Cooles, motiviertes Team\n• Topmoderne IT-Infrastrukturen\n• Viel Eigenverantwortung und Wertschätzung\n• Breites Einsatzgebiet in der Welt von Transport & Logistik mit internationalen Kontakten in Filialen\n• Möglichkeit von gelegentlicher Remotearbeit\n Für diese Stelle berücksichtigen wir nur Direktbewerbungen.\n Bitte beachte, dass wir aufgrund der geltenden schweizerischen Gesetzgebung ausschliesslich Bewerbungen von Schweizer Staatsbürgern, Personen mit einer Aufenthalts- oder Niederlassungsbewilligung (Ausweis B oder C), EU/EFTA-Bürgern sowie Personen mit einer gültigen Arbeitsbewilligung berücksichtigen können.\n Eine Remote-Tätigkeit aus dem Ausland ist nicht möglich.\n Tönt spannend?\nWir freuen uns auf deine Bewerbung!\nSandra Weiss, Human Resources, Telefon: +41 62 748 80 70 .",
       "descriptionByLocale": {
-        "it": "Personale della sala di controllo Personalizzante (a) All'interno delle nostre operazioni logistiche, operiamo un moderno impianto di produzione per personalizzare il lavoro. Un team di circa 60 persone esegue servizi come imballaggio, imballaggio o marcatura ordini di tutti i tipi per conto dei clienti. Per completare il team di gestione nella sala di controllo, stiamo cercando un dipendente di gestione. Settore\n• Supervisione dell'attività logistica quotidiana di noti clienti di magazzino\n• Entrata e uscita di prenotazione di merci nel sistema di gestione magazzino LFS v8\n• Creazione e elaborazione degli ordini del cliente in LFS v8\n• Rilasciare e monitorare la consegna tempestiva degli ordini client\n• Gestione ottimale del campo secondo i principi logistici\n• Complementare i compiti amministrativi e la corrispondenza dei clienti nel business quotidiano\n• Documentazione dei processi dei clienti\n• Visualizzazione delle ottimizzazioni di processo\n• Preparazione, controllo e rilascio dei dati sulle prestazioni per la contabilità del magazzino Profilo di richiesta\n• apprendistato professionale completato come logistico con esperienza nelle attività della sala di controllo\n• Godere di processi complessi e il loro continuo miglioramento\n• Flair per lavori commerciali\n• conoscenza molto buona del tedesco (parola / scrittura)\n• utente esperto del computer (MS Office - in particolare Excel, Word, Outlook - e-mail)\n• Comunicativo, adatto al cliente, scritto\n• Giocatori di squadra Offerta\n• belle, moderne, sale di produzione climatizzate\n• una gamma diversificata, varia e interessante di ordini\n• Molti noti clienti del marchio\n• Un team fresco, motivato e collaborativo Vi offriamo un lavoro vario e interessante in una squadra orientata al futuro. Abbiamo avuto il tuo interesse? Attendiamo con ansia la vostra applicazione. Elisha Affentranger, Risorse Umane, telefono: +41 62 748 80 70.",
-        "en": "Control room staff Customizing (a) Within our logistics operations, we operate a modern production facility for customizing work. A team of around 60 people performs services such as packaging, packaging or marking orders of all kinds on behalf of customers. To complement the management team in the control room, we are looking for a management employee. Task area\n• Supervising the day-to-day logistics business of well-known warehouse customers\n• Entry and exit booking of goods in the warehouse management system LFS v8\n• Creation and processing of customer orders in LFS v8\n• Release and monitor the timely delivery of client orders\n• Optimal management of the camp according to logistical principles\n• Completing administrative tasks and customer correspondence in day-to-day business\n• Documentation of customer processes\n• Showing process optimizations\n• Preparation, control and release of performance data for warehouse accounting Requirement profile\n• completed vocational apprenticeship as a logistician with experience in control room activities\n• Enjoying complex processes and their continuous improvement\n• Flair for commercial work\n• very good knowledge of German (word / writing)\n• savvy computer user (MS Office - especially Excel, Word, Outlook - e-mail)\n• Communicative, customer-friendly, written\n• Team players Offer\n• beautiful, modern, air-conditioned production halls\n• a diverse, varied and interesting range of orders\n• Many renowned brand customers\n• A cool, motivated and collaborative team We offer you a varied and interesting job in a future-oriented team. Did we get your interest? We look forward to your application. Elisha Affentranger, Human Resources, telephone: +41 62 748 80 70.",
-        "de": "Leitstandmitarbeiter Customizing (a)\nInnerhalb unseres Logistikbetriebs betreiben wir eine moderne Produktionsstätte für Customizing-Arbeiten. Ein rund 60-köpfiges Team führt im Kundenauftrag Dienstleistungen wie Konfektionier-, Verpackungs- oder Auszeichnungsaufträge aller Art aus.\nZur Ergänzung des Führungsteams im Leitstand, suchen wir eine/n Leistandmitarbeiter/in.\nAufgabengebiet\n\n• Betreuen des logistischen Tagesgeschäftes von namhaften Lagerkunden\n• Buchen von Waren ein- und -ausgängen im Lagerverwaltungssystem LFS v8\n• Anlegen und bearbeiten von Kundenaufträgen im LFS v8\n• Freigeben und überwachen der fristgerechten Bereitstellung von Kundenaufträgen\n• Optimales Bewirtschaften des Lagers nach logistischen Grundsätzen\n• Erledigen von administrativen Aufgaben und Kundenkorrespondenz im Tagesgeschäft\n• Dokumentieren der Kundenprozesse\n• Aufzeigen von Prozessoptimierungen\n• Aufbereiten, kontrollieren und freigeben der Leistungsdaten für die Lagerabrechnung\nAnforderungsprofil\n\n• absolvierte Berufslehre als Logistiker mit Erfahrung in Leitstandtätigkeiten\n• Freude an komplexen Prozessen und deren stetigen Verbesserung\n• Flair für kaufmännisches Arbeiten\n• sehr gute Deutschkenntnisse (Wort / Schrift)\n• versierter EDV-Anwender (MS Office - insbesondere Excel, Word, Outlook – E-Mail)\n• kommunikativ, kundenfreundlich, schriftgewandt\n• Teamplayer\nAngebot\n\n• wunderschöne, moderne, klimatisierte Produktionshallen\n• eine vielfältige, abwechslungsreiche und interessante Auftragspalette\n• viele renommierte Markenkunden\n• ein cooles, motiviertes und kollegiales Team\nWir bieten dir eine abwechslungsreiche und interessante Tätigkeit in einem zukunftsorientierten Team.\nHaben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nElisha Affentranger, Human Resources, Telefon: +41 62 748 80 70.",
-        "fr": "Personnel de la salle de contrôle Personnalisation a) Dans nos opérations logistiques, nous exploitons une installation de production moderne pour personnaliser les travaux. Une équipe d'environ 60 personnes effectue des services tels que l'emballage, l'emballage ou le marquage des commandes de toutes sortes pour le compte des clients. Pour compléter l'équipe de direction dans la salle de contrôle, nous cherchons un employé de direction. Domaine d ' activité\n• Superviser l'activité logistique quotidienne de clients d'entrepôt bien connus\n• Réservation d'entrée et de sortie de marchandises dans le système de gestion d'entrepôt LFS v8\n• Création et traitement des commandes des clients dans LFS v8\n• Relâcher et surveiller la livraison en temps voulu des commandes des clients\n• Gestion optimale du camp selon les principes logistiques\n• Achèvement des tâches administratives et de la correspondance des clients dans les affaires courantes\n• Documentation des processus clients\n• Affichage des optimisations de processus\n• Préparation, contrôle et communication des données sur les résultats pour la comptabilité des entrepôts Profil des besoins\n• l'apprentissage professionnel terminé en tant que logisticien ayant une expérience dans les activités de salle de contrôle\n• Profitez de processus complexes et de leur amélioration continue\n• Flair pour travaux commerciaux\n• très bonne connaissance de l'allemand (mot / écriture)\n• utilisateur d'ordinateur averti (MS Office - en particulier Excel, Word, Outlook - e-mail)\n• Communicative, conviviale, écrite\n• Les joueurs de l'équipe Offre\n• belles salles de production modernes et climatisées\n• une gamme variée, variée et intéressante de commandes\n• De nombreux clients renommés de la marque\n• Une équipe cool, motivée et collaborative Nous vous proposons un travail varié et intéressant dans une équipe orientée vers l'avenir. On a eu votre intérêt ? Nous attendons avec impatience votre candidature. Elisha Affentranger, Ressources humaines, téléphone: +41 62 748 80 70."
+        "it": "Infrastrutture & Fleet - 80-100% (a) Applicazioni complesse, progetti emozionanti e un sacco di corsia creativa – suona come la tua cosa? Pensi un passo avanti e trovare soluzioni prima che altri notano il requisito? Allora è ora di conoscerci. Galliker è una delle principali società di logistica e trasporto svizzere con sedi nazionali e internazionali. Dal sito Altishofen, un team IT di circa 80 anni gestisce oltre 20 filiali in tutta Europa e garantisce flussi di lavoro fluidi nel lavoro quotidiano grazie alle più recenti tecnologie, alla cultura dell'idea e al lavoro di squadra. Come team di informatica, ci sforziamo ogni giorno di portare la tecnologia e le persone insieme per fornire software e servizi IT veloci, di alta qualità e affidabili ai nostri clienti interni ed esterni. Operiamo in un ambiente altamente dinamico. Nel settore delle infrastrutture edilizie e della flotta, è importante implementare una chiara visione del prodotto e creare il più grande vantaggio possibile del cliente con i nostri servizi IT. Uniamo i requisiti degli stakeholder con le soluzioni tecniche e li accompagniamo dall'idea al live. Vuoi collegare partner commerciali, IT e esterni e guidare soluzioni digitali con mentalità hands-on, coraggio per cose nuove e reale ambito di azione – con valore aggiunto sostenibile per persone, operazioni e ambiente? Se aspiri a fornire sempre il miglior supporto come persona di contatto affidabile e competente, allora sei il nostro Application Manager Infrastructure & Fleet. Settore\n• Operazione, manutenzione e ulteriore sviluppo delle nostre applicazioni nel settore delle infrastrutture edilizie, della gestione dei carichi e della flotta dei veicoli\n• Configurazione di interfacce / middleware (ad esempio con Lobster)\n• Realizzazione dei trasferimenti di dati da sistemi di terze parti\n• Partecipazione e coordinamento nello sviluppo e nell'implementazione delle connessioni dei clienti\n• Mantenere la documentazione per le applicazioni e le interfacce assegnate\n• Creazione di descrizioni dei requisiti software\n• Supervisione e scuole dei nostri utenti interni Profilo di richiesta\n• L'istruzione completa o la formazione nella tecnologia dell'informazione (business) o una qualifica comparabile\n• Esperienza nella gestione di interfacce (ad esempio API, sFTP) e database (ad esempio SQL)\n• Forte capacità di pensiero analitico e un metodo di lavoro strutturato e orientato alla soluzione\n• La conoscenza degli strumenti di elaborazione dei dati (ad esempio aragosta) è vantaggiosa\n• La comprensione delle infrastrutture di costruzione e/o della gestione della flotta è utile\n• Alto livello di comunicazione, lavoro di squadra e esperienza in ambienti di lavoro agili\n• Buone competenze in inglese in Word e scrittura Offerta\n• Progetti accattivanti e complessi nel settore delle infrastrutture edili, della gestione del carico e del carico e della nostra flotta di veicoli\n• Squadra forte e motivata\n• Moderne infrastrutture IT\n• Molto responsabilità personale e apprezzamento\n• Ampia applicazione nel mondo del trasporto e della logistica con contatti internazionali in filiali\n• Possibilità di lavoro a distanza occasionale Per questa posizione, consideriamo solo applicazioni dirette. Si prega di notare che a causa dell'attuale legislazione svizzera, possiamo considerare solo le domande di cittadini svizzeri, persone con un permesso di soggiorno o di soggiorno (B o carta C), cittadini UE/AELS e persone con un permesso di lavoro valido. Un'attività remota dall'estero non è possibile. Ti sembra eccitante? Attendiamo con ansia la vostra applicazione! Sandra Weiss, Risorse Umane, telefono: +41 62 748 80 70 .",
+        "en": "Application Manager Infrastructure & Fleet - 80-100% (a) Complex applications, exciting projects and a lot of creative leeway – sounds like your thing? You think a step ahead and find solutions before others notice the requirement? Then it is time for us to get to know each other. Galliker is one of the leading Swiss logistics and transport companies with national and international locations. From the Altishofen site, an approximately 80-strong IT team manages over 20 branches throughout Europe and ensures smooth workflows in everyday work thanks to the latest technology, idea culture and strong teamwork. As a computer science team, we strive every day to bring technology and people together to deliver fast, high-quality and reliable software and IT services to our internal and external customers. We operate in a highly dynamic environment. In the area of building infrastructure and the fleet, it is important to implement a clear product vision and create the greatest possible customer benefit with our IT services. We combine stakeholder requirements with technical solutions and accompany them from the idea to the go live. Do you want to connect business, IT and external partners and drive digital solutions with hands-on mentality, courage for new things and real scope for action – with sustainable added value for people, operations and the environment? If you aspire to always provide the best support as a reliable, competent contact person, then you are our Application Manager Infrastructure & Fleet. Task area\n• Operation, maintenance and further development of our applications in the area of building infrastructure, load and load management and vehicle fleet\n• Configuring interfaces / middleware (e.g. with Lobster)\n• Realization of data transfers from third-party systems\n• Participation and coordination in the development and implementation of customer connections\n• Maintain the documentation for the assigned applications and interfaces\n• Creation of software requirements descriptions\n• Supervising and schools our internal users Requirement profile\n• Completed education or training in (business) information technology or a comparable qualification\n• Experience in handling interfaces (e.g. API, sFTP) and databases (e.g. SQL)\n• Strong analytical thinking skills as well as a structured and solution-oriented working method\n• Knowledge of data processing tools (e.g. lobster) is advantageous\n• Understanding building infrastructure and/or fleet management is beneficial\n• High level of communication, teamwork and experience in agile working environments\n• Good English skills in Word and Writing Offer\n• Exciting and complex projects in the area of building infrastructure, load and load management and our vehicle fleet\n• Cool, motivated team\n• Modern IT infrastructures\n• Much personal responsibility and appreciation\n• Broad application in the world of transport & logistics with international contacts in branches\n• Possibility of occasional remote work For this position, we only consider direct applications. Please note that due to current Swiss legislation, we can only consider applications from Swiss citizens, persons with a residence or settlement permit (B or C card), EU/EFTA citizens and persons with a valid work permit. A remote activity from abroad is not possible. Does it sound exciting? We look forward to your application! Sandra Weiss, Human Resources, telephone: +41 62 748 80 70 .",
+        "de": "Application Manager Infrastructure & Fleet - 80-100% (a)\nKomplexe Anwendungen, spannende Projekte und jede Menge Gestaltungsspielraum – klingt nach deinem Ding? Du denkst einen Schritt voraus und findest Lösungen, bevor andere die Anforderung bemerken? Dann wird es Zeit, dass wir uns kennenlernen.\nGalliker ist eine der führenden Schweizer Logistik- und Transportfirmen mit nationalen und internationalen Standorten. Vom Standort Altishofen aus betreut ein rund 80-köpfiges Informatikteam europaweit über 20 Filialen und sorgt dank modernster Technologie, Ideenkultur und starkem Teamwork für reibungslose Abläufe im Arbeitsalltag. Als Informatikteam sind wir täglich bestrebt, Technologie und Menschen zusammenzubringen, um schnelle, qualitativ hochwertige und zuverlässige Software und IT Dienstleistungen unseren internen und externen Kunden zu liefern.\nWir bewegen uns in einem hochdynamischen Umfeld. Im Bereich der Gebäudeinfrastruktur und der Flotte gilt es eine klare Produktvision umzusetzen und mit unseren IT Dienstleistungen grösstmöglichen Kundennutzen zu schaffen. Wir verbinden Stakeholder Ansprüche mit technischen Lösungen und begleiten sie von der Idee bis zum Go Live.\nMöchtest du Business, IT und externe Partner verbinden und mit Hands-on-Mentalität, Mut für Neues und echtem Handlungsspielraum digitale Lösungen vorantreiben – mit nachhaltigem Mehrwert für Mensch, Betrieb und Umwelt? Hast du den Anspruch, als verlässliche, kompetente Ansprechperson stets beste Unterstützung zu geben, dann bist du unser Application Manager Infrastructure & Fleet.\nAufgabengebiet\n\n• Betreiben, Unterhalten und Weiterentwickeln unserer Applikationen im Bereich Gebäudeinfrastruktur, Last- und Lademanagement sowie Fahrzeugflotte\n• Konfigurieren von Schnittstellen / Middleware (z.B. mit Lobster)\n• Realisieren von Datenübernahmen aus Drittsystemen\n• Mitwirken und Koordinieren bei der Entwicklung und Einführen von Kundenanbindungen\n• Pflegen der Dokumentation für die zugewiesenen Anwendungen und Schnittstellen\n• Erstellen von Software Anforderungsbeschreibungen\n• Betreuen und Schulen unserer internen Anwenderinnen und Anwender\nAnforderungsprofil\n\n• Abgeschlossene Ausbildung oder Weiterbildung in (Wirtschafts-)Informatik oder eine vergleichbare Qualifikation\n• Erfahrung im Umgang mit Schnittstellen (z. B. API, sFTP) sowie mit Datenbanken (z. B. SQL)\n• Ausgeprägtes analytisches Denkvermögen sowie eine strukturierte und lösungsorientierte Arbeitsweise\n• Kenntnisse in Datenverarbeitungstools (z. B. Lobster) von Vorteil\n• Verständnis von Gebäudeinfrastruktur und/oder Flottenmanagement von Vorteil\n• Hohe Kommunikationsstärke, Teamfähigkeit und Erfahrung in agilen Arbeitsumfeldern\n• Gute Englischkenntnisse in Wort und Schrift\nAngebot\n\n• Spannende und komplexe Projekte im Bereich der Gebäudeinfrastruktur, Last- und Lademanagement sowie unserer Fahrzeugflotte\n• Cooles, motiviertes Team\n• Topmoderne IT-Infrastrukturen\n• Viel Eigenverantwortung und Wertschätzung\n• Breites Einsatzgebiet in der Welt von Transport & Logistik mit internationalen Kontakten in Filialen\n• Möglichkeit von gelegentlicher Remotearbeit\nFür diese Stelle berücksichtigen wir nur Direktbewerbungen.\nBitte beachte, dass wir aufgrund der geltenden schweizerischen Gesetzgebung ausschliesslich Bewerbungen von Schweizer Staatsbürgern, Personen mit einer Aufenthalts- oder Niederlassungsbewilligung (Ausweis B oder C), EU/EFTA-Bürgern sowie Personen mit einer gültigen Arbeitsbewilligung berücksichtigen können.\nEine Remote-Tätigkeit aus dem Ausland ist nicht möglich.\nTönt spannend?\nWir freuen uns auf deine Bewerbung!\nSandra Weiss, Human Resources, Telefon: +41 62 748 80 70 .",
+        "fr": "Gestionnaire des applications Infrastructure et flotte - 80-100 % (a) Des applications complexes, des projets passionnants et beaucoup de marge de manœuvre créative – ça ressemble à votre truc ? Vous pensez qu'un pas en avant et de trouver des solutions avant que d'autres remarquent l'exigence? Alors il est temps pour nous de nous connaître. Galliker est l'une des principales entreprises suisses de logistique et de transport avec des emplacements nationaux et internationaux. A partir du site Altishofen, une équipe informatique d'environ 80 personnes gère plus de 20 succursales en Europe et assure des flux de travail en douceur dans le travail quotidien grâce à la dernière technologie, à la culture des idées et au travail d'équipe. En tant qu'équipe informatique, nous nous efforçons chaque jour de rassembler technologie et personnes pour fournir des services informatiques et logiciels rapides, de haute qualité et fiables à nos clients internes et externes. Nous opérons dans un environnement très dynamique. Dans le domaine de la construction d'infrastructures et de la flotte, il est important de mettre en œuvre une vision claire des produits et de créer le plus grand bénéfice client possible avec nos services informatiques. Nous combinons les exigences des parties prenantes avec des solutions techniques et les accompagnons de l'idée jusqu'à la mise en pratique. Voulez-vous connecter les entreprises, les TI et les partenaires externes et conduire des solutions numériques avec une mentalité pratique, du courage pour de nouvelles choses et une réelle marge d'action – avec une valeur ajoutée durable pour les personnes, les opérations et l'environnement ? Si vous aspirez à toujours fournir le meilleur soutien en tant que personne-ressource fiable et compétente, alors vous êtes notre gestionnaire d'applications Infrastructure & Fleet. Domaine d ' activité\n• Exploitation, maintenance et développement de nos applications dans le domaine des infrastructures de construction, de la gestion des charges et des charges et du parc de véhicules\n• Configuration des interfaces / intergiciels (par exemple avec Lobster)\n• Réalisation des transferts de données provenant de systèmes tiers\n• Participation et coordination au développement et à la mise en œuvre des relations avec les clients\n• Maintenez la documentation pour les applications et les interfaces attribuées\n• Création de descriptions des exigences logicielles\n• Superviser et écoles nos utilisateurs internes Profil des besoins\n• Études ou formation terminées dans les technologies de l'information (entreprises) ou une qualification comparable\n• Expérience dans le traitement des interfaces (par exemple API, sFTP) et des bases de données (par exemple SQL)\n• Forte capacité de réflexion analytique ainsi qu'une méthode de travail structurée et orientée vers la solution\n• La connaissance des outils de traitement des données (p. ex. homard) est avantageuse\n• Comprendre l'infrastructure et/ou la gestion de la flotte est bénéfique\n• Niveau élevé de communication, de travail d'équipe et d'expérience dans des environnements de travail agiles\n• Bonnes compétences en anglais en Word and Writing Offre\n• Projets passionnants et complexes dans le domaine des infrastructures de construction, de la gestion des charges et des charges et de notre parc de véhicules\n• Une équipe cool et motivée\n• Infrastructures informatiques modernes\n• Beaucoup de responsabilité personnelle et d'appréciation\n• Large application dans le monde du transport et de la logistique avec des contacts internationaux dans les branches\n• Possibilité de travail isolé occasionnel Pour cette position, nous ne considérons que les demandes directes. Veuillez noter qu'en raison de la législation suisse en vigueur, nous ne pouvons examiner que les demandes de citoyens suisses, les personnes titulaires d'un permis de séjour ou d'établissement (carte B ou C), les citoyens de l'UE/AELE et les personnes titulaires d'un permis de travail valide. Une activité éloignée de l'étranger n'est pas possible. Ça a l'air excitant ? Nous attendons avec impatience votre candidature! Sandra Weiss, Ressources humaines, téléphone: +41 62 748 80 70 ."
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Altishofen",
       "canton": "LU",
-      "url": "https://apply.refline.ch/878019/0426/pub/2/index.html",
+      "url": "https://apply.refline.ch/878019/0397/pub/6/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-05T22:31:05.368Z",
+      "crawledAt": "2026-08-07T01:10:21.950Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6246",
       "streetAddress": "Kantonsstrasse 2",
-      "category": "Altro",
+      "category": "IT",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "Logistica / Trasporti",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-16",
-      "applyUrl": "https://apply.refline.ch/878019/0426/pub/2/index.html",
+      "postedDate": "2026-03-03",
+      "applyUrl": "https://apply.refline.ch/878019/0397/pub/6/index.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "externalId": "0426",
+      "externalId": "0397",
       "previousSlugs": [
-        "leitstandmitarbeiter-customizing-a-galliker-altishofen"
+        "application-manager-infrastructure-fleet-80-100-a-galliker-altishofen",
+        "application-manager-infrastruttura-flotta-80-100-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitstandmitarbeiter-customizing-a-galliker-altishofen"
-        ],
-        "en": [
-          "leitstandmitarbeiter-customizing-a-galliker-altishofen"
+          "application-manager-infrastructure-fleet-80-100-a-galliker-altishofen",
+          "application-manager-infrastruttura-flotta-80-100-a-galliker-transport-ag-altishofen"
         ],
         "fr": [
-          "leitstandmitarbeiter-customizing-a-galliker-altishofen"
+          "application-manager-infrastructure-fleet-80-100-a-galliker-altishofen"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:54:53.163Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "firstSeenAt": "2026-07-04T10:54:54.982Z",
+      "salaryMin": 114500,
+      "salaryMax": 195000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 114500,
+          "maxValue": 195000,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     }
   ]
 }

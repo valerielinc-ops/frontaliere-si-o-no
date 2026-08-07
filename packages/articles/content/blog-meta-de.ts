@@ -9324,6 +9324,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.caldo-lavoro-frontalieri-ticino.title': 'Hitze und Arbeit: Gewerkschaften treffen Tessiner Regierung',
     'blog.article.caldo-lavoro-frontalieri-ticino.excerpt': 'Gewerkschaften UNIA, OCST, SGB und VPOD fordern auf wissenschaftlichen Indizes basierende Interventionsschwellen zum Schutz der Arbeitnehmer bei Hitzewellen im Tessin',
     'blog.article.caldo-lavoro-frontalieri-ticino.imageAlt': 'Bauarbeiter im Schatten während einer Hitzewelle in Lugano, Tessiner',
+    'blog.article.siccit-importazioni-granoturco-svizzera.title': 'Dürre: Maisimporte zollfrei für Tessiner Züchter',
+    'blog.article.siccit-importazioni-granoturco-svizzera.excerpt': 'Außerordentliche Maßnahme des WBF bis zum 31. Oktober 2026, um den von der Krise betroffenen Landwirten Futter zu garantieren. Maisimporte bis zu 60% Trockenmasse zollfrei.',
+    'blog.article.siccit-importazioni-granoturco-svizzera.imageAlt': 'Castelgrande am Bodensee mit Goldlicht',
 };
 
 export default blogMetaDe;

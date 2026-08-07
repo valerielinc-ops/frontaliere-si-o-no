@@ -47,6 +47,17 @@
 //      steps 2-5: those are article-body specific (flat bridge, this
 //      article's own related-picks, hero image) and don't apply to an
 //      archive listing page.
+//   6b. renderTopicClusterHubPages({section}) (issue #5001 follow-up) — the
+//      same move for the editorial topic hubs (`/…/argomenti/<topic>/`), which
+//      until then only the site build emitted: an article joined its topic hub
+//      a whole deploy after `/tutti/` had listed it. Calls the SAME
+//      renderTopicHubSectionCore the full build's plugin uses
+//      (build-plugins/topicClusterHubsPlugin.ts), so the bytes match by
+//      construction. Re-renders the WHOLE section, not just the new article's
+//      topic — one more article shifts the TF-IDF model, so a borderline
+//      article can change topic, and a topic crossing the floor rewrites the
+//      sibling-topic nav on every hub. Non-blocking: a failure here must not
+//      cost the article its publish.
 //   7. scripts/offload-generated-images-cdn.mjs, unmodified, as a subprocess
 //      (CDN_BASE=https://cdn.frontaliereticino.ch — the same value deploy.yml
 //      exports for the en/de/fr shard runners, which process an analogously
@@ -60,18 +71,22 @@
 //      the rewrite regexes run unconditionally, exactly the shard-dist case
 //      the script's own comments already document).
 //
-//      RUNS LAST, AFTER the archive render (issue #5270). It used to run
-//      before it, so archive pages were written past the only pass that
-//      rewrites `/assets/...` to the CDN — and since the deploy deletes
-//      `dist/assets`, every archive page shipped 9 same-origin asset refs
-//      that are guaranteed 404s (no CSS, no SPA, no AdSense loader; measured
-//      live across all 4 locales and both sections).
+//      RUNS LAST, AFTER the archive AND topic-hub renders (issue #5270). It
+//      used to run before the archive, so archive pages were written past the
+//      only pass that rewrites `/assets/...` to the CDN — and since the deploy
+//      deletes `dist/assets`, every archive page shipped 9 same-origin asset
+//      refs that are guaranteed 404s (no CSS, no SPA, no AdSense loader;
+//      measured live across all 4 locales and both sections). The topic hubs
+//      carry the same hardcoded refs, so they sit on the same side of this
+//      boundary; both orderings are guarded by
+//      tests/fast-publish-cdn-offload-order.test.ts.
 //
 // Writes a summary JSON describing what was rendered, for stream B
 // (incremental shard push) and stream C (fast-publish workflow) to consume:
 //   { id, section, shards: [{locale, subtree, paths, url}, ...], cdnUploads: [{local, key}, ...] }
 //   `paths` per shard = [article index.html, article flat bridge, ...that
-//   locale's hub-archive pages from step 6].
+//   locale's hub-archive pages from step 6, ...that locale's topic-hub pages
+//   from step 6b].
 //
 // Known gap fixed here, not in the shared renderer: ogPagesPlugin's
 // resolveImagePath() verifies a candidate hero image exists by checking
@@ -279,6 +294,46 @@ async function main() {
     section: args.section,
   });
 
+  // ── Step 6b: topic-cluster hubs (issue #5001 follow-up) ──
+  // The editorial topic hubs (`/…/argomenti/<topic>/`) were emitted only by the
+  // site build, so a fast-published article joined its topic hub at the NEXT
+  // full deploy while `/tutti/` listed it within minutes. Same orphan window
+  // step 6 exists to close, one hub family over.
+  //
+  // Uses the SAME renderTopicHubSectionCore the full build's plugin calls, via
+  // the `renderTopicClusterHubPages` wrapper — one implementation, so the bytes
+  // match a full build by construction (see that function's header for why the
+  // whole section is re-rendered rather than just the new article's topic).
+  //
+  // Placed with step 6, BEFORE the CDN offload below, for exactly the reason
+  // #5270 records: hub HTML carries hardcoded `/assets/...` refs and the deploy
+  // deletes `dist/assets`, so anything rendered after the offload ships
+  // guaranteed 404s for CSS, the SPA bundle and the AdSense loader.
+  //
+  // Non-blocking: a topic-hub failure must not cost the article its publish.
+  // The hubs heal at the next full build; the article does not get a second
+  // chance at being fast.
+  let topicHubResult = { written: 0, pathsByLocale: {} };
+  try {
+    const { renderTopicClusterHubPages } = await import(
+      '../build-plugins/topicClusterHubsPlugin.ts'
+    );
+    topicHubResult = await renderTopicClusterHubPages({
+      rootDir: ROOT_DIR,
+      distDir,
+      section: args.section,
+    });
+    console.log(
+      `[publish-article-fast] topic hubs: ${topicHubResult.written} file scritti per la sezione ${args.section}`,
+    );
+  } catch (err) {
+    console.error(
+      '[publish-article-fast] topic-hub render failed — continuing without them ' +
+        '(they refresh at the next full build):',
+      err,
+    );
+  }
+
   // ── Step 7: offload-generated-images-cdn.mjs, unmodified, via subprocess ──
   // The script hardcodes distDir = path.resolve(process.cwd(), 'dist'), so we
   // spawn it with cwd = a temp dir containing a `dist` symlink to our real
@@ -316,10 +371,22 @@ async function main() {
   // of relpaths per locale/section invocation, so no separate push call or
   // workflow change is needed (.github/workflows/fast-publish-article.yml
   // already forwards every entry in `paths[]`).
+  //
+  // Topic-hub relpaths (step 6b) ride the same list. They land under the SAME
+  // shard subtree as the archive — both are `<indexSlug[locale]>/…`, and
+  // `ARTICLE_SECTION_CORE.<section>.indexSlug` is what the shard slug in
+  // section-shard-slugs.json mirrors — so no new shard, key or push leg is
+  // involved. The list is empty when step 6b failed, which is why it is
+  // spread defensively rather than indexed.
   const shards = locales.map((locale) => ({
     locale,
     subtree: locale === 'it' ? slugMap.it : `${locale}/${slugMap[locale]}`,
-    paths: [entry.paths[locale], entry.flatPaths[locale], ...hubResult.pathsByLocale[locale]],
+    paths: [
+      entry.paths[locale],
+      entry.flatPaths[locale],
+      ...hubResult.pathsByLocale[locale],
+      ...(topicHubResult.pathsByLocale[locale] ?? []),
+    ],
     url: entry.urls[locale],
   }));
 
