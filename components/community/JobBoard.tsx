@@ -2881,8 +2881,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  try {
  const shardJobs: RawJob[] =
  targetCanton === AGGREGATE_CANTON_CODE
- ? await fetchAggregatedJobs(TOP_AGGREGATE_CANTONS, { deduplicate: true })
- : await fetchJobsForCanton(targetCanton);
+ ? await fetchAggregatedJobs(TOP_AGGREGATE_CANTONS, locale, { deduplicate: true })
+ : await fetchJobsForCanton(targetCanton, locale);
 
  // Shards not yet deployed (every shard 404'd / empty) → legacy loader.
  // The legacy payload is the locale-wide monolith (~13 MB, all 26 cantons
@@ -3135,11 +3135,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setAliasCanonical({ alias: targetSlug, canonical: canonicalSlug });
  }
  if (!meta?.canton || !meta?.id) return;
- // Skip if we already have any job from this canton — the target really
- // is missing (expired or never crawled) and a re-fetch won't help.
+ // Skip only when we already hold THIS job — then there is nothing to
+ // resolve. (Before per-canton shards landed this tested "do we hold any
+ // job from that canton", inferring the target must be expired. That
+ // inference breaks once `jobs` IS the canton shard: a shard served from a
+ // slightly stale CDN copy, or a job whose `canton` differs between the
+ // slug map and the index, both satisfy "same canton present" while the
+ // target is absent — and the effect would return without ever attempting
+ // the full-index fallback below, dropping a live indexed job onto
+ // JobOrphanView. Matching on the stable id confirms presence instead of
+ // guessing it.)
  const cantonCode = meta.canton;
- if (jobs.some((j) => String(j.canton || '').toUpperCase() === cantonCode)) return;
- let extra: ReadonlyArray<unknown> = await fetchJobsForCanton(cantonCode);
+ if (jobs.some((j) => j.id === meta.id)) return;
+ let extra: ReadonlyArray<unknown> = await fetchJobsForCanton(cantonCode, locale);
  if (cancelled) return;
  if (!Array.isArray(extra) || extra.length === 0) {
  // Shard unavailable — fall back to the slim locale index (the
@@ -3184,7 +3192,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  })();
  return () => { cancelled = true; };
- }, [jobsLoading, initialJobSlug, selectedJob, bridgeTargetSlug, bridgeFetchAttempted, jobs]);
+ }, [jobsLoading, initialJobSlug, selectedJob, bridgeTargetSlug, bridgeFetchAttempted, jobs, locale]);
 
  // FRO-detail-split: Lazily enrich slim job with per-job detail data (~15KB)
  // instead of fetching the full locale file (~11MB). Merges detail fields into
