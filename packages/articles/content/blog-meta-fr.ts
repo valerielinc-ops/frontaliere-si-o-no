@@ -9351,6 +9351,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bucalettere-centralizzate-anziani-sindacati.title': 'Buffet centralisé : les seniors et les syndicats s\'insurgent',
     'blog.article.bucalettere-centralizzate-anziani-sindacati.excerpt': 'La révision de la loi fédérale sur les postes propose des caisses centralisées. Syndicat Transfair et Fédération des retraités critiques.',
     'blog.article.bucalettere-centralizzate-anziani-sindacati.imageAlt': 'Boîtes aux lettres traditionnelles dans une rue résidentielle de Lugano, Tessin',
+    'blog.article.accise-gasolio-ministeri-mef.title': 'Droits d\'accises sur le gazole : 232 millions des ministères, MEF en tête',
+    'blog.article.accise-gasolio-ministeri-mef.excerpt': 'Le MEF couvre 125 millions de la coupure de 17 centimes sur le gasoil (7-24 août). Voici comment vous répartissez les fonds et ce qui change pour les frontaliers.',
+    'blog.article.accise-gasolio-ministeri-mef.imageAlt': 'Poste-frontière italo-suisse à l\'aube avec panneau de prix du carburant en CHF et voiture d\'un frontalier, montagnes tessinoises en arrière-plan.',
 };
 
 export default blogMetaFr;

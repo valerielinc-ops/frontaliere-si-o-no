@@ -28065,6 +28065,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'accise-gasolio-ministeri-mef',
+ category: 'novita',
+ date: '2026-08-08T00:32:23.335Z',
+ image: '/images/blog/accise-gasolio-ministeri-mef.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

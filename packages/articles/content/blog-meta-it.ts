@@ -9350,6 +9350,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bucalettere-centralizzate-anziani-sindacati.title': 'Bucalettere centralizzate: anziani e sindacati insorgono',
     'blog.article.bucalettere-centralizzate-anziani-sindacati.excerpt': 'La revisione della legge federale sulle poste propone cassette centralizzate. Sindacato Transfair e Federazione dei pensionati critici.',
     'blog.article.bucalettere-centralizzate-anziani-sindacati.imageAlt': 'Cassette postali tradizionali in una via residenziale di Lugano, Ticino',
+    'blog.article.accise-gasolio-ministeri-mef.title': 'Accise gasolio: 232 milioni dai ministeri, Mef in testa',
+    'blog.article.accise-gasolio-ministeri-mef.excerpt': 'Il Mef copre 125 milioni del taglio di 17 centesimi sul gasolio (7-24 agosto). Ecco come ripartiti i fondi e cosa cambia per i frontalieri.',
+    'blog.article.accise-gasolio-ministeri-mef.imageAlt': 'Valico di confine italo-svizzero all\'alba con cartello carburante in CHF e auto di un frontaliere, montagne ticinesi sullo sfondo.',
 };
 
 export default blogMetaIt;

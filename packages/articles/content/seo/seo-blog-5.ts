@@ -60287,6 +60287,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-accise-gasolio-ministeri-mef': {
+    title: 'Accise gasolio: 232 milioni dai ministeri, Mef in testa',
+    description: 'Taglio di 17 centesimi sul gasolio dal 7 al 24 agosto: il Mef copre 125 milioni dei 232,3 totali. Ecco la ripartizione e come sfruttarlo per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, accise, gasolio, milioni, ministeri',
+    ogTitle: 'Accise gasolio: 232 milioni dai ministeri, Mef in testa',
+    ogDescription: 'Taglio di 17 centesimi sul gasolio dal 7 al 24 agosto: il Mef copre 125 milioni dei 232,3 totali. Ecco la ripartizione e come sfruttarlo per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/accise-gasolio-ministeri-mef',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Accise gasolio: 232 milioni dai ministeri, Mef in testa",
+      "description": "Taglio di 17 centesimi sul gasolio dal 7 al 24 agosto: il Mef copre 125 milioni dei 232,3 totali. Ecco la ripartizione e come sfruttarlo per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/accise-gasolio-ministeri-mef.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico di confine italo-svizzero all'alba con cartello carburante in CHF e auto di un frontaliere, montagne ticinesi sullo sfondo."
+      },
+      "datePublished": "2026-08-08T00:32:23+00:00",
+      "dateModified": "2026-08-08T00:32:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accise-gasolio-ministeri-mef/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

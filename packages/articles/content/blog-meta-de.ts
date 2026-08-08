@@ -9348,6 +9348,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bucalettere-centralizzate-anziani-sindacati.title': 'Zentrale Briefkästen: Ältere Menschen und Gewerkschaften erheben sich',
     'blog.article.bucalettere-centralizzate-anziani-sindacati.excerpt': 'Die Revision des Bundespostgesetzes schlägt zentrale Briefkästen vor. Gewerkschaft Transfair und Verband der kritischen Rentner.',
     'blog.article.bucalettere-centralizzate-anziani-sindacati.imageAlt': 'Traditionelle Briefkästen in einer Wohnstraße in Lugano, Tessin',
+    'blog.article.accise-gasolio-ministeri-mef.title': 'Diesel-Akzise: 232 Mio. von Ministerien, MEF vorn',
+    'blog.article.accise-gasolio-ministeri-mef.excerpt': 'Die Mef deckt 125 Millionen der Kürzung von 17 Cent auf Dieselkraftstoff (7. bis 24. August) ab. So verteilen Sie die Mittel und was sich für die Grenzgänger ändert.',
+    'blog.article.accise-gasolio-ministeri-mef.imageAlt': 'Grenzübergang Italien-Schweiz im Morgengrauen mit Treibstoffpreisschild in CHF und Auto eines Grenzgängers, Tessiner Berge im Hintergrund.',
 };
 
 export default blogMetaDe;
