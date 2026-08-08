@@ -1951,6 +1951,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.title': 'Second pillar LPP Switzerland guide 2026 canton Zurich',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.excerpt': 'Guide to the second pillar LPP 2026: contributions 7-18% by age, redemption of gaps, capital levy and national comparison with a focus on the canton of Zurich',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.imageAlt': 'Pension advice for cross-border workers in Zurich office with LPP documents and Swiss flag',
+    'blog.article.secondo-pilastro-lpp-basilea-2026.title': 'Second pillar LPP Switzerland guide 2026 canton Basel',
+    'blog.article.secondo-pilastro-lpp-basilea-2026.excerpt': '2026 Guide to the Second Pillar LPP: Contributions, Withdrawal, Gap Redemption and Social Security Planning in Switzerland. Focus on the canton of Basel with specific data and national comparison.',
+    'blog.article.secondo-pilastro-lpp-basilea-2026.imageAlt': 'Swiss employee in Basel reviewing second pillar LPP documents',
 };
 
 export default blogMetaChEn;
