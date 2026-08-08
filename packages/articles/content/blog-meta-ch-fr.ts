@@ -1939,6 +1939,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.siccita-foraggio-nasce-borsa-online.title': 'Sécheresse, le sac en ligne pour le fourrage est né',
     'blog.article.siccita-foraggio-nasce-borsa-online.excerpt': 'Les associations paysannes de Zurich et de Schaffhouse lancent une plateforme pour mettre en relation les éleveurs en difficulté et ceux qui peuvent offrir des aliments',
     'blog.article.siccita-foraggio-nasce-borsa-online.imageAlt': 'Éleveur cherche fourrage',
+    'blog.article.salario-medio-professioni-svizzera-zurigo-2026.title': 'Salaire moyen professions Suisse 2026 : focus Zurich',
+    'blog.article.salario-medio-professioni-svizzera-zurigo-2026.excerpt': 'Analyse des salaires moyens par profession en Suisse en 2026, en mettant l\'accent sur le canton de Zurich. Nous explorons les facteurs de variation, les données officielles et les implications fiscales, en tenant compte du nouvel accord frontalier en vigueur depuis le 1er JANVIER 2024.',
+    'blog.article.salario-medio-professioni-svizzera-zurigo-2026.imageAlt': 'Paysage urbain de Zurich avec des bâtiments modernes et des gens en mouvement, symbolisant l\'activité économique',
 };
 
 export default blogMetaChFr;

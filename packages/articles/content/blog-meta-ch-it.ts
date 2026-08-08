@@ -1939,6 +1939,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.siccita-foraggio-nasce-borsa-online.title': 'Siccità, nasce la borsa online per il foraggio',
     'blog.article.siccita-foraggio-nasce-borsa-online.excerpt': 'Le associazioni dei contadini di Zurigo e Sciaffusa lanciano una piattaforma per mettere in contatto allevatori in difficoltà e chi può offrire mangime',
     'blog.article.siccita-foraggio-nasce-borsa-online.imageAlt': 'Allevatore che cerca foraggio',
+    'blog.article.salario-medio-professioni-svizzera-zurigo-2026.title': 'Salario medio professioni Svizzera 2026: focus Zurigo',
+    'blog.article.salario-medio-professioni-svizzera-zurigo-2026.excerpt': 'Analisi dei salari medi per professione in Svizzera nel 2026, con un focus sul Canton Zurigo. Esploriamo i fattori di variazione, i dati ufficiali e le implicazioni fiscali, considerando il nuovo Accordo Frontalieri in vigore dal 1° GENNAIO 2024.',
+    'blog.article.salario-medio-professioni-svizzera-zurigo-2026.imageAlt': 'Panorama urbano di Zurigo con edifici moderni e persone in movimento, simbolo dell\'attività economica',
 };
 
 export default blogMetaChIt;
