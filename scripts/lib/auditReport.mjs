@@ -33,7 +33,13 @@
 //     ratio for text-html-ratio, depth for bfs-depth, count for orphans).
 //   - `ratio` is only set when meaningful (currently text-html-ratio).
 //   - `topOffenders` is capped at 100 entries to keep individual report files
-//     well under 1 MB even on regression-heavy runs.
+//     well under 1 MB even on regression-heavy runs. `topOffendersTruncated`
+//     says whether that cap actually bit, and `topOffendersOmitted` how many
+//     were dropped — READ THEM BEFORE concluding a feature has no offenders
+//     from its absence in the list.
+//   - `sampleRate` names the scale of every count in the file (1 = full walk),
+//     and `offendersTotalExtrapolated` projects `offendersTotal` to the full
+//     population. Under `AUDIT_SAMPLE_RATE=0.25` a reported 5 is ~20 real.
 //
 // Performance: the writer does NOT walk dist/. Callers pass a pre-built
 // offenders array — typically the same one they already iterate to print the
@@ -145,6 +151,28 @@ export async function writeAuditReport(params) {
     return out;
   });
 
+  // Two facts about these numbers that a reader CANNOT infer from the numbers
+  // themselves, and that have twice been read wrong:
+  //
+  //  1. `topOffenders` is the worst 100. A feature absent from it is NOT a
+  //     feature without offenders — it is a feature whose offenders are not
+  //     among the worst 100. `text-html-ratio` once reported spa-locale and
+  //     spa-other as its two regressed features while neither had a single
+  //     entry in `topOffenders`, because `eventi` and `employer-profiles`
+  //     filled the list.
+  //  2. Under `AUDIT_SAMPLE_RATE` every count here is a SAMPLE count, roughly
+  //     1/rate of the real population. `h1-title-duplicates` reporting 5
+  //     offenders at rate 0.25 meant 29 real ones; #5312's post-mortem records
+  //     the same class of misread ("30 vs 31" read as an improvement when it
+  //     was ~120 against 31).
+  //
+  // Both are now stated in the file instead of being knowledge the reader has
+  // to already have. `byFeature` and `offendersTotal` keep their raw sampled
+  // meaning — changing them would break every existing consumer — and the
+  // scale is named alongside.
+  const rawRate = Number.parseFloat(String(process.env.AUDIT_SAMPLE_RATE ?? ''));
+  const sampleRate = Number.isFinite(rawRate) && rawRate > 0 && rawRate <= 1 ? rawRate : 1;
+
   const report = {
     audit,
     ranAt: new Date().toISOString(),
@@ -153,7 +181,17 @@ export async function writeAuditReport(params) {
     baselineFile: baselineFile ?? null,
     baselineDelta: baselineDelta ?? null,
     offendersTotal: offenders.length,
+    /** Scale of every count in this file. 1 = full walk, 0.25 = a 25% sample. */
+    sampleRate,
+    /** `offendersTotal` projected to the full population. Equal when unsampled. */
+    offendersTotalExtrapolated: sampleRate === 1
+      ? offenders.length
+      : Math.round(offenders.length / sampleRate),
     byFeature,
+    /** True when `topOffenders` is a slice: absence from it proves nothing. */
+    topOffendersTruncated: offenders.length > TOP_OFFENDERS_LIMIT,
+    topOffendersLimit: TOP_OFFENDERS_LIMIT,
+    topOffendersOmitted: Math.max(0, offenders.length - TOP_OFFENDERS_LIMIT),
     topOffenders,
     ...extra,
   };
