@@ -10,17 +10,12 @@ import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { Euro, ChevronDown, ChevronUp, Info, TrendingUp, TrendingDown, Minus, ArrowLeftRight, RefreshCw } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
-import { calculateProgressiveWorkDeduction } from '@/services/calculationService';
+import { calculateProgressiveWorkDeduction, calculateIrpefGross } from '@/services/calculationService';
 
 // ─── Italian INPS Contribution Rates 2026 ────────────────────────────────
 
 const INPS_EMPLOYEE_RATE = 0.0919; // 9.19% carico dipendente
 const INPS_EMPLOYER_RATE = 0.2381; // 23.81% carico datore (not shown to user, but relevant for cost)
-const IRPEF_SCAGLIONI_2026 = [
- { max: 28000, rate: 0.23 },
- { max: 50000, rate: 0.35 },
- { max: Infinity, rate: 0.43 },
-];
 const ADDIZIONALE_REGIONALE_AVG = 0.02; // ~2% media (varies by region)
 const ADDIZIONALE_COMUNALE_AVG = 0.008; // ~0.8% media
 // DETRAZIONI_LAVORO_DIPENDENTE: progressive per Art. 13 TUIR (via calculateProgressiveWorkDeduction)
@@ -74,16 +69,7 @@ function calculateItalianNet(ral: number, maritalStatus: string, children: numbe
  const taxableIncome = ral - inpsEmployee;
 
  // IRPEF progressive
- let irpefGross = 0;
- let remaining = taxableIncome;
- let prevMax = 0;
- for (const { max, rate } of IRPEF_SCAGLIONI_2026) {
- const bracket = Math.min(remaining, max - prevMax);
- if (bracket <= 0) break;
- irpefGross += bracket * rate;
- remaining -= bracket;
- prevMax = max;
- }
+ const irpefGross = calculateIrpefGross(taxableIncome);
 
  // Progressive work deduction per Art. 13 TUIR
  let detrazioni = calculateProgressiveWorkDeduction(taxableIncome);

@@ -15,6 +15,7 @@ import { lazyRetry } from '@/services/lazyRetry';
 import { cantonGrossScale, cantonTaxBurdenPct, SALARY_CANTON_CODES, NATIONAL_CANTON } from '@/services/cantonSalary';
 import { getCantonLabel, type CantonLocale } from '@/services/cantonList';
 import { buildPath } from '@/services/router';
+import { calculateIrpefGross } from '@/services/calculationService';
 import { CH_SOCIAL_RATE } from '@/constants';
 
 const SalarySurvey = lazyRetry(() => import('@/components/community/SalarySurvey'));
@@ -31,18 +32,7 @@ function chWithholding(gross: number, canton?: string | null): number {
 function itIrpef(gross: number): number {
  const taxable = gross * 0.85;
  if (taxable <= 0) return 0;
- let tax = 0;
- const brackets: [number, number][] = [[28000, 0.23], [50000, 0.35], [Infinity, 0.43]];
- let remaining = taxable;
- let prev = 0;
- for (const [limit, rate] of brackets) {
- const slice = Math.min(remaining, limit - prev);
- tax += slice * rate;
- remaining -= slice;
- prev = limit;
- if (remaining <= 0) break;
- }
- return tax + gross * 0.0919 + taxable * 0.025;
+ return calculateIrpefGross(taxable) + gross * 0.0919 + taxable * 0.025;
 }
 
 function calcNetCH(gross: number, canton?: string | null): number {
