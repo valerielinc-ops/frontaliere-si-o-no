@@ -1,16 +1,16 @@
 {
   "key": "stgag",
   "label": "Spital Thurgau (STGAG)",
-  "generatedAt": "2026-08-08T09:47:57.611Z",
-  "total": 11,
+  "generatedAt": "2026-08-08T21:37:42.590Z",
+  "total": 10,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 13406,
-  "avgDurationMs": 13406,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 14952,
+  "avgDurationMs": 14952,
   "durationHistory": [
-    13406
+    14952
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3751/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:47.760Z",
+      "crawledAt": "2026-08-08T21:37:31.212Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3745/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:48.684Z",
+      "crawledAt": "2026-08-08T21:37:32.228Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3743/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:49.605Z",
+      "crawledAt": "2026-08-08T21:37:33.249Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3737/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:50.550Z",
+      "crawledAt": "2026-08-08T21:37:34.227Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3734/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:51.459Z",
+      "crawledAt": "2026-08-08T21:37:35.291Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3708/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:52.394Z",
+      "crawledAt": "2026-08-08T21:37:36.266Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3736/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:53.279Z",
+      "crawledAt": "2026-08-08T21:37:37.265Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3701/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:53.744Z",
+      "crawledAt": "2026-08-08T21:37:38.371Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -302,11 +302,11 @@
       "postedDate": "2026-08-03",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3701/Application/CheckLogin/1",
       "firstSeenAt": "2026-08-03T12:35:55.624Z",
-      "_qualityScore": 83,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -323,7 +323,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3722/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:54.621Z",
+      "crawledAt": "2026-08-08T21:37:39.333Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -360,7 +360,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3636/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:55.493Z",
+      "crawledAt": "2026-08-08T21:37:40.316Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -385,8 +385,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "stgag-9140ac82c72e",
       "slug": "stage-a-fachmatura-gesundheit-fmg-settembre-2027-spital-thurgau-stgag-kantonsspital-munsterlingen",
@@ -426,5 +425,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
