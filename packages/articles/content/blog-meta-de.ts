@@ -9366,6 +9366,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.title': 'Berufsausbildung und Umschulung für Grenzgänger im Umkreis von 20 km',
     'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.excerpt': 'Anerkannte Kurse, Finanzierung und praktische Rückkehr für Grenzgänger innerhalb von 20 km von der Grenze. Fokus auf AHV, BVG, KVG und neue Steuervereinbarung 2024.',
     'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.imageAlt': 'Grenzgänger in beruflicher Weiterbildung an einer technischen Schule im Tessin mit Bergblick',
+    'blog.article.bollettino-frontaliere-2026-08-08.title': 'Grenzgänger-Tagesbulletin – 8. August 2026: 1\'188 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-08.excerpt': 'Die Zahlen von heute (8. August 2026) für Grenzgänger: heute Morgen gemessene Wartezeiten an den Grenzübergängen, die günstigsten Tank-Gemeinden, der CHF-EUR-Kurs und neue Stellenangebote in der Schweiz. Eigene Messung, täglich aktualisiert.',
+    'blog.article.bollettino-frontaliere-2026-08-08.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 8. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
 };
 
 export default blogMetaDe;
