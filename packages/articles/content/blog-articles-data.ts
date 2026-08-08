@@ -28101,6 +28101,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'grigioni-frontalieri-calano',
+ category: 'fiscale',
+ date: '2026-08-08T07:02:36.017Z',
+ image: '/images/blog/grigioni-frontalieri-calano.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
