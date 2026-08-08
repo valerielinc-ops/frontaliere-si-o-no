@@ -3,7 +3,6 @@ import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import viteConfig from '../vite.config';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PLUGIN_DIR = path.resolve(__dirname, '..', 'build-plugins');
@@ -37,28 +36,48 @@ const PEAK_PLUGIN = 'jobs-seo-pages';
  */
 const MIN_LOADER_FILES = 3;
 
-function isNamedPlugin(plugin: unknown): plugin is { name: string } {
-  return Boolean(plugin)
-    && typeof plugin === 'object'
-    && 'name' in plugin
-    && typeof (plugin as { name?: unknown }).name === 'string';
-}
-
-/** Registered plugin names, in array order — the order closeBundle runs in. */
+/**
+ * Registered plugin names in array order — read from the SOURCE of
+ * vite.config.ts, deliberately without calling it.
+ *
+ * Calling `viteConfig({command:'build'})` instantiates the whole plugin array,
+ * and `shared/buildSignals.ts` holds ONE-SHOT module-level promises: several
+ * plugins call `resolveXFlushed([])` on their early-return paths. A second
+ * instantiation inside the same vitest shard therefore leaves those signals
+ * already resolved — empty — for whatever runs next. `build-plugin-order.test.ts`
+ * already instantiates the array in this same (dataset-dependent) shard, so
+ * this file doing it too was the second one, and the behavioural build tests
+ * downstream emitted nothing: 13 failures across the four `cathedral-*` suites,
+ * including «No per-canton sector hub emitted» and even the TI-invariance case.
+ *
+ * Parsing the source gets the same ordering with no side effect at all. The
+ * shape is pinned below, so a vite.config.ts that stops matching fails loudly
+ * instead of yielding a short list that would silently weaken the invariant.
+ */
 function pluginNames(): string[] {
-  // Same guard as build-plugin-order.test.ts: agent sessions inherit
-  // FAST_BUILD=1, which skips every SEO plugin under test here.
-  const prev = process.env.FAST_BUILD;
-  delete process.env.FAST_BUILD;
-  try {
-    const resolved = typeof viteConfig === 'function'
-      ? viteConfig({ command: 'build', mode: 'production' })
-      : viteConfig;
-    const plugins = Array.isArray(resolved.plugins) ? resolved.plugins.flat() : [];
-    return plugins.filter(isNamedPlugin).map((plugin) => plugin.name);
-  } finally {
-    if (prev !== undefined) process.env.FAST_BUILD = prev;
+  const config = fs.readFileSync(path.resolve(__dirname, '..', 'vite.config.ts'), 'utf8');
+
+  // `import { xPlugin } from './build-plugins/xPlugin';` → factory → file stem.
+  const factoryToStem = new Map<string, string>();
+  for (const m of config.matchAll(/import\s*\{([^}]+)\}\s*from\s*'\.\/build-plugins\/([A-Za-z0-9_]+)'/g)) {
+    for (const raw of m[1].split(',')) {
+      const name = raw.replace(/\bas\b[\s\S]*$/, '').trim();
+      if (name) factoryToStem.set(name, m[2]);
+    }
   }
+
+  // Registration order = the order the factories are CALLED in the array.
+  const names: string[] = [];
+  for (const m of config.matchAll(/(?<![\w.])([a-z][A-Za-z0-9_]*Plugin)\s*\(/g)) {
+    const stem = factoryToStem.get(m[1]);
+    if (!stem) continue; // not a build-plugins factory (or an import line)
+    const file = path.join(PLUGIN_DIR, `${stem}.ts`);
+    if (!fs.existsSync(file)) continue;
+    for (const declared of declaredPluginNames(fs.readFileSync(file, 'utf8'))) {
+      if (!names.includes(declared)) names.push(declared);
+    }
+  }
+  return names;
 }
 
 function declaredPluginNames(source: string): string[] {
@@ -105,6 +124,16 @@ describe('corpus retention discipline (#5330)', () => {
     .filter(({ source }) => CALLS_LOAD.test(stripComments(source)));
 
   it('still finds the peak plugin and the corpus loaders it guards', () => {
+    // Floor on the parse itself: a vite.config.ts whose shape stops matching
+    // would yield a short list, and every ordering check below would pass
+    // vacuously — the exact no-op-that-reports-success this file exists to
+    // avoid.
+    // 86 today. The parse counts only files that declare their own
+    // `name:`/`apply:'build'` pair, so it is smaller than the instantiated
+    // array (~300) — what matters is the RELATIVE order, which matches it
+    // exactly for every plugin this file reasons about.
+    expect(order.length, 'plugin order parsed from vite.config.ts looks truncated')
+      .toBeGreaterThan(60);
     expect(peakIndex, `${PEAK_PLUGIN} is not registered — rename or removal?`).toBeGreaterThan(-1);
     expect(loaders.length, 'loadJobsJson call sites vanished — has the matcher rotted?')
       .toBeGreaterThanOrEqual(MIN_LOADER_FILES);
