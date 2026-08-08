@@ -357,7 +357,37 @@ function renderPagination(
     `<span class="text-subtle">${esc(c.pageOf(page, totalPages))}</span>`,
     page < totalPages ? link(page + 1, c.next) : '',
   ].filter(Boolean);
-  return `<nav aria-label="pagination" class="flex flex-wrap items-center gap-4 mt-8">${parts.join('')}</nav>`;
+  const compactNav = `<nav aria-label="pagination" class="flex flex-wrap items-center gap-4 mt-8">${parts.join('')}</nav>`;
+
+  // Flat crawler-facing ladder linking EVERY page-N, collapsed (#5414). The
+  // compact nav above links only prev/next, so before this ladder page-K of a
+  // hub sat K-1 hops from page 1 — with the hubs themselves entering at BFS
+  // depth 2 (home → section archive → hub), every page-N ≥ 3 fell past the
+  // depth-4 crawl budget and sitemap-topics-*.xml shipped them buried. Same
+  // form (and same `.hp`/`.hc` classes, already in seo-static.css) as the
+  // `/tutti/` archives' ladder in articleHubPagesPlugin.ts, whose header
+  // comment records the original BFS-depth-closure measurement — but with NO
+  // `total <= 5` shortcut: that shortcut is safe there because the archive's
+  // compact nav links first/last/current±1, while this one links prev/next
+  // only, so even a 4-page hub needs the ladder to keep page-4 at one hop.
+  // BFS and crawlers read `<a>` inside `<details>` regardless of `open`.
+  const flatLabel = {
+    it: "Sfoglia tutto l'archivio per pagina",
+    en: 'Browse the full archive by page',
+    de: 'Vollständiges Archiv nach Seite durchsuchen',
+    fr: 'Parcourir toutes les archives par page',
+  }[locale];
+  const flatAnchors: string[] = [];
+  for (let p = 1; p <= totalPages; p++) {
+    if (p === page) {
+      flatAnchors.push(`<strong class="hc" aria-current="page">${p}</strong>`);
+    } else {
+      flatAnchors.push(`<a href="${esc(buildTopicHubPath(locale, section, topicKey, p))}" class="hp">${p}</a>`);
+    }
+  }
+  const flatNav = `<nav class="s-4nYHgH" aria-label="${esc(flatLabel)}"><details class="s-Ery2Xe"><summary class="s-goeAUL">${esc(flatLabel)} (${totalPages})</summary><div class="s-6_t7LY">${flatAnchors.join('')}</div></details></nav>`;
+
+  return `${compactNav}${flatNav}`;
 }
 
 interface RenderedPage {
@@ -1073,4 +1103,8 @@ export function topicClusterHubsPlugin(rootDir: string): Plugin {
 }
 
 // Test-only exports.
-export { renderHubPage as __renderTopicHubPageForTest, renderBridgePage as __renderTopicBridgeForTest };
+export {
+  renderHubPage as __renderTopicHubPageForTest,
+  renderBridgePage as __renderTopicBridgeForTest,
+  renderPagination as __renderTopicPaginationForTest,
+};

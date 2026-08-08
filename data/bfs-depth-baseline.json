@@ -17,6 +17,13 @@
       "ratePct": 0,
       "deepest": 4
     },
+    "sitemap-articles-archive.xml": {
+      "total": 156,
+      "reached": 135,
+      "atDepthGtMax": 21,
+      "ratePct": 13.4615,
+      "deepest": 4
+    },
     "sitemap-blog.xml": {
       "total": 2646,
       "reached": 2646,
@@ -65,6 +72,13 @@
       "atDepthGtMax": 0,
       "ratePct": 0,
       "deepest": 3
+    },
+    "sitemap-eventi.xml": {
+      "total": 3526,
+      "reached": 2893,
+      "atDepthGtMax": 747,
+      "ratePct": 21.1855,
+      "deepest": 5
     },
     "sitemap-faq-hub.xml": {
       "total": 1,
@@ -128,6 +142,13 @@
       "atDepthGtMax": 0,
       "ratePct": 0,
       "deepest": 3
+    },
+    "sitemap-health-facilities.xml": {
+      "total": 436,
+      "reached": 192,
+      "atDepthGtMax": 388,
+      "ratePct": 88.9908,
+      "deepest": 8
     },
     "sitemap-health-premiums.xml": {
       "total": 183,
@@ -325,6 +346,13 @@
       "ratePct": 14.5933,
       "deepest": 5
     },
+    "sitemap-locale-variants-001.xml": {
+      "total": 12198,
+      "reached": 11317,
+      "atDepthGtMax": 9602,
+      "ratePct": 78.7178,
+      "deepest": 7
+    },
     "sitemap-market-report.xml": {
       "total": 4,
       "reached": 4,
@@ -379,6 +407,13 @@
       "reached": 1764,
       "atDepthGtMax": 0,
       "ratePct": 0,
+      "deepest": 4
+    },
+    "sitemap-salary-stats.xml": {
+      "total": 96,
+      "reached": 84,
+      "atDepthGtMax": 12,
+      "ratePct": 12.5,
       "deepest": 4
     },
     "sitemap-search-clusters-001.xml": {
@@ -452,5 +487,19 @@
       "deepest": 3
     }
   },
+  "_registrations": [
+    {
+      "date": "2026-08-08",
+      "run": 31259344953,
+      "shards": [
+        "sitemap-articles-archive.xml",
+        "sitemap-eventi.xml",
+        "sitemap-health-facilities.xml",
+        "sitemap-locale-variants-001.xml",
+        "sitemap-salary-stats.xml"
+      ],
+      "reason": "Registrazione dei floor misurati per shard gia' in warning non-gating; health-facilities a 88,99% era a un soffio dal hard-fail 90% dei nuovi shard. I due shard topics restano fuori apposta: il hard-fail deve continuare a coprirli."
+    }
+  ],
   "_comment": "Rate-based baseline for audit-bfs-depth.mjs. Hard rule unchanged: URLs reachable within maxDepth hops of /. This ratchet tracks the SHARE (atDepthGtMax/total) of each sitemap below crawl depth, so organic URL growth at existing pagination depth keeps the rate flat and does NOT fail the build. A sitemap fails only when its rate exceeds baseRate*(1+relPct/100)+absPp AND its offender count grows by more than minAbsDelta — a real internal-link regression burying previously-shallow URLs. Fix via internal links from a hub at depth ≤ maxDepth-1, never noindex. Seeded 2026-06-02T02:08:32.951Z from post-deploy run 26790443133 dist (the same artifact the count-ratchet false-failed on: fuel-italian-stations 513→642 offenders was pure organic Italian-station crawler expansion at a flat ~75% structural rate; the new italian-stations hub tier is real content). Rates must only DECREASE going forward (modulo tolerance)."
 }
