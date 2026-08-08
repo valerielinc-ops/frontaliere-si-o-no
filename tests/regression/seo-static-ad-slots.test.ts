@@ -23,6 +23,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { infeedAdListItemHtml, infeedAdGridBlockHtml, endOfContentMultiplexHtml } from '../../build-plugins/lib/adSlotHtml';
 import { AD_SLOTS } from '../../services/adsenseSlots';
+import { renderProfessionBelowFloorBridge } from '../../build-plugins/shared/professionJobsFloor';
+import type { AnyProfessionId } from '../../build-plugins/professionLandingsData';
 
 const ROOT = path.resolve(__dirname, '..', '..');
 
@@ -241,7 +243,13 @@ describe('SEO SSG-family end-of-content multiplex (#4485)', () => {
   it('below-floor bridge emitters carry no end-of-content multiplex', () => {
     const bridges: Array<{ file: string; fn: string }> = [
       { file: 'build-plugins/salaryProfessionCantonPages.ts', fn: 'renderBelowFloorBridge' },
-      { file: 'build-plugins/professionCantonLandings.ts', fn: 'renderBelowFloorBridge' },
+      // #5322 moved the profession below-floor bridge OUT of
+      // professionCantonLandings.ts and into a shared module, because the
+      // legacy Ticino family (professionLandingsPlugin.ts) had to stop
+      // reimplementing the floor and start consuming the same one. Guarding
+      // the single shared producer therefore covers BOTH emitters at once —
+      // strictly more than the per-canton-only guard this replaced.
+      { file: 'build-plugins/shared/professionJobsFloor.ts', fn: 'renderProfessionBelowFloorBridge' },
       { file: 'build-plugins/employerProfilePagesPlugin.ts', fn: 'emitEmployerBelowFloorBridge' },
     ];
     for (const { file, fn } of bridges) {
@@ -250,6 +258,35 @@ describe('SEO SSG-family end-of-content multiplex (#4485)', () => {
       expect(body, `Could not locate ${fn} in ${file}`).not.toBe('');
       expect(body, `${fn} (noindex bridge) must not emit a manual multiplex`)
         .not.toContain('endOfContentMultiplexHtml');
+    }
+  });
+
+  // Belt to the source-scan's braces. The scan above is deliberately textual
+  // for the RENDER functions (see the file header: the full pipeline needs
+  // Remote Config and gigabyte datasets), but the shared profession bridge is
+  // a pure function of three plain arguments — so here we can assert the thing
+  // we actually care about, the EMITTED HTML, instead of a proxy for it. That
+  // survives any future move of the function between files, which is exactly
+  // what broke when #5322 extracted it.
+  it('the shared profession below-floor bridge emits no ad markup, for either consumer', () => {
+    const cases: Array<{ consumer: string; cantonKey: string; id: AnyProfessionId }> = [
+      // professionCantonLandings.ts — /lavoro-{canton}-{role}/
+      { consumer: 'per-canton', cantonKey: 'ZH', id: 'infermiere' },
+      // professionLandingsPlugin.ts — legacy /lavoro-ticino-{role}/ (#5322)
+      { consumer: 'legacy TI', cantonKey: 'TI', id: 'cameriere' },
+    ];
+    for (const { consumer, cantonKey, id } of cases) {
+      for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+        const html = renderProfessionBelowFloorBridge(locale, cantonKey, id);
+        expect(html, `${consumer} ${locale} bridge must be noindex`)
+          .toContain('noindex,follow');
+        expect(html, `${consumer} ${locale} bridge must carry no AdSense slot`)
+          .not.toContain('adsbygoogle');
+        // `.slot` — AD_SLOTS entries are config OBJECTS, and passing the object
+        // to a string `toContain` would assert nothing.
+        expect(html, `${consumer} ${locale} bridge must not carry the SSG end multiplex slot`)
+          .not.toContain(AD_SLOTS.SSG_END_MULTIPLEX.slot);
+      }
     }
   });
 });
