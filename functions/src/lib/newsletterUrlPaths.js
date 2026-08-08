@@ -73,6 +73,25 @@ export const LOCALE_PATH_MAP = {
     de: '/de/jobs-in-schweiz',
     fr: '/fr/trouver-emploi-suisse',
   },
+  // Border-wait section, linked by the daily brief's "crossings" block (#5415).
+  // Mirrors build-plugins/borderWaitData.ts BORDER_WAIT_SECTION, which is where
+  // the pages are actually emitted; tests/route-slugs-no-drift.test.ts asserts
+  // the two stay equal, since a Cloud Function cannot import the TypeScript.
+  '/traffico-dogane': {
+    it: '/traffico-dogane',
+    en: '/en/border-wait',
+    de: '/de/wartezeit-grenze',
+    fr: '/fr/temps-attente-douane',
+  },
+  // Fuel-price tracker, linked by the daily brief's "fuel" block. Mirrors
+  // build-plugins/shared/comparatorHref.ts FUEL_HREF — note the per-locale
+  // "today" leaf: the bare section path 404s. Same drift test.
+  '/prezzi-benzina/oggi': {
+    it: '/prezzi-benzina/oggi',
+    en: '/en/gasoline-price-switzerland/today',
+    de: '/de/benzinpreis-schweiz/heute',
+    fr: '/fr/prix-essence-suisse/aujourd-hui',
+  },
   '/compara-servizi/cambio-franco-euro': {
     it: '/compara-servizi/cambio-franco-euro',
     en: '/en/service-comparison/chf-eur-exchange-rate',
