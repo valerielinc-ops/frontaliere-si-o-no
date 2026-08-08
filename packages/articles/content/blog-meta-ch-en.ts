@@ -1948,6 +1948,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salario-medio-professioni-svizzera-2026-basilea.title': 'Average salary professions Switzerland 2026 canton Basel',
     'blog.article.salario-medio-professioni-svizzera-2026-basilea.excerpt': 'AVS/AI/IPG rates 5.3%, AD/AC 1.1% (cap CHF 148\'200), LAINF 0.7-1.5%, LPP 7–18% from 25 years. New Frontier Agreement in force from 1 January 2024.',
     'blog.article.salario-medio-professioni-svizzera-2026-basilea.imageAlt': 'Aerial view of Basel with the Rhine river and Mittlere Brücke during morning rush hour',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.title': 'Second pillar LPP Switzerland guide 2026 canton Zurich',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.excerpt': 'Guide to the second pillar LPP 2026: contributions 7-18% by age, redemption of gaps, capital levy and national comparison with a focus on the canton of Zurich',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.imageAlt': 'Pension advice for cross-border workers in Zurich office with LPP documents and Swiss flag',
 };
 
 export default blogMetaChEn;

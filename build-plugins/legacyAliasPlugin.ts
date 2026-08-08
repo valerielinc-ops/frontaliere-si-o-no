@@ -51,6 +51,7 @@ import type { Plugin } from 'vite';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderBridgePageProse, type BridgePageKind } from './shared/bridgePageProse';
 import type { Locale } from '../services/i18n';
+import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -291,9 +292,23 @@ export function legacyAliasPlugin(rootDir: string): Plugin {
 
       let emitted = 0;
       let skipped = 0;
+      let skippedUnshippable = 0;
       const start = Date.now();
+      // Prefixes routed to a section shard this build does not push. 21 of the
+      // 24 committed aliases sit under them, and this plugin emits
+      // `robots: 'index,follow'` by explicit never-noindex policy — which is
+      // precisely what scripts/lib/rehydrate-trunk-guard.sh classifies as FATAL
+      // ("indexable page(s) were built under a prefix this build does not ship
+      // to the shard"). See build-plugins/shared/unshippableSections.ts for the
+      // live measurement; the short version is that these paths answer with the
+      // shard's soft-404 landing, never with the alias page written here.
+      const unshippablePrefixes = unshippableSectionPrefixes();
 
       for (const entry of file.aliases) {
+        // BEFORE the existsSync collision guard, which cannot help here: with
+        // the flags on, the real article page is never emitted either, so the
+        // guard always passes and the alias always writes.
+        if (isUnshippablePath(entry.orphanPath, unshippablePrefixes)) { skippedUnshippable++; continue; }
         const indexTarget = path.join(distDir, entry.orphanPath, 'index.html');
         const flatTarget = path.join(distDir, entry.orphanPath.replace(/\/+$/, '') + '.html');
         if (fs.existsSync(indexTarget)) { skipped++; continue; }
@@ -312,8 +327,15 @@ export function legacyAliasPlugin(rootDir: string): Plugin {
 
       const dur = ((Date.now() - start) / 1000).toFixed(1);
       console.log(
-        `\x1b[36m[legacy-alias]\x1b[0m emitted ${emitted} bridge files (${file.aliases.length - skipped} pages, ${skipped} skipped) in ${dur}s`,
+        `\x1b[36m[legacy-alias]\x1b[0m emitted ${emitted} bridge files (${file.aliases.length - skipped - skippedUnshippable} pages, ${skipped} skipped) in ${dur}s`,
       );
+      // Never a silent skip: an alias that is not emitted is an alias that does
+      // not exist, while data/legacy-aliases.json still lists it.
+      if (skippedUnshippable > 0) {
+        console.log(
+          `\x1b[33m[legacy-alias]\x1b[0m Skipped ${skippedUnshippable} alias page(s) under BUILD_EMIT_SKIP section prefixes (${unshippablePrefixes.join(', ')}) — this build does not push those shards, so an indexable alias emitted there is never served. The data entries stay; only the emission is skipped.`,
+        );
+      }
       },
     },
   };

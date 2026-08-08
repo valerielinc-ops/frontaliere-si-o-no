@@ -1948,6 +1948,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salario-medio-professioni-svizzera-2026-basilea.title': 'Durchschnittslohn Berufe Schweiz 2026 Kanton Basel',
     'blog.article.salario-medio-professioni-svizzera-2026-basilea.excerpt': 'AHV/IV/EO-Sätze 5,3%, ALV/KV 1,1% (Kap CHF 148\'200), UVG 0,7–1,5%, BVG 7–18% ab 25 Jahren. Neue Frontalieri-Vereinbarung in Kraft seit dem 1. Januar 2024.',
     'blog.article.salario-medio-professioni-svizzera-2026-basilea.imageAlt': 'Luftaufnahme von Basel mit dem Rheinfluss und der Mittlere Brücke während des morgendlichen Berufsverkehrs',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.title': 'Zweite Säule BVG Schweiz Führer 2026 Kanton Zürich',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.excerpt': 'Leitfaden 2. Säule BVG 2026: 7-18% Altersbeiträge, Lückenrückkauf, Kapitalbezug und nationaler Vergleich mit Fokus Kanton Zürich',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.imageAlt': 'Beratung zur beruflichen Vorsorge für Grenzgänger im Zürcher Büro mit BVG-Unterlagen und Schweizer Flagge',
 };
 
 export default blogMetaChDe;

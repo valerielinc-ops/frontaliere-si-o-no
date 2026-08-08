@@ -24,6 +24,28 @@ compatibility_date = "2026-01-01"
 # like /cerca-lavoro-ticino-altro matches that CF route but is rejected in-code.
 # The in-code LOCALE_RE + matchSection are the authoritative matching guards.
 # Non-section IT paths stay pure Cloudflare passthrough with no Worker subrequest.
+#
+# THE THREE `/xx.html` ROUTES STAY EXACT — DO NOT WILDCARD THEM.
+# The EDGE_PUSHED_FILES routes further down were given a trailing `*` (see the
+# /sitemap-blog-ch.xml comment for the full rationale) so a query string cannot
+# change which origin answers. The same reasoning does NOT carry over here, and
+# applying it would make things worse. Measured 2026-08-08:
+#
+#   /en.html  bare → 404      /en.html?cb=1 → 200
+#   /de.html  bare → 404      /de.html?cb=1 → 200
+#   /fr.html  bare → 404      /fr.html?cb=1 → 200
+#
+# The bare request is already routed here (these exact patterns), LOCALE_RE
+# matches, and serveShard sends it to origin-{loc}, which has no such file —
+# confirmed directly: origin-en.frontaliereticino.ch/en.html → 404 while
+# origin-en.frontaliereticino.ch/index.html → 200. The 200 comes from the
+# BYPASS: without the Worker the request lands on the Pages trunk, which does
+# carry en.html. So here the query-string variant is the one that works, and
+# wildcarding these routes would route it to the shard too and turn the last
+# working variant into a third 404. The real defect is that the locale shards do
+# not carry `<loc>.html`, or that the Worker does not fold `/en.html` onto the
+# locale root — a Worker-code/shard-content fix, not a routing one. Left open
+# deliberately; do not "make it consistent" by widening the route.
 routes = [
   { pattern = "frontaliereticino.ch/en/*",    zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/en",      zone_name = "frontaliereticino.ch" },
@@ -157,48 +179,83 @@ routes = [
   # Look-alike paths rejected by the in-code guard.
   { pattern = "frontaliereticino.ch/disiscrivi-promemoria-salvati*", zone_name = "frontaliereticino.ch" },
   # Pushable-origin edge file, rollout step 1 of N (issue #4881 Fase 3, see
-  # locale-router.js EDGE_PUSHED_FILES). Exact path, NO wildcard: sitemap
-  # fetchers (GSC/bots) never append a query string to this URL, so unlike the
-  # unsub-proxy/section routes above (#2611) there is no real traffic to miss.
-  # A look-alike with a query string simply bypasses the Worker (harmless —
-  # same passthrough behavior as before this route existed). Adding the next
-  # pushed path is a one-line addition here + one object-literal entry in
-  # EDGE_PUSHED_FILES, no other code change.
-  { pattern = "frontaliereticino.ch/sitemap-blog-ch.xml", zone_name = "frontaliereticino.ch" },
+  # locale-router.js EDGE_PUSHED_FILES). Adding the next pushed path is a
+  # one-line addition here + one object-literal entry in EDGE_PUSHED_FILES, no
+  # other code change.
+  #
+  # WILDCARD, and the reason is DIAGNOSTIC rather than traffic (this is the one
+  # place on this list where those differ). These routes carried no trailing `*`
+  # on the argument that "sitemap fetchers never append a query string, so there
+  # is no real traffic to miss" — the traffic half of which is still true and
+  # measured: Googlebot/GSC fetch these bare and get the Worker.
+  #
+  # What the old comment also claimed, and what is false, is that a query-string
+  # look-alike bypassing the Worker is HARMLESS. Bypassing does not reach the
+  # same bytes by another path — it reaches a DIFFERENT ORIGIN. Measured
+  # 2026-08-08 on /sitemap-topics-frontaliere.xml:
+  #
+  #   bare    → cache-control: public, max-age=300            (Worker → R2)
+  #   ?cb=1   → x-served-by: cache-mxp…, etag, max-age=600    (GitHub Pages)
+  #
+  # and the whole reason EDGE_PUSHED_FILES exists is that those two disagree:
+  # #4974 measured the Pages copy serving sitemap-blog.xml with 15230→0 hreflang
+  # alternates, and #5001 measured the apex topic sitemap announcing 36 page-N
+  # URLs no shard had while missing 32 every shard did. The two agree only in
+  # the window right after a full deploy; every fast publish reopens the gap.
+  #
+  # So without the wildcard, any cache-busted probe of these paths measures the
+  # copy we deliberately stopped serving, and reports it as the live one. That
+  # has already cost diagnosis time. The wildcard makes the routing independent
+  # of the query string, which is the only way a probe and a user can be
+  # guaranteed to be looking at the same file.
+  #
+  # Safe by construction, the same argument the /disiscrivi-* and section routes
+  # above already make: servePushedEdgeFile is an EXACT-match lookup on
+  # `EDGE_PUSHED_FILES[url.pathname]`, so a look-alike like
+  # /sitemap-blog-ch.xml.bak matches this CF route, misses the table, and falls
+  # through the dispatch chain to the very same apex passthrough that serves it
+  # today. Fail-open on an R2 miss/timeout is unchanged. The extra Worker
+  # invocations are negligible and, since the account moved to Workers Paid (see
+  # the header note), volume is no longer a scoping constraint.
+  { pattern = "frontaliereticino.ch/sitemap-blog-ch.xml*", zone_name = "frontaliereticino.ch" },
   # The other three apex sitemaps, registered for CORRECTNESS rather than
   # freshness (issue #4974): measured live against the exact commit the last
   # successful deploy built, the passthrough origin serves each of them stripped
   # of ALL its hreflang alternates — blog 15230→0, glossario 210→0, news 50→0 —
   # while /sitemap-blog-ch.xml above, served from this same edge origin, is
-  # byte-identical to its committed copy. Same no-wildcard rationale as above.
+  # byte-identical to its committed copy. Same wildcard rationale as above —
+  # and these three are the sharpest case for it, since the origin the query
+  # string falls back to is precisely the one measured to strip the alternates.
   # sitemap-pages.xml is deliberately NOT here: it loses some (1480→190), not
   # all, which is a different signature.
-  { pattern = "frontaliereticino.ch/sitemap-blog.xml", zone_name = "frontaliereticino.ch" },
-  { pattern = "frontaliereticino.ch/sitemap-glossario.xml", zone_name = "frontaliereticino.ch" },
-  { pattern = "frontaliereticino.ch/sitemap-news.xml", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/sitemap-blog.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/sitemap-glossario.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/sitemap-news.xml*", zone_name = "frontaliereticino.ch" },
   # A route is REQUIRED, not just an EDGE_PUSHED_FILES entry: without one the
   # Worker never sees the request and the apex answers from Pages. Registering
   # /sitemap-articles-archive.xml in that map and uploading the R2 object left
   # it 404 for four hours — the object was there (200 on the CDN host), the
   # Worker was deployed with the entry, and nothing routed to it.
-  { pattern = "frontaliereticino.ch/sitemap-articles-archive.xml", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/sitemap-articles-archive.xml*", zone_name = "frontaliereticino.ch" },
   # Article topic hubs (#5001), one file per section. Same "a route is REQUIRED"
   # lesson as the line above — an EDGE_PUSHED_FILES entry without a route is a
-  # 404 that looks like a publish bug. No wildcard, same reason as every sitemap
-  # route here.
-  { pattern = "frontaliereticino.ch/sitemap-topics-frontaliere.xml", zone_name = "frontaliereticino.ch" },
-  { pattern = "frontaliereticino.ch/sitemap-topics-svizzera.xml", zone_name = "frontaliereticino.ch" },
+  # 404 that looks like a publish bug. Wildcard, same reason as every sitemap
+  # route here; /sitemap-topics-frontaliere.xml is the path the bare-vs-?cb=1
+  # origin split was measured on.
+  { pattern = "frontaliereticino.ch/sitemap-topics-frontaliere.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/sitemap-topics-svizzera.xml*", zone_name = "frontaliereticino.ch" },
   # Pushable-origin edge files, rollout step 2 (issue #4881 residual — llms.txt
-  # family, see locale-router.js EDGE_PUSHED_FILES). Same no-wildcard rationale
-  # as /sitemap-blog-ch.xml above: AI crawlers (GPTBot, ClaudeBot, PerplexityBot,
-  # Google-Extended, ...) fetch these bare paths with no query string, so there
-  # is no real traffic to miss. /en/llms.txt, /de/llms.txt, /fr/llms.txt need NO
-  # new route here — they already reach the Worker via the /en|/de|/fr routes
-  # above (LOCALE_RE) and are deliberately NOT in EDGE_PUSHED_FILES (see that
-  # table's comment for why).
-  { pattern = "frontaliereticino.ch/llms.txt", zone_name = "frontaliereticino.ch" },
-  { pattern = "frontaliereticino.ch/llms-full.txt", zone_name = "frontaliereticino.ch" },
-  { pattern = "frontaliereticino.ch/.well-known/llms.txt", zone_name = "frontaliereticino.ch" },
+  # family, see locale-router.js EDGE_PUSHED_FILES). Same wildcard rationale as
+  # /sitemap-blog-ch.xml above. AI crawlers (GPTBot, ClaudeBot, PerplexityBot,
+  # Google-Extended, ...) do fetch these bare, so as with the sitemaps the
+  # wildcard is not about winning back traffic — it is about the query-string
+  # variant not silently resolving to the other origin. /en/llms.txt,
+  # /de/llms.txt, /fr/llms.txt need NO new route here — they already reach the
+  # Worker via the /en|/de|/fr routes above (LOCALE_RE) and are deliberately NOT
+  # in EDGE_PUSHED_FILES (see that table's comment for why).
+  { pattern = "frontaliereticino.ch/llms.txt*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/llms-full.txt*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/.well-known/llms.txt*", zone_name = "frontaliereticino.ch" },
   # NOTE: the /assets/* /data/* /og/* CDN-proxy routes were removed (2026-06-10).
   # Since #1665 the shard locale HTML references those static paths CDN-absolute
   # (cdn.frontaliereticino.ch/...), so the browser fetches them straight from the

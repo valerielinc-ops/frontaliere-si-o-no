@@ -1948,6 +1948,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salario-medio-professioni-svizzera-2026-basilea.title': 'Salaire moyen professions Suisse 2026 canton de Bâle',
     'blog.article.salario-medio-professioni-svizzera-2026-basilea.excerpt': 'Taux AVS/AI/APG 5,3%, AD/AC 1,1% (cap CHF 148\'200), LAA 0,7–1,5%, LPP 7–18% dès 25 ans. Nouvel accord frontalier en vigueur depuis le 1er janvier 2024.',
     'blog.article.salario-medio-professioni-svizzera-2026-basilea.imageAlt': 'Vue aérienne de Bâle avec le fleuve Rhin et le pont Mittlere Brücke pendant l\'heure de pointe du matin',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.title': 'Deuxième pilier LPP Suisse guide 2026 canton Zurich',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.excerpt': 'Guide du 2e pilier LPP 2026 : cotisations 7-18% par âge, rachat lacunes, prélèvement capital et comparaison nationale en mettant l\'accent sur le canton de Zurich',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.imageAlt': 'Conseil prévoyante pour travailleurs frontaliers à Zurich avec documents LPP et drapeau suisse',
 };
 
 export default blogMetaChFr;
