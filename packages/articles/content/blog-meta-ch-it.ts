@@ -1948,6 +1948,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salario-medio-professioni-svizzera-2026-basilea.title': 'Salario medio professioni Svizzera 2026 canton Basilea',
     'blog.article.salario-medio-professioni-svizzera-2026-basilea.excerpt': 'Aliquote AVS/AI/IPG 5,3%, AD/AC 1,1% (cap CHF 148\'200), LAINF 0,7–1,5%, LPP 7–18% dal 25 anni. Nuovo Accordo Frontalieri in vigore dal 1 gennaio 2024.',
     'blog.article.salario-medio-professioni-svizzera-2026-basilea.imageAlt': 'Vista aerea di Basilea con il fiume Reno e il ponte Mittlere Brücke durante l\'ora di punta mattutina',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.title': 'Secondo pilastro LPP Svizzera guida 2026 canton Zurigo',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.excerpt': 'Guida al secondo pilastro LPP 2026: contributi 7-18% per età, riscatto lacune, prelievo capitale e confronto nazionale con focus sul canton Zurigo',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.imageAlt': 'Consulenza previdenziale per frontalieri in ufficio zurighese con documenti LPP e bandiera svizzera',
 };
 
 export default blogMetaChIt;
