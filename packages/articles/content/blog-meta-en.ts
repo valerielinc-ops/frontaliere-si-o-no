@@ -9367,6 +9367,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.title': 'Vocational training and retraining for border workers within 20 km',
     'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.excerpt': 'Recognised courses, funding and practical return for border workers within 20 km of the border. Focus on AVS, LPP, LAMal and new 2024 tax agreement.',
     'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.imageAlt': 'Cross-border worker in vocational training at a Ticino technical school with mountain view',
+    'blog.article.bollettino-frontaliere-2026-08-08.title': 'Cross-border daily brief – August 8, 2026: 1\'188 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-08-08.excerpt': 'Today\'s numbers (August 8, 2026) for cross-border commuters: border waits measured this morning, the cheapest fuel municipalities, the CHF–EUR rate and new Swiss job listings. Proprietary monitoring, updated daily.',
+    'blog.article.bollettino-frontaliere-2026-08-08.imageAlt': 'The day\'s numbers for cross-border commuters – August 8, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
 };
 
 export default blogMetaEn;
