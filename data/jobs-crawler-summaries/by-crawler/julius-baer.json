@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-08-07T21:45:01.015Z",
-  "total": 85,
+  "generatedAt": "2026-08-08T09:48:26.285Z",
+  "total": 84,
   "newCount": 1,
   "updatedCount": 83,
-  "removedCount": 2,
-  "unchangedCount": 1,
-  "durationMs": 57382,
-  "avgDurationMs": 57382,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 53031,
+  "avgDurationMs": 53031,
   "durationHistory": [
-    57382
+    53031
   ],
   "newJobs": [
     {
@@ -1107,86 +1107,6 @@
   ],
   "removedJobs": [
     {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Compliance-Working-Student---Monitoring---Control-Execution-60---80---f-m-d-_r-19017-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Compliance-Working-Student---Monitoring---Control-Execution-60---80---f-m-d-_r-19017-2",
-      "title": "Compliance Working Student – Monitoring & Control Execution 60 - 80% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "compliance-working-student-monitoring-control-execution-60-80-f-m-d-julius-baer",
-      "category": "risk",
-      "datePosted": "2026-07-03",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "PART_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-07-03T22:08:33.634Z",
-      "salaryMin": 58800,
-      "salaryMax": 89200,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Platform-Engineer---Runtime-Platform-and-Cloud-Development-Environment-100---f-m-d-_r-18086-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Platform-Engineer---Runtime-Platform-and-Cloud-Development-Environment-100---f-m-d-_r-18086-1",
-      "title": "Platform Engineer – .NET Runtime Platform and Cloud Development Environment 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "platform-engineer-net-runtime-platform-and-cloud-development-environment-100-f-m-d-julius-baer",
-      "category": "technology",
-      "datePosted": "2026-04-16",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
-  "unchangedJobs": [
-    {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Compliance-Specialist---Conduct-Framework-Employee-Compliance--100---f-m-d-_r-18578-1",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Compliance-Specialist---Conduct-Framework-Employee-Compliance--100---f-m-d-_r-18578-1",
       "title": "Junior Compliance Specialist - Conduct Framework Employee Compliance 100% (f/m/d)",
@@ -1225,5 +1145,6 @@
         "completeness": 14
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
