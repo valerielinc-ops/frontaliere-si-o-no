@@ -9356,6 +9356,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.calo-frontalieri-italiani-ticino.title': 'Calo frontalieri italiani in Ticino: i dati dell\'UST',
     'blog.article.calo-frontalieri-italiani-ticino.excerpt': 'I dati UST mostrano un calo dello 0,6% dei frontalieri in Ticino e dell\'1,1% per gli italiani tra aprile e giugno rispetto al 2025.',
     'blog.article.calo-frontalieri-italiani-ticino.imageAlt': 'Vista del confine tra Italia e Svizzera a Chiasso con flussi di frontalieri',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.title': 'Shifting e famiglia: due film dal Locarno Festival',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.excerpt': 'Le recensioni di \'Los días libres\' di Lucila Mariani e \'Ego Reach We All\' del ghanese Amartei Armar.',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.imageAlt': 'Lungolago di Locarno al tramonto con il Gran Hotel e le montagne sullo sfondo',
 };
 
 export default blogMetaIt;
