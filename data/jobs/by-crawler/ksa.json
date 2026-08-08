@@ -2019,7 +2019,7 @@
         "it": "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau",
         "en": "care-internship-independent-of-training-medicine-kantonsspital-aarau-ksa-aarau",
         "de": "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch",
-        "fr": "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
+        "fr": "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2061,7 +2061,8 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch",
-        "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau"
+        "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau",
+        "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2069,7 +2070,7 @@
           "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch"
+          "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "needsRetranslation": true,
@@ -5841,26 +5842,25 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
-      "previousSlugsByLocale": {
-        "de": [
-          "pflegeexpertin-pflegeexperte-ksa-ch-9ztkci",
-          "pflegeexpertin-pflegeexperte-ksa-ch"
-        ],
-        "it": [
-          "pflegeexpertin-pflegeexperte-ksa-ch",
-          "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau"
-        ],
-        "fr": [
-          "pflegeexpertin-pflegeexperte-ksa-ch"
-        ]
-      },
       "previousSlugs": [
         "pflegeexpertin-pflegeexperte-ksa-ch",
         "pflegeexpertin-pflegeexperte-ksa-ch-9ztkci",
         "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-ksa-ch",
+          "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau"
+        ],
+        "de": [
+          "pflegeexpertin-pflegeexperte-ksa-ch-9ztkci",
+          "pflegeexpertin-pflegeexperte-ksa-ch"
+        ],
+        "fr": [
+          "pflegeexpertin-pflegeexperte-ksa-ch"
+        ]
+      },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5872,7 +5872,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-d4cac2401a08",
@@ -6756,7 +6757,6 @@
         "med-assistente-pratico-kantonsspital-aarau-ksa-aarau-ca1a26"
       ],
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6768,7 +6768,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b17df214a77f",
@@ -6819,11 +6820,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-ksa-ch",
+        "pflegeexpertin-pflegeexperte-ksa-ch-9ztiyo",
+        "care-expert-care-expert-kantonsspital-aarau-ksa-aarau",
+        "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau-4b8fef",
+        "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "pflegeexpertin-pflegeexperte-ksa-ch-9ztiyo",
-          "pflegeexpertin-pflegeexperte-ksa-ch"
-        ],
         "it": [
           "pflegeexpertin-pflegeexperte-ksa-ch",
           "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau-4b8fef"
@@ -6834,17 +6838,13 @@
         ],
         "fr": [
           "pflegeexpertin-pflegeexperte-ksa-ch"
+        ],
+        "de": [
+          "pflegeexpertin-pflegeexperte-ksa-ch-9ztiyo",
+          "pflegeexpertin-pflegeexperte-ksa-ch"
         ]
       },
-      "previousSlugs": [
-        "pflegeexpertin-pflegeexperte-ksa-ch",
-        "pflegeexpertin-pflegeexperte-ksa-ch-9ztiyo",
-        "care-expert-care-expert-kantonsspital-aarau-ksa-aarau",
-        "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau-4b8fef",
-        "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau"
-      ],
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6856,7 +6856,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-78f441305955",

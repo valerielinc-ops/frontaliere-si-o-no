@@ -11398,5 +11398,119 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-08T11:40:47.220Z",
+    "label": "before",
+    "total": 26804,
+    "needsRetranslation": 1175,
+    "suppressed": 22,
+    "incomplete": 109,
+    "complete": 26695,
+    "missingByLocale": {
+      "it": 46,
+      "en": 36,
+      "de": 60,
+      "fr": 54
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 40
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 10
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 8
+      },
+      {
+        "company": "Two Spice AG",
+        "pending": 4
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 3
+      },
+      {
+        "company": "Hans Ziegler AG Hauptsitz",
+        "pending": 2
+      },
+      {
+        "company": "Etat de Fribourg",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-08T13:18:19.618Z",
+    "label": "after",
+    "total": 26804,
+    "needsRetranslation": 548,
+    "suppressed": 22,
+    "incomplete": 107,
+    "complete": 26697,
+    "missingByLocale": {
+      "it": 46,
+      "en": 36,
+      "de": 60,
+      "fr": 54
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 40
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 10
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 8
+      },
+      {
+        "company": "Two Spice AG",
+        "pending": 4
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 3
+      },
+      {
+        "company": "Hans Ziegler AG Hauptsitz",
+        "pending": 2
+      },
+      {
+        "company": "Etat de Fribourg",
+        "pending": 2
+      }
+    ]
   }
 ]

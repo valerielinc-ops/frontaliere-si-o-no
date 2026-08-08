@@ -742,7 +742,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:08:07.552Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -754,7 +753,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-58fd221ee193",
@@ -2184,7 +2184,6 @@
         ]
       },
       "firstSeenAt": "2026-06-13T22:13:04.763Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2196,7 +2195,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-028827099c68",
@@ -4123,7 +4123,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T21:54:07.164Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4135,7 +4134,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-5baac33c2903",
