@@ -2772,7 +2772,7 @@
       "slug": "stv-branch-manager-in-denner-ag-winterthur",
       "slugByLocale": {
         "it": "stv-branch-manager-in-denner-ag-winterthur",
-        "en": "stv-branch-manager-in-denner-winterthur",
+        "en": "stv-branch-manager-in-denner-ag-winterthur",
         "de": "stv-filialleiter-in-denner-ag-winterthur-70fga1",
         "fr": "directeur-de-succursale-stv-in-denner-ag-winterthur"
       },
@@ -2830,12 +2830,20 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-08-08T10:04:25.558Z",
-      "previousSlugs": [
-        "stv-filialleiter-in-denner-winterthur",
-        "stv-filialleiter-in-denner",
-        "directeur-de-succursale-stv-in-denner-winterthur",
-        "stv-branch-manager-in-denner-winterthur"
-      ],
+      "salaryMin": 117000,
+      "salaryMax": 180000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 117000,
+          "maxValue": 180000,
+          "unitText": "YEAR"
+        }
+      },
+      "country": "CH",
+      "firstSeenAt": "2026-08-07T10:12:28.866Z",
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner",
@@ -2852,21 +2860,13 @@
           "directeur-de-succursale-stv-in-denner-winterthur"
         ]
       },
-      "firstSeenAt": "2026-08-07T10:12:28.866Z",
-      "needsRetranslation": true,
-      "salaryMin": 117000,
-      "salaryMax": 180000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 117000,
-          "maxValue": 180000,
-          "unitText": "YEAR"
-        }
-      },
-      "country": "CH"
+      "previousSlugs": [
+        "stv-filialleiter-in-denner-winterthur",
+        "stv-filialleiter-in-denner",
+        "directeur-de-succursale-stv-in-denner-winterthur",
+        "stv-branch-manager-in-denner-winterthur"
+      ],
+      "needsRetranslation": true
     }
   ]
 }
