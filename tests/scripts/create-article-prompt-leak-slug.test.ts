@@ -23,6 +23,19 @@ import path from 'node:path';
  * slugs), and no NEW article ships with such a slug. The four already live are
  * deliberately excluded — renaming an indexed URL costs more than it recovers,
  * and a slug migration in this repo has already lost 13% of a cluster once.
+ *
+ * ── Updated for issue #5334 ──────────────────────────────────────────────
+ *
+ * The first version of the guard knew one literal, `^kebab-case-`, which was
+ * enough for the four slugs that had already leaked and nothing else: the same
+ * instruction reworded ("lowercase, hyphen-separated, max 40 chars") leaks
+ * different words in a different position and walked straight through. The
+ * pattern list now lives in `scripts/lib/slug-prompt-leak-guard.mjs`, shared by
+ * the generator, the exported slug derivation and `audit-slug-prompt-leaks.mjs`,
+ * and the leak is a hard THROW before the first file write rather than a strip
+ * that only ever ran on the AI path. Behavioural coverage of the list itself is
+ * in `tests/article-slug-prompt-leak-guard.test.ts`; what stays here is the
+ * wiring — that create-article.mjs actually calls it.
  */
 
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -40,10 +53,12 @@ describe('article slugs never carry the prompt placeholder (#4974)', () => {
   it('create-article.mjs strips the leak from the id', () => {
     expect(
       createArticle,
-      'the id guard (PROMPT_ID_LEAK_RX) is gone — a model echoing the schema ' +
-        'placeholder would publish it as a permanent URL again',
-    ).toMatch(/PROMPT_ID_LEAK_RX/);
-    expect(createArticle).toMatch(/kebab\[-_\]\?case/);
+      'the id guard is gone — a model echoing the schema placeholder would ' +
+        'publish it as a permanent URL again',
+    ).toContain("from './lib/slug-prompt-leak-guard.mjs'");
+    const idGuard = createArticle.slice(createArticle.indexOf('The prompt shows the id field as'));
+    expect(idGuard.slice(0, 2200)).toMatch(/findSlugPromptLeak\(data\.id\)/);
+    expect(idGuard.slice(0, 2200)).toMatch(/stripSlugPromptLeak\(data\.id\)/);
   });
 
   it('create-article.mjs strips the leak from the per-locale slugs', () => {
@@ -51,9 +66,29 @@ describe('article slugs never carry the prompt placeholder (#4974)', () => {
     // come straight from the model and need their own.
     const sanitizer = createArticle.slice(createArticle.indexOf('Sanitize ALL locale slugs'));
     expect(
-      sanitizer.slice(0, 1600),
-      'the en/de/fr slug sanitizer no longer strips `kebab-case-`',
-    ).toContain("replace(/^kebab-case-/, '')");
+      sanitizer.slice(0, 1800),
+      'the en/de/fr slug sanitizer no longer strips the prompt template',
+    ).toContain('stripSlugPromptLeak(data.slugs[locale])');
+  });
+
+  it('refuses to WRITE a contaminated slug, not merely to strip one', () => {
+    // The strip is a courtesy: it recovers a good article whose id was spoiled.
+    // The guarantee is the throw, and it has to sit in modifyRouterTs because
+    // that is the first file writer on BOTH registration paths — main()'s AI
+    // flow and registerArticleFiles() for the journalist/digest callers.
+    // Guarding one caller would leave the other exactly as unprotected as
+    // everything was when the four leaked slugs shipped.
+    const writer = createArticle.slice(createArticle.indexOf('function modifyRouterTs(data) {'));
+    expect(
+      writer.slice(0, 2000),
+      'modifyRouterTs no longer asserts on the slug — a leak can reach routerBlogData.ts again',
+    ).toContain('assertNoSlugPromptLeak');
+
+    const derive = createArticle.slice(createArticle.indexOf('export function deriveAndSanitizeArticleSlugs'));
+    expect(
+      derive.slice(0, 2000),
+      'the exported derivation (publish-journalist-article.mjs calls it directly) no longer asserts',
+    ).toContain('assertNoSlugPromptLeak');
   });
 
   it('no new article ships with a placeholder slug', () => {

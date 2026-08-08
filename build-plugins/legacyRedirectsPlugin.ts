@@ -23,6 +23,7 @@ import {
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { loadJobsJson } from './shared/loadJobsJson';
 import cantonSlugFile from '../data/canton-url-slugs.json';
+import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
 
 /** Hreflang entry extracted from sitemap XML. */
 interface HreflangEntry {
@@ -399,6 +400,12 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  let count = 0;
  let compatCount = 0;
  let cathedralCount = 0;
+ // Prefixes routed to a shard this build does not push (see the docblock on
+ // unshippableSectionPrefixes). Computed ONCE per build, not per redirect:
+ // the flags cannot change mid-closeBundle, and a per-entry read would invite
+ // exactly the kind of drift the derived-from-SECTION_ROUTES set avoids.
+ const unshippablePrefixes = unshippableSectionPrefixes();
+ let skippedUnshippable = 0;
  // `/cerca-lavoro-ticino/azienda-{slug}/` (and per-locale equivalents) is the
  // RESERVED company-hub namespace (see isCompanyHubNamespaceSlug). A job whose
  // OWN slug happens to start with that prefix must not get a cathedral bridge
@@ -479,6 +486,12 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  const from = withSlash(fromRaw);
  const to = withSlash(toRaw);
  if (from === to || from === '/') continue;
+
+ // Do not emit a bridge onto a prefix this build cannot ship: the file
+ // would be written, deleted by the shard rehydrate, and never served.
+ // BEFORE mkdirSync on purpose — emitting nothing must also leave no
+ // empty directory behind for a dist-walking audit to trip over.
+ if (isUnshippablePath(from, unshippablePrefixes)) { skippedUnshippable++; continue; }
 
  const outDir = path.join(distDir, from.slice(1));
  fs.mkdirSync(outDir, { recursive: true });
@@ -607,6 +620,10 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // Skip job paths — handled by jobsSeoPagesPlugin with enriched content, EXCEPT
  // search-combo/pagination shapes which no plugin ever bridges (see comment above).
  if (isJobPath(from) && !isCompatResolvableUnderJobPrefix(from)) { skippedJobPaths++; continue; }
+ // Same unshippable-prefix gate as the static table above. The compat store
+ // is fed by Search Console, which reports the article URLs too, so this
+ // loop can land on the article sections exactly like the static map can.
+ if (isUnshippablePath(from, unshippablePrefixes)) { skippedUnshippable++; continue; }
  const outDir = path.join(distDir, from.slice(1));
  fs.mkdirSync(outDir, { recursive: true });
  // Skip if a higher-priority plugin (e.g. soft-landing pages) already generated this page
@@ -631,6 +648,14 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  }
  if (compatCount > 0) {
  console.log(`\x1b[36m[legacy-redirects]\x1b[0m Generated ${compatCount} Search Console compatibility pages${skippedJobPaths > 0 ? ` (skipped ${skippedJobPaths} job paths → handled by jobs plugin)` : ''}`);
+ }
+ // Always logged when it fires, never silently: a bridge that is not emitted
+ // is a redirect that does not exist, and the table still lists it. #5327 is
+ // the whole reason this line is here rather than an unremarked `continue`.
+ if (skippedUnshippable > 0) {
+ console.log(
+ `\x1b[33m[legacy-redirects]\x1b[0m Skipped ${skippedUnshippable} bridge page(s) under BUILD_EMIT_SKIP section prefixes (${unshippablePrefixes.join(', ')}) — this build does not push those shards, so an emitted bridge there is never served. The table entries stay; only the emission is skipped.`,
+ );
  }
    },
  },

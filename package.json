@@ -253,6 +253,7 @@
     "audit:max-bfs-depth:rebaseline": "node scripts/audit-bfs-depth.mjs --write-baseline=data/bfs-depth-baseline.json",
     "audit:footer-root-presence": "node scripts/audit-footer-root-presence.mjs",
     "audit:no-merge-markers": "node scripts/audit-no-merge-markers.mjs",
+    "audit:slug-prompt-leaks": "node scripts/audit-slug-prompt-leaks.mjs",
     "lint:gha-node-runtime": "node scripts/lint-gha-node-runtime.mjs",
     "lint:workflow-input-injection": "node scripts/ci/check-workflow-input-injection.mjs",
     "lint:hardcoded-locale-segments": "node scripts/ci/check-hardcoded-locale-segments.mjs",

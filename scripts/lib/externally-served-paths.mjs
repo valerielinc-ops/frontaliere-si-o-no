@@ -61,12 +61,27 @@ export const EXTERNALLY_SERVED_PREFIXES = SECTION_ROUTES
  *
  * Matches the prefix only at a segment boundary: `/articoli-frontaliere` and
  * `/articoli-frontaliere/foo/` match, `/articoli-frontaliere-altro/` does not.
+ *
+ * `${prefix}.html` counts too. `matchSection`
+ * (infra/cloudflare-worker/locale-router.js) claims the flat root explicitly —
+ * `pathname === `${route.prefix}.html`` — so the edge serves it from the shard
+ * whatever this build thinks. Callers here are `validate-sitemap-pages.mjs`,
+ * `validate-sitemap-links.mjs` and `audit-hreflang.mjs`: without this case a
+ * flat `/articoli-frontaliere.html` reads as served BY THIS BUILD, so the
+ * validators look for a file that is not there and fail the dist — blocking
+ * publish for a URL the shard was always going to answer. The hreflang audit
+ * gets the mirror-image error and passes something it should have flagged.
+ *
+ * Third instance of one blind spot in a single session: `dist/<locale>.html`
+ * (a locale classifier matching `rel === 'en'` and `rel.startsWith('en/')` but
+ * not `en.html`), then `isUnshippablePath`, now this. A prefix test sees the
+ * directory and misses its flat twin unless the twin is spelled out.
  */
 export function isExternallyServedPath(pathname) {
   if (typeof pathname !== 'string' || pathname.length === 0) return false;
   const p = pathname.startsWith('/') ? pathname : `/${pathname}`;
   return EXTERNALLY_SERVED_PREFIXES.some(
-    (prefix) => p === prefix || p.startsWith(`${prefix}/`),
+    (prefix) => p === prefix || p === `${prefix}.html` || p.startsWith(`${prefix}/`),
   );
 }
 

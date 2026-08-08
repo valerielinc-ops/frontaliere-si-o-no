@@ -813,8 +813,12 @@ describe('topic sitemap is announced where crawlers look', () => {
   it('routes both paths to the Worker — a table entry without a route is a 404', () => {
     // Learned on /sitemap-articles-archive.xml: entry present, object in R2,
     // and four hours of 404 because nothing routed the request to the Worker.
+    // The trailing `*` is part of the contract: without it a query string
+    // bypasses the Worker onto the Pages origin — the stale full-build snapshot
+    // this sitemap was moved to R2 to stop serving. See
+    // tests/locale-router-edge-pushed-files.test.ts for the measurement.
     for (const section of TOPIC_HUB_SECTIONS) {
-      expect(wrangler).toContain(`frontaliereticino.ch${topicSitemapPathname(section)}"`);
+      expect(wrangler).toContain(`frontaliereticino.ch${topicSitemapPathname(section)}*"`);
     }
   });
 
