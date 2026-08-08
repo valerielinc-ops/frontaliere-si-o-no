@@ -349,6 +349,27 @@ export const TOPIC_HUB_SEGMENT: Record<TopicLocale, string> = {
   fr: 'sujets',
 };
 
+/**
+ * Minimum articles for a topic hub to be indexable in a given (section,
+ * locale). Below it the page is still emitted — as a `noindex,follow` bridge —
+ * so the URL never 404s, but it does not enter the sitemap.
+ *
+ * 8 is the same floor the cluster measurement used: it is the point below
+ * which a hub is a list too short to be worth a crawl of its own, while still
+ * being low enough that real but small topics (energy/fuel on the svizzera
+ * section: 8 articles) keep a live hub.
+ *
+ * Lives HERE (issue #5414) — not in `build-plugins/topicClusterHubsData.ts`,
+ * which re-exports it — because the floor is part of "which topic hubs exist
+ * as indexable pages", the truth this taxonomy pins. The archive pages'
+ * "Argomenti" nav (`articleHubPagesPlugin.ts`) must link exactly the eligible
+ * hubs and, being engine code, cannot import from `build-plugins/**` (the
+ * confinement `tests/packages-articles-confinement.test.ts` proves). A second
+ * literal `8` on the engine side would be the AGENTS.md #6 drift that links
+ * noindex bridges the day one copy moves.
+ */
+export const TOPIC_HUB_MIN_ARTICLES = 8;
+
 /** Lookup by stable key. */
 export const TOPIC_CLUSTER_BY_KEY: ReadonlyMap<string, TopicClusterDefinition> = new Map(
   TOPIC_CLUSTERS.map((t) => [t.key, t]),

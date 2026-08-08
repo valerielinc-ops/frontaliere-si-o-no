@@ -182,3 +182,127 @@ describe('evaluateBfsGate — new non-baseline shard (#1095 item 2)', () => {
     expect(unbaselined).toHaveLength(0);
   });
 });
+
+/**
+ * Registration of an already-live warning shard (#5414, run 31259344953).
+ *
+ * `sitemap-health-facilities.xml` shipped 388/436 URLs (88.9908%) below crawl
+ * depth as an UNBASELINED shard: every run warned, and the first organic
+ * worsening past 90% would have tripped the new-shard hard-fail on a tier
+ * that is not new at all. Registering the measured floor moves it under the
+ * rate-ratchet. The gate must hold in BOTH directions around that move:
+ * registered-and-flat is green; a real worsening past cap+minAbsDelta on a
+ * registered shard (shown on sitemap-salary-stats.xml's real numbers,
+ * registered in the same batch) is red. The two topics shards stay OUT of the
+ * baseline on purpose — the hard-fail is exactly what forbids freezing a
+ * 100%-buried tier (#1095), and the last case pins that it still fires.
+ */
+describe('evaluateBfsGate — registered warning shards (#5414, run 31259344953)', () => {
+  const HEALTH = 'sitemap-health-facilities.xml';
+  const healthRow: SitemapRow = { total: 436, atDepthGtMax: 388, deepest: 8 };
+
+  it('registered shard at its measured floor → no buriedNewShards, no unbaselined, no regression', () => {
+    const baseline = rateBaseline({ [HEALTH]: healthRow });
+    const { regressions, unbaselined, buriedNewShards } = evaluate({
+      perSitemap: { [HEALTH]: healthRow },
+      baseline,
+    });
+    expect(regressions).toHaveLength(0);
+    expect(unbaselined).toHaveLength(0);
+    expect(buriedNewShards).toHaveLength(0);
+    // The registered floor is the real measured rate, to 4 decimals — the
+    // exact value data/bfs-depth-baseline.json carries.
+    expect((baseline as { perSitemap: Record<string, { ratePct: number }> }).perSitemap[HEALTH].ratePct).toBe(88.9908);
+  });
+
+  it('the same shard UNregistered would sit one worsening away from the 90% hard-fail', () => {
+    // What registration protects against: not the current 88.99% (below the
+    // NEW_SHARD_BURIED_RATE_FAIL threshold)…
+    const baseline = rateBaseline({ 'sitemap-other.xml': row(100, 0) });
+    const before = evaluate({ perSitemap: { [HEALTH]: healthRow }, baseline });
+    expect(before.buriedNewShards).toHaveLength(0);
+    expect(before.unbaselined.find((u) => u.name === HEALTH)?.ratePct).toBe(88.99);
+    // …but the first worsening past 90% (393/436 = 90.14%): hard-fail.
+    const after = evaluate({
+      perSitemap: { [HEALTH]: { total: 436, atDepthGtMax: 393, deepest: 8 } },
+      baseline,
+    });
+    expect(after.buriedNewShards).toHaveLength(1);
+    expect(after.buriedNewShards[0].name).toBe(HEALTH);
+  });
+
+  it('registered shard worsening past cap + minAbsDelta → regression (real salary-stats floor)', () => {
+    // sitemap-salary-stats.xml registered at 12/96 = 12.5%. rateCap =
+    // 12.5 + min(12.5*0.15, 8) + 5 = 19.375%. A real internal-link regression
+    // burying 60/96 (62.5%) with +48 offenders (> minAbsDelta 20) must FAIL.
+    // (health-facilities cannot demonstrate THIS arm: at a 88.9908% floor the
+    // computed cap lands above 100%, so the rate comparison can never fire.
+    // That saturation used to make such a shard immune; it is now covered by
+    // the count-only arm — see the two cap-saturation tests below.)
+    const baseline = rateBaseline({ 'sitemap-salary-stats.xml': row(96, 12, 4) });
+    const { regressions } = evaluate({
+      perSitemap: { 'sitemap-salary-stats.xml': row(96, 60, 6) },
+      baseline,
+    });
+    expect(regressions).toHaveLength(1);
+    expect(regressions[0].name).toBe('sitemap-salary-stats.xml');
+    expect(regressions[0].prev).toBe(12);
+    expect(regressions[0].current).toBe(60);
+  });
+
+  it('registered shard within tolerance does NOT regress (salary-stats, +minAbsDelta-1 at flat-ish rate)', () => {
+    // Same registered floor, small worsening: 12 → 18 offenders (rate 18.75%,
+    // under the 19.375% cap) — the ratchet must stay green so the registration
+    // is a floor, not a tripwire.
+    const baseline = rateBaseline({ 'sitemap-salary-stats.xml': row(96, 12, 4) });
+    const { regressions } = evaluate({
+      perSitemap: { 'sitemap-salary-stats.xml': row(96, 18, 4) },
+      baseline,
+    });
+    expect(regressions).toHaveLength(0);
+  });
+
+  it('cap-saturated floor: a real worsening still FAILS via the count arm (health-facilities)', () => {
+    // At an 88.9908% floor the cap computes to 101.99% — above any achievable
+    // rate — so the rate arm alone would let this shard bury EVERY remaining
+    // URL and stay green. Measured on 4 real shards (comuni-frontiera 95%,
+    // weather / weather-alerts 88.89%, health-facilities 88.99%). When the cap
+    // saturates the gate falls back to the absolute count, which is the signal
+    // that still means something at that rate: 388 → 436 buried (+48) fails.
+    const baseline = rateBaseline({ [HEALTH]: healthRow });
+    const { regressions } = evaluate({
+      perSitemap: { [HEALTH]: { total: 436, atDepthGtMax: 436, deepest: 9 } },
+      baseline,
+    });
+    expect(regressions).toHaveLength(1);
+    expect(regressions[0].name).toBe(HEALTH);
+    expect(regressions[0].current).toBe(436);
+  });
+
+  it('cap-saturated floor: growth under the noise floor still PASSES (no new organic red)', () => {
+    // The count floor stays in AND, so the fallback cannot turn ordinary churn
+    // into a failing build: +19 (< minAbsDelta 20) must stay green. This is
+    // what keeps the four already-saturated shards from going red on the very
+    // next run — measured deltas there are 0, 0, -8, -8.
+    const baseline = rateBaseline({ [HEALTH]: healthRow });
+    const { regressions } = evaluate({
+      perSitemap: { [HEALTH]: { total: 436, atDepthGtMax: 388 + 19, deepest: 8 } },
+      baseline,
+    });
+    expect(regressions).toHaveLength(0);
+  });
+
+  it('a topics-like 100%-buried shard NOT in the baseline still hard-fails — registering it is forbidden', () => {
+    // sitemap-topics-frontaliere.xml, run 31259344953: 412/412 unreachable.
+    // It must stay out of data/bfs-depth-baseline.json (issue #1095, baseline
+    // _comment): the fix is internal links from a hub at depth ≤ 3, and this
+    // hard-fail is the mechanism that keeps it that way.
+    const baseline = rateBaseline({ [HEALTH]: healthRow });
+    const { buriedNewShards } = evaluate({
+      perSitemap: { 'sitemap-topics-frontaliere.xml': row(412, 412, 0) },
+      baseline,
+    });
+    expect(buriedNewShards).toHaveLength(1);
+    expect(buriedNewShards[0].ratePct).toBe(100);
+  });
+});

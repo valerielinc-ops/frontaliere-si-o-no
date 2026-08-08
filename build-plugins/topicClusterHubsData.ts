@@ -45,16 +45,13 @@ export const TOPIC_HUB_SECTIONS: readonly TopicHubSection[] = ['frontaliere', 's
 export const TOPIC_HUB_PAGE_SIZE = 24;
 
 /**
- * Minimum articles for a topic hub to be indexable in a given (section,
- * locale). Below it the page is still emitted — as a `noindex,follow` bridge —
- * so the URL never 404s, but it does not enter the sitemap.
- *
- * 8 is the same floor the cluster measurement used: it is the point below
- * which a hub is a list too short to be worth a crawl of its own, while still
- * being low enough that real but small topics (energy/fuel on the svizzera
- * section: 8 articles) keep a live hub.
+ * Minimum articles for an indexable topic hub. Moved into the engine's
+ * `topicTaxonomy.ts` (#5414) so the archive pages' "Argomenti" nav — engine
+ * code, forbidden from importing `build-plugins/**` by the confinement test —
+ * filters on the SAME floor this plugin renders bridges under. Re-exported
+ * here so every existing importer keeps resolving unchanged.
  */
-export const TOPIC_HUB_MIN_ARTICLES = 8;
+export { TOPIC_HUB_MIN_ARTICLES } from '../packages/articles/engine/topicTaxonomy';
 
 const LOCALE_PREFIX: Record<TopicHubLocale, string> = {
   it: '',

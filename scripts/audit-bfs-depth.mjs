@@ -457,7 +457,18 @@ export function evaluateBfsGate({ perSitemap, baseline, tol }) {
       // MORE likely to fire). Gating a bare rate spike from contraction would
       // deploy-block legitimate corpus shrink — a new organic false-fail, the
       // class #1604 removed. (Verified deferred-item #3, #1605.)
-      if (curRate > rateCap && extrapolateSampledCount(row.atDepthGtMax, SAMPLE_RATE) > prevOff + resolvedTol.minAbsDelta) {
+      // Cap saturo: sopra ~87% di rate a baseline il cap calcolato supera il
+      // 100%, quindi `curRate > rateCap` non può MAI essere vero e lo shard
+      // diventa immune — anche seppellendo il 100% delle sue URL. Misurato su
+      // 4 shard reali (comuni-frontiera 95% → cap 108%, weather e
+      // weather-alerts 88,89% → 101,89%, health-facilities 88,99% → 101,99%).
+      // In quel regime il segnale utile è il CONTEGGIO: le pagine appena
+      // sepolte, che la seconda condizione già misura. Non è un rilassamento —
+      // rende gated ciò che prima passava sempre; il floor +minAbsDelta resta
+      // in AND, quindi la crescita organica sotto il rumore continua a passare.
+      const capSaturated = rateCap >= 100;
+      const countGrew = extrapolateSampledCount(row.atDepthGtMax, SAMPLE_RATE) > prevOff + resolvedTol.minAbsDelta;
+      if (countGrew && (capSaturated || curRate > rateCap)) {
         regressions.push({ name, prev: prevOff, current: row.atDepthGtMax, deepest: row.deepest, prevRate: Number(prevRate.toFixed(3)), curRate: Number(curRate.toFixed(3)), rateCap: Number(rateCap.toFixed(3)) });
       }
     } else if (row.atDepthGtMax > prevOff) {

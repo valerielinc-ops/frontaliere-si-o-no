@@ -67,6 +67,12 @@ import {
   readBlogUrlSlugs,
 } from './shared/articleReaders';
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
+import {
+  TOPIC_CLUSTERS,
+  TOPIC_HUB_MIN_ARTICLES,
+  TOPIC_HUB_SEGMENT,
+} from './topicTaxonomy';
+import { assignArticlesToTopics } from './topicClusters';
 
 /** Alias kept so the extracted bodies below read exactly as they did upstream. */
 type HubLocale = ArticleLocale;
@@ -515,6 +521,148 @@ function buildHubClosingHtml(locale: HubLocale): string {
 // behaviour is unchanged and `render-article-hub-pages-narrow-vs-full` still
 // compares byte-for-byte.
 
+// ─── "Argomenti" nav on the `/tutti/` archives (issue #5414, Parte A) ───────
+//
+// The topic hubs (`/…/argomenti/<tema>/`, rendered by
+// `build-plugins/topicClusterHubsPlugin.ts` + fast publish) shipped with NO
+// incoming internal link from any page the BFS can reach: run 31259344953
+// measured sitemap-topics-frontaliere.xml 412/412 and sitemap-topics-svizzera
+// 120/120 unreachable from `/`. The archive pages sit at depth 1 (home xsHubs
+// block) and are re-rendered on every fast publish by the same producer that
+// renders the hubs — so the archive is the hub tier's natural depth-2 parent.
+//
+// The anchors derive from the SAME modules that decide which topic pages
+// exist: `topicTaxonomy.ts` (curated slugs — the URL space) and
+// `topicClusters.ts` (`assignArticlesToTopics` — the membership behind the
+// TOPIC_HUB_MIN_ARTICLES eligibility split that `topicClusterHubsPlugin.ts`
+// applies). Only ELIGIBLE topics are linked: below-floor topics render as
+// `noindex,follow` bridges, which the BFS audit does not propagate through
+// and the topic sitemaps do not announce — linking them would spend anchors
+// on pages that return no crawl equity.
+// `tests/article-hub-topics-nav.test.ts` pins href-for-href equality against
+// the URLs `topicClusterHubsPlugin` announces in its own section sitemap.
+
+/** Collapsed-nav summary label — mirrors `TOPIC_HUB_SEGMENT`, capitalised. */
+const TOPICS_NAV_LABEL: Record<HubLocale, string> = {
+  it: 'Argomenti',
+  en: 'Topics',
+  de: 'Themen',
+  fr: 'Sujets',
+};
+
+/** Lead-in for the sibling-section archive cross-link. */
+const TWIN_SEE_ALSO_LABEL: Record<HubLocale, string> = {
+  it: 'Vedi anche:',
+  en: 'See also:',
+  de: 'Siehe auch:',
+  fr: 'Voir aussi :',
+};
+
+/**
+ * Label of the cross-link pointing AT a section's archive. Same display names
+ * `SECTION_LABEL`/`SVIZZERA_ARTICLES_COPY` already use for those pages' own
+ * breadcrumbs, so the anchor text matches the destination's identity.
+ */
+const TWIN_ARCHIVE_LINK_LABEL: Record<HubLocale, Record<ArticleSection, string>> = {
+  it: { frontaliere: 'Articoli per frontalieri', svizzera: 'Articoli Svizzera' },
+  en: { frontaliere: 'Cross-border articles', svizzera: 'Switzerland Articles' },
+  de: { frontaliere: 'Grenzgänger-Artikel', svizzera: 'Schweiz-Artikel' },
+  fr: { frontaliere: 'Articles pour frontaliers', svizzera: 'Articles Suisse' },
+};
+
+/**
+ * Which topics carry an INDEXABLE hub for this section — the same
+ * `assignArticlesToTopics`-membership ≥ TOPIC_HUB_MIN_ARTICLES split
+ * `topicClusterHubsPlugin.ts`'s `renderTopicHubSectionCore` applies, on the
+ * same inputs: the Italian master corpus (membership is computed once, on one
+ * locale, by design — see `topicClusters.ts`), read through the same shared
+ * readers. `datePub` is inert for assignment (only `buildRelatedArticlesIndex`
+ * reads it) but is passed anyway so the input tuple stays field-for-field the
+ * plugin's.
+ *
+ * Exported for tests and for callers that want to precompute/override
+ * (`RenderArticleHubCoreArgs.eligibleTopicKeys`).
+ */
+export function computeEligibleTopicKeys(
+  fs: typeof fsT,
+  np: typeof npT,
+  rootDir: string,
+  section: ArticleSection,
+): ReadonlySet<string> {
+  const cfg = ARTICLE_SECTIONS[section];
+  const itArticles = readArticleSlugs(fs, np, rootDir, 'it', cfg.metaPrefix);
+  const itExcerpts = readArticleExcerpts(fs, np, rootDir, 'it', cfg.metaPrefix);
+  const dates = readArticleDates(fs, np, rootDir, cfg.registryFile);
+  const assignment = assignArticlesToTopics(
+    itArticles.map((a) => ({
+      articleId: a.slug,
+      title: a.title,
+      excerpt: itExcerpts.get(a.slug) ?? '',
+      datePub: dates.get(a.slug) ?? '',
+    })),
+    TOPIC_CLUSTERS.map((t) => ({ key: t.key, seedText: t.seedText })),
+  );
+  return new Set(
+    TOPIC_CLUSTERS.filter(
+      (t) => (assignment.byTopic.get(t.key)?.length ?? 0) >= TOPIC_HUB_MIN_ARTICLES,
+    ).map((t) => t.key),
+  );
+}
+
+/**
+ * Root-relative page-1 hrefs (+ localized labels) of the eligible topic hubs
+ * of one section+locale, in `TOPIC_CLUSTERS` order. Byte-compatible with
+ * `build-plugins/topicClusterHubsData.ts`'s `buildTopicHubPath(locale,
+ * section, key)` — both compose `<locale prefix>/<section indexSlug>/
+ * <TOPIC_HUB_SEGMENT>/<topic slug>/` from the same engine data.
+ */
+export function archiveTopicHubLinks(
+  section: ArticleSection,
+  locale: HubLocale,
+  eligibleTopicKeys: ReadonlySet<string>,
+): ReadonlyArray<{ href: string; label: string }> {
+  const prefix = locale === 'it' ? '' : `/${locale}`;
+  const indexSlug = ARTICLE_SECTIONS[section].indexSlug[locale];
+  return TOPIC_CLUSTERS.filter((t) => eligibleTopicKeys.has(t.key)).map((t) => ({
+    href: `${prefix}/${indexSlug}/${TOPIC_HUB_SEGMENT[locale]}/${t.slug[locale]}/`,
+    label: t.label[locale],
+  }));
+}
+
+/**
+ * The nav block itself: eligible-topic anchors under a collapsed
+ * `<details>` (same page-weight-conscious shape and `.hp` anchor class as the
+ * flat page ladder below — BFS and crawlers read `<a>` inside `<details>`
+ * regardless of `open`), plus the always-visible cross-link to the sibling
+ * section's archive in the same locale (the fix for the 21 unreachable
+ * `/…/swiss-articles/all/`-family URLs of sitemap-articles-archive.xml).
+ *
+ * Shared verbatim by BOTH archive producers — this package's core and
+ * `build-plugins/seoHubsPlugin.ts`'s deliberately-separate full-build copy —
+ * so the two cannot drift on which URLs they anchor
+ * (`tests/render-article-hub-pages-narrow-vs-full.test.ts` compares the
+ * whole page byte-for-byte).
+ */
+export function buildArchiveTopicsNavHtml(args: {
+  locale: HubLocale;
+  section: ArticleSection;
+  eligibleTopicKeys: ReadonlySet<string>;
+  /** Root-relative `/tutti/` path of the OTHER section, same locale. */
+  twinArchivePath: string;
+}): string {
+  const { locale, section, eligibleTopicKeys, twinArchivePath } = args;
+  const links = archiveTopicHubLinks(section, locale, eligibleTopicKeys);
+  const label = TOPICS_NAV_LABEL[locale];
+  const topicsBlock = links.length > 0
+    ? `<details class="s-Ery2Xe"><summary class="s-goeAUL">${label} (${links.length})</summary><div class="s-6_t7LY">${links
+        .map((l) => `<a href="${l.href}" class="hp">${esc(l.label)}</a>`)
+        .join('')}</div></details>`
+    : '';
+  const twinSection: ArticleSection = section === 'frontaliere' ? 'svizzera' : 'frontaliere';
+  const twinLink = `<p class="s-Sn0UIv">${esc(TWIN_SEE_ALSO_LABEL[locale])} <a class="s-7DS5hj" href="${twinArchivePath}">${esc(TWIN_ARCHIVE_LINK_LABEL[locale][twinSection])}</a></p>`;
+  return `<nav class="s-4nYHgH" aria-label="${label}">${topicsBlock}${twinLink}</nav>`;
+}
+
 interface BuildHtmlArgs {
   locale: HubLocale;
   hubKey: HubKeyName;
@@ -539,6 +687,15 @@ interface BuildHtmlArgs {
    * svizzera section.
    */
   sectionOverride?: ArticleSectionOverride;
+  /**
+   * Pre-rendered "Argomenti" nav + sibling-section cross-link
+   * ({@link buildArchiveTopicsNavHtml}), computed once per section+locale by
+   * {@link renderArticleHubPagesCore} and stamped on every page of the
+   * archive (#5414). Optional with an empty default so the site's full-build
+   * copy of `buildHtml` (which also serves jobs/sectors/companies) can share
+   * the same field shape.
+   */
+  topicsNavHtml?: string;
 }
 
 /**
@@ -572,7 +729,7 @@ function buildHtml(args: BuildHtmlArgs): string {
     hubLocales: HUB_LOCALES,
     articlesAllPaths,
   } = getSiteShell();
-  const { locale, hubKey, basePath, page, totalPages, pageItems, totalItems, hasSpaBundle, entryJs, entryCss, sectionOverride } = args;
+  const { locale, hubKey, basePath, page, totalPages, pageItems, totalItems, hasSpaBundle, entryJs, entryCss, sectionOverride, topicsNavHtml = '' } = args;
   // Global total (`totalItems`) only on page 1; on page ≥2 use this page's own
   // slice size (`pageItems.length` = JOBS_PAGE_SIZE for full pages, stable; the
   // last partial page still tracks its remainder, bounded to 1 page). The
@@ -767,6 +924,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
         ${itemsHtml}
       </section>
       ${pagination}
+      ${topicsNavHtml}
       ${proseAccordionHtml}
     </main>${railGutters(true).close}
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
@@ -921,6 +1079,13 @@ interface RenderArticleHubCoreArgs {
    * never drops it from another locale's alternate group.
    */
   readonly locales?: readonly HubLocale[];
+  /**
+   * Override the eligible-topic set the "Argomenti" nav links (#5414).
+   * Default: computed from the corpus via {@link computeEligibleTopicKeys} —
+   * the same membership/floor split `topicClusterHubsPlugin.ts` renders the
+   * hub-vs-bridge decision from. Tests inject a fixture set here.
+   */
+  readonly eligibleTopicKeys?: ReadonlySet<string>;
 }
 
 /**
@@ -977,6 +1142,18 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
   const archiveBases: Record<HubLocale, string> = isSvizzera
     ? svizzeraArticlesArchiveBasePaths()
     : { ...articlesAllPaths };
+  // The OTHER section's archive bases — the cross-link target (#5414). For
+  // frontaliere pages that is svizzera's derived bases; for svizzera pages it
+  // is the shell's own frontaliere `/tutti/` map (identical to what the site
+  // build's `HUB_SLUGS[locale].articlesAll` resolves to).
+  const twinArchiveBases: Record<HubLocale, string> = isSvizzera
+    ? { ...articlesAllPaths }
+    : svizzeraArticlesArchiveBasePaths();
+  // One membership pass per section render, shared by all locales — the
+  // eligible set is locale-independent by construction (membership is
+  // computed once, on the Italian corpus; see topicClusters.ts).
+  const eligibleTopicKeys = args.eligibleTopicKeys
+    ?? computeEligibleTopicKeys(fs, np, rootDir, section);
   const pageSize = ARTICLES_PAGE_SIZE;
   // Canonical union slug set, computed once via the SHARED helper that
   // `staticPagesPlugin.ts`'s page-N navigator also uses — so the emitted
@@ -988,6 +1165,12 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
     const basePath = archiveBases[locale];
     const prefix = locale === 'it' ? '' : `/${locale}`;
     const blogSection = cfg.indexSlug[locale];
+    const topicsNavHtml = buildArchiveTopicsNavHtml({
+      locale,
+      section,
+      eligibleTopicKeys,
+      twinArchivePath: twinArchiveBases[locale],
+    });
 
     // Master list = UNION of `{metaPrefix}-it.ts` slugs and `{slugConst}`
     // keys — same orphan-avoidance contract for both sections.
@@ -1079,7 +1262,7 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
       const html = buildHtml({
         locale, hubKey: 'articles', basePath, page, totalPages,
         pageItems: slice, totalItems: total, hasSpaBundle, entryJs, entryCss,
-        sectionOverride,
+        sectionOverride, topicsNavHtml,
       });
       const canonicalPath = paginatedPath(basePath, page);
       const relPath = np.join(canonicalPath.slice(1), 'index.html');
