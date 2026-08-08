@@ -1945,6 +1945,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salario-medio-bern-2026.title': 'Salaire moyen professions Suisse 2026 : focus Berne',
     'blog.article.salario-medio-bern-2026.excerpt': 'Comparaison des salaires moyens entre les cantons et les secteurs, avec les données officielles et les facteurs de variation. Focus sur le canton de Berne.',
     'blog.article.salario-medio-bern-2026.imageAlt': 'Vue de Berne, Suisse, avec des bâtiments historiques et des bureaux modernes',
+    'blog.article.salario-medio-professioni-svizzera-2026-basilea.title': 'Salaire moyen professions Suisse 2026 canton de Bâle',
+    'blog.article.salario-medio-professioni-svizzera-2026-basilea.excerpt': 'Taux AVS/AI/APG 5,3%, AD/AC 1,1% (cap CHF 148\'200), LAA 0,7–1,5%, LPP 7–18% dès 25 ans. Nouvel accord frontalier en vigueur depuis le 1er janvier 2024.',
+    'blog.article.salario-medio-professioni-svizzera-2026-basilea.imageAlt': 'Vue aérienne de Bâle avec le fleuve Rhin et le pont Mittlere Brücke pendant l\'heure de pointe du matin',
 };
 
 export default blogMetaChFr;

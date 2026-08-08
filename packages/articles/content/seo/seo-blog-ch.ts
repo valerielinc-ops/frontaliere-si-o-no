@@ -25172,6 +25172,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salario-medio-professioni-svizzera-2026-basilea': {
+    title: 'Salario medio professioni Svizzera 2026 canton Basilea',
+    description: 'Aliquote AVS/AI/IPG 5,3%, AD/AC 1,1% (cap CHF 148\'200), LAINF 0,7–1,5%, LPP 7–18%. Nuovo Accordo Frontalieri in vigore dal 1 gennaio 2024. Dati ufficiali per',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, medio, professioni, canton',
+    ogTitle: 'Salario medio professioni Svizzera 2026 canton Basilea',
+    ogDescription: 'Scopri le aliquote contributive svizzere (AVS/AI/IPG 5,3%, AD/AC 1,1%), i dettagli del Nuovo Accordo Frontalieri in vigore dal 1 gennaio 2024 e come evitare la',
+    canonicalPath: '/articoli-svizzera/salario-medio-professioni-svizzera-2026-basilea/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario medio professioni Svizzera 2026 canton Basilea",
+      "description": "Aliquote AVS/AI/IPG 5,3%, AD/AC 1,1% (cap CHF 148'200), LAINF 0,7–1,5%, LPP 7–18%. Nuovo Accordo Frontalieri in vigore dal 1 gennaio 2024. Dati ufficiali per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salario-medio-professioni-svizzera-2026-basilea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Basilea con il fiume Reno e il ponte Mittlere Brücke durante l'ora di punta mattutina"
+      },
+      "datePublished": "2026-08-08T05:19:38+00:00",
+      "dateModified": "2026-08-08T05:19:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salario-medio-professioni-svizzera-2026-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

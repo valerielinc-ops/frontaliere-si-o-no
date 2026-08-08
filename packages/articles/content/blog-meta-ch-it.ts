@@ -1945,6 +1945,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salario-medio-bern-2026.title': 'Salario medio professioni Svizzera 2026: focus Berna',
     'blog.article.salario-medio-bern-2026.excerpt': 'Confronto salari medi tra cantoni e settori, con dati ufficiali e fattori di variazione. Focus sul canton Berna.',
     'blog.article.salario-medio-bern-2026.imageAlt': 'Vista di Berna, Svizzera, con edifici storici e uffici moderni',
+    'blog.article.salario-medio-professioni-svizzera-2026-basilea.title': 'Salario medio professioni Svizzera 2026 canton Basilea',
+    'blog.article.salario-medio-professioni-svizzera-2026-basilea.excerpt': 'Aliquote AVS/AI/IPG 5,3%, AD/AC 1,1% (cap CHF 148\'200), LAINF 0,7–1,5%, LPP 7–18% dal 25 anni. Nuovo Accordo Frontalieri in vigore dal 1 gennaio 2024.',
+    'blog.article.salario-medio-professioni-svizzera-2026-basilea.imageAlt': 'Vista aerea di Basilea con il fiume Reno e il ponte Mittlere Brücke durante l\'ora di punta mattutina',
 };
 
 export default blogMetaChIt;
