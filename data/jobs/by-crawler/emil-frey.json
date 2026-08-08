@@ -1,6 +1,6 @@
 {
   "crawlerKey": "emil-frey",
-  "assembledAt": "2026-08-08T09:52:48.082Z",
+  "assembledAt": "2026-08-08T08:31:40.103Z",
   "jobs": [
     {
       "id": "emil-frey-fb0355e2b6bc",
@@ -4353,16 +4353,40 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "carrosseriespengler-in-emil-frey-safenwil",
-        "carrozzeriepengler-in-emil-frey-safenwil"
+        "carrozzeriepengler-in-emil-frey-safenwil",
+        "progetto-manager-emil-frey-safenwil",
+        "project-manager-emil-frey-safenwil",
+        "projektleiter-in-emil-frey-safenwil",
+        "gestionnaire-de-projet-emil-frey-safenwil",
+        "venditore-automobile-emil-frey-safenwil",
+        "automobile-salesperson-emil-frey-safenwil",
+        "automobilverkaufer-in-emil-frey-safenwil",
+        "vendeur-vendeuse-de-voitures-emil-frey-safenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "carrosseriespengler-in-emil-frey-safenwil",
-          "carrozzeriepengler-in-emil-frey-safenwil"
+          "carrozzeriepengler-in-emil-frey-safenwil",
+          "progetto-manager-emil-frey-safenwil",
+          "project-manager-emil-frey-safenwil",
+          "projektleiter-in-emil-frey-safenwil",
+          "gestionnaire-de-projet-emil-frey-safenwil",
+          "venditore-automobile-emil-frey-safenwil",
+          "automobile-salesperson-emil-frey-safenwil",
+          "automobilverkaufer-in-emil-frey-safenwil",
+          "vendeur-vendeuse-de-voitures-emil-frey-safenwil"
+        ],
+        "en": [
+          "project-manager-emil-frey-safenwil"
+        ],
+        "de": [
+          "projektleiter-in-emil-frey-safenwil"
+        ],
+        "fr": [
+          "gestionnaire-de-projet-emil-frey-safenwil"
         ]
       },
       "firstSeenAt": "2026-08-05T22:22:45.152Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4374,7 +4398,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "emil-frey-10a902d2053d",

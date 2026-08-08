@@ -2447,16 +2447,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Vendita, commercio e servizio alla clientela",
-      "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-in-m-w-d-100-vaudoise-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "versicherungs-und-vorsorgeberater-in-m-w-d-100-vaudoise-ch"
+          "versicherungs-und-vorsorgeberater-in-m-w-d-100-vaudoise-ch",
+          "insurance-and-pension-advisor-m-f-d-100-vaudoise-assurances-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-07T21:45:43.107Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "versicherungs-und-vorsorgeberater-in-m-w-d-100-vaudoise-ch",
+        "insurance-and-pension-advisor-m-f-d-100-vaudoise-assurances-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2469,7 +2469,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-08-07T21:45:43.107Z",
+      "needsRetranslation": true
     },
     {
       "id": "vaudoise-2fefce49ca05",

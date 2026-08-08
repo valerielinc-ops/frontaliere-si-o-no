@@ -3168,15 +3168,16 @@
         ]
       },
       "previousSlugs": [
-        "interner-verkaufsberater-wood-100-f-h-d-bms-building-materials-bulle"
+        "interner-verkaufsberater-wood-100-f-h-d-bms-building-materials-bulle",
+        "coordinator-internal-sales-advisor-wood-f-h-d-100-bms-building-materials-kerzers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "interner-verkaufsberater-wood-100-f-h-d-bms-building-materials-bulle"
+          "interner-verkaufsberater-wood-100-f-h-d-bms-building-materials-bulle",
+          "coordinator-internal-sales-advisor-wood-f-h-d-100-bms-building-materials-kerzers"
         ]
       },
       "firstSeenAt": "2026-07-10T12:58:05.307Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3189,7 +3190,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "bms-building-84ee1277b5c1",
