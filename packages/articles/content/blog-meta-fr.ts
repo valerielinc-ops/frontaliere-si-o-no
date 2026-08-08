@@ -9360,6 +9360,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.adolescenti-shifting-famiglia-recensioni-film.title': 'Shifting et famille : deux films du Locarno Festival',
     'blog.article.adolescenti-shifting-famiglia-recensioni-film.excerpt': 'Les critiques de \'Los días libres\' de Lucila Mariani et \'Ego Reach We Alla du Ghanéen Amartei Armar.',
     'blog.article.adolescenti-shifting-famiglia-recensioni-film.imageAlt': 'Promenade au bord du lac de Locarno au coucher du soleil avec le Grand Hôtel et les montagnes en arrière-plan',
+    'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.title': 'Affrontements au Festival turc : 11 Kurdes condamnés à Bâle',
+    'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.excerpt': 'Le tribunal de Bâle a prononcé 11 condamnations à des peines comprises entre 9 et 36 mois pour les heurts violents survenus lors de la fête turque des enfants en mai 2022.',
+    'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.imageAlt': 'Un groupe de personnes d\'origine kurde se rassemble dans une place pendant un festival turc à Bâle, Suisse.',
 };
 
 export default blogMetaFr;
