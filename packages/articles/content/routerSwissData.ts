@@ -669,6 +669,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-lamal-2026-ginevra-guida': { it: 'premi-lamal-2026-ginevra-guida', en: 'lamal-premiums-2026-geneva-guide', de: 'lamal-praemien-2026-genf-leitfaden', fr: 'primes-lamal-2026-geneve-guide' },
  'reno-siccita-economia-svizzera': { it: 'reno-siccita-economia-svizzera', en: 'rhine-drought-swiss-economy', de: 'rhein-duerre-schweizer-wirtschaft', fr: 'rhin-secheresse-economie-suisse' },
  'premi-lamal-2026-bern-guida': { it: 'premi-lamal-2026-bern-guida', en: 'lamal-premiums-2026-bern', de: 'lamal-praemien-2026-bern', fr: 'primes-lamal-2026-berne' },
+ 'salari-medi-zurigo-2026-confronto': { it: 'salari-medi-zurigo-2026-confronto', en: 'average-salaries-zurich-2026-comparison', de: 'durchschnittsgehaelter-zuerich-2026-vergleich', fr: 'salaires-moyens-zurich-2026-comparaison' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

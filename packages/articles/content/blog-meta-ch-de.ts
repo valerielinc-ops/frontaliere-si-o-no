@@ -1930,6 +1930,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-lamal-2026-bern-guida.title': 'KVG-Prämien 2026 in Bern: So wählen Sie die richtige Franchise',
     'blog.article.premi-lamal-2026-bern-guida.excerpt': 'Leitfaden zu den Krankenkassenprämien 2026 im Kanton Bern: kantonale Unterschiede, optimale Franchise, Kassenwechsel und Beiträge. Nationaler Vergleich.',
     'blog.article.premi-lamal-2026-bern-guida.imageAlt': 'Leitfaden zu den LAMal-Prämien 2026 im Kanton Bern',
+    'blog.article.salari-medi-zurigo-2026-confronto.title': 'Durchschnittslöhne in der Schweiz 2026: Fokus Kanton Zürich',
+    'blog.article.salari-medi-zurigo-2026-confronto.excerpt': 'Offizielle Daten, Sätze und Beiträge: Wie sich der Lohn in Zürich im Jahr 2026 zusammensetzt. Praktischer Leitfaden für Arbeitnehmer und Grenzgänger.',
+    'blog.article.salari-medi-zurigo-2026-confronto.imageAlt': 'Zürich Skyline mit Finanzhochhäusern und Fußgängern',
 };
 
 export default blogMetaChDe;

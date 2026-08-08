@@ -1930,6 +1930,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-lamal-2026-bern-guida.title': 'Premi LAMal 2026 a Berna: come scegliere la franchigia giusta',
     'blog.article.premi-lamal-2026-bern-guida.excerpt': 'Guida ai premi cassa malati 2026 nel canton Berna: differenze cantonali, franchigia ottimale, cambio cassa e sussidi. Confronto nazionale.',
     'blog.article.premi-lamal-2026-bern-guida.imageAlt': 'Guida ai premi LAMal 2026 nel canton Berna',
+    'blog.article.salari-medi-zurigo-2026-confronto.title': 'Salari medi in Svizzera 2026: focus sul canton Zurigo',
+    'blog.article.salari-medi-zurigo-2026-confronto.excerpt': 'Dati ufficiali, aliquote e contributi: come si compone lo stipendio a Zurigo nel 2026. Guida pratica per lavoratori e frontalieri.',
+    'blog.article.salari-medi-zurigo-2026-confronto.imageAlt': 'Panorama di Zurigo con grattacieli finanziari e persone in movimento',
 };
 
 export default blogMetaChIt;
