@@ -25094,6 +25094,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salario-medio-professioni-svizzera-zurigo-2026': {
+    title: 'Salario medio professioni Svizzera 2026: focus Zurigo',
+    description: 'Scopri i salari medi per professione in Svizzera nel 2026, con un\'analisi dettagliata per il Canton Zurigo. Informazioni su contributi sociali, imposte e',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, medio, professioni, focus',
+    ogTitle: 'Salario medio professioni Svizzera 2026: focus Zurigo',
+    ogDescription: 'Approfondimento sui salari medi in Svizzera per il 2026, con attenzione al Canton Zurigo. Dati su contributi, fiscalità e il Nuovo Accordo Frontalieri in vigore',
+    canonicalPath: '/articoli-svizzera/salario-medio-professioni-svizzera-zurigo-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario medio professioni Svizzera 2026: focus Zurigo",
+      "description": "Scopri i salari medi per professione in Svizzera nel 2026, con un'analisi dettagliata per il Canton Zurigo. Informazioni su contributi sociali, imposte e",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salario-medio-professioni-svizzera-zurigo-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama urbano di Zurigo con edifici moderni e persone in movimento, simbolo dell'attività economica"
+      },
+      "datePublished": "2026-08-08T03:23:10+00:00",
+      "dateModified": "2026-08-08T03:23:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salario-medio-professioni-svizzera-zurigo-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

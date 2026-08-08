@@ -1939,6 +1939,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.siccita-foraggio-nasce-borsa-online.title': 'Trockenheit, die Online-Futterbörse entsteht',
     'blog.article.siccita-foraggio-nasce-borsa-online.excerpt': 'Die Bauernverbände Zürich und Schaffhausen starten eine Plattform, um notleidende Züchter und diejenigen, die Futter anbieten können, zusammenzubringen',
     'blog.article.siccita-foraggio-nasce-borsa-online.imageAlt': 'Landwirt sucht Futter',
+    'blog.article.salario-medio-professioni-svizzera-zurigo-2026.title': 'Durchschnittslohn Berufe Schweiz 2026: Focus Zürich',
+    'blog.article.salario-medio-professioni-svizzera-zurigo-2026.excerpt': 'Analyse der Durchschnittslöhne pro Beruf in der Schweiz im Jahr 2026 mit Fokus auf den Kanton Zürich. Wir untersuchen die Änderungsfaktoren, die offiziellen Daten und die steuerlichen Auswirkungen unter Berücksichtigung der neuen Frontalieri-Vereinbarung, die am 1. JANUAR 2024 in Kraft getreten ist.',
+    'blog.article.salario-medio-professioni-svizzera-zurigo-2026.imageAlt': 'Stadtbild von Zürich mit modernen Gebäuden und Menschen in Bewegung, als Symbol für wirtschaftliche Aktivität',
 };
 
 export default blogMetaChDe;
