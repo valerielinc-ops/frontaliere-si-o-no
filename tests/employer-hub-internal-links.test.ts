@@ -200,19 +200,55 @@ describe('fetchEmployerHubCounts — one fetch per session, and a failure is not
   });
 });
 
-describe('the expired / orphan ad hands the reader to the hub (mossa 1)', () => {
+describe('every runtime job surface hands the reader to the hub (mossa 1)', () => {
+  const CTA = 'components/community/EmployerHubCta.tsx';
+
+  // The three runtime views that are ABOUT one employer: the ad that expired,
+  // the slug that never resolved, and — since this change — the ad that is
+  // LIVE, where reader intent is highest and the link was missing longest.
   const surfaces = [
     'components/community/JobExpiredView.tsx',
     'components/community/JobOrphanView.tsx',
+    'components/community/JobBoard.tsx',
   ];
 
-  it.each(surfaces)('%s resolves the hub through the shared hook, not its own slug', (rel) => {
-    const src = readRepoFile(rel);
+  it('the CTA exists exactly once, as a component, and owns the whole decision', () => {
+    // It used to be a JSX block copy-pasted between two views, identical byte
+    // for byte except the expression naming the company. A third copy for the
+    // active ad would have made drift a matter of time — and drift here is not
+    // cosmetic, since the anchor text is the ranking signal for the DESTINATION
+    // and two phrasings split one page's inbound signal in two.
+    const src = readRepoFile(CTA);
     expect(src).toContain("from '@/hooks/useEmployerHub'");
     expect(src).toContain('useEmployerHub(');
-    // The two views already carry hand-written `slugifyCompanyName` helpers for
-    // the job-board FILTER route. Neither may be used to build a hub URL: the
+    expect(src).toContain('if (!employerHub || !company) return null;');
+    expect(src).toContain('href={employerHub.href}');
+    expect(src).toContain('employerHubAnchor(');
+    expect(src).toContain('employerOpenRolesLabel(');
+    expect(src).toContain("Analytics.trackSelectContent('employer_hub_open', employerHub.slug)");
+    // No `className` / variant prop: a surface that can restyle it is a surface
+    // that can diverge, which is the defect the component exists to prevent.
+    expect(src).not.toContain('className?:');
+  });
+
+  it.each(surfaces)('%s renders the shared CTA instead of its own link', (rel) => {
+    const src = readRepoFile(rel);
+    expect(src).toContain("from '@/components/community/EmployerHubCta'");
+    expect(src).toContain('<EmployerHubCta');
+    // And holds no private copy of the machinery: a view that calls the hook
+    // itself can render the result any way it likes.
+    expect(src).not.toContain('useEmployerHub(');
+    expect(src).not.toContain('employerHubAnchor(');
+    // No per-view copy map either: two views drifting apart on the same anchor
+    // would split one page's inbound signal into two phrases.
+    expect(src).not.toContain('HUB_CTA_COPY');
+  });
+
+  it.each([CTA, ...surfaces])('%s never builds an /aziende/ URL of its own', (rel) => {
+    // The views carry hand-written `slugifyCompanyName` helpers for the
+    // job-board FILTER route. None of them may be used to build a hub URL: the
     // only `/aziende/` in these files may be prose in a comment.
+    const src = readRepoFile(rel);
     const codeLines = src
       .split('\n')
       .filter((l) => l.includes('/aziende/'))
@@ -220,28 +256,29 @@ describe('the expired / orphan ad hands the reader to the hub (mossa 1)', () => 
     expect(codeLines, `${rel} builds an /aziende/ URL of its own`).toEqual([]);
   });
 
-  it.each(surfaces)('%s renders the link only when the hub was proven to exist', (rel) => {
-    const src = readRepoFile(rel);
-    expect(src).toContain('const employerHubCta = employerHub &&');
-    expect(src).toContain('href={employerHub.href}');
-  });
-
-  it.each(surfaces)('%s keeps the company FILTER on a <button>, not an <a href>', (rel) => {
+  it.each(surfaces.slice(0, 2))('%s keeps the company FILTER on a <button>, not an <a href>', (rel) => {
     // The `<a href>` is bought by the existence proof and applies ONLY to the
     // hub. `handleCompanyClick` targets the job-board company filter, which has
     // no such proof: making it an anchor re-opens the burkhalter-group blank
     // page through middle-click / cmd-click / "open in new tab".
+    //
+    // JobBoard is excluded on purpose: its company control is an `<a>` whose
+    // click handler navigates through `openCompanyFilter`, a pre-existing shape
+    // this change neither introduced nor touched.
     const src = readRepoFile(rel);
     expect(src).toContain('onClick={handleCompanyClick}');
     expect(src).not.toContain('href={companyHref}');
   });
 
-  it.each(surfaces)('%s takes the anchor from the shared helper, not a local map', (rel) => {
-    const src = readRepoFile(rel);
-    expect(src).toContain('employerHubAnchor(');
-    // No per-view copy map: two views drifting apart on the same anchor would
-    // split one page's inbound signal into two phrases.
-    expect(src).not.toContain('HUB_CTA_COPY');
+  it('the ACTIVE ad carries the CTA in BOTH of its layouts, gated and not', () => {
+    // JobBoard returns early for `!hasAccess`, so the auth-gate layout is a
+    // different subtree from the unlocked detail. The hub is the only useful
+    // destination a logged-out reader can reach from the gate WITHOUT signing
+    // in, so a single render site would have hidden it from exactly the visitor
+    // who arrived from the SERP query the hub is trying to win.
+    const src = readRepoFile('components/community/JobBoard.tsx');
+    const renders = src.split('<EmployerHubCta').length - 1;
+    expect(renders, 'JobBoard must render the hub CTA in the gate AND the detail').toBe(2);
   });
 
   it('the runtime helper covers all four locales', () => {

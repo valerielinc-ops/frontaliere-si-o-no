@@ -81,6 +81,7 @@ import { type JobMatchProfileData, loadJobMatchProfile, mergeNewsletterSignals }
 import NewJobsCounter from '@/components/community/NewJobsCounter';
 import TrendingSection from '@/components/community/TrendingSection';
 import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader';
+import EmployerHubCta from '@/components/community/EmployerHubCta';
 import PopularSearchChips from '@/components/community/PopularSearchChips';
 import EmployerBrandHub from '@/components/jobs/EmployerBrandHub';
 import { getEmployerBrandBySlug } from '@/services/employerBrands';
@@ -7731,6 +7732,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </div>
  </div>
+ {/* The employer's evergreen hub — the ONE destination a logged-out reader
+     can reach from this gate without signing in, and the only link here
+     that survives this ad expiring. Same component, same placement (under
+     the title block) as JobExpiredView and JobOrphanView; it renders null
+     unless the build proved a hub exists for this employer. */}
+ <EmployerHubCta company={selectedJob.company} companyKey={selectedJob.companyKey} locale={locale as Locale} />
  {/* Readable description teaser — shows first ~200 chars to create information
  scent and an "open loop" that motivates signup. Fades out at the bottom.
  On very short viewports (landscape phones) we hide it entirely so the gate CTAs
@@ -8574,6 +8581,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </p>
  </div>
  </div>
+
+ {/* The employer's evergreen hub. `jobsSeoPagesPlugin` already emits this
+     link into the STATIC job page, so a crawler saw it and the reader lost
+     it the moment React hydrated over the shell — this is the hydrated
+     half of the same link, and it is the surface where reader intent is
+     highest (the expired and orphan views have carried it for longer). */}
+ <EmployerHubCta company={selectedJob.company} companyKey={selectedJob.companyKey} locale={locale as Locale} />
 
  <div className="mt-4 flex flex-wrap gap-2 text-xs">
  <span className="px-2 py-1 rounded-full bg-surface-raised text-body">
