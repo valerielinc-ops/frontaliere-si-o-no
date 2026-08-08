@@ -28092,6 +28092,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'scontri-al-festival-turco-11-curdi-condannati-a-basilea',
+ category: 'novita',
+ date: '2026-08-08T03:04:59.663Z',
+ image: '/images/blog/scontri-al-festival-turco-11-curdi-condannati-a-basilea.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

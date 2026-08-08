@@ -60404,6 +60404,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scontri-al-festival-turco-11-curdi-condannati-a-basilea': {
+    title: 'Scontri al Festival turco: 11 curdi condannati a Basilea',
+    description: 'Il tribunale di Basilea ha pronunciato 11 condanne a pene tra 9 e 36 mesi per gli scontri violenti scoppiati durante la festa turca dei bambini nel maggio 2022.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scontri, festival, turco, curdi',
+    ogTitle: 'Scontri al Festival turco: 11 curdi condannati a Basilea',
+    ogDescription: 'Il tribunale di Basilea ha pronunciato 11 condanne a pene tra 9 e 36 mesi per gli scontri violenti scoppiati durante la festa turca dei bambini nel maggio 2022.',
+    canonicalPath: '/articoli-frontaliere/scontri-al-festival-turco-11-curdi-condannati-a-basilea',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scontri al Festival turco: 11 curdi condannati a Basilea",
+      "description": "Il tribunale di Basilea ha pronunciato 11 condanne a pene tra 9 e 36 mesi per gli scontri violenti scoppiati durante la festa turca dei bambini nel maggio 2022.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scontri-al-festival-turco-11-curdi-condannati-a-basilea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un gruppo di persone di etnia curda si riunisce in una piazza durante un festival turco a Basilea, Svizzera."
+      },
+      "datePublished": "2026-08-08T03:04:59+00:00",
+      "dateModified": "2026-08-08T03:04:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scontri-al-festival-turco-11-curdi-condannati-a-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
