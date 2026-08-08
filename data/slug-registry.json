@@ -99983,7 +99983,7 @@
     "createdAt": "2026-06-24",
     "slugByLocale": {
       "de": "dipl-expertin-experte-intensivpflege-nds-100-hirslanden-st-gallen",
-      "en": "dipl-expertin-experte-intensivpflege-nds-100-hirslanden-st-gallen",
+      "en": "dipl-expert-intensive-care-nds-40-100-hirslanden-klinik-st-gallen",
       "fr": "dipl-expert-soins-intensifs-pdn-100-hirslanden-klinik-st-gallen",
       "it": "dipl-expert-intensive-care-nds-100-hirslanden-klinik-st-gallen"
     }
@@ -100093,7 +100093,8 @@
     "createdAt": "2026-06-25",
     "slugByLocale": {
       "en": "community-health-and-care-assistant-in-1-month-csd-hirslanden-klinik-lausanne",
-      "it": "assistente-per-la-salute-e-la-cura-della-comunita-in-csd-di-1-mese-hirslanden-klinik-lausanne"
+      "it": "assistente-per-la-salute-e-la-cura-della-comunita-in-csd-di-1-mese-hirslanden-klinik-lausanne",
+      "fr": "assistant-e-en-soins-et-sante-communautaire-en-cdd-de-1-mois-hirslanden-lausanne"
     }
   },
   "id|mediclinic.com|1408159533": {
@@ -100124,7 +100125,8 @@
     "createdAt": "2026-06-25",
     "slugByLocale": {
       "en": "80-community-health-and-care-assistant-hirslanden-klinik-lausanne",
-      "it": "80-salute-e-assistenza-comunitaria-hirslanden-klinik-lausanne"
+      "it": "80-salute-e-assistenza-comunitaria-hirslanden-klinik-lausanne",
+      "fr": "assistant-e-en-soins-et-sante-communautaire-a-80-hirslanden-lausanne"
     }
   },
   "id|mediclinic.com|1408211133": {
@@ -100144,7 +100146,8 @@
     "createdAt": "2026-06-25",
     "slugByLocale": {
       "en": "80-community-health-and-care-assistant-in-2-month-csd-hirslanden-klinik-lausanne",
-      "it": "80-assistente-per-la-salute-e-la-cura-comunitaria-in-csd-di-2-mesi-hirslanden-klinik-lausanne"
+      "it": "80-assistente-per-la-salute-e-la-cura-comunitaria-in-csd-di-2-mesi-hirslanden-klinik-lausanne",
+      "fr": "assistant-e-en-soins-et-sante-communautaire-a-80-en-cdd-de-2-mois-hirslanden-lausanne"
     }
   },
   "id|mediclinic.com|1408326133": {
@@ -173087,7 +173090,10 @@
     "canton": "BE",
     "createdAt": "2026-06-11",
     "slugByLocale": {
-      "de": "dipl-pflegefachperson-hf-psychiatrie-60-80-spitex-ch-urtenen-schonbuhl"
+      "de": "dipl-pflegefachperson-hf-psychiatrie-60-80-spitex-ch-urtenen-schonbuhl",
+      "it": "dipl-cura-professionale-hf-psichiatria-60-80-spitex-grauholz-urtenen-schonbuhl",
+      "en": "dipl-care-professional-hf-psychiatry-60-80-spitex-grauholz-urtenen-schonbuhl",
+      "fr": "dipl-soins-professionnels-hf-psychiatrie-60-80-spitex-grauholz-urtenen-schonbuhl"
     }
   },
   "id|spitexjobs.ch|j984548": {
@@ -225313,8 +225319,8 @@
     "createdAt": "2026-06-01",
     "slugByLocale": {
       "de": "mitarbeiter-in-hauswirtschaft-im-stundenlohn-senevita-casa-winterthur-und-schaffhausen",
-      "en": "mitarbeiter-in-hauswirtschaft-im-stundenlohn-senevita-casa-winterthur-und-schaffhausen",
-      "fr": "mitarbeiter-in-hauswirtschaft-im-stundenlohn-senevita-casa-winterthur-und-schaffhausen",
+      "en": "collaboratore-trice-hauswirtschaft-im-stundenlohn-senevita-casa-winterthur-und-schaffhausen",
+      "fr": "collaboratore-trice-hauswirtschaft-im-stundenlohn-senevita-casa-winterthur-und-schaffhausen",
       "it": "collaboratore-trice-hauswirtschaft-im-stundenlohn-senevita-casa-winterthur-und-schaffhausen"
     }
   },
@@ -284164,7 +284170,8 @@
     "canonicalSlug": "professional-application-manager-sap-healthcare-a-80-100-hirslanden-zurich",
     "slugByLocale": {
       "it": "responsabile-applicazioni-professionali-sap-healthcare-a-80-100-hirslanden-klinik-zurich",
-      "fr": "gestionnaire-d-applications-professionnelles-sap-healthcare-a-80-100-hirslanden-klinik-zurich"
+      "fr": "gestionnaire-d-applications-professionnelles-sap-healthcare-a-80-100-hirslanden-klinik-zurich",
+      "de": "professional-application-manager-sap-healthcare-a-80-100-hirslanden-zurich"
     },
     "createdAt": "2026-07-08",
     "canton": "ZH"
@@ -284173,7 +284180,8 @@
     "canonicalSlug": "dipl-pflegefachfrau-pflegefachmann-mit-berufsbildungsfunktion-prive-chirurgie-a-80-100",
     "slugByLocale": {
       "en": "dipl-nursing-professional-with-vocational-training-function-prive-surgery-a-80-100-hirslanden-klinik-zurich",
-      "fr": "dipl-specialiste-des-soins-infirmiers-avec-fonction-de-formation-professionnelle-chirurgie-privee-a-80-100-hirslanden"
+      "fr": "dipl-specialiste-des-soins-infirmiers-avec-fonction-de-formation-professionnelle-chirurgie-privee-a-80-100-hirslanden",
+      "de": "dipl-pflegefachfrau-pflegefachmann-mit-berufsbildungsfunktion-prive-chirurgie-a-80-100"
     },
     "createdAt": "2026-07-08",
     "canton": "ZH"
@@ -378842,7 +378850,9 @@
     "canonicalSlug": "responsabile-administration-risorse-umane-80-100-senevita-seengen-ag",
     "slugByLocale": {
       "de": "leiter-in-administration-hr-80-100-senevita-seengen-ag",
-      "it": "responsabile-administration-risorse-umane-80-100-senevita-seengen-ag"
+      "it": "responsabile-administration-risorse-umane-80-100-senevita-seengen-ag",
+      "en": "responsabile-administration-risorse-umane-80-100-senevita-seengen-ag",
+      "fr": "responsabile-administration-risorse-umane-80-100-senevita-seengen-ag"
     },
     "createdAt": "2026-07-21",
     "canton": "AG"
@@ -455641,7 +455651,8 @@
     "slugByLocale": {
       "en": "scientist-senior-power-electronic-converters-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-bhfqnq",
       "it": "scienziato-senior-convertitori-elettronici-di-potere-80-100-f-m-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
-      "fr": "scientifique-aine-convertisseurs-electroniques-de-puissance-80-100-f-m-d-abb-svizzera-sede-ticino-baden-daettwil-aargau"
+      "fr": "scientifique-aine-convertisseurs-electroniques-de-puissance-80-100-f-m-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+      "de": "wissenschaftler-senior-leistungselektronik-wandler-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau"
     },
     "createdAt": "2026-08-04",
     "canton": "AG"
@@ -459185,7 +459196,9 @@
   "id|ruag.ch|9e7711a0-4521-4fdf-a1e4-99dcd29eb969": {
     "canonicalSlug": "legal-counsel-80-100-w-m-d-ruag-ag-bern",
     "slugByLocale": {
-      "de": "legal-counsel-80-100-w-m-d-ruag-ag-bern"
+      "de": "legal-counsel-80-100-w-m-d-ruag-ag-bern",
+      "it": "consigliere-legale-80-100-f-m-d-ruag-ag-bern",
+      "fr": "conseiller-juridique-80-100-f-m-d-ruag-ag-bern"
     },
     "createdAt": "2026-08-04",
     "canton": "BE"
@@ -462781,7 +462794,9 @@
     "canonicalSlug": "sachbearbeiter-in-fertigungsplanung-e-steuerung-stadler-rail-winterthur",
     "slugByLocale": {
       "de": "sachbearbeiter-in-fertigungsplanung-und-steuerung-stadler-rail-ch",
-      "it": "sachbearbeiter-in-fertigungsplanung-e-steuerung-stadler-rail-winterthur"
+      "it": "sachbearbeiter-in-fertigungsplanung-e-steuerung-stadler-rail-winterthur",
+      "en": "personnel-in-production-planning-and-control-stadler-rail-winterthur",
+      "fr": "personnel-planification-et-controle-de-la-production-stadler-rail-winterthur"
     },
     "createdAt": "2026-08-05",
     "canton": "ZH"
@@ -463056,7 +463071,10 @@
   "id|spitalbuelach.ch|733524ec-8ec9-40fa-bcda-23957388c134": {
     "canonicalSlug": "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach",
     "slugByLocale": {
-      "de": "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach"
+      "de": "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach",
+      "it": "dipl-cura-professionale-piscina-spital-bulach-bulach-22c708",
+      "en": "dipl-care-professional-care-pool-spital-bulach-bulach-22c708",
+      "fr": "dipl-pool-de-soins-professionnels-spital-bulach-bulach-22c708"
     },
     "createdAt": "2026-08-05",
     "canton": "ZH"
@@ -463064,7 +463082,10 @@
   "id|spitalbuelach.ch|fa307c78-bf21-46ab-a537-49bfef1d38ee": {
     "canonicalSlug": "praktikant-in-pflege-privatabteilung-spital-buelach-bulach",
     "slugByLocale": {
-      "de": "praktikant-in-pflege-privatabteilung-spital-buelach-bulach"
+      "de": "praktikant-in-pflege-privatabteilung-spital-buelach-bulach",
+      "it": "stage-in-care-private-department-spital-bulach-bulach-4bb1a5",
+      "en": "internship-in-care-private-department-spital-bulach-bulach-4bb1a5",
+      "fr": "stage-en-soins-departement-prive-spital-bulach-bulach-4bb1a5"
     },
     "createdAt": "2026-08-05",
     "canton": "ZH"
@@ -463083,7 +463104,10 @@
   "id|spitalbuelach.ch|6d2c16ef-c39c-43c1-98b6-554bd65614b0": {
     "canonicalSlug": "oberarztin-oberarzt-gastroenterologie-spital-buelach-bulach",
     "slugByLocale": {
-      "de": "oberarztin-oberarzt-gastroenterologie-spital-buelach-bulach"
+      "de": "oberarztin-oberarzt-gastroenterologie-spital-buelach-bulach",
+      "it": "medico-senior-gastroenterologia-medico-senior-spital-bulach-bulach",
+      "en": "senior-physician-senior-physician-gastroenterology-spital-bulach-bulach",
+      "fr": "medecin-superieur-medecin-superieur-gastroenterologie-spital-bulach-bulach"
     },
     "createdAt": "2026-08-05",
     "canton": "ZH"
@@ -465489,7 +465513,9 @@
     "canonicalSlug": "fage-efz-spitex-ch-sirnach",
     "slugByLocale": {
       "de": "fage-efz-spitex-ch-sirnach",
-      "it": "fage-cfc-spitex-regio-tannzapfenland-sirnach"
+      "it": "fage-cfc-spitex-regio-tannzapfenland-sirnach",
+      "en": "professional-health-efz-spitex-regio-tannzapfenland-sirnach",
+      "fr": "sante-professionnelle-efz-spitex-regio-tannzapfenland-sirnach"
     },
     "createdAt": "2026-08-06",
     "canton": "TG"
@@ -465871,7 +465897,9 @@
     "canonicalSlug": "assistentin-en-gesundheit-e-soziales-pflegehilfe-srk-e-fage-20-60-zurzach-care-luzern",
     "slugByLocale": {
       "de": "assistentin-en-gesundheit-und-soziales-pflegehilfe-srk-und-fage-20-60-zurzach-care-luzern",
-      "it": "assistentin-en-gesundheit-e-soziales-pflegehilfe-srk-e-fage-20-60-zurzach-care-luzern"
+      "it": "assistentin-en-gesundheit-e-soziales-pflegehilfe-srk-e-fage-20-60-zurzach-care-luzern",
+      "en": "assistant-en-health-and-social-affairs-nursing-assistance-srk-and-fage-20-60-zurzach-care-luzern",
+      "fr": "assistant-fr-sante-et-affaires-sociales-soins-infirmiers-srk-et-fage-20-60-zurzach-care-luzern"
     },
     "createdAt": "2026-08-06",
     "canton": "LU"
@@ -467113,7 +467141,10 @@
   "url|https://apply.refline.ch/486538/0831/pub/2/index.html": {
     "canonicalSlug": "spitalarztin-spitalarzt-notfallpraxis-40-60-spital-limmattal-ch",
     "slugByLocale": {
-      "de": "spitalarztin-spitalarzt-notfallpraxis-40-60-spital-limmattal-ch"
+      "de": "spitalarztin-spitalarzt-notfallpraxis-40-60-spital-limmattal-ch",
+      "it": "medico-ospedaliero-pratica-di-emergenza-40-60-spital-limmattal-schlieren",
+      "en": "hospital-doctor-emergency-practice-40-60-spital-limmattal-schlieren",
+      "fr": "medecin-hospitalier-pratique-d-urgence-40-60-spital-limmattal-schlieren"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -467482,7 +467513,8 @@
     "slugByLocale": {
       "en": "banca-reporting-and-capabilities-senior-executive-6-months-contract-zurich-insurance-sede-ticino-lugano-axi65m",
       "de": "banca-reporting-und-fahigkeiten-senior-executive-6-monats-vertrag-zurich-insurance-sede-ticino-lugano",
-      "fr": "rapports-et-capacites-de-la-banca-cadre-superieur-contrat-de-six-mois-zurich-insurance-sede-ticino-lugano"
+      "fr": "rapports-et-capacites-de-la-banca-cadre-superieur-contrat-de-six-mois-zurich-insurance-sede-ticino-lugano",
+      "it": "banca-reporting-and-capabilities-senior-executive-6-mesi-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-08-07",
     "canton": "TI"
@@ -467583,7 +467615,8 @@
     "slugByLocale": {
       "en": "rcis-crop-field-service-representative-zurich-insurance-sede-ticino-lugano-di4lz9",
       "de": "rcis-beauftragter-fur-feldfruchte-zurich-insurance-sede-ticino-lugano-73267c",
-      "fr": "representant-du-service-des-cultures-zurich-insurance-sede-ticino-lugano-73267c"
+      "fr": "representant-du-service-des-cultures-zurich-insurance-sede-ticino-lugano-73267c",
+      "it": "rcis-crop-field-service-rappresentante-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-08-07",
     "canton": "TI"
@@ -467858,7 +467891,9 @@
     "canonicalSlug": "podolog-in-cfc-coop-city-muttenz-siye64",
     "slugByLocale": {
       "it": "podolog-in-cfc-coop-city-muttenz-siye64",
-      "de": "podolog-in-efz-coop-city-muttenz-siye64"
+      "de": "podolog-in-efz-coop-city-muttenz-siye64",
+      "en": "podologist-coop-city-muttenz",
+      "fr": "podologue-cfc-coop-city-muttenz"
     },
     "createdAt": "2026-08-07",
     "canton": "BL"
@@ -467922,7 +467957,8 @@
     "slugByLocale": {
       "it": "stv-responsabile-food-coop-city-thun-bern-awzzhx",
       "de": "stv-leiter-in-food-coop-city-thun-bern-awzzhx",
-      "fr": "stv-leiter-dans-la-nourriture-coop-genossenschaft-thun-bern"
+      "fr": "stv-leiter-dans-la-nourriture-coop-genossenschaft-thun-bern",
+      "en": "deputy-head-of-food-department-coop-genossenschaft-thun-bern"
     },
     "createdAt": "2026-08-07",
     "canton": "BE"
@@ -467932,7 +467968,8 @@
     "slugByLocale": {
       "de": "teamleader-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-45w3dm",
       "it": "ristorante-teamleader-f-m-d-marche-restaurants-schweiz-ag-dietlikon",
-      "fr": "restaurant-chef-d-equipe-f-m-j-marche-restaurants-schweiz-ag-dietlikon"
+      "fr": "restaurant-chef-d-equipe-f-m-j-marche-restaurants-schweiz-ag-dietlikon",
+      "en": "restaurant-team-leader-m-f-d-marche-restaurants-schweiz-ag-dietlikon"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -468473,7 +468510,9 @@
     "canonicalSlug": "dipl-pflegefachperson-hf-fh-come-stv-abteilungsleiter-in-pflegewohngruppen-triemlipark-1-e-2-stadt-zurich",
     "slugByLocale": {
       "it": "dipl-pflegefachperson-hf-fh-come-stv-abteilungsleiter-in-pflegewohngruppen-triemlipark-1-e-2-stadt-zurich",
-      "de": "dipl-pflegefachperson-hf-fh-als-stv-abteilungsleiter-in-pflegewohngruppen-triemlipark-1"
+      "de": "dipl-pflegefachperson-hf-fh-als-stv-abteilungsleiter-in-pflegewohngruppen-triemlipark-1",
+      "en": "dipl-nursing-specialist-hf-fh-as-head-of-department-nursing-accommodation-groups-triemlipark-1-and-2-stadt-zurich-zurich",
+      "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-en-tant-que-chef-de-departement-groupes-de-soins-infirmiers-triemlipark-1-et"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -468481,7 +468520,10 @@
   "id|stadt-zuerich.ch|1368799057": {
     "canonicalSlug": "fachperson-gesundheit-standort-dorflinde-stadt-zuerich-zurigo-51254",
     "slugByLocale": {
-      "de": "fachperson-gesundheit-standort-dorflinde-stadt-zuerich-zurigo-51254"
+      "de": "fachperson-gesundheit-standort-dorflinde-stadt-zuerich-zurigo-51254",
+      "it": "specialista-sanitario-sito-dorflinde-stadt-zurich-zurich",
+      "en": "health-specialist-dorflinde-site-stadt-zurich-zurich",
+      "fr": "specialiste-de-la-sante-site-de-dorflinde-stadt-zurich-zurich"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -468512,7 +468554,9 @@
     "canonicalSlug": "projektleiter-in-stadt-zurich",
     "slugByLocale": {
       "it": "projektleiter-in-stadt-zurich",
-      "de": "projektleiter-in-stadt-zuerich-zurigo-51240"
+      "de": "projektleiter-in-stadt-zuerich-zurigo-51240",
+      "en": "project-manager-stadt-zurich-zurich",
+      "fr": "gestionnaire-de-projet-stadt-zurich-zurich"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -468590,7 +468634,10 @@
   "id|vermoegenszentrum.ch|b43673c1-643f-4885-88d9-db21e5b0d57f": {
     "canonicalSlug": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-80-100-vz",
     "slugByLocale": {
-      "de": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-80-100-vz"
+      "de": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-80-100-vz",
+      "it": "entrata-in-consulenza-finanziaria-consulenza-indipendente-80-100-vz-vermogenszentrum-uster-zurich",
+      "en": "entry-into-financial-consulting-independent-asset-advice-80-100-vz-vermogenszentrum-uster-zurich",
+      "fr": "entree-dans-conseils-financiers-conseils-en-actifs-independants-80-100-vz-vermogenszentrum-uster-zurich"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -468608,7 +468655,8 @@
     "canonicalSlug": "risorse-umane-business-partner-in-befristet-per-6-monate-viva-luzern",
     "slugByLocale": {
       "it": "risorse-umane-business-partner-in-befristet-per-6-monate-viva-luzern",
-      "de": "hr-business-partner-in-befristet-fur-6-monate-viva-luzern-luzern"
+      "de": "hr-business-partner-in-befristet-fur-6-monate-viva-luzern-luzern",
+      "en": "hr-business-partner-in-temporary-for-6-months-viva-luzern-luzern"
     },
     "createdAt": "2026-08-07",
     "canton": "LU"
@@ -468616,7 +468664,8 @@
   "id|vivaluzern.ch|111bc270-aed7-45c0-88e4-e9881bb65555": {
     "canonicalSlug": "hr-business-partner-in-viva-luzern-luzern",
     "slugByLocale": {
-      "de": "hr-business-partner-in-viva-luzern-luzern"
+      "de": "hr-business-partner-in-viva-luzern-luzern",
+      "fr": "hr-business-partner-in-viva-luzern"
     },
     "createdAt": "2026-08-07",
     "canton": "LU"
@@ -468625,7 +468674,9 @@
     "canonicalSlug": "collaboratore-trice-restauration-80-100-viva-luzern",
     "slugByLocale": {
       "it": "collaboratore-trice-restauration-80-100-viva-luzern",
-      "de": "mitarbeiter-in-restauration-80-100-viva-luzern-luzern"
+      "de": "mitarbeiter-in-restauration-80-100-viva-luzern-luzern",
+      "en": "employee-in-restoration-80-100-viva-luzern-luzern",
+      "fr": "employe-en-restauration-80-100-viva-luzern-luzern"
     },
     "createdAt": "2026-08-07",
     "canton": "LU"
@@ -468633,7 +468684,10 @@
   "url|https://join.sfs.com/ch/en/vacancies/teamleiter-in-walzen-(m-f-d).html": {
     "canonicalSlug": "teamleiter-in-walzen-m-f-d-sfs-group-heerbrugg",
     "slugByLocale": {
-      "de": "teamleiter-in-walzen-m-f-d-sfs-group-heerbrugg"
+      "de": "teamleiter-in-walzen-m-f-d-sfs-group-heerbrugg",
+      "it": "team-leader-in-roll-m-f-d-sfs-group-heerbrugg",
+      "en": "team-leader-in-rolls-m-f-d-sfs-group-heerbrugg",
+      "fr": "chef-d-equipe-en-rouleaux-m-f-d-sfs-group-heerbrugg"
     },
     "createdAt": "2026-08-07",
     "canton": "SG"
@@ -469316,7 +469370,10 @@
   "url|https://careers.richemont.com/en/jobs/jr130680/lehrstelle-als-logistikerstarin-efz-august-2027-100": {
     "canonicalSlug": "lehrstelle-als-logistiker-in-efz-august-2027-100-richemont-schaffhausen",
     "slugByLocale": {
-      "de": "lehrstelle-als-logistiker-in-efz-august-2027-100-richemont-schaffhausen"
+      "de": "lehrstelle-als-logistiker-in-efz-august-2027-100-richemont-schaffhausen",
+      "it": "apprendistato-come-logistiker-in-cfc-august-2027-100-iwc-schaffhausen",
+      "en": "apprenticeship-as-logistician-efz-august-2027-100-iwc-schaffhausen",
+      "fr": "apprentissage-en-tant-que-logistique-efz-aout-2027-100-iwc-schaffhausen"
     },
     "createdAt": "2026-08-07",
     "canton": "SH"
@@ -469389,7 +469446,8 @@
     "canonicalSlug": "zenbu-sushi-koch-kochin-60-80-two-spice-ag-dietlikon",
     "slugByLocale": {
       "de": "zenbu-sushi-koch-kochin-60-80-two-spice-ag-dietlikon-x30fpg",
-      "it": "zenbu-sushi-chef-60-80-two-spice-ag-dietlikon"
+      "it": "zenbu-sushi-chef-60-80-two-spice-ag-dietlikon",
+      "fr": "sushi-zenbu-chef-60-80-two-spice-ag-dietlikon"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -469913,7 +469971,10 @@
   "id|fenaco.com|48d13ba1-c60f-49a4-8c9c-f6a677f6fdf6": {
     "canonicalSlug": "verkauferin-verkaufer-topshop-w-m-d-20-40-topshop-wurenlos",
     "slugByLocale": {
-      "de": "verkauferin-verkaufer-topshop-w-m-d-20-40-topshop-wurenlos"
+      "de": "verkauferin-verkaufer-topshop-w-m-d-20-40-topshop-wurenlos",
+      "it": "addetto-a-di-vendita-w-m-d-20-40-topshop-wurenlos-topshop-wurenlos",
+      "en": "sales-associate-w-m-d-20-40-topshop-wurenlos-topshop-wurenlos",
+      "fr": "vendeur-vendeuse-h-f-d-20-40-topshop-wurenlos-topshop-wurenlos"
     },
     "createdAt": "2026-08-07",
     "canton": "AG"
@@ -470320,7 +470381,10 @@
   "id|stadt-zuerich.ch|1366222957": {
     "canonicalSlug": "fachperson-betreuung-schule-allenmoos-stadt-zuerich-zurigo-50895",
     "slugByLocale": {
-      "de": "fachperson-betreuung-schule-allenmoos-stadt-zuerich-zurigo-50895"
+      "de": "fachperson-betreuung-schule-allenmoos-stadt-zuerich-zurigo-50895",
+      "it": "assistenza-specialistica-scuola-allenmoos-stadt-zurich-zurich",
+      "en": "specialist-care-school-allenmoos-stadt-zurich-zurich",
+      "fr": "soins-specialises-ecole-allenmoos-stadt-zurich-zurich"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -470328,7 +470392,10 @@
   "id|stadt-zuerich.ch|1366445657": {
     "canonicalSlug": "schulassistenz-schule-nordstern-stadt-zuerich-zurigo-50932",
     "slugByLocale": {
-      "de": "schulassistenz-schule-nordstern-stadt-zuerich-zurigo-50932"
+      "de": "schulassistenz-schule-nordstern-stadt-zuerich-zurigo-50932",
+      "it": "assistente-scolastico-scuola-nordstern-stadt-zurich-zurich",
+      "en": "school-assistant-school-nordstern-stadt-zurich-zurich",
+      "fr": "assistant-scolaire-ecole-nordstern-stadt-zurich-zurich"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -470347,7 +470414,10 @@
   "id|stadt-zuerich.ch|1366796657": {
     "canonicalSlug": "schulassistenz-schule-nordstern-stadt-zuerich-zurigo-50986",
     "slugByLocale": {
-      "de": "schulassistenz-schule-nordstern-stadt-zuerich-zurigo-50986"
+      "de": "schulassistenz-schule-nordstern-stadt-zuerich-zurigo-50986",
+      "it": "assistente-scolastico-scuola-nordstern-stadt-zurich-zurich-5756f2",
+      "en": "school-assistant-school-nordstern-stadt-zurich-zurich-5756f2",
+      "fr": "assistant-scolaire-ecole-nordstern-stadt-zurich-zurich-5756f2"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -470363,7 +470433,10 @@
   "id|stadt-zuerich.ch|1368250857": {
     "canonicalSlug": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
     "slugByLocale": {
-      "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123"
+      "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
+      "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
+      "en": "specialist-child-care-efz-stadt-zurich-zurich-c7fa8a",
+      "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-c7fa8a"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -470409,7 +470482,10 @@
   "id|stadt-zuerich.ch|1368821157": {
     "canonicalSlug": "praktikant-in-stadtgartnerei-stadt-zuerich-zurigo-51261",
     "slugByLocale": {
-      "de": "praktikant-in-stadtgartnerei-stadt-zuerich-zurigo-51261"
+      "de": "praktikant-in-stadtgartnerei-stadt-zuerich-zurigo-51261",
+      "it": "allenamento-in-giardino-urbano-stadt-zurich-zurich",
+      "en": "trainee-in-urban-gardening-stadt-zurich-zurich",
+      "fr": "stage-en-jardinage-urbain-stadt-zurich-zurich"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -470417,7 +470493,9 @@
   "id|swica.ch|ed094537-c2e7-44d6-ad07-a117739f6e23": {
     "canonicalSlug": "senior-workplace-engineer-alle-swica-winterthur",
     "slugByLocale": {
-      "de": "senior-workplace-engineer-alle-swica-winterthur"
+      "de": "senior-workplace-engineer-alle-swica-winterthur",
+      "it": "senior-workplace-ingegnere-alle-swica-gesundheitsorganisation-winterthur",
+      "fr": "senior-workplace-ingenieur-alle-swica-gesundheitsorganisation-winterthur"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -470964,7 +471042,8 @@
     "slugByLocale": {
       "it": "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-munsterlingen",
       "en": "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-munsterlingen",
-      "fr": "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-munsterlingen"
+      "fr": "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-munsterlingen",
+      "de": "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-ch"
     },
     "createdAt": "2026-08-07",
     "canton": "TG"
@@ -470984,7 +471063,8 @@
     "canonicalSlug": "sites-network-strategy-lead-operating-model-capability-framework-roche-ch",
     "slugByLocale": {
       "en": "sites-network-strategy-lead-operating-model-capability-framework-roche-ch",
-      "fr": "responsable-de-la-strategie-du-reseau-des-sites-modele-operationnel-et-cadre-de-capacite-roche-basel"
+      "fr": "responsable-de-la-strategie-du-reseau-des-sites-modele-operationnel-et-cadre-de-capacite-roche-basel",
+      "it": "sites-network-strategy-lead-modello-operativo-capability-framework-roche-basel"
     },
     "createdAt": "2026-08-07",
     "canton": "BS"
@@ -471021,7 +471101,10 @@
   "id|spitexjobs.ch|j989319": {
     "canonicalSlug": "dipl-pflegefachperson-hf-fh-40-spitex-ch-rheineck",
     "slugByLocale": {
-      "de": "dipl-pflegefachperson-hf-fh-40-spitex-ch-rheineck"
+      "de": "dipl-pflegefachperson-hf-fh-40-spitex-ch-rheineck",
+      "it": "dipl-professionista-hf-fh-40-spitex-am-alten-rhein-rheineck",
+      "en": "dipl-care-professional-hf-fh-40-spitex-am-alten-rhein-rheineck",
+      "fr": "dipl-soins-professionnels-hf-fh-40-spitex-am-alten-rhein-rheineck"
     },
     "createdAt": "2026-08-07",
     "canton": "SG"
@@ -471041,7 +471124,9 @@
     "canonicalSlug": "fachmann-fachfrau-gesundheit-con-einsatzplanung-70-100-alterszentrum-gibeleich-glattbrugg",
     "slugByLocale": {
       "it": "fachmann-fachfrau-gesundheit-con-einsatzplanung-70-100-alterszentrum-gibeleich-glattbrugg",
-      "de": "fachmann-fachfrau-gesundheit-mit-einsatzplanung-70-100-spitex-ch-glattbrugg"
+      "de": "fachmann-fachfrau-gesundheit-mit-einsatzplanung-70-100-spitex-ch-glattbrugg",
+      "en": "health-professional-health-professional-with-assignment-planning-70-100-alterszentrum-gibeleich-glattbrugg",
+      "fr": "professionnels-de-la-sante-professionnels-de-la-sante-ayant-une-planification-d-affectation-70-100-alterszentrum"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -471049,7 +471134,9 @@
   "id|spitexjobs.ch|j989337": {
     "canonicalSlug": "fachperson-gesundheit-fage-efz-psychiatrie-50-60-montag-freitag-spitex-ch-liestal",
     "slugByLocale": {
-      "de": "fachperson-gesundheit-fage-efz-psychiatrie-50-60-montag-freitag-spitex-ch-liestal"
+      "de": "fachperson-gesundheit-fage-efz-psychiatrie-50-60-montag-freitag-spitex-ch-liestal",
+      "en": "specialist-health-fage-efz-psychiatry-50-60-monday-friday-spitex-regio-liestal-liestal",
+      "fr": "specialiste-de-la-sante-fage-efz-psychiatrie-50-60-lundi-vendredi-spitex-regio-liestal-liestal"
     },
     "createdAt": "2026-08-07",
     "canton": "BL"
@@ -471058,7 +471145,9 @@
     "canonicalSlug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-per-unser-memory-team-spitex-limmat-aare-reuss-ag-untersiggenthal",
     "slugByLocale": {
       "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-fur-unser-memory-team-spitex-ch-untersiggenthal",
-      "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-per-unser-memory-team-spitex-limmat-aare-reuss-ag-untersiggenthal"
+      "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-per-unser-memory-team-spitex-limmat-aare-reuss-ag-untersiggenthal",
+      "en": "dipl-nursing-specialist-hf-fh-for-our-memory-team-spitex-limmat-aare-reuss-ag-untersiggenthal",
+      "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-pour-notre-equipe-memoire-spitex-limmat-aare-reuss-ag-untersiggenthal"
     },
     "createdAt": "2026-08-07",
     "canton": "AG"
@@ -471067,7 +471156,9 @@
     "canonicalSlug": "pflegehelferinnen-e-pfleghelfer-srk-40-60-spitex-gau-oensingen",
     "slugByLocale": {
       "de": "pflegehelferinnen-und-pfleghelfer-srk-40-60-spitex-ch-oensingen",
-      "it": "pflegehelferinnen-e-pfleghelfer-srk-40-60-spitex-gau-oensingen"
+      "it": "pflegehelferinnen-e-pfleghelfer-srk-40-60-spitex-gau-oensingen",
+      "en": "nursing-assistants-srk-40-60-spitex-gau-oensingen",
+      "fr": "assistants-infirmiers-srk-40-60-spitex-gau-oensingen"
     },
     "createdAt": "2026-08-07",
     "canton": "SO"
@@ -471139,7 +471230,10 @@
   "id|oraclecloud.eu|1387": {
     "canonicalSlug": "project-manager-consultant-ubp-ch",
     "slugByLocale": {
-      "en": "project-manager-consultant-ubp-ch"
+      "en": "project-manager-consultant-ubp-ch",
+      "it": "project-manager-consulente-union-bancaire-privee-geneva-switzerland",
+      "de": "project-manager-berater-union-bancaire-privee-geneva-switzerland",
+      "fr": "gestionnaire-de-projet-consultant-union-bancaire-privee-geneva-switzerland"
     },
     "createdAt": "2026-08-07",
     "canton": "GE"
@@ -473036,7 +473130,8 @@
     "slugByLocale": {
       "de": "aspirant-in-stv-geschaftsfuhrer-in-coop-basel-stadt-741is2",
       "it": "aspirant-in-stv-managing-director-in-coop-genossenschaft-basel-3771e3",
-      "fr": "aspirant-dans-stv-directeur-general-in-coop-genossenschaft-basel-3771e3"
+      "fr": "aspirant-dans-stv-directeur-general-in-coop-genossenschaft-basel-3771e3",
+      "en": "aspirant-deputy-general-manager-coop-genossenschaft-basel"
     },
     "createdAt": "2026-08-07",
     "canton": "BS"
@@ -473133,9 +473228,9 @@
     "canonicalSlug": "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen",
     "slugByLocale": {
       "it": "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-sk8304",
-      "en": "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-sk8304",
+      "en": "polydesigner-3d-m-w-d-coop-city-schaffhausen-sk8304",
       "de": "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-sk8304",
-      "fr": "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-sk8304"
+      "fr": "polydesigner-3d-m-w-d-coop-city-schaffhausen-sk8304"
     },
     "createdAt": "2026-08-07",
     "canton": "SH"
@@ -473143,7 +473238,9 @@
   "id|coopjobs.ch|96f707f3-9420-492e-b919-114d98741eff": {
     "canonicalSlug": "product-owner-interdiscount-jegenstorf-bern",
     "slugByLocale": {
-      "de": "product-owner-interdiscount-jegenstorf-bern-2v9j1r"
+      "de": "product-owner-interdiscount-jegenstorf-bern-2v9j1r",
+      "it": "titolare-del-prodotto-interdiscount-jegenstorf",
+      "fr": "proprietaire-du-produit-interdiscount-jegenstorf"
     },
     "createdAt": "2026-08-07",
     "canton": "BE"
@@ -473227,7 +473324,10 @@
   "id|coopjobs.ch|e084d7d4-9a7e-4178-b331-c3a4b02ba415": {
     "canonicalSlug": "teammember-zopf-zopfli-m-w-d-marche-restaurants-schweiz-ag-dietlikon",
     "slugByLocale": {
-      "de": "teammember-zopf-zopfli-m-w-d-marche-restaurants-schweiz-ag-dietlikon-axts4o"
+      "de": "teammember-zopf-zopfli-m-w-d-marche-restaurants-schweiz-ag-dietlikon-axts4o",
+      "it": "membro-del-team-zopf-zopfli-m-f-d-marche-restaurants-schweiz-ag-dietlikon",
+      "en": "team-member-zopf-zopfli-m-f-d-marche-restaurants-schweiz-ag-dietlikon",
+      "fr": "membre-d-equipe-zopf-zopfli-m-f-d-marche-restaurants-schweiz-ag-dietlikon"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -473247,9 +473347,9 @@
     "canonicalSlug": "verkaufer-in-food-getranke-coop-zurich",
     "slugByLocale": {
       "it": "verkaufer-in-food-getranke-coop-zurich-csdqz6",
-      "en": "verkaufer-in-food-getranke-coop-zurich-csdqz6",
+      "en": "food-sales-assistant-beverages-coop-zurich",
       "de": "verkaufer-in-food-getranke-coop-zurich-csdqz6",
-      "fr": "verkaufer-in-food-getranke-coop-zurich-csdqz6"
+      "fr": "vendeur-vendeuse-food-boissons-coop-zurich"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -473258,9 +473358,9 @@
     "canonicalSlug": "verkaufer-in-food-getranke-coop-zurich-2",
     "slugByLocale": {
       "it": "verkaufer-in-food-getranke-coop-zurich-p39s2l",
-      "en": "verkaufer-in-food-getranke-coop-zurich-p39s2l",
+      "en": "agent-name-in-food-greases-coop-zurich",
       "de": "verkaufer-in-food-getranke-coop-zurich-p39s2l",
-      "fr": "verkaufer-in-food-getranke-coop-zurich-p39s2l"
+      "fr": "nom-de-l-agent-dans-la-nourriture-paturages-coop-zurich"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -473521,7 +473621,9 @@
     "canonicalSlug": "lernende-kauffrau-lernender-kaufmann-efz-w-m-d-landi-schweiz-ag-dotzigen",
     "slugByLocale": {
       "de": "lernende-kauffrau-lernender-kaufmann-efz-w-m-d-landi-schweiz-ag-dotzigen",
-      "it": "apprendista-kauffrau-apprendista-kaufmann-cfc-w-m-d-landi-schweiz-ag-dotzigen-e0e103"
+      "it": "apprendista-kauffrau-apprendista-kaufmann-cfc-w-m-d-landi-schweiz-ag-dotzigen-e0e103",
+      "en": "apprentice-kauffrau-apprentice-kaufmann-efz-w-m-d-landi-schweiz-ag-dotzigen",
+      "fr": "apprenti-e-kauffrau-apprenti-e-kaufmann-efz-w-m-d-landi-schweiz-ag-dotzigen"
     },
     "createdAt": "2026-08-07",
     "canton": "BE"
@@ -473530,7 +473632,9 @@
     "canonicalSlug": "lernende-logistikerin-lernender-logistik-efz-w-m-d-landi-schweiz-ag-dotzigen",
     "slugByLocale": {
       "de": "lernende-logistikerin-lernender-logistik-efz-w-m-d-landi-schweiz-ag-dotzigen",
-      "it": "apprendista-logistikerin-apprendista-logistik-cfc-w-m-d-landi-schweiz-ag-dotzigen-d2b402"
+      "it": "apprendista-logistikerin-apprendista-logistik-cfc-w-m-d-landi-schweiz-ag-dotzigen-d2b402",
+      "en": "apprentice-logistikerin-apprentice-logistik-efz-w-m-d-landi-schweiz-ag-dotzigen",
+      "fr": "apprenti-e-logistikerin-apprenti-e-logistik-efz-w-m-d-landi-schweiz-ag-dotzigen"
     },
     "createdAt": "2026-08-07",
     "canton": "BE"
@@ -473800,7 +473904,8 @@
     "canonicalSlug": "senior-automation-tester-apac-zurich-insurance-sede-ticino-lugano-d62dez",
     "slugByLocale": {
       "en": "senior-automation-tester-apac-zurich-insurance-sede-ticino-lugano-d62dez",
-      "fr": "testeur-d-automatisation-senior-apac-zurich-insurance-sede-ticino-lugano"
+      "fr": "testeur-d-automatisation-senior-apac-zurich-insurance-sede-ticino-lugano",
+      "it": "tester-di-automazione-senior-apac-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-08-07",
     "canton": "TI"
@@ -473911,7 +474016,9 @@
   "id|zurich.com|1348737757": {
     "canonicalSlug": "entry-level-personal-lines-agent-hybrid-wexford-zurich-insurance-sede-ticino-lugano-4imgl1",
     "slugByLocale": {
-      "en": "entry-level-personal-lines-agent-hybrid-wexford-zurich-insurance-sede-ticino-lugano-4imgl1"
+      "en": "entry-level-personal-lines-agent-hybrid-wexford-zurich-insurance-sede-ticino-lugano-4imgl1",
+      "it": "livello-di-entrata-personal-lines-agent-hybrid-wexford-zurich-insurance-sede-ticino-lugano",
+      "fr": "niveau-d-entree-personal-lines-agent-hybrid-wexford-zurich-insurance-sede-ticino-lugano-4imgl1"
     },
     "createdAt": "2026-08-07",
     "canton": "TI"
@@ -474352,7 +474459,8 @@
     "slugByLocale": {
       "en": "head-of-supply-chain-data-reporting-roche-ch",
       "de": "leiter-lieferkette-data-reporting-roche-basel",
-      "fr": "responsable-chaine-d-approvisionnement-data-reporting-roche-basel"
+      "fr": "responsable-chaine-d-approvisionnement-data-reporting-roche-basel",
+      "it": "responsabile-supply-chain-data-reporting-roche-basel"
     },
     "createdAt": "2026-08-07",
     "canton": "BS"
@@ -474360,7 +474468,10 @@
   "id|roche.wd3.myworkdayjobs.com|202606-116317-1": {
     "canonicalSlug": "research-associate-in-cardiovascular-and-metabolic-disease-models-in-vitro-2-years",
     "slugByLocale": {
-      "en": "research-associate-in-cardiovascular-and-metabolic-disease-models-in-vitro-2-years"
+      "en": "research-associate-in-cardiovascular-and-metabolic-disease-models-in-vitro-2-years",
+      "it": "ricerca-associate-in-cardiovascular-and-metabolic-disease-models-in-vitro-2-years-temporary-roche-basel",
+      "de": "forschung-associate-in-cardiovascular-and-metabolic-disease-models-in-vitro-2-years-temporary-roche-basel",
+      "fr": "recherche-associate-in-cardiovascular-and-metabolic-disease-models-in-vitro-2-years-temporary-roche-basel"
     },
     "createdAt": "2026-08-07",
     "canton": "BS"
@@ -474368,7 +474479,10 @@
   "id|roche.wd3.myworkdayjobs.com|202606-116281-2": {
     "canonicalSlug": "research-associate-in-vivo-pharmacology-in-cardiovascular-and-metabolic-diseases-temporary",
     "slugByLocale": {
-      "en": "research-associate-in-vivo-pharmacology-in-cardiovascular-and-metabolic-diseases-temporary"
+      "en": "research-associate-in-vivo-pharmacology-in-cardiovascular-and-metabolic-diseases-temporary",
+      "it": "ricerca-associate-in-vivo-pharmacology-in-cardiovascular-and-metabolic-diseases-temporary-position-for-2-years-roche",
+      "de": "forschung-associate-in-vivo-pharmacology-in-cardiovascular-and-metabolic-diseases-temporary-position-for-2-years-roche",
+      "fr": "recherche-associate-in-vivo-pharmacology-in-cardiovascular-and-metabolic-diseases-temporary-position-for-2-years-roche"
     },
     "createdAt": "2026-08-07",
     "canton": "BS"
@@ -474538,5 +474652,2678 @@
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
+  },
+  "id|coopjobs.ch|2d835cb4-e86e-4fa9-a110-2c65544f3328": {
+    "canonicalSlug": "asia-koch-kochin-80-100-two-spice-ag-dietlikon",
+    "slugByLocale": {
+      "de": "asia-koch-kochin-80-100-two-spice-ag-dietlikon-obd2ey"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|f10694b5-05bb-4ee7-b0dd-018012cc50ba": {
+    "canonicalSlug": "editorial-designer-in-80-100-coop-genossenschaft-basel-stadt",
+    "slugByLocale": {
+      "de": "editorial-designer-in-80-100-coop-genossenschaft-basel-stadt-mcc8sw"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BS"
+  },
+  "id|coopjobs.ch|4f87f71e-6b75-44b3-865b-f64c49836601": {
+    "canonicalSlug": "magaziner-in-verkauf-coop-genossenschaft-dietikon-zurich",
+    "slugByLocale": {
+      "it": "magaziner-in-vendita-coop-genossenschaft-dietikon-zurich-kbvbc1",
+      "en": "magaziner-in-sales-coop-genossenschaft-dietikon-zurich-kbvbc1",
+      "de": "magaziner-in-verkauf-coop-genossenschaft-dietikon-zurich-kbvbc1",
+      "fr": "magaziner-in-vente-coop-genossenschaft-dietikon-zurich-kbvbc1"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|8e945a08-a8e1-4c40-96f3-6319d7932291": {
+    "canonicalSlug": "backer-in-konditor-in-coop-winterthur-zurich",
+    "slugByLocale": {
+      "de": "backer-in-konditor-in-coop-winterthur-zurich-awopo1"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|3339c0ce-cf62-447c-b8cd-15ebd9d6859c": {
+    "canonicalSlug": "magaziner-in-verkauf-coop-lyss-bern",
+    "slugByLocale": {
+      "it": "magaziner-in-vendita-coop-lyss-bern-z9rzhj",
+      "en": "magaziner-in-sales-coop-lyss-bern-z9rzhj",
+      "de": "magaziner-in-verkauf-coop-lyss-bern-z9rzhj",
+      "fr": "magaziner-in-vente-coop-lyss-bern-z9rzhj"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|3e02551d-6c83-4617-b639-3c73e7cfe661": {
+    "canonicalSlug": "magaziner-in-verkauf-coop-grenchen-solothurn",
+    "slugByLocale": {
+      "it": "magaziner-in-vendita-coop-grenchen-solothurn-wgt4kn",
+      "en": "magaziner-in-sales-coop-grenchen-solothurn-wgt4kn",
+      "de": "magaziner-in-verkauf-coop-grenchen-solothurn-wgt4kn",
+      "fr": "magaziner-in-vente-coop-grenchen-solothurn-wgt4kn"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SO"
+  },
+  "id|coopjobs.ch|30b10267-f112-4564-acc0-4556a72c9e80": {
+    "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-bubendorf-basel-landschaft",
+    "slugByLocale": {
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-bubendorf-basel-landschaft-ktvvzn"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "id|coopjobs.ch|988b7403-ab73-4c9f-b6f5-b0c5cd9e1097": {
+    "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-bottmingen-basel-landschaft",
+    "slugByLocale": {
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-bottmingen-basel-landschaft-xfksm4"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "id|coopjobs.ch|f15a8c46-09b2-46d9-9c52-a6e23f4d423f": {
+    "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-erstfeld-uri",
+    "slugByLocale": {
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-erstfeld-uri-o0qate"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "UR"
+  },
+  "id|coopjobs.ch|0fdc668c-dc0a-42d2-9ff5-603290e4d395": {
+    "canonicalSlug": "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-division-der-coop-genossenschaft-schafisheim-aargau-noxl5j",
+    "slugByLocale": {
+      "it": "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-division-der-coop-genossenschaft-schafisheim-aargau-noxl5j",
+      "en": "associate-sales-administration-und-kundendienst-jumbo-division-der-coop-genossenschaft-schafisheim-aargau-noxl5j",
+      "de": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-division-der-coop-genossenschaft-schafisheim-aargau-noxl5j",
+      "fr": "collaborateur-trice-vente-administration-und-kundendienst-jumbo-division-der-coop-genossenschaft-schafisheim-aargau-noxl5j"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|75390d96-b183-4220-be4b-e1664a085501": {
+    "canonicalSlug": "rayonleiter-in-brot-backwaren-coop-murten-freiburg",
+    "slugByLocale": {
+      "de": "rayonleiter-in-brot-backwaren-coop-murten-freiburg-66eo6d"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "FR"
+  },
+  "id|coopjobs.ch|26041c51-4b8c-470f-9248-73b14dab59cc": {
+    "canonicalSlug": "rayonleiter-in-convenience-fleisch-coop-adligenswil-luzern",
+    "slugByLocale": {
+      "de": "rayonleiter-in-convenience-fleisch-coop-adligenswil-luzern-k4xnru"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "LU"
+  },
+  "id|coopjobs.ch|e797d252-9777-48ef-aa8e-86549f8c99fa": {
+    "canonicalSlug": "rayonleiter-in-hausbackerei-coop-zurich",
+    "slugByLocale": {
+      "de": "rayonleiter-in-hausbackerei-coop-zurich-2qx1qq"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|840c437c-8bdc-4dfe-bfc3-06e1717dafed": {
+    "canonicalSlug": "rayonleiter-in-wein-getranke-coop-urtenen-schonbuhl-bern",
+    "slugByLocale": {
+      "de": "rayonleiter-in-wein-getranke-coop-urtenen-schonbuhl-bern-0666h6"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|c983f49f-e21a-4f04-9da2-c5a2c437c163": {
+    "canonicalSlug": "stv-rayonleiter-in-brot-und-backwaren-coop-langenthal-bern",
+    "slugByLocale": {
+      "it": "stv-rayonleiter-in-brot-e-backwaren-coop-langenthal-bern-eadta1",
+      "de": "stv-rayonleiter-in-brot-und-backwaren-coop-langenthal-bern-eadta1"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|7152db75-08c9-4670-b8d0-e0fcae7203cb": {
+    "canonicalSlug": "stv-rayonleiter-in-grundnahrungsmittel-coop-biel-bern",
+    "slugByLocale": {
+      "de": "stv-rayonleiter-in-grundnahrungsmittel-coop-biel-bern-2k7sxw"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|2bfd1391-ea41-41ea-bfc9-4a9bb2d97cfe": {
+    "canonicalSlug": "verkaufer-in-blumen-kiosk-coop-oftringen-aargau",
+    "slugByLocale": {
+      "de": "verkaufer-in-blumen-kiosk-coop-oftringen-aargau-n3agin"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|481a8dde-466c-4143-b885-79a72713d4cd": {
+    "canonicalSlug": "verkaufer-in-food-frische-insel-coop-aarau-aargau",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-frische-insel-coop-aarau-aargau-pd7yjs"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|f75f71f8-c8b7-471c-a74b-6a41662850b5": {
+    "canonicalSlug": "verkaufer-in-food-milchprodukte-eier-kase-coop-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-milchprodukte-eier-kase-coop-zurich-bm2hvm"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|2109ff0f-26b3-403c-b997-901da0d48c8e": {
+    "canonicalSlug": "verkaufer-in-food-coop-adelboden-bern",
+    "slugByLocale": {
+      "it": "verkaufer-in-food-coop-genossenschaft-adelboden-bern-p8kwz2",
+      "en": "verkaufer-in-food-coop-genossenschaft-adelboden-bern-p8kwz2",
+      "de": "verkaufer-in-lebensmittel-coop-genossenschaft-adelboden-bern",
+      "fr": "verkaufer-dans-les-aliments-coop-genossenschaft-adelboden-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|252b933a-9cc9-48d6-bd9d-ab1f1d04c78b": {
+    "canonicalSlug": "verkaufer-in-food-coop-bottmingen-basel-landschaft",
+    "slugByLocale": {
+      "it": "verkaufer-in-food-coop-bottmingen-basel-landschaft-wvb42s",
+      "en": "verkaufer-in-food-coop-bottmingen-basel-landschaft-wvb42s",
+      "de": "verkaufer-in-lebensmittel-coop-bottmingen-basel-landschaft",
+      "fr": "verkaufer-dans-les-aliments-coop-bottmingen-basel-landschaft"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "id|coopjobs.ch|4d5857c5-41ce-48a1-9165-bb9bece8b380": {
+    "canonicalSlug": "verkaufer-in-food-coop-murren-bern",
+    "slugByLocale": {
+      "it": "verkaufer-in-food-coop-murren-bern-43rq4r",
+      "en": "verkaufer-in-food-coop-murren-bern-43rq4r",
+      "de": "verkaufer-in-lebensmittel-coop-murren-bern",
+      "fr": "verkaufer-dans-les-aliments-coop-murren-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|56977c1f-4f52-41f5-ae3f-4a40830163cc": {
+    "canonicalSlug": "verkaufer-in-food-coop-baden-aargau",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-baden-aargau-0fdu39"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|bcd5cd0d-70c5-4a3e-9150-bb03f89e3949": {
+    "canonicalSlug": "verkaufer-in-food-coop-bad-ragaz-sankt-gallen",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-bad-ragaz-sankt-gallen-1mxh41"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SG"
+  },
+  "id|coopjobs.ch|0b9e04f8-6ac1-48db-b127-2ec0f0ea00b3": {
+    "canonicalSlug": "verkaufer-in-frischeprodukte-produktion-metzgerei-coop-genossenschaft-spiez-bern",
+    "slugByLocale": {
+      "de": "verkaufer-in-frischeprodukte-produktion-metzgerei-coop-genossenschaft-spiez-bern-hmt099"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|8ace18f6-63c7-4807-9ce2-a3d1779d7d8f": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-brot-und-backwaren-coop-lyss-bern",
+    "slugByLocale": {
+      "it": "verkaufer-in-frischprodukte-brot-e-backwaren-coop-lyss-bern-sms021",
+      "de": "verkaufer-in-frischprodukte-brot-und-backwaren-coop-lyss-bern-sms021"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|8ba9f013-6db1-4585-ae56-6da297ec8035": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-fruchte-und-gemuse-coop-genossenschaft-spiez-bern",
+    "slugByLocale": {
+      "it": "verkaufer-in-frischprodukte-fruchte-e-gemuse-coop-genossenschaft-spiez-bern-lb36zw",
+      "de": "verkaufer-in-frischprodukte-fruchte-und-gemuse-coop-genossenschaft-spiez-bern-lb36zw"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|f694524d-0f62-4adf-be18-d44c98a9402c": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-metzgerei-kase-coop-basel-stadt",
+    "slugByLocale": {
+      "de": "verkaufer-in-frischprodukte-metzgerei-kase-coop-basel-stadt-wiqbut"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BS"
+  },
+  "id|coopjobs.ch|54e6624d-bc7b-4e7d-8611-12cfa3449bc9": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-coop-bulach-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-frischprodukte-coop-bulach-zurich-kgkwfm"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|5dcd72b5-213a-4c8c-978a-28c2ef77dcc7": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-coop-winterthur-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-frischprodukte-coop-winterthur-zurich-euo9bu"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|99a57fa3-c158-4969-80f5-49beaca77bad": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-coop-obfelden-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-frischprodukte-coop-obfelden-zurich-flmclc"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|ca752335-5c1a-4da3-96cb-1cb32843f5b6": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-coop-koniz-bern",
+    "slugByLocale": {
+      "de": "verkaufer-in-frischprodukte-coop-koniz-bern-perp0h"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|df1619d2-49ee-4baf-9b55-952ce035e234": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-coop-baden-aargau",
+    "slugByLocale": {
+      "de": "verkaufer-in-frischprodukte-coop-baden-aargau-o7d1o7"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|e8a46dc2-7656-41e5-a7f2-20894a455308": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-coop-genossenschaft-pontresina-grigioni",
+    "slugByLocale": {
+      "de": "verkaufer-in-frischprodukte-coop-genossenschaft-pontresina-grigioni-e64t0u"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "GR"
+  },
+  "id|coopjobs.ch|f279d037-de66-4acc-becb-438951ceb473": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-coop-rapperswil-jona-sankt-gallen",
+    "slugByLocale": {
+      "de": "verkaufer-in-frischprodukte-coop-genossenschaft-rapperswil-jona-sankt-gallen-fvnben"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SG"
+  },
+  "id|coopjobs.ch|281f4cee-4da7-4ad8-abad-ea1925f222e3": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-aarau-aargau",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-aarau-aargau-yslrdd"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|39d0ffae-ea33-4df6-8835-1b9a8e7446ac": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-huttwil-bern",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-huttwil-bern-gyzjx0"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|581d0cf0-9969-4e80-af34-661dd6db6f78": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-murten-freiburg",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-murten-freiburg-i04ifg"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "FR"
+  },
+  "id|coopjobs.ch|69b73db0-ec3b-4b9a-a59a-b98039b5882b": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-winterthur-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-winterthur-zurich-62pgfr"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|852bef03-a35d-4c19-b597-b0e66ee4a773": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-adligenswil-luzern",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-adligenswil-luzern-f2qo0i"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "LU"
+  },
+  "id|coopjobs.ch|9e8bb126-14df-45b3-8b26-a5a199ca7912": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-zuchwil-solothurn",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-zuchwil-solothurn-4dk1kq"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SO"
+  },
+  "id|coopjobs.ch|cbc71dca-4fb2-43b3-925b-2ebec4571c4c": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-baden-aargau",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-baden-aargau-76su5f"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|44d071b6-5302-4a6d-9b2e-88b7e969a4b6": {
+    "canonicalSlug": "verkaufsberater-in-haushalt-coop-city-aarau-aargau",
+    "slugByLocale": {
+      "it": "verkaufsberater-in-haushalt-coop-genossenschaft-aarau-aargau-8or41l",
+      "en": "verkaufsberater-coop-genossenschaft-aarau-aargau",
+      "de": "verkaufsberater-in-haushalt-coop-city-aarau-aargau-8or41l",
+      "fr": "oui-coop-genossenschaft-aarau-aargau"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|eb7bfded-1477-43ba-aed4-2d8b274bda2f": {
+    "canonicalSlug": "konditor-in-coop-zurich",
+    "slugByLocale": {
+      "de": "konditor-in-coop-zurich-gv1c6f"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|14a75d12-f039-4bce-b4d6-fb76bd4730fd": {
+    "canonicalSlug": "verkaufer-in-food-coop-baden-dattwil-aargau",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-baden-dattwil-aargau-6ijxt9"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|469553b3-d4dc-4123-99ef-90c0a77525b2": {
+    "canonicalSlug": "verkaufer-in-food-coop-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-zurich-6qzui5"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|ea56e847-a8f8-4b0d-bb5b-ee57a58b33dd": {
+    "canonicalSlug": "verkaufer-in-food-getranke-coop-bulach-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-getranke-coop-bulach-zurich-2w70oc",
+      "fr": "verkaufer-dans-la-nourriture-getranke-coop-bulach-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|30033f6f-3cef-4cdc-8425-71cb27ffdc1c": {
+    "canonicalSlug": "verkaufer-in-food-coop-adelboden-bern-2",
+    "slugByLocale": {
+      "it": "verkaufer-in-food-coop-adelboden-bern-7e5oyl",
+      "en": "verkaufer-in-food-coop-adelboden-bern-7e5oyl",
+      "de": "verkaufer-in-lebensmittel-coop-adelboden-bern",
+      "fr": "verkaufer-dans-les-aliments-coop-adelboden-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|5609bf58-097f-49ad-8c22-2b90a6928d81": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-volketswil-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-volketswil-zurich-8svfk3"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|efd0d4ff-2494-4df8-94f4-f109d2ed0afd": {
+    "canonicalSlug": "weinverkoster-in-coop-burgdorf-bern",
+    "slugByLocale": {
+      "de": "weinverkoster-in-coop-burgdorf-bern-l4tpjq",
+      "fr": "weinverkoster-dans-coop-burgdorf-bern-l4tpjq"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|http://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-construction-products-cpr-manager": {
+    "canonicalSlug": "construction-products-cpr-department-manager-mtic-group-lugano-paradiso",
+    "slugByLocale": {
+      "it": "construction-products-cpr-department-manager-mtic-group-lugano-paradiso"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TI"
+  },
+  "url|https://apply.refline.ch/486538/0832/pub/1/index.html": {
+    "canonicalSlug": "mpa-notfallpraxis-spital-limmattal-ch",
+    "slugByLocale": {
+      "de": "mpa-notfallpraxis-spital-limmattal-ch"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11292/pub/5": {
+    "canonicalSlug": "supporter-in-ebanking-service-zkb-zurich",
+    "slugByLocale": {
+      "de": "supporter-in-ebanking-service-zkb-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11312/pub/1": {
+    "canonicalSlug": "kundenberater-in-middle-office-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "kundenberater-in-middle-office-zkb-zurich",
+      "it": "kundenberater-in-middle-office-zurcher-kantonalbank-zurich",
+      "en": "kundenberater-in-middle-office-zurcher-kantonalbank-zurich",
+      "fr": "kundenberater-in-middle-office-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|careers.abb|xmlname--senior--scientist-for-emc-in-power-electronics": {
+    "canonicalSlug": "senior-scientist-for-emc-in-power-electronics-abb-svizzera-sede-ticino-baden-daettwil-aargau-fz19sf",
+    "slugByLocale": {
+      "en": "senior-scientist-for-emc-in-power-electronics-abb-svizzera-sede-ticino-baden-daettwil-aargau-fz19sf"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "id|careers.abb|assistant": {
+    "canonicalSlug": "assistant-abb-svizzera-sede-ticino-schaffhausen-y5exrd",
+    "slugByLocale": {
+      "en": "assistant-abb-svizzera-sede-ticino-schaffhausen-y5exrd",
+      "de": "assistent-abb-svizzera-sede-ticino-schaffhausen-y5exrd"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SH"
+  },
+  "id|careers.abb|hr-ops-specialist--m-f-d---80--100": {
+    "canonicalSlug": "risorse-umane-ops-specialista-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-jefz7z",
+    "slugByLocale": {
+      "it": "risorse-umane-ops-specialista-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-jefz7z",
+      "en": "hr-ops-specialist-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-jefz7z",
+      "de": "personalwesen-ops-spezialist-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-jefz7z",
+      "fr": "ressources-humaines-ops-specialiste-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-jefz7z"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "id|careers.abb|procurement-specialist-electronics--80-100----f-m-d": {
+    "canonicalSlug": "procurement-specialista-electronics-80-100-m-w-d-abb-svizzera-sede-ticino-quartino-ticino-8m0qqc",
+    "slugByLocale": {
+      "it": "procurement-specialista-electronics-80-100-m-w-d-abb-svizzera-sede-ticino-quartino-ticino-8m0qqc",
+      "en": "procurement-specialist-electronics-80-100-m-w-d-abb-svizzera-sede-ticino-quartino-ticino-8m0qqc",
+      "de": "procurement-spezialist-electronics-80-100-m-w-d-abb-svizzera-sede-ticino-quartino-ticino-8m0qqc",
+      "fr": "procurement-specialiste-electronics-80-100-m-w-d-abb-svizzera-sede-ticino-quartino-ticino-8m0qqc"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TI"
+  },
+  "id|careers.abb|procurement-specialist-electro-mechanical-components---electronics--80-100": {
+    "canonicalSlug": "procurement-specialista-electro-mechanical-components-electronics-80-100-abb-svizzera-sede-ticino-quartino-ticino-cxrg41",
+    "slugByLocale": {
+      "it": "procurement-specialista-electro-mechanical-components-electronics-80-100-abb-svizzera-sede-ticino-quartino-ticino-cxrg41",
+      "en": "procurement-specialist-electro-mechanical-components-electronics-80-100-abb-svizzera-sede-ticino-quartino-ticino-cxrg41",
+      "de": "procurement-spezialist-electro-mechanical-components-electronics-80-100-abb-svizzera-sede-ticino-quartino-ticino-cxrg41",
+      "fr": "procurement-specialiste-electro-mechanical-components-electronics-80-100-abb-svizzera-sede-ticino-quartino-ticino-cxrg41"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TI"
+  },
+  "id|careers.abb|production-engineering-technician--f-m-d--80-100": {
+    "canonicalSlug": "production-engineering-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-uek87w",
+    "slugByLocale": {
+      "en": "production-engineering-technician-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-uek87w",
+      "de": "production-engineering-techniker-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-uek87w",
+      "fr": "production-engineering-technicien-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-uek87w"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SH"
+  },
+  "id|careers.abb|shift-leader-test-ipu-b-s--m-f-d--80-100": {
+    "canonicalSlug": "capo-turno-test-ipu-b-s-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino-7l70e1",
+    "slugByLocale": {
+      "it": "capo-turno-test-ipu-b-s-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino-7l70e1",
+      "en": "shift-leader-test-ipu-b-s-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino-7l70e1",
+      "fr": "capo-turno-test-ipu-b-s-m-f-d-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TI"
+  },
+  "id|careers.abb|category-specialist-for-corporate-procurement_jr00043385-1": {
+    "canonicalSlug": "category-specialista-for-corporate-procurement-abb-svizzera-sede-ticino-zurich-oksjqu",
+    "slugByLocale": {
+      "it": "category-specialista-for-corporate-procurement-abb-svizzera-sede-ticino-zurich-oksjqu",
+      "en": "category-specialist-for-corporate-procurement-abb-svizzera-sede-ticino-zurich-oksjqu",
+      "de": "category-spezialist-for-corporate-procurement-abb-svizzera-sede-ticino-zurich-oksjqu",
+      "fr": "category-specialiste-for-corporate-procurement-abb-svizzera-sede-ticino-zurich-oksjqu"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|mediclinic.com|686405701": {
+    "canonicalSlug": "assistente-medico-med-assistente-pratico-a-60-80-hirslanden-klinik-munchenstein-kt",
+    "slugByLocale": {
+      "de": "med-praxisassistentin-med-praxisassistent-a-60-80-hirslanden-munchenstein-kt-basel-land",
+      "it": "assistente-medico-med-assistente-pratico-a-60-80-hirslanden-klinik-munchenstein-kt",
+      "en": "med-practice-assistant-med-practical-assistant-a-60-80-hirslanden-klinik-munchenstein-kt",
+      "fr": "assistant-de-medecine-assistant-de-medecine-a-60-80-hirslanden-klinik-munchenstein-kt"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "id|mediclinic.com|1413785433": {
+    "canonicalSlug": "responsabile-formazione-responsabile-formazione-a-80-100-hirslanden-klinik-bern",
+    "slugByLocale": {
+      "it": "responsabile-formazione-responsabile-formazione-a-80-100-hirslanden-klinik-bern",
+      "en": "training-manager-training-manager-a-80-100-hirslanden-klinik-bern",
+      "de": "ausbildungsverantwortliche-ausbildungsverantwortlicher-a-80-100-hirslanden-bern",
+      "fr": "gestionnaire-de-la-formation-gestionnaire-de-la-formation-a-80-100-hirslanden-klinik-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1413691933": {
+    "canonicalSlug": "supporto-ict-professionale-a-80-100-hirslanden-klinik-luzern",
+    "slugByLocale": {
+      "it": "supporto-ict-professionale-a-80-100-hirslanden-klinik-luzern",
+      "de": "professional-ict-supporterin-supporter-a-80-100-hirslanden-luzern",
+      "fr": "soutien-professionnel-aux-tic-a-80-100-hirslanden-klinik-luzern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "LU"
+  },
+  "id|mediclinic.com|1255070701": {
+    "canonicalSlug": "praktikumsstelle-come-fms-praktikantin-praktikant-a-100-hirslanden-klinik-st-gallen",
+    "slugByLocale": {
+      "it": "praktikumsstelle-come-fms-praktikantin-praktikant-a-100-hirslanden-klinik-st-gallen",
+      "en": "internship-as-fms-intern-intern-a-100-hirslanden-klinik-st-gallen",
+      "de": "praktikumsstelle-als-fms-praktikantin-praktikant-a-100-hirslanden-st-gallen",
+      "fr": "stage-en-tant-que-stagiaire-interne-du-fms-a-100-hirslanden-klinik-st-gallen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SG"
+  },
+  "id|mediclinic.com|1032343601": {
+    "canonicalSlug": "specialista-specialista-diagnostica-radiologica-a-come-medico-senior-medico-senior-60-100-hirslanden-klinik-munchenstein",
+    "slugByLocale": {
+      "it": "specialista-specialista-diagnostica-radiologica-a-come-medico-senior-medico-senior-60-100-hirslanden-klinik-munchenstein",
+      "en": "specialist-in-radiological-diagnostics-a-as-senior-physician-60-100-hirslanden-klinik-munchenstein-kt",
+      "de": "facharztin-facharzt-radiologische-diagnostik-a-als-leitende-arztin-leitender-arzt-60-100",
+      "fr": "specialiste-en-diagnostic-radiologique-a-en-tant-que-medecin-principal-60-100-hirslanden-klinik-munchenstein-kt"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "id|mediclinic.com|843964501": {
+    "canonicalSlug": "medico-senior-per-la-diagnosi-radiologica-a-50-100-hirslanden-klinik-munchenstein-kt",
+    "slugByLocale": {
+      "it": "medico-senior-per-la-diagnosi-radiologica-a-50-100-hirslanden-klinik-munchenstein-kt",
+      "en": "senior-physician-for-radiological-diagnostics-a-50-100-hirslanden-klinik-munchenstein-kt",
+      "de": "oberarztin-oberarzt-fur-radiologische-diagnostik-a-50-100-hirslanden-munchenstein-kt-basel",
+      "fr": "medecin-principal-en-diagnostic-radiologique-a-50-100-hirslanden-klinik-munchenstein-kt"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "id|mediclinic.com|1414182933": {
+    "canonicalSlug": "pre-internship-fhs-bsc-100-e-hirslanden-klinik-st-gallen",
+    "slugByLocale": {
+      "it": "pre-internship-fhs-bsc-100-e-hirslanden-klinik-st-gallen",
+      "en": "pre-internship-fhs-bsc-100-e-hirslanden-klinik-st-gallen",
+      "de": "vorpraktikum-fhs-bsc-100-e-hirslanden-st-gallen",
+      "fr": "avant-le-stage-fhs-bsc-100-e-hirslanden-klinik-st-gallen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SG"
+  },
+  "id|mediclinic.com|1414532833": {
+    "canonicalSlug": "dipl-infermieristica-professionale-imcu-a-50-hirslanden-klinik-munchenstein-kt",
+    "slugByLocale": {
+      "it": "dipl-infermieristica-professionale-imcu-a-50-hirslanden-klinik-munchenstein-kt",
+      "en": "dipl-nursing-professional-imcu-a-50-hirslanden-klinik-munchenstein-kt",
+      "de": "dipl-pflegefachfrau-pflegefachmann-imcu-a-50-hirslanden-munchenstein-kt-basel-land",
+      "fr": "dipl-professionnels-des-soins-infirmiers-icu-a-50-hirslanden-klinik-munchenstein-kt"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "id|mediclinic.com|1414252733": {
+    "canonicalSlug": "supporto-per-studenti-nell-acquisto-a-60-100-hirslanden-klinik-zurich",
+    "slugByLocale": {
+      "it": "supporto-per-studenti-nell-acquisto-a-60-100-hirslanden-klinik-zurich",
+      "en": "student-support-in-purchasing-a-60-100-hirslanden-klinik-zurich",
+      "de": "studentische-unterstutzung-im-einkauf-a-60-100-hirslanden-zurich",
+      "fr": "soutien-aux-etudiants-dans-les-achats-a-60-100-hirslanden-klinik-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|mediclinic.com|1414554333": {
+    "canonicalSlug": "terapista-a-60-hirslanden-klinik-munchenstein-kt",
+    "slugByLocale": {
+      "it": "terapista-a-60-hirslanden-klinik-munchenstein-kt",
+      "en": "ergotherapeutin-ergotherapeut-a-60-hirslanden-klinik-munchenstein-kt-basel-land",
+      "de": "ergotherapeutin-ergotherapeut-a-60-hirslanden-munchenstein-kt-basel-land",
+      "fr": "ergotherapeute-a-60-hirslanden-klinik-munchenstein-kt"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "id|mediclinic.com|1414606333": {
+    "canonicalSlug": "team-leader-team-leader-dialisi-dipl-infermiere-hf-fh-a-70-90-hirslanden-klinik-zurich",
+    "slugByLocale": {
+      "it": "team-leader-team-leader-dialisi-dipl-infermiere-hf-fh-a-70-90-hirslanden-klinik-zurich",
+      "en": "team-leader-team-leader-dialysis-dipl-nurse-hf-fh-a-70-90-hirslanden-klinik-zurich",
+      "de": "teamleiterin-teamleiter-dialyse-dipl-pflegefachperson-hf-fh-a-70-90-hirslanden-zurich",
+      "fr": "chef-d-equipe-chef-d-equipe-dialyse-infirmiere-diplomee-hf-fh-a-70-90-hirslanden-klinik-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|mediclinic.com|1414790333": {
+    "canonicalSlug": "mitarbeiterin-collaboratore-trice-hotelservice-a-60-hirslanden-klinik-bern-besetzung-per-1",
+    "slugByLocale": {
+      "it": "mitarbeiterin-collaboratore-trice-hotelservice-a-60-hirslanden-klinik-bern-besetzung-per-1",
+      "en": "employee-hotel-service-a-60-hirslanden-klinik-bern-besetzung-per-1",
+      "de": "mitarbeiterin-mitarbeiter-hotelservice-a-60-hirslanden-bern",
+      "fr": "employe-hotellerie-a-60-hirslanden-klinik-bern-besetzung-per-1"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|635926701": {
+    "canonicalSlug": "gli-studenti-infermierizzano-hf-hirslanden-klinik-cham-kt",
+    "slugByLocale": {
+      "it": "gli-studenti-infermierizzano-hf-hirslanden-klinik-cham-kt",
+      "en": "students-nurse-hf-hirslanden-klinik-cham-kt",
+      "de": "studierende-pflegefachfrau-pflegefachmann-hf-hirslanden-cham-kt-zug",
+      "fr": "etudiants-infirmiers-hf-hirslanden-klinik-cham-kt"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZG"
+  },
+  "id|mediclinic.com|1375933733": {
+    "canonicalSlug": "chef-de-partie-a-con-attenzione-alla-cucina-calda-100-hirslanden-klinik-cham-kt",
+    "slugByLocale": {
+      "it": "chef-de-partie-a-con-attenzione-alla-cucina-calda-100-hirslanden-klinik-cham-kt",
+      "en": "chef-de-partie-a-with-focus-on-warm-cuisine-100-hirslanden-klinik-cham-kt",
+      "de": "chef-de-partie-a-mit-schwerpunkt-warme-kuche-100-hirslanden-cham-kt-zug",
+      "fr": "chef-de-partie-a-avec-un-accent-sur-la-cuisine-chaleureuse-100-hirslanden-klinik-cham-kt"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZG"
+  },
+  "id|mediclinic.com|1376009233": {
+    "canonicalSlug": "medico-senior-ortopedico-emergenza-a-80-100-hirslanden-klinik-munchenstein-kt",
+    "slugByLocale": {
+      "it": "medico-senior-ortopedico-emergenza-a-80-100-hirslanden-klinik-munchenstein-kt",
+      "en": "senior-physician-senior-physician-orthopaedic-emergency-a-80-100-hirslanden-klinik-munchenstein-kt",
+      "de": "oberarztin-oberarzt-orthopadischer-notfall-a-80-100-hirslanden-munchenstein-kt-basel-land",
+      "fr": "medecin-superieur-medecin-superieur-d-urgence-orthopedique-a-80-100-hirslanden-klinik-munchenstein-kt"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "id|mediclinic.com|1415402333": {
+    "canonicalSlug": "salute-professionale-a-incarichi-flessibili-nei-fine-settimana-hirslanden-klinik-bern",
+    "slugByLocale": {
+      "it": "salute-professionale-a-incarichi-flessibili-nei-fine-settimana-hirslanden-klinik-bern",
+      "en": "professional-health-a-flexible-assignments-on-weekends-hirslanden-klinik-bern",
+      "de": "fachfrau-fachmann-gesundheit-a-flexible-einsatze-am-wochenende-hirslanden-bern",
+      "fr": "sante-professionnelle-a-affectations-flexibles-le-week-end-hirslanden-klinik-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1415328033": {
+    "canonicalSlug": "dipl-infermieristica-professionale-a-emergenza-preferibilmente-con-nds-in-emergenza-70-100-hirslanden-klinik-bern",
+    "slugByLocale": {
+      "it": "dipl-infermieristica-professionale-a-emergenza-preferibilmente-con-nds-in-emergenza-70-100-hirslanden-klinik-bern",
+      "en": "dipl-nursing-professional-a-emergency-preferably-with-nds-in-emergency-care-70-100-hirslanden-klinik-bern-besetzung-per",
+      "de": "dipl-pflegefachfrau-pflegefachmann-a-notfall-vorzugsweise-mit-nds-in-notfallpflege-70-100",
+      "fr": "dipl-professionnel-des-soins-infirmiers-a-urgence-de-preference-avec-nds-en-soins-d-urgence-70-100-hirslanden-klinik"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1415375933": {
+    "canonicalSlug": "assistente-medico-pratico-in-radioterapia-a-40-90-hirslanden-klinik-aarau",
+    "slugByLocale": {
+      "it": "assistente-medico-pratico-in-radioterapia-a-40-90-hirslanden-klinik-aarau",
+      "en": "medical-practice-assistant-in-radiotherapy-a-40-90-hirslanden-klinik-aarau",
+      "de": "medizinische-r-praxisassistent-in-radiotherapie-a-40-90-hirslanden-aarau",
+      "fr": "assistant-medical-professionnel-en-radiotherapie-a-40-90-hirslanden-klinik-aarau"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "id|mediclinic.com|1415315233": {
+    "canonicalSlug": "persona-in-carica-50-70-hirslanden-klinik-st-gallen",
+    "slugByLocale": {
+      "it": "persona-in-carica-50-70-hirslanden-klinik-st-gallen",
+      "en": "person-in-charge-50-70-hirslanden-klinik-st-gallen",
+      "de": "sachbearbeiter-in-ertragssicherung-50-70-hirslanden-st-gallen",
+      "fr": "responsable-50-70-hirslanden-klinik-st-gallen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SG"
+  },
+  "id|mediclinic.com|1415262833": {
+    "canonicalSlug": "capo-della-documentazione-medica-a-80-hirslanden-klinik-zurich",
+    "slugByLocale": {
+      "it": "capo-della-documentazione-medica-a-80-hirslanden-klinik-zurich",
+      "en": "head-of-medical-documentation-a-80-hirslanden-klinik-zurich",
+      "de": "teamleitung-administration-medizinische-dokumentation-a-80-hirslanden-zurich",
+      "fr": "chef-de-la-documentation-medicale-a-80-hirslanden-klinik-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|mediclinic.com|1415385933": {
+    "canonicalSlug": "collaboratore-trice-restaurant-60-hirslanden-klinik-st-gallen",
+    "slugByLocale": {
+      "it": "collaboratore-trice-restaurant-60-hirslanden-klinik-st-gallen",
+      "en": "employee-restaurant-60-hirslanden-klinik-st-gallen",
+      "de": "mitarbeiter-in-restaurant-60-hirslanden-st-gallen",
+      "fr": "employe-restaurant-60-hirslanden-klinik-st-gallen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SG"
+  },
+  "id|mediclinic.com|1415312933": {
+    "canonicalSlug": "infirmier-ere-pooliste-a-80-flexible-hirslanden-klinik-lausanne",
+    "slugByLocale": {
+      "it": "infirmier-ere-pooliste-a-80-flexible-hirslanden-klinik-lausanne",
+      "en": "poolist-nurse-80-flexible-hirslanden-klinik-lausanne",
+      "fr": "infirmier-ere-pooliste-a-80-flexible-hirslanden-lausanne"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "VD"
+  },
+  "id|mediclinic.com|1415713033": {
+    "canonicalSlug": "responsabile-logistico-e-amministrativo-dell-unita-operativa-al-100-hirslanden-klinik-lausanne",
+    "slugByLocale": {
+      "it": "responsabile-logistico-e-amministrativo-dell-unita-operativa-al-100-hirslanden-klinik-lausanne",
+      "en": "logistics-and-administrative-manager-of-the-100-operating-unit-hirslanden-klinik-lausanne",
+      "fr": "gestionnaire-logistique-et-administratif-du-bloc-operatoire-a-100-hirslanden-lausanne"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "VD"
+  },
+  "id|mediclinic.com|1415602733": {
+    "canonicalSlug": "project-manager-project-manager-corporate-development-a-60-100-hirslanden-klinik-aarau",
+    "slugByLocale": {
+      "it": "project-manager-project-manager-corporate-development-a-60-100-hirslanden-klinik-aarau",
+      "en": "project-manager-project-manager-corporate-development-a-60-100-hirslanden-klinik-aarau",
+      "de": "projektleiterin-projektleiter-unternehmensentwicklung-a-60-100-hirslanden-aarau",
+      "fr": "gestionnaire-de-projet-gestionnaire-de-projet-developpement-corporatif-a-60-100-hirslanden-klinik-aarau"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "id|mediclinic.com|1415663533": {
+    "canonicalSlug": "infermiere-poolist-con-80-flessibile-6-mese-cdd-hirslanden-klinik-lausanne",
+    "slugByLocale": {
+      "it": "infermiere-poolist-con-80-flessibile-6-mese-cdd-hirslanden-klinik-lausanne",
+      "en": "poolist-nurse-with-80-flexible-6-month-cdd-hirslanden-klinik-lausanne",
+      "fr": "infirmier-ere-pooliste-a-80-flexible-cdd-de-6-mois-hirslanden-lausanne"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "VD"
+  },
+  "id|mediclinic.com|1415769933": {
+    "canonicalSlug": "team-leader-endoscopy-clinic-beau-site-a-80-100-hirslanden-klinik-bern",
+    "slugByLocale": {
+      "it": "team-leader-endoscopy-clinic-beau-site-a-80-100-hirslanden-klinik-bern",
+      "en": "team-leader-endoscopy-clinic-beau-site-a-80-100-hirslanden-klinik-bern",
+      "de": "teamleitung-endoskopie-klinik-beau-site-a-80-100-hirslanden-bern",
+      "fr": "chef-d-equipe-clinique-endoscopie-beau-site-a-80-100-hirslanden-klinik-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1415769833": {
+    "canonicalSlug": "linux-system-ingegnere-a-80-100-hirslanden-klinik-zurich",
+    "slugByLocale": {
+      "it": "linux-system-ingegnere-a-80-100-hirslanden-klinik-zurich",
+      "de": "linux-system-engineer-a-80-100-hirslanden-zurich",
+      "fr": "linux-system-ingenieur-a-80-100-hirslanden-klinik-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|mediclinic.com|1415835033": {
+    "canonicalSlug": "infermiera-all-80-flex-in-cdd-hirslanden-klinik-lausanne",
+    "slugByLocale": {
+      "it": "infermiera-all-80-flex-in-cdd-hirslanden-klinik-lausanne",
+      "en": "nurse-at-80-flex-in-cdd-hirslanden-klinik-lausanne",
+      "de": "infirmier-ere-a-80-flex-hirslanden-lausanne",
+      "fr": "infirmier-ere-a-80-flex-en-cdd-hirslanden-lausanne"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "VD"
+  },
+  "id|mediclinic.com|875380301": {
+    "canonicalSlug": "dipl-infermieristica-professionale-hf-60-100-a-sulla-stazione-di-letto-interdisciplinare-hirslanden-klinik-cham-kt",
+    "slugByLocale": {
+      "it": "dipl-infermieristica-professionale-hf-60-100-a-sulla-stazione-di-letto-interdisciplinare-hirslanden-klinik-cham-kt",
+      "en": "dipl-nursing-professional-hf-60-100-a-on-the-interdisciplinary-bed-station-hirslanden-klinik-cham-kt",
+      "de": "dipl-pflegefachfrau-pflegefachmann-hf-60-100-a-auf-der-interdisziplinaren-bettenstation",
+      "fr": "dipl-soins-infirmiers-professionnels-hf-60-100-a-sur-la-station-de-lit-interdisciplinaire-hirslanden-klinik-cham-kt"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZG"
+  },
+  "id|mediclinic.com|1237972101": {
+    "canonicalSlug": "apprendistato-lehre-hotellerie-hauswirtschaft-cfc-a-100-hirslanden-klinik-bern-besetzung-per-01",
+    "slugByLocale": {
+      "it": "apprendistato-lehre-hotellerie-hauswirtschaft-cfc-a-100-hirslanden-klinik-bern-besetzung-per-01",
+      "en": "apprenticeship-apprentice-hotel-industry-house-economy-efz-a-100-hirslanden-klinik-bern-besetzung-per-01",
+      "de": "lehrstelle-lehre-hotellerie-hauswirtschaft-efz-a-100-hirslanden-bern",
+      "fr": "apprentissage-apprentissage-hotel-menage-efz-a-100-hirslanden-klinik-bern-besetzung-per-01"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1416223033": {
+    "canonicalSlug": "project-manager-project-manager-corporate-development-a-80-100-hirslanden-klinik-luzern",
+    "slugByLocale": {
+      "it": "project-manager-project-manager-corporate-development-a-80-100-hirslanden-klinik-luzern",
+      "en": "project-manager-project-manager-corporate-development-a-80-100-hirslanden-klinik-luzern",
+      "de": "projektleiterin-projektleiter-unternehmensentwicklung-a-80-100-hirslanden-luzern",
+      "fr": "gestionnaire-de-projet-gestionnaire-de-projet-developpement-corporatif-a-80-100-hirslanden-klinik-luzern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "LU"
+  },
+  "id|mediclinic.com|1416219633": {
+    "canonicalSlug": "fachfrau-fachmann-operationstechnik-per-unser-ambulantes-op-zentrum-a-60-80-hirslanden-klinik-luzern",
+    "slugByLocale": {
+      "it": "fachfrau-fachmann-operationstechnik-per-unser-ambulantes-op-zentrum-a-60-80-hirslanden-klinik-luzern",
+      "en": "specialist-surgical-technique-for-our-outpatient-surgical-center-a-60-80-hirslanden-klinik-luzern",
+      "de": "fachfrau-fachmann-operationstechnik-fur-unser-ambulantes-op-zentrum-a-60-80-hirslanden",
+      "fr": "specialiste-technique-chirurgicale-pour-notre-centre-chirurgical-ambulatoire-a-60-80-hirslanden-klinik-luzern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "LU"
+  },
+  "id|mediclinic.com|1169486101": {
+    "canonicalSlug": "specialista-della-salute-apprendista-gms-2028-hirslanden-klinik-cham-kt",
+    "slugByLocale": {
+      "it": "specialista-della-salute-apprendista-gms-2028-hirslanden-klinik-cham-kt",
+      "en": "apprentice-health-specialist-gms-2028-hirslanden-klinik-cham-kt",
+      "de": "lernende-lernender-fachfrau-fachmann-gesundheit-gms-2028-hirslanden-cham-kt-zug",
+      "fr": "apprentissage-sante-professionnelle-gms-2028-hirslanden-klinik-cham-kt"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZG"
+  },
+  "id|mediclinic.com|1168290501": {
+    "canonicalSlug": "assistenza-post-laurea-a-80-100-hirslanden-klinik-aarau",
+    "slugByLocale": {
+      "it": "assistenza-post-laurea-a-80-100-hirslanden-klinik-aarau",
+      "en": "postgraduate-studies-in-emergency-nursing-a-80-100-hirslanden-klinik-aarau-der-schulische-unterricht-findet-an-der",
+      "de": "nachdiplomstudium-notfallpflege-a-80-100-hirslanden-aarau",
+      "fr": "etudes-post-universitaires-en-soins-infirmiers-d-urgence-a-80-100-hirslanden-klinik-aarau-der-schulische-unterricht"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "id|mediclinic.com|1417102833": {
+    "canonicalSlug": "infermiera-flessibile-60-cdd-hirslanden-klinik-lausanne",
+    "slugByLocale": {
+      "it": "infermiera-flessibile-60-cdd-hirslanden-klinik-lausanne",
+      "en": "nurse-in-flexible-60-cdd-hirslanden-klinik-lausanne",
+      "fr": "infirmier-ere-en-cdd-a-60-flexible-hirslanden-lausanne"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "VD"
+  },
+  "id|mediclinic.com|776391101": {
+    "canonicalSlug": "studi-post-laurea-per-al-dipl-expert-expert-anesthesia-care-hf-hirslanden-klinik-bern-besetzung-per-1",
+    "slugByLocale": {
+      "it": "studi-post-laurea-per-al-dipl-expert-expert-anesthesia-care-hf-hirslanden-klinik-bern-besetzung-per-1",
+      "en": "postgraduate-studies-for-to-the-dipl-expert-expert-anesthesia-care-hf-hirslanden-klinik-bern-besetzung-per-1",
+      "de": "nachdiplomstudium-zur-zum-dipl-expertin-experte-anasthesiepflege-hf-hirslanden-bern",
+      "fr": "etudes-superieures-pour-pour-le-dipl-expert-expert-anesthesie-soins-hf-hirslanden-klinik-bern-besetzung-per-1"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1417826833": {
+    "canonicalSlug": "dipl-terapeuta-fisica-a-40-90-hirslanden-klinik-bern",
+    "slugByLocale": {
+      "it": "dipl-terapeuta-fisica-a-40-90-hirslanden-klinik-bern",
+      "en": "dipl-physical-therapist-a-40-90-hirslanden-klinik-bern",
+      "de": "dipl-physiotherapeutin-physiotherapeut-a-40-90-hirslanden-bern",
+      "fr": "diplome-physiotherapeute-a-40-90-hirslanden-klinik-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1370706733": {
+    "canonicalSlug": "assistente-alla-cura-a-80-100-hirslanden-klinik-ticino",
+    "slugByLocale": {
+      "it": "assistente-alla-cura-a-80-100-hirslanden-klinik-ticino",
+      "en": "care-assistant-a-80-100-hirslanden-klinik-ticino",
+      "de": "versorgungsassistentin-versorgungsassistent-a-80-100-hirslanden-bern",
+      "fr": "assistant-a-80-100-hirslanden-klinik-ticino"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1418131333": {
+    "canonicalSlug": "dipl-pflegefachfrau-mann-o-med-praxisassistent-in-a-herzkatheterlabor-70-80-hirslanden-klinik-bern",
+    "slugByLocale": {
+      "it": "dipl-pflegefachfrau-mann-o-med-praxisassistent-in-a-herzkatheterlabor-70-80-hirslanden-klinik-bern",
+      "en": "dipl-nursing-specialist-or-medical-assistant-in-a-cardiac-catheter-laboratory-70-80-hirslanden-klinik-bern",
+      "de": "dipl-pflegefachfrau-mann-oder-med-praxisassistent-in-a-herzkatheterlabor-70-80-hirslanden",
+      "fr": "dipl-specialiste-des-soins-infirmiers-ou-assistant-medical-dans-a-laboratoire-de-catheter-cardiaque-70-80-hirslanden"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1418298033": {
+    "canonicalSlug": "segretario-medico-in-radiologia-80-hirslanden-klinik-geneve",
+    "slugByLocale": {
+      "it": "segretario-medico-in-radiologia-80-hirslanden-klinik-geneve",
+      "en": "medical-secretary-in-radiology-80-hirslanden-klinik-geneve",
+      "fr": "secretaire-medicale-en-radiologie-a-80-hirslanden-geneve"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "GE"
+  },
+  "id|mediclinic.com|1418111733": {
+    "canonicalSlug": "dipl-pflegefachfrau-pflegefachmann-a-angio-suite-50-100-hirslanden-bern",
+    "slugByLocale": {
+      "en": "dipl-nursing-professional-a-angio-suite-50-100-hirslanden-klinik-bern",
+      "de": "dipl-pflegefachfrau-pflegefachmann-a-angio-suite-50-100-hirslanden-bern",
+      "fr": "dipl-professionnel-des-soins-infirmiers-a-angio-suite-50-100-hirslanden-klinik-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1418153933": {
+    "canonicalSlug": "mitarbeiterin-collaboratore-trice-technischer-dienst-a-100-hirslanden-klinik-aarau",
+    "slugByLocale": {
+      "it": "mitarbeiterin-collaboratore-trice-technischer-dienst-a-100-hirslanden-klinik-aarau",
+      "en": "employee-technical-service-a-100-hirslanden-klinik-aarau",
+      "de": "mitarbeiterin-mitarbeiter-technischer-dienst-a-100-hirslanden-aarau",
+      "fr": "employe-service-technique-a-100-hirslanden-klinik-aarau"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "id|mediclinic.com|1408081033": {
+    "canonicalSlug": "dipl-infermieristica-professionale-hf-a-80-100-hirslanden-klinik-munchenstein-kt",
+    "slugByLocale": {
+      "it": "dipl-infermieristica-professionale-hf-a-80-100-hirslanden-klinik-munchenstein-kt",
+      "en": "dipl-nursing-professional-hf-a-80-100-hirslanden-klinik-munchenstein-kt",
+      "de": "dipl-pflegefachfrau-pflegefachmann-hf-a-80-100-hirslanden-munchenstein-kt-basel-land",
+      "fr": "dipl-professionnel-des-soins-infirmiers-hf-a-80-100-hirslanden-klinik-munchenstein-kt"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "id|mediclinic.com|1418555433": {
+    "canonicalSlug": "analista-biomedico-analista-biomedico-genetica-umana-a-60-hirslanden-klinik-zurich",
+    "slugByLocale": {
+      "it": "analista-biomedico-analista-biomedico-genetica-umana-a-60-hirslanden-klinik-zurich",
+      "en": "biomedical-analyst-biomedical-analyst-human-genetics-a-60-hirslanden-klinik-zurich",
+      "de": "biomedizinische-analytikerin-biomedizinischer-analytiker-humangenetik-a-60-hirslanden",
+      "fr": "analyste-biomedical-analyste-biomedical-genetique-humaine-a-60-hirslanden-klinik-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|mediclinic.com|1419283233": {
+    "canonicalSlug": "dipl-pflegefachfrau-pflegefachmann-awr-e-tk-a-60-hirslanden-klinik-aarau",
+    "slugByLocale": {
+      "it": "dipl-pflegefachfrau-pflegefachmann-awr-e-tk-a-60-hirslanden-klinik-aarau",
+      "en": "dipl-nursing-specialist-awr-and-tk-a-60-hirslanden-klinik-aarau",
+      "de": "dipl-pflegefachfrau-pflegefachmann-awr-und-tk-a-60-hirslanden-aarau",
+      "fr": "dipl-specialiste-des-soins-infirmiers-et-des-savoirs-traditionnels-a-60-hirslanden-klinik-aarau"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "id|mediclinic.com|1419356733": {
+    "canonicalSlug": "praktikantin-praktikant-hr-mit-fokus-rekrutierung-a-100-hirslanden-bern",
+    "slugByLocale": {
+      "en": "intern-intern-hr-with-focus-recruitment-a-100-hirslanden-klinik-bern",
+      "de": "praktikantin-praktikant-hr-mit-fokus-rekrutierung-a-100-hirslanden-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1419356433": {
+    "canonicalSlug": "hr-rekrutierungspartnerin-hr-rekrutierungspartner-a-90-100-hirslanden-bern",
+    "slugByLocale": {
+      "en": "hr-recruitment-partner-a-90-100-hirslanden-klinik-bern",
+      "de": "hr-rekrutierungspartnerin-hr-rekrutierungspartner-a-90-100-hirslanden-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1419568933": {
+    "canonicalSlug": "centro-di-emergenza-interdisciplinare-medico-senior-a-80-100-hirslanden-klinik-luzern",
+    "slugByLocale": {
+      "it": "centro-di-emergenza-interdisciplinare-medico-senior-a-80-100-hirslanden-klinik-luzern",
+      "en": "senior-physician-interdisciplinary-emergency-center-a-80-100-hirslanden-klinik-luzern",
+      "de": "oberarztin-oberarzt-interdisziplinares-notfallzentrum-a-80-100-hirslanden-luzern",
+      "fr": "medecin-principal-centre-interdisciplinaire-d-urgence-a-80-100-hirslanden-klinik-luzern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "LU"
+  },
+  "id|mediclinic.com|1419722433": {
+    "canonicalSlug": "spitalapotheker-spitalapotheker-a-80-100-hirslanden-klinik-zurich",
+    "slugByLocale": {
+      "it": "spitalapotheker-spitalapotheker-a-80-100-hirslanden-klinik-zurich",
+      "en": "spitalapotheker-spitalapotheker-a-80-100-hirslanden-klinik-zurich",
+      "de": "spitalapothekerin-spitalapotheker-a-80-100-hirslanden-zurich",
+      "fr": "spitalapotheker-spitalapotheker-a-80-100-hirslanden-klinik-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|mediclinic.com|1419803733": {
+    "canonicalSlug": "dipl-infermieristica-professionale-dipl-infermieristica-elettrofisiologia-professionale-laboratorio-di-cateterecardiaco",
+    "slugByLocale": {
+      "it": "dipl-infermieristica-professionale-dipl-infermieristica-elettrofisiologia-professionale-laboratorio-di-cateterecardiaco",
+      "en": "dipl-nursing-professional-dipl-nursing-professional-electrophysiology-cardiac-catheter-laboratory-a-100-hirslanden",
+      "de": "dipl-pflegefachfrau-dipl-pflegefachmann-elektrophysiologie-herzkatheterlabor-a-100",
+      "fr": "dipl-professionnels-des-soins-infirmiers-dipl-laboratoire-d-electrophysiologie-catheter-de-cardiologie-professionnel-des"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|mediclinic.com|1420076633": {
+    "canonicalSlug": "mpa-segretario-medico-segretario-medico-radiologia-a-90-hirslanden-klinik-aarau",
+    "slugByLocale": {
+      "it": "mpa-segretario-medico-segretario-medico-radiologia-a-90-hirslanden-klinik-aarau",
+      "en": "mpa-medical-secretary-medical-secretary-radiology-a-90-hirslanden-klinik-aarau",
+      "de": "mpa-arztsekretarin-arztsekretar-radiologie-a-90-hirslanden-aarau",
+      "fr": "mpa-secretaire-medical-secretaire-medical-radiologie-a-90-hirslanden-klinik-aarau"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "id|mediclinic.com|1409967633": {
+    "canonicalSlug": "conservazione-maintenant-a-100-hirslanden-klinik-munchenstein-kt",
+    "slugByLocale": {
+      "it": "conservazione-maintenant-a-100-hirslanden-klinik-munchenstein-kt",
+      "en": "storage-maintenant-a-100-hirslanden-klinik-munchenstein-kt",
+      "de": "lagerungspflegerin-lagerungspfleger-a-100-hirslanden-munchenstein-kt-basel-land",
+      "fr": "entretien-a-100-hirslanden-klinik-munchenstein-kt"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "id|mediclinic.com|1420591933": {
+    "canonicalSlug": "datenmanager-in-o-medizinische-r-dokumentar-in-a-50-hirslanden-klinik-bern",
+    "slugByLocale": {
+      "it": "datenmanager-in-o-medizinische-r-dokumentar-in-a-50-hirslanden-klinik-bern",
+      "en": "data-manager-or-medical-documentary-a-50-hirslanden-klinik-bern",
+      "de": "datenmanager-in-oder-medizinische-r-dokumentar-in-a-50-hirslanden-bern",
+      "fr": "gestionnaire-de-donnees-ou-documentaire-medical-a-50-hirslanden-klinik-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1420764033": {
+    "canonicalSlug": "hr-spezialistin-hr-spezialist-case-management-a-80-100-hirslanden-luzern",
+    "slugByLocale": {
+      "en": "hr-specialist-case-management-a-80-100-hirslanden-klinik-luzern",
+      "de": "hr-spezialistin-hr-spezialist-case-management-a-80-100-hirslanden-luzern",
+      "fr": "specialiste-des-rh-gestion-des-cas-a-80-100-hirslanden-klinik-luzern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "LU"
+  },
+  "id|mediclinic.com|1421112633": {
+    "canonicalSlug": "mitarbeitende-hotelservice-a-80-100-befristet-per-6-monate-hirslanden-klinik-zurich",
+    "slugByLocale": {
+      "it": "mitarbeitende-hotelservice-a-80-100-befristet-per-6-monate-hirslanden-klinik-zurich",
+      "en": "employee-hotel-service-a-80-100-temporary-for-6-months-hirslanden-klinik-zurich",
+      "de": "mitarbeitende-hotelservice-a-80-100-befristet-fur-6-monate-hirslanden-zurich",
+      "fr": "service-hotelier-salarie-a-80-100-temporaire-pendant-6-mois-hirslanden-klinik-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|mediclinic.com|1421106333": {
+    "canonicalSlug": "specialista-risorse-umane-governance-a-60-80-hirslanden-klinik-zurich",
+    "slugByLocale": {
+      "it": "specialista-risorse-umane-governance-a-60-80-hirslanden-klinik-zurich",
+      "de": "specialist-hr-governance-a-60-80-hirslanden-zurich",
+      "fr": "specialiste-ressources-humaines-governance-a-60-80-hirslanden-klinik-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|mediclinic.com|1421275333": {
+    "canonicalSlug": "lehre-apprendistato-koch-kochin-cfc-a-2027-hirslanden-klinik-zurich",
+    "slugByLocale": {
+      "it": "lehre-apprendistato-koch-kochin-cfc-a-2027-hirslanden-klinik-zurich",
+      "en": "teaching-apprenticeship-koch-koch-efz-a-2027-hirslanden-klinik-zurich",
+      "de": "lehre-lehrstelle-koch-kochin-efz-a-2027-hirslanden-zurich",
+      "fr": "enseignement-apprentissage-koch-koch-efz-a-2027-hirslanden-klinik-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|mediclinic.com|1421223833": {
+    "canonicalSlug": "dipl-sportphysiotherapeutin-sportphysiotherapeut-mit-mannschaftsbetreuung-bsc-yb-a-80-100",
+    "slugByLocale": {
+      "en": "dipl-sports-physiotherapist-sports-physiotherapist-with-team-supervision-bsc-yb-a-80-100-hirslanden-klinik-bern",
+      "de": "dipl-sportphysiotherapeutin-sportphysiotherapeut-mit-mannschaftsbetreuung-bsc-yb-a-80-100",
+      "fr": "dipl-physiotherapeute-sportif-physiotherapeute-sportif-avec-supervision-d-equipe-bsc-yb-a-80-100-hirslanden-klinik-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1410834933": {
+    "canonicalSlug": "terapeuta-fisica-a-80-100-hirslanden-klinik-munchenstein-kt",
+    "slugByLocale": {
+      "it": "terapeuta-fisica-a-80-100-hirslanden-klinik-munchenstein-kt",
+      "en": "physical-therapist-a-80-100-hirslanden-klinik-munchenstein-kt",
+      "de": "physiotherapeutin-physiotherapeut-a-80-100-hirslanden-munchenstein-kt-basel-land",
+      "fr": "physiotherapeute-a-80-100-hirslanden-klinik-munchenstein-kt"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "id|mediclinic.com|1421499833": {
+    "canonicalSlug": "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-a-per-august-2027-hirslanden-klinik-biel-bienne",
+    "slugByLocale": {
+      "it": "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-a-per-august-2027-hirslanden-klinik-biel-bienne",
+      "en": "apprenticeship-apprenticeship-as-a-specialist-health-fage-efz-a-as-of-august-2027-hirslanden-klinik-biel-bienne",
+      "de": "lehrstelle-lehre-als-fachfrau-fachmann-gesundheit-fage-efz-a-per-august-2027-hirslanden",
+      "fr": "apprentissage-apprentissage-en-tant-que-specialiste-sante-fage-efz-a-en-date-d-aout-2027-hirslanden-klinik-biel-bienne"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1421688033": {
+    "canonicalSlug": "apprendistato-informatikerin-informatiker-plattformentwicklung-cfc-a-100-hirslanden-klinik-zurich",
+    "slugByLocale": {
+      "it": "apprendistato-informatikerin-informatiker-plattformentwicklung-cfc-a-100-hirslanden-klinik-zurich",
+      "en": "computer-scientist-computer-scientist-platform-development-efz-a-100-hirslanden-klinik-zurich",
+      "de": "lehrstelle-informatikerin-informatiker-plattformentwicklung-efz-a-100-hirslanden-zurich",
+      "fr": "computer-scientist-computer-scientist-platform-development-efz-a-100-hirslanden-klinik-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|mediclinic.com|1421669233": {
+    "canonicalSlug": "apprendistato-kauffrau-kaufmann-cfc-a-100-hirslanden-klinik-zurich",
+    "slugByLocale": {
+      "it": "apprendistato-kauffrau-kaufmann-cfc-a-100-hirslanden-klinik-zurich",
+      "en": "apprenticeship-kauffrau-kaufmann-efz-a-100-hirslanden-klinik-zurich",
+      "de": "lehrstelle-kauffrau-kaufmann-efz-a-100-hirslanden-zurich",
+      "fr": "apprentissage-kauffrau-kaufmann-efz-a-100-hirslanden-klinik-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|mediclinic.com|1391874533": {
+    "canonicalSlug": "infermiere-hf-qualificato-a-60-100-con-funzione-di-formatore-professionale-hirslanden-klinik-cham-kt",
+    "slugByLocale": {
+      "it": "infermiere-hf-qualificato-a-60-100-con-funzione-di-formatore-professionale-hirslanden-klinik-cham-kt",
+      "en": "qualified-nurse-hf-a-60-100-with-vocational-trainer-function-hirslanden-klinik-cham-kt",
+      "de": "dipl-pflegefachfrau-pflegefachmann-hf-a-60-100-mit-berufsbildnerfunktion-hirslanden-cham",
+      "fr": "infirmiere-diplomee-en-hf-a-60-100-avec-fonction-de-formatrice-professionnelle-hirslanden-klinik-cham-kt"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZG"
+  },
+  "id|mediclinic.com|1411729733": {
+    "canonicalSlug": "apprendistato-lehre-fachfrau-fachmann-gesundheit-cfc-2027-hirslanden-klinik-cham-kt-zug",
+    "slugByLocale": {
+      "it": "apprendistato-lehre-fachfrau-fachmann-gesundheit-cfc-2027-hirslanden-klinik-cham-kt-zug",
+      "en": "apprenticeship-teaching-professional-health-efz-2027-hirslanden-klinik-cham-kt",
+      "de": "lehrstelle-lehre-fachfrau-fachmann-gesundheit-efz-2027-hirslanden-cham-kt-zug",
+      "fr": "apprentissage-enseignement-de-la-sante-professionnelle-efz-2027-hirslanden-klinik-cham-kt"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZG"
+  },
+  "id|mediclinic.com|1411733833": {
+    "canonicalSlug": "apprendistato-lehre-assistentin-assistent-gesundheit-e-soziales-afp-2027-hirslanden-klinik-cham-kt-zug",
+    "slugByLocale": {
+      "it": "apprendistato-lehre-assistentin-assistent-gesundheit-e-soziales-afp-2027-hirslanden-klinik-cham-kt-zug",
+      "en": "apprenticeship-teaching-assistant-health-and-social-assistant-eba-2027-hirslanden-klinik-cham-kt",
+      "de": "lehrstelle-lehre-assistentin-assistent-gesundheit-und-soziales-eba-2027-hirslanden-cham-kt",
+      "fr": "apprentissage-assistant-a-l-enseignement-assistant-a-la-sante-et-aux-affaires-sociales-eba-2027-hirslanden-klinik-cham"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZG"
+  },
+  "id|mediclinic.com|1411689533": {
+    "canonicalSlug": "responsabile-della-sicurezza-responsabile-della-sicurezza-sibe-a-80-100-hirslanden-klinik-bern-besetzung-per-1",
+    "slugByLocale": {
+      "it": "responsabile-della-sicurezza-responsabile-della-sicurezza-sibe-a-80-100-hirslanden-klinik-bern-besetzung-per-1",
+      "en": "security-officer-security-officer-sibe-a-80-100-hirslanden-klinik-bern-besetzung-per-1",
+      "de": "sicherheitsbeauftragte-sicherheitsbeauftragter-sibe-a-80-100-hirslanden-bern",
+      "fr": "agent-de-securite-agent-de-securite-sibe-a-80-100-hirslanden-klinik-bern-besetzung-per-1"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1411604533": {
+    "canonicalSlug": "mitarbeiterin-collaboratore-trice-reception-a-50-hirslanden-klinik-luzern",
+    "slugByLocale": {
+      "it": "mitarbeiterin-collaboratore-trice-reception-a-50-hirslanden-klinik-luzern",
+      "en": "employee-reception-a-50-hirslanden-klinik-luzern",
+      "de": "mitarbeiterin-mitarbeiter-reception-a-50-hirslanden-luzern",
+      "fr": "reception-des-employes-a-50-hirslanden-klinik-luzern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "LU"
+  },
+  "id|mediclinic.com|1423505033": {
+    "canonicalSlug": "manutenzione-professionale-a-100-hirslanden-klinik-zurich",
+    "slugByLocale": {
+      "it": "manutenzione-professionale-a-100-hirslanden-klinik-zurich",
+      "en": "professional-professional-maintenance-a-100-hirslanden-klinik-zurich",
+      "de": "fachfrau-fachmann-betriebsunterhalt-a-100-hirslanden-zurich",
+      "fr": "entretien-professionnel-a-100-hirslanden-klinik-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|mediclinic.com|1423382433": {
+    "canonicalSlug": "100-cdi-guida-del-blocco-operativo-hirslanden-klinik-geneve",
+    "slugByLocale": {
+      "it": "100-cdi-guida-del-blocco-operativo-hirslanden-klinik-geneve",
+      "en": "100-cdi-operating-block-help-hirslanden-klinik-geneve",
+      "fr": "aide-de-bloc-operatoire-cdi-100-hirslanden-geneve"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "GE"
+  },
+  "id|mediclinic.com|1423444433": {
+    "canonicalSlug": "mitarbeiterin-collaboratore-trice-a-parking-10-auf-abruf-hirslanden-klinik-zurich",
+    "slugByLocale": {
+      "it": "mitarbeiterin-collaboratore-trice-a-parking-10-auf-abruf-hirslanden-klinik-zurich",
+      "en": "employee-a-parking-10-on-demand-hirslanden-klinik-zurich",
+      "de": "mitarbeiterin-mitarbeiter-a-parking-10-auf-abruf-hirslanden-zurich",
+      "fr": "employe-a-stationnement-10-sur-demande-hirslanden-klinik-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|mediclinic.com|1423283933": {
+    "canonicalSlug": "praktikantin-praktikant-hotellerie-a-100-befristet-per-6-12-monate-hirslanden-klinik-zurich",
+    "slugByLocale": {
+      "it": "praktikantin-praktikant-hotellerie-a-100-befristet-per-6-12-monate-hirslanden-klinik-zurich",
+      "en": "intern-intern-hotel-industry-a-100-temporary-for-6-12-months-hirslanden-klinik-zurich",
+      "de": "praktikantin-praktikant-hotellerie-a-100-befristet-fur-6-12-monate-hirslanden-zurich",
+      "fr": "industrie-hoteliere-interne-a-100-temporaire-pendant-6-12-mois-hirslanden-klinik-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|mediclinic.com|1423963933": {
+    "canonicalSlug": "mitarbeiterin-collaboratore-trice-patientendisposition-80-100-hirslanden-klinik-st-gallen",
+    "slugByLocale": {
+      "it": "mitarbeiterin-collaboratore-trice-patientendisposition-80-100-hirslanden-klinik-st-gallen",
+      "de": "mitarbeiterin-mitarbeiter-patientendisposition-80-100-hirslanden-st-gallen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SG"
+  },
+  "id|mediclinic.com|1423840133": {
+    "canonicalSlug": "med-praxisassistentin-praxisassistent-a-emergenza-20-60-nel-salario-orario-hirslanden-klinik-bern",
+    "slugByLocale": {
+      "it": "med-praxisassistentin-praxisassistent-a-emergenza-20-60-nel-salario-orario-hirslanden-klinik-bern",
+      "en": "med-praxisassistentin-praxisassistent-a-emergency-20-60-in-the-hourly-wage-hirslanden-klinik-bern",
+      "de": "med-praxisassistentin-praxisassistent-a-notfall-20-60-im-stundenlohn-hirslanden-bern",
+      "fr": "med-praxisinsistance-praxisinsistance-a-urgence-20-60-du-salaire-horaire-hirslanden-klinik-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1423919333": {
+    "canonicalSlug": "dipl-pflegefachfrau-pflegefachmann-a-70-100-schwerpunkt-chirurgie-orthopala-hirslanden-klinik-bern",
+    "slugByLocale": {
+      "it": "dipl-pflegefachfrau-pflegefachmann-a-70-100-schwerpunkt-chirurgie-orthopala-hirslanden-klinik-bern",
+      "en": "dipl-nursing-specialist-a-70-100-focus-surgery-orthopaedics-hirslanden-klinik-bern",
+      "de": "dipl-pflegefachfrau-pflegefachmann-a-70-100-schwerpunkt-chirurgie-orthopadie-hirslanden",
+      "fr": "dipl-specialiste-des-soins-infirmiers-a-70-100-chirurgie-de-concentration-orthopedie-hirslanden-klinik-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1423934233": {
+    "canonicalSlug": "fachfrau-fachmann-gesundheit-a-70-100-schwerpunkt-chirurgie-orthopadie-hirslanden-bern",
+    "slugByLocale": {
+      "en": "health-professional-a-70-100-focus-surgery-orthopaedics-hirslanden-klinik-bern",
+      "de": "fachfrau-fachmann-gesundheit-a-70-100-schwerpunkt-chirurgie-orthopadie-hirslanden-bern",
+      "fr": "professionnels-de-la-sante-a-70-100-chirurgie-de-foyer-orthopedie-hirslanden-klinik-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1412859933": {
+    "canonicalSlug": "dipl-infermieristica-professionale-a-kardunit-60-100-mo-sa-hirslanden-klinik-bern",
+    "slugByLocale": {
+      "it": "dipl-infermieristica-professionale-a-kardunit-60-100-mo-sa-hirslanden-klinik-bern",
+      "en": "dipl-nursing-professional-a-kardunit-60-100-mo-sa-hirslanden-klinik-bern",
+      "de": "dipl-pflegefachfrau-pflegefachmann-a-kardunit-60-100-mo-sa-hirslanden-bern",
+      "fr": "dipl-professionnel-des-soins-infirmiers-a-kardunit-60-100-mo-sa-hirslanden-klinik-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1424274533": {
+    "canonicalSlug": "leiterin-leiter-facility-management-a-100-hirslanden-klinik-biel-bienne",
+    "slugByLocale": {
+      "de": "leiterin-leiter-facility-management-a-100-hirslanden-biel-bienne",
+      "it": "leiterin-leiter-facility-management-a-100-hirslanden-klinik-biel-bienne"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1424278333": {
+    "canonicalSlug": "diatkoch-diatkochin-100-hirslanden-st-gallen",
+    "slugByLocale": {
+      "de": "diatkoch-diatkochin-100-hirslanden-st-gallen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SG"
+  },
+  "id|mediclinic.com|1413412333": {
+    "canonicalSlug": "capo-della-care-membro-della-direzione-estesa-a-80-100-hirslanden-klinik-luzern",
+    "slugByLocale": {
+      "it": "capo-della-care-membro-della-direzione-estesa-a-80-100-hirslanden-klinik-luzern",
+      "en": "head-of-care-member-of-the-extended-management-a-80-100-hirslanden-klinik-luzern",
+      "de": "leiterin-leiter-pflege-mitglied-der-erweiterten-geschaftsleitung-a-80-100-hirslanden",
+      "fr": "chef-de-la-direction-hirslanden-klinik-luzern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "LU"
+  },
+  "id|mediclinic.com|1413268533": {
+    "canonicalSlug": "dipl-pflegefachfrau-pflegefachmann-a-wochenklinik-70-100-mit-ohne-berufsbildnerkurs",
+    "slugByLocale": {
+      "it": "dipl-pflegefachfrau-pflegefachmann-a-wochenklinik-70-100-mit-ohne-berufsbildnerkurs",
+      "en": "dipl-nursing-specialist-a-weekly-clinic-70-100-with-without-vocational-training-course-hirslanden-klinik-bern-besetzung",
+      "de": "dipl-pflegefachfrau-pflegefachmann-a-wochenklinik-70-100-mit-berufsbildnerkurs-hirslanden",
+      "fr": "dipl-specialiste-des-soins-infirmiers-a-clinique-hebdomadaire-70-100-avec-sans-cours-de-formation-professionnelle"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1370605433": {
+    "canonicalSlug": "pflegeassistentin-pflegeassistent-a-come-nachtwache-60-80-hirslanden-klinik-bern-besetzung-per-01-august-2026anstellungsart-befristet-referenznummer-68273",
+    "slugByLocale": {
+      "it": "pflegeassistentin-pflegeassistent-a-come-nachtwache-60-80-hirslanden-klinik-bern-besetzung-per-01-august-2026anstellungsart-befristet-referenznummer-68273",
+      "en": "nursing-assistant-a-as-night-watch-60-80-hirslanden-klinik-bern-besetzung-per-01",
+      "de": "pflegeassistentin-pflegeassistent-a-als-nachtwache-60-80-hirslanden-bern",
+      "fr": "assistante-infirmiere-a-en-veille-de-nuit-60-80-hirslanden-klinik-bern-besetzung-per-01"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1413440133": {
+    "canonicalSlug": "infermiera-di-emergenza-in-cdd-all-80-hirslanden-klinik-lausanne",
+    "slugByLocale": {
+      "it": "infermiera-di-emergenza-in-cdd-all-80-hirslanden-klinik-lausanne",
+      "en": "emergency-nurse-in-cdd-at-80-hirslanden-klinik-lausanne",
+      "fr": "infirmier-ere-aux-urgences-en-cdd-a-80-hirslanden-lausanne"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "VD"
+  },
+  "id|mediclinic.com|1413409733": {
+    "canonicalSlug": "dipl-expert-expert-anesthesia-care-nds-a-50-100-hirslanden-klinik-bern",
+    "slugByLocale": {
+      "it": "dipl-expert-expert-anesthesia-care-nds-a-50-100-hirslanden-klinik-bern",
+      "en": "dipl-expert-expert-anesthesia-care-nds-a-50-100-hirslanden-klinik-bern",
+      "de": "dipl-expertin-experte-anasthesiepflege-nds-a-50-100-hirslanden-bern",
+      "fr": "dipl-expert-soins-d-anesthesie-d-experts-pdn-a-50-100-hirslanden-klinik-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://careers.richemont.com/en/jobs/jr132495/upstream-supply-chain-project-intern": {
+    "canonicalSlug": "upstream-supply-chain-project-intern-richemont-bellevue",
+    "slugByLocale": {
+      "en": "upstream-supply-chain-project-intern-richemont-bellevue",
+      "de": "upstream-lieferkette-project-praktikant-richemont-bellevue",
+      "fr": "upstream-chaine-d-approvisionnement-project-stagiaire-richemont-bellevue"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "GE"
+  },
+  "url|https://careers.richemont.com/en/jobs/jr132522/logistic-digital-data-intern": {
+    "canonicalSlug": "logistic-digital-data-intern-richemont-villars-sur-glane",
+    "slugByLocale": {
+      "en": "logistic-digital-data-intern-richemont-villars-sur-glane"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "FR"
+  },
+  "id|stadlerrail.com|1327192555": {
+    "canonicalSlug": "pittore-in-stadler-rail-altenrhein",
+    "slugByLocale": {
+      "it": "pittore-in-stadler-rail-altenrhein",
+      "en": "painter-in-stadler-rail-altenrhein",
+      "de": "lackierer-in-stadler-rail-ch",
+      "fr": "peintre-stadler-rail-altenrhein"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TG"
+  },
+  "id|stadlerrail.com|1363322555": {
+    "canonicalSlug": "betriebsmechaniker-in-produktionsanlagen-stadler-rail-ch",
+    "slugByLocale": {
+      "de": "betriebsmechaniker-in-produktionsanlagen-stadler-rail-ch"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|stadlerrail.com|1363248855": {
+    "canonicalSlug": "collaboratore-trice-flottenbetreuung-stadler-rail-st-margrethen",
+    "slugByLocale": {
+      "it": "collaboratore-trice-flottenbetreuung-stadler-rail-st-margrethen",
+      "en": "associate-flottenbetreuung-stadler-rail-st-margrethen",
+      "de": "mitarbeiter-in-flottenbetreuung-stadler-rail-ch",
+      "fr": "collaborateur-trice-flottenbetreuung-stadler-rail-st-margrethen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SG"
+  },
+  "id|zurich.com|1366188057": {
+    "canonicalSlug": "ingeniero-de-riesgos-jr-zurich-insurance-sede-ticino-lugano-u1kkno",
+    "slugByLocale": {
+      "fr": "ingeniero-de-riesgos-jr-zurich-insurance-sede-ticino-lugano-u1kkno"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TI"
+  },
+  "id|zurich.com|1329987857": {
+    "canonicalSlug": "information-security-specialista-capo-team-identity-and-access-management-iam-zurich-insurance-sede-ticino-lugano-xlq35o",
+    "slugByLocale": {
+      "it": "information-security-specialista-capo-team-identity-and-access-management-iam-zurich-insurance-sede-ticino-lugano-xlq35o",
+      "en": "information-security-specialist-team-lead-identity-and-access-management-iam-zurich-insurance-sede-ticino-lugano-xlq35o",
+      "de": "information-security-spezialist-teamleiter-identity-and-access-management-iam-zurich-insurance-sede-ticino-lugano-xlq35o",
+      "fr": "information-security-specialiste-chef-d-equipe-identity-and-access-management-iam-zurich-insurance-sede-ticino-lugano-xlq35o"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TI"
+  },
+  "id|zurich.com|806899202": {
+    "canonicalSlug": "zurich-insurance-sede-ticino-lugano-b2kq6h",
+    "slugByLocale": {
+      "en": "zurich-insurance-sede-ticino-lugano-b2kq6h"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TI"
+  },
+  "id|spitalbuelach.ch|97fcd896-246b-4fe3-a3b4-d95ba1e35a80": {
+    "canonicalSlug": "dipl-pflegefachperson-altersmedizin-spital-buelach-bulach",
+    "slugByLocale": {
+      "de": "dipl-pflegefachperson-altersmedizin-spital-buelach-bulach"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|spitalbuelach.ch|b0b2b652-cde8-4a18-bd9e-51b07e2d1243": {
+    "canonicalSlug": "responsabile-medizincontrolling-spital-bulach",
+    "slugByLocale": {
+      "de": "leiter-in-medizincontrolling-spital-buelach-bulach",
+      "it": "responsabile-medizincontrolling-spital-bulach"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|unispital-basel.ch|5ae100a9-82d4-440b-b5e9-da936eb7c9c5": {
+    "canonicalSlug": "med-praxisassistentin-praxisassistent-cfc-apprendistato-universitatsspital-basel",
+    "slugByLocale": {
+      "it": "med-praxisassistentin-praxisassistent-cfc-apprendistato-universitatsspital-basel",
+      "en": "med-praxisassistentin-praxisassistent-efz-lehrstelle-universitatsspital-basel-basel",
+      "de": "med-praxisassistentin-praxisassistent-efz-lehrstelle-unispital-basel-ch",
+      "fr": "med-praxisassistantine-praxisassisant-efz-apprentissage-universitatsspital-basel-basel"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BS"
+  },
+  "id|unispital-basel.ch|95c3fea4-66f5-44d4-9fd2-7e8761339147": {
+    "canonicalSlug": "assistent-in-gesundheit-e-soziales-pflegeassistent-in-medizin-6-2-universitatsspital-basel",
+    "slugByLocale": {
+      "de": "assistent-in-gesundheit-und-soziales-pflegeassistent-in-medizin-6-2-unispital-basel-ch",
+      "it": "assistent-in-gesundheit-e-soziales-pflegeassistent-in-medizin-6-2-universitatsspital-basel",
+      "en": "assistent-in-gesundheit-und-soziales-pflegeassistent-in-medizin-6-2-universitatsspital-basel-basel",
+      "fr": "assistent-in-gesundheit-und-soziales-pflegeassistent-in-medizin-6-2-universitatsspital-basel-basel"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BS"
+  },
+  "url|https://jobs.chur.ch/bereichsleiterin-friedhoefebestattungen-und-stv-leiterin-s-de-j1694.html": {
+    "canonicalSlug": "bereichsleiter-in-friedhofe-bestattungen-e-stv-responsabile-stadtgartnerei-80-100-stadt-chur",
+    "slugByLocale": {
+      "it": "bereichsleiter-in-friedhofe-bestattungen-e-stv-responsabile-stadtgartnerei-80-100-stadt-chur",
+      "de": "bereichsleiter-in-friedhofe-bestattungen-und-stv-leiter-in-stadtgartnerei-80-100-stadt-chur-1694"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "GR"
+  },
+  "id|fenaco.com|1cacb1bc-7241-44a3-b02a-8b3ce3bef83b": {
+    "canonicalSlug": "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-m-w-d-landi-hasle-bei-burgdorf",
+    "slugByLocale": {
+      "it": "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-m-w-d-landi-hasle-bei-burgdorf",
+      "de": "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-w-m-d-landi-hasle-bei-burgdorf"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|fenaco.com|66513a4a-f311-4036-9b31-29dd4142da24": {
+    "canonicalSlug": "shopmitarbeiter-shopmitarbeiterin-w-m-d-landi-schupfen",
+    "slugByLocale": {
+      "de": "shopmitarbeiter-shopmitarbeiterin-w-m-d-landi-schupfen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|fenaco.com|4496b7bf-59f9-44e3-a9fc-6c7dbdde293c": {
+    "canonicalSlug": "teamleiter-in-backerei-tag-nachschicht-w-m-d-landi-albis-genossenschaft-mettmenstetten",
+    "slugByLocale": {
+      "de": "teamleiter-in-backerei-tag-nachschicht-w-m-d-landi-albis-genossenschaft-mettmenstetten"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|fenaco.com|34d25d63-e66e-42f2-87a4-fdf835c55e36": {
+    "canonicalSlug": "mitarbeiterin-collaboratore-trice-agrar-m-w-d-landi-hochdorf",
+    "slugByLocale": {
+      "it": "mitarbeiterin-collaboratore-trice-agrar-m-w-d-landi-hochdorf",
+      "de": "mitarbeiterin-mitarbeiter-agrar-w-m-d-landi-hochdorf"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "LU"
+  },
+  "id|ruag.ch|cd3f740e-3ee3-4796-8833-e7dac463e74a": {
+    "canonicalSlug": "teamleader-project-management-80-100-w-m-d-ruag-ag-bern",
+    "slugByLocale": {
+      "de": "teamleader-project-management-80-100-w-m-d-ruag-ag-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "id|ruag.ch|f1721f91-de32-4fdb-8e82-992eff94a200": {
+    "canonicalSlug": "compliance-investigation-officer-80-100-w-m-d-ruag-ag-bern",
+    "slugByLocale": {
+      "de": "compliance-investigation-officer-80-100-w-m-d-ruag-ag-bern",
+      "fr": "agent-d-enquete-sur-la-conformite-80-100-f-m-j-ruag-ag-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/dipl-pflegefachfrau-mann-mit-fallfuehrung-50-100-de-j5005.html": {
+    "canonicalSlug": "dipl-pflegefachfrau-mann-con-fallfuhrung-50-100-senevita-zh-buchs",
+    "slugByLocale": {
+      "de": "dipl-pflegefachfrau-mann-mit-fallfuhrung-50-100-senevita-zh-buchs",
+      "it": "dipl-pflegefachfrau-mann-con-fallfuhrung-50-100-senevita-zh-buchs"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.senevita.ch/dipl-pflegefachperson-45-de-j3971.html": {
+    "canonicalSlug": "dipl-pflegefachperson-45-senevita-be-ittigen",
+    "slugByLocale": {
+      "de": "dipl-pflegefachperson-45-senevita-be-ittigen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/dipl-pflegefachperson-hf-fh-mit-fallfuehrung-40-80-monatsl-de-j4881.html": {
+    "canonicalSlug": "diplomato-a-della-cura-infermieristica-hf-con-gestione-dei-casi-30-60-stipendio-orario-o-mensile-senevita-casa-solothurn",
+    "slugByLocale": {
+      "it": "diplomato-a-della-cura-infermieristica-hf-con-gestione-dei-casi-30-60-stipendio-orario-o-mensile-senevita-casa-solothurn",
+      "en": "diploma-in-nursing-hf-with-case-management-30-60-hourly-or-monthly-salary-senevita-casa-solothurn-und-olten-senevita",
+      "de": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-40-80-monatslohn-oder-stundenlohn-senevita-so",
+      "fr": "diplome-e-en-soins-infirmiers-hf-avec-gestion-de-cas-30-60-salaire-horaire-ou-mensuel-senevita-casa-solothurn-und-olten"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SO"
+  },
+  "url|https://jobs.senevita.ch/dipl-pflegefachperson-sowie-berufsbildnerin-80-de-j5398.html": {
+    "canonicalSlug": "dipl-pflegefachperson-sowie-berufsbildner-in-80-senevita-ag-seengen",
+    "slugByLocale": {
+      "de": "dipl-pflegefachperson-sowie-berufsbildner-in-80-senevita-ag-seengen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "url|https://jobs.senevita.ch/fachfraufachmann-gesundheit-efz-nachtdienst-80-de-j4442.html": {
+    "canonicalSlug": "fachfrau-fachmann-gesundheit-efz-nachtdienst-80-senevita-be-munsingen",
+    "slugByLocale": {
+      "de": "fachfrau-fachmann-gesundheit-efz-nachtdienst-80-senevita-be-munsingen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/fachfraumann-gesundheit-efz-mwi-50-100-de-j5407.html": {
+    "canonicalSlug": "fachfrau-mann-gesundheit-cfc-m-w-i-50-100-senevita-lu-ebikon",
+    "slugByLocale": {
+      "de": "fachfrau-mann-gesundheit-efz-m-w-i-50-100-senevita-lu-ebikon",
+      "it": "fachfrau-mann-gesundheit-cfc-m-w-i-50-100-senevita-lu-ebikon"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "LU"
+  },
+  "url|https://jobs.senevita.ch/fachmann-frau-gesundheit-80-100-de-j5404.html": {
+    "canonicalSlug": "fachmann-frau-gesundheit-80-100-senevita-ag-wohlen",
+    "slugByLocale": {
+      "de": "fachmann-frau-gesundheit-80-100-senevita-ag-wohlen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "url|https://jobs.senevita.ch/fachperson-gesundheit-spitex-40-80-monatslohn-oder-stunden-de-j4780.html": {
+    "canonicalSlug": "specialista-della-salute-senevita-casa-solothurn-und-olten-senevita-casa-solothurn",
+    "slugByLocale": {
+      "it": "specialista-della-salute-senevita-casa-solothurn-und-olten-senevita-casa-solothurn",
+      "en": "healthcare-professional-senevita-casa-solothurn-und-olten-senevita-casa-solothurn",
+      "de": "fachperson-gesundheit-spitex-40-80-monatslohn-oder-stundenlohn-senevita-so-olten",
+      "fr": "specialiste-de-la-sante-senevita-casa-solothurn-und-olten-senevita-casa-solothurn"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SO"
+  },
+  "url|https://jobs.senevita.ch/fachperson-hauswirtschaft-80-100-de-j5307.html": {
+    "canonicalSlug": "specialista-in-economia-domestica-80-100-senevita-wohlen-ag",
+    "slugByLocale": {
+      "it": "specialista-in-economia-domestica-80-100-senevita-wohlen-ag",
+      "en": "housekeeping-specialist-80-100-senevita-wohlen-ag",
+      "de": "fachperson-hauswirtschaft-80-100-senevita-ag-wohlen",
+      "fr": "specialiste-en-economie-domestique-80-100-senevita-wohlen-ag"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "url|https://jobs.senevita.ch/fachverantwortlicher-aktivierung-mwi-60-de-j5408.html": {
+    "canonicalSlug": "fachverantwortliche-r-aktivierung-m-w-i-60-senevita-lu-ebikon",
+    "slugByLocale": {
+      "de": "fachverantwortliche-r-aktivierung-m-w-i-60-senevita-lu-ebikon"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "LU"
+  },
+  "url|https://jobs.senevita.ch/fage-voll-und-teilzeit-de-j5397.html": {
+    "canonicalSlug": "fage-voll-e-teilzeit-senevita-be-lenk",
+    "slugByLocale": {
+      "de": "fage-voll-und-teilzeit-senevita-be-lenk",
+      "it": "fage-voll-e-teilzeit-senevita-be-lenk"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/kochkoechin-efz-100-de-j5400.html": {
+    "canonicalSlug": "koch-kochin-efz-100-senevita-zh-zurich",
+    "slugByLocale": {
+      "de": "koch-kochin-efz-100-senevita-zh-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.senevita.ch/lernender-kochkoechin-efz-de-j3789.html": {
+    "canonicalSlug": "lernende-r-koch-kochin-efz-senevita-be-bern",
+    "slugByLocale": {
+      "de": "lernende-r-koch-kochin-efz-senevita-be-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/mehr-als-putzen-mit-deinem-einsatz-lebensqualitaet-schenke-de-j4457.html": {
+    "canonicalSlug": "mehr-come-putzen-con-deinem-einsatz-lebensqualitat-schenken-senevita-be-muri-b-bern",
+    "slugByLocale": {
+      "de": "mehr-als-putzen-mit-deinem-einsatz-lebensqualitat-schenken-senevita-be-muri-b-bern",
+      "it": "mehr-come-putzen-con-deinem-einsatz-lebensqualitat-schenken-senevita-be-muri-b-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/mitarbeitende-betreuung-und-pflege-ags-oder-pflegehelferin-de-j4546.html": {
+    "canonicalSlug": "mitarbeitende-betreuung-e-pflege-ags-o-pflegehelfer-in-40-100-senevita-bl-reinach",
+    "slugByLocale": {
+      "de": "mitarbeitende-betreuung-und-pflege-ags-oder-pflegehelfer-in-40-100-senevita-bl-reinach",
+      "it": "mitarbeitende-betreuung-e-pflege-ags-o-pflegehelfer-in-40-100-senevita-bl-reinach"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "url|https://jobs.senevita.ch/mitarbeitende-empfang-administration-50-100--de-j5348.html": {
+    "canonicalSlug": "mitarbeitende-empfang-administration-50-100-senevita-zh-dietikon",
+    "slugByLocale": {
+      "de": "mitarbeitende-empfang-administration-50-100-senevita-zh-dietikon"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.senevita.ch/mitarbeiter-hauswirtschaft-de-j4620.html": {
+    "canonicalSlug": "collaboratore-trice-hauswirtschaft-senevita-bl-pratteln",
+    "slugByLocale": {
+      "de": "mitarbeiter-hauswirtschaft-senevita-bl-pratteln",
+      "it": "collaboratore-trice-hauswirtschaft-senevita-bl-pratteln"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "url|https://jobs.senevita.ch/mitarbeiter-in-administration-empfang-40-50-de-j5333.html": {
+    "canonicalSlug": "collaboratore-trice-in-administration-empfang-40-50-senevita-zh-regensdorf",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-administration-empfang-40-50-senevita-zh-regensdorf",
+      "it": "collaboratore-trice-in-administration-empfang-40-50-senevita-zh-regensdorf"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.senevita.ch/mitarbeiter-in-hauswirtschaft-60-80-de-j5352.html": {
+    "canonicalSlug": "collaboratore-trice-in-hauswirtschaft-60-80-senevita-zh-regensdorf",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-hauswirtschaft-60-80-senevita-zh-regensdorf",
+      "it": "collaboratore-trice-in-hauswirtschaft-60-80-senevita-zh-regensdorf"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.senevita.ch/mitarbeiter-in-service-30-im-stundenlohn-de-j4938.html": {
+    "canonicalSlug": "collaboratore-trice-in-service-30-im-stundenlohn-senevita-be-munsingen",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-service-30-im-stundenlohn-senevita-be-munsingen",
+      "it": "collaboratore-trice-in-service-30-im-stundenlohn-senevita-be-munsingen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/mitarbeiter-in-service-60-de-j4026.html": {
+    "canonicalSlug": "collaboratore-trice-in-service-60-senevita-be-munsingen",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-service-60-senevita-be-munsingen",
+      "it": "collaboratore-trice-in-service-60-senevita-be-munsingen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/mitarbeiterin-hauswirtschaft-60-de-j5349.html": {
+    "canonicalSlug": "collaboratore-trice-hauswirtschaft-60-senevita-be-muri-b-bern",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-hauswirtschaft-60-senevita-be-muri-b-bern",
+      "it": "collaboratore-trice-hauswirtschaft-60-senevita-be-muri-b-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/mitarbeiterin-hauswirtschaft-80-100-de-j5350.html": {
+    "canonicalSlug": "collaboratore-trice-hauswirtschaft-80-100-senevita-zh-dietikon",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-hauswirtschaft-80-100-senevita-zh-dietikon",
+      "it": "collaboratore-trice-hauswirtschaft-80-100-senevita-zh-dietikon"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.senevita.ch/mitarbeiterin-service-verpflegungsdienst-40-90-de-j5373.html": {
+    "canonicalSlug": "collaboratore-trice-service-verpflegungsdienst-40-90-senevita-bl-reinach",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-service-verpflegungsdienst-40-90-senevita-bl-reinach",
+      "it": "collaboratore-trice-service-verpflegungsdienst-40-90-senevita-bl-reinach"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "url|https://jobs.senevita.ch/mitarbeiterin-service-im-stundenlohn-20-de-j4814.html": {
+    "canonicalSlug": "collaboratore-trice-service-im-stundenlohn-20-senevita-be-muri-b-bern",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-service-im-stundenlohn-20-senevita-be-muri-b-bern",
+      "it": "collaboratore-trice-service-im-stundenlohn-20-senevita-be-muri-b-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/mitarbeiterin-verpflegungsdienst-60-de-j5318.html": {
+    "canonicalSlug": "collaboratore-trice-verpflegungsdienst-60-senevita-be-muri-b-bern",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-verpflegungsdienst-60-senevita-be-muri-b-bern",
+      "it": "collaboratore-trice-verpflegungsdienst-60-senevita-be-muri-b-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/mitarbeiterin-service-40-60-befristet-3-monate-de-j5206.html": {
+    "canonicalSlug": "mitarbeiterin-service-40-60-befristet-3-monate-senevita-bs-basel",
+    "slugByLocale": {
+      "de": "mitarbeiterin-service-40-60-befristet-3-monate-senevita-bs-basel"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BS"
+  },
+  "url|https://jobs.senevita.ch/pflegeassistenz-50-100-de-j3570.html": {
+    "canonicalSlug": "pflegeassistenz-50-100-senevita-be-zollikofen",
+    "slugByLocale": {
+      "de": "pflegeassistenz-50-100-senevita-be-zollikofen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/pflegefachperson-40-100-de-j4591.html": {
+    "canonicalSlug": "pflegefachperson-40-100-senevita-bl-reinach",
+    "slugByLocale": {
+      "de": "pflegefachperson-40-100-senevita-bl-reinach"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "url|https://jobs.senevita.ch/pflegefachperson-hf-80-100-de-j5390.html": {
+    "canonicalSlug": "pflegefachperson-hf-80-100-senevita-be-lenk",
+    "slugByLocale": {
+      "de": "pflegefachperson-hf-80-100-senevita-be-lenk"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/pflegefachperson-mit-rai-ltcf-verantwortung-40-100-de-j4913.html": {
+    "canonicalSlug": "pflegefachperson-mit-rai-ltcf-verantwortung-40-100-senevita-be-munsingen",
+    "slugByLocale": {
+      "de": "pflegefachperson-mit-rai-ltcf-verantwortung-40-100-senevita-be-munsingen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/pflegehelfer-in-srk-40-80-de-j5332.html": {
+    "canonicalSlug": "pflegehelfer-in-srk-40-80-senevita-fr-murten",
+    "slugByLocale": {
+      "de": "pflegehelfer-in-srk-40-80-senevita-fr-murten"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "FR"
+  },
+  "url|https://jobs.senevita.ch/pflegehelfer-in-srk-im-stundenlohn-de-j4148.html": {
+    "canonicalSlug": "pflegehelfer-in-srk-im-stundenlohn-senevita-zh-winterthur",
+    "slugByLocale": {
+      "de": "pflegehelfer-in-srk-im-stundenlohn-senevita-zh-winterthur"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.senevita.ch/pflegehelfer-in-srk-mwi-40-100-de-j5406.html": {
+    "canonicalSlug": "pflegehelfer-in-srk-m-w-i-40-100-senevita-lu-ebikon",
+    "slugByLocale": {
+      "de": "pflegehelfer-in-srk-m-w-i-40-100-senevita-lu-ebikon"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "LU"
+  },
+  "url|https://jobs.senevita.ch/pflegehelfer-in-srk-assistentin-gesundheit-soziales-80-100-de-j1254.html": {
+    "canonicalSlug": "pflegehelfer-in-srk-assistent-in-gesundheit-soziales-80-100-senevita-zh-erlenbach",
+    "slugByLocale": {
+      "de": "pflegehelfer-in-srk-assistent-in-gesundheit-soziales-80-100-senevita-zh-erlenbach"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.senevita.ch/pflegehelfer-in-srk-80-100-de-j5295.html": {
+    "canonicalSlug": "pflegehelfer-in-srk-80-100-senevita-zh-regensdorf",
+    "slugByLocale": {
+      "de": "pflegehelfer-in-srk-80-100-senevita-zh-regensdorf"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.senevita.ch/pflegehelfer-in-srkags-de-j4909.html": {
+    "canonicalSlug": "pflegehelfer-in-srk-ags-senevita-bl-lausen",
+    "slugByLocale": {
+      "de": "pflegehelfer-in-srk-ags-senevita-bl-lausen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "url|https://jobs.senevita.ch/pflegehelferin-srk-de-j4804.html": {
+    "canonicalSlug": "pflegehelfer-in-srk-senevita-be-bern",
+    "slugByLocale": {
+      "de": "pflegehelfer-in-srk-senevita-be-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/pflegehelferin-srk-de-j4782.html": {
+    "canonicalSlug": "pflegehelfer-in-srk-senevita-so-olten",
+    "slugByLocale": {
+      "de": "pflegehelfer-in-srk-senevita-so-olten"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SO"
+  },
+  "url|https://jobs.senevita.ch/pflegehelferin-srk-40-100-de-j5032.html": {
+    "canonicalSlug": "pflegehelfer-in-srk-40-100-senevita-be-bern",
+    "slugByLocale": {
+      "de": "pflegehelfer-in-srk-40-100-senevita-be-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/pflegehelferin-srk-50-100-de-j5085.html": {
+    "canonicalSlug": "pflegehelfer-in-srk-50-100-senevita-zh-dietikon",
+    "slugByLocale": {
+      "de": "pflegehelfer-in-srk-50-100-senevita-zh-dietikon"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.senevita.ch/pflegehelferin-srk-im-stundenloh-oder-monatslohn-region-fr-de-j5108.html": {
+    "canonicalSlug": "pflegehelfer-in-srk-im-stundenloh-o-monatslohn-region-frauenfeld-kreuzlingen-e-romanshorn-senevita-tg-kreuzlingen",
+    "slugByLocale": {
+      "de": "pflegehelfer-in-srk-im-stundenloh-oder-monatslohn-region-frauenfeld-kreuzlingen-und",
+      "it": "pflegehelfer-in-srk-im-stundenloh-o-monatslohn-region-frauenfeld-kreuzlingen-e-romanshorn-senevita-tg-kreuzlingen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TG"
+  },
+  "url|https://jobs.senevita.ch/pflegehelferin-srk-im-stundenlohn-de-j4901.html": {
+    "canonicalSlug": "pflegehelfer-in-srk-im-stundenlohn-senevita-ag-wohlen",
+    "slugByLocale": {
+      "de": "pflegehelfer-in-srk-im-stundenlohn-senevita-ag-wohlen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "url|https://jobs.senevita.ch/pflegehelferin-srk-im-stundenlohn-region-zuerich-oberland--de-j5252.html": {
+    "canonicalSlug": "pflegehelfer-in-srk-im-stundenlohn-region-zurich-oberland-e-stadt-see-senevita-zh-zurich",
+    "slugByLocale": {
+      "de": "pflegehelfer-in-srk-im-stundenlohn-region-zurich-oberland-und-stadt-see-senevita-zh-zurich",
+      "it": "pflegehelfer-in-srk-im-stundenlohn-region-zurich-oberland-e-stadt-see-senevita-zh-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.senevita.ch/pflegehelferin-srk-im-stundenlohn-oder-monatslohn-region-a-de-j4029.html": {
+    "canonicalSlug": "pflegehelfer-in-srk-im-stundenlohn-o-monatslohn-region-ausserschwyz-senevita-sz-schwyz",
+    "slugByLocale": {
+      "de": "pflegehelfer-in-srk-im-stundenlohn-oder-monatslohn-region-ausserschwyz-senevita-sz-schwyz",
+      "it": "pflegehelfer-in-srk-im-stundenlohn-o-monatslohn-region-ausserschwyz-senevita-sz-schwyz"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SZ"
+  },
+  "url|https://jobs.senevita.ch/pflegehelferin-srk-im-stundenlohn-oder-monatslohn-region-z-de-j5229.html": {
+    "canonicalSlug": "pflegehelfer-in-srk-im-stundenlohn-o-monatslohn-region-zug-spitex-senevita-zg-zug",
+    "slugByLocale": {
+      "de": "pflegehelfer-in-srk-im-stundenlohn-oder-monatslohn-region-zug-spitex-senevita-zg-zug",
+      "it": "pflegehelfer-in-srk-im-stundenlohn-o-monatslohn-region-zug-spitex-senevita-zg-zug"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZG"
+  },
+  "url|https://jobs.senevita.ch/pflegehelferin-srk-im-stundenlohn-oder-monatslohn-50-100-r-de-j5309.html": {
+    "canonicalSlug": "pflegehelfer-in-srk-im-stundenlohn-o-monatslohn-50-100-region-schwyz-uri-e-glarus-senevita-sz-schwyz",
+    "slugByLocale": {
+      "de": "pflegehelfer-in-srk-im-stundenlohn-oder-monatslohn-50-100-region-schwyz-uri-und-glarus",
+      "it": "pflegehelfer-in-srk-im-stundenlohn-o-monatslohn-50-100-region-schwyz-uri-e-glarus-senevita-sz-schwyz"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SZ"
+  },
+  "url|https://jobs.senevita.ch/pflegehelferin-srk-spitex-50-60--de-j5386.html": {
+    "canonicalSlug": "pflegehelfer-in-srk-spitex-50-60-senevita-zh-dietikon",
+    "slugByLocale": {
+      "de": "pflegehelfer-in-srk-spitex-50-60-senevita-zh-dietikon"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.senevita.ch/pflegepersonal-stundenlohn-de-j5035.html": {
+    "canonicalSlug": "pflegepersonal-stundenlohn-senevita-zh-dietikon",
+    "slugByLocale": {
+      "de": "pflegepersonal-stundenlohn-senevita-zh-dietikon"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.senevita.ch/pflegepersonal-im-stundenlohn-de-j5204.html": {
+    "canonicalSlug": "pflegepersonal-im-stundenlohn-senevita-zh-affoltern-am-albis",
+    "slugByLocale": {
+      "de": "pflegepersonal-im-stundenlohn-senevita-zh-affoltern-am-albis"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.senevita.ch/planificatrice-teur-en-permanence-tlphonique-bilingue-fr-s-fr-j5297.html": {
+    "canonicalSlug": "planificatrice-teur-en-permanence-telephonique-bilingue-fr-suisse-allemand-a-25-50-home",
+    "slugByLocale": {
+      "fr": "planificatrice-teur-en-permanence-telephonique-bilingue-fr-suisse-allemand-a-25-50-home"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "VD"
+  },
+  "url|https://jobs.senevita.ch/pool-pflegekraefte-flexible-arbeitszeiten-sowie-pensum-de-j4428.html": {
+    "canonicalSlug": "pool-pflegekrafte-flexible-arbeitszeiten-sowie-pensum-senevita-be-zollikofen",
+    "slugByLocale": {
+      "de": "pool-pflegekrafte-flexible-arbeitszeiten-sowie-pensum-senevita-be-zollikofen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/praktikantin-pflege-de-j5127.html": {
+    "canonicalSlug": "praktikant-in-pflege-senevita-be-burgdorf",
+    "slugByLocale": {
+      "de": "praktikant-in-pflege-senevita-be-burgdorf"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/regionaler-pflegeverantwortlicher-care-quality-manager-cqm-de-j5387.html": {
+    "canonicalSlug": "regionale-r-pflegeverantwortliche-r-care-quality-manager-cqm-80-100-senevita-be-muri-b",
+    "slugByLocale": {
+      "de": "regionale-r-pflegeverantwortliche-r-care-quality-manager-cqm-80-100-senevita-be-muri-b"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/schnupperlehre-fachfrau-mann-gesundheit-efz-assistent-in-g-de-j5098.html": {
+    "canonicalSlug": "schnupperlehre-fachfrau-mann-gesundheit-cfc-assistent-in-gesundheit-e-soziales-afp-senevita-lu-ebikon",
+    "slugByLocale": {
+      "de": "schnupperlehre-fachfrau-mann-gesundheit-efz-assistent-in-gesundheit-und-soziales-eba",
+      "it": "schnupperlehre-fachfrau-mann-gesundheit-cfc-assistent-in-gesundheit-e-soziales-afp-senevita-lu-ebikon"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "LU"
+  },
+  "url|https://jobs.senevita.ch/schnupperlehre-koch-koechin-efz-de-j5101.html": {
+    "canonicalSlug": "schnupperlehre-koch-kochin-efz-senevita-lu-ebikon",
+    "slugByLocale": {
+      "de": "schnupperlehre-koch-kochin-efz-senevita-lu-ebikon"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "LU"
+  },
+  "url|https://jobs.senevita.ch/selbstbestimmt-pflegen-ohne-klingelstress-spitex-fage-80-1-de-j5270.html": {
+    "canonicalSlug": "selbstbestimmt-pflegen-ohne-klingelstress-spitex-fage-80-100-senevita-be-muri-b-bern",
+    "slugByLocale": {
+      "de": "selbstbestimmt-pflegen-ohne-klingelstress-spitex-fage-80-100-senevita-be-muri-b-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/senior-hr-berater-in-80-100-mwd-de-j5402.html": {
+    "canonicalSlug": "senior-hr-berater-in-80-100-m-w-d-senevita-be-muri-b-bern",
+    "slugByLocale": {
+      "de": "senior-hr-berater-in-80-100-m-w-d-senevita-be-muri-b-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/spitex-verantwortliche-80-100-de-j5311.html": {
+    "canonicalSlug": "spitex-verantwortliche-80-100-senevita-bs-basel",
+    "slugByLocale": {
+      "de": "spitex-verantwortliche-80-100-senevita-bs-basel"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BS"
+  },
+  "url|https://jobs.senevita.ch/studierender-dipl-pflegefachfrau-pflegefachmann-hf-de-j5248.html": {
+    "canonicalSlug": "studierende-r-dipl-pflegefachfrau-pflegefachmann-hf-senevita-zh-affoltern-am-albis",
+    "slugByLocale": {
+      "de": "studierende-r-dipl-pflegefachfrau-pflegefachmann-hf-senevita-zh-affoltern-am-albis"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.senevita.ch/stv-pflegedienstleitung-teamleitung-80-100-de-j5317.html": {
+    "canonicalSlug": "stv-pflegedienstleitung-teamleitung-80-100-senevita-ag-wohlen",
+    "slugByLocale": {
+      "de": "stv-pflegedienstleitung-teamleitung-80-100-senevita-ag-wohlen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "url|https://jobs.senevita.ch/stv-wohnbereichsleitung-demenzabteilung-80-100-de-j5244.html": {
+    "canonicalSlug": "stv-wohnbereichsleitung-demenzabteilung-80-100-senevita-be-zollikofen",
+    "slugByLocale": {
+      "de": "stv-wohnbereichsleitung-demenzabteilung-80-100-senevita-be-zollikofen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/wohnbereichsleiter-in-80-100-de-j4645.html": {
+    "canonicalSlug": "wohnbereichsleiter-in-80-100-senevita-be-munsingen",
+    "slugByLocale": {
+      "de": "wohnbereichsleiter-in-80-100-senevita-be-munsingen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/wohnbereichsleiterin-80-100-de-j4349.html": {
+    "canonicalSlug": "wohnbereichsleiter-in-80-100-senevita-be-bern",
+    "slugByLocale": {
+      "de": "wohnbereichsleiter-in-80-100-senevita-be-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/wohnbereichsleitung-de-j5209.html": {
+    "canonicalSlug": "wohnbereichsleitung-senevita-bl-lausen",
+    "slugByLocale": {
+      "de": "wohnbereichsleitung-senevita-bl-lausen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "url|https://jobs.senevita.ch/wohnbereichsleitung-de-j4237.html": {
+    "canonicalSlug": "wohnbereichsleitung-senevita-bl-pratteln",
+    "slugByLocale": {
+      "de": "wohnbereichsleitung-senevita-bl-pratteln"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BL"
+  },
+  "url|https://jobs.senevita.ch/wohnbereichsleitung-80-100-de-j2926.html": {
+    "canonicalSlug": "wohnbereichsleitung-80-100-senevita-zh-erlenbach",
+    "slugByLocale": {
+      "de": "wohnbereichsleitung-80-100-senevita-zh-erlenbach"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.senevita.ch/wohnbereichsleitung-demenzabteilung-80-100-de-j5363.html": {
+    "canonicalSlug": "wohnbereichsleitung-demenzabteilung-80-100-senevita-be-zollikofen",
+    "slugByLocale": {
+      "de": "wohnbereichsleitung-demenzabteilung-80-100-senevita-be-zollikofen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/zeit-fuer-pflege-statt-klingelstress-spitex-senevita-casa--de-j5247.html": {
+    "canonicalSlug": "zeit-per-pflege-statt-klingelstress-spitex-senevita-casa-bern-sucht-fage-20-60-senevita-be-muri-b-bern",
+    "slugByLocale": {
+      "de": "zeit-fur-pflege-statt-klingelstress-spitex-senevita-casa-bern-sucht-fage-20-60-senevita-be",
+      "it": "zeit-per-pflege-statt-klingelstress-spitex-senevita-casa-bern-sucht-fage-20-60-senevita-be-muri-b-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/zeit-fuer-pflege-statt-klingelstress-spitex-senevita-casa--de-j4753.html": {
+    "canonicalSlug": "zeit-per-pflege-statt-klingelstress-spitex-senevita-casa-bern-sucht-srk-pflegehelferin-40-60-senevita-be-muri-b-bern",
+    "slugByLocale": {
+      "de": "zeit-fur-pflege-statt-klingelstress-spitex-senevita-casa-bern-sucht-srk-pflegehelferin-40",
+      "it": "zeit-per-pflege-statt-klingelstress-spitex-senevita-casa-bern-sucht-srk-pflegehelferin-40-60-senevita-be-muri-b-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/zeit-fuer-pflege-statt-klingelstress-spitex-senevita-casa--de-j5187.html": {
+    "canonicalSlug": "zeit-per-pflege-statt-klingelstress-spitex-senevita-casa-emmental-sucht-srk-pflegehelferin-40-60-senevita-be-muri-b-bern",
+    "slugByLocale": {
+      "de": "zeit-fur-pflege-statt-klingelstress-spitex-senevita-casa-emmental-sucht-srk-pflegehelferin",
+      "it": "zeit-per-pflege-statt-klingelstress-spitex-senevita-casa-emmental-sucht-srk-pflegehelferin-40-60-senevita-be-muri-b-bern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.smartrecruiters.com/staubligroup/744000142111489-global-learning-development-lead?oga=true": {
+    "canonicalSlug": "global-learning-development-lead-staubli-pfaffikon-switzerland",
+    "slugByLocale": {
+      "en": "global-learning-development-lead-staubli-pfaffikon-switzerland"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1368932657": {
+    "canonicalSlug": "berufsbildner-in-per-das-nds-hf-anasthesiepflege-stadtspital-zurich",
+    "slugByLocale": {
+      "de": "berufsbildner-in-fur-das-nds-hf-anasthesiepflege-stadtspital-zuerich-51265",
+      "it": "berufsbildner-in-per-das-nds-hf-anasthesiepflege-stadtspital-zurich",
+      "en": "berufsbildner-in-fur-das-nds-hf-anasthesiepflege-stadtspital-zurich-zurich",
+      "fr": "berufsbildner-in-fur-das-nds-hf-anasthesiepflege-stadtspital-zurich-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1368952957": {
+    "canonicalSlug": "sachbearbeiter-in-sekretariat-ausbildung-e-bildung-stadtspital-zurich",
+    "slugByLocale": {
+      "de": "sachbearbeiter-in-sekretariat-ausbildung-und-bildung-stadtspital-zuerich-51269",
+      "it": "sachbearbeiter-in-sekretariat-ausbildung-e-bildung-stadtspital-zurich",
+      "en": "sachbearbeiter-in-sekretariat-ausbildung-und-bildung-stadtspital-zurich-zurich",
+      "fr": "sachbearbeiter-in-sekretariat-ausbildung-und-bildung-stadtspital-zurich-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1368892957": {
+    "canonicalSlug": "physiotherapeut-in-come-fachverantwortliche-r-kardiopulmonale-physiotherapie-stadtspital-zurich",
+    "slugByLocale": {
+      "it": "physiotherapeut-in-come-fachverantwortliche-r-kardiopulmonale-physiotherapie-stadtspital-zurich",
+      "en": "physical-therapist-as-specialist-responsible-for-cardiopulmonary-physiotherapy-stadtspital-zurich-zurich",
+      "de": "physiotherapeut-in-als-fachverantwortliche-r-kardiopulmonale-physiotherapie-stadtspital",
+      "fr": "physiotherapeute-en-tant-que-specialiste-responsable-de-la-physiotherapie-cardiopulmonaire-stadtspital-zurich-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1368205157": {
+    "canonicalSlug": "insegnante-di-infanzia-in-hf-stadt-zurich-zurich-c98dc6",
+    "slugByLocale": {
+      "it": "insegnante-di-infanzia-in-hf-stadt-zurich-zurich-c98dc6",
+      "en": "childhood-teacher-in-hf-stadt-zurich-zurich-c98dc6",
+      "de": "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51118",
+      "fr": "professeur-d-enfance-en-hf-stadt-zurich-zurich-c98dc6"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1368924957": {
+    "canonicalSlug": "fachbearbeiter-in-fort-e-weiterbildung-stadt-zurich",
+    "slugByLocale": {
+      "de": "fachbearbeiter-in-fort-und-weiterbildung-stadt-zuerich-zurigo-51267",
+      "it": "fachbearbeiter-in-fort-e-weiterbildung-stadt-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1368888957": {
+    "canonicalSlug": "giardiniere-stadt-zurich-zurich-0f2ea5",
+    "slugByLocale": {
+      "it": "giardiniere-stadt-zurich-zurich-0f2ea5",
+      "en": "gardener-stadt-zurich-zurich-0f2ea5",
+      "de": "gartner-in-stadt-zuerich-zurigo-51263",
+      "fr": "jardinier-stadt-zurich-zurich-0f2ea5"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1368934657": {
+    "canonicalSlug": "collaboratore-trice-in-kuche-standort-mattenhof-stadt-zurich",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-kuche-standort-mattenhof-stadt-zuerich-zurigo-51266",
+      "it": "collaboratore-trice-in-kuche-standort-mattenhof-stadt-zurich",
+      "en": "mitarbeiter-in-kuche-standort-mattenhof-stadt-zurich-zurich",
+      "fr": "mitarbeiter-in-kuche-standort-mattenhof-stadt-zurich-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1368950857": {
+    "canonicalSlug": "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-51268",
+    "slugByLocale": {
+      "de": "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-51268"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1368885157": {
+    "canonicalSlug": "istruzione-sociale-10-libera-responsabilita-co-specialista-60-70-stadt-zurich-zurich",
+    "slugByLocale": {
+      "it": "istruzione-sociale-10-libera-responsabilita-co-specialista-60-70-stadt-zurich-zurich",
+      "en": "social-education-10-free-co-specialist-responsibility-60-70-stadt-zurich-zurich",
+      "de": "sozialpadagog-in-10-befrei-co-fachverantwortung-60-70-stadt-zuerich-zurigo-51260",
+      "fr": "education-sociale-10-responsabilite-cospecialiste-gratuite-60-70-stadt-zurich-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1368885857": {
+    "canonicalSlug": "team-leader-nella-gestione-immobiliare-stadt-zurich-zurich",
+    "slugByLocale": {
+      "it": "team-leader-nella-gestione-immobiliare-stadt-zurich-zurich",
+      "en": "team-leader-in-real-estate-management-stadt-zurich-zurich",
+      "de": "teamleiter-in-immobilienbewirtschaftung-stadt-zuerich-zurigo-51237",
+      "fr": "chef-d-equipe-en-gestion-immobiliere-stadt-zurich-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|swica.ch|3ebbe9e0-4252-4a11-b4d9-e2262c587c36": {
+    "canonicalSlug": "senior-software-engineer-integration-amp-platform-owner-alle-swica-winterthur",
+    "slugByLocale": {
+      "de": "senior-software-engineer-integration-amp-platform-owner-alle-swica-winterthur"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|swica.ch|96a5872e-0819-4463-95cf-9cdb48427046": {
+    "canonicalSlug": "senior-cyber-security-engineer-schwerpunkt-incident-response-and-threat-intelligence-alle",
+    "slugByLocale": {
+      "de": "senior-cyber-security-engineer-schwerpunkt-incident-response-and-threat-intelligence-alle"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.totalenergies.com/en_us/careers/jobdetail/corporate-compliance-officer-fixed-term-contract-6-months/82946": {
+    "canonicalSlug": "corporate-compliance-officer-totalenergies-geneve",
+    "slugByLocale": {
+      "en": "corporate-compliance-officer-totalenergies-geneve"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "GE"
+  },
+  "url|https://jobs.totalenergies.com/en_us/careers/jobdetail/power-trading-new-ventures-regulatory-affairs-intern/82734": {
+    "canonicalSlug": "power-trading-new-ventures-regulatory-affairs-intern-totalenergies-geneve",
+    "slugByLocale": {
+      "en": "power-trading-new-ventures-regulatory-affairs-intern-totalenergies-geneve"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "GE"
+  },
+  "url|https://jobs.totalenergies.com/en_us/careers/jobdetail/tech-lead-advanced-analytics/83204": {
+    "canonicalSlug": "tech-lead-advanced-analytics-totalenergies-geneve",
+    "slugByLocale": {
+      "en": "tech-lead-advanced-analytics-totalenergies-geneve"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "GE"
+  },
+  "url|https://jobs.totalenergies.com/en_us/careers/jobdetail/administrative-assistant-fixed-term-contract/83184": {
+    "canonicalSlug": "assistente-amministrativo-contratto-a-termine-fisso-totalenergies-geneve",
+    "slugByLocale": {
+      "it": "assistente-amministrativo-contratto-a-termine-fisso-totalenergies-geneve",
+      "en": "administrative-assistant-fixed-term-contract-totalenergies-geneve",
+      "fr": "assistant-administratif-contrat-a-duree-determinee-totalenergies-geneve"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "GE"
+  },
+  "id|ubs.com|349648": {
+    "canonicalSlug": "ubs-card-center-senior-domain-architect-80-100-w-m-d-ubs-zurich",
+    "slugByLocale": {
+      "de": "ubs-card-center-senior-domain-architect-80-100-w-m-d-ubs-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|vermoegenszentrum.ch|91b107d1-9749-41d6-879f-829cb404f77f": {
+    "canonicalSlug": "sachbearbeiter-in-marketing-events-80-100-vz-vermogenszentrum-zurich",
+    "slugByLocale": {
+      "de": "sachbearbeiter-in-marketing-events-80-100-vz-vermoegenszentrum-ch",
+      "it": "sachbearbeiter-in-marketing-events-80-100-vz-vermogenszentrum-zurich",
+      "en": "sachbearbeiter-in-marketing-events-80-100-vz-vermogenszentrum-zurich",
+      "fr": "sachbearbeiter-in-marketing-events-80-100-vz-vermogenszentrum-zurich"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|vivaluzern.ch|07e67f48-5a6a-4d75-936f-9167562017b5": {
+    "canonicalSlug": "collaboratore-trice-gastronomie-viva-luzern",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-gastronomie-viva-luzern-luzern",
+      "it": "collaboratore-trice-gastronomie-viva-luzern"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "LU"
+  },
+  "url|https://jobs.zgks.ch/pflegefachperson-hffh-notfallzentrum-80-100-mw-de-j877.html": {
+    "canonicalSlug": "infermiera-hf-fh-emergency-center-80-100-m-f-zuger-kantonsspital-baar",
+    "slugByLocale": {
+      "it": "infermiera-hf-fh-emergency-center-80-100-m-f-zuger-kantonsspital-baar",
+      "en": "nurse-hf-fh-emergency-center-80-100-m-f-zuger-kantonsspital-baar",
+      "de": "pflegefachperson-hf-fh-notfallzentrum-80-100-m-w-zuger-kantonsspital-baar",
+      "fr": "infirmiere-hf-fh-emergency-center-80-100-m-f-zuger-kantonsspital-baar"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZG"
+  },
+  "url|https://join.sfs.com/ch/en/vacancies/process-engineer-aerospace-(m-f-d).html": {
+    "canonicalSlug": "process-engineer-aerospace-m-f-d-sfs-group-heerbrugg",
+    "slugByLocale": {
+      "de": "process-engineer-aerospace-m-f-d-sfs-group-heerbrugg"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SG"
+  },
+  "url|https://join.sfs.com/ch/en/vacancies/process-project-manager-sap-(m-f-d).html": {
+    "canonicalSlug": "process-project-manager-sap-m-f-d-sfs-group-heerbrugg",
+    "slugByLocale": {
+      "de": "process-project-manager-sap-m-f-d-sfs-group-heerbrugg",
+      "fr": "gestionnaire-de-processus-et-de-projet-sap-m-f-d-sfs-group-heerbrugg"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "SG"
+  },
+  "id|zurzachcare.ch|1424334533": {
+    "canonicalSlug": "assistenzarztin-assistenzarzt-per-neurologische-rehabilitation-100-zurzach-care-schlieren",
+    "slugByLocale": {
+      "de": "assistenzarztin-assistenzarzt-fur-neurologische-rehabilitation-100-zurzach-care-schlieren",
+      "it": "assistenzarztin-assistenzarzt-per-neurologische-rehabilitation-100-zurzach-care-schlieren"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|manor.ch|1363288255": {
+    "canonicalSlug": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
+    "slugByLocale": {
+      "it": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-2736.umantis.com|1998": {
+    "canonicalSlug": "mitarbeiterin-op-e-bettendisposition-80-100-m-w-d-spital-mannedorf",
+    "slugByLocale": {
+      "de": "mitarbeiterin-op-und-bettendisposition-80-100-m-w-d-spital-maennedorf-ch",
+      "it": "mitarbeiterin-op-e-bettendisposition-80-100-m-w-d-spital-mannedorf",
+      "en": "mitarbeiterin-op-und-bettendisposition-80-100-m-w-d-spital-mannedorf-mannedorf",
+      "fr": "mitarbeiterin-op-und-bettendisposition-80-100-m-w-d-spital-mannedorf-mannedorf"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|stgag.ch|3751": {
+    "canonicalSlug": "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-munsterlingen",
+    "slugByLocale": {
+      "it": "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-munsterlingen",
+      "en": "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-munsterlingen",
+      "fr": "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-munsterlingen"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TG"
+  },
+  "id|roche.wd3.myworkdayjobs.com|202608-120238-1": {
+    "canonicalSlug": "praktikum-msat-process-science-technology-m-w-d-roche-ch",
+    "slugByLocale": {
+      "de": "praktikum-msat-process-science-technology-m-w-d-roche-ch"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BS"
+  },
+  "id|roche.wd3.myworkdayjobs.com|202608-120415-1": {
+    "canonicalSlug": "biomarker-expert-leader-ophthalmology-roche-ch",
+    "slugByLocale": {
+      "en": "biomarker-expert-leader-ophthalmology-roche-ch"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BS"
+  },
+  "id|roche.wd3.myworkdayjobs.com|202604-108553-2": {
+    "canonicalSlug": "senior-regulatory-affairs-manager-m-w-d-roche-ch",
+    "slugByLocale": {
+      "en": "senior-regulatory-affairs-manager-m-w-d-roche-ch"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BS"
+  },
+  "id|roche.wd3.myworkdayjobs.com|202608-120326-1": {
+    "canonicalSlug": "team-lead-engineering-terminology-management-platform-roche-ch",
+    "slugByLocale": {
+      "en": "team-lead-engineering-terminology-management-platform-roche-ch"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BS"
+  },
+  "id|roche.wd3.myworkdayjobs.com|202608-120197-1": {
+    "canonicalSlug": "senior-sap-cloud-engineer-roche-ch",
+    "slugByLocale": {
+      "en": "senior-sap-cloud-engineer-roche-ch"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BS"
+  },
+  "id|roche.wd3.myworkdayjobs.com|202607-118326-1": {
+    "canonicalSlug": "global-head-of-patient-safety-operations-roche-ch",
+    "slugByLocale": {
+      "en": "global-head-of-patient-safety-operations-roche-ch"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BS"
+  },
+  "id|roche.wd3.myworkdayjobs.com|202608-120542": {
+    "canonicalSlug": "global-head-of-clinical-safety-development-and-marketed-medicines-roche-ch",
+    "slugByLocale": {
+      "en": "global-head-of-clinical-safety-development-and-marketed-medicines-roche-ch"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BS"
+  },
+  "id|roche.wd3.myworkdayjobs.com|202608-120159-1": {
+    "canonicalSlug": "field-engineering-specialist-salt-lake-city-utah-roche-ch",
+    "slugByLocale": {
+      "en": "field-engineering-specialist-salt-lake-city-utah-roche-ch"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BS"
+  },
+  "url|https://www.pemsa.ch/it/job/copritetto-2686117": {
+    "canonicalSlug": "copritetto-pemsa-bellinzona",
+    "slugByLocale": {
+      "it": "copritetto-pemsa-bellinzona"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/giardiniere-2686114": {
+    "canonicalSlug": "giardiniere-pemsa-bellinzona",
+    "slugByLocale": {
+      "it": "giardiniere-pemsa-bellinzona"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/gru-mobile-su-cingoli-2686129": {
+    "canonicalSlug": "gru-mobile-su-cingoli-pemsa-geneve",
+    "slugByLocale": {
+      "it": "gru-mobile-su-cingoli-pemsa-geneve"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "GE"
+  },
+  "url|https://www.pemsa.ch/it/job/gruista-b-suva-2686123": {
+    "canonicalSlug": "gruista-b-suva-pemsa-bellinzona",
+    "slugByLocale": {
+      "it": "gruista-b-suva-pemsa-bellinzona"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/installatore-di-impianti-solari-m-f-d-2686146": {
+    "canonicalSlug": "installatore-di-impianti-solari-m-f-d-pemsa-basel",
+    "slugByLocale": {
+      "it": "installatore-di-impianti-solari-m-f-d-pemsa-basel"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BS"
+  },
+  "url|https://www.pemsa.ch/it/job/montatore-di-ponteggi-2686111": {
+    "canonicalSlug": "montatore-di-ponteggi-pemsa-bellinzona",
+    "slugByLocale": {
+      "it": "montatore-di-ponteggi-pemsa-bellinzona"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/pavimentatore-stradale-2686108": {
+    "canonicalSlug": "pavimentatore-stradale-pemsa-bellinzona",
+    "slugByLocale": {
+      "it": "pavimentatore-stradale-pemsa-bellinzona"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/piastrellista-m-f-2686133": {
+    "canonicalSlug": "piastrellista-m-f-pemsa-biel-bienne",
+    "slugByLocale": {
+      "it": "piastrellista-m-f-pemsa-biel-bienne"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "BE"
+  },
+  "url|https://www.pemsa.ch/it/job/pittore-2686120": {
+    "canonicalSlug": "pittore-pemsa-bellinzona",
+    "slugByLocale": {
+      "it": "pittore-pemsa-bellinzona"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/polimeccanico-operatore-di-fresatura-cnc-m-f-2686098": {
+    "canonicalSlug": "polimeccanico-operatore-di-fresatura-cnc-m-f-pemsa-yverdon-les-bains",
+    "slugByLocale": {
+      "it": "polimeccanico-operatore-di-fresatura-cnc-m-f-pemsa-yverdon-les-bains"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "VD"
+  },
+  "url|https://www.pemsa.ch/it/job/regolatore-su-finitrice-2686102": {
+    "canonicalSlug": "regolatore-su-finitrice-pemsa-geneve",
+    "slugByLocale": {
+      "it": "regolatore-su-finitrice-pemsa-geneve"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "GE"
+  },
+  "id|spitexjobs.ch|j989451": {
+    "canonicalSlug": "eine-mitarbeiterin-einen-collaboratore-trice-per-den-mahlzeitendienst-im-stundenlohn-per-ferienablosung-ihre-arbeitseinsatze-sind-von-ca-11-bis-ca-13-uhr-auch-an-wochenenden-e-feie",
+    "slugByLocale": {
+      "it": "eine-mitarbeiterin-einen-collaboratore-trice-per-den-mahlzeitendienst-im-stundenlohn-per-ferienablosung-ihre-arbeitseinsatze-sind-von-ca-11-bis-ca-13-uhr-auch-an-wochenenden-e-feie",
+      "en": "an-employee-for-the-meal-service-in-the-hourly-wage-for-holiday-repayment-your-work-assignments-are-from-about-11-a-m-to",
+      "de": "eine-mitarbeiterin-einen-mitarbeiter-fur-den-mahlzeitendienst-im-stundenlohn-fur",
+      "fr": "un-employe-pour-le-service-de-repas-dans-le-salaire-horaire-pour-le-remboursement-des-jours-feries-vos-taches-sont-d"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "ZH"
+  },
+  "id|spitexjobs.ch|j989452": {
+    "canonicalSlug": "dipl-hf-fh-professionale-per-la-cura-60-100-posizione-chiave-nella-costruzione-del-nostro-team-di-assistenza-palliativa",
+    "slugByLocale": {
+      "it": "dipl-hf-fh-professionale-per-la-cura-60-100-posizione-chiave-nella-costruzione-del-nostro-team-di-assistenza-palliativa",
+      "en": "dipl-hf-fh-care-professional-60-100-key-position-in-building-our-palliative-care-team-spitex-regio-tannzapfenland",
+      "de": "dipl-pflegefachperson-hf-fh-60-100-schlusselposition-beim-aufbau-unseres-palliative-care",
+      "fr": "dipl-hf-fh-professionnel-de-soins-60-a-100-poste-cle-dans-la-construction-de-notre-equipe-de-soins-palliatifs-spitex"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TG"
+  },
+  "id|spitexjobs.ch|j989455": {
+    "canonicalSlug": "dipl-infermiera-hf-fh-60-100-gestione-caso-spitex-spitex-regio-tannzapfenland-sirnach",
+    "slugByLocale": {
+      "it": "dipl-infermiera-hf-fh-60-100-gestione-caso-spitex-spitex-regio-tannzapfenland-sirnach",
+      "en": "dipl-nurse-hf-fh-60-100-case-management-spitex-spitex-regio-tannzapfenland-sirnach",
+      "de": "dipl-pflegefachperson-hf-fh-60-100-fallfuhrung-spitex-spitex-ch-sirnach",
+      "fr": "dipl-infirmiere-hf-fh-60-a-100-gestion-de-cas-spitex-spitex-regio-tannzapfenland-sirnach"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TG"
+  },
+  "id|spitexjobs.ch|j989457": {
+    "canonicalSlug": "dipl-infermiera-hf-fh-40-50-flexpool-fine-settimana-incarichi-in-servizio-anticipato-spitex-regio-tannzapfenland-sirnach",
+    "slugByLocale": {
+      "it": "dipl-infermiera-hf-fh-40-50-flexpool-fine-settimana-incarichi-in-servizio-anticipato-spitex-regio-tannzapfenland-sirnach",
+      "en": "dipl-nurse-hf-fh-40-50-flexpool-weekend-assignments-in-early-service-spitex-regio-tannzapfenland-sirnach",
+      "de": "dipl-pflegefachperson-hf-fh-40-50-flexpool-wochenende-einsatze-im-fruhdienst-spitex-ch",
+      "fr": "dipl-nurse-hf-fh-40-50-flexpool-week-end-affectations-en-service-precoce-spitex-regio-tannzapfenland-sirnach"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TG"
+  },
+  "id|spitexjobs.ch|j989486": {
+    "canonicalSlug": "ausbildungsplatz-come-diplomierte-pflegefachfrau-diplomierter-pflegefachmann-hf-spitex-regio-tannzapfenland-sirnach",
+    "slugByLocale": {
+      "de": "ausbildungsplatz-als-diplomierte-pflegefachfrau-diplomierter-pflegefachmann-hf-spitex-ch",
+      "it": "ausbildungsplatz-come-diplomierte-pflegefachfrau-diplomierter-pflegefachmann-hf-spitex-regio-tannzapfenland-sirnach"
+    },
+    "createdAt": "2026-08-08",
+    "canton": "TG"
   }
 }
