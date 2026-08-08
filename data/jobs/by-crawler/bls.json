@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-08-08T08:00:57.004Z",
+  "assembledAt": "2026-08-08T21:34:17.217Z",
   "jobs": [
     {
       "id": "bls-5df13e4373ee",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/junior-betriebsplaner-in-bus/a564855b-b74c-48e0-994f-4865aa551b52",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:31.313Z",
+      "crawledAt": "2026-08-08T21:34:13.150Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -80,6 +80,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T13:12:39.014Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -125,7 +126,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/junior-produktemanager-in-autoverlad/05b45652-0fb7-46c8-ae2b-861a6f8737b2",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:30.511Z",
+      "crawledAt": "2026-08-08T21:34:12.290Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -178,6 +179,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:20:22.725Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -223,7 +225,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/dd034dae-6852-48aa-9341-ddcb2703eeda",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:29.731Z",
+      "crawledAt": "2026-08-08T21:34:11.432Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -283,6 +285,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:12:15.491Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -328,7 +331,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/66a57cf3-3129-460e-9433-b7cc2d9f708d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:28.887Z",
+      "crawledAt": "2026-08-08T21:34:10.588Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -382,6 +385,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:12:14.673Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -427,7 +431,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/produktionsplaner-in-regelplanung/d8365f87-cb27-47ca-ae73-85c1bcc1d1ea",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:28.176Z",
+      "crawledAt": "2026-08-08T21:34:09.874Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -479,6 +483,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T11:38:10.034Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -524,7 +529,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-security-bahnproduktion/cc7f35ab-c2f8-4a13-b3d3-3873fb67088e",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:27.389Z",
+      "crawledAt": "2026-08-08T21:34:09.034Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -575,6 +580,7 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:49:18.239Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -620,7 +626,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/operatrice-operatore-di-sala-operativa/b6563f4f-7ab2-4d50-b20b-fa3a8dec7dfe",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-08T09:47:26.671Z",
+      "crawledAt": "2026-08-08T21:34:08.316Z",
       "addressLocality": "Beura-cardezza",
       "addressCountry": "CH",
       "country": "CH",
@@ -652,6 +658,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:19:48.191Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -680,7 +687,7 @@
       "title": "Applikations-Manager:in IAM",
       "titleByLocale": {
         "it": "Gestione delle applicazioni: in IAM",
-        "en": "Application Manager: in IAM",
+        "en": "Applikations-Manager:in IAM",
         "de": "Applikations-Manager:in IAM",
         "fr": "Gestionnaire d'applications: dans IAM"
       },
@@ -696,7 +703,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/applikations-manager-in-iam/fd2c2f22-9bec-4fb3-8d6c-80fb0d3db40d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:25.958Z",
+      "crawledAt": "2026-08-08T21:34:07.589Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -743,6 +750,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:37:59.826Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -788,7 +796,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/tecnico-di-preparazione-dei-treni-pdt/ae78f81d-0c6c-446a-877f-5dfbc60c8096",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-08T09:47:25.160Z",
+      "crawledAt": "2026-08-08T21:34:06.747Z",
       "addressLocality": "Beura-cardezza",
       "addressCountry": "CH",
       "country": "CH",
@@ -822,6 +830,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:19:48.942Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -866,7 +875,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-business-partner-finance-bahnproduktion/265c3f03-9dda-4d26-bae5-b02fde879552",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:24.452Z",
+      "crawledAt": "2026-08-08T21:34:05.987Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -914,6 +923,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:17:58.008Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -959,7 +969,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/senior-organisationsentwickler-in/56c78840-393b-442c-8798-035d2e83027e",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:23.664Z",
+      "crawledAt": "2026-08-08T21:34:05.133Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1012,6 +1022,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:07:28.708Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1057,7 +1068,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-tunneltechnik-loetschberg-basistunnel-lbt/87090c34-c9fd-4541-a605-c35c2780277d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:22.875Z",
+      "crawledAt": "2026-08-08T21:34:04.252Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1104,6 +1115,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:20:28.123Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1149,7 +1161,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/baufuehrer-in-bahnbau/adcb2459-2080-47bc-964b-82d7764e2de5",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:22.094Z",
+      "crawledAt": "2026-08-08T21:34:03.393Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1200,6 +1212,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:35:29.865Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1245,7 +1258,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/elektroinstallateur-in-monteur-in-signaltechnik/f9f80fc2-eb10-485c-99b6-121e4f34f898",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:21.312Z",
+      "crawledAt": "2026-08-08T21:34:02.531Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1297,6 +1310,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T11:38:08.799Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
