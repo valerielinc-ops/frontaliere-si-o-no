@@ -30,6 +30,13 @@
  * build-plugins/searchConsoleCompat.ts self-maps every emitted slug (both
  * bands) so a stale GSC 404 for a live /aziende/ URL stops being dropped.
  *
+ * The floor is also DEMAND-AWARE, in one direction only: an employer with
+ * proven company-keyed search demand keeps an existing profile page indexable
+ * while its live count sits in the bridge band, instead of being demoted for
+ * being between hiring rounds. See build-plugins/shared/employerDemandSignal.mjs
+ * for the signal and for why every one of its failure modes collapses to this
+ * gate's pre-demand behaviour rather than to a demotion.
+ *
  * Namespace: distinct from publisherAdPagesPlugin (`/lavoro/<slug>/`) — no
  * collision. Gate: SKIP_EMPLOYER_PROFILE_PAGES=1 fast-exits local builds.
  */
@@ -52,7 +59,8 @@ import { resolveCantonSection, resolveJobCanton, legacyTiSectionRoot } from './s
 import { buildCurrentWeekPath } from './weeklyEmployersData';
 import { buildSectorHubPath, SECTOR_HUB_KEYS, type SectorHubKey } from './jobSectorLanding';
 import { canonicalCompanyProfileSlug } from './shared/companyProfileSlug.mjs';
-import { MIN_ACTIVE_JOBS } from './shared/employerProfileConfig.mjs';
+import { BRIDGE_FLOOR, MIN_ACTIVE_JOBS } from './shared/employerProfileConfig.mjs';
+import { loadEmployerDemandSlugs } from './shared/employerDemandSignal.mjs';
 import { resolveEmployerProfilesFlushed, type EmittedEmployerProfile } from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 
@@ -729,6 +737,13 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
       }
       jobs = null;
 
+      // Company-keyed search demand, read ONCE for the whole emit. Empty on
+      // every unknown — artifact absent (the normal state until the weekly
+      // producer has run), unparseable, stale, truncated — and an empty set
+      // makes the gate below identical to what it was before demand existed.
+      const demandBackedSlugs = loadEmployerDemandSlugs(rootDir);
+      let heldByDemand = 0;
+
       const dateStamp = new Date().toISOString().slice(0, 10);
       const collector = new WriteCollector({ distDir, pluginName: 'employerProfilePagesPlugin' });
       const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
@@ -755,15 +770,47 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         const liveActive = group.length;
         const liveProfile: EmployerProfile = { ...profile, activeJobs: liveActive };
 
+        // ── The floor, in annunci AND in domanda ────────────────────────────
+        //
+        // The count alone answers "is there enough here to be a page"; it does
+        // not answer "does anyone want this page". An employer that drops from
+        // 7 postings to 3 between hiring rounds has not become less searched —
+        // `alpiq` carries 312 impressions in 90 days at 7 active jobs — yet the
+        // count-only gate silently demoted it on the first build after the
+        // drift, and a noindex page cannot earn back the demand it is demoted
+        // for having (the circularity employerProfileConfig.mjs measures).
+        //
+        // So demand is allowed to HOLD such a page, under three conditions,
+        // each of which is a hazard this repo has already paid for once:
+        //
+        //  · only for an employer in `profiles` — this branch never runs for a
+        //    BelowFloorRecord, which carries no cantons[]/cities[]/
+        //    salaryMedianChf and therefore cannot render a full page at all
+        //    (the structural blocker in employerProfileConfig.mjs). Promotion
+        //    out of the below-floor band still needs the generator to change;
+        //  · only down to BRIDGE_FLOOR, never to zero. A page listing no jobs
+        //    is not thin, it is empty, and demand does not make an empty page
+        //    worth indexing;
+        //  · never INSTEAD of the thin-content gate. `countHtmlBodyWords` is
+        //    unchanged and still ANDed in below: demand can hold a page with
+        //    few jobs, never one with no prose.
+        //
+        // Direction is the whole safety argument: `A || B` is a superset of
+        // `A`, so no page that is indexable today can become noindex because of
+        // this, whatever the demand table says or fails to say.
+        const demandHold = liveActive >= BRIDGE_FLOOR && demandBackedSlugs.has(slug);
+
         // Pre-pass: render each locale's body once and decide indexability, so
         // the hreflang/alternate set lists ONLY indexable locales — an index
         // page never points an alternate at a noindex sibling (reviewer
         // adversarial check). Rendering is reused in the emit loop below.
         const rendered = LOCALES.map((locale) => {
           const bodyHtml = renderProfileBody(liveProfile, listed, locale, group);
-          const indexable = liveActive >= MIN_ACTIVE_JOBS && countHtmlBodyWords(bodyHtml) >= MIN_INDEXABLE_WORDS;
+          const meetsFloor = liveActive >= MIN_ACTIVE_JOBS || demandHold;
+          const indexable = meetsFloor && countHtmlBodyWords(bodyHtml) >= MIN_INDEXABLE_WORDS;
           return { locale, bodyHtml, indexable };
         });
+        if (demandHold && liveActive < MIN_ACTIVE_JOBS && rendered.some((r) => r.indexable)) heldByDemand++;
         const indexableLocales = rendered.filter((r) => r.indexable).map((r) => r.locale);
         const hreflangHtml = hreflangFor(slug, indexableLocales);
         const alternates = [
@@ -995,6 +1042,13 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         `\x1b[36m[employer-profile-pages]\x1b[0m ${profiles.length} profiles + ${belowFloor.length} below-floor → ` +
         `${profilePages} profile pages (${thinDowngraded} noindex-thin) + ${bridgePages} bridge pages ` +
         `— flushed ${written} files.`,
+      );
+      // Printed even at 0, and 0 is the expected reading until the weekly
+      // producer commits the demand table: a silent demand gate is one nobody
+      // can tell apart from a broken one.
+      console.log(
+        `\x1b[36m[employer-profile-pages]\x1b[0m demand signal: ${demandBackedSlugs.size} employers above the bar, ` +
+        `${heldByDemand} profile(s) held indexable below MIN_ACTIVE_JOBS.`,
       );
       resolveEmployerProfilesFlushed(emittedProfiles);
     },
