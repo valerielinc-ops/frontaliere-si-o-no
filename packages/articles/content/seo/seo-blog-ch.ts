@@ -25016,6 +25016,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lindustriaaudiovisivaisundersoppressione': {
+    title: 'L\'industria audiovisiva è sotto pressione e fa appello alla politica',
+    description: 'Gli esponenti del settore audiovisivo elvetico hanno difeso le loro priorità dinanzi ai responsabili politici riuniti al Locarno Film Festival. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, industria, audiovisiva, sotto, pressione',
+    ogTitle: 'L\'industria audiovisiva è sotto pressione e fa appello alla politica',
+    ogDescription: 'Gli esponenti del settore audiovisivo elvetico hanno difeso le loro priorità dinanzi ai responsabili politici riuniti al Locarno Film Festival.',
+    canonicalPath: '/articoli-svizzera/lindustriaaudiovisivaisundersoppressione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'industria audiovisiva è sotto pressione e fa appello alla politica",
+      "description": "Gli esponenti del settore audiovisivo elvetico hanno difeso le loro priorità dinanzi ai responsabili politici riuniti al Locarno Film Festival. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lindustriaaudiovisivaisundersoppressione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena del Locarno Film Festival"
+      },
+      "datePublished": "2026-08-08T00:40:33+00:00",
+      "dateModified": "2026-08-08T00:40:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lindustriaaudiovisivaisundersoppressione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

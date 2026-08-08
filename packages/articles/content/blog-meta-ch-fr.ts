@@ -1933,6 +1933,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-medi-zurigo-2026-confronto.title': 'Salaires moyens en Suisse 2026 : focus sur le canton de Zurich',
     'blog.article.salari-medi-zurigo-2026-confronto.excerpt': 'Données officielles, taux et cotisations : comment se compose le salaire à Zurich en 2026. Guide pratique pour les travailleurs et les frontaliers.',
     'blog.article.salari-medi-zurigo-2026-confronto.imageAlt': 'Panorama de Zurich avec des tours financières et des piétons',
+    'blog.article.lindustriaaudiovisivaisundersoppressione.title': 'L\'industrie audiovisuelle est sous pression et fait appel à la politique',
+    'blog.article.lindustriaaudiovisivaisundersoppressione.excerpt': 'Les représentants du secteur audiovisuel suisse ont défendu leurs priorités devant les décideurs réunis au Locarno Film Festival.',
+    'blog.article.lindustriaaudiovisivaisundersoppressione.imageAlt': 'Une scène du Festival du film de Locarno',
 };
 
 export default blogMetaChFr;
