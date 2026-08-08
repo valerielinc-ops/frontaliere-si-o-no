@@ -254,17 +254,48 @@ function offloadAll(distDir, cdnBase) {
   // via their STATIC refs — JSON-LD `contentUrl`, `<a download href>` — and via
   // robots.txt Allow/Disallow (crawl directives, NOT content links). Both kept the
   // 62 MB of data JSON/CSV (expired-jobs.json alone is 55 MB) in the 10 GB artifact.
-  const distDataRel = new Set();
-  if (hasData) walkAll(dataDir, (fp) => {
-    distDataRel.add('/' + path.relative(distDir, fp).split(path.sep).join('/'));
-  });
-  // Rewrite same-origin /data/<file> → ${CDN}/data/<file> for files present in
-  // dist/data. Only the file part is captured; the replacer no-ops for refs whose
-  // target is NOT in dist/data (e.g. /data/jobs.json stripped pre-deploy) so they
-  // stay same-origin exactly as before.
+  // Rewrite same-origin /data/<file> → ${CDN}/data/<file>, UNCONDITIONALLY.
+  //
+  // This used to be gated on `distDataRel` — "is this file in THIS shard's
+  // dist/data?" — to leave refs whose target was stripped pre-deploy (e.g.
+  // /data/jobs.json) same-origin "exactly as before". That gate was wrong,
+  // because its authority is per-shard while the served site is the UNION of the
+  // ~27 section × 4 locale shards. A shard that emits a page referencing a data
+  // file it does not itself carry got no rewrite and shipped the bare
+  // same-origin path. Measured live 2026-08-08, same page family, two shards:
+  //
+  //   /meteo-frontalieri/     → fetch('https://cdn…/data/weather-snapshot.json')  ok
+  //   /fr/meteo-frontaliers/  → fetch('/data/weather-snapshot.json')              404
+  //
+  // Same class as the hreflang defect in #4921: a per-shard view of what the
+  // build emits, used to decide something about the whole site.
+  //
+  // Dropping the gate is safe, and strictly better, because after this script
+  // runs the apex serves NO /data/** except the files the keep-guard below pins.
+  // So a same-origin /data/<file> ref in HTML has only two possible fates:
+  //
+  //   • the file is on the CDN  → rewriting resolves it   (gate was a bug)
+  //   • the file is nowhere     → 404 either way, apex or CDN — no regression
+  //
+  // There is no third case: a file the keep-guard pins was necessarily in
+  // dist/data, hence necessarily pushed to the CDN (deploy `cp -r dist/data`
+  // runs BEFORE this script), so rewriting its HTML ref still resolves.
+  //
+  // The keep-guard is untouched and its outcome is unchanged. HTML refs to files
+  // present in dist/data were already being rewritten, so they never reached
+  // `dataReferenced`; HTML refs to files absent from dist/data did reach it but
+  // were inert, because the delete walk only ever visits dist/data. What still
+  // pins a file is an XML sitemap ref — XML is never rewritten, only collected —
+  // and that path is deliberately left exactly as it was.
   const dataReAbs = new RegExp(escOrigin + '/data/' + DATA_FILE, 'g');
   const dataReRel = new RegExp('(?<![\\w.@])/data/' + DATA_FILE, 'g');
-  const dataRepl = (m, file) => (distDataRel.has('/data/' + file) ? `${cdnBase}/data/${file}` : m);
+  // IDEMPOTENT. Two independent guards, because re-running the offload on an
+  // already-rewritten dist must never produce `${cdnBase}https://cdn…`:
+  //   1. `dataReRel`'s lookbehind `(?<![\w.@])` refuses to match the /data/ in
+  //      `https://cdn.frontaliereticino.ch/data/x.json` (preceded by `h`);
+  //   2. this explicit check, so idempotence does not rest on the CDN host
+  //      merely happening not to contain the apex origin as a substring.
+  const dataRepl = (m, file) => (m.startsWith(cdnBase) ? m : `${cdnBase}/data/${file}`);
   // Same-origin keep-collector: matches the origin-absolute or site-relative form,
   // NOT the rewritten CDN host (preceded by a word char). A ref surviving here
   // points at a file NOT in dist/data → keep that file same-origin.
@@ -305,11 +336,26 @@ function offloadAll(distDir, cdnBase) {
     // final here. The deploy Drop step keeps dist/assets iff this list is non-empty.
     if (isHtml && ASSETS_SAME_ORIGIN_RX.test(out)) assetsLeaks.push(path.relative(distDir, fp));
 
-    // (2b) data refs: rewrite same-origin /data/<file> (present in dist/data) → CDN
-    //      in HTML ONLY (JSON-LD contentUrl + download hrefs). XML sitemap refs are
-    //      left untouched (pinned below, kept same-origin); robots.txt is skipped.
+    // (2b) data refs: rewrite same-origin /data/<file> → CDN in HTML ONLY
+    //      (inline hydration fetches, JSON-LD contentUrl, download hrefs). XML
+    //      sitemap refs are left untouched (pinned below, kept same-origin);
+    //      robots.txt is skipped.
+    //
+    //      Decoupled from `hasData`, for the SAME reason the CDN-base inject
+    //      below is (#1709) and the og/image rewrites are (#3475): `hasData` is
+    //      `fs.existsSync(dist/data)`, i.e. a per-shard fact. The en/de/fr and
+    //      staged-Ticino shards are pruned to a single locale subtree with NO
+    //      dist/data, so this whole branch compiled out and their pages shipped
+    //      bare same-origin /data/ refs — which 404, because the apex serves no
+    //      /data/** after the offload. That is how /fr/meteo-frontaliers/ came
+    //      to ship `fetch('/data/weather-snapshot.json')` while
+    //      /meteo-frontalieri/, built on a shard that did carry the file,
+    //      shipped the rewritten CDN URL.
+    //
+    //      The delete below stays gated on `hasData` — correctly, since there is
+    //      nothing to delete when the directory is absent.
     const isTxt = path.extname(fp) === '.txt';
-    if (hasData && isHtml) {
+    if (isHtml) {
       const beforeData = out;
       out = out.replace(dataReAbs, dataRepl).replace(dataReRel, dataRepl);
       if (out !== beforeData) dataRefRewritten++;
