@@ -9366,6 +9366,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.grigioni-frontalieri-calano.title': 'Grisons : le nombre de frontaliers continue de baisser',
     'blog.article.grigioni-frontalieri-calano.excerpt': 'Le canton des Grisons enregistre une baisse d\'environ 500 frontaliers par rapport au même trimestre de l\'année précédente.',
     'blog.article.grigioni-frontalieri-calano.imageAlt': 'Un pont sur le lac de Lugano avec un nombre réduit de travailleurs frontaliers.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.title': 'Formation professionnelle et reconversion des frontaliers dans un rayon de 20 km',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.excerpt': 'Cours reconnus, financement et retour pratique pour les frontaliers à moins de 20 km de la frontière. Focus sur AVS, LPP, LAMal et nouvel accord fiscal 2024.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.imageAlt': 'Travailleur frontalier en formation professionnelle dans une école technique tessinoise avec vue sur les montagnes',
 };
 
 export default blogMetaFr;

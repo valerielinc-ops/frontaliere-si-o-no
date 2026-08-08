@@ -9364,6 +9364,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.grigioni-frontalieri-calano.title': 'Graubünden: the number of border crossers is still falling',
     'blog.article.grigioni-frontalieri-calano.excerpt': 'The Canton of Graubünden recorded a decrease of about 500 border crossers compared to the same quarter of the previous year.',
     'blog.article.grigioni-frontalieri-calano.imageAlt': 'A bridge over the high lake of Lugano with a reduced number of cross-border workers.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.title': 'Vocational training and retraining for border workers within 20 km',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.excerpt': 'Recognised courses, funding and practical return for border workers within 20 km of the border. Focus on AVS, LPP, LAMal and new 2024 tax agreement.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.imageAlt': 'Cross-border worker in vocational training at a Ticino technical school with mountain view',
 };
 
 export default blogMetaEn;

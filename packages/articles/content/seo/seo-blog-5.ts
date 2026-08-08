@@ -60482,6 +60482,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-formazione-professionale-riqualifica-2026-entro-20-km': {
+    title: 'Formazione professionale e riqualifica per frontalieri entro 20 km',
+    description: 'Scopri i corsi di formazione professionale e riqualifica per frontalieri entro 20 km dal confine nel 2026. Riconoscimento SECO, finanziamenti e guida pratica su',
+    keywords: 'frontalieri, ticino, svizzera, italia, formazione, professionale, riqualifica, entro',
+    ogTitle: 'Formazione professionale frontalieri 2026 entro 20 km corsi riconosciuti',
+    ogDescription: 'Guida pratica ai corsi di formazione riconosciuti entro 20 km dal confine per frontalieri nel 2026: SECO, finanziamenti, AVS, LPP, LAMal e nuovo accordo fiscale',
+    canonicalPath: '/articoli-frontaliere/frontaliere-formazione-professionale-riqualifica-2026-entro-20-km',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Formazione professionale e riqualifica per frontalieri entro 20 km",
+      "description": "Scopri i corsi di formazione professionale e riqualifica per frontalieri entro 20 km dal confine nel 2026. Riconoscimento SECO, finanziamenti e guida pratica su",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliero in corso di formazione professionale in una scuola tecnica ticinese con vista sulle montagne"
+      },
+      "datePublished": "2026-08-08T11:09:28+00:00",
+      "dateModified": "2026-08-08T11:09:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-formazione-professionale-riqualifica-2026-entro-20-km/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
