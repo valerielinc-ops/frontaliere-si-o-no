@@ -9,7 +9,7 @@
  * alla seconda di mergiare finché non è rebasata oltre la prima.
  *
  * Logica:
- *   - lista PR OPEN; per ognuna i file cambiati (gh pr view N --json files).
+ *   - lista PR OPEN NON-DRAFT; per ognuna i file cambiati (gh pr view N --json files).
  *   - FUNNEL-CRITICAL globs: scripts/lib/**, build-plugins/**,
  *     services/seoService.ts, services/seo/**, .github/workflows/**,
  *     scripts/update-*.mjs.
@@ -18,6 +18,32 @@
  *     collidente + i file condivisi (dedup via marker `<!-- COLLISION:<other> -->`).
  *   - ricalcolo ad ogni run: una PR che non collide più con nessuna →
  *     RIMUOVI `collision-risk` (il vecchio commento resta, innocuo).
+ *
+ * ## Perché le draft non collidono
+ *
+ * Ogni altro componente del ciclo salta le draft — `auto-merge-eval` («PR è
+ * draft — skip»), `auto-merge-sweep` (`selectSweepCandidates`), `pr-autorebase`,
+ * `stale-pr-rescuer`, `pr-review-loop`. Questo script era l'unico a non farlo:
+ * chiedeva `--json number,labels` e trattava una draft come qualunque altra PR.
+ *
+ * L'asimmetria non è teorica. Su `nanakokyobashi-rgb/frontaliere-articles` una
+ * draft di sola conservazione (uno snapshot di sessione morta, PR #33, aperta
+ * esplicitamente per NON essere mergiata) toccava 22 file `.github/workflows/**`
+ * e 7 `scripts/lib/**` — tutti funnel-critical. Finché restava aperta, ogni PR
+ * che avesse toccato uno di quei 29 file sarebbe stata etichettata
+ * `collision-risk` e commentata contro una controparte che non poteva mergiare
+ * mai. E la label non è inerte: `pr-autorebase` la usa come criterio
+ * "near-merge" e rebasa+ri-testa la PR a ogni tick.
+ *
+ * Il senso della label lo dice il suo stesso commento: «la seconda a raggiungere
+ * il merge DEVE prima rebasare oltre l'altra». Una draft non sta raggiungendo il
+ * merge — nessun percorso automatico può portarla lì — quindi non è "l'altra" di
+ * nessuno. Quando torna `ready_for_review` rientra nello scan (il trigger
+ * `ready_for_review` sotto la ri-valuta subito, senza aspettare il cron).
+ *
+ * Le draft restano nel giro per la SOLA pulizia: una PR messa in draft dopo aver
+ * preso `collision-risk` se la deve vedere tolta, altrimenti la label sopravvive
+ * al motivo che l'aveva prodotta.
  *
  * Uso:  node scripts/ci/pr-collision-detector.mjs [--dry-run]
  * Env:  GH_TOKEN (PAT preferito per coerenza; label via GITHUB_TOKEN basta per
@@ -66,6 +92,46 @@ function commentOnce(num, marker, body) {
   commentOnceShared(gh, REPO, num, marker, body, { dry: DRY });
 }
 
+/**
+ * Chi partecipa allo scan come collider: le OPEN non-draft con numero valido.
+ * Puro → testabile, e stessa forma di `selectSweepCandidates` in
+ * auto-merge-sweep.mjs, che risolve lo stesso problema per l'auto-merge.
+ *
+ * `isDraft` mancante (campo non chiesto, risposta parziale) NON è trattato come
+ * draft: il default resta "partecipa", così una regressione nella query degrada
+ * verso il comportamento storico invece che verso uno scan muto.
+ */
+export function selectCollisionCandidates(prs) {
+  if (!Array.isArray(prs)) return [];
+  return prs.filter((p) => p && p.isDraft !== true && Number.isInteger(p.number)).map((p) => p.number);
+}
+
+/**
+ * Coppie collidenti da `num -> Set(file funnel-critical)`.
+ *
+ * Una PR assente da `funnelFiles` (o con set vuoto) non collide con nessuno: è
+ * così che le draft escono dal grafo pur restando nel giro per la rimozione
+ * della label.
+ */
+export function computeColliders(nums, funnelFiles) {
+  const colliders = new Map(); // num -> Map(otherNum -> [shared files])
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      const a = nums[i], b = nums[j];
+      const sa = funnelFiles.get(a) || new Set();
+      const sb = funnelFiles.get(b) || new Set();
+      const shared = [...sa].filter((f) => sb.has(f));
+      if (shared.length) {
+        if (!colliders.has(a)) colliders.set(a, new Map());
+        if (!colliders.has(b)) colliders.set(b, new Map());
+        colliders.get(a).set(b, shared);
+        colliders.get(b).set(a, shared);
+      }
+    }
+  }
+  return colliders;
+}
+
 function main() {
   if (!REPO) { console.error('GITHUB_REPOSITORY mancante'); process.exit(1); }
   console.log(`pr-collision-detector${DRY ? ' [DRY-RUN]' : ''} repo=${REPO}`);
@@ -73,7 +139,7 @@ function main() {
   let prs;
   try {
     prs = gh(['pr', 'list', '--repo', REPO, '--state', 'open', '--limit', '50',
-      '--json', 'number,labels']);
+      '--json', 'number,labels,isDraft']);
   } catch (e) {
     console.error(`gh pr list fallito: ${String(e).slice(0, 160)}`);
     process.exit(0);
@@ -81,11 +147,19 @@ function main() {
   prs = prs || [];
   if (prs.length < 1) { console.log('Nessuna PR aperta.'); return; }
 
-  // File funnel-critical per PR.
+  const candidates = new Set(selectCollisionCandidates(prs));
+  const skipped = prs.length - candidates.size;
+  console.log(`PR open: ${prs.length}${skipped ? ` (${skipped} draft → fuori dal grafo, solo cleanup della label)` : ''}`);
+
+  // File funnel-critical per PR. Le draft restano nella mappa con set vuoto: non
+  // collidono, ma il loop finale le vede e può togliere una `collision-risk`
+  // rimasta appesa. Niente `gh pr view` per loro — è la chiamata costosa dello
+  // scan (una per PR) e su una draft non serve a nulla.
   const funnelFiles = new Map(); // num -> Set(files)
   const hasLabel = new Map();    // num -> bool collision-risk già presente
   for (const pr of prs) {
     hasLabel.set(pr.number, (pr.labels || []).some((l) => l.name === 'collision-risk'));
+    if (!candidates.has(pr.number)) { funnelFiles.set(pr.number, new Set()); continue; }
     let files = [];
     try {
       files = gh(['pr', 'view', String(pr.number), '--repo', REPO, '--json', 'files',
@@ -97,21 +171,8 @@ function main() {
   }
 
   // Coppie collidenti.
-  const colliders = new Map(); // num -> Map(otherNum -> [shared files])
   const nums = prs.map((p) => p.number);
-  for (let i = 0; i < nums.length; i++) {
-    for (let j = i + 1; j < nums.length; j++) {
-      const a = nums[i], b = nums[j];
-      const sa = funnelFiles.get(a), sb = funnelFiles.get(b);
-      const shared = [...sa].filter((f) => sb.has(f));
-      if (shared.length) {
-        if (!colliders.has(a)) colliders.set(a, new Map());
-        if (!colliders.has(b)) colliders.set(b, new Map());
-        colliders.get(a).set(b, shared);
-        colliders.get(b).set(a, shared);
-      }
-    }
-  }
+  const colliders = computeColliders(nums, funnelFiles);
 
   // Applica/rimuovi label + commenta.
   for (const num of nums) {
@@ -132,4 +193,6 @@ function main() {
   console.log('collision scan completo.');
 }
 
-main();
+if (process.argv[1]?.endsWith('pr-collision-detector.mjs')) {
+  main();
+}
