@@ -293,6 +293,66 @@ export function extractSubIssueNumbers(body) {
   return [...new Set([...section.matchAll(/#(\d+)/g)].map((m) => Number(m[1])))];
 }
 
+// --- BACKLOG-TRACKER PRE-FLIGHT (escalation #5312/#5314/#5283) ---------------
+// Stessa classe dell'epic-tracker sopra, altra forma: le issue di *handoff di
+// sessione* ("Backlog dalla sessione …", "… il residuo") non descrivono UN
+// difetto, elencano il lavoro residuo di una sessione — voci eterogenee (a
+// volte già assegnate ad altre issue) che non hanno una root cause comune né un
+// target-file comune. Promuoverle a `agent:fix` non può che finire in un fix
+// parziale o in un abort: il fixer sceglie una voce delle N, o gira finché non
+// esaurisce i turni. Osservato su #5312 (8 voci), #5314 (7), #5283 (13), tutte
+// già `fu-parked` DOPO aver bruciato i tentativi invece che prima.
+//
+// Perché QUI e non in `classify-issue.mjs`: una categoria `backlog` instradata
+// a `route:'none'` escluderebbe a monte dal routing, che è esattamente ciò che
+// la decisione del proprietario del 2026-07-05 ha rimosso (AGENTS.md → "Issue
+// automation": «nessuna categoria è più opt-in-manuale; supervisione umana =
+// gate `## LGTM`, non esclusione a monte»), ed è asserito da
+// tests/classify-issue.test.ts («nessuna categoria produce più route='none'»).
+// Il pre-flight del drainer è l'altro layer: non tocca la policy di categoria,
+// decide per-issue su evidenza strutturale al momento del drain, ed è la sede
+// che il repo usa già per questa classe di burn (#4517, #5057, #1724, #2291).
+// `classifyIssue(title, labels)` non riceve nemmeno il body, quindi un criterio
+// strutturale lì non sarebbe esprimibile.
+//
+// CONSERVATIVO (bias a PROMUOVERE): serve la combinazione ESATTA marker nel
+// titolo + body che ENUMERA ≥BACKLOG_MIN_ITEMS voci distinte. Il marker da solo
+// non basta, ed è il punto: misurato sulle 2360 issue del repo, il marker
+// compare in 14 titoli ma solo 7 hanno un body enumerato (6-13 voci) — le altre
+// 7 (#3337, #3029, #3030, #3797, #3621, #3342, #5266) sono backlog *in prosa*
+// con UNO scope reale, e restano promuovibili. La separazione è netta: nessuna
+// issue del corpus cade fra 1 e 5 voci, quindi la soglia esatta non è
+// load-bearing (3, 4 o 5 danno lo stesso identico insieme); 3 è il minimo che
+// significhi ancora "più voci eterogenee".
+const BACKLOG_TITLE_RE = /^backlog\b|\bil residuo\b/i;
+const BACKLOG_MIN_ITEMS = 3;
+
+/**
+ * Numero di voci di lavoro DISTINTE enumerate nel body: task-list `- [ ]`/`- [x]`
+ * e sezioni numerate `## N.` (le due forme usate dagli handoff di sessione in
+ * questo repo). Pura → testabile.
+ * @param {string} body
+ * @returns {number}
+ */
+export function countBacklogItems(body) {
+  const b = String(body || '');
+  const checkboxes = (b.match(/^[ \t]*[-*][ \t]+\[[ xX]\]/gm) || []).length;
+  const numberedSections = (b.match(/^##[ \t]*\d+\.[ \t]/gm) || []).length;
+  return checkboxes + numberedSections;
+}
+
+/**
+ * Vero se l'issue è un contenitore di lavoro residuo (marker di handoff nel
+ * titolo + body che enumera ≥BACKLOG_MIN_ITEMS voci), quindi senza un difetto
+ * singolo da fixare. Pura → testabile.
+ * @param {string} title
+ * @param {string} body
+ */
+export function detectBacklogTracker(title, body) {
+  if (!BACKLOG_TITLE_RE.test(String(title || '').trim())) return false;
+  return countBacklogItems(body) >= BACKLOG_MIN_ITEMS;
+}
+
 // --- OVERLAP-FILE PRE-FLIGHT (escalation #3810) ----------------------------------
 // fix-outcome:overlap-skip ricorre 8×/14gg: il fixer Claude rileva l'overlap solo
 // DOPO aver bruciato ~1M token. Questo check zero-Claude rimuove il burn alla fonte:
@@ -955,6 +1015,21 @@ function runDrain() {
       console.log(`PARK #${cand.number} (epic-tracker: sub-issues ${subList}) → no promozione, scope delegato`);
       const note = `⏭️ **Pre-flight drainer (zero-Claude, #4517)**: questa issue è un \`[EPIC]\` di coordinamento — il body delega l'intero scope implementativo alla sezione \`## Sub-issues\` (${subList}), già tracciate indipendentemente nella propria coda \`agent:fix-queued\`/\`agent:fix\`. Promuoverla brucerebbe un run Claude completo per arrivare sempre alla stessa conclusione (nessun target-file proprio da fixare qui). **Non promuovo**: l'epic si chiude quando tutte le sub-issue sono mergiate (o manualmente, come tracker). Rimuovo \`agent:fix-queued\` e parko (riapribile: togli \`fu-parked\` se il contesto cambia).\n\n<!-- FIX_OUTCOME: revenue-tracker-manual -->`;
       if (DRY) { console.log(`[dry] park #${cand.number} (epic-tracker)`); continue; }
+      try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
+      catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
+      edit(cand.number, { add: [LBL_PARKED], remove: [LBL_QUEUED, LBL_FIX] });
+      continue; // prova il prossimo in coda
+    }
+
+    // Check: backlog-tracker (escalation #5312/#5314/#5283) — handoff di sessione
+    // che ELENCA il lavoro residuo invece di descrivere un difetto singolo. Non ha
+    // una root cause né un target-file propri: il fixer sceglie una voce delle N o
+    // esaurisce i turni, sempre.
+    if (detectBacklogTracker(cand.title, body)) {
+      const itemCount = countBacklogItems(body);
+      console.log(`PARK #${cand.number} (backlog-tracker: ${itemCount} voci enumerate) → no promozione, nessun difetto singolo`);
+      const note = `⏭️ **Pre-flight drainer (zero-Claude, #5312)**: questa issue è un **contenitore di lavoro residuo** (handoff di sessione), non un difetto singolo — il body enumera **${itemCount} voci distinte**, eterogenee e in parte già tracciate altrove. Non ha una root cause comune né un target-file proprio: promuoverla a \`agent:fix\` produce un fix parziale su UNA delle voci, o un run che esaurisce i turni. **Non promuovo**: le voci vanno scorporate in issue singole (una root cause ciascuna), che il loop instrada normalmente. Rimuovo \`agent:fix-queued\` e parko (riapribile: togli \`fu-parked\` se il contesto cambia).\n\n<!-- FIX_OUTCOME: revenue-tracker-manual -->`;
+      if (DRY) { console.log(`[dry] park #${cand.number} (backlog-tracker)`); continue; }
       try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
       catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
       edit(cand.number, { add: [LBL_PARKED], remove: [LBL_QUEUED, LBL_FIX] });
