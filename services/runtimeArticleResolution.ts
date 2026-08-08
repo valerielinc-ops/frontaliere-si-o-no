@@ -298,8 +298,12 @@ function rememberRecord(section: OverlaySection, record: OverlayArticle | null):
  *
  * The vocabulary is small and fixed (`renderArticleBodyHtml` in
  * packages/articles/engine/articleSeoFallback.ts emits only h2/h3/h4, p, ul>li,
- * blockquote and the inline set below), so the inverse is exact rather than a
- * general HTML-to-markdown guess. What it cannot recover is length: the static
+ * blockquote, table and the inline set below), so the inverse is exact rather
+ * than a general HTML-to-markdown guess. Anything OUTSIDE that vocabulary is
+ * dropped, which is why the table branch had to land here in the same change
+ * as the engine's: an engine emitting a `<table>` this file did not know would
+ * have deleted the table from every day-one article instead of degrading it
+ * (issue #5415 §2a). What it cannot recover is length: the static
  * renderer truncates each section at 1,800 rendered characters and marks the
  * cut with a "…" paragraph. That is the same text the visitor is already
  * reading, so a takeover built on it never removes content from the page — but
@@ -330,13 +334,80 @@ function inlineMarkdown(node: Node): string {
 /** A truncation marker is not content — carrying it over would be noise. */
 const ELLIPSIS_ONLY = /^[…\s.]*$/;
 
+/**
+ * The positional wrapper labels ogPagesPlugin puts on each bodyN section
+ * ("Contesto", "Operative Details", …), in every locale — the same strings
+ * ARTICLE_BODY_SECTION_LABELS holds, flattened and lowercased for matching.
+ *
+ * They are scaffolding, not body: an article rendered FROM THE BUNDLE never
+ * shows them, because the SPA renders bodyN straight from the i18n keys. When
+ * the recovery path carried them over, a visitor reading a day-one article saw
+ * an <h2>Contesto</h2> that the same article grew out of the moment the next
+ * deploy put it in the bundle (issue #5415 §4 point 3). Dropping them here is
+ * what makes the two hydrated renders the same document.
+ *
+ * Only these H2s are dropped. The SEO fallback sections ogPagesPlugin appends
+ * for thin bodies ("Cosa devi sapere", …) carry their own descriptive H2 and
+ * are real reading content, so they stay.
+ *
+ * Spelled out here rather than imported from the engine: importing
+ * `articleSeoFallback` would pull its four locales of SEO filler prose into the
+ * SPA bundle for twelve short strings. `runtime-article-resolution.test.ts`
+ * asserts this set equals ARTICLE_BODY_SECTION_LABELS flattened, so the copy
+ * cannot drift from the engine that emits the labels.
+ */
+const GENERIC_BODY_SECTION_LABELS = new Set([
+  'contesto', 'dettagli operativi', 'punti chiave',
+  'context', 'operational details', 'key points',
+  'kontext', 'operative details', 'wichtige punkte',
+  'contexte', 'details pratiques', 'points cles',
+]);
+
+/**
+ * `<table>` → the pipe-table markdown `tryRenderMdTable` (BlogArticles.tsx)
+ * parses. Emitted as ONE block with `\n` between rows — the SPA splits body
+ * text on `\n\n`, so a table must not contain a blank line, and its rows must
+ * stay on separate lines or the separator test fails and the visitor gets the
+ * raw pipes back.
+ */
+function tableMarkdown(el: Element): string | null {
+  const lines: string[] = [];
+  const widths: number[] = [];
+  let separatorAt = -1;
+  for (const row of Array.from(el.querySelectorAll('tr'))) {
+    const cells = Array.from(row.children).filter((c) => c.tagName === 'TH' || c.tagName === 'TD');
+    if (!cells.length) continue;
+    // A literal `|` inside a cell would split that cell in two on the way back.
+    lines.push(`| ${cells.map((c) => inlineMarkdown(c).trim().replace(/\|/g, '\\|')).join(' | ')} |`);
+    widths.push(cells.length);
+    // The separator goes after the LAST header row, wherever <thead> ends.
+    if (cells.some((c) => c.tagName === 'TH')) separatorAt = lines.length;
+  }
+  if (!lines.length) return null;
+  // A table with no <th> at all still needs a header row to be a markdown
+  // table: promote the first row rather than dropping the block.
+  if (separatorAt < 1) separatorAt = 1;
+  if (lines.length <= separatorAt) return null; // header only, no body rows
+  const separator = `|${' --- |'.repeat(Math.max(widths[separatorAt - 1], 1))}`;
+  return [...lines.slice(0, separatorAt), separator, ...lines.slice(separatorAt)].join('\n');
+}
+
 function blockMarkdown(el: Element): string | null {
   const tag = el.tagName;
   if (tag === 'H2' || tag === 'H3' || tag === 'H4' || tag === 'H5' || tag === 'H6') {
-    const level = tag === 'H2' ? '##' : tag === 'H3' ? '###' : '####';
     const text = inlineMarkdown(el).trim();
-    return text ? `${level} ${text}` : null;
+    if (!text) return null;
+    if (tag === 'H2' && GENERIC_BODY_SECTION_LABELS.has(text.toLowerCase())) return null;
+    // Undo the static clamp instead of mirroring it. buildArticleBodyBlocks maps
+    // BOTH `#` and `##` onto <h3> and everything deeper onto <h4>, so the body's
+    // own `## Sezione` reaches the DOM as <h3>. Re-emitting it as `###` (what
+    // this did before) rendered day-one articles one heading level below the
+    // bundle's, under generic <h2>s the bundle does not have. h3 → `##`,
+    // h4 → `###` restores the source levels for the two the generator uses.
+    const level = tag === 'H2' || tag === 'H3' ? '##' : tag === 'H4' ? '###' : '####';
+    return `${level} ${text}`;
   }
+  if (tag === 'TABLE') return tableMarkdown(el);
   if (tag === 'P') {
     const text = inlineMarkdown(el).trim();
     return text && !ELLIPSIS_ONLY.test(text) ? text : null;
