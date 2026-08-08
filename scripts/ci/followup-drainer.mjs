@@ -987,16 +987,25 @@ function runDrain() {
     }
 
     // Il parcheggio workflow-scoped ha senso SOLO se issue-fix non può pushare quei file.
-    // Dal 2026-08-06 può, quando `mint-app-token.mjs` conia (App con `workflows: write`), e
-    // questo stesso workflow conia lo stesso token qualche step più su — quindi la presenza
-    // di APP_TOKEN è il segnale giusto, non una supposizione.
+    // Dal 2026-08-06 può, quando `mint-app-token.mjs` conia un token la cui installazione
+    // ha davvero `workflows: write`, e questo stesso workflow conia lo stesso token qualche
+    // step più su.
+    //
+    // La presenza di APP_TOKEN NON è quel segnale (#5288). Il conio riesce — 201, token
+    // valido — anche quando il permesso `workflows` è stato richiesto ma mai approvato
+    // sull'installazione: semplicemente non compare fra i `permissions`. Leggere la presenza
+    // qui sbagliava nel verso peggiore: SBLOCCAVA la promozione di follow-up che il push
+    // avrebbe poi rifiutato, mandando ciascuna a bruciare ~1M token per morire al `git push`
+    // — cioè esattamente la spesa che questo parcheggio esiste per evitare.
+    // `APP_TOKEN_WORKFLOWS` è la capacità LETTA dalla risposta API, ed è fail-closed:
+    // non scritta o diversa da 'true' → si parcheggia, come prima del 2026-08-06.
     //
     // Senza questa condizione la follow-up verrebbe parcheggiata come TERMINALE con una
     // motivazione ormai falsa («manca lo scope workflows»): non solo non arriverebbe mai alla
     // capability appena sbloccata, ma lascerebbe agli atti una spiegazione sbagliata di
     // perché. Un parcheggio motivato male è peggio di nessun parcheggio — nessuno lo rimette
     // in discussione.
-    const issueFixCanPushWorkflows = Boolean(process.env.APP_TOKEN);
+    const issueFixCanPushWorkflows = process.env.APP_TOKEN_WORKFLOWS === 'true';
     if (!issueFixCanPushWorkflows && body && detectWorkflowScoped(`${cand.title}\n${body}`)) {
       const wfRefs = [...new Set((body.match(WORKFLOW_PATH_RE) || []).concat(
         (body.match(BARE_YML_RE) || []).filter((y) => !NON_WORKFLOW_YML.has(y.toLowerCase())),
