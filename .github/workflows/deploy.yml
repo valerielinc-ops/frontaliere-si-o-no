@@ -2091,3 +2091,63 @@ jobs:
             --title "CI Failure (build): ${{ github.workflow }}" \
             --workflow "${{ github.workflow }}" \
             --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+  # ───────────────────────────────────────────────────────────────────────
+  # rearm: make "every HEAD eventually gets a successful build" an invariant
+  # rather than a hope (#5349).
+  #
+  # THE HOLE. `pages-build-run` keeps 1 running + 1 pending and drops the
+  # superseded middle. That is newest-wins and it is correct — on a linear
+  # `main` the newer build already contains what it superseded, and the
+  # paths-ignore comment at the top of this file records that those
+  # cancellations start zero jobs and cost nothing. But nothing in the design
+  # restarts the pipeline when it reaches a terminal state with NOTHING queued
+  # behind it. Measured across the 100 runs from 2026-08-06T12:37Z to
+  # 2026-08-08T05:58Z (~41 h): 82 cancelled, 10 success, 6 failure, and exactly
+  # ONE such moment — a run ended `failure` at 2026-08-06T16:27:57Z and the
+  # pipeline sat idle for 412 minutes until a human pushed. Same order as the
+  # 638-minute publish lag that filed #5349.
+  #
+  # WHY HERE and not on a schedule. A debounce (schedule + dispatch instead of
+  # push) removes the queue by removing events: it makes every urgent merge pay
+  # the debounce interval, and at 16:27 the queue was not overfull, it was
+  # EMPTY — a debounce fixes nothing there. This job adds the missing edge
+  # instead, at the exact moment the information is available: the build just
+  # ended, so "is anything still queued?" is answerable now.
+  #
+  # WHY `if: always()` AND WHY THAT IS ENOUGH. A run cancelled while PENDING
+  # never reaches this job — and must not: a pending-cancel means a newer run
+  # took the slot, so the pipeline is by definition still moving. The state that
+  # needs re-arming is the one where a run actually RAN and did not succeed,
+  # which is precisely what reaches here.
+  #
+  # RECURSION and STORM are closed in scripts/ci/rearm-deploy-build.mjs — the
+  # cap is per-SHA (so each re-arm strictly consumes budget and the chain ends
+  # after one retry) and the decision is taken for the current HEAD only, never
+  # once per superseded commit. See that file's header for the full argument.
+  # ───────────────────────────────────────────────────────────────────────
+  rearm:
+    needs: [matrix-setup, prep, build-locale]
+    if: always() && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: write   # read this workflow's run list + POST /dispatches
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Re-arm the build pipeline if it has stopped with work outstanding
+        # Never fail the deploy over this. A red job here would be a second
+        # failure stacked on the one that stopped the pipeline, and
+        # pages-publish-lag-watchdog.yml remains the backstop either way.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # At most this many build attempts per commit. The caller's own run
+          # counts, so the default of 2 means exactly ONE automatic retry: a
+          # commit whose build is genuinely broken is retried once and then left
+          # to the "CI Failure (build)" issue this workflow already files.
+          REARM_MAX_BUILDS_PER_SHA: '2'
+        run: node scripts/ci/rearm-deploy-build.mjs
