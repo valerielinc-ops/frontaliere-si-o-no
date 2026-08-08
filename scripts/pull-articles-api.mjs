@@ -28,6 +28,13 @@
  * hreflang alternates. Gating on urls alone would have accepted it and dropped
  * 15225 alternates from the index in one commit.
  *
+ * Consistency with the corpus pull — see scripts/lib/articles-sync-pin.mjs. The
+ * sitemaps this writes and the slug registry pull-articles-corpus.mjs writes are
+ * committed together, so they must describe the SAME upstream state. The two
+ * agree on `manifest.json`'s `commit` field; if the surface moves between the two
+ * reads, this script skips (exit 0, nothing written) rather than commit a pair
+ * that disagrees. `ARTICLES_SYNC_COMMIT` carries the pin between the steps.
+ *
  * Usage:
  *   node scripts/pull-articles-api.mjs                 # write public/
  *   node scripts/pull-articles-api.mjs --check         # verify only, write nothing
@@ -40,6 +47,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
+import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
 
 const ROOT = process.cwd();
 const PUBLIC_DIR = path.join(ROOT, 'public');
@@ -279,6 +287,34 @@ try {
 if (typeof manifest.counts?.articles !== 'number' || manifest.counts.articles < MIN_ARTICLES) {
   fail(`manifest reports ${manifest.counts?.articles} articles (min ${MIN_ARTICLES}) — refusing`);
 }
+
+// ── The other half of the consistency pin (issue #5298) ──────────────────────
+//
+// pull-articles-corpus.mjs ran first, checked the corpus out at the commit THIS
+// manifest named, and exported it. The manifest is read again here, and if it
+// now names a different commit a publish landed during that ~15k-file clone —
+// nanako publishes every 10-20 minutes during generation hours, so the window is
+// real, not theoretical. Writing the newer sitemaps next to the older registry
+// is precisely the pair that reddens tests/blog-slugs-sitemap-sync.test.ts on
+// every open branch, so the run is abandoned instead.
+//
+// Nothing has been written at this point (the whole script fetches and validates
+// before it writes a single file), so a skip here costs one wasted run and
+// leaves the committed copy serving. See scripts/lib/articles-sync-pin.mjs.
+{
+  const pin = pinVerdict({ pinned: readPin(), manifestCommit: manifest.commit });
+  if (!pin.ok) {
+    emitSkip('pull-articles-api', pin.reason);
+    process.exit(0);
+  }
+  // Idempotent when the corpus pull already published it (the verdict above just
+  // proved they agree); load-bearing when this script runs first or alone, as it
+  // does from `git-push-with-retry.sh --regenerate-cmd`, where re-pulling the
+  // surface under a pin the environment already carries is what keeps the
+  // regenerated commit consistent with the corpus it is rebased onto.
+  publishPin(pin.commit, { tag: 'pull-articles-api' });
+}
+
 log(`manifest: commit ${String(manifest.commit).slice(0, 8)}, ${manifest.counts.articles} articles`);
 
 // Fetch and validate everything first, so a mid-way failure cannot leave public/

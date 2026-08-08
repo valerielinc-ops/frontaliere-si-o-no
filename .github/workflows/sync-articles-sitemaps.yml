@@ -20,6 +20,15 @@ name: Sync article sitemaps, feeds and ticker from the articles API
 # counts), every feed's item count, and every locale title/slug in the ticker
 # payload — then exits non-zero having written nothing if anything looks wrong.
 # So a bad publish leaves the committed copy serving instead of overwriting it.
+#
+# THE TWO PULLS ARE ONE OPERATION (issue #5298). They read from two sources with
+# different freshness — the corpus repo's git history, and the API built from an
+# earlier state of it — and they commit into a single commit. Both are therefore
+# pinned to `manifest.json`'s `commit`, and if they cannot agree on it the whole
+# run is SKIPPED rather than half-committed. Rationale and failure history:
+# scripts/lib/articles-sync-pin.mjs. This is the fix at the WRITER; the transit
+# tolerance in tests/blog-slugs-sitemap-sync.test.ts was the earlier mitigation
+# at the reader, and with the window closed here it has nothing left to excuse.
 
 on:
   repository_dispatch:
@@ -35,6 +44,10 @@ concurrency:
 
 permissions:
   contents: write
+  # A skipped sync exits 0 by design (nothing was written; the previous commit is
+  # still consistent). That makes a mirror stuck for good invisible on a wall of
+  # green runs, so N consecutive skips open an issue — see the escalation step.
+  issues: write
 
 jobs:
   sync:
@@ -58,14 +71,119 @@ jobs:
       # (§7.1), and a list needs titles.
       #
       # A pull, never a push — nanako owns the corpus. See the script header.
+      #
+      # Runs FIRST because it is the step that resolves the pin: it reads
+      # `manifest.json`, checks the corpus out at the commit named there rather
+      # than at `main`, and exports it as ARTICLES_SYNC_COMMIT for the next step.
       - name: Pull the article corpus
+        id: pull-corpus
         run: node scripts/pull-articles-corpus.mjs
 
+      # Skipped outright when the corpus pull already gave up: its sitemaps would
+      # be committed next to a registry from a different upstream state, which is
+      # the pair this whole mechanism exists to never produce.
       - name: Pull published sitemaps
+        id: pull-api
+        if: steps.pull-corpus.outputs.skipped != 'true'
         run: node scripts/pull-articles-api.mjs
+
+      # One place to ask "may this run write?", so a future step cannot forget
+      # half of the condition. Read via env rather than interpolated into the
+      # script body — the values are ours, but the habit is not negotiable.
+      - name: Decide whether this run may commit
+        id: gate
+        env:
+          CORPUS_SKIPPED: ${{ steps.pull-corpus.outputs.skipped }}
+          API_SKIPPED: ${{ steps.pull-api.outputs.skipped }}
+        run: |
+          set -euo pipefail
+          if [ "${CORPUS_SKIPPED:-}" = "true" ] || [ "${API_SKIPPED:-}" = "true" ]; then
+            echo "skipped=true" >> "$GITHUB_OUTPUT"
+            echo "This sync was skipped; nothing will be committed." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "skipped=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # ── A skipped sync is green, so something has to make a STUCK one loud ──
+      #
+      # Each script already emits `::warning::` with its reason, which covers the
+      # single skip: somebody reading that run sees it. Nobody reads green runs,
+      # though, so the case that actually needs catching is the mirror that never
+      # comes back — and a warning per run is indistinguishable from a warning
+      # that has been there for a week.
+      #
+      # THRESHOLD 3, and it is a real choice, not a default:
+      #   - A skip is not the routine outcome of a race. The API is BUILT from the
+      #     commit it names, so that commit exists upstream by construction; a
+      #     skip means the mirror could not serve an object it must already have,
+      #     or the surface moved mid-clone. Both are self-correcting within one
+      #     retry, so 1 skip carries no information and 2 barely more.
+      #   - Retries are frequent: a repository_dispatch per publish, ~10-20
+      #     minutes apart during generation hours (measured in #5298: 08:02,
+      #     08:10, 08:29, 08:32, 08:37). Three consecutive skips is therefore
+      #     ~30-60 minutes of a condition surviving every retry — far past any
+      #     transient, and still inside the hour.
+      #   - Higher (5) would spend a whole quiet night at the cron-only cadence
+      #     before saying anything, which is the silent-failure shape again.
+      #
+      # WINDOW 36h, tied to that cadence: the floor is the 5:23/17:23 cron, 12h
+      # apart, so three cron-only events span 24h. A 24h window would leave the
+      # first event sitting exactly on the cutoff and let CI jitter decide whether
+      # the third one escalates — the coin-flip github-issue-creator.mjs's own
+      # header warns about. 36h gives a full cadence of margin.
+      #
+      # The counter resets on success (the resolve step below closes the issue),
+      # so "3" means three in a row with no good sync between them.
+      - name: Escalate a sync that keeps being skipped
+        if: steps.gate.outputs.skipped == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CORPUS_REASON: ${{ steps.pull-corpus.outputs.skip-reason }}
+          API_REASON: ${{ steps.pull-api.outputs.skip-reason }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          # Heredoc, not an inline multi-line argument: this block is indented
+          # inside the YAML scalar, and continuation lines would carry those
+          # leading spaces into the issue body, where four of them mean "code
+          # block". YAML strips the block indent uniformly, so the shell — and
+          # the issue — see flush-left markdown.
+          DESC=$(cat <<EOF
+          The corpus pull and the sitemap pull could not agree on a single upstream commit, so nothing was committed. Background: \`scripts/lib/articles-sync-pin.mjs\`.
+
+          **Reason:** ${CORPUS_REASON:-}${API_REASON:-}
+
+          **Run:** ${RUN_URL}
+
+          One occurrence self-heals on the next \`articles-published\` dispatch and is not worth an issue. This one is open because the condition survived three consecutive runs, so the likely causes are structural: nanako's Pages/CDN surface is serving a manifest naming a commit that is no longer on the mirror's \`main\` (force-push, or a stale Pages deploy), or the mirror has stopped receiving pushes altogether. Start from \`publish-api.yml\` on nanakokyobashi-rgb/frontaliere-articles.
+
+          While this is open the site keeps serving the last consistent pair — the sitemaps are stale, not wrong.
+          EOF
+          )
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Article sync skipped: corpus mirror behind the published API" \
+            --description "$DESC" \
+            --priority 2 \
+            --label "articles-sync" \
+            --consecutive-gate 3 \
+            --gate-window-hours 36 \
+            --workflow "${{ github.workflow }}"
+
+      - name: Clear the skip escalation
+        if: steps.gate.outputs.skipped != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Article sync skipped: corpus mirror behind the published API" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Commit if changed
         id: commit
+        if: steps.gate.outputs.skipped != 'true'
         run: |
           set -euo pipefail
           # Recorded BEFORE the commit, because after it `git diff` is clean.
@@ -153,8 +271,16 @@ jobs:
           # Attempt count left at the helper's default (40): its own header
           # records 25 being exhausted on this repo (#4557), and this job races
           # the same writers.
+          # BOTH pulls, not just the API one. The helper hard-resets to
+          # origin/main before regenerating, which throws away the corpus half of
+          # the pair as well — replaying only the API half rebuilt the sitemaps
+          # against whatever registry origin/main happened to carry, i.e. the
+          # exact mismatch #5298 is about, reintroduced on the conflict path. The
+          # pin in ARTICLES_SYNC_COMMIT survives into this shell, so the replay
+          # targets the same corpus commit the original attempt did, and skips
+          # (writing nothing, committing nothing) if the API has moved since.
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "node scripts/pull-articles-api.mjs && git add -- ${FILES[*]}"
+            --regenerate-cmd "node scripts/pull-articles-corpus.mjs && node scripts/pull-articles-api.mjs && git add -- ${FILES[*]}"
 
       # ── The invariant this job is the only actor able to maintain ───────────
       #
@@ -180,12 +306,16 @@ jobs:
       # stay behind. By the time this runs the artifacts are already on main;
       # a red here is diagnostic and blocks nothing.
       #
-      # One benign case can trip it: the corpus repo's git `main` can be a
-      # article or two ahead of the API build it publishes, so a pull that
-      # straddles a publish sees a registry entry whose sitemap URL does not
-      # exist yet. That self-heals on the next run. A red that PERSISTS across
-      # runs is the real thing and means the two sources have genuinely parted.
+      # That benign case is now GONE, and this comment is the record of it: the
+      # corpus repo's git `main` runs ahead of the API build it publishes, so a
+      # pull that straddled a publish used to see a registry entry whose sitemap
+      # URL did not exist yet, and this check went red on a pair that was merely
+      # young. It self-healed next run, which made every genuine divergence look
+      # like one more instance of the same shrug. Since #5298 the corpus is
+      # checked out AT the commit the API names, so the pair cannot be young —
+      # any red here means the two sources have genuinely parted, first time.
       - name: Verify registry ↔ sitemap convergence
+        if: steps.gate.outputs.skipped != 'true'
         run: node scripts/ci/check-blog-slugs-sitemap-sync.mjs
 
       # ── Google News freshness: the commit above is not the publish ──────────
