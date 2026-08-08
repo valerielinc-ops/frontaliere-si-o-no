@@ -9354,6 +9354,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.accise-gasolio-ministeri-mef.title': 'Droits d\'accises sur le gazole : 232 millions des ministères, MEF en tête',
     'blog.article.accise-gasolio-ministeri-mef.excerpt': 'Le MEF couvre 125 millions de la coupure de 17 centimes sur le gasoil (7-24 août). Voici comment vous répartissez les fonds et ce qui change pour les frontaliers.',
     'blog.article.accise-gasolio-ministeri-mef.imageAlt': 'Poste-frontière italo-suisse à l\'aube avec panneau de prix du carburant en CHF et voiture d\'un frontalier, montagnes tessinoises en arrière-plan.',
+    'blog.article.calo-frontalieri-italiani-ticino.title': 'Baisse des frontières italiennes au Tessin : les données DE l\'OFS',
+    'blog.article.calo-frontalieri-italiani-ticino.excerpt': 'Les données de l\'OFS montrent une baisse de 0,6 % du nombre de frontaliers au Tessin et de 1,1 % pour les Italiens entre avril et juin par rapport à 2025.',
+    'blog.article.calo-frontalieri-italiani-ticino.imageAlt': 'Vue de la frontière entre l\'Italie et la Suisse à Chiasso avec les flux de frontaliers',
 };
 
 export default blogMetaFr;

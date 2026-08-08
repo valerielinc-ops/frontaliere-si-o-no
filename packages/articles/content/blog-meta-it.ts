@@ -9353,6 +9353,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.accise-gasolio-ministeri-mef.title': 'Accise gasolio: 232 milioni dai ministeri, Mef in testa',
     'blog.article.accise-gasolio-ministeri-mef.excerpt': 'Il Mef copre 125 milioni del taglio di 17 centesimi sul gasolio (7-24 agosto). Ecco come ripartiti i fondi e cosa cambia per i frontalieri.',
     'blog.article.accise-gasolio-ministeri-mef.imageAlt': 'Valico di confine italo-svizzero all\'alba con cartello carburante in CHF e auto di un frontaliere, montagne ticinesi sullo sfondo.',
+    'blog.article.calo-frontalieri-italiani-ticino.title': 'Calo frontalieri italiani in Ticino: i dati dell\'UST',
+    'blog.article.calo-frontalieri-italiani-ticino.excerpt': 'I dati UST mostrano un calo dello 0,6% dei frontalieri in Ticino e dell\'1,1% per gli italiani tra aprile e giugno rispetto al 2025.',
+    'blog.article.calo-frontalieri-italiani-ticino.imageAlt': 'Vista del confine tra Italia e Svizzera a Chiasso con flussi di frontalieri',
 };
 
 export default blogMetaIt;

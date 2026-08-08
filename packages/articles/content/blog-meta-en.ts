@@ -9352,6 +9352,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.accise-gasolio-ministeri-mef.title': 'Diesel excise: 232 million from ministries, MEF in the lead',
     'blog.article.accise-gasolio-ministeri-mef.excerpt': 'The MEF covers 125 million of the 17 cent cut on diesel (7-24 August). Here\'s how you split the funds and what changes for border workers.',
     'blog.article.accise-gasolio-ministeri-mef.imageAlt': 'Italian-Swiss border crossing at dawn with fuel price sign in CHF and a cross-border commuter car, Ticino mountains in background.',
+    'blog.article.calo-frontalieri-italiani-ticino.title': 'Decrease in Italian border crossers in Ticino: UST DATA',
+    'blog.article.calo-frontalieri-italiani-ticino.excerpt': 'UST data show a decrease of 0.6% for border crossers in Ticino and 1.1% for Italians between April and June compared to 2025.',
+    'blog.article.calo-frontalieri-italiani-ticino.imageAlt': 'View of the border between Italy and Switzerland in Chiasso with commuter flows',
 };
 
 export default blogMetaEn;
