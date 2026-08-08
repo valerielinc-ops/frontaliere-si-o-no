@@ -9371,6 +9371,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-08.title': 'Bollettino del frontaliere – 8 agosto 2026: 1188 nuovi annunci di lavoro ieri',
     'blog.article.bollettino-frontaliere-2026-08-08.excerpt': 'I numeri di oggi per chi attraversa il confine: attese ai valichi, comuni con la benzina più economica, cambio franco-euro e nuovi annunci di lavoro.',
     'blog.article.bollettino-frontaliere-2026-08-08.imageAlt': 'I numeri del giorno per i frontalieri – 8 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.areu-cerca-30-assistenti-tecnici.title': 'AREU cerca 30 assistenti tecnici: Varese e 112 in gioco',
+    'blog.article.areu-cerca-30-assistenti-tecnici.excerpt': 'La graduatoria potrà essere utilizzata anche per coprire le esigenze delle Centrali Uniche di Risposta del Numero unico 112',
+    'blog.article.areu-cerca-30-assistenti-tecnici.imageAlt': 'Una persona seduta davanti a un computer con un\'espressione seria, con lo sfondo di Lugano',
 };
 
 export default blogMetaIt;

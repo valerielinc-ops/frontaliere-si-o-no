@@ -9369,6 +9369,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-08.title': 'Grenzgänger-Tagesbulletin – 8. August 2026: 1\'188 neue Stellenangebote gestern',
     'blog.article.bollettino-frontaliere-2026-08-08.excerpt': 'Die heutigen Zahlen für Grenzgänger: Wartezeiten an den Übergängen, günstigste Tankgemeinden, Franken-Euro-Kurs und neue Stellenangebote.',
     'blog.article.bollettino-frontaliere-2026-08-08.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 8. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.areu-cerca-30-assistenti-tecnici.title': 'AREU sucht 30 technische Assistenten: Varese und 112 im Spiel',
+    'blog.article.areu-cerca-30-assistenti-tecnici.excerpt': 'Die Rangliste kann auch verwendet werden, um die Bedürfnisse der Einheitlichen Notrufzentralen 112 zu decken',
+    'blog.article.areu-cerca-30-assistenti-tecnici.imageAlt': 'Eine Person sitzt vor einem Computer mit ernster Miene, mit dem Hintergrund von Lugano',
 };
 
 export default blogMetaDe;
