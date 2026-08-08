@@ -305,6 +305,12 @@ jobs:
       pages: write
       id-token: write
       issues: write
+      # #5331: the CDN ordering gate reads THIS run's job list to tell "the IT
+      # leg has not published the marker YET" apart from "the IT leg is over and
+      # failed, so it never will". Read-only, and the gate degrades to its old
+      # blind 2700s wait if the scope is ever missing — never to an early
+      # publish.
+      actions: read
     timeout-minutes: 360
     strategy:
       fail-fast: false
@@ -1901,6 +1907,23 @@ jobs:
           # then cache-busts each poll so it sees R2's strong read-after-write id
           # immediately — the 2700s budget becomes a near-no-op (match in seconds).
           CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
+          # #5331 — the budget above is a ceiling for a leg that is still ALIVE.
+          # When the IT leg is already over and failed there is nothing left in
+          # this run that could ever stamp the marker, and every remaining
+          # second is spent waiting for an impossible event. Measured on run
+          # 31202386246: `build-locale (it)` ended in failure at 18:07:04 while
+          # the fr gate polled on until 18:50:17 — 43 minutes, then a "timeout"
+          # whose triage pointed at the fr shard repo instead of the IT leg.
+          #
+          # This name is the job's DISPLAY name (job key + matrix value), which
+          # is what the jobs API returns; tests/deploy-cdn-ordering-gate.test.ts
+          # pins it against the actual `build-locale` matrix so a rename cannot
+          # quietly disarm the abort. And a wrong name only ever disarms it: the
+          # gate then waits the full budget exactly as it does today.
+          CDN_IT_JOB_NAME: build-locale (it)
+          # Read-only jobs API call, sampled every 4th poll (~60s) so the whole
+          # matrix costs ~135 calls per run rather than ~540.
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bash scripts/lib/wait-cdn-build-id.sh "${DEPLOY_BUILD_ID}"
 
       - name: Push locale shard
@@ -1958,11 +1981,29 @@ jobs:
           CDN_TIMEOUT_S: ${{ steps.cdn-gate.outputs.cdn_timeout_s }}
           CDN_EXPECTED: ${{ steps.cdn-gate.outputs.cdn_expected }}
           CDN_LAST_SEEN: ${{ steps.cdn-gate.outputs.cdn_last_seen }}
+          # #5331 — which of the gate's TWO failure shapes fired. `timeout` is
+          # the historical one (budget spent, IT leg's fate unknown);
+          # `it_leg_failed` is the new early abort and carries a fact, not an
+          # inference: the jobs API reported the IT leg completed+failed, so the
+          # marker was never going to be written. Everything below leads with
+          # that fact when it exists, because a reader who sees only "gate
+          # failed" reliably starts at the shard's deploy key — that is exactly
+          # how #5224/#5225/#5227 were misfiled.
+          CDN_WAIT_RESULT: ${{ steps.cdn-gate.outputs.cdn_wait_result }}
+          CDN_IT_CONCLUSION: ${{ steps.cdn-gate.outputs.cdn_it_conclusion }}
         run: |
-          echo "::error title=Locale shard NOT published (#2569 gate timeout)::The ${LOCALE} shard was NOT pushed: the #2569 CDN ordering gate timed out after ${CDN_WAITED_S}s of a ${CDN_TIMEOUT_S}s budget waiting for the IT leg to publish CDN build id ${CDN_EXPECTED} (last seen '${CDN_LAST_SEEN}'). Live ${LOCALE} pages serve STALE content until the next deploy. Look at the IT leg of this run, not at the ${LOCALE} shard repo."
+          if [ -n "${CDN_IT_CONCLUSION:-}" ]; then
+            CAUSE_LINE="the IT leg (\`build-locale (it)\`) of this run ended **${CDN_IT_CONCLUSION}**, so CDN build id \`${CDN_EXPECTED}\` was never published and never could be. The gate stopped after \`${CDN_WAITED_S}s\` instead of spending the whole \`${CDN_TIMEOUT_S}s\` budget."
+            ANNOT="The ${LOCALE} shard was NOT pushed: the IT leg of this run ended ${CDN_IT_CONCLUSION}, so CDN build id ${CDN_EXPECTED} was never published (gate aborted after ${CDN_WAITED_S}s rather than waiting out the ${CDN_TIMEOUT_S}s budget). Fix the IT leg — this is NOT a ${LOCALE} shard-repo or deploy-key problem."
+          else
+            CAUSE_LINE="the gate spent its full \`${CDN_TIMEOUT_S}s\` budget waiting for the IT leg to publish CDN build id \`${CDN_EXPECTED}\` (last seen \`${CDN_LAST_SEEN:-<nessuno>}\`), and the IT leg's own conclusion could not be read."
+            ANNOT="The ${LOCALE} shard was NOT pushed: the #2569 CDN ordering gate timed out after ${CDN_WAITED_S}s of a ${CDN_TIMEOUT_S}s budget waiting for the IT leg to publish CDN build id ${CDN_EXPECTED} (last seen '${CDN_LAST_SEEN}'). Live ${LOCALE} pages serve STALE content until the next deploy. Look at the IT leg of this run, not at the ${LOCALE} shard repo."
+          fi
+          echo "::error title=Locale shard NOT published (#2569 gate: ${CDN_WAIT_RESULT:-failure})::${ANNOT}"
           {
-            echo "🛑 **${LOCALE} shard NOT published — #2569 CDN ordering gate timed out**"
+            echo "🛑 **${LOCALE} shard NOT published — #2569 CDN ordering gate (\`${CDN_WAIT_RESULT:-failure}\`)**"
             echo ""
+            echo "- cause: ${CAUSE_LINE}"
             echo "- waited: \`${CDN_WAITED_S}s\` of \`${CDN_TIMEOUT_S}s\`"
             echo "- expected CDN build id: \`${CDN_EXPECTED}\`"
             echo "- last seen on the CDN: \`${CDN_LAST_SEEN:-<none>}\`"
@@ -1972,10 +2013,14 @@ jobs:
             --title "Deploy: guard di ordinamento CDN #2569 scaduto (${{ matrix.locale }}) — shard non pubblicato" \
             --description "## Guard di ordinamento CDN (#2569) scaduto — shard \`${LOCALE}\` NON pubblicato
 
-          Lo shard \`${LOCALE}\` **non è stato pushato**. Non è un errore dello shard repo: il guard di ordinamento ha esaurito il budget aspettando che il leg **IT** pubblicasse il payload CDN di questa build, quindi lo shard è stato volutamente tenuto indietro invece di andare live davanti alla CDN.
+          Lo shard \`${LOCALE}\` **non è stato pushato**. Non è un errore dello shard repo: il guard di ordinamento aspettava che il leg **IT** pubblicasse il payload CDN di questa build, quindi lo shard è stato volutamente tenuto indietro invece di andare live davanti alla CDN.
+
+          **Causa:** ${CAUSE_LINE}
 
           | | |
           |---|---|
+          | esito del guard | \`${CDN_WAIT_RESULT:-failure}\` |
+          | conclusione del leg IT | \`${CDN_IT_CONCLUSION:-non letta}\` |
           | atteso | \`${CDN_WAITED_S}s\` su un budget di \`${CDN_TIMEOUT_S}s\` |
           | build id CDN atteso | \`${CDN_EXPECTED}\` |
           | ultimo id visto sulla CDN | \`${CDN_LAST_SEEN:-<nessuno>}\` |
