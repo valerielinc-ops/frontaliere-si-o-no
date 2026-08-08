@@ -116,3 +116,56 @@ export function assertPlausibleDistribution(
     }
   }
 }
+
+/**
+ * Throws if `field` holds fewer than `minDistinct` distinct values across
+ * `municipalities` — the other half of the placeholder signature, and the
+ * half `assertPlausibleDistribution` cannot see.
+ *
+ * WHY BOTH. A share check asks "does ONE value dominate?". A mass overwrite
+ * that spreads across three or four buckets defeats it while still
+ * destroying the per-row information: `assertPlausibleDistribution` would
+ * pass a 518-row dataset flattened onto four values at ~25% each. What such
+ * an edit cannot hide is the COLLAPSE of the distinct-value count, so the
+ * two assertions close each other's gap — one caps concentration, the other
+ * floors granularity.
+ *
+ * Direction matters: this is a RATCHET. Legitimate work on a coarse field
+ * only ever adds distinct values (re-sourcing a placeholder band into real
+ * per-row figures raises the count), so a floor pinned at the committed
+ * value can never block an improvement — only a regression. That is what
+ * makes it safe to pin tightly.
+ *
+ * @param {Array<Record<string, unknown>>} municipalities
+ * @param {{ field: string, minDistinct: number, sourceLabel?: string, minSampleSize?: number }} options
+ */
+export function assertDistinctValueFloor(
+  municipalities,
+  { field, minDistinct, sourceLabel, minSampleSize = 20 } = {},
+) {
+  if (!field) {
+    throw new Error('assertDistinctValueFloor: `field` option is required.');
+  }
+  if (!Number.isFinite(minDistinct)) {
+    throw new Error('assertDistinctValueFloor: `minDistinct` option is required.');
+  }
+  if (!Array.isArray(municipalities) || municipalities.length < minSampleSize) {
+    return;
+  }
+  const prefix = sourceLabel ? `[${sourceLabel}] ` : '';
+  const distinct = new Set();
+  for (const m of municipalities) {
+    const value = m[field];
+    if (value === undefined || value === null || Number.isNaN(value)) continue;
+    distinct.add(value);
+  }
+  if (distinct.size < minDistinct) {
+    throw new Error(
+      `${prefix}implausible distribution: ${field} holds only ${distinct.size} distinct ` +
+        `values across ${municipalities.length} rows, below the committed floor of ` +
+        `${minDistinct} — a drop in granularity is the signature of a mass overwrite with ` +
+        'a placeholder band. If this is a legitimate re-sourcing that genuinely merges ' +
+        'values, lower the floor deliberately in the same commit and say why.',
+    );
+  }
+}

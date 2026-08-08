@@ -85,7 +85,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { assertPlausibleMunicipality, assertPlausibleDistribution } from './lib/municipality-plausibility-guard.mjs';
+import {
+  assertPlausibleMunicipality,
+  assertPlausibleDistribution,
+  assertDistinctValueFloor,
+} from './lib/municipality-plausibility-guard.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -107,6 +111,41 @@ export const MAX_DISTANCE_KM = 20;
 // below now also fails the whole build loud if this value ever again covers
 // an implausible share of the corridor, instead of silently draining rows here.
 const PLACEHOLDER_POPULATION = 2000;
+
+// ── avgRentMonthly containment (issue #4545 residual 4) ─────────
+//
+// The rent field is a per-fascia ZONE BAND, not a per-comune measurement:
+// 518 comuni carry 32 distinct values, and the four widest bands cover 400
+// ×135, 550 ×118, 520 ×92, 450 ×50. #4922 searched for a verified per-comune
+// Italian rental source covering all 518 border comuni and found none
+// (ISTAT does not publish rents at this granularity); that finding is
+// recorded in data/municipalities.ts. So the value stays, is labelled for
+// what it is on every surface (services/avgRentEstimate.ts), and is FENCED
+// here so it cannot silently get coarser.
+//
+// WHY THE THRESHOLD SITS ABOVE TODAY'S WORST BAND. The committed maximum is
+// 400 on 135/518 rows = 26.1%, already over the shared DEFAULT_MAX_VALUE_SHARE
+// of 25%. Any ceiling at or below 135 comuni fails on day one, and the only
+// two ways to satisfy it would be to invent per-comune variety — precisely
+// the defect this guard exists to prevent — or to delete the signal. So the
+// ceiling is a RATCHET pinned just above the committed state, not an
+// aspiration: 30% = 155 comuni, ~20 rows of headroom, which absorbs an
+// ordinary re-banding of one zone but is nowhere near the 80% that the real
+// population placeholder reached in #4922.
+//
+// The share ceiling alone is gameable (spread a mass overwrite across four
+// buckets and every one stays under 30%), so it is paired with a floor on
+// the distinct-value count — see assertDistinctValueFloor. Together: to
+// reintroduce a mass placeholder you would have to keep 30 distinct values
+// AND keep every band under 155 comuni, which is no longer a placeholder.
+export const RENT_MAX_VALUE_SHARE = 0.3;
+/** The same ceiling as a comune count, for readers and tests: 155 of 518. */
+export const RENT_MAX_VALUE_COHORT = 155;
+// Committed granularity is 32 distinct values. The floor sits two below, so
+// a legitimate correction that merges a singleton into an existing band
+// (e.g. one comune moving 320 → 400) does not break the build, while any
+// real collapse does. Raise it if re-sourcing ever adds granularity.
+export const RENT_MIN_DISTINCT_VALUES = 30;
 
 const SOURCE_LABEL =
   'MEF/Agenzia delle Entrate — comuni italiani in fascia di 20 km dal confine svizzero (accordo frontalieri 2024) + addizionale comunale IRPEF (opendata MEF), 2024; derivato da data/municipalities.ts (elenco ti.ch/MEF 2024).';
@@ -224,6 +263,22 @@ export function buildDataset(all) {
     (m) => CORRIDOR_PROVINCES.includes(m.province) && Number.isFinite(m.population),
   );
   assertPlausibleDistribution(corridorRaw, { field: 'population', sourceLabel: 'fiscal-municipalities' });
+  // avgRentMonthly rides along into every published record (see toRecord
+  // below) with no source of its own, so it gets the same fail-loud
+  // treatment as population — a coarser ceiling because the field is a
+  // documented zone band rather than a per-comune figure, plus a floor on
+  // granularity that the share check cannot express. Constants and the
+  // reasoning for both numbers are at the top of this file.
+  assertPlausibleDistribution(corridorRaw, {
+    field: 'avgRentMonthly',
+    maxShare: RENT_MAX_VALUE_SHARE,
+    sourceLabel: 'fiscal-municipalities',
+  });
+  assertDistinctValueFloor(corridorRaw, {
+    field: 'avgRentMonthly',
+    minDistinct: RENT_MIN_DISTINCT_VALUES,
+    sourceLabel: 'fiscal-municipalities',
+  });
 
   const corridor = corridorRaw.filter(
     (m) =>

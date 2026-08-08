@@ -15,6 +15,7 @@ import { describe, expect, it } from 'vitest';
 import {
   assertPlausibleMunicipality,
   assertPlausibleDistribution,
+  assertDistinctValueFloor,
   MIN_PLAUSIBLE_POPULATION,
   MAX_PLAUSIBLE_POPULATION,
   MIN_PLAUSIBLE_DISTANCE_KM,
@@ -141,5 +142,65 @@ describe('assertPlausibleDistribution — repeated-placeholder guard (issue #492
   it('DEFAULT_MAX_VALUE_SHARE sits inside the issue-suggested 20-30% band', () => {
     expect(DEFAULT_MAX_VALUE_SHARE).toBeGreaterThanOrEqual(0.2);
     expect(DEFAULT_MAX_VALUE_SHARE).toBeLessThanOrEqual(0.3);
+  });
+});
+
+describe('assertDistinctValueFloor — granularity-collapse guard (issue #4545 residual 4)', () => {
+  /** `total` rows spread evenly across `distinct` values of `field`. */
+  function spreadDataset(total: number, distinct: number, field = 'avgRentMonthly') {
+    return Array.from({ length: total }, (_, i) =>
+      makeMunicipality({ name: `Comune ${i}`, [field]: 400 + (i % distinct) * 10 }),
+    );
+  }
+
+  it('FAILS when the distinct-value count drops below the floor', () => {
+    const flattened = spreadDataset(100, 3);
+    expect(() =>
+      assertDistinctValueFloor(flattened, {
+        field: 'avgRentMonthly',
+        minDistinct: 30,
+        sourceLabel: 'unit-test',
+      }),
+    ).toThrow(/only 3 distinct values/);
+  });
+
+  it('passes when granularity is at or above the floor', () => {
+    expect(() =>
+      assertDistinctValueFloor(spreadDataset(100, 30), { field: 'avgRentMonthly', minDistinct: 30 }),
+    ).not.toThrow();
+  });
+
+  it('catches the mass overwrite that the share check alone lets through', () => {
+    // The gap this guard exists to close: 100 rows flattened onto 4 values,
+    // 25 rows each. Every cohort is at 25% — under the 30% rent ceiling — so
+    // assertPlausibleDistribution is satisfied while the field has lost
+    // essentially all its per-row information.
+    const fourBuckets = spreadDataset(100, 4);
+    expect(() =>
+      assertPlausibleDistribution(fourBuckets, { field: 'avgRentMonthly', maxShare: 0.3 }),
+    ).not.toThrow();
+    expect(() =>
+      assertDistinctValueFloor(fourBuckets, { field: 'avgRentMonthly', minDistinct: 30 }),
+    ).toThrow(/implausible distribution/);
+  });
+
+  it('is a no-op below minSampleSize', () => {
+    expect(() =>
+      assertDistinctValueFloor(spreadDataset(5, 1), { field: 'avgRentMonthly', minDistinct: 30 }),
+    ).not.toThrow();
+  });
+
+  it('requires explicit field and minDistinct options', () => {
+    // Both calls are deliberately malformed to exercise the runtime argument
+    // validation, so TypeScript is told to stand down: the guard is consumed
+    // from plain .mjs build scripts where the compiler offers no protection,
+    // which is exactly why it validates at runtime.
+    const callWith = (options: unknown) =>
+      assertDistinctValueFloor(
+        [makeMunicipality()],
+        options as Parameters<typeof assertDistinctValueFloor>[1],
+      );
+    expect(() => callWith({ minDistinct: 5 })).toThrow(/field.*required/);
+    expect(() => callWith({ field: 'x' })).toThrow(/minDistinct.*required/);
   });
 });
