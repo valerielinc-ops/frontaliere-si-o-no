@@ -897,12 +897,22 @@ function categoryVisual(category: string | undefined): { emoji: string; tone: Ca
   return CATEGORY_VISUAL[category ?? ''] ?? CATEGORY_VISUAL.altro;
 }
 
-const TONE_CHIP_CLASSES: Record<CategoryTone, string> = {
-  accent: 'border-accent-border bg-accent-subtle text-accent',
-  info: 'border-info-border bg-info-subtle text-info',
-  success: 'border-success-border bg-success-subtle text-success',
-  warning: 'border-warning-border bg-warning-subtle text-warning',
-  neutral: 'border-neutral-border bg-neutral-subtle text-neutral',
+/**
+ * Category-tone chip classes, one `.ev-tone-*` atom per tone (index.css,
+ * `@layer components`). Each atom expands — via `@apply`, at CSS build time —
+ * to exactly the border/background/text triple it replaced
+ * (`border-accent-border bg-accent-subtle text-accent`, and so on), so the
+ * chip renders identically while ~55 B of repeated utility string per chip
+ * leaves the HTML. Kept as an explicit map rather than a template on the key
+ * so both halves are greppable; the pairing is pinned by
+ * tests/events-card-atoms.test.ts.
+ */
+const TONE_CHIP_ATOM: Record<CategoryTone, string> = {
+  accent: 'ev-tone-accent',
+  info: 'ev-tone-info',
+  success: 'ev-tone-success',
+  warning: 'ev-tone-warning',
+  neutral: 'ev-tone-neutral',
 };
 
 const TONE_GRADIENT_CLASSES: Record<CategoryTone, string> = {
@@ -1099,10 +1109,10 @@ function buildEventAlternates(canton: string, comune: string, eventSlug: string)
 }
 
 function renderMetric(label: string, value: string, detail?: string): string {
-  return `<div class="rounded-md border border-edge bg-surface p-4 shadow-stripe-sm">
-    <dt class="text-sm font-medium text-subtle">${esc(label)}</dt>
-    <dd class="mt-1 font-display text-2xl font-bold tabular-nums text-heading">${esc(value)}</dd>
-    ${detail ? `<p class="mt-1 text-sm text-muted">${esc(detail)}</p>` : ''}
+  return `<div class="ev-metric">
+    <dt class="ev-metric-t">${esc(label)}</dt>
+    <dd class="ev-metric-v">${esc(value)}</dd>
+    ${detail ? `<p class="ev-metric-d">${esc(detail)}</p>` : ''}
   </div>`;
 }
 
@@ -1311,6 +1321,45 @@ function mirroredEventImageObject(event: SiteEvent): ImageObjectLd | null {
 }
 
 /**
+ * Character cap for {@link cardExcerpt}. 160 is above the dataset's p50
+ * description length (104 chars) and just under its p90 (187), so the typical
+ * event shows its whole summary and only the long tail is cut — a cap that
+ * mostly does nothing is what keeps the excerpt a real summary rather than a
+ * uniform stub. Word-aware via `truncateHeadline` (never a mid-word cut), and
+ * `.ev-x`'s `line-clamp-3` bounds the card height regardless of what a source
+ * ships.
+ */
+const CARD_EXCERPT_CHARS = 160;
+
+/**
+ * The event's own summary, shown on every card in every listing (canton hub,
+ * comune page, digest, and the "more events" grid on a detail page).
+ *
+ * Why the card carries prose at all. Before this, a card showed title + date +
+ * venue + comune — ~90 B of text inside 1 423 B of markup. A reader scanning
+ * "altri eventi a Lugano" had no way to tell a chamber concert from a
+ * children's workshop without opening each one; the summary that answers that
+ * is already in the dataset (94.1 % of upcoming events carry a description,
+ * with per-locale translations from guidle/myswitzerland) and was simply not
+ * rendered outside the detail page. Same correction shape as the FAQ-hub
+ * per-question pages, where each sibling link grew the opening of its own
+ * answer.
+ *
+ * Returns '' for the ~6 % of events with no description (tio-agenda ships
+ * none — see the `venue` note on DetailCopy.about) and the card degrades to
+ * exactly its previous shape.
+ */
+function cardExcerpt(event: SiteEvent, locale: Locale): string {
+  const raw = localizedDescription(event, locale);
+  if (!raw) return '';
+  // Sources ship newlines/tabs and runs of spaces inside descriptions; collapse
+  // before measuring so the cap counts real characters, not layout whitespace.
+  const flat = String(raw).replace(/\s+/g, ' ').trim();
+  if (!flat) return '';
+  return truncateHeadline(flat, CARD_EXCERPT_CHARS);
+}
+
+/**
  * One event card. When `detailHref` is provided the title links to OUR internal
  * event detail page (indexable, no nofollow); otherwise it falls back to the
  * external source URL (nofollow) — used for events without a comune that have no
@@ -1322,14 +1371,15 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
   const when = humanDate(event.startDate, locale);
   const time = event.startTime ? ` · ${esc(event.startTime)}` : '';
   const place = event.venue ? `${esc(event.venue)}` : '';
-  const comuneTag = event.comune ? `<span class="text-subtle">${esc(event.comune)}</span>` : '';
   const cardTitle = localizedTitle(event, locale);
-  // `after:absolute after:inset-0` makes the whole card clickable (stretched
-  // link) while the visible accessible name/href/rel/target stay exactly the
-  // same as before — `article.relative` below is its positioning context.
+  const excerpt = cardExcerpt(event, locale);
+  // `after:absolute after:inset-0` (`.ev-a`) makes the whole card clickable
+  // (stretched link) while the visible accessible name/href/rel/target stay
+  // exactly the same as before — `article.relative` (`.ev-card`) below is its
+  // positioning context.
   const titleLink = detailHref
-    ? `<a class="static after:absolute after:inset-0 hover:text-link-hover" href="${esc(detailHref)}">${esc(cardTitle)}</a>`
-    : `<a class="static after:absolute after:inset-0 hover:text-link-hover" href="${esc(eventReferralUrl(event.url, event))}" rel="nofollow noopener" target="_blank">${esc(cardTitle)}</a>`;
+    ? `<a class="ev-a" href="${esc(detailHref)}">${esc(cardTitle)}</a>`
+    : `<a class="ev-a" href="${esc(eventReferralUrl(event.url, event))}" rel="nofollow noopener" target="_blank">${esc(cardTitle)}</a>`;
   // `imageUrl` only ever holds a mirrored site-relative path (see
   // `mirrorEventImage()`); a raw third-party URL is never rendered here
   // (defense-in-depth, mirrors the same guard in `mirroredEventImageObject`).
@@ -1338,22 +1388,26 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
   // all — see writeCatalogImages()/catalogImagePath() above.
   const media =
     event.imageUrl && event.imageUrl.startsWith('/')
-      ? `<img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" src="${esc(event.imageUrl)}" width="480" height="270" loading="lazy" alt="${esc(cardTitle)}">`
-      : `<img class="h-full w-full object-cover" src="${esc(catalogImagePath(event.category))}" width="480" height="270" loading="lazy" alt="${esc(cat)}">`;
-  return `<article class="ev-card group relative overflow-hidden rounded-lg border border-edge bg-surface shadow-stripe-sm transition-[box-shadow,border-color] duration-300 hover:border-accent-border hover:shadow-stripe-md">
-    <div class="ev-media relative aspect-video w-full overflow-hidden bg-surface-raised">
+      ? `<img class="ev-img ev-imgz" src="${esc(event.imageUrl)}" width="480" height="270" loading="lazy" alt="${esc(cardTitle)}">`
+      : `<img class="ev-img" src="${esc(catalogImagePath(event.category))}" width="480" height="270" loading="lazy" alt="${esc(cat)}">`;
+  // `group` stays inline: it is a variant MARKER with no declarations of its
+  // own (`@apply group` is not expressible), and `.ev-imgz`'s
+  // `group-hover:scale-105` needs it on the ancestor.
+  return `<article class="ev-card group">
+    <div class="ev-media">
       ${media}
-      <span class="pointer-events-none absolute left-2 top-2 inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-semibold ${TONE_CHIP_CLASSES[visual.tone]} bg-surface/95">${visual.emoji} ${esc(cat)}</span>
+      <span class="ev-chip ${TONE_CHIP_ATOM[visual.tone]}">${visual.emoji} ${esc(cat)}</span>
     </div>
     <div class="p-4">
-      <h3 class="font-display text-base font-semibold leading-snug text-heading line-clamp-2">
+      <h3 class="ev-t">
         ${titleLink}
       </h3>
-      <p class="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-body">
-        <span class="inline-flex items-center gap-1 font-medium text-muted"><span aria-hidden="true">🕒</span>${esc(when)}${time}</span>
-        ${place ? `<span class="inline-flex items-center gap-1"><span aria-hidden="true">📍</span>${esc(COPY[locale].at)} ${place}</span>` : ''}
+      <p class="ev-meta">
+        <span class="ev-mi ev-when"><span aria-hidden="true">🕒</span>${esc(when)}${time}</span>
+        ${place ? `<span class="ev-mi"><span aria-hidden="true">📍</span>${esc(COPY[locale].at)} ${place}</span>` : ''}
       </p>
-      ${comuneTag ? `<p class="mt-1 text-xs">${comuneTag}</p>` : ''}
+      ${excerpt ? `<p class="ev-x">${esc(excerpt)}</p>` : ''}
+      ${event.comune ? `<p class="ev-com">${esc(event.comune)}</p>` : ''}
     </div>
   </article>`;
 }
@@ -1372,22 +1426,22 @@ function renderEventList(events: SiteEvent[], locale: Locale, detailHref?: Detai
 
 function renderCrosslinks(locale: Locale): string {
   const copy = COPY[locale];
-  return `<section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
-    <h2 class="font-display text-xl font-bold text-heading">${esc(copy.exploreMore)}</h2>
-    <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-      ${CROSSLINKS.map((l) => `<a class="rounded-md border border-edge bg-surface-raised p-4 text-sm font-semibold text-heading transition-colors hover:border-accent-border hover:text-accent" href="${l.href[locale]}">${esc(l.label[locale])}</a>`).join('')}
+  return `<section class="ev-panel">
+    <h2 class="ev-h2">${esc(copy.exploreMore)}</h2>
+    <div class="ev-xgrid">
+      ${CROSSLINKS.map((l) => `<a class="ev-xlink" href="${l.href[locale]}">${esc(l.label[locale])}</a>`).join('')}
     </div>
   </section>`;
 }
 
 function renderFaq(items: Array<{ q: string; a: string }>, title: string): string {
-  return `<section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
-    <h2 class="font-display text-xl font-bold text-heading">${esc(title)}</h2>
-    <div class="mt-4 divide-y divide-edge">
+  return `<section class="ev-panel">
+    <h2 class="ev-h2">${esc(title)}</h2>
+    <div class="ev-faq">
       ${items
         .map(
           (it, i) =>
-            `<details class="py-3"${i === 0 ? ' open' : ''}><summary class="cursor-pointer font-semibold text-heading">${esc(it.q)}</summary><p class="mt-2 text-sm leading-6 text-body">${esc(it.a)}</p></details>`,
+            `<details class="py-3"${i === 0 ? ' open' : ''}><summary class="ev-faq-q">${esc(it.q)}</summary><p class="ev-faq-a">${esc(it.a)}</p></details>`,
         )
         .join('')}
     </div>
@@ -2493,14 +2547,14 @@ function renderLocationCard(event: SiteEvent, comune: string, dc: DetailCopy, ma
     event.address?.street || event.address?.postalCode ? [event.address.street, event.address.postalCode].filter(Boolean).join(', ') : '';
   const venueOrComune = event.venue || comune;
   const embed = event.geo
-    ? `<div class="aspect-video w-full overflow-hidden bg-surface-raised"><iframe src="${esc(osmEmbedSrc(event.geo.lat, event.geo.lng))}" width="100%" height="100%" style="border:0;display:block;width:100%;height:100%" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="${esc(dc.mapLinkLabel(map.place))}" aria-label="${esc(dc.mapLinkLabel(map.place))}"></iframe></div>`
+    ? `<div class="ev-locmap"><iframe src="${esc(osmEmbedSrc(event.geo.lat, event.geo.lng))}" width="100%" height="100%" style="border:0;display:block;width:100%;height:100%" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="${esc(dc.mapLinkLabel(map.place))}" aria-label="${esc(dc.mapLinkLabel(map.place))}"></iframe></div>`
     : '';
-  return `<section class="mt-6 overflow-hidden rounded-lg border border-edge bg-surface shadow-stripe-sm">
+  return `<section class="ev-loc">
     ${embed}
     <div class="p-5">
-      <h2 class="flex items-center gap-2 font-display text-lg font-bold text-heading"><span aria-hidden="true">📍</span> ${esc(dc.whereLabel)}</h2>
-      <p class="mt-2 text-sm leading-6 text-body">${esc(venueOrComune)}${addressText ? ` · ${esc(addressText)}` : ''}</p>
-      <a class="mt-3 inline-flex items-center gap-2 rounded-md border border-edge bg-surface-raised px-3 py-1.5 text-sm font-semibold text-link transition-colors hover:border-accent-border hover:text-link-hover" href="${esc(map.href)}" rel="nofollow noopener" target="_blank" aria-label="${esc(dc.mapLinkLabel(map.place))}">${esc(dc.mapLinkLabel(map.place))} →</a>
+      <h2 class="ev-loc-h"><span aria-hidden="true">📍</span> ${esc(dc.whereLabel)}</h2>
+      <p class="ev-p-sm">${esc(venueOrComune)}${addressText ? ` · ${esc(addressText)}` : ''}</p>
+      <a class="ev-btn" href="${esc(map.href)}" rel="nofollow noopener" target="_blank" aria-label="${esc(dc.mapLinkLabel(map.place))}">${esc(dc.mapLinkLabel(map.place))} →</a>
     </div>
   </section>`;
 }
@@ -2554,35 +2608,35 @@ export function renderEventDetailPage(params: {
   // per-category catalog SVG (real, site-owned image, never absent) instead
   // of no hero image at all.
   const heroImage = event.imageUrl && event.imageUrl.startsWith('/')
-    ? `<div class="ev-in mb-4 overflow-hidden rounded-lg border border-edge shadow-stripe-md"><img class="aspect-[16/9] w-full object-cover" src="${esc(event.imageUrl)}" width="1200" height="675" loading="eager" fetchpriority="high" alt="${esc(title)}"></div>`
-    : `<div class="ev-in mb-4 overflow-hidden rounded-lg border border-edge shadow-stripe-md"><img class="aspect-[16/9] w-full object-cover" src="${esc(catalogImagePath(event.category))}" width="1200" height="675" loading="eager" fetchpriority="high" alt="${esc(cat)}"></div>`;
+    ? `<div class="ev-in ev-hero"><img class="ev-heroimg" src="${esc(event.imageUrl)}" width="1200" height="675" loading="eager" fetchpriority="high" alt="${esc(title)}"></div>`
+    : `<div class="ev-in ev-hero"><img class="ev-heroimg" src="${esc(catalogImagePath(event.category))}" width="1200" height="675" loading="eager" fetchpriority="high" alt="${esc(cat)}"></div>`;
 
-  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-3xl px-4 py-6 sm:px-6 lg:px-8">
-    <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
-      <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
+  const body = `${EVENTS_STYLE_BLOCK}<div class="ev-wrap3">
+    <nav class="ev-crumb" aria-label="Breadcrumb">
+      <a class="ev-lnk" href="/">${esc(HOME_LABEL[locale])}</a>
       <span class="mx-2">/</span>
-      <a class="text-link hover:text-link-hover" href="${nationalIndexPath(locale)}">${esc(NATIONAL_COPY[locale].breadcrumbLabel)}</a>
+      <a class="ev-lnk" href="${nationalIndexPath(locale)}">${esc(NATIONAL_COPY[locale].breadcrumbLabel)}</a>
       <span class="mx-2">/</span>
-      <a class="text-link hover:text-link-hover" href="${pathFor(locale, canton)}">${esc(copy.hubLabel)}</a>
+      <a class="ev-lnk" href="${pathFor(locale, canton)}">${esc(copy.hubLabel)}</a>
       <span class="mx-2">/</span>
-      <a class="text-link hover:text-link-hover" href="${comunePath}">${esc(displayComune)}</a>
+      <a class="ev-lnk" href="${comunePath}">${esc(displayComune)}</a>
       <span class="mx-2">/</span>
       <span>${esc(title)}</span>
     </nav>
 
     ${heroImage}
 
-    <header class="${heroImage ? '' : 'ev-in '}rounded-md border border-edge bg-surface p-5 shadow-stripe-sm sm:p-7" data-speakable>
-      <span class="inline-block rounded-full border px-2.5 py-0.5 text-xs font-semibold ${TONE_CHIP_CLASSES[visual.tone]}">${visual.emoji} ${esc(cat)}</span>
-      ${event.recurring ? `<span class="ml-2 inline-block rounded-full border border-edge bg-surface-raised px-2.5 py-0.5 text-xs font-semibold text-heading">${esc(dc.recurringLabel)}</span>` : ''}
-      <h1 class="mt-3 font-display text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(title)}</h1>
-      <p class="mt-3 text-base leading-7 text-body">${esc(dc.lede(when, time, event.venue ? event.venue : '', displayComune))}</p>
-      ${description ? `<p class="mt-3 text-sm leading-6 text-body">${esc(description)}</p>` : ''}
+    <header class="${heroImage ? '' : 'ev-in '}ev-head" data-speakable>
+      <span class="ev-tag ${TONE_CHIP_ATOM[visual.tone]}">${visual.emoji} ${esc(cat)}</span>
+      ${event.recurring ? `<span class="ev-tag2">${esc(dc.recurringLabel)}</span>` : ''}
+      <h1 class="ev-h1">${esc(title)}</h1>
+      <p class="ev-lede">${esc(dc.lede(when, time, event.venue ? event.venue : '', displayComune))}</p>
+      ${description ? `<p class="ev-p-sm3">${esc(description)}</p>` : ''}
     </header>
 
-    ${isPast ? `<p class="mt-4 rounded-md border border-warning-border bg-warning-subtle px-4 py-3 text-sm font-medium text-warning">${esc(PAST_EVENT_NOTICE[locale])}</p>` : ''}
+    ${isPast ? `<p class="ev-past">${esc(PAST_EVENT_NOTICE[locale])}</p>` : ''}
 
-    <dl class="mt-5 grid gap-3 sm:grid-cols-2">
+    <dl class="ev-dl">
       ${renderMetric(dc.whenLabel, `${esc(when)}${time}`)}
       ${renderMetric(dc.whereLabel, esc(event.venue || displayComune))}
       ${renderMetric(dc.catLabel, esc(cat))}
@@ -2593,26 +2647,26 @@ export function renderEventDetailPage(params: {
 
     ${renderLocationCard(event, displayComune, dc, map)}
 
-    <section class="mt-6 flex flex-wrap gap-3">
+    <section class="ev-cta">
       <a class="${CTA_PRIMARY_CLASS}" href="${esc(eventReferralUrl(event.url, event))}" rel="nofollow noopener" target="_blank">${esc(dc.officialSite)} →</a>
-      <a class="inline-flex items-center gap-2 rounded-md border border-edge bg-surface px-4 py-2 text-sm font-semibold text-link transition-colors hover:border-accent-border hover:text-link-hover" href="${comunePath}">${esc(dc.allInComune(displayComune))} →</a>
+      <a class="ev-btn2" href="${comunePath}">${esc(dc.allInComune(displayComune))} →</a>
     </section>
 
     <section class="mt-8">
-      <h2 class="font-display text-2xl font-bold text-heading">${esc(dc.aboutTitle)}</h2>
-      <p class="mt-3 text-base leading-7 text-body">${esc(dc.about(title, displayComune, `${when}${event.startTime ? ` (${event.startTime})` : ''}`, cat, event.venue))}</p>
-      ${description ? `<h3 class="mt-4 text-lg font-semibold text-heading">${esc(dc.descriptionTitle)}</h3><p class="mt-2 text-base leading-7 text-body">${esc(description)}</p>` : ''}
+      <h2 class="ev-h2b">${esc(dc.aboutTitle)}</h2>
+      <p class="ev-lede">${esc(dc.about(title, displayComune, `${when}${event.startTime ? ` (${event.startTime})` : ''}`, cat, event.venue))}</p>
+      ${description ? `<h3 class="ev-h3">${esc(dc.descriptionTitle)}</h3><p class="ev-p">${esc(description)}</p>` : ''}
     </section>
 
-    <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
-      <h2 class="font-display text-xl font-bold text-heading">${esc(dc.practicalTitle)}</h2>
-      <p class="mt-3 text-sm leading-6 text-body">${esc(dc.practical(displayComune))}</p>
+    <section class="ev-panel">
+      <h2 class="ev-h2">${esc(dc.practicalTitle)}</h2>
+      <p class="ev-p-sm3">${esc(dc.practical(displayComune))}</p>
     </section>
 
     ${
       others.length > 0
         ? `<section class="mt-8">
-      <h2 class="font-display text-2xl font-bold text-heading">${esc(dc.moreTitle(displayComune))}</h2>
+      <h2 class="ev-h2b">${esc(dc.moreTitle(displayComune))}</h2>
       <div class="mt-4">${renderEventList(others, locale, detailHref)}</div>
     </section>`
         : ''

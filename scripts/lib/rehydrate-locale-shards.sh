@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -uo pipefail
 
+# shellcheck source=scripts/lib/rehydrate-trunk-guard.sh
+. "$(dirname "${BASH_SOURCE[0]}")/rehydrate-trunk-guard.sh"
+
 # Extracted from post-deploy-validate-dist.yml, which had this exact
 # function byte-for-byte duplicated across its 3 jobs (validate-dist-source,
 # validate-dist-postbuild, validate-dist-postbuild-bfs) — the comment at the
@@ -25,6 +28,30 @@ set -uo pipefail
 # the calling workflow step — this script inherits them as normal process
 # env, same as rehydrate-section-shards.sh already relies on for its own
 # vars).
+#
+# SAME REPLACE SEMANTICS AS THE SECTION SIBLING (issue #5327). Verified, not
+# assumed: every `rm -rf "dist/$loc"` below is followed by a full copy, so this
+# script replaces `dist/$loc` rather than merging into it, and the reachable
+# case is real — the dir+homepage guard at the top of the loop deliberately
+# lets a run with `dist/$loc` present but `dist/$loc.html` stripped fall
+# THROUGH to the replace (see the `rm -rf` note above the clone copy). Replace
+# stays correct for the same reason it does for sections: locale-router.js
+# rewrites every /en|/de|/fr path to SHARD_ORIGIN[loc], so `dist/$loc` here is
+# a model of the shard, and a trunk-only file merged into it is a file the edge
+# never serves. rehydrate-trunk-guard.sh makes the discarded set visible
+# instead of leaving it to be inferred from a distant audit failure.
+#
+# ONE KNOWN OVER-REPORT, bounded and deliberate: this script runs BEFORE
+# rehydrate-section-shards.sh (post-deploy-validate-dist.yml sequences them to
+# avoid the `rm -rf "dist/$loc"` vs `dist/$loc/<section>` race), so a trunk file
+# under a SECTION prefix inside dist/$loc is reported here as discarded even
+# though the section rehydrate puts it back moments later. Reaching that needs
+# an abnormal strip (dir kept, homepage removed) AND section content left in
+# the trunk; on today's deploy the trunk arrives with dist/$loc absent
+# entirely, so the snapshot is empty and this path costs nothing. Left
+# un-special-cased on purpose: teaching this script the section slug table
+# would couple the two halves for a case whose only realistic payload is
+# noindex bridge pages (a ::warning::, never the fatal verdict).
 
 rehydrate_locale() {
   set -euo pipefail
@@ -58,7 +85,10 @@ rehydrate_locale() {
       fi
     done
     if [ "$dl_ok" -eq 0 ]; then
-      rm -rf "dist/$loc" "dist/$loc.html"
+      # Was `rm -rf "dist/$loc" "dist/$loc.html"` — same removal, recorded
+      # first so trunk_replace_end below can name whatever the shard copy does
+      # not put back (issue #5327).
+      trunk_replace_begin "locale-$loc" "$loc" "$loc.html"
       # Completeness, not just existence (#2761 item 2): `[ -d dist/$loc ]`
       # alone only proves SOME files landed, not that extraction finished —
       # a truncated/corrupted tar can still leave a partially-populated
@@ -76,8 +106,11 @@ rehydrate_locale() {
       fi
       if [ -d "dist/$loc" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
         echo "rehydrated $loc from tar artifact: $actual_n files (tar listed $expected_n)"
+        trunk_replace_end "locale-$loc"
         continue
       fi
+      # Clears the half-extracted tar only; the trunk snapshot stays open for
+      # the fallbacks below.
       rm -rf "dist/$loc" "dist/$loc.html"
       echo "[rehydrate] $loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
     else
@@ -98,12 +131,13 @@ rehydrate_locale() {
     # before it existed and does not touch the fail-hard posture on a miss
     # (still `exit 1` on clone failure / missing subtree, unchanged).
     if [ -n "${SHARD_CLONE_CACHE_DIR:-}" ] && [ -d "$SHARD_CLONE_CACHE_DIR/locale-$loc/$loc" ]; then
-      rm -rf "dist/$loc"
+      trunk_replace_begin "locale-$loc" "$loc"
       cp -r "$SHARD_CLONE_CACHE_DIR/locale-$loc/$loc" "dist/$loc"
       if [ -f "$SHARD_CLONE_CACHE_DIR/locale-$loc/$loc.html" ]; then
         cp "$SHARD_CLONE_CACHE_DIR/locale-$loc/$loc.html" "dist/$loc.html"
       fi
       echo "rehydrated $loc from cross-job clone cache: $(find "dist/$loc" -type f | wc -l) files"
+      trunk_replace_end "locale-$loc"
       continue
     fi
 
@@ -120,17 +154,23 @@ rehydrate_locale() {
       echo "[rehydrate] $loc git clone attempt $attempt failed/stalled (disk: $(df -h / | tail -1))"
       [ "$attempt" -eq 1 ] && sleep 5
     done
-    [ "$clone_ok" -eq 0 ] || { echo "::error::shard $loc git clone failed after retry"; exit 1; }
-    [ -d "$tmp/$loc" ] || { echo "::error::shard $loc has no $loc/ subtree"; exit 1; }
+    # trunk_replace_end before each fail-hard exit: when the tar path already
+    # emptied dist/$loc, everything snapshotted is a confirmed loss and the log
+    # must name it rather than leave the exit code as the only evidence.
+    [ "$clone_ok" -eq 0 ] || { trunk_replace_end "locale-$loc"; echo "::error::shard $loc git clone failed after retry"; exit 1; }
+    [ -d "$tmp/$loc" ] || { trunk_replace_end "locale-$loc"; echo "::error::shard $loc has no $loc/ subtree"; exit 1; }
     # Remove any partial pre-existing dir first: with the dir+homepage guard
     # above, we can reach here with `dist/$loc` already present (dir kept,
     # homepage stripped). `cp -r src existing-dir` would nest as
     # `dist/$loc/$loc` instead of replacing — so clear it for a clean
-    # rehydrate. No-op in the common case (dir was fully stripped).
-    rm -rf "dist/$loc"
+    # rehydrate. No-op in the common case (dir was fully stripped). This is
+    # THE reachable replace this script's half of #5327 is about: the guard
+    # above lets a dir-present/homepage-stripped trunk arrive here.
+    trunk_replace_begin "locale-$loc" "$loc"
     cp -r "$tmp/$loc" "dist/$loc"
     if [ -f "$tmp/$loc.html" ]; then cp "$tmp/$loc.html" "dist/$loc.html"; fi
     echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"
+    trunk_replace_end "locale-$loc"
     if [ -n "${SHARD_CLONE_CACHE_DIR:-}" ]; then
       mkdir -p "$SHARD_CLONE_CACHE_DIR/locale-$loc" 2>/dev/null \
         && cp -r "dist/$loc" "$SHARD_CLONE_CACHE_DIR/locale-$loc/$loc" 2>/dev/null || true
@@ -149,4 +189,10 @@ rehydrate_locale() {
 if [ "${LOCALE_SHARDS_LIVE:-}" != "true" ]; then
   exit 0
 fi
+trunk_guard_init locale
 rehydrate_locale
+# Own namespace ("trunk-guard-locale") so this verdict never reads the section
+# script's flags: both run in the SAME workflow step and share RUNNER_TEMP.
+if ! trunk_guard_verdict "locale shard rehydrate"; then
+  exit 1
+fi
