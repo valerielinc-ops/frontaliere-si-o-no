@@ -28137,6 +28137,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'presidente-locarno-film-festival',
+ category: 'novita',
+ date: '2026-08-08T23:56:06.372Z',
+ image: '/images/blog/presidente-locarno-film-festival.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
