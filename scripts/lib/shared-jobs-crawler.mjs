@@ -132,6 +132,10 @@ import {
   normalizeFederalDepartmentCompany,
   normalizeFederalJobLocation,
 } from './federal-job-normalization.mjs';
+// Shared CH country-field recognition (alpha-2/alpha-3/numeric/object shapes).
+// Reused rather than re-implemented so the matcher can't drift from the
+// dedicated parsers that already gate on it.
+import { coerceCountryField, isChCountry } from './ch-country-guard.mjs';
 
 // FRO-359: Re-alias DCC imports immediately after import block to avoid TDZ errors.
 // These were scattered throughout the file, causing "Cannot access before initialization"
@@ -3911,6 +3915,52 @@ async function crawlTeaserApiJobs(company, apiUrl) {
   return out;
 }
 
+/**
+ * Every `addressCountry` the JSON-LD node declares, coerced to comparable
+ * tokens. `jobLocation` may be a single object or an array (multi-site
+ * postings), and `addressCountry` may be a string ("CH", "Switzerland"), a
+ * numeric ISO-3166 code, or a `{ '@type': 'Country', name }` object.
+ * Returns [] when the posting declares no country at all.
+ */
+function jsonLdDeclaredCountryTokens(node) {
+  const locations = Array.isArray(node?.jobLocation) ? node.jobLocation : [node?.jobLocation];
+  const tokens = [];
+  for (const loc of locations) {
+    const token = coerceCountryField(loc?.address?.addressCountry);
+    if (token) tokens.push(token);
+  }
+  return tokens;
+}
+
+/**
+ * True when the posting ITSELF declares a country that is unambiguously not
+ * Switzerland.
+ *
+ * This is the strongest location evidence a JobPosting carries: the publisher
+ * stating where the job is. It is deliberately ranked by SPECIFICITY, not by
+ * position in a fallback chain:
+ *
+ *   - No `addressCountry` at all → returns false. Absence is not evidence, so
+ *     the seed's canton keeps winning exactly as before.
+ *   - Any declared country reads as Switzerland → false, even if a sibling
+ *     jobLocation is foreign (a multi-site posting that includes CH is still
+ *     legitimately crawlable for its Swiss location).
+ *   - A declared token that is itself a Swiss CANTON code or name → false.
+ *     `FR`, `GR`, `LU`, `BE`, `NE`, `SO`, `SG`, `TG`, `AR`, `GL`, `SZ` and `BS`
+ *     are all simultaneously ISO country codes and Swiss canton codes, and
+ *     feeds really do put a canton in `addressCountry`. A colliding bare token
+ *     is ambiguous, and ambiguity is not the explicit evidence this rule acts
+ *     on — dropping it would delete legitimate Fribourg/Graubünden/Luzern jobs.
+ *     The spelled-out name ("Luxembourg", "France") carries no such collision
+ *     and is still treated as foreign.
+ */
+function isJsonLdCountryExplicitlyForeign(node) {
+  const tokens = jsonLdDeclaredCountryTokens(node);
+  if (!tokens.length) return false;
+  if (tokens.some((token) => isChCountry(token))) return false;
+  return tokens.every((token) => !normalizeCantonCode(token));
+}
+
 function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
   const seedMeta = normalizeAdapterSeedMeta(options?.seedMeta || null);
   const seedMetaRelevant = isAdapterSeedMetaTargetRelevant(seedMeta);
@@ -3961,6 +4011,21 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
   if (isLocationExplicitlyForeign(location)) return { job: null, reason: 'jsonld_location_explicitly_foreign' };
   if (isExplicitlyOutsideTarget(mergedLocText) || isExplicitlyOutsideTargetCantons(mergedLocText)) {
     return { job: null, reason: 'jsonld_explicitly_outside_target' };
+  }
+  // The two checks above read the location STRING. They miss the posting's own
+  // structured `addressCountry`, which this function never looked at — so a US
+  // or Canadian JobPosting whose locality happens not to name a blacklisted
+  // city reached the assignment below and was stamped with `seedCanton`,
+  // landing in the corpus as a Ticino job. That corrupts the denominator of
+  // every per-canton count (surfaced while investigating #5321).
+  //
+  // The declared country is more specific evidence than the adapter seed, so
+  // it wins over it — but only when it is explicit AND unambiguous; see
+  // isJsonLdCountryExplicitlyForeign. Placed with the other explicit-foreign
+  // checks, i.e. ahead of the seedMetaRelevant rescue, for the reason #4587
+  // gives above: an explicit foreign signal outranks seed trust.
+  if (isJsonLdCountryExplicitlyForeign(node)) {
+    return { job: null, reason: 'jsonld_address_country_foreign' };
   }
   if (!isTargetSwissLocation(mergedLocText) && !seedMetaRelevant) return { job: null, reason: 'jsonld_not_target_relevant' };
 
@@ -5878,6 +5943,10 @@ export const __testables = {
   aiValidateJobDetailPage,
   fetchWithTimeout,
   buildKnownJobUrlsSet,
+  // Canton mis-tagging guard: the JSON-LD → job mapper and the
+  // addressCountry-vs-seedCanton precedence predicate it relies on.
+  toJobFromJsonLd,
+  isJsonLdCountryExplicitlyForeign,
   setCrawlerConfigForTests(cfg) { crawlerConfigGlobal = cfg; },
   clearAiResponseCacheForTests() { aiResponseCache.clear(); },
   persistAiCacheToDisk,

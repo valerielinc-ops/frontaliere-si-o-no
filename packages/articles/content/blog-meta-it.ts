@@ -9362,6 +9362,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.title': 'Scontri al Festival turco: 11 curdi condannati a Basilea',
     'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.excerpt': 'Il tribunale di Basilea ha pronunciato 11 condanne a pene tra 9 e 36 mesi per gli scontri violenti scoppiati durante la festa turca dei bambini nel maggio 2022.',
     'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.imageAlt': 'Un gruppo di persone di etnia curda si riunisce in una piazza durante un festival turco a Basilea, Svizzera.',
+    'blog.article.grigioni-frontalieri-calano.title': 'Grigioni: scende ancora il numero di frontalieri',
+    'blog.article.grigioni-frontalieri-calano.excerpt': 'Il Canton Grigioni registra un calo di circa 500 frontalieri rispetto allo stesso trimestre dell\'anno precedente.',
+    'blog.article.grigioni-frontalieri-calano.imageAlt': 'Un ponte sull\'alto lago di Lugano con un numero ridotto di frontalieri.',
 };
 
 export default blogMetaIt;
