@@ -45,7 +45,6 @@ const TICINO_MIN_SALARY_CHF = 41080;
 const FALLBACK_POSTAL_CODE = '6900';
 const FALLBACK_LOCALITY = 'Ticino';
 const FALLBACK_REGION = 'TI';
-const FALLBACK_COUNTRY = 'CH';
 const FALLBACK_EMPLOYMENT_TYPE = 'OTHER';
 
 const EXPIRATION_REASON = 'silent_dedup_backfill';
@@ -342,8 +341,14 @@ export function buildBackfillExpiredEntry(job, expiredAt, overrideSlug = null) {
     || FALLBACK_EMPLOYMENT_TYPE;
   const addressRegion = (typeof job.addressRegion === 'string' && job.addressRegion.trim())
     || FALLBACK_REGION;
+  // Deliberately does NOT default addressCountry to 'CH' when absent
+  // (#5403/#5384): an undeclared country and a declared-Swiss one are
+  // different pieces of evidence, and this archived entry is exactly the
+  // kind of at-rest record where that distinction matters most (the source
+  // listing has already expired, so it can never be re-checked). Consumers
+  // already fall back to 'CH' at read time.
   const addressCountry = (typeof job.addressCountry === 'string' && job.addressCountry.trim())
-    || FALLBACK_COUNTRY;
+    || undefined;
 
   const salaryCurrency = (typeof job.salaryCurrency === 'string' && job.salaryCurrency.trim())
     || (typeof job.currency === 'string' && job.currency.trim())

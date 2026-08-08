@@ -1035,7 +1035,10 @@ async function enrichJob(job, aiState) {
       streetAddress: job.streetAddress || (hqLocalityOk ? knownAddr.streetAddress : ''),
       postalCode: job.postalCode || postalFromRealCity || (hqLocalityOk ? knownAddr.postalCode : ''),
       addressLocality: realLocality || knownAddr.addressLocality,
-      addressCountry: 'CH',
+      // Deliberately does NOT stamp addressCountry: 'CH' here (#5403/#5384) —
+      // an undeclared country and a declared-Swiss one are different pieces
+      // of evidence; overwriting the former destroys that distinction at
+      // rest. Consumers already fall back to 'CH' at read time.
     };
   } else {
     // Ensure postalCode from city
@@ -1054,8 +1057,8 @@ async function enrichJob(job, aiState) {
       const parts = loc.split('·').map(s => s.trim()).filter(Boolean);
       if (parts.length > 0) job = { ...job, addressLocality: parts[parts.length - 1] };
     }
-    // Ensure addressCountry
-    if (!job.addressCountry) job = { ...job, addressCountry: 'CH' };
+    // Deliberately does NOT default addressCountry to 'CH' here (#5403/#5384)
+    // — see rationale above.
   }
 
   const canonicalContent = await buildCanonicalContent(job, aiState);
