@@ -1026,7 +1026,7 @@
       },
       "slugByLocale": {
         "it": "rayon-leader-in-garden-jumbo-division-der-coop-genossenschaft-thalwil-zurich",
-        "en": "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-thalwil-zurich-hhm6ua",
+        "en": "rayon-leader-in-garden-jumbo-thalwil",
         "de": "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-thalwil-zurich-hhm6ua",
         "fr": "chef-de-rayon-a-garden-jumbo-division-der-coop-genossenschaft-thalwil-zurich"
       },
@@ -1079,6 +1079,9 @@
         "fr": [
           "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-thalwil-zurich-hhm6ua",
           "chef-de-rayon-a-garden-jumbo-division-der-coop-genossenschaft-thalwil"
+        ],
+        "en": [
+          "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-thalwil-zurich-hhm6ua"
         ]
       },
       "salaryMin": 73500,
@@ -25395,10 +25398,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "conduttore-rayon-in-do-it-jumbo-division-der-coop-genossenschaft-rickenbach",
-        "en": "rayon-conductor-in-do-it-jumbo-division-der-coop-genossenschaft-rickenbach",
+        "it": "conduttore-rayon-in-do-it-jumbo-rickenbach",
+        "en": "rayon-conductor-in-do-it-jumbo-rickenbach",
         "de": "rayonleiter-in-do-it-jumbo-rickenbach-thurgau-qbgyz1",
-        "fr": "conducteur-de-rayon-en-do-it-jumbo-division-der-coop-genossenschaft-rickenbach"
+        "fr": "conducteur-de-rayon-en-do-it-jumbo-rickenbach"
       },
       "addressLocality": "Rickenbach",
       "sourceLang": "de",
@@ -25421,15 +25424,19 @@
           "rayonleiter-in-do-it-jumbo-rickenbach-thurgau"
         ],
         "en": [
-          "rayonleiter-in-do-it-jumbo-rickenbach-thurgau-qbgyz1"
+          "rayonleiter-in-do-it-jumbo-rickenbach-thurgau-qbgyz1",
+          "rayon-conductor-in-do-it-jumbo-division-der-coop-genossenschaft-rickenbach"
         ],
         "fr": [
-          "rayonleiter-in-do-it-jumbo-rickenbach-thurgau-qbgyz1"
+          "rayonleiter-in-do-it-jumbo-rickenbach-thurgau-qbgyz1",
+          "conducteur-de-rayon-en-do-it-jumbo-division-der-coop-genossenschaft-rickenbach"
         ]
       },
       "previousSlugs": [
         "rayonleiter-in-do-it-jumbo-rickenbach-thurgau-qbgyz1",
-        "rayonleiter-in-do-it-jumbo-rickenbach-thurgau"
+        "rayonleiter-in-do-it-jumbo-rickenbach-thurgau",
+        "rayon-conductor-in-do-it-jumbo-division-der-coop-genossenschaft-rickenbach",
+        "conducteur-de-rayon-en-do-it-jumbo-division-der-coop-genossenschaft-rickenbach"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -194656,12 +194663,10 @@
         "it": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern",
           "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-biel-c1ce68",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern-lstkr1",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-biel"
         ]
       },
       "previousSlugs": [
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern-lstkr1",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-biel-lstkr1",
         "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-biel-c1ce68",
@@ -209097,7 +209102,6 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-sk8304",
           "poly-3d-designer-w-m-d-coop-genossenschaft-schaffhausen",
           "polydesigner-3d-m-w-d-coop-city-schaffhausen-d9t3yx",
           "polydesigner-3d-m-w-d-coop-city-schaffhausen-sk8304"
@@ -209121,7 +209125,6 @@
         ]
       },
       "previousSlugs": [
-        "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-sk8304",
         "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen",
         "poly-3d-designer-w-m-d-coop-genossenschaft-schaffhausen",
         "poliedesigner-3d-w-m-d-coop-genossenschaft-schaffhausen",
@@ -209397,7 +209400,7 @@
     },
     {
       "id": "company-fvnben",
-      "slug": "vendita-prodotti-freschi-coop-genossenschaft-rapperswil-jona",
+      "slug": "venditore-a-prodotti-freschi-coop-genossenschaft-rapperswil-jona",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte",
       "location": "Rapperswil-Jona",
@@ -209431,10 +209434,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-genossenschaft-rapperswil-jona-sankt-gallen-fvnben",
-        "en": "verkaufer-in-frischprodukte-coop-genossenschaft-rapperswil-jona-sankt-gallen-fvnben",
+        "it": "venditore-a-prodotti-freschi-coop-genossenschaft-rapperswil-jona",
+        "en": "fresh-produce-sales-associate-coop-genossenschaft-rapperswil-jona",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-rapperswil-jona-sankt-gallen-fvnben",
-        "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-rapperswil-jona-sankt-gallen-fvnben"
+        "fr": "vendeur-vendeuse-de-produits-frais-coop-genossenschaft-rapperswil-jona"
       },
       "requirementsByLocale": {
         "de": [
@@ -211853,7 +211856,7 @@
       },
       "slugByLocale": {
         "it": "venditore-in-food-drink-coop-genossenschaft-bulach",
-        "en": "verkaufer-in-food-getranke-coop-bulach-zurich-2w70oc",
+        "en": "agent-name-in-food-drinks-coop-genossenschaft-bulach",
         "de": "verkaufer-in-food-getranke-coop-bulach-zurich-2w70oc",
         "fr": "verkaufer-dans-la-nourriture-getranke-coop-bulach-zurich"
       },
@@ -211896,7 +211899,8 @@
           "verkaufer-in-food-getranke-coop-bulach-zurich"
         ],
         "en": [
-          "sales-assistant-food-beverages-coop-genossenschaft-bulach-0wwn6r"
+          "sales-assistant-food-beverages-coop-genossenschaft-bulach-0wwn6r",
+          "verkaufer-in-food-getranke-coop-bulach-zurich-2w70oc"
         ],
         "de": [
           "verkaufer-in-food-getranke-coop-bulach-zurich-0wwn6r"
@@ -212530,7 +212534,6 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "verkaufer-in-food-coop-bern-21du69",
           "food-sales-assistant-coop-bern"
         ],
         "it": [
@@ -212548,7 +212551,6 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-bern",
-        "verkaufer-in-food-coop-bern-21du69",
         "food-convenience-sales-assistant-coop-genossenschaft-bern",
         "food-sales-assistant-coop-genossenschaft-bern-188b7c",
         "food-sales-assistant-coop-genossenschaft-bern-817v05",
@@ -213434,28 +213436,24 @@
         "it": [
           "seller-in-food-fresh-island-coop-genossenschaft-aarau",
           "verkaufer-in-food-frische-insel-coop-aarau-aargau-iza991",
-          "venditore-in-food-fresh-island-coop-genossenschaft-aarau",
           "vendeur-dans-food-fresh-island-coop-genossenschaft-aarau",
           "verkaufer-in-food-frische-insel-coop-genossenschaft-aarau",
           "verkaufer-in-food-frische-insel-coop-aarau-aargau-pd7yjs",
           "verkaufer-in-food-frische-insel-coop-aarau-aargau"
         ],
         "en": [
-          "seller-in-food-fresh-island-coop-genossenschaft-aarau",
           "verkaufer-in-food-frische-insel-coop-aarau-aargau-pd7yjs"
         ],
         "de": [
           "verkaufer-in-food-frische-insel-coop-aarau-aargau-iza991"
         ],
         "fr": [
-          "vendeur-dans-food-fresh-island-coop-genossenschaft-aarau",
           "verkaufer-in-food-frische-insel-coop-aarau-aargau-pd7yjs"
         ]
       },
       "previousSlugs": [
         "seller-in-food-fresh-island-coop-genossenschaft-aarau",
         "verkaufer-in-food-frische-insel-coop-aarau-aargau-iza991",
-        "venditore-in-food-fresh-island-coop-genossenschaft-aarau",
         "vendeur-dans-food-fresh-island-coop-genossenschaft-aarau",
         "verkaufer-in-food-frische-insel-coop-genossenschaft-aarau",
         "verkaufer-in-food-frische-insel-coop-aarau-aargau-pd7yjs",
@@ -214720,7 +214718,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "designer-editoriale-in-80-100-coop-genossenschaft-basel",
           "editorial-designer-in-80-100-coop-basel-stadt-kqxiui",
           "editorial-designer-in-80-100-coop-basel-stadt",
           "editorial-designer-in-80-100-coop-genossenschaft-basel-stadt-mcc8sw",
@@ -214731,7 +214728,6 @@
         ]
       },
       "previousSlugs": [
-        "designer-editoriale-in-80-100-coop-genossenschaft-basel",
         "editorial-designer-in-80-100-coop-basel-stadt-kqxiui",
         "editorial-designer-in-80-100-coop-basel-stadt",
         "editorial-designer-in-80-100-coop-genossenschaft-basel-stadt-mcc8sw",
