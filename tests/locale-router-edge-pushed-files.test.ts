@@ -170,7 +170,60 @@ describe('locale-router serves the frontaliere article sitemap from the edge ori
         toml,
         `${pathname} is registered in EDGE_PUSHED_FILES but has no wrangler route — ` +
           `the Worker would never see the request`,
-      ).toContain(`frontaliereticino.ch${pathname}"`);
+      ).toContain(`frontaliereticino.ch${pathname}`);
+    }
+  });
+});
+
+/**
+ * Every EDGE_PUSHED_FILES route must carry a trailing `*`.
+ *
+ * A Cloudflare route without one matches only the exact URL with NO query
+ * string, so `?anything` bypasses the Worker and is answered by the GitHub
+ * Pages passthrough instead. That is not the same bytes by another path — it is
+ * the OTHER origin, the one this table exists to stop serving. Measured
+ * 2026-08-08 on /sitemap-topics-frontaliere.xml: bare returned
+ * `cache-control: public, max-age=300` (Worker → R2) and `?cb=1` returned
+ * `x-served-by: cache-mxp…` + etag + `max-age=600` (Pages). They happened to
+ * carry identical bytes in that moment because a full deploy had landed hours
+ * earlier; #4974 (15230→0 hreflang alternates) and #5001 (36 phantom page-N
+ * URLs) are what they look like the rest of the time.
+ *
+ * The user-visible cost is small — real crawlers fetch these bare. The
+ * diagnostic cost is not: every cache-busted probe of these paths silently
+ * measures the wrong origin, which is how "this resource does not exist" gets
+ * concluded about a resource that does.
+ *
+ * Look-alikes are safe: servePushedEdgeFile is an exact-match lookup on
+ * `EDGE_PUSHED_FILES[url.pathname]`, so /llms.txt.bak matches the CF route,
+ * misses the table, and falls through to the same passthrough as today — the
+ * behaviour the first describe block above pins.
+ */
+describe('every EDGE_PUSHED_FILES route is query-string-proof', () => {
+  const toml = readFileSync(
+    path.resolve(__dirname, '..', 'infra', 'cloudflare-worker', 'wrangler.toml'),
+    'utf-8',
+  );
+
+  it.each(Object.keys(EDGE_PUSHED_FILES))('%s has a wildcarded wrangler route', (pathname) => {
+    expect(
+      toml,
+      `the route for ${pathname} has no trailing "*", so "${pathname}?x=1" bypasses the ` +
+        `Worker and is served by GitHub Pages instead of the R2 copy — a different origin ` +
+        `with the same status code, which makes every cache-busted probe of this path lie.`,
+    ).toContain(`{ pattern = "frontaliereticino.ch${pathname}*", zone_name`);
+  });
+
+  it('does NOT wildcard the three locale .html routes', () => {
+    // The opposite call, deliberately. Measured 2026-08-08: /en.html, /de.html
+    // and /fr.html are 404 bare (the Worker routes them to origin-{loc}, which
+    // has no such file — origin-en/en.html → 404, origin-en/index.html → 200)
+    // and 200 with ?cb=1, because the bypass reaches the Pages trunk that does
+    // carry them. Here the query-string variant is the working one, so widening
+    // these routes would convert the last working variant into a third 404.
+    for (const loc of ['en', 'de', 'fr']) {
+      expect(toml).toContain(`{ pattern = "frontaliereticino.ch/${loc}.html", zone_name`);
+      expect(toml).not.toContain(`{ pattern = "frontaliereticino.ch/${loc}.html*", zone_name`);
     }
   });
 });
