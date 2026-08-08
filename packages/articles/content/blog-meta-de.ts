@@ -9360,6 +9360,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.title': 'Auseinandersetzungen beim Türkischen Festival: 11 Kurden in Basel verurteilt',
     'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.excerpt': 'Das Basler Gericht hat wegen gewaltsamer Auseinandersetzungen während des türkischen Kinderfestes im Mai 2022 11 Urteile zu Strafen zwischen 9 und 36 Monaten ausgesprochen.',
     'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.imageAlt': 'Ein Gruppe von Menschen kurdischer Ethnie versammelt sich in einer Piazza während eines türkischen Festivals in Basel, Schweiz.',
+    'blog.article.grigioni-frontalieri-calano.title': 'Graubünden: Zahl der Grenzgänger sinkt weiter',
+    'blog.article.grigioni-frontalieri-calano.excerpt': 'Der Kanton Graubünden verzeichnet einen Rückgang von rund 500 Grenzgängern gegenüber dem Vorjahresquartal.',
+    'blog.article.grigioni-frontalieri-calano.imageAlt': 'Ein Brücke über den hohen See von Lugano mit einer reduzierten Anzahl von Grenzgängern.',
 };
 
 export default blogMetaDe;

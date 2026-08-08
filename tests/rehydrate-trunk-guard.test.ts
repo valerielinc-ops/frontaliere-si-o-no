@@ -61,8 +61,16 @@ interface RunResult {
  * pages some other plugin emitted under a prefix whose section is not stripped
  * from the trunk (`*_BUILD_EMIT_SKIP`). The shard tar deliberately does not
  * contain them, which is the whole point.
+ *
+ * `shardExtras` are extra members of the shard's own tar, keyed by their path
+ * INSIDE the section subtree. They exist for the url-twin case: the shard
+ * carries the page under the other spelling of the same url, so a path-wise
+ * diff calls it lost while the url never moved.
  */
-function runSectionRehydrate(trunkExtras: Record<string, string>): RunResult {
+function runSectionRehydrate(
+  trunkExtras: Record<string, string>,
+  shardExtras: Record<string, string> = {},
+): RunResult {
   const root = mkdtempSync(join(tmpdir(), 'trunk-guard-'));
   const lib = join(root, 'scripts', 'lib');
   mkdirSync(lib, { recursive: true });
@@ -88,6 +96,7 @@ function runSectionRehydrate(trunkExtras: Record<string, string>): RunResult {
   const stage = join(root, 'stage');
   write(join(stage, IT_SLUG, 'index.html'), INDEXABLE_PAGE);
   write(join(stage, IT_SLUG, 'articolo-vero', 'index.html'), INDEXABLE_PAGE);
+  for (const [rel, body] of Object.entries(shardExtras)) write(join(stage, IT_SLUG, rel), body);
   const runnerTemp = join(root, 'runner-temp');
   const dl = join(runnerTemp, 'shard-batch-1-dist-it');
   mkdirSync(dl, { recursive: true });
@@ -187,6 +196,381 @@ describe('rehydrate-section-shards.sh — a shard replace never destroys pages s
       rmSync(root, { recursive: true, force: true });
     }
   });
+
+  it('does NOT call a page lost when the shard put it back under the other spelling of the same url', () => {
+    // The url `/sezione-fixture/argomenti/salari` is served by EITHER
+    // `…/salari.html` or `…/salari/index.html` — scripts/ci/assert-dist-complete.mjs:193
+    // resolves a sitemap url by trying exactly that pair. Trunk holds one
+    // spelling, the shard ships the other: nothing is 404, so nothing is lost.
+    //
+    // PRE-FIX this run exits 1 with `::error::[trunk-guard] … INDEXABLE lost:
+    // dist/sezione-fixture/argomenti/salari.html` — the path vanished, so a
+    // path-wise diff reports it however well the url answers.
+    const { status, output, root } = runSectionRehydrate(
+      { [`${IT_SLUG}/argomenti/salari.html`]: INDEXABLE_PAGE },
+      { 'argomenti/salari/index.html': INDEXABLE_PAGE },
+    );
+    try {
+      expect(status).toBe(0);
+      expect(output).not.toContain('::error::[trunk-guard]');
+      expect(output).not.toContain('INDEXABLE lost');
+      // Named, not silenced: the substitution has to be readable in the log.
+      expect(output).toContain('answer the same url from the shard');
+      expect(output).toContain(`dist/${IT_SLUG}/argomenti/salari.html=>dist/${IT_SLUG}/argomenti/salari/index.html`);
+      // The url really is served afterwards — the twin is on disk, not assumed.
+      expect(existsSync(join(root, 'dist', IT_SLUG, 'argomenti', 'salari', 'index.html'))).toBe(true);
+      expect(existsSync(join(root, 'dist', IT_SLUG, 'argomenti', 'salari.html'))).toBe(false);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('still FAILS when the shard ships neither spelling (the #5290 shape is untouched)', () => {
+    // Same fixture as the test above minus the shard's copy: no twin on disk
+    // afterwards, so the url genuinely 404s and the fatal verdict must stand.
+    // This is the assertion that stops the url-twin rule from being a way to
+    // turn the gate off.
+    const { status, output, root } = runSectionRehydrate({
+      [`${IT_SLUG}/argomenti/salari.html`]: INDEXABLE_PAGE,
+    });
+    try {
+      expect(status).toBe(1);
+      expect(output).toContain('::error::[trunk-guard]');
+      expect(output).toContain(`dist/${IT_SLUG}/argomenti/salari.html`);
+      expect(output).not.toContain('answer the same url from the shard');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+});
+
+describe('the en/de/fr homepage is not a loss just because the shard spells it differently', () => {
+  // The production regression this pair of tests pins, reproduced offline.
+  //
+  // rehydrate-locale-shards.sh snapshots BOTH `dist/$loc` and `dist/$loc.html`
+  // (`trunk_replace_begin "locale-$loc" "$loc" "$loc.html"`), then restores the
+  // locale from the shard tar. push-locale-shard.sh copies `$loc.html` only
+  // `if [ -f "$dist_dir/$loc.html" ]`, and in the en/de/fr build leg it is not:
+  // `valerielinc-ops/frontaliere-{en,de,fr}` hold `<loc>/` + `index.html` at
+  // their root and no `<loc>.html`. So the tar puts back `dist/en/index.html`
+  // and never `dist/en.html`.
+  //
+  // Path-wise that reads as "1 indexable page lost" for each of en/de/fr and
+  // fails the step — which is what run 31240103446 did, and would have done on
+  // every deploy from then on, sequestering the `publish` job (IndexNow /
+  // Google Indexing API / GSC) behind `failed_gates=__UNKNOWN__`.
+  // Url-wise nothing moved: /en, /de, /fr answer 200 from `<loc>/index.html`,
+  // /en.html answers 404, and the /en/ canonical is
+  // `https://frontaliereticino.ch/en/`.
+  //
+  // Driven directly against the guard rather than through the real script
+  // because rehydrate-locale-shards.sh's own paths are `gh run download` and a
+  // ~250k-file `git clone` of the live shard — network, and not what is under
+  // test. The call sequence below is that script's, line for line.
+  function runLocaleReplace(): RunResult {
+    const root = mkdtempSync(join(tmpdir(), 'trunk-guard-locale-'));
+    const lib = join(root, 'scripts', 'lib');
+    mkdirSync(lib, { recursive: true });
+    copyFileSync(resolve('scripts/lib/rehydrate-trunk-guard.sh'), join(lib, 'rehydrate-trunk-guard.sh'));
+
+    // Trunk as it reaches validate-dist: the apex homepage emit survived, the
+    // locale directory was stripped into the shard.
+    write(join(root, 'dist', 'en.html'), INDEXABLE_PAGE);
+
+    // What the shard tar carries: `en/`, including `en/index.html`, no `en.html`.
+    const stage = join(root, 'stage');
+    write(join(stage, 'en', 'index.html'), INDEXABLE_PAGE);
+    write(join(stage, 'en', 'lavoro', 'index.html'), INDEXABLE_PAGE);
+    execFileSync('tar', ['-C', stage, '-cf', join(root, 'locale-dist-en.tar'), 'en']);
+
+    writeFileSync(
+      join(root, 'harness.sh'),
+      [
+        'set -uo pipefail',
+        '. scripts/lib/rehydrate-trunk-guard.sh',
+        'trunk_guard_init locale',
+        // rehydrate-locale-shards.sh:91
+        'trunk_replace_begin "locale-en" "en" "en.html"',
+        // rehydrate-locale-shards.sh:100
+        'tar -C dist -xf locale-dist-en.tar || true',
+        // rehydrate-locale-shards.sh:109
+        'trunk_replace_end "locale-en"',
+        // rehydrate-locale-shards.sh:196
+        'if ! trunk_guard_verdict "locale shard rehydrate"; then exit 1; fi',
+      ].join('\n'),
+      'utf8',
+    );
+
+    let status = 0;
+    let output = '';
+    try {
+      output = execFileSync('bash', ['harness.sh'], {
+        cwd: root,
+        encoding: 'utf8',
+        stdio: ['pipe', 'pipe', 'pipe'],
+        env: { ...process.env, RUNNER_TEMP: join(root, 'runner-temp') },
+      });
+    } catch (e) {
+      const err = e as { status?: number; stdout?: string; stderr?: string };
+      status = err.status ?? 1;
+      output = `${err.stdout ?? ''}${err.stderr ?? ''}`;
+    }
+    return { status, output, root };
+  }
+
+  it('does not fail the locale rehydrate over dist/en.html when the shard restores dist/en/index.html', () => {
+    const { status, output, root } = runLocaleReplace();
+    try {
+      // Pre-fix: status 1, `INDEXABLE lost: dist/en.html`, and
+      // `::error::[trunk-guard] locale shard rehydrate: 1 subtree(s) …`.
+      expect(status).toBe(0);
+      expect(output).not.toContain('INDEXABLE lost');
+      expect(output).not.toContain('::error::');
+      expect(output).toContain('dist/en.html=>dist/en/index.html');
+      // /en is served afterwards — by the twin, which is the point.
+      expect(existsSync(join(root, 'dist', 'en', 'index.html'))).toBe(true);
+      expect(existsSync(join(root, 'dist', 'en.html'))).toBe(false);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('is deterministic, not a race: same verdict on every repetition', () => {
+    // The mechanism has no concurrency in it — push-locale-shard.sh simply
+    // never ships `<loc>.html` — so the pre-fix failure fired on 100% of runs
+    // and the fix has to be green on 100% of runs, not most of them. Cheap
+    // enough (no network, ~4 files per iteration) to assert rather than assume.
+    for (let i = 0; i < 25; i += 1) {
+      const { status, output, root } = runLocaleReplace();
+      try {
+        expect(status).toBe(0);
+        expect(output).not.toContain('INDEXABLE lost');
+      } finally {
+        rmSync(root, { recursive: true, force: true });
+      }
+    }
+  });
+
+  it('keeps snapshotting the homepage, so the case above stays reachable', () => {
+    // If a future edit stopped passing `"$loc.html"` to trunk_replace_begin the
+    // test above would pass vacuously. Pin the call it is a model of.
+    const locale = read('scripts/lib/rehydrate-locale-shards.sh');
+    expect(locale).toContain('trunk_replace_begin "locale-$loc" "$loc" "$loc.html"');
+  });
+});
+
+/**
+ * The LOCALE half of the same class, driving the real
+ * rehydrate-locale-shards.sh. This is the shape that actually failed in
+ * production (run 31240103446): `dist/<loc>.html` — the flat locale homepage,
+ * a file at the dist ROOT rather than under `dist/<loc>/` — was emitted by the
+ * IT/main build and never shipped by the locale shard, so `/en.html`
+ * `/de.html` `/fr.html` answered 404 live while every build re-emitted them.
+ *
+ * Hermetic: `bin/` stubs shadow `gh` (hands back a pre-packed tar under the
+ * exact name the script asks for), `timeout` (does not exist on macOS at all;
+ * the stub drops the duration and execs) and `sleep` (the retry backoff).
+ * de/fr are pre-seeded complete — dir AND homepage — so the guard at the top
+ * of the loop skips them and only `en` ever reaches the replace.
+ */
+function runLocaleRehydrate(opts: {
+  trunkExtras: Record<string, string>;
+  shardCarriesHomepage: boolean;
+}): RunResult {
+  const root = mkdtempSync(join(tmpdir(), 'trunk-guard-loc-'));
+  const lib = join(root, 'scripts', 'lib');
+  mkdirSync(lib, { recursive: true });
+  for (const f of ['rehydrate-locale-shards.sh', 'rehydrate-trunk-guard.sh']) {
+    copyFileSync(resolve('scripts/lib', f), join(lib, f));
+  }
+
+  const dist = join(root, 'dist');
+  mkdirSync(dist, { recursive: true });
+  for (const [rel, body] of Object.entries(opts.trunkExtras)) write(join(dist, rel), body);
+  for (const loc of ['de', 'fr']) {
+    write(join(dist, loc, 'index.html'), INDEXABLE_PAGE);
+    write(join(dist, `${loc}.html`), INDEXABLE_PAGE);
+  }
+
+  // The EN shard's own tree, packed the way deploy.yml uploads it.
+  const stage = join(root, 'stage');
+  write(join(stage, 'en', 'index.html'), INDEXABLE_PAGE);
+  write(join(stage, 'en', 'find-jobs', 'index.html'), INDEXABLE_PAGE);
+  const tarEntries = ['en'];
+  if (opts.shardCarriesHomepage) {
+    // Post-fix: prune-locale-shard.mjs keeps `en.html`, push-locale-shard.sh
+    // stages it, and it is the noindex bridge flatHtmlRedirectPlugin made from
+    // the `dist/en/index.html` sibling that exists in an EN shard build.
+    write(join(stage, 'en.html'), NOINDEX_BRIDGE);
+    tarEntries.push('en.html');
+  }
+  const tars = join(root, 'tars');
+  mkdirSync(tars, { recursive: true });
+  execFileSync('tar', ['-C', stage, '-cf', join(tars, 'en.tar'), ...tarEntries]);
+
+  const bin = join(root, 'bin');
+  mkdirSync(bin, { recursive: true });
+  // Only `en` reaches this stub — de/fr are skipped by the completeness guard.
+  writeFileSync(
+    join(bin, 'gh'),
+    [
+      '#!/bin/sh',
+      'dir=""',
+      'while [ $# -gt 0 ]; do',
+      '  case "$1" in',
+      '    --dir) dir="$2"; shift 2 ;;',
+      '    *) shift ;;',
+      '  esac',
+      'done',
+      '[ -n "$dir" ] || exit 1',
+      'mkdir -p "$dir"',
+      `cp ${JSON.stringify(join(tars, 'en.tar'))} "$dir/locale-dist-en.tar"`,
+      '',
+    ].join('\n'),
+    { mode: 0o755 },
+  );
+  writeFileSync(join(bin, 'timeout'), '#!/bin/sh\nshift\nexec "$@"\n', { mode: 0o755 });
+  writeFileSync(join(bin, 'sleep'), '#!/bin/sh\nexit 0\n', { mode: 0o755 });
+
+  const runnerTemp = join(root, 'runner-temp');
+  mkdirSync(runnerTemp, { recursive: true });
+
+  let status = 0;
+  let output = '';
+  try {
+    output = execFileSync('bash', ['scripts/lib/rehydrate-locale-shards.sh'], {
+      cwd: root,
+      encoding: 'utf8',
+      stdio: ['pipe', 'pipe', 'pipe'],
+      env: {
+        ...process.env,
+        PATH: `${bin}:${process.env.PATH ?? ''}`,
+        RUNNER_TEMP: runnerTemp,
+        DEPLOY_RUN_ID: '0',
+        GH_TOKEN: 'unused',
+        LOCALE_SHARDS_LIVE: 'true',
+        // Unset: the tar path succeeds and `continue`s before the clone cache.
+        SHARD_CLONE_CACHE_DIR: '',
+      },
+    });
+  } catch (e) {
+    const err = e as { status?: number; stdout?: string; stderr?: string };
+    status = err.status ?? 1;
+    output = `${err.stdout ?? ''}${err.stderr ?? ''}`;
+  }
+  return { status, output, root };
+}
+
+describe('rehydrate-locale-shards.sh — the locale homepage is a shard-owned path (#5327)', () => {
+  it('does NOT fail over dist/en.html alone — the shard ships the other spelling of /en, so no url was lost', () => {
+    // This slot used to assert rc 1 here. That expectation was written against
+    // the PATH semantics the guard had when #5363 was branched, and #5370
+    // ("the unit of loss is a url, not a path", merged 25 minutes earlier)
+    // replaced it: `dist/en.html` and `dist/en/index.html` are two spellings of
+    // the one url `/en`, the pair scripts/ci/assert-dist-complete.mjs:193
+    // already resolves. The shard tar always restores `dist/en/index.html` —
+    // it is the locale homepage — so `/en` keeps answering and nothing is lost.
+    //
+    // Asserting rc 1 here would be asserting the #5370 false positive as the
+    // contract: that verdict is what killed the rehydrate step of all three
+    // validate-dist jobs on run 31240103446, leaving
+    // `failed_gates=__UNKNOWN__` and sequestering `publish` (IndexNow, Google
+    // Indexing API, GSC, last_known_good) behind a default-deny classifier,
+    // while production measured `/en` 200, `/en.html` 404, canonical
+    // `https://frontaliereticino.ch/en/` and no sitemap naming `/en.html`.
+    //
+    // The protection is NOT dropped, it moves to the test below, which drives
+    // the same script with the shape that is still a real loss. What is pinned
+    // here is that the file is still counted and NAMED — a re-spelling is
+    // reported, never silently swallowed.
+    const { status, output, root } = runLocaleRehydrate({
+      trunkExtras: { 'en.html': INDEXABLE_PAGE },
+      shardCarriesHomepage: false,
+    });
+    try {
+      expect(status).toBe(0);
+      expect(output).not.toContain('::error::');
+      expect(output).not.toContain('INDEXABLE lost');
+      // Counted and named, not silenced.
+      expect(output).toContain('dist/en.html=>dist/en/index.html');
+      expect(output).toContain("answer the same url from the shard's other spelling");
+      // The url that matters still resolves on disk after the replace.
+      expect(existsSync(join(root, 'dist', 'en', 'index.html'))).toBe(true);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('still FAILS, naming the page, when the trunk builds an indexable page under dist/en/ the shard ships in NEITHER spelling', () => {
+    // The half of run 31240103446 that is still dangerous, and the reason this
+    // guard exists at all (#5290): an emitter writes real indexable content
+    // under a prefix the build does not ship, `rm -rf dist/en` in the
+    // rehydrate destroys it, and the only surviving symptom used to be a
+    // sitemap gate failing three steps away from the cause.
+    //
+    // Unlike the homepage, `dist/en/argomenti/salari-frontalieri/index.html`
+    // has NO twin after the replace — the shard tar carries `en/index.html`
+    // and `en/find-jobs/index.html` and nothing else — so the url `/en/…`
+    // genuinely 404s and the url-level comparison of #5370 still calls it
+    // fatal. Trunk shipped as it is post-#5363: the shard owns and carries
+    // `en.html`, so the homepage plays no part in this verdict.
+    const { status, output, root } = runLocaleRehydrate({
+      trunkExtras: { 'en/argomenti/salari-frontalieri/index.html': INDEXABLE_PAGE },
+      shardCarriesHomepage: true,
+    });
+    try {
+      expect(status).toBe(1);
+      expect(output).toContain('::error::[trunk-guard]');
+      expect(output).toContain('dist/en/argomenti/salari-frontalieri/index.html');
+      expect(output).toContain('INDEXABLE lost');
+      expect(output).toContain('locale shard rehydrate');
+      // Destroyed, and REPLACE semantics keep it destroyed — the guard reports
+      // the loss, it does not merge the file back in.
+      expect(existsSync(join(root, 'dist', 'en', 'argomenti', 'salari-frontalieri', 'index.html'))).toBe(
+        false,
+      );
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('goes GREEN because the shard now carries en.html — not because the guard was relaxed', () => {
+    // The fix must remove the CAUSE. The guard is byte-identical here; what
+    // changed is that the shard tar contains the homepage, so the file the
+    // snapshot recorded is present again after the replace and is not a loss.
+    const { status, output, root } = runLocaleRehydrate({
+      trunkExtras: { 'en.html': INDEXABLE_PAGE },
+      shardCarriesHomepage: true,
+    });
+    try {
+      expect(status).toBe(0);
+      expect(output).not.toContain('::error::[trunk-guard]');
+      // REPLACE semantics still hold: the shard's copy won the collision, so
+      // what survives is the shard's noindex bridge, not the trunk's
+      // indexable page. A merge would have left the trunk's version here.
+      expect(existsSync(join(root, 'dist', 'en.html'))).toBe(true);
+      expect(read(join(root, 'dist', 'en.html'))).toBe(NOINDEX_BRIDGE);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('stays silent when the trunk no longer emits the homepage at all (the post-fix trunk)', () => {
+    // With localeOfDistPath() owning `dist/<loc>.html` by `<loc>`, the IT
+    // build stops writing it and prune-locale-shard.mjs drops any that a
+    // direct fs.writeFileSync emitter still produces — so the trunk arrives
+    // with nothing under the EN prefix and the snapshot is empty.
+    const { status, output, root } = runLocaleRehydrate({
+      trunkExtras: {},
+      shardCarriesHomepage: true,
+    });
+    try {
+      expect(status).toBe(0);
+      expect(output).not.toContain('[trunk-guard]');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
 });
 
 describe('rehydrate-trunk-guard.sh — structural invariants', () => {
@@ -244,6 +628,27 @@ describe('rehydrate-trunk-guard.sh — structural invariants', () => {
 
   it('guards the removal against an empty dist root, like strip-section-subtree.sh does', () => {
     expect(guard).toMatch(/rm -rf "\$\{dist:\?\}\/\$p"/);
+  });
+
+  it('resolves a url to the SAME file pair scripts/ci/assert-dist-complete.mjs does', () => {
+    // The two gates run over the same dist/ in the same job. If they disagreed
+    // about which files answer a url, one would report a page the other cannot
+    // see — which is exactly the confusion #5327 was opened to remove.
+    const assertComplete = read('scripts/ci/assert-dist-complete.mjs');
+    expect(assertComplete).toContain("join(DIST, rel, 'index.html')");
+    expect(assertComplete).toContain('join(DIST, `${rel}.html`)');
+    const twin = guard.slice(guard.indexOf('trunk_url_twin()'), guard.indexOf('trunk_guard_init()'));
+    expect(twin).toContain('*/index.html)');
+    expect(twin).toContain('*.html)');
+    // The dist root's own index.html has no `.html` spelling to fall back to.
+    expect(twin).toContain('index.html)   printf');
+  });
+
+  it('checks the twin BEFORE classifying a path as lost, never after the verdict', () => {
+    const end = guard.slice(guard.indexOf('trunk_replace_end()'), guard.indexOf('trunk_guard_verdict()'));
+    expect(end.indexOf('trunk_url_twin')).toBeLessThan(end.indexOf('lost=$((lost + 1))'));
+    // The re-spelling is reported, not swallowed.
+    expect(end).toContain('answer the same url from the shard');
   });
 
   it('refuses to derive an empty subtree from a missing slug (an empty $sub means rm -rf dist/)', () => {

@@ -31,11 +31,24 @@
  * "tasse 2026 Lugano" while catching almost no real addresses that the street
  * patterns do not already catch.
  *
- * ── SCOPE ──
+ * ── SCOPE, AND WHY THIS IS NO LONGER THE LAST LINE OF DEFENCE ──
  *
  * This redacts text **from here on**. It does nothing about records already in
  * GA4/PostHog: deleting personal data from a third-party system is irreversible
  * and is the owner's decision, not an agent's. See #5196.
+ *
+ * More importantly: a deny-list over free text has no upper bound. This file
+ * has now been widened twice, each time after data had already reached two
+ * vendors — first for the name + date-of-birth + address incident, then for
+ * French number-first addresses, vehicle plates and passport numbers. And some
+ * shapes are not reachable at all: an all-lowercase "sono mario rossi" has
+ * nothing in it that marks it as a name, which no pattern can fix.
+ *
+ * So the chatbot question is no longer shipped as text. `chatbot_question`
+ * reports a topic drawn from the closed enum in `./questionTopic.ts`, which
+ * cannot emit user text for any input. This file remains the net for the
+ * fields where the text itself is the product — on-site search, job-alert
+ * keywords — where a guarantee of that kind is not available.
  */
 
 /** Tokens substituted for redacted spans. Deliberately in English, matching the pre-existing `[email]`/`[url]`/`[phone]`. */
@@ -124,6 +137,30 @@ const STREET_PREFIX_IT_FR =
 /** German street compounds end in one of these and are followed by the number. */
 const STREET_SUFFIX_DE = 'strasse|straße|str\\.|weg|gasse|platz|allee|ring|steig|damm';
 
+/**
+ * Add an initial-capital variant of every alternative in an `a|b|c` pattern.
+ *
+ * Needed because the number-first address rule below matches on case: it
+ * requires the street NAME to be capitalised (that is what separates
+ * "12 avenue des Alpes" from "1 corso di formazione"), so it cannot carry the
+ * `i` flag — under `i`, `\p{Lu}` matches lowercase too and the distinction
+ * disappears. The street TYPE still has to match whether the user wrote
+ * "rue" or "Rue", so its capitalised form is spelled out instead.
+ */
+function withInitialCapVariants(alternation: string): string {
+  const alts = alternation.split('|');
+  return [...alts, ...alts.map((a) => a.charAt(0).toUpperCase() + a.slice(1))].join('|');
+}
+
+/**
+ * Articles and particles that sit between a French/Italian street type and the
+ * proper name: "rue **de la** Gare", "avenue **des** Alpes", "rue **d'**Italie".
+ *
+ * Deliberately excludes Italian `di`, which would let "1 corso di formazione"
+ * — a course, not an avenue — reach the capitalised-name test.
+ */
+const STREET_PARTICLE = "(?:(?:de|du|des|della|dello|dei|degli|delle|la|le|les|lo)\\s+|[ldLD]['’]\\s*)";
+
 /** Cues that introduce a person's name in the four locales. */
 // Apostrophes are a character class, not a literal: the corpus mixes the ASCII
 // `'` and the typographic `’`, and a rule that only knows one of them silently
@@ -161,6 +198,48 @@ const CODICE_FISCALE = /\b[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]\b/gi;
  */
 const AVS_NUMBER = /\b756[.\s-]?\d{4}[.\s-]?\d{4}[.\s-]?\d{2}\b/g;
 
+/**
+ * Travel / identity documents, in the shapes this audience actually holds.
+ *
+ *  - `YA1234567` — Italian passport (2 letters + 7 digits)
+ *  - `X1234567`  — Swiss passport (1 letter + 7 digits)
+ *  - `CA12345AB` — Italian carta d'identità elettronica (2 + 5 + 2)
+ *
+ * A document number is a direct national identifier: on its own it links to a
+ * named person in a state register, which puts it in the same class as the AVS
+ * number and the codice fiscale rather than in the heuristic tier below.
+ *
+ * These run AFTER the IBAN rule, which is longer and would otherwise be cut
+ * short by them, and BEFORE the plate and phone rules, which are shorter and
+ * would otherwise swallow their prefix.
+ */
+const ID_DOCUMENT = /\b(?:[A-Z]{2}\d{7}|[A-Z]\d{7}|[A-Z]{2}\d{5}[A-Z]{2})\b/gi;
+
+/**
+ * Swiss vehicle plate: canton code then 1–6 digits ("TI 123456").
+ *
+ * A plate is held in a public register keyed to its owner, so it identifies a
+ * household as directly as an address does.
+ *
+ * Two deliberate narrowings, both for the same reason the `ZIP_CITY` rule
+ * carves out years — a two-letter token followed by digits is an extremely
+ * common shape in ordinary prose here, and the naive rule would fire constantly
+ * while catching almost nothing extra:
+ *
+ *  - the canton code is an explicit list and is matched CASE-SENSITIVELY, so
+ *    German "So 3000 Franken" and Italian "ne 1234" are not plates;
+ *  - a bare 4-digit group in the 1900–2099 window is skipped, because
+ *    "TI 2026" is a tax year in almost every real occurrence.
+ *
+ * Fewer than three digits is not matched at all: "GE 12" is far more often a
+ * fragment than a plate.
+ */
+const CH_PLATE =
+  /\b(?:AG|AI|AR|BE|BL|BS|FR|GE|GL|GR|JU|LU|NE|NW|OW|SG|SH|SO|SZ|TG|TI|UR|VD|VS|ZG|ZH|FL)[\s-]?(?!(?:19|20)\d{2}\b)\d{3,6}\b/g;
+
+/** Italian vehicle plate: `AB123CD`, also written `AB 123 CD`. Case-sensitive — plates are upper-case. */
+const IT_PLATE = /\b[A-Z]{2}[\s-]?\d{3}[\s-]?[A-Z]{2}\b/g;
+
 /** Numeric dates: 22/02/2008, 22.02.2008, 22-2-08. Requires day AND month, so a bare year survives. */
 const DATE_NUMERIC = /\b\d{1,2}[./-]\d{1,2}[./-](?:\d{4}|\d{2})\b/g;
 
@@ -185,8 +264,41 @@ const ADDRESS_DE = new RegExp(
   'giu',
 );
 
-/** EN address: number first, then the street name, then the street type. */
-const ADDRESS_EN = /\b\d{1,4}\s+[\p{L}][\p{L}'’.\-]*(?:\s+[\p{L}'’.\-]+){0,3}\s+(?:street|st\.|road|rd\.|avenue|ave\.|lane|drive|square)\b/giu;
+/**
+ * FR/IT address in the **number-first** form: "5 rue de la Gare".
+ *
+ * This is the standard French postal order, and `fr` is one of the site's four
+ * locales — `ADDRESS_IT_FR` above only knows the type-first order
+ * ("Rue du Rhône 14"), which is the Swiss-Romand habit but not the general one.
+ * Without this rule a plain French home address passed through in clear.
+ *
+ * The street NAME must be capitalised. That is not an attempt to reduce false
+ * positives below what the module's asymmetry allows — it is what makes the
+ * rule terminate. Type-first addresses end at the house number, which bounds
+ * the match; number-first ones have no trailing anchor, so an unbounded word
+ * run would swallow the rest of the sentence ("5 rue de la Gare **a Ginevra**")
+ * and, worse, would fire on ordinary Italian prose where `corso`, `largo` and
+ * `strada` are common nouns.
+ *
+ * Consequence, stated plainly: an all-lowercase "5 rue de la gare" is NOT
+ * caught. That is the same limit as every other case-based rule here, and it is
+ * the argument for not relying on this file alone — see `questionTopic.ts`.
+ */
+const ADDRESS_NUM_FIRST = new RegExp(
+  `\\b\\d{1,4}\\s*(?:[Bb]is|[Tt]er|[Qq]uater)?,?\\s+(?:${withInitialCapVariants(STREET_PREFIX_IT_FR)})\\s+` +
+    `${STREET_PARTICLE}*\\p{Lu}[\\p{L}'’\\-]*(?:\\s+\\p{Lu}[\\p{L}'’\\-]*){0,2}`,
+  'gu',
+);
+
+/**
+ * EN address: number first, then the street name, then the street type.
+ *
+ * The house number carries an optional letter suffix, so "221B Baker Street"
+ * is redacted whole. Without it the rule failed on the very shape it targets:
+ * `221B` did not match `\d{1,4}\s`, the generic name heuristic then ate
+ * "Baker Street", and the house number survived in clear next to a `[name]`.
+ */
+const ADDRESS_EN = /\b\d{1,4}\s*[a-z]?\s+[\p{L}][\p{L}'’.\-]*(?:\s+[\p{L}'’.\-]+){0,3}\s+(?:street|st\.|road|rd\.|avenue|ave\.|lane|drive|square)\b/giu;
 
 /**
  * A postal code + town glued to an address we already redacted, e.g.
@@ -312,11 +424,20 @@ export function redactPersonalData(raw: string, options: RedactionOptions = {}):
   apply(IBAN, 'iban');
   apply(CODICE_FISCALE, 'id');
   apply(AVS_NUMBER, 'id');
+  // Documents before plates before phone: longest and most specific first, so a
+  // passport number is not first truncated by the plate rule and a plate is not
+  // first swallowed by the generic digit-run rule.
+  apply(ID_DOCUMENT, 'id');
+  apply(IT_PLATE, 'id');
+  apply(CH_PLATE, 'id');
 
   apply(DATE_TEXTUAL, 'date');
   apply(DATE_ISO, 'date');
   apply(DATE_NUMERIC, 'date');
 
+  // Number-first before type-first: on "5 rue de la Gare 1204" the type-first
+  // rule would match from "rue" and leave the house number behind.
+  apply(ADDRESS_NUM_FIRST, 'address');
   apply(ADDRESS_IT_FR, 'address');
   apply(ADDRESS_DE, 'address');
   apply(ADDRESS_EN, 'address');

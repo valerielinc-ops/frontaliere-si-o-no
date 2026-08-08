@@ -9361,6 +9361,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.title': 'Clashes at the Turkish Festival: 11 Kurds sentenced in Basel',
     'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.excerpt': 'The court in Basel handed down 11 sentences ranging from 9 to 36 months for the violent clashes that broke out during the Turkish Children\'s Day in May 2022.',
     'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.imageAlt': 'A group of people of Kurdish ethnicity gather in a square during a Turkish festival in Basel, Switzerland.',
+    'blog.article.grigioni-frontalieri-calano.title': 'Graubünden: the number of border crossers is still falling',
+    'blog.article.grigioni-frontalieri-calano.excerpt': 'The Canton of Graubünden recorded a decrease of about 500 border crossers compared to the same quarter of the previous year.',
+    'blog.article.grigioni-frontalieri-calano.imageAlt': 'A bridge over the high lake of Lugano with a reduced number of cross-border workers.',
 };
 
 export default blogMetaEn;

@@ -22,6 +22,8 @@ import {
   isExclusivelyWorkflowScoped,
   isCiTimeoutIssue,
   hasBlockedWorkflowsScopeMarker,
+  hasSkipDuplicateDiagnosisMarker,
+  hasPriorDiagnosisMarker,
   filterExactTitleRecurrences,
 } from '../scripts/ci/check-workflows-scope.mjs';
 
@@ -222,6 +224,55 @@ describe('hasBlockedWorkflowsScopeMarker — FIX_OUTCOME marker detection', () =
 
   it('tolerates null/undefined entries in the array', () => {
     expect(hasBlockedWorkflowsScopeMarker([null, undefined, 'plain text'] as unknown as string[])).toBe(false);
+  });
+});
+
+/**
+ * Mode 2 posts its OWN outcome code (#5288). The two verdicts are different facts:
+ * `blocked-workflows-scope` = "this run could not push a workflow file" (capability
+ * failure, real burn); `skip-duplicate-diagnosis` = "an identically-titled prior issue
+ * already carries that verdict, so we are not paying for the diagnosis again" (the guard
+ * working, at zero cost). Sharing one marker let a working guard raise the very bucket
+ * whose recurrence triggers the escalation.
+ */
+describe('skip-duplicate-diagnosis — Mode 2 has its own outcome code (#5288)', () => {
+  it('detects the new marker, tolerating whitespace and surrounding prose', () => {
+    expect(hasSkipDuplicateDiagnosisMarker(['<!-- FIX_OUTCOME: skip-duplicate-diagnosis -->'])).toBe(true);
+    expect(hasSkipDuplicateDiagnosisMarker(['x\n<!--  FIX_OUTCOME:  skip-duplicate-diagnosis  -->\ny'])).toBe(true);
+  });
+
+  it('the two codes stay strictly disjoint — neither predicate matches the other marker', () => {
+    expect(hasSkipDuplicateDiagnosisMarker(['<!-- FIX_OUTCOME: blocked-workflows-scope -->'])).toBe(false);
+    expect(hasBlockedWorkflowsScopeMarker(['<!-- FIX_OUTCOME: skip-duplicate-diagnosis -->'])).toBe(false);
+  });
+
+  it('returns false for empty/undefined/null-entry input (same tolerance as its sibling)', () => {
+    expect(hasSkipDuplicateDiagnosisMarker([])).toBe(false);
+    expect(hasSkipDuplicateDiagnosisMarker(undefined as unknown as string[])).toBe(false);
+    expect(hasSkipDuplicateDiagnosisMarker([null, undefined, 'plain'] as unknown as string[])).toBe(false);
+  });
+});
+
+/**
+ * The recurrence chain must survive the split: every recurrence has to be able to seed
+ * the next one, exactly as the single shared marker used to. If the lookup accepted only
+ * `blocked-workflows-scope`, then once the newest RECURRENCE_SCAN_CAP same-titled issues
+ * were all skip-marked the original would drop out of view and the guard would silently
+ * stop firing — the full diagnosis cost would come back with nothing signalling it.
+ */
+describe('hasPriorDiagnosisMarker — either marker seeds the next recurrence', () => {
+  it('matches the ORIGINAL verdict (first occurrence, agent- or Mode 1-authored)', () => {
+    expect(hasPriorDiagnosisMarker(['<!-- FIX_OUTCOME: blocked-workflows-scope -->'])).toBe(true);
+  });
+
+  it('matches a PRIOR Mode 2 skip, so recurrence N seeds recurrence N+1', () => {
+    expect(hasPriorDiagnosisMarker(['<!-- FIX_OUTCOME: skip-duplicate-diagnosis -->'])).toBe(true);
+  });
+
+  it('does NOT match unrelated outcome codes (PROCEED-SAFE: no match → fresh diagnosis)', () => {
+    expect(hasPriorDiagnosisMarker(['<!-- FIX_OUTCOME: pr-created -->'])).toBe(false);
+    expect(hasPriorDiagnosisMarker(['<!-- FIX_OUTCOME: no-root-cause -->', 'plain text'])).toBe(false);
+    expect(hasPriorDiagnosisMarker([])).toBe(false);
   });
 });
 

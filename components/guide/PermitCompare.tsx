@@ -12,6 +12,7 @@ import { MUNICIPALITIES, type Municipality } from '@/data/municipalities';
 import { Users, TrendingUp, TrendingDown, Minus, AlertTriangle, Download, Info, Sparkles, CheckSquare, ExternalLink, FileText } from 'lucide-react';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit } from '@/services/calculationService';
+import { DEFAULT_EXCHANGE_RATE } from '@/constants';
 
 // ── G permit type ──
 type GPermitType = 'new_within_20km' | 'new_beyond_20km' | 'old';
@@ -73,7 +74,14 @@ function calcIrpef(taxableEUR: number): number {
  return tax;
 }
 
-const DEFAULT_EXCHANGE_RATE = 0.94; // CHF → EUR fallback
+// The CHF→EUR fallback rate is imported from `@/constants` (see the import
+// above). It used to be redeclared here as `const DEFAULT_EXCHANGE_RATE = 0.94`
+// — the SAME name as the exported one, carrying the INVERTED direction (0.94 is
+// roughly EUR→CHF; the CHF→EUR rate is ~1.07). Every use below multiplies a CHF
+// amount BY the rate to obtain euro, so the local literal understated every euro
+// figure by ~14% and the error then propagated non-linearly through the IRPEF
+// brackets. Two homonymous declarations of one quantity is the defect (#5379):
+// one source of truth, one direction.
 
 // Swiss cities for Permit B (simplified)
 const SWISS_CITIES = [
