@@ -60,6 +60,10 @@ scratchpad.md
 
 # SEO position tracking artifact (refresh-gsc-position-rolling.mjs in CI)
 data/gsc-position-rolling.json
+# Gap set completo professione×cantone, riscritto a ogni post-deploy da
+# scripts/monitor-sector-coverage.mjs (#5323). Artefatto di run, non sorgente:
+# lo stato che sopravvive fra due deploy vive nel commento dell'issue canonica.
+data/profession-canton-coverage-gaps.json
 
 # Aggregated data files — assembled at build/deploy time from per-crawler slices
 # (like dist/, these are generated artifacts, not source of truth)
