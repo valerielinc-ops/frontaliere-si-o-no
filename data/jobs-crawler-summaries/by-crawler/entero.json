@@ -1,16 +1,16 @@
 {
   "key": "entero",
   "label": "entero",
-  "generatedAt": "2026-08-07T22:11:03.661Z",
-  "total": 2,
+  "generatedAt": "2026-08-08T09:59:33.249Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3629,
-  "avgDurationMs": 3629,
+  "unchangedCount": 0,
+  "durationMs": 4151,
+  "avgDurationMs": 4151,
   "durationHistory": [
-    3629
+    4151
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.entero.ch/de/karriere/psychotherapeutin-oder-psychotherapeut-80-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T22:11:00.879Z",
+      "crawledAt": "2026-08-08T09:59:30.230Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -53,45 +53,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "entero-77e90faa1d00",
-      "slug": "infermiera-laureata-hf-60-100-entero-egliswil",
-      "company": "entero",
-      "companyKey": "entero",
-      "companyDomain": "entero.ch",
-      "title": "Diplomierte Pflegfachperson HF (60 – 100%)",
-      "location": "Egliswil",
-      "canton": "AG",
-      "url": "https://www.entero.ch/de/karriere/diplomierte-pflegfachperson-hf-60-100",
-      "source": "entero Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:38:53.522Z",
-      "addressLocality": "Egliswil",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5704",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Suchtmedizin / Psychiatrie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-18",
-      "applyUrl": "https://www.entero.ch/de/karriere/diplomierte-pflegfachperson-hf-60-100",
-      "firstSeenAt": "2026-06-18T22:42:56.116Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
