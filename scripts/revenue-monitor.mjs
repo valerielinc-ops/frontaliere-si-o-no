@@ -285,6 +285,30 @@ async function fetchGscMetrics(token) {
 }
 
 /**
+ * Totals for a non-web GSC search type ('discover' | 'googleNews') over the
+ * same 7-day window. `gscQuery` forwards the body verbatim, so `type` rides
+ * along unchanged. Discover supports no query/device dimensions and has no
+ * position; totals need `dimensions: []` only — same shape as the web branch.
+ */
+async function fetchGscSearchTypeTotals(token, type) {
+  const { start, end } = last7Days();
+  const totals = await gscQuery(token, {
+    startDate: start,
+    endDate: end,
+    type,
+    dimensions: [],
+    rowLimit: 1,
+  });
+  const row = totals.rows?.[0];
+  return {
+    window: { start, end },
+    clicks7d: row?.clicks ?? 0,
+    impressions7d: row?.impressions ?? 0,
+    ctrPct: row?.ctr != null ? Number((row.ctr * 100).toFixed(2)) : null,
+  };
+}
+
+/**
  * Bucket GSC rows (dimension=page) into CTR % per URL prefix.
  * Pure function — exported for unit testing.
  */
@@ -427,6 +451,23 @@ export function buildComparisonRows(current, baseline = BASELINE) {
     rows.push({ metric: 'GSC metrics', baseline: '—', current: 'skipped', delta: null, deltaPct: null, verdict: '⚪ auth missing' });
   }
 
+  // Discover / Google News (issue-40 corpus plan, fase 6). Baseline is a REAL
+  // measured zero — 0 clicks / 0 impressions over the 90 days before the
+  // daily edition launched (registered 2026-08-08, GSC API with the
+  // webmasters scope). compare(x, 0) yields an absolute delta with a neutral
+  // verdict (deltaPct needs a nonzero base), so these rows inform without
+  // ever polluting `regressions`. Growth shows up as delta.
+  if (current.gscDiscover) {
+    const d = current.gscDiscover;
+    rows.push({ metric: 'Discover clicks (7d)', baseline: 0, current: d.clicks7d, ...compare(d.clicks7d, 0) });
+    rows.push({ metric: 'Discover impressions (7d)', baseline: 0, current: d.impressions7d, ...compare(d.impressions7d, 0) });
+  }
+  if (current.gscNews) {
+    const n = current.gscNews;
+    rows.push({ metric: 'Google News clicks (7d)', baseline: 0, current: n.clicks7d, ...compare(n.clicks7d, 0) });
+    rows.push({ metric: 'Google News impressions (7d)', baseline: 0, current: n.impressions7d, ...compare(n.impressions7d, 0) });
+  }
+
   if (posthog) {
     // Lower is better for CLS.
     rows.push({ metric: 'CLS p75 mobile', baseline: b.posthog.clsP75Mobile, current: posthog.clsP75Mobile, ...compare(posthog.clsP75Mobile, b.posthog.clsP75Mobile, { higherIsBetter: false }) });
@@ -562,13 +603,30 @@ export function buildHistoryEntry(current, rows, dateStr) {
           estMrrCHF: current.publisher.estMrrCHF ?? null,
         }
       : null,
+    // Discover / Google News (issue-40 corpus plan, fase 6) — additive keys,
+    // same contract as `publisher`: older lines lack them, consumers ignore
+    // unknown keys. Baseline registered at 0/0 (measured, 90 days pre-launch).
+    gscDiscover: current.gscDiscover
+      ? {
+          clicks7d: current.gscDiscover.clicks7d ?? null,
+          impressions7d: current.gscDiscover.impressions7d ?? null,
+          ctrPct: current.gscDiscover.ctrPct ?? null,
+        }
+      : null,
+    gscNews: current.gscNews
+      ? {
+          clicks7d: current.gscNews.clicks7d ?? null,
+          impressions7d: current.gscNews.impressions7d ?? null,
+          ctrPct: current.gscNews.ctrPct ?? null,
+        }
+      : null,
     regressions,
   };
 }
 
 // ── Main ────────────────────────────────────────────────────
 async function main() {
-  const current = { adsense: null, gsc: null, posthog: null, publisher: null, errors: [], warnings: [] };
+  const current = { adsense: null, gsc: null, gscDiscover: null, gscNews: null, posthog: null, publisher: null, errors: [], warnings: [] };
 
   // Publisher stream (issue #4448) — purely local read, no network/auth. Fail-soft
   // like every other source: a broken/missing slice file only adds a warning.
@@ -592,8 +650,24 @@ async function main() {
 
   try {
     const gscToken = await getGscToken();
-    if (gscToken) current.gsc = await fetchGscMetrics(gscToken);
-    else log('⚪', 'GSC skipped (GSC_REFRESH_TOKEN not set)');
+    if (gscToken) {
+      current.gsc = await fetchGscMetrics(gscToken);
+      // Discover + Google News (issue-40 corpus plan, fase 6): fetched
+      // separately and fail-soft per type, so a 4xx on a search type GSC has
+      // not yet activated for the property cannot take down the web metrics.
+      // These two are WHY the daily edition exists — a 90-day zero passed
+      // unobserved precisely because nothing looked at them.
+      try {
+        current.gscDiscover = await fetchGscSearchTypeTotals(gscToken, 'discover');
+      } catch (e) {
+        log('⚪', `GSC discover skipped: ${e.message}`);
+      }
+      try {
+        current.gscNews = await fetchGscSearchTypeTotals(gscToken, 'googleNews');
+      } catch (e) {
+        log('⚪', `GSC news skipped: ${e.message}`);
+      }
+    } else log('⚪', 'GSC skipped (GSC_REFRESH_TOKEN not set)');
   } catch (e) {
     current.errors.push(`gsc: ${e.message}`);
     log('⚠️', `GSC failed: ${e.message}`);
