@@ -32,6 +32,24 @@
 # only on the `## LGTM` string); the red status is an early nudge.
 name: pr-body-contract
 
+# NOTE — draft PRs and the `ready_for_review` trigger, deliberately absent here.
+#
+# The `contract` job below has NO draft gate: the check runs on drafts too, so a
+# draft promoted to ready already carries a verdict and needs nothing re-run.
+# `ready_for_review` would buy only a redundant run per promotion, against the
+# Actions-slot budget this file's Footprint note above is written to protect.
+#
+# The coupling is what matters, and it has no import form — nothing would catch
+# its breakage: **if a `draft == false` gate is ever added to this job** (to stop
+# paying for draft runs — a reasonable future change, and exactly what the corpus
+# repo did), then `ready_for_review` MUST be added to the trigger list in the same
+# change. Otherwise a draft promoted to ready has no event left that starts the
+# check — `synchronize` fires on pushes, not on the draft→ready transition — and
+# unlike `pr-collision-detector.yml` there is no `schedule:` here to recover it.
+# The body would stay unverified for the PR's whole life.
+#
+# nanakokyobashi-rgb/frontaliere-articles has the gate and lacked the trigger:
+# that hole was live there until issue #40 point 8 closed it.
 on:
   pull_request:
     types: [opened, edited, synchronize, reopened]
