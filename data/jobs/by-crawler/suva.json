@@ -1,7 +1,87 @@
 {
   "crawlerKey": "suva",
-  "assembledAt": "2026-08-07T10:11:32.460Z",
+  "assembledAt": "2026-08-08T09:47:18.877Z",
   "jobs": [
+    {
+      "id": "suva-f3ae3c775bc7",
+      "slug": "project-manager-nella-gestione-delle-costruzioni-rappresentanza-cliente-80-100-suva-luzern",
+      "slugByLocale": {
+        "it": "project-manager-nella-gestione-delle-costruzioni-rappresentanza-cliente-80-100-suva-luzern",
+        "en": "project-manager-in-construction-management-client-representation-80-100-suva-luzern",
+        "de": "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern",
+        "fr": "gestionnaire-de-projet-en-gestion-de-la-construction-representation-des-clients-80-100-suva-luzern"
+      },
+      "company": "Suva",
+      "companyKey": "suva",
+      "companyDomain": "suva.ch",
+      "title": "Projektmanager:in Baumanagement / Bauherrenvertretung 80 - 100 %",
+      "titleByLocale": {
+        "it": "Project Manager: nella gestione delle costruzioni / rappresentanza cliente 80 - 100%",
+        "en": "Project Manager: in construction management / client representation 80 - 100%",
+        "de": "Projektmanager:in Baumanagement / Bauherrenvertretung 80 - 100 %",
+        "fr": "Gestionnaire de projet: en gestion de la construction / représentation des clients 80 - 100%"
+      },
+      "description": "Du wirkst du an der Umsetzung der Immobilienstrategie der Suva mit wirtschaftlichen, sozialen und umweltrelevanten Themen aktiv mit.",
+      "descriptionByLocale": {
+        "it": "Partecipate attivamente all’attuazione della strategia immobiliare di Suva con questioni economiche, sociali e ambientali.",
+        "en": "You actively participate in the implementation of Suva’s real estate strategy with economic, social and environmental issues.",
+        "de": "Du wirkst du an der Umsetzung der Immobilienstrategie der Suva mit wirtschaftlichen, sozialen und umweltrelevanten Themen aktiv mit.",
+        "fr": "Vous participez activement à la mise en œuvre de la stratégie immobilière de Suva avec des questions économiques, sociales et environnementales."
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://jobs.suva.ch/job/Luzern-Projektmanagerin-Baumanagement-Bauherrenvertretung-80-100-LU-6004/1409638533/",
+      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-08T09:47:15.321Z",
+      "addressLocality": "Luzern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6004",
+      "streetAddress": "Fluhmattstrasse 1",
+      "category": "Assicurazioni",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-04",
+      "applyUrl": "https://jobs.suva.ch/job/Luzern-Projektmanagerin-Baumanagement-Bauherrenvertretung-80-100-LU-6004/1409638533/",
+      "pensum": "80-100%",
+      "sfJobId": "1409638533",
+      "previousSlugs": [
+        "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern",
+        "project-manager-nella-gestione-delle-costruzioni-rappresentanza-cliente-80-100-suva-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern",
+          "project-manager-nella-gestione-delle-costruzioni-rappresentanza-cliente-80-100-suva-luzern"
+        ],
+        "en": [
+          "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern"
+        ],
+        "fr": [
+          "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:22:43.533Z",
+      "needsRetranslation": true,
+      "salaryMin": 96000,
+      "salaryMax": 146000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "LU"
+    },
     {
       "id": "suva-65d945b51c12",
       "slug": "business-analyst-all-genders-80-100-suva-luzern",
@@ -33,7 +113,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Business-Analyst-%28all-genders%29-80-100-LU-6004/1423303933/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:11:29.835Z",
+      "crawledAt": "2026-08-08T09:47:14.293Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -59,6 +139,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:31:58.744Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -104,7 +185,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Bauingenieurin-Baumeisterin-80%C2%A0-%C2%A0100%C2%A0-LU-6004/1383023233/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:11:28.803Z",
+      "crawledAt": "2026-08-08T09:47:13.214Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -138,6 +219,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:22:44.466Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -183,7 +265,7 @@
       "url": "https://jobs.suva.ch/job/Bern-Rechtsanw%C3%A4ltin-Rechtsanwalt-Milit%C3%A4rversicherung-%28alle-Geschlechter%29-80-100-BE-3008/1415800833/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:11:27.817Z",
+      "crawledAt": "2026-08-08T09:47:12.169Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -262,7 +344,7 @@
       "url": "https://jobs.suva.ch/job/Aarau-Sachbearbeiterin-Pr%C3%A4mien-und-Kundenberatung-80-100-AG-5000/1416616533/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:11:26.829Z",
+      "crawledAt": "2026-08-08T09:47:11.108Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -294,6 +376,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T11:54:49.995Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -339,7 +422,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Medizinischer-Praxisassistentin-60-LU-6004/1417839633/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:11:25.838Z",
+      "crawledAt": "2026-08-08T09:47:10.075Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -418,7 +501,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Quereinsteigerin-Pr%C3%A4vention-100-LU-6004/1422839033/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:11:24.845Z",
+      "crawledAt": "2026-08-08T09:47:09.058Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -502,7 +585,7 @@
       "url": "https://jobs.suva.ch/job/Z%C3%BCrich-Sachbearbeiterin-Kompetenz-Center-Schaden-80-100-ZH-8002/1420591233/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:11:23.829Z",
+      "crawledAt": "2026-08-08T09:47:08.017Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -541,6 +624,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:35:48.939Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -586,7 +670,7 @@
       "url": "https://jobs.suva.ch/job/Winterthur-Spezialistin-Fallf%C3%BChrung-80-100-ZH-8400/1418169633/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:11:22.686Z",
+      "crawledAt": "2026-08-08T09:47:06.988Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -635,85 +719,6 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "suva-f3ae3c775bc7",
-      "slug": "project-manager-nella-gestione-delle-costruzioni-rappresentanza-cliente-80-100-suva-luzern",
-      "slugByLocale": {
-        "it": "project-manager-nella-gestione-delle-costruzioni-rappresentanza-cliente-80-100-suva-luzern",
-        "en": "project-manager-in-construction-management-client-representation-80-100-suva-luzern",
-        "de": "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern",
-        "fr": "gestionnaire-de-projet-en-gestion-de-la-construction-representation-des-clients-80-100-suva-luzern"
-      },
-      "company": "Suva",
-      "companyKey": "suva",
-      "companyDomain": "suva.ch",
-      "title": "Projektmanager:in Baumanagement / Bauherrenvertretung 80 - 100 %",
-      "titleByLocale": {
-        "it": "Project Manager: nella gestione delle costruzioni / rappresentanza cliente 80 - 100%",
-        "en": "Project Manager: in construction management / client representation 80 - 100%",
-        "de": "Projektmanager:in Baumanagement / Bauherrenvertretung 80 - 100 %",
-        "fr": "Gestionnaire de projet: en gestion de la construction / représentation des clients 80 - 100%"
-      },
-      "description": "Du wirkst du an der Umsetzung der Immobilienstrategie der Suva mit wirtschaftlichen, sozialen und umweltrelevanten Themen aktiv mit.",
-      "descriptionByLocale": {
-        "it": "Partecipate attivamente all’attuazione della strategia immobiliare di Suva con questioni economiche, sociali e ambientali.",
-        "en": "You actively participate in the implementation of Suva’s real estate strategy with economic, social and environmental issues.",
-        "de": "Du wirkst du an der Umsetzung der Immobilienstrategie der Suva mit wirtschaftlichen, sozialen und umweltrelevanten Themen aktiv mit.",
-        "fr": "Vous participez activement à la mise en œuvre de la stratégie immobilière de Suva avec des questions économiques, sociales et environnementales."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://jobs.suva.ch/job/Luzern-Projektmanagerin-Baumanagement-Bauherrenvertretung-80-100-LU-6004/1409638533/",
-      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:11:21.695Z",
-      "addressLocality": "Luzern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6004",
-      "streetAddress": "Fluhmattstrasse 1",
-      "category": "Assicurazioni",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://jobs.suva.ch/job/Luzern-Projektmanagerin-Baumanagement-Bauherrenvertretung-80-100-LU-6004/1409638533/",
-      "pensum": "80-100%",
-      "sfJobId": "1409638533",
-      "previousSlugs": [
-        "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern",
-        "project-manager-nella-gestione-delle-costruzioni-rappresentanza-cliente-80-100-suva-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern",
-          "project-manager-nella-gestione-delle-costruzioni-rappresentanza-cliente-80-100-suva-luzern"
-        ],
-        "en": [
-          "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern"
-        ],
-        "fr": [
-          "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:22:43.533Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "LU"
-    },
-    {
       "id": "suva-d11b47eef554",
       "slug": "specialista-finanziario-in-backoffice-alternative-investments-60-suva-luzern",
       "slugByLocale": {
@@ -744,7 +749,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Finanzspezialistin-Backoffice-Alternative-Anlagen-60-LU-6004/1416691333/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:11:20.690Z",
+      "crawledAt": "2026-08-08T09:47:05.978Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -823,7 +828,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Fachperson-Radiologie-80-LU-6004/1412459533/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:11:19.681Z",
+      "crawledAt": "2026-08-08T09:47:04.943Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -902,7 +907,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Teamleiterin-Redaktion-und-Sprachenmanagement-80-100-LU-6004/1410109633/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:11:18.675Z",
+      "crawledAt": "2026-08-08T09:47:03.657Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -934,6 +939,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:22:42.423Z",
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 128500,
       "baseSalary": {
@@ -979,7 +985,7 @@
       "url": "https://jobs.suva.ch/job/Fribourg-Sp%C3%A9cialiste-en-s%C3%A9curit%C3%A9-int%C3%A9gr%C3%A9e-80-100-FR-1700/1409237433/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-07T10:11:17.675Z",
+      "crawledAt": "2026-08-08T09:47:02.657Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -1013,6 +1019,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:22:37.715Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1058,7 +1065,7 @@
       "url": "https://jobs.suva.ch/job/Z%C3%BCrich-Fach%C3%A4rztin-Facharzt-Neurologie-80-100-ZH-8002/1387059033/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:11:16.682Z",
+      "crawledAt": "2026-08-08T09:47:01.672Z",
       "addressLocality": "Winterthur | Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1137,7 +1144,7 @@
       "url": "https://jobs.suva.ch/job/St_-Gallen-Kauffrau-Kaufmann-EFZ-%28alle-Geschlechter%29-100-SG-9000/1376392933/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:11:15.648Z",
+      "crawledAt": "2026-08-08T09:47:00.685Z",
       "addressLocality": "St. Gallen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1176,6 +1183,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:22:49.137Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1221,7 +1229,7 @@
       "url": "https://jobs.suva.ch/job/St_-Gallen-Fach%C3%A4rztin-Facharzt-Psychiatrie-%28alle-Geschlechter%29-80-100-SG-9000/1371896633/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:11:14.660Z",
+      "crawledAt": "2026-08-08T09:46:59.672Z",
       "addressLocality": "San Gallo",
       "addressCountry": "CH",
       "country": "CH",
@@ -1300,7 +1308,7 @@
       "url": "https://jobs.suva.ch/job/Lausanne-M%C3%A9decin-assistant%E2%88%99e-en-m%C3%A9decine-du-travail-80-100-VD-1003/1411281733/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-07T10:11:13.648Z",
+      "crawledAt": "2026-08-08T09:46:58.692Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1331,6 +1339,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T00:25:56.319Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1376,7 +1385,7 @@
       "url": "https://jobs.suva.ch/job/Lausanne-Chef%E2%88%99fe-de-team-m%C3%A9decine-d'assurance-80-100-VD-1003/1398235133/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-07T10:11:12.634Z",
+      "crawledAt": "2026-08-08T09:46:57.694Z",
       "addressLocality": "Genève | Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1453,7 +1462,7 @@
       "url": "https://jobs.suva.ch/job/Lausanne-Teamleiterin-Versicherungsmedizin-80-100-VD-1003/1399745833/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T10:11:11.636Z",
+      "crawledAt": "2026-08-08T09:46:56.676Z",
       "addressLocality": "Genf | Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1532,7 +1541,7 @@
       "url": "https://jobs.suva.ch/job/La-Chaux-de-Fonds-Gestionnaire-centre-de-comp%C3%A9tence-80-100-NE-2300/1387007233/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-07T10:11:10.623Z",
+      "crawledAt": "2026-08-08T09:46:55.675Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressCountry": "CH",
       "country": "CH",
@@ -1568,6 +1577,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:41:56.029Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "baseSalary": {
@@ -1660,7 +1670,7 @@
         }
       },
       "addressRegion": "VD",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
