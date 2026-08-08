@@ -9373,6 +9373,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.areu-cerca-30-assistenti-tecnici.title': 'AREU is looking for 30 technical assistants: Varese and 112 at stake',
     'blog.article.areu-cerca-30-assistenti-tecnici.excerpt': 'The ranking can also be used to cover the needs of the Single Response Centres of the Single Number 112',
     'blog.article.areu-cerca-30-assistenti-tecnici.imageAlt': 'A person sitting in front of a computer with a serious expression, with the background of Lugano',
+    'blog.article.presidente-locarno-film-festival.title': 'Locarno Film Festival: who will be the next president?',
+    'blog.article.presidente-locarno-film-festival.excerpt': 'The Locarno Film Festival is looking for a new president. The rumors chase each other, but no official confirmation.',
+    'blog.article.presidente-locarno-film-festival.imageAlt': 'The Locarno Film Festival with the big screen in Piazza Grande',
 };
 
 export default blogMetaEn;

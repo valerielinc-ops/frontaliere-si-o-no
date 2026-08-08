@@ -9374,6 +9374,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.areu-cerca-30-assistenti-tecnici.title': 'AREU cerca 30 assistenti tecnici: Varese e 112 in gioco',
     'blog.article.areu-cerca-30-assistenti-tecnici.excerpt': 'La graduatoria potrà essere utilizzata anche per coprire le esigenze delle Centrali Uniche di Risposta del Numero unico 112',
     'blog.article.areu-cerca-30-assistenti-tecnici.imageAlt': 'Una persona seduta davanti a un computer con un\'espressione seria, con lo sfondo di Lugano',
+    'blog.article.presidente-locarno-film-festival.title': 'Locarno Film Festival: chi sarà il prossimo presidente?',
+    'blog.article.presidente-locarno-film-festival.excerpt': 'Il Locarno Film Festival cerca un nuovo presidente. Le voci si rincorrono, ma nessuna conferma ufficiale.',
+    'blog.article.presidente-locarno-film-festival.imageAlt': 'Il Locarno Film Festival con il grande schermo in Piazza Grande',
 };
 
 export default blogMetaIt;
