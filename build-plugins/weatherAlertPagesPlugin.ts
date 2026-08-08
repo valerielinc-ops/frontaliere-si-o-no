@@ -21,6 +21,7 @@ import { parseWeatherSnapshot, type AlertState, type WeatherSnapshot } from '../
 import type { Locale } from '../services/weather/wmoCodes';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { newsletterMountPlaceholder } from './shared/newsletterMountPlaceholder';
+import { cdnDataHydrationUrlExpr } from './shared/cdnDataHydrationUrl';
 
 const LOCALES: readonly Locale[] = Object.freeze(['it', 'en', 'de', 'fr']);
 const TITLE_MAX = 66;
@@ -501,7 +502,7 @@ function wrapHtml(opts: WrapOpts & { distDir: string }): string {
   ].join('\n');
   const jsonLdScripts = [JSON.stringify(jsonLd(locale, title, description, canonical, generatedAt))];
   if (breadcrumbs) jsonLdScripts.push(JSON.stringify(breadcrumbJsonLd(breadcrumbs)));
-  const hydrationScript = `<script>window.addEventListener('DOMContentLoaded',function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fetch('/data/weather-snapshot.json').then(function(r){return r.json()}).then(function(d){if(!d||!d.generatedAt)return;var t=document.querySelector('time[datetime]');if(t&&new Date(d.generatedAt)>new Date(t.dateTime)){t.dateTime=d.generatedAt}}).catch(function(){});io.disconnect()}})});var hero=document.querySelector('.alert-state');if(hero)io.observe(hero);});</script>`;
+  const hydrationScript = `<script>window.addEventListener('DOMContentLoaded',function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fetch(${cdnDataHydrationUrlExpr('/data/weather-snapshot.json')}).then(function(r){return r.json()}).then(function(d){if(!d||!d.generatedAt)return;var t=document.querySelector('time[datetime]');if(t&&new Date(d.generatedAt)>new Date(t.dateTime)){t.dateTime=d.generatedAt}}).catch(function(){});io.disconnect()}})});var hero=document.querySelector('.alert-state');if(hero)io.observe(hero);});</script>`;
   return buildSeoPageHtml({
     locale,
     title,

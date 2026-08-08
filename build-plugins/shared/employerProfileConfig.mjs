@@ -16,7 +16,42 @@ export const MIN_ACTIVE_JOBS = 5;
 export const BRIDGE_FLOOR = 2;
 
 /*
- * ── WHY THE FLOOR IS STILL COUNTED IN ANNUNCI AND NOT IN DOMANDA ───────────
+ * ── STATUS, 2026-08-08: HALF OF THIS IS NOW DONE ───────────────────────────
+ *
+ * The numbers below are unchanged and still worth reading — they are why the
+ * obvious implementation is wrong. What HAS changed is that the one missing
+ * piece they name, a company-keyed demand table, now has a scheduled producer
+ * (.github/workflows/refresh-gsc-marquee-demand.yml) and a consumer:
+ * build-plugins/shared/employerDemandSignal.mjs, read by
+ * employerProfilePagesPlugin.ts.
+ *
+ * Exactly one of the two halves is live, and the split follows the blockers
+ * below rather than convenience:
+ *
+ *   HOLD (live). An employer already in `profiles` whose LIVE count has
+ *   drifted into the bridge band keeps its indexable page if it has proven
+ *   demand. This is the drift auto-downgrade at employerProfilePagesPlugin.ts,
+ *   and it is safe because it only ever ADDS to the indexable set: with no
+ *   demand table — the state until the weekly producer first runs — the gate
+ *   is byte-identical to what it was.
+ *
+ *   PROMOTE (still blocked). A BelowFloorRecord still cannot become a full
+ *   page, for the structural reason spelled out further down: the generator
+ *   never computes cantons[]/cities[]/salaryMedianChf for it. Unchanged, and
+ *   still a generator-and-plugin change made together.
+ *
+ *   DEMOTE (still deliberately absent). "Many postings, no demand" does NOT
+ *   noindex anything here. See the last section: it belongs in
+ *   trafficEvidenceFilter.ts, gated on `noindexMinAgeDays`, as a data edit
+ *   with a documented revert — not as a second gate in this file.
+ *
+ * The measured reason `in_marquee_list` is mandatory in the new consumer is
+ * the same false-positive class as the `bell-suisse-sa` case below: on a real
+ * 90-day pull, 1 333 of 1 706 extracted candidates are not on the curated
+ * list, and the top of that group is Basel / Valais / Salute / Logistica —
+ * cantons and professions in the grammatical slot a brand occupies.
+ *
+ * ── WHY THE FLOOR WAS COUNTED IN ANNUNCI AND NOT IN DOMANDA ────────────────
  *
  * Investigated 2026-08-07. The objection is sound on its face: a job count is
  * a proxy for "is there enough here to be a page", not for "does anyone want
@@ -81,13 +116,13 @@ export const BRIDGE_FLOOR = 2;
  *
  * WHAT WOULD UNBLOCK EACH HALF, so this is a decision and not a shrug:
  *
- *   Promotion — needs a company-keyed demand table. The extractor already
- *   exists: scripts/identify-top-marquee-by-gsc.mjs pulls 90 d of queries and
- *   parses employer names out of "{company} jobs" / "lavoro {company}" /
- *   "{company} carriere" shapes, cross-referencing data/marquee-companies-list.json
- *   (which IS committed). Its output, data/gsc-top-marquee-candidates.json, is
- *   not committed and no workflow invokes it, so it is not build input today.
- *   Scheduling it and committing the artifact is a workflow change.
+ *   Promotion — needs a company-keyed demand table. DONE for the HOLD half
+ *   (see the status block at the top): scripts/identify-top-marquee-by-gsc.mjs
+ *   is now scheduled by refresh-gsc-marquee-demand.yml and its output,
+ *   data/gsc-top-marquee-candidates.json, is committed and read at build time
+ *   by employerDemandSignal.mjs. What that table still cannot do is turn a
+ *   BelowFloorRecord into a full page — that is the structural blocker above,
+ *   not a data one, and it is still open.
  *
  *   Demotion — do NOT hand-roll it here. build-plugins/shared/trafficEvidenceFilter.ts
  *   already exposes `FilterDecision.noindex`, gated on `noindexMinAgeDays`

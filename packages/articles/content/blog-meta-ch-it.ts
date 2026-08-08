@@ -1933,6 +1933,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-medi-zurigo-2026-confronto.title': 'Salari medi in Svizzera 2026: focus sul canton Zurigo',
     'blog.article.salari-medi-zurigo-2026-confronto.excerpt': 'Dati ufficiali, aliquote e contributi: come si compone lo stipendio a Zurigo nel 2026. Guida pratica per lavoratori e frontalieri.',
     'blog.article.salari-medi-zurigo-2026-confronto.imageAlt': 'Panorama di Zurigo con grattacieli finanziari e persone in movimento',
+    'blog.article.lindustriaaudiovisivaisundersoppressione.title': 'L\'industria audiovisiva è sotto pressione e fa appello alla politica',
+    'blog.article.lindustriaaudiovisivaisundersoppressione.excerpt': 'Gli esponenti del settore audiovisivo elvetico hanno difeso le loro priorità dinanzi ai responsabili politici riuniti al Locarno Film Festival.',
+    'blog.article.lindustriaaudiovisivaisundersoppressione.imageAlt': 'Una scena del Locarno Film Festival',
+    'blog.article.siccita-foraggio-nasce-borsa-online.title': 'Siccità, nasce la borsa online per il foraggio',
+    'blog.article.siccita-foraggio-nasce-borsa-online.excerpt': 'Le associazioni dei contadini di Zurigo e Sciaffusa lanciano una piattaforma per mettere in contatto allevatori in difficoltà e chi può offrire mangime',
+    'blog.article.siccita-foraggio-nasce-borsa-online.imageAlt': 'Allevatore che cerca foraggio',
+    'blog.article.salario-medio-professioni-svizzera-zurigo-2026.title': 'Salario medio professioni Svizzera 2026: focus Zurigo',
+    'blog.article.salario-medio-professioni-svizzera-zurigo-2026.excerpt': 'Analisi dei salari medi per professione in Svizzera nel 2026, con un focus sul Canton Zurigo. Esploriamo i fattori di variazione, i dati ufficiali e le implicazioni fiscali, considerando il nuovo Accordo Frontalieri in vigore dal 1° GENNAIO 2024.',
+    'blog.article.salario-medio-professioni-svizzera-zurigo-2026.imageAlt': 'Panorama urbano di Zurigo con edifici moderni e persone in movimento, simbolo dell\'attività economica',
+    'blog.article.salario-medio-bern-2026.title': 'Salario medio professioni Svizzera 2026: focus Berna',
+    'blog.article.salario-medio-bern-2026.excerpt': 'Confronto salari medi tra cantoni e settori, con dati ufficiali e fattori di variazione. Focus sul canton Berna.',
+    'blog.article.salario-medio-bern-2026.imageAlt': 'Vista di Berna, Svizzera, con edifici storici e uffici moderni',
+    'blog.article.salario-medio-professioni-svizzera-2026-basilea.title': 'Salario medio professioni Svizzera 2026 canton Basilea',
+    'blog.article.salario-medio-professioni-svizzera-2026-basilea.excerpt': 'Aliquote AVS/AI/IPG 5,3%, AD/AC 1,1% (cap CHF 148\'200), LAINF 0,7–1,5%, LPP 7–18% dal 25 anni. Nuovo Accordo Frontalieri in vigore dal 1 gennaio 2024.',
+    'blog.article.salario-medio-professioni-svizzera-2026-basilea.imageAlt': 'Vista aerea di Basilea con il fiume Reno e il ponte Mittlere Brücke durante l\'ora di punta mattutina',
 };
 
 export default blogMetaChIt;

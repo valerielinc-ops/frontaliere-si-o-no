@@ -9351,6 +9351,21 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bucalettere-centralizzate-anziani-sindacati.title': 'Buffet centralisé : les seniors et les syndicats s\'insurgent',
     'blog.article.bucalettere-centralizzate-anziani-sindacati.excerpt': 'La révision de la loi fédérale sur les postes propose des caisses centralisées. Syndicat Transfair et Fédération des retraités critiques.',
     'blog.article.bucalettere-centralizzate-anziani-sindacati.imageAlt': 'Boîtes aux lettres traditionnelles dans une rue résidentielle de Lugano, Tessin',
+    'blog.article.accise-gasolio-ministeri-mef.title': 'Droits d\'accises sur le gazole : 232 millions des ministères, MEF en tête',
+    'blog.article.accise-gasolio-ministeri-mef.excerpt': 'Le MEF couvre 125 millions de la coupure de 17 centimes sur le gasoil (7-24 août). Voici comment vous répartissez les fonds et ce qui change pour les frontaliers.',
+    'blog.article.accise-gasolio-ministeri-mef.imageAlt': 'Poste-frontière italo-suisse à l\'aube avec panneau de prix du carburant en CHF et voiture d\'un frontalier, montagnes tessinoises en arrière-plan.',
+    'blog.article.calo-frontalieri-italiani-ticino.title': 'Baisse des frontières italiennes au Tessin : les données DE l\'OFS',
+    'blog.article.calo-frontalieri-italiani-ticino.excerpt': 'Les données de l\'OFS montrent une baisse de 0,6 % du nombre de frontaliers au Tessin et de 1,1 % pour les Italiens entre avril et juin par rapport à 2025.',
+    'blog.article.calo-frontalieri-italiani-ticino.imageAlt': 'Vue de la frontière entre l\'Italie et la Suisse à Chiasso avec les flux de frontaliers',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.title': 'Shifting et famille : deux films du Locarno Festival',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.excerpt': 'Les critiques de \'Los días libres\' de Lucila Mariani et \'Ego Reach We Alla du Ghanéen Amartei Armar.',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.imageAlt': 'Promenade au bord du lac de Locarno au coucher du soleil avec le Grand Hôtel et les montagnes en arrière-plan',
+    'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.title': 'Affrontements au Festival turc : 11 Kurdes condamnés à Bâle',
+    'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.excerpt': 'Le tribunal de Bâle a prononcé 11 condamnations à des peines comprises entre 9 et 36 mois pour les heurts violents survenus lors de la fête turque des enfants en mai 2022.',
+    'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.imageAlt': 'Un groupe de personnes d\'origine kurde se rassemble dans une place pendant un festival turc à Bâle, Suisse.',
+    'blog.article.grigioni-frontalieri-calano.title': 'Grisons : le nombre de frontaliers continue de baisser',
+    'blog.article.grigioni-frontalieri-calano.excerpt': 'Le canton des Grisons enregistre une baisse d\'environ 500 frontaliers par rapport au même trimestre de l\'année précédente.',
+    'blog.article.grigioni-frontalieri-calano.imageAlt': 'Un pont sur le lac de Lugano avec un nombre réduit de travailleurs frontaliers.',
 };
 
 export default blogMetaFr;

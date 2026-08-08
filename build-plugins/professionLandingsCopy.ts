@@ -1158,7 +1158,9 @@ const IT_SHELL: LocaleShell = {
     `Guida 2026 per frontalieri al lavoro da ${role} in Ticino: salario medio CHF ${median.toLocaleString('it-CH')}, CCL applicabile, riconoscimento titolo italiano, principali datori di lavoro. Aggiornato ${buildMonthYearLabel('it')}.`,
   h1Template: (role) => `Lavoro da ${role} in Ticino: guida 2026 per frontalieri`,
   ledeTemplate: (s, median, jobs) =>
-    `Stai cercando ${s.descriptor}? Il mercato ticinese assorbe ogni anno centinaia di candidati italiani: nel dataset pubblico di Frontaliere Ticino risultano ${jobs} posizioni attive di recente per questo ruolo, con un salario medio stimato di CHF ${median.toLocaleString('it-CH')} lordi annui. ${s.roleSummary}`,
+    jobs > 0
+      ? `Stai cercando ${s.descriptor}? Il mercato ticinese assorbe ogni anno centinaia di candidati italiani: nel dataset pubblico di Frontaliere Ticino risultano ${jobs} posizioni attive di recente per questo ruolo, con un salario medio stimato di CHF ${median.toLocaleString('it-CH')} lordi annui. ${s.roleSummary}`
+      : `Stai cercando ${s.descriptor}? Il mercato ticinese assorbe ogni anno centinaia di candidati italiani, ma al momento non risultano posizioni attive per questo ruolo nel dataset pubblico di Frontaliere Ticino: il salario di riferimento resta stimabile in CHF ${median.toLocaleString('it-CH')} lordi annui. ${s.roleSummary}`,
   updatedLabel: 'Aggiornato',
   breadcrumbHome: 'Home',
   breadcrumbJobs: 'Lavoro Ticino',
@@ -1186,7 +1188,9 @@ const IT_SHELL: LocaleShell = {
     'Datori di lavoro storici del settore in Ticino — non tutti hanno posizioni aperte oggi; vedi sopra chi sta assumendo ora.',
   sourcesLabel: 'Fonti ufficiali',
   denseLedeTemplate: ({ role, live, fresh30, median }) =>
-    `${live} posizioni aperte per ${role} in Ticino · ${fresh30} nuove negli ultimi 30 giorni · stipendio mediano CHF ${median.toLocaleString('it-CH')} lordi all'anno.`,
+    live > 0
+      ? `${live} posizioni aperte per ${role} in Ticino · ${fresh30} nuove negli ultimi 30 giorni · stipendio mediano CHF ${median.toLocaleString('it-CH')} lordi all'anno.`
+      : `Nessuna posizione aperta al momento per ${role} in Ticino · stipendio mediano di riferimento CHF ${median.toLocaleString('it-CH')} lordi all'anno.`,
   eyebrow: 'Mestiere · Ticino · 2026',
   statTileLiveLabel: 'Offerte aperte',
   statTileSalaryLabel: 'Stipendio mediano',
@@ -1195,7 +1199,7 @@ const IT_SHELL: LocaleShell = {
   statFreshValueFmt: (n) => `${n} nuove`,
   primaryCtaLabel: 'Calcola il tuo netto come frontaliere',
   featuredJobsTitle: 'Offerte in evidenza',
-  featuredJobsCtaAll: (n) => `Vedi tutte le ${n} offerte →`,
+  featuredJobsCtaAll: (n) => (n > 0 ? `Vedi tutte le ${n} offerte →` : 'Vai al job board completo →'),
   featuredJobsEmpty: 'Nessuna offerta indicizzata in questo momento — controlla il job board completo.',
   employerGridTitle: 'Chi assume in Ticino',
   approfondisciHeading: 'La professione in Ticino',
@@ -1217,7 +1221,9 @@ const EN_SHELL: LocaleShell = {
   h1Template: (role) =>
     `${role.charAt(0).toUpperCase()}${role.slice(1)} jobs in Ticino: 2026 cross-border guide`,
   ledeTemplate: (s, median, jobs) =>
-    `Considering ${s.descriptor}? Ticino absorbs hundreds of Italian candidates each year: the Frontaliere Ticino public dataset currently lists ${jobs} recent openings for this role, with an estimated CHF ${median.toLocaleString('en-CH')} gross annual average. ${s.roleSummary}`,
+    jobs > 0
+      ? `Considering ${s.descriptor}? Ticino absorbs hundreds of Italian candidates each year: the Frontaliere Ticino public dataset currently lists ${jobs} recent openings for this role, with an estimated CHF ${median.toLocaleString('en-CH')} gross annual average. ${s.roleSummary}`
+      : `Considering ${s.descriptor}? Ticino absorbs hundreds of Italian candidates each year, though the Frontaliere Ticino public dataset lists no active openings for this role right now: the reference salary still averages an estimated CHF ${median.toLocaleString('en-CH')} gross per year. ${s.roleSummary}`,
   updatedLabel: 'Updated',
   breadcrumbHome: 'Home',
   breadcrumbJobs: 'Ticino jobs',
@@ -1245,7 +1251,9 @@ const EN_SHELL: LocaleShell = {
     'Long-standing sector employers in Ticino — not all have openings today; see above for who is hiring right now.',
   sourcesLabel: 'Official sources',
   denseLedeTemplate: ({ role, live, fresh30, median }) =>
-    `${live} open positions for ${role} in Ticino · ${fresh30} new in the last 30 days · median gross salary CHF ${median.toLocaleString('en-CH')} per year.`,
+    live > 0
+      ? `${live} open positions for ${role} in Ticino · ${fresh30} new in the last 30 days · median gross salary CHF ${median.toLocaleString('en-CH')} per year.`
+      : `No open positions for ${role} in Ticino right now · reference median gross salary CHF ${median.toLocaleString('en-CH')} per year.`,
   eyebrow: 'Profession · Ticino · 2026',
   statTileLiveLabel: 'Open positions',
   statTileSalaryLabel: 'Median salary',
@@ -1254,7 +1262,7 @@ const EN_SHELL: LocaleShell = {
   statFreshValueFmt: (n) => `${n} new`,
   primaryCtaLabel: 'Calculate your cross-border net',
   featuredJobsTitle: 'Featured openings',
-  featuredJobsCtaAll: (n) => `See all ${n} openings →`,
+  featuredJobsCtaAll: (n) => (n > 0 ? `See all ${n} openings →` : 'Browse the full job board →'),
   featuredJobsEmpty: 'No indexed openings right now — check the full job board.',
   employerGridTitle: 'Who is hiring in Ticino',
   approfondisciHeading: 'The profession in Ticino',
@@ -1274,7 +1282,9 @@ const DE_SHELL: LocaleShell = {
     `Grenzgänger-Leitfaden 2026 für ${role} im Tessin: Durchschnittslohn CHF ${median.toLocaleString('de-CH')} brutto/Jahr, geltender GAV, Anerkennung italienischer Diplome, wichtigste Arbeitgeber.`,
   h1Template: (role) => `${role} im Tessin: Grenzgänger-Leitfaden 2026`,
   ledeTemplate: (s, median, jobs) =>
-    `Suchen Sie ${s.descriptor}? Das Tessin beschäftigt jedes Jahr hunderte italienische Kandidaten: der öffentliche Datensatz von Frontaliere Ticino weist derzeit ${jobs} kürzlich offene Stellen für diese Rolle aus, mit einem geschätzten Durchschnittslohn von CHF ${median.toLocaleString('de-CH')} brutto pro Jahr. ${s.roleSummary}`,
+    jobs > 0
+      ? `Suchen Sie ${s.descriptor}? Das Tessin beschäftigt jedes Jahr hunderte italienische Kandidaten: der öffentliche Datensatz von Frontaliere Ticino weist derzeit ${jobs} kürzlich offene Stellen für diese Rolle aus, mit einem geschätzten Durchschnittslohn von CHF ${median.toLocaleString('de-CH')} brutto pro Jahr. ${s.roleSummary}`
+      : `Suchen Sie ${s.descriptor}? Das Tessin beschäftigt jedes Jahr hunderte italienische Kandidaten, auch wenn der öffentliche Datensatz von Frontaliere Ticino für diese Rolle aktuell keine offenen Stellen ausweist: der Richtlohn liegt geschätzt bei CHF ${median.toLocaleString('de-CH')} brutto pro Jahr. ${s.roleSummary}`,
   updatedLabel: 'Aktualisiert',
   breadcrumbHome: 'Startseite',
   breadcrumbJobs: 'Tessin-Jobs',
@@ -1302,7 +1312,9 @@ const DE_SHELL: LocaleShell = {
     'Etablierte Arbeitgeber der Branche im Tessin — nicht alle haben aktuell offene Stellen; wer gerade einstellt, steht oben.',
   sourcesLabel: 'Offizielle Quellen',
   denseLedeTemplate: ({ role, live, fresh30, median }) =>
-    `${live} offene Stellen für ${role} im Tessin · ${fresh30} neu in den letzten 30 Tagen · Medianlohn CHF ${median.toLocaleString('de-CH')} brutto pro Jahr.`,
+    live > 0
+      ? `${live} offene Stellen für ${role} im Tessin · ${fresh30} neu in den letzten 30 Tagen · Medianlohn CHF ${median.toLocaleString('de-CH')} brutto pro Jahr.`
+      : `Derzeit keine offenen Stellen für ${role} im Tessin · Richt-Medianlohn CHF ${median.toLocaleString('de-CH')} brutto pro Jahr.`,
   eyebrow: 'Beruf · Tessin · 2026',
   statTileLiveLabel: 'Offene Stellen',
   statTileSalaryLabel: 'Medianlohn',
@@ -1311,7 +1323,7 @@ const DE_SHELL: LocaleShell = {
   statFreshValueFmt: (n) => `${n} neu`,
   primaryCtaLabel: 'Grenzgänger-Nettolohn berechnen',
   featuredJobsTitle: 'Empfohlene Stellen',
-  featuredJobsCtaAll: (n) => `Alle ${n} Stellen ansehen →`,
+  featuredJobsCtaAll: (n) => (n > 0 ? `Alle ${n} Stellen ansehen →` : 'Zur vollständigen Stellenbörse →'),
   featuredJobsEmpty: 'Derzeit keine indexierten Stellen — siehe vollständige Stellenbörse.',
   employerGridTitle: 'Wer im Tessin einstellt',
   approfondisciHeading: 'Der Beruf im Tessin',
@@ -1333,7 +1345,9 @@ const FR_SHELL: LocaleShell = {
   h1Template: (role) =>
     `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin : guide frontalier 2026`,
   ledeTemplate: (s, median, jobs) =>
-    `Vous cherchez ${s.descriptor} ? Le marché tessinois absorbe chaque année des centaines de candidats italiens : le jeu de données public de Frontaliere Ticino recense ${jobs} postes récents pour ce rôle, avec un salaire moyen estimé à CHF ${median.toLocaleString('fr-CH')} brut par an. ${s.roleSummary}`,
+    jobs > 0
+      ? `Vous cherchez ${s.descriptor} ? Le marché tessinois absorbe chaque année des centaines de candidats italiens : le jeu de données public de Frontaliere Ticino recense ${jobs} postes récents pour ce rôle, avec un salaire moyen estimé à CHF ${median.toLocaleString('fr-CH')} brut par an. ${s.roleSummary}`
+      : `Vous cherchez ${s.descriptor} ? Le marché tessinois absorbe chaque année des centaines de candidats italiens, mais le jeu de données public de Frontaliere Ticino ne recense aucun poste actif pour ce rôle en ce moment : le salaire de référence reste estimé à CHF ${median.toLocaleString('fr-CH')} brut par an. ${s.roleSummary}`,
   updatedLabel: 'Mis à jour',
   breadcrumbHome: 'Accueil',
   breadcrumbJobs: 'Emploi Tessin',
@@ -1361,7 +1375,9 @@ const FR_SHELL: LocaleShell = {
     'Employeurs historiques du secteur au Tessin — tous n\'ont pas de postes ouverts aujourd\'hui ; voir plus haut qui recrute actuellement.',
   sourcesLabel: 'Sources officielles',
   denseLedeTemplate: ({ role, live, fresh30, median }) =>
-    `${live} postes ouverts pour ${role} au Tessin · ${fresh30} nouveaux ces 30 derniers jours · salaire médian CHF ${median.toLocaleString('fr-CH')} brut par an.`,
+    live > 0
+      ? `${live} postes ouverts pour ${role} au Tessin · ${fresh30} nouveaux ces 30 derniers jours · salaire médian CHF ${median.toLocaleString('fr-CH')} brut par an.`
+      : `Aucun poste ouvert pour ${role} au Tessin actuellement · salaire médian de référence CHF ${median.toLocaleString('fr-CH')} brut par an.`,
   eyebrow: 'Métier · Tessin · 2026',
   statTileLiveLabel: 'Postes ouverts',
   statTileSalaryLabel: 'Salaire médian',
@@ -1370,7 +1386,7 @@ const FR_SHELL: LocaleShell = {
   statFreshValueFmt: (n) => `${n} nouveaux`,
   primaryCtaLabel: 'Calculer votre net frontalier',
   featuredJobsTitle: 'Offres mises en avant',
-  featuredJobsCtaAll: (n) => `Voir les ${n} offres →`,
+  featuredJobsCtaAll: (n) => (n > 0 ? `Voir les ${n} offres →` : 'Voir la bourse complète →'),
   featuredJobsEmpty: 'Aucune offre indexée actuellement — consultez la bourse complète.',
   employerGridTitle: 'Qui recrute au Tessin',
   approfondisciHeading: 'Le métier au Tessin',
@@ -1808,9 +1824,10 @@ export function buildProfessionLandingCopy(
   const strings = PROFESSION_STRINGS_BY_LOCALE[locale][id];
   const facts = PROFESSION_FACTS[id];
 
-  // Pick the most informative count: prefer the live aggregate when it has
-  // signal, otherwise fall back to the frozen editorial snapshot.
-  const displayCount = snapshot.liveCount > 0 ? snapshot.liveCount : facts.jobsCount;
+  // Always the live aggregate — NEVER the frozen editorial `facts.jobsCount`.
+  // A genuine zero must render as zero (with zero-aware copy below), not as
+  // a stale count that promises openings the page doesn't have (#5365).
+  const displayCount = snapshot.liveCount;
 
   return {
     title: shell.titleTemplate(strings.role),

@@ -12,7 +12,7 @@
 import { Suspense, useEffect, useRef, useState, type MouseEvent } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Briefcase, Building2, Calendar, CheckCircle2, ChevronDown, Clock, Euro, Eye, Loader2, Mail, MapPin, Search, Shield, Users } from 'lucide-react';
 import { useLocale, t, type Locale } from '@/services/i18n';
-import { useEmployerHub, employerHubAnchor, employerOpenRolesLabel } from '@/hooks/useEmployerHub';
+import EmployerHubCta from '@/components/community/EmployerHubCta';
 import CompanyFollowCta from '@/components/community/CompanyFollowCta';
 import { Analytics } from '@/services/analytics';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
@@ -209,10 +209,9 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  const companySlug = job.company ? `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(job.company)}` : '';
  const companyHref = companySlug ? `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/') : '';
- // The evergreen `/aziende/<slug>/` hub for THIS employer, or null when the
- // build did not emit one (see hooks/useEmployerHub.ts for the floors and for
- // why an unproven link here is a blank page, not a 404).
- const employerHub = useEmployerHub(job.company, job.companyKey, locale as Locale);
+ // The evergreen `/aziende/<slug>/` hub for THIS employer is resolved inside
+ // <EmployerHubCta> (see `employerHubCta` below): the hook lives with the
+ // markup so no surface can hold the hub without rendering it the shared way.
  const locationSlug = jobLocation ? `${LOCATION_ROUTE_PREFIX[locale] || 'localita'}-${slugifyLocationName(jobLocation)}` : '';
  const locationHref = locationSlug ? `${prefix}/${sectionSlug}/${locationSlug}/`.replace(/\/+/g, '/') : '';
 
@@ -379,40 +378,19 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  /**
   * The one link on this page that still leads somewhere permanent.
   *
-  * A real `<a href>` with a full navigation, NOT the SPA `<button>` the company
-  * name in `jobHeader` below uses. The two are opposites on purpose:
-  *
-  *  · `handleCompanyClick` must stay a <button> because the job-board company
-  *    filter for a rotated-out employer may have no static page — the comment
-  *    on that handler explains the 404 → 404.html → BLANK PAGE chain;
-  *  · this one is only ever rendered when `useEmployerHub` FOUND the slug in
-  *    the map employerProfilePagesPlugin writes for the pages it actually
-  *    emitted, so the 404 the <button> guards against is impossible here. That
-  *    proof is what buys back the `<a href>` — and the href is the point:
-  *    middle-click, cmd-click and "open in new tab" all have to work, and a
-  *    crawler has to see a real internal link, which is the entire mechanism
-  *    by which the hub stops being an orphan (571 impressions / 29 clicks in
-  *    28 days across 505 hubs, against 28 826 / 1 257 of matching demand).
+  * The whole thing — the existence proof, the `<a href>`, the anchor and the
+  * analytics label — lives in `components/community/EmployerHubCta.tsx`,
+  * shared with JobOrphanView and with the ACTIVE ad in JobBoard. Read that
+  * file for why it is an `<a href>` while the company NAME below stays a
+  * `<button>`: the two are opposites on purpose, and only the hub has the
+  * emitted-page proof that makes a full navigation safe.
   *
   * Rendered inside `jobHeader`, so it lands directly under the job title in
   * BOTH layouts — including the logged-out auth gate, where it is the only
   * useful destination a visitor can reach without signing in.
   */
- const employerHubCta = employerHub && job.company && (
- <a
- href={employerHub.href}
- onClick={() => Analytics.trackSelectContent('employer_hub_open', employerHub.slug)}
- className="mt-3 flex items-center gap-2.5 rounded-xl border border-accent-border bg-accent-subtle px-3.5 py-3 min-h-[44px] text-sm font-semibold text-accent hover:bg-accent-subtle/70 transition-colors"
- >
- <Building2 size={16} className="shrink-0" aria-hidden="true" />
- <span className="min-w-0 flex-1">
- {employerHubAnchor(job.company, locale as Locale)}
- <span className="block text-xs font-normal text-subtle mt-0.5">
- {employerOpenRolesLabel(employerHub.activeJobs, locale as Locale)}
- </span>
- </span>
- <ArrowRight size={14} className="shrink-0" aria-hidden="true" />
- </a>
+ const employerHubCta = (
+ <EmployerHubCta company={job.company} companyKey={job.companyKey} locale={locale as Locale} />
  );
 
  const jobHeader = (

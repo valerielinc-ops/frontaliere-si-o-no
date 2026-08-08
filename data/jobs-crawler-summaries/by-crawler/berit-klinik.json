@@ -1,16 +1,16 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-08-07T21:50:06.104Z",
+  "generatedAt": "2026-08-08T10:00:50.474Z",
   "total": 12,
   "newCount": 0,
   "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5158,
-  "avgDurationMs": 5158,
+  "durationMs": 6560,
+  "avgDurationMs": 6560,
   "durationHistory": [
-    5158
+    6560
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -455,7 +455,7 @@
       "salaryMin": 110500,
       "salaryMax": 154000,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {

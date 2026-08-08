@@ -9349,6 +9349,21 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bucalettere-centralizzate-anziani-sindacati.title': 'Centralized Bucalettere: Elderly people and trade unions arise',
     'blog.article.bucalettere-centralizzate-anziani-sindacati.excerpt': 'The revision of the Federal Postal Law proposes centralized boxes. Transfair Trade Union and Federation of Critical Pensioners.',
     'blog.article.bucalettere-centralizzate-anziani-sindacati.imageAlt': 'Traditional mailboxes on a residential street in Lugano, Ticino',
+    'blog.article.accise-gasolio-ministeri-mef.title': 'Diesel excise: 232 million from ministries, MEF in the lead',
+    'blog.article.accise-gasolio-ministeri-mef.excerpt': 'The MEF covers 125 million of the 17 cent cut on diesel (7-24 August). Here\'s how you split the funds and what changes for border workers.',
+    'blog.article.accise-gasolio-ministeri-mef.imageAlt': 'Italian-Swiss border crossing at dawn with fuel price sign in CHF and a cross-border commuter car, Ticino mountains in background.',
+    'blog.article.calo-frontalieri-italiani-ticino.title': 'Decrease in Italian border crossers in Ticino: UST DATA',
+    'blog.article.calo-frontalieri-italiani-ticino.excerpt': 'UST data show a decrease of 0.6% for border crossers in Ticino and 1.1% for Italians between April and June compared to 2025.',
+    'blog.article.calo-frontalieri-italiani-ticino.imageAlt': 'View of the border between Italy and Switzerland in Chiasso with commuter flows',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.title': 'Shifting and family: two films from the Locarno Festival',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.excerpt': 'The reviews of \'Los días libres\' by Lucila Mariani and \'Ego Reach We All\' by Ghanaian Amartei Armar.',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.imageAlt': 'Locarno lakeside promenade at sunset with the Grand Hotel and mountains in the background',
+    'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.title': 'Clashes at the Turkish Festival: 11 Kurds sentenced in Basel',
+    'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.excerpt': 'The court in Basel handed down 11 sentences ranging from 9 to 36 months for the violent clashes that broke out during the Turkish Children\'s Day in May 2022.',
+    'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.imageAlt': 'A group of people of Kurdish ethnicity gather in a square during a Turkish festival in Basel, Switzerland.',
+    'blog.article.grigioni-frontalieri-calano.title': 'Graubünden: the number of border crossers is still falling',
+    'blog.article.grigioni-frontalieri-calano.excerpt': 'The Canton of Graubünden recorded a decrease of about 500 border crossers compared to the same quarter of the previous year.',
+    'blog.article.grigioni-frontalieri-calano.imageAlt': 'A bridge over the high lake of Lugano with a reduced number of cross-border workers.',
 };
 
 export default blogMetaEn;

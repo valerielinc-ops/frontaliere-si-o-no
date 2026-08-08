@@ -27,7 +27,7 @@
 import { describe, it, expect } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import { resolve, join } from 'node:path';
-import { mkdtempSync, mkdirSync, writeFileSync, readFileSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, symlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import YAML from 'yaml';
 
@@ -296,6 +296,208 @@ describe('wait-cdn-build-id.sh — a near miss is not the same green as a comfor
     expect(r.outputs.injected).toBeUndefined();
     expect(r.outputs.cdn_last_seen).not.toMatch(/[=$`'"\s/()]/);
     expect(r.outputs.cdn_wait_result).toBe('timeout');
+  });
+});
+
+// ── #5331: the gate must not wait out an event that is already impossible ────
+//
+// Run 31202386246: `build-locale (it)` ended in FAILURE at 18:07:04; the fr
+// leg's gate had started at 18:04:25 and polled on until 18:50:17. Forty-three
+// of those forty-five minutes were spent waiting for a marker that nothing was
+// left to write, and the run then reported a bare "timeout" — the same shape a
+// slow-but-alive IT leg produces, which is why triage went to the fr shard repo.
+//
+// The danger in fixing this is publishing a shard AHEAD of the CDN, i.e. undoing
+// #2569. So every test below comes with the negative case that would catch an
+// over-eager abort: "still running", "job absent", "API down" and "conclusion
+// null" must ALL keep waiting, and a marker that matches must win even when the
+// IT leg is dead.
+function fakeGh(payload: unknown | null): string {
+  const dir = mkdtempSync(join(tmpdir(), 'fake-gh-'));
+  writeFileSync(join(dir, 'payload.json'), payload === null ? '' : JSON.stringify(payload));
+  // Applies the REAL --jq filter to the payload, so these tests exercise the
+  // script's actual selection predicate rather than a stub of it. `payload:
+  // null` stands for a failing API call (403 / rate limit / network).
+  writeFileSync(
+    join(dir, 'gh'),
+    [
+      '#!/usr/bin/env bash',
+      `if [ ! -s "${join(dir, 'payload.json')}" ]; then echo "gh: HTTP 403" >&2; exit 1; fi`,
+      'filter="."',
+      'while [ $# -gt 0 ]; do case "$1" in --jq) filter="$2"; shift 2 ;; *) shift ;; esac; done',
+      `jq -r "$filter" < "${join(dir, 'payload.json')}"`,
+    ].join('\n'),
+    { mode: 0o755 },
+  );
+  return dir;
+}
+
+/**
+ * A PATH holding the gate's real dependencies (curl/tr/cut/sleep) but NO `gh`,
+ * so the "gh CLI not on PATH" precondition can be tested without also breaking
+ * the polling the assertion depends on.
+ */
+function pathWithoutGh(): string {
+  const dir = mkdtempSync(join(tmpdir(), 'no-gh-bin-'));
+  for (const tool of ['curl', 'tr', 'cut', 'sleep', 'bash']) {
+    const real = execFileSync('sh', ['-c', `command -v ${tool}`], { encoding: 'utf8' }).trim();
+    symlinkSync(real, join(dir, tool));
+  }
+  return dir;
+}
+
+/** A jobs-API response containing one IT leg in the given state. */
+function jobsPayload(status: string, conclusion: string | null) {
+  return {
+    jobs: [
+      { name: 'prep', status: 'completed', conclusion: 'success' },
+      { name: 'build-locale (it)', status, conclusion },
+      { name: 'build-locale (fr)', status: 'in_progress', conclusion: null },
+    ],
+  };
+}
+
+/** Gate env wired for the abort, pointed at a fake `gh` serving `payload`. */
+function abortEnv(payload: unknown | null, marker: string, expectedId: string) {
+  return {
+    PATH: `${fakeGh(payload)}:${process.env.PATH ?? ''}`,
+    CDN_BUILD_ID_URL: markerUrl(marker),
+    CDN_IT_JOB_NAME: 'build-locale (it)',
+    GH_TOKEN: 'fake-token',
+    GITHUB_REPOSITORY: 'valerielinc-ops/frontaliere-si-o-no',
+    GITHUB_RUN_ID: '31202386246',
+    // Deliberately generous: an abort that works must finish in a fraction of
+    // it, and a missed abort must be visible as "spent the whole budget".
+    CDN_WAIT_TIMEOUT_S: '6',
+    CDN_WAIT_INTERVAL_S: '1',
+    CDN_IT_CHECK_EVERY_N: '1',
+    _expected: expectedId,
+  };
+}
+
+describe('wait-cdn-build-id.sh — abort the moment the IT leg can no longer publish (#5331)', () => {
+  it('IT leg completed+failure → aborts on the FIRST poll instead of burning the budget', () => {
+    const { _expected, ...env } = abortEnv(jobsPayload('completed', 'failure'), 'an-older-build-id', 'the-new-build-id');
+    const t0 = Date.now();
+    const r = runGate([_expected], env);
+    expect(r.code, 'an aborted gate must still NOT let the shard publish').toBe(1);
+    // The whole point: 0s waited against a 6s budget. Before #5331 this was 6s
+    // (2700s in production).
+    expect(r.outputs.cdn_waited_s, 'must abort on the first poll, not at the budget').toBe('0');
+    expect(Date.now() - t0, 'must return well before the budget elapses').toBeLessThan(5000);
+    expect(r.outputs.cdn_wait_result).toBe('it_leg_failed');
+    expect(r.outputs.cdn_it_conclusion).toBe('failure');
+    expect(r.stdout).toMatch(/::error title=CDN ordering gate ABORTED \(IT leg failure\)::/);
+    // Triage must land on the IT leg, not on this shard's deploy key.
+    expect(r.summary).toMatch(/#5331/);
+    expect(r.summary).toMatch(/Look at the IT leg/);
+    expect(r.summary, 'the shard is still unpublished and the locale still stale').toMatch(/STALE/);
+  });
+
+  it('cancelled and timed_out count as dead too (same "ran and died" shape)', () => {
+    for (const conclusion of ['cancelled', 'timed_out']) {
+      const { _expected, ...env } = abortEnv(jobsPayload('completed', conclusion), 'old', 'new');
+      const r = runGate([_expected], env);
+      expect(r.code, `${conclusion} must not publish`).toBe(1);
+      expect(r.outputs.cdn_wait_result, `${conclusion} must abort early`).toBe('it_leg_failed');
+      expect(r.outputs.cdn_it_conclusion).toBe(conclusion);
+    }
+  });
+
+  // ── The four "not yet seen" shapes. Any one of these aborting would publish
+  //    a shard ahead of the CDN — the exact defect #2569 exists to prevent.
+  it.each([
+    ['still in_progress', jobsPayload('in_progress', null)],
+    ['queued', jobsPayload('queued', null)],
+    ['completed but successful', jobsPayload('completed', 'success')],
+    ['completed with a null conclusion', jobsPayload('completed', null)],
+    ['skipped (never ran — not the "ran and died" shape)', jobsPayload('completed', 'skipped')],
+    ['absent from the response entirely', { jobs: [{ name: 'prep', status: 'completed', conclusion: 'success' }] }],
+    ['an empty job list', { jobs: [] }],
+    ['a body with no jobs key at all', { message: 'Not Found' }],
+    ['a failing API call', null],
+  ])('NEGATIVE CASE — %s → keeps waiting and ends as a plain timeout, never an abort', (_label, payload) => {
+    const { _expected, ...env } = abortEnv(payload, 'an-older-build-id', 'the-new-build-id');
+    const r = runGate([_expected], env);
+    expect(r.code, 'still must not publish — but for the OLD reason').toBe(1);
+    expect(r.outputs.cdn_wait_result, 'must NOT claim the IT leg is dead').toBe('timeout');
+    expect(r.outputs.cdn_it_conclusion).toBeUndefined();
+    // Spent the whole budget: proof it really kept polling rather than
+    // short-circuiting on an ambiguous answer.
+    expect(r.outputs.cdn_waited_s).toBe('6');
+    expect(r.stdout).not.toMatch(/ABORTED/);
+  });
+
+  it('RACE — a marker that matches wins even when the IT leg is already dead', () => {
+    // The IT leg pushes the CDN payload early (deploy-it-pages-prep.sh's
+    // DEPLOY_CDN_PUSH_ONLY phase) and can still fail in a LATER step. The
+    // payload IS live, so the shard is safe to publish and the abort must not
+    // steal that. This is why the jobs API is consulted BEFORE the marker poll:
+    // the marker read is the last word.
+    const { _expected, ...env } = abortEnv(jobsPayload('completed', 'failure'), 'the-new-build-id', 'the-new-build-id');
+    const r = runGate([_expected], env);
+    expect(r.code, 'the CDN holds this build — publishing is correct').toBe(0);
+    expect(r.outputs.cdn_wait_result).toBe('matched');
+    expect(r.stdout).not.toMatch(/ABORTED/);
+  });
+
+  it('the abort is OFF unless every precondition is met, and says which one is missing', () => {
+    // 1s budget, not the 6s used above: this test asserts WHICH precondition is
+    // reported, and each of the four cases has to run the budget out.
+    const base = { ...abortEnv(jobsPayload('completed', 'failure'), 'old', 'new'), CDN_WAIT_TIMEOUT_S: '1' };
+    const cases: [string, Record<string, string>, RegExp][] = [
+      ['CDN_IT_JOB_NAME unset', { CDN_IT_JOB_NAME: '' }, /CDN_IT_JOB_NAME unset/],
+      ['no token', { GH_TOKEN: '', GITHUB_TOKEN: '' }, /no GH_TOKEN/],
+      ['not an Actions run', { GITHUB_RUN_ID: '' }, /GITHUB_REPOSITORY\/GITHUB_RUN_ID unset/],
+      // Not `PATH: ''` — the gate still needs curl/tr/cut/sleep to do its job.
+      // This PATH has those and ONLY those, so `gh` is genuinely absent.
+      ['gh missing', { PATH: pathWithoutGh() }, /gh CLI not on PATH/],
+    ];
+    for (const [label, override, why] of cases) {
+      const { _expected, ...env } = { ...base, ...override };
+      const r = runGate([_expected], env);
+      // Degrades to the pre-#5331 behaviour — never to an early publish.
+      expect(r.code, `${label}: must still refuse to publish`).toBe(1);
+      expect(r.outputs.cdn_wait_result, `${label}: must fall back to the plain timeout`).toBe('timeout');
+      expect(r.stdout, `${label}: must name the missing precondition`).toMatch(why);
+    }
+  });
+});
+
+describe('deploy.yml — the #5331 abort is actually wired to the gate step', () => {
+  it('the gate step gets the IT job name, a token, and the job gets actions: read', () => {
+    const gate = step('Wait for IT CDN push (cross-shard ordering guard)');
+    // The job DISPLAY name, which is what the jobs API returns for a matrix leg.
+    expect(gate, 'gate must know which job to watch').toMatch(/CDN_IT_JOB_NAME: build-locale \(it\)/);
+    expect(gate, 'the jobs API call needs a token').toMatch(/GH_TOKEN: \$\{\{ secrets\.GITHUB_TOKEN \}\}/);
+    const jobStart = DEPLOY_YML.indexOf('\n  build-locale:');
+    expect(jobStart, 'build-locale job not found').toBeGreaterThan(-1);
+    const job = DEPLOY_YML.slice(jobStart, DEPLOY_YML.indexOf('\n    steps:', jobStart));
+    expect(job, 'reading this run’s job list needs actions: read').toMatch(/^ {6}actions: read$/m);
+  });
+
+  it('the name in CDN_IT_JOB_NAME matches a real matrix job, so a rename cannot silently disarm it', () => {
+    const doc = YAML.parse(DEPLOY_YML) as { jobs: Record<string, { strategy?: { matrix?: unknown } }> };
+    // `build-locale (it)` = job key + the matrix value in parentheses. Both
+    // halves must exist; a wrong name would disarm the abort (safe, but silent),
+    // which is exactly what this assertion is here to stop.
+    expect(Object.keys(doc.jobs), 'the watched job key must exist').toContain('build-locale');
+    expect(doc.jobs['build-locale'].strategy?.matrix, 'build-locale must still be a matrix job').toBeTruthy();
+    expect(DEPLOY_YML, 'the matrix must still be keyed on `locale`').toMatch(/matrix:\n\s+locale:/);
+  });
+
+  it('the surfacing step distinguishes the two failure shapes in the issue it files', () => {
+    const s = step('Surface an unpublished locale shard (#2569 CDN ordering gate timed out)');
+    // Both outputs bound via env: (never interpolated into run: text) — the same
+    // rule the cdn_last_seen test above pins for network-sourced values.
+    expect(s).toMatch(/CDN_IT_CONCLUSION: \$\{\{ steps\.cdn-gate\.outputs\.cdn_it_conclusion \}\}/);
+    expect(s).toMatch(/CDN_WAIT_RESULT: \$\{\{ steps\.cdn-gate\.outputs\.cdn_wait_result \}\}/);
+    // A gate that aborted in 3 minutes must not be described as having spent
+    // its budget: that wording is what makes a reader reach for the shard repo.
+    expect(s, 'the body must branch on whether the IT conclusion was read').toMatch(
+      /if \[ -n "\$\{CDN_IT_CONCLUSION:-\}" \]/,
+    );
+    expect(s, 'the abort branch must name the IT leg as the thing to fix').toMatch(/Fix the IT leg/);
   });
 });
 

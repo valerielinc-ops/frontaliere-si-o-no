@@ -9350,6 +9350,21 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bucalettere-centralizzate-anziani-sindacati.title': 'Bucalettere centralizzate: anziani e sindacati insorgono',
     'blog.article.bucalettere-centralizzate-anziani-sindacati.excerpt': 'La revisione della legge federale sulle poste propone cassette centralizzate. Sindacato Transfair e Federazione dei pensionati critici.',
     'blog.article.bucalettere-centralizzate-anziani-sindacati.imageAlt': 'Cassette postali tradizionali in una via residenziale di Lugano, Ticino',
+    'blog.article.accise-gasolio-ministeri-mef.title': 'Accise gasolio: 232 milioni dai ministeri, Mef in testa',
+    'blog.article.accise-gasolio-ministeri-mef.excerpt': 'Il Mef copre 125 milioni del taglio di 17 centesimi sul gasolio (7-24 agosto). Ecco come ripartiti i fondi e cosa cambia per i frontalieri.',
+    'blog.article.accise-gasolio-ministeri-mef.imageAlt': 'Valico di confine italo-svizzero all\'alba con cartello carburante in CHF e auto di un frontaliere, montagne ticinesi sullo sfondo.',
+    'blog.article.calo-frontalieri-italiani-ticino.title': 'Calo frontalieri italiani in Ticino: i dati dell\'UST',
+    'blog.article.calo-frontalieri-italiani-ticino.excerpt': 'I dati UST mostrano un calo dello 0,6% dei frontalieri in Ticino e dell\'1,1% per gli italiani tra aprile e giugno rispetto al 2025.',
+    'blog.article.calo-frontalieri-italiani-ticino.imageAlt': 'Vista del confine tra Italia e Svizzera a Chiasso con flussi di frontalieri',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.title': 'Shifting e famiglia: due film dal Locarno Festival',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.excerpt': 'Le recensioni di \'Los días libres\' di Lucila Mariani e \'Ego Reach We All\' del ghanese Amartei Armar.',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.imageAlt': 'Lungolago di Locarno al tramonto con il Gran Hotel e le montagne sullo sfondo',
+    'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.title': 'Scontri al Festival turco: 11 curdi condannati a Basilea',
+    'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.excerpt': 'Il tribunale di Basilea ha pronunciato 11 condanne a pene tra 9 e 36 mesi per gli scontri violenti scoppiati durante la festa turca dei bambini nel maggio 2022.',
+    'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.imageAlt': 'Un gruppo di persone di etnia curda si riunisce in una piazza durante un festival turco a Basilea, Svizzera.',
+    'blog.article.grigioni-frontalieri-calano.title': 'Grigioni: scende ancora il numero di frontalieri',
+    'blog.article.grigioni-frontalieri-calano.excerpt': 'Il Canton Grigioni registra un calo di circa 500 frontalieri rispetto allo stesso trimestre dell\'anno precedente.',
+    'blog.article.grigioni-frontalieri-calano.imageAlt': 'Un ponte sull\'alto lago di Lugano con un numero ridotto di frontalieri.',
 };
 
 export default blogMetaIt;

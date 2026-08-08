@@ -9348,6 +9348,21 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bucalettere-centralizzate-anziani-sindacati.title': 'Zentrale Briefkästen: Ältere Menschen und Gewerkschaften erheben sich',
     'blog.article.bucalettere-centralizzate-anziani-sindacati.excerpt': 'Die Revision des Bundespostgesetzes schlägt zentrale Briefkästen vor. Gewerkschaft Transfair und Verband der kritischen Rentner.',
     'blog.article.bucalettere-centralizzate-anziani-sindacati.imageAlt': 'Traditionelle Briefkästen in einer Wohnstraße in Lugano, Tessin',
+    'blog.article.accise-gasolio-ministeri-mef.title': 'Diesel-Akzise: 232 Mio. von Ministerien, MEF vorn',
+    'blog.article.accise-gasolio-ministeri-mef.excerpt': 'Die Mef deckt 125 Millionen der Kürzung von 17 Cent auf Dieselkraftstoff (7. bis 24. August) ab. So verteilen Sie die Mittel und was sich für die Grenzgänger ändert.',
+    'blog.article.accise-gasolio-ministeri-mef.imageAlt': 'Grenzübergang Italien-Schweiz im Morgengrauen mit Treibstoffpreisschild in CHF und Auto eines Grenzgängers, Tessiner Berge im Hintergrund.',
+    'blog.article.calo-frontalieri-italiani-ticino.title': 'Rückgang der italienischen Grenzgänger im Tessin: die Daten des BfS',
+    'blog.article.calo-frontalieri-italiani-ticino.excerpt': 'Die USt-Daten zeigen einen Rückgang von 0,6% bei den Grenzgängern im Tessin und von 1,1% bei den Italienern zwischen April und Juni im Vergleich zu 2025.',
+    'blog.article.calo-frontalieri-italiani-ticino.imageAlt': 'Blick auf die Grenze zwischen Italien und der Schweiz in Chiasso mit Pendlerströmen',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.title': 'Shifting und Familie: zwei Filme vom Locarno Festival',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.excerpt': 'Die Rezensionen von \'Los días libres\' von Lucila Mariani und \'Ego Reach We Alla des Ghanaers Amartei Armar.',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.imageAlt': 'Locarno Seepromenade bei Sonnenuntergang mit dem Grand Hotel und den Bergen im Hintergrund',
+    'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.title': 'Auseinandersetzungen beim Türkischen Festival: 11 Kurden in Basel verurteilt',
+    'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.excerpt': 'Das Basler Gericht hat wegen gewaltsamer Auseinandersetzungen während des türkischen Kinderfestes im Mai 2022 11 Urteile zu Strafen zwischen 9 und 36 Monaten ausgesprochen.',
+    'blog.article.scontri-al-festival-turco-11-curdi-condannati-a-basilea.imageAlt': 'Ein Gruppe von Menschen kurdischer Ethnie versammelt sich in einer Piazza während eines türkischen Festivals in Basel, Schweiz.',
+    'blog.article.grigioni-frontalieri-calano.title': 'Graubünden: Zahl der Grenzgänger sinkt weiter',
+    'blog.article.grigioni-frontalieri-calano.excerpt': 'Der Kanton Graubünden verzeichnet einen Rückgang von rund 500 Grenzgängern gegenüber dem Vorjahresquartal.',
+    'blog.article.grigioni-frontalieri-calano.imageAlt': 'Ein Brücke über den hohen See von Lugano mit einer reduzierten Anzahl von Grenzgängern.',
 };
 
 export default blogMetaDe;

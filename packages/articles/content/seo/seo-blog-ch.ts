@@ -25016,6 +25016,201 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lindustriaaudiovisivaisundersoppressione': {
+    title: 'L\'industria audiovisiva è sotto pressione e fa appello alla politica',
+    description: 'Gli esponenti del settore audiovisivo elvetico hanno difeso le loro priorità dinanzi ai responsabili politici riuniti al Locarno Film Festival. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, industria, audiovisiva, sotto, pressione',
+    ogTitle: 'L\'industria audiovisiva è sotto pressione e fa appello alla politica',
+    ogDescription: 'Gli esponenti del settore audiovisivo elvetico hanno difeso le loro priorità dinanzi ai responsabili politici riuniti al Locarno Film Festival.',
+    canonicalPath: '/articoli-svizzera/lindustriaaudiovisivaisundersoppressione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'industria audiovisiva è sotto pressione e fa appello alla politica",
+      "description": "Gli esponenti del settore audiovisivo elvetico hanno difeso le loro priorità dinanzi ai responsabili politici riuniti al Locarno Film Festival. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lindustriaaudiovisivaisundersoppressione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena del Locarno Film Festival"
+      },
+      "datePublished": "2026-08-08T00:40:33+00:00",
+      "dateModified": "2026-08-08T00:40:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lindustriaaudiovisivaisundersoppressione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-siccita-foraggio-nasce-borsa-online': {
+    title: 'Siccità, nasce la borsa online per il foraggio',
+    description: 'La siccità mette a dura prova il settore agricolo in Svizzera. Le associazioni dei contadini di Zurigo e Sciaffusa lanciano una borsa online per il foraggio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, nasce, borsa, online',
+    ogTitle: 'Siccità, nasce la borsa online per il foraggio',
+    ogDescription: 'La siccità mette a dura prova il settore agricolo in Svizzera. Le associazioni dei contadini di Zurigo e Sciaffusa lanciano una borsa online per il foraggio.',
+    canonicalPath: '/articoli-svizzera/siccita-foraggio-nasce-borsa-online/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità, nasce la borsa online per il foraggio",
+      "description": "La siccità mette a dura prova il settore agricolo in Svizzera. Le associazioni dei contadini di Zurigo e Sciaffusa lanciano una borsa online per il foraggio.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/siccita-foraggio-nasce-borsa-online.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Allevatore che cerca foraggio"
+      },
+      "datePublished": "2026-08-08T02:21:27+00:00",
+      "dateModified": "2026-08-08T02:21:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/siccita-foraggio-nasce-borsa-online/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salario-medio-professioni-svizzera-zurigo-2026': {
+    title: 'Salario medio professioni Svizzera 2026: focus Zurigo',
+    description: 'Scopri i salari medi per professione in Svizzera nel 2026, con un\'analisi dettagliata per il Canton Zurigo. Informazioni su contributi sociali, imposte e',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, medio, professioni, focus',
+    ogTitle: 'Salario medio professioni Svizzera 2026: focus Zurigo',
+    ogDescription: 'Approfondimento sui salari medi in Svizzera per il 2026, con attenzione al Canton Zurigo. Dati su contributi, fiscalità e il Nuovo Accordo Frontalieri in vigore',
+    canonicalPath: '/articoli-svizzera/salario-medio-professioni-svizzera-zurigo-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario medio professioni Svizzera 2026: focus Zurigo",
+      "description": "Scopri i salari medi per professione in Svizzera nel 2026, con un'analisi dettagliata per il Canton Zurigo. Informazioni su contributi sociali, imposte e",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salario-medio-professioni-svizzera-zurigo-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama urbano di Zurigo con edifici moderni e persone in movimento, simbolo dell'attività economica"
+      },
+      "datePublished": "2026-08-08T03:23:10+00:00",
+      "dateModified": "2026-08-08T03:23:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salario-medio-professioni-svizzera-zurigo-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salario-medio-bern-2026': {
+    title: 'Salario medio professioni Svizzera 2026: focus Berna',
+    description: 'Confronto salari medi per professione in Svizzera nel 2026, con focus sul canton Berna, contributi sociali e implicazioni per i frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, medio, professioni, focus',
+    ogTitle: 'Salario medio professioni Svizzera 2026: focus Berna',
+    ogDescription: 'Confronto salari medi per professione in Svizzera nel 2026, con focus sul canton Berna, contributi sociali e implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-svizzera/salario-medio-bern-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario medio professioni Svizzera 2026: focus Berna",
+      "description": "Confronto salari medi per professione in Svizzera nel 2026, con focus sul canton Berna, contributi sociali e implicazioni per i frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salario-medio-bern-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Berna, Svizzera, con edifici storici e uffici moderni"
+      },
+      "datePublished": "2026-08-08T04:11:23+00:00",
+      "dateModified": "2026-08-08T04:11:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salario-medio-bern-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salario-medio-professioni-svizzera-2026-basilea': {
+    title: 'Salario medio professioni Svizzera 2026 canton Basilea',
+    description: 'Aliquote AVS/AI/IPG 5,3%, AD/AC 1,1% (cap CHF 148\'200), LAINF 0,7–1,5%, LPP 7–18%. Nuovo Accordo Frontalieri in vigore dal 1 gennaio 2024. Dati ufficiali per',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, medio, professioni, canton',
+    ogTitle: 'Salario medio professioni Svizzera 2026 canton Basilea',
+    ogDescription: 'Scopri le aliquote contributive svizzere (AVS/AI/IPG 5,3%, AD/AC 1,1%), i dettagli del Nuovo Accordo Frontalieri in vigore dal 1 gennaio 2024 e come evitare la',
+    canonicalPath: '/articoli-svizzera/salario-medio-professioni-svizzera-2026-basilea/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario medio professioni Svizzera 2026 canton Basilea",
+      "description": "Aliquote AVS/AI/IPG 5,3%, AD/AC 1,1% (cap CHF 148'200), LAINF 0,7–1,5%, LPP 7–18%. Nuovo Accordo Frontalieri in vigore dal 1 gennaio 2024. Dati ufficiali per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salario-medio-professioni-svizzera-2026-basilea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Basilea con il fiume Reno e il ponte Mittlere Brücke durante l'ora di punta mattutina"
+      },
+      "datePublished": "2026-08-08T05:19:38+00:00",
+      "dateModified": "2026-08-08T05:19:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salario-medio-professioni-svizzera-2026-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

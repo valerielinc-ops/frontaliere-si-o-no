@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-08-07T22:04:09.479Z",
+  "assembledAt": "2026-08-08T10:06:06.744Z",
   "jobs": [
     {
       "id": "company-cupr4v",
@@ -25,7 +25,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-08-07T10:27:42.186Z",
       "titleByLocale": {
         "it": "Impiegato/a in logistica",
@@ -78,8 +78,6 @@
         "logistician-in-confederazione-svizzera-rivera",
         "logisticien-in-confederazione-svizzera-rivera"
       ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -94,7 +92,9 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "salaryMin": 49500,
+      "salaryMax": 75000
     },
     {
       "id": "company-f018y2",
@@ -119,7 +119,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-08-03T12:53:50.208Z",
       "titleByLocale": {
         "it": "Logistikfachmann/-frau magazzino Monteceneri/Isone",
@@ -212,7 +212,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-31T22:31:00.841Z",
       "titleByLocale": {
         "it": "Apprendista Fachmann/-frau Betriebsunterhalt CFC, specializzazione Hausdienst",
@@ -307,7 +307,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-31T22:31:00.841Z",
       "titleByLocale": {
         "it": "Apprendista Automobil-Mechatroniker/-in CFC, specializzazione Personenwagen",
@@ -374,7 +374,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-31T22:31:00.841Z",
       "titleByLocale": {
         "it": "Apprendista Impiegato/a in logistica CFC, specializzazione magazzino",
@@ -445,7 +445,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-31T22:31:00.841Z",
       "titleByLocale": {
         "it": "Apprendista Fachfrau/-mann Leder e Textil CFC, Fahrzeuge e Technik",
@@ -513,7 +513,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-31T22:31:00.841Z",
       "titleByLocale": {
         "it": "Apprendista Automobil-Mechatroniker/-in CFC, specializzazione Nutzfahrzeuge",
@@ -584,7 +584,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-31T22:31:00.841Z",
       "titleByLocale": {
         "it": "Apprendista Koch/Köchin CFC",
@@ -655,7 +655,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-31T22:31:00.841Z",
       "titleByLocale": {
         "it": "Apprendista Automobil-Mechatroniker/-in CFC, specializzazione Nutzfahrzeuge",
@@ -734,7 +734,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-31T22:31:00.841Z",
       "titleByLocale": {
         "it": "Apprendista Impiegato/a in logistica CFC, Berufsfeld magazzino",
@@ -805,7 +805,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-31T22:31:00.841Z",
       "titleByLocale": {
         "it": "Apprendista Impiegato/a in logistica CFC, Berufsfeld magazzino",
@@ -889,7 +889,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-08-02T11:06:10.414Z",
       "slugByLocale": {
         "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern",
@@ -955,7 +955,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-08-05T22:50:07.459Z",
       "titleByLocale": {
         "it": "Apprendista Automobil-Fachmann/-frau CFC, specializzazione Nutzfahrzeuge",
@@ -1023,7 +1023,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-31T22:31:00.841Z",
       "titleByLocale": {
         "it": "Apprendista Automobil-Mechatroniker/-in CFC, specializzazione Nutzfahrzeuge",
@@ -1089,7 +1089,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-31T11:55:28.680Z",
       "titleByLocale": {
         "it": "Specialista nella tecnologia HLKS (riscaldamento, ventilazione, aria condizionata, servizi igienici)",
@@ -1168,7 +1168,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-28T11:46:07.232Z",
       "titleByLocale": {
         "it": "Collaboratore/trice/-in Gebäudebetrieb",
@@ -1255,7 +1255,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-28T22:36:59.632Z",
       "titleByLocale": {
         "it": "Tecnologia del trasportatore specializzato/in",
@@ -1356,7 +1356,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-23T12:20:30.141Z",
       "titleByLocale": {
         "it": "Ufficiale di Sicurezza Programma F-35A (Vice Government SAP Security Officer)",
@@ -1448,7 +1448,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-22T12:07:58.479Z",
       "titleByLocale": {
         "it": "Systemspezialist/-in (Informatik-Ingegnere) Flugsimulatoren",
@@ -1530,7 +1530,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-22T12:07:58.479Z",
       "titleByLocale": {
         "it": "Specialista insegnante/in supporto di leadership (FU)",
@@ -1622,7 +1622,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-22T22:40:59.622Z",
       "titleByLocale": {
         "it": "Centro di reclutamento medico aggiunto Monteceneri",
@@ -1720,7 +1720,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-27T12:50:38.579Z",
       "titleByLocale": {
         "it": "Professionista/inseguimento della situazione Centro di competenza SWISSINT",
@@ -1799,7 +1799,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-20T12:48:06.048Z",
       "titleByLocale": {
         "it": "Dottor Recruitment presso Mels Recruitment Center",
@@ -1900,7 +1900,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-16T11:33:55.895Z",
       "titleByLocale": {
         "it": "Meccanico dell'aviazione",
@@ -1924,7 +1924,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mecanicien-mecanicien-ingenieur-en-hinwil-confederazione-svizzera-hinwil",
           "ingegnere-meccanico-in-bronschhofen-swiss-armed-forces-vtg-bern",
           "motorgeratemechaniker-in-bronschhofen-swiss-armed-forces-vtg-bern",
           "ingegnere-meccanico-in-hinwil-swiss-armed-forces-vtg-bern",
@@ -1943,7 +1942,8 @@
           "motorgeratemechaniker-in-hinwil-confederazione-svizzera-hinwil",
           "motorgeratemechaniker-in-hinwil-confederazione-hinwil",
           "ingegnere-meccanico-in-hinwil-confederazione-svizzera-hinwil",
-          "engineer-mechanic-in-hinwil-confederazione-svizzera-hinwil"
+          "engineer-mechanic-in-hinwil-confederazione-svizzera-hinwil",
+          "mecanicien-mecanicien-ingenieur-en-hinwil-confederazione-svizzera-hinwil"
         ],
         "en": [
           "luftfahrzeugmechaniker-in-confederazione-svizzera-alpnach",
@@ -2067,7 +2067,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-15T11:36:32.888Z",
       "titleByLocale": {
         "it": "Meccatronica automobilistica tecnico/in facilmente",
@@ -2146,7 +2146,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-14T11:21:24.935Z",
       "titleByLocale": {
         "it": "Specialista in ingegneria elettrica (elettricista operativo)",
@@ -2243,7 +2243,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-13T22:47:06.276Z",
       "titleByLocale": {
         "it": "Capo di Transmission/Communication/Electronic Systems/General Workshops (UKEA)",
@@ -2335,7 +2335,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-10T13:27:16.778Z",
       "titleByLocale": {
         "it": "Responsabile Fachausbildung Militärpolizei",
@@ -2417,7 +2417,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-10T13:27:16.778Z",
       "titleByLocale": {
         "it": "Serbatoio elettrico",
@@ -2496,7 +2496,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "esci-dalla-routine-diventa-un-ufficiale-professionista-swiss-armed-forces-vtg-bern",
@@ -2578,7 +2578,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "la-tua-professione-dovrebbe-offrire-di-piu-diventa-un-sergente-professionista-swiss-armed-forces-vtg-bern",
@@ -2667,7 +2667,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3",
@@ -2772,7 +2772,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "driver-assistente-di-trasporto-swiss-armed-forces-vtg-bern",
@@ -2865,7 +2865,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
@@ -2959,7 +2959,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "agenti-del-personale-hq-kfor-swiss-armed-forces-vtg-bern",
@@ -2999,7 +2999,6 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "impiegato-a-in-logistica-magazzino-ambri-andermatt-swiss-armed-forces-vtg-ambri",
           "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern-o3sbqw",
           "personale-attenzione-al-reclutamento-swiss-armed-forces-vtg-bern",
           "personnel-focus-on-recruitment-swiss-armed-forces-vtg-bern",
@@ -3018,7 +3017,8 @@
           "logistiker-in-vorortlager-swiss-armed-forces-vtg-bern",
           "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur",
           "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-v433d9",
-          "logistiker-in-vorortlager-swiss-armed-forces-vtg-bellinzona"
+          "logistiker-in-vorortlager-swiss-armed-forces-vtg-bellinzona",
+          "impiegato-a-in-logistica-magazzino-ambri-andermatt-swiss-armed-forces-vtg-ambri"
         ],
         "en": [
           "staff-officers-hq-kfor-swiss-armed-forces-vtg-bellinzona",
@@ -3088,7 +3088,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "camion-automobile-meccatronica-tecnico-swiss-armed-forces-vtg-bern",
@@ -3175,7 +3175,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-09T22:31:05.681Z",
       "slugByLocale": {
         "it": "pioneer-maurer-m-f-swiss-armed-forces-vtg-bern",
@@ -3242,7 +3242,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "mannschaft-e-kader-aller-stufen-im-bereich-hoch-genio-civile-swiss-armed-forces-vtg-bern-6iaf9o",
@@ -3333,7 +3333,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern",
@@ -3450,7 +3450,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern",
@@ -3555,7 +3555,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "trasmissione-specialista-informatica-swiss-armed-forces-vtg-bern",
@@ -3647,7 +3647,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "offiziere-per-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d",
@@ -3740,7 +3740,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "osservatore-lmt-lot-m-w-swiss-armed-forces-vtg-bern",
@@ -3850,7 +3850,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-08-07T22:03:49.108Z",
+      "crawledAt": "2026-08-08T10:05:45.771Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "personale-militare-m-f-swiss-armed-forces-vtg-bern",

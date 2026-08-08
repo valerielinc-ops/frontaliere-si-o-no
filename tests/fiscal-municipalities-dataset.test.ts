@@ -24,9 +24,13 @@ import {
   CORRIDOR_PROVINCES,
   MIN_POPULATION,
   MAX_DISTANCE_KM,
+  RENT_MAX_VALUE_SHARE,
+  RENT_MAX_VALUE_COHORT,
+  RENT_MIN_DISTINCT_VALUES,
 } from '../scripts/build-fiscal-municipalities.mjs';
 import {
   assertPlausibleDistribution,
+  assertDistinctValueFloor,
   MIN_PLAUSIBLE_POPULATION,
   MAX_PLAUSIBLE_POPULATION,
 } from '../scripts/lib/municipality-plausibility-guard.mjs';
@@ -137,6 +141,93 @@ describe('fiscal-municipalities floor classification stays correct after the pop
   it('has no duplicate slugs across the corridor dataset', () => {
     const slugs = corridorRecords.map((m) => m.slug);
     expect(new Set(slugs).size).toBe(slugs.length);
+  });
+});
+
+describe('data/municipalities.ts — avgRentMonthly cannot get coarser (issue #4545 residual 4)', () => {
+  const corridorRaw = all.filter(
+    (m) => CORRIDOR_PROVINCES.includes(m.province) && Number.isFinite(m.population),
+  );
+
+  function rentCohorts() {
+    const counts = new Map<number, number>();
+    for (const m of corridorRaw) counts.set(m.avgRentMonthly, (counts.get(m.avgRentMonthly) ?? 0) + 1);
+    return counts;
+  }
+
+  it('states the baseline this guard ratchets against, so a drift is visible in the diff', () => {
+    // Committed state at the time the guard landed: 518 comuni, 32 distinct
+    // rent values, widest band 400 on 135 rows (26.1%). These are the numbers
+    // the thresholds were chosen from — if they move, the reasoning in
+    // scripts/build-fiscal-municipalities.mjs needs re-reading, not silently
+    // re-baselining.
+    const counts = rentCohorts();
+    expect(corridorRaw.length).toBe(518);
+    expect(counts.size).toBe(32);
+    expect(Math.max(...counts.values())).toBe(135);
+  });
+
+  it('no single rent value covers more than the committed ceiling of comuni', () => {
+    // The guard the fix is really about: 550 sits on 118 comuni today. A mass
+    // re-assignment onto one band — the placeholder signature #4922 fixed for
+    // `population` — pushes some cohort past 155 and fails the build.
+    const worst = Math.max(...rentCohorts().values());
+    expect(worst).toBeLessThanOrEqual(RENT_MAX_VALUE_COHORT);
+    expect(worst / corridorRaw.length).toBeLessThanOrEqual(RENT_MAX_VALUE_SHARE);
+    expect(() =>
+      assertPlausibleDistribution(corridorRaw, {
+        field: 'avgRentMonthly',
+        maxShare: RENT_MAX_VALUE_SHARE,
+        sourceLabel: 'test',
+      }),
+    ).not.toThrow();
+  });
+
+  it('the ceiling is above the committed worst band — a guard that fails on day one is not a guard', () => {
+    // Deliberate: any ceiling at or below today's 135-comune band could only
+    // be satisfied by inventing per-comune variety (the exact defect) or by
+    // deleting the signal. Documented at RENT_MAX_VALUE_SHARE.
+    expect(RENT_MAX_VALUE_COHORT).toBeGreaterThan(135);
+    // ...but still far under the 80% share the real #4922 placeholder reached.
+    expect(RENT_MAX_VALUE_SHARE).toBeLessThan(0.5);
+  });
+
+  it('granularity has not collapsed below the committed distinct-value floor', () => {
+    expect(() =>
+      assertDistinctValueFloor(corridorRaw, {
+        field: 'avgRentMonthly',
+        minDistinct: RENT_MIN_DISTINCT_VALUES,
+        sourceLabel: 'test',
+      }),
+    ).not.toThrow();
+  });
+
+  it('FAILS loud against a synthetic dataset flattened onto one rent band', () => {
+    // Proves the protection actually fires: the same corridor with every
+    // comune re-stamped to 550, i.e. what a re-introduced placeholder would
+    // look like.
+    const flattened = corridorRaw.map((m) => ({ ...m, avgRentMonthly: 550 }));
+    expect(() =>
+      assertPlausibleDistribution(flattened, {
+        field: 'avgRentMonthly',
+        maxShare: RENT_MAX_VALUE_SHARE,
+        sourceLabel: 'test',
+      }),
+    ).toThrow(/avgRentMonthly=550/);
+    expect(() =>
+      assertDistinctValueFloor(flattened, {
+        field: 'avgRentMonthly',
+        minDistinct: RENT_MIN_DISTINCT_VALUES,
+        sourceLabel: 'test',
+      }),
+    ).toThrow(/only 1 distinct value/);
+  });
+
+  it('every corridor comune still carries a finite, positive rent (absence is not silently zero)', () => {
+    for (const m of corridorRaw) {
+      expect(Number.isFinite(m.avgRentMonthly), `rent for "${m.name}"`).toBe(true);
+      expect(m.avgRentMonthly, `rent for "${m.name}"`).toBeGreaterThan(0);
+    }
   });
 });
 

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "amministrazione-cantonale-ti",
-  "assembledAt": "2026-08-07T21:46:16.184Z",
+  "assembledAt": "2026-08-08T10:00:11.799Z",
   "jobs": [
     {
       "id": "company-213hne",
@@ -22,7 +22,7 @@
       "salaryMax": 158999,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-08-07T21:46:10.890Z",
+      "crawledAt": "2026-08-08T10:00:06.492Z",
       "firstSeenAt": "2026-08-04T22:20:27.551Z",
       "titleByLocale": {
         "it": "Capo ufficio III a tempo parziale (80%) - a tempo pieno (100%), presso l’Ufficio di sanità, Bellinzona",
@@ -40,17 +40,21 @@
         "it": "capo-ufficio-iii-a-tempo-parziale-80-a-tempo-pieno-100-presso-l-ufficio-di-sanita-bellinzona-amministrazione-cantonale-ti-bellinzona-213hne",
         "en": "head-of-office-iii-80-full-time-100-at-the-health-office-bellinzona-amministrazione-cantonale-ticino-bellinzona",
         "de": "buroleiter-iii-80-vollzeit-100-im-gesundheitsamt-bellinzona-amministrazione-cantonale-ticino-bellinzona",
-        "fr": "chef-du-bureau-iii-80-temps-plein-100-au-bureau-de-la-sante-de-bellinzona-amministrazione-cantonale-ticino-bellinzona"
+        "fr": "capo-ufficio-iii-a-tempo-parziale-80-a-tempo-pieno-100-presso-l-ufficio-di-sanita-bellinzona-amministrazione-cantonale"
       },
       "requirementsByLocale": {},
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
           "capo-ufficio-iii-a-tempo-parziale-80-a-tempo-pieno-100-presso-l-ufficio-di-sanita-bellinzona-amministrazione-cantonale-ti-bellinzona"
+        ],
+        "fr": [
+          "chef-du-bureau-iii-80-temps-plein-100-au-bureau-de-la-sante-de-bellinzona-amministrazione-cantonale-ticino-bellinzona"
         ]
       },
       "previousSlugs": [
-        "capo-ufficio-iii-a-tempo-parziale-80-a-tempo-pieno-100-presso-l-ufficio-di-sanita-bellinzona-amministrazione-cantonale-ti-bellinzona"
+        "capo-ufficio-iii-a-tempo-parziale-80-a-tempo-pieno-100-presso-l-ufficio-di-sanita-bellinzona-amministrazione-cantonale-ti-bellinzona",
+        "chef-du-bureau-iii-80-temps-plein-100-au-bureau-de-la-sante-de-bellinzona-amministrazione-cantonale-ticino-bellinzona"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -89,7 +93,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-08-07T21:46:10.890Z",
+      "crawledAt": "2026-08-08T10:00:06.492Z",
       "firstSeenAt": "2026-07-28T22:14:38.680Z",
       "titleByLocale": {
         "it": "Esattore/trice I a tempo (100%) presso l'Ufficio rette, anticipi e incassi, Bellinzona",
@@ -171,7 +175,7 @@
       "salaryMax": 141990,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-08-07T21:46:10.890Z",
+      "crawledAt": "2026-08-08T10:00:06.492Z",
       "firstSeenAt": "2026-07-27T22:11:52.123Z",
       "titleByLocale": {
         "it": "Giurista I oppure Giurista II a tempo pieno (100%), incaricato/a (art. 15 e 16 LORD) presso la Divisione della giustizia, Bellinzona",
@@ -220,158 +224,6 @@
       "country": "CH"
     },
     {
-      "id": "company-213hni",
-      "slug": "capo-cuoco-a-a-tempo-pieno-100-presso-l-ufficio-della-redazione-e-dei-trasporti-scolastici-bellinzona-amministrazione",
-      "company": "Amministrazione Cantonale Ticino",
-      "title": "Capo cuoco/a a tempo pieno (100%) presso l'Ufficio della refezione e dei trasporti scolastici, Bellinzona",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "other",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "Requisiti\n\nattestato federale di capacità (AFC) quale cuoco/a, con esperienza di almeno 10 anni nella professione\n\n– adeguate conoscenze dei mezzi informatici\n\n– buona padronanza (conversazione e redazione) della lingua italiana\n\n– flessibilità, capacità di lavorare in team\n\n– esperienza nella conduzione di brigate di cucina di ca 10-20 persone\n\n– obbligo della licenza di condurre cat B\n\nOsservazioni particolari\n\n- inizio attività: 24.08.2026\n\n- sede di Servizio: ristorante scolastico CPT Bellinzona\n\n- l'ufficio della refezione e dei trasporti scolastici si riserva la facoltà di cambiamento del luogo di lavoro (sede di servizio) in caso di ragioni organizzative o di altro genere\n\n- L'attestato professionale federale di capo cuoco - APF costituisce titolo preferenziale\n\nCondizioni di presentazione della candidatura\n\n- le candidature vanno inoltrate on-line. Altre forme di candidatura non saranno ritenute valide\n\n- oltre ai documenti da inoltrare al momento della candidatura on-line (lettera di presentazione e motivazione, curriculum vitae, diplomi, certificati e attestati di lavoro), in un secondo momento potrà essere richiesta ulteriore documentazione (casellario giudiziale con relativa autocertificazione e autocertificazione sullo stato di salute)\n\nCondizioni d’impiego\n\n- nomina o incarico: sono quelle previste dalla Legge sull'ordinamento degli impiegati dello Stato e dei docenti del 15 marzo 1995 (LORD) e dal relativo Regolamento. Rimane esplicitamente riservata ogni modificazione di legge concernente lo stipendio e l'organizzazione\n\n- orario di lavoro: 42 ore settimanali (per un rapporto d’impiego al 100%), flessibile o secondo le esigenze di servizio\n\nScadenza\n\n7 agosto 2026\n\nUlteriori informazioni si possono ottenere presso la signora Elena Pedrioli, tel. 091 814 34 09.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-07-24",
-      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4244",
-      "source": "Company Careers Crawler",
-      "salaryMin": 58067,
-      "salaryMax": 90237,
-      "companyKey": "amministrazione-cantonale-ti",
-      "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-08-07T21:46:10.890Z",
-      "firstSeenAt": "2026-07-24T11:26:50.702Z",
-      "titleByLocale": {
-        "it": "Capo cuoco/a a tempo pieno (100%) presso l'Ufficio della refezione e dei trasporti scolastici, Bellinzona",
-        "en": "Head of full-time cook (100%) at the Office for School Writing and Transport, Bellinzona",
-        "de": "Leiterin Vollzeitkoch (100%) im Büro für Schulschreiben und Transport, Bellinzona",
-        "fr": "Chef de cuisine à temps plein (100 %) au Bureau de rédaction et de transport scolaires de Bellinzona"
-      },
-      "descriptionByLocale": {
-        "it": "Requisiti\n\nattestato federale di capacità (AFC) quale cuoco/a, con esperienza di almeno 10 anni nella professione\n\n– adeguate conoscenze dei mezzi informatici\n\n– buona padronanza (conversazione e redazione) della lingua italiana\n\n– flessibilità, capacità di lavorare in team\n\n– esperienza nella conduzione di brigate di cucina di ca 10-20 persone\n\n– obbligo della licenza di condurre cat B\n\nOsservazioni particolari\n\n- inizio attività: 24.08.2026\n\n- sede di Servizio: ristorante scolastico CPT Bellinzona\n\n- l'ufficio della refezione e dei trasporti scolastici si riserva la facoltà di cambiamento del luogo di lavoro (sede di servizio) in caso di ragioni organizzative o di altro genere\n\n- L'attestato professionale federale di capo cuoco - APF costituisce titolo preferenziale\n\nCondizioni di presentazione della candidatura\n\n- le candidature vanno inoltrate on-line. Altre forme di candidatura non saranno ritenute valide\n\n- oltre ai documenti da inoltrare al momento della candidatura on-line (lettera di presentazione e motivazione, curriculum vitae, diplomi, certificati e attestati di lavoro), in un secondo momento potrà essere richiesta ulteriore documentazione (casellario giudiziale con relativa autocertificazione e autocertificazione sullo stato di salute)\n\nCondizioni d’impiego\n\n- nomina o incarico: sono quelle previste dalla Legge sull'ordinamento degli impiegati dello Stato e dei docenti del 15 marzo 1995 (LORD) e dal relativo Regolamento. Rimane esplicitamente riservata ogni modificazione di legge concernente lo stipendio e l'organizzazione\n\n- orario di lavoro: 42 ore settimanali (per un rapporto d’impiego al 100%), flessibile o secondo le esigenze di servizio\n\nScadenza\n\n7 agosto 2026\n\nUlteriori informazioni si possono ottenere presso la signora Elena Pedrioli, tel. 091 814 34 09.",
-        "en": "Requirements\n\nFederal certificate of capacity (AFC) as cook, with experience of at least 10 years in the profession\n\n– adequate knowledge of the media\n\n– good mastery (conversation and editing) of the Italian language\n\n– flexibility, teamwork skills\n\n– experience with cooking brigades of 10-20 people\n\n– licence obligation to conduct cat B\n\nSpecial remarks\n\n- start of activity: 24.08.2026\n\n- Service location: CPT Bellinzona school restaurant\n\n- the Office of Refection and School Transport reserves the right to change the place of work (service seat) in case of organizational or other reasons\n\n- APF is a preferential qualification\n\nApplication conditions\n\n- applications must be submitted online. Other forms of application shall not be deemed valid\n\n- in addition to the documents to be submitted at the time of the online application (letter of presentation and motivation, curriculum vitae, diplomas, certificates and certificates of work), in a second moment may be required further documentation (judicial casellario with relative self-certification and self-certification on the state of health)\n\nConditions of use\n\n- appointment or assignment: these are those provided for by the Law on the sorting of employees of the State and teachers of 15 March 1995 (LORD) and the relevant Regulations. Any amendment of the law concerning salary and organization remains explicitly reserved\n\n- working hours: 42 hours per week (for a 100% employment ratio), flexible or according to service requirements\n\nDeadline\n\n7 August 2026\n\nFurther information can be obtained from Mrs Elena Pedrioli, tel. 091 814 34 09.",
-        "de": "Anforderungen\n\nFederal Certificate of Capacity (AFC) als Koch, mit Erfahrung von mindestens 10 Jahren im Beruf\n\n– angemessene Kenntnisse der Medien\n\n– gute Beherrschung (Konversation und Redaktion) der italienischen Sprache\n\n– Flexibilität, Teamfähigkeit\n\n– Erfahrung mit Kochbrigaden von 10-20 Personen\n\n– Lizenzpflicht zum Führen von Katze B\n\nBesondere Bemerkungen\n\n- Beginn der Tätigkeit: 24.08.2026\n\n- Service-Standort: CPT Bellinzona Schulrestaurant\n\n- das Amt für Referenz- und Schultransport behält sich das Recht vor, den Arbeitsplatz (Dienstsitz) aus organisatorischen oder anderen Gründen zu ändern\n\n- APF ist eine bevorzugte Qualifikation\n\nAnwendungsbedingungen\n\n- Anträge müssen online gestellt werden. Andere Anwendungsformen gelten nicht als gültig\n\n- Zusätzlich zu den Unterlagen, die zum Zeitpunkt der Online-Bewerbung einzureichen sind (Vortragsschreiben und Motivation, Lebenslauf, Diplome, Bescheinigungen und Arbeitszeugnisse), kann in einem zweiten Moment eine weitere Dokumentation erforderlich sein (richterliches Fallbeispiel mit relativer Selbstzertifizierung und Selbstzertifizierung zum Gesundheitszustand).\n\nVerwendungsbedingungen\n\n- Ernennung oder Abtretung: Dies sind diejenigen, die im Gesetz über die Sortierung von Staatsbediensteten und Lehrern vom 15. März 1995 (LORD) und den einschlägigen Vorschriften vorgesehen sind. Jede Änderung des Gesetzes über Gehalt und Organisation bleibt ausdrücklich vorbehalten\n\n- Arbeitszeit: 42 Stunden pro Woche (bei 100% Beschäftigungsquote), flexibel oder nach Serviceanforderungen\n\nFrist\n\n7. August 2026\n\nWeitere Informationen erhalten Sie bei Frau Elena Pedrioli, Tel. 091 814 34 09.",
-        "fr": "Exigences\n\nCertificat fédéral de capacité (AFC) comme cuisinier, avec une expérience d'au moins 10 ans dans la profession\n\n– une connaissance adéquate des médias\n\n– bonne maîtrise (conversation et édition) de la langue italienne\n\n– flexibilité, compétences en travail d'équipe\n\n– expérience avec des brigades de cuisine de 10-20 personnes\n\n– obligation de licence de conduire le chat B\n\nRemarques spéciales\n\n- début de l'activité: 24.08.2026\n\n- Lieu du service: CPT Bellinzona école restaurant\n\n- le Bureau de la restauration et du transport scolaire se réserve le droit de changer le lieu de travail (siège de service) pour des raisons d'organisation ou autres\n\n- APF est une qualification préférentielle\n\nConditions d'application\n\n- Les demandes doivent être soumises en ligne. Les autres formes de demande ne sont pas considérées comme valables\n\n- en plus des documents à soumettre au moment de la demande en ligne (lettre de présentation et de motivation, curriculum vitae, diplômes, certificats et certificats de travail), dans un deuxième moment peut être exigé des documents supplémentaires (casellario judiciaire avec autocertification relative et autocertification de l'état de santé)\n\nConditions d'utilisation\n\n- Il s ' agit de la loi du 15 mars 1995 sur le classement des employés de l ' État et des enseignants (LORD) et des règlements correspondants. Toute modification de la loi relative au salaire et à l ' organisation reste expressément réservée.\n\n- durée de travail: 42 heures par semaine (pour un taux d'emploi de 100%), flexible ou selon les exigences de service\n\nDélai\n\n7 août 2026\n\nPour de plus amples informations, veuillez contacter Mme Elena Pedroli, tél. 091 814 34 09."
-      },
-      "slugByLocale": {
-        "it": "capo-cuoco-a-a-tempo-pieno-100-presso-l-ufficio-della-redazione-e-dei-trasporti-scolastici-bellinzona-amministrazione",
-        "en": "head-of-full-time-cook-100-at-the-office-for-school-writing-and-transport-bellinzona-amministrazione-cantonale-ticino",
-        "de": "leiterin-vollzeitkoch-100-im-buro-fur-schulschreiben-und-transport-bellinzona-amministrazione-cantonale-ticino",
-        "fr": "chef-de-cuisine-a-temps-plein-100-au-bureau-de-redaction-et-de-transport-scolaires-de-bellinzona-amministrazione"
-      },
-      "requirementsByLocale": {},
-      "sourceLang": "it",
-      "previousSlugsByLocale": {
-        "it": [
-          "capo-cuoco-a-tempo-pieno-100-presso-l-ufficio-della-redazione-e-dei-trasporti-scolastici-bellinzona-orario-di-lavoro-42-ore-settimanali-pe",
-          "capo-cuoco-a-tempo-pieno-100-presso-l-ufficio-della-redazione-e-dei-trasporti-scolastici-bellinzona-orario-di-lavoro-42-ore-settimanali-pe-213hni",
-          "capo-cuoco-a-tempo-pieno-100-presso-l-ufficio-della-redazione-e-dei-trasporti-scolastici-bellinzona-amministrazione-cantonale-ti-bellinzon",
-          "capo-cuoco-a-tempo-pieno-100-presso-l-ufficio-della-refezione-e-dei-trasporti-scolastici-bellinzona-amministrazione-cantonale-ti-bellinzon"
-        ],
-        "en": [
-          "capo-cuoco-a-tempo-pieno-100-presso-l-ufficio-della-redazione-e-dei-trasporti-scolastici-bellinzona-orario-di-lavoro-42-ore-settimanali-pe-213hni"
-        ],
-        "de": [
-          "capo-cuoco-a-tempo-pieno-100-presso-l-ufficio-della-redazione-e-dei-trasporti-scolastici-bellinzona-orario-di-lavoro-42-ore-settimanali-pe-213hni"
-        ],
-        "fr": [
-          "capo-cuoco-a-tempo-pieno-100-presso-l-ufficio-della-redazione-e-dei-trasporti-scolastici-bellinzona-orario-di-lavoro-42-ore-settimanali-pe-213hni"
-        ]
-      },
-      "previousSlugs": [
-        "capo-cuoco-a-tempo-pieno-100-presso-l-ufficio-della-redazione-e-dei-trasporti-scolastici-bellinzona-orario-di-lavoro-42-ore-settimanali-pe",
-        "capo-cuoco-a-tempo-pieno-100-presso-l-ufficio-della-redazione-e-dei-trasporti-scolastici-bellinzona-orario-di-lavoro-42-ore-settimanali-pe-213hni",
-        "capo-cuoco-a-tempo-pieno-100-presso-l-ufficio-della-redazione-e-dei-trasporti-scolastici-bellinzona-amministrazione-cantonale-ti-bellinzon",
-        "capo-cuoco-a-tempo-pieno-100-presso-l-ufficio-della-refezione-e-dei-trasporti-scolastici-bellinzona-amministrazione-cantonale-ti-bellinzon"
-      ],
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58067,
-          "maxValue": 90237,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "country": "CH"
-    },
-    {
-      "id": "company-213hnh",
-      "slug": "tecnico-a-assistente-a-tempo-pieno-100-presso-l-area-dell-esercizio-e-della-manutenzione-ufficio-dei-servizi-elettromeccanici-camorino-orari-213hnh",
-      "company": "Amministrazione Cantonale Ticino",
-      "title": "Tecnico/a assistente a tempo pieno (100%) presso l'Area dell’esercizio e della manutenzione, Ufficio dei servizi elettromeccanici, Camorino",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "Compiti\n\n- sorveglianza dello stato delle infrastrutture tecniche, tracciamento, analisi e risoluzione dei problemi tecnici riscontrati\n\n- responsabile per la gestione e tenuta a giorno del sistema di ticketing\n\n- supporto di primo livello agli utenti in centrale traffico e punto di contatto per gli operatori esterni\n\n- valutazione ed attuazione delle misure compensative necessarie in caso di anomalie tecniche\n\n- operatore dei sistemi di esercizio e sicurezza in caso di eventi su indicazione dei quadri preposti\n\n- gestione tecnico amministrativa degli accessi alle infrastrutture (locali tecnici e rete informatica)\n\n- attività regolari di manutenzione e aggiornamento dei sistemi\n\n- attività di gestione dei sistemi, quali il salvataggio di dati e il trattamento di immagini di videosorveglianza\n\n- lavoro notturno e a turni al di fuori dell’orario d’ufficio\n\n- in caso di necessità, prestazioni di servizio picchetto\n\nRequisiti\n\n- attestato federale di capacità (AFC) quale informatico/a\n\n- ottima conoscenza dei sistemi operativi Windows\n\n- conoscenze tecniche dell’hardware e dei sistemi informatici\n\n- buone conoscenze di applicativi software basati su SCADA\n\n- esperienza nella sicurezza informatica (gestione accessi, sistemi antivirus)\n\n- esperienza nella gestione di sistemi con Active Directory\n\n- esperienza nella gestione di sistemi e impianti di automazione\n\n- conoscenze dell’impiantistica dei sistemi di gestione stradali e delle gallerie\n\n- attitudine alla gestione autonoma, anche in casi di emergenza\n\n- buone doti organizzative e flessibilità sul lavoro\n\n- spirito di iniziativa e predisposizione marcata a lavorare in team\n\n- buone conoscenze (conversazione e redazione) dell’italiano e conoscenze (conversazione) della lingua tedesca e dell’inglese\n\n- licenza di condurre categoria B\n\n- ottima conoscenza del territorio cantonale e delle sue istituzioni\n\nOsservazioni particolari\n\n- sede di servizio: Camorino\n\n- entrata in servizio: da convenire\n\n- i candidati che partecipano al concorso autorizzano l’Ufficio degli elettromeccanici ad elaborare tutti i dati necessari alla verifica dell’assenza di precedenti incompatibili con la funzione, anche presso altre autorità\n\nCondizioni di presentazione della candidatura\n\n- le candidature vanno inoltrate on-line. Altre forme di candidatura non saranno ritenute valide\n\n- oltre ai documenti da inoltrare al momento della candidatura on-line (lettera di presentazione e motivazione, curriculum vitae, diplomi, certificati e attestati di lavoro), in un secondo momento potrà essere richiesta ulteriore documentazione (casellario giudiziale con relativa autocertificazione e autocertificazione sullo stato di salute)\n\nCondizioni d’impiego\n\n- nomina o incarico: sono quelle previste dalla Legge sull'ordinamento degli impiegati dello Stato e dei docenti del 15 marzo 1995 (LORD) e dal relativo Regolamento. Rimane esplicitamente riservata ogni modificazione di legge concernente lo stipendio e l'organizzazione\n\n- orario di lavoro: 42 ore settimanali (per un rapporto d’impiego al 100%), flessibile o secondo le esigenze di servizio\n\nScadenza\n\n7 agosto 2026\n\nUlteriori informazioni si possono ottenere presso il signor ing. Lucio Rodoni, Capo Ufficio dei servizi elettromeccanici (EMel), tel. 091 814 94 25 e il signor ing. Giovanni Piccolo, Capo Area dell'esercizio e della manutenzione (AEM), tel. 091 814 94 39.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-07-24",
-      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4245",
-      "source": "Company Careers Crawler",
-      "salaryMin": 63297,
-      "salaryMax": 99178,
-      "companyKey": "amministrazione-cantonale-ti",
-      "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-08-07T21:46:10.890Z",
-      "firstSeenAt": "2026-07-24T11:26:50.702Z",
-      "titleByLocale": {
-        "it": "Tecnico/a assistente a tempo pieno (100%) presso l'Area dell’esercizio e della manutenzione, Ufficio dei servizi elettromeccanici, Camorino",
-        "en": "Technician/a assistente a tempo pieno (100%) presso l'Area dell’esercizio e della Maintenance, Ufficio dei servizi elettromeccanici, Camorino",
-        "de": "Techniker/a assistente a tempo pieno (100%) presso l'Area dell’esercizio e della Wartung, Ufficio dei servizi elettromeccanici, Camorino",
-        "fr": "Technicien/a assistente a tempo pieno (100%) presso l'Area dell’esercizio e della Maintenance, Ufficio dei servizi elettromeccanici, Camorino"
-      },
-      "descriptionByLocale": {
-        "it": "Compiti\n\n- sorveglianza dello stato delle infrastrutture tecniche, tracciamento, analisi e risoluzione dei problemi tecnici riscontrati\n\n- responsabile per la gestione e tenuta a giorno del sistema di ticketing\n\n- supporto di primo livello agli utenti in centrale traffico e punto di contatto per gli operatori esterni\n\n- valutazione ed attuazione delle misure compensative necessarie in caso di anomalie tecniche\n\n- operatore dei sistemi di esercizio e sicurezza in caso di eventi su indicazione dei quadri preposti\n\n- gestione tecnico amministrativa degli accessi alle infrastrutture (locali tecnici e rete informatica)\n\n- attività regolari di manutenzione e aggiornamento dei sistemi\n\n- attività di gestione dei sistemi, quali il salvataggio di dati e il trattamento di immagini di videosorveglianza\n\n- lavoro notturno e a turni al di fuori dell’orario d’ufficio\n\n- in caso di necessità, prestazioni di servizio picchetto\n\nRequisiti\n\n- attestato federale di capacità (AFC) quale informatico/a\n\n- ottima conoscenza dei sistemi operativi Windows\n\n- conoscenze tecniche dell’hardware e dei sistemi informatici\n\n- buone conoscenze di applicativi software basati su SCADA\n\n- esperienza nella sicurezza informatica (gestione accessi, sistemi antivirus)\n\n- esperienza nella gestione di sistemi con Active Directory\n\n- esperienza nella gestione di sistemi e impianti di automazione\n\n- conoscenze dell’impiantistica dei sistemi di gestione stradali e delle gallerie\n\n- attitudine alla gestione autonoma, anche in casi di emergenza\n\n- buone doti organizzative e flessibilità sul lavoro\n\n- spirito di iniziativa e predisposizione marcata a lavorare in team\n\n- buone conoscenze (conversazione e redazione) dell’italiano e conoscenze (conversazione) della lingua tedesca e dell’inglese\n\n- licenza di condurre categoria B\n\n- ottima conoscenza del territorio cantonale e delle sue istituzioni\n\nOsservazioni particolari\n\n- sede di servizio: Camorino\n\n- entrata in servizio: da convenire\n\n- i candidati che partecipano al concorso autorizzano l’Ufficio degli elettromeccanici ad elaborare tutti i dati necessari alla verifica dell’assenza di precedenti incompatibili con la funzione, anche presso altre autorità\n\nCondizioni di presentazione della candidatura\n\n- le candidature vanno inoltrate on-line. Altre forme di candidatura non saranno ritenute valide\n\n- oltre ai documenti da inoltrare al momento della candidatura on-line (lettera di presentazione e motivazione, curriculum vitae, diplomi, certificati e attestati di lavoro), in un secondo momento potrà essere richiesta ulteriore documentazione (casellario giudiziale con relativa autocertificazione e autocertificazione sullo stato di salute)\n\nCondizioni d’impiego\n\n- nomina o incarico: sono quelle previste dalla Legge sull'ordinamento degli impiegati dello Stato e dei docenti del 15 marzo 1995 (LORD) e dal relativo Regolamento. Rimane esplicitamente riservata ogni modificazione di legge concernente lo stipendio e l'organizzazione\n\n- orario di lavoro: 42 ore settimanali (per un rapporto d’impiego al 100%), flessibile o secondo le esigenze di servizio\n\nScadenza\n\n7 agosto 2026\n\nUlteriori informazioni si possono ottenere presso il signor ing. Lucio Rodoni, Capo Ufficio dei servizi elettromeccanici (EMel), tel. 091 814 94 25 e il signor ing. Giovanni Piccolo, Capo Area dell'esercizio e della manutenzione (AEM), tel. 091 814 94 39.",
-        "en": "Tasks\n\n- monitoring of the state of technical infrastructure, tracking, analysis and resolution of the technical problems encountered\n\n- responsible for the management and holding of the ticketing system\n\n- first level support to users in central traffic and contact point for external operators\n\n- assessment and implementation of the compensatory measures necessary in case of technical anomalies\n\n- operator of operating and safety systems in case of events on indication of the premises\n\n- administrative technical management of access to infrastructure (technical premises and computer network)\n\n- regular maintenance and updating of systems\n\n- systems management activities, such as data storage and video surveillance image processing\n\n- night and shiftwork outside office hours\n\n- in case of need, service performance picchetto\n\nRequirements\n\n- Federal certificate of capacity (AFC) as computer/a\n\n- excellent knowledge of Windows operating systems\n\n- technical knowledge of hardware and computer systems\n\n- good knowledge of software applications based on SCADA\n\n- experience in cybersecurity (access management, antivirus systems)\n\n- System Management Experience with Active Directory\n\n- experience in the management of automation systems and systems\n\n- knowledge of road management systems and tunnels\n\n- aptitude for autonomous management, even in emergency cases\n\n- good organizational skills and flexibility at work\n\n- spirit of initiative and predisposition marked to work in team\n\n- good knowledge (conversation and editing) of Italian and knowledge (conversation) of German and English\n\n- license to conduct category B\n\n- excellent knowledge of the cantonal territory and its institutions\n\nSpecial remarks\n\n- service office: Camorino\n\n- entry into service: to be agreed\n\n- candidates participating in the competition authorize the Office of Electromechanicals to process all the data necessary to verify the absence of precedents incompatible with the function, also with other authorities\n\nApplication conditions\n\n- applications must be submitted online. Other forms of application shall not be deemed valid\n\n- in addition to the documents to be submitted at the time of the online application (letter of presentation and motivation, curriculum vitae, diplomas, certificates and certificates of work), in a second moment may be required further documentation (judicial casellario with relative self-certification and self-certification on the state of health)\n\nConditions of use\n\n- appointment or assignment: these are those provided for by the Law on the sorting of employees of the State and teachers of 15 March 1995 (LORD) and the relevant Regulations. Any amendment of the law concerning salary and organization remains explicitly reserved\n\n- working hours: 42 hours per week (for a 100% employment ratio), flexible or according to service requirements\n\nDeadline\n\n7 August 2026\n\nFurther information can be obtained from Mr Ing. Lucio Rodoni, Head of Office for Electromechanical Services (EMel), tel. 091 814 94 25 and Mr ing. Giovanni Piccolo, Chief Operating and Maintenance Area (AEM), tel. 091 814 94 39.",
-        "de": "Aufgaben\n\n- Überwachung des Zustands der technischen Infrastruktur, Verfolgung, Analyse und Lösung der aufgetretenen technischen Probleme\n\n- Verantwortlich für die Verwaltung und das Halten des Fahrkartensystems\n\n- First-Level-Unterstützung für Nutzer im zentralen Verkehr und Kontaktstelle für externe Betreiber\n\n- Bewertung und Durchführung der bei technischen Anomalien erforderlichen Ausgleichsmaßnahmen\n\n- Betreiber von Betriebs- und Sicherheitssystemen bei Ereignissen bei Angabe der Räumlichkeiten\n\n- Verwaltungstechnische Verwaltung des Zugangs zur Infrastruktur (technische Räumlichkeiten und Computernetz)\n\n- regelmäßige Wartung und Aktualisierung der Systeme\n\n- Systemmanagement-Aktivitäten wie Datenspeicherung und Videoüberwachung Bildverarbeitung\n\n- Nacht- und Schichtarbeit außerhalb der Bürozeiten\n\n- im Bedarfsfall, Serviceleistung picchetto\n\nAnforderungen\n\n- Federal Certificate of Capacity (AFC) als Computer / a\n\n- hervorragende Kenntnisse der Windows-Betriebssysteme\n\n- technische Kenntnisse der Hardware und Computersysteme\n\n- gute Kenntnisse in Softwareanwendungen auf Basis von SCADA\n\n- Erfahrung in Cybersicherheit (Zugriffsmanagement, Antivirensysteme)\n\n- System Management Erfahrung mit Active Directory\n\n- Erfahrung im Management von Automatisierungssystemen und -systemen\n\n- Kenntnisse von Straßenmanagementsystemen und Tunneln\n\n- Eignung für autonomes Management, auch in Notfällen\n\n- gute organisatorische Fähigkeiten und Flexibilität am Arbeitsplatz\n\n- Initiativesgeist und Veranlagung markiert, um im Team zu arbeiten\n\n- gute Kenntnisse (Gespräch und Redaktion) von Italienisch und Kenntnisse (Gespräch) von Deutsch und Englisch\n\n- Lizenz zur Durchführung der Kategorie B\n\n- exzellente Kenntnisse des kantonalen Territoriums und seiner Institutionen\n\nBesondere Bemerkungen\n\n- Servicebüro: Camorino\n\n- Inbetriebnahme: noch zu vereinbaren\n\n- Bewerber, die am Wettbewerb teilnehmen, ermächtigen das Amt für Elektromechanik, alle erforderlichen Daten zu verarbeiten, um das Fehlen von Präzedenzfällen zu überprüfen, die mit der Funktion unvereinbar sind, auch mit anderen Behörden\n\nAnwendungsbedingungen\n\n- Anträge müssen online gestellt werden. Andere Anwendungsformen gelten nicht als gültig\n\n- Zusätzlich zu den Unterlagen, die zum Zeitpunkt der Online-Bewerbung einzureichen sind (Vortragsschreiben und Motivation, Lebenslauf, Diplome, Bescheinigungen und Arbeitszeugnisse), kann in einem zweiten Moment eine weitere Dokumentation erforderlich sein (richterliches Fallbeispiel mit relativer Selbstzertifizierung und Selbstzertifizierung zum Gesundheitszustand).\n\nVerwendungsbedingungen\n\n- Ernennung oder Abtretung: Dies sind diejenigen, die im Gesetz über die Sortierung von Staatsbediensteten und Lehrern vom 15. März 1995 (LORD) und den einschlägigen Vorschriften vorgesehen sind. Jede Änderung des Gesetzes über Gehalt und Organisation bleibt ausdrücklich vorbehalten\n\n- Arbeitszeit: 42 Stunden pro Woche (bei 100% Beschäftigungsquote), flexibel oder nach Serviceanforderungen\n\nFrist\n\n7. August 2026\n\nWeitere Informationen erhalten Sie bei Herrn Ing. Lucio Rodoni, Head of Office for Electromechanical Services (EMel), Tel. 091 814 94 25 und Herrn ing. Giovanni Piccolo, Chief Operating and Maintenance Area (AEM), Tel. 091 814 94 39.",
-        "fr": "Tâche\n\n- suivi de l'état de l'infrastructure technique, suivi, analyse et résolution des problèmes techniques rencontrés\n\n- responsable de la gestion et de la tenue du système de billetterie\n\n- soutien de premier niveau aux utilisateurs dans le trafic central et point de contact pour les opérateurs externes\n\n- évaluation et mise en œuvre des mesures compensatoires nécessaires en cas d'anomalies techniques\n\n- opérateur de systèmes d'exploitation et de sécurité en cas d'événements sur l'indication des locaux\n\n- gestion technique administrative de l'accès à l'infrastructure (locaux techniques et réseau informatique)\n\n- maintenance et mise à jour régulières des systèmes\n\n- activités de gestion des systèmes, telles que le stockage des données et le traitement des images par vidéosurveillance\n\n- nuit et travail posté en dehors des heures de bureau\n\n- en cas de besoin, performance de service picchetto\n\nExigences\n\n- Certificat fédéral de capacité (AFC) en tant qu'ordinateur/a\n\n- excellente connaissance des systèmes d'exploitation Windows\n\n- connaissances techniques du matériel et des systèmes informatiques\n\n- Bonne connaissance des applications logicielles basées sur SCADA\n\n- expérience en cybersécurité (gestion de l'accès, systèmes antivirus)\n\n- Expérience de gestion de système avec Active Directory\n\n- expérience dans la gestion des systèmes et systèmes d'automatisation\n\n- connaissance des systèmes de gestion routière et des tunnels\n\n- aptitude à la gestion autonome, même en cas d'urgence\n\n- Bonnes compétences organisationnelles et flexibilité au travail\n\n- esprit d'initiative et prédisposition marqué pour travailler en équipe\n\n- bonne connaissance (conversation et édition) de l'italien et connaissance (conversation) de l'allemand et de l'anglais\n\n- autorisation de conduire la catégorie B\n\n- excellente connaissance du territoire cantonal et de ses institutions\n\nRemarques spéciales\n\n- bureau de service: Camorino\n\n- mise en service: à convenir\n\n- les candidats participant au concours autorisent l'Office des électromécaniques à traiter toutes les données nécessaires pour vérifier l'absence de précédents incompatibles avec la fonction, y compris avec d'autres autorités\n\nConditions d'application\n\n- Les demandes doivent être soumises en ligne. Les autres formes de demande ne sont pas considérées comme valables\n\n- en plus des documents à soumettre au moment de la demande en ligne (lettre de présentation et de motivation, curriculum vitae, diplômes, certificats et certificats de travail), dans un deuxième moment peut être exigé des documents supplémentaires (casellario judiciaire avec autocertification relative et autocertification de l'état de santé)\n\nConditions d'utilisation\n\n- Il s ' agit de la loi du 15 mars 1995 sur le classement des employés de l ' État et des enseignants (LORD) et des règlements correspondants. Toute modification de la loi relative au salaire et à l ' organisation reste expressément réservée.\n\n- durée de travail: 42 heures par semaine (pour un taux d'emploi de 100%), flexible ou selon les exigences de service\n\nDélai\n\n7 août 2026\n\nPour de plus amples informations, s'adresser à M. Ing. Lucio Rodoni, Chef du Bureau des services électromécaniques (EMel), tél. 091 814 94 25 et M. Giovanni Piccolo, Chef du Service d'exploitation et d'entretien (AEM), tél. 091 814 94 39."
-      },
-      "slugByLocale": {
-        "it": "tecnico-a-assistente-a-tempo-pieno-100-presso-l-area-dell-esercizio-e-della-manutenzione-ufficio-dei-servizi-elettromeccanici-camorino-orari-213hnh",
-        "en": "technician-a-assistente-a-tempo-pieno-100-presso-l-area-dell-esercizio-e-della-maintenance-ufficio-dei-servizi-elettromeccanici-camorino-ora-213hnh",
-        "de": "techniker-a-assistente-a-tempo-pieno-100-presso-l-area-dell-esercizio-e-della-wartung-ufficio-dei-servizi-elettromeccanici-camorino-orario-d-213hnh",
-        "fr": "technicien-a-assistente-a-tempo-pieno-100-presso-l-area-dell-esercizio-e-della-maintenance-ufficio-dei-servizi-elettromeccanici-camorino-ora-213hnh"
-      },
-      "requirementsByLocale": {},
-      "sourceLang": "it",
-      "previousSlugsByLocale": {
-        "it": [
-          "tecnico-a-assistente-a-tempo-pieno-100-presso-l-area-dell-esercizio-e-della-manutenzione-ufficio-dei-servizi-elettromeccanici-camorino-orari",
-          "tecnico-a-assistente-a-tempo-pieno-100-presso-l-area-dell-esercizio-e-della-manutenzione-ufficio-dei-servizi-elettromeccanici-camorino-ammin"
-        ]
-      },
-      "previousSlugs": [
-        "tecnico-a-assistente-a-tempo-pieno-100-presso-l-area-dell-esercizio-e-della-manutenzione-ufficio-dei-servizi-elettromeccanici-camorino-orari",
-        "tecnico-a-assistente-a-tempo-pieno-100-presso-l-area-dell-esercizio-e-della-manutenzione-ufficio-dei-servizi-elettromeccanici-camorino-ammin"
-      ],
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63297,
-          "maxValue": 99178,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Camorino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "needsRetranslation": true
-    },
-    {
       "id": "company-213hod",
       "slug": "operaio-a-a-tempo-pieno-100-presso-il-centro-di-manutenzione-sottoceneri-pambio-noranco-amministrazione-cantonale-ticino",
       "company": "Amministrazione Cantonale Ticino",
@@ -391,7 +243,7 @@
       "salaryMax": 72822,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-08-07T21:46:10.890Z",
+      "crawledAt": "2026-08-08T10:00:06.492Z",
       "firstSeenAt": "2026-07-13T22:31:27.672Z",
       "titleByLocale": {
         "it": "Operaio/a a tempo pieno (100%), presso il Centro di manutenzione Sottoceneri, Pambio Noranco",
@@ -464,7 +316,7 @@
       "salaryMax": 99178,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-08-07T21:46:10.890Z",
+      "crawledAt": "2026-08-08T10:00:06.492Z",
       "firstSeenAt": "2026-07-06T00:31:52.385Z",
       "titleByLocale": {
         "it": "Concorso generale 2026 Infermieri/e con specialità (salute mentale) e infermieri/e presso l’Organizzazione sociopsichiatrica cantonale (OSC), Mendrisio",
@@ -482,7 +334,7 @@
         "it": "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-men-213hp7",
         "en": "general-competition-2026-nurses-with-specialty-mental-health-and-nurses-at-the-cantonal-sociopsychiatric-organization",
         "de": "generalwettbewerb-2026-krankenschwestern-mit-spezialgebiet-psychische-gesundheit-und-krankenschwestern-bei-der-6ef5c8",
-        "fr": "concours-general-2026-infirmieres-specialisees-sante-mentale-et-infirmieres-de-l-organisation-sociopsychiatrique"
+        "fr": "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione"
       },
       "requirementsByLocale": {},
       "sourceLang": "it",
@@ -495,6 +347,7 @@
         ],
         "fr": [
           "concours-general-2026-infirmieres-specialisees-sante-mentale-et-infirmieres-de-l-organisation-sociopsychiatrique-6ef5c8",
+          "concours-general-2026-infirmieres-specialisees-sante-mentale-et-infirmieres-de-l-organisation-sociopsychiatrique",
           "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione"
         ]
       },
@@ -502,6 +355,7 @@
         "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-men",
         "general-competition-2026-nurses-with-specialty-mental-health-and-nurses-at-the-cantonal-sociopsychiatric-6ef5c8",
         "concours-general-2026-infirmieres-specialisees-sante-mentale-et-infirmieres-de-l-organisation-sociopsychiatrique-6ef5c8",
+        "concours-general-2026-infirmieres-specialisees-sante-mentale-et-infirmieres-de-l-organisation-sociopsychiatrique",
         "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione"
       ],
       "baseSalary": {
@@ -542,7 +396,7 @@
       "salaryMax": 64005,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-08-07T21:46:10.890Z",
+      "crawledAt": "2026-08-08T10:00:06.492Z",
       "firstSeenAt": "2026-06-08T13:55:55.547Z",
       "slugByLocale": {
         "it": "concorso-generale-2026-personale-ai-servizi-generali-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-sociopsichiatrica-can-213j0l",
@@ -615,7 +469,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-08-07T21:46:10.890Z",
+      "crawledAt": "2026-08-08T10:00:06.492Z",
       "firstSeenAt": "2026-06-01T00:02:15.093Z",
       "titleByLocale": {
         "it": "Stage per l’anno 2027 per psicologi assistenti presso l’Organizzazione sociopsichiatrica cantonale (OSC), Servizio di psicologia clinica e psicoterapia OSC, Mendrisio",
@@ -700,7 +554,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-08-07T21:46:10.890Z",
+      "crawledAt": "2026-08-08T10:00:06.492Z",
       "firstSeenAt": "2026-06-01T00:02:15.093Z",
       "titleByLocale": {
         "it": "Stage per l’anno 2027 per Psicoterapeuti in formazione presso l'Organizzazione sociopsichiatrica cantonale (OSC) / servizio di psicologia clinica e psicoterapia OSC, Mendrisio",
@@ -785,7 +639,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-08-07T21:46:10.890Z",
+      "crawledAt": "2026-08-08T10:00:06.492Z",
       "firstSeenAt": "2026-06-01T00:02:15.093Z",
       "titleByLocale": {
         "it": "Stage per l'anno 2027 durante gli studi universitari per studenti che non hanno ancora conseguito un diploma di bachelor o master in psicologia presso l’Organizzazione sociopsichiatrica cantonale (OSC), Mendrisio",
@@ -870,7 +724,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-08-07T21:46:10.890Z",
+      "crawledAt": "2026-08-08T10:00:06.492Z",
       "firstSeenAt": "2026-07-06T22:31:01.671Z",
       "slugByLocale": {
         "it": "candidature-spontanee-per-stage-durante-e-post-studi-universitari-presso-l-amministrazione-cantonale-amministrazione-cantonale-ti-2026-indie-213j37",
@@ -998,7 +852,7 @@
       "salaryMax": 64005,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-08-07T21:46:10.890Z",
+      "crawledAt": "2026-08-08T10:00:06.492Z",
       "firstSeenAt": "2026-05-31T13:06:08.322Z",
       "slugByLocale": {
         "it": "concorso-generale-2026-aiuto-cucina-presso-l-ufficio-della-refezione-e-dei-trasporti-scolastici-bellinzona-presso-l-ufficio-della-refezione--213j3w",
@@ -1070,7 +924,7 @@
       "salaryMax": 72822,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-08-07T21:46:10.890Z",
+      "crawledAt": "2026-08-08T10:00:06.492Z",
       "firstSeenAt": "2026-05-31T13:06:08.322Z",
       "slugByLocale": {
         "it": "concorso-generale-2026-collaboratori-trici-amministrativi-e-addetti-e-al-servizio-accoglienza-addetti-e-agli-assicurati-iii-consulenti-telef-213zbv",
@@ -1143,7 +997,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-08-07T21:46:10.890Z",
+      "crawledAt": "2026-08-08T10:00:06.492Z",
       "firstSeenAt": "2026-05-31T13:06:08.322Z",
       "slugByLocale": {
         "it": "concorso-generale-2026-medico-capo-clinica-in-psichiatria-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-sociopsichiatric-213j0o",
@@ -1220,7 +1074,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-08-07T21:46:10.890Z",
+      "crawledAt": "2026-08-08T10:00:06.492Z",
       "firstSeenAt": "2026-05-31T13:06:08.322Z",
       "slugByLocale": {
         "it": "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-sociopsichiatrica-cantonale-osc-m-213j0g",

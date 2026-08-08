@@ -60287,6 +60287,201 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-accise-gasolio-ministeri-mef': {
+    title: 'Accise gasolio: 232 milioni dai ministeri, Mef in testa',
+    description: 'Taglio di 17 centesimi sul gasolio dal 7 al 24 agosto: il Mef copre 125 milioni dei 232,3 totali. Ecco la ripartizione e come sfruttarlo per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, accise, gasolio, milioni, ministeri',
+    ogTitle: 'Accise gasolio: 232 milioni dai ministeri, Mef in testa',
+    ogDescription: 'Taglio di 17 centesimi sul gasolio dal 7 al 24 agosto: il Mef copre 125 milioni dei 232,3 totali. Ecco la ripartizione e come sfruttarlo per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/accise-gasolio-ministeri-mef',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Accise gasolio: 232 milioni dai ministeri, Mef in testa",
+      "description": "Taglio di 17 centesimi sul gasolio dal 7 al 24 agosto: il Mef copre 125 milioni dei 232,3 totali. Ecco la ripartizione e come sfruttarlo per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/accise-gasolio-ministeri-mef.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico di confine italo-svizzero all'alba con cartello carburante in CHF e auto di un frontaliere, montagne ticinesi sullo sfondo."
+      },
+      "datePublished": "2026-08-08T00:32:23+00:00",
+      "dateModified": "2026-08-08T00:32:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accise-gasolio-ministeri-mef/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-calo-frontalieri-italiani-ticino': {
+    title: 'Calo frontalieri italiani in Ticino: i dati dell\'UST',
+    description: 'Dati UST 2026: calo frontalieri in Ticino (-0,6%) e italiani (-1,1%). Analisi su nuovo accordo fiscale e mercato del lavoro. Scopri i dettagli. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, calo, italiani, dati, dell',
+    ogTitle: 'Calo frontalieri italiani in Ticino: i dati UST',
+    ogDescription: 'Il numero di frontalieri in Ticino cala dello 0,6%. Scopri l\'impatto del nuovo accordo fiscale e l\'andamento del mercato.',
+    canonicalPath: '/articoli-frontaliere/calo-frontalieri-italiani-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Calo frontalieri italiani in Ticino: i dati dell'UST",
+      "description": "Dati UST 2026: calo frontalieri in Ticino (-0,6%) e italiani (-1,1%). Analisi su nuovo accordo fiscale e mercato del lavoro. Scopri i dettagli. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calo-frontalieri-italiani-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del confine tra Italia e Svizzera a Chiasso con flussi di frontalieri"
+      },
+      "datePublished": "2026-08-08T02:15:20+00:00",
+      "dateModified": "2026-08-08T02:15:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calo-frontalieri-italiani-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-adolescenti-shifting-famiglia-recensioni-film': {
+    title: 'Shifting e famiglia: due film dal Locarno Festival',
+    description: 'Recensioni di \'Los días libres\' di Lucila Mariani e \'Ego Reach We All\' di Amartei Armar: adolescenti, shifting e lotta per la famiglia al Locarno Film Festival.',
+    keywords: 'frontalieri, ticino, svizzera, italia, shifting, famiglia, film, locarno',
+    ogTitle: 'Shifting e famiglia: due film dal Locarno Festival',
+    ogDescription: 'Recensioni di \'Los días libres\' di Lucila Mariani e \'Ego Reach We All\' di Amartei Armar: adolescenti, shifting e lotta per la famiglia al Locarno Film Festival.',
+    canonicalPath: '/articoli-frontaliere/adolescenti-shifting-famiglia-recensioni-film',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Shifting e famiglia: due film dal Locarno Festival",
+      "description": "Recensioni di 'Los días libres' di Lucila Mariani e 'Ego Reach We All' di Amartei Armar: adolescenti, shifting e lotta per la famiglia al Locarno Film Festival.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/adolescenti-shifting-famiglia-recensioni-film.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lungolago di Locarno al tramonto con il Gran Hotel e le montagne sullo sfondo"
+      },
+      "datePublished": "2026-08-08T02:26:09+00:00",
+      "dateModified": "2026-08-08T02:26:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/adolescenti-shifting-famiglia-recensioni-film/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-scontri-al-festival-turco-11-curdi-condannati-a-basilea': {
+    title: 'Scontri al Festival turco: 11 curdi condannati a Basilea',
+    description: 'Il tribunale di Basilea ha pronunciato 11 condanne a pene tra 9 e 36 mesi per gli scontri violenti scoppiati durante la festa turca dei bambini nel maggio 2022.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scontri, festival, turco, curdi',
+    ogTitle: 'Scontri al Festival turco: 11 curdi condannati a Basilea',
+    ogDescription: 'Il tribunale di Basilea ha pronunciato 11 condanne a pene tra 9 e 36 mesi per gli scontri violenti scoppiati durante la festa turca dei bambini nel maggio 2022.',
+    canonicalPath: '/articoli-frontaliere/scontri-al-festival-turco-11-curdi-condannati-a-basilea',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scontri al Festival turco: 11 curdi condannati a Basilea",
+      "description": "Il tribunale di Basilea ha pronunciato 11 condanne a pene tra 9 e 36 mesi per gli scontri violenti scoppiati durante la festa turca dei bambini nel maggio 2022.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scontri-al-festival-turco-11-curdi-condannati-a-basilea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un gruppo di persone di etnia curda si riunisce in una piazza durante un festival turco a Basilea, Svizzera."
+      },
+      "datePublished": "2026-08-08T03:04:59+00:00",
+      "dateModified": "2026-08-08T03:04:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scontri-al-festival-turco-11-curdi-condannati-a-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-grigioni-frontalieri-calano': {
+    title: 'Grigioni: scende ancora il numero di frontalieri',
+    description: 'Il Canton Grigioni registra un calo di circa 500 frontalieri rispetto allo stesso trimestre dell\'anno precedente. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, scende, ancora, numero',
+    ogTitle: 'Grigioni: scende ancora il numero di frontalieri | Frontaliere Ticino',
+    ogDescription: 'Il Canton Grigioni registra un calo di circa 500 frontalieri rispetto allo stesso trimestre dell\'anno precedente.',
+    canonicalPath: '/articoli-frontaliere/grigioni-frontalieri-calano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni: scende ancora il numero di frontalieri",
+      "description": "Il Canton Grigioni registra un calo di circa 500 frontalieri rispetto allo stesso trimestre dell'anno precedente. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grigioni-frontalieri-calano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un ponte sull'alto lago di Lugano con un numero ridotto di frontalieri."
+      },
+      "datePublished": "2026-08-08T07:02:36+00:00",
+      "dateModified": "2026-08-08T07:02:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/grigioni-frontalieri-calano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

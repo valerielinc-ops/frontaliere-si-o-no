@@ -11,7 +11,7 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-07T21:49:31.777Z",
+  "updatedAt": "2026-08-08T09:52:38.977Z",
   "seedMetaByUrl": {
     "https://www.pemsa.ch/it/job/installatore-di-impianti-solari-m-f-d-2686146/": {
       "location": "Basel",
@@ -1069,12 +1069,6 @@
       "company": "PEMSA",
       "postedDate": "2026-07-07"
     },
-    "https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-2681927/": {
-      "location": "Melide",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-06"
-    },
     "https://www.pemsa.ch/it/job/idraulico-2681713/": {
       "location": "Mendrisio",
       "canton": "TI",
@@ -1086,24 +1080,6 @@
       "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-07-03"
-    },
-    "https://www.pemsa.ch/it/job/installatore-impianti-ventilazione-2681707/": {
-      "location": "Sigirino",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-03"
-    },
-    "https://www.pemsa.ch/it/job/idraulico-imp-riscaldamento-2681702/": {
-      "location": "Lugano",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-03"
-    },
-    "https://www.pemsa.ch/it/job/progettista-elettrico-2681206/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-01"
     },
     "https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-2680524/": {
       "location": "Rivera",

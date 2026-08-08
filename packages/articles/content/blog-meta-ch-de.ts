@@ -1933,6 +1933,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-medi-zurigo-2026-confronto.title': 'Durchschnittslöhne in der Schweiz 2026: Fokus Kanton Zürich',
     'blog.article.salari-medi-zurigo-2026-confronto.excerpt': 'Offizielle Daten, Sätze und Beiträge: Wie sich der Lohn in Zürich im Jahr 2026 zusammensetzt. Praktischer Leitfaden für Arbeitnehmer und Grenzgänger.',
     'blog.article.salari-medi-zurigo-2026-confronto.imageAlt': 'Zürich Skyline mit Finanzhochhäusern und Fußgängern',
+    'blog.article.lindustriaaudiovisivaisundersoppressione.title': 'Die audiovisuelle Industrie steht unter Druck und appelliert an die Politik',
+    'blog.article.lindustriaaudiovisivaisundersoppressione.excerpt': 'Die Vertreter des Schweizer audiovisuellen Sektors verteidigten ihre Prioritäten vor den politischen Entscheidungsträgern des Locarno Film Festivals.',
+    'blog.article.lindustriaaudiovisivaisundersoppressione.imageAlt': 'Eine Szene vom Locarno Film Festival',
+    'blog.article.siccita-foraggio-nasce-borsa-online.title': 'Trockenheit, die Online-Futterbörse entsteht',
+    'blog.article.siccita-foraggio-nasce-borsa-online.excerpt': 'Die Bauernverbände Zürich und Schaffhausen starten eine Plattform, um notleidende Züchter und diejenigen, die Futter anbieten können, zusammenzubringen',
+    'blog.article.siccita-foraggio-nasce-borsa-online.imageAlt': 'Landwirt sucht Futter',
+    'blog.article.salario-medio-professioni-svizzera-zurigo-2026.title': 'Durchschnittslohn Berufe Schweiz 2026: Focus Zürich',
+    'blog.article.salario-medio-professioni-svizzera-zurigo-2026.excerpt': 'Analyse der Durchschnittslöhne pro Beruf in der Schweiz im Jahr 2026 mit Fokus auf den Kanton Zürich. Wir untersuchen die Änderungsfaktoren, die offiziellen Daten und die steuerlichen Auswirkungen unter Berücksichtigung der neuen Frontalieri-Vereinbarung, die am 1. JANUAR 2024 in Kraft getreten ist.',
+    'blog.article.salario-medio-professioni-svizzera-zurigo-2026.imageAlt': 'Stadtbild von Zürich mit modernen Gebäuden und Menschen in Bewegung, als Symbol für wirtschaftliche Aktivität',
+    'blog.article.salario-medio-bern-2026.title': 'Durchschnittslohn Berufe Schweiz 2026: Focus Bern',
+    'blog.article.salario-medio-bern-2026.excerpt': 'Vergleich der Durchschnittslöhne zwischen Kantonen und Branchen mit offiziellen Daten und Variationsfaktoren. Konzentrieren Sie sich auf den Kanton Bern.',
+    'blog.article.salario-medio-bern-2026.imageAlt': 'Blick auf Bern, Schweiz, mit historischen Gebäuden und modernen Büros',
+    'blog.article.salario-medio-professioni-svizzera-2026-basilea.title': 'Durchschnittslohn Berufe Schweiz 2026 Kanton Basel',
+    'blog.article.salario-medio-professioni-svizzera-2026-basilea.excerpt': 'AHV/IV/EO-Sätze 5,3%, ALV/KV 1,1% (Kap CHF 148\'200), UVG 0,7–1,5%, BVG 7–18% ab 25 Jahren. Neue Frontalieri-Vereinbarung in Kraft seit dem 1. Januar 2024.',
+    'blog.article.salario-medio-professioni-svizzera-2026-basilea.imageAlt': 'Luftaufnahme von Basel mit dem Rheinfluss und der Mittlere Brücke während des morgendlichen Berufsverkehrs',
 };
 
 export default blogMetaChDe;

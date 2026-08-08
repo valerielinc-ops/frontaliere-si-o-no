@@ -9,7 +9,12 @@ name: PR collision detector (funnel-critical, no-Claude)
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    # `ready_for_review`: lo scan salta le draft, quindi il momento in cui una
+    # draft torna in gioco è un evento a sé — senza questo tipo la sua prima
+    # rivalutazione arriverebbe solo al tick `*/30`, e GitHub deprioritizza i
+    # cron sotto carico. `converted_to_draft` non serve: la label appesa la
+    # toglie il ricalcolo periodico, che è già il canale della rimozione.
+    types: [opened, synchronize, reopened, ready_for_review]
   schedule:
     - cron: '*/30 * * * *' # ricalcolo periodico (anche per togliere la label)
   workflow_dispatch:
