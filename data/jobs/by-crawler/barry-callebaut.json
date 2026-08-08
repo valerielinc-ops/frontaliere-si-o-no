@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "barry-callebaut-14d29300df73",
-      "slug": "fsqr-customer-value-systems-compliance-manager-barry-callebaut-ch",
+      "slug": "responsabile-del-valore-e-della-conformita-dei-clienti-fsqr-barry-callebaut-zurich",
       "slugByLocale": {
         "en": "fsqr-customer-value-systems-compliance-manager-barry-callebaut-ch",
-        "it": "fsqr-customer-value-systems-compliance-manager-barry-callebaut-ch",
+        "it": "responsabile-del-valore-e-della-conformita-dei-clienti-fsqr-barry-callebaut-zurich",
         "de": "fsqr-customer-value-systems-compliance-manager-barry-callebaut-ch",
         "fr": "fsqr-customer-value-systems-compliance-manager-barry-callebaut-ch"
       },
@@ -63,7 +63,15 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-07T22:05:50.337Z"
+      "firstSeenAt": "2026-08-07T22:05:50.337Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fsqr-customer-value-systems-compliance-manager-barry-callebaut-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fsqr-customer-value-systems-compliance-manager-barry-callebaut-ch"
+      ]
     },
     {
       "id": "barry-callebaut-506449d097ad",
@@ -367,13 +375,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "executive-assistant-cpco-barry-callebaut-ch",
-        "assistente-esecutivo-cpco-barry-callebaut-zurich"
+        "executive-assistant-cpco-barry-callebaut-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "executive-assistant-cpco-barry-callebaut-ch",
-          "assistente-esecutivo-cpco-barry-callebaut-zurich"
+          "executive-assistant-cpco-barry-callebaut-ch"
         ]
       },
       "firstSeenAt": "2026-07-03T21:24:25.530Z",
@@ -398,7 +404,7 @@
         "it": "manager-area-vende-barry-callebaut-zurich",
         "en": "area-sales-manager-barry-callebaut-ch",
         "de": "area-sales-manager-barry-callebaut-ch",
-        "fr": "manager-area-vente-barry-callebaut-zurich"
+        "fr": "directeur-regional-des-ventes-barry-callebaut-zurich"
       },
       "company": "Barry Callebaut",
       "companyKey": "barry-callebaut",
@@ -440,18 +446,14 @@
       "previousSlugs": [
         "responsabile-vendite-di-area-barry-callebaut-zurich",
         "area-sales-manager-barry-callebaut-ch",
-        "directeur-regional-des-ventes-barry-callebaut-zurich",
-        "manager-area-vende-barry-callebaut-zurich",
         "manager-area-vente-barry-callebaut-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-vendite-di-area-barry-callebaut-zurich",
-          "area-sales-manager-barry-callebaut-ch",
-          "manager-area-vende-barry-callebaut-zurich"
+          "area-sales-manager-barry-callebaut-ch"
         ],
         "fr": [
-          "directeur-regional-des-ventes-barry-callebaut-zurich",
           "manager-area-vente-barry-callebaut-zurich"
         ]
       },
