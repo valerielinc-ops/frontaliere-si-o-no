@@ -12,6 +12,10 @@ vi.mock('@/services/newsletterSubscribers', () => ({
  deleteJobAlert: vi.fn(),
  updateJobAlert: vi.fn(),
  createJobAlert: vi.fn(),
+ setDailyBriefFrequency: vi.fn(),
+ // A VALUE, not a function: the daily-brief card maps over it to render its
+ // options, so a mock that omits it takes the whole component down with it.
+ DAILY_BRIEF_FREQUENCIES: ['daily', 'every-2', 'every-3', 'every-5', 'weekly', 'off'],
 }));
 
 // Force a known locale so STRINGS lookup is deterministic.
@@ -229,7 +233,10 @@ describe('SubscriptionPreferencesController — edit + create + frequency', () =
  <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
  );
  await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
- expect(screen.getByText('Automatic')).toBeTruthy();
+ // Scoped: the daily-brief card (#5415) has its own "Automatic" option, so an
+ // unscoped getByText now matches two different controls.
+ expect(screen.getAllByText('Automatic').length).toBeGreaterThan(0);
+ expect(screen.queryByText('manually pinned')).toBeNull();
 
  fireEvent.click(screen.getAllByRole('button', { name: /^daily$/ })[0]);
  await waitFor(() => expect(screen.getByText('manually pinned')).toBeTruthy());
@@ -258,7 +265,8 @@ describe('SubscriptionPreferencesController — edit + create + frequency', () =
  expect.objectContaining({ frequencyOverride: false }),
  );
  });
- await waitFor(() => expect(screen.getByText('Automatic')).toBeTruthy());
+ // Scoped for the same reason as above: two cards now offer an "Automatic".
+ await waitFor(() => expect(screen.queryByText('manually pinned')).toBeNull());
  });
 
  it('pauses an alert via the pause button, writing `paused` never `active` (issue #4298 follow-up fix)', async () => {

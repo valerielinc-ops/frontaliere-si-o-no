@@ -33,6 +33,7 @@ import {
   staticArticleFallback,
   __resetStaticArticleFallback,
 } from '@/services/staticArticleFallback';
+import { tryRenderMdTable } from '@/components/community/BlogArticles';
 import { t } from '@/services/i18n';
 import { learnRuntimeBlogSlugs, learnRuntimeSwissSlugs, resolveBlogSlug, resolveSwissSlug, buildPath } from '@/services/router';
 
@@ -286,18 +287,101 @@ describe('articleBodyPartsFromStaticArticle', () => {
     const parts = articleBodyPartsFromStaticArticle(staticArticle());
 
     expect(parts).toHaveLength(2);
-    // The plugin injects its own positional <h2> and demotes the body's own
-    // headings to <h3>, so the recovered text carries both levels.
-    expect(parts[0]).toContain('## Contesto');
-    expect(parts[0]).toContain('### In breve');
+    // The recovered markdown is the SOURCE markdown, not a transcript of the
+    // static HTML: the plugin's positional <h2> scaffolding is dropped and the
+    // body's own headings come back at the level they were written at, so this
+    // article hydrates identically whether or not the bundle contains it
+    // (issue #5415 §4 point 3).
+    expect(parts[0]).not.toContain('Contesto');
+    expect(parts[0]).toContain('## In breve');
     expect(parts[0]).toContain('- Primo punto');
     expect(parts[0]).toContain('- Secondo punto');
     expect(parts[0]).toContain('**grassetto**');
     expect(parts[0]).toContain('[un link](https://example.com)');
-    expect(parts[1]).toContain('## Dettagli operativi');
-    expect(parts[1]).toContain('### Dettagli');
+    expect(parts[1]).not.toContain('Dettagli operativi');
+    expect(parts[1]).toContain('## Dettagli');
     // Blocks stay separated the way the SPA renderer splits them.
     expect(parts[0].split('\n\n').length).toBeGreaterThan(2);
+  });
+
+  it('gives back the markdown it was rendered from, heading levels included', () => {
+    // The full round trip, asserted as equality rather than containment: what
+    // the corpus wrote → static HTML → recovered markdown.
+    const source = '## Sezione\nUn paragrafo.\n\n### Sotto-sezione\nAltro paragrafo.';
+    document.body.innerHTML = renderStaticArticle([source]);
+
+    expect(articleBodyPartsFromStaticArticle(staticArticle())).toEqual([
+      '## Sezione\n\nUn paragrafo.\n\n### Sotto-sezione\n\nAltro paragrafo.',
+    ]);
+  });
+
+  it('keeps the descriptive headings of the SEO fallback sections', () => {
+    // Only the three GENERIC positional labels are scaffolding. The fallback
+    // sections ogPagesPlugin appends to thin bodies carry real headings.
+    document.body.innerHTML = renderStaticArticle([]).replace(
+      '<nav>',
+      '<section><h2>Cosa devi sapere</h2><p>Testo della sezione.</p></section><nav>',
+    );
+
+    const parts = articleBodyPartsFromStaticArticle(staticArticle());
+    expect(parts).toEqual(['## Cosa devi sapere\n\nTesto della sezione.']);
+  });
+
+  it('recovers a pipe table as a pipe table, so the SPA can draw it again', () => {
+    // Issue #5415: the daily brief's tables reached the visitor as raw pipes on
+    // publication day. Nothing downstream can repair a table the recovery path
+    // flattened, because the newlines are gone by then — this is where it has
+    // to survive.
+    const source = '| Valico | Attesa |\n|---|---|\n| Chiasso | 12 min |\n| Ponte Tresa | 0 min |';
+    document.body.innerHTML = renderStaticArticle([source]);
+    // Sanity: the production renderer emitted a real table, not a <p> of pipes.
+    expect(document.body.innerHTML).toContain('<table>');
+
+    const [part] = articleBodyPartsFromStaticArticle(staticArticle());
+    expect(part).toBe('| Valico | Attesa |\n| --- | --- |\n| Chiasso | 12 min |\n| Ponte Tresa | 0 min |');
+    // One block, no blank line inside: the SPA splits body text on \n\n, and a
+    // table split in half is a table that fails tryRenderMdTable's separator check.
+    expect(part.split('\n\n')).toHaveLength(1);
+    // Closes the loop on the renderer that actually draws it.
+    expect(tryRenderMdTable(part, 't0')).not.toBeNull();
+  });
+
+  it('does not hand the SPA table parser something that is not a table', () => {
+    document.body.innerHTML = renderStaticArticle([
+      'Il modulo va compilato | firmato | consegnato entro il 30 giugno.',
+    ]);
+
+    const [part] = articleBodyPartsFromStaticArticle(staticArticle());
+    expect(part).toBe('Il modulo va compilato | firmato | consegnato entro il 30 giugno.');
+    expect(tryRenderMdTable(part, 't0')).toBeNull();
+  });
+
+  // Drift guard. runtimeArticleResolution.ts spells the generic labels out
+  // instead of importing ARTICLE_BODY_SECTION_LABELS, to keep the engine's four
+  // locales of SEO filler prose out of the SPA bundle. This is what makes that
+  // copy safe: rename a label in the engine and this fails.
+  it('drops every generic positional label the engine can emit, in every locale', () => {
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      for (const n of [1, 2, 3]) {
+        const label = articleBodySectionLabel(locale, n);
+        document.body.innerHTML = renderStaticArticle([]).replace(
+          '<nav>',
+          `<section><h2>${label}</h2><p>Testo.</p></section><nav>`,
+        );
+
+        expect(articleBodyPartsFromStaticArticle(staticArticle()), `${locale} body${n} → "${label}"`)
+          .toEqual(['Testo.']);
+      }
+    }
+  });
+
+  it('keeps inline markup inside recovered table cells', () => {
+    document.body.innerHTML = renderStaticArticle([
+      '| Voce | Valore |\n|---|---|\n| **Cambio** | [1.07](/cambio-chf-eur/) |',
+    ]);
+
+    const [part] = articleBodyPartsFromStaticArticle(staticArticle());
+    expect(part).toContain('| **Cambio** | [1.07](/cambio-chf-eur/) |');
   });
 
   it('drops the "…" the static renderer leaves where it truncated', () => {

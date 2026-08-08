@@ -40,6 +40,7 @@ import { getVariantFallback, listVariantIds, DEFAULT_EPSILON } from '../services
 import { assignSubjectVariant } from '../services/newsletter-subject-assign.mjs';
 import { pickWinner, resolveWinnersByProvider } from '../services/newsletter-ab-stats.mjs';
 import { loadCampaignVariantTotals, previousCampaignIds } from './lib/newsletter-ab-data.mjs';
+import { createResumeWriter, fetchAlreadySent as fetchCampaignAlreadySent, resumeChunkState } from './lib/campaignResumeLog.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from '../functions/src/lib/emailExperimentPostHog.js';
 import { refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
@@ -1446,39 +1447,44 @@ function buildEmailHeaders(email, campaign) {
 // ─── Campaign Resume Tracking ───────────────────────────────
 
 /**
- * Fetch emails already sent for this campaign from Firestore.
- * Reads the _meta_ campaign log to find sent recipients.
+ * The resume log — read, append, chunking — lives in
+ * scripts/lib/campaignResumeLog.mjs, shared with the daily brief. Both channels
+ * had grown their own copy of the same three lines, and both copies carried the
+ * same two defects: one array in one 1 MiB document (this log accumulates a
+ * whole week of daily resume runs), and marking only after the send loop, so a
+ * crash partway through left the run unrecorded and the retry re-sent to
+ * everyone already served. Fixed once, in one place (#5415 §3.6, AGENTS.md #6).
+ *
+ * `sentEmails` is the field name already written into live campaign documents
+ * on this channel — the brief's is `emails`. Unifying the spelling would orphan
+ * whatever campaign is in flight when this ships.
  */
+const RESUME_LOG_FIELD = 'sentEmails';
+const resumeLogOpts = (campaignId) => ({
+  campaignId,
+  field: RESUME_LOG_FIELD,
+  extraFields: { lastRunAt: new Date(), updatedAt: new Date() },
+});
+
 async function fetchAlreadySent(campaignId) {
   if (!db) return new Set();
   try {
-    const metaRef = db.collection('newsletter_subscribers').doc('_meta_');
-    const snap = await metaRef.collection('campaign_sends').doc(campaignId).get();
-    if (!snap.exists) return new Set();
-    const data = snap.data();
-    return new Set(data.sentEmails || []);
+    const { sent } = await fetchCampaignAlreadySent(db, resumeLogOpts(campaignId));
+    return sent;
   } catch (e) {
     console.warn('\u26a0\ufe0f Campaign resume fetch failed:', e?.message);
     return new Set();
   }
 }
 
-/**
- * Persist the list of sent emails for this campaign (append, not replace).
- */
-async function persistCampaignSends(campaignId, newlySentEmails) {
-  if (!db || !newlySentEmails.length) return;
-  const FieldValue = adminSdk?.firestore?.FieldValue;
+/** Chunk sizes for this campaign, so a rerun appends where the last run stopped. */
+async function fetchResumeChunkSizes(campaignId) {
+  if (!db) return [];
   try {
-    const metaRef = db.collection('newsletter_subscribers').doc('_meta_');
-    const docRef = metaRef.collection('campaign_sends').doc(campaignId);
-    await docRef.set({
-      sentEmails: FieldValue ? FieldValue.arrayUnion(...newlySentEmails) : newlySentEmails,
-      lastRunAt: new Date(),
-      updatedAt: new Date(),
-    }, { merge: true });
-  } catch (e) {
-    console.warn('\u26a0\ufe0f Campaign send tracking failed:', e?.message);
+    const { chunkSizes } = await fetchCampaignAlreadySent(db, resumeLogOpts(campaignId));
+    return chunkSizes;
+  } catch {
+    return [];
   }
 }
 
@@ -1623,7 +1629,7 @@ async function persistDelivery(recipient, messageId, meta) {
   }
 }
 
-async function sendEmailBatch(emails, finalizeForProvider) {
+async function sendEmailBatch(emails, finalizeForProvider, onDelivered) {
   // After a per-provider subject swap, the final variant/subject live on the
   // payload (the source of truth for what was actually sent) — read them there
   // so the delivery record + PostHog event reflect the provider's variant.
@@ -1640,6 +1646,10 @@ async function sendEmailBatch(emails, finalizeForProvider) {
       subject,
       scheduledFor: res.scheduledFor ?? null,
     });
+    // Resume marking happens HERE, per confirmed send, not after the loop: a
+    // crash partway through a multi-thousand-email run used to leave the whole
+    // run unrecorded (#5415 §3.6).
+    if (onDelivered) await onDelivered(normalizeEmail(item.recipient.email));
   };
   // Single provider mode: force a specific provider via cascade
   if (IS_SINGLE_PROVIDER) {
@@ -2459,11 +2469,14 @@ async function main() {
     } catch { /* leave payload unchanged */ }
   };
 
-  const { sent, failed } = await sendEmailBatch(cappedEmails, finalizeForProvider);
-
-  // ── Track only confirmed-sent emails for resume ──
-  const sentEmailList = sent.map(e => normalizeEmail(e.recipient.email));
-  await persistCampaignSends(campaignId, sentEmailList);
+  // ── Track only confirmed-sent emails for resume, as they are confirmed ──
+  // `db` is optional in this script (fixture runs have none) — without it there
+  // is nothing to resume from and nothing to record.
+  const resume = db
+    ? createResumeWriter(db, resumeLogOpts(campaignId), resumeChunkState(await fetchResumeChunkSizes(campaignId)))
+    : null;
+  const { sent, failed } = await sendEmailBatch(cappedEmails, finalizeForProvider, resume ? (email) => resume.record(email) : null);
+  if (resume) await resume.flush();
 
   const totalForCampaign = alreadySent.size + sent.length;
   const totalSubscribers = emails.length;

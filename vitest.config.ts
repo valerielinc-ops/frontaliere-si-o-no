@@ -105,6 +105,9 @@ const JSDOM_TS_FILES = [
   // #5012 phase 2: the CompanyAlert double-opt-in queue is localStorage-backed
   // (services/companyFollowIntent.ts), so its tests need a DOM.
   'tests/company-alert.test.ts',
+  // #5415: renders real corpus bodies through the static engine and back out of
+  // the DOM via articleBodyPartsFromStaticArticle — that half needs a document.
+  'tests/corpus-body-render-regression.test.ts',
   'tests/dist-salary-hub-footer-portal.test.ts',
   'tests/dom-reconciliation-guard.test.ts',
   'tests/exchange-rate-service-local-cache.test.ts',

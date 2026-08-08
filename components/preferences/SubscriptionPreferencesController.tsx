@@ -15,7 +15,7 @@
  */
 
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import { Bell, Mail, Loader2, CheckCircle2, AlertCircle, Trash2, Key, Pencil, Plus, Save, X, Pause, Play } from 'lucide-react';
+import { Bell, Mail, Loader2, CheckCircle2, AlertCircle, Trash2, Key, Pencil, Plus, Save, X, Pause, Play, Sunrise } from 'lucide-react';
 import {
  getFullSubscriptionStatus,
  toggleNewsletterSubscription,
@@ -23,6 +23,9 @@ import {
  deleteJobAlert,
  updateJobAlert,
  createJobAlert,
+ setDailyBriefFrequency,
+ DAILY_BRIEF_FREQUENCIES,
+ type DailyBriefFrequency,
  type SubscriptionAlertSummary,
  type JobAlertFrequency,
  type JobAlertPatch,
@@ -107,6 +110,12 @@ interface SectionStrings {
  alertPaused: string;
  alertPause: string;
  alertResume: string;
+ briefTitle: string;
+ briefDesc: string;
+ briefCurrent: string;
+ briefAuto: string;
+ briefAutoHint: string;
+ briefOptions: Record<DailyBriefFrequency, string>;
 }
 
 const STRINGS: Record<Locale, SectionStrings> = {
@@ -163,6 +172,20 @@ const STRINGS: Record<Locale, SectionStrings> = {
  alertPaused: 'In pausa',
  alertPause: 'Metti in pausa',
  alertResume: 'Riattiva',
+ briefTitle: 'Bollettino quotidiano',
+ briefDesc:
+ 'Il bollettino del frontaliere: code ai valichi, benzina, cambio e lavoro, ogni mattina presto. La frequenza si adatta a quanto lo apri e clicchi \u2014 qui puoi fissarla tu o disattivarlo, senza toccare newsletter e avvisi lavoro.',
+ briefCurrent: 'Frequenza attuale',
+ briefAuto: 'Automatica',
+ briefAutoHint: 'segue quanto apri e clicchi il bollettino',
+ briefOptions: {
+ daily: 'Ogni giorno',
+ 'every-2': 'Ogni 2 giorni',
+ 'every-3': 'Ogni 3 giorni',
+ 'every-5': 'Ogni 5 giorni',
+ weekly: 'Una volta a settimana',
+ off: 'Non inviarmelo',
+ },
  },
  en: {
  newsletterTitle: 'Newsletter subscription',
@@ -217,6 +240,20 @@ const STRINGS: Record<Locale, SectionStrings> = {
  alertPaused: 'Paused',
  alertPause: 'Pause',
  alertResume: 'Resume',
+ briefTitle: 'Daily brief',
+ briefDesc:
+ 'The cross-border daily brief: border waits, fuel, exchange rate and jobs, early every morning. Its frequency follows how often you open and click it \u2014 pin it yourself here, or turn it off, without touching the newsletter or your job alerts.',
+ briefCurrent: 'Current frequency',
+ briefAuto: 'Automatic',
+ briefAutoHint: 'follows how often you open and click the brief',
+ briefOptions: {
+ daily: 'Every day',
+ 'every-2': 'Every 2 days',
+ 'every-3': 'Every 3 days',
+ 'every-5': 'Every 5 days',
+ weekly: 'Once a week',
+ off: 'Do not send it',
+ },
  },
  de: {
  newsletterTitle: 'Newsletter-Abo',
@@ -271,6 +308,20 @@ const STRINGS: Record<Locale, SectionStrings> = {
  alertPaused: 'Pausiert',
  alertPause: 'Pausieren',
  alertResume: 'Fortsetzen',
+ briefTitle: 'Tagesbulletin',
+ briefDesc:
+ 'Das Grenzg\u00e4nger-Tagesbulletin: Wartezeiten, Benzin, Wechselkurs und Stellen, jeden Morgen fr\u00fch. Die Frequenz richtet sich danach, wie oft Sie es \u00f6ffnen und anklicken \u2014 hier k\u00f6nnen Sie sie selbst festlegen oder das Bulletin abschalten, ohne Newsletter und Job-Alerts zu ber\u00fchren.',
+ briefCurrent: 'Aktuelle Frequenz',
+ briefAuto: 'Automatisch',
+ briefAutoHint: 'richtet sich danach, wie oft Sie das Bulletin \u00f6ffnen und anklicken',
+ briefOptions: {
+ daily: 'T\u00e4glich',
+ 'every-2': 'Alle 2 Tage',
+ 'every-3': 'Alle 3 Tage',
+ 'every-5': 'Alle 5 Tage',
+ weekly: 'Einmal pro Woche',
+ off: 'Nicht senden',
+ },
  },
  fr: {
  newsletterTitle: 'Abonnement newsletter',
@@ -325,6 +376,20 @@ const STRINGS: Record<Locale, SectionStrings> = {
  alertPaused: 'En pause',
  alertPause: 'Mettre en pause',
  alertResume: 'Réactiver',
+ briefTitle: 'Bulletin quotidien',
+ briefDesc:
+ "Le bulletin du frontalier : attentes aux douanes, essence, taux de change et emploi, t\u00f4t chaque matin. Sa fr\u00e9quence suit la fa\u00e7on dont vous l'ouvrez et le cliquez \u2014 vous pouvez la fixer ici, ou le d\u00e9sactiver, sans toucher \u00e0 la newsletter ni aux alertes emploi.",
+ briefCurrent: 'Fr\u00e9quence actuelle',
+ briefAuto: 'Automatique',
+ briefAutoHint: "suit la fa\u00e7on dont vous ouvrez et cliquez le bulletin",
+ briefOptions: {
+ daily: 'Chaque jour',
+ 'every-2': 'Tous les 2 jours',
+ 'every-3': 'Tous les 3 jours',
+ 'every-5': 'Tous les 5 jours',
+ weekly: 'Une fois par semaine',
+ off: "Ne pas me l'envoyer",
+ },
  },
 };
 
@@ -340,7 +405,12 @@ function formatFrequency(freq: string, S: SectionStrings): string {
 // ─── Auth-mode Firestore helpers (lazy-loaded) ───────────────
 
 async function authLoadFullStatus(email: string): Promise<{
- newsletter: { subscribed: boolean; autologinEnabled: boolean };
+ newsletter: {
+ subscribed: boolean;
+ autologinEnabled: boolean;
+ dailyBriefFrequency: DailyBriefFrequency | null;
+ dailyBriefTier: number | null;
+ };
  alerts: SubscriptionAlertSummary[];
 }> {
  const { getFirestore, doc, getDoc, collection, getDocs } = await resilientImport(
@@ -357,7 +427,12 @@ async function authLoadFullStatus(email: string): Promise<{
 
  const subDocRef = doc(db, 'newsletter_subscribers', key);
  const subSnap = await getDoc(subDocRef);
- let newsletter = { subscribed: false, autologinEnabled: true };
+ let newsletter = {
+ subscribed: false,
+ autologinEnabled: true,
+ dailyBriefFrequency: null as DailyBriefFrequency | null,
+ dailyBriefTier: null as number | null,
+ };
  if (subSnap.exists()) {
  const data = subSnap.data() || {};
  const status = data.status;
@@ -369,6 +444,10 @@ async function authLoadFullStatus(email: string): Promise<{
  !hasUnsubAt &&
  (isActive || status === 'confirmed' || status === 'pending'),
  autologinEnabled: data.autologin_enabled !== false,
+ dailyBriefFrequency: DAILY_BRIEF_FREQUENCIES.includes(data.daily_brief_frequency_override)
+ ? data.daily_brief_frequency_override
+ : null,
+ dailyBriefTier: typeof data.daily_brief_tier === 'number' ? data.daily_brief_tier : null,
  };
  }
 
@@ -403,6 +482,59 @@ async function authLoadFullStatus(email: string): Promise<{
  });
 
  return { newsletter, alerts };
+}
+
+/**
+ * Auth-mode twin of `setDailyBriefFrequency` (#5415 §3.7): a signed-in reader
+ * writes their own subscriber doc directly, the same way authToggleNewsletter
+ * does, instead of round-tripping through the HMAC token endpoint they have no
+ * token for.
+ */
+async function authSetBriefFrequency(email: string, frequency: DailyBriefFrequency | null): Promise<void> {
+ const { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp, deleteField } =
+ await resilientImport(
+ () => import('firebase/firestore'),
+ (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+ () => import('@/services/firebase'),
+ (m) => typeof m.getApp === 'function',
+ );
+ const app = await getApp();
+ const db = getFirestore(app as any);
+ const key = email.trim().toLowerCase();
+
+ await setDoc(
+ doc(db, 'newsletter_subscribers', key),
+ {
+ email: key,
+ daily_brief_frequency_override: frequency === null ? deleteField() : frequency,
+ daily_brief_override_updated_at: serverTimestamp(),
+ },
+ { merge: true },
+ );
+ await addDoc(collection(db, 'newsletter_subscribers', key, 'events'), {
+ email: key,
+ event_type: 'daily_brief_frequency_set',
+ frequency,
+ source_channel: 'preferences_auth',
+ timestamp: serverTimestamp(),
+ occurred_at: new Date().toISOString(),
+ });
+}
+
+/**
+ * The engine's tier, in days, named with the same label the pinned options use —
+ * so "Automatic" tells the reader what it actually produced for them rather than
+ * leaving the cadence invisible. Mirrors FREQUENCY_OVERRIDES in
+ * scripts/lib/dailyBriefCadence.mjs.
+ */
+function briefTierToOption(days: number): DailyBriefFrequency {
+ if (days <= 1) return 'daily';
+ if (days <= 2) return 'every-2';
+ if (days <= 3) return 'every-3';
+ if (days <= 5) return 'every-5';
+ return 'weekly';
 }
 
 async function authToggleNewsletter(email: string, subscribed: boolean): Promise<void> {
@@ -1067,6 +1199,10 @@ export function SubscriptionPreferencesController({
  const [errorMsg, setErrorMsg] = useState<string>('');
  const [newsletterSubscribed, setNewsletterSubscribed] = useState<boolean>(false);
  const [autologinEnabled, setAutologinEnabledState] = useState<boolean>(true);
+ // null = the engagement engine picks the cadence (#5415 §3.7).
+ const [briefFrequency, setBriefFrequency] = useState<DailyBriefFrequency | null>(null);
+ const [briefTier, setBriefTier] = useState<number | null>(null);
+ const [savingBrief, setSavingBrief] = useState(false);
  const [alerts, setAlerts] = useState<SubscriptionAlertSummary[]>([]);
 
  const [savingNewsletter, setSavingNewsletter] = useState(false);
@@ -1108,6 +1244,8 @@ export function SubscriptionPreferencesController({
  }
  setNewsletterSubscribed(result.newsletter?.subscribed === true);
  setAutologinEnabledState(result.newsletter?.autologinEnabled !== false);
+ setBriefFrequency(result.newsletter?.dailyBriefFrequency ?? null);
+ setBriefTier(result.newsletter?.dailyBriefTier ?? null);
  setAlerts(result.alerts || []);
  setLoadStatus('ready');
  } else {
@@ -1123,6 +1261,8 @@ export function SubscriptionPreferencesController({
  if (cancelled) return;
  setNewsletterSubscribed(result.newsletter.subscribed);
  setAutologinEnabledState(result.newsletter.autologinEnabled);
+ setBriefFrequency(result.newsletter.dailyBriefFrequency ?? null);
+ setBriefTier(result.newsletter.dailyBriefTier ?? null);
  setAlerts(result.alerts);
  setLoadStatus('ready');
  }
@@ -1166,6 +1306,31 @@ export function SubscriptionPreferencesController({
  reportError(S.saveError);
  } finally {
  setSavingNewsletter(false);
+ }
+ };
+
+ const handleSetBriefFrequency = async (next: DailyBriefFrequency | null) => {
+ const previous = briefFrequency;
+ setBriefFrequency(next);
+ setSavingBrief(true);
+ setErrorMsg('');
+ try {
+ if (mode === 'token') {
+ if (!token) throw new Error('missing_token');
+ const result = await setDailyBriefFrequency(email, token, next);
+ if (!result.success) throw new Error(result.error || 'write_failed');
+ setBriefFrequency(result.dailyBriefFrequency ?? null);
+ } else {
+ await authSetBriefFrequency(email, next);
+ setBriefFrequency(next);
+ }
+ flashSaved('daily-brief');
+ } catch (err: any) {
+ console.warn('[SubscriptionPreferencesController] Set brief frequency failed:', err?.message);
+ setBriefFrequency(previous);
+ reportError(S.saveError);
+ } finally {
+ setSavingBrief(false);
  }
  };
 
@@ -1547,6 +1712,63 @@ export function SubscriptionPreferencesController({
  {newsletterSubscribed ? S.newsletterStateOn : S.newsletterStateOff}
  </span>
  {savedTickKey === 'newsletter' && (
+ <span className="ml-2 inline-flex items-center gap-1 text-success">
+ <CheckCircle2 size={14} /> {S.saved}
+ </span>
+ )}
+ </div>
+ </section>
+
+ {/* ── Daily brief cadence card (#5415 §3.7) ── */}
+ <section className="border border-edge rounded-xl p-5 bg-surface scroll-mt-20">
+ <div className="flex items-center gap-2 mb-1">
+ <Sunrise size={16} className="text-muted" />
+ <h2 className="font-semibold text-heading">{S.briefTitle}</h2>
+ </div>
+ <p className="text-sm text-muted leading-relaxed">{S.briefDesc}</p>
+
+ <div className="mt-4 flex flex-wrap gap-2">
+ <button
+ type="button"
+ disabled={savingBrief}
+ onClick={() => handleSetBriefFrequency(null)}
+ aria-pressed={briefFrequency === null}
+ className={`px-3 py-1.5 rounded-lg border text-sm transition-colors disabled:opacity-60 ${
+ briefFrequency === null
+ ? 'border-accent bg-accent-subtle text-accent font-semibold'
+ : 'border-edge text-body hover:border-accent-border'
+ }`}
+ >
+ {S.briefAuto}
+ </button>
+ {DAILY_BRIEF_FREQUENCIES.map((option) => (
+ <button
+ key={option}
+ type="button"
+ disabled={savingBrief}
+ onClick={() => handleSetBriefFrequency(option)}
+ aria-pressed={briefFrequency === option}
+ className={`px-3 py-1.5 rounded-lg border text-sm transition-colors disabled:opacity-60 ${
+ briefFrequency === option
+ ? 'border-accent bg-accent-subtle text-accent font-semibold'
+ : 'border-edge text-body hover:border-accent-border'
+ }`}
+ >
+ {S.briefOptions[option]}
+ </button>
+ ))}
+ </div>
+
+ <div className="mt-3 text-xs text-muted">
+ {S.briefCurrent}{' '}
+ <span className="font-semibold text-body">
+ {briefFrequency === null
+ ? `${S.briefAuto}${briefTier ? ` — ${S.briefOptions[briefTierToOption(briefTier)]}` : ''}`
+ : S.briefOptions[briefFrequency]}
+ </span>
+ {briefFrequency === null && <span className="ml-1">({S.briefAutoHint})</span>}
+ {savingBrief && <Loader2 size={14} className="ml-2 inline animate-spin" />}
+ {savedTickKey === 'daily-brief' && (
  <span className="ml-2 inline-flex items-center gap-1 text-success">
  <CheckCircle2 size={14} /> {S.saved}
  </span>

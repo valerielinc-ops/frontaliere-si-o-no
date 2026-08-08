@@ -96,6 +96,15 @@ jobs:
             node scripts/send-daily-brief.mjs
           fi
 
+      # The cadence is a feedback loop; a feedback loop nobody measures is one
+      # nobody notices going wrong (#5415 §3.10). Never fatal — the send has
+      # already happened by here, and a missing collection-group index must not
+      # turn a successful broadcast into a red run.
+      - name: Cadence report
+        if: steps.send-brief.outcome == 'success'
+        continue-on-error: true
+        run: node scripts/report-daily-brief-cadence.mjs --days 14
+
       - name: Report failure to GitHub Issues
         if: steps.send-brief.outcome == 'failure'
         continue-on-error: true
