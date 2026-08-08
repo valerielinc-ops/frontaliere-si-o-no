@@ -40,8 +40,26 @@
  * scripts/lib/corpus-removal-guard.mjs for the incident and the criterion that
  * separates a deliberate retirement from an accidental loss.
  *
+ * WHICH COMMIT THIS PULLS (issue #5298)
+ * ─────────────────────────────────────
+ * Not HEAD. The commit the PUBLISHED API says it was built from, read from
+ * `manifest.json`'s `commit` field and checked out explicitly.
+ *
+ * Cloning `--branch main` took whatever was newest, which sounds strictly better
+ * and is the bug: this script's output defines BLOG_SLUGS/SWISS_SLUGS (the
+ * `services/router*Data.ts` symlinks point into the directory it mirrors), while
+ * pull-articles-api.mjs's output — the sitemaps — comes from a Pages/CDN copy
+ * built by an EARLIER publish. Same workflow, same commit, two different upstream
+ * states, and `tests/blog-slugs-sitemap-sync.test.ts` red on every open branch.
+ * scripts/lib/articles-sync-pin.mjs carries the full account.
+ *
+ * So: pin to the API's commit, and if the mirror cannot serve that commit, skip
+ * the sync entirely rather than write a registry the sitemaps do not match.
+ *
  * Usage: node scripts/pull-articles-corpus.mjs [--check]
  *   --check  report what would change, write nothing, exit 1 if stale
+ *
+ * Env: ARTICLES_SYNC_COMMIT pins the pull explicitly instead of asking the API.
  */
 
 import fs from 'node:fs';
@@ -57,6 +75,7 @@ import {
 } from './lib/article-slug-registry.mjs';
 import { evaluateCorpusRemoval, parseRedirectSources } from './lib/corpus-removal-guard.mjs';
 import { localOnlyIds, mergeEntries } from './lib/corpus-entry-merge.mjs';
+import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
 
 // Opt-in, never the default. See MAX_DELETIONS: removing content this repo
 // published is an editorial decision, not a step in a routine sync.
@@ -118,30 +137,39 @@ function readRegistries(resolveFile) {
 }
 
 /**
- * `counts` from the published manifest, or null when it cannot be read.
+ * The published manifest, or null when it cannot be read after `attempts` tries.
  *
- * Null is NOT a failure here. This is the second of two gates and the weaker
- * one; the removal guard runs regardless. Turning a GitHub Pages hiccup into a
- * blocked corpus sync would stop new articles reaching the site's own lists to
- * defend against a case the other gate already covers — the wrong trade.
+ * It now carries TWO things this script needs, with opposite tolerances:
+ *
+ *   - `commit` — which corpus commit to check out. Load-bearing (#5298): without
+ *     it there is no way to make this pull and pull-articles-api.mjs describe the
+ *     same upstream state, so its absence SKIPS the sync.
+ *   - `counts` — the weaker of the two removal gates. It was tolerant of a
+ *     failed read on purpose, and stays that way in spirit; in practice a run
+ *     that got here has already read the manifest successfully, so the tolerance
+ *     is now unreachable rather than removed.
+ *
+ * Making the fetch load-bearing costs nothing that was not already lost: with the
+ * manifest unavailable, pull-articles-api.mjs — the very next step — refuses and
+ * exits 1 anyway. The only change is that the run now ends green and warned
+ * instead of red, after a skipped clone rather than a wasted one.
  */
-async function fetchManifestCounts(attempts = 3) {
+async function fetchManifest(attempts = 3) {
   const url = `${ARTICLES_API_BASE}/manifest.json`;
+  let lastErr;
   for (let i = 1; i <= attempts; i++) {
     try {
       const res = await fetch(url, { redirect: 'follow' });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const counts = (await res.json())?.counts;
-      if (counts && typeof counts === 'object') return counts;
-      throw new Error('manifest has no counts object');
+      const body = await res.json();
+      if (body && typeof body === 'object') return body;
+      throw new Error('manifest is not a JSON object');
     } catch (err) {
-      if (i === attempts) {
-        console.warn(`[pull-articles-corpus] manifest counts unavailable (${err.message}) — skipping the count gate`);
-        return null;
-      }
-      await new Promise((r) => setTimeout(r, 500 * i));
+      lastErr = err;
+      if (i < attempts) await new Promise((r) => setTimeout(r, 500 * i));
     }
   }
+  console.warn(`[pull-articles-corpus] manifest unavailable from ${url} (${lastErr?.message})`);
   return null;
 }
 
@@ -174,14 +202,65 @@ function mirrorTree(src, dst) {
   }
 }
 
-const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'articles-corpus-'));
+// ── Which corpus commit this sync is pinned to (issue #5298) ─────────────────
+//
+// Resolved BEFORE the clone, because a manifest we cannot read is a sync we must
+// not start: an unpinned clone is exactly the HEAD-vs-published-API skew that
+// reddens tests/blog-slugs-sitemap-sync.test.ts on every open branch.
+const manifest = await fetchManifest();
+const pin = pinVerdict({ pinned: readPin(), manifestCommit: manifest?.commit });
+
+/** Abandon the sync without writing anything. Green, warned, retried next round. */
+let tmp = null;
+function skipSync(reason) {
+  if (tmp) fs.rmSync(tmp, { recursive: true, force: true });
+  emitSkip('pull-articles-corpus', reason);
+  process.exit(0);
+}
+
+if (!pin.ok) skipSync(pin.reason);
+const TARGET = pin.commit;
+
+tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'articles-corpus-'));
 try {
   // Blobless + sparse: the corpus is ~15k small files but the repo also carries
   // images and generator history we do not want. --depth 1 keeps it to one commit.
   run('git', ['clone', '--quiet', '--depth', '1', '--filter=blob:none', '--no-checkout',
               '--branch', BRANCH, REMOTE, tmp]);
   run('git', ['-C', tmp, 'sparse-checkout', 'set', '--no-cone', 'content']);
-  run('git', ['-C', tmp, 'checkout', '--quiet']);
+
+  // Check out the commit the API was BUILT from, not the branch tip.
+  //
+  // Usually the tip already IS it and the extra fetch is skipped. When it is
+  // not, `git fetch origin <sha>` asks for that exact object: legal against
+  // GitHub for any commit reachable from a ref, which the manifest's commit is
+  // by construction — build-api.mjs read it off this very branch.
+  //
+  // A failure here means the mirror genuinely cannot serve it (force-pushed
+  // away, or the API is ahead of a mirror that has not received the push yet).
+  // That is the one case where continuing would produce the mixed state: the
+  // registry from `main`, the sitemaps from an older publish. So it skips.
+  const head = run('git', ['-C', tmp, 'rev-parse', 'HEAD']).trim();
+  let ref = head;
+  if (head !== TARGET) {
+    const fetched = spawnSync(
+      'git', ['-C', tmp, 'fetch', '--quiet', '--depth', '1', 'origin', TARGET],
+      { encoding: 'utf-8' },
+    );
+    if (fetched.status !== 0) {
+      skipSync(
+        `${BRANCH} is at ${head.slice(0, 8)} and the mirror cannot serve ${TARGET.slice(0, 8)}, ` +
+        `the commit ${ARTICLES_API_BASE}/manifest.json says the published API was built from: ` +
+        `${(fetched.stderr || fetched.stdout || 'no output').trim().split('\n').pop()}`,
+      );
+    }
+    ref = 'FETCH_HEAD';
+  }
+  run('git', ['-C', tmp, 'checkout', '--quiet', '--detach', ref]);
+  console.log(
+    `[pull-articles-corpus] corpus pinned to ${TARGET}` +
+    (head === TARGET ? ` (${BRANCH} tip)` : ` (${BRANCH} tip is ${head.slice(0, 8)}, ahead)`),
+  );
 
   const src = path.join(tmp, 'content');
   if (!fs.existsSync(src)) throw new Error(`upstream has no content/ on ${BRANCH}`);
@@ -194,10 +273,30 @@ try {
     process.exit(1);
   }
   // A shrink is the dangerous direction: this content feeds the site's own
-  // article lists, so losing entries here un-lists live articles.
+  // article lists, so losing entries here un-lists live articles. Nothing is
+  // written on either reading — the only question is which alarm to raise.
+  //
+  // Since the pin (#5298) this branch has a BENIGN cause it never had before,
+  // and it is the normal state rather than an edge case: the checkout is at the
+  // commit the API was BUILT from, which is by construction at or behind the
+  // corpus tip. Measured on the first real run of this code — the mirror at
+  // b8669256 with 15090 files, the published API still at c6897c28 with 15088.
+  // Nothing was truncated; the sitemaps simply have not caught up with a corpus
+  // this repo already committed. Refusing there would have put the sync in the
+  // red for hours over a condition the next publish clears on its own.
+  //
+  // The dangerous reading is not dismissed, it is REROUTED. An upstream that
+  // genuinely lost articles at this commit cannot resolve itself, so it skips
+  // again and again and the workflow's escalation opens an issue on the third.
+  // What changes is the alarm's shape and latency, never whether a shrunken
+  // corpus can reach packages/articles/content/ — it cannot, on either path.
   if (dstN > 0 && srcN < dstN) {
-    console.error(`[pull-articles-corpus] upstream has FEWER files than local (${srcN} < ${dstN}) — refusing; investigate before syncing`);
-    process.exit(1);
+    skipSync(
+      `the published API is built from ${TARGET.slice(0, 8)}, whose corpus carries ${srcN} files, ` +
+      `while packages/articles/content/ already holds ${dstN}. Either the API has not caught up ` +
+      'with the corpus committed here, or upstream truncated at that commit — neither is ' +
+      'something to mirror. If this keeps repeating it is the second one.',
+    );
   }
 
   const delta = srcN - dstN;
@@ -233,7 +332,12 @@ try {
     local,
     incoming,
     retiredPaths: parseRedirectSources(ledgerSrc),
-    manifestCounts: await fetchManifestCounts(),
+    // Same manifest read the pin came from — one fetch, one upstream state. It
+    // used to be a second, independent fetch, which could disagree with the tree
+    // just cloned and made the count gate answer about a different corpus than
+    // the one being mirrored.
+    manifestCounts:
+      manifest?.counts && typeof manifest.counts === 'object' ? manifest.counts : null,
   });
 
   for (const section of ARTICLE_SECTION_KEYS) {
@@ -374,6 +478,12 @@ try {
       );
       process.exit(1);
     }
+
+  // Hand the pin to pull-articles-api.mjs. Published only now, on the success
+  // path, so the value in the environment always names a commit the registry on
+  // disk actually came from — a pin published before the mirror could outlive a
+  // refusal and vouch for a tree that was never written.
+  publishPin(TARGET, { tag: 'pull-articles-corpus' });
 } finally {
   fs.rmSync(tmp, { recursive: true, force: true });
 }

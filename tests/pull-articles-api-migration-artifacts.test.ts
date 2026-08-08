@@ -130,7 +130,16 @@ let routes: Routes = {};
 
 function baseRoutes(): Routes {
   const r: Routes = {
-    'manifest.json': JSON.stringify({ commit: 'deadbeefcafe', counts: { articles: 500 } }),
+    // A FULL sha, as nanako's build-api.mjs actually emits (checked against the
+    // live manifest: c6897c287da4a97b40135713a217aef6579486c9). The fixture used
+    // to carry a 12-char placeholder, which stopped being a harmless shorthand
+    // when this field became the consistency pin — `git fetch origin <sha>`
+    // resolves nothing abbreviated, so an abbreviated commit now skips the sync
+    // (issue #5298, scripts/lib/articles-sync-pin.mjs).
+    'manifest.json': JSON.stringify({
+      commit: 'deadbeefcafe1234567890abcdef1234567890ab',
+      counts: { articles: 500 },
+    }),
     'news-ticker-live.json': ticker,
   };
   for (const s of SITEMAPS) {
