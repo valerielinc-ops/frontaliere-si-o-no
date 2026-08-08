@@ -60443,6 +60443,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-frontalieri-calano': {
+    title: 'Grigioni: scende ancora il numero di frontalieri',
+    description: 'Il Canton Grigioni registra un calo di circa 500 frontalieri rispetto allo stesso trimestre dell\'anno precedente. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, scende, ancora, numero',
+    ogTitle: 'Grigioni: scende ancora il numero di frontalieri | Frontaliere Ticino',
+    ogDescription: 'Il Canton Grigioni registra un calo di circa 500 frontalieri rispetto allo stesso trimestre dell\'anno precedente.',
+    canonicalPath: '/articoli-frontaliere/grigioni-frontalieri-calano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni: scende ancora il numero di frontalieri",
+      "description": "Il Canton Grigioni registra un calo di circa 500 frontalieri rispetto allo stesso trimestre dell'anno precedente. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grigioni-frontalieri-calano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un ponte sull'alto lago di Lugano con un numero ridotto di frontalieri."
+      },
+      "datePublished": "2026-08-08T07:02:36+00:00",
+      "dateModified": "2026-08-08T07:02:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/grigioni-frontalieri-calano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
