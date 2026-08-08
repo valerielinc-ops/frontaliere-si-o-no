@@ -749,7 +749,7 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   // "Collaboratore/trice di ristorazione") that carry no camerier/kellner/waiter
   // stem at all — same gap fixed in PROFESSION_MATCHERS.cameriere (#5413).
   camerieri:
-    /\bcameri[eè]r|\bkellner|\bwaiter\b|\bwaitress\b|\bserveur|\bserveuse|\bservice[ -]de[ -]table|\bbarista\b|\bbarman\b|\bbartender\b|(?:impiegat|collaborat)\S*\s+(?:di|della)\s+ristorazione/i,
+    /\bcameri[eè]r|\bkellner|\bwaiter\b|\bwaitress\b|\bserveur|\bserveuse|\bservice[ -]de[ -]table|\bbarista\b|\bbarman\b|\bbartender\b|\b(?:impiegat|collaborat)\S*\s+(?:di|della)\s+ristorazione/i,
   hotel: /\bhotel\b|\balbergh|\bhotelfach|\bhospitality\b|\breceptionist|\brezeption|\bconcierge\b|\bgouvernante\b|\bh[oô]tellerie|\bgovernante\b/i,
   pulizie: /\bpulizi|\breinigung|\bcleaning\b|\bnettoyage\b|\bputzfrau|\braumpfleg|\baddetto[ -]alle[ -]pulizie|\bagent[ -]d.entretien|\bfacility[ -]cleaning/i,
   sicurezza: /\bsicurezza[ -](?:privata|fisica)|\bsecurity[ -](?:guard|officer)|\bsicherheitsdienst|\bwachmann|\bvigilanz|\bguardia[ -]giurat|\bagent[ -]de[ -]s[eé]curit|\bsorvegli/i,
