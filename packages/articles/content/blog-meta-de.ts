@@ -9351,6 +9351,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.accise-gasolio-ministeri-mef.title': 'Diesel-Akzise: 232 Mio. von Ministerien, MEF vorn',
     'blog.article.accise-gasolio-ministeri-mef.excerpt': 'Die Mef deckt 125 Millionen der Kürzung von 17 Cent auf Dieselkraftstoff (7. bis 24. August) ab. So verteilen Sie die Mittel und was sich für die Grenzgänger ändert.',
     'blog.article.accise-gasolio-ministeri-mef.imageAlt': 'Grenzübergang Italien-Schweiz im Morgengrauen mit Treibstoffpreisschild in CHF und Auto eines Grenzgängers, Tessiner Berge im Hintergrund.',
+    'blog.article.calo-frontalieri-italiani-ticino.title': 'Rückgang der italienischen Grenzgänger im Tessin: die Daten des BfS',
+    'blog.article.calo-frontalieri-italiani-ticino.excerpt': 'Die USt-Daten zeigen einen Rückgang von 0,6% bei den Grenzgängern im Tessin und von 1,1% bei den Italienern zwischen April und Juni im Vergleich zu 2025.',
+    'blog.article.calo-frontalieri-italiani-ticino.imageAlt': 'Blick auf die Grenze zwischen Italien und der Schweiz in Chiasso mit Pendlerströmen',
 };
 
 export default blogMetaDe;
