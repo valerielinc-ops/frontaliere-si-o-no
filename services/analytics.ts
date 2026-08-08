@@ -71,7 +71,7 @@
  * │ consent_update │ Cookie consent change │
  * │ chatbot_funnel │ AI chatbot auth/conversion steps │
  * │ chatbot_usage │ AI chatbot usage telemetry │
- * │ chatbot_question │ AI questions (sanitized text) │
+ * │ chatbot_question │ AI question shape — NO text (#5196) │
  * │ api_diagnostics │ API health check │
  * │ app_error │ App error with rich context │
  * │ error_page_view │ Error page shown (health metric) │
@@ -96,6 +96,7 @@
 
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { redactPersonalData } from './privacy/redactPii';
+import { classifyQuestionTopic } from './privacy/questionTopic';
 import { captureEvent as posthogCapture, capturePageView as posthogPageView } from './posthog';
 import {
  isBenignErrorMessage,
@@ -2001,8 +2002,36 @@ export const Analytics = {
  },
 
  /**
- * Store chatbot question content (sanitized) for topic analytics.
+ * Report the SHAPE of a chatbot question for topic analytics. Never its text.
  * Tracks even for guest users (before login).
+ *
+ * ── WHY `question_text` IS GONE (#5196) ──
+ *
+ * It used to ship the question, redacted. Redaction is a deny-list over free
+ * text, and a deny-list over free text has no upper bound: the first version
+ * stripped email/URL/phone and let a name, a date of birth and a street address
+ * through; the rewrite that replaced it let French number-first addresses,
+ * vehicle plates and passport numbers through. Each gap was found only after
+ * the data had already reached two third-party vendors, and at least one shape
+ * — an all-lowercase "sono mario rossi", the ordinary mobile input — is not
+ * reachable by any pattern, because nothing in the string marks it as a name.
+ *
+ * So the question was never whether more PII would escape, only when. Every
+ * field below is now drawn from a finite set or is a count: `question_topic` is
+ * an element of `QUESTION_TOPICS`, `redacted_kinds` a join of the closed
+ * `RedactionKind` union, the rest integers. No input can push user text through
+ * any of them. That is a property of construction rather than of coverage, and
+ * it is what stops the tests from being a chase after the next gap.
+ *
+ * `redactPersonalData` still runs, for `redacted_kinds`: knowing whether users
+ * keep pasting addresses is exactly the signal needed to judge this decision,
+ * and it is obtainable without holding a single address.
+ *
+ * The cost, stated rather than hidden: nobody can read the questions any more.
+ * Topic counts replace it. Nothing in this repo consumed `question_text`, and
+ * GA4 could not even query it — it was never registered as a custom dimension
+ * in `scripts/analytics-report.mjs` — but ad-hoc PostHog exploration could, and
+ * that is now gone.
  */
  trackChatbotQuestion: (
  question: string,
@@ -2014,7 +2043,13 @@ export const Analytics = {
  const { text: clean, kinds } = sanitizeChatbotQuestion(question);
  if (!clean) return;
  log('chatbot_question', {
- question_text: clean,
+ // Classified from the RAW question, which classifies better than the
+ // redacted one. Safe because the return type is closed: the classifier
+ // selects among fixed constants and has no path from the characters of its
+ // input to the characters of its output.
+ question_topic: classifyQuestionTopic(question),
+ // Measured on the redacted text, so the numbers do not describe how much
+ // personal data the original carried.
  question_length: clean.length,
  question_word_count: clean.split(/\s+/).filter(Boolean).length,
  // WHICH kinds of personal data were stripped, never the data itself. This
@@ -2096,7 +2131,14 @@ export const Analytics = {
  log('job_alert_cta_click', {
  cta_surface: surface,
  cta_action: action,
- cta_keyword: (keyword || '').slice(0, 80),
+ // Same class as `alert_keywords` below: this can be the reader's own typed
+ // job-search keyword, and it was going to both vendors with nothing but a
+ // length cap (#5196). Redacted with the capitalised-name heuristic OFF, for
+ // the measured reason given on `search_term` — capitalised job titles are
+ // the content here, not people. Redaction before truncation, never after:
+ // truncating first can cut an identifier in half and ship the identifying
+ // half.
+ cta_keyword: redactPersonalData(keyword || '', { inferNamesFromCapitalisation: false }).text.slice(0, 80),
  });
  },
 
@@ -2112,7 +2154,8 @@ export const Analytics = {
  ) => {
  log('job_alert_cta_shown', {
  cta_surface: surface,
- cta_keyword: (keyword || '').slice(0, 80),
+ // Redacted for the same reason as in `trackJobAlertCtaClick` above.
+ cta_keyword: redactPersonalData(keyword || '', { inferNamesFromCapitalisation: false }).text.slice(0, 80),
  });
  },
 

@@ -161,6 +161,49 @@ describe('addresses, in the street grammar of each locale', () => {
     expect(out).not.toContain('1204');
   });
 
+  // ── The number-first order, which is the standard French one ──
+  //
+  // These passed through in CLEAR until this change: the type-first rule wants
+  // the house number last ("Rue du Rhône 14", the Swiss-Romand habit), and the
+  // English rule wants a street/road suffix. A plain French address has neither.
+  // `fr` is one of the site's four locales, so this was a live hole, not a
+  // theoretical one.
+  const NUMBER_FIRST: Array<[string, string, string[]]> = [
+    ['fr rue', 'Abito a 5 rue de la Gare a Ginevra', ['5 rue', 'Gare']],
+    ['fr avenue', "J'habite au 12 avenue des Alpes", ['12 avenue', 'Alpes']],
+    ['fr apostrophe', "Mon adresse est 3 rue d’Italie", ['3 rue', 'Italie']],
+    ['fr bis', 'Mon domicile: 7 bis boulevard Carl-Vogt', ['boulevard Carl-Vogt']],
+    ['fr chemin', 'Je réside 24 chemin des Coudriers', ['24 chemin', 'Coudriers']],
+    ['it number-first', 'Indirizzo 8 via Nassa', ['8 via', 'Nassa']],
+  ];
+
+  for (const [label, input, leaks] of NUMBER_FIRST) {
+    it(`${label}: redacts a number-first address`, () => {
+      const out = red(input);
+      for (const leak of leaks) expect(out, `leaked "${leak}"`).not.toContain(leak);
+      expect(kinds(input)).toContain('address');
+    });
+  }
+
+  it('does not fire on Italian prose where the street type is a common noun', () => {
+    // `corso`, `largo` and `strada` are ordinary Italian words. The rule needs a
+    // CAPITALISED name after the type, which is what keeps these intact — and
+    // is also why an all-lowercase "5 rue de la gare" is NOT caught. That limit
+    // is the argument for the closed-enum topic field, not for more regex.
+    for (const q of ['Ho fatto 1 corso di formazione', 'Servono 2 strade alternative']) {
+      expect(red(q), q).toBe(q);
+    }
+  });
+
+  it('redacts the house-number letter suffix too — "221B Baker Street"', () => {
+    // Before: `221B` did not match `\d{1,4}\s`, the generic name heuristic ate
+    // "Baker Street", and the house number survived in clear beside a [name].
+    const out = red('I live at 221B Baker Street');
+    expect(out).not.toContain('221B');
+    expect(out).not.toContain('Baker');
+    expect(kinds('I live at 221B Baker Street')).toContain('address');
+  });
+
   it('DELIBERATELY does not treat "2026 Lugano" as an address', () => {
     // The one documented departure from over-redaction. A bare 4-digit token
     // followed by a town is indistinguishable from year + town, and year + town
@@ -189,6 +232,66 @@ describe('identifiers that are unambiguously personal', () => {
     const out = red('Stipendio su CH9300762011623852957, va bene?');
     expect(out).not.toContain('CH9300762011623852957');
     expect(kinds('Stipendio su CH9300762011623852957')).toContain('iban');
+  });
+
+  // ── Documents and plates: state registers keyed to a named person ──
+  //
+  // A passport number or a plate is not a weaker identifier than the AVS number
+  // already handled here — each one resolves to a person or a household in a
+  // register. All three shapes below went out in clear before this change.
+
+  it('redacts an Italian passport number', () => {
+    const out = red('Il mio passaporto YA1234567 scade nel 2027');
+    expect(out).not.toContain('YA1234567');
+    expect(kinds('passaporto YA1234567')).toContain('id');
+    // The bare year is deliberately preserved — see the date rules.
+    expect(out).toContain('2027');
+  });
+
+  it('redacts a Swiss passport number', () => {
+    expect(red('Mein Pass X1234567 läuft ab')).not.toContain('X1234567');
+  });
+
+  it("redacts an Italian carta d'identità elettronica", () => {
+    const out = red("La mia carta d'identità è CA12345AB");
+    expect(out).not.toContain('CA12345AB');
+    expect(kinds("carta d'identità CA12345AB")).toContain('id');
+  });
+
+  it('redacts a Swiss vehicle plate', () => {
+    for (const plate of ['TI 123456', 'ZH 45678', 'GR-9876']) {
+      const input = `La mia auto ha la targa ${plate}`;
+      expect(red(input), plate).not.toContain(plate.replace(/[\s-]/, ''));
+      expect(kinds(input), plate).toContain('id');
+    }
+  });
+
+  it('redacts an Italian vehicle plate, glued or spaced', () => {
+    for (const plate of ['AB123CD', 'AB 123 CD']) {
+      const input = `Targa italiana ${plate}, devo reimmatricolare?`;
+      const out = red(input);
+      expect(out, plate).not.toContain(plate);
+      expect(kinds(input), plate).toContain('id');
+    }
+  });
+
+  it('does NOT read a canton code plus a year as a plate', () => {
+    // Second documented departure from over-redaction, same argument as the
+    // ZIP_CITY year carve-out: "TI 2026" is a tax year in almost every real
+    // occurrence, and the naive rule would fire on a very common question shape
+    // while catching nothing the other identifier rules miss.
+    for (const q of ['aliquote TI 2026', 'imposta GE 2027']) {
+      expect(red(q), q).toBe(q);
+      expect(kinds(q)).toEqual([]);
+    }
+  });
+
+  it('does NOT read lower-case prose as a plate — the canton code is case-sensitive', () => {
+    // German "So 3000 Franken" and Italian "ne 1234" would both be plates under
+    // a case-insensitive rule. (The ZIP_CITY rule may still touch such strings;
+    // that behaviour predates this change and is not what is asserted here.)
+    expect(kinds('so 123456 franchi')).not.toContain('id');
+    expect(kinds('ne 45678')).not.toContain('id');
   });
 
   it('still redacts email, URL and phone — the rules that already existed', () => {
