@@ -5806,6 +5806,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'siccita-foraggio-nasce-borsa-online',
+    category: 'novita',
+    date: '2026-08-08T02:21:27.790Z',
+    image: '/images/blog/siccita-foraggio-nasce-borsa-online.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

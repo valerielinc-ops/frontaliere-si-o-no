@@ -1936,6 +1936,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lindustriaaudiovisivaisundersoppressione.title': 'Die audiovisuelle Industrie steht unter Druck und appelliert an die Politik',
     'blog.article.lindustriaaudiovisivaisundersoppressione.excerpt': 'Die Vertreter des Schweizer audiovisuellen Sektors verteidigten ihre Prioritäten vor den politischen Entscheidungsträgern des Locarno Film Festivals.',
     'blog.article.lindustriaaudiovisivaisundersoppressione.imageAlt': 'Eine Szene vom Locarno Film Festival',
+    'blog.article.siccita-foraggio-nasce-borsa-online.title': 'Trockenheit, die Online-Futterbörse entsteht',
+    'blog.article.siccita-foraggio-nasce-borsa-online.excerpt': 'Die Bauernverbände Zürich und Schaffhausen starten eine Plattform, um notleidende Züchter und diejenigen, die Futter anbieten können, zusammenzubringen',
+    'blog.article.siccita-foraggio-nasce-borsa-online.imageAlt': 'Landwirt sucht Futter',
 };
 
 export default blogMetaChDe;

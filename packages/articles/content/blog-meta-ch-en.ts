@@ -1936,6 +1936,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lindustriaaudiovisivaisundersoppressione.title': 'The audiovisual industry is under pressure and appeals to politics',
     'blog.article.lindustriaaudiovisivaisundersoppressione.excerpt': 'The representatives of the Swiss audiovisual sector defended their priorities before the political leaders gathered at the Locarno Film Festival.',
     'blog.article.lindustriaaudiovisivaisundersoppressione.imageAlt': 'A scene from the Locarno Film Festival',
+    'blog.article.siccita-foraggio-nasce-borsa-online.title': 'Drought, the online bag for fodder is born',
+    'blog.article.siccita-foraggio-nasce-borsa-online.excerpt': 'The farmers\' associations of Zurich and Schaffhausen launch a platform to connect farmers in difficulty and those who can offer feed',
+    'blog.article.siccita-foraggio-nasce-borsa-online.imageAlt': 'Farmer looking for forage',
 };
 
 export default blogMetaChEn;
