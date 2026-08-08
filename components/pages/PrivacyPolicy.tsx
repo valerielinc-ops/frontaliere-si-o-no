@@ -246,6 +246,33 @@ export const PrivacyPolicy: React.FC = () => {
                 sia ai job alert.
               </p>
             </div>
+            <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
+              <h3 className="font-medium text-heading mb-2 flex items-center gap-2">
+                <Mail className="text-accent flex-shrink-0" size={18} />
+                Frequenza adattiva del bollettino quotidiano
+              </h3>
+              <p className="text-sm">
+                Il <em>Bollettino del Frontaliere</em> non viene inviato con la stessa frequenza a tutti. Per non
+                riempire la casella di chi non lo legge, la frequenza di invio si adatta al singolo destinatario:
+                registriamo le <strong>aperture e i clic sui link del bollettino</strong> — gli stessi eventi che i
+                fornitori di posta ci comunicano già per newsletter e job alert — e da questi ricaviamo un intervallo
+                fra un invio e il successivo, da un giorno a una settimana. Chi clicca torna alla frequenza
+                giornaliera; dopo tre invii senza alcuna interazione l'intervallo si allunga di un passo.
+              </p>
+              <p className="text-sm mt-2">
+                <strong>Cosa conserviamo.</strong> Sul tuo record di iscrizione: la data dell'ultimo bollettino
+                inviato, l'intervallo corrente in giorni, il numero di invii consecutivi senza interazione e
+                l'eventuale frequenza che hai scelto tu. Non profiliamo il contenuto dei clic oltre al fatto che sono
+                avvenuti.
+              </p>
+              <p className="text-sm mt-2">
+                <strong>Base giuridica e opposizione.</strong> Legittimo interesse a limitare la frequenza delle
+                comunicazioni, con opposizione effettiva: dal link <em>«Gestisci preferenze»</em> in fondo a ogni
+                bollettino puoi fissare tu la frequenza (da giornaliera a settimanale) oppure disattivare il solo
+                bollettino, lasciando attivi newsletter e job alert. Una frequenza scelta da te prevale sempre
+                sull'algoritmo.
+              </p>
+            </div>
           </div>
         </div>
 

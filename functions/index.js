@@ -492,6 +492,8 @@ export const newsletterManageSubscription = onRequest(
  // /preferenze-newsletter/ token link.
  const specificCompanyKey = params.specific_company_key;
  const specificJobId = params.specific_job_id;
+ // Daily-brief cadence pinned by the reader (#5415 §3.7).
+ const dailyBriefFrequency = params.daily_brief_frequency;
 
  try {
  const { newsletterSecret } = await getNewsletterSecrets();
@@ -512,6 +514,7 @@ export const newsletterManageSubscription = onRequest(
  paused,
  specificCompanyKey,
  specificJobId,
+ dailyBriefFrequency,
  });
 
  // exchange_auth_code always returns JSON (no HTML page)

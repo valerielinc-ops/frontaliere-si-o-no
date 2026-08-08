@@ -19,10 +19,13 @@
  *     collection: an explicit broadcast opt-out wins over membership.
  *
  * WHAT THIS SCRIPT DELIBERATELY DOES NOT DO
- *   - No `last_sent_at` read OR write. The newsletter and job-alert senders
- *     exclude each other through that 36h cooldown; a daily channel that
- *     WROTE it would starve both (they would never fire again), and one that
- *     READ it could never be daily. Parallel channel, own cadence.
+ *   - No `last_sent_at` WRITE. The newsletter and job-alert senders exclude
+ *     each other through that 36h cooldown; a daily channel that WROTE it
+ *     would starve both (they would never fire again). It is READ, but only as
+ *     a same-UTC-day calendar check (#5415 §3.3): those two channels reach a
+ *     given person about once a week, so "not twice in one day" costs the
+ *     brief roughly a day in seven, while a 36h cooldown would cost it every
+ *     other day. Parallel channel, own cadence, own `daily_brief_*` fields.
  *   - No job cards → no canary surface. scripts/lib/canaryAd.mjs gates the
  *     broadcast of sponsored job ads; this email carries only aggregate
  *     counts, so there is nothing for the canary gate to gate.
@@ -51,8 +54,18 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isNewsletterExcluded, isJobAlertExcluded, isAddressSuppressed } from '../services/emailSuppression.mjs';
-import { buildNewsletter, sanitizeFirstName, nlNormLocale } from '../services/newsletter-template.mjs';
-import { makeUnsubscribeUrl, makePreferencesUrl } from '../services/newsletterUrls.mjs';
+import { sanitizeFirstName, nlNormLocale } from '../services/newsletter-template.mjs';
+import { buildDailyBriefEmail } from '../services/daily-brief-template.mjs';
+import { makeOneClickUnsubscribeUrl, makePreferencesUrl } from '../services/newsletterUrls.mjs';
+import {
+  blockedByAnotherChannelToday,
+  engagedSinceLastSend,
+  estimateDailyVolume,
+  isDueToday,
+  nextCadenceState,
+  openedSinceLastSend,
+  passesBlockGate,
+} from './lib/dailyBriefCadence.mjs';
 import { resolveEffectivePreferredHour, computeScheduledSendAt, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
@@ -259,18 +272,61 @@ async function fetchRecipients(db) {
 
 // ── Campaign resume (same-day rerun must not double-send) ──────────────────
 
+/**
+ * Addresses already served today, across every chunk of the resume log.
+ *
+ * CHUNKED. The log used to be one array in one document, and a Firestore
+ * document caps at 1 MiB — roughly 25k addresses, comfortable today and not a
+ * limit worth discovering in production (#5415 §3.6). Chunks are sibling
+ * documents named `{campaignId}`, `{campaignId}--2`, … so one id-range read
+ * still collects them all.
+ */
+const RESUME_CHUNK_MAX = 4000;
+const campaignSends = (db) =>
+  db.collection('newsletter_subscribers').doc('_meta_').collection('campaign_sends');
+
 async function fetchAlreadySent(db, campaignId) {
-  const doc = await db.collection('newsletter_subscribers').doc('_meta_')
-    .collection('campaign_sends').doc(campaignId).get();
-  return new Set(doc.exists ? doc.data()?.emails || [] : []);
+  const { FieldPath } = await import('firebase-admin/firestore');
+  const snap = await campaignSends(db)
+    .where(FieldPath.documentId(), '>=', campaignId)
+    .where(FieldPath.documentId(), '<', `${campaignId}`)
+    .orderBy(FieldPath.documentId())
+    .get();
+  const sent = new Set();
+  const chunkSizes = [];
+  for (const doc of snap.docs) {
+    const emails = doc.data()?.emails || [];
+    chunkSizes.push(emails.length);
+    for (const email of emails) sent.add(email);
+  }
+  return { sent, chunkSizes };
 }
 
-async function markSent(db, campaignId, emails) {
+/**
+ * Record progress. Called INCREMENTALLY during the run, not once at the end:
+ * end-of-run marking meant a crash halfway through re-sent to everyone already
+ * served on the next attempt (#5415 §3.6).
+ */
+async function markSent(db, campaignId, emails, chunkState) {
   if (emails.length === 0) return;
   const { FieldValue } = await import('firebase-admin/firestore');
-  await db.collection('newsletter_subscribers').doc('_meta_')
-    .collection('campaign_sends').doc(campaignId)
+  if (chunkState.count + emails.length > RESUME_CHUNK_MAX) {
+    chunkState.index += 1;
+    chunkState.count = 0;
+  }
+  const docId = chunkState.index === 1 ? campaignId : `${campaignId}--${chunkState.index}`;
+  await campaignSends(db).doc(docId)
     .set({ emails: FieldValue.arrayUnion(...emails), updated_at: new Date() }, { merge: true });
+  chunkState.count += emails.length;
+}
+
+/**
+ * Where the resume log should append, given what is already there — so a rerun
+ * continues the last chunk instead of reopening a full one.
+ */
+export function resumeChunkState(chunkSizes) {
+  const index = Math.max(1, chunkSizes.length);
+  return { index, count: chunkSizes[index - 1] ?? 0 };
 }
 
 async function persistDelivery(db, { email, campaignId }, sendResult) {
@@ -292,126 +348,195 @@ async function persistDelivery(db, { email, campaignId }, sendResult) {
 
 // ── Email body ─────────────────────────────────────────────────────────────
 
-const BRIEF_STRINGS = {
-  it: {
-    briefing: (b) => {
-      const parts = [];
-      if (b.blocks.borderWait?.available) {
-        const w = b.blocks.borderWait;
-        parts.push(w.worst.waitMinutes >= 10
-          ? `Stamattina l'attesa più lunga ai valichi è a <strong>${w.worst.name}: ${w.worst.waitMinutes} minuti</strong> (${w.zeroWaitCount} valichi senza coda su ${w.count}).`
-          : `Stamattina si passa: ${w.zeroWaitCount} valichi su ${w.count} senza coda, attesa massima ${w.worst.waitMinutes} minuti (${w.worst.name}).`);
-      }
-      if (b.blocks.fuel?.available && b.blocks.fuel.cheapestItaly[0]) {
-        const f = b.blocks.fuel.cheapestItaly[0];
-        parts.push(`Benzina: il minimo tra i comuni di confine è <strong>${f.minPriceEur.toFixed(3).replace('.', ',')} €/L a ${f.municipality}</strong>.`);
-      }
-      if (b.blocks.jobs?.available && Number.isFinite(b.blocks.jobs.yesterdayAdded)) {
-        parts.push(`Ieri <strong>${b.blocks.jobs.yesterdayAdded} nuovi annunci</strong> di lavoro in Svizzera.`);
-      }
-      return parts.map((p) => `<p>${p}</p>`).join('');
-    },
-    textIntro: 'I numeri di oggi per i frontalieri:',
-    readMore: 'Leggi il bollettino completo',
-  },
-  en: {
-    briefing: (b) => {
-      const parts = [];
-      if (b.blocks.borderWait?.available) {
-        const w = b.blocks.borderWait;
-        parts.push(w.worst.waitMinutes >= 10
-          ? `This morning's longest border wait is at <strong>${w.worst.name}: ${w.worst.waitMinutes} minutes</strong> (${w.zeroWaitCount} of ${w.count} crossings queue-free).`
-          : `Smooth crossing this morning: ${w.zeroWaitCount} of ${w.count} crossings queue-free, longest wait ${w.worst.waitMinutes} minutes (${w.worst.name}).`);
-      }
-      if (b.blocks.fuel?.available && b.blocks.fuel.cheapestItaly[0]) {
-        const f = b.blocks.fuel.cheapestItaly[0];
-        parts.push(`Fuel: the border-municipality low is <strong>€${f.minPriceEur.toFixed(3)}/L in ${f.municipality}</strong>.`);
-      }
-      if (b.blocks.jobs?.available && Number.isFinite(b.blocks.jobs.yesterdayAdded)) {
-        parts.push(`<strong>${b.blocks.jobs.yesterdayAdded} new Swiss job listings</strong> landed yesterday.`);
-      }
-      return parts.map((p) => `<p>${p}</p>`).join('');
-    },
-    textIntro: "Today's numbers for cross-border commuters:",
-    readMore: 'Read the full brief',
-  },
-  de: {
-    briefing: (b) => {
-      const parts = [];
-      if (b.blocks.borderWait?.available) {
-        const w = b.blocks.borderWait;
-        parts.push(w.worst.waitMinutes >= 10
-          ? `Die längste Wartezeit heute Morgen: <strong>${w.worst.name}, ${w.worst.waitMinutes} Minuten</strong> (${w.zeroWaitCount} von ${w.count} Übergängen ohne Warteschlange).`
-          : `Heute Morgen läuft es: ${w.zeroWaitCount} von ${w.count} Übergängen ohne Warteschlange, längste Wartezeit ${w.worst.waitMinutes} Minuten (${w.worst.name}).`);
-      }
-      if (b.blocks.fuel?.available && b.blocks.fuel.cheapestItaly[0]) {
-        const f = b.blocks.fuel.cheapestItaly[0];
-        parts.push(`Benzin: Tiefstpreis der Grenzgemeinden <strong>${f.minPriceEur.toFixed(3).replace('.', ',')} €/L in ${f.municipality}</strong>.`);
-      }
-      if (b.blocks.jobs?.available && Number.isFinite(b.blocks.jobs.yesterdayAdded)) {
-        parts.push(`Gestern <strong>${b.blocks.jobs.yesterdayAdded} neue Stellenangebote</strong> in der Schweiz.`);
-      }
-      return parts.map((p) => `<p>${p}</p>`).join('');
-    },
-    textIntro: 'Die Zahlen von heute für Grenzgänger:',
-    readMore: 'Zum vollständigen Bulletin',
-  },
-  fr: {
-    briefing: (b) => {
-      const parts = [];
-      if (b.blocks.borderWait?.available) {
-        const w = b.blocks.borderWait;
-        parts.push(w.worst.waitMinutes >= 10
-          ? `Ce matin, l'attente la plus longue est à <strong>${w.worst.name} : ${w.worst.waitMinutes} minutes</strong> (${w.zeroWaitCount} passages sans file sur ${w.count}).`
-          : `Ça roule ce matin : ${w.zeroWaitCount} passages sur ${w.count} sans file, attente maximale ${w.worst.waitMinutes} minutes (${w.worst.name}).`);
-      }
-      if (b.blocks.fuel?.available && b.blocks.fuel.cheapestItaly[0]) {
-        const f = b.blocks.fuel.cheapestItaly[0];
-        parts.push(`Essence : le minimum des communes frontalières est <strong>${f.minPriceEur.toFixed(3).replace('.', ',')} €/L à ${f.municipality}</strong>.`);
-      }
-      if (b.blocks.jobs?.available && Number.isFinite(b.blocks.jobs.yesterdayAdded)) {
-        parts.push(`Hier, <strong>${b.blocks.jobs.yesterdayAdded} nouvelles offres d'emploi</strong> en Suisse.`);
-      }
-      return parts.map((p) => `<p>${p}</p>`).join('');
-    },
-    textIntro: "Les chiffres du jour pour les frontaliers :",
-    readMore: 'Lire le bulletin complet',
-  },
-};
-
-/** Build one recipient's email via the shared newsletter template. */
-export function buildBriefEmail({ recipient, brief, editionUrls, editionTitles }) {
+/**
+ * Build one recipient's bulletin.
+ *
+ * The dress lives in services/daily-brief-template.mjs and is the bulletin's
+ * own, not the weekly newsletter's. Until #5415 this function called
+ * `buildNewsletter()`, which parametrises none of its own chrome: recipients
+ * got the weekly masthead, the weekly issue counter (identical on consecutive
+ * days), "ecco cosa succede ai tuoi soldi QUESTA SETTIMANA" over daily numbers,
+ * the weekly's hardcoded 2.8% / CHF 467 placeholder metrics, and a <title>
+ * reading "Frontaliere Weekly". Only the subject differed.
+ */
+export function buildBriefEmail({ recipient, brief, editionUrls, editionTitles, cadenceDays }) {
   const locale = LOCALES.includes(recipient.locale) ? recipient.locale : 'it';
-  const s = BRIEF_STRINGS[locale];
-  const fx = brief.blocks.exchange;
-  const url = editionUrls[locale];
-  const title = editionTitles?.[locale] || `Bollettino del frontaliere – ${brief.dateIso}`;
-  const unsubscribeUrl = makeUnsubscribeUrl(recipient.email);
+  const editionTitle = editionTitles?.[locale] || `Bollettino del frontaliere \u2013 ${brief.dateIso}`;
+  // RFC 8058 target, not the SPA page: functions/src/lib/newsletterUrls.js
+  // documents makeUnsubscribeUrl as "NOT a valid List-Unsubscribe header
+  // target", and the brief was the one sender of the three still pointing at it.
+  const unsubscribeUrl = makeOneClickUnsubscribeUrl(recipient.email);
+  const preferencesUrl = makePreferencesUrl(recipient.email, locale);
 
-  const html = buildNewsletter({
+  const { html, text } = buildDailyBriefEmail({
     locale,
+    brief,
+    editionUrl: editionUrls[locale],
+    editionTitle,
     recipientName: sanitizeFirstName(recipient.name),
-    preheaderText: title,
-    exchangeRate: fx?.available ? { rate: fx.rate, previousRate: fx.prevRate } : undefined,
-    aiBriefing: s.briefing(brief),
-    totalJobs: brief.blocks.jobs?.available ? brief.blocks.jobs.activeJobs : 0,
-    article: { title, excerpt: s.readMore, url },
+    cadenceDays,
     unsubscribeUrl,
-    preferencesUrl: makePreferencesUrl(recipient.email, locale),
+    preferencesUrl,
   });
 
-  const textLines = [s.textIntro];
-  const w = brief.blocks.borderWait;
-  if (w?.available) textLines.push(`- ${w.worst.name}: ${w.worst.waitMinutes} min`);
-  if (fx?.available) textLines.push(`- 1 CHF = ${fx.rate} EUR`);
-  const fuel = brief.blocks.fuel;
-  if (fuel?.available && fuel.cheapestItaly[0]) textLines.push(`- ${fuel.cheapestItaly[0].municipality}: ${fuel.cheapestItaly[0].minPriceEur} EUR/L`);
-  const jobs = brief.blocks.jobs;
-  if (jobs?.available && Number.isFinite(jobs.yesterdayAdded)) textLines.push(`- +${jobs.yesterdayAdded} nuovi annunci`);
-  textLines.push('', `${s.readMore}: ${url}`);
-
-  return { subject: title, html, text: textLines.join('\n'), unsubscribeUrl, locale };
+  return { subject: editionTitle, html, text, unsubscribeUrl, preferencesUrl, locale };
 }
+
+/**
+ * The email headers, aligned with what send-newsletter.mjs already sends.
+ *
+ * The brief was the only one of the three senders whose `List-Unsubscribe`
+ * pointed at `makeUnsubscribeUrl` — the SPA page that
+ * functions/src/lib/newsletterUrls.js documents, in as many words, as "NOT a
+ * valid List-Unsubscribe header target" (#5415 §2c). Gmail and Yahoo require
+ * RFC 8058 one-click from bulk senders, and this channel's first mass send
+ * would have been its first impression on both.
+ */
+export function buildBriefHeaders({ email, campaignId, unsubscribeUrl }) {
+  const mailto = `mailto:alerts@frontaliereticino.ch`
+    + `?subject=${encodeURIComponent('Unsubscribe Bollettino del Frontaliere')}`
+    + `&body=${encodeURIComponent(`Please unsubscribe ${email} from the daily brief.`)}`;
+  const emailKey = Buffer.from(String(email).toLowerCase()).toString('hex').slice(0, 24);
+  return {
+    'List-Unsubscribe': `<${unsubscribeUrl}>, <${mailto}>`,
+    'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+    'List-ID': 'Bollettino del Frontaliere <daily.frontaliereticino.ch>',
+    'Feedback-ID': `daily-brief:${campaignId}:frontaliere-ticino`,
+    'X-Entity-Ref-ID': `${campaignId}-${emailKey}`,
+    'X-Campaign-Id': campaignId,
+    'X-Auto-Response-Suppress': 'OOF, AutoReply',
+  };
+}
+
+// ── Cadence ────────────────────────────────────────────────────────────────
+
+/**
+ * The fields the cadence engine reads for one recipient.
+ *
+ * The `daily_brief_*` state has one home — `newsletter_subscribers/{email}` —
+ * but the engagement timestamps it seeds from are written by the webhooks onto
+ * whichever collection the send went through, so the job-alert doc is the
+ * fallback. Without it, the ~10 addresses that are job-alert-only would look
+ * like people who have never engaged with anything and seed straight to weekly.
+ */
+export function cadenceStateOf(recipient) {
+  const nl = recipient.nlDoc || {};
+  const ja = recipient.jaDoc || {};
+  return {
+    daily_brief_tier: nl.daily_brief_tier,
+    daily_brief_last_sent_at: nl.daily_brief_last_sent_at,
+    daily_brief_sends_since_engagement: nl.daily_brief_sends_since_engagement,
+    daily_brief_frequency_override: nl.daily_brief_frequency_override,
+    daily_brief_last_send_provider: nl.daily_brief_last_send_provider,
+    last_click_at: nl.last_click_at ?? ja.last_click_at ?? null,
+    last_open_at: nl.last_open_at ?? ja.last_open_at ?? null,
+  };
+}
+
+/**
+ * Split the eligible union into "gets today's edition" and "does not, and why".
+ *
+ * Order matters and is load-bearing. The cadence gate runs BEFORE the capacity
+ * cut, never after (#5415 §3.8): a recipient dropped for capacity has not been
+ * sent an email they ignored, so counting that as a silent send would demote
+ * people for our quota. It also means the cut now falls on a list that is
+ * already ~40% smaller, which is what stops the alphabetical tail from starving.
+ *
+ * Pure — `nowMs`, `todayIso` and the click attribution come in as arguments.
+ */
+export function applyCadence(recipients, { brief, todayIso, nowMs, briefClickAtByEmail = null }) {
+  const due = [];
+  const stats = {
+    evaluated: recipients.length,
+    off: 0, notDue: 0, thinEdition: 0, crossChannel: 0,
+    crossChannelBy: {}, tierPopulation: {}, dueByTier: {},
+  };
+  const availableBlocks = brief?.counts?.availableBlocks;
+
+  for (const recipient of recipients) {
+    const state = cadenceStateOf(recipient);
+    const verdict = isDueToday(state, todayIso, nowMs);
+
+    if (verdict.tierDays == null) { stats.off++; continue; }
+    stats.tierPopulation[verdict.tierDays] = (stats.tierPopulation[verdict.tierDays] || 0) + 1;
+    if (!verdict.due) { stats.notDue++; continue; }
+
+    if (!passesBlockGate(availableBlocks, verdict.tierDays)) { stats.thinEdition++; continue; }
+
+    const cross = blockedByAnotherChannelToday({ nlDoc: recipient.nlDoc, jaDoc: recipient.jaDoc, todayIso });
+    if (cross.blocked) {
+      stats.crossChannel++;
+      stats.crossChannelBy[cross.channel] = (stats.crossChannelBy[cross.channel] || 0) + 1;
+      continue;
+    }
+
+    stats.dueByTier[verdict.tierDays] = (stats.dueByTier[verdict.tierDays] || 0) + 1;
+    due.push({
+      ...recipient,
+      cadence: verdict,
+      state,
+      engaged: engagedSinceLastSend({ sub: state, briefClickAtMs: briefClickAtByEmail?.get(recipient.email) ?? null }),
+      opened: openedSinceLastSend(state),
+    });
+  }
+
+  // Tier-first ordering so that, if capacity still bites, it bites the people
+  // who asked for the least — not whoever sorts last alphabetically.
+  due.sort((a, b) => a.cadence.tierDays - b.cadence.tierDays || a.email.localeCompare(b.email));
+  return { due, stats };
+}
+
+/**
+ * Clicks attributable to the BRIEF, not to the weekly (#5415 §3.2a): a
+ * `clicked_at` on a `campaign_deliveries` doc whose `campaign_id` starts with
+ * `daily-brief-`. Without that filter, a click on the weekly newsletter would
+ * promote someone's BRIEF cadence.
+ *
+ * A collection-group query on `clicked_at` needs an index that may not exist in
+ * this project. Rather than fail the send over telemetry, this degrades to the
+ * subscriber-level `last_click_at` and says so — the sender prints which mode it
+ * ran in, and the index to create if the precise one is wanted.
+ */
+async function fetchBriefClicks(db, sinceMs) {
+  try {
+    const snap = await db.collectionGroup('campaign_deliveries')
+      .where('clicked_at', '>=', new Date(sinceMs))
+      .get();
+    const byEmail = new Map();
+    for (const doc of snap.docs) {
+      const data = doc.data() || {};
+      if (!String(data.campaign_id || '').startsWith('daily-brief-')) continue;
+      const email = String(data.email || '').toLowerCase();
+      const clickedAt = data.clicked_at?.toMillis?.() ?? new Date(data.clicked_at).getTime();
+      if (!email || !Number.isFinite(clickedAt)) continue;
+      // Four of the five providers write their events to a doc id that differs
+      // from the send path's (scripts/report-send-hour-impact.mjs), so the same
+      // click can appear twice: keep the latest, as newsletter-ab-data.mjs does.
+      if (!byEmail.has(email) || byEmail.get(email) < clickedAt) byEmail.set(email, clickedAt);
+    }
+    return { byEmail, mode: 'brief-attributed' };
+  } catch (error) {
+    console.warn(
+      `⚠️ brief click attribution unavailable (${error?.message}) — falling back to subscriber-level last_click_at.\n`
+      + '   A click on the weekly will therefore count as engagement with the brief.\n'
+      + '   To get the precise signal, add a collection-group index on campaign_deliveries.clicked_at.',
+    );
+    return { byEmail: null, mode: 'subscriber-level' };
+  }
+}
+
+/** Persist the recipient's new cadence state next to their delivery record. */
+async function persistCadence(db, { email, state, engaged, opened, provider, sentAtIso }) {
+  try {
+    await db.collection('newsletter_subscribers').doc(email).set(
+      nextCadenceState({ sub: state, engaged, opened, sentAtIso, provider }),
+      { merge: true },
+    );
+  } catch (e) {
+    console.warn('⚠️ daily-brief cadence persist failed:', e?.message);
+  }
+}
+
 
 // ── Main ───────────────────────────────────────────────────────────────────
 
@@ -448,23 +573,40 @@ async function main() {
     ` → UNION ${stats.union} (overlap ${stats.overlap}, opt-out wins ${stats.optOutWins})`,
   );
 
+  const nowMs = Date.now();
   let pool = recipients;
   if (TARGET_EMAIL_RAW) {
     pool = pool.filter((r) => r.email === TARGET_EMAIL_RAW);
-    console.log(`🎯 TARGET_EMAIL — pool reduced to ${pool.length}`);
+    console.log(`\u{1F3AF} TARGET_EMAIL \u2014 pool reduced to ${pool.length}`);
   }
 
-  const alreadySent = await fetchAlreadySent(db, campaignId);
+  // Attribution first: the cadence gate below needs to know who clicked THIS
+  // channel, not just who clicked something of ours.
+  const { byEmail: briefClickAtByEmail, mode: attributionMode } = await fetchBriefClicks(db, nowMs - 30 * 24 * 60 * 60 * 1000);
+
+  // Cadence BEFORE capacity (§3.8). A recipient cut for quota was never sent
+  // anything to ignore, so the cut must not reach the demotion counters.
+  const { due, stats: cadenceStats } = applyCadence(pool, { brief, todayIso, nowMs, briefClickAtByEmail });
+  console.log(
+    `\u{1F503} cadence (${attributionMode}): ${cadenceStats.evaluated} eligible \u2192 ${due.length} due today`
+    + ` (not due ${cadenceStats.notDue}, channel off ${cadenceStats.off}, thin edition ${cadenceStats.thinEdition},`
+    + ` already emailed today by another channel ${cadenceStats.crossChannel}${Object.keys(cadenceStats.crossChannelBy).length ? ` ${JSON.stringify(cadenceStats.crossChannelBy)}` : ''})`,
+  );
+  console.log(`   tier population: ${JSON.stringify(cadenceStats.tierPopulation)} \u2192 steady-state \u2248 ${estimateDailyVolume(cadenceStats.tierPopulation)}/day`);
+  console.log(`   due by tier:     ${JSON.stringify(cadenceStats.dueByTier)}`);
+  pool = due;
+
+  const { sent: alreadySent, chunkSizes } = await fetchAlreadySent(db, campaignId);
   if (alreadySent.size > 0) {
     pool = pool.filter((r) => !alreadySent.has(r.email));
-    console.log(`♻️  resume: ${alreadySent.size} already sent today, ${pool.length} remaining`);
+    console.log(`\u267B\uFE0F  resume: ${alreadySent.size} already sent today, ${pool.length} remaining`);
   }
 
   const { getAvailableCascadeQuota, sendEmailCascade } = await import('./lib/email-cascade.mjs');
   const quota = await getAvailableCascadeQuota();
   const cap = Math.max(0, Math.floor(quota * (1 - QUOTA_BUFFER_RATIO)));
   const batch = pool.slice(0, cap);
-  console.log(`📦 capacity: quota ${quota}, cap ${cap} → sending ${batch.length}/${pool.length}${pool.length > batch.length ? ` (${pool.length - batch.length} deferred to a rerun/tomorrow)` : ''}`);
+  console.log(`\u{1F4E6} capacity: quota ${quota}, cap ${cap} \u2192 sending ${batch.length}/${pool.length}${pool.length > batch.length ? ` (${pool.length - batch.length} deferred to a rerun/tomorrow)` : ''}`);
 
   // Per-user preferred send hour (mailgun/maileroo/resend honor scheduledAt).
   const metaDoc = await db.collection('newsletter_subscribers').doc('_meta_').get();
@@ -472,7 +614,7 @@ async function main() {
   const scheduling = perUserSendTimeEnabled();
 
   const emails = batch.map((recipient) => {
-    const built = buildBriefEmail({ recipient, brief, editionUrls, editionTitles });
+    const built = buildBriefEmail({ recipient, brief, editionUrls, editionTitles, cadenceDays: recipient.cadence.tierDays });
     let scheduledAt = null;
     if (scheduling) {
       const { hourUtc } = resolveEffectivePreferredHour({
@@ -500,41 +642,60 @@ async function main() {
           { name: 'type', value: 'daily-brief' },
           { name: 'campaign_id', value: campaignId },
         ],
-        headers: {
-          'Feedback-ID': `daily-brief:${campaignId}:frontaliere-ticino`,
-          'List-Unsubscribe': `<${built.unsubscribeUrl}>`,
-          'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
-        },
+        headers: buildBriefHeaders({ email: recipient.email, campaignId, unsubscribeUrl: built.unsubscribeUrl }),
       },
-      recipient: { email: recipient.email },
-      meta: { type: 'daily-brief', campaignId, scheduledAt },
+      recipient: { email: recipient.email, state: recipient.state, engaged: recipient.engaged, opened: recipient.opened },
+      meta: { type: 'daily-brief', campaignId, scheduledAt, tierDays: recipient.cadence.tierDays },
     };
   });
 
   if (DRY_RUN) {
     const byLocale = {};
     for (const r of batch) byLocale[r.locale] = (byLocale[r.locale] || 0) + 1;
-    console.log('📊 [dry-run] recipients by locale:', byLocale);
+    console.log('\u{1F4CA} [dry-run] recipients by locale:', byLocale);
     logScheduleDistribution(emails.map((e) => ({ scheduledAt: e.meta.scheduledAt })), { getScheduledAt: (i) => i.scheduledAt, indent: '   ' });
     if (emails[0]) {
-      console.log(`📝 [dry-run] sample subject: ${emails[0].payload.subject}`);
-      console.log(`📝 [dry-run] sample to: ${emails[0].payload.to[0]}, scheduledAt: ${emails[0].meta.scheduledAt ?? 'immediate'}`);
+      console.log(`\u{1F4DD} [dry-run] sample subject: ${emails[0].payload.subject}`);
+      console.log(`\u{1F4DD} [dry-run] sample to: ${emails[0].payload.to[0]}, tier ${emails[0].meta.tierDays}d, scheduledAt: ${emails[0].meta.scheduledAt ?? 'immediate'}`);
+      console.log(`\u{1F4DD} [dry-run] List-Unsubscribe: ${emails[0].payload.headers['List-Unsubscribe']}`);
     }
-    console.log(`✅ [dry-run] would send ${emails.length} emails (union ${stats.union}, capacity cap ${cap}). Nothing sent, nothing written.`);
+    const starved = cadenceStats.evaluated - cadenceStats.off - due.length;
+    console.log(
+      `\u2705 [dry-run] would send ${emails.length} emails (eligible ${stats.union}, due ${due.length}, capacity cap ${cap}).`
+      + ` Deferred to a later day: ${starved}. Steady-state estimate ${estimateDailyVolume(cadenceStats.tierPopulation)}/day vs cap ${cap}.`
+      + ' Nothing sent, nothing written.',
+    );
     return;
   }
 
-  const sentEmails = [];
+  // Flushed in batches rather than once at the end: a crash mid-run used to
+  // leave the whole day unmarked, so the retry re-sent to everyone already
+  // served (§3.6).
+  const chunkState = resumeChunkState(chunkSizes);
+  const RESUME_FLUSH_EVERY = 50;
+  let pending = [];
+  let markedCount = 0;
+  const flush = async () => {
+    if (!pending.length) return;
+    const batchToMark = pending;
+    pending = [];
+    markedCount += batchToMark.length;
+    await markSent(db, campaignId, batchToMark, chunkState);
+  };
+
+  const sentAtIso = new Date().toISOString();
   const result = await sendEmailCascade(emails, {
     concurrency: 3,
-    onSent: (item, sendResult) => {
-      const email = item.recipient.email;
-      sentEmails.push(email);
-      return persistDelivery(db, { email, campaignId }, sendResult);
+    onSent: async (item, sendResult) => {
+      const { email, state, engaged, opened } = item.recipient;
+      pending.push(email);
+      await persistDelivery(db, { email, campaignId }, sendResult);
+      await persistCadence(db, { email, state, engaged, opened, provider: sendResult?.provider || null, sentAtIso });
+      if (pending.length >= RESUME_FLUSH_EVERY) await flush();
     },
   });
-  await markSent(db, campaignId, sentEmails);
-  console.log(`\n📊 Done — sent ${result.sent.length}, failed ${result.failed.length}, resume-marked ${sentEmails.length}.`);
+  await flush();
+  console.log(`\n📊 Done — sent ${result.sent.length}, failed ${result.failed.length}, resume-marked ${markedCount}.`);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
