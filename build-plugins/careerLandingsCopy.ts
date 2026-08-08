@@ -1305,7 +1305,7 @@ const TEMPLATE_B_SHELL: Record<CareerLocale, CareerTemplateBShell> = {
     featuredJobsTitle: 'Offerte in evidenza',
     featuredJobsEmpty:
       'Nessuna offerta indicizzata in questo momento — controlla il job board completo.',
-    featuredJobsCtaAll: (n) => `Vedi tutte le ${n} offerte →`,
+    featuredJobsCtaAll: (n) => (n > 0 ? `Vedi tutte le ${n} offerte →` : 'Vai al job board completo →'),
     employerGridTitle: 'Chi assume',
     jobPostedLabel: (d) =>
       d <= 0 ? 'Pubblicata oggi' : d === 1 ? 'Pubblicata ieri' : `Pubblicata ${d} giorni fa`,
@@ -1323,7 +1323,7 @@ const TEMPLATE_B_SHELL: Record<CareerLocale, CareerTemplateBShell> = {
     approfondisciHeading: 'Read more',
     featuredJobsTitle: 'Featured openings',
     featuredJobsEmpty: 'No indexed openings right now — check the full job board.',
-    featuredJobsCtaAll: (n) => `See all ${n} openings →`,
+    featuredJobsCtaAll: (n) => (n > 0 ? `See all ${n} openings →` : 'Browse the full job board →'),
     employerGridTitle: 'Who is hiring',
     jobPostedLabel: (d) =>
       d <= 0 ? 'Posted today' : d === 1 ? 'Posted yesterday' : `Posted ${d} days ago`,
@@ -1341,7 +1341,7 @@ const TEMPLATE_B_SHELL: Record<CareerLocale, CareerTemplateBShell> = {
     approfondisciHeading: 'Mehr erfahren',
     featuredJobsTitle: 'Empfohlene Stellen',
     featuredJobsEmpty: 'Derzeit keine indexierten Stellen — siehe vollständige Stellenbörse.',
-    featuredJobsCtaAll: (n) => `Alle ${n} Stellen ansehen →`,
+    featuredJobsCtaAll: (n) => (n > 0 ? `Alle ${n} Stellen ansehen →` : 'Zur vollständigen Stellenbörse →'),
     employerGridTitle: 'Wer einstellt',
     jobPostedLabel: (d) =>
       d <= 0 ? 'Heute veröffentlicht' : d === 1 ? 'Gestern veröffentlicht' : `Vor ${d} Tagen veröffentlicht`,
@@ -1359,7 +1359,7 @@ const TEMPLATE_B_SHELL: Record<CareerLocale, CareerTemplateBShell> = {
     approfondisciHeading: 'Pour aller plus loin',
     featuredJobsTitle: 'Offres mises en avant',
     featuredJobsEmpty: 'Aucune offre indexée actuellement — consultez la bourse complète.',
-    featuredJobsCtaAll: (n) => `Voir les ${n} offres →`,
+    featuredJobsCtaAll: (n) => (n > 0 ? `Voir les ${n} offres →` : 'Voir la bourse complète →'),
     employerGridTitle: 'Qui recrute',
     jobPostedLabel: (d) =>
       d <= 0 ? "Publié aujourd'hui" : d === 1 ? 'Publié hier' : `Publié il y a ${d} jours`,
