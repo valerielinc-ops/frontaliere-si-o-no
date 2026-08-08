@@ -177,6 +177,37 @@ describe('defect C — IT gender-inclusive slashes and closed compounds', () => 
   });
 });
 
+describe('defect D — missing alias forms, not a boundary bug (#5413)', () => {
+  // TI profession landings at 0 live matches even though the corpus held
+  // real TI jobs the whole time — the matcher just didn't know the official
+  // Swiss job-title forms these employers use. Titles verbatim from the
+  // live corpus (Pro Senectute Ticino e Moesano, EOC).
+  const MUST_MATCH: ReadonlyArray<readonly [string, string]> = [
+    ['assistente-sociale', 'Concorso generale 2025 Assistenti Sociali'],
+    ['assistente-sociale', 'Assistente Sociale'],
+    ['cameriere', 'Impiegato/a della ristorazione'],
+    ['cameriere', 'Collaboratore/trice di ristorazione'],
+    ['cameriere', 'Collaboratrice della ristorazione'],
+  ];
+
+  for (const [id, title] of MUST_MATCH) {
+    it(`${id} matches ${JSON.stringify(title)}`, () => {
+      expect(countFor(id, [title])).toBe(1);
+    });
+  }
+
+  const MUST_NOT_MATCH: ReadonlyArray<readonly [string, string]> = [
+    ['cameriere', 'Ausiliario/a ristorazione'],
+    ['cameriere', 'Assistant Restaurant Manager'],
+  ];
+
+  for (const [id, title] of MUST_NOT_MATCH) {
+    it(`${id} does NOT match ${JSON.stringify(title)}`, () => {
+      expect(countFor(id, [title])).toBe(0);
+    });
+  }
+});
+
 describe('sector taxonomy — SECTOR_MATCHERS.oss (#5203)', () => {
   const match = (title: string) => jobMatchesSector({ title } as never, 'oss');
 

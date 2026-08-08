@@ -206,8 +206,11 @@ const PROFESSION_MATCHERS: Record<ProfessionId, ProfessionMatcher> = {
     exclude: /\b(chef de rang|chef de réception|chef d'équipe|chef de service|chef sommelier)\b/i,
   },
   cameriere: {
-    // Stem-only alternation — see operaio.
-    title: /\b(camerier|kellner|waiter|waitress|serveur|serveuse|chef de rang|commis de salle|barista|barkeeper)/i,
+    // Stem-only alternation — see operaio. The `impiegat/collaborat …
+    // ristorazione` alternative catches the official Swiss job-title forms
+    // EOC uses ("Impiegato/a della ristorazione", "Collaboratore/trice di
+    // ristorazione") that carry no camerier/kellner/waiter stem at all (#5413).
+    title: /\b(camerier|kellner|waiter|waitress|serveur|serveuse|chef de rang|commis de salle|barista|barkeeper|(?:impiegat|collaborat)\S*\s+(?:di|della)\s+ristorazione)/i,
   },
   elettricista: {
     title: /\b(elettricist|elektriker|electrician|électricien|electricien|elektromonteur|elektroinstallat)/i,
@@ -260,7 +263,11 @@ const PROFESSION_MATCHERS: Record<ProfessionId, ProfessionMatcher> = {
     title: /\b(contabil|buchhalt|comptab|accountant|accounting)/i,
   },
   'assistente-sociale': {
-    title: /\b(assistente sociale|sozialarbeit|sozialp[äa]dagog|assistant social|social worker)/i,
+    // `assistente sociale` was singular-only and missed the plural/feminine
+    // Swiss job-posting forms ("Assistenti Sociali", "Assistente/a
+    // Sociale") — `assistent[ei] social[ei]` covers both without letting in
+    // unrelated "sociale" adjectives (#5413).
+    title: /\b(assistent[ei] social[ei]|sozialarbeit|sozialp[äa]dagog|assistant social|social worker)/i,
   },
   macellaio: {
     title: /\b(macella|metzger|fleischfach|boucher\b|butcher)/i,

@@ -744,7 +744,12 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   chimica: /\bchimic|\bchemie\b|\bchemical\b|\bchimie\b|\bchemiker|\bchemist\b|\blaborant|\bchemielaborant/i,
   food: /\bfood\b|\balimentar|\blebensmittel|\bagroaliment|\bagro[ -]food|\bproduzione[ -]alimentar|\bindustria[ -]alimentar/i,
   cuochi: /\bcuoc[ho]\b|\bchef\b|\bk[oö]ch|\bcook\b|\bcuisinier\b|\bsous[ -]chef\b|\bcommis[ -]de[ -]cuisine\b|\bcapocuoc/i,
-  camerieri: /\bcameri[eè]r|\bkellner|\bwaiter\b|\bwaitress\b|\bserveur|\bserveuse|\bservice[ -]de[ -]table|\bbarista\b|\bbarman\b|\bbartender\b/i,
+  // The `impiegat/collaborat … ristorazione` alternative catches the official
+  // Swiss job-title forms EOC uses ("Impiegato/a della ristorazione",
+  // "Collaboratore/trice di ristorazione") that carry no camerier/kellner/waiter
+  // stem at all — same gap fixed in PROFESSION_MATCHERS.cameriere (#5413).
+  camerieri:
+    /\bcameri[eè]r|\bkellner|\bwaiter\b|\bwaitress\b|\bserveur|\bserveuse|\bservice[ -]de[ -]table|\bbarista\b|\bbarman\b|\bbartender\b|\b(?:impiegat|collaborat)\S*\s+(?:di|della)\s+ristorazione/i,
   hotel: /\bhotel\b|\balbergh|\bhotelfach|\bhospitality\b|\breceptionist|\brezeption|\bconcierge\b|\bgouvernante\b|\bh[oô]tellerie|\bgovernante\b/i,
   pulizie: /\bpulizi|\breinigung|\bcleaning\b|\bnettoyage\b|\bputzfrau|\braumpfleg|\baddetto[ -]alle[ -]pulizie|\bagent[ -]d.entretien|\bfacility[ -]cleaning/i,
   sicurezza: /\bsicurezza[ -](?:privata|fisica)|\bsecurity[ -](?:guard|officer)|\bsicherheitsdienst|\bwachmann|\bvigilanz|\bguardia[ -]giurat|\bagent[ -]de[ -]s[eé]curit|\bsorvegli/i,
