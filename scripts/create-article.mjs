@@ -148,6 +148,7 @@ import { truncateToClause } from '../build-plugins/shared/clauseTail.mjs';
 import { buildStructuralEvergreenTopics } from './lib/evergreen-topic-generator.mjs';
 import { resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
 import { metaFieldRegex, unescapeTsValue } from './lib/meta-field-regex.mjs';
+import { assertNoSlugPromptLeak, stripSlugPromptLeak, findSlugPromptLeak } from './lib/slug-prompt-leak-guard.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -6157,19 +6158,26 @@ function validate(data, opts = {}) {
   // Stripped rather than rejected: the leak is in the id only, and the title is
   // right there to derive a clean one from. Failing the whole generation would
   // throw away a good article over a prefix.
-  const PROMPT_ID_LEAK_RX = /^kebab[-_]?case[-_]?/i;
-  if (data.id && PROMPT_ID_LEAK_RX.test(data.id)) {
-    const stripped = data.id.replace(PROMPT_ID_LEAK_RX, '');
-    // The verbatim placeholder leaves nothing usable behind ("3-5-words-max-40-chars"),
-    // so prefer the title whenever the remainder looks like the schema hint.
-    const looksLikeHint = !stripped || /^\d+-\d+-words|max-\d+-chars/i.test(stripped);
-    const recovered = looksLikeHint ? slugifySlugPart(itContent.title) : stripped;
-    if (!recovered) {
-      const err = new Error(`id contiene il placeholder del prompt ("${data.id}") e non è ricostruibile dal titolo "${itContent.title}"`);
+  //
+  // The pattern list lives in scripts/lib/slug-prompt-leak-guard.mjs rather
+  // than inline, because the SAME judgement has to be made three times in this
+  // file (here, on the en/de/fr slugs below, and as the pre-write gate in
+  // modifyRouterTs) plus once in the downstream audit. The first version of
+  // this block only knew the `^kebab-case-` prefix — enough for the four slugs
+  // that had already leaked, not for the next reword of the prompt.
+  const idLeak = data.id ? findSlugPromptLeak(data.id) : null;
+  if (idLeak) {
+    // The verbatim placeholder is instruction end to end, so stripping leaves
+    // nothing (`''`) and the title becomes the source. A half-obeyed answer
+    // (`kebab-case-turismo-ticino`) leaves the real topic, which is the better
+    // slug of the two because it is what the model actually chose to write.
+    const recovered = stripSlugPromptLeak(data.id) || slugifySlugPart(itContent.title);
+    if (!recovered || findSlugPromptLeak(recovered)) {
+      const err = new Error(`id contiene il placeholder del prompt ("${data.id}", ${idLeak.pattern}: "${idLeak.match}") e non è ricostruibile dal titolo "${itContent.title}"`);
       err.qualityReject = true;
       throw err;
     }
-    console.error(`⚠️  id conteneva il placeholder del prompt ("${data.id}") — corretto in "${recovered}"`);
+    console.error(`⚠️  id conteneva il placeholder del prompt ("${data.id}", ${idLeak.pattern}: "${idLeak.match}") — corretto in "${recovered}"`);
     data.id = recovered;
   }
 
@@ -6384,13 +6392,17 @@ function validate(data, opts = {}) {
         .replace(/[^a-z0-9-]/g, '-')
         .replace(/-+/g, '-')
         .replace(/^-|-$/g, '')
-        // Same prompt-placeholder leak the id is guarded against above: the
-        // schema shown to the model spells the id as
-        // "kebab-case-3-5-words-max-40-chars", and a model that echoes it into
-        // the id tends to echo it here too. The IT slug is safe by construction
-        // (assigned from the already-cleaned id); these three are not.
-        .replace(/^kebab-case-/, '')
         .slice(0, 80);
+      // Same prompt-placeholder leak the id is guarded against above: the
+      // schema shown to the model spells the id as
+      // "kebab-case-3-5-words-max-40-chars", and a model that echoes it into
+      // the id tends to echo it here too. The IT slug is safe by construction
+      // (assigned from the already-cleaned id); these three are not, and the id
+      // repair above never looked at them. Same shared pattern list, so a
+      // fragment the id rejects cannot survive in the German URL.
+      // An unrecoverable value becomes '' and falls into the IT-slug fallback
+      // immediately below — which is clean by construction.
+      data.slugs[locale] = stripSlugPromptLeak(data.slugs[locale]);
       // Fall back to the IT slug rather than ship an empty one: an empty slug
       // routes to the section hub, silently making the article unreachable at
       // its own URL.
@@ -8066,6 +8078,27 @@ function getLastArticleId(src) {
 }
 
 function modifyRouterTs(data) {
+  // ── Last stop before an id becomes a public URL (issue #5334) ──────────
+  //
+  // This function is the FIRST writer in both registration paths — the AI one
+  // in main() and the reusable registerArticleFiles() — and the entry it
+  // appends to `<SECTION>_SLUGS` is what the router, the sitemap builder and
+  // the shard all read afterwards. Nothing downstream of here ever questions a
+  // slug again, so this is the last moment at which "no" is still cheap: after
+  // it, saying no costs a redirect and a ranking reset.
+  //
+  // The repair passes in validate() should already have cleaned anything
+  // recoverable, and the non-AI callers (journalist pipeline, events digest,
+  // border-wait ranking) get the same check from deriveAndSanitizeArticleSlugs.
+  // Reaching here dirty therefore means a repair failed or a caller bypassed
+  // both — which is exactly the case that must crash loudly rather than write.
+  // The four leaked slugs went to production because every layer here was
+  // willing to pass a value along unexamined.
+  assertNoSlugPromptLeak(
+    { id: data.id, ...(data.slugs || {}) },
+    { id: data.id, title: data.content?.it?.title, source: 'modifyRouterTs' },
+  );
+
   // The svizzera section does NOT maintain the BlogArticleId union in
   // router.ts (ids are loose strings, validated at runtime via REVERSE_SWISS).
   // Only the frontaliere section touches router.ts.
@@ -10644,6 +10677,22 @@ export function deriveAndSanitizeArticleSlugs(data) {
       data.slugs[locale] = slugifySlugPart(data.slugs[locale]) || data.slugs.it;
     }
   }
+  // Prompt-template contamination check (issue #5334), here rather than only in
+  // modifyRouterTs because this is where the non-AI callers get their slugs:
+  // publish-journalist-article.mjs calls this directly, and the digest
+  // generators reach it through registerArticleFiles(). Failing at derivation
+  // names the function that produced the bad value; failing 200 lines later, in
+  // a file-mutation helper, would not.
+  //
+  // Deliberately a throw and not a repair. The AI path has already had its
+  // chance to recover in validate(), where the model's own title was available
+  // to rebuild from; a caller that hands a contaminated slug straight to the
+  // derivation has a bug upstream, and silently rewriting its id would hide it
+  // while still shipping an article under an id its caller does not expect.
+  assertNoSlugPromptLeak(
+    { id: data.id, ...data.slugs },
+    { id: data.id, title: data.content?.it?.title, source: 'deriveAndSanitizeArticleSlugs' },
+  );
   return data.slugs;
 }
 
