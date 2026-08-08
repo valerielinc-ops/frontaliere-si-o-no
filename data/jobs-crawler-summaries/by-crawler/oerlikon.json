@@ -1,18 +1,55 @@
 {
   "key": "oerlikon",
   "label": "Oerlikon",
-  "generatedAt": "2026-08-08T09:48:09.704Z",
+  "generatedAt": "2026-08-08T21:38:13.501Z",
   "total": 13,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 12,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 18742,
-  "avgDurationMs": 18742,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 13748,
+  "avgDurationMs": 13748,
   "durationHistory": [
-    18742
+    13748
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "oerlikon-a2b2e34266b8",
+      "slug": "industrial-software-automation-engineer-gn-oerlikon-ch",
+      "company": "Oerlikon",
+      "companyKey": "oerlikon",
+      "companyDomain": "oerlikon.com",
+      "title": "Industrial Software & Automation Engineer (gn)",
+      "location": "Wohlen",
+      "canton": "AG",
+      "url": "https://careers.oerlikon.com/job/Industrial-Software-&amp;-Automation-Engineer-%28gn%29/104476-en_US",
+      "source": "Oerlikon Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-08T21:38:08.237Z",
+      "addressLocality": "Wohlen",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9496",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Tecnologia / Ingegneria di superficie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-28",
+      "applyUrl": "https://careers.oerlikon.com/job/Industrial-Software-&amp;-Automation-Engineer-%28gn%29/104476-en_US",
+      "firstSeenAt": "2026-08-07T21:45:05.689Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "oerlikon-acee568ec1a1",
@@ -26,7 +63,7 @@
       "url": "https://careers.oerlikon.com/job/Sales-Engineer-f%C3%BCr-Upgrades-%28gn%29/104242-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:48:00.541Z",
+      "crawledAt": "2026-08-08T21:38:04.555Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -62,7 +99,7 @@
       "url": "https://careers.oerlikon.com/job/Projektingenieur-%28gn%29-Electrical-Engineering/104461-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:48:01.184Z",
+      "crawledAt": "2026-08-08T21:38:05.170Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -98,7 +135,7 @@
       "url": "https://careers.oerlikon.com/job/Konstrukteur-%28gn%29/104474-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:58.904Z",
+      "crawledAt": "2026-08-08T21:38:03.939Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -134,7 +171,7 @@
       "url": "https://careers.oerlikon.com/job/Automatiker-%28gn%29-im-Anlagenbau/103438-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:57.663Z",
+      "crawledAt": "2026-08-08T21:38:02.686Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -170,7 +207,7 @@
       "url": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:48:05.653Z",
+      "crawledAt": "2026-08-08T21:38:07.628Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -185,11 +222,12 @@
       "featured": false,
       "postedDate": "2026-07-14",
       "applyUrl": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-08-08T09:48:05.653Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -205,7 +243,7 @@
       "url": "https://careers.oerlikon.com/job/Lehrstelle-als-Konstrukteur-%28gn%29-EFZ/103628-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:58.278Z",
+      "crawledAt": "2026-08-08T21:38:03.309Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -241,7 +279,7 @@
       "url": "https://careers.oerlikon.com/job/Service-Techniker-f%C3%BCr-Produktionsanlagen-%28inhouse%29-%28gn%29/104492-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:48:02.155Z",
+      "crawledAt": "2026-08-08T21:38:06.387Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -277,7 +315,7 @@
       "url": "https://careers.oerlikon.com/job/Konstruktionsingenieur-%28gn%29/104256-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:48:03.660Z",
+      "crawledAt": "2026-08-08T21:38:06.992Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -313,7 +351,7 @@
       "url": "https://careers.oerlikon.com/job/Software-Engineer-%28gn%29/104224-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:48:06.550Z",
+      "crawledAt": "2026-08-08T21:38:08.846Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -349,7 +387,7 @@
       "url": "https://careers.oerlikon.com/job/Customer-Service-Specialist-Riri-Zippers-WM/104205-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-08T09:48:07.182Z",
+      "crawledAt": "2026-08-08T21:38:09.450Z",
       "addressLocality": "Mendrisio, TI",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -385,7 +423,7 @@
       "url": "https://careers.oerlikon.com/job/Servicetechniker-%28gn%29/103981-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:48:04.270Z",
+      "crawledAt": "2026-08-08T21:38:05.777Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -421,7 +459,7 @@
       "url": "https://careers.oerlikon.com/job/Project-Manager-%28gn%29/103867-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:47:54.550Z",
+      "crawledAt": "2026-08-08T21:38:02.026Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -446,11 +484,10 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "oerlikon-a2b2e34266b8",
-      "slug": "industrial-software-automation-engineer-gn-oerlikon-ch",
+      "slug": "industrial-software-automation-ingegnere-gn-oerlikon-wohlen",
       "company": "Oerlikon",
       "companyKey": "oerlikon",
       "companyDomain": "oerlikon.com",
@@ -487,5 +524,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
