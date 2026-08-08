@@ -286,3 +286,25 @@ describe('both emitters share ONE gate implementation', () => {
     }
   });
 });
+
+/**
+ * `isExternallyServedPath` answers the same question as `isUnshippablePath` —
+ * "does this path belong to a section the edge serves from a shard?" — for a
+ * different set of callers (`validate-sitemap-pages.mjs`,
+ * `validate-sitemap-links.mjs`, `audit-hreflang.mjs`). Both derive from
+ * SECTION_ROUTES, so they must agree; when they disagreed, the flat root was
+ * the case that slipped.
+ */
+describe('isExternallyServedPath agrees with isUnshippablePath on the flat root', () => {
+  it('treats `<prefix>.html` as externally served', async () => {
+    const { isExternallyServedPath } = await import('../scripts/lib/externally-served-paths.mjs');
+    for (const p of ['/articoli-frontaliere.html', '/articoli-svizzera.html']) {
+      // A false here makes the dist validators hunt for a file the shard owns,
+      // and fail the dist — i.e. block publish for a URL that answers fine.
+      expect(isExternallyServedPath(p), p).toBe(true);
+    }
+    for (const p of ['/articoli-frontaliere-altro.html', '/guida-frontaliere.html']) {
+      expect(isExternallyServedPath(p), p).toBe(false);
+    }
+  });
+});
