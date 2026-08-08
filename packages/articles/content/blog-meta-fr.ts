@@ -9370,7 +9370,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.excerpt': 'Cours reconnus, financement et retour pratique pour les frontaliers à moins de 20 km de la frontière. Focus sur AVS, LPP, LAMal et nouvel accord fiscal 2024.',
     'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.imageAlt': 'Travailleur frontalier en formation professionnelle dans une école technique tessinoise avec vue sur les montagnes',
     'blog.article.bollettino-frontaliere-2026-08-08.title': 'Bulletin du frontalier – 8 août 2026 : 1 188 nouvelles offres d\'emploi hier',
-    'blog.article.bollettino-frontaliere-2026-08-08.excerpt': 'Les chiffres du jour (8 août 2026) pour les frontaliers : attentes aux douanes mesurées ce matin, les communes où l\'essence coûte le moins cher, le taux CHF-EUR et les nouvelles offres d\'emploi en Suisse. Suivi propriétaire, mis à jour chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-08-08.excerpt': 'Les chiffres du jour pour les frontaliers : attentes aux douanes, communes où l\'essence coûte le moins, taux franc-euro et nouvelles offres d\'emploi.',
     'blog.article.bollettino-frontaliere-2026-08-08.imageAlt': 'Les chiffres du jour pour les frontaliers – 8 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
 };
 
