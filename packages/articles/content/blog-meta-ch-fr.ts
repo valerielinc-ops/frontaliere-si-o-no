@@ -1951,6 +1951,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.title': 'Deuxième pilier LPP Suisse guide 2026 canton Zurich',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.excerpt': 'Guide du 2e pilier LPP 2026 : cotisations 7-18% par âge, rachat lacunes, prélèvement capital et comparaison nationale en mettant l\'accent sur le canton de Zurich',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.imageAlt': 'Conseil prévoyante pour travailleurs frontaliers à Zurich avec documents LPP et drapeau suisse',
+    'blog.article.secondo-pilastro-lpp-basilea-2026.title': 'Deuxième pilier LPP Suisse guide 2026 canton Bâle',
+    'blog.article.secondo-pilastro-lpp-basilea-2026.excerpt': 'Guide 2026 du deuxième pilier LPP : cotisations, prélèvement, rachat des lacunes et planification de la prévoyance en Suisse. Focus sur le canton de Bâle avec des données spécifiques et comparaison nationale.',
+    'blog.article.secondo-pilastro-lpp-basilea-2026.imageAlt': 'Employé suisse à Bâle consultant des documents du deuxième pilier LPP',
 };
 
 export default blogMetaChFr;

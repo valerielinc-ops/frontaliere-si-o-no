@@ -25250,6 +25250,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-secondo-pilastro-lpp-basilea-2026': {
+    title: 'Secondo pilastro LPP Svizzera guida 2026 canton Basilea',
+    description: 'Guida pratica al secondo pilastro LPP: contributi, aliquote 7–18%, riscatto lacune e pianificazione previdenziale. Focus canton Basilea con dati 2026 e',
+    keywords: 'frontalieri, ticino, svizzera, italia, secondo, pilastro, canton, basilea',
+    ogTitle: 'Guida 2026 al secondo pilastro LPP Svizzera canton Basilea',
+    ogDescription: 'Guida pratica al secondo pilastro LPP: contributi, aliquote 7–18%, riscatto lacune e pianificazione previdenziale. Focus canton Basilea con dati 2026 e',
+    canonicalPath: '/articoli-svizzera/secondo-pilastro-lpp-basilea-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Secondo pilastro LPP Svizzera guida 2026 canton Basilea",
+      "description": "Guida pratica al secondo pilastro LPP: contributi, aliquote 7–18%, riscatto lacune e pianificazione previdenziale. Focus canton Basilea con dati 2026 e",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/secondo-pilastro-lpp-basilea-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Dipendente svizzero a Basilea che consulta documenti del secondo pilastro LPP"
+      },
+      "datePublished": "2026-08-08T21:38:34+00:00",
+      "dateModified": "2026-08-08T21:38:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/secondo-pilastro-lpp-basilea-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

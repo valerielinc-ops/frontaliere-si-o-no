@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spruengli",
-  "assembledAt": "2026-08-08T09:55:45.900Z",
+  "assembledAt": "2026-08-08T21:49:44.977Z",
   "jobs": [
     {
       "id": "spruengli-f40c4796f848",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/116352/1252/pub/2/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.538Z",
+      "crawledAt": "2026-08-08T21:49:41.770Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "streetAddress": "Postfach 1462",
@@ -114,7 +114,7 @@
       "url": "https://apply.refline.ch/116352/1064/pub/76/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.537Z",
+      "crawledAt": "2026-08-08T21:49:41.768Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "streetAddress": "Bahnhofstrasse 9",
@@ -153,6 +153,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:28:54.320Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -197,7 +198,7 @@
       "url": "https://apply.refline.ch/116352/1207/pub/34/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.536Z",
+      "crawledAt": "2026-08-08T21:49:41.767Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -241,6 +242,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:28:54.319Z",
+      "needsRetranslation": true,
       "salaryMin": 22100,
       "salaryMax": 33500,
       "baseSalary": {
@@ -285,7 +287,7 @@
       "url": "https://apply.refline.ch/116352/1206/pub/26/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.535Z",
+      "crawledAt": "2026-08-08T21:49:41.766Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 25",
@@ -332,6 +334,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:18:24.558Z",
+      "needsRetranslation": true,
       "salaryMin": 49600,
       "salaryMax": 75200,
       "baseSalary": {
@@ -376,7 +379,7 @@
       "url": "https://apply.refline.ch/116352/1232/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.534Z",
+      "crawledAt": "2026-08-08T21:49:41.765Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -430,7 +433,8 @@
           "maxValue": 55800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spruengli-3a39ba0200e3",
@@ -463,7 +467,7 @@
       "url": "https://apply.refline.ch/116352/1233/pub/16/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.533Z",
+      "crawledAt": "2026-08-08T21:49:41.764Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -564,7 +568,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spruengli-6c08318f0560",
@@ -597,7 +602,7 @@
       "url": "https://apply.refline.ch/116352/1229/pub/14/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.532Z",
+      "crawledAt": "2026-08-08T21:49:41.761Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 25",
@@ -644,6 +649,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:18:24.556Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -688,7 +694,7 @@
       "url": "https://apply.refline.ch/116352/1125/pub/52/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.531Z",
+      "crawledAt": "2026-08-08T21:49:41.760Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -741,6 +747,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:18:24.555Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -785,7 +792,7 @@
       "url": "https://apply.refline.ch/116352/1112/pub/14/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.530Z",
+      "crawledAt": "2026-08-08T21:49:41.759Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -828,6 +835,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:18:24.555Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -872,7 +880,7 @@
       "url": "https://apply.refline.ch/116352/1237/pub/9/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.529Z",
+      "crawledAt": "2026-08-08T21:49:41.757Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -949,7 +957,7 @@
         "it": "Torte di reparto di Confectioner/paziesserie (100%)",
         "en": "Confectioner’s department cakes/patisserie (100%)",
         "de": "Konditor-Confiseur*in Abteilung Torten/Patisserie (100%)",
-        "fr": "Pâtisserie dans le département des gâteaux et pâtisseries (100%)"
+        "fr": "Konditor-Confiseur*in Abteilung Torten/Patisserie (100%)"
       },
       "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nKonditor-Confiseur*in Abteilung Torten/Patisserie (100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die Abteilung Torten/Patisserie per sofort oder nach Vereinbarung eine*n erfahrene*n, motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nDu arbeitest in unserer Torten/Patisserie-Abteilung in unserer Manufaktur in Dietikon und stellst im Team unsere anspruchsvollen Rahmtorten und Rahmpatisserie auf höchstem Qualitätsniveau her. Dabei sind dir ein früher Arbeitsbeginn (05.00 oder 06.00 Uhr) und regelmässige Wochenend-Einsätze in einer Nachtschicht möglich.\n\nDeine Aufgaben\n\n• Handwerkliche Anfertigung unseres Torten-, Rahm- und Pâtisseriesortiments\n\n• Herstellung von Standard- und Saisonprodukten sowie Sonderbestellungen\n\n• Belegen, Glasieren und Überziehen von unterschiedlichen Produkten\n\n• Einhalten der Sicherheits-, Hygiene- und Qualitätsvorgaben\n\nWas wir uns wünschen\n\n• Lehrabschluss als Konditor-Confiseur*in EFZ oder EBA\n\n• Freude an deinem erlernten Beruf sowie an Arbeiten im Team\n\n• Exakte und qualitätsbewusste Arbeitsweise sowie Belastbarkeit auch in hektischen Situationen\n\n• Mobilität und Flexibilität, insbesondere in der Saison\n\n• Eine offene, kommunikative Persönlichkeit mit handwerklichem Geschick sowie guter körperlicher Verfassung\n\n• Gute Deutschkenntnisse\n\n• PC-Kenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem lebhaften, modernen Umfeld. Du arbeitest in einem motivierten Team mit offener Du-Kultur und echtem Zusammenhalt.\n\n🌙 Attraktive Nachtzulagen:\n Für Einsätze in der Nacht profitierst du von einer besonders attraktiven Regelung:\n – 40 % Lohnzuschlag in Geldform im Zeitraum von 22.00 bis 4.00 Uhr\n – 10 % Zeitgutschrift für geleistete Stunden zwischen 22.00 und 5.00 Uhr\n\n• ✨ 10 Minuten bezahlte Umkleidezeit\n\n• 👕 Arbeitskleidung inklusive Reinigung\n\n• 🎂Ein zusätzlicher freier Tag in deinem Geburtstagsmonat\n\n• 🏖️ 5 Wochen Ferien\n\n• 🚗 Kostenloser Parkplatz\n\n• 🛍️ Grosszügige Einkaufsvergünstigungen\n\n• 🥗 Verpflegungsmöglichkeiten vor Ort\n\n🛡️ Starke Sozialleistungen:\n – Die Arbeitgeberin übernimmt freiwillig die volle Prämie der Krankentaggeldversicherung\n – Die Kosten der Berufsunfallversicherung gemäss UVG werden vollständig von der Arbeitgeberin getragen\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
       "descriptionByLocale": {
@@ -963,7 +971,7 @@
       "url": "https://apply.refline.ch/116352/1190/pub/36/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.528Z",
+      "crawledAt": "2026-08-08T21:49:41.755Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1033,6 +1041,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:18:24.553Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1077,7 +1086,7 @@
       "url": "https://apply.refline.ch/116352/1239/pub/9/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.526Z",
+      "crawledAt": "2026-08-08T21:49:41.753Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1158,7 +1167,7 @@
       "url": "https://apply.refline.ch/116352/1251/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.525Z",
+      "crawledAt": "2026-08-08T21:49:41.752Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1238,7 +1247,7 @@
       "url": "https://apply.refline.ch/116352/1250/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.524Z",
+      "crawledAt": "2026-08-08T21:49:41.751Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1313,7 +1322,7 @@
       "url": "https://apply.refline.ch/116352/1246/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.522Z",
+      "crawledAt": "2026-08-08T21:49:41.748Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1348,6 +1357,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:18:14.564Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1392,7 +1402,7 @@
       "url": "https://apply.refline.ch/116352/1247/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.521Z",
+      "crawledAt": "2026-08-08T21:49:41.747Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1462,92 +1472,6 @@
       }
     },
     {
-      "id": "spruengli-df77607de6ae",
-      "slug": "consulente-commerciale-100-stazione-ferroviaria-zug-confiserie-sprungli-ag-zug",
-      "slugByLocale": {
-        "it": "consulente-commerciale-100-stazione-ferroviaria-zug-confiserie-sprungli-ag-zug",
-        "en": "sales-consultant-100-train-station-zug-confiserie-sprungli-ag-zug",
-        "de": "verkaufsberater-in-100-bahnhof-zug-spruengli-zug",
-        "fr": "consultant-commercial-100-gare-de-zug-confiserie-sprungli-ag-zug"
-      },
-      "company": "Confiserie Sprüngli AG",
-      "companyKey": "spruengli",
-      "companyDomain": "spruengli.ch",
-      "title": "Verkaufsberater*in (100%), Bahnhof Zug",
-      "titleByLocale": {
-        "it": "Consulente commerciale (100%), stazione ferroviaria di Zug",
-        "en": "Sales consultant (100%), Zug train station",
-        "de": "Verkaufsberater*in (100%), Bahnhof Zug",
-        "fr": "Consultant commercial (100 %), gare de Zoug"
-      },
-      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nVerkaufsberater*in (100%), Bahnhof Zug\n\n100%, Zug\n\nArbeiten bei Sprüngli\n\nFür unsere Filiale im Bahnhof Zug suchen wir eine dienstleistungsorientierte Persönlichkeit als\n\nWas du bei uns bewegst\n\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n\n• Entgegennahme von Kundenbestellungen und Vorbereitung für die Abholung\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im Detailhandel und/oder Verkaufserfahrung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche) oder als Servicefachfrau\n\n• Fliessende Deutsch- und gute Englischkenntnisse\n\n• Flexibilität bezüglich Arbeitszeiten (Schichteinsätze zwischen 5.45 und 21.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat))\n\nDarauf kannst du dich freuen\n\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Zulagen und Einkaufsvergünstigung\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-      "descriptionByLocale": {
-        "it": "L'azienda svizzera a conduzione familiare, fondata nel 1836, è oggi una delle pasticcerie più rinomate d'Europa con la sua squisita gamma. I prodotti Sprüngli sono sinonimo della migliore qualità, freschezza unica e naturalezza. Le creazioni perfette deliziano ogni giorno i clienti di tutto il mondo.\n\nConsulente di vendita (100%), stazione ferroviaria di Zugo\n\n100%, treno\n\nLavorare a Sprüngli\n\nPer la nostra filiale della stazione ferroviaria di Zugo cerchiamo una personalità orientata al servizio\n\nCosa fai con noi\n\n• Consigliare i nostri clienti nazionali e internazionali con un'eccellente qualità del servizio\n\n• Gestione e presentazione dei nostri squisiti prodotti Sprüngli con un tocco decorativo\n\n• Ricezione degli ordini dei clienti e preparazione al ritiro\n\nCiò che desideriamo\n\n• Formazione completata nel commercio al dettaglio e/o esperienza di vendita nel commercio al dettaglio (preferibilmente nell'industria dolciaria o alimentare) o come specialista dei servizi\n\n• Ottima conoscenza della lingua tedesca e buona conoscenza dell'inglese\n\n• Flessibilità per quanto riguarda l'orario di lavoro (turni tra le 5:45 e le 21:30 e da 2 a 3 turni nel fine settimana al mese))\n\nPuoi aspettarlo con ansia\n\n• Aree di responsabilità individuali nonché opportunità di sviluppo e perfezionamento\n\n• Generose indennità e sconti sugli acquisti\n\n• Giorno libero extra come apprezzamento per il compleanno\n\n• Un ambiente vivace e moderno con una cultura collegiale e di nome\n\n• Un team motivato e impegnato che non vede l'ora di vederti\n\nSei interessato?\nAllora non vediamo l'ora di ricevere la tua candidatura elettronica.*\nAl momento non accettiamo candidature da parte di agenzie di collocamento per questa posizione.",
-        "en": "The Swiss family business, founded in 1836, is now one of the most renowned confectioneries in Europe with its exquisite range. The products from Sprüngli stand for the best quality, unique freshness and naturalness. The perfect creations delight customers from all over the world every day.\n\nSales consultant (100%), Zug train station\n\n100%, train\n\nWorking at Sprüngli\n\nWe are looking for a service-oriented personality for our branch in Zug train station\n\nWhat you do with us\n\n• Advising our national and international customers with excellent service quality\n\n• Management and presentation of our exquisite Sprüngli products with a decorative flair\n\n• Receiving customer orders and preparing for pickup\n\nWhat we wish for\n\n• Completed training in the retail trade and/or sales experience in the retail trade (preferably in the confectionery or food industry) or as a service specialist\n\n• Fluent German and good English skills\n\n• Flexibility regarding working hours (shifts between 5:45 a.m. and 9:30 p.m. as well as 2 to 3 weekend shifts per month))\n\nYou can look forward to that\n\n• Individual areas of responsibility as well as development and further training opportunities\n\n• Generous allowances and shopping discounts\n\n• Extra day off as birthday appreciation\n\n• A lively and modern environment with a collegial, first-name culture\n\n• A motivated and committed team that is already looking forward to seeing you\n\nAre you interested?\nThen we look forward to receiving your electronic application.*\nWe are currently not accepting applications from employment agencies for this position.",
-        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nVerkaufsberater*in (100%), Bahnhof Zug\n\n100%, Zug\n\nArbeiten bei Sprüngli\n\nFür unsere Filiale im Bahnhof Zug suchen wir eine dienstleistungsorientierte Persönlichkeit als\n\nWas du bei uns bewegst\n\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n\n• Entgegennahme von Kundenbestellungen und Vorbereitung für die Abholung\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im Detailhandel und/oder Verkaufserfahrung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche) oder als Servicefachfrau\n\n• Fliessende Deutsch- und gute Englischkenntnisse\n\n• Flexibilität bezüglich Arbeitszeiten (Schichteinsätze zwischen 5.45 und 21.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat))\n\nDarauf kannst du dich freuen\n\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Zulagen und Einkaufsvergünstigung\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-        "fr": "L'entreprise familiale suisse, fondée en 1836, est aujourd'hui l'une des confiseries les plus renommées d'Europe grâce à son assortiment exquis. Les produits Sprüngli sont synonymes de qualité supérieure, de fraîcheur unique et de naturel. Les créations parfaites ravissent chaque jour les clients du monde entier.\n\nConseiller de vente (100%), gare de Zoug\n\n100%, s'entraîner\n\nTravailler chez Sprüngli\n\nNous recherchons une personnalité orientée vers le service pour notre succursale de la gare de Zoug.\n\nCe que tu fais avec nous\n\n• Conseiller nos clients nationaux et internationaux avec une excellente qualité de service\n\n• Gestion et présentation de nos exquis produits Sprüngli avec une touche décorative\n\n• Réceptionner les commandes des clients et préparer le ramassage\n\nCe que nous souhaitons\n\n• Formation complétée dans le commerce de détail et/ou expérience de vente dans le commerce de détail (de préférence dans l'industrie de la confiserie ou de l'alimentation) ou en tant que spécialiste des services.\n\n• Allemand courant et bonnes compétences en anglais\n\n• Flexibilité concernant les horaires de travail (postes entre 5h45 et 21h30 ainsi que 2 à 3 quarts de week-end par mois))\n\nVous pouvez vous attendre à ça\n\n• Domaines de responsabilité individuels ainsi que possibilités de développement et de formation continue\n\n• Des allocations généreuses et des réductions sur les achats\n\n• un jour de congé supplémentaire en guise de remerciement pour un anniversaire\n\n• Un environnement vivant et moderne avec une culture collégiale et du prénom\n\n• Une équipe motivée et engagée qui a déjà hâte de vous retrouver\n\nÊtes-vous intéressé?\nAlors nous attendons avec impatience de recevoir votre candidature électronique.*\nNous n'acceptons actuellement pas les candidatures des agences de placement pour ce poste."
-      },
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://apply.refline.ch/116352/1193/pub/31/index.html",
-      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.520Z",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "streetAddress": "Bahnhofplatz",
-      "postalCode": "6300",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendita",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Alimentare / Confetteria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-11-19",
-      "applyUrl": "https://apply.refline.ch/116352/1193/pub/31/index.html",
-      "hiringOrganizationName": "Confiserie Sprüngli AG",
-      "jobReqId": "1193",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufsberater-in-100-bahnhof-zug-confiserie-sprungli-ag-zug",
-        "verkaufsberater-in-100-bahnhof-zug-spruengli-zug",
-        "consulente-commerciale-100-stazione-ferroviaria-zug-confiserie-sprungli-ag-zug"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-100-bahnhof-zug-confiserie-sprungli-ag-zug",
-          "verkaufsberater-in-100-bahnhof-zug-spruengli-zug",
-          "consulente-commerciale-100-stazione-ferroviaria-zug-confiserie-sprungli-ag-zug"
-        ],
-        "en": [
-          "verkaufsberater-in-100-bahnhof-zug-confiserie-sprungli-ag-zug"
-        ],
-        "de": [
-          "verkaufsberater-in-100-bahnhof-zug-confiserie-sprungli-ag-zug"
-        ],
-        "fr": [
-          "verkaufsberater-in-100-bahnhof-zug-confiserie-sprungli-ag-zug"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:00:50.640Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "spruengli-870a7c2086cf",
       "slug": "consulente-commerciale-80-100-stazione-di-berna-confiserie-sprungli-ag-bern",
       "slugByLocale": {
@@ -1578,7 +1502,7 @@
       "url": "https://apply.refline.ch/116352/1172/pub/37/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.520Z",
+      "crawledAt": "2026-08-08T21:49:41.746Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 10A",
@@ -1634,6 +1558,93 @@
       }
     },
     {
+      "id": "spruengli-df77607de6ae",
+      "slug": "consulente-commerciale-100-stazione-ferroviaria-zug-confiserie-sprungli-ag-zug",
+      "slugByLocale": {
+        "it": "consulente-commerciale-100-stazione-ferroviaria-zug-confiserie-sprungli-ag-zug",
+        "en": "sales-consultant-100-train-station-zug-confiserie-sprungli-ag-zug",
+        "de": "verkaufsberater-in-100-bahnhof-zug-spruengli-zug",
+        "fr": "consultant-commercial-100-gare-de-zug-confiserie-sprungli-ag-zug"
+      },
+      "company": "Confiserie Sprüngli AG",
+      "companyKey": "spruengli",
+      "companyDomain": "spruengli.ch",
+      "title": "Verkaufsberater*in (100%), Bahnhof Zug",
+      "titleByLocale": {
+        "it": "Consulente commerciale (100%), stazione ferroviaria di Zug",
+        "en": "Sales consultant (100%), Zug train station",
+        "de": "Verkaufsberater*in (100%), Bahnhof Zug",
+        "fr": "Consultant commercial (100 %), gare de Zoug"
+      },
+      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nVerkaufsberater*in (100%), Bahnhof Zug\n\n100%, Zug\n\nArbeiten bei Sprüngli\n\nFür unsere Filiale im Bahnhof Zug suchen wir eine dienstleistungsorientierte Persönlichkeit als\n\nWas du bei uns bewegst\n\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n\n• Entgegennahme von Kundenbestellungen und Vorbereitung für die Abholung\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im Detailhandel und/oder Verkaufserfahrung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche) oder als Servicefachfrau\n\n• Fliessende Deutsch- und gute Englischkenntnisse\n\n• Flexibilität bezüglich Arbeitszeiten (Schichteinsätze zwischen 5.45 und 21.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat))\n\nDarauf kannst du dich freuen\n\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Zulagen und Einkaufsvergünstigung\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+      "descriptionByLocale": {
+        "it": "L'azienda svizzera a conduzione familiare, fondata nel 1836, è oggi una delle pasticcerie più rinomate d'Europa con la sua squisita gamma. I prodotti Sprüngli sono sinonimo della migliore qualità, freschezza unica e naturalezza. Le creazioni perfette deliziano ogni giorno i clienti di tutto il mondo.\n\nConsulente di vendita (100%), stazione ferroviaria di Zugo\n\n100%, treno\n\nLavorare a Sprüngli\n\nPer la nostra filiale della stazione ferroviaria di Zugo cerchiamo una personalità orientata al servizio\n\nCosa fai con noi\n\n• Consigliare i nostri clienti nazionali e internazionali con un'eccellente qualità del servizio\n\n• Gestione e presentazione dei nostri squisiti prodotti Sprüngli con un tocco decorativo\n\n• Ricezione degli ordini dei clienti e preparazione al ritiro\n\nCiò che desideriamo\n\n• Formazione completata nel commercio al dettaglio e/o esperienza di vendita nel commercio al dettaglio (preferibilmente nell'industria dolciaria o alimentare) o come specialista dei servizi\n\n• Ottima conoscenza della lingua tedesca e buona conoscenza dell'inglese\n\n• Flessibilità per quanto riguarda l'orario di lavoro (turni tra le 5:45 e le 21:30 e da 2 a 3 turni nel fine settimana al mese))\n\nPuoi aspettarlo con ansia\n\n• Aree di responsabilità individuali nonché opportunità di sviluppo e perfezionamento\n\n• Generose indennità e sconti sugli acquisti\n\n• Giorno libero extra come apprezzamento per il compleanno\n\n• Un ambiente vivace e moderno con una cultura collegiale e di nome\n\n• Un team motivato e impegnato che non vede l'ora di vederti\n\nSei interessato?\nAllora non vediamo l'ora di ricevere la tua candidatura elettronica.*\nAl momento non accettiamo candidature da parte di agenzie di collocamento per questa posizione.",
+        "en": "The Swiss family business, founded in 1836, is now one of the most renowned confectioneries in Europe with its exquisite range. The products from Sprüngli stand for the best quality, unique freshness and naturalness. The perfect creations delight customers from all over the world every day.\n\nSales consultant (100%), Zug train station\n\n100%, train\n\nWorking at Sprüngli\n\nWe are looking for a service-oriented personality for our branch in Zug train station\n\nWhat you do with us\n\n• Advising our national and international customers with excellent service quality\n\n• Management and presentation of our exquisite Sprüngli products with a decorative flair\n\n• Receiving customer orders and preparing for pickup\n\nWhat we wish for\n\n• Completed training in the retail trade and/or sales experience in the retail trade (preferably in the confectionery or food industry) or as a service specialist\n\n• Fluent German and good English skills\n\n• Flexibility regarding working hours (shifts between 5:45 a.m. and 9:30 p.m. as well as 2 to 3 weekend shifts per month))\n\nYou can look forward to that\n\n• Individual areas of responsibility as well as development and further training opportunities\n\n• Generous allowances and shopping discounts\n\n• Extra day off as birthday appreciation\n\n• A lively and modern environment with a collegial, first-name culture\n\n• A motivated and committed team that is already looking forward to seeing you\n\nAre you interested?\nThen we look forward to receiving your electronic application.*\nWe are currently not accepting applications from employment agencies for this position.",
+        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nVerkaufsberater*in (100%), Bahnhof Zug\n\n100%, Zug\n\nArbeiten bei Sprüngli\n\nFür unsere Filiale im Bahnhof Zug suchen wir eine dienstleistungsorientierte Persönlichkeit als\n\nWas du bei uns bewegst\n\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n\n• Entgegennahme von Kundenbestellungen und Vorbereitung für die Abholung\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im Detailhandel und/oder Verkaufserfahrung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche) oder als Servicefachfrau\n\n• Fliessende Deutsch- und gute Englischkenntnisse\n\n• Flexibilität bezüglich Arbeitszeiten (Schichteinsätze zwischen 5.45 und 21.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat))\n\nDarauf kannst du dich freuen\n\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Zulagen und Einkaufsvergünstigung\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+        "fr": "L'entreprise familiale suisse, fondée en 1836, est aujourd'hui l'une des confiseries les plus renommées d'Europe grâce à son assortiment exquis. Les produits Sprüngli sont synonymes de qualité supérieure, de fraîcheur unique et de naturel. Les créations parfaites ravissent chaque jour les clients du monde entier.\n\nConseiller de vente (100%), gare de Zoug\n\n100%, s'entraîner\n\nTravailler chez Sprüngli\n\nNous recherchons une personnalité orientée vers le service pour notre succursale de la gare de Zoug.\n\nCe que tu fais avec nous\n\n• Conseiller nos clients nationaux et internationaux avec une excellente qualité de service\n\n• Gestion et présentation de nos exquis produits Sprüngli avec une touche décorative\n\n• Réceptionner les commandes des clients et préparer le ramassage\n\nCe que nous souhaitons\n\n• Formation complétée dans le commerce de détail et/ou expérience de vente dans le commerce de détail (de préférence dans l'industrie de la confiserie ou de l'alimentation) ou en tant que spécialiste des services.\n\n• Allemand courant et bonnes compétences en anglais\n\n• Flexibilité concernant les horaires de travail (postes entre 5h45 et 21h30 ainsi que 2 à 3 quarts de week-end par mois))\n\nVous pouvez vous attendre à ça\n\n• Domaines de responsabilité individuels ainsi que possibilités de développement et de formation continue\n\n• Des allocations généreuses et des réductions sur les achats\n\n• un jour de congé supplémentaire en guise de remerciement pour un anniversaire\n\n• Un environnement vivant et moderne avec une culture collégiale et du prénom\n\n• Une équipe motivée et engagée qui a déjà hâte de vous retrouver\n\nÊtes-vous intéressé?\nAlors nous attendons avec impatience de recevoir votre candidature électronique.*\nNous n'acceptons actuellement pas les candidatures des agences de placement pour ce poste."
+      },
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://apply.refline.ch/116352/1193/pub/31/index.html",
+      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-08T21:49:41.745Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "streetAddress": "Bahnhofplatz",
+      "postalCode": "6300",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Alimentare / Confetteria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-11-19",
+      "applyUrl": "https://apply.refline.ch/116352/1193/pub/31/index.html",
+      "hiringOrganizationName": "Confiserie Sprüngli AG",
+      "jobReqId": "1193",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkaufsberater-in-100-bahnhof-zug-confiserie-sprungli-ag-zug",
+        "verkaufsberater-in-100-bahnhof-zug-spruengli-zug",
+        "consulente-commerciale-100-stazione-ferroviaria-zug-confiserie-sprungli-ag-zug"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-100-bahnhof-zug-confiserie-sprungli-ag-zug",
+          "verkaufsberater-in-100-bahnhof-zug-spruengli-zug",
+          "consulente-commerciale-100-stazione-ferroviaria-zug-confiserie-sprungli-ag-zug"
+        ],
+        "en": [
+          "verkaufsberater-in-100-bahnhof-zug-confiserie-sprungli-ag-zug"
+        ],
+        "de": [
+          "verkaufsberater-in-100-bahnhof-zug-confiserie-sprungli-ag-zug"
+        ],
+        "fr": [
+          "verkaufsberater-in-100-bahnhof-zug-confiserie-sprungli-ag-zug"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:00:50.640Z",
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "spruengli-3f5fa773af64",
       "slug": "stv-branch-manager-80-100-stazione-di-berna-confiserie-sprungli-ag-bern",
       "slugByLocale": {
@@ -1664,7 +1675,7 @@
       "url": "https://apply.refline.ch/116352/1240/pub/6/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.516Z",
+      "crawledAt": "2026-08-08T21:49:41.740Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 10A",
@@ -1750,7 +1761,7 @@
       "url": "https://apply.refline.ch/116352/1203/pub/17/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.515Z",
+      "crawledAt": "2026-08-08T21:49:41.738Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "streetAddress": "Postfach 1462",
@@ -1791,6 +1802,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:00:50.638Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1835,7 +1847,7 @@
       "url": "https://apply.refline.ch/116352/1201/pub/25/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.514Z",
+      "crawledAt": "2026-08-08T21:49:41.737Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1878,6 +1890,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:00:50.635Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1922,7 +1935,7 @@
       "url": "https://apply.refline.ch/116352/1223/pub/13/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.512Z",
+      "crawledAt": "2026-08-08T21:49:41.734Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1956,6 +1969,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:00:50.630Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {

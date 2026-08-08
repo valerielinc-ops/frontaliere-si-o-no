@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ikea",
-  "assembledAt": "2026-08-08T09:49:39.166Z",
+  "assembledAt": "2026-08-08T21:36:23.278Z",
   "jobs": [
     {
       "id": "ikea-30100646972d",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-verkauf-kuche-und-essplatzabteilung-80-100/24107/95345133584",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.729Z",
+      "crawledAt": "2026-08-08T21:36:20.091Z",
       "addressLocality": "Lyssach",
       "postalCode": "3421",
       "addressRegion": "BE",
@@ -51,11 +51,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-kuche-und-essplatzabteilung-80-100-ikea-ch"
+        "mitarbeiter-in-verkauf-kuche-und-essplatzabteilung-80-100-ikea-ch",
+        "addetto-a-alle-vendite-kuche-e-essplatzabteilung-80-100-ikea-lyssach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-kuche-und-essplatzabteilung-80-100-ikea-ch"
+          "mitarbeiter-in-verkauf-kuche-und-essplatzabteilung-80-100-ikea-ch",
+          "addetto-a-alle-vendite-kuche-e-essplatzabteilung-80-100-ikea-lyssach"
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.686Z",
@@ -103,7 +105,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-ikea-restaurant-and-kuche-20-40/24107/95568407184",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.729Z",
+      "crawledAt": "2026-08-08T21:36:20.091Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "Aargau",
@@ -135,7 +137,8 @@
         "mitarbeiter-in-ikea-kuche-80-ikea-dietlikon",
         "mitarbeiter-in-ikea-kuche-80-ikea-ch",
         "dipendente-ikea-ristorante-cucina-60-ikea-spreitenbach",
-        "employe-ikea-kitchen-20-40-ikea-st-gallen"
+        "employe-ikea-kitchen-20-40-ikea-st-gallen",
+        "collaboratore-trice-ikea-restaurant-kuche-20-40-ikea-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -153,7 +156,8 @@
           "mitarbeiter-in-ikea-kuche-80-ikea-dietlikon",
           "mitarbeiter-in-ikea-kuche-80-ikea-ch",
           "dipendente-ikea-ristorante-cucina-60-ikea-spreitenbach",
-          "employe-ikea-kitchen-20-40-ikea-st-gallen"
+          "employe-ikea-kitchen-20-40-ikea-st-gallen",
+          "collaboratore-trice-ikea-restaurant-kuche-20-40-ikea-spreitenbach"
         ],
         "en": [
           "mitarbeiter-in-ikea-restaurant-kuche-20-40-ikea-ch",
@@ -216,7 +220,7 @@
       "url": "https://jobs.ikea.com/en/job/st-gallen/checkout-services-manager-80-100/24107/98026497168",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-08T09:49:36.728Z",
+      "crawledAt": "2026-08-08T21:36:20.090Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressRegion": "SG",
@@ -234,11 +238,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "checkout-services-manager-80-100-ikea-ch"
+        "checkout-services-manager-80-100-ikea-ch",
+        "gestione-servizi-di-checkout-80-100-ikea-st-gallen-sankt-gallen-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "checkout-services-manager-80-100-ikea-ch"
+          "checkout-services-manager-80-100-ikea-ch",
+          "gestione-servizi-di-checkout-80-100-ikea-st-gallen-sankt-gallen-switzerland"
         ],
         "de": [
           "checkout-services-manager-80-100-ikea-ch"
@@ -248,6 +254,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:07:43.910Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -289,7 +296,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/lehrstelle-fachfrau-mann-kundendialog-efz-01-08-2027-31-07-2030/24107/97403941248",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.728Z",
+      "crawledAt": "2026-08-08T21:36:20.090Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "Aargau",
@@ -307,11 +314,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fachfrau-mann-kundendialog-efz-01-08-2027-31-07-2030-ikea-ch"
+        "lehrstelle-fachfrau-mann-kundendialog-efz-01-08-2027-31-07-2030-ikea-ch",
+        "apprendistato-fachfrau-mann-kundendialog-cfc-01-08-2027-31-07-2030-ikea-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-mann-kundendialog-efz-01-08-2027-31-07-2030-ikea-ch"
+          "lehrstelle-fachfrau-mann-kundendialog-efz-01-08-2027-31-07-2030-ikea-ch",
+          "apprendistato-fachfrau-mann-kundendialog-cfc-01-08-2027-31-07-2030-ikea-spreitenbach"
         ],
         "en": [
           "lehrstelle-fachfrau-mann-kundendialog-efz-01-08-2027-31-07-2030-ikea-ch"
@@ -366,7 +375,7 @@
       "url": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-verkauf-springer-in-markthalle-30/24107/98231475408",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.727Z",
+      "crawledAt": "2026-08-08T21:36:20.089Z",
       "addressLocality": "Lyssach",
       "postalCode": "3421",
       "addressRegion": "BE",
@@ -395,7 +404,8 @@
         "employee-sales-self-service-hall-100-ikea-st-gallen",
         "mitarbeiter-in-verkauf-selbstbedienungshalle-100-ikea-ch",
         "salle-de-libre-service-des-ventes-des-employes-a-100-ikea-st-gallen",
-        "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland"
+        "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland",
+        "addetto-a-alle-vendite-springer-in-markthalle-30-ikea-lyssach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -410,7 +420,8 @@
           "employee-sales-self-service-hall-100-ikea-st-gallen",
           "mitarbeiter-in-verkauf-selbstbedienungshalle-100-ikea-ch",
           "salle-de-libre-service-des-ventes-des-employes-a-100-ikea-st-gallen",
-          "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland"
+          "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland",
+          "addetto-a-alle-vendite-springer-in-markthalle-30-ikea-lyssach"
         ],
         "en": [
           "mitarbeiter-in-verkauf-springer-in-markthalle-30-ikea-ch",
@@ -471,7 +482,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-ikea-bistro-and-schwedenshop-80-100/24107/98070020928",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.727Z",
+      "crawledAt": "2026-08-08T21:36:20.089Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "Aargau",
@@ -497,7 +508,8 @@
         "dipendenti-ikea-bistro-negozio-svedese-60-ikea-spreitenbach",
         "employee-ikea-bistro-swedish-shop-60-ikea-spreitenbach",
         "mitarbeiter-in-ikea-bistro-schwedenshop-60-ikea-ch",
-        "salaries-en-ikea-bistro-swedenshop-60-ikea-spreitenbach"
+        "salaries-en-ikea-bistro-swedenshop-60-ikea-spreitenbach",
+        "collaboratore-trice-ikea-bistro-schwedenshop-80-100-ikea-dietlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -509,7 +521,8 @@
           "dipendenti-ikea-bistro-negozio-svedese-60-ikea-spreitenbach",
           "employee-ikea-bistro-swedish-shop-60-ikea-spreitenbach",
           "mitarbeiter-in-ikea-bistro-schwedenshop-60-ikea-ch",
-          "salaries-en-ikea-bistro-swedenshop-60-ikea-spreitenbach"
+          "salaries-en-ikea-bistro-swedenshop-60-ikea-spreitenbach",
+          "collaboratore-trice-ikea-bistro-schwedenshop-80-100-ikea-dietlikon"
         ],
         "en": [
           "employee-ikea-bistro-swedish-shop-20-50-ikea-st-gallen-sankt-gallen-switzerland",
@@ -525,6 +538,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:32:54.405Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -569,7 +583,7 @@
       "url": "https://jobs.ikea.com/en/job/st-gallen/mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-70-befristet-bis-31-juli-2027/24107/95889312960",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.726Z",
+      "crawledAt": "2026-08-08T21:36:20.088Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressRegion": "SG",
@@ -587,11 +601,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-70-befristet-bis-31-juli-2027-ikea-ch"
+        "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-70-befristet-bis-31-juli-2027-ikea-ch",
+        "vendita-dipendenti-reparto-soggiorno-e-ufficio-70-limitato-fino-al-31-luglio-2027-ikea-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-70-befristet-bis-31-juli-2027-ikea-ch"
+          "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-70-befristet-bis-31-juli-2027-ikea-ch",
+          "vendita-dipendenti-reparto-soggiorno-e-ufficio-70-limitato-fino-al-31-luglio-2027-ikea-st-gallen"
         ]
       },
       "firstSeenAt": "2026-07-29T22:04:31.746Z",
@@ -606,7 +622,8 @@
           "maxValue": 60900,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ikea-90ee4982d1bf",
@@ -636,7 +653,7 @@
       "url": "https://jobs.ikea.com/en/job/pratteln/mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100/24107/96290294016",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.726Z",
+      "crawledAt": "2026-08-08T21:36:20.088Z",
       "addressLocality": "Pratteln 1",
       "postalCode": "",
       "addressRegion": "BL",
@@ -654,11 +671,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100"
+        "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100",
+        "collaboratore-trice-administration-per-haustechnik-e-instandhaltung-schwerpunkt-elektrik-100-ikea-pratteln-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100"
+          "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100",
+          "collaboratore-trice-administration-per-haustechnik-e-instandhaltung-schwerpunkt-elektrik-100-ikea-pratteln-1"
         ],
         "en": [
           "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100"
@@ -689,7 +708,7 @@
         "it": "addetto-a-alle-vendite-wohnzimmerabteilung-40-ikea-spreitenbach-aargau-switzerland",
         "en": "employee-in-sales-living-room-department-40-ikea-spreitenbach",
         "de": "mitarbeiter-in-verkauf-wohnzimmerabteilung-40-ikea-ch",
-        "fr": "ventes-des-employes-salon-du-salon-40-ikea-spreitenbach"
+        "fr": "collaborateur-trice-vente-wohnzimmerabteilung-40-ikea-spreitenbach"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -713,7 +732,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-verkauf-wohnzimmerabteilung-40/24107/88828245904",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.726Z",
+      "crawledAt": "2026-08-08T21:36:20.088Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "Aargau",
@@ -735,18 +754,23 @@
         "mitarbeiter-in-verkauf-wohnzimmerabteilung-50-80-ikea-ch",
         "associate-sales-wohnzimmerabteilung-50-80-ikea-dietlikon",
         "addetto-a-alle-vendite-wohnzimmerabteilung-50-80-ikea-dietlikon",
+        "ventes-des-employes-salon-du-salon-40-ikea-spreitenbach",
+        "addetto-a-alle-vendite-wohnzimmerabteilung-40-ikea-spreitenbach-aargau-switzerland",
         "collaborateur-trice-vente-wohnzimmerabteilung-40-ikea-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-wohnzimmerabteilung-40-ikea-ch",
-          "addetto-a-alle-vendite-wohnzimmerabteilung-50-80-ikea-dietlikon"
+          "addetto-a-alle-vendite-wohnzimmerabteilung-50-80-ikea-dietlikon",
+          "addetto-a-alle-vendite-wohnzimmerabteilung-40-ikea-spreitenbach-aargau-switzerland"
         ],
         "fr": [
+          "ventes-des-employes-salon-du-salon-40-ikea-spreitenbach",
           "collaborateur-trice-vente-wohnzimmerabteilung-40-ikea-spreitenbach"
         ]
       },
       "firstSeenAt": "2026-07-06T22:20:16.453Z",
+      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600,
       "baseSalary": {
@@ -791,7 +815,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-verkauf-wohnzimmerabteilung-60/24107/97208370656",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.725Z",
+      "crawledAt": "2026-08-08T21:36:20.087Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -817,7 +841,8 @@
         "addetto-a-alle-vendite-dekorationsabteilung-60-ikea-dietlikon",
         "associate-sales-dekorationsabteilung-60-ikea-dietlikon-zurich-switzerland",
         "mitarbeiter-in-verkauf-dekorationsabteilung-60-ikea-ch",
-        "collaborateur-trice-vente-dekorationsabteilung-60-ikea-dietlikon-zurich-switzerland"
+        "collaborateur-trice-vente-dekorationsabteilung-60-ikea-dietlikon-zurich-switzerland",
+        "addetto-a-alle-vendite-wohnzimmerabteilung-60-ikea-dietlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -829,7 +854,8 @@
           "addetto-a-alle-vendite-dekorationsabteilung-60-ikea-dietlikon",
           "associate-sales-dekorationsabteilung-60-ikea-dietlikon-zurich-switzerland",
           "mitarbeiter-in-verkauf-dekorationsabteilung-60-ikea-ch",
-          "collaborateur-trice-vente-dekorationsabteilung-60-ikea-dietlikon-zurich-switzerland"
+          "collaborateur-trice-vente-dekorationsabteilung-60-ikea-dietlikon-zurich-switzerland",
+          "addetto-a-alle-vendite-wohnzimmerabteilung-60-ikea-dietlikon"
         ],
         "en": [
           "mitarbeiter-in-verkauf-wohnzimmerabteilung-60-ikea-ch",
@@ -847,6 +873,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:04:31.743Z",
+      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "baseSalary": {
@@ -891,7 +918,7 @@
       "url": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-verkauf-in-der-markthalle-und-selbstbedienungshalle-100/24107/96224165360",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.725Z",
+      "crawledAt": "2026-08-08T21:36:20.087Z",
       "addressLocality": "Lyssach",
       "postalCode": "3421",
       "addressRegion": "BE",
@@ -916,7 +943,8 @@
         "employee-sales-self-service-hall-100-ikea-st-gallen",
         "mitarbeiter-in-verkauf-selbstbedienungshalle-100-ikea-ch",
         "salle-de-libre-service-des-ventes-des-employes-a-100-ikea-st-gallen",
-        "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland"
+        "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland",
+        "venditore-a-in-mercato-e-auto-service-100-ikea-lyssach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -927,10 +955,12 @@
           "employee-sales-self-service-hall-100-ikea-st-gallen",
           "mitarbeiter-in-verkauf-selbstbedienungshalle-100-ikea-ch",
           "salle-de-libre-service-des-ventes-des-employes-a-100-ikea-st-gallen",
-          "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland"
+          "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland",
+          "venditore-a-in-mercato-e-auto-service-100-ikea-lyssach"
         ]
       },
       "firstSeenAt": "2026-07-29T22:04:31.744Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -948,9 +978,9 @@
       "id": "ikea-7a66eddf61cd",
       "slug": "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
       "slugByLocale": {
-        "it": "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
+        "it": "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
         "en": "cuisine-ikea-40-team-member-ikea-aubonne",
-        "de": "koch-kellnerin-ikea-40-ikea-aubonne",
+        "de": "ikea-kuchenbeitrag-40-ikea-aubonne",
         "fr": "collaborateur-trice-cuisine-ikea-40-ikea-ch"
       },
       "company": "IKEA",
@@ -958,7 +988,7 @@
       "companyDomain": "ikea.ch",
       "title": "Collaborateur*trice Cuisine IKEA 40%",
       "titleByLocale": {
-        "it": "Contributatore da cucina IKEA 40%",
+        "it": "Collaborateur*trice Cuisine IKEA 40%",
         "en": "IKEA Kitchen Contributor 40%",
         "de": "IKEA Küchenbeitrag 40%",
         "fr": "Collaborateur*trice Cuisine IKEA 40%"
@@ -975,7 +1005,7 @@
       "url": "https://jobs.ikea.com/en/job/aubonne/collaborateur-trice-cuisine-ikea-40/24107/95927883952",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T09:49:36.724Z",
+      "crawledAt": "2026-08-08T21:36:20.086Z",
       "addressLocality": "Aubonne",
       "postalCode": "1170",
       "addressRegion": "VD",
@@ -1001,6 +1031,7 @@
         "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
         "ikea-cuisine-collaborateur-40-ikea-aubonne",
         "ikea-kuchenmitarbeiter-40-ikea-aubonne",
+        "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
         "koch-kellnerin-ikea-40-ikea-aubonne",
         "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
         "ikea-kuchenbeitrag-40-ikea-aubonne"
@@ -1014,6 +1045,7 @@
           "mitarbeiter-in-restaurant-kuche-ikea-20-ikea-vernier-geneve-switzerland",
           "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
           "ikea-cuisine-collaborateur-40-ikea-aubonne",
+          "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
           "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
         ],
         "de": [
@@ -1026,6 +1058,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.696Z",
+      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600,
       "baseSalary": {
@@ -1070,7 +1103,7 @@
       "url": "https://jobs.ikea.com/en/job/pratteln/mitarbeiter-in-verkauf-kuchenplanung-und-essplatz-80-befristet-bis-28-02-2027/24107/98705494976",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.722Z",
+      "crawledAt": "2026-08-08T21:36:20.084Z",
       "addressLocality": "Pratteln 1",
       "postalCode": "4133",
       "addressRegion": "BL",
@@ -1088,11 +1121,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-kuchenplanung-und-essplatz-80-befristet-bis-28-02-2027-ikea-ch"
+        "mitarbeiter-in-verkauf-kuchenplanung-und-essplatz-80-befristet-bis-28-02-2027-ikea-ch",
+        "addetto-a-alle-vendite-kuchenplanung-e-essplatz-80-befristet-bis-28-02-2027-ikea-pratteln-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-kuchenplanung-und-essplatz-80-befristet-bis-28-02-2027-ikea-ch"
+          "mitarbeiter-in-verkauf-kuchenplanung-und-essplatz-80-befristet-bis-28-02-2027-ikea-ch",
+          "addetto-a-alle-vendite-kuchenplanung-e-essplatz-80-befristet-bis-28-02-2027-ikea-pratteln-1"
         ],
         "en": [
           "mitarbeiter-in-verkauf-kuchenplanung-und-essplatz-80-befristet-bis-28-02-2027-ikea-ch"
@@ -1146,7 +1181,7 @@
       "url": "https://jobs.ikea.com/en/job/aubonne/apprentissage-en-logistique-01-08-2027-31-07-2030/24107/98667710768",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T09:49:36.722Z",
+      "crawledAt": "2026-08-08T21:36:20.084Z",
       "addressLocality": "Aubonne",
       "postalCode": "1170",
       "addressRegion": "VD",
@@ -1222,7 +1257,7 @@
       "url": "https://jobs.ikea.com/en/job/aubonne/apprentissage-dans-la-vente-commerce-de-detail-01-08-2027-31-07-2030/24107/98667711136",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T09:49:36.721Z",
+      "crawledAt": "2026-08-08T21:36:20.083Z",
       "addressLocality": "Aubonne",
       "postalCode": "1170",
       "addressRegion": "VD",
@@ -1298,7 +1333,7 @@
       "url": "https://jobs.ikea.com/en/job/riddes/apprenti-e-polydesigner-3d-cfc-01-08-2027-31-07-2031/24107/98667711216",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T09:49:36.720Z",
+      "crawledAt": "2026-08-08T21:36:20.082Z",
       "addressLocality": "Riddes",
       "postalCode": "1908",
       "addressRegion": "VS",
@@ -1316,11 +1351,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-e-polydesigner-3d-cfc-01-08-2027-31-07-2031-ikea-ch"
+        "apprenti-e-polydesigner-3d-cfc-01-08-2027-31-07-2031-ikea-ch",
+        "apprenti-e-polydesigner-3d-cfc-01-08-2027-31-07-2030-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-polydesigner-3d-cfc-01-08-2027-31-07-2031-ikea-ch"
+          "apprenti-e-polydesigner-3d-cfc-01-08-2027-31-07-2031-ikea-ch",
+          "apprenti-e-polydesigner-3d-cfc-01-08-2027-31-07-2030-ikea-ch"
         ]
       },
       "firstSeenAt": "2026-08-02T22:16:40.130Z",
@@ -1360,7 +1397,7 @@
       "descriptionByLocale": {
         "it": "Apprendistato come specialista retail (01.08.2027-31.07.2030, focus sulla progettazione di esperienze di acquisto) — IKEA\n\nDescrizione\nCerchiamo una persona motivata e orientata al cliente che desideri completare un apprendistato come specialista del retail presso IKEA. L'attenzione è rivolta alla progettazione di esperienze di acquisto.\n\nResponsabilità\n- Supporto nella progettazione e implementazione delle esperienze di acquisto\n- Consigliare e supportare i clienti\n- Presentazione e manutenzione delle merci\n- Supporto nell'area vendite e checkout\n- Collaborazione nella gestione del magazzino e nella ricezione merci\n\nRequisiti\n- Buona conoscenza del tedesco scritto e parlato\n- Aspetto amichevole e orientato al cliente\n- Capacità di lavorare in squadra e flessibilità\n- Interesse nel commercio al dettaglio e nelle vendite\n- Buone competenze nel PC\n\nOffriamo\n- Un addestramento vario e pratico\n- Un team motivato e dinamico\n- Buone opportunità di sviluppo all'interno dell'azienda\n- Benefici sociali attraenti e retribuzione\n\nContattaci ora\nPer ulteriori informazioni e candidature, si prega di contattare:\nIKEA Svizzera\nRisorse Umane\nIndirizzo: IKEA Schweiz AG, IKEA-Weg 1, 8600 Dübendorf\nTelefono: +41 44 828 60 00\nE-mail: personal@ikea.ch",
         "en": "Apprenticeship as a retail specialist (01.08.2027-31.07.2030, focus on designing shopping experiences) — IKEA\n\nDescription\nWe are looking for a motivated and customer-oriented person who would like to complete an apprenticeship as a retail specialist at IKEA. The focus is on designing shopping experiences.\n\nResponsibilities\n- Support in the design and implementation of shopping experiences\n- Advising and supporting customers\n- Presentation and maintenance of goods\n- Support in sales and checkout area\n- Collaboration in warehouse management and goods receipt\n\nRequirements\n- Good knowledge of written and spoken German\n- Friendly and customer-oriented appearance\n- Ability to work in a team and flexibility\n- Interest in retail and sales\n- Good PC skills\n\nWe offer\n- A varied and practical training\n- A motivated and dynamic team\n- Good development opportunities within the company\n- Attractive social benefits and remuneration\n\nContact Now\nFor further information and applications, please contact:\nIKEA Switzerland\nHuman Resources\nAddress: IKEA Schweiz AG, IKEA-Weg 1, 8600 Dübendorf\nPhone: +41 44 828 60 00\nE-mail: personal@ikea.ch",
-        "de": "Lehrstelle Detailhandelsfachfrau/-mann (01.08.2027-31.07.2030, Schwerpunkt Gestalten von Einkaufserlebnissen) — IKEA\n\nBeschreibung\nWir suchen eine motivierte und kundenorientierte Person, die eine Lehre als Detailhandelsfachfrau/-mann bei IKEA absolvieren möchte. Der Schwerpunkt liegt auf dem Gestalten von Einkaufserlebnissen.\n\nAufgaben\n- Unterstützung bei der Gestaltung und Umsetzung von Einkaufserlebnissen\n- Beratung und Betreuung der Kunden\n- Warenpräsentation und -pflege\n- Unterstützung im Verkauf und Kassenbereich\n- Mitarbeit bei der Lagerverwaltung und Warenannahme\n\nAnforderungen\n- Gute Deutschkenntnisse in Wort und Schrift\n- Freundliches und kundenorientiertes Auftreten\n- Teamfähigkeit und Flexibilität\n- Interesse an Detailhandel und Verkauf\n- Gute PC-Kenntnisse\n\nWir bieten\n- Eine abwechslungsreiche und praxisnahe Ausbildung\n- Ein motiviertes und dynamisches Team\n- Gute Entwicklungsmöglichkeiten innerhalb des Unternehmens\n- Attraktive Sozialleistungen und Vergütung\n\nKontakt\nFür weitere Informationen und Bewerbungen wenden Sie sich bitte an:\nIKEA Schweiz\nPersonalabteilung\nAdresse: IKEA Schweiz AG, IKEA-Weg 1, 8600 Dübendorf\nTelefon: +41 44 828 60 00\nE-Mail: personal@ikea.ch",
+        "de": "Lehrstelle Detailhandelsfachfrau/-mann (01.08.2027-31.07.2030, Schwerpunkt Gestalten von Einkaufserlebnissen) — IKEA",
         "fr": "Apprentissage en tant que spécialiste de la vente (01.08.2027-31.07.2030, focus sur la conception d’expériences d’achat) — IKEA\n\nDescription\nNous recherchons une personne motivée et orientée client qui souhaiterait effectuer un apprentissage en tant que spécialiste de la vente au détail chez IKEA. L’accent est mis sur la conception d’expériences d’achat.\n\nResponsabilités\n- Soutien à la conception et à la mise en œuvre des expériences d’achat\n- Conseiller et soutenir les clients\n- Présentation et entretien des marchandises\n- Support dans la zone vente et caisse\n- Collaboration en gestion d’entrepôt et réception de marchandises\n\nExigences\n- Bonne connaissance de l’allemand écrit et parlé\n- Apparence conviviale et orientée client\n- Capacité à travailler en équipe et flexibilité\n- Intérêt pour la vente au détail et la vente\n- Bonnes compétences en PC\n\nNous proposons\n- Une formation variée et pratique\n- Une équipe motivée et dynamique\n- De bonnes opportunités de développement au sein de l’entreprise\n- Avantages sociaux attrayants et rémunération\n\nContactez maintenant\nPour plus d’informations et de candidatures, veuillez contacter :\nIKEA Suisse\nRessources humaines\nAdresse : IKEA Schweiz AG, IKEA-Weg 1, 8600 Dübendorf\nTéléphone : +41 44 828 60 00\nE-mail : personal@ikea.ch"
       },
       "location": "Dietlikon, Zürich, Switzerland",
@@ -1368,7 +1405,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/lehrstelle-detailhandelsfachfrau-mann-01-08-2027-31-07-2030-schwerpunkt-gestalten-von-einkaufserleb/24107/98637312688",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.718Z",
+      "crawledAt": "2026-08-08T21:36:20.080Z",
       "addressLocality": "Dietlikon",
       "postalCode": "",
       "addressRegion": "ZH",
@@ -1388,12 +1425,14 @@
       "previousSlugs": [
         "apprenticeship-detailhandelsfachfrau-mann-01-08-2027-31-07-2030-focus-on-designing-shopping-experiences-ikea-pratteln-1",
         "apprendistato-impiegato-a-del-commercio-al-dettaglio-01-08-2027-31-07-2030-schwerpunkt-gestalten-von-einkaufserlebnissen-ikea-pratteln-1",
-        "lehrstelle-detailhandelsfachfrau-mann-01-08-2027-31-07-2030-schwerpunkt-gestalten-von"
+        "lehrstelle-detailhandelsfachfrau-mann-01-08-2027-31-07-2030-schwerpunkt-gestalten-von",
+        "apprendistato-impiegato-a-del-commercio-al-dettaglio-01-08-2027-31-07-2030-schwerpunkt-gestalten-von-einkaufserlebnissen-ikea-dietlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-01-08-2027-31-07-2030-schwerpunkt-gestalten-von-einkaufserlebnissen-ikea-pratteln-1",
-          "lehrstelle-detailhandelsfachfrau-mann-01-08-2027-31-07-2030-schwerpunkt-gestalten-von"
+          "lehrstelle-detailhandelsfachfrau-mann-01-08-2027-31-07-2030-schwerpunkt-gestalten-von",
+          "apprendistato-impiegato-a-del-commercio-al-dettaglio-01-08-2027-31-07-2030-schwerpunkt-gestalten-von-einkaufserlebnissen-ikea-dietlikon"
         ],
         "en": [
           "apprenticeship-detailhandelsfachfrau-mann-01-08-2027-31-07-2030-focus-on-designing-shopping-experiences-ikea-pratteln-1"
@@ -1414,83 +1453,7 @@
       }
     },
     {
-      "id": "ikea-2a01ae57ed31",
-      "slug": "apprendistato-polydesigner-in-3d-cfc-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-dietlikon",
-      "slugByLocale": {
-        "it": "apprendistato-polydesigner-in-3d-cfc-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-dietlikon",
-        "en": "lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
-        "de": "lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
-        "fr": "polydesigner-en-efz-3d-01-08-2027-31-07-2031-se-concentrer-sur-le-style-ikea-dietlikon-zurich-switzerland"
-      },
-      "company": "IKEA",
-      "companyKey": "ikea",
-      "companyDomain": "ikea.ch",
-      "title": "Lehrstelle Polydesigner:in 3D EFZ (01.08.2027-31.07.2031, Schwerpunkt Styling)",
-      "titleByLocale": {
-        "it": "Apprendistato Polydesigner:in 3D CFC (01.08.2027-31.07.2031, Schwerpunkt Styling)",
-        "en": "Polydesigner: in 3D EFZ (01.08.2027-31.07.2031, focus on styling)",
-        "de": "Lehrstelle Polydesigner:in 3D EFZ (01.08.2027-31.07.2031, Schwerpunkt Styling)",
-        "fr": "Polydesigner: en EFZ 3D (01.08.2027-31.07.2031, se concentrer sur le style)"
-      },
-      "description": "Lehrstelle Polydesigner:in 3D EFZ (01.08.2027-31.07.2031, Schwerpunkt Styling) — IKEA",
-      "descriptionByLocale": {
-        "it": "Apprendistato di polidesigner:in 3D AFC (01.08.2027-31.07.2031, focus styling) — IKEA",
-        "en": "Job Title: Lecturer in Polydesign (3D Design) - IKEA\n\nJob Description:\n\nWe are seeking a qualified and experienced Lecturer in Polydesign (3D Design) to join our team at IKEA. The position is for a full-time, fixed-term contract from August 1, 2027, to July 31, 2031, with a focus on Styling.\n\nAs a Lecturer in Polydesign, you will be responsible for delivering high-quality education and training to our employees, focusing on the design and styling of our products. You will work closely with our product development teams, providing expert guidance and support to ensure that our products meet the highest standards of design and functionality.\n\nKey Responsibilities:\n\n- Develop and deliver educational programs and workshops on polydesign, 3D modeling, and styling for IKEA employees.\n- Collaborate with product development teams to ensure that design and styling principles are applied consistently across our product range.\n- Provide mentorship and guidance to junior designers and stylists, helping them to develop their skills and expertise.\n- Stay up-to-date with the latest trends and developments in polydesign and styling, and incorporate these into our educational programs.\n- Evaluate the effectiveness of our educational programs and make recommendations for improvement.\n\nQualifications:\n\n- A bachelor's or master's degree in a relevant field such as design, architecture, or engineering.\n- Significant experience in polydesign, 3D modeling, and styling.\n- A strong understanding of IKEA's design principles and brand identity.\n- Excellent communication and interpersonal skills, with the ability to work effectively with diverse teams.\n- Experience in delivering educational programs and workshops.\n- A passion for design and a commitment to continuous learning and development.\n\nWe are an equal opportunities employer and welcome applications from all qualified candidates, regardless of gender, race, religion, age, or disability.",
-        "de": "Lehrstelle Polydesigner:in 3D EFZ (01.08.2027-31.07.2031, Schwerpunkt Styling) — IKEA",
-        "fr": "Poste de formation Polydesigner:in 3D EFZ (01.08.2027-31.07.2031, axe Styling) — IKEA\n\nÜber IKEA\n\nIKEA ist ein führendes Unternehmen im Bereich Möbel und Einrichtung. Wir sind bekannt für unsere innovativen Produkte, unsere Nachhaltigkeitsstrategie und unsere Kundenorientierung. Unsere Mission ist es, Menschen die Möglichkeit zu geben, ihre eigenen Wohnräume zu gestalten und zu schaffen, ohne dabei hohe Kosten zu riskieren.\n\nÜber die Stelle\n\nWir suchen eine/n Polydesigner:in 3D EFZ für die Dauer von vier Jahren (01.08.2027-31.07.2031) mit Schwerpunkt auf Styling. Die/n Bewerber:in wird Teil unseres Designteams sein und sich auf die Entwicklung von innovativen Produkten und Lösungen konzentrieren, die unsere Kunden erwartungen übertreffen.\n\nAufgaben und Verantwortlichkeiten\n\n- Entwicklung von innovativen Produkten und Lösungen im Bereich Möbel und Einrichtung\n- Zusammenarbeit mit unserem Designteam, um unsere Produkte und Lösungen zu verbessern\n- Analyse von Kundenbedürfnissen und -erwartungen\n- Entwicklung von Designs und Prototypen für unsere Produkte\n- Kommunikation mit unseren Partnern und Lieferanten\n- Überwachung der Qualität und Sicherheit unserer Produkte\n\nAnforderungen\n\n- Abschluss als Polydesigner:in 3D EFZ\n- Erfahrung im Bereich Möbel und Einrichtung\n- Gute Kenntnisse in CAD-Software und 3D-Modellierung\n- Kommunikationsfähigkeiten und Teamfähigkeiten\n- Flexibilität und Fähigkeit, sich schnell an neue Herausforderungen anzupassen\n\nWas wir bieten\n\n- Eine interessante und herausfordernde Arbeit in einem dynamischen Team\n- Eine umfassende Ausbildung und Weiterbildungsmöglichkeiten\n- Eine faire Bezahlung und ein attraktives Sozialpaket\n- Die Möglichkeit, Teil eines globalen Unternehmens zu sein und unsere Produkte und Lösungen in der ganzen Welt zu sehen\n\nWenn Sie sich für diese Herausforderung interessieren, senden Sie bitte Ihre Bewerbung an uns. Wir freuen uns darauf, von Ihnen zu hören!"
-      },
-      "location": "Dietlikon, Zürich, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling/24107/98667712912",
-      "source": "IKEA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.718Z",
-      "addressLocality": "Dietlikon",
-      "postalCode": "",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Retail / Furniture",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-02",
-      "applyUrl": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling/24107/98667712912",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch"
-        ],
-        "fr": [
-          "lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch"
-        ]
-      },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 85,
-      "retranslationAttempts": 7,
-      "firstSeenAt": "2026-08-02T22:16:40.126Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ikea-8b096d259139",
+      "id": "ikea-b6120fc79276",
       "slug": "lehrstelle-logistiker-in-01-08-2027-31-07-2030-ikea-ch",
       "slugByLocale": {
         "it": "lehrstelle-logistiker-in-01-08-2027-31-07-2030-ikea-ch",
@@ -1512,15 +1475,15 @@
       "descriptionByLocale": {
         "it": "Lehrstelle Logistiker:in (01.08.2027-31.07.2030) — IKEA"
       },
-      "location": "Rothenburg, Luzern, Switzerland",
-      "canton": "LU",
-      "url": "https://jobs.ikea.com/en/job/lucerne/lehrstelle-logistiker-in-01-08-2027-31-07-2030/24107/98637316384",
+      "location": "Spreitenbach, Aargau, Switzerland",
+      "canton": "AG",
+      "url": "https://jobs.ikea.com/en/job/spreitenbach/lehrstelle-logistiker-in-01-08-2027-31-07-2030/24107/98637315968",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-08T09:49:36.717Z",
-      "addressLocality": "Rothenburg",
-      "postalCode": "",
-      "addressRegion": "LU",
+      "crawledAt": "2026-08-08T21:36:20.079Z",
+      "addressLocality": "Spreitenbach",
+      "postalCode": "8957",
+      "addressRegion": "Aargau",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Logistica",
@@ -1531,85 +1494,25 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-08-02",
-      "applyUrl": "https://jobs.ikea.com/en/job/lucerne/lehrstelle-logistiker-in-01-08-2027-31-07-2030/24107/98637316384",
+      "applyUrl": "https://jobs.ikea.com/en/job/spreitenbach/lehrstelle-logistiker-in-01-08-2027-31-07-2030/24107/98637315968",
       "requirements": [],
       "requirementsByLocale": {
         "it": []
       },
       "needsRetranslation": true,
-      "salaryMin": 58500,
-      "salaryMax": 89000,
+      "salaryMin": 52000,
+      "salaryMax": 78500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 58500,
-          "maxValue": 89000,
+          "minValue": 52000,
+          "maxValue": 78500,
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-08T09:49:36.717Z"
-    },
-    {
-      "id": "ikea-d3a6d857e1e5",
-      "slug": "lehrstelle-logistiker-in-efz-01-08-2027-31-07-2030-ikea-ch",
-      "slugByLocale": {
-        "it": "lehrstelle-logistiker-in-efz-01-08-2027-31-07-2030-ikea-ch",
-        "en": "apprenticeship-as-a-logistics-specialist-01-08-2027-31-07-2030-ikea-dietlikon-zurich-switzerland",
-        "de": "lehrstelle-logistiker-in-efz-01-08-2027-31-07-2030-ikea-ch",
-        "fr": "apprentissage-en-tant-que-specialiste-logistique-01-08-2027-31-07-2030-ikea-dietlikon-zurich-switzerland"
-      },
-      "company": "IKEA",
-      "companyKey": "ikea",
-      "companyDomain": "ikea.ch",
-      "title": "Lehrstelle Logistiker:in EFZ (01.08.2027-31.07.2030)",
-      "titleByLocale": {
-        "it": "Apprendistato impiegata/impiegato in logistica CFC (01.08.2027-31.07.2030)",
-        "en": "Apprenticeship as a logistics specialist (01.08.2027-31.07.2030)",
-        "de": "Lehrstelle Logistiker:in EFZ (01.08.2027-31.07.2030)",
-        "fr": "Apprentissage en tant que spécialiste logistique (01.08.2027-31.07.2030)"
-      },
-      "description": "Lehrstelle Logistiker:in EFZ (01.08.2027-31.07.2030) — IKEA",
-      "descriptionByLocale": {
-        "it": "Lehrstelle Logistiker:in EFZ (01.08.2027-31.07.2030) — IKEA"
-      },
-      "location": "Dietlikon, Zürich, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/lehrstelle-logistiker-in-efz-01-08-2027-31-07-2030/24107/98637317184",
-      "source": "IKEA Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-08T09:49:36.717Z",
-      "addressLocality": "Dietlikon",
-      "postalCode": "",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Retail / Furniture",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-02",
-      "applyUrl": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/lehrstelle-logistiker-in-efz-01-08-2027-31-07-2030/24107/98637317184",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-02T10:49:44.260Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
+      "firstSeenAt": "2026-08-08T21:36:20.079Z"
     },
     {
       "id": "ikea-8e93601453e2",
@@ -1639,7 +1542,7 @@
       "url": "https://jobs.ikea.com/en/job/st-gallen/lehrstelle-logistiker-in-efz-fachrichtung-lager/24107/98642340448",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.717Z",
+      "crawledAt": "2026-08-08T21:36:20.079Z",
       "addressLocality": "St. Gallen",
       "postalCode": "",
       "addressRegion": "SG",
@@ -1657,11 +1560,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-logistiker-in-efz-fachrichtung-lager-ikea-ch"
+        "lehrstelle-logistiker-in-efz-fachrichtung-lager-ikea-ch",
+        "apprendistato-logistiker-in-cfc-specializzazione-magazzino-ikea-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-logistiker-in-efz-fachrichtung-lager-ikea-ch"
+          "lehrstelle-logistiker-in-efz-fachrichtung-lager-ikea-ch",
+          "apprendistato-logistiker-in-cfc-specializzazione-magazzino-ikea-st-gallen"
         ],
         "en": [
           "lehrstelle-logistiker-in-efz-fachrichtung-lager-ikea-ch"
@@ -1716,7 +1621,7 @@
       "url": "https://jobs.ikea.com/en/job/lyssach/lehrstelle-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling/24107/98642339408",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.717Z",
+      "crawledAt": "2026-08-08T21:36:20.079Z",
       "addressLocality": "Lyssach",
       "postalCode": "",
       "addressRegion": "BE",
@@ -1734,11 +1639,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch"
+        "lehrstelle-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
+        "apprendistato-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch"
+          "lehrstelle-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
+          "apprendistato-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-spreitenbach"
         ]
       },
       "needsRetranslation": true,
@@ -1754,41 +1661,43 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
-      "id": "ikea-f2c1be4a1c77",
-      "slug": "apprendistato-polydesigner-in-3d-schwerpunkt-styling-ikea-st-gallen",
+      "id": "ikea-2a01ae57ed31",
+      "slug": "apprendistato-polydesigner-in-3d-cfc-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-dietlikon",
       "slugByLocale": {
-        "it": "apprendistato-polydesigner-in-3d-schwerpunkt-styling-ikea-st-gallen",
-        "en": "polydesigner-in-3d-focus-on-styling-ikea-st-gallen-sankt-gallen-switzerland",
-        "de": "lehrstelle-polydesigner-in-3d-schwerpunkt-styling-ikea-ch",
-        "fr": "polydesigner-en-3d-accent-sur-le-style-ikea-st-gallen-sankt-gallen-switzerland"
+        "it": "apprendistato-polydesigner-in-3d-cfc-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-dietlikon",
+        "en": "lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
+        "de": "lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
+        "fr": "polydesigner-en-efz-3d-01-08-2027-31-07-2031-se-concentrer-sur-le-style-ikea-dietlikon-zurich-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
       "companyDomain": "ikea.ch",
-      "title": "Lehrstelle Polydesigner:in 3D (Schwerpunkt Styling)",
+      "title": "Lehrstelle Polydesigner:in 3D EFZ (01.08.2027-31.07.2031, Schwerpunkt Styling)",
       "titleByLocale": {
-        "it": "Apprendistato Polydesigner:in 3D (Schwerpunkt Styling)",
-        "en": "Polydesigner: in 3D (focus on styling)",
-        "de": "Lehrstelle Polydesigner:in 3D (Schwerpunkt Styling)",
-        "fr": "Polydesigner: en 3D (accent sur le style)"
+        "it": "Apprendistato Polydesigner:in 3D CFC (01.08.2027-31.07.2031, Schwerpunkt Styling)",
+        "en": "Polydesigner: in 3D EFZ (01.08.2027-31.07.2031, focus on styling)",
+        "de": "Lehrstelle Polydesigner:in 3D EFZ (01.08.2027-31.07.2031, Schwerpunkt Styling)",
+        "fr": "Polydesigner: en EFZ 3D (01.08.2027-31.07.2031, se concentrer sur le style)"
       },
-      "description": "Lehrstelle Polydesigner:in 3D (Schwerpunkt Styling) — IKEA",
+      "description": "Lehrstelle Polydesigner:in 3D EFZ (01.08.2027-31.07.2031, Schwerpunkt Styling) — IKEA",
       "descriptionByLocale": {
-        "de": "Lehrstelle Polydesigner:in 3D (Schwerpunkt Styling) — IKEA"
+        "it": "Apprendistato di polidesigner:in 3D AFC (01.08.2027-31.07.2031, focus styling) — IKEA",
+        "en": "Job Title: Lecturer in Polydesign (3D Design) - IKEA\n\nJob Description:\n\nWe are seeking a qualified and experienced Lecturer in Polydesign (3D Design) to join our team at IKEA. The position is for a full-time, fixed-term contract from August 1, 2027, to July 31, 2031, with a focus on Styling.\n\nAs a Lecturer in Polydesign, you will be responsible for delivering high-quality education and training to our employees, focusing on the design and styling of our products. You will work closely with our product development teams, providing expert guidance and support to ensure that our products meet the highest standards of design and functionality.\n\nKey Responsibilities:\n\n- Develop and deliver educational programs and workshops on polydesign, 3D modeling, and styling for IKEA employees.\n- Collaborate with product development teams to ensure that design and styling principles are applied consistently across our product range.\n- Provide mentorship and guidance to junior designers and stylists, helping them to develop their skills and expertise.\n- Stay up-to-date with the latest trends and developments in polydesign and styling, and incorporate these into our educational programs.\n- Evaluate the effectiveness of our educational programs and make recommendations for improvement.\n\nQualifications:\n\n- A bachelor's or master's degree in a relevant field such as design, architecture, or engineering.\n- Significant experience in polydesign, 3D modeling, and styling.\n- A strong understanding of IKEA's design principles and brand identity.\n- Excellent communication and interpersonal skills, with the ability to work effectively with diverse teams.\n- Experience in delivering educational programs and workshops.\n- A passion for design and a commitment to continuous learning and development.\n\nWe are an equal opportunities employer and welcome applications from all qualified candidates, regardless of gender, race, religion, age, or disability.",
+        "de": "Lehrstelle Polydesigner:in 3D EFZ (01.08.2027-31.07.2031, Schwerpunkt Styling) — IKEA",
+        "fr": "Poste de formation Polydesigner:in 3D EFZ (01.08.2027-31.07.2031, axe Styling) — IKEA\n\nÜber IKEA\n\nIKEA ist ein führendes Unternehmen im Bereich Möbel und Einrichtung. Wir sind bekannt für unsere innovativen Produkte, unsere Nachhaltigkeitsstrategie und unsere Kundenorientierung. Unsere Mission ist es, Menschen die Möglichkeit zu geben, ihre eigenen Wohnräume zu gestalten und zu schaffen, ohne dabei hohe Kosten zu riskieren.\n\nÜber die Stelle\n\nWir suchen eine/n Polydesigner:in 3D EFZ für die Dauer von vier Jahren (01.08.2027-31.07.2031) mit Schwerpunkt auf Styling. Die/n Bewerber:in wird Teil unseres Designteams sein und sich auf die Entwicklung von innovativen Produkten und Lösungen konzentrieren, die unsere Kunden erwartungen übertreffen.\n\nAufgaben und Verantwortlichkeiten\n\n- Entwicklung von innovativen Produkten und Lösungen im Bereich Möbel und Einrichtung\n- Zusammenarbeit mit unserem Designteam, um unsere Produkte und Lösungen zu verbessern\n- Analyse von Kundenbedürfnissen und -erwartungen\n- Entwicklung von Designs und Prototypen für unsere Produkte\n- Kommunikation mit unseren Partnern und Lieferanten\n- Überwachung der Qualität und Sicherheit unserer Produkte\n\nAnforderungen\n\n- Abschluss als Polydesigner:in 3D EFZ\n- Erfahrung im Bereich Möbel und Einrichtung\n- Gute Kenntnisse in CAD-Software und 3D-Modellierung\n- Kommunikationsfähigkeiten und Teamfähigkeiten\n- Flexibilität und Fähigkeit, sich schnell an neue Herausforderungen anzupassen\n\nWas wir bieten\n\n- Eine interessante und herausfordernde Arbeit in einem dynamischen Team\n- Eine umfassende Ausbildung und Weiterbildungsmöglichkeiten\n- Eine faire Bezahlung und ein attraktives Sozialpaket\n- Die Möglichkeit, Teil eines globalen Unternehmens zu sein und unsere Produkte und Lösungen in der ganzen Welt zu sehen\n\nWenn Sie sich für diese Herausforderung interessieren, senden Sie bitte Ihre Bewerbung an uns. Wir freuen uns darauf, von Ihnen zu hören!"
       },
-      "location": "St. Gallen, Sankt Gallen, Switzerland",
-      "canton": "SG",
-      "url": "https://jobs.ikea.com/en/job/st-gallen/lehrstelle-polydesigner-in-3d-schwerpunkt-styling/24107/98642342208",
+      "location": "Dietlikon, Zürich, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling/24107/98667712912",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.716Z",
-      "addressLocality": "St. Gallen",
+      "crawledAt": "2026-08-08T21:36:20.079Z",
+      "addressLocality": "Dietlikon",
       "postalCode": "",
-      "addressRegion": "SG",
+      "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Altro",
@@ -1799,34 +1708,96 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-08-02",
-      "applyUrl": "https://jobs.ikea.com/en/job/st-gallen/lehrstelle-polydesigner-in-3d-schwerpunkt-styling/24107/98642342208",
+      "applyUrl": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling/24107/98667712912",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-polydesigner-in-3d-schwerpunkt-styling-ikea-ch"
+        "lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
+        "apprendistato-polydesigner-in-3d-cfc-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-dietlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-polydesigner-in-3d-schwerpunkt-styling-ikea-ch"
-        ],
-        "en": [
-          "lehrstelle-polydesigner-in-3d-schwerpunkt-styling-ikea-ch"
+          "lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
+          "apprendistato-polydesigner-in-3d-cfc-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-dietlikon"
         ],
         "fr": [
-          "lehrstelle-polydesigner-in-3d-schwerpunkt-styling-ikea-ch"
+          "lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 85,
+      "retranslationAttempts": 7,
+      "firstSeenAt": "2026-08-02T22:16:40.126Z",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-02T10:49:44.257Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ikea-d3a6d857e1e5",
+      "slug": "lehrstelle-logistiker-in-efz-01-08-2027-31-07-2030-ikea-ch",
+      "slugByLocale": {
+        "it": "lehrstelle-logistiker-in-efz-01-08-2027-31-07-2030-ikea-ch",
+        "en": "apprenticeship-as-a-logistics-specialist-01-08-2027-31-07-2030-ikea-dietlikon-zurich-switzerland",
+        "de": "lehrstelle-logistiker-in-efz-01-08-2027-31-07-2030-ikea-ch",
+        "fr": "apprentissage-en-tant-que-specialiste-logistique-01-08-2027-31-07-2030-ikea-dietlikon-zurich-switzerland"
+      },
+      "company": "IKEA",
+      "companyKey": "ikea",
+      "companyDomain": "ikea.ch",
+      "title": "Lehrstelle Logistiker:in EFZ (01.08.2027-31.07.2030)",
+      "titleByLocale": {
+        "it": "Apprendistato impiegata/impiegato in logistica CFC (01.08.2027-31.07.2030)",
+        "en": "Apprenticeship as a logistics specialist (01.08.2027-31.07.2030)",
+        "de": "Lehrstelle Logistiker:in EFZ (01.08.2027-31.07.2030)",
+        "fr": "Apprentissage en tant que spécialiste logistique (01.08.2027-31.07.2030)"
+      },
+      "description": "Lehrstelle Logistiker:in EFZ (01.08.2027-31.07.2030) — IKEA",
+      "descriptionByLocale": {
+        "it": "Lehrstelle Logistiker:in EFZ (01.08.2027-31.07.2030) — IKEA"
+      },
+      "location": "Dietlikon, Zürich, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/lehrstelle-logistiker-in-efz-01-08-2027-31-07-2030/24107/98637317184",
+      "source": "IKEA Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-08T21:36:20.078Z",
+      "addressLocality": "Dietlikon",
+      "postalCode": "",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Retail / Furniture",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-02",
+      "applyUrl": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/lehrstelle-logistiker-in-efz-01-08-2027-31-07-2030/24107/98637317184",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-02T10:49:44.260Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -1862,7 +1833,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-verkauf-textil-und-badezimmerabteilung-20-40/24107/94224892608",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.715Z",
+      "crawledAt": "2026-08-08T21:36:20.077Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -1880,14 +1851,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-textil-und-badezimmerabteilung-20-40-ikea-ch"
+        "mitarbeiter-in-verkauf-textil-und-badezimmerabteilung-20-40-ikea-ch",
+        "vendita-per-dipendenti-dipartimento-tessile-e-bagno-20-40-ikea-dietlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-textil-und-badezimmerabteilung-20-40-ikea-ch"
+          "mitarbeiter-in-verkauf-textil-und-badezimmerabteilung-20-40-ikea-ch",
+          "vendita-per-dipendenti-dipartimento-tessile-e-bagno-20-40-ikea-dietlikon"
         ]
       },
       "firstSeenAt": "2026-08-04T22:17:03.589Z",
+      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600,
       "baseSalary": {
@@ -1897,6 +1871,153 @@
           "@type": "QuantitativeValue",
           "minValue": 29400,
           "maxValue": 44600,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ikea-f2c1be4a1c77",
+      "slug": "apprendistato-polydesigner-in-3d-schwerpunkt-styling-ikea-st-gallen",
+      "slugByLocale": {
+        "it": "apprendistato-polydesigner-in-3d-schwerpunkt-styling-ikea-st-gallen",
+        "en": "polydesigner-in-3d-focus-on-styling-ikea-st-gallen-sankt-gallen-switzerland",
+        "de": "lehrstelle-polydesigner-in-3d-schwerpunkt-styling-ikea-ch",
+        "fr": "polydesigner-en-3d-accent-sur-le-style-ikea-st-gallen-sankt-gallen-switzerland"
+      },
+      "company": "IKEA",
+      "companyKey": "ikea",
+      "companyDomain": "ikea.ch",
+      "title": "Lehrstelle Polydesigner:in 3D (Schwerpunkt Styling)",
+      "titleByLocale": {
+        "it": "Apprendistato Polydesigner:in 3D (Schwerpunkt Styling)",
+        "en": "Polydesigner: in 3D (focus on styling)",
+        "de": "Lehrstelle Polydesigner:in 3D (Schwerpunkt Styling)",
+        "fr": "Polydesigner: en 3D (accent sur le style)"
+      },
+      "description": "Lehrstelle Polydesigner:in 3D (Schwerpunkt Styling) — IKEA",
+      "descriptionByLocale": {
+        "de": "Lehrstelle Polydesigner:in 3D (Schwerpunkt Styling) — IKEA"
+      },
+      "location": "St. Gallen, Sankt Gallen, Switzerland",
+      "canton": "SG",
+      "url": "https://jobs.ikea.com/en/job/st-gallen/lehrstelle-polydesigner-in-3d-schwerpunkt-styling/24107/98642342208",
+      "source": "IKEA Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-08T21:36:20.077Z",
+      "addressLocality": "St. Gallen",
+      "postalCode": "",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Retail / Furniture",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-02",
+      "applyUrl": "https://jobs.ikea.com/en/job/st-gallen/lehrstelle-polydesigner-in-3d-schwerpunkt-styling/24107/98642342208",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-polydesigner-in-3d-schwerpunkt-styling-ikea-ch",
+        "apprendistato-polydesigner-in-3d-schwerpunkt-styling-ikea-st-gallen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-polydesigner-in-3d-schwerpunkt-styling-ikea-ch",
+          "apprendistato-polydesigner-in-3d-schwerpunkt-styling-ikea-st-gallen"
+        ],
+        "en": [
+          "lehrstelle-polydesigner-in-3d-schwerpunkt-styling-ikea-ch"
+        ],
+        "fr": [
+          "lehrstelle-polydesigner-in-3d-schwerpunkt-styling-ikea-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-02T10:49:44.257Z",
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ikea-c8847da35871",
+      "slug": "mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026-ikea-spreitenbach",
+      "slugByLocale": {
+        "it": "mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026-ikea-spreitenbach",
+        "en": "mitabeiter-in-logistics-filling-team-50-limited-to-31-december-2026-ikea-spreitenbach-aargau-switzerland",
+        "de": "mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026-ikea-ch",
+        "fr": "mitabeiter-in-logistics-equipe-de-remplissage-50-limite-a-31-decembre-2026-ikea-spreitenbach-aargau-switzerland"
+      },
+      "company": "IKEA",
+      "companyKey": "ikea",
+      "companyDomain": "ikea.ch",
+      "title": "Mitabeiter:in Logistik Auffüllteam 50%, befristet bis 31. Dezember 2026",
+      "titleByLocale": {
+        "it": "Mitabeiter:in Squadra logistica di riempimento 50%, limitata a 31. Dicembre 2026",
+        "en": "Mitabeiter:in Logistics filling team 50%, limited to 31. December 2026",
+        "de": "Mitabeiter:in Logistik Auffüllteam 50%, befristet bis 31. Dezember 2026",
+        "fr": "Mitabeiter:in Logistics équipe de remplissage 50%, limité à 31. Décembre 2026"
+      },
+      "description": "Wer du bist\n\nWenn es schnell gehen muss, kannst du mithalten und sorgst dabei für Ruhe und Ordnung. Das Logistik-Team von IKEA möchte genau so eine Person an Bord haben.\n\nMenschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst.\n\nWie siehst du das? Schau mal, ob das zu dir passt:\n\n• Du hast bereits Erfahrung in der Logistik oder einem ähnlichen Bereich.\n• Du bist aufgeschlossen, kommunikativ und hast eine freundliche Art, die eine positive Zusammenarbeit mit deinen Kolleginnen und Kollegen fördert.\n• Du sprichst gut Deutsch, weitere Sprachenkenntnisse sind immer ein Plus.\n• Hektik macht dir keine Angst und in einem dynamischen Umfeld fühlst du dich wohl.\n• Ob Früh- und Spätschichten (zwischen 05:00 und 21:00), du bist flexibel.\n• Du bist körperlich fit und bereit, aktiv mitanzupacken.\n• Den Suva Staplerausweis hast du schon in der Tasche.\n\nDu bist verantwortlich für\n\n• Dank dir sind unsere vielen Produkte immer erhältlich und immer in einem einwandfreien Zustand.\n• Du sorgst für die termingerechte Warenbereitstellung und eine korrekte Bestandsführung.\n• Im Team arbeitet ihr nach festgelegten Routinen, um gemeinsam die Produkteverfügbarkeit zu garantieren.\n• Dabei arbeitest du sorgfältig und genau, denn Sicherheit geht vor.\n•Unterstützung der Abteilung und anderen Bereichen des Geschäfts, wenn Hilfe nötig ist.\n\nDenkst du, das würde passen?\n\nWir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht.\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 20 Wochen bezahlte Elternzeit für Mütter, 8 Wochen bezahlte Elternzeit für Väter.\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Jahresabonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\nDas wäre es von uns.\n Das waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
+      "descriptionByLocale": {
+        "it": "Chi sei\n\nSe deve andare veloce, è possibile tenere il passo e fornire la pace e l'ordine. Il team logistico di IKEA vuole avere solo una tale persona a bordo.\n\nLa gente lavora meglio quando sta bene. In IKEA, crediamo che le sfide portino gioia quando si ha divertimento al lavoro e raggiungere obiettivi insieme. Vogliamo che tu ti senta a tuo agio con noi e sia in grado di svilupparti personalmente e professionalmente.\n\nCome lo vedi? Vedi se ti sta bene:\n\n• Hai già esperienza nella logistica o in un campo simile.\n• Sei aperta, comunicativa e hai un modo amichevole di lavorare positivamente con i tuoi colleghi.\n• Parli bene tedesco, ulteriori competenze linguistiche sono sempre un vantaggio.\n• Hectic non ti spaventa e in un ambiente dinamico ti senti a tuo agio.\n• Che si tratti di turni anticipati e tardivi (tra le 05:00 e le 21:00), sei flessibile.\n• Siete fisicamente in forma e pronti a partecipare attivamente.\n• Hai già la carta per carrelli elevatori Suva in tasca.\n\nTu sei responsabile\n\n• Grazie a voi, i nostri numerosi prodotti sono sempre disponibili e sempre in perfette condizioni.\n• Garantisci la tempestiva fornitura di beni e una corretta gestione dell'inventario.\n• Come team, si lavora secondo le routine stabilite per garantire congiuntamente la disponibilità del prodotto.\n• Si lavora con attenzione e precisione, perché la sicurezza viene prima.\n• Sostenere il dipartimento e altre aree di business quando è necessario assistenza.\n\nPensi che andrebbe bene?\n\nAbbiamo scritto sopra che vogliamo che i nostri dipendenti stiano bene.\nQuesto include dire “grazie”!\n\nIl nostro ringraziamento:\n\n· 28 giorni di vacanza (basato su un'indennità del 100%)\n· 20 settimane di congedo parentale pagato per le madri, 8 settimane di congedo parentale pagato per i padri.\n· Vantaggi sociali molto attraenti\n· 15% di sconto sul vostro acquisto – in ogni negozio IKEA\n· Viene con i mezzi pubblici? Paghiamo tra l'85% al 100% dell'abbonamento annuale\n· Parcheggio gratuito\n· Accesso illimitato alla piattaforma di apprendimento LinkedIn\nPasti economici e salutari nella mensa (CHF 4.50 per la carne e CHF 3.50 per i piatti vegi)\n· Bonus per tutti i dipendenti\n\nA IKEA, ci sono molti modi diversi per sviluppare. Incoraggiamo e incoraggiamo i nostri dipendenti a provare diversi compiti, a passare tra funzioni o andare all'estero. Si prega di inviare la vostra applicazione completa on-line ed essere consapevoli che non possiamo prendere in considerazione documenti via e-mail o posta.\nSiamo noi.\nSono state molte informazioni. Ci piacerebbe sapere di più su di te. Basta cliccare su “Applica ora” e andare. Rivediamo le applicazioni su base continuativa e arrestiamo il processo di applicazione non appena troviamo la persona giusta. Si prega di applicare il prima possibile.",
+        "en": "Who you are\n\nIf it has to go fast, you can keep up and provide peace and order. The logistics team at IKEA wants to have just such a person on board.\n\nPeople work better when they are well. At IKEA, we believe that challenges bring joy when you have fun at work and achieve goals together. We want you to feel comfortable with us and to be able to develop personally and professionally.\n\nHow do you see that? See if this suits you:\n\n• You already have experience in logistics or a similar field.\n• You are open-minded, communicative and have a friendly way of working positively with your colleagues.\n• You speak good German, further language skills are always a plus.\n• Hectic does not scare you and in a dynamic environment you feel comfortable.\n• Whether early and late shifts (between 05:00 and 21:00), you are flexible.\n• You are physically fit and ready to actively participate.\n• You already have the Suva forklift card in your pocket.\n\nYou are responsible for\n\n• Thanks to you, our many products are always available and always in perfect condition.\n• You ensure the timely provision of goods and a correct inventory management.\n• As a team, you work according to established routines to jointly guarantee product availability.\n• You work carefully and accurately, because safety comes first.\n• Support the department and other areas of business when assistance is needed.\n\nDo you think that would fit?\n\nWe wrote above that we want our employees to be well.\nThis includes saying “thank you”!\n\nOur thanks:\n\n· 28 holiday days (based on a 100% allowance)\n· 20 weeks paid parental leave for mothers, 8 weeks paid parental leave for fathers.\n· Very attractive social benefits\n· 15% discount on your purchase – in every IKEA store\n· Are you coming with the public transport? We pay between 85% to 100% of the annual subscription\n· Free parking\n· Unlimited access to the LinkedIn learning platform\nCheap and healthy meals in the canteen (CHF 4.50 for meat and CHF 3.50 for vegi dishes)\n· Bonus payments for all employees\n\nAt IKEA, there are many different ways to develop. We encourage and encourage our employees to try out different tasks, to switch between functions or to go abroad. Please submit your complete application online and be aware that we cannot consider documents by e-mail or post.\nThat would be it of us.\nThat was a lot of info. We would love to know more about you. Just click on “Apply now” and go. We review applications on an ongoing basis and stop the application process as soon as we find the right person. Please apply as soon as possible.",
+        "de": "Wer du bist\n\nWenn es schnell gehen muss, kannst du mithalten und sorgst dabei für Ruhe und Ordnung. Das Logistik-Team von IKEA möchte genau so eine Person an Bord haben.\n\nMenschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst.\n\nWie siehst du das? Schau mal, ob das zu dir passt:\n\n• Du hast bereits Erfahrung in der Logistik oder einem ähnlichen Bereich.\n• Du bist aufgeschlossen, kommunikativ und hast eine freundliche Art, die eine positive Zusammenarbeit mit deinen Kolleginnen und Kollegen fördert.\n• Du sprichst gut Deutsch, weitere Sprachenkenntnisse sind immer ein Plus.\n• Hektik macht dir keine Angst und in einem dynamischen Umfeld fühlst du dich wohl.\n• Ob Früh- und Spätschichten (zwischen 05:00 und 21:00), du bist flexibel.\n• Du bist körperlich fit und bereit, aktiv mitanzupacken.\n• Den Suva Staplerausweis hast du schon in der Tasche.\n\nDu bist verantwortlich für\n\n• Dank dir sind unsere vielen Produkte immer erhältlich und immer in einem einwandfreien Zustand.\n• Du sorgst für die termingerechte Warenbereitstellung und eine korrekte Bestandsführung.\n• Im Team arbeitet ihr nach festgelegten Routinen, um gemeinsam die Produkteverfügbarkeit zu garantieren.\n• Dabei arbeitest du sorgfältig und genau, denn Sicherheit geht vor.\n•Unterstützung der Abteilung und anderen Bereichen des Geschäfts, wenn Hilfe nötig ist.\n\nDenkst du, das würde passen?\n\nWir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht.\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 20 Wochen bezahlte Elternzeit für Mütter, 8 Wochen bezahlte Elternzeit für Väter.\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Jahresabonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\nDas wäre es von uns.\nDas waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
+        "fr": "Qui vous êtes\n\nSi elle doit aller vite, vous pouvez maintenir et fournir la paix et l'ordre. L'équipe logistique d'IKEA veut avoir une telle personne à bord.\n\nLes gens travaillent mieux quand ils vont bien. Chez IKEA, nous croyons que les défis apportent de la joie lorsque vous vous amusez au travail et atteindre des objectifs ensemble. Nous voulons que vous vous sentiez à l'aise avec nous et que vous puissiez vous développer personnellement et professionnellement.\n\nComment voyez-vous ça ? Voyez si cela vous convient :\n\n• Vous avez déjà une expérience en logistique ou dans un domaine similaire.\n• Vous êtes ouvert d'esprit, communicatif et avez une façon amicale de travailler positivement avec vos collègues.\n• Vous parlez bien l'allemand, d'autres compétences linguistiques sont toujours un plus.\n• L'agitation ne vous effraie pas et dans un environnement dynamique, vous vous sentez à l'aise.\n• Que vous soyez en poste tôt ou tard (entre 05h00 et 21h00), vous êtes flexible.\n• Vous êtes physiquement en forme et prêt à participer activement.\n• Vous avez déjà la carte de chariot élévateur Suva dans votre poche.\n\nVous êtes responsable\n\n• Grâce à vous, nos nombreux produits sont toujours disponibles et toujours en parfait état.\n• Vous veillez à ce que les marchandises soient fournies en temps opportun et à ce que la gestion des stocks soit correcte.\n• En tant qu'équipe, vous travaillez selon les routines établies pour garantir conjointement la disponibilité des produits.\n• Vous travaillez avec soin et précision, car la sécurité vient en premier.\n• Soutenir le département et d'autres secteurs d'activité lorsque l'aide est nécessaire.\n\nTu crois que ça irait ?\n\nNous avons écrit plus haut que nous voulons que nos employés soient bien.\nCela inclut dire merci!\n\nNous remercions :\n\n· 28 jours de congé (sur la base d'une allocation de 100 %)\n· 20 semaines de congé parental payé pour les mères, 8 semaines de congé parental payé pour les pères.\n· Prestations sociales très attractives\n· 15% de réduction sur votre achat – dans chaque magasin IKEA\n· Vous venez avec les transports publics? Nous payons entre 85% et 100% de l'abonnement annuel\n· Parking gratuit\n· Accès illimité à la plateforme d'apprentissage LinkedIn\nRepas pas chers et sains dans la cantine (CHF 4,50 pour la viande et CHF 3,50 pour les plats vegi)\n· Primes versées à tous les employés\n\nÀ IKEA, il existe de nombreuses façons de se développer. Nous encourageons et encourageons nos employés à essayer différentes tâches, à changer de fonction ou à partir à l'étranger. Veuillez soumettre votre candidature en ligne et être conscient que nous ne pouvons pas considérer les documents par courriel ou par la poste.\nCe serait à nous.\nC'était beaucoup d'infos. Nous aimerions en savoir plus sur vous. Il suffit de cliquer sur \"Appliquer maintenant\" et aller. Nous examinons les demandes de façon continue et arrêtons le processus de demande dès que nous trouvons la bonne personne. Veuillez postuler dès que possible."
+      },
+      "location": "Spreitenbach, Aargau, Switzerland",
+      "canton": "AG",
+      "url": "https://jobs.ikea.com/en/job/spreitenbach/mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026/24107/97866976048",
+      "source": "IKEA Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-08T21:36:20.075Z",
+      "addressLocality": "Spreitenbach",
+      "postalCode": "8957",
+      "addressRegion": "Aargau",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "TEMPORARY",
+      "experienceLevel": "mid",
+      "sector": "Retail / Furniture",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-05",
+      "applyUrl": "https://jobs.ikea.com/en/job/spreitenbach/mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026/24107/97866976048",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026-ikea-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026-ikea-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-05T22:40:38.113Z",
+      "needsRetranslation": true,
+      "salaryMin": 31000,
+      "salaryMax": 47000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 31000,
+          "maxValue": 47000,
           "unitText": "YEAR"
         }
       }
@@ -1932,7 +2053,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-verkauf-und-mobelmontage-zweite-chance-markt-100/24107/98751879392",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.713Z",
+      "crawledAt": "2026-08-08T21:36:20.075Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "Aargau",
@@ -1950,11 +2071,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-und-mobelmontage-zweite-chance-markt-100-ikea-ch"
+        "mitarbeiter-in-verkauf-und-mobelmontage-zweite-chance-markt-100-ikea-ch",
+        "addetto-a-alle-vendite-e-mobelmontage-zweite-chance-markt-100-ikea-spreitenbach-aargau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-und-mobelmontage-zweite-chance-markt-100-ikea-ch"
+          "mitarbeiter-in-verkauf-und-mobelmontage-zweite-chance-markt-100-ikea-ch",
+          "addetto-a-alle-vendite-e-mobelmontage-zweite-chance-markt-100-ikea-spreitenbach-aargau-switzerland"
         ]
       },
       "firstSeenAt": "2026-08-04T22:17:03.575Z",
@@ -2002,7 +2125,7 @@
       "url": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-visuelle-kommunikation-werbetechnik-60-80/24107/97799682576",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.712Z",
+      "crawledAt": "2026-08-08T21:36:20.074Z",
       "addressLocality": "Lyssach",
       "postalCode": "3421",
       "addressRegion": "BE",
@@ -2020,14 +2143,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-visuelle-kommunikation-werbetechnik-60-80-ikea-ch"
+        "mitarbeiter-in-visuelle-kommunikation-werbetechnik-60-80-ikea-ch",
+        "collaboratore-trice-visuelle-kommunikation-werbetechnik-60-80-ikea-lyssach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-visuelle-kommunikation-werbetechnik-60-80-ikea-ch"
+          "mitarbeiter-in-visuelle-kommunikation-werbetechnik-60-80-ikea-ch",
+          "collaboratore-trice-visuelle-kommunikation-werbetechnik-60-80-ikea-lyssach"
         ]
       },
       "firstSeenAt": "2026-08-05T22:40:38.111Z",
+      "needsRetranslation": true,
       "salaryMin": 57200,
       "salaryMax": 101200,
       "baseSalary": {
@@ -2042,71 +2168,80 @@
       }
     },
     {
-      "id": "ikea-c8847da35871",
-      "slug": "mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026-ikea-spreitenbach",
+      "id": "ikea-5ae0195c022b",
+      "slug": "collaboratore-trice-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1",
       "slugByLocale": {
-        "it": "mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026-ikea-spreitenbach",
-        "en": "mitabeiter-in-logistics-filling-team-50-limited-to-31-december-2026-ikea-spreitenbach-aargau-switzerland",
-        "de": "mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026-ikea-ch",
-        "fr": "mitabeiter-in-logistics-equipe-de-remplissage-50-limite-a-31-decembre-2026-ikea-spreitenbach-aargau-switzerland"
+        "it": "collaboratore-trice-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1",
+        "en": "associate-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1",
+        "de": "mitarbeiter-in-ikea-bistro-schwedenshop-samstags-30-ikea-ch",
+        "fr": "collaborateur-trice-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1"
       },
       "company": "IKEA",
       "companyKey": "ikea",
       "companyDomain": "ikea.ch",
-      "title": "Mitabeiter:in Logistik Auffüllteam 50%, befristet bis 31. Dezember 2026",
+      "title": "Mitarbeiter:in IKEA Bistro & Schwedenshop samstags 30%",
       "titleByLocale": {
-        "it": "Mitabeiter:in Squadra logistica di riempimento 50%, limitata a 31. Dicembre 2026",
-        "en": "Mitabeiter:in Logistics filling team 50%, limited to 31. December 2026",
-        "de": "Mitabeiter:in Logistik Auffüllteam 50%, befristet bis 31. Dezember 2026",
-        "fr": "Mitabeiter:in Logistics équipe de remplissage 50%, limité à 31. Décembre 2026"
+        "it": "Collaboratore/trice IKEA Bistro & Schwedenshop samstags 30%",
+        "en": "Associate IKEA Bistro & Schwedenshop samstags 30%",
+        "de": "Mitarbeiter:in IKEA Bistro & Schwedenshop samstags 30%",
+        "fr": "Collaborateur/trice IKEA Bistro & Schwedenshop samstags 30%"
       },
-      "description": "Wer du bist\n\nWenn es schnell gehen muss, kannst du mithalten und sorgst dabei für Ruhe und Ordnung. Das Logistik-Team von IKEA möchte genau so eine Person an Bord haben.\n\nMenschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst.\n\nWie siehst du das? Schau mal, ob das zu dir passt:\n\n• Du hast bereits Erfahrung in der Logistik oder einem ähnlichen Bereich.\n• Du bist aufgeschlossen, kommunikativ und hast eine freundliche Art, die eine positive Zusammenarbeit mit deinen Kolleginnen und Kollegen fördert.\n• Du sprichst gut Deutsch, weitere Sprachenkenntnisse sind immer ein Plus.\n• Hektik macht dir keine Angst und in einem dynamischen Umfeld fühlst du dich wohl.\n• Ob Früh- und Spätschichten (zwischen 05:00 und 21:00), du bist flexibel.\n• Du bist körperlich fit und bereit, aktiv mitanzupacken.\n• Den Suva Staplerausweis hast du schon in der Tasche.\n\nDu bist verantwortlich für\n\n• Dank dir sind unsere vielen Produkte immer erhältlich und immer in einem einwandfreien Zustand.\n• Du sorgst für die termingerechte Warenbereitstellung und eine korrekte Bestandsführung.\n• Im Team arbeitet ihr nach festgelegten Routinen, um gemeinsam die Produkteverfügbarkeit zu garantieren.\n• Dabei arbeitest du sorgfältig und genau, denn Sicherheit geht vor.\n•Unterstützung der Abteilung und anderen Bereichen des Geschäfts, wenn Hilfe nötig ist.\n\nDenkst du, das würde passen?\n\nWir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht.\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 20 Wochen bezahlte Elternzeit für Mütter, 8 Wochen bezahlte Elternzeit für Väter.\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Jahresabonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\nDas wäre es von uns.\n Das waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
+      "description": "Wer du bist\n\nWenn Köttbullar auf Tilsammans trifft – dann bist du bei IKEA.\n\nDu liebst unser legendäres Essen, auch wenn du es jeden Tag sehen würdest? Dann könnte die Stelle bei IKEA Food interessant für dich sein.\nMenschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst.\n\nWie siehst du das? Schau mal, ob das zu dir passt:\n• Du hast bereits Erfahrung in einem kundenorientierten Umfeld mit hohem Warenaufkommen, idealerweise im Gastgewerbe oder im Verkauf.\n• Du magst direkten Kontakt mit Kund:innen, bist gerne unter Menschen und kannst einen ausgezeichneten Service bieten.\n• Du bist in der Lage über längere Zeit stehende Arbeiten auszuführen.\n• Du arbeitest gerne und effizient in einem Team, übernimmst aber auch die Verantwortung für deine eigene Arbeit.\n• Du möchtest dich laufend weiterentwickeln.\n• Du fühlst dich in einem hochdynamischen Umfeld wohl und kannst auch mit herausfordernden Situationen umgehen.\n• Du sprichst fliessend Deutsch und verstehst Englisch. Kenntnisse in einer weiteren Landessprache sind von Vorteil.\n• Du bist dir bewusst, dass sich deine Arbeitszeiten in max. 8h-Schichten zwischen Montag und Samstag bewegen, wobei der Samstag ein fester Arbeitstag ist.\n• Du verfügst idealerweise über Computerkenntnisse, insbesondere in MS Office.\n\nDu bist verantwortlich für\n\nDiese Aufgaben erwarten dich:\n\n•Die Kund:innen auf eine einladende und zuvorkommende Art basierend auf der Grundlage der IKEA Werte willkommen heissen.\n•Sicherstellen, dass die verfügbaren Lebensmittel, Getränke und Produkte von höchster Qualität und Frische sind und auf ansprechende Weise präsentiert werden.\n• Zubereitung und Ausgabe der Speisen im IKEA Bistro oder Restaurant.\n• Pflege deines Verantwortungsbereichs, sodass dieser immer organisiert und einladend gestaltet ist und die Preise angeschrieben sind.\n• Entgegennahme von Zahlungen und Abwicklung von Bargeldtransaktionen an der Kasse.\n• Den Lebensmittelbereich aus der Sicht unserer Kund:innen betrachten.\n• Mit eigener Initiative die bestehenden Prozesse optimieren.\n• Einhaltung der Hygiene-Richtlinien.\n\nDenkst du, das würde passen?\n\nWir möchten, dass es unseren Mitarbeitenden gut geht.\n\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 20 Wochen bezahlte Elternzeit für Mütter, 8 Wochen bezahlte Elternzeit für Väter.\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Jahresabonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\nDas wäre es von uns.\n Das waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
       "descriptionByLocale": {
-        "it": "Chi sei\n\nSe deve andare veloce, è possibile tenere il passo e fornire la pace e l'ordine. Il team logistico di IKEA vuole avere solo una tale persona a bordo.\n\nLa gente lavora meglio quando sta bene. In IKEA, crediamo che le sfide portino gioia quando si ha divertimento al lavoro e raggiungere obiettivi insieme. Vogliamo che tu ti senta a tuo agio con noi e sia in grado di svilupparti personalmente e professionalmente.\n\nCome lo vedi? Vedi se ti sta bene:\n\n• Hai già esperienza nella logistica o in un campo simile.\n• Sei aperta, comunicativa e hai un modo amichevole di lavorare positivamente con i tuoi colleghi.\n• Parli bene tedesco, ulteriori competenze linguistiche sono sempre un vantaggio.\n• Hectic non ti spaventa e in un ambiente dinamico ti senti a tuo agio.\n• Che si tratti di turni anticipati e tardivi (tra le 05:00 e le 21:00), sei flessibile.\n• Siete fisicamente in forma e pronti a partecipare attivamente.\n• Hai già la carta per carrelli elevatori Suva in tasca.\n\nTu sei responsabile\n\n• Grazie a voi, i nostri numerosi prodotti sono sempre disponibili e sempre in perfette condizioni.\n• Garantisci la tempestiva fornitura di beni e una corretta gestione dell'inventario.\n• Come team, si lavora secondo le routine stabilite per garantire congiuntamente la disponibilità del prodotto.\n• Si lavora con attenzione e precisione, perché la sicurezza viene prima.\n• Sostenere il dipartimento e altre aree di business quando è necessario assistenza.\n\nPensi che andrebbe bene?\n\nAbbiamo scritto sopra che vogliamo che i nostri dipendenti stiano bene.\nQuesto include dire “grazie”!\n\nIl nostro ringraziamento:\n\n· 28 giorni di vacanza (basato su un'indennità del 100%)\n· 20 settimane di congedo parentale pagato per le madri, 8 settimane di congedo parentale pagato per i padri.\n· Vantaggi sociali molto attraenti\n· 15% di sconto sul vostro acquisto – in ogni negozio IKEA\n· Viene con i mezzi pubblici? Paghiamo tra l'85% al 100% dell'abbonamento annuale\n· Parcheggio gratuito\n· Accesso illimitato alla piattaforma di apprendimento LinkedIn\nPasti economici e salutari nella mensa (CHF 4.50 per la carne e CHF 3.50 per i piatti vegi)\n· Bonus per tutti i dipendenti\n\nA IKEA, ci sono molti modi diversi per sviluppare. Incoraggiamo e incoraggiamo i nostri dipendenti a provare diversi compiti, a passare tra funzioni o andare all'estero. Si prega di inviare la vostra applicazione completa on-line ed essere consapevoli che non possiamo prendere in considerazione documenti via e-mail o posta.\nSiamo noi.\nSono state molte informazioni. Ci piacerebbe sapere di più su di te. Basta cliccare su “Applica ora” e andare. Rivediamo le applicazioni su base continuativa e arrestiamo il processo di applicazione non appena troviamo la persona giusta. Si prega di applicare il prima possibile.",
-        "en": "Who you are\n\nIf it has to go fast, you can keep up and provide peace and order. The logistics team at IKEA wants to have just such a person on board.\n\nPeople work better when they are well. At IKEA, we believe that challenges bring joy when you have fun at work and achieve goals together. We want you to feel comfortable with us and to be able to develop personally and professionally.\n\nHow do you see that? See if this suits you:\n\n• You already have experience in logistics or a similar field.\n• You are open-minded, communicative and have a friendly way of working positively with your colleagues.\n• You speak good German, further language skills are always a plus.\n• Hectic does not scare you and in a dynamic environment you feel comfortable.\n• Whether early and late shifts (between 05:00 and 21:00), you are flexible.\n• You are physically fit and ready to actively participate.\n• You already have the Suva forklift card in your pocket.\n\nYou are responsible for\n\n• Thanks to you, our many products are always available and always in perfect condition.\n• You ensure the timely provision of goods and a correct inventory management.\n• As a team, you work according to established routines to jointly guarantee product availability.\n• You work carefully and accurately, because safety comes first.\n• Support the department and other areas of business when assistance is needed.\n\nDo you think that would fit?\n\nWe wrote above that we want our employees to be well.\nThis includes saying “thank you”!\n\nOur thanks:\n\n· 28 holiday days (based on a 100% allowance)\n· 20 weeks paid parental leave for mothers, 8 weeks paid parental leave for fathers.\n· Very attractive social benefits\n· 15% discount on your purchase – in every IKEA store\n· Are you coming with the public transport? We pay between 85% to 100% of the annual subscription\n· Free parking\n· Unlimited access to the LinkedIn learning platform\nCheap and healthy meals in the canteen (CHF 4.50 for meat and CHF 3.50 for vegi dishes)\n· Bonus payments for all employees\n\nAt IKEA, there are many different ways to develop. We encourage and encourage our employees to try out different tasks, to switch between functions or to go abroad. Please submit your complete application online and be aware that we cannot consider documents by e-mail or post.\nThat would be it of us.\nThat was a lot of info. We would love to know more about you. Just click on “Apply now” and go. We review applications on an ongoing basis and stop the application process as soon as we find the right person. Please apply as soon as possible.",
-        "de": "Wer du bist\n\nWenn es schnell gehen muss, kannst du mithalten und sorgst dabei für Ruhe und Ordnung. Das Logistik-Team von IKEA möchte genau so eine Person an Bord haben.\n\nMenschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst.\n\nWie siehst du das? Schau mal, ob das zu dir passt:\n\n• Du hast bereits Erfahrung in der Logistik oder einem ähnlichen Bereich.\n• Du bist aufgeschlossen, kommunikativ und hast eine freundliche Art, die eine positive Zusammenarbeit mit deinen Kolleginnen und Kollegen fördert.\n• Du sprichst gut Deutsch, weitere Sprachenkenntnisse sind immer ein Plus.\n• Hektik macht dir keine Angst und in einem dynamischen Umfeld fühlst du dich wohl.\n• Ob Früh- und Spätschichten (zwischen 05:00 und 21:00), du bist flexibel.\n• Du bist körperlich fit und bereit, aktiv mitanzupacken.\n• Den Suva Staplerausweis hast du schon in der Tasche.\n\nDu bist verantwortlich für\n\n• Dank dir sind unsere vielen Produkte immer erhältlich und immer in einem einwandfreien Zustand.\n• Du sorgst für die termingerechte Warenbereitstellung und eine korrekte Bestandsführung.\n• Im Team arbeitet ihr nach festgelegten Routinen, um gemeinsam die Produkteverfügbarkeit zu garantieren.\n• Dabei arbeitest du sorgfältig und genau, denn Sicherheit geht vor.\n•Unterstützung der Abteilung und anderen Bereichen des Geschäfts, wenn Hilfe nötig ist.\n\nDenkst du, das würde passen?\n\nWir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht.\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 20 Wochen bezahlte Elternzeit für Mütter, 8 Wochen bezahlte Elternzeit für Väter.\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Jahresabonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\nDas wäre es von uns.\nDas waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
-        "fr": "Qui vous êtes\n\nSi elle doit aller vite, vous pouvez maintenir et fournir la paix et l'ordre. L'équipe logistique d'IKEA veut avoir une telle personne à bord.\n\nLes gens travaillent mieux quand ils vont bien. Chez IKEA, nous croyons que les défis apportent de la joie lorsque vous vous amusez au travail et atteindre des objectifs ensemble. Nous voulons que vous vous sentiez à l'aise avec nous et que vous puissiez vous développer personnellement et professionnellement.\n\nComment voyez-vous ça ? Voyez si cela vous convient :\n\n• Vous avez déjà une expérience en logistique ou dans un domaine similaire.\n• Vous êtes ouvert d'esprit, communicatif et avez une façon amicale de travailler positivement avec vos collègues.\n• Vous parlez bien l'allemand, d'autres compétences linguistiques sont toujours un plus.\n• L'agitation ne vous effraie pas et dans un environnement dynamique, vous vous sentez à l'aise.\n• Que vous soyez en poste tôt ou tard (entre 05h00 et 21h00), vous êtes flexible.\n• Vous êtes physiquement en forme et prêt à participer activement.\n• Vous avez déjà la carte de chariot élévateur Suva dans votre poche.\n\nVous êtes responsable\n\n• Grâce à vous, nos nombreux produits sont toujours disponibles et toujours en parfait état.\n• Vous veillez à ce que les marchandises soient fournies en temps opportun et à ce que la gestion des stocks soit correcte.\n• En tant qu'équipe, vous travaillez selon les routines établies pour garantir conjointement la disponibilité des produits.\n• Vous travaillez avec soin et précision, car la sécurité vient en premier.\n• Soutenir le département et d'autres secteurs d'activité lorsque l'aide est nécessaire.\n\nTu crois que ça irait ?\n\nNous avons écrit plus haut que nous voulons que nos employés soient bien.\nCela inclut dire merci!\n\nNous remercions :\n\n· 28 jours de congé (sur la base d'une allocation de 100 %)\n· 20 semaines de congé parental payé pour les mères, 8 semaines de congé parental payé pour les pères.\n· Prestations sociales très attractives\n· 15% de réduction sur votre achat – dans chaque magasin IKEA\n· Vous venez avec les transports publics? Nous payons entre 85% et 100% de l'abonnement annuel\n· Parking gratuit\n· Accès illimité à la plateforme d'apprentissage LinkedIn\nRepas pas chers et sains dans la cantine (CHF 4,50 pour la viande et CHF 3,50 pour les plats vegi)\n· Primes versées à tous les employés\n\nÀ IKEA, il existe de nombreuses façons de se développer. Nous encourageons et encourageons nos employés à essayer différentes tâches, à changer de fonction ou à partir à l'étranger. Veuillez soumettre votre candidature en ligne et être conscient que nous ne pouvons pas considérer les documents par courriel ou par la poste.\nCe serait à nous.\nC'était beaucoup d'infos. Nous aimerions en savoir plus sur vous. Il suffit de cliquer sur \"Appliquer maintenant\" et aller. Nous examinons les demandes de façon continue et arrêtons le processus de demande dès que nous trouvons la bonne personne. Veuillez postuler dès que possible."
+        "it": "Chi sei\n\nQuando Köttbullar incontra Tilsammans – allora siete a IKEA.\n\nAmi il nostro cibo leggendario, anche se l'hai visto ogni giorno? Poi il lavoro a IKEA Food potrebbe essere interessante per voi.\nLa gente lavora meglio quando sta bene. In IKEA, crediamo che le sfide portino gioia quando si ha divertimento al lavoro e raggiungere obiettivi insieme. Vogliamo che tu ti senta a tuo agio con noi e sia in grado di svilupparti personalmente e professionalmente.\n\nCome lo vedi? Vedi se ti sta bene:\n• Hai già esperienza in un ambiente orientato al cliente con un alto volume di merci, idealmente nel settore dell'ospitalità o nelle vendite.\n• Ti piace il contatto diretto con i clienti: dentro, come essere tra le persone e può offrire un servizio eccellente.\n• Siete in grado di svolgere un lavoro permanente per periodi più lunghi di tempo.\n• Ti piace lavorare in modo efficiente in una squadra, ma ti prendi anche la responsabilità del tuo lavoro.\n• Vuoi continuare a evolverti.\n• Ti senti a tuo agio in un ambiente altamente dinamico e può anche affrontare situazioni difficili.\n• Parli fluentemente tedesco e capisci l'inglese. La conoscenza di un'altra lingua nazionale è un vantaggio.\n• Siete consapevoli che le vostre ore di lavoro sono al massimo. Spostare 8h tra lunedì e sabato, con il sabato è una giornata di lavoro fissa.\n• Hai idealmente competenze informatiche, soprattutto in MS Office.\n\nTu sei responsabile\n\nQuesti compiti vi aspettano:\n\nI clienti di benvenuto in modo invitante e cortese basato sui valori IKEA.\n• Assicurarsi che il cibo, le bevande e i prodotti disponibili siano di altissima qualità e freschezza e siano presentati in modo accattivante.\n• Preparazione e distribuzione di cibo nel bistrot IKEA o ristorante.\n• Mantenere la vostra area di responsabilità in modo che sia sempre organizzato e accogliente e i prezzi sono scritti.\n• Accettazione dei pagamenti e regolamento delle transazioni in contanti al momento del checkout.\n• Consultare il settore alimentare dal punto di vista dei nostri clienti: interno.\n• Ottimizzare i processi esistenti con la propria iniziativa.\n• Rispetto alle linee guida per l'igiene.\n\nPensi che andrebbe bene?\n\nVogliamo che i nostri dipendenti facciano bene.\n\nQuesto include dire “grazie”!\n\nIl nostro ringraziamento:\n\n· 28 giorni di vacanza (basato su un'indennità del 100%)\n· 20 settimane di congedo parentale pagato per le madri, 8 settimane di congedo parentale pagato per i padri.\n· Vantaggi sociali molto attraenti\n· 15% di sconto sul vostro acquisto – in ogni negozio IKEA\n· Viene con i mezzi pubblici? Paghiamo tra l'85% al 100% dell'abbonamento annuale\n· Parcheggio gratuito\n· Accesso illimitato alla piattaforma di apprendimento LinkedIn\nPasti economici e salutari nella mensa (CHF 4.50 per la carne e CHF 3.50 per i piatti vegi)\n· Bonus per tutti i dipendenti\n\nA IKEA, ci sono molti modi diversi per sviluppare. Incoraggiamo e incoraggiamo i nostri dipendenti a provare diversi compiti, a passare tra funzioni o andare all'estero. Si prega di inviare la vostra applicazione completa on-line ed essere consapevoli che non possiamo prendere in considerazione documenti via e-mail o posta.\nSiamo noi.\nSono state molte informazioni. Ci piacerebbe sapere di più su di te. Basta cliccare su “Applica ora” e andare. Rivediamo le applicazioni su base continuativa e arrestiamo il processo di applicazione non appena troviamo la persona giusta. Si prega di applicare il prima possibile.",
+        "en": "Who you are\n\nWhen Köttbullar meets Tilsammans – then you are at IKEA.\n\nYou love our legendary food, even if you saw it every day? Then the job at IKEA Food could be interesting for you.\nPeople work better when they are well. At IKEA, we believe that challenges bring joy when you have fun at work and achieve goals together. We want you to feel comfortable with us and to be able to develop personally and professionally.\n\nHow do you see that? See if this suits you:\n• You already have experience in a customer-oriented environment with a high volume of goods, ideally in the hospitality industry or in sales.\n• You like direct contact with customers: inside, like to be among people and can offer an excellent service.\n• You are able to perform standing work for longer periods of time.\n• You enjoy working efficiently in a team, but you also take responsibility for your own work.\n• You want to keep evolving.\n• You feel comfortable in a highly dynamic environment and can also deal with challenging situations.\n• You speak fluent German and understand English. Knowledge of another national language is an advantage.\n• You are aware that your working hours are in max. Move 8h shifts between Monday and Saturday, with Saturday being a fixed working day.\n• You ideally have computer skills, especially in MS Office.\n\nYou are responsible for\n\nThese tasks await you:\n\nWelcome customers in an inviting and courteous way based on IKEA values.\n• Ensure that the food, drinks and products available are of the highest quality and freshness and are presented in an appealing manner.\n• Preparation and distribution of food in the IKEA bistro or restaurant.\n• Maintain your area of responsibility so that it is always organized and welcoming and the prices are written.\n• Acceptance of payments and settlement of cash transactions at checkout.\n• View the food sector from the point of view of our customers:inners.\n• Optimize the existing processes with your own initiative.\n• Compliance with hygiene guidelines.\n\nDo you think that would fit?\n\nWe want our employees to do well.\n\nThis includes saying “thank you”!\n\nOur thanks:\n\n· 28 holiday days (based on a 100% allowance)\n· 20 weeks paid parental leave for mothers, 8 weeks paid parental leave for fathers.\n· Very attractive social benefits\n· 15% discount on your purchase – in every IKEA store\n· Are you coming with the public transport? We pay between 85% to 100% of the annual subscription\n· Free parking\n· Unlimited access to the LinkedIn learning platform\nCheap and healthy meals in the canteen (CHF 4.50 for meat and CHF 3.50 for vegi dishes)\n· Bonus payments for all employees\n\nAt IKEA, there are many different ways to develop. We encourage and encourage our employees to try out different tasks, to switch between functions or to go abroad. Please submit your complete application online and be aware that we cannot consider documents by e-mail or post.\nThat would be it of us.\nThat was a lot of info. We would love to know more about you. Just click on “Apply now” and go. We review applications on an ongoing basis and stop the application process as soon as we find the right person. Please apply as soon as possible.",
+        "de": "Wer du bist\n\nWenn Köttbullar auf Tilsammans trifft – dann bist du bei IKEA.\n\nDu liebst unser legendäres Essen, auch wenn du es jeden Tag sehen würdest? Dann könnte die Stelle bei IKEA Food interessant für dich sein.\nMenschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst.\n\nWie siehst du das? Schau mal, ob das zu dir passt:\n• Du hast bereits Erfahrung in einem kundenorientierten Umfeld mit hohem Warenaufkommen, idealerweise im Gastgewerbe oder im Verkauf.\n• Du magst direkten Kontakt mit Kund:innen, bist gerne unter Menschen und kannst einen ausgezeichneten Service bieten.\n• Du bist in der Lage über längere Zeit stehende Arbeiten auszuführen.\n• Du arbeitest gerne und effizient in einem Team, übernimmst aber auch die Verantwortung für deine eigene Arbeit.\n• Du möchtest dich laufend weiterentwickeln.\n• Du fühlst dich in einem hochdynamischen Umfeld wohl und kannst auch mit herausfordernden Situationen umgehen.\n• Du sprichst fliessend Deutsch und verstehst Englisch. Kenntnisse in einer weiteren Landessprache sind von Vorteil.\n• Du bist dir bewusst, dass sich deine Arbeitszeiten in max. 8h-Schichten zwischen Montag und Samstag bewegen, wobei der Samstag ein fester Arbeitstag ist.\n• Du verfügst idealerweise über Computerkenntnisse, insbesondere in MS Office.\n\nDu bist verantwortlich für\n\nDiese Aufgaben erwarten dich:\n\n•Die Kund:innen auf eine einladende und zuvorkommende Art basierend auf der Grundlage der IKEA Werte willkommen heissen.\n•Sicherstellen, dass die verfügbaren Lebensmittel, Getränke und Produkte von höchster Qualität und Frische sind und auf ansprechende Weise präsentiert werden.\n• Zubereitung und Ausgabe der Speisen im IKEA Bistro oder Restaurant.\n• Pflege deines Verantwortungsbereichs, sodass dieser immer organisiert und einladend gestaltet ist und die Preise angeschrieben sind.\n• Entgegennahme von Zahlungen und Abwicklung von Bargeldtransaktionen an der Kasse.\n• Den Lebensmittelbereich aus der Sicht unserer Kund:innen betrachten.\n• Mit eigener Initiative die bestehenden Prozesse optimieren.\n• Einhaltung der Hygiene-Richtlinien.\n\nDenkst du, das würde passen?\n\nWir möchten, dass es unseren Mitarbeitenden gut geht.\n\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 20 Wochen bezahlte Elternzeit für Mütter, 8 Wochen bezahlte Elternzeit für Väter.\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Jahresabonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\nDas wäre es von uns.\nDas waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
+        "fr": "Qui vous êtes\n\nQuand Köttbullar rencontre Tilsammans – alors vous êtes à IKEA.\n\nTu aimes notre nourriture légendaire, même si tu la voyais tous les jours ? Alors le travail chez IKEA Food pourrait être intéressant pour vous.\nLes gens travaillent mieux quand ils vont bien. Chez IKEA, nous croyons que les défis apportent de la joie lorsque vous vous amusez au travail et atteindre des objectifs ensemble. Nous voulons que vous vous sentiez à l'aise avec nous et que vous puissiez vous développer personnellement et professionnellement.\n\nComment voyez-vous ça ? Voyez si cela vous convient :\n• Vous avez déjà une expérience dans un environnement orienté client avec un volume élevé de marchandises, idéalement dans l'industrie hôtelière ou dans les ventes.\n• Vous aimez le contact direct avec les clients: à l'intérieur, comme être parmi les gens et peut offrir un excellent service.\n• Vous êtes en mesure d'effectuer un travail permanent pendant des périodes plus longues.\n• Vous aimez travailler efficacement en équipe, mais vous assumez également la responsabilité de votre propre travail.\n• Tu veux continuer à évoluer.\n• Vous vous sentez à l'aise dans un environnement très dynamique et peut également faire face à des situations difficiles.\n• Vous parlez couramment allemand et vous comprenez l'anglais. La connaissance d'une autre langue nationale est un avantage.\n• Vous savez que vos heures de travail sont en max. Déplacer les quarts de 8h entre lundi et samedi, le samedi étant un jour ouvrable fixe.\n• Vous avez idéalement des compétences en informatique, en particulier dans MS Office.\n\nVous êtes responsable\n\nCes tâches vous attendent :\n\nAccueillez les clients d'une manière accueillante et courtoise basée sur les valeurs IKEA.\n• S'assurer que les aliments, boissons et produits disponibles sont de la plus haute qualité et de la plus grande fraîcheur et sont présentés de manière attrayante.\n• Préparation et distribution des aliments dans le bistrot ou le restaurant IKEA.\n• Maintenez votre zone de responsabilité afin qu'elle soit toujours organisée et accueillante et que les prix soient écrits.\n• Acceptation des paiements et règlement des opérations en espèces à la caisse.\n• Visionner le secteur alimentaire du point de vue de nos clients:inners.\n• Optimisez les processus existants de votre propre initiative.\n• Respect des directives d'hygiène.\n\nTu crois que ça irait ?\n\nNous voulons que nos employés fassent bien.\n\nCela inclut dire merci!\n\nNous remercions :\n\n· 28 jours de congé (sur la base d'une allocation de 100 %)\n· 20 semaines de congé parental payé pour les mères, 8 semaines de congé parental payé pour les pères.\n· Prestations sociales très attractives\n· 15% de réduction sur votre achat – dans chaque magasin IKEA\n· Vous venez avec les transports publics? Nous payons entre 85% et 100% de l'abonnement annuel\n· Parking gratuit\n· Accès illimité à la plateforme d'apprentissage LinkedIn\nRepas pas chers et sains dans la cantine (CHF 4,50 pour la viande et CHF 3,50 pour les plats vegi)\n· Primes versées à tous les employés\n\nÀ IKEA, il existe de nombreuses façons de se développer. Nous encourageons et encourageons nos employés à essayer différentes tâches, à changer de fonction ou à partir à l'étranger. Veuillez soumettre votre candidature en ligne et être conscient que nous ne pouvons pas considérer les documents par courriel ou par la poste.\nCe serait à nous.\nC'était beaucoup d'infos. Nous aimerions en savoir plus sur vous. Il suffit de cliquer sur \"Appliquer maintenant\" et aller. Nous examinons les demandes de façon continue et arrêtons le processus de demande dès que nous trouvons la bonne personne. Veuillez postuler dès que possible."
       },
-      "location": "Spreitenbach, Aargau, Switzerland",
-      "canton": "AG",
-      "url": "https://jobs.ikea.com/en/job/spreitenbach/mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026/24107/97866976048",
+      "location": "Pratteln 1, Basel-Landschaft, Switzerland",
+      "canton": "BL",
+      "url": "https://jobs.ikea.com/en/job/pratteln/mitarbeiter-in-ikea-bistro-and-schwedenshop-samstags-30/24107/98819898368",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.712Z",
-      "addressLocality": "Spreitenbach",
-      "postalCode": "8957",
-      "addressRegion": "Aargau",
+      "crawledAt": "2026-08-08T21:36:20.073Z",
+      "addressLocality": "Pratteln 1",
+      "postalCode": "4133",
+      "addressRegion": "BL",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Logistica",
+      "category": "Altro",
       "contract": "full-time",
-      "employmentType": "TEMPORARY",
+      "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "sector": "Retail / Furniture",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-05",
-      "applyUrl": "https://jobs.ikea.com/en/job/spreitenbach/mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026/24107/97866976048",
+      "postedDate": "2026-08-06",
+      "applyUrl": "https://jobs.ikea.com/en/job/pratteln/mitarbeiter-in-ikea-bistro-and-schwedenshop-samstags-30/24107/98819898368",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026-ikea-ch"
+        "mitarbeiter-in-ikea-bistro-schwedenshop-samstags-30-ikea-ch",
+        "collaboratore-trice-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026-ikea-ch"
+          "mitarbeiter-in-ikea-bistro-schwedenshop-samstags-30-ikea-ch",
+          "collaboratore-trice-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1"
+        ],
+        "en": [
+          "mitarbeiter-in-ikea-bistro-schwedenshop-samstags-30-ikea-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-ikea-bistro-schwedenshop-samstags-30-ikea-ch"
         ]
       },
-      "firstSeenAt": "2026-08-05T22:40:38.113Z",
-      "salaryMin": 31000,
-      "salaryMax": 47000,
+      "firstSeenAt": "2026-08-06T11:32:29.232Z",
+      "needsRetranslation": true,
+      "salaryMin": 18600,
+      "salaryMax": 28200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 31000,
-          "maxValue": 47000,
+          "minValue": 18600,
+          "maxValue": 28200,
           "unitText": "YEAR"
         }
       }
@@ -2142,7 +2277,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-verkauf-schlafzimmerabteilung-80/24107/98795233328",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.711Z",
+      "crawledAt": "2026-08-08T21:36:20.073Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -2168,7 +2303,8 @@
         "addetto-a-alle-vendite-textilabteilung-50-ikea-spreitenbach",
         "associate-sales-textilabteilung-50-ikea-spreitenbach-aargau-switzerland",
         "mitarbeiter-in-verkauf-textilabteilung-50-ikea-ch",
-        "collaborateur-trice-vente-textilabteilung-50-ikea-spreitenbach-aargau-switzerland"
+        "collaborateur-trice-vente-textilabteilung-50-ikea-spreitenbach-aargau-switzerland",
+        "addetto-a-alle-vendite-schlafzimmerabteilung-80-ikea-dietlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2180,7 +2316,8 @@
           "addetto-a-alle-vendite-textilabteilung-50-ikea-spreitenbach",
           "associate-sales-textilabteilung-50-ikea-spreitenbach-aargau-switzerland",
           "mitarbeiter-in-verkauf-textilabteilung-50-ikea-ch",
-          "collaborateur-trice-vente-textilabteilung-50-ikea-spreitenbach-aargau-switzerland"
+          "collaborateur-trice-vente-textilabteilung-50-ikea-spreitenbach-aargau-switzerland",
+          "addetto-a-alle-vendite-schlafzimmerabteilung-80-ikea-dietlikon"
         ],
         "en": [
           "associate-sales-in-schlafzimmerabteilung-80-100-ikea-spreitenbach-aargau-switzerland",
@@ -2197,6 +2334,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:40:38.109Z",
+      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -2241,7 +2379,7 @@
       "url": "https://jobs.ikea.com/en/job/riddes/collaborateur-trice-relations-clients-handyman-80/24107/92199982528",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T09:49:36.709Z",
+      "crawledAt": "2026-08-08T21:36:20.072Z",
       "addressLocality": "Riddes",
       "postalCode": "1908",
       "addressRegion": "VS",
@@ -2259,11 +2397,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-relations-clients-handyman-80-ikea-ch"
+        "collaborateur-trice-relations-clients-handyman-80-ikea-ch",
+        "collaboratore-ate-relazioni-con-i-clienti-handyman-80-ikea-riddes-valais-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-relations-clients-handyman-80-ikea-ch"
+          "collaborateur-trice-relations-clients-handyman-80-ikea-ch",
+          "collaboratore-ate-relazioni-con-i-clienti-handyman-80-ikea-riddes-valais-switzerland"
         ]
       },
       "firstSeenAt": "2026-08-07T01:09:45.105Z",
@@ -2276,82 +2416,6 @@
           "@type": "QuantitativeValue",
           "minValue": 48400,
           "maxValue": 73200,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ikea-5ae0195c022b",
-      "slug": "collaboratore-trice-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1",
-      "slugByLocale": {
-        "it": "collaboratore-trice-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1",
-        "en": "associate-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1",
-        "de": "mitarbeiter-in-ikea-bistro-schwedenshop-samstags-30-ikea-ch",
-        "fr": "collaborateur-trice-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1"
-      },
-      "company": "IKEA",
-      "companyKey": "ikea",
-      "companyDomain": "ikea.ch",
-      "title": "Mitarbeiter:in IKEA Bistro & Schwedenshop samstags 30%",
-      "titleByLocale": {
-        "it": "Collaboratore/trice IKEA Bistro & Schwedenshop samstags 30%",
-        "en": "Associate IKEA Bistro & Schwedenshop samstags 30%",
-        "de": "Mitarbeiter:in IKEA Bistro & Schwedenshop samstags 30%",
-        "fr": "Collaborateur/trice IKEA Bistro & Schwedenshop samstags 30%"
-      },
-      "description": "Wer du bist\n\nWenn Köttbullar auf Tilsammans trifft – dann bist du bei IKEA.\n\nDu liebst unser legendäres Essen, auch wenn du es jeden Tag sehen würdest? Dann könnte die Stelle bei IKEA Food interessant für dich sein.\nMenschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst.\n\nWie siehst du das? Schau mal, ob das zu dir passt:\n• Du hast bereits Erfahrung in einem kundenorientierten Umfeld mit hohem Warenaufkommen, idealerweise im Gastgewerbe oder im Verkauf.\n• Du magst direkten Kontakt mit Kund:innen, bist gerne unter Menschen und kannst einen ausgezeichneten Service bieten.\n• Du bist in der Lage über längere Zeit stehende Arbeiten auszuführen.\n• Du arbeitest gerne und effizient in einem Team, übernimmst aber auch die Verantwortung für deine eigene Arbeit.\n• Du möchtest dich laufend weiterentwickeln.\n• Du fühlst dich in einem hochdynamischen Umfeld wohl und kannst auch mit herausfordernden Situationen umgehen.\n• Du sprichst fliessend Deutsch und verstehst Englisch. Kenntnisse in einer weiteren Landessprache sind von Vorteil.\n• Du bist dir bewusst, dass sich deine Arbeitszeiten in max. 8h-Schichten zwischen Montag und Samstag bewegen, wobei der Samstag ein fester Arbeitstag ist.\n• Du verfügst idealerweise über Computerkenntnisse, insbesondere in MS Office.\n\nDu bist verantwortlich für\n\nDiese Aufgaben erwarten dich:\n\n•Die Kund:innen auf eine einladende und zuvorkommende Art basierend auf der Grundlage der IKEA Werte willkommen heissen.\n•Sicherstellen, dass die verfügbaren Lebensmittel, Getränke und Produkte von höchster Qualität und Frische sind und auf ansprechende Weise präsentiert werden.\n• Zubereitung und Ausgabe der Speisen im IKEA Bistro oder Restaurant.\n• Pflege deines Verantwortungsbereichs, sodass dieser immer organisiert und einladend gestaltet ist und die Preise angeschrieben sind.\n• Entgegennahme von Zahlungen und Abwicklung von Bargeldtransaktionen an der Kasse.\n• Den Lebensmittelbereich aus der Sicht unserer Kund:innen betrachten.\n• Mit eigener Initiative die bestehenden Prozesse optimieren.\n• Einhaltung der Hygiene-Richtlinien.\n\nDenkst du, das würde passen?\n\nWir möchten, dass es unseren Mitarbeitenden gut geht.\n\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 20 Wochen bezahlte Elternzeit für Mütter, 8 Wochen bezahlte Elternzeit für Väter.\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Jahresabonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\nDas wäre es von uns.\n Das waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
-      "descriptionByLocale": {
-        "it": "Chi sei\n\nQuando Köttbullar incontra Tilsammans – allora siete a IKEA.\n\nAmi il nostro cibo leggendario, anche se l'hai visto ogni giorno? Poi il lavoro a IKEA Food potrebbe essere interessante per voi.\nLa gente lavora meglio quando sta bene. In IKEA, crediamo che le sfide portino gioia quando si ha divertimento al lavoro e raggiungere obiettivi insieme. Vogliamo che tu ti senta a tuo agio con noi e sia in grado di svilupparti personalmente e professionalmente.\n\nCome lo vedi? Vedi se ti sta bene:\n• Hai già esperienza in un ambiente orientato al cliente con un alto volume di merci, idealmente nel settore dell'ospitalità o nelle vendite.\n• Ti piace il contatto diretto con i clienti: dentro, come essere tra le persone e può offrire un servizio eccellente.\n• Siete in grado di svolgere un lavoro permanente per periodi più lunghi di tempo.\n• Ti piace lavorare in modo efficiente in una squadra, ma ti prendi anche la responsabilità del tuo lavoro.\n• Vuoi continuare a evolverti.\n• Ti senti a tuo agio in un ambiente altamente dinamico e può anche affrontare situazioni difficili.\n• Parli fluentemente tedesco e capisci l'inglese. La conoscenza di un'altra lingua nazionale è un vantaggio.\n• Siete consapevoli che le vostre ore di lavoro sono al massimo. Spostare 8h tra lunedì e sabato, con il sabato è una giornata di lavoro fissa.\n• Hai idealmente competenze informatiche, soprattutto in MS Office.\n\nTu sei responsabile\n\nQuesti compiti vi aspettano:\n\nI clienti di benvenuto in modo invitante e cortese basato sui valori IKEA.\n• Assicurarsi che il cibo, le bevande e i prodotti disponibili siano di altissima qualità e freschezza e siano presentati in modo accattivante.\n• Preparazione e distribuzione di cibo nel bistrot IKEA o ristorante.\n• Mantenere la vostra area di responsabilità in modo che sia sempre organizzato e accogliente e i prezzi sono scritti.\n• Accettazione dei pagamenti e regolamento delle transazioni in contanti al momento del checkout.\n• Consultare il settore alimentare dal punto di vista dei nostri clienti: interno.\n• Ottimizzare i processi esistenti con la propria iniziativa.\n• Rispetto alle linee guida per l'igiene.\n\nPensi che andrebbe bene?\n\nVogliamo che i nostri dipendenti facciano bene.\n\nQuesto include dire “grazie”!\n\nIl nostro ringraziamento:\n\n· 28 giorni di vacanza (basato su un'indennità del 100%)\n· 20 settimane di congedo parentale pagato per le madri, 8 settimane di congedo parentale pagato per i padri.\n· Vantaggi sociali molto attraenti\n· 15% di sconto sul vostro acquisto – in ogni negozio IKEA\n· Viene con i mezzi pubblici? Paghiamo tra l'85% al 100% dell'abbonamento annuale\n· Parcheggio gratuito\n· Accesso illimitato alla piattaforma di apprendimento LinkedIn\nPasti economici e salutari nella mensa (CHF 4.50 per la carne e CHF 3.50 per i piatti vegi)\n· Bonus per tutti i dipendenti\n\nA IKEA, ci sono molti modi diversi per sviluppare. Incoraggiamo e incoraggiamo i nostri dipendenti a provare diversi compiti, a passare tra funzioni o andare all'estero. Si prega di inviare la vostra applicazione completa on-line ed essere consapevoli che non possiamo prendere in considerazione documenti via e-mail o posta.\nSiamo noi.\nSono state molte informazioni. Ci piacerebbe sapere di più su di te. Basta cliccare su “Applica ora” e andare. Rivediamo le applicazioni su base continuativa e arrestiamo il processo di applicazione non appena troviamo la persona giusta. Si prega di applicare il prima possibile.",
-        "en": "Who you are\n\nWhen Köttbullar meets Tilsammans – then you are at IKEA.\n\nYou love our legendary food, even if you saw it every day? Then the job at IKEA Food could be interesting for you.\nPeople work better when they are well. At IKEA, we believe that challenges bring joy when you have fun at work and achieve goals together. We want you to feel comfortable with us and to be able to develop personally and professionally.\n\nHow do you see that? See if this suits you:\n• You already have experience in a customer-oriented environment with a high volume of goods, ideally in the hospitality industry or in sales.\n• You like direct contact with customers: inside, like to be among people and can offer an excellent service.\n• You are able to perform standing work for longer periods of time.\n• You enjoy working efficiently in a team, but you also take responsibility for your own work.\n• You want to keep evolving.\n• You feel comfortable in a highly dynamic environment and can also deal with challenging situations.\n• You speak fluent German and understand English. Knowledge of another national language is an advantage.\n• You are aware that your working hours are in max. Move 8h shifts between Monday and Saturday, with Saturday being a fixed working day.\n• You ideally have computer skills, especially in MS Office.\n\nYou are responsible for\n\nThese tasks await you:\n\nWelcome customers in an inviting and courteous way based on IKEA values.\n• Ensure that the food, drinks and products available are of the highest quality and freshness and are presented in an appealing manner.\n• Preparation and distribution of food in the IKEA bistro or restaurant.\n• Maintain your area of responsibility so that it is always organized and welcoming and the prices are written.\n• Acceptance of payments and settlement of cash transactions at checkout.\n• View the food sector from the point of view of our customers:inners.\n• Optimize the existing processes with your own initiative.\n• Compliance with hygiene guidelines.\n\nDo you think that would fit?\n\nWe want our employees to do well.\n\nThis includes saying “thank you”!\n\nOur thanks:\n\n· 28 holiday days (based on a 100% allowance)\n· 20 weeks paid parental leave for mothers, 8 weeks paid parental leave for fathers.\n· Very attractive social benefits\n· 15% discount on your purchase – in every IKEA store\n· Are you coming with the public transport? We pay between 85% to 100% of the annual subscription\n· Free parking\n· Unlimited access to the LinkedIn learning platform\nCheap and healthy meals in the canteen (CHF 4.50 for meat and CHF 3.50 for vegi dishes)\n· Bonus payments for all employees\n\nAt IKEA, there are many different ways to develop. We encourage and encourage our employees to try out different tasks, to switch between functions or to go abroad. Please submit your complete application online and be aware that we cannot consider documents by e-mail or post.\nThat would be it of us.\nThat was a lot of info. We would love to know more about you. Just click on “Apply now” and go. We review applications on an ongoing basis and stop the application process as soon as we find the right person. Please apply as soon as possible.",
-        "de": "Wer du bist\n\nWenn Köttbullar auf Tilsammans trifft – dann bist du bei IKEA.\n\nDu liebst unser legendäres Essen, auch wenn du es jeden Tag sehen würdest? Dann könnte die Stelle bei IKEA Food interessant für dich sein.\nMenschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst.\n\nWie siehst du das? Schau mal, ob das zu dir passt:\n• Du hast bereits Erfahrung in einem kundenorientierten Umfeld mit hohem Warenaufkommen, idealerweise im Gastgewerbe oder im Verkauf.\n• Du magst direkten Kontakt mit Kund:innen, bist gerne unter Menschen und kannst einen ausgezeichneten Service bieten.\n• Du bist in der Lage über längere Zeit stehende Arbeiten auszuführen.\n• Du arbeitest gerne und effizient in einem Team, übernimmst aber auch die Verantwortung für deine eigene Arbeit.\n• Du möchtest dich laufend weiterentwickeln.\n• Du fühlst dich in einem hochdynamischen Umfeld wohl und kannst auch mit herausfordernden Situationen umgehen.\n• Du sprichst fliessend Deutsch und verstehst Englisch. Kenntnisse in einer weiteren Landessprache sind von Vorteil.\n• Du bist dir bewusst, dass sich deine Arbeitszeiten in max. 8h-Schichten zwischen Montag und Samstag bewegen, wobei der Samstag ein fester Arbeitstag ist.\n• Du verfügst idealerweise über Computerkenntnisse, insbesondere in MS Office.\n\nDu bist verantwortlich für\n\nDiese Aufgaben erwarten dich:\n\n•Die Kund:innen auf eine einladende und zuvorkommende Art basierend auf der Grundlage der IKEA Werte willkommen heissen.\n•Sicherstellen, dass die verfügbaren Lebensmittel, Getränke und Produkte von höchster Qualität und Frische sind und auf ansprechende Weise präsentiert werden.\n• Zubereitung und Ausgabe der Speisen im IKEA Bistro oder Restaurant.\n• Pflege deines Verantwortungsbereichs, sodass dieser immer organisiert und einladend gestaltet ist und die Preise angeschrieben sind.\n• Entgegennahme von Zahlungen und Abwicklung von Bargeldtransaktionen an der Kasse.\n• Den Lebensmittelbereich aus der Sicht unserer Kund:innen betrachten.\n• Mit eigener Initiative die bestehenden Prozesse optimieren.\n• Einhaltung der Hygiene-Richtlinien.\n\nDenkst du, das würde passen?\n\nWir möchten, dass es unseren Mitarbeitenden gut geht.\n\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 20 Wochen bezahlte Elternzeit für Mütter, 8 Wochen bezahlte Elternzeit für Väter.\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Jahresabonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\nDas wäre es von uns.\nDas waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
-        "fr": "Qui vous êtes\n\nQuand Köttbullar rencontre Tilsammans – alors vous êtes à IKEA.\n\nTu aimes notre nourriture légendaire, même si tu la voyais tous les jours ? Alors le travail chez IKEA Food pourrait être intéressant pour vous.\nLes gens travaillent mieux quand ils vont bien. Chez IKEA, nous croyons que les défis apportent de la joie lorsque vous vous amusez au travail et atteindre des objectifs ensemble. Nous voulons que vous vous sentiez à l'aise avec nous et que vous puissiez vous développer personnellement et professionnellement.\n\nComment voyez-vous ça ? Voyez si cela vous convient :\n• Vous avez déjà une expérience dans un environnement orienté client avec un volume élevé de marchandises, idéalement dans l'industrie hôtelière ou dans les ventes.\n• Vous aimez le contact direct avec les clients: à l'intérieur, comme être parmi les gens et peut offrir un excellent service.\n• Vous êtes en mesure d'effectuer un travail permanent pendant des périodes plus longues.\n• Vous aimez travailler efficacement en équipe, mais vous assumez également la responsabilité de votre propre travail.\n• Tu veux continuer à évoluer.\n• Vous vous sentez à l'aise dans un environnement très dynamique et peut également faire face à des situations difficiles.\n• Vous parlez couramment allemand et vous comprenez l'anglais. La connaissance d'une autre langue nationale est un avantage.\n• Vous savez que vos heures de travail sont en max. Déplacer les quarts de 8h entre lundi et samedi, le samedi étant un jour ouvrable fixe.\n• Vous avez idéalement des compétences en informatique, en particulier dans MS Office.\n\nVous êtes responsable\n\nCes tâches vous attendent :\n\nAccueillez les clients d'une manière accueillante et courtoise basée sur les valeurs IKEA.\n• S'assurer que les aliments, boissons et produits disponibles sont de la plus haute qualité et de la plus grande fraîcheur et sont présentés de manière attrayante.\n• Préparation et distribution des aliments dans le bistrot ou le restaurant IKEA.\n• Maintenez votre zone de responsabilité afin qu'elle soit toujours organisée et accueillante et que les prix soient écrits.\n• Acceptation des paiements et règlement des opérations en espèces à la caisse.\n• Visionner le secteur alimentaire du point de vue de nos clients:inners.\n• Optimisez les processus existants de votre propre initiative.\n• Respect des directives d'hygiène.\n\nTu crois que ça irait ?\n\nNous voulons que nos employés fassent bien.\n\nCela inclut dire merci!\n\nNous remercions :\n\n· 28 jours de congé (sur la base d'une allocation de 100 %)\n· 20 semaines de congé parental payé pour les mères, 8 semaines de congé parental payé pour les pères.\n· Prestations sociales très attractives\n· 15% de réduction sur votre achat – dans chaque magasin IKEA\n· Vous venez avec les transports publics? Nous payons entre 85% et 100% de l'abonnement annuel\n· Parking gratuit\n· Accès illimité à la plateforme d'apprentissage LinkedIn\nRepas pas chers et sains dans la cantine (CHF 4,50 pour la viande et CHF 3,50 pour les plats vegi)\n· Primes versées à tous les employés\n\nÀ IKEA, il existe de nombreuses façons de se développer. Nous encourageons et encourageons nos employés à essayer différentes tâches, à changer de fonction ou à partir à l'étranger. Veuillez soumettre votre candidature en ligne et être conscient que nous ne pouvons pas considérer les documents par courriel ou par la poste.\nCe serait à nous.\nC'était beaucoup d'infos. Nous aimerions en savoir plus sur vous. Il suffit de cliquer sur \"Appliquer maintenant\" et aller. Nous examinons les demandes de façon continue et arrêtons le processus de demande dès que nous trouvons la bonne personne. Veuillez postuler dès que possible."
-      },
-      "location": "Pratteln 1, Basel-Landschaft, Switzerland",
-      "canton": "BL",
-      "url": "https://jobs.ikea.com/en/job/pratteln/mitarbeiter-in-ikea-bistro-and-schwedenshop-samstags-30/24107/98819898368",
-      "source": "IKEA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.709Z",
-      "addressLocality": "Pratteln 1",
-      "postalCode": "4133",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail / Furniture",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-06",
-      "applyUrl": "https://jobs.ikea.com/en/job/pratteln/mitarbeiter-in-ikea-bistro-and-schwedenshop-samstags-30/24107/98819898368",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-ikea-bistro-schwedenshop-samstags-30-ikea-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-ikea-bistro-schwedenshop-samstags-30-ikea-ch"
-        ],
-        "en": [
-          "mitarbeiter-in-ikea-bistro-schwedenshop-samstags-30-ikea-ch"
-        ],
-        "fr": [
-          "mitarbeiter-in-ikea-bistro-schwedenshop-samstags-30-ikea-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-06T11:32:29.232Z",
-      "salaryMin": 18600,
-      "salaryMax": 28200,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 18600,
-          "maxValue": 28200,
           "unitText": "YEAR"
         }
       }
@@ -2387,7 +2451,7 @@
       "url": "https://jobs.ikea.com/en/job/st-gallen/mitabeiter-in-logistik-50/24107/97768200528",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.708Z",
+      "crawledAt": "2026-08-08T21:36:20.071Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressRegion": "SG",
@@ -2413,7 +2477,8 @@
         "mitabeiter-in-logistica-squadra-di-riempimento-50-ikea-st-gallen-sankt-gallen-switzerland",
         "mitabeiter-in-logistics-filling-team-50-ikea-st-gallen-sankt-gallen-switzerland",
         "mitabeiter-in-logistik-auffullteam-50-ikea-ch",
-        "mitabeiter-dans-l-equipe-de-remplissage-logistique-50-ikea-st-gallen-sankt-gallen-switzerland"
+        "mitabeiter-dans-l-equipe-de-remplissage-logistique-50-ikea-st-gallen-sankt-gallen-switzerland",
+        "mitabeiter-in-logistica-50-ikea-st-gallen-sankt-gallen-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2425,7 +2490,8 @@
           "mitabeiter-in-logistica-squadra-di-riempimento-50-ikea-st-gallen-sankt-gallen-switzerland",
           "mitabeiter-in-logistics-filling-team-50-ikea-st-gallen-sankt-gallen-switzerland",
           "mitabeiter-in-logistik-auffullteam-50-ikea-ch",
-          "mitabeiter-dans-l-equipe-de-remplissage-logistique-50-ikea-st-gallen-sankt-gallen-switzerland"
+          "mitabeiter-dans-l-equipe-de-remplissage-logistique-50-ikea-st-gallen-sankt-gallen-switzerland",
+          "mitabeiter-in-logistica-50-ikea-st-gallen-sankt-gallen-switzerland"
         ]
       },
       "firstSeenAt": "2026-08-07T01:09:45.104Z",
@@ -2473,7 +2539,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-ikea-bistro-and-schwedenshop-20/24107/96013037360",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.707Z",
+      "crawledAt": "2026-08-08T21:36:20.070Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -2491,14 +2557,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-ikea-bistro-schwedenshop-20-ikea-ch"
+        "mitarbeiter-in-ikea-bistro-schwedenshop-20-ikea-ch",
+        "dipendente-ikea-bistro-svezia-20-ikea-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-ikea-bistro-schwedenshop-20-ikea-ch"
+          "mitarbeiter-in-ikea-bistro-schwedenshop-20-ikea-ch",
+          "dipendente-ikea-bistro-svezia-20-ikea-spreitenbach"
         ]
       },
       "firstSeenAt": "2026-08-07T01:09:45.102Z",
+      "needsRetranslation": true,
       "salaryMin": 14700,
       "salaryMax": 22300,
       "baseSalary": {
@@ -2543,7 +2612,7 @@
       "url": "https://jobs.ikea.com/en/job/st-gallen/mitarbeiter-in-ikea-bistro-and-schwedenshop-20-50-befristet-bis-31-01-2027/24107/96579587600",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.706Z",
+      "crawledAt": "2026-08-08T21:36:20.069Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressRegion": "SG",
@@ -2561,11 +2630,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-befristet-bis-31-01-2027-ikea-ch"
+        "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-befristet-bis-31-01-2027-ikea-ch",
+        "collaboratore-trice-ikea-bistro-schwedenshop-20-50-befristet-bis-31-01-2027-ikea-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-befristet-bis-31-01-2027-ikea-ch"
+          "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-befristet-bis-31-01-2027-ikea-ch",
+          "collaboratore-trice-ikea-bistro-schwedenshop-20-50-befristet-bis-31-01-2027-ikea-st-gallen"
         ],
         "en": [
           "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-befristet-bis-31-01-2027-ikea-ch"
@@ -2575,6 +2646,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:09:45.098Z",
+      "needsRetranslation": true,
       "salaryMin": 28800,
       "salaryMax": 43500,
       "baseSalary": {
@@ -2616,7 +2688,7 @@
       "url": "https://jobs.ikea.com/en/job/st-gallen/mitarbeiter-in-visual-merchandising-60-100/24107/98133935664",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.705Z",
+      "crawledAt": "2026-08-08T21:36:20.068Z",
       "addressLocality": "St. Gallen",
       "postalCode": "",
       "addressRegion": "SG",
@@ -2642,7 +2714,8 @@
         "collaboratore-trice-visual-merchandising-80-100-ikea-lyssach",
         "associate-visual-merchandising-80-100-ikea-lyssach",
         "mitarbeiter-in-visual-merchandising-80-100-ikea-ch",
-        "collaborateur-trice-visual-merchandising-80-100-ikea-lyssach"
+        "collaborateur-trice-visual-merchandising-80-100-ikea-lyssach",
+        "collaboratore-trice-visual-merchandising-60-100-ikea-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2654,7 +2727,8 @@
           "collaboratore-trice-visual-merchandising-80-100-ikea-lyssach",
           "associate-visual-merchandising-80-100-ikea-lyssach",
           "mitarbeiter-in-visual-merchandising-80-100-ikea-ch",
-          "collaborateur-trice-visual-merchandising-80-100-ikea-lyssach"
+          "collaborateur-trice-visual-merchandising-80-100-ikea-lyssach",
+          "collaboratore-trice-visual-merchandising-60-100-ikea-st-gallen"
         ],
         "en": [
           "employee-in-visual-merchandising-100-ikea-rothenburg",
@@ -2717,7 +2791,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-verkauf-teppiche-60/24107/98231475296",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.704Z",
+      "crawledAt": "2026-08-08T21:36:20.067Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -2736,12 +2810,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-verkauf-teppiche-60-80-ikea-ch",
-        "mitarbeiter-in-verkauf-teppiche-60-ikea-ch"
+        "mitarbeiter-in-verkauf-teppiche-60-ikea-ch",
+        "addetto-a-alle-vendite-teppiche-60-80-ikea-dietlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-teppiche-60-80-ikea-ch",
-          "mitarbeiter-in-verkauf-teppiche-60-ikea-ch"
+          "mitarbeiter-in-verkauf-teppiche-60-ikea-ch",
+          "addetto-a-alle-vendite-teppiche-60-80-ikea-dietlikon"
         ],
         "en": [
           "mitarbeiter-in-verkauf-teppiche-60-80-ikea-ch"
@@ -2751,6 +2827,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:07:27.082Z",
+      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -2771,7 +2848,7 @@
         "it": "addetto-a-alle-vendite-aufbewahrungs-e-beleuchtungsabteilung-30-60-ikea-spreitenbach",
         "en": "employees-in-sales-storage-and-lighting-department-30-60-ikea-spreitenbach",
         "de": "mitarbeiter-in-verkauf-aufbewahrungs-und-beleuchtungsabteilung-30-60-ikea-ch",
-        "fr": "employes-dans-le-service-de-stockage-et-d-eclairage-des-ventes-30-60-ikea-spreitenbach"
+        "fr": "collaborateur-trice-vente-aufbewahrungs-und-beleuchtungsabteilung-40-ikea-spreitenbach"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2795,7 +2872,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-verkauf-aufbewahrungs-und-beleuchtungsabteilung-40/24107/94289960816",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.700Z",
+      "crawledAt": "2026-08-08T21:36:20.063Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "Aargau",
@@ -2815,22 +2892,27 @@
       "previousSlugs": [
         "mitarbeiter-in-verkauf-aufbewahrungs-und-beleuchtungsabteilung-40-ikea-ch",
         "collaborateur-trice-vente-aufbewahrungs-und-beleuchtungsabteilung-30-60-ikea-spreitenbach",
+        "employes-dans-le-service-de-stockage-et-d-eclairage-des-ventes-30-60-ikea-spreitenbach",
+        "addetto-a-alle-vendite-aufbewahrungs-e-beleuchtungsabteilung-30-60-ikea-spreitenbach",
         "collaborateur-trice-vente-aufbewahrungs-und-beleuchtungsabteilung-40-ikea-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-aufbewahrungs-und-beleuchtungsabteilung-40-ikea-ch",
-          "collaborateur-trice-vente-aufbewahrungs-und-beleuchtungsabteilung-30-60-ikea-spreitenbach"
+          "collaborateur-trice-vente-aufbewahrungs-und-beleuchtungsabteilung-30-60-ikea-spreitenbach",
+          "addetto-a-alle-vendite-aufbewahrungs-e-beleuchtungsabteilung-30-60-ikea-spreitenbach"
         ],
         "de": [
           "mitarbeiter-in-verkauf-aufbewahrungs-und-beleuchtungsabteilung-40-ikea-ch"
         ],
         "fr": [
           "collaborateur-trice-vente-aufbewahrungs-und-beleuchtungsabteilung-30-60-ikea-spreitenbach",
+          "employes-dans-le-service-de-stockage-et-d-eclairage-des-ventes-30-60-ikea-spreitenbach",
           "collaborateur-trice-vente-aufbewahrungs-und-beleuchtungsabteilung-40-ikea-spreitenbach"
         ]
       },
       "firstSeenAt": "2026-08-07T21:45:48.941Z",
+      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600,
       "baseSalary": {
@@ -2875,7 +2957,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-verkauf-dekorationsabteilung-100/24107/95740162544",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.698Z",
+      "crawledAt": "2026-08-08T21:36:20.062Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -2894,18 +2976,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-verkauf-dekorationsabteilung-100-ikea-ch",
-        "collaborateur-trice-vente-dekorationsabteilung-60-ikea-dietlikon"
+        "collaborateur-trice-vente-dekorationsabteilung-60-ikea-dietlikon",
+        "addetto-a-alle-vendite-dekorationsabteilung-100-ikea-dietlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-dekorationsabteilung-100-ikea-ch",
-          "collaborateur-trice-vente-dekorationsabteilung-60-ikea-dietlikon"
+          "collaborateur-trice-vente-dekorationsabteilung-60-ikea-dietlikon",
+          "addetto-a-alle-vendite-dekorationsabteilung-100-ikea-dietlikon"
         ],
         "fr": [
           "collaborateur-trice-vente-dekorationsabteilung-60-ikea-dietlikon"
         ]
       },
       "firstSeenAt": "2026-08-07T21:45:48.939Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2923,9 +3008,9 @@
       "id": "ikea-e138a1338428",
       "slug": "regionale-r-berufsbildungsverantwortliche-r-50-ikea-spreitenbach",
       "slugByLocale": {
-        "de": "regionale-r-berufsbildungsverantwortliche-r-50-ikea-ch",
         "it": "regionale-r-berufsbildungsverantwortliche-r-50-ikea-spreitenbach",
         "en": "regionale-r-berufsbildungsverantwortliche-r-50-ikea-spreitenbach",
+        "de": "regionale-r-berufsbildungsverantwortliche-r-50-ikea-ch",
         "fr": "regionale-r-berufsbildungsverantwortliche-r-50-ikea-spreitenbach"
       },
       "company": "IKEA",
@@ -2933,24 +3018,24 @@
       "companyDomain": "ikea.ch",
       "title": "Regionale:r Berufsbildungsverantwortliche:r 50%",
       "titleByLocale": {
-        "de": "Regionale:r Berufsbildungsverantwortliche:r 50%",
         "it": "Regionale:r Responsabile VET:r 50%",
         "en": "Regional:r VET managers:r 50%",
+        "de": "Regionale:r Berufsbildungsverantwortliche:r 50%",
         "fr": "Gestionnaires régionaux de la FEP: 50 %"
       },
       "description": "Who you are\n\nÜber 160 Menschen absolvieren derzeit eine Lehre bei IKEA Schweiz oder sind Teilnehmende an einem Programm für Menschen mit Fluchterfahrung. Begleitet werden sie von rund 36 engagierten Berufsbildner:innen, über 200 Praxisbildner:innen – und vielleicht bald auch von dir.\n\nAls Regionale:r Berufsbildungsverantwortliche:r betreust du mehrere Standorte und bist dabei die Hauptansprechperson für interne und externe Anfragen zum Thema Berufsbildung und Integration. Um in der Rolle erfolgreich zu sein, brauchst du:\n\n• Berufserfahrung im Personalbereich, in der Berufsbildung oder der beruflichen Integration\n• Fliessende Sprachkenntnisse in Deutsch und Französisch sind ein Muss – Italienisch ist ein Plus\n• Digitale Kompetenzen sowie eine strukturierte, selbstständige und verlässliche Arbeitsweise, Erfahrung im Project Management von Vorteil\n• Flexibilität und Mobilität, um regelmässig unsere verschiedenen Standorte zu besuchen und vor Ort mit Kolleg:innen sowie Lernenden zusammenzuarbeiten (du wirst rund die Hälfte deiner Arbeitszeit an unterschiedlichen Standorten verbringen)\n\nYour responsibilities\n\nAls Teil unseres nationalen Teams für berufliche Ausbildung und Integration übernimmst du Verantwortung für:\n\n• Die Entwicklung unserer Berufsbildner:innen und die individuelle Förderung unserer Lernenden und Teilnehmenden – fachlich wie persönlich.\n• Das situationsgerechte Unterstützen in herausfordernden Momenten, sowie die kontinuierliche Begleitung und Beobachtung der Lernfortschritte\n• Die Planung und Ausführung administrativer Aufgaben, zum Beispiel im Rekrutierungs- und Vertragsprozess.\n• Den Aufbau der Beziehungen zu den Mitarbeitenden an unseren Standorten und die Zusammenarbeit mit Berufsbildner:innen, den HR-Teams vor Ort, sowie kantonalen Behörden.\n• Die Einhaltung aller relevanten Vorgaben – von kantonalen und bundesrechtlichen Vorschriften bis hin zu internen Standards.\n• Die Mitgestaltung von lokalen und nationalen Projekten und Strategien, mit denen wir IKEA als zukunftsorientierten und menschenzentrierten Ausbildungsbetrieb weiterentwickeln.\n\nIKEA Schweiz bietet eine breite Palette an Ausbildungswegen und Programmen zur Integration von Personen mit Fluchterfahrung.\n www.ikea.ch/berufsbildung\n https://www.ikea.com/ch/de/this-is-ikea/community-engagement/changing-the-narrative-on-refugees\n\nWir bieten diese Stelle mit einem Pensum von maximal 50% an. Interne Kandidat:innen können die Stelle mit anderen Aufgaben in ihrer aktuellen Einheit kombinieren. Bei diesem Pensum kannst du ca. 1/2 Tag pro Woche von zu Hause aus arbeiten, wenn du das möchtest.",
       "descriptionByLocale": {
-        "de": "Who you are\n\nÜber 160 Menschen absolvieren derzeit eine Lehre bei IKEA Schweiz oder sind Teilnehmende an einem Programm für Menschen mit Fluchterfahrung. Begleitet werden sie von rund 36 engagierten Berufsbildner:innen, über 200 Praxisbildner:innen – und vielleicht bald auch von dir.\n\nAls Regionale:r Berufsbildungsverantwortliche:r betreust du mehrere Standorte und bist dabei die Hauptansprechperson für interne und externe Anfragen zum Thema Berufsbildung und Integration. Um in der Rolle erfolgreich zu sein, brauchst du:\n\n• Berufserfahrung im Personalbereich, in der Berufsbildung oder der beruflichen Integration\n• Fliessende Sprachkenntnisse in Deutsch und Französisch sind ein Muss – Italienisch ist ein Plus\n• Digitale Kompetenzen sowie eine strukturierte, selbstständige und verlässliche Arbeitsweise, Erfahrung im Project Management von Vorteil\n• Flexibilität und Mobilität, um regelmässig unsere verschiedenen Standorte zu besuchen und vor Ort mit Kolleg:innen sowie Lernenden zusammenzuarbeiten (du wirst rund die Hälfte deiner Arbeitszeit an unterschiedlichen Standorten verbringen)\n\nYour responsibilities\n\nAls Teil unseres nationalen Teams für berufliche Ausbildung und Integration übernimmst du Verantwortung für:\n\n• Die Entwicklung unserer Berufsbildner:innen und die individuelle Förderung unserer Lernenden und Teilnehmenden – fachlich wie persönlich.\n• Das situationsgerechte Unterstützen in herausfordernden Momenten, sowie die kontinuierliche Begleitung und Beobachtung der Lernfortschritte\n• Die Planung und Ausführung administrativer Aufgaben, zum Beispiel im Rekrutierungs- und Vertragsprozess.\n• Den Aufbau der Beziehungen zu den Mitarbeitenden an unseren Standorten und die Zusammenarbeit mit Berufsbildner:innen, den HR-Teams vor Ort, sowie kantonalen Behörden.\n• Die Einhaltung aller relevanten Vorgaben – von kantonalen und bundesrechtlichen Vorschriften bis hin zu internen Standards.\n• Die Mitgestaltung von lokalen und nationalen Projekten und Strategien, mit denen wir IKEA als zukunftsorientierten und menschenzentrierten Ausbildungsbetrieb weiterentwickeln.\n\nIKEA Schweiz bietet eine breite Palette an Ausbildungswegen und Programmen zur Integration von Personen mit Fluchterfahrung.\n www.ikea.ch/berufsbildung\n https://www.ikea.com/ch/de/this-is-ikea/community-engagement/changing-the-narrative-on-refugees\n\nWir bieten diese Stelle mit einem Pensum von maximal 50% an. Interne Kandidat:innen können die Stelle mit anderen Aufgaben in ihrer aktuellen Einheit kombinieren. Bei diesem Pensum kannst du ca. 1/2 Tag pro Woche von zu Hause aus arbeiten, wenn du das möchtest.",
-        "it": "Chi sei\n\nPiù di 160 persone sono attualmente interessanti presso IKEA Svizzera o sono partecipanti a un programma per le persone con esperienza di rifugiati. Saranno accompagnati da circa 36 formatori professionali dedicati, più di 200 formatori pratici – e forse presto anche da voi.\n\nIn qualità di responsabile regionale della formazione professionale: si gestisce diverse sedi e sono la principale persona di contatto per le indagini interne ed esterne sulla formazione professionale e l'integrazione. Per avere successo nel ruolo, è necessario:\n\n• Esperienza professionale nelle risorse umane, formazione professionale o integrazione professionale\n• Le competenze linguistiche fluide in tedesco e francese sono un must – l'italiano è un plus\n• Le competenze digitali e un metodo di lavoro strutturato, indipendente e affidabile, l'esperienza nella gestione del progetto è un vantaggio\n• Flessibilità e mobilità per visitare regolarmente le nostre diverse località e lavorare con colleghi e studenti in loco (si spenderà circa la metà del tempo di lavoro in diverse località)\n\nLe tue responsabilità\n\nNell'ambito del nostro team nazionale di formazione e integrazione professionale, si assume la responsabilità di:\n\n• Lo sviluppo dei nostri formatori professionali e la promozione individuale dei nostri studenti e partecipanti – sia professionalmente che personalmente.\n• Sostenere la situazione nei momenti difficili, nonché il monitoraggio continuo e l'osservazione del progresso dell'apprendimento\n• La pianificazione e l'esecuzione dei compiti amministrativi, ad esempio nel processo di reclutamento e contratto.\n• Costruire relazioni con i dipendenti nelle nostre sedi e lavorare con i formatori professionali, le squadre locali delle risorse umane e le autorità cantonali.\n• Conformità a tutti i requisiti rilevanti – dalle normative cantonali e federali alle norme interne.\n• La co-creazione di progetti e strategie locali e nazionali con cui sviluppiamo ulteriormente IKEA come una società di formazione orientata al futuro e orientata all'uomo.\n\nIKEA Svizzera offre una vasta gamma di percorsi formativi e programmi per l'integrazione di persone con esperienza di rifugiati.\n www.ikea.ch/formazione professionale\n http://www.ikea.com/ch/it/this-is-ikea/community-engagement/change-the-narrative-on-refuge\n\nOffriamo questo lavoro con un importo massimo del 50%. Candidati interni: gli addetti all'interno possono combinare la posizione con altri compiti nella loro unità attuale. In questo momento, si può lavorare da casa circa 1/2 giorni alla settimana se si desidera.",
-        "en": "Who you are\n\nMore than 160 people are currently apprenticing at IKEA Switzerland or are participants in a programme for people with refugee experience. They will be accompanied by around 36 dedicated vocational trainers, more than 200 practical trainers – and perhaps soon by you too.\n\nAs a regional:r vocational training manager:r you manage several locations and are the main contact person for internal and external inquiries about vocational training and integration. To be successful in the role, you need:\n\n• Professional experience in human resources, vocational training or vocational integration\n• Fluent language skills in German and French are a must – Italian is a plus\n• Digital skills as well as a structured, independent and reliable working method, experience in project management is an advantage\n• Flexibility and mobility to regularly visit our different locations and work with colleagues and learners on site (you will spend around half your working time in different locations)\n\nYour responsibilities\n\nAs part of our national vocational training and integration team, you take responsibility for:\n\n• The development of our vocational trainers and the individual promotion of our learners and participants – both professionally and personally.\n• Supporting the situation in challenging moments, as well as the continuous monitoring and observation of learning progress\n• The planning and execution of administrative tasks, for example in the recruitment and contract process.\n• Building relationships with employees at our locations and working with vocational trainers, the local HR teams and cantonal authorities.\n• Compliance with all relevant requirements – from cantonal and federal regulations to internal standards.\n• The co-creation of local and national projects and strategies with which we further develop IKEA as a future-oriented and human-centered training company.\n\nIKEA Switzerland offers a wide range of training paths and programmes for the integration of people with refugee experience.\n www.ikea.ch/vocational training\n https://www.ikea.com/ch/en/this-is-ikea/community-engagement/changing-the-narrative-on-refugees\n\nWe offer this job with a maximum amount of 50%. Internal candidates: insiders can combine the position with other tasks in their current unit. At this time, you can work from home about 1/2 days a week if you want to.",
-        "fr": "Qui vous êtes\n\nPlus de 160 personnes suivent actuellement un stage chez IKEA Suisse ou participent à un programme pour les réfugiés. Ils seront accompagnés d'environ 36 formateurs professionnels spécialisés, plus de 200 formateurs pratiques – et peut-être bientôt par vous aussi.\n\nEn tant que responsable régional de la formation professionnelle, vous gérez plusieurs lieux et êtes la principale personne de contact pour les enquêtes internes et externes sur la formation et l'intégration professionnelles. Pour réussir dans ce rôle, vous devez :\n\n• Expérience professionnelle en ressources humaines, formation professionnelle ou intégration professionnelle\n• Les compétences linguistiques en allemand et en français sont un must – l'italien est un plus\n• Compétences numériques ainsi qu'une méthode de travail structurée, indépendante et fiable, l'expérience en gestion de projet est un avantage\n• Flexibilité et mobilité pour visiter régulièrement nos différents lieux et travailler avec des collègues et des apprenants sur place (vous passerez environ la moitié de votre temps de travail dans différents lieux)\n\nVos responsabilités\n\nDans le cadre de notre équipe nationale de formation professionnelle et d'intégration, vous êtes responsable:\n\n• Le développement de nos formateurs professionnels et la promotion individuelle de nos apprenants et participants – professionnels et personnels.\n• Soutenir la situation dans des moments difficiles, ainsi que le suivi et l'observation continus des progrès de l'apprentissage\n• La planification et l'exécution des tâches administratives, par exemple dans le processus de recrutement et de passation de marchés.\n• Établir des relations avec les employés sur nos sites et travailler avec les formateurs professionnels, les équipes RH locales et les autorités cantonales.\n• Respect de toutes les exigences pertinentes – des réglementations cantonales et fédérales aux normes internes.\n• La co-création de projets et de stratégies locaux et nationaux avec lesquels nous développons IKEA en tant qu'entreprise de formation orientée vers l'avenir et centrée sur l'homme.\n\nIKEA Suisse propose un large éventail de parcours et de programmes de formation pour l'intégration des personnes ayant une expérience de réfugié.\n www.ikea.ch/formation professionnelle\n https://www.ikea.com/ch/fr/this-is-ikea/community-engagement/changement-the-narrative-on-refugees\n\nNous offrons ce travail avec un montant maximum de 50%. Candidats internes : les initiés peuvent combiner le poste avec d'autres tâches dans leur unité actuelle. Pour l'instant, vous pouvez travailler de la maison environ 1/2 jours par semaine si vous le souhaitez."
+        "it": "Chi sei\n\nPiù di 160 persone sono attualmente interessanti presso IKEA Svizzera o sono partecipanti a un programma per le persone con esperienza di rifugiati. Saranno accompagnati da circa 36 formatori professionali dedicati, più di 200 formatori pratici – e forse presto anche da voi.\n\nIn qualità di responsabile regionale della formazione professionale: si gestisce diverse sedi e sono la principale persona di contatto per le indagini interne ed esterne sulla formazione professionale e l'integrazione. Per avere successo nel ruolo, è necessario:\n\n• Esperienza professionale nelle risorse umane, formazione professionale o integrazione professionale\n• Le competenze linguistiche fluide in tedesco e francese sono un must – l'italiano è un plus\n• Le competenze digitali e un metodo di lavoro strutturato, indipendente e affidabile, l'esperienza nella gestione del progetto è un vantaggio\n• Flessibilità e mobilità per visitare regolarmente le nostre diverse località e lavorare con colleghi e studenti in loco (si spenderà circa la metà del tempo di lavoro in diverse località)\n\nLe tue responsabilità\n\nNell'ambito del nostro team nazionale di formazione e integrazione professionale, si assume la responsabilità di:\n\n• Lo sviluppo dei nostri formatori professionali e la promozione individuale dei nostri studenti e partecipanti – sia professionalmente che personalmente.\n• Sostenere la situazione nei momenti difficili, nonché il monitoraggio continuo e l'osservazione del progresso dell'apprendimento\n• La pianificazione e l'esecuzione dei compiti amministrativi, ad esempio nel processo di reclutamento e contratto.\n• Costruire relazioni con i dipendenti nelle nostre sedi e lavorare con i formatori professionali, le squadre locali delle risorse umane e le autorità cantonali.\n• Conformità a tutti i requisiti rilevanti – dalle normative cantonali e federali alle norme interne.\n• La co-creazione di progetti e strategie locali e nazionali con cui sviluppiamo ulteriormente IKEA come una società di formazione orientata al futuro e orientata all'uomo.\n\nIKEA Svizzera offre una vasta gamma di percorsi formativi e programmi per l'integrazione di persone con esperienza di rifugiati.\nwww.ikea.ch/formazione professionale\nhttp://www.ikea.com/ch/it/this-is-ikea/community-engagement/change-the-narrative-on-refuge\n\nOffriamo questo lavoro con un importo massimo del 50%. Candidati interni: gli addetti all'interno possono combinare la posizione con altri compiti nella loro unità attuale. In questo momento, si può lavorare da casa circa 1/2 giorni alla settimana se si desidera.",
+        "en": "Who you are\n\nMore than 160 people are currently apprenticing at IKEA Switzerland or are participants in a programme for people with refugee experience. They will be accompanied by around 36 dedicated vocational trainers, more than 200 practical trainers – and perhaps soon by you too.\n\nAs a regional:r vocational training manager:r you manage several locations and are the main contact person for internal and external inquiries about vocational training and integration. To be successful in the role, you need:\n\n• Professional experience in human resources, vocational training or vocational integration\n• Fluent language skills in German and French are a must – Italian is a plus\n• Digital skills as well as a structured, independent and reliable working method, experience in project management is an advantage\n• Flexibility and mobility to regularly visit our different locations and work with colleagues and learners on site (you will spend around half your working time in different locations)\n\nYour responsibilities\n\nAs part of our national vocational training and integration team, you take responsibility for:\n\n• The development of our vocational trainers and the individual promotion of our learners and participants – both professionally and personally.\n• Supporting the situation in challenging moments, as well as the continuous monitoring and observation of learning progress\n• The planning and execution of administrative tasks, for example in the recruitment and contract process.\n• Building relationships with employees at our locations and working with vocational trainers, the local HR teams and cantonal authorities.\n• Compliance with all relevant requirements – from cantonal and federal regulations to internal standards.\n• The co-creation of local and national projects and strategies with which we further develop IKEA as a future-oriented and human-centered training company.\n\nIKEA Switzerland offers a wide range of training paths and programmes for the integration of people with refugee experience.\nwww.ikea.ch/vocational training\nhttps://www.ikea.com/ch/en/this-is-ikea/community-engagement/changing-the-narrative-on-refugees\n\nWe offer this job with a maximum amount of 50%. Internal candidates: insiders can combine the position with other tasks in their current unit. At this time, you can work from home about 1/2 days a week if you want to.",
+        "de": "Who you are\n\nÜber 160 Menschen absolvieren derzeit eine Lehre bei IKEA Schweiz oder sind Teilnehmende an einem Programm für Menschen mit Fluchterfahrung. Begleitet werden sie von rund 36 engagierten Berufsbildner:innen, über 200 Praxisbildner:innen – und vielleicht bald auch von dir.\n\nAls Regionale:r Berufsbildungsverantwortliche:r betreust du mehrere Standorte und bist dabei die Hauptansprechperson für interne und externe Anfragen zum Thema Berufsbildung und Integration. Um in der Rolle erfolgreich zu sein, brauchst du:\n\n• Berufserfahrung im Personalbereich, in der Berufsbildung oder der beruflichen Integration\n• Fliessende Sprachkenntnisse in Deutsch und Französisch sind ein Muss – Italienisch ist ein Plus\n• Digitale Kompetenzen sowie eine strukturierte, selbstständige und verlässliche Arbeitsweise, Erfahrung im Project Management von Vorteil\n• Flexibilität und Mobilität, um regelmässig unsere verschiedenen Standorte zu besuchen und vor Ort mit Kolleg:innen sowie Lernenden zusammenzuarbeiten (du wirst rund die Hälfte deiner Arbeitszeit an unterschiedlichen Standorten verbringen)\n\nYour responsibilities\n\nAls Teil unseres nationalen Teams für berufliche Ausbildung und Integration übernimmst du Verantwortung für:\n\n• Die Entwicklung unserer Berufsbildner:innen und die individuelle Förderung unserer Lernenden und Teilnehmenden – fachlich wie persönlich.\n• Das situationsgerechte Unterstützen in herausfordernden Momenten, sowie die kontinuierliche Begleitung und Beobachtung der Lernfortschritte\n• Die Planung und Ausführung administrativer Aufgaben, zum Beispiel im Rekrutierungs- und Vertragsprozess.\n• Den Aufbau der Beziehungen zu den Mitarbeitenden an unseren Standorten und die Zusammenarbeit mit Berufsbildner:innen, den HR-Teams vor Ort, sowie kantonalen Behörden.\n• Die Einhaltung aller relevanten Vorgaben – von kantonalen und bundesrechtlichen Vorschriften bis hin zu internen Standards.\n• Die Mitgestaltung von lokalen und nationalen Projekten und Strategien, mit denen wir IKEA als zukunftsorientierten und menschenzentrierten Ausbildungsbetrieb weiterentwickeln.\n\nIKEA Schweiz bietet eine breite Palette an Ausbildungswegen und Programmen zur Integration von Personen mit Fluchterfahrung.\nwww.ikea.ch/berufsbildung\nhttps://www.ikea.com/ch/de/this-is-ikea/community-engagement/changing-the-narrative-on-refugees\n\nWir bieten diese Stelle mit einem Pensum von maximal 50% an. Interne Kandidat:innen können die Stelle mit anderen Aufgaben in ihrer aktuellen Einheit kombinieren. Bei diesem Pensum kannst du ca. 1/2 Tag pro Woche von zu Hause aus arbeiten, wenn du das möchtest.",
+        "fr": "Qui vous êtes\n\nPlus de 160 personnes suivent actuellement un stage chez IKEA Suisse ou participent à un programme pour les réfugiés. Ils seront accompagnés d'environ 36 formateurs professionnels spécialisés, plus de 200 formateurs pratiques – et peut-être bientôt par vous aussi.\n\nEn tant que responsable régional de la formation professionnelle, vous gérez plusieurs lieux et êtes la principale personne de contact pour les enquêtes internes et externes sur la formation et l'intégration professionnelles. Pour réussir dans ce rôle, vous devez :\n\n• Expérience professionnelle en ressources humaines, formation professionnelle ou intégration professionnelle\n• Les compétences linguistiques en allemand et en français sont un must – l'italien est un plus\n• Compétences numériques ainsi qu'une méthode de travail structurée, indépendante et fiable, l'expérience en gestion de projet est un avantage\n• Flexibilité et mobilité pour visiter régulièrement nos différents lieux et travailler avec des collègues et des apprenants sur place (vous passerez environ la moitié de votre temps de travail dans différents lieux)\n\nVos responsabilités\n\nDans le cadre de notre équipe nationale de formation professionnelle et d'intégration, vous êtes responsable:\n\n• Le développement de nos formateurs professionnels et la promotion individuelle de nos apprenants et participants – professionnels et personnels.\n• Soutenir la situation dans des moments difficiles, ainsi que le suivi et l'observation continus des progrès de l'apprentissage\n• La planification et l'exécution des tâches administratives, par exemple dans le processus de recrutement et de passation de marchés.\n• Établir des relations avec les employés sur nos sites et travailler avec les formateurs professionnels, les équipes RH locales et les autorités cantonales.\n• Respect de toutes les exigences pertinentes – des réglementations cantonales et fédérales aux normes internes.\n• La co-création de projets et de stratégies locaux et nationaux avec lesquels nous développons IKEA en tant qu'entreprise de formation orientée vers l'avenir et centrée sur l'homme.\n\nIKEA Suisse propose un large éventail de parcours et de programmes de formation pour l'intégration des personnes ayant une expérience de réfugié.\nwww.ikea.ch/formation professionnelle\nhttps://www.ikea.com/ch/fr/this-is-ikea/community-engagement/changement-the-narrative-on-refugees\n\nNous offrons ce travail avec un montant maximum de 50%. Candidats internes : les initiés peuvent combiner le poste avec d'autres tâches dans leur unité actuelle. Pour l'instant, vous pouvez travailler de la maison environ 1/2 jours par semaine si vous le souhaitez."
       },
       "location": "Spreitenbach, Aargau, Switzerland",
       "canton": "AG",
       "url": "https://jobs.ikea.com/en/job/spreitenbach/regionale-r-berufsbildungsverantwortliche-r-50/24107/98912524112",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.694Z",
+      "crawledAt": "2026-08-08T21:36:20.054Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "Aargau",
@@ -2966,100 +3051,30 @@
       "postedDate": "2026-08-08",
       "applyUrl": "https://jobs.ikea.com/en/job/spreitenbach/regionale-r-berufsbildungsverantwortliche-r-50/24107/98912524112",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "regionale-r-berufsbildungsverantwortliche-r-50-ikea-ch",
+        "regionale-r-berufsbildungsverantwortliche-r-50-ikea-spreitenbach"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "regionale-r-berufsbildungsverantwortliche-r-50-ikea-ch"
+          "regionale-r-berufsbildungsverantwortliche-r-50-ikea-ch",
+          "regionale-r-berufsbildungsverantwortliche-r-50-ikea-spreitenbach"
         ]
       },
-      "previousSlugs": [
-        "regionale-r-berufsbildungsverantwortliche-r-50-ikea-ch"
-      ],
-      "salaryMin": 31000,
-      "salaryMax": 47000,
+      "firstSeenAt": "2026-08-08T09:49:36.694Z",
+      "salaryMin": 42800,
+      "salaryMax": 64800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 31000,
-          "maxValue": 47000,
+          "minValue": 42800,
+          "maxValue": 64800,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-08T09:49:36.694Z"
-    },
-    {
-      "id": "ikea-321e7d4a21ac",
-      "slug": "collaboratore-trice-visual-merchandising-80-100-ikea-lyssach",
-      "slugByLocale": {
-        "de": "mitarbeiter-in-visual-merchandising-80-100-ikea-ch",
-        "it": "collaboratore-trice-visual-merchandising-80-100-ikea-lyssach",
-        "en": "associate-visual-merchandising-80-100-ikea-lyssach",
-        "fr": "collaborateur-trice-visual-merchandising-80-100-ikea-lyssach"
-      },
-      "company": "IKEA",
-      "companyKey": "ikea",
-      "companyDomain": "ikea.ch",
-      "title": "Mitarbeiter:in Visual Merchandising 80-100%",
-      "titleByLocale": {
-        "de": "Mitarbeiter:in Visual Merchandising 80-100%",
-        "it": "Collaboratore/trice Visual Merchandising 80-100%",
-        "en": "Associate Visual Merchandising 80-100%",
-        "fr": "Collaborateur/trice Visual Merchandising 80-100%"
-      },
-      "description": "Mitarbeiter:in Visual Merchandising 80-100% — IKEA",
-      "descriptionByLocale": {
-        "de": "Mitarbeiter:in Visual Merchandising 80-100% — IKEA"
-      },
-      "location": "Spreitenbach, Aargau, Switzerland",
-      "canton": "AG",
-      "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-visual-merchandising-80-100/24107/98133935680",
-      "source": "IKEA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:49:36.691Z",
-      "addressLocality": "Spreitenbach",
-      "postalCode": "8957",
-      "addressRegion": "Aargau",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail / Furniture",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-08",
-      "applyUrl": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-visual-merchandising-80-100/24107/98133935680",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-visual-merchandising-80-100-ikea-ch"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-in-visual-merchandising-80-100-ikea-ch"
-      ],
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-08T09:49:36.691Z"
+      }
     }
   ]
 }
