@@ -124,3 +124,174 @@ describe('buildKnownJobUrlsSet — skip-optimization must not trust jobs with a 
     expect(buildKnownJobUrlsSet(undefined).size).toBe(0);
   });
 });
+
+describe('toJobFromJsonLd — declared addressCountry outranks the adapter seed canton', () => {
+  const { toJobFromJsonLd, isJsonLdCountryExplicitlyForeign } = __testables;
+
+  const DESCRIPTION = [
+    'We are looking for an experienced advisor to join the team.',
+    'You will manage a portfolio of clients and report to the branch lead.',
+    'Requirements: 5 years of experience, excellent communication skills,',
+    'fluent English and a relevant degree.',
+  ].join(' ');
+
+  const DETAIL_URL = 'https://careers.example.com/job/48219-wealth-management-advisor';
+
+  // A Ticino-scoped adapter seed: exactly the shape that used to stamp `TI`
+  // onto every posting the seed returned, whatever the posting itself said.
+  const TICINO_SEED = { canton: 'TI', location: 'Lugano', company: 'Example Insurance (sede Ticino)' };
+
+  function node(address: Record<string, unknown> | Record<string, unknown>[]) {
+    return {
+      '@type': 'JobPosting',
+      title: 'Wealth Management Advisor',
+      description: DESCRIPTION,
+      hiringOrganization: { name: 'Example Insurance' },
+      jobLocation: Array.isArray(address)
+        ? address.map((a) => ({ '@type': 'Place', address: a }))
+        : { '@type': 'Place', address },
+    };
+  }
+
+  it('rejects a posting that declares a non-CH country, instead of tagging it with the seed canton', () => {
+    // Springfield is not on any foreign-city blacklist, so the pre-existing
+    // string checks cannot catch this posting — asserting the exact reason
+    // proves the addressCountry rule is what fired, not an earlier guard.
+    const result = toJobFromJsonLd(
+      node({ addressLocality: 'Springfield', addressRegion: 'Illinois', addressCountry: 'United States of America' }),
+      'Example Insurance',
+      DETAIL_URL,
+      { seedMeta: TICINO_SEED },
+    );
+    expect(result.job).toBe(null);
+    expect(result.reason).toBe('jsonld_address_country_foreign');
+  });
+
+  it('rejects it for the same reason when the country arrives as a Country object rather than a string', () => {
+    const result = toJobFromJsonLd(
+      // Springfield again, so the country OBJECT is the only foreign signal.
+      node({ addressLocality: 'Springfield', addressCountry: { '@type': 'Country', name: 'Canada' } }),
+      'Example Insurance',
+      DETAIL_URL,
+      { seedMeta: TICINO_SEED },
+    );
+    expect(result.job).toBe(null);
+    expect(result.reason).toBe('jsonld_address_country_foreign');
+  });
+
+  it('leaves the seed canton winning when the posting declares no country at all', () => {
+    // Zürich locality against a TI seed: with no declared country the seed
+    // still wins, exactly as before the fix. Absence is not evidence.
+    const result = toJobFromJsonLd(
+      node({ addressLocality: 'Zürich' }),
+      'Example Insurance',
+      DETAIL_URL,
+      { seedMeta: TICINO_SEED },
+    );
+    expect(result.job).not.toBe(null);
+    expect(result.job.canton).toBe('TI');
+  });
+
+  it('changes nothing when an explicit CH country agrees with the seed', () => {
+    const result = toJobFromJsonLd(
+      node({ addressLocality: 'Lugano', addressRegion: 'Ticino', addressCountry: 'CH' }),
+      'Example Insurance',
+      DETAIL_URL,
+      { seedMeta: TICINO_SEED },
+    );
+    expect(result.job).not.toBe(null);
+    expect(result.job.canton).toBe('TI');
+  });
+
+  it('accepts the spelled-out and alpha-3 Swiss spellings as CH', () => {
+    for (const country of ['Switzerland', 'Schweiz', 'Svizzera', 'Suisse', 'CHE', '756']) {
+      const result = toJobFromJsonLd(
+        node({ addressLocality: 'Lugano', addressCountry: country }),
+        'Example Insurance',
+        DETAIL_URL,
+        { seedMeta: TICINO_SEED },
+      );
+      expect(result.job, `expected ${country} to be accepted as CH`).not.toBe(null);
+      expect(result.job.canton).toBe('TI');
+    }
+  });
+
+  it('keeps a multi-site posting when any one of its locations is Swiss', () => {
+    const result = toJobFromJsonLd(
+      node([
+        { addressLocality: 'Milano', addressCountry: 'Italy' },
+        { addressLocality: 'Lugano', addressCountry: 'CH' },
+      ]),
+      'Example Insurance',
+      DETAIL_URL,
+      { seedMeta: TICINO_SEED },
+    );
+    expect(result.job).not.toBe(null);
+    expect(result.job.canton).toBe('TI');
+  });
+
+  describe('canton codes that collide with ISO country codes stay ambiguous, never foreign', () => {
+    // FR/GR/LU/BE/NE/SO/SG/TG/AR/GL/SZ/BS are simultaneously ISO country codes
+    // and Swiss canton codes. Reading a bare colliding token as a country would
+    // delete legitimate Fribourg, Graubünden and Luzern jobs — the exact
+    // "potential damage" this rule must not cause.
+    for (const [code, locality] of [
+      ['FR', 'Fribourg'],
+      ['GR', 'Chur'],
+      ['LU', 'Luzern'],
+      ['BE', 'Bern'],
+    ] as const) {
+      it(`keeps a posting whose addressCountry is the bare code "${code}"`, () => {
+        const result = toJobFromJsonLd(
+          node({ addressLocality: locality, addressCountry: code }),
+          'Example Insurance',
+          DETAIL_URL,
+          { seedMeta: { canton: code, location: locality, company: 'Example Insurance' } },
+        );
+        expect(result.job).not.toBe(null);
+        expect(result.job.canton).toBe(code);
+      });
+    }
+
+    it('still rejects the unambiguous spelled-out name of a colliding country', () => {
+      const result = toJobFromJsonLd(
+        node({ addressLocality: 'Munsbach', addressCountry: 'Luxembourg' }),
+        'Example Insurance',
+        DETAIL_URL,
+        { seedMeta: TICINO_SEED },
+      );
+      expect(result.job).toBe(null);
+      expect(result.reason).toBe('jsonld_address_country_foreign');
+    });
+  });
+
+  describe('isJsonLdCountryExplicitlyForeign — the predicate in isolation', () => {
+    const withCountry = (addressCountry: unknown) => ({ jobLocation: { address: { addressCountry } } });
+
+    it('treats a missing country as no evidence', () => {
+      expect(isJsonLdCountryExplicitlyForeign({})).toBe(false);
+      expect(isJsonLdCountryExplicitlyForeign({ jobLocation: {} })).toBe(false);
+      expect(isJsonLdCountryExplicitlyForeign({ jobLocation: { address: {} } })).toBe(false);
+      expect(isJsonLdCountryExplicitlyForeign(withCountry(''))).toBe(false);
+      expect(isJsonLdCountryExplicitlyForeign(withCountry(null))).toBe(false);
+    });
+
+    it('flags unambiguously foreign declarations', () => {
+      for (const c of ['US', 'USA', 'Canada', 'IT', 'Italy', 'Germany', 'Poland', 'India', 'ES']) {
+        expect(isJsonLdCountryExplicitlyForeign(withCountry(c)), `expected ${c} foreign`).toBe(true);
+      }
+    });
+
+    it('never flags Switzerland, however it is spelled', () => {
+      for (const c of ['CH', 'che', 'Switzerland', 'Schweiz', 'Suisse', 'Svizzera', 756, 'Switzerland (CH)']) {
+        expect(isJsonLdCountryExplicitlyForeign(withCountry(c)), `expected ${c} Swiss`).toBe(false);
+      }
+    });
+
+    it('never flags a token that is itself a Swiss canton', () => {
+      for (const c of ['FR', 'GR', 'LU', 'BE', 'NE', 'SO', 'SG', 'TG', 'TI', 'Ticino', 'Fribourg']) {
+        expect(isJsonLdCountryExplicitlyForeign(withCountry(c)), `expected ${c} ambiguous`).toBe(false);
+      }
+    });
+  });
+});
