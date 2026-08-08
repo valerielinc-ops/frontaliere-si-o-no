@@ -72,11 +72,18 @@ import {
 } from './professionLandingsCopy';
 import {
   aggregateProfessionJobs,
+  aggregateRecentlyExpiredProfessionCounts,
   buildFeaturedJobUrl,
   buildJobBoardUrl,
   type FeaturedJob,
   type ProfessionJobsSnapshot,
 } from './professionJobsAggregate';
+import {
+  MIN_JOBS,
+  PROFESSION_FLOOR_GRACE_DAYS,
+  meetsJobsFloor,
+  renderProfessionBelowFloorBridge,
+} from './shared/professionJobsFloor';
 import {
   renderJobCardListHtml,
   type JobCardJob,
@@ -669,6 +676,209 @@ function patchSitemapIndex(distDir: string, dateStamp: string): void {
   }
 }
 
+// ── Emitter ───────────────────────────────────────────────────────
+
+export interface ProfessionLandingsEmitResult {
+  pagesWritten: number;
+  thinSkipped: number;
+  /** Professions bridged to noindex because they are below the job floor. */
+  bridgesWritten: number;
+  /** Ids that failed the job floor this build (one entry per profession). */
+  professionsBelowFloor: string[];
+  /** True when the expired archive was unreadable and the floor failed open. */
+  graceUnavailable: boolean;
+}
+
+/**
+ * Emit the legacy Ticino profession landings.
+ *
+ * Extracted from the plugin closure so the job floor is reachable from tests
+ * without driving a full Vite build — the per-canton sibling has exported
+ * `emitProfessionCantonPages` for the same reason, and the two emitters are
+ * meant to be read side by side.
+ */
+export async function emitProfessionLandingPages(opts: {
+  rootDir: string;
+  distDir: string;
+  /** Clock override for tests; defaults to now. */
+  now?: number;
+}): Promise<ProfessionLandingsEmitResult> {
+  const { rootDir, distDir } = opts;
+  const now = opts.now ?? Date.now();
+
+  // `dateStamp` is fixed once per build and baked into JSON-LD +
+  // sitemap <lastmod>.
+  const dateStamp = new Date(now).toISOString().slice(0, 10);
+
+  // Aggregate live jobs per profession once. Module-level cached.
+  const snapshots = aggregateProfessionJobs(rootDir);
+
+  // Grace half of the job floor (#5322): openings that matched recently but
+  // have since expired. `null` = archive unreadable → the floor fails open
+  // below and nothing is flipped this build.
+  const recentlyExpired = aggregateRecentlyExpiredProfessionCounts(
+    rootDir,
+    PROFESSION_FLOOR_GRACE_DAYS,
+    now,
+  );
+
+  const collector = new WriteCollector({
+    distDir,
+    pluginName: 'professionLandingsPlugin',
+  });
+  const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
+
+  let pagesWritten = 0;
+  let thinSkipped = 0;
+  let bridgesWritten = 0;
+  const professionsBelowFloor: string[] = [];
+
+  for (const id of PROFESSION_IDS) {
+    // ── Pass 0: does this profession have real openings at all? ────────
+    // Until #5322 the ONLY gate here was MIN_INDEXABLE_WORDS — the word
+    // count of prose that is templated per profession and therefore always
+    // present. A profession with zero live jobs cleared it every time, so
+    // `/lavoro-ticino-cameriere/` shipped indexable, with 0 JSON-LD
+    // JobPosting and body copy reading "nessuna offerta". The floor is the
+    // per-canton family's, imported rather than reimplemented, plus the
+    // grace window that family does not need (see professionJobsFloor.ts).
+    const floor = meetsJobsFloor({
+      liveCount: snapshots[id].liveCount,
+      recentlyExpiredCount: recentlyExpired ? recentlyExpired[id] : null,
+    });
+    if (!floor.meetsFloor) {
+      professionsBelowFloor.push(id);
+      for (const locale of PROFESSION_LOCALES) {
+        const urlPath = buildProfessionLandingPath(locale, id);
+        // The legacy family serves each landing from BOTH a directory
+        // index and a flat sibling; bridging only one of them would leave
+        // the full, indexable page live at the other URL.
+        const bridgeHtml = renderProfessionBelowFloorBridge(locale, 'TI', id);
+        collector.add(np.join(distDir, urlPath, 'index.html'), bridgeHtml);
+        collector.add(np.join(distDir, urlPath.replace(/\/+$/, '') + '.html'), bridgeHtml);
+        bridgesWritten++;
+      }
+      console.warn(
+        `\x1b[33m[profession-landings]\x1b[0m ${id} below job floor ` +
+          `(${floor.effectiveCount} < ${MIN_JOBS}: ${snapshots[id].liveCount} live + ` +
+          `${recentlyExpired ? recentlyExpired[id] : 0} expired within ${PROFESSION_FLOOR_GRACE_DAYS}d) — bridging to noindex`,
+      );
+      // No sitemap entry: a bridged path is noindex,follow and must not be
+      // advertised. Dropping it here is enough — sitemap-professions.xml is
+      // rewritten from `sitemapEntries` on every build.
+      continue;
+    }
+
+    // ── Pass 1: which locales clear the indexability floor? ────────────
+    // The floor is per (profession, locale), so it can drop DE while
+    // keeping IT. Deciding it BEFORE any page is rendered for real is what
+    // makes it impossible to advertise a landing that never gets written
+    // (#5114 class). `wordCount` is derived from the body alone, so this
+    // pass is not affected by the empty hreflang block it renders with.
+    // The set is per-profession, hence computed inside this loop.
+    const eligibleLocales = new Set<string>(
+      PROFESSION_LOCALES.filter(
+        (alt) =>
+          renderPage({ locale: alt, id, dateStamp, distDir, snapshot: snapshots[id] })
+            .wordCount >= MIN_INDEXABLE_WORDS,
+      ),
+    );
+
+    // Sitemap alternates track the same set: an ineligible locale has no
+    // page, so advertising it would point the crawler at a 404.
+    const alternates = PROFESSION_LOCALES.filter((alt) => eligibleLocales.has(alt)).map(
+      (alt) => `${alt}|${BASE_URL}${buildProfessionLandingPath(alt, id)}`,
+    );
+    if (eligibleLocales.has('it')) {
+      alternates.push(`x-default|${BASE_URL}${buildProfessionLandingPath('it', id)}`);
+    }
+
+    let itWasWritten = false;
+
+    // ── Pass 2: render for real, with the settled alternate set ────────
+    for (const locale of PROFESSION_LOCALES) {
+      const rendered = renderPage({
+        locale,
+        id,
+        dateStamp,
+        distDir,
+        snapshot: snapshots[id],
+        eligibleLocales,
+      });
+
+      if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
+        thinSkipped++;
+        console.warn(
+          `\x1b[33m[profession-landings]\x1b[0m ${locale}/${id} below MIN_INDEXABLE_WORDS (${rendered.wordCount}) — skipping`,
+        );
+        continue;
+      }
+
+      const indexPath = np.join(distDir, rendered.urlPath, 'index.html');
+      const flatPath = np.join(distDir, rendered.urlPath.replace(/\/+$/, '') + '.html');
+      collector.add(indexPath, rendered.html);
+      collector.add(flatPath, rendered.html);
+
+      // Every locale gets its own reciprocal <loc> entry (all 4 carry the
+      // same alternates set) — an IT-only push here would leave en/de/fr
+      // as one-sided alternates, stripped by sanitizeSitemapHreflangReciprocity.
+      // Non-IT pushes require the IT anchor itself to have been written
+      // this run (PROFESSION_LOCALES starts with 'it', so itWasWritten is
+      // settled before en/de/fr) — an unconditional push would leave a
+      // dangling IT alternate when the IT render is itself thin-skipped.
+      if (locale === 'it') {
+        itWasWritten = true;
+        sitemapEntries.push({ canonical: rendered.urlPath, alternates });
+      } else if (itWasWritten) {
+        sitemapEntries.push({ canonical: rendered.urlPath, alternates });
+      }
+
+      pagesWritten++;
+    }
+  }
+
+  if (sitemapEntries.length > 0) {
+    try {
+      const xml = buildSitemapXml(sitemapEntries, dateStamp);
+      fs.mkdirSync(distDir, { recursive: true });
+      const sitemapPath = np.join(distDir, 'sitemap-professions.xml');
+      fs.writeFileSync(sitemapPath, xml, 'utf-8');
+    } catch (err) {
+      console.warn('\x1b[33m[profession-landings]\x1b[0m sitemap write failed:', err);
+    }
+  }
+
+  const t0 = Date.now();
+  const written = await collector.flush();
+  console.log(
+    `\x1b[36m[profession-landings]\x1b[0m Generated ${pagesWritten} pages ` +
+      `(${thinSkipped} skipped as thin, ${bridgesWritten} bridged below job floor` +
+      `${floorGraceNote(recentlyExpired)}) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
+  );
+
+  if (fs.existsSync(np.join(distDir, 'sitemap-professions.xml'))) {
+    try {
+      patchSitemapIndex(distDir, dateStamp);
+    } catch (err) {
+      console.warn('\x1b[33m[profession-landings]\x1b[0m sitemap-index patch failed:', err);
+    }
+  }
+
+  return {
+    pagesWritten,
+    thinSkipped,
+    bridgesWritten,
+    professionsBelowFloor,
+    graceUnavailable: recentlyExpired === null,
+  };
+}
+
+function floorGraceNote(recentlyExpired: Record<string, number> | null): string {
+  return recentlyExpired === null
+    ? ' — GRACE SIGNAL UNAVAILABLE, floor failed open'
+    : '';
+}
+
 // ── Plugin entry ──────────────────────────────────────────────────
 
 export function professionLandingsPlugin(rootDir: string): Plugin {
@@ -684,115 +894,7 @@ export function professionLandingsPlugin(rootDir: string): Plugin {
       const distDir = np.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
 
-      // `dateStamp` is fixed once per build and baked into JSON-LD +
-      // sitemap <lastmod>.
-      const dateStamp = new Date().toISOString().slice(0, 10);
-
-      // Aggregate live jobs per profession once. Module-level cached.
-      const snapshots = aggregateProfessionJobs(rootDir);
-
-      const collector = new WriteCollector({
-        distDir,
-        pluginName: 'professionLandingsPlugin',
-      });
-      const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
-
-      let pagesWritten = 0;
-      let thinSkipped = 0;
-
-      for (const id of PROFESSION_IDS) {
-        // ── Pass 1: which locales clear the indexability floor? ────────────
-        // The floor is per (profession, locale), so it can drop DE while
-        // keeping IT. Deciding it BEFORE any page is rendered for real is what
-        // makes it impossible to advertise a landing that never gets written
-        // (#5114 class). `wordCount` is derived from the body alone, so this
-        // pass is not affected by the empty hreflang block it renders with.
-        // The set is per-profession, hence computed inside this loop.
-        const eligibleLocales = new Set<string>(
-          PROFESSION_LOCALES.filter(
-            (alt) =>
-              renderPage({ locale: alt, id, dateStamp, distDir, snapshot: snapshots[id] })
-                .wordCount >= MIN_INDEXABLE_WORDS,
-          ),
-        );
-
-        // Sitemap alternates track the same set: an ineligible locale has no
-        // page, so advertising it would point the crawler at a 404.
-        const alternates = PROFESSION_LOCALES.filter((alt) => eligibleLocales.has(alt)).map(
-          (alt) => `${alt}|${BASE_URL}${buildProfessionLandingPath(alt, id)}`,
-        );
-        if (eligibleLocales.has('it')) {
-          alternates.push(`x-default|${BASE_URL}${buildProfessionLandingPath('it', id)}`);
-        }
-
-        let itWasWritten = false;
-
-        // ── Pass 2: render for real, with the settled alternate set ────────
-        for (const locale of PROFESSION_LOCALES) {
-          const rendered = renderPage({
-            locale,
-            id,
-            dateStamp,
-            distDir,
-            snapshot: snapshots[id],
-            eligibleLocales,
-          });
-
-          if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
-            thinSkipped++;
-            console.warn(
-              `\x1b[33m[profession-landings]\x1b[0m ${locale}/${id} below MIN_INDEXABLE_WORDS (${rendered.wordCount}) — skipping`,
-            );
-            continue;
-          }
-
-          const indexPath = np.join(distDir, rendered.urlPath, 'index.html');
-          const flatPath = np.join(distDir, rendered.urlPath.replace(/\/+$/, '') + '.html');
-          collector.add(indexPath, rendered.html);
-          collector.add(flatPath, rendered.html);
-
-          // Every locale gets its own reciprocal <loc> entry (all 4 carry the
-          // same alternates set) — an IT-only push here would leave en/de/fr
-          // as one-sided alternates, stripped by sanitizeSitemapHreflangReciprocity.
-          // Non-IT pushes require the IT anchor itself to have been written
-          // this run (PROFESSION_LOCALES starts with 'it', so itWasWritten is
-          // settled before en/de/fr) — an unconditional push would leave a
-          // dangling IT alternate when the IT render is itself thin-skipped.
-          if (locale === 'it') {
-            itWasWritten = true;
-            sitemapEntries.push({ canonical: rendered.urlPath, alternates });
-          } else if (itWasWritten) {
-            sitemapEntries.push({ canonical: rendered.urlPath, alternates });
-          }
-
-          pagesWritten++;
-        }
-      }
-
-      if (sitemapEntries.length > 0) {
-        try {
-          const xml = buildSitemapXml(sitemapEntries, dateStamp);
-          fs.mkdirSync(distDir, { recursive: true });
-          const sitemapPath = np.join(distDir, 'sitemap-professions.xml');
-          fs.writeFileSync(sitemapPath, xml, 'utf-8');
-        } catch (err) {
-          console.warn('\x1b[33m[profession-landings]\x1b[0m sitemap write failed:', err);
-        }
-      }
-
-      const t0 = Date.now();
-      const written = await collector.flush();
-      console.log(
-        `\x1b[36m[profession-landings]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
-      );
-
-      if (fs.existsSync(np.join(distDir, 'sitemap-professions.xml'))) {
-        try {
-          patchSitemapIndex(distDir, dateStamp);
-        } catch (err) {
-          console.warn('\x1b[33m[profession-landings]\x1b[0m sitemap-index patch failed:', err);
-        }
-      }
+      await emitProfessionLandingPages({ rootDir, distDir });
 
       resolveProfessionLandingsFlushed();
     },
