@@ -1930,6 +1930,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-lamal-2026-bern-guida.title': 'Prix LAMal 2026 à Berne : comment choisir la bonne franchise',
     'blog.article.premi-lamal-2026-bern-guida.excerpt': 'Guide des primes caisse-maladie 2026 dans le canton de Berne : différences cantonales, franchise optimale, change de caisse et allocations. Comparaison nationale.',
     'blog.article.premi-lamal-2026-bern-guida.imageAlt': 'Guide des primes LAMal 2026 dans le canton de Berne',
+    'blog.article.salari-medi-zurigo-2026-confronto.title': 'Salaires moyens en Suisse 2026 : focus sur le canton de Zurich',
+    'blog.article.salari-medi-zurigo-2026-confronto.excerpt': 'Données officielles, taux et cotisations : comment se compose le salaire à Zurich en 2026. Guide pratique pour les travailleurs et les frontaliers.',
+    'blog.article.salari-medi-zurigo-2026-confronto.imageAlt': 'Panorama de Zurich avec des tours financières et des piétons',
 };
 
 export default blogMetaChFr;

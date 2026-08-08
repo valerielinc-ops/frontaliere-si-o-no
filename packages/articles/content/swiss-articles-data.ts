@@ -5788,6 +5788,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'salari-medi-zurigo-2026-confronto',
+    category: 'pratico',
+    date: '2026-08-08T00:22:50.466Z',
+    image: '/images/blog/salari-medi-zurigo-2026-confronto.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

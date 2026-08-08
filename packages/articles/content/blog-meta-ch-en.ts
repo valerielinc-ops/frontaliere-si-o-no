@@ -1930,6 +1930,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-lamal-2026-bern-guida.title': 'LAMal 2026 Awards in Bern: How to Choose the Right Deductible',
     'blog.article.premi-lamal-2026-bern-guida.excerpt': 'Guide to the 2026 cash premiums in the canton of Bern: cantonal differences, optimal deductible, cash changeover and subsidies. National comparison.',
     'blog.article.premi-lamal-2026-bern-guida.imageAlt': 'Guide to 2026 LAMal premiums in the canton of Bern',
+    'blog.article.salari-medi-zurigo-2026-confronto.title': 'Average wages in Switzerland 2026: focus on canton Zurich',
+    'blog.article.salari-medi-zurigo-2026-confronto.excerpt': 'Official data, rates and contributions: how the salary is composed in Zurich in 2026. Practical guide for workers and border workers.',
+    'blog.article.salari-medi-zurigo-2026-confronto.imageAlt': 'Zurich skyline with financial towers and pedestrians',
 };
 
 export default blogMetaChEn;
