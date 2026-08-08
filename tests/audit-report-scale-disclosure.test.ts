@@ -1,6 +1,7 @@
 // @vitest-environment node
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { auditReportPath, writeAuditReport } from '../scripts/lib/auditReport.mjs';
 
@@ -23,17 +24,34 @@ import { auditReportPath, writeAuditReport } from '../scripts/lib/auditReport.mj
 describe('audit report discloses its own scale and truncation', () => {
   const AUDIT = 'zz-scale-disclosure-fixture';
   const prevRate = process.env.AUDIT_SAMPLE_RATE;
+  const prevDir = process.env.AUDIT_REPORTS_DIR;
+  // MUST NOT write under the repo's dist/: the default destination is
+  // `dist/audit-reports/`, and merely creating it makes `dist/` exist. The
+  // cathedral suites skip on `!fs.existsSync(DIST)`, so a stray file here
+  // flips them from skipped to asserting against an almost-empty dist — that
+  // is exactly how this file turned 13 unrelated tests red.
+  const TMP = fs.mkdtempSync(path.join(os.tmpdir(), 'audit-report-test-'));
 
   const offenders = (n: number) =>
     Array.from({ length: n }, (_, i) => ({ path: `dist/p${i}/index.html`, feature: i < 5 ? 'rare' : 'bulk', metric: 1000 - i }));
 
   const read = () => JSON.parse(fs.readFileSync(auditReportPath(AUDIT), 'utf8'));
 
-  beforeEach(() => { delete process.env.AUDIT_SAMPLE_RATE; });
+  beforeEach(() => {
+    delete process.env.AUDIT_SAMPLE_RATE;
+    process.env.AUDIT_REPORTS_DIR = TMP;
+  });
   afterEach(() => {
     if (prevRate === undefined) delete process.env.AUDIT_SAMPLE_RATE;
     else process.env.AUDIT_SAMPLE_RATE = prevRate;
     try { fs.rmSync(auditReportPath(AUDIT)); } catch { /* never written */ }
+    if (prevDir === undefined) delete process.env.AUDIT_REPORTS_DIR;
+    else process.env.AUDIT_REPORTS_DIR = prevDir;
+  });
+
+  it('never writes under the repo dist/, which would un-skip the dist suites', () => {
+    expect(auditReportPath(AUDIT).startsWith(TMP)).toBe(true);
+    expect(auditReportPath(AUDIT)).not.toContain(`${path.sep}dist${path.sep}`);
   });
 
   it('says so when topOffenders is a slice, and how many it dropped', async () => {

@@ -52,7 +52,22 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..', '..');
 
+/**
+ * Default destination. Overridable via `AUDIT_REPORTS_DIR` so a caller can
+ * write somewhere else — which tests MUST do: this path is under `dist/`, and
+ * merely writing here CREATES `dist/` at the repo root. Several behavioural
+ * suites (`tests/seo/cathedral-*.test.ts`) guard on `fs.existsSync(DIST)` and
+ * skip when it is absent, so a stray report file flips them from "skipped" to
+ * "asserting against an almost-empty dist" — 13 failures with no code change
+ * behind them. Resolved per call, not frozen at import, so a test can set it
+ * in `beforeEach`.
+ */
 export const AUDIT_REPORTS_DIR = join(ROOT, 'dist', 'audit-reports');
+
+function reportsDir() {
+  const override = process.env.AUDIT_REPORTS_DIR;
+  return override && override.trim() ? resolve(override) : AUDIT_REPORTS_DIR;
+}
 
 /** Cap on `topOffenders.length` written to disk. Keeps individual reports
  *  small enough to upload as artifacts cheaply on the GitHub Actions free
@@ -72,7 +87,7 @@ export function auditReportPath(audit) {
     throw new TypeError('auditReportPath: `audit` must be a non-empty string');
   }
   const safe = audit.replace(/[^a-z0-9_.-]/gi, '-');
-  return join(AUDIT_REPORTS_DIR, `${safe}.json`);
+  return join(reportsDir(), `${safe}.json`);
 }
 
 /**
