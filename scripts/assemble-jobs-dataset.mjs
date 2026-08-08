@@ -342,8 +342,7 @@ function humanizeCompanyKey(key) {
  *     (same logic as the assemble-time safety net, so that net becomes a
  *     no-op for slices written after this change).
  *   - `addressLocality` is backfilled from the (sanitized) `location`.
- *   - `addressCountry` / `country` default to 'CH'; `addressRegion` defaults
- *     to the canton code.
+ *   - `addressRegion` defaults to the canton code.
  *
  * Deliberately does NOT invent `postalCode` or `streetAddress`: forging an HQ
  * postal code is exactly what slipped foreign jobs past the whitelist (the
@@ -352,14 +351,23 @@ function humanizeCompanyKey(key) {
  * stays in the assembler (`buildStableId`) to avoid a second, divergent id
  * formula.
  *
+ * Also deliberately does NOT default `addressCountry` / `country` to 'CH'
+ * when absent (#5384): an undeclared country and a declared-Swiss one are
+ * different pieces of evidence, and stamping the former as the latter at
+ * persist time destroys that distinction at rest — it is unrecoverable once
+ * the source listing expires (see #5380, where 898 already-expired jobs could
+ * no longer be re-checked because the original absence had been overwritten).
+ * The "if undeclared, treat as CH" assumption belongs at the point of
+ * consumption (`job.addressCountry || 'CH'`), where it is a local, reversible
+ * read-time choice, not a persisted assertion.
+ *
  * @param {object[]} jobs jobs about to be persisted in a slice (mutated in place)
- * @returns {{ locationFixed: number, localityBackfilled: number, countryDefaulted: number, regionDefaulted: number }}
+ * @returns {{ locationFixed: number, localityBackfilled: number, regionDefaulted: number }}
  */
 export function normalizeParsedJobsForSlice(jobs) {
   let locationFixed = 0;
   let companyFixed = 0;
   let localityBackfilled = 0;
-  let countryDefaulted = 0;
   let regionDefaulted = 0;
   for (const job of jobs) {
     if (!job || typeof job !== 'object') continue;
@@ -401,17 +409,12 @@ export function normalizeParsedJobsForSlice(jobs) {
       localityBackfilled++;
     }
 
-    if (!job.addressCountry) {
-      job.addressCountry = 'CH';
-      countryDefaulted++;
-    }
-    if (!job.country) job.country = 'CH';
     if (!job.addressRegion && job.canton) {
       job.addressRegion = String(job.canton).toUpperCase();
       regionDefaulted++;
     }
   }
-  return { locationFixed, localityBackfilled, countryDefaulted, regionDefaulted };
+  return { locationFixed, localityBackfilled, regionDefaulted };
 }
 
 function assemblerIdentity(job = {}) {
@@ -1558,8 +1561,8 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // gate so corrupted location strings never reach the assemble-time Swiss
   // whitelist (the biggest dropper). Idempotent with the assemble-time net.
   const norm = normalizeParsedJobsForSlice(jobs);
-  if (norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.countryDefaulted > 0 || norm.regionDefaulted > 0) {
-    console.log(`  🧭 Upstream normalize: location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressCountry defaulted ${norm.countryDefaulted}, addressRegion defaulted ${norm.regionDefaulted}`);
+  if (norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.regionDefaulted > 0) {
+    console.log(`  🧭 Upstream normalize: location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressRegion defaulted ${norm.regionDefaulted}`);
   }
 
   // Quality gate: flag jobs where any locale has content in the wrong language.
