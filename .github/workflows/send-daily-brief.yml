@@ -1,0 +1,113 @@
+name: Send Daily Brief Email
+
+# The daily "Bollettino del Frontaliere" digest — the email half of the
+# corpus's dated daily edition (nanakokyobashi-rgb/frontaliere-articles,
+# generate-daily-brief.yml, ~05:05 UTC nominal). This job fetches the SAME
+# payload from the public API surface (daily-brief.json + the edition's slug)
+# and sends it to the deduplicated union of the two subscriber collections
+# (~7k, NOT the ~15k a naive sum of the collections would claim — see
+# scripts/send-daily-brief.mjs's header for the rules).
+#
+# TWO SLOTS, ONE CAMPAIGN. The corpus cron's effective start drifts with
+# GitHub's scheduled-dispatch backlog (see send-job-alerts.yml's audit), so
+# the edition may not be on the API surface yet when the first slot fires —
+# the script then refuses with exit 0 and the 09:33 slot catches up. The
+# campaign-resume set (newsletter_subscribers/_meta_/campaign_sends/
+# daily-brief-YYYY-MM-DD) makes the second run a no-op for anyone already
+# served, and the capacity cap is re-evaluated per run, so overlapping slots
+# can only ever ADD coverage, never double-send.
+#
+# No cooldown coupling: this channel neither reads nor writes last_sent_at —
+# writing it would starve the newsletter and job-alert senders' mutual 36h
+# exclusion, reading it would make a daily cadence impossible. Deliberate;
+# same reasoning in the script header.
+
+on:
+  schedule:
+    - cron: '33 6,9 * * *'
+  workflow_dispatch:
+    inputs:
+      target_email:
+        description: 'Limit send to a single email (test mode). Empty = full list.'
+        required: false
+        default: ''
+        type: string
+      dry_run:
+        description: 'Plan only: count recipients, build a sample, send nothing'
+        required: false
+        default: true
+        type: boolean
+
+concurrency:
+  group: daily-brief-email
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write     # for github-issue-creator on failure
+
+jobs:
+  send-brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Send daily brief
+        continue-on-error: true
+        id: send-brief
+        env:
+          # Armed explicitly here, same convention as ENABLE_JOB_ALERTS: the
+          # script refuses a real send without it, so a local invocation can
+          # never broadcast by accident.
+          ENABLE_DAILY_BRIEF: 'true'
+          TARGET_EMAIL: ${{ inputs.target_email }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
+            node scripts/send-daily-brief.mjs --dry-run
+          else
+            node scripts/send-daily-brief.mjs
+          fi
+
+      - name: Report failure to GitHub Issues
+        if: steps.send-brief.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "CI Failure: ${{ github.workflow }}" \
+            --description "## Daily brief invio fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Branch:** ${{ github.ref_name }}
+          **Trigger:** ${{ github.event_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
