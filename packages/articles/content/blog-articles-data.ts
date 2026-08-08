@@ -28083,6 +28083,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'adolescenti-shifting-famiglia-recensioni-film',
+ category: 'pratico',
+ date: '2026-08-08T02:26:09.159Z',
+ image: '/images/blog/adolescenti-shifting-famiglia-recensioni-film.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

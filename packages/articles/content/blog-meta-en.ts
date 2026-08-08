@@ -9355,6 +9355,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.calo-frontalieri-italiani-ticino.title': 'Decrease in Italian border crossers in Ticino: UST DATA',
     'blog.article.calo-frontalieri-italiani-ticino.excerpt': 'UST data show a decrease of 0.6% for border crossers in Ticino and 1.1% for Italians between April and June compared to 2025.',
     'blog.article.calo-frontalieri-italiani-ticino.imageAlt': 'View of the border between Italy and Switzerland in Chiasso with commuter flows',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.title': 'Shifting and family: two films from the Locarno Festival',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.excerpt': 'The reviews of \'Los días libres\' by Lucila Mariani and \'Ego Reach We All\' by Ghanaian Amartei Armar.',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.imageAlt': 'Locarno lakeside promenade at sunset with the Grand Hotel and mountains in the background',
 };
 
 export default blogMetaEn;

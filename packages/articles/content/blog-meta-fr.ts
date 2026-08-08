@@ -9357,6 +9357,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.calo-frontalieri-italiani-ticino.title': 'Baisse des frontières italiennes au Tessin : les données DE l\'OFS',
     'blog.article.calo-frontalieri-italiani-ticino.excerpt': 'Les données de l\'OFS montrent une baisse de 0,6 % du nombre de frontaliers au Tessin et de 1,1 % pour les Italiens entre avril et juin par rapport à 2025.',
     'blog.article.calo-frontalieri-italiani-ticino.imageAlt': 'Vue de la frontière entre l\'Italie et la Suisse à Chiasso avec les flux de frontaliers',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.title': 'Shifting et famille : deux films du Locarno Festival',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.excerpt': 'Les critiques de \'Los días libres\' de Lucila Mariani et \'Ego Reach We Alla du Ghanéen Amartei Armar.',
+    'blog.article.adolescenti-shifting-famiglia-recensioni-film.imageAlt': 'Promenade au bord du lac de Locarno au coucher du soleil avec le Grand Hôtel et les montagnes en arrière-plan',
 };
 
 export default blogMetaFr;
