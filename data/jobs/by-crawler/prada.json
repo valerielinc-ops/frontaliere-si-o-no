@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "prada-2aad678011b8",
-      "slug": "prada-department-manager-prada-group-macau",
+      "slug": "direttore-del-dipartimento-di-prada-prada-group-macau",
       "slugByLocale": {
         "en": "prada-department-manager-prada-group-macau",
-        "it": "prada-department-manager-prada-group-macau",
-        "de": "prada-department-manager-prada-group-macau",
-        "fr": "prada-department-manager-prada-group-macau"
+        "it": "direttore-del-dipartimento-di-prada-prada-group-macau",
+        "de": "prada-abteilung-prada-group-macau",
+        "fr": "directeur-du-departement-prada-prada-group-macau"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -60,7 +60,21 @@
       },
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-08T09:57:09.108Z"
+      "firstSeenAt": "2026-08-08T09:57:09.108Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "prada-department-manager-prada-group-macau"
+        ],
+        "de": [
+          "prada-department-manager-prada-group-macau"
+        ],
+        "fr": [
+          "prada-department-manager-prada-group-macau"
+        ]
+      },
+      "previousSlugs": [
+        "prada-department-manager-prada-group-macau"
+      ]
     },
     {
       "id": "prada-6c4e57745113",
