@@ -50,6 +50,68 @@ describe('article SEO fallback builder', () => {
     expect(sections.map((s) => s.html)).toEqual(['<h3>Titolo principale</h3><p>Testo del paragrafo.</p>']);
   });
 
+  // Issue #5415: the daily brief ships two pipe tables per edition. Before this,
+  // the engine had no table branch, so their rows landed in paragraphBuf and were
+  // joined with spaces into one <p> of raw pipes — verified live on 2026-08-08
+  // across all four locales (0 <table>, pipes visible).
+  describe('pipe tables', () => {
+    const table = [
+      '| Valico | Attesa |',
+      '|---|---|',
+      '| Chiasso-Brogeda | 12 min |',
+      '| Ponte Tresa | 0 min |',
+    ].join('\n');
+
+    it('renders a pipe table as a real table, not a paragraph of pipes', () => {
+      const [section] = cleanupArticleBodySections(keyed([table]));
+
+      expect(section.html).toBe(
+        '<table><thead><tr><th>Valico</th><th>Attesa</th></tr></thead>'
+        + '<tbody><tr><td>Chiasso-Brogeda</td><td>12 min</td></tr>'
+        + '<tr><td>Ponte Tresa</td><td>0 min</td></tr></tbody></table>',
+      );
+      expect(section.html).not.toContain('|');
+    });
+
+    it('renders inline markup inside cells', () => {
+      const [section] = cleanupArticleBodySections(keyed([
+        '| Voce | Valore |\n|---|---|\n| **Cambio** | [1.07](/cambio-chf-eur/) |',
+      ]));
+
+      expect(section.html).toContain('<td><strong>Cambio</strong></td>');
+      expect(section.html).toContain('<td><a href="/cambio-chf-eur/">1.07</a></td>');
+    });
+
+    it('keeps surrounding prose in its own blocks', () => {
+      const [section] = cleanupArticleBodySections(keyed([`Prima.\n\n${table}\n\nDopo.`]));
+
+      expect(section.html).toBe(`<p>Prima.</p>${cleanupArticleBodySections(keyed([table]))[0].html}<p>Dopo.</p>`);
+    });
+
+    // The engine renders 3.100+ articles that never meant to draw a table. A `|`
+    // in ordinary prose must stay ordinary prose — the separator row is what
+    // makes a table a table.
+    it('leaves prose containing a pipe alone', () => {
+      const [section] = cleanupArticleBodySections(keyed([
+        'Il modulo va compilato | firmato | consegnato entro il 30 giugno.',
+      ]));
+
+      expect(section.html).toBe('<p>Il modulo va compilato | firmato | consegnato entro il 30 giugno.</p>');
+    });
+
+    it('leaves pipe-prefixed lines with no separator row alone', () => {
+      const [section] = cleanupArticleBodySections(keyed(['| a | b |\n| c | d |']));
+
+      expect(section.html).toBe('<p>| a | b | | c | d |</p>');
+    });
+
+    it('escapes cell content before adding markup', () => {
+      const [section] = cleanupArticleBodySections(keyed(['| A |\n|---|\n| <script>x</script> & co |']));
+
+      expect(section.html).toContain('<td>&lt;script&gt;x&lt;/script&gt; &amp; co</td>');
+    });
+  });
+
   it('preserves the source key when an intermediate body section is empty, so heading pairing never shifts (#3205)', () => {
     const sections = cleanupArticleBodySections(keyed([
       'Testo del primo blocco.',

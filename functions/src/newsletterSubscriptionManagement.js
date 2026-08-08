@@ -194,7 +194,7 @@ function serializeAlertDoc(id, data) {
  };
 }
 
-export async function handleSubscriptionManagement({ action, email, token, locale, secret, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, db: injectedDb }) {
+export async function handleSubscriptionManagement({ action, email, token, locale, secret, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, dailyBriefFrequency = undefined, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
  const normalizedEmail = normalizeEmail(email);
 
@@ -210,7 +210,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  } catch { /* fallback to 'it' */ }
  }
 
- const validActions = ['unsubscribe', 'resubscribe', 'confirm', 'exchange_auth_code', 'get_autologin_status', 'toggle_autologin', 'get_full_status', 'toggle_newsletter_subscription', 'delete_alert', 'update_alert', 'create_alert'];
+ const validActions = ['unsubscribe', 'resubscribe', 'confirm', 'exchange_auth_code', 'get_autologin_status', 'toggle_autologin', 'get_full_status', 'toggle_newsletter_subscription', 'delete_alert', 'update_alert', 'create_alert', 'set_daily_brief_frequency'];
  if (!validActions.includes(action)) {
  return { status: 400, html: buildResponseHtml({ title: t(lang, 'manageErrorTitle'), message: t(lang, 'manageErrorInvalidAction'), showResubscribe: false, email: '', token: '', locale: lang }) };
  }
@@ -333,6 +333,14 @@ export async function handleSubscriptionManagement({ action, email, token, local
  newsletter = {
  subscribed,
  autologinEnabled: data.autologin_enabled !== false,
+ // Daily brief cadence (#5415 §3.7). `dailyBriefFrequency` is null when the
+ // engine is driving; a string when the reader pinned one. `dailyBriefTier`
+ // is what the engine currently computes, shown so "automatic" is not an
+ // opaque promise — the reader can see the frequency it produced.
+ dailyBriefFrequency: typeof data.daily_brief_frequency_override === 'string'
+ ? data.daily_brief_frequency_override
+ : null,
+ dailyBriefTier: Number.isFinite(data.daily_brief_tier) ? data.daily_brief_tier : null,
  };
  }
 
@@ -405,6 +413,44 @@ export async function handleSubscriptionManagement({ action, email, token, local
  return { status: 200, json: { success: true, subscribed: desired } };
  } catch (err) {
  console.error('[toggle_newsletter_subscription] Failed:', err?.message);
+ return { status: 500, json: { success: false, error: 'write_failed' } };
+ }
+ }
+
+ // Daily-brief cadence, pinned by the reader (#5415 §3.7). The engine adapts
+ // frequency from per-recipient click history; that is only acceptable with an
+ // opt-out the reader can actually reach, and this is it. Writing `null` hands
+ // the channel back to the engine; 'off' stops the brief WITHOUT touching the
+ // weekly newsletter or the job alerts, which are separate subscriptions.
+ if (action === 'set_daily_brief_frequency') {
+ const requested = dailyBriefFrequency == null || dailyBriefFrequency === 'auto'
+ ? null
+ : String(dailyBriefFrequency).trim();
+ const ALLOWED = ['daily', 'every-2', 'every-3', 'every-5', 'weekly', 'off'];
+ if (requested !== null && !ALLOWED.includes(requested)) {
+ return { status: 400, json: { success: false, error: 'invalid_frequency' } };
+ }
+ try {
+ await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
+ email: normalizedEmail,
+ daily_brief_frequency_override: requested === null
+ ? admin.firestore.FieldValue.delete()
+ : requested,
+ daily_brief_override_updated_at: admin.firestore.FieldValue.serverTimestamp(),
+ }, { merge: true });
+
+ await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
+ email: normalizedEmail,
+ event_type: 'daily_brief_frequency_set',
+ frequency: requested,
+ source_channel: 'preferences_link',
+ timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ occurred_at: new Date().toISOString(),
+ });
+
+ return { status: 200, json: { success: true, dailyBriefFrequency: requested } };
+ } catch (err) {
+ console.error('[set_daily_brief_frequency] Failed:', err?.message);
  return { status: 500, json: { success: false, error: 'write_failed' } };
  }
  }

@@ -233,8 +233,13 @@ export function autoLinkKeywords(text: string, navigators: NavigatorMap): string
 
 function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactNode[] {
  const parts: ReactNode[] = [];
- // Match [link](nav:xxx), [link](https://...), [link](/relative-path/), **bold**, or *italic* — links take priority
- const regex = /(\[([^\]]+)\]\(nav:([a-z0-9\-]+)\))|(\[([^\]]+)\]\((https?:\/\/[^)]+)\))|(\[([^\]]+)\]\((\/[^)]+)\))|(\*\*(.+?)\*\*)|(\*(.+?)\*)/g;
+ // Match [link](nav:xxx), [link](https://...), [link](/relative-path/), **bold**, *italic* or `code` — links take priority.
+ // `code` is LAST so the existing capture-group numbering below stays put; that also means an
+ // asterisk inside a code span still wins as italic, which markdown-lite bodies never do.
+ // It has to be here at all because the static engine renders `code` (renderInlineMarkup in
+ // articleSeoFallback.ts) and the day-one recovery path hands it back as backticks — without
+ // this branch the hydrated article showed the backticks raw (issue #5415 §2a).
+ const regex = /(\[([^\]]+)\]\(nav:([a-z0-9\-]+)\))|(\[([^\]]+)\]\((https?:\/\/[^)]+)\))|(\[([^\]]+)\]\((\/[^)]+)\))|(\*\*(.+?)\*\*)|(\*(.+?)\*)|(`([^`]+)`)/g;
  let lastIndex = 0;
  let match: RegExpExecArray | null;
  let key = 0;
@@ -293,6 +298,9 @@ function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactN
  } else if (match[13]) {
  // Recursively process italic content so nested links are rendered (e.g. *Fonte: [text](url)*)
  parts.push(<em key={`i${key++}`} className="italic">{renderInlineFormatting(match[13], navigators)}</em>);
+ } else if (match[15]) {
+ // `code` — literal by definition, so no recursion into it
+ parts.push(<code key={`c${key++}`} className="px-1.5 py-0.5 rounded bg-surface-alt text-[0.9em] font-mono text-strong">{match[15]}</code>);
  }
  lastIndex = regex.lastIndex;
  }
@@ -300,8 +308,15 @@ function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactN
  return parts;
 }
 
-/** Try to render a markdown table from text. Returns null if not a valid table. */
-function tryRenderMdTable(text: string, keyPrefix: string, navigators?: NavigatorMap): ReactElement | null {
+/**
+ * Try to render a markdown table from text. Returns null if not a valid table.
+ *
+ * Exported for the round-trip gate in `tests/runtime-article-resolution.test.ts`:
+ * the static engine renders a `<table>`, `runtimeArticleResolution` turns it
+ * back into pipes, and THIS is the parser that has to accept the result — a
+ * day-one article whose table fails here shows the visitor raw pipes (#5415).
+ */
+export function tryRenderMdTable(text: string, keyPrefix: string, navigators?: NavigatorMap): ReactElement | null {
  if (!text.includes('|') || !/^\|[^|]+\|/m.test(text)) return null;
  const tableLines = text.split('\n').filter(l => l.trim().startsWith('|'));
  const isSeparator = (line: string) => /^\|(\s*:?-{2,}:?\s*\|)+\s*$/.test(line.trim());

@@ -75,6 +75,29 @@ const LIST_LINE_RX = /^[-*]\s+/;
 const QUOTE_LINE_RX = /^>\s?/;
 const HEADING_LINE_RX = /^(#{1,6})\s+(.+)$/;
 
+// Pipe tables. The SPA's renderer (tryRenderMdTable in BlogArticles.tsx) has
+// accepted them since long before any body used one; this engine never did, so
+// the daily brief's two tables were merged into paragraphBuf and shipped as a
+// <p> of raw pipes (issue #5415). Same grammar as the SPA, deliberately: a row
+// is a line starting with `|`, and the block only counts as a table when the
+// SECOND line is a `|---|` separator. Requiring the separator in that exact
+// position is what keeps ordinary prose containing a `|` a paragraph — the
+// engine renders 3.100+ articles that never meant to draw a table.
+const TABLE_ROW_RX = /^\|/;
+const TABLE_SEPARATOR_RX = /^\|(\s*:?-{2,}:?\s*\|)+\s*$/;
+
+/** `| a | b |` → ['a', 'b'] — outer pipes dropped, cells trimmed (SPA parseCells). */
+const parseTableCells = (line: string): string[] =>
+ line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((cell) => cell.trim());
+
+const renderTableBlock = (headerLine: string, bodyLines: string[]): string => {
+ const head = parseTableCells(headerLine).map((cell) => `<th>${renderInlineMarkup(cell)}</th>`).join('');
+ const body = bodyLines
+ .map((row) => `<tr>${parseTableCells(row).map((cell) => `<td>${renderInlineMarkup(cell)}</td>`).join('')}</tr>`)
+ .join('');
+ return `<table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
+};
+
 // Splits article body markdown (headings, bullet lists, blockquotes, bold/italic/links)
 // into an ordered list of self-contained HTML blocks (one per heading/paragraph/list/quote).
 const buildArticleBodyBlocks = (text: string): string[] => {
@@ -107,6 +130,23 @@ const buildArticleBodyBlocks = (text: string): string[] => {
  const level = Math.min(Math.max(heading[1].length, 2) + 1, 4);
  out.push(`<h${level}>${renderInlineMarkup(heading[2])}</h${level}>`);
  i++;
+ continue;
+ }
+
+ // Checked before the list branch: `|---|` does not start with `-`, but keeping
+ // the stricter test first makes the precedence explicit rather than incidental.
+ if (TABLE_ROW_RX.test(trimmed) && i + 1 < lines.length && TABLE_SEPARATOR_RX.test(lines[i + 1].trim())) {
+ flushParagraph();
+ const headerLine = trimmed;
+ i += 2; // header row + separator row
+ const bodyLines: string[] = [];
+ while (i < lines.length && TABLE_ROW_RX.test(lines[i].trim())) {
+ // A repeated separator inside the block is not a row: skipping it beats
+ // emitting a cell of dashes.
+ if (!TABLE_SEPARATOR_RX.test(lines[i].trim())) bodyLines.push(lines[i].trim());
+ i++;
+ }
+ out.push(renderTableBlock(headerLine, bodyLines));
  continue;
  }
 

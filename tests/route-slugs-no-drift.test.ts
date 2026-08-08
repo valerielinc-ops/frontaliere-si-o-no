@@ -134,4 +134,33 @@ describe('route-slugs anti-drift guard (#4315)', () => {
       expect(variants[locale]).toBe(expected);
     }
   });
+
+  // #5415: the daily brief's four data blocks each link to their live page.
+  // Neither of these two lives in SLUG_TABLES — the border-wait section and the
+  // fuel tracker are emitted by their own build plugins — so the sources of
+  // truth are those plugins, and the map in newsletterUrlPaths.js is the forced
+  // copy an .mjs sender can actually import.
+  it('functions/src/lib/newsletterUrlPaths.js border-wait paths stay in sync with borderWaitData.ts', async () => {
+    const { LOCALE_PATH_MAP } = await import('../functions/src/lib/newsletterUrlPaths.js');
+    const { BORDER_WAIT_SECTION } = await import('../build-plugins/borderWaitData');
+    const variants = LOCALE_PATH_MAP['/traffico-dogane'];
+    expect(variants).toBeTruthy();
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const expected = locale === 'it'
+        ? `/${BORDER_WAIT_SECTION.it}`
+        : `/${locale}/${BORDER_WAIT_SECTION[locale]}`;
+      expect(variants[locale]).toBe(expected);
+    }
+  });
+
+  it('functions/src/lib/newsletterUrlPaths.js fuel paths stay in sync with comparatorHref.ts FUEL_HREF', async () => {
+    const { LOCALE_PATH_MAP } = await import('../functions/src/lib/newsletterUrlPaths.js');
+    const { FUEL_HREF } = await import('../build-plugins/shared/comparatorHref');
+    const variants = LOCALE_PATH_MAP['/prezzi-benzina/oggi'];
+    expect(variants).toBeTruthy();
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      // FUEL_HREF carries the trailing slash; LOCALE_PATH_MAP is bare by contract.
+      expect(`${variants[locale]}/`).toBe(FUEL_HREF[locale]);
+    }
+  });
 });

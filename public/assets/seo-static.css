@@ -2030,6 +2030,13 @@ aside.seo-footer-block .seo-fb-section-body a:hover,
 .ft-blog-article code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--color-surface-alt);padding:.15em .4em;border-radius:4px}
 .ft-blog-article a{color:var(--color-link);text-decoration:underline;text-underline-offset:2px;font-weight:500}
 .ft-blog-article a:hover{text-decoration-thickness:2px}
+/* Pipe tables (articleSeoFallback.ts renderTableBlock, issue #5415). Mirrors the
+   hydrated look of tryRenderMdTable in BlogArticles.tsx so the static and the
+   React render of the same table read the same. */
+.ft-blog-article table{width:100%;border-collapse:collapse;font-size:.9rem;margin:16px 0;display:block;overflow-x:auto}
+.ft-blog-article th,.ft-blog-article td{border:1px solid var(--color-edge);padding:8px 12px;text-align:left}
+.ft-blog-article th{background:var(--color-surface-alt);font-weight:600;color:var(--color-heading)}
+.ft-blog-article tbody tr:nth-child(even){background:var(--color-surface-alt)}
 
 /* Blog article body (staticPagesPlugin.ts <div class="s-6z0aHu ft-blog-body">): this template already
    has its own classes for h1/h2/section/p (s-lHdmvf/s-pIiivc/s-Zua2Uq/s-F2hp6o), so only style the tags
@@ -2044,3 +2051,7 @@ aside.seo-footer-block .seo-fb-section-body a:hover,
 .ft-blog-body blockquote p{margin:0}
 .ft-blog-body code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--color-surface-alt);padding:.15em .4em;border-radius:4px}
 .ft-blog-body a{color:var(--color-link);text-decoration:underline;text-underline-offset:2px;font-weight:500}
+.ft-blog-body table{width:100%;border-collapse:collapse;font-size:.9rem;margin:14px 0;display:block;overflow-x:auto}
+.ft-blog-body th,.ft-blog-body td{border:1px solid var(--color-edge);padding:8px 12px;text-align:left}
+.ft-blog-body th{background:var(--color-surface-alt);font-weight:600;color:var(--color-heading)}
+.ft-blog-body tbody tr:nth-child(even){background:var(--color-surface-alt)}

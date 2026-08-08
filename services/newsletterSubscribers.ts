@@ -993,10 +993,28 @@ export type SubscriptionAlertSummary = {
  createdAt: number | null;
 };
 
+/**
+ * What the reader can pin for the daily brief (#5415 §3.7). `null`/absent means
+ * the engine picks the cadence from engagement; 'off' stops the bulletin alone,
+ * leaving the weekly newsletter and the job alerts untouched.
+ *
+ * Kept in step with FREQUENCY_OVERRIDES in scripts/lib/dailyBriefCadence.mjs by
+ * tests/daily-brief-preferences.test.ts — the sender cannot import this file.
+ */
+export const DAILY_BRIEF_FREQUENCIES = ['daily', 'every-2', 'every-3', 'every-5', 'weekly', 'off'] as const;
+export type DailyBriefFrequency = typeof DAILY_BRIEF_FREQUENCIES[number];
+
 export type FullSubscriptionStatus = {
  success: boolean;
  email?: string;
- newsletter?: { subscribed: boolean; autologinEnabled: boolean };
+ newsletter?: {
+ subscribed: boolean;
+ autologinEnabled: boolean;
+ /** Daily-brief cadence pinned by the reader, or null when the engine drives it (#5415 §3.7). */
+ dailyBriefFrequency?: DailyBriefFrequency | null;
+ /** Days between sends the engine currently computes — shown so "automatic" is legible. */
+ dailyBriefTier?: number | null;
+ };
  alerts?: SubscriptionAlertSummary[];
  error?: string;
 };
@@ -1022,6 +1040,10 @@ export async function getFullSubscriptionStatus(
  newsletter: {
  subscribed: data.newsletter?.subscribed === true,
  autologinEnabled: data.newsletter?.autologinEnabled !== false,
+ dailyBriefFrequency: DAILY_BRIEF_FREQUENCIES.includes(data.newsletter?.dailyBriefFrequency)
+ ? data.newsletter.dailyBriefFrequency
+ : null,
+ dailyBriefTier: typeof data.newsletter?.dailyBriefTier === 'number' ? data.newsletter.dailyBriefTier : null,
  },
  alerts: Array.isArray(data.alerts)
  ? data.alerts.map((a: any) => ({
@@ -1066,6 +1088,35 @@ export async function toggleNewsletterSubscription(
  return { success: false, error: data?.error || 'write_failed' };
  } catch (error: any) {
  console.warn('[newsletter] toggleNewsletterSubscription failed:', error?.message);
+ return { success: false, error: error?.message || 'unknown_error' };
+ }
+}
+
+/**
+ * Pin (or release) the daily brief's send cadence for an HMAC-authed email.
+ *
+ * `frequency: null` hands the channel back to the engagement engine; 'off'
+ * stops the bulletin without touching the weekly newsletter or the job alerts.
+ * Backend route: ?action=set_daily_brief_frequency.
+ */
+export async function setDailyBriefFrequency(
+ email: string,
+ token: string,
+ frequency: DailyBriefFrequency | null,
+): Promise<{ success: boolean; dailyBriefFrequency?: DailyBriefFrequency | null; error?: string }> {
+ try {
+ const normalizedEmail = email.toLowerCase().trim();
+ const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
+ const url = `${endpoint}?action=set_daily_brief_frequency&email=${encodeURIComponent(normalizedEmail)}`
+ + `&token=${encodeURIComponent(token)}&daily_brief_frequency=${encodeURIComponent(frequency ?? 'auto')}&format=json`;
+ const resp = await fetch(url);
+ const data = await resp.json();
+ if (resp.ok && data.success) {
+ return { success: true, dailyBriefFrequency: data.dailyBriefFrequency ?? null };
+ }
+ return { success: false, error: data?.error || 'write_failed' };
+ } catch (error: any) {
+ console.warn('[newsletter] setDailyBriefFrequency failed:', error?.message);
  return { success: false, error: error?.message || 'unknown_error' };
  }
 }
