@@ -9370,6 +9370,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-08.title': 'Cross-border daily brief – August 8, 2026: 1\'188 new job listings yesterday',
     'blog.article.bollettino-frontaliere-2026-08-08.excerpt': 'Today\'s numbers for cross-border commuters: border waits, the cheapest fuel municipalities, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-08-08.imageAlt': 'The day\'s numbers for cross-border commuters – August 8, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.areu-cerca-30-assistenti-tecnici.title': 'AREU is looking for 30 technical assistants: Varese and 112 at stake',
+    'blog.article.areu-cerca-30-assistenti-tecnici.excerpt': 'The ranking can also be used to cover the needs of the Single Response Centres of the Single Number 112',
+    'blog.article.areu-cerca-30-assistenti-tecnici.imageAlt': 'A person sitting in front of a computer with a serious expression, with the background of Lugano',
 };
 
 export default blogMetaEn;

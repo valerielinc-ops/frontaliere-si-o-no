@@ -60560,6 +60560,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-areu-cerca-30-assistenti-tecnici': {
+    title: 'AREU cerca 30 assistenti tecnici: Varese e 112 in gioco',
+    description: 'La Centrale NEA 116117 ha pubblicato un avviso pubblico per l\'assunzione di 30 assistenti tecnici con contratto a tempo determinato di 12 mesi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, areu, cerca, assistenti, tecnici',
+    ogTitle: 'AREU cerca 30 assistenti tecnici: opportunità anche per la centrale del 112 di Varese',
+    ogDescription: 'La Centrale NEA 116117 ha pubblicato un avviso pubblico per l\'assunzione di 30 assistenti tecnici con contratto a tempo determinato di 12 mesi.',
+    canonicalPath: '/articoli-frontaliere/areu-cerca-30-assistenti-tecnici',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AREU cerca 30 assistenti tecnici: Varese e 112 in gioco",
+      "description": "La Centrale NEA 116117 ha pubblicato un avviso pubblico per l'assunzione di 30 assistenti tecnici con contratto a tempo determinato di 12 mesi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/areu-cerca-30-assistenti-tecnici.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una persona seduta davanti a un computer con un'espressione seria, con lo sfondo di Lugano"
+      },
+      "datePublished": "2026-08-08T18:53:05+00:00",
+      "dateModified": "2026-08-08T18:53:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/areu-cerca-30-assistenti-tecnici/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
