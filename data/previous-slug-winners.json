@@ -3285,12 +3285,12 @@
     "canton": "AG"
   },
   "AG::it::pflegefachfrau-pflegefachmann-hf-fh-rehaklinik-bellikon-bellikon": {
-    "winnerJobIdentifier": "reha-bellikon-0cfcdaadd357",
-    "winnerCanonical": "pflegefachfrau-pflegefachmann-hf-fh-rehaklinik-bellikon",
-    "decidedAt": "2026-08-05T00:00:00.000Z",
+    "winnerJobIdentifier": "reha-bellikon-da1ed1a40e44",
+    "winnerCanonical": "specialista-infermieristico-hf-fh-riabilitazione-precoce-rehaklinik-bellikon-bellikon-e0ab57",
+    "decidedAt": "2026-08-08T00:00:00.000Z",
     "lastSeenAt": "2026-08-08T00:00:00.000Z",
-    "score": 1,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::it::praktikant-in-kulturvermittlung-80-kanton-aargau-ch": {
@@ -15110,6 +15110,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::it::dipl-pflegefachperson-hf-fh-tagesklinik-aufwachraum-40-80-sro-langenthal": {
+    "winnerJobIdentifier": "sro-6bb76839d99b",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-day-clinic-recuperare-stanza-40-80-sro-ag-spital-region-oberaargau-langenthal",
+    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "lastSeenAt": "2026-08-08T00:00:00.000Z",
+    "score": 0.35,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::dipl-pflegefachperson-psychiatriezentrum-munsingen-biel": {
     "winnerJobIdentifier": "pzm-muensingen-dc51e71b726b",
     "winnerCanonical": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen",
@@ -17019,12 +17028,12 @@
     "canton": "BE"
   },
   "BE::it::rayonleiter-in-wein-getranke-coop-urtenen-schonbuhl-bern": {
-    "winnerJobIdentifier": "company-mi200n",
-    "winnerCanonical": "conduttore-rayon-in-vino-bevande-coop-genossenschaft-urtenen-schonbuhl",
+    "winnerJobIdentifier": "company-666h6",
+    "winnerCanonical": "conduttore-rayon-in-vino-bevande-coop-genossenschaft-urtenen-schonbuhl-48b393",
     "decidedAt": "2026-08-08T00:00:00.000Z",
     "lastSeenAt": "2026-08-08T00:00:00.000Z",
-    "score": 0.3077,
-    "candidatesCount": 2,
+    "score": 0.2857,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::rhumatologie-du-medecin-ou-du-medecin-principal-a-spital-emmental-burgdorf": {
@@ -18648,12 +18657,12 @@
     "canton": "BE"
   },
   "BE::it::verkaufer-in-frischprodukte-coop-koniz-bern": {
-    "winnerJobIdentifier": "company-brhmo",
-    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-koniz",
+    "winnerJobIdentifier": "company-perp0h",
+    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-koniz-9577cb",
     "decidedAt": "2026-08-08T00:00:00.000Z",
     "lastSeenAt": "2026-08-08T00:00:00.000Z",
-    "score": 0.2,
-    "candidatesCount": 2,
+    "score": 0.1818,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::verkaufer-in-im-stundenlohn-denner": {
@@ -18666,12 +18675,12 @@
     "canton": "BE"
   },
   "BE::it::verkaufer-in-kassen-services-coop-huttwil-bern": {
-    "winnerJobIdentifier": "company-qv5n2n",
-    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-huttwil",
+    "winnerJobIdentifier": "company-gyzjx0",
+    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-huttwil-020358",
     "decidedAt": "2026-08-08T00:00:00.000Z",
     "lastSeenAt": "2026-08-08T00:00:00.000Z",
-    "score": 0.2727,
-    "candidatesCount": 2,
+    "score": 0.25,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::verkaufer-in-kassen-services-coop-laupen-bern": {
@@ -18945,12 +18954,12 @@
     "canton": "BE"
   },
   "BE::it::weinverkoster-in-coop-burgdorf-bern": {
-    "winnerJobIdentifier": "company-o41ujf",
-    "winnerCanonical": "degustatore-di-vino-in-coop-genossenschaft-burgdorf",
+    "winnerJobIdentifier": "company-l4tpjq",
+    "winnerCanonical": "degustatore-di-vino-in-coop-genossenschaft-burgdorf-5f3461",
     "decidedAt": "2026-08-08T00:00:00.000Z",
     "lastSeenAt": "2026-08-08T00:00:00.000Z",
-    "score": 0.3333,
-    "candidatesCount": 2,
+    "score": 0.3,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::weinverkoster-in-coop-genossenschaft-langnau-im-emmental-au49wh": {
@@ -20286,11 +20295,11 @@
     "canton": "GE"
   },
   "GE::fr::sales-associate-richemont-geneva": {
-    "winnerJobIdentifier": "richemont-a2f83419c8e8",
-    "winnerCanonical": "sales-associate-m-f-richemont-geneva",
-    "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-08-05T00:00:00.000Z",
-    "score": 0.6667,
+    "winnerJobIdentifier": "richemont-18639d812af9",
+    "winnerCanonical": "associe-de-vente-buccellati-geneva",
+    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "lastSeenAt": "2026-08-08T00:00:00.000Z",
+    "score": 0.125,
     "candidatesCount": 1,
     "canton": "GE"
   },
@@ -20826,11 +20835,11 @@
     "canton": "GE"
   },
   "GE::it::sales-associate-richemont-geneva": {
-    "winnerJobIdentifier": "richemont-a2f83419c8e8",
-    "winnerCanonical": "sales-associate-m-f-richemont-geneva",
-    "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-08-05T00:00:00.000Z",
-    "score": 0.6667,
+    "winnerJobIdentifier": "richemont-18639d812af9",
+    "winnerCanonical": "vendite-buccellati-geneva",
+    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "lastSeenAt": "2026-08-08T00:00:00.000Z",
+    "score": 0.1667,
     "candidatesCount": 1,
     "canton": "GE"
   },
@@ -27899,6 +27908,15 @@
     "candidatesCount": 1,
     "canton": "LU"
   },
+  "LU::it::medizinisch-technische-r-assistent-in-neurologie-spz-nottwil": {
+    "winnerJobIdentifier": "spz-486bf2e5e409",
+    "winnerCanonical": "assistente-medico-mpa-schweizer-paraplegiker-zentrum-spz-nottwil",
+    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "lastSeenAt": "2026-08-08T00:00:00.000Z",
+    "score": 0.1429,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::it::metzger-in-fleischfachfrau-fleischfachmann-coop-meggen-luzern": {
     "winnerJobIdentifier": "company-nt3zmd",
     "winnerCanonical": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-meggen",
@@ -29736,12 +29754,12 @@
     "canton": "SG"
   },
   "SG::de::unterassistent-in-2026-hoch-health-uznach": {
-    "winnerJobIdentifier": "kssg-68499d26ecd3",
-    "winnerCanonical": "unterassistent-in-2026-hoch-health-wil",
+    "winnerJobIdentifier": "hoch-health-65abacc1cf4f",
+    "winnerCanonical": "fachfrau-mann-gesundheit-40-100-hoch-health-uznach",
     "decidedAt": "2026-08-08T00:00:00.000Z",
     "lastSeenAt": "2026-08-08T00:00:00.000Z",
-    "score": 0.7143,
-    "candidatesCount": 2,
+    "score": 0.2727,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::unterassistent-in-2026-kssg-ch": {
@@ -33183,11 +33201,11 @@
     "canton": "SG"
   },
   "SG::it::assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-6f58e10a780a",
-    "winnerCanonical": "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg",
+    "winnerJobIdentifier": "psgn-2dda0f8002cd",
+    "winnerCanonical": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
     "decidedAt": "2026-08-08T00:00:00.000Z",
     "lastSeenAt": "2026-08-08T00:00:00.000Z",
-    "score": 0.5556,
+    "score": 0.4545,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -34461,11 +34479,11 @@
     "canton": "SG"
   },
   "SG::it::medecin-senior-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-3c73bb3efebd",
-    "winnerCanonical": "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg-c93a8c",
-    "decidedAt": "2026-07-27T00:00:00.000Z",
-    "lastSeenAt": "2026-08-07T00:00:00.000Z",
-    "score": 0.6667,
+    "winnerJobIdentifier": "psgn-6f58e10a780a",
+    "winnerCanonical": "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "lastSeenAt": "2026-08-08T00:00:00.000Z",
+    "score": 0.75,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -34677,11 +34695,11 @@
     "canton": "SG"
   },
   "SG::it::oberarztin-oberarzt-psgn-wil-sg": {
-    "winnerJobIdentifier": "psgn-3c73bb3efebd",
-    "winnerCanonical": "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg-c93a8c",
-    "decidedAt": "2026-07-27T00:00:00.000Z",
-    "lastSeenAt": "2026-08-07T00:00:00.000Z",
-    "score": 0.1818,
+    "winnerJobIdentifier": "psgn-6f58e10a780a",
+    "winnerCanonical": "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "lastSeenAt": "2026-08-08T00:00:00.000Z",
+    "score": 0.2,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -35127,11 +35145,11 @@
     "canton": "SG"
   },
   "SG::it::senior-physician-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-3c73bb3efebd",
-    "winnerCanonical": "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg-c93a8c",
-    "decidedAt": "2026-07-27T00:00:00.000Z",
-    "lastSeenAt": "2026-08-07T00:00:00.000Z",
-    "score": 0.6667,
+    "winnerJobIdentifier": "psgn-6f58e10a780a",
+    "winnerCanonical": "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "lastSeenAt": "2026-08-08T00:00:00.000Z",
+    "score": 0.75,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -35271,12 +35289,12 @@
     "canton": "SG"
   },
   "SG::it::sub-assistente-2026-hoch-health-ostschweiz-uznach": {
-    "winnerJobIdentifier": "kssg-68499d26ecd3",
-    "winnerCanonical": "sub-assistente-2026-hoch-health-ostschweiz-wil",
+    "winnerJobIdentifier": "hoch-health-65abacc1cf4f",
+    "winnerCanonical": "salute-professionale-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-08-08T00:00:00.000Z",
     "lastSeenAt": "2026-08-08T00:00:00.000Z",
-    "score": 0.75,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::subassistance-in-2026-hoch-health-ostschweiz-uznach": {
@@ -45162,11 +45180,11 @@
     "canton": "TI"
   },
   "TI::de::fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev": {
-    "winnerJobIdentifier": "company-4333hx",
-    "winnerCanonical": "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-16T00:00:00.000Z",
-    "lastSeenAt": "2026-07-17T00:00:00.000Z",
-    "score": 0.3333,
+    "winnerJobIdentifier": "company-4333g2",
+    "winnerCanonical": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "lastSeenAt": "2026-08-08T00:00:00.000Z",
+    "score": 0.3846,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -45621,11 +45639,11 @@
     "canton": "TI"
   },
   "TI::en::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be": {
-    "winnerJobIdentifier": "company-4333hs",
-    "winnerCanonical": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
+    "winnerJobIdentifier": "company-4333g2",
+    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-08-08T00:00:00.000Z",
     "lastSeenAt": "2026-08-08T00:00:00.000Z",
-    "score": 0.4545,
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -45693,20 +45711,20 @@
     "canton": "TI"
   },
   "TI::en::graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-4333hs",
-    "winnerCanonical": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
+    "winnerJobIdentifier": "company-4333fc",
+    "winnerCanonical": "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-08-08T00:00:00.000Z",
     "lastSeenAt": "2026-08-08T00:00:00.000Z",
-    "score": 0.4545,
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fe1cbf": {
-    "winnerJobIdentifier": "company-4333hs",
-    "winnerCanonical": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
+    "winnerJobIdentifier": "company-4333fc",
+    "winnerCanonical": "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-08-08T00:00:00.000Z",
     "lastSeenAt": "2026-08-08T00:00:00.000Z",
-    "score": 0.4545,
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -45855,11 +45873,11 @@
     "canton": "TI"
   },
   "TI::en::nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uikzlh",
-    "winnerCanonical": "nursing-practitioner-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-feezrj",
+    "winnerCanonical": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-08-08T00:00:00.000Z",
     "lastSeenAt": "2026-08-08T00:00:00.000Z",
-    "score": 0.75,
+    "score": 0.875,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -45954,11 +45972,11 @@
     "canton": "TI"
   },
   "TI::en::physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-4333hx",
-    "winnerCanonical": "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47",
-    "decidedAt": "2026-07-16T00:00:00.000Z",
-    "lastSeenAt": "2026-07-17T00:00:00.000Z",
-    "score": 0.3571,
+    "winnerJobIdentifier": "company-4333g2",
+    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "lastSeenAt": "2026-08-08T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -46359,11 +46377,11 @@
     "canton": "TI"
   },
   "TI::fr::physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-4333hw",
-    "winnerCanonical": "assistant-e-en-economie-domestique-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
-    "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.3846,
+    "winnerJobIdentifier": "company-4333g2",
+    "winnerCanonical": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "lastSeenAt": "2026-08-08T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -46377,19 +46395,19 @@
     "canton": "TI"
   },
   "TI::fr::physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-050a3d": {
-    "winnerJobIdentifier": "company-4333fb",
-    "winnerCanonical": "ergotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-08-07T00:00:00.000Z",
-    "lastSeenAt": "2026-08-07T00:00:00.000Z",
+    "winnerJobIdentifier": "company-4333g2",
+    "winnerCanonical": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "lastSeenAt": "2026-08-08T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-4333fb",
-    "winnerCanonical": "ergotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-08-07T00:00:00.000Z",
-    "lastSeenAt": "2026-08-07T00:00:00.000Z",
+    "winnerJobIdentifier": "company-4333g2",
+    "winnerCanonical": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "lastSeenAt": "2026-08-08T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 1,
     "canton": "TI"
@@ -47241,8 +47259,8 @@
     "canton": "TI"
   },
   "TI::it::impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-uil169": {
-    "winnerJobIdentifier": "company-fef1x1",
-    "winnerCanonical": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-feey97",
+    "winnerCanonical": "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-08-08T00:00:00.000Z",
     "lastSeenAt": "2026-08-08T00:00:00.000Z",
     "score": 0.8889,
@@ -48144,7 +48162,7 @@
     "winnerJobIdentifier": "company-faodkh",
     "winnerCanonical": "zurich-insurance-sede-ticino-lugano-faodkh",
     "decidedAt": "2026-08-07T00:00:00.000Z",
-    "lastSeenAt": "2026-08-07T00:00:00.000Z",
+    "lastSeenAt": "2026-08-08T00:00:00.000Z",
     "score": 0.8333,
     "candidatesCount": 1,
     "canton": "TI"
@@ -48447,11 +48465,11 @@
     "canton": "VD"
   },
   "VD::de::icls-infirmier-clinicien-specialise-h-f-60-80-fondation-soins-lausanne-fondation-soins": {
-    "winnerJobIdentifier": "fondation-soins-lausanne-c1804e373bb5",
-    "winnerCanonical": "icls-fachkrankenschwester-h-f-60-80-lausanne-care-foundation-fondation-soins-lausanne-lausanne-8aad8a",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
-    "lastSeenAt": "2026-07-17T00:00:00.000Z",
-    "score": 0.5333,
+    "winnerJobIdentifier": "fondation-soins-lausanne-f4678a6538e8",
+    "winnerCanonical": "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne",
+    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "lastSeenAt": "2026-08-08T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "VD"
   },
@@ -48657,7 +48675,7 @@
     "winnerJobIdentifier": "fondation-soins-lausanne-6e1469263179",
     "winnerCanonical": "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
     "decidedAt": "2026-08-07T00:00:00.000Z",
-    "lastSeenAt": "2026-08-07T00:00:00.000Z",
+    "lastSeenAt": "2026-08-08T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 1,
     "canton": "VD"
@@ -49554,12 +49572,12 @@
     "canton": "VD"
   },
   "VD::it::galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbzkv": {
-    "winnerJobIdentifier": "galenica-ccc38c8491aa",
-    "winnerCanonical": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon",
+    "winnerJobIdentifier": "galenica-2f6bb1c8f701",
+    "winnerCanonical": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-ecublens",
     "decidedAt": "2026-08-08T00:00:00.000Z",
     "lastSeenAt": "2026-08-08T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.7273,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::it::galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion": {
@@ -57860,6 +57878,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::en::lehre-als-detailhandelsfachmann-frau-efz-post": {
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-449fb81e22fc",
+    "winnerCanonical": "apprenticeship-as-a-retail-trade-expert-efz-die-schweizerische-post-horgen",
+    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "lastSeenAt": "2026-08-08T00:00:00.000Z",
+    "score": 0.1333,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post": {
     "winnerJobIdentifier": "posta-svizzera-centro-regionale-b72e38342458",
     "winnerCanonical": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-hinwil",
@@ -62825,6 +62852,15 @@
     "decidedAt": "2026-08-05T00:00:00.000Z",
     "lastSeenAt": "2026-08-08T00:00:00.000Z",
     "score": 0.3684,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::lehre-als-detailhandelsfachmann-frau-efz-post": {
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-aaa0b0e48c62",
+    "winnerCanonical": "apprentissage-en-tant-qu-expert-en-commerce-de-detail-efz-die-schweizerische-post-zurich",
+    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "lastSeenAt": "2026-08-08T00:00:00.000Z",
+    "score": 0.1176,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -68153,6 +68189,15 @@
     "decidedAt": "2026-08-08T00:00:00.000Z",
     "lastSeenAt": "2026-08-08T00:00:00.000Z",
     "score": 0.2353,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch": {
+    "winnerJobIdentifier": "ksw-2804d52fb092",
+    "winnerCanonical": "expertin-experte-intensivpflege-nds-intensivmedizin-kantonsspital-winterthur-ksw-winterthur",
+    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "lastSeenAt": "2026-08-08T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 2,
     "canton": "ZH"
   },

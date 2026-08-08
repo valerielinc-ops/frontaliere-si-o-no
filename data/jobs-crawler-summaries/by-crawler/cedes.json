@@ -1,16 +1,16 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-08-08T09:48:24.244Z",
+  "generatedAt": "2026-08-08T21:36:51.394Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5499,
-  "avgDurationMs": 5499,
+  "durationMs": 4512,
+  "avgDurationMs": 4512,
   "durationHistory": [
-    5499
+    4512
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://www.cedes.com/en/career/jobs/software-test-engineer-80-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-08T09:48:21.131Z",
+      "crawledAt": "2026-08-08T21:36:49.599Z",
       "firstSeenAt": "2026-07-15T22:20:19.070Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -64,7 +64,7 @@
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-08T09:48:20.544Z",
+      "crawledAt": "2026-08-08T21:36:49.217Z",
       "firstSeenAt": "2026-06-24T21:41:21.298Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -94,7 +94,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-08T09:48:20.232Z",
+      "crawledAt": "2026-08-08T21:36:48.835Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "_qualityScore": 80,
       "_qualityBreakdown": {
@@ -127,11 +127,10 @@
       "url": "https://www.cedes.com/en/career/jobs/software-test-engineer-80-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-08T09:48:21.131Z",
+      "crawledAt": "2026-08-08T21:36:49.599Z",
       "firstSeenAt": "2026-07-15T22:20:19.070Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "country": "CH",
       "addressRegion": "GR",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -161,11 +160,10 @@
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-08T09:48:20.544Z",
+      "crawledAt": "2026-08-08T21:36:49.217Z",
       "firstSeenAt": "2026-06-24T21:41:21.298Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "country": "CH",
       "addressRegion": "GR",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -195,12 +193,11 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-08T09:48:20.232Z",
+      "crawledAt": "2026-08-08T21:36:48.835Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "country": "CH",
       "addressRegion": "GR",
       "_qualityScore": 85,
       "_qualityBreakdown": {
