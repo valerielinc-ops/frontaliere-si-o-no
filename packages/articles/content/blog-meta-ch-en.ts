@@ -1942,6 +1942,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salario-medio-professioni-svizzera-zurigo-2026.title': 'Average salary professions Switzerland 2026: focus Zurich',
     'blog.article.salario-medio-professioni-svizzera-zurigo-2026.excerpt': 'Analysis of average wages by profession in Switzerland in 2026, with a focus on the Canton of Zurich. Let\'s explore the factors of variation, official data and tax implications, considering the new Frontier Agreement in force from 1 JANUARY 2024.',
     'blog.article.salario-medio-professioni-svizzera-zurigo-2026.imageAlt': 'Cityscape of Zurich with modern buildings and people moving, symbolizing economic activity',
+    'blog.article.salario-medio-bern-2026.title': 'Average salary professions Switzerland 2026: focus Bern',
+    'blog.article.salario-medio-bern-2026.excerpt': 'Comparison of average wages between cantons and sectors, with official data and factors of variation. Focus on the canton of Bern.',
+    'blog.article.salario-medio-bern-2026.imageAlt': 'View of Bern, Switzerland, with historic buildings and modern offices',
 };
 
 export default blogMetaChEn;

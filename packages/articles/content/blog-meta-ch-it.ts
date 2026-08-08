@@ -1942,6 +1942,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salario-medio-professioni-svizzera-zurigo-2026.title': 'Salario medio professioni Svizzera 2026: focus Zurigo',
     'blog.article.salario-medio-professioni-svizzera-zurigo-2026.excerpt': 'Analisi dei salari medi per professione in Svizzera nel 2026, con un focus sul Canton Zurigo. Esploriamo i fattori di variazione, i dati ufficiali e le implicazioni fiscali, considerando il nuovo Accordo Frontalieri in vigore dal 1° GENNAIO 2024.',
     'blog.article.salario-medio-professioni-svizzera-zurigo-2026.imageAlt': 'Panorama urbano di Zurigo con edifici moderni e persone in movimento, simbolo dell\'attività economica',
+    'blog.article.salario-medio-bern-2026.title': 'Salario medio professioni Svizzera 2026: focus Berna',
+    'blog.article.salario-medio-bern-2026.excerpt': 'Confronto salari medi tra cantoni e settori, con dati ufficiali e fattori di variazione. Focus sul canton Berna.',
+    'blog.article.salario-medio-bern-2026.imageAlt': 'Vista di Berna, Svizzera, con edifici storici e uffici moderni',
 };
 
 export default blogMetaChIt;
