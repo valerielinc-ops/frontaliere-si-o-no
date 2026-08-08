@@ -72,7 +72,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:04:38.287Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -257,7 +256,6 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:55:36.238Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -347,8 +345,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-9455882682ad",
@@ -416,7 +413,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:15:34.466Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -497,7 +493,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:15:33.506Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -578,7 +573,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:15:32.483Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -658,7 +652,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:28:54.015Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -836,8 +829,7 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

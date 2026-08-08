@@ -176,7 +176,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:16:33.147Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -322,8 +321,7 @@
       "country": "CH",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-06T12:12:45.923Z",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
