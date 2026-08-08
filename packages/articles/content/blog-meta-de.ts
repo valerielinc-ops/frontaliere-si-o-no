@@ -9363,6 +9363,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.grigioni-frontalieri-calano.title': 'Graubünden: Zahl der Grenzgänger sinkt weiter',
     'blog.article.grigioni-frontalieri-calano.excerpt': 'Der Kanton Graubünden verzeichnet einen Rückgang von rund 500 Grenzgängern gegenüber dem Vorjahresquartal.',
     'blog.article.grigioni-frontalieri-calano.imageAlt': 'Ein Brücke über den hohen See von Lugano mit einer reduzierten Anzahl von Grenzgängern.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.title': 'Berufsausbildung und Umschulung für Grenzgänger im Umkreis von 20 km',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.excerpt': 'Anerkannte Kurse, Finanzierung und praktische Rückkehr für Grenzgänger innerhalb von 20 km von der Grenze. Fokus auf AHV, BVG, KVG und neue Steuervereinbarung 2024.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.imageAlt': 'Grenzgänger in beruflicher Weiterbildung an einer technischen Schule im Tessin mit Bergblick',
 };
 
 export default blogMetaDe;

@@ -9365,6 +9365,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.grigioni-frontalieri-calano.title': 'Grigioni: scende ancora il numero di frontalieri',
     'blog.article.grigioni-frontalieri-calano.excerpt': 'Il Canton Grigioni registra un calo di circa 500 frontalieri rispetto allo stesso trimestre dell\'anno precedente.',
     'blog.article.grigioni-frontalieri-calano.imageAlt': 'Un ponte sull\'alto lago di Lugano con un numero ridotto di frontalieri.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.title': 'Formazione professionale e riqualifica per frontalieri entro 20 km',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.excerpt': 'Corsi riconosciuti, finanziamenti e ritorno pratico per frontalieri entro 20 km dal confine. Focus su AVS, LPP, LAMal e nuovo accordo fiscale 2024.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.imageAlt': 'Frontaliero in corso di formazione professionale in una scuola tecnica ticinese con vista sulle montagne',
 };
 
 export default blogMetaIt;
