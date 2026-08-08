@@ -57,6 +57,7 @@ import { isNewsletterExcluded, isJobAlertExcluded, isAddressSuppressed } from '.
 import { sanitizeFirstName, nlNormLocale } from '../services/newsletter-template.mjs';
 import { buildDailyBriefEmail } from '../services/daily-brief-template.mjs';
 import { makeOneClickUnsubscribeUrl, makePreferencesUrl } from '../services/newsletterUrls.mjs';
+import { createResumeWriter, fetchAlreadySent, resumeChunkState } from './lib/campaignResumeLog.mjs';
 import {
   blockedByAnotherChannelToday,
   engagedSinceLastSend,
@@ -273,61 +274,17 @@ async function fetchRecipients(db) {
 // ── Campaign resume (same-day rerun must not double-send) ──────────────────
 
 /**
- * Addresses already served today, across every chunk of the resume log.
+ * The resume log lives in scripts/lib/campaignResumeLog.mjs, shared with the
+ * weekly newsletter: both channels had grown their own copy of the same read /
+ * arrayUnion / filter, and both copies carried the same two defects — one array
+ * in one 1 MiB document, and marking only at the end of a run, so a crash
+ * halfway through re-sent to everyone already served (#5415 §3.6).
  *
- * CHUNKED. The log used to be one array in one document, and a Firestore
- * document caps at 1 MiB — roughly 25k addresses, comfortable today and not a
- * limit worth discovering in production (#5415 §3.6). Chunks are sibling
- * documents named `{campaignId}`, `{campaignId}--2`, … so one id-range read
- * still collects them all.
+ * `emails` is this channel's field name in campaign documents already on disk;
+ * the newsletter's is `sentEmails`. Unifying the spelling would orphan whatever
+ * campaign is in flight when this ships.
  */
-const RESUME_CHUNK_MAX = 4000;
-const campaignSends = (db) =>
-  db.collection('newsletter_subscribers').doc('_meta_').collection('campaign_sends');
-
-async function fetchAlreadySent(db, campaignId) {
-  const { FieldPath } = await import('firebase-admin/firestore');
-  const snap = await campaignSends(db)
-    .where(FieldPath.documentId(), '>=', campaignId)
-    .where(FieldPath.documentId(), '<', `${campaignId}`)
-    .orderBy(FieldPath.documentId())
-    .get();
-  const sent = new Set();
-  const chunkSizes = [];
-  for (const doc of snap.docs) {
-    const emails = doc.data()?.emails || [];
-    chunkSizes.push(emails.length);
-    for (const email of emails) sent.add(email);
-  }
-  return { sent, chunkSizes };
-}
-
-/**
- * Record progress. Called INCREMENTALLY during the run, not once at the end:
- * end-of-run marking meant a crash halfway through re-sent to everyone already
- * served on the next attempt (#5415 §3.6).
- */
-async function markSent(db, campaignId, emails, chunkState) {
-  if (emails.length === 0) return;
-  const { FieldValue } = await import('firebase-admin/firestore');
-  if (chunkState.count + emails.length > RESUME_CHUNK_MAX) {
-    chunkState.index += 1;
-    chunkState.count = 0;
-  }
-  const docId = chunkState.index === 1 ? campaignId : `${campaignId}--${chunkState.index}`;
-  await campaignSends(db).doc(docId)
-    .set({ emails: FieldValue.arrayUnion(...emails), updated_at: new Date() }, { merge: true });
-  chunkState.count += emails.length;
-}
-
-/**
- * Where the resume log should append, given what is already there — so a rerun
- * continues the last chunk instead of reopening a full one.
- */
-export function resumeChunkState(chunkSizes) {
-  const index = Math.max(1, chunkSizes.length);
-  return { index, count: chunkSizes[index - 1] ?? 0 };
-}
+const RESUME_LOG = { campaignId: null, field: 'emails' };
 
 async function persistDelivery(db, { email, campaignId }, sendResult) {
   try {
@@ -596,7 +553,8 @@ async function main() {
   console.log(`   due by tier:     ${JSON.stringify(cadenceStats.dueByTier)}`);
   pool = due;
 
-  const { sent: alreadySent, chunkSizes } = await fetchAlreadySent(db, campaignId);
+  RESUME_LOG.campaignId = campaignId;
+  const { sent: alreadySent, chunkSizes } = await fetchAlreadySent(db, RESUME_LOG);
   if (alreadySent.size > 0) {
     pool = pool.filter((r) => !alreadySent.has(r.email));
     console.log(`\u267B\uFE0F  resume: ${alreadySent.size} already sent today, ${pool.length} remaining`);
@@ -668,34 +626,23 @@ async function main() {
     return;
   }
 
-  // Flushed in batches rather than once at the end: a crash mid-run used to
+  // Flushed during the run rather than once at the end: a crash mid-run used to
   // leave the whole day unmarked, so the retry re-sent to everyone already
   // served (§3.6).
-  const chunkState = resumeChunkState(chunkSizes);
-  const RESUME_FLUSH_EVERY = 50;
-  let pending = [];
-  let markedCount = 0;
-  const flush = async () => {
-    if (!pending.length) return;
-    const batchToMark = pending;
-    pending = [];
-    markedCount += batchToMark.length;
-    await markSent(db, campaignId, batchToMark, chunkState);
-  };
+  const resume = createResumeWriter(db, RESUME_LOG, resumeChunkState(chunkSizes));
 
   const sentAtIso = new Date().toISOString();
   const result = await sendEmailCascade(emails, {
     concurrency: 3,
     onSent: async (item, sendResult) => {
       const { email, state, engaged, opened } = item.recipient;
-      pending.push(email);
       await persistDelivery(db, { email, campaignId }, sendResult);
       await persistCadence(db, { email, state, engaged, opened, provider: sendResult?.provider || null, sentAtIso });
-      if (pending.length >= RESUME_FLUSH_EVERY) await flush();
+      await resume.record(email);
     },
   });
-  await flush();
-  console.log(`\n📊 Done — sent ${result.sent.length}, failed ${result.failed.length}, resume-marked ${markedCount}.`);
+  await resume.flush();
+  console.log(`\n📊 Done — sent ${result.sent.length}, failed ${result.failed.length}, resume-marked ${resume.count()}.`);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

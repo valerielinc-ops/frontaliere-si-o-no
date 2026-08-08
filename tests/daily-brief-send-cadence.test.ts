@@ -5,7 +5,7 @@
 // the ordering between the gates matters.
 import { describe, expect, it } from 'vitest';
 
-import { applyCadence, cadenceStateOf, resumeChunkState } from '@/scripts/send-daily-brief.mjs';
+import { applyCadence, cadenceStateOf } from '@/scripts/send-daily-brief.mjs';
 
 const DAY = 24 * 60 * 60 * 1000;
 const NOW = Date.parse('2026-08-08T06:33:00Z');
@@ -111,13 +111,5 @@ describe('engagement attribution', () => {
   });
 });
 
-describe('resume log chunking', () => {
-  // The log was one array in one document; a Firestore document caps at 1 MiB.
-  it('starts at the first chunk when nothing has been written', () => {
-    expect(resumeChunkState([])).toEqual({ index: 1, count: 0 });
-  });
-
-  it('continues the last chunk rather than reopening a full one', () => {
-    expect(resumeChunkState([4000, 1200])).toEqual({ index: 2, count: 1200 });
-  });
-});
+// Resume-log chunking moved to scripts/lib/campaignResumeLog.mjs when the
+// weekly newsletter started sharing it — see tests/campaign-resume-log.test.ts.
