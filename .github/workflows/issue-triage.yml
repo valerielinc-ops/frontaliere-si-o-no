@@ -33,6 +33,10 @@ permissions:
   contents: read
   issues: write
   id-token: write
+  # Serve allo step `Release stale agent:in-progress claims` del job `sweep`:
+  # un claim va rilasciato SOLO se nessuna PR aperta lo giustifica, e senza
+  # questo permesso quell'elenco sarebbe vuoto. Sola lettura.
+  pull-requests: read
 
 jobs:
   triage:
@@ -242,3 +246,37 @@ jobs:
           ARGS=(--cap "$INPUT_CAP")
           if [ "$INPUT_DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
           node scripts/ci/triage-sweep.mjs "${ARGS[@]}"
+
+      # Lock `agent:in-progress` appesi. Sta QUI e non in `recycle-stale-prs.yml`
+      # perche' questo e' il janitor schedulato del lato ISSUE: lo sweep sopra
+      # recupera le issue che il triage non ha mai instradato, questo recupera
+      # quelle che il triage ha instradato ma che un lock morto tiene fuori dal
+      # fixer. Stessa cadenza, stessa superficie, stesso permesso `issues: write`.
+      #
+      # `agent:in-progress` non e' uno stato, e' mutua esclusione: `issue-fix.yml`
+      # lo mette come primo pre-flight e salta tutto se lo trova. Un run morto in
+      # modo non grazioso — o una sessione interattiva finita male — lo lascia
+      # appeso, e su una issue APERTA quel lock la esclude dal fixer per sempre e
+      # in silenzio. Nessun allarme, nessuna scadenza: e' successo sulla #4248
+      # (`priority:high`), appesa da una sessione precedente.
+      #
+      # `pull-requests: read` e' load-bearing: il detector rilascia solo i claim
+      # SENZA una PR aperta che li giustifichi. Senza quel permesso l'elenco
+      # delle PR sarebbe vuoto e rilascerebbe anche i claim VIVI, facendo
+      # ripartire un secondo fixer in parallelo — la collisione #4788/#4793 che
+      # il lock esiste per impedire.
+      - name: Release stale agent:in-progress claims (zero-Claude, mutex)
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          STALE_CLAIM_HOURS: '12'
+          INPUT_DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: |
+          set -uo pipefail
+          if [ "$INPUT_DRY_RUN" = "true" ]; then
+            node scripts/ci/stale-claim-detector.mjs --dry-run
+          else
+            node scripts/ci/stale-claim-detector.mjs
+          fi
