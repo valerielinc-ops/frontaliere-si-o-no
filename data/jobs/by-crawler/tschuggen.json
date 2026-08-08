@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-08-08T09:55:52.074Z",
+  "assembledAt": "2026-08-08T21:49:51.937Z",
   "jobs": [
     {
       "id": "tschuggen-f0ec89305510",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1381/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:48.741Z",
+      "crawledAt": "2026-08-08T21:49:47.976Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -97,7 +97,7 @@
       "title": "Reservation Manager (m/w/d) in unbefristeter Jahresanstellung",
       "titleByLocale": {
         "it": "Responsabile prenotazioni (m/f/d) in occupazione annuale permanente",
-        "en": "Reservation Manager (m/f/d) in permanent annual employment",
+        "en": "Reservation Manager (m/w/d) in unbefristeter Jahresanstellung",
         "de": "Reservation Manager (m/w/d) in unbefristeter Jahresanstellung",
         "fr": "Gestionnaire des réservations (m/f/d) en emploi annuel permanent"
       },
@@ -113,7 +113,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1380/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:47.823Z",
+      "crawledAt": "2026-08-08T21:49:47.102Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -172,6 +172,7 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:55:36.238Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -217,7 +218,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1051/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:46.896Z",
+      "crawledAt": "2026-08-08T21:49:46.206Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -261,7 +262,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "tschuggen-9455882682ad",
@@ -280,7 +282,7 @@
         "it": "Operatore di accoglienza (m/f/d) Stagione invernale 2026/2027",
         "en": "Reception practitioner (m/f/d) Winter season 2026/2027",
         "de": "Rezeptionspraktikant (m/w/d) Wintersaison 2026/2027",
-        "fr": "Prestige d'accueil (m/f/j) Saison d'hiver 2026/2027"
+        "fr": "Rezeptionspraktikant (m/w/d) Wintersaison 2026/2027"
       },
       "description": "Eintritt per 30. November 2026 Arbeitsverhältnis befristet bis 5. April 2027 | Erledigung aller anfallenden \n• Aufgaben am Front Office sowie in der Reservierung Gewährleistung eines reibungslosen Ablaufs am Front Office Diverse administrative \n• Aufgaben | Student einer Schweizer Hotelfachschule Erfahrung in der 4*-Hotellerie von Vorteil Deutsch und Englisch ist Bedingung, jede weitere Sprache von Vorteil Teamplayer & leidenschaftlicher Gastgeber | Ihr Grundstein für eine Karriere in einer führenden Schweizer Luxus Hotelgruppe Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeiterkantine mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" | FÜHLEN SIE SICH ANGESPROCHEN? BEWERBEN SIE SICH JETZT! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständige Lebenslauf inkl. Foto Zeugnisse & Diplome",
       "descriptionByLocale": {
@@ -294,7 +296,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1067/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:46.213Z",
+      "crawledAt": "2026-08-08T21:49:45.308Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -329,6 +331,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:15:34.466Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -374,7 +377,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1069/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:45.301Z",
+      "crawledAt": "2026-08-08T21:49:44.419Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -409,6 +412,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:15:33.506Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -454,7 +458,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1068/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:44.412Z",
+      "crawledAt": "2026-08-08T21:49:43.531Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -489,6 +493,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:15:32.483Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -520,7 +525,7 @@
         "it": "Chef de Partie Entremetier - Stagione estiva 2026",
         "en": "Chef of the lot Entremetier (m/w/d) Summer season 2026",
         "de": "Chef de Partie Entremetier (m/w/d) Sommersaison 2026",
-        "fr": "Chef de Partie Entremetier (m/f/d) Saison estivale 2026"
+        "fr": "Chef de Partie Entremetier (m/w/d) Sommersaison 2026"
       },
       "description": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet unser Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Sie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll? Dann sind Sie bei uns richtig. Eintritt per Ende November 2026 Arbeitsverhältnis befristet bis Ende März 2027 | Abgeschlossene Berufslehre D/E Bedingung, jede weitere Sprache von Vorteil Erfahrung in der 4/5* Hotellerie Sorgfalt und Genauigkeit beim Einhalten der Hygienestandards Gepflegtes Erscheinungsbild | Vor- und Zubereitung von Stärkebeilagen, Gemüse und Suppen Verarbeitung von Kartoffeln, Reis, Teigwaren und Eierspeisen Zubereitung vegetarischer oder veganer Hauptgänge Hauptverantwortlich für die Organisation des Postens Tägliche Zusammenstellung der benötigten Waren für die Bestellung via Küchenchef Führung des Entremetier Postens | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome",
       "descriptionByLocale": {
@@ -534,7 +539,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1385/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:43.500Z",
+      "crawledAt": "2026-08-08T21:49:42.636Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -568,6 +573,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:28:54.015Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -613,7 +619,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1386/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:42.565Z",
+      "crawledAt": "2026-08-08T21:49:41.729Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -666,26 +672,26 @@
       "id": "tschuggen-2b3e4d6fe36e",
       "slug": "concierge-m-w-d-wintersaison-2026-2027-tschuggen-ch",
       "slugByLocale": {
-        "de": "concierge-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "it": "concierge-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "en": "concierge-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "fr": "concierge-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        "en": "concierge-m-f-d-winter-season-2026-2027-tschuggen-collection-arosa",
+        "de": "concierge-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+        "fr": "concierge-m-f-d-saison-hivernale-2026-2027-tschuggen-collection-arosa"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
       "companyDomain": "tschuggencollection.ch",
       "title": "Concierge (m/w/d) Wintersaison 2026/2027",
       "titleByLocale": {
-        "de": "Concierge (m/w/d) Wintersaison 2026/2027",
-        "it": "Concierge (m/f/d) Stagione invernale 2026/2027",
+        "it": "Concierge (m/w/d) Wintersaison 2026/2027",
         "en": "Concierge (m/f/d) Winter season 2026/2027",
+        "de": "Concierge (m/w/d) Wintersaison 2026/2027",
         "fr": "Concierge (m/f/d) Saison hivernale 2026/2027"
       },
       "description": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet unser Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Sie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll? Dann sind Sie bei uns richtig. Eintritt per Ende November 2026 Arbeitsverhältnis befristet bis Ende März 2027 | Erfahrung in derselben oder einer vergleichbaren Position von Vorteil Berufserfahrung in 5*-Häusern erwünscht Abgeschlossene Lehre in der Hotellerie von Vorteil Fliessende Deutsch- und Englischkenntnisse sind Voraussetzung, jede weitere Sprache von Vorteil Teamfähig , verantwortungsbewusst und flexibel Gepflegtes Erscheinungsbild und professionelle Umgangsformen Empathische und diskrete Persönlichkeit sowie serviceorientiertes Auftreten | Begrüssung unserer internationalen Gäste und Koordination von Gepäck- und Parkservice Beratung über Ausflugsmöglichkeiten/Skigebiete/Restaurants Organisation von Transfers sowie Ticket- und Restaurantreservationen Beantworten von Telefon und E-mails Verkauf von Hotelleistungen und Erfüllen der Sonderwünsche unserer Gäste sowie Ablöse des Nachtdienstes | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und Mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome | Tschuggen Grand Hotel Ennio Loffreda Tschuggentorweg 1 7050 Arosa",
       "descriptionByLocale": {
-        "de": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet unser Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Sie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll? Dann sind Sie bei uns richtig. Eintritt per Ende November 2026 Arbeitsverhältnis befristet bis Ende März 2027 | Erfahrung in derselben oder einer vergleichbaren Position von Vorteil Berufserfahrung in 5*-Häusern erwünscht Abgeschlossene Lehre in der Hotellerie von Vorteil Fliessende Deutsch- und Englischkenntnisse sind Voraussetzung, jede weitere Sprache von Vorteil Teamfähig , verantwortungsbewusst und flexibel Gepflegtes Erscheinungsbild und professionelle Umgangsformen Empathische und diskrete Persönlichkeit sowie serviceorientiertes Auftreten | Begrüssung unserer internationalen Gäste und Koordination von Gepäck- und Parkservice Beratung über Ausflugsmöglichkeiten/Skigebiete/Restaurants Organisation von Transfers sowie Ticket- und Restaurantreservationen Beantworten von Telefon und E-mails Verkauf von Hotelleistungen und Erfüllen der Sonderwünsche unserer Gäste sowie Ablöse des Nachtdienstes | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und Mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome | Tschuggen Grand Hotel Ennio Loffreda Tschuggentorweg 1 7050 Arosa",
         "it": "Il Tschuggen Grand Hotel di Arosa è un hotel di lusso a 5 stelle superior situato a 1.800m. Come uno dei quattro hotel della \"Collezione Tschuggen\", il nostro hotel offre 128 camere, suite e soppalchi di montagna, oltre a quattro eleganti ristoranti - tra cui l'evidenziatore gourmet di 19 punti La Brezza Gault Millau & due stelle Michelin - così come un'impressionante oasi di montagna di 5 000 m2, progettata da Mario Botta. VISIONE - Ritorniamo il vostro valore in tempo. Sei un ospite appassionato ed empatico, apprezzato e rispettoso? Allora hai ragione con noi. Servizi per il tempo libero per il tempo libero e per il tempo libero. Attendiamo con ansia il vostro dossier di applicazione - felicemente digitale: Lettera di applicazione Full CV incl. Certificati fotografici e diplomi | Tschuggen Grand Hotel Ennio Loffreda Tschuggentorweg 1 7050 Arosa",
         "en": "The Tschuggen Grand Hotel in Arosa is a 5-star superior luxury hotel in the Bündner Bergen located at 1'800m. As one of the four hotels in the \"The Tschuggen Collection\", our hotel offers 128 individually designed rooms, suites and mountain lofts, plus four stylish restaurants - including the 19-point gourmet highlight La Brezza Gault Millau & two Michelin stars - as well as an impressive 5 000 m2 spa mountain oasis, designed by Mario Botta. OUR VISION - We return your value to time. You are a passionate and empathetic host, appreciative & respectful? Then you are right with us. Admission at the end of November 2026 Employment relationship limited to the end of March 2027 | Experience in the same or a comparable position of advantage Work experience in 5* houses desired Completed apprenticeship in the hotel industry of advantage Flowing knowledge of German and English is a prerequisite, every other language of advantage Working team capable, responsible and flexible Appearance and professional manners Empathetic and discreet personality as well as service-oriented appearance | Welcome our international guests and coordination of baggage and parking service Advice on excursion opportunities / ski areas / restaurants Organization of transfers as well as ticket and restaurant reservations Answering of telephone and e-mails Sale of hotel services and replacement of the night service | Attractive employee accommodation in our employeetrattoria balanced menu offer with vegetarian & vegan options 24/7 Use of our fitness center Local advantages such as special prices at sports shops, ski passes and more Special prices for overnight stays in our houses of \"The Tschuggen Collection\" as well as the Swiss Deluxe Hotels | Feel addressed - Apply now! We look forward to your application dossier - gladly digital: Application letter Full CV incl. Photo Certificates & Diplomas | Tschuggen Grand Hotel Ennio Loffreda Tschuggentorweg 1 7050 Arosa",
+        "de": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet unser Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Sie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll? Dann sind Sie bei uns richtig. Eintritt per Ende November 2026 Arbeitsverhältnis befristet bis Ende März 2027 | Erfahrung in derselben oder einer vergleichbaren Position von Vorteil Berufserfahrung in 5*-Häusern erwünscht Abgeschlossene Lehre in der Hotellerie von Vorteil Fliessende Deutsch- und Englischkenntnisse sind Voraussetzung, jede weitere Sprache von Vorteil Teamfähig , verantwortungsbewusst und flexibel Gepflegtes Erscheinungsbild und professionelle Umgangsformen Empathische und diskrete Persönlichkeit sowie serviceorientiertes Auftreten | Begrüssung unserer internationalen Gäste und Koordination von Gepäck- und Parkservice Beratung über Ausflugsmöglichkeiten/Skigebiete/Restaurants Organisation von Transfers sowie Ticket- und Restaurantreservationen Beantworten von Telefon und E-mails Verkauf von Hotelleistungen und Erfüllen der Sonderwünsche unserer Gäste sowie Ablöse des Nachtdienstes | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und Mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome | Tschuggen Grand Hotel Ennio Loffreda Tschuggentorweg 1 7050 Arosa",
         "fr": "Le Tschuggen Grand Hôtel à Arosa est un hôtel de luxe 5 étoiles supérieur situé dans le Bündner Bergen à 1800m. En tant qu'un des quatre hôtels de la « Collection Tschuggen », notre hôtel propose 128 chambres, suites et lofts de montagne conçus individuellement, ainsi que quatre restaurants élégants - dont le point culminant gastronomique 19 points La Brezza Gault Millau & deux étoiles Michelin - ainsi qu'une impressionnante oasis de montagne de 5 000 m2, conçue par Mario Botta. NOTRE VISION - Nous retournons votre valeur dans le temps. Vous êtes un hôte passionné et empathique, reconnaissant et respectueux? Alors vous avez raison avec nous. Admission à la fin de novembre 2026 Relation d'emploi limitée à la fin de mars 2027.L'expérience dans la même position d'avantage ou une situation comparable Expérience de travail dans 5* maisons souhaitées Apprentissage complet dans l'industrie hôtelière d'avantage La connaissance de l'allemand et de l'anglais est une condition préalable, toute autre langue d'avantage Équipe de travail capable, responsable et flexible Apparence et manières professionnelles Personnalité empathique et discrète ainsi que l'aspect axé sur le service. Nous nous réjouissons de votre dossier de candidature - volontiers numérique: Lettre de candidature CV complet incl. Certificats & Diplômes Photo Tschuggen Grand Hôtel Ennio Loffreda Tschuggentorweg 1 7050 Arosa"
       },
       "location": "Arosa",
@@ -693,7 +699,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1356/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T09:55:41.138Z",
+      "crawledAt": "2026-08-08T21:49:40.347Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -708,12 +714,11 @@
       "postedDate": "2026-08-08",
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1356/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Loge",
       "hotelName": "Tschuggen Grand Hotel",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-08T09:55:41.138Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -726,8 +731,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-08-08T09:55:41.138Z"
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-ac6abd139664",
@@ -744,7 +748,7 @@
       "title": "Reservation Supervisor (m/w/d) befristet bis Ende Wintersaison 2026/27",
       "titleByLocale": {
         "it": "Reservation Supervisore (m/w/d) befristet bis Ende Wintersaison 2026/27",
-        "en": "Reservation Supervisor (m/f/d) limited to the end of winter season 2026/27",
+        "en": "Reservation Supervisor (m/w/d) befristet bis Ende Wintersaison 2026/27",
         "de": "Reservation Vorgesetzter (m/w/d) befristet bis Ende Wintersaison 2026/27",
         "fr": "Reservation Superviseur (m/w/d) befristet bis Ende Wintersaison 2026/27"
       },
@@ -812,7 +816,8 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
