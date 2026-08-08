@@ -60,13 +60,12 @@ describe('normalizeParsedJobsForSlice', () => {
     expect(r2.localityBackfilled).toBe(1);
   });
 
-  it('defaults addressCountry/country to CH and addressRegion to canton', () => {
+  it('defaults addressRegion to canton but leaves addressCountry/country undeclared (#5384)', () => {
     const jobs: JobLike[] = [{ location: 'Sion', canton: 'vs' }];
     const report = normalizeParsedJobsForSlice(jobs);
-    expect(jobs[0].addressCountry).toBe('CH');
-    expect(jobs[0].country).toBe('CH');
+    expect(jobs[0].addressCountry).toBeUndefined();
+    expect(jobs[0].country).toBeUndefined();
     expect(jobs[0].addressRegion).toBe('VS');
-    expect(report.countryDefaulted).toBe(1);
     expect(report.regionDefaulted).toBe(1);
   });
 
@@ -91,7 +90,7 @@ describe('normalizeParsedJobsForSlice', () => {
     const report2 = normalizeParsedJobsForSlice(jobs);
     expect(JSON.stringify(jobs[0])).toBe(snapshot);
     expect(report2.locationFixed).toBe(0);
-    expect(report2.countryDefaulted).toBe(0);
+    expect(report2.regionDefaulted).toBe(0);
   });
 
   it('tolerates non-object entries without throwing', () => {
