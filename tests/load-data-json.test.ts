@@ -13,7 +13,8 @@ import { afterEach, describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { loadDataJson } from '../build-plugins/shared/loadDataJson';
+import { loadDataJson, releaseDataJson } from '../build-plugins/shared/loadDataJson';
+import { loadJobsJson, releaseJobsJson } from '../build-plugins/shared/loadJobsJson';
 
 function writeJson(dir: string, rel: string, value: unknown): void {
   const abs = path.join(dir, rel);
@@ -79,5 +80,72 @@ describe('loadDataJson — resolution + cache (#2594)', () => {
     } finally {
       fs.rmSync(abs, { force: true });
     }
+  });
+});
+
+/**
+ * Cache eviction — `releaseDataJson` / `releaseJobsJson` (#5330 follow-up).
+ *
+ * The cache is module-level and unbounded: a file loaded by one plugin stays
+ * live for the rest of the build. `employerProfilePagesPlugin` now has to undo
+ * that for `data/jobs.json` — it moved ahead of `jobsSeoPagesPlugin` (the
+ * build's memory peak, which parses the corpus itself and never reads this
+ * cache), so leaving the parse behind put a second ~545 MB copy on the heap for
+ * the whole peak and OOM'd the runner.
+ *
+ * What has to hold for that to be a real release rather than a comforting
+ * no-op: the entry is actually gone (next load re-reads from disk), the return
+ * value distinguishes a hit from a miss, and the release key resolves to the
+ * same absolute path the load key did — a drift there would return `false`
+ * forever while the corpus quietly stayed resident.
+ */
+describe('releaseDataJson — cache eviction (#5330)', () => {
+  it('evicts the entry so the NEXT load re-reads from disk', () => {
+    const dir = mkTmp();
+    writeJson(dir, 'data/release-5330.json', [{ x: 1 }]);
+    const a = loadDataJson('data/release-5330.json', dir);
+    expect(releaseDataJson('data/release-5330.json', dir)).toBe(true);
+    // Same on-disk mutation the cache test above proves is NOT observed while
+    // cached — observed here precisely because the entry was dropped.
+    writeJson(dir, 'data/release-5330.json', [{ x: 999 }]);
+    const b = loadDataJson('data/release-5330.json', dir);
+    expect(b).not.toBe(a);
+    expect(b).toEqual([{ x: 999 }]);
+  });
+
+  it('reports false for a path that was never cached, and for a double release', () => {
+    const dir = mkTmp();
+    writeJson(dir, 'data/never-5330.json', [{ x: 1 }]);
+    // Never loaded → nothing to evict. Distinguishing this from a real
+    // eviction is what lets a caller/test catch a load-key vs release-key drift
+    // instead of reading a silent no-op as success.
+    expect(releaseDataJson('data/never-5330.json', dir)).toBe(false);
+    loadDataJson('data/never-5330.json', dir);
+    expect(releaseDataJson('data/never-5330.json', dir)).toBe(true);
+    expect(releaseDataJson('data/never-5330.json', dir)).toBe(false);
+  });
+
+  it('releases ONLY the requested path — sibling cache slots survive', () => {
+    const dir = mkTmp();
+    writeJson(dir, 'data/keep-5330.json', [{ keep: true }]);
+    writeJson(dir, 'data/drop-5330.json', [{ drop: true }]);
+    const keep = loadDataJson('data/keep-5330.json', dir);
+    loadDataJson('data/drop-5330.json', dir);
+    expect(releaseDataJson('data/drop-5330.json', dir)).toBe(true);
+    // Mutating the survivor on disk must still be invisible: it is cached.
+    writeJson(dir, 'data/keep-5330.json', [{ keep: 'mutated' }]);
+    expect(loadDataJson('data/keep-5330.json', dir)).toBe(keep);
+  });
+
+  it('releaseJobsJson targets the same key loadJobsJson populated', () => {
+    // The whole point of the thin wrappers: `data/jobs.json` is spelled once,
+    // so the release can never miss the slot the load filled. A regression here
+    // is invisible at runtime (release returns false, build still succeeds,
+    // heap silently keeps the 545 MB) — which is why it is asserted directly.
+    const dir = mkTmp();
+    writeJson(dir, 'data/jobs.json', [{ slug: 'a', company: 'Acme' }]);
+    loadJobsJson(dir);
+    expect(releaseJobsJson(dir)).toBe(true);
+    expect(releaseJobsJson(dir)).toBe(false);
   });
 });

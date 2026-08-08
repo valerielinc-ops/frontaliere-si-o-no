@@ -46,7 +46,8 @@ import { companyFollowMountPlaceholder } from './shared/companyFollowMountPlaceh
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { escHtml as esc } from './shared/htmlEscape';
 import { WriteCollector } from './batchWrite';
-import { loadJobsJson } from './shared/loadJobsJson';
+import { loadJobsJson, releaseJobsJson } from './shared/loadJobsJson';
+import { logBuildMem } from './shared/buildMemLog';
 import { resolveCantonSection, resolveJobCanton, legacyTiSectionRoot } from './shared/cantonSection';
 import { buildCurrentWeekPath } from './weeklyEmployersData';
 import { buildSectorHubPath, SECTOR_HUB_KEYS, type SectorHubKey } from './jobSectorLanding';
@@ -711,7 +712,11 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
       }
 
       // Group active jobs by the SAME canonical slug the dataset uses.
-      const jobs = loadJobsJson<CorpusJob>(rootDir);
+      // `jobs` is a `let` and dropped right after the grouping loop: `bySlug`
+      // holds every job object we still need, so keeping a second reference to
+      // the 12.6k-entry array alive for the rest of closeBundle only makes the
+      // release below harder to reason about (see it for the memory story).
+      let jobs: CorpusJob[] | null = loadJobsJson<CorpusJob>(rootDir);
       const bySlug = new Map<string, CorpusJob[]>();
       for (const job of jobs) {
         const company = String(job.company || '').trim();
@@ -722,6 +727,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         if (arr) arr.push(job);
         else bySlug.set(slug, [job]);
       }
+      jobs = null;
 
       const dateStamp = new Date().toISOString().slice(0, 10);
       const collector = new WriteCollector({ distDir, pluginName: 'employerProfilePagesPlugin' });
@@ -846,6 +852,56 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           if (locale === 'it') employerJobCounts.set(slug, profile.activeJobs);
         }
       }
+
+      // ── Release the jobs corpus: this loop was its last reader ─────────────
+      //
+      // Everything below this point (the below-floor bridge loop, the
+      // job-counts JSON, the sitemap, the flush) works off `belowFloor` /
+      // `employerJobCounts` / `sitemapEntries` — none of them touches a
+      // CorpusJob. `bySlug` and the `data/jobs.json` parse behind it are dead
+      // state from here on, and the shared loader's module-level cache would
+      // otherwise keep them live for the REST of the build.
+      //
+      // WHY THAT MATTERS HERE SPECIFICALLY, AND ONLY SINCE #5330. This plugin
+      // moved ahead of `jobsSeoPagesPlugin` in vite.config.ts because
+      // deploy.yml runs SEQUENTIAL_PROFILE=1, under which a build signal only
+      // travels FORWARD through the plugin array — registered after its
+      // consumer, `employerProfilesFlushed` never settled and the build exited
+      // 0 having emitted nothing past the await. That move is correct and must
+      // not be undone. Its side effect is that the plugin now hands over to the
+      // build's memory peak: `jobsSeoPagesPlugin` parses `data/jobs.json` with
+      // its own `readFileSync` and never reads this cache, so both copies were
+      // live at once. Measured on run 31219771845 (OOM, exit 134) vs the last
+      // green run 31190526028, same milestones:
+      //
+      //   [profile-mem] og-pages                 heapUsed 3822 MB   ← post-GC
+      //   [profile-mem] employer-profile-pages   heapUsed 4367 MB   ← +545 MB
+      //   [mem] jobsSeoPages: after company-landing  8719 vs 8200 MB (+519)
+      //   [mem] jobsSeoPages: after city-hubs        8015 vs 7488 MB (+527)
+      //   [mem] jobsSeoPages: after sector-hubs      8200 vs 7673 MB (+527)
+      //
+      // A flat offset already present at the peak plugin's FIRST milestone —
+      // i.e. carried in, not generated there — on a build whose RSS was already
+      // 11.6 GB of the runner's 16.
+      //
+      // Same shape, same remedy as `expiredSoftLandingCache.clear()` +
+      // forced GC inside jobsSeoPagesPlugin: drop the last reference, then make
+      // V8 hand the pages back to the OS instead of waiting for an idle
+      // scavenge. `logBuildMem` performs that GC as part of taking the
+      // measurement (build:ci runs with --expose-gc; it no-ops without), so the
+      // two lines below ARE the release — and they leave the before/after in
+      // the CI log for whoever investigates the next OOM.
+      //
+      // The corpus is NOT gone for the build: `healthFacilitiesPlugin`,
+      // `legacyRedirectsPlugin` and `jobOrphanBridgePlugin` all still call
+      // `loadJobsJson` further down the array. The first of them re-reads the
+      // 329 MB file once (~5 s) and repopulates the cache for the others, at a
+      // point where the peak is long behind. That restores exactly the residency
+      // profile the last GREEN build had from `healthFacilitiesPlugin` onward.
+      logBuildMem('employerProfilePages: before corpus release', collector);
+      bySlug.clear();
+      releaseJobsJson(rootDir);
+      logBuildMem('employerProfilePages: after corpus release', collector);
 
       for (const rec of belowFloor) {
         const slug = rec.slug;
