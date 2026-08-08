@@ -189,6 +189,50 @@ export function buildGapArtifact({ nationalZero, belowFloorByProfession, minJobs
   };
 }
 
+/**
+ * Sezione markdown del delta. Estratta e pura proprio perche' e' la parte
+ * fragile: e' un'unica concatenazione di rami opzionali, e un ramo vuoto che
+ * non porta il proprio separatore incolla due grassetti ("**Nessun gap
+ * nuovo.****3 gap CHIUSI**"). Ogni blocco qui termina con la propria riga
+ * vuota, e il caso "solo chiusure" ha un test dedicato.
+ *
+ * @param {{openedZero: string[], closedZero: string[], openedPairs: string[], closedPairs: string[]}} delta
+ * @param {{minJobs: number, totalPairs: number, totalZero: number, pairLabel: (p: string) => string}} ctx
+ */
+export function renderDeltaSection(delta, { minJobs, totalPairs, totalZero, pairLabel }) {
+  const bulletList = (items, max = 20) => {
+    const shown = items.slice(0, max).map((p) => `- ${pairLabel(p)}`);
+    if (items.length > max) shown.push(`- …e altri ${items.length - max} (elenco completo nell'artefatto)`);
+    return shown.join('\n');
+  };
+  const blocks = [];
+  if (delta.openedZero.length === 0 && delta.openedPairs.length === 0) {
+    blocks.push('**Nessun gap nuovo.**');
+  }
+  if (delta.openedZero.length > 0) {
+    blocks.push(
+      `**${delta.openedZero.length} professione/i passata/e a ZERO nazionale:**\n\n${delta.openedZero.map((id) => `- \`${id}\``).join('\n')}`,
+    );
+  }
+  if (delta.openedPairs.length > 0) {
+    blocks.push(
+      `**${delta.openedPairs.length} gap NUOVI** (coppia professione×cantone scesa sotto ${minJobs}):\n\n${bulletList(delta.openedPairs)}`,
+    );
+  }
+  if (delta.closedZero.length > 0) {
+    blocks.push(
+      `**${delta.closedZero.length} professione/i non più a zero nazionale:**\n\n${delta.closedZero.map((id) => `- \`${id}\``).join('\n')}`,
+    );
+  }
+  if (delta.closedPairs.length > 0) {
+    blocks.push(
+      `**${delta.closedPairs.length} gap CHIUSI** (coppia risalita a ≥${minJobs}):\n\n${bulletList(delta.closedPairs)}`,
+    );
+  }
+  blocks.push(`Totale corrente: ${totalPairs} coppie sotto soglia, ${totalZero} professioni a zero nazionale.`);
+  return `### Delta rispetto alla rilevazione precedente\n\n${blocks.join('\n\n')}\n`;
+}
+
 /** Scrive l'artefatto. Best-effort: un errore di IO non deve rompere il post-deploy. */
 function writeGapArtifact(artifact) {
   try {
@@ -392,33 +436,14 @@ async function checkAllCantonProfessions(stagingRoot) {
     const [id, cantonKey] = String(pair).split(':');
     return `\`${id}\` — ${getCantonDisplayName(cantonKey, 'it')}`;
   };
-  const bulletList = (items, max = 20) => {
-    const shown = items.slice(0, max).map((p) => `- ${pairLabel(p)}`);
-    if (items.length > max) shown.push(`- …e altri ${items.length - max} (elenco completo nell'artefatto)`);
-    return shown.join('\n');
-  };
 
   const deltaSection = previous
-    ? `### Delta rispetto alla rilevazione precedente
-
-${delta.openedPairs.length === 0 && delta.openedZero.length === 0 ? '**Nessun gap nuovo.**' : ''}${delta.openedZero.length > 0 ? `**${delta.openedZero.length} professione/i passata/e a ZERO nazionale:**
-
-${delta.openedZero.map((id) => `- \`${id}\``).join('\n')}
-
-` : ''}${delta.openedPairs.length > 0 ? `**${delta.openedPairs.length} gap NUOVI** (coppia professione×cantone scesa sotto ${MIN_JOBS}):
-
-${bulletList(delta.openedPairs)}
-
-` : ''}${delta.closedZero.length > 0 ? `**${delta.closedZero.length} professione/i non piu' a zero nazionale:**
-
-${delta.closedZero.map((id) => `- \`${id}\``).join('\n')}
-
-` : ''}${delta.closedPairs.length > 0 ? `**${delta.closedPairs.length} gap CHIUSI** (coppia risalita a ≥${MIN_JOBS}):
-
-${bulletList(delta.closedPairs)}
-
-` : ''}Totale corrente: ${state.pairs.length} coppie sotto soglia, ${state.nationalZero.length} professioni a zero nazionale.
-`
+    ? renderDeltaSection(delta, {
+        minJobs: MIN_JOBS,
+        totalPairs: state.pairs.length,
+        totalZero: state.nationalZero.length,
+        pairLabel,
+      })
     : `### Rilevazione iniziale
 
 ${nationalZero.length} professioni a zero nazionale, ${state.pairs.length} coppie professione×cantone sotto soglia (${MIN_JOBS}). I giri successivi commenteranno **solo il delta**.

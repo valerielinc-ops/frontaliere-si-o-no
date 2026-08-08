@@ -15,6 +15,7 @@ import {
   parseGapState,
   diffGapState,
   buildGapArtifact,
+  renderDeltaSection,
 } from '../scripts/monitor-sector-coverage.mjs';
 
 const mkMap = (obj: Record<string, [string, number][]>) =>
@@ -116,6 +117,56 @@ describe('diffGapState', () => {
 
   it('prev null con gap set vuoto non inventa un cambiamento', () => {
     expect(diffGapState(null, { nationalZero: [], pairs: [] }).changed).toBe(false);
+  });
+});
+
+describe('renderDeltaSection', () => {
+  const ctx = {
+    minJobs: 3,
+    totalPairs: 12,
+    totalZero: 1,
+    pairLabel: (p: string) => {
+      const [id, k] = p.split(':');
+      return `\`${id}\` — ${k}`;
+    },
+  };
+  const empty = { openedZero: [], closedZero: [], openedPairs: [], closedPairs: [] };
+
+  it('SOLO chiusure: non incolla "Nessun gap nuovo." al blocco successivo', () => {
+    // Regressione: la concatenazione a rami opzionali produceva
+    // "**Nessun gap nuovo.****1 gap CHIUSI**" — grassetto rotto.
+    const out = renderDeltaSection({ ...empty, closedPairs: ['cuoco:ZH'] }, ctx);
+    expect(out).toContain('**Nessun gap nuovo.**');
+    expect(out).not.toMatch(/\*\*\*\*/);
+    expect(out).toContain('**Nessun gap nuovo.**\n\n**1 gap CHIUSI**');
+  });
+
+  it('non dichiara "Nessun gap nuovo." quando ci sono gap nuovi', () => {
+    const out = renderDeltaSection({ ...empty, openedPairs: ['cuoco:ZH'] }, ctx);
+    expect(out).not.toContain('Nessun gap nuovo');
+    expect(out).toContain('**1 gap NUOVI**');
+  });
+
+  it('separa sempre i blocchi con una riga vuota, in ogni combinazione', () => {
+    const out = renderDeltaSection(
+      { openedZero: ['a'], closedZero: ['b'], openedPairs: ['c:ZH'], closedPairs: ['d:BE'] },
+      ctx,
+    );
+    expect(out).not.toMatch(/\*\*\*\*/);
+    for (const frag of ['a ZERO nazionale', 'gap NUOVI', 'non più a zero', 'gap CHIUSI']) {
+      expect(out).toContain(frag);
+    }
+  });
+
+  it('tronca gli elenchi lunghi rimandando all’artefatto', () => {
+    const many = Array.from({ length: 26 }, (_, i) => `p${i}:ZH`);
+    const out = renderDeltaSection({ ...empty, openedPairs: many }, ctx);
+    expect(out).toContain('e altri 6 (elenco completo nell\'artefatto)');
+  });
+
+  it('chiude sempre con il totale corrente', () => {
+    const out = renderDeltaSection({ ...empty, closedPairs: ['x:ZH'] }, ctx);
+    expect(out).toContain('Totale corrente: 12 coppie sotto soglia, 1 professioni a zero nazionale.');
   });
 });
 
