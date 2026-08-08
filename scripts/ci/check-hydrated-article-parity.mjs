@@ -163,35 +163,56 @@ const CLIENT_SURFACES = SECTION === 'svizzera'
     ];
 
 /**
- * The runtime overlay index. Requested under the same rotating key the app
- * uses (services/articlesOverlay.ts) — checking a URL the app never requests
- * would be checking a different cache entry, which is the mistake this whole
- * file is about.
+ * The chunks that carry the overlay MECHANISM rather than article data.
+ *
+ * Read for one reason: the `Origin` divergence check below. Nothing here is
+ * parsed for ids — they are code — but a stale copy of this code is how the
+ * whole safety net stops running, so leaving them out made the gate blind to
+ * its own premise.
+ *
+ * Measured 2026-08-08, both of them, on the copy a browser is served:
+ *
+ *   assets/runtimeArticleResolution.js  Origin sent → 2026-08-05T11:35:07Z, age 37h
+ *                                       no Origin   → 2026-08-07T02:43:20Z
+ *   assets/BlogArticles.js              identical split, same two timestamps
+ *
+ * The older body is the pre-rotation client: it requests the overlay at the
+ * BARE url. So production was running a client this gate did not model, and
+ * every surface it did read was current.
  */
-const OVERLAY_BUCKET = Math.floor(Date.now() / (5 * 60 * 1000));
+const CODE_SURFACES = [
+  `${CDN}/assets/runtimeArticleResolution.js`,
+  `${CDN}/assets/BlogArticles.js`,
+];
+
 /**
- * `--overlay=` overrides the URL, so this gate can be aimed at the pre-fix
- * client (the un-bucketed `…/blog-index-<section>-<locale>.json`) and checked
- * against a known defect instead of trusted.
+ * The runtime overlay index, read at BOTH urls it is reachable by.
  *
- * Done on 2026-08-06 while production still had the drift: the gate named
- * exactly the six articles a browser had been dropping —
- * `frontalierieticinoaumento`, `frontaliere-nascita-figlio-anagrafe-2026`,
- * `borse-zurigo-chiude-in-verde-new-york-si-concede-una-fuga`,
- * `disavanzo-cantonale-ticino-frontalieri`,
- * `nascita-figlio-frontaliero-entro-20km`,
- * `mendrisio-strada-serpiano-urgenti-lavori` — matching the Chrome
- * measurement exactly.
+ * `services/articlesOverlay.ts` requests it under a five-minute rotating key,
+ * and this gate used to read only that — reasoning that the rotating key is
+ * never the stale variant, which is true. What that reasoning assumed is that
+ * the client doing the requesting is the one in this repo. It is not
+ * necessarily: the client is whatever the edge is serving, and on 2026-08-08
+ * the edge was serving a chunk from three days earlier that asks for the bare
+ * url (see CODE_SURFACES above).
  *
- * Be aware that this mutation reproduces ONLY while the stale variant is still
- * being served: once the edge copy catches up, the same command passes because
- * there is genuinely nothing missing. A green result from it therefore proves
- * nothing on its own — it is not a substitute for the recorded run above.
+ * So the gate read a cache entry no visitor was requesting and passed, while
+ * the entry every visitor DID request was 12 to 16 hours old across six of the
+ * eight `blog-index-<section>-<locale>.json` files. Checking a url the app
+ * never requests is the mistake this whole file is about; reading only the
+ * rotating key was that mistake, one level up.
+ *
+ * `clientIds` is therefore built from the BARE read: the conservative set,
+ * what every served client is guaranteed to hold. A rotating client can only
+ * hold more, so a green verdict here is green for both — and once the bare url
+ * is purged on every publish (nanakokyobashi-rgb/frontaliere-articles#34) the
+ * two reads agree and the conservative choice costs nothing.
+ *
+ * `--overlay=` overrides the base url; the rotating key is derived from it.
  */
-const OVERLAY_URL = flag(
-  'overlay',
-  `${CDN}/data/blog-index-${SECTION}-${LOCALE}.json?v=${OVERLAY_BUCKET}`,
-);
+const OVERLAY_BASE = flag('overlay', `${CDN}/data/blog-index-${SECTION}-${LOCALE}.json`);
+const OVERLAY_BUCKET = Math.floor(Date.now() / (5 * 60 * 1000));
+const OVERLAY_ROTATED = `${OVERLAY_BASE}${OVERLAY_BASE.includes('?') ? '&' : '?'}v=${OVERLAY_BUCKET}`;
 
 /** Browser-identical request headers. See the header comment — load-bearing. */
 const BROWSER_HEADERS = {
@@ -293,17 +314,43 @@ for (const url of CLIENT_SURFACES) {
     fail(`client surface unreadable (${url}): ${err.message}`);
   }
 }
-const clientIds = new Set(chunkIds);
-try {
-  const r = await getText(OVERLAY_URL, BROWSER_HEADERS);
-  report.surfaces[OVERLAY_URL] = { bytes: r.body.length, lastModified: r.lastModified };
-  for (const a of JSON.parse(r.body)?.articles ?? []) {
-    if (a && typeof a.id === 'string') clientIds.add(a.id);
+const overlayIds = { bare: new Set(), rotated: new Set() };
+for (const [which, url] of [['bare', OVERLAY_BASE], ['rotated', OVERLAY_ROTATED]]) {
+  try {
+    const r = await getText(url, BROWSER_HEADERS);
+    report.surfaces[url] = { bytes: r.body.length, lastModified: r.lastModified };
+    for (const a of JSON.parse(r.body)?.articles ?? []) {
+      if (a && typeof a.id === 'string') overlayIds[which].add(a.id);
+    }
+  } catch (err) {
+    fail(`overlay index unreadable (${url}): ${err.message}`);
   }
-} catch (err) {
-  fail(`overlay index unreadable (${OVERLAY_URL}): ${err.message}`);
 }
+
+// The mechanism chunks carry no ids; they are read only so the divergence
+// check below can see whether the client itself is being served stale.
+for (const url of CODE_SURFACES) {
+  try {
+    const r = await getText(url, BROWSER_HEADERS);
+    report.surfaces[url] = { bytes: r.body.length, lastModified: r.lastModified };
+  } catch (err) {
+    fail(`overlay mechanism chunk unreadable (${url}): ${err.message}`);
+  }
+}
+
+// The conservative set — see OVERLAY_BASE. A client that rotates its key holds
+// a superset of this, so parity proven here is proven for both clients.
+const clientIds = new Set(chunkIds);
+for (const id of overlayIds.bare) clientIds.add(id);
 report.clientIds = clientIds.size;
+
+/**
+ * Ids the rotating key reaches and the bare one does not. Non-zero means the
+ * edge is still holding an unpurged copy of the overlay index itself: harmless
+ * for a client that rotates, invisible-article for one that does not, and
+ * either way the publisher's purge did not do what its green step said.
+ */
+report.overlayRotationGap = [...overlayIds.rotated].filter((id) => !overlayIds.bare.has(id));
 
 /**
  * The verdict, computed BEFORE the diagnosis below.
@@ -421,6 +468,19 @@ if (verdict === 'fatal') {
 
 if (!AS_JSON) {
   console.log(`[hydrated-parity] ✅ all ${slugs.length} rendered articles are present in the client's data (${SECTION}/${LOCALE}).`);
+  if (report.overlayRotationGap.length > 0) {
+    console.log('');
+    console.log(`[hydrated-parity] ⚠️  the overlay index itself is stale at its BARE url: ${report.overlayRotationGap.length} article(s)`);
+    console.log('[hydrated-parity]    are reachable only under the rotating key. The publisher purged this');
+    console.log('[hydrated-parity]    file and reported success, so what is stale is a cache VARIANT its');
+    console.log('[hydrated-parity]    purge did not name — see cf-purge-variants.mjs in both repos.');
+    for (const id of report.overlayRotationGap.slice(0, 10)) console.log(`[hydrated-parity]      - ${id}`);
+    if (report.overlayRotationGap.length > 10) {
+      console.log(`[hydrated-parity]      … and ${report.overlayRotationGap.length - 10} more`);
+    }
+    console.log('[hydrated-parity]    Not failing: the rendered set is still whole. It stops being whole as');
+    console.log('[hydrated-parity]    soon as one of these ids reaches the hub HTML.');
+  }
   if (verdict === 'warn') {
     console.log('');
     console.log('[hydrated-parity] ⚠️  the edge is serving a DIFFERENT copy to browsers than to checkers,');
