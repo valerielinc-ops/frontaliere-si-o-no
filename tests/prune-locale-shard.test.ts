@@ -13,6 +13,9 @@ function makeDist(): string {
   for (const loc of ['en', 'de', 'fr']) {
     fs.mkdirSync(path.join(d, loc, 'job'), { recursive: true });
     fs.writeFileSync(path.join(d, loc, 'job', 'index.html'), '<html></html>');
+    // The locale HOMEPAGE: a root-level file, not part of the subtree, that
+    // the shard origin serves for the extensionless `/<loc>` (issue #5327).
+    fs.writeFileSync(path.join(d, `${loc}.html`), '<html></html>');
   }
   fs.mkdirSync(path.join(d, 'cerca-lavoro', 'job'), { recursive: true });
   fs.writeFileSync(path.join(d, 'cerca-lavoro', 'job', 'index.html'), '<html></html>');
@@ -41,91 +44,58 @@ afterEach(() => {
 });
 
 describe('prune-locale-shard', () => {
-  it('pure locale shard (en) keeps ONLY dist/en', () => {
+  it('pure locale shard (en) keeps dist/en AND its homepage en.html (#5327)', () => {
+    // en.html was deleted here — `keep` held the bare directory name, and
+    // 'en.html' !== 'en'. push-locale-shard.sh:196 stages it right after this
+    // step ("homepage at /{loc}"), so its `[ -f "$dist_dir/$loc.html" ]` could
+    // never be true and the shard shipped without it: /en.html → 404 live.
     prune('en', dist);
-    expect(top(dist)).toEqual(['en']);
+    expect(top(dist)).toEqual(['en', 'en.html']);
   });
 
-  it('multi locale shard (en,de) keeps both, drops the rest', () => {
+  it('multi locale shard (en,de) keeps both subtrees and both homepages', () => {
     prune('en,de', dist);
-    expect(top(dist)).toEqual(['de', 'en']);
+    expect(top(dist)).toEqual(['de', 'de.html', 'en', 'en.html']);
   });
 
-  it('main shard (it) keeps root + shared, drops en/de/fr', () => {
+  it('main shard (it) drops en/de/fr AND their homepages (#5327)', () => {
+    // The other half: the main shard kept en.html after dropping dist/en/.
+    // With no index.html sibling left, flatHtmlRedirectPlugin had nothing to
+    // bridge against, so it stayed a fully INDEXABLE EN page sitting on the
+    // origin that the edge never asks for that path — the trunk-guard's
+    // "built under a prefix this build does not ship to the shard".
     prune('it', dist);
     expect(top(dist)).toEqual(['assets', 'build-id.txt', 'cerca-lavoro', 'sitemap.xml']);
   });
 
-  it('main+en shard (it,en) keeps root + shared + en, drops de/fr', () => {
+  it('main+en shard (it,en) keeps root + shared + en + en.html, drops de/fr', () => {
     prune('it,en', dist);
-    expect(top(dist)).toEqual(['assets', 'build-id.txt', 'cerca-lavoro', 'en', 'sitemap.xml']);
+    expect(top(dist)).toEqual([
+      'assets', 'build-id.txt', 'cerca-lavoro', 'en', 'en.html', 'sitemap.xml',
+    ]);
   });
 
   it('unset BUILD_LOCALE is a no-op (default all-locale build)', () => {
-    prune(undefined, dist);
-    expect(top(dist)).toEqual(['assets', 'build-id.txt', 'cerca-lavoro', 'de', 'en', 'fr', 'sitemap.xml']);
-  });
-
-  it('garbage BUILD_LOCALE is a no-op (never wipes a build)', () => {
-    prune('xx', dist);
-    expect(top(dist)).toEqual(['assets', 'build-id.txt', 'cerca-lavoro', 'de', 'en', 'fr', 'sitemap.xml']);
-  });
-});
-
-/**
- * Regression for the fatal `[trunk-guard]` that failed all three validate-dist
- * jobs of run 31240103446 on `dist/{en,de,fr}.html`, blocking the publish and
- * the seven other workflows that source scripts/lib/rehydrate-locale-shards.sh
- * (issue #5327 class).
- *
- * The flat locale-root twin is routed to the locale shard by
- * infra/cloudflare-worker/locale-router.js (`LOCALE_RE` matches `/en`, `/en/*`
- * and `/en.html` alike), so it belongs to `dist/<loc>` and must never outlive
- * it in the main artifact. It used to, because localeOfDistPath() classifies
- * `en.html` as `it` — `rel === 'en'` is false and `rel.startsWith('en/')` is
- * false — so the it build kept the flat file and dropped the
- * `dist/en/index.html` sibling, which is ALSO what stopped the post-walk from
- * rewriting it into a noindex bridge. rehydrate-locale-shards.sh snapshots
- * `$loc` and `$loc.html` as one unit and the shard could not put the flat file
- * back, so the guard rightly called it an indexable trunk orphan.
- *
- * The source-level fix is in staticPagesPlugin.ts (no flat twin for bare
- * locale roots); these cases pin the filesystem-level backstop, which is what
- * holds the line for the ~15 direct-fs emitters that bypass the WriteCollector.
- */
-describe('prune-locale-shard — dist/<loc>.html never outlives dist/<loc>', () => {
-  const seedLocaleRootFlats = (d: string) => {
-    for (const loc of ['en', 'de', 'fr']) {
-      fs.writeFileSync(path.join(d, `${loc}.html`), '<html lang="en">homepage</html>');
-    }
-  };
-
-  it('main shard (it) drops the flat locale roots along with their subtrees', () => {
-    seedLocaleRootFlats(dist);
-    prune('it', dist);
-    expect(top(dist)).toEqual(['assets', 'build-id.txt', 'cerca-lavoro', 'sitemap.xml']);
-  });
-
-  it('main+en shard (it,en) keeps en + en.html and drops de/fr both ways', () => {
-    seedLocaleRootFlats(dist);
-    prune('it,en', dist);
-    // en is OWNED here, so neither dist/en nor dist/en.html is a trunk orphan:
-    // this artifact serves that locale itself. Only the non-owned pair goes.
-    expect(top(dist)).toEqual(['assets', 'build-id.txt', 'cerca-lavoro', 'en', 'en.html', 'sitemap.xml']);
-  });
-
-  it('pure locale shard (en) keeps ONLY dist/en — the flat twin is not shard content', () => {
-    seedLocaleRootFlats(dist);
-    prune('en', dist);
-    expect(top(dist)).toEqual(['en']);
-  });
-
-  it('unset BUILD_LOCALE (full monolithic build) still prunes nothing', () => {
-    seedLocaleRootFlats(dist);
     prune(undefined, dist);
     expect(top(dist)).toEqual([
       'assets', 'build-id.txt', 'cerca-lavoro',
       'de', 'de.html', 'en', 'en.html', 'fr', 'fr.html', 'sitemap.xml',
     ]);
+  });
+
+  it('garbage BUILD_LOCALE is a no-op (never wipes a build)', () => {
+    prune('xx', dist);
+    expect(top(dist)).toEqual([
+      'assets', 'build-id.txt', 'cerca-lavoro',
+      'de', 'de.html', 'en', 'en.html', 'fr', 'fr.html', 'sitemap.xml',
+    ]);
+  });
+
+  it('never mistakes a root file that merely starts with a locale token', () => {
+    // `enigma.html` is ordinary IT content; matching by prefix would move it
+    // to the EN shard and 404 it on the apex.
+    fs.writeFileSync(path.join(dist, 'enigma.html'), '<html></html>');
+    prune('en', dist);
+    expect(top(dist)).toEqual(['en', 'en.html']);
   });
 });

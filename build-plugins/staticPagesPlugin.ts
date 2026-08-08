@@ -13,7 +13,6 @@ import { asyncCssLink, rootShell, ASYNC_CSS_FALLBACK_SCRIPT } from './htmlTempla
 import { WriteCollector } from './batchWrite';
 import { resolveSpaBundle } from './spaBundleResolver';
 import { resolveStaticPagesFlushed } from './shared/buildSignals';
-import { isLocaleRootPath } from './shared/localeEmitFilter';
 import { stableChunkFile, stableChunkFiles } from './shared/chunkFiles';
 import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { jsToJson as sharedJsToJson } from './shared/jsToJson';
@@ -5431,23 +5430,9 @@ ${hrefTags}
  locPageHtml = injectJobboardSeoContent(locPageHtml, locJbLocale);
  }
  _qw(locFile, locPageHtml);
- // Also write flat .html — real content without redirect script.
- // EXCEPT for the bare locale roots (/en, /de, /fr): their flat twin
- // `dist/<locale>.html` is the one this build must NOT emit. See
- // isLocaleRootPath's docblock for the full chain — in short, the it/main
- // shard writes it (localeOfDistPath classifies `en.html` as `it`) while
- // dropping the `dist/en/index.html` sibling that would have turned it into
- // a noindex bridge, so it ships as indexable duplicate content; the en
- // shard never gets it, and locale-router.js routes /en.html to that shard,
- // so it is unreachable dead weight that answers 404 in production. It is
- // redundant with dist/<locale>/index.html, which is what /{locale}/ (the
- // canonical, and the 301 target of /{locale}) is actually served from.
- // Emitting it made every locale a fatal [trunk-guard] orphan and blocked
- // the publish plus the 7 other workflows that rehydrate locale shards.
- if (!isLocaleRootPath(locPath)) {
-  const flatLoc = np.join(distDir, locPath + '.html');
-  _qw(flatLoc, locPageHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
- }
+ // Also write flat .html — real content without redirect script
+ const flatLoc = np.join(distDir, locPath + '.html');
+ _qw(flatLoc, locPageHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
  count++;
  }
 

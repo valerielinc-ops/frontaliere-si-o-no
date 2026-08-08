@@ -113,6 +113,28 @@ export function ownerEmitLocale(locale: string): string {
  * files (sitemaps, robots, /data, /og, /assets, build-id) have no locale
  * prefix and are therefore classified as `it` — they ship in the `it`/main
  * shard build, matching the current post-build split in deploy.yml.
+ *
+ * THE ONE EXCEPTION, and why it is not a special case (issue #5327): the
+ * locale HOMEPAGE is `dist/<loc>.html`, a file at the dist ROOT, not under
+ * `dist/<loc>/`. It is the flat sibling of `dist/<loc>/index.html`
+ * (staticPagesPlugin.ts:5434) and exists so the shard origin can answer the
+ * extensionless `/<loc>` — `push-locale-shard.sh:196` stages it as
+ * "homepage at /{loc}", `rehydrate-locale-shards.sh:66` treats it as half of
+ * a complete shard, `audit-404-risk.mjs` maps the shard entry `de.html` to the
+ * route `/de`, and `wrangler.toml` + `locale-router.js`'s
+ * `/^\/(en|de|fr)(\/|$|\.html$)/` route `/‌<loc>.html` to that shard origin.
+ *
+ * Classifying it by prefix alone put it in `it`, which broke BOTH directions
+ * of the same invariant and produced the #5327 failure:
+ *   • the IT/main shard build WROTE `dist/en.html` — an EN page at a path the
+ *     edge routes to the EN shard, so the trunk's copy is unreachable. With
+ *     `dist/en/` pruned from that shard there was no `index.html` sibling for
+ *     flatHtmlRedirectPlugin to bridge against, so it kept full INDEXABLE
+ *     content instead of becoming a noindex bridge.
+ *   • the EN shard build DROPPED it — the one build that should own it.
+ * Net effect: nobody shipped it, and `/en.html` `/de.html` `/fr.html` answered
+ * 404 in production (verified live) while the trunk kept re-emitting them.
+ * Owning `<loc>.html` by `<loc>` closes both halves at once.
  */
 export function localeOfDistPath(filePath: string, distDir: string): EmitLocale {
   let rel = filePath.split(path.sep).join('/');
@@ -122,9 +144,11 @@ export function localeOfDistPath(filePath: string, distDir: string): EmitLocale 
     else if (rel.startsWith(`${dnorm}/`)) rel = rel.slice(dnorm.length + 1);
   }
   rel = rel.replace(/^\/+/, '');
-  if (rel === 'en' || rel.startsWith('en/')) return 'en';
-  if (rel === 'de' || rel.startsWith('de/')) return 'de';
-  if (rel === 'fr' || rel.startsWith('fr/')) return 'fr';
+  // Exact match only: `dist/en.html` is EN's homepage, but `dist/enigma.html`
+  // is an IT page and `dist/foo/en.html` is a nested file with no such role.
+  if (rel === 'en' || rel.startsWith('en/') || rel === 'en.html') return 'en';
+  if (rel === 'de' || rel.startsWith('de/') || rel === 'de.html') return 'de';
+  if (rel === 'fr' || rel.startsWith('fr/') || rel === 'fr.html') return 'fr';
   return 'it';
 }
 
@@ -132,43 +156,4 @@ export function localeOfDistPath(filePath: string, distDir: string): EmitLocale 
 export function shouldEmitPath(filePath: string, distDir: string): boolean {
   if (EMIT_ALL_LOCALES) return true;
   return EMIT_LOCALES.has(localeOfDistPath(filePath, distDir));
-}
-
-/**
- * True for a BARE locale root — `/en`, `/de`, `/fr` (any number of leading or
- * trailing slashes, any case). NOT true for `/`, for anything under a locale
- * (`/en/find-jobs-ticino`) or for a look-alike (`/enterprise`, `/rss-en.xml`).
- *
- * Why this predicate exists (issue #5327 class, run 31240103446). Every page
- * this build emits gets TWO files — `<path>/index.html` plus a flat
- * `<path>.html` twin that `postWalkCoordinatorPlugin` later rewrites into a
- * noindex redirect bridge. For a locale root that twin is `dist/en.html`, and
- * it is the one path in the whole tree where the pair CANNOT hold together:
- *
- *   - `localeOfDistPath('en.html')` classifies it `it` (it matches neither
- *     `rel === 'en'` nor `rel.startsWith('en/')`), so the it/main shard build
- *     WRITES it while dropping its `dist/en/index.html` sibling. With no
- *     sibling on disk the post-walk bridge transform finds nothing to point at
- *     and leaves the file as full, INDEXABLE English homepage content.
- *   - The `en` shard build drops it for the mirror-image reason, and
- *     `scripts/ci/prune-locale-shard.mjs` would delete it anyway (a top-level
- *     entry that is not the owned locale subtree), so `push-locale-shard.sh`'s
- *     `[ -f "$dist_dir/$loc.html" ]` copy never fires and the shard repo has
- *     no `en.html` — verified against the GitHub API on frontaliere-{en,de,fr}.
- *   - `infra/cloudflare-worker/locale-router.js`'s `LOCALE_RE` routes
- *     `/en.html` to that shard, so the trunk's copy is unreachable dead weight
- *     and `/en.html` answers 404 in production — measured, and not a false
- *     positive: a `?cb=1` probe bypasses the Worker and lies here.
- *
- * Nothing produces the URL: no internal link, redirect map, canonical,
- * hreflang or sitemap entry names `/{locale}.html` anywhere in the tree (the
- * only mentions are edge plumbing that ROUTES it — wrangler.toml routes, the
- * cf-locale-failover cache rules and cf-error-surface's taxonomy). `/en` 301s
- * to `/en/`, which is served by `dist/en/index.html` and is self-canonical.
- * So the flat twin is redundant with `dist/<locale>/index.html`, and the fix
- * is to stop emitting it rather than to ship it to the shard.
- */
-export function isLocaleRootPath(pathOrUrl: string): boolean {
-  const rel = pathOrUrl.trim().toLowerCase().replace(/^\/+/, '').replace(/\/+$/, '');
-  return rel === 'en' || rel === 'de' || rel === 'fr';
 }
