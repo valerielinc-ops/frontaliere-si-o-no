@@ -231,7 +231,10 @@ async function main() {
         if (!isTplJob(j)) continue;
         if (!j.addressLocality) j.addressLocality = 'Lugano';
         if (!j.addressRegion) j.addressRegion = 'TI';
-        if (!j.addressCountry) j.addressCountry = 'CH';
+        // Deliberately does NOT default addressCountry to 'CH' here (#5403/#5384)
+        // — an undeclared country and a declared-Swiss one are different pieces
+        // of evidence; overwriting the former destroys that distinction at rest.
+        // Consumers already fall back to 'CH' at read time.
         if (!j.postalCode) j.postalCode = '6900';
         if (!j.streetAddress) j.streetAddress = 'Via Campagna 15';
         if (!j.employmentType) j.employmentType = inferEmploymentType(j.title || '', j.description || '');
