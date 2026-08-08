@@ -1951,6 +1951,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.title': 'Secondo pilastro LPP Svizzera guida 2026 canton Zurigo',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.excerpt': 'Guida al secondo pilastro LPP 2026: contributi 7-18% per età, riscatto lacune, prelievo capitale e confronto nazionale con focus sul canton Zurigo',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.imageAlt': 'Consulenza previdenziale per frontalieri in ufficio zurighese con documenti LPP e bandiera svizzera',
+    'blog.article.secondo-pilastro-lpp-basilea-2026.title': 'Secondo pilastro LPP Svizzera guida 2026 canton Basilea',
+    'blog.article.secondo-pilastro-lpp-basilea-2026.excerpt': 'Guida 2026 al secondo pilastro LPP: contributi, prelievo, riscatto lacune e pianificazione previdenziale in Svizzera. Focus sul canton Basilea con dati specifici e confronto nazionale.',
+    'blog.article.secondo-pilastro-lpp-basilea-2026.imageAlt': 'Dipendente svizzero a Basilea che consulta documenti del secondo pilastro LPP',
 };
 
 export default blogMetaChIt;

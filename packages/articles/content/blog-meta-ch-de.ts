@@ -1951,6 +1951,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.title': 'Zweite Säule BVG Schweiz Führer 2026 Kanton Zürich',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.excerpt': 'Leitfaden 2. Säule BVG 2026: 7-18% Altersbeiträge, Lückenrückkauf, Kapitalbezug und nationaler Vergleich mit Fokus Kanton Zürich',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-zurigo.imageAlt': 'Beratung zur beruflichen Vorsorge für Grenzgänger im Zürcher Büro mit BVG-Unterlagen und Schweizer Flagge',
+    'blog.article.secondo-pilastro-lpp-basilea-2026.title': 'Zweite Säule BVG Schweiz Führer 2026 Kanton Basel',
+    'blog.article.secondo-pilastro-lpp-basilea-2026.excerpt': 'Leitfaden 2026 zur 2. Säule BVG: Beiträge, Bezug, Lückenrückkauf und Vorsorgeplanung in der Schweiz. Fokus auf den Kanton Basel mit spezifischen Daten und nationalem Vergleich.',
+    'blog.article.secondo-pilastro-lpp-basilea-2026.imageAlt': 'Schweizer Mitarbeiter in Basel, der LPP-Dokumenten des zweiten Pfeilers überprüft',
 };
 
 export default blogMetaChDe;
