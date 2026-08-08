@@ -14,7 +14,6 @@ import fs from 'node:fs';
 import np from 'node:path';
 
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
-import { renderSalaryStatsBridge } from './shared/salaryStatsBridge';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
@@ -22,6 +21,13 @@ import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { buildDayStampIso } from './shared/buildDayStamp';
 import { cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { getCantonDisplayName, type CantonDisplayLocale } from './shared/cantonDisplay';
+import {
+  MIN_JOBS,
+  PROFESSION_BRIDGE_COPY,
+  professionLabel,
+  renderProfessionBelowFloorBridge,
+  meetsJobsFloor,
+} from './shared/professionJobsFloor';
 import {
   renderCantonSeoProse,
   buildCantonSeoProseFaqItems,
@@ -57,19 +63,16 @@ import {
   pickStatTileTone,
 } from './shared/seoContentTokens';
 
-/** Minimum real active jobs for a (canton, profession) page to be emitted. */
-const MIN_JOBS = 3;
+// MIN_JOBS, professionLabel and the below-floor bridge now come from
+// shared/professionJobsFloor.ts — the single producer both this family and the
+// legacy TI family (professionLandingsPlugin.ts) consult (#5322). They used to
+// be private to this module, which is exactly why the legacy family shipped
+// for months with no job floor at all: reusing them meant copying them.
 const SITEMAP_FILE = 'sitemap-profession-cantons.xml';
 
 const OG_LOCALE: Record<ProfessionLocale, string> = {
   it: 'it_CH', en: 'en_US', de: 'de_CH', fr: 'fr_CH',
 };
-
-/** Localised profession label (Title-cased role keyword is good enough). */
-function professionLabel(locale: ProfessionLocale, id: AnyProfessionId): string {
-  const role = professionRoleKeywordAny(locale, id).replace(/-/g, ' ');
-  return role.charAt(0).toUpperCase() + role.slice(1);
-}
 
 interface Copy {
   eyebrow: string;
@@ -168,57 +171,6 @@ function esc(s: unknown): string {
 function fmtChf(n: number, locale: ProfessionLocale): string {
   const sep = locale === 'en' ? ',' : locale === 'fr' ? ' ' : "'";
   return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, sep);
-}
-
-interface BridgeCopy {
-  title: (role: string, canton: string) => string;
-  body: (role: string, canton: string) => string;
-  cta: (canton: string) => string;
-}
-
-const BRIDGE_COPY: Record<ProfessionLocale, BridgeCopy> = {
-  it: {
-    title: (r, c) => `Lavoro ${r} Canton ${c}`,
-    body: (r, c) => `Al momento non ci sono abbastanza offerte attive per ${r} nel Canton ${c} da mostrare una pagina dedicata. Consulta stipendi e mercato del lavoro nel Canton ${c}.`,
-    cta: (c) => `Vai ai dati del Canton ${c}`,
-  },
-  en: {
-    title: (r, c) => `${r} jobs in Canton ${c}`,
-    body: (r, c) => `There aren't enough active ${r} openings in Canton ${c} right now for a dedicated page. See salary and job-market data for Canton ${c}.`,
-    cta: (c) => `Go to Canton ${c} data`,
-  },
-  de: {
-    title: (r, c) => `${r}-Stellen im Kanton ${c}`,
-    body: (r, c) => `Im Kanton ${c} gibt es derzeit nicht genug aktive ${r}-Stellen fur eine eigene Seite. Lohn- und Arbeitsmarktdaten fur den Kanton ${c} ansehen.`,
-    cta: (c) => `Zu den Daten fur Kanton ${c}`,
-  },
-  fr: {
-    title: (r, c) => `Emplois ${r} dans le canton ${c}`,
-    body: (r, c) => `Il n'y a pas assez d'offres actives pour ${r} dans le canton ${c} pour une page dediee actuellement. Consultez les donnees salariales et du marche du travail du canton ${c}.`,
-    cta: (c) => `Voir les donnees du canton ${c}`,
-  },
-};
-
-/**
- * Below-floor bridge: a (canton, profession) pair that doesn't meet MIN_JOBS
- * this build gets a noindex,follow canonical bridge instead of a hard 404.
- * Job counts fluctuate build to build, and this exact path may have been
- * indexed on a prior build when it did meet the floor (same orphaned-static-
- * page class fixed for weekly-employers company-city hubs via
- * findOrphanedCompanyCityPairs in weeklyEmployersPlugin.ts). The bridge
- * targets the same per-canton salary-stats hub the live page's own CTA links
- * to (buildSalaryStatsPath) — that family is emitted unconditionally for
- * every canton regardless of job counts, so it's always a safe target.
- */
-function renderBelowFloorBridge(locale: ProfessionLocale, cantonKey: string, id: AnyProfessionId): string {
-  const cantonName = getCantonDisplayName(cantonKey, locale as CantonDisplayLocale);
-  const role = professionLabel(locale, id);
-  const copy = BRIDGE_COPY[locale];
-  return renderSalaryStatsBridge(locale, cantonKey, {
-    title: copy.title(role, cantonName),
-    description: copy.body(role, cantonName),
-    ctaLabel: copy.cta(cantonName),
-  });
 }
 
 export function renderProfessionCantonPage(opts: {
@@ -332,7 +284,7 @@ ${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
   // template in the codebase; a longer role keyword + longer canton name
   // (e.g. DE "Graubünden") can clear TITLE_MAX_CHARS (66) with no fallback
   // before this fix (audit:title-length regression #4593).
-  const titleCandidates = [c.metaTitle(role, cantonName), BRIDGE_COPY[locale].title(role, cantonName)];
+  const titleCandidates = [c.metaTitle(role, cantonName), PROFESSION_BRIDGE_COPY[locale].title(role, cantonName)];
 
   const html = buildSeoPageHtml({
     locale,
@@ -415,12 +367,18 @@ export async function emitProfessionCantonPages(opts: { rootDir: string; distDir
     const perProfession = byCanton[cantonKey];
     for (const id of ALL_CANTON_PROFESSION_IDS) {
       const snapshot = perProfession?.[id];
-      if (!snapshot || snapshot.liveCount < MIN_JOBS) {
+      // Same shared predicate the legacy TI family calls (#5322). This family
+      // passes NO grace window (`recentlyExpiredCount` defaults to 0), so the
+      // verdict is byte-identical to the previous `liveCount < MIN_JOBS`: a
+      // below-floor pair here has essentially never had a full page to lose,
+      // whereas every legacy TI page is already indexed and ranking. See the
+      // asymmetry note in shared/professionJobsFloor.ts.
+      if (!snapshot || !meetsJobsFloor({ liveCount: snapshot.liveCount }).meetsFloor) {
         result.pagesSkippedForJobs++;
         for (const locale of PROFESSION_LOCALES) {
           const canonicalPath = buildProfessionCantonPath(locale, cantonKey, id);
           const outDir = np.join(opts.distDir, canonicalPath.replace(/^\/+/, ''));
-          collector.add(np.join(outDir, 'index.html'), renderBelowFloorBridge(locale, cantonKey, id));
+          collector.add(np.join(outDir, 'index.html'), renderProfessionBelowFloorBridge(locale, cantonKey, id));
           result.bridgesWritten++;
         }
         continue;
@@ -447,7 +405,7 @@ export async function emitProfessionCantonPages(opts: { rootDir: string; distDir
         for (const locale of PROFESSION_LOCALES) {
           const canonicalPath = buildProfessionCantonPath(locale, cantonKey, id);
           const outDir = np.join(opts.distDir, canonicalPath.replace(/^\/+/, ''));
-          collector.add(np.join(outDir, 'index.html'), renderBelowFloorBridge(locale, cantonKey, id));
+          collector.add(np.join(outDir, 'index.html'), renderProfessionBelowFloorBridge(locale, cantonKey, id));
           result.bridgesWritten++;
         }
         continue;

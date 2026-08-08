@@ -75,6 +75,14 @@ jobs:
       # Zero-dep (solo node:crypto + fetch), quindi gira prima di `npm ci` come gli altri
       # pre-flight. Su credenziali mancanti/non valide: warn + exit 0 SENZA scrivere
       # APP_TOKEN, e ogni consumatore qui sotto ricade sul comportamento precedente.
+      #
+      # Lo step scrive DUE variabili in $GITHUB_ENV, e la distinzione è il fix di #5288:
+      #   APP_TOKEN            → il token esiste (identità di push/dispatch della App)
+      #   APP_TOKEN_WORKFLOWS  → `permissions.workflows == 'write'` LETTO dalla risposta API
+      # Sono cose diverse. Il conio riesce (201, token valido) anche quando il permesso
+      # `workflows` è stato richiesto ma mai approvato sull'installazione: il permesso
+      # semplicemente non compare fra i `permissions`. Chi ha bisogno della CAPACITÀ deve
+      # quindi gatare su APP_TOKEN_WORKFLOWS, mai sulla presenza del token.
       - name: Mint GitHub App token (zero-Claude, pre-npm)
         continue-on-error: true
         env:
@@ -148,18 +156,33 @@ jobs:
 
       - name: Pre-flight — workflows-scope capability guard (zero-Claude)
         id: scope_guard
-        # CONDIZIONATO al conio del token, non rimosso (2026-08-06). Con APP_TOKEN
-        # presente il fixer HA lo scope `workflows` e bloccarlo a priori gli
-        # toglierebbe una capacità che ora possiede; senza APP_TOKEN — credenziali App
-        # assenti, ruotate o revocate — siamo esattamente nello stato per cui il guard
-        # è stato costruito, e continua a fare il suo lavoro.
+        # CONDIZIONATO alla CAPACITÀ del token, non alla sua presenza (#5288, 2026-08-08).
+        # Con `workflows: write` davvero concesso il fixer HA lo scope e bloccarlo a priori
+        # gli toglierebbe una capacità che possiede; senza — credenziali App assenti,
+        # ruotate, revocate, oppure permesso richiesto ma mai approvato sull'installazione —
+        # siamo esattamente nello stato per cui il guard è stato costruito, e continua a
+        # fare il suo lavoro.
         #
-        # Disattivarlo del tutto sarebbe stato l'errore: il fallimento del conio è
+        # La versione precedente gatava su `env.APP_TOKEN == ''`, cioè sulla PRESENZA del
+        # token. Non è la stessa cosa: il conio restituisce 201 e un token perfettamente
+        # valido anche quando `workflows` non è fra i permessi concessi. In quello stato il
+        # guard veniva saltato, il prompt qui sotto dichiarava all'agente «hai lo scope
+        # workflows, procedi», l'agente implementava tutto, e il rifiuto arrivava solo alla
+        # fine, al `git push` («refusing to allow a GitHub App to create or update workflow
+        # … without `workflows` permission», #5280 2026-08-07). Il fallimento era migrato
+        # dal turno 1 a dopo l'implementazione: da 0 token a ~1M token per run, cioè
+        # esattamente la spesa che l'escalation #3887 aveva eliminato.
+        #
+        # Disattivare il guard del tutto sarebbe stato l'errore: il fallimento del conio è
         # silenzioso per progetto (`mint-app-token.mjs` esce 0), quindi un guard rimosso
         # avrebbe fatto tornare il fixer a spendere ~1M token per run per poi fallire al
         # push, senza che niente lo segnalasse. Legare le due cose rende il degrado
         # automatico invece che affidato a chi se ne ricorda.
-        if: env.APP_TOKEN == '' && steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true'
+        #
+        # FAIL-CLOSED: `mint-app-token.mjs` scrive APP_TOKEN_WORKFLOWS su OGNI cammino di
+        # uscita, e una variabile non scritta è comunque `!= 'true'` → il guard gira. Non
+        # esiste un modo di arrivare a «capacità concessa» senza che l'API l'abbia detto.
+        if: env.APP_TOKEN_WORKFLOWS != 'true' && steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true'
         # PROCEED-SAFE, same contract as `preflight` above: the script is total (catches
         # its own throws → emits workflows_blocked=false), continue-on-error is
         # belt-and-suspenders so an infra fault never strands the issue.
@@ -336,6 +359,7 @@ jobs:
         if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           APP_TOKEN: ${{ env.APP_TOKEN }}
+          APP_TOKEN_WORKFLOWS: ${{ env.APP_TOKEN_WORKFLOWS }}
           REPO: ${{ github.repository }}
         run: |
           git config user.name "Valerie Linc"
@@ -349,10 +373,21 @@ jobs:
           # che ha la precedenza sullo `x-access-token:` nell'URL del remote — il push
           # tornerebbe silenziosamente al token sbagliato. È la trappola già documentata
           # in pr-redflag-fixer.yml, stessa causa, stesso rimedio.
+          #
+          # L'identità di push resta la App ogni volta che il token esiste: serve a far
+          # ri-triggerare i workflow a valle (`<app>[bot]` ≠ `github-actions[bot]`), ed è
+          # utile anche senza scope `workflows`. Quello che NON si deduce dalla presenza
+          # del token è la CAPACITÀ sui file workflow — la dice APP_TOKEN_WORKFLOWS, letto
+          # da `permissions` nella risposta di conio (#5288). Qui il log distingue i due
+          # casi, così un push rifiutato si legge nei log senza dover indovinare.
           if [ -n "${APP_TOKEN:-}" ]; then
             git config --unset-all "http.https://github.com/.extraheader" || true
             git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${REPO}.git"
-            echo "push identity: GitHub App (scope workflows disponibile)"
+            if [ "${APP_TOKEN_WORKFLOWS:-}" = "true" ]; then
+              echo "push identity: GitHub App (scope workflows CONFERMATO dalla risposta API)"
+            else
+              echo "push identity: GitHub App (permesso workflows NON concesso sull'installazione — .github/workflows/** resta non pushabile)"
+            fi
           else
             echo "push identity: GITHUB_TOKEN (nessun APP_TOKEN — .github/workflows/** resta non pushabile)"
           fi
@@ -407,7 +442,7 @@ jobs:
             **Pre-condizioni (abort se falliscono):**
             - Se esiste già una PR aperta che cita "#$ISSUE_NUMBER" (`gh pr list --state open --search "$ISSUE_NUMBER in:body" --json number`) → posta commento "PR già in volo: #<n>, skip." e TERMINA. No doppioni.
             - **Overlap-file** (no race su lavoro in corso): estrai i path target dal body della issue (file citati in `## Suggested action` / `## Item` / blocchi codice). Per ogni PR aperta (`gh pr list --state open --json number,title`) confronta i suoi file (`gh pr diff <n> --name-only`) coi target: se una PR aperta **modifica già** uno dei file target → posta commento "File `<path>` già in volo nella PR #<n> (<title>) — skip per evitare conflitto/duplicazione; riaprire l'auto-fix dopo il merge se ancora pertinente." e TERMINA. Razionale: un'altra PR può riscrivere quel file rendendo il fix moot o conflittuale (es. #934 hardening vs #943 rewrite di `submit-indexnow-batch.yml`). Nel dubbio (issue non file-specifica) → procedi.
-            - **Capability guard (valuta SUBITO, prima di implementare — risparmio token):** ${{ env.APP_TOKEN != '' && 'il push di questo run usa il token della GitHub App, che HA lo scope `workflows`: modificare file in `.github/workflows/**` è consentito e il `git push` passa. Trattali come qualunque altro file — non auto-bloccarti su quel path.' || 'questo ambiente ha solo `GH_TOKEN` (GITHUB_TOKEN) che NON ha lo scope `workflows`. Dai path target estratti dal body: se il fix richiederebbe di modificare file in `.github/workflows/**` → il `git push` fallirebbe sempre (push di workflow rifiutato senza scope `workflows`) → niente PR. Allora NON implementare: posta un commento col diff/azione proposta + "blocco scope `workflows`: serve la GitHub App abilitata o mano umana" e TERMINA SUBITO.' }} In ogni caso NON hai PAT/Firebase SA: se il fix è puramente una repo-setting/branch-protection/admin-API (es. `gh api .../branches/main/protection` → 403) o richiede segreti non in CI (`CF_API_TOKEN`, `POSTHOG_*`, `GEMINI_API_KEY`), documenta e TERMINA senza implementare. Razionale: fare il fix completo per poi scoprire il blocco al push spreca ~1M token/run (vedi #983); il blocco è deterministico dalle capability, va rilevato a turno 1.
+            - **Capability guard (valuta SUBITO, prima di implementare — risparmio token):** ${{ env.APP_TOKEN_WORKFLOWS == 'true' && 'il push di questo run usa il token della GitHub App, e la risposta API del conio ha CONFERMATO `permissions.workflows == write` (letto, non dedotto dalla presenza del token): modificare file in `.github/workflows/**` è consentito e il `git push` passa. Trattali come qualunque altro file — non auto-bloccarti su quel path.' || 'il push di questo run NON ha lo scope `workflows`: o non esiste un token App, o il token è stato coniato ma il permesso `workflows` non risulta concesso sulla installazione (verificato leggendo `permissions` dalla risposta API). Dai path target estratti dal body: se il fix richiederebbe di modificare file in `.github/workflows/**` → il `git push` fallirebbe sempre (push di workflow rifiutato senza scope `workflows`) → niente PR. Allora NON implementare: posta un commento col diff/azione proposta + "blocco scope `workflows`: serve la GitHub App abilitata o mano umana" e TERMINA SUBITO.' }} In ogni caso NON hai PAT/Firebase SA: se il fix è puramente una repo-setting/branch-protection/admin-API (es. `gh api .../branches/main/protection` → 403) o richiede segreti non in CI (`CF_API_TOKEN`, `POSTHOG_*`, `GEMINI_API_KEY`), documenta e TERMINA senza implementare. Razionale: fare il fix completo per poi scoprire il blocco al push spreca ~1M token/run (vedi #983); il blocco è deterministico dalle capability, va rilevato a turno 1.
 
             - **Follow-up aggregata multi-item — is_aggregate=${{ steps.tier.outputs.is_aggregate }} (count=${{ steps.tier.outputs.agg_count }}):** se `is_aggregate=true` questa issue ha ${{ steps.tier.outputs.agg_count }} item distinti e tentarli TUTTI in un run sfora il turn budget → `error_max_turns` → 0 PR, ~2M token persi (osservato #1095/#1101/#1172). **REGOLA FERREA (circuit-breaker):** fixa **ESATTAMENTE UN item** poi FERMATI (per una issue *sweep/batch* "item" = UN singolo target/file: es. "~30 crawlers" → fixa 1 crawler, deferisci gli altri 29). Procedura: (a) capability guard **PER-ITEM** — salta gli item che toccano `.github/workflows/**`/admin/secret (NON abortire l'intera issue), (b) scegli il PRIMO item in-capability a massimo valore funnel, (c) implementa SOLO quello, (d) **appena la PR per quell'unico item è aperta → STOP IMMEDIATO, non iniziare un secondo item** (anche se hai turni residui), (e) elenca tutti gli altri item in `## Non implementato` (motivo `follow-up`/`blocked`) → `post-merge-followup` li ri-accoda come nuova follow-up (re-queue esistente; ogni ciclo chiude ≥1 item → converge). Se `is_aggregate=false`: issue singola, comportamento invariato (capability guard whole-issue come sopra). Razionale: il budget di turni basta per 1 item con margine; 2+ item lo bruciano.
 

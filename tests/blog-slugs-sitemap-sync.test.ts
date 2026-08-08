@@ -1,3 +1,30 @@
+/**
+ * WHAT A RED HERE MEANS, SINCE #5298
+ * ──────────────────────────────────
+ * It used to mean one of two very different things with no way to tell them
+ * apart from the failure: either the registry and the sitemaps had genuinely
+ * parted (#3012 / #3120, the bugs this file exists for), or
+ * `sync-articles-sitemaps.yml` had committed a pair caught mid-publish. The
+ * second was common enough to poison the first — it held eight ready PRs for a
+ * night, and every measurement taken during it pointed at a different cause,
+ * because each was a snapshot of a different instant. Its signature was that the
+ * SIGN inverted between runs, which a stable defect cannot do.
+ *
+ * The second meaning is now gone at the SOURCE: the sync checks the corpus out at
+ * the exact commit the published API says it was built from, and skips the run
+ * entirely when it cannot, so the two artifacts inside one commit describe one
+ * upstream state by construction. Mechanism and coverage:
+ * scripts/lib/articles-sync-pin.mjs, tests/articles-sync-pin.test.ts.
+ *
+ * The in-transit tolerance below therefore no longer has a condition to excuse.
+ * It is kept as a backstop for pairs committed BEFORE the pin existed, and for
+ * any writer of these files that is not the sync workflow; it is deliberately not
+ * removed in the same change that closes the window, because deleting a
+ * suppression and its cause together leaves nothing to observe. Delete it once
+ * pinned syncs have run for a while — the criterion is that
+ * `scripts/ci/check-blog-slugs-sitemap-sync.mjs`, which has no tolerance at all
+ * and runs on every sync, has stayed green across a stretch of them.
+ */
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
