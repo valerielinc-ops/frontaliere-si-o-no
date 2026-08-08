@@ -41,6 +41,17 @@ import {
 } from './seoHubsData';
 import { ARTICLE_SECTIONS, type ArticleSection } from '../services/articleSections';
 import { finalizeMeta } from '../services/seo/meta-descriptions';
+// "Argomenti" nav + sibling-archive cross-link (#5414): the HTML builder and
+// the eligibility pass are SHARED with the package's narrowed core on purpose
+// — two copies of the anchor formula would link 404s the day one drifts
+// (AGENTS.md #6). The two `renderArticleHubPagesCore` copies stay separate
+// (see the note above `emitSeoHubs`'s export block); only this block, which
+// must be byte-identical on both sides for
+// tests/render-article-hub-pages-narrow-vs-full.test.ts, has one producer.
+import {
+  buildArchiveTopicsNavHtml,
+  computeEligibleTopicKeys,
+} from '../packages/articles/engine/articleHubPagesPlugin';
 import { readArticleArchiveUnionSlugs } from './shared/articleArchiveUnion';
 import { readArticleExcerpts, readArticleSlugs, readBlogUrlSlugs } from './shared/articleReaders';
 import { WriteCollector } from './batchWrite';
@@ -983,6 +994,14 @@ interface BuildHtmlArgs {
    * svizzera section.
    */
   sectionOverride?: ArticleSectionOverride;
+  /**
+   * Pre-rendered "Argomenti" nav + sibling-section cross-link (#5414),
+   * article archives only — jobs/sectors/companies callers omit it and the
+   * template line renders empty, exactly like `recencyChipsHtml` off the
+   * jobs hub. Built by the engine's shared `buildArchiveTopicsNavHtml` so
+   * this copy and the package's narrowed one emit identical bytes.
+   */
+  topicsNavHtml?: string;
 }
 
 /**
@@ -999,7 +1018,7 @@ interface ArticleSectionOverride {
 }
 
 function buildHtml(args: BuildHtmlArgs): string {
-  const { locale, hubKey, basePath, page, totalPages, pageItems, totalItems, hasSpaBundle, entryJs, entryCss, sectionOverride } = args;
+  const { locale, hubKey, basePath, page, totalPages, pageItems, totalItems, hasSpaBundle, entryJs, entryCss, sectionOverride, topicsNavHtml = '' } = args;
   // Global total (`totalItems`) only on page 1; on page ≥2 use this page's own
   // slice size (`pageItems.length` = JOBS_PAGE_SIZE for full pages, stable; the
   // last partial page still tracks its remainder, bounded to 1 page). The
@@ -1222,6 +1241,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
         ${itemsHtml}
       </section>
       ${pagination}
+      ${topicsNavHtml}
       ${proseAccordionHtml}
     </main>${railGutters(true).close}
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
@@ -2246,6 +2266,13 @@ interface RenderArticleHubCoreArgs {
    * never drops it from another locale's alternate group.
    */
   readonly locales?: readonly HubLocale[];
+  /**
+   * Override the eligible-topic set the "Argomenti" nav links (#5414).
+   * Default: computed via the engine's shared `computeEligibleTopicKeys` —
+   * the same membership/floor split `topicClusterHubsPlugin.ts` renders the
+   * hub-vs-bridge decision from.
+   */
+  readonly eligibleTopicKeys?: ReadonlySet<string>;
 }
 
 /**
@@ -2313,6 +2340,17 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
   const archiveBases: Record<HubLocale, string> = isSvizzera
     ? svizzeraArticlesArchiveBasePaths()
     : { it: HUB_SLUGS.it.articlesAll, en: HUB_SLUGS.en.articlesAll, de: HUB_SLUGS.de.articlesAll, fr: HUB_SLUGS.fr.articlesAll };
+  // The OTHER section's archive bases — the cross-link target (#5414).
+  // `HUB_SLUGS[loc].articlesAll` here is the same `/tutti/` map the package
+  // core reads off the shell's `articlesAllPaths`, so both copies emit the
+  // same twin href byte-for-byte.
+  const twinArchiveBases: Record<HubLocale, string> = isSvizzera
+    ? { it: HUB_SLUGS.it.articlesAll, en: HUB_SLUGS.en.articlesAll, de: HUB_SLUGS.de.articlesAll, fr: HUB_SLUGS.fr.articlesAll }
+    : svizzeraArticlesArchiveBasePaths();
+  // One membership pass per section render (locale-independent by
+  // construction) — the engine's shared eligibility split, see the import.
+  const eligibleTopicKeys = args.eligibleTopicKeys
+    ?? computeEligibleTopicKeys(fs, np, rootDir, section);
   const pageSize = ARTICLES_PAGE_SIZE;
   // Canonical union slug set, computed once via the SHARED helper that
   // `staticPagesPlugin.ts`'s page-N navigator also uses — so the emitted
@@ -2324,6 +2362,12 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
     const basePath = archiveBases[locale];
     const prefix = locale === 'it' ? '' : `/${locale}`;
     const blogSection = cfg.indexSlug[locale];
+    const topicsNavHtml = buildArchiveTopicsNavHtml({
+      locale,
+      section,
+      eligibleTopicKeys,
+      twinArchivePath: twinArchiveBases[locale],
+    });
 
     // Master list = UNION of `{metaPrefix}-it.ts` slugs and `{slugConst}`
     // keys — same orphan-avoidance contract for both sections.
@@ -2415,7 +2459,7 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
       const html = buildHtml({
         locale, hubKey: 'articles', basePath, page, totalPages,
         pageItems: slice, totalItems: total, hasSpaBundle, entryJs, entryCss,
-        sectionOverride,
+        sectionOverride, topicsNavHtml,
       });
       const canonicalPath = paginatedPath(basePath, page);
       const relPath = np.join(canonicalPath.slice(1), 'index.html');

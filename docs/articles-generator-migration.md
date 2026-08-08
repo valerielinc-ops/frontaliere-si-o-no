@@ -773,15 +773,46 @@ Verification actually run, not asserted:
   `MYSWITZERLAND_TRANSLATE_BUDGET_MS=15000 node scripts/crawl-myswitzerland-events.mjs --dry-run --limit=6`
   → budget message fires, process **exits 0** instead of hanging.
 
-### 9.6 §5.7 — `mirror-articles-corpus` deletion: not yet, earliest 2026-08-09
+### 9.6 §5.7 — `mirror-articles-corpus` deletion: not yet, earliest 2026-08-14
 
 The workflow is inert as intended: `on:` carries **only** `workflow_dispatch`; both `push` and
 `schedule` are commented out. Last run of any kind is #90, a manual dispatch at 2026-08-02T08:57Z
 during cutover; nothing since.
 
-The §5.7 criterion is holding so far — **0 commits have touched `packages/articles/` on main since
-the cutover** (queried `since=2026-08-02T11:30Z`). That is 1 day of the required 7. Re-check on or
-after 2026-08-09 with the same query; delete only if it still returns 0.
+**Re-checked 2026-08-08 by subtree (per §13.2): the window is dirty, and the 2026-08-09 date this
+section originally carried no longer applies.** §5 step 8 wants a full clean week — no producer
+commits under `packages/articles/content` AND green pulls across the same window. Over
+`since=2026-08-02T00:00Z`, 108 commits touch `content/`:
+
+- 99 are the sync and 1 is the blessed pull-back (`c95f811f4`, 2026-08-04);
+- 3 are producer commits from *before* the 11:30Z cutover moment — out of scope;
+- **5 are producer commits AFTER the cutover**: `d14f1b6ad` (2026-08-06T10:28Z) through
+  `208c3aabd` (2026-08-07T05:35:50Z), all `github-actions[bot]` / `feat(article):`.
+
+Those five come from incident #5289: on 2026-08-06T09:51:54Z `refresh-bfs-stats.yml` dispatched
+`generate-article.yml` for the new BFS quarter, and the self-trigger kept the chain alive for ~22h
+(19 runs). None of the five articles existed on nanako, so `pull-articles-corpus.mjs` refused them
+(shrink guard) — 5 `sync-articles-sitemaps` failures between 2026-08-06T11:39Z and
+2026-08-07T06:38:12Z — and once nanako's counts overtook, the pull deleted all five.
+`confirm_corpus_write=yes` stops the re-ignition, but that is future mitigation: the measured
+window stays dirty.
+
+`packages/articles/engine` carries 12 commits in the same span, all expected — main owns the
+engine and §13.4 is its carrier. Not blocking.
+
+Both conjuncts of step 8 therefore fail for 2026-08-02→09: the last producer commit is
+2026-08-07T05:35:50Z and the last red pull 2026-08-07T06:38:12Z. **Earliest workable date:
+2026-08-14.** Re-check with the subtree query, which must come back empty:
+
+```bash
+gh api 'repos/valerielinc-ops/frontaliere-si-o-no/commits?path=packages/articles/content&since=2026-08-07T05:36:00Z&per_page=100' --paginate \
+  -q '.[] | "\(.sha[0:9])\t\(.commit.author.name)\t\(.commit.message | split("\n")[0])"' \
+  | grep -v 'Sync article sitemaps'
+```
+
+…and `sync-articles-sitemaps` must be green across the same window. Neither this workflow nor this
+document appears in nanako's `scripts/ci/loop-sync-manifest.json`, so no `mode` constrains the
+deletion once the window matures: it is one PR on this repo.
 
 ## 10. The last coupling: `fast-publish`, and the closure to move it (2026-08-03)
 
@@ -1153,10 +1184,13 @@ here does one of those two things.
 
 ### 12.5 Still open
 
-- **§5.7** — delete `mirror-articles-corpus`, earliest 2026-08-09. Recheck with
-  `/repos/valerielinc-ops/frontaliere-si-o-no/commits?path=packages/articles&since=<cutover>`,
-  but read §13 first: that query as written can no longer return 0, and the
-  criterion has to be split by subtree.
+- **§5.7** — delete `mirror-articles-corpus`, **earliest 2026-08-14** (was 2026-08-09;
+  moved by the 2026-08-08 re-check, §9.6). Recheck with
+  `/repos/valerielinc-ops/frontaliere-si-o-no/commits?path=packages/articles/content&since=2026-08-07T05:36:00Z`,
+  not the `packages/articles` path: that query as written can no longer return 0,
+  and the criterion has to be split by subtree (§13.2). Incident #5289 put five
+  producer commits and five red pulls inside the window that ended 2026-08-07T06:38Z,
+  so the clean week restarts from there.
 
 ## 13. The direction nobody was watching: `engine/` (2026-08-05)
 

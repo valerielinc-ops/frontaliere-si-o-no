@@ -1,16 +1,16 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-08-08T10:11:48.023Z",
+  "generatedAt": "2026-08-08T22:07:19.138Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 1956,
-  "avgDurationMs": 1956,
+  "durationMs": 1416,
+  "avgDurationMs": 1416,
   "durationHistory": [
-    1956
+    1416
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -112,11 +112,11 @@
       "contractType": "full-time",
       "validThrough": "2026-10-18",
       "id": "board-international-549138686b90",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-07T22:06:14.144Z",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,

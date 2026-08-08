@@ -5851,6 +5851,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'secondo-pilastro-lpp-basilea-2026',
+    category: 'pensione',
+    date: '2026-08-08T21:38:34.424Z',
+    image: '/images/blog/secondo-pilastro-lpp-basilea-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
