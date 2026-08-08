@@ -23102,10 +23102,10 @@
         "fr": "employee-service-in-hourly-wage-20-senevita-muri-be"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/employee-service-in-hourly-wage-20-senevita-muri-be",
-        "en": "/en/find-jobs-ticino/employee-service-in-hourly-wage-20-senevita-muri-be",
-        "de": "/de/jobs-im-tessin/employee-service-in-hourly-wage-20-senevita-muri-be",
-        "fr": "/fr/trouver-emploi-tessin/employee-service-in-hourly-wage-20-senevita-muri-be"
+        "it": "/cerca-lavoro-berna/employee-service-in-hourly-wage-20-senevita-muri-be",
+        "en": "/en/find-jobs-bern/employee-service-in-hourly-wage-20-senevita-muri-be",
+        "de": "/de/jobs-in-bern/employee-service-in-hourly-wage-20-senevita-muri-be",
+        "fr": "/fr/trouver-emploi-berne/employee-service-in-hourly-wage-20-senevita-muri-be"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -27652,10 +27652,10 @@
         "fr": "garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon",
-        "en": "/en/find-jobs-st-gallen/garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon",
-        "de": "/de/jobs-in-st-gallen/garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon",
-        "fr": "/fr/trouver-emploi-saint-gall/garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon"
+        "it": "/cerca-lavoro-lucerna/garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon",
+        "en": "/en/find-jobs-lucerne/garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon",
+        "de": "/de/jobs-in-luzern/garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon",
+        "fr": "/fr/trouver-emploi-lucerne/garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -29683,6 +29683,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "horlogerie",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-tessin/horlogerie/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-tessin/horlogerie/"
+      },
+      "queries": [
+        {
+          "query": "italie",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "italie",
+      "title": "Horlogerie",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "horlogerie",
+        "en": "horlogerie",
+        "de": "horlogerie",
+        "fr": "horlogerie"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/horlogerie",
+        "en": "/en/find-jobs-ticino/horlogerie",
+        "de": "/de/jobs-im-tessin/horlogerie",
+        "fr": "/fr/trouver-emploi-tessin/horlogerie"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -71934,10 +71991,10 @@
         "it": "venditore-di-prodotti-freschi-pane-prodotti-da-forno-coop-genossenschaft-emmen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/venditore-di-prodotti-freschi-pane-prodotti-da-forno-coop-genossenschaft-emmen",
-        "en": "/en/find-jobs-basel/venditore-di-prodotti-freschi-pane-prodotti-da-forno-coop-genossenschaft-emmen",
+        "it": "/cerca-lavoro-lucerna/venditore-di-prodotti-freschi-pane-prodotti-da-forno-coop-genossenschaft-emmen",
+        "en": "/en/find-jobs-lucerne/venditore-di-prodotti-freschi-pane-prodotti-da-forno-coop-genossenschaft-emmen",
         "de": "/de/jobs-im-zurich/venditore-di-prodotti-freschi-pane-prodotti-da-forno-coop-genossenschaft-emmen",
-        "fr": "/fr/trouver-emploi-bale/venditore-di-prodotti-freschi-pane-prodotti-da-forno-coop-genossenschaft-emmen"
+        "fr": "/fr/trouver-emploi-lucerne/venditore-di-prodotti-freschi-pane-prodotti-da-forno-coop-genossenschaft-emmen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

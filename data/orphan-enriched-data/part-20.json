@@ -2454,10 +2454,10 @@
         "fr": "amministratore-delegato-in-coop-genossenschaft-sankt-moritz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/amministratore-delegato-in-coop-genossenschaft-sankt-moritz",
-        "en": "/en/find-jobs-graubunden/amministratore-delegato-in-coop-genossenschaft-sankt-moritz",
+        "it": "/cerca-lavoro-san-gallo/amministratore-delegato-in-coop-genossenschaft-sankt-moritz",
+        "en": "/en/find-jobs-st-gallen/amministratore-delegato-in-coop-genossenschaft-sankt-moritz",
         "de": "/de/jobs-im-graubunden/amministratore-delegato-in-coop-genossenschaft-sankt-moritz",
-        "fr": "/fr/trouver-emploi-grisons/amministratore-delegato-in-coop-genossenschaft-sankt-moritz"
+        "fr": "/fr/trouver-emploi-saint-gall/amministratore-delegato-in-coop-genossenschaft-sankt-moritz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -10642,6 +10642,69 @@
         "en": "/en/find-jobs-ticino/bruckenbeschlag-pemsa-chiasso",
         "de": "/de/jobs-im-tessin/bruckenbeschlag-pemsa-chiasso",
         "fr": "/fr/trouver-emploi-tessin/bruckenbeschlag-pemsa-chiasso"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "business-analista-in-logistik-services-die-schweizerische-post-bern",
+      "locale": "it",
+      "path": "/cerca-lavoro-berna/business-analista-in-logistik-services-die-schweizerische-post-bern/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-berna/business-analista-in-logistik-services-die-schweizerische-post-bern/"
+      },
+      "queries": [
+        {
+          "query": "post jobs bern",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "post logistik",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "post jobs bern",
+      "title": "Business analista in logistik services die schweizerische post",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "business-analista-in-logistik-services-die-schweizerische-post-bern",
+        "en": "business-analista-in-logistik-services-die-schweizerische-post-bern",
+        "de": "business-analista-in-logistik-services-die-schweizerische-post-bern",
+        "fr": "business-analista-in-logistik-services-die-schweizerische-post-bern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/business-analista-in-logistik-services-die-schweizerische-post-bern",
+        "en": "/en/find-jobs-bern/business-analista-in-logistik-services-die-schweizerische-post-bern",
+        "de": "/de/jobs-im-bern/business-analista-in-logistik-services-die-schweizerische-post-bern",
+        "fr": "/fr/trouver-emploi-berne/business-analista-in-logistik-services-die-schweizerische-post-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -32694,10 +32757,10 @@
         "it": "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen-zhqtc1"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/installers-for-the-replacement-of-built-in-kitchen-appliances-fust-swiss-household-services-ag-oberburen",
-        "en": "/en/find-jobs-st-gallen/installers-for-the-replacement-of-built-in-kitchen-appliances-fust-swiss-household-services-ag-oberburen",
+        "it": "/cerca-lavoro-berna/installers-for-the-replacement-of-built-in-kitchen-appliances-fust-swiss-household-services-ag-oberburen",
+        "en": "/en/find-jobs-bern/installers-for-the-replacement-of-built-in-kitchen-appliances-fust-swiss-household-services-ag-oberburen",
         "de": "/de/jobs-im-st-gallen/installers-for-the-replacement-of-built-in-kitchen-appliances-fust-swiss-household-services-ag-oberburen",
-        "fr": "/fr/trouver-emploi-saint-gall/installers-for-the-replacement-of-built-in-kitchen-appliances-fust-swiss-household-services-ag-oberburen"
+        "fr": "/fr/trouver-emploi-berne/installers-for-the-replacement-of-built-in-kitchen-appliances-fust-swiss-household-services-ag-oberburen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -53947,7 +54010,17 @@
           "impressions": 6
         },
         {
+          "query": "tutti ch ristorazione",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
           "query": "tutti ch ristorazione ticino",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "tutti.ch ristorazione",
           "clicks": 0,
           "impressions": 6
         },
@@ -53982,22 +54055,12 @@
           "impressions": 5
         },
         {
-          "query": "tutti ch ristorazione",
-          "clicks": 0,
-          "impressions": 5
-        },
-        {
-          "query": "tutti.ch ristorazione",
-          "clicks": 0,
-          "impressions": 5
-        },
-        {
           "query": "frontalieri",
           "clicks": 0,
           "impressions": 4
         }
       ],
-      "totalImpressions": 220,
+      "totalImpressions": 222,
       "totalClicks": 6,
       "topQuery": "offerte di lavoro ticino ristorazione",
       "title": "Ristorazione",
@@ -74752,10 +74815,10 @@
         "fr": "verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-sennwald"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-sennwald",
-        "en": "/en/find-jobs-zurich/verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-sennwald",
+        "it": "/cerca-lavoro-berna/verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-sennwald",
+        "en": "/en/find-jobs-bern/verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-sennwald",
         "de": "/de/jobs-im-basel/verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-sennwald",
-        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-sennwald"
+        "fr": "/fr/trouver-emploi-berne/verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-sennwald"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
