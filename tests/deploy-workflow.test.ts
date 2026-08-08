@@ -110,6 +110,14 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
     // - `audit:job-locations` runs on its own separate weekly workflow
     //   (location-quality-audit.yml) — report-only monitoring, not a
     //   deploy-blocking dist gate (same pattern as audit:title-uniqueness).
+    // - `audit:slug-prompt-leaks` (issue #5334) reads the article registries and
+    //   the blog sitemaps in the SOURCE tree, never dist/, so it has nothing to
+    //   contribute to a dist-walking block. Its enforcement is not deferred:
+    //   the identical sweep, over the identical sources (it imports
+    //   AUDIT_SOURCES / KNOWN_LEGACY_LEAKS from the script itself), runs on every
+    //   PR in tests/article-slug-prompt-leak-guard.test.ts. This npm alias is
+    //   the operator-facing form — the one that prints which slug and which
+    //   pattern — not a second, weaker copy of the gate.
     const GATES_NOT_IN_DIST_PARALLEL = new Set([
       'audit:title-uniqueness',
       'audit:dist-multi',
@@ -117,6 +125,7 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
       'audit:no-merge-markers',
       'audit:active-jobs-regression',
       'audit:job-locations',
+      'audit:slug-prompt-leaks',
       'audit:all',
     ]);
     const allAuditScripts = Object.keys(PACKAGE_JSON.scripts || {}).filter((k) => {

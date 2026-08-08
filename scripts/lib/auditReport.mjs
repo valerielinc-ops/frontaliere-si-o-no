@@ -33,7 +33,13 @@
 //     ratio for text-html-ratio, depth for bfs-depth, count for orphans).
 //   - `ratio` is only set when meaningful (currently text-html-ratio).
 //   - `topOffenders` is capped at 100 entries to keep individual report files
-//     well under 1 MB even on regression-heavy runs.
+//     well under 1 MB even on regression-heavy runs. `topOffendersTruncated`
+//     says whether that cap actually bit, and `topOffendersOmitted` how many
+//     were dropped — READ THEM BEFORE concluding a feature has no offenders
+//     from its absence in the list.
+//   - `sampleRate` names the scale of every count in the file (1 = full walk),
+//     and `offendersTotalExtrapolated` projects `offendersTotal` to the full
+//     population. Under `AUDIT_SAMPLE_RATE=0.25` a reported 5 is ~20 real.
 //
 // Performance: the writer does NOT walk dist/. Callers pass a pre-built
 // offenders array — typically the same one they already iterate to print the
@@ -46,7 +52,22 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..', '..');
 
+/**
+ * Default destination. Overridable via `AUDIT_REPORTS_DIR` so a caller can
+ * write somewhere else — which tests MUST do: this path is under `dist/`, and
+ * merely writing here CREATES `dist/` at the repo root. Several behavioural
+ * suites (`tests/seo/cathedral-*.test.ts`) guard on `fs.existsSync(DIST)` and
+ * skip when it is absent, so a stray report file flips them from "skipped" to
+ * "asserting against an almost-empty dist" — 13 failures with no code change
+ * behind them. Resolved per call, not frozen at import, so a test can set it
+ * in `beforeEach`.
+ */
 export const AUDIT_REPORTS_DIR = join(ROOT, 'dist', 'audit-reports');
+
+function reportsDir() {
+  const override = process.env.AUDIT_REPORTS_DIR;
+  return override && override.trim() ? resolve(override) : AUDIT_REPORTS_DIR;
+}
 
 /** Cap on `topOffenders.length` written to disk. Keeps individual reports
  *  small enough to upload as artifacts cheaply on the GitHub Actions free
@@ -66,7 +87,7 @@ export function auditReportPath(audit) {
     throw new TypeError('auditReportPath: `audit` must be a non-empty string');
   }
   const safe = audit.replace(/[^a-z0-9_.-]/gi, '-');
-  return join(AUDIT_REPORTS_DIR, `${safe}.json`);
+  return join(reportsDir(), `${safe}.json`);
 }
 
 /**
@@ -145,6 +166,28 @@ export async function writeAuditReport(params) {
     return out;
   });
 
+  // Two facts about these numbers that a reader CANNOT infer from the numbers
+  // themselves, and that have twice been read wrong:
+  //
+  //  1. `topOffenders` is the worst 100. A feature absent from it is NOT a
+  //     feature without offenders — it is a feature whose offenders are not
+  //     among the worst 100. `text-html-ratio` once reported spa-locale and
+  //     spa-other as its two regressed features while neither had a single
+  //     entry in `topOffenders`, because `eventi` and `employer-profiles`
+  //     filled the list.
+  //  2. Under `AUDIT_SAMPLE_RATE` every count here is a SAMPLE count, roughly
+  //     1/rate of the real population. `h1-title-duplicates` reporting 5
+  //     offenders at rate 0.25 meant 29 real ones; #5312's post-mortem records
+  //     the same class of misread ("30 vs 31" read as an improvement when it
+  //     was ~120 against 31).
+  //
+  // Both are now stated in the file instead of being knowledge the reader has
+  // to already have. `byFeature` and `offendersTotal` keep their raw sampled
+  // meaning — changing them would break every existing consumer — and the
+  // scale is named alongside.
+  const rawRate = Number.parseFloat(String(process.env.AUDIT_SAMPLE_RATE ?? ''));
+  const sampleRate = Number.isFinite(rawRate) && rawRate > 0 && rawRate <= 1 ? rawRate : 1;
+
   const report = {
     audit,
     ranAt: new Date().toISOString(),
@@ -153,7 +196,17 @@ export async function writeAuditReport(params) {
     baselineFile: baselineFile ?? null,
     baselineDelta: baselineDelta ?? null,
     offendersTotal: offenders.length,
+    /** Scale of every count in this file. 1 = full walk, 0.25 = a 25% sample. */
+    sampleRate,
+    /** `offendersTotal` projected to the full population. Equal when unsampled. */
+    offendersTotalExtrapolated: sampleRate === 1
+      ? offenders.length
+      : Math.round(offenders.length / sampleRate),
     byFeature,
+    /** True when `topOffenders` is a slice: absence from it proves nothing. */
+    topOffendersTruncated: offenders.length > TOP_OFFENDERS_LIMIT,
+    topOffendersLimit: TOP_OFFENDERS_LIMIT,
+    topOffendersOmitted: Math.max(0, offenders.length - TOP_OFFENDERS_LIMIT),
     topOffenders,
     ...extra,
   };
