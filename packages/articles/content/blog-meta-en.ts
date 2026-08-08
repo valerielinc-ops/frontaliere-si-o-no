@@ -9349,6 +9349,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bucalettere-centralizzate-anziani-sindacati.title': 'Centralized Bucalettere: Elderly people and trade unions arise',
     'blog.article.bucalettere-centralizzate-anziani-sindacati.excerpt': 'The revision of the Federal Postal Law proposes centralized boxes. Transfair Trade Union and Federation of Critical Pensioners.',
     'blog.article.bucalettere-centralizzate-anziani-sindacati.imageAlt': 'Traditional mailboxes on a residential street in Lugano, Ticino',
+    'blog.article.accise-gasolio-ministeri-mef.title': 'Diesel excise: 232 million from ministries, MEF in the lead',
+    'blog.article.accise-gasolio-ministeri-mef.excerpt': 'The MEF covers 125 million of the 17 cent cut on diesel (7-24 August). Here\'s how you split the funds and what changes for border workers.',
+    'blog.article.accise-gasolio-ministeri-mef.imageAlt': 'Italian-Swiss border crossing at dawn with fuel price sign in CHF and a cross-border commuter car, Ticino mountains in background.',
 };
 
 export default blogMetaEn;
