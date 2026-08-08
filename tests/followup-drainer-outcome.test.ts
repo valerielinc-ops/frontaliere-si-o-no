@@ -56,6 +56,15 @@ describe('NON_RETRYABLE (quali esiti → park immediato)', () => {
     }
   });
 
+  it('include skip-duplicate-diagnosis: la separazione del marker (#5288) non deve riabilitare il re-queue', () => {
+    // Prima del #5288 il Mode 2 di check-workflows-scope.mjs emetteva
+    // `blocked-workflows-scope`, quindi era NON_RETRYABLE. Il nuovo codice descrive
+    // lo stesso verdetto fermo (Mode 2 è deterministico sul titolo: ri-accodare
+    // riproduce identico l'esito) e deve restare parkato, altrimenti la sola rinomina
+    // avrebbe rimesso in coda issue che bruciano tentativi a vuoto.
+    expect(NON_RETRYABLE.has('skip-duplicate-diagnosis')).toBe(true);
+  });
+
   it('ESCLUDE i transienti (ri-tentabili) e il path sano', () => {
     // overlap-skip/pr-already-open: la PR bloccante può mergiare → ri-tentabile.
     // pr-created: sano, non arriva mai al rescue (hasFixPR lo intercetta).

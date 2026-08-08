@@ -113,9 +113,38 @@
  *   - Any ambiguity or parse failure → emit workflows_blocked=false, proceed normally.
  *   - Aggregate issues are NOT short-circuited (one item non-blocked ≠ all safe).
  *
+ * ─── Two outcome codes, not one (issue #5288) ─────────────────────────────────────────
+ *
+ * Mode 1 and Mode 2 used to post the SAME `<!-- FIX_OUTCOME: blocked-workflows-scope -->`
+ * marker, which made the marker mean two different things:
+ *   - Mode 1 / the agent: "this run genuinely could not push a `.github/workflows/**`
+ *     file" — a capability failure, and legitimate recurring-burn signal.
+ *   - Mode 2: "an identically-titled prior issue already carries that verdict, so this
+ *     run is deliberately NOT re-paying for the same diagnosis" — a guard doing exactly
+ *     its job, at zero cost.
+ * Counting the second as the first makes a WORKING guard raise the very bucket whose
+ * recurrence triggers the escalation, so the escalation can re-fire precisely because the
+ * fix is working. Mode 2 therefore emits its own code, `skip-duplicate-diagnosis`:
+ *   - carved out of `isEscalationDriver` (harvest-agent-lessons.mjs) — a deterministic
+ *     zero-Claude skip is not a rule an agent violated, so it can never drive a proposal;
+ *   - kept in `NON_RETRYABLE` (followup-drainer.mjs) — the verdict is deterministic, so
+ *     re-queueing reproduces it; parking immediately is the pre-existing behaviour and
+ *     must not regress with the rename.
+ * The `blocked-workflows-scope` LABEL stays on both paths on purpose: the durable state
+ * of the issue really is "blocked on workflows scope" either way, and the escalation
+ * buckets on the marker, not on the label.
+ *
+ * Scope note, measured not assumed: harvest-agent-lessons.mjs already skips comments
+ * containing `Pre-flight (auto, zero-Claude)` — this script's own signature — so Mode 2
+ * was NOT inflating the live bucket through the harvester tally today (the 5288 examples
+ * #5222/#5256/#5279/#5282 are all `claude`-authored real runs). The separation removes the
+ * ambiguity at the source rather than leaving it to a substring filter that any comment
+ * rewording would silently defeat.
+ *
  * On detection: removes `agent:fix` label, adds `blocked-workflows-scope` advisory,
  * posts ONE comment (paths found, or the prior-issue link for Mode 2) + FIX_OUTCOME
- * marker. Does NOT close the issue.
+ * marker (`blocked-workflows-scope` for Mode 1, `skip-duplicate-diagnosis` for Mode 2).
+ * Does NOT close the issue.
  *
  * Output (GITHUB_OUTPUT): `workflows_blocked=true|false`.
  * issue-fix.yml gates the Claude step on `workflows_blocked != 'true'`.
@@ -138,6 +167,13 @@ const DRY_RUN = process.env.DRY_RUN === '1';
 const ISSUE = process.env.ISSUE_NUMBER;
 const OUTCOME_MARKER = '<!-- FIX_OUTCOME: blocked-workflows-scope -->';
 const OUTCOME_MARKER_RE = /<!--\s*FIX_OUTCOME:\s*blocked-workflows-scope\s*-->/i;
+// Mode 2 has its OWN outcome code (issue #5288). See `hasPriorDiagnosisMarker` below for
+// why conflating the two was wrong: `blocked-workflows-scope` means "this run could not
+// push a workflow file", while Mode 2 means "a prior identically-titled issue already
+// carries that verdict, so we are not paying for the diagnosis a second time". The second
+// is a guard WORKING, not a capability failure, and the two must not share a bucket key.
+const DUP_OUTCOME_MARKER = '<!-- FIX_OUTCOME: skip-duplicate-diagnosis -->';
+const DUP_OUTCOME_MARKER_RE = /<!--\s*FIX_OUTCOME:\s*skip-duplicate-diagnosis\s*-->/i;
 const BLOCKED_LABEL = 'blocked-workflows-scope';
 const PARKED_LABEL = 'fu-parked';
 // Signature string scan-job-timeouts.mjs stamps into every issue it auto-files —
@@ -240,6 +276,29 @@ export function hasBlockedWorkflowsScopeMarker(commentBodies) {
   return (commentBodies || []).some((b) => OUTCOME_MARKER_RE.test(String(b || '')));
 }
 
+/** True if any comment body carries the skip-duplicate-diagnosis FIX_OUTCOME marker. */
+export function hasSkipDuplicateDiagnosisMarker(commentBodies) {
+  return (commentBodies || []).some((b) => DUP_OUTCOME_MARKER_RE.test(String(b || '')));
+}
+
+/**
+ * Mode 2's recurrence test: has this prior issue ALREADY been settled on the
+ * workflows-scope root cause, by either route?
+ *
+ * Both markers count, and the chain breaks without that (issue #5288). The first
+ * occurrence of a recurring failure is settled with `blocked-workflows-scope` — by the
+ * agent itself or by Mode 1. Every later occurrence is now settled with
+ * `skip-duplicate-diagnosis`. If the lookup only accepted the first code, the Nth
+ * recurrence could only be recognised via the ORIGINAL issue, and the original falls out
+ * of view as soon as the newest RECURRENCE_SCAN_CAP same-titled issues are all
+ * skip-marked — at which point the guard would silently stop firing and the full
+ * diagnosis cost would come back. Accepting either marker keeps each recurrence able to
+ * seed the next, which is the behaviour the single shared marker used to provide.
+ */
+export function hasPriorDiagnosisMarker(commentBodies) {
+  return hasBlockedWorkflowsScopeMarker(commentBodies) || hasSkipDuplicateDiagnosisMarker(commentBodies);
+}
+
 /**
  * From a list of `gh issue list --json number,title,createdAt` candidates, return the
  * most recent prior issues (excluding `currentIssueNumber`) whose title EXACTLY matches
@@ -333,7 +392,7 @@ function findRecentBlockedRecurrence(title) {
       continue;
     }
     const bodies = (commentsJson.comments || []).map((c) => c && c.body);
-    if (hasBlockedWorkflowsScopeMarker(bodies)) {
+    if (hasPriorDiagnosisMarker(bodies)) {
       return { issueNumber: cand.number, createdAt: cand.createdAt };
     }
   }
@@ -418,7 +477,7 @@ function main() {
             `nuovo l'intero budget del run senza convergere — vedi la diagnosi completa su ` +
             `#${recurrence.issueNumber}.\n\n` +
             `Rimossa la label \`agent:fix\` (no re-dispatch). Gate strutturale #4227/#4749.\n\n` +
-            OUTCOME_MARKER;
+            DUP_OUTCOME_MARKER;
           applyBlockedOutcome(comment);
         }
         setOutput(true);
