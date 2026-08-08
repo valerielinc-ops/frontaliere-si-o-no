@@ -1936,6 +1936,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lindustriaaudiovisivaisundersoppressione.title': 'L\'industria audiovisiva è sotto pressione e fa appello alla politica',
     'blog.article.lindustriaaudiovisivaisundersoppressione.excerpt': 'Gli esponenti del settore audiovisivo elvetico hanno difeso le loro priorità dinanzi ai responsabili politici riuniti al Locarno Film Festival.',
     'blog.article.lindustriaaudiovisivaisundersoppressione.imageAlt': 'Una scena del Locarno Film Festival',
+    'blog.article.siccita-foraggio-nasce-borsa-online.title': 'Siccità, nasce la borsa online per il foraggio',
+    'blog.article.siccita-foraggio-nasce-borsa-online.excerpt': 'Le associazioni dei contadini di Zurigo e Sciaffusa lanciano una piattaforma per mettere in contatto allevatori in difficoltà e chi può offrire mangime',
+    'blog.article.siccita-foraggio-nasce-borsa-online.imageAlt': 'Allevatore che cerca foraggio',
 };
 
 export default blogMetaChIt;

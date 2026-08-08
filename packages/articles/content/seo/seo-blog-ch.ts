@@ -25055,6 +25055,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-siccita-foraggio-nasce-borsa-online': {
+    title: 'Siccità, nasce la borsa online per il foraggio',
+    description: 'La siccità mette a dura prova il settore agricolo in Svizzera. Le associazioni dei contadini di Zurigo e Sciaffusa lanciano una borsa online per il foraggio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, nasce, borsa, online',
+    ogTitle: 'Siccità, nasce la borsa online per il foraggio',
+    ogDescription: 'La siccità mette a dura prova il settore agricolo in Svizzera. Le associazioni dei contadini di Zurigo e Sciaffusa lanciano una borsa online per il foraggio.',
+    canonicalPath: '/articoli-svizzera/siccita-foraggio-nasce-borsa-online/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità, nasce la borsa online per il foraggio",
+      "description": "La siccità mette a dura prova il settore agricolo in Svizzera. Le associazioni dei contadini di Zurigo e Sciaffusa lanciano una borsa online per il foraggio.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/siccita-foraggio-nasce-borsa-online.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Allevatore che cerca foraggio"
+      },
+      "datePublished": "2026-08-08T02:21:27+00:00",
+      "dateModified": "2026-08-08T02:21:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/siccita-foraggio-nasce-borsa-online/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
