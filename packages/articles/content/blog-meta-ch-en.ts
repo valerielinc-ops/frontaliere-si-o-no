@@ -1933,6 +1933,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-medi-zurigo-2026-confronto.title': 'Average wages in Switzerland 2026: focus on canton Zurich',
     'blog.article.salari-medi-zurigo-2026-confronto.excerpt': 'Official data, rates and contributions: how the salary is composed in Zurich in 2026. Practical guide for workers and border workers.',
     'blog.article.salari-medi-zurigo-2026-confronto.imageAlt': 'Zurich skyline with financial towers and pedestrians',
+    'blog.article.lindustriaaudiovisivaisundersoppressione.title': 'The audiovisual industry is under pressure and appeals to politics',
+    'blog.article.lindustriaaudiovisivaisundersoppressione.excerpt': 'The representatives of the Swiss audiovisual sector defended their priorities before the political leaders gathered at the Locarno Film Festival.',
+    'blog.article.lindustriaaudiovisivaisundersoppressione.imageAlt': 'A scene from the Locarno Film Festival',
 };
 
 export default blogMetaChEn;

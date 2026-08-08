@@ -1933,6 +1933,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-medi-zurigo-2026-confronto.title': 'Durchschnittslöhne in der Schweiz 2026: Fokus Kanton Zürich',
     'blog.article.salari-medi-zurigo-2026-confronto.excerpt': 'Offizielle Daten, Sätze und Beiträge: Wie sich der Lohn in Zürich im Jahr 2026 zusammensetzt. Praktischer Leitfaden für Arbeitnehmer und Grenzgänger.',
     'blog.article.salari-medi-zurigo-2026-confronto.imageAlt': 'Zürich Skyline mit Finanzhochhäusern und Fußgängern',
+    'blog.article.lindustriaaudiovisivaisundersoppressione.title': 'Die audiovisuelle Industrie steht unter Druck und appelliert an die Politik',
+    'blog.article.lindustriaaudiovisivaisundersoppressione.excerpt': 'Die Vertreter des Schweizer audiovisuellen Sektors verteidigten ihre Prioritäten vor den politischen Entscheidungsträgern des Locarno Film Festivals.',
+    'blog.article.lindustriaaudiovisivaisundersoppressione.imageAlt': 'Eine Szene vom Locarno Film Festival',
 };
 
 export default blogMetaChDe;
