@@ -1,16 +1,16 @@
 {
   "key": "hrc",
   "label": "Hôpital Riviera-Chablais (HRC)",
-  "generatedAt": "2026-08-08T09:58:29.209Z",
+  "generatedAt": "2026-08-08T21:42:58.041Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5056,
-  "avgDurationMs": 5056,
+  "durationMs": 4791,
+  "avgDurationMs": 4791,
   "durationHistory": [
-    5056
+    4791
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/infirmiers-aux-urgences-adultes-hf-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T09:58:25.756Z",
+      "crawledAt": "2026-08-08T21:42:54.755Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/assistant-en-soins-et-sante-communautaire-assc-hf-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T09:58:25.778Z",
+      "crawledAt": "2026-08-08T21:42:54.776Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -122,7 +122,7 @@
       "firstSeenAt": "2026-07-16T11:22:08.646Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
