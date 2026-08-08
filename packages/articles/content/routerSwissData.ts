@@ -675,6 +675,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'salario-medio-professioni-svizzera-zurigo-2026': { it: 'salario-medio-professioni-svizzera-zurigo-2026', en: 'average-salary-professions-switzerland-zurich-2026', de: 'durchschnittsgehalt-berufe-schweiz-zuerich-2026', fr: 'salaire-moyen-professions-suisse-zurich-2026' },
  'salario-medio-bern-2026': { it: 'salario-medio-bern-2026', en: 'average-salary-bern-2026', de: 'durchschnittsgehalt-bern-2026', fr: 'salaire-moyen-berne-2026' },
  'salario-medio-professioni-svizzera-2026-basilea': { it: 'salario-medio-professioni-svizzera-2026-basilea', en: 'average-swiss-salaries-professions-2026-basel', de: 'durchschnittslohn-berufe-schweiz-2026-basel', fr: 'salaire-moyen-professions-suisse-2026-bale' },
+ 'secondo-pilastro-lpp-svizzera-guida-2026-zurigo': { it: 'secondo-pilastro-lpp-svizzera-guida-2026-zurigo', en: 'second-pillar-lpp-switzerland-guide-2026-zurich', de: 'zweite-saeule-bvg-schweiz-leitfaden-2026-zurich', fr: 'deuxieme-pilier-lpp-suisse-guide-2026-zurich' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

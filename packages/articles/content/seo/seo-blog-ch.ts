@@ -25211,6 +25211,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-secondo-pilastro-lpp-svizzera-guida-2026-zurigo': {
+    title: 'Secondo pilastro LPP Svizzera guida 2026 canton Zurigo',
+    description: 'Guida pratica al secondo pilastro LPP in Svizzera: contributi 7-18% per età, riscatto lacune, prelievo capitale e focus sul canton Zurigo con dati verificati',
+    keywords: 'frontalieri, ticino, svizzera, italia, secondo, pilastro, canton, zurigo',
+    ogTitle: 'Guida secondo pilastro LPP Svizzera 2026',
+    ogDescription: 'Tutto sul secondo pilastro LPP in Svizzera: aliquote contributive, riscatto lacune, opzioni di prelievo e confronto nazionale con focus canton Zurigo',
+    canonicalPath: '/articoli-svizzera/secondo-pilastro-lpp-svizzera-guida-2026-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Secondo pilastro LPP Svizzera guida 2026 canton Zurigo",
+      "description": "Guida pratica al secondo pilastro LPP in Svizzera: contributi 7-18% per età, riscatto lacune, prelievo capitale e focus sul canton Zurigo con dati verificati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/secondo-pilastro-lpp-svizzera-guida-2026-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Consulenza previdenziale per frontalieri in ufficio zurighese con documenti LPP e bandiera svizzera"
+      },
+      "datePublished": "2026-08-08T18:13:20+00:00",
+      "dateModified": "2026-08-08T18:13:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/secondo-pilastro-lpp-svizzera-guida-2026-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
