@@ -72,6 +72,165 @@ function runUrl() {
     : '(local run)';
 }
 
+// --- DELTA + ARTEFATTO DEL GAP SET (issue #5323) -----------------------------
+// #5323 non e' un difetto di codice — le pagine sono gia' protette da MIN_JOBS
+// + bridge noindex — ma il SEGNALE era rotto: il check gira a ogni post-deploy
+// e ri-postava sempre lo STESSO commento di 15 bullet, identico al precedente,
+// consumando budget del fixer e seppellendo l'informazione utile sotto le
+// ricorrenze. Due cambiamenti:
+//
+//   1. DELTA: lo stato del gap set viaggia dentro il commento stesso come
+//      marker HTML machine-readable. Al giro dopo lo rileggiamo e commentiamo
+//      SOLO se qualcosa e' cambiato (gap nuovi / gap chiusi). Nessun delta →
+//      nessun commento.
+//   2. ARTEFATTO: il gap set COMPLETO viene persistito come JSON. Prima veniva
+//      buttato via (`belowFloorByProfession` moriva a fine funzione) e l'unica
+//      traccia erano i 15 bullet troncati del commento — lossy per costruzione.
+//
+// Perche' lo stato sta nel COMMENTO e non in un file: il runner post-deploy e'
+// effimero e il workflow committa solo `data/previous-slug-winners.json`, non
+// un `data/**` arbitrario. Un file su disco non sopravvive fra due deploy senza
+// toccare il workflow (che il token GitHub App non puo' nemmeno pushare, #1724).
+// L'issue canonica, che gia' esiste ed e' gia' deduplicata per titolo, e' l'unico
+// store persistente disponibile a costo zero.
+//
+// BIAS ESPLICITO: qualunque fallimento nella lettura dello stato precedente
+// (issue non trovata, gh in errore, marker assente o corrotto) → `null` →
+// commentiamo come si faceva prima. Il rumore e' un fastidio, la soppressione
+// silenziosa di una regressione no: non sopprimiamo mai su incertezza.
+const GAP_ISSUE_TITLE = 'Copertura professioni per cantone: gap sistemici rilevati';
+const GAP_STATE_MARKER = 'COVERAGE_GAP_STATE_V1';
+const GAP_ARTIFACT_PATH = path.join(REPO_ROOT, 'data/profession-canton-coverage-gaps.json');
+
+/**
+ * Stato confrontabile del gap set: professioni a zero nazionale + coppie
+ * `professione:cantone` sotto soglia. Ordinato → diff stabile. Pura.
+ * @param {{nationalZero: string[], belowFloorByProfession: Map<string, {cantonKey: string, liveCount: number}[]>}} input
+ */
+export function buildGapState({ nationalZero, belowFloorByProfession }) {
+  return {
+    nationalZero: [...nationalZero].sort(),
+    pairs: [...belowFloorByProfession.entries()]
+      .flatMap(([id, entries]) => entries.map((e) => `${id}:${e.cantonKey}`))
+      .sort(),
+  };
+}
+
+/** Marker HTML machine-readable da appendere al corpo del commento. Pura. */
+export function serializeGapState(state) {
+  return `<!-- ${GAP_STATE_MARKER}: ${JSON.stringify(state)} -->`;
+}
+
+/**
+ * Ultimo stato serializzato presente nel testo (body + commenti concatenati),
+ * o null se assente/corrotto. Prende l'ULTIMO: i commenti sono cronologici.
+ * Pura → testabile.
+ * @param {string} text
+ */
+export function parseGapState(text) {
+  const re = new RegExp(`<!--\\s*${GAP_STATE_MARKER}:\\s*([\\s\\S]*?)\\s*-->`, 'g');
+  let last = null;
+  for (const m of String(text || '').matchAll(re)) last = m[1];
+  if (last === null) return null;
+  try {
+    const parsed = JSON.parse(last);
+    if (!parsed || !Array.isArray(parsed.nationalZero) || !Array.isArray(parsed.pairs)) return null;
+    return parsed;
+  } catch {
+    return null; // marker corrotto → trattato come "nessuno stato" → commenta
+  }
+}
+
+/**
+ * Delta fra due stati. `prev` null (primo giro / stato illeggibile) → tutto e'
+ * "nuovo" e `changed` e' true, cioe' si commenta la baseline. Pura.
+ */
+export function diffGapState(prev, next) {
+  const prevZero = new Set(prev?.nationalZero || []);
+  const prevPairs = new Set(prev?.pairs || []);
+  const nextZero = new Set(next.nationalZero);
+  const nextPairs = new Set(next.pairs);
+  const openedZero = next.nationalZero.filter((x) => !prevZero.has(x));
+  const closedZero = [...prevZero].filter((x) => !nextZero.has(x)).sort();
+  const openedPairs = next.pairs.filter((x) => !prevPairs.has(x));
+  const closedPairs = [...prevPairs].filter((x) => !nextPairs.has(x)).sort();
+  return {
+    openedZero,
+    closedZero,
+    openedPairs,
+    closedPairs,
+    changed:
+      openedZero.length + closedZero.length + openedPairs.length + closedPairs.length > 0,
+  };
+}
+
+/**
+ * Gap set completo in forma ordinata e deterministica, pronto per il JSON.
+ * Ordinamento: numero di cantoni sotto soglia desc, poi id asc — lo stesso
+ * criterio del commento, ma SENZA il troncamento a 15. Pura.
+ */
+export function buildGapArtifact({ nationalZero, belowFloorByProfession, minJobs, cantonCount }) {
+  return {
+    _generatedAt: new Date().toISOString(),
+    _minJobs: minJobs,
+    _nonTiCantonCount: cantonCount,
+    _ordering:
+      'cantoni-sotto-soglia desc, poi professionId asc. NON ordinato per volume di ricerca: vedi _orderingNote.',
+    _orderingNote:
+      'Un ordinamento per domanda (volume x cantone) richiederebbe un segnale non circolare per (professione, cantone), che oggi non esiste nel repo: le coppie sotto soglia rendono un bridge noindex e quindi guadagnano ~0 impression PER COSTRUZIONE, percio\' data/evidence-index.json (gsc.pages) ordinerebbe per "gap che gia\' serviamo in parte", l\'inverso dell\'intento. Attenzione: il campo `cantons` di data/profession-keyword-opportunities.json e\' OFFERTA (conteggi annunci), non domanda.',
+    nationalZero: [...nationalZero].sort(),
+    belowFloor: [...belowFloorByProfession.entries()]
+      .map(([professionId, entries]) => ({
+        professionId,
+        cantonCount: entries.length,
+        cantons: [...entries].sort((a, b) => a.cantonKey.localeCompare(b.cantonKey)),
+      }))
+      .sort((a, b) => b.cantonCount - a.cantonCount || a.professionId.localeCompare(b.professionId)),
+  };
+}
+
+/** Scrive l'artefatto. Best-effort: un errore di IO non deve rompere il post-deploy. */
+function writeGapArtifact(artifact) {
+  try {
+    fs.mkdirSync(path.dirname(GAP_ARTIFACT_PATH), { recursive: true });
+    fs.writeFileSync(GAP_ARTIFACT_PATH, `${JSON.stringify(artifact, null, 2)}\n`);
+    log('📄', `Gap set completo scritto in ${path.relative(REPO_ROOT, GAP_ARTIFACT_PATH)} (${artifact.belowFloor.length} professioni sotto soglia, ${artifact.nationalZero.length} a zero nazionale)`);
+  } catch (e) {
+    log('⚠️', `scrittura artefatto fallita (non bloccante): ${String(e).slice(0, 140)}`);
+  }
+}
+
+/**
+ * Stato del giro precedente, letto dall'issue canonica (body + tutti i commenti).
+ * null su QUALUNQUE incertezza → il chiamante commenta la baseline.
+ */
+function readPreviousGapState() {
+  const repo = process.env.GITHUB_REPOSITORY;
+  if (!repo) return null;
+  try {
+    const listed = execFileSync(
+      'gh',
+      ['issue', 'list', '--repo', repo, '--state', 'open', '--search', `in:title "${GAP_ISSUE_TITLE}"`,
+        '--json', 'number,title', '--limit', '20'],
+      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
+    );
+    const prefix = GAP_ISSUE_TITLE.slice(0, 60);
+    const match = JSON.parse(listed || '[]').find((i) => String(i.title || '').startsWith(prefix));
+    if (!match) return null;
+    const viewed = execFileSync(
+      'gh',
+      ['issue', 'view', String(match.number), '--repo', repo, '--json', 'body,comments'],
+      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
+    );
+    const issue = JSON.parse(viewed || '{}');
+    const haystack = [issue.body || '', ...(issue.comments || []).map((c) => c.body || '')].join('\n');
+    return parseGapState(haystack);
+  } catch (e) {
+    log('⚠️', `lettura stato precedente fallita → commento la baseline: ${String(e).slice(0, 120)}`);
+    return null;
+  }
+}
+
 function createIssue({ title, description, labels }) {
   const args = [
     path.join(REPO_ROOT, 'scripts/lib/github-issue-creator.mjs'),
@@ -208,25 +367,77 @@ async function checkAllCantonProfessions(stagingRoot) {
   );
 
   const nonTiCantonCount = PROFESSION_CANTON_KEYS.length;
-  const topOffenders = [...belowFloorByProfession.entries()]
-    .sort((a, b) => b[1].length - a[1].length)
-    .slice(0, 15);
+
+  // L'artefatto COMPLETO va scritto sempre, anche quando non commentiamo: e' la
+  // sola forma non troncata del gap set (il commento ne mostra al massimo 15).
+  writeGapArtifact(
+    buildGapArtifact({
+      nationalZero,
+      belowFloorByProfession,
+      minJobs: MIN_JOBS,
+      cantonCount: nonTiCantonCount,
+    }),
+  );
+
+  // Delta vs la rilevazione precedente: se nulla e' cambiato non commentiamo.
+  const state = buildGapState({ nationalZero, belowFloorByProfession });
+  const previous = readPreviousGapState();
+  const delta = diffGapState(previous, state);
+  if (previous && !delta.changed) {
+    log('🔁', `Gap set invariato rispetto alla rilevazione precedente (${state.pairs.length} coppie, ${state.nationalZero.length} a zero nazionale) — nessun commento su #5323.`);
+    return;
+  }
+
+  const pairLabel = (pair) => {
+    const [id, cantonKey] = String(pair).split(':');
+    return `\`${id}\` — ${getCantonDisplayName(cantonKey, 'it')}`;
+  };
+  const bulletList = (items, max = 20) => {
+    const shown = items.slice(0, max).map((p) => `- ${pairLabel(p)}`);
+    if (items.length > max) shown.push(`- …e altri ${items.length - max} (elenco completo nell'artefatto)`);
+    return shown.join('\n');
+  };
+
+  const deltaSection = previous
+    ? `### Delta rispetto alla rilevazione precedente
+
+${delta.openedPairs.length === 0 && delta.openedZero.length === 0 ? '**Nessun gap nuovo.**' : ''}${delta.openedZero.length > 0 ? `**${delta.openedZero.length} professione/i passata/e a ZERO nazionale:**
+
+${delta.openedZero.map((id) => `- \`${id}\``).join('\n')}
+
+` : ''}${delta.openedPairs.length > 0 ? `**${delta.openedPairs.length} gap NUOVI** (coppia professione×cantone scesa sotto ${MIN_JOBS}):
+
+${bulletList(delta.openedPairs)}
+
+` : ''}${delta.closedZero.length > 0 ? `**${delta.closedZero.length} professione/i non piu' a zero nazionale:**
+
+${delta.closedZero.map((id) => `- \`${id}\``).join('\n')}
+
+` : ''}${delta.closedPairs.length > 0 ? `**${delta.closedPairs.length} gap CHIUSI** (coppia risalita a ≥${MIN_JOBS}):
+
+${bulletList(delta.closedPairs)}
+
+` : ''}Totale corrente: ${state.pairs.length} coppie sotto soglia, ${state.nationalZero.length} professioni a zero nazionale.
+`
+    : `### Rilevazione iniziale
+
+${nationalZero.length} professioni a zero nazionale, ${state.pairs.length} coppie professione×cantone sotto soglia (${MIN_JOBS}). I giri successivi commenteranno **solo il delta**.
+${nationalZero.length > 0 ? `
+Nessun crawler copre affatto questi ruoli, in nessun cantone — priorità massima per onboarding:
+
+${nationalZero.map((id) => `- \`${id}\``).join('\n')}
+` : ''}`;
 
   const description = `## Copertura professioni per cantone: gap sistemici rilevati
 
 Generalizzazione di #4824 a tutti i cantoni (non solo Ticino) — stessa root cause: 580+ crawler sono tutti **per-azienda**, nessuna fonte generica multi-employer copre tutti i settori/cantoni (job-room.ch/SECO bloccato, vedi #3337). Le pagine \`/lavoro-{cantone}-{ruolo}/\` restano sicure (soglia MIN_JOBS=${MIN_JOBS} + bridge noindex sotto soglia, \`professionCantonLandings.ts\`) — nessun rischio thin-content — ma il gap di dati sottostante resta e va tracciato per priorità crawler-onboarding.
-${nationalZero.length > 0 ? `
-### Gap di categoria: 0 match in OGNI cantone (incl. TI)
 
-Nessun crawler copre affatto questi ruoli, in nessun cantone — priorità massima per onboarding:
+${deltaSection}
+Elenco **completo** (non troncato) e ordinabile: artefatto \`data/profession-canton-coverage-gaps.json\` prodotto da questo stesso run.
 
-${nationalZero.map((id) => `- \`${id}\``).join('\n')}
-` : ''}${topOffenders.length > 0 ? `
-### Top gap per-cantone (professioni sotto soglia in più cantoni, su ${nonTiCantonCount} cantoni non-TI)
+**Run:** ${runUrl()}
 
-${topOffenders.map(([id, entries]) => `- \`${id}\` — sotto soglia in ${entries.length}/${nonTiCantonCount}: ${entries.map((e) => getCantonDisplayName(e.cantonKey, 'it')).join(', ')}`).join('\n')}
-` : ''}
-**Run:** ${runUrl()}`;
+${serializeGapState(state)}`;
 
   createIssue({
     title: 'Copertura professioni per cantone: gap sistemici rilevati',
@@ -265,6 +476,12 @@ async function main() {
   await checkAllCantonProfessions(stagingRoot);
 }
 
-main().catch((err) => {
-  console.error('[monitor-sector-coverage] unexpected error (non-blocking):', err);
-});
+// Esegui SOLO come entry point: il modulo esporta le funzioni pure di stato/delta
+// (buildGapState, parseGapState, diffGapState, buildGapArtifact) e i test le
+// importano — senza questa guardia l'import farebbe partire il check post-deploy.
+// Stesso pattern di scripts/lib/classify-issue.mjs.
+if (process.argv[1] && process.argv[1].endsWith('monitor-sector-coverage.mjs')) {
+  main().catch((err) => {
+    console.error('[monitor-sector-coverage] unexpected error (non-blocking):', err);
+  });
+}
