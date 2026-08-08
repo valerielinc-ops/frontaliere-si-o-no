@@ -49,11 +49,62 @@ import path from 'node:path';
  * The second describe below locks the missing half: the producer runs only
  * when a dispatcher passes `confirm_corpus_write=yes`, and nothing in the
  * repo can pass it on its own.
+ *
+ * ── LOCAL producer, not the name (#5341) ──────────────────────────────────
+ * The scan below used to flag any workflow that merely NAMED
+ * `generate-article.yml` in a dispatch command, regardless of which repo the
+ * command targeted. That conflated two opposite things. Firing THIS repo's
+ * producer is the #5289 incident. Firing the CORPUS's producer
+ * (`--repo nanakokyobashi-rgb/frontaliere-articles`) is what this test's own
+ * failure message tells the reader to do instead — it writes nothing here,
+ * cannot desynchronise `scripts/pull-articles-corpus.mjs`, and starts no local
+ * self-chain. The bare-name rule also flagged the documented manual-fallback
+ * command quoted inside an issue body, which is text, not an actor.
+ * `dispatchesLocalProducer` draws the line, and is unit-tested on both shapes
+ * so a broken matcher cannot pass by finding nothing.
  */
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const WF = (name: string) =>
   fs.readFileSync(path.join(ROOT, '.github', 'workflows', name), 'utf-8');
+
+/** Where article generation lives since the 2026-08-02 cutover (#4974 item 3). */
+const CORPUS_REPO = 'nanakokyobashi-rgb/frontaliere-articles';
+
+/**
+ * Join `\`-continued shell lines so one logical command is one string. Without this
+ * the `--repo` argument of a multi-line `gh workflow run` sits on a different line
+ * than the command name, and a per-line test cannot tell local from cross-repo.
+ */
+function joinContinuations(text: string): string {
+  return text.replace(/\\\n\s*/g, ' ');
+}
+
+/**
+ * Does this logical line fire THIS repo's retired producer?
+ *
+ * The distinction is the whole point (#5341). What #5289 cost was firing the LOCAL
+ * `generate-article.yml`: a retired producer, in a repo that is a pure consumer since
+ * the cutover, whose last step dispatches ITSELF — one quarterly nudge became ~22h of
+ * unattended writes to `packages/articles/content/`, five articles that existed
+ * downstream and nowhere upstream, a blocked pull and a repo-wide merge block.
+ *
+ * A dispatch aimed at `nanakokyobashi-rgb/frontaliere-articles` is the opposite of that
+ * incident: it asks the repo that OWNS generation to generate, which is what this very
+ * test's failure message tells the reader to do instead. It writes nothing here, cannot
+ * desynchronise the pull, and starts no local self-chain.
+ *
+ * So the rule is not "never name generate-article.yml" — it is "never fire the local
+ * one". Matching the bare filename would also flag the documented manual-fallback
+ * command inside an issue body, which is text, not an actor.
+ */
+function dispatchesLocalProducer(logicalLine: string): boolean {
+  const cli = /gh workflow run\s+generate-article\.yml/.test(logicalLine);
+  const api = /workflows\/generate-article\.yml\/dispatches/.test(logicalLine);
+  if (!cli && !api) return false;
+  // Cross-repo dispatch to the corpus → post-cutover architecture, not the #5289 shape.
+  return !logicalLine.includes(CORPUS_REPO);
+}
 
 /** The `on:` block, up to the next top-level key. */
 function onBlock(src: string): string {
@@ -146,24 +197,49 @@ describe('the article producer cannot fire on its own (#5289)', () => {
     ).toBe(false);
   });
 
-  it('no workflow dispatches the producer', () => {
+  it('no workflow dispatches the LOCAL producer', () => {
     const dir = path.join(ROOT, '.github', 'workflows');
     const offenders: string[] = [];
 
     for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.yml'))) {
       if (file === GEN) continue; // its own self-trigger is gated by the input
-      const live = withoutComments(fs.readFileSync(path.join(dir, file), 'utf-8'));
-      if (/gh workflow run\s+generate-article\.yml/.test(live)) offenders.push(file);
-      if (/workflows\/generate-article\.yml\/dispatches/.test(live)) offenders.push(file);
+      const live = joinContinuations(withoutComments(fs.readFileSync(path.join(dir, file), 'utf-8')));
+      for (const line of live.split('\n')) {
+        if (dispatchesLocalProducer(line)) offenders.push(file);
+      }
     }
 
     expect(
       [...new Set(offenders)],
-      `these workflows dispatch the retired producer: ${offenders.join(', ')}. ` +
+      `these workflows dispatch the retired LOCAL producer: ${offenders.join(', ')}. ` +
         'refresh-bfs-stats.yml was the one that did it on 2026-08-06 and it cost ' +
-        'five orphaned articles plus a repo-wide merge block. Raise an issue for ' +
-        'the editorial signal instead — generation lives in ' +
-        'nanakokyobashi-rgb/frontaliere-articles.',
+        'five orphaned articles plus a repo-wide merge block. Dispatch ' +
+        `${CORPUS_REPO} instead — generation lives there since the cutover.`,
     ).toEqual([]);
+  });
+
+  // The predicate above is the load-bearing part of this guard, so it is tested
+  // directly rather than only through the directory scan: a scan that finds nothing
+  // looks identical whether the rule is right or the matcher is broken.
+  it('the detector still catches the #5289 shape, and only that one', () => {
+    // The exact command that caused the incident.
+    expect(dispatchesLocalProducer('gh workflow run generate-article.yml')).toBe(true);
+    expect(dispatchesLocalProducer('gh workflow run generate-article.yml -f section=svizzera')).toBe(true);
+    // API form, local repo.
+    expect(
+      dispatchesLocalProducer('gh api -X POST repos/valerielinc-ops/frontaliere-si-o-no/actions/workflows/generate-article.yml/dispatches'),
+    ).toBe(true);
+
+    // Cross-repo to the corpus: the post-cutover architecture (#5341), not the incident.
+    expect(
+      dispatchesLocalProducer(`gh workflow run generate-article.yml --repo ${CORPUS_REPO} -f url=stats-bfs://2026-Q2`),
+    ).toBe(false);
+    expect(
+      dispatchesLocalProducer(`gh api -X POST repos/${CORPUS_REPO}/actions/workflows/generate-article.yml/dispatches`),
+    ).toBe(false);
+
+    // Unrelated lines never match.
+    expect(dispatchesLocalProducer('gh workflow run deploy.yml')).toBe(false);
+    expect(dispatchesLocalProducer('generation lives in the corpus')).toBe(false);
   });
 });

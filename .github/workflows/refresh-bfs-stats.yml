@@ -20,9 +20,26 @@ name: Refresh BFS Stats
 # scripts/pull-articles-corpus.mjs, every PR in the repo unable to merge, and
 # finally all five articles deleted by the first sync that got through.
 #
-# A cross-repo dispatch to nanako would be the eventual shape. It is not done
-# here on purpose: it needs GITHUB_PAT_NANAKO and a receiving trigger on that
-# side, which is a change in a repo this workflow cannot test against.
+# The cross-repo dispatch to nanako IS the shape, and it is wired below (#5341).
+# The comment that used to sit here said it was blocked on "GITHUB_PAT_NANAKO and
+# a receiving trigger on that side". Both already existed, and stating otherwise
+# cost two autonomous fixer runs that re-derived the same wrong conclusion — the
+# second of them looking for the PAT among the Actions secrets, where it is not
+# and was never meant to be. Verified before wiring it:
+#   - `GITHUB_PAT_NANAKO` is mapped in scripts/load-rc-env.mjs (RC_TO_ENV), and the
+#     `Load secrets from Remote Config` step below already runs that loader, which
+#     writes KEY=VALUE into $GITHUB_ENV for every later step. The PAT comes from
+#     Firebase Remote Config, NOT from Actions secrets.
+#   - A non-destructive probe against a non-existent ref returned 422 "No ref
+#     found", not 403: the PAT is authorized to dispatch, and nothing ran.
+#   - The receiver exists: nanakokyobashi-rgb/frontaliere-articles'
+#     generate-article.yml declares `workflow_dispatch` with `url` and `section`,
+#     exactly the `url=stats-bfs://<quarter>` shape used below.
+#
+# This does NOT re-light this repo's own generate-article.yml — the #5289 loop was
+# a LOCAL dispatch into a retired producer whose last step re-dispatches itself.
+# The target here is the corpus repo, which is where article generation lives
+# since the 2026-08-02 cutover, so no local `actions: write` is needed either.
 
 on:
   schedule:
@@ -71,7 +88,10 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load secrets from Remote Config
-        # Loads GITHUB_PAT (used to dispatch generate-article.yml) from RC.
+        # Carica da Firebase Remote Config — NON dagli Actions secrets — sia
+        # `GITHUB_PAT` sia `GITHUB_PAT_NANAKO`, quest'ultima usata dal dispatch
+        # cross-repo verso il corpus (vedi header). Il loader scrive KEY=VALUE in
+        # $GITHUB_ENV, quindi ogni step successivo le vede come variabili d'ambiente.
         run: node scripts/load-rc-env.mjs
 
       # App installation token = primary dispatch identity (App tokens re-trigger
@@ -119,10 +139,85 @@ jobs:
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
-      # Was: `gh workflow run generate-article.yml`. See the header comment —
-      # that dispatch is what re-lit the retired producer on 2026-08-06 (#5289).
-      # The editorial signal is kept; only the write is dropped. An issue also
-      # survives a failed run, which a fire-and-forget dispatch never did.
+      # Il dispatch che genera davvero l'articolo di annuncio (#5341), verso il
+      # CORPUS. Gate: `new_quarter != ''`, cioè solo sulla transizione di trimestre —
+      # `refresh-bfs-stats.mjs` popola quell'output unicamente quando il trimestre
+      # letto dal CSV differisce da quello in Firestore. Senza quel gate ogni run
+      # (2/giorno) genererebbe un articolo.
+      #
+      # `GITHUB_PAT_NANAKO` è referenziata per NOME dentro lo script, non
+      # interpolata da Actions: il segreto non finisce mai nella command line
+      # espansa né nel log del workflow.
+      #
+      # `continue-on-error` perché il lavoro che conta — la riscrittura di Firestore,
+      # cioè i valori che gli utenti vedono su /statistiche/ — è già stato fatto dallo
+      # step precedente. Un dispatch fallito non deve far diventare rosso un refresh
+      # riuscito; deve però essere RUMOROSO, ed è il compito dello step subito dopo.
+      - name: Dispatch announcement article to the corpus (new quarter only)
+        id: dispatch
+        if: steps.refresh.outputs.new_quarter != ''
+        continue-on-error: true
+        env:
+          NEW_QUARTER: ${{ steps.refresh.outputs.new_quarter }}
+        run: |
+          set -uo pipefail
+          if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
+            echo "::error::GITHUB_PAT_NANAKO non presente nell'ambiente — Remote Config non l'ha caricata."
+            echo "Il loader esce 0 anche quando non carica niente, quindi questo è l'unico punto in cui la sua assenza diventa visibile."
+            exit 1
+          fi
+          echo "Dispatch generate-article.yml → nanakokyobashi-rgb/frontaliere-articles (url=stats-bfs://${NEW_QUARTER})"
+          GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
+            --repo nanakokyobashi-rgb/frontaliere-articles \
+            -f url="stats-bfs://${NEW_QUARTER}" \
+            -f section=frontaliere
+          {
+            echo "## 🚀 Articolo di annuncio dispacciato"
+            echo ""
+            echo "\`generate-article.yml\` avviato su \`nanakokyobashi-rgb/frontaliere-articles\`"
+            echo "con \`url=stats-bfs://${NEW_QUARTER}\`."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # Il PAT è personale: se ruota o viene revocato, il dispatch fallisce. Senza
+      # questo step fallirebbe in SILENZIO — `continue-on-error` sopra nasconde
+      # l'errore, il refresh resta verde, e il trimestre passerebbe senza articolo
+      # e senza che nessuno lo sappia. Titolo statico e senza trimestre (#5121,
+      # guardato da tests/monitor-issue-dedup.test.ts): un titolo che si muove coi
+      # dati non ritrova mai la sua issue canonica e ne conia una nuova ogni volta.
+      - name: Report a failed corpus dispatch (never silent)
+        if: steps.refresh.outputs.new_quarter != '' && steps.dispatch.outcome != 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NEW_QUARTER: ${{ steps.refresh.outputs.new_quarter }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Dispatch articolo BFS al corpus fallito" \
+            --description "Il refresh BFS ha rilevato un nuovo trimestre (\`${NEW_QUARTER}\`) ma **non è riuscito a dispacciare** \`generate-article.yml\` su \`nanakokyobashi-rgb/frontaliere-articles\`.
+
+          I valori su \`/statistiche/\` SONO aggiornati (Firestore riscritto): manca solo l'articolo di annuncio.
+
+          Causa più probabile: \`GITHUB_PAT_NANAKO\` ruotata, scaduta o revocata. Vive in **Firebase Remote Config** (progetto \`frontaliere-ticino\`), non negli Actions secrets — cercarla lì è la diagnosi sbagliata che ha già bloccato #5341 due volte.
+
+          Verifica senza eseguire nulla (un ref inesistente risponde 422 se il PAT è autorizzato, 403 se non lo è):
+          \`\`\`
+          gh api -X POST repos/nanakokyobashi-rgb/frontaliere-articles/actions/workflows/generate-article.yml/dispatches -f ref=__probe__
+          \`\`\`
+
+          Ripiego manuale:
+          \`\`\`
+          gh workflow run generate-article.yml --repo nanakokyobashi-rgb/frontaliere-articles -f url=stats-bfs://${NEW_QUARTER}
+          \`\`\`
+
+          Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --priority 2 \
+            --label bug \
+            --reopen-within-hours 720
+
+      # Segnale editoriale, complementare al dispatch qui sopra: il dispatch avvia la
+      # generazione, questa issue traccia il trimestre e SOPRAVVIVE a un run fallito,
+      # cosa che un dispatch fire-and-forget non fa. Era `gh workflow run
+      # generate-article.yml` LOCALE fino al #5289 — vedi header.
       #
       # The title carries NO quarter, on purpose (#5121, guarded by
       # tests/monitor-issue-dedup.test.ts). github-issue-creator.mjs dedups on
@@ -138,6 +233,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NEW_QUARTER: ${{ steps.refresh.outputs.new_quarter }}
           PREV_QUARTER: ${{ steps.refresh.outputs.prev_quarter }}
+          DISPATCH_OUTCOME: ${{ steps.dispatch.outcome }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "Nuovo trimestre BFS: serve l'articolo di annuncio" \
@@ -145,11 +241,11 @@ jobs:
 
           Il dataset BFS dei frontalieri e' passato a \`${NEW_QUARTER}\` — i valori su \`/statistiche/\` sono gia' aggiornati (Firestore riscritto da questo run).
 
-          Manca l'articolo che lo annuncia agli iscritti.
+          Serve l'articolo che lo annuncia agli iscritti. **La generazione e' gia' stata avviata automaticamente** (#5341): questo run ha dispacciato \`generate-article.yml\` su \`nanakokyobashi-rgb/frontaliere-articles\` con \`url=stats-bfs://${NEW_QUARTER}\`. Esito del dispatch in questo run: \`${DISPATCH_OUTCOME}\`. Questa issue resta come traccia editoriale — verifica che l'articolo sia effettivamente uscito e chiudila.
 
-          **Va generato in \`nanakokyobashi-rgb/frontaliere-articles\`**, non qui: dal cutover del 2026-08-02 (#4974 item 3) questo repo e' un consumatore puro e \`packages/articles/content/\` viene rifatto da \`scripts/pull-articles-corpus.mjs\` a ogni sync. Un articolo creato qui blocca il sync e viene poi cancellato — e' successo con cinque articoli il 2026-08-06/07 (#5289).
+          **Si genera in \`nanakokyobashi-rgb/frontaliere-articles\`, mai qui**: dal cutover del 2026-08-02 (#4974 item 3) questo repo e' un consumatore puro e \`packages/articles/content/\` viene rifatto da \`scripts/pull-articles-corpus.mjs\` a ogni sync. Un articolo creato qui blocca il sync e viene poi cancellato — e' successo con cinque articoli il 2026-08-06/07 (#5289).
 
-          Sorgente storica del prompt: \`url=stats-bfs://${NEW_QUARTER}\`.
+          Per rilanciare la generazione a mano: \`gh workflow run generate-article.yml --repo nanakokyobashi-rgb/frontaliere-articles -f url=stats-bfs://${NEW_QUARTER}\`.
 
           Il titolo e' volutamente privo del trimestre (#5121): e' il corpo a portarlo. Se questa issue e' ancora aperta quando arriva il trimestre successivo, il segnale atterra come commento \`🔁 Recurrence\` qui sotto — **leggi l'ultimo commento per sapere quale trimestre e' in attesa di articolo**, non solo il testo di apertura.
 
@@ -160,8 +256,9 @@ jobs:
             echo "## 📰 Segnale editoriale nuovo trimestre"
             echo ""
             echo "Aperta una issue per l'articolo di annuncio di \`${NEW_QUARTER}\`."
-            echo "La generazione vive in \`nanakokyobashi-rgb/frontaliere-articles\` (#4974 item 3),"
-            echo "quindi questo workflow **non** dispaccia piu' \`generate-article.yml\` (#5289)."
+            echo "La generazione vive in \`nanakokyobashi-rgb/frontaliere-articles\` (#4974 item 3):"
+            echo "questo workflow dispaccia **sul corpus**, mai il \`generate-article.yml\` locale (#5289)."
+            echo "Esito del dispatch al corpus in questo run: \`${DISPATCH_OUTCOME}\`."
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Report failure to GitHub Issues
