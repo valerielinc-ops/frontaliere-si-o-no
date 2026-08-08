@@ -56,6 +56,32 @@
 # itemised warning. That line is the difference between the known-benign
 # producer and the incident producer, not a threshold picked by feel.
 #
+# THE UNIT OF LOSS IS A URL, NOT A PATH
+# ─────────────────────────────────────
+# `<p>/index.html` and `<p>.html` are two spellings of ONE url, `/<p>` — that is
+# the static-host convention this whole site is built on, and
+# `scripts/ci/assert-dist-complete.mjs:193` already resolves a sitemap url by
+# trying exactly that pair. A snapshotted path is therefore only lost when its
+# TWIN spelling is missing too; when the shard carries the other spelling the
+# url still answers and nothing was lost, only re-spelled.
+#
+# Not hypothetical, and not a threshold being widened (AGENTS.md #1/#2 — the
+# fatal rule is untouched, its INPUT is corrected): the apex build emits
+# `dist/<loc>.html` for the en/de/fr homepage while push-locale-shard.sh copies
+# it only `if [ -f "$dist_dir/$loc.html" ]`, which in the locale leg it is not —
+# `valerielinc-ops/frontaliere-{en,de,fr}` hold `<loc>/` + `index.html` at their
+# root and no `<loc>.html` at all. So `dist/<loc>.html` was snapshotted, the
+# shard put back `dist/<loc>/index.html`, and a path-wise diff called the
+# homepage an indexable loss on EVERY deploy from the moment this guard landed
+# (run 31240103446). Measured against production at that time: `/en`, `/de`,
+# `/fr` answer 200, `/en.html` answers 404, the `/en/` canonical is
+# `https://frontaliereticino.ch/en/`, and no sitemap names `/en.html` — i.e. the
+# url never moved and the twin is the spelling the edge actually serves.
+#
+# The #5290 shape is untouched by this: a topic hub emitted only as
+# `.../argomenti/<topic>/index.html` and never shipped to the shard has NO twin
+# in dist afterwards, so it stays fatal.
+#
 # ESCAPE HATCH: set `REHYDRATE_TRUNK_ORPHANS_FATAL=false` in the calling step's
 # `env:` to downgrade the fatal verdict to a warning without a code change.
 # The annotations and the inventory are emitted either way.
@@ -77,6 +103,20 @@
 # via the per-file listing below; these caps only bound the annotation text,
 # which GitHub truncates anyway.
 TRUNK_GUARD_SAMPLE_CAP="${TRUNK_GUARD_SAMPLE_CAP:-12}"
+
+# The other spelling of the same url — `<p>/index.html` ⇄ `<p>.html` — or the
+# empty string when the path names no url at all (a non-HTML asset). Same pair
+# scripts/ci/assert-dist-complete.mjs:193 tries when it resolves a sitemap url
+# to a file on disk; kept deliberately in lockstep with it, since disagreeing
+# about which files answer a url is how the two gates would contradict.
+trunk_url_twin() {
+  case "$1" in
+    */index.html) printf '%s.html' "${1%/index.html}" ;;
+    index.html)   printf '' ;;   # the dist root itself has no `.html` spelling
+    *.html)       printf '%s/index.html' "${1%.html}" ;;
+    *)            printf '' ;;
+  esac
+}
 
 trunk_guard_init() {
   TRUNK_GUARD_NS="${1:-guard}"
@@ -127,9 +167,11 @@ trunk_replace_begin() {
   return 0
 }
 
-# Report what the replace actually destroyed: every snapshotted path that the
-# shard content did NOT put back. Files the shard also carries are not losses —
-# the shard simply won the collision, which is the intended semantics.
+# Report what the replace actually destroyed: every snapshotted path whose URL
+# the shard content did NOT put back. Files the shard also carries are not
+# losses — the shard simply won the collision, which is the intended semantics —
+# and neither are files it put back under the OTHER spelling of the same url
+# (see "THE UNIT OF LOSS IS A URL, NOT A PATH" in the header).
 trunk_replace_end() {
   local label="$1"
   local dist="${TRUNK_GUARD_DIST:-dist}"
@@ -138,11 +180,25 @@ trunk_replace_end() {
   local idx="$state/$label.idx"
   if [ ! -f "$all" ]; then return 0; fi
 
-  local rel lost=0 fatal=0 benign=0
-  local fatal_s="" benign_s=""
+  local rel twin lost=0 fatal=0 benign=0 respelled=0
+  local fatal_s="" benign_s="" respelled_s=""
   while IFS= read -r rel; do
     if [ -z "$rel" ]; then continue; fi
     if [ -e "$dist/$rel" ]; then continue; fi
+    # Same url, other spelling. Counted and named — never silently dropped —
+    # but it is not a loss: the url still answers from `$dist/$twin`.
+    twin="$(trunk_url_twin "$rel")"
+    if [ -n "$twin" ] && [ -e "$dist/$twin" ]; then
+      respelled=$((respelled + 1))
+      if [ "$respelled" -le "${TRUNK_GUARD_SAMPLE_CAP:-12}" ]; then
+        # Braced and ASCII on purpose: `$rel=>` is one token, but `$rel→` is
+        # parsed as the name `rel→` in a UTF-8 locale and dies under `set -u`
+        # ("rel→: unbound variable") — which is a crash inside the very
+        # accounting this file exists to make reliable.
+        respelled_s="$respelled_s ${dist}/${rel}=>${dist}/${twin}"
+      fi
+      continue
+    fi
     lost=$((lost + 1))
     if grep -qxF -- "$rel" "$idx" 2>/dev/null; then
       fatal=$((fatal + 1))
@@ -157,6 +213,13 @@ trunk_replace_end() {
     fi
   done < "$all"
   rm -f "$all" "$idx" 2>/dev/null || true
+
+  # Report the re-spellings even on an otherwise clean replace: they are the
+  # evidence the url-level comparison is doing something, and the line a future
+  # reader needs when this guard is quiet about a file that visibly disappeared.
+  if [ "$respelled" -gt 0 ]; then
+    echo "[trunk-guard] $label: $respelled replaced file(s) answer the same url from the shard's other spelling (…/index.html ⇄ ….html), not a loss:$respelled_s"
+  fi
 
   if [ "$lost" -eq 0 ]; then return 0; fi
 
