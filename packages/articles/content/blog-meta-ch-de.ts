@@ -1942,6 +1942,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salario-medio-professioni-svizzera-zurigo-2026.title': 'Durchschnittslohn Berufe Schweiz 2026: Focus Zürich',
     'blog.article.salario-medio-professioni-svizzera-zurigo-2026.excerpt': 'Analyse der Durchschnittslöhne pro Beruf in der Schweiz im Jahr 2026 mit Fokus auf den Kanton Zürich. Wir untersuchen die Änderungsfaktoren, die offiziellen Daten und die steuerlichen Auswirkungen unter Berücksichtigung der neuen Frontalieri-Vereinbarung, die am 1. JANUAR 2024 in Kraft getreten ist.',
     'blog.article.salario-medio-professioni-svizzera-zurigo-2026.imageAlt': 'Stadtbild von Zürich mit modernen Gebäuden und Menschen in Bewegung, als Symbol für wirtschaftliche Aktivität',
+    'blog.article.salario-medio-bern-2026.title': 'Durchschnittslohn Berufe Schweiz 2026: Focus Bern',
+    'blog.article.salario-medio-bern-2026.excerpt': 'Vergleich der Durchschnittslöhne zwischen Kantonen und Branchen mit offiziellen Daten und Variationsfaktoren. Konzentrieren Sie sich auf den Kanton Bern.',
+    'blog.article.salario-medio-bern-2026.imageAlt': 'Blick auf Bern, Schweiz, mit historischen Gebäuden und modernen Büros',
 };
 
 export default blogMetaChDe;

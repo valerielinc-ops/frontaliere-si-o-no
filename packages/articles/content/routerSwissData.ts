@@ -673,6 +673,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lindustriaaudiovisivaisundersoppressione': { it: 'lindustriaaudiovisivaisundersoppressione', en: 'the-audio-visual-industry-is-under-pressure', de: 'die-audiovisuelle-industrie-steht-vor-einer-haerten-prufung', fr: 'lindustrieaudiovisuelleestenpression' },
  'siccita-foraggio-nasce-borsa-online': { it: 'siccita-foraggio-nasce-borsa-online', en: 'drought-forage-online-marketplace', de: 'trockenheit-futter-online-marktplatz', fr: 'secheresse-fourrage-plateforme-en-ligne' },
  'salario-medio-professioni-svizzera-zurigo-2026': { it: 'salario-medio-professioni-svizzera-zurigo-2026', en: 'average-salary-professions-switzerland-zurich-2026', de: 'durchschnittsgehalt-berufe-schweiz-zuerich-2026', fr: 'salaire-moyen-professions-suisse-zurich-2026' },
+ 'salario-medio-bern-2026': { it: 'salario-medio-bern-2026', en: 'average-salary-bern-2026', de: 'durchschnittsgehalt-bern-2026', fr: 'salaire-moyen-berne-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
