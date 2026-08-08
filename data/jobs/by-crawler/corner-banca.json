@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-08-07T21:45:01.063Z",
+  "assembledAt": "2026-08-08T09:47:56.592Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -55,7 +55,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-07T21:44:58.364Z",
+      "crawledAt": "2026-08-08T09:47:53.737Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland"
       ],
@@ -65,6 +65,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.988Z",
+      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -146,8 +147,9 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T21:44:58.363Z",
+      "crawledAt": "2026-08-08T09:47:53.733Z",
       "firstSeenAt": "2026-08-05T22:21:28.042Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -182,7 +184,7 @@
       "titleByLocale": {
         "it": "Employe Collection Team Zürich",
         "en": "Employee Collection Team Zürich",
-        "de": "Mitarbeitersammlung Team Zürich",
+        "de": "Employee Collection Team Zürich",
         "fr": "Équipe de recouvrement des employés Zürich"
       },
       "description": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\n• Phone contact with clients for credit management and debt recovery\n\n• Active listening to clients’ situations and identification of sustainable payment solutions\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Management and updating of cases in internal systems\n\n• Collaboration with the team to monitor open positions\n\n• Maintaining a professional and empathetic approach even in sensitive situations\n\n• Commercial training (commercial apprenticeship or equivalent qualification)\n\n• Native German and good knowledge of English\n\n• Excellent communication skills and strong customer listening abilities\n\n• Aptitude for managing customer relationships over the phone\n\n• Empathy, mediation skills, and solution-oriented mindset\n\n• Attention to detail and organizational skills\n\n• Team spirit and reliability\n\nIdeal profile\n\n• Young, motivated person eager to grow professionally\n\n• Ability to remain calm and professional even in difficult conversations\n\n• Team-oriented attitude and collaborative mindset",
@@ -238,7 +240,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T21:44:58.362Z",
+      "crawledAt": "2026-08-08T09:47:53.732Z",
       "previousSlugs": [
         "customer-consulente-100-team-zurich-corner-banca-wallisellen",
         "customer-consulente-60-team-zurich-corner-banca-wallisellen",
@@ -257,6 +259,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.985Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -332,8 +335,9 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T21:44:58.362Z",
+      "crawledAt": "2026-08-08T09:47:53.732Z",
       "firstSeenAt": "2026-07-08T22:13:15.985Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -359,7 +363,7 @@
         "it": "collezione-dei-dipendenti-corner-banca-wallisellen",
         "en": "employee-front-office-collection-corner-banca-wallisellen",
         "de": "employee-front-office-collection-corner-banca-wallisellen",
-        "fr": "collecte-aupres-des-employes-corner-banca-wallisellen"
+        "fr": "employee-front-office-collection-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -369,7 +373,7 @@
         "it": "Collezione dei dipendenti",
         "en": "Employee Front Office Collection",
         "de": "Mitarbeiter Front Office Collection",
-        "fr": "Collecte auprès des employés"
+        "fr": "Employee Front Office Collection"
       },
       "description": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\n• Phone-based client communication for credit management and debt collection\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Coordination with external debt collection partners and management of assigned mandates\n\n• Application of active listening in client interactions, combined with analytical evaluation of information to identify and propose appropriate solutions\n\n• Provide administrative and back-office support\n\n• Close collaboration with internal teams\n\n• Commercial apprenticeship (KV) or equivalent diploma\n\n• 1–2 years of professional experience, preferably in receivables management (dunning and debt collection) or financial services\n\n• Languages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed\n\n• Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)\n\n• Excellent communication and negotiation skills, combined with active listening, empathy, and a pragmatic, solution-oriented approach\n\n• Proficiency in MS Office\n\n• Strong team orientation, with the ability to collaborate effectively in a dynamic environment",
       "descriptionByLocale": {
@@ -413,19 +417,24 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T21:44:58.361Z",
+      "crawledAt": "2026-08-08T09:47:53.731Z",
       "previousSlugs": [
-        "employee-front-office-collection-corner-banca-wallisellen"
+        "employee-front-office-collection-corner-banca-wallisellen",
+        "collecte-aupres-des-employes-corner-banca-wallisellen",
+        "collezione-dei-dipendenti-corner-banca-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employee-front-office-collection-corner-banca-wallisellen"
+          "employee-front-office-collection-corner-banca-wallisellen",
+          "collezione-dei-dipendenti-corner-banca-wallisellen"
         ],
         "fr": [
+          "collecte-aupres-des-employes-corner-banca-wallisellen",
           "employee-front-office-collection-corner-banca-wallisellen"
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.984Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "baseSalary": {
@@ -508,8 +517,9 @@
       "url": "https://jobs.corner.ch/o/it-auditor",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T21:44:58.360Z",
+      "crawledAt": "2026-08-08T09:47:53.730Z",
       "firstSeenAt": "2026-07-08T22:13:15.983Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -590,19 +600,22 @@
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T21:44:58.359Z",
+      "crawledAt": "2026-08-08T09:47:53.729Z",
       "previousSlugs": [
-        "legal-collection-case-manager-corner-banca-wallisellen"
+        "legal-collection-case-manager-corner-banca-wallisellen",
+        "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "legal-collection-case-manager-corner-banca-wallisellen"
+          "legal-collection-case-manager-corner-banca-wallisellen",
+          "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen"
         ],
         "de": [
           "legal-collection-case-manager-corner-banca-wallisellen"
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.982Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -693,19 +706,21 @@
       "url": "https://jobs.corner.ch/o/customer-analytics-officer",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T21:44:58.358Z",
+      "crawledAt": "2026-08-08T09:47:53.728Z",
       "previousSlugs": [
         "customer-analytics-officer-corner-banca-lugano",
         "customer-analytics-officer-corner-banca-wallisellen",
         "responsabile-customer-analytics-corner-banca-wallisellen",
-        "specialiste-de-l-analyse-des-clients-corner-banca-lugano"
+        "specialiste-de-l-analyse-des-clients-corner-banca-lugano",
+        "responsabile-customer-analytics-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "customer-analytics-officer-corner-banca-lugano",
           "customer-analytics-officer-corner-banca-wallisellen",
           "responsabile-customer-analytics-corner-banca-wallisellen",
-          "specialiste-de-l-analyse-des-clients-corner-banca-lugano"
+          "specialiste-de-l-analyse-des-clients-corner-banca-lugano",
+          "responsabile-customer-analytics-corner-banca-lugano"
         ],
         "en": [
           "customer-analytics-officer-corner-banca-wallisellen"
@@ -715,6 +730,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.980Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -809,13 +825,15 @@
       "url": "https://jobs.corner.ch/o/marketing-project-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T21:44:58.357Z",
+      "crawledAt": "2026-08-08T09:47:53.727Z",
       "previousSlugs": [
-        "marketing-project-manager-corner-banca-lugano"
+        "marketing-project-manager-corner-banca-lugano",
+        "responsabile-del-progetto-di-marketing-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-project-manager-corner-banca-lugano"
+          "marketing-project-manager-corner-banca-lugano",
+          "responsabile-del-progetto-di-marketing-corner-banca-lugano"
         ],
         "de": [
           "marketing-project-manager-corner-banca-lugano"
@@ -825,6 +843,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.977Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -910,7 +929,7 @@
       "url": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T21:44:58.356Z",
+      "crawledAt": "2026-08-08T09:47:53.726Z",
       "previousSlugs": [
         "grc-gouvernance-risque-et-conformite-services-bancaires-corner-banca-lugano"
       ],
@@ -920,6 +939,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.973Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -1002,8 +1022,9 @@
       "url": "https://jobs.corner.ch/o/information-security-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T21:44:58.356Z",
+      "crawledAt": "2026-08-08T09:47:53.726Z",
       "firstSeenAt": "2026-07-08T22:13:15.975Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -1072,19 +1093,22 @@
       "url": "https://jobs.corner.ch/o/sales-solutions-ecash-employee",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T21:44:58.353Z",
+      "crawledAt": "2026-08-08T09:47:53.725Z",
       "previousSlugs": [
-        "sales-e-solutions-ecash-employee-corner-banca-lugano"
+        "sales-e-solutions-ecash-employee-corner-banca-lugano",
+        "vendite-solutions-ecash-dipendente-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-e-solutions-ecash-employee-corner-banca-lugano"
+          "sales-e-solutions-ecash-employee-corner-banca-lugano",
+          "vendite-solutions-ecash-dipendente-corner-banca-lugano"
         ],
         "fr": [
           "sales-e-solutions-ecash-employee-corner-banca-lugano"
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.971Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1171,25 +1195,28 @@
       "url": "https://jobs.corner.ch/o/fi-administration-business-support",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T21:44:58.351Z",
+      "crawledAt": "2026-08-08T09:47:53.721Z",
       "previousSlugs": [
         "fi-administration-e-business-support-corner-banca-lugano",
         "amministrazione-fi-e-supporto-commerciale-2-corner-banca-lugano",
         "fi-administration-e-business-support-2-corner-banca-lugano",
-        "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano"
+        "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano",
+        "amministrazione-fi-e-supporto-commerciale-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fi-administration-e-business-support-corner-banca-lugano",
           "amministrazione-fi-e-supporto-commerciale-2-corner-banca-lugano",
           "fi-administration-e-business-support-2-corner-banca-lugano",
-          "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano"
+          "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano",
+          "amministrazione-fi-e-supporto-commerciale-corner-banca-lugano"
         ],
         "fr": [
           "fi-administration-e-business-support-corner-banca-lugano"
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.970Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1215,7 +1242,7 @@
         "it": "gestione-delle-controversie-dei-lavoratori-corner-banca-wallisellen",
         "en": "employee-consumer-dispute-management-corner-banca-wallisellen",
         "de": "employee-consumer-dispute-management-corner-banca-wallisellen",
-        "fr": "gestion-des-litiges-avec-les-consommateurs-corner-banca-wallisellen"
+        "fr": "employee-consumer-dispute-management-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1225,7 +1252,7 @@
         "it": "Gestione delle controversie dei lavoratori",
         "en": "Employee Consumer Dispute Management",
         "de": "Mitarbeiter Consumer Dispute Management",
-        "fr": "Gestion des litiges avec les consommateurs"
+        "fr": "Employee Consumer Dispute Management"
       },
       "description": "We are looking for a customer-focused and detail-oriented Customer Disputes & Fraud Specialist to join our team. In this role, you will play a key part in protecting our customers and ensuring the efficient handling of credit card disputes and fraud cases in a dynamic financial services environment.\n\n• Receiving and handling customer complaints and credit card fraud cases, including initial assessment and prioritization.\n\n• Processing dispute claims and fraud-related cases.\n\n• Performing chargebacks in accordance with the regulations of the card schemes (VISA, Mastercard, Diners Club) and internal company policies.\n\n• Advising cardholders on disputes, card misuse, and preventive security measures.\n\n• Providing customer support by phone and in writing in German, French, English, and Italian.\n\n• Carrying out various administrative tasks.\n\n• Experience in credit cards, chargebacks, fraud management, or customer service is an advantage.\n\n• Excellent language skills in German, French, English, and Italian (both spoken and written).\n\n• Analytical, structured, accurate, and reliable working style.\n\n• Strong customer orientation and excellent communication skills.\n\n• Ability to work under pressure and enjoy working in a dynamic environment.\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities",
       "descriptionByLocale": {
@@ -1269,19 +1296,24 @@
       "url": "https://jobs.corner.ch/o/employee-consumer-dispute-management",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T21:44:58.350Z",
+      "crawledAt": "2026-08-08T09:47:53.719Z",
       "previousSlugs": [
-        "employee-consumer-dispute-management-corner-banca-wallisellen"
+        "employee-consumer-dispute-management-corner-banca-wallisellen",
+        "gestion-des-litiges-avec-les-consommateurs-corner-banca-wallisellen",
+        "gestione-delle-controversie-dei-lavoratori-corner-banca-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employee-consumer-dispute-management-corner-banca-wallisellen"
+          "employee-consumer-dispute-management-corner-banca-wallisellen",
+          "gestione-delle-controversie-dei-lavoratori-corner-banca-wallisellen"
         ],
         "fr": [
+          "gestion-des-litiges-avec-les-consommateurs-corner-banca-wallisellen",
           "employee-consumer-dispute-management-corner-banca-wallisellen"
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.968Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -1361,13 +1393,15 @@
       "url": "https://jobs.corner.ch/o/employee-backoffice",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T21:44:58.348Z",
+      "crawledAt": "2026-08-08T09:47:53.715Z",
       "previousSlugs": [
-        "employee-backoffice-corner-banca-lugano"
+        "employee-backoffice-corner-banca-lugano",
+        "posto-di-lavoro-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employee-backoffice-corner-banca-lugano"
+          "employee-backoffice-corner-banca-lugano",
+          "posto-di-lavoro-corner-banca-lugano"
         ],
         "de": [
           "employee-backoffice-corner-banca-lugano"
@@ -1377,6 +1411,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:15:53.869Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1457,8 +1492,9 @@
       "url": "https://jobs.corner.ch/o/employee-underwriting-e-cash-3",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T21:44:58.346Z",
+      "crawledAt": "2026-08-08T09:47:53.713Z",
       "firstSeenAt": "2026-07-24T11:15:53.859Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1492,7 +1528,7 @@
       "title": "Consulente Fiscale (Private Banking)  - ref. 1117",
       "titleByLocale": {
         "it": "Consulente Fiscale (Private Banking) - ref. 1117",
-        "en": "Fiscale Consultant (Private Banking) - ref. 11",
+        "en": "Consulente Fiscale (Private Banking)  - ref. 1117",
         "de": "Consulente Fiscale (Private Banking) - ref. 1117",
         "fr": "Consulente Fiscale (Private Banking) - ref. 1117"
       },
@@ -1544,8 +1580,9 @@
       "url": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-07T21:44:58.344Z",
+      "crawledAt": "2026-08-08T09:47:53.712Z",
       "firstSeenAt": "2026-08-04T11:44:57.049Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
