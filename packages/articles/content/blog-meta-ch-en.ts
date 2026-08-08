@@ -1945,6 +1945,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salario-medio-bern-2026.title': 'Average salary professions Switzerland 2026: focus Bern',
     'blog.article.salario-medio-bern-2026.excerpt': 'Comparison of average wages between cantons and sectors, with official data and factors of variation. Focus on the canton of Bern.',
     'blog.article.salario-medio-bern-2026.imageAlt': 'View of Bern, Switzerland, with historic buildings and modern offices',
+    'blog.article.salario-medio-professioni-svizzera-2026-basilea.title': 'Average salary professions Switzerland 2026 canton Basel',
+    'blog.article.salario-medio-professioni-svizzera-2026-basilea.excerpt': 'AVS/AI/IPG rates 5.3%, AD/AC 1.1% (cap CHF 148\'200), LAINF 0.7-1.5%, LPP 7–18% from 25 years. New Frontier Agreement in force from 1 January 2024.',
+    'blog.article.salario-medio-professioni-svizzera-2026-basilea.imageAlt': 'Aerial view of Basel with the Rhine river and Mittlere Brücke during morning rush hour',
 };
 
 export default blogMetaChEn;

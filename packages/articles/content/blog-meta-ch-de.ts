@@ -1945,6 +1945,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salario-medio-bern-2026.title': 'Durchschnittslohn Berufe Schweiz 2026: Focus Bern',
     'blog.article.salario-medio-bern-2026.excerpt': 'Vergleich der Durchschnittslöhne zwischen Kantonen und Branchen mit offiziellen Daten und Variationsfaktoren. Konzentrieren Sie sich auf den Kanton Bern.',
     'blog.article.salario-medio-bern-2026.imageAlt': 'Blick auf Bern, Schweiz, mit historischen Gebäuden und modernen Büros',
+    'blog.article.salario-medio-professioni-svizzera-2026-basilea.title': 'Durchschnittslohn Berufe Schweiz 2026 Kanton Basel',
+    'blog.article.salario-medio-professioni-svizzera-2026-basilea.excerpt': 'AHV/IV/EO-Sätze 5,3%, ALV/KV 1,1% (Kap CHF 148\'200), UVG 0,7–1,5%, BVG 7–18% ab 25 Jahren. Neue Frontalieri-Vereinbarung in Kraft seit dem 1. Januar 2024.',
+    'blog.article.salario-medio-professioni-svizzera-2026-basilea.imageAlt': 'Luftaufnahme von Basel mit dem Rheinfluss und der Mittlere Brücke während des morgendlichen Berufsverkehrs',
 };
 
 export default blogMetaChDe;
