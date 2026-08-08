@@ -47,6 +47,7 @@ import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { resolveAustrianBorderMunicipalitiesFlushed } from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { getCantonDisplayName } from './shared/cantonDisplay';
 import {
   AUSTRIAN_LOCALES,
@@ -588,7 +589,8 @@ export function renderBridgePage(params: {
   });
 }
 
-function renderHubPage(params: { locale: AustrianLocale; dateStamp: string; distDir: string }): {
+// Exported for the h1-vs-title regression suite — see the FR plugin's twin.
+export function renderHubPage(params: { locale: AustrianLocale; dateStamp: string; distDir: string }): {
   urlPath: string;
   html: string;
 } {
@@ -596,6 +598,17 @@ function renderHubPage(params: { locale: AustrianLocale; dateStamp: string; dist
   const c = COPY[locale];
   const canonicalPath = AUSTRIAN_HUB_PATH[locale];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+
+  // Same defect and same repair as the FR/DE hubs — see
+  // frenchBorderMunicipalityPagesPlugin.ts's renderHubPage for the full
+  // rationale. `c.hubTitle` is shipped as BOTH <title> and <h1>, and at
+  // 54-59 chars per locale buildTitleWithBrand always drops the brand
+  // suffix, so the two collapse into the Semrush "Duplicate H1 and title
+  // tags" class that audit:h1-title-duplicates gates on.
+  //
+  // Second argument = the string handed to buildSeoPageHtml as `title`.
+  // The helper returns its FIRST argument.
+  const hubH1 = differentiateH1FromTitle(c.hubTitle, c.hubTitle, locale);
 
   const byBezirk = new Map<AustrianBezirk, AustrianBorderMunicipality[]>();
   for (const m of AUSTRIAN_ABOVE_FLOOR) {
@@ -628,7 +641,7 @@ function renderHubPage(params: { locale: AustrianLocale; dateStamp: string; dist
       <span>${esc(c.hubLabel)}</span>
     </nav>
     <header class="rounded-md border border-edge bg-surface p-5 sm:p-7">
-      <h1 class="text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(c.hubTitle)}</h1>
+      <h1 class="text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(hubH1)}</h1>
       <p class="mt-3 max-w-3xl text-base leading-7 text-body">${esc(c.hubLede)}</p>
       <p class="mt-3 text-sm text-muted">${esc(c.updated)}: <time datetime="${dateStamp}">${dateStamp}</time></p>
     </header>

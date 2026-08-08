@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -uo pipefail
 
+# shellcheck source=scripts/lib/rehydrate-trunk-guard.sh
+. "$(dirname "${BASH_SOURCE[0]}")/rehydrate-trunk-guard.sh"
+
 # Mirrors post-deploy-validate-dist.yml's rehydrate_section(): all sections
 # run concurrently (each writes a disjoint dist/ subtree, no cross-section
 # race), each tracked via its own PID and gated on its own SHARD_LIVE env
@@ -10,16 +13,21 @@ set -uo pipefail
 # Requires GH_TOKEN, DEPLOY_RUN_ID, and one <SECTION>_SHARD_LIVE env var per
 # entry in section-shard-slugs.json (set by the calling workflow step).
 #
-# KNOWN LIMITATION (issue #5327, class of bug behind #5290's incident): every
-# `rm -rf "dist/$sub"` below (tar/cache/clone rehydrate paths) REPLACES the
-# subtree instead of MERGING it. For a `*_BUILD_EMIT_SKIP` section the deploy
-# doesn't strip dist/$sub, so the trunk can hold legitimate pages under that
-# prefix (e.g. legacyRedirectsPlugin.ts bridges, see the completeness-check
-# comment in rehydrate_section() below) that this rm -rf silently destroys if
-# the fetched shard content doesn't include the same pages. #5290 fixed the
-# instance (sitemap-topics.xml), not the mechanism — see #5327 for the fix
-# options (non-destructive merge vs assert-trunk-subtree-empty) and why they
-# need validation against a real run before landing on this shared script.
+# REPLACE, NOT MERGE — and why that stays true (issue #5327, the class behind
+# #5290's incident). Every `rm -rf "dist/$sub"` below (tar/cache/clone paths)
+# REPLACES the subtree. For a `*_BUILD_EMIT_SKIP` section the deploy skips
+# strip-section-subtree.sh, so the trunk still holds whatever OTHER plugins
+# wrote under that prefix, and the replace used to destroy it with no record
+# anywhere — immediately before every dist-walking post-deploy audit.
+# The merge alternative was rejected on evidence, not taste:
+# locale-router.js:1249-1252 routes the WHOLE prefix to the section shard with
+# no apex fallback, and push-section-shard.sh force-pushes the complete
+# subtree, so the shard is the only truth for those URLs and `dist/$sub` here
+# is a model of what the edge serves. A merged-in trunk file is a file nobody
+# can fetch: it would have turned #5290 green while 40 URLs kept 404ing.
+# What changed is the ACCOUNTING — scripts/lib/rehydrate-trunk-guard.sh
+# snapshots the subtree before each replace and reports every trunk file the
+# shard did not carry, failing the step when any of them is an indexable page.
 #
 # deploy.yml uploads section tars BATCHED (~5 sections/artifact per
 # scripts/lib/section-shard-batches.json — GitHub Actions doesn't
@@ -70,6 +78,16 @@ rehydrate_section() {
     # its `$loc/` prefix), so a correctly-packed tar always read back as 0
     # files extracted and the git-clone fallback's dir check failed the
     # same way (run 30238078775).
+    # An absent/`null` slug would make `sub` empty and every `rm -rf
+    # "dist/$sub"` below expand to `rm -rf "dist/"` (or `rm -rf "dist/$loc/"`)
+    # — the whole trunk, not a subtree. Every entry in section-shard-slugs.json
+    # carries all four locales today, so this only fires on a malformed/partial
+    # edit of that file, which is exactly when it must not be silent.
+    # strip-section-subtree.sh:38-41 already refuses an empty slug the same way.
+    if [ -z "$slug" ] || [ "$slug" = "null" ]; then
+      echo "::warning::no $loc slug for section '$section' in section-shard-slugs.json — skipping (refusing to derive an empty dist subtree)"
+      continue
+    fi
     case "$loc" in
       it) sub="$slug" ;;
       en|de|fr) sub="$loc/$slug" ;;
@@ -99,7 +117,11 @@ rehydrate_section() {
     dl="$RUNNER_TEMP/shard-batch-$batch-dist-$loc"
     if [ -f "$dl/$section-dist-$loc.tar" ]; then
       mkdir -p "dist/$(dirname "$sub")"
-      rm -rf "dist/$sub"
+      # Was a bare `rm -rf "dist/$sub"`. Same removal, now recorded first:
+      # whatever the trunk still holds here is about to be replaced by the
+      # shard's copy, and trunk_replace_end below reports every file the shard
+      # did not put back (issue #5327).
+      trunk_replace_begin "$section-$loc" "$sub"
       # Completeness, not just existence (#2761 item 2, mirrors the locale
       # rehydrate above): `[ -d dist/$sub ]` alone only proves SOME files
       # landed, not that extraction finished. Compare what the tar itself
@@ -120,8 +142,12 @@ rehydrate_section() {
       fi
       if [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
         echo "rehydrated $section $loc from tar artifact: $actual_n files (tar listed $expected_n)"
+        trunk_replace_end "$section-$loc"
         continue
       fi
+      # Only clears the half-extracted tar; the trunk snapshot taken above
+      # stays open so the fallback paths below still get reported against the
+      # PRE-rehydrate state.
       rm -rf "dist/$sub"
       echo "[rehydrate] $section-$loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
     else
@@ -148,9 +174,10 @@ rehydrate_section() {
     # earlier in the same run).
     if [ -n "${SHARD_CLONE_CACHE_DIR:-}" ] && [ -d "$SHARD_CLONE_CACHE_DIR/$section-$loc/$sub" ]; then
       mkdir -p "dist/$(dirname "$sub")"
-      rm -rf "dist/$sub"
+      trunk_replace_begin "$section-$loc" "$sub"
       cp -r "$SHARD_CLONE_CACHE_DIR/$section-$loc/$sub" "dist/$sub"
       echo "rehydrated $section $loc from cross-job clone cache: $(find "dist/$sub" -type f | wc -l) files"
+      trunk_replace_end "$section-$loc"
       continue
     fi
 
@@ -178,11 +205,13 @@ rehydrate_section() {
     if ! git clone --depth 1 --single-branch --branch main \
          "https://github.com/$owner/frontaliere-$section-$loc.git" "$tmp" 2>/dev/null; then
       echo "::warning::$section-$loc shard clone failed — validators may flag $loc $section pages missing"
+      # report what the tar path already emptied
+      trunk_replace_end "$section-$loc"
       continue
     fi
     if [ -d "$tmp/$sub" ]; then
       mkdir -p "dist/$(dirname "$sub")"
-      rm -rf "dist/$sub"
+      trunk_replace_begin "$section-$loc" "$sub"
       cp -r "$tmp/$sub" "dist/$sub"
       echo "rehydrated $section $loc from frontaliere-$section-$loc: $(find "dist/$sub" -type f | wc -l) files"
       if [ -n "${SHARD_CLONE_CACHE_DIR:-}" ]; then
@@ -192,9 +221,15 @@ rehydrate_section() {
     else
       echo "::warning::frontaliere-$section-$loc has no $sub subtree — $loc $section left missing"
     fi
+    # Covers BOTH branches above, and is a no-op when no snapshot is open —
+    # so a future edit that adds another exit path cannot silently drop the
+    # accounting the way the bare `rm -rf` dropped the files.
+    trunk_replace_end "$section-$loc"
     rm -rf "$tmp"
   done
 }
+
+trunk_guard_init section
 
 SECTION_PIDS=()
 for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
@@ -208,3 +243,15 @@ for pid in "${SECTION_PIDS[@]}"; do
   wait "$pid" || true
 done
 df -h / | tail -1
+
+# The ONE new fatal condition in this deliberately fail-soft script, and it is
+# a correctness failure rather than an infrastructure one: a missing artifact,
+# a failed clone or an absent subtree still degrade with a ::warning:: and a
+# zero exit (unchanged), because retrying validation is the right answer there.
+# Indexable pages destroyed by the replace are different in kind — the dist/
+# the audits are about to walk no longer matches what the edge serves, so every
+# result computed from it is unsound. `wait … || true` above swallows a
+# subshell's rc, hence the state-dir verdict here (issue #5327).
+if ! trunk_guard_verdict "section shard rehydrate"; then
+  exit 1
+fi

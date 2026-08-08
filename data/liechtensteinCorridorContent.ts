@@ -104,6 +104,29 @@ export interface LiechtensteinFaqEntry {
 }
 
 export interface LiechtensteinLocaleContent {
+  /**
+   * Hub page `<title>` AND `<h1>` (liechtensteinBorderMunicipalityPagesPlugin's
+   * renderHubPage). BUDGET: keep every locale at or under
+   * `TITLE_MAX_CHARS` (66) — this string is emitted verbatim as the SERP
+   * title, and audit:title-length gates on that cap.
+   *
+   * These four were 78-96 chars, the only border-municipality hub family that
+   * had drifted off the shape its FR/DE/AT siblings share ("live in X, work
+   * in Switzerland" + a short municipalities tail). Per
+   * build-plugins/shared/titleSuffix.ts an over-cap headline is rewritten HERE,
+   * at the source — never truncated at render time and never with a mid-string
+   * `…`, which reads as broken in the SERP and collapses CTR. Rewritten to
+   * 56-59 chars, keeping the verb clause each locale already led with (it is
+   * the actual query pattern, "vivere in Liechtenstein lavorare in Svizzera")
+   * and trading only the long "guida ai comuni del Principato" tail.
+   *
+   * Note the brand suffix still cannot fit: " | Frontaliere Ticino" is 21
+   * chars, so it needs a headline of 45 or less, which none of the four
+   * sibling hub families can afford without gutting the keywords. That is
+   * expected and handled at render time — renderHubPage differentiates the
+   * <h1> via `differentiateH1FromTitle` so <title> and <h1> never collapse
+   * into the Semrush "Duplicate H1 and title tags" class.
+   */
   hubTitle: string;
   /** Second sentence MUST carry the inverted-direction disclosure — see
    *  header. Do not shorten this lede by dropping that sentence. */
@@ -115,7 +138,8 @@ export interface LiechtensteinLocaleContent {
 
 export const LIECHTENSTEIN_CONTENT: Record<LiechtensteinLocale, LiechtensteinLocaleContent> = {
   it: {
-    hubTitle: 'Vivere in Liechtenstein e lavorare in Svizzera: guida ai comuni del Principato',
+    // 56 chars (was 78).
+    hubTitle: 'Vivere in Liechtenstein e lavorare in Svizzera: i comuni',
     hubLede:
       `Chi vive in uno degli 11 comuni del Liechtenstein (${nationalPop} abitanti, ${NATIONAL.year}) e lavora in Svizzera segue un regime fiscale e previdenziale diverso da quello di Italia, Francia e Germania. ` +
       `Attenzione: questo è il flusso MINORITARIO del corridoio — nel ${CTX.year} erano ${chToLi} le persone che facevano il percorso opposto (Svizzera → Liechtenstein) contro ${liToCh} in questa direzione (${CTX.ratio}), e il 57% (2022) della forza lavoro del Liechtenstein è pendolare in entrata dall'estero. ` +
@@ -152,7 +176,8 @@ export const LIECHTENSTEIN_CONTENT: Record<LiechtensteinLocale, LiechtensteinLoc
   },
 
   en: {
-    hubTitle: 'Living in Liechtenstein and working in Switzerland: a guide to the Principality’s municipalities',
+    // 58 chars (was 96). Comma clause mirrors the EN FR/DE/AT hubs.
+    hubTitle: 'Living in Liechtenstein, working in Switzerland: the towns',
     hubLede:
       `Residents of Liechtenstein's 11 municipalities (${nationalPop} people, ${NATIONAL.year}) who work in Switzerland follow a tax and social-security regime that differs from Italy, France or Germany. ` +
       `Note: this is the MINORITY flow on this corridor — in ${CTX.year}, ${chToLi} people commuted the other way (Switzerland → Liechtenstein) versus ${liToCh} in this direction (${CTX.ratio}), and 57% (2022) of Liechtenstein's total workforce commutes in from abroad. ` +
@@ -189,7 +214,8 @@ export const LIECHTENSTEIN_CONTENT: Record<LiechtensteinLocale, LiechtensteinLoc
   },
 
   de: {
-    hubTitle: 'Wohnen in Liechtenstein, arbeiten in der Schweiz: Gemeinde-Ratgeber für das Fürstentum',
+    // 59 chars (was 86). Keeps the original "Wohnen … arbeiten" verb pair.
+    hubTitle: 'Wohnen in Liechtenstein, arbeiten in der Schweiz: Gemeinden',
     hubLede:
       `Wer in einer der 11 Gemeinden Liechtensteins (${nationalPop} Einwohner, ${NATIONAL.year}) wohnt und in der Schweiz arbeitet, unterliegt einer Steuer- und Sozialversicherungsregelung, die sich von Italien, Frankreich oder Deutschland unterscheidet. ` +
       `Wichtig: Dies ist die MINDERHEITSRICHTUNG auf diesem Korridor — ${CTX.year} pendelten ${chToLi} Personen den umgekehrten Weg (Schweiz → Liechtenstein), gegenüber ${liToCh} in dieser Richtung (Verhältnis ${CTX.ratio}); 57% (2022) der liechtensteinischen Erwerbstätigen pendeln aus dem Ausland ein. ` +
@@ -226,7 +252,8 @@ export const LIECHTENSTEIN_CONTENT: Record<LiechtensteinLocale, LiechtensteinLoc
   },
 
   fr: {
-    hubTitle: 'Vivre au Liechtenstein et travailler en Suisse : guide des communes de la Principauté',
+    // 59 chars (was 85). Espace insécable-free ` : ` as in the FR siblings.
+    hubTitle: 'Vivre au Liechtenstein, travailler en Suisse : les communes',
     hubLede:
       `Les habitants des 11 communes du Liechtenstein (${nationalPop} personnes, ${NATIONAL.year}) qui travaillent en Suisse relèvent d'un régime fiscal et de sécurité sociale différent de celui de l'Italie, de la France ou de l'Allemagne. ` +
       `Attention : il s'agit du flux MINORITAIRE de ce corridor — en ${CTX.year}, ${chToLi} personnes faisaient le trajet inverse (Suisse → Liechtenstein) contre ${liToCh} dans ce sens (ratio ${CTX.ratio}), et 57 % (2022) de la population active du Liechtenstein est pendulaire entrante depuis l'étranger. ` +

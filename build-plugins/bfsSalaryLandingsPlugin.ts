@@ -49,6 +49,7 @@ import {
   HERO_EYEBROW_STYLE,
   LINK_ACCENT_STYLE,
   renderStatGrid,
+  differentiateH1FromTitle,
 } from './shared/seoContentTokens';
 
 function esc(s: unknown): string {
@@ -413,6 +414,30 @@ function renderCommon(opts: {
     median, national, faqs, ctaLine, alternates, dateStamp, distDir, relatedLinks,
   } = opts;
   const L = COPY[locale];
+  // COPY declares `title` and `h1` as two fields, but for both families they
+  // are the SAME sentence — the brand suffix is the only thing telling the
+  // rendered <title> apart from the <h1>. buildTitleWithBrand (via
+  // seoPageShell's normalizeShellTitle) drops " | Frontaliere Ticino" the
+  // moment the headline passes 45 chars, and at that point the two strings
+  // are byte-identical: Semrush "Duplicate H1 and title tags", i.e. the
+  // deploy-gating audit:h1-title-duplicates. 13 of the 36 pages sat over that
+  // boundary (all 5 DE age anchors at 46 chars, plus 8 education pages whose
+  // BFS level name is long), and only ONE of them
+  // (/en/salary-switzerland-university-degree/, 70 chars) actually overflows
+  // the 66-char cap — so this is NOT a "headline too long, rewrite the copy"
+  // case, it is the same missing-differentiator defect PR #5267 fixed on the
+  // FAQ pages.
+  //
+  // Differentiate the H1, never the <title>: build-plugins/shared/titleSuffix.ts
+  // requires a long headline to be rewritten at source rather than cut, and
+  // the title keeps its keywords either way. `title` below is the exact
+  // string this page hands to buildSeoPageHtml — comparing against anything
+  // else type-checks and silently never fires.
+  //
+  // Scope: the <h1> element only. The visible breadcrumb tail and the
+  // BreadcrumbList / Article JSON-LD keep the untagged headline (same split as
+  // salaryHubArticles.ts's `h1Display`).
+  const h1Display = differentiateH1FromTitle(h1, title, locale);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
   const hubUrl = `${BASE_URL}${L.breadcrumbHubPath}`;
@@ -485,7 +510,7 @@ function renderCommon(opts: {
     </nav>
     <header>
       <p style="${HERO_EYEBROW_STYLE}">${esc(eyebrow)}</p>
-      <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+      <h1 style="${H1_STYLE}">${esc(h1Display)}</h1>
       <p style="${LEDE_STYLE}">${esc(lede)}</p>
     </header>
     <p class="text-sm font-medium text-accent mt-1">${esc(L.updatedLabel)}: ${esc(formatUpdatedDate(dateStamp, locale))}</p>

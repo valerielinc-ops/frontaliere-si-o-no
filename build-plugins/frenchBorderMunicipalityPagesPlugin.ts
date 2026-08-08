@@ -43,6 +43,7 @@ import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { resolveFrenchBorderMunicipalitiesFlushed } from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { getCantonDisplayName } from './shared/cantonDisplay';
 import {
   FRENCH_LOCALES,
@@ -649,7 +650,10 @@ export function renderBridgePage(params: {
   });
 }
 
-function renderHubPage(params: { locale: FrenchLocale; dateStamp: string; distDir: string }): {
+// Exported alongside renderAboveFloorPage/renderBridgePage so the
+// h1-vs-title regression suite can assert on the HTML this hub really emits
+// rather than re-deriving it from the COPY table.
+export function renderHubPage(params: { locale: FrenchLocale; dateStamp: string; distDir: string }): {
   urlPath: string;
   html: string;
 } {
@@ -657,6 +661,22 @@ function renderHubPage(params: { locale: FrenchLocale; dateStamp: string; distDi
   const c = COPY[locale];
   const canonicalPath = FRENCH_HUB_PATH[locale];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+
+  // The hub ships `c.hubTitle` as BOTH the <title> (buildSeoPageHtml below)
+  // and the <h1>. That only reads as two strings while the brand suffix
+  // survives — and it never does here: every locale's hubTitle is 53-61
+  // chars, past the 45-char point where buildTitleWithBrand drops
+  // " | Frontaliere Ticino" to protect the 66-char SERP cap. So all four
+  // hubs shipped <title> === <h1>, the Semrush "Duplicate H1 and title tags"
+  // class that audit:h1-title-duplicates gates on. Note the headlines are
+  // NOT over the cap — nothing here needs rewriting at source; the template
+  // simply never differentiated its H1 (same defect PR #5267 fixed on the
+  // FAQ pages).
+  //
+  // Second argument = the string this page actually hands to
+  // buildSeoPageHtml as `title`. The helper returns its FIRST argument, so
+  // the H1 stays the H1.
+  const hubH1 = differentiateH1FromTitle(c.hubTitle, c.hubTitle, locale);
 
   // Three groups, not two: a dual-basis commune belongs under neither regime
   // heading, because its residents' regime is set by their canton of
@@ -702,7 +722,7 @@ function renderHubPage(params: { locale: FrenchLocale; dateStamp: string; distDi
       <span>${esc(c.hubLabel)}</span>
     </nav>
     <header class="rounded-md border border-edge bg-surface p-5 sm:p-7">
-      <h1 class="text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(c.hubTitle)}</h1>
+      <h1 class="text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(hubH1)}</h1>
       <p class="mt-3 max-w-3xl text-base leading-7 text-body">${esc(c.hubLede)}</p>
       <p class="mt-3 text-sm text-muted">${esc(c.updated)}: <time datetime="${dateStamp}">${dateStamp}</time></p>
     </header>
