@@ -15,10 +15,32 @@
 import { useState, useEffect, useCallback } from 'react';
 import { reportCaughtError } from '@/services/errorReporter';
 import { resilientImport } from '@/services/resilientImport';
+import { DEFAULT_EXCHANGE_RATE } from '@/constants';
 
 const CACHE_KEY = 'exchange_rate_cache';
 const CACHE_DURATION = 10 * 60 * 1000; // 10 minutes
-const DEFAULT_RATE = 0.94;
+/**
+ * Fallback rate, in the SAME direction every live source of this module
+ * produces: CHF→EUR, i.e. 1 CHF = DEFAULT_RATE EUR, a number just above 1.
+ *
+ * It used to be the literal `0.94`, which is the EUR→CHF reciprocal wearing the
+ * CHF→EUR name (#5388). That contradicted this module's own live path by ~14%:
+ *   - the Cloud Function behind fetchFromTwelveData() queries
+ *     `twelvedata.com/exchange_rate?symbol=CHF/EUR` (functions/src/exchangeRate.js:12);
+ *   - fetchEcbHistory() divides the ECB `D.CHF.EUR.SP00.A` observation
+ *     (`1 / obsValue`) precisely to land in this direction;
+ *   - fetchFrankfurter() asks for `base=CHF&quotes=EUR`;
+ *   - the committed snapshot of what Firestore actually holds reads
+ *     `currentRate: ~1.07` (data/exchange-rate-snapshot.json);
+ *   - every consumer MULTIPLIES a CHF amount by it — e.g.
+ *     `grossMonthlyCHF * exchangeRate` in calculationService.calculateNaspi() —
+ *     and the UI labels it `1 CHF = {rate} EUR` (InputCard.tsx).
+ *
+ * It is imported rather than re-typed: a second literal of one quantity is what
+ * let the two halves diverge in the first place (#5379). Direction and band are
+ * enforced by tests/exchange-rate-fallback-direction.test.tsx.
+ */
+const DEFAULT_RATE = DEFAULT_EXCHANGE_RATE;
 const IS_TEST_ENV = typeof process !== 'undefined' && (process.env.NODE_ENV === 'test' || !!process.env.VITEST);
 
 // Call counters exposed for tests (see tests/exchange-rate-service-local-cache.test.ts).
@@ -191,7 +213,7 @@ async function fetchFromTwelveData(): Promise<number | null> {
  * 3. Firestore cache (if < 10 min old) — shared across all clients
  * 4. TwelveData API → save to Firestore + localStorage
  * 5. Expired Firestore / localStorage cache
- * 6. Hardcoded default (0.94)
+ * 6. DEFAULT_RATE — the shared CHF→EUR default from '@/constants'
  */
 export async function fetchExchangeRate(): Promise<number> {
  const now = Date.now();
