@@ -1,16 +1,16 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-08-07T21:58:15.646Z",
-  "total": 4,
+  "generatedAt": "2026-08-08T09:53:16.688Z",
+  "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 14966,
-  "avgDurationMs": 14966,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 14338,
+  "avgDurationMs": 14338,
   "durationHistory": [
-    14966
+    14338
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -123,8 +123,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://www.mikron.com/en/manufacturing-methodology-engineer-mfd",
       "applyUrl": "https://www.mikron.com/en/manufacturing-methodology-engineer-mfd",
@@ -165,5 +164,6 @@
         "completeness": 20
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
