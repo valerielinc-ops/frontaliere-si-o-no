@@ -205,13 +205,22 @@ jobs:
       # Allineato al push step più sotto, che era già token-aware
       # (`env.APP_TOKEN || env.GITHUB_PAT`): erano i due lati della stessa decisione,
       # tenuti in disaccordo.
+      #
+      # 2026-08-08 (#5288): si legge la CAPACITÀ, non la presenza. Il conio riesce
+      # (201, token valido) anche quando `workflows` è stato richiesto ma mai approvato
+      # sull'installazione — in quel caso il permesso non compare fra i `permissions` e
+      # `mint-app-token.mjs` scrive `APP_TOKEN_WORKFLOWS=false`. Con la vecchia
+      # condizione questo guard avrebbe lasciato PROCEDERE un fix su
+      # `.github/workflows/**` che il push avrebbe poi rifiutato: un turno Claude speso
+      # per intero e buttato, che è esattamente ciò che il guard evita. Fail-closed:
+      # variabile assente o diversa da 'true' → si ricade sul solo GITHUB_PAT.
       - name: Round cap + capability guard + tier
         id: guard
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
-          HAS_PAT: ${{ env.APP_TOKEN != '' || env.GITHUB_PAT != '' }}
+          HAS_PAT: ${{ env.APP_TOKEN_WORKFLOWS == 'true' || env.GITHUB_PAT != '' }}
         run: |
           set -uo pipefail
           MAX_ROUNDS=2
