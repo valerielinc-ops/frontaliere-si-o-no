@@ -1,16 +1,16 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-08-08T10:00:50.474Z",
-  "total": 12,
+  "generatedAt": "2026-08-08T21:53:06.706Z",
+  "total": 11,
   "newCount": 0,
   "updatedCount": 11,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6560,
-  "avgDurationMs": 6560,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3417,
+  "avgDurationMs": 3417,
   "durationHistory": [
-    6560
+    3417
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -422,8 +422,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Fachperson Marketing Und Kommunikation Assistentin Ceo 100%",
       "slug": "fachperson-marketing-e-kommunikation-assistentin-ceo-100-berit-klinik-wattwil",
@@ -456,7 +455,6 @@
       "salaryMax": 154000,
       "currency": "CHF",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -465,5 +463,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
