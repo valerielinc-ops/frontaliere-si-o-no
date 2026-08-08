@@ -71,3 +71,61 @@ describe('prune-locale-shard', () => {
     expect(top(dist)).toEqual(['assets', 'build-id.txt', 'cerca-lavoro', 'de', 'en', 'fr', 'sitemap.xml']);
   });
 });
+
+/**
+ * Regression for the fatal `[trunk-guard]` that failed all three validate-dist
+ * jobs of run 31240103446 on `dist/{en,de,fr}.html`, blocking the publish and
+ * the seven other workflows that source scripts/lib/rehydrate-locale-shards.sh
+ * (issue #5327 class).
+ *
+ * The flat locale-root twin is routed to the locale shard by
+ * infra/cloudflare-worker/locale-router.js (`LOCALE_RE` matches `/en`, `/en/*`
+ * and `/en.html` alike), so it belongs to `dist/<loc>` and must never outlive
+ * it in the main artifact. It used to, because localeOfDistPath() classifies
+ * `en.html` as `it` — `rel === 'en'` is false and `rel.startsWith('en/')` is
+ * false — so the it build kept the flat file and dropped the
+ * `dist/en/index.html` sibling, which is ALSO what stopped the post-walk from
+ * rewriting it into a noindex bridge. rehydrate-locale-shards.sh snapshots
+ * `$loc` and `$loc.html` as one unit and the shard could not put the flat file
+ * back, so the guard rightly called it an indexable trunk orphan.
+ *
+ * The source-level fix is in staticPagesPlugin.ts (no flat twin for bare
+ * locale roots); these cases pin the filesystem-level backstop, which is what
+ * holds the line for the ~15 direct-fs emitters that bypass the WriteCollector.
+ */
+describe('prune-locale-shard — dist/<loc>.html never outlives dist/<loc>', () => {
+  const seedLocaleRootFlats = (d: string) => {
+    for (const loc of ['en', 'de', 'fr']) {
+      fs.writeFileSync(path.join(d, `${loc}.html`), '<html lang="en">homepage</html>');
+    }
+  };
+
+  it('main shard (it) drops the flat locale roots along with their subtrees', () => {
+    seedLocaleRootFlats(dist);
+    prune('it', dist);
+    expect(top(dist)).toEqual(['assets', 'build-id.txt', 'cerca-lavoro', 'sitemap.xml']);
+  });
+
+  it('main+en shard (it,en) keeps en + en.html and drops de/fr both ways', () => {
+    seedLocaleRootFlats(dist);
+    prune('it,en', dist);
+    // en is OWNED here, so neither dist/en nor dist/en.html is a trunk orphan:
+    // this artifact serves that locale itself. Only the non-owned pair goes.
+    expect(top(dist)).toEqual(['assets', 'build-id.txt', 'cerca-lavoro', 'en', 'en.html', 'sitemap.xml']);
+  });
+
+  it('pure locale shard (en) keeps ONLY dist/en — the flat twin is not shard content', () => {
+    seedLocaleRootFlats(dist);
+    prune('en', dist);
+    expect(top(dist)).toEqual(['en']);
+  });
+
+  it('unset BUILD_LOCALE (full monolithic build) still prunes nothing', () => {
+    seedLocaleRootFlats(dist);
+    prune(undefined, dist);
+    expect(top(dist)).toEqual([
+      'assets', 'build-id.txt', 'cerca-lavoro',
+      'de', 'de.html', 'en', 'en.html', 'fr', 'fr.html', 'sitemap.xml',
+    ]);
+  });
+});

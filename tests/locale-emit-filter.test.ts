@@ -119,3 +119,81 @@ describe('localeEmitFilter — multi-locale shard (comma list)', () => {
     expect(f.shouldEmitPath(`${DIST}/fr/x/index.html`, DIST)).toBe(false);
   });
 });
+
+/**
+ * Regression for the fatal `[trunk-guard]` on `dist/{en,de,fr}.html` that
+ * failed every validate-dist job of run 31240103446 (issue #5327 class).
+ *
+ * `isLocaleRootPath` is what staticPagesPlugin's locale-variant loop consults
+ * before writing the flat `.html` twin of a page it just emitted as
+ * `<path>/index.html`. The bare locale roots are the one place that twin must
+ * not be written: `dist/en.html` is routed to the en shard by
+ * locale-router.js's LOCALE_RE, never reaches it, and is redundant with
+ * `dist/en/index.html` — which is what `/en/` (canonical, and the 301 target
+ * of `/en`) is actually served from.
+ *
+ * The two negative families matter as much as the positives. A predicate that
+ * merely tested `startsWith('/en')` would also swallow `/enterprise` and every
+ * real locale page (`/en/find-jobs-ticino`), silently stripping the flat twin
+ * from ~1M pages that legitimately have one.
+ */
+describe('localeEmitFilter — isLocaleRootPath (flat locale-root twin guard)', () => {
+  it('matches the bare locale roots in every slash/case shape', async () => {
+    const f = await loadFilter(undefined); // env-independent: a pure predicate
+    for (const p of ['/en', 'en', '/en/', 'en/', '//en//', '/EN', '  /en  ', '/de', '/fr']) {
+      expect(f.isLocaleRootPath(p), `${JSON.stringify(p)} is a bare locale root`).toBe(true);
+    }
+  });
+
+  it('does not match locale PAGES — they keep their flat twin', async () => {
+    const f = await loadFilter(undefined);
+    for (const p of [
+      '/en/find-jobs-ticino',
+      '/en/find-jobs-ticino/',
+      '/de/jobs-im-tessin',
+      '/fr/trouver-emploi-tessin',
+      '/en/cross-border-articles/some-slug',
+    ]) {
+      expect(f.isLocaleRootPath(p), `${JSON.stringify(p)} is a page, not a root`).toBe(false);
+    }
+  });
+
+  it('does not match look-alikes, the IT root, or non-locale prefixes', async () => {
+    const f = await loadFilter(undefined);
+    for (const p of [
+      '/', '', '/enterprise', '/energia', '/rss-en.xml', '/en.html',
+      '/it', '/frontaliere', '/deutschland', '/france',
+    ]) {
+      expect(f.isLocaleRootPath(p), `${JSON.stringify(p)} must not be treated as a locale root`).toBe(false);
+    }
+  });
+});
+
+/**
+ * The emitter half of the same regression. staticPagesPlugin.ts is 5 600 lines
+ * and its closeBundle needs a real dist/ + a parsed sitemap + the SPA bundle
+ * manifest to run, so the write site is pinned by source shape rather than by
+ * executing it — the same approach tests/static-pages-blog-skip.test.ts uses
+ * for this file. The behavioural half lives in tests/prune-locale-shard.test.ts,
+ * which drives the real prune script and asserts the artifact-level invariant
+ * this guard exists to produce.
+ */
+describe('staticPagesPlugin — no flat .html twin for bare locale roots', () => {
+  it('guards the locale-variant flat write with isLocaleRootPath', async () => {
+    const { readFileSync } = await import('node:fs');
+    const { resolve } = await import('node:path');
+    const src = readFileSync(
+      resolve(__dirname, '..', 'build-plugins', 'staticPagesPlugin.ts'),
+      'utf-8',
+    );
+    expect(src).toMatch(/from ['"]\.\/shared\/localeEmitFilter['"]/);
+    // The flat twin is written ONLY inside an isLocaleRootPath negation. Pinned
+    // as one contiguous shape so moving the write out of the guard fails here
+    // instead of silently re-emitting dist/<locale>.html.
+    expect(src).toMatch(
+      /if \(!isLocaleRootPath\(locPath\)\) \{[\s\S]{0,200}?const flatLoc = np\.join\(distDir, locPath \+ '\.html'\);[\s\S]{0,200}?_qw\(flatLoc,/,
+    );
+    // And there is exactly one flat-twin write site for locale variants.
+    expect(src.match(/const flatLoc = np\.join\(distDir, locPath \+ '\.html'\);/g)).toHaveLength(1);
+  });
+});

@@ -133,3 +133,42 @@ export function shouldEmitPath(filePath: string, distDir: string): boolean {
   if (EMIT_ALL_LOCALES) return true;
   return EMIT_LOCALES.has(localeOfDistPath(filePath, distDir));
 }
+
+/**
+ * True for a BARE locale root — `/en`, `/de`, `/fr` (any number of leading or
+ * trailing slashes, any case). NOT true for `/`, for anything under a locale
+ * (`/en/find-jobs-ticino`) or for a look-alike (`/enterprise`, `/rss-en.xml`).
+ *
+ * Why this predicate exists (issue #5327 class, run 31240103446). Every page
+ * this build emits gets TWO files — `<path>/index.html` plus a flat
+ * `<path>.html` twin that `postWalkCoordinatorPlugin` later rewrites into a
+ * noindex redirect bridge. For a locale root that twin is `dist/en.html`, and
+ * it is the one path in the whole tree where the pair CANNOT hold together:
+ *
+ *   - `localeOfDistPath('en.html')` classifies it `it` (it matches neither
+ *     `rel === 'en'` nor `rel.startsWith('en/')`), so the it/main shard build
+ *     WRITES it while dropping its `dist/en/index.html` sibling. With no
+ *     sibling on disk the post-walk bridge transform finds nothing to point at
+ *     and leaves the file as full, INDEXABLE English homepage content.
+ *   - The `en` shard build drops it for the mirror-image reason, and
+ *     `scripts/ci/prune-locale-shard.mjs` would delete it anyway (a top-level
+ *     entry that is not the owned locale subtree), so `push-locale-shard.sh`'s
+ *     `[ -f "$dist_dir/$loc.html" ]` copy never fires and the shard repo has
+ *     no `en.html` — verified against the GitHub API on frontaliere-{en,de,fr}.
+ *   - `infra/cloudflare-worker/locale-router.js`'s `LOCALE_RE` routes
+ *     `/en.html` to that shard, so the trunk's copy is unreachable dead weight
+ *     and `/en.html` answers 404 in production — measured, and not a false
+ *     positive: a `?cb=1` probe bypasses the Worker and lies here.
+ *
+ * Nothing produces the URL: no internal link, redirect map, canonical,
+ * hreflang or sitemap entry names `/{locale}.html` anywhere in the tree (the
+ * only mentions are edge plumbing that ROUTES it — wrangler.toml routes, the
+ * cf-locale-failover cache rules and cf-error-surface's taxonomy). `/en` 301s
+ * to `/en/`, which is served by `dist/en/index.html` and is self-canonical.
+ * So the flat twin is redundant with `dist/<locale>/index.html`, and the fix
+ * is to stop emitting it rather than to ship it to the shard.
+ */
+export function isLocaleRootPath(pathOrUrl: string): boolean {
+  const rel = pathOrUrl.trim().toLowerCase().replace(/^\/+/, '').replace(/\/+$/, '');
+  return rel === 'en' || rel === 'de' || rel === 'fr';
+}

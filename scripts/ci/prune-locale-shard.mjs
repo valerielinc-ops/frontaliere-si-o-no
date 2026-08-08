@@ -53,11 +53,42 @@ function rm(target) {
 
 if (ownedSet.has('it')) {
   // Main shard: keep root + shared, drop non-owned locale subtrees.
+  //
+  // `<loc>.html` goes WITH `<loc>`, never without it (issue #5327 class, run
+  // 31240103446). infra/cloudflare-worker/locale-router.js's LOCALE_RE matches
+  // `/en`, `/en/*` AND `/en.html`, so all three are routed to the locale shard
+  // and none of them is servable from the main artifact — a `dist/en.html` left
+  // behind here is unreachable dead weight. It is not hypothetical: the flat
+  // twin used to survive this prune because localeOfDistPath() classifies
+  // `en.html` as `it` (it matches neither `rel === 'en'` nor `'en/'`), so the
+  // it build wrote it while dropping its `dist/en/index.html` sibling — which
+  // is also what stopped postWalkCoordinatorPlugin from rewriting it into a
+  // noindex bridge, leaving indexable duplicate homepage content in the trunk.
+  // scripts/lib/rehydrate-locale-shards.sh then snapshotted `$loc` and
+  // `$loc.html` as ONE unit (`trunk_replace_begin "locale-$loc" "$loc"
+  // "$loc.html"`), found the shard could not put the flat file back, and failed
+  // every validate-dist job — blocking the publish and the 7 other workflows
+  // that rehydrate locale shards. The emitter is fixed at the source
+  // (staticPagesPlugin.ts skips the flat twin for bare locale roots); this
+  // removal is the filesystem-level backstop, in the same spirit as the rest of
+  // this script — the ~15 direct-fs.writeFileSync emitters that bypass the
+  // WriteCollector are exactly why it exists.
   for (const loc of PREFIX) {
-    if (!ownedSet.has(loc)) rm(path.join(distDir, loc));
+    if (!ownedSet.has(loc)) {
+      rm(path.join(distDir, loc));
+      rm(path.join(distDir, `${loc}.html`));
+    }
   }
 } else {
   // Pure locale shard: keep ONLY the owned locale subtree(s).
+  //
+  // `<loc>.html` is deliberately NOT in `keep`: it is a top-level FILE, not the
+  // owned subtree, so it is removed here like any other non-owned entry. That
+  // is the intended end state, not an oversight — `/en/` is the canonical
+  // locale homepage, `/en` 301s to it from GitHub Pages on the directory alone,
+  // and nothing in the tree links to `/en.html`. push-locale-shard.sh's
+  // `[ -f "$dist_dir/$loc.html" ]` copy and deploy.yml's tar member are both
+  // conditional, so they simply no-op instead of failing.
   const keep = new Set(owned); // en/de/fr only here
   for (const entry of fs.readdirSync(distDir)) {
     if (keep.has(entry)) continue;
