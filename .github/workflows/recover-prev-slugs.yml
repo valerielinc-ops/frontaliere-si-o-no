@@ -184,6 +184,19 @@ jobs:
       # (run 31236737581), e solo quando c'è stato davvero qualcosa da recuperare.
       - name: Re-scan after backfill (residuo reale post-recupero)
         id: rescan
+        # Un `if:` esplicito porta con se' un `success()` implicito, quindi un
+        # crash qui SALTEREBBE il tripwire sotto — che ha l'`if:` identico — e
+        # il fail-safe dichiarato («step saltato, crash infra → ricade sul PRE»)
+        # non verrebbe mai raggiunto proprio nello scenario che nomina: job
+        # rosso, nessuna issue aperta, nessun `::warning::`.
+        #
+        # `continue-on-error` invece di `always()` sul tripwire: lascia intatte
+        # entrambe le espressioni `if:`, quindi
+        # `tests/recover-prev-slugs-tripwire.test.ts` («rescan.if === tripwire.if»)
+        # resta verde, e un rescan fallito produce `conclusion: success` → il
+        # tripwire parte con `POST_LOST` non impostato → esegue il ramo di
+        # fallback sul conteggio PRE, che e' esattamente il comportamento voluto.
+        continue-on-error: true
         if: steps.scan.outputs.recoverable_slugs != '0' && (github.event.inputs.dry_run || 'false') != 'true'
         env:
           SCAN_SINCE: ${{ github.event.inputs.since || '24 hours ago' }}
