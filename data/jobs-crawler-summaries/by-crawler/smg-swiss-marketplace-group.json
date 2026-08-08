@@ -1,18 +1,19 @@
 {
   "key": "smg-swiss-marketplace-group",
   "label": "SMG Swiss Marketplace Group",
-  "generatedAt": "2026-08-07T21:41:40.983Z",
-  "total": 5,
-  "newCount": 1,
-  "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 4423,
-  "avgDurationMs": 4423,
+  "generatedAt": "2026-08-08T09:48:20.815Z",
+  "total": 4,
+  "newCount": 0,
+  "updatedCount": 3,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 4786,
+  "avgDurationMs": 4786,
   "durationHistory": [
-    4423
+    4786
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "smg-swiss-marketplace-group-6bc7904567ed",
       "slug": "staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace",
@@ -20,13 +21,13 @@
       "companyKey": "smg-swiss-marketplace-group",
       "companyDomain": "swissmarketplace.group",
       "title": "Staff Frontend Engineer (f|m|d) | (80-100%) | Hybrid working model | Zurich",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000142145079-staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T21:41:37.555Z",
+      "crawledAt": "2026-08-08T09:48:17.334Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,16 +41,15 @@
       "featured": false,
       "postedDate": "2026-08-07",
       "applyUrl": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000142145079-staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich?oga=true",
-      "_qualityScore": 65,
+      "firstSeenAt": "2026-08-07T21:41:37.555Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "smg-swiss-marketplace-group-fafeb79d6eb4",
       "slug": "head-of-product-design-ux-research-f-m-d-80-100-hybrid-working-model-zurich-switzerland",
@@ -63,7 +63,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000140696319-head-of-product-design-ux-research-f-m-d-80-100-hybrid-working-model-zurich-switzerland?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-07T21:41:37.547Z",
+      "crawledAt": "2026-08-08T09:48:17.339Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -99,7 +99,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000139925279-key-account-manager-banken-finanzinstitute-f-m-d-80-100-hybrid-working-model-zurich?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-07T21:41:37.559Z",
+      "crawledAt": "2026-08-08T09:48:17.342Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -123,8 +123,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "smg-swiss-marketplace-group-be0b059fac4d",
       "slug": "senior-backend-ingegnere-golang-f-m-d-80-100-hybrid-working-model-zurich-switzerland-smg-swiss-marketplace-group-zurich",
@@ -163,7 +162,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "smg-swiss-marketplace-group-c8e0a4ddb3a7",
       "slug": "staff-frontend-ingegnere-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace-group-zurich",
@@ -194,7 +195,7 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
