@@ -11,7 +11,7 @@ import { Analytics } from '@/services/analytics';
 import { MUNICIPALITIES, type Municipality } from '@/data/municipalities';
 import { Users, TrendingUp, TrendingDown, Minus, AlertTriangle, Download, Info, Sparkles, CheckSquare, ExternalLink, FileText } from 'lucide-react';
 import { useExchangeRate } from '@/services/exchangeRateService';
-import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit } from '@/services/calculationService';
+import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit, calculateIrpefGross, NEW_FRONTIER_WITHIN_20KM_CH_SHARE } from '@/services/calculationService';
 import { DEFAULT_EXCHANGE_RATE } from '@/constants';
 
 // ── G permit type ──
@@ -57,22 +57,6 @@ function interpolate(value: number, pts: [number, number][]): number {
  return 0;
 }
 
-// Italian IRPEF 2026 scaglioni
-function calcIrpef(taxableEUR: number): number {
- if (taxableEUR <= 0) return 0;
- let tax = 0;
- const brackets: [number, number][] = [[28000, 0.23], [50000, 0.35], [Infinity, 0.43]];
- let remaining = taxableEUR;
- let prev = 0;
- for (const [limit, rate] of brackets) {
- const slice = Math.min(remaining, limit - prev);
- tax += slice * rate;
- remaining -= slice;
- prev = limit;
- if (remaining <= 0) break;
- }
- return tax;
-}
 
 // The CHF→EUR fallback rate is imported from `@/constants` (see the import
 // above). It used to be redeclared here as `const DEFAULT_EXCHANGE_RATE = 0.94`
@@ -132,7 +116,7 @@ function compare(grossCHF: number, muni: Municipality, swissCity: typeof SWISS_C
  const socialG = grossCHF * SOCIAL_TOTAL;
  const swissTaxRateG = interpolate(grossCHF, TABLE_A) / 100; // single barème A for simplicity
  // NEW within 20km: CH retains only 80% of withholding; others: 100%
- const chTaxShare = gType === 'new_within_20km' ? 0.8 : 1.0;
+ const chTaxShare = gType === 'new_within_20km' ? NEW_FRONTIER_WITHIN_20KM_CH_SHARE : 1.0;
  const swissTaxG = grossCHF * swissTaxRateG * chTaxShare;
  
  // Italian taxes depend on permit type
@@ -147,7 +131,7 @@ function compare(grossCHF: number, muni: Municipality, swissCity: typeof SWISS_C
  // NEW agreement 2026: franchigia €10k, social deductions, detrazioni Art. 13 TUIR
  const franchigia = 10000;
  const taxableIT = Math.max(0, grossEUR - socialEUR - franchigia);
- const irpefGross = calcIrpef(taxableIT);
+ const irpefGross = calculateIrpefGross(taxableIT);
  const detrazioni = calculateProgressiveWorkDeduction(taxableIT);
  const addRegionale = taxableIT * 0.0173; // Lombardia
  const addComunale = taxableIT * (muni.irpefAddizionale / 100);
@@ -223,13 +207,13 @@ function compare(grossCHF: number, muni: Municipality, swissCity: typeof SWISS_C
 function compare_simple_net(grossCHF: number, muni: Municipality, swissCity: typeof SWISS_CITIES[0], EXCHANGE_RATE: number = DEFAULT_EXCHANGE_RATE, gType: GPermitType = 'new_beyond_20km') {
  const grossEUR = grossCHF * EXCHANGE_RATE;
  const socialG = grossCHF * SOCIAL_TOTAL;
- const chTaxShare = gType === 'new_within_20km' ? 0.8 : 1.0;
+ const chTaxShare = gType === 'new_within_20km' ? NEW_FRONTIER_WITHIN_20KM_CH_SHARE : 1.0;
  const swissTaxG = grossCHF * (interpolate(grossCHF, TABLE_A) / 100) * chTaxShare;
 
  let italianTax = 0;
  if (gType !== 'old') {
  const taxableIT = Math.max(0, grossEUR - 10000);
- const irpef = calcIrpef(taxableIT);
+ const irpef = calculateIrpefGross(taxableIT);
  const addRegionale = taxableIT * 0.0173;
  const addComunale = taxableIT * (muni.irpefAddizionale / 100);
  italianTax = irpef + addRegionale + addComunale;

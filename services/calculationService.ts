@@ -1,6 +1,12 @@
 import { SimulationInputs, SimulationResult, TaxResult, TaxBreakdownItem, ExpenseItem } from '../types';
 import { FRANCHIGIA_NUOVI_FRONTALIERI, SWISS_CHILD_ALLOWANCE_ANNUAL, LINKS, LOMBARDIA_ADDIZIONALE_REGIONALE, DEFAULT_TECH_PARAMS } from '../constants';
 
+// Accordo 2024 concurrent-taxation split: only this share of the ordinary CH
+// source tax is withheld for a "nuovo frontaliere" resident within 20km of the
+// border; the remainder is taxed in Italy instead. Single source of truth —
+// previously duplicated as a bare 0.8 literal in three places (issue #5374).
+export const NEW_FRONTIER_WITHIN_20KM_CH_SHARE = 0.8;
+
 // --- DATA: TAX TABLES 2026 (Approximation via Interpolation Points) ---
 const TABLE_A_POINTS = [[0, 0], [17000, 0.20], [25000, 2.00], [30000, 3.20], [40000, 5.20], [50000, 6.00], [60000, 8.50], [80000, 11.30], [100000, 13.20], [120000, 14.90], [130000, 15.70], [135000, 16.00], [140000, 16.50], [150000, 17.20], [180000, 18.90], [200000, 19.40], [250000, 22.80], [300000, 24.50], [500000, 28.30], [1000000, 31.50]];
 const TABLE_B_POINTS = [[0, 0], [25000, 0.30], [30000, 0.70], [40000, 1.10], [50000, 1.50], [60000, 2.50], [80000, 5.10], [100000, 8.70], [120000, 10.70], [140000, 12.80], [160000, 14.40], [180000, 15.60], [200000, 16.50], [250000, 20.20], [300000, 22.80], [500000, 26.50]];
@@ -112,7 +118,7 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
  details: { regime: "calc.regime.chResident", effectiveRate: (totalTaxCH / grossTotalCH) * 100, source: appliedTable, notes: [`calc.notes.standardRates`, `calc.notes.taxTable|${tableCode}`] }
  };
 
- let chTaxShare = (frontierWorkerType === 'NEW' && distanceZone === 'WITHIN_20KM') ? 0.8 : 1.0;
+ let chTaxShare = (frontierWorkerType === 'NEW' && distanceZone === 'WITHIN_20KM') ? NEW_FRONTIER_WITHIN_20KM_CH_SHARE : 1.0;
  const taxWithheldInCH_CHF = totalTaxCH * chTaxShare;
  const expensesTotalIT = calcExpensesTotal(expensesIT);
  const expensesTotalIT_CHF = expensesTotalIT / EXCHANGE_RATE; // Convert EUR to CHF
@@ -210,10 +216,7 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
  } else {
  franchigiaUsed = FRANCHIGIA_NUOVI_FRONTALIERI;
  const italianTaxableBaseEUR = Math.max(0, grossIncomeEUR + allowanceEUR - socialEUR - franchigiaUsed);
- let irpefGross = 0;
- if (italianTaxableBaseEUR <= 28000) irpefGross = italianTaxableBaseEUR * 0.23;
- else if (italianTaxableBaseEUR <= 50000) irpefGross = (28000 * 0.23) + ((italianTaxableBaseEUR - 28000) * 0.35);
- else irpefGross = (28000 * 0.23) + (22000 * 0.35) + ((italianTaxableBaseEUR - 50000) * 0.43);
+ const irpefGross = calculateIrpefGross(italianTaxableBaseEUR);
 
  const progressiveWorkDeduction = calculateProgressiveWorkDeduction(italianTaxableBaseEUR);
  const itDeductions = progressiveWorkDeduction + (maritalStatus === 'MARRIED' && !spouseWorks ? 690 : 0) + (children * 950);
@@ -540,10 +543,7 @@ export function calculateMunicipalityTaxImpact(
  const italianTaxableBaseEUR = Math.max(0, grossIncomeEUR - socialDeductionsEUR - franchigia);
 
  // IRPEF gross (2026 scaglioni)
- let irpefGross = 0;
- if (italianTaxableBaseEUR <= 28000) irpefGross = italianTaxableBaseEUR * 0.23;
- else if (italianTaxableBaseEUR <= 50000) irpefGross = (28000 * 0.23) + ((italianTaxableBaseEUR - 28000) * 0.35);
- else irpefGross = (28000 * 0.23) + (22000 * 0.35) + ((italianTaxableBaseEUR - 50000) * 0.43);
+ const irpefGross = calculateIrpefGross(italianTaxableBaseEUR);
 
  // Addizionali
  const addizionaleRegionale = calculateLombardiaRegionale(italianTaxableBaseEUR);
@@ -561,7 +561,7 @@ export function calculateMunicipalityTaxImpact(
  // For over 20km: 100% in CH
  const ticinoRate = getTicinoTaxRate(annualIncomeCHF, 'SINGLE', 0, false);
  const swissTaxCHF = annualIncomeCHF * ticinoRate.rate;
- const chTaxShare = distanceZone === 'WITHIN_20KM' ? 0.8 : 1.0;
+ const chTaxShare = distanceZone === 'WITHIN_20KM' ? NEW_FRONTIER_WITHIN_20KM_CH_SHARE : 1.0;
  const paidSourceTaxEUR = (swissTaxCHF * chTaxShare) * exchangeRate;
 
  // Proportional foreign tax credit per Art. 165 c.10 TUIR + Ris. 38/E/2017
@@ -699,7 +699,7 @@ export function calculateSeasonalScenario(input: SeasonalScenarioInput): Seasona
   // upfront, matching calculateSimulation's convention (taxWithheldInCH_CHF,
   // line 116) so every downstream figure (net CH salary, displayed source
   // tax, IT tax credit) is consistent with the actual withholding.
-  const chTaxShare = distanceZone === 'WITHIN_20KM' ? 0.8 : 1.0;
+  const chTaxShare = distanceZone === 'WITHIN_20KM' ? NEW_FRONTIER_WITHIN_20KM_CH_SHARE : 1.0;
   const swissSourceTaxCHF = grossWorkedCHF * effectiveTaxRateCH * chTaxShare; // family allowance is source-tax-exempt in CH
   const netSwissSalaryCHF = grossWorkedCHF + familyAllowanceCHF - swissSocialContributionsCHF - swissSourceTaxCHF;
 
