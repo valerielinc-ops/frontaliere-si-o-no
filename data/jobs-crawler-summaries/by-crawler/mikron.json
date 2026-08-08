@@ -1,16 +1,16 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-08-08T09:53:16.688Z",
+  "generatedAt": "2026-08-08T22:04:30.100Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14338,
-  "avgDurationMs": 14338,
+  "durationMs": 14953,
+  "avgDurationMs": 14953,
   "durationHistory": [
-    14338
+    14953
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,7 +40,6 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-15T22:42:57.030Z",
       "addressLocality": "Agno",
-      "addressCountry": "CH",
       "addressRegion": "TI",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -76,7 +75,6 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-15T22:42:57.030Z",
       "addressLocality": "Boudry",
-      "addressCountry": "CH",
       "addressRegion": "NE",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -112,7 +110,6 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-16T22:40:19.781Z",
       "addressLocality": "Agno",
-      "addressCountry": "CH",
       "addressRegion": "TI",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -123,47 +120,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://www.mikron.com/en/manufacturing-methodology-engineer-mfd",
-      "applyUrl": "https://www.mikron.com/en/manufacturing-methodology-engineer-mfd",
-      "title": "Manufacturing Methodology Engineer - (m/f/d)",
-      "company": "Mikron Group",
-      "companyKey": "mikron",
-      "location": "Boudry",
-      "canton": "NE",
-      "country": "CH",
-      "postalCode": "2017",
-      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
-      "slug": "manufacturing-methodology-engineer-m-f-d-mikron",
-      "sourceLang": "fr",
-      "category": "technology",
-      "datePosted": "2026-07-21",
-      "source": "mikron-html-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Manifattura / Precision Manufacturing",
-      "_targetScope": {
-        "canton": "NE",
-        "location": "Boudry"
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-21T22:49:15.173Z",
-      "addressLocality": "Boudry",
-      "addressCountry": "CH",
-      "addressRegion": "NE",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
