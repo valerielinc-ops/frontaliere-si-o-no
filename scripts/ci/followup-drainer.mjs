@@ -109,9 +109,17 @@ const AGEOUT_MAX_PER_RUN = Number(process.env.FOLLOWUP_AGEOUT_MAX_PER_RUN || 20)
 // `overlap-skip`/`pr-already-open` (transienti: la PR bloccante può mergiare →
 // ri-tentabile) e l'ASSENZA di marker (run crashata/max_turns davvero orfana →
 // rescue normale). `pr-created` non arriva qui: `hasFixPR` lo intercetta prima.
+// `skip-duplicate-diagnosis` (#5288): stesso verdetto fermo di
+// `blocked-workflows-scope`, da cui è stato separato solo per non far salire il
+// bucket dell'harvester quando il guard FUNZIONA (vedi check-workflows-scope.mjs,
+// "Two outcome codes, not one"). Deve restare qui: il Mode 2 che l'ha emesso è
+// deterministico sul titolo, quindi ri-accodare la issue riprodurrebbe identico
+// il verdetto bruciando tentativi. Ometterlo sarebbe una regressione silenziosa
+// introdotta dalla sola rinomina del codice.
 export const NON_RETRYABLE = new Set([
   'no-root-cause',
   'blocked-workflows-scope',
+  'skip-duplicate-diagnosis',
   'blocked-secrets',
   'blocked-admin-settings',
   'revenue-tracker-manual',
@@ -979,16 +987,25 @@ function runDrain() {
     }
 
     // Il parcheggio workflow-scoped ha senso SOLO se issue-fix non può pushare quei file.
-    // Dal 2026-08-06 può, quando `mint-app-token.mjs` conia (App con `workflows: write`), e
-    // questo stesso workflow conia lo stesso token qualche step più su — quindi la presenza
-    // di APP_TOKEN è il segnale giusto, non una supposizione.
+    // Dal 2026-08-06 può, quando `mint-app-token.mjs` conia un token la cui installazione
+    // ha davvero `workflows: write`, e questo stesso workflow conia lo stesso token qualche
+    // step più su.
+    //
+    // La presenza di APP_TOKEN NON è quel segnale (#5288). Il conio riesce — 201, token
+    // valido — anche quando il permesso `workflows` è stato richiesto ma mai approvato
+    // sull'installazione: semplicemente non compare fra i `permissions`. Leggere la presenza
+    // qui sbagliava nel verso peggiore: SBLOCCAVA la promozione di follow-up che il push
+    // avrebbe poi rifiutato, mandando ciascuna a bruciare ~1M token per morire al `git push`
+    // — cioè esattamente la spesa che questo parcheggio esiste per evitare.
+    // `APP_TOKEN_WORKFLOWS` è la capacità LETTA dalla risposta API, ed è fail-closed:
+    // non scritta o diversa da 'true' → si parcheggia, come prima del 2026-08-06.
     //
     // Senza questa condizione la follow-up verrebbe parcheggiata come TERMINALE con una
     // motivazione ormai falsa («manca lo scope workflows»): non solo non arriverebbe mai alla
     // capability appena sbloccata, ma lascerebbe agli atti una spiegazione sbagliata di
     // perché. Un parcheggio motivato male è peggio di nessun parcheggio — nessuno lo rimette
     // in discussione.
-    const issueFixCanPushWorkflows = Boolean(process.env.APP_TOKEN);
+    const issueFixCanPushWorkflows = process.env.APP_TOKEN_WORKFLOWS === 'true';
     if (!issueFixCanPushWorkflows && body && detectWorkflowScoped(`${cand.title}\n${body}`)) {
       const wfRefs = [...new Set((body.match(WORKFLOW_PATH_RE) || []).concat(
         (body.match(BARE_YML_RE) || []).filter((y) => !NON_WORKFLOW_YML.has(y.toLowerCase())),

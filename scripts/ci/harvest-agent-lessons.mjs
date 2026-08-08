@@ -468,11 +468,23 @@ export function isAvoidableNoRootCause(commentBody) {
 // e context nel summary del harvest restano visibili); smette solo di poter
 // aprire una PR di regole. Il segnale di capacità ha già la sua sede giusta: il
 // failure-rate di `issue-fix.yml` nel tracker #1951 (loop-health-report).
+// `skip-duplicate-diagnosis` (2026-08-08, #5288): emesso SOLO dal Mode 2 di
+// check-workflows-scope.mjs, cioè quando una issue con titolo identico a una
+// precedente già diagnosticata viene short-circuitata PRIMA di spendere un turno
+// Claude. Non è un blocco né una regola violata: è il guard che funziona, a costo
+// zero. Prima condivideva il marker con `blocked-workflows-scope`, e quella
+// conflazione ha una conseguenza perversa — più il guard è efficace, più alza il
+// bucket che fa scattare l'escalation su quello stesso bucket, così l'escalation
+// può ripresentarsi PROPRIO perché il fix funziona. Stessa classe di feedback-loop
+// già vista con `already-fixed` (#2123) e `rate-limited`: separato il codice, il
+// bucket resta contato come volume/context nel summary ma non può più driveare
+// una proposta.
 export function isEscalationDriver(source, key) {
   if (source === 'issue-class') return false;
   const bareKey = key.startsWith(`${source}:`) ? key.slice(source.length + 1) : key;
   if (source === 'fix-outcome' && bareKey === 'no-root-cause') return false;
   if (source === 'fix-outcome' && bareKey === 'rate-limited') return false;
+  if (source === 'fix-outcome' && bareKey === 'skip-duplicate-diagnosis') return false;
   return true;
 }
 
