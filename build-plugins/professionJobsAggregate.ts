@@ -489,6 +489,66 @@ export function aggregateProfessionJobs(
   return out;
 }
 
+// ── Recently-expired counts (job floor grace window, #5322) ──────────────────
+
+/**
+ * Count, per profession, the TI openings that matched recently but have since
+ * expired — the grace half of the legacy TI job floor
+ * (`shared/professionJobsFloor.ts`).
+ *
+ * Reads `data/expired-jobs.json`, the archive every job lands in when it leaves
+ * the active set (`scripts/lib/expired-jobs-archive.mjs` stamps `expiredAt` at
+ * that moment). That makes it the cheapest honest answer to "was this
+ * profession empty, or did the feed just blink?": a crawler that fails one
+ * round moves its jobs here rather than deleting them, so they keep counting
+ * for `withinDays`.
+ *
+ * Uses the exact same matcher table and TI predicate as
+ * `aggregateProfessionJobs`, so the two halves of the floor are commensurable
+ * — an expired job counts if and only if it would have counted while active.
+ *
+ * Returns `null` — NOT an empty tally — when the archive is missing or
+ * unparseable. Those are the states a broken build is in, and callers must be
+ * able to tell them apart from a genuine zero: see `meetsJobsFloor`, which
+ * fails open on `null` rather than flipping live pages to `noindex` on the
+ * strength of a file it could not read.
+ */
+export function aggregateRecentlyExpiredProfessionCounts(
+  rootDir: string,
+  withinDays: number,
+  now: number = Date.now(),
+): Record<ProfessionId, number> | null {
+  const expiredPath = np.join(rootDir, 'data', 'expired-jobs.json');
+  if (!fs.existsSync(expiredPath)) return null;
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(fs.readFileSync(expiredPath, 'utf-8'));
+  } catch (err) {
+    console.warn('[profession-aggregate] failed to read expired-jobs.json:', err);
+    return null;
+  }
+  if (!Array.isArray(parsed)) return null;
+
+  const cutoff = now - withinDays * DAY_MS;
+  const recentTi = (parsed as Array<JobRecord & { expiredAt?: string }>).filter((job) => {
+    const ts = Date.parse(job?.expiredAt ?? '');
+    if (!Number.isFinite(ts) || ts < cutoff) return false;
+    return resolveJobCanton(job as { canton?: string; location?: string }) === 'TI';
+  });
+
+  const out = {} as Record<ProfessionId, number>;
+  for (const id of PROFESSION_IDS) {
+    const matcher = PROFESSION_MATCHERS[id];
+    let n = 0;
+    for (const job of recentTi) {
+      if (jobMatchesProfession(job, matcher)) n++;
+    }
+    out[id] = n;
+  }
+  return out;
+}
+
 // ── Per-canton aggregation (profession × canton landings) ────────────────────
 
 /** Half-canton URL-group collapse: AI/AR -> APPENZELLO, BL/BS -> BASILEA. */
