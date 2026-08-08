@@ -2,9 +2,15 @@ name: Recover Lost previousSlugs
 
 # Runs every 12 hours. Scans the last 24h of per-crawler slice history for
 # previousSlugs entries that were silently dropped, then backfills them
-# from git history with original locale attribution. If the loss volume
-# crosses a tripwire threshold, opens a GitHub issue (the writer fix should
-# keep losses ~0; any spike means a regression).
+# from git history with original locale attribution. It then RE-SCANS the
+# repaired tree, and only what is still unreachable after that can cross the
+# tripwire threshold and open a GitHub issue (the writer fix should keep losses
+# ~0; any spike means a regression).
+#
+# The re-scan is not optional bookkeeping (#5348): the tripwire used to read the
+# PRE-backfill count, so it reported as "auto-recovery could not restore them"
+# precisely the slugs recovery had just restored, and could never decay below
+# threshold no matter how well recovery worked.
 #
 # Why 12h cadence: matches the writer-fix observability budget — within
 # a deploy cycle, a regression cannot pile up more than half a day of
@@ -156,16 +162,90 @@ jobs:
           bash scripts/lib/git-commit-data.sh --slice-only \
             "🛟 Recover ${{ steps.scan.outputs.recoverable_slugs }} previousSlugs across ${{ steps.scan.outputs.recoverable_jobs }} jobs"
 
+      # Il tripwire deve misurare il residuo DOPO il recupero, e fino al 2026-08-08
+      # misurava quello prima (#5348). Questo step ri-esegue lo STESSO scanner sul
+      # working tree già ripristinato e committato, così `pre` e `post` vengono dallo
+      # stesso strumento e sono direttamente confrontabili.
+      #
+      # Perché un ri-scan e non un contatore derivato dentro il backfill: il conteggio
+      # derivato (`considerati - ripristinati`) è un PROXY dell'irraggiungibilità, e
+      # divergerebbe in silenzio dalla semantica che il tripwire dichiara — slug
+      # denylistati (decontaminazione voluta), slug già presenti sul target, redirect
+      # verso un altro job finirebbero contati come «non ripristinati» pur essendo
+      # raggiungibili. `scan-prev-slug-losses.mjs` invece incrocia col working tree e
+      # risponde alla domanda vera: quali slug non sono raggiungibili da nessuna parte
+      # oggi.
+      #
+      # E soprattutto: gira DOPO il commit. Il body della issue nomina il merge 3-way di
+      # `scripts/lib/git-commit-data.sh` («runs after node exits») come una delle due
+      # classi note di perdita che sfuggono alla guardia di scrittura. Un conteggio
+      # calcolato dentro il processo Node non potrebbe vederle per costruzione; un
+      # ri-scan post-commit sì. Costo misurato: ~38s su un job che ne usa ~16 di 25min
+      # (run 31236737581), e solo quando c'è stato davvero qualcosa da recuperare.
+      - name: Re-scan after backfill (residuo reale post-recupero)
+        id: rescan
+        if: steps.scan.outputs.recoverable_slugs != '0' && (github.event.inputs.dry_run || 'false') != 'true'
+        env:
+          SCAN_SINCE: ${{ github.event.inputs.since || '24 hours ago' }}
+        run: |
+          set -euo pipefail
+          node scripts/scan-prev-slug-losses.mjs \
+            --since "$SCAN_SINCE" \
+            --out /tmp/prev-slug-recovery/recoverable-post.json \
+            --events-out /tmp/prev-slug-recovery/events-post.jsonl \
+            | tee /tmp/prev-slug-recovery/rescan-report.txt
+          still_lost=$(jq '[.[].slugs|length]|add // 0' /tmp/prev-slug-recovery/recoverable-post.json)
+          echo "still_lost=${still_lost}" >> "$GITHUB_OUTPUT"
+          {
+            echo ""
+            echo "## Post-backfill re-scan"
+            echo ""
+            echo "- recoverable slugs BEFORE backfill: **${{ steps.scan.outputs.recoverable_slugs }}**"
+            echo "- still missing AFTER backfill:      **${still_lost}**"
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Trip the writer-regression wire
         if: steps.scan.outputs.recoverable_slugs != '0' && (github.event.inputs.dry_run || 'false') != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           THRESHOLD: ${{ github.event.inputs.tripwire_threshold || '3' }}
           TOTAL: ${{ steps.scan.outputs.total_lost }}
-          STILL_LOST: ${{ steps.scan.outputs.recoverable_slugs }}
+          # Conteggio PRE-backfill: non decide più nulla, ma resta loggato accanto al
+          # post. Se il fix fosse sbagliato è il confronto fra i due a dirlo, ed è
+          # l'unico rischio serio qui — perdere il segnale su una regressione vera.
+          PRE_LOST: ${{ steps.scan.outputs.recoverable_slugs }}
+          POST_LOST: ${{ steps.rescan.outputs.still_lost }}
           WINDOW: ${{ github.event.inputs.since || '24 hours ago' }}
         run: |
           set -euo pipefail
+          # Il residuo POST-recupero è ciò su cui si decide (#5348). Prima si leggeva
+          # `steps.scan.outputs.recoverable_slugs`, cioè il conteggio PRE-backfill: nel
+          # run 31236737581 lo scan trovava 11 slug recuperabili, il backfill ne
+          # ripristinava 10 (commit 0163c80652), e il tripwire rileggeva comunque 11 →
+          # issue «auto-recovery could not restore them» con residuo reale 1, sotto la
+          # soglia di 3. Nessuna regressione del writer: nei due commit incolpati
+          # (8e5b71b65d, d0c479a3cf) il journal mostra `slug-preservation-guard` attivo
+          # e i drop attribuiti a `cleanPreviousSlugsPerLocale` (dedup legittimo di
+          # self-redirect). Il wire non poteva scendere sotto soglia per costruzione:
+          # misurava un numero che il recupero non tocca.
+          #
+          # FAIL-SAFE verso l'allarme: se il ri-scan non ha prodotto un conteggio
+          # (step saltato, crash infra), si ricade sul PRE — cioè sul comportamento
+          # precedente. Un falso positivo costa una issue da chiudere; perdere il
+          # segnale su una regressione vera costa slug indicizzati che servono 404.
+          STILL_LOST="${POST_LOST:-}"
+          if [ -z "$STILL_LOST" ]; then
+            echo "::warning::post-backfill re-scan produced no count — falling back to the pre-backfill count (${PRE_LOST}). Conservative: never lose the regression signal."
+            STILL_LOST="$PRE_LOST"
+            RECOVERABLE_JSON=/tmp/prev-slug-recovery/recoverable.json
+            EVENTS_JSONL=/tmp/prev-slug-recovery/events.jsonl
+          else
+            RECOVERABLE_JSON=/tmp/prev-slug-recovery/recoverable-post.json
+            EVENTS_JSONL=/tmp/prev-slug-recovery/events-post.jsonl
+          fi
+          # Entrambi i conteggi, sempre, anche quando non si apre nulla: è il confronto
+          # a rendere diagnosticabile un eventuale errore in questo stesso fix.
+          echo "previousSlugs recovery — recoverable BEFORE backfill: ${PRE_LOST}; still missing AFTER: ${STILL_LOST} (threshold ${THRESHOLD}, ${TOTAL} loss events in window)"
           # Trip on what is STILL missing, not on `total_lost` (issue #5229).
           #
           # `total_lost` counts loss EVENTS in the window's git history, which
@@ -181,7 +261,8 @@ jobs:
           #
           # `recoverable_slugs` is cross-referenced against the working tree, so
           # it counts only slugs no longer reachable anywhere today. It decays
-          # to 0 once a fix lands, which is the property a tripwire has to have.
+          # to 0 once a fix lands, which is the property a tripwire has to have —
+          # ma solo se lo si legge DOPO il recupero, che è il fix di #5348.
           if [ "$STILL_LOST" -le "$THRESHOLD" ]; then
             echo "Still-missing $STILL_LOST slugs — under threshold ($THRESHOLD), no issue."
             exit 0
@@ -190,19 +271,24 @@ jobs:
           # Name only the commits behind the STILL-MISSING slugs. Listing every
           # commit in the window buries the few that matter under the many that
           # were healed, and sends the next reader `git show`-ing innocent ones.
+          # I file sono quelli del ri-scan POST-backfill: usare quelli pre-backfill
+          # nominerebbe anche i commit dietro gli slug appena ripristinati, cioè
+          # esattamente i «già guariti» che questo blocco esiste per escludere.
           jq -r '.[] as $r | $r.slugs[] | "\($r.file) \($r.jobId) \(.)"' \
-            /tmp/prev-slug-recovery/recoverable.json | sort -u \
+            "$RECOVERABLE_JSON" | sort -u \
             > /tmp/prev-slug-recovery/still-lost-keys.txt
           top_commits=$(jq -r '. as $e | $e.lost[] | "\($e.file) \($e.jobId) \(.) \($e.commit)"' \
-              /tmp/prev-slug-recovery/events.jsonl 2>/dev/null \
+              "$EVENTS_JSONL" 2>/dev/null \
             | awk 'NR==FNR { keep[$1 " " $2 " " $3]=1; next } (($1 " " $2 " " $3) in keep) { print $4 }' \
                 /tmp/prev-slug-recovery/still-lost-keys.txt - \
             | sort | uniq -c | sort -rn | head -10 \
             | awk '{ printf "- `%s` (%s unhealed)\n", $2, $1 }')
           body=$(cat <<EOF
           **${STILL_LOST}** previousSlugs entries dropped inside the **${WINDOW}** window are
-          still unreachable — auto-recovery could not restore them. (${TOTAL} loss events
-          were seen in the window overall; the remainder were already healed.)
+          still unreachable — measured by re-running the scanner AFTER auto-recovery
+          committed, so these are the ones recovery genuinely could not restore.
+          (Auto-recovery started from ${PRE_LOST} recoverable; ${TOTAL} loss events were
+          seen in the window overall, the remainder were already healed.)
 
           Threshold is ${THRESHOLD}. Anything above means a slug-mutation path is escaping
           BOTH \`addPreviousSlugForLocale\` / \`captureLostSlugs\` AND the write-boundary
