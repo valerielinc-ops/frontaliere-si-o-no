@@ -6852,8 +6852,8 @@ function optimizeSeoMetadata(data) {
   if (desc.length < 145) {
     desc = `${desc}${desc.endsWith('.') ? '' : '.'} Dati aggiornati 2026 per frontalieri in Ticino.`;
   }
-  data.seo.description = truncateAtWordBoundary(desc, 160);
-  data.seo.ogDescription = truncateAtWordBoundary(data.seo.ogDescription || data.seo.description, 160);
+  data.seo.description = truncateAtWordBoundary(desc, SEO_DESCRIPTION_MAX);
+  data.seo.ogDescription = truncateAtWordBoundary(data.seo.ogDescription || data.seo.description, SEO_DESCRIPTION_MAX);
 
   const STOP = new Set(['frontaliere', 'frontalieri', 'ticino', 'svizzera', 'italia', 'della', 'delle', 'degli', 'degli', 'come', 'guida', '2026']);
   const terms = `${it.title || ''} ${it.excerpt || ''} ${data.id || ''}`
@@ -10744,6 +10744,47 @@ export function buildArticlePublishedUrls(data) {
  * @param {{ skipRss?: boolean, skipNews?: boolean }} [opts]
  * @returns {Promise<{ slugs: Record<string, string>, publishedUrls: Record<string, string> }>}
  */
+/**
+ * Budget for `seo.description` / `seo.ogDescription`.
+ *
+ * `tests/seo-description-length.test.ts` hard-fails above 170; 160 keeps a
+ * margin and matches what the AI flow already enforced before this became a
+ * shared rule.
+ */
+const SEO_DESCRIPTION_MAX = 160;
+
+/**
+ * Hard cap on the meta descriptions, applied at the SHARED write path.
+ *
+ * `tests/seo-description-length.test.ts` fails the whole repo when any entry in
+ * SEO_METADATA exceeds 170 characters. The cap existed — `truncateAtWordBoundary(desc, 160)`
+ * — but it lived inside the AI flow's own enrichment step, so only articles
+ * created through `main()` ever got it.
+ *
+ * The other three producers reach the registry without passing through that
+ * step: `publish-journalist-article.mjs`, `generate-events-digest-article.mjs`
+ * and `generate-border-wait-ranking-article.mjs`. A digest with a 265-char
+ * description therefore landed in `services/seo/seo-blog*.ts` and turned the
+ * `tests` job red on EVERY branch — the defect is not the one article, it is a
+ * rule enforced in one producer instead of at the choke point they all share.
+ *
+ * 160, not 170: same value the AI flow already used, leaving headroom under the
+ * test's hard bound. Word-boundary truncation, never a mid-word cut.
+ *
+ * Idempotent — a description already within budget is returned unchanged, so
+ * the AI flow clamping earlier and this clamping again is a no-op.
+ */
+function clampSeoDescriptions(data) {
+  const seo = data?.seo;
+  if (!seo || typeof seo !== 'object') return;
+  for (const field of ['description', 'ogDescription']) {
+    const value = seo[field];
+    if (typeof value !== 'string' || value.length === 0) continue;
+    const flat = value.replace(/\s+/g, ' ').trim();
+    seo[field] = truncateAtWordBoundary(flat, SEO_DESCRIPTION_MAX);
+  }
+}
+
 export async function registerArticleFiles(data, opts = {}) {
   if (!data || !data.id || !data.content?.it?.title) {
     throw new Error('registerArticleFiles: data.id and data.content.it.title are required');
@@ -10754,6 +10795,7 @@ export async function registerArticleFiles(data, opts = {}) {
         'Refresh the body files instead of re-registering.',
     );
   }
+  clampSeoDescriptions(data);
   const slugs = deriveAndSanitizeArticleSlugs(data);
   modifyRouterTs(data);
   modifyBlogArticlesTsx(data);
