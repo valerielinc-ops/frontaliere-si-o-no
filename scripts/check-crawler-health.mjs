@@ -525,6 +525,20 @@ const EMPTY_OK_CRAWLERS = new Set([
   // when the org republishes a vacancy. Same legitimately-empty small-employer
   // case as linnea/josef-mueller/yapeal.
   'croix-rouge-fribourgeoise',
+  // Clinica Varini (Orselina, TI): the /notizie/ WordPress page (verified
+  // live 2026-08-08) returns HTTP 200 with its structure unchanged — same
+  // `wp-content/uploads/*.pdf` anchors — but currently only lists
+  // `comunicato_stampa`/`vernissage`/`attestato` press-release PDFs, zero
+  // filenames matching the `concorso|bando|posto|annuncio` job pattern. The
+  // parser's docblock previously noted 2 concorsi (contabile,
+  // dir_sanitario) at probe time; both have since been filled or expired
+  // and no new one was republished. Listing extraction is healthy (still
+  // finds and correctly filters all 6 current PDF links); this is a small
+  // private clinic that legitimately has stretches with zero open
+  // competitions. Re-arms automatically when a new concorso PDF is
+  // published. Same legitimately-empty small-employer case as
+  // linnea/moncucco/banca-raiffeisen-vedeggio-cassarate.
+  'clinica-varini',
 ]);
 
 /** Read JSON file, return null on any error. */
