@@ -22,7 +22,11 @@
  * overhead). Defining the read path ONCE here makes the static-import
  * anti-pattern impossible to reintroduce by copy-paste.
  */
-import { loadDataJson } from './loadDataJson';
+import { loadDataJson, releaseDataJson } from './loadDataJson';
+
+/** Single definition of the corpus path — used by both accessors below so the
+ * load key and the release key can never drift apart. */
+const JOBS_JSON = 'data/jobs.json';
 
 /**
  * Read `data/jobs.json` from disk and parse it. Cached per resolved path so
@@ -36,5 +40,23 @@ import { loadDataJson } from './loadDataJson';
  *   receive a `rootDir` should pass it.
  */
 export function loadJobsJson<T = unknown>(rootDir?: string): T[] {
-  return loadDataJson<T[]>('data/jobs.json', rootDir);
+  return loadDataJson<T[]>(JOBS_JSON, rootDir);
+}
+
+/**
+ * Drop the cached `data/jobs.json` parse so its ~545 MB object graph can be
+ * collected. Thin wrapper over {@link releaseDataJson} for the same reason
+ * {@link loadJobsJson} wraps `loadDataJson`: the corpus path is spelled once.
+ *
+ * CALL THIS only from a plugin that (a) is done with the corpus and (b) is
+ * followed by heavy work that does not read it — see the block comment on
+ * {@link releaseDataJson} for why `employerProfilePagesPlugin` is that case and
+ * why the plugins further down the array re-reading the file is the cheap side
+ * of the trade. Calling it from a plugin that merely *finished* iterating is a
+ * pessimization: the next reader pays a 329 MB read + parse for nothing.
+ *
+ * @returns `true` when the corpus was cached and is now released.
+ */
+export function releaseJobsJson(rootDir?: string): boolean {
+  return releaseDataJson(JOBS_JSON, rootDir);
 }

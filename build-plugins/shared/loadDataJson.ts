@@ -81,3 +81,39 @@ export function loadDataJson<T = unknown>(relPath: string, rootDir?: string): T 
   cache.set(abs, data);
   return data;
 }
+
+/**
+ * Drop one cached file so its parsed object graph becomes collectable (#5330
+ * follow-up).
+ *
+ * WHY A CACHE NEEDS AN EVICTION DOOR. The cache above is module-level and has
+ * no upper bound: whatever a plugin loads stays live for the REST of the build,
+ * long after that plugin's `closeBundle` returned and every local reference to
+ * it went out of scope. That is the right default — the point of the cache is
+ * that ~6 plugins share one parse of `data/jobs.json` (329 MB on disk, ~545 MB
+ * as a V8 object graph) instead of paying for six.
+ *
+ * It stops being the right default when the next plugin to run is the build's
+ * memory peak and does NOT read the cached file. That is exactly the shape
+ * `employerProfilePagesPlugin` acquired when it moved ahead of
+ * `jobsSeoPagesPlugin` in vite.config.ts (it had to: under SEQUENTIAL_PROFILE=1
+ * a signal only travels forward through the plugin array, and registered after
+ * its consumer it deadlocked the build — #5330). `jobsSeoPagesPlugin` parses
+ * `data/jobs.json` with its OWN `readFileSync` and never consults this cache,
+ * so the two copies are now simultaneously live: measured as a flat +545 MB on
+ * every `[mem]` line of the peak plugin (`[profile-mem]` heapUsed went
+ * 3822 MB after og-pages → 4367 MB after employer-profile-pages, post-forced-GC,
+ * run 31219771845), on a build whose RSS was already 11.6 GB of the runner's 16.
+ *
+ * Evicting here does NOT lose the parse for the plugins that run later
+ * (`healthFacilitiesPlugin`, `legacyRedirectsPlugin`, `jobOrphanBridgePlugin`):
+ * the first of them re-reads the file once and repopulates the cache for the
+ * rest, ~5 s, at a point in the build where the peak is already behind us.
+ *
+ * @returns `true` when an entry was actually evicted, `false` when the path was
+ *   not cached (never loaded, or already released) — so a caller or a test can
+ *   tell a real release from a silent no-op.
+ */
+export function releaseDataJson(relPath: string, rootDir?: string): boolean {
+  return cache.delete(resolveDataPath(relPath, rootDir));
+}

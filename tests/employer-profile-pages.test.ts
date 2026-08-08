@@ -6,6 +6,7 @@ import { employerProfilePagesPlugin } from '../build-plugins/employerProfilePage
 import { resolveSearchConsoleCompatTarget } from '../build-plugins/searchConsoleCompat';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { TITLE_MAX_CHARS } from '../build-plugins/shared/titleSuffix';
+import { releaseJobsJson } from '../build-plugins/shared/loadJobsJson';
 import committedDataset from '../data/employer-profiles.json';
 
 /**
@@ -328,5 +329,24 @@ describe('employerProfilePagesPlugin', () => {
     // an unknown company slug must NOT be claimed live
     const unknown = resolveSearchConsoleCompatTarget('/aziende/definitely-not-a-real-company-xyz/');
     expect(unknown?.canonicalPath).not.toBe('/aziende/definitely-not-a-real-company-xyz/');
+  });
+
+  it('leaves no cached jobs corpus behind for the next plugin (#5330)', () => {
+    // This plugin is registered immediately before `jobsSeoPagesPlugin`, which
+    // is the build's memory peak AND parses `data/jobs.json` with its own
+    // readFileSync — it never reads the shared loader cache. So a corpus left
+    // cached here is a second full copy (~545 MB) live across the entire peak,
+    // for no reader: exactly what pushed run 31219771845 to exit 134.
+    //
+    // The assertion chain: the tests above prove this plugin DID load the
+    // corpus (every profile page carries job cards + JobPosting items built
+    // from it), and tests/load-data-json.test.ts proves `releaseJobsJson`
+    // returns `true` for a path that is still cached. `false` here therefore
+    // means loaded-then-released, not never-loaded.
+    //
+    // Deliberately not asserted via a heap measurement: `process.memoryUsage()`
+    // in a vitest worker is dominated by the test runner itself and would be a
+    // flaky proxy for a property the cache can state exactly.
+    expect(releaseJobsJson(root)).toBe(false);
   });
 });
