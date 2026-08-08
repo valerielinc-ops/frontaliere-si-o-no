@@ -99,5 +99,20 @@ export function unshippableSectionPrefixes(): string[] {
 export function isUnshippablePath(pathname: string, prefixes: readonly string[]): boolean {
   if (typeof pathname !== 'string' || pathname.length === 0 || prefixes.length === 0) return false;
   const p = pathname.startsWith('/') ? pathname : `/${pathname}`;
-  return prefixes.some((prefix) => p === prefix || p === `${prefix}/` || p.startsWith(`${prefix}/`));
+  // `${prefix}.html` is the FLAT root of the section, and `matchSection`
+  // (infra/cloudflare-worker/locale-router.js) matches it explicitly:
+  // `pathname === `${route.prefix}.html``. Without it here, a bridge landing
+  // exactly on `/articoli-frontaliere.html` reads as shippable, gets emitted
+  // indexable, and the Worker still routes it to the shard that never receives
+  // it — reproducing the very class this gate closes.
+  //
+  // It is the same blind spot that produced `dist/<locale>.html`: a prefix test
+  // that sees the directory and misses its flat twin. Mirrored from
+  // `matchSection` deliberately, so the two cannot disagree about what belongs
+  // to a section.
+  return prefixes.some((prefix) =>
+    p === prefix
+    || p === `${prefix}/`
+    || p === `${prefix}.html`
+    || p.startsWith(`${prefix}/`));
 }

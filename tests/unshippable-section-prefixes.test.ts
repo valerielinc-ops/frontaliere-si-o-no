@@ -131,6 +131,33 @@ describe('isUnshippablePath — segment-boundary matching', () => {
     }
   });
 
+  it('matches the FLAT root `<prefix>.html`, which matchSection also claims', () => {
+    // The Worker treats `/articoli-frontaliere.html` as belonging to the
+    // section (`locale-router.js` matchSection: `pathname === `${prefix}.html``)
+    // and routes it to the shard. A prefix test that sees the directory but
+    // misses its flat twin lets a bridge through as "shippable" while the edge
+    // still sends it to a shard that never receives it — indexable 404.
+    //
+    // Same blind spot that produced `dist/<locale>.html`: there, `en.html`
+    // matched neither `rel === 'en'` nor `rel.startsWith('en/')`.
+    for (const p of [
+      '/articoli-frontaliere.html',
+      '/articoli-svizzera.html',
+      '/en/cross-border-articles.html',
+      '/fr/articles-frontalier.html',
+    ]) {
+      expect(isUnshippablePath(p, ARTICLE_PREFIXES), p).toBe(true);
+    }
+
+    // ...and must NOT swallow a look-alike that is not a section root.
+    for (const p of [
+      '/articoli-frontaliere-extra.html',
+      '/fr/articles-frontaliers.html',
+    ]) {
+      expect(isUnshippablePath(p, ARTICLE_PREFIXES), p).toBe(false);
+    }
+  });
+
   it('does NOT match the /fr/articles-frontaliers/ spelling (no trailing "s" prefix exists)', () => {
     // The single most consequential case in this file. Google indexed BOTH the
     // `-frontalier` and `-frontaliers` spellings and the redirect table carries
