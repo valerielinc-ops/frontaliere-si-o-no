@@ -41075,10 +41075,10 @@
         "fr": "mehrzweckverkaufer-h-f-d-societe-cooperative-migros-vaud-aigle"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/mehrzweckverkaufer-h-f-d-societe-cooperative-migros-vaud-aigle",
-        "en": "/en/find-jobs-ticino/mehrzweckverkaufer-h-f-d-societe-cooperative-migros-vaud-aigle",
-        "de": "/de/jobs-im-tessin/mehrzweckverkaufer-h-f-d-societe-cooperative-migros-vaud-aigle",
-        "fr": "/fr/trouver-emploi-tessin/mehrzweckverkaufer-h-f-d-societe-cooperative-migros-vaud-aigle"
+        "it": "/cerca-lavoro-vaud/mehrzweckverkaufer-h-f-d-societe-cooperative-migros-vaud-aigle",
+        "en": "/en/find-jobs-vaud/mehrzweckverkaufer-h-f-d-societe-cooperative-migros-vaud-aigle",
+        "de": "/de/jobs-in-der-waadt/mehrzweckverkaufer-h-f-d-societe-cooperative-migros-vaud-aigle",
+        "fr": "/fr/trouver-emploi-vaud/mehrzweckverkaufer-h-f-d-societe-cooperative-migros-vaud-aigle"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -42611,10 +42611,10 @@
         "fr": "multipurpose-seller-h-f-d-societe-cooperative-migros-vaud-prilly"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/multipurpose-seller-h-f-d-societe-cooperative-migros-vaud-prilly",
-        "en": "/en/find-jobs-ticino/multipurpose-seller-h-f-d-societe-cooperative-migros-vaud-prilly",
-        "de": "/de/jobs-im-tessin/multipurpose-seller-h-f-d-societe-cooperative-migros-vaud-prilly",
-        "fr": "/fr/trouver-emploi-tessin/multipurpose-seller-h-f-d-societe-cooperative-migros-vaud-prilly"
+        "it": "/cerca-lavoro-vaud/multipurpose-seller-h-f-d-societe-cooperative-migros-vaud-prilly",
+        "en": "/en/find-jobs-vaud/multipurpose-seller-h-f-d-societe-cooperative-migros-vaud-prilly",
+        "de": "/de/jobs-in-der-waadt/multipurpose-seller-h-f-d-societe-cooperative-migros-vaud-prilly",
+        "fr": "/fr/trouver-emploi-vaud/multipurpose-seller-h-f-d-societe-cooperative-migros-vaud-prilly"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -74092,6 +74092,64 @@
       ]
     },
     {
+      "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-a-gasolio-ariston-group-alle",
+      "locale": "it",
+      "path": "/cerca-lavoro-giura/tecnico-di-servizio-per-impianti-di-riscaldamento-a-gasolio-ariston-group-alle/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-giura/tecnico-di-servizio-per-impianti-di-riscaldamento-a-gasolio-ariston-group-alle/"
+      },
+      "queries": [
+        {
+          "query": "tecnico del riscaldamento",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "tecnico del riscaldamento",
+      "title": "Tecnico di servizio per impianti di riscaldamento gasolio alle",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "tecnico-di-servizio-per-impianti-di-riscaldamento-a-gasolio-ariston-group-alle",
+        "en": "tecnico-di-servizio-per-impianti-di-riscaldamento-a-gasolio-ariston-group-alle",
+        "de": "tecnico-di-servizio-per-impianti-di-riscaldamento-a-gasolio-ariston-group-alle",
+        "fr": "tecnico-di-servizio-per-impianti-di-riscaldamento-a-gasolio-ariston-group-alle"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-giura/tecnico-di-servizio-per-impianti-di-riscaldamento-a-gasolio-ariston-group-alle",
+        "en": "/en/find-jobs-jura/tecnico-di-servizio-per-impianti-di-riscaldamento-a-gasolio-ariston-group-alle",
+        "de": "/de/jobs-im-jura/tecnico-di-servizio-per-impianti-di-riscaldamento-a-gasolio-ariston-group-alle",
+        "fr": "/fr/trouver-emploi-jura/tecnico-di-servizio-per-impianti-di-riscaldamento-a-gasolio-ariston-group-alle"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "tecnico-di-ventilazione-condizionamento-aria-equans-switzerland-chur",
       "locale": "en",
       "path": "/en/find-jobs-graubunden/tecnico-di-ventilazione-condizionamento-aria-equans-switzerland-chur",
@@ -76164,6 +76222,63 @@
         "en": "/en/find-jobs-fribourg/ursy",
         "de": "/de/jobs-im-freiburg/ursy",
         "fr": "/fr/trouver-emploi-fribourg/ursy"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "val-de-travers",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-neuchatel/val-de-travers/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-neuchatel/val-de-travers/"
+      },
+      "queries": [
+        {
+          "query": "emploi vendeuse",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "emploi vendeuse",
+      "title": "Val de travers",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "val-de-travers",
+        "en": "val-de-travers",
+        "de": "val-de-travers",
+        "fr": "val-de-travers"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-neuchatel/val-de-travers",
+        "en": "/en/find-jobs-neuchatel/val-de-travers",
+        "de": "/de/jobs-im-neuenburg/val-de-travers",
+        "fr": "/fr/trouver-emploi-neuchatel/val-de-travers"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

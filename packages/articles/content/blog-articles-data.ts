@@ -28110,6 +28110,24 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontaliere-formazione-professionale-riqualifica-2026-entro-20-km',
+ category: 'pratico',
+ date: '2026-08-08T11:09:28.658Z',
+ image: '/images/blog/frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'bollettino-frontaliere-2026-08-08',
+ category: 'novita',
+ date: '2026-08-08T13:59:41.581Z',
+ image: '/images/blog/bollettino-frontaliere-2026-08-08.webp',
+ hasCalculator: false,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

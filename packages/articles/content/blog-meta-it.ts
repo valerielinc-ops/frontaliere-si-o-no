@@ -9365,6 +9365,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.grigioni-frontalieri-calano.title': 'Grigioni: scende ancora il numero di frontalieri',
     'blog.article.grigioni-frontalieri-calano.excerpt': 'Il Canton Grigioni registra un calo di circa 500 frontalieri rispetto allo stesso trimestre dell\'anno precedente.',
     'blog.article.grigioni-frontalieri-calano.imageAlt': 'Un ponte sull\'alto lago di Lugano con un numero ridotto di frontalieri.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.title': 'Formazione professionale e riqualifica per frontalieri entro 20 km',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.excerpt': 'Corsi riconosciuti, finanziamenti e ritorno pratico per frontalieri entro 20 km dal confine. Focus su AVS, LPP, LAMal e nuovo accordo fiscale 2024.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.imageAlt': 'Frontaliero in corso di formazione professionale in una scuola tecnica ticinese con vista sulle montagne',
+    'blog.article.bollettino-frontaliere-2026-08-08.title': 'Bollettino del frontaliere – 8 agosto 2026: 1188 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-08.excerpt': 'I numeri di oggi per chi attraversa il confine: attese ai valichi, comuni con la benzina più economica, cambio franco-euro e nuovi annunci di lavoro.',
+    'blog.article.bollettino-frontaliere-2026-08-08.imageAlt': 'I numeri del giorno per i frontalieri – 8 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
 };
 
 export default blogMetaIt;

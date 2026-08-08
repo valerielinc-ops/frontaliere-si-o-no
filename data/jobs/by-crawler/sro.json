@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sro",
-  "assembledAt": "2026-08-08T09:48:53.605Z",
+  "assembledAt": "2026-08-08T09:17:52.974Z",
   "jobs": [
     {
       "id": "sro-6abd7add22f4",
@@ -2876,7 +2876,11 @@
         "dipl-infermiera-ic-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-nursing-professional-hf-fh-70-100-general-surgery-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-infirmiere-ic-fh-70-100-chirurgie-generale-sro-ag-spital-region-oberaargau-langenthal",
-        "dipl-infermieristica-professionale-hf-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal"
+        "dipl-infermieristica-professionale-hf-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-infermieristica-professionale-hf-fh-day-clinic-sala-ricreazione-40-80-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-nursing-professional-hf-fh-day-clinic-recreation-room-40-80-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-pflegefachperson-hf-fh-tagesklinik-aufwachraum-40-80-sro-langenthal",
+        "dipl-soins-infirmiers-professionnels-hf-fh-jour-clinique-salle-de-loisirs-40-80-sro-ag-spital-region-oberaargau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2884,15 +2888,24 @@
           "dipl-infermiera-ic-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal",
           "dipl-nursing-professional-hf-fh-70-100-general-surgery-sro-ag-spital-region-oberaargau-langenthal",
           "dipl-infirmiere-ic-fh-70-100-chirurgie-generale-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-infermieristica-professionale-hf-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal"
+          "dipl-infermieristica-professionale-hf-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-infermieristica-professionale-hf-fh-day-clinic-sala-ricreazione-40-80-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-nursing-professional-hf-fh-day-clinic-recreation-room-40-80-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-pflegefachperson-hf-fh-tagesklinik-aufwachraum-40-80-sro-langenthal",
+          "dipl-soins-infirmiers-professionnels-hf-fh-jour-clinique-salle-de-loisirs-40-80-sro-ag-spital-region-oberaargau"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
-          "dipl-nursing-professional-hf-fh-70-100-general-surgery-sro-ag-spital-region-oberaargau-langenthal"
+          "dipl-nursing-professional-hf-fh-70-100-general-surgery-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-nursing-professional-hf-fh-day-clinic-recreation-room-40-80-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
-          "dipl-infirmiere-ic-fh-70-100-chirurgie-generale-sro-ag-spital-region-oberaargau-langenthal"
+          "dipl-infirmiere-ic-fh-70-100-chirurgie-generale-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-soins-infirmiers-professionnels-hf-fh-jour-clinique-salle-de-loisirs-40-80-sro-ag-spital-region-oberaargau"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-fh-tagesklinik-aufwachraum-40-80-sro-langenthal"
         ]
       },
       "firstSeenAt": "2026-07-14T10:55:21.965Z",

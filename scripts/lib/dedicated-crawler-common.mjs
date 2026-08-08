@@ -3693,7 +3693,13 @@ export function applyCompanyDefaults(job, companySlug) {
       job.addressLocality = String(job.location).trim();
     }
     if (!job.addressRegion)    job.addressRegion     = sameCanton ? defaults.addressRegion : cityCanton;
-    if (!job.addressCountry)   job.addressCountry   = defaults.addressCountry;
+    // Deliberately does NOT default addressCountry from defaults.addressCountry
+    // (#5403/#5384): an undeclared country and a company-inferred one are
+    // different pieces of evidence, and stamping the former as the latter at
+    // persist time destroys that distinction at rest. Known runtime readers
+    // already fall back to 'CH' when the field is absent, and the canonical
+    // structured-data builder for job postings hardcodes 'CH' without ever
+    // reading this field, so emitted structured data is unaffected.
   }
   // Default employmentType for all jobs
   if (!job.employmentType) {

@@ -9363,6 +9363,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.grigioni-frontalieri-calano.title': 'Graubünden: Zahl der Grenzgänger sinkt weiter',
     'blog.article.grigioni-frontalieri-calano.excerpt': 'Der Kanton Graubünden verzeichnet einen Rückgang von rund 500 Grenzgängern gegenüber dem Vorjahresquartal.',
     'blog.article.grigioni-frontalieri-calano.imageAlt': 'Ein Brücke über den hohen See von Lugano mit einer reduzierten Anzahl von Grenzgängern.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.title': 'Berufsausbildung und Umschulung für Grenzgänger im Umkreis von 20 km',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.excerpt': 'Anerkannte Kurse, Finanzierung und praktische Rückkehr für Grenzgänger innerhalb von 20 km von der Grenze. Fokus auf AHV, BVG, KVG und neue Steuervereinbarung 2024.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-2026-entro-20-km.imageAlt': 'Grenzgänger in beruflicher Weiterbildung an einer technischen Schule im Tessin mit Bergblick',
+    'blog.article.bollettino-frontaliere-2026-08-08.title': 'Grenzgänger-Tagesbulletin – 8. August 2026: 1\'188 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-08.excerpt': 'Die heutigen Zahlen für Grenzgänger: Wartezeiten an den Übergängen, günstigste Tankgemeinden, Franken-Euro-Kurs und neue Stellenangebote.',
+    'blog.article.bollettino-frontaliere-2026-08-08.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 8. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
 };
 
 export default blogMetaDe;

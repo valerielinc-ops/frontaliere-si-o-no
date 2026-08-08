@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksw",
-  "assembledAt": "2026-08-08T09:47:15.369Z",
+  "assembledAt": "2026-08-08T08:54:19.245Z",
   "jobs": [
     {
       "id": "ksw-156645f604b8",
@@ -742,7 +742,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:08:07.552Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -754,7 +753,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-58fd221ee193",
@@ -898,7 +898,12 @@
         "training-expert-expert-intensive-care-nds-hf-kantonsspital-winterthur-ksw-winterthur",
         "expert-de-formation-expert-soins-intensifs-nds-hf-kantonsspital-winterthur-ksw-winterthur",
         "weiterbildung-expertin-experte-intensivpflege-nds-hf-ksw-ch",
-        "ulteriore-esperto-di-istruzione-assistenza-intensiva-esperta-nds-hf-kantonsspital-winterthur-ksw-winterthur"
+        "ulteriore-esperto-di-istruzione-assistenza-intensiva-esperta-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+        "cura-intensiva-di-esperti-nds-kantonsspital-winterthur-ksw-winterthur",
+        "expert-expert-intensive-care-nds-intensive-care-kantonsspital-winterthur-ksw-winterthur",
+        "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
+        "expert-expert-soins-intensifs-snd-soins-intensifs-kantonsspital-winterthur-ksw-winterthur",
+        "expert-in-intensive-care-nds-intensive-medicine-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -906,15 +911,25 @@
           "training-expert-expert-intensive-care-nds-hf-kantonsspital-winterthur-ksw-winterthur",
           "expert-de-formation-expert-soins-intensifs-nds-hf-kantonsspital-winterthur-ksw-winterthur",
           "weiterbildung-expertin-experte-intensivpflege-nds-hf-ksw-ch",
-          "ulteriore-esperto-di-istruzione-assistenza-intensiva-esperta-nds-hf-kantonsspital-winterthur-ksw-winterthur"
+          "ulteriore-esperto-di-istruzione-assistenza-intensiva-esperta-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+          "cura-intensiva-di-esperti-nds-kantonsspital-winterthur-ksw-winterthur",
+          "expert-expert-intensive-care-nds-intensive-care-kantonsspital-winterthur-ksw-winterthur",
+          "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
+          "expert-expert-soins-intensifs-snd-soins-intensifs-kantonsspital-winterthur-ksw-winterthur",
+          "expert-in-intensive-care-nds-intensive-medicine-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "training-expert-expert-intensive-care-nds-hf-kantonsspital-winterthur-ksw-winterthur",
-          "weiterbildung-expertin-experte-intensivpflege-nds-hf-ksw-ch"
+          "weiterbildung-expertin-experte-intensivpflege-nds-hf-ksw-ch",
+          "expert-expert-intensive-care-nds-intensive-care-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
           "expert-de-formation-expert-soins-intensifs-nds-hf-kantonsspital-winterthur-ksw-winterthur",
-          "weiterbildung-expertin-experte-intensivpflege-nds-hf-ksw-ch"
+          "weiterbildung-expertin-experte-intensivpflege-nds-hf-ksw-ch",
+          "expert-expert-soins-intensifs-snd-soins-intensifs-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "de": [
+          "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch"
         ]
       },
       "firstSeenAt": "2026-07-21T22:27:59.395Z",
@@ -2169,7 +2184,6 @@
         ]
       },
       "firstSeenAt": "2026-06-13T22:13:04.763Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2181,7 +2195,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-028827099c68",
@@ -4108,7 +4123,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T21:54:07.164Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4120,7 +4134,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-5baac33c2903",
