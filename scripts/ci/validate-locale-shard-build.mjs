@@ -11,6 +11,31 @@
  *      block — all four locales + x-default — proving the cross-locale
  *      coupling is preserved even though only one locale was emitted.
  *
+ * WHO OWNS `dist/<loc>.html` (issue #5327, PR #5363)
+ * ─────────────────────────────────────────────────
+ * A locale owns TWO dist entries, not one: the subtree `dist/<loc>/` and the
+ * flat homepage `dist/<loc>.html`, which is what answers the extensionless
+ * `/<loc>` at the shard origin (`push-locale-shard.sh:196` stages it as
+ * "homepage at /{loc}", `locale-router.js` routes `/^\/(en|de|fr)(\/|$|\.html$)/`
+ * there, `prune-locale-shard.mjs` keeps both for a pure locale shard).
+ *
+ * This file used to classify EVERY root-level `*.html` as `it`, because the
+ * homepage lived at the dist ROOT and the skip list below matched DIRECTORY
+ * names only. Before #5363 that was invisible: the locale leg dropped
+ * `dist/<loc>.html`, so the count was 0. Once #5363 gave the locale its own
+ * homepage, every non-IT leg emitted exactly one file this validator called an
+ * IT page — build 31247086904 read `it=1 en=822192` on the EN leg and failed
+ * `locale 'it' was NOT in the shard set but emitted 1 pages (filter leak)`,
+ * symmetrically on de and fr, while the immediately preceding build (pre-#5363)
+ * read `it=0` and passed. Nothing leaked; the ownership rule here had simply
+ * not moved with `build-plugins/shared/localeEmitFilter.ts:localeOfDistPath()`.
+ *
+ * Attributing the homepage to its locale rather than ignoring it is what keeps
+ * this a GATE: on the `it`/main leg — which runs this same step after the same
+ * prune — a stray `dist/en.html` now counts toward `en` and trips assertion (2)
+ * as a filter leak. Under the old rule it counted toward `it`, the shard's own
+ * locale, and was therefore undetectable in that direction.
+ *
  * Usage: BUILD_LOCALE=en node scripts/ci/validate-locale-shard-build.mjs [distDir]
  * Exits non-zero on any failed assertion (CI gate).
  */
@@ -51,15 +76,35 @@ function countPages(dir) {
   return n;
 }
 
-/** Count it (root) pages — top-level html files not under a locale prefix. */
-function countItPages() {
-  let n = 0;
-  if (!fs.existsSync(distDir)) return 0;
+/**
+ * Locale that owns a top-level `dist/` file, mirroring
+ * `localeOfDistPath()` in build-plugins/shared/localeEmitFilter.ts: the flat
+ * locale homepage `<loc>.html` belongs to `<loc>`, everything else at the root
+ * (sitemaps, robots, 404, redirect bridges…) belongs to `it`.
+ *
+ * Anchored on the WHOLE name: `en.html` is the homepage, `enigma.html` and
+ * `frontalieri.html` are IT pages that merely start with a locale code, and
+ * `guide/en.html` never reaches here (it is not a root entry).
+ */
+function localeOfRootFile(name) {
+  const m = /^(en|de|fr)\.html$/.exec(name);
+  return m ? m[1] : 'it';
+}
+
+/**
+ * Count the root (non-subtree) pages, split by the locale that OWNS them.
+ * `en`/`de`/`fr` are skipped as DIRECTORY names — their subtrees are counted
+ * by countPages() — while a root FILE named `<loc>.html` is attributed to
+ * `<loc>` instead of silently inflating `it` (see the header).
+ */
+function countRootPagesByLocale() {
+  const n = { it: 0, en: 0, de: 0, fr: 0 };
+  if (!fs.existsSync(distDir)) return n;
   for (const e of fs.readdirSync(distDir, { withFileTypes: true })) {
     if (['en', 'de', 'fr', 'assets', 'data', 'og'].includes(e.name)) continue;
     const full = path.join(distDir, e.name);
-    if (e.isDirectory()) n += countPages(full);
-    else if (e.isFile() && e.name.endsWith('.html')) n++;
+    if (e.isDirectory()) n.it += countPages(full);
+    else if (e.isFile() && e.name.endsWith('.html')) n[localeOfRootFile(e.name)] += 1;
   }
   return n;
 }
@@ -88,11 +133,13 @@ function sampleHtml(locale) {
   return null;
 }
 
+// A locale's page count is its subtree PLUS its flat homepage at the root.
+const rootByLocale = countRootPagesByLocale();
 const counts = {
-  it: countItPages(),
-  en: countPages(path.join(distDir, 'en')),
-  de: countPages(path.join(distDir, 'de')),
-  fr: countPages(path.join(distDir, 'fr')),
+  it: rootByLocale.it,
+  en: countPages(path.join(distDir, 'en')) + rootByLocale.en,
+  de: countPages(path.join(distDir, 'de')) + rootByLocale.de,
+  fr: countPages(path.join(distDir, 'fr')) + rootByLocale.fr,
 };
 
 console.log(`Locale shard validation — BUILD_LOCALE=${rawLocale || '(all)'} → emit [${emit.join(', ')}]`);
