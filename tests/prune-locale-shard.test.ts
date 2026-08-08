@@ -13,6 +13,9 @@ function makeDist(): string {
   for (const loc of ['en', 'de', 'fr']) {
     fs.mkdirSync(path.join(d, loc, 'job'), { recursive: true });
     fs.writeFileSync(path.join(d, loc, 'job', 'index.html'), '<html></html>');
+    // The locale HOMEPAGE: a root-level file, not part of the subtree, that
+    // the shard origin serves for the extensionless `/<loc>` (issue #5327).
+    fs.writeFileSync(path.join(d, `${loc}.html`), '<html></html>');
   }
   fs.mkdirSync(path.join(d, 'cerca-lavoro', 'job'), { recursive: true });
   fs.writeFileSync(path.join(d, 'cerca-lavoro', 'job', 'index.html'), '<html></html>');
@@ -41,33 +44,58 @@ afterEach(() => {
 });
 
 describe('prune-locale-shard', () => {
-  it('pure locale shard (en) keeps ONLY dist/en', () => {
+  it('pure locale shard (en) keeps dist/en AND its homepage en.html (#5327)', () => {
+    // en.html was deleted here — `keep` held the bare directory name, and
+    // 'en.html' !== 'en'. push-locale-shard.sh:196 stages it right after this
+    // step ("homepage at /{loc}"), so its `[ -f "$dist_dir/$loc.html" ]` could
+    // never be true and the shard shipped without it: /en.html → 404 live.
     prune('en', dist);
-    expect(top(dist)).toEqual(['en']);
+    expect(top(dist)).toEqual(['en', 'en.html']);
   });
 
-  it('multi locale shard (en,de) keeps both, drops the rest', () => {
+  it('multi locale shard (en,de) keeps both subtrees and both homepages', () => {
     prune('en,de', dist);
-    expect(top(dist)).toEqual(['de', 'en']);
+    expect(top(dist)).toEqual(['de', 'de.html', 'en', 'en.html']);
   });
 
-  it('main shard (it) keeps root + shared, drops en/de/fr', () => {
+  it('main shard (it) drops en/de/fr AND their homepages (#5327)', () => {
+    // The other half: the main shard kept en.html after dropping dist/en/.
+    // With no index.html sibling left, flatHtmlRedirectPlugin had nothing to
+    // bridge against, so it stayed a fully INDEXABLE EN page sitting on the
+    // origin that the edge never asks for that path — the trunk-guard's
+    // "built under a prefix this build does not ship to the shard".
     prune('it', dist);
     expect(top(dist)).toEqual(['assets', 'build-id.txt', 'cerca-lavoro', 'sitemap.xml']);
   });
 
-  it('main+en shard (it,en) keeps root + shared + en, drops de/fr', () => {
+  it('main+en shard (it,en) keeps root + shared + en + en.html, drops de/fr', () => {
     prune('it,en', dist);
-    expect(top(dist)).toEqual(['assets', 'build-id.txt', 'cerca-lavoro', 'en', 'sitemap.xml']);
+    expect(top(dist)).toEqual([
+      'assets', 'build-id.txt', 'cerca-lavoro', 'en', 'en.html', 'sitemap.xml',
+    ]);
   });
 
   it('unset BUILD_LOCALE is a no-op (default all-locale build)', () => {
     prune(undefined, dist);
-    expect(top(dist)).toEqual(['assets', 'build-id.txt', 'cerca-lavoro', 'de', 'en', 'fr', 'sitemap.xml']);
+    expect(top(dist)).toEqual([
+      'assets', 'build-id.txt', 'cerca-lavoro',
+      'de', 'de.html', 'en', 'en.html', 'fr', 'fr.html', 'sitemap.xml',
+    ]);
   });
 
   it('garbage BUILD_LOCALE is a no-op (never wipes a build)', () => {
     prune('xx', dist);
-    expect(top(dist)).toEqual(['assets', 'build-id.txt', 'cerca-lavoro', 'de', 'en', 'fr', 'sitemap.xml']);
+    expect(top(dist)).toEqual([
+      'assets', 'build-id.txt', 'cerca-lavoro',
+      'de', 'de.html', 'en', 'en.html', 'fr', 'fr.html', 'sitemap.xml',
+    ]);
+  });
+
+  it('never mistakes a root file that merely starts with a locale token', () => {
+    // `enigma.html` is ordinary IT content; matching by prefix would move it
+    // to the EN shard and 404 it on the apex.
+    fs.writeFileSync(path.join(dist, 'enigma.html'), '<html></html>');
+    prune('en', dist);
+    expect(top(dist)).toEqual(['en', 'en.html']);
   });
 });

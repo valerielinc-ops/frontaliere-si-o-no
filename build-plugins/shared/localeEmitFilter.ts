@@ -113,6 +113,28 @@ export function ownerEmitLocale(locale: string): string {
  * files (sitemaps, robots, /data, /og, /assets, build-id) have no locale
  * prefix and are therefore classified as `it` — they ship in the `it`/main
  * shard build, matching the current post-build split in deploy.yml.
+ *
+ * THE ONE EXCEPTION, and why it is not a special case (issue #5327): the
+ * locale HOMEPAGE is `dist/<loc>.html`, a file at the dist ROOT, not under
+ * `dist/<loc>/`. It is the flat sibling of `dist/<loc>/index.html`
+ * (staticPagesPlugin.ts:5434) and exists so the shard origin can answer the
+ * extensionless `/<loc>` — `push-locale-shard.sh:196` stages it as
+ * "homepage at /{loc}", `rehydrate-locale-shards.sh:66` treats it as half of
+ * a complete shard, `audit-404-risk.mjs` maps the shard entry `de.html` to the
+ * route `/de`, and `wrangler.toml` + `locale-router.js`'s
+ * `/^\/(en|de|fr)(\/|$|\.html$)/` route `/‌<loc>.html` to that shard origin.
+ *
+ * Classifying it by prefix alone put it in `it`, which broke BOTH directions
+ * of the same invariant and produced the #5327 failure:
+ *   • the IT/main shard build WROTE `dist/en.html` — an EN page at a path the
+ *     edge routes to the EN shard, so the trunk's copy is unreachable. With
+ *     `dist/en/` pruned from that shard there was no `index.html` sibling for
+ *     flatHtmlRedirectPlugin to bridge against, so it kept full INDEXABLE
+ *     content instead of becoming a noindex bridge.
+ *   • the EN shard build DROPPED it — the one build that should own it.
+ * Net effect: nobody shipped it, and `/en.html` `/de.html` `/fr.html` answered
+ * 404 in production (verified live) while the trunk kept re-emitting them.
+ * Owning `<loc>.html` by `<loc>` closes both halves at once.
  */
 export function localeOfDistPath(filePath: string, distDir: string): EmitLocale {
   let rel = filePath.split(path.sep).join('/');
@@ -122,9 +144,11 @@ export function localeOfDistPath(filePath: string, distDir: string): EmitLocale 
     else if (rel.startsWith(`${dnorm}/`)) rel = rel.slice(dnorm.length + 1);
   }
   rel = rel.replace(/^\/+/, '');
-  if (rel === 'en' || rel.startsWith('en/')) return 'en';
-  if (rel === 'de' || rel.startsWith('de/')) return 'de';
-  if (rel === 'fr' || rel.startsWith('fr/')) return 'fr';
+  // Exact match only: `dist/en.html` is EN's homepage, but `dist/enigma.html`
+  // is an IT page and `dist/foo/en.html` is a nested file with no such role.
+  if (rel === 'en' || rel.startsWith('en/') || rel === 'en.html') return 'en';
+  if (rel === 'de' || rel.startsWith('de/') || rel === 'de.html') return 'de';
+  if (rel === 'fr' || rel.startsWith('fr/') || rel === 'fr.html') return 'fr';
   return 'it';
 }
 

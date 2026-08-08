@@ -51,14 +51,31 @@ function rm(target) {
   removed.push(path.relative(distDir, target) || target);
 }
 
+// A locale owns TWO dist entries, not one (issue #5327): the subtree
+// `dist/<loc>/` AND the flat homepage `dist/<loc>.html`, which lives at the
+// dist ROOT and serves the extensionless `/<loc>` from the shard origin
+// (push-locale-shard.sh:196 "homepage at /{loc}"; locale-router.js routes
+// `/<loc>.html` to that same shard). Matching by the bare directory name
+// alone got this wrong in both directions and was half of #5327: the main
+// shard kept `en.html` after dropping `dist/en/` (an indexable EN page
+// stranded on an origin that never serves it), while the EN shard deleted
+// `en.html` right before push-locale-shard.sh could stage it — so `/en.html`
+// `/de.html` `/fr.html` 404'd in production. Mirrors localeOfDistPath() in
+// build-plugins/shared/localeEmitFilter.ts, which is the build-time half of
+// this same ownership rule; the two must agree or output leaks between shards.
+const localeEntries = (loc) => [loc, `${loc}.html`];
+
 if (ownedSet.has('it')) {
-  // Main shard: keep root + shared, drop non-owned locale subtrees.
+  // Main shard: keep root + shared, drop non-owned locale subtrees AND their
+  // flat homepages.
   for (const loc of PREFIX) {
-    if (!ownedSet.has(loc)) rm(path.join(distDir, loc));
+    if (!ownedSet.has(loc)) {
+      for (const entry of localeEntries(loc)) rm(path.join(distDir, entry));
+    }
   }
 } else {
-  // Pure locale shard: keep ONLY the owned locale subtree(s).
-  const keep = new Set(owned); // en/de/fr only here
+  // Pure locale shard: keep ONLY the owned locale subtree(s) + homepage(s).
+  const keep = new Set(owned.flatMap(localeEntries)); // en/de/fr only here
   for (const entry of fs.readdirSync(distDir)) {
     if (keep.has(entry)) continue;
     rm(path.join(distDir, entry));

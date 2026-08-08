@@ -62,6 +62,38 @@ describe('localeEmitFilter — locale ownership of dist paths', () => {
     // (only the leading segment decides ownership).
     expect(f.localeOfDistPath(`${DIST}/cerca/enoteca/index.html`, DIST)).toBe('it');
   });
+
+  it('gives the flat locale homepage dist/<loc>.html to <loc>, not to it (#5327)', async () => {
+    const f = await loadFilter('en');
+    // `dist/en.html` is the flat sibling of `dist/en/index.html`: the shard
+    // origin serves the extensionless `/en` from it, and locale-router.js
+    // routes `/en.html` to that same shard. Classifying it by prefix alone
+    // returned 'it', which made the IT build emit an EN page nobody could
+    // fetch AND made the EN build drop the one file it had to ship — the two
+    // halves of #5327, which showed up as /en.html /de.html /fr.html 404ing.
+    expect(f.localeOfDistPath(`${DIST}/en.html`, DIST)).toBe('en');
+    expect(f.localeOfDistPath(`${DIST}/de.html`, DIST)).toBe('de');
+    expect(f.localeOfDistPath(`${DIST}/fr.html`, DIST)).toBe('fr');
+    // Exact match only — a longer root file that merely STARTS with a locale
+    // token is ordinary IT content, and a nested `en.html` has no homepage
+    // role. Both would silently move real pages between shards if matched.
+    expect(f.localeOfDistPath(`${DIST}/enigma.html`, DIST)).toBe('it');
+    expect(f.localeOfDistPath(`${DIST}/en.html.bak`, DIST)).toBe('it');
+    expect(f.localeOfDistPath(`${DIST}/guide/en.html`, DIST)).toBe('it');
+  });
+
+  it('routes the homepage to the right shard build in BOTH directions (#5327)', async () => {
+    // The regression was symmetric, so the guard against it must be too.
+    const en = await loadFilter('en');
+    expect(en.shouldEmitPath(`${DIST}/en.html`, DIST)).toBe(true);
+    expect(en.shouldEmitPath(`${DIST}/de.html`, DIST)).toBe(false);
+    const it = await loadFilter('it');
+    // The IT/main shard must NOT write en.html: with dist/en/ pruned there is
+    // no index.html sibling for flatHtmlRedirectPlugin to bridge against, so
+    // the file stayed fully INDEXABLE at a path the edge sends to the EN shard.
+    expect(it.shouldEmitPath(`${DIST}/en.html`, DIST)).toBe(false);
+    expect(it.shouldEmitPath(`${DIST}/sitemap.xml`, DIST)).toBe(true);
+  });
 });
 
 describe('localeEmitFilter — single-locale shard', () => {
