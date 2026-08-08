@@ -25,12 +25,25 @@
  *      dedupes onto (and is later auto-closed by) the same issue thread.
  *
  * Stateless by design: no persisted scan cursor. The lookback window is sized wider
- * than the cron interval so no run is missed; the only cost of the overlap is an
- * occasional duplicate 🔁 recurrence COMMENT (never a duplicate issue — dedup is by
- * stable title) if the same run is seen in two consecutive scans.
+ * than the cron interval so no run is missed; the cost of the overlap is an extra
+ * COMMENT on the canonical issue (never a duplicate issue) if the same run is seen
+ * in two consecutive scans.
+ *
+ * DEDUP, and why one layer was not enough. A single run can time out in SEVERAL
+ * jobs, and every one of them maps to the same `CI Failure: <workflow>` title. The
+ * title-based dedup in `createGithubIssue` resolved through GitHub's SEARCH INDEX,
+ * which is eventually consistent: the second job, seconds behind the first, did not
+ * see the issue the first had just opened and opened its own. That is #5305/#5306 —
+ * same run 31171006342, same title, 3 seconds apart. Two layers now close it:
+ *   a) `emittedByTitle` below — an in-process map title → issue ref. Once a title
+ *      has been reported in THIS scan, further jobs comment on that issue instead
+ *      of calling the reporter again. No API lookup, so no race to lose.
+ *   b) the listing fallback inside `searchIssuesByTitlePrefix` — covers the
+ *      cross-PROCESS case (two scans, or this scan racing another reporter), which
+ *      (a) by construction cannot see.
  */
 import { execFileSync } from 'node:child_process';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { createGithubIssue, commentOnGithubIssue } from '../lib/github-issue-creator.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
@@ -102,6 +115,10 @@ async function main() {
   console.log(`[scan-job-timeouts] ${runs.length} cancelled run(s) in the last ${LOOKBACK_MINUTES}m`);
 
   let reported = 0;
+  // title → issue ref already opened/matched during THIS scan. See the DEDUP note
+  // in the header: this is layer (a), the one that removes the intra-scan race.
+  const emittedByTitle = new Map();
+
   for (const run of runs) {
     for (const job of listJobs(run.id)) {
       const hit = findTimeoutAnnotation(job);
@@ -124,16 +141,35 @@ async function main() {
 
       console.log(`[scan-job-timeouts] TIMEOUT: ${run.name} / ${job.name} (run ${run.id})`);
       if (DRY_RUN) {
-        console.log(`[scan-job-timeouts] (dry-run) would report "${title}"`);
+        const dup = emittedByTitle.has(title) ? ' (already emitted → would COMMENT)' : '';
+        console.log(`[scan-job-timeouts] (dry-run) would report "${title}"${dup}`);
+        emittedByTitle.set(title, { number: null });
         continue;
       }
-      await createGithubIssue({
+
+      const already = emittedByTitle.get(title);
+      if (already?.number) {
+        // Same title already reported in this scan: comment on the known issue
+        // number. The second job's detail must survive — it is a distinct job
+        // that timed out — but it must not become a second issue.
+        commentOnGithubIssue(
+          already.number,
+          `➕ Altro job dello stesso scan con lo stesso titolo.\n\n${description}`,
+        );
+        console.log(`[scan-job-timeouts] deduped onto #${already.number} — ${job.name}`);
+        continue;
+      }
+
+      const issue = await createGithubIssue({
         title,
         description,
         priority: 2,
         labels: ['Bug', 'ci-timeout'],
         workflow: run.name,
       });
+      // Record even a null-numbered result so a failed create doesn't turn every
+      // remaining job of the run into another create attempt.
+      emittedByTitle.set(title, issue || { number: null });
     }
   }
   console.log(`[scan-job-timeouts] done — ${reported} timeout(s) reported (dry-run=${DRY_RUN}).`);

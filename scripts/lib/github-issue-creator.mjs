@@ -29,7 +29,11 @@
  *
  * De-duplication: searches for OPEN issues whose title shares the first
  * 60 chars of the new title; if found, posts a comment with the new context
- * instead of creating a duplicate.
+ * instead of creating a duplicate. The lookup queries the search index FIRST
+ * and, when that returns nothing, falls back to a plain repository listing —
+ * the index is eventually consistent and does not see an issue opened seconds
+ * ago, so search alone lets two near-simultaneous reporters both believe they
+ * are the first (how #5305/#5306 were minted 3s apart).
  */
 
 import { execFileSync } from 'node:child_process';
@@ -168,32 +172,59 @@ function searchSafePrefix(fullTitle) {
   return p.length >= 8 ? p : full.slice(0, LEN).replace(/"/g, '').trim();
 }
 
-// `fullTitle` is the complete issue title (callers must NOT pre-slice it — the
-// mid-word-cut detection in searchSafePrefix needs the char at the ceiling).
-function searchIssuesByTitlePrefix(fullTitle, state) {
-  const safePrefix = searchSafePrefix(fullTitle);
+// How many issues the index-lag fallback listing pulls. `gh issue list` WITHOUT
+// `--search` is a plain repository listing (immediately consistent), so it sees
+// an issue the instant it exists; the search index does not.
+const LISTING_FALLBACK_LIMIT = 100;
+
+/** Run `gh issue list` with the given extra args and parse the JSON array. */
+function ghIssueList(state, extraArgs) {
   const out = gh([
     'issue', 'list',
     '--state', state,
-    '--search', `in:title "${safePrefix.replace(/"/g, '\\"')}"`,
-    '--limit', '10',
+    ...extraArgs,
     '--json', 'number,title,url,closedAt,state',
     ...repoFlag(),
   ], { allowFailure: true });
   if (!out) return [];
   try {
-    const issues = JSON.parse(out);
-    // `gh issue list --search "in:title ..."` è token-match (fuzzy): titoli che
-    // condividono token (es. "...(dist): post-deploy" vs "...(live): post-deploy",
-    // o "CI Failure: Refresh Job Popularity" vs "...Refresh BFS Stats") possono
-    // entrambi comparire. Filtra al match esatto di prefisso → niente commento
-    // sul canonical sbagliato (altrimenti dist commenterebbe su issue live).
-    // Match sul prefisso SANITIZZATO (stesso usato per la query) così il filtro
-    // resta coerente quando lo slice grezzo era stato troncato a metà token.
-    return issues.filter((i) => typeof i.title === 'string' && i.title.startsWith(safePrefix));
+    const parsed = JSON.parse(out);
+    return Array.isArray(parsed) ? parsed : [];
   } catch {
     return [];
   }
+}
+
+// `fullTitle` is the complete issue title (callers must NOT pre-slice it — the
+// mid-word-cut detection in searchSafePrefix needs the char at the ceiling).
+function searchIssuesByTitlePrefix(fullTitle, state) {
+  const safePrefix = searchSafePrefix(fullTitle);
+  // `gh issue list --search "in:title ..."` è token-match (fuzzy): titoli che
+  // condividono token (es. "...(dist): post-deploy" vs "...(live): post-deploy",
+  // o "CI Failure: Refresh Job Popularity" vs "...Refresh BFS Stats") possono
+  // entrambi comparire. Filtra al match esatto di prefisso → niente commento
+  // sul canonical sbagliato (altrimenti dist commenterebbe su issue live).
+  // Match sul prefisso SANITIZZATO (stesso usato per la query) così il filtro
+  // resta coerente quando lo slice grezzo era stato troncato a metà token.
+  const matching = (issues) =>
+    issues.filter((i) => typeof i.title === 'string' && i.title.startsWith(safePrefix));
+
+  const viaSearch = matching(ghIssueList(state, [
+    '--search', `in:title "${safePrefix.replace(/"/g, '\\"')}"`,
+    '--limit', '10',
+  ]));
+  if (viaSearch.length > 0) return viaSearch;
+
+  // WHY the fallback: `--search` goes through GitHub's SEARCH INDEX, which is
+  // eventually consistent — an issue created seconds ago is routinely NOT in it
+  // yet. Two reporters firing back-to-back for the same stable title (e.g. two
+  // jobs of one run reported by scan-job-timeouts) therefore both saw "no
+  // duplicate" and both opened one: that is exactly how #5305/#5306 were born,
+  // 3 seconds apart, same run, identical title. A listing WITHOUT `--search`
+  // reads the repository directly and is immediately consistent, so it closes
+  // the window — including ACROSS processes, which an in-process memo cannot.
+  // Only paid when the search came back empty (the no-duplicate common path).
+  return matching(ghIssueList(state, ['--limit', String(LISTING_FALLBACK_LIMIT)]));
 }
 
 function findOpenIssueByTitlePrefix(fullTitle) {
@@ -251,6 +282,20 @@ function countRecentFailureEvents(issueNumber, windowHours) {
   }
 }
 
+// The ledger is a SINGLETON, and its lookup is the one place where losing the
+// read-then-create race is not cosmetic: two ledgers split the streak counters
+// between them, so a crawler sitting at 2/3 on one ledger never reaches 3/3 and
+// NEVER escalates — the counter stops counting, silently. That is what happened
+// on the corpus repo (nanakokyobashi-rgb/frontaliere-articles #24 and #25,
+// created 3 seconds apart on 2026-08-07).
+//
+// So this lookup does NOT go through the search index at all. `gh issue list
+// --label crawler-transient --state open` is a plain repository listing:
+// immediately consistent, and narrow enough that the ledger can never be paged
+// out by unrelated backlog. The title-search path is kept only as a secondary
+// probe for a ledger that somehow lost its label.
+const LEDGER_LOOKUP_LIMIT = 200;
+
 /**
  * The single open ledger issue that absorbs sub-threshold crawler blips.
  * Looked up by exact title; created on first use. Best-effort: returns null on
@@ -258,9 +303,18 @@ function countRecentFailureEvents(issueNumber, windowHours) {
  * behaviour rather than losing the failure signal entirely.
  */
 function findOrCreateTransientLedger() {
-  const existing = searchIssuesByTitlePrefix(TRANSIENT_LEDGER_TITLE, 'open')
-    .find((i) => i.title === TRANSIENT_LEDGER_TITLE);
-  if (existing) return existing.number;
+  const exactTitle = (issues) => issues.find((i) => i.title === TRANSIENT_LEDGER_TITLE);
+
+  // Primary: immediately-consistent, label-scoped listing (no search index).
+  const byLabel = exactTitle(ghIssueList('open', [
+    '--label', CRAWLER_TRANSIENT_LABEL,
+    '--limit', String(LEDGER_LOOKUP_LIMIT),
+  ]));
+  if (byLabel) return byLabel.number;
+
+  // Secondary: title lookup, for a ledger whose label was stripped by hand.
+  const byTitle = exactTitle(searchIssuesByTitlePrefix(TRANSIENT_LEDGER_TITLE, 'open'));
+  if (byTitle) return byTitle.number;
 
   ensureLabelsExist([CRAWLER_TRANSIENT_LABEL, PRIORITY_LABEL[4]]);
   const body = [
@@ -396,6 +450,39 @@ export function resolveGithubIssue(titlePrefix, { workflow, runUrl } = {}) {
   }
   console.error(`[github-issue-creator] resolve: could not close #${existing.number} (best-effort)`);
   return null;
+}
+
+/**
+ * Post a comment on an issue whose number the caller ALREADY knows.
+ *
+ * For a reporter that has just created (or matched) the canonical issue inside
+ * the same process, going back through `createGithubIssue` would mean another
+ * title search — and the search index may not have caught up yet, which is the
+ * very race that mints duplicates. Commenting by number skips the lookup
+ * entirely, so a second occurrence in the same pass is *structurally* unable to
+ * open a second issue while still preserving its context.
+ *
+ * Best-effort, never throws. Returns true when the comment landed.
+ *
+ * @param {number|string} issueNumber
+ * @param {string} body
+ */
+export function commentOnGithubIssue(issueNumber, body) {
+  if (process.env.ENABLE_FAILURE_REPORT === 'false') {
+    console.log('[github-issue-creator] ENABLE_FAILURE_REPORT=false, skipping comment');
+    return false;
+  }
+  if (!issueNumber || !body) return false;
+  const out = gh(
+    ['issue', 'comment', String(issueNumber), '--body', body, ...repoFlag()],
+    { allowFailure: true },
+  );
+  if (out === null) {
+    console.error(`[github-issue-creator] Failed to comment on #${issueNumber} (best-effort)`);
+    return false;
+  }
+  console.log(`[github-issue-creator] Commented on #${issueNumber}`);
+  return true;
 }
 
 /**
