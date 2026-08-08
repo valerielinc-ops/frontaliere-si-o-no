@@ -359,6 +359,220 @@ describe('the en/de/fr homepage is not a loss just because the shard spells it d
   });
 });
 
+/**
+ * The LOCALE half of the same class, driving the real
+ * rehydrate-locale-shards.sh. This is the shape that actually failed in
+ * production (run 31240103446): `dist/<loc>.html` — the flat locale homepage,
+ * a file at the dist ROOT rather than under `dist/<loc>/` — was emitted by the
+ * IT/main build and never shipped by the locale shard, so `/en.html`
+ * `/de.html` `/fr.html` answered 404 live while every build re-emitted them.
+ *
+ * Hermetic: `bin/` stubs shadow `gh` (hands back a pre-packed tar under the
+ * exact name the script asks for), `timeout` (does not exist on macOS at all;
+ * the stub drops the duration and execs) and `sleep` (the retry backoff).
+ * de/fr are pre-seeded complete — dir AND homepage — so the guard at the top
+ * of the loop skips them and only `en` ever reaches the replace.
+ */
+function runLocaleRehydrate(opts: {
+  trunkExtras: Record<string, string>;
+  shardCarriesHomepage: boolean;
+}): RunResult {
+  const root = mkdtempSync(join(tmpdir(), 'trunk-guard-loc-'));
+  const lib = join(root, 'scripts', 'lib');
+  mkdirSync(lib, { recursive: true });
+  for (const f of ['rehydrate-locale-shards.sh', 'rehydrate-trunk-guard.sh']) {
+    copyFileSync(resolve('scripts/lib', f), join(lib, f));
+  }
+
+  const dist = join(root, 'dist');
+  mkdirSync(dist, { recursive: true });
+  for (const [rel, body] of Object.entries(opts.trunkExtras)) write(join(dist, rel), body);
+  for (const loc of ['de', 'fr']) {
+    write(join(dist, loc, 'index.html'), INDEXABLE_PAGE);
+    write(join(dist, `${loc}.html`), INDEXABLE_PAGE);
+  }
+
+  // The EN shard's own tree, packed the way deploy.yml uploads it.
+  const stage = join(root, 'stage');
+  write(join(stage, 'en', 'index.html'), INDEXABLE_PAGE);
+  write(join(stage, 'en', 'find-jobs', 'index.html'), INDEXABLE_PAGE);
+  const tarEntries = ['en'];
+  if (opts.shardCarriesHomepage) {
+    // Post-fix: prune-locale-shard.mjs keeps `en.html`, push-locale-shard.sh
+    // stages it, and it is the noindex bridge flatHtmlRedirectPlugin made from
+    // the `dist/en/index.html` sibling that exists in an EN shard build.
+    write(join(stage, 'en.html'), NOINDEX_BRIDGE);
+    tarEntries.push('en.html');
+  }
+  const tars = join(root, 'tars');
+  mkdirSync(tars, { recursive: true });
+  execFileSync('tar', ['-C', stage, '-cf', join(tars, 'en.tar'), ...tarEntries]);
+
+  const bin = join(root, 'bin');
+  mkdirSync(bin, { recursive: true });
+  // Only `en` reaches this stub — de/fr are skipped by the completeness guard.
+  writeFileSync(
+    join(bin, 'gh'),
+    [
+      '#!/bin/sh',
+      'dir=""',
+      'while [ $# -gt 0 ]; do',
+      '  case "$1" in',
+      '    --dir) dir="$2"; shift 2 ;;',
+      '    *) shift ;;',
+      '  esac',
+      'done',
+      '[ -n "$dir" ] || exit 1',
+      'mkdir -p "$dir"',
+      `cp ${JSON.stringify(join(tars, 'en.tar'))} "$dir/locale-dist-en.tar"`,
+      '',
+    ].join('\n'),
+    { mode: 0o755 },
+  );
+  writeFileSync(join(bin, 'timeout'), '#!/bin/sh\nshift\nexec "$@"\n', { mode: 0o755 });
+  writeFileSync(join(bin, 'sleep'), '#!/bin/sh\nexit 0\n', { mode: 0o755 });
+
+  const runnerTemp = join(root, 'runner-temp');
+  mkdirSync(runnerTemp, { recursive: true });
+
+  let status = 0;
+  let output = '';
+  try {
+    output = execFileSync('bash', ['scripts/lib/rehydrate-locale-shards.sh'], {
+      cwd: root,
+      encoding: 'utf8',
+      stdio: ['pipe', 'pipe', 'pipe'],
+      env: {
+        ...process.env,
+        PATH: `${bin}:${process.env.PATH ?? ''}`,
+        RUNNER_TEMP: runnerTemp,
+        DEPLOY_RUN_ID: '0',
+        GH_TOKEN: 'unused',
+        LOCALE_SHARDS_LIVE: 'true',
+        // Unset: the tar path succeeds and `continue`s before the clone cache.
+        SHARD_CLONE_CACHE_DIR: '',
+      },
+    });
+  } catch (e) {
+    const err = e as { status?: number; stdout?: string; stderr?: string };
+    status = err.status ?? 1;
+    output = `${err.stdout ?? ''}${err.stderr ?? ''}`;
+  }
+  return { status, output, root };
+}
+
+describe('rehydrate-locale-shards.sh — the locale homepage is a shard-owned path (#5327)', () => {
+  it('does NOT fail over dist/en.html alone — the shard ships the other spelling of /en, so no url was lost', () => {
+    // This slot used to assert rc 1 here. That expectation was written against
+    // the PATH semantics the guard had when #5363 was branched, and #5370
+    // ("the unit of loss is a url, not a path", merged 25 minutes earlier)
+    // replaced it: `dist/en.html` and `dist/en/index.html` are two spellings of
+    // the one url `/en`, the pair scripts/ci/assert-dist-complete.mjs:193
+    // already resolves. The shard tar always restores `dist/en/index.html` —
+    // it is the locale homepage — so `/en` keeps answering and nothing is lost.
+    //
+    // Asserting rc 1 here would be asserting the #5370 false positive as the
+    // contract: that verdict is what killed the rehydrate step of all three
+    // validate-dist jobs on run 31240103446, leaving
+    // `failed_gates=__UNKNOWN__` and sequestering `publish` (IndexNow, Google
+    // Indexing API, GSC, last_known_good) behind a default-deny classifier,
+    // while production measured `/en` 200, `/en.html` 404, canonical
+    // `https://frontaliereticino.ch/en/` and no sitemap naming `/en.html`.
+    //
+    // The protection is NOT dropped, it moves to the test below, which drives
+    // the same script with the shape that is still a real loss. What is pinned
+    // here is that the file is still counted and NAMED — a re-spelling is
+    // reported, never silently swallowed.
+    const { status, output, root } = runLocaleRehydrate({
+      trunkExtras: { 'en.html': INDEXABLE_PAGE },
+      shardCarriesHomepage: false,
+    });
+    try {
+      expect(status).toBe(0);
+      expect(output).not.toContain('::error::');
+      expect(output).not.toContain('INDEXABLE lost');
+      // Counted and named, not silenced.
+      expect(output).toContain('dist/en.html=>dist/en/index.html');
+      expect(output).toContain("answer the same url from the shard's other spelling");
+      // The url that matters still resolves on disk after the replace.
+      expect(existsSync(join(root, 'dist', 'en', 'index.html'))).toBe(true);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('still FAILS, naming the page, when the trunk builds an indexable page under dist/en/ the shard ships in NEITHER spelling', () => {
+    // The half of run 31240103446 that is still dangerous, and the reason this
+    // guard exists at all (#5290): an emitter writes real indexable content
+    // under a prefix the build does not ship, `rm -rf dist/en` in the
+    // rehydrate destroys it, and the only surviving symptom used to be a
+    // sitemap gate failing three steps away from the cause.
+    //
+    // Unlike the homepage, `dist/en/argomenti/salari-frontalieri/index.html`
+    // has NO twin after the replace — the shard tar carries `en/index.html`
+    // and `en/find-jobs/index.html` and nothing else — so the url `/en/…`
+    // genuinely 404s and the url-level comparison of #5370 still calls it
+    // fatal. Trunk shipped as it is post-#5363: the shard owns and carries
+    // `en.html`, so the homepage plays no part in this verdict.
+    const { status, output, root } = runLocaleRehydrate({
+      trunkExtras: { 'en/argomenti/salari-frontalieri/index.html': INDEXABLE_PAGE },
+      shardCarriesHomepage: true,
+    });
+    try {
+      expect(status).toBe(1);
+      expect(output).toContain('::error::[trunk-guard]');
+      expect(output).toContain('dist/en/argomenti/salari-frontalieri/index.html');
+      expect(output).toContain('INDEXABLE lost');
+      expect(output).toContain('locale shard rehydrate');
+      // Destroyed, and REPLACE semantics keep it destroyed — the guard reports
+      // the loss, it does not merge the file back in.
+      expect(existsSync(join(root, 'dist', 'en', 'argomenti', 'salari-frontalieri', 'index.html'))).toBe(
+        false,
+      );
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('goes GREEN because the shard now carries en.html — not because the guard was relaxed', () => {
+    // The fix must remove the CAUSE. The guard is byte-identical here; what
+    // changed is that the shard tar contains the homepage, so the file the
+    // snapshot recorded is present again after the replace and is not a loss.
+    const { status, output, root } = runLocaleRehydrate({
+      trunkExtras: { 'en.html': INDEXABLE_PAGE },
+      shardCarriesHomepage: true,
+    });
+    try {
+      expect(status).toBe(0);
+      expect(output).not.toContain('::error::[trunk-guard]');
+      // REPLACE semantics still hold: the shard's copy won the collision, so
+      // what survives is the shard's noindex bridge, not the trunk's
+      // indexable page. A merge would have left the trunk's version here.
+      expect(existsSync(join(root, 'dist', 'en.html'))).toBe(true);
+      expect(read(join(root, 'dist', 'en.html'))).toBe(NOINDEX_BRIDGE);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('stays silent when the trunk no longer emits the homepage at all (the post-fix trunk)', () => {
+    // With localeOfDistPath() owning `dist/<loc>.html` by `<loc>`, the IT
+    // build stops writing it and prune-locale-shard.mjs drops any that a
+    // direct fs.writeFileSync emitter still produces — so the trunk arrives
+    // with nothing under the EN prefix and the snapshot is empty.
+    const { status, output, root } = runLocaleRehydrate({
+      trunkExtras: {},
+      shardCarriesHomepage: true,
+    });
+    try {
+      expect(status).toBe(0);
+      expect(output).not.toContain('[trunk-guard]');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+});
+
 describe('rehydrate-trunk-guard.sh — structural invariants', () => {
   const guard = read('scripts/lib/rehydrate-trunk-guard.sh');
   const section = read('scripts/lib/rehydrate-section-shards.sh');
