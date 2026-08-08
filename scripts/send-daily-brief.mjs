@@ -34,9 +34,11 @@
  * CAPACITY. The union (~8.3k) exceeds the cascade's remaining daily quota on
  * most days. The send is capacity-aware: it takes min(recipients, available
  * quota − 10% buffer) and records progress in
- * newsletter_subscribers/_meta_/campaign_sends/{daily-brief-YYYY-MM-DD}, so a
- * same-day rerun RESUMES instead of double-sending. The shortfall is printed;
- * growing provider quotas is an owner decision, not this script's.
+ * newsletter_subscribers/_meta_/campaign_sends/{daily-brief-YYYY-MM-DD} (plus
+ * `--2`, `--3`… chunks past 4k addresses — see scripts/lib/campaignResumeLog.mjs),
+ * flushed DURING the run, so a same-day rerun RESUMES instead of double-sending
+ * and a crash mid-run does not replay what it already delivered. The shortfall
+ * is printed; growing provider quotas is an owner decision, not this script's.
  *
  * ORDERING. The edition must already be on the API surface (slugs.json knows
  * the id) so the email links a live page. On a real run a missing edition is
