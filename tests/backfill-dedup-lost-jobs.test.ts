@@ -107,11 +107,30 @@ describe('buildBackfillExpiredEntry', () => {
     expect(entry?.streetAddress).toBe('Ticino');
     expect(entry?.addressLocality).toBe('Ticino');
     expect(entry?.addressRegion).toBe('TI');
-    expect(entry?.addressCountry).toBe('CH');
+    // addressCountry is deliberately left undeclared when absent from the
+    // source job (#5403/#5384): an undeclared country and a declared-Swiss
+    // one are different pieces of evidence, and this is an already-expired
+    // archive record where that distinction can never be re-checked.
+    expect(entry?.addressCountry).toBeUndefined();
     expect(entry?.employmentType).toBe('OTHER');
     expect(entry?.salaryMin).toBe(41080);
     expect(entry?.salaryCurrency).toBe('CHF');
     expect(entry?.salaryPeriod).toBe('YEAR');
+  });
+
+  it('preserves a declared addressCountry from the source job', () => {
+    const jobWithCountry = {
+      slug: 'declared-country-job',
+      title: 'A role with declared country',
+      titleByLocale: {},
+      descriptionByLocale: {
+        it: 'A reasonably long description used to satisfy the soft-landing minimum length rule.',
+      },
+      slugByLocale: { it: 'declared-country-job' },
+      addressCountry: 'CH',
+    };
+    const entry = buildBackfillExpiredEntry(jobWithCountry, '2026-04-01T00:00:00Z');
+    expect(entry?.addressCountry).toBe('CH');
   });
 
   it('returns null when slug or title is missing', () => {

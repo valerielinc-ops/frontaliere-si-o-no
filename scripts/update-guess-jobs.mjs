@@ -401,7 +401,10 @@ function postProcessJobs() {
       fixed += 1;
     }
     job.country = 'CH';
-    job.addressCountry = 'CH';
+    // Deliberately does NOT default addressCountry to 'CH' here (#5403/#5384/#5405)
+    // — an undeclared country and a declared-Swiss one are different pieces
+    // of evidence; overwriting the former destroys that distinction at rest.
+    // Consumers already fall back to 'CH' at read time.
     job.addressRegion = job.canton;
     if (!job.location) {
       job.location = 'Bioggio';
