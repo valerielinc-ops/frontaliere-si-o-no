@@ -31,7 +31,10 @@ import { cdnDataHydrationUrlExpr } from '../build-plugins/shared/cdnDataHydratio
 const ROOT = resolve(__dirname, '..');
 
 // Directories whose output reaches a browser: client bundles + emitted static HTML.
-const SCAN_DIRS = ['build-plugins', 'services', 'components', 'hooks', 'contexts', 'utils'];
+// Every entry must EXIST — `walk()` returns [] for an absent path, so a renamed
+// or moved directory would silently gut this gate instead of failing. Asserted
+// below rather than left to trust.
+const SCAN_DIRS = ['build-plugins', 'services', 'components', 'hooks'];
 const SCAN_EXT = /\.(ts|tsx)$/;
 
 // `fetch(` followed directly by a string literal starting with /data/ — the bare
@@ -114,6 +117,18 @@ describe('cdnDataHydrationUrlExpr', () => {
 });
 
 describe('no same-origin /data/** fetch reaches a browser', () => {
+  it('every scanned directory exists (a rename must not silently empty the gate)', () => {
+    const missing = SCAN_DIRS.filter((d) => {
+      try {
+        return !statSync(resolve(ROOT, d)).isDirectory();
+      } catch {
+        return true;
+      }
+    });
+    expect(missing, `SCAN_DIRS entries not found: ${missing.join(', ')}`).toEqual([]);
+    expect(FILES.length).toBeGreaterThan(100);
+  });
+
   it('no bare fetch("/data/…") in client code or emitted static HTML', () => {
     const offenders: string[] = [];
     for (const f of FILES) {
