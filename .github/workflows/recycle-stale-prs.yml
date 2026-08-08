@@ -177,11 +177,50 @@ jobs:
           done
           echo "Recycle scan completo."
 
-      # Visibilita' needs-human: il 🔴-fixer al round-cap etichetta `needs-human`
-      # e STOPPA (by-design), ma NESSUN processo rilancia o segnala quelle PR —
-      # restano ferme finche' l'owner non guarda a mano la PR list (osservato
-      # #1526: 102h di latenza). Issue dedup giornaliera (titolo stabile, si
-      # aggiorna via recurrence-comment) finche' esistono PR needs-human aperte.
+      # Draft parcheggiate → `needs-human`. DEVE stare PRIMA del digest qui
+      # sotto, cosi' una draft etichettata in questo run compare gia' nella
+      # issue dello stesso run invece che 24h dopo.
+      #
+      # Il buco non e' in nessuno dei singoli strati: ognuno salta le draft con
+      # una buona ragione (pr-review-loop, auto-merge-eval, auto-merge-sweep,
+      # pr-autorebase, stale-pr-rescuer), e `recycle-stale-prs` qui sopra agisce
+      # solo su `stale-review`, che una draft non riceve MAI proprio perche' il
+      # rescuer la salta. Ogni singolo skip e' giusto; la loro SOMMA lascia una
+      # draft aperta fuori da tutto contemporaneamente — non revisionata, non
+      # mergiata, non rebasata, non etichettata stale e quindi non riciclata.
+      #
+      # Osservato su nanakokyobashi-rgb/frontaliere-articles#33, uno snapshot di
+      # sessione morta aperto come draft per rimandare una decisione: il
+      # contenitore sbagliato ha reso la decisione invisibile invece che
+      # rimandata, e ci e' voluto un umano che ci inciampasse. Qui lo stesso buco
+      # era aperto, senza nessun caso vivo che lo rivelasse.
+      #
+      # Solo label + commento: una draft parcheggiata puo' essere WIP vero, e
+      # chiuderla d'ufficio sarebbe l'errore opposto e peggiore.
+      # GITHUB_TOKEN basta (label + comment); nessun PAT, nessun Claude.
+      - name: Flag parked draft PRs (zero-Claude)
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          # Stessa postura del recycle sopra: lo schedule agisce, il dispatch
+          # manuale resta dry-run per default.
+          PARKED_HOURS: '48'
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ github.event.inputs.dry_run }}" = "false" ]; then
+            node scripts/ci/parked-pr-detector.mjs
+          else
+            node scripts/ci/parked-pr-detector.mjs --dry-run
+          fi
+
+      # Visibilita' needs-human: due sorgenti convergono su questa label — il
+      # 🔴-fixer al round-cap, che etichetta e STOPPA (by-design), e lo step
+      # qui sopra per le draft parcheggiate. In entrambi i casi NESSUN processo
+      # rilancia o segnala quelle PR — restano ferme finche' l'owner non guarda
+      # a mano la PR list (osservato #1526: 102h di latenza). Issue dedup
+      # giornaliera (titolo stabile, si aggiorna via recurrence-comment) finche'
+      # esistono PR needs-human aperte.
       - name: Surface needs-human PRs (dedup, zero-Claude)
         if: always()
         continue-on-error: true
@@ -199,7 +238,7 @@ jobs:
           fi
           COUNT=$(printf '%s\n' "$LIST" | wc -l | tr -d ' ')
           echo "PR needs-human aperte: $COUNT"
-          DESC=$(printf 'Il fixer dei red-flag ha raggiunto il round-cap su queste PR e si e fermato (anti-loop): nessun processo automatico le sblocchera. Servono occhi umani:\n\n%s\n\n_Issue dedup giornaliera da recycle-stale-prs.yml (zero-Claude); si aggiorna con un commento di recurrence finche esistono PR needs-human. Chiudila quando la lista e vuota._' "$LIST")
+          DESC=$(printf 'Nessun processo automatico sblocchera queste PR: o il fixer dei red-flag ha raggiunto il round-cap e si e fermato (anti-loop), o sono draft parcheggiate, che ogni strato del ciclo salta by-design. Servono occhi umani:\n\n%s\n\n_Issue dedup giornaliera da recycle-stale-prs.yml (zero-Claude); si aggiorna con un commento di recurrence finche esistono PR needs-human. Chiudila quando la lista e vuota._' "$LIST")
           node scripts/lib/github-issue-creator.mjs \
             --title "needs-human: PR bloccate in attesa di revisione umana" \
             --description "$DESC" \
