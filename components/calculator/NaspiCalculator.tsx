@@ -7,10 +7,16 @@ import { CHART_DATA_COLORS } from '@/hooks/useChartColors';
 import ChartWrapper from '@/components/shared/ChartWrapper';
 import { lazyRetry } from '@/services/lazyRetry';
 import { calculateNaspi } from '@/services/calculationService';
+import { DEFAULT_EXCHANGE_RATE } from '@/constants';
 
 const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
 
-const FALLBACK_EXCHANGE_RATE = 0.95;
+// Guards the single tick in which `useExchangeRate()` could hand back a falsy
+// rate. It was the literal `0.95` — the EUR→CHF reciprocal under a CHF→EUR name
+// (#5388), while `calculateNaspi()` converts by MULTIPLYING
+// (`grossMonthlyCHF * exchangeRate`, calculationService.ts:438). Same shared
+// constant as the service's own default, so the two can no longer drift apart.
+const FALLBACK_EXCHANGE_RATE = DEFAULT_EXCHANGE_RATE;
 
 export default function NaspiCalculator() {
  const { t } = useTranslation();

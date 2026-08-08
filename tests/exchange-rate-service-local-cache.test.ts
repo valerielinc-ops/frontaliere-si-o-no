@@ -101,7 +101,11 @@ describe('fetchExchangeRate — in-flight promise dedup', () => {
     // Without dedup each would issue its own Firestore read before memoryRate is set.
     const mod = await import(MODULE);
     const [r1, r2] = await Promise.all([mod.fetchExchangeRate(), mod.fetchExchangeRate()]);
-    // Both callers get the same rate (IS_TEST_ENV → DEFAULT_RATE 0.94)
+    // Both callers get the same rate (IS_TEST_ENV short-circuits every source,
+    // so both land on DEFAULT_RATE). The assertion is about the dedup, not about
+    // which number DEFAULT_RATE holds — that is owned by
+    // tests/exchange-rate-fallback-direction.test.tsx, which is why this stayed
+    // green when #5388 corrected DEFAULT_RATE from 0.94 to the CHF→EUR value.
     expect(r1).toBe(r2);
     expect(typeof r1).toBe('number');
     // Dedup: only ONE Firestore read despite two concurrent calls
