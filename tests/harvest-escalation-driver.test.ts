@@ -73,6 +73,22 @@ describe('isEscalationDriver — rate-limited non può driveare un\'escalation (
     expect(isEscalationDriver('fix-outcome', 'fix-outcome:rate-limited')).toBe(false);
   });
 
+  it('fix-outcome:skip-duplicate-diagnosis → mai driver (#5288: il guard che funziona non è una regola violata)', () => {
+    // Emesso SOLO dal Mode 2 di check-workflows-scope.mjs: una issue con titolo
+    // identico a una già diagnosticata viene short-circuitata PRIMA di spendere un
+    // turno Claude. Prima condivideva il marker con `blocked-workflows-scope`, e la
+    // conflazione era perversa: più il guard è efficace, più alza il bucket la cui
+    // ricorrenza fa scattare l'escalation su quel bucket.
+    expect(isEscalationDriver('fix-outcome', 'skip-duplicate-diagnosis')).toBe(false);
+    expect(isEscalationDriver('fix-outcome', 'fix-outcome:skip-duplicate-diagnosis')).toBe(false);
+  });
+
+  it('la separazione NON tocca il codice originale: blocked-workflows-scope resta driver', () => {
+    // Il blocco vero (capability mancante in una run reale) è ancora segnale di burn
+    // ricorrente e deve poter scalare — è il caso che ha aperto #5288.
+    expect(isEscalationDriver('fix-outcome', 'blocked-workflows-scope')).toBe(true);
+  });
+
   it('resta contato come volume/context: la carve-out tocca solo l\'escalation, non il tally', () => {
     // `max-turns` è il contro-esempio vicino: anche lui è emesso da un post-step
     // deterministico, ma indica un budget di turni DAVVERO speso su questa issue

@@ -109,9 +109,17 @@ const AGEOUT_MAX_PER_RUN = Number(process.env.FOLLOWUP_AGEOUT_MAX_PER_RUN || 20)
 // `overlap-skip`/`pr-already-open` (transienti: la PR bloccante può mergiare →
 // ri-tentabile) e l'ASSENZA di marker (run crashata/max_turns davvero orfana →
 // rescue normale). `pr-created` non arriva qui: `hasFixPR` lo intercetta prima.
+// `skip-duplicate-diagnosis` (#5288): stesso verdetto fermo di
+// `blocked-workflows-scope`, da cui è stato separato solo per non far salire il
+// bucket dell'harvester quando il guard FUNZIONA (vedi check-workflows-scope.mjs,
+// "Two outcome codes, not one"). Deve restare qui: il Mode 2 che l'ha emesso è
+// deterministico sul titolo, quindi ri-accodare la issue riprodurrebbe identico
+// il verdetto bruciando tentativi. Ometterlo sarebbe una regressione silenziosa
+// introdotta dalla sola rinomina del codice.
 export const NON_RETRYABLE = new Set([
   'no-root-cause',
   'blocked-workflows-scope',
+  'skip-duplicate-diagnosis',
   'blocked-secrets',
   'blocked-admin-settings',
   'revenue-tracker-manual',
