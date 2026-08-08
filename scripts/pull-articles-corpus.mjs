@@ -273,10 +273,30 @@ try {
     process.exit(1);
   }
   // A shrink is the dangerous direction: this content feeds the site's own
-  // article lists, so losing entries here un-lists live articles.
+  // article lists, so losing entries here un-lists live articles. Nothing is
+  // written on either reading — the only question is which alarm to raise.
+  //
+  // Since the pin (#5298) this branch has a BENIGN cause it never had before,
+  // and it is the normal state rather than an edge case: the checkout is at the
+  // commit the API was BUILT from, which is by construction at or behind the
+  // corpus tip. Measured on the first real run of this code — the mirror at
+  // b8669256 with 15090 files, the published API still at c6897c28 with 15088.
+  // Nothing was truncated; the sitemaps simply have not caught up with a corpus
+  // this repo already committed. Refusing there would have put the sync in the
+  // red for hours over a condition the next publish clears on its own.
+  //
+  // The dangerous reading is not dismissed, it is REROUTED. An upstream that
+  // genuinely lost articles at this commit cannot resolve itself, so it skips
+  // again and again and the workflow's escalation opens an issue on the third.
+  // What changes is the alarm's shape and latency, never whether a shrunken
+  // corpus can reach packages/articles/content/ — it cannot, on either path.
   if (dstN > 0 && srcN < dstN) {
-    console.error(`[pull-articles-corpus] upstream has FEWER files than local (${srcN} < ${dstN}) — refusing; investigate before syncing`);
-    process.exit(1);
+    skipSync(
+      `the published API is built from ${TARGET.slice(0, 8)}, whose corpus carries ${srcN} files, ` +
+      `while packages/articles/content/ already holds ${dstN}. Either the API has not caught up ` +
+      'with the corpus committed here, or upstream truncated at that commit — neither is ' +
+      'something to mirror. If this keeps repeating it is the second one.',
+    );
   }
 
   const delta = srcN - dstN;

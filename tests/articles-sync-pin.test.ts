@@ -109,8 +109,16 @@ describe('pinVerdict: which runs are allowed to write', () => {
 // 2. The corpus pull, run for real against a throwaway remote
 // ─────────────────────────────────────────────────────────────────────────────
 
-/** A tiny corpus repo with two commits, so "tip" and "the API's commit" differ. */
-function makeCorpusRemote(): { url: string; dir: string; head: string; older: string } {
+/**
+ * A tiny corpus repo with two commits, so "tip" and "the API's commit" differ.
+ *
+ * `extraFiles` pads it past MIN_BODY_FILES for the one test that has to get past
+ * the absolute floor; every other test wants the cheap version, so padding is
+ * opt-in rather than the default.
+ */
+function makeCorpusRemote(
+  { extraFiles = 0 }: { extraFiles?: number } = {},
+): { url: string; dir: string; head: string; older: string } {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'corpus-remote-'));
   const git = (...args: string[]) =>
     execFileSync('git', ['-C', dir, ...args], { encoding: 'utf-8' }).trim();
@@ -127,6 +135,9 @@ function makeCorpusRemote(): { url: string; dir: string; head: string; older: st
 
   fs.mkdirSync(path.join(dir, 'content'));
   fs.writeFileSync(path.join(dir, 'content', 'marker.txt'), 'older\n');
+  for (let i = 0; i < extraFiles; i++) {
+    fs.writeFileSync(path.join(dir, 'content', `pad-${i}.txt`), 'x');
+  }
   git('add', '-A');
   git('commit', '--quiet', '-m', 'older');
   const older = git('rev-parse', 'HEAD');
@@ -267,6 +278,41 @@ describe('pull-articles-corpus: the corpus follows the published API, not the br
     expect(
       fs.readFileSync(path.join(site, 'packages/articles/content/sentinel.txt'), 'utf-8'),
     ).toBe('must survive a skipped sync\n');
+  });
+
+  /**
+   * The condition the pin MAKES normal, so it gets a real fixture rather than a
+   * note. Pinning means checking out a commit that is at or behind the corpus
+   * tip, so a sync landing while the API catches up legitimately sees fewer
+   * files than the tree this repo already committed. That used to be `refusing`
+   * — measured on the first real run of the pinned code: mirror at b8669256 with
+   * 15090 files, published API still at c6897c28 with 15088, and the sync would
+   * have sat red for hours over something the next publish clears.
+   *
+   * The fixture pays MIN_BODY_FILES (5000) because the absolute floor is checked
+   * first and must stay a hard refusal: under the pin no genuine corpus commit is
+   * that small, so a tree below it means a broken clone, not a lagging producer.
+   */
+  it('SKIPS rather than refuses when the pinned commit is behind the corpus already committed here', async () => {
+    const remote = makeCorpusRemote({ extraFiles: 5000 });
+    const site = makeSiteCheckout();
+    cleanup.push(remote.dir, site);
+    // One more file than the pinned tree carries: the shape of a site whose
+    // registry came from a later publish than the one the API is serving.
+    const dest = path.join(site, 'packages', 'articles', 'content');
+    for (let i = 0; i < 5002; i++) fs.writeFileSync(path.join(dest, `f${i}.txt`), 'x');
+    manifestBody = manifest(remote.head);
+
+    const { code, out } = await runScript(CORPUS_SCRIPT, site, {
+      ARTICLES_API_BASE: apiBase,
+      ARTICLES_CORPUS_REMOTE: remote.url,
+    });
+
+    expect(code).toBe(0);
+    expect(out).toContain('::warning::[pull-articles-corpus] sync skipped');
+    expect(out).toContain('has not caught up');
+    // Still not a mirror: a shrunken corpus reaches the checkout on neither path.
+    expect(fs.existsSync(path.join(dest, 'sentinel.txt'))).toBe(true);
   });
 
   it('SKIPS when the manifest carries no usable commit — there is nothing to pin to', async () => {
