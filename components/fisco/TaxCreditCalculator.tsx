@@ -17,17 +17,10 @@ import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { unlockAchievement } from '@/services/gamificationService';
 import { useExchangeRate } from '@/services/exchangeRateService';
-import { getTicinoTaxRate, adjustRateForChildren, calculateLombardiaRegionale, calculateProgressiveWorkDeduction, calculateProportionalTaxCredit } from '@/services/calculationService';
+import { getTicinoTaxRate, adjustRateForChildren, calculateLombardiaRegionale, calculateProgressiveWorkDeduction, calculateProportionalTaxCredit, calculateIrpefGross, NEW_FRONTIER_WITHIN_20KM_CH_SHARE } from '@/services/calculationService';
 import { DEFAULT_TECH_PARAMS, FRANCHIGIA_NUOVI_FRONTALIERI } from '@/constants';
 
 // ─── Constants ───────────────────────────────────────────────
-
-// 2026 IRPEF brackets
-const IRPEF_BRACKETS = [
- { upTo: 28000, rate: 0.23 },
- { upTo: 50000, rate: 0.35 },
- { upTo: Infinity, rate: 0.43 },
-];
 
 const ADDIZIONALE_COMUNALE_RATE = 0.008; // Common average
 
@@ -130,7 +123,7 @@ const TaxCreditCalculator: React.FC = () => {
  // actual CH withholding, not the full un-reduced rate.
  const { rate: baseRate, tableCode } = getTicinoTaxRate(grossSalaryCHF, maritalStatus, children, spouseWorks);
  const effectiveSwissRate = adjustRateForChildren(baseRate, tableCode, children);
- const chTaxShare = withinTwentyKm ? 0.8 : 1.0;
+ const chTaxShare = withinTwentyKm ? NEW_FRONTIER_WITHIN_20KM_CH_SHARE : 1.0;
  const swissTaxCHF = grossSalaryCHF * effectiveSwissRate * chTaxShare;
  const paidSourceTaxCHF = swissTaxCHF;
 
@@ -146,15 +139,7 @@ const TaxCreditCalculator: React.FC = () => {
  const totalIncome = taxableInItaly + otherItalianIncome;
 
  // Calculate IRPEF on total income
- let irpef = 0;
- let prevLimit = 0;
- for (const bracket of IRPEF_BRACKETS) {
- const bracketWidth = bracket.upTo === Infinity ? Infinity : bracket.upTo - prevLimit;
- const taxableInBracket = Math.min(Math.max(0, totalIncome - prevLimit), bracketWidth);
- irpef += taxableInBracket * bracket.rate;
- prevLimit = bracket.upTo === Infinity ? prevLimit : bracket.upTo;
- if (totalIncome <= bracket.upTo) break;
- }
+ const irpef = calculateIrpefGross(totalIncome);
 
  // Progressive work deduction per Art. 13 TUIR
  const progressiveWorkDeduction = calculateProgressiveWorkDeduction(totalIncome);

@@ -6,7 +6,7 @@ import { lazyRetry } from '@/services/lazyRetry';
 
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import type { UserProfileData } from '@/components/pages/UserProfile';
-import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit } from '@/services/calculationService';
+import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit, calculateIrpefGross } from '@/services/calculationService';
 import { FRANCHIGIA_NUOVI_FRONTALIERI } from '@/constants';
 
 // Swiss bonus types for frontalieri
@@ -35,18 +35,7 @@ const IRPEF_BRACKETS = [
 ];
 
 /** Calculate progressive IRPEF tax (not just marginal rate) */
-const calculateIrpefTax = (taxableIncome: number): number => {
- if (taxableIncome <= 0) return 0;
- let tax = 0;
- let prev = 0;
- for (const bracket of IRPEF_BRACKETS) {
- const slice = Math.min(taxableIncome, bracket.upTo) - prev;
- if (slice <= 0) break;
- tax += slice * bracket.rate;
- prev = bracket.upTo;
- }
- return tax;
-};
+const calculateIrpefTax = (taxableIncome: number): number => calculateIrpefGross(taxableIncome);
 
 const calculateIrpefMarginalRate = (annualIncome: number): number => {
  for (const bracket of IRPEF_BRACKETS) {
