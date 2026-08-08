@@ -11,8 +11,14 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-08T09:52:38.977Z",
+  "updatedAt": "2026-08-08T21:38:29.683Z",
   "seedMetaByUrl": {
+    "https://www.pemsa.ch/it/job/cameriera-ai-tavoli-2686195/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-08"
+    },
     "https://www.pemsa.ch/it/job/installatore-di-impianti-solari-m-f-d-2686146/": {
       "location": "Basel",
       "canton": "BS",
