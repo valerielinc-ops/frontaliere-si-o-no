@@ -9459,6 +9459,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro.title': 'Maccagno con Pino e Veddasca : avantages et inconvénients',
     'blog.article.trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro.excerpt': 'Le nouvel accord frontalier de 2020 a ouvert de nouvelles possibilités pour les frontaliers qui souhaitent s\'installer à Maccagno avec Pino et Veddasca. Mais quels sont les avantages et les inconvénients de ce transfert ?',
     'blog.article.trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro.imageAlt': 'Une vue de la ville de Maccagno con Pino e Veddasca, en Italie',
+    'blog.article.vivere-brusimpiano-lavorare-ticino-frontaliere.title': 'Vivre à Brusimpiano et travailler au Tessin : liens et coûts',
+    'blog.article.vivere-brusimpiano-lavorare-ticino-frontaliere.excerpt': 'Découvrez comment vivre à Brusimpiano et travailler au Tessin en tant que frontalier : connexions, temps de trajet, coût de la vie et zones recommandées',
+    'blog.article.vivere-brusimpiano-lavorare-ticino-frontaliere.imageAlt': 'Panorama de Brusimpiano et Ticino',
 };
 
 export default blogMetaFr;
