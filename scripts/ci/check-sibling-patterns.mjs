@@ -46,7 +46,12 @@
  *      gemelli tracked in CODE_DIRS — non solo quelli che condividono un
  *      token col diff — cercando la STESSA forma. Stesso principio
  *      "candidato ≠ verdetto" dei pass precedenti: un match è un invito a
- *      ispezionare, non una diagnosi.
+ *      ispezionare, non una diagnosi. Escalation #5426 (il bucket ricorso
+ *      ancora ×6 in 14gg dopo round 2, serie PR #5423/#5419/#5405/#5390/
+ *      #5378): terza classe registrata, `persist-time-country-stamp` — uno
+ *      script di crawling forgia `addressCountry = 'CH'` su un record job
+ *      prima di persisterlo, stessa evidenza distrutta reimplementata con
+ *      identificatori diversi in ogni sibling, nessun token condiviso.
  *
  * Uso:
  *   node scripts/ci/check-sibling-patterns.mjs            # advisory, exit 0
@@ -388,6 +393,47 @@ export function detectCloseBundleOrdering(text) {
 }
 
 /**
+ * "persist-time-country-stamp" (worked example: issue #5403/#5384, PR series
+ * #5423/#5419/#5405/#5390/#5378 — five review rounds across five PRs before
+ * this converged, which is what triggered escalation #5426). A crawler/
+ * pipeline script forges `addressCountry = 'CH'` onto a job record BEFORE it
+ * is persisted to the indexed dataset, destroying the "field not declared by
+ * the source" vs "field declared CH" distinction that downstream consumers
+ * (`services/seoService.ts`, `components/community/JobBoard.tsx`,
+ * `build-plugins/jobsSeoPagesPlugin.ts`) rely on via a safe read-time
+ * fallback (`job.addressCountry || 'CH'`). The token/verbatim passes above
+ * missed every sibling in that series because each script re-implements the
+ * stamp with its own object identifier and no shared helper/constant to
+ * grep for — reviewers noted explicitly in PR #5405/#5390 that
+ * `check-sibling-patterns.mjs --strict` did not flag the sibling.
+ *
+ * Heuristic: an assignment `<expr>.addressCountry = 'CH'` (unconditional OR
+ * inside an `if (!<expr>.addressCountry)` guard — both forms were flagged;
+ * the guard does not change the textual assignment substring) in a file
+ * that also persists JSON to disk (`writeJson(`, `writeJsonAtomic(`, or
+ * `writeFileSync(` — the call that turns an in-memory stamp into forged
+ * evidence on `data/jobs.json`/`public/data/jobs.json`). Literal `'CH'`
+ * only (not a generic literal-to-field regex): the established SAFE idiom
+ * at read-time consumption sites is always an expression fallback
+ * (`||`/`??`), never an assignment back onto the field, so this shape does
+ * not fire there; restricting to the literal also avoids a verified false
+ * positive on `` `addressCountry="${addr.addressCountry}"` `` style error-
+ * message template strings in `validate-jobposting-schema.mjs`/
+ * `audit-dist-multi.mjs`, which are not assignments but read the same way
+ * to a naive `\.addressCountry\s*=` regex.
+ */
+export function detectPersistTimeCountryStamp(text) {
+  const findings = [];
+  if (!/\bwriteJson(?:Atomic)?\s*\(|\bwriteFileSync\s*\(/.test(text)) return findings;
+  const rx = /\b[\w.[\]'"]*\.addressCountry\s*=\s*(['"])CH\1/g;
+  let m;
+  while ((m = rx.exec(text)) !== null) {
+    findings.push({ index: m.index, snippet: m[0].trim() });
+  }
+  return findings;
+}
+
+/**
  * The registry itself: name + one-line description (surfaced to the user)
  * + a cheap `prefilter` (passed to `git grep -l` to shrink the file set
  * before the more expensive per-file `detect()` regex runs) + the detector.
@@ -408,6 +454,14 @@ export const PATTERN_CLASSES = [
     prefilter: 'closeBundle\\s*[:(]',
     prefilterFlags: '-lE',
     detect: detectCloseBundleOrdering,
+  },
+  {
+    name: 'persist-time-country-stamp',
+    description:
+      "addressCountry forgiato a 'CH' prima di un writeJson/writeFileSync, stessa evidenza distrutta della serie #5403/#5384 (escalation #5426)",
+    prefilter: '\\.addressCountry\\s*=',
+    prefilterFlags: '-lE',
+    detect: detectPersistTimeCountryStamp,
   },
 ];
 
