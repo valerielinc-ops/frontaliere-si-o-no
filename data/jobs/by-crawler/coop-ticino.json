@@ -979,7 +979,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "directeur-general-coop-genossenschaft-st-gallen",
           "geschaftsfuhrer-in-import-parfumerie-st-gallen-sankt-gallen",
           "geschaftsfuhrer-in-coop-genossenschaft-st-gallen-vguxb6",
           "amministratore-delegato-coop-genossenschaft-sankt-moritz",
@@ -998,7 +997,8 @@
           "directeur-general-coop-genossenschaft-sankt-moritz-onj02s",
           "amministratore-delegato-coop-genossenschaft-st-gallen",
           "amministratore-delegato-coop-genossenschaft-st-gallen-sankt-gallen",
-          "geschaftsfuhrer-in-coop-genossenschaft-st-gallen-sankt-gallen-bmvuru"
+          "geschaftsfuhrer-in-coop-genossenschaft-st-gallen-sankt-gallen-bmvuru",
+          "geschaftsfuhrer-in-coop-genossenschaft-st-gallen-sankt-gallen"
         ],
         "en": [
           "geschaftsfuhrer-in-coop-genossenschaft-st-gallen-sankt-gallen-bmvuru",
@@ -1167,7 +1167,7 @@
       "slugByLocale": {
         "it": "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-sk8304",
         "en": "polydesigner-3d-m-w-d-coop-city-schaffhausen-sk8304",
-        "de": "poly-3d-designer-m-w-d-coop-city-schaffhausen-sk8304",
+        "de": "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-sk8304",
         "fr": "polydesigner-3d-m-w-d-coop-city-schaffhausen-sk8304"
       },
       "requirementsByLocale": {
@@ -1208,7 +1208,9 @@
         "de": [
           "poly-3d-designer-w-m-d-coop-genossenschaft-schaffhausen",
           "polydesigner-3d-m-w-d-coop-city-schaffhausen-d9t3yx",
-          "polydesigner-3d-m-w-d-coop-city-schaffhausen-sk8304"
+          "polydesigner-3d-m-w-d-coop-city-schaffhausen-sk8304",
+          "poly-3d-designer-m-w-d-coop-city-schaffhausen-sk8304",
+          "poly-3d-designer-m-w-d-coop-genossenschaft-schaffhausen-sk8304"
         ],
         "fr": [
           "polydesigner-3d-w-m-d-coop-genossenschaft-schaffhausen"
@@ -1223,7 +1225,9 @@
         "polydesigner-3d-w-m-d-coop-genossenschaft-schaffhausen",
         "polydesigner-3d-m-w-d-coop-city-schaffhausen",
         "disegnatore-di-poli-3d-w-m-d-coop-genossenschaft-schaffhausen",
-        "polydesigner-3d-m-w-d-coop-city-schaffhausen-sk8304"
+        "polydesigner-3d-m-w-d-coop-city-schaffhausen-sk8304",
+        "poly-3d-designer-m-w-d-coop-city-schaffhausen-sk8304",
+        "poly-3d-designer-m-w-d-coop-genossenschaft-schaffhausen-sk8304"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -1820,15 +1824,37 @@
           "stv-gruppenleiter-in-produktion-panofina-coop-genossenschaft-schafisheim-aargau-mstpxv",
           "stv-gruppenleiter-in-produktion-panofina-coop-genossenschaft-schafisheim-aargau",
           "deputy-group-leader-production-panofina-coop-genossenschaft-schafisheim-w1h09l",
-          "stv-gruppo-leader-in-produzione-panofina-coop-genossenschaft-schafisheim-aargau"
+          "stv-gruppo-leader-in-produzione-panofina-coop-genossenschaft-schafisheim-aargau",
+          "leader-del-gruppo-in-turno-notturno-di-produzione-panofina-coop-genossenschaft-schafisheim",
+          "gruppenleiter-in-produktion-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau",
+          "chef-de-groupe-en-production-de-nuit-panofina-coop-genossenschaft-schafisheim-aargau",
+          "group-leader-in-production-night-shift-panofina-coop-genossenschaft-schafisheim-aargau",
+          "group-leader-production-night-shift-panofina-coop-genossenschaft-schafisheim",
+          "gruppenleiter-in-produktion-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau-bina86",
+          "leader-del-gruppo-in-turno-notturno-di-produzione-panofina-coop-genossenschaft-schafisheim-aargau",
+          "stv-gruppo-leader-in-produzione-south-night-shift-panofina-coop-genossenschaft-schafisheim",
+          "stv-gruppenleiter-in-produktion-sud-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau",
+          "stv-gruppenleiter-in-produktion-sud-nachtschicht-panofina-coop-genossenschaft-schafisheim",
+          "stv-chef-de-groupe-dans-la-production-south-night-sheet-panofina-coop-genossenschaft-schafisheim-aargau",
+          "stv-group-leader-in-production-south-night-shift-panofina-coop-genossenschaft-schafisheim-aargau",
+          "stv-gruppenleiter-in-produktion-sud-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau-mpqq88",
+          "stv-gruppo-leader-in-produzione-south-night-shift-panofina-coop-genossenschaft-schafisheim-aargau"
         ],
         "en": [
           "stv-gruppenleiter-in-produktion-panofina-coop-genossenschaft-schafisheim-aargau-mstpxv",
-          "stv-group-leader-in-production-panofina-coop-genossenschaft-schafisheim-aargau"
+          "stv-group-leader-in-production-panofina-coop-genossenschaft-schafisheim-aargau",
+          "group-leader-in-production-night-shift-panofina-coop-genossenschaft-schafisheim",
+          "stv-group-leader-in-production-south-night-shift-panofina-coop-genossenschaft-schafisheim"
         ],
         "fr": [
           "stv-gruppenleiter-in-produktion-panofina-coop-genossenschaft-schafisheim-aargau-mstpxv",
-          "chef-de-groupe-stv-en-production-panofina-coop-genossenschaft-schafisheim-aargau"
+          "chef-de-groupe-stv-en-production-panofina-coop-genossenschaft-schafisheim-aargau",
+          "chef-de-groupe-en-production-de-nuit-panofina-coop-genossenschaft-schafisheim",
+          "stv-chef-de-groupe-dans-la-production-south-night-sheet-panofina-coop-genossenschaft-schafisheim"
+        ],
+        "de": [
+          "gruppenleiter-in-produktion-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau-2nv1t9",
+          "stv-gruppenleiter-in-produktion-sud-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau-e1qohj"
         ]
       },
       "previousSlugs": [
@@ -1837,7 +1863,27 @@
         "deputy-group-leader-production-panofina-coop-genossenschaft-schafisheim-w1h09l",
         "stv-gruppo-leader-in-produzione-panofina-coop-genossenschaft-schafisheim-aargau",
         "stv-group-leader-in-production-panofina-coop-genossenschaft-schafisheim-aargau",
-        "chef-de-groupe-stv-en-production-panofina-coop-genossenschaft-schafisheim-aargau"
+        "chef-de-groupe-stv-en-production-panofina-coop-genossenschaft-schafisheim-aargau",
+        "leader-del-gruppo-in-turno-notturno-di-produzione-panofina-coop-genossenschaft-schafisheim",
+        "gruppenleiter-in-produktion-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau",
+        "chef-de-groupe-en-production-de-nuit-panofina-coop-genossenschaft-schafisheim-aargau",
+        "group-leader-in-production-night-shift-panofina-coop-genossenschaft-schafisheim-aargau",
+        "group-leader-production-night-shift-panofina-coop-genossenschaft-schafisheim",
+        "gruppenleiter-in-produktion-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau-bina86",
+        "leader-del-gruppo-in-turno-notturno-di-produzione-panofina-coop-genossenschaft-schafisheim-aargau",
+        "stv-gruppo-leader-in-produzione-south-night-shift-panofina-coop-genossenschaft-schafisheim",
+        "stv-gruppenleiter-in-produktion-sud-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau",
+        "stv-gruppenleiter-in-produktion-sud-nachtschicht-panofina-coop-genossenschaft-schafisheim",
+        "stv-chef-de-groupe-dans-la-production-south-night-sheet-panofina-coop-genossenschaft-schafisheim-aargau",
+        "stv-group-leader-in-production-south-night-shift-panofina-coop-genossenschaft-schafisheim-aargau",
+        "stv-gruppenleiter-in-produktion-sud-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau-mpqq88",
+        "stv-gruppo-leader-in-produzione-south-night-shift-panofina-coop-genossenschaft-schafisheim-aargau",
+        "group-leader-in-production-night-shift-panofina-coop-genossenschaft-schafisheim",
+        "stv-group-leader-in-production-south-night-shift-panofina-coop-genossenschaft-schafisheim",
+        "gruppenleiter-in-produktion-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau-2nv1t9",
+        "stv-gruppenleiter-in-produktion-sud-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau-e1qohj",
+        "chef-de-groupe-en-production-de-nuit-panofina-coop-genossenschaft-schafisheim",
+        "stv-chef-de-groupe-dans-la-production-south-night-sheet-panofina-coop-genossenschaft-schafisheim"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -13697,7 +13743,7 @@
       "slugByLocale": {
         "it": "polydesigner-in-3d-coop-genossenschaft-zurich-qqky5j",
         "en": "polydesigner-in-3d-coop-city-zurich-qqky5j",
-        "de": "polydesigner-in-3d-coop-city-zurich-qqky5j",
+        "de": "polydesigner-in-3d-coop-genossenschaft-zurich-qqky5j",
         "fr": "polydesigner-in-3d-coop-city-zurich-qqky5j"
       },
       "addressLocality": "Zürich",
@@ -13722,12 +13768,16 @@
       },
       "previousSlugs": [
         "polydesigner-in-3d-coop-genossenschaft-zurich",
-        "polydesigner-in-3d-coop-city-zurich"
+        "polydesigner-in-3d-coop-city-zurich",
+        "polydesigner-in-3d-coop-city-zurich-qqky5j"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polydesigner-in-3d-coop-genossenschaft-zurich",
           "polydesigner-in-3d-coop-city-zurich"
+        ],
+        "de": [
+          "polydesigner-in-3d-coop-city-zurich-qqky5j"
         ]
       },
       "salaryMin": 73500,
@@ -30566,7 +30616,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf",
           "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf",
           "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-k19qk9",
           "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern",
@@ -30585,7 +30634,8 @@
           "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen-wcrg0k",
           "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-oberburen-sankt-gallen-rbvodh",
           "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-kvfpg7",
-          "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-kvfpg7"
+          "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-kvfpg7",
+          "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-swiss-household-services-ag-burgdorf-bern-kvfpg7"
         ],
         "en": [
           "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-k19qk9",
@@ -133878,7 +133928,16 @@
         "venditore-in-fiori-chiosco-coop-genossenschaft-belp-bern",
         "venditore-in-fiori-chiosco-coop-genossenschaft-belp",
         "seller-in-flowers-kiosk-coop-genossenschaft-belp",
-        "vendeur-en-fleurs-kiosque-coop-genossenschaft-belp"
+        "vendeur-en-fleurs-kiosque-coop-genossenschaft-belp",
+        "venditore-in-fiori-chiosco-coop-genossenschaft-kussnacht",
+        "verkaufer-in-blumen-kiosk-coop-genossenschaft-kussnacht-schwyz",
+        "seller-in-flowers-kiosk-coop-genossenschaft-kussnacht-schwyz",
+        "vendeur-en-fleurs-kiosque-coop-genossenschaft-kussnacht-schwyz",
+        "verkaufer-in-blumen-kiosk-coop-kussnacht-schwyz",
+        "venditore-in-fiori-chiosco-coop-genossenschaft-kussnacht-schwyz",
+        "seller-in-flowers-kiosk-coop-genossenschaft-kussnacht",
+        "verkaufer-in-blumen-kiosk-coop-genossenschaft-kussnacht-schwyz-15707t",
+        "vendeur-en-fleurs-kiosque-coop-genossenschaft-kussnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -133886,15 +133945,26 @@
           "verkaufer-in-blumen-kiosk-coop-genossenschaft-belp-bern-9iij1t",
           "verkaufer-in-blumen-kiosk-coop-belp-bern",
           "venditore-in-fiori-chiosco-coop-genossenschaft-belp-bern",
-          "venditore-in-fiori-chiosco-coop-genossenschaft-belp"
+          "venditore-in-fiori-chiosco-coop-genossenschaft-belp",
+          "venditore-in-fiori-chiosco-coop-genossenschaft-kussnacht",
+          "verkaufer-in-blumen-kiosk-coop-genossenschaft-kussnacht-schwyz",
+          "seller-in-flowers-kiosk-coop-genossenschaft-kussnacht-schwyz",
+          "vendeur-en-fleurs-kiosque-coop-genossenschaft-kussnacht-schwyz",
+          "verkaufer-in-blumen-kiosk-coop-kussnacht-schwyz",
+          "venditore-in-fiori-chiosco-coop-genossenschaft-kussnacht-schwyz"
         ],
         "en": [
           "verkaufer-in-blumen-kiosk-coop-genossenschaft-belp-bern-9iij1t",
-          "seller-in-flowers-kiosk-coop-genossenschaft-belp"
+          "seller-in-flowers-kiosk-coop-genossenschaft-belp",
+          "seller-in-flowers-kiosk-coop-genossenschaft-kussnacht"
         ],
         "fr": [
           "verkaufer-in-blumen-kiosk-coop-genossenschaft-belp-bern-9iij1t",
-          "vendeur-en-fleurs-kiosque-coop-genossenschaft-belp"
+          "vendeur-en-fleurs-kiosque-coop-genossenschaft-belp",
+          "vendeur-en-fleurs-kiosque-coop-genossenschaft-kussnacht"
+        ],
+        "de": [
+          "verkaufer-in-blumen-kiosk-coop-genossenschaft-kussnacht-schwyz-15707t"
         ]
       },
       "salaryMin": 68500,
@@ -163503,7 +163573,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "salesperson-kitchen-bathroom-designer-fust-swiss-household-services-ag-rapperswil-jona-0dssn4",
           "vendeur-vendeuse-concepteur-conceptrice-cuisines-salles-de-bain-fust-swiss-household-services-ag-rapperswil-jona-0dssn4",
           "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel",
           "salesperson-planner-kitchens-bathrooms-fust-swiss-household-services-ag-rapperswil-jona",
@@ -163522,7 +163591,8 @@
           "verkaufer-in-planer-in-kuchen-bader-fust-biel-bern-1lfysx",
           "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel-1lfysx",
           "verkaufer-in-planer-in-kuchen-bader-fust-biel-bern-3jp5mc",
-          "venditore-venditrice-progettista-cucine-bagni-fust-swiss-household-services-ag-rapperswil-jona"
+          "venditore-venditrice-progettista-cucine-bagni-fust-swiss-household-services-ag-rapperswil-jona",
+          "verkaufer-in-planer-in-kuchen-bader-fust-rapperswil-jona-sankt-gallen-0dssn4"
         ],
         "en": [
           "verkaufer-in-planer-in-kuchen-bader-fust-biel-bern-04zafu",

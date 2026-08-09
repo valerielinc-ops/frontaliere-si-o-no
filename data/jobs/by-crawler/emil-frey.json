@@ -1,6 +1,6 @@
 {
   "crawlerKey": "emil-frey",
-  "assembledAt": "2026-08-09T10:09:03.559Z",
+  "assembledAt": "2026-08-09T08:33:15.422Z",
   "jobs": [
     {
       "id": "emil-frey-fb0355e2b6bc",
@@ -4021,7 +4021,11 @@
         "automobile-salesperson-emil-frey-safenwil",
         "automobilverkaufer-in-emil-frey-safenwil",
         "vendeur-vendeuse-de-voitures-emil-frey-safenwil",
-        "carrozzeriepengler-in-emil-frey-safenwil"
+        "carrozzeriepengler-in-emil-frey-safenwil",
+        "carrozzere-lackiere-emil-frey-safenwil",
+        "body-painter-body-painter-emil-frey-safenwil",
+        "carrosserielackierer-in-emil-frey-safenwil",
+        "peintre-en-corps-peintre-en-corps-emil-frey-safenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4034,20 +4038,23 @@
           "automobile-salesperson-emil-frey-safenwil",
           "automobilverkaufer-in-emil-frey-safenwil",
           "vendeur-vendeuse-de-voitures-emil-frey-safenwil",
-          "carrozzeriepengler-in-emil-frey-safenwil"
+          "carrozzeriepengler-in-emil-frey-safenwil",
+          "carrozzere-lackiere-emil-frey-safenwil"
         ],
         "en": [
-          "project-manager-emil-frey-safenwil"
+          "project-manager-emil-frey-safenwil",
+          "body-painter-body-painter-emil-frey-safenwil"
         ],
         "de": [
-          "projektleiter-in-emil-frey-safenwil"
+          "projektleiter-in-emil-frey-safenwil",
+          "carrosserielackierer-in-emil-frey-safenwil"
         ],
         "fr": [
-          "gestionnaire-de-projet-emil-frey-safenwil"
+          "gestionnaire-de-projet-emil-frey-safenwil",
+          "peintre-en-corps-peintre-en-corps-emil-frey-safenwil"
         ]
       },
       "firstSeenAt": "2026-08-05T22:22:45.152Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4059,7 +4066,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "emil-frey-10a902d2053d",

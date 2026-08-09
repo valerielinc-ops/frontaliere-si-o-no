@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-08-09T10:05:35.685Z",
+  "assembledAt": "2026-08-09T09:17:57.622Z",
   "jobs": [
     {
       "id": "unispital-basel-7e895057a061",
@@ -1337,7 +1337,12 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-2ficdk",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-4f1zbs",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-y80ezo",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
+        "dipl-infermieristica-hf-fh-ematologia-universitatsspital-basel-basel",
+        "dipl-nursing-specialist-hf-fh-universitatsspital-basel-basel",
+        "dipl-nursing-specialist-hf-fh-hematology-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-hamatologie-unispital-basel-ch",
+        "dipl-specialiste-des-soins-infirmiers-hf-fh-hematologie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1353,24 +1358,28 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-2ficdk",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-4f1zbs",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-y80ezo",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
+          "dipl-infermieristica-hf-fh-ematologia-universitatsspital-basel-basel",
+          "dipl-nursing-specialist-hf-fh-universitatsspital-basel-basel"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-3",
           "dipl-nursing-specialist-hf-fh-acute-medicine-universitatsspital-basel-basel",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-4"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-4",
+          "dipl-nursing-specialist-hf-fh-hematology-universitatsspital-basel-basel"
         ],
         "de": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-hamatologie-unispital-basel-ch"
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
-          "dipl-specialiste-des-soins-infirmiers-hf-fh-medecine-aigue-universitatsspital-basel-basel"
+          "dipl-specialiste-des-soins-infirmiers-hf-fh-medecine-aigue-universitatsspital-basel-basel",
+          "dipl-specialiste-des-soins-infirmiers-hf-fh-hematologie-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-06-23T12:50:42.330Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1382,7 +1391,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-f3124a02d29e",

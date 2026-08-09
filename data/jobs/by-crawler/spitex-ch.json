@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spitex-ch",
-  "assembledAt": "2026-08-09T10:32:22.442Z",
+  "assembledAt": "2026-08-09T09:12:10.947Z",
   "jobs": [
     {
       "id": "spitex-ch-dbf21aed97e6",
@@ -133,13 +133,27 @@
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-fage-40-100-spitex-ch-arbon",
         "sante-professionnelle-fage-40-a-100-spitex-region-arbon-arbon",
-        "salute-professionale-fage-40-100-spitex-region-arbon-arbon"
+        "salute-professionale-fage-40-100-spitex-region-arbon-arbon",
+        "professionista-della-salute-fage-servizio-serale-40-70-spitex-muttenz-ag-muttenz",
+        "health-professional-fage-evening-service-40-70-spitex-muttenz-ag-muttenz",
+        "fachfrau-fachmann-gesundheit-fage-abenddienst-40-70-spitex-ch-muttenz",
+        "professionnel-de-la-sante-fage-service-de-soiree-40-70-spitex-muttenz-ag-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-fage-40-100-spitex-ch-arbon",
           "sante-professionnelle-fage-40-a-100-spitex-region-arbon-arbon",
-          "salute-professionale-fage-40-100-spitex-region-arbon-arbon"
+          "salute-professionale-fage-40-100-spitex-region-arbon-arbon",
+          "professionista-della-salute-fage-servizio-serale-40-70-spitex-muttenz-ag-muttenz"
+        ],
+        "en": [
+          "health-professional-fage-evening-service-40-70-spitex-muttenz-ag-muttenz"
+        ],
+        "de": [
+          "fachfrau-fachmann-gesundheit-fage-abenddienst-40-70-spitex-ch-muttenz"
+        ],
+        "fr": [
+          "professionnel-de-la-sante-fage-service-de-soiree-40-70-spitex-muttenz-ag-muttenz"
         ]
       },
       "firstSeenAt": "2026-07-22T11:20:53.023Z",
