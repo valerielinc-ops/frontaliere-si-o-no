@@ -686,6 +686,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'secondo-pilastro-lpp-guida-completa-svizzera': { it: 'secondo-pilastro-lpp-guida-completa-svizzera', en: 'second-pillar-lpp-complete-guide-switzerland', de: 'zweite-saeule-lpp-umfassende-anleitung-schweiz', fr: 'deuxieme-pilier-lpp-guide-complete-suisse' },
  'a2-ancora-al-collasso': { it: 'a2-ancora-al-collasso', en: 'a2-still-blocked', de: 'a2-noch-im-stau', fr: 'a2-encore-bloque' },
  'permessi-di-soggiorno-svizzera-tipologie-b-c-l': { it: 'permessi-di-soggiorno-svizzera-tipologie-b-c-l', en: 'swiss-residence-permits', de: 'schweizer-wohnerlaubnisse', fr: 'permis-de-sejour-suisse' },
+ 'aprire-attivita-svizzera-guida-pratica': { it: 'aprire-attivita-svizzera-guida-pratica', en: 'opening-business-switzerland', de: 'geschaeft-in-schweiz-eroffnen', fr: 'ouvrir-entreprise-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

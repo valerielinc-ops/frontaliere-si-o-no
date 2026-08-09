@@ -1981,6 +1981,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permessi-di-soggiorno-svizzera-tipologie-b-c-l.title': 'Permessi di soggiorno in Svizzera: differenze tra permesso B, C e L',
     'blog.article.permessi-di-soggiorno-svizzera-tipologie-b-c-l.excerpt': 'Le differenze tra i permessi di soggiorno B, C e L in Svizzera',
     'blog.article.permessi-di-soggiorno-svizzera-tipologie-b-c-l.imageAlt': 'Scena di una persona che riceve un permesso di soggiorno in Svizzera',
+    'blog.article.aprire-attivita-svizzera-guida-pratica.title': 'Aprire un\'attività in Svizzera: cosa serve',
+    'blog.article.aprire-attivita-svizzera-guida-pratica.excerpt': 'La procedura di apertura di un\'attività in Svizzera può variare a seconda del settore e delle esigenze dell\'attività.',
+    'blog.article.aprire-attivita-svizzera-guida-pratica.imageAlt': 'Guida pratica per aprire un\'attività in Svizzera.',
 };
 
 export default blogMetaChIt;
