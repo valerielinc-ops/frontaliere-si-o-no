@@ -134,6 +134,33 @@ function firstDiffLines(a, b, context = 3) {
   return '(no line-level diff found — byte-length or trailing-whitespace only)';
 }
 
+// Locates the first diverging character (not byte — see below) and returns
+// ~contextChars of surrounding text from both sides. Complements
+// firstDiffLines(): that one is per-LINE, which is unreadable when the first
+// divergence sits inside one very long minified/attribute-heavy line;
+// this one pinpoints the exact offset regardless of line length. Character
+// offset, not a true UTF-8 byte offset: slicing a JS string by character
+// index can never land mid-codepoint, so the printed context is always valid
+// text — a byte offset would need re-deriving the char boundary anyway to be
+// printable, at the cost of correctness for any non-ASCII content.
+function firstDiffOffsetContext(a, b, contextChars = 200) {
+  const max = Math.min(a.length, b.length);
+  let offset = -1;
+  for (let i = 0; i < max; i++) {
+    if (a[i] !== b[i]) { offset = i; break; }
+  }
+  if (offset === -1) {
+    if (a.length === b.length) return null; // identical
+    offset = max; // one is a strict prefix of the other
+  }
+  const start = Math.max(0, offset - contextChars);
+  return {
+    offset,
+    fast: a.slice(start, offset + contextChars),
+    live: b.slice(start, offset + contextChars),
+  };
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const scratchDir = fs.mkdtempSync(path.join(os.tmpdir(), 'byte-identity-'));
@@ -192,6 +219,12 @@ async function main() {
       } else {
         anyMismatch = true;
         console.error(`[byte-identity] ${shard.locale}: MISMATCH — fast=${a.length}B live=${b.length}B — ${shard.url}`);
+        const offsetCtx = firstDiffOffsetContext(a, b);
+        if (offsetCtx) {
+          console.error(`  first diff at char offset ${offsetCtx.offset}`);
+          console.error(`    fast : ...${offsetCtx.fast}...`);
+          console.error(`    live : ...${offsetCtx.live}...`);
+        }
         console.error(firstDiffLines(a, b));
       }
     }
