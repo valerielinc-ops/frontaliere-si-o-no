@@ -519,7 +519,14 @@ function renderHubPage(opts: {
     })
     .join('');
 
-  const newest = members.reduce((acc, a) => (a.date > acc ? a.date : acc), '');
+  // Truncated to the DATE before the max: the registry mixes `YYYY-MM-DD`
+  // with full ISO timestamps, and a lexicographic max over raw strings
+  // prefers the timestamp over the date for the same day (see the
+  // `newestInSection` computation below, same bug fixed there for the index).
+  const newest = members.reduce(
+    (acc, a) => (a.date.slice(0, 10) > acc ? a.date.slice(0, 10) : acc),
+    '',
+  );
   const tiles = renderStatGrid([
     { label: c.tileArticles, value: String(members.length), tone: 'accent' },
     { label: c.tileTopics, value: String(eligible.size) },
