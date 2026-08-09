@@ -1978,6 +1978,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.a2-ancora-al-collasso.title': 'Ticino not held hostage by traffic',
     'blog.article.a2-ancora-al-collasso.excerpt': 'The A2 highway was closed for hours after a serious accident in Mezzovico, generating a domino effect that paralyzed the Sottoceneri.',
     'blog.article.a2-ancora-al-collasso.imageAlt': 'Frontalieri blocked on A2 at Mezzovico. Realistic DSLR photo.',
+    'blog.article.permessi-di-soggiorno-svizzera-tipologie-b-c-l.title': 'Residence permits in Switzerland: differences between permit B, C and L',
+    'blog.article.permessi-di-soggiorno-svizzera-tipologie-b-c-l.excerpt': 'The differences between residence permits B, C and L in Switzerland',
+    'blog.article.permessi-di-soggiorno-svizzera-tipologie-b-c-l.imageAlt': 'Scene of a person receiving a Swiss residence permit',
 };
 
 export default blogMetaChEn;

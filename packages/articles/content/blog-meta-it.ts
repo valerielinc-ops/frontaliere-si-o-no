@@ -9449,6 +9449,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.title': 'Camerieri frontaliere: stipendio, requisiti e riconoscimento titolo',
     'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.excerpt': 'Il nuovo Accordo Frontalieri prevede un aumento dello stipendio medio dei camerieri frontalieri in Ticino. I requisiti per ottenere il permesso G sono stati modificati.',
     'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.imageAlt': 'Un cameriere in un ristorante a Lugano.',
+    'blog.article.bideau-locarno-film-festival.title': 'Jean-luc bideau omaggiato al Locarno film festival',
+    'blog.article.bideau-locarno-film-festival.excerpt': 'L\'attore Jean-Luc Bideau, premiato al festival, presenta la pellicola \'Ah que le bonheur est proche\' nella cornice ticinese.',
+    'blog.article.bideau-locarno-film-festival.imageAlt': 'Atmosfera notturna al Locarno Film Festival in Piazza Grande.',
 };
 
 export default blogMetaIt;

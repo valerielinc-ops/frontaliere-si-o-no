@@ -1978,6 +1978,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.a2-ancora-al-collasso.title': 'Tessin non pris en otage par le trafic',
     'blog.article.a2-ancora-al-collasso.excerpt': 'L\'autoroute A2 a été fermée pendant des heures après un grave accident dans le Mezzovico, générant un effet domino qui a paralysé le Sottoceneri.',
     'blog.article.a2-ancora-al-collasso.imageAlt': 'Frontaliers bloqués sur l\'A2 à Mezzovico. Photo réalistique DSLR.',
+    'blog.article.permessi-di-soggiorno-svizzera-tipologie-b-c-l.title': 'Permis de séjour en Suisse : différences entre permis B, C et L',
+    'blog.article.permessi-di-soggiorno-svizzera-tipologie-b-c-l.excerpt': 'Les différences entre les titres de séjour B, C et L en Suisse',
+    'blog.article.permessi-di-soggiorno-svizzera-tipologie-b-c-l.imageAlt': 'Scène d\'une personne qui reçoit un permis de séjour en Suisse',
 };
 
 export default blogMetaChFr;

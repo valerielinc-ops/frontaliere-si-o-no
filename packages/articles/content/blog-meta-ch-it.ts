@@ -1978,6 +1978,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.a2-ancora-al-collasso.title': 'Ticino non ostaggio del traffico',
     'blog.article.a2-ancora-al-collasso.excerpt': 'L\'autostrada A2 è stata chiusa per ore dopo un grave incidente a Mezzovico, generando un effetto domino che ha paralizzato il Sottoceneri.',
     'blog.article.a2-ancora-al-collasso.imageAlt': 'Frontalieri bloccati sulla A2 a Mezzovico. Foto realistica DSLR.',
+    'blog.article.permessi-di-soggiorno-svizzera-tipologie-b-c-l.title': 'Permessi di soggiorno in Svizzera: differenze tra permesso B, C e L',
+    'blog.article.permessi-di-soggiorno-svizzera-tipologie-b-c-l.excerpt': 'Le differenze tra i permessi di soggiorno B, C e L in Svizzera',
+    'blog.article.permessi-di-soggiorno-svizzera-tipologie-b-c-l.imageAlt': 'Scena di una persona che riceve un permesso di soggiorno in Svizzera',
 };
 
 export default blogMetaChIt;

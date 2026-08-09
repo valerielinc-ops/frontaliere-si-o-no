@@ -28362,6 +28362,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bideau-locarno-film-festival',
+ category: 'pratico',
+ date: '2026-08-09T19:50:11.125Z',
+ image: '/images/blog/bideau-locarno-film-festival.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

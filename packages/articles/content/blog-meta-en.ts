@@ -9448,6 +9448,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.title': 'Border waiters: salary, requirements and title recognition',
     'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.excerpt': 'The new Frontier Agreement provides for an increase in the average salary of border waiters in Ticino. The requirements for obtaining the G permit have been changed.',
     'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.imageAlt': 'A waiter in a restaurant in Lugano.',
+    'blog.article.bideau-locarno-film-festival.title': 'Jean-luc bideau honoured at the Locarno film festival',
+    'blog.article.bideau-locarno-film-festival.excerpt': 'Award-winning actor Jean-Luc Bideau presents the film \'Ah que le bonheur est proche\' in the Ticino setting.',
+    'blog.article.bideau-locarno-film-festival.imageAlt': 'Night atmosphere at the Locarno Film Festival in Piazza Grande.',
 };
 
 export default blogMetaEn;

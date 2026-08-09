@@ -9447,6 +9447,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.title': 'Grenzkellner: Gehalt, Anforderungen und Anerkennung des Titels',
     'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.excerpt': 'Die neue Frontalieri-Vereinbarung sieht eine Erhöhung des Durchschnittslohns der Grenzkellner im Tessin vor. Die Voraussetzungen für die Erteilung der G-Genehmigung wurden geändert.',
     'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.imageAlt': 'Ein Kellner in einem Restaurant in Lugano.',
+    'blog.article.bideau-locarno-film-festival.title': 'Jean-Luc Bideau ist eine Hommage an das Filmfestival Locarno',
+    'blog.article.bideau-locarno-film-festival.excerpt': 'Der auf dem Festival prämierte Schauspieler Jean-Luc Bideau präsentiert den Film \'Ah que le bonheur est proche\' im Tessiner Rahmen.',
+    'blog.article.bideau-locarno-film-festival.imageAlt': 'Nächtliche Atmosphäre beim Locarno Film Festival auf der Piazza Grande.',
 };
 
 export default blogMetaDe;
