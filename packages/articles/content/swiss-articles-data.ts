@@ -5968,6 +5968,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'imposta-cantonale-confronto-svizzera-2026-canton-vaud',
+    category: 'fiscale',
+    date: '2026-08-09T22:03:21.979Z',
+    image: '/images/blog/imposta-cantonale-confronto-svizzera-2026-canton-vaud.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'premi-cassa-malati-lamal-2026-canton-zurigo',
+    category: 'pratico',
+    date: '2026-08-09T22:21:25.639Z',
+    image: '/images/blog/premi-cassa-malati-lamal-2026-canton-zurigo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

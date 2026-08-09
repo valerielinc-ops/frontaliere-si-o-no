@@ -28389,6 +28389,24 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-brusimpiano-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-09T22:10:47.330Z',
+ image: '/images/blog/vivere-brusimpiano-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'vivere-saltrio-lavorare-ticino-frontalieri',
+ category: 'pratico',
+ date: '2026-08-09T22:28:41.498Z',
+ image: '/images/blog/vivere-saltrio-lavorare-ticino-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

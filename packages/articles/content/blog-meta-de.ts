@@ -9456,6 +9456,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro.title': 'Umzug nach Maccagno mit Pino und Veddasca als Grenzgänger: Vor- und Nachteile',
     'blog.article.trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro.excerpt': 'Das neue Grenzabkommen von 2020 hat neue Möglichkeiten für Grenzgänger eröffnet, die mit Pino und Veddasca nach Maccagno ziehen möchten. Aber was sind die Vor- und Nachteile dieses Transfers?',
     'blog.article.trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro.imageAlt': 'Eine Aussicht auf die Stadt Maccagno con Pino e Veddasca, in Italien',
+    'blog.article.vivere-brusimpiano-lavorare-ticino-frontaliere.title': 'Leben in Brusimpiano und Arbeiten im Tessin: Verbindungen und Kosten',
+    'blog.article.vivere-brusimpiano-lavorare-ticino-frontaliere.excerpt': 'Erfahren Sie, wie Sie als Grenzgänger in Brusimpiano leben und im Tessin arbeiten können: Verbindungen, Reisezeiten, Lebenshaltungskosten und empfohlene Gebiete',
+    'blog.article.vivere-brusimpiano-lavorare-ticino-frontaliere.imageAlt': 'Panorama von Brusimpiano und Ticino',
+    'blog.article.vivere-saltrio-lavorare-ticino-frontalieri.title': 'Wohnen in Saltrio und Arbeiten im Tessin als Grenzgänger: Was ändert sich?',
+    'blog.article.vivere-saltrio-lavorare-ticino-frontalieri.excerpt': 'Quellensteuer, neues Grenzgängerabkommen und Doppelbesteuerung: Was das für Grenzgänger im Tessin bedeutet',
+    'blog.article.vivere-saltrio-lavorare-ticino-frontalieri.imageAlt': 'Ein Frontalier auf der A2 Autobahn',
 };
 
 export default blogMetaDe;

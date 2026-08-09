@@ -1990,6 +1990,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.title': 'Swiss cantons: comparison of tax rates and optimisation strategies',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.excerpt': 'The canton of Geneva has decided to maintain the current rates for incomes below CHF 50,000.',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.imageAlt': 'A view of the city of Geneva with Lake Geneva in the foreground.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-vaud.title': 'Cantonal tax: comparison Switzerland 2026 - Canton Vaud',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-vaud.excerpt': 'The canton of Vaud has a cantonal tax rate of 10.5%.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-vaud.imageAlt': 'A view of Lugano with the lake in the foreground.',
+    'blog.article.premi-cassa-malati-lamal-2026-canton-zurigo.title': 'LAMal health insurance premiums in the Canton of Zurich for 2026',
+    'blog.article.premi-cassa-malati-lamal-2026-canton-zurigo.excerpt': 'LAMal health insurance premiums in the Canton of Zurich for 2026',
+    'blog.article.premi-cassa-malati-lamal-2026-canton-zurigo.imageAlt': 'Image of a Swiss lake with a sailing boat',
 };
 
 export default blogMetaChEn;

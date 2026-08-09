@@ -1990,6 +1990,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.title': 'Confronto aliquote imposta su Suisse',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.excerpt': 'Le canton de Genève a décidé de maintenir les taux actuels pour les revenus inférieurs à CHF 50 000.',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.imageAlt': 'Une vue de la ville de Genève avec le lac Léman en arrière-plan.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-vaud.title': 'Impôt cantonal : comparaison Suisse 2026 - Canton de Vaud',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-vaud.excerpt': 'Le canton de Vaud a un taux d\'imposition cantonal de 10,5 %.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-vaud.imageAlt': 'Une vue de Lugano avec le lac en arrière-plan.',
+    'blog.article.premi-cassa-malati-lamal-2026-canton-zurigo.title': 'Les primes caisse-maladie LAMal dans le canton de Zurich pour 2026',
+    'blog.article.premi-cassa-malati-lamal-2026-canton-zurigo.excerpt': 'Les primes de l\'assurance-maladie LAMal dans le canton de Zurich pour 2026',
+    'blog.article.premi-cassa-malati-lamal-2026-canton-zurigo.imageAlt': 'Image d\'un lac suisse avec un bateau à voile',
 };
 
 export default blogMetaChFr;

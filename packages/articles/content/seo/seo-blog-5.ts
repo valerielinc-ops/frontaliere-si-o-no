@@ -61691,6 +61691,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-brusimpiano-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Brusimpiano e lavorare in Ticino: collegamenti e costo',
+    description: 'Scopri come vivere a Brusimpiano e lavorare in Ticino da frontaliere: collegamenti, tempi di percorrenza, costo della vita e zone consigliate. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, brusimpiano, lavorare, collegamenti',
+    ogTitle: 'Vivere a Brusimpiano e lavorare in Ticino da frontaliere: collegamenti, tempi di percorrenza, costo della vita e zone consigliate',
+    ogDescription: 'Scopri come vivere a Brusimpiano e lavorare in Ticino da frontaliere: collegamenti, tempi di percorrenza, costo della vita e zone consigliate',
+    canonicalPath: '/articoli-frontaliere/vivere-brusimpiano-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Brusimpiano e lavorare in Ticino: collegamenti e costo",
+      "description": "Scopri come vivere a Brusimpiano e lavorare in Ticino da frontaliere: collegamenti, tempi di percorrenza, costo della vita e zone consigliate. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-brusimpiano-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Brusimpiano e Ticino"
+      },
+      "datePublished": "2026-08-09T22:10:47+00:00",
+      "dateModified": "2026-08-09T22:10:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-brusimpiano-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-saltrio-lavorare-ticino-frontalieri': {
+    title: 'Vivere a Saltrio e lavorare in Ticino da frontaliere: cosa cambia?',
+    description: 'Impostata alla fonte, nuovo accordo frontalieri e doppia imposizione: cosa significa per i frontalieri del Ticino. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, saltrio, lavorare, cosa',
+    ogTitle: 'Vivere a Saltrio e lavorare in Ticino da frontaliere: cosa cambia?',
+    ogDescription: 'Impostata alla fonte, nuovo accordo frontalieri e doppia imposizione: cosa significa per i frontalieri del Ticino',
+    canonicalPath: '/articoli-frontaliere/vivere-saltrio-lavorare-ticino-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Saltrio e lavorare in Ticino da frontaliere: cosa cambia?",
+      "description": "Impostata alla fonte, nuovo accordo frontalieri e doppia imposizione: cosa significa per i frontalieri del Ticino. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-saltrio-lavorare-ticino-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in auto sulla autostrada A2"
+      },
+      "datePublished": "2026-08-09T22:28:41+00:00",
+      "dateModified": "2026-08-09T22:28:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-saltrio-lavorare-ticino-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

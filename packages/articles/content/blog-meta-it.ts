@@ -9458,6 +9458,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Maccagno con Pino e Veddasca da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro.excerpt': 'Il nuovo accordo frontalieri del 2020 ha aperto nuove possibilità per i frontaliere che desiderano trasferirsi a Maccagno con Pino e Veddasca. Ma cosa sono i pro e i contro di questo trasferimento?',
     'blog.article.trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro.imageAlt': 'Una vista della città di Maccagno con Pino e Veddasca, in Italia',
+    'blog.article.vivere-brusimpiano-lavorare-ticino-frontaliere.title': 'Vivere a Brusimpiano e lavorare in Ticino: collegamenti e costo',
+    'blog.article.vivere-brusimpiano-lavorare-ticino-frontaliere.excerpt': 'Scopri come vivere a Brusimpiano e lavorare in Ticino da frontaliere: collegamenti, tempi di percorrenza, costo della vita e zone consigliate',
+    'blog.article.vivere-brusimpiano-lavorare-ticino-frontaliere.imageAlt': 'Panorama di Brusimpiano e Ticino',
+    'blog.article.vivere-saltrio-lavorare-ticino-frontalieri.title': 'Vivere a Saltrio e lavorare in Ticino da frontaliere: cosa cambia?',
+    'blog.article.vivere-saltrio-lavorare-ticino-frontalieri.excerpt': 'Impostata alla fonte, nuovo accordo frontalieri e doppia imposizione: cosa significa per i frontalieri del Ticino',
+    'blog.article.vivere-saltrio-lavorare-ticino-frontalieri.imageAlt': 'Un frontaliere in auto sulla autostrada A2',
 };
 
 export default blogMetaIt;
