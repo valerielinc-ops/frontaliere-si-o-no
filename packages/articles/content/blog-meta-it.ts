@@ -9452,6 +9452,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bideau-locarno-film-festival.title': 'Jean-luc bideau omaggiato al Locarno film festival',
     'blog.article.bideau-locarno-film-festival.excerpt': 'L\'attore Jean-Luc Bideau, premiato al festival, presenta la pellicola \'Ah que le bonheur est proche\' nella cornice ticinese.',
     'blog.article.bideau-locarno-film-festival.imageAlt': 'Atmosfera notturna al Locarno Film Festival in Piazza Grande.',
+    'blog.article.vivere-trasquera-lavorare-ticino.title': 'Vivere a Trasquera e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-trasquera-lavorare-ticino.excerpt': 'Guida pratica per i frontalieri: imposte, nuovo accordo fiscale e gestione del reddito tra Italia e Canton Ticino.',
+    'blog.article.vivere-trasquera-lavorare-ticino.imageAlt': 'Paesaggio alpino al confine tra Italia e Svizzera',
 };
 
 export default blogMetaIt;

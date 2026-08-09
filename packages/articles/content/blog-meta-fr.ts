@@ -9453,6 +9453,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bideau-locarno-film-festival.title': 'Jean-luc bideau honoré au festival du film de Locarno',
     'blog.article.bideau-locarno-film-festival.excerpt': 'L\'acteur Jean-Luc Bideau, primé au festival, présente le film « Ah que le bonheur est proche » dans le cadre tessinois.',
     'blog.article.bideau-locarno-film-festival.imageAlt': 'Ambiance nocturne au Locarno Film Festival sur la Piazza Grande.',
+    'blog.article.vivere-trasquera-lavorare-ticino.title': 'Vivre à Trasquera et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-trasquera-lavorare-ticino.excerpt': 'Guide pratique pour les frontaliers : impôts, nouvel accord fiscal et gestion des revenus entre l\'Italie et le canton du Tessin.',
+    'blog.article.vivere-trasquera-lavorare-ticino.imageAlt': 'Paysage alpin à la frontière entre la Suisse et l\'Italie',
 };
 
 export default blogMetaFr;
