@@ -9379,6 +9379,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.castasegna-vecchia-dogana-in-vendita.title': 'Castasegna: the old customs house for sale worries Bregaglia',
     'blog.article.castasegna-vecchia-dogana-in-vendita.excerpt': 'The Confederation has put the old Castasegna customs house up for sale. The Municipality of Bregaglia activates with Chur to avoid the loss of federal presence.',
     'blog.article.castasegna-vecchia-dogana-in-vendita.imageAlt': 'Historic customs building of Castasegna in Val Bregaglia',
+    'blog.article.recensione-armony-analisi-critica.title': 'Review: the critical issues of the film Armony',
+    'blog.article.recensione-armony-analisi-critica.excerpt': 'Critical analysis of the cinematographic work presented at the festival, between a stellar cast and a narrative defined as consolatory and inauthentic.',
+    'blog.article.recensione-armony-analisi-critica.imageAlt': 'Locarno cinema during the festival',
 };
 
 export default blogMetaEn;

@@ -9381,6 +9381,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.castasegna-vecchia-dogana-in-vendita.title': 'Châtaigne : l\'ancienne douane en vente inquiète Bregaglia',
     'blog.article.castasegna-vecchia-dogana-in-vendita.excerpt': 'La Confédération a mis en vente l\'ancienne douane de Castasegna. La commune de Bregaglia s\'active avec Coire pour éviter la perte de la présence fédérale.',
     'blog.article.castasegna-vecchia-dogana-in-vendita.imageAlt': 'Bâtiment de l\'ancienne douane à Castasegna dans le Val Bregaglia',
+    'blog.article.recensione-armony-analisi-critica.title': 'Critique : les criticités du film Armony',
+    'blog.article.recensione-armony-analisi-critica.excerpt': 'Analyse critique de l\'œuvre cinématographique présentée au festival, entre casting stellaire et narration définie comme consolatrice et peu authentique.',
+    'blog.article.recensione-armony-analisi-critica.imageAlt': 'Cinéma de Locarno pendant le festival',
 };
 
 export default blogMetaFr;

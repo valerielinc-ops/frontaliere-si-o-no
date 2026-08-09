@@ -28155,6 +28155,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'recensione-armony-analisi-critica',
+ category: 'pratico',
+ date: '2026-08-09T02:29:33.055Z',
+ image: '/images/blog/recensione-armony-analisi-critica.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
