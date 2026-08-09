@@ -29,7 +29,7 @@ import {
 import { EVENTS_INDEX_PATH } from '../scripts/lib/events-utils.mjs';
 import { isExchangeSsgPath } from './exchangeRateSsgData';
 import { isFiscalMunicipalityPath } from './fiscalMunicipalityData';
-import { resolveTopicClusterHubCanonical } from './topicClusterHubsData';
+import { isTopicIndexPath, resolveTopicClusterHubCanonical } from './topicClusterHubsData';
 import { isFrenchBorderMunicipalityPath } from './frenchBorderMunicipalityData';
 import { isGermanBorderMunicipalityPath } from './germanBorderMunicipalityData';
 import { isLiechtensteinBorderMunicipalityPath } from './liechtensteinBorderMunicipalityData';
@@ -637,6 +637,27 @@ export function resolveSearchConsoleCompatTarget(
  locale,
  };
  }
+ }
+
+ // The bare topic INDEX one level above those hubs (issue #5436):
+ // `/{section}/{argomenti|topics|themen|sujets}/`, 8 URLs. Same self-map, and
+ // it needs one for a reason the hub branch does not have: this URL was a hard
+ // 404 for as long as the hub family existed, so unlike the hubs it is exactly
+ // the kind of path GSC has already captured as an error — from a crawler
+ // truncating a hub URL, or from the archive nav's own base path. Now that
+ // `renderTopicHubSectionCore` emits it on every render, the honest answer is
+ // itself.
+ //
+ // NOT folded into `resolveTopicClusterHubCanonical` above: that helper
+ // answers "which hub does this URL belong to", and the index belongs to none
+ // — mapping it onto a hub would hand a crawler a canonical that contradicts
+ // the page's own `<link rel="canonical">`. Same O(1) module-load Set.
+ if (isTopicIndexPath(path)) {
+ return {
+ canonicalPath: ensureTrailingSlash(path),
+ kind: 'legacy',
+ locale,
+ };
  }
 
  // Per-municipality FRANCE border pages (frenchBorderMunicipalityPagesPlugin.ts,
