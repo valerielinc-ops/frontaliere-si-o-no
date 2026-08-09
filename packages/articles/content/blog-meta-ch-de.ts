@@ -1957,6 +1957,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.title': 'Dritte Säule 3a: Vorteile und Steuerstrategien',
     'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.excerpt': 'Die dritte Säule 3a Schweiz bietet Steuer- und Vorsorgevorteile für Grenzgänger im Kanton Basel.',
     'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.imageAlt': 'max 125 caratteri',
+    'blog.article.terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.title': 'Dritte Säule 3a Schweiz: Vorteile und einmaliges Einzahlungssystem',
+    'blog.article.terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.excerpt': 'Das einmalige Einzahlungssystem der Schweizer 3. Säule bietet einmalige Steuer- und Einzahlungsvorteile für Schweizerinnen und Schweizer.',
+    'blog.article.terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.imageAlt': 'Eine Panoramablick auf den Luganersee mit der Stadt Lugano im Hintergrund. Ein Schweizer Grenzarbeiter beobachtet den See mit einem nachdenklichen Ausdruck.',
 };
 
 export default blogMetaChDe;

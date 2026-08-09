@@ -1957,6 +1957,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.title': 'Third pillar 3a: tax advantages and strategies',
     'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.excerpt': 'Switzerland\'s 3rd pillar offers tax and pension benefits for border workers in the canton of Basel.',
     'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.imageAlt': 'max 125 caratteri',
+    'blog.article.terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.title': 'Swiss Third Pillar 3a: Advantages and Single Deposit System',
+    'blog.article.terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.excerpt': 'The Swiss Third Pillar 3a single deposit system offers unique tax and deposit benefits for Swiss citizens.',
+    'blog.article.terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.imageAlt': 'A panoramic view of Lake Lugano with the city of Lugano in the background. A Swiss border worker is observing the lake with a thoughtful expression.',
 };
 
 export default blogMetaChEn;

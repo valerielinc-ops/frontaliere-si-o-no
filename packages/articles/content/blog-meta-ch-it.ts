@@ -1957,6 +1957,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.title': 'Terzo pilastro 3a: vantaggi e strategie fiscali',
     'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.excerpt': 'Il terzo pilastro 3a svizzero offre vantaggi fiscali e di previdenza per i frontalieri nel canton Basilea.',
     'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.imageAlt': 'max 125 caratteri',
+    'blog.article.terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.title': 'Terzo Pilastro 3a svizzero: vantaggi e sistema di versamento unico',
+    'blog.article.terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.excerpt': 'Il sistema di versamento unico del Terzo Pilastro 3a svizzero offre vantaggi fiscali e di versamento unici per i cittadini svizzeri.',
+    'blog.article.terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.imageAlt': 'Una vista panoramica del Lago di Lugano con la città di Lugano sullo sfondo. Un frontaliere svizzero sta osservando il lago con un\'espressione pensierosa.',
 };
 
 export default blogMetaChIt;
