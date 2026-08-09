@@ -28200,6 +28200,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'locarno-film-festival-frontaliere-ticino',
+ category: 'pratico',
+ date: '2026-08-09T08:32:36.266Z',
+ image: '/images/blog/locarno-film-festival-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

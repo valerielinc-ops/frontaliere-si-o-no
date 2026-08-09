@@ -9393,6 +9393,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.traffico-a2-bloccato.title': 'A2: ancora traffico e frustrazione',
     'blog.article.traffico-a2-bloccato.excerpt': 'Der Verkehr bleibt an einigen Stellen unterbrochen und mehrere Fahrer berichten, dass sie für drei bis vier Stunden gesperrt sind.',
     'blog.article.traffico-a2-bloccato.imageAlt': 'Ein Gruppe von Autofahrern in Verkehr auf der A2.',
+    'blog.article.locarno-film-festival-frontaliere-ticino.title': '‘Ich ist ein Anderer’, unterwegs mit Felix Kersten',
+    'blog.article.locarno-film-festival-frontaliere-ticino.excerpt': 'Felix Randaus Film über Felix Kersten',
+    'blog.article.locarno-film-festival-frontaliere-ticino.imageAlt': 'Bild des Locarno Film Festivals mit Tessiner Grenzgängern',
 };
 
 export default blogMetaDe;
