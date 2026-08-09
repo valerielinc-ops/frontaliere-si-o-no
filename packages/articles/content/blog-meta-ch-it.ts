@@ -1963,6 +1963,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.title': 'Vantaggi fiscali per i residenti a Lucerna',
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.excerpt': 'Il terzo pilastro 3a svizzero è un sistema di pensione complementare che offre vantaggi fiscali e di versamento per i residenti nel canton Lucerna.',
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.imageAlt': 'Una scena fotografata in Svizzera con un lago e monti in background.',
+    'blog.article.autostrada-riapertura-ticino.title': 'Davvero servono ore e ore per riaprire un\'autostrada?',
+    'blog.article.autostrada-riapertura-ticino.excerpt': 'I gran consiglieri leghisti chiedono chiarimenti al Consiglio di Stato dopo il caos sulla A2.',
+    'blog.article.autostrada-riapertura-ticino.imageAlt': 'Immagine di un tratto congestionato dell\'autostrada A2 in Ticino, Svizzera, con didascalia sul lungo atteso dei pendolari.',
 };
 
 export default blogMetaChIt;

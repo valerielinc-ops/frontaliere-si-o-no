@@ -1963,6 +1963,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.title': 'Avantages fiscaux pour les résidents de Lucerne',
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.excerpt': 'Le troisième pilier 3a suisse est un système de pension complémentaire qui offre des avantages fiscaux et de versement aux résidents du canton de Lucerne.',
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.imageAlt': 'Une scène photographiée en Suisse avec un lac et des montagnes en arrière-plan.',
+    'blog.article.autostrada-riapertura-ticino.title': 'Faut-il vraiment des heures et des heures pour rouvrir une autoroute ?',
+    'blog.article.autostrada-riapertura-ticino.excerpt': 'Les grands conseillers légistes demandent des éclaircissements au Conseil d\'État après le chaos sur l\'A2.',
+    'blog.article.autostrada-riapertura-ticino.imageAlt': 'Photo d\'un tronçon congestionné de l\'autoroute A2 en Tessin, Suisse, avec une légende sur les longues attentes des commutants.',
 };
 
 export default blogMetaChFr;
