@@ -9425,6 +9425,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-piastrellista-ticino-frontaliere.title': 'Lavorare come piastrellista in Ticino: guida per frontalieri',
     'blog.article.lavoro-piastrellista-ticino-frontaliere.excerpt': 'Requisiti, inquadramento salariale e fiscalità per i frontalieri che operano nel settore della posa piastrelle in Canton Ticino.',
     'blog.article.lavoro-piastrellista-ticino-frontaliere.imageAlt': 'Piastrellista al lavoro in un cantiere in Ticino',
+    'blog.article.autostrada-a2-mezzovico-interrogazione.title': 'A2 paralizzata per ore: interrogazione al Consiglio di Stato',
+    'blog.article.autostrada-a2-mezzovico-interrogazione.excerpt': 'Sei granconsiglieri leghisti interpellano il Governo dopo il sabato sera da incubo sulla A2 a Mezzovico con code fino a 13 chilometri.',
+    'blog.article.autostrada-a2-mezzovico-interrogazione.imageAlt': 'Code e traffico paralizzato sull autostrada A2 in Ticino',
 };
 
 export default blogMetaIt;

@@ -9423,6 +9423,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-piastrellista-ticino-frontaliere.title': 'Arbeiten als Fliesenleger im Tessin: Leitfaden für Grenzgänger',
     'blog.article.lavoro-piastrellista-ticino-frontaliere.excerpt': 'Anforderungen, Lohneinstufung und Besteuerung für Grenzgänger, die im Bereich der Fliesenverlegung im Kanton Tessin tätig sind.',
     'blog.article.lavoro-piastrellista-ticino-frontaliere.imageAlt': 'Fliesenleger bei der Arbeit auf einer Baustelle im Tessin',
+    'blog.article.autostrada-a2-mezzovico-interrogazione.title': 'A2 stundenlang gelähmt: Anfrage an den Staatsrat',
+    'blog.article.autostrada-a2-mezzovico-interrogazione.excerpt': 'Sechs Lega-Großräte befragen die Regierung nach dem alptraumhaften Samstagabend auf der A2 in Mezzovico mit Warteschlangen von bis zu 13 Kilometern.',
+    'blog.article.autostrada-a2-mezzovico-interrogazione.imageAlt': 'Stau und blockierte Autos auf der A2 Autobahn im Tessin',
 };
 
 export default blogMetaDe;

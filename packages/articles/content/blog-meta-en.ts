@@ -9424,6 +9424,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-piastrellista-ticino-frontaliere.title': 'Working as a tile maker in Ticino: a guide for border workers',
     'blog.article.lavoro-piastrellista-ticino-frontaliere.excerpt': 'Requirements, wage classification and taxation for border workers working in the tile laying sector in Canton Ticino.',
     'blog.article.lavoro-piastrellista-ticino-frontaliere.imageAlt': 'Tile setter working at a construction site in Ticino',
+    'blog.article.autostrada-a2-mezzovico-interrogazione.title': 'A2 paralyzed for hours: question to the Council of State',
+    'blog.article.autostrada-a2-mezzovico-interrogazione.excerpt': 'Six League grand councillors question the Government after Saturday night from a nightmare on the A2 in Mezzovico with queues up to 13 kilometers.',
+    'blog.article.autostrada-a2-mezzovico-interrogazione.imageAlt': 'Traffic congestion and blocked cars on the A2 motorway in Ticino',
 };
 
 export default blogMetaEn;
