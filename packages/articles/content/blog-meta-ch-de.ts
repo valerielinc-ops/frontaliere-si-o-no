@@ -1990,6 +1990,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.title': 'Schweizer Kantone: Steuersatzvergleich und Optimierungsstrategien',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.excerpt': 'Der Kanton Genf hat beschlossen, die aktuellen Steuersätze für Einkommen unter CHF 50 \'000 beizubehalten.',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.imageAlt': 'Ein Blick auf die Stadt Genf mit dem Genfersee im Vordergrund.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-vaud.title': 'Kantonssteuer: Vergleich Schweiz 2026 - Kanton Waadt',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-vaud.excerpt': 'Der Kanton Waadt hat einen kantonalen Steuersatz von 10,5%.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-vaud.imageAlt': 'Eine Aussicht auf Lugano mit dem See im Vordergrund.',
 };
 
 export default blogMetaChDe;

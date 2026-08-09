@@ -1990,6 +1990,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.title': 'Cantoni svizzeri: confronto aliquote imposta e strategie di ottimizzazione',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.excerpt': 'Il canton Ginevra ha deciso di mantenere le aliquote attuali per i redditi inferiori a CHF 50.000.',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.imageAlt': 'Una vista della città di Ginevra con il lago Lemano in primo piano.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-vaud.title': 'Imposta cantonale: confronto Svizzera 2026 - Cantone Vaud',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-vaud.excerpt': 'Il cantone Vaud ha un\'aliquota di imposta cantonale del 10,5%.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-vaud.imageAlt': 'Una vista di Lugano con il lago in primo piano.',
 };
 
 export default blogMetaChIt;
