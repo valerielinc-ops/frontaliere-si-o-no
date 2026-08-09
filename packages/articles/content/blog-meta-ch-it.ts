@@ -1984,6 +1984,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-svizzera-guida-pratica.title': 'Aprire un\'attività in Svizzera: cosa serve',
     'blog.article.aprire-attivita-svizzera-guida-pratica.excerpt': 'La procedura di apertura di un\'attività in Svizzera può variare a seconda del settore e delle esigenze dell\'attività.',
     'blog.article.aprire-attivita-svizzera-guida-pratica.imageAlt': 'Guida pratica per aprire un\'attività in Svizzera.',
+    'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.title': 'Abbonamenti trasporto pubblico in Svizzera: costi e vantaggi',
+    'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.excerpt': 'Scopri i dettagli sugli abbonamenti di trasporto pubblico in Svizzera, inclusi AG, mezza tariffa, abbonamenti cantonali e comunitari.',
+    'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.imageAlt': 'Persona che si dirige verso un treno in una stazione ferroviaria svizzera',
 };
 
 export default blogMetaChIt;

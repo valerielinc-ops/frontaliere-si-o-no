@@ -1984,6 +1984,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-svizzera-guida-pratica.title': 'Ein Geschäft in der Schweiz eröffnen: Was es braucht',
     'blog.article.aprire-attivita-svizzera-guida-pratica.excerpt': 'Das Verfahren zur Eröffnung eines Unternehmens in der Schweiz kann je nach Branche und Anforderungen des Unternehmens variieren.',
     'blog.article.aprire-attivita-svizzera-guida-pratica.imageAlt': 'Praktische Anleitung für die Eröffnung einer Geschäft in der Schweiz.',
+    'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.title': 'ÖPNV-Abos in der Schweiz: Kosten und Nutzen',
+    'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.excerpt': 'Erfahren Sie mehr über die ÖV-Abos in der Schweiz inklusive GA, Halbtax, Kantons- und Gemeindeabos.',
+    'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.imageAlt': 'Person, die sich einem Zug in einem Schweizer Bahnhof nähert',
 };
 
 export default blogMetaChDe;

@@ -5950,6 +5950,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'trasporti-pubblici-svizzera-abbonamenti-sconti',
+    category: 'pratico',
+    date: '2026-08-09T20:15:42.657Z',
+    image: '/images/blog/trasporti-pubblici-svizzera-abbonamenti-sconti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

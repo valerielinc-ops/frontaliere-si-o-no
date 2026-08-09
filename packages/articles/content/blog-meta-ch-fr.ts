@@ -1984,6 +1984,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-svizzera-guida-pratica.title': 'Ouvrir une entreprise en Suisse : ce qu\'il faut',
     'blog.article.aprire-attivita-svizzera-guida-pratica.excerpt': 'La procédure d\'ouverture d\'une entreprise en Suisse peut varier en fonction du secteur et des besoins de l\'entreprise.',
     'blog.article.aprire-attivita-svizzera-guida-pratica.imageAlt': 'Guide pratique pour ouvrir une entreprise en Suisse.',
+    'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.title': 'Abonnements transports publics en Suisse : coûts et avantages',
+    'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.excerpt': 'Découvrez les détails sur les abonnements aux transports publics en Suisse, y compris AG, demi-tarif, abonnements cantonaux et communautaires.',
+    'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.imageAlt': 'Personne qui se dirige vers un train dans une gare suisse',
 };
 
 export default blogMetaChFr;

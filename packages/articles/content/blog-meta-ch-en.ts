@@ -1984,6 +1984,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-svizzera-guida-pratica.title': 'Starting a business in Switzerland: what you need',
     'blog.article.aprire-attivita-svizzera-guida-pratica.excerpt': 'The procedure for opening a business in Switzerland may vary depending on the sector and the needs of the business.',
     'blog.article.aprire-attivita-svizzera-guida-pratica.imageAlt': 'Practical guide to opening a business in Switzerland.',
+    'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.title': 'Public transport passes in Switzerland: costs and benefits',
+    'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.excerpt': 'Find out details about public transport subscriptions in Switzerland, including AG, half fare, cantonal and community subscriptions.',
+    'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.imageAlt': 'Person walking towards a train in a Swiss railway station',
 };
 
 export default blogMetaChEn;
