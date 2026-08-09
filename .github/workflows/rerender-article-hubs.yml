@@ -64,27 +64,90 @@ on:
       # here verifiable rather than hopeful.
       - '.github/workflows/rerender-article-hubs.yml'
 
-  # 2. THE SAFETY NET, AND IT IS LOAD-BEARING — NOT REDUNDANT WITH (1).
+  # 2. THE CONTENT CHANGED. Hub pages are a function of the article corpus,
+  #    not only of the renderers, and new articles arrive ~15-25 times a day.
+  #    This repo's copy of the corpus is refreshed by
+  #    sync-articles-sitemaps.yml, which commits `packages/articles/content`
+  #    with a bare `actions/checkout@v5` and `git push origin` — i.e. with the
+  #    GITHUB_TOKEN extraheader — so that commit triggers NOTHING and no
+  #    `push:` filter on `packages/articles/content/**` could ever work
+  #    (GitHub's anti-recursion rule, the same lesson
+  #    mirror-articles-engine.yml:54-60 wrote down). Subscribing to the
+  #    WORKFLOW instead of to its commit sidesteps that rule entirely.
   #
-  #    A push made with the default GITHUB_TOKEN never triggers another
-  #    workflow (GitHub's anti-recursion rule). That is the same lesson
-  #    mirror-articles-engine.yml:54-60 wrote down, and here it bites in TWO
-  #    places, both verified in this repo rather than assumed:
+  #    WHY NOT the `repository_dispatch` nanako already sends, which would cost
+  #    nothing to adopt: `publish-api.yml` over there fires `articles-published`
+  #    at the END of its own run, in a race with sync-articles-sitemaps.yml —
+  #    the workflow that makes the corpus this render READS fresh. Rendering on
+  #    that event would read a corpus potentially one article behind and push
+  #    the resulting archive OVER the fresh one the fast path just wrote: a
+  #    silent un-publish of the very article that triggered it, and one the
+  #    driver's freshness guard cannot catch (it tolerates 25 articles of
+  #    slack, so a shortfall of one is invisible to it). Waiting for the sync
+  #    to COMPLETE is what makes the ordering correct — by then the content is
+  #    already committed. Full argument in issue #5442.
   #
-  #    (a) THE CODE PATH, sometimes. auto-merge-on-lgtm.yml merges with an App
-  #        token or the Remote Config PAT precisely so the merge push cascades
-  #        — but it falls back to GITHUB_TOKEN when neither credential is
-  #        available (its own step at :121 exists for that case and says so).
-  #        On that path the merge of a renderer change fires nothing.
+  #    THE PRECONDITION, VERIFIED RATHER THAN ASSUMED (issue #5442): does
+  #    `workflow_run` fire when the upstream run was itself started by
+  #    `repository_dispatch`? It matters because 56 of the sync's last 60 runs
+  #    were exactly that (4 were its cron), so a trigger that only saw the cron
+  #    runs would close nothing. GitHub's docs state no exclusion by upstream
+  #    event type, and every upstream event that IS observable in this repo
+  #    does fire its subscriber — measured 2026-08-09, run ids so this can be
+  #    re-checked rather than believed:
+  #      • upstream `workflow_dispatch` → deploy.yml 31304204121 finished
+  #        11:11:42Z; deploy-publish.yml 31310187420 was created 11:11:44Z and
+  #        notify-journalist-article-live.yml 31310187329 at 11:11:43Z.
+  #      • upstream `workflow_run` (a chained parent) → translate-pending.yml
+  #        31306896317, itself event=workflow_run, finished 12:12:16Z;
+  #        sync-gsc-orphans.yml 31312695092 was created 12:12:18Z.
+  #      • upstream `schedule` → orchestrate-crawlers.yml 31306533236 finished
+  #        09:50:58Z; translate-pending.yml 31306896317 created 09:51:00Z.
+  #    `repository_dispatch` is the one upstream event with no subscriber on
+  #    main to observe it, which is precisely the gap this trigger fills. If it
+  #    turns out NOT to fire, the cost is zero: the schedule below is unchanged
+  #    and still covers new articles. The symptom would be no `workflow_run`
+  #    rows in `gh run list --workflow=rerender-article-hubs.yml` after a day,
+  #    against ~22 sync runs — worth checking once after this lands.
   #
-  #    (b) THE CONTENT PATH, ALWAYS. Hub pages are a function of the article
-  #        corpus, not only of the code, and new articles arrive ~15-25 times a
-  #        day. This repo's copy of the corpus is refreshed by
-  #        sync-articles-sitemaps.yml, which commits `packages/articles/content`
-  #        with a bare `actions/checkout@v5` and `git push origin` — i.e. with
-  #        the GITHUB_TOKEN extraheader. So that commit triggers NOTHING, and
-  #        no `push:` filter on `packages/articles/content/**` could ever work.
-  #        The schedule is the only trigger that covers new articles at all.
+  #    `types: [completed]` fires on ANY conclusion, so the jobs below gate on
+  #    `conclusion == 'success'`. A FAILED sync leaves the corpus mid-update,
+  #    and re-rendering from it would publish an archive built from stale
+  #    content — which is the defect #5432 exists to fix, not to reproduce.
+  #
+  #    Volume is self-limiting, and deliberately so — this is NOT ~22 renders a
+  #    day racing each other. The `rerender` job's
+  #    `concurrency: hub-rerender-<section>` with `cancel-in-progress: false`
+  #    admits one run per section and GitHub cancels the older PENDING run when
+  #    a newer one queues, so a burst of syncs coalesces into a single render
+  #    that reads the newest corpus. Whatever is left over is cheap: an
+  #    unchanged tree makes push-article-shard-incremental.sh a clean no-op.
+  workflow_run:
+    workflows: ['Sync article sitemaps, feeds and ticker from the articles API']
+    types: [completed]
+    # Filters on the UPSTREAM run's head_branch. Verified `main` on real
+    # repository_dispatch runs (31310988216, 31308714118, 31306028306) — a
+    # dispatch always lands on the default branch — so this excludes nothing
+    # that matters and keeps a stray non-main run from rendering.
+    branches: [main]
+
+  # 3. THE SAFETY NET, AND IT IS LOAD-BEARING — NOT REDUNDANT WITH (1) OR (2).
+  #    It covers what each of them structurally cannot:
+  #
+  #    (a) THE CODE PATH, sometimes. A push made with the default GITHUB_TOKEN
+  #        never triggers another workflow. auto-merge-on-lgtm.yml merges with
+  #        an App token or the Remote Config PAT precisely so that the merge
+  #        push cascades — but it falls back to GITHUB_TOKEN when neither
+  #        credential is available (its own step at :121 exists for that case
+  #        and says so). On that path the merge of a renderer change fires
+  #        nothing and (1) never sees it.
+  #
+  #    (b) THE CONTENT PATH, whenever the sync does not run or does not
+  #        succeed. (2) reacts only to a SUCCESSFUL sync-articles-sitemaps.yml;
+  #        a sync that fails, or a corpus that moves without one, still needs a
+  #        periodic sweep. This is also the only trigger left standing if that
+  #        subscription turns out not to fire on a repository_dispatch-started
+  #        upstream run — see the precondition note in (2).
   #
   #    Cheap when there is nothing to do: an unchanged tree makes
   #    push-article-shard-incremental.sh a clean no-op — no commit, no GitHub
@@ -96,7 +159,7 @@ on:
   schedule:
     - cron: '47 */6 * * *'
 
-  # 3. THE OPERATOR. Defaults to DRY, like the corpus's fast-publish-article.yml:
+  # 4. THE OPERATOR. Defaults to DRY, like the corpus's fast-publish-article.yml:
   #    a manual poke must not be able to publish by accident. `dry_run: false`
   #    is the deliberate act.
   workflow_dispatch:
@@ -125,9 +188,24 @@ permissions:
 
 jobs:
   plan:
-    # Which sections run as separate matrix jobs. A push or a schedule always
-    # means both: the renderers are shared, so a change to them affects the two
-    # sections identically. A dispatch honours the operator's choice.
+    # THE CONCLUSION GATE for trigger (2). `types: [completed]` fires on every
+    # conclusion, so without this a FAILED sync-articles-sitemaps.yml run would
+    # start a render from a corpus left mid-update and push that stale archive
+    # over the fresh one — the exact failure #5432 exists to fix.
+    #
+    # The `github.event_name != 'workflow_run'` half is not decoration:
+    # `github.event.workflow_run` is null for push, schedule and
+    # workflow_dispatch, so the bare conclusion test would evaluate false on
+    # those and silently disable every OTHER trigger in this file. Same idiom,
+    # for the same reason, as generate-article.yml:148.
+    #
+    # Gating here rather than on `rerender` covers both jobs: `rerender` has
+    # `needs: plan`, so a skipped plan skips it too.
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    # Which sections run as separate matrix jobs. A push, a schedule or a
+    # completed sync always means both: the renderers and the corpus they read
+    # are shared, so either kind of change affects the two sections
+    # identically. A dispatch honours the operator's choice.
     runs-on: ubuntu-latest
     outputs:
       sections: ${{ steps.compute.outputs.sections }}
@@ -185,9 +263,11 @@ jobs:
       # DRY resolution, in one place, read by every later step.
       #
       # A dispatch defaults to dry (see the input's own default) so a manual
-      # poke cannot publish by accident; a push or a schedule publishes,
-      # because those are the two events that mean "the served pages are out of
-      # date" and a dry run of them would repair nothing.
+      # poke cannot publish by accident; a push, a schedule or a completed sync
+      # publishes, because those are the three events that mean "the served
+      # pages are out of date" and a dry run of them would repair nothing.
+      # workflow_run reaches the `else` branch below and is therefore ARMED,
+      # which is the whole point of subscribing to the sync.
       - name: Resolve mode
         id: mode
         env:
