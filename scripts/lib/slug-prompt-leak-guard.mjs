@@ -116,6 +116,88 @@ export const WHOLE_SLUG_LEAK_PATTERNS = Object.freeze([
 ]);
 
 /**
+ * ── THE HALF-OBEYED FAMILY: placeholder PREFIX + real content ────────────
+ *
+ * The rule above requires the whole value to be `slug-<one word>`, which is
+ * what the schema literally shows. It is not what the model actually returns
+ * half the time. Measured 2026-08-09 across all 19 035 published slug
+ * positions (id + 4 locales × 3 807 articles in `routerBlogData.ts` +
+ * `routerSwissData.ts`), TWELVE live slugs across four articles carry the
+ * placeholder welded onto genuine content and are invisible to every rule
+ * above:
+ *
+ *     slug-gaggiolo-traffic          slug-gaggiolo-verkehr
+ *     slug-traffico-da-record        slug-terzo-pilastro-3a-switzerland
+ *     slug-terzo-pilastro-3a-schweiz slug-terzo-pilastro-3a-suisse
+ *     slug-terzo-pilastro-3a-vantaggi-2026-basilea
+ *
+ * Read them and the failure is obvious: the model DID produce a real slug, it
+ * just kept the field label in front of it. `^slug[-_][a-z]{2,12}$` cannot see
+ * them (two or more segments after the prefix), and no ANYWHERE pattern can
+ * either — `gaggiolo-traffic` is not instruction vocabulary, it is the article.
+ *
+ * This is the same defect the `kebab-case-` family already has covered, and
+ * covered by accident: `casing-convention` matches `kebab-case` ANYWHERE, so
+ * `kebab-case-turismo-ticino` was caught while `slug-gaggiolo-traffic` sailed
+ * through. Two halves of one prompt line, one guarded and one not — which is
+ * exactly the shape of divergence `nanakokyobashi-rgb/frontaliere-articles#121`
+ * closed on the corpus side with a single shape-based classifier.
+ *
+ * ── Why a prefix rule is safe here ───────────────────────────────────────
+ *
+ * Because it was measured, not assumed. Run over the same 19 035 published
+ * slugs this rule flags 32 values and every one of them is a genuine
+ * placeholder; it flags ZERO of the other 19 003. `tests/article-slug-prompt-leak-guard.test.ts`
+ * re-runs that sweep on every CI run, so a future widening that starts eating
+ * real slugs fails the build instead of blocking publishing at 03:00.
+ *
+ * The asymmetry of the cost is what licenses the aggressiveness: a false
+ * positive costs a slightly different slug on an article that is not published
+ * yet, a false negative costs a permanent public URL that cannot be corrected
+ * afterwards without a redirect this repo has no mechanism for on article
+ * pages (`previousSlugs` is a job-board bridge in `build-plugins/jobsSeoPagesPlugin.ts`,
+ * not an article one).
+ */
+export const SCHEMA_PLACEHOLDER_PREFIX_RX = /^(?:slug|kebab[-_]?case)[-_]+/i;
+
+/**
+ * What survives the prefix, when the remainder is STILL schema hint rather
+ * than article content — the case where nothing is salvageable. `it|en|de|fr`
+ * covers `slug-en`; the language NAMES cover the variants a model invents from
+ * an Italian prompt (`slug-inglese`, `slug-tedesco`, `slug-francese`, which the
+ * prompt never contained — the model translated the placeholder's MEANING);
+ * the rest are the generic values models substitute when they have nothing to
+ * say. Overlaps WHOLE_SLUG_LEAKS on purpose: this one is applied to the
+ * REMAINDER, that one to the whole value.
+ */
+const UNSALVAGEABLE_REMAINDER_RX =
+  /^(?:it|en|de|fr|ita|eng|ger|deu|fra|italiano|inglese|tedesco|francese|italian|english|german|french|slug|placeholder|segnaposto|example|esempio|sample|test|todo|tbd|na|n-a|none|null|undefined|xxx|titolo|title|articolo|article)$/i;
+
+/**
+ * The remainder after stripping every schema prefix, or `''` when nothing
+ * usable survives. Exported so the pre-write repair and the audit agree on
+ * what "salvageable" means instead of each deciding for itself.
+ *
+ * @param {unknown} slug
+ * @returns {string}
+ */
+export function stripSchemaPlaceholderPrefix(slug) {
+  let value = String(slug ?? '').trim().toLowerCase();
+  if (!SCHEMA_PLACEHOLDER_PREFIX_RX.test(value)) return value;
+  // Strip repeatedly: `slug-kebab-case-x` and `slug-slug-en` both occur.
+  for (let i = 0; i < 4 && SCHEMA_PLACEHOLDER_PREFIX_RX.test(value); i += 1) {
+    value = value.replace(SCHEMA_PLACEHOLDER_PREFIX_RX, '');
+  }
+  // A one-segment remainder is a label, not a topic: `slug-en` → `en` is a
+  // worse URL than no URL, and the caller's fallback (title, then IT slug) is
+  // strictly better. Four characters is the shortest real slug segment
+  // observed in the registries.
+  if (value.length < 4) return '';
+  if (UNSALVAGEABLE_REMAINDER_RX.test(value)) return '';
+  return value;
+}
+
+/**
  * First prompt-instruction fragment found in `slug`, or `null` when clean.
  *
  * @param {unknown} slug
@@ -131,6 +213,11 @@ export function findSlugPromptLeak(slug) {
   for (const { name, re } of WHOLE_SLUG_LEAK_PATTERNS) {
     if (re.test(lower)) return { pattern: name, match: lower };
   }
+  // The half-obeyed family: the schema's field label kept in front of a real
+  // slug. Checked BEFORE the ANYWHERE patterns so the reported `match` is the
+  // prefix that actually leaked rather than a fragment further in.
+  const prefix = lower.match(SCHEMA_PLACEHOLDER_PREFIX_RX);
+  if (prefix) return { pattern: 'schema-placeholder-prefix', match: prefix[0] };
   for (const { name, re } of SLUG_PROMPT_LEAK_PATTERNS) {
     // The patterns are module-level and carry /g, so lastIndex must be reset:
     // a shared stateful regex would otherwise skip matches on every other call
@@ -168,6 +255,14 @@ export function stripSlugPromptLeak(slug) {
   // `de`, which is a worse URL than no URL.
   if (WHOLE_SLUG_LEAKS.has(value)) return '';
   if (WHOLE_SLUG_LEAK_PATTERNS.some(({ re }) => re.test(value))) return '';
+  // The half-obeyed family recovers, it does not die: `slug-gaggiolo-traffic`
+  // → `gaggiolo-traffic` is the slug the model actually chose to write, and it
+  // is a better URL than anything derived from the title. Returns '' when the
+  // remainder is itself a label, and the caller falls through to the title.
+  if (SCHEMA_PLACEHOLDER_PREFIX_RX.test(value)) {
+    value = stripSchemaPlaceholderPrefix(value);
+    if (!value) return '';
+  }
   for (const { re } of SLUG_PROMPT_LEAK_PATTERNS) {
     re.lastIndex = 0;
     value = value.replace(re, '-');
