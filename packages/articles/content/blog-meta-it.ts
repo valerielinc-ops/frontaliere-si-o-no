@@ -9437,6 +9437,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-gessatore-ticino-frontaliere.title': 'Lavorare come gessatore in Ticino: guida per frontalieri',
     'blog.article.lavoro-gessatore-ticino-frontaliere.excerpt': 'Requisiti, stipendio e imposta alla fonte: tutto ciò che un frontaliere deve sapere per lavorare come gessatore nel Canton Ticino.',
     'blog.article.lavoro-gessatore-ticino-frontaliere.imageAlt': 'Cantiere edile in Ticino con vista sulle Alpi',
+    'blog.article.agente-sicurezza-ticino-frontaliere.title': 'Agente di sicurezza in Ticino: requisiti e lavoro da frontaliere',
+    'blog.article.agente-sicurezza-ticino-frontaliere.excerpt': 'Guida operativa per frontalieri: requisiti, permesso G, tassazione e inquadramento lavorativo per il settore della sicurezza privata in Ticino.',
+    'blog.article.agente-sicurezza-ticino-frontaliere.imageAlt': 'Agente di sicurezza in servizio presso un edificio in Ticino',
 };
 
 export default blogMetaIt;

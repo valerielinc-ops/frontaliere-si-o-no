@@ -9435,6 +9435,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-gessatore-ticino-frontaliere.title': 'Arbeiten als Gipser im Tessin: Leitfaden für Grenzgänger',
     'blog.article.lavoro-gessatore-ticino-frontaliere.excerpt': 'Anforderungen, Gehalt und Quellensteuer: Alles, was ein Grenzgänger wissen muss, um als Gipser im Kanton Tessin zu arbeiten.',
     'blog.article.lavoro-gessatore-ticino-frontaliere.imageAlt': 'Baustelle im Tessin mit Blick auf die Alpen',
+    'blog.article.agente-sicurezza-ticino-frontaliere.title': 'Sicherheitsbeauftragter im Tessin: Anforderungen und Arbeit als Grenzgänger',
+    'blog.article.agente-sicurezza-ticino-frontaliere.excerpt': 'Einsatzleitfaden für Grenzgänger: Anforderungen, G-Genehmigung, Besteuerung und Arbeitseinstufung für den privaten Sicherheitssektor im Tessin.',
+    'blog.article.agente-sicurezza-ticino-frontaliere.imageAlt': 'Sicherheitsbeauftragter im Dienst vor einem Gebäude im Tessin',
 };
 
 export default blogMetaDe;
