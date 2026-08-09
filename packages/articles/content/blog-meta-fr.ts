@@ -9471,6 +9471,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-cannobio-frontaliere-pro-contro.title': 'Déménager à Cannobio en tant que frontalier : avantages et inconvénients',
     'blog.article.trasferirsi-cannobio-frontaliere-pro-contro.excerpt': 'Analyse pratique de la vie à Cannobio en travaillant au Tessin : fiscalité, accords et gestion des déplacements quotidiens pour les travailleurs frontaliers.',
     'blog.article.trasferirsi-cannobio-frontaliere-pro-contro.imageAlt': 'Vue panoramique de Cannobio sur le lac Majeur',
+    'blog.article.trasferirsi-a-varzo-da-frontaliere-pro-e-contro.title': 'Déménager à Varzo en tant que frontalier : avantages et inconvénients',
+    'blog.article.trasferirsi-a-varzo-da-frontaliere-pro-e-contro.excerpt': 'Réglage fiscal, permis de séjour et conditions de travail : ce qu\'il faut savoir avant de déménager à Varzo en tant que frontalier.',
+    'blog.article.trasferirsi-a-varzo-da-frontaliere-pro-e-contro.imageAlt': 'Un travailleur frontalier qui se transfère à Varzo pour travailler en Suisse',
 };
 
 export default blogMetaFr;

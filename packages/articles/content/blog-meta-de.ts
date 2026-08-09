@@ -9468,6 +9468,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-cannobio-frontaliere-pro-contro.title': 'Umzug nach Cannobio als Grenzgänger: Vor- und Nachteile',
     'blog.article.trasferirsi-cannobio-frontaliere-pro-contro.excerpt': 'Praktische Analyse des Lebens in Cannobio bei der Arbeit im Tessin: Steuern, Vereinbarungen und Verwaltung des täglichen Pendelns für Grenzgänger.',
     'blog.article.trasferirsi-cannobio-frontaliere-pro-contro.imageAlt': 'Panoramablick auf Cannobio am Lago Maggiore',
+    'blog.article.trasferirsi-a-varzo-da-frontaliere-pro-e-contro.title': 'Umzug nach Varzo als Grenzgänger: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-varzo-da-frontaliere-pro-e-contro.excerpt': 'Besteuerung, Aufenthaltsgenehmigungen und Arbeitsbedingungen: Was Sie wissen müssen, bevor Sie als Grenzgänger nach Varzo ziehen.',
+    'blog.article.trasferirsi-a-varzo-da-frontaliere-pro-e-contro.imageAlt': 'Ein Grenzgänger, der sich nach Varzo verlagert, um in Ticino zu arbeiten',
 };
 
 export default blogMetaDe;
