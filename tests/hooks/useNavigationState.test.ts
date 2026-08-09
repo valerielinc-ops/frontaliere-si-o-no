@@ -19,6 +19,10 @@ vi.mock('@/services/router', () => ({
   resolveSwissSlug: vi.fn(() => null),
   learnRuntimeBlogSlugs: vi.fn(),
   learnRuntimeSwissSlugs: vi.fn(),
+  // The resolver is told WHICH URL it is recovering a body for, so it never has
+  // to infer it from a document that may already have navigated away.
+  buildPath: vi.fn((route: { blogSlug?: string; blogArticle?: string }) =>
+    `/articoli-frontaliere/${route.blogSlug ?? route.blogArticle ?? ''}/`),
 }));
 
 // Dynamically imported by the hook, so the mock has to be registered here.
@@ -348,6 +352,22 @@ describe('useNavigationState', () => {
       expect(learnRuntimeBlogSlugs).toHaveBeenCalledWith(
         'poste-italiane-consulenti-finanziari-varese',
         { it: 'poste-italiane-consulenti-finanziari-varese' },
+      );
+    });
+
+    it('tells the resolver WHICH url it is resolving, so no body can be misattributed', async () => {
+      vi.mocked(adoptRuntimeArticle).mockResolvedValue(null);
+      renderHook(() => useNavigationState());
+      await act(async () => { await Promise.resolve(); await Promise.resolve(); });
+
+      // Without this the resolver falls back to reading `location`/the stash,
+      // which after a client-side navigation describes the PREVIOUS article —
+      // how the daily brief became the body of everything opened after it.
+      expect(adoptRuntimeArticle).toHaveBeenCalledWith(
+        'frontaliere',
+        'it',
+        'poste-italiane-consulenti-finanziari-varese',
+        { path: '/articoli-frontaliere/poste-italiane-consulenti-finanziari-varese/' },
       );
     });
 
