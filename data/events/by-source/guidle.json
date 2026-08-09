@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-08-08T06:42:11.407Z",
+  "assembledAt": "2026-08-09T06:44:35.739Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -4206,48 +4206,6 @@
       "imageUrl": "/images/events/guidle-AhSXNRF.jpg"
     },
     {
-      "id": "guidle:A3KPT6B",
-      "title": "Yak trekking",
-      "titleByLocale": {
-        "it": "Yak trekking",
-        "en": "Yak trekking",
-        "de": "Yak trekking",
-        "fr": "Yak trekking"
-      },
-      "description": "Ein unvergesslicher Moment zwischen Erde und Himmel.",
-      "descriptionByLocale": {
-        "it": "Ein unvergesslicher Moment zwischen Erde und Himmel.",
-        "en": "An unforgettable moment between earth and sky.",
-        "de": "Ein unvergesslicher Moment zwischen Erde und Himmel.",
-        "fr": "Un moment inoubliable entre terre et ciel."
-      },
-      "startDate": "2026-08-08",
-      "endDate": "2026-08-08",
-      "startTime": "09:30",
-      "category": "Escursionismo",
-      "venue": "Office du Tourisme Veysonnaz",
-      "comune": "Veysonnaz",
-      "canton": "VS",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/veysonnaz/yak-trekking_A3KPT6B",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 40,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Route de Magrappé 42",
-        "postalCode": "1993"
-      },
-      "geo": {
-        "lat": 46.1956086,
-        "lng": 7.3439529
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-A3KPT6B.jpg"
-    },
-    {
       "id": "guidle:At3Gh5R",
       "title": "Tristan Brusch - Am Anfang Tour 2026 - Die Zugabe",
       "titleByLocale": {
@@ -4524,43 +4482,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AJewZxY.jpg"
-    },
-    {
-      "id": "guidle:Ap5bNm1",
-      "title": "Sens Unik Openair",
-      "titleByLocale": {
-        "it": "Sens Unik Openair",
-        "en": "Sens Unik Openair",
-        "de": "Sens Unik Openair",
-        "fr": "Sens Unik Air Ouvert"
-      },
-      "description": "Wow, 15 Jahre Pause und dann eine fulminante Rückkehr inklusive einer restlos ausverkauften Mühle Hunziken Anfang Jahr.",
-      "descriptionByLocale": {
-        "it": "Wow, 15 Jahre Pause und dann eine fulminante Rückkehr inklusive einer restlos ausverkauften Mühle Hunziken Anfang Jahr.",
-        "en": "Wow, 15 Jahre Pause und dann a fulminante Rückkehr including einer restlos ausverkauften Mühle Hunziken Anfang Jahr.",
-        "de": "Wow, 15 Jahre Pause und dann eine fulminante Rückkehr inklusive einer restlos ausverkauften Mühle Hunziken Anfang Jahr.",
-        "fr": "Waouh, 15 Jahre Pause und dann eine fulminante Rückkehr inklusive einer restlos ausverkauften Mühle Hunziken Anfang Jahr."
-      },
-      "startDate": "2026-08-08",
-      "endDate": "2026-08-08",
-      "startTime": "19:00",
-      "category": "Hip-Hop",
-      "venue": "Mühle Hunziken",
-      "comune": "Rubigen",
-      "canton": "BE",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/rubigen/sens-unik-openair_Ap5bNm1",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Hunziken 101",
-        "postalCode": "3113"
-      },
-      "geo": {
-        "lat": 46.8907188,
-        "lng": 7.5418315
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-Ap5bNm1.jpg"
     },
     {
       "id": "guidle:A5iW4cp",
@@ -11759,6 +11680,47 @@
       },
       "recurring": true,
       "imageUrl": "/images/events/guidle-AYX5w78.jpg"
+    },
+    {
+      "id": "guidle:Aq6k5Jt",
+      "title": "Das kleine Konzert",
+      "titleByLocale": {
+        "it": "Das kleine Konzert",
+        "en": "The small concert",
+        "de": "Das kleine Konzert",
+        "fr": "Le petit concert"
+      },
+      "description": "Das kleine Konzert lädt jeden Samstag um 17 Uhr mit wechselndem Programm und freiem Eintritt in die Lutherkirche Konstanz ein.",
+      "descriptionByLocale": {
+        "it": "Das kleine Konzert lädt jeden Samstag um 17 Uhr mit wechselndem Programm und freiem Eintritt in die Lutherkirche Konstanz ein.",
+        "en": "The small concert will take place on Sunday 17th with the same program and free entry into the Lutherkirche Konstanz.",
+        "de": "Das kleine Konzert findet am Sonntag, 17., mit gleichem Programm und freiem Eintritt in der Lutherkirche Konstanz statt.",
+        "fr": "Le petit concert aura lieu le dimanche 17 avec le même programme et une entrée gratuite à la Lutherkirche Constance."
+      },
+      "startDate": "2026-08-15",
+      "endDate": "2027-11-06",
+      "startTime": "17:00",
+      "category": "Pop generalmente",
+      "venue": "Evang. Lutherkirche",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/konstanz/das-kleine-konzert_Aq6k5Jt",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Lutherplatz",
+        "postalCode": "78462"
+      },
+      "geo": {
+        "lat": 47.6614336,
+        "lng": 9.1713611
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-Aq6k5Jt.jpg"
     }
   ]
 }
