@@ -1972,6 +1972,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-svizzera.title': 'Terzo pilastro 3a: vantaggi fiscali reali in Svizzera',
     'blog.article.terzo-pilastro-3a-vantaggi-svizzera.excerpt': 'Il terzo pilastro 3a in Svizzera offre vantaggi fiscali reali ai contribuenti, ma è importante comprendere le differenze tra le opzioni bancarie e assicurative.',
     'blog.article.terzo-pilastro-3a-vantaggi-svizzera.imageAlt': 'Una scena fotorealistica di una località turistica sul lago di Lugano, con un lago cristallino e montagne circostanti.',
+    'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.title': 'LPP: guida ai contributi e al riscatto lacune',
+    'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.excerpt': 'La guida completa al secondo pilastro LPP per i cittadini svizzeri',
+    'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.imageAlt': 'Una guida completa al secondo pilastro LPP per i cittadini svizzeri',
 };
 
 export default blogMetaChIt;
