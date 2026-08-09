@@ -9433,6 +9433,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-falegname-ticino-lavoro.title': 'Border carpenter in Ticino: salary and requirements',
     'blog.article.frontaliere-falegname-ticino-lavoro.excerpt': 'Complete guide for border carpenters in Ticino: salaries, classification, taxation and requirements for the G permit according to current regulations.',
     'blog.article.frontaliere-falegname-ticino-lavoro.imageAlt': 'Carpenter at work in a modern Ticino woodworking shop',
+    'blog.article.lavoro-gessatore-ticino-frontaliere.title': 'Working as a chalker in Ticino: a guide for border workers',
+    'blog.article.lavoro-gessatore-ticino-frontaliere.excerpt': 'Requirements, salary and tax at source: everything a border worker needs to know to work as a plasterer in the Canton of Ticino.',
+    'blog.article.lavoro-gessatore-ticino-frontaliere.imageAlt': 'Construction site in Ticino with Alpine view',
 };
 
 export default blogMetaEn;

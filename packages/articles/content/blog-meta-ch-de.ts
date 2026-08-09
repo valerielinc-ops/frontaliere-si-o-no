@@ -1966,6 +1966,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.autostrada-riapertura-ticino.title': 'Braucht es wirklich Stunden und Stunden, um eine Autobahn wieder zu öffnen?',
     'blog.article.autostrada-riapertura-ticino.excerpt': 'Die grossen Lega-Berater bitten den Staatsrat um Klärung nach dem Chaos auf der A2.',
     'blog.article.autostrada-riapertura-ticino.imageAlt': 'Bild eines congestionierten A2-Highways in Ticino, Schweiz, mit Untertitel über die langen Wartezeiten für Pendler.',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.title': 'Leitfaden zum schweizerischen Gesundheitssystem: KVG und Wahl der Krankenkasse',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.excerpt': 'Alle notwendigen Daten, um das Schweizer Gesundheitssystem und die Wahl der Krankenkasse im Kanton Basel zu verstehen',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.imageAlt': 'Praktische Anleitung zum schweizerischen Gesundheitssystem: LAMal und Gesundheitsversicherungsentscheid, mit spezifischen Daten für das Kanton Basel',
 };
 
 export default blogMetaChDe;

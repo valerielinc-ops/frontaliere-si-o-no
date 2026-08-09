@@ -1966,6 +1966,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.autostrada-riapertura-ticino.title': 'Faut-il vraiment des heures et des heures pour rouvrir une autoroute ?',
     'blog.article.autostrada-riapertura-ticino.excerpt': 'Les grands conseillers légistes demandent des éclaircissements au Conseil d\'État après le chaos sur l\'A2.',
     'blog.article.autostrada-riapertura-ticino.imageAlt': 'Photo d\'un tronçon congestionné de l\'autoroute A2 en Tessin, Suisse, avec une légende sur les longues attentes des commutants.',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.title': 'Guide du système de santé suisse : LAMal et choix de la caisse-maladie',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.excerpt': 'Toutes les données nécessaires pour comprendre le système de santé suisse et le choix de la caisse-maladie dans le canton de Bâle',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.imageAlt': 'Guide pratique du système de santé suisse : LAMal et choix de la caisse de maladie, avec des données spécifiques sur le canton de Bâle',
 };
 
 export default blogMetaChFr;

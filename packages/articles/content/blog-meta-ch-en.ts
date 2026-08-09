@@ -1966,6 +1966,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.autostrada-riapertura-ticino.title': 'Does it really take hours and hours to reopen a highway?',
     'blog.article.autostrada-riapertura-ticino.excerpt': 'The great League advisers ask the Council of State for clarification after the chaos on the A2.',
     'blog.article.autostrada-riapertura-ticino.imageAlt': 'Photo of a congested A2 highway in Ticino, Switzerland, with a caption about the long wait times for commuters.',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.title': 'Guide to the Swiss health system: LAMal and the choice of the sick fund',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.excerpt': 'All the data necessary to understand the Swiss health system and the choice of the health insurance fund in the canton of Basel',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.imageAlt': 'Practical guide to the Swiss healthcare system: LAMal and health insurance choice, with specific data on the Canton Basel',
 };
 
 export default blogMetaChEn;

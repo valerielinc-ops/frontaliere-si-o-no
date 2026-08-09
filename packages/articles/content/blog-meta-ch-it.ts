@@ -1966,6 +1966,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.autostrada-riapertura-ticino.title': 'Davvero servono ore e ore per riaprire un\'autostrada?',
     'blog.article.autostrada-riapertura-ticino.excerpt': 'I gran consiglieri leghisti chiedono chiarimenti al Consiglio di Stato dopo il caos sulla A2.',
     'blog.article.autostrada-riapertura-ticino.imageAlt': 'Immagine di un tratto congestionato dell\'autostrada A2 in Ticino, Svizzera, con didascalia sul lungo atteso dei pendolari.',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.title': 'Guida al sistema sanitario svizzero: LAMal e scelta della cassa malati',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.excerpt': 'Tutti i dati necessari per comprendere il sistema sanitario svizzero e la scelta della cassa malati nel canton Basilea',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.imageAlt': 'Guida pratica al sistema sanitario svizzero: LAMal e scelta della cassa malati, con dati specifici sul canton Basilea',
 };
 
 export default blogMetaChIt;

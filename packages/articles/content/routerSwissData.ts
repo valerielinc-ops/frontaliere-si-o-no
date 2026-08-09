@@ -681,6 +681,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea': { it: 'terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea', en: 'slug-inglese', de: 'slug-tedesco', fr: 'slug-francese' },
  'terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna': { it: 'terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna', en: 'slug-terzo-pilastro-3a-switzerland', de: 'slug-terzo-pilastro-3a-schweiz', fr: 'slug-terzo-pilastro-3a-suisse' },
  'autostrada-riapertura-ticino': { it: 'autostrada-riapertura-ticino', en: 'a2-highway-riopening-ticino', de: 'a2-autobahn-wiedereroffnung-tessin', fr: 'autoroute-a2-ouverture-again-tessin' },
+ 'sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea': { it: 'sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea', en: 'swiss-healthcare-system-lamal-guide-2026-canton-basel', de: 'schweizer-gesundheitssystem-lamal-anleitung-2026-kanton-basel', fr: 'systeme-de-sante-suisse-lamal-guide-2026-canton-de-bale' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
