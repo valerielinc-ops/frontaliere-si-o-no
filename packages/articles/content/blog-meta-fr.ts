@@ -9450,6 +9450,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.title': 'Serveurs frontaliers : salaire, exigences et reconnaissance du titre',
     'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.excerpt': 'Le nouvel accord frontalier prévoit une augmentation du salaire moyen des serveurs frontaliers au Tessin. Les conditions d\'obtention du permis G ont été modifiées.',
     'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.imageAlt': 'Un serveur dans un restaurant à Lugano.',
+    'blog.article.bideau-locarno-film-festival.title': 'Jean-luc bideau honoré au festival du film de Locarno',
+    'blog.article.bideau-locarno-film-festival.excerpt': 'L\'acteur Jean-Luc Bideau, primé au festival, présente le film « Ah que le bonheur est proche » dans le cadre tessinois.',
+    'blog.article.bideau-locarno-film-festival.imageAlt': 'Ambiance nocturne au Locarno Film Festival sur la Piazza Grande.',
 };
 
 export default blogMetaFr;
