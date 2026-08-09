@@ -32,6 +32,20 @@
  * Because membership is computed once rather than per locale, a topic is
  * above or below the floor identically in all four locales — so hreflang
  * never points from an indexable hub at a noindex sibling.
+ *
+ * THE LEVEL ABOVE THE HUBS (issue #5436)
+ * ──────────────────────────────────────
+ * Since #5436 this file also emits the bare topic index —
+ * `/{section}/{argomenti|topics|themen|sujets}/`, 8 URLs — which used to be
+ * the 404 in the middle of a three-level URL path whose leaves all answered
+ * 200. It is emitted HERE, by `renderTopicHubSectionCore`, for one reason:
+ * that is the function the producers which actually reach production call
+ * (`renderTopicClusterHubPages` ← publish-article-fast.mjs and
+ * rerender-article-hubs.yml). The site build emits neither the index nor the
+ * hubs for these sections — `BUILD_EMIT_SKIP`, plus the rehydrate REPLACE
+ * that restores the old shard — so an index emitted from the build would be a
+ * page with no way down reactive to the code, the defect #5432 closed.
+ * See `renderTopicIndexPage`.
  */
 
 import fs from 'node:fs';
@@ -53,9 +67,14 @@ import {
 } from './shared/articleReaders';
 import { ARTICLE_SECTION_CORE } from '../packages/articles/engine/shared/articleSectionCore.mjs';
 import { assignArticlesToTopics } from '../packages/articles/engine/topicClusters';
-import { TOPIC_CLUSTERS, TOPIC_HUB_SEGMENT } from '../packages/articles/engine/topicTaxonomy';
+import {
+  TOPIC_CLUSTERS,
+  TOPIC_HUB_SEGMENT,
+  TOPIC_INDEX_TITLE,
+} from '../packages/articles/engine/topicTaxonomy';
 import {
   buildTopicHubPath,
+  buildTopicIndexPath,
   topicSitemapFileName,
   TOPIC_HUB_LOCALES,
   TOPIC_HUB_MIN_ARTICLES,
@@ -106,6 +125,12 @@ const COPY: Record<TopicHubLocale, {
   bridgeBody: (topic: string, n: number) => string;
   bridgeCta: string;
   intro: (topic: string, n: number) => string;
+  /** Its lede: how many topics organise how many articles. */
+  indexLede: (topics: number, articles: number) => string;
+  /** Per-topic article count on the index list. */
+  indexCount: (n: number) => string;
+  /** Anchor text of the archive → index link, on the index side. */
+  indexBackToArchive: string;
 }> = {
   it: {
     home: 'Home',
@@ -124,6 +149,13 @@ const COPY: Record<TopicHubLocale, {
       `Su «${topic}» abbiamo per ora ${n} ${n === 1 ? 'articolo' : 'articoli'}: troppo pochi per una pagina di argomento a sé. Trovi tutto nell'archivio completo, che raccoglie ogni articolo pubblicato.`,
     bridgeCta: 'Vai all’archivio completo',
     intro: (topic, n) => `${n} articoli su ${topic.toLowerCase()}, dal più recente.`,
+    // No article before the numeral on purpose: «gli 8» and «i 14» are both
+    // right for their own count and both wrong for the other, and the count
+    // moves with the corpus.
+    indexLede: (topics, articles) =>
+      `${topics} argomenti organizzano questo archivio: ${articles} articoli, ognuno nella sua pagina di argomento.`,
+    indexCount: (n) => `${n} ${n === 1 ? 'articolo' : 'articoli'}`,
+    indexBackToArchive: 'Archivio completo, in ordine di data',
   },
   en: {
     home: 'Home',
@@ -142,6 +174,10 @@ const COPY: Record<TopicHubLocale, {
       `We have ${n} article${n === 1 ? '' : 's'} on “${topic}” so far — too few for a topic page of its own. The full archive collects every article published.`,
     bridgeCta: 'Go to the full archive',
     intro: (topic, n) => `${n} articles on ${topic.toLowerCase()}, newest first.`,
+    indexLede: (topics, articles) =>
+      `The ${topics} topics this archive is organised by: ${articles} articles, each one on its own topic page.`,
+    indexCount: (n) => `${n} article${n === 1 ? '' : 's'}`,
+    indexBackToArchive: 'Full archive, newest first',
   },
   de: {
     home: 'Home',
@@ -160,6 +196,10 @@ const COPY: Record<TopicHubLocale, {
       `Zu „${topic}“ liegen bisher ${n} Artikel vor — zu wenige für eine eigene Themenseite. Das vollständige Archiv enthält alle veröffentlichten Artikel.`,
     bridgeCta: 'Zum vollständigen Archiv',
     intro: (topic, n) => `${n} Artikel zu ${topic.toLowerCase()}, neueste zuerst.`,
+    indexLede: (topics, articles) =>
+      `Die ${topics} Themen, nach denen dieses Archiv gegliedert ist: ${articles} Artikel, jeder auf seiner eigenen Themenseite.`,
+    indexCount: (n) => `${n} Artikel`,
+    indexBackToArchive: 'Vollständiges Archiv, neueste zuerst',
   },
   fr: {
     home: 'Accueil',
@@ -178,6 +218,10 @@ const COPY: Record<TopicHubLocale, {
       `Nous avons pour l’instant ${n} article${n === 1 ? '' : 's'} sur « ${topic} » — trop peu pour une page de sujet dédiée. L’archive complète rassemble tous les articles publiés.`,
     bridgeCta: 'Aller à l’archive complète',
     intro: (topic, n) => `${n} articles sur ${topic.toLowerCase()}, du plus récent.`,
+    indexLede: (topics, articles) =>
+      `Les ${topics} sujets qui organisent cette archive : ${articles} articles, chacun sur sa propre page de sujet.`,
+    indexCount: (n) => `${n} article${n === 1 ? '' : 's'}`,
+    indexBackToArchive: 'Archive complète, du plus récent',
   },
 };
 
@@ -306,19 +350,68 @@ function readSectionRows(
   });
 }
 
+/**
+ * Home › section archive › Argomenti › this topic.
+ *
+ * `topicLabel` null renders the INDEX's own crumb, where "Argomenti" is the
+ * current page rather than a link — one function for both, so the two can
+ * never disagree on the trail they describe.
+ *
+ * The "Argomenti" level is a link, and that is the point of #5436: before the
+ * index existed this crumb had three steps for a four-step URL, and the step
+ * it skipped was the one that answered 404. `c.tileTopics` supplies the label
+ * — it already holds exactly these four words ('Argomenti'/'Topics'/'Themen'/
+ * 'Sujets'), and a second table of them would be the AGENTS.md #6 drift that
+ * makes the crumb disagree with the tile above it.
+ */
 function renderBreadcrumb(
   locale: TopicHubLocale,
   section: TopicHubSection,
-  topicLabel: string,
+  topicLabel: string | null,
 ): string {
   const home = `${LOCALE_PREFIX[locale]}/`;
+  const c = COPY[locale];
+  const topicsCrumb =
+    topicLabel === null
+      ? `<span aria-current="page">${esc(c.tileTopics)}</span>`
+      : `<a href="${esc(buildTopicIndexPath(locale, section))}" style="${LINK_ACCENT_STYLE}">${esc(c.tileTopics)}</a>
+  <span aria-hidden="true"> › </span>
+  <span aria-current="page">${esc(topicLabel)}</span>`;
   return `<nav aria-label="breadcrumb" class="text-sm text-subtle mb-3">
-  <a href="${esc(home)}" style="${LINK_ACCENT_STYLE}">${esc(COPY[locale].home)}</a>
+  <a href="${esc(home)}" style="${LINK_ACCENT_STYLE}">${esc(c.home)}</a>
   <span aria-hidden="true"> › </span>
   <a href="${esc(archivePath(locale, section))}" style="${LINK_ACCENT_STYLE}">${esc(SECTION_LABEL[section][locale])}</a>
   <span aria-hidden="true"> › </span>
-  <span aria-current="page">${esc(topicLabel)}</span>
+  ${topicsCrumb}
 </nav>`;
+}
+
+/** The BreadcrumbList JSON-LD matching {@link renderBreadcrumb}, same trail. */
+function breadcrumbLdItems(
+  locale: TopicHubLocale,
+  section: TopicHubSection,
+  leaf: { name: string; url: string } | null,
+): unknown[] {
+  const c = COPY[locale];
+  const items: unknown[] = [
+    { '@type': 'ListItem', position: 1, name: c.home, item: `${BASE_URL}${LOCALE_PREFIX[locale]}/` },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: SECTION_LABEL[section][locale],
+      item: `${BASE_URL}${archivePath(locale, section)}`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: c.tileTopics,
+      item: `${BASE_URL}${buildTopicIndexPath(locale, section)}`,
+    },
+  ];
+  if (leaf) {
+    items.push({ '@type': 'ListItem', position: 4, name: leaf.name, item: leaf.url });
+  }
+  return items;
 }
 
 /** Sibling-topic links. This is the hub-to-hub layer the corpus had none of. */
@@ -457,16 +550,7 @@ ${renderTopicNav(locale, section, topicKey, eligible)}`;
   const breadcrumbLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: c.home, item: `${BASE_URL}${LOCALE_PREFIX[locale]}/` },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: SECTION_LABEL[section][locale],
-        item: `${BASE_URL}${archivePath(locale, section)}`,
-      },
-      { '@type': 'ListItem', position: 3, name: label, item: canonicalUrl },
-    ],
+    itemListElement: breadcrumbLdItems(locale, section, { name: label, url: canonicalUrl }),
   };
   const collectionLd = {
     '@context': 'https://schema.org',
@@ -568,6 +652,136 @@ ${renderTopicNav(locale, section, topicKey, eligible)}`;
   });
 
   return { urlPath, html, wordCount: countHtmlBodyWords(body), indexable: false };
+}
+
+/**
+ * The bare topic index — `/{section}/{argomenti|topics|themen|sujets}/`, one
+ * per (section × locale), 8 URLs in all (issue #5436).
+ *
+ * WHY IT IS RENDERED HERE AND NOWHERE ELSE
+ * ────────────────────────────────────────
+ * It is emitted by `renderTopicHubSectionCore`, the same function that emits
+ * the hubs it lists, through the same `emit()`. That is not tidiness: the
+ * article sections are `BUILD_EMIT_SKIP=true` and the rehydrate REPLACE puts
+ * the old shard back afterwards, so a page emitted by the site BUILD never
+ * reaches production. The producers that do reach it —
+ * `scripts/publish-article-fast.mjs` and `.github/workflows/rerender-article-hubs.yml`,
+ * both via `renderTopicClusterHubPages` — call this core. A page emitted from
+ * anywhere else would be a page with no way down reactive to the code, which
+ * is exactly the structural defect #5432 closed and #5436 must not reopen.
+ *
+ * Sharing the emitter also settles the sitemap for free: the index reaches
+ * `sitemap-topics-<section>.xml` only by having been written, like every hub.
+ *
+ * IT LISTS THE ELIGIBLE TOPICS ONLY, the same set `renderTopicNav` advertises
+ * and the same set the archive's "Argomenti" nav links. Below-floor topics are
+ * `noindex,follow` bridges: the BFS audit does not propagate through them and
+ * the section sitemap does not announce them, so an anchor spent on one buys
+ * no crawl equity — and the count next to each label would then describe a
+ * page that says «too few articles for a topic page of its own».
+ *
+ * ORDER IS `TOPIC_CLUSTERS` ORDER, not article count. The taxonomy is curated
+ * and moves only when a human edits it, while counts move with every publish:
+ * sorting by count would reshuffle this page — and its byte content, and
+ * therefore a shard push — on every one of the ~22 daily re-renders, and show
+ * a crawler a different link order on every visit. Same order as the sibling
+ * nav and as `archiveTopicHubLinks`, for the same reason.
+ */
+function renderTopicIndexPage(opts: {
+  locale: TopicHubLocale;
+  section: TopicHubSection;
+  eligible: ReadonlySet<string>;
+  countByTopic: ReadonlyMap<string, number>;
+  totalArticles: number;
+  newest: string;
+  dateStamp: string;
+  distDir?: string;
+}): RenderedPage {
+  const { locale, section, eligible, countByTopic, totalArticles, newest, dateStamp, distDir } =
+    opts;
+  const c = COPY[locale];
+  const urlPath = buildTopicIndexPath(locale, section);
+  const canonicalUrl = `${BASE_URL}${urlPath}`;
+  const listed = TOPIC_CLUSTERS.filter((t) => eligible.has(t.key));
+
+  const cards = listed
+    .map((t) => {
+      const href = buildTopicHubPath(locale, section, t.key);
+      const n = countByTopic.get(t.key) ?? 0;
+      return `<li class="border-b border-subtle py-3">
+  <a class="font-medium" style="${LINK_ACCENT_STYLE}" href="${esc(href)}">${esc(t.label[locale])}</a>
+  <span class="text-subtle"> — ${esc(c.indexCount(n))}</span>
+  <p class="text-subtle mt-1" style="${BODY_STYLE}">${esc(t.intro[locale])}</p>
+</li>`;
+    })
+    .join('');
+
+  const tiles = renderStatGrid([
+    { label: c.tileTopics, value: String(listed.length), tone: 'accent' },
+    { label: c.tileArticles, value: String(totalArticles) },
+    { label: c.tileUpdated, value: newest || dateStamp },
+  ]);
+
+  const body = `${renderBreadcrumb(locale, section, null)}
+  <p style="${HERO_EYEBROW_STYLE}">${esc(SECTION_LABEL[section][locale])}</p>
+  <h1 style="${H1_STYLE}">${esc(TOPIC_INDEX_TITLE[locale])}</h1>
+  <p style="${LEDE_STYLE}">${esc(c.indexLede(listed.length, totalArticles))}</p>
+${tiles}
+  <ul class="mt-6">${cards}</ul>
+  <p class="mt-6" style="${BODY_STYLE}"><a style="${LINK_ACCENT_STYLE}" href="${esc(archivePath(locale, section))}">${esc(c.indexBackToArchive)}</a></p>`;
+
+  // Same thin-content discipline as every other page here: an index of an
+  // empty eligible set is a heading and two links, and must not be announced
+  // as an indexable page. It is still WRITTEN — the URL answering 404 is the
+  // defect this page exists to close, and a corpus that shrinks below the
+  // floor must not reopen it.
+  const wordCount = countHtmlBodyWords(body);
+  const indexable = wordCount >= MIN_INDEXABLE_WORDS;
+  const bodyHtml = `<div class="mx-auto w-full max-w-3xl px-4 py-8">${body}${endOfContentMultiplexHtml(
+    { indexable },
+  )}</div>`;
+
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbLdItems(locale, section, null),
+  };
+  const collectionLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: `${TOPIC_INDEX_TITLE[locale]} — ${SECTION_LABEL[section][locale]}`,
+    description: c.indexLede(listed.length, totalArticles),
+    url: canonicalUrl,
+    isPartOf: { '@type': 'WebSite', '@id': `${BASE_URL}/#website` },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: listed.length,
+      itemListElement: listed.map((t, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: `${BASE_URL}${buildTopicHubPath(locale, section, t.key)}`,
+        name: t.label[locale],
+      })),
+    },
+  };
+
+  const html = buildSeoPageHtml({
+    locale,
+    title: `${TOPIC_INDEX_TITLE[locale]} — ${SECTION_LABEL[section][locale]}`,
+    description: clampMetaDescription(c.indexLede(listed.length, totalArticles)),
+    canonicalUrl,
+    ogLocale: LOCALE_OG[locale],
+    ...(indexable ? {} : { robots: 'noindex,follow' }),
+    hreflangHtml: buildLocaleAlternateBlock({
+      eligibleLocales: TOPIC_HUB_LOCALES,
+      hrefFor: (loc) => `${BASE_URL}${buildTopicIndexPath(loc as TopicHubLocale, section)}`,
+    }),
+    jsonLdScripts: [JSON.stringify(breadcrumbLd), JSON.stringify(collectionLd)],
+    bodyHtml,
+    distDir,
+  });
+
+  return { urlPath, html, wordCount, indexable };
 }
 
 function buildSitemapXml(
@@ -691,6 +905,8 @@ interface TopicHubSectionCoreArgs {
 interface TopicHubSectionCoreResult {
   readonly hubPages: number;
   readonly bridgePages: number;
+  /** Bare topic indexes emitted as indexable pages — one per rendered locale (#5436). */
+  readonly indexPages: number;
   readonly thin: number;
   /**
    * Dist-relative path of the section sitemap, or null when this render
@@ -740,6 +956,7 @@ function renderTopicHubSectionCore(args: TopicHubSectionCoreArgs): TopicHubSecti
 
   let hubPages = 0;
   let bridgePages = 0;
+  let indexPages = 0;
   let thin = 0;
 
   /**
@@ -758,8 +975,16 @@ function renderTopicHubSectionCore(args: TopicHubSectionCoreArgs): TopicHubSecti
   const emitted: Array<{
     urlPath: string;
     indexable: boolean;
-    topicKey: string;
-    page: number;
+    /**
+     * The SAME page in another locale — what the sitemap's hreflang block
+     * needs. A closure rather than the `(topicKey, page)` pair it replaced,
+     * because the section now emits two KINDS of page (the per-topic hubs and
+     * the one index above them, #5436) and only the emitter knows which path
+     * builder applies. Deriving it at emit time keeps «announced ⟺ written» a
+     * single claim: there is still exactly one place a URL can enter this
+     * list, and it is the act of queueing that URL's bytes.
+     */
+    altPathFor: (locale: TopicHubLocale) => string;
   }> = [];
 
   /** Emit both the directory index and its flat sibling, reporting each relpath. */
@@ -767,7 +992,7 @@ function renderTopicHubSectionCore(args: TopicHubSectionCoreArgs): TopicHubSecti
     locale: TopicHubLocale,
     urlPath: string,
     html: string,
-    meta: { indexable: boolean; topicKey: string; page: number },
+    meta: { indexable: boolean; altPathFor: (locale: TopicHubLocale) => string },
   ): void => {
     const indexRel = np.join(urlPath.slice(1), 'index.html');
     const flatRel = `${urlPath.replace(/^\/+/, '').replace(/\/+$/, '')}.html`;
@@ -777,6 +1002,47 @@ function renderTopicHubSectionCore(args: TopicHubSectionCoreArgs): TopicHubSecti
     onPageEmitted?.(locale, flatRel);
     emitted.push({ urlPath, ...meta });
   };
+
+  // ── The bare topic index, one level ABOVE the hubs (#5436) ──────────────
+  //
+  // First, so the sitemap lists a parent before its children and so the page
+  // exists for the whole of this run. It needs nothing the loop below produces
+  // — `eligible` and `byTopic` are both settled — and it must not depend on
+  // it: an index emitted only when some hub rendered would go missing exactly
+  // when the archive most needs a working middle level.
+  const countByTopic = new Map(TOPIC_CLUSTERS.map((t) => [t.key, byTopic.get(t.key)?.length ?? 0]));
+  const itRows = rowsByLocale.get('it')!;
+  // Newest publication date in the section, the same "Aggiornato" figure the
+  // hubs show, read from the Italian master rows because membership and dates
+  // are locale-independent (see computeSectionTopics).
+  //
+  // Truncated to the DATE before the max, not after: the registry mixes
+  // `YYYY-MM-DD` with full ISO timestamps, and a lexicographic max over the
+  // raw strings prefers `2026-08-09T16:24:49.736Z` over `2026-08-09` — which
+  // is the same day, rendered as a machine timestamp in a tile that says
+  // "Aggiornato". Observed on the real svizzera corpus.
+  const newestInSection = [...itRows.values()].reduce(
+    (acc, r) => (r.date.slice(0, 10) > acc ? r.date.slice(0, 10) : acc),
+    '',
+  );
+  for (const locale of locales ?? TOPIC_HUB_LOCALES) {
+    const index = renderTopicIndexPage({
+      locale,
+      section,
+      eligible,
+      countByTopic,
+      totalArticles: total,
+      newest: newestInSection,
+      dateStamp,
+      distDir,
+    });
+    emit(locale, index.urlPath, index.html, {
+      indexable: index.indexable,
+      altPathFor: (alt) => buildTopicIndexPath(alt, section),
+    });
+    if (index.indexable) indexPages++;
+    else thin++;
+  }
 
   for (const topic of TOPIC_CLUSTERS) {
     const memberIds = byTopic.get(topic.key) ?? [];
@@ -801,8 +1067,7 @@ function renderTopicHubSectionCore(args: TopicHubSectionCoreArgs): TopicHubSecti
         });
         emit(locale, bridge.urlPath, bridge.html, {
           indexable: false,
-          topicKey: topic.key,
-          page: 1,
+          altPathFor: (alt) => buildTopicHubPath(alt, section, topic.key, 1),
         });
         bridgePages++;
         continue;
@@ -838,16 +1103,14 @@ function renderTopicHubSectionCore(args: TopicHubSectionCoreArgs): TopicHubSecti
           });
           emit(locale, bridge.urlPath, bridge.html, {
             indexable: false,
-            topicKey: topic.key,
-            page,
+            altPathFor: (alt) => buildTopicHubPath(alt, section, topic.key, page),
           });
           bridgePages++;
           continue;
         }
         emit(locale, rendered.urlPath, rendered.html, {
           indexable: true,
-          topicKey: topic.key,
-          page,
+          altPathFor: (alt) => buildTopicHubPath(alt, section, topic.key, page),
         });
         hubPages++;
       }
@@ -877,10 +1140,8 @@ function renderTopicHubSectionCore(args: TopicHubSectionCoreArgs): TopicHubSecti
         indexable.map((e) => ({
           canonical: e.urlPath,
           alternates: [
-            ...TOPIC_HUB_LOCALES.map(
-              (alt) => `${alt}|${BASE_URL}${buildTopicHubPath(alt, section, e.topicKey, e.page)}`,
-            ),
-            `x-default|${BASE_URL}${buildTopicHubPath('it', section, e.topicKey, e.page)}`,
+            ...TOPIC_HUB_LOCALES.map((alt) => `${alt}|${BASE_URL}${e.altPathFor(alt)}`),
+            `x-default|${BASE_URL}${e.altPathFor('it')}`,
           ],
         })),
         dateStamp,
@@ -888,7 +1149,7 @@ function renderTopicHubSectionCore(args: TopicHubSectionCoreArgs): TopicHubSecti
     );
   }
 
-  return { hubPages, bridgePages, thin, sitemapPath, announcedUrlPaths };
+  return { hubPages, bridgePages, indexPages, thin, sitemapPath, announcedUrlPaths };
 }
 
 export interface RenderTopicClusterHubsOptions {
@@ -1016,6 +1277,7 @@ export function topicClusterHubsPlugin(rootDir: string): Plugin {
       const collector = new WriteCollector({ distDir, pluginName: 'topicClusterHubsPlugin' });
       let hubPages = 0;
       let bridgePages = 0;
+      let indexPages = 0;
       let thin = 0;
 
       // Build-time emit skip, same flags seoHubsPlugin.ts and
@@ -1085,6 +1347,7 @@ export function topicClusterHubsPlugin(rootDir: string): Plugin {
         });
         hubPages += counts.hubPages;
         bridgePages += counts.bridgePages;
+        indexPages += counts.indexPages;
         thin += counts.thin;
         if (counts.sitemapPath) {
           console.log(
@@ -1096,7 +1359,7 @@ export function topicClusterHubsPlugin(rootDir: string): Plugin {
       const t0 = Date.now();
       const written = await collector.flush();
       console.log(
-        `\x1b[36m[topic-hubs]\x1b[0m ${hubPages} hub + ${bridgePages} bridge (${thin} thin→bridge) — ${written} file in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
+        `\x1b[36m[topic-hubs]\x1b[0m ${hubPages} hub + ${indexPages} indice + ${bridgePages} bridge (${thin} thin→bridge) — ${written} file in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
       );
     },
   };
