@@ -25328,6 +25328,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea': {
+    title: 'Terzo Pilastro 3a svizzero: vantaggi e sistema di versamento unico',
+    description: 'Il sistema di versamento unico del Terzo Pilastro 3a svizzero offre vantaggi fiscali e di versamento unici per i cittadini svizzeri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, terzo, pilastro, svizzero, vantaggi',
+    ogTitle: 'Terzo Pilastro 3a svizzero: vantaggi e sistema di versamento unico',
+    ogDescription: 'Il sistema di versamento unico del Terzo Pilastro 3a svizzero offre vantaggi fiscali e di versamento unici per i cittadini svizzeri.',
+    canonicalPath: '/articoli-svizzera/terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Terzo Pilastro 3a svizzero: vantaggi e sistema di versamento unico",
+      "description": "Il sistema di versamento unico del Terzo Pilastro 3a svizzero offre vantaggi fiscali e di versamento unici per i cittadini svizzeri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una vista panoramica del Lago di Lugano con la città di Lugano sullo sfondo. Un frontaliere svizzero sta osservando il lago con un'espressione pensierosa."
+      },
+      "datePublished": "2026-08-09T15:48:10+00:00",
+      "dateModified": "2026-08-09T15:48:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
