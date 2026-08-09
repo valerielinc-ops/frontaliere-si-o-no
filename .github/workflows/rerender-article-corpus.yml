@@ -35,11 +35,29 @@ name: Rerender Article Corpus
 # mechanism, and why the batch size is a REASONED target, not a measured one
 # (no full local build is available to profile against).
 #
-# Wiring point (do not block on this): if a sibling effort
-# (feat/4881-hub-incremental) extracts an article-hub renderer to
-# build-plugins/shared/articleHubRenderer.ts, add that path to the `push:`
-# filter below alongside the other template files — a hub-renderer change is
-# exactly the class of change this workflow exists to catch corpus-wide.
+# THE HUB RENDERERS ARE NOT THIS WORKFLOW'S JOB — see
+# .github/workflows/rerender-article-hubs.yml.
+#
+# This spot used to carry a TODO: "if a sibling effort extracts an article-hub
+# renderer, add that path to the `push:` filter below — a hub-renderer change
+# is exactly the class of change this workflow exists to catch corpus-wide."
+# The instinct was right and the destination was wrong, and it was never acted
+# on: for a year no workflow in this repo named seoHubsPlugin.ts,
+# topicClusterHubsPlugin.ts, topicClusterHubsData.ts, articleHubPagesPlugin.ts
+# or topicTaxonomy.ts in any `push: paths:` filter, so #5422's fix sat correct
+# on main while every served hub page kept the old renderer (issue #5432).
+#
+# It does not belong here. This job re-renders 3571 articles under a 180-minute
+# timeout and holds `rerender-corpus-<section>` for the duration; the hub
+# re-render is ~3 seconds of work for BOTH sections. Sharing this lock would
+# make the repair unavailable exactly while a hub regression is live, and
+# sharing this timeout would hide a repair that takes minutes inside a job that
+# takes hours.
+#
+# So do NOT add hub-renderer paths to the `push:` filter below. Add them to
+# rerender-article-hubs.yml, which exists for them, renders through the same
+# scripts/lib/render-and-push-hubs.mjs the fast-publish path uses, and pushes
+# through the same scripts/lib/push-article-shard-incremental.sh this one does.
 on:
   workflow_dispatch:
     inputs:
