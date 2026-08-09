@@ -16,18 +16,44 @@
 // paper over with broader normalization.
 //
 // NORMALIZED FIELDS (exhaustive — nothing else is touched before diffing):
-//   ONE structural normalization, added for issue #5444 and scoped as tightly
-//   as it can be: the ORDER of `<meta>` tags inside `<head>`, and nothing
-//   else. See canonicalizeHeadMetaOrder() below for the full argument; the
-//   short version is that the two render paths emit the SAME `<meta>` tags in
-//   a DIFFERENT sequence, which made every single comparison fail on a
-//   difference no consumer of the page can observe. Measured on run
-//   31324948161: 12 comparisons, 12 with IDENTICAL byte length, first
-//   divergence always at offset 1572-1795 — i.e. inside the `<meta>` block.
-//   Same length + different bytes = a permutation, not a content change.
-//   The normalization is applied ONLY as a second pass, after an exact
+//   TWO structural normalizations, both added for issue #5444, both scoped as
+//   tightly as they can be, both of the same shape (a permutation of a
+//   multiset of substrings — see the safety argument on each):
+//     1. the ORDER of `<meta>` tags inside `<head>` — canonicalizeHeadMetaOrder().
+//        The two render paths emit the SAME `<meta>` tags in a DIFFERENT
+//        sequence, which made every single comparison fail on a difference no
+//        consumer of the page can observe. Measured on run 31324948161: 12
+//        comparisons, 12 with IDENTICAL byte length, first divergence always
+//        at offset 1572-1795 — i.e. inside the `<meta>` block. Same length +
+//        different bytes = a permutation, not a content change.
+//     2. the ORDER of the comma-separated DIRECTIVES inside the `content=`
+//        value of a robots-family `<meta>` — canonicalizeRobotsDirectiveOrder().
+//        Same defect one level down, found by (1): with the tag order absorbed,
+//        run 31328174202 diverged at offset 713 on
+//          fast: content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+//          live: content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+//        — the same five directives, permuted.
+//   THE PATTERN, and it matters more than either normalization (read this
+//   before adding a third): each normalization here has revealed the next
+//   layer of non-determinism rather than removing it. Tag order hid directive
+//   order; directive order may well be hiding something below it. The upstream
+//   cause is untouched and is one sentence long — THE TWO RENDER PATHS DO NOT
+//   AGREE ON AN ORDER THAT NEITHER OF THEM HAS ANY REASON TO PICK. Concretely,
+//   for the case above the repo holds the same five qualifiers in two orders:
+//   build-plugins/constants.ts's ROBOTS_INDEX_ENHANCED_CONTENT (mirrored, and
+//   pinned BYTE-for-byte to it by tests/seo/discover-robots-directive.test.ts,
+//   as packages/articles/engine/shared/robotsDirective's
+//   ARTICLE_ROBOTS_INDEX_ENHANCED) puts `max-snippet` first, while index.html's
+//   shell tag puts `max-image-preview` first and is pinned to nothing. That
+//   same test's own comment records this exact class of fault breaking a
+//   different byte-identity test once already. So: what you are reading is a
+//   CHASE, not a fix. Pinning the orders at the emission points would end it;
+//   normalizing here only lets the audit see past it.
+//   Both normalizations are applied ONLY as later passes, after an exact
 //   comparison has already failed, so a genuinely byte-identical pair is
-//   still reported as such and the two cases stay distinguishable in the log.
+//   still reported as such — and the log names which pass produced a match, so
+//   how often the renderers disagree, and about what, stays visible instead of
+//   being erased.
 //   Beyond that: nothing. Investigated build-plugins/ogPagesPlugin.ts directly:
 //   the only wall-clock read in the render path (`new Date().toISOString()`
 //   at ogPagesPlugin.ts's buildDateIso/todayIso) is used SOLELY as a
@@ -41,8 +67,9 @@
 //   are identical build-to-build for the same commit. Net effect: for a
 //   well-formed article, the fast path's output and a full build's output
 //   carry the SAME bytes; #5444 established that they do not always carry
-//   them in the same ORDER inside <head>, which is what the one normalization
-//   above absorbs — and only that.
+//   them in the same ORDER — of the `<meta>` tags inside <head>, and of the
+//   directives inside a robots `content=` value — which is what the two
+//   normalizations above absorb, and only that.
 //   A trailing-newline-only diff (curl transport vs local fs.writeFileSync)
 //   is the one transport artifact tolerated below — not a content
 //   normalization, just whitespace at the very end of the byte stream.
@@ -268,6 +295,180 @@ export function canonicalizeHeadMetaOrder(html) {
   return html.slice(0, headStart) + rebuiltHead + html.slice(headEnd);
 }
 
+// The `name=` values whose `content=` is a robots DIRECTIVE LIST, and the only
+// ones whose commas this file is allowed to reorder. Deliberately an explicit
+// allowlist and never a generic "any content= containing commas" rule: a
+// `description`, a `keywords`, a `citation_keywords` or a `viewport` is also a
+// comma-separated string, and permuting one of those IS a content change —
+// index.html carries all four. Nothing outside this list is touched.
+//
+// Every entry is a USER-AGENT TOKEN of the robots meta tag, which is the one
+// place the grammar is specified as an unordered set: `name` names the crawler,
+// `content` is that crawler's directive list, and no crawler documents order as
+// meaningful (Google's and Bing's references both list the directives as a
+// set). `robots` is the case actually observed diverging on run 31328174202;
+// `bingbot` and `msnbot` are emitted by index.html today with the identical
+// grammar; `googlebot`/`googlebot-news` are Google's per-agent forms of the
+// same tag, listed so the next renderer to emit one is covered by construction
+// rather than by a fourth round of this investigation.
+const ROBOTS_DIRECTIVE_META_NAMES = new Set([
+  'robots',
+  'googlebot',
+  'googlebot-news',
+  'bingbot',
+  'msnbot',
+]);
+
+// Attribute walker with capture indices, so a value's exact [start, end) inside
+// the tag is known and can be rewritten in place. Same grammar as
+// META_ATTR_RE — quoted values are consumed whole, so a `name=` or a comma
+// appearing INSIDE a value is never read as markup — with the three value
+// forms captured separately (double-quoted, single-quoted, unquoted).
+const META_ATTR_VALUE_RE =
+  /([a-zA-Z_:][-a-zA-Z0-9_:.]*)\s*(?:=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'`=<>]*)))?/gdy;
+
+/**
+ * Walks one `<meta …>` tag left to right; returns its `name=` value and the
+ * [start, end) span of its `content=` value WITHIN the tag string.
+ *
+ * A walk, not two `name=`/`content=` searches, for the reason the tag-order
+ * pass already walks rather than searches (see isPositionSignificantMeta): an
+ * article whose description contains the literal `name=robots` would otherwise
+ * be read as a robots tag and get its commas sorted. The walk consumes quoted
+ * values whole, so nothing inside a value is ever seen as an attribute name.
+ */
+function readMetaNameAndContentSpan(tag) {
+  const openTag = /^<meta\b/i.exec(tag);
+  let pos = openTag ? openTag[0].length : 0;
+  let name = null;
+  let contentSpan = null;
+
+  while (pos < tag.length) {
+    while (pos < tag.length && /\s/.test(tag[pos])) pos++;
+    if (pos >= tag.length || tag[pos] === '>' || tag[pos] === '/') break;
+    META_ATTR_VALUE_RE.lastIndex = pos;
+    const m = META_ATTR_VALUE_RE.exec(tag); // sticky: matches at pos or not at all
+    if (!m || m[0].length === 0) break;
+    const attr = m[1].toLowerCase();
+    const valueIdx = m.indices[2] ?? m.indices[3] ?? m.indices[4] ?? null;
+    if (attr === 'name' && valueIdx) name = tag.slice(valueIdx[0], valueIdx[1]);
+    else if (attr === 'content' && valueIdx) contentSpan = valueIdx;
+    pos += m[0].length;
+  }
+  return { name, contentSpan };
+}
+
+/**
+ * Sorts the comma-separated directives of ONE `content=` value, in place.
+ *
+ * THE SAFETY ARGUMENT — deliberately the same one as canonicalizeHeadMetaOrder,
+ * one level down, because "same shape, same proof" is the whole reason to write
+ * it this way instead of the obvious `.split(',').map(trim).sort().join(', ')`:
+ * this is a PERMUTATION OF A MULTISET OF SUBSTRINGS. The directive tokens are
+ * collected with their source spans, the token STRINGS are sorted (whole and
+ * verbatim — never parsed into key/value, never lowercased, never re-emitted),
+ * and written back into those same spans. The separators between them — the
+ * commas and every space around them — are copied through from the input
+ * untouched, so the output has exactly the input's length and exactly its
+ * punctuation.
+ *
+ * Why that still detects a changed VALUE, which is the property that matters:
+ * tokens are trimmed and contain no comma, so splitting the OUTPUT on commas
+ * and trimming each segment recovers the sorted token sequence exactly. Two
+ * outputs are therefore equal only if their sorted token sequences are equal,
+ * i.e. only if their token MULTISETS are equal. Consequences:
+ *   • `max-snippet:-1` vs `max-snippet:50` → different multisets → still
+ *     different. Order is absorbed, values are not.
+ *   • `noindex` appearing or disappearing → different multiset → still
+ *     different. The audit keeps the detection power it exists for.
+ *   • a directive gained, lost or duplicated → different. Multiset, not set.
+ *   • whitespace is NOT normalized: `index,follow` and `index, follow` stay
+ *     different. Absorbing that would be a second, unargued normalization; a
+ *     spurious mismatch is the safe failure direction for an audit.
+ */
+function canonicalizeDirectiveListValue(value) {
+  const slots = [];
+  const tokenRe = /[^,]+/g;
+  let m;
+  while ((m = tokenRe.exec(value)) !== null) {
+    const raw = m[0];
+    const lead = raw.length - raw.trimStart().length;
+    const trail = raw.length - raw.trimEnd().length;
+    if (lead + trail >= raw.length) continue; // whitespace-only run: not a directive
+    slots.push({
+      start: m.index + lead,
+      end: m.index + raw.length - trail,
+      token: raw.slice(lead, raw.length - trail),
+    });
+  }
+  if (slots.length < 2) return value;
+
+  // Default Array#sort: UTF-16 code-unit order. Deterministic and
+  // locale-independent (no localeCompare) — the two sides are canonicalized in
+  // two different processes, on two different machines.
+  const sortedTokens = slots.map((s) => s.token).sort();
+
+  let out = '';
+  let cursor = 0;
+  slots.forEach((slot, i) => {
+    out += value.slice(cursor, slot.start) + sortedTokens[i];
+    cursor = slot.end;
+  });
+  return out + value.slice(cursor);
+}
+
+/**
+ * Returns `html` with the directives inside the `content=` of every
+ * robots-family `<meta>` in `<head>` put in a canonical (sorted) order, and
+ * nothing else (#5444, second layer — see the header comment's PATTERN note).
+ *
+ * Scope, all three limits deliberate:
+ *   • only inside `<head>` — a `<meta>` in the body is content, and there a
+ *     reordering is a real difference, exactly as for the tag-order pass;
+ *   • only tags whose `name=` is in ROBOTS_DIRECTIVE_META_NAMES — see that
+ *     list for why an allowlist and not a rule about commas;
+ *   • only the `content=` value; every other character of the tag, and the
+ *     whole rest of the document, is copied through verbatim.
+ * A tag this mis-parses can only ever produce a SPURIOUS MISMATCH, never a
+ * spurious match, because a mis-parse leaves bytes unsorted on one side only.
+ */
+export function canonicalizeRobotsDirectiveOrder(html) {
+  const open = /<head\b[^>]*>/i.exec(html);
+  if (!open) return html;
+  const headStart = open.index + open[0].length;
+  const headEnd = html.toLowerCase().indexOf('</head>', headStart);
+  if (headEnd === -1) return html;
+
+  const head = html.slice(headStart, headEnd);
+  const rewritten = head.replace(/<meta\b[^>]*>/gi, (tag) => {
+    const { name, contentSpan } = readMetaNameAndContentSpan(tag);
+    if (!name || !contentSpan) return tag;
+    if (!ROBOTS_DIRECTIVE_META_NAMES.has(name.trim().toLowerCase())) return tag;
+    const [vs, ve] = contentSpan;
+    const canonical = canonicalizeDirectiveListValue(tag.slice(vs, ve));
+    return tag.slice(0, vs) + canonical + tag.slice(ve);
+  });
+
+  return html.slice(0, headStart) + rewritten + html.slice(headEnd);
+}
+
+/**
+ * The full second-pass normalization the comparison below applies, in the one
+ * order that composes correctly: DIRECTIVES FIRST, THEN TAGS.
+ *
+ * Not interchangeable. canonicalizeHeadMetaOrder sorts whole raw tag strings,
+ * so two sides whose robots tag differs only by directive order carry two
+ * different sort KEYS; a third tag sorting between them would land in a
+ * different slot on each side and the two heads would still differ after both
+ * passes. Normalizing the directives first makes the two robots tags one
+ * identical string, after which the tag sort sees identical multisets on both
+ * sides and the result is order-free. Each pass preserves length, so neither
+ * disturbs the other's slot arithmetic.
+ */
+export function canonicalizeForComparison(html) {
+  return canonicalizeHeadMetaOrder(canonicalizeRobotsDirectiveOrder(html));
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const scratchDir = fs.mkdtempSync(path.join(os.tmpdir(), 'byte-identity-'));
@@ -326,28 +527,44 @@ async function main() {
         continue;
       }
 
-      // Second pass, and only now: the same bytes in a different <head>
-      // <meta> order (see canonicalizeHeadMetaOrder). Kept as a fallback
-      // rather than folded into the first comparison so that "byte-identical"
-      // above keeps meaning literally that, and so the log distinguishes the
-      // two — the renderers' meta-order non-determinism is a real (if
-      // harmless) finding and should stay visible, not be erased.
-      const canonA = canonicalizeHeadMetaOrder(a);
-      const canonB = canonicalizeHeadMetaOrder(b);
-      if (canonA === canonB) {
+      // Later passes, and only now: the same bytes in a different order — of
+      // the <head> <meta> tags, then of the directives inside a robots
+      // content= value. Kept as fallbacks rather than folded into the first
+      // comparison so that "byte-identical" above keeps meaning literally
+      // that, and applied one at a time so the log says WHICH kind of
+      // reordering it took: the renderers' non-determinism is a real (if
+      // harmless) finding and should stay visible, not be erased. A run whose
+      // OK lines are all "modulo … directive ORDER" is telling you the chase
+      // described in the header comment has moved a level, not that it ended.
+      const tagOrderA = canonicalizeHeadMetaOrder(a);
+      const tagOrderB = canonicalizeHeadMetaOrder(b);
+      if (tagOrderA === tagOrderB) {
         console.log(
           `[byte-identity] ${shard.locale}: OK — identical modulo <head> <meta> ORDER (${a.length} bytes, same tags, same values) — ${shard.url}`,
         );
         continue;
       }
 
+      const canonA = canonicalizeForComparison(a);
+      const canonB = canonicalizeForComparison(b);
+      if (canonA === canonB) {
+        console.log(
+          `[byte-identity] ${shard.locale}: OK — identical modulo <head> <meta> ORDER + robots DIRECTIVE ORDER (${a.length} bytes, same tags, same directives, same values) — ${shard.url}`,
+        );
+        continue;
+      }
+
       anyMismatch = true;
       console.error(`[byte-identity] ${shard.locale}: MISMATCH — fast=${a.length}B live=${b.length}B — ${shard.url}`);
-      // Diffed on the canonicalized text: on the raw text the <head> <meta>
-      // permutation is always the FIRST divergence, so every offset/context
-      // block would point at it and hide whatever else differs further down
-      // — which is precisely how run 31324948161 read as 20/20 drift.
-      console.error('  (offsets below are into the <head>-<meta>-order-canonicalized text, not the raw response)');
+      // Diffed on the fully canonicalized text: on the raw text the <head>
+      // <meta> permutation is always the FIRST divergence, so every
+      // offset/context block would point at it and hide whatever else differs
+      // further down — which is precisely how run 31324948161 read as 20/20
+      // drift, and then how run 31328174202 pointed every one of its 15
+      // mismatches at the robots directive order at offset 713.
+      console.error(
+        '  (offsets below are into the text canonicalized for <meta> ORDER and robots DIRECTIVE ORDER, not the raw response)',
+      );
       const offsetCtx = firstDiffOffsetContext(canonA, canonB);
       if (offsetCtx) {
         console.error(`  first diff at char offset ${offsetCtx.offset}`);
@@ -370,7 +587,8 @@ async function main() {
 // Run as standalone only if invoked directly — same idiom, and for the same
 // reason, as scripts/audit-article-corpus-drift.mjs:315. Without it, merely
 // IMPORTING this module (as tests/check-article-byte-identity-head-order.test.ts
-// now does, to reach the pure canonicalizeHeadMetaOrder) would spawn
+// and tests/check-article-byte-identity-robots-directives.test.ts now do, to
+// reach the pure canonicalize* helpers) would spawn
 // publish-article-fast.mjs, curl production four times and call process.exit.
 // If this guard ever mis-fires the failure is loud, not silent: the script
 // prints nothing, and audit-article-corpus-drift.mjs's parseLocaleVerdicts
