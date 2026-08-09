@@ -1822,7 +1822,7 @@ const blogMetaFr: Record<string, string> = {
  'blog.article.accordi-svizzera-ue-2026.imageAlt': 'Vue panoramique du lac de Lugano et des montagnes du Tessin en journée ensoleillée',
  'blog.article.vacanze-di-pasqua-san-gottardo.title': 'Vacances de Pâques : la colonne au Saint-Gothard atteint 21 kilomètres',
  'blog.article.vacanze-di-pasqua-san-gottardo.excerpt': 'Les automobilistes sont en file d\'attente pour les vacances de Pâques au Saint-Gothard : 21 kilomètres de circulation bloquée',
- 'blog.article.vacanze-di-pasqua-san-gottardo.imageAlt': 'Automobilistes en file pour les vacances de P8re5t al San Gottardo',
+ 'blog.article.vacanze-di-pasqua-san-gottardo.imageAlt': 'Automobilistes en file pour les vacances de P8re5t al San Gottardo',
  'blog.article.medici-manca-verbano-ticino-2026.title': 'De Varese au Verbano manquent 172 médecins de base : un ambulatoire temporaire a été activé à Laveno',
  'blog.article.medici-manca-verbano-ticino-2026.excerpt': 'Il y a 172 postes vacants de médecins de médecine générale dans le territoire de l\'Asst Sette Laghi.',
  'blog.article.medici-manca-verbano-ticino-2026.imageAlt': 'Médecins à Ticino et Varese',
@@ -9390,6 +9390,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-oss-ticino-guida.title': 'Frontalier opérateur socio-sanitaire au Tessin : guide',
     'blog.article.frontaliere-oss-ticino-guida.excerpt': 'Travailler comme OSS au Tessin : voici les exigences pour la reconnaissance du titre, les taux de cotisation et le fonctionnement du nouvel accord fiscal.',
     'blog.article.frontaliere-oss-ticino-guida.imageAlt': 'Hôpital au Tessin avec vue sur le lac',
+    'blog.article.bollettino-frontaliere-2026-08-09.title': 'Bulletin du frontalier – 9 août 2026 : 589 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-08-09.excerpt': 'Les chiffres du jour (9 août 2026) pour les frontaliers : attentes aux douanes mesurées ce matin, les communes où l\'essence coûte le moins cher, le taux CHF-EUR et les nouvelles offres d\'emploi en Suisse. Suivi propriétaire, mis à jour chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-08-09.imageAlt': 'Les chiffres du jour pour les frontaliers – 9 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
 };
 
 export default blogMetaFr;

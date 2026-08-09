@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfaden für Grenzgänger im Tessin</description>
     <language>de</language>
-    <lastBuildDate>Sun, 09 Aug 2026 04:32:41 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 09 Aug 2026 05:49:00 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Deutsch</title>
@@ -16,6 +16,59 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Grenzgänger-Tagesbulletin – 9. August 2026: 589 neue Stellenangebote gestern</title>
+      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/grenzgaenger-tagesbulletin-2026-08-09/</link>
+      <description><![CDATA[Die Zahlen von heute (9. August 2026) für Grenzgänger: heute Morgen gemessene Wartezeiten an den Grenzübergängen, die günstigsten Tank-Gemeinden, der CHF-EUR-Kurs und neue Stellenangebote in der Schweiz. Eigene Messung, täglich aktualisiert.]]></description>
+      <content:encoded><![CDATA[Guten Morgen — heute ist Sonntag, der 9. August 2026. Das ist das tägliche Bulletin für alle, die auf der einen Seite der Grenze wohnen und auf der anderen arbeiten: vier heute gemessene Zahlen — Staus an den Übergängen, Benzin, Wechselkurs und Arbeitsmarkt — jeweils mit Link zur Live-Seite.
+
+## Wartezeiten an der Grenze heute Morgen
+
+Heute Morgen läuft es: Von 141 überwachten Übergängen melden 138 keine Warteschlange, die längste Wartezeit beträgt nur **1 Minuten** (Bizzarone-Novazzano).
+
+| Übergang | Wartezeit | Status |
+|---|---|---|
+| Bizzarone-Novazzano | 1 Min. | flüssig |
+| Passo dello Spluga (Montespluga) | 1 Min. | flüssig |
+| Traforo del Gran San Bernardo | 1 Min. | flüssig |
+
+Der Verkehr ändert sich stündlich — der Live-Status jedes Übergangs steht auf der [Seite zur Wartezeit an der Grenze](/de/wartezeit-grenze/).
+## Benzin: Wo es heute am wenigsten kostet
+
+In 518 überwachten Grenzgemeinden lohnt sich das Tanken heute in 48 Fällen in der Schweiz und in 93 in Italien.
+
+| Gemeinde (IT) | Bleifrei, Tiefstpreis |
+|---|---|
+| Livigno (SO) | 1.528 €/L |
+| Sondrio (SO) | 1.839 €/L |
+| Veduggio con Colzano (MB) | 1.849 €/L |
+| Arcisate (VA) | 1.854 €/L |
+| Cantù (CO) | 1.859 €/L |
+
+📊 **Die richtige Seite für eine volle Tankfüllung.** In **Livigno** (SO) ist die Differenz heute **25.25 € pro 50-Liter-Tank** wert (1.528 €/L in Italien gegenüber 2.033 €/L an der nächsten Schweizer Tankstelle).
+
+Die günstigste Schweizer Tankstelle ist heute **Alpina Tankstelle** (1.42 CHF/L, ≈ 1.519 €/L), bei Curon Venosta (BZ).
+
+Preise Gemeinde für Gemeinde, täglich aktualisiert: [Benzinpreise an der Grenze, heute](/de/benzinpreis-schweiz/heute/).
+## Wechselkurs Franken–Euro
+
+Ein Franken ist **1.0695 €** wert (Schluss 2026-08-08). Gegenüber dem Vortag ist er stabil; über sieben Tage beträgt die Veränderung -0.0046 €.
+
+💡 Wer in Franken verdient und in Euro ausgibt, für den IST der Kurs ein Teil des Lohns: Bei 4.000 CHF ist ein Rappen Bewegung 40 € im Monat wert. Der [Nettolohn-Rechner](/de/gehalt-berechnen/) und der [Vergleich der Wechseldienste](/de/service-vergleich/chf-eur-wechselkurs/) rechnen Ihren Fall durch.
+## Arbeitsmarkt: die Zahlen von gestern
+
+Gestern kamen **589 neue Stellenangebote** in der Schweiz auf unser Job-Board; in den letzten sieben Tagen 4'708. Insgesamt sind **22'607** Anzeigen aktiv, von 860 Unternehmen.
+
+Nach Kanton, Branche und Stadt filtern: [Jobs im Tessin und in der Schweiz](/de/jobs-im-tessin/).
+
+## Wie dieses Bulletin entsteht
+
+Keine der Zahlen oben stammt aus einem Agentur-Feed — es ist unsere eigene Messung: mehrmals pro Stunde erfasste Warteschlangen an jedem Schweizer Grenzübergang, Kraftstoffpreise in den italienischen Grenzgemeinden und an nahen Schweizer Tankstellen, die offizielle tägliche CHF/EUR-Reihe und die Crawler unseres Job-Boards. Das Bulletin erscheint früh am Morgen, vor dem Pendlerverkehr; die Zahlen sind eine Momentaufnahme zum Zeitpunkt der Veröffentlichung, die verlinkten Seiten bleiben den ganzen Tag live.]]></content:encoded>
+      <pubDate>Sun, 09 Aug 2026 05:49:00 GMT</pubDate>
+      <guid isPermaLink="true">https://frontaliereticino.ch/de/grenzgaenger-artikel/grenzgaenger-tagesbulletin-2026-08-09/</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bollettino-frontaliere-2026-08-09.webp" medium="image"/>
+    </item>
     <item>
       <title>Grenzgänger medizinisches Fachpersonal im Tessin: Leitfaden</title>
       <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/grenzganger-oss-tessin-voraussetzungen-gehalt/</link>
@@ -2563,56 +2616,6 @@ Um Ihr Steuer-Szenario innerhalb/außerhalb von 20 km zu prüfen, nutzen Sie den
       <guid isPermaLink="true">https://frontaliereticino.ch/de/grenzgaenger-artikel/frontaliere-documente-primo-giorno-lavoro-ticino-2026-famiglia-con-figli/</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Inflation in der Schweiz sinkt im Juli auf 0,4%</title>
-      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/schweizer-inflation-juli-2026/</link>
-      <description><![CDATA[Die Inflation in der Schweiz lag im Juli bei 0,4%, nach 0,5% im Juni und 0,6% im April und Mai.]]></description>
-      <content:encoded><![CDATA[## In Kürze
-- ** Jährliche Inflation **: 0,4% im Juli (nach 0,5% im Juni und 0,6% im April/Mai)
-- Monatliche Veränderung: -0,1% (Juni lag stabil bei 0,0%)
-- Lebensmittelpreise: +0,1% monatlich, -1,3% jährlich
-- Importierte Preise: -1,1% monatlich, 0% jährlich
-
-## Eckdaten
-- Was: Sinkende Inflation in der Schweiz
-- Wann: Juli 2026
-- Wo: Schweiz
-- Wer: Bundesamt für Statistik (BfS)
-- Betrag: 0,4 % p.a.
-
-Die Inflation in der Schweiz ging im Juli erneut auf 0,4% zurück, nachdem sie im Juni 0,5% und im April und Mai 0,6% erreicht hatte. Diese Zahl wurde heute vom Bundesamt für Statistik (BfS) veröffentlicht. Der Verbraucherpreisindex lag bei 101,1 Punkten, was auf eine jährliche Progression im unteren Erwartungsbereich hindeutet. Die von der AWP befragten Analysten setzten auf Werte zwischen +0,3% und +0,6%. Auf Monatsebene schrumpften die Preise um 0,1%, ein Wert, der im unteren Bereich der Schätzungen liegt, mit Prognosen von -0,2% bis +0,1%. Der Juni hatte eine perfekte Stabilität erreicht (0,0%).
-
-### Ursachen des Sturzes
-Der Indexrückgang gegenüber dem Vormonat ist nach Einschätzung der BfS-Experten auf verschiedene Faktoren zurückzuführen, darunter sinkende Preise für Luftfracht, Diesel und Benzin. Die günstigeren saisonalen Schlussverkäufe haben sich auch auf die Preise für Bekleidung und Schuhe ausgewirkt. Im Gegenteil, die Dienstleistungen in der Hotelparallelbranche, das Heizöl, die Autovermietung und
-### Praktische Analyse
-Die sinkende Inflation in der Schweiz hat verschiedene praktische Implikationen für die Bewohner und Erwerbstätigen des Tessins. Dieser Rückgang könnte sich auf die Stabilität der Verbraucherpreise auswirken, die ein Schlüsselindikator für die persönliche und unternehmerische Finanzplanung ist. Für Grenzgänger, die häufig Einkommen in beiden Währungen verwalten, könnte eine niedrigere Inflation das Risiko einer Abwertung des Schweizer Frankens gegenüber dem Euro verringern und die Erhaltung der Kaufkraft erleichtern.
-
-### Vergleich mit 2025
-Wie Sie sich erinnern werden, lag die Inflation im Jahresdurchschnitt im Jahr 2025 bei 0,2%, gefolgt von 1,1% im Jahr 2024 und 2,8% im Jahr 2022 (Höchststand seit 30 Jahren). Der letzte negative Wert stammt aus dem Jahr 2020, als -0,7% erfasst wurden. Der aktuelle Rückgang könnte auf eine Tendenz zur Preisstabilisierung hindeuten, was sich positiv auf die wirtschaftliche Sicherheit auswirkt.
-
-### Auswirkungen auf öffentliche Dienstleistungen
-Die sinkende Inflation könnte den Druck auf öffentliche Dienste wie Schulen und Freiwilligenorganisationen verringern, die häufig mit steigenden Betriebskosten konfrontiert sind. Darüber hinaus könnte es die Fiskal- und Geldpolitik beeinflussen und den Korrekturbedarf der Schweizerischen Nationalbank verringern.
-
-### Ausblick für 2027
-Für 2027 wird die Inflation auf 0,6% bis 1,0% geschätzt. Dies deutet auf eine mögliche Fortsetzung des Abwärtstrends hin, was für die Wirtschaft von Vorteil sein könnte
-
-## Nützliche Tools zum Schutz Ihres Nettolohns
-Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).
-### Konkrete Aktionen
-Für Grenzgänger ist es wichtig, die Inflationsentwicklung genau zu überwachen und die Finanzplanung entsprechend anzupassen. Dies könnte die Überprüfung der persönlichen und unternehmerischen Budgets, die Bewertung der Abwertungsrisiken des Schweizer Frankens und die Suche nach Anlagemöglichkeiten umfassen, die von einem stabileren wirtschaftlichen Umfeld profitieren könnten.
-
-### Nützliche Tools
-Um einen detaillierteren Überblick über die Inflation und ihre Auswirkungen zu erhalten, können Grenzgänger Instrumente wie [calcolatore di costo della vita](nav:cost-of-living) und [comparatore di cambio valuta](nav:exchange) verwenden. Diese Instrumente können dazu beitragen, die Auswirkungen der Inflation auf Lebenshaltungskosten und Einkommen besser zu verstehen.
-
-### Fazit
-Die sinkende Inflation in der Schweiz ist eine positive Nachricht, die erhebliche Auswirkungen auf die wirtschaftliche Stabilität und die Lebensqualität für die Bewohner und Erwerbstätigen des Tessins haben könnte. Für Grenzgänger ist es wichtig, informiert zu bleiben und die Finanzplanung entsprechend anzupassen. Die Verwendung von Tools wie [calcolatore di costo della vita](nav:cost-of-living) und [comparatore di cambio valuta](nav:exchange) kann dazu beitragen, die Auswirkungen der Inflation auf die Lebenshaltungskosten und das Einkommen besser zu verstehen.
-
-*Quelle: [tvsvizzera.it](https://www.tvsvizzera.it/tvs/qui-svizzera/inflazione-ancora-in-calo-in-svizzera-scende-allo-04-in-luglio/91837164)*]]></content:encoded>
-      <pubDate>Tue, 04 Aug 2026 19:19:19 GMT</pubDate>
-      <guid isPermaLink="true">https://frontaliereticino.ch/de/grenzgaenger-artikel/schweizer-inflation-juli-2026/</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/inflazione-svizzera-luglio-2026.webp" medium="image"/>
     </item>
   </channel>
 </rss>

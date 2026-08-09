@@ -1639,7 +1639,7 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.eurospin-luino-occhio-al-cambio.title': 'Colpo di stiletto / "Eurospin" di Luino, occhio al cambio… burbantino',
  'blog.article.eurospin-luino-occhio-al-cambio.excerpt': 'Tassi di cambio instabili e mercato finanziario in agitazione. Il "Eurospin" di Luino, un nuovo strumento per gestire i rischi del cambio.',
  'blog.article.eurospin-luino-occhio-al-cambio.imageAlt': 'Vista panoramica di Lugano, Svizzera, con un focus sul distretto finanziario e il lago vicino.',
- 'blog.article.lavena-ponte-tresa-territorio-poroso.title': 'Il 3territorio poroso3 tra Varese e la Svizzera: un confine che ora unisce più che dividere',
+ 'blog.article.lavena-ponte-tresa-territorio-poroso.title': 'Il 3territorio poroso3 tra Varese e la Svizzera: un confine che ora unisce più che dividere',
  'blog.article.lavena-ponte-tresa-territorio-poroso.excerpt': 'Un\'immagine precisa che cattura l\'essenza di un luogo dove il confine non è mai stato davvero un muro, ma piuttosto una membrana attraverso cui persone, merci, capitali e culture filtrano ogni giorno, in entrambe le direzioni',
  'blog.article.lavena-ponte-tresa-territorio-poroso.imageAlt': 'Un\'immagine di un valico tra Lavena Ponte Tresa e il Canton Ticino',
  'blog.article.fusione-valle-calanca-comuni.title': 'Val Calanca, quattro Comuni studiano una fusione strutturale',
@@ -1806,7 +1806,7 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.trasferimento-ufficio-postale-chiasso.excerpt': 'Il trasferimento dell\'Ufficio postale di Chiasso potrebbe essere un\'opportunità per il territorio',
  'blog.article.trasferimento-ufficio-postale-chiasso.imageAlt': 'Ufficio postale di Chiasso',
  'blog.article.esame-complementare-passerella-aperte-pre-iscrizioni.title': 'Esame complementare passerella: aperte le pre-iscrizioni',
- 'blog.article.esame-complementare-passerella-aperte-pre-iscrizioni.excerpt': 'Il Dipartimento dell6educazione, della cultura e dello sport comunica che sono aperte le pre-iscrizioni al corso di preparazione all’esame complementare passerella 2026/2027.',
+ 'blog.article.esame-complementare-passerella-aperte-pre-iscrizioni.excerpt': 'Il Dipartimento dell6educazione, della cultura e dello sport comunica che sono aperte le pre-iscrizioni al corso di preparazione all’esame complementare passerella 2026/2027.',
  'blog.article.esame-complementare-passerella-aperte-pre-iscrizioni.imageAlt': 'Studente che studia in biblioteca a Lugano',
  'blog.article.gasolio-costi-pullman-ticino-lago-como.title': 'Lago di Como: Pullman Turistici e Bus di Linea Sotto Pressione - Gasolio +40 Milioni/Mese',
  'blog.article.gasolio-costi-pullman-ticino-lago-como.excerpt': 'La crisi del gasolio colpisce duramente il trasporto pubblico e turistico attorno al Lago di Como, con costi aggiuntivi di 40 milioni di euro al mese.',
@@ -1895,7 +1895,7 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.diventare-pastore-ticino.title': 'Diventare pastore in Ticino',
  'blog.article.diventare-pastore-ticino.excerpt': 'Il Canton Ticino offre una formazione per diventare pastore, rivolta a chiunque sia interessato.',
  'blog.article.diventare-pastore-ticino.imageAlt': 'Pastore in Ticino',
- 'blog.article.trump-intesa-o-inferno.title': 'Trump: "Intesa o sar0 l\'inferno". Il giallo dell\'ultimatum spostato a marted8',
+ 'blog.article.trump-intesa-o-inferno.title': 'Trump: "Intesa o sar0 l\'inferno". Il giallo dell\'ultimatum spostato a marted8',
  'blog.article.trump-intesa-o-inferno.excerpt': 'Trump annuncia un ultimatum alla Cina durante la Pasqua in Ticino',
  'blog.article.trump-intesa-o-inferno.imageAlt': 'Trump annuncia un ultimato alla Cina',
  'blog.article.coop-richiama-formaggi-salmonelle.title': 'Coop richiama formaggi: possono contenere salmonelle',
@@ -9389,6 +9389,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-oss-ticino-guida.title': 'Frontaliere operatore socio sanitario in Ticino: guida',
     'blog.article.frontaliere-oss-ticino-guida.excerpt': 'Lavorare come OSS in Ticino: ecco i requisiti per il riconoscimento del titolo, le aliquote contributive e il funzionamento del nuovo accordo fiscale.',
     'blog.article.frontaliere-oss-ticino-guida.imageAlt': 'Ospedale in Ticino con vista sul lago',
+    'blog.article.bollettino-frontaliere-2026-08-09.title': 'Bollettino del frontaliere – 9 agosto 2026: 589 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-09.excerpt': 'I numeri di oggi, 9 agosto 2026, per chi attraversa il confine: attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco–euro e i nuovi annunci di lavoro in Svizzera. Dati raccolti dal nostro monitoraggio, aggiornati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-09.imageAlt': 'I numeri del giorno per i frontalieri – 9 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
 };
 
 export default blogMetaIt;
