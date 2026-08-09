@@ -1,0 +1,489 @@
+name: Rerender Article Hubs
+
+# Issue #5432 point 2 — the hub pages' missing way down.
+#
+# THE GAP THIS FILLS
+# ──────────────────
+# A section's hub pages — the `/tutti/` archive + pagination and the
+# `/…/argomenti/<topic>/` topic clusters — had exactly one producer that
+# reaches the served bytes: scripts/publish-article-fast.mjs, reachable only by
+# PUBLISHING AN ARTICLE, and only for that article's section. The full build
+# emits none of them (ARTICOLI*_BUILD_EMIT_SKIP=true, and the rehydrate's
+# REPLACE puts the old shard back afterwards — both deliberate, both staying).
+#
+# So a change to the RENDERERS had no way down at all. Extracting every
+# workflow's `push: paths:` filter across all 194 of them found not one naming
+# seoHubsPlugin.ts, topicClusterHubsPlugin.ts, topicClusterHubsData.ts,
+# articleHubPagesPlugin.ts or topicTaxonomy.ts. Measured on 2026-08-09:
+# #5422's flat page-N ladder was correct and on main, and
+# `sitemap-topics-frontaliere.xml` still reported `deepest 14` because not one
+# served page had ever been re-rendered with it — the live topic hubs linked
+# `page-2` and nothing else, so page-N was reachable only by chaining `next`
+# one hop at a time. Meanwhile `sitemap-topics-svizzera.xml` reported
+# `reached 0`, because svizzera had not published since 2026-08-08T21:38Z. That
+# is what held `audit:max-bfs-depth` red and skipped `publish` (IndexNow,
+# Google Indexing API, GSC, social) on every deploy.
+#
+# This workflow is the substitute producer: reactive to the CODE and periodic,
+# instead of reactive to the editorial cadence.
+#
+# WHY NOT rerender-article-corpus.yml, which exists for exactly this class of
+# drift and whose own TODO used to point here: it re-renders 3571 articles
+# under a 180-minute timeout and serialises on `rerender-corpus-<section>`.
+# Putting a repair that takes minutes behind a lock that takes hours makes the
+# repair unavailable precisely while a hub regression is live. That TODO now
+# points at this file instead.
+#
+# WHY NOT the corpus repo: `topicClusterHubsPlugin.ts` is 1000+ lines and
+# depends on `build-plugins/shared/`, so it would first have to move under
+# `packages/articles/engine/` to be mirrored at all — and it would put the
+# repair in a repo where the gate that detects the failure does not run.
+#
+# COST. The render is not the expensive part and never was: both sections,
+# 1236 pages, measured at 3.1 s wall on a laptop. The job is dominated by
+# checkout, the Node setup and the shard clones — minutes, not the hours
+# rerender-article-corpus.yml budgets for.
+
+on:
+  # 1. THE CODE CHANGED. These are the five files #5422 touched plus this
+  #    workflow's own driver and library. A push here means the renderer that
+  #    produces every hub page is no longer the one that produced the pages
+  #    currently being served.
+  push:
+    branches: [main]
+    paths:
+      - 'build-plugins/seoHubsPlugin.ts'
+      - 'build-plugins/topicClusterHubsPlugin.ts'
+      - 'build-plugins/topicClusterHubsData.ts'
+      - 'packages/articles/engine/articleHubPagesPlugin.ts'
+      - 'packages/articles/engine/topicTaxonomy.ts'
+      - 'scripts/rerender-article-hubs.mjs'
+      - 'scripts/lib/render-and-push-hubs.mjs'
+      # Self-test on change. A push touching only this file still runs the
+      # whole path (render + validate + push), which is what makes an edit
+      # here verifiable rather than hopeful.
+      - '.github/workflows/rerender-article-hubs.yml'
+
+  # 2. THE SAFETY NET, AND IT IS LOAD-BEARING — NOT REDUNDANT WITH (1).
+  #
+  #    A push made with the default GITHUB_TOKEN never triggers another
+  #    workflow (GitHub's anti-recursion rule). That is the same lesson
+  #    mirror-articles-engine.yml:54-60 wrote down, and here it bites in TWO
+  #    places, both verified in this repo rather than assumed:
+  #
+  #    (a) THE CODE PATH, sometimes. auto-merge-on-lgtm.yml merges with an App
+  #        token or the Remote Config PAT precisely so the merge push cascades
+  #        — but it falls back to GITHUB_TOKEN when neither credential is
+  #        available (its own step at :121 exists for that case and says so).
+  #        On that path the merge of a renderer change fires nothing.
+  #
+  #    (b) THE CONTENT PATH, ALWAYS. Hub pages are a function of the article
+  #        corpus, not only of the code, and new articles arrive ~15-25 times a
+  #        day. This repo's copy of the corpus is refreshed by
+  #        sync-articles-sitemaps.yml, which commits `packages/articles/content`
+  #        with a bare `actions/checkout@v5` and `git push origin` — i.e. with
+  #        the GITHUB_TOKEN extraheader. So that commit triggers NOTHING, and
+  #        no `push:` filter on `packages/articles/content/**` could ever work.
+  #        The schedule is the only trigger that covers new articles at all.
+  #
+  #    Cheap when there is nothing to do: an unchanged tree makes
+  #    push-article-shard-incremental.sh a clean no-op — no commit, no GitHub
+  #    Pages build, nothing to purge.
+  #
+  #    Offset from the two crons it must not race: sync-articles-sitemaps.yml
+  #    at :23 (which supplies the corpus this render reads — it must land
+  #    first) and mirror-articles-engine.yml at :19.
+  schedule:
+    - cron: '47 */6 * * *'
+
+  # 3. THE OPERATOR. Defaults to DRY, like the corpus's fast-publish-article.yml:
+  #    a manual poke must not be able to publish by accident. `dry_run: false`
+  #    is the deliberate act.
+  workflow_dispatch:
+    inputs:
+      section:
+        description: 'Section to re-render (all = both, matches the push/schedule scope)'
+        type: choice
+        options:
+          - all
+          - frontaliere
+          - svizzera
+        default: all
+      dry_run:
+        description: 'Render and validate, push nothing (default: yes)'
+        type: boolean
+        default: true
+
+permissions:
+  # `write` for the topic-hub sitemap commit into public/, and for that alone.
+  # The commit goes out with GITHUB_TOKEN, which by the same anti-recursion
+  # rule quoted above triggers no workflow — so it cannot start a deploy per
+  # re-render (the property sync-articles-sitemaps.yml and
+  # fast-publish-article.yml already rely on for their own public/ commits).
+  contents: write
+  issues: write
+
+jobs:
+  plan:
+    # Which sections run as separate matrix jobs. A push or a schedule always
+    # means both: the renderers are shared, so a change to them affects the two
+    # sections identically. A dispatch honours the operator's choice.
+    runs-on: ubuntu-latest
+    outputs:
+      sections: ${{ steps.compute.outputs.sections }}
+    steps:
+      - id: compute
+        env:
+          INPUT_SECTION: ${{ inputs.section }}
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${INPUT_SECTION:-all}" != "all" ]; then
+            printf 'sections=["%s"]\n' "$INPUT_SECTION" >> "$GITHUB_OUTPUT"
+          else
+            echo 'sections=["frontaliere","svizzera"]' >> "$GITHUB_OUTPUT"
+          fi
+
+  rerender:
+    needs: plan
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        section: ${{ fromJson(needs.plan.outputs.sections) }}
+    runs-on: ubuntu-latest
+    # Minutes, not hours — the render of BOTH sections is ~3 s. This budget is
+    # for checkout, the Node setup and four shard clone/push round trips.
+    timeout-minutes: 30
+    # Serialised per SECTION, never cancelled. Two runs on the same section
+    # would push overlapping relpath sets to the same four shard repos, and a
+    # CANCELLED run is worse than a queued one: it leaves some locales pushed
+    # and others not, which is a section whose four locales disagree with each
+    # other until the next run. A queued run for the OTHER section is a
+    # separate group and proceeds independently.
+    concurrency:
+      group: hub-rerender-${{ matrix.section }}
+      cancel-in-progress: false
+    environment: shard-secrets-overflow
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          # NOT hygiene. Without it actions/checkout leaves its GITHUB_TOKEN in
+          # an `http.extraheader` that git then prefers over the shard
+          # credentials for any HTTPS remote — a `contents: read`-scoped token
+          # that cannot write to the shards and whose push would fire no
+          # workflow anyway. Re-enabled explicitly for the one step that does
+          # need to write to THIS repo (the sitemap commit).
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      # DRY resolution, in one place, read by every later step.
+      #
+      # A dispatch defaults to dry (see the input's own default) so a manual
+      # poke cannot publish by accident; a push or a schedule publishes,
+      # because those are the two events that mean "the served pages are out of
+      # date" and a dry run of them would repair nothing.
+      - name: Resolve mode
+        id: mode
+        env:
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            dry=true
+            [ "${INPUT_DRY_RUN:-true}" = "false" ] && dry=false
+          else
+            dry=false
+          fi
+          echo "dry=$dry" >> "$GITHUB_OUTPUT"
+          echo "event=${{ github.event_name }} section=${{ matrix.section }} dry=$dry"
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -n "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+            echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON not set — Remote Config load will be limited (R2/CF credentials, and the PAT fallback for a refused deploy key)"
+          fi
+
+      # R2 + Cloudflare credentials for the edge publish and the purge below,
+      # and GITHUB_PAT as push-article-shard-incremental.sh's last-resort
+      # fallback for a refused deploy key.
+      #
+      # Deliberately NO `npm ci`: the driver runs under `npx -y tsx@4` and its
+      # whole transitive value-import closure (81 files, verified by scanning
+      # it — the one `react` edge is reached through an `import type` that tsx
+      # erases) touches no npm package at runtime. Same posture as
+      # rerender-article-corpus.yml and fast-publish-article.yml, and the
+      # reason this workflow costs minutes.
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      # PROVE THE CREDENTIALS BEFORE RENDERING, not half-way through pushing.
+      #
+      # The failure this catches is silent by design: with no
+      # SHARD_<SECTION>_<LOCALE>_DEPLOY_KEY in the environment,
+      # push-article-shard-incremental.sh prints a notice and EXITS 0 — "fast
+      # path not provisioned", which for a publish is the right call (the
+      # article rides the next full deploy) and for a repair is a green run
+      # that repaired nothing.
+      #
+      # What this proves and what it does not: `git ls-remote` over SSH with
+      # the deploy key proves the key authenticates and that the shard has a
+      # `main` to build on — the script's other permanent-fail case. It does
+      # NOT prove the key's write bit; the SSH receive-pack advertisement would,
+      # but its quoting is fiddly enough that a probe which false-fails would
+      # cost more than it catches, and a genuinely read-only key still fails
+      # loudly at the push (3 attempts, then the PAT fallback, then exit 1).
+      - name: Probe shard access (${{ matrix.section }})
+        env:
+          SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_FR_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
+          # Matrix values reach the shell as DATA, never as script text — the
+          # matrix is derived from a dispatch input two jobs up.
+          INPUT_SECTION: ${{ matrix.section }}
+        run: |
+          set -euo pipefail
+          shard="articoli$INPUT_SECTION"
+          owner="$(jq -r --arg s "$shard" '.[$s] // "valerielinc-ops"' scripts/lib/section-shard-owners.json)"
+          upper="$(printf '%s' "$shard" | tr a-z A-Z)"
+
+          fail=0
+          for loc in it en de fr; do
+            locupper="$(printf '%s' "$loc" | tr a-z A-Z)"
+            var="SHARD_${upper}_${locupper}_DEPLOY_KEY"
+            key="${!var:-}"
+            if [ -z "$key" ]; then
+              echo "::error::$var is empty — push-article-shard-incremental.sh would skip $shard/$loc and exit 0, reporting a repair that never happened"
+              fail=1
+              continue
+            fi
+            kf="$RUNNER_TEMP/probe_${shard}_${loc}"
+            printf '%s\n' "$key" > "$kf"
+            chmod 600 "$kf"
+            if GIT_SSH_COMMAND="ssh -i $kf -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new" \
+               git ls-remote --heads "git@github.com:$owner/frontaliere-$shard-$loc.git" main \
+               2>/dev/null | grep -q 'refs/heads/main'; then
+              echo "  reachable  $owner/frontaliere-$shard-$loc"
+            else
+              echo "::error::$owner/frontaliere-$shard-$loc: the deploy key did not authenticate, or the shard has no main branch to build on"
+              fail=1
+            fi
+            rm -f "$kf"
+          done
+          [ "$fail" = "0" ] || exit 1
+
+      # Render + validate ALWAYS; push only when not dry. The validation lives
+      # inside the driver rather than in shell here, so a `--dry-run` is a
+      # complete exercise of everything that can go wrong before a byte moves —
+      # including on a laptop. Each check defends a failure that renders
+      # "successfully"; see the driver for the incident behind each one.
+      - name: Rerender ${{ matrix.section }} hubs
+        id: render
+        env:
+          SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_FR_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
+          GITHUB_SHA: ${{ github.sha }}
+          INPUT_SECTION: ${{ matrix.section }}
+          INPUT_DRY: ${{ steps.mode.outputs.dry }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/hubs"
+          ARGS=(--section "$INPUT_SECTION"
+                --out "$RUNNER_TEMP/hubs/dist"
+                --summary "$RUNNER_TEMP/hubs/summary.json")
+          if [ "$INPUT_DRY" = "true" ]; then ARGS+=(--dry-run); fi
+          # Pinned to the same tsx major package.json declares ("tsx":
+          # "^4.21.0"), like every other un-installed path in this repo, so a
+          # future tsx major cannot silently change loader behaviour here.
+          npx -y tsx@4 scripts/rerender-article-hubs.mjs "${ARGS[@]}"
+
+      # The producer announces what it wrote — and only what it wrote.
+      #
+      # `renderTopicClusterHubPages` writes `sitemap-topics-<section>.xml` from
+      # the very pages this run just rendered and pushed, so the URL list and
+      # the shard contents are the same fact. That coupling is the fix for
+      # #5290, where the file had two producers and the one that was not
+      # looking at the disk announced 36 page-N URLs no shard had.
+      #
+      # Two destinations, answering two different questions:
+      #   - R2 (EDGE_PUSHED_FILES) → what a crawler FETCHES. Live within the
+      #     5-minute TTL, and publish-edge-files.mjs purges what it publishes.
+      #   - public/ commit → what a crawler DISCOVERS: sitemapAliasPlugin builds
+      #     dist/sitemap.xml by discovering dist/sitemap-*.xml, and Vite copies
+      #     public/ into dist/.
+      #
+      # Fails open. The pages are already pushed and already serving; a missed
+      # publish means the sitemap is one run behind, not that anything 404s.
+      - name: Publish + commit the topic-hub sitemap
+        if: steps.mode.outputs.dry != 'true' && steps.render.outcome == 'success'
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_SECTION: ${{ matrix.section }}
+        run: |
+          set -uo pipefail
+          SUMMARY="$RUNNER_TEMP/hubs/summary.json"
+          DIST="$(jq -r --arg s "$INPUT_SECTION" '.sections[$s].distDir' "$SUMMARY")"
+          REL="$(jq -r --arg s "$INPUT_SECTION" '.sections[$s].sitemapPath // empty' "$SUMMARY")"
+          COUNT="$(jq -r --arg s "$INPUT_SECTION" '.sections[$s].announcedUrlCount // 0' "$SUMMARY")"
+          if [ -z "$REL" ]; then
+            echo "no topic sitemap for $INPUT_SECTION (the render produced no indexable hub) — nothing to announce"
+            exit 0
+          fi
+          echo "topic sitemap: /$REL — $COUNT URL(s), all rendered and pushed by this run"
+
+          node scripts/publish-edge-files.mjs --only="/$REL" --from-dir="$DIST" \
+            || echo "::warning::edge publish failed for /$REL — the previous R2 copy keeps serving"
+
+          cp "$DIST/$REL" "public/$REL"
+          # `git status --porcelain`, not `git diff --quiet`: on the very first
+          # run the file may be UNTRACKED, and `git diff` reports a clean tree
+          # for an untracked file — the check that looks obviously right would
+          # skip precisely the commit that matters, forever.
+          if [ -z "$(git status --porcelain -- "public/$REL")" ]; then
+            echo "public/$REL unchanged — no commit"
+            exit 0
+          fi
+          # persist-credentials: false above left no push credential on origin,
+          # which is correct for the shard pushes and wrong for this one step.
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
+          git config user.name "Valerie Linc"
+          git config user.email "valerielinc@gmail.com"
+          git add -- "public/$REL"
+          git commit -q -m "🗺️ Topic-hub sitemap: $REL ($COUNT URL)"
+          # Races every other writer to main, exactly like
+          # sync-articles-sitemaps.yml. --regenerate-cmd re-copies the RENDERED
+          # file after a conflicting rebase, so the retry publishes this run's
+          # render rather than replaying a snapshot that lost.
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "cp $DIST/$REL public/$REL && git add -- public/$REL" \
+            || echo "::warning::topic-sitemap commit did not land — the R2 copy above is already live; the index picks it up on a later run"
+
+      # A BOUNDED purge, on purpose.
+      #
+      # Cloudflare's free-plan `files` purge takes 30 URLs per call
+      # (scripts/lib/cf-purge-limits.mjs) and this run touches ~250-970 pages
+      # per section: purging all of them would be 30+ API calls every six
+      # hours, for pages that are merely stale rather than missing. Nothing
+      # here 404s — the shard already served these URLs — and the edge TTL is
+      # shorter than the schedule, so the deep page-N pages heal on their own
+      # before the next run.
+      #
+      # What does get purged is the set a human or a gate actually looks at:
+      # each locale's archive landing and each topic-hub landing, apex AND
+      # origin. The origin is the one that matters and the one that is easy to
+      # forget: locale-router.js fetches the shard origin with
+      # `cacheEverything`, so that entry is keyed on the ORIGIN url and an
+      # apex-only purge reports success while changing nothing.
+      - name: Purge the edge for the hub landings
+        if: steps.mode.outputs.dry != 'true' && steps.render.outcome == 'success'
+        continue-on-error: true
+        env:
+          INPUT_SECTION: ${{ matrix.section }}
+        run: |
+          set -uo pipefail
+          SUMMARY="$RUNNER_TEMP/hubs/summary.json"
+          shard="articoli$INPUT_SECTION"
+
+          if [ -z "${CF_API_TOKEN:-}" ]; then
+            echo "::warning::CF_API_TOKEN missing after the Remote Config load — the shards are updated, the apex keeps serving its cached copy until the TTL expires"
+            exit 0
+          fi
+
+          # Landings only: the archive landing, plus every topic hub's own
+          # landing.
+          #
+          # Matched POSITIVELY on the directory form (`…/index.html` that is
+          # not `…/page-N/index.html`) rather than by excluding what looks like
+          # a page-N path. A "skip anything containing page-" filter was the
+          # first version and it leaked: the topic hubs emit a FLAT
+          # `…/<topic>/page-2.html` bridge alongside every `…/page-2/index.html`
+          # directory, and the flat form has no trailing slash for a
+          # `*/page-*/*` glob to match. Measured on the real summary: 360 URLs
+          # (12 batches) instead of 120 (4), three quarters of them deep pages
+          # this step deliberately does not purge — and the bridges, which are
+          # redirects nobody lands on.
+          : > "$RUNNER_TEMP/hubs/purge-urls.txt"
+          while IFS=$'\t' read -r loc rel; do
+            [ -n "$rel" ] || continue
+            case "$rel" in
+              */page-*/index.html) continue ;;
+              */index.html) ;;
+              *) continue ;;
+            esac
+            rel="${rel%index.html}"
+            printf '%s\n' "https://frontaliereticino.ch/$rel" >> "$RUNNER_TEMP/hubs/purge-urls.txt"
+            printf '%s\n' "https://origin-$shard-$loc.frontaliereticino.ch/$rel" >> "$RUNNER_TEMP/hubs/purge-urls.txt"
+          done < <(jq -r --arg s "$INPUT_SECTION" \
+                     '.sections[$s].pathsByLocale | to_entries[] | .key as $l | .value[] | [$l, .] | @tsv' "$SUMMARY")
+
+          total="$(wc -l < "$RUNNER_TEMP/hubs/purge-urls.txt" | tr -d ' ')"
+          if [ "${total:-0}" -eq 0 ]; then
+            echo "no landing URLs to purge"
+            exit 0
+          fi
+          echo "purging $total landing URL(s) in batches of 30"
+          split -l 30 "$RUNNER_TEMP/hubs/purge-urls.txt" "$RUNNER_TEMP/hubs/purge-batch-"
+          for b in "$RUNNER_TEMP"/hubs/purge-batch-*; do
+            node scripts/cf-purge-cache.mjs "--files=$(paste -sd, "$b")" \
+              || echo "::warning::purge batch $(basename "$b") failed — those URLs keep serving until the TTL expires"
+          done
+
+      - name: Summary
+        if: always()
+        env:
+          INPUT_SECTION: ${{ matrix.section }}
+        run: |
+          {
+            echo "### rerender-article-hubs — $INPUT_SECTION"
+            echo
+            echo "- event: \`${{ github.event_name }}\`"
+            echo "- mode: \`$([ "${{ steps.mode.outputs.dry }}" = "true" ] && echo DRY || echo ARMED)\`"
+            SUMMARY="$RUNNER_TEMP/hubs/summary.json"
+            if [ -s "$SUMMARY" ]; then
+              jq -r --arg s "$INPUT_SECTION" '.sections[$s] |
+                "- archive pages: \(.archiveWritten)",
+                "- topic-hub pages: \(.topicHubWritten)",
+                "- paths pushed per locale: \(.pathsByLocale | to_entries | map("\(.key)=\(.value|length)") | join(" "))",
+                "- topic sitemap: \(.sitemapPath // "none") (\(.announcedUrlCount) URL)",
+                "- locales pushed: \((.pushedLocales // []) | join(", "))"' "$SUMMARY"
+            else
+              echo "- no summary produced (the render did not get that far)"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_SECTION: ${{ matrix.section }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "rerender-article-hubs ($INPUT_SECTION) failed" \
+            --description "Hub re-render for section '$INPUT_SECTION' failed (run ${{ github.run_id }}). The served hub pages stay on whatever renderer last reached them — see https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --priority 2 \
+            --label rerender-hubs \
+            --workflow "Rerender Article Hubs"
