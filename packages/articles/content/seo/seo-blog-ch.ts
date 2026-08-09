@@ -25367,6 +25367,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna': {
+    title: 'Vantaggi fiscali per i residenti a Lucerna | Frontaliere Ticino',
+    description: 'Il terzo pilastro 3a svizzero è un sistema di pensione complementare che offre vantaggi fiscali e di versamento per i residenti nel canton Lucerna.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vantaggi, fiscali, residenti, lucerna',
+    ogTitle: 'Il terzo pilastro 3a svizzero: vantaggi fiscali e di versamento per i residenti nel canton Lucerna',
+    ogDescription: 'Il terzo pilastro 3a svizzero è un sistema di pensione complementare che offre vantaggi fiscali e di versamento per i residenti nel canton Lucerna.',
+    canonicalPath: '/articoli-svizzera/terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vantaggi fiscali per i residenti a Lucerna",
+      "description": "Il terzo pilastro 3a svizzero è un sistema di pensione complementare che offre vantaggi fiscali e di versamento per i residenti nel canton Lucerna.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena fotografata in Svizzera con un lago e monti in background."
+      },
+      "datePublished": "2026-08-09T16:13:50+00:00",
+      "dateModified": "2026-08-09T16:13:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

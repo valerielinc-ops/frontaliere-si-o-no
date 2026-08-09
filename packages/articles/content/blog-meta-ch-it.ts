@@ -1960,6 +1960,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.title': 'Terzo Pilastro 3a svizzero: vantaggi e sistema di versamento unico',
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.excerpt': 'Il sistema di versamento unico del Terzo Pilastro 3a svizzero offre vantaggi fiscali e di versamento unici per i cittadini svizzeri.',
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.imageAlt': 'Una vista panoramica del Lago di Lugano con la città di Lugano sullo sfondo. Un frontaliere svizzero sta osservando il lago con un\'espressione pensierosa.',
+    'blog.article.terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.title': 'Vantaggi fiscali per i residenti a Lucerna',
+    'blog.article.terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.excerpt': 'Il terzo pilastro 3a svizzero è un sistema di pensione complementare che offre vantaggi fiscali e di versamento per i residenti nel canton Lucerna.',
+    'blog.article.terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.imageAlt': 'Una scena fotografata in Svizzera con un lago e monti in background.',
 };
 
 export default blogMetaChIt;

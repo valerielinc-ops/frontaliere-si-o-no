@@ -1960,6 +1960,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.title': 'Dritte Säule 3a Schweiz: Vorteile und einmaliges Einzahlungssystem',
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.excerpt': 'Das einmalige Einzahlungssystem der Schweizer 3. Säule bietet einmalige Steuer- und Einzahlungsvorteile für Schweizerinnen und Schweizer.',
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.imageAlt': 'Eine Panoramablick auf den Luganersee mit der Stadt Lugano im Hintergrund. Ein Schweizer Grenzarbeiter beobachtet den See mit einem nachdenklichen Ausdruck.',
+    'blog.article.terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.title': 'Steuervorteile für Luzernerinnen und Luzerner',
+    'blog.article.terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.excerpt': 'Die dritte Säule 3a Schweiz ist ein Zusatzrentensystem, das Steuer- und Einzahlungsvorteile für im Kanton Luzern ansässige Personen bietet.',
+    'blog.article.terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.imageAlt': 'Eine Szene fotografiert in der Schweiz mit einem See und Bergen im Hintergrund.',
 };
 
 export default blogMetaChDe;

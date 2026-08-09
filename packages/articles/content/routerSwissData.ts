@@ -679,6 +679,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'secondo-pilastro-lpp-basilea-2026': { it: 'secondo-pilastro-lpp-basilea-2026', en: 'second-pillar-lpp-basel-2026', de: 'zweite-saeule-bvg-basel-2026', fr: 'deuxieme-pilier-lpp-bale-2026' },
  'terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea': { it: 'terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea', en: 'third-pillar-3a-switzerland-benefits-2026-canton-basel', de: 'dritter-pfeiler-3a-schweiz-vorteile-2026-kanton-basel', fr: 'troisieme-pilier-3a-suisse-avantages-2026-canton-bale' },
  'terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea': { it: 'terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea', en: 'slug-inglese', de: 'slug-tedesco', fr: 'slug-francese' },
+ 'terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna': { it: 'terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna', en: 'slug-terzo-pilastro-3a-switzerland', de: 'slug-terzo-pilastro-3a-schweiz', fr: 'slug-terzo-pilastro-3a-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
