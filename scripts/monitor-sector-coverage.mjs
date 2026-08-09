@@ -24,8 +24,14 @@
  *      (owner decision 2026-07-16), pages stay indexed even at 0 real
  *      matches. Original #4824 check, behavior unchanged.
  *   B. TI legacy profession pages (`/lavoro-ticino-{ruolo}/`,
- *      professionLandingsData.ts / professionLandingsPlugin.ts) — same
- *      no-floor treatment as A, different subsystem, 24 roles.
+ *      professionLandingsData.ts / professionLandingsPlugin.ts) — UNLIKE A,
+ *      this family has had a MIN_JOBS floor + noindex bridge since #5322/
+ *      #5323 (`professionJobsFloor.ts`), with a 30-day grace window on
+ *      recently-expired postings. A 0-live profession here is therefore
+ *      either still indexed (riding the grace window on expired listings)
+ *      or already bridged to noindex — never automatically a live thin
+ *      page the way A's sector hubs are. The check below re-derives the
+ *      same verdict the real page emitter uses so the two never drift.
  *   C. All-canton profession-canton pages (`/lavoro-{cantone}-{ruolo}/`,
  *      professionCantonLandings.ts, every canton except TI) — these DO
  *      have a MIN_JOBS floor + automatic noindex bridge, so a 0-match pair
@@ -57,6 +63,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
 
 const JOBS_PATH = path.join(REPO_ROOT, 'public/data/jobs.json');
+const EXPIRED_JOBS_PATH = path.join(REPO_ROOT, 'public/data/expired-jobs.json');
 
 // Mirrors MIN_JOBS in build-plugins/professionCantonLandings.ts — the floor
 // below which a profession-canton page falls back to a noindex bridge.
@@ -325,11 +332,14 @@ ${zeroSectors.map((s) => `- \`/cerca-lavoro-ticino/${s}/\``).join('\n')}
 }
 
 async function checkTiLegacyProfessions(stagingRoot) {
-  const { aggregateProfessionJobs } = await import(
+  const { aggregateProfessionJobs, aggregateRecentlyExpiredProfessionCounts } = await import(
     path.join(REPO_ROOT, 'build-plugins/professionJobsAggregate.ts')
   );
   const { PROFESSION_IDS } = await import(
     path.join(REPO_ROOT, 'build-plugins/professionLandingsData.ts')
+  );
+  const { meetsJobsFloor, PROFESSION_FLOOR_GRACE_DAYS } = await import(
+    path.join(REPO_ROOT, 'build-plugins/shared/professionJobsFloor.ts')
   );
 
   const snapshots = aggregateProfessionJobs(stagingRoot);
@@ -340,14 +350,43 @@ async function checkTiLegacyProfessions(stagingRoot) {
     return;
   }
 
-  log('⚠️', `${zeroIds.length} TI legacy profession page(s) with 0 real job matches: ${zeroIds.join(', ')}`);
+  // Same verdict the real emitter (professionLandingsPlugin.ts) uses: a
+  // 0-live profession is only a live/indexed thin page if it ALSO fails the
+  // grace window (recently-expired TI postings within PROFESSION_FLOOR_GRACE_DAYS).
+  // Otherwise it's either riding the grace window (indexed, worth flagging)
+  // or already bridged to noindex,follow (safe, no thin-content risk).
+  const recentlyExpired = aggregateRecentlyExpiredProfessionCounts(
+    stagingRoot,
+    PROFESSION_FLOOR_GRACE_DAYS,
+    Date.now(),
+  );
+  const indexedViaGrace = [];
+  const bridgedNoindex = [];
+  for (const id of zeroIds) {
+    const verdict = meetsJobsFloor({
+      liveCount: 0,
+      recentlyExpiredCount: recentlyExpired ? recentlyExpired[id] : null,
+    });
+    (verdict.meetsFloor ? indexedViaGrace : bridgedNoindex).push(id);
+  }
+
+  log(
+    '⚠️',
+    `${zeroIds.length} TI legacy profession page(s) with 0 real job matches ` +
+      `(${indexedViaGrace.length} indexed via grace, ${bridgedNoindex.length} bridged noindex): ${zeroIds.join(', ')}`,
+  );
 
   const description = `## Professioni TI (legacy) a 0 match reali
 
-Le seguenti pagine \`/lavoro-ticino-{ruolo}/\` non hanno **nessuna offerta reale** in questo deploy. Come i sector-hub (#4824), restano live/indicizzate senza soglia minima — stessa classe di bug, sottosistema diverso (\`professionLandingsData.ts\` / \`professionLandingsPlugin.ts\`).
+Le seguenti pagine \`/lavoro-ticino-{ruolo}/\` non hanno **nessuna offerta reale** in questo deploy. Dal fix #5322/#5323 questa famiglia condivide il floor MIN_JOBS + bridge noindex (con grace window di ${PROFESSION_FLOOR_GRACE_DAYS}gg su annunci scaduti) della famiglia per-cantone (\`professionJobsFloor.ts\`) — un 0-match non è più automaticamente una pagina indicizzata thin come i sector-hub (#4824).
 
-${zeroIds.map((id) => `- \`/lavoro-ticino-${id}/\``).join('\n')}
+${indexedViaGrace.length > 0 ? `**Restano indicizzate via grace window** (0 offerte live ma abbastanza annunci scaduti di recente da restare sopra soglia) — nessun rischio thin-content immediato, ma il gap di offerte live va investigato:
 
+${indexedViaGrace.map((id) => `- \`/lavoro-ticino-${id}/\``).join('\n')}
+` : ''}${bridgedNoindex.length > 0 ? `**Già bridged a noindex,follow** (sotto soglia anche con la grace window) — nessun rischio thin-content, ma il gap di dati sottostante resta da tracciare per priorità crawler-onboarding:
+
+${bridgedNoindex.map((id) => `- \`/lavoro-ticino-${id}/\``).join('\n')}
+` : ''}
 **Causa più probabile:** gap di copertura crawler per il ruolo/vertical in Ticino (vedi #3337) — stessa diagnosi di #4824, non un problema di regex/matching.
 
 **Run:** ${runUrl()}`;
@@ -495,6 +534,13 @@ async function main() {
   const stagingRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'sector-coverage-'));
   fs.mkdirSync(path.join(stagingRoot, 'data'), { recursive: true });
   fs.symlinkSync(JOBS_PATH, path.join(stagingRoot, 'data', 'jobs.json'));
+  // aggregateRecentlyExpiredProfessionCounts (used by checkTiLegacyProfessions
+  // to mirror the real emitter's grace window) reads <rootDir>/data/expired-jobs.json.
+  // Missing entirely is a valid state (fails open, see professionJobsFloor.ts) —
+  // only symlink when the published copy actually exists.
+  if (fs.existsSync(EXPIRED_JOBS_PATH)) {
+    fs.symlinkSync(EXPIRED_JOBS_PATH, path.join(stagingRoot, 'data', 'expired-jobs.json'));
+  }
 
   await checkTiSectorHubs({ resolveJobCanton, jobs });
   await checkTiLegacyProfessions(stagingRoot);
