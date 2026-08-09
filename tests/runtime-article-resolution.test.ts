@@ -20,6 +20,7 @@ import {
   __resetRuntimeArticleResolution,
   publishedSlugsForIds,
   runtimeArticleRecords,
+  staticArticleForSlug,
 } from '@/services/runtimeArticleResolution';
 import {
   cleanupArticleBodySections,
@@ -141,11 +142,22 @@ const fullyPublished: Responder = (url) => {
   return { ok: false, status: 404 };
 };
 
+/** The shard URL an article is served at — the identity every body claim is checked against. */
+const pathFor = (slug: string) => `/articoli-frontaliere/${slug}/`;
+const POSTE = 'poste-italiane-consulenti-finanziari-varese';
+const STIPENDIO = 'stipendio-netto-frontaliere-2026';
+
+/** Put jsdom on a page. Production reads `location`; so must the tests. */
+function visit(path: string): void {
+  window.history.replaceState({}, '', path);
+}
+
 beforeEach(() => {
   vi.restoreAllMocks();
   __resetRuntimeArticleResolution();
   __resetStaticArticleFallback();
   document.body.innerHTML = '';
+  visit('/');
 });
 
 afterEach(() => {
@@ -447,6 +459,8 @@ describe('publishRuntimeArticleBody', () => {
 describe('adoptRuntimeArticle', () => {
   it('adopts an unknown article and declares it renderable', async () => {
     stubFetch(fullyPublished);
+    // On the article's own page: the static HTML here IS this article's.
+    visit(pathFor(POSTE));
     document.body.innerHTML = renderStaticArticle(['## In breve\n- Un punto\n\nUn paragrafo.']);
 
     const adopted = await adoptRuntimeArticle('frontaliere', 'it', 'poste-italiane-consulenti-finanziari-varese');
@@ -544,13 +558,15 @@ describe('runtime slug pairs in the router', () => {
 // 2026-08-04: post-hydration, `document.querySelector('main.seo-static-content')`
 // is null and the only h1 left is "Guida Frontaliere".
 describe('static article fallback across the #root handoff', () => {
-  const mountShardPage = () => {
-    document.body.innerHTML = '<div id="root"></div>' + renderStaticArticle(['## In breve\n- Un punto']);
+  const mountShardPage = (slug = POSTE, body = '## In breve\n- Un punto') => {
+    visit(pathFor(slug));
+    document.body.innerHTML = '<div id="root"></div>' + renderStaticArticle([body]);
   };
   const runClsHandoff = () => {
     const root = document.getElementById('root')!;
     const fallback = document.querySelector<HTMLElement>('main.seo-static-content')!;
-    stashStaticArticleFallback(fallback);
+    // Same call the entry makes: the clone is stashed WITH the URL it came from.
+    stashStaticArticleFallback(fallback, window.location.pathname);
     root.appendChild(fallback);
   };
 
@@ -602,6 +618,138 @@ describe('static article fallback across the #root handoff', () => {
     restoreStaticArticleFallback();
     restoreStaticArticleFallback();
     expect(document.querySelectorAll('main.seo-static-content')).toHaveLength(1);
+  });
+});
+
+// ── the leak this file exists to make impossible ────────────────────────────
+//
+// Production, 2026-08-09. A visitor lands on the daily brief
+// (/articoli-frontaliere/bollettino-frontaliere-2026-08-09/) and then opens an
+// article published after the last deploy. There is ONE stash per document and
+// it survives client-side navigation, so it still held the brief's HTML — which
+// got published under the second article's id. The page rendered the right
+// title and excerpt from the corpus index with "Buongiorno, è domenica 9 agosto
+// 2026…" underneath, and because `mergeArticleMetaOverlay` never overwrites, it
+// stayed wrong for the rest of the session.
+//
+// Nothing in the old code was checking WHICH article the stash described. These
+// tests are that check.
+describe('un corpo non finisce mai sotto l’id di un altro articolo', () => {
+  // `mergeArticleMetaOverlay` is module-global and never overwrites, so an id
+  // another test has already published would answer for this one. These tests
+  // own an article nothing else touches — the assertion "this key is still
+  // unpublished" is only meaningful that way.
+  const NUOVO = 'articolo-nuovo-di-giornata';
+  /** An article for a test that must observe an id NOTHING has published yet. */
+  const NUOVO_INEDITO = 'articolo-nuovo-mai-pubblicato';
+  const publishedFor = (id: string): Responder => (url) => {
+    if (url.includes('/slugs.json')) {
+      return { body: { blog: { [id]: { it: id } }, swiss: {} } };
+    }
+    if (url.includes(INDEX_URL)) {
+      return {
+        body: {
+          version: 1, section: 'frontaliere', locale: 'it', count: 1, total: 3134,
+          articles: [{
+            id,
+            title: 'Articolo pubblicato dopo l’ultimo deploy',
+            excerpt: 'Un articolo che questo bundle non conosce.',
+            category: 'pratico',
+            date: '2026-08-09T09:28:24.640Z',
+            image: `/images/blog/${id}.webp`,
+          }],
+        },
+      };
+    }
+    return { ok: false, status: 404 };
+  };
+  const nuovoPublished = publishedFor(NUOVO);
+
+  /** Land on article A: its static HTML is stashed, then the handoff eats it. */
+  const landOn = (slug: string, body: string) => {
+    visit(pathFor(slug));
+    document.body.innerHTML = '<div id="root"></div>' + renderStaticArticle([body]);
+    const root = document.getElementById('root')!;
+    const fallback = document.querySelector<HTMLElement>('main.seo-static-content')!;
+    stashStaticArticleFallback(fallback, window.location.pathname);
+    root.appendChild(fallback);
+    root.innerHTML = '';
+  };
+
+  it('non pubblica il corpo della pagina di atterraggio sotto l’articolo successivo', async () => {
+    landOn(STIPENDIO, '## In breve\n- IL CORPO DEL BOLLETTINO');
+    // Client-side navigation: the URL changes, the stash does not.
+    visit(pathFor(NUOVO));
+    stubFetch(nuovoPublished);
+
+    const adopted = await adoptRuntimeArticle('frontaliere', 'it', NUOVO);
+
+    // The id still resolves — that part was never in doubt.
+    expect(adopted?.id).toBe(NUOVO);
+    // But nothing may be published under it that we cannot attribute to it.
+    expect(t(`blog.article.${NUOVO}.body1`)).toBe(`blog.article.${NUOVO}.body1`);
+    expect(t(`blog.article.${NUOVO}.body1`)).not.toContain('IL CORPO DEL BOLLETTINO');
+    // No body we can prove is this article's ⇒ the SPA must not take the page.
+    expect(adopted?.renderable).toBe(false);
+  });
+
+  it('non ripristina l’articolo di un’altra pagina sotto questa URL', () => {
+    landOn(STIPENDIO, '## In breve\n- IL CORPO DEL BOLLETTINO');
+    visit(pathFor(NUOVO));
+
+    // The guard's precondition is false here: there is nothing correct to put
+    // back. Restoring would paint the previous article under this URL.
+    expect(hasStaticArticleFallback()).toBe(false);
+    expect(restoreStaticArticleFallback()).toBe(false);
+    expect(document.querySelector('main.seo-static-content')).toBeNull();
+  });
+
+  it('sulla sua pagina lo stash resta utilizzabile — il caso normale non regredisce', () => {
+    landOn(NUOVO, '## In breve\n- Il corpo giusto');
+    expect(hasStaticArticleFallback()).toBe(true);
+    expect(restoreStaticArticleFallback()).toBe(true);
+    expect(staticArticleForSlug(NUOVO)).not.toBeNull();
+  });
+
+  it('lo stash di un altro articolo non risponde mai per questo slug', () => {
+    landOn(STIPENDIO, '## In breve\n- Un corpo qualsiasi');
+    visit(pathFor(NUOVO));
+    expect(staticArticleForSlug(NUOVO)).toBeNull();
+    // …and it is still the right answer for the article it actually belongs to.
+    expect(staticArticleFallback(pathFor(STIPENDIO))).not.toBeNull();
+  });
+
+  it('dopo una navigazione client-side il corpo arriva dalla pagina di QUESTO slug', async () => {
+    landOn(STIPENDIO, '## In breve\n- IL CORPO DEL BOLLETTINO');
+    visit(pathFor(NUOVO));
+    // The shard serves this article's own page; that is where a body may come
+    // from once the stash has been ruled out.
+    stubFetch((url) => {
+      if (url === pathFor(NUOVO)) {
+        return { ok: true, text: renderStaticArticle(['## In breve\n- IL CORPO DELL’ARTICOLO NUOVO']) };
+      }
+      return nuovoPublished(url);
+    });
+
+    const adopted = await adoptRuntimeArticle('frontaliere', 'it', NUOVO, { path: pathFor(NUOVO) });
+
+    expect(adopted?.renderable).toBe(true);
+    expect(t(`blog.article.${NUOVO}.body1`)).toContain('IL CORPO DELL’ARTICOLO NUOVO');
+    expect(t(`blog.article.${NUOVO}.body1`)).not.toContain('IL CORPO DEL BOLLETTINO');
+  });
+
+  it('non va a pescare un corpo da una URL che non è quella dello slug', async () => {
+    landOn(STIPENDIO, '## In breve\n- IL CORPO DEL BOLLETTINO');
+    visit('/qualche/altra/pagina/');
+    const fetchMock = stubFetch(publishedFor(NUOVO_INEDITO));
+
+    // Neither the stash nor the current URL can be attributed to this slug, and
+    // an invented path would just be the same bug with an extra request.
+    await adoptRuntimeArticle('frontaliere', 'it', NUOVO_INEDITO);
+
+    const fetched = fetchMock.mock.calls.map((c) => String(c[0]));
+    expect(fetched.some((u) => u.includes('/qualche/altra/pagina/'))).toBe(false);
+    expect(t(`blog.article.${NUOVO_INEDITO}.body1`)).toBe(`blog.article.${NUOVO_INEDITO}.body1`);
   });
 });
 

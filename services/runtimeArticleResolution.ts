@@ -30,7 +30,11 @@ import { cdnDataUrl } from '@/services/cdnDataBase';
 import { fetchArticleOverlay, type OverlayArticle, type OverlaySection } from '@/services/articlesOverlay';
 import { mergeArticleMetaOverlay } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
-import { staticArticleFallback } from '@/services/staticArticleFallback';
+import {
+  staticArticleFallback,
+  staticArticleFallbackPath,
+  normalizeArticlePath,
+} from '@/services/staticArticleFallback';
 
 export type { OverlaySection };
 
@@ -454,15 +458,56 @@ export function articleBodyPartsFromStaticArticle(article: Element | null): stri
 }
 
 /**
- * The static article element for the CURRENT page, when the shard served one.
+ * The static article element for `expectedPath` (default: the current page),
+ * when the shard served one.
  *
  * Goes through `staticArticleFallback` rather than the live DOM because by the
  * time we ask, the entry's CLS handoff has usually moved the static main inside
  * `#root` and React has replaced it. The clone taken before that move is the
  * only copy left.
+ *
+ * `expectedPath` is what keeps this honest: there is ONE stash per document and
+ * it outlives client-side navigation, so asking without saying which article
+ * you expect returns the landing page's body for every article that follows.
  */
-export function staticArticleElement(): Element | null {
-  return staticArticleFallback()?.querySelector('article.ft-blog-article') ?? null;
+export function staticArticleElement(expectedPath?: string): Element | null {
+  return staticArticleFallback(expectedPath)?.querySelector('article.ft-blog-article') ?? null;
+}
+
+/** The article slug a shard URL ends in — the identity carried by the URL itself. */
+function slugFromPath(path: string): string {
+  return normalizeArticlePath(path).split('/').filter(Boolean).pop() ?? '';
+}
+
+function currentPathname(): string {
+  return typeof window !== 'undefined' && window.location ? window.location.pathname : '';
+}
+
+/**
+ * The static article ONLY when it is this slug's.
+ *
+ * `staticArticleElement()` answers for whatever page the document was served
+ * as, which after a client-side navigation is no longer the article being
+ * resolved. Comparing the slug in that URL with the slug we were asked about
+ * is what turns "some article's body" into "this article's body".
+ */
+export function staticArticleForSlug(slug: string): Element | null {
+  const path = staticArticleFallbackPath() ?? currentPathname();
+  if (!slug || slugFromPath(path) !== slug) return null;
+  return staticArticleElement(path);
+}
+
+/**
+ * The shard URL to re-read for `slug`, or '' when we cannot name one.
+ *
+ * Never guessed: a fabricated path would fetch some other page and we would be
+ * back to publishing a body that is not this article's. '' means "no recovery",
+ * which costs a render we could not have made correct anyway.
+ */
+function articlePathForSlug(slug: string, explicit?: string): string {
+  if (explicit && slugFromPath(explicit) === slug) return explicit;
+  const here = currentPathname();
+  return slugFromPath(here) === slug ? here : '';
 }
 
 /**
@@ -534,7 +579,7 @@ export async function adoptRuntimeArticle(
   section: OverlaySection,
   locale: Locale,
   slug: string,
-  opts: { bodyParts?: string[] } = {},
+  opts: { bodyParts?: string[]; path?: string } = {},
 ): Promise<AdoptedArticle | null> {
   const resolved = await resolveArticleBySlug(section, locale, slug).catch(() => null);
   if (!resolved) return null;
@@ -547,7 +592,21 @@ export async function adoptRuntimeArticle(
     if (locale !== 'it') mergeArticleMetaOverlay('it', meta);
   }
 
-  const parts = opts.bodyParts ?? articleBodyPartsFromStaticArticle(staticArticleElement());
+  // A body may only be published under an id we can PROVE it belongs to.
+  // The stash is per-document and outlives client-side navigation, so on the
+  // second article of a visit it still holds the first one's HTML; publishing
+  // that under this id is how the daily brief ended up as the body of every
+  // article a visitor opened after it (2026-08-09). The slug in the URL the
+  // stash was served at is the proof, and it costs one string compare.
+  let parts = opts.bodyParts ?? articleBodyPartsFromStaticArticle(staticArticleForSlug(slug));
+  if (!opts.bodyParts && parts.length === 0) {
+    // No static article we can attribute to this slug — the visitor arrived
+    // client-side, so re-read the page the shard serves for this exact URL.
+    // Same recovery BlogArticles already performs, and the only way a
+    // client-side arrival at an unbundled article becomes renderable at all.
+    const path = articlePathForSlug(slug, opts.path);
+    parts = path ? await fetchArticleBodyParts(path).catch(() => []) : [];
+  }
   publishRuntimeArticleBody(resolved.id, locale, parts);
 
   return {
