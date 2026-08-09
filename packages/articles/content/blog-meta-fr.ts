@@ -9441,6 +9441,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.agente-sicurezza-ticino-frontaliere.title': 'Agent de sécurité au Tessin : exigences et travail de frontalier',
     'blog.article.agente-sicurezza-ticino-frontaliere.excerpt': 'Guide opérationnel pour les frontaliers : exigences, permis G, fiscalité et encadrement du travail pour le secteur de la sécurité privée au Tessin.',
     'blog.article.agente-sicurezza-ticino-frontaliere.imageAlt': 'Agent de sécurité en service devant un bâtiment au Tessin',
+    'blog.article.guida-lavoro-autista-frontaliere-ticino.title': 'Chauffeur frontalier au Tessin : salaire et exigences',
+    'blog.article.guida-lavoro-autista-frontaliere-ticino.excerpt': 'Guide complet pour les conducteurs frontaliers : du nouvel accord fiscal 2026 aux protections sociales AVS, LPP et LAMal pour ceux qui travaillent dans le canton du Tessin.',
+    'blog.article.guida-lavoro-autista-frontaliere-ticino.imageAlt': 'Chauffeur professionnel au travail au Tessin avec vue panoramique',
 };
 
 export default blogMetaFr;
