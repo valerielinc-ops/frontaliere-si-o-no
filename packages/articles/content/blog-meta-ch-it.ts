@@ -1954,6 +1954,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-basilea-2026.title': 'Secondo pilastro LPP Svizzera guida 2026 canton Basilea',
     'blog.article.secondo-pilastro-lpp-basilea-2026.excerpt': 'Guida 2026 al secondo pilastro LPP: contributi, prelievo, riscatto lacune e pianificazione previdenziale in Svizzera. Focus sul canton Basilea con dati specifici e confronto nazionale.',
     'blog.article.secondo-pilastro-lpp-basilea-2026.imageAlt': 'Dipendente svizzero a Basilea che consulta documenti del secondo pilastro LPP',
+    'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.title': 'Terzo pilastro 3a: vantaggi e strategie fiscali',
+    'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.excerpt': 'Il terzo pilastro 3a svizzero offre vantaggi fiscali e di previdenza per i frontalieri nel canton Basilea.',
+    'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.imageAlt': 'max 125 caratteri',
 };
 
 export default blogMetaChIt;

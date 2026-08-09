@@ -5860,6 +5860,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea',
+    category: 'pratico',
+    date: '2026-08-09T14:38:53.654Z',
+    image: '/images/blog/terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
