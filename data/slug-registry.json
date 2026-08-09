@@ -478808,7 +478808,8 @@
     "slugByLocale": {
       "it": "executive-underwriter-or-avp-underwriting-direttore-large-casualty-zurich-insurance-sede-ticino-lugano-uwd72r",
       "en": "executive-underwriter-or-avp-underwriting-director-large-casualty-zurich-insurance-sede-ticino-lugano-uwd72r",
-      "fr": "executive-underwriter-or-avp-underwriting-directeur-large-casualty-zurich-insurance-sede-ticino-lugano-uwd72r"
+      "fr": "executive-underwriter-or-avp-underwriting-directeur-large-casualty-zurich-insurance-sede-ticino-lugano-uwd72r",
+      "de": "executive-underwriter-oder-avp-underwriting-director-gro-e-unfalle-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-08-08",
     "canton": "TI"
@@ -479413,7 +479414,10 @@
   "url|https://www.pemsa.ch/it/job/cameriera-ai-tavoli-2686195": {
     "canonicalSlug": "cameriera-ai-tavoli-pemsa-lugano",
     "slugByLocale": {
-      "it": "cameriera-ai-tavoli-pemsa-lugano"
+      "it": "cameriera-ai-tavoli-pemsa-lugano",
+      "en": "waiter-at-the-tables-pemsa-lugano",
+      "de": "kellner-an-den-tischen-pemsa-lugano",
+      "fr": "garcon-aux-tables-pemsa-lugano"
     },
     "createdAt": "2026-08-09",
     "canton": "TI"
@@ -479465,7 +479469,10 @@
   "id|post.ch|73975-de_de": {
     "canonicalSlug": "lehre-als-detailhandelsfachmann-frau-efz-post",
     "slugByLocale": {
-      "de": "lehre-als-detailhandelsfachmann-frau-efz-post"
+      "de": "lehre-als-detailhandelsfachmann-frau-efz-post",
+      "it": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-buchs-sg",
+      "en": "apprenticeship-as-a-retail-trade-expert-efz-die-schweizerische-post-buchs-sg",
+      "fr": "apprentissage-en-tant-qu-expert-en-commerce-de-detail-efz-die-schweizerische-post-buchs-sg"
     },
     "createdAt": "2026-08-09",
     "canton": "SG"
@@ -479473,9 +479480,37 @@
   "id|post.ch|73933-de_de": {
     "canonicalSlug": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
     "slugByLocale": {
-      "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+      "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+      "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-ccbd61",
+      "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-appenzell",
+      "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-ccbd61"
     },
     "createdAt": "2026-08-09",
     "canton": "AI"
+  },
+  "id|solique.ch|4048760": {
+    "canonicalSlug": "pflegefachfrau-pflegefachmann-schwerpunkt-onkologie-ksw-ch",
+    "slugByLocale": {
+      "de": "pflegefachfrau-pflegefachmann-schwerpunkt-onkologie-ksw-ch"
+    },
+    "createdAt": "2026-08-09",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4048757": {
+    "canonicalSlug": "fachfrau-fachmann-operationstechnik-im-muskuloskelettalen-fachbereich-ksw-ch",
+    "slugByLocale": {
+      "de": "fachfrau-fachmann-operationstechnik-im-muskuloskelettalen-fachbereich-ksw-ch"
+    },
+    "createdAt": "2026-08-09",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4050232": {
+    "canonicalSlug": "leitende-arztin-leitender-arzt-dermatologie-e-venerologie-fmh-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "de": "leitende-arztin-leitender-arzt-dermatologie-und-venerologie-fmh-ksw-ch",
+      "it": "leitende-arztin-leitender-arzt-dermatologie-e-venerologie-fmh-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-08-09",
+    "canton": "ZH"
   }
 }
