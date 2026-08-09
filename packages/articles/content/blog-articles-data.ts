@@ -28299,6 +28299,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-gruista-ticino-stipendio-requisiti',
+ category: 'pratico',
+ date: '2026-08-09T16:38:29.783Z',
+ image: '/images/blog/frontaliere-gruista-ticino-stipendio-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -9426,6 +9426,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.autostrada-a2-mezzovico-interrogazione.title': 'A2 stundenlang gelähmt: Anfrage an den Staatsrat',
     'blog.article.autostrada-a2-mezzovico-interrogazione.excerpt': 'Sechs Lega-Großräte befragen die Regierung nach dem alptraumhaften Samstagabend auf der A2 in Mezzovico mit Warteschlangen von bis zu 13 Kilometern.',
     'blog.article.autostrada-a2-mezzovico-interrogazione.imageAlt': 'Stau und blockierte Autos auf der A2 Autobahn im Tessin',
+    'blog.article.frontaliere-gruista-ticino-stipendio-requisiti.title': 'Grenzgänger Kranführer Ticino: Gehalt und Anforderungen',
+    'blog.article.frontaliere-gruista-ticino-stipendio-requisiti.excerpt': 'Im Grunde die Nachrichten für grenzüberschreitende Kranfahrer im Tessin',
+    'blog.article.frontaliere-gruista-ticino-stipendio-requisiti.imageAlt': 'Frontalier als Gruista in Tessin',
 };
 
 export default blogMetaDe;
