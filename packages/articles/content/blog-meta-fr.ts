@@ -9414,6 +9414,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-assistente-dentale-ticino.title': 'Assistante dentaire au Tessin : salaire et exigences',
     'blog.article.frontaliere-assistente-dentale-ticino.excerpt': 'Guide des frontaliers : salaire, impôt à la source, exigences LAMal et AVS pour travailler comme assistante dentaire dans le canton du Tessin.',
     'blog.article.frontaliere-assistente-dentale-ticino.imageAlt': 'Assistant dentaire travaillant dans une clinique dentaire moderne au Tessin',
+    'blog.article.confronto-frontalieri-festa-lucciola.title': 'Frontaliers et Suisse : comparaison avec la Fête de la Luciole',
+    'blog.article.confronto-frontalieri-festa-lucciola.excerpt': 'Dimanche 9 août, les syndicats et les représentants politiques discuteront des perspectives du travail transfrontalier et du dialogue entre l\'Italie et la Suisse.',
+    'blog.article.confronto-frontalieri-festa-lucciola.imageAlt': 'Réunion sur les travailleurs frontaliers à la Festa della Lucciola',
 };
 
 export default blogMetaFr;
