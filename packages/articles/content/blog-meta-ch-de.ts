@@ -1993,6 +1993,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-vaud.title': 'Kantonssteuer: Vergleich Schweiz 2026 - Kanton Waadt',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-vaud.excerpt': 'Der Kanton Waadt hat einen kantonalen Steuersatz von 10,5%.',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-vaud.imageAlt': 'Eine Aussicht auf Lugano mit dem See im Vordergrund.',
+    'blog.article.premi-cassa-malati-lamal-2026-canton-zurigo.title': 'Die Krankenkassenprämien KVG im Kanton Zürich für das Jahr 2026',
+    'blog.article.premi-cassa-malati-lamal-2026-canton-zurigo.excerpt': 'Die Krankenkassenprämien KVG im Kanton Zürich für das Jahr 2026',
+    'blog.article.premi-cassa-malati-lamal-2026-canton-zurigo.imageAlt': 'Bild eines Schweizer Sees mit einem Segelboot',
 };
 
 export default blogMetaChDe;
