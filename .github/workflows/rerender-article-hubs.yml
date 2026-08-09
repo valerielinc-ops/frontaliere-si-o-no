@@ -487,3 +487,29 @@ jobs:
             --priority 2 \
             --label rerender-hubs \
             --workflow "Rerender Article Hubs"
+
+      # Metà di CHIUSURA (#5470). Il titolo `rerender-article-hubs (<section>)
+      # failed`, introdotto da #5439, non è riconosciuto da NESSUNO dei due
+      # chiuditori del repo: né dal TITLE_RE di
+      # scripts/ci/close-recovered-failure-issues.mjs (`^(?:Workflow|Crawler|CI)
+      # Failure: `), né dal `--mode resolve` di
+      # scripts/ci/report-validate-dist-failure.mjs (prefisso `Validation
+      # Failure (dist):`). Col dedup sul titolo la issue sarebbe restata aperta
+      # per sempre dopo il primo fallimento reale — la stessa classe di guasto
+      # di `alert-pat-down.mjs` documentata in #5432.
+      # Modello: rpm-canary.yml, step "Resolve open issue on green".
+      # `$INPUT_SECTION` e non `${{ matrix.section }}`: il valore di matrice
+      # arriva alla shell come DATO via env (scripts/ci/check-workflow-input-injection.mjs),
+      # e la forma deve restare identica a quella dello step di apertura —
+      # la chiusura cerca per TITOLO, e un titolo diverso non chiude niente.
+      - name: Resolve open issue on green
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_SECTION: ${{ matrix.section }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "rerender-article-hubs ($INPUT_SECTION) failed" \
+            --workflow "Rerender Article Hubs" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

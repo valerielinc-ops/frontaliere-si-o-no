@@ -1,0 +1,309 @@
+import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import {
+  coverageReport,
+  inventory,
+  coverageOf,
+  REPORT_ACTION_USES,
+} from '../scripts/ci/failure-issue-inventory.mjs';
+import {
+  CLOSERS,
+  findStepRun,
+  reproFromRun,
+  buildFailureBody,
+  closerFor,
+} from '../scripts/ci/report-workflow-failure.mjs';
+
+/**
+ * Il gate sull'ACCOPPIAMENTO fra chi apre una issue di fallimento e chi la
+ * chiude (issue #5437, dimostrato da #5470).
+ *
+ * ─── Perché serve un test e non una regola scritta ──────────────────────
+ *
+ * `tests/monitor-issue-dedup.test.ts` copre la metà di apertura: i titoli sono
+ * stabili, nessuno chiama `gh issue create` a mano. Non copre — e non
+ * pretendeva di coprire — la domanda successiva: *quel titolo, chi lo chiude?*
+ * Col dedup sul titolo la risposta «nessuno» significa una issue immortale, e
+ * finora quella risposta si poteva dare solo leggendo tre file a mente.
+ *
+ * È la forma di guasto che il repo ha già visto due volte:
+ *   - `alert-pat-down.mjs` (#5432) dichiarava in un commento un «unico punto di
+ *     chiusura» che non esisteva. La CI era verde: il contratto non ha forma di
+ *     import, e i guard che seguono gli import non lo vedono.
+ *   - `rerender-article-*` (#5470) aprivano `<workflow> (<section>) failed`,
+ *     fuori da entrambi i chiuditori del repo. Nemmeno il commento sbagliato.
+ *
+ * Senza questo test, estendere il reporter diagnostico di #5423 agli altri ~95
+ * workflow replicherebbe il difetto 95 volte, con body più belli.
+ *
+ * ─── Cosa verifica ESATTAMENTE ──────────────────────────────────────────
+ *
+ *   1. Ogni titolo aperto da un ramo `failure()` di un workflow ha un
+ *      chiuditore, o è in `KNOWN_UNCOVERED` — che è un BASELINE A SCALARE:
+ *      l'uguaglianza è esatta, quindi aggiungerne uno rompe il test e
+ *      risolverne uno lo rompe finché non si cancella la riga.
+ *   2. Ogni `closed-by` dichiarato adottando la composite action è VERO — non
+ *      è una promessa, è la stessa condizione che il chiuditore userà.
+ *   3. `title` e `closed-by` restano input OBBLIGATORI dell'action: è ciò che
+ *      rende impossibile adottare il reporter senza dichiarare la chiusura.
+ *   4. I chiuditori riconosciuti sono esattamente quelli che il reporter
+ *      conosce: aggiungerne uno lì obbliga a decidere qui come si verifica.
+ *   5. Un titolo `Workflow|Crawler|CI Failure: <nome>` deve nominare il `name:`
+ *      del workflow, perché il reconciler fa `gh run list -w <nome>`. Un
+ *      mismatch è il caso peggiore: SEMBRA coperto e non chiude niente.
+ *
+ * ─── Cosa NON copre (dichiarato, per non farci affidamento) ─────────────
+ *
+ *   - Gli opener lato SCRIPT (`createGithubIssue({ title })` dentro
+ *     `scripts/**`): titoli computati, spesso da funzioni. Fuori portata di
+ *     un'analisi testuale, e leggerli male sarebbe peggio che non leggerli.
+ *   - Le issue di CONDIZIONE aperte su un run verde (un monitor che misura uno
+ *     stato brutto): il loro ciclo di vita non è «si chiude sul prossimo
+ *     verde», quindi giudicarle con questa regola darebbe falsi positivi. La
+ *     riga è `isFailureGated`, in failure-issue-inventory.mjs.
+ *   - Che il chiuditore FUNZIONI a runtime. Prova che esiste e che il titolo
+ *     ricade nel suo pattern; non che il cron giri, né che l'issue si chiuda.
+ *   - I titoli irrisolvibili staticamente (assegnati dall'output di un altro
+ *     step): non compaiono nell'inventario, quindi non sono né coperti né
+ *     segnalati. Sono il punto cieco residuo.
+ */
+
+const WORKFLOWS_DIR = path.resolve(__dirname, '..', '.github', 'workflows');
+const ACTION_YML = path.resolve(__dirname, '..', '.github', 'actions', 'report-failure', 'action.yml');
+
+/**
+ * BASELINE A SCALARE — i titoli di fallimento che oggi NON hanno chiuditore.
+ *
+ * Non è un'assoluzione: è l'inventario di un difetto preesistente, reso
+ * visibile perché smetta di crescere. Ogni riga è una issue che, al primo
+ * fallimento reale, resta aperta per sempre.
+ *
+ * Per toglierne una: aggiungi la metà di chiusura (uno step `if: success()` che
+ * invoca `github-issue-creator.mjs --resolve` con il TITOLO IDENTICO — modello
+ * `rpm-canary.yml:150-158`), poi cancella la riga da qui. Il test fallisce
+ * finché non la cancelli, ed è voluto.
+ *
+ * Per aggiungerne una: non farlo. Il test è qui esattamente per impedirlo.
+ */
+const KNOWN_UNCOVERED: string[] = [
+  'app-auth-health-monitor.yml\tApp-auth monitor crashed: app-auth-health-monitor failing',
+  'article-hub-landing-watchdog.yml\tArticle hub landing degraded: missing grid or stale article set',
+  'cathedral-seo-gates-check.yml\tSEO gates regression: ${name} above baseline',
+  'crawler-health-monitor.yml\t[crawler-health] ${slug}: crawler unhealthy',
+  'gh-pat-expiry-monitor.yml\tPAT monitor crashed: gh-pat-expiry-monitor failing',
+  'glossario-definitions-monitor.yml\t[glossario-definitions] term pages shipping placeholder DefinedTerm.description',
+  'hydrated-article-parity.yml\tHydrated article parity: the hub renders articles the client does not have',
+  'pages-publish-lag-watchdog.yml\tPages publish-lag monitor crashed',
+  'sitemap-shard-size-monitor.yml\t[sitemap-shard-size] CRITICAL: shard(s) at or above 45k urls',
+  'sitemap-shard-size-monitor.yml\t[sitemap-shard-size] WARNING: shard(s) at or above 40k urls',
+];
+
+/**
+ * BASELINE A SCALARE — titoli che MATCHANO `TITLE_RE` ma nominano qualcosa che
+ * non è il `name:` del loro workflow.
+ *
+ * È il caso peggiore della famiglia, perché a occhio sembra coperto: il titolo
+ * ha il prefisso giusto, quindi `close-recovered-failure-issues.mjs` lo PRENDE
+ * in carico — poi fa `gh run list -w "<nome del titolo>"`, non trova nessun
+ * run, e per bias conservativo lascia la issue aperta. Per sempre, in silenzio.
+ *
+ * Il docstring di quel reconciler dichiarava UN solo caso noto
+ * (`persist-job-stats`). Sono tre — misurati, non stimati, da
+ * `node scripts/ci/failure-issue-inventory.mjs --json`. Il commento è stato
+ * corretto insieme a questo test; la lista qui è ciò che lo tiene onesto.
+ *
+ * Non rinominati in questa PR di proposito: il dedup è sul titolo, quindi
+ * cambiarlo orfana qualunque issue aperta con quello vecchio. Al momento della
+ * misura nessuna delle tre era aperta, quindi la finestra per rinominarli
+ * senza danno è aperta — ma è un lavoro suo, non un effetto collaterale di
+ * questo.
+ */
+const KNOWN_TITLE_NAME_MISMATCH: string[] = [
+  'crawl-events.yml\tCrawler Failure: events pipeline (tio.ch, guidle, myswitzerland)',
+  'fast-publish-article.yml\tWorkflow Failure: Fast Publish Article',
+  'persist-job-stats.yml\tCI Failure: Persist Job Stats',
+];
+
+const key = (r: { file: string; title: string }) => `${r.file}\t${r.title}`;
+
+describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)', () => {
+  it('ogni issue aperta su failure() ha qualcuno che la chiude', () => {
+    const uncovered = coverageReport(WORKFLOWS_DIR)
+      .filter((r) => !r.closedBy)
+      .map(key)
+      .sort();
+    // Se questa lista CRESCE: un workflow apre una issue che nessun chiuditore
+    // riconosce. Col dedup sul titolo resterà aperta per sempre — aggiungi la
+    // metà di chiusura invece di allungare KNOWN_UNCOVERED.
+    // Se questa lista si ACCORCIA: bene, cancella la riga corrispondente.
+    expect(uncovered).toEqual([...KNOWN_UNCOVERED].sort());
+  });
+
+  it('nessun titolo `… Failure: <nome>` nomina un workflow che `gh run list -w` non risolve', () => {
+    const mismatched = coverageReport(WORKFLOWS_DIR)
+      .filter((r) => r.detail)
+      .map(key)
+      .sort();
+    expect(mismatched).toEqual([...KNOWN_TITLE_NAME_MISMATCH].sort());
+  });
+
+  it('ogni `closed-by` dichiarato adottando il reporter diagnostico è vero', () => {
+    const offenders: string[] = [];
+    for (const rec of inventory(WORKFLOWS_DIR)) {
+      for (const op of rec.openers) {
+        if (op.via !== 'action') continue;
+        if (!op.closedBy) {
+          offenders.push(`${rec.file}:${op.line} — nessun \`closed-by\` dichiarato`);
+          continue;
+        }
+        if (!Object.prototype.hasOwnProperty.call(CLOSERS, op.closedBy)) {
+          offenders.push(`${rec.file}:${op.line} — \`closed-by: ${op.closedBy}\` non è un chiuditore esistente`);
+          continue;
+        }
+        const actual = coverageOf(op, rec);
+        if (!actual) {
+          offenders.push(`${rec.file}:${op.line} — dichiara \`${op.closedBy}\` ma nessun chiuditore copre "${op.title}"`);
+        } else if (actual.by !== op.closedBy) {
+          offenders.push(`${rec.file}:${op.line} — dichiara \`${op.closedBy}\` ma a chiudere sarebbe \`${actual.by}\``);
+        } else if (actual.detail) {
+          offenders.push(`${rec.file}:${op.line} — \`${op.closedBy}\` non chiuderà: ${actual.detail}`);
+        }
+      }
+    }
+    // Una dichiarazione falsa è peggio dell'assenza: il body della issue dice a
+    // chi la legge che qualcuno la chiuderà, e nessuno lo farà.
+    expect(offenders).toEqual([]);
+  });
+
+  it('la composite action non può essere adottata senza dichiarare titolo e chiusura', () => {
+    const src = fs.readFileSync(ACTION_YML, 'utf-8');
+    // Rendere opzionale uno di questi due input riaprirebbe esattamente il buco
+    // che #5470 ha dimostrato: un reporter montato senza la sua metà.
+    for (const input of ['title', 'closed-by']) {
+      // Il blocco dell'input va da `^  <nome>:` alla riga successiva rientrata
+      // di 2 spazi: `indexOf('\n  ')` non basta, perché fa match anche su una
+      // continuazione rientrata di 4 e troncherebbe il blocco alla prima riga.
+      const block = src.match(new RegExp(`^ {2}${input}:\\r?\\n((?:(?: {3,}.*)?\\r?\\n)*)`, 'm'));
+      expect(block?.[1], `input \`${input}\` non trovato in report-failure/action.yml`).toBeTruthy();
+      expect(block?.[1], `input \`${input}\` di report-failure/action.yml`).toMatch(/required:\s*true/);
+    }
+  });
+
+  it('i chiuditori riconosciuti sono esattamente quelli che il reporter conosce', () => {
+    // Aggiungere un chiuditore in report-workflow-failure.mjs senza decidere qui
+    // COME si verifica lascerebbe passare un `closed-by` non verificato.
+    expect(Object.keys(CLOSERS).sort()).toEqual([
+      'close-recovered-failure-issues',
+      'report-validate-dist-failure',
+      'sibling-resolve-step',
+    ]);
+  });
+
+  it('il reporter diagnostico è adottato solo dove la chiusura è centrale', () => {
+    const adopted = coverageReport(WORKFLOWS_DIR).filter((r) => r.via === 'action');
+    // Prima famiglia (#5437): i workflow le cui issue di fallimento il fixer
+    // autonomo ha davvero preso in carico — misurato su `gh issue list --label
+    // agent:fix`, dove `Workflow Failure: <questi quattro>` è la testa della
+    // distribuzione. Tutti e quattro sono già chiusi dal reconciler centrale,
+    // quindi l'adozione non ha dovuto aggiungere nessuna metà di chiusura: è il
+    // criterio che rende questa famiglia la prima, non solo la più utile.
+    expect(adopted.map((r) => r.file).sort()).toEqual([
+      'audit-parser-quality.yml',
+      'generate-article.yml',
+      'traffic-scheduler.yml',
+      'translate-pending.yml',
+    ]);
+    for (const r of adopted) expect(r.closedBy).toBe('close-recovered-failure-issues');
+  });
+
+  it("l'inventario vede la composite action, non solo le invocazioni shell", () => {
+    // Se questo confronto va a zero, l'action è stata rinominata o il parser non
+    // la riconosce più: il gate sopra passerebbe misurando il vuoto.
+    const src = fs.readFileSync(path.join(WORKFLOWS_DIR, 'audit-parser-quality.yml'), 'utf-8');
+    expect(src).toContain(REPORT_ACTION_USES);
+    expect(coverageReport(WORKFLOWS_DIR).filter((r) => r.via === 'action').length).toBeGreaterThan(0);
+  });
+});
+
+/**
+ * Le funzioni pure del reporter estratto. Restano fuori dal ciclo `gh`: qui si
+ * verifica ciò che il body PROMETTE al fixer, non la rete.
+ */
+describe('report-workflow-failure: cosa finisce nel body (#5437)', () => {
+  const WF = [
+    'jobs:',
+    '  x:',
+    '    steps:',
+    '      - name: Run parser quality audit (strict)',
+    '        run: node scripts/audit-parser-quality.mjs --strict',
+    '      - name: Rerender ${{ matrix.section }} hubs',
+    '        env:',
+    '          A: b',
+    '        run: |',
+    '          npm run audit:all',
+    '          node scripts/rerender-article-hubs.mjs --section x',
+    '      - name: Report failure',
+    '        run: echo no',
+    '',
+  ].join('\n');
+
+  it('trova il `run:` dello step fallito, anche con il nome interpolato', () => {
+    expect(findStepRun(WF, 'Run parser quality audit (strict)')?.run)
+      .toBe('node scripts/audit-parser-quality.mjs --strict');
+    // Il nome dello step di una matrice non è mai uguale al letterale nel file:
+    // confrontarlo per uguaglianza renderebbe introvabile ogni step di matrice.
+    expect(findStepRun(WF, 'Rerender frontaliere hubs')?.run)
+      .toContain('node scripts/rerender-article-hubs.mjs --section x');
+    expect(findStepRun(WF, 'Uno step che non esiste')).toBeNull();
+  });
+
+  it('risolve gli `npm run` attraverso package.json, come fa il reporter dist', () => {
+    const step = findStepRun(WF, 'Rerender frontaliere hubs')!;
+    const repro = reproFromRun(step.run, { 'audit:all': 'node scripts/audit-all.mjs' });
+    expect(repro.commands[0]).toContain('npm run audit:all');
+    expect(repro.commands[0]).toContain('scripts/audit-all.mjs');
+    // `## Suggested action` è ciò che il fixer estrae: i path devono venire da
+    // package.json, non da una mappa hardcoded che invecchia in silenzio.
+    expect(repro.paths).toContain('scripts/audit-all.mjs');
+    expect(repro.paths).toContain('scripts/rerender-article-hubs.mjs');
+  });
+
+  it('il body non cita mai un path .github/workflows/** (il fixer morirebbe a zero token)', () => {
+    const body = buildFailureBody({
+      repo: 'o/r', runId: '1', workflowName: 'W', jobName: 'j',
+      failedStep: { name: 'S' },
+      excerpt: 'Uses: o/r/.github/workflows/reusable.yml@refs/heads/main\n##[error]boom',
+      repro: { commands: [], paths: ['scripts/x.mjs'] },
+      closer: closerFor('close-recovered-failure-issues', { title: 'Workflow Failure: W', workflowName: 'W' }),
+    });
+    // scripts/ci/check-workflows-scope.mjs Mode 1 termina issue-fix.yml PRIMA di
+    // Claude quando il body cita quei path — e i log dei job li contengono davvero.
+    expect(body).not.toMatch(/\.github\/workflows\//);
+    expect(body).toContain('«workflow reusable.yml»');
+    expect(body).toContain('## Suggested action');
+    expect(body).toContain('scripts/x.mjs');
+  });
+
+  it('un accoppiamento rotto si vede NEL body, non solo nei log del run', () => {
+    const body = buildFailureBody({
+      repo: 'o/r', runId: '1', workflowName: 'W', jobName: 'j',
+      repro: { commands: [], paths: [] },
+      closer: closerFor('close-recovered-failure-issues', { title: 'W (x) failed', workflowName: 'W' }),
+    });
+    // Chi legge la issue deve sapere che nessuno la chiuderà: un warning nei log
+    // di un run rosso non lo legge nessuno, il body sì.
+    expect(body).toContain('accoppiamento rotto');
+    expect(body).toContain('#5437');
+  });
+
+  it('senza log e senza diag file il body lo DICE, invece di far credere che il log fosse vuoto', () => {
+    const body = buildFailureBody({
+      repo: 'o/r', runId: '1', workflowName: 'W', jobName: 'j',
+      repro: { commands: [], paths: [] },
+      closer: closerFor('close-recovered-failure-issues', { title: 'Workflow Failure: W', workflowName: 'W' }),
+    });
+    expect(body).toContain('nessun estratto disponibile');
+    expect(Object.keys(CLOSERS)).toContain('sibling-resolve-step');
+  });
+});
