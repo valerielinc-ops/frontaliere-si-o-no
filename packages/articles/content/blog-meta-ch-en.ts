@@ -1969,6 +1969,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.title': 'Guide to the Swiss health system: LAMal and the choice of the sick fund',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.excerpt': 'All the data necessary to understand the Swiss health system and the choice of the health insurance fund in the canton of Basel',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.imageAlt': 'Practical guide to the Swiss healthcare system: LAMal and health insurance choice, with specific data on the Canton Basel',
+    'blog.article.terzo-pilastro-3a-vantaggi-svizzera.title': 'Third pillar 3a: real tax advantages in Switzerland',
+    'blog.article.terzo-pilastro-3a-vantaggi-svizzera.excerpt': 'The third pillar 3a in Switzerland offers real tax advantages to taxpayers, but it is important to understand the differences between banking and insurance options.',
+    'blog.article.terzo-pilastro-3a-vantaggi-svizzera.imageAlt': 'A photorealistic scene of a tourist location on Lake Lugano, with a crystal-clear lake and surrounding mountains.',
 };
 
 export default blogMetaChEn;

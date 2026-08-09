@@ -1969,6 +1969,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.title': 'Leitfaden zum schweizerischen Gesundheitssystem: KVG und Wahl der Krankenkasse',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.excerpt': 'Alle notwendigen Daten, um das Schweizer Gesundheitssystem und die Wahl der Krankenkasse im Kanton Basel zu verstehen',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.imageAlt': 'Praktische Anleitung zum schweizerischen Gesundheitssystem: LAMal und Gesundheitsversicherungsentscheid, mit spezifischen Daten für das Kanton Basel',
+    'blog.article.terzo-pilastro-3a-vantaggi-svizzera.title': 'Dritte Säule 3a: Reale Steuervorteile in der Schweiz',
+    'blog.article.terzo-pilastro-3a-vantaggi-svizzera.excerpt': 'Die dritte Säule 3a in der Schweiz bietet den Steuerpflichtigen echte Steuervorteile, aber es ist wichtig, die Unterschiede zwischen Bank- und Versicherungsoptionen zu verstehen.',
+    'blog.article.terzo-pilastro-3a-vantaggi-svizzera.imageAlt': 'Eine fotorealistische Szene einer Touristenattraktion am Luganersee, mit einem klaren See und umgebenden Bergen.',
 };
 
 export default blogMetaChDe;
