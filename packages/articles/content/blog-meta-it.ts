@@ -9395,6 +9395,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.traffico-a2-bloccato.title': 'Traffico ancora bloccato sulla A2, automobilisti in strada e tanta frustrazione',
     'blog.article.traffico-a2-bloccato.excerpt': 'La circolazione resta interrotta in alcuni punti e vari conducenti riferiscono di essere bloccati da tre-quattro ore.',
     'blog.article.traffico-a2-bloccato.imageAlt': 'Un gruppo di automobilisti in strada a causa del traffico bloccato sulla A2.',
+    'blog.article.locarno-film-festival-frontaliere-ticino.title': '‘Ich ist ein Anderer’, in viaggio con Felix Kersten',
+    'blog.article.locarno-film-festival-frontaliere-ticino.excerpt': 'Il film di Felix Randau su Felix Kersten',
+    'blog.article.locarno-film-festival-frontaliere-ticino.imageAlt': 'Immagine del Locarno Film Festival con frontalieri ticinesi',
 };
 
 export default blogMetaIt;
