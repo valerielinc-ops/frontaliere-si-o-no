@@ -9396,6 +9396,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.locarno-film-festival-frontaliere-ticino.title': '‘Ich ist ein Anderer’, unterwegs mit Felix Kersten',
     'blog.article.locarno-film-festival-frontaliere-ticino.excerpt': 'Felix Randaus Film über Felix Kersten',
     'blog.article.locarno-film-festival-frontaliere-ticino.imageAlt': 'Bild des Locarno Film Festivals mit Tessiner Grenzgängern',
+    'blog.article.frontaliere-ticino-energia-fossili.title': 'Wie abhängig ist die Schweiz von fossilen Brennstoffen?',
+    'blog.article.frontaliere-ticino-energia-fossili.excerpt': 'Die Schweiz importiert alle fossilen Brennstoffe, die sie verbraucht. Im Jahr 2025 kaufte er Rohöl vor allem aus den USA, die mit der Blockade der Straße von Hormus zu den größten Exporteuren der Welt wurden, und aus Nigeria.',
+    'blog.article.frontaliere-ticino-energia-fossili.imageAlt': 'Ein Grenzgänger in Tessin schaut aus einem Fenster eines Gebäudes, mit einem Landschaft von Hügeln und Bergen im Hintergrund.',
 };
 
 export default blogMetaDe;

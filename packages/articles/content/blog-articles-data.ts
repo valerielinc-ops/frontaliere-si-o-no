@@ -28209,6 +28209,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-ticino-energia-fossili',
+ category: 'pratico',
+ date: '2026-08-09T08:43:17.252Z',
+ image: '/images/blog/frontaliere-ticino-energia-fossili.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

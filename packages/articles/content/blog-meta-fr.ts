@@ -9399,6 +9399,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.locarno-film-festival-frontaliere-ticino.title': '‘Ich ist ein Anderer’, en voyage avec Felix Kersten',
     'blog.article.locarno-film-festival-frontaliere-ticino.excerpt': 'Le film de Felix Randau sur Felix Kersten',
     'blog.article.locarno-film-festival-frontaliere-ticino.imageAlt': 'Image du Festival du film de Locarno avec les frontaliers du Tessin',
+    'blog.article.frontaliere-ticino-energia-fossili.title': 'Dans quelle mesure la Suisse est-elle dépendante des combustibles fossiles ?',
+    'blog.article.frontaliere-ticino-energia-fossili.excerpt': 'La Suisse importe la totalité des combustibles fossiles qu\'elle consomme. En 2025, il a acheté le pétrole brut principalement aux États-Unis, qui avec le blocus du détroit d\'Ormuz sont devenus les premiers exportateurs au monde, et au Nigéria.',
+    'blog.article.frontaliere-ticino-energia-fossili.imageAlt': 'Un travailleur frontalier en Tessin regarde par la fenêtre d\'un bâtiment, avec un paysage de collines et de montagnes en arrière-plan.',
 };
 
 export default blogMetaFr;

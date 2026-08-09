@@ -9397,6 +9397,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.locarno-film-festival-frontaliere-ticino.title': '‘Ich ist ein Anderer’, travelling with Felix Kersten',
     'blog.article.locarno-film-festival-frontaliere-ticino.excerpt': 'Felix Randau\'s film about Felix Kersten',
     'blog.article.locarno-film-festival-frontaliere-ticino.imageAlt': 'Image of the Locarno Film Festival with Ticino frontiersmen',
+    'blog.article.frontaliere-ticino-energia-fossili.title': 'How dependent is Switzerland on fossil fuels?',
+    'blog.article.frontaliere-ticino-energia-fossili.excerpt': 'Switzerland imports all the fossil fuels it consumes. In 2025 it bought crude oil mainly from the United States, which with the blockade of the Strait of Hormuz became the first exporters in the world, and from Nigeria.',
+    'blog.article.frontaliere-ticino-energia-fossili.imageAlt': 'A border worker in Ticino looks out of a window of a building, with a landscape of hills and mountains in the background.',
 };
 
 export default blogMetaEn;
