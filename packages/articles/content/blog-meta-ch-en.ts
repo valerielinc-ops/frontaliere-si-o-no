@@ -1963,6 +1963,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.title': 'Tax advantages for Lucerne residents',
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.excerpt': 'Switzerland\'s third pillar 3a is a supplementary pension system that offers tax and payment advantages for residents of the canton of Lucerne.',
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.imageAlt': 'A scene photographed in Switzerland with a lake and mountains in the background.',
+    'blog.article.autostrada-riapertura-ticino.title': 'Does it really take hours and hours to reopen a highway?',
+    'blog.article.autostrada-riapertura-ticino.excerpt': 'The great League advisers ask the Council of State for clarification after the chaos on the A2.',
+    'blog.article.autostrada-riapertura-ticino.imageAlt': 'Photo of a congested A2 highway in Ticino, Switzerland, with a caption about the long wait times for commuters.',
 };
 
 export default blogMetaChEn;

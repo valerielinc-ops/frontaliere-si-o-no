@@ -5887,6 +5887,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'autostrada-riapertura-ticino',
+    category: 'novita',
+    date: '2026-08-09T16:24:49.736Z',
+    image: '/images/blog/autostrada-riapertura-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

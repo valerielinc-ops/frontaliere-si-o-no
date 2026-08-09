@@ -1963,6 +1963,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.title': 'Steuervorteile für Luzernerinnen und Luzerner',
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.excerpt': 'Die dritte Säule 3a Schweiz ist ein Zusatzrentensystem, das Steuer- und Einzahlungsvorteile für im Kanton Luzern ansässige Personen bietet.',
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.imageAlt': 'Eine Szene fotografiert in der Schweiz mit einem See und Bergen im Hintergrund.',
+    'blog.article.autostrada-riapertura-ticino.title': 'Braucht es wirklich Stunden und Stunden, um eine Autobahn wieder zu öffnen?',
+    'blog.article.autostrada-riapertura-ticino.excerpt': 'Die grossen Lega-Berater bitten den Staatsrat um Klärung nach dem Chaos auf der A2.',
+    'blog.article.autostrada-riapertura-ticino.imageAlt': 'Bild eines congestionierten A2-Highways in Ticino, Schweiz, mit Untertitel über die langen Wartezeiten für Pendler.',
 };
 
 export default blogMetaChDe;
