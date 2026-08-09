@@ -1969,6 +1969,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.title': 'Guida al sistema sanitario svizzero: LAMal e scelta della cassa malati',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.excerpt': 'Tutti i dati necessari per comprendere il sistema sanitario svizzero e la scelta della cassa malati nel canton Basilea',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.imageAlt': 'Guida pratica al sistema sanitario svizzero: LAMal e scelta della cassa malati, con dati specifici sul canton Basilea',
+    'blog.article.terzo-pilastro-3a-vantaggi-svizzera.title': 'Terzo pilastro 3a: vantaggi fiscali reali in Svizzera',
+    'blog.article.terzo-pilastro-3a-vantaggi-svizzera.excerpt': 'Il terzo pilastro 3a in Svizzera offre vantaggi fiscali reali ai contribuenti, ma è importante comprendere le differenze tra le opzioni bancarie e assicurative.',
+    'blog.article.terzo-pilastro-3a-vantaggi-svizzera.imageAlt': 'Una scena fotorealistica di una località turistica sul lago di Lugano, con un lago cristallino e montagne circostanti.',
 };
 
 export default blogMetaChIt;

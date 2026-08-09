@@ -682,6 +682,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna': { it: 'terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna', en: 'slug-terzo-pilastro-3a-switzerland', de: 'slug-terzo-pilastro-3a-schweiz', fr: 'slug-terzo-pilastro-3a-suisse' },
  'autostrada-riapertura-ticino': { it: 'autostrada-riapertura-ticino', en: 'a2-highway-riopening-ticino', de: 'a2-autobahn-wiedereroffnung-tessin', fr: 'autoroute-a2-ouverture-again-tessin' },
  'sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea': { it: 'sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea', en: 'swiss-healthcare-system-lamal-guide-2026-canton-basel', de: 'schweizer-gesundheitssystem-lamal-anleitung-2026-kanton-basel', fr: 'systeme-de-sante-suisse-lamal-guide-2026-canton-de-bale' },
+ 'terzo-pilastro-3a-vantaggi-svizzera': { it: 'terzo-pilastro-3a-vantaggi-svizzera', en: 'third-pillar-3a-benefits-switzerland', de: 'dritter-saule-3a-vorteile-schweiz', fr: 'troisieme-pilier-3a-avantages-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

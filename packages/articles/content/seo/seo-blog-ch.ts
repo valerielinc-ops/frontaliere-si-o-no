@@ -25484,6 +25484,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-terzo-pilastro-3a-vantaggi-svizzera': {
+    title: 'Terzo pilastro 3a: vantaggi fiscali reali in Svizzera',
+    description: 'Il terzo pilastro 3a in Svizzera offre vantaggi fiscali reali ai contribuenti, ma è importante comprendere le differenze tra le opzioni bancarie e assicurative.',
+    keywords: 'frontalieri, ticino, svizzera, italia, terzo, pilastro, vantaggi, fiscali',
+    ogTitle: 'Terzo pilastro 3a: vantaggi fiscali reali in Svizzera',
+    ogDescription: 'Il terzo pilastro 3a in Svizzera offre vantaggi fiscali reali ai contribuenti, ma è importante comprendere le differenze tra le opzioni bancarie e assicurative.',
+    canonicalPath: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Terzo pilastro 3a: vantaggi fiscali reali in Svizzera",
+      "description": "Il terzo pilastro 3a in Svizzera offre vantaggi fiscali reali ai contribuenti, ma è importante comprendere le differenze tra le opzioni bancarie e assicurative.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/terzo-pilastro-3a-vantaggi-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena fotorealistica di una località turistica sul lago di Lugano, con un lago cristallino e montagne circostanti."
+      },
+      "datePublished": "2026-08-09T17:53:25+00:00",
+      "dateModified": "2026-08-09T17:53:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/terzo-pilastro-3a-vantaggi-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
