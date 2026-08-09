@@ -283,14 +283,22 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
 
  for (const SECTION of SECTIONS.filter((s) => s.name === opts.section)) {
 
- // Issue #3010 item 1: svizzera-section near-duplicate articles (PR #3000
- // de-collided their slugs, both are live now) declare a cross-URL
- // canonical + og:url pointing at the authoritative pair member instead of
- // self, so Google consolidates ranking signal without either page being
- // removed/de-listed. See data/swiss-article-canonical-overrides.json.
- const swissArticleCanonicalOverrides = SECTION.name === 'svizzera'
- ? loadSwissArticleCanonicalOverrides(fs, np.resolve(rootDir, 'data/swiss-article-canonical-overrides.json'))
- : {};
+ // Issue #3010 item 1: near-duplicate articles (PR #3000 de-collided their
+ // slugs, both are live now) declare a cross-URL canonical + og:url pointing
+ // at the authoritative pair member instead of self, so Google consolidates
+ // ranking signal without either page being removed/de-listed.
+ //
+ // Was `SECTION.name === 'svizzera' ? … : {}` with the path spelled out
+ // here. Hardwiring it to one section is why the frontaliere duplicates the
+ // generator shipped before the "argomento gia' coperto" gate (corpus PR
+ // #120) — three guides on `piastrellista`, nine on `educatore` — had no way
+ // to consolidate: the mechanism existed and could not be pointed at them.
+ // The candidate-path list per section now comes from the descriptor
+ // (shared/canonicalOverrideFiles.mjs), so a new pair is a data edit.
+ const articleCanonicalOverrides = loadSwissArticleCanonicalOverrides(
+ fs,
+ SECTION.canonicalOverrides.map((p) => np.resolve(rootDir, p)),
+ );
 
  // Parse article categories from blog-articles-data.ts for FAQ schema filtering
  const EVERGREEN_CATEGORIES = new Set(['fiscale', 'pratico', 'pensione']);
@@ -548,11 +556,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // reference that the regex can't capture, so we need these external sources.
  const seoDateMod = b.match(/"dateModified":\s*"([^"]+)"/)?.[1] ?? '';
  const articleSlug = cp.replace(SECTION.canonicalPrefix, '').replace(/\/$/, '');
- // Issue #3368 item 1: a shadowed svizzera article's own slug was dropped
- // from sitemap-blog-ch.xml (PR #3360), so sitemapLastmodBySlug misses it —
- // fall back to the authoritative winner's still-present <lastmod> (same
- // near-duplicate content) before the static SEO literal.
- const winnerSlug = resolveShadowedArticleWinnerSlug(articleSlug, swissArticleCanonicalOverrides);
+ // Issue #3368 item 1: a shadowed article's own slug was dropped from its
+ // section's sitemap (SECTION.sitemap — sitemap-blog-ch.xml for svizzera,
+ // PR #3360; sitemap-blog.xml for frontaliere), so sitemapLastmodBySlug
+ // misses it — fall back to the authoritative winner's still-present
+ // <lastmod> (same near-duplicate content) before the static SEO literal.
+ const winnerSlug = resolveShadowedArticleWinnerSlug(articleSlug, articleCanonicalOverrides);
  const dateMod = articleUpdatedAtById[articleId]
  || sitemapLastmodBySlug[articleSlug]
  || (winnerSlug ? sitemapLastmodBySlug[winnerSlug] : '')
@@ -1087,11 +1096,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const canonicalPath = withTrailingSlash(urlPath);
  const full = `${BASE_URL}${canonicalPath}`;
  // Issue #3010 item 1: shadowed near-duplicate variants (see
- // swissArticleCanonicalOverrides above) resolve to the authoritative
+ // articleCanonicalOverrides above) resolve to the authoritative
  // pair member's URL here; everything else (JSON-LD url/mainEntityOfPage,
  // sitemap, RSS, routing) still uses this page's own URL/content — the
  // page stays live, only the canonical hint + og:url change.
- const effectiveCanonicalUrl = resolveSwissArticleCanonicalUrl(articleSlugForLocale, swissArticleCanonicalOverrides, full);
+ const effectiveCanonicalUrl = resolveSwissArticleCanonicalUrl(articleSlugForLocale, articleCanonicalOverrides, full);
  const imgU = `${BASE_URL}${en.img}`;
  const pp = urlPath.slice(1).replace(/&/g, '~and~');
  const href = Object.entries(lp)

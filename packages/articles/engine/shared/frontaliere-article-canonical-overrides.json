@@ -1,0 +1,20 @@
+{
+  "_doc": "Per-slug canonical override map for frontaliere-section blog articles. Same shape, same loader and same semantics as data/swiss-article-canonical-overrides.json (issue #3010 item 1) — the mechanism was hardwired to the svizzera section in ogPagesPlugin.ts and is now driven per section by shared/canonicalOverrideFiles.mjs. Key = page slug (last URL segment, no leading slash) of the shadowed (lower-authority) variant, one entry per locale. Value = absolute canonical URL of the authoritative/winner variant in the SAME locale. Both pages stay live (no removal, no noindex, no redirect — repo anti-cut rule): only the shadowed variant's <link rel=\"canonical\"> and og:url point at the winner, and the shadowed URL is not advertised in a sitemap (a sitemap <loc> whose page canonicalises elsewhere is a hard CI gate failure — scripts/audit-sitemap-canonicals.mjs, scripts/validate-sitemap-pages.mjs). RSS is NOT touched, same as the svizzera precedent. This file lives inside packages/articles/engine/ on purpose: mirror-articles-engine.yml carries engine/** to the corpus repo that renders article pages, while scripts/pull-articles-corpus.mjs would delete a site-only file placed under packages/articles/content/. Source: three near-duplicate piastrellista guides published 2026-08-09 (11:30, 15:44 and 16:08 UTC); winner chosen by the owner.",
+  "_groups": {
+    "piastrellista": {
+      "winner": "frontaliere-piastrellista-ticino-stipendio-requisiti",
+      "shadowed": ["lavoro-piastrellista-ticino-frontaliere", "piastrellista-frontaliere-ticino-guadagno"]
+    }
+  },
+  "overrides": {
+    "lavoro-piastrellista-ticino-frontaliere": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-piastrellista-ticino-stipendio-requisiti/",
+    "tile-setter-work-ticino-border-worker": "https://frontaliereticino.ch/en/cross-border-articles/frontalier-tile-layer-ticino-salary-requirements/",
+    "fliesenleger-tessin-grenzgaenger": "https://frontaliereticino.ch/de/grenzgaenger-artikel/frontalier-kachelerschweiz-gehalt-anforderungen/",
+    "carreleur-travail-tessin-frontalier": "https://frontaliereticino.ch/fr/articles-frontalier/frontalier-peintre-en-ceramique-suisse-salaire-exigences/",
+
+    "piastrellista-frontaliere-ticino-guadagno": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-piastrellista-ticino-stipendio-requisiti/",
+    "tile-layer-frontalier-ticino-income": "https://frontaliereticino.ch/en/cross-border-articles/frontalier-tile-layer-ticino-salary-requirements/",
+    "fliesenleger-frontalier-tessin-erlos": "https://frontaliereticino.ch/de/grenzgaenger-artikel/frontalier-kachelerschweiz-gehalt-anforderungen/",
+    "platrier-frontalier-tessin-revenu": "https://frontaliereticino.ch/fr/articles-frontalier/frontalier-peintre-en-ceramique-suisse-salaire-exigences/"
+  }
+}

@@ -44,6 +44,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { ARTICLE_SECTION_CORE } from './articleSectionCore.mjs';
+import { CANONICAL_OVERRIDE_FILES } from './canonicalOverrideFiles.mjs';
 
 export interface OgSection {
  name: 'frontaliere' | 'svizzera';
@@ -56,6 +57,16 @@ export interface OgSection {
  slugData: string;
  slugConst: string;
  indexSlug: Record<'it' | 'en' | 'de' | 'fr', string>;
+ /**
+  * Repo-root-relative candidate paths of this section's canonical-override
+  * map, first-readable-wins (`shared/canonicalOverrideFiles.mjs` holds the
+  * literal and explains the per-repo layouts). Present for BOTH sections:
+  * before this field `ogPagesPlugin.ts` hardwired the mechanism to
+  * `SECTION.name === 'svizzera'`, so a frontaliere near-duplicate pair had no
+  * way to consolidate. A section with no file on disk simply loads `{}` and
+  * every page stays self-canonical, exactly as before.
+  */
+ canonicalOverrides: readonly string[];
 }
 
 /** Project a core entry onto the field names/shape this module's consumers expect. */
@@ -78,6 +89,7 @@ export const ARTICLE_SECTION_DESCRIPTORS: OgSection[] = [
  ...Array.from({ length: 9 }, (_, i) => `services/seo/seo-blog-${i + 2}.ts`)],
  canonicalPrefix: '/articoli-frontaliere/',
  sitemap: 'public/sitemap-blog.xml',
+ canonicalOverrides: CANONICAL_OVERRIDE_FILES.frontaliere,
  ...coreFields('frontaliere'),
  },
  {
@@ -85,6 +97,7 @@ export const ARTICLE_SECTION_DESCRIPTORS: OgSection[] = [
  seoFiles: ['services/seo/seo-blog-ch.ts'],
  canonicalPrefix: '/articoli-svizzera/',
  sitemap: 'public/sitemap-blog-ch.xml',
+ canonicalOverrides: CANONICAL_OVERRIDE_FILES.svizzera,
  ...coreFields('svizzera'),
  },
 ];

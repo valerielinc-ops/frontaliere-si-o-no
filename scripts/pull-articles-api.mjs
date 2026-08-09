@@ -48,6 +48,7 @@ import path from 'node:path';
 
 import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
+import { dropShadowedSitemapUrlBlocks, loadAllShadowedSlugs } from './lib/article-canonical-overrides.mjs';
 
 const ROOT = process.cwd();
 const PUBLIC_DIR = path.join(ROOT, 'public');
@@ -428,6 +429,11 @@ function reinstateLocalArticles(name, xml) {
   return { xml: `${xml.slice(0, close)}${blocks.join('\n')}\n${xml.slice(close)}`, added };
 }
 
+// Every locale's slug of every shadowed page, both sections. Read once: the
+// files are small but the loop below would otherwise re-read them per sitemap.
+const shadowedSitemapSlugs = loadAllShadowedSlugs(ROOT);
+log(`canonical-override shadowed slugs held out of the sitemaps: ${shadowedSitemapSlugs.size}`);
+
 const staged = new Map();
 for (const name of SITEMAPS) {
   let xml;
@@ -443,6 +449,28 @@ for (const name of SITEMAPS) {
   xml = reinstated.xml;
   for (const id of reinstated.added) {
     log(`${name}: re-listing ${id} — in the slug registry but absent upstream`);
+  }
+
+  // De-list the pages a canonical override shadows (issue #3010 item 1,
+  // generalised to both sections). This has to happen HERE, on ingest, and not
+  // only in the file committed to public/: these sitemaps are fetched from the
+  // corpus publisher and overwrite the committed copy on every run of
+  // sync-articles-sitemaps.yml (dispatch + cron 5:23/17:23), so an edit made by
+  // hand to public/sitemap-blog.xml survives at most half a day. A <loc> whose
+  // page canonicalises elsewhere is a hard CI gate failure with no override
+  // exception (scripts/audit-sitemap-canonicals.mjs,
+  // scripts/validate-sitemap-pages.mjs) — letting one back in through the pull
+  // is the "corpus data reddens the site on every branch" shape.
+  //
+  // The page is NOT removed: it keeps answering 200 at its own URL, per the
+  // repo anti-cut rule. Only the crawl-priority signal goes. Runs after the
+  // reinstate above so a shadowed article cannot be re-listed and then kept.
+  // Deliberately before the count guards, so the shrink comparison is made
+  // against the document that will actually be written.
+  const deShadowed = dropShadowedSitemapUrlBlocks(xml, shadowedSitemapSlugs);
+  xml = deShadowed.xml;
+  for (const loc of deShadowed.dropped) {
+    log(`${name}: de-listing ${loc} — canonicalises elsewhere (canonical override)`);
   }
 
   const urls = countUrls(xml);
