@@ -3004,8 +3004,7 @@
         ],
         "de": [
           "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier",
-          "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier-aqymwl",
-          "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier"
+          "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier-aqymwl"
         ]
       },
       "previousSlugs": [
@@ -3018,7 +3017,6 @@
         "chef-de-rang-brasserie-1519-lungo-termine-w-verbier-marriott-international-verbier"
       ],
       "firstSeenAt": "2026-08-05T22:48:56.358Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3031,7 +3029,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "marriott-bebf8e3ac3b8",

@@ -28137,6 +28137,33 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'presidente-locarno-film-festival',
+ category: 'novita',
+ date: '2026-08-08T23:56:06.372Z',
+ image: '/images/blog/presidente-locarno-film-festival.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'castasegna-vecchia-dogana-in-vendita',
+ category: 'novita',
+ date: '2026-08-09T00:40:13.497Z',
+ image: '/images/blog/castasegna-vecchia-dogana-in-vendita.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'recensione-armony-analisi-critica',
+ category: 'pratico',
+ date: '2026-08-09T02:29:33.055Z',
+ image: '/images/blog/recensione-armony-analisi-critica.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

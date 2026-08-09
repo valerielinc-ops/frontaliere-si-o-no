@@ -9375,6 +9375,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.areu-cerca-30-assistenti-tecnici.title': 'AREU recherche 30 assistants techniques : Varèse et 112 en jeu',
     'blog.article.areu-cerca-30-assistenti-tecnici.excerpt': 'Le classement pourra également être utilisé pour couvrir les besoins des Centrales Uniques de Réponse du Numéro unique 112',
     'blog.article.areu-cerca-30-assistenti-tecnici.imageAlt': 'Une personne assise devant un ordinateur avec une expression sérieuse, avec le fond de Lugano',
+    'blog.article.presidente-locarno-film-festival.title': 'Festival du film de Locarno : qui sera le prochain président ?',
+    'blog.article.presidente-locarno-film-festival.excerpt': 'Le Locarno Film Festival cherche un nouveau président. Les rumeurs courent, mais pas de confirmation officielle.',
+    'blog.article.presidente-locarno-film-festival.imageAlt': 'Le Festival du film de Locarno avec le grand écran sur la Piazza Grande',
+    'blog.article.castasegna-vecchia-dogana-in-vendita.title': 'Châtaigne : l\'ancienne douane en vente inquiète Bregaglia',
+    'blog.article.castasegna-vecchia-dogana-in-vendita.excerpt': 'La Confédération a mis en vente l\'ancienne douane de Castasegna. La commune de Bregaglia s\'active avec Coire pour éviter la perte de la présence fédérale.',
+    'blog.article.castasegna-vecchia-dogana-in-vendita.imageAlt': 'Bâtiment de l\'ancienne douane à Castasegna dans le Val Bregaglia',
+    'blog.article.recensione-armony-analisi-critica.title': 'Critique : les criticités du film Armony',
+    'blog.article.recensione-armony-analisi-critica.excerpt': 'Analyse critique de l\'œuvre cinématographique présentée au festival, entre casting stellaire et narration définie comme consolatrice et peu authentique.',
+    'blog.article.recensione-armony-analisi-critica.imageAlt': 'Cinéma de Locarno pendant le festival',
 };
 
 export default blogMetaFr;
