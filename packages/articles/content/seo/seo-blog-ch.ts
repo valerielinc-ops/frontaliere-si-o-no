@@ -25796,6 +25796,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-cassa-malati-lamal-2026-canton-zurigo': {
+    title: 'I premi cassa malati LAMal nel Canton Zurigo per il 2026',
+    description: 'I premi dell\'assicurazione malattia LAMal nel Canton Zurigo per il 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, lamal',
+    ogTitle: 'I premi cassa malati LAMal nel Canton Zurigo per il 2026',
+    ogDescription: 'I premi dell\'assicurazione malattia LAMal nel Canton Zurigo per il 2026',
+    canonicalPath: '/articoli-svizzera/premi-cassa-malati-lamal-2026-canton-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "I premi cassa malati LAMal nel Canton Zurigo per il 2026",
+      "description": "I premi dell'assicurazione malattia LAMal nel Canton Zurigo per il 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-lamal-2026-canton-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale di un lago svizzero con una barca a vela"
+      },
+      "datePublished": "2026-08-09T22:21:25+00:00",
+      "dateModified": "2026-08-09T22:21:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-cassa-malati-lamal-2026-canton-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

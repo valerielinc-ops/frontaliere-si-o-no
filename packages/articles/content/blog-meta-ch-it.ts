@@ -1993,6 +1993,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-vaud.title': 'Imposta cantonale: confronto Svizzera 2026 - Cantone Vaud',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-vaud.excerpt': 'Il cantone Vaud ha un\'aliquota di imposta cantonale del 10,5%.',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-vaud.imageAlt': 'Una vista di Lugano con il lago in primo piano.',
+    'blog.article.premi-cassa-malati-lamal-2026-canton-zurigo.title': 'I premi cassa malati LAMal nel Canton Zurigo per il 2026',
+    'blog.article.premi-cassa-malati-lamal-2026-canton-zurigo.excerpt': 'I premi dell\'assicurazione malattia LAMal nel Canton Zurigo per il 2026',
+    'blog.article.premi-cassa-malati-lamal-2026-canton-zurigo.imageAlt': 'Immagine editoriale di un lago svizzero con una barca a vela',
 };
 
 export default blogMetaChIt;
