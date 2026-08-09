@@ -28380,6 +28380,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro',
+ category: 'fiscale',
+ date: '2026-08-09T20:29:17.263Z',
+ image: '/images/blog/trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

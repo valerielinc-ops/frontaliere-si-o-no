@@ -9454,6 +9454,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-trasquera-lavorare-ticino.title': 'Living in Trasquera and working in Ticino as a border worker',
     'blog.article.vivere-trasquera-lavorare-ticino.excerpt': 'Practical guide for border workers: taxes, new tax agreement and income management between Italy and Canton Ticino.',
     'blog.article.vivere-trasquera-lavorare-ticino.imageAlt': 'Alpine landscape at the Swiss-Italian border',
+    'blog.article.trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro.title': 'Moving to Maccagno with Pine and Veddasca as a border crossing: pros and cons',
+    'blog.article.trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro.excerpt': 'The new border agreement of 2020 has opened up new possibilities for border workers who wish to move to Maccagno with Pino and Veddasca. But what are the pros and cons of this transfer?',
+    'blog.article.trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro.imageAlt': 'A view of the city of Maccagno con Pino e Veddasca, in Italy',
 };
 
 export default blogMetaEn;

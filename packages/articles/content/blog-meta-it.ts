@@ -9455,6 +9455,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-trasquera-lavorare-ticino.title': 'Vivere a Trasquera e lavorare in Ticino da frontaliere',
     'blog.article.vivere-trasquera-lavorare-ticino.excerpt': 'Guida pratica per i frontalieri: imposte, nuovo accordo fiscale e gestione del reddito tra Italia e Canton Ticino.',
     'blog.article.vivere-trasquera-lavorare-ticino.imageAlt': 'Paesaggio alpino al confine tra Italia e Svizzera',
+    'blog.article.trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Maccagno con Pino e Veddasca da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro.excerpt': 'Il nuovo accordo frontalieri del 2020 ha aperto nuove possibilità per i frontaliere che desiderano trasferirsi a Maccagno con Pino e Veddasca. Ma cosa sono i pro e i contro di questo trasferimento?',
+    'blog.article.trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro.imageAlt': 'Una vista della città di Maccagno con Pino e Veddasca, in Italia',
 };
 
 export default blogMetaIt;
