@@ -202,6 +202,13 @@ describe('sanitizeNavLinkSemantics — positive allowlist fallback', () => {
     const r = sanitizeNavLinkSemantics("Consulta il [link generico qui](nav:exchange).");
     expect(r.stripped).toBe(1);
   });
+
+  it('PRESERVES the shipped CTA pool `[guida pratica](nav:first-day)` link', () => {
+    const cta = "È il tuo primo giorno come frontaliere? La nostra [guida pratica](nav:first-day) ti accompagna dalla registrazione cantonale al primo stipendio.";
+    const r = sanitizeNavLinkSemantics(cta);
+    expect(r.stripped).toBe(0);
+    expect(r.text).toContain("[guida pratica](nav:first-day)");
+  });
 });
 
 describe('sanitizeBodyIt — orchestration', () => {
