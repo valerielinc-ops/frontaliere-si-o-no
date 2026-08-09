@@ -11,7 +11,7 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-08T21:38:29.683Z",
+  "updatedAt": "2026-08-09T10:19:23.527Z",
   "seedMetaByUrl": {
     "https://www.pemsa.ch/it/job/cameriera-ai-tavoli-2686195/": {
       "location": "Lugano",
@@ -817,39 +817,9 @@
       "company": "PEMSA",
       "postedDate": "2026-07-27"
     },
-    "https://www.pemsa.ch/it/job/impermeabilizzatore-m-f-2684789/": {
-      "location": "Plan les Ouates",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-24"
-    },
-    "https://www.pemsa.ch/it/job/posatore-aiuto-posatore-di-protezioni-solari-2684782/": {
-      "location": "Bellinzona",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-24"
-    },
     "https://www.pemsa.ch/it/job/operario-addetto-alla-gru-a-torre-2684772/": {
       "location": "Fribourg",
       "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-24"
-    },
-    "https://www.pemsa.ch/it/job/tecnico-frigorista-m-f-2684761/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-24"
-    },
-    "https://www.pemsa.ch/it/job/installatore-di-tubazioni-saldatore-nel-settore-del-riscaldamento-2684754/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-24"
-    },
-    "https://www.pemsa.ch/it/job/addetta-o-alle-pulizie-2684748/": {
-      "location": "Biasca",
-      "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-07-24"
     },
@@ -1059,12 +1029,6 @@
     },
     "https://www.pemsa.ch/it/job/consulente-del-personale-2682749/": {
       "location": "Lugano",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-10"
-    },
-    "https://www.pemsa.ch/it/job/idraulico-esperto-2682744/": {
-      "location": "Mendrisio",
       "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-07-10"
