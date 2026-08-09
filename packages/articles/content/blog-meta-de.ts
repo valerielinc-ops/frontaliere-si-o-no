@@ -9384,6 +9384,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavori-posteggio-cadro-interrogazione.title': 'Kader, Abfrage der Arbeiten am Parkplatz in der Via Scuole',
     'blog.article.lavori-posteggio-cadro-interrogazione.excerpt': 'Die Gruppe Avanti con Ticino&Lavoro befragt die Gemeinde Lugano zum Mangel an grünen Inseln bei den Renovierungsarbeiten zwischen der Via delle Scuole und der Via Lanaggio.',
     'blog.article.lavori-posteggio-cadro-interrogazione.imageAlt': 'Renovierungsarbeiten am Parkplatz in Cadro',
+    'blog.article.frontaliere-oss-ticino-guida.title': 'Grenzgänger medizinisches Fachpersonal im Tessin: Leitfaden',
+    'blog.article.frontaliere-oss-ticino-guida.excerpt': 'Als OSS im Tessin arbeiten: Das sind die Voraussetzungen für die Anerkennung des Titels, die Beitragssätze und die Funktionsweise des neuen Steuerabkommens.',
+    'blog.article.frontaliere-oss-ticino-guida.imageAlt': 'Krankenhaus im Tessin mit Seeblick',
 };
 
 export default blogMetaDe;

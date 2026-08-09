@@ -9385,6 +9385,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavori-posteggio-cadro-interrogazione.title': 'Chart, question on works at the parking lot in via Scuole',
     'blog.article.lavori-posteggio-cadro-interrogazione.excerpt': 'The group Avanti con Ticino&Lavoro questions the Municipality of Lugano about the lack of green islands in the renovation work between Via delle Scuole and Via Lanaggio.',
     'blog.article.lavori-posteggio-cadro-interrogazione.imageAlt': 'Renovation works at the Cadro parking lot',
+    'blog.article.frontaliere-oss-ticino-guida.title': 'Border health worker in Ticino: guide',
+    'blog.article.frontaliere-oss-ticino-guida.excerpt': 'Working as an OSS in Ticino: here are the requirements for the recognition of the title, the contribution rates and the operation of the new tax agreement.',
+    'blog.article.frontaliere-oss-ticino-guida.imageAlt': 'Hospital in Ticino with lake view',
 };
 
 export default blogMetaEn;

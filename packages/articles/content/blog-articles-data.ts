@@ -28173,6 +28173,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-oss-ticino-guida',
+ category: 'pratico',
+ date: '2026-08-09T04:32:41.935Z',
+ image: '/images/blog/frontaliere-oss-ticino-guida.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

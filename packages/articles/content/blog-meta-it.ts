@@ -9386,6 +9386,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavori-posteggio-cadro-interrogazione.title': 'Cadro, interrogazione sui lavori al posteggio di via Scuole',
     'blog.article.lavori-posteggio-cadro-interrogazione.excerpt': 'Il gruppo Avanti con Ticino&Lavoro interroga il Municipio di Lugano sulla mancanza di isole verdi nei lavori di rifacimento tra via delle Scuole e via Lanaggio.',
     'blog.article.lavori-posteggio-cadro-interrogazione.imageAlt': 'Lavori di rifacimento presso il parcheggio di Cadro',
+    'blog.article.frontaliere-oss-ticino-guida.title': 'Frontaliere operatore socio sanitario in Ticino: guida',
+    'blog.article.frontaliere-oss-ticino-guida.excerpt': 'Lavorare come OSS in Ticino: ecco i requisiti per il riconoscimento del titolo, le aliquote contributive e il funzionamento del nuovo accordo fiscale.',
+    'blog.article.frontaliere-oss-ticino-guida.imageAlt': 'Ospedale in Ticino con vista sul lago',
 };
 
 export default blogMetaIt;
