@@ -655,7 +655,7 @@ function shouldApplySerpExperiment(section: string): boolean {
 // slapping an unrelated "| simulazione | 2026" suffix on them is a
 // content/intent mismatch that measurably drags down CTR (issue #5479) —
 // the same reasoning that already excludes job-detail pages below.
-function getSerpIntentLabel(path: string, locale: Locale): string | null {
+export function getSerpIntentLabel(path: string, locale: Locale): string | null {
  const map = {
  it: {
  over20: 'oltre 20km',
