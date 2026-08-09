@@ -28353,6 +28353,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-cameriere-ticino-stipendio-requisiti',
+ category: 'pratico',
+ date: '2026-08-09T19:38:59.799Z',
+ image: '/images/blog/frontaliere-cameriere-ticino-stipendio-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

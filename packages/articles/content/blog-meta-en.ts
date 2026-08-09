@@ -9445,6 +9445,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.a2-traffico-ticino-interrogazione.title': 'A2 to Collapse: Transit Traffic Inquiry',
     'blog.article.a2-traffico-ticino-interrogazione.excerpt': 'After the accident in Mezzovico, Avanti con Ticino&Lavoro calls for concrete measures to limit the inconvenience of pure transit traffic on the Gotthard axis.',
     'blog.article.a2-traffico-ticino-interrogazione.imageAlt': 'Heavy traffic on the A2 motorway in Ticino',
+    'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.title': 'Border waiters: salary, requirements and title recognition',
+    'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.excerpt': 'The new Frontier Agreement provides for an increase in the average salary of border waiters in Ticino. The requirements for obtaining the G permit have been changed.',
+    'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.imageAlt': 'A waiter in a restaurant in Lugano.',
 };
 
 export default blogMetaEn;

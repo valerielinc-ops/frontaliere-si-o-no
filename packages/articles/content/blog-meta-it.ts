@@ -9446,6 +9446,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.a2-traffico-ticino-interrogazione.title': 'A2 al collasso: interrogazione sul traffico di transito',
     'blog.article.a2-traffico-ticino-interrogazione.excerpt': 'Dopo l\'incidente a Mezzovico, Avanti con Ticino&Lavoro chiede misure concrete per limitare i disagi del traffico di puro transito sull\'asse del San Gottardo.',
     'blog.article.a2-traffico-ticino-interrogazione.imageAlt': 'Traffico intenso sull\'autostrada A2 in Ticino',
+    'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.title': 'Camerieri frontaliere: stipendio, requisiti e riconoscimento titolo',
+    'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.excerpt': 'Il nuovo Accordo Frontalieri prevede un aumento dello stipendio medio dei camerieri frontalieri in Ticino. I requisiti per ottenere il permesso G sono stati modificati.',
+    'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.imageAlt': 'Un cameriere in un ristorante a Lugano.',
 };
 
 export default blogMetaIt;

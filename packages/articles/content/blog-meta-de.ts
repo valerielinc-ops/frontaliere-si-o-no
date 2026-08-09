@@ -9444,6 +9444,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.a2-traffico-ticino-interrogazione.title': 'A2 bis zum Kollaps: Frage zum Transitverkehr',
     'blog.article.a2-traffico-ticino-interrogazione.excerpt': 'Nach dem Unfall in Mezzovico fordert Avanti con Ticino&Lavoro konkrete Maßnahmen, um die Unannehmlichkeiten des reinen Transitverkehrs auf der Gotthardachse zu begrenzen.',
     'blog.article.a2-traffico-ticino-interrogazione.imageAlt': 'Starker Verkehr auf der A2 im Tessin',
+    'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.title': 'Grenzkellner: Gehalt, Anforderungen und Anerkennung des Titels',
+    'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.excerpt': 'Die neue Frontalieri-Vereinbarung sieht eine Erhöhung des Durchschnittslohns der Grenzkellner im Tessin vor. Die Voraussetzungen für die Erteilung der G-Genehmigung wurden geändert.',
+    'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.imageAlt': 'Ein Kellner in einem Restaurant in Lugano.',
 };
 
 export default blogMetaDe;
