@@ -588,6 +588,25 @@ export function collapsifySeoBlock(html: string): string {
 export const HOMEPAGE_ROOT_CONTENT_RX =
  /<div id="root"><main id="main-content">([\s\S]*?)<\/main><\/div>\s*(?:<div id="footer-root"><\/div>\s*)?<script/;
 
+// Home-only (single-crumb) BreadcrumbList — the homepage/locale-root is the
+// root of every breadcrumb chain, so it never needs a 2nd/3rd level. Shared
+// across it/en/de/fr since injectHomepageSeoContent is the single owner of
+// all four homepage variants (IT root + the 3 locale-root mirrors emitted by
+// the "Locale-root SPA shells" block below).
+const HOMEPAGE_BREADCRUMB_HOME_LABEL: Record<HpSeoLocale, string> = { it: 'Home', en: 'Home', de: 'Startseite', fr: 'Accueil' };
+const HOMEPAGE_BREADCRUMB_LOCALE_PREFIX: Record<HpSeoLocale, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
+
+function buildHomepageBreadcrumbJsonLd(locale: HpSeoLocale): string {
+ const homeUrl = `${BASE_URL}${HOMEPAGE_BREADCRUMB_LOCALE_PREFIX[locale]}/`;
+ return inlineScriptJson({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+   { '@type': 'ListItem', position: 1, name: HOMEPAGE_BREADCRUMB_HOME_LABEL[locale], item: homeUrl },
+  ],
+ });
+}
+
 function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
  // Inject only once: skip if already present.
  if (html.includes('id="hp-seo-block"')) return html;
@@ -604,7 +623,18 @@ function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
  // 81-anchor bridge here; the canton hubs remain reachable at depth 2
  // via the language switcher → locale home → canton hub.
  const relatedGuides = buildHomepageRelatedGuidesBlock(locale);
- return html.replace('</body>', `${block}\n${langSwitch}\n${relatedGuides}\n${cantonNav}\n</body>`);
+ // tests/seo/breadcrumb-coverage.test.ts requires every non-noindex dist/
+ // page to carry a BreadcrumbList JSON-LD block. The locale-root mirrors
+ // (/en/, /de/, /fr/) are NOT in that test's exempt list (only bare
+ // `/index.html` is), so — unlike the IT root — they must actually ship one.
+ // id="hp-breadcrumb-ld" marks it for the locale-mirror strip-then-reinject
+ // cycle below (same idempotent pattern as the "hp-seo-block" aside), so a
+ // stale IT-locale breadcrumb from a mirrored root never survives into the
+ // EN/DE/FR copy.
+ const breadcrumbScript = html.includes('id="hp-breadcrumb-ld"')
+  ? ''
+  : `<script type="application/ld+json" id="hp-breadcrumb-ld">${buildHomepageBreadcrumbJsonLd(locale)}</script>\n`;
+ return html.replace('</body>', `${block}\n${breadcrumbScript}${langSwitch}\n${relatedGuides}\n${cantonNav}\n</body>`);
 }
 
 /**
@@ -5524,14 +5554,18 @@ ${hrefTags}
        // File already emitted — read it back, normalise, re-inject locale block.
        localized = fs.readFileSync(file, 'utf-8');
        localized = localized.replace(/<aside id="hp-seo-block"[\s\S]*?<\/aside>\s*/i, '');
+       localized = localized.replace(/<script[^>]*\bid="hp-breadcrumb-ld"[^>]*>[\s\S]*?<\/script>\s*/i, '');
        localized = injectHomepageSeoContent(localized, loc);
      } else if (rootHtml) {
        // File missing — mirror the IT root, rewrite lang + canonical, inject block.
+       // The mirrored breadcrumb (if any) still points at the IT home URL —
+       // strip it too so injectHomepageSeoContent below emits a locale-correct one.
        localized = rootHtml
          .replace(/<html\b[^>]*\blang="[^"]*"/i, `<html lang="${loc}"`)
          .replace(/<link\s+rel="canonical"\s+href="https:\/\/frontaliereticino\.ch\/"/i,
            `<link rel="canonical" href="https://frontaliereticino.ch/${loc}/"`);
        localized = localized.replace(/<aside id="hp-seo-block"[\s\S]*?<\/aside>\s*/i, '');
+       localized = localized.replace(/<script[^>]*\bid="hp-breadcrumb-ld"[^>]*>[\s\S]*?<\/script>\s*/i, '');
        localized = injectHomepageSeoContent(localized, loc);
      }
      if (localized) {
