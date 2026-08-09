@@ -1981,6 +1981,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permessi-di-soggiorno-svizzera-tipologie-b-c-l.title': 'Soggiorno in Svizzera: B, C e L',
     'blog.article.permessi-di-soggiorno-svizzera-tipologie-b-c-l.excerpt': 'Die Unterschiede zwischen den Aufenthaltsbewilligungen B, C und L in der Schweiz',
     'blog.article.permessi-di-soggiorno-svizzera-tipologie-b-c-l.imageAlt': 'Szene einer Person, die einen Aufenthaltstitel in der Schweiz erhält',
+    'blog.article.aprire-attivita-svizzera-guida-pratica.title': 'Ein Geschäft in der Schweiz eröffnen: Was es braucht',
+    'blog.article.aprire-attivita-svizzera-guida-pratica.excerpt': 'Das Verfahren zur Eröffnung eines Unternehmens in der Schweiz kann je nach Branche und Anforderungen des Unternehmens variieren.',
+    'blog.article.aprire-attivita-svizzera-guida-pratica.imageAlt': 'Praktische Anleitung für die Eröffnung einer Geschäft in der Schweiz.',
 };
 
 export default blogMetaChDe;

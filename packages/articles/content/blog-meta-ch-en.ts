@@ -1981,6 +1981,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permessi-di-soggiorno-svizzera-tipologie-b-c-l.title': 'Residence permits in Switzerland: differences between permit B, C and L',
     'blog.article.permessi-di-soggiorno-svizzera-tipologie-b-c-l.excerpt': 'The differences between residence permits B, C and L in Switzerland',
     'blog.article.permessi-di-soggiorno-svizzera-tipologie-b-c-l.imageAlt': 'Scene of a person receiving a Swiss residence permit',
+    'blog.article.aprire-attivita-svizzera-guida-pratica.title': 'Starting a business in Switzerland: what you need',
+    'blog.article.aprire-attivita-svizzera-guida-pratica.excerpt': 'The procedure for opening a business in Switzerland may vary depending on the sector and the needs of the business.',
+    'blog.article.aprire-attivita-svizzera-guida-pratica.imageAlt': 'Practical guide to opening a business in Switzerland.',
 };
 
 export default blogMetaChEn;
