@@ -167,7 +167,10 @@ const mountApp = async () => {
        // Article pages only; nothing else changes about the handoff.
        if (fallback.querySelector('article.ft-blog-article')) {
          const { stashStaticArticleFallback } = await import('./services/staticArticleFallback');
-         stashStaticArticleFallback(fallback);
+         // The URL is stashed WITH the clone: it is the only thing that later
+         // identifies which article this HTML is, once a client-side
+         // navigation has moved the visitor somewhere else.
+         stashStaticArticleFallback(fallback, window.location.pathname);
        }
        rootElement.appendChild(fallback);
        if (railWrap) railWrap.style.display = 'none';
