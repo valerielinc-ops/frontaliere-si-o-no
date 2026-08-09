@@ -9431,6 +9431,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-gruista-ticino-stipendio-requisiti.title': 'Frontaliere gruista ticino: stipendio e requisiti',
     'blog.article.frontaliere-gruista-ticino-stipendio-requisiti.excerpt': 'Sostanzialmente le novità per i frontaliere gruisti in Ticino',
     'blog.article.frontaliere-gruista-ticino-stipendio-requisiti.imageAlt': 'Frontaliere che lavora come gruista in Ticino',
+    'blog.article.frontaliere-falegname-ticino-lavoro.title': 'Frontaliere falegname in Ticino: stipendio e requisiti',
+    'blog.article.frontaliere-falegname-ticino-lavoro.excerpt': 'Guida completa per falegnami frontalieri in Ticino: stipendi, inquadramento, tassazione e requisiti per il permesso G secondo le norme vigenti.',
+    'blog.article.frontaliere-falegname-ticino-lavoro.imageAlt': 'Falegname al lavoro in una moderna falegnameria ticinese',
 };
 
 export default blogMetaIt;

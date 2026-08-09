@@ -9429,6 +9429,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-gruista-ticino-stipendio-requisiti.title': 'Grenzgänger Kranführer Ticino: Gehalt und Anforderungen',
     'blog.article.frontaliere-gruista-ticino-stipendio-requisiti.excerpt': 'Im Grunde die Nachrichten für grenzüberschreitende Kranfahrer im Tessin',
     'blog.article.frontaliere-gruista-ticino-stipendio-requisiti.imageAlt': 'Frontalier als Gruista in Tessin',
+    'blog.article.frontaliere-falegname-ticino-lavoro.title': 'Tischler-Frontendier im Tessin: Gehalt und Anforderungen',
+    'blog.article.frontaliere-falegname-ticino-lavoro.excerpt': 'Vollständiger Leitfaden für Grenzschreiner im Tessin: Gehälter, Einstufung, Besteuerung und Anforderungen für den G-Ausweis nach den geltenden Vorschriften.',
+    'blog.article.frontaliere-falegname-ticino-lavoro.imageAlt': 'Zimmermann bei der Arbeit in einer modernen Tischlerei im Tessin',
 };
 
 export default blogMetaDe;

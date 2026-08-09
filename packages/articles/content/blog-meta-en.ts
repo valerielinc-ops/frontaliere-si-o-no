@@ -9430,6 +9430,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-gruista-ticino-stipendio-requisiti.title': 'Border crane operator Ticino: salary and requirements',
     'blog.article.frontaliere-gruista-ticino-stipendio-requisiti.excerpt': 'Basically the news for cross-border crane operators in Ticino',
     'blog.article.frontaliere-gruista-ticino-stipendio-requisiti.imageAlt': 'Frontaliere working as a gruista in Ticino',
+    'blog.article.frontaliere-falegname-ticino-lavoro.title': 'Border carpenter in Ticino: salary and requirements',
+    'blog.article.frontaliere-falegname-ticino-lavoro.excerpt': 'Complete guide for border carpenters in Ticino: salaries, classification, taxation and requirements for the G permit according to current regulations.',
+    'blog.article.frontaliere-falegname-ticino-lavoro.imageAlt': 'Carpenter at work in a modern Ticino woodworking shop',
 };
 
 export default blogMetaEn;

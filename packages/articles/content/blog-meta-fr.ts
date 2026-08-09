@@ -9432,6 +9432,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-gruista-ticino-stipendio-requisiti.title': 'Frontalier grutier ticino : salaire et exigences',
     'blog.article.frontaliere-gruista-ticino-stipendio-requisiti.excerpt': 'En gros, l\'actualité pour les opérateurs de grues transfrontaliers au Tessin',
     'blog.article.frontaliere-gruista-ticino-stipendio-requisiti.imageAlt': 'Frontalier travaillant comme gruista en Tessin',
+    'blog.article.frontaliere-falegname-ticino-lavoro.title': 'Frontalier charpentier au Tessin : salaire et exigences',
+    'blog.article.frontaliere-falegname-ticino-lavoro.excerpt': 'Guide complet pour les menuisiers frontaliers au Tessin : salaires, encadrement, fiscalité et exigences pour le permis G selon les normes en vigueur.',
+    'blog.article.frontaliere-falegname-ticino-lavoro.imageAlt': 'Menuisier au travail dans un atelier de menuiserie moderne au Tessin',
 };
 
 export default blogMetaFr;
