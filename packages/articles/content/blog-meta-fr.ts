@@ -9426,6 +9426,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoro-piastrellista-ticino-frontaliere.title': 'Travailler comme carreleur au Tessin : guide pour les frontaliers',
     'blog.article.lavoro-piastrellista-ticino-frontaliere.excerpt': 'Exigences, encadrement des salaires et fiscalité pour les frontaliers opérant dans le secteur de la pose de carreaux dans le canton du Tessin.',
     'blog.article.lavoro-piastrellista-ticino-frontaliere.imageAlt': 'Carreleur au travail sur un chantier au Tessin',
+    'blog.article.autostrada-a2-mezzovico-interrogazione.title': 'A2 paralysée pendant des heures : question au Conseil d\'État',
+    'blog.article.autostrada-a2-mezzovico-interrogazione.excerpt': 'Six grands conseillers de la Ligue interpellent le gouvernement après le samedi soir cauchemardesque sur l\'A2 à Mezzovico avec des files d\'attente allant jusqu\'à 13 kilomètres.',
+    'blog.article.autostrada-a2-mezzovico-interrogazione.imageAlt': 'Embouteillages et voitures bloquées sur l autoroute A2 au Tessin',
 };
 
 export default blogMetaFr;
