@@ -9404,6 +9404,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-polimeccanico-ticino-lavoro.title': 'Frontaliere polimeccanico in Ticino: stipendio e requisiti',
     'blog.article.frontaliere-polimeccanico-ticino-lavoro.excerpt': 'Guida completa per polimeccanici: stipendio, imposta alla fonte, nuovo accordo fiscale e requisiti per lavorare in Canton Ticino.',
     'blog.article.frontaliere-polimeccanico-ticino-lavoro.imageAlt': 'Polimeccanico al lavoro in un\'officina meccanica in Ticino',
+    'blog.article.psicologo-frontaliere-ticino-lavoro.title': 'Lavorare come psicologo in Ticino: requisiti e stipendio',
+    'blog.article.psicologo-frontaliere-ticino-lavoro.excerpt': 'Guida per psicologi frontalieri in Ticino: riconoscimento titoli, inquadramento, fiscalità e previdenza tra Italia e Svizzera.',
+    'blog.article.psicologo-frontaliere-ticino-lavoro.imageAlt': 'Veduta panoramica di Lugano, Canton Ticino',
 };
 
 export default blogMetaIt;

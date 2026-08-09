@@ -9403,6 +9403,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-polimeccanico-ticino-lavoro.title': 'Polymechanical frontier in Ticino: salary and requirements',
     'blog.article.frontaliere-polimeccanico-ticino-lavoro.excerpt': 'Complete guide for polymechs: salary, tax at source, new tax agreement and requirements to work in Canton Ticino.',
     'blog.article.frontaliere-polimeccanico-ticino-lavoro.imageAlt': 'Mechanical engineer working in a workshop in Ticino',
+    'blog.article.psicologo-frontaliere-ticino-lavoro.title': 'Working as a psychologist in Ticino: requirements and salary',
+    'blog.article.psicologo-frontaliere-ticino-lavoro.excerpt': 'Guide for border psychologists in Ticino: recognition of qualifications, classification, taxation and social security between Italy and Switzerland.',
+    'blog.article.psicologo-frontaliere-ticino-lavoro.imageAlt': 'Panoramic view of Lugano, Canton Ticino',
 };
 
 export default blogMetaEn;
