@@ -1954,6 +1954,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-basilea-2026.title': 'Zweite Säule BVG Schweiz Führer 2026 Kanton Basel',
     'blog.article.secondo-pilastro-lpp-basilea-2026.excerpt': 'Leitfaden 2026 zur 2. Säule BVG: Beiträge, Bezug, Lückenrückkauf und Vorsorgeplanung in der Schweiz. Fokus auf den Kanton Basel mit spezifischen Daten und nationalem Vergleich.',
     'blog.article.secondo-pilastro-lpp-basilea-2026.imageAlt': 'Schweizer Mitarbeiter in Basel, der LPP-Dokumenten des zweiten Pfeilers überprüft',
+    'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.title': 'Dritte Säule 3a: Vorteile und Steuerstrategien',
+    'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.excerpt': 'Die dritte Säule 3a Schweiz bietet Steuer- und Vorsorgevorteile für Grenzgänger im Kanton Basel.',
+    'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.imageAlt': 'max 125 caratteri',
 };
 
 export default blogMetaChDe;

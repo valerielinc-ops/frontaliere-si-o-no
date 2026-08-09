@@ -1954,6 +1954,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-basilea-2026.title': 'Deuxième pilier LPP Suisse guide 2026 canton Bâle',
     'blog.article.secondo-pilastro-lpp-basilea-2026.excerpt': 'Guide 2026 du deuxième pilier LPP : cotisations, prélèvement, rachat des lacunes et planification de la prévoyance en Suisse. Focus sur le canton de Bâle avec des données spécifiques et comparaison nationale.',
     'blog.article.secondo-pilastro-lpp-basilea-2026.imageAlt': 'Employé suisse à Bâle consultant des documents du deuxième pilier LPP',
+    'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.title': 'Troisième pilier 3a : avantages et stratégies fiscales',
+    'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.excerpt': 'Le troisième pilier 3a suisse offre des avantages fiscaux et de prévoyance aux frontaliers du canton de Bâle.',
+    'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.imageAlt': 'max 125 caratteri',
 };
 
 export default blogMetaChFr;

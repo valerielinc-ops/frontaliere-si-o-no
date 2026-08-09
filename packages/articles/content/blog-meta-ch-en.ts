@@ -1954,6 +1954,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-basilea-2026.title': 'Second pillar LPP Switzerland guide 2026 canton Basel',
     'blog.article.secondo-pilastro-lpp-basilea-2026.excerpt': '2026 Guide to the Second Pillar LPP: Contributions, Withdrawal, Gap Redemption and Social Security Planning in Switzerland. Focus on the canton of Basel with specific data and national comparison.',
     'blog.article.secondo-pilastro-lpp-basilea-2026.imageAlt': 'Swiss employee in Basel reviewing second pillar LPP documents',
+    'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.title': 'Third pillar 3a: tax advantages and strategies',
+    'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.excerpt': 'Switzerland\'s 3rd pillar offers tax and pension benefits for border workers in the canton of Basel.',
+    'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.imageAlt': 'max 125 caratteri',
 };
 
 export default blogMetaChEn;
