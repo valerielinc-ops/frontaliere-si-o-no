@@ -420,5 +420,20 @@ jobs:
           '
           bash scripts/lib/upload-cdn-file.sh /tmp/news-ticker-live.json \
             data/news-ticker-live.json "public, max-age=300, must-revalidate"
-          node scripts/cf-purge-cache.mjs \
-            --files=https://cdn.frontaliereticino.ch/data/news-ticker-live.json
+          # Targeted purge — and it MUST stay on ONE line. The workflow half of
+          # tests/cf-zone-purge-blast-radius.test.ts (#5162) tests for `--files=`
+          # PER LINE, so splitting this on a backslash continuation makes the
+          # first line read as the zone-wide invocation the guard forbids: red
+          # CI on a purge that was already targeted, with a message describing a
+          # blast radius the command never had. Its script half is deliberately
+          # file-scoped for exactly this reason; the workflow half is not.
+          #
+          # The purge is a best-effort extra, not the mechanism. NewsFeed.tsx
+          # reads this through cdnFreshUrl(), which appends `?v=<5-min bucket>`
+          # (services/cdnDataBase.ts) — a key this purge does not touch by
+          # design, because the SPA's variant was never reachable from here
+          # (#4974). What actually bounds staleness for the client is the
+          # max-age=300 above, matched to that same 5-minute bucket. This clears
+          # the bare-URL variant for everyone else, and mirrors the purge
+          # publish-article-chunks.mjs already issues after its own PUT.
+          node scripts/cf-purge-cache.mjs --files=https://cdn.frontaliereticino.ch/data/news-ticker-live.json
