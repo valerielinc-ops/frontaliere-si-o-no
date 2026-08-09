@@ -1987,6 +1987,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.title': 'Public transport passes in Switzerland: costs and benefits',
     'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.excerpt': 'Find out details about public transport subscriptions in Switzerland, including AG, half fare, cantonal and community subscriptions.',
     'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.imageAlt': 'Person walking towards a train in a Swiss railway station',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.title': 'Swiss cantons: comparison of tax rates and optimisation strategies',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.excerpt': 'The canton of Geneva has decided to maintain the current rates for incomes below CHF 50,000.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.imageAlt': 'A view of the city of Geneva with Lake Geneva in the foreground.',
 };
 
 export default blogMetaChEn;

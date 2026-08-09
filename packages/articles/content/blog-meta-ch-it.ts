@@ -1987,6 +1987,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.title': 'Abbonamenti trasporto pubblico in Svizzera: costi e vantaggi',
     'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.excerpt': 'Scopri i dettagli sugli abbonamenti di trasporto pubblico in Svizzera, inclusi AG, mezza tariffa, abbonamenti cantonali e comunitari.',
     'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.imageAlt': 'Persona che si dirige verso un treno in una stazione ferroviaria svizzera',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.title': 'Cantoni svizzeri: confronto aliquote imposta e strategie di ottimizzazione',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.excerpt': 'Il canton Ginevra ha deciso di mantenere le aliquote attuali per i redditi inferiori a CHF 50.000.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.imageAlt': 'Una vista della città di Ginevra con il lago Lemano in primo piano.',
 };
 
 export default blogMetaChIt;
