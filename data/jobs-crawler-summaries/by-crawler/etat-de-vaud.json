@@ -1,34 +1,32 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-08-08T21:53:36.707Z",
-  "total": 51,
+  "generatedAt": "2026-08-09T10:36:55.613Z",
+  "total": 49,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 24531,
-  "avgDurationMs": 24531,
+  "unchangedCount": 0,
+  "durationMs": 26244,
+  "avgDurationMs": 26244,
   "durationHistory": [
-    24531
+    26244
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "etat-de-vaud-5663",
-      "slug": "educatori-di-bambini-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "id": "etat-de-vaud-5591",
+      "slug": "directeur-trice-de-l-etablissement-vaudois-d-accueil-des-migrants-evam-etat-de-vaud",
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
-      "title": "Educateur·trice de l’enfance",
+      "title": "Directeur·trice de l’Établissement vaudois d’accueil des migrants (EVAM)",
       "location": "Lausanne",
       "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5663",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5591",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-07T21:52:26.650Z",
+      "crawledAt": "2026-08-09T10:36:52.386Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -38,23 +36,22 @@
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5663",
-      "firstSeenAt": "2026-07-05T11:43:25.035Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5591",
+      "firstSeenAt": "2026-07-05T11:43:20.041Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 20
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
