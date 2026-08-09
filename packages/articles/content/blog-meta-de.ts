@@ -9390,6 +9390,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-09.title': 'Grenzgänger-Tagesbulletin – 9. August 2026: 589 neue Stellenangebote gestern',
     'blog.article.bollettino-frontaliere-2026-08-09.excerpt': 'Die Zahlen von heute (9. August 2026) für Grenzgänger: heute Morgen gemessene Wartezeiten an den Grenzübergängen, die günstigsten Tank-Gemeinden, der CHF-EUR-Kurs und neue Stellenangebote in der Schweiz. Eigene Messung, täglich aktualisiert.',
     'blog.article.bollettino-frontaliere-2026-08-09.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 9. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.traffico-a2-bloccato.title': 'A2: ancora traffico e frustrazione',
+    'blog.article.traffico-a2-bloccato.excerpt': 'Der Verkehr bleibt an einigen Stellen unterbrochen und mehrere Fahrer berichten, dass sie für drei bis vier Stunden gesperrt sind.',
+    'blog.article.traffico-a2-bloccato.imageAlt': 'Ein Gruppe von Autofahrern in Verkehr auf der A2.',
 };
 
 export default blogMetaDe;
