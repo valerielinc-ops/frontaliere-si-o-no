@@ -61028,6 +61028,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-logopedista-frontaliere-ticino': {
+    title: 'Logopedista in Ticino: guida per frontalieri | Frontaliere Ticino',
+    description: 'Guida per logopedisti frontalieri in Ticino: stipendio, requisiti, nuovo accordo fiscale 2024 e gestione dell\'imposta alla fonte. Leggi ora. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, logopedista, requisiti, stipendio, fiscalità',
+    ogTitle: 'Logopedista in Ticino: guida per frontalieri',
+    ogDescription: 'Tutto quello che devi sapere per lavorare come logopedista in Ticino da frontaliere: fiscalità, contributi e procedure operative nel rispetto del nuovo accordo.',
+    canonicalPath: '/articoli-frontaliere/lavoro-logopedista-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Logopedista in Ticino: guida per frontalieri",
+      "description": "Guida per logopedisti frontalieri in Ticino: stipendio, requisiti, nuovo accordo fiscale 2024 e gestione dell'imposta alla fonte. Leggi ora. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-logopedista-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studio medico con vista su Lugano"
+      },
+      "datePublished": "2026-08-09T10:34:48+00:00",
+      "dateModified": "2026-08-09T10:34:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-logopedista-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -9406,6 +9406,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.psicologo-frontaliere-ticino-lavoro.title': 'Working as a psychologist in Ticino: requirements and salary',
     'blog.article.psicologo-frontaliere-ticino-lavoro.excerpt': 'Guide for border psychologists in Ticino: recognition of qualifications, classification, taxation and social security between Italy and Switzerland.',
     'blog.article.psicologo-frontaliere-ticino-lavoro.imageAlt': 'Panoramic view of Lugano, Canton Ticino',
+    'blog.article.lavoro-logopedista-frontaliere-ticino.title': 'Speech therapist in Ticino: guide for border workers',
+    'blog.article.lavoro-logopedista-frontaliere-ticino.excerpt': 'Requirements, salary and taxation for border speech therapists in Ticino. Here\'s how to navigate between new tax agreement, AVS and tax at source.',
+    'blog.article.lavoro-logopedista-frontaliere-ticino.imageAlt': 'Medical office with a view of Lugano',
 };
 
 export default blogMetaEn;

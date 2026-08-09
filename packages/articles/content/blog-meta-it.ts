@@ -9407,6 +9407,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.psicologo-frontaliere-ticino-lavoro.title': 'Lavorare come psicologo in Ticino: requisiti e stipendio',
     'blog.article.psicologo-frontaliere-ticino-lavoro.excerpt': 'Guida per psicologi frontalieri in Ticino: riconoscimento titoli, inquadramento, fiscalità e previdenza tra Italia e Svizzera.',
     'blog.article.psicologo-frontaliere-ticino-lavoro.imageAlt': 'Veduta panoramica di Lugano, Canton Ticino',
+    'blog.article.lavoro-logopedista-frontaliere-ticino.title': 'Logopedista in Ticino: guida per frontalieri',
+    'blog.article.lavoro-logopedista-frontaliere-ticino.excerpt': 'Requisiti, stipendio e fiscalità per i logopedisti frontalieri in Ticino. Ecco come orientarsi tra nuovo accordo fiscale, AVS e imposta alla fonte.',
+    'blog.article.lavoro-logopedista-frontaliere-ticino.imageAlt': 'Studio medico con vista su Lugano',
 };
 
 export default blogMetaIt;
