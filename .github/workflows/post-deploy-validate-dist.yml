@@ -920,8 +920,9 @@ jobs:
           #   ── STEP WALL                        1740s        1776s        1885s
           #
           # audit:spa-bundle-injection was 99.6-99.7 % of the step wall: every
-          # other gate finished inside its window and the last ~10-13 min were
-          # one Node process on 4 vCPU. It has now been rewritten to overlap
+          # other gate finished inside its window, so the step's last 626-884s
+          # (1735−1109 … 1880−996), i.e. 10-15 min, were one Node process on
+          # 4 vCPU. It has now been rewritten to overlap
           # its syscalls (bounded-concurrency readdir + read-ahead, same
           # primitives as scripts/lib/audit-runner.mjs) with NO sampling and
           # NO coverage change — see its file header. The evidence that this
@@ -1185,6 +1186,32 @@ jobs:
 
           echo "failed_gates=${FAILED}"
           printf 'failed_gates=%s\n' "$FAILED" >> "$GITHUB_OUTPUT"
+
+          # PER-GATE OFFENDER TOTALS, ON SUCCESS TOO (issue #5432, point 6).
+          #
+          # Until this line, a PASSING gate left no trace of HOW MANY offenders
+          # it counted: spawn_capped sends each gate's stdout to /tmp/<x>.log,
+          # which is only `cat`-ed in the failure branch above, and the
+          # `dist/audit-reports/**` artifact is uploaded `if: failure()`. So on
+          # a green run the timings table recorded that each gate passed and
+          # how long it took, and nothing else.
+          #
+          # That gap is what makes a speed change unauditable after the fact.
+          # The dangerous failure mode of any optimisation in this job is not a
+          # red gate, it is a gate that still exits 0 while counting a FRACTION
+          # of the offenders — a sampled ratchet whose baseline was never
+          # rescaled reports ~1/rate of them and passes. Reviewing that needs
+          # the counts from BEFORE the change, and on green runs they did not
+          # survive anywhere. (Concretely: profiling this job for #5432 could
+          # recover every gate's DURATION from the logs of runs 31283409340 /
+          # 31287634802 / 31296098323, and not one gate's offender count.)
+          #
+          # The data already exists — scripts/lib/auditReport.mjs writes
+          # dist/audit-reports/<name>.json on pass AND on fail, deliberately.
+          # It was simply never printed. One line, no new artifact, no storage
+          # cost, and the job log outlives the 7-day artifact retention.
+          # `|| true`: never let observability break the gate step.
+          jq -r '"gate-offenders \(.audit) offendersTotal=\(.offendersTotal) passed=\(.passed)"' dist/audit-reports/*.json 2>/dev/null || true
 
       # bfs-depth baseline-candidate dump moved to validate-dist-postbuild-bfs
       # (this file) — audit:max-bfs-depth (and its /tmp/g19.log) now runs

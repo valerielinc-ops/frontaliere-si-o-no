@@ -152,8 +152,9 @@ const REDIRECT_SHAPE_RX =
 //
 // i.e. 99.6-99.7 % of the "Post-build validations + SEO audits (capped
 // parallel)" step. The runner-up (`audit:all`, 996-1109s) and the other eight
-// gates all finished INSIDE this one's window, so the last ~13-15 minutes of
-// the step were one single-threaded Node process on a 4 vCPU runner.
+// gates all finished INSIDE this one's window, so the step's last 626-884s
+// (1735−1109 … 1880−996), i.e. 10-15 min, were one single-threaded Node
+// process on a 4 vCPU runner.
 //
 // The cause was not the work, it was the scheduling: on the rehydrated
 // production dist (~2.07M index.html files, one directory per page) the
