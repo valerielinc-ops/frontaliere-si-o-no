@@ -1,0 +1,127 @@
+name: Corpus-ahead check (il generatore del corpus e' andato avanti)
+
+# Il ricevitore che mancava a questo lato del ciclo.
+#
+# CLAUDE.md fissa l'invariante: "il codice scende dal sito al corpus, i dati
+# risalgono dal corpus al sito". Dopo il cutover del 2026-08-02 e' nanako a
+# GENERARE il corpus, e da allora anche il CODICE risale: le guardie nuove
+# nascono in `generator/` sul corpus, non qui. Nessuno dei due mirror copre
+# `generator/` — `mirror-articles-engine.yml` porta `engine/`,
+# `mirror-articles-corpus.yml` portava `content/` ed e' dispatch-only in via di
+# cancellazione — quindi quelle guardie non hanno alcuna via di risalita.
+#
+# Il corpus SA gia' quando questo succede: `scripts/ci/loop-drift-check.mjs`
+# gira la' ogni giorno alle 07:31 UTC e classifica `corpus-ahead` = "modificato
+# qui, fermo sul sito". Ma apre la issue SUL CORPUS, ultima nell'ordine di
+# urgenza, e il fixer autonomo di quel repo non puo' aprire una PR su questo.
+# Il verdetto giusto veniva prodotto nel repo sbagliato per agire.
+#
+# Il costo, misurato due volte:
+#   - #81 → #82 sul corpus: il cap sulla meta description (#5360) non e' mai
+#     sceso, e il giorno dopo il difetto e' tornato identico (265 caratteri
+#     contro il tetto di 170), rendendo `tests` rosso su OGNI branch di qui.
+#   - 2026-08-09, direzione opposta: #120 (gate «argomento gia' coperto»), #121
+#     (segnaposto del prompt che non puo' diventare uno slug) e #122 (microcopy)
+#     mergiate dentro `generator/`, nessuna risalita, nessun segnale.
+#
+# PERCHE' NON UN MIRROR. Allargare `mirror-articles-engine.yml` a `generator/`
+# sarebbe distruttivo: (1) un mirror spinge sito → corpus, e sovrascriverebbe
+# con la nostra copia piu' vecchia proprio le guardie che vogliamo ricevere;
+# (2) sia quel mirror sia `transport-generator-to-nanako.yml` ricostruiscono la
+# cartella da zero (`rm -rf`), il che cancellerebbe i 21 file che il manifest
+# del corpus dichiara `corpus-only` — fra cui
+# `generator/scripts/lib/topic-coverage-guard.mjs`, che E' la guardia di #120.
+# Lo dice gia' in prosa l'intestazione di `apply-generator-rewire-to-nanako.yml`.
+#
+# Questo workflow non copia niente. Guarda, e apre una issue QUI.
+
+on:
+  # Dopo il drift check del corpus (07:31 UTC), cosi' le baseline lette sono
+  # quelle appena riallineate la' e non quelle del giorno prima.
+  schedule:
+    - cron: '47 8 * * *'
+
+  workflow_dispatch:
+    inputs:
+      report_issue:
+        description: 'Apri/commenta la issue anche su dispatch (lo schedule la apre sempre).'
+        type: boolean
+        required: false
+        default: false
+
+# Due run in parallelo leggerebbero lo stesso manifest e aprirebbero due volte
+# la stessa issue; la deduplica del creator e' sul titolo, quindi la seconda
+# commenterebbe la prima a meta' scrittura. Serializzato, mai cancellato.
+concurrency:
+  group: corpus-ahead-check
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      # v5: v4 fallisce il gate del runtime Node su questa immagine.
+      #
+      # Sparse, non-cone, ancorato. Il manifest del corpus dichiara gemelli
+      # sotto `.github/`, `build-plugins/`, `data/`, `scripts/`, `services/`,
+      # `tests/` e alcuni markdown di root — mai sotto `public/`, che qui pesa
+      # 1,8 GB. Escluderlo e' la differenza fra un checkout da 90 secondi e i 17
+      # minuti che hanno fatto cancellare il run 30719465152 di
+      # transport-generator-to-nanako.yml.
+      #
+      # `data/` NON e' escluso: il manifest ci dichiara due gemelli
+      # (`data/authors.ts`, `data/canton-url-slugs.json`). Anche se lo fosse, lo
+      # script legge i file tracciati ma non materializzati con `git show`, cosi'
+      # una lista sparse sbagliata non puo' degradare in un falso "nessun
+      # gemello" — il difetto silenzioso che questo workflow esiste per togliere.
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /*
+            !/public/
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Nessun `npm ci`: lo script usa solo builtin Node piu' `fetch`. Aggiungere
+      # una install da ~1,4 GB a un controllo di sola lettura lo renderebbe il
+      # workflow piu' lento del repo per nessun guadagno.
+      - name: Corpus-ahead check
+        env:
+          # Il repo del corpus e' pubblico: raw.githubusercontent basta e non
+          # consuma rate-limit autenticato. Il token serve solo alla issue.
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Via env e non `${{ }}` dentro `run:`. L'input e' tipizzato boolean,
+          # quindi non e' un vettore di injection — ma ogni input di questo repo
+          # raggiunge la shell allo stesso modo, per non dover ricordare quale
+          # era l'eccezione.
+          REPORT_ISSUE: ${{ inputs.report_issue }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          # Sullo schedule la issue si apre sempre; su dispatch solo se richiesto,
+          # cosi' si puo' guardare il report senza notificare nessuno.
+          flags=''
+          if [ "$EVENT" = "schedule" ] || [ "${REPORT_ISSUE:-}" = "true" ]; then
+            flags='--issue'
+          fi
+          node scripts/ci/corpus-ahead-check.mjs $flags | tee /tmp/corpus-ahead.txt
+
+      - name: Job summary
+        if: always()
+        run: |
+          {
+            echo "### Corpus-ahead check"
+            echo
+            echo '```'
+            head -40 /tmp/corpus-ahead.txt 2>/dev/null || echo "(nessun output)"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
