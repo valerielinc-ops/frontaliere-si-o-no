@@ -23,9 +23,17 @@ interface Job {
   slugByLocale?: Record<string, string>;
 }
 
+// Memoized: data/jobs.json is a multi-MB CI-assembled fixture that never
+// changes mid-run. Re-parsing it inside every `it()` (8x here) pushed a
+// single case over vitest's 15s timeout under parallel-runner load,
+// producing an intermittent gate:seo-source failure that blocked publish.
+let _jobsCache: Job[] | null | undefined;
 function readJobs(): Job[] | null {
-  if (!fs.existsSync(JOBS_PATH)) return null;
-  return JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8')) as Job[];
+  if (_jobsCache !== undefined) return _jobsCache;
+  _jobsCache = fs.existsSync(JOBS_PATH)
+    ? (JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8')) as Job[])
+    : null;
+  return _jobsCache;
 }
 
 function pickItSlug(job: Job): string | undefined {
