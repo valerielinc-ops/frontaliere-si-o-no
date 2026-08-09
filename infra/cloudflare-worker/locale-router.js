@@ -812,6 +812,39 @@ export const EDGE_PUSHED_FILES = {
   // filesystem.
   '/sitemap-topics-frontaliere.xml': { cdnKey: '/edge/sitemap-topics-frontaliere.xml', contentType: 'application/xml; charset=utf-8' },
   '/sitemap-topics-svizzera.xml': { cdnKey: '/edge/sitemap-topics-svizzera.xml', contentType: 'application/xml; charset=utf-8' },
+  // The ten RSS feeds (#5420 follow-up). Same defect as the sitemaps above, a
+  // different surface — and the one nobody re-checks, because a feed is a
+  // SUBSCRIPTION: whoever reads it does not come back to see whether it moved.
+  //
+  // Measured 2026-08-09 12:05 UTC, before this: /rss.xml on the apex carried
+  // lastBuildDate 08:32:36 against the corpus's 11:30:02 — 2h57m26s stale, and
+  // on GUIDs (the lens the dates do not give) 5 of 50 items simply absent, the
+  // same 5 in rss.xml / rss-it / rss-en / rss-de / rss-fr. Those five articles
+  // answer 200 and were ALREADY announced by /sitemap-blog.xml on the same
+  // apex in the same minute: the incoherence is internal to one host.
+  //
+  // The cause is not the sync — public/rss.xml on main is byte-identical to
+  // the corpus copy (424.390 byte), and the pull runs green every ~40 min. It
+  // is that no writer ever PUT these to R2: /edge/sitemap-blog.xml existed and
+  // was 40 seconds old, /edge/rss.xml answered 404. Never written by anyone.
+  //
+  // The svizzera feeds measured a delta of ZERO, which is not reassurance: the
+  // swiss section had published nothing for 14h (see corpus#96), so there was
+  // nothing in flight to be late. Same mechanism, empty pipe.
+  //
+  // contentType stays application/xml (what Pages serves today) rather than the
+  // canonical application/rss+xml: the only variable this change may move is
+  // freshness.
+  '/rss.xml': { cdnKey: '/edge/rss.xml', contentType: 'application/xml; charset=utf-8' },
+  '/rss-it.xml': { cdnKey: '/edge/rss-it.xml', contentType: 'application/xml; charset=utf-8' },
+  '/rss-en.xml': { cdnKey: '/edge/rss-en.xml', contentType: 'application/xml; charset=utf-8' },
+  '/rss-de.xml': { cdnKey: '/edge/rss-de.xml', contentType: 'application/xml; charset=utf-8' },
+  '/rss-fr.xml': { cdnKey: '/edge/rss-fr.xml', contentType: 'application/xml; charset=utf-8' },
+  '/rss-svizzera.xml': { cdnKey: '/edge/rss-svizzera.xml', contentType: 'application/xml; charset=utf-8' },
+  '/rss-svizzera-it.xml': { cdnKey: '/edge/rss-svizzera-it.xml', contentType: 'application/xml; charset=utf-8' },
+  '/rss-svizzera-en.xml': { cdnKey: '/edge/rss-svizzera-en.xml', contentType: 'application/xml; charset=utf-8' },
+  '/rss-svizzera-de.xml': { cdnKey: '/edge/rss-svizzera-de.xml', contentType: 'application/xml; charset=utf-8' },
+  '/rss-svizzera-fr.xml': { cdnKey: '/edge/rss-svizzera-fr.xml', contentType: 'application/xml; charset=utf-8' },
   '/llms.txt': { cdnKey: '/edge/llms.txt', contentType: 'text/plain; charset=utf-8', source: 'generated' },
   '/llms-full.txt': { cdnKey: '/edge/llms-full.txt', contentType: 'text/plain; charset=utf-8', source: 'generated' },
   '/.well-known/llms.txt': {
