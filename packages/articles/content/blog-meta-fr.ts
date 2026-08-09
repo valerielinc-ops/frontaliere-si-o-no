@@ -9384,6 +9384,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.recensione-armony-analisi-critica.title': 'Critique : les criticités du film Armony',
     'blog.article.recensione-armony-analisi-critica.excerpt': 'Analyse critique de l\'œuvre cinématographique présentée au festival, entre casting stellaire et narration définie comme consolatrice et peu authentique.',
     'blog.article.recensione-armony-analisi-critica.imageAlt': 'Cinéma de Locarno pendant le festival',
+    'blog.article.lavori-posteggio-cadro-interrogazione.title': 'Cadre, question sur les travaux au parking de via Scule',
+    'blog.article.lavori-posteggio-cadro-interrogazione.excerpt': 'Le groupe Avanti con Ticino&Lavoro interroge la municipalité de Lugano sur le manque d\'îles vertes dans les travaux de rénovation entre la via delle Scuole et la via Lanaggio.',
+    'blog.article.lavori-posteggio-cadro-interrogazione.imageAlt': 'Travaux de rénovation au parking de Cadro',
 };
 
 export default blogMetaFr;
