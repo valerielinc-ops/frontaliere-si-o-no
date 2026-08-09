@@ -33,6 +33,7 @@ import { describe, it, expect } from 'vitest';
 import { renderArticleHubPages } from '../build-plugins/seoHubsPlugin';
 import {
   archiveTopicHubLinks,
+  archiveTopicIndexPath,
   computeEligibleTopicKeys,
 } from '../packages/articles/engine/articleHubPagesPlugin';
 import { TOPIC_CLUSTERS } from '../packages/articles/engine/topicTaxonomy';
@@ -43,8 +44,10 @@ import {
 } from '../build-plugins/topicClusterHubsPlugin';
 import {
   buildTopicHubPath,
+  buildTopicIndexPath,
   TOPIC_HUB_LOCALES,
   TOPIC_HUB_MIN_ARTICLES,
+  TOPIC_HUB_SECTIONS,
   type TopicHubLocale,
 } from '../build-plugins/topicClusterHubsData';
 
@@ -125,6 +128,39 @@ describe('topic-hub flat page ladder (renderPagination)', () => {
   });
 });
 
+describe('archive → topic index link (#5436)', () => {
+  it('the engine composes the same index path the plugin emits, all 8 URLs', () => {
+    // Same guarantee `archiveTopicHubLinks` gets against `buildTopicHubPath`,
+    // for the same reason: the engine may not import `build-plugins/**`, so
+    // the two compose the string separately from shared taxonomy data. Without
+    // this the archive would link a path the emitter never writes — a 404 with
+    // an inbound link, which is worse than the 404 this issue closes.
+    for (const section of TOPIC_HUB_SECTIONS) {
+      for (const locale of TOPIC_HUB_LOCALES) {
+        expect(archiveTopicIndexPath(section, locale), `${section}/${locale}`).toBe(
+          buildTopicIndexPath(locale, section),
+        );
+      }
+    }
+  });
+
+  it('is the base every hub href of that section+locale is built on', () => {
+    // The index is the PARENT of the hubs, not a sibling: if this stops
+    // holding, one of the two families moved and the breadcrumb on every hub
+    // is pointing somewhere else.
+    for (const section of TOPIC_HUB_SECTIONS) {
+      for (const locale of TOPIC_HUB_LOCALES) {
+        const base = buildTopicIndexPath(locale, section);
+        for (const topic of TOPIC_CLUSTERS) {
+          expect(buildTopicHubPath(locale, section, topic.key).startsWith(base), topic.key).toBe(
+            true,
+          );
+        }
+      }
+    }
+  });
+});
+
 describe.runIf(available)('archive "Argomenti" nav — same truth as the topic sitemaps', () => {
   it(
     'engine eligibility equals the plugin split that decides hub vs bridge, both sections',
@@ -169,9 +205,18 @@ describe.runIf(available)('archive "Argomenti" nav — same truth as the topic s
         );
 
         for (const locale of TOPIC_HUB_LOCALES) {
+          // The bare topic index (#5436) is announced in the SAME document as
+          // the hubs — it is written by the same run — but it is not one of
+          // them, so it is subtracted here rather than silently tolerated.
+          // Removing that subtraction must fail this test: it is the only
+          // thing keeping the `hp` anchor set a HUB set.
+          const indexPath = buildTopicIndexPath(locale, 'svizzera');
+          expect(announced, `${locale}: the topic index is not announced`).toContain(indexPath);
+
           // Page-1 canonicals the sitemap announces for THIS locale.
           const expected = announced
             .filter((p) => !/\/page-\d+\/$/.test(p))
+            .filter((p) => p !== indexPath)
             .filter((p) =>
               locale === 'it' ? !/^\/(en|de|fr)\//.test(p) : p.startsWith(`/${locale}/`),
             )
@@ -185,6 +230,13 @@ describe.runIf(available)('archive "Argomenti" nav — same truth as the topic s
             const html = fs.readFileSync(np.join(archiveDir, rel), 'utf-8');
             const hrefs = topicsNavHrefs(html, locale).sort();
             expect(hrefs, `${rel}: nav hrefs ≠ sitemap page-1 <loc> set`).toEqual(expected);
+            // …and the index itself is linked, as a plain anchor rather than
+            // an `hp` pill. Both halves matter: the link is what keeps an
+            // announced URL off `audit:max-bfs-depth`'s unreachable pile, and
+            // keeping it out of the `hp` set is what keeps the comparison
+            // above a statement about hubs.
+            expect(html, `${rel}: no link to the topic index`).toContain(`href="${indexPath}"`);
+            expect(hrefs, `${rel}: the index leaked into the hub anchors`).not.toContain(indexPath);
             // Cross-link to the sibling (frontaliere) archive, same locale —
             // the depth-2 path for /en/swiss-articles/all/ & co. runs the
             // other way, but reciprocity is what keeps both at depth 2.

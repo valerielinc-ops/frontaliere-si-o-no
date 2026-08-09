@@ -71,6 +71,7 @@ import {
   TOPIC_CLUSTERS,
   TOPIC_HUB_MIN_ARTICLES,
   TOPIC_HUB_SEGMENT,
+  TOPIC_INDEX_TITLE,
 } from './topicTaxonomy';
 import { assignArticlesToTopics } from './topicClusters';
 
@@ -630,12 +631,45 @@ export function archiveTopicHubLinks(
 }
 
 /**
+ * Root-relative path of the section's bare topic INDEX — the `<prefix>/
+ * <indexSlug>/<TOPIC_HUB_SEGMENT>/` every hub href above is built on top of
+ * (issue #5436). Byte-compatible with `build-plugins/topicClusterHubsData.ts`'s
+ * `buildTopicIndexPath(locale, section)` for the same reason
+ * `archiveTopicHubLinks` is byte-compatible with `buildTopicHubPath`: both
+ * compose it from the same engine data, and this package may not import
+ * `build-plugins/**` (`tests/packages-articles-confinement.test.ts` proves it
+ * does not). `tests/article-hub-topics-nav.test.ts` pins the two equal.
+ */
+export function archiveTopicIndexPath(section: ArticleSection, locale: HubLocale): string {
+  const prefix = locale === 'it' ? '' : `/${locale}`;
+  return `${prefix}/${ARTICLE_SECTIONS[section].indexSlug[locale]}/${TOPIC_HUB_SEGMENT[locale]}/`;
+}
+
+/**
  * The nav block itself: eligible-topic anchors under a collapsed
  * `<details>` (same page-weight-conscious shape and `.hp` anchor class as the
  * flat page ladder below — BFS and crawlers read `<a>` inside `<details>`
- * regardless of `open`), plus the always-visible cross-link to the sibling
- * section's archive in the same locale (the fix for the 21 unreachable
- * `/…/swiss-articles/all/`-family URLs of sitemap-articles-archive.xml).
+ * regardless of `open`), the link to the topic INDEX that collects them, and
+ * the always-visible cross-link to the sibling section's archive in the same
+ * locale (the fix for the 21 unreachable `/…/swiss-articles/all/`-family URLs
+ * of sitemap-articles-archive.xml).
+ *
+ * WHY THE INDEX LINK IS HERE AND NOT ONLY ON THE HUBS (#5436). The index is
+ * announced in `sitemap-topics-<section>.xml`, and `audit:max-bfs-depth`
+ * counts, per sitemap, the URLs it cannot reach from `/` within 4 hops —
+ * an announced page with no inbound link scores ∞ and RAISES that count, which
+ * is a ratchet regression, not a neutral addition. The archive sits at depth 1,
+ * so linking from here puts the index at 2. Linking it only from the hubs
+ * would have put it at 3 AND made it a child of the pages it is meant to
+ * parent.
+ *
+ * It is NOT one of the `class="hp"` anchors inside the `<details>`, and that
+ * is load-bearing in two places that read this HTML back: the `hp` set is
+ * compared href-for-href against the sitemap's page-1 hub `<loc>`s
+ * (`tests/article-hub-topics-nav.test.ts`), and
+ * `scripts/lib/archive-topic-anchors.mjs` treats "one segment past the topic
+ * base" as a hub anchor. The index is zero segments past that base, so it is
+ * neither — by shape, not by an exclusion someone has to remember.
  *
  * Shared verbatim by BOTH archive producers — this package's core and
  * `build-plugins/seoHubsPlugin.ts`'s deliberately-separate full-build copy —
@@ -658,9 +692,16 @@ export function buildArchiveTopicsNavHtml(args: {
         .map((l) => `<a href="${l.href}" class="hp">${esc(l.label)}</a>`)
         .join('')}</div></details>`
     : '';
+  // Gated on the same condition as the anchors: with no eligible topic the
+  // index renders as a `noindex,follow` page the section sitemap does not
+  // announce, and linking it would spend an anchor for no crawl equity — the
+  // rule the below-floor bridges already follow.
+  const indexLink = links.length > 0
+    ? `<p class="s-Sn0UIv"><a class="s-7DS5hj" href="${archiveTopicIndexPath(section, locale)}">${esc(TOPIC_INDEX_TITLE[locale])}</a></p>`
+    : '';
   const twinSection: ArticleSection = section === 'frontaliere' ? 'svizzera' : 'frontaliere';
   const twinLink = `<p class="s-Sn0UIv">${esc(TWIN_SEE_ALSO_LABEL[locale])} <a class="s-7DS5hj" href="${twinArchivePath}">${esc(TWIN_ARCHIVE_LINK_LABEL[locale][twinSection])}</a></p>`;
-  return `<nav class="s-4nYHgH" aria-label="${label}">${topicsBlock}${twinLink}</nav>`;
+  return `<nav class="s-4nYHgH" aria-label="${label}">${topicsBlock}${indexLink}${twinLink}</nav>`;
 }
 
 interface BuildHtmlArgs {

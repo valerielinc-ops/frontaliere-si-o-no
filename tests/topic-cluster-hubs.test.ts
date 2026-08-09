@@ -34,14 +34,18 @@ import {
 } from '../packages/articles/engine/topicClusters';
 import {
   buildTopicHubPath,
+  buildTopicIndexPath,
   isTopicClusterHubPath,
+  isTopicIndexPath,
   resolveTopicClusterHubCanonical,
   resolveTopicClusterHubSection,
+  resolveTopicIndexSection,
   topicSitemapFileName,
   topicSitemapPathname,
   TOPIC_HUB_CANONICAL_PATHS,
   TOPIC_HUB_LOCALES,
   TOPIC_HUB_SECTIONS,
+  TOPIC_INDEX_CANONICAL_PATHS,
 } from '../build-plugins/topicClusterHubsData';
 
 const SEEDS = TOPIC_CLUSTERS.map((t) => ({ key: t.key, seedText: t.seedText }));
@@ -139,6 +143,10 @@ describe('topic hub paths', () => {
   it('rejects paths outside the family', () => {
     for (const path of [
       '/articoli-frontaliere/tutti/',
+      // The bare index IS a live page since #5436, and it is still not a HUB —
+      // it has its own predicate. Folding it in here would make
+      // `resolveTopicClusterHubCanonical` hand a crawler a hub canonical for a
+      // page that is not one. See the `topic index paths` describe below.
       '/articoli-frontaliere/argomenti/',
       '/articoli-frontaliere/argomenti/non-esiste/',
       '/de/schweiz-artikel/argomenti/steuern/', // Italian segment under /de
@@ -161,6 +169,72 @@ describe('topic hub paths', () => {
 
   it('throws on an unknown topic key rather than emitting a path for it', () => {
     expect(() => buildTopicHubPath('it', 'frontaliere', 'not-a-topic')).toThrow(/unknown topic/);
+  });
+});
+
+/**
+ * The bare topic index (issue #5436) — the level between the archive and the
+ * hubs, which answered 404 on both sections while all 14 children answered 200.
+ */
+describe('topic index paths', () => {
+  it('is one URL per section × locale, and every one is the hubs’ own base', () => {
+    expect(TOPIC_INDEX_CANONICAL_PATHS.size).toBe(
+      TOPIC_HUB_LOCALES.length * TOPIC_HUB_SECTIONS.length,
+    );
+    for (const locale of TOPIC_HUB_LOCALES) {
+      for (const section of TOPIC_HUB_SECTIONS) {
+        const base = buildTopicIndexPath(locale, section);
+        expect(TOPIC_INDEX_CANONICAL_PATHS.has(base), base).toBe(true);
+        // Not a coincidence to be re-derived elsewhere: the index is the
+        // longest common prefix of the section+locale's hub URLs, which is
+        // what makes it the URL a reader reaches by truncating one.
+        for (const topic of TOPIC_CLUSTERS) {
+          expect(buildTopicHubPath(locale, section, topic.key).startsWith(base), topic.key).toBe(
+            true,
+          );
+        }
+      }
+    }
+  });
+
+  it('carries the localized segment and the Italian-bare prefix rule', () => {
+    expect(buildTopicIndexPath('it', 'frontaliere')).toBe('/articoli-frontaliere/argomenti/');
+    expect(buildTopicIndexPath('de', 'svizzera')).toBe('/de/schweiz-artikel/themen/');
+    for (const locale of TOPIC_HUB_LOCALES) {
+      expect(buildTopicIndexPath(locale, 'frontaliere')).toContain(
+        `/${TOPIC_HUB_SEGMENT[locale]}/`,
+      );
+    }
+  });
+
+  it('recognises itself, tolerates a missing slash, and is NOT a hub', () => {
+    for (const path of TOPIC_INDEX_CANONICAL_PATHS) {
+      expect(isTopicIndexPath(path), path).toBe(true);
+      expect(isTopicIndexPath(path.slice(0, -1)), path).toBe(true);
+      // The two families are disjoint in both directions — the property the
+      // router branch and the compat self-map both lean on.
+      expect(isTopicClusterHubPath(path), path).toBe(false);
+    }
+    for (const path of TOPIC_HUB_CANONICAL_PATHS) {
+      expect(isTopicIndexPath(path), path).toBe(false);
+    }
+  });
+
+  it('does NOT invent pagination it never had', () => {
+    // The hubs accept any `/page-N/` because a topic that shrank leaves live
+    // URLs behind. The index lists a curated 14-entry taxonomy on one page and
+    // never had a page 2, so folding `/page-2/` onto it would answer 200 for a
+    // URL that was never live — inventing a canonical instead of recovering one.
+    expect(isTopicIndexPath('/articoli-frontaliere/argomenti/page-2/')).toBe(false);
+    expect(isTopicIndexPath('/articoli-frontaliere/')).toBe(false);
+    expect(isTopicIndexPath('/en/swiss-articles/argomenti/')).toBe(false); // wrong locale segment
+  });
+
+  it('resolves the owning section, and only for a real index path', () => {
+    expect(resolveTopicIndexSection(buildTopicIndexPath('fr', 'svizzera'))).toBe('svizzera');
+    expect(resolveTopicIndexSection(buildTopicIndexPath('fr', 'frontaliere'))).toBe('frontaliere');
+    expect(resolveTopicIndexSection(buildTopicHubPath('fr', 'svizzera', 'pensioni'))).toBeNull();
+    expect(resolveTopicIndexSection('/nope/')).toBeNull();
   });
 });
 
@@ -311,6 +385,22 @@ describe('searchConsoleCompat self-map', () => {
       '../build-plugins/searchConsoleCompat'
     );
     for (const path of TOPIC_HUB_CANONICAL_PATHS) {
+      expect(resolveSearchConsoleCompatTarget(path), path).toEqual(
+        expect.objectContaining({ canonicalPath: path }),
+      );
+    }
+  });
+
+  it('self-maps the bare topic index — the URL that WAS a 404 (#5436)', async () => {
+    const { resolveSearchConsoleCompatTarget } = await import(
+      '../build-plugins/searchConsoleCompat'
+    );
+    // Unlike the hubs, this family has real 404 history in GSC: it answered
+    // 404 on both sections and both origins for as long as the hubs existed,
+    // so a captured error URL is likely rather than hypothetical. It must map
+    // to ITSELF — never onto a hub, which would contradict the page's own
+    // `<link rel="canonical">`.
+    for (const path of TOPIC_INDEX_CANONICAL_PATHS) {
       expect(resolveSearchConsoleCompatTarget(path), path).toEqual(
         expect.objectContaining({ canonicalPath: path }),
       );
@@ -561,6 +651,69 @@ describe('fast-publish topic hub render', () => {
             );
             expect(written.has(rel), rel).toBe(true);
           }
+          // …and the level above them (#5436). Emitted by this very function,
+          // which is the point: `renderTopicClusterHubPages` is what the two
+          // producers that reach production call, while the site build skips
+          // these sections entirely.
+          const indexRel = np.join(buildTopicIndexPath(locale, 'svizzera').slice(1), 'index.html');
+          expect(written.has(indexRel), indexRel).toBe(true);
+        }
+      } finally {
+        fs.rmSync(distDir, { recursive: true, force: true });
+      }
+    },
+    180_000,
+  );
+
+  it.runIf(available)(
+    'the index is announced, is indexable, and links every hub the sitemap announces (#5436)',
+    async () => {
+      const { distDir, result } = await renderSvizzera();
+      try {
+        const xml = fs.readFileSync(np.join(distDir, result.sitemapPath!), 'utf-8');
+        const announced = new Set(
+          [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) =>
+            m[1].replace('https://frontaliereticino.ch', ''),
+          ),
+        );
+
+        for (const locale of TOPIC_HUB_LOCALES) {
+          const indexPath = buildTopicIndexPath(locale, 'svizzera');
+          // Announced — an index nobody announces is a page search engines
+          // reach only by luck, and the whole point is a second parent for the
+          // hub tier.
+          expect(announced.has(indexPath), `${indexPath} not announced`).toBe(true);
+
+          const html = fs.readFileSync(np.join(distDir, indexPath.slice(1), 'index.html'), 'utf-8');
+          // Indexable, not a thin bridge: 14 topics with a lede each is far
+          // past MIN_INDEXABLE_WORDS, and a `noindex` here would announce a
+          // page it also tells Google to drop.
+          expect(html, `${indexPath}: noindex`).not.toMatch(/name="robots" content="noindex/);
+
+          // Every hub this locale ANNOUNCES is linked from the index — the
+          // href-for-href form, so a hub added to the sitemap without a link
+          // (or linked without being announced) fails here rather than showing
+          // up months later as an unreachable row in the BFS audit.
+          const linked = new Set(
+            [...html.matchAll(/href="([^"]+)"/g)]
+              .map((m) => m[1])
+              .filter((h) => h.startsWith(indexPath) && h !== indexPath),
+          );
+          const announcedHubsPage1 = [...announced].filter(
+            (p) => p.startsWith(indexPath) && p !== indexPath && !/\/page-\d+\/$/.test(p),
+          );
+          expect(announcedHubsPage1.length, `${locale}: no hub announced`).toBeGreaterThan(0);
+          expect([...linked].sort(), `${indexPath}: linked hubs ≠ announced hubs`).toEqual(
+            announcedHubsPage1.sort(),
+          );
+
+          // And back up: the hubs' breadcrumb names it, so the two levels
+          // point at each other instead of the index being a leaf.
+          const hubPath = announcedHubsPage1[0];
+          const hubHtml = fs.readFileSync(np.join(distDir, hubPath.slice(1), 'index.html'), 'utf-8');
+          expect(hubHtml, `${hubPath}: breadcrumb does not link the index`).toContain(
+            `href="${indexPath}"`,
+          );
         }
       } finally {
         fs.rmSync(distDir, { recursive: true, force: true });

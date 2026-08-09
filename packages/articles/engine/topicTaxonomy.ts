@@ -350,6 +350,27 @@ export const TOPIC_HUB_SEGMENT: Record<TopicLocale, string> = {
 };
 
 /**
+ * Title of the page that segment resolves to on its own — the bare topic index
+ * at `/{section}/{TOPIC_HUB_SEGMENT}/` (issue #5436), which used to be a 404
+ * between an archive that linked 14 topic hubs and 14 hubs that all answered
+ * 200.
+ *
+ * ONE table, read by both sides of that link. `articleHubPagesPlugin.ts` uses
+ * it as the archive nav's anchor text and `build-plugins/topicClusterHubsPlugin.ts`
+ * as the destination's `<h1>` and `<title>`: anchor text and destination
+ * heading agree BY CONSTRUCTION rather than by two literals that happen to
+ * match today (AGENTS.md #6). It lives here, with the segment it names, for
+ * the same reason TOPIC_HUB_MIN_ARTICLES does — the engine may not import
+ * `build-plugins/**`, so anything both sides need has to be on this side.
+ */
+export const TOPIC_INDEX_TITLE: Record<TopicLocale, string> = {
+  it: 'Tutti gli argomenti',
+  en: 'All topics',
+  de: 'Alle Themen',
+  fr: 'Tous les sujets',
+};
+
+/**
  * Minimum articles for a topic hub to be indexable in a given (section,
  * locale). Below it the page is still emitted — as a `noindex,follow` bridge —
  * so the URL never 404s, but it does not enter the sitemap.

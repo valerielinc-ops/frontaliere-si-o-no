@@ -100,7 +100,9 @@ import {
 } from '../build-plugins/holidaysLandingsData';
 import {
   isTopicClusterHubPath,
+  isTopicIndexPath,
   resolveTopicClusterHubSection,
+  resolveTopicIndexSection,
 } from '../build-plugins/topicClusterHubsData';
 import {
   SALARY_LANDING_ROUTES,
@@ -2687,8 +2689,18 @@ export function parsePath(pathname: string): ParseResult {
  // article slug, so `/articoli-frontaliere/argomenti/tasse-e-imposte/` would
  // resolve to a `blogSlug: 'argomenti'` that never exists, and the hub would
  // hydrate into a deferred-article view instead of staying on screen.
- if (isTopicClusterHubPath(pathname)) {
-   const section = resolveTopicClusterHubSection(pathname);
+ //
+ // #5436 — plus the bare index one level up, `/{section-hub}/{segment}/`
+ // itself: 8 more URLs, same treatment. It is a SEPARATE predicate and not a
+ // widened `isTopicClusterHubPath`, because that helper also drives
+ // searchConsoleCompat's hub-canonical resolution and an index is not a hub
+ // (see `buildTopicIndexPath`). The slug trap above bites it one segment
+ // shorter: `/articoli-frontaliere/argomenti/` reads as `blogSlug:
+ // 'argomenti'` exactly, so without this the page would 404 into the SPA's
+ // deferred-article view after hydration even though the static HTML is there.
+ if (isTopicClusterHubPath(pathname) || isTopicIndexPath(pathname)) {
+   const section =
+     resolveTopicClusterHubSection(pathname) ?? resolveTopicIndexSection(pathname);
    return {
      route: {
        activeTab: 'blog',

@@ -1477,3 +1477,51 @@ describe('Router — registerJobSlugMap protects against slim-payload wipe', () 
     expect(getJobMetaForSlug(slug)).toMatchObject({ canton: 'SZ', id: 'spital-schwyz-a273343ebd6e' });
   });
 });
+
+/**
+ * Article topic hubs (#5001) and the bare topic index above them (#5436).
+ *
+ * Both are static HTML emitted outside `#root` by
+ * `build-plugins/topicClusterHubsPlugin.ts`, so both need `staticOverlay` or
+ * React hydration replaces the served page. The index needs it for a sharper
+ * reason than the hubs: `/articoli-frontaliere/argomenti/` is one segment past
+ * the section hub, which is exactly the shape the `blog` tab's article-slug
+ * parser reads as `blogSlug: 'argomenti'` — an id that does not exist. Without
+ * the branch the page would render, then hydrate into a deferred-article view.
+ */
+describe('article topic hubs + topic index — staticOverlay', () => {
+  const CASES: ReadonlyArray<{ path: string; locale: Locale; svizzera: boolean }> = [
+    // The index — the level this test exists for.
+    { path: '/articoli-frontaliere/argomenti/', locale: 'it', svizzera: false },
+    { path: '/articoli-svizzera/argomenti/', locale: 'it', svizzera: true },
+    { path: '/en/cross-border-articles/topics/', locale: 'en', svizzera: false },
+    { path: '/de/schweiz-artikel/themen/', locale: 'de', svizzera: true },
+    { path: '/fr/articles-frontalier/sujets/', locale: 'fr', svizzera: false },
+    // A hub and a paginated hub under it, so the index cannot pass by
+    // accidentally swallowing the family it belongs to.
+    { path: '/articoli-frontaliere/argomenti/tasse-e-imposte/', locale: 'it', svizzera: false },
+    { path: '/de/schweiz-artikel/themen/steuern/page-3/', locale: 'de', svizzera: true },
+  ];
+
+  for (const { path, locale, svizzera } of CASES) {
+    it(`parsePath resolves ${path} to a staticOverlay blog route (no notFoundPath)`, () => {
+      const { route, locale: parsedLocale, notFoundPath } = parsePath(path);
+      expect(route.activeTab).toBe('blog');
+      expect(route.staticOverlay).toBe(true);
+      // The section decides which archive the SPA falls back to; getting it
+      // wrong sends a svizzera reader to the frontaliere list.
+      expect(route.blogSection).toBe(svizzera ? 'svizzera' : undefined);
+      // The trap: never an article slug.
+      expect(route.blogSlug).toBeUndefined();
+      expect(parsedLocale).toBe(locale);
+      expect(notFoundPath).toBeUndefined();
+    });
+  }
+
+  it('does not staticOverlay a segment that is not the localized topic word', () => {
+    // `/en/…/argomenti/` mixes the Italian segment into the English route:
+    // it is not an emitted page, so claiming an overlay would hide a real 404.
+    const { route } = parsePath('/en/cross-border-articles/argomenti/');
+    expect(route.staticOverlay).toBeUndefined();
+  });
+});

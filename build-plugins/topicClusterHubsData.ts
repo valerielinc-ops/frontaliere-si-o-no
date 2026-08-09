@@ -14,6 +14,10 @@
  * The last two are bundled into the SPA / run over 150k paths in tests, so
  * this module imports nothing but pure data — no `node:fs`, no plugin code.
  *
+ * Two families share that vocabulary, and they are kept in two separate sets
+ * on purpose — see {@link buildTopicIndexPath}: the 112 topic HUBS, and the 8
+ * bare topic INDEXES one level above them (issue #5436).
+ *
  * The URL space is FIXED (2 sections × 4 locales × the curated taxonomy = 112
  * canonical paths) because the taxonomy is curated rather than derived. That
  * is what lets {@link TOPIC_HUB_CANONICAL_PATHS} be a `Set` computed once at
@@ -92,6 +96,71 @@ export function topicSitemapFileName(section: TopicHubSection): string {
 /** Apex pathname of {@link topicSitemapFileName} — the EDGE_PUSHED_FILES key. */
 export function topicSitemapPathname(section: TopicHubSection): string {
   return `/${topicSitemapFileName(section)}`;
+}
+
+/**
+ * The section's bare topic-index path — `/{section}/{argomenti|topics|themen|
+ * sujets}/`, the level ABOVE every topic hub (issue #5436).
+ *
+ * It exists because the level below it does. Both archives link 14 topic hubs
+ * each, every child answered 200 and this parent answered 404 on both sections
+ * and on the served shard origin: a three-level URL path with a hole in the
+ * middle, which for a crawler is a different signal from "this level does not
+ * exist" and for a reader shortening the URL by hand is a dead end.
+ *
+ * DELIBERATELY NOT IN {@link TOPIC_HUB_CANONICAL_PATHS}. That set is the hub
+ * family, and {@link isTopicClusterHubPath} answers "is this a topic hub" —
+ * `tests/topic-cluster-hubs.test.ts` pins this very path as `false` there.
+ * Folding the index in would make `resolveTopicClusterHubCanonical` claim a
+ * hub canonical for a page that is not a hub, and would silently widen the
+ * 112-path assertion that guards the URL space. Two families, two sets, one
+ * shared vocabulary.
+ */
+export function buildTopicIndexPath(locale: TopicHubLocale, section: TopicHubSection): string {
+  return `${LOCALE_PREFIX[locale]}/${sectionIndexSlug(section, locale)}/${TOPIC_HUB_SEGMENT[locale]}/`;
+}
+
+/** The 8 bare topic-index paths (2 sections × 4 locales). Built once, like the hubs'. */
+export const TOPIC_INDEX_CANONICAL_PATHS: ReadonlySet<string> = (() => {
+  const set = new Set<string>();
+  for (const locale of TOPIC_HUB_LOCALES) {
+    for (const section of TOPIC_HUB_SECTIONS) {
+      set.add(buildTopicIndexPath(locale, section));
+    }
+  }
+  return set;
+})();
+
+/** Topic-index path → its section. Built with the paths, same as the hubs' map. */
+const SECTION_BY_INDEX_PATH: ReadonlyMap<string, TopicHubSection> = (() => {
+  const map = new Map<string, TopicHubSection>();
+  for (const locale of TOPIC_HUB_LOCALES) {
+    for (const section of TOPIC_HUB_SECTIONS) {
+      map.set(buildTopicIndexPath(locale, section), section);
+    }
+  }
+  return map;
+})();
+
+/**
+ * Is this the bare topic-index of a section? O(1) against a module-load Set,
+ * the constraint every helper in this file works under (the router bundles it
+ * into the SPA and `tests/search-console-compat.test.ts` calls it over 150k+
+ * paths).
+ *
+ * No pagination stripping, unlike {@link isTopicClusterHubPath}: the index
+ * lists the taxonomy, which is curated and fixed at 14 entries, so it has one
+ * page and never had another. `/…/argomenti/page-2/` has never been live and
+ * must keep resolving as what it is — an unknown URL — rather than being
+ * folded onto a page that would then have to explain it.
+ */
+export function isTopicIndexPath(pathname: string): boolean {
+  return TOPIC_INDEX_CANONICAL_PATHS.has(ensureTrailingSlash(pathname));
+}
+
+/** Which article section a topic-index URL belongs to, or `null` if it is not one. */
+export function resolveTopicIndexSection(pathname: string): TopicHubSection | null {
+  return SECTION_BY_INDEX_PATH.get(ensureTrailingSlash(pathname)) ?? null;
 }
 
 /** Canonical path of a topic hub. `page` 1 is the bare path, as elsewhere on the site. */
