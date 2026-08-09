@@ -11398,5 +11398,119 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-09T07:16:59.077Z",
+    "label": "before",
+    "total": 26656,
+    "needsRetranslation": 11776,
+    "suppressed": 22,
+    "incomplete": 99,
+    "complete": 26557,
+    "missingByLocale": {
+      "it": 49,
+      "en": 34,
+      "de": 51,
+      "fr": 51
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 38
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 11
+      },
+      {
+        "company": "IKEA",
+        "pending": 10
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 8
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 3
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 3
+      },
+      {
+        "company": "Hans Ziegler AG Hauptsitz",
+        "pending": 2
+      },
+      {
+        "company": "Roche",
+        "pending": 2
+      },
+      {
+        "company": "Sulzer",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-09T07:25:17.585Z",
+    "label": "after",
+    "total": 26656,
+    "needsRetranslation": 537,
+    "suppressed": 22,
+    "incomplete": 99,
+    "complete": 26557,
+    "missingByLocale": {
+      "it": 49,
+      "en": 34,
+      "de": 51,
+      "fr": 51
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 38
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 11
+      },
+      {
+        "company": "IKEA",
+        "pending": 10
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 8
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 3
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 3
+      },
+      {
+        "company": "Hans Ziegler AG Hauptsitz",
+        "pending": 2
+      },
+      {
+        "company": "Roche",
+        "pending": 2
+      },
+      {
+        "company": "Sulzer",
+        "pending": 2
+      }
+    ]
   }
 ]
