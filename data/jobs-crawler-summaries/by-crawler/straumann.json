@@ -1,16 +1,16 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-08-08T21:33:26.409Z",
+  "generatedAt": "2026-08-09T09:48:37.546Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6996,
-  "avgDurationMs": 6996,
+  "durationMs": 6902,
+  "avgDurationMs": 6902,
   "durationHistory": [
-    6996
+    6902
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://careers.straumann.com/global/en/job/21464/facility-management-and-workplace-project-manager-straumann-campus-basel",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-08T21:33:23.080Z",
+      "crawledAt": "2026-08-09T09:48:33.950Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -62,7 +62,7 @@
       "url": "https://careers.straumann.com/global/en/job/21609/global-launch-education-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-08T21:33:22.047Z",
+      "crawledAt": "2026-08-09T09:48:33.243Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -98,7 +98,7 @@
       "url": "https://careers.straumann.com/global/en/job/21577/trainee-global-product-management",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-08T21:33:23.517Z",
+      "crawledAt": "2026-08-09T09:48:34.259Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -134,7 +134,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T21:33:22.505Z",
+      "crawledAt": "2026-08-09T09:48:33.587Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -170,7 +170,7 @@
       "url": "https://careers.straumann.com/global/en/job/21172/master-data-steward",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T21:33:21.616Z",
+      "crawledAt": "2026-08-09T09:48:32.718Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -184,7 +184,6 @@
       "featured": false,
       "postedDate": "2026-06-04",
       "applyUrl": "https://careers.straumann.com/global/en/job/21172/master-data-steward",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T07:55:16.720Z",
       "_qualityScore": 74,
       "_qualityBreakdown": {
@@ -206,7 +205,7 @@
       "url": "https://careers.straumann.com/global/en/job/20367/mitarbeiter-supply-chain-management-w-m-d",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-08T21:33:21.093Z",
+      "crawledAt": "2026-08-09T09:48:32.348Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -220,13 +219,12 @@
       "featured": false,
       "postedDate": "2026-04-09",
       "applyUrl": "https://careers.straumann.com/global/en/job/20367/mitarbeiter-supply-chain-management-w-m-d",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T07:55:16.722Z",
-      "_qualityScore": 72,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 21,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -242,7 +240,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T21:33:20.630Z",
+      "crawledAt": "2026-08-09T09:48:31.863Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -256,13 +254,12 @@
       "featured": false,
       "postedDate": "2026-01-08",
       "applyUrl": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T07:55:16.721Z",
-      "_qualityScore": 72,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 23,
+        "translation": 15,
         "completeness": 14
       }
     }
