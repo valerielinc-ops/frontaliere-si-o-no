@@ -521,13 +521,21 @@ const reparkGenOf = (iss) => {
   return m ? parseInt(m[1], 10) : 0;
 };
 /** WF-scope = il fix toccherebbe .github/workflows (capability-guard) → non
- * auto-fixabile. Best-effort sul body+titolo; null/errore → conservativo (skip
- * retry, non rischiare un re-fail garantito). */
+ * auto-fixabile. Riusa `detectWorkflowScoped` (stesso detector di
+ * `check-workflows-scope.mjs`, vedi `scripts/lib/workflow-scope-detect.mjs`)
+ * invece di un regex locale sulla parola nuda "workflow": issue come
+ * `Workflow Failure: <name>` (titolo generato da qualunque monitor CI, mai un
+ * vero fix su `.github/workflows/**`) matchavano il bare-word e restavano
+ * escluse per sempre dal PARKED-RETRY → mai ripescate → chiuse per age-out
+ * senza che il loro fix reale (quasi sempre in `scripts/`/codice) fosse mai
+ * ritentato (#5455). `detectWorkflowScoped` richiede un path `.yml`/`.yaml`
+ * concreto E nessun path di codice non-workflow citato — niente falsi
+ * positivi sulla parola da sola. null/errore → conservativo (skip retry, non
+ * rischiare un re-fail garantito). */
 function isWorkflowScoped(num) {
   try {
     const d = gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'title,body']);
-    const t = `${d?.title || ''}\n${d?.body || ''}`;
-    return /\.github\/workflows|\bworkflow(s)?\b/i.test(t);
+    return detectWorkflowScoped(`${d?.title || ''}\n${d?.body || ''}`);
   } catch { return true; }
 }
 
