@@ -9387,6 +9387,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavori-posteggio-cadro-interrogazione.title': 'Cadre, question sur les travaux au parking de via Scule',
     'blog.article.lavori-posteggio-cadro-interrogazione.excerpt': 'Le groupe Avanti con Ticino&Lavoro interroge la municipalité de Lugano sur le manque d\'îles vertes dans les travaux de rénovation entre la via delle Scuole et la via Lanaggio.',
     'blog.article.lavori-posteggio-cadro-interrogazione.imageAlt': 'Travaux de rénovation au parking de Cadro',
+    'blog.article.frontaliere-oss-ticino-guida.title': 'Frontalier opérateur socio-sanitaire au Tessin : guide',
+    'blog.article.frontaliere-oss-ticino-guida.excerpt': 'Travailler comme OSS au Tessin : voici les exigences pour la reconnaissance du titre, les taux de cotisation et le fonctionnement du nouvel accord fiscal.',
+    'blog.article.frontaliere-oss-ticino-guida.imageAlt': 'Hôpital au Tessin avec vue sur le lac',
 };
 
 export default blogMetaFr;
