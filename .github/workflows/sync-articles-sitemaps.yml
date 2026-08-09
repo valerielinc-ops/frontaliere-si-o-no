@@ -203,6 +203,19 @@ jobs:
           else
             echo "ticker-changed=true" >> "$GITHUB_OUTPUT"
           fi
+          # Third surface, same reasoning and the one nobody re-checks: a feed
+          # is a SUBSCRIPTION, so a stale copy is not noticed by whoever reads
+          # it. Measured 2026-08-09 before this step existed: /rss.xml on the
+          # apex was 2h57m26s behind the corpus and missing 5 of 50 items,
+          # while /edge/rss.xml answered 404 — no writer had ever PUT it. The
+          # bottleneck was never the pull (public/rss.xml here is byte-identical
+          # to the corpus copy); it was the site's deploy chain, >2h and
+          # self-cancelling on churn.
+          if git diff --quiet -- public/rss.xml public/rss-it.xml public/rss-en.xml public/rss-de.xml public/rss-fr.xml public/rss-svizzera.xml public/rss-svizzera-it.xml public/rss-svizzera-en.xml public/rss-svizzera-de.xml public/rss-svizzera-fr.xml; then
+            echo "feeds-changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "feeds-changed=true" >> "$GITHUB_OUTPUT"
+          fi
           # Every artifact the pull writes: the two sitemaps, the ten RSS feeds
           # and the news-ticker payload (issue #4974 item 2). Listing them here
           # rather than `git add public/` keeps the commit scoped to what this
@@ -345,7 +358,7 @@ jobs:
       # Gated on the file having actually changed so a quiet run does not spend
       # a Cloudflare purge on a byte-identical re-PUT.
       - name: Prepare Firebase credentials
-        if: steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true'
+        if: steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -355,13 +368,24 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
-        if: steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true'
+        if: steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true'
         run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
 
       - name: Publish the news sitemap to the edge
         if: steps.commit.outputs.news-sitemap-changed == 'true'
         continue-on-error: true
         run: node scripts/publish-edge-files.mjs --only=/sitemap-news.xml
+
+      # The ten RSS feeds, same mechanism as the sitemap above. The --only list
+      # stays on ONE line with no spaces after the commas: coveredPaths() in
+      # tests/locale-router-edge-pushed-files.test.ts extracts it with
+      # /--only=(\S+)/ line by line, so a wrapped or space-separated list would
+      # be invisible to the guard — the same way a backslash continuation hides
+      # --files= from the purge guard.
+      - name: Publish the RSS feeds to the edge
+        if: steps.commit.outputs.feeds-changed == 'true'
+        continue-on-error: true
+        run: node scripts/publish-edge-files.mjs --only=/rss.xml,/rss-it.xml,/rss-en.xml,/rss-de.xml,/rss-fr.xml,/rss-svizzera.xml,/rss-svizzera-it.xml,/rss-svizzera-en.xml,/rss-svizzera-de.xml,/rss-svizzera-fr.xml
 
       # ── The homepage ticker: same class of defect, a different key ──────────
       #
