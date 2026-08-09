@@ -136,13 +136,20 @@ function sampleWithoutReplacement(arr, n) {
 // that literal prefix (never re-deriving the diff ourselves — only reading
 // what the script already printed) recovers one verdict per locale:
 //   - 'ok'                  — identical per that script's own check, which
-//     since #5444 accepts two shapes and prints which one it saw: literally
-//     byte-identical, or identical once the `<meta>` tags inside `<head>` are
-//     put in a canonical ORDER (same tags, same values, different sequence —
-//     the two render paths disagree about it, and no consumer of the page
-//     can tell). Both are `OK —` lines, so this parser needs no new branch;
-//     the distinction lives in the log text, where a human reading a run can
-//     still see how often the renderers disagreed about ordering.
+//     since #5444 accepts three shapes and prints which one it saw:
+//     literally byte-identical; identical once the `<meta>` tags inside
+//     `<head>` are put in a canonical ORDER; or identical once the
+//     comma-separated directives inside a robots `content=` value are ALSO
+//     put in a canonical order. The last two are the same finding at two
+//     depths — same tags, same directives, same values, different sequence:
+//     the two render paths disagree about an order no consumer of the page
+//     can observe. All three are `OK —` lines, so this parser needs no new
+//     branch; the distinction lives in the log text, which is where a human
+//     reading a run sees how often the renderers disagreed and at which
+//     level. Worth watching rather than ignoring: each shape added here was
+//     discovered only once the previous one stopped masking it, so a run
+//     whose OK lines have all moved to the deepest shape is evidence the
+//     next layer is now the one being measured.
 //   - 'cf-bot-script-only'  — a MISMATCH whose diff block contains the
 //     literal Cloudflare bot-fight marker `__CF$cv$params` — the exact
 //     divergence source check-article-byte-identity.mjs's own header comment
