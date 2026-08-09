@@ -38,6 +38,19 @@
  * unguarded. `scripts/lib/article-archive-assets.mjs` documents the failure
  * mode and owns the pattern.
  *
+ * And, on each `/tutti/` archive: every topic hub the section's own
+ * `sitemap-topics-<section>.xml` announces for that locale must be linked from
+ * it. That is the one question here whose answer moves when the RENDERER
+ * changes rather than when the corpus does — issue #5432: #5422's "Argomenti"
+ * nav sat on `main` for twelve hours while `/articoli-svizzera/tutti/` kept
+ * serving the previous renderer, because an archive is re-rendered only as a
+ * side effect of publishing into its section and `svizzera` had stopped
+ * publishing. Every other check on this page stayed green throughout — the
+ * corpus-relative staleness test above says a section that never publishes is
+ * fresh for ever. `scripts/lib/archive-topic-anchors.mjs` owns the comparison
+ * and records why a marker on the nav's CLASS does not work: the topics nav
+ * and the page ladder emit the same one.
+ *
  * Usage:
  *   node scripts/check-article-hub-landings.mjs
  *   MIN_CARDS=50 SITE_ORIGIN=https://frontaliereticino.ch node scripts/...
@@ -49,6 +62,10 @@
 import { appendFileSync } from 'node:fs';
 
 import { SECTION_ROUTES } from '../infra/cloudflare-worker/locale-router.js';
+import {
+  archiveTopicAnchorProblems,
+  topicHubPage1Paths,
+} from './lib/archive-topic-anchors.mjs';
 import {
   ARCHIVE_ALL_SLUG,
   countSameOriginAssetRefs,
@@ -67,11 +84,32 @@ const MIN_CARDS = Number(process.env.MIN_CARDS ?? 50);
 const GRID_OPEN = '<div class="ssg-article-grid">';
 const CARD_RX = /class="ssg-art-card"/g;
 
-/** Which API documents describe each handed-off section. */
+/**
+ * Which API documents describe each handed-off section, and which section
+ * sitemap announces its topic hubs. The sitemap is served by the SITE deploy
+ * while the archive HTML is written by the CORPUS publisher, so comparing one
+ * against the other is a cross-producer drift check — see
+ * `scripts/lib/archive-topic-anchors.mjs` for why that comparison, and not a
+ * marker on the nav's class, is what catches issue #5432.
+ */
 const SECTION_API = {
-  articolifrontaliere: { articles: 'articles.json', slugKey: 'blog' },
-  articolisvizzera: { articles: 'swiss-articles.json', slugKey: 'swiss' },
+  articolifrontaliere: {
+    articles: 'articles.json',
+    slugKey: 'blog',
+    topicsSitemap: 'sitemap-topics-frontaliere.xml',
+  },
+  articolisvizzera: {
+    articles: 'swiss-articles.json',
+    slugKey: 'swiss',
+    topicsSitemap: 'sitemap-topics-svizzera.xml',
+  },
 };
+
+async function getText(url) {
+  const res = await fetch(url, { headers: { 'User-Agent': 'check-article-hub-landings' } });
+  if (!res.ok) throw new Error(`GET ${url} -> HTTP ${res.status}`);
+  return res.text();
+}
 
 async function getJson(url) {
   const res = await fetch(url, { headers: { 'User-Agent': 'check-article-hub-landings' } });
@@ -95,6 +133,8 @@ async function main() {
   const slugs = await getJson(`${API_BASE}/slugs.json`);
   /** section -> newest published article id, by date desc. */
   const newestBySection = new Map();
+  /** section -> the raw `sitemap-topics-<section>.xml` the site publishes. */
+  const topicSitemapBySection = new Map();
   for (const section of new Set(routes.map((r) => r.section))) {
     const api = SECTION_API[section];
     if (!api) {
@@ -108,6 +148,29 @@ async function main() {
       process.exit(1);
     }
     newestBySection.set(section, { id: newest.id, slugKey: api.slugKey });
+    topicSitemapBySection.set(section, await getText(`${SITE_ORIGIN}/${api.topicsSitemap}`));
+  }
+
+  // ── What each archive is REQUIRED to link ─────────────────────────────────
+  //
+  // Computed up front and structurally, because the interesting failure of a
+  // guard is not "it went red", it is "it went green against nothing". An
+  // archive whose section sitemap announces no topic hub for its locale cannot
+  // be judged: `archiveTopicAnchorProblems` refuses that input, and so does
+  // this loop — loudly, before a single page is fetched, rather than by
+  // reporting sixteen healthy pages.
+  const expectedTopicsByRoute = new Map();
+  for (const route of routes) {
+    const expected = topicHubPage1Paths(topicSitemapBySection.get(route.section), route.prefix);
+    if (expected.length === 0) {
+      console.error(
+        `::error::${SECTION_API[route.section].topicsSitemap} announces no topic hub under `
+        + `"${route.prefix}/" — either the sitemap moved or the topic tier stopped being `
+        + 'published; either way this probe would check nothing for that archive',
+      );
+      process.exit(1);
+    }
+    expectedTopicsByRoute.set(`${route.section}/${route.locale}`, expected);
   }
 
   const lines = [];
@@ -187,16 +250,30 @@ async function main() {
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const archiveHtml = await res.text();
+      const archiveProblems = [];
       const stray = countSameOriginAssetRefs(archiveHtml);
       if (stray > 0) {
-        lines.push(
-          `FAIL ${archiveLabel} ${archiveUrl} — ${stray} same-origin /assets/ refs `
-          + '(404: no CSS, no SPA bundle, no AdSense loader) — the CDN offload ran '
-          + 'BEFORE the archive was rendered (issue #5270)',
+        archiveProblems.push(
+          `${stray} same-origin /assets/ refs (404: no CSS, no SPA bundle, no AdSense `
+          + 'loader) — the CDN offload ran BEFORE the archive was rendered (issue #5270)',
         );
+      }
+      // Renderer drift (issue #5432): the archive must link every topic hub
+      // its section sitemap announces for this locale. Staleness measured
+      // against the CODE's output, not against the corpus — a section that
+      // stops publishing is "fresh" by the corpus test for ever, and that is
+      // exactly the state that shipped twelve hours of unreachable hubs.
+      const expectedTopics = expectedTopicsByRoute.get(label);
+      archiveProblems.push(...archiveTopicAnchorProblems(archiveHtml, expectedTopics));
+
+      if (archiveProblems.length > 0) {
+        lines.push(`FAIL ${archiveLabel} ${archiveUrl} — ${archiveProblems.join('; ')}`);
         failed++;
       } else {
-        lines.push(`ok   ${archiveLabel} ${archiveUrl} — asset refs on the CDN`);
+        lines.push(
+          `ok   ${archiveLabel} ${archiveUrl} — asset refs on the CDN, `
+          + `all ${expectedTopics.length} announced topic hubs linked`,
+        );
       }
     } catch (err) {
       lines.push(`FAIL ${archiveLabel} ${archiveUrl} — ${err.message}`);

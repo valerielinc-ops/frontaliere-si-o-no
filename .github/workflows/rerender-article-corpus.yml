@@ -14,9 +14,25 @@ name: Rerender Article Corpus
 #      (fast-publish path), that build's whole-corpus re-render stops acting
 #      as a safety net against template regressions. This workflow (reactive
 #      on template-file changes below, plus operator-dispatched) is the
-#      replacement — the periodic drift-audit script
-#      (scripts/audit-article-corpus-drift.mjs) is the read-only detection
-#      half of the same replacement.
+#      replacement.
+#
+#      The detection half of that pair is NOT running. This comment used to
+#      present scripts/audit-article-corpus-drift.mjs as if it were: it was
+#      written for #4881 Fase 4, it is complete, and it has never been given a
+#      cron or any other trigger — `grep -rn audit-article-corpus-drift
+#      .github/` finds only these lines. Nothing samples article HTML against
+#      the current source tree today, so a template regression on the ARTICLE
+#      pages is still detected only by someone looking. Issue #5432 records the
+#      decision to take on that wiring separately rather than in passing: the
+#      script shells out to check-article-byte-identity.mjs, whose ASSET_CDN /
+#      TZ preconditions and on-disk hero images make "does it pass on a clean
+#      CI checkout" an operational question, not a YAML one.
+#
+#      What IS watched, from outside and twice a day, is the article-HUB
+#      surface: .github/workflows/article-hub-landing-watchdog.yml compares the
+#      served /tutti/ archives against the topic hubs
+#      sitemap-topics-<section>.xml announces (issue #5432). That covers hub
+#      renderer drift; it says nothing about article-page templates.
 #
 # Renders via scripts/rerender-article-corpus.mjs, which calls the EXACT
 # renderArticlePages() export build-plugins/ogPagesPlugin.ts's `vite build`
