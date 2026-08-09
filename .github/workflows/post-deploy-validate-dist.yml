@@ -339,19 +339,47 @@ jobs:
       # un-validated. Before the tar artifact existed (Ticino era), all 4
       # legs paid the git-clone path unconditionally: ~12min combined wall on
       # run 28564001685 (~250k files/clone × 4, sequential).
-      - name: Restore cross-job shard clone cache
-        continue-on-error: true
-        uses: actions/cache/restore@v5
-        with:
-          path: ${{ runner.temp }}/shard-clone-cache
-          # Primary key mirrors the save key below EXACTLY, so a same-job
-          # re-run hits directly. The cross-JOB hit this cache exists for
-          # comes from the restore-keys prefix instead — the previous
-          # `-restore` suffix could never match any save key, leaving the
-          # primary key dead weight (post-merge review #4908).
-          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-${{ github.run_attempt }}
-          restore-keys: |
-            shard-clone-cache-${{ github.run_id }}-
+      # NO cross-job shard clone cache here — REMOVED deliberately, issue
+      # #5441 (follow-up of #5432 point 6d). An actions/cache restore/save
+      # pair keyed `shard-clone-cache-<run_id>-<job>-<attempt>` used to wrap
+      # this step so that ONE of the three parallel validate-dist jobs would
+      # pay the shard `git clone` fallback on behalf of all three. Measured,
+      # it could not work, and re-adding it in that shape is a net loss:
+      #   • It never hit, structurally — not by bad luck. The restore ran
+      #     BEFORE the rehydrate and the save AFTER it, while the 3 jobs start
+      #     within 7 s of each other (06:50:17/18/24 on run 31296098323) and
+      #     the rehydrate takes 10-25 min: at attempt 1 every job restores
+      #     before any job has saved. Across 7 runs / 20 entries,
+      #     `lastAccessedAt == createdAt` on ALL of them — GitHub stamps that
+      #     field on restore, so not one entry was ever read.
+      #   • Even a 100% hit rate would save 0 s of wall clock. The cache
+      #     branch in scripts/lib/rehydrate-section-shards.sh shortcuts only
+      #     the `git clone` FALLBACK, never the tar-artifact fast path. On run
+      #     31296098323 just 11 of ~90 shards fell back, and all 11 finished
+      #     303-326 s BEFORE the step ended — the critical path is the
+      #     ticino/svizzera tar extraction, which this cache cannot touch by
+      #     construction. The clones sit entirely in its shadow.
+      #   • It cost real time and real quota. `Save` measured 70/70/59 s on
+      #     that run's 3 jobs (199 s per run) and it lands ON the critical
+      #     path, because restore and save are serial steps while the clones
+      #     are not. Entries ran 150-210 MB each: 4.34 GB of a 10 GB repo
+      #     cache that stood at 10.68 GB — over quota, evicting LRU — so
+      #     never-read entries were displacing caches that ARE read (32 of the
+      #     47 non-shard entries had been restored at least once).
+      # Bringing it back needs all three of: (1) a key that survives the run
+      # — and therefore an invalidation bound to the SHARD's head commit,
+      # never to wall-clock age, because serving a stale shard is exactly the
+      # failure class of #5432 point 1, a gate that measures old bytes and
+      # reports a number which does not describe production; (2) a
+      # demonstrated win on the CRITICAL path, i.e. it must shortcut the tar
+      # fast path too, since shortcutting the 11 clone-fallback shards
+      # provably buys nothing; (3) a size budget against the 10 GB cap.
+      # The MECHANISM is not deleted: SHARD_CLONE_CACHE_DIR still works in the
+      # rehydrate scripts and is still used by
+      # scripts/ci/revalidate-dist-locally.sh, where the cache dir lives in a
+      # per-deploy-run WORKDIR on one machine and repeated local runs really
+      # do reuse it, at no upload cost. Only the CI wiring that could never
+      # hit is gone.
 
       - name: Rehydrate locale then section shards into dist/ (when sharding active)
         env:
@@ -385,7 +413,6 @@ jobs:
           SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
           ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
-          SHARD_CLONE_CACHE_DIR: ${{ runner.temp }}/shard-clone-cache
         run: |
           bash scripts/lib/rehydrate-locale-shards.sh &
           LOCALE_PID=$!
@@ -410,14 +437,6 @@ jobs:
       # the reason named, instead of shipping a fabricated structural finding.
       - name: Assert dist/ is the complete logical site
         run: node scripts/ci/assert-dist-complete.mjs
-      - name: Save cross-job shard clone cache
-        if: always()
-        continue-on-error: true
-        uses: actions/cache/save@v5
-        with:
-          path: ${{ runner.temp }}/shard-clone-cache
-          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-${{ github.run_attempt }}
-
       - name: Migrate all-known-job-slugs to canton-aware paths
         # Phase 8c: the committed `data/all-known-job-slugs.json` accumulates
         # tracking entries from previous builds. The builder
@@ -734,19 +753,47 @@ jobs:
       # it's the bash body that's shared now, not the step itself — since
       # the post-build audits below walk the same logical site as the source
       # validators do and each job needs its own dist/ rehydrated.
-      - name: Restore cross-job shard clone cache
-        continue-on-error: true
-        uses: actions/cache/restore@v5
-        with:
-          path: ${{ runner.temp }}/shard-clone-cache
-          # Primary key mirrors the save key below EXACTLY, so a same-job
-          # re-run hits directly. The cross-JOB hit this cache exists for
-          # comes from the restore-keys prefix instead — the previous
-          # `-restore` suffix could never match any save key, leaving the
-          # primary key dead weight (post-merge review #4908).
-          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-${{ github.run_attempt }}
-          restore-keys: |
-            shard-clone-cache-${{ github.run_id }}-
+      # NO cross-job shard clone cache here — REMOVED deliberately, issue
+      # #5441 (follow-up of #5432 point 6d). An actions/cache restore/save
+      # pair keyed `shard-clone-cache-<run_id>-<job>-<attempt>` used to wrap
+      # this step so that ONE of the three parallel validate-dist jobs would
+      # pay the shard `git clone` fallback on behalf of all three. Measured,
+      # it could not work, and re-adding it in that shape is a net loss:
+      #   • It never hit, structurally — not by bad luck. The restore ran
+      #     BEFORE the rehydrate and the save AFTER it, while the 3 jobs start
+      #     within 7 s of each other (06:50:17/18/24 on run 31296098323) and
+      #     the rehydrate takes 10-25 min: at attempt 1 every job restores
+      #     before any job has saved. Across 7 runs / 20 entries,
+      #     `lastAccessedAt == createdAt` on ALL of them — GitHub stamps that
+      #     field on restore, so not one entry was ever read.
+      #   • Even a 100% hit rate would save 0 s of wall clock. The cache
+      #     branch in scripts/lib/rehydrate-section-shards.sh shortcuts only
+      #     the `git clone` FALLBACK, never the tar-artifact fast path. On run
+      #     31296098323 just 11 of ~90 shards fell back, and all 11 finished
+      #     303-326 s BEFORE the step ended — the critical path is the
+      #     ticino/svizzera tar extraction, which this cache cannot touch by
+      #     construction. The clones sit entirely in its shadow.
+      #   • It cost real time and real quota. `Save` measured 70/70/59 s on
+      #     that run's 3 jobs (199 s per run) and it lands ON the critical
+      #     path, because restore and save are serial steps while the clones
+      #     are not. Entries ran 150-210 MB each: 4.34 GB of a 10 GB repo
+      #     cache that stood at 10.68 GB — over quota, evicting LRU — so
+      #     never-read entries were displacing caches that ARE read (32 of the
+      #     47 non-shard entries had been restored at least once).
+      # Bringing it back needs all three of: (1) a key that survives the run
+      # — and therefore an invalidation bound to the SHARD's head commit,
+      # never to wall-clock age, because serving a stale shard is exactly the
+      # failure class of #5432 point 1, a gate that measures old bytes and
+      # reports a number which does not describe production; (2) a
+      # demonstrated win on the CRITICAL path, i.e. it must shortcut the tar
+      # fast path too, since shortcutting the 11 clone-fallback shards
+      # provably buys nothing; (3) a size budget against the 10 GB cap.
+      # The MECHANISM is not deleted: SHARD_CLONE_CACHE_DIR still works in the
+      # rehydrate scripts and is still used by
+      # scripts/ci/revalidate-dist-locally.sh, where the cache dir lives in a
+      # per-deploy-run WORKDIR on one machine and repeated local runs really
+      # do reuse it, at no upload cost. Only the CI wiring that could never
+      # hit is gone.
 
       - name: Rehydrate locale then section shards into dist/ (when sharding active)
         env:
@@ -780,7 +827,6 @@ jobs:
           SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
           ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
-          SHARD_CLONE_CACHE_DIR: ${{ runner.temp }}/shard-clone-cache
         run: |
           bash scripts/lib/rehydrate-locale-shards.sh &
           LOCALE_PID=$!
@@ -805,14 +851,6 @@ jobs:
       # the reason named, instead of shipping a fabricated structural finding.
       - name: Assert dist/ is the complete logical site
         run: node scripts/ci/assert-dist-complete.mjs
-      - name: Save cross-job shard clone cache
-        if: always()
-        continue-on-error: true
-        uses: actions/cache/save@v5
-        with:
-          path: ${{ runner.temp }}/shard-clone-cache
-          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-${{ github.run_attempt }}
-
       - name: Migrate all-known-job-slugs to canton-aware paths
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
@@ -1489,19 +1527,47 @@ jobs:
       # it's the bash body that's shared now, not the step itself — since
       # the post-build audits below walk the same logical site as the source
       # validators do and each job needs its own dist/ rehydrated.
-      - name: Restore cross-job shard clone cache
-        continue-on-error: true
-        uses: actions/cache/restore@v5
-        with:
-          path: ${{ runner.temp }}/shard-clone-cache
-          # Primary key mirrors the save key below EXACTLY, so a same-job
-          # re-run hits directly. The cross-JOB hit this cache exists for
-          # comes from the restore-keys prefix instead — the previous
-          # `-restore` suffix could never match any save key, leaving the
-          # primary key dead weight (post-merge review #4908).
-          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-${{ github.run_attempt }}
-          restore-keys: |
-            shard-clone-cache-${{ github.run_id }}-
+      # NO cross-job shard clone cache here — REMOVED deliberately, issue
+      # #5441 (follow-up of #5432 point 6d). An actions/cache restore/save
+      # pair keyed `shard-clone-cache-<run_id>-<job>-<attempt>` used to wrap
+      # this step so that ONE of the three parallel validate-dist jobs would
+      # pay the shard `git clone` fallback on behalf of all three. Measured,
+      # it could not work, and re-adding it in that shape is a net loss:
+      #   • It never hit, structurally — not by bad luck. The restore ran
+      #     BEFORE the rehydrate and the save AFTER it, while the 3 jobs start
+      #     within 7 s of each other (06:50:17/18/24 on run 31296098323) and
+      #     the rehydrate takes 10-25 min: at attempt 1 every job restores
+      #     before any job has saved. Across 7 runs / 20 entries,
+      #     `lastAccessedAt == createdAt` on ALL of them — GitHub stamps that
+      #     field on restore, so not one entry was ever read.
+      #   • Even a 100% hit rate would save 0 s of wall clock. The cache
+      #     branch in scripts/lib/rehydrate-section-shards.sh shortcuts only
+      #     the `git clone` FALLBACK, never the tar-artifact fast path. On run
+      #     31296098323 just 11 of ~90 shards fell back, and all 11 finished
+      #     303-326 s BEFORE the step ended — the critical path is the
+      #     ticino/svizzera tar extraction, which this cache cannot touch by
+      #     construction. The clones sit entirely in its shadow.
+      #   • It cost real time and real quota. `Save` measured 70/70/59 s on
+      #     that run's 3 jobs (199 s per run) and it lands ON the critical
+      #     path, because restore and save are serial steps while the clones
+      #     are not. Entries ran 150-210 MB each: 4.34 GB of a 10 GB repo
+      #     cache that stood at 10.68 GB — over quota, evicting LRU — so
+      #     never-read entries were displacing caches that ARE read (32 of the
+      #     47 non-shard entries had been restored at least once).
+      # Bringing it back needs all three of: (1) a key that survives the run
+      # — and therefore an invalidation bound to the SHARD's head commit,
+      # never to wall-clock age, because serving a stale shard is exactly the
+      # failure class of #5432 point 1, a gate that measures old bytes and
+      # reports a number which does not describe production; (2) a
+      # demonstrated win on the CRITICAL path, i.e. it must shortcut the tar
+      # fast path too, since shortcutting the 11 clone-fallback shards
+      # provably buys nothing; (3) a size budget against the 10 GB cap.
+      # The MECHANISM is not deleted: SHARD_CLONE_CACHE_DIR still works in the
+      # rehydrate scripts and is still used by
+      # scripts/ci/revalidate-dist-locally.sh, where the cache dir lives in a
+      # per-deploy-run WORKDIR on one machine and repeated local runs really
+      # do reuse it, at no upload cost. Only the CI wiring that could never
+      # hit is gone.
 
       - name: Rehydrate locale then section shards into dist/ (when sharding active)
         env:
@@ -1535,7 +1601,6 @@ jobs:
           SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
           ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
-          SHARD_CLONE_CACHE_DIR: ${{ runner.temp }}/shard-clone-cache
         run: |
           bash scripts/lib/rehydrate-locale-shards.sh &
           LOCALE_PID=$!
@@ -1560,14 +1625,6 @@ jobs:
       # the reason named, instead of shipping a fabricated structural finding.
       - name: Assert dist/ is the complete logical site
         run: node scripts/ci/assert-dist-complete.mjs
-      - name: Save cross-job shard clone cache
-        if: always()
-        continue-on-error: true
-        uses: actions/cache/save@v5
-        with:
-          path: ${{ runner.temp }}/shard-clone-cache
-          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-${{ github.run_attempt }}
-
       - name: Migrate all-known-job-slugs to canton-aware paths
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 

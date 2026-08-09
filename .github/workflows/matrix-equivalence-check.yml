@@ -126,13 +126,17 @@ jobs:
       # it-shard (prune-locale-shard.mjs drops en/de/fr) and the artifact is
       # it+shared, so both sides are already IT-only. Adding en/de/fr to the live
       # side alone would re-break the symmetry this check depends on.
-      - name: Restore shard-clone cache
-        uses: actions/cache/restore@v5
-        with:
-          path: ${{ runner.temp }}/shard-clone-cache
-          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-${{ github.run_attempt }}
-          restore-keys: |
-            shard-clone-cache-${{ github.run_id }}-
+      # NO shard-clone cache restore here — REMOVED, issue #5441. It was
+      # copied over from post-deploy-validate-dist.yml along with the step
+      # below, but it was even more inert here than there: this workflow has
+      # exactly ONE job (`equivalence`) and never had a matching
+      # `actions/cache/save`, so nothing in the repo has ever written a
+      # `shard-clone-cache-<run_id>-…` key that a run of THIS workflow could
+      # read — a different workflow's run_id can never match. Guaranteed miss,
+      # forever, while SHARD_CLONE_CACHE_DIR below still made the rehydrate
+      # pay the `cp -r` that populates a directory nobody uploads. See the
+      # long note at the same position in post-deploy-validate-dist.yml for
+      # the measurements and for what a working version would have to prove.
       - name: Rehydrate section shards into the live artifact (when sharding active)
         working-directory: tooling
         env:
@@ -165,7 +169,6 @@ jobs:
           SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
           ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
-          SHARD_CLONE_CACHE_DIR: ${{ runner.temp }}/shard-clone-cache
         run: bash scripts/lib/rehydrate-section-shards.sh
       - name: Manifest the live monolith it+shared
         run: node tooling/scripts/ci/dist-hash-manifest.mjs tooling/dist /tmp/live-it.txt --deploy-artifact-perimeter
