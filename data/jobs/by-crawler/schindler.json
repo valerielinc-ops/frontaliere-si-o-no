@@ -5880,7 +5880,8 @@
           "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-2"
         ],
         "fr": [
-          "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-qcnysa"
+          "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-qcnysa",
+          "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-01T12:43:47.088Z",
@@ -6129,7 +6130,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T12:43:42.016Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -6141,7 +6141,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-5ce0113bb788",
