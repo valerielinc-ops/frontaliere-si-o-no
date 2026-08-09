@@ -1,16 +1,16 @@
 {
   "key": "clinique-cic",
   "label": "Clinique CIC (Saxon & Clarens)",
-  "generatedAt": "2026-08-08T21:33:36.153Z",
-  "total": 2,
+  "generatedAt": "2026-08-09T09:54:18.112Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3647,
-  "avgDurationMs": 3647,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 2816,
+  "avgDurationMs": 2816,
   "durationHistory": [
-    3647
+    2816
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/3f59d17e-ea2c-4bd5-b104-d535d593bd57/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T21:33:32.914Z",
+      "crawledAt": "2026-08-09T09:54:15.803Z",
       "addressLocality": "Saxon",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -52,8 +52,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "clinique-cic-d939678d4634",
       "slug": "radiologia-medica-tecnico-trm-clinique-cic-clarens-clarens",
@@ -94,5 +93,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
