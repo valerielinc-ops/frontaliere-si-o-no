@@ -15052,6 +15052,11 @@
           "impressions": 2
         },
         {
+          "query": "chiasso ti",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
           "query": "job chiasso",
           "clicks": 0,
           "impressions": 2
@@ -15078,11 +15083,6 @@
         },
         {
           "query": "chiasso lavoro offerte",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "chiasso ti",
           "clicks": 0,
           "impressions": 1
         },
@@ -15117,7 +15117,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 40,
+      "totalImpressions": 41,
       "totalClicks": 0,
       "topQuery": "lavoro a chiasso",
       "title": "chiasso",
@@ -15216,7 +15216,7 @@
         {
           "query": "lavoro a chiasso",
           "clicks": 0,
-          "impressions": 281
+          "impressions": 286
         },
         {
           "query": "lavoro chiasso",
@@ -15229,12 +15229,12 @@
           "impressions": 18
         },
         {
-          "query": "chiasso lavoro",
+          "query": "lavoro svizzera chiasso",
           "clicks": 0,
-          "impressions": 14
+          "impressions": 15
         },
         {
-          "query": "lavoro svizzera chiasso",
+          "query": "chiasso lavoro",
           "clicks": 0,
           "impressions": 14
         },
@@ -15314,7 +15314,7 @@
           "impressions": 5
         }
       ],
-      "totalImpressions": 550,
+      "totalImpressions": 556,
       "totalClicks": 3,
       "topQuery": "lavoro a chiasso",
       "title": "chiasso",
@@ -24475,8 +24475,8 @@
         },
         {
           "query": "offerte di lavoro educatrice svizzera italiana",
-          "clicks": 13,
-          "impressions": 40
+          "clicks": 14,
+          "impressions": 41
         },
         {
           "query": "offerte lavoro educatore ticino",
@@ -24494,19 +24494,29 @@
           "impressions": 28
         },
         {
+          "query": "offerte di lavoro educatore svizzera italiana",
+          "clicks": 5,
+          "impressions": 24
+        },
+        {
           "query": "lavoro educatrice ticino",
           "clicks": 5,
           "impressions": 21
         },
         {
-          "query": "offerte di lavoro educatore svizzera italiana",
-          "clicks": 5,
+          "query": "offerte lavoro educatore svizzera",
+          "clicks": 4,
           "impressions": 21
         },
         {
           "query": "offerte di lavoro educatore ticino",
           "clicks": 4,
           "impressions": 20
+        },
+        {
+          "query": "educatrice ticino lavoro",
+          "clicks": 1,
+          "impressions": 19
         },
         {
           "query": "educatore mendrisio lavoro",
@@ -24517,16 +24527,6 @@
           "query": "educatore ticino",
           "clicks": 0,
           "impressions": 18
-        },
-        {
-          "query": "offerte lavoro educatore svizzera",
-          "clicks": 3,
-          "impressions": 17
-        },
-        {
-          "query": "educatrice ticino lavoro",
-          "clicks": 1,
-          "impressions": 17
         },
         {
           "query": "offerte di lavoro educatrice ticino",
@@ -24546,6 +24546,11 @@
         {
           "query": "lavoro educatore ticino",
           "clicks": 0,
+          "impressions": 13
+        },
+        {
+          "query": "offerte lavoro educatore",
+          "clicks": 0,
           "impressions": 12
         },
         {
@@ -24554,23 +24559,18 @@
           "impressions": 11
         },
         {
+          "query": "offerte di lavoro educatore svizzera",
+          "clicks": 0,
+          "impressions": 11
+        },
+        {
           "query": "educatore svizzera",
-          "clicks": 1,
-          "impressions": 10
-        },
-        {
-          "query": "educatrice ticino",
-          "clicks": 1,
-          "impressions": 10
-        },
-        {
-          "query": "offerte di lavoro educatrice asilo nido svizzera italiana",
           "clicks": 1,
           "impressions": 10
         }
       ],
-      "totalImpressions": 710,
-      "totalClicks": 60,
+      "totalImpressions": 725,
+      "totalClicks": 62,
       "topQuery": "educatore sociale offerte lavoro ticino",
       "title": "Educatori",
       "titleByLocale": {
@@ -59576,10 +59576,10 @@
         "fr": "sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
-        "en": "/en/find-jobs-zurich/sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
+        "it": "/cerca-lavoro-turgovia/sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
+        "en": "/en/find-jobs-thurgau/sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
         "de": "/de/jobs-im-bern/sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
-        "fr": "/fr/trouver-emploi-zurich/sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon"
+        "fr": "/fr/trouver-emploi-thurgovie/sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -64151,6 +64151,64 @@
         "en": "/en/find-jobs-ticino/social-security-consultant-without-experience-paid-training-convit-holding-gmbh-tenero-con",
         "de": "/de/jobs-im-tessin/social-security-consultant-without-experience-paid-training-convit-holding-gmbh-tenero-con",
         "fr": "/fr/trouver-emploi-tessin/social-security-consultant-without-experience-paid-training-convit-holding-gmbh-tenero-con"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "software-developer-curamed-swisscom-sede-ticino-zurich",
+      "locale": "en",
+      "path": "/en/find-jobs-zurich/software-developer-curamed-swisscom-sede-ticino-zurich/",
+      "observedPaths": {
+        "en": "/en/find-jobs-zurich/software-developer-curamed-swisscom-sede-ticino-zurich/"
+      },
+      "queries": [
+        {
+          "query": "curamed software",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "curamed software",
+      "title": "Software developer curamed",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Swisscom (sede Ticino)",
+      "companyKey": "swisscom-sede-ticino",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "software-developer-curamed-swisscom-sede-ticino-zurich",
+        "en": "software-developer-curamed-swisscom-sede-ticino-zurich",
+        "de": "software-developer-curamed-swisscom-sede-ticino-zurich",
+        "fr": "software-developer-curamed-swisscom-sede-ticino-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/software-developer-curamed-swisscom-sede-ticino-zurich",
+        "en": "/en/find-jobs-zurich/software-developer-curamed-swisscom-sede-ticino-zurich",
+        "de": "/de/jobs-im-zurich/software-developer-curamed-swisscom-sede-ticino-zurich",
+        "fr": "/fr/trouver-emploi-zurich/software-developer-curamed-swisscom-sede-ticino-zurich"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
