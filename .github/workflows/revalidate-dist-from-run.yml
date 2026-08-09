@@ -143,21 +143,19 @@ jobs:
           tar -xf /tmp/github-pages-artifact/artifact.tar -C dist
           echo "trunk artifact restored: $(find dist -type f | wc -l) files"
 
-      - name: Restore shard clone cache
-        continue-on-error: true
-        uses: actions/cache/restore@v5
-        with:
-          path: ${{ runner.temp }}/shard-clone-cache
-          # A dispatch of this workflow is its own run, so the run-scoped key
-          # used by post-deploy-validate-dist.yml can never hit here. Keep the
-          # same cache PATH and a prefix restore-key so a repeated dispatch
-          # against the same deploy_run_id reuses whatever the previous
-          # dispatch cloned instead of re-cloning shard repos. Best-effort by
-          # construction: a miss falls straight through to the unchanged
-          # download/clone path in the rehydrate scripts.
-          key: revalidate-shard-clone-cache-${{ inputs.deploy_run_id }}-${{ github.run_id }}
-          restore-keys: |
-            revalidate-shard-clone-cache-${{ inputs.deploy_run_id }}-
+      # NO shard clone cache restore here — REMOVED, issue #5441. It read the
+      # prefix `revalidate-shard-clone-cache-<deploy_run_id>-`, hoping a
+      # repeated dispatch against the same deploy would reuse the previous
+      # dispatch's clones. Nothing ever wrote that key: the matching save was
+      # deliberately never added (see the "Steps deliberately dropped" note at
+      # the bottom of this file), so the restore was a guaranteed miss on
+      # every dispatch this workflow has ever had — confirmed against the live
+      # cache list, which holds zero `revalidate-shard-clone-cache-*` entries.
+      # SHARD_CLONE_CACHE_DIR is dropped from the rehydrate step below with
+      # it, so the rehydrate no longer pays the `cp -r` that populated a
+      # directory nobody uploads. The measurements, and what a working version
+      # would have to prove first, are in the long note at the same position
+      # in post-deploy-validate-dist.yml.
 
       # ── The proven rehydrate sequence ────────────────────────────────────
       # Copied from post-deploy-validate-dist.yml's `validate-dist-postbuild`
@@ -211,7 +209,6 @@ jobs:
           SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
           ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
-          SHARD_CLONE_CACHE_DIR: ${{ runner.temp }}/shard-clone-cache
         run: |
           set -uo pipefail
           mkdir -p /tmp/revalidate-report
@@ -418,11 +415,16 @@ jobs:
 #   • Migrate all-known-job-slugs to canton-aware paths
 #       Writes data/all-known-job-slugs*.json for the audits; runs AFTER the
 #       gate upstream, so it cannot affect the gate's verdict by construction.
-#   • Save cross-job shard clone cache
-#       Its purpose upstream is sharing a clone between the three parallel
-#       jobs of one run. This workflow has one job. The restore above still
-#       reads whatever a previous dispatch left, and a save is added below the
-#       value line only if repeated dispatches prove to be re-cloning.
+#   • Save cross-job shard clone cache — and, since #5441, the restore too
+#       Its purpose upstream was sharing a clone between the three parallel
+#       jobs of one run; this workflow has one job, so only the save was
+#       dropped and a restore was left reading a key no save ever wrote. That
+#       is a guaranteed miss, and it made the rehydrate pay a `cp -r` into a
+#       directory nobody uploads, so the restore is now gone as well. Upstream
+#       the whole pair has been removed (#5441): measured 0/20 entries ever
+#       read, and a 100% hit rate would still have saved 0 s of wall clock,
+#       because the cache shortcuts only the `git clone` fallback while the
+#       critical path is the tar extraction.
 #   • Post-build validations + SEO audits / source validators / build size
 #     summary / sitemap diff vs live
 #       The entire point: they are the hours this workflow exists to skip.
