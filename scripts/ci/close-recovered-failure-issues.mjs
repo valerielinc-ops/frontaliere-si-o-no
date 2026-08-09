@@ -131,17 +131,21 @@
  * (conservative/safe, but indistinguishable from "covered" by eye — the title HAS the
  * right prefix, so this reconciler picks it up and then finds no run).
  *
- * This docstring used to claim `persist-job-stats` was the ONLY such workflow. It is
- * not: the mismatch is now MEASURED rather than asserted, by
+ * This docstring used to claim `persist-job-stats` was the ONLY such workflow. It was
+ * not — there were three — and the count is now MEASURED rather than asserted, by
  * `node scripts/ci/failure-issue-inventory.mjs --json` (rows carrying a `detail`), and
- * pinned as a shrink-only baseline in tests/failure-issue-closers.test.ts. Three at the
- * time of writing (#5437):
- *   - persist-job-stats.yml   "CI Failure: Persist Job Stats"        vs "Persist Job Stats History"
- *   - fast-publish-article.yml"Workflow Failure: Fast Publish Article" vs "Fast Publish Article (near-instant …)"
- *   - crawl-events.yml        "Crawler Failure: events pipeline (…)" vs "Crawl Ticino + nationwide + …"
- * Fixing each mismatch belongs in its own workflow file, not here — and must be done
- * while no issue with the OLD title is open, because dedup is by title and a rename
+ * pinned as a shrink-only baseline in tests/failure-issue-closers.test.ts.
+ *
+ * As of #5437 that baseline is EMPTY: all three (persist-job-stats, fast-publish-article,
+ * crawl-events) now build their title from `${{ github.workflow }}` instead of a
+ * hand-copied literal, so the title cannot drift from the `name:` even if the workflow is
+ * renamed later. The renames were done in the one window where they were safe — no issue
+ * with any of the OLD titles was open at the time (`gh issue list --state open --search
+ * 'in:title "<old>"'`, empty for all three), because dedup is by title and a rename
  * orphans whatever is already open.
+ *
+ * If a new mismatch ever appears, fixing it belongs in its own workflow file, not here,
+ * and under the same window rule.
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';

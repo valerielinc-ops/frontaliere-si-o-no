@@ -41,9 +41,14 @@ describe('TITLE_RE — parses the three auto-generated failure-title prefixes', 
   });
 
   it('parses a CI Failure title (unaffected by consolidation)', () => {
-    const m = TITLE_RE.exec('CI Failure: Persist Job Stats');
+    // Il titolo REALE di persist-job-stats.yml, che è il `name:` per intero.
+    // L'esempio qui diceva "Persist Job Stats" — il letterale troncato che
+    // #5437 ha corretto proprio perché `gh run list -w` non lo risolveva: un
+    // campione stantio in un test è il modo più diretto per far tornare vero
+    // un difetto appena chiuso.
+    const m = TITLE_RE.exec('CI Failure: Persist Job Stats History');
     expect(m).not.toBeNull();
-    expect(m![1]).toBe('Persist Job Stats');
+    expect(m![1]).toBe('Persist Job Stats History');
   });
 
   it('does not match unrelated issue titles', () => {
