@@ -9408,6 +9408,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.psicologo-frontaliere-ticino-lavoro.title': 'Travailler comme psychologue au Tessin : exigences et salaire',
     'blog.article.psicologo-frontaliere-ticino-lavoro.excerpt': 'Guide pour les psychologues frontaliers au Tessin : reconnaissance des diplômes, encadrement, fiscalité et prévoyance entre l\'Italie et la Suisse.',
     'blog.article.psicologo-frontaliere-ticino-lavoro.imageAlt': 'Vue panoramique de Lugano, Canton du Tessin',
+    'blog.article.lavoro-logopedista-frontaliere-ticino.title': 'Orthophoniste au Tessin : guide pour les frontaliers',
+    'blog.article.lavoro-logopedista-frontaliere-ticino.excerpt': 'Exigences, salaire et fiscalité pour les orthophonistes frontaliers au Tessin. Voici comment vous orienter entre nouvel accord fiscal, AVS et impôt à la source.',
+    'blog.article.lavoro-logopedista-frontaliere-ticino.imageAlt': 'Cabinet médical avec vue sur Lugano',
 };
 
 export default blogMetaFr;
