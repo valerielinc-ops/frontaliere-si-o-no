@@ -45,14 +45,12 @@
       "sourceLang": "de",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-50-70-swiss-medical-network",
-        "dipl-soins-infirmiers-professionnels-hf-swiss-medical-network-zurich",
-        "dipl-pflegefachperson-hf-swiss-medical-network"
+        "dipl-soins-infirmiers-professionnels-hf-swiss-medical-network-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-50-70-swiss-medical-network",
-          "dipl-soins-infirmiers-professionnels-hf-swiss-medical-network-zurich",
-          "dipl-pflegefachperson-hf-swiss-medical-network"
+          "dipl-soins-infirmiers-professionnels-hf-swiss-medical-network-zurich"
         ]
       },
       "firstSeenAt": "2026-08-07T10:12:06.302Z",
@@ -128,14 +126,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-gesundheit-efz-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "fachperson-gesundheit-efz-swiss-medical-network"
-      ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1913
@@ -253,14 +243,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "dieteticien-ne-diplome-e-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "dieteticien-ne-diplome-e-swiss-medical-network"
-      ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2423
@@ -290,8 +272,9 @@
       },
       "slug": "physiotherapeute-swiss-medical-network",
       "slugByLocale": {
-        "en": "physiotherapeute-swiss-medical-network",
-        "it": "physiotherapeute-swiss-medical-network"
+        "en": "physiotherapy-swiss-medical-network-glion",
+        "it": "fisioterapia-swiss-medical-network-glion",
+        "de": "physiotherapie-swiss-medical-network-glion"
       },
       "category": "healthcare",
       "datePosted": "2026-08-09",
@@ -344,8 +327,9 @@
       },
       "slug": "infirmier-ere-swiss-medical-network",
       "slugByLocale": {
-        "en": "infirmier-ere-swiss-medical-network",
-        "it": "infirmier-ere-swiss-medical-network"
+        "en": "nurse-swiss-medical-network-sion",
+        "it": "infermiere-swiss-medical-network-sion",
+        "de": "krankenschwester-swiss-medical-network-sion"
       },
       "category": "healthcare",
       "datePosted": "2026-08-09",
@@ -415,13 +399,11 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network-biel",
-        "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network"
+        "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network-biel",
-          "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network"
+          "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network-biel"
         ]
       },
       "firstSeenAt": "2026-08-05T11:32:10.179Z",
@@ -559,15 +541,7 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "stagiaire-events-communication-marketing-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "stagiaire-events-communication-marketing-swiss-medical-network"
-      ]
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000140902119-stagiaire-events-project-management",
@@ -669,13 +643,11 @@
       },
       "sourceLang": "fr",
       "previousSlugs": [
-        "medecin-pediatre-h-f-swiss-medical-network-saint-imier",
-        "medecin-pediatre-h-f-swiss-medical-network"
+        "medecin-pediatre-h-f-swiss-medical-network-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-pediatre-h-f-swiss-medical-network-saint-imier",
-          "medecin-pediatre-h-f-swiss-medical-network"
+          "medecin-pediatre-h-f-swiss-medical-network-saint-imier"
         ]
       },
       "firstSeenAt": "2026-07-28T22:25:54.283Z",
@@ -751,14 +723,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-specialiste-fmh-en-gynecologie-obstetrique-h-f-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "medecin-specialiste-fmh-en-gynecologie-obstetrique-h-f-swiss-medical-network"
-      ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3310
@@ -805,13 +769,11 @@
       },
       "sourceLang": "fr",
       "previousSlugs": [
-        "sportphysiotherapeut-in-swiss-medical-network",
-        "assistant-e-medical-e-swiss-medical-network"
+        "sportphysiotherapeut-in-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sportphysiotherapeut-in-swiss-medical-network",
-          "assistant-e-medical-e-swiss-medical-network"
+          "sportphysiotherapeut-in-swiss-medical-network"
         ]
       },
       "firstSeenAt": "2026-07-27T12:39:27.880Z",
@@ -887,14 +849,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-angiologue-h-f-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "medecin-angiologue-h-f-swiss-medical-network"
-      ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3759
@@ -954,14 +908,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network"
-      ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3579
@@ -1008,13 +954,11 @@
       },
       "sourceLang": "fr",
       "previousSlugs": [
-        "medecin-generaliste-f-et-ou-d-swiss-medical-network-biel",
-        "medecin-generaliste-medecin-de-famille-swiss-medical-network"
+        "medecin-generaliste-f-et-ou-d-swiss-medical-network-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-generaliste-f-et-ou-d-swiss-medical-network-biel",
-          "medecin-generaliste-medecin-de-famille-swiss-medical-network"
+          "medecin-generaliste-f-et-ou-d-swiss-medical-network-biel"
         ]
       },
       "firstSeenAt": "2026-07-27T12:39:27.880Z",
@@ -1077,13 +1021,11 @@
       },
       "sourceLang": "fr",
       "previousSlugs": [
-        "assistant-e-s-medicale-s-d-f-swiss-medical-network-biel",
-        "assistant-e-s-medicale-s-d-f-swiss-medical-network"
+        "assistant-e-s-medicale-s-d-f-swiss-medical-network-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-s-medicale-s-d-f-swiss-medical-network-biel",
-          "assistant-e-s-medicale-s-d-f-swiss-medical-network"
+          "assistant-e-s-medicale-s-d-f-swiss-medical-network-biel"
         ]
       },
       "firstSeenAt": "2026-07-27T12:39:27.880Z",
@@ -1334,14 +1276,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "technische-n-operationsassistent-in-toa-im-pensum-von-40-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "technische-n-operationsassistent-in-toa-im-pensum-von-40-swiss-medical-network"
-      ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3660
@@ -1388,13 +1322,11 @@
       },
       "sourceLang": "fr",
       "previousSlugs": [
-        "operating-room-technician-swiss-medical-network-sorengo",
-        "technicien-ne-en-salle-d-operation-tso-40-swiss-medical-network"
+        "operating-room-technician-swiss-medical-network-sorengo"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operating-room-technician-swiss-medical-network-sorengo",
-          "technicien-ne-en-salle-d-operation-tso-40-swiss-medical-network"
+          "operating-room-technician-swiss-medical-network-sorengo"
         ]
       },
       "firstSeenAt": "2026-07-23T11:27:32.206Z",
@@ -1470,14 +1402,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "produkt-owner-informationssysteme-der-ambulanten-zentren-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "produkt-owner-informationssysteme-der-ambulanten-zentren-swiss-medical-network"
-      ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3704
@@ -1524,13 +1448,11 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network-zurich",
-        "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network"
+        "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network-zurich",
-          "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network"
+          "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network-zurich"
         ]
       },
       "firstSeenAt": "2026-07-22T22:09:02.216Z",
@@ -1664,14 +1586,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-adjoint-pedopsychiatre-fmh-h-f-a-100-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "medecin-adjoint-pedopsychiatre-fmh-h-f-a-100-swiss-medical-network"
-      ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 4663
@@ -1720,15 +1634,13 @@
       "previousSlugs": [
         "gynakologe-in-und-geburtshelfer-in-swiss-medical-network-f0m8p6",
         "gynakologe-in-und-geburtshelfer-in-swiss-medical-network-bern",
-        "gynakologe-in-e-geburtshelfer-in-swiss-medical-network-bern",
-        "gynakologe-in-und-geburtshelfer-in-swiss-medical-network"
+        "gynakologe-in-e-geburtshelfer-in-swiss-medical-network-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gynakologe-in-und-geburtshelfer-in-swiss-medical-network-f0m8p6",
           "gynakologe-in-und-geburtshelfer-in-swiss-medical-network-bern",
-          "gynakologe-in-e-geburtshelfer-in-swiss-medical-network-bern",
-          "gynakologe-in-und-geburtshelfer-in-swiss-medical-network"
+          "gynakologe-in-e-geburtshelfer-in-swiss-medical-network-bern"
         ],
         "de": [
           "gynakologe-in-und-geburtshelfer-in-swiss-medical-network-f0m8p6"
@@ -1796,13 +1708,11 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network-vom39t",
-        "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network"
+        "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network-vom39t"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network-vom39t",
-          "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network"
+          "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network-vom39t"
         ],
         "de": [
           "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network-vom39t"
@@ -1868,13 +1778,11 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "apprendistato-fachperson-gesundheit-swiss-medical-network-rapperswil-jona",
-        "lehrstelle-fachperson-gesundheit-swiss-medical-network"
+        "apprendistato-fachperson-gesundheit-swiss-medical-network-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprendistato-fachperson-gesundheit-swiss-medical-network-rapperswil-jona",
-          "lehrstelle-fachperson-gesundheit-swiss-medical-network"
+          "apprendistato-fachperson-gesundheit-swiss-medical-network-rapperswil-jona"
         ]
       },
       "firstSeenAt": "2026-07-22T11:19:57.601Z",
@@ -1949,14 +1857,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-fe-de-rang-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "chef-fe-de-rang-swiss-medical-network"
-      ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2579
@@ -1986,8 +1886,9 @@
       },
       "slug": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network",
       "slugByLocale": {
-        "en": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network",
-        "it": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network"
+        "en": "medical-practice-assistant-for-general-internal-medicine-swiss-medical-network-beromunster",
+        "it": "assistente-medico-per-la-medicina-interna-generale-swiss-medical-network-beromunster",
+        "fr": "assistant-de-medecine-pour-la-medecine-interne-generale-swiss-medical-network-beromunster"
       },
       "category": "healthcare",
       "datePosted": "2026-08-09",
@@ -2071,14 +1972,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-responsable-d-unite-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "medecin-responsable-d-unite-swiss-medical-network"
-      ],
       "retranslationAttempts": 2
     },
     {
@@ -2106,8 +1999,9 @@
       },
       "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network",
       "slugByLocale": {
-        "en": "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network",
-        "it": "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network"
+        "en": "specialist-specialist-for-general-internal-medicine-50-100-swiss-medical-network-schaffhausen",
+        "it": "specialista-specialista-in-medicina-interna-generale-50-100-swiss-medical-network-schaffhausen",
+        "fr": "specialiste-specialiste-en-medecine-interne-generale-50-100-swiss-medical-network-schaffhausen"
       },
       "category": "medical",
       "datePosted": "2026-08-09",
@@ -2191,14 +2085,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "product-owner-klinische-applikationen-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "product-owner-klinische-applikationen-swiss-medical-network"
-      ],
       "retranslationAttempts": 2
     },
     {
@@ -2226,8 +2112,9 @@
       },
       "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
       "slugByLocale": {
-        "en": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
-        "it": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network"
+        "en": "specialist-in-general-internal-medicine-swiss-medical-network-wengen",
+        "it": "specialista-in-medicina-interna-generale-swiss-medical-network-wengen",
+        "fr": "specialiste-en-medecine-interne-generale-swiss-medical-network-wengen"
       },
       "category": "healthcare",
       "datePosted": "2026-08-09",
@@ -2298,13 +2185,11 @@
       "sourceLang": "de",
       "previousSlugs": [
         "dipl-fachperson-operationstechnik-40-80-swiss-medical-network-rapperswil-jona",
-        "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-swiss-medical-network",
-        "dipl-fachperson-operationstechnik-40-80-swiss-medical-network"
+        "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-swiss-medical-network",
-          "dipl-fachperson-operationstechnik-40-80-swiss-medical-network"
+          "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-swiss-medical-network"
         ]
       },
       "needsRetranslation": true,
@@ -2408,8 +2293,9 @@
       },
       "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
       "slugByLocale": {
-        "en": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
-        "it": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network"
+        "en": "specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen",
+        "it": "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-egerkingen",
+        "fr": "specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen"
       },
       "category": "medical",
       "datePosted": "2026-08-09",
@@ -2493,15 +2379,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-bettenstation-stundenlohn-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachperson-bettenstation-stundenlohn-swiss-medical-network"
-      ]
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135954694-teamleitung-gastroenterologie-dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-60-80-",
@@ -2547,13 +2425,11 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-gastroenterologie-endoskopie-40-60-swiss-medical-network",
-        "teamleitung-gastroenterologie-dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-60-80-swiss-medical-network"
+        "dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-gastroenterologie-endoskopie-40-60-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-gastroenterologie-endoskopie-40-60-swiss-medical-network",
-          "teamleitung-gastroenterologie-dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-60-80-swiss-medical-network"
+          "dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-gastroenterologie-endoskopie-40-60-swiss-medical-network"
         ]
       },
       "firstSeenAt": "2026-07-06T15:37:05.963Z",
@@ -2733,13 +2609,11 @@
       "previousSlugs": [
         "professionista-generale-f-o-d-swiss-medical-network-biel",
         "professionista-generale-da-40-a-100-swiss-medical-network-ittigen",
-        "allgemeinmediziner-in-40-bis-100-swiss-medical-network-ittigen",
-        "allgemeinmediziner-in-40-bis-100-swiss-medical-network"
+        "allgemeinmediziner-in-40-bis-100-swiss-medical-network-ittigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "professionista-generale-da-40-a-100-swiss-medical-network-ittigen",
-          "allgemeinmediziner-in-40-bis-100-swiss-medical-network"
+          "professionista-generale-da-40-a-100-swiss-medical-network-ittigen"
         ]
       },
       "firstSeenAt": "2026-06-30T12:39:06.160Z",
@@ -2804,13 +2678,11 @@
         "specialist-specialist-endocrinology-and-diabetology-fmh-pensum-by-agreement-swiss-medical-network-basel",
         "facharztin-facharzt-endokrinologie-und-diabetologie-fmh-pensum-nach-absprache-swiss-medical-network-basel",
         "facharztin-facharzt-endokrinologie-e-diabetologie-fmh-pensum-nach-absprache-swiss-medical-network-basel",
-        "specialista-specialista-endocrinologia-e-diabetologia-fmh-penso-dopo-consultazione-swiss-medical-network-basel",
-        "facharztin-facharzt-endokrinologie-und-diabetologie-fmh-pensum-nach-absprache-swiss-medical-network"
+        "specialista-specialista-endocrinologia-e-diabetologia-fmh-penso-dopo-consultazione-swiss-medical-network-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-specialista-endocrinologia-e-diabetologia-fmh-penso-dopo-consultazione-swiss-medical-network-basel",
-          "facharztin-facharzt-endokrinologie-und-diabetologie-fmh-pensum-nach-absprache-swiss-medical-network"
+          "specialista-specialista-endocrinologia-e-diabetologia-fmh-penso-dopo-consultazione-swiss-medical-network-basel"
         ]
       },
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
