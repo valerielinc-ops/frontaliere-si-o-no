@@ -9399,6 +9399,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-ticino-energia-fossili.title': 'Wie abhängig ist die Schweiz von fossilen Brennstoffen?',
     'blog.article.frontaliere-ticino-energia-fossili.excerpt': 'Die Schweiz importiert alle fossilen Brennstoffe, die sie verbraucht. Im Jahr 2025 kaufte er Rohöl vor allem aus den USA, die mit der Blockade der Straße von Hormus zu den größten Exporteuren der Welt wurden, und aus Nigeria.',
     'blog.article.frontaliere-ticino-energia-fossili.imageAlt': 'Ein Grenzgänger in Tessin schaut aus einem Fenster eines Gebäudes, mit einem Landschaft von Hügeln und Bergen im Hintergrund.',
+    'blog.article.frontaliere-polimeccanico-ticino-lavoro.title': 'Polymechanischer Grenzgänger im Tessin: Gehalt und Anforderungen',
+    'blog.article.frontaliere-polimeccanico-ticino-lavoro.excerpt': 'Vollständiger Leitfaden für Polymechaniker: Gehalt, Quellensteuer, neue Steuervereinbarung und Anforderungen für die Arbeit im Kanton Tessin.',
+    'blog.article.frontaliere-polimeccanico-ticino-lavoro.imageAlt': 'Polymechaniker bei der Arbeit in einer Werkstatt im Tessin',
+    'blog.article.psicologo-frontaliere-ticino-lavoro.title': 'Als Psychologe im Tessin arbeiten: Voraussetzungen und Gehalt',
+    'blog.article.psicologo-frontaliere-ticino-lavoro.excerpt': 'Leitfaden für Grenzpsychologen im Tessin: Anerkennung, Einstufung, Besteuerung und Vorsorge zwischen Italien und der Schweiz.',
+    'blog.article.psicologo-frontaliere-ticino-lavoro.imageAlt': 'Panoramablick auf Lugano, Kanton Tessin',
 };
 
 export default blogMetaDe;
