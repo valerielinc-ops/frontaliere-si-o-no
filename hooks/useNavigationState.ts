@@ -20,7 +20,7 @@ import {
  updatePathForLocale, scrollToAnchor, AppRoute,
  preloadBlogData, resolveBlogSlug, getLocalizedJobSlug,
  preloadSwissData, resolveSwissSlug,
- learnRuntimeBlogSlugs, learnRuntimeSwissSlugs,
+ learnRuntimeBlogSlugs, learnRuntimeSwissSlugs, buildPath,
 } from '@/services/router';
 import type {
  ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab,
@@ -264,7 +264,11 @@ export function useNavigationState(): NavigationState {
  // Split out so the corpus-API client is a chunk the common path never
  // downloads: it is only ever needed once the bundle has already missed.
  return import('@/services/runtimeArticleResolution')
- .then((m) => m.adoptRuntimeArticle(section, urlLocale, slug))
+ // The URL is passed explicitly so the resolver never has to infer WHICH
+ // article it is recovering a body for: everything downstream compares
+ // against this slug rather than against whatever the document happens to
+ // still be holding from the page the visitor landed on.
+ .then((m) => m.adoptRuntimeArticle(section, urlLocale, slug, { path: buildPath(route, urlLocale) }))
  .then((adopted) => {
  if (!adopted) { guard(); return; }
  // Learn the pair even when we won't render: it is what keeps
