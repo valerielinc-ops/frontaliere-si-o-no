@@ -91,6 +91,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { pinRenderEnv, renderHubsAndOffload } from './lib/render-and-push-hubs.mjs';
+import { screenShardPaths } from './lib/control-char-publish-gate.mjs';
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -251,17 +252,53 @@ async function main() {
   // section-shard-slugs.json mirrors — so no new shard, key or push leg is
   // involved. The list is empty when step 6b failed, which is why it is
   // spread defensively rather than indexed.
-  const shards = locales.map((locale) => ({
-    locale,
-    subtree: locale === 'it' ? slugMap.it : `${locale}/${slugMap[locale]}`,
-    paths: [
-      entry.paths[locale],
-      entry.flatPaths[locale],
+  // ── Control-character gate (issue #5457) ──
+  //
+  // `shards[].paths` IS the publish list: this script never pushes, it writes
+  // the summary and fast-publish-article.yml pushes every entry in `paths[]`.
+  // So screening here is screening the push, and a refused page simply never
+  // reaches a shard — it keeps whatever version is already live.
+  //
+  // Refusing rather than sanitising is deliberate and specific to this repo;
+  // scripts/lib/control-char-publish-gate.mjs carries the measured reason (in
+  // short: the C0 byte is the ANCHOR that says which character was lost, and
+  // stripping it is what turned a repairable «compétences» into an
+  // unrepairable `comp9tences`). Never replace this with a strip.
+  //
+  // Per-locale, because the shards are four independent repos: a poisoned `de`
+  // page must not cost `it` its refresh.
+  const refusedPaths = [];
+  let articlePageRefused = false;
+  const shards = locales.map((locale) => {
+    const articleOwnPaths = [entry.paths[locale], entry.flatPaths[locale]];
+    const candidatePaths = [
+      ...articleOwnPaths,
       ...hubResult.pathsByLocale[locale],
       ...(topicHubResult.pathsByLocale[locale] ?? []),
-    ],
-    url: entry.urls[locale],
-  }));
+    ];
+    const { publishable, refused } = screenShardPaths({
+      baseDir: distDir,
+      relPaths: candidatePaths,
+      logPrefix: '[publish-article-fast]',
+      target: `${sectionShardKey}-${locale}`,
+    });
+    for (const r of refused) {
+      const isArticleOwn = articleOwnPaths.includes(r.relPath);
+      if (isArticleOwn) articlePageRefused = true;
+      refusedPaths.push({
+        locale,
+        relPath: r.relPath,
+        kind: isArticleOwn ? 'article' : 'hub',
+        codes: [...new Set(r.findings.map((f) => `0x${f.code.toString(16).padStart(2, '0')}`))],
+      });
+    }
+    return {
+      locale,
+      subtree: locale === 'it' ? slugMap.it : `${locale}/${slugMap[locale]}`,
+      paths: publishable,
+      url: entry.urls[locale],
+    };
+  });
 
   // Derive cdnUploads from entry.img's ACTUAL resolved directory — NOT a
   // hardcoded `images/blog/`. resolveImagePath() (ogPagesPlugin.ts) resolves
@@ -315,7 +352,7 @@ async function main() {
     });
   }
 
-  const summary = { id: args.id, section: args.section, shards, cdnUploads, edgeFiles };
+  const summary = { id: args.id, section: args.section, shards, cdnUploads, edgeFiles, refusedPaths };
   const summaryPath = path.resolve(args.summary);
   fs.mkdirSync(path.dirname(summaryPath), { recursive: true });
   fs.writeFileSync(summaryPath, JSON.stringify(summary, null, 2) + '\n', 'utf-8');
@@ -325,6 +362,47 @@ async function main() {
     `[publish-article-fast] done — id=${args.id} section=${args.section} wrote=${written} article files + ${hubResult.written} hub pages, wall=${(wallMs / 1000).toFixed(1)}s`,
   );
   console.log(`[publish-article-fast] summary written to ${summaryPath}`);
+
+  // ── Control-character gate: the exit code (issue #5457) ──
+  //
+  // The refusals themselves have already been applied — no poisoned path is in
+  // `shards[].paths`, so nothing downstream can push one. What is left to
+  // decide is whether THIS STEP failed, and the answer is not the same for the
+  // two kinds of refusal, because every later step in fast-publish-article.yml
+  // is gated on `steps.render.outcome == 'success'`:
+  //
+  //   a HUB page refused  → the article itself published normally. Failing here
+  //     would throw away the shard push, the CDN upload, the sitemap publish
+  //     and the search-engine ping for an article that is perfectly fine. That
+  //     is the same trade step 6b already makes by contract ("a topic-hub
+  //     failure must not cost the article its publish", renderSectionHubs), so
+  //     it is loud and non-fatal, and the next re-render picks the hub up.
+  //
+  //   the ARTICLE's own page refused → there is no article to publish. Going on
+  //     would push the section's hub pages and the topic sitemap, and BOTH
+  //     announce this article's URL — publishing an announcement for a page
+  //     that was deliberately not written is how you manufacture a 404 in a
+  //     sitemap. So this one is fatal, and deliberately so.
+  //
+  // `process.exitCode` rather than `process.exit()`: the summary is already on
+  // disk above, and a failed run whose summary exists is far easier to diagnose
+  // (it lists `refusedPaths` with the offending byte per path) than one whose
+  // summary was never flushed.
+  if (refusedPaths.length > 0) {
+    console.error(
+      `::error::[publish-article-fast] control-character gate refused ${refusedPaths.length} path(s): ` +
+        refusedPaths.map((r) => `${r.locale}:${r.relPath} (${r.codes.join(',')})`).join(', '),
+    );
+  }
+  if (articlePageRefused) {
+    console.error(
+      '::error::[publish-article-fast] the article\'s OWN page carries XML-invalid control characters — ' +
+        'nothing was published for it. Repair the source (the corpus repo\'s ' +
+        'generator/scripts/repair-mangled-chars.mjs, issue #94) and re-dispatch; do NOT strip the byte, ' +
+        'it is the anchor that identifies the lost character (issue #5457).',
+    );
+    process.exitCode = 1;
+  }
 }
 
 main().catch((err) => {

@@ -70,6 +70,7 @@ import {
   hubPathsByLocale,
   shardTokenForSection,
 } from './lib/render-and-push-hubs.mjs';
+import { screenShardPaths } from './lib/control-char-publish-gate.mjs';
 
 const SELF_PATH = fileURLToPath(import.meta.url);
 const ROOT_DIR = path.resolve(path.dirname(SELF_PATH), '..');
@@ -326,6 +327,7 @@ async function main() {
 
   const summary = { generatedAt: new Date().toISOString(), dryRun: args.dryRun, sections: {} };
   let fatal = false;
+  let hubGateRefusals = 0;
 
   for (const section of sections) {
     // A scratch dist PER SECTION. Not an optimisation — the CDN offload is a
@@ -347,7 +349,59 @@ async function main() {
     for (const locale of LOCALES) {
       archivePathsByLocale[locale] = hubResult.pathsByLocale?.[locale] ?? [];
     }
-    const pathsByLocale = hubPathsByLocale({ hubResult, topicHubResult }, LOCALES);
+    const renderedPathsByLocale = hubPathsByLocale({ hubResult, topicHubResult }, LOCALES);
+
+    // ── Control-character gate (issue #5457) ──
+    //
+    // Applied to the RENDERED list, before validation and before the push, so a
+    // hub page carrying an XML-invalid control character is dropped from the
+    // push instead of overwriting the copy already on the shard.
+    //
+    // It sits here rather than inside renderHubsAndOffload because the engine
+    // plugins write hub HTML into distDir themselves — this script never holds
+    // the markup — so the only place the bytes are addressable is the path list
+    // they produced. Anything a future render step adds to that list is
+    // screened for free, which is the property that makes this the right seam.
+    //
+    // Per locale and per file: the four shards are independent repos, and one
+    // damaged topic hub must not freeze a section's whole archive refresh. This
+    // driver exists precisely because nothing else re-renders these pages
+    // (issue #5432), so a gate that could stop the entire tier would recreate
+    // the staleness it was built to fix.
+    const pathsByLocale = {};
+    const refusedHubPaths = [];
+    for (const locale of LOCALES) {
+      const { publishable, refused } = screenShardPaths({
+        baseDir: distDir,
+        relPaths: renderedPathsByLocale[locale] ?? [],
+        logPrefix: LOG,
+        target: `${shardTokenForSection(section)}-${locale}`,
+      });
+      pathsByLocale[locale] = publishable;
+      for (const r of refused) refusedHubPaths.push({ locale, relPath: r.relPath });
+    }
+    if (refusedHubPaths.length > 0) {
+      console.error(
+        `::error::${LOG} ${section}: ${refusedHubPaths.length} hub page(s) refused by the control-character gate — ` +
+          'they keep the version already on the shard. Repair the source with the corpus repo\'s ' +
+          'generator/scripts/repair-mangled-chars.mjs (issue #94); do NOT strip the byte, it is the anchor ' +
+          'that identifies the lost character (issue #5457).',
+      );
+      hubGateRefusals += refusedHubPaths.length;
+    }
+
+    // The one refusal that must NOT degrade gracefully. `validateRenderedSection`
+    // looks for the archive landing in `archivePathsByLocale`, which is the
+    // RENDERED list and therefore still contains a page the gate just refused to
+    // push — so without this the landing could be withheld while validation
+    // reported the family healthy. Publishing page-2..N of a ladder whose
+    // landing stayed at the previous render is worse than publishing none of
+    // it: the landing is the page every article links back to, and the two
+    // halves would then disagree about what the section contains.
+    const refusedSet = new Set(refusedHubPaths.map((r) => r.relPath));
+    const refusedLandings = LOCALES.map((locale) => findArchiveLanding(archivePathsByLocale[locale]))
+      .filter((landing) => landing && refusedSet.has(landing));
+
     const totalPaths = Object.values(pathsByLocale).reduce((n, l) => n + l.length, 0);
     console.log(
       `${LOG} ${section}: ${hubResult.written} archive file(s) + ${topicHubResult.written} topic-hub file(s) written; ${totalPaths} path(s) to push`,
@@ -369,6 +423,11 @@ async function main() {
       pathsByLocale,
       archivePathsByLocale,
     });
+    for (const landing of refusedLandings) {
+      errors.push(
+        `${section}: the archive landing ${landing} was refused by the control-character gate — refusing to push a partial ladder`,
+      );
+    }
     for (const n of notes) console.log(`${LOG} ${n}`);
 
     const freshness = await checkCorpusFreshness(section, itemCount);
@@ -392,6 +451,7 @@ async function main() {
       sitemapPath: topicHubResult.sitemapPath ?? null,
       announcedUrlCount: topicHubResult.announcedUrlPaths?.length ?? 0,
       validationErrors: errors,
+      refusedPaths: refusedHubPaths,
     };
   }
 
@@ -470,7 +530,19 @@ async function main() {
   }
 
   console.log(`${LOG} done in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
-  if (pushFailed) process.exit(1);
+
+  // The gate's refusals become a red run only HERE, after every clean page has
+  // reached its shard (issue #5457). Ordered this way on purpose: the point of
+  // refusing per file was that damaged pages must not cost healthy ones their
+  // refresh, and exiting before the push would give back exactly that. A green
+  // run with `::error::` annotations is not loud enough for a page that silently
+  // stopped being republished, so the exit code carries it.
+  if (hubGateRefusals > 0) {
+    console.error(
+      `::error::${LOG} ${hubGateRefusals} hub page(s) were refused by the control-character gate and are now STALE on their shards — see the refusals above for the offending byte and its context`,
+    );
+  }
+  if (pushFailed || hubGateRefusals > 0) process.exit(1);
 }
 
 // Standalone only when invoked directly (repo idiom — see

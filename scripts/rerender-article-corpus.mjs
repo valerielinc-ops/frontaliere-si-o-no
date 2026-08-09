@@ -80,6 +80,8 @@ import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { spawn, spawnSync } from 'node:child_process';
 
+import { screenShardPaths } from './lib/control-char-publish-gate.mjs';
+
 const SELF_PATH = fileURLToPath(import.meta.url);
 const ROOT_DIR = path.resolve(path.dirname(SELF_PATH), '..');
 const CDN_BASE = 'https://cdn.frontaliereticino.ch';
@@ -353,12 +355,42 @@ async function runOrchestrator(args) {
     const shardToken = `articoli${sectionName}`;
 
     const localePushes = targetLocales.map(async (locale) => {
-      const relpaths = [];
+      const candidates = [];
       for (const e of data.entries) {
-        if (e.paths[locale]) relpaths.push(e.paths[locale]);
-        if (e.flatPaths[locale]) relpaths.push(e.flatPaths[locale]);
+        if (e.paths[locale]) candidates.push(e.paths[locale]);
+        if (e.flatPaths[locale]) candidates.push(e.flatPaths[locale]);
       }
-      if (relpaths.length === 0) return;
+      if (candidates.length === 0) return;
+
+      // ── Control-character gate (issue #5457) ──
+      //
+      // A whole-corpus re-render is the single most dangerous caller of this
+      // gate, and the reason it refuses PER FILE instead of aborting: 29 of the
+      // ~3.1k articles carried XML-invalid control characters when this was
+      // written (279 occurrences, measured on the shared content tree — the
+      // site's packages/articles/content and the corpus's content/ are
+      // byte-identical, 15,204 files, 0 differences). A process-level abort
+      // would trade 3,110 correct pages for 29 damaged ones.
+      //
+      // Refusal, not sanitisation, and this caller is where that matters most:
+      // it rewrites pages that are ALREADY LIVE AND CORRECT. Stripping the byte
+      // here would overwrite a good served page with a half-repaired one and
+      // destroy the anchor that says which character was lost — see
+      // scripts/lib/control-char-publish-gate.mjs for the measured case.
+      // Refusing leaves the live page untouched, which is the right outcome.
+      const { publishable: relpaths, refused } = screenShardPaths({
+        baseDir: distDir,
+        relPaths: candidates,
+        logPrefix: '[rerender-article-corpus]',
+        target: `${shardToken}-${locale}`,
+      });
+      if (refused.length > 0) anyFailure = true;
+      if (relpaths.length === 0) {
+        console.error(
+          `[rerender-article-corpus] ${shardToken}-${locale}: every candidate path was refused by the control-character gate — nothing pushed`,
+        );
+        return;
+      }
 
       const pushChunks = chunkArray(relpaths, args.pushBatchSize);
       console.log(
