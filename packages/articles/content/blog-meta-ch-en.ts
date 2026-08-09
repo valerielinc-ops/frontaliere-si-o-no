@@ -2002,6 +2002,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-lamal-2026-canton-basilea.title': 'LAMal 2026 sick pay premiums in the canton of Basel',
     'blog.article.premi-cassa-malati-lamal-2026-canton-basilea.excerpt': 'Adult deductibles CHF 300, 500, 1000, 1500, 2000, 2500. Awards set by canton and award region.',
     'blog.article.premi-cassa-malati-lamal-2026-canton-basilea.imageAlt': 'Scena svizzera nazionale/cantonale pertinente al tema premi cassa malati, fotorealistica, DSLR, non sembrare AI',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.title': 'LPP Guide: Contributions, Withdrawal and Social Security Planning in Switzerland',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.excerpt': 'The second LPP pillar in Switzerland: contributions, withdrawals, redemption of gaps and social security planning. Let\'s focus on the canton of Bern and compare the data with the national ones.',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.imageAlt': 'Work in Switzerland, salary',
 };
 
 export default blogMetaChEn;

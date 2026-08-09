@@ -6004,6 +6004,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'secondo-pilastro-lpp-svizzera-guida-2026-bern',
+    category: 'fiscale',
+    date: '2026-08-09T23:51:38.781Z',
+    image: '/images/blog/secondo-pilastro-lpp-svizzera-guida-2026-bern.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

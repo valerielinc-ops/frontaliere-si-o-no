@@ -2002,6 +2002,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-cassa-malati-lamal-2026-canton-basilea.title': 'Premi cassa malati LAMal 2026 nel Canton Basilea',
     'blog.article.premi-cassa-malati-lamal-2026-canton-basilea.excerpt': 'Franchigie adulti CHF 300, 500, 1000, 1500, 2000, 2500. Premi fissati per cantone e regione di premio.',
     'blog.article.premi-cassa-malati-lamal-2026-canton-basilea.imageAlt': 'Scena svizzera nazionale/cantonale pertinente al tema premi cassa malati, fotorealistica, DSLR, non sembrare AI',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.title': 'Guida LPP: contributi, prelievo e pianificazione previdenziale in Svizzera',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.excerpt': 'Il secondo pilastro LPP in Svizzera: contributi, prelievo, riscatto lacune e pianificazione previdenziale. Facciamo un focus sul canton Berna e confrontiamo i dati con quelli nazionali.',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.imageAlt': 'Lavoro in Svizzera, stipendio',
 };
 
 export default blogMetaChIt;
