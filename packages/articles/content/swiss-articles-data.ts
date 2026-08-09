@@ -5878,6 +5878,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna',
+    category: 'fiscale',
+    date: '2026-08-09T16:13:50.830Z',
+    image: '/images/blog/terzo-pilastro-3a-svizzero-vantaggi-canton-lucerna.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
