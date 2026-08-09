@@ -28398,6 +28398,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-saltrio-lavorare-ticino-frontalieri',
+ category: 'pratico',
+ date: '2026-08-09T22:28:41.498Z',
+ image: '/images/blog/vivere-saltrio-lavorare-ticino-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
