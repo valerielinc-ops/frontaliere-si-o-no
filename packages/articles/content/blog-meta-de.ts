@@ -9432,6 +9432,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-falegname-ticino-lavoro.title': 'Tischler-Frontendier im Tessin: Gehalt und Anforderungen',
     'blog.article.frontaliere-falegname-ticino-lavoro.excerpt': 'Vollständiger Leitfaden für Grenzschreiner im Tessin: Gehälter, Einstufung, Besteuerung und Anforderungen für den G-Ausweis nach den geltenden Vorschriften.',
     'blog.article.frontaliere-falegname-ticino-lavoro.imageAlt': 'Zimmermann bei der Arbeit in einer modernen Tischlerei im Tessin',
+    'blog.article.lavoro-gessatore-ticino-frontaliere.title': 'Arbeiten als Gipser im Tessin: Leitfaden für Grenzgänger',
+    'blog.article.lavoro-gessatore-ticino-frontaliere.excerpt': 'Anforderungen, Gehalt und Quellensteuer: Alles, was ein Grenzgänger wissen muss, um als Gipser im Kanton Tessin zu arbeiten.',
+    'blog.article.lavoro-gessatore-ticino-frontaliere.imageAlt': 'Baustelle im Tessin mit Blick auf die Alpen',
 };
 
 export default blogMetaDe;
