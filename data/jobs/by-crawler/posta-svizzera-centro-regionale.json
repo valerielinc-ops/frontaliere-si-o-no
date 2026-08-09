@@ -1103,12 +1103,12 @@
         "en": "Customer Advisor:in",
         "fr": "Conseiller client:in"
       },
-      "slug": "kundenberater-in-post",
+      "slug": "consulente-clienti-in-die-schweizerische-post-zurich-oerlikon",
       "slugByLocale": {
-        "it": "kundenberater-in-post",
-        "en": "kundenberater-in-die-schweizerische-post-zurich-oerlikon",
+        "it": "consulente-clienti-in-die-schweizerische-post-zurich-oerlikon",
+        "en": "customer-advisor-in-die-schweizerische-post-zurich-oerlikon",
         "de": "kundenberater-in-die-schweizerische-post-zurich-oerlikon",
-        "fr": "kundenberater-in-die-schweizerische-post-zurich-oerlikon"
+        "fr": "conseiller-client-in-die-schweizerische-post-zurich-oerlikon"
       },
       "sourceLang": "de",
       "department": "",
@@ -1141,7 +1141,22 @@
       },
       "addressLocality": "Zürich-Oerlikon",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-09T10:13:18.554Z"
+      "firstSeenAt": "2026-08-09T10:13:18.554Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-post"
+        ],
+        "en": [
+          "kundenberater-in-die-schweizerische-post-zurich-oerlikon"
+        ],
+        "fr": [
+          "kundenberater-in-die-schweizerische-post-zurich-oerlikon"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-post",
+        "kundenberater-in-die-schweizerische-post-zurich-oerlikon"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Kundenberaterin/74440-de_DE",
@@ -2904,7 +2919,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
-        "en": "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-langnau-im-emmental"
       },
@@ -2930,7 +2945,6 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-post",
-          "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
           "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental"
         ],
         "fr": [
@@ -2944,7 +2958,6 @@
         "zusteller-in-briefe-und-pakete-post-2",
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-post-u3qamb",
-        "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental"
       ],
       "id": "posta-svizzera-centro-regionale-b70af024254b",
@@ -5737,7 +5750,7 @@
       "slug": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
-        "en": "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
+        "en": "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
         "de": "praxisintegriertes-bachelorstudium-in-informatik-post",
         "fr": "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
       },
@@ -5761,7 +5774,6 @@
           "praxisintegriertes-bachelorstudium-in-informatik-post"
         ],
         "en": [
-          "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
           "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
         ],
         "fr": [
@@ -5770,8 +5782,7 @@
       },
       "previousSlugs": [
         "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
-        "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
+        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
       ],
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
@@ -6798,12 +6809,12 @@
         "en": "Teaching as a logistician: mixed delivery (letters and packages) in EFZ Distribution",
         "fr": "Enseignement en tant que logisticien: livraison mixte (lettres et colis) dans EFZ Distribution"
       },
-      "slug": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-2de2e4",
       "slugByLocale": {
-        "it": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-2de2e4",
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-herisau",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-2de2e4"
       },
       "sourceLang": "de",
       "department": "",
@@ -6836,7 +6847,21 @@
       },
       "addressLocality": "Herisau",
       "addressRegion": "AR",
-      "firstSeenAt": "2026-08-09T10:13:18.554Z"
+      "firstSeenAt": "2026-08-09T10:13:18.554Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-ICT-Fachmann-frau-EFZ/73939-de_DE",
@@ -7143,12 +7168,12 @@
         "en": "Apprenticeship as a retail trade expert EFZ",
         "fr": "Apprentissage en tant qu'expert en commerce de détail EFZ"
       },
-      "slug": "lehre-als-detailhandelsfachmann-frau-efz-post",
+      "slug": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-schaffhausen",
       "slugByLocale": {
-        "it": "lehre-als-detailhandelsfachmann-frau-efz-post",
-        "en": "lehre-als-detailhandelsfachmann-frau-efz-post",
+        "it": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-schaffhausen",
+        "en": "apprenticeship-as-a-retail-trade-expert-efz-die-schweizerische-post-schaffhausen",
         "de": "lehre-als-detailhandelsfachmann-frau-efz-post",
-        "fr": "lehre-als-detailhandelsfachmann-frau-efz-post"
+        "fr": "apprentissage-en-tant-qu-expert-en-commerce-de-detail-efz-die-schweizerische-post-schaffhausen"
       },
       "sourceLang": "de",
       "department": "",
@@ -7181,7 +7206,21 @@
       },
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
-      "firstSeenAt": "2026-08-09T10:13:18.554Z"
+      "firstSeenAt": "2026-08-09T10:13:18.554Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
+        ],
+        "en": [
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
+        ],
+        "fr": [
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-detailhandelsfachmann-frau-efz-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Informatikerin-EFZ-Applikationsentwicklung/73952-de_DE",
@@ -12812,7 +12851,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
+        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -12836,7 +12875,6 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
           "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },
