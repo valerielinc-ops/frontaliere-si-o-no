@@ -58,6 +58,16 @@ function page(relDir: string, body: string): void {
   fs.writeFileSync(path.join(dir, 'index.html'), `<html><body>${body}</body></html>`, 'utf8');
 }
 
+// The ratchet's regression branch (`current > baselineTotal`) prints its
+// offender-count line via console.error, not console.log — so it lands on
+// stderr, not stdout. Whether a run takes the pass or regression branch
+// depends on the REPO'S REAL baseline (data/spa-bundle-injection-baseline.json),
+// which this suite doesn't control and which is expected to keep shrinking
+// (that's the point of the ratchet). Capturing only stdout made these tests
+// silently depend on that real baseline staying above the fixture's 7
+// synthetic offenders — the same kind of unobserved coupling issue #5451
+// fixed in the gate itself. Merge both streams so the offender-count
+// assertion holds regardless of which branch the real baseline sends it down.
 function run(): { stdout: string; status: number } {
   try {
     const stdout = execFileSync(process.execPath, [SCRIPT], {
@@ -68,8 +78,8 @@ function run(): { stdout: string; status: number } {
     });
     return { stdout, status: 0 };
   } catch (err) {
-    const e = err as { stdout?: string; status?: number };
-    return { stdout: e.stdout ?? '', status: e.status ?? -1 };
+    const e = err as { stdout?: string; stderr?: string; status?: number };
+    return { stdout: `${e.stdout ?? ''}${e.stderr ?? ''}`, status: e.status ?? -1 };
   }
 }
 

@@ -1,9 +1,9 @@
 {
-  "total": 10800,
+  "total": 5,
   "scanned": 815228,
   "skipped": 6,
   "skippedRedirect": 2561,
   "groups": {},
-  "rebasedAt": "2026-05-19T23:55:00.000Z",
-  "note": "Bumped 2026-05-19 (late night) from 10500 \u2192 10800 (+300, ~3% buffer over observed 10659). Batch 16-19 added 29 new hospital crawlers / ~471 new CH jobs across 26 cantons. New employer/per-job locale variants pushed the count by +159 in one deploy. Buffered ratchet absorbs ~2-3 more deploys of cron growth before needing another bump. Numbers must only DECREASE going forward. Drive toward zero via SKIP_PATHS or template refactor (specifically: ensure new article emitters go through buildSeoPageHtml which injects the SPA bundle)."
+  "rebasedAt": "2026-08-09T12:00:00.000Z",
+  "note": "Rebaselined 2026-08-09 (#5451) from 10800 \u2192 5: the 10800 floor (set 2026-05-19) was ~5000x looser than reality \u2014 the real post-#5438-observability count is offendersTotal=2 (run 31310187420, gate `validate-dist-postbuild`, job https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/31310187420/job/93236716707), a passing run whose `dist/audit-reports/*.json` (source of `scanned`/`skipped`/`groups`) wasn't uploaded because that artifact is `if: failure()`-gated, so those three fields above are stale carryovers from the 2026-05-19 rebaseline, informational only \u2014 the gate compares `total` alone. Set to 5 (2 observed + 3 buffer), not the bare 2: this is a single measurement with no multi-run history, and the gate polices exactly the kind of non-deterministic parallel-write race (see file header) that could make the true count flap by a couple across otherwise-identical builds. Numbers must only DECREASE going forward. Once 2-3 more real deploy runs confirm the count is stable at or near 2, drop this floor to the exact observed value (or 0, flipping the gate to strict) \u2014 do not re-inflate with a growth buffer like the 2026-05-19 bump did, this ratchet is now close enough to zero that growth headroom is no longer the right instrument."
 }
