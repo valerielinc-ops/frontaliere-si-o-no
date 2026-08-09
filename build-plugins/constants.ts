@@ -35,6 +35,7 @@ import {
 import { adSlotHtml } from './lib/adSlotHtml';
 import { REDIRECT_STUB_MARKER } from './shared/redirectStubMarker';
 import { clampMetaDescription } from './shared/titleSuffix';
+import { ROBOTS_INDEX_ENHANCED_CONTENT } from './shared/robotsDirective';
 
 /**
  * Regex-source strings interpolated into SELF_HEAL_SCRIPT_CONTENT below,
@@ -780,9 +781,14 @@ export function replaceRobotsMeta(html: string, content: string): string {
  * `max-image-preview:large` for exactly that reason. Splitting the content
  * string out from the tag is what lets {@link normalizeRobotsDirective} repair
  * all of them at the single emission point.
+ *
+ * Defined in `./shared/robotsDirective` (Node-import-free) and re-exported
+ * here under the same name so existing call sites are unaffected, while
+ * client bundle code (e.g. `services/seoService.ts`) can import the shared
+ * module directly without pulling in this file's `node:fs`/`child_process`
+ * imports.
  */
-export const ROBOTS_INDEX_ENHANCED_CONTENT =
- 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1';
+export { ROBOTS_INDEX_ENHANCED_CONTENT };
 
 /**
  * Upgrade a caller-supplied robots directive to the enhanced indexable form.
