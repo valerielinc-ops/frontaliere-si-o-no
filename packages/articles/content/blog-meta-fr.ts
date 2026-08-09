@@ -9420,6 +9420,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.traffico-a2-assistenza-emergenza.title': 'Trafic en déclivité : vous n\'aidez que si la queue dure des heures',
     'blog.article.traffico-a2-assistenza-emergenza.excerpt': 'La police cantonale clarifie les critères d\'assistance extraordinaire aux conducteurs bloqués sur l\'autoroute après le chaos du week-end.',
     'blog.article.traffico-a2-assistenza-emergenza.imageAlt': 'Embouteillages sur l\'autoroute A2 dans le canton du Tessin',
+    'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.title': 'Travailler comme piastrellista au Tessin : salaire et reconnaissance',
+    'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.excerpt': 'Les exigences et le salaire moyen pour les carreleurs au Tessin en tant que frontalier, avec des informations sur la reconnaissance éventuelle du diplôme et du permis G.',
+    'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.imageAlt': 'Image d\'un peintre en céramique en Suisse',
 };
 
 export default blogMetaFr;

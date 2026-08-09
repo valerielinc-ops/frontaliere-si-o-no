@@ -61184,6 +61184,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-piastrellista-ticino-stipendio-requisiti': {
+    title: 'Lavorare come piastrellista in Ticino: stipendio, requisiti e riconoscimento del titolo',
+    description: 'Informazioni sui requisiti e sul stipendio medio per i piastrellisti in Ticino da frontaliere, con informazioni sull\'eventuale riconoscimento del titolo',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, piastrellista, stipendio, requisiti',
+    ogTitle: 'Lavorare come piastrellista in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G',
+    ogDescription: 'Informazioni sui requisiti e sul stipendio medio per i piastrellisti in Ticino da frontaliere, con informazioni sull\'eventuale riconoscimento del titolo di studio e sul permesso G.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-piastrellista-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come piastrellista in Ticino: stipendio, requisiti e riconoscimento del titolo",
+      "description": "Informazioni sui requisiti e sul stipendio medio per i piastrellisti in Ticino da frontaliere, con informazioni sull'eventuale riconoscimento del titolo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-piastrellista-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un piastrellista in Ticino"
+      },
+      "datePublished": "2026-08-09T15:44:33+00:00",
+      "dateModified": "2026-08-09T15:44:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-piastrellista-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -9418,6 +9418,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.traffico-a2-assistenza-emergenza.title': 'Traffic in tilt: you only help if the queue lasts hours',
     'blog.article.traffico-a2-assistenza-emergenza.excerpt': 'The cantonal police clarify the criteria for extraordinary assistance to drivers stranded on the motorway after the chaos of the weekend.',
     'blog.article.traffico-a2-assistenza-emergenza.imageAlt': 'Traffic jam on the A2 motorway in Canton Ticino',
+    'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.title': 'Working as a tile maker in Ticino: salary, requirements and title recognition',
+    'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.excerpt': 'The requirements and average salary for tile workers in Ticino as border workers, with information on the possible recognition of the qualification and the G permit.',
+    'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.imageAlt': 'Image of a tile layer in Ticino',
 };
 
 export default blogMetaEn;

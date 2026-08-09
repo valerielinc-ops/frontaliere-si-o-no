@@ -9417,6 +9417,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.traffico-a2-assistenza-emergenza.title': 'Tilt Traffic: Hilft nur, wenn die Warteschlange stundenlang anhält',
     'blog.article.traffico-a2-assistenza-emergenza.excerpt': 'Die Kantonspolizei klärt die Kriterien für die ausserordentliche Betreuung von Autofahrern, die nach dem Chaos des Wochenendes auf der Autobahn festsitzen.',
     'blog.article.traffico-a2-assistenza-emergenza.imageAlt': 'Stau auf der Autobahn A2 im Kanton Tessin',
+    'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.title': 'Fliesenleger im Tessin: Gehalt und Anerkennung',
+    'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.excerpt': 'Die Anforderungen und das Durchschnittsgehalt für Fliesenleger im Tessin als Grenzgänger, mit Informationen zur möglichen Anerkennung des Bildungsabschlusses und zum Ausweis G.',
+    'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.imageAlt': 'Bild eines Kachelers in der Schweiz',
 };
 
 export default blogMetaDe;

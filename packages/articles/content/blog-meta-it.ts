@@ -9419,6 +9419,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.traffico-a2-assistenza-emergenza.title': 'Traffico in tilt: aiuti solo se la coda dura ore',
     'blog.article.traffico-a2-assistenza-emergenza.excerpt': 'La Polizia cantonale chiarisce i criteri per l\'assistenza straordinaria ai conducenti bloccati in autostrada dopo il caos del weekend.',
     'blog.article.traffico-a2-assistenza-emergenza.imageAlt': 'Traffico bloccato sull\'autostrada A2 in Canton Ticino',
+    'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.title': 'Lavorare come piastrellista in Ticino: stipendio, requisiti e riconoscimento del titolo',
+    'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.excerpt': 'I requisiti e il stipendio medio per i piastrellisti in Ticino da frontaliere, con informazioni sull\'eventuale riconoscimento del titolo di studio e sul permesso G.',
+    'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.imageAlt': 'Immagine di un piastrellista in Ticino',
 };
 
 export default blogMetaIt;
