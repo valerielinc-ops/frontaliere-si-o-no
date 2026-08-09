@@ -9397,6 +9397,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.locarno-film-festival-frontaliere-ticino.title': '‘Ich ist ein Anderer’, travelling with Felix Kersten',
     'blog.article.locarno-film-festival-frontaliere-ticino.excerpt': 'Felix Randau\'s film about Felix Kersten',
     'blog.article.locarno-film-festival-frontaliere-ticino.imageAlt': 'Image of the Locarno Film Festival with Ticino frontiersmen',
+    'blog.article.frontaliere-ticino-energia-fossili.title': 'How dependent is Switzerland on fossil fuels?',
+    'blog.article.frontaliere-ticino-energia-fossili.excerpt': 'Switzerland imports all the fossil fuels it consumes. In 2025 it bought crude oil mainly from the United States, which with the blockade of the Strait of Hormuz became the first exporters in the world, and from Nigeria.',
+    'blog.article.frontaliere-ticino-energia-fossili.imageAlt': 'A border worker in Ticino looks out of a window of a building, with a landscape of hills and mountains in the background.',
+    'blog.article.frontaliere-polimeccanico-ticino-lavoro.title': 'Polymechanical frontier in Ticino: salary and requirements',
+    'blog.article.frontaliere-polimeccanico-ticino-lavoro.excerpt': 'Complete guide for polymechs: salary, tax at source, new tax agreement and requirements to work in Canton Ticino.',
+    'blog.article.frontaliere-polimeccanico-ticino-lavoro.imageAlt': 'Mechanical engineer working in a workshop in Ticino',
+    'blog.article.psicologo-frontaliere-ticino-lavoro.title': 'Working as a psychologist in Ticino: requirements and salary',
+    'blog.article.psicologo-frontaliere-ticino-lavoro.excerpt': 'Guide for border psychologists in Ticino: recognition of qualifications, classification, taxation and social security between Italy and Switzerland.',
+    'blog.article.psicologo-frontaliere-ticino-lavoro.imageAlt': 'Panoramic view of Lugano, Canton Ticino',
 };
 
 export default blogMetaEn;

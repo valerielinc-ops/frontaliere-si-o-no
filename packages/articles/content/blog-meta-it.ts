@@ -9398,6 +9398,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.locarno-film-festival-frontaliere-ticino.title': '‘Ich ist ein Anderer’, in viaggio con Felix Kersten',
     'blog.article.locarno-film-festival-frontaliere-ticino.excerpt': 'Il film di Felix Randau su Felix Kersten',
     'blog.article.locarno-film-festival-frontaliere-ticino.imageAlt': 'Immagine del Locarno Film Festival con frontalieri ticinesi',
+    'blog.article.frontaliere-ticino-energia-fossili.title': 'Quanto è dipendente la Svizzera dai combustibili fossili?',
+    'blog.article.frontaliere-ticino-energia-fossili.excerpt': 'La Svizzera importa la totalità dei combustibili fossili che consuma. Nel 2025 ha acquistato il petrolio greggio soprattutto dagli Stati Uniti, che con il blocco dello Stretto di Hormuz sono diventati i primi esportatori al mondo, e dalla Nigeria.',
+    'blog.article.frontaliere-ticino-energia-fossili.imageAlt': 'Un frontaliere in Ticino guarda fuori dalla finestra di un edificio, con un paesaggio di colline e montagne sullo sfondo.',
+    'blog.article.frontaliere-polimeccanico-ticino-lavoro.title': 'Frontaliere polimeccanico in Ticino: stipendio e requisiti',
+    'blog.article.frontaliere-polimeccanico-ticino-lavoro.excerpt': 'Guida completa per polimeccanici: stipendio, imposta alla fonte, nuovo accordo fiscale e requisiti per lavorare in Canton Ticino.',
+    'blog.article.frontaliere-polimeccanico-ticino-lavoro.imageAlt': 'Polimeccanico al lavoro in un\'officina meccanica in Ticino',
+    'blog.article.psicologo-frontaliere-ticino-lavoro.title': 'Lavorare come psicologo in Ticino: requisiti e stipendio',
+    'blog.article.psicologo-frontaliere-ticino-lavoro.excerpt': 'Guida per psicologi frontalieri in Ticino: riconoscimento titoli, inquadramento, fiscalità e previdenza tra Italia e Svizzera.',
+    'blog.article.psicologo-frontaliere-ticino-lavoro.imageAlt': 'Veduta panoramica di Lugano, Canton Ticino',
 };
 
 export default blogMetaIt;

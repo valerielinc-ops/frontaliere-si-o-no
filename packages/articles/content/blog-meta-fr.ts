@@ -9399,6 +9399,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.locarno-film-festival-frontaliere-ticino.title': '‘Ich ist ein Anderer’, en voyage avec Felix Kersten',
     'blog.article.locarno-film-festival-frontaliere-ticino.excerpt': 'Le film de Felix Randau sur Felix Kersten',
     'blog.article.locarno-film-festival-frontaliere-ticino.imageAlt': 'Image du Festival du film de Locarno avec les frontaliers du Tessin',
+    'blog.article.frontaliere-ticino-energia-fossili.title': 'Dans quelle mesure la Suisse est-elle dépendante des combustibles fossiles ?',
+    'blog.article.frontaliere-ticino-energia-fossili.excerpt': 'La Suisse importe la totalité des combustibles fossiles qu\'elle consomme. En 2025, il a acheté le pétrole brut principalement aux États-Unis, qui avec le blocus du détroit d\'Ormuz sont devenus les premiers exportateurs au monde, et au Nigéria.',
+    'blog.article.frontaliere-ticino-energia-fossili.imageAlt': 'Un travailleur frontalier en Tessin regarde par la fenêtre d\'un bâtiment, avec un paysage de collines et de montagnes en arrière-plan.',
+    'blog.article.frontaliere-polimeccanico-ticino-lavoro.title': 'Frontière polymécanique au Tessin : salaire et exigences',
+    'blog.article.frontaliere-polimeccanico-ticino-lavoro.excerpt': 'Guide complet pour les polymécaniciens : salaire, impôt à la source, nouvel accord fiscal et exigences pour travailler dans le canton du Tessin.',
+    'blog.article.frontaliere-polimeccanico-ticino-lavoro.imageAlt': 'Polymécanicien au travail dans un atelier au Tessin',
+    'blog.article.psicologo-frontaliere-ticino-lavoro.title': 'Travailler comme psychologue au Tessin : exigences et salaire',
+    'blog.article.psicologo-frontaliere-ticino-lavoro.excerpt': 'Guide pour les psychologues frontaliers au Tessin : reconnaissance des diplômes, encadrement, fiscalité et prévoyance entre l\'Italie et la Suisse.',
+    'blog.article.psicologo-frontaliere-ticino-lavoro.imageAlt': 'Vue panoramique de Lugano, Canton du Tessin',
 };
 
 export default blogMetaFr;
