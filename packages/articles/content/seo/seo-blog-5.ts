@@ -60638,6 +60638,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-castasegna-vecchia-dogana-in-vendita': {
+    title: 'Castasegna: la vecchia dogana in vendita preoccupa Bregaglia',
+    description: 'La Confederazione vende la vecchia dogana di Castasegna in Val Bregaglia. Il Comune si attiva con il Cantone per mantenere i presidi pubblici. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, castasegna, vecchia, dogana, vendita',
+    ogTitle: 'Castasegna: vecchia dogana in vendita, Bregaglia si attiva con Coira',
+    ogDescription: 'Il Comune di Bregaglia contrasta la vendita della vecchia dogana di Castasegna da parte della Confederazione per preservare la presenza pubblica in valle.',
+    canonicalPath: '/articoli-frontaliere/castasegna-vecchia-dogana-in-vendita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Castasegna: la vecchia dogana in vendita preoccupa Bregaglia",
+      "description": "La Confederazione vende la vecchia dogana di Castasegna in Val Bregaglia. Il Comune si attiva con il Cantone per mantenere i presidi pubblici. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/castasegna-vecchia-dogana-in-vendita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio della vecchia dogana di Castasegna in Val Bregaglia"
+      },
+      "datePublished": "2026-08-09T00:40:13+00:00",
+      "dateModified": "2026-08-09T00:40:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/castasegna-vecchia-dogana-in-vendita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

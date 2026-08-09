@@ -9377,6 +9377,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.presidente-locarno-film-festival.title': 'Locarno Film Festival: chi sarà il prossimo presidente?',
     'blog.article.presidente-locarno-film-festival.excerpt': 'Il Locarno Film Festival cerca un nuovo presidente. Le voci si rincorrono, ma nessuna conferma ufficiale.',
     'blog.article.presidente-locarno-film-festival.imageAlt': 'Il Locarno Film Festival con il grande schermo in Piazza Grande',
+    'blog.article.castasegna-vecchia-dogana-in-vendita.title': 'Castasegna: la vecchia dogana in vendita preoccupa Bregaglia',
+    'blog.article.castasegna-vecchia-dogana-in-vendita.excerpt': 'La Confederazione ha messo in vendita la vecchia dogana di Castasegna. Il Comune di Bregaglia si attiva con Coira per evitare la perdita della presenza federale.',
+    'blog.article.castasegna-vecchia-dogana-in-vendita.imageAlt': 'Edificio della vecchia dogana di Castasegna in Val Bregaglia',
 };
 
 export default blogMetaIt;
