@@ -461,34 +461,50 @@ jobs:
       # propagation_timeout is an expected transient under Pages publish
       # congestion (live is a valid earlier build, not broken) — not a bug, so
       # don't open/append a "Validation Failure (live)" issue for it.
+      # Reporter diagnostico (#5437). È il caso che #5437 cita come prova: la
+      # issue #5430 aperta da qui aveva SOLO run, branch e SHA, e un agente che
+      # la prendeva in carico doveva ripartire dal log del run — cioè il costo
+      # che #5423 aveva già eliminato dall'altro lato. Qui gli step candidati a
+      # fallire sono una decina (propagazione, bundle CDN, shard cantonali, CLS,
+      # smoke live, visual), e sapere QUALE è metà della diagnosi.
+      #
+      # Titolo STABILE (senza run-number) → il dedup di github-issue-creator.mjs
+      # collassa le run successive in commenti 🔁 sulla issue canonica invece di
+      # aprirne una nuova per run; il run-number resta nel `context` sotto.
+      # `reopen-within-hours: 6`: se la canonica è stata chiusa da poco (es.
+      # auto-close su un deploy verde) e il gate ri-fallisce, la RIAPRE invece di
+      # aprirne una nuova → niente storm per-run (#928/#931/#937/#941).
+      #
+      # CHI CHIUDE: lo step gemello "Resolve GitHub Issue on success" qui sotto,
+      # con il TITOLO IDENTICO — `Validation Failure (live):` è fuori sia dal
+      # `TITLE_RE` del reconciler centrale sia dal `--mode resolve` del reporter
+      # dist, che copre solo `(dist)`. Nessuno dei due lo prenderebbe.
+      #
+      # `workflow-name` / `workflow-file` NON sono decorativi: questo è un
+      # `workflow_call`, e lì `github.workflow` e `GITHUB_WORKFLOW_REF` valgono
+      # il CHIAMANTE (`Publish to GitHub Pages (deploy + validate)`). Senza,
+      # il reporter cercherebbe lo step fallito nel file del chiamante e la
+      # sezione «Riproduzione locale» uscirebbe vuota dietro un body sano.
       - name: Report failure to GitHub Issues
         if: failure() && steps.classify.outputs.failure_kind != 'propagation_timeout'
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Dispatch/call inputs reach the shell as DATA, never as script text.
-          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
-          INPUT_DEPLOY_REF: ${{ inputs.deploy_ref }}
-        run: |
-          # Titolo STABILE (senza run-number) → dedup di github-issue-creator.mjs
-          # collassa le run successive in commenti 🔁 sulla issue canonica invece
-          # di aprire una issue nuova per run. Run-number nella description.
-          # --reopen-within-hours: se la stessa issue canonica è stata chiusa
-          # da poco (es. auto-close su un deploy verde) e il gate ri-fallisce,
-          # la RIAPRE invece di aprirne una nuova → niente storm per-run di issue
-          # transienti (#928/#931/#937/#941, già chiuse). Finestra 6h ~ ritmo deploy.
-          node scripts/lib/github-issue-creator.mjs \
-            --title "Validation Failure (live): post-deploy" \
-            --description "## Live validation post-deploy fallita
-          **Validation run #:** ${{ github.run_number }}
-          **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/$INPUT_DEPLOY_RUN_ID
-          **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          **Branch:** ${{ github.ref_name }}
-          **Build SHA:** ${INPUT_DEPLOY_REF:-$GITHUB_SHA} (deploy_ref = workflow_run.head_sha)" \
-            --priority 1 \
-            --reopen-within-hours 6 \
-            --label Bug \
-            --workflow "Post-deploy Validate Live"
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'Validation Failure (live): post-deploy'
+          closed-by: sibling-resolve-step
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '1'
+          labels: Bug
+          reopen-within-hours: '6'
+          workflow-name: Post-deploy Validate Live
+          workflow-file: .github/workflows/post-deploy-validate-live.yml
+          context: |
+            - **Validation run #:** ${{ github.run_number }}
+            - **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}
+            - **Branch:** ${{ github.ref_name }}
+            - **Build SHA:** ${{ inputs.deploy_ref || github.sha }} (`deploy_ref` = `workflow_run.head_sha`)
+            - Il timeout di propagazione è classificato a parte e NON arriva qui
+              (`failure_kind == propagation_timeout`): se questa issue esiste, il
+              live era raggiungibile e un gate vero è caduto.
 
       - name: Resolve GitHub Issue on success
         if: success()

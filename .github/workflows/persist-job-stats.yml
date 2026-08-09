@@ -71,6 +71,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # `${{ github.workflow }}`, non il letterale "Persist Job Stats": il
+          # reconciler estrae il nome dal titolo e fa `gh run list -w <nome>`, e
+          # il `name:` di questo file è "Persist Job Stats History". Col
+          # letterale corto il lookup non risolveva nessun run e la issue restava
+          # aperta per sempre pur SEMBRANDO coperta (#5437). L'interpolazione
+          # rende la deriva impossibile anche a un futuro rename del `name:`.
           node scripts/lib/github-issue-creator.mjs \
-            --title "CI Failure: Persist Job Stats" \
+            --title "CI Failure: ${{ github.workflow }}" \
             --description "Stats history persistence failed. Check https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

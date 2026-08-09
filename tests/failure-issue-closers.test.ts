@@ -52,6 +52,10 @@ import {
  *   5. Un titolo `Workflow|Crawler|CI Failure: <nome>` deve nominare il `name:`
  *      del workflow, perché il reconciler fa `gh run list -w <nome>`. Un
  *      mismatch è il caso peggiore: SEMBRA coperto e non chiude niente.
+ *   6. Un workflow RIUSABILE che adotta il reporter passa `workflow-file` e
+ *      `workflow-name`: dentro un `workflow_call` `github.workflow` e
+ *      `GITHUB_WORKFLOW_REF` sono del CHIAMANTE, e senza i due input il body
+ *      degrada in silenzio (step non trovato, riproduzione vuota).
  *
  * ─── Cosa NON copre (dichiarato, per non farci affidamento) ─────────────
  *
@@ -109,21 +113,25 @@ const KNOWN_UNCOVERED: string[] = [
  * run, e per bias conservativo lascia la issue aperta. Per sempre, in silenzio.
  *
  * Il docstring di quel reconciler dichiarava UN solo caso noto
- * (`persist-job-stats`). Sono tre — misurati, non stimati, da
- * `node scripts/ci/failure-issue-inventory.mjs --json`. Il commento è stato
- * corretto insieme a questo test; la lista qui è ciò che lo tiene onesto.
+ * (`persist-job-stats`). Erano tre — misurati, non stimati, da
+ * `node scripts/ci/failure-issue-inventory.mjs --json`.
  *
- * Non rinominati in questa PR di proposito: il dedup è sul titolo, quindi
- * cambiarlo orfana qualunque issue aperta con quello vecchio. Al momento della
- * misura nessuna delle tre era aperta, quindi la finestra per rinominarli
- * senza danno è aperta — ma è un lavoro suo, non un effetto collaterale di
- * questo.
+ * **Ora sono ZERO**, e la lista è vuota per un motivo che va detto: rinominare
+ * un titolo ORFANA qualunque issue già aperta con quello vecchio, perché il
+ * dedup è sul titolo. La finestra si apre solo quando non ce n'è nessuna
+ * aperta, ed è stata verificata subito prima del rename con
+ *
+ *     gh issue list --state open --search 'in:title "<vecchio titolo>"'
+ *
+ * — vuota per tutti e tre. I titoli sono stati passati a
+ * `${{ github.workflow }}` invece che al `name:` copiato a mano: così un futuro
+ * rename del workflow non può più farli divergere in silenzio.
+ *
+ * Per aggiungerne uno: non farlo. Se un titolo `… Failure: <nome>` deve dire
+ * qualcosa di diverso dal `name:`, allora non è quel prefisso che gli serve —
+ * usa un titolo custom e uno step gemello `--resolve`.
  */
-const KNOWN_TITLE_NAME_MISMATCH: string[] = [
-  'crawl-events.yml\tCrawler Failure: events pipeline (tio.ch, guidle, myswitzerland)',
-  'fast-publish-article.yml\tWorkflow Failure: Fast Publish Article',
-  'persist-job-stats.yml\tCI Failure: Persist Job Stats',
-];
+const KNOWN_TITLE_NAME_MISMATCH: string[] = [];
 
 const key = (r: { file: string; title: string }) => `${r.file}\t${r.title}`;
 
@@ -200,21 +208,71 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
     ]);
   });
 
-  it('il reporter diagnostico è adottato solo dove la chiusura è centrale', () => {
+  it('il reporter diagnostico è adottato solo dove la chiusura esiste già', () => {
     const adopted = coverageReport(WORKFLOWS_DIR).filter((r) => r.via === 'action');
-    // Prima famiglia (#5437): i workflow le cui issue di fallimento il fixer
-    // autonomo ha davvero preso in carico — misurato su `gh issue list --label
-    // agent:fix`, dove `Workflow Failure: <questi quattro>` è la testa della
-    // distribuzione. Tutti e quattro sono già chiusi dal reconciler centrale,
-    // quindi l'adozione non ha dovuto aggiungere nessuna metà di chiusura: è il
-    // criterio che rende questa famiglia la prima, non solo la più utile.
-    expect(adopted.map((r) => r.file).sort()).toEqual([
-      'audit-parser-quality.yml',
-      'generate-article.yml',
-      'traffic-scheduler.yml',
-      'translate-pending.yml',
-    ]);
-    for (const r of adopted) expect(r.closedBy).toBe('close-recovered-failure-issues');
+    // Il rollout va per FAMIGLIE misurate, una per PR, e ogni famiglia dichiara
+    // qui il suo criterio — altrimenti «adottiamo il prossimo» diventa una lista
+    // della spesa e i 105 titoli restanti arrivano tutti insieme in una PR
+    // irrivedibile.
+    //
+    // PRIMA famiglia: i workflow le cui issue il fixer autonomo ha davvero preso
+    // in carico — misurato su `gh issue list --label agent:fix`, dove
+    // `Workflow Failure: <questi quattro>` è la testa della distribuzione.
+    //
+    // SECONDA famiglia: gli opener di `priority:urgent`. Misurato con
+    //   gh issue list --state all --limit 1000 --search "created:>=<oggi-30gg>" \
+    //     --json number,title,createdAt,labels
+    // e attribuito ai titoli dell'inventario: 97 issue urgent in 30 giorni, di
+    // cui 81 (84%) da cinque titoli, tutti nella catena di deploy. Restano fuori,
+    // e non per dimenticanza:
+    //   - `Validation Failure (dist):` e `CI Failure (build):` — già diagnostici,
+    //     è il reporter di #5423 ad aprirli;
+    //   - i due di `deploy.yml` (42 issue, il volume più alto in assoluto) — i
+    //     loro step NON sono `if: failure()` ma `steps.<x>.outcome == 'failure'`
+    //     dentro un job che resta VERDE per scelta (`continue-on-error`), quindi
+    //     la jobs API non ha nessuno step con `conclusion: failure` da nominare;
+    //     e i loro body sono già i più diagnostici del repo, riscritti a mano
+    //     dopo che #5224/#5225/#5227 furono attribuite alle deploy key sbagliate.
+    //     Adottarli sarebbe una REGRESSIONE, non un'estensione.
+    // Restano i due opener urgent col body povero: 22 issue in 30 giorni.
+    const EXPECTED: Record<string, string> = {
+      // prima famiglia
+      'audit-parser-quality.yml': 'close-recovered-failure-issues',
+      'generate-article.yml': 'close-recovered-failure-issues',
+      'traffic-scheduler.yml': 'close-recovered-failure-issues',
+      'translate-pending.yml': 'close-recovered-failure-issues',
+      // seconda famiglia — entrambi con titolo custom fuori da TITLE_RE, quindi
+      // la loro metà di chiusura è lo step gemello nello STESSO file. Il gate
+      // sopra («ogni `closed-by` dichiarato è vero») è ciò che verifica che quel
+      // gemello esista davvero e col titolo identico, carattere per carattere.
+      'deploy-publish.yml': 'sibling-resolve-step',
+      'post-deploy-validate-live.yml': 'sibling-resolve-step',
+    };
+    expect(adopted.map((r) => r.file).sort()).toEqual(Object.keys(EXPECTED).sort());
+    for (const r of adopted) expect(r.closedBy).toBe(EXPECTED[r.file]);
+  });
+
+  it('un workflow riusabile che adotta il reporter passa `workflow-file` e `workflow-name`', () => {
+    // Dentro un `workflow_call`, `github.workflow` e `GITHUB_WORKFLOW_REF` sono
+    // quelli del CHIAMANTE. Senza i due input il reporter cerca lo step fallito
+    // nel file sbagliato e non lo trova mai: la sezione «Riproduzione locale»
+    // esce vuota e il body si intesta col nome di un workflow che non è quello
+    // caduto — degrado SILENZIOSO dietro una CI verde, la stessa forma di
+    // guasto che questo file esiste per intercettare.
+    const offenders: string[] = [];
+    for (const file of fs.readdirSync(WORKFLOWS_DIR).filter((f) => /\.ya?ml$/.test(f))) {
+      const src = fs.readFileSync(path.join(WORKFLOWS_DIR, file), 'utf-8');
+      if (!src.includes(REPORT_ACTION_USES)) continue;
+      // `workflow_call:` a due spazi = una chiave di `on:`, non una parola in un
+      // commento: è la sola forma che rende il workflow davvero chiamabile.
+      if (!/^ {2}workflow_call:/m.test(src)) continue;
+      for (const input of ['workflow-file', 'workflow-name']) {
+        if (!new RegExp(`^\\s+${input}:\\s*\\S`, 'm').test(src)) {
+          offenders.push(`${file} — adotta il reporter ma non passa \`${input}\``);
+        }
+      }
+    }
+    expect(offenders).toEqual([]);
   });
 
   it("l'inventario vede la composite action, non solo le invocazioni shell", () => {

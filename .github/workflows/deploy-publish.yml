@@ -309,23 +309,39 @@ jobs:
           echo "::error::GitHub Pages did not report success within 40 min for ${GITHUB_SHA} (publish stuck or genuinely failed)."
           exit 1
 
+      # Reporter diagnostico (#5437). SECONDA famiglia: gli opener che aprono
+      # `priority:urgent`. Misurato su 30 giorni (97 issue urgent totali), questo
+      # è il più prolifico del repo con un body povero — 17 issue, tutte con
+      # dentro run/build-run/branch/trigger e NIENTE su quale step sia morto,
+      # mentre il job qui sotto ha 20+ step fra Pages, CDN e il poll server-side.
+      #
+      # CHI CHIUDE: lo step gemello "Resolve deploy GitHub Issue on success" qui
+      # sotto, con il TITOLO IDENTICO. Il reconciler centrale NON copre questo
+      # titolo e non è una svista: `CI Failure (deploy):` non matcha il suo
+      # `TITLE_RE` (`CI Failure: `), quindi la metà locale è l'unica che c'è.
+      # Cambiare il titolo qui senza cambiarlo là lascia la issue aperta per
+      # sempre — è esattamente il guasto di #5470.
       - name: Report failure to GitHub Issues (deploy)
         if: failure()
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          node scripts/lib/github-issue-creator.mjs \
-            --title "CI Failure (deploy): ${{ github.workflow }}" \
-            --description "## Deploy fallito
-          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          **Build run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
-          **Branch:** ${{ github.event.workflow_run.head_branch }}
-          **Trigger:** ${{ github.event.workflow_run.event }}" \
-            --priority 1 \
-            --reopen-within-hours 6 \
-            --label Bug \
-            --workflow "${{ github.workflow }}"
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'CI Failure (deploy): ${{ github.workflow }}'
+          closed-by: sibling-resolve-step
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '1'
+          labels: Bug
+          reopen-within-hours: '6'
+          # I fatti del vecchio body che la jobs API non conosce: questo
+          # workflow è `workflow_run`, quindi il run che ha PRODOTTO l'artifact
+          # è un altro run, e senza il suo link la diagnosi parte dal posto
+          # sbagliato. Passano come dato via `with:`, non come testo di script.
+          context: |
+            - **Build run (quello che ha prodotto l'artifact):** https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
+            - **Branch del build:** ${{ github.event.workflow_run.head_branch }}
+            - **Trigger del build:** ${{ github.event.workflow_run.event }}
+            - Se lo step fallito è `Deploy to GitHub Pages` o il poll esteso, il
+              guasto è lato Pages e non nel dist: guardare prima lo stato dei
+              deployment `github-pages` per questo SHA.
 
       - name: Resolve deploy GitHub Issue on success
         if: success()

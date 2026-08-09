@@ -54,6 +54,17 @@ description: >-
 #      script legge package.json e il sorgente del workflow dal workspace) e dopo
 #      `actions/setup-node`.
 #
+#   3-bis. SE IL WORKFLOW È RIUSABILE (`on: workflow_call`), passa ANCHE
+#      `workflow-name` e `workflow-file`. Dentro un workflow chiamato,
+#      `github.workflow` e `GITHUB_WORKFLOW_REF` valgono il CHIAMANTE, non il
+#      chiamato: senza i due input il body si intesta col nome del chiamante e
+#      `findStepRun` cerca il `run:` dello step fallito nel file sbagliato,
+#      trovandolo mai — cioè proprio la riga `## Riproduzione locale` per cui il
+#      reporter esiste, vuota, dietro un body che sembra a posto. `github.job`
+#      invece è già quello giusto (l'id del job nel workflow chiamato) e la jobs
+#      API lo nomina `<job del chiamante> / <job del chiamato>`, che il match per
+#      prefisso di `findCurrentBuildJob` risolve senza aiuto.
+#
 #   4. Tieni il titolo STABILE: nessun run id, SHA o contatore dentro i primi 60
 #      caratteri (#5121). Un discriminante per-ENTITÀ (locale, section, gate) va
 #      bene ed è la granularità voluta — passalo anche come `entity`, così il
@@ -133,6 +144,16 @@ inputs:
     description: >-
       Path del workflow, se `GITHUB_WORKFLOW_REF` non basta a trovarlo. Serve a
       leggere il `run:` dello step fallito e ricavarne comandi e path.
+      OBBLIGATORIO di fatto in un workflow `workflow_call`: lì quella variabile
+      punta al file del CHIAMANTE.
+    required: false
+    default: ''
+  workflow-name:
+    description: >-
+      Nome del workflow per il body e per `gh run list -w`. Default
+      `github.workflow`, che però in un workflow `workflow_call` è il nome del
+      CHIAMANTE: lì va passato esplicitamente, altrimenti la issue si intesta e
+      si annota con un workflow che non è quello fallito.
     required: false
     default: ''
 
@@ -157,7 +178,9 @@ runs:
         DIAG_FILE: ${{ inputs.diag-file }}
         LOG_FROM_JOB: ${{ inputs.log-from-job }}
         WORKFLOW_FILE: ${{ inputs.workflow-file }}
-        WORKFLOW_NAME: ${{ github.workflow }}
+        # `||` su stringa vuota: l'input vince quando c'è, altrimenti resta il
+        # comportamento di prima. Vedi il passo 3-bis sopra per il perché.
+        WORKFLOW_NAME: ${{ inputs.workflow-name || github.workflow }}
         JOB_KEY: ${{ github.job }}
         RUN_ID: ${{ github.run_id }}
         RUN_ATTEMPT: ${{ github.run_attempt }}
