@@ -1999,6 +1999,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-lamal-2026-cantone-bern.title': 'LAMal in the Canton of Bern: a guide to premiums and subsidies',
     'blog.article.premi-cassa-malati-lamal-2026-cantone-bern.excerpt': 'LAMal premiums in Canton Bern are subject to differences compared to other Swiss cantons. Here\'s what to know.',
     'blog.article.premi-cassa-malati-lamal-2026-cantone-bern.imageAlt': 'Immagine di un lago in Svizzera',
+    'blog.article.premi-cassa-malati-lamal-2026-canton-basilea.title': 'LAMal 2026 sick pay premiums in the canton of Basel',
+    'blog.article.premi-cassa-malati-lamal-2026-canton-basilea.excerpt': 'Adult deductibles CHF 300, 500, 1000, 1500, 2000, 2500. Awards set by canton and award region.',
+    'blog.article.premi-cassa-malati-lamal-2026-canton-basilea.imageAlt': 'Scena svizzera nazionale/cantonale pertinente al tema premi cassa malati, fotorealistica, DSLR, non sembrare AI',
 };
 
 export default blogMetaChEn;

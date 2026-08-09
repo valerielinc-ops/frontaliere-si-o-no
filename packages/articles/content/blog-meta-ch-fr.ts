@@ -1999,6 +1999,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-lamal-2026-cantone-bern.title': 'LAMal dans le canton de Berne : guide des primes et subventions',
     'blog.article.premi-cassa-malati-lamal-2026-cantone-bern.excerpt': 'Les prix LAMal dans le canton de Berne sont soumis à des différences par rapport aux autres cantons suisses. Voici ce qu\'il faut savoir.',
     'blog.article.premi-cassa-malati-lamal-2026-cantone-bern.imageAlt': 'Image d\'un lac en Suisse',
+    'blog.article.premi-cassa-malati-lamal-2026-canton-basilea.title': 'Primes caisse-maladie LAMal 2026 dans le canton de Bâle',
+    'blog.article.premi-cassa-malati-lamal-2026-canton-basilea.excerpt': 'Franchises adultes CHF 300, 500, 1000, 1500, 2000, 2500. Primes fixées par canton et région de prime.',
+    'blog.article.premi-cassa-malati-lamal-2026-canton-basilea.imageAlt': 'Scena svizzera nazionale/cantonale pertinente al tema premi cassa malati, fotorealistica, DSLR, non sembrare AI',
 };
 
 export default blogMetaChFr;
