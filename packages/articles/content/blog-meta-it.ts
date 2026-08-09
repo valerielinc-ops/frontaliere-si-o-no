@@ -9380,6 +9380,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.castasegna-vecchia-dogana-in-vendita.title': 'Castasegna: la vecchia dogana in vendita preoccupa Bregaglia',
     'blog.article.castasegna-vecchia-dogana-in-vendita.excerpt': 'La Confederazione ha messo in vendita la vecchia dogana di Castasegna. Il Comune di Bregaglia si attiva con Coira per evitare la perdita della presenza federale.',
     'blog.article.castasegna-vecchia-dogana-in-vendita.imageAlt': 'Edificio della vecchia dogana di Castasegna in Val Bregaglia',
+    'blog.article.recensione-armony-analisi-critica.title': 'Recensione: le criticità del film Armony',
+    'blog.article.recensione-armony-analisi-critica.excerpt': 'Analisi critica dell\'opera cinematografica presentata al festival, tra cast stellare e una narrazione definita consolatoria e poco autentica.',
+    'blog.article.recensione-armony-analisi-critica.imageAlt': 'Cinema di Locarno durante il festival',
 };
 
 export default blogMetaIt;
