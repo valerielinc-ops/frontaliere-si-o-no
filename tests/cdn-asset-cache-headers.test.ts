@@ -28,6 +28,16 @@ import {
 const ROOT = resolve(import.meta.dirname, '..');
 const PREP = readFileSync(resolve(ROOT, 'scripts/lib/deploy-it-pages-prep.sh'), 'utf-8');
 
+/**
+ * Resolve shell line-continuations (`cmd \` + indented next line) into one
+ * logical line before splitting, so moving `--files=...` onto a continuation
+ * line can't split a purge invocation from its flag across two lines and
+ * read as zone-wide (same class as #5460).
+ */
+function joinContinuations(source: string): string {
+  return source.replace(/\\\r?\n[ \t]*/g, ' ');
+}
+
 /** The `_r2_sync <src> <prefix> <cache-control> [log]` line for a given prefix. */
 function r2SyncLine(prefix: string): string {
   const line = PREP.split('\n').find(
@@ -62,7 +72,9 @@ describe('deploy-it-pages-prep.sh — R2 /assets/ cache policy', () => {
   it('never invokes a zone-wide purge from the deploy path (comments aside)', () => {
     // Only executable lines — the surrounding rationale comments legitimately
     // name `purge_everything` to explain why this path deliberately avoids it.
-    const code = PREP.split('\n').filter((l) => !l.trim().startsWith('#'));
+    const code = joinContinuations(PREP)
+      .split('\n')
+      .filter((l) => !l.trim().startsWith('#'));
     expect(code.some((l) => /purge_everything/.test(l))).toBe(false);
     expect(code.some((l) => /cf-purge-cache\.mjs(?!.*--files=)/.test(l))).toBe(false);
   });
