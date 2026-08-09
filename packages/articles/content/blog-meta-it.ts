@@ -9467,6 +9467,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-saltrio-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Saltrio da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-saltrio-da-frontaliere-pro-e-contro.excerpt': 'Imposte, doppie imposizioni e nuove regole per i frontalieri che intendono trasferirsi a Saltrio',
     'blog.article.trasferirsi-a-saltrio-da-frontaliere-pro-e-contro.imageAlt': 'Una fotografia di un valico di frontiera tra Italia e Svizzera',
+    'blog.article.trasferirsi-cannobio-frontaliere-pro-contro.title': 'Trasferirsi a Cannobio da frontaliere: pro e contro',
+    'blog.article.trasferirsi-cannobio-frontaliere-pro-contro.excerpt': 'Analisi pratica sul vivere a Cannobio lavorando in Ticino: fisco, accordi e gestione del pendolarismo quotidiano per i lavoratori frontalieri.',
+    'blog.article.trasferirsi-cannobio-frontaliere-pro-contro.imageAlt': 'Veduta panoramica di Cannobio sul Lago Maggiore',
 };
 
 export default blogMetaIt;

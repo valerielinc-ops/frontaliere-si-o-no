@@ -9466,6 +9466,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-saltrio-da-frontaliere-pro-e-contro.title': 'Moving to Saltrio by border crossing: pros and cons',
     'blog.article.trasferirsi-a-saltrio-da-frontaliere-pro-e-contro.excerpt': 'Taxes, double taxation and new rules for border workers who intend to move to Saltrio',
     'blog.article.trasferirsi-a-saltrio-da-frontaliere-pro-e-contro.imageAlt': 'A photograph of a border crossing between Italy and Switzerland',
+    'blog.article.trasferirsi-cannobio-frontaliere-pro-contro.title': 'Moving to Cannobio as a border crosser: pros and cons',
+    'blog.article.trasferirsi-cannobio-frontaliere-pro-contro.excerpt': 'Practical analysis on living in Cannobio working in Ticino: tax, agreements and management of daily commuting for border workers.',
+    'blog.article.trasferirsi-cannobio-frontaliere-pro-contro.imageAlt': 'Panoramic view of Cannobio on Lake Maggiore',
 };
 
 export default blogMetaEn;

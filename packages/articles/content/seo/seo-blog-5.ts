@@ -61808,6 +61808,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-cannobio-frontaliere-pro-contro': {
+    title: 'Trasferirsi a Cannobio da frontaliere: pro e contro',
+    description: 'Vivere a Cannobio lavorando in Ticino: guida pratica su fisco, nuovo accordo frontalieri, tassazione e gestione del pendolarismo quotidiano. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, cannobio, contro, analisi',
+    ogTitle: 'Trasferirsi a Cannobio da frontaliere: pro e contro',
+    ogDescription: 'Analisi completa per chi si trasferisce a Cannobio lavorando in Svizzera: imposte, previdenza e gestione quotidiana del lavoro transfrontaliero.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-cannobio-frontaliere-pro-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Cannobio da frontaliere: pro e contro",
+      "description": "Vivere a Cannobio lavorando in Ticino: guida pratica su fisco, nuovo accordo frontalieri, tassazione e gestione del pendolarismo quotidiano. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-cannobio-frontaliere-pro-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Cannobio sul Lago Maggiore"
+      },
+      "datePublished": "2026-08-09T23:30:56+00:00",
+      "dateModified": "2026-08-09T23:30:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-cannobio-frontaliere-pro-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
