@@ -218,6 +218,7 @@ const NAV_SEMANTIC_KEYWORDS_IT = {
   ],
   'first-day': [
     'primo\\s+giorno', 'inizio\\s+lavoro', 'arrivo', 'checklist',
+    'guida\\s+pratica',
   ],
   permits: [
     'permess', 'permit', '\\bg\\b', '\\bb\\b', 'autorizzazion',
