@@ -61223,6 +61223,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-piastrellista-ticino-frontaliere': {
+    title: 'Lavorare come piastrellista in Ticino: guida per frontalieri',
+    description: 'Guida per frontalieri piastrellisti in Ticino: stipendio, requisiti, nuovo accordo fiscale 2024 e gestione della busta paga tra Svizzera e Italia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, piastrellista, requisiti, inquadramento',
+    ogTitle: 'Lavorare come piastrellista in Ticino: guida per frontalieri',
+    ogDescription: 'Tutto quello che un piastrellista deve sapere per lavorare in Canton Ticino: stipendio, tassazione, permessi e previdenza secondo le norme vigenti.',
+    canonicalPath: '/articoli-frontaliere/lavoro-piastrellista-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come piastrellista in Ticino: guida per frontalieri",
+      "description": "Guida per frontalieri piastrellisti in Ticino: stipendio, requisiti, nuovo accordo fiscale 2024 e gestione della busta paga tra Svizzera e Italia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-piastrellista-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piastrellista al lavoro in un cantiere in Ticino"
+      },
+      "datePublished": "2026-08-09T16:08:00+00:00",
+      "dateModified": "2026-08-09T16:08:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-piastrellista-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

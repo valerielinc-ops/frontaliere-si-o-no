@@ -9421,6 +9421,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.title': 'Working as a tile maker in Ticino: salary, requirements and title recognition',
     'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.excerpt': 'The requirements and average salary for tile workers in Ticino as border workers, with information on the possible recognition of the qualification and the G permit.',
     'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.imageAlt': 'Image of a tile layer in Ticino',
+    'blog.article.lavoro-piastrellista-ticino-frontaliere.title': 'Working as a tile maker in Ticino: a guide for border workers',
+    'blog.article.lavoro-piastrellista-ticino-frontaliere.excerpt': 'Requirements, wage classification and taxation for border workers working in the tile laying sector in Canton Ticino.',
+    'blog.article.lavoro-piastrellista-ticino-frontaliere.imageAlt': 'Tile setter working at a construction site in Ticino',
 };
 
 export default blogMetaEn;

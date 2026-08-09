@@ -9422,6 +9422,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.title': 'Lavorare come piastrellista in Ticino: stipendio, requisiti e riconoscimento del titolo',
     'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.excerpt': 'I requisiti e il stipendio medio per i piastrellisti in Ticino da frontaliere, con informazioni sull\'eventuale riconoscimento del titolo di studio e sul permesso G.',
     'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.imageAlt': 'Immagine di un piastrellista in Ticino',
+    'blog.article.lavoro-piastrellista-ticino-frontaliere.title': 'Lavorare come piastrellista in Ticino: guida per frontalieri',
+    'blog.article.lavoro-piastrellista-ticino-frontaliere.excerpt': 'Requisiti, inquadramento salariale e fiscalità per i frontalieri che operano nel settore della posa piastrelle in Canton Ticino.',
+    'blog.article.lavoro-piastrellista-ticino-frontaliere.imageAlt': 'Piastrellista al lavoro in un cantiere in Ticino',
 };
 
 export default blogMetaIt;
