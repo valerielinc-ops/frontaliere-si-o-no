@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksw",
-  "assembledAt": "2026-08-09T09:48:08.847Z",
+  "assembledAt": "2026-08-09T08:50:54.430Z",
   "jobs": [
     {
       "id": "ksw-cdd27050cc9f",
@@ -1655,16 +1655,31 @@
       "department": "Klinik für Gastroenterologie/Hepatologie",
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-ksw-ch",
-        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+        "specialista-infermieristica-specialista-in-allattamento-focus-oncology-kantonsspital-winterthur-ksw-winterthur",
+        "nursing-specialist-nursing-specialist-focus-on-oncology-kantonsspital-winterthur-ksw-winterthur",
+        "pflegefachfrau-pflegefachmann-schwerpunkt-onkologie-ksw-ch",
+        "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur",
+        "specialiste-des-soins-infirmiers-dans-la-piscine-medicale-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-ksw-ch",
-          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+          "specialista-infermieristica-specialista-in-allattamento-focus-oncology-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "nursing-specialist-nursing-specialist-focus-on-oncology-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "de": [
+          "pflegefachfrau-pflegefachmann-schwerpunkt-onkologie-ksw-ch"
+        ],
+        "fr": [
+          "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur",
+          "specialiste-des-soins-infirmiers-dans-la-piscine-medicale-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-08-07T21:41:46.470Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1676,7 +1691,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-5717343f0696",
@@ -5448,18 +5464,28 @@
       "department": "OP-Zentrum",
       "previousSlugs": [
         "fachfrau-fachmann-operationstechnik-ksw-ch",
-        "tecnologia-chirurgica-professionale-specialistica-kantonsspital-winterthur-ksw-winterthur"
+        "tecnologia-chirurgica-professionale-specialistica-kantonsspital-winterthur-ksw-winterthur",
+        "specialista-specialista-in-tecnologia-chirurgica-nel-campo-muscoloscheletrico-kantonsspital-winterthur-ksw-winterthur",
+        "specialist-specialist-in-surgical-technology-in-the-musculoskeletal-field-kantonsspital-winterthur-ksw-winterthur",
+        "fachfrau-fachmann-operationstechnik-im-muskuloskelettalen-fachbereich-ksw-ch",
+        "specialiste-specialiste-en-technologie-chirurgicale-dans-le-domaine-musculosquelettique-kantonsspital-winterthur-ksw"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-operationstechnik-ksw-ch",
-          "tecnologia-chirurgica-professionale-specialistica-kantonsspital-winterthur-ksw-winterthur"
+          "tecnologia-chirurgica-professionale-specialistica-kantonsspital-winterthur-ksw-winterthur",
+          "specialista-specialista-in-tecnologia-chirurgica-nel-campo-muscoloscheletrico-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
-          "fachfrau-fachmann-operationstechnik-ksw-ch"
+          "fachfrau-fachmann-operationstechnik-ksw-ch",
+          "specialist-specialist-in-surgical-technology-in-the-musculoskeletal-field-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
-          "fachfrau-fachmann-operationstechnik-ksw-ch"
+          "fachfrau-fachmann-operationstechnik-ksw-ch",
+          "specialiste-specialiste-en-technologie-chirurgicale-dans-le-domaine-musculosquelettique-kantonsspital-winterthur-ksw"
+        ],
+        "de": [
+          "fachfrau-fachmann-operationstechnik-im-muskuloskelettalen-fachbereich-ksw-ch"
         ]
       },
       "firstSeenAt": "2026-07-13T12:12:41.370Z",
