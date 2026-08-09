@@ -24,10 +24,19 @@
  *    b) it-apex-html-cache — caches the IT/apex HTML (the ~95% Worker-
  *       passthrough bulk, previously cf-cache-status=DYNAMIC i.e. uncached).
  *       Query-string requests bypass (no cache pollution); 3xx-5xx → TTL 0.
- *    a) and b) override Edge TTL to 24h; the deploy-time purge (scripts/
- *    cf-purge-cache.mjs, wired in post-deploy-validate-live.yml) clears the
- *    edge once a new build is confirmed live, so the long TTL never serves
- *    stale content across deploys.
+ *    a) and b) override Edge TTL to APEX_EDGE_TTL_SECONDS (300s, self-
+ *    invalidating — NOT purge-invalidated since 2026-08-05, #5162; the
+ *    zone-wide purge_everything this comment used to describe was removed
+ *    from post-deploy-validate-live.yml because it also wiped the CDN's
+ *    96%-hit cache on every deploy, see the APEX_EDGE_TTL_SECONDS comment
+ *    below for the measurement). A deploy therefore bounds apex staleness to
+ *    5 minutes on its own; cf-purge-cache.mjs's targeted `--files=` mode is a
+ *    best-effort freshness accelerator on top, not the mechanism these two
+ *    rules depend on — and per scripts/lib/cf-purge-variants.mjs it only
+ *    clears the header-less and `Vary: Origin` cache variants, never a
+ *    `Vary: Accept-Encoding` one (#5483): a caller purging an apex URL can
+ *    report ✅ without moving the copy browsers get, but the 300s TTL still
+ *    catches it regardless.
  *    c) cdn-r2-passthrough-cache — makes cdn.frontaliereticino.ch (R2 custom
  *       domain, CDN_TARGET=r2) ELIGIBLE for cache, RESPECTING the origin's own
  *       Cache-Control (no override, no purge mechanism needed — R2 objects
