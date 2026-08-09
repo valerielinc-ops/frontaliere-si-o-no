@@ -1,98 +1,57 @@
 /**
- * Tests for multi-signal duplicate detection logic used in create-article.mjs.
+ * Tests for multi-signal duplicate detection logic used in create-article.mjs
+ * (`checkForDuplicates`).
  *
- * Validates that the algorithm catches near-duplicate articles including:
- *   - Surface-text duplicates (frontalieri-ticino-calo variants from 2026-02-19)
- *   - Synonym/morphological duplicates (congedo-parentale vs maternità-paternità)
+ * Replicates the ALGORITMO ATTUALE (looking for "Thresholds" in
+ * scripts/create-article.mjs), importing stopwords/stemmer/synonyms from the
+ * same shared library the generator uses (`scripts/lib/it-text-similarity.mjs`)
+ * instead of a hand-copied inline replica. Previously this file pinned
+ * thresholds (0.60/0.45/0.35/0.40) and a flat OR condition that predates the
+ * 2026-07-01 loosening (#3138) — neither exists in the live implementation
+ * anymore, so a green run asserted nothing about real behavior (#5456).
  *
- * The detection pipeline: tokenize → stem (Italian suffix stripping) → synonym-normalize → Jaccard
+ * Current thresholds (create-article.mjs): ID 0.72 with title confirmation,
+ * title adaptive on corpus size (computeAdaptiveEvergreenThresholds, kept in
+ * sync with the evergreen pre-flight gate), excerpt 0.62 with entity
+ * confirmation, entity 0.65 with combined 0.45, combined 0.55.
+ *
+ * Behavior MEASURED on the site fixtures below (2026-08-09):
+ *   - calo-q4-2025 vs calo-2025 (trio 2026-02-19): CAUGHT (entity 1.00,
+ *     combined ~0.64);
+ *   - dati-q4-2025 vs calo-q4-2025: CAUGHT (combined ~0.63);
+ *   - dati-q4-2025 vs calo-2025: NO LONGER caught (combined ~0.44) — the
+ *     #3138 loosening traded this catch against evergreen false positives.
+ *     Asserted explicitly so a future re-tune fails this test consciously
+ *     instead of drifting silently in either direction;
+ *   - congedo-parentale vs maternità-paternità (synonym duplicate): NO LONGER
+ *     caught by the lexical check alone (title ~0.50 < adaptive ~0.81) — that
+ *     class is now handled by checkSemanticNearDuplicate (embeddings) and the
+ *     evergreen pre-flight gate. Synonym normalization itself is still
+ *     asserted live via normalizeItWord.
+ *
+ * The drift guard at the bottom ties this replica to the source: if
+ * checkForDuplicates' thresholds or composed conditions change again, THIS
+ * file fails with instructions to realign replica and expectations, instead
+ * of aging silently (the reason we're here per #5456).
  */
 
-// ── Replicate the detection utilities from create-article.mjs ───────
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { describe, expect, it } from 'vitest';
+import { jaccardSim, normalizeItWord, STOP_WORDS_IT } from '../scripts/lib/it-text-similarity.mjs';
+import { computeAdaptiveEvergreenThresholds } from '../scripts/lib/scoring/constants.mjs';
 
-const STOP_WORDS_IT = new Set([
-  'il', 'lo', 'la', 'i', 'gli', 'le', 'un', 'uno', 'una', 'di', 'a', 'da',
-  'in', 'con', 'su', 'per', 'tra', 'fra', 'e', 'o', 'ma', 'che', 'non',
-  'del', 'al', 'dal', 'nel', 'sul', 'dello', 'alla', 'della', 'dei', 'degli',
-  'delle', 'ai', 'dai', 'nei', 'sui', 'è', 'sono', 'come', 'più', 'anche',
-  'già', 'ancora', 'questo', 'questa', 'questi', 'queste', 'quello', 'quella',
-  'molto', 'poco', 'tutto', 'tutti', 'ogni', 'altro', 'altra', 'altri', 'altre',
-  'suo', 'sua', 'suoi', 'sue', 'loro', 'chi', 'cosa', 'dove', 'quando',
-  'mentre', 'dopo', 'prima', 'tra', 'fino', 'solo', 'nuovo', 'nuova', 'nuovi',
-  'base', 'rispetto', 'ultimo', 'ultima', 'ultimi', 'ultime',
-]);
+const ROOT = resolve(__dirname, '..');
 
-// ── Italian stemmer (suffix stripping — must match create-article.mjs) ──
-function stemIt(word: string): string {
-  if (word.length <= 3) return word;
-  const suffixes = [
-    'izzazione', 'izzazioni',
-    'amento', 'amenti', 'imento', 'imenti',
-    'zione', 'zioni', 'sione', 'sioni',
-    'abile', 'ibili', 'mente',
-    'iere', 'ieri', 'iera', 'ance', 'enza', 'enze',
-    'ante', 'anti', 'ente', 'enti',
-    'ario', 'aria', 'ari',
-    'tore', 'tori', 'trice', 'trici',
-    'ista', 'isti', 'iste',
-    'oso', 'osa', 'osi', 'ose',
-    'ale', 'ali', 'ile', 'ili',
-    'ato', 'ata', 'ati', 'ate', 'ito', 'ita', 'iti', 'ite',
-    'ano', 'ana', 'ani', 'ane',
-    'ino', 'ina', 'ini', 'ine',
-    'one', 'oni',
-    'ore', 'ori',
-    'ura', 'ure',
-    'io', 'ia', 'ie',
-    'à', 'tà',
-    'ere', 'are', 'ire',
-  ];
-  for (const s of suffixes) {
-    if (word.endsWith(s) && (word.length - s.length) >= 3) {
-      return word.slice(0, -s.length);
-    }
-  }
-  if (/[aeiou]$/.test(word) && word.length > 4) {
-    return word.slice(0, -1);
-  }
-  return word;
-}
+// Corpus size at expectation-recording time (3,768 IT titles measured
+// 2026-08-09). The title threshold is adaptive but saturates at the 0.85
+// ceiling, and is already ≈0.81 at this size: the expectations below stay
+// valid for any larger future corpus (the threshold can only rise toward
+// 0.85). Pinning it here keeps the test deterministic instead of depending
+// on checkout content.
+const CORPUS_SIZE_AT_RECORDING = 3768;
 
-// ── Domain synonym groups (must match create-article.mjs) ──
-const SYNONYM_GROUPS = [
-  ['maternità', 'maternita', 'paternità', 'paternita', 'congedo', 'parentale', 'genitoriale', 'nascita', 'neonato', 'gestante', 'puerperio'],
-  ['imposta', 'tassa', 'tasse', 'fiscale', 'fiscali', 'fisco', 'tributario', 'tributaria', 'irpef', 'imposizione'],
-  ['stipendio', 'salario', 'retribuzione', 'busta', 'paga', 'reddito', 'ral', 'compenso', 'emolumento'],
-  ['frontaliere', 'frontalieri', 'frontaliera', 'transfrontaliero', 'transfrontaliera', 'pendolare', 'pendolari', 'cross-border'],
-  ['assicurazione', 'assicurazioni', 'copertura', 'polizza', 'lamal', 'cassa', 'malati', 'premio', 'premi'],
-  ['pensione', 'pensioni', 'pensionamento', 'previdenza', 'avs', 'lpp', 'pilastro', 'rendita', 'rendite'],
-  ['permesso', 'permessi', 'autorizzazione', 'autorizzazioni', 'visto'],
-  ['trasporto', 'trasporti', 'mobilità', 'mobilita', 'pendolarismo', 'treno', 'treni', 'bus', 'auto', 'traffico'],
-  ['casa', 'abitazione', 'alloggio', 'affitto', 'immobiliare', 'immobile', 'appartamento'],
-  ['banca', 'bancario', 'bancaria', 'conto', 'finanza', 'finanziario', 'finanziaria'],
-  ['lavoro', 'lavorare', 'lavoratore', 'lavoratori', 'lavoratrice', 'occupazione', 'impiego', 'mestiere'],
-  ['figlio', 'figli', 'figlia', 'figlie', 'bambino', 'bambini', 'bambina', 'bambine', 'minore', 'minori'],
-  ['svizzera', 'svizzero', 'elvetico', 'elvetica', 'confederazione', 'ch'],
-  ['italia', 'italiano', 'italiana', 'italiani', 'italiane', 'tricolore', 'belpaese'],
-  ['cambio', 'valuta', 'tasso', 'conversione', 'forex', 'chf', 'eur', 'euro', 'franco', 'franchi'],
-  ['costo', 'costi', 'spesa', 'spese', 'prezzo', 'prezzi', 'tariffa', 'tariffe'],
-  ['guida', 'tutorial', 'manuale', 'istruzioni', 'procedura', 'procedure', 'howto'],
-  ['scuola', 'scolastico', 'scolastica', 'istruzione', 'educazione', 'asilo', 'nido'],
-  ['sanità', 'sanita', 'sanitario', 'sanitaria', 'salute', 'medico', 'medica', 'ospedale', 'clinica'],
-];
-
-const synonymMap = new Map<string, string>();
-for (const group of SYNONYM_GROUPS) {
-  const canonical = group[0];
-  for (const w of group) synonymMap.set(w, canonical);
-}
-
-function normalize(word: string): string {
-  if (synonymMap.has(word)) return synonymMap.get(word)!;
-  const stemmed = stemIt(word);
-  if (synonymMap.has(stemmed)) return synonymMap.get(stemmed)!;
-  return stemmed;
-}
+// ── Replica of the pure part of checkForDuplicates (create-article.mjs) ──
 
 function getSignificantWords(text: string): string[] {
   return text
@@ -100,34 +59,16 @@ function getSignificantWords(text: string): string[] {
     .replace(/[^a-zàáèéìíòóùú0-9\s]/g, '')
     .split(/\s+/)
     .filter((w) => w.length > 2 && !STOP_WORDS_IT.has(w))
-    .map((w) => normalize(w));
-}
-
-function jaccardSimilarity(wordsA: string[], wordsB: string[]): number {
-  const setA = new Set(wordsA);
-  const setB = new Set(wordsB);
-  if (setA.size === 0 && setB.size === 0) return 0;
-  const intersection = [...setA].filter((w) => setB.has(w)).length;
-  const union = new Set([...setA, ...setB]).size;
-  return union === 0 ? 0 : intersection / union;
+    .map((w) => normalizeItWord(w));
 }
 
 function extractKeyEntities(text: string): string[] {
   const entities = new Set<string>();
-  for (const m of text.matchAll(/\d[\d.'',]*\d/g)) {
-    entities.add(m[0].replace(/[.''',]/g, ''));
-  }
-  for (const m of text.matchAll(/\b(\d+)[.,]?(\d*)\s*%/g)) {
-    entities.add(`${m[1]}${m[2]}%`);
-  }
+  const s = String(text || '');
+  for (const m of s.matchAll(/\d[\d.'',]*\d/g)) entities.add(m[0].replace(/[.''',]/g, ''));
+  for (const m of s.matchAll(/\b(\d+)[.,]?(\d*)\s*%/g)) entities.add(`${m[1]}${m[2]}%`);
   return [...entities];
 }
-
-// Thresholds (must match create-article.mjs)
-const ID_THRESHOLD = 0.60;
-const TITLE_THRESHOLD = 0.45;
-const EXCERPT_THRESHOLD = 0.35;
-const COMBINED_THRESHOLD = 0.40;
 
 interface ArticleSignals {
   id: string;
@@ -137,7 +78,8 @@ interface ArticleSignals {
 
 function checkDuplicate(
   newArticle: ArticleSignals,
-  existingArticle: ArticleSignals
+  existingArticle: ArticleSignals,
+  corpusSize = CORPUS_SIZE_AT_RECORDING
 ): {
   isDuplicate: boolean;
   idSim: number;
@@ -146,29 +88,28 @@ function checkDuplicate(
   entitySim: number;
   combinedScore: number;
 } {
-  const newIdWords = newArticle.id.split('-').filter((w) => w.length > 1).map((w) => normalize(w));
-  const existingIdWords = existingArticle.id.split('-').filter((w) => w.length > 1).map((w) => normalize(w));
-  const newTitleWords = getSignificantWords(newArticle.title);
-  const existingTitleWords = getSignificantWords(existingArticle.title);
-  const newExcerptWords = getSignificantWords(newArticle.excerpt);
-  const existingExcerptWords = getSignificantWords(existingArticle.excerpt);
-  const newEntities = extractKeyEntities(newArticle.title + ' ' + newArticle.excerpt);
-  const existingEntities = extractKeyEntities(
-    existingArticle.title + ' ' + existingArticle.excerpt
+  const ID_THRESHOLD = 0.72;
+  const TITLE_THRESHOLD = computeAdaptiveEvergreenThresholds(corpusSize).titleJaccard;
+  const EXCERPT_THRESHOLD = 0.62;
+  const COMBINED_THRESHOLD = 0.55;
+
+  const newIdWords = newArticle.id.split('-').filter((w) => w.length > 1).map((w) => normalizeItWord(w));
+  const existingIdWords = existingArticle.id.split('-').filter((w) => w.length > 1).map((w) => normalizeItWord(w));
+  const idSim = jaccardSim(newIdWords, existingIdWords);
+  const titleSim = jaccardSim(getSignificantWords(newArticle.title), getSignificantWords(existingArticle.title));
+  const excerptSim = jaccardSim(getSignificantWords(newArticle.excerpt), getSignificantWords(existingArticle.excerpt));
+  const entitySim = jaccardSim(
+    extractKeyEntities(newArticle.title + ' ' + newArticle.excerpt),
+    extractKeyEntities(existingArticle.title + ' ' + existingArticle.excerpt)
   );
 
-  const idSim = jaccardSimilarity(newIdWords, existingIdWords);
-  const titleSim = jaccardSimilarity(newTitleWords, existingTitleWords);
-  const excerptSim = jaccardSimilarity(newExcerptWords, existingExcerptWords);
-  const entitySim = jaccardSimilarity(newEntities, existingEntities);
-
-  const combinedScore =
-    0.25 * idSim + 0.30 * titleSim + 0.25 * excerptSim + 0.20 * entitySim;
+  const combinedScore = 0.25 * idSim + 0.3 * titleSim + 0.25 * excerptSim + 0.2 * entitySim;
 
   const isDuplicate =
-    idSim >= ID_THRESHOLD ||
+    (idSim >= ID_THRESHOLD && titleSim >= 0.4) ||
     titleSim >= TITLE_THRESHOLD ||
-    excerptSim >= EXCERPT_THRESHOLD ||
+    (excerptSim >= EXCERPT_THRESHOLD && entitySim >= 0.2) ||
+    (entitySim >= 0.65 && combinedScore >= 0.45) ||
     combinedScore >= COMBINED_THRESHOLD;
 
   return { isDuplicate, idSim, titleSim, excerptSim, entitySim, combinedScore };
@@ -199,33 +140,29 @@ const ARTICLE_3: ArticleSignals = {
 
 // ── Tests ───────────────────────────────────────────────────────────
 
-describe('Article duplicate detection (multi-signal)', () => {
-  describe('catches the 2026-02-19 duplicates', () => {
-    it('detects article 2 as duplicate of article 1', () => {
+describe('Article duplicate detection (multi-signal, algoritmo attuale)', () => {
+  describe('the 2026-02-19 trio against current thresholds', () => {
+    it('detects article 2 as duplicate of article 1 (entity 1.00 + combined)', () => {
       const result = checkDuplicate(ARTICLE_2, ARTICLE_1);
       expect(result.isDuplicate).toBe(true);
+      expect(result.entitySim).toBeGreaterThanOrEqual(0.65);
     });
 
-    it('detects article 3 as duplicate of article 1', () => {
+    it('detects article 3 as duplicate of article 2 (combined above threshold)', () => {
+      const result = checkDuplicate(ARTICLE_3, ARTICLE_2);
+      expect(result.isDuplicate).toBe(true);
+      expect(result.combinedScore).toBeGreaterThanOrEqual(0.55);
+    });
+
+    it('no longer detects article 3 as duplicate of article 1 — measured cost of the #3138 loosening', () => {
+      // Combined ~0.44: below the entity-0.65-plus-combined-0.45 gate by a
+      // hair, and below the flat 0.55 combined threshold. If this starts
+      // failing with dup=true, the tuning has changed — update the
+      // expectation CONSCIOUSLY, don't widen the replica to compensate.
       const result = checkDuplicate(ARTICLE_3, ARTICLE_1);
-      expect(result.isDuplicate).toBe(true);
-    });
-
-    it('detects article 3 as duplicate of article 2', () => {
-      const result = checkDuplicate(ARTICLE_3, ARTICLE_2);
-      expect(result.isDuplicate).toBe(true);
-    });
-  });
-
-  describe('ID word-overlap check', () => {
-    it('catches IDs sharing 80% words (calo-2025 vs calo-q4-2025)', () => {
-      const result = checkDuplicate(ARTICLE_2, ARTICLE_1);
-      expect(result.idSim).toBeGreaterThanOrEqual(ID_THRESHOLD);
-    });
-
-    it('catches IDs sharing 67% words (calo-q4-2025 vs dati-q4-2025)', () => {
-      const result = checkDuplicate(ARTICLE_3, ARTICLE_2);
-      expect(result.idSim).toBeGreaterThanOrEqual(ID_THRESHOLD);
+      expect(result.isDuplicate).toBe(false);
+      expect(result.entitySim).toBeGreaterThanOrEqual(0.65);
+      expect(result.combinedScore).toBeGreaterThan(0.4);
     });
   });
 
@@ -245,37 +182,92 @@ describe('Article duplicate detection (multi-signal)', () => {
     };
 
     it('does not flag LAMal article vs frontalieri-calo article', () => {
-      const result = checkDuplicate(DIFFERENT_ARTICLE, ARTICLE_1);
-      expect(result.isDuplicate).toBe(false);
+      expect(checkDuplicate(DIFFERENT_ARTICLE, ARTICLE_1).isDuplicate).toBe(false);
     });
 
     it('does not flag pillar-3 vs frontalieri-calo article', () => {
-      const result = checkDuplicate(ANOTHER_DIFFERENT, ARTICLE_1);
-      expect(result.isDuplicate).toBe(false);
+      expect(checkDuplicate(ANOTHER_DIFFERENT, ARTICLE_1).isDuplicate).toBe(false);
     });
 
-    it('does not flag LAMal vs pillar-3 articles', () => {
+    it('does not flag LAMal vs pillar-3 articles (identical entities, everything else different)', () => {
+      // Both only cite "2026": entitySim 1.00. This is exactly the case the
+      // entity gate requires paired with combined ≥ 0.45 — here it's ~0.23.
       const result = checkDuplicate(DIFFERENT_ARTICLE, ANOTHER_DIFFERENT);
       expect(result.isDuplicate).toBe(false);
     });
+
+    it('does not flag articles with same source data but very different framing', () => {
+      const newArt: ArticleSignals = {
+        id: 'statistiche-permesso-g-fine-anno',
+        title: 'Permessi G: i numeri di fine 2025 in Ticino',
+        excerpt:
+          'I dati UST mostrano 78.809 frontalieri in Ticino (-1,0%). La Svizzera raggiunge quota 411.000.',
+      };
+      const result = checkDuplicate(newArt, ARTICLE_1);
+      expect(result.isDuplicate).toBe(false);
+      expect(result.entitySim).toBeGreaterThan(0.5);
+    });
+
+    it('does not flag articles sharing only common words like "frontalieri" and "ticino"', () => {
+      const genericNew: ArticleSignals = {
+        id: 'frontalieri-ticino-trasporti-2026',
+        title: 'Trasporti per frontalieri in Ticino: novità 2026',
+        excerpt:
+          'Nuovi orari FFS e TILO per i pendolari transfrontalieri. Abbonamenti Arcobaleno in arrivo.',
+      };
+      expect(checkDuplicate(genericNew, ARTICLE_1).isDuplicate).toBe(false);
+    });
   });
 
-  describe('Jaccard similarity', () => {
+  // ── Synonym/morphological duplicates: tokenizer stays alive even when the threshold no longer fires ──
+
+  describe('synonyms: alive in the tokenizer even where the threshold no longer fires', () => {
+    const MATERNITY_ARTICLE: ArticleSignals = {
+      id: 'congedo-parentale-frontalieri-svizzera',
+      title: 'Congedo parentale per frontalieri in Svizzera: guida completa',
+      excerpt:
+        'Tutto sul congedo di maternità e paternità per i lavoratori frontalieri. Durata, indennità giornaliera e diritti dei genitori.',
+    };
+
+    const PARENTAL_LEAVE_ARTICLE: ArticleSignals = {
+      id: 'maternita-paternita-frontalieri-diritti',
+      title: 'Maternità e paternità: diritti dei frontalieri in Svizzera',
+      excerpt:
+        'Guida ai diritti delle gestanti e dei neo-genitori transfrontalieri. Congedo nascita, indennità e protezione dal licenziamento.',
+    };
+
+    it('the lexical check alone no longer catches them (used to be the site\'s cardinal case)', () => {
+      // Title ~0.50 against adaptive threshold ~0.81, combined ~0.33. Today
+      // this class is the job of checkSemanticNearDuplicate (embeddings) and
+      // the evergreen pre-flight gate. Asserted so a future reader doesn't
+      // infer a lexical protection from the file name that isn't there.
+      const result = checkDuplicate(PARENTAL_LEAVE_ARTICLE, MATERNITY_ARTICLE);
+      expect(result.isDuplicate).toBe(false);
+    });
+
+    it('but synonym normalization stays alive: similarity is high, not zero', () => {
+      const result = checkDuplicate(PARENTAL_LEAVE_ARTICLE, MATERNITY_ARTICLE);
+      expect(result.titleSim).toBeGreaterThan(0.3);
+      expect(result.excerptSim).toBeGreaterThan(0.2);
+    });
+  });
+
+  describe('Jaccard similarity (shared jaccardSim)', () => {
     it('returns 0 for empty arrays', () => {
-      expect(jaccardSimilarity([], [])).toBe(0);
+      expect(jaccardSim([], [])).toBe(0);
     });
 
     it('returns 1 for identical sets', () => {
-      expect(jaccardSimilarity(['a', 'b', 'c'], ['a', 'b', 'c'])).toBe(1);
+      expect(jaccardSim(['a', 'b', 'c'], ['a', 'b', 'c'])).toBe(1);
     });
 
     it('returns 0 for disjoint sets', () => {
-      expect(jaccardSimilarity(['a', 'b'], ['c', 'd'])).toBe(0);
+      expect(jaccardSim(['a', 'b'], ['c', 'd'])).toBe(0);
     });
 
     it('handles partial overlap', () => {
       // {a,b,c} ∩ {b,c,d} = {b,c} → 2/4 = 0.5
-      expect(jaccardSimilarity(['a', 'b', 'c'], ['b', 'c', 'd'])).toBeCloseTo(0.5);
+      expect(jaccardSim(['a', 'b', 'c'], ['b', 'c', 'd'])).toBeCloseTo(0.5);
     });
   });
 
@@ -292,129 +284,63 @@ describe('Article duplicate detection (multi-signal)', () => {
     });
   });
 
-  describe('edge cases', () => {
-    it('does not flag articles with same source data but very different framing', () => {
-      // Same UST statistics but completely different ID, title, and angle.
-      // This is borderline — the programmatic check allows it, but the AI selection
-      // prompt (with excerpts) should prevent choosing the same topic upstream.
-      const newArt: ArticleSignals = {
-        id: 'statistiche-permesso-g-fine-anno',
-        title: 'Permessi G: i numeri di fine 2025 in Ticino',
-        excerpt:
-          'I dati UST mostrano 78.809 frontalieri in Ticino (-1,0%). La Svizzera raggiunge quota 411.000.',
-      };
-      const result = checkDuplicate(newArt, ARTICLE_1);
-      // Not flagged because ID (0%) and title (~25%) are very different.
-      // Entity overlap is high (~75%) but weighted contribution is insufficient.
-      // The AI selection prompt provides excerpts to catch this case upstream.
-      expect(result.isDuplicate).toBe(false);
-      // But entity similarity should still be high
-      expect(result.entitySim).toBeGreaterThan(0.5);
-    });
+  // ── Synonym mapping tests (normalizeItWord — what the generator really uses) ──
 
-    it('does not flag articles sharing only common words like "frontalieri" and "ticino"', () => {
-      const genericNew: ArticleSignals = {
-        id: 'frontalieri-ticino-trasporti-2026',
-        title: 'Trasporti per frontalieri in Ticino: novità 2026',
-        excerpt:
-          'Nuovi orari FFS e TILO per i pendolari transfrontalieri. Abbonamenti Arcobaleno in arrivo.',
-      };
-      const result = checkDuplicate(genericNew, ARTICLE_1);
-      expect(result.isDuplicate).toBe(false);
-    });
-  });
-
-  // ── Synonym/morphological duplicate detection ─────────────────────
-
-  describe('catches synonym/morphological duplicates', () => {
-    const MATERNITY_ARTICLE: ArticleSignals = {
-      id: 'congedo-parentale-frontalieri-svizzera',
-      title: 'Congedo parentale per frontalieri in Svizzera: guida completa',
-      excerpt:
-        'Tutto sul congedo di maternità e paternità per i lavoratori frontalieri. Durata, indennità giornaliera e diritti dei genitori.',
-    };
-
-    const PARENTAL_LEAVE_ARTICLE: ArticleSignals = {
-      id: 'maternita-paternita-frontalieri-diritti',
-      title: 'Maternità e paternità: diritti dei frontalieri in Svizzera',
-      excerpt:
-        'Guida ai diritti delle gestanti e dei neo-genitori transfrontalieri. Congedo nascita, indennità e protezione dal licenziamento.',
-    };
-
-    it('detects maternità/paternità article as duplicate of congedo parentale article', () => {
-      const result = checkDuplicate(PARENTAL_LEAVE_ARTICLE, MATERNITY_ARTICLE);
-      expect(result.isDuplicate).toBe(true);
-    });
-
-    it('achieves meaningful title similarity via synonym normalization', () => {
-      const result = checkDuplicate(PARENTAL_LEAVE_ARTICLE, MATERNITY_ARTICLE);
-      // With stemming+synonyms: "congedo", "maternità", "paternità", "parentale" → same canonical
-      expect(result.titleSim).toBeGreaterThan(0.3);
-    });
-
-    it('achieves meaningful excerpt similarity via synonym normalization', () => {
-      const result = checkDuplicate(PARENTAL_LEAVE_ARTICLE, MATERNITY_ARTICLE);
-      expect(result.excerptSim).toBeGreaterThan(0.2);
-    });
-  });
-
-  // ── Stemming unit tests ───────────────────────────────────────────
-
-  describe('Italian stemmer', () => {
-    it('strips -zione/-zioni suffixes', () => {
-      expect(stemIt('imposizione')).toBe('imposi');
-      expect(stemIt('autorizzazioni')).toBe('autor');
-    });
-
-    it('strips -tore/-trice suffixes', () => {
-      expect(stemIt('lavoratore')).toBe('lavora');
-      expect(stemIt('lavoratrice')).toBe('lavora');
-    });
-
-    it('strips -mente suffix', () => {
-      expect(stemIt('generalmente')).toBe('general');
-    });
-
-    it('strips -ato/-ata/-ati/-ate suffixes', () => {
-      expect(stemIt('assicurato')).toBe('assicur');
-      expect(stemIt('lavoratori')).toBe('lavora');
-    });
-
-    it('does not strip words shorter than 4 chars', () => {
-      expect(stemIt('uno')).toBe('uno');
-      expect(stemIt('due')).toBe('due');
-    });
-
-    it('strips trailing vowel from long words', () => {
-      expect(stemIt('salute')).toBe('salut');
-    });
-  });
-
-  // ── Synonym mapping tests ─────────────────────────────────────────
-
-  describe('synonym normalization', () => {
+  describe('synonym normalization (normalizeItWord, the map the generator actually uses)', () => {
     it('maps maternità and congedo to same canonical', () => {
-      expect(normalize('maternità')).toBe(normalize('congedo'));
+      expect(normalizeItWord('maternità')).toBe(normalizeItWord('congedo'));
     });
 
     it('maps paternità and parentale to same canonical', () => {
-      expect(normalize('paternità')).toBe(normalize('parentale'));
+      expect(normalizeItWord('paternità')).toBe(normalizeItWord('parentale'));
     });
 
     it('maps frontalieri and pendolari to same canonical', () => {
-      expect(normalize('frontalieri')).toBe(normalize('pendolari'));
+      expect(normalizeItWord('frontalieri')).toBe(normalizeItWord('pendolari'));
     });
 
     it('maps imposta and tassa to same canonical', () => {
-      expect(normalize('imposta')).toBe(normalize('tassa'));
+      expect(normalizeItWord('imposta')).toBe(normalizeItWord('tassa'));
     });
 
     it('maps stipendio and salario to same canonical', () => {
-      expect(normalize('stipendio')).toBe(normalize('salario'));
+      expect(normalizeItWord('stipendio')).toBe(normalizeItWord('salario'));
     });
 
     it('does not map unrelated words to same canonical', () => {
-      expect(normalize('pensione')).not.toBe(normalize('trasporto'));
+      expect(normalizeItWord('pensione')).not.toBe(normalizeItWord('trasporto'));
     });
+  });
+});
+
+// ── Drift guard: the replica above must match the real source ──
+
+describe('drift guard — checkForDuplicates in create-article.mjs', () => {
+  it('the thresholds and composed conditions replicated here exist verbatim in the source', () => {
+    const src = readFileSync(resolve(ROOT, 'scripts/create-article.mjs'), 'utf-8');
+
+    expect(src).toContain('function checkForDuplicates(data)');
+    expect(src).toContain('const ID_THRESHOLD = 0.72;');
+    expect(src).toContain('computeAdaptiveEvergreenThresholds(existingArticles.length).titleJaccard');
+    expect(src).toContain('const EXCERPT_THRESHOLD = 0.62;');
+    expect(src).toContain('const COMBINED_THRESHOLD = 0.55;');
+    expect(src).toContain('(idSim >= ID_THRESHOLD && titleSim >= 0.40) ||');
+    expect(src).toContain('(excerptSim >= EXCERPT_THRESHOLD && entitySim >= 0.20) ||');
+    expect(src).toContain('(entitySim >= 0.65 && combinedScore >= 0.45) ||');
+    expect(src).toContain('.map(w => normalizeItWord(w))');
+
+    // The combined score weights, line by line as they stand in the source.
+    expect(src).toContain('0.25 * idSim +');
+    expect(src).toContain('0.30 * titleSim +');
+    expect(src).toContain('0.25 * excerptSim +');
+    expect(src).toContain('0.20 * entitySim;');
+  });
+
+  it('the adaptive title threshold saturates at the ceiling: expectations stay valid on larger corpora', () => {
+    const at3768 = computeAdaptiveEvergreenThresholds(3768).titleJaccard;
+    const at10000 = computeAdaptiveEvergreenThresholds(10000).titleJaccard;
+    expect(at3768).toBeGreaterThan(0.8);
+    expect(at10000).toBeGreaterThanOrEqual(at3768);
+    expect(at10000).toBeLessThan(0.86);
   });
 });
