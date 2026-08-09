@@ -36,8 +36,9 @@ name: Article Hub Landing Watchdog
 on:
   schedule:
     # Twice a day, offset from the corpus's publish windows so a run lands
-    # after them rather than during. Cheap: 19 HTTP GETs — 3 API documents
-    # plus the 8 landings and their 8 /tutti/ archives.
+    # after them rather than during. Cheap: 21 HTTP GETs — 3 API documents,
+    # the 2 section topic sitemaps, and the 8 landings with their 8 /tutti/
+    # archives.
     - cron: '40 6,18 * * *'
   workflow_dispatch: {}
 
@@ -63,10 +64,20 @@ jobs:
         with:
           node-version: '22'
 
-      # No `npm ci`: the probe imports three first-party ESM modules and uses
+      # No `npm ci`: the probe imports four first-party ESM modules and uses
       # global fetch, nothing else. Installing 1.4 GB of node_modules to make
-      # nineteen HTTP requests would be the slowest part of the run by an order
-      # of magnitude.
+      # twenty-one HTTP requests would be the slowest part of the run by an
+      # order of magnitude.
+      #
+      # That is also why the renderer-drift check (#5432) reads its expectation
+      # from the published `sitemap-topics-<section>.xml` rather than
+      # recomputing it with the engine's `computeEligibleTopicKeys`. The
+      # obstacle is NOT the install — `npx -y tsx@4` runs TypeScript here with
+      # no repo install at all, as `rerender-article-corpus.yml` does. It is
+      # that recomputing answers a different question: what THIS checkout would
+      # emit, from the site repo's copy of the corpus, instead of what the site
+      # published. Two extra GETs compare two independently-produced surfaces,
+      # which is the only comparison that can see one of them go stale.
       - name: Probe the article-hub landings
         id: health
         run: node scripts/check-article-hub-landings.mjs
@@ -86,8 +97,9 @@ jobs:
 
           One or more of the eight handed-off article-hub landings — or one of their
           eight \`/tutti/\` archives — is degraded: no \`ssg-article-grid\` marker, too few
-          cards, it no longer links the newest article the corpus published, or it
-          still carries same-origin \`/assets/\` references.
+          cards, it no longer links the newest article the corpus published, it still
+          carries same-origin \`/assets/\` references, or it no longer links the topic
+          hubs its own section sitemap announces.
 
           ### Probe report
           \`\`\`
@@ -115,6 +127,20 @@ jobs:
             message carries the publisher's commit SHA) and fix the ordering in THAT copy:
             \`renderArticleHubPages\` must run BEFORE the
             \`offload-generated-images-cdn.mjs\` subprocess.
+          - **announced topic-hub anchors missing** → RENDERER drift, not corpus drift
+            (issue #5432). The archive is served by output older than #5422/#5423, so
+            every URL in \`sitemap-topics-<section>.xml\` is unreachable from it and
+            \`audit:max-bfs-depth\` goes red saying only "unreachable". An archive is
+            re-rendered ONLY as a side effect of publishing an article into its section,
+            so a section that has stopped publishing stays on the old renderer
+            indefinitely — every other check on this page keeps passing meanwhile.
+            Re-render it: \`gh workflow run fast-publish-article.yml --repo
+            nanakokyobashi-rgb/frontaliere-articles --ref main -f article_id=<an id of
+            that section> -f section=<section> -f dry_run=false\` (\`dry_run\` defaults to
+            true, and \`section\` is required whenever \`article_id\` is given).
+          - **anchors the sitemap does not announce** → the opposite direction: the
+            archive links topic hubs the site has not published. Check whether the
+            deploy that owns \`public/sitemap-topics-<section>.xml\` is the stale side.
 
           This issue auto-resolves on the next watchdog run once the landings are healthy again." \
             --priority 2 \
