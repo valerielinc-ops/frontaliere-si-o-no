@@ -56,6 +56,7 @@
  * are correctly excluded by the walk.
  */
 import fs from 'node:fs';
+import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 import { REDIRECT_STUB_MARKER } from '../build-plugins/shared/redirectStubMarker.mjs';
@@ -137,17 +138,185 @@ const SKIP_PATHS = new Set([
 const REDIRECT_SHAPE_RX =
   /<meta\s+http-equiv="refresh"[^>]*>|location\.replace\(|window\.location\.href\s*=/i;
 
-function* walkIndexHtml(dir, base = '') {
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (entry.isDirectory()) {
-      // Skip asset/data/image directories — they don't contain index.html anyway,
-      // but skipping saves I/O on large trees.
-      if (entry.name === 'assets' || entry.name === 'data' || entry.name === 'images') continue;
-      yield* walkIndexHtml(path.join(dir, entry.name), path.posix.join(base, entry.name));
-    } else if (entry.name === 'index.html') {
-      yield { absPath: path.join(dir, entry.name), relDir: base };
-    }
-  }
+// ─── Walk + read: bounded-concurrency streaming (was fully synchronous) ──────
+//
+// WHY THIS IS NOT `readdirSync`/`readFileSync` ANY MORE (issue #5432, point 6b)
+// ----------------------------------------------------------------------------
+// This gate was the single critical path of the whole `validate-dist-postbuild`
+// job. Measured on three consecutive real runs (per-gate rows from
+// /tmp/post-build-timings.txt):
+//
+//   run 31283409340  audit:spa-bundle-injection 1735.12s   step wall 1740s
+//   run 31287634802  audit:spa-bundle-injection 1769.40s   step wall 1776s
+//   run 31296098323  audit:spa-bundle-injection 1880.28s   step wall 1885s
+//
+// i.e. 99.6-99.7 % of the "Post-build validations + SEO audits (capped
+// parallel)" step. The runner-up (`audit:all`, 996-1109s) and the other eight
+// gates all finished INSIDE this one's window, so the last ~13-15 minutes of
+// the step were one single-threaded Node process on a 4 vCPU runner.
+//
+// The cause was not the work, it was the scheduling: on the rehydrated
+// production dist (~2.07M index.html files, one directory per page) the
+// synchronous generator issued ~4.1M blocking syscalls strictly one at a time,
+// leaving the event loop — and three of the four vCPUs — idle in between.
+// Overlapping them via libuv's fs threadpool is the same lever
+// `scripts/lib/audit-runner.mjs` already applies (its WALK_CONCURRENCY for the
+// walk, its READAHEAD for the reads).
+//
+// THIS IS A PURE I/O-SCHEDULING CHANGE — the gate's COVERAGE AND VERDICT ARE
+// UNCHANGED. Specifically, and deliberately:
+//
+//   • the visited directory set is identical: still skipping exactly `assets` /
+//     `data` / `images`, still descending into dot-directories. (That last
+//     point is why this walker is private instead of reusing audit-runner's
+//     `walkHtmlFiles`, which skips dot-prefixed entries and does not skip
+//     assets/data/images — reusing it would have silently changed the file set,
+//     and therefore the ratcheted count.)
+//   • the scanned file set is identical: still every entry literally named
+//     `index.html`, still without an isFile() test, so a symlinked index.html
+//     is still read exactly as before.
+//   • read errors still propagate and abort the run, exactly as readFileSync
+//     did. This gate fails closed; it must never silently skip a file.
+//   • the counters, the SKIP_PATHS / redirect-shape branches and the violation
+//     records below are byte-for-byte the previous ones.
+//   • NO SAMPLING. See the note above the baseline comparison for why this
+//     particular gate must keep scanning 100 % of dist/.
+//
+// Only DISCOVERY ORDER changes, and it reaches exactly two cosmetic places: the
+// order of `offenders` in the JSON report, and which 3 paths a group prints as
+// `samples` on failure. No counter and no verdict depends on it.
+//
+// Concurrency constants mirror scripts/lib/audit-runner.mjs. The real ceiling
+// is libuv's default 4-thread fs pool; anything above it merely keeps that pool
+// saturated.
+const WALK_CONCURRENCY = 24;
+const READ_CONCURRENCY = 8;
+
+/**
+ * FIFO with an O(1) `take()` that also releases the consumed prefix. A plain
+ * `Array.shift()` is a memmove over the frontier (six figures of entries here);
+ * a bare index cursor never frees, retaining one path string per directory ever
+ * visited (~2M). This keeps live memory proportional to the frontier, which
+ * matters under the pool's `--max-old-space-size=4096` cap.
+ */
+function makeQueue() {
+  const items = [];
+  let head = 0;
+  return {
+    get size() {
+      return items.length - head;
+    },
+    push(v) {
+      items.push(v);
+    },
+    take() {
+      const v = items[head];
+      items[head++] = undefined;
+      if (head >= 4096 && head * 2 >= items.length) {
+        items.splice(0, head);
+        head = 0;
+      }
+      return v;
+    },
+  };
+}
+
+/**
+ * Walk `root` and invoke `onFile(relDir, html)` for every `index.html`, with at
+ * most WALK_CONCURRENCY readdir() and READ_CONCURRENCY readFile() in flight.
+ * Rejects with the first error seen, after the in-flight operations drain.
+ *
+ * @param {string} root
+ * @param {(relDir: string, html: string) => void} onFile
+ */
+async function scanIndexHtml(root, onFile) {
+  const dirs = makeQueue();
+  const files = makeQueue();
+  dirs.push({ dir: root, base: '' });
+
+  let dirsInFlight = 0;
+  let readsInFlight = 0;
+  let failure = null;
+  let settled = false;
+
+  await new Promise((resolve, reject) => {
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      if (failure) reject(failure);
+      else resolve();
+    };
+    // Termination. In the happy path both queues must be empty AND nothing in
+    // flight. Once a failure is recorded we stop scheduling, so the queues stay
+    // populated forever — the condition then has to be "everything in flight
+    // has drained", or the promise never settles and Node exits 13 with
+    // "unsettled top-level await" instead of surfacing the real error.
+    const idle = () =>
+      dirsInFlight === 0 && readsInFlight === 0 && (failure !== null || (dirs.size === 0 && files.size === 0));
+
+    const pump = () => {
+      if (settled) return;
+      // On the first failure we stop SCHEDULING, but let everything already in
+      // flight drain before rejecting, so no promise is left dangling.
+      if (!failure) {
+        while (dirsInFlight < WALK_CONCURRENCY && dirs.size > 0) {
+          const { dir, base } = dirs.take();
+          dirsInFlight++;
+          readdir(dir, { withFileTypes: true })
+            .then(
+              (entries) => {
+                for (const entry of entries) {
+                  if (entry.isDirectory()) {
+                    // Skip asset/data/image directories — they don't contain
+                    // index.html anyway, but skipping saves I/O on large trees.
+                    if (entry.name === 'assets' || entry.name === 'data' || entry.name === 'images') continue;
+                    dirs.push({
+                      dir: path.join(dir, entry.name),
+                      base: path.posix.join(base, entry.name),
+                    });
+                  } else if (entry.name === 'index.html') {
+                    files.push({ absPath: path.join(dir, entry.name), relDir: base });
+                  }
+                }
+              },
+              (err) => {
+                failure ??= err;
+              },
+            )
+            .finally(() => {
+              dirsInFlight--;
+              pump();
+            });
+        }
+        while (readsInFlight < READ_CONCURRENCY && files.size > 0) {
+          const { absPath, relDir } = files.take();
+          readsInFlight++;
+          readFile(absPath, 'utf-8')
+            .then(
+              (html) => {
+                // onFile is the accumulator below; a throw in it is a bug, but
+                // it must surface as a rejection, not as an unhandled one.
+                try {
+                  onFile(relDir, html);
+                } catch (err) {
+                  failure ??= err;
+                }
+              },
+              (err) => {
+                failure ??= err;
+              },
+            )
+            .finally(() => {
+              readsInFlight--;
+              pump();
+            });
+        }
+      }
+      if (idle()) finish();
+    };
+
+    pump();
+  });
 }
 
 let scanned = 0;
@@ -155,14 +324,13 @@ let skippedExplicit = 0;
 let skippedRedirect = 0;
 const violations = [];
 
-for (const { absPath, relDir } of walkIndexHtml(DIST)) {
+await scanIndexHtml(DIST, (relDir, html) => {
   if (SKIP_PATHS.has(relDir)) {
     skippedExplicit++;
-    continue;
+    return;
   }
   scanned++;
-  const html = fs.readFileSync(absPath, 'utf-8');
-  if (SPA_BUNDLE_RX.test(html)) continue;
+  if (SPA_BUNDLE_RX.test(html)) return;
   // Page is missing the bundle. Before flagging it, check whether its HTML
   // shape is a deliberate redirect (no SPA needed by design). Counted
   // separately so a regression that adds redirects in unexpected places
@@ -174,10 +342,10 @@ for (const { absPath, relDir } of walkIndexHtml(DIST)) {
   // +32k false "missing bundle" regressions, all "Pagina spostata" stubs).
   if (REDIRECT_SHAPE_RX.test(html) || html.includes(REDIRECT_STUB_MARKER)) {
     skippedRedirect++;
-    continue;
+    return;
   }
   violations.push({ relDir, size: html.length });
-}
+});
 
 console.log(
   `[audit:spa-bundle-injection] scanned ${scanned} index.html files (skipped ${skippedExplicit} via SKIP_PATHS, ${skippedRedirect} as redirect-shape)`,
@@ -250,6 +418,34 @@ if (REBASELINE) {
   process.exit(0);
 }
 
+// ─── Why this gate is NEVER sampled ──────────────────────────────────────────
+// AUDIT_SAMPLE_RATE / AUDIT_SAMPLE_SALT (scripts/lib/audit-runner.mjs's
+// sampleFiles()) are deliberately NOT honoured here, and this script is
+// deliberately NOT registered in scripts/audit-all.mjs — registering it there
+// would inherit that runner's sampling implicitly.
+//
+// The reason is arithmetic, not caution. The comparison below is
+// `current <= baselineTotal` with ZERO tolerance, on a raw count. Reading a
+// fraction `p` of dist/ turns that count into a binomial draw; even after
+// rescaling it the way scripts/lib/mixAdjustedRateGate.mjs does for the
+// per-feature RATE ratchets in audit-title-length / audit-h1-title-duplicates
+// / audit-text-html-ratio, the rescaled count carries a standard deviation of
+// sqrt(N·(1−p)/p) — at N≈10 659 observed and p=0.25 that is ±180 offenders
+// against a baseline of 10 800, i.e. headroom smaller than 1σ and a false RED
+// on a double-digit percentage of runs.
+//
+// (This file therefore does NOT name that helper as a call. The guard in
+// tests/seo/regressed-feature-message.test.ts treats any scripts/audit-*.mjs
+// that contains the call as a sampled ratchet and requires it to also use
+// formatRegressedFeature — correct for a gate that samples, wrong for one
+// that documents why it must not.)
+//
+// Those rate ratchets tolerate sampling because they gate on a per-feature
+// RATE with an explicit `minAbsDelta` noise floor; this one gates on an
+// absolute count with no floor at all. Sampling it would not "weaken the
+// threshold silently" — it would make the gate flap. Either failure mode ends
+// the same way: someone switches it off. Hence: 100 % of dist/, every run, and
+// the speed comes from the I/O scheduling above instead.
 let baseline = null;
 if (fs.existsSync(BASELINE_PATH)) {
   try {
