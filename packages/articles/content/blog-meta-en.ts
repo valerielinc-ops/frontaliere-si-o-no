@@ -9412,6 +9412,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-assistente-dentale-ticino.title': 'Dental assistant in Ticino: salary and requirements',
     'blog.article.frontaliere-assistente-dentale-ticino.excerpt': 'Guide for border workers: salary, tax at source, LAMal and AVS requirements to work as a dental assistant in the Canton of Ticino.',
     'blog.article.frontaliere-assistente-dentale-ticino.imageAlt': 'Dental assistant working in a modern dental clinic in Ticino',
+    'blog.article.confronto-frontalieri-festa-lucciola.title': 'Frontiersmen and Switzerland: comparison to the Firefly Festival',
+    'blog.article.confronto-frontalieri-festa-lucciola.excerpt': 'On Sunday 9 August, trade unions and political representatives will discuss the prospects of cross-border work and the dialogue between Italy and Switzerland.',
+    'blog.article.confronto-frontalieri-festa-lucciola.imageAlt': 'Meeting on cross-border workers at Festa della Lucciola',
 };
 
 export default blogMetaEn;
