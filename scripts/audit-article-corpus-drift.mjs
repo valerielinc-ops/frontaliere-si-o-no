@@ -158,8 +158,18 @@ function sampleWithoutReplacement(arr, n) {
 //     article still propagating; see header comment).
 //   - 'content-mismatch'    — a real MISMATCH with no CF marker in its
 //     reported diff block: the signal this audit actually exists to catch.
+// Returns { verdicts, diagnostics }: `verdicts` is the same locale->category
+// map this function has always produced (unchanged shape — categorizeLocaleVerdicts
+// and its tests consume only this). `diagnostics` additionally carries the raw
+// block text (the underlying script's MISMATCH/offset/context/line-diff
+// lines, verbatim) for locales that did NOT come back 'ok' — the detail a
+// human needs to see WHERE an article diverges, previously discarded here and
+// visible only in the CI job log for the run that produced it (see issue
+// #5444's first real-run finding: an audit that says only "FAIL
+// (content-mismatch)" gives nobody anywhere to start looking).
 export function parseLocaleVerdicts(combinedOutput) {
   const verdicts = {};
+  const diagnostics = {};
   let currentLocale = null;
   let currentBlockLines = [];
 
@@ -167,19 +177,22 @@ export function parseLocaleVerdicts(combinedOutput) {
     if (!currentLocale) return;
     const firstLine = currentBlockLines[0] || '';
     const blockText = currentBlockLines.join('\n');
+    let verdict;
     if (/:\s*OK\s*—/.test(firstLine)) {
-      verdicts[currentLocale] = 'ok';
+      verdict = 'ok';
     } else if (/local file missing/.test(firstLine)) {
-      verdicts[currentLocale] = 'render-failure';
+      verdict = 'render-failure';
     } else if (/curl .* exited/.test(firstLine) || /live fetch .* -> HTTP/.test(firstLine)) {
-      verdicts[currentLocale] = 'fetch-or-liveness';
+      verdict = 'fetch-or-liveness';
     } else if (/:\s*MISMATCH\s*—/.test(firstLine) && blockText.includes('__CF$cv$params')) {
-      verdicts[currentLocale] = 'cf-bot-script-only';
+      verdict = 'cf-bot-script-only';
     } else if (/:\s*MISMATCH\s*—/.test(firstLine)) {
-      verdicts[currentLocale] = 'content-mismatch';
+      verdict = 'content-mismatch';
     } else {
-      verdicts[currentLocale] = 'unknown';
+      verdict = 'unknown';
     }
+    verdicts[currentLocale] = verdict;
+    if (verdict !== 'ok') diagnostics[currentLocale] = blockText.trim();
   };
 
   for (const line of combinedOutput.split('\n')) {
@@ -193,7 +206,7 @@ export function parseLocaleVerdicts(combinedOutput) {
     }
   }
   flush();
-  return verdicts;
+  return { verdicts, diagnostics };
 }
 
 // Categories that count as a genuine finding for this audit's pass/fail exit
@@ -258,14 +271,19 @@ async function main() {
         encoding: 'utf-8',
       });
       const combinedOutput = `${result.stdout || ''}\n${result.stderr || ''}`;
-      const localeVerdicts = parseLocaleVerdicts(combinedOutput);
+      const { verdicts: localeVerdicts, diagnostics: localeDiagnostics } = parseLocaleVerdicts(combinedOutput);
 
       const category = categorizeLocaleVerdicts(localeVerdicts);
 
       const ok = !DIVERGENT_CATEGORIES.has(category);
       if (!ok) anyDivergence = true;
-      results.push({ articleId: id, ok, category, localeVerdicts });
+      results.push({ articleId: id, ok, category, localeVerdicts, localeDiagnostics });
       console.log(`[audit-article-corpus-drift]   ${section.name}/${id}: ${ok ? `OK (${category})` : `FAIL (${category})`}`);
+      if (!ok) {
+        for (const [locale, detail] of Object.entries(localeDiagnostics)) {
+          console.log(`[audit-article-corpus-drift]     ${locale}:\n${detail}`);
+        }
+      }
     }
 
     report.sections[section.name] = {
