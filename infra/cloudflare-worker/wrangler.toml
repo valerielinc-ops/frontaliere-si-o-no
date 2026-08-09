@@ -256,6 +256,26 @@ routes = [
   { pattern = "frontaliereticino.ch/llms.txt*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/llms-full.txt*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/.well-known/llms.txt*", zone_name = "frontaliereticino.ch" },
+  # The ten RSS feeds (#5420 residual — see locale-router.js EDGE_PUSHED_FILES
+  # for the measurement: /rss.xml was 3h51m behind its source while
+  # /sitemap-blog.xml, pulled from the same API in the same commit, was current
+  # to the millisecond). Wildcard, same reason as every route in this block.
+  #
+  # A route is REQUIRED, not just a table entry — the same lesson already
+  # recorded twice above (/sitemap-articles-archive.xml, the topic hubs): an
+  # EDGE_PUSHED_FILES entry without a route means the Worker never sees the
+  # request, so the R2 object is uploaded and never served, and it looks like a
+  # publish bug rather than a routing one.
+  { pattern = "frontaliereticino.ch/rss.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/rss-it.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/rss-en.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/rss-de.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/rss-fr.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/rss-svizzera.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/rss-svizzera-it.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/rss-svizzera-en.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/rss-svizzera-de.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/rss-svizzera-fr.xml*", zone_name = "frontaliereticino.ch" },
   # NOTE: the /assets/* /data/* /og/* CDN-proxy routes were removed (2026-06-10).
   # Since #1665 the shard locale HTML references those static paths CDN-absolute
   # (cdn.frontaliereticino.ch/...), so the browser fetches them straight from the

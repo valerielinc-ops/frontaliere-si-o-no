@@ -812,6 +812,44 @@ export const EDGE_PUSHED_FILES = {
   // filesystem.
   '/sitemap-topics-frontaliere.xml': { cdnKey: '/edge/sitemap-topics-frontaliere.xml', contentType: 'application/xml; charset=utf-8' },
   '/sitemap-topics-svizzera.xml': { cdnKey: '/edge/sitemap-topics-svizzera.xml', contentType: 'application/xml; charset=utf-8' },
+  // The ten RSS feeds (#5420 residual). Registered for FRESHNESS, and the
+  // gemello of the sitemaps directly above: sync-articles-sitemaps.yml pulls
+  // the sitemaps AND the feeds from the same API in the same commit, but only
+  // the sitemaps were served from here. The feeds stayed deploy-bound.
+  //
+  // Measured 2026-08-09 at 12:20Z, on the same apex, minutes apart:
+  //
+  //   /rss.xml           lastBuildDate 08:32:36Z   ← passthrough
+  //   /rss-it|en|de|fr   lastBuildDate 08:32:36Z   ← passthrough
+  //   source (corpus Pages)             11:30:02Z
+  //   /sitemap-blog.xml  newest lastmod 11:30:02.079Z  ← THIS table, current
+  //
+  // Three hours fifty-one minutes, next to a sibling that was current to the
+  // millisecond. The gap is one full deploy cycle, and it is the whole window
+  // in which a feed reader sees the site as having published nothing.
+  //
+  // The five /rss-svizzera* were byte-current at that moment, and that is NOT
+  // evidence the passthrough works for them: their source had not moved since
+  // the previous evening (21:38:34Z on both sides), because no svizzera article
+  // had been published. Same mechanism, same exposure, lower publish rate — so
+  // they are registered too rather than left as an exception that would look
+  // deliberate later.
+  //
+  // No surface change: all ten already answer 200 at the apex (verified), so
+  // this swaps which origin answers, not whether one does. Static committed
+  // files, so no `source: 'generated'` — publish-edge-files.mjs reads
+  // public/<name>.xml, which sync-articles-sitemaps.yml commits in the same
+  // FILES list as the sitemaps.
+  '/rss.xml': { cdnKey: '/edge/rss.xml', contentType: 'application/rss+xml; charset=utf-8' },
+  '/rss-it.xml': { cdnKey: '/edge/rss-it.xml', contentType: 'application/rss+xml; charset=utf-8' },
+  '/rss-en.xml': { cdnKey: '/edge/rss-en.xml', contentType: 'application/rss+xml; charset=utf-8' },
+  '/rss-de.xml': { cdnKey: '/edge/rss-de.xml', contentType: 'application/rss+xml; charset=utf-8' },
+  '/rss-fr.xml': { cdnKey: '/edge/rss-fr.xml', contentType: 'application/rss+xml; charset=utf-8' },
+  '/rss-svizzera.xml': { cdnKey: '/edge/rss-svizzera.xml', contentType: 'application/rss+xml; charset=utf-8' },
+  '/rss-svizzera-it.xml': { cdnKey: '/edge/rss-svizzera-it.xml', contentType: 'application/rss+xml; charset=utf-8' },
+  '/rss-svizzera-en.xml': { cdnKey: '/edge/rss-svizzera-en.xml', contentType: 'application/rss+xml; charset=utf-8' },
+  '/rss-svizzera-de.xml': { cdnKey: '/edge/rss-svizzera-de.xml', contentType: 'application/rss+xml; charset=utf-8' },
+  '/rss-svizzera-fr.xml': { cdnKey: '/edge/rss-svizzera-fr.xml', contentType: 'application/rss+xml; charset=utf-8' },
   '/llms.txt': { cdnKey: '/edge/llms.txt', contentType: 'text/plain; charset=utf-8', source: 'generated' },
   '/llms-full.txt': { cdnKey: '/edge/llms-full.txt', contentType: 'text/plain; charset=utf-8', source: 'generated' },
   '/.well-known/llms.txt': {

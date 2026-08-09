@@ -203,6 +203,18 @@ jobs:
           else
             echo "ticker-changed=true" >> "$GITHUB_OUTPUT"
           fi
+          # Third surface, same reasoning again: the ten RSS feeds are now in
+          # EDGE_PUSHED_FILES, so committing them here does nothing until
+          # something PUTs them. One flag for all ten — they are pulled from the
+          # same API response in the same commit, so they move together, and a
+          # per-feed gate would only add ten ways to disagree.
+          if git diff --quiet -- public/rss.xml public/rss-it.xml public/rss-en.xml public/rss-de.xml public/rss-fr.xml \
+                                  public/rss-svizzera.xml public/rss-svizzera-it.xml public/rss-svizzera-en.xml \
+                                  public/rss-svizzera-de.xml public/rss-svizzera-fr.xml; then
+            echo "feeds-changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "feeds-changed=true" >> "$GITHUB_OUTPUT"
+          fi
           # Every artifact the pull writes: the two sitemaps, the ten RSS feeds
           # and the news-ticker payload (issue #4974 item 2). Listing them here
           # rather than `git add public/` keeps the commit scoped to what this
@@ -345,7 +357,7 @@ jobs:
       # Gated on the file having actually changed so a quiet run does not spend
       # a Cloudflare purge on a byte-identical re-PUT.
       - name: Prepare Firebase credentials
-        if: steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true'
+        if: steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -355,13 +367,40 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
-        if: steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true'
+        if: steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true'
         run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
 
       - name: Publish the news sitemap to the edge
         if: steps.commit.outputs.news-sitemap-changed == 'true'
         continue-on-error: true
         run: node scripts/publish-edge-files.mjs --only=/sitemap-news.xml
+
+      # ── The ten RSS feeds: the gemello of the sitemap step above ────────────
+      #
+      # This job already pulls the feeds from the same API response as the
+      # sitemaps and commits them in the same FILES list, but only the sitemaps
+      # were served from the edge. So the feeds stayed deploy-bound. Measured
+      # 2026-08-09 at 12:20Z: /rss.xml carried lastBuildDate 08:32:36Z against a
+      # source at 11:30:02Z — 3h51m — while /sitemap-blog.xml, pulled in the
+      # same commit and registered in EDGE_PUSHED_FILES, matched its source to
+      # the millisecond. Same job, same bytes, two different origins.
+      #
+      # `--only=` with all ten named, for the reason the step above states: this
+      # checkout is a `git checkout`, not a build, so a bare invocation would
+      # overwrite the 'generated' llms.txt family with what a dist-less tree
+      # renders. The flag is also a hard gate — publish-edge-files.mjs throws on
+      # a pathname missing from EDGE_PUSHED_FILES rather than warning, so a typo
+      # here fails the step instead of publishing nine feeds quietly.
+      #
+      # continue-on-error, like its sibling: a failed PUT leaves the edge
+      # serving the previous R2 copy or falling open to the origin passthrough,
+      # which is exactly today's behaviour. It must never be the reason a run
+      # that already committed correct files reports failure.
+      - name: Publish the RSS feeds to the edge
+        if: steps.commit.outputs.feeds-changed == 'true'
+        continue-on-error: true
+        run: |
+          node scripts/publish-edge-files.mjs --only=/rss.xml,/rss-it.xml,/rss-en.xml,/rss-de.xml,/rss-fr.xml,/rss-svizzera.xml,/rss-svizzera-it.xml,/rss-svizzera-en.xml,/rss-svizzera-de.xml,/rss-svizzera-fr.xml
 
       # ── The homepage ticker: same class of defect, a different key ──────────
       #
