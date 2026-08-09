@@ -84,6 +84,22 @@ const ENTITY_DISCRIMINANTS: Record<string, string[]> = {
   'crawler-health-monitor.yml': ['${slug}'], // one issue per crawler
   'deploy.yml': ['${{ matrix.locale }}'], // one issue per locale shard
   'rerender-article-corpus.yml': ['${{ matrix.section }}'], // one issue per section shard
+  // Same granularity as rerender-article-corpus.yml directly above, and for
+  // the same reason: `section` ranges over a CLOSED set of two values
+  // (frontaliere, svizzera), so it says WHICH shard family is broken, never
+  // when or how many. The same section failing again resolves to the same
+  // 60-char prefix and lands on the same issue as a `🔁 Recurrence` comment —
+  // which is the behaviour wanted here, because a hub re-render that keeps
+  // failing for one section is one standing condition, not a new one per run.
+  //
+  // Spelled `$INPUT_SECTION` rather than `${{ matrix.section }}` because that
+  // workflow hands the matrix value to the shell through `env:` instead of
+  // interpolating it into the script text — the form
+  // scripts/ci/check-workflow-input-injection.mjs requires, and a rule this
+  // very workflow already tripped over once. Rewriting the title to
+  // `${{ matrix.section }}` would satisfy this list by reopening that finding.
+  // The env token is the correct shape; the allowlist is what has to know it.
+  'rerender-article-hubs.yml': ['$INPUT_SECTION'], // one issue per section shard
 };
 
 function stripStableSubstitutions(s: string, file: string): string {
