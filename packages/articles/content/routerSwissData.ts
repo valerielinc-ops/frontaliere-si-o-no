@@ -691,6 +691,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposta-cantonale-confronto-svizzera-2026-canton-ginevra': { it: 'imposta-cantonale-confronto-svizzera-2026-canton-ginevra', en: 'imposta-cantonale-confronto-svizzera-2026-canton-ginevra', de: 'imposta-cantonale-confronto-svizzera-2026-canton-ginevra', fr: 'imposta-cantonale-confronto-svizzera-2026-canton-ginevra' },
  'imposta-cantonale-confronto-svizzera-2026-canton-vaud': { it: 'imposta-cantonale-confronto-svizzera-2026-canton-vaud', en: 'tax-cantonal-comparison-switzerland-2026-canton-vaud', de: 'steuerliche-vergleichung-schweiz-2026-kanton-vaud', fr: 'comparaison-fiscale-suisse-2026-canton-vaud' },
  'premi-cassa-malati-lamal-2026-canton-zurigo': { it: 'premi-cassa-malati-lamal-2026-canton-zurigo', en: 'premium-health-insurance-lamal-2026-canton-zurigo', de: 'preis-von-krankenkassen-lamal-2026-kanton-zurich', fr: 'premies-des-assurances-maladie-lamal-2026-canton-zurich' },
+ 'premi-cassa-malati-lamal-2026-cantone-bern': { it: 'premi-cassa-malati-lamal-2026-cantone-bern', en: 'lamal-2026-cantone-bern', de: 'lamal-2026-kanton-bern', fr: 'lamal-2026-canton-de-bourges' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

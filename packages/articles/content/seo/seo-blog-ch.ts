@@ -25835,6 +25835,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-cassa-malati-lamal-2026-cantone-bern': {
+    title: 'LAMal nel Cantone Berna: guida ai premi e sussidi',
+    description: 'I premi LAMal nel Cantone Berna sono soggetti a differenze rispetto ad altri cantoni svizzeri. Ecco cosa sapere sulla franchigia ottimale, sul cambio cassa',
+    keywords: 'frontalieri, ticino, svizzera, italia, lamal, cantone, berna, premi',
+    ogTitle: 'Guida ai premi LAMal nel Cantone Berna',
+    ogDescription: 'I premi LAMal nel Cantone Berna sono soggetti a differenze rispetto ad altri cantoni svizzeri. Ecco cosa sapere sulla franchigia ottimale, sul cambio cassa e sui sussidi disponibili.',
+    canonicalPath: '/articoli-svizzera/premi-cassa-malati-lamal-2026-cantone-bern/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LAMal nel Cantone Berna: guida ai premi e sussidi",
+      "description": "I premi LAMal nel Cantone Berna sono soggetti a differenze rispetto ad altri cantoni svizzeri. Ecco cosa sapere sulla franchigia ottimale, sul cambio cassa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-lamal-2026-cantone-bern.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un lago in Svizzera"
+      },
+      "datePublished": "2026-08-09T23:13:30+00:00",
+      "dateModified": "2026-08-09T23:13:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-cassa-malati-lamal-2026-cantone-bern/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

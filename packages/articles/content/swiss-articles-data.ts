@@ -5986,6 +5986,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'premi-cassa-malati-lamal-2026-cantone-bern',
+    category: 'fiscale',
+    date: '2026-08-09T23:13:30.885Z',
+    image: '/images/blog/premi-cassa-malati-lamal-2026-cantone-bern.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
