@@ -9392,6 +9392,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-09.title': 'Bollettino del frontaliere – 9 agosto 2026: 589 nuovi annunci di lavoro ieri',
     'blog.article.bollettino-frontaliere-2026-08-09.excerpt': 'I numeri di oggi, 9 agosto 2026, per chi attraversa il confine: attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco–euro e i nuovi annunci di lavoro in Svizzera. Dati raccolti dal nostro monitoraggio, aggiornati ogni giorno.',
     'blog.article.bollettino-frontaliere-2026-08-09.imageAlt': 'I numeri del giorno per i frontalieri – 9 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.traffico-a2-bloccato.title': 'Traffico ancora bloccato sulla A2, automobilisti in strada e tanta frustrazione',
+    'blog.article.traffico-a2-bloccato.excerpt': 'La circolazione resta interrotta in alcuni punti e vari conducenti riferiscono di essere bloccati da tre-quattro ore.',
+    'blog.article.traffico-a2-bloccato.imageAlt': 'Un gruppo di automobilisti in strada a causa del traffico bloccato sulla A2.',
 };
 
 export default blogMetaIt;

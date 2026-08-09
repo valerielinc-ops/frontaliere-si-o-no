@@ -28191,6 +28191,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'traffico-a2-bloccato',
+ category: 'novita',
+ date: '2026-08-09T07:52:53.542Z',
+ image: '/images/blog/traffico-a2-bloccato.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
