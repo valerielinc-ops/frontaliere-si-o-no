@@ -195,6 +195,14 @@ jobs:
           else
             echo "news-sitemap-changed=true" >> "$GITHUB_OUTPUT"
           fi
+          # Same reasoning, second surface: the homepage ticker reads
+          # cdn.frontaliereticino.ch/data/news-ticker-live.json, an R2 object,
+          # NOT the file this job commits. See the edge-publish step below.
+          if git diff --quiet -- public/news-ticker-live.json; then
+            echo "ticker-changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ticker-changed=true" >> "$GITHUB_OUTPUT"
+          fi
           # Every artifact the pull writes: the two sitemaps, the ten RSS feeds
           # and the news-ticker payload (issue #4974 item 2). Listing them here
           # rather than `git add public/` keeps the commit scoped to what this
@@ -337,7 +345,7 @@ jobs:
       # Gated on the file having actually changed so a quiet run does not spend
       # a Cloudflare purge on a byte-identical re-PUT.
       - name: Prepare Firebase credentials
-        if: steps.commit.outputs.news-sitemap-changed == 'true'
+        if: steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -347,10 +355,85 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
-        if: steps.commit.outputs.news-sitemap-changed == 'true'
+        if: steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true'
         run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
 
       - name: Publish the news sitemap to the edge
         if: steps.commit.outputs.news-sitemap-changed == 'true'
         continue-on-error: true
         run: node scripts/publish-edge-files.mjs --only=/sitemap-news.xml
+
+      # ── The homepage ticker: same class of defect, a different key ──────────
+      #
+      # components/community/NewsFeed.tsx fetches
+      # cdn.frontaliereticino.ch/data/news-ticker-live.json after first paint
+      # and swaps it in over the build-time payload. That R2 object had exactly
+      # ONE automated writer: scripts/publish-article-chunks.mjs, run by
+      # fast-publish-article.yml — the path an article takes when it is created
+      # in THIS repo. Since the corpus cutover, articles are created and
+      # published by nanakokyobashi-rgb/frontaliere-articles, so that workflow
+      # stopped firing and nothing rewrote the key. Measured 2026-08-08: the
+      # object was frozen at 2026-08-07T15:29:57Z — 27 hours, spanning ~40
+      # published articles — while public/news-ticker-live.json here was being
+      # refreshed by THIS job every ~20 minutes and the ticker went on showing
+      # the day before's news. Two full deploys ran inside that window and
+      # changed nothing, because deploy-it-pages-prep.sh's step_push_cdn syncs
+      # `dist/data/**` to `data/` and this file lands at `dist/` root (Vite
+      # copies public/ verbatim), so the deploy never touches this key.
+      #
+      # This job is the actor that rewrites the payload, so it is the one that
+      # should publish it — the same argument, and the same shape, as the
+      # /sitemap-news.xml step above.
+      #
+      # THE UNWRAP IS LOAD-BEARING, NOT TIDYING. The committed file is the
+      # publisher's `{schema, articles: [...]}` envelope (build-plugins read it
+      # as `parsed.articles`), while the browser applies isTickerArticleArray()
+      # and takes a BARE ARRAY only. PUTting the file as-is would replace a
+      # working payload with one every client silently rejects — the ticker
+      # would fall back to the build-time top-5 forever, with a green run here
+      # and a 200 on the CDN. Cache-Control and key mirror
+      # publish-article-chunks.mjs (TICKER_CDN_KEY / TICKER_CACHE_CONTROL) so
+      # the two writers cannot disagree about the freshness contract.
+      - name: Publish the news-ticker payload to the edge
+        if: steps.commit.outputs.ticker-changed == 'true'
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          if [ -z "${R2_ACCESS_KEY_ID:-}" ]; then
+            echo "::warning::R2 credentials absent — the ticker keeps serving the previously pushed copy"
+            exit 0
+          fi
+          node -e '
+            const fs = require("node:fs");
+            const parsed = JSON.parse(fs.readFileSync("public/news-ticker-live.json", "utf-8"));
+            const articles = parsed && parsed.articles;
+            if (!Array.isArray(articles) || articles.length === 0) {
+              throw new Error("public/news-ticker-live.json carries no articles array — refusing to publish");
+            }
+            for (const a of articles) {
+              if (!a || !a.id || !a.title || !a.title.it || !a.slug || !a.slug.it) {
+                throw new Error(`ticker entry ${a && a.id} is missing a locale title/slug — refusing to publish`);
+              }
+            }
+            fs.writeFileSync("/tmp/news-ticker-live.json", JSON.stringify(articles));
+            console.log(`ticker: ${articles.length} articles, newest ${articles[0].date}`);
+          '
+          bash scripts/lib/upload-cdn-file.sh /tmp/news-ticker-live.json \
+            data/news-ticker-live.json "public, max-age=300, must-revalidate"
+          # Targeted purge — and it MUST stay on ONE line. The workflow half of
+          # tests/cf-zone-purge-blast-radius.test.ts (#5162) tests for `--files=`
+          # PER LINE, so splitting this on a backslash continuation makes the
+          # first line read as the zone-wide invocation the guard forbids: red
+          # CI on a purge that was already targeted, with a message describing a
+          # blast radius the command never had. Its script half is deliberately
+          # file-scoped for exactly this reason; the workflow half is not.
+          #
+          # The purge is a best-effort extra, not the mechanism. NewsFeed.tsx
+          # reads this through cdnFreshUrl(), which appends `?v=<5-min bucket>`
+          # (services/cdnDataBase.ts) — a key this purge does not touch by
+          # design, because the SPA's variant was never reachable from here
+          # (#4974). What actually bounds staleness for the client is the
+          # max-age=300 above, matched to that same 5-minute bucket. This clears
+          # the bare-URL variant for everyone else, and mirrors the purge
+          # publish-article-chunks.mjs already issues after its own PUT.
+          node scripts/cf-purge-cache.mjs --files=https://cdn.frontaliereticino.ch/data/news-ticker-live.json
