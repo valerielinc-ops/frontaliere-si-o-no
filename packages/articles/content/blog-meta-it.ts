@@ -9440,6 +9440,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.agente-sicurezza-ticino-frontaliere.title': 'Agente di sicurezza in Ticino: requisiti e lavoro da frontaliere',
     'blog.article.agente-sicurezza-ticino-frontaliere.excerpt': 'Guida operativa per frontalieri: requisiti, permesso G, tassazione e inquadramento lavorativo per il settore della sicurezza privata in Ticino.',
     'blog.article.agente-sicurezza-ticino-frontaliere.imageAlt': 'Agente di sicurezza in servizio presso un edificio in Ticino',
+    'blog.article.guida-lavoro-autista-frontaliere-ticino.title': 'Frontaliere autista in Ticino: stipendio e requisiti',
+    'blog.article.guida-lavoro-autista-frontaliere-ticino.excerpt': 'Guida completa per autisti frontalieri: dal nuovo accordo fiscale 2026 alle tutele previdenziali AVS, LPP e LAMal per chi lavora nel Canton Ticino.',
+    'blog.article.guida-lavoro-autista-frontaliere-ticino.imageAlt': 'Autista professionale al lavoro in Ticino con vista panoramica',
 };
 
 export default blogMetaIt;

@@ -9439,6 +9439,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.agente-sicurezza-ticino-frontaliere.title': 'Security officer in Ticino: requirements and border work',
     'blog.article.agente-sicurezza-ticino-frontaliere.excerpt': 'Operating guide for border workers: requirements, G permit, taxation and job classification for the private security sector in Ticino.',
     'blog.article.agente-sicurezza-ticino-frontaliere.imageAlt': 'Security guard on duty in front of a building in Ticino',
+    'blog.article.guida-lavoro-autista-frontaliere-ticino.title': 'Border driver in Ticino: salary and requirements',
+    'blog.article.guida-lavoro-autista-frontaliere-ticino.excerpt': 'Complete guide for border drivers: from the new 2026 tax agreement to the AVS, LPP and LAMal social security protections for those working in the Canton of Ticino.',
+    'blog.article.guida-lavoro-autista-frontaliere-ticino.imageAlt': 'Professional driver working in Ticino with panoramic view',
 };
 
 export default blogMetaEn;

@@ -9438,6 +9438,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.agente-sicurezza-ticino-frontaliere.title': 'Sicherheitsbeauftragter im Tessin: Anforderungen und Arbeit als Grenzgänger',
     'blog.article.agente-sicurezza-ticino-frontaliere.excerpt': 'Einsatzleitfaden für Grenzgänger: Anforderungen, G-Genehmigung, Besteuerung und Arbeitseinstufung für den privaten Sicherheitssektor im Tessin.',
     'blog.article.agente-sicurezza-ticino-frontaliere.imageAlt': 'Sicherheitsbeauftragter im Dienst vor einem Gebäude im Tessin',
+    'blog.article.guida-lavoro-autista-frontaliere-ticino.title': 'Grenzgänger Chauffeur im Tessin: Gehalt und Voraussetzungen',
+    'blog.article.guida-lavoro-autista-frontaliere-ticino.excerpt': 'Vollständiger Leitfaden für Grenzgänger: vom neuen Steuerabkommen 2026 bis zu den Vorsorgeplänen AHV, BVG und KVG für diejenigen, die im Kanton Tessin arbeiten.',
+    'blog.article.guida-lavoro-autista-frontaliere-ticino.imageAlt': 'Berufskraftfahrer bei der Arbeit im Tessin mit Panoramablick',
 };
 
 export default blogMetaDe;
