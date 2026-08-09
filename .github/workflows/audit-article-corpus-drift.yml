@@ -165,8 +165,11 @@ jobs:
       # THE POINT OF THE RUN. A bare pass/fail is not the deliverable — the
       # CATEGORY HISTOGRAM is, because the script's notion of "ok" is broader
       # than "verified identical":
-      #   ok                     — genuinely byte-identical, the only category
-      #                            that proves anything
+      #   ok                     — genuinely identical (byte-identical, or so
+      #                            once `<head>`'s `<meta>` tags are put in a
+      #                            canonical order — #5444; values are still
+      #                            compared exactly), the only category that
+      #                            proves anything
       #   ok-cf-bot-script-only  — identical except Cloudflare's bot-fight
       #                            <script>, a known edge-injected diff
       #   render-failure         — the render never produced a verdict
@@ -222,12 +225,14 @@ jobs:
             echo
             VERIFIED="$(jq -r '[.sections[].results[] | select(.category == "ok")] | length' "$REPORT")"
             TOTAL="$(jq -r '[.sections[].results[]] | length' "$REPORT")"
-            echo "**Genuinely verified byte-identical: ${VERIFIED}/${TOTAL}.** Anything short of this is not drift — it is the audit failing to observe."
+            echo "**Genuinely verified identical: ${VERIFIED}/${TOTAL}.** Anything short of this is not drift — it is the audit failing to observe."
+            echo
+            echo "\"Identical\" here means byte-identical, or byte-identical once the \`<meta>\` tags inside \`<head>\` are put in a canonical order (#5444: the two render paths emit the same tags in a different sequence — same tags, same values). Values are still compared exactly; only ordering is ignored."
             echo
             echo "#### Non-clean articles"
             echo
             jq -r '[.sections | to_entries[] | .key as $s | .value.results[] | select(.category != "ok")] as $bad |
-              if ($bad | length) == 0 then "None — every sampled article was byte-identical."
+              if ($bad | length) == 0 then "None — every sampled article came back identical."
               else (["| article | category | locale verdicts |","|---|---|---|"] + [$bad[] |
                 "| \(.articleId) | \(.category) | \(.localeVerdicts | to_entries | map("\(.key)=\(.value)") | join(" "))|"])[]
               end' "$REPORT"
