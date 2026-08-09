@@ -1,16 +1,16 @@
 {
   "key": "h-ju-hopital-du-jura",
   "label": "Hôpital du Jura (H-JU)",
-  "generatedAt": "2026-08-08T21:36:44.038Z",
-  "total": 5,
+  "generatedAt": "2026-08-09T10:03:55.775Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6104,
-  "avgDurationMs": 6104,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5222,
+  "avgDurationMs": 5222,
   "durationHistory": [
-    6104
+    5222
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4350/physiotherapeute",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T21:36:39.377Z",
+      "crawledAt": "2026-08-09T10:03:52.022Z",
       "addressLocality": "Porrentruy",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4215/ambulancierere-es",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T21:36:39.994Z",
+      "crawledAt": "2026-08-09T10:03:52.615Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4202/chef-ou-cheffe-de-clinique-service-des-urgences-delemont",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T21:36:40.658Z",
+      "crawledAt": "2026-08-09T10:03:53.210Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4036/medecin-urgentiste",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T21:36:41.264Z",
+      "crawledAt": "2026-08-09T10:03:53.821Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -167,8 +167,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "h-ju-hopital-du-jura-e0efc83e3c5f",
       "slug": "conducente-ambulanza-studente-es-hopital-du-jura-h-ju-delemont",
@@ -210,5 +209,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
