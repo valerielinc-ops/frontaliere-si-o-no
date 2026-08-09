@@ -29,11 +29,12 @@ import {
   ALL_GLOSSARY_TERM_IDS,
   ALL_BORDER_CROSSING_IDS,
 } from '@/services/router';
-import { ALL_BLOG_ARTICLE_IDS } from '@/services/routerBlogData';
+import { ALL_BLOG_ARTICLE_IDS, BLOG_SLUGS } from '@/services/routerBlogData';
 import { ALL_SWISS_ARTICLE_IDS, SWISS_SLUGS } from '@/services/routerSwissData';
 import { AUTHORS } from '@/data/authors';
 import type { AppRoute, BlogArticleId } from '@/services/router';
 import { loadSwissArticleCanonicalOverrides } from '@/build-plugins/shared/swissArticleCanonicalOverrides';
+import { ARTICLE_SECTION_DESCRIPTORS } from '@/build-plugins/shared/articleSectionDescriptors';
 import { GLOSSARY_TERM_DEFINITIONS, GLOSSARY_PLACEHOLDER_DESCRIPTION_RX } from '@/services/seo/glossaryTermDefinitions';
 
 // Preload blog data so buildPath can resolve blog slugs (both sections)
@@ -206,9 +207,32 @@ const SHADOWED_SWISS_ARTICLE_IDS = new Set(
     return !!itSlug && Object.prototype.hasOwnProperty.call(swissCanonicalOverrides, itSlug);
   }),
 );
-function isShadowedSwissRoute(route: AppRoute): boolean {
+// Same thing for the frontaliere section, which the mechanism reaches now that
+// ogPagesPlugin.ts drives it from the section descriptor instead of hardwiring
+// `SECTION.name === 'svizzera'`. Loaded through the descriptor's own
+// candidate-path list so this test cannot point at a path the renderer does not
+// use.
+const blogCanonicalOverrides = loadSwissArticleCanonicalOverrides(
+  { readFileSync },
+  (ARTICLE_SECTION_DESCRIPTORS.find(s => s.name === 'frontaliere')?.canonicalOverrides ?? [])
+    .map(p => resolve(__dirname, '..', p)),
+);
+const SHADOWED_BLOG_ARTICLE_IDS = new Set(
+  ALL_BLOG_ARTICLE_IDS.filter((id) => {
+    const itSlug = (BLOG_SLUGS as Record<string, Record<string, string>>)[id]?.it;
+    return !!itSlug && Object.prototype.hasOwnProperty.call(blogCanonicalOverrides, itSlug);
+  }),
+);
+/**
+ * A route whose page deliberately canonicalises onto another URL, in either
+ * section — excluded from the "every route has a sitemap entry" checks below.
+ * The page stays live and reachable; only its sitemap entry is dropped.
+ */
+function isShadowedArticleRoute(route: AppRoute): boolean {
   const swissArticle = (route as { swissArticle?: string }).swissArticle;
-  return !!swissArticle && SHADOWED_SWISS_ARTICLE_IDS.has(swissArticle);
+  if (swissArticle && SHADOWED_SWISS_ARTICLE_IDS.has(swissArticle)) return true;
+  const blogArticle = (route as { blogArticle?: string }).blogArticle;
+  return !!blogArticle && SHADOWED_BLOG_ARTICLE_IDS.has(blogArticle);
 }
 const indexNowContent = readProjectFile('scripts/submit-indexnow.js');
 // The IndexNow key/host/POST moved into a shared module (#4837) so the
@@ -471,7 +495,7 @@ describe('Sitemap — every IT canonical URL is in sitemap.xml', () => {
   for (const { route, label } of ALL_ROUTES) {
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES.has(activeTab)) continue;
-    if (isShadowedSwissRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap
+    if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
 
     it(`${label} → sitemap has ${buildPath(route, 'it')}`, () => {
       const itPath = buildPath(route, 'it');
@@ -553,7 +577,7 @@ describe('IndexNow — submit-indexnow.js reads sitemap and submits to Bing', ()
   for (const { route, label } of ALL_ROUTES) {
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES_INDEXNOW.has(activeTab)) continue;
-    if (isShadowedSwissRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap
+    if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
 
     it(`${label} → sitemap contains ${buildPath(route, 'it')} (indexed via IndexNow)`, () => {
       const itPath = buildPath(route, 'it');
@@ -608,7 +632,7 @@ describe('Sitemap URLs match router buildPath for all locales', () => {
   for (const { route, label } of ALL_ROUTES) {
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES.has(activeTab)) continue;
-    if (isShadowedSwissRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap
+    if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
 
     for (const locale of locales) {
       it(`${label} [${locale}] → sitemap hreflang URL matches buildPath`, () => {

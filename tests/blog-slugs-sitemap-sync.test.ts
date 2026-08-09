@@ -40,6 +40,10 @@ import {
   skewMs,
   type SitemapEntry,
 } from './helpers/sitemapTransitWindow';
+import {
+  loadSectionCanonicalOverrides,
+  shadowedArticleIds,
+} from '../scripts/lib/article-canonical-overrides.mjs';
 
 // Canonical blog article URL bases per locale (matches sitemap-blog.xml entries).
 const BLOG_URL_BASE: Record<string, string> = {
@@ -143,6 +147,17 @@ function sitemapFrontier(entries: readonly SitemapEntry[], itPattern: RegExp): s
   );
 }
 
+/**
+ * Frontaliere-section article ids whose IT slug is a canonical-override key.
+ * Read through the shared node-side helper so this test cannot disagree with
+ * `scripts/ci/check-blog-slugs-sitemap-sync.mjs`, `scripts/pull-articles-api.mjs`
+ * or the renderer about which pages are shadowed.
+ */
+function blogShadowedIds(slugs: Record<string, Record<string, string>>): Set<string> {
+  const root = path.resolve(__dirname, '..');
+  return shadowedArticleIds(loadSectionCanonicalOverrides(root, 'frontaliere'), slugs);
+}
+
 function announce(what: string, frontierLabel: string, frontier: string | undefined, rows: string[]): void {
   if (!rows.length) return;
   console.info(
@@ -154,12 +169,20 @@ function announce(what: string, frontierLabel: string, frontier: string | undefi
 // IT slugs → <loc>. EN/DE/FR slugs → <xhtml:link hreflang> href.
 // Catches: slug renamed in routerBlogData.ts but sitemap not regenerated (#3012 class).
 describe('BLOG_SLUGS ↔ sitemap-blog.xml sync (gate: prevents #3012 class bug)', () => {
-  it('every BLOG_SLUG must appear in sitemap-blog.xml (IT: <loc>, others: hreflang href)', async () => {
+  it('every non-shadowed BLOG_SLUG must appear in sitemap-blog.xml (IT: <loc>, others: hreflang href)', async () => {
     const { BLOG_SLUGS } = await import('../services/routerBlogData');
     const { ARTICLES } = await import('../data/blog-articles-data');
     const xml = readSitemap('sitemap-blog.xml');
     const { locUrls, hreflangUrls } = extractSitemapUrls(xml);
     const frontier = sitemapFrontier(parseSitemapEntries(xml), BLOG_LOC_PATTERNS.it);
+
+    // Issue #3010 item 1, extended to the frontaliere section: a
+    // canonical-overridden article's <url> block is intentionally DROPPED from
+    // sitemap-blog.xml, because its own page canonicalises onto the winner of
+    // its near-duplicate group. The page stays live — this only removes the
+    // sitemap's crawl signal. Excluded here, asserted ABSENT in the dedicated
+    // test below, exactly like the SWISS_SLUGS block further down.
+    const shadowedIds = blogShadowedIds(BLOG_SLUGS as Record<string, Record<string, string>>);
 
     const { reported, inTransit } = partitionMissingSlugs({
       slugs: BLOG_SLUGS as Record<string, Record<string, string>>,
@@ -168,12 +191,42 @@ describe('BLOG_SLUGS ↔ sitemap-blog.xml sync (gate: prevents #3012 class bug)'
       locUrls,
       hreflangUrls,
       sitemapFrontier: frontier,
+      skipIds: shadowedIds,
     });
     announce('BLOG_SLUGS', 'sitemap-blog.xml', frontier, inTransit);
 
     expect(
       reported,
       `BLOG_SLUGS entries missing from sitemap-blog.xml (${reported.length}) — each is OLDER than the sitemap's own frontier (${frontier}), so the sitemap was regenerated past it and still lacks it:\n${reported.join('\n')}`,
+    ).toHaveLength(0);
+  });
+
+  it('every shadowed (canonical-overridden) BLOG_SLUG is ABSENT from sitemap-blog.xml (IT: <loc>, others: hreflang href)', async () => {
+    const { BLOG_SLUGS } = await import('../services/routerBlogData');
+    const xml = readSitemap('sitemap-blog.xml');
+    const { locUrls, hreflangUrls } = extractSitemapUrls(xml);
+    const shadowedIds = blogShadowedIds(BLOG_SLUGS as Record<string, Record<string, string>>);
+
+    // No transit window here, on purpose (same reasoning as the swiss twin):
+    // this asserts ABSENCE, and a producer running late can only make a URL
+    // missing, never make a shadowed one appear — so every hit is a real
+    // self-canonical violation. scripts/pull-articles-api.mjs is what keeps
+    // this true across the twice-daily refetch from the corpus publisher.
+    const stillPresent: string[] = [];
+    for (const articleId of shadowedIds) {
+      const slugMap = (BLOG_SLUGS as Record<string, Record<string, string>>)[articleId];
+      for (const [locale, slug] of Object.entries(slugMap ?? {})) {
+        const base = BLOG_URL_BASE[locale];
+        if (!base) continue;
+        const url = `${base}${slug}/`;
+        const present = locale === 'it' ? locUrls.has(url) : hreflangUrls.get(locale)?.has(url);
+        if (present) stillPresent.push(`${articleId} [${locale}]: ${url}`);
+      }
+    }
+
+    expect(
+      stillPresent,
+      `Canonical-overridden BLOG_SLUGS still listed in sitemap-blog.xml — violates the self-canonical gate (${stillPresent.length}):\n${stillPresent.join('\n')}`,
     ).toHaveLength(0);
   });
 

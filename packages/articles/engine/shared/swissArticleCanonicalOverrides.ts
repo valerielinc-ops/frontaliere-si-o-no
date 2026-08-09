@@ -27,6 +27,28 @@
  * untouched: there is no equivalent self-canonical gate for RSS items, and
  * normal RSS semantics list all published items regardless of canonical
  * hint.
+ *
+ * GENERALISED TO EVERY ARTICLE SECTION (2026-08-09). The loader and both
+ * resolvers below were always section-agnostic — only the call site in
+ * `ogPagesPlugin.ts` was hardwired to `SECTION.name === 'svizzera'`, which
+ * left the frontaliere section (the larger of the two) with no way to
+ * consolidate a near-duplicate pair. The wiring now comes from each
+ * section's `canonicalOverrides` candidate-path list
+ * (`shared/canonicalOverrideFiles.mjs`, projected onto
+ * `ARTICLE_SECTION_DESCRIPTORS`), so adding a section, or a second override
+ * file, is data — not another copy of this module. The exported names keep
+ * their `Swiss…` spelling on purpose: they are imported by four site test
+ * files and by the mirrored engine, and renaming them would be churn with no
+ * behavioural payload.
+ *
+ * WHY A CANDIDATE *LIST* AND NOT ONE PATH. The renderer runs in two repos
+ * with different layouts, and the override map has to be found in both or it
+ * silently degrades to `{}` — a green build that quietly stops consolidating.
+ * This repo keeps `data/…`; the corpus repo (nanakokyobashi-rgb/frontaliere-articles,
+ * which is what actually renders article pages since the 2026-08-02 cutover)
+ * keeps its own `content/…`, and anything shipped inside
+ * `packages/articles/engine/` lands there under `engine/`. Each path is tried
+ * in order and the first one that reads wins.
  */
 import type { readFileSync as ReadFileSync } from 'node:fs';
 
@@ -35,29 +57,37 @@ export interface CanonicalOverrideFs {
 }
 
 /**
- * Loads `data/swiss-article-canonical-overrides.json` (shape:
+ * Loads a canonical-override map (shape:
  * `{ overrides: Record<slug, absoluteWinnerUrl> }`), keeping only string ->
  * absolute-http(s)-URL entries. Missing/malformed file degrades to `{}`
  * (safe default — never throws, never blocks the build).
+ *
+ * `overridePath` accepts a single path or an ordered candidate list; the
+ * first path that reads AND parses wins, and a candidate that throws is
+ * skipped rather than fatal (see the two-repo note in the module header).
  */
 export function loadSwissArticleCanonicalOverrides(
   fs: CanonicalOverrideFs,
-  overridePath: string,
+  overridePath: string | readonly string[],
 ): Record<string, string> {
-  try {
-    const raw = fs.readFileSync(overridePath, 'utf-8');
-    const parsed = JSON.parse(raw);
-    const map = parsed?.overrides && typeof parsed.overrides === 'object' ? parsed.overrides : {};
-    const cleaned: Record<string, string> = {};
-    for (const [k, v] of Object.entries(map)) {
-      if (typeof k === 'string' && typeof v === 'string' && v.startsWith('http')) {
-        cleaned[k] = v;
+  const candidates = typeof overridePath === 'string' ? [overridePath] : overridePath;
+  for (const candidate of candidates) {
+    try {
+      const raw = fs.readFileSync(candidate, 'utf-8');
+      const parsed = JSON.parse(raw);
+      const map = parsed?.overrides && typeof parsed.overrides === 'object' ? parsed.overrides : {};
+      const cleaned: Record<string, string> = {};
+      for (const [k, v] of Object.entries(map)) {
+        if (typeof k === 'string' && typeof v === 'string' && v.startsWith('http')) {
+          cleaned[k] = v;
+        }
       }
+      return cleaned;
+    } catch {
+      // Try the next layout; only an exhausted list is a real miss.
     }
-    return cleaned;
-  } catch {
-    return {};
   }
+  return {};
 }
 
 /**
