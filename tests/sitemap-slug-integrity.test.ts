@@ -14,6 +14,7 @@ import { ALL_SWISS_ARTICLE_IDS, SWISS_SLUGS } from '@/services/routerSwissData';
 import { SWISS_ARTICLES } from '@/data/swiss-articles-data';
 import { ARTICLE_SECTIONS, type ArticleSection } from '@/services/articleSections';
 import { loadSwissArticleCanonicalOverrides } from '@/build-plugins/shared/swissArticleCanonicalOverrides';
+import { ARTICLE_SECTION_DESCRIPTORS } from '@/build-plugins/shared/articleSectionDescriptors';
 
 const root = resolve(__dirname, '..');
 
@@ -125,6 +126,29 @@ const validItSlugs = new Set(ALL_BLOG_ARTICLE_IDS.map(id => BLOG_SLUGS[id]?.it).
 // Build set of article IDs from BlogArticles.tsx ARTICLES array
 const articlesComponentIds = new Set(ARTICLES.map(a => a.id));
 
+// Loaded exactly the way ogPagesPlugin.ts loads it: the section descriptor's
+// candidate-path list, through the shared loader. Not a second copy of the path.
+const blogCanonicalOverrides = loadSwissArticleCanonicalOverrides(
+  { readFileSync },
+  (ARTICLE_SECTION_DESCRIPTORS.find(s => s.name === 'frontaliere')?.canonicalOverrides ?? [])
+    .map(p => resolve(root, p)),
+);
+
+// Frontaliere-section articles whose IT slug is a canonical-override key
+// (packages/articles/engine/shared/frontaliere-article-canonical-overrides.json).
+// Same contract as `shadowedSwissArticleIds` below, which predates it: their
+// <link rel="canonical"> points at the authoritative winner of their
+// near-duplicate group, so listing them in sitemap-blog.xml would violate the
+// hard self-canonical gate. The page stays live — only the sitemap entry goes.
+// Derived from the override map, never hardcoded, so a future entry is
+// exempted automatically.
+const shadowedBlogArticleIds = new Set(
+  ALL_BLOG_ARTICLE_IDS.filter((id) => {
+    const itSlug = BLOG_SLUGS[id]?.it;
+    return !!itSlug && Object.prototype.hasOwnProperty.call(blogCanonicalOverrides, itSlug);
+  }),
+);
+
 // ── Blog Article Slug Integrity ──────────────────────────────────────────────
 
 describe('Blog sitemap slug integrity', () => {
@@ -156,8 +180,9 @@ describe('Blog sitemap slug integrity', () => {
     }
   });
 
-  describe('every article in ALL_BLOG_ARTICLE_IDS has a sitemap entry', () => {
+  describe('every non-shadowed article in ALL_BLOG_ARTICLE_IDS has a sitemap entry', () => {
     for (const id of ALL_BLOG_ARTICLE_IDS) {
+      if (shadowedBlogArticleIds.has(id)) continue; // covered below: must be ABSENT instead
       it(`article "${id}" → has IT slug in sitemap-blog.xml`, () => {
         const itSlug = BLOG_SLUGS[id]?.it;
         expect(itSlug, `Article "${id}" has no IT slug in BLOG_SLUGS`).toBeTruthy();
@@ -166,6 +191,35 @@ describe('Blog sitemap slug integrity', () => {
           `Article "${id}" (slug: ${itSlug}) is missing from sitemap-blog.xml`
         ).toBe(true);
       });
+    }
+  });
+
+  // Same contract as the svizzera block further down, now that the
+  // canonical-override mechanism is wired per section instead of being
+  // hardwired to svizzera: a shadowed article must be ABSENT from
+  // sitemap-blog.xml — IT <loc> and EN/DE/FR hreflang alternates alike — while
+  // the page itself stays live at its own URL (repo anti-cut rule).
+  describe('every shadowed (canonical-overridden) article is ABSENT from sitemap-blog.xml (IT loc + EN/DE/FR hreflang)', () => {
+    for (const id of shadowedBlogArticleIds) {
+      it(`article "${id}" → IT slug is NOT in sitemap-blog.xml`, () => {
+        const itSlug = BLOG_SLUGS[id]?.it;
+        expect(itSlug, `Article "${id}" has no IT slug in BLOG_SLUGS`).toBeTruthy();
+        expect(
+          blogSitemapSlugs.includes(itSlug!),
+          `Article "${id}" (slug: ${itSlug}) is canonical-overridden but still listed in sitemap-blog.xml — violates "Sitemap <loc> URLs MUST self-canonicalize"`
+        ).toBe(false);
+      });
+
+      for (const locale of ALT_LOCALES) {
+        it(`article "${id}" → ${locale} slug has NO hreflang alternate in sitemap-blog.xml`, () => {
+          const slug = BLOG_SLUGS[id]?.[locale];
+          expect(slug, `Article "${id}" has no ${locale} slug in BLOG_SLUGS`).toBeTruthy();
+          expect(
+            extractHreflangSlugs(blogSitemap, 'frontaliere', locale).includes(slug!),
+            `Article "${id}" (${locale} slug: ${slug}) is canonical-overridden but its hreflang alternate is still in sitemap-blog.xml`
+          ).toBe(false);
+        });
+      }
     }
   });
 
@@ -189,6 +243,7 @@ describe('Blog sitemap hreflang alternate integrity (EN/DE/FR)', () => {
     sitemapXml: blogSitemap,
     articleIds: ALL_BLOG_ARTICLE_IDS,
     slugs: BLOG_SLUGS,
+    skipForwardCheckIds: shadowedBlogArticleIds,
   });
 });
 

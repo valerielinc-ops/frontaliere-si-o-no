@@ -19,6 +19,7 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { readSlugRegistry } from '../lib/article-slug-registry.mjs';
+import { loadSectionCanonicalOverrides, shadowedArticleIds } from '../lib/article-canonical-overrides.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..', '..');
@@ -168,28 +169,36 @@ console.log(`Parsed ${Object.keys(blogSlugs).length} articles from services/rout
 const swissSlugs = parseSwissSlugs();
 console.log(`Parsed ${Object.keys(swissSlugs).length} articles from services/routerSwissData.ts`);
 
-// Issue #3010 item 1 (data/swiss-article-canonical-overrides.json): shadowed
-// article IDs whose IT slug is a canonical-override key are intentionally
-// dropped from sitemap-blog-ch.xml (same convention as
-// data/job-canonical-overrides.json for jobs) — excluded from the forward
-// "must be present" check below.
-let swissShadowedArticleIds = new Set();
-try {
-  const overridesRaw = JSON.parse(readFileSync(resolve(root, 'data/swiss-article-canonical-overrides.json'), 'utf-8'));
-  const overrideMap = overridesRaw?.overrides && typeof overridesRaw.overrides === 'object' ? overridesRaw.overrides : {};
-  for (const [articleId, slugMap] of Object.entries(swissSlugs)) {
-    if (slugMap?.it && Object.prototype.hasOwnProperty.call(overrideMap, slugMap.it)) {
-      swissShadowedArticleIds.add(articleId);
-    }
-  }
-} catch {
-  // Missing/malformed override file: safe default, no articles exempted.
+// Issue #3010 item 1: shadowed article IDs whose IT slug is a
+// canonical-override key are intentionally dropped from their section's
+// sitemap (same convention as data/job-canonical-overrides.json for jobs) —
+// excluded from the forward "must be present" check below. The page stays
+// live at its own URL; only its sitemap entry goes.
+//
+// Both sections now, not just svizzera: the override mechanism used to be
+// hardwired to the svizzera section in ogPagesPlugin.ts, so the inline
+// JSON.parse that used to sit here only ever read the swiss file. The
+// per-section paths and the id derivation live in
+// scripts/lib/article-canonical-overrides.mjs, shared with the engine's own
+// candidate-path literal, so this cannot drift from what the renderer does.
+const blogShadowedArticleIds = shadowedArticleIds(
+  loadSectionCanonicalOverrides(root, 'frontaliere'),
+  blogSlugs,
+);
+const swissShadowedArticleIds = shadowedArticleIds(
+  loadSectionCanonicalOverrides(root, 'svizzera'),
+  swissSlugs,
+);
+if (blogShadowedArticleIds.size || swissShadowedArticleIds.size) {
+  console.log(
+    `Canonical-override shadowed articles exempted: ${blogShadowedArticleIds.size} frontaliere, ${swissShadowedArticleIds.size} svizzera`,
+  );
 }
 
 let exitCode = 0;
 
 const blogXml = readFileSync(resolve(root, 'public/sitemap-blog.xml'), 'utf-8');
-if (!checkSitemap('sitemap-blog.xml', blogXml, blogSlugs, BLOG_URL_BASE, BLOG_LOC_PATTERNS, 'BLOG_SLUGS')) exitCode = 1;
+if (!checkSitemap('sitemap-blog.xml', blogXml, blogSlugs, BLOG_URL_BASE, BLOG_LOC_PATTERNS, 'BLOG_SLUGS', blogShadowedArticleIds)) exitCode = 1;
 
 const swissXml = readFileSync(resolve(root, 'public/sitemap-blog-ch.xml'), 'utf-8');
 if (!checkSitemap('sitemap-blog-ch.xml', swissXml, swissSlugs, SWISS_URL_BASE, SWISS_LOC_PATTERNS, 'SWISS_SLUGS', swissShadowedArticleIds)) exitCode = 1;
