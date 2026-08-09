@@ -9420,6 +9420,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.title': 'Fliesenleger im Tessin: Gehalt und Anerkennung',
     'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.excerpt': 'Die Anforderungen und das Durchschnittsgehalt für Fliesenleger im Tessin als Grenzgänger, mit Informationen zur möglichen Anerkennung des Bildungsabschlusses und zum Ausweis G.',
     'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.imageAlt': 'Bild eines Kachelers in der Schweiz',
+    'blog.article.lavoro-piastrellista-ticino-frontaliere.title': 'Arbeiten als Fliesenleger im Tessin: Leitfaden für Grenzgänger',
+    'blog.article.lavoro-piastrellista-ticino-frontaliere.excerpt': 'Anforderungen, Lohneinstufung und Besteuerung für Grenzgänger, die im Bereich der Fliesenverlegung im Kanton Tessin tätig sind.',
+    'blog.article.lavoro-piastrellista-ticino-frontaliere.imageAlt': 'Fliesenleger bei der Arbeit auf einer Baustelle im Tessin',
 };
 
 export default blogMetaDe;

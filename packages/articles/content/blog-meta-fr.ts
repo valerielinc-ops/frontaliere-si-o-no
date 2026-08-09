@@ -9423,6 +9423,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.title': 'Travailler comme piastrellista au Tessin : salaire et reconnaissance',
     'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.excerpt': 'Les exigences et le salaire moyen pour les carreleurs au Tessin en tant que frontalier, avec des informations sur la reconnaissance éventuelle du diplôme et du permis G.',
     'blog.article.frontaliere-piastrellista-ticino-stipendio-requisiti.imageAlt': 'Image d\'un peintre en céramique en Suisse',
+    'blog.article.lavoro-piastrellista-ticino-frontaliere.title': 'Travailler comme carreleur au Tessin : guide pour les frontaliers',
+    'blog.article.lavoro-piastrellista-ticino-frontaliere.excerpt': 'Exigences, encadrement des salaires et fiscalité pour les frontaliers opérant dans le secteur de la pose de carreaux dans le canton du Tessin.',
+    'blog.article.lavoro-piastrellista-ticino-frontaliere.imageAlt': 'Carreleur au travail sur un chantier au Tessin',
 };
 
 export default blogMetaFr;
