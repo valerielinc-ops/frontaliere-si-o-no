@@ -655,6 +655,16 @@ function shouldApplySerpExperiment(section: string): boolean {
 // slapping an unrelated "| simulazione | 2026" suffix on them is a
 // content/intent mismatch that measurably drags down CTR (issue #5479) —
 // the same reasoning that already excludes job-detail pages below.
+//
+// The `pension` entry is intentionally scoped to the two ACTUAL
+// retirement-planning tools (`calcola-previdenza`, `simula-terzo-pilastro`),
+// not the whole `/tasse-e-pensione/` section (issue #5481): most pages under
+// that prefix — dichiarazione-redditi, ristorni-fiscali, scadenze-fiscali,
+// credito-imposta, aliquote-imposta-alla-fonte-*, quiz-fiscale,
+// festivita-ticino, tasse-svizzere-frontalieri, nuova-legge-frontalieri-2026 —
+// are about tax filing/rates/deadlines, not pension, so tagging them
+// "pensione frontalieri" is the same content-mismatch defect #5479 fixed,
+// just with a real (over-broad) match instead of the generic fallback.
 export function getSerpIntentLabel(path: string, locale: Locale): string | null {
  const map = {
  it: {
@@ -686,7 +696,7 @@ export function getSerpIntentLabel(path: string, locale: Locale): string | null 
  if (path.includes('oltre-20km')) return map.over20;
  if (path.includes('entro-20km')) return map.within20;
  if (path.includes('cambio-franco-euro')) return map.exchange;
- if (path.includes('calcola-previdenza') || path.includes('tasse-e-pensione')) return map.pension;
+ if (path.includes('calcola-previdenza') || path.includes('simula-terzo-pilastro')) return map.pension;
  return null;
 }
 
