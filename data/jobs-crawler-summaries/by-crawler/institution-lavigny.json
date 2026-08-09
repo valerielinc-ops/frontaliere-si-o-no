@@ -1,16 +1,16 @@
 {
   "key": "institution-lavigny",
   "label": "Institution de Lavigny",
-  "generatedAt": "2026-08-08T21:42:50.838Z",
-  "total": 7,
+  "generatedAt": "2026-08-09T09:48:17.283Z",
+  "total": 6,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6250,
-  "avgDurationMs": 6250,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5831,
+  "avgDurationMs": 5831,
   "durationHistory": [
-    6250
+    5831
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/74c8a52f-815e-4250-9f98-ba32b0dbe4de/",
       "source": "Institution de Lavigny Dedicated Parser (custom HTML + jobup deep-link)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T21:42:47.646Z",
+      "crawledAt": "2026-08-09T09:48:14.825Z",
       "addressLocality": "Lavigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/4b91997b-672a-43e9-821a-0c46be4a0f46/",
       "source": "Institution de Lavigny Dedicated Parser (custom HTML + jobup deep-link)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T21:42:47.650Z",
+      "crawledAt": "2026-08-09T09:48:14.823Z",
       "addressLocality": "Lavigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/58678fa8-9cbb-48a0-8e53-04e12b8539c8/",
       "source": "Institution de Lavigny Dedicated Parser (custom HTML + jobup deep-link)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T21:42:47.651Z",
+      "crawledAt": "2026-08-09T09:48:14.827Z",
       "addressLocality": "Lavigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -129,44 +129,6 @@
       }
     },
     {
-      "id": "institution-lavigny-112083cc27e2",
-      "slug": "chef-fe-de-clinique-ou-adjoint-e-au-service-universitaire-de-neurorehabilitation",
-      "company": "Institution de Lavigny",
-      "companyKey": "institution-lavigny",
-      "companyDomain": "ilavigny.ch",
-      "title": "Chef-fe de clinique ou adjoint-e au Service universitaire de neuroréhabilitation",
-      "needsRetranslation": false,
-      "location": "Lavigny",
-      "canton": "VD",
-      "url": "https://www.jobup.ch/fr/emplois/detail/c8be9b7e-2f06-4aef-870a-bb520cb6ef8a/",
-      "source": "Institution de Lavigny Dedicated Parser (custom HTML + jobup deep-link)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-08T21:42:47.649Z",
-      "addressLocality": "Lavigny",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1175",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-17",
-      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/c8be9b7e-2f06-4aef-870a-bb520cb6ef8a/",
-      "careerSiteUrl": "https://www.ilavigny.ch/emploi/",
-      "firstSeenAt": "2026-06-17T22:48:42.225Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
       "id": "institution-lavigny-b061d173a096",
       "slug": "medecin-chef-fe-au-service-universitaire-de-neurorehabilitation-institution-lavigny",
       "company": "Institution de Lavigny",
@@ -179,7 +141,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e0c73b19-0fc9-4cfd-acf2-e044ee9193ac/",
       "source": "Institution de Lavigny Dedicated Parser (custom HTML + jobup deep-link)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T21:42:47.654Z",
+      "crawledAt": "2026-08-09T09:48:14.830Z",
       "addressLocality": "Lavigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -205,6 +167,44 @@
       }
     },
     {
+      "id": "institution-lavigny-112083cc27e2",
+      "slug": "chef-fe-de-clinique-ou-adjoint-e-au-service-universitaire-de-neurorehabilitation",
+      "company": "Institution de Lavigny",
+      "companyKey": "institution-lavigny",
+      "companyDomain": "ilavigny.ch",
+      "title": "Chef-fe de clinique ou adjoint-e au Service universitaire de neuroréhabilitation",
+      "needsRetranslation": false,
+      "location": "Lavigny",
+      "canton": "VD",
+      "url": "https://www.jobup.ch/fr/emplois/detail/c8be9b7e-2f06-4aef-870a-bb520cb6ef8a/",
+      "source": "Institution de Lavigny Dedicated Parser (custom HTML + jobup deep-link)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-09T09:48:14.833Z",
+      "addressLocality": "Lavigny",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1175",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-17",
+      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/c8be9b7e-2f06-4aef-870a-bb520cb6ef8a/",
+      "careerSiteUrl": "https://www.ilavigny.ch/emploi/",
+      "firstSeenAt": "2026-06-17T22:48:42.225Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
       "id": "institution-lavigny-189c320785f0",
       "slug": "civilistes-institution-lavigny-lavigny",
       "company": "Institution de Lavigny",
@@ -217,7 +217,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/6b892ec6-437b-4961-b40d-c5c38a58933c/",
       "source": "Institution de Lavigny Dedicated Parser (custom HTML + jobup deep-link)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-08T21:42:47.654Z",
+      "crawledAt": "2026-08-09T09:48:14.831Z",
       "addressLocality": "Lavigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -243,8 +243,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "institution-lavigny-b23817061e62",
       "slug": "assc-nel-campo-della-neurologia-in-12h00-institution-de-lavigny-lausanne",
@@ -286,5 +285,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
