@@ -97,7 +97,11 @@ test.describe('daily brief — pipe tables survive both renders', () => {
       ).toBe(false);
 
       // ── hydrated surface ──
-      await page.waitForLoadState('networkidle').catch(() => {});
+      // Bounded like the other live specs (spa-hydration-contract-live.spec.ts,
+      // job-company-link-visual-live.spec.ts): AdSense/analytics keep polling on
+      // this site, so unbounded networkidle never resolves and eats the whole
+      // 60s test timeout before the assertions below ever run.
+      await page.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {});
       await page
         .waitForFunction(() => !!document.querySelector('#root')?.textContent?.trim(), { timeout: 30_000 })
         .catch(() => {});
