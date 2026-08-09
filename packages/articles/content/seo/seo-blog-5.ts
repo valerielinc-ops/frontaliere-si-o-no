@@ -60794,6 +60794,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bollettino-frontaliere-2026-08-09': {
+    title: 'Bollettino del frontaliere – 9 agosto 2026: 589 nuovi annunci di lavoro ieri',
+    description: 'I numeri di oggi, 9 agosto 2026, per chi attraversa il confine: attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco–euro e i nuovi annunci di lavoro in Svizzera. Dati raccolti dal nostro monitoraggio, aggiornati ogni giorno.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 9 agosto 2026: 589 nuovi annunci di lavoro ieri',
+    ogDescription: 'I numeri di oggi, 9 agosto 2026, per chi attraversa il confine: attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco–euro e i nuovi annunci di lavoro in Svizzera. Dati raccolti dal nostro monitoraggio, aggiornati ogni giorno.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-08-09',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 9 agosto 2026: 589 nuovi annunci di lavoro ieri",
+      "description": "I numeri di oggi, 9 agosto 2026, per chi attraversa il confine: attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco–euro e i nuovi annunci di lavoro in Svizzera. Dati raccolti dal nostro monitoraggio, aggiornati ogni giorno.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-08-09.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 9 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-08-09T05:49:00+00:00",
+      "dateModified": "2026-08-09T05:49:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-08-09/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

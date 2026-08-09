@@ -1672,7 +1672,7 @@ const blogMetaDe: Record<string, string> = {
  'blog.article.nei-test-neonati-ticinesi.excerpt': ': Die Eidgenossenschaft führte bei Tessiner Säuglingen keine Screening-Untersuchungen auf Kontaminationen durch – was Ihr Kind riskiert und was Sie tun können',
  'blog.article.nei-test-neonati-ticinesi.imageAlt': 'Morgenansicht von Lugano mit Mutter und Kinderwagen am See',
  'blog.article.aggregazione-rischio-basso-mendrisiotto.title': 'Aggregazione Basso Mendrisiotto auf dem Prüfstand: der Schuldenberg hält Terre di Breggia zurück',
- 'blog.article.aggregazione-rischio-basso-mendrisiotto.excerpt': 'Nach 2,5 Jahren Verhandlungen steht das Fusionprojekt zwischen Balerna, Breggia, Chiasso, Morbio und Vacallo aufgrund der Schulden von 140 Millionen Franken aus Chiasso still. Rizza (Vacallo) fordert Garantien, Arrigoni (Chiasso) entgegnet: Wir haben bereits 3 Millionen Franken pro Jahr gespart. Der Kanton bewertet die Aussetzung.',
+ 'blog.article.aggregazione-rischio-basso-mendrisiotto.excerpt': 'Nach 2,5 Jahren Verhandlungen steht das Fusionprojekt zwischen Balerna, Breggia, Chiasso, Morbio und Vacallo aufgrund der Schulden von 140 Millionen Franken aus Chiasso still. Rizza (Vacallo) fordert Garantien, Arrigoni (Chiasso) entgegnet: Wir haben bereits 3 Millionen Franken pro Jahr gespart. Der Kanton bewertet die Aussetzung.',
  'blog.article.aggregazione-rischio-basso-mendrisiotto.imageAlt': 'Rathaus von Chiasso bei Sonnenuntergang',
  'blog.article.congresso-svizzera-italia-varese-2026.title': 'Schweiz-Italien-Kongress in Varese: Steuer-Updates für Tessiner Grenzgänger',
  'blog.article.congresso-svizzera-italia-varese-2026.excerpt': 'Am 16. April 2026 in Villa Andrea informieren Expertinnen und Institutionen über steuerliche, soziale und rechtliche Neuerungen für Menschen, die zwischen Italien und der Schweiz leben und arbeiten.',
@@ -1875,7 +1875,7 @@ const blogMetaDe: Record<string, string> = {
  'blog.article.auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate.imageAlt': 'Unfall auf der SP1 zwischen Varese und Gavirate',
  'blog.article.nestle-200-posti-lombardia.title': 'Nestle eröffnet Standort in der Lombardei und bietet 200 Arbeitsplätze an: hier sind die gesuchten Profil',
  'blog.article.nestle-200-posti-lombardia.excerpt': 'Nestle hat die Eröffnung einer neuen Standort in der Lombardei und bietet 200 Arbeitsplätze an: hier sind die gesuchten Profil',
- 'blog.article.nestle-200-posti-lombardia.imageAlt': 'Nestle er6fftet in Lombardia und bietet 200 Stellen an',
+ 'blog.article.nestle-200-posti-lombardia.imageAlt': 'Nestle er6fftet in Lombardia und bietet 200 Stellen an',
  'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.title': 'Die "Fünfte Schweiz" mit einer Schwäche für Mailand',
  'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.excerpt': 'Fast siebtausend Konföderierte leben in der Hauptstadt des Meneghino und in den Gemeinden ihrer Provinz.',
  'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.imageAlt': 'Ein realistisches Panorama von Lugano und den umliegenden Bergen, aufgenommen mit einer DSLR und einem großen Tiefenschärfeobjektiv.',
@@ -9387,6 +9387,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-oss-ticino-guida.title': 'Grenzgänger medizinisches Fachpersonal im Tessin: Leitfaden',
     'blog.article.frontaliere-oss-ticino-guida.excerpt': 'Als OSS im Tessin arbeiten: Das sind die Voraussetzungen für die Anerkennung des Titels, die Beitragssätze und die Funktionsweise des neuen Steuerabkommens.',
     'blog.article.frontaliere-oss-ticino-guida.imageAlt': 'Krankenhaus im Tessin mit Seeblick',
+    'blog.article.bollettino-frontaliere-2026-08-09.title': 'Grenzgänger-Tagesbulletin – 9. August 2026: 589 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-09.excerpt': 'Die Zahlen von heute (9. August 2026) für Grenzgänger: heute Morgen gemessene Wartezeiten an den Grenzübergängen, die günstigsten Tank-Gemeinden, der CHF-EUR-Kurs und neue Stellenangebote in der Schweiz. Eigene Messung, täglich aktualisiert.',
+    'blog.article.bollettino-frontaliere-2026-08-09.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 9. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
 };
 
 export default blogMetaDe;
