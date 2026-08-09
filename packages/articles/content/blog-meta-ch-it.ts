@@ -1996,6 +1996,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-cassa-malati-lamal-2026-canton-zurigo.title': 'I premi cassa malati LAMal nel Canton Zurigo per il 2026',
     'blog.article.premi-cassa-malati-lamal-2026-canton-zurigo.excerpt': 'I premi dell\'assicurazione malattia LAMal nel Canton Zurigo per il 2026',
     'blog.article.premi-cassa-malati-lamal-2026-canton-zurigo.imageAlt': 'Immagine editoriale di un lago svizzero con una barca a vela',
+    'blog.article.premi-cassa-malati-lamal-2026-cantone-bern.title': 'LAMal nel Cantone Berna: guida ai premi e sussidi',
+    'blog.article.premi-cassa-malati-lamal-2026-cantone-bern.excerpt': 'I premi LAMal nel Cantone Berna sono soggetti a differenze rispetto ad altri cantoni svizzeri. Ecco cosa sapere.',
+    'blog.article.premi-cassa-malati-lamal-2026-cantone-bern.imageAlt': 'Immagine di un lago in Svizzera',
 };
 
 export default blogMetaChIt;

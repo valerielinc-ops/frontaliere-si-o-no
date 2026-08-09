@@ -1996,6 +1996,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-lamal-2026-canton-zurigo.title': 'Die Krankenkassenprämien KVG im Kanton Zürich für das Jahr 2026',
     'blog.article.premi-cassa-malati-lamal-2026-canton-zurigo.excerpt': 'Die Krankenkassenprämien KVG im Kanton Zürich für das Jahr 2026',
     'blog.article.premi-cassa-malati-lamal-2026-canton-zurigo.imageAlt': 'Bild eines Schweizer Sees mit einem Segelboot',
+    'blog.article.premi-cassa-malati-lamal-2026-cantone-bern.title': 'KVG im Kanton Bern: Leitfaden zu Prämien und Beiträgen',
+    'blog.article.premi-cassa-malati-lamal-2026-cantone-bern.excerpt': 'Die KVG-Prämien im Kanton Bern unterliegen Abweichungen im Vergleich zu anderen Schweizer Kantonen. Hier ist, was Sie wissen müssen.',
+    'blog.article.premi-cassa-malati-lamal-2026-cantone-bern.imageAlt': 'Bild eines Sees in der Schweiz',
 };
 
 export default blogMetaChDe;
