@@ -231,6 +231,20 @@ routes = [
   { pattern = "frontaliereticino.ch/sitemap-blog.xml*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/sitemap-glossario.xml*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/sitemap-news.xml*", zone_name = "frontaliereticino.ch" },
+  # The ten RSS feeds. A route is REQUIRED alongside the EDGE_PUSHED_FILES
+  # entry: without one the Worker never sees the request and the apex keeps
+  # answering from Pages — an entry with no route is a 404 dressed up as a
+  # publish bug, which is exactly what /sitemap-articles-archive.xml cost.
+  { pattern = "frontaliereticino.ch/rss.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/rss-it.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/rss-en.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/rss-de.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/rss-fr.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/rss-svizzera.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/rss-svizzera-it.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/rss-svizzera-en.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/rss-svizzera-de.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/rss-svizzera-fr.xml*", zone_name = "frontaliereticino.ch" },
   # A route is REQUIRED, not just an EDGE_PUSHED_FILES entry: without one the
   # Worker never sees the request and the apex answers from Pages. Registering
   # /sitemap-articles-archive.xml in that map and uploading the R2 object left
