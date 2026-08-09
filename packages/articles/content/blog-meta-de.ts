@@ -9414,6 +9414,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.confronto-frontalieri-festa-lucciola.title': 'Grenzgänger und Schweiz: Vergleich zum Glühwürmchenfest',
     'blog.article.confronto-frontalieri-festa-lucciola.excerpt': 'Am Sonntag, 9. August, diskutieren Gewerkschaften und politische Vertreter über die Perspektiven der grenzüberschreitenden Arbeit und den Dialog zwischen Italien und der Schweiz.',
     'blog.article.confronto-frontalieri-festa-lucciola.imageAlt': 'Treffen zu Grenzgängern beim Festa della Lucciola',
+    'blog.article.traffico-a2-assistenza-emergenza.title': 'Tilt Traffic: Hilft nur, wenn die Warteschlange stundenlang anhält',
+    'blog.article.traffico-a2-assistenza-emergenza.excerpt': 'Die Kantonspolizei klärt die Kriterien für die ausserordentliche Betreuung von Autofahrern, die nach dem Chaos des Wochenendes auf der Autobahn festsitzen.',
+    'blog.article.traffico-a2-assistenza-emergenza.imageAlt': 'Stau auf der Autobahn A2 im Kanton Tessin',
 };
 
 export default blogMetaDe;

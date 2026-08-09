@@ -9416,6 +9416,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.confronto-frontalieri-festa-lucciola.title': 'Frontalieri e Svizzera: confronto alla Festa della Lucciola',
     'blog.article.confronto-frontalieri-festa-lucciola.excerpt': 'Domenica 9 agosto, sindacati e rappresentanti politici discuteranno le prospettive del lavoro oltreconfine e il dialogo tra Italia e Svizzera.',
     'blog.article.confronto-frontalieri-festa-lucciola.imageAlt': 'Incontro sui frontalieri alla Festa della Lucciola',
+    'blog.article.traffico-a2-assistenza-emergenza.title': 'Traffico in tilt: aiuti solo se la coda dura ore',
+    'blog.article.traffico-a2-assistenza-emergenza.excerpt': 'La Polizia cantonale chiarisce i criteri per l\'assistenza straordinaria ai conducenti bloccati in autostrada dopo il caos del weekend.',
+    'blog.article.traffico-a2-assistenza-emergenza.imageAlt': 'Traffico bloccato sull\'autostrada A2 in Canton Ticino',
 };
 
 export default blogMetaIt;

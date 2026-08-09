@@ -9417,6 +9417,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.confronto-frontalieri-festa-lucciola.title': 'Frontaliers et Suisse : comparaison avec la Fête de la Luciole',
     'blog.article.confronto-frontalieri-festa-lucciola.excerpt': 'Dimanche 9 août, les syndicats et les représentants politiques discuteront des perspectives du travail transfrontalier et du dialogue entre l\'Italie et la Suisse.',
     'blog.article.confronto-frontalieri-festa-lucciola.imageAlt': 'Réunion sur les travailleurs frontaliers à la Festa della Lucciola',
+    'blog.article.traffico-a2-assistenza-emergenza.title': 'Trafic en déclivité : vous n\'aidez que si la queue dure des heures',
+    'blog.article.traffico-a2-assistenza-emergenza.excerpt': 'La police cantonale clarifie les critères d\'assistance extraordinaire aux conducteurs bloqués sur l\'autoroute après le chaos du week-end.',
+    'blog.article.traffico-a2-assistenza-emergenza.imageAlt': 'Embouteillages sur l\'autoroute A2 dans le canton du Tessin',
 };
 
 export default blogMetaFr;
