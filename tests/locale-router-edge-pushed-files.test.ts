@@ -341,6 +341,70 @@ describe('every EDGE_PUSHED_FILES path has an automatically-triggered publisher'
     expect(publishers.length).toBeGreaterThan(0);
   });
 
+  const RSS_FEEDS = [
+    '/rss.xml',
+    '/rss-it.xml',
+    '/rss-en.xml',
+    '/rss-de.xml',
+    '/rss-fr.xml',
+    '/rss-svizzera.xml',
+    '/rss-svizzera-it.xml',
+    '/rss-svizzera-en.xml',
+    '/rss-svizzera-de.xml',
+    '/rss-svizzera-fr.xml',
+  ];
+
+  /**
+   * The feeds need a publisher that is NOT deploy.yml, and the block above
+   * cannot express that.
+   *
+   * `deploy.yml` invokes publish-edge-files.mjs BARE (no `--only`, line ~1146)
+   * on a `push` trigger, so coveredPaths() credits it with EVERY key in the
+   * table — including any key added later. The guard above would therefore stay
+   * green for these ten paths even if the sync workflow's publish step were
+   * deleted, because it cannot tell a publisher that runs within minutes of an
+   * article landing from one that runs at the end of a deploy chain measured at
+   * over two hours, and self-cancelling on churn (48 of 60 runs `cancelled`).
+   *
+   * That distinction is the entire point of registering them: before this,
+   * /rss.xml on the apex was 2h57m behind the corpus with 5 of 50 items
+   * missing, while /edge/rss.xml answered 404.
+   */
+  it.each(RSS_FEEDS)('%s has a publisher other than deploy.yml', (pathname) => {
+    const covering = publishers
+      .filter(
+        ({ file, source }) =>
+          file !== 'deploy.yml' && hasAutomaticTrigger(source) && coveredPaths(source).has(pathname),
+      )
+      .map(({ file }) => file);
+
+    expect(
+      covering,
+      `${pathname} is only published by deploy.yml, whose chain takes >2h and cancels on ` +
+        `churn. A feed is a subscription surface: whoever reads it does not come back to ` +
+        `check whether it moved. It needs a publisher on the article-publication path ` +
+        `(sync-articles-sitemaps.yml), not on the deploy path.`,
+    ).not.toHaveLength(0);
+  });
+
+  it('keeps all ten RSS feeds registered, each with a wildcarded route', () => {
+    const toml = readFileSync(
+      path.resolve(__dirname, '..', 'infra', 'cloudflare-worker', 'wrangler.toml'),
+      'utf-8',
+    );
+    for (const pathname of RSS_FEEDS) {
+      expect(
+        EDGE_PUSHED_FILES[pathname],
+        `${pathname} must stay in EDGE_PUSHED_FILES — without it the feed returns to the ` +
+          `GitHub Pages passthrough, which only refreshes when the site deploys`,
+      ).toBeTruthy();
+      expect(
+        toml,
+        `${pathname} is in EDGE_PUSHED_FILES but has no wildcarded wrangler route`,
+      ).toContain(`{ pattern = "frontaliereticino.ch${pathname}*", zone_name`);
+    }
+  });
+
   it.each(Object.keys(EDGE_PUSHED_FILES))(
     '%s is published by a workflow that fires without a manual dispatch',
     (pathname) => {
