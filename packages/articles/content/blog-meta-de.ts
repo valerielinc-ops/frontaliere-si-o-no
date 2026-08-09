@@ -9411,6 +9411,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-assistente-dentale-ticino.title': 'Zahnarzthelferin im Tessin: Gehalt und Voraussetzungen',
     'blog.article.frontaliere-assistente-dentale-ticino.excerpt': 'Leitfaden für Grenzgänger: Gehalt, Quellensteuer, KVG- und AHV-Anforderungen für die Arbeit als Zahnarzthelferin im Kanton Tessin.',
     'blog.article.frontaliere-assistente-dentale-ticino.imageAlt': 'Zahnarzthelferin bei der Arbeit in einer modernen Zahnklinik im Tessin',
+    'blog.article.confronto-frontalieri-festa-lucciola.title': 'Grenzgänger und Schweiz: Vergleich zum Glühwürmchenfest',
+    'blog.article.confronto-frontalieri-festa-lucciola.excerpt': 'Am Sonntag, 9. August, diskutieren Gewerkschaften und politische Vertreter über die Perspektiven der grenzüberschreitenden Arbeit und den Dialog zwischen Italien und der Schweiz.',
+    'blog.article.confronto-frontalieri-festa-lucciola.imageAlt': 'Treffen zu Grenzgängern beim Festa della Lucciola',
 };
 
 export default blogMetaDe;

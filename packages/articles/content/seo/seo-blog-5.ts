@@ -61106,6 +61106,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-confronto-frontalieri-festa-lucciola': {
+    title: 'Frontalieri e Svizzera: confronto alla Festa della Lucciola',
+    description: 'Il 9 agosto confronto sui frontalieri alla Festa della Lucciola: sindacati e Psi Ticino discutono di prospettive lavorative e dialogo Italia-Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, confronto, alla, festa, lucciola',
+    ogTitle: 'Frontalieri e rapporti Svizzera: confronto alla Festa Lucciola',
+    ogDescription: 'Il 9 agosto incontro pubblico sui frontalieri alla Festa della Lucciola: sindacati e Psi Ticino discutono di lavoro oltreconfine e relazioni tra Italia e Svizzera.',
+    canonicalPath: '/articoli-frontaliere/confronto-frontalieri-festa-lucciola',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri e Svizzera: confronto alla Festa della Lucciola",
+      "description": "Il 9 agosto confronto sui frontalieri alla Festa della Lucciola: sindacati e Psi Ticino discutono di prospettive lavorative e dialogo Italia-Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/confronto-frontalieri-festa-lucciola.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incontro sui frontalieri alla Festa della Lucciola"
+      },
+      "datePublished": "2026-08-09T13:11:17+00:00",
+      "dateModified": "2026-08-09T13:11:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confronto-frontalieri-festa-lucciola/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

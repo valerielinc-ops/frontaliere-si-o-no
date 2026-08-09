@@ -9413,6 +9413,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-assistente-dentale-ticino.title': 'Assistente dentale in Ticino: stipendio e requisiti',
     'blog.article.frontaliere-assistente-dentale-ticino.excerpt': 'Guida per frontalieri: stipendio, imposta alla fonte, requisiti LAMal e AVS per lavorare come assistente dentale nel Canton Ticino.',
     'blog.article.frontaliere-assistente-dentale-ticino.imageAlt': 'Assistente dentale al lavoro in una clinica moderna in Ticino',
+    'blog.article.confronto-frontalieri-festa-lucciola.title': 'Frontalieri e Svizzera: confronto alla Festa della Lucciola',
+    'blog.article.confronto-frontalieri-festa-lucciola.excerpt': 'Domenica 9 agosto, sindacati e rappresentanti politici discuteranno le prospettive del lavoro oltreconfine e il dialogo tra Italia e Svizzera.',
+    'blog.article.confronto-frontalieri-festa-lucciola.imageAlt': 'Incontro sui frontalieri alla Festa della Lucciola',
 };
 
 export default blogMetaIt;
