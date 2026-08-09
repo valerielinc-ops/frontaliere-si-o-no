@@ -9469,6 +9469,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-cannobio-frontaliere-pro-contro.title': 'Moving to Cannobio as a border crosser: pros and cons',
     'blog.article.trasferirsi-cannobio-frontaliere-pro-contro.excerpt': 'Practical analysis on living in Cannobio working in Ticino: tax, agreements and management of daily commuting for border workers.',
     'blog.article.trasferirsi-cannobio-frontaliere-pro-contro.imageAlt': 'Panoramic view of Cannobio on Lake Maggiore',
+    'blog.article.trasferirsi-a-varzo-da-frontaliere-pro-e-contro.title': 'Moving to Varzo from border crossings: pros and cons',
+    'blog.article.trasferirsi-a-varzo-da-frontaliere-pro-e-contro.excerpt': 'Tax settings, residence permits and working conditions: what to know before moving to Varzo as a border worker.',
+    'blog.article.trasferirsi-a-varzo-da-frontaliere-pro-e-contro.imageAlt': 'A cross-border worker transferring to Varzo to work in Ticino',
 };
 
 export default blogMetaEn;

@@ -9470,6 +9470,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-cannobio-frontaliere-pro-contro.title': 'Trasferirsi a Cannobio da frontaliere: pro e contro',
     'blog.article.trasferirsi-cannobio-frontaliere-pro-contro.excerpt': 'Analisi pratica sul vivere a Cannobio lavorando in Ticino: fisco, accordi e gestione del pendolarismo quotidiano per i lavoratori frontalieri.',
     'blog.article.trasferirsi-cannobio-frontaliere-pro-contro.imageAlt': 'Veduta panoramica di Cannobio sul Lago Maggiore',
+    'blog.article.trasferirsi-a-varzo-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Varzo da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-varzo-da-frontaliere-pro-e-contro.excerpt': 'Impostazione fiscale, permessi di soggiorno e condizioni di lavoro: cosa sapere prima di trasferirsi a Varzo da frontaliere.',
+    'blog.article.trasferirsi-a-varzo-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere che si trasferisce a Varzo per lavorare in Ticino',
 };
 
 export default blogMetaIt;
