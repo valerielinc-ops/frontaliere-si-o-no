@@ -5923,6 +5923,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'a2-ancora-al-collasso',
+    category: 'novita',
+    date: '2026-08-09T18:48:45.078Z',
+    image: '/images/blog/a2-ancora-al-collasso.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

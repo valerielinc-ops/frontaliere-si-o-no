@@ -684,6 +684,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea': { it: 'sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea', en: 'swiss-healthcare-system-lamal-guide-2026-canton-basel', de: 'schweizer-gesundheitssystem-lamal-anleitung-2026-kanton-basel', fr: 'systeme-de-sante-suisse-lamal-guide-2026-canton-de-bale' },
  'terzo-pilastro-3a-vantaggi-svizzera': { it: 'terzo-pilastro-3a-vantaggi-svizzera', en: 'third-pillar-3a-benefits-switzerland', de: 'dritter-saule-3a-vorteile-schweiz', fr: 'troisieme-pilier-3a-avantages-suisse' },
  'secondo-pilastro-lpp-guida-completa-svizzera': { it: 'secondo-pilastro-lpp-guida-completa-svizzera', en: 'second-pillar-lpp-complete-guide-switzerland', de: 'zweite-saeule-lpp-umfassende-anleitung-schweiz', fr: 'deuxieme-pilier-lpp-guide-complete-suisse' },
+ 'a2-ancora-al-collasso': { it: 'a2-ancora-al-collasso', en: 'a2-still-blocked', de: 'a2-noch-im-stau', fr: 'a2-encore-bloque' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
