@@ -9464,6 +9464,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-saltrio-lavorare-ticino-frontalieri.title': 'Vivere a Saltrio e lavorare in Ticino da frontaliere: cosa cambia?',
     'blog.article.vivere-saltrio-lavorare-ticino-frontalieri.excerpt': 'Impostata alla fonte, nuovo accordo frontalieri e doppia imposizione: cosa significa per i frontalieri del Ticino',
     'blog.article.vivere-saltrio-lavorare-ticino-frontalieri.imageAlt': 'Un frontaliere in auto sulla autostrada A2',
+    'blog.article.trasferirsi-a-saltrio-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Saltrio da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-saltrio-da-frontaliere-pro-e-contro.excerpt': 'Imposte, doppie imposizioni e nuove regole per i frontalieri che intendono trasferirsi a Saltrio',
+    'blog.article.trasferirsi-a-saltrio-da-frontaliere-pro-e-contro.imageAlt': 'Una fotografia di un valico di frontiera tra Italia e Svizzera',
 };
 
 export default blogMetaIt;

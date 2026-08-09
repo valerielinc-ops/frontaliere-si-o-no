@@ -28407,6 +28407,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trasferirsi-a-saltrio-da-frontaliere-pro-e-contro',
+ category: 'fiscale',
+ date: '2026-08-09T23:17:47.000Z',
+ image: '/images/blog/trasferirsi-a-saltrio-da-frontaliere-pro-e-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

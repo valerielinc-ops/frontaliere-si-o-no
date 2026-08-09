@@ -9463,6 +9463,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-saltrio-lavorare-ticino-frontalieri.title': 'Living in Saltrio and working in Ticino as a border worker: what changes?',
     'blog.article.vivere-saltrio-lavorare-ticino-frontalieri.excerpt': 'Set at source, new border agreement and double taxation: what it means for Ticino border crossers',
     'blog.article.vivere-saltrio-lavorare-ticino-frontalieri.imageAlt': 'A frontaliere on the A2 highway',
+    'blog.article.trasferirsi-a-saltrio-da-frontaliere-pro-e-contro.title': 'Moving to Saltrio by border crossing: pros and cons',
+    'blog.article.trasferirsi-a-saltrio-da-frontaliere-pro-e-contro.excerpt': 'Taxes, double taxation and new rules for border workers who intend to move to Saltrio',
+    'blog.article.trasferirsi-a-saltrio-da-frontaliere-pro-e-contro.imageAlt': 'A photograph of a border crossing between Italy and Switzerland',
 };
 
 export default blogMetaEn;
