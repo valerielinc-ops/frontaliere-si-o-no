@@ -72,9 +72,16 @@ describe('deploy-it-pages-prep.sh — R2 /assets/ cache policy', () => {
   it('never invokes a zone-wide purge from the deploy path (comments aside)', () => {
     // Only executable lines — the surrounding rationale comments legitimately
     // name `purge_everything` to explain why this path deliberately avoids it.
-    const code = joinContinuations(PREP)
-      .split('\n')
-      .filter((l) => !l.trim().startsWith('#'));
+    // Comment-strip MUST run before joinContinuations(): a comment line ending
+    // in `\` would otherwise merge with the next line into a blob that still
+    // starts with `#` and gets filtered away whole, swallowing real code
+    // (#5460 round 2).
+    const code = joinContinuations(
+      PREP
+        .split('\n')
+        .filter((l) => !l.trim().startsWith('#'))
+        .join('\n'),
+    ).split('\n');
     expect(code.some((l) => /purge_everything/.test(l))).toBe(false);
     expect(code.some((l) => /cf-purge-cache\.mjs(?!.*--files=)/.test(l))).toBe(false);
   });

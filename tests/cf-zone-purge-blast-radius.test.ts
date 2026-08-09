@@ -54,11 +54,19 @@ function joinContinuations(source: string): string {
   return source.replace(/\\\r?\n[ \t]*/g, ' ');
 }
 
-/** Strip `#` comment lines — rationale comments legitimately name the thing they forbid. */
+/**
+ * Strip `#` comment lines — rationale comments legitimately name the thing they forbid.
+ * MUST run BEFORE joinContinuations(): a comment line ending in `\` would otherwise
+ * merge with the next line into a blob that still starts with `#` and gets filtered
+ * away whole, silently swallowing a real code line (#5460 round 2).
+ */
 function executableLines(source: string): string[] {
-  return joinContinuations(source)
-    .split('\n')
-    .filter((line) => !line.trim().startsWith('#'));
+  return joinContinuations(
+    source
+      .split('\n')
+      .filter((line) => !line.trim().startsWith('#'))
+      .join('\n'),
+  ).split('\n');
 }
 
 /** Targeted mode (`--files=`) is fine and is the supported deploy primitive.
@@ -104,6 +112,11 @@ describe('no workflow may purge the whole Cloudflare zone', () => {
 
   it('still catches a bare invocation with no --files= anywhere in the file', () => {
     const yaml = ['jobs:', '  purge:', '    steps:', '      - run: node scripts/cf-purge-cache.mjs'].join('\n');
+    expect(zoneWideInvocations(executableLines(yaml))).not.toEqual([]);
+  });
+
+  it('does not let a `\\`-terminated comment line swallow the next line of code (#5460 round 2)', () => {
+    const yaml = ['jobs:', '  purge:', '    steps:', '      - run: |', '            # doc \\', '            node scripts/cf-purge-cache.mjs'].join('\n');
     expect(zoneWideInvocations(executableLines(yaml))).not.toEqual([]);
   });
 });
