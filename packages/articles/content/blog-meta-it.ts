@@ -9434,6 +9434,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-falegname-ticino-lavoro.title': 'Frontaliere falegname in Ticino: stipendio e requisiti',
     'blog.article.frontaliere-falegname-ticino-lavoro.excerpt': 'Guida completa per falegnami frontalieri in Ticino: stipendi, inquadramento, tassazione e requisiti per il permesso G secondo le norme vigenti.',
     'blog.article.frontaliere-falegname-ticino-lavoro.imageAlt': 'Falegname al lavoro in una moderna falegnameria ticinese',
+    'blog.article.lavoro-gessatore-ticino-frontaliere.title': 'Lavorare come gessatore in Ticino: guida per frontalieri',
+    'blog.article.lavoro-gessatore-ticino-frontaliere.excerpt': 'Requisiti, stipendio e imposta alla fonte: tutto ciò che un frontaliere deve sapere per lavorare come gessatore nel Canton Ticino.',
+    'blog.article.lavoro-gessatore-ticino-frontaliere.imageAlt': 'Cantiere edile in Ticino con vista sulle Alpi',
+    'blog.article.agente-sicurezza-ticino-frontaliere.title': 'Agente di sicurezza in Ticino: requisiti e lavoro da frontaliere',
+    'blog.article.agente-sicurezza-ticino-frontaliere.excerpt': 'Guida operativa per frontalieri: requisiti, permesso G, tassazione e inquadramento lavorativo per il settore della sicurezza privata in Ticino.',
+    'blog.article.agente-sicurezza-ticino-frontaliere.imageAlt': 'Agente di sicurezza in servizio presso un edificio in Ticino',
 };
 
 export default blogMetaIt;

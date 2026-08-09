@@ -297,8 +297,19 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # `Workflow Failure: ${{ github.workflow }}` e non
+          # `Crawler Failure: events pipeline (…)`. Due difetti in una riga sola
+          # (#5437):
+          #   - il nome nel titolo non era il `name:` del workflow, quindi
+          #     `gh run list -w` non risolveva niente e la issue restava aperta
+          #     per sempre pur avendo il prefisso giusto;
+          #   - dopo il consolidamento dei crawler (2026-07) il prefisso
+          #     `Crawler Failure:` significa «il gruppo 2 è `Run <slug>`, uno
+          #     STEP dentro un crawler-group-*.yml». Questo non è un crawler di
+          #     gruppo: tenere quel prefisso mandava il reconciler sul ramo
+          #     sbagliato prima ancora del lookup.
           node scripts/lib/github-issue-creator.mjs \
-            --title "Crawler Failure: events pipeline (tio.ch, guidle, myswitzerland)" \
+            --title "Workflow Failure: ${{ github.workflow }}" \
             --description "## Crawler fallito
           **Run:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           **Branch:** ${{ github.ref_name }}

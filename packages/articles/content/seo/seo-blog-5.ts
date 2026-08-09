@@ -61379,6 +61379,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-gessatore-ticino-frontaliere': {
+    title: 'Lavorare come gessatore in Ticino: guida per frontalieri',
+    description: 'Scopri i requisiti, lo stipendio e la tassazione per lavorare come gessatore in Ticino. Guida aggiornata sul nuovo accordo frontalieri e permessi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, gessatore, requisiti, stipendio',
+    ogTitle: 'Lavorare come gessatore in Ticino: guida per frontalieri',
+    ogDescription: 'Guida pratica per gessatori frontalieri in Ticino: dal permesso G alle nuove regole fiscali 2024, contributi AVS, LPP e tassazione.',
+    canonicalPath: '/articoli-frontaliere/lavoro-gessatore-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come gessatore in Ticino: guida per frontalieri",
+      "description": "Scopri i requisiti, lo stipendio e la tassazione per lavorare come gessatore in Ticino. Guida aggiornata sul nuovo accordo frontalieri e permessi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-gessatore-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere edile in Ticino con vista sulle Alpi"
+      },
+      "datePublished": "2026-08-09T17:44:07+00:00",
+      "dateModified": "2026-08-09T17:44:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-gessatore-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-agente-sicurezza-ticino-frontaliere': {
+    title: 'Agente di sicurezza in Ticino: requisiti e lavoro da frontaliere',
+    description: 'Lavorare come agente di sicurezza in Ticino da frontaliere: scopri requisiti, permesso G, tassazione e gestione contributi sociali con il nuovo accordo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, agente, sicurezza, requisiti, lavoro',
+    ogTitle: 'Agente di sicurezza in Ticino: requisiti e lavoro da frontaliere',
+    ogDescription: 'Guida completa per frontalieri che vogliono lavorare nella sicurezza privata in Ticino: permessi, fisco e previdenza spiegati in modo semplice.',
+    canonicalPath: '/articoli-frontaliere/agente-sicurezza-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Agente di sicurezza in Ticino: requisiti e lavoro da frontaliere",
+      "description": "Lavorare come agente di sicurezza in Ticino da frontaliere: scopri requisiti, permesso G, tassazione e gestione contributi sociali con il nuovo accordo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/agente-sicurezza-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Agente di sicurezza in servizio presso un edificio in Ticino"
+      },
+      "datePublished": "2026-08-09T17:56:26+00:00",
+      "dateModified": "2026-08-09T17:56:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/agente-sicurezza-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

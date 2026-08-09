@@ -28317,6 +28317,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lavoro-gessatore-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-09T17:44:07.329Z',
+ image: '/images/blog/lavoro-gessatore-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'agente-sicurezza-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-09T17:56:26.454Z',
+ image: '/images/blog/agente-sicurezza-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -135,7 +135,14 @@ function sampleWithoutReplacement(arr, n) {
 // firstDiffLines() context block before the next locale's line. Splitting on
 // that literal prefix (never re-deriving the diff ourselves — only reading
 // what the script already printed) recovers one verdict per locale:
-//   - 'ok'                  — byte-identical, per that script's own check.
+//   - 'ok'                  — identical per that script's own check, which
+//     since #5444 accepts two shapes and prints which one it saw: literally
+//     byte-identical, or identical once the `<meta>` tags inside `<head>` are
+//     put in a canonical ORDER (same tags, same values, different sequence —
+//     the two render paths disagree about it, and no consumer of the page
+//     can tell). Both are `OK —` lines, so this parser needs no new branch;
+//     the distinction lives in the log text, where a human reading a run can
+//     still see how often the renderers disagreed about ordering.
 //   - 'cf-bot-script-only'  — a MISMATCH whose diff block contains the
 //     literal Cloudflare bot-fight marker `__CF$cv$params` — the exact
 //     divergence source check-article-byte-identity.mjs's own header comment

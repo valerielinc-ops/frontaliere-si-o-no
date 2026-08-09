@@ -9435,6 +9435,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-falegname-ticino-lavoro.title': 'Frontalier charpentier au Tessin : salaire et exigences',
     'blog.article.frontaliere-falegname-ticino-lavoro.excerpt': 'Guide complet pour les menuisiers frontaliers au Tessin : salaires, encadrement, fiscalité et exigences pour le permis G selon les normes en vigueur.',
     'blog.article.frontaliere-falegname-ticino-lavoro.imageAlt': 'Menuisier au travail dans un atelier de menuiserie moderne au Tessin',
+    'blog.article.lavoro-gessatore-ticino-frontaliere.title': 'Travailler comme plâtrier au Tessin : guide pour les frontaliers',
+    'blog.article.lavoro-gessatore-ticino-frontaliere.excerpt': 'Exigences, salaire et impôt à la source : tout ce qu\'un frontalier doit savoir pour travailler comme épisseur dans le canton du Tessin.',
+    'blog.article.lavoro-gessatore-ticino-frontaliere.imageAlt': 'Chantier de construction au Tessin avec vue sur les Alpes',
+    'blog.article.agente-sicurezza-ticino-frontaliere.title': 'Agent de sécurité au Tessin : exigences et travail de frontalier',
+    'blog.article.agente-sicurezza-ticino-frontaliere.excerpt': 'Guide opérationnel pour les frontaliers : exigences, permis G, fiscalité et encadrement du travail pour le secteur de la sécurité privée au Tessin.',
+    'blog.article.agente-sicurezza-ticino-frontaliere.imageAlt': 'Agent de sécurité en service devant un bâtiment au Tessin',
 };
 
 export default blogMetaFr;

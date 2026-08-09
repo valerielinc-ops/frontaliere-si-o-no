@@ -245,6 +245,17 @@ try {
       + 'scripts/ci/check-hydrated-article-parity.mjs asserts the property rather than '
       + 'trusting it — because nothing in this repo owns that rule.',
     );
+    console.log(
+      "⚠️  Same gap for `Vary: Accept-Encoding` (#5483), and there's no fix here: "
+      + "Cloudflare's per-file purge headers support only Origin, CF-Device-Type and "
+      + 'Accept-Language — Accept-Encoding is not a purgeable dimension, so a response '
+      + 'that varies on it keeps a variant this ✅ cannot reach, on ANY host. The apex '
+      + '(frontaliereticino.ch) is unaffected in practice — it-apex-html-cache overrides '
+      + 'Edge TTL to a self-invalidating 300s (scripts/cf-locale-failover-setup.mjs), so '
+      + 'that variant expires on its own regardless of this purge. A host without that '
+      + 'bound (e.g. a future respect_origin rule with a real multi-day TTL) would not '
+      + 'have the same safety net.',
+    );
   } else {
     console.log(`✅ Cloudflare edge cache purged (zone ${zoneId}).`);
     console.log(`⏳ Settling ${PURGE_SETTLE_MS}ms for the purge to propagate across edge PoPs before the caller probes LIVE_BASE_URL...`);

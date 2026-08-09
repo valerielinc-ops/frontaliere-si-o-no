@@ -43,9 +43,37 @@ const WORKFLOW_DIR = resolve(ROOT, '.github/workflows');
 const PURGE_SCRIPT = readFileSync(resolve(ROOT, 'scripts/cf-purge-cache.mjs'), 'utf-8');
 const FAILOVER_SETUP = readFileSync(resolve(ROOT, 'scripts/cf-locale-failover-setup.mjs'), 'utf-8');
 
-/** Strip `#` comment lines — rationale comments legitimately name the thing they forbid. */
+/**
+ * Resolve shell line-continuations (`cmd \` + indented next line, as YAML
+ * `run:` blocks routinely use) into one logical line BEFORE splitting. A
+ * naive per-line scan treats each physical line independently, so moving
+ * `--files=...` onto the continuation line — an innocuous reformat — splits
+ * the invocation from its flag across two lines and reads as zone-wide (#5460).
+ */
+function joinContinuations(source: string): string {
+  return source.replace(/\\\r?\n[ \t]*/g, ' ');
+}
+
+/**
+ * Strip `#` comment lines — rationale comments legitimately name the thing they forbid.
+ * MUST run BEFORE joinContinuations(): a comment line ending in `\` would otherwise
+ * merge with the next line into a blob that still starts with `#` and gets filtered
+ * away whole, silently swallowing a real code line (#5460 round 2).
+ */
 function executableLines(source: string): string[] {
-  return source.split('\n').filter((line) => !line.trim().startsWith('#'));
+  return joinContinuations(
+    source
+      .split('\n')
+      .filter((line) => !line.trim().startsWith('#'))
+      .join('\n'),
+  ).split('\n');
+}
+
+/** Targeted mode (`--files=`) is fine and is the supported deploy primitive.
+ * A bare invocation — cf-purge-cache.mjs with no --files= anywhere on its
+ * (continuation-joined) logical line — is the zone-wide one. */
+function zoneWideInvocations(lines: string[]): string[] {
+  return lines.filter((l) => /cf-purge-cache\.mjs/.test(l) && !/--files=/.test(l));
 }
 
 describe('no workflow may purge the whole Cloudflare zone', () => {
@@ -58,11 +86,7 @@ describe('no workflow may purge the whole Cloudflare zone', () => {
   it.each(workflows)('%s does not invoke cf-purge-cache.mjs in zone-wide mode', (file) => {
     const lines = executableLines(readFileSync(resolve(WORKFLOW_DIR, file), 'utf-8'));
 
-    // Targeted mode (`--files=`) is fine and is the supported deploy primitive.
-    // A bare invocation is the zone-wide one — that is what must never return.
-    const zoneWide = lines.filter(
-      (l) => /cf-purge-cache\.mjs/.test(l) && !/--files=/.test(l),
-    );
+    const zoneWide = zoneWideInvocations(lines);
     expect(
       zoneWide,
       `${file} invokes cf-purge-cache.mjs without --files=, which is a zone-wide ` +
@@ -72,6 +96,28 @@ describe('no workflow may purge the whole Cloudflare zone', () => {
     ).toEqual([]);
 
     expect(lines.some((l) => /purge_everything/.test(l)), `${file} names purge_everything in executable YAML`).toBe(false);
+  });
+
+  it('does not flag --files= moved onto a shell continuation line (#5460 regression)', () => {
+    const yaml = [
+      'jobs:',
+      '  purge:',
+      '    steps:',
+      '      - run: |',
+      '            node scripts/cf-purge-cache.mjs \\',
+      '              "--files=$(paste -sd, "$b")" || echo "::warning::purge batch failed"',
+    ].join('\n');
+    expect(zoneWideInvocations(executableLines(yaml))).toEqual([]);
+  });
+
+  it('still catches a bare invocation with no --files= anywhere in the file', () => {
+    const yaml = ['jobs:', '  purge:', '    steps:', '      - run: node scripts/cf-purge-cache.mjs'].join('\n');
+    expect(zoneWideInvocations(executableLines(yaml))).not.toEqual([]);
+  });
+
+  it('does not let a `\\`-terminated comment line swallow the next line of code (#5460 round 2)', () => {
+    const yaml = ['jobs:', '  purge:', '    steps:', '      - run: |', '            # doc \\', '            node scripts/cf-purge-cache.mjs'].join('\n');
+    expect(zoneWideInvocations(executableLines(yaml))).not.toEqual([]);
   });
 });
 
@@ -98,11 +144,16 @@ describe('no script may purge the whole Cloudflare zone either', () => {
   });
 
   it('every script that invokes cf-purge-cache.mjs uses the targeted --files= mode', () => {
-    // File-scoped, not line-scoped, on purpose: purge-changed-cdn-assets.mjs
-    // resolves the script path on one line and passes `--files=` on another, so
-    // a per-line rule reports it as a false positive. What actually matters is
-    // that a file which reaches for this script never does so without the
-    // targeted flag somewhere in it.
+    // File-scoped, not line-scoped, on purpose — and NOT the same asymmetry the
+    // workflow check above had (#5460). Workflow `run:` blocks use `\` as an
+    // explicit shell continuation, so joinContinuations() resolves that back
+    // into one logical line. purge-changed-cdn-assets.mjs instead resolves the
+    // script path (`purgeScript = join(...)`) and invokes it with `--files=`
+    // (`execFileSync(...)`) as two separate JS statements with no `\`
+    // continuation between them — there is no logical-line boundary to join,
+    // so a per-line rule would flag the path-resolution line as a false
+    // positive. What actually matters is that a file which reaches for this
+    // script never does so without the targeted flag somewhere in it.
     const offenders: string[] = [];
     for (const rel of scripts) {
       const source = readFileSync(resolve(ROOT, rel), 'utf-8');

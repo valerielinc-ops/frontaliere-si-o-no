@@ -1966,6 +1966,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.autostrada-riapertura-ticino.title': 'Braucht es wirklich Stunden und Stunden, um eine Autobahn wieder zu öffnen?',
     'blog.article.autostrada-riapertura-ticino.excerpt': 'Die grossen Lega-Berater bitten den Staatsrat um Klärung nach dem Chaos auf der A2.',
     'blog.article.autostrada-riapertura-ticino.imageAlt': 'Bild eines congestionierten A2-Highways in Ticino, Schweiz, mit Untertitel über die langen Wartezeiten für Pendler.',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.title': 'Leitfaden zum schweizerischen Gesundheitssystem: KVG und Wahl der Krankenkasse',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.excerpt': 'Alle notwendigen Daten, um das Schweizer Gesundheitssystem und die Wahl der Krankenkasse im Kanton Basel zu verstehen',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea.imageAlt': 'Praktische Anleitung zum schweizerischen Gesundheitssystem: LAMal und Gesundheitsversicherungsentscheid, mit spezifischen Daten für das Kanton Basel',
+    'blog.article.terzo-pilastro-3a-vantaggi-svizzera.title': 'Dritte Säule 3a: Reale Steuervorteile in der Schweiz',
+    'blog.article.terzo-pilastro-3a-vantaggi-svizzera.excerpt': 'Die dritte Säule 3a in der Schweiz bietet den Steuerpflichtigen echte Steuervorteile, aber es ist wichtig, die Unterschiede zwischen Bank- und Versicherungsoptionen zu verstehen.',
+    'blog.article.terzo-pilastro-3a-vantaggi-svizzera.imageAlt': 'Eine fotorealistische Szene einer Touristenattraktion am Luganersee, mit einem klaren See und umgebenden Bergen.',
+    'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.title': 'BVG: Leitfaden zu Beiträgen und Lückenrückkauf',
+    'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.excerpt': 'Der umfassende Leitfaden zur 2. Säule BVG für Schweizerinnen und Schweizer',
+    'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.imageAlt': 'Eine umfassende Anleitung zum zweiten Säule LPP für Schweizer Bürger',
 };
 
 export default blogMetaChDe;
