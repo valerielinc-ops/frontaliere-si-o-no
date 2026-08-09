@@ -3748,16 +3748,16 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
 
  'blog-esame-complementare-passerella-aperte-pre-iscrizioni': {
  title: 'Esame complementare passerella: aperte | Frontaliere Ticino',
- description: 'Il Dipartimento dell6educazione, della cultura e dello sport comunica che sono aperte le pre-iscrizioni al corso di preparazione all’esame complementare passer',
+ description: 'Il Dipartimento dell’educazione, della cultura e dello sport comunica che sono aperte le pre-iscrizioni al corso di preparazione all’esame complementare passer',
  keywords: 'frontalieri, ticino, svizzera, italia, esame, complementare, passerella, aperte',
  ogTitle: 'Esame complementare passerella: aperte le pre-iscrizioni',
- ogDescription: 'Il Dipartimento dell6educazione, della cultura e dello sport comunica che sono aperte le pre-iscrizioni al corso di preparazione all’esame complementare passer',
+ ogDescription: 'Il Dipartimento dell’educazione, della cultura e dello sport comunica che sono aperte le pre-iscrizioni al corso di preparazione all’esame complementare passer',
  canonicalPath: '/articoli-frontaliere/esame-complementare-passerella-aperte-pre-iscrizioni/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
  "headline": "Esame complementare passerella: aperte le pre-iscrizioni",
- "description": "Il Dipartimento dell6educazione, della cultura e dello sport comunica che sono aperte le pre-iscrizioni al corso di preparazione all’esame complementare passer",
+ "description": "Il Dipartimento dell’educazione, della cultura e dello sport comunica che sono aperte le pre-iscrizioni al corso di preparazione all’esame complementare passer",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/esame-complementare-passerella-aperte-pre-iscrizioni.webp`,
  "width": 1200,
@@ -4593,7 +4593,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  title: 'Trump: "Intesa o sar0 l\'inferno". Il giallo dell\'ultimatum',
  description: 'Trump annuncia un ultimatum alla Cina durante la Pasqua in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, trump, intesa, inferno, giallo',
- ogTitle: 'Trump: "Intesa o sar0 l\'inferno". Il giallo dell\'ultimatum spostato a marted8',
+ ogTitle: 'Trump: "Intesa o sar0 l\'inferno". Il giallo dell\'ultimatum spostato a martedì',
  ogDescription: 'Trump annuncia un ultimatum alla Cina durante la Pasqua in Ticino',
  canonicalPath: '/articoli-frontaliere/trump-intesa-o-inferno/',
  structuredData: {
