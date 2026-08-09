@@ -11,7 +11,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it"
   ],
   "notes": "Confederazione Svizzera — CH-wide federal jobs (all 26 cantons). Fetches the unfiltered national listing from the Prospective.ch API (medium 1000624 — Stellenportal Bund / jobs.admin.ch) and keeps every job whose location resolves to a Swiss canton (inferAnyCanton); foreign \"Estero\" postings are dropped. Covers departments not handled by VTG or Agroscope crawlers: DATEC, DEFR/SECO, DFGP, TPF, etc. Includes apprenticeship and internship positions.",
-  "updatedAt": "2026-08-08T21:32:36.154Z",
+  "updatedAt": "2026-08-09T10:06:26.869Z",
   "seedMetaByUrl": {
     "https://jobs.admin.ch/posti-vacanti/jurist-in/d85d51cc-c2c8-4ed6-ab21-8c0a1b17ddb9": {
       "location": "Bern",
@@ -1129,12 +1129,6 @@
       "company": "Confederazione Svizzera",
       "postedDate": "2026-06-15"
     },
-    "https://jobs.admin.ch/posti-vacanti/leiter-in-fachausbildung-militaerpolizei/fee9de90-52a2-48bc-ba11-1d08f5bd1ae0": {
-      "location": "Sarnen",
-      "canton": "OW",
-      "company": "Confederazione Svizzera",
-      "postedDate": "2026-07-10"
-    },
     "https://jobs.admin.ch/posti-vacanti/ict-helpdesk-mitarbeiter-in-junior/7857c6dd-7a7a-46a6-8bd2-f181d626e8f7": {
       "location": "Bern",
       "canton": "BE",
@@ -1861,12 +1855,6 @@
       "company": "Confederazione Svizzera",
       "postedDate": "2019-09-10"
     },
-    "https://jobs.admin.ch/posti-vacanti/panzerelektriker-in/7440880a-ca4c-4567-adc3-fe680d706328": {
-      "location": "Hinwil",
-      "canton": "ZH",
-      "company": "Confederazione Svizzera",
-      "postedDate": "2026-07-10"
-    },
     "https://jobs.admin.ch/posti-vacanti/ict-architekt-in-senior-1093/858e79ca-b8de-4c07-a079-4a5817896a2b": {
       "location": "Bern",
       "canton": "BE",
@@ -2004,12 +1992,6 @@
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "postedDate": "2026-06-02"
-    },
-    "https://jobs.admin.ch/posti-vacanti/kriminalanalyse-offizier-in/8dceeed8-b033-4514-a5a3-8307328af7ec": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "postedDate": "2026-07-10"
     },
     "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-finanzierung-schienennetz/6ee188af-ac5c-427c-97af-2e837ab1ab37": {
       "location": "Ittigen",
