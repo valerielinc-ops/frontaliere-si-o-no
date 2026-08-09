@@ -9402,6 +9402,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-ticino-energia-fossili.title': 'Dans quelle mesure la Suisse est-elle dépendante des combustibles fossiles ?',
     'blog.article.frontaliere-ticino-energia-fossili.excerpt': 'La Suisse importe la totalité des combustibles fossiles qu\'elle consomme. En 2025, il a acheté le pétrole brut principalement aux États-Unis, qui avec le blocus du détroit d\'Ormuz sont devenus les premiers exportateurs au monde, et au Nigéria.',
     'blog.article.frontaliere-ticino-energia-fossili.imageAlt': 'Un travailleur frontalier en Tessin regarde par la fenêtre d\'un bâtiment, avec un paysage de collines et de montagnes en arrière-plan.',
+    'blog.article.frontaliere-polimeccanico-ticino-lavoro.title': 'Frontière polymécanique au Tessin : salaire et exigences',
+    'blog.article.frontaliere-polimeccanico-ticino-lavoro.excerpt': 'Guide complet pour les polymécaniciens : salaire, impôt à la source, nouvel accord fiscal et exigences pour travailler dans le canton du Tessin.',
+    'blog.article.frontaliere-polimeccanico-ticino-lavoro.imageAlt': 'Polymécanicien au travail dans un atelier au Tessin',
 };
 
 export default blogMetaFr;
