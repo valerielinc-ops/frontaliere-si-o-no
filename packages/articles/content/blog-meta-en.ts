@@ -9427,6 +9427,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.autostrada-a2-mezzovico-interrogazione.title': 'A2 paralyzed for hours: question to the Council of State',
     'blog.article.autostrada-a2-mezzovico-interrogazione.excerpt': 'Six League grand councillors question the Government after Saturday night from a nightmare on the A2 in Mezzovico with queues up to 13 kilometers.',
     'blog.article.autostrada-a2-mezzovico-interrogazione.imageAlt': 'Traffic congestion and blocked cars on the A2 motorway in Ticino',
+    'blog.article.frontaliere-gruista-ticino-stipendio-requisiti.title': 'Border crane operator Ticino: salary and requirements',
+    'blog.article.frontaliere-gruista-ticino-stipendio-requisiti.excerpt': 'Basically the news for cross-border crane operators in Ticino',
+    'blog.article.frontaliere-gruista-ticino-stipendio-requisiti.imageAlt': 'Frontaliere working as a gruista in Ticino',
 };
 
 export default blogMetaEn;
