@@ -9408,6 +9408,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-logopedista-frontaliere-ticino.title': 'Logopäde im Tessin: Leitfaden für Grenzgänger',
     'blog.article.lavoro-logopedista-frontaliere-ticino.excerpt': 'Anforderungen, Gehalt und Besteuerung für grenznahe Sprachtherapeuten im Tessin. So orientieren Sie sich zwischen neuem Steuerabkommen, AHV und Quellensteuer.',
     'blog.article.lavoro-logopedista-frontaliere-ticino.imageAlt': 'Arztpraxis mit Blick auf Lugano',
+    'blog.article.frontaliere-assistente-dentale-ticino.title': 'Zahnarzthelferin im Tessin: Gehalt und Voraussetzungen',
+    'blog.article.frontaliere-assistente-dentale-ticino.excerpt': 'Leitfaden für Grenzgänger: Gehalt, Quellensteuer, KVG- und AHV-Anforderungen für die Arbeit als Zahnarzthelferin im Kanton Tessin.',
+    'blog.article.frontaliere-assistente-dentale-ticino.imageAlt': 'Zahnarzthelferin bei der Arbeit in einer modernen Zahnklinik im Tessin',
 };
 
 export default blogMetaDe;

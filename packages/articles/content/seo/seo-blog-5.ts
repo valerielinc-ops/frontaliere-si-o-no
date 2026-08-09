@@ -61067,6 +61067,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-assistente-dentale-ticino': {
+    title: 'Assistente dentale in Ticino: stipendio e requisiti',
+    description: 'Guida per frontalieri assistente dentale in Ticino: stipendio, imposta alla fonte, requisiti LAMal, AVS e nuovo accordo fiscale 2024. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, assistente, dentale, stipendio, requisiti',
+    ogTitle: 'Assistente dentale in Ticino: stipendio e requisiti frontalieri',
+    ogDescription: 'Tutto quello che un frontaliere deve sapere sul lavoro di assistente dentale in Ticino: tassazione, contributi previdenziali e nuovo accordo fiscale.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-assistente-dentale-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assistente dentale in Ticino: stipendio e requisiti",
+      "description": "Guida per frontalieri assistente dentale in Ticino: stipendio, imposta alla fonte, requisiti LAMal, AVS e nuovo accordo fiscale 2024. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-assistente-dentale-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Assistente dentale al lavoro in una clinica moderna in Ticino"
+      },
+      "datePublished": "2026-08-09T11:30:02+00:00",
+      "dateModified": "2026-08-09T11:30:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-assistente-dentale-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
