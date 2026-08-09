@@ -5358,6 +5358,19 @@ ${hrefTags}
  if (!locPath || locPath === '/') continue;
  // Skip if locale variant resolves to same path as primary page (e.g. /about/ is both loc and en hreflang)
  if (locPath === url.path) continue;
+ // Locale roots (/en/, /de/, /fr/) are owned by the post-loop "Locale-root
+ // SPA shells" ratchet (mirrors the isLocaleRoot skip a few hundred lines
+ // above for the SAME reason): that ratchet writes the richer ~106 KB
+ // artifact carrying the homepage SEO block (hp-seo-block/hp-canton-nav/
+ // hp-lang-switch). Without this skip, this generic hreflang-variant loop
+ // reaches the SAME dist/<loc>/index.html path first (e.g. while processing
+ // `/`'s own hreflang alternates) and writes a bare ~25 KB buildPage()
+ // shell with NO SEO block; `_qw`'s first-write-wins dedup (`_writtenPaths`)
+ // then silently drops the ratchet's later, richer write to that identical
+ // path. Net effect measured in production: /en/, /de/, /fr/ shipped with
+ // zero canton-hub anchors, orphaning every non-IT jobs-{canton} sitemap
+ // shard one BFS hop deeper than IT (issue #5468).
+ if (locPath === '/en' || locPath === '/de' || locPath === '/fr') continue;
 
  const locFile = np.join(distDir, locPath, 'index.html');
  const locNormalized = locPath.replace(/\/+$/, '') || '/';
