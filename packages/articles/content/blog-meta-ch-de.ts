@@ -1972,6 +1972,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-svizzera.title': 'Dritte Säule 3a: Reale Steuervorteile in der Schweiz',
     'blog.article.terzo-pilastro-3a-vantaggi-svizzera.excerpt': 'Die dritte Säule 3a in der Schweiz bietet den Steuerpflichtigen echte Steuervorteile, aber es ist wichtig, die Unterschiede zwischen Bank- und Versicherungsoptionen zu verstehen.',
     'blog.article.terzo-pilastro-3a-vantaggi-svizzera.imageAlt': 'Eine fotorealistische Szene einer Touristenattraktion am Luganersee, mit einem klaren See und umgebenden Bergen.',
+    'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.title': 'BVG: Leitfaden zu Beiträgen und Lückenrückkauf',
+    'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.excerpt': 'Der umfassende Leitfaden zur 2. Säule BVG für Schweizerinnen und Schweizer',
+    'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.imageAlt': 'Eine umfassende Anleitung zum zweiten Säule LPP für Schweizer Bürger',
 };
 
 export default blogMetaChDe;

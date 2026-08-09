@@ -1972,6 +1972,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-svizzera.title': 'Third pillar 3a: real tax advantages in Switzerland',
     'blog.article.terzo-pilastro-3a-vantaggi-svizzera.excerpt': 'The third pillar 3a in Switzerland offers real tax advantages to taxpayers, but it is important to understand the differences between banking and insurance options.',
     'blog.article.terzo-pilastro-3a-vantaggi-svizzera.imageAlt': 'A photorealistic scene of a tourist location on Lake Lugano, with a crystal-clear lake and surrounding mountains.',
+    'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.title': 'LPP: Gaps Contribution and Redemption Guide',
+    'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.excerpt': 'The complete guide to the second LPP pillar for Swiss citizens',
+    'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.imageAlt': 'A complete guide to the second pillar LPP for Swiss citizens',
 };
 
 export default blogMetaChEn;

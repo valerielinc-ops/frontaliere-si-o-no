@@ -5914,6 +5914,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'secondo-pilastro-lpp-guida-completa-svizzera',
+    category: 'pratico',
+    date: '2026-08-09T17:59:47.224Z',
+    image: '/images/blog/secondo-pilastro-lpp-guida-completa-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

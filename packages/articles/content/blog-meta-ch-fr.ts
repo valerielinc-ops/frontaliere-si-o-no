@@ -1972,6 +1972,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-svizzera.title': 'Troisième pilier 3a : avantages fiscaux réels en Suisse',
     'blog.article.terzo-pilastro-3a-vantaggi-svizzera.excerpt': 'Le troisième pilier 3a en Suisse offre de réels avantages fiscaux aux contribuables, mais il est important de comprendre les différences entre les options bancaires et d\'assurance.',
     'blog.article.terzo-pilastro-3a-vantaggi-svizzera.imageAlt': 'Une scène photoréaliste d\'une attraction touristique sur le lac de Lugano, avec un lac cristallin et des montagnes environnantes.',
+    'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.title': 'LPP : guide de contribution et de rachat des lacunes',
+    'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.excerpt': 'Le guide complet du deuxième pilier LPP pour les citoyens suisses',
+    'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.imageAlt': 'Une guide complète du deuxième pilier LPP pour les citoyens suisses',
 };
 
 export default blogMetaChFr;
