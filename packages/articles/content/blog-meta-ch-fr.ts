@@ -2002,6 +2002,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-lamal-2026-canton-basilea.title': 'Primes caisse-maladie LAMal 2026 dans le canton de Bâle',
     'blog.article.premi-cassa-malati-lamal-2026-canton-basilea.excerpt': 'Franchises adultes CHF 300, 500, 1000, 1500, 2000, 2500. Primes fixées par canton et région de prime.',
     'blog.article.premi-cassa-malati-lamal-2026-canton-basilea.imageAlt': 'Scena svizzera nazionale/cantonale pertinente al tema premi cassa malati, fotorealistica, DSLR, non sembrare AI',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.title': 'Guide LPP : cotisations, prélèvement et planification de la prévoyance en Suisse',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.excerpt': 'Le deuxième pilier LPP en Suisse : cotisations, prélèvement, rachat des lacunes et planification de la prévoyance. Faisons un focus sur le canton de Berne et comparons les données avec les données nationales.',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.imageAlt': 'Travail en Suisse, salaire',
 };
 
 export default blogMetaChFr;

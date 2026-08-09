@@ -2002,6 +2002,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-lamal-2026-canton-basilea.title': 'Krankenkassenprämien KVG 2026 im Kanton Basel',
     'blog.article.premi-cassa-malati-lamal-2026-canton-basilea.excerpt': 'Erwachsene Selbstbehalte CHF 300, 500, 1000, 1500, 2000, 2500. Festgelegte Prämien pro Kanton und Prämienregion.',
     'blog.article.premi-cassa-malati-lamal-2026-canton-basilea.imageAlt': 'Scena svizzera nazionale/cantonale pertinente al tema premi cassa malati, fotorealistica, DSLR, non sembrare AI',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.title': 'BVG-Leitfaden: Beiträge, Bezug und Vorsorgeplanung in der Schweiz',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.excerpt': 'Die zweite Säule BVG in der Schweiz: Beiträge, Bezug, Lückenrückkauf und Vorsorgeplanung. Wir fokussieren uns auf den Kanton Bern und vergleichen die Daten mit den nationalen.',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.imageAlt': 'Arbeit in der Schweiz, Gehalt',
 };
 
 export default blogMetaChDe;
