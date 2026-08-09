@@ -5995,6 +5995,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'premi-cassa-malati-lamal-2026-canton-basilea',
+    category: 'novita',
+    date: '2026-08-09T23:27:39.924Z',
+    image: '/images/blog/premi-cassa-malati-lamal-2026-canton-basilea.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
