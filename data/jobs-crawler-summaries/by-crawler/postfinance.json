@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-08-08T21:47:39.974Z",
+  "generatedAt": "2026-08-09T10:19:51.883Z",
   "total": 16,
   "newCount": 0,
   "updatedCount": 16,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 37011,
-  "avgDurationMs": 37011,
+  "durationMs": 34297,
+  "avgDurationMs": 34297,
   "durationHistory": [
-    37011
+    34297
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -654,7 +654,7 @@
       "addressLocality": "Niederurnen",
       "addressCountry": "CH",
       "addressRegion": "GL",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
