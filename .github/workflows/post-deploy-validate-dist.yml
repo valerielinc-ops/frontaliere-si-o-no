@@ -879,7 +879,12 @@ jobs:
           # read via resolveSamplingEnv() by `npm run audit:all` below plus
           # audit:hreflang and audit:canonical-trailing-slash — the two
           # full-dist walkers that were this pool's critical path on run
-          # 30376520728, at 2000s and 1711s of a 58m55s job (PR #4903). Every
+          # 30376520728, at 2000s and 1711s of a 58m55s job (PR #4903) — and,
+          # since #5440, by the report-only audit:discover-eligibility launched
+          # further down in this same run block (it was a separate step with
+          # its own identical copy of these two vars; folding it in here made
+          # the copy redundant, NOT the sampling different — same rate, same
+          # salt, same 4-run rotation). Every
           # other gate in this step still ignores these two vars and scans
           # 100%. audit:hreflang samples only which pages it PARSES: its
           # target-existence index is always built from the full walk, so a
@@ -969,9 +974,21 @@ jobs:
           # audit:canonical-trailing-slash (ASYNC concurrent walk of the same
           # tree PLUS a sampled read+regex pass) costs 289-426s.
           #
-          # Expect audit:all (~1000-1100s) to be the new tail. Confirm against
-          # a fresh timings table before optimising further — do not trust
-          # this block once it is more than a few runs old.
+          # That prediction — "expect audit:all (~1000-1100s) to be the new
+          # tail" — DID NOT HOLD, and it is left here as the standing warning
+          # against trusting this block by age instead of by measurement.
+          # Measured on run 31310187420, after the rewrite and after #5438:
+          #
+          #   audit:spa-bundle-injection   1619s   ← still the tail
+          #   audit:all                    ~1037s
+          #   ── STEP WALL                 ~1625s
+          #
+          # The rewrite bought ~150-260s, not the 600s+ that would have handed
+          # the tail to audit:all. Treat the tail as an OPEN QUESTION and read
+          # it off a fresh timings table every time; the ~18 min of slack under
+          # spa-bundle is what makes room for the report-only Discover audit
+          # spawned in the pool below (#5440), and that slack is only as real
+          # as this measurement is fresh.
           MAX_PARALLEL=4
           : > /tmp/post-build-timings.txt
           : > /tmp/post-build-failures.txt
@@ -1084,6 +1101,137 @@ jobs:
           # syscalls, not from reading less.
           spawn_capped audit:spa-bundle-injection    /tmp/spa-bundle.log \
             npm run audit:spa-bundle-injection
+
+          # ── DISCOVER ELIGIBILITY — REPORT, NOT A GATE (issue #5440) ────────
+          #
+          # This used to be its own `continue-on-error: true` step AFTER this
+          # one. It is the only entry here that is not a gate: it reports
+          # Discover eligibility per page family and must never be able to turn
+          # `validate-dist` red. A red validate-dist skips the whole `publish`
+          # job (IndexNow, Google Indexing API, GSC sync), so an eligibility
+          # report that blocks indexation would cost more traffic than the gap
+          # it measures (issue #5001; same non-blocking pattern as
+          # `check-seo-moratorium` in deploy.yml). The two universal checks it
+          # covers are already enforced at the source by
+          # tests/seo/discover-robots-directive.test.ts and
+          # tests/dist-single-h1-per-page.test.ts.
+          #
+          # WHY IT MOVED IN HERE, and what that costs — NOTHING in coverage.
+          #
+          # As a serial step it was the single most expensive thing in the job
+          # despite not gating anything:
+          #
+          #   run 31283409340   37m02s   (of an 82m40s job — 45 %)
+          #   run 31287634802   34m56s   (of an 81m22s job — 43 %)
+          #   run 31296098323   41m35s   (of an 89m48s job — 46 %)
+          #
+          # #5438 sampled it at 25 %, which took it to 8m55s on run
+          # 31310187420 and the job from ~76-79 min to 51m12s. Those ~9 min
+          # were still SERIAL: a non-gating report sitting on the critical path
+          # of a gate, and reclaimed by the corpus at every future growth.
+          #
+          # Here it is concurrent instead, and the ~9 min disappear from the
+          # wall rather than shrinking: this step's tail is
+          # audit:spa-bundle-injection at 1619s (measured post-#5438 — NOT
+          # audit:all at ~1037s, which is what #5438 predicted and got wrong),
+          # so there is ~18 min of slack under the tail for a 535s task.
+          #
+          # COST IN COVERAGE OR FREQUENCY: none. It still runs on EVERY deploy,
+          # at the same 25 % rate, with the same github.run_number salt and the
+          # same 4-run rotation — those two vars now come from this step's own
+          # `env:` block above, which already carried identical values. The
+          # ~8 h worst case for an isolated newly-broken family to surface is
+          # the one #5438 introduced and documented; this change does not touch
+          # it. The nightly-schedule alternative (audit-dist-from-run.yml) WOULD
+          # have: one observation per 24 h instead of per deploy, on a third
+          # 240-minute runner, gated on a 7-day artifact retention. That is why
+          # it was not taken.
+          #
+          # WHY IT IS SAFE TO SAMPLE AT ALL, unlike the gates around it: this
+          # script has NO baseline and NO ratchet. `createAuditor().report()` in
+          # scripts/audit-discover-eligibility.mjs returns `passed: true`
+          # unconditionally (pinned by tests/seo/audit-discover-eligibility.test.ts
+          # — "NEVER reports passed:false"), and the standalone path exits 0
+          # unless `--strict`, which CI does not pass. There is no threshold for
+          # a smaller denominator to loosen: the output is a per-family PASS
+          # RATE. Contrast audit:spa-bundle-injection right above, an
+          # absolute-count ratchet that is deliberately NOT sampled.
+          #
+          # WHY NOT `spawn_capped`, and why the memory is fine:
+          #
+          #  • NOT spawn_capped, because spawn_capped's contract is a GATE:
+          #    a non-zero rc lands in /tmp/post-build-failures.txt, fails this
+          #    step, and — via `Publish gate results` — enters `failed_gates`,
+          #    where scripts/ci/classify-validate-dist-failures.mjs is
+          #    DEFAULT-DENY and would sequester `publish`. That is precisely the
+          #    outcome the old step's `continue-on-error: true` existed to
+          #    prevent. Here the `rc=0` in the timings row is a LITERAL, not
+          #    `$?`: no code path in this block can write a non-zero rc for this
+          #    name, and nothing is ever appended to the failures file. The real
+          #    rc is echoed into the log instead, so a crash is loud without
+          #    being blocking.
+          #  • MEMORY: `wait_slot` (bp_wait_slot, scripts/lib/bounded-parallel.sh)
+          #    blocks on `jobs -rp`, which counts EVERY background job of this
+          #    shell — the audit:all chain included. So the number of concurrent
+          #    Node processes in this step is hard-capped at MAX_PARALLEL=4
+          #    whether this block exists or not: one more entrant in a
+          #    slot-gated queue cannot raise peak concurrency. The OOM history
+          #    that forced MAX_PARALLEL=1 (runs 25400905401, 25402597503,
+          #    25404549152, 25406916097) was 6 heavy walkers fanned out with no
+          #    cap; nothing here changes the cap.
+          #    Per-process, the bound is arithmetic rather than a guess — read
+          #    scripts/audit-discover-eligibility.mjs's standalone() and add up
+          #    what is LIVE at once:
+          #      · walkHtmlFiles() path array — one string per .html in dist.
+          #        At ~3.3M files (the figure audit-runner.mjs's own walk
+          #        comment uses) and ~80-char paths, a Latin1 SeqString is
+          #        16 B header + length, plus one pointer-compressed array slot:
+          #        ~110 B/entry ⇒ ~360 MB. THIS IS THE WHOLE COST, and it is
+          #        paid identically today — the standalone step already calls
+          #        the same walk. Moving the call site changes it by zero.
+          #      · sampleFiles() `sampled` — `files.filter(...)`, i.e. 25 % of
+          #        the REFERENCES, not copies of the strings: ~3.3M × 0.25 ×
+          #        4-8 B ⇒ under 10 MB.
+          #      · exactly ONE html string at a time: the collect loop is a
+          #        strictly serial `await readFile` with NO read-ahead, and
+          #        stripNonContentRegions() chains 4 `.replace`s, so ~5× one
+          #        page is live at the peak — ~100 KB at the ~20 KB average
+          #        audit-runner.mjs documents, ~25 MB even for a pathological
+          #        5 MB page. Per-iteration garbage, not accumulation.
+          #      · accumulators: a Map bounded by family count (~87 rows of
+          #        ~10 numbers) and an offenders array hard-capped at limit=50.
+          #        Kilobytes.
+          #    Total < ~400 MB, against this step's 4096 MB cap and the runner's
+          #    ~7 GB. That serial I/O is why it is SLOW, and the same reason it
+          #    is CHEAP in heap. For comparison inside this same pool:
+          #    audit:hreflang pays the same path array AND builds a full
+          #    target-existence index over the whole walk on top of it;
+          #    audit:all runs 12 auditors with READAHEAD concurrency at ~1 GB
+          #    measured. Discover is under both, so substituting it into a slot
+          #    can only lower or match the co-resident sum against the ~3-4 GB
+          #    cumulative peak already recorded in the MAX_PARALLEL comment.
+          #    It also gains this step's `--max-old-space-size=4096`, which it
+          #    did NOT have as a standalone step (no job- or workflow-level
+          #    NODE_OPTIONS exists in this file) — a tightening, not a loosening.
+          #  • AUDIT_STRICT='1' from this step's env is inert here: it is read
+          #    only by runAudits() in scripts/lib/audit-runner.mjs, and this
+          #    script's standalone path never calls it.
+          wait_slot
+          (
+            set +e
+            start=$(date +%s.%N)
+            npm run audit:discover-eligibility > /tmp/discover-eligibility.log 2>&1
+            rc=$?
+            end=$(date +%s.%N)
+            echo "" >> /tmp/discover-eligibility.log
+            echo "[report-only] audit:discover-eligibility exited rc=$rc — NOT a gate; never propagated to post-build-failures.txt nor to failed_gates (issue #5440)" \
+              >> /tmp/discover-eligibility.log
+            # `rc=0` is HARD-CODED on purpose — see the bullet above. The row
+            # exists only so the timings table still accounts for the wall time.
+            awk "BEGIN{printf \"%-40s %7.2f rc=0\n\", \"audit:discover-eligibility(report-only)\", $end-$start}" \
+              >> /tmp/post-build-timings.txt
+          ) &
+
           # 0-tolerance: dotfile `dist/**\/.html` files mean a plugin produced
           # `<dir>/.html` via `path + '.html'` where `path` ended in `/`.
           # GitHub Pages serves these for `/<dir>/` with
@@ -1134,6 +1282,22 @@ jobs:
           # inside the subshell, so the FAIL aggregator below sees them.
           wait "$DIST_MULTI_PID" || true
           wait
+
+          # The Discover report's own output. spawn_capped-style logs are only
+          # `cat`-ed in the FAILURE branch below, and this one has no failure
+          # branch by construction — without this it would run and print
+          # nowhere, which would be a worse regression than the 9 minutes the
+          # move saves. Printed BEFORE the FAIL aggregation on purpose: as a
+          # separate step it defaulted to `if: success()` and was therefore
+          # SKIPPED whenever a gate went red, i.e. exactly when the per-family
+          # table was most worth having. `|| true` twice: observability must
+          # never be able to fail this step.
+          echo ""
+          echo "══════════════════════════════════════════════════════════════════════"
+          echo "Discover eligibility — REPORT ONLY, not a gate (25 % rotating sample)"
+          echo "══════════════════════════════════════════════════════════════════════"
+          cat /tmp/discover-eligibility.log 2>/dev/null || true
+          echo "══════════════════════════════════════════════════════════════════════"
 
           echo ""
           echo "══════════════════════════════════════════════════════════════════════"
@@ -1249,69 +1413,27 @@ jobs:
           # It was simply never printed. One line, no new artifact, no storage
           # cost, and the job log outlives the 7-day artifact retention.
           # `|| true`: never let observability break the gate step.
+          #
+          # Since #5440 this glob also picks up discover-eligibility.json,
+          # which is written inside the pool step now instead of after this one.
+          # It always reports `passed=true` by construction (it is a report, not
+          # a gate) — do not read that row as a gate verdict.
           jq -r '"gate-offenders \(.audit) offendersTotal=\(.offendersTotal) passed=\(.passed)"' dist/audit-reports/*.json 2>/dev/null || true
 
       # bfs-depth baseline-candidate dump moved to validate-dist-postbuild-bfs
       # (this file) — audit:max-bfs-depth (and its /tmp/g19.log) now runs
       # there, not in this job.
 
-      # Deliberately OUTSIDE the spawn_capped pool above, and deliberately
-      # continue-on-error: this audit reports Discover eligibility per page
-      # family and must never be able to turn `validate-dist` red. A red
-      # validate-dist skips the whole `publish` job (IndexNow, Google Indexing
-      # API, GSC sync), so an eligibility report that blocks indexation would
-      # cost more traffic than the gap it measures (issue #5001; same
-      # non-blocking pattern as `check-seo-moratorium` in deploy.yml).
-      # The two universal checks it covers are already enforced at the source
-      # by tests/seo/discover-robots-directive.test.ts.
-      #
-      # SAMPLED AT 25 %, AND HERE IS WHAT THAT COSTS (issue #5432, point 6a).
-      #
-      # Why it was worth doing: this step is not a gate, yet it was the single
-      # most expensive thing in the job. It runs SERIALLY AFTER the pool above,
-      # on a dist/ that is ~2.07M indexable pages, and it scanned all of them:
-      #
-      #   run 31283409340   37m02s   (of an 82m40s job — 45 %)
-      #   run 31287634802   34m56s   (of an 81m22s job — 43 %)
-      #   run 31296098323   41m35s   (of an 89m48s job — 46 %)
-      #
-      # Why it is safe to sample, in a way that the gates above are not: this
-      # script has NO baseline and NO ratchet. `createAuditor().report()` in
-      # scripts/audit-discover-eligibility.mjs returns `passed: true`
-      # unconditionally (pinned by tests/seo/audit-discover-eligibility.test.ts
-      # — "NEVER reports passed:false"), and the standalone path exits 0 unless
-      # `--strict`, which CI does not pass. There is no threshold here for
-      # sampling to loosen: the output is a per-family PASS RATE, and a rate
-      # estimated from a 25 % rotating slice of ~2.07M pages is the same
-      # number to well inside its own reporting precision. Contrast
-      # audit:spa-bundle-injection, which is an absolute-count ratchet and is
-      # therefore deliberately NOT sampled (see the pool's env block above).
-      #
-      # What it costs: any family small enough to draw zero pages in a given
-      # bucket simply does not appear in that run's table. The salt is
-      # github.run_number, so the slice rotates and every page is scanned
-      # within `round(1/0.25)` = 4 consecutive runs — at the measured
-      # deploy-publish cadence of ~2 h, that is a worst case of ~8 h before a
-      # newly-broken family shows up here. That latency is acceptable
-      # precisely because this is a report and not a gate: the two universal
-      # checks it covers (`max-image-preview:large`, single `<h1>`) are
-      # enforced on every single run at the source by
-      # tests/seo/discover-robots-directive.test.ts and
-      # tests/dist-single-h1-per-page.test.ts.
-      #
-      # Follow-up deliberately NOT done here: moving this to a nightly
-      # schedule on audit-dist-from-run.yml. That workflow is dispatch-only
-      # with a REQUIRED `deploy_run_id`, so it would need a schedule trigger
-      # plus latest-successful-deploy resolution plus a dependency on artifact
-      # retention — real surface, for an audit that would then run once a
-      # night (worse discovery latency than the 4-run rotation above) on a
-      # third full 240-minute runner.
-      - name: Discover eligibility report (non-blocking)
-        continue-on-error: true
-        env:
-          AUDIT_SAMPLE_RATE: '0.25'
-          AUDIT_SAMPLE_SALT: ${{ github.run_number }}
-        run: npm run audit:discover-eligibility
+      # `Discover eligibility report (non-blocking)` was a step HERE until
+      # #5440. It is now launched inside the capped pool of the "Post-build
+      # validations + SEO audits" step above (search
+      # `DISCOVER ELIGIBILITY — REPORT, NOT A GATE`), where it overlaps the
+      # pool's tail instead of running serially after it. It is still
+      # report-only, still 25 %-sampled, and still runs on every deploy — the
+      # rationale, the non-gating mechanics and the memory argument all live at
+      # that call site. Do not re-add it as a step: as a step it also defaulted
+      # to `if: success()` and was skipped on exactly the red runs where the
+      # per-family table is most useful.
 
       - name: Build size summary
         run: |

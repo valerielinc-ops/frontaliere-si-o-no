@@ -145,7 +145,7 @@ The root cause is fixed at the source (see below), so the directive is now true 
 
 **Where.**
 - Local: `npm run audit:discover-eligibility` (add `--strict` to exit 1 on findings, `--json` for machine output, `--dist=<path>` to point elsewhere)
-- CI: step `Discover eligibility report (non-blocking)` in `.github/workflows/post-deploy-validate-dist.yml`, job `validate-dist-postbuild`, with `continue-on-error: true`
+- CI: inside the `Post-build validations + SEO audits (capped parallel)` step of `.github/workflows/post-deploy-validate-dist.yml`, job `validate-dist-postbuild` — search `DISCOVER ELIGIBILITY — REPORT, NOT A GATE`. Until #5440 it was a separate `continue-on-error: true` step running *after* that pool; it now runs *inside* it, concurrently, and its output is printed under a `Discover eligibility — REPORT ONLY` banner in that step's log. Non-gating is now structural rather than declarative: its row in the timings table carries a hard-coded `rc=0` and it never writes to `/tmp/post-build-failures.txt`, so it can reach neither `failed_gates` nor the default-deny classifier
 - Report artifact: `dist/audit-reports/discover-eligibility.json` (`extra.perFamily` carries the per-family pass rates)
 - Vitest: `tests/seo/audit-discover-eligibility.test.ts`
 
