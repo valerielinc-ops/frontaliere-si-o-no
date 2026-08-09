@@ -76,6 +76,35 @@ export const KNOWN_LEGACY_LEAKS = Object.freeze(new Set([
   // Family 2 — the per-locale slug is the schema's own placeholder.
   'slug-en', 'slug-de', 'slug-fr',
   'slug-inglese', 'slug-tedesco', 'slug-francese',
+  // ── Family 3, added 2026-08-09 — the half-obeyed answer ───────────────
+  //
+  // "nothing here should ever be ADDED" is the rule above, and it is the right
+  // rule while the DETECTOR is fixed. These seven are the other case: the
+  // detector was widened (`schema-placeholder-prefix` in
+  // `lib/slug-prompt-leak-guard.mjs`) and made visible slugs that were already
+  // published and had been invisible to every earlier rule. Nothing regressed
+  // — the gate got eyes. Leaving them out would have made this audit, and the
+  // vitest sweep that shares its sources, red on `main` for every PR in the
+  // repo.
+  //
+  // Twelve slug positions, seven distinct strings, four articles. All are
+  // en/de/fr slugs: the Italian URL, which carries the traffic, is correct in
+  // all four cases. They are NOT rewritten here — see the PR body; a published
+  // article URL cannot be changed without a redirect, and article pages have
+  // no `previousSlugs` bridge (that mechanism is job-board only, in
+  // `build-plugins/jobsSeoPagesPlugin.ts`).
+  //
+  // These live in `packages/articles/content/`, which is a DOWNSTREAM MIRROR
+  // of `nanakokyobashi-rgb/frontaliere-articles` (`scripts/pull-articles-corpus.mjs`).
+  // Repairing them here would be overwritten by the next sync; the decision
+  // belongs upstream.
+  'slug-gaggiolo-traffic',
+  'slug-gaggiolo-verkehr',
+  'slug-traffico-da-record',
+  'slug-terzo-pilastro-3a-switzerland',
+  'slug-terzo-pilastro-3a-schweiz',
+  'slug-terzo-pilastro-3a-suisse',
+  'slug-terzo-pilastro-3a-vantaggi-2026-basilea',
 ]));
 
 /**

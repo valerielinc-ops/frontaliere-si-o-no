@@ -59,6 +59,7 @@ import {
   optimizeSeoMetadata,
   normalizeTitleCasing,
   collapseShoutingTitle,
+  applyMicrocopyGuard,
   splitBodyIntoSections,
   generateExcerpt,
   checkTranslatedSlugCollisions,
@@ -172,6 +173,17 @@ async function deriveJournalistContent(data, rawBody) {
 
   console.log('  📝 generating excerpt (generateExcerpt)...');
   data.content.it.excerpt = await generateExcerpt(data.content.it.title, body1, body2, body3);
+
+  // First point in this pipeline where BOTH title and excerpt are final.
+  // normalizeTitleCasing() already ran on the title back in buildArticleData(),
+  // and it returns early on sentence-cased input — which is the majority of
+  // journalist titles. The excerpt is LLM-written and had no deterministic pass
+  // at all before this one, despite becoming the article's meta description.
+  //
+  // This pipeline is the one that actually runs: publish-journalist-articles.yml
+  // is on a */15 cron, while the AI producer (generate-article.yml) has been
+  // dispatch-only since the 2026-08-02 cutover.
+  applyMicrocopyGuard(data.content.it, 'it');
 
   console.log('  ❓ generating FAQ (generateFaqIT)...');
   data.content.it.faq = await generateFaqIT(data.id, rawBody);

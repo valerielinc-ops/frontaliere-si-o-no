@@ -95,13 +95,76 @@ describe('findSlugPromptLeak — instruction vocabulary beyond the kebab-case pr
     expect(findSlugPromptLeak(slug), `"${slug}" must be rejected`).not.toBeNull();
   });
 
-  it.each(['slug', 'titolo', 'test', 'example', 'undefined', 'article'])(
+  // `slug` is deliberately NOT in this list any more — see the block below.
+  it.each(['titolo', 'test', 'example', 'undefined', 'article'])(
     'rejects the bare field-name answer "%s" while allowing it as a substring',
     (slug) => {
       expect(findSlugPromptLeak(slug)).not.toBeNull();
       expect(findSlugPromptLeak(`${slug}-frontalieri-ticino`)).toBeNull();
     },
   );
+
+  describe('the half-obeyed family: the label kept in front of a real slug', () => {
+    // ── A CONTRACT CHANGE, AND THE MEASUREMENT THAT FORCED IT ──────────────
+    //
+    // This file used to assert that `slug-frontalieri-ticino` is a LEGITIMATE
+    // slug: `slug` was grouped with `titolo`/`test`/`example` as a word that
+    // leaks only as a whole value and must survive as a prefix. That
+    // assumption is what production disproved.
+    //
+    // Measured 2026-08-09 over all 19 035 published slug positions (id + 4
+    // locales × 3 807 articles in the two registries): TWELVE live slugs across
+    // four articles have exactly the shape the old assertion called safe —
+    // `slug-gaggiolo-traffic`, `slug-traffico-da-record`,
+    // `slug-terzo-pilastro-3a-schweiz` and siblings. The model produced a real
+    // slug and kept the schema's field label welded to its front.
+    //
+    // So the two readings of `slug-<something>-<something>` are "a real article
+    // about slugs" and "the placeholder plus content". The first has zero
+    // instances in 19 035; the second has twelve. The old assertion optimised
+    // for the empty class.
+    //
+    // The cost is asymmetric, which is what settles it: a false positive costs
+    // a slightly different slug on an article not yet published, a false
+    // negative costs a permanent public URL. The sweep at the bottom of this
+    // file is what keeps the aggressiveness honest — it re-runs the rule over
+    // every published slug on every CI run.
+    it.each([
+      'slug-gaggiolo-traffic',
+      'slug-gaggiolo-verkehr',
+      'slug-traffico-da-record',
+      'slug-terzo-pilastro-3a-switzerland',
+      'slug-terzo-pilastro-3a-schweiz',
+      'slug-terzo-pilastro-3a-suisse',
+      'slug-terzo-pilastro-3a-vantaggi-2026-basilea',
+    ])('rejects "%s" — a real live slug the old rule called clean', (slug) => {
+      expect(findSlugPromptLeak(slug), `"${slug}" must be rejected`).not.toBeNull();
+      expect(findSlugPromptLeak(slug)!.pattern).toBe('schema-placeholder-prefix');
+    });
+
+    it('recovers the article the model actually wrote, rather than discarding it', () => {
+      // The remainder IS the slug the model chose; deriving from the title
+      // instead would throw away a better answer that is already there.
+      expect(stripSlugPromptLeak('slug-gaggiolo-traffic')).toBe('gaggiolo-traffic');
+      expect(stripSlugPromptLeak('slug-terzo-pilastro-3a-schweiz')).toBe('terzo-pilastro-3a-schweiz');
+      expect(stripSlugPromptLeak('slug-traffico-da-record')).toBe('traffico-da-record');
+    });
+
+    it('refuses to recover when the remainder is itself a label', () => {
+      // `slug-en` → `en` is a worse URL than no URL: the caller's fallback
+      // (translated title, then the IT slug) is strictly better.
+      for (const slug of ['slug-en', 'slug-inglese', 'slug-slug-en', 'kebab-case-3-5-words-max-40-chars']) {
+        expect(stripSlugPromptLeak(slug), `"${slug}" must not be salvaged`).toBe('');
+      }
+    });
+
+    it('does not fire on a real word that merely starts with "slug"', () => {
+      // The prefix requires a separator, so only the label form matches.
+      for (const slug of ['sluggish-market-ticino', 'slugs-e-url-guida', 'gaggiolo-traffic']) {
+        expect(findSlugPromptLeak(slug), `"${slug}" must NOT be rejected`).toBeNull();
+      }
+    });
+  });
 
   it.each(['slug-it', 'slug-en', 'slug-de', 'slug-fr'])(
     'rejects "%s" — the placeholder the schema uses for the per-locale slugs',
