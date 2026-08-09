@@ -8239,7 +8239,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-genossenschaft-adelboden-bern-p8kwz2",
-        "en": "verkaufer-in-food-coop-genossenschaft-adelboden-bern-p8kwz2",
+        "en": "salesman-in-food-coop-adelboden-bern-p8kwz2",
         "de": "verkaufer-in-lebensmittel-coop-genossenschaft-adelboden-bern",
         "fr": "verkaufer-dans-les-aliments-coop-genossenschaft-adelboden-bern"
       },
@@ -8263,7 +8263,8 @@
           "seller-in-food-coop-genossenschaft-adelboden-bern-p8kwz2",
           "seller-in-food-coop-adelboden-bern-p8kwz2",
           "salesman-in-food-coop-genossenschaft-adelboden-bern-p8kwz2",
-          "salesman-in-food-coop-adelboden-bern-p8kwz2"
+          "salesman-in-food-coop-adelboden-bern-p8kwz2",
+          "verkaufer-in-food-coop-genossenschaft-adelboden-bern-p8kwz2"
         ],
         "fr": [
           "vendeur-dans-la-nourriture-coop-genossenschaft-adelboden-bern"
@@ -8278,7 +8279,8 @@
         "verkaufer-in-food-coop-adelboden-bern",
         "seller-in-food-coop-adelboden-bern-p8kwz2",
         "salesman-in-food-coop-genossenschaft-adelboden-bern-p8kwz2",
-        "salesman-in-food-coop-adelboden-bern-p8kwz2"
+        "salesman-in-food-coop-adelboden-bern-p8kwz2",
+        "verkaufer-in-food-coop-genossenschaft-adelboden-bern-p8kwz2"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -8532,7 +8534,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-coop-genossenschaft-st-gallen-vguxb6",
           "amministratore-delegato-coop-genossenschaft-sankt-moritz",
           "managing-director-in-coop-genossenschaft-sankt-moritz-onj02s",
           "managing-director-in-coop-genossenschaft-sankt-moritz",
@@ -8551,7 +8552,8 @@
           "geschaftsfuhrer-in-coop-genossenschaft-st-gallen-sankt-gallen",
           "amministratore-delegato-coop-genossenschaft-st-gallen-sankt-gallen",
           "geschaftsfuhrer-in-coop-genossenschaft-st-gallen-sankt-gallen-bmvuru",
-          "directeur-general-coop-genossenschaft-st-gallen"
+          "directeur-general-coop-genossenschaft-st-gallen",
+          "geschaftsfuhrer-in-import-parfumerie-st-gallen-sankt-gallen"
         ],
         "en": [
           "geschaftsfuhrer-in-coop-genossenschaft-st-gallen-sankt-gallen-bmvuru",
@@ -10237,8 +10239,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-schwyz-tcuuz9",
-          "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-schwyz-576232",
           "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-schwyz-tcuuz9",
           "sales-consultant-garden-jumbo-division-der-coop-genossenschaft-schwyz",
           "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-dietikon",
@@ -10256,7 +10256,9 @@
           "consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-schwyz-576232",
           "deco-sales-consultant-jumbo-division-der-coop-genossenschaft-schwyz",
           "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-schwyz",
-          "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-schwyz-bwt2n0"
+          "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-schwyz-bwt2n0",
+          "sales-consultant-garden-jumbo-division-der-coop-genossenschaft-schwyz-kbjtac",
+          "consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-schwyz-bwt2n0"
         ],
         "en": [
           "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-schwyz-xqcsiz",
@@ -11502,7 +11504,8 @@
           "cook-m-w-d-coop-genossenschaft-chur-4j1lnt",
           "cuire-m-w-d-coop-genossenschaft-chur-b9c935",
           "cuire-m-w-d-coop-genossenschaft-chur-4j1lnt",
-          "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl"
+          "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
+          "chef-m-w-d-coop-genossenschaft-chur-graubunden"
         ],
         "de": [
           "kochin-koch-m-w-d-coop-chur-graubunden-g9vlif"
@@ -11527,7 +11530,8 @@
         "cuire-m-w-d-coop-genossenschaft-chur-b9c935",
         "cuire-m-w-d-coop-genossenschaft-chur-4j1lnt",
         "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
-        "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden"
+        "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden",
+        "chef-m-w-d-coop-genossenschaft-chur-graubunden"
       ]
     },
     {
@@ -15307,7 +15311,7 @@
       },
       "slugByLocale": {
         "it": "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
-        "en": "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
+        "en": "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
         "de": "facility-techniker-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
         "fr": "facility-technicien-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
       },
@@ -15319,13 +15323,15 @@
           "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
-          "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
+          "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
         ]
       },
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
         "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
-        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern",
+        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -18061,8 +18067,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sales-consultant-in-do-it-jumbo-heimberg-bern-mf8qnp",
-          "consultant-commercial-a-do-it-jumbo-heimberg-bern-mf8qnp",
           "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-heimberg-bern",
           "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-heimberg-bern",
           "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-heimberg-bern-l8wp8o",
@@ -18080,7 +18084,9 @@
           "consulente-commerciale-in-do-it-jumbo-division-der-coop-genossenschaft-heimberg",
           "verkaufsberater-en-do-it-jumbo-division-der-coop-genossenschaft-schattdorf",
           "consultant-commercial-a-do-it-jumbo-division-der-coop-genossenschaft-heimberg",
-          "verkaufsberater-in-do-it-jumbo-heimberg-bern"
+          "verkaufsberater-in-do-it-jumbo-heimberg-bern",
+          "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-heimberg-mf8qnp",
+          "consultant-commercial-a-do-it-jumbo-division-der-coop-genossenschaft-heimberg-mf8qnp"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-heimberg-bern-l8wp8o",
@@ -18195,8 +18201,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "consulente-di-vendita-in-carpenteria-jumbo-division-der-coop-genossenschaft-heimberg-bern",
-          "verkaufsberater-in-schreinerei-jumbo-heimberg-bern-6i5h3n",
           "verkaufsberater-in-schreinerei-jumbo-heimberg-bern",
           "consulente-di-vendita-in-falegnameria-jumbo-division-der-coop-genossenschaft-heimberg",
           "verkaufsberater-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg-bern",
@@ -18214,7 +18218,9 @@
           "sales-consultant-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg-opflt2",
           "consultant-en-ventes-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg-opflt2",
           "verkaufsberater-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg",
-          "sales-consultant-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg"
+          "sales-consultant-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg",
+          "consultant-en-ventes-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg",
+          "consulente-di-vendita-in-falegnameria-jumbo-heimberg-e1fe90"
         ],
         "en": [
           "verkaufsberater-in-schreinerei-jumbo-division-der-coop-genossenschaft-heimberg-bern-6i5h3n",
@@ -25045,9 +25051,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sales-consultant-do-it-jumbo-division-der-coop-genossenschaft-schwyz-rfepsx",
-          "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz-rfepsx",
-          "verkausberater-in-do-it-jumbo-rumlang-zurich",
           "consulente-di-vendita-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
           "sales-consultant-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
           "consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
@@ -25064,7 +25067,10 @@
           "consultant-commercial-a-do-it-jumbo-division-der-coop-genossenschaft-hinwil",
           "consulente-di-vendita-garden-jumbo-division-der-coop-genossenschaft-schwyz",
           "consulente-di-vendita-deco-jumbo-division-der-coop-genossenschaft-schwyz",
-          "sales-consultant-in-do-it-jumbo-hinwil-zurich-q7h8en"
+          "sales-consultant-in-do-it-jumbo-hinwil-zurich-q7h8en",
+          "consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-schwyz-3c7a50",
+          "sales-consultant-do-it-jumbo-division-der-coop-genossenschaft-schwyz-3c7a50",
+          "sales-consultant-do-it-jumbo-division-der-coop-genossenschaft-schwyz-a39214"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz-nu6qg8",
@@ -26214,7 +26220,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkausberater-in-garten-jumbo-division-der-coop-genossenschaft-frauenfeld-thurgau",
           "consulente-in-giardino-jumbo-division-der-coop-genossenschaft-frauenfeld",
           "verkausberater-in-garden-jumbo-division-der-coop-genossenschaft-rumlang-zurich",
           "sales-consultant-garden-jumbo-division-der-coop-genossenschaft-rumlang",
@@ -26233,7 +26238,8 @@
           "jardin-de-consultants-en-vente-jumbo-division-der-coop-genossenschaft-frauenfeld-ckao8l",
           "conseiller-ere-de-vente-jardin-jumbo-division-der-coop-genossenschaft-frauenfeld-ckao8l",
           "sales-consultant-garden-jumbo-division-der-coop-genossenschaft-frauenfeld",
-          "garden-sales-advisor-jumbo-division-der-coop-genossenschaft-frauenfeld"
+          "garden-sales-advisor-jumbo-division-der-coop-genossenschaft-frauenfeld",
+          "conseiller-ere-de-vente-jardin-jumbo-division-der-coop-genossenschaft-frauenfeld"
         ],
         "en": [
           "consultant-in-garden-jumbo-division-der-coop-genossenschaft-rumlang",
@@ -29866,7 +29872,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-y52d8g",
           "consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-de5fe2",
           "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-de5fe2",
           "consultant-commercial-a-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-de5fe2",
@@ -29885,7 +29890,8 @@
           "sales-advisor-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-y52d8g",
           "sales-consultant-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-y52d8g",
           "sales-consultant-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-de5fe2",
-          "vendeur-ve-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau"
+          "vendeur-ve-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau",
+          "vendeur-ve-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-y52d8g"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-thalwil-zurich-c145ep",
