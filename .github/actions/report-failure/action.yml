@@ -1,0 +1,192 @@
+name: Report failure to GitHub Issues (diagnostic)
+description: >-
+  Apre (o chiude) la issue canonica di fallimento di un workflow con un body
+  DIAGNOSTICO — step fallito, comando dello step, riproduzione locale e
+  `## Suggested action` coi path degli script — invece del solito run+trigger+ref.
+  Estrae per riuso la logica di scripts/ci/report-validate-dist-failure.mjs (#5423),
+  che valeva per un solo workflow. Rif. #5437.
+
+# ─────────────────────────────────────────────────────────────────────────────
+# COME SI ADOTTA IL PROSSIMO WORKFLOW  (leggi tutto prima di aggiungerne uno)
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# LA REGOLA, NON NEGOZIABILE: nessun workflow riceve questo reporter finché non
+# è scritto, NELLO STESSO GIRO, chi chiude le sue issue. Col dedup sul titolo
+# (primi 60 char, scripts/lib/github-issue-creator.mjs) una issue che nessun
+# chiuditore riconosce resta aperta per sempre — è la classe di guasto di
+# `alert-pat-down.mjs` (#5432) e di #5470. Per questo `closed-by` è un input
+# OBBLIGATORIO: non esiste un'adozione che non dichiari la sua metà di chiusura.
+#
+# I passi, in ordine:
+#
+#   1. Scegli il valore di `closed-by` fra i TRE chiuditori che esistono davvero
+#      (CLOSERS in scripts/ci/report-workflow-failure.mjs — non inventarne altri):
+#
+#      a) `close-recovered-failure-issues`
+#         Il cron scripts/ci/close-recovered-failure-issues.mjs chiude la issue
+#         al primo run verde successivo. Richiede DUE cose insieme:
+#           - il titolo deve essere `Workflow Failure: <nome>` (o `Crawler`/`CI`);
+#           - `<nome>` deve essere ESATTAMENTE il `name:` del workflow, perché il
+#             reconciler fa `gh run list -w <nome>`. Un solo mismatch noto nel
+#             repo (persist-job-stats) tiene la sua issue aperta per sempre.
+#         È la via preferita: zero codice nuovo, e copre anche i run futuri.
+#
+#      b) `sibling-resolve-step`
+#         Per un titolo custom che NON si vuole rinominare. Aggiungi nello stesso
+#         workflow uno step con `if: success()` (modello rpm-canary.yml:150-158,
+#         "Resolve open issue on green") che invoca questa stessa action con
+#         `mode: resolve` e il TITOLO IDENTICO. Titolo diverso = nessuna chiusura.
+#
+#      c) `report-validate-dist-failure`
+#         Solo per i titoli `Validation Failure (dist): …`, chiusi dal `--mode
+#         resolve` di quel reporter. Non usarlo per altro.
+#
+#      Se nessuno dei tre si applica: NON adottare il workflow. Un reporter senza
+#      chiuditore è peggio del body povero che sostituisce.
+#
+#   2. Aggiungi `actions: read` ai `permissions:` del job (o del workflow). Un
+#      blocco `permissions:` esplicito AZZERA gli scope non elencati: senza questa
+#      riga la jobs API risponde 403, lo step fallito non viene identificato e il
+#      body degrada al livello di quello povero — in silenzio.
+#      Serve anche `issues: write`, che di solito c'è già.
+#
+#   3. Lo step deve stare DOPO un `actions/checkout` (l'action è locale e lo
+#      script legge package.json e il sorgente del workflow dal workspace) e dopo
+#      `actions/setup-node`.
+#
+#   4. Tieni il titolo STABILE: nessun run id, SHA o contatore dentro i primi 60
+#      caratteri (#5121). Un discriminante per-ENTITÀ (locale, section, gate) va
+#      bene ed è la granularità voluta — passalo anche come `entity`, così il
+#      body sa quale shard è rotto e la jobs API trova il job giusto nella matrice.
+#
+#   5. Fai girare `npx vitest run tests/failure-issue-closers.test.ts`. Quel test
+#      è il gate deterministico dell'accoppiamento: verifica che il `closed-by`
+#      dichiarato qui sia VERO (titolo dentro TITLE_RE e `name:` combaciante, o
+#      step gemello davvero presente con lo stesso titolo). Se fallisce, la metà
+#      di chiusura non c'è: torna al passo 1.
+#
+# Cosa NON fa questa action, per non scoprirlo a valle:
+#   - In posizione `if: failure()` dentro il job che sta fallendo NON può
+#     scaricare il log: il log di un job in corso non esiste ancora per l'API.
+#     L'estratto arriva solo da `diag-file` (un file che uno step precedente ha
+#     scritto) oppure dalla forma post-job (`log-from-job`, cioè un job separato
+#     che `needs:` quello fallito). Senza nessuno dei due il body lo dichiara
+#     esplicitamente invece di far credere che il log non contenesse niente.
+#   - Non fallisce mai: `continue-on-error` non serve, lo script esce sempre 0.
+#     Il rosso vero è quello dello step che ha fallito.
+
+inputs:
+  mode:
+    description: '`report` (apre/aggiorna la issue) oppure `resolve` (la chiude sul verde).'
+    required: false
+    default: report
+  title:
+    description: >-
+      Titolo canonico e STABILE della issue. È l'unica chiave di dedup (primi 60
+      char). In `mode: resolve` deve essere identico a quello usato in `report`.
+    required: true
+  closed-by:
+    description: >-
+      OBBLIGATORIO. Chi chiude questa issue quando il workflow torna verde:
+      `close-recovered-failure-issues` | `sibling-resolve-step` |
+      `report-validate-dist-failure`. Verificato staticamente da
+      tests/failure-issue-closers.test.ts e, a runtime, annotato nel body.
+    required: true
+  github-token:
+    description: 'Token per `gh` (di norma `secrets.GITHUB_TOKEN`).'
+    required: true
+  labels:
+    description: 'Label della issue, separate da virgola o newline.'
+    required: false
+    default: Bug
+  priority:
+    description: 'Priorità 1-4 → label priority:urgent|high|medium|low.'
+    required: false
+    default: '2'
+  reopen-within-hours:
+    description: 'Finestra di riapertura per il flap rosso→verde→rosso (#928/#931).'
+    required: false
+    default: '6'
+  entity:
+    description: >-
+      Discriminante per-entità del job (locale, section, shard…). Serve a
+      individuare il job giusto dentro una matrice nella jobs API e finisce nel body.
+    required: false
+    default: ''
+  context:
+    description: 'Markdown aggiuntivo del chiamante (cosa resta rotto lato utente, ecc).'
+    required: false
+    default: ''
+  diag-file:
+    description: >-
+      Path di un file che uno step precedente ha scritto con l'output della parte
+      che fallisce. È l'UNICO modo di avere un estratto in posizione `if: failure()`.
+    required: false
+    default: ''
+  log-from-job:
+    description: >-
+      Solo forma post-job: nome del job (già completo) di cui scaricare il log per
+      l'estratto. Vuoto nella forma in-job.
+    required: false
+    default: ''
+  workflow-file:
+    description: >-
+      Path del workflow, se `GITHUB_WORKFLOW_REF` non basta a trovarlo. Serve a
+      leggere il `run:` dello step fallito e ricavarne comandi e path.
+    required: false
+    default: ''
+
+runs:
+  using: composite
+  steps:
+    - name: Report/resolve failure issue
+      shell: bash
+      # Gli input arrivano come DATI via env, mai interpolati nel testo dello
+      # script: è la forma che scripts/ci/check-workflow-input-injection.mjs
+      # richiede, e un titolo con un apice la romperebbe comunque.
+      env:
+        GH_TOKEN: ${{ inputs.github-token }}
+        MODE: ${{ inputs.mode }}
+        FAILURE_TITLE: ${{ inputs.title }}
+        CLOSED_BY: ${{ inputs.closed-by }}
+        ISSUE_LABELS: ${{ inputs.labels }}
+        ISSUE_PRIORITY: ${{ inputs.priority }}
+        REOPEN_WITHIN_HOURS: ${{ inputs.reopen-within-hours }}
+        ENTITY: ${{ inputs.entity }}
+        CONTEXT: ${{ inputs.context }}
+        DIAG_FILE: ${{ inputs.diag-file }}
+        LOG_FROM_JOB: ${{ inputs.log-from-job }}
+        WORKFLOW_FILE: ${{ inputs.workflow-file }}
+        WORKFLOW_NAME: ${{ github.workflow }}
+        JOB_KEY: ${{ github.job }}
+        RUN_ID: ${{ github.run_id }}
+        RUN_ATTEMPT: ${{ github.run_attempt }}
+        EVENT_NAME: ${{ github.event_name }}
+        REF_NAME: ${{ github.ref_name }}
+        GH_REPO: ${{ github.repository }}
+        ACTION_PATH: ${{ github.action_path }}
+      run: |
+        # L'action è locale: la radice del repo è tre livelli sopra
+        # .github/actions/<nome>/. Fallback su GITHUB_WORKSPACE per un job che
+        # avesse fatto checkout altrove.
+        ROOT="$(cd "$ACTION_PATH/../../.." 2>/dev/null && pwd)"
+        [ -f "$ROOT/scripts/ci/report-workflow-failure.mjs" ] || ROOT="$GITHUB_WORKSPACE"
+        SCRIPT="$ROOT/scripts/ci/report-workflow-failure.mjs"
+        if [ ! -f "$SCRIPT" ]; then
+          # Il job potrebbe aver fatto checkout a un SHA che non contiene ancora
+          # il reporter (deploy partito prima del merge). Mai restare muti: si
+          # apre comunque la issue canonica, col body povero di prima.
+          echo "::warning::reporter diagnostico assente al SHA di checkout — fallback al reporter semplice"
+          if [ "$MODE" = "resolve" ]; then
+            node "$ROOT/scripts/lib/github-issue-creator.mjs" --resolve \
+              --title "$FAILURE_TITLE" --workflow "$WORKFLOW_NAME" \
+              --run-url "https://github.com/$GH_REPO/actions/runs/$RUN_ID"
+          else
+            node "$ROOT/scripts/lib/github-issue-creator.mjs" \
+              --title "$FAILURE_TITLE" \
+              --description "Run: https://github.com/$GH_REPO/actions/runs/$RUN_ID (trigger $EVENT_NAME, ref $REF_NAME)" \
+              --priority "$ISSUE_PRIORITY" --label Bug --workflow "$WORKFLOW_NAME"
+          fi
+          exit 0
+        fi
+        node "$SCRIPT" --mode "$MODE"

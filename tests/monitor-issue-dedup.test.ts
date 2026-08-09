@@ -125,6 +125,30 @@ function helperTitleArgs(source: string): string[] {
   return out;
 }
 
+/**
+ * Titles handed to the diagnostic reporter action (`.github/actions/report-failure`,
+ * issue #5437) as a `title:` input instead of a `--title` flag.
+ *
+ * Without this, adopting the action would silently move a workflow OUT of the
+ * stability check above: the helper is still what opens the issue (the action
+ * calls it), so the 60-char dedup rule still applies verbatim — only the syntax
+ * carrying the title changed. A guard that follows one syntax and not the other
+ * is the blind spot this repo has been bitten by before.
+ */
+function actionTitleArgs(source: string): string[] {
+  const out: string[] = [];
+  const re = /uses:\s*\.\/\.github\/actions\/report-failure[\s\S]{0,600}?^\s{2,}title:\s*(.+)$/gm;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(source)) !== null) {
+    let v = m[1].trim();
+    if ((v.startsWith("'") && v.endsWith("'")) || (v.startsWith('"') && v.endsWith('"'))) {
+      v = v.slice(1, -1);
+    }
+    out.push(v);
+  }
+  return out;
+}
+
 /** Shell assignments `NAME="value"` (single line), collected per file. */
 function shellAssignments(source: string): Map<string, string[]> {
   const map = new Map<string, string[]>();
@@ -142,7 +166,7 @@ function shellAssignments(source: string): Map<string, string[]> {
 function resolveTitles(source: string): string[] {
   const assignments = shellAssignments(source);
   const resolved: string[] = [];
-  for (const arg of helperTitleArgs(source)) {
+  for (const arg of [...helperTitleArgs(source), ...actionTitleArgs(source)]) {
     const varOnly = arg.match(/^\$\{?([A-Za-z_][A-Za-z0-9_]*)\}?$/);
     if (varOnly) {
       const values = assignments.get(varOnly[1]);

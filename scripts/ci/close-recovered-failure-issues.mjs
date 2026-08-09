@@ -58,10 +58,22 @@
  * mutating. Scope is strictly the three auto-generated failure-title prefixes; follow-up,
  * tracker, validation-failure and other issues are never touched.
  *
- * One known edge: a workflow whose `CI Failure:` title is a literal that does NOT equal
- * its `name:` (only `persist-job-stats`: title "Persist Job Stats" vs name "Persist Job
- * Stats History") won't resolve via `gh run list -w <title>` → its issue stays open
- * (conservative/safe). Fixing that mismatch belongs in persist-job-stats.yml, not here.
+ * Known edge: a workflow whose failure title names something that does NOT equal its
+ * `name:` won't resolve via `gh run list -w <title>` → its issue stays open forever
+ * (conservative/safe, but indistinguishable from "covered" by eye — the title HAS the
+ * right prefix, so this reconciler picks it up and then finds no run).
+ *
+ * This docstring used to claim `persist-job-stats` was the ONLY such workflow. It is
+ * not: the mismatch is now MEASURED rather than asserted, by
+ * `node scripts/ci/failure-issue-inventory.mjs --json` (rows carrying a `detail`), and
+ * pinned as a shrink-only baseline in tests/failure-issue-closers.test.ts. Three at the
+ * time of writing (#5437):
+ *   - persist-job-stats.yml   "CI Failure: Persist Job Stats"        vs "Persist Job Stats History"
+ *   - fast-publish-article.yml"Workflow Failure: Fast Publish Article" vs "Fast Publish Article (near-instant …)"
+ *   - crawl-events.yml        "Crawler Failure: events pipeline (…)" vs "Crawl Ticino + nationwide + …"
+ * Fixing each mismatch belongs in its own workflow file, not here — and must be done
+ * while no issue with the OLD title is open, because dedup is by title and a rename
+ * orphans whatever is already open.
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';

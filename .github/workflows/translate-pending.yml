@@ -41,6 +41,10 @@ concurrency:
 permissions:
   contents: write
   issues: write     # for github-issue-creator on failure
+  # jobs API per il reporter diagnostico (.github/actions/report-failure, #5437):
+  # senza, la chiamata risponde 403 (un permissions esplicito azzera il resto) e
+  # il body perde lo step fallito senza che nulla lo segnali.
+  actions: read
 
 env:
   # --max-old-space-size=12288: ubuntu-latest standard runner has 16GB RAM;
@@ -396,24 +400,25 @@ jobs:
             echo "   The next cron run will retry and trigger deploy once all jobs are translated."
           fi
 
+      # Title MUST use the standard "Workflow Failure: <name>" prefix so the
+      # central reconciler (close-recovered-failure-issues.mjs, TITLE_RE
+      # ^(?:Workflow|Crawler|CI) Failure:) auto-closes it once the next run is
+      # green. The old literal "Translation Pipeline Failure" never matched →
+      # the failure issue stayed open forever on recovery (e.g. #2538). The
+      # <name> here equals `name:` so `gh run list -w` resolves the run.
+      # È esattamente la metà di chiusura che #5437 pretende sia dichiarata
+      # prima di montare il reporter: qui è `closed-by: close-recovered-failure-issues`,
+      # e tests/failure-issue-closers.test.ts verifica che la dichiarazione sia vera.
       - name: Report failure to GitHub Issues
         if: failure()
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Title MUST use the standard "Workflow Failure: <name>" prefix so the
-          # central reconciler (close-recovered-failure-issues.mjs, TITLE_RE
-          # ^(?:Workflow|Crawler|CI) Failure:) auto-closes it once the next run is
-          # green. The old literal "Translation Pipeline Failure" never matched →
-          # the failure issue stayed open forever on recovery (e.g. #2538). The
-          # <name> here equals `name:` so `gh run list -w` resolves the run.
-          node scripts/lib/github-issue-creator.mjs \
-            --title "Workflow Failure: Translate Pending Jobs" \
-            --description "## Pipeline fallita
-
-          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          **Trigger:** ${{ github.event_name }}" \
-            --priority 2 \
-            --label Bug \
-            --workflow "Translate Pending Jobs"
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'Workflow Failure: Translate Pending Jobs'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '2'
+          labels: Bug
+          context: >-
+            La pipeline di traduzione è a fasi (fetch → translate → verify →
+            commit): lo step fallito qui sopra dice a quale fase si è fermata, e
+            i job non tradotti restano in coda per il prossimo cron.

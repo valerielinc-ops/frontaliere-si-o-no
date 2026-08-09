@@ -1093,18 +1093,18 @@ jobs:
           URL: ${{ steps.decide_trigger.outputs.next_url }}
         run: bash scripts/lib/trigger-self.sh
 
+      # Reporter diagnostico (#5437). Questo workflow ha decine di step (LLM,
+      # immagini, SEO, commit, self-trigger): sapere QUALE è morto, con quale
+      # comando, è la differenza fra una diagnosi e uno scaricamento di log.
+      # CHI CHIUDE: close-recovered-failure-issues.mjs sul primo run verde
+      # successivo — il titolo `Workflow Failure: <name:>` è il suo pattern, e
+      # `name:` combacia, quindi `gh run list -w` risolve il run.
       - name: Report failure to GitHub Issues
         if: failure()
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          node scripts/lib/github-issue-creator.mjs \
-            --title "Workflow Failure: ${{ github.workflow }}" \
-            --description "## Workflow fallito
-          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          **Trigger:** ${{ github.event_name }}
-          **Ref:** ${{ github.ref_name }}" \
-            --priority 2 \
-            --label Bug \
-            --workflow "${{ github.workflow }}"
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'Workflow Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '2'
+          labels: Bug

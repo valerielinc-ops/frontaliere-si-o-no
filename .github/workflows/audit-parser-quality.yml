@@ -41,6 +41,11 @@ concurrency:
 permissions:
   contents: read
   issues: write
+  # jobs API: il reporter diagnostico (.github/actions/report-failure, #5437) la
+  # interroga per sapere QUALE step è fallito. Un blocco permissions esplicito
+  # AZZERA gli scope non elencati: senza questa riga la chiamata risponde 403 e il
+  # body degrada in silenzio al vecchio run+trigger+ref.
+  actions: read
 
 env:
   NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'
@@ -71,18 +76,19 @@ jobs:
       - name: Run parser quality audit (strict)
         run: node scripts/audit-parser-quality.mjs --strict
 
+      # Reporter diagnostico (#5437): il body dice QUALE step è fallito, con
+      # quale comando, come si riproduce in locale e quali script guardare
+      # (`## Suggested action` — la sezione che il fixer autonomo estrae).
+      # Prima diceva solo run/trigger/ref, e il fixer ripartiva dal log del run.
+      # CHI CHIUDE: close-recovered-failure-issues.mjs, sul primo run verde
+      # successivo. Il titolo resta `Workflow Failure: <name:>` proprio perché è
+      # quello il pattern che quel reconciler riconosce — non cambiarlo.
       - name: Report failure to GitHub Issues
         if: failure()
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          node scripts/lib/github-issue-creator.mjs \
-            --title "Workflow Failure: ${{ github.workflow }}" \
-            --description "## Workflow fallito
-          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          **Trigger:** ${{ github.event_name }}
-          **Ref:** ${{ github.ref_name }}" \
-            --priority 2 \
-            --label Bug \
-            --workflow "${{ github.workflow }}"
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'Workflow Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '2'
+          labels: Bug

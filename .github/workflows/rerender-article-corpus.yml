@@ -261,3 +261,28 @@ jobs:
             --priority 2 \
             --label rerender-corpus \
             --workflow "Rerender Article Corpus"
+
+      # Metà di CHIUSURA (#5470). Senza questo step la issue qui sopra non si
+      # chiudeva mai: il titolo `rerender-article-corpus (<section>) failed` sta
+      # fuori dal TITLE_RE di scripts/ci/close-recovered-failure-issues.mjs
+      # (`^(?:Workflow|Crawler|CI) Failure: `) e fuori dal `--mode resolve` di
+      # scripts/ci/report-validate-dist-failure.mjs (prefisso `Validation
+      # Failure (dist):`) — nessuno dei due chiuditori la vedeva. Col dedup sul
+      # titolo la stessa sezione che rifallisce ricade sulla stessa issue, che è
+      # giusto, ma quella issue restava aperta anche dopo un run verde.
+      # Modello: rpm-canary.yml, step "Resolve open issue on green".
+      # Il titolo deve restare IDENTICO a quello dello step di apertura: un
+      # carattere di differenza e la chiusura non trova più niente.
+      # Non si rinominano i titoli dentro il pattern generico: il dedup è sul
+      # titolo, quindi il cambio orfanerebbe qualunque issue aperta col titolo
+      # vecchio. Questo step è locale e non tocca niente di condiviso.
+      - name: Resolve open issue on green
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "rerender-article-corpus (${{ matrix.section }}) failed" \
+            --workflow "Rerender Article Corpus" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
