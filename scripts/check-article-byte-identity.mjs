@@ -16,7 +16,19 @@
 // paper over with broader normalization.
 //
 // NORMALIZED FIELDS (exhaustive — nothing else is touched before diffing):
-//   NONE structural. Investigated build-plugins/ogPagesPlugin.ts directly:
+//   ONE structural normalization, added for issue #5444 and scoped as tightly
+//   as it can be: the ORDER of `<meta>` tags inside `<head>`, and nothing
+//   else. See canonicalizeHeadMetaOrder() below for the full argument; the
+//   short version is that the two render paths emit the SAME `<meta>` tags in
+//   a DIFFERENT sequence, which made every single comparison fail on a
+//   difference no consumer of the page can observe. Measured on run
+//   31324948161: 12 comparisons, 12 with IDENTICAL byte length, first
+//   divergence always at offset 1572-1795 — i.e. inside the `<meta>` block.
+//   Same length + different bytes = a permutation, not a content change.
+//   The normalization is applied ONLY as a second pass, after an exact
+//   comparison has already failed, so a genuinely byte-identical pair is
+//   still reported as such and the two cases stay distinguishable in the log.
+//   Beyond that: nothing. Investigated build-plugins/ogPagesPlugin.ts directly:
 //   the only wall-clock read in the render path (`new Date().toISOString()`
 //   at ogPagesPlugin.ts's buildDateIso/todayIso) is used SOLELY as a
 //   last-resort `datePublished`/`dateModified` fallback when an article has
@@ -28,7 +40,9 @@
 //   constants — never content-hashed, never disk-discovered — so asset URLs
 //   are identical build-to-build for the same commit. Net effect: for a
 //   well-formed article, the fast path's output and a full build's output
-//   are expected to be byte-for-byte identical with NO normalization at all.
+//   carry the SAME bytes; #5444 established that they do not always carry
+//   them in the same ORDER inside <head>, which is what the one normalization
+//   above absorbs — and only that.
 //   A trailing-newline-only diff (curl transport vs local fs.writeFileSync)
 //   is the one transport artifact tolerated below — not a content
 //   normalization, just whitespace at the very end of the byte stream.
@@ -161,6 +175,99 @@ function firstDiffOffsetContext(a, b, contextChars = 200) {
   };
 }
 
+// `<meta>` tags whose POSITION is itself meaningful, and which are therefore
+// left exactly where they are instead of being sorted:
+//   - charset: the spec requires it inside the first 1024 bytes of the
+//     document, so moving it is not a no-op for a parser.
+//   - http-equiv: a pragma directive, semantically a response header; a
+//     `content-type` / `refresh` pragma arriving after the content it governs
+//     is not equivalent to the same pragma arriving before it.
+// Everything else (name=/property=/itemprop= descriptive metadata) is an
+// unordered bag as far as every consumer is concerned — browsers, crawlers,
+// Open Graph parsers — which is exactly why the two render paths are free to
+// disagree about it and why disagreeing about it is not drift.
+//
+// Detected by walking the tag's ATTRIBUTE NAMES rather than by searching the
+// tag text for the substring: an article whose description happens to contain
+// "charset=" would otherwise get pinned, and a pinned tag that legitimately
+// moved is reported as a mismatch. Wrong in the harmless direction, but
+// avoidable in six lines. The attribute walk consumes quoted values whole,
+// so nothing inside a value is ever read as a name.
+const META_ATTR_RE = /([a-zA-Z_:][-a-zA-Z0-9_:.]*)\s*(?:=\s*(?:"[^"]*"|'[^']*'|[^\s"'`=<>]*))?/g;
+
+function isPositionSignificantMeta(tag) {
+  const attrs = tag.replace(/^<meta\b/i, '').replace(/\/?>$/, '');
+  META_ATTR_RE.lastIndex = 0;
+  let m;
+  while ((m = META_ATTR_RE.exec(attrs)) !== null) {
+    const name = m[1].toLowerCase();
+    if (name === 'charset' || name === 'http-equiv') return true;
+  }
+  return false;
+}
+
+/**
+ * Returns `html` with the `<meta>` tags inside `<head>` rearranged into a
+ * canonical (sorted) sequence, so that two documents carrying the SAME meta
+ * tags in a DIFFERENT order compare equal — and nothing more than that.
+ *
+ * THE SAFETY ARGUMENT, which is the whole point of this function (#5444):
+ * the transform is a PERMUTATION OF A MULTISET OF SUBSTRINGS. It collects the
+ * movable `<meta …>` tags with their source positions, sorts the tag strings
+ * themselves — the full raw tag text, not a parsed-out subset of it — and
+ * writes them back into those same positions. Nothing is parsed away, nothing
+ * is rewritten, nothing is dropped, no character of any tag is touched, and
+ * the surrounding head (title, links, scripts, whitespace) is copied through
+ * verbatim. Consequences, and they are the reason to prefer this shape over a
+ * "compare the <head> as a set of parsed tags" one:
+ *   • If either side gains, loses or ALTERS a meta tag — one different
+ *     character of one `content=` value is enough — the two multisets differ,
+ *     so the two sorted sequences differ, so the comparison still fails. The
+ *     audit keeps the exact detection power it exists for: a page served by a
+ *     stale renderer with different meta VALUES is still caught.
+ *   • Only the ORDER becomes invisible. That is the intended and the entire
+ *     effect.
+ *   • A tag this regex mis-parses (an unescaped `>` inside an attribute
+ *     value would do it) can only ever cause a SPURIOUS mismatch, never a
+ *     spurious match, because a mis-parse changes the multiset. The failure
+ *     direction is toward reporting too much, which is the safe one for an
+ *     audit.
+ * `<body>` is deliberately untouched: there, order is determined by content,
+ * and a reordering IS a real difference worth failing on.
+ */
+export function canonicalizeHeadMetaOrder(html) {
+  const open = /<head\b[^>]*>/i.exec(html);
+  if (!open) return html;
+  const headStart = open.index + open[0].length;
+  const headEnd = html.toLowerCase().indexOf('</head>', headStart);
+  if (headEnd === -1) return html;
+
+  const head = html.slice(headStart, headEnd);
+  const slots = [];
+  const metaRe = /<meta\b[^>]*>/gi;
+  let m;
+  while ((m = metaRe.exec(head)) !== null) {
+    if (isPositionSignificantMeta(m[0])) continue;
+    slots.push({ start: m.index, end: m.index + m[0].length, tag: m[0] });
+  }
+  if (slots.length < 2) return html;
+
+  // Default Array#sort: UTF-16 code-unit order over the whole tag string.
+  // Deterministic and locale-independent (no localeCompare), which matters —
+  // the two sides are canonicalized in two different processes.
+  const sortedTags = slots.map((s) => s.tag).sort();
+
+  let rebuiltHead = '';
+  let cursor = 0;
+  slots.forEach((slot, i) => {
+    rebuiltHead += head.slice(cursor, slot.start) + sortedTags[i];
+    cursor = slot.end;
+  });
+  rebuiltHead += head.slice(cursor);
+
+  return html.slice(0, headStart) + rebuiltHead + html.slice(headEnd);
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const scratchDir = fs.mkdtempSync(path.join(os.tmpdir(), 'byte-identity-'));
@@ -216,17 +323,38 @@ async function main() {
       const b = stripTrailingNewline(liveHtml);
       if (a === b) {
         console.log(`[byte-identity] ${shard.locale}: OK — byte-identical (${a.length} bytes) — ${shard.url}`);
-      } else {
-        anyMismatch = true;
-        console.error(`[byte-identity] ${shard.locale}: MISMATCH — fast=${a.length}B live=${b.length}B — ${shard.url}`);
-        const offsetCtx = firstDiffOffsetContext(a, b);
-        if (offsetCtx) {
-          console.error(`  first diff at char offset ${offsetCtx.offset}`);
-          console.error(`    fast : ...${offsetCtx.fast}...`);
-          console.error(`    live : ...${offsetCtx.live}...`);
-        }
-        console.error(firstDiffLines(a, b));
+        continue;
       }
+
+      // Second pass, and only now: the same bytes in a different <head>
+      // <meta> order (see canonicalizeHeadMetaOrder). Kept as a fallback
+      // rather than folded into the first comparison so that "byte-identical"
+      // above keeps meaning literally that, and so the log distinguishes the
+      // two — the renderers' meta-order non-determinism is a real (if
+      // harmless) finding and should stay visible, not be erased.
+      const canonA = canonicalizeHeadMetaOrder(a);
+      const canonB = canonicalizeHeadMetaOrder(b);
+      if (canonA === canonB) {
+        console.log(
+          `[byte-identity] ${shard.locale}: OK — identical modulo <head> <meta> ORDER (${a.length} bytes, same tags, same values) — ${shard.url}`,
+        );
+        continue;
+      }
+
+      anyMismatch = true;
+      console.error(`[byte-identity] ${shard.locale}: MISMATCH — fast=${a.length}B live=${b.length}B — ${shard.url}`);
+      // Diffed on the canonicalized text: on the raw text the <head> <meta>
+      // permutation is always the FIRST divergence, so every offset/context
+      // block would point at it and hide whatever else differs further down
+      // — which is precisely how run 31324948161 read as 20/20 drift.
+      console.error('  (offsets below are into the <head>-<meta>-order-canonicalized text, not the raw response)');
+      const offsetCtx = firstDiffOffsetContext(canonA, canonB);
+      if (offsetCtx) {
+        console.error(`  first diff at char offset ${offsetCtx.offset}`);
+        console.error(`    fast : ...${offsetCtx.fast}...`);
+        console.error(`    live : ...${offsetCtx.live}...`);
+      }
+      console.error(firstDiffLines(canonA, canonB));
     }
 
     if (anyMismatch) {
@@ -239,7 +367,27 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error('[byte-identity] fatal error:', err);
-  process.exit(1);
-});
+// Run as standalone only if invoked directly — same idiom, and for the same
+// reason, as scripts/audit-article-corpus-drift.mjs:315. Without it, merely
+// IMPORTING this module (as tests/check-article-byte-identity-head-order.test.ts
+// now does, to reach the pure canonicalizeHeadMetaOrder) would spawn
+// publish-article-fast.mjs, curl production four times and call process.exit.
+// If this guard ever mis-fires the failure is loud, not silent: the script
+// prints nothing, and audit-article-corpus-drift.mjs's parseLocaleVerdicts
+// then reports `no-locale-verdicts`, which is a DIVERGENT category.
+const invokedDirectly = (() => {
+  try {
+    const entry = process.argv[1];
+    if (!entry) return false;
+    return path.resolve(entry) === fileURLToPath(import.meta.url) || import.meta.url.endsWith(entry);
+  } catch {
+    return false;
+  }
+})();
+
+if (invokedDirectly) {
+  main().catch((err) => {
+    console.error('[byte-identity] fatal error:', err);
+    process.exit(1);
+  });
+}
