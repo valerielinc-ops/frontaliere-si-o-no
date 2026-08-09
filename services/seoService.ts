@@ -22,6 +22,7 @@ import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from '../buil
 import { getCantonDisplayName } from '../build-plugins/shared/cantonDisplay';
 import { resolveJobCanton } from '../build-plugins/shared/cantonSection';
 import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription, truncateHeadline, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS } from '../build-plugins/shared/titleSuffix';
+import { ROBOTS_INDEX_ENHANCED_CONTENT } from '../build-plugins/shared/robotsDirective';
 import { truncateCodeUnits } from '../build-plugins/shared/safeTruncate';
 import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescription } from '../build-plugins/shared/borderCrossingTitle';
 import { BLOG_SEO_SHARD_IDS, type BlogSeoShardId } from '../build-plugins/shared/blogSeoShards';
@@ -1819,7 +1820,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  })();
  const robotsDirective = hasFilterQuery
  ? 'noindex, follow'
- : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+ : ROBOTS_INDEX_ENHANCED_CONTENT;
  updateOrCreateMetaTag('name', 'robots', robotsDirective);
 
  // Update Open Graph tags (used by Bing, Facebook, LinkedIn)

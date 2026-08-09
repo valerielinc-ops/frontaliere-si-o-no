@@ -139,6 +139,23 @@ describe('the confined articles package keeps its own copy in sync', () => {
   });
 });
 
+describe('the static index.html template keeps its own copy in sync', () => {
+  it('is BYTE-identical to the build-plugins value, ordering included', () => {
+    // `index.html` is Vite's raw HTML entry — it can't import the shared
+    // constant, so the qualifier list is necessarily hand-typed a third
+    // time. That copy had drifted to a different (still valid) ordering of
+    // the same directives, which is invisible to crawlers but broke the
+    // audit/build byte-identity comparison (#5494) that chases divergence
+    // between the SSG build and the fast-publish path. Pinning it here means
+    // the next hand-edit that reorders it fails a test instead of silently
+    // reopening that chase.
+    const html = readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+    const match = html.match(/<meta\s+name="robots"\s+content="([^"]+)"/);
+    expect(match).not.toBeNull();
+    expect(match![1]).toBe(ROBOTS_INDEX_ENHANCED_CONTENT);
+  });
+});
+
 /**
  * Fleet guard: no emitter may hand-roll an INDEXABLE robots meta tag that
  * skips the preview qualifiers. This is what turns the fix from "the 50
