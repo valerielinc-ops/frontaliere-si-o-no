@@ -25718,6 +25718,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-cantonale-confronto-svizzera-2026-canton-ginevra': {
+    title: 'Cantoni svizzeri: confronto aliquote imposta e strategie di ottimizzazione',
+    description: 'Il canton Ginevra ha mantenuto le aliquote attuali per i redditi inferiori a CHF 50.000 e non ha modificato l\'aliquota per i redditi superiori a CHF 100.000.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantoni, svizzeri, confronto, aliquote',
+    ogTitle: 'Confronto 2026 delle aliquote di imposta cantonale in Svizzera: differenze tra cantoni, scaglioni e strategie di ottimizzazione lecita. Focus sul canton Ginevra con dati specifici e confronto nazionale.',
+    ogDescription: 'Il canton Ginevra ha mantenuto le aliquote attuali per i redditi inferiori a CHF 50.000 e non ha modificato l\'aliquota per i redditi superiori a CHF 100.000. Il confronto con gli altri cantoni rivela differenze significative nelle aliquote',
+    canonicalPath: '/articoli-svizzera/imposta-cantonale-confronto-svizzera-2026-canton-ginevra/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cantoni svizzeri: confronto aliquote imposta e strategie di ottimizzazione",
+      "description": "Il canton Ginevra ha mantenuto le aliquote attuali per i redditi inferiori a CHF 50.000 e non ha modificato l'aliquota per i redditi superiori a CHF 100.000.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-cantonale-confronto-svizzera-2026-canton-ginevra.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una vista della città di Ginevra con il lago Lemano in primo piano."
+      },
+      "datePublished": "2026-08-09T20:34:44+00:00",
+      "dateModified": "2026-08-09T20:34:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-cantonale-confronto-svizzera-2026-canton-ginevra/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

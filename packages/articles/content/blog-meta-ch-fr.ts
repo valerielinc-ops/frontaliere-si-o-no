@@ -1987,6 +1987,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.title': 'Abonnements transports publics en Suisse : coûts et avantages',
     'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.excerpt': 'Découvrez les détails sur les abonnements aux transports publics en Suisse, y compris AG, demi-tarif, abonnements cantonaux et communautaires.',
     'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.imageAlt': 'Personne qui se dirige vers un train dans une gare suisse',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.title': 'Confronto aliquote imposta su Suisse',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.excerpt': 'Le canton de Genève a décidé de maintenir les taux actuels pour les revenus inférieurs à CHF 50 000.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.imageAlt': 'Une vue de la ville de Genève avec le lac Léman en arrière-plan.',
 };
 
 export default blogMetaChFr;

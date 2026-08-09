@@ -1987,6 +1987,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.title': 'ÖPNV-Abos in der Schweiz: Kosten und Nutzen',
     'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.excerpt': 'Erfahren Sie mehr über die ÖV-Abos in der Schweiz inklusive GA, Halbtax, Kantons- und Gemeindeabos.',
     'blog.article.trasporti-pubblici-svizzera-abbonamenti-sconti.imageAlt': 'Person, die sich einem Zug in einem Schweizer Bahnhof nähert',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.title': 'Schweizer Kantone: Steuersatzvergleich und Optimierungsstrategien',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.excerpt': 'Der Kanton Genf hat beschlossen, die aktuellen Steuersätze für Einkommen unter CHF 50 \'000 beizubehalten.',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-ginevra.imageAlt': 'Ein Blick auf die Stadt Genf mit dem Genfersee im Vordergrund.',
 };
 
 export default blogMetaChDe;
