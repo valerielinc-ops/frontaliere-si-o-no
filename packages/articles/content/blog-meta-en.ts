@@ -9376,6 +9376,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.presidente-locarno-film-festival.title': 'Locarno Film Festival: who will be the next president?',
     'blog.article.presidente-locarno-film-festival.excerpt': 'The Locarno Film Festival is looking for a new president. The rumors chase each other, but no official confirmation.',
     'blog.article.presidente-locarno-film-festival.imageAlt': 'The Locarno Film Festival with the big screen in Piazza Grande',
+    'blog.article.castasegna-vecchia-dogana-in-vendita.title': 'Castasegna: the old customs house for sale worries Bregaglia',
+    'blog.article.castasegna-vecchia-dogana-in-vendita.excerpt': 'The Confederation has put the old Castasegna customs house up for sale. The Municipality of Bregaglia activates with Chur to avoid the loss of federal presence.',
+    'blog.article.castasegna-vecchia-dogana-in-vendita.imageAlt': 'Historic customs building of Castasegna in Val Bregaglia',
 };
 
 export default blogMetaEn;

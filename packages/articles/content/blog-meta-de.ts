@@ -9375,6 +9375,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.presidente-locarno-film-festival.title': 'Locarno Film Festival: Wer wird der nächste Präsident?',
     'blog.article.presidente-locarno-film-festival.excerpt': 'Das Locarno Film Festival sucht einen neuen Präsidenten. Gerüchte werden gejagt, aber keine offizielle Bestätigung.',
     'blog.article.presidente-locarno-film-festival.imageAlt': 'Das Locarno Film Festival mit der großen Leinwand auf der Piazza Grande',
+    'blog.article.castasegna-vecchia-dogana-in-vendita.title': 'Castasegna: Der alte Zoll zum Verkauf beunruhigt Bergell',
+    'blog.article.castasegna-vecchia-dogana-in-vendita.excerpt': 'Der Bund hat den alten Zoll von Castasegna zum Verkauf angeboten. Die Gemeinde Bergell setzt sich mit Chur dafür ein, den Verlust der eidgenössischen Präsenz zu vermeiden.',
+    'blog.article.castasegna-vecchia-dogana-in-vendita.imageAlt': 'Historisches Zollgebäude in Castasegna im Bergell',
 };
 
 export default blogMetaDe;

@@ -28146,6 +28146,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'castasegna-vecchia-dogana-in-vendita',
+ category: 'novita',
+ date: '2026-08-09T00:40:13.497Z',
+ image: '/images/blog/castasegna-vecchia-dogana-in-vendita.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
