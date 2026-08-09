@@ -130,7 +130,7 @@ jobs:
           - **announced topic-hub anchors missing** → RENDERER drift, not corpus drift
             (issue #5432). The archive is served by output older than #5422/#5423, so
             every URL in \`sitemap-topics-<section>.xml\` is unreachable from it and
-            \`audit:max-bfs-depth\` goes red saying only "unreachable". An archive is
+            \`audit:max-bfs-depth\` goes red saying only \`unreachable\`. An archive is
             re-rendered ONLY as a side effect of publishing an article into its section,
             so a section that has stopped publishing stays on the old renderer
             indefinitely — every other check on this page keeps passing meanwhile.
