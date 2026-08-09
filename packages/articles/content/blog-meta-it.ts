@@ -9390,8 +9390,14 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-oss-ticino-guida.excerpt': 'Lavorare come OSS in Ticino: ecco i requisiti per il riconoscimento del titolo, le aliquote contributive e il funzionamento del nuovo accordo fiscale.',
     'blog.article.frontaliere-oss-ticino-guida.imageAlt': 'Ospedale in Ticino con vista sul lago',
     'blog.article.bollettino-frontaliere-2026-08-09.title': 'Bollettino del frontaliere – 9 agosto 2026: 589 nuovi annunci di lavoro ieri',
-    'blog.article.bollettino-frontaliere-2026-08-09.excerpt': 'I numeri di oggi, 9 agosto 2026, per chi attraversa il confine: attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco–euro e i nuovi annunci di lavoro in Svizzera. Dati raccolti dal nostro monitoraggio, aggiornati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-09.excerpt': 'I numeri di oggi, 9 agosto 2026, per i frontalieri: attese ai valichi, benzina più economica, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-08-09.imageAlt': 'I numeri del giorno per i frontalieri – 9 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.traffico-a2-bloccato.title': 'Traffico ancora bloccato sulla A2, automobilisti in strada e tanta frustrazione',
+    'blog.article.traffico-a2-bloccato.excerpt': 'La circolazione resta interrotta in alcuni punti e vari conducenti riferiscono di essere bloccati da tre-quattro ore.',
+    'blog.article.traffico-a2-bloccato.imageAlt': 'Un gruppo di automobilisti in strada a causa del traffico bloccato sulla A2.',
+    'blog.article.locarno-film-festival-frontaliere-ticino.title': '‘Ich ist ein Anderer’, in viaggio con Felix Kersten',
+    'blog.article.locarno-film-festival-frontaliere-ticino.excerpt': 'Il film di Felix Randau su Felix Kersten',
+    'blog.article.locarno-film-festival-frontaliere-ticino.imageAlt': 'Immagine del Locarno Film Festival con frontalieri ticinesi',
 };
 
 export default blogMetaIt;

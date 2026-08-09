@@ -60796,16 +60796,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-bollettino-frontaliere-2026-08-09': {
     title: 'Bollettino del frontaliere – 9 agosto 2026: 589 nuovi annunci di lavoro ieri',
-    description: 'I numeri di oggi, 9 agosto 2026, per chi attraversa il confine: attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco–euro e i nuovi annunci di lavoro in Svizzera. Dati raccolti dal nostro monitoraggio, aggiornati ogni giorno.',
+    description: 'I numeri di oggi, 9 agosto 2026, per i frontalieri: attese ai valichi, benzina più economica, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
     ogTitle: 'Bollettino del frontaliere – 9 agosto 2026: 589 nuovi annunci di lavoro ieri',
-    ogDescription: 'I numeri di oggi, 9 agosto 2026, per chi attraversa il confine: attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco–euro e i nuovi annunci di lavoro in Svizzera. Dati raccolti dal nostro monitoraggio, aggiornati ogni giorno.',
+    ogDescription: 'I numeri di oggi, 9 agosto 2026, per i frontalieri: attese ai valichi, benzina più economica, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-08-09',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Bollettino del frontaliere – 9 agosto 2026: 589 nuovi annunci di lavoro ieri",
-      "description": "I numeri di oggi, 9 agosto 2026, per chi attraversa il confine: attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco–euro e i nuovi annunci di lavoro in Svizzera. Dati raccolti dal nostro monitoraggio, aggiornati ogni giorno.",
+      "description": "I numeri di oggi, 9 agosto 2026, per i frontalieri: attese ai valichi, benzina più economica, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -60829,6 +60829,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-08-09/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-traffico-a2-bloccato': {
+    title: 'Traffico ancora bloccato sulla A2, automobilisti in strada e tanta frustrazione',
+    description: 'La circolazione resta interrotta in alcuni punti e vari conducenti riferiscono di essere bloccati da tre-quattro ore. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, ancora, bloccato, sulla',
+    ogTitle: 'Traffico sulla A2',
+    ogDescription: 'La circolazione resta interrotta in alcuni punti e vari conducenti riferiscono di essere bloccati da tre-quattro ore.',
+    canonicalPath: '/articoli-frontaliere/traffico-a2-bloccato',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico ancora bloccato sulla A2, automobilisti in strada e tanta frustrazione",
+      "description": "La circolazione resta interrotta in alcuni punti e vari conducenti riferiscono di essere bloccati da tre-quattro ore. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/traffico-a2-bloccato.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un gruppo di automobilisti in strada a causa del traffico bloccato sulla A2."
+      },
+      "datePublished": "2026-08-09T07:52:53+00:00",
+      "dateModified": "2026-08-09T07:52:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/traffico-a2-bloccato/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-locarno-film-festival-frontaliere-ticino': {
+    title: '‘Ich ist ein Anderer’, in viaggio con Felix Kersten',
+    description: 'Il film di Felix Randau su Felix Kersten. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, anderer, viaggio, felix, kersten',
+    ogTitle: '‘Ich ist ein Anderer’, in viaggio con Felix Kersten',
+    ogDescription: 'Il film di Felix Randau su Felix Kersten',
+    canonicalPath: '/articoli-frontaliere/locarno-film-festival-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "‘Ich ist ein Anderer’, in viaggio con Felix Kersten",
+      "description": "Il film di Felix Randau su Felix Kersten. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/locarno-film-festival-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine del Locarno Film Festival con frontalieri ticinesi"
+      },
+      "datePublished": "2026-08-09T08:32:36+00:00",
+      "dateModified": "2026-08-09T08:32:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/locarno-film-festival-frontaliere-ticino/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

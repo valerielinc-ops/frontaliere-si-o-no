@@ -23346,6 +23346,11 @@
           "impressions": 1
         },
         {
+          "query": "residente",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "stadler rail",
           "clicks": 0,
           "impressions": 1
@@ -23371,7 +23376,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 27,
+      "totalImpressions": 28,
       "totalClicks": 1,
       "topQuery": "find a job as an electrician in the canton of vaud",
       "title": "Engineers",
@@ -27652,10 +27657,10 @@
         "fr": "garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon",
-        "en": "/en/find-jobs-lucerne/garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon",
-        "de": "/de/jobs-in-luzern/garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon",
-        "fr": "/fr/trouver-emploi-lucerne/garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon"
+        "it": "/cerca-lavoro-san-gallo/garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon",
+        "en": "/en/find-jobs-st-gallen/garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon",
+        "de": "/de/jobs-in-st-gallen/garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon",
+        "fr": "/fr/trouver-emploi-saint-gall/garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -29189,6 +29194,63 @@
         "en": "/en/find-jobs-ticino/head-of-business-administration-w-m-d-ckw-horw",
         "de": "/de/jobs-im-tessin/head-of-business-administration-w-m-d-ckw-horw",
         "fr": "/fr/trouver-emploi-tessin/head-of-business-administration-w-m-d-ckw-horw"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "head-of-engineering-operational-excellence-w-m-d-laderach-schweiz-ag-glarus",
+      "locale": "en",
+      "path": "/en/find-jobs-glarus/head-of-engineering-operational-excellence-w-m-d-laderach-schweiz-ag-glarus/",
+      "observedPaths": {
+        "en": "/en/find-jobs-glarus/head-of-engineering-operational-excellence-w-m-d-laderach-schweiz-ag-glarus/"
+      },
+      "queries": [
+        {
+          "query": "läderach jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "läderach jobs",
+      "title": "Head of engineering operational excellence laderach schweiz ag glarus",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "head-of-engineering-operational-excellence-w-m-d-laderach-schweiz-ag-glarus",
+        "en": "head-of-engineering-operational-excellence-w-m-d-laderach-schweiz-ag-glarus",
+        "de": "head-of-engineering-operational-excellence-w-m-d-laderach-schweiz-ag-glarus",
+        "fr": "head-of-engineering-operational-excellence-w-m-d-laderach-schweiz-ag-glarus"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-glarona/head-of-engineering-operational-excellence-w-m-d-laderach-schweiz-ag-glarus",
+        "en": "/en/find-jobs-glarus/head-of-engineering-operational-excellence-w-m-d-laderach-schweiz-ag-glarus",
+        "de": "/de/jobs-im-glarus/head-of-engineering-operational-excellence-w-m-d-laderach-schweiz-ag-glarus",
+        "fr": "/fr/trouver-emploi-glaris/head-of-engineering-operational-excellence-w-m-d-laderach-schweiz-ag-glarus"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

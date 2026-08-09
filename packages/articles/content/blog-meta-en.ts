@@ -9389,8 +9389,14 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-oss-ticino-guida.excerpt': 'Working as an OSS in Ticino: here are the requirements for the recognition of the title, the contribution rates and the operation of the new tax agreement.',
     'blog.article.frontaliere-oss-ticino-guida.imageAlt': 'Hospital in Ticino with lake view',
     'blog.article.bollettino-frontaliere-2026-08-09.title': 'Cross-border daily brief – August 9, 2026: 589 new job listings yesterday',
-    'blog.article.bollettino-frontaliere-2026-08-09.excerpt': 'Today\'s numbers (August 9, 2026) for cross-border commuters: border waits measured this morning, the cheapest fuel municipalities, the CHF–EUR rate and new Swiss job listings. Proprietary monitoring, updated daily.',
+    'blog.article.bollettino-frontaliere-2026-08-09.excerpt': 'Today\'s numbers (August 9, 2026) for cross-border commuters: border waits, the cheapest fuel municipalities, the franc-euro rate and new Swiss job postings.',
     'blog.article.bollettino-frontaliere-2026-08-09.imageAlt': 'The day\'s numbers for cross-border commuters – August 9, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.traffico-a2-bloccato.title': 'Traffic still stuck on the A2, motorists on the road and a lot of frustration',
+    'blog.article.traffico-a2-bloccato.excerpt': 'Circulation remains interrupted at some points and several drivers report being blocked for three to four hours.',
+    'blog.article.traffico-a2-bloccato.imageAlt': 'A group of drivers stuck in traffic on the A2.',
+    'blog.article.locarno-film-festival-frontaliere-ticino.title': '‘Ich ist ein Anderer’, travelling with Felix Kersten',
+    'blog.article.locarno-film-festival-frontaliere-ticino.excerpt': 'Felix Randau\'s film about Felix Kersten',
+    'blog.article.locarno-film-festival-frontaliere-ticino.imageAlt': 'Image of the Locarno Film Festival with Ticino frontiersmen',
 };
 
 export default blogMetaEn;

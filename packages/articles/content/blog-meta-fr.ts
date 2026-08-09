@@ -9391,8 +9391,14 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-oss-ticino-guida.excerpt': 'Travailler comme OSS au Tessin : voici les exigences pour la reconnaissance du titre, les taux de cotisation et le fonctionnement du nouvel accord fiscal.',
     'blog.article.frontaliere-oss-ticino-guida.imageAlt': 'Hôpital au Tessin avec vue sur le lac',
     'blog.article.bollettino-frontaliere-2026-08-09.title': 'Bulletin du frontalier – 9 août 2026 : 589 nouvelles offres d\'emploi hier',
-    'blog.article.bollettino-frontaliere-2026-08-09.excerpt': 'Les chiffres du jour (9 août 2026) pour les frontaliers : attentes aux douanes mesurées ce matin, les communes où l\'essence coûte le moins cher, le taux CHF-EUR et les nouvelles offres d\'emploi en Suisse. Suivi propriétaire, mis à jour chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-08-09.excerpt': 'Les chiffres du jour (9 août 2026) pour les frontaliers : attentes aux douanes, communes où l\'essence coûte le moins, taux franc-euro et nouvelles offres.',
     'blog.article.bollettino-frontaliere-2026-08-09.imageAlt': 'Les chiffres du jour pour les frontaliers – 9 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.traffico-a2-bloccato.title': 'A2 bloquée, frustration sur la route',
+    'blog.article.traffico-a2-bloccato.excerpt': 'La circulation est interrompue en certains points et plusieurs conducteurs rapportent avoir été bloqués pendant trois à quatre heures.',
+    'blog.article.traffico-a2-bloccato.imageAlt': 'Un groupe de conducteurs coincés dans le trafic sur la A2.',
+    'blog.article.locarno-film-festival-frontaliere-ticino.title': '‘Ich ist ein Anderer’, en voyage avec Felix Kersten',
+    'blog.article.locarno-film-festival-frontaliere-ticino.excerpt': 'Le film de Felix Randau sur Felix Kersten',
+    'blog.article.locarno-film-festival-frontaliere-ticino.imageAlt': 'Image du Festival du film de Locarno avec les frontaliers du Tessin',
 };
 
 export default blogMetaFr;
