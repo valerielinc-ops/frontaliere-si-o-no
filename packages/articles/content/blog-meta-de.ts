@@ -9459,6 +9459,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-brusimpiano-lavorare-ticino-frontaliere.title': 'Leben in Brusimpiano und Arbeiten im Tessin: Verbindungen und Kosten',
     'blog.article.vivere-brusimpiano-lavorare-ticino-frontaliere.excerpt': 'Erfahren Sie, wie Sie als Grenzgänger in Brusimpiano leben und im Tessin arbeiten können: Verbindungen, Reisezeiten, Lebenshaltungskosten und empfohlene Gebiete',
     'blog.article.vivere-brusimpiano-lavorare-ticino-frontaliere.imageAlt': 'Panorama von Brusimpiano und Ticino',
+    'blog.article.vivere-saltrio-lavorare-ticino-frontalieri.title': 'Wohnen in Saltrio und Arbeiten im Tessin als Grenzgänger: Was ändert sich?',
+    'blog.article.vivere-saltrio-lavorare-ticino-frontalieri.excerpt': 'Quellensteuer, neues Grenzgängerabkommen und Doppelbesteuerung: Was das für Grenzgänger im Tessin bedeutet',
+    'blog.article.vivere-saltrio-lavorare-ticino-frontalieri.imageAlt': 'Ein Frontalier auf der A2 Autobahn',
 };
 
 export default blogMetaDe;

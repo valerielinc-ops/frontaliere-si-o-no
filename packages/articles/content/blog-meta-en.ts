@@ -9460,6 +9460,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-brusimpiano-lavorare-ticino-frontaliere.title': 'Living in Brusimpiano and working in Ticino: connections and cost',
     'blog.article.vivere-brusimpiano-lavorare-ticino-frontaliere.excerpt': 'Find out how to live in Brusimpiano and work in Ticino as a border worker: connections, journey times, cost of living and recommended areas',
     'blog.article.vivere-brusimpiano-lavorare-ticino-frontaliere.imageAlt': 'Panorama of Brusimpiano and Ticino',
+    'blog.article.vivere-saltrio-lavorare-ticino-frontalieri.title': 'Living in Saltrio and working in Ticino as a border worker: what changes?',
+    'blog.article.vivere-saltrio-lavorare-ticino-frontalieri.excerpt': 'Set at source, new border agreement and double taxation: what it means for Ticino border crossers',
+    'blog.article.vivere-saltrio-lavorare-ticino-frontalieri.imageAlt': 'A frontaliere on the A2 highway',
 };
 
 export default blogMetaEn;
