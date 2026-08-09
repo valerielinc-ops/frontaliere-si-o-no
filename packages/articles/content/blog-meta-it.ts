@@ -9443,6 +9443,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.guida-lavoro-autista-frontaliere-ticino.title': 'Frontaliere autista in Ticino: stipendio e requisiti',
     'blog.article.guida-lavoro-autista-frontaliere-ticino.excerpt': 'Guida completa per autisti frontalieri: dal nuovo accordo fiscale 2026 alle tutele previdenziali AVS, LPP e LAMal per chi lavora nel Canton Ticino.',
     'blog.article.guida-lavoro-autista-frontaliere-ticino.imageAlt': 'Autista professionale al lavoro in Ticino con vista panoramica',
+    'blog.article.a2-traffico-ticino-interrogazione.title': 'A2 al collasso: interrogazione sul traffico di transito',
+    'blog.article.a2-traffico-ticino-interrogazione.excerpt': 'Dopo l\'incidente a Mezzovico, Avanti con Ticino&Lavoro chiede misure concrete per limitare i disagi del traffico di puro transito sull\'asse del San Gottardo.',
+    'blog.article.a2-traffico-ticino-interrogazione.imageAlt': 'Traffico intenso sull\'autostrada A2 in Ticino',
 };
 
 export default blogMetaIt;

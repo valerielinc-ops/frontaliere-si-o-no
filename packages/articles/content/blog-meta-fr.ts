@@ -9444,6 +9444,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guida-lavoro-autista-frontaliere-ticino.title': 'Chauffeur frontalier au Tessin : salaire et exigences',
     'blog.article.guida-lavoro-autista-frontaliere-ticino.excerpt': 'Guide complet pour les conducteurs frontaliers : du nouvel accord fiscal 2026 aux protections sociales AVS, LPP et LAMal pour ceux qui travaillent dans le canton du Tessin.',
     'blog.article.guida-lavoro-autista-frontaliere-ticino.imageAlt': 'Chauffeur professionnel au travail au Tessin avec vue panoramique',
+    'blog.article.a2-traffico-ticino-interrogazione.title': 'A2 à l\'effondrement : interrogation sur le trafic de transit',
+    'blog.article.a2-traffico-ticino-interrogazione.excerpt': 'Après l\'accident du Mezzovico, Avanti con Ticino&Lavoro demande des mesures concrètes pour limiter les inconvénients du trafic de pur transit sur l\'axe du Saint-Gothard.',
+    'blog.article.a2-traffico-ticino-interrogazione.imageAlt': 'Trafic intense sur l\'autoroute A2 au Tessin',
 };
 
 export default blogMetaFr;

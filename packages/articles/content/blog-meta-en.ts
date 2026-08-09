@@ -9442,6 +9442,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guida-lavoro-autista-frontaliere-ticino.title': 'Border driver in Ticino: salary and requirements',
     'blog.article.guida-lavoro-autista-frontaliere-ticino.excerpt': 'Complete guide for border drivers: from the new 2026 tax agreement to the AVS, LPP and LAMal social security protections for those working in the Canton of Ticino.',
     'blog.article.guida-lavoro-autista-frontaliere-ticino.imageAlt': 'Professional driver working in Ticino with panoramic view',
+    'blog.article.a2-traffico-ticino-interrogazione.title': 'A2 to Collapse: Transit Traffic Inquiry',
+    'blog.article.a2-traffico-ticino-interrogazione.excerpt': 'After the accident in Mezzovico, Avanti con Ticino&Lavoro calls for concrete measures to limit the inconvenience of pure transit traffic on the Gotthard axis.',
+    'blog.article.a2-traffico-ticino-interrogazione.imageAlt': 'Heavy traffic on the A2 motorway in Ticino',
 };
 
 export default blogMetaEn;

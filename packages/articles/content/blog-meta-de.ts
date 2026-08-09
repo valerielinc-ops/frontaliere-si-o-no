@@ -9441,6 +9441,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guida-lavoro-autista-frontaliere-ticino.title': 'Grenzgänger Chauffeur im Tessin: Gehalt und Voraussetzungen',
     'blog.article.guida-lavoro-autista-frontaliere-ticino.excerpt': 'Vollständiger Leitfaden für Grenzgänger: vom neuen Steuerabkommen 2026 bis zu den Vorsorgeplänen AHV, BVG und KVG für diejenigen, die im Kanton Tessin arbeiten.',
     'blog.article.guida-lavoro-autista-frontaliere-ticino.imageAlt': 'Berufskraftfahrer bei der Arbeit im Tessin mit Panoramablick',
+    'blog.article.a2-traffico-ticino-interrogazione.title': 'A2 bis zum Kollaps: Frage zum Transitverkehr',
+    'blog.article.a2-traffico-ticino-interrogazione.excerpt': 'Nach dem Unfall in Mezzovico fordert Avanti con Ticino&Lavoro konkrete Maßnahmen, um die Unannehmlichkeiten des reinen Transitverkehrs auf der Gotthardachse zu begrenzen.',
+    'blog.article.a2-traffico-ticino-interrogazione.imageAlt': 'Starker Verkehr auf der A2 im Tessin',
 };
 
 export default blogMetaDe;
