@@ -9447,6 +9447,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.a2-traffico-ticino-interrogazione.title': 'A2 à l\'effondrement : interrogation sur le trafic de transit',
     'blog.article.a2-traffico-ticino-interrogazione.excerpt': 'Après l\'accident du Mezzovico, Avanti con Ticino&Lavoro demande des mesures concrètes pour limiter les inconvénients du trafic de pur transit sur l\'axe du Saint-Gothard.',
     'blog.article.a2-traffico-ticino-interrogazione.imageAlt': 'Trafic intense sur l\'autoroute A2 au Tessin',
+    'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.title': 'Serveurs frontaliers : salaire, exigences et reconnaissance du titre',
+    'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.excerpt': 'Le nouvel accord frontalier prévoit une augmentation du salaire moyen des serveurs frontaliers au Tessin. Les conditions d\'obtention du permis G ont été modifiées.',
+    'blog.article.frontaliere-cameriere-ticino-stipendio-requisiti.imageAlt': 'Un serveur dans un restaurant à Lugano.',
 };
 
 export default blogMetaFr;
