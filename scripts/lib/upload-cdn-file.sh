@@ -19,9 +19,10 @@
 # comment above _publish_cdn_r2.
 #
 # `copyto` (never `sync`) = additive, single-key PUT — cannot delete anything
-# else in the bucket. `--checksum` makes it idempotent: an identical re-run of
-# the same local file to the same key is a content-hash-compared no-op PUT
-# skip, not a blind re-upload.
+# else in the bucket. Always PUTs unconditionally (`--ignore-times`, see the
+# rclone invocation below) rather than trying to skip unchanged re-runs: see
+# that comment for why a content-hash skip is unsafe for the files this
+# script actually carries (issue #5497).
 #
 # Content-Type: rclone/Go's mime-type auto-detection is NOT reliable for
 # `.webp` on GitHub-hosted runners (depends on the runner's /etc/mime.types
@@ -139,7 +140,28 @@ RC=(rclone
   --s3-endpoint="$R2_S3_ENDPOINT"
   --s3-region=auto
   --s3-no-check-bucket
-  --checksum --no-update-modtime)
+  # `--ignore-times`, NOT `--checksum` (issue #5497): rclone's `--checksum`
+  # skips the PUT whenever it decides src and dst already match, and per
+  # rclone's own operations.Equal(), when no common hash type is available
+  # between the local file and the R2 object it falls back to comparing
+  # SIZE ONLY — logging "falling back to --size-only" once — and treats a
+  # same-size object as identical even if its bytes differ. Reproduced here:
+  # `/edge/rss.xml` and the other nine RSS feeds this script serves have a
+  # fixed-width publish-date field (the article engine's RSS generator
+  # renders it via the JS Date-to-UTC-string builtin, always the same
+  # character count) and a capped item list, so a genuinely new build can
+  # land at the exact same byte size as the R2 object it is meant to
+  # replace — rclone then silently skips the PUT while still exiting 0, so
+  # this script's own "✅ uploaded" success marker (grepped by
+  # publish-edge-files.mjs) fires for a PUT that never happened. The sibling
+  # sitemap files were never observed to hit this because their item counts
+  # (and therefore byte size) change on essentially every run. `--ignore-times`
+  # removes the skip decision entirely — every invocation PUTs unconditionally
+  # — which is acceptable here because callers already gate on the file
+  # having actually changed before invoking this script at all (see e.g. the
+  # per-artifact diff check in sync-articles-sitemaps.yml), so there is no
+  # redundant-PUT cost to guard against.
+  --ignore-times)
 bkt=":s3:$R2_BUCKET"
 
 # One retry on transient network blips (same rationale as the curl --retry
