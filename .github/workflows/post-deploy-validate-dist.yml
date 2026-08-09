@@ -1560,8 +1560,13 @@ jobs:
     needs: [validate-dist-source, validate-dist-postbuild, validate-dist-postbuild-bfs]
     if: always()
     runs-on: ubuntu-latest
+    # Il download del log di un job stallato non ha timeout lato gh: senza
+    # questo tetto il job resterebbe appeso al default (360 min) tenendo un
+    # runner E ritardando `publish`, che ha needs su validate-dist.
+    timeout-minutes: 15
     permissions:
       issues: write     # for github-issue-creator on validation failure (run 26592389280 surfaced "Resource not accessible by integration (createIssue)")
+      actions: read     # jobs API + job logs per il reporter diagnostico (#5414): un blocco permissions esplicito AZZERA gli scope non elencati, quindi senza questa riga ogni gh api actions/... risponde 403 e il reporter degrada a muto
     steps:
       - name: Checkout (build SHA via deploy_ref, else caller default)
         uses: actions/checkout@v5
@@ -1591,48 +1596,73 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Dispatch/call inputs reach the shell as DATA, never as script text.
           INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          # deploy_ref = workflow_run.head_sha: il commit della BUILD. Prima
+          # qui finiva github.sha, che per un run workflow_run è il commit del
+          # default branch al momento del trigger, NON quello della build
+          # (issue #5414): il reporter lo etichetta come Build SHA nel body.
+          INPUT_DEPLOY_REF: ${{ inputs.deploy_ref }}
+          INPUT_DEPLOY_EVENT: ${{ inputs.deploy_event_name }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          SOURCE_RESULT: ${{ needs.validate-dist-source.result }}
+          POSTBUILD_RESULT: ${{ needs.validate-dist-postbuild.result }}
+          BFS_RESULT: ${{ needs.validate-dist-postbuild-bfs.result }}
         run: |
-          # Titolo STABILE (senza run-number): github-issue-creator.mjs dedupa sui
-          # primi 60 char del titolo → con un run-number nel titolo ogni run aveva
-          # prefix unico e apriva una issue nuova (storm: 8 issue/giorno). Titolo
-          # stabile → le run successive diventano commenti 🔁 sulla issue canonica.
-          # Il run-number resta nella description.
-          # --reopen-within-hours: se la stessa issue canonica è stata chiusa
-          # da poco (es. auto-close su un deploy verde) e il gate ri-fallisce,
-          # la RIAPRE invece di aprirne una nuova → niente storm per-run di issue
-          # transienti (#928/#931/#937/#941, già chiuse). Finestra 6h ~ ritmo deploy.
-          node scripts/lib/github-issue-creator.mjs \
-            --title "Validation Failure (dist): post-deploy" \
-            --description "## Dist validation post-deploy fallita
-          **Validation run #:** ${{ github.run_number }}
-          **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/$INPUT_DEPLOY_RUN_ID
-          **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          **Source job:** ${{ needs.validate-dist-source.result }}
-          **Post-build job:** ${{ needs.validate-dist-postbuild.result }}
-          **Post-build BFS job:** ${{ needs.validate-dist-postbuild-bfs.result }}
-          **Branch:** ${{ github.ref_name }}
-          **SHA:** ${{ github.sha }}" \
-            --priority 1 \
-            --reopen-within-hours 6 \
-            --label Bug \
-            --workflow "Post-deploy Validate Dist"
+          # Reporter diagnostico (#5414 Parte B): legge i job falliti e i loro
+          # log via jobs API e apre UNA issue per gate fallito (titolo stabile
+          # "Validation Failure (dist): <gate>", max 3; oltre, o senza righe
+          # gate riconoscibili, la issue riassuntiva legacy "…: post-deploy").
+          # Dedup/reopen invariati: titoli stabili senza run-number (#5121),
+          # reopen-within-hours 6 per il flap rosso→verde→rosso
+          # (#928/#931/#937/#941). Il run-number resta nel body.
+          # Il job fa checkout al SHA della BUILD (deploy_ref), che per un
+          # deploy partito prima del merge di questa PR non contiene ancora il
+          # reporter: senza questa guardia `node` fallirebbe con
+          # ERR_MODULE_NOT_FOUND, continue-on-error lo inghiottirebbe e non si
+          # aprirebbe NESSUNA issue — muto proprio nella finestra transitoria.
+          # Fallback al reporter legacy, che esiste a qualunque SHA.
+          if [ -f scripts/ci/report-validate-dist-failure.mjs ]; then
+            node scripts/ci/report-validate-dist-failure.mjs --mode report
+          else
+            echo "::warning::reporter diagnostico assente al SHA della build — fallback al reporter legacy"
+            node scripts/lib/github-issue-creator.mjs \
+              --title "Validation Failure (dist): post-deploy" \
+              --description "## Validazione dist fallita
+          **Validation run:** https://github.com/${GITHUB_REPOSITORY}/actions/runs/${RUN_ID}
+          **Build run:** https://github.com/${GITHUB_REPOSITORY}/actions/runs/${INPUT_DEPLOY_RUN_ID}
+          **Build SHA:** ${INPUT_DEPLOY_REF}
+          **Job results:** source=${SOURCE_RESULT} · postbuild=${POSTBUILD_RESULT} · bfs=${BFS_RESULT}" \
+              --priority 1 \
+              --reopen-within-hours 6 \
+              --label Bug \
+              --workflow "Post-deploy Validate Dist"
+          fi
 
       - name: Resolve GitHub Issue on success
         if: needs.validate-dist-source.result == 'success' && needs.validate-dist-postbuild.result == 'success' && needs.validate-dist-postbuild-bfs.result == 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_ID: ${{ github.run_id }}
         run: |
-          # Mirror of the failure reporter: both gating jobs above passed, so
-          # close the canonical "Validation Failure (dist)" issue if it is open.
-          # Without this the issue stays open while the state is already green
+          # Mirror of the failure reporter: all three gating jobs passed, so
+          # close EVERY open "Validation Failure (dist): …" issue — the legacy
+          # "post-deploy" title AND the per-gate ones the reporter above mints.
+          # Without this the issues stay open while the state is already green
           # (stale-issue churn). Idempotent no-op when nothing is open; the
-          # failure reporter's --reopen-within-hours 6 reopens it on a re-flap.
-          node scripts/lib/github-issue-creator.mjs \
-            --resolve \
-            --title "Validation Failure (dist): post-deploy" \
-            --workflow "Post-deploy Validate Dist" \
-            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          # failure reporter's reopen-within-hours reopens them on a re-flap.
+          # Stessa guardia del reporter: al SHA di una build pre-merge lo
+          # script non esiste e la issue legacy resterebbe aperta sul verde.
+          if [ -f scripts/ci/report-validate-dist-failure.mjs ]; then
+            node scripts/ci/report-validate-dist-failure.mjs --mode resolve
+          else
+            echo "::warning::reporter diagnostico assente al SHA della build — resolve legacy"
+            node scripts/lib/github-issue-creator.mjs \
+              --resolve \
+              --title "Validation Failure (dist): post-deploy" \
+              --workflow "Post-deploy Validate Dist" \
+              --run-url "https://github.com/${GITHUB_REPOSITORY}/actions/runs/${RUN_ID}"
+          fi
 
   # ─────────────────────────────────────────────────────────────────────────
   # integrity-verdict: does this run's red state invalidate the DEPLOY, or is

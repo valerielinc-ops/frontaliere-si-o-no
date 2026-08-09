@@ -2109,17 +2109,22 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Bound as env, not interpolated into the script text (repo rule:
+          # inputs reach the shell as DATA). The TITLE stays the literal
+          # "CI Failure (build): <workflow>" inside the script — the 4-locale
+          # matrix collapsing onto ONE canonical issue is load-bearing (#5121).
+          RUN_ID: ${{ github.run_id }}
+          JOB_KEY: ${{ github.job }}
+          LOCALE: ${{ matrix.locale }}
+          WORKFLOW_NAME: ${{ github.workflow }}
+          BRANCH: ${{ github.ref_name }}
+          EVENT_NAME: ${{ github.event_name }}
         run: |
-          node scripts/lib/github-issue-creator.mjs \
-            --title "CI Failure (build): ${{ github.workflow }}" \
-            --description "## Build fallito
-          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          **Branch:** ${{ github.ref_name }}
-          **Trigger:** ${{ github.event_name }}" \
-            --priority 1 \
-            --reopen-within-hours 6 \
-            --label Bug \
-            --workflow "${{ github.workflow }}"
+          # #5414 Parte B: stesso titolo/dedup di prima, description arricchita
+          # con job+locale e primo step fallito (via jobs API — il log del job
+          # ancora in corso non è scaricabile, quindi l'estratto arriva solo
+          # dal diag file /tmp/build-failure-diag.txt se uno step lo scrive).
+          node scripts/ci/report-validate-dist-failure.mjs --mode report --scope build
 
       - name: Resolve build GitHub Issue on success
         if: success()

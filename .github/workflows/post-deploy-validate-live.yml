@@ -468,6 +468,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Dispatch/call inputs reach the shell as DATA, never as script text.
           INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          INPUT_DEPLOY_REF: ${{ inputs.deploy_ref }}
         run: |
           # Titolo STABILE (senza run-number) → dedup di github-issue-creator.mjs
           # collassa le run successive in commenti 🔁 sulla issue canonica invece
@@ -483,7 +484,7 @@ jobs:
           **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/$INPUT_DEPLOY_RUN_ID
           **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           **Branch:** ${{ github.ref_name }}
-          **SHA:** ${{ github.sha }}" \
+          **Build SHA:** ${INPUT_DEPLOY_REF:-$GITHUB_SHA} (deploy_ref = workflow_run.head_sha)" \
             --priority 1 \
             --reopen-within-hours 6 \
             --label Bug \
