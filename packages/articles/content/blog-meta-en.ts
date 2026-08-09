@@ -9451,6 +9451,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bideau-locarno-film-festival.title': 'Jean-luc bideau honoured at the Locarno film festival',
     'blog.article.bideau-locarno-film-festival.excerpt': 'Award-winning actor Jean-Luc Bideau presents the film \'Ah que le bonheur est proche\' in the Ticino setting.',
     'blog.article.bideau-locarno-film-festival.imageAlt': 'Night atmosphere at the Locarno Film Festival in Piazza Grande.',
+    'blog.article.vivere-trasquera-lavorare-ticino.title': 'Living in Trasquera and working in Ticino as a border worker',
+    'blog.article.vivere-trasquera-lavorare-ticino.excerpt': 'Practical guide for border workers: taxes, new tax agreement and income management between Italy and Canton Ticino.',
+    'blog.article.vivere-trasquera-lavorare-ticino.imageAlt': 'Alpine landscape at the Swiss-Italian border',
 };
 
 export default blogMetaEn;

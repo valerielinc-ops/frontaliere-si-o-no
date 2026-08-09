@@ -28371,6 +28371,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-trasquera-lavorare-ticino',
+ category: 'fiscale',
+ date: '2026-08-09T20:00:50.073Z',
+ image: '/images/blog/vivere-trasquera-lavorare-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
