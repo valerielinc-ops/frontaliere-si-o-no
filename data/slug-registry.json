@@ -466359,7 +466359,10 @@
   "id|bern.ch|aff6bd5e-a2a9-423b-b80f-92bce94d7e92": {
     "canonicalSlug": "betreuungsfachperson-tertiar-stadt-bern-bern",
     "slugByLocale": {
-      "de": "betreuungsfachperson-tertiar-stadt-bern-bern"
+      "de": "betreuungsfachperson-tertiar-stadt-bern-bern",
+      "it": "terziario-professionale-stadt-bern-bern",
+      "en": "tertiary-care-professional-stadt-bern-bern",
+      "fr": "specialiste-des-soins-tertiaires-stadt-bern-bern"
     },
     "createdAt": "2026-08-06",
     "canton": "BE"
@@ -466368,7 +466371,9 @@
     "canonicalSlug": "leiter-in-governance-e-digitale-sicherheit-stadt-bern",
     "slugByLocale": {
       "de": "leiter-in-governance-und-digitale-sicherheit-stadt-bern-bern",
-      "it": "leiter-in-governance-e-digitale-sicherheit-stadt-bern"
+      "it": "leiter-in-governance-e-digitale-sicherheit-stadt-bern",
+      "en": "head-of-governance-and-digital-security-stadt-bern-bern",
+      "fr": "chef-de-la-gouvernance-et-de-la-securite-numerique-stadt-bern-bern"
     },
     "createdAt": "2026-08-06",
     "canton": "BE"
@@ -466754,7 +466759,8 @@
     "slugByLocale": {
       "en": "ass-store-manager-michael-kors-landquart-capri-holdings",
       "it": "ass-responsabile-di-negozio-michael-kors-landquart-capri-holdings-michael-kors-versace-graubunden",
-      "fr": "ass-directeur-trice-de-magasin-michael-kors-landquart-capri-holdings-michael-kors-versace-graubunden"
+      "fr": "ass-directeur-trice-de-magasin-michael-kors-landquart-capri-holdings-michael-kors-versace-graubunden",
+      "de": "geschaftsfuhrer-michael-kors-landquart-capri-holdings-michael-kors-versace-graubunden"
     },
     "createdAt": "2026-08-06",
     "canton": "GR"
@@ -476227,7 +476233,8 @@
     "canonicalSlug": "leiterin-leiter-facility-management-a-100-hirslanden-klinik-biel-bienne",
     "slugByLocale": {
       "de": "leiterin-leiter-facility-management-a-100-hirslanden-biel-bienne",
-      "it": "leiterin-leiter-facility-management-a-100-hirslanden-klinik-biel-bienne"
+      "it": "leiterin-leiter-facility-management-a-100-hirslanden-klinik-biel-bienne",
+      "fr": "responsable-de-la-gestion-des-installations-a-100-hirslanden-klinik-biel-bienne"
     },
     "createdAt": "2026-08-08",
     "canton": "BE"
@@ -476235,7 +476242,10 @@
   "id|mediclinic.com|1424278333": {
     "canonicalSlug": "diatkoch-diatkochin-100-hirslanden-st-gallen",
     "slugByLocale": {
-      "de": "diatkoch-diatkochin-100-hirslanden-st-gallen"
+      "de": "diatkoch-diatkochin-100-hirslanden-st-gallen",
+      "it": "cucina-dietetica-cucina-di-dieta-100-hirslanden-klinik-st-gallen",
+      "en": "diet-cook-diet-cook-100-hirslanden-klinik-st-gallen",
+      "fr": "diete-cuire-diete-cuire-100-hirslanden-klinik-st-gallen"
     },
     "createdAt": "2026-08-08",
     "canton": "SG"
@@ -477765,7 +477775,8 @@
     "canonicalSlug": "icus-swiss-medical-network",
     "slugByLocale": {
       "it": "icus-swiss-medical-network",
-      "en": "icus-swiss-medical-network"
+      "en": "icus-swiss-medical-network",
+      "de": "icus-swiss-medical-network-glion"
     },
     "createdAt": "2026-08-08",
     "canton": "VD"
@@ -479317,7 +479328,9 @@
   "id|recruitingapp-122706.umantis.com|5627": {
     "canonicalSlug": "senior-business-intelligence-specialist-ksa-ch",
     "slugByLocale": {
-      "de": "senior-business-intelligence-specialist-ksa-ch"
+      "de": "senior-business-intelligence-specialist-ksa-ch",
+      "it": "senior-business-intelligence-specialista-kantonsspital-aarau-ksa-aarau",
+      "fr": "senior-business-intelligence-specialiste-kantonsspital-aarau-ksa-aarau"
     },
     "createdAt": "2026-08-08",
     "canton": "AG"
@@ -479396,5 +479409,73 @@
     },
     "createdAt": "2026-08-08",
     "canton": "LU"
+  },
+  "url|https://www.pemsa.ch/it/job/cameriera-ai-tavoli-2686195": {
+    "canonicalSlug": "cameriera-ai-tavoli-pemsa-lugano",
+    "slugByLocale": {
+      "it": "cameriera-ai-tavoli-pemsa-lugano"
+    },
+    "createdAt": "2026-08-09",
+    "canton": "TI"
+  },
+  "id|raiffeisen.ch|1735f346-839b-4d70-a92e-c97748fc82f4": {
+    "canonicalSlug": "apprendistato-come-kauffrau-kaufmann-bank-lehrbeginn-august-2027-raiffeisen-adligenswil",
+    "slugByLocale": {
+      "it": "apprendistato-come-kauffrau-kaufmann-bank-lehrbeginn-august-2027-raiffeisen-adligenswil",
+      "en": "apprenticeship-as-a-merchant-kaufmann-bank-apprenticeship-start-august-2027-raiffeisen-adligenswil",
+      "de": "lehrstelle-als-kauffrau-kaufmann-bank-lehrbeginn-august-2027-raiffeisen-adligenswil",
+      "fr": "apprentissage-en-tant-que-marchand-kaufmann-bank-debut-de-l-apprentissage-aout-2027-raiffeisen-adligenswil"
+    },
+    "createdAt": "2026-08-09",
+    "canton": "LU"
+  },
+  "id|raiffeisen.ch|a4dad321-db69-45ec-a0da-e7c569dc93b0": {
+    "canonicalSlug": "consulenti-privati-focus-finanziamento-f-m-d-raiffeisen-menzingen",
+    "slugByLocale": {
+      "it": "consulenti-privati-focus-finanziamento-f-m-d-raiffeisen-menzingen",
+      "en": "private-client-consultants-focus-financing-f-m-d-raiffeisen-menzingen",
+      "de": "privatkundenberater-fokus-finanzieren-w-m-d-raiffeisen-menzingen",
+      "fr": "consultants-clients-prives-orientation-financement-f-m-d-raiffeisen-menzingen"
+    },
+    "createdAt": "2026-08-09",
+    "canton": "ZG"
+  },
+  "id|admin.ch|8e8ef5d5-f857-4c98-bbe4-f6dc09a7271a": {
+    "canonicalSlug": "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern",
+    "slugByLocale": {
+      "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern",
+      "en": "logistician-in-swiss-armed-forces-vtg-bern",
+      "de": "logistiker-in-swiss-armed-forces-vtg-bern-cupr4v",
+      "fr": "logisticien-in-swiss-armed-forces-vtg-bern"
+    },
+    "createdAt": "2026-08-09",
+    "canton": "BE"
+  },
+  "id|post.ch|74446-de_de": {
+    "canonicalSlug": "consulente-clienti-in-die-schweizerische-post-glattbrugg",
+    "slugByLocale": {
+      "it": "consulente-clienti-in-die-schweizerische-post-glattbrugg",
+      "en": "customer-advisor-in-die-schweizerische-post-glattbrugg",
+      "de": "kundenberater-in-die-schweizerische-post-glattbrugg",
+      "fr": "conseiller-client-in-die-schweizerische-post-glattbrugg"
+    },
+    "createdAt": "2026-08-09",
+    "canton": "ZH"
+  },
+  "id|post.ch|73975-de_de": {
+    "canonicalSlug": "lehre-als-detailhandelsfachmann-frau-efz-post",
+    "slugByLocale": {
+      "de": "lehre-als-detailhandelsfachmann-frau-efz-post"
+    },
+    "createdAt": "2026-08-09",
+    "canton": "SG"
+  },
+  "id|post.ch|73933-de_de": {
+    "canonicalSlug": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+    "slugByLocale": {
+      "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+    },
+    "createdAt": "2026-08-09",
+    "canton": "AI"
   }
 }
