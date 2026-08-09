@@ -191,7 +191,15 @@ export const STRUCTURAL_OUTCOMES = Object.freeze([
 export const HOLD_MARKER = '<!-- CLOSE_RECOVERED: structural-hold -->';
 
 /** Graveyard valve. See docstring valve 3 for why 14 and not "forever". */
-export const DEFAULT_HOLD_MAX_DAYS = 14;
+// 9, non 14. Il `followup-drainer` — anch'esso `mode: identical`, quindi vivo
+// su entrambi i repo — chiude per age-out a FOLLOWUP_AGEOUT_DAYS=10 le issue
+// che `classifyIssue` instrada in coda, e i titoli «Workflow Failure:» /
+// «CI Failure:» ci finiscono tutti (osservato: #4641 chiusa a 13,4 giorni con
+// «Auto-chiusa dal followup-drainer»). Un TTL a 14 sarebbe quindi in gran parte
+// IRRAGGIUNGIBILE: la diagnosi verrebbe buttata da un altro strato, ~4 giorni
+// prima, con una nota («mai entrato in lavorazione») falsa per una issue tenuta
+// apposta. Stare sotto i 10 rende questo TTL quello che decide davvero.
+export const DEFAULT_HOLD_MAX_DAYS = 9;
 
 function holdMaxDays() {
   const raw = Number(process.env.CLOSE_RECOVERED_HOLD_MAX_DAYS);
@@ -285,7 +293,16 @@ export function decideStructuralHold(comments, opts = {}) {
     return { hold: false, code: verdict.code, unknown: false, notified: false, ageDays: null, reason: `last verdict '${verdict.code}' is not structural` };
   }
 
-  const age = verdict.at === null ? null : ageInDays(verdict.at);
+  // F3: un verdetto il cui commento non ha timestamp parsabile lasciava `age`
+  // a null, saltava il ramo TTL e teneva la issue in hold PER SEMPRE — cioe'
+  // la quinta valvola non c'era. Si ricade sull'eta' della issue, esattamente
+  // come fa gia' il ramo «commenti illeggibili» qui sopra: un hold non deve
+  // mai poter essere illimitato, qualunque cosa non si riesca a leggere.
+  let age = verdict.at === null ? null : ageInDays(verdict.at);
+  if (age === null) {
+    const opened = Date.parse(opts.issueCreatedAt ?? '');
+    if (!Number.isNaN(opened)) age = ageInDays(opened);
+  }
   if (age !== null && age > maxDays) {
     return {
       hold: false,

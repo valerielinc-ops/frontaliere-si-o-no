@@ -299,6 +299,34 @@ describe('the decision is actually WIRED into the close path', () => {
     expect(mainBody).toMatch(/if \(decision\.hold\)[\s\S]{0,900}continue;/);
   });
 
+  it('a failed comment fetch stays null — it must not degrade to an empty list', () => {
+    // F1, un falso verde trovato da una seconda lente: degradando
+    // `if (out === null) return null;` a `return [];` la suite passava 33/33 e
+    // il bug tornava. Con `[]` una fetch fallita (rate limit) diventa
+    // «nessun commento» -> «nessun verdetto» -> «transiente per default» ->
+    // la issue strutturale viene CHIUSA, con un log perfettamente plausibile.
+    // E' la forma di #65: un errore di lettura che torna al comportamento
+    // vecchio senza far fallire niente.
+    //
+    // La distinzione null (non ho potuto leggere) vs [] (ho letto, non c'era
+    // niente) e' load-bearing, e nessun test la copriva: `fetchIssueComments`
+    // non e' esportata, quindi si asserisce sul sorgente.
+    const fetchFn = SRC.slice(SRC.indexOf('function fetchIssueComments'));
+    expect(fetchFn.slice(0, 600)).toMatch(/if \(out === null\) return null;/);
+  });
+
+  it('the hold branch does not ALSO close — the continue must be the only exit', () => {
+    // F2, secondo falso verde: aggiungendo `resolveGithubIssue(...)` PRIMA del
+    // `continue;` dentro il ramo hold, la suite passava 33/33, il log diceva
+    // `closed=0 held=1` e l'issue veniva chiusa lo stesso. Le asserzioni per
+    // indice e la regex `if (decision.hold)[\s\S]{0,900}continue;` reggevano
+    // entrambe: prendevano «manca il continue», non «chiude comunque».
+    const at = mainBody.indexOf('if (decision.hold)');
+    expect(at).toBeGreaterThan(-1);
+    const branch = mainBody.slice(at, mainBody.indexOf('continue;', at));
+    expect(branch).not.toContain('resolveGithubIssue(');
+  });
+
   it('comments are fetched lazily, inside the green branch only', () => {
     // Fetching for all 300 open issues on every pass would be the same reconciler with a
     // 300x API bill. The call must sit after the green/afterFailure gate.
@@ -306,5 +334,21 @@ describe('the decision is actually WIRED into the close path', () => {
     const fetchAt = mainBody.indexOf('fetchIssueComments(');
     expect(greenGate).toBeGreaterThan(-1);
     expect(fetchAt).toBeGreaterThan(greenGate);
+  });
+});
+
+describe('nessun hold puo\' essere illimitato (F3)', () => {
+  it('un verdetto senza timestamp misura l\'eta\' sulla issue, e scade', () => {
+    // Il commento del verdetto puo' non avere un timestamp parsabile. Prima
+    // `age` restava null, il ramo TTL veniva saltato e la issue restava in hold
+    // PER SEMPRE — cioe' la valvola non c'era, mentre il docstring prometteva
+    // «quattro valvole limitate». La suite esercitava il caso senza timestamp
+    // ma non ne verificava mai la conseguenza sul TTL: lo LEGITTIMAVA.
+    const comments = [{ body: '<!-- FIX_OUTCOME: blocked-workflows-scope -->' }]; // niente createdAt
+    const quattroAnniFa = new Date(Date.now() - 4 * 365 * 24 * 3600 * 1000).toISOString();
+    const d = decideStructuralHold(comments, { issueCreatedAt: quattroAnniFa, maxDays: 14 });
+    expect(d.hold).toBe(false);
+    expect(d.ageDays).not.toBeNull();
+    expect(d.reason).toMatch(/TTL/);
   });
 });
