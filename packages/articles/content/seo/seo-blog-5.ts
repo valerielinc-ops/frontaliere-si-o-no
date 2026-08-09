@@ -60716,6 +60716,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavori-posteggio-cadro-interrogazione': {
+    title: 'Cadro, interrogazione sui lavori al posteggio di via Scuole',
+    description: 'Il gruppo Avanti con Ticino&Lavoro interroga il Municipio di Lugano sulla mancanza di isole verdi nei lavori di rifacimento dei parcheggi a Cadro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cadro, interrogazione, lavori, posteggio',
+    ogTitle: 'Cadro, interrogazione sui lavori al posteggio di via Scuole',
+    ogDescription: 'Il gruppo Avanti con Ticino&Lavoro interroga il Municipio di Lugano sulla mancanza di isole verdi nei lavori di rifacimento dei parcheggi a Cadro.',
+    canonicalPath: '/articoli-frontaliere/lavori-posteggio-cadro-interrogazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cadro, interrogazione sui lavori al posteggio di via Scuole",
+      "description": "Il gruppo Avanti con Ticino&Lavoro interroga il Municipio di Lugano sulla mancanza di isole verdi nei lavori di rifacimento dei parcheggi a Cadro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavori-posteggio-cadro-interrogazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori di rifacimento presso il parcheggio di Cadro"
+      },
+      "datePublished": "2026-08-09T03:13:27+00:00",
+      "dateModified": "2026-08-09T03:13:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-posteggio-cadro-interrogazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
