@@ -9410,6 +9410,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-logopedista-frontaliere-ticino.title': 'Logopedista in Ticino: guida per frontalieri',
     'blog.article.lavoro-logopedista-frontaliere-ticino.excerpt': 'Requisiti, stipendio e fiscalità per i logopedisti frontalieri in Ticino. Ecco come orientarsi tra nuovo accordo fiscale, AVS e imposta alla fonte.',
     'blog.article.lavoro-logopedista-frontaliere-ticino.imageAlt': 'Studio medico con vista su Lugano',
+    'blog.article.frontaliere-assistente-dentale-ticino.title': 'Assistente dentale in Ticino: stipendio e requisiti',
+    'blog.article.frontaliere-assistente-dentale-ticino.excerpt': 'Guida per frontalieri: stipendio, imposta alla fonte, requisiti LAMal e AVS per lavorare come assistente dentale nel Canton Ticino.',
+    'blog.article.frontaliere-assistente-dentale-ticino.imageAlt': 'Assistente dentale al lavoro in una clinica moderna in Ticino',
 };
 
 export default blogMetaIt;

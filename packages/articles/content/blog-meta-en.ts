@@ -9409,6 +9409,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-logopedista-frontaliere-ticino.title': 'Speech therapist in Ticino: guide for border workers',
     'blog.article.lavoro-logopedista-frontaliere-ticino.excerpt': 'Requirements, salary and taxation for border speech therapists in Ticino. Here\'s how to navigate between new tax agreement, AVS and tax at source.',
     'blog.article.lavoro-logopedista-frontaliere-ticino.imageAlt': 'Medical office with a view of Lugano',
+    'blog.article.frontaliere-assistente-dentale-ticino.title': 'Dental assistant in Ticino: salary and requirements',
+    'blog.article.frontaliere-assistente-dentale-ticino.excerpt': 'Guide for border workers: salary, tax at source, LAMal and AVS requirements to work as a dental assistant in the Canton of Ticino.',
+    'blog.article.frontaliere-assistente-dentale-ticino.imageAlt': 'Dental assistant working in a modern dental clinic in Ticino',
 };
 
 export default blogMetaEn;
