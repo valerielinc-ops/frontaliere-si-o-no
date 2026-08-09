@@ -1975,6 +1975,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.title': 'LPP : guide de contribution et de rachat des lacunes',
     'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.excerpt': 'Le guide complet du deuxième pilier LPP pour les citoyens suisses',
     'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.imageAlt': 'Une guide complète du deuxième pilier LPP pour les citoyens suisses',
+    'blog.article.a2-ancora-al-collasso.title': 'Tessin non pris en otage par le trafic',
+    'blog.article.a2-ancora-al-collasso.excerpt': 'L\'autoroute A2 a été fermée pendant des heures après un grave accident dans le Mezzovico, générant un effet domino qui a paralysé le Sottoceneri.',
+    'blog.article.a2-ancora-al-collasso.imageAlt': 'Frontaliers bloqués sur l\'A2 à Mezzovico. Photo réalistique DSLR.',
 };
 
 export default blogMetaChFr;

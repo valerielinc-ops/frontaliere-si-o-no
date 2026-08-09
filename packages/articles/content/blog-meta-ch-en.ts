@@ -1975,6 +1975,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.title': 'LPP: Gaps Contribution and Redemption Guide',
     'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.excerpt': 'The complete guide to the second LPP pillar for Swiss citizens',
     'blog.article.secondo-pilastro-lpp-guida-completa-svizzera.imageAlt': 'A complete guide to the second pillar LPP for Swiss citizens',
+    'blog.article.a2-ancora-al-collasso.title': 'Ticino not held hostage by traffic',
+    'blog.article.a2-ancora-al-collasso.excerpt': 'The A2 highway was closed for hours after a serious accident in Mezzovico, generating a domino effect that paralyzed the Sottoceneri.',
+    'blog.article.a2-ancora-al-collasso.imageAlt': 'Frontalieri blocked on A2 at Mezzovico. Realistic DSLR photo.',
 };
 
 export default blogMetaChEn;
