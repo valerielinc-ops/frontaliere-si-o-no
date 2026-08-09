@@ -18,6 +18,12 @@
  * token or expression to grep for. These detectors are curated, heuristic,
  * shape-level checks (see the doc comment above PATTERN_CLASSES in the script
  * for the worked examples — issue #4208 and issue #4263 item 4).
+ *
+ * detectPersistTimeCountryStamp (issue #5426 escalation): the bucket recurred
+ * a further 6× in 14 days (PR series #5423/#5419/#5405/#5390/#5378) via a
+ * third bug shape — `addressCountry = 'CH'` forged onto a job record right
+ * before a `writeJson`/`writeFileSync` persists it, reimplemented per-script
+ * with no shared token (see worked example in the script's registry doc).
  */
 import { describe, it, expect } from 'vitest';
 import {
@@ -25,6 +31,7 @@ import {
   extractRemovedExpressions,
   detectCapBeforeMutation,
   detectCloseBundleOrdering,
+  detectPersistTimeCountryStamp,
   PATTERN_CLASSES,
 } from '../scripts/ci/check-sibling-patterns.mjs';
 
@@ -201,11 +208,12 @@ describe('extractRemovedExpressions — verbatim removed-line detection (issue #
   });
 });
 
-describe('PATTERN_CLASSES registry (issue #4260 escalation, round 2)', () => {
-  it('registers the two curated bug-shape classes', () => {
+describe('PATTERN_CLASSES registry (issue #4260 escalation, round 2 + #5426 round 3)', () => {
+  it('registers the three curated bug-shape classes', () => {
     const names = PATTERN_CLASSES.map((c) => c.name);
     expect(names).toContain('cap-before-mutation');
     expect(names).toContain('closeBundle-ordering');
+    expect(names).toContain('persist-time-country-stamp');
     for (const cls of PATTERN_CLASSES) {
       expect(typeof cls.description).toBe('string');
       expect(cls.description.length).toBeGreaterThan(0);
@@ -356,5 +364,87 @@ describe('detectCloseBundleOrdering (worked example: issue #4263 item 4)', () =>
       '}',
     ].join('\n');
     expect(detectCloseBundleOrdering(clean)).toEqual([]);
+  });
+});
+
+describe('detectPersistTimeCountryStamp (worked example: escalation #5426, PR series #5405/#5390/#5378)', () => {
+  it('flags an unconditional `addressCountry = \'CH\'` stamp before a writeJson persist call', () => {
+    const buggy = [
+      'function postProcessJobs() {',
+      "  const raw = fs.readFileSync(DATA_JOBS, 'utf-8');",
+      '  const jobs = JSON.parse(raw);',
+      '  for (const job of jobs) {',
+      "    job.addressCountry = 'CH';",
+      '  }',
+      '  writeJson(DATA_JOBS, jobs);',
+      '}',
+    ].join('\n');
+    const findings = detectPersistTimeCountryStamp(buggy);
+    expect(findings.length).toBe(1);
+    expect(findings[0].snippet).toContain('addressCountry');
+  });
+
+  it('flags the guarded `if (!x.addressCountry) x.addressCountry = \'CH\'` form before writeJsonAtomic', () => {
+    const buggy = [
+      'function patch(allJobs) {',
+      '  for (const j of allJobs) {',
+      "    if (!j.addressCountry) j.addressCountry = 'CH';",
+      '  }',
+      '  writeJsonAtomic(DATA_JOBS, allJobs);',
+      '}',
+    ].join('\n');
+    const findings = detectPersistTimeCountryStamp(buggy);
+    expect(findings.length).toBe(1);
+  });
+
+  it('does NOT flag when there is no persist call in the file (in-memory only, clean)', () => {
+    const clean = [
+      'function normalize(job) {',
+      "  job.addressCountry = 'CH';",
+      '  return job;',
+      '}',
+    ].join('\n');
+    expect(detectPersistTimeCountryStamp(clean)).toEqual([]);
+  });
+
+  it('does NOT flag the safe read-time fallback expression (`||`, no assignment back)', () => {
+    const clean = [
+      'function buildStructuredData(job) {',
+      "  const addressCountry = job.addressCountry || 'CH';",
+      '  writeJson(OUT, { addressCountry });',
+      '  return addressCountry;',
+      '}',
+    ].join('\n');
+    expect(detectPersistTimeCountryStamp(clean)).toEqual([]);
+  });
+
+  it('does NOT flag clearing the field to empty string (legitimate "foreign, not CH" reset)', () => {
+    const clean = [
+      'function clearForeign(job) {',
+      "  job.addressCountry = '';",
+      '  writeJsonAtomic(DATA_JOBS, jobs);',
+      '}',
+    ].join('\n');
+    expect(detectPersistTimeCountryStamp(clean)).toEqual([]);
+  });
+
+  it('does NOT flag a template-literal error message that merely interpolates the field (regression guard: validate-jobposting-schema.mjs shape)', () => {
+    const clean = [
+      'function validate(addr) {',
+      '  writeJson(REPORT, errors);',
+      '  errors.push(`jobLocation.address.addressCountry="${addr.addressCountry}" is not a 2-letter ISO 3166-1 alpha-2 code`);',
+      '}',
+    ].join('\n');
+    expect(detectPersistTimeCountryStamp(clean)).toEqual([]);
+  });
+
+  it('does NOT flag an assignment to a country other than the literal CH', () => {
+    const clean = [
+      'function setForeign(job) {',
+      "  job.addressCountry = 'DE';",
+      '  writeJson(DATA_JOBS, jobs);',
+      '}',
+    ].join('\n');
+    expect(detectPersistTimeCountryStamp(clean)).toEqual([]);
   });
 });
