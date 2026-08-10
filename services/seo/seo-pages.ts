@@ -104,7 +104,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
    "height": 512
   },
   "foundingDate": "2023",
-  "description": "Piattaforma informativa per frontalieri italiani in Svizzera: tassazione, permessi, lavoro, sanità e aggiornamenti normativi.",
   "contactPoint": {
    "@type": "ContactPoint",
    "contactType": "customer support",
@@ -6587,7 +6586,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
    "height": 512
   },
   "foundingDate": "2023",
-  "description": "Piattaforma informativa per frontalieri italiani in Svizzera: tassazione, permessi, lavoro, sanità e aggiornamenti normativi.",
   "contactPoint": {
    "@type": "ContactPoint",
    "contactType": "customer support",
@@ -6746,7 +6744,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
    "height": 512
   },
   "foundingDate": "2023",
-  "description": "Piattaforma informativa per frontalieri italiani in Svizzera: tassazione, permessi, lavoro, sanità e aggiornamenti normativi.",
   "contactPoint": {
    "@type": "ContactPoint",
    "contactType": "customer support",

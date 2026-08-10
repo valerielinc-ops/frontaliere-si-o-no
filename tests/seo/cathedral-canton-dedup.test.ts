@@ -2,6 +2,8 @@ import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
+import { readJobsDataset } from '../helpers/jobsDataset';
+
 /**
  * Phase 8 Sub-PR (a): the per-job emit dedup key in `jobsSeoPagesPlugin.ts`
  * is `(canton, locale, slug)`. Previously the key was `(locale, slug)`,
@@ -105,9 +107,8 @@ describe('cathedral canton-aware dedup (Phase 8a)', () => {
 
   it('cross-canton slug collisions emit one HTML file per canton (behavioural)', () => {
     if (!fs.existsSync(DIST)) return; // offline skip
-    if (!fs.existsSync(JOBS_PATH)) return;
-
-    const jobs: JobShape[] = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
+    const jobs = readJobsDataset<JobShape>(JOBS_PATH);
+    if (!jobs) return;
     // Index active jobs by (locale, slug) and collect their cantons.
     const slugToCantons = new Map<string, Set<string>>();
     for (const job of jobs) {

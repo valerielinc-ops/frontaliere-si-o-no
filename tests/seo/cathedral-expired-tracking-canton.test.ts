@@ -19,6 +19,7 @@ import {
   readAllKnownJobSlugs,
   knownSlugsStoreExists,
 } from '../../scripts/lib/all-known-job-slugs-store.mjs';
+import { readJobsDataset } from '../helpers/jobsDataset';
 
 const PLUGIN_PATH = path.resolve(__dirname, '../../build-plugins/jobsSeoPagesPlugin.ts');
 const REPO_ROOT = path.resolve(__dirname, '../..');
@@ -47,14 +48,15 @@ describe('Phase 8c — expired-tracking is canton-aware', () => {
   });
 
   it('data: non-TI tracking entries no longer reference the TI section path', () => {
-    if (!fs.existsSync(JOBS_PATH) || !knownSlugsStoreExists(REPO_ROOT)) return;
-    const jobs: Array<{
+    if (!knownSlugsStoreExists(REPO_ROOT)) return;
+    const jobs = readJobsDataset<{
       slug?: string;
       canton?: string;
       location?: string;
       slugByLocale?: Record<string, string>;
       previousSlugs?: string[];
-    }> = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
+    }>(JOBS_PATH);
+    if (!jobs) return;
     const tracking: Record<string, Record<string, string>> = readAllKnownJobSlugs(
       REPO_ROOT,
     ) as Record<string, Record<string, string>>;

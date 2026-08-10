@@ -3,6 +3,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 
 import { resolveCantonSection } from '../../build-plugins/shared/cantonSection';
+import { readJobsDataset } from '../helpers/jobsDataset';
 
 const DIST = path.resolve(__dirname, '../../dist');
 const JOBS_PATH = path.resolve(__dirname, '../../data/jobs.json');
@@ -23,18 +24,10 @@ interface Job {
   slugByLocale?: Record<string, string>;
 }
 
-// Memoized: data/jobs.json is a multi-MB CI-assembled fixture that never
-// changes mid-run. Re-parsing it inside every `it()` (8x here) pushed a
-// single case over vitest's 15s timeout under parallel-runner load,
-// producing an intermittent gate:seo-source failure that blocked publish.
-let _jobsCache: Job[] | null | undefined;
-function readJobs(): Job[] | null {
-  if (_jobsCache !== undefined) return _jobsCache;
-  _jobsCache = fs.existsSync(JOBS_PATH)
-    ? (JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8')) as Job[])
-    : null;
-  return _jobsCache;
-}
+// Read once, not once per `it()` — see tests/helpers/jobsDataset.ts for why
+// the 8 re-parses this file used to do were what pushed a single case past
+// vitest's 15s timeout and failed gate:seo-source.
+const readJobs = () => readJobsDataset<Job>(JOBS_PATH);
 
 function pickItSlug(job: Job): string | undefined {
   return job.slugByLocale?.it ?? job.slug;
