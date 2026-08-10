@@ -13,7 +13,7 @@
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
   "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.",
-  "updatedAt": "2026-08-10T10:31:07.614Z",
+  "updatedAt": "2026-08-10T21:47:07.703Z",
   "seedMetaByUrl": {
     "https://careers.aristongroup.com/job/Langenfeld-KEY-ACCOUNT-MANAGEMENT-VENTILATION-%28MWD%29-IM-GEBIET-BADEN-W%C3%9CRTTEMBERG-Lang-40764/1224230001/": {
       "location": "Langenfeld (Rheinland), DE, 40764",
@@ -93,18 +93,6 @@
       "company": "Ariston Group",
       "postedDate": "2026-08-08"
     },
-    "https://careers.aristongroup.com/job/Rothenburg-SERVICETECHNIKER-%C3%96LGAS-ATMO-%28MW%29-Roth-6023/1365907133/": {
-      "location": "Rothenburg, CH, 6023",
-      "canton": "LU",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-15"
-    },
-    "https://careers.aristongroup.com/job/Rothenburg-SERVICE-TEAM-LEADER-OIL-Roth-6023/1365043033/": {
-      "location": "Rothenburg, CH, 6023",
-      "canton": "LU",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-13"
-    },
     "https://careers.aristongroup.com/job/Maerstetten-TECNICO-DI-SERVIZIO-PER-IMPIANTI-DI-RISCALDAMENTO-A-GASOLIO-Beda-6930/1420717933/": {
       "location": "Bedano, CH, 6930",
       "canton": "TI",
@@ -146,6 +134,18 @@
       "canton": "SO",
       "company": "Ariston Group",
       "postedDate": "2026-08-08"
+    },
+    "https://careers.aristongroup.com/job/Rothenburg-SERVICE-TEAM-LEADER-OIL-Roth-6023/1365043033/": {
+      "location": "Rothenburg, CH, 6023",
+      "canton": "LU",
+      "company": "Ariston Group",
+      "postedDate": "2026-07-13"
+    },
+    "https://careers.aristongroup.com/job/Rothenburg-SERVICETECHNIKER-%C3%96LGAS-ATMO-%28MW%29-Roth-6023/1365907133/": {
+      "location": "Rothenburg, CH, 6023",
+      "canton": "LU",
+      "company": "Ariston Group",
+      "postedDate": "2026-07-15"
     }
   }
 }
