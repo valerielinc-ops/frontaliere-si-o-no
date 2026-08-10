@@ -3172,7 +3172,6 @@
           "Fähigkeit, Communities zu animieren und um gemeinsame Ziele zusammenzuführen"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "project-manager-r-i-qualita-richemont-neuchatel",
@@ -3183,13 +3182,13 @@
           "project-leader-r-i-qualita-richemont-neuchatel",
           "chef-de-projet-r-i-qualite-richemont-neuchatel"
         ],
-        "en": [
-          "r-i-quality-project-manager-richemont-neuchatel",
-          "chef-de-projet-r-i-qualite-richemont-neuchatel"
-        ],
         "de": [
           "projektleiter-r-i-qualitat-richemont-neuchatel",
           "r-i-qualitatsprojektleiter-richemont-neuchatel"
+        ],
+        "en": [
+          "r-i-quality-project-manager-richemont-neuchatel",
+          "chef-de-projet-r-i-qualite-richemont-neuchatel"
         ]
       },
       "previousSlugs": [
@@ -3216,7 +3215,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-b60a3cd903fe",
@@ -3780,7 +3780,6 @@
       "jobReqId": "jr128887",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "responsabile-d-atelier-panerai-neuchatel",
         "workshopleiter-panerai-neuchatel",
@@ -3816,7 +3815,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-9a189d9aeb2d",
@@ -6218,7 +6218,6 @@
       "jobReqId": "jr130115",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
         "procurement-category-manager-richemont-plan-les-ouates",
@@ -6248,7 +6247,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-dce71842addb",
@@ -8997,7 +8997,6 @@
       "jobReqId": "jr130947",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "polivalente-di-operateur-richemont-delemont",
@@ -9032,7 +9031,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-4168f8f08137",
@@ -10379,7 +10379,6 @@
       "jobReqId": "jr131290",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "general-accountant-internal-control-fixed-term-contract-richemont-meyrin",
@@ -10404,7 +10403,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-cc2c05858dcd",
