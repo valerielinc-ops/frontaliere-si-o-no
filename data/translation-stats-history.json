@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-07-21T17:50:19.210Z",
-    "label": "before",
-    "total": 24900,
-    "needsRetranslation": 8814,
-    "suppressed": 34,
-    "incomplete": 192,
-    "complete": 24708,
-    "missingByLocale": {
-      "it": 160,
-      "en": 97,
-      "de": 85,
-      "fr": 131
-    },
-    "topPending": [
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 18
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 18
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "TopShop",
-        "pending": 12
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 10
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 6
-      },
-      {
-        "company": "UBS",
-        "pending": 6
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 5
-      },
-      {
-        "company": "Sulzer",
-        "pending": 5
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-21T18:01:15.200Z",
-    "label": "after",
-    "total": 24900,
-    "needsRetranslation": 1419,
-    "suppressed": 34,
-    "incomplete": 192,
-    "complete": 24708,
-    "missingByLocale": {
-      "it": 160,
-      "en": 97,
-      "de": 85,
-      "fr": 131
-    },
-    "topPending": [
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 18
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 18
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "TopShop",
-        "pending": 12
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 10
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 6
-      },
-      {
-        "company": "UBS",
-        "pending": 6
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 5
-      },
-      {
-        "company": "Sulzer",
-        "pending": 5
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-21T22:57:23.380Z",
     "label": "before",
     "total": 24897,
@@ -11486,6 +11372,120 @@
       {
         "company": "IKEA",
         "pending": 10
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 3
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 3
+      },
+      {
+        "company": "Hans Ziegler AG Hauptsitz",
+        "pending": 2
+      },
+      {
+        "company": "Roche",
+        "pending": 2
+      },
+      {
+        "company": "Sulzer",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-10T11:14:54.854Z",
+    "label": "before",
+    "total": 26431,
+    "needsRetranslation": 521,
+    "suppressed": 43,
+    "incomplete": 101,
+    "complete": 26330,
+    "missingByLocale": {
+      "it": 56,
+      "en": 36,
+      "de": 51,
+      "fr": 55
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 36
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 15
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 11
+      },
+      {
+        "company": "IKEA",
+        "pending": 10
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 3
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 3
+      },
+      {
+        "company": "Hans Ziegler AG Hauptsitz",
+        "pending": 2
+      },
+      {
+        "company": "Roche",
+        "pending": 2
+      },
+      {
+        "company": "Sulzer",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-10T12:24:29.426Z",
+    "label": "after",
+    "total": 26431,
+    "needsRetranslation": 497,
+    "suppressed": 44,
+    "incomplete": 77,
+    "complete": 26354,
+    "missingByLocale": {
+      "it": 54,
+      "en": 34,
+      "de": 42,
+      "fr": 41
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 17
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 15
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 11
+      },
+      {
+        "company": "IKEA",
+        "pending": 9
       },
       {
         "company": "Kantonsspital Uri",
