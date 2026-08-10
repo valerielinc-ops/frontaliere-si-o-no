@@ -537,7 +537,12 @@ export async function resilientImport<T>(
   try {
     return await attempt();
   } catch (err) {
-    if (!isChunkLoadError(err)) throw err;
+    // PARSE-time SyntaxError folded in too (issue #5531, isModuleParseError
+    // doc comment above): the chunk URL answered with non-JS bytes (HTML
+    // 404/SPA-fallback) that `factory()` itself throws on before `validate`
+    // ever runs, so the mode-2 nullish/shape guard in `attempt()` above never
+    // sees it. Same recovery as a fetch-failure — cache-bust then retry.
+    if (!isChunkLoadError(err) && !isModuleParseError(err)) throw err;
     // Clear all caches so the browser refetches fresh chunks.
     if (typeof window !== 'undefined' && 'caches' in window) {
       try {
