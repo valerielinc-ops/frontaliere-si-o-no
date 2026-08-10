@@ -9530,6 +9530,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Marchirolo da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.excerpt': 'Sottotitolo con dati concreti DALLA FONTE (max 160 char)',
     'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.imageAlt': 'Max 125 caratteri',
+    'blog.article.nodo-biasca-lavori-fase-finale.title': 'Nodo di Biasca: l\'ultima fase dei lavori dal 31 agosto',
+    'blog.article.nodo-biasca-lavori-fase-finale.excerpt': 'Lavori al nodo di interscambio di Biasca: l\'ultima fase inizia il 31 agosto 2026 e termina il 12 settembre, con impatti sul traffico e sensi alternati.',
+    'blog.article.nodo-biasca-lavori-fase-finale.imageAlt': 'Lavori di asfaltatura del nodo di interscambio di Biasca in Ticino',
 };
 
 export default blogMetaIt;

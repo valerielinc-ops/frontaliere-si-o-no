@@ -9529,6 +9529,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.title': 'Moving to Marchirolo from border crossings: pros and cons',
     'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.excerpt': 'Subtitle with concrete data FROM THE SOURCE (max 160 char)',
     'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.imageAlt': 'Max 125 caratteri',
+    'blog.article.nodo-biasca-lavori-fase-finale.title': 'Node of Biasca: the last phase of work from 31 August',
+    'blog.article.nodo-biasca-lavori-fase-finale.excerpt': 'Work at the Biasca interchange node: the last phase begins on 31 August 2026 and ends on 12 September, with impacts on traffic and alternate senses.',
+    'blog.article.nodo-biasca-lavori-fase-finale.imageAlt': 'Road paving works at the Biasca interchange node in Ticino',
 };
 
 export default blogMetaEn;
