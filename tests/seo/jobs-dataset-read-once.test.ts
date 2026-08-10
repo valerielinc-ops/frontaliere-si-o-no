@@ -46,14 +46,37 @@ const SELF = 'jobs-dataset-read-once.test.ts';
  */
 function jobsPathBindings(src: string): string[] {
   const names: string[] = [];
-  // `const X = <anything up to the statement end that mentions jobs.json>`.
-  // The character class excludes `;` so the match cannot run past the
-  // statement, and includes newlines so a wrapped `path.join(...)` still binds.
-  const rx = /(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=[^;]*?jobs\.json/g;
+  // Anchored on the DATASET, then walked backwards to the `=` that binds it —
+  // rather than forwards from a `const`/`let`/`var` keyword. Anchoring on the
+  // keyword made the pattern brittle in two ways a reviewer found on #5503:
+  //   - `const dataPath: string = …` never matched, because what follows the
+  //     identifier is `:` and not `=` — reopening the rename evasion this
+  //     guard exists to close, with a type annotation;
+  //   - `const a = 1, dataPath = …` captured `a`, the first declarator on the
+  //     statement, and not the one actually holding the path.
+  // Walking back from `jobs.json` to the NEAREST preceding `=` fixes both:
+  // `[^;=]` in the tail forbids crossing either a statement end or another
+  // binding, so the identifier found is the one this expression is assigned to.
+  // The tail tolerates `=>` explicitly: an arrow function between the
+  // assignment and the path (`const p = resolve(() => 'data/jobs.json')`)
+  // carries a literal `=` that would otherwise end the walk and drop the
+  // binding — the same evasion, one nesting level down.
+  const BIND = /([A-Za-z_$][\w$]*)\s*(?::\s*[^=;]+?)?\s*=\s*(?:[^;=]|=>)*$/;
+  const rx = /jobs\.json/g;
   let m: RegExpExecArray | null;
-  while ((m = rx.exec(src)) !== null) names.push(m[1]);
+  while ((m = rx.exec(src)) !== null) {
+    // Bounded by the previous statement, not by a fixed character window: a
+    // long or multi-line `path.join(...)` overflows any constant you pick,
+    // and the binding then disappears with no signal.
+    const bind = BIND.exec(src.slice(src.lastIndexOf(';', m.index) + 1, m.index));
+    if (bind) names.push(bind[1]);
+  }
   return names;
 }
+
+/** Regex-escape an identifier before it goes into an alternation. `$` is legal
+ *  in a JS name and is an anchor in a pattern; unescaped it silently breaks it. */
+const escRx = (s: string): string => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 /**
  * A `readFileSync(...)` on the dataset: the path spelled inline, or any local
@@ -63,7 +86,13 @@ function jobsPathBindings(src: string): string[] {
  */
 function readsDatasetDirectly(src: string): boolean {
   const names = ['JOBS_PATH', 'jobsPath', ...jobsPathBindings(src)];
-  const rx = new RegExp(`readFileSync\\s*\\(\\s*[^)]*(?:jobs\\.json|${names.join('|')})`);
+  // `\b…\b` around the names: without it a binding captured as `a` matches the
+  // `a` inside `readFileSync(dataPath, …)` and the guard fires on a substring
+  // — right answer, wrong reason, and a false positive waiting for the first
+  // short variable name in the directory.
+  const rx = new RegExp(
+    `readFileSync\\s*\\(\\s*[^)]*(?:jobs\\.json|\\b(?:${names.map(escRx).join('|')})\\b)`,
+  );
   return rx.test(src);
 }
 
@@ -98,11 +127,66 @@ describe('gate:seo-source — the jobs dataset is read through the shared memo',
     // Inline path, no binding at all.
     expect(readsDatasetDirectly("fs.readFileSync(path.join(R, 'data', 'jobs.json'), 'utf8')")).toBe(true);
 
+    // The two forms a reviewer found slipping past the keyword-anchored
+    // version of this function (#5503): an explicit type annotation, and a
+    // second declarator on the same statement.
+    expect(
+      readsDatasetDirectly(
+        [
+          "const dataPath: string = path.join(REPO_ROOT, 'data', 'jobs.json');",
+          "const jobs = JSON.parse(fs.readFileSync(dataPath, 'utf8'));",
+        ].join('\n'),
+      ),
+      'a type annotation must not hide the binding',
+    ).toBe(true);
+    expect(
+      readsDatasetDirectly(
+        [
+          "const a = 1, dataPath = path.join(REPO_ROOT, 'data', 'jobs.json');",
+          "const jobs = JSON.parse(fs.readFileSync(dataPath, 'utf8'));",
+        ].join('\n'),
+      ),
+      'the declarator holding the path is the one that must be captured',
+    ).toBe(true);
+
     // …and it stays quiet on the things that are fine: merely naming the
     // dataset, reading a DIFFERENT file, and the sanctioned call itself.
     expect(readsDatasetDirectly('// data/jobs.json is assembled in CI')).toBe(false);
     expect(readsDatasetDirectly("const src = fs.readFileSync(PLUGIN_PATH, 'utf8');")).toBe(false);
     expect(readsDatasetDirectly('const jobs = readJobsDataset<Job>(JOBS_PATH);')).toBe(false);
+
+    // An arrow function between the assignment and the path puts a literal
+    // `=` in the way of the backwards walk (#5504 review).
+    expect(
+      readsDatasetDirectly(
+        [
+          "const dataPath = getPath(() => 'data/jobs.json');",
+          "const jobs = JSON.parse(fs.readFileSync(dataPath, 'utf8'));",
+        ].join('\n'),
+      ),
+      'an arrow function must not end the walk back to the binding',
+    ).toBe(true);
+
+    // A `$` in the name is legal in JS and is an anchor in a pattern: it must
+    // be escaped before interpolation, or the alternation breaks silently.
+    expect(
+      readsDatasetDirectly(
+        [
+          "const data$Path = path.join(REPO_ROOT, 'data', 'jobs.json');",
+          "const jobs = JSON.parse(fs.readFileSync(data$Path, 'utf8'));",
+        ].join('\n'),
+      ),
+      'a `$` in the binding name must not break the alternation',
+    ).toBe(true);
+
+    // A short binding name must not match as a SUBSTRING of an unrelated
+    // argument: `n` inside `readFileSync(fixtureName, …)` is not a dataset read.
+    expect(
+      readsDatasetDirectly(
+        ["const n = 'x/jobs.json';", "const s = fs.readFileSync(fixtureName, 'utf8');"].join('\n'),
+      ),
+      'the binding must match as a whole identifier, not a substring',
+    ).toBe(false);
   });
 
   // The guard above is only worth its runtime if the helper it points at
