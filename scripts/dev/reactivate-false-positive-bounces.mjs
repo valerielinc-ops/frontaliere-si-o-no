@@ -30,6 +30,14 @@
  * for any future one-off catch-up need.
  */
 import admin from 'firebase-admin';
+// Unambiguous hard-bounce signals — the mailbox itself is gone/rejecting
+// permanently. Never reactivate on these, regardless of prior engagement.
+// The regex used to live here as a literal; it now has a second consumer
+// (scripts/lib/suppressionDecay.mjs, which generalises this script's criteria
+// to both collections and to a weekly cron), so it lives in ONE module — two
+// literal copies of a safety regex drift, and the copy that is widened is
+// never the copy that guards the run you are looking at.
+import { HARD_BOUNCE_PATTERN } from '../lib/suppressionDecay.mjs';
 
 const APPLY = process.argv.includes('--apply');
 
@@ -38,10 +46,6 @@ if (!admin.apps?.length) {
 }
 const db = admin.firestore();
 const FieldValue = admin.firestore.FieldValue;
-
-// Unambiguous hard-bounce signals — the mailbox itself is gone/rejecting
-// permanently. Never reactivate on these, regardless of prior engagement.
-const HARD_BOUNCE_PATTERN = /does not exist|no such user|no such mailbox|user unknown|unknown user|invalid recipient|invalid mailbox|mailbox not found|mailbox unavailable|recipient rejected|address rejected|nonexistent|non-?existent|account.*disabled|disabled account|550[ -]?5\.1\.1|550[ -]?5\.1\.10|user doesn'?t exist/i;
 
 console.log(APPLY ? '🟢 APPLY mode — will write to Firestore' : '🟡 DRY RUN — no writes (pass --apply to commit)');
 
