@@ -62354,6 +62354,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a Cadegliano-Viconago da frontaliere: pro e contro',
+    description: 'Cosa considerare prima di trasferirsi a Cadegliano-Viconago lavorando in Ticino da frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, cadegliano-viconago, contro, cosa',
+    ogTitle: 'Trasferirsi a Cadegliano-Viconago da frontaliere: pro e contro | Frontaliere Ticino',
+    ogDescription: 'Cosa considerare prima di trasferirsi a Cadegliano-Viconago lavorando in Ticino da frontaliere. Informazioni pratiche e utili per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Cadegliano-Viconago da frontaliere: pro e contro",
+      "description": "Cosa considerare prima di trasferirsi a Cadegliano-Viconago lavorando in Ticino da frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere si affaccia sul Lago di Lugano, riflettendo sulla decisione di trasferirsi a Cadegliano-Viconago."
+      },
+      "datePublished": "2026-08-10T07:10:02+00:00",
+      "dateModified": "2026-08-10T07:10:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

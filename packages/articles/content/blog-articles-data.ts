@@ -28542,6 +28542,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro',
+ category: 'fiscale',
+ date: '2026-08-10T07:10:02.611Z',
+ image: '/images/blog/trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

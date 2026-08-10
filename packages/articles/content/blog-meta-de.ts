@@ -9509,6 +9509,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-besano-da-frontaliere.title': 'Umzug nach Besano als Grenzgänger: Vor- und Nachteile',
     'blog.article.trasferirsi-besano-da-frontaliere.excerpt': 'Auswirkungen der Ausreise für Grenzgänger und Vorteile des Wohnsitzes im Tessin',
     'blog.article.trasferirsi-besano-da-frontaliere.imageAlt': 'Eine Frontaliererin, die sich nach Besano aus Lugano umzieht',
+    'blog.article.trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.title': 'Umzug nach Cadegliano-Viconago als Grenzgänger: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.excerpt': 'Was Sie vor Ihrem Umzug nach Cadegliano-Viconago beachten sollten, wenn Sie als Grenzgänger im Tessin arbeiten.',
+    'blog.article.trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.imageAlt': 'Ein Frontalier schaut auf den Luganer See, überlegend, ob er sich nach Cadegliano-Viconago umsiedeln soll.',
 };
 
 export default blogMetaDe;
