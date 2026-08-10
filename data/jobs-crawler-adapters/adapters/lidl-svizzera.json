@@ -47,6 +47,7 @@
     "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-gravesano-588243",
     "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-588255",
     "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231",
+    "https://team.lidl.ch/de/jobs/area-manager-m-w-d-80-100-weinfelden-699759",
     "https://team.lidl.ch/de/jobs/ch-allrounder-verkauf-m-w-d-20-40-aarau-ag-700508",
     "https://team.lidl.ch/de/jobs/ch-allrounder-verkauf-m-w-d-20-40-baden-dattwil-700510",
     "https://team.lidl.ch/de/jobs/ch-allrounder-verkauf-m-w-d-20-40-niederlenz-700506",
@@ -130,17 +131,18 @@
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-winterthur-727555",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-zurich-727562",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-zwingen-727530",
+    "https://team.lidl.ch/de/jobs/manager-nachhaltigkeit-biodiversitat-and-kreislaufwirtschaft-80-100-m-w-d-weinfelden-733498",
     "https://team.lidl.ch/de/jobs/manager-nachhaltigkeit-einkauf-80-100-m-w-d-weinfelden-711714",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-1-stans-674353",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-1-regensdorf-705728",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-bern-704655",
+    "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-luzern-728428",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-matten-bei-interlaken-727194",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-sarnen-681605",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-bellach-706891",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-biel-bienne-728471",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-seewen-685896",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-1-winterthur-705230",
-    "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-rothrist-712369",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-self-checkout-20-40-1-spreitenbach-691869",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-20-60-buchs-716906",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-20-60-widnau-716907",
@@ -249,7 +251,6 @@
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-60-ins-700304",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-60-ostermundigen-694207",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-60-rothrist-689818",
-    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-60-spiez-697163",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-60-uster-726334",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-80-kehrsatz-727582",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-bellach-702326",
@@ -257,6 +258,7 @@
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-burgdorf-690164",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-reiden-714284",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-sursee-727275",
+    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-thun-733389",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-willisau-716099",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-60-80-fluelen-685897",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-60-lyss-698560",
@@ -347,7 +349,7 @@
     "https://team.lidl.ch/it/jobs/venditore-venditrice-m-f-d-20-40-minusio-685490"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-08-10T10:28:10.530Z",
+  "updatedAt": "2026-08-10T21:43:56.288Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-kreuzlingen-727482": {
       "location": "Kreuzlingen",
@@ -422,6 +424,15 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/disponent-disponentin-m-w-d-80-100-weinfelden-716116": {
+      "location": "Weinfelden",
+      "addressLocality": "Weinfelden",
+      "canton": "TG",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
+    "https://team.lidl.ch/de/jobs/area-manager-m-w-d-80-100-weinfelden-699759": {
       "location": "Weinfelden",
       "addressLocality": "Weinfelden",
       "canton": "TG",
@@ -530,6 +541,15 @@
       "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/manager-nachhaltigkeit-einkauf-80-100-m-w-d-weinfelden-711714": {
+      "location": "Weinfelden",
+      "addressLocality": "Weinfelden",
+      "canton": "TG",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
+    "https://team.lidl.ch/de/jobs/manager-nachhaltigkeit-biodiversitat-and-kreislaufwirtschaft-80-100-m-w-d-weinfelden-733498": {
       "location": "Weinfelden",
       "addressLocality": "Weinfelden",
       "canton": "TG",
@@ -1942,15 +1962,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-rothrist-712369": {
-      "location": "Rothrist",
-      "addressLocality": "Rothrist",
-      "canton": "AG",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-reinach-ag-677046": {
       "location": "Reinach (AG)",
       "addressLocality": "Reinach (AG)",
@@ -2420,6 +2431,15 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-luzern-731733": {
+      "location": "Luzern",
+      "addressLocality": "Luzern",
+      "canton": "LU",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-luzern-728428": {
       "location": "Luzern",
       "addressLocality": "Luzern",
       "canton": "LU",
@@ -2959,6 +2979,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
+    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-thun-733389": {
+      "location": "Thun",
+      "addressLocality": "Thun",
+      "canton": "BE",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-marly-695473": {
       "location": "Marly",
       "addressLocality": "Marly",
@@ -3007,15 +3036,6 @@
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-matten-bei-interlaken-727194": {
       "location": "Matten bei Interlaken",
       "addressLocality": "Matten bei Interlaken",
-      "canton": "BE",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-60-spiez-697163": {
-      "location": "Spiez",
-      "addressLocality": "Spiez",
       "canton": "BE",
       "country": "CH",
       "company": "Lidl Svizzera",
