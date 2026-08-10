@@ -9537,6 +9537,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-tronzano-lago-maggiore-lavorare-ticino-da-frontaliere.title': 'Leben in Tronzano Lago Maggiore und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-tronzano-lago-maggiore-lavorare-ticino-da-frontaliere.excerpt': 'Warum italienische Grenzgänger, die in Tronzano Lago Maggiore leben, im Tessin arbeiten können',
     'blog.article.vivere-tronzano-lago-maggiore-lavorare-ticino-da-frontaliere.imageAlt': 'Max 125 caratteri',
+    'blog.article.trasferirsi-a-viggiu-da-frontaliere-pro-e-contro.title': 'Umzug nach Viggiù als Grenzgänger: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-viggiu-da-frontaliere-pro-e-contro.excerpt': 'Was Sie wissen müssen, bevor Sie als Grenzgänger nach Viggiù ziehen',
+    'blog.article.trasferirsi-a-viggiu-da-frontaliere-pro-e-contro.imageAlt': 'Frontalieri im Transit',
 };
 
 export default blogMetaDe;

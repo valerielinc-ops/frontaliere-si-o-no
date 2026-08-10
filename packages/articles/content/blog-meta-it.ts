@@ -9539,6 +9539,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-tronzano-lago-maggiore-lavorare-ticino-da-frontaliere.title': 'Vivere a Tronzano Lago Maggiore e lavorare in Ticino da frontaliere',
     'blog.article.vivere-tronzano-lago-maggiore-lavorare-ticino-da-frontaliere.excerpt': 'Perché i frontalieri italiani che vivono a Tronzano Lago Maggiore possono lavorare in Ticino',
     'blog.article.vivere-tronzano-lago-maggiore-lavorare-ticino-da-frontaliere.imageAlt': 'Max 125 caratteri',
+    'blog.article.trasferirsi-a-viggiu-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Viggiù da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-viggiu-da-frontaliere-pro-e-contro.excerpt': 'Cosa devi sapere prima di trasferirti a Viggiù da frontaliere',
+    'blog.article.trasferirsi-a-viggiu-da-frontaliere-pro-e-contro.imageAlt': 'Frontalieri in transito',
 };
 
 export default blogMetaIt;
