@@ -81,6 +81,60 @@ concurrency:
   cancel-in-progress: ${{ github.event_name != 'push' }}
 
 jobs:
+  # Typecheck — job SEPARATO da vitest, e la separazione è deliberata (#5540).
+  #
+  # Il nome `vitest (unit + integration)` è load-bearing: auto-merge-on-lgtm,
+  # auto-merge-eval gate 3, pr-autorebase e stale-pr-rescuer ci fanno `select`
+  # sopra. Infilare `tsc` dentro quel job significherebbe far dipendere l'unico
+  # segnale che governa l'auto-merge da un secondo attrezzo; qui invece nasce un
+  # check NUOVO, e nessun nome esistente cambia.
+  #
+  # Perché serve: Vite compila con esbuild, che le annotazioni di tipo le
+  # RIMUOVE senza verificarle. Prima di questo job nessuno dei 285 script di
+  # package.json invocava `tsc` e nessun check guardava i tipi, quindi un errore
+  # di tipo attraversava build, deploy e produzione senza un solo segnale — la
+  # classe di #5533 e della storia del registro ES in CLAUDE.md.
+  #
+  # MISURATO su main 3030ae4 (tsc 5.8.3): 331 errori / 116 file, di cui 307
+  # (93%) sotto tests/ e 24 fuori. Il gate NON è a zero: confronta con
+  # data/typecheck-baseline.json e fallisce solo su un errore NUOVO fuori da
+  # tests/. Il razionale completo (perché 20 dei 24 non sono riparabili senza
+  # rompere il mirror verso nanako) sta nella testata dello script.
+  #
+  # Costo: `tsc --noEmit` misura 33s in locale sull'albero intero; il job è
+  # checkout + npm ci + tsc, senza assemble del dataset (nessun sorgente TS
+  # importa data/jobs.json, che è gitignored). Gira in parallelo a vitest, che
+  # resta la slice lunga: costo incrementale sul wall della PR ≈ 0.
+  typecheck:
+    name: typecheck (tsc --noEmit)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      # tsc tiene l'intero program in memoria: 4,4 GB di RSS misurati in locale
+      # sull'albero completo. Il default di Node su un runner a 16 GB è più
+      # basso, e un OOM qui si presenterebbe come un rosso indistinguibile da un
+      # errore di tipo. Lo script tratta comunque un exit anomalo come «misura
+      # non riuscita» (exit 2), mai come pass.
+      NODE_OPTIONS: --max-old-space-size=8192
+    steps:
+      # Checkout PIENO, come il job vitest sotto e per la stessa ragione
+      # misurata (uno sparse-checkout porterebbe actions/checkout su
+      # `--filter=blob:none`, +125% sul Checkout). Qui in più è un requisito di
+      # correttezza: senza `data/` e `public/` mancano ~160 moduli importati e
+      # tsc produrrebbe TS2307 d'ambiente, cioè un rosso falso.
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: npm ci
+        run: npm ci
+
+      - name: tsc --noEmit (baseline + ratchet)
+        run: npm run typecheck:gate
+
   # Single job, full suite. The job name `vitest (unit + integration)` is
   # LOAD-BEARING: auto-merge-on-lgtm's "Block merge if vitest gate is RED" step
   # keys on it (`select(.name == "vitest (unit + integration)")`), as do
