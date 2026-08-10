@@ -9522,6 +9522,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.germignaga-lavoro-ticino-frontaliere.title': 'in Germignaga leben und als Grenzgänger im Tessin arbeiten',
     'blog.article.germignaga-lavoro-ticino-frontaliere.excerpt': 'Wichtige Fakten und Verfahren für Grenzgänger mit Wohnsitz in Germignaga, die im Tessin arbeiten.',
     'blog.article.germignaga-lavoro-ticino-frontaliere.imageAlt': 'Grenzgänger in Tessin',
+    'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.title': 'Als Grenzgänger nach Germignaga ziehen: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.excerpt': 'Quellensteuer und neue Regeln für Grenzgänger',
+    'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.imageAlt': 'Ein Frontalier zieht nach Germignaga um',
 };
 
 export default blogMetaDe;

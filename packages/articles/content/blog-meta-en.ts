@@ -9523,6 +9523,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.germignaga-lavoro-ticino-frontaliere.title': 'live in Germignaga and work in Ticino as a border worker',
     'blog.article.germignaga-lavoro-ticino-frontaliere.excerpt': 'Key facts and procedures for border workers resident in Germignaga who work in Ticino.',
     'blog.article.germignaga-lavoro-ticino-frontaliere.imageAlt': 'Frontaliers in Ticino',
+    'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.title': 'Moving to Germignaga by border crossing: pros and cons',
+    'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.excerpt': 'Tax at source and new rules for border workers',
+    'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.imageAlt': 'A frontaliere is moving to Germignaga',
 };
 
 export default blogMetaEn;

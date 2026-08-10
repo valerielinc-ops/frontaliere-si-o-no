@@ -28569,6 +28569,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trasferirsi-a-germignaga-da-frontaliere-pro-e-contro',
+ category: 'novita',
+ date: '2026-08-10T09:23:32.011Z',
+ image: '/images/blog/trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
