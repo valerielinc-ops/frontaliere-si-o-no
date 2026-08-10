@@ -9509,6 +9509,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-10.imageAlt': 'Les chiffres du jour pour les frontaliers – 10 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-08-10.seoDescription': 'Bulletin du frontalier du 10 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-08-10.ogDescription': 'Les chiffres du 10 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.trasferirsi-besano-da-frontaliere.title': 'Déménager à Besano en tant que frontalier : avantages et inconvénients',
+    'blog.article.trasferirsi-besano-da-frontaliere.excerpt': 'Impacts du déplacement pour les frontaliers et avantages de la résidence au Tessin',
+    'blog.article.trasferirsi-besano-da-frontaliere.imageAlt': 'Une frontalière qui se transfère à Besano de Lugano',
 };
 
 export default blogMetaFr;
