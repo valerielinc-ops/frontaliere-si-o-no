@@ -2020,6 +2020,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.title': 'Location en Suisse 2026 : prix et droits',
     'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.excerpt': 'Prix moyens des loyers en Suisse en 2026 : CHF 2\'500 - 3\'500 par mois.',
     'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.imageAlt': 'Photo de locations en Suisse avec le lac de Lugano comme arrière-plan.',
+    'blog.article.nodo-di-interscambio-lavori-settembre.title': 'Nœud d\'échange, les travaux entrent dans la dernière phase',
+    'blog.article.nodo-di-interscambio-lavori-settembre.excerpt': 'Les travaux pour l\'aménagement du nœud d\'échange de Biasca s\'achèveront le 12 septembre.',
+    'blog.article.nodo-di-interscambio-lavori-settembre.imageAlt': 'Image d\'un nœud d\'échange en Suisse',
 };
 
 export default blogMetaChFr;

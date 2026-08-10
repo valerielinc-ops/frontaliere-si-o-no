@@ -6058,6 +6058,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'nodo-di-interscambio-lavori-settembre',
+    category: 'novita',
+    date: '2026-08-10T08:55:35.215Z',
+    image: '/images/blog/nodo-di-interscambio-lavori-settembre.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
