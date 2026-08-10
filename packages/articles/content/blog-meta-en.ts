@@ -9556,6 +9556,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.title': 'Living in Cugliate-Fabiasco and working in Ticino as a border worker',
     'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.excerpt': 'The New Frontier Agreement was signed on 23 December 2020 and enters into force on 1 January 2024. This is what changes in the lives of border workers.',
     'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Frontalieri with children on the shore of Lake Lugano',
+    'blog.article.vivere-dumenza-lavorare-ticino.title': 'Living in Dumenza and working in Ticino as a border worker',
+    'blog.article.vivere-dumenza-lavorare-ticino.excerpt': 'All the important facts for border workers who work in Ticino and reside in Dumenza.',
+    'blog.article.vivere-dumenza-lavorare-ticino.imageAlt': 'A border worker lives in Dumenza and works in Ticino.',
 };
 
 export default blogMetaEn;
