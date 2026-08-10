@@ -21,6 +21,7 @@ import {
  type CantonLocale,
 } from './shared/cantonSection';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { loadArticleRedirects, ARTICLE_REDIRECTS_FILE } from './shared/articleRedirects.mjs';
 import { loadJobsJson } from './shared/loadJobsJson';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
@@ -90,6 +91,9 @@ function hreflangLinksHtml(entries: HreflangEntry[]): string {
 }
 
 export function legacyRedirectsPlugin(rootDir: string): Plugin {
+ // The hand-authored redirect map. `data/article-redirects.json` is merged into
+ // it at closeBundle time (issue #5352) — a `from` declared here wins, and
+ // tests/article-rename-redirects.test.ts fails on any key declared twice.
  const redirects: Record<string, string> = {
  '/guida-frontalieri/': '/guida-frontaliere/',
  '/guida-frontalieri/calendario-fiscale/': '/tasse-e-pensione/scadenze-fiscali/',
@@ -459,6 +463,36 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  console.warn('\x1b[33m[legacy-redirects]\x1b[0m cathedral migration map failed:', err);
  }
 
+ // ── Article rename bridges (issue #5352) ──
+ // `data/article-redirects.json` was created in 2026-05-27 for exactly this and
+ // then never read by anything, so it stayed `{}` for its whole life. It is
+ // read HERE, into the map this plugin already had, rather than by a second
+ // redirect mechanism: the bridge page, the noindex+canonical shape, the
+ // "never overwrite a page another plugin emitted" rule and the flat `.html`
+ // twin below are all already correct, and an article rename needs none of
+ // them re-invented — only a data entry point that is not a code edit.
+ //
+ // NOT wrapped in try/catch, unlike the cathedral block above: that map is
+ // derived from live job data and a failure there means "skip an optimization",
+ // while this one is hand-authored SEO state where a malformed entry means an
+ // indexed URL silently keeps 404ing. The validator throws; the build stops.
+ let articleRenameCount = 0;
+ {
+ const existingFrom = new Set(Object.keys(redirects).map(withSlash));
+ for (const [from, to] of Object.entries(loadArticleRedirects(rootDir))) {
+ // A hand-written entry in the literal above wins — it is the older, already
+ // deployed declaration. The duplicate is a data bug, not a runtime one, so
+ // it is reported here and failed in tests/article-rename-redirects.test.ts
+ // rather than throwing mid-build.
+ if (existingFrom.has(from)) {
+ console.warn(`\x1b[33m[legacy-redirects]\x1b[0m ${ARTICLE_REDIRECTS_FILE}: ${from} e' gia' dichiarata nella mappa hardcoded — voce ignorata`);
+ continue;
+ }
+ redirects[from] = to;
+ articleRenameCount++;
+ }
+ }
+
  const getHreflangHtml = (targetPath: string): string => {
  const targetUrl = `${BASE_URL}${targetPath}`;
  const entries = hreflangMap.get(targetUrl);
@@ -644,7 +678,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  }
 
  if (count > 0) {
- console.log(`\x1b[36m[legacy-redirects]\x1b[0m Generated ${count} legacy redirect pages${cathedralCount > 0 ? ` (incl. ${cathedralCount} cathedral migration entries: TI-legacy URL → canton URL for jobs whose canton !== 'TI')` : ''}`);
+ console.log(`\x1b[36m[legacy-redirects]\x1b[0m Generated ${count} legacy redirect pages${cathedralCount > 0 ? ` (incl. ${cathedralCount} cathedral migration entries: TI-legacy URL → canton URL for jobs whose canton !== 'TI')` : ''}${articleRenameCount > 0 ? ` (incl. ${articleRenameCount} article rename bridges from ${ARTICLE_REDIRECTS_FILE})` : ''}`);
  }
  if (compatCount > 0) {
  console.log(`\x1b[36m[legacy-redirects]\x1b[0m Generated ${compatCount} Search Console compatibility pages${skippedJobPaths > 0 ? ` (skipped ${skippedJobPaths} job paths → handled by jobs plugin)` : ''}`);
