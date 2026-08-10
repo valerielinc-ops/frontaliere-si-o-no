@@ -62393,6 +62393,123 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-cadegliano-viconago-frontaliere': {
+    title: 'Vivere a Cadegliano-Viconago e lavorare in Ticino',
+    description: 'Guida per frontalieri a Cadegliano-Viconago: tasse, trasporti e Nuovo Accordo 2024. Scopri come gestire stipendio, LAMal e franchigia IRPEF. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, cadegliano-viconago, lavorare, fisco',
+    ogTitle: 'Vivere a Cadegliano-Viconago e lavorare in Ticino',
+    ogDescription: 'Sei un frontaliere a Cadegliano-Viconago? Scopri tutto sul Nuovo Accordo Fiscale 2024, le trattenute AVS/LPP e come gestire la dichiarazione dei redditi in Italia.',
+    canonicalPath: '/articoli-frontaliere/vivere-cadegliano-viconago-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Cadegliano-Viconago e lavorare in Ticino",
+      "description": "Guida per frontalieri a Cadegliano-Viconago: tasse, trasporti e Nuovo Accordo 2024. Scopri come gestire stipendio, LAMal e franchigia IRPEF. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-cadegliano-viconago-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama da Cadegliano-Viconago verso il confine svizzero del Canton Ticino"
+      },
+      "datePublished": "2026-08-10T08:51:58+00:00",
+      "dateModified": "2026-08-10T08:51:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-cadegliano-viconago-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-germignaga-lavoro-ticino-frontaliere': {
+    title: 'vivere a Germignaga e lavorare in Ticino da frontaliere',
+    description: 'Fatti chiave e procedure per i frontalieri residenti a Germignaga che lavorano in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, germignaga, lavorare, fatti',
+    ogTitle: 'vivere a Germignaga e lavorare in Ticino da frontaliere',
+    ogDescription: 'Fatti chiave e procedure per i frontalieri residenti a Germignaga che lavorano in Ticino.',
+    canonicalPath: '/articoli-frontaliere/germignaga-lavoro-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "vivere a Germignaga e lavorare in Ticino da frontaliere",
+      "description": "Fatti chiave e procedure per i frontalieri residenti a Germignaga che lavorano in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/germignaga-lavoro-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in Ticino"
+      },
+      "datePublished": "2026-08-10T09:07:52+00:00",
+      "dateModified": "2026-08-10T09:07:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/germignaga-lavoro-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-trasferirsi-a-germignaga-da-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a Germignaga da frontaliere: pro e contro',
+    description: 'Imposta alla fonte e nuove regole per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, germignaga, contro, imposta',
+    ogTitle: 'Trasferirsi a Germignaga da frontaliere: pro e contro',
+    ogDescription: 'Imposta alla fonte e nuove regole per i frontalieri',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-a-germignaga-da-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Germignaga da frontaliere: pro e contro",
+      "description": "Imposta alla fonte e nuove regole per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere si trasferisce a Germignaga"
+      },
+      "datePublished": "2026-08-10T09:23:32+00:00",
+      "dateModified": "2026-08-10T09:23:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-germignaga-da-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

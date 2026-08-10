@@ -9517,6 +9517,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.title': 'Moving to Cadegliano-Viconago by border crossing: pros and cons',
     'blog.article.trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.excerpt': 'What to consider before moving to Cadegliano-Viconago working in Ticino as a border worker.',
     'blog.article.trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.imageAlt': 'A frontaliere looking out at Lake Lugano, pondering the decision to relocate to Cadegliano-Viconago.',
+    'blog.article.vivere-cadegliano-viconago-frontaliere.title': 'Living in Cadegliano-Viconago and working in Ticino',
+    'blog.article.vivere-cadegliano-viconago-frontaliere.excerpt': 'Guide for border workers in Cadegliano-Viconago: tax, transport and advantages of the new tax agreement between Italy and Switzerland in force since 2024.',
+    'blog.article.vivere-cadegliano-viconago-frontaliere.imageAlt': 'Panoramic view from Cadegliano-Viconago towards the Swiss border of Canton Ticino',
+    'blog.article.germignaga-lavoro-ticino-frontaliere.title': 'live in Germignaga and work in Ticino as a border worker',
+    'blog.article.germignaga-lavoro-ticino-frontaliere.excerpt': 'Key facts and procedures for border workers resident in Germignaga who work in Ticino.',
+    'blog.article.germignaga-lavoro-ticino-frontaliere.imageAlt': 'Frontaliers in Ticino',
+    'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.title': 'Moving to Germignaga by border crossing: pros and cons',
+    'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.excerpt': 'Tax at source and new rules for border workers',
+    'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.imageAlt': 'A frontaliere is moving to Germignaga',
 };
 
 export default blogMetaEn;
