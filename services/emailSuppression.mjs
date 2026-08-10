@@ -13,4 +13,5 @@ export {
   isNewsletterExcluded,
   isJobAlertExcluded,
   isSavedJobsDigestExcluded,
+  isTransactionalHardBlock,
 } from '../functions/src/lib/emailSuppression.js';
