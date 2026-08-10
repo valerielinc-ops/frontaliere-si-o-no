@@ -184,7 +184,19 @@
         if (r) r = r.replace('://www.frontaliereticino.ch', '://frontaliereticino.ch');
         if (r && r !== location.href) history.replaceState(null, null, r);
         var p = new URLSearchParams(location.search), s = p.get('p');
-        if (s) { var q = p.get('q'); history.replaceState(null, null, '/' + s.replace(/~and~/g, '&') + (q ? '?' + q.replace(/~and~/g, '&') : '') + location.hash); }
+        // `p` is ALWAYS produced as a SITE-RELATIVE path with no leading slash
+        // (public/404.html's spaRedirect, build-plugins/staticPagesPlugin.ts and
+        // packages/articles/engine/ogPagesPlugin.ts all write canonicalPath.slice(1)).
+        // Anything else is a crafted/echoed URL, and prefixing it with '/' minted a
+        // real navigable path — "/https://frontaliereticino.ch/cerca-lavoro-ticino/".
+        // replaceState also moves the DOCUMENT BASE URL, so from that point on every
+        // page_view/app_error reported that literal string as its page (the
+        // "/https://..." Page field on issues #5531/#5533), the path 404s on the
+        // origin, and 404.html then re-saves the corrupted href to sessionStorage.redirect,
+        // which the handler above replays on the next load — a self-sustaining loop.
+        // Accept only a relative path: no leading '/' or '\' (blocks "//host" and
+        // backslash-normalised variants) and no "scheme:" prefix.
+        if (s && !/^[/\\]/.test(s) && !/^[a-zA-Z][a-zA-Z0-9+.\-]*:/.test(s)) { var q = p.get('q'); history.replaceState(null, null, '/' + s.replace(/~and~/g, '&') + (q ? '?' + q.replace(/~and~/g, '&') : '') + location.hash); }
         if (localStorage.theme === 'dark') document.documentElement.classList.add('dark');
       })();
     </script>

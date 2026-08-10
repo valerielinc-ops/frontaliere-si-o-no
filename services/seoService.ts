@@ -10,7 +10,7 @@ import { fetchJobsForCanton } from './jobsService';
 import { JOB_CANTON_MANIFEST_PATH, type CantonShardManifest } from './jobCantonShards';
 import { resolveCompanyLogoUrl, isMultiLocation } from './jobDataNormalization';
 import { reportCaughtError } from './errorReporter';
-import { bustAssetHttpCache, isChunkLoadError } from './resilientImport';
+import { bustAssetHttpCache, isChunkLoadError, isModuleParseError } from './resilientImport';
 import { cdnDataUrl } from './cdnDataBase';
 import { seededJobMatchesSlug } from './seededExpiredJob';
 import { normalizeStructuredData } from './seo/schema-normalizers';
@@ -40,7 +40,12 @@ async function retryImport<T>(factory: () => Promise<T>, label: string): Promise
  // copy (missing WebKit's "Importing a module script failed" wording) that
  // had drifted from resilientImport.ts's (issue #3216 item 1; AGENTS.md
  // §Non-Negotiables #6).
- if (!isChunkLoadError(err)) throw err;
+ //
+ // A PARSE-time SyntaxError is folded in here too (issue #5531), mirroring
+ // lazyRetry.ts: the chunk URL answered, but with bytes that are not
+ // JavaScript (HTML 404/SPA-fallback parsed as a module). Excludes the
+ // link-time skew wordings so that no-retry class keeps its own path.
+ if (!isChunkLoadError(err) && !isModuleParseError(err)) throw err;
 
  // Clear SW caches and retry once. CacheStorage alone is not enough: the
  // chunk also lives in the HTTP disk cache (stable-named, max-age=600), which
