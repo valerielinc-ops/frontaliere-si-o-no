@@ -258,7 +258,7 @@ const COPY: Record<MinWageLocale, MinWageCopy> = {
       ],
     },
     ccl: {
-      title: (y) => `Salari minimi dei CCL ${y}: edilizia, ristorazione, pulizie, interinali`,
+      title: (y) => `Salari minimi dei CCL ${y}: edilizia, ristorazione, pulizie`,
       description: (y) =>
         `Salari minimi ${y} dei principali contratti collettivi svizzeri (CCL/GAV): edilizia, alberghi e ristorazione, pulizie e personale interinale. Valori vincolanti per i frontalieri.`,
       eyebrow: 'Contratti collettivi',
@@ -314,7 +314,7 @@ const COPY: Record<MinWageLocale, MinWageCopy> = {
     sinceLabel: 'In force since',
     faqTitle: 'Frequently asked questions',
     hub: {
-      title: (y) => `Minimum wage in Switzerland ${y}: cantons and collective agreements`,
+      title: (y) => `Minimum wage in Switzerland ${y}: cantons & collective agreements`,
       description: (y) =>
         `Minimum wage ${y} in Switzerland: the five cantons with a statutory minimum wage (Geneva, Basel-Stadt, Jura, Neuchâtel, Ticino) and the main collective-agreement minimums. Hourly and monthly figures for cross-border workers.`,
       eyebrow: 'Cross-border guide',
@@ -363,7 +363,7 @@ const COPY: Record<MinWageLocale, MinWageCopy> = {
       ],
     },
     ccl: {
-      title: (y) => `Collective-agreement minimum wages ${y}: construction, catering, cleaning, temp work`,
+      title: (y) => `Sector minimum wages ${y}: construction, catering, cleaning`,
       description: (y) =>
         `${y} minimum wages of the main Swiss collective agreements (CCL/GAV): construction, hotels and catering, cleaning and temporary agency work. Binding figures for cross-border workers.`,
       eyebrow: 'Collective agreements',
@@ -573,7 +573,7 @@ const COPY: Record<MinWageLocale, MinWageCopy> = {
       ],
     },
     ccl: {
-      title: (y) => `Salaires minimums des CCT ${y} : construction, restauration, nettoyage, intérim`,
+      title: (y) => `Salaires minimums CCT ${y} : construction, restauration, nettoyage`,
       description: (y) =>
         `Salaires minimums ${y} des principales conventions collectives suisses (CCT/GAV) : construction, hôtellerie-restauration, nettoyage et travail temporaire. Valeurs contraignantes pour les frontaliers.`,
       eyebrow: 'Conventions collectives',

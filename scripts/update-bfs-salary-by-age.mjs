@@ -93,7 +93,18 @@ const EDUCATION_LEVELS = [
     medianChf: 9500,
     name: {
       it: 'Università / SUP',
-      en: 'University / University of Applied Sciences',
+      // Was 'University / University of Applied Sciences' (45 char) — the
+      // odd one out among these four EN labels (all otherwise compact
+      // two-noun forms, matching the DE/FR siblings below) and the only one
+      // long enough to push the "Salary in Switzerland with {name}" title
+      // template (build-plugins/bfsSalaryLandingsPlugin.ts) past the
+      // audit-title-length.mjs 66-char cap: 73 char, see issue #5355. `name`
+      // feeds <title> AND <h1> from the SAME template, so shortening it here
+      // (rather than adding a title-only override) keeps them identical and
+      // routed through the normal differentiateH1FromTitle tag-append below
+      // — the fix tests/bfs-salary-border-hub-h1-title-differentiation.test.ts
+      // already pins for this whole producer family.
+      en: 'University / Applied Sciences',
       de: 'Universität / Fachhochschule',
       fr: 'Université / Haute école',
     },

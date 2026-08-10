@@ -100,7 +100,7 @@ export interface ComparisonsHubCopy {
 // ─────────────────────────────────────────────────────────────────
 
 const IT: ComparisonsHubCopy = {
-  title: 'Confronti Svizzera vs Italia per frontalieri 2026 — tabelle complete',
+  title: 'Confronti Svizzera-Italia per frontalieri 2026: tabelle complete',
   description:
     'Confronti dettagliati Svizzera vs Italia per frontalieri: stipendi per settore, tassazione, LAMal vs SSN, contributi sociali, costo della vita. Dati 2026 con fonti ufficiali.',
   h1: 'Confronti Svizzera vs Italia per frontalieri (2026)',

@@ -185,14 +185,23 @@ describe('#5312 §3 diagnosed the cause wrongly', () => {
     expect(byPath(path).title).not.toContain(TITLE_BRAND_SUFFIX.trim());
   });
 
-  it('four of the five headlines are WELL INSIDE the 66-char cap', () => {
+  it('all five headlines are now WELL INSIDE the 66-char cap', () => {
     // If #5312 §3 were right ("headline exceeds 66 chars on its own"), every
-    // one of these would be > TITLE_MAX_CHARS. Only one is — and even that
-    // one duplicates for the 45-char reason, not the 66-char one.
+    // one of these would be > TITLE_MAX_CHARS. None is: `/en/salary-
+    // switzerland-university-degree/` used to be the one exception — its
+    // headline came from the education-level dataset's EN name ("University
+    // / University of Applied Sciences", 45 char, the odd one out among four
+    // otherwise-compact labels), pushing "Salary in Switzerland with {name}"
+    // to 73 char. Issue #5355 shortened that one dataset label (`name.en` in
+    // scripts/update-bfs-salary-by-age.mjs's `universita` entry) to
+    // "University / Applied Sciences" — matching the DE/FR siblings'
+    // compact two-noun shape — so the headline is now 58 char, well inside
+    // the cap. It still duplicates <h1> for the 45-char brand-suffix reason
+    // this describe block is about, not a 66-char overflow.
     const overCap = REPORTED_OFFENDERS.filter(
       (p) => stripBrand(byPath(p).title).length > TITLE_MAX_CHARS,
     );
-    expect(overCap).toEqual(['/en/salary-switzerland-university-degree/']);
+    expect(overCap).toEqual([]);
 
     // The real boundary: headline + 21-char brand > 66, i.e. headline > 45.
     for (const p of REPORTED_OFFENDERS) {

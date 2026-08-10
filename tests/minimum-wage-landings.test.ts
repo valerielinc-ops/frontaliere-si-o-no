@@ -17,6 +17,7 @@ import {
 } from '@/build-plugins/minimumWageLandingsData';
 import { __renderMinWagePageForTest } from '@/build-plugins/minimumWageLandingsPlugin';
 import { MIN_INDEXABLE_WORDS } from '@/build-plugins/constants';
+import { TITLE_MAX_CHARS } from '@/build-plugins/shared/titleSuffix';
 import { expectIndexableWithLargePreview } from './helpers/robotsAssertions';
 
 const DATASET = JSON.parse(
@@ -146,5 +147,40 @@ describe('minimum-wage landings — render smoke', () => {
     expect(r.html).toContain('CHF 20.00–20.50/h');
     expect(r.html).toContain('/salario-minimo/');
     expect(r.html).toContain('/salario-minimo/contratti-collettivi/');
+  });
+
+  // Issue #5355 — audit:title-length regression. The `ccl` template's four
+  // locale strings (IT/EN/FR) plus the EN `hub` string all overflowed the
+  // audit's 66-char cap once the CCL year interpolation was in place
+  // (67-84 chars measured live on 2026-08-10). Fixed at the source in
+  // minimumWageLandingsPlugin.ts's title templates, not by truncation — this
+  // is the render-level regression test so the class cannot come back
+  // silently: it covers every locale x page combo, not just the four that
+  // were over, so a future edit to ANY of these templates (or the `year`
+  // interpolation growing to 5 digits) is caught too.
+  it('every <title> fits the audit-title-length.mjs 66-char SERP cap', () => {
+    // Mirror scripts/audit-title-length.mjs's normalizeText(): the audit
+    // measures the DECODED text a browser/SERP shows, not the raw HTML
+    // entities minified markup ships (e.g. `&amp;` -> `&`, 5 chars -> 1).
+    const decodeEntities = (s: string) =>
+      s
+        .replace(/&amp;/gi, '&')
+        .replace(/&lt;/gi, '<')
+        .replace(/&gt;/gi, '>')
+        .replace(/&quot;/gi, '"')
+        .replace(/&#39;/g, "'");
+    const over: string[] = [];
+    for (const locale of MINWAGE_LOCALES) {
+      for (const page of MINWAGE_PAGES) {
+        const r = __renderMinWagePageForTest({ locale, page, dateStamp: '2026-07-19' });
+        const rawTitle = r.html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? '';
+        expect(rawTitle, `${locale}/${page.kind} has no <title>`).not.toBe('');
+        const title = decodeEntities(rawTitle);
+        if (title.length > TITLE_MAX_CHARS) {
+          over.push(`${locale}/${page.kind} (${title.length} chars): ${title}`);
+        }
+      }
+    }
+    expect(over).toEqual([]);
   });
 });

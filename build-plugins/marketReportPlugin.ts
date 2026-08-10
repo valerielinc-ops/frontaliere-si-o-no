@@ -370,7 +370,7 @@ const COPY: Record<Locale, Copy> = {
     cautionP: "Dieser Bericht ist ein lebendiges Dokument: Die Zahlen ändern sich monatlich. Das Aktualisierungsdatum steht oben. Wenn Sie diese Daten in Publikationen verwenden, helfen Quellenangabe und Rückverweis, den Datensatz frei zugänglich zu halten.",
   },
   fr: {
-    title: "Marché de l'emploi frontaliers Tessin 2026 — Rapport de données originales | Frontaliere Ticino",
+    title: "Marché de l'emploi frontaliers Tessin 2026 — Rapport de données | Frontaliere Ticino",
     description: "Rapport 2026 sur le marché de l'emploi frontalier au Tessin : salaires moyens par entreprise et par ville, principaux employeurs, secteurs en croissance. Données agrégées depuis les plateformes suisses.",
     h1: "Marché de l'emploi frontaliers au Tessin en 2026",
     updatedLabel: 'Mis à jour',

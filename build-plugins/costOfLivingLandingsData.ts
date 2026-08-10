@@ -118,6 +118,22 @@ export const COL_CITY_DISPLAY: Record<ColCityId, Record<ColLocale, string>> = {
   },
 };
 
+/**
+ * Shorter city label for the `<title>` tag ONLY (h1, badges and JSON-LD
+ * Place.name keep the full {@link COL_CITY_DISPLAY} form) — same "short form
+ * for <title> only" pattern as `FaqHubEntry.titleShort` (data/faq-hub/types.ts).
+ *
+ * Only the FR regional rollup needs one: "Coût de la vie à Canton du Tessin
+ * {y} : loyers, courses, transports" measures 68 chars — 2 over the
+ * audit-title-length.mjs 66-char cap — purely because "Canton du Tessin" (16
+ * char) is longer than "Canton Ticino"/"Kanton Tessin" (13 char each, IT/EN/DE
+ * all pass at 62/65/65). See issue #5355. Falls back to COL_CITY_DISPLAY for
+ * every city/locale not listed here.
+ */
+export const COL_CITY_TITLE_DISPLAY: Partial<Record<ColCityId, Partial<Record<ColLocale, string>>>> = {
+  ticino: { fr: 'Tessin' },
+};
+
 /** Commune postal codes + coordinates for Place JSON-LD. */
 export const COL_CITY_GEO: Record<
   ColCityId,

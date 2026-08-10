@@ -59,6 +59,7 @@ import {
   COL_LOCALES,
   COL_CITY_IDS,
   COL_CITY_DISPLAY,
+  COL_CITY_TITLE_DISPLAY,
   COL_CITY_GEO,
   buildCostOfLivingLandingPath,
   type ColLocale,
@@ -281,12 +282,15 @@ function renderPage(opts: {
   const eligibleLocales = opts.eligibleLocales ?? new Set<string>();
   const L = getLocaleStrings(locale);
   const cityName = COL_CITY_DISPLAY[city][locale];
+  // <title> only (see COL_CITY_TITLE_DISPLAY's doc comment, issue #5355) —
+  // h1/description/JSON-LD keep the full `cityName` above.
+  const titleCityName = COL_CITY_TITLE_DISPLAY[city]?.[locale] ?? cityName;
   const geo = COL_CITY_GEO[city];
   const urlPath = buildCostOfLivingLandingPath(locale, city);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
   const pairedProvince = CITY_PAIRED_PROVINCE[city][locale];
 
-  const title = L.title(cityName);
+  const title = L.title(titleCityName);
   const description = L.description(cityName, pairedProvince);
   const h1 = differentiateH1FromTitle(L.h1(cityName), title, locale);
 

@@ -60,6 +60,11 @@ const VERDICT_PATH = path.join(PROJECT_ROOT, 'data', 'cathedral-seo-gates-verdic
  * @property {string|null} baselineFile   relative to repo root
  * @property {(parsed: unknown, rawStdout: string) => number} extractCurrent
  * @property {(baseline: unknown) => number} extractBaseline
+ * @property {boolean} [usesOwnRatchet] true when the underlying audit script
+ *   already runs its own composition-shift-aware regression check (see the
+ *   doc comment on the `title-length` gate spec below) and its exit code
+ *   should decide regressed/pass instead of a raw current-vs-baseline count
+ *   comparison.
  * @property {string} notes
  */
 
@@ -126,6 +131,9 @@ export const GATES = [
     baselineFile: 'data/text-html-ratio-baseline.json',
     extractCurrent: currentOffenders,
     extractBaseline: baselineOffenders,
+    // See the `usesOwnRatchet` doc comment on the `title-length` gate below —
+    // this audit shares the exact same mixAdjustedRateGate.mjs machinery.
+    usesOwnRatchet: true,
     notes: 'Pages with text-to-HTML ratio <= 10% (Semrush threshold).',
   },
   {
@@ -223,6 +231,17 @@ export const GATES = [
       }
       return 0;
     },
+    // audit-bfs-depth.mjs is invoked above with --baseline=data/bfs-depth-baseline.json
+    // (a "mode": "rate" baseline, version >= 2) and runs its own composition-
+    // aware ratchet (evaluateBfsGate() — same rate*(1+relPct)+absPp shape as
+    // mixAdjustedRateGate.mjs, just a local reimplementation for the
+    // per-sitemap-shard case), encoding the verdict in its exit code
+    // (0 = pass, 1 = regressed). See the `usesOwnRatchet` doc comment on the
+    // `title-length` gate below — without this flag, evaluateGate() re-derives
+    // a raw current-vs-baseline count comparison on `atDepthGtMax` here, which
+    // can flag `regressed` on organic sitemap growth alone — the exact #5528
+    // bug class.
+    usesOwnRatchet: true,
     notes: 'Pages reachable from / only via BFS depth > 4.',
   },
   {
@@ -239,6 +258,32 @@ export const GATES = [
     baselineFile: 'data/title-length-baseline.json',
     extractCurrent: currentOffenders,
     extractBaseline: baselineOffenders,
+    // Issue #5528: audit-title-length.mjs, audit-text-html-ratio.mjs and
+    // audit-title-no-disambig-hash.mjs all run
+    // scripts/lib/mixAdjustedRateGate.mjs's evaluateMixAdjustedTotalRegression()
+    // internally — a composition-shift-aware ratchet that weights CURRENT
+    // per-feature scanned counts against BASELINE per-feature RATES, so
+    // organic growth in the scanned population does not, by itself, fail the
+    // gate (see that module's header for the full rationale; it was written
+    // for exactly this failure mode after incident #3232). Each of these
+    // three scripts' own `--json` exit code already carries that verdict
+    // (`process.exit(result.passed ? 0 : 1)`).
+    //
+    // Comparing raw offender COUNTS here (current > baseline) re-derives a
+    // cruder, composition-shift-BLIND verdict on top of an audit that already
+    // computed the correct one — reintroducing, one layer up, the exact bug
+    // class evaluateMixAdjustedTotalRegression() exists to prevent. That is
+    // what opened issue #5528: between the 2026-07-22 baseline and the
+    // 2026-08-10 run, dist/'s blog-post population grew (organic content
+    // growth, unrelated to title length), so the raw offender count grew with
+    // it (4290 -> 4647) even though audit-title-length.mjs's own rate-adjusted
+    // check reported `regression: false` — the offender RATE tracked
+    // population growth, it did not regress. `usesOwnRatchet: true` tells
+    // evaluateGate() below to trust the audit's own exit code for the
+    // regressed/pass call instead of re-deriving one from the raw counts;
+    // current/baseline/delta are still reported (job summary, `improved`
+    // rebaseline-opportunity issues), just not used to fail the build.
+    usesOwnRatchet: true,
     notes: '<title> length must be <= 66 (60 + 10% tolerance).',
   },
   {
@@ -254,6 +299,9 @@ export const GATES = [
     baselineFile: 'data/title-no-disambig-hash-baseline.json',
     extractCurrent: currentOffenders,
     extractBaseline: baselineOffenders,
+    // See the `usesOwnRatchet` doc comment on the `title-length` gate above —
+    // this audit shares the exact same mixAdjustedRateGate.mjs machinery.
+    usesOwnRatchet: true,
     notes: 'Visible "(#hash)" disambiguator in <title> hurts CTR.',
   },
 ];
@@ -346,7 +394,7 @@ async function readBaselineFile(relPath) {
  * @param {GateSpec} gate
  * @returns {Promise<Record<string, unknown>>}
  */
-async function evaluateGate(gate) {
+export async function evaluateGate(gate) {
   const result = await run(gate.cmd);
   const parsed = tryParseJson(result.stdout) ?? tryParseJson(result.stderr);
 
@@ -392,7 +440,16 @@ async function evaluateGate(gate) {
   entry.baseline = baselineValue;
   entry.delta = current - baselineValue;
 
-  if (current < baselineValue) {
+  if (gate.usesOwnRatchet) {
+    // Trust the audit's own composition-shift-aware verdict (see the
+    // `usesOwnRatchet` doc comment on the title-length gate spec) instead of
+    // re-deriving one from a raw offender-count comparison. `improved` is
+    // still count-based — it only ever suggests an optional rebaseline
+    // (priority 4, human-reviewed), it never fails the build, so a naive
+    // comparison there carries none of the false-positive risk this fix is
+    // for.
+    entry.status = result.code === 0 ? (current < baselineValue ? 'improved' : 'pass') : 'regressed';
+  } else if (current < baselineValue) {
     entry.status = 'improved';
   } else if (current > baselineValue) {
     entry.status = 'regressed';

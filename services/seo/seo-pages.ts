@@ -1166,7 +1166,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  exchange: {
- title: 'Cambio Franco Euro 2026: Tasso Oggi + Confronto Spread Wise, Revolut',
+ title: 'Cambio Franco Euro 2026: Tasso Oggi, Spread Wise vs Revolut',
  h1: 'Cambio franco-euro 2026 — tasso in tempo reale, confronto spread, commissioni',
  description: 'Cambio franco-euro 2026: tasso BNS in tempo reale, confronto spread Wise, Revolut, PostFinance, UBS. Commissioni 0,3-3%, calcolatore risparmio su stipendio CHF.',
  keywords: 'cambio franco euro, cambio chf eur oggi, cambio franco svizzero euro, tasso franco euro 2026, wise tasso cambio, revolut commissioni, spread cambio valuta, postfinance cambio valuta, ubs cambio, n26 trasferimenti, miglior cambio svizzera italia, commissioni cambio valuta, calcolo risparmio cambio',
@@ -6541,7 +6541,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'chi-siamo': {
- title: 'Chi Siamo — Frontaliere Ticino: La Guida per i Lavoratori Frontalieri',
+ title: 'Chi Siamo — Frontaliere Ticino: la Guida dei Frontalieri',
  description: 'Scopri chi siamo: Frontaliere Ticino è la piattaforma informativa di riferimento per i lavoratori frontalieri italiani in Svizzera. Tassazione, permessi.',
  keywords: 'frontaliere ticino, chi siamo, piattaforma frontalieri, lavoratori transfrontalieri svizzera italia',
  ogTitle: 'Chi Siamo — Frontaliere Ticino: La Guida per i Lavoratori Frontalieri',
@@ -7098,7 +7098,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'ponti-2026-ticino': {
- title: 'Ponti 2026 Ticino: Calendario Festivi + Chiusure Frontiera Frontalieri',
+ title: 'Ponti 2026 Ticino: Calendario Festivi e Chiusure Frontiera',
  h1: 'Ponti 2026 in Ticino — calendario completo festività, long weekend e chiusure dogana',
  description: 'Calendario ponti 2026 in Ticino per frontalieri: date ufficiali festività svizzere e italiane, long weekend, ferie scolastiche, giorni di chiusura dogana e pagamento.',
  keywords: 'ponti 2026 ticino, festività 2026 ticino, calendario frontalieri 2026, ponti svizzera 2026, giorni rossi ticino, long weekend 2026, vacanze frontalieri 2026',

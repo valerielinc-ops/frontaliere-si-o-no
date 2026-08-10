@@ -70,7 +70,7 @@ export const CRIMINAL_RECORD_PDF_PATH = '/moduli/autocertificazione-casellario-g
 export const CH_HEALTH_PDF_PATH = '/moduli/questionario-salute-svizzero.pdf';
 export const CH_CRIMINAL_RECORD_PDF_PATH = '/moduli/autocertificazione-casellario-giudiziario-svizzero.pdf';
 
-const TITLE = 'Autocertificazione stato di salute e casellario giudiziario (IT e CH) | Frontaliere Ticino';
+const TITLE = 'Autocertificazione stato di salute e casellario giudiziario | Frontaliere Ticino';
 const H1 = 'Autocertificazione stato di salute e casellario giudiziario: moduli italiani e svizzeri';
 const DESCRIPTION = 'Moduli di autocertificazione dello stato di salute e del casellario giudiziario per candidarti a un lavoro in Ticino: quattro PDF gratis, versione italiana (DPR 445/2000) e versione in uso presso i datori di lavoro svizzeri.';
 const LEDE = 'Quattro PDF pronti da compilare per autocertificare stato di salute e casellario giudiziario in una candidatura di lavoro: versione italiana e versione in uso in Svizzera.';
