@@ -41,9 +41,7 @@ import admin from 'firebase-admin';
 // different answers to the one question that must never be got wrong.
 import { hasConsentEvidence } from './lib/suppressionDecay.mjs';
 // Pure classifier, extracted to scripts/lib/ so it is importable (and
-// testable) without this file's Firebase init below — see that module's
-// docstring for why its "no evidence" default deliberately differs from
-// isRetryable()'s in scripts/lib/mailtrapSuppressionRetry.mjs.
+// testable) without this file's Firebase init below.
 import { classify } from './lib/mailtrapSuspensionClassify.mjs';
 
 const argv = process.argv.slice(2);
