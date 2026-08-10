@@ -9477,6 +9477,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.title': 'Umzug nach Maslianico als grenzüberschreitender Pendler: Vor- und Nachteile',
     'blog.article.trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.excerpt': 'Steuern, Genehmigungen und Arbeitsbedingungen: Was Sie wissen sollten, bevor Sie als Grenzpendler nach Maslianico ziehen.',
     'blog.article.trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.imageAlt': 'Lugano-Blick, mit dem Lugano-See und den umliegenden Bergen.',
+    'blog.article.porlezza-frontaliere-pro-contro.title': 'Umzug nach Porlezza als Grenzgänger: Vor- und Nachteile',
+    'blog.article.porlezza-frontaliere-pro-contro.excerpt': 'Praktische Analyse für diejenigen, die sich entscheiden, in Porlezza zu leben und im Tessin als Grenzgänger zu arbeiten, unter Berücksichtigung von Vorteilen, Nachteilen und Reisen.',
+    'blog.article.porlezza-frontaliere-pro-contro.imageAlt': 'Malerischer Blick auf den Luganersee nahe der italienisch-schweizerischen Grenze',
 };
 
 export default blogMetaDe;

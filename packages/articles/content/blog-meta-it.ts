@@ -9479,6 +9479,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Maslianico da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.excerpt': 'Imposte, permessi e condizioni di lavoro: cosa sapere prima di trasferirsi a Maslianico da frontaliere.',
     'blog.article.trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.imageAlt': 'Vista di Lugano, con il Lago di Lugano e le montagne circostanti.',
+    'blog.article.porlezza-frontaliere-pro-contro.title': 'Trasferirsi a Porlezza da frontaliere: pro e contro',
+    'blog.article.porlezza-frontaliere-pro-contro.excerpt': 'Analisi pratica per chi sceglie di vivere a Porlezza e lavorare in Ticino come frontaliere, valutando vantaggi, svantaggi e spostamenti.',
+    'blog.article.porlezza-frontaliere-pro-contro.imageAlt': 'Panorama del Lago di Lugano vicino al confine italo-svizzero',
 };
 
 export default blogMetaIt;

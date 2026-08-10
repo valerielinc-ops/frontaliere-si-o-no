@@ -9480,6 +9480,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Maslianico: pro e contro',
     'blog.article.trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.excerpt': 'Taxes, permis et conditions de travail : ce qu\'il faut savoir avant de déménager à Maslianico en tant que navetteur transfrontalier.',
     'blog.article.trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.imageAlt': 'Vue de Lugano, avec le lac de Lugano et les montagnes environnantes.',
+    'blog.article.porlezza-frontaliere-pro-contro.title': 'Déménager à Porlezza en tant que frontalier : avantages et inconvénients',
+    'blog.article.porlezza-frontaliere-pro-contro.excerpt': 'Analyse pratique pour ceux qui choisissent de vivre à Porlezza et de travailler au Tessin en tant que frontalier, en évaluant les avantages, les inconvénients et les déplacements.',
+    'blog.article.porlezza-frontaliere-pro-contro.imageAlt': 'Vue panoramique du lac de Lugano près de la frontière italo-suisse',
 };
 
 export default blogMetaFr;
