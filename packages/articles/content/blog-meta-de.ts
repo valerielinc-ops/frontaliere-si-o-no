@@ -9480,6 +9480,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.porlezza-frontaliere-pro-contro.title': 'Umzug nach Porlezza als Grenzgänger: Vor- und Nachteile',
     'blog.article.porlezza-frontaliere-pro-contro.excerpt': 'Praktische Analyse für diejenigen, die sich entscheiden, in Porlezza zu leben und im Tessin als Grenzgänger zu arbeiten, unter Berücksichtigung von Vorteilen, Nachteilen und Reisen.',
     'blog.article.porlezza-frontaliere-pro-contro.imageAlt': 'Malerischer Blick auf den Luganersee nahe der italienisch-schweizerischen Grenze',
+    'blog.article.vivere-ronago-lavorare-ticino.title': 'Leben in Ronago und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-ronago-lavorare-ticino.excerpt': 'Praktischer Leitfaden für Grenzgänger: Steuern, neues Steuerabkommen, Vorsorge und Verbindungen zwischen Ronago und dem Kanton Tessin.',
+    'blog.article.vivere-ronago-lavorare-ticino.imageAlt': 'Blick auf Mendrisio im Tessin, Grenzgebiet',
 };
 
 export default blogMetaDe;

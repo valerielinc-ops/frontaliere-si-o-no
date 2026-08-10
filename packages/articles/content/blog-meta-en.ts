@@ -9481,6 +9481,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.porlezza-frontaliere-pro-contro.title': 'Moving to Porlezza as a border crossing: pros and cons',
     'blog.article.porlezza-frontaliere-pro-contro.excerpt': 'Practical analysis for those who choose to live in Porlezza and work in Ticino as a border worker, evaluating advantages, disadvantages and displacements.',
     'blog.article.porlezza-frontaliere-pro-contro.imageAlt': 'Scenic view of Lake Lugano near the Italian-Swiss border',
+    'blog.article.vivere-ronago-lavorare-ticino.title': 'Living in Ronago and working in Ticino as a border worker',
+    'blog.article.vivere-ronago-lavorare-ticino.excerpt': 'Practical guide for border workers: taxes, new tax agreement, social security and connections between Ronago and the Canton of Ticino.',
+    'blog.article.vivere-ronago-lavorare-ticino.imageAlt': 'View of Mendrisio in Ticino, border area',
 };
 
 export default blogMetaEn;
