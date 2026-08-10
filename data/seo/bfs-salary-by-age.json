@@ -12,7 +12,7 @@
     "basis": "median gross monthly wage, standardised (4⅓ weeks), Switzerland total, private + public sector",
     "refreshScript": "scripts/update-bfs-salary-by-age.mjs",
     "refreshCadence": "per-lse-wave",
-    "generatedAt": "2026-07-19"
+    "generatedAt": "2026-08-10"
   },
   "nationalMedianChf": 6788,
   "ageBands": [
@@ -97,7 +97,7 @@
       "medianChf": 9500,
       "name": {
         "it": "Università / SUP",
-        "en": "University / University of Applied Sciences",
+        "en": "University / Applied Sciences",
         "de": "Universität / Fachhochschule",
         "fr": "Université / Haute école"
       }

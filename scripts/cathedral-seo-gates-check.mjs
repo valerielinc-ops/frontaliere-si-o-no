@@ -383,7 +383,7 @@ async function readBaselineFile(relPath) {
  * @param {GateSpec} gate
  * @returns {Promise<Record<string, unknown>>}
  */
-async function evaluateGate(gate) {
+export async function evaluateGate(gate) {
   const result = await run(gate.cmd);
   const parsed = tryParseJson(result.stdout) ?? tryParseJson(result.stderr);
 
