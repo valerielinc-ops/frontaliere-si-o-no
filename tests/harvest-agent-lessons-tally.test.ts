@@ -137,3 +137,25 @@ describe('bucketFinding — invariato', () => {
     expect(bucketFinding('🟡 adsense loader doppio')).toBe('auto-ads');
   });
 });
+
+describe('tallyFindings — esempio porta `at` = PR mergedAt (post-fix guard, #5516)', () => {
+  // reviewer-finding non aveva mai un timestamp per-esempio, quindi la guardia
+  // post-fix (examplesSinceFix) non poteva filtrare le occorrenze pre-fix: un
+  // bucket come sibling-class-fix ricontava per sempre le stesse PR già chiuse
+  // da un'escalation precedente. Lo stamp qui è ciò che rende il filtro possibile.
+  it('propaga mergedAt del PR come `at` di ogni esempio', () => {
+    const prs = [{
+      number: 5426,
+      mergedAt: '2026-08-09T10:39:00Z',
+      reviews: [claudeReview('🟡 nit: script gemello condivide lo stesso costrutto non toccato')],
+    }];
+    const { examples } = tallyFindings(prs);
+    expect(examples['sibling-class-fix'][0].at).toBe('2026-08-09T10:39:00Z');
+  });
+
+  it('PR senza mergedAt lascia `at` undefined, non lancia (retrocompat con i call site esistenti)', () => {
+    const prs = [{ number: 1, reviews: [claudeReview('🔴 adsense disabilitato')] }];
+    const { examples } = tallyFindings(prs);
+    expect(examples['auto-ads'][0].at).toBeUndefined();
+  });
+});

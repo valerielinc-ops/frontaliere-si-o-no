@@ -286,11 +286,16 @@ export function detectSeverity(line) {
 // per-issue dedup already used for fix-outcome markers below: one PR with N
 // matching lines in the same bucket counts ONCE (the lesson is "N distinct PRs
 // got <topic> wrong", not "N lines"). `❓`/uncountable severities are skipped.
-// `bucketOf` is injectable for testing.
+// `bucketOf` is injectable for testing. Each example is stamped with `at`
+// (the PR's `mergedAt`, when the caller provides one) so the post-fix
+// re-escalation guard (`examplesSinceFix`) can filter reviewer-finding buckets
+// the same way it already filters fix-outcome ones (#5516: without this stamp
+// a bucket re-fires on the SAME pre-fix occurrences forever, indistinguishable
+// from a rule that never worked).
 export function tallyFindings(prs, { bucketOf = bucketFinding } = {}) {
   const counts = {};
   const examples = {};
-  for (const { number, reviews } of prs || []) {
+  for (const { number, reviews, mergedAt } of prs || []) {
     const seenBuckets = new Set(); // per-PR dedup across all its reviews
     for (const r of reviews || []) {
       if (r.author?.login !== 'claude') continue;
@@ -302,7 +307,7 @@ export function tallyFindings(prs, { bucketOf = bucketFinding } = {}) {
         if (seenBuckets.has(bucket)) continue;
         seenBuckets.add(bucket);
         counts[bucket] = (counts[bucket] || 0) + 1;
-        (examples[bucket] ||= []).push({ pr: number, severity: sev, snippet: line.trim().slice(0, 160) });
+        (examples[bucket] ||= []).push({ pr: number, severity: sev, snippet: line.trim().slice(0, 160), at: mergedAt });
       }
     }
   }
@@ -607,12 +612,15 @@ function escalationBody(c) {
 
 async function main() {
   // ---- 1. Reviewer findings on recently-merged PRs ----
+  // `mergedAt` fetched here (not from `pr view`) so tallyFindings can stamp each
+  // example with it — needed so the post-fix re-escalation guard below can filter
+  // reviewer-finding examples the same way it already filters fix-outcome ones.
   const mergedPrs = ghJson(['pr', 'list', '--state', 'merged', '--search', `merged:>=${sinceDay}`,
-    '--limit', String(MAX_PRS), '--json', 'number']) || [];
+    '--limit', String(MAX_PRS), '--json', 'number,mergedAt']) || [];
   const prReviews = [];
-  for (const { number } of mergedPrs) {
+  for (const { number, mergedAt } of mergedPrs) {
     const data = ghJson(['pr', 'view', String(number), '--json', 'reviews']);
-    prReviews.push({ number, reviews: data?.reviews || [] });
+    prReviews.push({ number, reviews: data?.reviews || [], mergedAt });
   }
   const { counts: findingCounts, examples: findingExamples } = tallyFindings(prReviews);
 
@@ -718,9 +726,15 @@ async function main() {
   for (const f of DOC_FILES) { try { corpus += '\n' + fs.readFileSync(f, 'utf-8').toLowerCase(); } catch { /* ignore */ } }
 
   // ---- Post-fix re-escalation guard (escalation #4578, see lastEscalationClosedAt) ----
-  // Only fix-outcome examples carry a per-example `at` timestamp (the FIX_OUTCOME
-  // comment's createdAt), so only that source can be filtered against a bucket's
-  // last shipped fix. Fetched once, reused per bucket key inside consider().
+  // Sources whose examples carry a per-example `at` timestamp can be filtered
+  // against a bucket's last shipped fix: fix-outcome (`at` = the FIX_OUTCOME
+  // comment's createdAt) and reviewer-finding (`at` = the PR's mergedAt, #5516 —
+  // without this, a reviewer-finding bucket like sibling-class-fix re-fires
+  // forever on the SAME pre-fix PRs still sitting in the trailing window,
+  // indistinguishable from a shipped fix that never worked). issue-class isn't
+  // an escalation driver at all (isEscalationDriver), so it's excluded here too.
+  // Fetched once, reused per bucket key inside consider().
+  const TIMESTAMPED_SOURCES = new Set(['fix-outcome', 'reviewer-finding']);
   const closedEscalations = ghJson(['issue', 'list', '--state', 'closed',
     '--search', 'ricorre nonostante regola in:title',
     '--json', 'number,title,closedAt', '--limit', '100']) || [];
@@ -742,11 +756,11 @@ async function main() {
       // A bucket whose last escalation was already closed via a shipped fix
       // shouldn't re-fire on the SAME pre-fix occurrences still sitting in the
       // trailing window — only count what happened AFTER that fix landed.
-      const cutoff = source === 'fix-outcome'
+      const cutoff = TIMESTAMPED_SOURCES.has(source)
         ? lastEscalationClosedAt(`${source}/${key}`, closedEscalations)
         : null;
-      const liveExamples = source === 'fix-outcome' ? examplesSinceFix(allExamples, cutoff) : allExamples;
-      const effectiveCount = source === 'fix-outcome' ? liveExamples.length : count;
+      const liveExamples = TIMESTAMPED_SOURCES.has(source) ? examplesSinceFix(allExamples, cutoff) : allExamples;
+      const effectiveCount = TIMESTAMPED_SOURCES.has(source) ? liveExamples.length : count;
       // Documented + still recurring hard (post-fix) = the rule exists but isn't working.
       const recurringDespiteRule = driver && documented && effectiveCount >= THRESHOLD * EFFICACY_FACTOR;
       clusters.push({ source, key, count, driver, novel: driver && !documented,
