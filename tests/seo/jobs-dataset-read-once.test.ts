@@ -57,15 +57,26 @@ function jobsPathBindings(src: string): string[] {
   // Walking back from `jobs.json` to the NEAREST preceding `=` fixes both:
   // `[^;=]` in the tail forbids crossing either a statement end or another
   // binding, so the identifier found is the one this expression is assigned to.
-  const BIND = /([A-Za-z_$][\w$]*)\s*(?::\s*[^=;]+?)?\s*=\s*[^;=]*$/;
+  // The tail tolerates `=>` explicitly: an arrow function between the
+  // assignment and the path (`const p = resolve(() => 'data/jobs.json')`)
+  // carries a literal `=` that would otherwise end the walk and drop the
+  // binding — the same evasion, one nesting level down.
+  const BIND = /([A-Za-z_$][\w$]*)\s*(?::\s*[^=;]+?)?\s*=\s*(?:[^;=]|=>)*$/;
   const rx = /jobs\.json/g;
   let m: RegExpExecArray | null;
   while ((m = rx.exec(src)) !== null) {
-    const bind = BIND.exec(src.slice(Math.max(0, m.index - 400), m.index));
+    // Bounded by the previous statement, not by a fixed character window: a
+    // long or multi-line `path.join(...)` overflows any constant you pick,
+    // and the binding then disappears with no signal.
+    const bind = BIND.exec(src.slice(src.lastIndexOf(';', m.index) + 1, m.index));
     if (bind) names.push(bind[1]);
   }
   return names;
 }
+
+/** Regex-escape an identifier before it goes into an alternation. `$` is legal
+ *  in a JS name and is an anchor in a pattern; unescaped it silently breaks it. */
+const escRx = (s: string): string => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 /**
  * A `readFileSync(...)` on the dataset: the path spelled inline, or any local
@@ -79,7 +90,9 @@ function readsDatasetDirectly(src: string): boolean {
   // `a` inside `readFileSync(dataPath, …)` and the guard fires on a substring
   // — right answer, wrong reason, and a false positive waiting for the first
   // short variable name in the directory.
-  const rx = new RegExp(`readFileSync\\s*\\(\\s*[^)]*(?:jobs\\.json|\\b(?:${names.join('|')})\\b)`);
+  const rx = new RegExp(
+    `readFileSync\\s*\\(\\s*[^)]*(?:jobs\\.json|\\b(?:${names.map(escRx).join('|')})\\b)`,
+  );
   return rx.test(src);
 }
 
@@ -141,6 +154,30 @@ describe('gate:seo-source — the jobs dataset is read through the shared memo',
     expect(readsDatasetDirectly('// data/jobs.json is assembled in CI')).toBe(false);
     expect(readsDatasetDirectly("const src = fs.readFileSync(PLUGIN_PATH, 'utf8');")).toBe(false);
     expect(readsDatasetDirectly('const jobs = readJobsDataset<Job>(JOBS_PATH);')).toBe(false);
+
+    // An arrow function between the assignment and the path puts a literal
+    // `=` in the way of the backwards walk (#5504 review).
+    expect(
+      readsDatasetDirectly(
+        [
+          "const dataPath = getPath(() => 'data/jobs.json');",
+          "const jobs = JSON.parse(fs.readFileSync(dataPath, 'utf8'));",
+        ].join('\n'),
+      ),
+      'an arrow function must not end the walk back to the binding',
+    ).toBe(true);
+
+    // A `$` in the name is legal in JS and is an anchor in a pattern: it must
+    // be escaped before interpolation, or the alternation breaks silently.
+    expect(
+      readsDatasetDirectly(
+        [
+          "const data$Path = path.join(REPO_ROOT, 'data', 'jobs.json');",
+          "const jobs = JSON.parse(fs.readFileSync(data$Path, 'utf8'));",
+        ].join('\n'),
+      ),
+      'a `$` in the binding name must not break the alternation',
+    ).toBe(true);
 
     // A short binding name must not match as a SUBSTRING of an unrelated
     // argument: `n` inside `readFileSync(fixtureName, …)` is not a dataset read.
