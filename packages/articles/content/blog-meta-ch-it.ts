@@ -2005,6 +2005,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.title': 'Guida LPP: contributi, prelievo e pianificazione previdenziale in Svizzera',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.excerpt': 'Il secondo pilastro LPP in Svizzera: contributi, prelievo, riscatto lacune e pianificazione previdenziale. Facciamo un focus sul canton Berna e confrontiamo i dati con quelli nazionali.',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.imageAlt': 'Lavoro in Svizzera, stipendio',
+    'blog.article.secondo-pilastro-lpp-bern-2026-guida.title': 'Guida al secondo pilastro LPP in Svizzera',
+    'blog.article.secondo-pilastro-lpp-bern-2026-guida.excerpt': 'La guida al secondo pilastro LPP descrive i contributi, il prelievo, il riscatto delle lacune e la pianificazione previdenziale in Svizzera, con un focus sul canton Berna e un confronto nazionale.',
+    'blog.article.secondo-pilastro-lpp-bern-2026-guida.imageAlt': 'Immagine di un frontaliere che si trova in una situazione simile a quella descritta nella guida.',
 };
 
 export default blogMetaChIt;

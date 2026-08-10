@@ -6013,6 +6013,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'secondo-pilastro-lpp-bern-2026-guida',
+    category: 'pratico',
+    date: '2026-08-10T00:03:58.093Z',
+    image: '/images/blog/secondo-pilastro-lpp-bern-2026-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

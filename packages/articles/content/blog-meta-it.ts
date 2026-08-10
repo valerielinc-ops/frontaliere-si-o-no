@@ -9473,6 +9473,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-varzo-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Varzo da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-varzo-da-frontaliere-pro-e-contro.excerpt': 'Impostazione fiscale, permessi di soggiorno e condizioni di lavoro: cosa sapere prima di trasferirsi a Varzo da frontaliere.',
     'blog.article.trasferirsi-a-varzo-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere che si trasferisce a Varzo per lavorare in Ticino',
+    'blog.article.vivere-maslianico-lavoro-ticino.title': 'Vivere a Maslianico e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-maslianico-lavoro-ticino.excerpt': 'Guida pratica per i frontalieri che risiedono a Maslianico: nuovo accordo, fiscalità, obblighi assicurativi LAMal e procedure di pendolarismo.',
+    'blog.article.vivere-maslianico-lavoro-ticino.imageAlt': 'Veduta del confine tra Italia e Svizzera',
 };
 
 export default blogMetaIt;

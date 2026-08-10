@@ -2005,6 +2005,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.title': 'LPP Guide: Contributions, Withdrawal and Social Security Planning in Switzerland',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.excerpt': 'The second LPP pillar in Switzerland: contributions, withdrawals, redemption of gaps and social security planning. Let\'s focus on the canton of Bern and compare the data with the national ones.',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.imageAlt': 'Work in Switzerland, salary',
+    'blog.article.secondo-pilastro-lpp-bern-2026-guida.title': 'Guide to the second LPP pillar in Switzerland',
+    'blog.article.secondo-pilastro-lpp-bern-2026-guida.excerpt': 'The guide to the second LPP pillar describes contributions, levying, gap redemption and social security planning in Switzerland, with a focus on the canton of Bern and a national comparison.',
+    'blog.article.secondo-pilastro-lpp-bern-2026-guida.imageAlt': 'Image of a frontier worker who is in a similar situation to the one described in the guide.',
 };
 
 export default blogMetaChEn;

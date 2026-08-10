@@ -2005,6 +2005,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.title': 'Guide LPP : cotisations, prélèvement et planification de la prévoyance en Suisse',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.excerpt': 'Le deuxième pilier LPP en Suisse : cotisations, prélèvement, rachat des lacunes et planification de la prévoyance. Faisons un focus sur le canton de Berne et comparons les données avec les données nationales.',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.imageAlt': 'Travail en Suisse, salaire',
+    'blog.article.secondo-pilastro-lpp-bern-2026-guida.title': 'Guide du deuxième pilier LPP en Suisse',
+    'blog.article.secondo-pilastro-lpp-bern-2026-guida.excerpt': 'Le guide du deuxième pilier LPP décrit les cotisations, le prélèvement, le rachat des écarts et la planification de la prévoyance en Suisse, en mettant l\'accent sur le canton de Berne et une comparaison nationale.',
+    'blog.article.secondo-pilastro-lpp-bern-2026-guida.imageAlt': 'Image d\'un travailleur frontalier qui se trouve dans une situation similaire à celle décrite dans le guide.',
 };
 
 export default blogMetaChFr;

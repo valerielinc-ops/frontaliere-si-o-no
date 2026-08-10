@@ -9472,6 +9472,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-varzo-da-frontaliere-pro-e-contro.title': 'Moving to Varzo from border crossings: pros and cons',
     'blog.article.trasferirsi-a-varzo-da-frontaliere-pro-e-contro.excerpt': 'Tax settings, residence permits and working conditions: what to know before moving to Varzo as a border worker.',
     'blog.article.trasferirsi-a-varzo-da-frontaliere-pro-e-contro.imageAlt': 'A cross-border worker transferring to Varzo to work in Ticino',
+    'blog.article.vivere-maslianico-lavoro-ticino.title': 'Living in Maslianico and working in Ticino as a border worker',
+    'blog.article.vivere-maslianico-lavoro-ticino.excerpt': 'Practical guide for border workers residing in Maslianico: new agreement, taxation, LAMal insurance obligations and commuting procedures.',
+    'blog.article.vivere-maslianico-lavoro-ticino.imageAlt': 'View of the border between Italy and Switzerland',
 };
 
 export default blogMetaEn;
