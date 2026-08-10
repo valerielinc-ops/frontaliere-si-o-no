@@ -2041,6 +2041,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.job-sharing-svizzera.title': 'Le job sharing conquiert les sommets de l\'entreprise suisse',
     'blog.article.job-sharing-svizzera.excerpt': 'On, Vontobel et d\'autres entreprises adoptent le co-leadership pour innover.',
     'blog.article.job-sharing-svizzera.imageAlt': 'Image d\'un siège social suisse',
+    'blog.article.siccita-stress-famiglie.title': 'Sécheresse : le stress augmente chez les familles paysannes en Suisse',
+    'blog.article.siccita-stress-famiglie.excerpt': 'La sécheresse prolongée et les événements météorologiques extrêmes aggravent les conditions de vie et de travail des familles paysannes en Suisse.',
+    'blog.article.siccita-stress-famiglie.imageAlt': 'Famille agricole préoccupée par la sécheresse en Suisse',
 };
 
 export default blogMetaChFr;

@@ -2041,6 +2041,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.job-sharing-svizzera.title': 'Il job sharing conquista i vertici aziendali svizzeri',
     'blog.article.job-sharing-svizzera.excerpt': 'On, Vontobel e altre aziende adottano la co-leadership per innovare.',
     'blog.article.job-sharing-svizzera.imageAlt': 'Immagine di un vertice aziendale svizzero',
+    'blog.article.siccita-stress-famiglie.title': 'Siccità: in aumento lo stress tra le famiglie contadine in Svizzera',
+    'blog.article.siccita-stress-famiglie.excerpt': 'La prolungata siccità e gli eventi meteorologici estremi stanno aggravando le condizioni di vita e di lavoro delle famiglie contadine in Svizzera.',
+    'blog.article.siccita-stress-famiglie.imageAlt': 'Famiglia agricola preoccupata per la siccità in Svizzera',
 };
 
 export default blogMetaChIt;
