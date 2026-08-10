@@ -695,6 +695,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-cassa-malati-lamal-2026-canton-basilea': { it: 'premi-cassa-malati-lamal-2026-canton-basilea', en: 'premi-cassa-malati-lamal-2026-canton-basilea', de: 'premi-cassa-malati-lamal-2026-canton-basilea', fr: 'premi-cassa-malati-lamal-2026-canton-basilea' },
  'secondo-pilastro-lpp-svizzera-guida-2026-bern': { it: 'secondo-pilastro-lpp-svizzera-guida-2026-bern', en: 'second-pillar-lpp-switzerland-guide-2026-bern', de: 'zweiter-staatspilier-lpp-schweiz-fuhrer-2026-bern', fr: 'deuxieme-pilier-lpp-suisse-guide-2026-bern' },
  'secondo-pilastro-lpp-bern-2026-guida': { it: 'secondo-pilastro-lpp-bern-2026-guida', en: 'secondo-pilastro-lpp-bern-2026-guide', de: 'secondo-pilastro-lpp-bern-2026-leitfaden', fr: 'secondo-pilastro-lpp-bern-2026-conseils' },
+ 'secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo': { it: 'secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo', en: 'second-pilaster-lpp-switzerland-guide-2026-canton-st-gallen', de: 'zweite-saeule-lpp-schweiz-fuehrer-2026-kanton-st-gallen', fr: 'deuxieme-colonne-lpp-suisse-guide-2026-canton-saint-gall' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

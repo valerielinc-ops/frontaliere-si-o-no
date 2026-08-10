@@ -25991,6 +25991,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo': {
+    title: 'LPP in Svizzera: Contributi e pianificazione previdenziale',
+    description: 'Scopri come funziona il secondo pilastro LPP in Svizzera, con un focus sul canton San Gallo. Impostazioni, contributi e prelievi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, contributi, pianificazione, previdenziale, scopri',
+    ogTitle: 'Guida pratica al secondo pilastro LPP in Svizzera: contributi, prelievo, riscatto lacune e pianificazione previdenziale',
+    ogDescription: 'Scopri come funziona il secondo pilastro LPP in Svizzera, con un focus sul canton San Gallo. Impostazioni, contributi e prelievi.',
+    canonicalPath: '/articoli-svizzera/secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LPP in Svizzera: Contributi e pianificazione previdenziale",
+      "description": "Scopri come funziona il secondo pilastro LPP in Svizzera, con un focus sul canton San Gallo. Impostazioni, contributi e prelievi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guida pratica al secondo pilastro LPP in Svizzera, con un focus sul canton San Gallo. Scena fotorealistica di Lugano, con un pilastro LPP in primo piano."
+      },
+      "datePublished": "2026-08-10T00:18:35+00:00",
+      "dateModified": "2026-08-10T00:18:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
