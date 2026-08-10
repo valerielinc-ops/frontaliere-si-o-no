@@ -231,6 +231,17 @@ export const GATES = [
       }
       return 0;
     },
+    // audit-bfs-depth.mjs is invoked above with --baseline=data/bfs-depth-baseline.json
+    // (a "mode": "rate" baseline, version >= 2) and runs its own composition-
+    // aware ratchet (evaluateBfsGate() — same rate*(1+relPct)+absPp shape as
+    // mixAdjustedRateGate.mjs, just a local reimplementation for the
+    // per-sitemap-shard case), encoding the verdict in its exit code
+    // (0 = pass, 1 = regressed). See the `usesOwnRatchet` doc comment on the
+    // `title-length` gate below — without this flag, evaluateGate() re-derives
+    // a raw current-vs-baseline count comparison on `atDepthGtMax` here, which
+    // can flag `regressed` on organic sitemap growth alone — the exact #5528
+    // bug class.
+    usesOwnRatchet: true,
     notes: 'Pages reachable from / only via BFS depth > 4.',
   },
   {
