@@ -50,6 +50,13 @@ import { readFileSync, writeFileSync, existsSync, unlinkSync, readdirSync } from
 import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import { ARTICLE_SECTION_CORE_LIST } from '../build-plugins/shared/articleSectionCore.mjs';
+import {
+  ARTICLE_LOCALES,
+  ARTICLE_REDIRECTS_FILE,
+  assertNoCrossSourceChains,
+  parseArticleRedirects,
+  readHardcodedRedirects,
+} from '../build-plugins/shared/articleRedirects.mjs';
 import { resolveGitAddPath, resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
 
 const PROJECT_ROOT = new URL('..', import.meta.url).pathname.replace(/\/$/, '');
@@ -457,8 +464,30 @@ function deleteGeneratedImage(articleId) {
 }
 
 // ── Add redirect mapping (SEO safety) ───────────────────────
+// Rewritten for issue #5352. Three defects, all of which meant this function
+// could only ever have written wrong keys — which is consistent with
+// data/article-redirects.json having stayed `{}` from its first commit:
+//
+//  1. the per-locale loop ran a regex that did NOT depend on `locale`, so all
+//     four iterations matched the same (IT) slug and wrote it under all four
+//     prefixes;
+//  2. it read `services/router.ts`, whose per-locale slug tables no longer
+//     exist — slugs live in the BLOG_SLUGS / SWISS_SLUGS maps of
+//     routerBlogData.ts / routerSwissData.ts (same stale lookup already fixed
+//     in removeFromSitemap above);
+//  3. it hardcoded `/{loc}/articoli-frontaliere/`, which is a real URL in
+//     exactly ONE of the four locales (the others are /en/cross-border-articles,
+//     /de/grenzgaenger-artikel, /fr/articles-frontalier) and in NEITHER locale
+//     for a svizzera-section article (/articoli-svizzera, /en/swiss-articles, …).
+//     3 of every 4 keys pointed at URLs that never existed.
+//
+// All three collapse into "use the same single sources everything else here
+// uses": findOwningSection + parseSectionSlugs for the slugs, and
+// ARTICLE_SECTION_CORE's per-locale indexSlug for the prefix. The result is
+// validated through the same parser the build plugin reads it back with, so a
+// bad write fails here instead of at the next deploy.
 function addRedirectMapping(fromId, toId) {
-  const redirectsPath = 'data/article-redirects.json';
+  const redirectsPath = ARTICLE_REDIRECTS_FILE;
   let redirects = {};
 
   if (existsSync(resolve(redirectsPath))) {
@@ -467,24 +496,43 @@ function addRedirectMapping(fromId, toId) {
     } catch { /* start fresh */ }
   }
 
-  // Get the IT slugs for both articles
-  const routerSrc = read('services/router.ts');
-  const fromSlugKey = fromId.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
-  const toSlugKey = toId.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
-
-  for (const locale of ['it', 'en', 'de', 'fr']) {
-    // Find slugs in locale tables (search pattern: slugKey: 'value')
-    const fromSlugMatch = routerSrc.match(new RegExp(`${escapeRegex(fromSlugKey)}:\\s*["']([^"']+)["']`));
-    const toSlugMatch = routerSrc.match(new RegExp(`${escapeRegex(toSlugKey)}:\\s*["']([^"']+)["']`));
-
-    if (fromSlugMatch && toSlugMatch) {
-      const prefix = locale === 'it' ? '' : `/${locale}`;
-      redirects[`${prefix}/articoli-frontaliere/${fromSlugMatch[1]}`] = `${prefix}/articoli-frontaliere/${toSlugMatch[1]}`;
-    }
+  const fromSection = findOwningSection(fromId);
+  const toSection = findOwningSection(toId);
+  if (!fromSection || !toSection) {
+    console.error(`  ⚠️  Redirect NON scritto: sezione non risolta (${fromId}: ${fromSection?.section ?? 'assente'}, ${toId}: ${toSection?.section ?? 'assente'})`);
+    return;
   }
 
+  const fromSlugs = parseSectionSlugs(fromSection.slugDataFile, fromSection.slugConst)[fromId];
+  const toSlugs = parseSectionSlugs(toSection.slugDataFile, toSection.slugConst)[toId];
+  if (!fromSlugs || !toSlugs) {
+    console.error(`  ⚠️  Redirect NON scritto: slug non trovati in ${fromSection.slugDataFile} / ${toSection.slugDataFile}`);
+    return;
+  }
+
+  let added = 0;
+  for (const locale of ARTICLE_LOCALES) {
+    const prefix = (indexSlug) => (locale === 'it' ? `/${indexSlug[locale]}/` : `/${locale}/${indexSlug[locale]}/`);
+    const from = `${prefix(fromSection.indexSlug)}${fromSlugs[locale]}/`;
+    const to = `${prefix(toSection.indexSlug)}${toSlugs[locale]}/`;
+    if (from === to) continue;
+    redirects[from] = to;
+    added++;
+  }
+
+  // Fail before writing, not after deploying: same validator legacyRedirectsPlugin
+  // uses, so anything this writes is guaranteed readable by the build.
+  const validated = parseArticleRedirects(redirects, { file: redirectsPath });
+
+  // ...and the same cross-source chain check the build runs. Without this the
+  // writer can happily produce `A -> B` where legacyRedirectsPlugin already
+  // declares `X -> A`: legal inside this file, a two-hop chain once the two maps
+  // are merged. 34 of the 156 hardcoded pairs are article -> article, so the
+  // targets a rename can move are not a rare shape.
+  assertNoCrossSourceChains(readHardcodedRedirects(PROJECT_ROOT), validated, { file: redirectsPath });
+
   write(redirectsPath, JSON.stringify(redirects, null, 2) + '\n');
-  console.error(`  🔄 Redirect mapping aggiunto: ${fromId} → ${toId}`);
+  console.error(`  🔄 Redirect mapping aggiunto (${added} locali): ${fromId} → ${toId}`);
   console.error(`     File: ${redirectsPath}`);
 }
 
@@ -541,8 +589,8 @@ function gitAddAll(articleId) {
   }
   files.push(...Object.values(SITEMAP_FILE_BY_SECTION));
 
-  if (existsSync(resolve('data/article-redirects.json'))) {
-    files.push('data/article-redirects.json');
+  if (existsSync(resolve(ARTICLE_REDIRECTS_FILE))) {
+    files.push(ARTICLE_REDIRECTS_FILE);
   }
 
   const existing = [...new Set(files)].filter(pathIsTrackedOrExists);
