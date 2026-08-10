@@ -62705,6 +62705,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-crevoladossola-lavorare-ticino-frontalieri': {
+    title: 'Vivere a Crevoladossola e lavorare in Ticino da frontaliere',
+    description: 'Tutti i fatti e le cifre della vita dei frontalieri che lavorano in Ticino e risiedono a Crevoladossola. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, crevoladossola, lavorare, tutti',
+    ogTitle: 'Vivere a Crevoladossola e lavorare in Ticino da frontaliere',
+    ogDescription: 'Tutti i fatti e le cifre della vita dei frontalieri che lavorano in Ticino e risiedono a Crevoladossola',
+    canonicalPath: '/articoli-frontaliere/vivere-crevoladossola-lavorare-ticino-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Crevoladossola e lavorare in Ticino da frontaliere",
+      "description": "Tutti i fatti e le cifre della vita dei frontalieri che lavorano in Ticino e risiedono a Crevoladossola. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-crevoladossola-lavorare-ticino-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che lavora a Lugano e risiede a Crevoladossola si affaccia sul lago di Lugano"
+      },
+      "datePublished": "2026-08-10T17:58:46+00:00",
+      "dateModified": "2026-08-10T17:58:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-crevoladossola-lavorare-ticino-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

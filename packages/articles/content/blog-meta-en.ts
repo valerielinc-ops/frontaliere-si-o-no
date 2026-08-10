@@ -9541,6 +9541,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-viggiu-da-frontaliere-pro-e-contro.title': 'Moving to Viggiù from border crossings: pros and cons',
     'blog.article.trasferirsi-a-viggiu-da-frontaliere-pro-e-contro.excerpt': 'What you need to know before moving to Viggiù as a border worker',
     'blog.article.trasferirsi-a-viggiu-da-frontaliere-pro-e-contro.imageAlt': 'Frontalieri in transit',
+    'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.title': 'Living in Crevoladossola and working in Ticino as a border worker',
+    'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.excerpt': 'All the facts and figures of the lives of border workers who work in Ticino and reside in Crevoladossola',
+    'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.imageAlt': 'A frontaliere who works in Lugano and resides in Crevoladossola gazes out at Lake Lugano',
 };
 
 export default blogMetaEn;
