@@ -18,7 +18,11 @@ import {
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
-import { filterSharedPoolJobsByBrand } from './lib/swatchgroup-brand-filter.mjs';
+import {
+  SHARED_POOL_BRAND_PATTERNS,
+  isSharedSwatchPoolJob,
+  selectSharedPoolBrandJobs,
+} from './lib/swatchgroup-brand-filter.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -221,14 +225,29 @@ async function main() {
   const _guardTrippedKeys = [];
   for (const ck of companyKeys) {
     const _ckNorm = normalizeKey(ck);
-    const _ckJobsRaw = _allJobs.filter((j) => normalizeKey(j?.companyKey || '') === _ckNorm);
-    // Re-filter the shared-pool sub-brands (rado, comadur-swatch-group,
-    // nivarox-swatch-group, swatch-group-assembly) down to jobs whose real
-    // employer text actually matches — see lib/swatchgroup-brand-filter.mjs
-    // (issue #4392). No-op for brands with their own-domain adapter.
-    const _ckJobs = filterSharedPoolJobsByBrand(ck, _ckJobsRaw);
+    // Candidate set the brand-identity re-filter runs over.
+    //
+    // For a shared-pool sub-brand (rado, comadur-swatch-group,
+    // nivarox-swatch-group, swatch-group-assembly) that is the WHOLE
+    // swatchgroup.com pool, NOT this key's own jobs: the shared crawler
+    // de-duplicates the group-wide job-finder by URL across the
+    // per-companyKey iterations, so every pooled posting ends up stamped
+    // with whichever key reached it first and is never re-stamped for the
+    // others. Narrowing by `companyKey` before the brand filter therefore
+    // hid each brand's own postings behind a sibling's key — the genuine
+    // Comadur job was sitting in the pool under
+    // `companyKey: swatch-group-assembly` (issue #5392). See
+    // selectSharedPoolBrandJobs() for the measured evidence.
+    //
+    // Brands with their own-domain adapter (eta-sa, swiss-timing) keep the
+    // exact key-equality selection they always had.
+    const _isSharedPoolBrand = SHARED_POOL_BRAND_PATTERNS.has(_ckNorm);
+    const _ckJobsRaw = _isSharedPoolBrand
+      ? _allJobs.filter((j) => isSharedSwatchPoolJob(j))
+      : _allJobs.filter((j) => normalizeKey(j?.companyKey || '') === _ckNorm);
+    const _ckJobs = selectSharedPoolBrandJobs(ck, _allJobs);
     if (_ckJobs.length !== _ckJobsRaw.length) {
-      console.log(`  🔎 ${ck}: brand filter kept ${_ckJobs.length}/${_ckJobsRaw.length} job(s) — dropped cross-brand redistribution from the shared swatchgroup.com pool (#4392).`);
+      console.log(`  🔎 ${ck}: brand filter kept ${_ckJobs.length}/${_ckJobsRaw.length} job(s) — dropped cross-brand redistribution from the shared swatchgroup.com pool (#4392/#5392).`);
     }
     // A brand with 0 jobs THIS run only means this crawl found no fresh
     // listings for it — writeJobsCrawlerSlice(ck, []) would throw via the
