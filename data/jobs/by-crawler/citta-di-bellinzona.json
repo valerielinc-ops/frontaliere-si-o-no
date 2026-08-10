@@ -1,7 +1,61 @@
 {
   "crawlerKey": "citta-di-bellinzona",
-  "assembledAt": "2026-08-09T21:38:54.371Z",
+  "assembledAt": "2026-08-10T10:40:18.814Z",
   "jobs": [
+    {
+      "id": "citta-di-bellinzona-apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona",
+      "slug": "apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona",
+      "slugByLocale": {
+        "it": "apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona"
+      },
+      "company": "Città di Bellinzona",
+      "companyKey": "citta-di-bellinzona",
+      "companyDomain": "bellinzona.ch",
+      "title": "Apprendista Operatore/trice di edifici e infrastrutture AFC",
+      "titleByLocale": {
+        "it": "Apprendista Operatore/trice di edifici e infrastrutture AFC"
+      },
+      "description": "## Apprendista Operatore/trice di edifici e infrastrutture AFC\n\nCittà di Bellinzona — concorso pubblico a Bellinzona (TI), Svizzera.\n\nConcorso pubblico presso la Città di Bellinzona per la posizione di Apprendista Operatore/trice di edifici e infrastrutture AFC. Consultare il bando di concorso per i requisiti completi.\n\n**Settore:** Pubblica Amministrazione\n\n**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera",
+      "descriptionByLocale": {
+        "it": "## Apprendista Operatore/trice di edifici e infrastrutture AFC\n\nCittà di Bellinzona — concorso pubblico a Bellinzona (TI), Svizzera.\n\nConcorso pubblico presso la Città di Bellinzona per la posizione di Apprendista Operatore/trice di edifici e infrastrutture AFC. Consultare il bando di concorso per i requisiti completi.\n\n**Settore:** Pubblica Amministrazione\n\n**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6500",
+      "streetAddress": "Piazza Nosetto",
+      "category": "public-admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4e38a935-41ce-4fcd-9b5e-e976ff649a20,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "pdfUrl": null,
+      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4e38a935-41ce-4fcd-9b5e-e976ff649a20,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Bellinzona Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-10T10:40:15.609Z",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-06-29T21:52:24.302Z"
+    },
     {
       "id": "citta-di-bellinzona-comandante-pompieri-presso-il-corpo-civici-pompieri-bellinzona-bellinzona",
       "slug": "comandante-pompieri-presso-il-corpo-civici-pompieri-bellinzona-bellinzona",
@@ -48,7 +102,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=790a1f7c-1e54-4992-8eb3-e4816ef8b549,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-09T21:38:52.237Z",
+      "crawledAt": "2026-08-10T10:40:15.607Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -109,7 +163,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=9cfc0248-7d50-4a49-ba22-31c50f4140df,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-09T21:38:52.239Z",
+      "crawledAt": "2026-08-10T10:40:15.608Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -170,7 +224,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=711f4932-6cc2-41e0-b765-06f45677da4b,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-09T21:38:52.239Z",
+      "crawledAt": "2026-08-10T10:40:15.608Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
