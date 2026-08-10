@@ -9503,6 +9503,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-besano-lavorare-ticino.title': 'Vivere a Besano e lavorare in Ticino: guida pratica',
     'blog.article.vivere-besano-lavorare-ticino.excerpt': 'Analisi per frontalieri: collegamenti, fiscalità e imposta alla fonte, previdenza AVS/LPP e LAMal per chi risiede a Besano e lavora nel Canton Ticino.',
     'blog.article.vivere-besano-lavorare-ticino.imageAlt': 'Paesaggio tra Besano e il confine ticinese',
+    'blog.article.bollettino-frontaliere-2026-08-10.title': 'Bollettino del frontaliere – 10 agosto 2026: 200 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-10.excerpt': 'I numeri di oggi, 10 agosto 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-10.imageAlt': 'I numeri del giorno per i frontalieri – 10 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-08-10.seoDescription': 'Bollettino frontalieri del 10 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-08-10.ogDescription': 'I numeri del 10 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;

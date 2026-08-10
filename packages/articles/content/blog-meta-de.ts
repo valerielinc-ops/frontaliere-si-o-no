@@ -9501,6 +9501,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-besano-lavorare-ticino.title': 'Leben in Besano und Arbeiten im Tessin: Praktischer Leitfaden',
     'blog.article.vivere-besano-lavorare-ticino.excerpt': 'Analyse für Grenzgänger: Anschlüsse, Steuern und Quellensteuern, Vorsorge AHV/BVG und KVG für Personen, die in Besano wohnen und im Kanton Tessin arbeiten.',
     'blog.article.vivere-besano-lavorare-ticino.imageAlt': 'Landschaft zwischen Besano und der Tessiner Grenze',
+    'blog.article.bollettino-frontaliere-2026-08-10.title': 'Grenzgänger-Tagesbulletin – 10. August 2026: 200 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-10.excerpt': 'Die Zahlen von heute, 10. August 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-10.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 10. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-08-10.seoDescription': 'Grenzgänger-Bulletin vom 10. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-08-10.ogDescription': 'Die Zahlen vom 10. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;
