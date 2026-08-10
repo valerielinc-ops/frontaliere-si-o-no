@@ -697,6 +697,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'secondo-pilastro-lpp-bern-2026-guida': { it: 'secondo-pilastro-lpp-bern-2026-guida', en: 'secondo-pilastro-lpp-bern-2026-guide', de: 'secondo-pilastro-lpp-bern-2026-leitfaden', fr: 'secondo-pilastro-lpp-bern-2026-conseils' },
  'secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo': { it: 'secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo', en: 'second-pilaster-lpp-switzerland-guide-2026-canton-st-gallen', de: 'zweite-saeule-lpp-schweiz-fuehrer-2026-kanton-st-gallen', fr: 'deuxieme-colonne-lpp-suisse-guide-2026-canton-saint-gall' },
  'guida-lpp-secondo-pilastro-2026-vaud': { it: 'guida-lpp-secondo-pilastro-2026-vaud', en: 'guida-lpp-secondo-pilastro-2026-vaud-en', de: 'guida-lpp-secondo-pilastro-2026-vaud-de', fr: 'guida-lpp-secondo-pilastro-2026-vaud-fr' },
+ 'affitti-svizzera-mercato-immobiliare-2026': { it: 'affitti-svizzera-mercato-immobiliare-2026', en: 'swiss-rental-market-2026', de: 'schweizer-mietmarkt-2026', fr: 'marche-immobilier-suisse-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

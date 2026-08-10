@@ -2014,6 +2014,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-lpp-secondo-pilastro-2026-vaud.title': 'LPP en Suisse : cotisations et prévoyance dans le Canton Vaud',
     'blog.article.guida-lpp-secondo-pilastro-2026-vaud.excerpt': 'Le guide du deuxième pilier LPP couvre les cotisations, le prélèvement, le rachat des lacunes et la planification de la prévoyance dans le canton de Vaud.',
     'blog.article.guida-lpp-secondo-pilastro-2026-vaud.imageAlt': 'Une personne regarde un graphique de plan de retraite avec un smartphone',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026.title': 'Marché des loyers en Suisse : prix et droits',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026.excerpt': 'Prix moyens des loyers en Suisse en 2026, droits du locataire, caution et résiliation.',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026.imageAlt': 'Scène d\'un marché immobilier suisse avec des gens qui regardent les annonces de location et de vente de maisons et d\'appartements.',
 };
 
 export default blogMetaChFr;
