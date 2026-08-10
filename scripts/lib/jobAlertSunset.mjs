@@ -39,12 +39,21 @@
  *                     status 'inactive' (soft, reversible).
  *   2. `reactivate` — an 'inactive' subscriber who has since opened/clicked →
  *                     back to 'active'.
+ *   3. `reprobe`    — an 'inactive' subscriber who stayed silent long enough
+ *                     that `reactivate`'s engagement evidence can never arrive
+ *                     (no sender ever writes to job_alert_subscribers while
+ *                     inactive — worse than the newsletter case, there isn't
+ *                     even an accidental exit) → one-time, capped return to
+ *                     mailable. See scripts/lib/reprobeGuard.mjs (issue #5559).
  */
+
+import { isReprobeDue, REPROBE_AFTER_INACTIVE_DAYS, REPROBE_MAX_ATTEMPTS } from './reprobeGuard.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 export const JOB_ALERT_SUNSET_MIN_DELIVERED = 12;
 export const JOB_ALERT_SUNSET_MIN_AGE_DAYS = 120;
+export { REPROBE_AFTER_INACTIVE_DAYS, REPROBE_MAX_ATTEMPTS };
 
 // Statuses we may transition FROM. We never touch bounced / complained /
 // suppressed (hard, cross-channel signals owned by #2831's suppression list —
@@ -85,8 +94,28 @@ function firstSeenMillis(sub) {
 }
 
 /**
- * @typedef {{ action: 'none'|'sunset'|'reactivate', reason: string }} JobAlertSunsetVerdict
+ * @typedef {{ action: 'none'|'sunset'|'reactivate'|'reprobe', reason: string }} JobAlertSunsetVerdict
  */
+
+/**
+ * One-time, capped reprobe before giving up on a still-silent inactive doc —
+ * mirrors scripts/lib/subscriberSunset.mjs's reprobeOrNone (issue #5559).
+ * @param {object} sub
+ * @param {number} nowMs
+ * @param {string} noneReason
+ * @returns {JobAlertSunsetVerdict}
+ */
+function reprobeOrNone(sub, nowMs, noneReason) {
+  const attempts = num(sub?.reprobe_count ?? sub?.reprobeCount);
+  const anchorMs = toMillis(sub?.reprobed_at ?? sub?.reprobedAt) ?? toMillis(sub?.inactive_at);
+  if (isReprobeDue({ attempts, anchorMs, nowMs })) {
+    return {
+      action: 'reprobe',
+      reason: `${noneReason} — ${REPROBE_AFTER_INACTIVE_DAYS}d silent, one-time re-probe (attempt ${attempts + 1}/${REPROBE_MAX_ATTEMPTS})`,
+    };
+  }
+  return { action: 'none', reason: noneReason };
+}
 
 /**
  * Classify a job-alert subscriber for the sunset lifecycle.
@@ -104,7 +133,7 @@ export function classifyJobAlertSunset(sub, nowMs) {
   if (status === 'inactive') {
     return engaged
       ? { action: 'reactivate', reason: 'inactive job-alert subscriber has since opened/clicked' }
-      : { action: 'none', reason: 'inactive, still no engagement' };
+      : reprobeOrNone(sub, nowMs, 'inactive, still no engagement');
   }
 
   // Never touch hard, cross-channel signals (bounce/complaint/suppression).
