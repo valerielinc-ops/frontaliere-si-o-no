@@ -104,6 +104,11 @@ export function peelDanglingClauseTail(s) {
  * budget (space or otherwise) to cut on (#5452). Callers must tolerate an
  * empty result the same way they already tolerate an empty/unset field.
  *
+ * A caller that CANNOT tolerate it — anything interpolating the result into a
+ * `<title>` — must call {@link truncateToClauseNonEmpty} instead. Reaching for
+ * this function at such a site is how PR #5515's review found
+ * `" | Frontaliere Ticino"` shipping as an entire title tag.
+ *
  * @param {string} text
  * @param {number} maxLen
  * @returns {string}
@@ -146,6 +151,57 @@ export function truncateToClause(text, maxLen) {
   // in the future get an empty string back rather than a broken snippet —
   // same as an unset field, which callers already have to tolerate.
   return '';
+}
+
+/**
+ * {@link truncateToClause} for the callers that MUST return something.
+ *
+ * `truncateToClause` resolves the "never mid-word, never over budget" dilemma
+ * by REFUSING: it returns `''` and hands the choice back to the caller — the
+ * same contract as `truncateClauseAware`'s `requireWordBoundary: true`. That is
+ * right for a field that may simply be unset, and WRONG for a `<title>`.
+ *
+ * Every `<title>` generator here interpolates the result into a brand suffix,
+ * so `''` does not mean "no title", it means the page ships
+ * `" | Frontaliere Ticino"` as its entire title plus an empty `ogTitle` and an
+ * empty JSON-LD `headline` — strictly worse than the ugly cut the refusal was
+ * meant to prevent. Measured while closing PR #5515's review: 62 of the 3 166
+ * published article ids are longer than 57 chars, 450 are longer than 42, and
+ * NONE of the 3 166 contains a space, so on the slug-fallback path the refusal
+ * is not a rare edge case at all.
+ *
+ * So for those callers the ladder gets one more rung, in order:
+ *   1. the clean clause cut, whenever one is reachable;
+ *   2. the word-boundary cut, when a clause survives nothing (a budget holding
+ *      only function words peels to `''` — "per il di" is poor, but a blank
+ *      title tag is worse);
+ *   3. the hard cut, only when the first token alone overflows the budget. It
+ *      stops mid-word unavoidably — such a token has NO prefix that does not —
+ *      but it stays within `maxLen` and it is not empty.
+ *
+ * Callers that append `…` (`truncateHeadline`, `jobOgImagesPlugin`,
+ * `publisherBlastEmail`, `social-post-utils`) need neither this nor the
+ * refusal: the ellipsis already marks the cut as intentional.
+ *
+ * AGENTS.md Non-Negotiable #6 — three `<title>` plugins had each inlined this
+ * ladder by hand (`relatedSearchClustersPlugin`, `orphanQueryLandingPlugin`,
+ * `borderWaitPagesPlugin`) and all three had already drifted from the shared
+ * one: they sliced at `maxLen` instead of `maxLen + 1`, losing a whole word
+ * whenever a space sat exactly at the budget ("Guida pratica frontalieri
+ * Ticino" @13 → "Guida", not "Guida pratica"). Never inline it again.
+ *
+ * @param {string} text
+ * @param {number} maxLen
+ * @returns {string} Never longer than `maxLen`; empty only if `text` is.
+ */
+export function truncateToClauseNonEmpty(text, maxLen) {
+  const s = String(text || '').replace(/\s+/g, ' ').trim();
+  if (!s) return '';
+  const clause = truncateToClause(s, maxLen);
+  if (clause) return clause;
+  const cut = s.slice(0, maxLen + 1);
+  const lastSpace = cut.lastIndexOf(' ');
+  return (lastSpace > 0 ? cut.slice(0, lastSpace) : s.slice(0, maxLen)).trim();
 }
 
 /**

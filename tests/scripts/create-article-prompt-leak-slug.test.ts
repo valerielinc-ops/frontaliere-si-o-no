@@ -125,9 +125,12 @@ describe('article slugs never carry the prompt placeholder (#4974)', () => {
  */
 describe('SEO titles are truncated at word boundaries (#4974)', () => {
   it('the synthesized-seo branch uses truncateAtWordBoundary, not a hard slice', () => {
+    // Window widened from 1600 to 2600: the branch now carries the #5515
+    // review's rationale for de-hyphenating `data.id`, and `data.seo = {`
+    // sits past the old cutoff.
     const branch = createArticle.slice(
       createArticle.indexOf('Synthesize seo from content.it'),
-      createArticle.indexOf('Synthesize seo from content.it') + 1600,
+      createArticle.indexOf('Synthesize seo from content.it') + 2600,
     );
     expect(branch, 'the synthesized seo branch is gone or moved').toContain('data.seo = {');
     expect(
@@ -135,7 +138,10 @@ describe('SEO titles are truncated at word boundaries (#4974)', () => {
       'the synthesized title/description are back to a hard slice — they will ' +
         'ship title tags cut mid-word again',
     ).not.toMatch(/\.slice\(0,\s*(57|160)\)/);
-    expect(branch).toMatch(/truncateAtWordBoundary\(String\(it\.title/);
+    // The title goes through the NON-EMPTY helper, not the plain one: its
+    // fallback source is `data.id`, a spaceless slug, and the plain helper
+    // refuses those with '' (#5452) — see the dedicated test below.
+    expect(branch).toMatch(/truncateToClauseNonEmpty\(titleSource,\s*57\)/);
     expect(branch).toMatch(/truncateAtWordBoundary\(String\(it\.excerpt/);
   });
 
@@ -185,5 +191,75 @@ describe('SEO titles are truncated at word boundaries (#4974)', () => {
     expect(cutSingle.length).toBeLessThanOrEqual(30);
     expect(singleToken.startsWith(cutSingle)).toBe(true);
     expect(cutSingle, 'must not return a mid-word fragment of the oversized token').toBe('');
+  });
+
+  /**
+   * The other half of #5452, found by PR #5515's review.
+   *
+   * On this branch `it.title` is missing by definition, so the title falls back
+   * to `data.id` — a SLUG. A slug has no spaces, so the empty-refusal above is
+   * not a theoretical edge case here: it is what the fallback path returns for
+   * every id past the budget. And `title` is not a droppable field, it is
+   * interpolated into the brand suffix, so `''` ships " | Frontaliere Ticino"
+   * as the entire <title> plus an empty ogTitle and JSON-LD headline.
+   *
+   * Measured on the published corpus: 62 of 3 166 ids exceed 57 chars (the
+   * title budget), 450 exceed 42 (the breadcrumbName budget), and none of the
+   * 3 166 contains a space.
+   */
+  describe('the slug fallback never yields a brand-only title (#5515 review)', () => {
+    it('de-hyphenates data.id before truncating, and uses the non-empty helper', () => {
+      const branch = createArticle.slice(
+        createArticle.indexOf('Synthesize seo from content.it'),
+        createArticle.indexOf('Synthesize seo from content.it') + 2600,
+      );
+      expect(branch, 'the synthesized seo branch is gone or moved').toContain('data.seo = {');
+      expect(
+        branch,
+        'data.id is fed to the truncator as a raw slug again — no word boundary ' +
+          'in it, so the title collapses to "" and the page ships " | Frontaliere Ticino"',
+      ).toMatch(/replace\(\/\[-_\]\+\/g, ' '\)/);
+      expect(branch).toContain('truncateToClauseNonEmpty');
+      expect(
+        branch,
+        'the title is back on the refusing helper — see this test\'s docblock',
+      ).not.toMatch(/truncateAtWordBoundary\(String\(it\.title\s*\|\|\s*data\.id\)/);
+    });
+
+    it('breadcrumbName uses the non-empty helper too (450/3166 ids exceed its 42-char budget)', () => {
+      const site = createArticle.indexOf('data.seo.breadcrumbName = ');
+      expect(site, 'the breadcrumbName assignment moved').toBeGreaterThan(-1);
+      expect(createArticle.slice(site, site + 260)).toContain('truncateToClauseNonEmpty');
+    });
+
+    it('produces a real title for the ids that used to collapse to ""', async () => {
+      const { truncateToClause, truncateToClauseNonEmpty } = await import(
+        '../../build-plugins/shared/clauseTail.mjs'
+      );
+      const nonEmpty = truncateToClauseNonEmpty as (t: string, n: number) => string;
+      const plain = truncateToClause as (t: string, n: number) => string;
+
+      for (const id of [
+        'incidente-mortale-a-porlezza-muore-un-frontaliere-di-38-anni-2026',
+        'educatori-in-germania-stipendi-fino-a-4500-euro-al-mese-per-frontalieri',
+        'taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi',
+      ]) {
+        expect(id, 'precondition: article ids are spaceless slugs').not.toMatch(/\s/);
+        // What the raw slug did before this fix.
+        expect(plain(id, 57), 'precondition: the raw slug is refused').toBe('');
+
+        const prose = id.replace(/[-_]+/g, ' ').trim();
+        const title = nonEmpty(prose.charAt(0).toUpperCase() + prose.slice(1), 57);
+        expect(title.length).toBeLessThanOrEqual(57);
+        expect(title).not.toBe('');
+        expect(`${title} | Frontaliere Ticino`).not.toBe(' | Frontaliere Ticino');
+        // Still a clean ending — the point of #5452 is not given up to get one.
+        expect(title).not.toMatch(/[,:;.\-–—\s]$/);
+
+        const breadcrumb = nonEmpty(prose.split(/[:.–—]/)[0] || 'Articolo', 42);
+        expect(breadcrumb.length).toBeLessThanOrEqual(42);
+        expect(breadcrumb, 'an empty breadcrumbName ships a nameless BreadcrumbList item').not.toBe('');
+      }
+    });
   });
 });

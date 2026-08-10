@@ -40,7 +40,7 @@ import {
 // it). `endsOnWordBoundary`/`truncateClauseAware` above were covered; this
 // wasn't, which is exactly how the mid-word-cut half of #5452 shipped behind a
 // green suite after #5474 fixed only the overshoot half.
-import { truncateToClause } from '../build-plugins/shared/clauseTail.mjs';
+import { truncateToClause, truncateToClauseNonEmpty } from '../build-plugins/shared/clauseTail.mjs';
 
 /** Function words that must never end a SERP string. Kept small on purpose — the
  *  authoritative list lives in titleSuffix.ts; this is an independent spot-check. */
@@ -124,6 +124,131 @@ describe('truncateToClause — the function every generator actually calls (#545
     // here a space sits right at the budget, so this must take the normal
     // space-based branch, never the no-boundary one.
     expect(truncateToClause('Guida pratica frontalieri Ticino', 13)).toBe('Guida pratica');
+  });
+});
+
+/**
+ * The `<title>`-safe half of the pair (PR #5515 review).
+ *
+ * `truncateToClause` refuses with `''` rather than cut mid-word. That is right
+ * for a field a caller may leave unset and WRONG for a `<title>`, because every
+ * title generator here interpolates the result into the brand suffix: `''` does
+ * not yield "no title", it yields `" | Frontaliere Ticino"` as the whole tag,
+ * plus an empty `ogTitle` and an empty JSON-LD `headline`.
+ *
+ * Measured on the live corpus while closing that review: of the 3 166 published
+ * article ids, 62 are longer than 57 chars, 450 are longer than 42, and NONE of
+ * the 3 166 contains a space — so on every slug-fallback path the refusal fires
+ * routinely, not as an edge case.
+ */
+describe('truncateToClauseNonEmpty — never returns an empty <title> (#5515 review)', () => {
+  it('agrees with truncateToClause whenever a clean clause is reachable', () => {
+    for (const [text, max] of [
+      ['Stipendio netto frontaliere 2026: come si calcola', 40],
+      ['Guida pratica frontalieri Ticino', 13],
+      ['Tasse frontalieri 2026', 60],
+      ['Stipendio netto frontaliere 2026', 27],
+    ] as const) {
+      const clause = truncateToClause(text, max);
+      expect(clause, `precondition: "${text}" @${max} should have a clean clause`).not.toBe('');
+      expect(truncateToClauseNonEmpty(text, max)).toBe(clause);
+    }
+  });
+
+  it('keeps a within-budget hard cut where truncateToClause refuses (first token overflows)', () => {
+    const text = 'Krankenversicherungspflichtbefreiungsantragsformularvorlage fuer Grenzgaenger';
+    // The refusal this helper exists to absorb.
+    expect(truncateToClause(text, 57)).toBe('');
+    const out = truncateToClauseNonEmpty(text, 57);
+    expect(out, 'a <title> generator must never receive an empty string').not.toBe('');
+    expect(out.length).toBeLessThanOrEqual(57);
+    expect(text.startsWith(out)).toBe(true);
+  });
+
+  it('prefers the word boundary over a mid-word cut when the budget held only stopwords', () => {
+    // The SECOND way truncateToClause can return '': a space IS reachable, but
+    // everything inside the budget is a function word and the peel eats it all.
+    // The three plugins that used to inline this ladder had the same hole.
+    expect(truncateToClause('per il di la con qualcosa', 10)).toBe('');
+    expect(truncateToClauseNonEmpty('per il di la con qualcosa', 10)).toBe('per il di');
+  });
+
+  it('is empty only when the input is', () => {
+    expect(truncateToClauseNonEmpty('', 20)).toBe('');
+    expect(truncateToClauseNonEmpty('   ', 20)).toBe('');
+    expect(truncateToClauseNonEmpty(null as unknown as string, 20)).toBe('');
+    expect(truncateToClauseNonEmpty(undefined as unknown as string, 20)).toBe('');
+  });
+
+  it('never exceeds maxLen, on any rung of the ladder', () => {
+    const inputs = [
+      'Krankenversicherungspflichtbefreiungsantragsformularvorlage fuer Grenzgaenger',
+      'Grenzgaengerbewilligungsverfahrensantragsformularvorlageblattes',
+      'per il di la con qualcosa',
+      'Incidente mortale a porlezza muore un frontaliere di 38 anni 2026',
+      'Guida pratica frontalieri Ticino',
+    ];
+    for (const text of inputs) {
+      for (let max = 1; max <= 70; max++) {
+        const out = truncateToClauseNonEmpty(text, max);
+        expect(out.length, `"${text}" @${max} overshot the budget`).toBeLessThanOrEqual(max);
+        expect(out, `"${text}" @${max} returned empty for non-empty input`).not.toBe('');
+      }
+    }
+  });
+
+  it('turns the hyphen slug that regressed create-article into a real title', () => {
+    // `data.id` is a slug: no spaces, so truncateToClause refuses outright.
+    const id = 'incidente-mortale-a-porlezza-muore-un-frontaliere-di-38-anni-2026';
+    expect(id).not.toMatch(/\s/);
+    expect(truncateToClause(id, 57)).toBe('');
+    // De-hyphenated first (what create-article.mjs now does), the budget has
+    // real boundaries and the brand suffix gets something to sit next to.
+    const prose = id.replace(/[-_]+/g, ' ').trim();
+    const title = truncateToClauseNonEmpty(prose.charAt(0).toUpperCase() + prose.slice(1), 57);
+    expect(title.length).toBeLessThanOrEqual(57);
+    expect(`${title} | Frontaliere Ticino`).not.toBe(' | Frontaliere Ticino');
+    expectClauseComplete(title);
+  });
+});
+
+/**
+ * The three `<title>` generators the #5515 review flagged must not re-inline
+ * the ladder. Each had its own copy of
+ * `peelDanglingClauseTail(lastSpace > 0 ? sliced.slice(0, lastSpace) : sliced)`
+ * — AGENTS.md Non-Negotiable #6 — and all three had already drifted from the
+ * shared implementation the same way: they sliced at `max` rather than
+ * `max + 1`, losing a whole word when a space sat exactly at the budget.
+ */
+describe('no <title> generator re-inlines the clause ladder (#5515 review)', () => {
+  const TITLE_GENERATORS = [
+    'build-plugins/relatedSearchClustersPlugin.ts',
+    'build-plugins/orphanQueryLandingPlugin.ts',
+    'build-plugins/borderWaitPagesPlugin.ts',
+  ];
+
+  it('none of them keeps the hand-rolled no-boundary fallback', () => {
+    const root = resolve(__dirname, '..');
+    for (const rel of TITLE_GENERATORS) {
+      const src = readFileSync(resolve(root, rel), 'utf8');
+      expect(
+        src,
+        `${rel} re-inlined the ladder — it will drift from clauseTail.mjs again`,
+      ).not.toMatch(/lastSpace\s*>\s*0\s*\?/);
+      expect(
+        src,
+        `${rel} no longer routes through the shared non-empty helper`,
+      ).toContain('truncateToClauseNonEmpty');
+    }
+  });
+
+  it('the drift the copies had: a space exactly at the budget must keep the word', () => {
+    // What every inlined copy returned for this input was "Guida" — the shared
+    // ladder's `maxLen + 1` lookahead is the whole difference.
+    const s = 'Guida pratica frontalieri Ticino';
+    expect(s.indexOf(' ', 6)).toBe(13);
+    expect(truncateToClauseNonEmpty(s, 13)).toBe('Guida pratica');
+    expect(s.slice(0, 13).lastIndexOf(' ')).toBe(5); // what the copies saw
   });
 });
 
@@ -288,6 +413,10 @@ describe('single source of truth for the clause tail (AGENTS.md Non-Negotiable #
   it('the .mjs implementation and the typed .ts re-export are the same function', async () => {
     const mjs = await import('../build-plugins/shared/clauseTail.mjs');
     expect(peelDanglingClauseTail).toBe(mjs.peelDanglingClauseTail);
+    // Same for the non-empty variant: the TS render layer and the raw-node
+    // generators must share one implementation, not two that agree today.
+    const ts = await import('../build-plugins/shared/titleSuffix');
+    expect(ts.truncateToClauseNonEmpty).toBe(mjs.truncateToClauseNonEmpty);
   });
 
   it('no hardcoded year in the freshness lever or the truncation helpers', () => {
