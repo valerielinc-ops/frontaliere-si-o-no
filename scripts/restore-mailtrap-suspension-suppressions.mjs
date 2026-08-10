@@ -51,32 +51,6 @@ if (!admin.apps?.length) {
 }
 const db = admin.firestore();
 
-/**
- * Origins that confirm at signup by design (the user performed an explicit act
- * — unlocking a job, signing in with a provider — so no double opt-in is sent).
- * Mirrors CONFIRMED_NEWSLETTER_SOURCES in services/newsletterSubscribers.ts.
- *
- * `publisher_gate_social` only. Its sibling `publisher_gate_email` is
- * pending-BY-DESIGN: components/pages/PublisherPublishPage.tsx deliberately
- * omits status/isActive there so a new address falls to `pending` and gets the
- * opt-in email, and CONFIRMED_NEWSLETTER_SOURCES does not list it. Matching the
- * bare `publisher_gate` prefix would have restored those to `confirmed` —
- * exactly the fabricated consent this function exists to prevent.
- */
-const AUTO_CONFIRMED_ORIGIN_RE = /^(signup|auth_|chatbot_|job_|tax_calendar_(google|facebook)|resubscribe_link|newsletter_email_link|one_tap|publisher_gate_social)/i;
-
-function hasConsentEvidence(data, events) {
-  if (data?.confirmed_at || data?.confirmedAt) return true;
-  for (const e of events) {
-    const t = String(e.event_type || '');
-    if (t === 'confirm' || t === 'subscribe_completed') return true;
-  }
-  for (const field of [data?.source_cta, data?.source, data?.source_channel]) {
-    if (field && AUTO_CONFIRMED_ORIGIN_RE.test(String(field))) return true;
-  }
-  return false;
-}
-
 function classify(events) {
   let sawSuspension = false;
   let sawRealFailure = false;
