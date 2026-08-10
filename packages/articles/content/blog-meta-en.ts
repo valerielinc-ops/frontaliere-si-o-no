@@ -9493,6 +9493,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-ronago-da-frontaliere-pro-e-contro.title': 'Moving to Ronago by border crossing: pros and cons',
     'blog.article.trasferirsi-a-ronago-da-frontaliere-pro-e-contro.excerpt': 'The New Frontier Agreement provides new rules for frontier workers who move to Ronago, with different exemptions and deductibles',
     'blog.article.trasferirsi-a-ronago-da-frontaliere-pro-e-contro.imageAlt': 'Frontalier from Ticino who moves to Ronago, with his family and his job',
+    'blog.article.vivere-besano-frontaliere-ticino.title': 'Living in Besano and working in Ticino as a border worker',
+    'blog.article.vivere-besano-frontaliere-ticino.excerpt': 'Practical guide for those who choose Besano as a residence: impact of the new tax agreement, income management and procedures for commuting to Ticino.',
+    'blog.article.vivere-besano-frontaliere-ticino.imageAlt': 'Panoramic view of the border between Besano and Mendrisiotto',
 };
 
 export default blogMetaEn;
