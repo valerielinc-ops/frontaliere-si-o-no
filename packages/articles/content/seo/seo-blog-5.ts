@@ -61925,6 +61925,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-a-maslianico-da-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a Maslianico da frontaliere: pro e contro',
+    description: 'Imposte, permessi e condizioni di lavoro: cosa sapere prima di trasferirsi a Maslianico da frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, maslianico, contro, imposte',
+    ogTitle: 'Trasferirsi a Maslianico da frontaliere: pro e contro',
+    ogDescription: 'Imposte, permessi e condizioni di lavoro: cosa sapere prima di trasferirsi a Maslianico da frontaliere.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-a-maslianico-da-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Maslianico da frontaliere: pro e contro",
+      "description": "Imposte, permessi e condizioni di lavoro: cosa sapere prima di trasferirsi a Maslianico da frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano, con il Lago di Lugano e le montagne circostanti."
+      },
+      "datePublished": "2026-08-10T00:24:42+00:00",
+      "dateModified": "2026-08-10T00:24:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-maslianico-da-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
