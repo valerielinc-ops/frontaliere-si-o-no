@@ -11,8 +11,14 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-10T10:34:27.483Z",
+  "updatedAt": "2026-08-10T21:50:19.734Z",
   "seedMetaByUrl": {
+    "https://www.pemsa.ch/it/job/autista-di-camion-2686561/": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-10"
+    },
     "https://www.pemsa.ch/it/job/operatore-addetto-alla-rastrellatura-operatore-addetto-alla-stesura-dellasfalto-2686527/": {
       "location": "Lausanne",
       "canton": "VD",
