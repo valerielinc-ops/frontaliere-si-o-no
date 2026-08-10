@@ -62120,6 +62120,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-a-ronago-da-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a Ronago da frontaliere: pro e contro',
+    description: 'Il Nuovo Accordo Frontalieri prevede nuove regole per i frontalieri che si trasferiscono a Ronago, con esenzioni e franchigie diverse. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, ronago, contro, nuovo',
+    ogTitle: 'Trasferirsi a Ronago da frontaliere: pro e contro',
+    ogDescription: 'Il Nuovo Accordo Frontalieri prevede nuove regole per i frontalieri che si trasferiscono a Ronago, con esenzioni e franchigie diverse',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-a-ronago-da-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Ronago da frontaliere: pro e contro",
+      "description": "Il Nuovo Accordo Frontalieri prevede nuove regole per i frontalieri che si trasferiscono a Ronago, con esenzioni e franchigie diverse. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-a-ronago-da-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere ticinese che si trasferisce a Ronago, con la sua famiglia e il suo lavoro"
+      },
+      "datePublished": "2026-08-10T03:16:00+00:00",
+      "dateModified": "2026-08-10T03:16:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-ronago-da-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
