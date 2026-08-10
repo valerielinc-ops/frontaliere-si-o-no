@@ -1,6 +1,6 @@
 {
   "crawlerKey": "laderach",
-  "assembledAt": "2026-08-10T10:27:43.463Z",
+  "assembledAt": "2026-08-10T21:46:09.944Z",
   "jobs": [
     {
       "id": "laderach-42db78da7d74",
@@ -43,13 +43,15 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66526293/KV-Lehrstelle-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:39.214Z",
+      "crawledAt": "2026-08-10T21:46:05.360Z",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-w-m-d-laderach-bilten"
+        "kv-lehrstelle-efz-2027-w-m-d-laderach-bilten",
+        "kv-apprendistato-cfc-2027-m-w-d-laderach-schweiz-ag-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-w-m-d-laderach-bilten"
+          "kv-lehrstelle-efz-2027-w-m-d-laderach-bilten",
+          "kv-apprendistato-cfc-2027-m-w-d-laderach-schweiz-ag-bilten"
         ],
         "en": [
           "kv-lehrstelle-efz-2027-w-m-d-laderach-bilten"
@@ -59,6 +61,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:34:01.850Z",
+      "needsRetranslation": true,
       "salaryMin": 48500,
       "salaryMax": 65500,
       "baseSalary": {
@@ -114,7 +117,7 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66511283/Apprentissage-dans-le-commerce-de-d%C3%A9tail-CFC-2027-f-h-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:39.077Z",
+      "crawledAt": "2026-08-10T21:46:05.207Z",
       "previousSlugs": [
         "apprentissage-dans-le-commerce-de-detail-cfc-2027-f-h-d-laderach-geneve"
       ],
@@ -130,6 +133,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:34:01.706Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 92000,
       "baseSalary": {
@@ -185,7 +189,7 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66511028/Apprendistato-nel-commercio-al-dettaglio-AFC-2027-f-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:38.933Z",
+      "crawledAt": "2026-08-10T21:46:05.060Z",
       "firstSeenAt": "2026-08-04T11:34:01.439Z",
       "salaryMin": 42640,
       "salaryMax": 54000,
@@ -242,17 +246,19 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66510273/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:38.796Z",
+      "crawledAt": "2026-08-10T21:46:04.918Z",
       "previousSlugs": [
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-3yn89f",
-        "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-2"
+        "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-2",
+        "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
           "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-3yn89f",
-          "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-2"
+          "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-2",
+          "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich"
         ],
         "en": [
           "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-2",
@@ -263,6 +269,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:34:01.162Z",
+      "needsRetranslation": true,
       "salaryMin": 55000,
       "salaryMax": 74500,
       "baseSalary": {
@@ -318,13 +325,15 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66510088/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:38.652Z",
+      "crawledAt": "2026-08-10T21:46:04.773Z",
       "previousSlugs": [
-        "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-flughafen"
+        "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-flughafen",
+        "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-flughafen"
+          "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-flughafen",
+          "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-flughafen"
         ],
         "en": [
           "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-flughafen"
@@ -334,6 +343,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:34:01.020Z",
+      "needsRetranslation": true,
       "salaryMin": 55000,
       "salaryMax": 74500,
       "baseSalary": {
@@ -389,13 +399,15 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66509728/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:38.379Z",
+      "crawledAt": "2026-08-10T21:46:04.490Z",
       "previousSlugs": [
-        "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-basel"
+        "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-basel",
+        "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-basel"
+          "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-basel",
+          "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-basel"
         ],
         "en": [
           "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-basel"
@@ -405,6 +417,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:34:00.687Z",
+      "needsRetranslation": true,
       "salaryMin": 50500,
       "salaryMax": 68000,
       "baseSalary": {
@@ -460,13 +473,15 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66508768/Lehrstelle-Entwickler-in-digitales-Business-EFZ-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:38.237Z",
+      "crawledAt": "2026-08-10T21:46:04.343Z",
       "previousSlugs": [
-        "lehrstelle-entwickler-in-digitales-business-efz-laderach-bilten"
+        "lehrstelle-entwickler-in-digitales-business-efz-laderach-bilten",
+        "apprendistato-entwickler-in-digitales-business-cfc-laderach-schweiz-ag-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-entwickler-in-digitales-business-efz-laderach-bilten"
+          "lehrstelle-entwickler-in-digitales-business-efz-laderach-bilten",
+          "apprendistato-entwickler-in-digitales-business-cfc-laderach-schweiz-ag-bilten"
         ],
         "en": [
           "lehrstelle-entwickler-in-digitales-business-efz-laderach-bilten"
@@ -476,6 +491,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:34:00.554Z",
+      "needsRetranslation": true,
       "salaryMin": 48500,
       "salaryMax": 65500,
       "baseSalary": {
@@ -531,13 +547,15 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66508228/Zusatzausbildung-Fachrichtung-Confiserie-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:38.091Z",
+      "crawledAt": "2026-08-10T21:46:04.200Z",
       "previousSlugs": [
-        "zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-laderach-ennenda"
+        "zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-laderach-ennenda",
+        "zusatzausbildung-specializzazione-confiserie-2027-m-w-d-laderach-schweiz-ag-ennenda"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-laderach-ennenda"
+          "zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-laderach-ennenda",
+          "zusatzausbildung-specializzazione-confiserie-2027-m-w-d-laderach-schweiz-ag-ennenda"
         ],
         "en": [
           "zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-laderach-ennenda"
@@ -547,6 +565,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:34:00.420Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -602,13 +621,15 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66507453/Lehrstelle-Lebensmitteltechnologe-in-EFZ-2027-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:37.954Z",
+      "crawledAt": "2026-08-10T21:46:04.053Z",
       "previousSlugs": [
-        "lehrstelle-lebensmitteltechnologe-in-efz-2027-laderach-ennenda"
+        "lehrstelle-lebensmitteltechnologe-in-efz-2027-laderach-ennenda",
+        "apprendistato-lebensmitteltechnologe-in-cfc-2027-laderach-schweiz-ag-ennenda"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-lebensmitteltechnologe-in-efz-2027-laderach-ennenda"
+          "lehrstelle-lebensmitteltechnologe-in-efz-2027-laderach-ennenda",
+          "apprendistato-lebensmitteltechnologe-in-cfc-2027-laderach-schweiz-ag-ennenda"
         ],
         "en": [
           "lehrstelle-lebensmitteltechnologe-in-efz-2027-laderach-ennenda"
@@ -618,6 +639,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:34:00.275Z",
+      "needsRetranslation": true,
       "salaryMin": 48500,
       "salaryMax": 65500,
       "baseSalary": {
@@ -673,13 +695,15 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66507313/Lehrstelle-Logistiker-in-EFZ-2027-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:37.807Z",
+      "crawledAt": "2026-08-10T21:46:03.908Z",
       "previousSlugs": [
-        "lehrstelle-logistiker-in-efz-2027-laderach-ennenda"
+        "lehrstelle-logistiker-in-efz-2027-laderach-ennenda",
+        "apprendistato-logistiker-in-cfc-2027-laderach-schweiz-ag-ennenda"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-logistiker-in-efz-2027-laderach-ennenda"
+          "lehrstelle-logistiker-in-efz-2027-laderach-ennenda",
+          "apprendistato-logistiker-in-cfc-2027-laderach-schweiz-ag-ennenda"
         ],
         "en": [
           "lehrstelle-logistiker-in-efz-2027-laderach-ennenda"
@@ -689,6 +713,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:34:00.116Z",
+      "needsRetranslation": true,
       "salaryMin": 48500,
       "salaryMax": 65500,
       "baseSalary": {
@@ -744,13 +769,15 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66506288/Lehrstelle-Logistiker-in-EFZ-2027-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:37.658Z",
+      "crawledAt": "2026-08-10T21:46:03.764Z",
       "previousSlugs": [
-        "lehrstelle-logistiker-in-efz-2027-laderach-bilten"
+        "lehrstelle-logistiker-in-efz-2027-laderach-bilten",
+        "apprendistato-logistiker-in-cfc-2027-laderach-schweiz-ag-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-logistiker-in-efz-2027-laderach-bilten"
+          "lehrstelle-logistiker-in-efz-2027-laderach-bilten",
+          "apprendistato-logistiker-in-cfc-2027-laderach-schweiz-ag-bilten"
         ],
         "en": [
           "lehrstelle-logistiker-in-efz-2027-laderach-bilten"
@@ -760,6 +787,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:33:59.952Z",
+      "needsRetranslation": true,
       "salaryMin": 48500,
       "salaryMax": 65500,
       "baseSalary": {
@@ -815,7 +843,7 @@
       "postedDate": "2026-07-31",
       "url": "https://laderach.career.softgarden.de/jobs/66456603/IT-Projektleiter-im-Bereich-Produktentwicklung,-Produktion-und-Logistik-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:37.519Z",
+      "crawledAt": "2026-08-10T21:46:03.622Z",
       "previousSlugs": [
         "it-projektleiter-im-bereich-produktentwicklung-produktion-und-logistik-w-m-d-laderach-bilten"
       ],
@@ -831,6 +859,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:38:06.878Z",
+      "needsRetranslation": true,
       "salaryMin": 118500,
       "salaryMax": 159500,
       "baseSalary": {
@@ -886,13 +915,15 @@
       "postedDate": "2026-07-17",
       "url": "https://laderach.career.softgarden.de/jobs/66169573/Verk%C3%A4ufer-20-40%25-Chocolaterie-Shopping-Arena-St-Gallen-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:36.558Z",
+      "crawledAt": "2026-08-10T21:46:02.612Z",
       "previousSlugs": [
-        "verkaufer-20-40-chocolaterie-shopping-arena-st-gallen-w-m-d-laderach-st-gallen"
+        "verkaufer-20-40-chocolaterie-shopping-arena-st-gallen-w-m-d-laderach-st-gallen",
+        "venditore-20-40-chocolaterie-shopping-arena-st-gallen-f-m-d-laderach-schweiz-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-20-40-chocolaterie-shopping-arena-st-gallen-w-m-d-laderach-st-gallen"
+          "verkaufer-20-40-chocolaterie-shopping-arena-st-gallen-w-m-d-laderach-st-gallen",
+          "venditore-20-40-chocolaterie-shopping-arena-st-gallen-f-m-d-laderach-schweiz-ag-st-gallen"
         ],
         "en": [
           "verkaufer-20-40-chocolaterie-shopping-arena-st-gallen-w-m-d-laderach-st-gallen"
@@ -914,7 +945,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-7e0a2691cb01",
@@ -957,13 +989,15 @@
       "postedDate": "2026-07-17",
       "url": "https://laderach.career.softgarden.de/jobs/64716424/Verk%C3%A4ufer-60%25-Chocolaterie-Luzern-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:36.422Z",
+      "crawledAt": "2026-08-10T21:46:02.464Z",
       "previousSlugs": [
-        "verkaufer-60-chocolaterie-luzern-w-m-d-laderach-luzern"
+        "verkaufer-60-chocolaterie-luzern-w-m-d-laderach-luzern",
+        "vendor-60-chocolaterie-lucerne-f-m-d-laderach-schweiz-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-60-chocolaterie-luzern-w-m-d-laderach-luzern"
+          "verkaufer-60-chocolaterie-luzern-w-m-d-laderach-luzern",
+          "vendor-60-chocolaterie-lucerne-f-m-d-laderach-schweiz-ag-luzern"
         ],
         "en": [
           "verkaufer-60-chocolaterie-luzern-w-m-d-laderach-luzern"
@@ -1002,7 +1036,7 @@
       "title": "Technical Product Owner / Service Owner Power BI & Data Warehouse (m/w/d)",
       "titleByLocale": {
         "it": "Proprietario del prodotto tecnico / Proprietario del servizio Potenza BI & Data Warehouse (m/f/d)",
-        "en": "Technical Product Owner / Service Owner Power BI & Data Warehouse (m/f/d)",
+        "en": "Technical Product Owner / Service Owner Power BI & Data Warehouse (m/w/d)",
         "de": "Technical Product Owner / Service Owner Power BI & Data Warehouse (m/w/d)",
         "fr": "Propriétaire de produit technique / propriétaire de service Puissance BI & entrepôt de données (m/f/d)"
       },
@@ -1028,19 +1062,22 @@
       "postedDate": "2026-07-15",
       "url": "https://laderach.career.softgarden.de/jobs/66096098/Technical-Product-Owner-Service-Owner-Power-BI-Data-Warehouse-m-w-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:36.282Z",
+      "crawledAt": "2026-08-10T21:46:02.318Z",
       "previousSlugs": [
-        "technical-product-owner-service-owner-power-bi-data-warehouse-m-w-d-laderach-bilten"
+        "technical-product-owner-service-owner-power-bi-data-warehouse-m-w-d-laderach-bilten",
+        "proprietario-del-prodotto-tecnico-proprietario-del-servizio-potenza-bi-data-warehouse-m-f-d-laderach-schweiz-ag-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-product-owner-service-owner-power-bi-data-warehouse-m-w-d-laderach-bilten"
+          "technical-product-owner-service-owner-power-bi-data-warehouse-m-w-d-laderach-bilten",
+          "proprietario-del-prodotto-tecnico-proprietario-del-servizio-potenza-bi-data-warehouse-m-f-d-laderach-schweiz-ag-bilten"
         ],
         "fr": [
           "technical-product-owner-service-owner-power-bi-data-warehouse-m-w-d-laderach-bilten"
         ]
       },
       "firstSeenAt": "2026-07-15T10:59:47.100Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1062,7 +1099,7 @@
         "it": "it-projektleiter-risorse-umane-corporate-service-applikationen-w-m-d-laderach-schweiz-ag-bilten",
         "en": "it-project-manager-hr-corporate-service-applications-f-m-d-laderach-schweiz-ag-bilten",
         "de": "it-projektleiter-hr-corporate-service-applikationen-w-m-d-laderach-bilten",
-        "fr": "gestionnaire-de-projet-en-ti-ressources-humaines-et-applications-des-services-ministeriels-f-m-d-laderach-schweiz-ag"
+        "fr": "it-projektleiter-hr-corporate-service-applikationen-m-w-d-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -1072,7 +1109,7 @@
         "it": "IT-Projektleiter Risorse Umane- & Corporate-Service-Applikationen (w/m/d)",
         "en": "IT Project Manager HR & Corporate Service Applications (f/m/d)",
         "de": "IT-Projektleiter Personalwesen- & Corporate-Service-Applikationen (w/m/d)",
-        "fr": "Gestionnaire de projet de TI Demandes de RH et de services ministériels (f/m/d)"
+        "fr": "IT-Projektleiter HR- & Corporate-Service-Applikationen (w/m/d)"
       },
       "description": "Hochwertige frische Schokolade – dafür steht die Schweizer Schokoladenmanufaktur Läderach. 1962 gegründet, beschäftigt das Familienunternehmen heute gruppenweit über 2500 Menschen aus mehr als 80 Ländern, Tendenz steigend. Der Hauptsitz des Unternehmens liegt im Kanton Glarus. Vor malerischer Alpenkulisse produzieren wir hier unsere frischen Schokoladen und entwickeln in agilen Teams ständig neue, kreative Ideen.\nIn unserem Unternehmensbereich «Corporate Functions» sind verschiedene Tätigkeiten gebündelt. Neben unseren Finance- und IT-Services sind in diesem Bereich auch das globale Marketing und Sales Management sowie Human Resources angesiedelt. Täglich entstehen hier frische Ideen, die wir gemeinsam zum Erfolg führen. Eigenverantwortung und vernetztes Arbeiten sind uns besonders wichtig. Willst auch du daran teilhaben? Dann komm zu uns.\n\nDas erwartet dich\n\n• Du trägst die Gesamtverantwortung für die Planung, Steuerung und Umsetzung von IT-Projekten im Umfeld von HR-Applikationen (z. B. SAP SuccessFactors, Payroll, Time Tracking, Recruiting, Learning) sowie Corporate-Service-Applikationen (z. B. Finance, Legal, Facility Management, Collaboration Tools)\n\n• Du identifizierst proaktiv Risiken, Abhängigkeiten und Optimierungspotenziale entlang der End-to-End-Prozesse (Hire-to-Retire, Procure-to-Pay, Record-to-Report etc.)\n\n• Du arbeitest eng mit HR, Finance und Corporate Functions zusammen und übersetzt fachliche Anforderungen in nachhaltige IT-Lösungen\n\n• Du steuerst interne und externe Partner (z. B. Implementierungspartner, SaaS-Provider)\n\n• Du etablierst und entwickelst agile Projekt- und Delivery-Modelle weiter (Scrum, Kanban, hybride Ansätze)\n\n• Du stellst eine hohe Datenqualität, Integrationsstabilität und User Experience über Systemgrenzen hinweg sicher\n\n• Du kommunizierst Projekte und Stakeholder transparent bis auf Management- und Board-Ebene\n\n• Du planst und führst Release-, Change- und Go-Live-Aktivitäten inklusive Business Readiness und Adoption-Massnahmen durch\n\n• Du verbesserst kontinuierlich Projektmethoden, Governance-Strukturen und Toolsets\n\n• Du stellst die Einhaltung von Compliance-, Datenschutz- und Security-Vorgaben sicher (z. B. DSGVO, SOX, Audit-Anforderungen)\n\nDas bringst du mit\n\n• Du hast ein abgeschlossenes Studium in (Wirtschafts-)Informatik oder eine vergleichbare Qualifikation sowie mehrjährige Erfahrung als IT-Projektleiter im Umfeld von HR-IT und/oder Corporate-Service-Applikationen\n\n• Du verfügst über ein sehr gutes Verständnis für HR- und Corporate-Prozesse sowie deren IT-seitige Abbildung und hast Erfahrung mit SaaS-Lösungen, Integrationsszenarien und komplexen Stakeholder-Landschaften\n\n• Du hast fundierte Kenntnisse in agilen und klassischen Projektmanagement-Methoden (Scrum, Kanban, PMI, PRINCE2, SAFe) und setzt diese situativ ein\n\n• Du arbeitest hands-on, übernimmst hohe Eigenverantwortung und überzeugst mit Umsetzungsstärke sowie einer strukturierten, analytischen und lösungsorientierten Arbeitsweise\n\n• Du verfügst über sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift und kommunizierst sicher mit Fachbereichen, IT und Management\n\n• Du denkst proaktiv voraus, treibst Themen eigenständig voran und reagierst flexibel auf Veränderungen sowie Transformations- und Digitalisierungsinitiativen\n\nDas bieten wir dir\n\n• Ein spannendes Arbeitsumfeld mit motivierten Kolleginnen und Kollegen\n\n• Eine Position mit viel Eigenverantwortung\n\n• Die Möglichkeit, frische Ideen einzubringen\n\n• Eine offene und respektvolle Feedbackkultur\n\n• Interne und externe Weiterbildungen\n\n• Individuelle Karrieremöglichkeiten\n\n• Grosszügige Rabatte auf unsere Produkte\n\n• Schokolade am Arbeitsplatz\n\n• Kostenlose Parkplätze\n\n• Vergünstigungen im Läderach Café und Personalrestaurant\n\nKlingt interessant? Dann bewirb dich bei uns. Fabio Ferramosca , Talent Acquisition Partner, steht dir bei Fragen gern zur Verfügung.\n\nWir bitten um Verständnis, dass wir bei der Besetzung dieser Position keine externen Personalvermittlungen berücksichtigen.",
       "descriptionByLocale": {
@@ -1096,13 +1133,14 @@
       "postedDate": "2026-07-15",
       "url": "https://laderach.career.softgarden.de/jobs/64161118/IT-Projektleiter-HR--Corporate-Service-Applikationen-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:36.138Z",
+      "crawledAt": "2026-08-10T21:46:02.163Z",
       "previousSlugs": [
         "it-projektleiter-hr-corporate-service-applikationen-w-m-d-laderach-bilten",
         "gestionnaire-de-projet-de-ti-demandes-de-rh-et-de-services-ministeriels-f-m-d-laderach-schweiz-ag-bilten",
         "it-projektleiter-hr-corporate-service-applikationen-w-m-d-laderach-schweiz-ag-bilten",
         "it-project-manager-hr-corporate-service-applications-w-m-d-laderach-schweiz-ag-bilten",
         "it-projektleiter-risorse-umane-corporate-service-applikationen-m-w-d-laderach-schweiz-ag-bilten",
+        "gestionnaire-de-projet-en-ti-ressources-humaines-et-applications-des-services-ministeriels-f-m-d-laderach-schweiz-ag",
         "it-projektleiter-hr-corporate-service-applikationen-m-w-d-laderach-schweiz-ag-bilten"
       ],
       "previousSlugsByLocale": {
@@ -1114,10 +1152,12 @@
         ],
         "fr": [
           "it-projektleiter-hr-corporate-service-applikationen-w-m-d-laderach-schweiz-ag-bilten",
+          "gestionnaire-de-projet-en-ti-ressources-humaines-et-applications-des-services-ministeriels-f-m-d-laderach-schweiz-ag",
           "it-projektleiter-hr-corporate-service-applikationen-m-w-d-laderach-schweiz-ag-bilten"
         ]
       },
       "firstSeenAt": "2026-07-15T10:59:46.912Z",
+      "needsRetranslation": true,
       "salaryMin": 118500,
       "salaryMax": 159500,
       "baseSalary": {
@@ -1173,13 +1213,15 @@
       "postedDate": "2026-07-15",
       "url": "https://laderach.career.softgarden.de/jobs/66082518/Stv-Filialleiter-Chocolaterie-Oerlikon-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:36.001Z",
+      "crawledAt": "2026-08-10T21:46:02.015Z",
       "previousSlugs": [
-        "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich"
+        "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich",
+        "stv-branch-manager-chocolaterie-oerlikon-f-m-d-laderach-schweiz-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich"
+          "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich",
+          "stv-branch-manager-chocolaterie-oerlikon-f-m-d-laderach-schweiz-ag-zurich"
         ],
         "en": [
           "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich"
@@ -1189,6 +1231,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T10:59:46.637Z",
+      "needsRetranslation": true,
       "salaryMin": 134000,
       "salaryMax": 180500,
       "baseSalary": {
@@ -1218,7 +1261,7 @@
       "title": "Head of Engineering & Operational Excellence (w/m/d)",
       "titleByLocale": {
         "it": "Responsabile Engineering (w/m/d)",
-        "en": "Head of Engineering & Operational Excellence (f/m/d)",
+        "en": "Head of Engineering & Operational Excellence (w/m/d)",
         "de": "Leiter Engineering & Operational Excellence (w/m/d)",
         "fr": "Responsable Engineering (w/m/d)"
       },
@@ -1244,19 +1287,21 @@
       "postedDate": "2026-07-10",
       "url": "https://laderach.career.softgarden.de/jobs/65995198/Head-of-Engineering-Operational-Excellence-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:35.860Z",
+      "crawledAt": "2026-08-10T21:46:01.862Z",
       "previousSlugs": [
         "head-of-engineering-w-m-d-laderach-ennenda",
         "head-of-engineering-operational-excellence-w-m-d-laderach-ennenda",
         "head-of-engineering-operational-excellence-w-m-d-laderach-glarus",
-        "responsabile-engineering-w-m-d-laderach-schweiz-ag-glarus"
+        "responsabile-engineering-w-m-d-laderach-schweiz-ag-glarus",
+        "responsabile-engineering-w-m-d-laderach-schweiz-ag-ennenda"
       ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-engineering-w-m-d-laderach-ennenda",
           "head-of-engineering-operational-excellence-w-m-d-laderach-ennenda",
           "head-of-engineering-operational-excellence-w-m-d-laderach-glarus",
-          "responsabile-engineering-w-m-d-laderach-schweiz-ag-glarus"
+          "responsabile-engineering-w-m-d-laderach-schweiz-ag-glarus",
+          "responsabile-engineering-w-m-d-laderach-schweiz-ag-ennenda"
         ],
         "de": [
           "head-of-engineering-w-m-d-laderach-ennenda"
@@ -1266,6 +1311,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:23:25.901Z",
+      "needsRetranslation": true,
       "salaryMin": 118500,
       "salaryMax": 159500,
       "baseSalary": {
@@ -1321,7 +1367,7 @@
       "postedDate": "2026-07-10",
       "url": "https://laderach.career.softgarden.de/jobs/65967018/Servicetechniker-f%C3%BCr-mechatronische-Systeme-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:35.710Z",
+      "crawledAt": "2026-08-10T21:46:01.718Z",
       "previousSlugs": [
         "servicetechniker-fur-mechatronische-systeme-w-m-d-laderach-bilten"
       ],
@@ -1337,6 +1383,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:23:25.590Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1392,15 +1439,17 @@
       "postedDate": "2026-07-03",
       "url": "https://laderach.career.softgarden.de/jobs/65789197/Mitarbeiter-Produktionsversorgung-60%25-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:34.589Z",
+      "crawledAt": "2026-08-10T21:46:00.759Z",
       "previousSlugs": [
         "mitarbeiter-produktionsversorgung-w-m-d-laderach-glarus-nord",
-        "mitarbeiter-produktionsversorgung-60-w-m-d-laderach-glarus-nord"
+        "mitarbeiter-produktionsversorgung-60-w-m-d-laderach-glarus-nord",
+        "collaboratore-trice-produktionsversorgung-m-w-d-laderach-schweiz-ag-glarus-nord"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-produktionsversorgung-w-m-d-laderach-glarus-nord",
-          "mitarbeiter-produktionsversorgung-60-w-m-d-laderach-glarus-nord"
+          "mitarbeiter-produktionsversorgung-60-w-m-d-laderach-glarus-nord",
+          "collaboratore-trice-produktionsversorgung-m-w-d-laderach-schweiz-ag-glarus-nord"
         ],
         "en": [
           "mitarbeiter-produktionsversorgung-w-m-d-laderach-glarus-nord"
@@ -1410,6 +1459,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T11:39:24.585Z",
+      "needsRetranslation": true,
       "salaryMin": 40200,
       "salaryMax": 54300,
       "baseSalary": {
@@ -1439,7 +1489,7 @@
       "title": "Stv. Filialleiter 60% Chocolaterie Mall of Switzerland Ebikon (w/m/d)",
       "titleByLocale": {
         "it": "Direttore di filiale 60% Cioccolatieri Mall della Svizzera Ebikon (w/m/d)",
-        "en": "60% Chocolaterie Mall of Switzerland Ebikon (f/m/d)",
+        "en": "Stv. Filialleiter 60% Chocolaterie Mall of Switzerland Ebikon (w/m/d)",
         "de": "Stv. Filialleiter 60% Chocolaterie Mall of Switzerland Ebikon (w/m/d)",
         "fr": "Directeur de la succursale 60% Chocolaterie Mall of Switzerland Ebikon (w/m/d)"
       },
@@ -1465,13 +1515,15 @@
       "postedDate": "2026-06-23",
       "url": "https://laderach.career.softgarden.de/jobs/65493251/Stv-Filialleiter-60%25-Chocolaterie-Mall-of-Switzerland-Ebikon-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:34.091Z",
+      "crawledAt": "2026-08-10T21:46:00.286Z",
       "previousSlugs": [
-        "stv-filialleiter-60-chocolaterie-mall-of-switzerland-ebikon-w-m-d-laderach-ebikon"
+        "stv-filialleiter-60-chocolaterie-mall-of-switzerland-ebikon-w-m-d-laderach-ebikon",
+        "60-chocolaterie-mall-della-svizzera-ebikon-f-m-d-laderach-schweiz-ag-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-60-chocolaterie-mall-of-switzerland-ebikon-w-m-d-laderach-ebikon"
+          "stv-filialleiter-60-chocolaterie-mall-of-switzerland-ebikon-w-m-d-laderach-ebikon",
+          "60-chocolaterie-mall-della-svizzera-ebikon-f-m-d-laderach-schweiz-ag-ebikon"
         ],
         "en": [
           "stv-filialleiter-60-chocolaterie-mall-of-switzerland-ebikon-w-m-d-laderach-ebikon"
@@ -1481,6 +1533,7 @@
         ]
       },
       "firstSeenAt": "2026-06-23T11:53:19.361Z",
+      "needsRetranslation": true,
       "salaryMin": 76200,
       "salaryMax": 102600,
       "baseSalary": {
@@ -1536,13 +1589,15 @@
       "postedDate": "2026-06-17",
       "url": "https://laderach.career.softgarden.de/jobs/57440683/Verk%C3%A4ufer-60%25-im-Stundenlohn-Chocolaterie-House-of-L%C3%A4derach-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:33.726Z",
+      "crawledAt": "2026-08-10T21:45:59.964Z",
       "previousSlugs": [
-        "verkaufer-60-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten"
+        "verkaufer-60-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten",
+        "venditore-60-nel-salario-orario-chocolaterie-house-of-laderach-f-m-d-laderach-schweiz-ag-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-60-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten"
+          "verkaufer-60-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten",
+          "venditore-60-nel-salario-orario-chocolaterie-house-of-laderach-f-m-d-laderach-schweiz-ag-bilten"
         ],
         "en": [
           "verkaufer-60-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten"
@@ -1552,6 +1607,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:22:52.642Z",
+      "needsRetranslation": true,
       "salaryMin": 40200,
       "salaryMax": 54300,
       "baseSalary": {
@@ -1565,84 +1621,6 @@
         }
       },
       "addressRegion": "GL"
-    },
-    {
-      "id": "laderach-7f940c79bfd3",
-      "slug": "filialleiter-chocolaterie-shopping-arena-st-gallen-w-m-d-laderach-st-gallen",
-      "slugByLocale": {
-        "it": "filialleiter-chocolaterie-shopping-arena-st-gallen-w-m-d-laderach-st-gallen",
-        "en": "branch-manager-chocolaterie-shopping-arena-st-gallen-f-m-d-laderach-schweiz-ag-st-gallen",
-        "de": "filialleiter-chocolaterie-shopping-arena-st-gallen-w-m-d-laderach-st-gallen",
-        "fr": "directeur-de-succursale-chocolaterie-shopping-arena-st-gallen-f-m-d-laderach-schweiz-ag-st-gallen"
-      },
-      "company": "Läderach (Schweiz) AG",
-      "companyKey": "laderach",
-      "companyDomain": "laderach.com",
-      "title": "Filialleiter Chocolaterie Shopping Arena St. Gallen (w/m/d)",
-      "titleByLocale": {
-        "it": "Branch Manager Chocolaterie Shopping Arena St. Gallen (f/m/d)",
-        "en": "Branch Manager Chocolaterie Shopping Arena St. Gallen (f/m/d)",
-        "de": "Filialleiter Chocolaterie Shopping Arena St. Gallen (w/m/d)",
-        "fr": "Directeur de succursale Chocolaterie Shopping Arena St. Gallen (f/m/d)"
-      },
-      "description": "Hochwertige frische Schokolade – dafür steht die Schweizer Schokoladenmanufaktur Läderach. 1962 gegründet, beschäftigt das Familienunternehmen heute gruppenweit über 2500 Menschen aus mehr als 80 Ländern, Tendenz steigend. Der Hauptsitz des Unternehmens liegt im Kanton Glarus. Vor malerischer Alpenkulisse produzieren wir hier unsere frischen Schokoladen und entwickeln in agilen Teams ständig neue, innovative Ideen.\nDer Unternehmensbereich «Retail» umfasst über 250 Chocolaterien in über 30 Ländern. Hier bieten wir unsere Schokoladenspezialitäten an und laden Kundinnen und Kunden ein, frische Schokolade immer wieder neu zu erleben. Willst auch du daran teilhaben? Dann komm zu uns.\n\nDas erwartet dich\n\n• Du leitest und motivierst ein engagiertes Team von Filialmitarbeitenden\n\n• Du lebst eine offene Feedbackkultur\n\n• Du sicherst die effiziente Organisation und den reibungslosen Ablauf des Filialbetriebs\n\n• Du übernimmst die Verantwortung für Umsatz, Kennzahlen und die Erreichung der Filialziele\n\n• Du analysierst Kennzahlen und leitest gemeinsam mit der Regionalleitung gezielte Massnahmen zur Weiterentwicklung des Standorts ab\n\n• Du bietest eine kompetente, kundenorientierte Beratung und unterstützt bei der Auswahl von Geschenken aus unserem vielfältigen Warensortiment\n\n• Du sorgst für die ansprechende Präsentation unseres umfangreichen Confiserie- und Schokoladensortiments, unter anderem durch kreative Ladengestaltung\n\n• Du übernimmst die Zahlenverantwortung\n\n• Du sorgst für die ordnungsgemässe Abwicklung von Kassiervorgängen und garantierst eine korrekte Abrechnung\n\n• Du kümmerst dich um das Bestellwesen und stellst sicher, dass stets ausreichend Waren verfügbar sind\n\n• Du sorgst dafür, dass unser Hygiene- und Frischekonzept jederzeit eingehalten wird\n\n• Du übernimmst die Personalplanung im Schichtbetrieb und bist aktiv in den Rekrutierungsprozess eingebunden\n\nDas bringst du mit\n\n• Du bringst mehrjährige Verkaufs- und Führungserfahrung im Detailhandel mit und zeichnest dich durch eine hohe Sozialkompetenz sowie eine starke Führungspersönlichkeit aus\n\n• Du hast eine Ausbildung im Detailhandel und/oder vergleichbare Erfahrungen im Umgang mit Lebensmitteln erfolgreich abgeschlossen\n\n• Du stellst höchste Qualität und Kundenorientierung auch in turbulenten Zeiten stets an oberster Stelle\n\n• Du übernimmst gerne Verantwortung, denkst proaktiv im Team mit und förderst eine positive Zusammenarbeit\n\n• Du hast fundierte EDV-Kenntnisse und arbeitest gerne selbstständig und lösungsorientiert\n\n• Du schätzt eine offene und respektvolle Kommunikation und beherrschst Deutsch und Englisch sicher; Kenntnisse in Französisch und weiteren Sprachen sind ein zusätzlicher Vorteil\n\n• Du hast keine Scheu vor flexiblen Arbeitszeiten und bist auch an Wochenenden, Samstagen, Sonntagen oder Feiertagen bereit, Verantwortung zu übernehmen\n\nDas bieten wir dir\n\n• Ein spannendes Arbeitsumfeld mit motivierten Kolleginnen und Kollegen\n\n• Eine Position mit viel Eigenverantwortung\n\n• Die Möglichkeit, frische Ideen einzubringen\n\n• Eine offene und respektvolle Feedbackkultur\n\n• Interne und externe Weiterbildungen\n\n• Individuelle Karrieremöglichkeiten\n\n• Grosszügige Rabatte auf unsere Produkte\n\n• Schokolade am Arbeitsplatz\n\n• Gute Erreichbarkeit der Standorte\n\nKlingt interessant? Dann bewirb dich bei uns. Franziska Franz, Regionale Verkaufsleiterin, +41 79 521 61 88, steht dir bei Fragen gern zur Verfügung.\n\nWir bitten um Verständnis, dass wir bei der Besetzung dieser Position keine externen Personalvermittlungen berücksichtigen.",
-      "descriptionByLocale": {
-        "it": "Cioccolata fresca di alta qualità – ecco cosa rappresenta il produttore svizzero di cioccolato Läderach. Fondata nel 1962, l'azienda familiare oggi impiega oltre 2.500 persone provenienti da più di 80 paesi del Gruppo, e la tendenza sta aumentando. La sede della società si trova nel Canton Glarus. Di fronte a un pittoresco scenario alpino, produciamo i nostri cioccolatini freschi qui e sviluppiamo costantemente nuove idee innovative nelle squadre agili. La divisione “Retail” comprende più di 250 cioccolatini in più di 30 paesi. Qui offriamo le nostre specialità di cioccolato e invitiamo i clienti a sperimentare il cioccolato fresco ancora e ancora. Vuoi anche partecipare? Allora vieni da noi. Questo è ciò che vi aspetta. Guida e motiva un team dedicato di dipendenti di branch\n• Assicurare l'organizzazione efficiente e il funzionamento regolare dell'operazione di filiale\n• Offriamo consulenza e supporto competenti e orientati al cliente nella selezione di regali dalla nostra gamma di prodotti diversi\n• Fornite una presentazione attraente della nostra vasta gamma di confiseries e cioccolato, tra cui creativo design negozio. Si assume la responsabilità per i numeri, assicurarsi la corretta gestione delle transazioni in contanti e garantire un corretto insediamento\n• Si prende cura del processo di ordinazione e assicurarsi che ci sono sempre abbastanza beni disponibili\n• Assicurarsi che il nostro concetto di igiene e freschezza sia rispettato in ogni momento\n• Si occupa della pianificazione del personale nelle operazioni a turni e si occupa attivamente del processo di reclutamento Lo porti con te. Porti diversi anni di vendite e di esperienza di leadership nel commercio al dettaglio e sono caratterizzati da un alto livello di competenza sociale e da un forte leader\n• Hai completato con successo un apprendistato nel commercio al dettaglio e/o un'esperienza comparabile nel trattare con il cibo\n• Metti sempre la massima qualità e orientamento al cliente in alto, anche in tempi turbolenti Ti piace assumerti la responsabilità, pensare in modo proattivo nel team e promuovere la cooperazione positiva\n• Hai un'approfondita conoscenza dell'IT e goditi il lavoro in modo indipendente e orientato alla soluzione\n• Valori la comunicazione aperta e rispettosa e padroneggi il tedesco e l'inglese in modo sicuro; La conoscenza del francese e delle altre lingue è un vantaggio aggiunto\n• Non avete paura di orari di lavoro flessibili e sono anche pronti a prendersi la responsabilità nei fine settimana, sabato, domenica o festivi E' questo che ti offriamo. Un ambiente di lavoro emozionante con colleghi motivati\n• Una posizione con un sacco di responsabilità personale\n• L'opportunità di portare idee fresche\n• Una cultura di feedback aperta e rispettosa\n• Formazione interna ed esterna\n• Opportunità di carriera individuale\n• Riduzioni generose sui nostri prodotti\n• Cioccolato sul lavoro\n• Buona accessibilità delle sedi. Crescete. Rendilo fresco. Sembra interessante? Allora applicaci. Franziska Franz, Regional Sales Manager, +41 79 521 61 88, è a vostra disposizione per qualsiasi domanda. Chiediamo la vostra comprensione che non consideriamo agenzie di reclutamento esterne durante il riempimento di questa posizione.",
-        "en": "High-quality fresh chocolate – that is what the Swiss chocolate manufacturer Läderach stands for. Founded in 1962, the family business today employs more than 2,500 people from more than 80 countries across the Group, and the trend is rising. The company’s headquarters are located in the Canton of Glarus. In front of a picturesque Alpine backdrop, we produce our fresh chocolates here and constantly develop new, innovative ideas in agile teams. The “Retail” division comprises more than 250 chocolateries in more than 30 countries. Here we offer our chocolate specialties and invite customers to experience fresh chocolate again and again. Do you also want to participate? Then come to us. This is what awaits you. You lead and motivate a dedicated team of branch employees\n• You ensure the efficient organization and smooth operation of the branch operation\n• You offer competent, customer-oriented advice and support in the selection of gifts from our diverse product range\n• You provide an attractive presentation of our extensive range of confiseries and chocolate, including creative shop design. You take on the responsibility for numbers, ensure the proper handling of cash transactions and guarantee a correct settlement\n• You take care of the ordering process and make sure that there are always enough goods available\n• You ensure that our hygiene and freshness concept is adhered to at all times\n• You take over the personnel planning in shift operations and are actively involved in the recruitment process You bring that with you. You bring several years of sales and leadership experience in the retail trade and are characterized by a high level of social competence and a strong leader\n• You have successfully completed an apprenticeship in the retail trade and/or comparable experience in dealing with food\n• You always put the highest quality and customer orientation at the top, even in turbulent times You like to take responsibility, think proactively in the team and promote positive cooperation\n• You have in-depth IT knowledge and enjoy working independently and solution-oriented\n• You value open and respectful communication and master German and English safely; Knowledge of French and other languages is an added advantage\n• You are not afraid of flexible working hours and are also ready to take responsibility on weekends, Saturdays, Sundays or public holidays This is what we offer you. An exciting working environment with motivated colleagues\n• A position with a lot of personal responsibility\n• The opportunity to bring in fresh ideas\n• An open and respectful feedback culture\n• Internal and external training\n• Individual career opportunities\n• Generous discounts on our products\n• Chocolate at work\n• Good accessibility of the Own it locations. Grow it. Make it fresh. Sounds interesting? Then apply to us. Franziska Franz, Regional Sales Manager, +41 79 521 61 88, is at your disposal for any questions. We ask for your understanding that we do not consider external recruitment agencies when filling this position.",
-        "de": "Hochwertige frische Schokolade – dafür steht die Schweizer Schokoladenmanufaktur Läderach. 1962 gegründet, beschäftigt das Familienunternehmen heute gruppenweit über 2500 Menschen aus mehr als 80 Ländern, Tendenz steigend. Der Hauptsitz des Unternehmens liegt im Kanton Glarus. Vor malerischer Alpenkulisse produzieren wir hier unsere frischen Schokoladen und entwickeln in agilen Teams ständig neue, innovative Ideen.\nDer Unternehmensbereich «Retail» umfasst über 250 Chocolaterien in über 30 Ländern. Hier bieten wir unsere Schokoladenspezialitäten an und laden Kundinnen und Kunden ein, frische Schokolade immer wieder neu zu erleben. Willst auch du daran teilhaben? Dann komm zu uns.\n\nDas erwartet dich\n\n• Du leitest und motivierst ein engagiertes Team von Filialmitarbeitenden\n\n• Du lebst eine offene Feedbackkultur\n\n• Du sicherst die effiziente Organisation und den reibungslosen Ablauf des Filialbetriebs\n\n• Du übernimmst die Verantwortung für Umsatz, Kennzahlen und die Erreichung der Filialziele\n\n• Du analysierst Kennzahlen und leitest gemeinsam mit der Regionalleitung gezielte Massnahmen zur Weiterentwicklung des Standorts ab\n\n• Du bietest eine kompetente, kundenorientierte Beratung und unterstützt bei der Auswahl von Geschenken aus unserem vielfältigen Warensortiment\n\n• Du sorgst für die ansprechende Präsentation unseres umfangreichen Confiserie- und Schokoladensortiments, unter anderem durch kreative Ladengestaltung\n\n• Du übernimmst die Zahlenverantwortung\n\n• Du sorgst für die ordnungsgemässe Abwicklung von Kassiervorgängen und garantierst eine korrekte Abrechnung\n\n• Du kümmerst dich um das Bestellwesen und stellst sicher, dass stets ausreichend Waren verfügbar sind\n\n• Du sorgst dafür, dass unser Hygiene- und Frischekonzept jederzeit eingehalten wird\n\n• Du übernimmst die Personalplanung im Schichtbetrieb und bist aktiv in den Rekrutierungsprozess eingebunden\n\nDas bringst du mit\n\n• Du bringst mehrjährige Verkaufs- und Führungserfahrung im Detailhandel mit und zeichnest dich durch eine hohe Sozialkompetenz sowie eine starke Führungspersönlichkeit aus\n\n• Du hast eine Ausbildung im Detailhandel und/oder vergleichbare Erfahrungen im Umgang mit Lebensmitteln erfolgreich abgeschlossen\n\n• Du stellst höchste Qualität und Kundenorientierung auch in turbulenten Zeiten stets an oberster Stelle\n\n• Du übernimmst gerne Verantwortung, denkst proaktiv im Team mit und förderst eine positive Zusammenarbeit\n\n• Du hast fundierte EDV-Kenntnisse und arbeitest gerne selbstständig und lösungsorientiert\n\n• Du schätzt eine offene und respektvolle Kommunikation und beherrschst Deutsch und Englisch sicher; Kenntnisse in Französisch und weiteren Sprachen sind ein zusätzlicher Vorteil\n\n• Du hast keine Scheu vor flexiblen Arbeitszeiten und bist auch an Wochenenden, Samstagen, Sonntagen oder Feiertagen bereit, Verantwortung zu übernehmen\n\nDas bieten wir dir\n\n• Ein spannendes Arbeitsumfeld mit motivierten Kolleginnen und Kollegen\n\n• Eine Position mit viel Eigenverantwortung\n\n• Die Möglichkeit, frische Ideen einzubringen\n\n• Eine offene und respektvolle Feedbackkultur\n\n• Interne und externe Weiterbildungen\n\n• Individuelle Karrieremöglichkeiten\n\n• Grosszügige Rabatte auf unsere Produkte\n\n• Schokolade am Arbeitsplatz\n\n• Gute Erreichbarkeit der Standorte\n\nKlingt interessant? Dann bewirb dich bei uns. Franziska Franz, Regionale Verkaufsleiterin, +41 79 521 61 88, steht dir bei Fragen gern zur Verfügung.\n\nWir bitten um Verständnis, dass wir bei der Besetzung dieser Position keine externen Personalvermittlungen berücksichtigen.",
-        "fr": "Chocolat frais de haute qualité – c'est ce que représente le fabricant suisse de chocolat Läderach. Fondée en 1962, l'entreprise familiale emploie aujourd'hui plus de 2 500 personnes de plus de 80 pays dans l'ensemble du Groupe, et la tendance est à la hausse. Le siège de l'entreprise est situé dans le canton de Glarus. Devant un décor alpin pittoresque, nous produisons ici nos chocolats frais et développons constamment de nouvelles idées innovantes dans des équipes agiles. La division « Retail » comprend plus de 250 chocolateries dans plus de 30 pays. Ici, nous offrons nos spécialités de chocolat et invitons les clients à découvrir le chocolat frais encore et encore. Voulez-vous également participer? Alors venez nous voir. C'est ce qui vous attend. Vous dirigez et motivez une équipe dédiée d'employés de la branche\n• Vous assurez l'organisation efficace et le bon fonctionnement de la branche\n• Vous offrez des conseils et un soutien compétents et orientés vers le client dans la sélection de cadeaux de notre gamme de produits divers\n• Vous fournissez une présentation attrayante de notre vaste gamme de confiseries et de chocolat, y compris le design d'une boutique créative. Vous assumez la responsabilité des chiffres, assurez le bon traitement des transactions en espèces et garantir un règlement correct\n• Vous prenez soin du processus de commande et assurez-vous qu'il ya toujours assez de marchandises disponibles\n• Vous veillez à ce que notre concept d'hygiène et de fraîcheur soit respecté en tout temps\n• Vous prenez en charge la planification du personnel dans les opérations de quart et participez activement au processus de recrutement Apporte ça avec toi. Vous apportez plusieurs années d'expérience de vente et de leadership dans le commerce de détail et sont caractérisés par un haut niveau de compétence sociale et un leader fort\n• Vous avez réussi un apprentissage dans le commerce de détail et/ou une expérience comparable dans le traitement des aliments\n• Vous mettez toujours la plus haute qualité et l'orientation client au sommet, même dans les temps agités Vous aimez prendre des responsabilités, penser de manière proactive dans l'équipe et promouvoir une coopération positive\n• Vous avez une connaissance approfondie de l'informatique et aimez travailler de manière indépendante et orientée vers la solution\n• Vous appréciez la communication ouverte et respectueuse et maîtrisez l'allemand et l'anglais en toute sécurité; La connaissance du français et d'autres langues est un avantage supplémentaire\n• Vous n'avez pas peur des horaires flexibles et êtes également prêt à prendre la responsabilité le week-end, le samedi, le dimanche ou les jours fériés C'est ce que nous vous offrons. Un environnement de travail passionnant avec des collègues motivés\n• Un poste avec beaucoup de responsabilité personnelle\n• L'opportunité d'apporter des idées nouvelles\n• Une culture de feedback ouverte et respectueuse\n• Formation interne et externe\n• Opportunités de carrière individuelles\n• De généreuses réductions sur nos produits\n• Chocolat au travail\n• Bonne accessibilité des sites Own it. Fais-le pousser. Fais-le frais. Ça semble intéressant ? Alors appliquez-nous. Franziska Franz, Directeur Commercial Régional, +41 79 521 61 88, est à votre disposition pour toutes questions. Nous demandons que vous compreniez que nous ne considérons pas les agences de recrutement externes pour combler ce poste."
-      },
-      "sourceLang": "de",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "St. Gallen",
-      "canton": "SG",
-      "addressLocality": "St. Gallen",
-      "addressCountry": "CH",
-      "category": "manufacturing",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "url": "https://laderach.career.softgarden.de/jobs/65311816/Filialleiter-Chocolaterie-Shopping-Arena-St-Gallen-w-m-d-/",
-      "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:33.577Z",
-      "previousSlugs": [
-        "stv-filialleiter-80-chocolaterie-shopping-arena-st-gallen-w-m-d-laderach-st-gallen",
-        "deputy-store-manager-80-chocolaterie-shopping-arena-st-gallen-f-m-d-laderach-schweiz-ag-st-gallen",
-        "directeur-adjoint-du-magasin-80-chocolaterie-shopping-arena-st-gallen-f-m-d-laderach-schweiz-ag-st-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stv-filialleiter-80-chocolaterie-shopping-arena-st-gallen-w-m-d-laderach-st-gallen",
-          "deputy-store-manager-80-chocolaterie-shopping-arena-st-gallen-f-m-d-laderach-schweiz-ag-st-gallen",
-          "directeur-adjoint-du-magasin-80-chocolaterie-shopping-arena-st-gallen-f-m-d-laderach-schweiz-ag-st-gallen"
-        ],
-        "en": [
-          "deputy-store-manager-80-chocolaterie-shopping-arena-st-gallen-f-m-d-laderach-schweiz-ag-st-gallen"
-        ],
-        "de": [
-          "stv-filialleiter-80-chocolaterie-shopping-arena-st-gallen-w-m-d-laderach-st-gallen"
-        ],
-        "fr": [
-          "directeur-adjoint-du-magasin-80-chocolaterie-shopping-arena-st-gallen-f-m-d-laderach-schweiz-ag-st-gallen"
-        ]
-      },
-      "firstSeenAt": "2026-06-15T15:00:54.950Z",
-      "salaryMin": 113500,
-      "salaryMax": 153000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113500,
-          "maxValue": 153000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "SG"
     },
     {
       "id": "laderach-81d418798a2f",
@@ -1661,7 +1639,7 @@
         "it": "Risorse Umane Business Partner Retail (w/m/d)",
         "en": "HR Business Partner Retail Switzerland (f/m/d)",
         "de": "Personalwesen Business Partner Retail (w/m/d)",
-        "fr": "Partenaires d'affaires en RH Commerce de détail (f/m/d)"
+        "fr": "HR Business Partner Retail (w/m/d)"
       },
       "description": "Hochwertige frische Schokolade – dafür steht die Schweizer Schokoladenmanufaktur Läderach. 1962 gegründet, beschäftigt das Familienunternehmen heute gruppenweit über 2500 Menschen aus mehr als 80 Ländern, Tendenz steigend. Der Hauptsitz des Unternehmens liegt im Kanton Glarus. Vor malerischer Alpenkulisse produzieren wir hier unsere frischen Schokoladen und entwickeln in agilen Teams ständig neue, kreative Ideen.\nIn unserem Unternehmensbereich «Corporate Functions» sind verschiedene Tätigkeiten gebündelt. Neben unseren Finance- und IT-Services sind in diesem Bereich auch das globale Marketing und Sales Management sowie Human Resources angesiedelt. Täglich entstehen hier frische Ideen, die wir gemeinsam zum Erfolg führen. Eigenverantwortung und vernetztes Arbeiten sind uns besonders wichtig. Willst auch du daran teilhaben? Dann komm zu uns.\n\nDas erwartet dich\n\n• Du betreust als HR Business Partner unser Retail Business Schweiz und bist erste Ansprechperson für unsere Regional Manager, Store Manager sowie Mitarbeitenden in unseren Filialen\n\n• Du unterstützt Führungskräfte in sämtlichen HR-Themen entlang des Employee Lifecycles – von Rekrutierung und Onboarding über Talententwicklung bis hin zu Performance Management und Nachfolgeplanung\n\n• Du begleitest die Führungskräfte bei personellen und organisatorischen Fragestellungen und berätst sie kompetent in arbeitsrechtlichen sowie personalrelevanten Themen\n\n• Du arbeitest eng mit den Bereichen Talent Acquisition, HR Services, Payroll und Learning & Development zusammen und stellst eine effiziente Umsetzung aller HR-relevanten Themen sicher\n\n• Du unterstützt bei arbeitsrechtlichen Fragestellungen, Abwesenheitsmanagement sowie bei der Umsetzung von HR-Initiativen in den Filialen\n\n• Du begleitest Veränderungsprozesse und unterstützt die Weiterentwicklung unserer Führungskräfte und Teams\n\n• Du bringst aktiv eigene Ideen ein, um unsere HR-Prozesse und die Employee Experience im Retail Umfeld kontinuierlich weiterzuentwickeln\n\n• Dein Fokus liegt auf der Betreuung unseres Retail Business Schweiz. Darüber hinaus unterstützt du bei Bedarf internationale Retail-Märkte bei ausgewählten HR-Initiativen, Projekten und operativen Fragestellungen\n\nDas bringst du mit\n\n• Du verfügst über eine fundierte Ausbildung im Bereich Human Resources, Betriebswirtschaft oder einem verwandten Gebiet – idealerweise ergänzt durch eine Weiterbildung im HR-Management\n\n• Du hast mehrere Jahre Erfahrung als HR Business Partner in einem dynamischen Retail-, Hospitality- oder Dienstleistungsumfeld\n\n• Du bringst fundierte Kenntnisse im Schweizer Arbeitsrecht mit und fühlst dich in einem operativen und gleichzeitig strategischen Umfeld wohl\n\n• Du arbeitest selbstständig, pragmatisch und lösungsorientiert und behältst auch in einem schnelllebigen Umfeld den Überblick\n\n• Du überzeugst durch deine offene, empathische und vertrauenswürdige Persönlichkeit sowie durch deine ausgeprägte Beratungskompetenz\n\n• Du bist digital affin und hast Erfahrung mit HR-Systemen sowie Interesse an Prozessoptimierung und HR-Digitalisierung\n\n• Du sprichst fliessend Deutsch und Französisch und verfügst über sehr gute Englischkenntnisse. Italienischkenntnisse sind von Vorteil\n\nDas bieten wir dir\n\n• Ein spannendes Arbeitsumfeld mit motivierten Kolleginnen und Kollegen\n\n• Eine Position mit viel Eigenverantwortung\n\n• Die Möglichkeit, frische Ideen einzubringen\n\n• Eine offene und respektvolle Feedbackkultur\n\n• Interne und externe Weiterbildungen\n\n• Individuelle Karrieremöglichkeiten\n\n• Grosszügige Rabatte auf unsere Produkte\n\n• Schokolade am Arbeitsplatz\n\n• Kostenlose Parkplätze\n\n• Vergünstigungen im Läderach Café und Personalrestaurant\n\nOwn it. Grow it. Make it fresh.\n\nKlingt interessant? Dann bewirb dich bei uns. Fabio Ferramosca , Talent Acquisition Partner, steht dir bei Fragen gern zur Verfügung.\n\nWir bitten um Verständnis, dass wir bei der Besetzung dieser Position keine externen Personalvermittlungen berücksichtigen.",
       "descriptionByLocale": {
@@ -1685,8 +1663,9 @@
       "postedDate": "2026-06-15",
       "url": "https://laderach.career.softgarden.de/jobs/65307461/HR-Business-Partner-Retail-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:33.439Z",
+      "crawledAt": "2026-08-10T21:45:59.351Z",
       "firstSeenAt": "2026-06-15T15:00:54.823Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1742,13 +1721,15 @@
       "postedDate": "2026-06-15",
       "url": "https://laderach.career.softgarden.de/jobs/65305826/Verk%C3%A4ufer-auf-Abruf-40-60%25-Chocolaterie-Z%C3%BCrich-Augustiner-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:33.291Z",
+      "crawledAt": "2026-08-10T21:45:59.195Z",
       "previousSlugs": [
-        "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich"
+        "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich",
+        "venditore-su-richiesta-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich"
+          "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich",
+          "venditore-su-richiesta-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich"
         ],
         "en": [
           "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich"
@@ -1813,13 +1794,15 @@
       "postedDate": "2026-06-03",
       "url": "https://laderach.career.softgarden.de/jobs/65117528/Verk%C3%A4ufer-40-60%25-Chocolaterie-Flughafen-Z%C3%BCrich-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:32.602Z",
+      "crawledAt": "2026-08-10T21:45:58.590Z",
       "previousSlugs": [
-        "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich"
+        "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich",
+        "venditore-40-60-chocolaterie-aeroporto-zurigo-w-m-d-laderach-schweiz-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich"
+          "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich",
+          "venditore-40-60-chocolaterie-aeroporto-zurigo-w-m-d-laderach-schweiz-ag-zurich"
         ],
         "en": [
           "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich"
@@ -1884,14 +1867,16 @@
       "postedDate": "2026-05-26",
       "url": "https://laderach.career.softgarden.de/jobs/62367409/IT-Architect/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:32.452Z",
+      "crawledAt": "2026-08-10T21:45:58.440Z",
       "previousSlugsByLocale": {
         "de": [
-          "it-architect-laderach-bilten"
+          "it-architect-laderach-bilten",
+          "technical-it-architect-laderach-bilten"
         ],
         "it": [
           "technical-it-architect-laderach-bilten",
-          "it-architect-laderach-bilten"
+          "it-architect-laderach-bilten",
+          "technical-it-architect-laderach-schweiz-ag-bilten"
         ],
         "en": [
           "technical-it-architect-laderach-bilten"
@@ -1900,9 +1885,11 @@
       "previousSlugs": [
         "technical-it-architect-laderach-bilten",
         "technical-en-architect-laderach-schweiz-ag-bilten",
-        "it-architect-laderach-bilten"
+        "it-architect-laderach-bilten",
+        "technical-it-architect-laderach-schweiz-ag-bilten"
       ],
       "firstSeenAt": "2026-05-26T23:27:52.401Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1958,16 +1945,19 @@
       "postedDate": "2026-05-23",
       "url": "https://laderach.career.softgarden.de/jobs/63394664/Project-Manager-R-D-Couverture-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:32.293Z",
+      "crawledAt": "2026-08-10T21:45:58.289Z",
       "previousSlugs": [
-        "project-manager-r-d-couverture-laderach-bilten"
+        "project-manager-r-d-couverture-laderach-bilten",
+        "project-manager-r-d-copertura-laderach-schweiz-ag-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-r-d-couverture-laderach-bilten"
+          "project-manager-r-d-couverture-laderach-bilten",
+          "project-manager-r-d-copertura-laderach-schweiz-ag-bilten"
         ]
       },
       "firstSeenAt": "2026-05-23T11:05:13.687Z",
+      "needsRetranslation": true,
       "salaryMin": 118500,
       "salaryMax": 159500,
       "baseSalary": {
@@ -2023,7 +2013,7 @@
       "postedDate": "2026-05-09",
       "url": "https://laderach.career.softgarden.de/jobs/64654739/Verk%C3%A4ufer-60%25-befristet-Chocolaterie-Aarau-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:31.997Z",
+      "crawledAt": "2026-08-10T21:45:57.992Z",
       "previousSlugs": [
         "verkaufer-60-befristet-chocolaterie-aarau-w-m-d-laderach-aarau",
         "venditore-60-terminato-chocolaterie-aarau-w-m-d-laderach-schweiz-ag-aarau",
@@ -2101,15 +2091,17 @@
       "postedDate": "2026-05-11",
       "url": "https://laderach.career.softgarden.de/jobs/64633953/Confiseur-f%C3%BCr-Live-Produktion-im-House-of-L%C3%A4derach-60-100%25-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:31.847Z",
+      "crawledAt": "2026-08-10T21:45:57.847Z",
       "previousSlugsByLocale": {
         "de": [
           "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-schweiz-ag-bilten",
-          "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten"
+          "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten",
+          "entertainer-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten"
         ],
         "it": [
           "confiseur-per-la-produzione-live-presso-il-house-of-laderach-60-100-m-f-d-laderach-schweiz-ag-bilten",
-          "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten"
+          "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten",
+          "entertainer-per-live-produktion-im-house-of-laderach-60-100-m-w-d-laderach-schweiz-ag-bilten"
         ],
         "fr": [
           "entertainer-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten"
@@ -2119,9 +2111,11 @@
         "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten",
         "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-schweiz-ag-bilten",
         "entertainer-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten",
-        "confiseur-per-la-produzione-live-presso-il-house-of-laderach-60-100-m-f-d-laderach-schweiz-ag-bilten"
+        "confiseur-per-la-produzione-live-presso-il-house-of-laderach-60-100-m-f-d-laderach-schweiz-ag-bilten",
+        "entertainer-per-live-produktion-im-house-of-laderach-60-100-m-w-d-laderach-schweiz-ag-bilten"
       ],
       "firstSeenAt": "2026-05-11T12:02:24.820Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -2150,7 +2144,7 @@
       "companyDomain": "laderach.com",
       "title": "Promoter 40-60% Chocolaterie Bahnhofstrasse ZH (w/m/d)",
       "titleByLocale": {
-        "it": "Promotore 40-60% Chocolaterie Bahnhofstrasse ZH (f/m/d)",
+        "it": "Promoter 40-60% Chocolaterie Bahnhofstrasse ZH (w/m/d)",
         "en": "Promoter 40-60% Chocolates Bahnhofstrasse ZH (w/m/d)",
         "de": "Promoter 40-60% Chocolaterie Bahnhofstrasse ZH (w/m/d)",
         "fr": "Promoteur 40-60% Chocolaterie Bahnhofstrasse ZH (m/j)"
@@ -2177,7 +2171,7 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/63542534/Promoter-40-60%25-Chocolaterie-Bahnhofstrasse-ZH-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:30.786Z",
+      "crawledAt": "2026-08-10T21:45:57.074Z",
       "previousSlugs": [
         "promoter-40-60-chocolaterie-bahnhofstrasse-zh-w-m-d-laderach-zurich",
         "promoter-40-60-chocolates-bahnhofstrasse-zh-w-m-d-laderach-schweiz-ag-zurich",
@@ -2189,6 +2183,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:52:12.897Z",
+      "needsRetranslation": true,
       "salaryMin": 45600,
       "salaryMax": 61500,
       "baseSalary": {
@@ -2244,15 +2239,17 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/63051819/Verkaufsaushilfe-40-60%25-Chocolaterie-Bahnhofstrasse-Z%C3%BCrich-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-10T10:27:30.069Z",
+      "crawledAt": "2026-08-10T21:45:56.588Z",
       "previousSlugs": [
         "verkaufsaushilfe-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-zurich",
-        "verkaufsaushilfe-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich"
+        "verkaufsaushilfe-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich",
+        "vendita-aiuto-40-60-caffe-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsaushilfe-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-zurich",
-          "verkaufsaushilfe-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich"
+          "verkaufsaushilfe-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich",
+          "vendita-aiuto-40-60-caffe-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich"
         ],
         "en": [
           "verkaufsaushilfe-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich"

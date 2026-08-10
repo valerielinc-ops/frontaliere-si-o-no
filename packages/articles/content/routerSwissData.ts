@@ -708,6 +708,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'job-sharing-svizzera': { it: 'job-sharing-svizzera', en: 'job-sharing-switzerland', de: 'job-sharing-schweiz', fr: 'job-sharing-suisse' },
  'siccita-stress-famiglie': { it: 'siccita-stress-famiglie', en: 'drought-stress-families', de: 'durre-stress-familien', fr: 'secheresse-stress-familles' },
  'potenziale-riciclaggio-infrastrutture-energie-fossili': { it: 'potenziale-riciclaggio-infrastrutture-energie-fossili', en: 'potential-recycling-infrastructure-fossil-fuels', de: 'potenzielles-recycling-infrastructure-fossile-brennstoffe', fr: 'potentiel-de-recyclage-infrastructure-carburants-fossiles' },
+ 'patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera': { it: 'patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera', en: 'patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera', de: 'patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera', fr: 'patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

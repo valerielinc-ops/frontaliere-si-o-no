@@ -9557,6 +9557,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.title': 'Vivere a Cugliate-Fabiasco e lavorare in Ticino da frontaliere',
     'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.excerpt': 'Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 e entra in vigore dal 1° gennaio 2024. Ecco cosa cambia nella vita dei frontalieri.',
     'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Frontalieri con bambini sulla riva del Lago di Lugano',
+    'blog.article.vivere-dumenza-lavorare-ticino.title': 'Vivere a Dumenza e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-dumenza-lavorare-ticino.excerpt': 'Tutti i fatti importanti per i frontalieri che lavorano in Ticino e risiedono a Dumenza.',
+    'blog.article.vivere-dumenza-lavorare-ticino.imageAlt': 'Un frontaliere lavora in Ticino e risiede a Dumenza.',
 };
 
 export default blogMetaIt;

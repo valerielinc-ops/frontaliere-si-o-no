@@ -1,18 +1,49 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-08-10T10:31:52.435Z",
+  "generatedAt": "2026-08-10T21:53:34.881Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 8,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 7,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 21551,
-  "avgDurationMs": 21551,
+  "durationMs": 16469,
+  "avgDurationMs": 16469,
   "durationHistory": [
-    21551
+    16469
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Instandhalter Wärmebehandlung 100% (w/m/div.) - REF293787Q",
+      "slug": "instandhalter-warmebehandlung-100-w-m-div-ref293787q-bosch-st-niklaus",
+      "url": "https://jobs.bosch.com/en/job/REF293787Q-instandhalter-waermebehandlung-100-w-m-div-ref293787q",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000142593989-instandhalter-warmebehandlung-100-w-m-div-ref293787q?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "St. Niklaus",
+      "addressLocality": "St. Niklaus",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-10",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Lehrstelle Kaufmann-/frau EFZ/M 2027 (m/w/div.)",
@@ -258,10 +289,12 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Lehrstelle Kauffrau / Kaufmann 2027 - REF289852B",
-      "slug": "lehrstelle-kauffrau-kaufmann-2027-ref289852b-bosch-st-niklaus",
+      "slug": "apprendistato-kauffrau-kaufmann-2027-ref289852b-bosch-thermotechnik-ag-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF289852B-lehrstelle-kauffrau-kaufmann-2027-ref289852b",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000136472674-lehrstelle-kauffrau-kaufmann-2027-ref289852b?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -295,6 +328,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }

@@ -9558,6 +9558,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.title': 'Vivre à Cugliate-Fabiasco et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.excerpt': 'Le nouvel accord frontalier a été signé le 23 décembre 2020 et entre en vigueur le 1er janvier 2024. C\'est ce qui change dans la vie des frontaliers.',
     'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Frontaliers avec enfants sur la rive du Lac de Lugano',
+    'blog.article.vivere-dumenza-lavorare-ticino.title': 'Vivre à Dumenza et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-dumenza-lavorare-ticino.excerpt': 'Tous les faits importants pour les frontaliers qui travaillent au Tessin et résident à Dumenza.',
+    'blog.article.vivere-dumenza-lavorare-ticino.imageAlt': 'Un frontalier vit à Dumenza et travaille dans le Tessin.',
 };
 
 export default blogMetaFr;
