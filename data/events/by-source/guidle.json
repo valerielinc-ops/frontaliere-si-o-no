@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-08-09T06:44:35.739Z",
+  "assembledAt": "2026-08-10T07:10:38.067Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -11721,6 +11721,281 @@
       },
       "recurring": true,
       "imageUrl": "/images/events/guidle-Aq6k5Jt.jpg"
+    },
+    {
+      "id": "guidle:Ad21K9x",
+      "title": "TiM Café",
+      "titleByLocale": {
+        "it": "TiM Café",
+        "en": "TiM Cafe",
+        "de": "TiM Kaffee",
+        "fr": "Café TiM"
+      },
+      "description": "TiM-Café ist eine monatliche Veranstaltung, bei der Freiwillige&#160;&#160;(TiMer:innen) Besucher:innen einladen, gemeinsam eine Geschichte zu einem Kunstwerk zu erfinden.",
+      "descriptionByLocale": {
+        "it": "TiM-Café ist eine monatliche Veranstaltung, bei der Freiwillige&#160;&#160;(TiMer:innen) Besucher:innen einladen, gemeinsam eine Geschichte zu einem Kunstwerk zu erfinden.",
+        "en": "TiM-Café ist eine monatliche Veranstaltung, bei der Freiwillige (TiMer:innen) Besucher:innen einladen, gemeinsam eine Geschichte zu einem Kunstwerk zu erfinden.",
+        "de": "TiM-Café ist eine monatliche Veranstaltung, bei der Freiwillige (TiMer:innen) Besucher:innen einladen, gemeinsam eine Geschichte zu einem Kunstwerk zu erfinden.",
+        "fr": "TiM-Café ist eine monatliche Veranstaltung, bei der Freiwillige (TiMer :innen) Besucher :innen einladen, gemeinsam eine Geschichte zu einem Kunstwerk zu erfinden."
+      },
+      "startDate": "2026-08-13",
+      "endDate": "2026-12-10",
+      "startTime": "14:30",
+      "category": "L'arte in generale",
+      "venue": "Kunstmuseum St.Gallen",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/st-gallen/tim-cafe_Ad21K9x",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Museumstrasse 32",
+        "postalCode": "9000"
+      },
+      "geo": {
+        "lat": 47.4278305,
+        "lng": 9.3816401
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-Ad21K9x.jpg"
+    },
+    {
+      "id": "guidle:ATBnhkj",
+      "title": "Morning Booster",
+      "titleByLocale": {
+        "it": "Morning Booster",
+        "en": "Morning Booster 20",
+        "de": "Morgenbooster",
+        "fr": "Booster du matin"
+      },
+      "description": "Meditative Orgelmusik und ein inspirierender Gedanke zum Start in den Tag. Ein einfacher ruhiger Moment - mitten in der Woche.",
+      "descriptionByLocale": {
+        "it": "Musica meditativa per organo e un pensiero stimolante per iniziare la giornata. Un momento semplice e tranquillo - nel bel mezzo della settimana.",
+        "en": "Meditative organ music and an inspiring thought to start the day. A simple, quiet moment - in the middle of the week.",
+        "de": "Meditative Orgelmusik und ein inspirierender Gedanke zum Start in den Tag. Ein einfacher, ruhiger Moment - mitten in der Woche.",
+        "fr": "De la musique d'orgue méditative et une pensée inspirante pour commencer la journée. Un simple moment de calme - au milieu de la semaine."
+      },
+      "startDate": "2026-08-12",
+      "endDate": "2026-11-25",
+      "startTime": "07:45",
+      "category": "Altra offerta religione",
+      "venue": "Evang.-ref. Stadtkirche Solothurn",
+      "comune": "Solothurn",
+      "canton": "SO",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/solothurn/morning-booster_ATBnhkj",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Westringstrasse 14",
+        "postalCode": "4500"
+      },
+      "geo": {
+        "lat": 47.2093461,
+        "lng": 7.5349505
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-ATBnhkj.jpg"
+    },
+    {
+      "id": "guidle:AsCJCtD",
+      "title": "Klassik im Rüden - Konzerte 2026",
+      "titleByLocale": {
+        "it": "Klassik im Rüden - Konzerte 2026",
+        "en": "Klassik im Rüden - Concert 2026",
+        "de": "Klassik im Rüden – Konzerte 2026",
+        "fr": "Klassik im Rüden - Concert 2026"
+      },
+      "description": "Kammerkonzerte in wunderbarem Ambiente.",
+      "descriptionByLocale": {
+        "it": "Concerti da camera in un ambiente meraviglioso.",
+        "en": "Chamber concerts in a wonderful ambience.",
+        "de": "Kammerkonzerte in herrlichem Ambiente.",
+        "fr": "Concerts de chambre dans un cadre magnifique."
+      },
+      "startDate": "2026-09-20",
+      "endDate": "2026-12-06",
+      "startTime": "11:00",
+      "category": "Musica classica",
+      "venue": "Tailormade Hotel Rüden",
+      "canton": "SH",
+      "url": "https://www.guidle.com/it/evenements/classique/schaffhouse/klassik-im-rueden-concerts-2026_AsCJCtD",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 29,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Oberstadt 20",
+        "postalCode": "8200"
+      },
+      "geo": {
+        "lat": 47.696758,
+        "lng": 8.632217
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AsCJCtD.jpg"
+    },
+    {
+      "id": "guidle:AhrqZBx",
+      "title": "James Joyce's Ulysses",
+      "titleByLocale": {
+        "it": "James Joyce's Ulysses",
+        "en": "ames",
+        "de": "James Joyces Ulysses",
+        "fr": "Ulysse de James Joyce"
+      },
+      "description": "Reading Group at the Zurich James Joyce Foundation",
+      "descriptionByLocale": {
+        "it": "Reading Group at the Zurich James Joyce Foundation",
+        "en": "Reading Group at the Zurich Foundation",
+        "de": "Lesegruppe an der Zürcher James Joyce Stiftung",
+        "fr": "Groupe de lecture à la Fondation James Joyce de Zurich"
+      },
+      "startDate": "2026-08-20",
+      "endDate": "2026-12-10",
+      "startTime": "17:00",
+      "category": "Genere drammativo",
+      "venue": "Zurich James Joyce Foundation",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/zuerich/james-joyces-ulysses_AhrqZBx",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Augustinergasse 9",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.3716907,
+        "lng": 8.5400376
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AhrqZBx.jpg"
+    },
+    {
+      "id": "guidle:Amu6CN4",
+      "title": "Récital:&#160;&#160;Bach pour violon seul. Anna Orlik, violon",
+      "titleByLocale": {
+        "it": "Récital:&#160;&#160;Bach pour violon seul. Anna Orlik, violon",
+        "en": "Récital: Bach pour violon seul. Anna Orlik, violon",
+        "de": "Recital: Bach pour violon seul. Anna Orlik, Violoncello",
+        "fr": "Récital : Bach pour violon seul. Anna Orlik, violon"
+      },
+      "description": "Entdecken Sie eine Auswahl der Sonaten und Partiten für Violine solo von J. S.Bach, darunter die berühmte Chaconne, interpretiert von Anna Orlik, einer preisgekrönten Geigerin, die auf internationalen Bühnen gefeiert wird.",
+      "descriptionByLocale": {
+        "it": "Scopri una selezione di Sonate e Partite per violino solo di J. S. Bach. Bach, tra cui la famosa Chaconne, eseguita da Anna Orlik, pluripremiata violinista acclamata sui palcoscenici internazionali.",
+        "en": "Discover a selection of J. S. Bach's Sonatas and Partitas for solo violin.Bach, including the famous Chaconne, performed by Anna Orlik, an award-winning violinist acclaimed on international stages.",
+        "de": "Entdecken Sie eine Auswahl von J. S. Bachs Sonaten und Partiten für Violine solo.Bach, darunter die berühmte Chaconne, aufgeführt von Anna Orlik, einer preisgekrönten Geigerin, die auf internationalen Bühnen gefeiert wird.",
+        "fr": "Découvrez une sélection des Sonates et Partitas pour violon seul de J. S. Bach, dont la célèbre Chaconne, interprétées par Anna Orlik, violoniste primée,&#160;&#160;acclamée sur les scènes internationales."
+      },
+      "startDate": "2026-08-16",
+      "endDate": "2027-05-09",
+      "startTime": "18:00",
+      "category": "Festival / Incontro",
+      "venue": "Eglise de St-Oyens",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/events/classical/villars-sous-yens/recital-bach-pour-violon-seul-anna-orlik-violon_Amu6CN4",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Place de l'Eglise",
+        "postalCode": "1187"
+      },
+      "geo": {
+        "lat": 46.4987299,
+        "lng": 6.3088387
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-Amu6CN4.jpg"
+    },
+    {
+      "id": "guidle:Abb25BV",
+      "title": "Flohmarkt the STAGE",
+      "titleByLocale": {
+        "it": "Flohmarkt the STAGE",
+        "en": "Flohmarkt the STAGE",
+        "de": "Flohmarkt die BÜHNE",
+        "fr": "Flohmarkt la SCÈNE"
+      },
+      "description": "the STAGE flohmarkt – dein einzigartiges Shopping und Verkaufs-Erlebnis in den VIDMARhallen im Liebefeld.",
+      "descriptionByLocale": {
+        "it": "the STAGE flohmarkt – dein einzigartiges Shopping und Verkaufs-Erlebnis in den VIDMARhallen im Liebefeld.",
+        "en": "the STAGE flea market - your unique shopping and sales experience in the VIDMARhallen in Liebefeld.",
+        "de": "the STAGE flohmarkt – dein einzigartiges Shopping- und Verkaufs-Erlebnis in den VIDMARhallen im Liebefeld.",
+        "fr": "le STAGE flohmarkt – dein einzigartiges Shopping und Verkaufs-Erlebnis in den VIDMARhallen im Liebefeld."
+      },
+      "startDate": "2026-09-13",
+      "endDate": "2026-12-13",
+      "startTime": "10:00",
+      "category": "L'arte in generale",
+      "venue": "the STAGE",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/liebefeld/flohmarkt-the-stage_Abb25BV",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Könizstrasse 161",
+        "postalCode": "3097"
+      },
+      "geo": {
+        "lat": 46.93486,
+        "lng": 7.418641
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-Abb25BV.jpg"
+    },
+    {
+      "id": "guidle:AwU7rrR",
+      "title": "Coffre ouvert",
+      "titleByLocale": {
+        "it": "Coffre ouvert",
+        "en": "Coffre ouvert",
+        "de": "Offener Sarg",
+        "fr": "Coffre ouvert"
+      },
+      "description": "Um sich von zu vollen Estrichen zu befreien oder etwas Spezielles aufzuspüren, dies ist der idale Ort dazu!",
+      "descriptionByLocale": {
+        "it": "Che si tratti di svuotare una soffitta ingombra o di dare la caccia a un ottimo affare, è qui che succede tutto!",
+        "en": "Whether it’s to empty out a cluttered attic or to hunt down a great bargain, this is where it all happens !",
+        "de": "Ob es darum geht, einen überfüllten Dachboden zu leeren oder ein tolles Schnäppchen zu machen, hier passiert alles!",
+        "fr": "Que ce soit pour se débarrasser des surplus d’un grenier trop fourni ou pour dénicher de belles trouvailles, voici l’endroit rêvé !"
+      },
+      "startDate": "2026-08-15",
+      "endDate": "2026-11-21",
+      "startTime": "09:00",
+      "category": "L'arte in generale",
+      "venue": "Coffre Ouvert",
+      "comune": "Aigle",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/classique/aigle/coffre-ouvert_AwU7rrR",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Chemin des Noyers",
+        "postalCode": "1860"
+      },
+      "geo": {
+        "lat": 46.3206579,
+        "lng": 6.9690488
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AwU7rrR.jpg"
     }
   ]
 }
