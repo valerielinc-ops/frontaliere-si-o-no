@@ -143,7 +143,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:07:43.910Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -409,7 +408,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T22:20:16.453Z",
-      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600,
       "baseSalary": {
@@ -496,7 +494,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:04:31.744Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -580,8 +577,7 @@
           "maxValue": 60900,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ikea-ae5d1434d1b7",
@@ -642,7 +638,6 @@
         ]
       },
       "firstSeenAt": "2026-08-09T09:50:25.827Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -745,7 +740,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:04:31.743Z",
-      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "baseSalary": {
@@ -1137,7 +1131,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "ikea-b6120fc79276",
@@ -1627,7 +1623,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:17:03.589Z",
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600,
       "baseSalary": {
@@ -1772,7 +1767,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:40:38.111Z",
-      "needsRetranslation": true,
       "salaryMin": 57200,
       "salaryMax": 101200,
       "baseSalary": {
@@ -1843,7 +1837,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:40:38.113Z",
-      "needsRetranslation": true,
       "salaryMin": 31000,
       "salaryMax": 47000,
       "baseSalary": {
@@ -1945,7 +1938,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:40:38.109Z",
-      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -2096,7 +2088,6 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:32:29.232Z",
-      "needsRetranslation": true,
       "salaryMin": 18600,
       "salaryMax": 28200,
       "baseSalary": {
@@ -2287,7 +2278,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:09:45.102Z",
-      "needsRetranslation": true,
       "salaryMin": 14700,
       "salaryMax": 22300,
       "baseSalary": {
@@ -2366,7 +2356,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:09:45.098Z",
-      "needsRetranslation": true,
       "salaryMin": 28800,
       "salaryMax": 43500,
       "baseSalary": {
@@ -2547,7 +2536,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:07:27.082Z",
-      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -2632,7 +2620,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:45:48.941Z",
-      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600,
       "baseSalary": {
@@ -2710,7 +2697,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:45:48.939Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
