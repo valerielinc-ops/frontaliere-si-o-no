@@ -7998,8 +7998,7 @@
           "polydesigner-3d-m-w-d-coop-city-schaffhausen-d9t3yx",
           "polydesigner-3d-m-w-d-coop-city-schaffhausen-sk8304",
           "poly-3d-designer-m-w-d-coop-genossenschaft-schaffhausen-sk8304",
-          "poly-3d-designer-m-w-d-coop-city-schaffhausen-sk8304",
-          "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-sk8304"
+          "poly-3d-designer-m-w-d-coop-city-schaffhausen-sk8304"
         ],
         "fr": [
           "polydesigner-3d-w-m-d-coop-genossenschaft-schaffhausen"
@@ -8016,8 +8015,7 @@
         "poly-3d-designer-w-m-d-coop-genossenschaft-schaffhausen",
         "polydesigner-3d-m-w-d-coop-city-schaffhausen-sk8304",
         "poly-3d-designer-m-w-d-coop-genossenschaft-schaffhausen-sk8304",
-        "poly-3d-designer-m-w-d-coop-city-schaffhausen-sk8304",
-        "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-sk8304"
+        "poly-3d-designer-m-w-d-coop-city-schaffhausen-sk8304"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -10305,17 +10303,11 @@
         "it": [
           "polydesigner-in-3d-coop-genossenschaft-zurich",
           "polydesigner-in-3d-coop-city-zurich"
-        ],
-        "de": [
-          "polydesigner-in-3d-coop-city-zurich-qqky5j",
-          "polydesigner-in-3d-coop-genossenschaft-zurich-qqky5j"
         ]
       },
       "previousSlugs": [
         "polydesigner-in-3d-coop-genossenschaft-zurich",
-        "polydesigner-in-3d-coop-city-zurich",
-        "polydesigner-in-3d-coop-city-zurich-qqky5j",
-        "polydesigner-in-3d-coop-genossenschaft-zurich-qqky5j"
+        "polydesigner-in-3d-coop-city-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -15854,9 +15846,7 @@
       },
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
-        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
-        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
