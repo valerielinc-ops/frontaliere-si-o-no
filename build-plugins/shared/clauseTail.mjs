@@ -121,3 +121,38 @@ export function truncateToClause(text, maxLen) {
   // on this same fallback.
   return peelDanglingClauseTail(s.slice(0, maxLen).trim());
 }
+
+/**
+ * Ripara una stringa SEO GIA' MEMORIZZATA che si e' fermata a meta' clausola.
+ *
+ * Vive qui, e non piu' solo in `titleSuffix.ts`, per la ragione che l'header di
+ * questo file dichiara: la logica runtime sta in un `.mjs` cosi' che il layer
+ * TypeScript E gli script node puri condividano UNA sorgente. Fino a oggi
+ * `repairSerpSnippet` esisteva solo nel `.ts`, quindi `scripts/build-api.mjs` —
+ * che e' `.mjs` e non ha nessun precedente di import da un `.ts` — non poteva
+ * raggiungerla, ed e' esattamente il motivo per cui i dieci feed RSS
+ * spedivano il testo non riparato (issue valerielinc-ops#5453).
+ *
+ * No-op su un testo che gia' legge come completo. Non inventa parole: ripara
+ * solo TOGLIENDO la coda penzolante.
+ *
+ * @param {string} text
+ * @param {string} [terminal] Punteggiatura aggiunta dopo una riparazione
+ *   riuscita (default `'.'`). Passare `''` per i titoli, che nella SERP non
+ *   prendono il punto finale.
+ * @returns {string}
+ */
+export function repairSerpSnippet(text, terminal = '.') {
+  const normalized = String(text || '').replace(/\s+/g, ' ').trim();
+  if (!normalized) return normalized;
+  // Legge gia' come frase completa -> niente da riparare.
+  if (/[.!?\u2026\u00bb"')\]]$/u.test(normalized)) return normalized;
+  const peeled = peelDanglingClauseTail(normalized);
+  // Niente di penzolante: un titolo come "Permesso G Svizzera 2026" finisce
+  // legittimamente senza punteggiatura, su una parola di contenuto.
+  if (peeled === normalized) return normalized;
+  // Rifiuta la riparazione se sventrerebbe la stringa (coda di parole
+  // funzionali impilate): spedire l'originale e' meglio che spedire un moncone.
+  if (!peeled || peeled.length < normalized.length / 2) return normalized;
+  return terminal && !/[.!?\u2026]$/u.test(peeled) ? peeled + terminal : peeled;
+}
