@@ -193,8 +193,16 @@ describe('single source of truth for the clause tail (AGENTS.md Non-Negotiable #
       'scripts/create-article.mjs',
       'services/newsletter-template.mjs',
     ];
+    // `(?::\s*[^=;]+)?` between the name and the `=`: two of the files above
+    // are `.ts`, where a redeclaration reads
+    // `const TRAILING_STOPWORDS_SET: ReadonlySet<string> = new Set([…])`.
+    // Without it, what follows the name is `:` and not `=`, the regex misses
+    // the declaration, and this guard reports a single source of truth while
+    // the list has quietly drifted into a second one — the failure it exists
+    // to prevent. Same gap, and same fix, as
+    // tests/seo/jobs-dataset-read-once.test.ts (#5447).
     const declaring = files.filter((rel) =>
-      /(?:const|let|var)\s+\w*(?:TRAILING_STOPWORDS|STOPWORDS)\w*\s*=\s*new Set\(\[/
+      /(?:const|let|var)\s+\w*(?:TRAILING_STOPWORDS|STOPWORDS)\w*\s*(?::\s*[^=;]+)?=\s*new Set\(\[/
         .test(readFileSync(resolve(root, rel), 'utf8')));
     expect(declaring).toEqual(['build-plugins/shared/clauseTail.mjs']);
   });
