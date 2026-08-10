@@ -694,6 +694,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-cassa-malati-lamal-2026-cantone-bern': { it: 'premi-cassa-malati-lamal-2026-cantone-bern', en: 'lamal-2026-cantone-bern', de: 'lamal-2026-kanton-bern', fr: 'lamal-2026-canton-de-bourges' },
  'premi-cassa-malati-lamal-2026-canton-basilea': { it: 'premi-cassa-malati-lamal-2026-canton-basilea', en: 'premi-cassa-malati-lamal-2026-canton-basilea', de: 'premi-cassa-malati-lamal-2026-canton-basilea', fr: 'premi-cassa-malati-lamal-2026-canton-basilea' },
  'secondo-pilastro-lpp-svizzera-guida-2026-bern': { it: 'secondo-pilastro-lpp-svizzera-guida-2026-bern', en: 'second-pillar-lpp-switzerland-guide-2026-bern', de: 'zweiter-staatspilier-lpp-schweiz-fuhrer-2026-bern', fr: 'deuxieme-pilier-lpp-suisse-guide-2026-bern' },
+ 'secondo-pilastro-lpp-bern-2026-guida': { it: 'secondo-pilastro-lpp-bern-2026-guida', en: 'secondo-pilastro-lpp-bern-2026-guide', de: 'secondo-pilastro-lpp-bern-2026-leitfaden', fr: 'secondo-pilastro-lpp-bern-2026-conseils' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

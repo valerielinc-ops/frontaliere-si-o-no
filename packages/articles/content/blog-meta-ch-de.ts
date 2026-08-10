@@ -2005,6 +2005,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.title': 'BVG-Leitfaden: Beiträge, Bezug und Vorsorgeplanung in der Schweiz',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.excerpt': 'Die zweite Säule BVG in der Schweiz: Beiträge, Bezug, Lückenrückkauf und Vorsorgeplanung. Wir fokussieren uns auf den Kanton Bern und vergleichen die Daten mit den nationalen.',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-bern.imageAlt': 'Arbeit in der Schweiz, Gehalt',
+    'blog.article.secondo-pilastro-lpp-bern-2026-guida.title': 'Leitfaden zur zweiten Säule BVG in der Schweiz',
+    'blog.article.secondo-pilastro-lpp-bern-2026-guida.excerpt': 'Der Leitfaden zur zweiten Säule BVG beschreibt die Beiträge, den Bezug, den Lückenrückkauf und die Vorsorgeplanung in der Schweiz, mit Fokus auf den Kanton Bern und einem nationalen Vergleich.',
+    'blog.article.secondo-pilastro-lpp-bern-2026-guida.imageAlt': 'Bild eines Grenzarbeiters, der sich in einer ähnlichen Situation wie in der Anleitung befindet.',
 };
 
 export default blogMetaChDe;
