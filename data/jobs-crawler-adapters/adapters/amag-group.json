@@ -12,13 +12,13 @@
     "https://jobs.amag-group.ch/it"
   ],
   "notes": "Dedicated AMAG Group crawler fetches Italian listing (pre-filtered to Ticino) + German full listing for TI/GR jobs, enriches with JSON-LD JobPosting from detail pages.",
-  "updatedAt": "2026-08-10T10:55:26.500Z",
+  "updatedAt": "2026-08-10T22:24:34.653Z",
   "seedMetaByUrl": {
-    "https://jobs.amag-group.ch/Meccatronico-di-automobili-VL-mf-100-it-j23373.html": {
-      "location": "Lugano",
+    "https://jobs.amag-group.ch/Consulente-tecnico-mf-100-it-j23428.html": {
+      "location": "Pambio-Noranco",
       "canton": "TI",
       "company": "AMAG Group",
-      "postedDate": "2026-07-24"
+      "postedDate": "2026-08-10"
     }
   }
 }

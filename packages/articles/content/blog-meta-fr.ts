@@ -9561,6 +9561,21 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-dumenza-lavorare-ticino.title': 'Vivre à Dumenza et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-dumenza-lavorare-ticino.excerpt': 'Tous les faits importants pour les frontaliers qui travaillent au Tessin et résident à Dumenza.',
     'blog.article.vivere-dumenza-lavorare-ticino.imageAlt': 'Un frontalier vit à Dumenza et travaille dans le Tessin.',
+    'blog.article.trasferirsi-a-marzio-da-frontaliere-pro-e-contro.title': 'Déménager à Marzio en tant que frontalier : avantages et inconvénients',
+    'blog.article.trasferirsi-a-marzio-da-frontaliere-pro-e-contro.excerpt': 'Nous savons ce que signifie être un frontalier en Suisse et en Italie. Le nouvel accord frontalier a introduit de nouvelles règles pour les frontaliers, mais quels sont les avantages et les inconvénients de déménager à Marzio ?',
+    'blog.article.trasferirsi-a-marzio-da-frontaliere-pro-e-contro.imageAlt': 'Frontaliers travaillant en Suisse et résidant en Italie qui envisagent le transfert à Marzio.',
+    'blog.article.vivere-a-cannero-riviera-e-lavorare-in-ticino-da-frontaliere.title': 'Vivre à Cannero Riviera et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-a-cannero-riviera-e-lavorare-in-ticino-da-frontaliere.excerpt': 'Que doivent savoir les frontaliers qui souhaitent vivre à Cannero Riviera et travailler au Tessin ?',
+    'blog.article.vivere-a-cannero-riviera-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Un frontalier regarde le lac de Lugano de Cannero Riviera',
+    'blog.article.trasferirsi-a-domodossola-da-frontaliere-pro-e-contro.title': 'Déménager à Domodossola en tant que frontalier : avantages et inconvénients',
+    'blog.article.trasferirsi-a-domodossola-da-frontaliere-pro-e-contro.excerpt': 'Qu\'est-ce qui change pour les frontaliers qui déménagent à Domodossola ?',
+    'blog.article.trasferirsi-a-domodossola-da-frontaliere-pro-e-contro.imageAlt': 'Une scène d\'un frontalier en transit de Domodossola vers le Ticino.',
+    'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.title': 'Vivre à Alta Valle Intelvi et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.excerpt': 'Informations pratiques pour les frontaliers qui travaillent au Tessin et résident à Alta Valle Intelvi.',
+    'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.imageAlt': 'Une scène d\'un frontalier qui travaille en Suisse et réside dans la haute vallée d\'Intelvi.',
+    'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.title': 'Déménager à Cernobbio en tant que frontalier : avantages et inconvénients',
+    'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.excerpt': 'Paramètres fiscaux, permis et avantages pour les frontaliers qui déménagent à Cernobbio',
+    'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.imageAlt': 'Une famille de frontaliers avec enfants qui se déplace à Cernobbio',
 };
 
 export default blogMetaFr;
