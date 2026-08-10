@@ -759,6 +759,39 @@ async function recoverCantonDriftOrphan(url, locale) {
 // for a freshness gain of one incremental URL among thousands already
 // listed. The next full deploy refreshes them on its normal cadence, same
 // as before this table existed.
+// Every entry below carries a `producer` field naming WHO is responsible for
+// keeping its R2 copy fresh — added by issue #5458 after deploy.yml's bare
+// (no `--only`) invocation of publish-edge-files.mjs was found re-publishing
+// the WHOLE table from its own checkout, which can be 2h30m+ stale by the
+// time that step runs. An unscoped re-PUT overwrote entries that OTHER,
+// faster automatic publishers keep current, undoing their work every deploy.
+// `producer` is what lets deploy.yml (and the tests below) tell "mine" from
+// "not mine" without re-deriving it from prose each time:
+//
+//   'build'      — this repo's OWN full-site build (deploy.yml). The bare
+//                  invocation is now `--producer=build`, which resolves
+//                  against THIS table — never a second hardcoded path list.
+//   'sync'       — this repo's sync-articles-sitemaps.yml, which both pulls
+//                  the file into public/ AND pushes it to R2 itself with an
+//                  explicit `--only=` naming it (see that workflow).
+//   'corpus'     — nanakokyobashi-rgb/frontaliere-articles' publish-api.yml
+//                  PUTs it straight to the SAME `edge/<name>` R2 key from its
+//                  own job, cross-repo, on every push to its main that
+//                  touches content/. This repo's checkout only ever carries a
+//                  copy pulled in afterwards — it must never re-publish it.
+//   'hub-render' — rerender-article-hubs.yml (push/workflow_run — automatic,
+//                  in-repo), which selects its `--only` pathname at RUNTIME
+//                  from that run's own render summary (`--only="/$REL"`), so
+//                  it can never appear as a literal string in the workflow
+//                  source. publish-article-fast.mjs also writes these from a
+//                  fast-publish render, but only on workflow_dispatch (manual
+//                  — not what keeps this path off deploy.yml's list).
+//
+// tests/locale-router-edge-pushed-files.test.ts asserts deploy.yml's
+// invocation resolves to producer: 'build' entries ONLY, and that every
+// entry's declared producer matches a real automatic publisher (in-repo
+// where that's checkable; documented here with its source cited where it
+// isn't, i.e. 'corpus').
 export const EDGE_PUSHED_FILES = {
   // Registered for CORRECTNESS, not just freshness (issue #4974). Measured on
   // the live site: the committed public/sitemap-blog.xml carries 3046 <url> and
@@ -793,15 +826,19 @@ export const EDGE_PUSHED_FILES = {
   // all of them. A partial loss is a different signature and plausibly the
   // reciprocity sanitizer doing its job, so lumping it in here would be
   // guessing. It is called out in the PR body as still open.
-  '/sitemap-blog.xml': { cdnKey: '/edge/sitemap-blog.xml', contentType: 'application/xml; charset=utf-8' },
-  '/sitemap-blog-ch.xml': { cdnKey: '/edge/sitemap-blog-ch.xml', contentType: 'application/xml; charset=utf-8' },
+  '/sitemap-blog.xml': { cdnKey: '/edge/sitemap-blog.xml', contentType: 'application/xml; charset=utf-8', producer: 'corpus' },
+  '/sitemap-blog-ch.xml': { cdnKey: '/edge/sitemap-blog-ch.xml', contentType: 'application/xml; charset=utf-8', producer: 'corpus' },
   // Same reason as its two siblings above, and it never had a passthrough
   // copy to fall back to: /sitemap-articles-archive.xml is published by the
   // corpus only. Its page-1 entries carry the four locale alternates plus
   // x-default — exactly what the apex origin drops.
-  '/sitemap-articles-archive.xml': { cdnKey: '/edge/sitemap-articles-archive.xml', contentType: 'application/xml; charset=utf-8' },
-  '/sitemap-glossario.xml': { cdnKey: '/edge/sitemap-glossario.xml', contentType: 'application/xml; charset=utf-8' },
-  '/sitemap-news.xml': { cdnKey: '/edge/sitemap-news.xml', contentType: 'application/xml; charset=utf-8' },
+  '/sitemap-articles-archive.xml': { cdnKey: '/edge/sitemap-articles-archive.xml', contentType: 'application/xml; charset=utf-8', producer: 'corpus' },
+  // Unlike its three siblings above, this one IS a build-owned entry:
+  // sitemap-glossario.xml comes from this repo's own static glossary pages
+  // (build-plugins/staticPagesPlugin.ts + scripts/lib/sitemap-files.mjs), not
+  // from the article corpus — deploy.yml's full build is its only producer.
+  '/sitemap-glossario.xml': { cdnKey: '/edge/sitemap-glossario.xml', contentType: 'application/xml; charset=utf-8', producer: 'build' },
+  '/sitemap-news.xml': { cdnKey: '/edge/sitemap-news.xml', contentType: 'application/xml; charset=utf-8', producer: 'sync' },
   // Article topic hubs (#5001). Registered for FRESHNESS in the strict sense:
   // these two files are the only sitemaps on this list whose PAGES are not
   // produced by the full build at all. Both article sections run with
@@ -817,8 +854,8 @@ export const EDGE_PUSHED_FILES = {
   // sitemap-topics.xml announced 36 page-N URLs that no shard had, and missed
   // 32 that every shard did — a full-build snapshot describing a fast-publish
   // filesystem.
-  '/sitemap-topics-frontaliere.xml': { cdnKey: '/edge/sitemap-topics-frontaliere.xml', contentType: 'application/xml; charset=utf-8' },
-  '/sitemap-topics-svizzera.xml': { cdnKey: '/edge/sitemap-topics-svizzera.xml', contentType: 'application/xml; charset=utf-8' },
+  '/sitemap-topics-frontaliere.xml': { cdnKey: '/edge/sitemap-topics-frontaliere.xml', contentType: 'application/xml; charset=utf-8', producer: 'hub-render' },
+  '/sitemap-topics-svizzera.xml': { cdnKey: '/edge/sitemap-topics-svizzera.xml', contentType: 'application/xml; charset=utf-8', producer: 'hub-render' },
   // The ten RSS feeds (#5420 follow-up). Same defect as the sitemaps above, a
   // different surface — and the one nobody re-checks, because a feed is a
   // SUBSCRIPTION: whoever reads it does not come back to see whether it moved.
@@ -842,22 +879,28 @@ export const EDGE_PUSHED_FILES = {
   // contentType stays application/xml (what Pages serves today) rather than the
   // canonical application/rss+xml: the only variable this change may move is
   // freshness.
-  '/rss.xml': { cdnKey: '/edge/rss.xml', contentType: 'application/xml; charset=utf-8' },
-  '/rss-it.xml': { cdnKey: '/edge/rss-it.xml', contentType: 'application/xml; charset=utf-8' },
-  '/rss-en.xml': { cdnKey: '/edge/rss-en.xml', contentType: 'application/xml; charset=utf-8' },
-  '/rss-de.xml': { cdnKey: '/edge/rss-de.xml', contentType: 'application/xml; charset=utf-8' },
-  '/rss-fr.xml': { cdnKey: '/edge/rss-fr.xml', contentType: 'application/xml; charset=utf-8' },
-  '/rss-svizzera.xml': { cdnKey: '/edge/rss-svizzera.xml', contentType: 'application/xml; charset=utf-8' },
-  '/rss-svizzera-it.xml': { cdnKey: '/edge/rss-svizzera-it.xml', contentType: 'application/xml; charset=utf-8' },
-  '/rss-svizzera-en.xml': { cdnKey: '/edge/rss-svizzera-en.xml', contentType: 'application/xml; charset=utf-8' },
-  '/rss-svizzera-de.xml': { cdnKey: '/edge/rss-svizzera-de.xml', contentType: 'application/xml; charset=utf-8' },
-  '/rss-svizzera-fr.xml': { cdnKey: '/edge/rss-svizzera-fr.xml', contentType: 'application/xml; charset=utf-8' },
-  '/llms.txt': { cdnKey: '/edge/llms.txt', contentType: 'text/plain; charset=utf-8', source: 'generated' },
-  '/llms-full.txt': { cdnKey: '/edge/llms-full.txt', contentType: 'text/plain; charset=utf-8', source: 'generated' },
+  '/rss.xml': { cdnKey: '/edge/rss.xml', contentType: 'application/xml; charset=utf-8', producer: 'sync' },
+  '/rss-it.xml': { cdnKey: '/edge/rss-it.xml', contentType: 'application/xml; charset=utf-8', producer: 'sync' },
+  '/rss-en.xml': { cdnKey: '/edge/rss-en.xml', contentType: 'application/xml; charset=utf-8', producer: 'sync' },
+  '/rss-de.xml': { cdnKey: '/edge/rss-de.xml', contentType: 'application/xml; charset=utf-8', producer: 'sync' },
+  '/rss-fr.xml': { cdnKey: '/edge/rss-fr.xml', contentType: 'application/xml; charset=utf-8', producer: 'sync' },
+  '/rss-svizzera.xml': { cdnKey: '/edge/rss-svizzera.xml', contentType: 'application/xml; charset=utf-8', producer: 'sync' },
+  '/rss-svizzera-it.xml': { cdnKey: '/edge/rss-svizzera-it.xml', contentType: 'application/xml; charset=utf-8', producer: 'sync' },
+  '/rss-svizzera-en.xml': { cdnKey: '/edge/rss-svizzera-en.xml', contentType: 'application/xml; charset=utf-8', producer: 'sync' },
+  '/rss-svizzera-de.xml': { cdnKey: '/edge/rss-svizzera-de.xml', contentType: 'application/xml; charset=utf-8', producer: 'sync' },
+  '/rss-svizzera-fr.xml': { cdnKey: '/edge/rss-svizzera-fr.xml', contentType: 'application/xml; charset=utf-8', producer: 'sync' },
+  // The llms.txt family is 'generated' (rendered fresh at publish time, see
+  // the header comment above) AND producer: 'build' — deploy.yml is the only
+  // automatic caller that has a fully-built dist/ for generate-llms-txt.mjs
+  // to render against (fast-publish-article.yml also generates it, but only
+  // on workflow_dispatch — manual, not an automatic producer).
+  '/llms.txt': { cdnKey: '/edge/llms.txt', contentType: 'text/plain; charset=utf-8', source: 'generated', producer: 'build' },
+  '/llms-full.txt': { cdnKey: '/edge/llms-full.txt', contentType: 'text/plain; charset=utf-8', source: 'generated', producer: 'build' },
   '/.well-known/llms.txt': {
     cdnKey: '/edge/.well-known/llms.txt',
     contentType: 'text/plain; charset=utf-8',
     source: 'generated',
+    producer: 'build',
   },
 };
 const EDGE_PUSHED_FETCH_TIMEOUT_MS = 2000;
