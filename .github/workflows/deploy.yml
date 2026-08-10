@@ -1948,6 +1948,61 @@ jobs:
           SHARD_FR_DEPLOY_KEY: ${{ secrets.SHARD_FR_DEPLOY_KEY }}
         run: bash scripts/lib/push-locale-shard.sh ${{ matrix.locale }} dist
 
+      # ── Purge the ORIGIN key, because that is where the bytes just changed ─
+      #
+      # This step is the one that was MISSING (#5483). The job above force-pushes
+      # the locale shard and, until now, purged nothing at all — verified on main:
+      #
+      #   git show origin/main:.github/workflows/deploy.yml | grep -c cf-purge-cache  →  0
+      #
+      # so the locale home kept serving the PREVIOUS build for up to the Worker's
+      # ORIGIN_CACHE_TTL (7200s). Measured on /de/: 9 internal links against the
+      # 45 the freshly-pushed origin carried.
+      #
+      # And purging the apex alone would not have helped. locale-router.js's
+      # serveShard() rewrites the upstream Host and fetches with
+      # `cacheEverything`, so the entry that serves the user is keyed on
+      # `origin-<loc>.frontaliereticino.ch/<path>`; an apex-only purge answers
+      # 200 and changes nothing. The proof is arithmetic rather than "it stayed
+      # HIT" (a purge followed by an immediate refill looks identical to a blind
+      # one): cf-locale-failover-setup.mjs pins the apex rule to 300s and
+      # /cerca-lavoro-ticino/ was measured at age 6333 — 21× that TTL, under the
+      # Worker's 7200s. rerender-article-hubs.yml already does this, for the
+      # article hubs only; this is the same shape for the locale shards.
+      #
+      # BOUNDED on purpose, same reasoning as that workflow: the free-plan cap is
+      # 30 URLs and a shard is hundreds of thousands of pages. Deep pages are
+      # MISS right after a push and heal themselves; what earns a slot is the set
+      # hot enough to hold an entry AND carrying the internal-link graph. The
+      # selection lives in scripts/ci/locale-shard-purge-urls.mjs, so a test can
+      # assert it against the Worker's own route table instead of trusting this
+      # YAML: 18 URLs (9 paths × apex+origin) against the 30 cap, 40% headroom.
+      #
+      # Gated on the ok-marker, not on the step outcome: push-locale-shard.sh
+      # exits 0 when it SKIPS (no deploy key, no dist subtree), and purging after
+      # a skip would spend the call on bytes that never moved.
+      - name: Purge the edge for the pushed locale shard (apex AND origin)
+        if: matrix.locale != 'it' && steps.push-shard.outcome == 'success'
+        continue-on-error: true
+        env:
+          LOCALE: ${{ matrix.locale }}
+        run: |
+          set -uo pipefail
+          if [ ! -f "$RUNNER_TEMP/shard-ok-$LOCALE" ]; then
+            echo "no shard-ok marker for $LOCALE — the push skipped, nothing to purge"
+            exit 0
+          fi
+          if [ -z "${CF_API_TOKEN:-}" ]; then
+            echo "::warning::CF_API_TOKEN missing after the Remote Config load — the $LOCALE shard is updated, but the edge keeps serving its cached copy until ORIGIN_CACHE_TTL (7200s) expires"
+            exit 0
+          fi
+          PURGE_URLS="$(node scripts/ci/locale-shard-purge-urls.mjs "$LOCALE" dist)"
+          if [ -z "$PURGE_URLS" ]; then
+            echo "::warning::no purge URLs resolved for $LOCALE (landings absent from dist/$LOCALE, or the list was over the 30-URL cap — see the generator's stderr above) — the shard is live but the edge keeps its cached copy until the TTL expires"
+            exit 0
+          fi
+          node scripts/cf-purge-cache.mjs "--files=$PURGE_URLS" || echo "::warning::the $LOCALE edge purge failed — those URLs keep serving the previous build until the TTL expires"
+
       # ── The two ways this locale can end up unpublished, told APART ───────
       # Both leave the live locale STALE behind a green deploy, and until now
       # both were reported by ONE step with ONE issue title whose body read
