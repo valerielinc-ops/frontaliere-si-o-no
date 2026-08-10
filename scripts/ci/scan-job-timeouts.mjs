@@ -109,7 +109,7 @@ function findTimeoutAnnotation(job) {
   return annotations.find((a) => TIMEOUT_ANNOTATION_RE.test(a.message || '')) || null;
 }
 
-async function main() {
+export async function main() {
   const cutoffMs = Date.now() - LOOKBACK_MINUTES * 60 * 1000;
   const runs = listCancelledRuns(cutoffMs);
   console.log(`[scan-job-timeouts] ${runs.length} cancelled run(s) in the last ${LOOKBACK_MINUTES}m`);
@@ -175,7 +175,10 @@ async function main() {
   console.log(`[scan-job-timeouts] done — ${reported} timeout(s) reported (dry-run=${DRY_RUN}).`);
 }
 
-main().catch((err) => {
-  console.error(`[scan-job-timeouts] fatal: ${err.message}`);
-  process.exit(1);
-});
+// Esegui solo come CLI (non quando importato dai test → evita di lanciare gh).
+if (process.argv[1]?.endsWith('scan-job-timeouts.mjs')) {
+  main().catch((err) => {
+    console.error(`[scan-job-timeouts] fatal: ${err.message}`);
+    process.exit(1);
+  });
+}
