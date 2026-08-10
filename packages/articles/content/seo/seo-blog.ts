@@ -2075,7 +2075,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
  'blog-dumping-salari-architetti-ticino': {
  title: 'Dumping Salariale Ticino: Falsi | Frontaliere Ticino',
- description: 'Un studio di architettura nel Mendrisiotto accusato di dumping salariale: contratti part-time per lavoro full-time. Scopri come tutelarti e quali sono i tuoi diritti.',
+ description: 'Uno studio di architettura nel Mendrisiotto accusato di dumping salariale: contratti part-time per lavoro full-time. Scopri come tutelarti e quali sono i tuoi diritti.',
  keywords: 'dumping salariale, frontalieri, ticino, lavoro part-time, studio architettura, diritti lavoratori, commissione paritetica, mendrisiotto',
  ogTitle: 'Lavoro 100%, Pagato 50%: Scandalo Dumping Salariale in Ticino',
  ogDescription: 'Uno studio di architettura nel mirino per contratti part-time fittizi. Un caso che espone i rischi per i frontalieri e l\'importanza di conoscere i propri diritti.',
@@ -2084,7 +2084,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
  "headline": "Lavoro 100%, Pagato 50%: Scandalo Dumping Salariale in Ticino",
- "description": "Un studio di architettura nel Mendrisiotto accusato di dumping salariale: contratti part-time per lavoro full-time. Scopri come tutelarti e quali sono i tuoi diritti.",
+ "description": "Uno studio di architettura nel Mendrisiotto accusato di dumping salariale: contratti part-time per lavoro full-time. Scopri come tutelarti e quali sono i tuoi diritti.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/dumping-salari-architetti-ticino.webp`,
  "width": 1344,
@@ -29595,16 +29595,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-hockey-nl-psicodramma-davos-2025-2026-friborgogotteron': {
     title: 'Hockey Nl / Psicodramma Davos, il titolo 2025-2026 al FriborgoGottéron',
-    description: 'Il titolo 2025-2026 del Hockey Nl è stato assegnato al FriborgoGottéron, con Stefano Bottini da Lugano che si è preparato per il spareggio. Dati aggiornati 2026',
+    description: 'Il titolo 2025-2026 del Hockey Nl è stato assegnato al FriborgoGottéron, con Stefano Bottini da Lugano che si è preparato per lo spareggio. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, hockey, psicodramma, davos, titolo',
     ogTitle: 'Hockey Nl / Psicodramma Davos, il titolo 2025-2026 al FriborgoGottéron',
-    ogDescription: 'Il titolo 2025-2026 del Hockey Nl è stato assegnato al FriborgoGottéron, con Stefano Bottini da Lugano che si è preparato per il spareggio.',
+    ogDescription: 'Il titolo 2025-2026 del Hockey Nl è stato assegnato al FriborgoGottéron, con Stefano Bottini da Lugano che si è preparato per lo spareggio.',
     canonicalPath: '/articoli-frontaliere/hockey-nl-psicodramma-davos-2025-2026-friborgogotteron/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Hockey Nl / Psicodramma Davos, il titolo 2025-2026 al FriborgoGottéron",
-      "description": "Il titolo 2025-2026 del Hockey Nl è stato assegnato al FriborgoGottéron, con Stefano Bottini da Lugano che si è preparato per il spareggio. Dati aggiornati 2026",
+      "description": "Il titolo 2025-2026 del Hockey Nl è stato assegnato al FriborgoGottéron, con Stefano Bottini da Lugano che si è preparato per lo spareggio. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/hockey-nl-psicodramma-davos-2025-2026-friborgogotteron.webp`,
         "width": 1200,

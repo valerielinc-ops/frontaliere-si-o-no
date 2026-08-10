@@ -28857,16 +28857,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico': {
     title: 'Il desiderio non chiede permesso: bufera sui cartelloni di un locale erotico',
-    description: 'Il slogan del locale erotico a Vallese ha scatenato critiche. Collettivo Femminista del Vallese: \'È un messaggio che può essere percepito come un incitamento',
+    description: 'Lo slogan del locale erotico a Vallese ha scatenato critiche. Collettivo Femminista del Vallese: \'È un messaggio che può essere percepito come un incitamento',
     keywords: 'frontalieri, ticino, svizzera, italia, desiderio, chiede, permesso, bufera',
     ogTitle: 'Il desiderio non chiede permesso: bufera sui cartelloni di un locale erotico',
-    ogDescription: 'Il slogan del locale erotico a Vallese ha scatenato critiche. Collettivo Femminista del Vallese: \'È un messaggio che può essere percepito come un incitamento',
+    ogDescription: 'Lo slogan del locale erotico a Vallese ha scatenato critiche. Collettivo Femminista del Vallese: \'È un messaggio che può essere percepito come un incitamento',
     canonicalPath: '/articoli-frontaliere/desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Il desiderio non chiede permesso: bufera sui cartelloni di un locale erotico",
-      "description": "Il slogan del locale erotico a Vallese ha scatenato critiche. Collettivo Femminista del Vallese: 'È un messaggio che può essere percepito come un incitamento",
+      "description": "Lo slogan del locale erotico a Vallese ha scatenato critiche. Collettivo Femminista del Vallese: 'È un messaggio che può essere percepito come un incitamento",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -42350,7 +42350,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-frontaliere-ticino-mobilita': {
-    title: 'Impatti della mobilità sulla vita dei frontaliere ticinesi',
+    title: 'Impatti della mobilità sulla vita dei frontalieri ticinesi',
     description: 'La mobilità aumenta la complessità per i frontalieri ticinesi, con problemi di traffico e costi elevati. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, impatti, mobilità, sulla, vita',
     ogTitle: 'Mobilità e frontaliere ticinesi: come gestire i problemi di traffico e costi',
@@ -42359,7 +42359,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Impatti della mobilità sulla vita dei frontaliere ticinesi",
+      "headline": "Impatti della mobilità sulla vita dei frontalieri ticinesi",
       "description": "La mobilità aumenta la complessità per i frontalieri ticinesi, con problemi di traffico e costi elevati. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
@@ -47223,16 +47223,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-assicurazione-vita-privata-svizzera-convienne-frontalieri': {
-    title: 'L\'assicurazione vita privata svizzera conviene ai frontaliere?',
+    title: 'L\'assicurazione vita privata svizzera conviene ai frontalieri?',
     description: 'La frontiera ticinese deve conoscere i vantaggi e gli svantaggi dell\'assicurazione vita privata svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, vita, privata, conviene',
-    ogTitle: 'L\'assicurazione vita privata svizzera conviene ai frontaliere?',
+    ogTitle: 'L\'assicurazione vita privata svizzera conviene ai frontalieri?',
     ogDescription: 'La frontiera ticinese deve conoscere i vantaggi e gli svantaggi dell\'assicurazione vita privata svizzera.',
     canonicalPath: '/articoli-frontaliere/assicurazione-vita-privata-svizzera-convienne-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "L'assicurazione vita privata svizzera conviene ai frontaliere?",
+      "headline": "L'assicurazione vita privata svizzera conviene ai frontalieri?",
       "description": "La frontiera ticinese deve conoscere i vantaggi e gli svantaggi dell'assicurazione vita privata svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
@@ -47535,16 +47535,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-insegnanti-frontalieri-stipendio-requisiti-ticino': {
-    title: 'Frontaliere insegnante scuola ticino stipendio requisiti',
+    title: 'Frontaliere insegnante scuola Ticino stipendio requisiti',
     description: 'La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730). Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, insegnante, scuola, stipendio, requisiti',
-    ogTitle: 'Frontaliere insegnante scuola ticino stipendio requisiti',
+    ogTitle: 'Frontaliere insegnante scuola Ticino stipendio requisiti',
     ogDescription: 'La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730).',
     canonicalPath: '/articoli-frontaliere/insegnanti-frontalieri-stipendio-requisiti-ticino',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Frontaliere insegnante scuola ticino stipendio requisiti",
+      "headline": "Frontaliere insegnante scuola Ticino stipendio requisiti",
       "description": "La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d'imposta (quadro CE del 730). Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -48510,16 +48510,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-franchigia-doganale-acquisti-svizzera': {
-    title: 'Franchigia doganale acquisti svizzera: limiti e conseguenze per i frontaliere',
+    title: 'Franchigia doganale acquisti svizzera: limiti e conseguenze per i frontalieri',
     description: 'La franchigia doganale per gli acquisti in Svizzera è stata aumentata a €10\'000 per i nuovi frontaliere. I vecchi frontaliere hanno un\'esenzione di €7\'500 fino',
     keywords: 'frontalieri, ticino, svizzera, italia, franchigia, doganale, acquisti, limiti',
-    ogTitle: 'Franchigia doganale acquisti svizzera: limiti e conseguenze per i frontaliere',
+    ogTitle: 'Franchigia doganale acquisti svizzera: limiti e conseguenze per i frontalieri',
     ogDescription: 'La franchigia doganale per gli acquisti in Svizzera è stata aumentata a €10\'000 per i nuovi frontaliere.',
     canonicalPath: '/articoli-frontaliere/franchigia-doganale-acquisti-svizzera',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Franchigia doganale acquisti svizzera: limiti e conseguenze per i frontaliere",
+      "headline": "Franchigia doganale acquisti svizzera: limiti e conseguenze per i frontalieri",
       "description": "La franchigia doganale per gli acquisti in Svizzera è stata aumentata a €10'000 per i nuovi frontaliere. I vecchi frontaliere hanno un'esenzione di €7'500 fino",
       "image": {
         "@type": "ImageObject",
@@ -48550,16 +48550,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-studente-universitario-pendolare-ticino-usi-supsi': {
     title: 'Vita da studente frontaliere: iscrizione e costi a USI/SUPSI',
-    description: 'I studenti universitari pendolari possono iscriversi a USI/SUPSI senza problemi, ma devono essere consapevoli delle differenze tra lo status di frontaliere',
+    description: 'Gli studenti universitari pendolari possono iscriversi a USI/SUPSI senza problemi, ma devono essere consapevoli delle differenze tra lo status di frontaliere',
     keywords: 'frontalieri, ticino, svizzera, italia, vita, studente, iscrizione, costi',
     ogTitle: 'Vita da studente pendolare tra Italia e Ticino: iscrizione a USI/SUPSI, costi, alloggio, differenze con lo status di frontaliere lavoratore',
-    ogDescription: 'I studenti universitari pendolari possono iscriversi a USI/SUPSI senza problemi, ma devono essere consapevoli delle differenze tra lo status di frontaliere',
+    ogDescription: 'Gli studenti universitari pendolari possono iscriversi a USI/SUPSI senza problemi, ma devono essere consapevoli delle differenze tra lo status di frontaliere',
     canonicalPath: '/articoli-frontaliere/studente-universitario-pendolare-ticino-usi-supsi',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Vita da studente frontaliere: iscrizione e costi a USI/SUPSI",
-      "description": "I studenti universitari pendolari possono iscriversi a USI/SUPSI senza problemi, ma devono essere consapevoli delle differenze tra lo status di frontaliere",
+      "description": "Gli studenti universitari pendolari possono iscriversi a USI/SUPSI senza problemi, ma devono essere consapevoli delle differenze tra lo status di frontaliere",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -48706,16 +48706,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-infortunio-in-iter-confine-assicurazione-frontaliere': {
     title: 'Infortunio in itinere al confine per il frontaliere: copertura LAINF e procedure',
-    description: 'I frontaliere che si recano al lavoro in Svizzera attraversando il confine con l\'Italia devono sapere come procedere in caso di infortunio. Dati aggiornati 2026',
+    description: 'I frontalieri che si recano al lavoro in Svizzera attraversando il confine con l\'Italia devono sapere come procedere in caso di infortunio. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, infortunio, itinere, confine, copertura',
     ogTitle: 'Infortunio in itinere al confine per il frontaliere: copertura LAINF e procedure',
-    ogDescription: 'I frontaliere che si recano al lavoro in Svizzera attraversando il confine con l\'Italia devono sapere come procedere in caso di infortunio.',
+    ogDescription: 'I frontalieri che si recano al lavoro in Svizzera attraversando il confine con l\'Italia devono sapere come procedere in caso di infortunio.',
     canonicalPath: '/articoli-frontaliere/infortunio-in-iter-confine-assicurazione-frontaliere',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Infortunio in itinere al confine per il frontaliere: copertura LAINF e procedure",
-      "description": "I frontaliere che si recano al lavoro in Svizzera attraversando il confine con l'Italia devono sapere come procedere in caso di infortunio. Dati aggiornati 2026",
+      "description": "I frontalieri che si recano al lavoro in Svizzera attraversando il confine con l'Italia devono sapere come procedere in caso di infortunio. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -50812,16 +50812,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-frontaliere-ostetrica-ticino-stipendio-requisiti': {
     title: 'Lavorare come ostetrica in Ticino: stipendio, requisiti e riconoscimento titolo',
-    description: 'La frontaliere che lavora come ostetrica in Ticino ha diritto a un stipendio medio di circa CHF 60\'000 all\'anno, ma deve rispettare alcuni requisiti e ottenere',
+    description: 'La frontaliere che lavora come ostetrica in Ticino ha diritto a uno stipendio medio di circa CHF 60\'000 all\'anno, ma deve rispettare alcuni requisiti e ottenere',
     keywords: 'frontalieri, ticino, svizzera, italia, lavorare, ostetrica, stipendio, requisiti',
     ogTitle: 'Lavorare come ostetrica in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G.',
-    ogDescription: 'La frontaliere che lavora come ostetrica in Ticino ha diritto a un stipendio medio di circa CHF 60\'000 all\'anno, ma deve rispettare alcuni requisiti e ottenere',
+    ogDescription: 'La frontaliere che lavora come ostetrica in Ticino ha diritto a uno stipendio medio di circa CHF 60\'000 all\'anno, ma deve rispettare alcuni requisiti e ottenere',
     canonicalPath: '/articoli-frontaliere/frontaliere-ostetrica-ticino-stipendio-requisiti',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Lavorare come ostetrica in Ticino: stipendio, requisiti e riconoscimento titolo",
-      "description": "La frontaliere che lavora come ostetrica in Ticino ha diritto a un stipendio medio di circa CHF 60'000 all'anno, ma deve rispettare alcuni requisiti e ottenere",
+      "description": "La frontaliere che lavora come ostetrica in Ticino ha diritto a uno stipendio medio di circa CHF 60'000 all'anno, ma deve rispettare alcuni requisiti e ottenere",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -52021,16 +52021,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-stipendio-contabile-frontaliere-ticino': {
     title: 'Quanto guadagna un contabile frontaliere in Ticino?',
-    description: 'Il nuovo Accordo Frontalieri ha introdotto nuove regole fiscali per i frontaliere ticinesi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    description: 'Il nuovo Accordo Frontalieri ha introdotto nuove regole fiscali per i frontalieri ticinesi. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, contabile, nuovo',
     ogTitle: 'Quanto guadagna un contabile frontaliere in Ticino?',
-    ogDescription: 'Il nuovo Accordo Frontalieri ha introdotto nuove regole fiscali per i frontaliere ticinesi.',
+    ogDescription: 'Il nuovo Accordo Frontalieri ha introdotto nuove regole fiscali per i frontalieri ticinesi.',
     canonicalPath: '/articoli-frontaliere/stipendio-contabile-frontaliere-ticino',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Quanto guadagna un contabile frontaliere in Ticino?",
-      "description": "Il nuovo Accordo Frontalieri ha introdotto nuove regole fiscali per i frontaliere ticinesi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "Il nuovo Accordo Frontalieri ha introdotto nuove regole fiscali per i frontalieri ticinesi. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -52372,16 +52372,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-frontaliere-pittore-ticino-stipendio-requisiti': {
     title: 'Lavorare come pittore in Ticino: stipendio, requisiti e permesso G',
-    description: 'Ecco cosa devi sapere per lavorare come pittore in Ticino da frontaliere, compresi il stipendio medio, i requisiti, l\'eventuale riconoscimento del titolo di',
+    description: 'Ecco cosa devi sapere per lavorare come pittore in Ticino da frontaliere, compresi lo stipendio medio, i requisiti, l\'eventuale riconoscimento del titolo di',
     keywords: 'frontalieri, ticino, svizzera, italia, lavorare, pittore, stipendio, requisiti',
     ogTitle: 'Lavorare come pittore in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G.',
-    ogDescription: 'Ecco cosa devi sapere per lavorare come pittore in Ticino da frontaliere, compresi il stipendio medio, i requisiti, l\'eventuale riconoscimento del titolo di',
+    ogDescription: 'Ecco cosa devi sapere per lavorare come pittore in Ticino da frontaliere, compresi lo stipendio medio, i requisiti, l\'eventuale riconoscimento del titolo di',
     canonicalPath: '/articoli-frontaliere/frontaliere-pittore-ticino-stipendio-requisiti',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Lavorare come pittore in Ticino: stipendio, requisiti e permesso G",
-      "description": "Ecco cosa devi sapere per lavorare come pittore in Ticino da frontaliere, compresi il stipendio medio, i requisiti, l'eventuale riconoscimento del titolo di",
+      "description": "Ecco cosa devi sapere per lavorare come pittore in Ticino da frontaliere, compresi lo stipendio medio, i requisiti, l'eventuale riconoscimento del titolo di",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -53542,16 +53542,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-frontaliere-operaio-ticino-stipendio-requisiti': {
     title: 'Lavorare come operaio in Ticino: stipendio, requisiti e permesso G',
-    description: 'La nuova legge sul permesso G per i frontaliere operaio in Ticino: quali sono i requisiti, il stipendio medio e il riconoscimento del titolo di studio?',
+    description: 'La nuova legge sul permesso G per i frontalieri operaio in Ticino: quali sono i requisiti, lo stipendio medio e il riconoscimento del titolo di studio?',
     keywords: 'frontalieri, ticino, svizzera, italia, lavorare, operaio, stipendio, requisiti',
     ogTitle: 'Frontaliere operaio Ticino stipendio requisiti',
-    ogDescription: 'La nuova legge sul permesso G per i frontaliere operaio in Ticino: quali sono i requisiti, il stipendio medio e il riconoscimento del titolo di studio?',
+    ogDescription: 'La nuova legge sul permesso G per i frontalieri operaio in Ticino: quali sono i requisiti, lo stipendio medio e il riconoscimento del titolo di studio?',
     canonicalPath: '/articoli-frontaliere/frontaliere-operaio-ticino-stipendio-requisiti',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Lavorare come operaio in Ticino: stipendio, requisiti e permesso G",
-      "description": "La nuova legge sul permesso G per i frontaliere operaio in Ticino: quali sono i requisiti, il stipendio medio e il riconoscimento del titolo di studio?",
+      "description": "La nuova legge sul permesso G per i frontalieri operaio in Ticino: quali sono i requisiti, lo stipendio medio e il riconoscimento del titolo di studio?",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -54477,16 +54477,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-frontaliere-ingegnere-ticino-stipendio': {
-    title: 'frontaliere ingegnere ticino stipendio requisiti',
+    title: 'frontaliere ingegnere Ticino stipendio requisiti',
     description: 'Guida pratica per ingegneri frontalieri in Ticino: stipendio, requisiti, riconoscimento titolo, permesso G, imposta alla fonte e nuovo accordo fiscale.',
     keywords: 'frontalieri, ticino, svizzera, italia, ingegnere, stipendio, requisiti, nuovo',
-    ogTitle: 'frontaliere ingegnere ticino stipendio requisiti',
+    ogTitle: 'frontaliere ingegnere Ticino stipendio requisiti',
     ogDescription: 'Stipendio medio, requisiti e procedure per lavorare come ingegnere in Ticino da frontaliere con il nuovo accordo fiscale.',
     canonicalPath: '/articoli-frontaliere/frontaliere-ingegnere-ticino-stipendio',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "frontaliere ingegnere ticino stipendio requisiti",
+      "headline": "frontaliere ingegnere Ticino stipendio requisiti",
       "description": "Guida pratica per ingegneri frontalieri in Ticino: stipendio, requisiti, riconoscimento titolo, permesso G, imposta alla fonte e nuovo accordo fiscale.",
       "image": {
         "@type": "ImageObject",
@@ -55414,16 +55414,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-vivere-bizzarone-lavorare-ticino': {
     title: 'Vivere a Bizzarone e lavorare in Ticino da frontaliere',
-    description: 'Perché il Ticino è un\'ottima scelta per i frontaliere che desiderano lavorare in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    description: 'Perché il Ticino è un\'ottima scelta per i frontalieri che desiderano lavorare in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, vivere, bizzarone, lavorare, perché',
     ogTitle: 'Vivere a Bizzarone e lavorare in Ticino da frontaliere',
-    ogDescription: 'Perché il Ticino è un\'ottima scelta per i frontaliere che desiderano lavorare in Svizzera.',
+    ogDescription: 'Perché il Ticino è un\'ottima scelta per i frontalieri che desiderano lavorare in Svizzera.',
     canonicalPath: '/articoli-frontaliere/vivere-bizzarone-lavorare-ticino',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Vivere a Bizzarone e lavorare in Ticino da frontaliere",
-      "description": "Perché il Ticino è un'ottima scelta per i frontaliere che desiderano lavorare in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "Perché il Ticino è un'ottima scelta per i frontalieri che desiderano lavorare in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -55609,16 +55609,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro': {
     title: 'Trasferirsi a Bizzarone da frontaliere: pro e contro',
-    description: 'I pro e i contro del trasferimento a Bizzarone per i frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.',
+    description: 'I pro e i contro del trasferimento a Bizzarone per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, bizzarone, contro, trasferimento',
     ogTitle: 'Trasferirsi a Bizzarone da frontaliere: pro e contro',
-    ogDescription: 'I pro e i contro del trasferimento a Bizzarone per i frontaliere',
+    ogDescription: 'I pro e i contro del trasferimento a Bizzarone per i frontalieri',
     canonicalPath: '/articoli-frontaliere/trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Trasferirsi a Bizzarone da frontaliere: pro e contro",
-      "description": "I pro e i contro del trasferimento a Bizzarone per i frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "I pro e i contro del trasferimento a Bizzarone per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -57796,7 +57796,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     description: 'Le ore di lavoro temporaneo in Svizzera aumentano dell\'1,5% mentre i contratti a tempo indeterminato scendono del 19,4%. Scopri le implicazioni per i',
     keywords: 'frontalieri, ticino, svizzera, italia, lavoro, temporaneo, riprende, crescere',
     ogTitle: 'Lavoro temporaneo in Svizzera +1,5% nel primo semestre',
-    ogDescription: 'Aumento del lavoro temporaneo del 1,5% e calo dei contratti a tempo indeterminato del 19,4%: cosa significa per i frontaliere del Canton Ticino.',
+    ogDescription: 'Aumento del lavoro temporaneo del 1,5% e calo dei contratti a tempo indeterminato del 19,4%: cosa significa per i frontalieri del Canton Ticino.',
     canonicalPath: '/articoli-frontaliere/lavoro-temporaneo-aumento',
     structuredData: {
       "@context": "https://schema.org",
@@ -58885,16 +58885,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli': {
     title: 'Primo giorno in Ticino: checklist per famiglie con figli',
-    description: 'Conoscere i documenti necessari per il primo giorno di lavoro in Ticino è fondamentale per i frontaliere che lavorano in Svizzera e risiedono in Italia.',
+    description: 'Conoscere i documenti necessari per il primo giorno di lavoro in Ticino è fondamentale per i frontalieri che lavorano in Svizzera e risiedono in Italia.',
     keywords: 'frontalieri, ticino, svizzera, italia, primo, giorno, checklist, famiglie',
     ogTitle: 'Checklist operativa per il primo giorno di lavoro in Ticino: documenti, contratto, permesso, dati bancari e assicurazione sanitaria. Focus su \'famiglia con figli\' con checklist operativa e confronto scenari.',
-    ogDescription: 'Conoscere i documenti necessari per il primo giorno di lavoro in Ticino è fondamentale per i frontaliere che lavorano in Svizzera e risiedono in Italia.',
+    ogDescription: 'Conoscere i documenti necessari per il primo giorno di lavoro in Ticino è fondamentale per i frontalieri che lavorano in Svizzera e risiedono in Italia.',
     canonicalPath: '/articoli-frontaliere/frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Primo giorno in Ticino: checklist per famiglie con figli",
-      "description": "Conoscere i documenti necessari per il primo giorno di lavoro in Ticino è fondamentale per i frontaliere che lavorano in Svizzera e risiedono in Italia.",
+      "description": "Conoscere i documenti necessari per il primo giorno di lavoro in Ticino è fondamentale per i frontalieri che lavorano in Svizzera e risiedono in Italia.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -61186,16 +61186,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-frontaliere-piastrellista-ticino-stipendio-requisiti': {
     title: 'Lavorare come piastrellista in Ticino: stipendio, requisiti e riconoscimento del titolo',
-    description: 'Informazioni sui requisiti e sul stipendio medio per i piastrellisti in Ticino da frontaliere, con informazioni sull\'eventuale riconoscimento del titolo',
+    description: 'Informazioni sui requisiti e sullo stipendio medio per i piastrellisti in Ticino da frontaliere, con informazioni sull\'eventuale riconoscimento del titolo',
     keywords: 'frontalieri, ticino, svizzera, italia, lavorare, piastrellista, stipendio, requisiti',
     ogTitle: 'Lavorare come piastrellista in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G',
-    ogDescription: 'Informazioni sui requisiti e sul stipendio medio per i piastrellisti in Ticino da frontaliere, con informazioni sull\'eventuale riconoscimento del titolo di studio e sul permesso G.',
+    ogDescription: 'Informazioni sui requisiti e sullo stipendio medio per i piastrellisti in Ticino da frontaliere, con informazioni sull\'eventuale riconoscimento del titolo di studio e sul permesso G.',
     canonicalPath: '/articoli-frontaliere/frontaliere-piastrellista-ticino-stipendio-requisiti',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Lavorare come piastrellista in Ticino: stipendio, requisiti e riconoscimento del titolo",
-      "description": "Informazioni sui requisiti e sul stipendio medio per i piastrellisti in Ticino da frontaliere, con informazioni sull'eventuale riconoscimento del titolo",
+      "description": "Informazioni sui requisiti e sullo stipendio medio per i piastrellisti in Ticino da frontaliere, con informazioni sull'eventuale riconoscimento del titolo",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -61302,17 +61302,17 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-frontaliere-gruista-ticino-stipendio-requisiti': {
-    title: 'Frontaliere gruista ticino: stipendio e requisiti',
-    description: 'Le novità per i frontaliere gruisti in Ticino: stipendio e requisiti. Dati aggiornati 2026 per frontalieri in Ticino.',
+    title: 'Frontaliere gruista Ticino: stipendio e requisiti',
+    description: 'Le novità per i frontalieri gruisti in Ticino: stipendio e requisiti. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, gruista, stipendio, requisiti, sostanzialmente',
-    ogTitle: 'Frontaliere gruista ticino: stipendio e requisiti',
-    ogDescription: 'Le novità per i frontaliere gruisti in Ticino: stipendio e requisiti',
+    ogTitle: 'Frontaliere gruista Ticino: stipendio e requisiti',
+    ogDescription: 'Le novità per i frontalieri gruisti in Ticino: stipendio e requisiti',
     canonicalPath: '/articoli-frontaliere/frontaliere-gruista-ticino-stipendio-requisiti',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Frontaliere gruista ticino: stipendio e requisiti",
-      "description": "Le novità per i frontaliere gruisti in Ticino: stipendio e requisiti. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "headline": "Frontaliere gruista Ticino: stipendio e requisiti",
+      "description": "Le novità per i frontalieri gruisti in Ticino: stipendio e requisiti. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -61654,16 +61654,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro': {
     title: 'Trasferirsi a Maccagno con Pino e Veddasca da frontaliere: pro e contro',
-    description: 'Il nuovo accordo frontalieri del 2020 ha aperto nuove possibilità per i frontaliere che desiderano trasferirsi a Maccagno con Pino e Veddasca. Ma cosa sono',
+    description: 'Il nuovo accordo frontalieri del 2020 ha aperto nuove possibilità per i frontalieri che desiderano trasferirsi a Maccagno con Pino e Veddasca. Ma cosa sono',
     keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, maccagno, pino, veddasca',
     ogTitle: 'Trasferirsi a Maccagno con Pino e Veddasca da frontaliere: pro e contro',
-    ogDescription: 'Il nuovo accordo frontalieri del 2020 ha aperto nuove possibilità per i frontaliere che desiderano trasferirsi a Maccagno con Pino e Veddasca. Ma cosa sono i pro e i contro di questo trasferimento?',
+    ogDescription: 'Il nuovo accordo frontalieri del 2020 ha aperto nuove possibilità per i frontalieri che desiderano trasferirsi a Maccagno con Pino e Veddasca. Ma cosa sono i pro e i contro di questo trasferimento?',
     canonicalPath: '/articoli-frontaliere/trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Trasferirsi a Maccagno con Pino e Veddasca da frontaliere: pro e contro",
-      "description": "Il nuovo accordo frontalieri del 2020 ha aperto nuove possibilità per i frontaliere che desiderano trasferirsi a Maccagno con Pino e Veddasca. Ma cosa sono",
+      "description": "Il nuovo accordo frontalieri del 2020 ha aperto nuove possibilità per i frontalieri che desiderano trasferirsi a Maccagno con Pino e Veddasca. Ma cosa sono",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -62077,6 +62077,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-a-porlezza-e-lavorare-in-ticino-da-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-porlezza-lavorare-ticino-guida': {
+    title: 'Vivere a Porlezza e lavorare in Ticino da frontaliere',
+    description: 'Guida per frontalieri: vivere a Porlezza e lavorare in Ticino. Fatti su fisco, nuovo accordo 2024, franchigie e previdenza per pendolari. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, porlezza, lavorare, pratica',
+    ogTitle: 'Vivere a Porlezza e lavorare in Ticino da frontaliere',
+    ogDescription: 'Tutto quello che un frontaliere deve sapere: fiscalità, nuovo accordo 2024, permessi e gestione del reddito tra Porlezza e il Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-porlezza-lavorare-ticino-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Porlezza e lavorare in Ticino da frontaliere",
+      "description": "Guida per frontalieri: vivere a Porlezza e lavorare in Ticino. Fatti su fisco, nuovo accordo 2024, franchigie e previdenza per pendolari. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-porlezza-lavorare-ticino-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del lago di Lugano"
+      },
+      "datePublished": "2026-08-10T02:29:46+00:00",
+      "dateModified": "2026-08-10T02:29:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-porlezza-lavorare-ticino-guida/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
