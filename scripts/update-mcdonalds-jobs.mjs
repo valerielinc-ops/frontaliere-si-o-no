@@ -3,9 +3,12 @@
  * Dedicated McDonald's Switzerland crawler runner.
  *
  * See scripts/lib/mcdonalds-job-parser.mjs for the full root-cause
- * explanation and discovery strategy (sitemap enumeration + per-job
- * JSON-LD, no Playwright needed — the client-side /api/get-jobs endpoint
- * is bot-protected, but the public sitemap + SSR detail pages are not).
+ * explanation and discovery strategy. Short version (rewritten 2026-08-10,
+ * issue #5393): the Paradox/McHire SPA the previous version targeted is
+ * gone — jobs.mcdonalds.ch is back on Drupal, serves an invalid TLS
+ * certificate, and publishes every open posting in the
+ * `mcdo_jobs_mapEntries` array on /postes-vacants. One request, no
+ * Playwright, no bot-protection.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -78,7 +81,7 @@ function isTrustedMcdoDomain(rawUrl = '') {
 // ──────────────────────────────────────────────────────────────
 
 async function fetchAndParseMcdoJobs() {
-  console.log(`🍟 Fetching ${COMPANY_NAME} jobs from ${COMPANY_DOMAIN} (sitemap discovery)...`);
+  console.log(`🍟 Fetching ${COMPANY_NAME} jobs from ${COMPANY_DOMAIN} (vacancies listing)...`);
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
 
   const rawJobs = await fetchMcdoJobs({ timeoutMs, detailConcurrency: 8 });
@@ -170,7 +173,7 @@ async function runBaseCrawler() {
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(MCDO_KEY, "McDonald's");
-  console.log(`🍟 Running dedicated ${COMPANY_NAME} jobs crawler (sitemap + JSON-LD)...`);
+  console.log(`🍟 Running dedicated ${COMPANY_NAME} jobs crawler (vacancies listing + JSON-LD)...`);
 
   const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(MCDO_KEY, DATA_JOBS).filter(isMcdoJob));
 
