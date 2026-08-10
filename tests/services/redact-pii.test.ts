@@ -397,3 +397,189 @@ describe('inferNamesFromCapitalisation: the measured exception for short structu
     expect(redactPersonalData(s).text).toBe(redactPersonalData(s, {}).text);
   });
 });
+
+// ─── Second pass over the same module (#5196) ───────────────────────────────
+//
+// Everything below was measured against the module as it stood, not imagined.
+// Three findings, of two different kinds:
+//
+//   UNDER-redaction, the privacy defect —
+//     · a Swiss phone written with a slash ("091/123 45 67") went out in clear,
+//       because the slash splits it one digit below the generic rule's floor;
+//     · a permit / matricola number of seven digits went out in clear, being
+//       one digit below that same floor and having no shape of its own.
+//
+//   OVER-redaction, the usefulness defect —
+//     · the capitalised-run heuristic was calibrated on Italian and fires on
+//       ORDINARY German and English prose, because German capitalises nouns.
+//       On the site's own 412-question FAQ corpus (`data/faq-hub/category-*.ts`,
+//       four locales, zero personal data in it) it hit 56 questions — 13.6%,
+//       all false positives. After the guards below: 4 — 1.0%.
+//     · the bare label cue `nome` swallowed the words after it in questions
+//       like "nome del datore di lavoro?", one of this site's most common.
+
+describe('Swiss phone numbers written with a slash', () => {
+  // The slash is the ordinary Swiss way of writing these, and it was the one
+  // separator the rule did not know — while `scripts/lib/strip-contact-pii.mjs`,
+  // in this same repo, already listed it.
+  const NUMBERS = ['091/123 45 67', '079/1234567', '022/345 67 89', '+41 91/123 45 67', '079/123.45.67'];
+
+  for (const n of NUMBERS) {
+    it(`redacts ${n}`, () => {
+      const input = `Chiamami allo ${n}, grazie`;
+      const out = red(input);
+      expect(out, n).not.toContain(n);
+      expect(kinds(input), n).toContain('phone');
+    });
+  }
+
+  it('does not turn a year range or a fraction into a phone call', () => {
+    // The rule anchors on `+41` / `0041` / a leading zero precisely so that the
+    // slash alone is not enough — otherwise "2026/2027" becomes [phone] on a
+    // site whose most common question token is a tax year.
+    for (const q of ['aliquota 2026/2027 per frontalieri', 'orario 9/17', 'quanto costa il 3/4 di giornata']) {
+      expect(red(q), q).toBe(q);
+      expect(kinds(q), q).toEqual([]);
+    }
+  });
+});
+
+describe('identifiers introduced by an explicit label', () => {
+  // A residence-permit card number has no shape to match — it is a bare digit
+  // run, most often seven digits, one under the generic phone floor. The label
+  // is the only marker, so the label is the anchor.
+  it('redacts a permit number', () => {
+    const input = 'Il mio permesso G n. 1234567 scade a giugno';
+    const out = red(input);
+    expect(out).not.toContain('1234567');
+    expect(out).toContain('permesso G n.');
+    expect(kinds(input)).toContain('id');
+  });
+
+  it('redacts a matricola and a German Ausweis number', () => {
+    expect(red('La mia matricola 1234567 è corretta?')).not.toContain('1234567');
+    expect(red('Meine Ausweis Nr. 12345 ist abgelaufen')).not.toContain('12345');
+  });
+
+  it('does NOT swallow a year after the same label', () => {
+    // Five digits is the floor for exactly this reason: "numero 2026" must live.
+    const q = 'Qual è il numero 2026 di riferimento?';
+    expect(red(q)).toBe(q);
+  });
+
+  it('leaves a real phone labelled as a phone, not as an id', () => {
+    // Ordering check: both phone rules run before the label rule, so the more
+    // informative label wins where both could match.
+    expect(kinds('il mio numero 0791234567')).toContain('phone');
+  });
+});
+
+describe('the bare "nome" / "cognome" cue only counts in label position', () => {
+  it('keeps the question shapes this site is actually made of', () => {
+    // These were destroyed: "nome del datore di lavoro?" → "nome [name] lavoro?".
+    for (const q of [
+      'nome del datore di lavoro?',
+      'il nome della cassa malati?',
+      'qual è il cognome corretto sul modulo?',
+      'Nome e cognome del titolare?',
+    ]) {
+      expect(red(q), q).toBe(q);
+      expect(kinds(q), q).toEqual([]);
+    }
+  });
+
+  it('still redacts the label form, which is what a pasted form looks like', () => {
+    for (const q of ['Nome: mario rossi', 'Nome e cognome: Marco Bernasconi', 'Nome Marco Bernasconi']) {
+      expect(red(q), q).not.toMatch(/rossi|Bernasconi/i);
+      expect(kinds(q), q).toContain('name');
+    }
+  });
+
+  it('a strong verbal cue is unaffected and works in lower case', () => {
+    // The phrasings people actually use to volunteer a name. Lower case matters:
+    // this is what a phone keyboard produces.
+    for (const q of [
+      'mi chiamo mario rossi',
+      'ich heisse jürgen müller',
+      "je m'appelle françois dupont",
+      'my name is john smith',
+    ]) {
+      const out = red(q);
+      expect(out, q).toContain(REDACTION_TOKENS.name);
+      expect(out.toLowerCase(), q).not.toContain('rossi');
+      expect(out.toLowerCase(), q).not.toContain('müller');
+      expect(out.toLowerCase(), q).not.toContain('dupont');
+      expect(out.toLowerCase(), q).not.toContain('smith');
+    }
+  });
+});
+
+describe('the capitalised-run heuristic outside Italian', () => {
+  // German capitalises every noun and English capitalises scheme names, so the
+  // rule fired on questions with no person in them at all. All of the fixtures
+  // below are verbatim from the site's own FAQ corpus — editorial text, not
+  // user input, and containing no personal data.
+  const FAQ_MUST_SURVIVE = [
+    'Welche Kündigungsfristen gelten in Schweizer Arbeitsverträgen?',
+    'Kann ich als Grenzgänger ein Schweizer Bankkonto eröffnen?',
+    'Müssen Grenzgänger die Serafe/SRG-Gebühr zahlen?',
+    'Does Swiss law provide a TFR equivalent as in Italy?',
+    'Which LAMal deductible is most convenient for a cross-border worker?',
+    'Is the SBB GA travelcard worthwhile for a cross-border worker?',
+    'La NASpI italiana spetta al frontaliere licenziato dalla Svizzera?',
+    'Quels cadres du formulaire Redditi PF 2026 doit remplir un nouveau frontalier ?',
+  ];
+
+  for (const q of FAQ_MUST_SURVIVE) {
+    it(`keeps: ${q.slice(0, 46)}…`, () => {
+      expect(red(q)).toBe(q);
+      expect(kinds(q)).toEqual([]);
+    });
+  }
+
+  it('the German fixtures are genuinely non-ASCII', () => {
+    expect(hasNonAscii('Welche Kündigungsfristen gelten in Schweizer Arbeitsverträgen?')).toBe(true);
+  });
+
+  it('a name flanked by grammar is still redacted — only the grammar survives', () => {
+    // This is what keeps the narrowing honest: dropping edge tokens cannot hide
+    // a person, it can only stop reporting the words around one.
+    for (const [input, leak] of [
+      ['Kann Mario Rossi den Antrag stellen?', 'Rossi'],
+      ['Ho parlato con Anna Pedrazzini della pratica', 'Pedrazzini'],
+      ['Sono Mario Rossi e sono frontaliere', 'Rossi'],
+      ['Which documents does Anna Pedrazzini need?', 'Pedrazzini'],
+    ] as const) {
+      const out = red(input);
+      expect(out, input).not.toContain(leak);
+      expect(kinds(input), input).toContain('name');
+    }
+  });
+
+  it('states its own residual: a SHORT all-caps surname is read as an acronym', () => {
+    // Documented, not accidental. A 2–4 character all-caps token is an acronym
+    // (AVS, KVG, SBB, PF) far more often than a surname, and treating it as a
+    // name word is what turned one German question in seven into "[name]".
+    // The cue and honorific rules still catch the same person.
+    expect(red('Anna NERI mi ha aiutato')).toContain('NERI');
+    expect(red('mi chiamo Anna NERI')).not.toContain('NERI');
+    expect(red('La Sig.ra NERI mi ha aiutato')).not.toContain('NERI');
+    // Five characters and up is still a name: the cap is set below the common
+    // surname length on purpose.
+    expect(red('Anna ROSSINI mi ha aiutato')).not.toContain('ROSSINI');
+  });
+});
+
+describe('redaction is idempotent — a token is never re-read as content', () => {
+  it('running it twice changes nothing', () => {
+    const inputs = [
+      'Mi chiamo Marco Bernasconi, nato il 22/02/1988, Via alla Stampa 11B, tel 091/123 45 67',
+      'Ich heiße Jürgen Müller, Bahnhofstrasse 12, 8001 Zürich',
+      "Je m'appelle Chloé Béranger, 5 rue de la Gare, permesso G n. 1234567",
+    ];
+    for (const input of inputs) {
+      const once = red(input);
+      expect(red(once), input).toBe(once);
+    }
+  });
+});

@@ -96,6 +96,11 @@ const DOMAIN_CAPITALISED = new Set([
   // Institutions, schemes, documents
   'avs', 'ahv', 'ai', 'ipg', 'lpp', 'bvg', 'lamal', 'kvg', 'lainf', 'suva', 'lpga',
   'iva', 'tva', 'mwst', 'irpef', 'imu', 'inps', 'inail', 'agenzia entrate', 'agenzia delle entrate',
+  // Benefit and form names that read as a capitalised pair. Measured on the
+  // site's own 412-question FAQ corpus: without these, "La NASpI" and
+  // "Assegno Unico Universale" are reported as people.
+  'naspi', 'assegno', 'unico', 'universale', 'anf', 'redditi', 'gav', 'ccl', 'cct',
+  'rav', 'urc', 'kae', 'tfr', 'ssn', 'serafe', 'srg', 'rsi',
   'cassa malati', 'cassa malattia', 'krankenkasse', 'caisse maladie',
   'permesso', 'permis', 'bewilligung', 'permit',
   'imposta', 'imposta alla fonte', 'quellensteuer', 'impot', 'steuer',
@@ -166,11 +171,45 @@ const STREET_PARTICLE = "(?:(?:de|du|des|della|dello|dei|degli|delle|la|le|les|l
 // `'` and the typographic `’`, and a rule that only knows one of them silently
 // misses half the real inputs.
 const APOS = "['’]";
-const NAME_CUES =
-  "mi\\s+chiamo|il\\s+mio\\s+nome\\s+[eè]|nome\\s+e\\s+cognome|nome|cognome|" +
+
+/**
+ * STRONG cues: a predication that can only introduce the speaker's own name.
+ *
+ * Whatever follows one of these is a name, in any case. The rule below is
+ * case-insensitive on purpose and that matters more than it looks: on a phone
+ * keyboard people type "mi chiamo mario rossi" all lowercase, and nothing in
+ * that string except the cue marks it as a name.
+ */
+const NAME_CUES_STRONG =
+  "mi\\s+chiamo|il\\s+mio\\s+nome\\s+[eè]|" +
   `my\\s+name\\s+is|i\\s+am\\s+called|i${APOS}?m\\s+called|` +
   "ich\\s+heisse|ich\\s+heiße|mein\\s+name\\s+ist|" +
   `je\\s+m${APOS}\\s*appelle|je\\s+me\\s+nomme|mon\\s+nom\\s+est`;
+
+/**
+ * LABEL cues: the bare words for "name", which introduce a value only when they
+ * are used as a FORM LABEL.
+ *
+ * These were treated exactly like the strong cues, and because the rule carries
+ * the `i` flag — which makes `\p{Lu}` match lowercase too — the bare `nome`
+ * swallowed whatever three words came after it. On a cross-border-worker site
+ * that is not a rare shape, it is a top-frequency question:
+ *
+ *   "nome del datore di lavoro?"     → "nome [name] lavoro?"
+ *   "il nome della cassa malati?"    → "il nome [name]?"
+ *   "qual è il cognome sul modulo?"  → "qual è il cognome [name]?"
+ *
+ * The distinction is not a confidence threshold, it is a grammatical one: as a
+ * label, `Nome` carries a separator (`Nome: Marco`) or a capitalised value
+ * (`Nome Marco Bernasconi`) — that is what a pasted form looks like. Without
+ * either, `nome` is just the Italian word for "name" inside a question.
+ *
+ * What this gives up, plainly: `nome mario rossi`, lowercase and with no
+ * punctuation, is no longer redacted by this rule. Every prose phrasing people
+ * actually use to volunteer a name is a STRONG cue and is unaffected, and the
+ * form-shaped paste that motivated the rule carries the colon.
+ */
+const NAME_CUES_LABEL = 'nome\\s+e\\s+cognome|nome|cognome';
 
 /** Honorifics that precede a surname. */
 const HONORIFICS =
@@ -323,14 +362,75 @@ const ZIP_CITY_AFTER_ADDRESS = /(\[address\])[,\s]+(?:CH-|I-|IT-|D-|F-)?\d{4,5}\
  */
 const ZIP_CITY = /\b(?:(?:CH-|I-|IT-|D-|F-)\d{4,5}|\d{5}|(?!(?:19|20)\d{2}\b)\d{4})\s+\p{Lu}[\p{L}'’\-]{2,}/gu;
 
+/**
+ * Swiss national phone format, INCLUDING the slash separator.
+ *
+ * The generic `PHONE` rule below needs eight consecutive digits whose only
+ * separators are space, dot, parenthesis or hyphen. A Swiss number is very
+ * often written `091/123 45 67`, and the slash splits it into `091` + a
+ * seven-digit tail — one digit under the floor — so the whole number went out
+ * **in clear**. Measured on the module as it stood: `079/1234567`,
+ * `022/345 67 89`, `091/123 45 67` and `+41 91/123 45 67` were all returned
+ * untouched, with `kinds` empty.
+ *
+ * The shape is not invented here. `scripts/lib/strip-contact-pii.mjs` already
+ * carries the same format for scraped recruiter numbers and already lists
+ * "space / dot / slash / hyphen" as the separators — this repo knew about the
+ * slash in one PII stripper and not in the other.
+ *
+ * Anchoring on `+41` / `0041` / a leading `0` is what keeps it off ordinary
+ * numbers: `2026/2027` and `9/17` do not start a national number, so the
+ * slash does not turn a year range into a phone call.
+ */
+const PHONE_CH = /(?:\+41[\s./-]?|0041[\s./-]?|\b0)\d{1,2}[\s./-]?\d{3}[\s./-]?\d{2}[\s./-]?\d{2}\b/g;
+
 /** Long digit runs — phones, and any other identifier the rules above missed. */
 const PHONE = /\b(?:\+?\d[\s().-]?){7,}\d\b/g;
 
-/** "mi chiamo Mario Rossi", "Nome: Hatam Kerimi". Captures up to three capitalised words. */
-const NAME_AFTER_CUE = new RegExp(
-  `\\b(${NAME_CUES})\\b(\\s*[:\\-]?\\s*)(\\p{Lu}[\\p{L}'’\\-]+(?:\\s+\\p{Lu}[\\p{L}'’\\-]+){0,2})`,
+/**
+ * A number introduced by an explicit identifier label: "permesso G n. 1234567",
+ * "matricola 1234567", "Ausweis Nr. 12345".
+ *
+ * Everything above matches a *shape*. A residence-permit card number has no
+ * shape to match — it is a bare digit run, and this audience's most common one
+ * is seven digits, one short of the generic phone rule's eight-digit floor. So
+ * `permesso G n. 1234567` and `matricola 1234567` both passed through in clear,
+ * while the same numbers with one more digit were caught (and mislabelled
+ * `phone`). The label is the only thing that marks them, so the label is what
+ * this rule anchors on.
+ *
+ * Five digits is the floor, which puts every four-digit year out of reach: the
+ * cost of a lower one would be "numero 2026" redacted on a site whose most
+ * common question token is a tax year.
+ *
+ * Runs AFTER both phone rules, so a real phone number keeps the `phone` label
+ * and only the sub-eight-digit leftovers land here.
+ */
+const ID_AFTER_CUE = new RegExp(
+  "\\b(n\\.|nr\\.|no\\.|numero|numeri|nummer|num[eé]ro|matricola|tessera|" +
+    "permesso\\s+\\p{L}|permis\\s+\\p{L}|bewilligung\\s+\\p{L}|ausweis)" +
+    "(\\s*[:\\-]?\\s*)(\\d{5,})\\b",
   'giu',
 );
+
+/** "mi chiamo Mario Rossi", "ich heisse jürgen müller". Up to three words, any case. */
+const NAME_AFTER_STRONG_CUE = new RegExp(
+  `\\b(${NAME_CUES_STRONG})\\b(\\s*[:\\-]?\\s*)(\\p{Lu}[\\p{L}'’\\-]+(?:\\s+\\p{Lu}[\\p{L}'’\\-]+){0,2})`,
+  'giu',
+);
+
+/** "Nome: Hatam Kerimi", "Cognome Bernasconi" — only in label position, see `NAME_CUES_LABEL`. */
+const NAME_AFTER_LABEL_CUE = new RegExp(
+  `\\b(${NAME_CUES_LABEL})\\b(\\s*[:\\-]\\s*|\\s+)(\\p{Lu}[\\p{L}'’\\-]+(?:\\s+\\p{Lu}[\\p{L}'’\\-]+){0,2})`,
+  'giu',
+);
+
+/** True when the label cue is genuinely acting as a form label. */
+function isLabelPosition(separator: string, value: string): boolean {
+  if (/[:\-=]/.test(separator)) return true;
+  const first = value.charAt(0);
+  return first !== '' && first !== first.toLowerCase();
+}
 
 /** "Sig. Rossi", "Herr Müller", "M. Dupont". */
 const NAME_AFTER_HONORIFIC = new RegExp(
@@ -350,6 +450,102 @@ const NAME_AFTER_HONORIFIC = new RegExp(
  */
 const CAPITALISED_RUN = /\p{Lu}[\p{L}'’\-]{1,}(?:\s+\p{Lu}[\p{L}'’\-]{1,}){1,2}/gu;
 
+/**
+ * Capitalised words that are grammar, not the start of a person's name:
+ * interrogatives, auxiliaries and modals, prepositions and conjunctions, plus
+ * adjectives of nationality. They appear capitalised because they open a
+ * sentence, or because German capitalises where the other three locales do not.
+ *
+ * ── WHY THIS LIST EXISTS, MEASURED ──
+ *
+ * `CAPITALISED_RUN` was calibrated on 112 real ITALIAN chatbot questions (6.3%
+ * touched). Two of the site's four locales do not behave like Italian: German
+ * capitalises every noun, and English capitalises brand and scheme names, so an
+ * ordinary question in either produces adjacent capitals with no person in it.
+ * Run against the site's own FAQ corpus — 412 editorial questions across it/en/
+ * de/fr, `data/faq-hub/category-*.ts`, containing no personal data at all —
+ * the rule fired on **56 of them (13.6%), every single one a false positive**:
+ *   "Welche Kündigungsfristen gelten in Schweizer Arbeitsverträgen?"
+ *      → "[name] gelten in [name]?"
+ *   "Does Swiss law provide a TFR equivalent as in Italy?"
+ *      → "[name] law provide a TFR equivalent as in Italy?"
+ *
+ * That is not a cosmetic loss. The chatbot no longer ships question text at
+ * all (see `questionTopic.ts`), so what `CAPITALISED_RUN` produces there is the
+ * `redacted_kinds` signal — the one number the owner has to decide the historic
+ * cleanup with. A rule that reports `name` on one German question in seven that
+ * contains no name makes exactly that signal unreadable.
+ *
+ * ── THE TRADE, STATED ──
+ *
+ * Dropping these tokens from the EDGES of a run is a narrowing of the broadest
+ * rule in this file, so it goes against the module's over-redact default and
+ * has to earn it. It does, on two counts. First, it cannot hide a name that is
+ * flanked by grammar: "Kann Mario Rossi …" still leaves `Mario Rossi`, two
+ * name-like tokens, and is still redacted — only the word `Kann` survives.
+ * Second, the shapes it gives up are the ones every other rule still holds:
+ * a cue ("mi chiamo …"), an honorific, an email, a phone, an address, a date.
+ *
+ * What it does give up is stated rather than buried: a run left with fewer than
+ * two name-like tokens is kept. So `Anna NERI` — a given name beside a
+ * SHORT ALL-CAPS surname — is no longer redacted by this rule, because a 2–4
+ * character all-caps token is read as an acronym (`AVS`, `KVG`, `SBB`, `PF`).
+ * It still is when introduced by a cue or an honorific. The cap is 4 characters
+ * precisely so that the common all-caps surname length stays out of it.
+ */
+const NON_NAME_CAPITALISED = new Set([
+  // it — interrogatives, auxiliaries, modals, prepositions, conjunctions
+  'quale', 'quali', 'quanto', 'quanti', 'quanta', 'quante', 'quando', 'come', 'cosa',
+  'chi', 'dove', 'perche', 'se', 'esiste', 'esistono', 'serve', 'servono', 'vale',
+  'posso', 'puoi', 'puo', 'possiamo', 'potete', 'possono',
+  'devo', 'devi', 'deve', 'dobbiamo', 'dovete', 'devono',
+  'sono', 'sei', 'siamo', 'siete', 'ho', 'hai', 'ha', 'abbiamo', 'avete', 'hanno',
+  'con', 'per', 'senza', 'dopo', 'prima', 'anche', 'ma', 'oppure', 'invece', 'ogni',
+  // en
+  'which', 'what', 'who', 'whom', 'whose', 'when', 'where', 'why', 'how',
+  'is', 'are', 'was', 'were', 'am', 'be', 'been', 'do', 'does', 'did',
+  'can', 'could', 'may', 'might', 'must', 'shall', 'should', 'will', 'would',
+  'have', 'has', 'had', 'the', 'an', 'my', 'your', 'our', 'their',
+  'this', 'that', 'these', 'those', 'and', 'or', 'but', 'if', 'with', 'without',
+  'for', 'from', 'about', 'after', 'before', 'also', 'still', 'only', 'every',
+  // de
+  'welche', 'welcher', 'welches', 'welchen', 'welchem', 'wie', 'wer', 'wen', 'wem',
+  'wann', 'wo', 'warum', 'weshalb', 'wieso',
+  'ist', 'sind', 'war', 'waren', 'bin', 'bist', 'hat', 'habe', 'haben', 'hast',
+  'hatte', 'hatten', 'kann', 'kannst', 'konnen', 'koennen',
+  'muss', 'mussen', 'muessen', 'darf', 'durfen', 'duerfen', 'soll', 'sollen',
+  'wird', 'werden', 'wurde', 'wurden', 'gibt', 'der', 'die', 'das', 'den', 'dem',
+  'ein', 'eine', 'einen', 'einem', 'einer', 'eines', 'mein', 'meine', 'meinen',
+  'mit', 'fur', 'fuer', 'ohne', 'nach', 'vor', 'bei', 'aus', 'auch', 'und',
+  'oder', 'aber', 'wenn', 'als', 'noch', 'schon', 'jede', 'jeder', 'jedes',
+  // fr
+  'quel', 'quelle', 'quels', 'quelles', 'comment', 'combien', 'quand', 'pourquoi',
+  'qui', 'que', 'quoi', 'est', 'sont', 'ai', 'ont', 'peut', 'peux', 'peuvent',
+  'dois', 'doit', 'doivent', 'faut', 'avec', 'sans', 'pour', 'par', 'dans', 'sur',
+  'mais', 'si', 'aussi', 'encore', 'je', 'tu', 'nous', 'vous', 'ils', 'elles',
+  'mon', 'ma', 'mes', 'votre', 'notre', 'leur', 'chaque',
+  // Adjectives of nationality — the single most frequent capitalised
+  // non-name word on this site, in every locale ("Schweizer Bankkonto",
+  // "Swiss CV", "Italian ANF"). Deliberately NOT the country nouns, which are
+  // already in DOMAIN_CAPITALISED.
+  'swiss', 'suisse', 'suisses', 'schweizer', 'schweizerisch', 'schweizerische',
+  'schweizerischen', 'schweizerischer', 'tessiner', 'ticinese', 'ticinesi',
+  'italian', 'italien', 'italienne', 'italiens', 'italiennes',
+  'italienisch', 'italienische', 'italienischen', 'italienischer',
+]);
+
+/**
+ * A 2–4 character all-caps token: an acronym, not a name.
+ *
+ * Four is a ceiling with a reason: `AVS`, `AHV`, `KVG`, `SBB`, `RAV`, `GAV`,
+ * `TFR`, `SSN`, `ANF`, `CHF`, `URC`, `SRG`, `PF`, `CV`, `GA` are the tokens
+ * that pair with an ordinary noun and turn a normal question into a `[name]`.
+ * Raising it to five or six would also swallow an ALL-CAPS surname, which is a
+ * shape people really type into forms — so it stays at four, and the surname
+ * keeps being caught.
+ */
+const ACRONYM_TOKEN = /^[\p{Lu}\d]{2,4}$/u;
+
 /** Fold accents + lowercase, for allowlist lookup only. */
 function foldForLookup(s: string): string {
   return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
@@ -362,6 +558,33 @@ function isDomainPhrase(run: string): boolean {
   // ("Cassa Malati", "Imposta Fonte").
   const words = folded.split(/\s+/).filter(Boolean);
   return words.length > 0 && words.every((w) => DOMAIN_CAPITALISED.has(w));
+}
+
+/** A token that cannot be part of a person's name: grammar, or an acronym. */
+function isNonNameToken(word: string): boolean {
+  if (ACRONYM_TOKEN.test(word)) return true;
+  const folded = foldForLookup(word);
+  return NON_NAME_CAPITALISED.has(folded) || DOMAIN_CAPITALISED.has(folded);
+}
+
+/**
+ * Narrow a capitalised run to the span that could actually be a person, by
+ * discarding non-name tokens at either END of it.
+ *
+ * Only the ends: a non-name token in the MIDDLE ("Grenzgängern Schweizer
+ * Stipendien") leaves the run intact and redacted, because splitting there
+ * would need a judgement about which side the person is on, and the safe
+ * answer to that question is "redact".
+ *
+ * Returns `null` when fewer than two name-like tokens remain — the same
+ * two-token floor the rule has always had, applied after the noise is removed.
+ */
+function nameSpanOf(words: string[]): { start: number; end: number } | null {
+  let start = 0;
+  let end = words.length;
+  while (start < end && isNonNameToken(words[start])) start += 1;
+  while (end > start && isNonNameToken(words[end - 1])) end -= 1;
+  return end - start >= 2 ? { start, end } : null;
 }
 
 export interface RedactionOptions {
@@ -448,14 +671,28 @@ export function redactPersonalData(raw: string, options: RedactionOptions = {}):
   });
   apply(ZIP_CITY, 'address');
 
+  // Swiss national format first: it knows the slash separator that splits a
+  // real number below the generic rule's eight-digit floor.
+  apply(PHONE_CH, 'phone');
   apply(PHONE, 'phone');
+  // After both phone rules, so a real phone keeps the `phone` label and only
+  // the short label-anchored numbers (permit, matricola) land as `id`.
+  out = out.replace(ID_AFTER_CUE, (_m, cue: string, sep: string) => {
+    kinds.add('id');
+    return `${cue}${sep}${REDACTION_TOKENS.id}`;
+  });
 
   // Names last: the cue/honorific rules must run before the generic run rule,
   // so "Nome: Hatam Kerimi" is caught even if the pair were somehow allowlisted.
-  out = out.replace(NAME_AFTER_CUE, (_m, cue: string, sep: string) => {
+  out = out.replace(NAME_AFTER_STRONG_CUE, (_m, cue: string, sep: string) => {
     kinds.add('name');
     // Keep the cue and its separator: "Nome: [name]" still reads as a labelled
     // field, which is what makes the redacted question usable for analytics.
+    return `${cue}${sep}${REDACTION_TOKENS.name}`;
+  });
+  out = out.replace(NAME_AFTER_LABEL_CUE, (match, cue: string, sep: string, value: string) => {
+    if (!isLabelPosition(sep, value)) return match;
+    kinds.add('name');
     return `${cue}${sep}${REDACTION_TOKENS.name}`;
   });
   out = out.replace(NAME_AFTER_HONORIFIC, (_m, title: string) => {
@@ -465,8 +702,13 @@ export function redactPersonalData(raw: string, options: RedactionOptions = {}):
   if (inferNamesFromCapitalisation) {
     out = out.replace(CAPITALISED_RUN, (run: string) => {
       if (isDomainPhrase(run)) return run;
+      // Whitespace was collapsed to single spaces at the top of this function,
+      // so the run round-trips through split/join without losing anything.
+      const words = run.split(' ');
+      const span = nameSpanOf(words);
+      if (!span) return run;
       kinds.add('name');
-      return REDACTION_TOKENS.name;
+      return [...words.slice(0, span.start), REDACTION_TOKENS.name, ...words.slice(span.end)].join(' ');
     });
   }
 
