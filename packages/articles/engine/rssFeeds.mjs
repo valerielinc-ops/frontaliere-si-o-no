@@ -343,6 +343,13 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
 
   const lastBuildDate = toRfc822(topItems[0].pubDate);
 
+  // <guid> is built from articleId, not slug (issue #162): a slug rename
+  // (e.g. dropping a placeholder like slug-traffico-da-record) used to
+  // change the guid, which re-presents the item as new to every existing
+  // subscriber. The id is permanent for the article's lifetime, so it
+  // survives renames. isPermaLink is false because the id alone does not
+  // resolve to a URL — <link> below still carries the current, renameable
+  // slug.
   const itemsXml = topItems
     .map((item) => {
       const body = bodies?.get(item.articleId);
@@ -351,10 +358,10 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
         : '';
       return `    <item>
       <title>${escapeXml(item.title)}</title>
-      <link>${BASE_URL}${meta.articlePrefix}${item.slug}/</link>
+      <link>${BASE_URL}${meta.articlePrefix}${escapeXml(item.slug)}/</link>
       <description><![CDATA[${item.excerpt}]]></description>${contentEncoded}
       <pubDate>${toRfc822(item.pubDate)}</pubDate>
-      <guid isPermaLink="true">${BASE_URL}${meta.articlePrefix}${item.slug}/</guid>
+      <guid isPermaLink="false">${BASE_URL}${meta.articlePrefix}${escapeXml(item.articleId)}</guid>
       <category>${escapeXml(item.category)}</category>
       <media:content url="${escapeXml(item.imageUrl)}" medium="image"/>
     </item>`;

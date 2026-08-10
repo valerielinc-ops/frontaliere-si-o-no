@@ -217,8 +217,9 @@ describe('packages/articles/engine/rssFeeds', () => {
     expect(de).toContain('<content:encoded><![CDATA[Alpha body text');
     // Localized slug + localized section prefix, trailing slash (site convention).
     expect(de).toContain('<link>https://frontaliereticino.ch/de/grenzgaenger-artikel/alpha-de/</link>');
+    // Il guid porta l'articleId, non lo slug, e non e un permalink (#162).
     expect(de).toContain(
-      '<guid isPermaLink="true">https://frontaliereticino.ch/de/grenzgaenger-artikel/alpha-de/</guid>',
+      '<guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/alpha</guid>',
     );
     // Category comes from the seo chunk's articleSection.
     expect(de).toContain('<category>Fiscale</category>');
@@ -349,5 +350,120 @@ describe('buildSectionFeeds — repairSerpSnippet e obbligatoria (#5453)', () =>
         repairSerpSnippet: 'nope',
       } as never),
     ).toThrow(TypeError);
+  });
+});
+
+/**
+ * `<guid>` stabile fra i rename di slug, e escaping XML (issue #162 / #182 del
+ * corpus).
+ *
+ * Il guid si costruiva da `item.slug` con `isPermaLink="true"`, cioe' lo stesso
+ * valore di `<link>`. Rinominare uno slug — cosa che il corpus fa per togliere i
+ * placeholder — cambiava anche il guid, e ogni iscritto RSS si vedeva ripresentare
+ * l'articolo come nuovo senza che nulla dell'articolo fosse cambiato. `articleId`
+ * e' permanente per la vita dell'articolo, quindi il guid ora deriva da quello;
+ * `<link>` continua a portare lo slug corrente, perche' quello deve risolvere.
+ *
+ * Perche' questa suite esiste QUI e non solo sul corpus: `engine/rssFeeds.mjs`
+ * e' `outOfScope` nel `loop-sync-manifest.json` del corpus proprio perche' ha un
+ * canale di discesa automatico (`mirror-articles-engine.yml`), che dichiara i 25
+ * file dell'engine byte-identici a `packages/articles/engine/` di questo repo.
+ * La fix era stata fatta solo corpus-side: la lockstep successiva
+ * (nanakokyobashi-rgb/frontaliere-articles#205) la regrediva, il test corpus la
+ * ribloccava, e nessun test di QUESTO repo se ne accorgeva — il drift check
+ * confronta i file uno per uno e non vede l'assenza di un test da un lato.
+ * Questo blocco e' il gemello vitest di `generator/tests/rss-feed-guid.test.mjs`
+ * del corpus: senza, la regressione puo' rientrare da qui e ribloccare il mirror.
+ */
+describe('RSS <guid> — stabile ai rename e XML-escaped (#162, #182)', () => {
+  const SECTION = RSS_SECTIONS.find((s) => s.id === 'frontaliere')!;
+  const SEO_FILE = path.join('services/seo', SECTION.seoFiles[0]);
+  const IT_FEED = SECTION.feedFile('it');
+
+  /**
+   * Fake fs in memoria invece del fixture su disco di `makeFixture()`: qui serve
+   * variare articleId e slug per chiamata, e nessun file deve sopravvivere fra
+   * i due render che il test confronta.
+   */
+  function buildFeedXml(articleId: string, itSlug: string): string {
+    const files = new Map<string, string>([
+      [
+        SEO_FILE,
+        `export default {
+  'blog-${articleId}': {
+    "headline": "Test headline",
+    "description": "Test description",
+    "datePublished": "2026-08-01T00:00:00.000Z",
+    "articleSection": "Notizie",
+  },
+};
+`,
+      ],
+      [
+        SECTION.slugFile,
+        `export const BLOG_SLUGS = {
+ '${articleId}': { it: '${itSlug}', en: 'x', de: 'y', fr: 'z' },
+};
+`,
+      ],
+    ]);
+    const fakeFs = {
+      existsSync: (p: string) => files.has(p),
+      readFileSync: (p: string) => {
+        if (!files.has(p)) throw new Error(`ENOENT: ${p}`);
+        return files.get(p)!;
+      },
+      readdirSync: () => [],
+    };
+
+    const { feeds } = buildSectionFeeds({
+      fs: fakeFs,
+      path,
+      rootDir: '',
+      section: SECTION,
+      registry: [],
+      repairSerpSnippet,
+    } as never);
+
+    return feeds.find(([filename]: [string, string]) => filename === IT_FEED)![1];
+  }
+
+  it('il guid sopravvive a un rename di slug (deriva da articleId, non dallo slug)', () => {
+    const before = buildFeedXml('my-article', 'slug-before-rename');
+    const after = buildFeedXml('my-article', 'slug-after-rename');
+
+    const guidBefore = before.match(/<guid[^>]*>([^<]+)<\/guid>/)![1];
+    const guidAfter = after.match(/<guid[^>]*>([^<]+)<\/guid>/)![1];
+    const linkBefore = before.match(/<link>([^<]+)<\/link>/g)!.at(-1)!;
+    const linkAfter = after.match(/<link>([^<]+)<\/link>/g)!.at(-1)!;
+
+    expect(guidBefore, 'il guid non deve cambiare se cambia solo lo slug').toBe(guidAfter);
+    expect(guidBefore).toMatch(/my-article/);
+    expect(guidBefore, 'il guid non deve portare lo slug').not.toMatch(/slug-before-rename/);
+
+    // `<link>`, al contrario, DEVE seguire lo slug corrente: e' l'unico dei due
+    // che deve risolvere a una URL.
+    expect(linkBefore).not.toBe(linkAfter);
+    expect(linkBefore).toMatch(/slug-before-rename/);
+    expect(linkAfter).toMatch(/slug-after-rename/);
+
+    expect(before, 'il guid non e piu un permalink reale').toMatch(/<guid isPermaLink="false">/);
+  });
+
+  it('guid e link fanno escaping dei caratteri XML speciali (#182)', () => {
+    // La regex di estrazione di parseSeoBlogs (/'blog-([^']+)':\s*\{/g) accetta
+    // qualunque carattere tranne l'apostrofo, quindi un articleId o uno slug che
+    // porta '&' o '<' arriva a renderFeed verbatim: non escapato, rompe l'XML
+    // del feed pubblicato.
+    const xml = buildFeedXml('art&id<x', 'slug&rename<x');
+
+    const guid = xml.match(/<guid[^>]*>([^<]+)<\/guid>/)![1];
+    const link = xml.match(/<link>([^<]+)<\/link>/g)!.at(-1)!;
+
+    expect(guid).toMatch(/art&amp;id&lt;x/);
+    expect(link).toMatch(/slug&amp;rename&lt;x/);
+    expect(xml, 'l articleId grezzo non escapato non deve comparire nel feed').not.toMatch(
+      /art&id</,
+    );
   });
 });
