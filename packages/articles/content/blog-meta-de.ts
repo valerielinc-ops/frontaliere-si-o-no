@@ -9570,6 +9570,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.title': 'Leben im Oberen Intelvi-Tal und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.excerpt': 'Praktische Informationen für Grenzgänger, die im Tessin arbeiten und im oberen Intelvi-Tal wohnen.',
     'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.imageAlt': 'Eine Szene eines Pendelers, der in Ticino arbeitet und in Alta Valle Intelvi wohnt.',
+    'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.title': 'Umzug nach Cernobbio als Grenzgänger: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.excerpt': 'Steuereinstellungen, Genehmigungen und Vorteile für Grenzgänger, die nach Cernobbio ziehen',
+    'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.imageAlt': 'Eine Familie von Frontalierern mit Kindern, die nach Cernobbio umzieht',
 };
 
 export default blogMetaDe;
