@@ -131,6 +131,7 @@ const JSDOM_TS_FILES = [
   'tests/i18n-guard.test.ts',
   'tests/i18n.test.ts',
   'tests/index-html-self-heal.test.ts',
+  'tests/index-html-spa-redirect-param.test.ts',
   'tests/jina-proxy.test.ts',
   'tests/job-detail-seed.test.ts',
   'tests/job-match-profile.test.ts',

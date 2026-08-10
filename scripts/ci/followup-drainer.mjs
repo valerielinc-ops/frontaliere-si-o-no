@@ -31,6 +31,12 @@
  * follow-up, gestisce quindi la STESSA coda anche per revenue/tracker/
  * validation-failure/other — vedi `isQueueManaged` sotto, che sostituisce i
  * check hardcoded su `has(iss,'follow-up')`.
+ *
+ * Estensione 2026-08-10 (#5514): i crawler, unica categoria `route='fix'`, erano
+ * per ciò stesso l'unica ESCLUSA dal rescue (`isQueueManaged`) — e una loro run
+ * cancellata dalla coda concurrency non veniva né ri-accodata né parkata né
+ * marcata `needs-human`. Ora hanno un rescue proprio, gemello di quello
+ * queue-managed: vedi `crawlerFixDecision`.
  */
 import { execFileSync } from 'node:child_process';
 import { classifyIssue } from '../lib/classify-issue.mjs';
@@ -361,6 +367,38 @@ export function detectBacklogTracker(title, body) {
   return countBacklogItems(body) >= BACKLOG_MIN_ITEMS;
 }
 
+// --- COMPRESS-CONTRACT-DOCS RATCHET PRE-FLIGHT (escalation #5523) -----------
+// `compress-contract-docs.yml` opens/reopens a SINGLE stable-titled issue whenever a
+// hot contract doc (AGENTS.md/REVIEW.md/ISSUES.md/FOLLOWUP.md) crosses its
+// compress-ceiling, asking for prose-only compression that preserves every heading,
+// rule, table, step, code-block, path and exact string verbatim. Across every
+// occurrence on record (#1112/#1113/#1569/#3039/#3641/#4136/#4567/#5507, spanning
+// 2026-06→08), the autonomous fixer has closed NONE of them — each was eventually
+// closed by a human-authored PR. #5507 measured concretely why: trimming redundant
+// prose alone left ISSUES.md at ~23.0KB, still over the 22000B ceiling — the fix that
+// actually landed (#5519) extracted an appendix into a new file, a structural
+// editorial call a mechanical prose-edit does not reach. Promoting it re-pays the
+// same run (and, once it exhausts the turn budget, the same needs-human park) every
+// time the ratchet re-fires. Park pre-promotion instead — the title is a fixed,
+// machine-generated constant the ratchet itself emits verbatim (never edited by a
+// human), so an exact match carries no false-positive risk.
+//
+// Why here and not `classify-issue.mjs` (same rationale as backlog-tracker above):
+// a category routed to `route:'none'` would exclude it from routing upstream, which
+// is exactly what the 2026-07-05 owner decision removed and what
+// `tests/classify-issue.test.ts` asserts against. The drainer pre-flight is the
+// layer this repo already uses for per-issue structural evidence at drain time.
+const COMPRESS_CONTRACT_DOCS_TITLE = '📏 Contract docs over compress ceiling — gentle-compress needed';
+
+/**
+ * Vero se l'issue è quella aperta dal ratchet `compress-contract-docs.yml` (titolo
+ * fisso, machine-generated — mai editato a mano). Pura → testabile.
+ * @param {string} title
+ */
+export function detectCompressContractDocsRatchet(title) {
+  return String(title || '').trim() === COMPRESS_CONTRACT_DOCS_TITLE;
+}
+
 // --- OVERLAP-FILE PRE-FLIGHT (escalation #3810) ----------------------------------
 // fix-outcome:overlap-skip ricorre 8×/14gg: il fixer Claude rileva l'overlap solo
 // DOPO aver bruciato ~1M token. Questo check zero-Claude rimuove il burn alla fonte:
@@ -611,6 +649,107 @@ export function isSettlingPromotion({ outcome, ageMin, settleMin }) {
   return outcome === null && ageMin < settleMin;
 }
 
+// --- CRAWLER RESCUE + PARK (escalation #5514) --------------------------------
+// I crawler sono l'UNICA categoria con `route='fix'` (agent:fix diretto, salta la
+// coda) e sono per questo l'unica categoria che il rescue orfani sotto esclude
+// (`isQueueManaged`). Le due decisioni sono singolarmente ragionevoli e insieme
+// lasciavano un buco che non chiudeva nessuno: una run crawler CANCELLATA dalla
+// coda concurrency (`issue-fix.yml`: group globale + `cancel-in-progress:false`
+// → GitHub tiene UNA sola pending per gruppo e ogni nuova pending sfratta la
+// precedente) non veniva né ri-accodata, né parkata, né marcata `needs-human`.
+// La issue restava `agent:fix` per sempre: `on: issues:[labeled]` è one-shot,
+// l'evento è già stato consumato dalla run sfrattata, e nessun trigger la
+// ri-arma. Misurato 2026-08-10: #5392 #5393 #5394 #5395 ferme da due giorni,
+// etichettate tutte alle 09:02 del 2026-08-08 (1 run su 5 sopravvissuta), più
+// 13 `cancelled` su 100 run `issue-fix`.
+//
+// Il predecessore di questo blocco (`CRAWLER MAX-TURNS PARK`, #3886) copriva
+// SOLO `outcome === 'max-turns'` e faceva `continue` su tutto il resto — quindi
+// proprio sul `cancelled`, che non lascia nessun marker.
+//
+// La risposta giusta al `cancelled` è RI-ARMARE, non parkare: una run cancellata
+// in coda non è mai partita, non ha prodotto NESSUN verdetto, quindi non c'è
+// niente da cui dedurre che il fix sia impossibile. Parkare qui sarebbe la
+// stessa perdita silenziosa in una veste più ordinata. Il ri-arma passa dalla
+// coda (`agent:fix-queued`) invece di togliere+rimettere `agent:fix` a mano: è
+// il DRAIN sotto a rimettere la label, e lo fa solo a slot libero e una alla
+// volta — cioè esattamente la condizione che rende impossibile un secondo
+// sfratto. `fu-prio:high` perché un crawler rotto è production-critical (job
+// persi in silenzio) e non deve drenare dietro ai follow-up.
+//
+// BOUND — `CRAWLER_MAX_ATTEMPTS`, default = `MAX_ATTEMPTS` (3). Un ri-arma senza
+// contatore è un loop infinito, e i crawler non usavano `fu-attempt`. Tre e non
+// altro, per tre ragioni misurabili: (a) è lo stesso guasto delle queue-managed
+// (run morta senza verdetto) e lo stesso budget — un crawler non può consumare
+// più quota Claude condivisa di qualunque altra categoria; (b) le label
+// `fu-attempt:N` esistono nel repo solo per N∈{1,2,3} (vedi ROUTING_LABELS in
+// triage-sweep.mjs) e `gh issue edit --add-label` fallisce su una label
+// inesistente, quindi un tetto più alto sarebbe rotto in produzione, non solo
+// discutibile; (c) col burst disinnescato a monte (triage-sweep: un solo
+// `agent:fix` diretto per run, e solo a slot libero) un secondo tentativo è già
+// raro — se ne servono tre, a uccidere la run è qualcos'altro rispetto alla coda
+// concurrency, ed è esattamente il momento in cui deve guardarla una persona.
+// Al tetto: `fu-parked` + `needs-human` (i crawler non passano dal parked-retry,
+// che filtra su `isQueueManaged` → `fu-parked` da solo sarebbe uno stato
+// terminale che non guarda nessuno).
+export const CRAWLER_MAX_ATTEMPTS = Number(process.env.FOLLOWUP_CRAWLER_MAX_ATTEMPTS || MAX_ATTEMPTS);
+
+/**
+ * Decide cosa fare di una issue crawler (`route='fix'`, non queue-managed) che
+ * porta `agent:fix`. Pura (niente gh) → testabile senza mock.
+ *
+ * Ordine dei rami, e perché:
+ *  1. `hasPR` → la run ha prodotto lavoro, non si tocca.
+ *  2/3/4. VERDETTI (`max-turns`, ZERO_WORK, NON_RETRYABLE): un marker FIX_OUTCOME
+ *     è la prova che la run è TERMINATA (il fixer lo posta in chiusura), quindi
+ *     qui la guardia d'età non serve e agire subito preserva il timing del park
+ *     `max-turns` che c'era prima di questo blocco.
+ *  5. settling: solo con `outcome === null` per costruzione (vedi
+ *     `isSettlingPromotion`) — promozione fresca, run non ancora visibile in
+ *     `gh run list`: rinvia il drain di un tick, non toccare la issue.
+ *  6. troppo giovane: senza verdetto non si distingue una run morta da una che
+ *     non si è ancora registrata → aspetta `orphanMinAgeMin`.
+ *  7. NESSUN VERDETTO e vecchia = run cancellata-in-coda / crashata / mai
+ *     partita → ri-arma con tentativo consumato, park al tetto.
+ *
+ * @param {{outcome: string|null, ageMin: number, attempt?: number, hasPR?: boolean,
+ *          quotaBackoffActive?: boolean, settleMin?: number, orphanMinAgeMin?: number,
+ *          maxAttempts?: number}} args
+ * @returns {{action: 'skip'|'settling'|'hold-quota'|'requeue'|'requeue-zero-work'|'park-max-turns'|'park-verdict'|'park-attempts', nextAttempt: number, reason: string}}
+ */
+export function crawlerFixDecision({
+  outcome,
+  ageMin,
+  attempt = 0,
+  hasPR = false,
+  quotaBackoffActive = false,
+  settleMin = SETTLE_MIN,
+  orphanMinAgeMin = ORPHAN_MIN_AGE_MIN,
+  maxAttempts = CRAWLER_MAX_ATTEMPTS,
+} = {}) {
+  const keep = (action, reason) => ({ action, nextAttempt: attempt, reason });
+  if (hasPR) return keep('skip', 'ha una PR fix aperta');
+  if (outcome === 'max-turns') return keep('park-max-turns', 'error_max_turns (deterministico: stesso cap, stesso esito)');
+  if (outcome && ZERO_WORK.has(outcome)) {
+    // La run è morta prima di leggere la issue (429): 0 turni, $0, issue INTATTA
+    // → ri-accoda SENZA consumare un tentativo. Finestra ancora aperta → non
+    // toccare nulla: la issue resta il beacon del backoff per i tick successivi.
+    return quotaBackoffActive
+      ? keep('hold-quota', `${outcome}, finestra quota ancora aperta`)
+      : keep('requeue-zero-work', `${outcome}, finestra quota chiusa (tentativo NON consumato)`);
+  }
+  if (outcome && NON_RETRYABLE.has(outcome)) return keep('park-verdict', `verdetto non-ri-tentabile: ${outcome}`);
+  if (isSettlingPromotion({ outcome: outcome ?? null, ageMin, settleMin })) return keep('settling', 'promozione fresca, run non ancora visibile');
+  if (ageMin < orphanMinAgeMin) return keep('skip', `senza verdetto ma giovane (${Math.round(ageMin)}min < ${orphanMinAgeMin}min)`);
+  const nextAttempt = attempt + 1;
+  const reason = outcome
+    ? `esito transiente ${outcome}, nessuna PR`
+    : 'nessun verdetto (run cancellata-in-coda / crashata / mai partita)';
+  return nextAttempt >= maxAttempts
+    ? { action: 'park-attempts', nextAttempt, reason: `${reason}, tentativo ${nextAttempt}/${maxAttempts}` }
+    : { action: 'requeue', nextAttempt, reason: `${reason}, tentativo ${nextAttempt}/${maxAttempts}` };
+}
+
 /** Ultimo verdetto FIX_OUTCOME sulla issue, o null. Best-effort: null su errore
  * gh/parse → fail-open al rescue normale (mai park per un glitch API). */
 function latestFixOutcome(num) {
@@ -769,29 +908,10 @@ function runDrain() {
     if (skippedWf) console.log(`parked-retry: ${skippedWf} skip WF-scope (capability-guard → restano parked/age-out).`);
   }
 
-  // --- CRAWLER MAX-TURNS PARK (non-queue-managed, escalation #3886) -----------
-  // Crawler issues (route='fix', !isQueueManaged) che colpiscono error_max_turns
-  // sono ESCLUSE dal rescue loop sotto (filtro isQueueManaged → solo queue-managed).
-  // Senza questo pass il marker `max-turns` resta senza park → needs-human non
-  // viene mai aggiunto → isAvoidableMaxTurns() li conta come "loop fixabile"
-  // → harvester escalation ricorre deterministicamente (#3853/#3858/#3862).
-  // Park con needs-human AL PRIMO max-turns: stessa logica del rescue queue-managed
-  // (error_max_turns è deterministico — ri-tentare lo stesso crawler riproduce
-  // identico esito al medesimo cap). I crawler non usano fu-attempt: nessun
-  // bump attempt qui, solo il segnale park + needs-human (human → rigenera parser).
-  // Gira PRIMA del gate slot (park non richiede lo slot libero).
-  {
-    const crawlersFix = listIssues(LBL_FIX).filter(
-      (i) => !isQueueManaged(i) && !has(i, 'needs-human') && !has(i, LBL_PARKED),
-    );
-    for (const iss of crawlersFix) {
-      if (hasFixPR(iss.number)) continue;
-      const outcome = latestFixOutcome(iss.number);
-      if (outcome !== 'max-turns') continue;
-      console.log(`PARK CRAWLER #${iss.number} → fu-parked + needs-human (error_max_turns deterministico, crawler non-queue-managed) — "${iss.title?.slice(0, 50)}"`);
-      edit(iss.number, { add: [LBL_PARKED, 'needs-human'], remove: [LBL_FIX] });
-    }
-  }
+  // (Il pass crawler — ex `CRAWLER MAX-TURNS PARK` #3886, ora rescue completo
+  // #5514 — è sceso SOTTO il gate dello slot, accanto al rescue queue-managed:
+  // il ri-arma non può girare a slot occupato, e i crawler in assestamento
+  // devono contribuire a `settlingPromotions` come tutti gli altri. Vedi lì.)
 
   // Tutto (rescue + drain) gira SOLO a slot issue-fix libero: così il rescue non
   // può mai toccare la issue di una run viva (evita di togliere agent:fix mentre
@@ -811,6 +931,12 @@ function runDrain() {
   const allFix = listIssues(LBL_FIX);
   const stuckFix = allFix.filter(
     (i) => isQueueManaged(i) && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED)
+  );
+  // Il complemento esatto di `stuckFix` dentro `agent:fix`: i crawler
+  // (`route='fix'`, unica categoria non queue-managed). Erano l'unica categoria
+  // che nessuno strato di recupero guardava — vedi `crawlerFixDecision` (#5514).
+  const crawlerFix = allFix.filter(
+    (i) => !isQueueManaged(i) && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED) && !has(i, 'needs-human')
   );
   // Promozioni "in assestamento": un agent:fix follow-up giovane e senza PR ha
   // la run viva OPPURE non ancora registrata in `gh run list` (latenza
@@ -945,6 +1071,63 @@ function runDrain() {
     }
   }
 
+  // --- CRAWLER RESCUE + PARK (non-queue-managed, escalation #5514) ------------
+  // Il gemello di `stuckFix` per l'unica categoria che il filtro `isQueueManaged`
+  // esclude. La decisione è tutta in `crawlerFixDecision` (pura, testata); qui
+  // resta solo l'I/O. Gira DOPO il gate dello slot per due ragioni:
+  //  • il ri-arma toglie `agent:fix`: farlo a slot occupato significherebbe
+  //    poter yankare la label da una run VIVA (una run in corso non lascia
+  //    marker finché non finisce → `outcome === null` → sembrerebbe un orfano);
+  //  • un crawler appena promosso deve contare in `settlingPromotions`, o il
+  //    DRAIN promuove un secondo candidato mentre la sua run non è ancora
+  //    visibile → due pending → sfratto. È lo stesso incidente del 2026-08-08,
+  //    dove la sesta run cancellata alle 09:02 NON era un crawler.
+  for (const iss of crawlerFix) {
+    const hasPR = hasFixPR(iss.number);
+    const outcome = hasPR ? null : latestFixOutcome(iss.number);
+    const attempt = attemptOf(iss);
+    const prevAttemptLabel = attempt ? `fu-attempt:${attempt}` : null;
+    const d = crawlerFixDecision({
+      outcome,
+      ageMin: minutesSince(iss.updatedAt),
+      attempt,
+      hasPR,
+      quotaBackoffActive: quotaBackoffUntil !== null,
+    });
+    const tag = `#${iss.number} — "${iss.title?.slice(0, 50)}"`;
+    if (d.action === 'skip') continue;
+    if (d.action === 'settling') { settlingPromotions++; continue; }
+    if (d.action === 'hold-quota') {
+      console.log(`HOLD CRAWLER ${tag} (${d.reason}) → resta agent:fix come beacon, nessun tentativo consumato`);
+      continue;
+    }
+    if (d.action === 'requeue-zero-work') {
+      console.log(`RE-ARM CRAWLER ${tag} (${d.reason}) → agent:fix-queued, il DRAIN lo ripromuove a slot libero`);
+      edit(iss.number, { add: [LBL_QUEUED, 'fu-prio:high'], remove: [LBL_FIX] });
+      continue;
+    }
+    if (d.action === 'requeue') {
+      console.log(`RE-ARM CRAWLER ${tag} (${d.reason}) → agent:fix-queued + fu-attempt:${d.nextAttempt}`);
+      edit(iss.number, {
+        add: [LBL_QUEUED, 'fu-prio:high', `fu-attempt:${d.nextAttempt}`],
+        remove: [LBL_FIX, prevAttemptLabel].filter(Boolean),
+      });
+      continue;
+    }
+    // park-max-turns | park-verdict | park-attempts → stato terminale VISIBILE.
+    // `needs-human` e non solo `fu-parked`: i crawler non passano dal
+    // parked-retry (filtra su `isQueueManaged`) né dall'age-out close (idem),
+    // quindi `fu-parked` da solo sarebbe uno stato che non guarda nessuno. Il
+    // contatore dei tentativi resta sulla issue come tracciato forense; solo il
+    // park al tetto lo aggiorna (prev → next).
+    const bumped = d.action === 'park-attempts';
+    console.log(`PARK CRAWLER ${tag} (${d.reason}) → fu-parked + needs-human`);
+    edit(iss.number, {
+      add: [LBL_PARKED, 'needs-human', ...(bumped ? [`fu-attempt:${d.nextAttempt}`] : [])],
+      remove: [LBL_FIX, ...(bumped ? [prevAttemptLabel] : [])].filter(Boolean),
+    });
+  }
+
   // --- DRAIN: promuovi 1 queued a agent:fix (slot già verificato libero) -------
   // Guard QUOTA (misurato 2026-08-05): lo slot può essere libero e la coda piena
   // e comunque promuovere è dannoso, perché il collo di bottiglia non è lo slot
@@ -991,6 +1174,20 @@ function runDrain() {
     // comment+edit di park. Senza tempo per la coppia si esce: la coda resta
     // intatta e il tick successivo riparte dallo stesso primo candidato.
     if (!budget.take(`#${cand.number} (drain)`, ITEM_COST_MS)) break;
+
+    // Check: compress-contract-docs ratchet (escalation #5523) — title-only, gira
+    // PRIMA del fetch del body (nessuna chiamata gh extra). Mai chiusa dal fixer
+    // autonomo in 8 occorrenze storiche, sempre da una PR umana.
+    if (detectCompressContractDocsRatchet(cand.title)) {
+      console.log(`PARK #${cand.number} (compress-contract-docs ratchet) → no promozione, mai chiusa dal fixer autonomo (8/8 storiche via PR umana)`);
+      const note = `⏭️ **Pre-flight drainer (zero-Claude, #5523)**: questa issue è aperta dal ratchet \`compress-contract-docs.yml\` — comprimere un doc "hot" (15-21KB) preservando verbatim heading/regole/tabelle/step/code-block/path/stringhe è un lavoro editoriale, non un difetto meccanico. Nessuna occorrenza storica (#1112 #1113 #1569 #3039 #3641 #4136 #4567 #5507) è mai stata chiusa dal fixer autonomo: tutte hanno richiesto scelte di struttura (es. #5519 ha dovuto estrarre un'appendice in un nuovo file — la sola prosa non bastava a rientrare sotto ceiling) e sono state chiuse da una PR umana. Promuoverla ripaga lo stesso run a vuoto a ogni ri-apertura del ratchet. **Non promuovo**: serve una sessione umana/gentle-compress mirata. Rimuovo \`agent:fix-queued\` e parko (riapribile: togli \`fu-parked\` se il contesto cambia).\n\n<!-- FIX_OUTCOME: revenue-tracker-manual -->`;
+      if (DRY) { console.log(`[dry] park #${cand.number} (compress-contract-docs ratchet)`); continue; }
+      try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
+      catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
+      edit(cand.number, { add: [LBL_PARKED], remove: [LBL_QUEUED, LBL_FIX] });
+      continue; // prova il prossimo in coda
+    }
+
     let body = '';
     try {
       const raw = gh(['issue', 'view', String(cand.number), '--repo', REPO, '--json', 'body'], { json: true });

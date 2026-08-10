@@ -1,5 +1,10 @@
 import React, { lazy } from 'react';
-import { bustAssetHttpCache, consumeReloadBudget, isChunkLoadError } from '@/services/resilientImport';
+import {
+  bustAssetHttpCache,
+  consumeReloadBudget,
+  isChunkLoadError,
+  isModuleParseError,
+} from '@/services/resilientImport';
 
 /**
  * Retry wrapper for React.lazy dynamic imports.
@@ -21,11 +26,48 @@ import { bustAssetHttpCache, consumeReloadBudget, isChunkLoadError } from '@/ser
  * deploy because the old chunk hash no longer exists. Only a full page reload
  * gets the new index.html → new App-*.js → new chunk references.
  */
+/**
+ * The SECOND stale-deploy failure mode (resilientImport.ts header, "mode 2"):
+ * `import()` RESOLVES, but with something React.lazy cannot use — `undefined`
+ * (Rollup's generated namespace export missing from an out-of-band-published
+ * chunk, #4881) or a namespace whose expected member is gone, which the
+ * `.then(m => ({ default: m.X }))` call sites in App.tsx turn into
+ * `{ default: undefined }`.
+ *
+ * This wrapper never rejected for that case, so the unusable value flowed
+ * straight into React.lazy, which read `.default` off it and threw
+ * `TypeError: Cannot read properties of undefined (reading 'default')` from
+ * inside the render — past every recovery path here, and past
+ * isVersionSkewError, straight to the top-level ErrorBoundary as a blank page
+ * (issue #5533; 20 users in one report window). resilientImport() has guarded
+ * exactly this since #4881; the guard was simply never mirrored into the
+ * React.lazy wrapper next to it.
+ *
+ * Normalising it to a ChunkLoadError here — BEFORE React sees the value — puts
+ * it back on the existing clear-caches → retry → budgeted-reload path, i.e.
+ * turns a permanent white screen into the same invisible recovery an outright
+ * chunk 404 already gets.
+ */
+function guardResolvedModule<T>(mod: { default: T } | null | undefined): { default: T } {
+ if (mod == null || (mod as { default?: T }).default == null) {
+ const stale = new Error(
+ 'Failed to fetch dynamically imported module (stale chunk: resolved module has no default export)',
+ );
+ stale.name = 'ChunkLoadError';
+ throw stale;
+ }
+ return mod;
+}
+
 export function lazyRetry<T extends React.ComponentType<any>>(
  factory: () => Promise<{ default: T }>,
 ): React.LazyExoticComponent<T> {
+ // Every attempt below goes through the guard, so a retry that resolves to the
+ // same unusable value counts as a failure instead of silently "succeeding".
+ const load = (): Promise<{ default: T }> => factory().then(guardResolvedModule);
+
  return lazy(() =>
- factory().catch((err: Error) => {
+ load().catch((err: Error) => {
  // FETCH-failure signature only (chunk 404 / SPA-fallback HTML / parse).
  // A LINK-TIME version-skew SyntaxError ("does not provide an export
  // named ...", issue #3097) is a DIFFERENT class: the chunk fetched fine
@@ -38,7 +80,16 @@ export function lazyRetry<T extends React.ComponentType<any>>(
  // a hand-copied substring list — this file used to carry its own literal
  // copy that could drift from resilientImport.ts's (issue #3216 item 1;
  // AGENTS.md §Non-Negotiables #6).
- const isChunkError = isChunkLoadError(err);
+ //
+ // A PARSE-time SyntaxError is folded in here too (issue #5531): the chunk URL
+ // answered, but with bytes that are not JavaScript — an HTML 404/SPA-fallback
+ // document parsed as a module, whose giveaway is a CONTENT word from this
+ // site's own pages surfacing as a bare identifier ("Unexpected identifier
+ // 'diploma'"). Unlike the LINK-time skew SyntaxError above, retrying after a
+ // cache bust is productive, because the bad bytes live in the HTTP/CacheStorage
+ // layer. isModuleParseError excludes the link-time wordings precisely so this
+ // widening cannot steal the no-retry path that class needs.
+ const isChunkError = isChunkLoadError(err) || isModuleParseError(err);
 
  if (!isChunkError) throw err;
 
@@ -59,13 +110,13 @@ export function lazyRetry<T extends React.ComponentType<any>>(
 
  // Retry 1: clear caches and retry immediately
  return clearCaches()
- .then(() => factory())
+ .then(() => load())
  .then(result => { trackRetry('success', err?.message || ''); return result; })
  .catch(() =>
  // Retry 2: wait 2s for CDN propagation, then retry
  new Promise<{ default: T }>((resolve, reject) => {
  setTimeout(() => {
- factory()
+ load()
  .then(result => { trackRetry('success', err?.message || ''); resolve(result); })
  .catch(() => {
  // All retries failed — the old chunk hash is gone.
