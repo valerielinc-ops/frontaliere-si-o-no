@@ -9478,6 +9478,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.title': 'Moving to Maslianico as a cross-border commuter: pros and cons',
     'blog.article.trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.excerpt': 'Taxes, permits and working conditions: what to know before moving to Maslianico as a cross-border commuter.',
     'blog.article.trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.imageAlt': 'View of Lugano, with Lake Lugano and surrounding mountains.',
+    'blog.article.porlezza-frontaliere-pro-contro.title': 'Moving to Porlezza as a border crossing: pros and cons',
+    'blog.article.porlezza-frontaliere-pro-contro.excerpt': 'Practical analysis for those who choose to live in Porlezza and work in Ticino as a border worker, evaluating advantages, disadvantages and displacements.',
+    'blog.article.porlezza-frontaliere-pro-contro.imageAlt': 'Scenic view of Lake Lugano near the Italian-Swiss border',
 };
 
 export default blogMetaEn;

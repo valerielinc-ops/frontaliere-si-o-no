@@ -28452,6 +28452,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'porlezza-frontaliere-pro-contro',
+ category: 'pratico',
+ date: '2026-08-10T00:39:23.609Z',
+ image: '/images/blog/porlezza-frontaliere-pro-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
