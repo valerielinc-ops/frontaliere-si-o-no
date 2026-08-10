@@ -14,9 +14,10 @@ name: Fast Publish Article (near-instant single-article shard push)
 # registered in locale-router.js's EDGE_PUSHED_FILES (issue #4881 Fase 3):
 # for those, "Publish edge files" below pushes a live-serving R2 copy so the
 # Worker's pushable-origin dispatch serves it immediately, instead of waiting
-# for the next full deploy — narrowly scoped rollout (/sitemap-blog-ch.xml +
-# the llms.txt family, see that table's own comment for the full list), not a
-# change to how the rest of this workflow works.
+# for the next full deploy — narrowly scoped to the `producer: 'corpus'` rows
+# this job's own checkout actually owns (/sitemap-blog.xml, -blog-ch.xml,
+# -articles-archive.xml; see that table's own comment for the full producer
+# list), not a change to how the rest of this workflow works.
 #
 # Depends on (stream A / stream B contracts):
 #   scripts/publish-article-fast.mjs        — renders one article's 4 locale
@@ -316,22 +317,33 @@ jobs:
       # Issue #4881 Fase 3 (pushable-origin edge files). Independent of the
       # per-article render above: public/sitemap-blog-ch.xml was already
       # regenerated and committed by scripts/create-article.mjs in the SAME
-      # commit checked out at the top of this job. The llms.txt family
-      # (added as a residual — see EDGE_PUSHED_FILES's own comment in
-      # locale-router.js) is NOT committed by create-article.mjs at all;
-      # publish-edge-files.mjs renders it itself into a scratch dir (via
-      # `npx -y tsx@4 scripts/generate-llms-txt.mjs`, spawned internally —
-      # no separate step needed here) before PUTting it, same as the
-      # already-committed sitemap file. Gated on render only to match this
-      # file's own convention of not running later steps once an earlier
-      # ungated step has failed the job. NEVER blocks the publish: a failed
-      # render/PUT/purge here just means those apex paths keep serving their
-      # previous R2 copy (or fall open to the origin passthrough) until this
-      # step succeeds on a later run or the next full deploy.
-      - name: Publish edge files (sitemap/RSS + llms.txt pushable origin)
+      # commit checked out at the top of this job.
+      #
+      # --producer=corpus (issue #5458 follow-up): this job's checkout is only
+      # as fresh as the corpus-owned entries (sitemap-blog.xml,
+      # sitemap-blog-ch.xml, sitemap-articles-archive.xml — the three
+      # `producer: 'corpus'` rows in EDGE_PUSHED_FILES), which is what
+      # create-article.mjs actually regenerates in this same commit. A bare
+      # call used to also re-publish the `sync`-owned entries
+      # (sitemap-news.xml, the rss*.xml family — committed separately by
+      # sync-articles-sitemaps.yml on its own cycle) and the `build`-owned
+      # sitemap-glossario.xml, both of which this checkout can be staler than
+      # the automatic publisher that actually owns them — same clobber class
+      # as deploy.yml's, narrower window. The llms.txt family is NOT
+      # corpus-owned and is intentionally left to deploy.yml/sync now;
+      # publish-edge-files.mjs's own `runLlmsGenerator()` only runs for a
+      # whole-table or explicit selection that includes those entries, so
+      # this narrower call no longer regenerates/pushes it here.
+      # Gated on render only to match this file's own convention of not
+      # running later steps once an earlier ungated step has failed the job.
+      # NEVER blocks the publish: a failed render/PUT/purge here just means
+      # those apex paths keep serving their previous R2 copy (or fall open to
+      # the origin passthrough) until this step succeeds on a later run or
+      # the next full deploy.
+      - name: Publish edge files (sitemap pushable origin, corpus-owned)
         if: steps.verify.outcome == 'success' && steps.verify.outputs.delayed != 'true'
         continue-on-error: true
-        run: node scripts/publish-edge-files.mjs
+        run: node scripts/publish-edge-files.mjs --producer=corpus
 
       # ── The topic hubs' own sitemap (#5001) ────────────────────────────────
       #

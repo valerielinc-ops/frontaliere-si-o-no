@@ -466,10 +466,11 @@ describe('every EDGE_PUSHED_FILES path has an automatically-triggered publisher'
   // the failure mode #5458 was actually about: deploy.yml, whose checkout can
   // be 2h30m+ stale, may not claim to publish it too — that specific race is
   // what clobbered the corpus's fresher copy. Scoped to deploy.yml, not "any
-  // workflow in this repo": fast-publish-article.yml's OWN bare invocation
-  // also names these paths, but from a checkout that is minutes (not hours)
-  // behind the very commit create-article.mjs just wrote them in — a
-  // different staleness profile, and out of scope for #5458 (see PR notes).
+  // workflow in this repo": fast-publish-article.yml also names these paths,
+  // via its own `--producer=corpus` invocation (narrowed from a bare call in
+  // the #5458 review round — its checkout is minutes, not hours, behind the
+  // very commit create-article.mjs just wrote them in, but the same clobber
+  // class applied at a smaller window, so it is scoped too, not exempted).
   const corpusOwnedPaths = Object.entries(EDGE_PUSHED_FILES)
     .filter(([, entry]) => entry.producer === 'corpus')
     .map(([pathname]) => pathname);
