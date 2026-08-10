@@ -2050,6 +2050,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.title': 'Patto diritti economici, sociali e culturali: sviluppi Svizzera',
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.excerpt': 'Il Consiglio federale ha adottato il quinto rapporto svizzero sull\'attuazione del Patto delle Nazioni Unite relativo ai diritti economici, sociali e culturali (Patto I) il 19 giugno 2026.',
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.imageAlt': 'Una scena di un frontaliere che lavora in Svizzera, con la vista sul lago di Lugano',
+    'blog.article.reno-svizzera-merci-camion-essere.title': 'Con il Reno a secco, le cose per la Svizzera rischiano davvero di farsi più care',
+    'blog.article.reno-svizzera-merci-camion-essere.excerpt': 'La siccità del Reno potrebbe avere conseguenze dirette per la Svizzera',
+    'blog.article.reno-svizzera-merci-camion-essere.imageAlt': 'Merci in transito sulla strada in Svizzera',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.title': 'OCSE assegna giudizio positivo alla Svizzera',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.excerpt': 'Il punto di contatto nazionale svizzero per la condotta aziendale responsabile è stato valutato positivamente dall\'OCSE.',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.imageAlt': 'Immagine di una vista di Lugano',
+    'blog.article.seco-dazi-stati-uniti-2026.title': 'Stati Uniti: nuovi dazi sulla Svizzera, SECO e politiche economiche',
+    'blog.article.seco-dazi-stati-uniti-2026.excerpt': 'La SECO ha annunciato che gli Stati Uniti hanno adottato nuove misure di dazi sulla base dell\'indagine sul commercio di beni prodotti ricorrendo al lavoro forzato.',
+    'blog.article.seco-dazi-stati-uniti-2026.imageAlt': 'Una scena di lavoro a Lugano, in Svizzera',
+    'blog.article.dazi-usa-consiglio-federale-2026.title': 'Dazi USA: la Svizzera conferma intenti',
+    'blog.article.dazi-usa-consiglio-federale-2026.excerpt': 'Il Consiglio federale si attiene agli accordi definiti nella dichiarazione d’intenti congiunta del 14 novembre 2025, sottoscritta tra Svizzera e Stati Uniti.',
+    'blog.article.dazi-usa-consiglio-federale-2026.imageAlt': 'Negozianti commerciali davanti al Parlamento svizzero',
+    'blog.article.calore-data-center-poco-sfruttato.title': 'Il calore dei data center è poco sfruttato',
+    'blog.article.calore-data-center-poco-sfruttato.excerpt': 'I data center svizzeri potrebbero fornire calore per il teleriscaldamento, ma solo un terzo di essi lo sfrutta.',
+    'blog.article.calore-data-center-poco-sfruttato.imageAlt': 'una fotografia di un data center in Svizzera',
 };
 
 export default blogMetaChIt;
