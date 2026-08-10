@@ -181,6 +181,155 @@ export function parseArticleRedirects(raw, opts = {}) {
   return out;
 }
 
+/** Where the hand-authored half of the redirect map lives. */
+export const LEGACY_REDIRECTS_SOURCE = 'build-plugins/legacyRedirectsPlugin.ts';
+
+/**
+ * Fewer pairs than this means the scan below stopped matching, not that the map
+ * shrank: it has 156 today and only ever grows. A scan that silently finds
+ * nothing would make every cross-source check pass vacuously.
+ */
+const HARDCODED_SCAN_FLOOR = 50;
+
+/**
+ * The hand-authored redirect map, read from the plugin's SOURCE TEXT.
+ *
+ * Not by importing it: `legacyRedirectsPlugin` pulls in `constants.ts` and
+ * `searchConsoleCompat.ts`, which `import` a dozen files under `data/` and
+ * `public/assets/` at module scope. `data/` alone is 1.7 GB and is absent from
+ * every sparse worktree in this repo (CLAUDE.md), so an import would make every
+ * consumer of this function red locally and green in CI. The scan matches only
+ * the single-quoted `'/from/': '/to/',` pairs of the literal — the one entry
+ * built with a template literal (`/job-board/`) is deliberately out of reach,
+ * and it is a job path, which no article redirect can ever collide with.
+ *
+ * @param {string} rootDir
+ * @param {{ readFileSync?: typeof readFileSync }} [io]
+ * @returns {Record<string, string>} normalized `from` → `to`
+ */
+export function readHardcodedRedirects(rootDir, io = {}) {
+  const readFile = io.readFileSync ?? readFileSync;
+  const src = String(readFile(path.join(rootDir, LEGACY_REDIRECTS_SOURCE), 'utf-8'));
+  /** @type {Record<string, string>} */
+  const out = {};
+  let n = 0;
+  for (const m of src.matchAll(/^\s*'(\/[^']*)':\s*'(\/[^']*)',/gm)) {
+    out[withTrailingSlash(m[1])] = withTrailingSlash(m[2]);
+    n++;
+  }
+  if (n < HARDCODED_SCAN_FLOOR) {
+    throw new Error(
+      `${LEGACY_REDIRECTS_SOURCE}: lo scan ha trovato ${n} coppie (< ${HARDCODED_SCAN_FLOOR}). ` +
+      'La mappa e\' stata rifattorizzata e questo scan non la legge piu\': aggiornarlo, ' +
+      'non abbassare la soglia — un controllo che scansiona il vuoto passa sempre.',
+    );
+  }
+  return out;
+}
+
+/**
+ * @typedef {Object} CrossSourceChain
+ * @property {string} from  La URL piu' vecchia della catena.
+ * @property {string} via   L'anello di mezzo: e' `to` di un lato e `from` dell'altro.
+ * @property {string} to    La destinazione finale.
+ * @property {'hardcoded-into-data'|'data-into-hardcoded'} kind Quale lato apre la catena.
+ */
+
+/**
+ * Catene di redirect che attraversano le DUE fonti (issue #5352, review round 1).
+ *
+ * `parseArticleRedirects` vieta le catene **dentro** il file dati, ma le due
+ * mappe si fondono in una sola prima dell'emissione, e una catena si forma
+ * altrettanto bene a cavallo:
+ *
+ *   hardcoded `X → A`  +  dati `A → B`   ⇒  X → A → B
+ *   dati `A → B`       +  hardcoded `B → C`  ⇒  A → B → C
+ *
+ * Il primo caso non e' ipotetico: 34 delle 156 coppie hardcoded sono
+ * articolo → articolo, quindi 34 bersagli che un rename futuro puo' spostare.
+ * Quattro di quei bersagli hanno **3 sorgenti a testa** (il gruppo
+ * `frontalieri-ticino-*-2025`, in tutti e quattro i locali), quindi un solo
+ * rename ne aprirebbe 12 in un colpo.
+ *
+ * Perche' e' peggio di una catena di 301: questi non sono 301, sono pagine 200
+ * `noindex` con un canonical. Un canonical che punta a una pagina `noindex` non
+ * inoltra il segnale, lo **uccide** — la URL piu' vecchia smette di consolidare
+ * su chiunque. Un 301 → 301 almeno arriva.
+ *
+ * @param {Record<string, string>} hardcoded
+ * @param {Record<string, string>} data
+ * @returns {CrossSourceChain[]}
+ */
+export function findCrossSourceChains(hardcoded, data) {
+  /** @type {Map<string, string>} from → to */
+  const hardFrom = new Map();
+  /** @type {Map<string, string[]>} to → [from…] — un bersaglio puo' avere piu' sorgenti */
+  const hardTo = new Map();
+  for (const [rawFrom, rawTo] of Object.entries(hardcoded)) {
+    const from = withTrailingSlash(rawFrom);
+    const to = withTrailingSlash(rawTo);
+    hardFrom.set(from, to);
+    if (!hardTo.has(to)) hardTo.set(to, []);
+    hardTo.get(to).push(from);
+  }
+
+  /** @type {CrossSourceChain[]} */
+  const out = [];
+  for (const [rawFrom, rawTo] of Object.entries(data)) {
+    const from = withTrailingSlash(rawFrom);
+    const to = withTrailingSlash(rawTo);
+    // dati `from → to`, hardcoded `to → C`
+    if (hardFrom.has(to)) {
+      out.push({ from, via: to, to: hardFrom.get(to), kind: 'data-into-hardcoded' });
+    }
+    // hardcoded `X → from`, dati `from → to` — tutte le X, non solo la prima
+    for (const x of hardTo.get(from) ?? []) {
+      out.push({ from: x, via: from, to, kind: 'hardcoded-into-data' });
+    }
+  }
+  return out;
+}
+
+/**
+ * Fa fallire il build (e prima ancora la CI e il writer) su una catena a cavallo
+ * delle due fonti, con il rimedio scritto per esteso: la voce hardcoded va
+ * ripuntata sulla destinazione finale, cosi' la catena torna a un hop solo.
+ *
+ * Volutamente NON risolve la catena da sola riscrivendo il bersaglio: sarebbe
+ * una mutazione silenziosa, a build time, di redirect gia' deployati. Che sia
+ * una modifica visibile in review della mappa e' il punto.
+ *
+ * @param {Record<string, string>} hardcoded
+ * @param {Record<string, string>} data
+ * @param {{ file?: string }} [opts]
+ */
+export function assertNoCrossSourceChains(hardcoded, data, opts = {}) {
+  const file = opts.file ?? ARTICLE_REDIRECTS_FILE;
+  const chains = findCrossSourceChains(hardcoded, data);
+  if (chains.length === 0) return;
+
+  const lines = chains.map(({ from, via, to, kind }) => {
+    const first = kind === 'hardcoded-into-data' ? LEGACY_REDIRECTS_SOURCE : file;
+    const second = kind === 'hardcoded-into-data' ? file : LEGACY_REDIRECTS_SOURCE;
+    return (
+      `  ${from}\n` +
+      `    → ${via}   (${first})\n` +
+      `    → ${to}   (${second})\n` +
+      `    rimedio: in ${LEGACY_REDIRECTS_SOURCE} riscrivi\n` +
+      `      '${kind === 'hardcoded-into-data' ? from : via}': '${to}',`
+    );
+  });
+
+  throw new Error(
+    `${file}: ${chains.length} catena/e di redirect attraverso le due fonti.\n` +
+    'Le due mappe si fondono in una sola prima dell\'emissione, quindi una catena a cavallo\n' +
+    'e\' una catena. E qui pesa piu\' che con i 301: il bridge intermedio e\' una pagina 200\n' +
+    '`noindex` con canonical, e un canonical verso una pagina noindex non inoltra il segnale,\n' +
+    'lo perde. Ogni vecchia URL deve puntare DIRETTAMENTE alla destinazione finale.\n' +
+    lines.join('\n'),
+  );
+}
+
 /**
  * Read + validate `data/article-redirects.json` under `rootDir`.
  *

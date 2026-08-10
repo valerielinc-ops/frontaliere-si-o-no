@@ -46,35 +46,25 @@ import {
   ARTICLE_LOCALES,
   ARTICLE_REDIRECTS_FILE,
   articleSectionPrefixes,
+  assertNoCrossSourceChains,
+  findCrossSourceChains,
   loadArticleRedirects,
   parseArticlePath,
   parseArticleRedirects,
+  readHardcodedRedirects,
   readPublishedArticlePaths,
   withTrailingSlash,
 } from '../build-plugins/shared/articleRedirects.mjs';
 
 const ROOT = resolve(__dirname, '..');
 const REDIRECTS_ABS = resolve(ROOT, ARTICLE_REDIRECTS_FILE);
-const PLUGIN_ABS = resolve(ROOT, 'build-plugins/legacyRedirectsPlugin.ts');
 
 /**
- * The `from` keys of the plugin's hand-authored map, read from its SOURCE text
- * rather than by importing it.
- *
- * Importing `legacyRedirectsPlugin` pulls in `constants.ts` and
- * `searchConsoleCompat.ts`, which `import` five files under `data/` and
- * `public/assets/` at module scope — none of which exist in a sparse worktree
- * (CLAUDE.md), so the import turns this whole file red locally while staying
- * green in CI. That asymmetry is worse than a source scan: the scan is exact
- * about what it reads (single-quoted `'/path/': '/path/'` pairs at the top of
- * the literal) and runs identically everywhere.
+ * The plugin's hand-authored map, read from its SOURCE text rather than by
+ * importing it — see `readHardcodedRedirects`'s doc for why importing it turns
+ * this file red in a sparse worktree and green in CI.
  */
-function hardcodedRedirectSources(): Set<string> {
-  const src = readFileSync(PLUGIN_ABS, 'utf-8');
-  const out = new Set<string>();
-  for (const m of src.matchAll(/^\s*'(\/[^']*)':\s*'\/[^']*',/gm)) out.add(withTrailingSlash(m[1]));
-  return out;
-}
+const HARDCODED = readHardcodedRedirects(ROOT);
 
 describe('articleSectionPrefixes — derived, not hand-copied', () => {
   it('covers both sections in all four locales with the real URL prefixes', () => {
@@ -237,11 +227,140 @@ describe(`${ARTICLE_REDIRECTS_FILE} — the real file`, () => {
   });
 
   it('declares no redirect the plugin already hardcodes', () => {
-    const hardcoded = hardcodedRedirectSources();
+    const hardcoded = new Set(Object.keys(HARDCODED));
     // Guard against the scan silently matching nothing and passing vacuously.
     expect(hardcoded.size, 'source scan of legacyRedirectsPlugin.ts found no entries').toBeGreaterThan(50);
     const duplicates = Object.keys(loadArticleRedirects(ROOT)).filter((from) => hardcoded.has(from));
     expect(duplicates, 'declare each redirect once, in one of the two places').toEqual([]);
+  });
+
+  it('forms no redirect chain across the two sources', () => {
+    expect(() => assertNoCrossSourceChains(HARDCODED, loadArticleRedirects(ROOT))).not.toThrow();
+  });
+});
+
+/**
+ * Review round 1 on PR #5537. `parseArticleRedirects` forbids chains INSIDE the
+ * data file, but the two maps are merged into one before anything is emitted,
+ * and a chain forms just as well across the seam. It is not a hypothetical
+ * shape: 34 of the 156 hardcoded pairs are article → article, i.e. 34 targets a
+ * future rename can move, and four of those targets have three sources each
+ * (the `frontalieri-ticino-*-2025` group, in all four locales).
+ *
+ * The reason this is worse here than a chain of 301s: these bridges are 200
+ * pages with `noindex` + canonical. A canonical pointing at a noindex page does
+ * not forward the signal, it drops it — the oldest URL stops consolidating onto
+ * anything at all. A 301 → 301 at least arrives.
+ */
+describe('cross-source redirect chains (PR #5537 review round 1)', () => {
+  it('finds nothing when the two maps do not touch', () => {
+    expect(findCrossSourceChains(
+      { '/articoli-frontaliere/a/': '/articoli-frontaliere/b/' },
+      { '/articoli-frontaliere/c/': '/articoli-frontaliere/d/' },
+    )).toEqual([]);
+  });
+
+  it('catches hardcoded X → A followed by data A → B', () => {
+    const chains = findCrossSourceChains(
+      { '/articoli-frontaliere/x/': '/articoli-frontaliere/a/' },
+      { '/articoli-frontaliere/a/': '/articoli-frontaliere/b/' },
+    );
+    expect(chains).toEqual([{
+      from: '/articoli-frontaliere/x/',
+      via: '/articoli-frontaliere/a/',
+      to: '/articoli-frontaliere/b/',
+      kind: 'hardcoded-into-data',
+    }]);
+  });
+
+  it('catches data A → B followed by hardcoded B → C', () => {
+    const chains = findCrossSourceChains(
+      { '/articoli-frontaliere/b/': '/articoli-frontaliere/c/' },
+      { '/articoli-frontaliere/a/': '/articoli-frontaliere/b/' },
+    );
+    expect(chains).toEqual([{
+      from: '/articoli-frontaliere/a/',
+      via: '/articoli-frontaliere/b/',
+      to: '/articoli-frontaliere/c/',
+      kind: 'data-into-hardcoded',
+    }]);
+  });
+
+  /** One rename of a fan-out target opens every one of its inbound bridges. */
+  it('reports every hardcoded source pointing at a renamed target, not just the first', () => {
+    const chains = findCrossSourceChains(
+      {
+        '/articoli-frontaliere/x1/': '/articoli-frontaliere/a/',
+        '/articoli-frontaliere/x2/': '/articoli-frontaliere/a/',
+        '/articoli-frontaliere/x3/': '/articoli-frontaliere/a/',
+      },
+      { '/articoli-frontaliere/a/': '/articoli-frontaliere/b/' },
+    );
+    expect(chains).toHaveLength(3);
+    expect(chains.map((c) => c.from).sort()).toEqual([
+      '/articoli-frontaliere/x1/',
+      '/articoli-frontaliere/x2/',
+      '/articoli-frontaliere/x3/',
+    ]);
+  });
+
+  it('normalizes the trailing slash on both sides before comparing', () => {
+    expect(findCrossSourceChains(
+      { '/articoli-frontaliere/x': '/articoli-frontaliere/a' },
+      { '/articoli-frontaliere/a/': '/articoli-frontaliere/b/' },
+    )).toHaveLength(1);
+  });
+
+  // ── The reproduction, against the REAL hardcoded map ──────────────────────
+  // Not a fixture: these are entries that exist in legacyRedirectsPlugin.ts
+  // today, so if the map is ever cleaned up these tests fail loudly instead of
+  // quietly testing nothing.
+
+  it('the real map still contains the article targets this guards (else the repro is stale)', () => {
+    expect(HARDCODED['/articoli-frontaliere/naspi-disoccupazione-frontalieri/'])
+      .toBe('/articoli-frontaliere/naspi-ex-frontalieri-2026/');
+    const fanout = Object.entries(HARDCODED)
+      .filter(([, to]) => to === '/articoli-frontaliere/frontalieri-ticino-dati-calo-fine-2025/');
+    expect(fanout.length, 'the frontalieri-ticino group should still fan in').toBe(3);
+  });
+
+  it('rejects renaming naspi-ex-frontalieri-2026, which a hardcoded bridge points at', () => {
+    expect(() => assertNoCrossSourceChains(HARDCODED, {
+      '/articoli-frontaliere/naspi-ex-frontalieri-2026/': '/articoli-frontaliere/naspi-2027/',
+    })).toThrow(/catena\/e di redirect attraverso le due fonti/);
+  });
+
+  it('names every affected hardcoded entry when a fan-out target is renamed', () => {
+    let message = '';
+    try {
+      assertNoCrossSourceChains(HARDCODED, {
+        '/articoli-frontaliere/frontalieri-ticino-dati-calo-fine-2025/':
+          '/articoli-frontaliere/frontalieri-ticino-dati-2026/',
+      });
+    } catch (err) {
+      message = err instanceof Error ? err.message : String(err);
+    }
+    expect(message, 'a rename of this target must not pass').not.toBe('');
+    expect(message).toContain('3 catena/e');
+    for (const from of ['frontalieri-ticino-calo-dati-2025', 'frontalieri-ticino-dati-calo-q4-2025', 'frontalieri-ticino-calo-dati-q4-2025']) {
+      expect(message, `${from} points at the renamed target and must be listed`).toContain(from);
+    }
+    // The message has to carry the fix, not just the diagnosis.
+    expect(message).toContain(
+      "'/articoli-frontaliere/frontalieri-ticino-calo-dati-2025/': '/articoli-frontaliere/frontalieri-ticino-dati-2026/',",
+    );
+  });
+
+  it('rejects a data entry landing on a URL a hardcoded bridge already redirects away', () => {
+    expect(() => assertNoCrossSourceChains(HARDCODED, {
+      '/articoli-frontaliere/qualcosa-di-vecchio/': '/articoli-frontaliere/naspi-disoccupazione-frontalieri/',
+    })).toThrow(/naspi-ex-frontalieri-2026/);
+  });
+
+  it('fails loudly if the source scan stops matching, instead of passing vacuously', () => {
+    expect(() => readHardcodedRedirects(ROOT, {
+      readFileSync: (() => 'const redirects = {};') as never,
+    })).toThrow(/lo scan ha trovato 0 coppie/);
   });
 });
 

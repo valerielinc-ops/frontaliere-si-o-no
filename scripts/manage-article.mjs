@@ -53,7 +53,9 @@ import { ARTICLE_SECTION_CORE_LIST } from '../build-plugins/shared/articleSectio
 import {
   ARTICLE_LOCALES,
   ARTICLE_REDIRECTS_FILE,
+  assertNoCrossSourceChains,
   parseArticleRedirects,
+  readHardcodedRedirects,
 } from '../build-plugins/shared/articleRedirects.mjs';
 import { resolveGitAddPath, resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
 
@@ -520,7 +522,14 @@ function addRedirectMapping(fromId, toId) {
 
   // Fail before writing, not after deploying: same validator legacyRedirectsPlugin
   // uses, so anything this writes is guaranteed readable by the build.
-  parseArticleRedirects(redirects, { file: redirectsPath });
+  const validated = parseArticleRedirects(redirects, { file: redirectsPath });
+
+  // ...and the same cross-source chain check the build runs. Without this the
+  // writer can happily produce `A -> B` where legacyRedirectsPlugin already
+  // declares `X -> A`: legal inside this file, a two-hop chain once the two maps
+  // are merged. 34 of the 156 hardcoded pairs are article -> article, so the
+  // targets a rename can move are not a rare shape.
+  assertNoCrossSourceChains(readHardcodedRedirects(PROJECT_ROOT), validated, { file: redirectsPath });
 
   write(redirectsPath, JSON.stringify(redirects, null, 2) + '\n');
   console.error(`  🔄 Redirect mapping aggiunto (${added} locali): ${fromId} → ${toId}`);

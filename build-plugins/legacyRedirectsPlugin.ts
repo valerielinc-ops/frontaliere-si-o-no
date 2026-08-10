@@ -21,7 +21,7 @@ import {
  type CantonLocale,
 } from './shared/cantonSection';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import { loadArticleRedirects, ARTICLE_REDIRECTS_FILE } from './shared/articleRedirects.mjs';
+import { loadArticleRedirects, assertNoCrossSourceChains, ARTICLE_REDIRECTS_FILE } from './shared/articleRedirects.mjs';
 import { loadJobsJson } from './shared/loadJobsJson';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
@@ -478,8 +478,17 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // indexed URL silently keeps 404ing. The validator throws; the build stops.
  let articleRenameCount = 0;
  {
+ const fromFile = loadArticleRedirects(rootDir);
+ // `parseArticleRedirects` vieta le catene DENTRO il file dati, ma le due mappe
+ // si fondono qui in una sola, e una catena si forma altrettanto bene a cavallo:
+ // hardcoded `X → A` + dati `A → B` da' `X → A → B`, con il bridge di mezzo
+ // 200 `noindex` — un canonical verso una pagina noindex perde il segnale invece
+ // di inoltrarlo. Il confronto include anche la mappa cathedral costruita sopra:
+ // per costruzione sono URL di job e non possono collidere con un articolo, ma
+ // controllarle costa una passata su una mappa gia' in memoria.
+ assertNoCrossSourceChains(redirects, fromFile);
  const existingFrom = new Set(Object.keys(redirects).map(withSlash));
- for (const [from, to] of Object.entries(loadArticleRedirects(rootDir))) {
+ for (const [from, to] of Object.entries(fromFile)) {
  // A hand-written entry in the literal above wins — it is the older, already
  // deployed declaration. The duplicate is a data bug, not a runtime one, so
  // it is reported here and failed in tests/article-rename-redirects.test.ts
