@@ -9546,6 +9546,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-rodero-lavorare-ticino-frontaliere.title': 'Wohnen in Rodero und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-rodero-lavorare-ticino-frontaliere.excerpt': 'Praktischer Leitfaden für Grenzgänger: Quellensteuer, neue Vereinbarung 2024, Selbstbehalt € 10\'000, Genehmigung G und Verbindungen Brogeda-Chiasso.',
     'blog.article.vivere-rodero-lavorare-ticino-frontaliere.imageAlt': 'Grenzgänger, der den Brogeda-Grenzübergang zwischen Rodero und Tessin überquert',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.title': 'Leben in Agra und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.excerpt': 'Auswirkungen des neuen Abkommens auf die Tessiner Grenzgänger: neue Regeln, Befreiungen und Vorteile.',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.imageAlt': 'Frontalier mit Kind geht an der Seeufer von Lugano entlang',
 };
 
 export default blogMetaDe;
