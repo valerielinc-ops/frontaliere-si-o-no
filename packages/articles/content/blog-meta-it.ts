@@ -9491,6 +9491,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-porlezza-lavorare-ticino-guida.title': 'Vivere a Porlezza e lavorare in Ticino da frontaliere',
     'blog.article.vivere-porlezza-lavorare-ticino-guida.excerpt': 'Guida pratica al pendolarismo tra Porlezza e il Canton Ticino: regole, fiscalità, permessi e gestione del reddito secondo il nuovo accordo.',
     'blog.article.vivere-porlezza-lavorare-ticino-guida.imageAlt': 'Vista panoramica del lago di Lugano',
+    'blog.article.trasferirsi-a-ronago-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Ronago da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-ronago-da-frontaliere-pro-e-contro.excerpt': 'Il Nuovo Accordo Frontalieri prevede nuove regole per i frontalieri che si trasferiscono a Ronago, con esenzioni e franchigie diverse',
+    'blog.article.trasferirsi-a-ronago-da-frontaliere-pro-e-contro.imageAlt': 'Frontaliere ticinese che si trasferisce a Ronago, con la sua famiglia e il suo lavoro',
 };
 
 export default blogMetaIt;

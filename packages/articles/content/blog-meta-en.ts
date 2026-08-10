@@ -9490,6 +9490,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-porlezza-lavorare-ticino-guida.title': 'Living in Porlezza and working in Ticino as a border worker',
     'blog.article.vivere-porlezza-lavorare-ticino-guida.excerpt': 'Practical guide to commuting between Porlezza and the Canton of Ticino: rules, taxation, permits and income management according to the new agreement.',
     'blog.article.vivere-porlezza-lavorare-ticino-guida.imageAlt': 'Panoramic view of Lake Lugano',
+    'blog.article.trasferirsi-a-ronago-da-frontaliere-pro-e-contro.title': 'Moving to Ronago by border crossing: pros and cons',
+    'blog.article.trasferirsi-a-ronago-da-frontaliere-pro-e-contro.excerpt': 'The New Frontier Agreement provides new rules for frontier workers who move to Ronago, with different exemptions and deductibles',
+    'blog.article.trasferirsi-a-ronago-da-frontaliere-pro-e-contro.imageAlt': 'Frontalier from Ticino who moves to Ronago, with his family and his job',
 };
 
 export default blogMetaEn;

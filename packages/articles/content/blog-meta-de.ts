@@ -9489,6 +9489,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-porlezza-lavorare-ticino-guida.title': 'Leben in Porlezza und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-porlezza-lavorare-ticino-guida.excerpt': 'Praktischer Leitfaden für das Pendeln zwischen Porlezza und dem Kanton Tessin: Regeln, Steuern, Genehmigungen und Einkommensmanagement gemäß dem neuen Abkommen.',
     'blog.article.vivere-porlezza-lavorare-ticino-guida.imageAlt': 'Panoramablick auf den Luganersee',
+    'blog.article.trasferirsi-a-ronago-da-frontaliere-pro-e-contro.title': 'Als Grenzgänger nach Ronago ziehen: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-ronago-da-frontaliere-pro-e-contro.excerpt': 'Die neue Frontalieri-Vereinbarung sieht neue Regeln für Grenzgänger vor, die nach Ronago ziehen, mit unterschiedlichen Befreiungen und Franchisen',
+    'blog.article.trasferirsi-a-ronago-da-frontaliere-pro-e-contro.imageAlt': 'Frontalier aus dem Tessin, der nach Ronago zieht, mit seiner Familie und seinem Job',
 };
 
 export default blogMetaDe;
