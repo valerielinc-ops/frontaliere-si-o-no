@@ -28470,6 +28470,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-a-porlezza-e-lavorare-in-ticino-da-frontaliere',
+ category: 'pratico',
+ date: '2026-08-10T01:32:58.976Z',
+ image: '/images/blog/vivere-a-porlezza-e-lavorare-in-ticino-da-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -9485,6 +9485,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-ronago-lavorare-ticino.title': 'Vivere a Ronago e lavorare in Ticino da frontaliere',
     'blog.article.vivere-ronago-lavorare-ticino.excerpt': 'Guida pratica per i frontalieri: imposte, nuovo accordo fiscale, previdenza e collegamenti tra Ronago e il Canton Ticino.',
     'blog.article.vivere-ronago-lavorare-ticino.imageAlt': 'Veduta di Mendrisio in Ticino, zona di confine',
+    'blog.article.vivere-a-porlezza-e-lavorare-in-ticino-da-frontaliere.title': 'Vivere a Porlezza e lavorare in Ticino da frontaliere: cosa cambia e cosa fare',
+    'blog.article.vivere-a-porlezza-e-lavorare-in-ticino-da-frontaliere.excerpt': 'Nuovo accordo fiscale 2026: cosa significa per i frontalieri e come si applicherà',
+    'blog.article.vivere-a-porlezza-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Un frontaliere che si trova in una situazione simile potrebbe cercare di comprendere meglio le nuove norme fiscali che saranno applicate ai frontalieri.',
 };
 
 export default blogMetaIt;
