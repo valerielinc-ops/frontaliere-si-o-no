@@ -9495,6 +9495,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-besano-frontaliere-ticino.title': 'Leben in Besano und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-besano-frontaliere-ticino.excerpt': 'Praktischer Leitfaden für diejenigen, die Besano als Wohnsitz wählen: Auswirkungen des neuen Steuerabkommens, Einkommensmanagement und Verfahren für den Pendelverkehr ins Tessin.',
     'blog.article.vivere-besano-frontaliere-ticino.imageAlt': 'Panoramablick auf die Grenze zwischen Besano und dem Mendrisiotto',
+    'blog.article.trasferirsi-a-valmorea-da-frontaliere-pro-e-contro.title': 'Als Grenzgänger nach Valmorea ziehen: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-valmorea-da-frontaliere-pro-e-contro.excerpt': 'Die Entscheidung, als Grenzgänger nach Valmorea zu ziehen, kann eine komplexe und faszinierende Erfahrung sein. In diesem Artikel werden wir die Vor- und Nachteile einer solchen Entscheidung untersuchen.',
+    'blog.article.trasferirsi-a-valmorea-da-frontaliere-pro-e-contro.imageAlt': 'Eine Familie von Frontalierern zieht nach Valmorea',
 };
 
 export default blogMetaDe;

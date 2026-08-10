@@ -28506,6 +28506,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trasferirsi-a-valmorea-da-frontaliere-pro-e-contro',
+ category: 'novita',
+ date: '2026-08-10T05:17:44.245Z',
+ image: '/images/blog/trasferirsi-a-valmorea-da-frontaliere-pro-e-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
