@@ -2056,6 +2056,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.title': 'OCSE assegna giudizio positivo alla Svizzera',
     'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.excerpt': 'Il punto di contatto nazionale svizzero per la condotta aziendale responsabile è stato valutato positivamente dall\'OCSE.',
     'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.imageAlt': 'Immagine di una vista di Lugano',
+    'blog.article.seco-dazi-stati-uniti-2026.title': 'Stati Uniti: nuovi dazi sulla Svizzera, SECO e politiche economiche',
+    'blog.article.seco-dazi-stati-uniti-2026.excerpt': 'La SECO ha annunciato che gli Stati Uniti hanno adottato nuove misure di dazi sulla base dell\'indagine sul commercio di beni prodotti ricorrendo al lavoro forzato.',
+    'blog.article.seco-dazi-stati-uniti-2026.imageAlt': 'Una scena di lavoro a Lugano, in Svizzera',
+    'blog.article.dazi-usa-consiglio-federale-2026.title': 'Dazi USA: la Svizzera conferma intenti',
+    'blog.article.dazi-usa-consiglio-federale-2026.excerpt': 'Il Consiglio federale si attiene agli accordi definiti nella dichiarazione d’intenti congiunta del 14 novembre 2025, sottoscritta tra Svizzera e Stati Uniti.',
+    'blog.article.dazi-usa-consiglio-federale-2026.imageAlt': 'Negozianti commerciali davanti al Parlamento svizzero',
 };
 
 export default blogMetaChIt;

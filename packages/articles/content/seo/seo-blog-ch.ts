@@ -26615,6 +26615,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-seco-dazi-stati-uniti-2026': {
+    title: 'Stati Uniti: nuovi dazi sulla Svizzera, SECO e politiche economiche',
+    description: 'La SECO ha annunciato che gli Stati Uniti hanno adottato nuove misure di dazi sulla base dell\'indagine sul commercio di beni prodotti ricorrendo al lavoro',
+    keywords: 'frontalieri, ticino, svizzera, italia, stati, uniti, nuovi, dazi',
+    ogTitle: 'Stati Uniti: nuovi dazi sulla Svizzera, SECO e politiche economiche',
+    ogDescription: 'La SECO ha annunciato che gli Stati Uniti hanno adottato nuove misure di dazi sulla base dell\'indagine sul commercio di beni prodotti ricorrendo al lavoro forzato.',
+    canonicalPath: '/articoli-svizzera/seco-dazi-stati-uniti-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stati Uniti: nuovi dazi sulla Svizzera, SECO e politiche economiche",
+      "description": "La SECO ha annunciato che gli Stati Uniti hanno adottato nuove misure di dazi sulla base dell'indagine sul commercio di beni prodotti ricorrendo al lavoro",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/seco-dazi-stati-uniti-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di lavoro a Lugano, in Svizzera"
+      },
+      "datePublished": "2026-08-10T22:21:13+00:00",
+      "dateModified": "2026-08-10T22:21:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/seco-dazi-stati-uniti-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-dazi-usa-consiglio-federale-2026': {
+    title: 'Dazi USA: la Svizzera conferma intenti | Frontaliere Ticino',
+    description: 'Il Consiglio federale di Berna ha pubblicato una dichiarazione sull\'attuazione di determinati ulteriori elementi della dichiarazione congiunta Svizzera-USA.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dazi, conferma, intenti, consiglio',
+    ogTitle: 'Dazi USA: il Consiglio federale conferma la dichiarazione d’intenti Svizzera - USA',
+    ogDescription: 'Il Consiglio federale di Berna ha pubblicato una dichiarazione sull\'attuazione di determinati ulteriori elementi della dichiarazione congiunta Svizzera-USA.',
+    canonicalPath: '/articoli-svizzera/dazi-usa-consiglio-federale-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dazi USA: la Svizzera conferma intenti",
+      "description": "Il Consiglio federale di Berna ha pubblicato una dichiarazione sull'attuazione di determinati ulteriori elementi della dichiarazione congiunta Svizzera-USA.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dazi-usa-consiglio-federale-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Negozianti commerciali davanti al Parlamento svizzero"
+      },
+      "datePublished": "2026-08-10T22:30:49+00:00",
+      "dateModified": "2026-08-10T22:30:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dazi-usa-consiglio-federale-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
