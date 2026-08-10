@@ -89,3 +89,121 @@ describe('newsletter unsubscribe — one-click link routes to the Cloud Function
     expect(result.html).not.toMatch(/href="https:\/\/frontaliereticino\.ch\/\?action=resubscribe/);
   });
 });
+
+// ── Forensics on the newsletter unsubscribe write ────────────────────────────
+//
+// Same endpoint, same immediate opt-out: the one-click POST and the footer GET
+// are both honoured exactly as before. The difference is that the write now says
+// which of the two it was, plus a truncated UA and an ANONYMIZED IP — enough to
+// tell a mail-security scanner's prefetch from a human click after the fact,
+// which today's data cannot do at all.
+describe('newsletter unsubscribe — forensics recorded on the write', () => {
+  const SECRET = 'test-secret-forensics';
+  const EMAIL = 'user@example.com';
+
+  function capturingDb() {
+    const sets: Record<string, any>[] = [];
+    const events: Record<string, any>[] = [];
+    return {
+      sets,
+      events,
+      collection: () => ({
+        doc: () => ({
+          get: async () => ({ exists: true, data: () => ({ status: 'confirmed', isActive: true }) }),
+          set: async (data: any) => { sets.push(data); },
+          collection: () => ({ add: async (data: any) => { events.push(data); } }),
+        }),
+      }),
+    };
+  }
+
+  function token() {
+    return createHmac('sha256', SECRET).update(EMAIL).digest('hex');
+  }
+
+  it('records a one-click POST on both the subscriber doc and the event trail', async () => {
+    const db = capturingDb();
+    const result = await handleSubscriptionManagement({
+      action: 'unsubscribe',
+      email: EMAIL,
+      token: token(),
+      locale: 'it',
+      secret: SECRET,
+      forensics: {
+        unsubscribe_method: 'POST',
+        unsubscribe_user_agent: 'Google-Mail-Unsubscriber',
+        unsubscribe_ip: '203.0.113.0',
+      },
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    const subscriberWrite = db.sets.find((s) => s.status === 'unsubscribed');
+    expect(subscriberWrite).toMatchObject({
+      status: 'unsubscribed',
+      unsubscribe_method: 'POST',
+      unsubscribe_user_agent: 'Google-Mail-Unsubscriber',
+      unsubscribe_ip: '203.0.113.0',
+    });
+    const event = db.events.find((e) => e.event_type === 'unsubscribe');
+    expect(event).toMatchObject({ unsubscribe_method: 'POST', unsubscribe_ip: '203.0.113.0' });
+  });
+
+  it('records a bare GET — the case that is indistinguishable from a scanner today', async () => {
+    const db = capturingDb();
+    await handleSubscriptionManagement({
+      action: 'unsubscribe',
+      email: EMAIL,
+      token: token(),
+      locale: 'it',
+      secret: SECRET,
+      forensics: { unsubscribe_method: 'GET' },
+      db: db as any,
+    });
+    const subscriberWrite = db.sets.find((s) => s.status === 'unsubscribed');
+    expect(subscriberWrite!.unsubscribe_method).toBe('GET');
+    // Missing user-agent is tolerated — the verb alone is still worth storing.
+    expect(subscriberWrite).not.toHaveProperty('unsubscribe_user_agent');
+  });
+
+  it('still unsubscribes (200) when the forensics object throws on read', async () => {
+    const db = capturingDb();
+    const hostile = {
+      unsubscribe_method: 'GET',
+      get unsubscribe_ip(): string { throw new Error('boom'); },
+    };
+    const result = await handleSubscriptionManagement({
+      action: 'unsubscribe',
+      email: EMAIL,
+      token: token(),
+      locale: 'it',
+      secret: SECRET,
+      forensics: hostile as any,
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    const subscriberWrite = db.sets.find((s) => s.status === 'unsubscribed');
+    expect(subscriberWrite).toBeTruthy();
+    expect(subscriberWrite).not.toHaveProperty('unsubscribe_ip');
+  });
+
+  it('leaves the resubscribe direction free of `unsubscribe_*` fields', async () => {
+    const db = capturingDb();
+    await handleSubscriptionManagement({
+      action: 'toggle_newsletter_subscription',
+      subscribed: true,
+      email: EMAIL,
+      token: token(),
+      locale: 'it',
+      secret: SECRET,
+      forensics: { unsubscribe_method: 'POST' },
+      db: db as any,
+    });
+    const write = db.sets.find((s) => s.status === 'subscribed');
+    expect(write).toBeTruthy();
+    expect(write).not.toHaveProperty('unsubscribe_method');
+    const event = db.events.find((e) => e.event_type === 'subscription_resubscribed');
+    expect(event).not.toHaveProperty('unsubscribe_method');
+  });
+});

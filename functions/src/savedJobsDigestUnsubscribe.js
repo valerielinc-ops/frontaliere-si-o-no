@@ -21,11 +21,17 @@
  * - List-Unsubscribe: <https://...?uid=X&email=Y&token=Z>, <mailto:...>
  * - List-Unsubscribe-Post: List-Unsubscribe=One-Click
  * - POST to the URL with body "List-Unsubscribe=One-Click" triggers unsubscribe
+ *
+ * Forensics (`unsubscribe_method` / `_user_agent` / `_ip`) ride along on the
+ * same nested `savedJobsDigest` write, built by the caller via
+ * `lib/requestForensics.js` and threaded in as an option. Attribution only —
+ * nothing here reads them, so behaviour is byte-identical with or without them.
  */
 
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import admin from 'firebase-admin';
 import { ensureAdminApp, getAdminDb } from './newsletterResendWebhookCore.js';
+import { forensicsFields } from './lib/requestForensics.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
@@ -92,8 +98,9 @@ function buildConfirmationHtml({ title, message, success }) {
 </html>`;
 }
 
-export async function handleSavedJobsDigestUnsubscribe({ uid, email, token, secret, db: injectedDb }) {
+export async function handleSavedJobsDigestUnsubscribe({ uid, email, token, secret, forensics, db: injectedDb }) {
   const db = injectedDb || getAdminDb();
+  const forensicFields = forensicsFields(forensics);
 
   if (!uid) {
     return {
@@ -138,6 +145,7 @@ export async function handleSavedJobsDigestUnsubscribe({ uid, email, token, secr
       savedJobsDigest: {
         optedOut: true,
         unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+        ...forensicFields,
       },
     },
     { merge: true },

@@ -89,3 +89,34 @@ export function isJobAlertExcluded(status) {
 export function isSavedJobsDigestExcluded(status) {
   return isAddressSuppressed(status);
 }
+
+/**
+ * TRANSACTIONAL senders only — the calculator PDF the user submitted a form for,
+ * the double-opt-in confirmation they just triggered. These are not marketing:
+ * the user asked for this specific message seconds ago, so the marketing-grade
+ * exclusion sets above would be wrong here. `unsubscribed`, `inactive`,
+ * `pending` and a soft/absent-severity `bounced` are all deliberately ALLOWED —
+ * a newsletter opt-out does not revoke a transactional request, and one soft
+ * reject is a provider hiccup, not a dead mailbox (see bounceClassification.js:
+ * a soft bounce never sets `status` at all until it escalates, and escalation
+ * itself writes `bounce_severity: 'hard'`, so it is caught here too).
+ *
+ * What IS blocked is only what re-mailing would provably damage:
+ *   - a hard bounce — the mailbox does not exist; retrying burns sender
+ *     reputation across all five free-tier ESPs for every other recipient;
+ *   - `complained` — the human filed a spam complaint; mailing them again is a
+ *     compliance hazard regardless of what they subsequently submitted.
+ *
+ * Note `suppressed` (provider blocklist) without a recorded hard severity is
+ * NOT blocked: it is a provider-side state with no evidence about the mailbox
+ * itself, and the ESP will refuse the send on its own if it still holds.
+ *
+ * @param {{ status?: string|null, bounceSeverity?: string|null }} [args]
+ * @returns {boolean} true → do not send this transactional email.
+ */
+export function isTransactionalHardBlock({ status, bounceSeverity } = {}) {
+  const normalizedStatus = norm(status);
+  if (normalizedStatus === 'complained') return true;
+  if (!isAddressSuppressed(normalizedStatus)) return false;
+  return norm(bounceSeverity) === 'hard';
+}

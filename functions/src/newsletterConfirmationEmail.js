@@ -4,11 +4,16 @@
  * Sends a branded confirmation email to new newsletter subscribers via Resend.
  * Uses HMAC tokens for secure confirmation link verification.
  * Includes 1-hour cooldown to prevent spam.
+ *
+ * Suppression: transactional, so guarded only against a hard bounce or a filed
+ * spam complaint (isTransactionalHardBlock, lib/emailSuppression.js). `pending`
+ * is the normal state for this email and must never be blocked.
  */
 
 import { createHmac } from 'node:crypto';
 import admin from 'firebase-admin';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
+import { isTransactionalHardBlock } from './lib/emailSuppression.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
 import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
@@ -138,6 +143,19 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  }
 
  const data = subscriberDoc.data();
+
+ // NARROW hard-block guard: only a provably dead mailbox (hard bounce) or a
+ // filed spam complaint. A double-opt-in confirmation is transactional — the
+ // user asked for it seconds ago — so `unsubscribed` / `inactive` / `pending` /
+ // soft-bounced addresses still get their email; `pending` in particular IS the
+ // normal state here, and blocking it would break signup outright. Rationale +
+ // exact set: isTransactionalHardBlock in lib/emailSuppression.js. No extra
+ // Firestore read: this reads fields off the doc already fetched above, so the
+ // guard adds no new failure path of its own.
+ if (isTransactionalHardBlock({ status: data?.status, bounceSeverity: data?.bounce_severity })) {
+ console.warn(`[newsletterConfirmation] suppressed address, send skipped: status=${data?.status}`);
+ return { success: false, error: 'address_suppressed' };
+ }
 
  if (data.status === 'confirmed' && data.isActive && !isLoginLink) {
  return { success: false, error: 'already_confirmed' };

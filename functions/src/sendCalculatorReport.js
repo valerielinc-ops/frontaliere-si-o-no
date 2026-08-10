@@ -11,6 +11,13 @@
  * browser, so this endpoint only needs to wrap Resend's attachment API and
  * record the capture in Firestore.
  *
+ * Suppression: this is a TRANSACTIONAL send (the user submitted the form and is
+ * waiting for the PDF), so it is guarded only against a provably dead mailbox
+ * (hard bounce) or a filed spam complaint — see `isTransactionalHardBlock` in
+ * lib/emailSuppression.js. `unsubscribed`/`inactive`/`pending`/soft-bounced
+ * addresses still receive their report; suppressing those would break a working
+ * lead-magnet funnel over a consent signal that does not apply to this message.
+ *
  * Supports multiple report kinds via the allowlisted `source` param:
  *   - 'calculator_paywall' (default) — Italy-vs-Switzerland salary report
  *   - 'lamal_ssn_tool'               — LAMal-vs-SSN health breakeven report
@@ -19,6 +26,7 @@
 
 import admin from 'firebase-admin';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
+import { isTransactionalHardBlock } from './lib/emailSuppression.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
 import { sendEmailCascade, isProviderConfigured } from './emailCascade.js';
 import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
@@ -166,9 +174,45 @@ export async function handleSendCalculatorReport({
       result_summary: resultSummary || null,
     },
   };
+  // Single read, shared by the suppression guard below and the upsert branch —
+  // and it FAILS OPEN: a Firestore hiccup leaves `existing` null and the PDF
+  // still ships. This is a transactional email the user submitted a form for
+  // seconds ago; a lookup failure must never silently swallow it.
+  let existing = null;
+  let existingReadFailed = false;
   try {
-    const existing = await subscriberRef.get();
-    if (!existing.exists) {
+    existing = await subscriberRef.get();
+  } catch (readErr) {
+    existingReadFailed = true;
+    console.warn(
+      '[sendCalculatorReport] subscriber read failed — suppression guard fails OPEN:',
+      readErr?.message || readErr,
+    );
+  }
+
+  // NARROW hard-block guard: only a provably dead mailbox (hard bounce) or a
+  // filed spam complaint. `unsubscribed` / `inactive` / `pending` / a soft
+  // bounce all still get their PDF — a marketing opt-out does not revoke a
+  // transactional request the user just made. Rationale + exact set live in
+  // lib/emailSuppression.js (isTransactionalHardBlock); do not widen it here.
+  if (existing?.exists) {
+    const existingData = existing.data() || {};
+    if (isTransactionalHardBlock({
+      status: existingData.status,
+      bounceSeverity: existingData.bounce_severity,
+    })) {
+      console.warn(`[sendCalculatorReport] suppressed address, send skipped: status=${existingData.status}`);
+      return { status: 403, body: { success: false, error: 'address_suppressed' } };
+    }
+  }
+
+  try {
+    if (existingReadFailed) {
+      // Existence unknown. Merge the source tag only — writing the create-only
+      // fields blind (`status: 'pending'`, `isActive: false`) would downgrade a
+      // confirmed subscriber, which is worse than a slightly thinner doc.
+      await subscriberRef.set(baseDoc, { merge: true });
+    } else if (!existing.exists) {
       await subscriberRef.set({
         ...baseDoc,
         created_at: now,

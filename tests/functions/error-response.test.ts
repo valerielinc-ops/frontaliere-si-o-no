@@ -177,7 +177,14 @@ describe('handleSendCalculatorReport — structured error responses', () => {
   it('returns 503 structured error (no unhandled 500) when Firestore upsert fails', async () => {
     const handle = await loadSendCalculatorReport();
     const db = makeDbStub({
-      getImpl: async () => {
+      // The upsert is the WRITE. It used to be simulated by throwing from the
+      // preceding read, which no longer models this failure: the read now fails
+      // OPEN on purpose (a lookup hiccup must not swallow a PDF the user
+      // submitted a form for — see tests/transactional-suppression-guard.test.ts,
+      // "FAILS OPEN on a Firestore read error"). The 503-on-upsert-failure
+      // contract asserted here is unchanged; only the injection point moved to
+      // the write it is actually about.
+      setImpl: async () => {
         throw new Error('UNAVAILABLE: simulated outage');
       },
     });

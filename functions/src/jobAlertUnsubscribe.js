@@ -8,6 +8,13 @@
  *
  * URLs are generated in send-job-alerts.mjs.
  *
+ * Forensics (`unsubscribe_method` / `_user_agent` / `_ip`) are recorded on the
+ * same write, built by the caller via `lib/requestForensics.js` and threaded in
+ * as an option so this handler stays pure and testable. They are attribution
+ * ONLY: nothing here reads them, so no request can be refused, delayed or
+ * confirmed because of them. The anonymized (never raw) IP and the reason the
+ * fields exist at all are documented in that module.
+ *
  * RFC 8058 compliance:
  * - List-Unsubscribe: <https://...?alertId=X&email=Y&token=Z>, <mailto:...>
  * - List-Unsubscribe-Post: List-Unsubscribe=One-Click
@@ -17,6 +24,7 @@
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import admin from 'firebase-admin';
 import { ensureAdminApp, getAdminDb } from './newsletterResendWebhookCore.js';
+import { forensicsFields } from './lib/requestForensics.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
@@ -102,8 +110,12 @@ function buildConfirmationHtml({ title, message, success }) {
 </html>`;
 }
 
-export async function handleJobAlertUnsubscribe({ alertId, email, token, secret, action, db: injectedDb }) {
+export async function handleJobAlertUnsubscribe({ alertId, email, token, secret, action, forensics, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
+ // Allowlist-copied and error-swallowing by construction (see forensicsFields):
+ // a hostile or broken forensics object contributes {} and the unsubscribe runs
+ // exactly as it did before.
+ const forensicFields = forensicsFields(forensics);
 
  // ── Unsubscribe from ALL alerts ───────────────────────────
  if (action === 'unsubscribe_all') {
@@ -153,6 +165,7 @@ export async function handleJobAlertUnsubscribe({ alertId, email, token, secret,
  active: false,
  unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
  unsubscribe_source: 'email_link_all',
+ ...forensicFields,
  });
  }
  await batch.commit();
@@ -228,6 +241,7 @@ export async function handleJobAlertUnsubscribe({ alertId, email, token, secret,
  active: false,
  unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
  unsubscribe_source: 'email_link',
+ ...forensicFields,
  });
 
  const filterDesc = [
