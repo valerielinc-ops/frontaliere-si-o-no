@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jumbo",
-  "assembledAt": "2026-08-10T10:28:18.968Z",
+  "assembledAt": "2026-08-10T09:59:54.045Z",
   "jobs": [
     {
       "id": "jumbo-7b8fc9ef-6a6",
@@ -391,14 +391,16 @@
         "conseiller-commercial-a-garden-jumbo-volketswil",
         "consulente-vendite-in-garden-jumbo-volketswil",
         "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-volketswil",
-        "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-volketswil"
+        "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-volketswil",
+        "sales-advisor-garden-jumbo-division-der-coop-genossenschaft-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-garden-jumbo-volketswil",
           "consulente-vendite-in-garden-jumbo-volketswil",
           "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-volketswil",
-          "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-volketswil"
+          "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-volketswil",
+          "sales-advisor-garden-jumbo-division-der-coop-genossenschaft-volketswil"
         ],
         "en": [
           "verkaufsberater-in-garden-jumbo-volketswil",
@@ -413,7 +415,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T12:15:40.839Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -425,7 +426,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-50110e55-83b",
@@ -19467,7 +19469,11 @@
         "venditore-in-cassa-servizi-jumbo-willisau",
         "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-wettingen",
         "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-wettingen",
-        "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-willisau"
+        "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-willisau",
+        "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-thalwil",
+        "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-thalwil",
+        "verkaufer-in-kassen-services-jumbo-thalwil-zurich-msyzl1",
+        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-thalwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19475,22 +19481,28 @@
           "venditore-in-cassa-servizi-jumbo-willisau",
           "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-wettingen",
           "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-wettingen",
-          "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-willisau"
+          "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-willisau",
+          "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-thalwil",
+          "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-thalwil",
+          "verkaufer-in-kassen-services-jumbo-thalwil-zurich-msyzl1",
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-thalwil"
         ],
         "en": [
           "verkaufer-in-kassen-services-jumbo-willisau",
-          "seller-in-cash-registers-services-jumbo-willisau"
+          "seller-in-cash-registers-services-jumbo-willisau",
+          "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-thalwil"
         ],
         "de": [
-          "verkaufer-in-kassen-services-jumbo-willisau"
+          "verkaufer-in-kassen-services-jumbo-willisau",
+          "verkaufer-in-kassen-services-jumbo-thalwil-zurich-msyzl1"
         ],
         "fr": [
           "verkaufer-in-kassen-services-jumbo-willisau",
-          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-willisau"
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-willisau",
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-thalwil"
         ]
       },
       "firstSeenAt": "2026-08-07T10:11:28.531Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -19502,7 +19514,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-b417ce9b-c9d",

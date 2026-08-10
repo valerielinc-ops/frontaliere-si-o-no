@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sicpa",
-  "assembledAt": "2026-08-10T10:47:47.063Z",
+  "assembledAt": "2026-08-10T10:24:14.326Z",
   "jobs": [
     {
       "id": "sicpa-3fdbfe3608f5",
@@ -290,18 +290,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "proposals-manager-sicpa-prilly",
-        "responsabile-delle-proposte-sicpa-sa-prilly"
+        "responsabile-delle-proposte-sicpa-sa-prilly",
+        "piombo-di-prova-sicpa-sa-prilly",
+        "test-lead-sicpa-prilly",
+        "testleiter-sicpa-sa-prilly",
+        "plomb-d-essai-sicpa-sa-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
           "proposals-manager-sicpa-prilly",
-          "responsabile-delle-proposte-sicpa-sa-prilly"
+          "responsabile-delle-proposte-sicpa-sa-prilly",
+          "piombo-di-prova-sicpa-sa-prilly",
+          "test-lead-sicpa-prilly",
+          "testleiter-sicpa-sa-prilly",
+          "plomb-d-essai-sicpa-sa-prilly"
         ],
         "de": [
-          "proposals-manager-sicpa-prilly"
+          "proposals-manager-sicpa-prilly",
+          "testleiter-sicpa-sa-prilly"
         ],
         "fr": [
-          "proposals-manager-sicpa-prilly"
+          "proposals-manager-sicpa-prilly",
+          "plomb-d-essai-sicpa-sa-prilly"
+        ],
+        "en": [
+          "test-lead-sicpa-prilly"
         ]
       },
       "firstSeenAt": "2026-07-24T11:33:06.660Z",

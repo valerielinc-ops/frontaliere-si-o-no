@@ -1,6 +1,6 @@
 {
   "crawlerKey": "volksschule-luzern",
-  "assembledAt": "2026-08-10T10:28:07.429Z",
+  "assembledAt": "2026-08-10T10:44:44.297Z",
   "jobs": [
     {
       "id": "volksschule-luzern-83a8cfe0d8c5",
@@ -504,7 +504,6 @@
         "de": "Aufgaben:\n• über eine Ausbildung als Primarlehrperson verfügt oder sich im Studium befindet\n\n• Wert legt auf hohe Unterrichtsqualität und Zusammenarbeit im Team\n\n• motiviert und mit Freude die anvertrauten Aufgaben erfüllt\n\n• mit Offenheit und Wertschätzung auf Menschen zugeht und ihnen mit Respekt begegnet\n\n• sich als Teil eines Teams versteht und sich für unsere Schule engagiert",
         "fr": "Tâches :\n• a une formation d'enseignant primaire ou étudie\n• L'accent mis sur la qualité de l'enseignement et la coopération au sein de l'équipe\n• motivé et joyeux accomplit les tâches confiées\n• Approcher les gens avec ouverture et appréciation et les traiter avec respect\n• se voit comme faisant partie d'une équipe et s'engage dans notre école"
       },
-      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://job.stadtluzern.ch/stellen/musik-volksschule/offene-stellen/stellvertretung-als-klassenlehrperson-fuer-eine-5-klasse-schulhaus-wartegg/3489f976-1f82-436e-87b6-255f9483cee1",
@@ -529,17 +528,30 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stellvertretung-als-klassenlehrperson-fur-eine-5-klasse-50-100-schulhaus-wartegg"
+        "stellvertretung-als-klassenlehrperson-fur-eine-5-klasse-50-100-schulhaus-wartegg",
+        "stellvertretung-come-klassenlehrperson-85-per-eine-4-klasse-schulhaus-wartegg-volksschule-stadt-luzern",
+        "deputy-as-class-teacher-85-for-a-4th-grade-schoolhouse-wartegg-volksschule-stadt-luzern-luzern",
+        "stellvertretung-als-klassenlehrperson-85-fur-eine-4-klasse-schulhaus-wartegg-volksschule",
+        "professeur-adjoint-de-classe-85-pour-une-4e-annee-ecole-wartegg-volksschule-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretung-als-klassenlehrperson-fur-eine-5-klasse-50-100-schulhaus-wartegg"
+          "stellvertretung-als-klassenlehrperson-fur-eine-5-klasse-50-100-schulhaus-wartegg",
+          "stellvertretung-come-klassenlehrperson-85-per-eine-4-klasse-schulhaus-wartegg-volksschule-stadt-luzern",
+          "deputy-as-class-teacher-85-for-a-4th-grade-schoolhouse-wartegg-volksschule-stadt-luzern-luzern",
+          "stellvertretung-als-klassenlehrperson-85-fur-eine-4-klasse-schulhaus-wartegg-volksschule",
+          "professeur-adjoint-de-classe-85-pour-une-4e-annee-ecole-wartegg-volksschule-stadt-luzern-luzern"
         ],
         "en": [
-          "stellvertretung-als-klassenlehrperson-fur-eine-5-klasse-50-100-schulhaus-wartegg"
+          "stellvertretung-als-klassenlehrperson-fur-eine-5-klasse-50-100-schulhaus-wartegg",
+          "deputy-as-class-teacher-85-for-a-4th-grade-schoolhouse-wartegg-volksschule-stadt-luzern-luzern"
         ],
         "fr": [
-          "stellvertretung-als-klassenlehrperson-fur-eine-5-klasse-50-100-schulhaus-wartegg"
+          "stellvertretung-als-klassenlehrperson-fur-eine-5-klasse-50-100-schulhaus-wartegg",
+          "professeur-adjoint-de-classe-85-pour-une-4e-annee-ecole-wartegg-volksschule-stadt-luzern-luzern"
+        ],
+        "de": [
+          "stellvertretung-als-klassenlehrperson-85-fur-eine-4-klasse-schulhaus-wartegg-volksschule"
         ]
       },
       "firstSeenAt": "2026-07-04T12:19:01.819Z",
@@ -554,7 +566,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "volksschule-luzern-ceb9966d01e6",
