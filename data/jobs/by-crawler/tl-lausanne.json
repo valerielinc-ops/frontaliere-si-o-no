@@ -53,13 +53,11 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "analyste-systemes-financiers-tl-lausanne-lausanne",
-        "analystenfinanzsysteme-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "analizzare-i-sistemi-finanziari-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "analystenfinanzsysteme-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "analyste-systemes-financiers-tl-lausanne-lausanne",
-          "analizzare-i-sistemi-finanziari-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "analyste-systemes-financiers-tl-lausanne-lausanne"
         ],
         "en": [
           "analyste-systemes-financiers-tl-lausanne-lausanne"
@@ -142,8 +140,7 @@
         "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "train-mechanics-for-the-leb-line-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "zugmechaniker-fur-die-leb-strecke-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
-        "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -155,8 +152,7 @@
           "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "train-mechanics-for-the-leb-line-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "zugmechaniker-fur-die-leb-strecke-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
-          "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
         ],
         "en": [
           "railway-constructors-tl-transports-publics-de-la-region-lausannoise-lausanne"
@@ -309,13 +305,11 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "stagiaire-environnement-tl-lausanne-lausanne",
-        "internship-ambiente-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "stagiaire-environnement-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-environnement-tl-lausanne-lausanne",
-          "internship-ambiente-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "stagiaire-environnement-tl-lausanne-lausanne"
         ],
         "en": [
           "stagiaire-environnement-tl-lausanne-lausanne"
@@ -340,10 +334,10 @@
     },
     {
       "id": "tl-lausanne-8c612a372231",
-      "slug": "stagiaire-approvisionnement-supply-chain-ferroviaire-tl-lausanne-lausanne",
+      "slug": "intern-supply-supply-chain-railway-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "stagiaire-approvisionnement-supply-chain-ferroviaire-tl-lausanne-lausanne",
-        "it": "stagiaire-approvisionnement-supply-chain-ferroviaire-tl-lausanne-lausanne",
+        "it": "intern-supply-supply-chain-railway-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "en": "stagiaire-approvisionnement-supply-chain-ferroviaire-tl-lausanne-lausanne",
         "de": "stagiaire-approvisionnement-supply-chain-ferroviaire-tl-lausanne-lausanne"
       },
@@ -401,7 +395,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-10T10:29:45.267Z"
+      "firstSeenAt": "2026-08-10T10:29:45.267Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-approvisionnement-supply-chain-ferroviaire-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-approvisionnement-supply-chain-ferroviaire-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-8e79a8002c5f",
@@ -454,13 +456,11 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne",
-        "automatico-per-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne",
-          "automatico-per-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
         ],
         "en": [
           "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
