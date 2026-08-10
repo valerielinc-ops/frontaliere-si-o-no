@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rieter",
-  "assembledAt": "2026-08-09T21:36:48.312Z",
+  "assembledAt": "2026-08-10T10:27:34.550Z",
   "jobs": [
     {
       "id": "rieter-b24c2360cc8b",
@@ -33,7 +33,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Trainer-Customer-Training--4048838",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-09T21:36:44.990Z",
+      "crawledAt": "2026-08-10T10:27:30.809Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -113,7 +113,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-System-Engineer-100-wmd---4046390",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-09T21:36:44.340Z",
+      "crawledAt": "2026-08-10T10:27:30.249Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -195,7 +195,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/SAP-Senior-Consultant-Service-and-Repair-CS-100-wmd---4048335",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-09T21:36:43.686Z",
+      "crawledAt": "2026-08-10T10:27:29.641Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -259,7 +259,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Product-Manager-Automation-100-wmd---4048539",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-09T21:36:43.038Z",
+      "crawledAt": "2026-08-10T10:27:29.081Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -322,6 +322,73 @@
       }
     },
     {
+      "id": "rieter-ac7edb93ddb7",
+      "slug": "ot-development-lead-digital-controls-architecture-100-f-m-d-rieter-winterthur",
+      "slugByLocale": {
+        "en": "ot-development-lead-digital-controls-architecture-100-f-m-d-rieter-winterthur",
+        "it": "ot-development-lead-digital-controls-architecture-100-f-m-d-rieter-winterthur",
+        "de": "ot-development-lead-digital-controls-architecture-100-f-m-d-rieter-winterthur",
+        "fr": "ot-development-lead-digital-controls-architecture-100-f-m-d-rieter-winterthur"
+      },
+      "company": "Rieter",
+      "companyKey": "rieter",
+      "companyDomain": "rieter.com",
+      "title": "OT Development Lead – Digital Controls & Architecture (100%, f/m/d)",
+      "titleByLocale": {
+        "en": "OT Development Lead – Digital Controls & Architecture (100%, f/m/d)",
+        "it": "OT Development Lead – Digital Controls & Architecture (100%, f/m/d)",
+        "de": "OT Development Lead – Digital Controls & Architecture (100%, f/m/d)",
+        "fr": "OT Development Lead – Digital Controls & Architecture (100%, f/m/d)"
+      },
+      "description": "Rieter is the world’s leading system supplier for processing natural and man-made fibers into short-staple and long-staple yarn, as well as for the production of filament yarns, man-made fibers and nonwovens. With its comprehensive technology portfolio, Rieter covers the entire textile value chain – from fiber to yarn, and from polymer melt to texturized filament, synthetic staple fibers and nonwoven. Headquartered in Winterthur, Switzerland, the company designs and engineers complex spinning plants, machines, systems, and components that enable an efficient and economical production. Rieter’s leading technologies ensure minimal resource consumption, making a significant contribution to sustainability across the global textile value chain. Rieter has a history spanning more than 230 years, operates 17 production sites in nine countries, and employs around 4 220 people worldwide, approximately 15.4% of them in Switzerland. Rieter is listed on the SIX Swiss Exchange under the ticker symbol RIEN.\n\nTo realise our vision of the fully automated, digitally orchestrated spinning mill, we are strengthening our control systems and OT development capabilities in Winterthur.\n\nWe are looking for a hands‑on OT leader who enjoys building and guiding a team of developers and architects, and who wants to actively shape Rieter’s digital and AI future on the shopfloor.\n\nYour Tasks\n\n• Lead and develop a team of approx. 10 OT developers on-site and manage OT initiatives globally (PLC, embedded C/C++, IPC) for platform and machine‑control projects.\n\n• Take co-ownership of Rieter’s overall strategy for controls and OT platform roadmaps.\n\n• Drive new control concepts together with R&D, including platform development and control migration roadmap.\n\n• Ensure the further development and reliable operation of existing controls, including modernization and migration paths.\n\n• Work with architecture team to keep our solutions aligned with modern architecture approaches and frameworks.\n\n• Contribute to Rieter’s AI strategy on the shopfloor: define how control systems expose data and services for AI use cases.\n\n• Act as part of the Digital Leadership Team, interfacing with Product Management, IT, Data and Automation on roadmaps and platform decisions.\n\n• Communicate clearly with management and technical stakeholders, represent your domain in steering committees and customer projects.\n\n• Mobility: approx. 5–10% (visits to R&D teams and production sites)\n\nYour Qualifications\n\n• Bachelor’s or Master’s degree in Computer Science, Electrical Engineering, Industrial Automation or a related field.\n\n• 7+ years experience in OT/ICS development or industrial automation, including leading projects and teams.\n\n• Proven track record in PLC/IPC‑based control projects (e.g. IEC 61131‑3, Codesys, B&R, Siemens, Beckhoff) and embedded C/C++.\n\n• Experience in designing or evolving control architectures – ideally with familiarity to frameworks such as TOGAF, ISA‑95/99 or comparable reference models.\n\n• Solid understanding of OT security and safe OT/IT integration.\n\n• First exposure to AI‑related topics in industrial environments (e.g. data pipelines for analytics, condition monitoring, optimization), or strong motivation to build these skills.\n\n• Strong leadership and communication skills: able to coach developers, shape direction, and collaborate across R&D, IT, Data and regional organisations.\n\n• Comfortable working in an international environment (English required, German a plus)\n\nOur Offer\n\n• an international working environment with long tradition\n\n• versatile activity in a future-oriented environment with a lot of self-responsibility\n\n• good development opportunities and fair employment conditions\n\n• a motivated team with mutual respect and good cooperation\n\nAre you interested? If you recognize yourself in this profile and you would like to be part of a successful team, we look forward to meeting you soon. Please send us your complete application documents online.\n\nBereich: Digital Solutions\n\nLevel: Manager",
+      "descriptionByLocale": {
+        "en": "Rieter is the world’s leading system supplier for processing natural and man-made fibers into short-staple and long-staple yarn, as well as for the production of filament yarns, man-made fibers and nonwovens. With its comprehensive technology portfolio, Rieter covers the entire textile value chain – from fiber to yarn, and from polymer melt to texturized filament, synthetic staple fibers and nonwoven. Headquartered in Winterthur, Switzerland, the company designs and engineers complex spinning plants, machines, systems, and components that enable an efficient and economical production. Rieter’s leading technologies ensure minimal resource consumption, making a significant contribution to sustainability across the global textile value chain. Rieter has a history spanning more than 230 years, operates 17 production sites in nine countries, and employs around 4 220 people worldwide, approximately 15.4% of them in Switzerland. Rieter is listed on the SIX Swiss Exchange under the ticker symbol RIEN.\n\nTo realise our vision of the fully automated, digitally orchestrated spinning mill, we are strengthening our control systems and OT development capabilities in Winterthur.\n\nWe are looking for a hands‑on OT leader who enjoys building and guiding a team of developers and architects, and who wants to actively shape Rieter’s digital and AI future on the shopfloor.\n\nYour Tasks\n\n• Lead and develop a team of approx. 10 OT developers on-site and manage OT initiatives globally (PLC, embedded C/C++, IPC) for platform and machine‑control projects.\n\n• Take co-ownership of Rieter’s overall strategy for controls and OT platform roadmaps.\n\n• Drive new control concepts together with R&D, including platform development and control migration roadmap.\n\n• Ensure the further development and reliable operation of existing controls, including modernization and migration paths.\n\n• Work with architecture team to keep our solutions aligned with modern architecture approaches and frameworks.\n\n• Contribute to Rieter’s AI strategy on the shopfloor: define how control systems expose data and services for AI use cases.\n\n• Act as part of the Digital Leadership Team, interfacing with Product Management, IT, Data and Automation on roadmaps and platform decisions.\n\n• Communicate clearly with management and technical stakeholders, represent your domain in steering committees and customer projects.\n\n• Mobility: approx. 5–10% (visits to R&D teams and production sites)\n\nYour Qualifications\n\n• Bachelor’s or Master’s degree in Computer Science, Electrical Engineering, Industrial Automation or a related field.\n\n• 7+ years experience in OT/ICS development or industrial automation, including leading projects and teams.\n\n• Proven track record in PLC/IPC‑based control projects (e.g. IEC 61131‑3, Codesys, B&R, Siemens, Beckhoff) and embedded C/C++.\n\n• Experience in designing or evolving control architectures – ideally with familiarity to frameworks such as TOGAF, ISA‑95/99 or comparable reference models.\n\n• Solid understanding of OT security and safe OT/IT integration.\n\n• First exposure to AI‑related topics in industrial environments (e.g. data pipelines for analytics, condition monitoring, optimization), or strong motivation to build these skills.\n\n• Strong leadership and communication skills: able to coach developers, shape direction, and collaborate across R&D, IT, Data and regional organisations.\n\n• Comfortable working in an international environment (English required, German a plus)\n\nOur Offer\n\n• an international working environment with long tradition\n\n• versatile activity in a future-oriented environment with a lot of self-responsibility\n\n• good development opportunities and fair employment conditions\n\n• a motivated team with mutual respect and good cooperation\n\nAre you interested? If you recognize yourself in this profile and you would like to be part of a successful team, we look forward to meeting you soon. Please send us your complete application documents online.\n\nBereich: Digital Solutions\n\nLevel: Manager",
+        "it": "Rieter is the world’s leading system supplier for processing natural and man-made fibers into short-staple and long-staple yarn, as well as for the production of filament yarns, man-made fibers and nonwovens. With its comprehensive technology portfolio, Rieter covers the entire textile value chain – from fiber to yarn, and from polymer melt to texturized filament, synthetic staple fibers and nonwoven. Headquartered in Winterthur, Switzerland, the company designs and engineers complex spinning plants, machines, systems, and components that enable an efficient and economical production. Rieter’s leading technologies ensure minimal resource consumption, making a significant contribution to sustainability across the global textile value chain. Rieter has a history spanning more than 230 years, operates 17 production sites in nine countries, and employs around 4 220 people worldwide, approximately 15.4% of them in Switzerland. Rieter is listed on the SIX Swiss Exchange under the ticker symbol RIEN.\n\nTo realise our vision of the fully automated, digitally orchestrated spinning mill, we are strengthening our control systems and OT development capabilities in Winterthur.\n\nWe are looking for a hands‑on OT leader who enjoys building and guiding a team of developers and architects, and who wants to actively shape Rieter’s digital and AI future on the shopfloor.\n\nYour Tasks\n\n• Lead and develop a team of approx. 10 OT developers on-site and manage OT initiatives globally (PLC, embedded C/C++, IPC) for platform and machine‑control projects.\n\n• Take co-ownership of Rieter’s overall strategy for controls and OT platform roadmaps.\n\n• Drive new control concepts together with R&D, including platform development and control migration roadmap.\n\n• Ensure the further development and reliable operation of existing controls, including modernization and migration paths.\n\n• Work with architecture team to keep our solutions aligned with modern architecture approaches and frameworks.\n\n• Contribute to Rieter’s AI strategy on the shopfloor: define how control systems expose data and services for AI use cases.\n\n• Act as part of the Digital Leadership Team, interfacing with Product Management, IT, Data and Automation on roadmaps and platform decisions.\n\n• Communicate clearly with management and technical stakeholders, represent your domain in steering committees and customer projects.\n\n• Mobility: approx. 5–10% (visits to R&D teams and production sites)\n\nYour Qualifications\n\n• Bachelor’s or Master’s degree in Computer Science, Electrical Engineering, Industrial Automation or a related field.\n\n• 7+ years experience in OT/ICS development or industrial automation, including leading projects and teams.\n\n• Proven track record in PLC/IPC‑based control projects (e.g. IEC 61131‑3, Codesys, B&R, Siemens, Beckhoff) and embedded C/C++.\n\n• Experience in designing or evolving control architectures – ideally with familiarity to frameworks such as TOGAF, ISA‑95/99 or comparable reference models.\n\n• Solid understanding of OT security and safe OT/IT integration.\n\n• First exposure to AI‑related topics in industrial environments (e.g. data pipelines for analytics, condition monitoring, optimization), or strong motivation to build these skills.\n\n• Strong leadership and communication skills: able to coach developers, shape direction, and collaborate across R&D, IT, Data and regional organisations.\n\n• Comfortable working in an international environment (English required, German a plus)\n\nOur Offer\n\n• an international working environment with long tradition\n\n• versatile activity in a future-oriented environment with a lot of self-responsibility\n\n• good development opportunities and fair employment conditions\n\n• a motivated team with mutual respect and good cooperation\n\nAre you interested? If you recognize yourself in this profile and you would like to be part of a successful team, we look forward to meeting you soon. Please send us your complete application documents online.\n\nBereich: Digital Solutions\n\nLevel: Manager",
+        "de": "Rieter is the world’s leading system supplier for processing natural and man-made fibers into short-staple and long-staple yarn, as well as for the production of filament yarns, man-made fibers and nonwovens. With its comprehensive technology portfolio, Rieter covers the entire textile value chain – from fiber to yarn, and from polymer melt to texturized filament, synthetic staple fibers and nonwoven. Headquartered in Winterthur, Switzerland, the company designs and engineers complex spinning plants, machines, systems, and components that enable an efficient and economical production. Rieter’s leading technologies ensure minimal resource consumption, making a significant contribution to sustainability across the global textile value chain. Rieter has a history spanning more than 230 years, operates 17 production sites in nine countries, and employs around 4 220 people worldwide, approximately 15.4% of them in Switzerland. Rieter is listed on the SIX Swiss Exchange under the ticker symbol RIEN.\n\nTo realise our vision of the fully automated, digitally orchestrated spinning mill, we are strengthening our control systems and OT development capabilities in Winterthur.\n\nWe are looking for a hands‑on OT leader who enjoys building and guiding a team of developers and architects, and who wants to actively shape Rieter’s digital and AI future on the shopfloor.\n\nYour Tasks\n\n• Lead and develop a team of approx. 10 OT developers on-site and manage OT initiatives globally (PLC, embedded C/C++, IPC) for platform and machine‑control projects.\n\n• Take co-ownership of Rieter’s overall strategy for controls and OT platform roadmaps.\n\n• Drive new control concepts together with R&D, including platform development and control migration roadmap.\n\n• Ensure the further development and reliable operation of existing controls, including modernization and migration paths.\n\n• Work with architecture team to keep our solutions aligned with modern architecture approaches and frameworks.\n\n• Contribute to Rieter’s AI strategy on the shopfloor: define how control systems expose data and services for AI use cases.\n\n• Act as part of the Digital Leadership Team, interfacing with Product Management, IT, Data and Automation on roadmaps and platform decisions.\n\n• Communicate clearly with management and technical stakeholders, represent your domain in steering committees and customer projects.\n\n• Mobility: approx. 5–10% (visits to R&D teams and production sites)\n\nYour Qualifications\n\n• Bachelor’s or Master’s degree in Computer Science, Electrical Engineering, Industrial Automation or a related field.\n\n• 7+ years experience in OT/ICS development or industrial automation, including leading projects and teams.\n\n• Proven track record in PLC/IPC‑based control projects (e.g. IEC 61131‑3, Codesys, B&R, Siemens, Beckhoff) and embedded C/C++.\n\n• Experience in designing or evolving control architectures – ideally with familiarity to frameworks such as TOGAF, ISA‑95/99 or comparable reference models.\n\n• Solid understanding of OT security and safe OT/IT integration.\n\n• First exposure to AI‑related topics in industrial environments (e.g. data pipelines for analytics, condition monitoring, optimization), or strong motivation to build these skills.\n\n• Strong leadership and communication skills: able to coach developers, shape direction, and collaborate across R&D, IT, Data and regional organisations.\n\n• Comfortable working in an international environment (English required, German a plus)\n\nOur Offer\n\n• an international working environment with long tradition\n\n• versatile activity in a future-oriented environment with a lot of self-responsibility\n\n• good development opportunities and fair employment conditions\n\n• a motivated team with mutual respect and good cooperation\n\nAre you interested? If you recognize yourself in this profile and you would like to be part of a successful team, we look forward to meeting you soon. Please send us your complete application documents online.\n\nBereich: Digital Solutions\n\nLevel: Manager",
+        "fr": "Rieter is the world’s leading system supplier for processing natural and man-made fibers into short-staple and long-staple yarn, as well as for the production of filament yarns, man-made fibers and nonwovens. With its comprehensive technology portfolio, Rieter covers the entire textile value chain – from fiber to yarn, and from polymer melt to texturized filament, synthetic staple fibers and nonwoven. Headquartered in Winterthur, Switzerland, the company designs and engineers complex spinning plants, machines, systems, and components that enable an efficient and economical production. Rieter’s leading technologies ensure minimal resource consumption, making a significant contribution to sustainability across the global textile value chain. Rieter has a history spanning more than 230 years, operates 17 production sites in nine countries, and employs around 4 220 people worldwide, approximately 15.4% of them in Switzerland. Rieter is listed on the SIX Swiss Exchange under the ticker symbol RIEN.\n\nTo realise our vision of the fully automated, digitally orchestrated spinning mill, we are strengthening our control systems and OT development capabilities in Winterthur.\n\nWe are looking for a hands‑on OT leader who enjoys building and guiding a team of developers and architects, and who wants to actively shape Rieter’s digital and AI future on the shopfloor.\n\nYour Tasks\n\n• Lead and develop a team of approx. 10 OT developers on-site and manage OT initiatives globally (PLC, embedded C/C++, IPC) for platform and machine‑control projects.\n\n• Take co-ownership of Rieter’s overall strategy for controls and OT platform roadmaps.\n\n• Drive new control concepts together with R&D, including platform development and control migration roadmap.\n\n• Ensure the further development and reliable operation of existing controls, including modernization and migration paths.\n\n• Work with architecture team to keep our solutions aligned with modern architecture approaches and frameworks.\n\n• Contribute to Rieter’s AI strategy on the shopfloor: define how control systems expose data and services for AI use cases.\n\n• Act as part of the Digital Leadership Team, interfacing with Product Management, IT, Data and Automation on roadmaps and platform decisions.\n\n• Communicate clearly with management and technical stakeholders, represent your domain in steering committees and customer projects.\n\n• Mobility: approx. 5–10% (visits to R&D teams and production sites)\n\nYour Qualifications\n\n• Bachelor’s or Master’s degree in Computer Science, Electrical Engineering, Industrial Automation or a related field.\n\n• 7+ years experience in OT/ICS development or industrial automation, including leading projects and teams.\n\n• Proven track record in PLC/IPC‑based control projects (e.g. IEC 61131‑3, Codesys, B&R, Siemens, Beckhoff) and embedded C/C++.\n\n• Experience in designing or evolving control architectures – ideally with familiarity to frameworks such as TOGAF, ISA‑95/99 or comparable reference models.\n\n• Solid understanding of OT security and safe OT/IT integration.\n\n• First exposure to AI‑related topics in industrial environments (e.g. data pipelines for analytics, condition monitoring, optimization), or strong motivation to build these skills.\n\n• Strong leadership and communication skills: able to coach developers, shape direction, and collaborate across R&D, IT, Data and regional organisations.\n\n• Comfortable working in an international environment (English required, German a plus)\n\nOur Offer\n\n• an international working environment with long tradition\n\n• versatile activity in a future-oriented environment with a lot of self-responsibility\n\n• good development opportunities and fair employment conditions\n\n• a motivated team with mutual respect and good cooperation\n\nAre you interested? If you recognize yourself in this profile and you would like to be part of a successful team, we look forward to meeting you soon. Please send us your complete application documents online.\n\nBereich: Digital Solutions\n\nLevel: Manager"
+      },
+      "location": "Winterthur",
+      "canton": "ZH",
+      "url": "https://live.solique.ch/rieter/en/jobs/OT-Development-Lead-Digital-Controls-Architecture-100-fmd---4051990",
+      "source": "Rieter Dedicated Parser (Solique)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-10T10:27:28.480Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "Zürich",
+      "streetAddress": "Klosterstrasse 20",
+      "postalCode": "8406",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "tech",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "sector": "Industria / Macchinari Tessili",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-10",
+      "applyUrl": "https://live.solique.ch/rieter/en/jobs/OT-Development-Lead-Digital-Controls-Architecture-100-fmd---4051990",
+      "jobReqId": "2601071445fr",
+      "employerBrand": "Rieter AG",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 121500,
+      "salaryMax": 206500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 121500,
+          "maxValue": 206500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-10T10:27:28.480Z"
+    },
+    {
       "id": "rieter-65e9cc874cdb",
       "slug": "apprendistato-come-konstrukteur-in-cfc-con-bm-moglich-rieter-wadenswil",
       "slugByLocale": {
@@ -352,7 +419,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Lehrstelle-als-Konstrukteurin-EFZ-mit-BM-m%C3%B6glich---4051090",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:36:42.390Z",
+      "crawledAt": "2026-08-10T10:27:27.856Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "Zürich",
       "streetAddress": "Rütihof 8",
@@ -388,6 +455,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:41:39.714Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -432,7 +500,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Expert-CAD-PLM-100-wmd---4047046",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-09T21:36:41.702Z",
+      "crawledAt": "2026-08-10T10:27:27.236Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -452,6 +520,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-30T22:10:46.762Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -496,7 +565,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Engineer-Technology-Preparation-100-wmd---4042993",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-09T21:36:41.036Z",
+      "crawledAt": "2026-08-10T10:27:26.552Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
