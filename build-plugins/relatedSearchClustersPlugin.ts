@@ -43,7 +43,7 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
-import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
+import { truncateToClauseNonEmpty } from './shared/clauseTail.mjs';
 import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
 
@@ -1574,17 +1574,22 @@ function buildHeadline(keyword: string, city: string | null, locale: Locale): st
  * verbatim-pass-through path (per its no-`…` policy in titleSuffix.ts)
  * triggers the audit. We cut on the last whitespace boundary inside `max`
  * and drop the trailing word — no `…`, since titleSuffix policy explicitly
- * documents that mid-headline ellipsis collapses SERP CTR. Falls back to a
- * hard cut only if no whitespace exists in the first `max` chars (defensive
- * — every real keyword has spaces).
+ * documents that mid-headline ellipsis collapses SERP CTR.
+ *
+ * The ladder itself is `truncateToClauseNonEmpty` (clauseTail.mjs), not an
+ * inline copy: this function used to hand-roll it and had already drifted from
+ * the shared one two ways (PR #5515 review) — it sliced at `max` rather than
+ * `max + 1`, dropping a whole word when a space sat exactly at the budget, and
+ * its peel could return `''` for a keyword made only of function words, which
+ * `buildTitleWithBrand` below would turn into a bare brand title.
  */
 function capForTitle(headline: string, max: number): string {
   const safe = String(headline || '').trim();
   if (safe.length <= max) return safe;
-  const sliced = safe.slice(0, max);
-  const lastSpace = sliced.lastIndexOf(' ');
-  // Shared peel — dropping the trailing word can leave a preposition behind.
-  return peelDanglingClauseTail(lastSpace > 0 ? sliced.slice(0, lastSpace) : sliced);
+  // NonEmpty, not truncateToClause: the result goes straight into
+  // buildTitleWithBrand, so an empty string is a bare " | Frontaliere Ticino"
+  // title tag, not an omitted field.
+  return truncateToClauseNonEmpty(safe, max);
 }
 
 /** Forward-framed copy when matching jobs is empty — avoids "0 jobs found"

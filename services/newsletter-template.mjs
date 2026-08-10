@@ -8,7 +8,7 @@
  */
 
 import { renderRecommendedBlock } from './newsletter/recommendedBlock.mjs';
-import { truncateToClause } from '../build-plugins/shared/clauseTail.mjs';
+import { truncateToClause, truncateToClauseNonEmpty } from '../build-plugins/shared/clauseTail.mjs';
 // Shared with functions/src/lib/welcomeEmailTemplate.js (Cloud Functions
 // can't import services/*.mjs — see that file's header). Canonical home is
 // functions/src/lib/newsletterUrlPaths.js; re-exported below so this
@@ -479,7 +479,10 @@ function renderJobs(matchedJobs, locale, totalJobs) {
   const jobCount = totalJobs || matchedJobs.length;
   const jobCards = matchedJobs.slice(0, 4).map((job, i) => {
     const initial = (job.company || '?')[0].toUpperCase();
-    const truncatedTitle = truncateAtWordBoundary(job.title, 55);
+    // NonEmpty: this is the card's only label — a `''` refusal (#5452, a job
+    // title whose first token alone passes 55 chars, e.g. a German compound)
+    // would render a job card with no title and nothing to click.
+    const truncatedTitle = truncateToClauseNonEmpty(job.title, 55);
     const tags = [];
     if (job.alertMatch) tags.push(`<span style="font-size:10px;background:rgba(234,179,8,0.2);color:#fde047;padding:2px 8px;border-radius:6px;letter-spacing:0.5px;font-weight:600;">🔔 Il tuo alert</span>`);
     if (i === 0 && !job.alertMatch) tags.push(`<span style="font-size:10px;background:rgba(239,68,68,0.2);color:#fca5a5;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${nlT(locale, 'topClicked')}</span>`);

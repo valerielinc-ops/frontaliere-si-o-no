@@ -39,7 +39,7 @@
 import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
-import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
+import { truncateToClauseNonEmpty } from './shared/clauseTail.mjs';
 import {
   BASE_URL,
   MIN_INDEXABLE_WORDS,
@@ -2027,16 +2027,19 @@ function renderLeafPage(inp: LeafInputs): string {
   //      the URL /heute/, /today/ etc.) — preserves the crossing name in
   //      full so multi-variant siblings (e.g. Maslianico-Pizzamiglio vs
   //      Maslianico-Roggiana) emit distinct <title>s.
-  //   3. If still too long, fall back to a word-boundary truncation.
+  //   3. If still too long, fall back to a word-boundary truncation — the
+  //      shared `truncateToClauseNonEmpty` ladder, not an inline copy of it
+  //      (PR #5515 review: this was one of three hand-rolled duplicates). The
+  //      NonEmpty variant is required because `titleH1` feeds
+  //      `buildTitleWithBrand` right below, so a `''` refusal would emit a
+  //      brand-only `<title>` shared by every crossing — and h1 also seeds the
+  //      `differentiateH1FromTitle` comparison two lines down.
   const TITLE_H1_MAX = 55;
   const titleH1 = (() => {
     if (h1.length <= TITLE_H1_MAX) return h1;
     const dashIdx = h1.indexOf(' — ');
     if (dashIdx > 0 && dashIdx <= TITLE_H1_MAX) return h1.slice(0, dashIdx);
-    const sliced = h1.slice(0, TITLE_H1_MAX);
-    const lastSpace = sliced.lastIndexOf(' ');
-    // Shared peel — a word-boundary cut still stops mid-clause.
-    return peelDanglingClauseTail(lastSpace > 0 ? sliced.slice(0, lastSpace) : sliced);
+    return truncateToClauseNonEmpty(h1, TITLE_H1_MAX);
   })();
   // TITLE_H1_MAX (55) + brand suffix (22) can exceed the 66-char cap on its
   // own — route through buildTitleWithBrand so the brand drops rather than

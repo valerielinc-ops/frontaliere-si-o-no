@@ -144,7 +144,7 @@ import { detectBodyRepetition, dedupeRepeatedParagraphs, stripDuplicateTitleFrom
 import { loadEmbeddingStore, loadEmbeddingMeta } from './lib/scoring/embeddingMatcher.mjs';
 import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
 import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
-import { truncateToClause } from '../build-plugins/shared/clauseTail.mjs';
+import { truncateToClause, truncateToClauseNonEmpty } from '../build-plugins/shared/clauseTail.mjs';
 import { buildStructuralEvergreenTopics } from './lib/evergreen-topic-generator.mjs';
 import { resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
 import { metaFieldRegex, unescapeTsValue } from './lib/meta-field-regex.mjs';
@@ -6281,7 +6281,24 @@ function validate(data, opts = {}) {
     // cut usually falls exactly on the informative part. The helper is already
     // used four lines below for the description and for breadcrumbName — this
     // call site just never got it.
-    const title = truncateAtWordBoundary(String(it.title || data.id), 57);
+    //
+    // The fallback is `data.id`, and `data.id` is a SLUG (see
+    // extractArticleYear/extractArticleCity below, which parse it as one):
+    // hyphen-separated, never containing a space. truncateToClause finds no
+    // word boundary in it and refuses with '' (#5452) — and unlike a droppable
+    // field, `title` is interpolated into the brand suffix three lines down, so
+    // '' would ship " | Frontaliere Ticino" as the entire <title>, plus an
+    // empty ogTitle and an empty JSON-LD headline, on an indexed article page.
+    // Measured on the live corpus (PR #5515 review): of the 3 166 published
+    // ids, 62 exceed 57 chars and NONE of the 3 166 contains a space.
+    //
+    // So de-hyphenate before truncating. That gives the budget real boundaries
+    // AND upgrades the under-57 case, which used to emit the raw slug verbatim
+    // ("permesso-g-2026 | Frontaliere Ticino"), into readable prose.
+    const slugAsProse = String(data.id || '').replace(/[-_]+/g, ' ').trim();
+    const titleSource = String(it.title || '').trim()
+      || (slugAsProse ? slugAsProse.charAt(0).toUpperCase() + slugAsProse.slice(1) : '');
+    const title = truncateToClauseNonEmpty(titleSource, 57);
     const desc = truncateAtWordBoundary(String(it.excerpt || it.title || ''), 160);
     console.error(`⚠️  Campo "seo" mancante — generato automaticamente da content.it`);
     data.seo = {
@@ -6899,7 +6916,13 @@ function optimizeSeoMetadata(data) {
   data.seo.title = candidate.length <= TITLE_MAX_CHARS ? candidate : seoTitleCore;
   data.seo.ogTitle = data.seo.ogTitle ? String(data.seo.ogTitle).trim() : seoTitleCore;
   data.seo.headline = data.seo.headline ? String(data.seo.headline).trim() : seoTitleCore;
-  data.seo.breadcrumbName = truncateAtWordBoundary(
+  // NonEmpty: `seoTitleCore` falls back to `data.id`, a hyphen-separated slug
+  // with no space, and a slug carries none of the `[:.–—]` this splits on — so
+  // the argument is the whole slug and truncateToClause refuses with '' (#5452)
+  // on every id past the budget. 450 of the 3 166 published ids exceed 42 chars
+  // (14,2 %), so this is the widest of the slug-fallback sites, not an edge
+  // case; an empty breadcrumbName ships a nameless BreadcrumbList item.
+  data.seo.breadcrumbName = truncateToClauseNonEmpty(
     data.seo.breadcrumbName || seoTitleCore.split(/[:.–—]/)[0] || 'Articolo',
     42,
   );

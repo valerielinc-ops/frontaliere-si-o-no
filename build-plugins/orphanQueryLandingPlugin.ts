@@ -36,7 +36,7 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
-import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
+import { truncateToClauseNonEmpty } from './shared/clauseTail.mjs';
 import { WriteCollector } from './batchWrite';
 import { shouldEmitLocale, EMIT_LOCALES } from './shared/localeEmitFilter';
 import {
@@ -320,6 +320,13 @@ function buildEditorialH1(query: string, locale: OrphanLandingLocale): string {
  * care with live-in option and clear legal contract terms" — 107 chars)
  * push the bare query past the cap; capping on a word boundary keeps the
  * title readable while staying ≤66 chars and clearing the audit gate.
+ *
+ * Step 3 delegates to `truncateToClauseNonEmpty` (clauseTail.mjs) rather than
+ * inlining the ladder, which is what it used to do. The NonEmpty variant is the
+ * required one here: this function's return value IS the page's `<title>`, with
+ * no downstream fallback, so the plain `truncateToClause` refusal (`''` when the
+ * first token overflows the budget, #5452) would emit an empty title tag — see
+ * PR #5515's review, which found that exact shape shipping elsewhere.
  */
 function buildEditorialTitle(query: string, locale: OrphanLandingLocale): string {
   const MAX = 66;
@@ -332,10 +339,7 @@ function buildEditorialTitle(query: string, locale: OrphanLandingLocale): string
   const withBrand = `${q} | ${brand}`;
   if (withBrand.length <= MAX) return withBrand;
   if (q.length <= MAX) return q;
-  const sliced = q.slice(0, MAX);
-  const lastSpace = sliced.lastIndexOf(' ');
-  // Shared peel — dropping the trailing word can leave a preposition behind.
-  return peelDanglingClauseTail(lastSpace > 0 ? sliced.slice(0, lastSpace) : sliced);
+  return truncateToClauseNonEmpty(q, MAX);
 }
 
 /**
