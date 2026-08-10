@@ -616,6 +616,44 @@ describe('isSelfHealedPage404 — probe production before filing', () => {
     ).resolves.toBe(false);
     expect(fetchImpl).not.toHaveBeenCalled();
   });
+
+  // #5532: a plain Node fetch sends no User-Agent, which Cloudflare's
+  // "unidentified-scripted-traffic-challenge" rule treats as empty and
+  // managed_challenge's with 403 — the probe then always concluded "not
+  // self-healed" regardless of the page's real status.
+  it('sends the shared live-check User-Agent so Cloudflare does not 403-block the probe', async () => {
+    const fetchImpl = vi.fn(async () => ({ status: 200 }));
+    await isSelfHealedPage404({ errorType: 'page_404', pagePath: '/a/' }, { fetchImpl });
+    expect(fetchImpl).toHaveBeenCalledWith(
+      expect.any(String),
+      expect.objectContaining({ headers: expect.objectContaining({ 'User-Agent': expect.stringContaining('FrontaliereTicino') }) }),
+    );
+  });
+
+  // Declared choice (issue #5532): a 301 only counts as self-healed when it
+  // lands on a SPECIFIC resolved page (canton-drift canonical, company-hub
+  // fix, legacy-cluster board). The Worker's last-resort
+  // recoverExpiredJobToCantonRoot 301s a genuinely expired job slug to the
+  // generic canton SECTION ROOT instead — that must still read as a live 404.
+  it('is false for a 301 to the generic canton section root (expired-job last-resort fallback, not a real fix)', async () => {
+    const fetchImpl = vi.fn(async () => ({
+      status: 301,
+      headers: { get: (h: string) => (h.toLowerCase() === 'location' ? '/cerca-lavoro-berna/' : null) },
+    }));
+    await expect(
+      isSelfHealedPage404({ errorType: 'page_404', pagePath: '/cerca-lavoro-berna/some-expired-job/' }, { fetchImpl }),
+    ).resolves.toBe(false);
+  });
+
+  it('is true for a 301 to a SPECIFIC other page (canton-drift recovered to its real canonical URL)', async () => {
+    const fetchImpl = vi.fn(async () => ({
+      status: 301,
+      headers: { get: (h: string) => (h.toLowerCase() === 'location' ? '/cerca-lavoro-zurigo/some-job-real-canton/' : null) },
+    }));
+    await expect(
+      isSelfHealedPage404({ errorType: 'page_404', pagePath: '/cerca-lavoro-berna/some-job-real-canton/' }, { fetchImpl }),
+    ).resolves.toBe(true);
+  });
 });
 
 describe('app-error-issue-sync.mjs — page_404 liveness gate (#5064/#5065)', () => {

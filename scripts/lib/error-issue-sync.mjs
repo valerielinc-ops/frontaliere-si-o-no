@@ -14,6 +14,7 @@
  */
 
 import { createGithubIssue } from './github-issue-creator.mjs';
+import { DEFAULT_LIVE_CHECK_USER_AGENT } from './live-link-check.mjs';
 
 /**
  * Error messages tracked in telemetry ($exception / app_error) for dashboard
@@ -202,13 +203,45 @@ export async function isSelfHealedPage404(entry, { fetchImpl = fetch, origin = P
     // `redirect: 'manual'` on purpose: a 301 to a live page is also a resolved
     // URL (the canton-drift recovery in public/404.html does exactly that), and
     // not following it keeps the probe to a single request.
+    //
+    // User-Agent required (issue #5532): a plain Node fetch sends none, which
+    // Cloudflare's "unidentified-scripted-traffic-challenge" rule treats as
+    // empty and `managed_challenge`s with HTTP 403 — same root cause already
+    // fixed in scripts/lib/live-link-check.mjs for every OTHER same-origin
+    // liveness probe in this repo (see its doc comment). This probe never got
+    // that fix, so it always saw 403 → always < 400 was false → always
+    // reopened the issue regardless of the page's real status.
     const res = await fetchImpl(`${origin}${path}`, {
       method: 'GET',
       redirect: 'manual',
       signal: controller.signal,
+      headers: { 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT },
     });
     const status = Number(res?.status ?? 0);
-    return status > 0 && status < 400;
+    if (status <= 0) return false;
+    if (status < 300) return true;
+    if (status >= 400) return false;
+    // 3xx: only a redirect to a SPECIFIC resolved page counts as self-healed
+    // (canton-drift → the job's real canonical URL, a company-hub fix, or the
+    // national board for a legacy search cluster). The Worker's LAST-RESORT
+    // recovery for a genuinely expired job-detail slug
+    // (recoverExpiredJobToCantonRoot, infra/cloudflare-worker/locale-router.js)
+    // instead 301s to the generic canton SECTION ROOT (the path with its last
+    // segment dropped) as a graceful fallback — that is not a fix for the
+    // reported URL, so a redirect landing exactly there must still count as a
+    // live defect. Declared choice (issue #5532), not a side effect of adding
+    // the header above: without it, fixing the 403 would flip this guard from
+    // "always reopens" to "silently swallows every expired en/de/fr job 404".
+    const location = res.headers?.get?.('location') || '';
+    if (!location) return true;
+    let targetPath;
+    try {
+      targetPath = new URL(location, `${origin}${path}`).pathname;
+    } catch {
+      return true;
+    }
+    const sectionRoot = `${path.replace(/\/+$/, '').split('/').slice(0, -1).join('/')}/`;
+    return targetPath !== sectionRoot;
   } catch {
     // Fail open — an unreachable prod must not hide a genuine 404.
     return false;
