@@ -1,16 +1,16 @@
 {
   "key": "alcon",
   "label": "Alcon",
-  "generatedAt": "2026-08-09T21:55:11.890Z",
-  "total": 8,
+  "generatedAt": "2026-08-10T10:31:07.295Z",
+  "total": 7,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7145,
-  "avgDurationMs": 7145,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 8628,
+  "avgDurationMs": 8628,
   "durationHistory": [
-    7145
+    8628
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Quality-Assurance-Associate---Digital-Quality--Systems---AI-Compliance_R-2026-47973-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-09T21:55:07.371Z",
+      "crawledAt": "2026-08-10T10:31:01.435Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Senior-Legal-Counsel-DACH--m-w-d----Medizinprodukte---Pharma_R-2026-48316",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:55:07.978Z",
+      "crawledAt": "2026-08-10T10:31:02.203Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Schaffhausen-Switzerland/Senior-Manager-Materials-Management--m-w-d-_R-2026-48278-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:55:08.598Z",
+      "crawledAt": "2026-08-10T10:31:02.882Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Geneva-Switzerland/Director--Corporate-Strategy---Business-Development_R-2026-48005-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-09T21:55:09.215Z",
+      "crawledAt": "2026-08-10T10:31:03.568Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Schaffhausen-Switzerland/Regulatory-Strategy-Sr-Associate--m-f-d----Medical-Devices---German---English-speaking_R-2026-48088-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-09T21:55:05.976Z",
+      "crawledAt": "2026-08-10T10:31:00.007Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Associate--Inter-Company-Order---Invoice-Flow_R-2026-47978-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-09T21:55:09.819Z",
+      "crawledAt": "2026-08-10T10:31:04.257Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Territory-Sales-Manager--m-w-d----Medical-Devices--Ophthalmology--Switzerland-_R-2026-47026-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:55:06.683Z",
+      "crawledAt": "2026-08-10T10:31:00.725Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -274,8 +274,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "alcon-a810e5d06e06",
       "slug": "international-accounting-and-reporting-direttore-alcon-fribourg",
@@ -316,5 +315,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
