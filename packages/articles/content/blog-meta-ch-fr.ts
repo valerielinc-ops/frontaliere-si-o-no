@@ -2023,6 +2023,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.nodo-di-interscambio-lavori-settembre.title': 'Nœud d\'échange, les travaux entrent dans la dernière phase',
     'blog.article.nodo-di-interscambio-lavori-settembre.excerpt': 'Les travaux pour l\'aménagement du nœud d\'échange de Biasca s\'achèveront le 12 septembre.',
     'blog.article.nodo-di-interscambio-lavori-settembre.imageAlt': 'Image d\'un nœud d\'échange en Suisse',
+    'blog.article.imprese-edili-svizzere-chiedono-stop-penali.title': 'Imprese edili chiedono stop alle penali per ritardi della canicola',
+    'blog.article.imprese-edili-svizzere-chiedono-stop-penali.excerpt': 'La Société suisse des entrepreneurs constructeurs (SSIC) présente une pétition pour des règles claires et la protection de la santé pendant les vagues de chaleur',
+    'blog.article.imprese-edili-svizzere-chiedono-stop-penali.imageAlt': 'Image d\'un chantier de construction en Suisse pendant l\'été',
 };
 
 export default blogMetaChFr;

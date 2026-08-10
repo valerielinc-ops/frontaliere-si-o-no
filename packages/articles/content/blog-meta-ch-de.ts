@@ -2023,6 +2023,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.nodo-di-interscambio-lavori-settembre.title': 'Knotenpunkt, die Arbeiten treten in die letzte Phase ein',
     'blog.article.nodo-di-interscambio-lavori-settembre.excerpt': 'Die Arbeiten für den Ausbau des Verkehrsknotenpunkts Biasca werden am 12. September abgeschlossen.',
     'blog.article.nodo-di-interscambio-lavori-settembre.imageAlt': 'Bild eines Schweizer Kreuzungsbahnhofs',
+    'blog.article.imprese-edili-svizzere-chiedono-stop-penali.title': 'Bauunternehmen fordern Stopp der Strafen für Hitzschlagverzögerungen',
+    'blog.article.imprese-edili-svizzere-chiedono-stop-penali.excerpt': 'Der Schweizerische Baumeisterverband (SBV) legt eine Petition für klare Regeln und Gesundheitsschutz bei Hitzewellen vor',
+    'blog.article.imprese-edili-svizzere-chiedono-stop-penali.imageAlt': 'Bild von einem Bauunternehmen in der Schweiz während des Sommers',
 };
 
 export default blogMetaChDe;
