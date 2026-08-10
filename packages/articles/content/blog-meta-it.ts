@@ -9482,6 +9482,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.porlezza-frontaliere-pro-contro.title': 'Trasferirsi a Porlezza da frontaliere: pro e contro',
     'blog.article.porlezza-frontaliere-pro-contro.excerpt': 'Analisi pratica per chi sceglie di vivere a Porlezza e lavorare in Ticino come frontaliere, valutando vantaggi, svantaggi e spostamenti.',
     'blog.article.porlezza-frontaliere-pro-contro.imageAlt': 'Panorama del Lago di Lugano vicino al confine italo-svizzero',
+    'blog.article.vivere-ronago-lavorare-ticino.title': 'Vivere a Ronago e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-ronago-lavorare-ticino.excerpt': 'Guida pratica per i frontalieri: imposte, nuovo accordo fiscale, previdenza e collegamenti tra Ronago e il Canton Ticino.',
+    'blog.article.vivere-ronago-lavorare-ticino.imageAlt': 'Veduta di Mendrisio in Ticino, zona di confine',
 };
 
 export default blogMetaIt;
