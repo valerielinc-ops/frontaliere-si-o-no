@@ -21,7 +21,7 @@
  */
 
 import { translateWithMyMemory } from './mymemory-translate.mjs';
-import { applyGlossaryCorrections } from './translation-glossary.mjs';
+import { finalizeTranslatedText, maskProtectedTokens } from './translation-glossary.mjs';
 import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';
 
 // ── Config ──────────────────────────────────────────────────────────────────
@@ -1011,26 +1011,38 @@ export function balanceMarkdownMarkers(s) {
 }
 
 export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 'title' }) {
-  const clean = normalizeBlock(text);
-  if (!clean) return '';
-  if (sourceLang === targetLang) return clean;
+  const sourceClean = normalizeBlock(text);
+  if (!sourceClean) return '';
+  if (sourceLang === targetLang) return sourceClean;
 
   _cascadeStats.calls++;
   const fieldStats = _fieldStats(fieldType);
   fieldStats.calls++;
 
-  // Single exit transform: balance markdown markers, then apply the
-  // protected-term glossary so meaning-inverted MT output (e.g. German
-  // "Nachtwache" → IT "orologio notturno") is corrected regardless of which
-  // tier produced it. `fieldType` defaults to 'title' (preserving the original
-  // behaviour for the short-text/title path); description callers pass
-  // 'description' so broad single-word fallback rules are skipped and legitimate
-  // body prose ("nel nostro orologio") is never rewritten.
-  const finalize = (out) => applyGlossaryCorrections({
-    sourceText: clean,
+  // Protected tokens: mask DACH gender trigraphs ("(m/w/d)") before any tier
+  // sees them. Handed the raw code, translators expand the letters as words —
+  // live IT titles came back as "(lunedì/mercoledì/d)" (m→Monday, w→Wednesday).
+  // `maskProtectedTokens` returns the input byte-identical when there is
+  // nothing to protect, so the cascade payload only differs for the small
+  // fraction of titles that actually carry a trigraph.
+  const { text: maskedClean, tokens: protectedTokens } = maskProtectedTokens(sourceClean);
+  const clean = protectedTokens.length ? maskedClean : sourceClean;
+
+  // Single exit transform: balance markdown markers, restore the protected
+  // tokens in the TARGET locale's display form, apply the protected-term
+  // glossary so meaning-inverted MT output (e.g. German "Nachtwache" → IT
+  // "orologio notturno") is corrected regardless of which tier produced it, and
+  // strip template placeholders that leaked through. `fieldType` defaults to
+  // 'title' (preserving the original behaviour for the short-text/title path);
+  // description callers pass 'description' so broad single-word fallback rules
+  // are skipped and legitimate body prose ("nel nostro orologio") is never
+  // rewritten. Glossary triggers are matched against the UNMASKED source.
+  const finalize = (out) => finalizeTranslatedText({
+    sourceText: sourceClean,
     translatedText: balanceMarkdownMarkers(out),
     targetLang,
     fieldType,
+    protectedTokens,
   });
 
   /** Try a tier: track success/error, return result or '' */
