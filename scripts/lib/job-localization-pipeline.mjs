@@ -370,9 +370,9 @@ export async function translateTextWithLocalPipeline({
   // provider sees them — NLLB/LibreTranslate/Ollama expand the letters as words
   // exactly like the HTTP cascade does ("(lunedì/mercoledì/d)"). Returns the
   // input byte-identical when there is nothing to protect, so the provider
-  // payload is unchanged for text without a trigraph.
-  const { text: maskedClean, tokens: protectedTokens } = maskProtectedTokens(clean);
-  const providerInput = protectedTokens.length ? maskedClean : clean;
+  // payload is unchanged for text without a trigraph — no `tokens.length`
+  // branch is needed to keep the common case untouched.
+  const { text: providerInput, tokens: protectedTokens } = maskProtectedTokens(clean);
   // Protected TERMS: the glossary corrects meaning-inverted MT output (e.g.
   // German "Nachtwache" → IT "orologio notturno") that passes every language
   // gate. Applied — together with the token restore and the placeholder strip —

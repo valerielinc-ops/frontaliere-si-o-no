@@ -1024,9 +1024,9 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
   // live IT titles came back as "(lunedì/mercoledì/d)" (m→Monday, w→Wednesday).
   // `maskProtectedTokens` returns the input byte-identical when there is
   // nothing to protect, so the cascade payload only differs for the small
-  // fraction of titles that actually carry a trigraph.
-  const { text: maskedClean, tokens: protectedTokens } = maskProtectedTokens(sourceClean);
-  const clean = protectedTokens.length ? maskedClean : sourceClean;
+  // fraction of titles that actually carry a trigraph — no `tokens.length`
+  // branch is needed to keep the common case untouched.
+  const { text: clean, tokens: protectedTokens } = maskProtectedTokens(sourceClean);
 
   // Single exit transform: balance markdown markers, restore the protected
   // tokens in the TARGET locale's display form, apply the protected-term

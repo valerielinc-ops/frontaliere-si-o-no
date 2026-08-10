@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect, vi, beforeAll, afterEach } from 'vitest';
 import {
   maskProtectedTokens,
@@ -391,5 +393,188 @@ describe('freeTranslate cascade — gender codes never reach a translator', () =
       fieldType: 'title',
     });
     expect(out).toBe('Environmental Lab Manager 80-100%');
+  });
+});
+
+/**
+ * Integration: the THIRD writer — the Argos mop-up tier (local-mt-mopup.mjs).
+ *
+ * It is not "one more caller": its own header calls it the producer of the BULK
+ * of the mop-up-translated corpus, and it writes straight into
+ * data/jobs/by-crawler/*.json, the dataset assemble-jobs-dataset.mjs turns into
+ * published SEO titles. Fixing only the HTTP cascade and the local pipeline
+ * would have left the defect alive on the highest-volume path.
+ *
+ * The mop-up splits the guard across two loops (mask when the JSONL batch is
+ * built, restore when the results are merged back), so both halves are exercised
+ * here: mask → fake Argos → finalize.
+ */
+describe('local-mt mop-up (Argos tier) — the third writer uses the same exit point', () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let mopup: any;
+  beforeAll(async () => {
+    mopup = await import('@/scripts/local-mt-mopup.mjs');
+  });
+
+  // The Python/Argos engine, faked: it expands the gender code as weekdays
+  // exactly like the live translators did.
+  const argos = (q: string) => q
+    .replace(/Leiter/g, 'Responsabile')
+    .replace(/Umweltlabor/g, 'del Laboratorio Ambientale')
+    .replace(/\(\s*m\s*\/\s*w\s*\/\s*d\s*\)/gi, '(lunedì/mercoledì/d)');
+
+  const roundTrip = (
+    source: string,
+    engine: (q: string) => string,
+    targetLang: string,
+    fieldType: 'title' | 'description' = 'title',
+  ) => {
+    const { request, protectedTokens } = mopup.buildMopupRequest({
+      id: 'r0', text: source, from: 'de', to: targetLang,
+    });
+    return {
+      sentToArgos: request.text,
+      out: mopup.finalizeMopupTranslation({
+        sourceText: source,
+        rawText: engine(request.text),
+        targetLang,
+        fieldType,
+        protectedTokens,
+      }),
+    };
+  };
+
+  it('never hands the raw gender code to the Python engine', () => {
+    const { request, protectedTokens } = mopup.buildMopupRequest({
+      id: 'r0', text: 'Leiter Umweltlabor (m/w/d)', from: 'de', to: 'it',
+    });
+    expect(request.text).toBe('Leiter Umweltlabor ZQX0XQZ');
+    expect(request.text).not.toContain('m/w/d');
+    expect(protectedTokens).toHaveLength(1);
+    // The rest of the request envelope is untouched — the Python worker still
+    // reads the same JSONL shape.
+    expect(request.id).toBe('r0');
+    expect(request.from).toBe('de');
+    expect(request.to).toBe('it');
+  });
+
+  it('emits the locale form instead of weekday names (it target)', () => {
+    const { out } = roundTrip('Leiter Umweltlabor (m/w/d)', argos, 'it');
+    expect(out).not.toMatch(WEEKDAY_RE);
+    expect(out).toBe('Responsabile del Laboratorio Ambientale (m/f/d)');
+  });
+
+  it('emits the French form for a French target', () => {
+    const { out } = roundTrip('Leiter Umweltlabor (m/w/d)', argos, 'fr');
+    expect(out).not.toMatch(WEEKDAY_RE);
+    expect(out).toContain('(h/f/d)');
+  });
+
+  it('localizes a raw (m/w/d) Argos copied through verbatim — the 18/179 case', () => {
+    // Engine returns the German code untouched: no sentinel involved, the
+    // restore ladder's raw-trigraph step has to catch it.
+    const { out } = roundTrip('Leiter Umweltlabor (m/w/d)', (q) => q.replace(/ZQX\d+XQZ/g, '(m/w/d)').replace(/Leiter Umweltlabor/, 'Responsabile del Laboratorio Ambientale'), 'it');
+    expect(out).toBe('Responsabile del Laboratorio Ambientale (m/f/d)');
+  });
+
+  it('re-appends the code when the engine swallows the sentinel (title)', () => {
+    const { out } = roundTrip(
+      'Leiter Umweltlabor (m/w/d)',
+      (q) => q.replace(/ZQX\d+XQZ/g, '').replace(/Leiter Umweltlabor/, 'Responsabile del Laboratorio Ambientale').trim(),
+      'it',
+    );
+    expect(out).toBe('Responsabile del Laboratorio Ambientale (m/f/d)');
+  });
+
+  it('does NOT re-append into a description body when the sentinel is dropped', () => {
+    const { out } = roundTrip(
+      'Leiter Umweltlabor (m/w/d) gesucht',
+      (q) => q.replace(/ZQX\d+XQZ/g, '').replace(/Leiter Umweltlabor/, 'Cerchiamo un responsabile del laboratorio ambientale').replace(/gesucht/, '').trim(),
+      'it',
+      'description',
+    );
+    expect(out).not.toMatch(/\(m\/f\/d\)/);
+    expect(out).not.toMatch(WEEKDAY_RE);
+  });
+
+  it('applies the protected-term glossary to the Argos output', () => {
+    const { out } = roundTrip(
+      'Pflegefachperson Nachtwache',
+      () => "Persona per l'orologio notturno",
+      'it',
+    );
+    expect(out).toBe('Persona per la guardia notturna');
+  });
+
+  it('strips a template placeholder the engine leaked into a title', () => {
+    const { out } = roundTrip('Leiter Umweltlabor', () => 'Responsabile Laboratorio (ORGANIZZAZIONE)', 'it');
+    expect(out).toBe('Responsabile Laboratorio');
+  });
+
+  it('returns "" when nothing meaningful survives, so the caller skips the write', () => {
+    const { out } = roundTrip('Mitarbeiter Verkauf', () => '(ORGANIZZAZIONE)', 'it');
+    expect(out).toBe('');
+  });
+
+  it('sends the source byte-identical when there is nothing to protect', () => {
+    const source = 'Bauingenieur 80-100% — Lugano';
+    const { sentToArgos, out } = roundTrip(source, () => 'Ingegnere civile 80-100% — Lugano', 'it');
+    expect(sentToArgos).toBe(source);
+    expect(out).toBe('Ingegnere civile 80-100% — Lugano');
+  });
+
+  it('importing the module does not run the mop-up (no scan, no Python spawn)', () => {
+    // main() sits behind a direct-invocation guard: without it, importing the
+    // module would scan data/jobs/by-crawler, seed the shared run clock, and
+    // spawn the Python worker.
+    expect(Object.keys(mopup).sort()).toEqual(['buildMopupRequest', 'finalizeMopupTranslation']);
+  });
+});
+
+/**
+ * Drift guard for the property the PR body claims: the corpus has THREE
+ * translation writers, and all three reach the glossary through the single
+ * shared exit point. A fourth writer that imports `applyGlossaryCorrections`
+ * directly would silently skip the token restore and the placeholder strip —
+ * which is exactly how local-mt-mopup.mjs came to be the odd one out.
+ */
+describe('translation writers — every scripts/ caller routes through finalizeTranslatedText', () => {
+  const SCRIPTS_DIR = path.join(process.cwd(), 'scripts');
+
+  const walk = (dir: string, acc: string[] = []): string[] => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) walk(full, acc);
+      else if (entry.name.endsWith('.mjs') && entry.name !== 'translation-glossary.mjs') acc.push(full);
+    }
+    return acc;
+  };
+
+  const importers = walk(SCRIPTS_DIR)
+    .map((file) => ({ file, src: fs.readFileSync(file, 'utf-8') }))
+    .filter(({ src }) => /from\s+['"][^'"]*translation-glossary\.mjs['"]/.test(src));
+
+  it('finds every known writer (and notices a new one)', () => {
+    const rel = importers.map(({ file }) => path.relative(SCRIPTS_DIR, file)).sort();
+    expect(rel).toEqual([
+      'lib/free-translate.mjs',
+      'lib/job-localization-pipeline.mjs',
+      'local-mt-mopup.mjs',
+    ]);
+  });
+
+  it('none of them calls applyGlossaryCorrections directly', () => {
+    for (const { file, src } of importers) {
+      expect(src, `${path.relative(SCRIPTS_DIR, file)} bypasses the shared exit point`)
+        .not.toMatch(/applyGlossaryCorrections/);
+    }
+  });
+
+  it('each one imports BOTH halves of the guard (mask + finalize)', () => {
+    for (const { file, src } of importers) {
+      const name = path.relative(SCRIPTS_DIR, file);
+      expect(src, `${name} does not import maskProtectedTokens`).toMatch(/maskProtectedTokens/);
+      expect(src, `${name} does not import finalizeTranslatedText`).toMatch(/finalizeTranslatedText/);
+    }
   });
 });
