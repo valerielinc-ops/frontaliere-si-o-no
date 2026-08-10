@@ -6148,6 +6148,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'reno-svizzera-merci-camion-essere',
+    category: 'pratico',
+    date: '2026-08-10T21:49:21.086Z',
+    image: '/images/blog/reno-svizzera-merci-camion-essere.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo',
+    category: 'novita',
+    date: '2026-08-10T21:58:14.310Z',
+    image: '/images/blog/condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

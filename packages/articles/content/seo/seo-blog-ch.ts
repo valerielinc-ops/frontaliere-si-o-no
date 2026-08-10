@@ -26537,6 +26537,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-reno-svizzera-merci-camion-essere': {
+    title: 'Con il Reno a secco, le cose per la Svizzera rischiano davvero di farsi più care',
+    description: 'La siccità del Reno potrebbe avere conseguenze dirette per la Svizzera e le merci in transito. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, reno, secco, cose, rischiano',
+    ogTitle: 'Siccità del Reno e merci in transito in Svizzera',
+    ogDescription: 'La siccità del Reno potrebbe avere conseguenze dirette per la Svizzera e le merci in transito',
+    canonicalPath: '/articoli-svizzera/reno-svizzera-merci-camion-essere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Con il Reno a secco, le cose per la Svizzera rischiano davvero di farsi più care",
+      "description": "La siccità del Reno potrebbe avere conseguenze dirette per la Svizzera e le merci in transito. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/reno-svizzera-merci-camion-essere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Merci in transito sulla strada in Svizzera"
+      },
+      "datePublished": "2026-08-10T21:49:21+00:00",
+      "dateModified": "2026-08-10T21:49:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/reno-svizzera-merci-camion-essere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo': {
+    title: 'OCSE assegna giudizio positivo alla Svizzera | Frontaliere Ticino',
+    description: 'Il punto di contatto nazionale svizzero per la condotta aziendale responsabile è stato valutato positivamente dall\'OCSE. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, ocse, assegna, giudizio, positivo',
+    ogTitle: 'Condotta aziendale responsabile: l\'OCSE assegna alla Svizzera un giudizio positivo',
+    ogDescription: 'Il punto di contatto nazionale svizzero per la condotta aziendale responsabile è stato valutato positivamente dall\'OCSE.',
+    canonicalPath: '/articoli-svizzera/condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "OCSE assegna giudizio positivo alla Svizzera",
+      "description": "Il punto di contatto nazionale svizzero per la condotta aziendale responsabile è stato valutato positivamente dall'OCSE. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di una vista di Lugano"
+      },
+      "datePublished": "2026-08-10T21:58:14+00:00",
+      "dateModified": "2026-08-10T21:58:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

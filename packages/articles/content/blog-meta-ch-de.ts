@@ -2050,6 +2050,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.title': 'Pakt für wirtschaftliche, soziale und kulturelle Rechte: Entwicklungen Schweiz',
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.excerpt': 'Der Bundesrat hat am 19. Juni 2026 den Fünften Bericht der Schweiz über die Umsetzung des Pakts der Vereinten Nationen über wirtschaftliche, soziale und kulturelle Rechte (Pakt I) verabschiedet.',
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.imageAlt': 'Eine Szene von einem Frontalier, der in der Schweiz arbeitet, mit Blick auf den Luganersee',
+    'blog.article.reno-svizzera-merci-camion-essere.title': 'Reno a secco: la Svizzera paga di più',
+    'blog.article.reno-svizzera-merci-camion-essere.excerpt': 'Die Dürre am Rhein könnte direkte Folgen für die Schweiz haben',
+    'blog.article.reno-svizzera-merci-camion-essere.imageAlt': 'Waren in Transit auf der Strasse in der Schweiz',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.title': 'OECD beurteilt die Schweiz positiv',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.excerpt': 'Die nationale Anlaufstelle der Schweiz für verantwortungsvolles unternehmerisches Handeln wurde von der OECD positiv bewertet.',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.imageAlt': 'Bild einer Aussicht auf Lugano',
 };
 
 export default blogMetaChDe;

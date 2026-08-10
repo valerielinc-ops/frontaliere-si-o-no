@@ -2050,6 +2050,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.title': 'Pacte droits économiques, sociaux et culturels : évolutions Suisse',
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.excerpt': 'Le Conseil fédéral a adopté le cinquième rapport suisse sur la mise en œuvre du Pacte des Nations Unies relatif aux droits économiques, sociaux et culturels (Pacte I) le 19 juin 2026.',
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.imageAlt': 'Une scène de commutant travaillant en Suisse, avec la vue sur le lac de Lugano',
+    'blog.article.reno-svizzera-merci-camion-essere.title': 'Le choses pour la Suisse risquent davvero di farsi plus chères',
+    'blog.article.reno-svizzera-merci-camion-essere.excerpt': 'La sécheresse du Rhin pourrait avoir des conséquences directes pour la Suisse',
+    'blog.article.reno-svizzera-merci-camion-essere.imageAlt': 'Marchandises en transit sur la route en Suisse',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.title': 'L\'OCDE donne un avis positif à la Suisse',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.excerpt': 'Le point de contact national suisse pour la conduite responsable des entreprises a été évalué positivement par l\'OCDE.',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.imageAlt': 'Image d\'une vue de Lugano',
 };
 
 export default blogMetaChFr;

@@ -28677,6 +28677,33 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'trasferirsi-a-marzio-da-frontaliere-pro-e-contro',
+ category: 'fiscale',
+ date: '2026-08-10T21:40:00.098Z',
+ image: '/images/blog/trasferirsi-a-marzio-da-frontaliere-pro-e-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'vivere-a-cannero-riviera-e-lavorare-in-ticino-da-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-10T21:53:15.925Z',
+ image: '/images/blog/vivere-a-cannero-riviera-e-lavorare-in-ticino-da-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'trasferirsi-a-domodossola-da-frontaliere-pro-e-contro',
+ category: 'fiscale',
+ date: '2026-08-10T22:05:00.052Z',
+ image: '/images/blog/trasferirsi-a-domodossola-da-frontaliere-pro-e-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
