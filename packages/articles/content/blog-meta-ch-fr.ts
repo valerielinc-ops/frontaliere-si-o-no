@@ -2050,6 +2050,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.title': 'Pacte droits économiques, sociaux et culturels : évolutions Suisse',
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.excerpt': 'Le Conseil fédéral a adopté le cinquième rapport suisse sur la mise en œuvre du Pacte des Nations Unies relatif aux droits économiques, sociaux et culturels (Pacte I) le 19 juin 2026.',
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.imageAlt': 'Une scène de commutant travaillant en Suisse, avec la vue sur le lac de Lugano',
+    'blog.article.reno-svizzera-merci-camion-essere.title': 'Le choses pour la Suisse risquent davvero di farsi plus chères',
+    'blog.article.reno-svizzera-merci-camion-essere.excerpt': 'La sécheresse du Rhin pourrait avoir des conséquences directes pour la Suisse',
+    'blog.article.reno-svizzera-merci-camion-essere.imageAlt': 'Marchandises en transit sur la route en Suisse',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.title': 'L\'OCDE donne un avis positif à la Suisse',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.excerpt': 'Le point de contact national suisse pour la conduite responsable des entreprises a été évalué positivement par l\'OCDE.',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.imageAlt': 'Image d\'une vue de Lugano',
+    'blog.article.seco-dazi-stati-uniti-2026.title': 'États-Unis : droits de douane sur la Suisse',
+    'blog.article.seco-dazi-stati-uniti-2026.excerpt': 'Le SECO a annoncé que les États-Unis avaient adopté de nouvelles mesures tarifaires sur la base de l\'enquête sur le commerce de biens produits en recourant au travail forcé.',
+    'blog.article.seco-dazi-stati-uniti-2026.imageAlt': 'Une scène de travail à Lugano, en Suisse',
+    'blog.article.dazi-usa-consiglio-federale-2026.title': 'Droits US : la Suisse confirme ses intentions',
+    'blog.article.dazi-usa-consiglio-federale-2026.excerpt': 'Le Conseil fédéral se conforme aux accords définis dans la déclaration d’intention conjointe du 14 novembre 2025, signée entre la Suisse et les États-Unis.',
+    'blog.article.dazi-usa-consiglio-federale-2026.imageAlt': 'Négociateurs devant le Parlement suisse',
+    'blog.article.calore-data-center-poco-sfruttato.title': 'La chaleur des datacenters est sous-exploitée',
+    'blog.article.calore-data-center-poco-sfruttato.excerpt': 'Les centres de données suisses pourraient fournir de la chaleur pour le chauffage urbain, mais seul un tiers d\'entre eux l\'utilise.',
+    'blog.article.calore-data-center-poco-sfruttato.imageAlt': 'une photographie d\'un centre de données en Suisse',
 };
 
 export default blogMetaChFr;
