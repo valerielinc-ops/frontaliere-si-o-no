@@ -2062,6 +2062,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dazi-usa-consiglio-federale-2026.title': 'Droits US : la Suisse confirme ses intentions',
     'blog.article.dazi-usa-consiglio-federale-2026.excerpt': 'Le Conseil fédéral se conforme aux accords définis dans la déclaration d’intention conjointe du 14 novembre 2025, signée entre la Suisse et les États-Unis.',
     'blog.article.dazi-usa-consiglio-federale-2026.imageAlt': 'Négociateurs devant le Parlement suisse',
+    'blog.article.calore-data-center-poco-sfruttato.title': 'La chaleur des datacenters est sous-exploitée',
+    'blog.article.calore-data-center-poco-sfruttato.excerpt': 'Les centres de données suisses pourraient fournir de la chaleur pour le chauffage urbain, mais seul un tiers d\'entre eux l\'utilise.',
+    'blog.article.calore-data-center-poco-sfruttato.imageAlt': 'une photographie d\'un centre de données en Suisse',
 };
 
 export default blogMetaChFr;

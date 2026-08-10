@@ -2062,6 +2062,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dazi-usa-consiglio-federale-2026.title': 'US Duties: Switzerland Confirms Intent',
     'blog.article.dazi-usa-consiglio-federale-2026.excerpt': 'The Federal Council shall abide by the agreements defined in the Joint Statement of Intent of 14 November 2025, signed between Switzerland and the United States.',
     'blog.article.dazi-usa-consiglio-federale-2026.imageAlt': 'Negotiators outside the Swiss Parliament',
+    'blog.article.calore-data-center-poco-sfruttato.title': 'The heat of the data centers is under-exploited',
+    'blog.article.calore-data-center-poco-sfruttato.excerpt': 'Swiss data centers could provide heat for district heating, but only a third of them use it.',
+    'blog.article.calore-data-center-poco-sfruttato.imageAlt': 'una fotografia di un data center in Svizzera',
 };
 
 export default blogMetaChEn;
