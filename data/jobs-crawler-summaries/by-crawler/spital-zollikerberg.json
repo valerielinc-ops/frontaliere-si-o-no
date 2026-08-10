@@ -1,16 +1,16 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-08-10T10:25:58.469Z",
+  "generatedAt": "2026-08-10T21:43:39.840Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 55941,
-  "avgDurationMs": 55941,
+  "durationMs": 36019,
+  "avgDurationMs": 36019,
   "durationHistory": [
-    55941
+    36019
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -21,13 +21,13 @@
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
       "title": "Mitarbeiter / Mitarbeiterin Empfang - befristet bis 01.03.2027 Middle Office /",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=c9ecc3e3-62a1-4359-bd07-3ffb89cc3cb2,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:25:55.924Z",
+      "crawledAt": "2026-08-10T21:43:37.493Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
