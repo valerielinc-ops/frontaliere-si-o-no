@@ -28659,6 +28659,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere',
+ category: 'pratico',
+ date: '2026-08-10T20:38:14.155Z',
+ image: '/images/blog/vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
