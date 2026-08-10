@@ -555,7 +555,7 @@
         "it": "responsabile-negozio-zurigo-altstetten-80-100-sunrise-communications-ag-zurich",
         "en": "store-manager-zurich-altstetten-80-100-sunrise-zurich",
         "de": "store-manager-zurich-altstetten-80-100-sunrise-zurich",
-        "fr": "directeur-de-magasin-zurich-altstetten-80-100-sunrise-communications-ag-zurich"
+        "fr": "gestionnaire-de-magasin-zurich-altstetten-80-100-sunrise-communications-ag-zurich"
       },
       "id": "sunrise-sede-ticino-df9395c7b8cb",
       "salaryMin": 117000,
@@ -577,11 +577,13 @@
           "store-manager-zurich-altstetten-80-100-sunrise-zurich"
         ],
         "fr": [
-          "store-manager-zurich-altstetten-80-100-sunrise-zurich"
+          "store-manager-zurich-altstetten-80-100-sunrise-zurich",
+          "directeur-de-magasin-zurich-altstetten-80-100-sunrise-communications-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "store-manager-zurich-altstetten-80-100-sunrise-zurich"
+        "store-manager-zurich-altstetten-80-100-sunrise-zurich",
+        "directeur-de-magasin-zurich-altstetten-80-100-sunrise-communications-ag-zurich"
       ],
       "needsRetranslation": true,
       "retranslationAttempts": 1
@@ -1215,7 +1217,7 @@
         "it": "agente-di-vendita-st-gallen-shopping-arena-60-100-sunrise-communications-ag-st-gallen",
         "en": "sales-agent-st-gallen-shopping-arena-60-100-sunrise-st-gallen",
         "de": "sales-agent-st-gallen-shopping-arena-60-100-sunrise-st-gallen",
-        "fr": "sales-agent-st-gallen-shopping-arena-60-100-sunrise-st-gallen"
+        "fr": "agent-de-vente-st-gallen-s-81arna-60-100-sunrise-communications-ag-st-gallen"
       },
       "id": "sunrise-sede-ticino-a9b09abed6c7",
       "salaryMin": 68500,
@@ -1234,6 +1236,9 @@
       "firstSeenAt": "2026-08-07T01:12:03.117Z",
       "previousSlugsByLocale": {
         "it": [
+          "sales-agent-st-gallen-shopping-arena-60-100-sunrise-st-gallen"
+        ],
+        "fr": [
           "sales-agent-st-gallen-shopping-arena-60-100-sunrise-st-gallen"
         ]
       },
