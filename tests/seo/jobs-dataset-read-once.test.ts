@@ -37,15 +37,42 @@ import { readJobsDataset } from '../helpers/jobsDataset';
 const SEO_TESTS_DIR = __dirname;
 const SELF = 'jobs-dataset-read-once.test.ts';
 
-/** A `readFileSync(...)` call whose argument names the jobs dataset. */
-const DIRECT_READ_RX = /readFileSync\s*\(\s*[^)]*(?:JOBS_PATH|jobsPath|jobs\.json)/;
+/**
+ * Every identifier in `src` bound to a path that ends at the jobs dataset —
+ * `JOBS_PATH`, `jobsPath`, or whatever the next author calls it.
+ *
+ * Matching the NAME instead would make the guard evadable by renaming the
+ * variable, which is the way a guard stops guarding without anyone noticing.
+ */
+function jobsPathBindings(src: string): string[] {
+  const names: string[] = [];
+  // `const X = <anything up to the statement end that mentions jobs.json>`.
+  // The character class excludes `;` so the match cannot run past the
+  // statement, and includes newlines so a wrapped `path.join(...)` still binds.
+  const rx = /(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=[^;]*?jobs\.json/g;
+  let m: RegExpExecArray | null;
+  while ((m = rx.exec(src)) !== null) names.push(m[1]);
+  return names;
+}
+
+/**
+ * A `readFileSync(...)` on the dataset: the path spelled inline, or any local
+ * binding that resolves to it. `JOBS_PATH`/`jobsPath` stay in the alternation
+ * as a floor for the case where the binding is imported rather than declared
+ * here, so the guard degrades to name-matching instead of to nothing.
+ */
+function readsDatasetDirectly(src: string): boolean {
+  const names = ['JOBS_PATH', 'jobsPath', ...jobsPathBindings(src)];
+  const rx = new RegExp(`readFileSync\\s*\\(\\s*[^)]*(?:jobs\\.json|${names.join('|')})`);
+  return rx.test(src);
+}
 
 describe('gate:seo-source — the jobs dataset is read through the shared memo', () => {
   it('no test in tests/seo/ reads data/jobs.json directly', () => {
     const offenders = fs
       .readdirSync(SEO_TESTS_DIR)
       .filter((f) => /\.(test|spec)\.tsx?$/.test(f) && f !== SELF)
-      .filter((f) => DIRECT_READ_RX.test(fs.readFileSync(path.join(SEO_TESTS_DIR, f), 'utf8')));
+      .filter((f) => readsDatasetDirectly(fs.readFileSync(path.join(SEO_TESTS_DIR, f), 'utf8')));
 
     expect(
       offenders,
@@ -53,6 +80,29 @@ describe('gate:seo-source — the jobs dataset is read through the shared memo',
         `${offenders.map((f) => `  tests/seo/${f}`).join('\n')}\n` +
         'Each read re-decodes the whole dataset; doing it per `it()` is what timed out gate:seo-source (#5447).',
     ).toEqual([]);
+  });
+
+  // A guard that only recognises today's variable names is evaded by renaming
+  // one, which is the quiet way a guard stops guarding.
+  it('recognises the read regardless of what the path variable is called', () => {
+    expect(
+      readsDatasetDirectly(
+        [
+          "const dataPath = path.join(REPO_ROOT, 'data', 'jobs.json');",
+          "const jobs = JSON.parse(fs.readFileSync(dataPath, 'utf8'));",
+        ].join('\n'),
+      ),
+      'a renamed binding still resolves to the dataset',
+    ).toBe(true);
+
+    // Inline path, no binding at all.
+    expect(readsDatasetDirectly("fs.readFileSync(path.join(R, 'data', 'jobs.json'), 'utf8')")).toBe(true);
+
+    // …and it stays quiet on the things that are fine: merely naming the
+    // dataset, reading a DIFFERENT file, and the sanctioned call itself.
+    expect(readsDatasetDirectly('// data/jobs.json is assembled in CI')).toBe(false);
+    expect(readsDatasetDirectly("const src = fs.readFileSync(PLUGIN_PATH, 'utf8');")).toBe(false);
+    expect(readsDatasetDirectly('const jobs = readJobsDataset<Job>(JOBS_PATH);')).toBe(false);
   });
 
   // The guard above is only worth its runtime if the helper it points at
