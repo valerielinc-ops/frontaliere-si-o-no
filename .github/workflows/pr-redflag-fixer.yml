@@ -47,13 +47,17 @@ jobs:
     # nega) lo fa il preflight sotto, con una regex tollerante al bold/spaziatura MA
     # che richiede un delimitatore dopo "Important" — impossibile in un'espressione
     # `if:` YAML.
+    # NB: lo scope-check "PR autonoma" (bot-authored o head `fix/*`) NON vive più
+    # in questo `if:` — vedi lo step sotto. Un `if:` di job che fallisce lascia il
+    # job intero SKIPPED senza eseguire una riga di script: per una PR umana con
+    # un vero 🔴 Important quel salto era invisibile ovunque (issue #5534, PR
+    # #5515 — check-run "skipped", zero commenti, zero label). Qui restano solo i
+    # pre-filtri economici che non richiedono distinguere lo scope.
     if: |
       github.event.review.user.type == 'Bot' &&
       startsWith(github.event.review.user.login, 'claude') &&
       contains(github.event.review.body, '🔴') &&
-      github.event.pull_request.draft == false &&
-      (github.event.pull_request.user.type == 'Bot' ||
-       startsWith(github.event.pull_request.head.ref, 'fix/'))
+      github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     timeout-minutes: 3
     outputs:
@@ -67,6 +71,7 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
           REVIEW_BODY: ${{ github.event.review.body }}
+          PR_AUTHOR_TYPE: ${{ github.event.pull_request.user.type }}
         run: |
           set -uo pipefail
           # Marker 🔴-Important tollerante al markdown: il reviewer a volte bolda
@@ -80,6 +85,20 @@ jobs:
           # (REDFLAG_IMPORTANT_RE) — YAML `if:` non può importarla, tenerle allineate.
           if ! printf '%s' "$REVIEW_BODY" | grep -qP '🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]'; then
             echo "Review contiene 🔴 ma nessun finding '🔴 Important' (decorativo) → skip 🔴-fix (no-op)."
+            echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          # Scope: il 🔴-fixer agisce SOLO su PR autonome (per design, header del
+          # file). Una PR umana con un Important reale è fuori scope allo stesso
+          # modo di prima — ma ora lo dichiara con un commento idempotente invece
+          # di sparire in uno SKIPPED silenzioso (issue #5534).
+          if [ "$PR_AUTHOR_TYPE" != "Bot" ] && ! printf '%s' "$HEAD_REF" | grep -q '^fix/'; then
+            echo "PR autore umano, branch non 'fix/*' → fuori scope autonomo (per design) → skip 🔴-fix."
+            already=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+              --jq '[.[] | select(.body | contains("REDFLAG_OUT_OF_SCOPE"))] | length' 2>/dev/null || echo 0)
+            if [ "${already:-0}" = "0" ]; then
+              gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDFLAG_OUT_OF_SCOPE -->\nℹ️ 🔴-fixer: la review più recente contiene un finding \x60🔴 Important\x60, ma questa PR è fuori dallo scope autonomo (autore umano, branch non \x60fix/*\x60) — nessun fix automatico verrà tentato (per design). Se il finding resta aperto senza un commit nuovo, serve intervento manuale.')" \
+                2>/dev/null || true
+            fi
             echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
           fi
           state=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json state --jq '.state' 2>/dev/null || echo UNKNOWN)
@@ -310,7 +329,18 @@ jobs:
       - name: Record base SHA (pre-Claude)
         id: base
         if: steps.guard.outputs.proceed == 'true'
-        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          # Baseline commenti PRE-Claude (dopo il marker round appena postato dal
+          # guard): serve al classify sotto per distinguere "Claude ha lasciato
+          # una spiegazione" da "Claude non ha fatto/detto nulla" quando esce
+          # 'success' senza push (issue #5534).
+          n=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo 0)
+          echo "comments=${n:-0}" >> "$GITHUB_OUTPUT"
 
       - name: Setup Headroom compression proxy
         if: steps.guard.outputs.proceed == 'true'
@@ -389,16 +419,28 @@ jobs:
       #    anche se Claude è morto error_max_turns DOPO il push (false-failure).
       #  • nessun push + Claude FAILED          → non-progress reale → RED (segnale
       #    preservato per il loop-health-report + escalation round-cap).
-      #  • nessun push + Claude SUCCESS          → terminale pulito (es. "🔴 non
-      #    auto-fixabile") → GREEN, niente da fixare nel workflow.
+      #  • nessun push + Claude SUCCESS + NUOVO commento → terminale pulito (es.
+      #    "🔴 non auto-fixabile: <motivo>", come richiesto dal prompt) → GREEN.
+      #  • nessun push + Claude SUCCESS + NESSUN commento → non-progress SILENZIOSO
+      #    → RED. Prima del 2026-08-10 (issue #5534) questo caso era indistinguibile
+      #    da un round che ha davvero lavorato: 'success' senza push e senza traccia
+      #    usciva verde allo stesso modo di un fix pushato, e né stale-pr-rescuer né
+      #    il round-cap potevano più raccoglierlo (un round "riuscito" non ri-arma
+      #    niente). Il prompt chiede esplicitamente un commento quando non c'è nulla
+      #    da pushare — un round che non lo rispetta non è un terminale legittimo,
+      #    è lo stesso buco della PR #142 del repo gemello.
       # I fail infra a monte (npm ci, setup, load-rc) restano RED da soli: quegli
       # step non hanno continue-on-error. Mai fa-passare un gate: il round non ha
       # gate, è telemetria di colore (cfr. #2288, disambigua intenzionale vs crash).
       - name: Classify outcome (work-done, not CLI exit)
         if: always() && steps.guard.outputs.proceed == 'true'
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
           BASE_SHA: ${{ steps.base.outputs.sha }}
+          BASE_COMMENTS: ${{ steps.base.outputs.comments }}
           CLAUDE_OUTCOME: ${{ steps.claude_review.outcome }}
         run: |
           set -uo pipefail
@@ -414,5 +456,10 @@ jobs:
             echo "::error::🔴-fix: nessun commit pushato e la run Claude è fallita ('$CLAUDE_OUTCOME') → non-progress reale. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
             exit 1
           fi
-          echo "Nessun push ma Claude terminato pulito ('$CLAUDE_OUTCOME') → terminale legittimo (es. non auto-fixabile). Job verde."
+          NOW_COMMENTS=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo "${BASE_COMMENTS:-0}")
+          if [ "${NOW_COMMENTS:-0}" -le "${BASE_COMMENTS:-0}" ]; then
+            echo "::error::🔴-fix: nessun commit pushato, Claude uscita '$CLAUDE_OUTCOME', e nessun commento nuovo a spiegare perché (comments $BASE_COMMENTS→$NOW_COMMENTS) → non-progress SILENZIOSO, non un terminale legittimo. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
+            exit 1
+          fi
+          echo "Nessun push ma Claude terminato pulito ('$CLAUDE_OUTCOME') con una spiegazione nuova sulla PR → terminale legittimo (es. non auto-fixabile). Job verde."
           exit 0
