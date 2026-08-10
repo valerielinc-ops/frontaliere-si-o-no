@@ -9546,6 +9546,21 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.title': 'Vivre à Crevoladossola et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.excerpt': 'Tous les faits et chiffres de la vie des frontaliers qui travaillent au Tessin et résident à Crevoladossola',
     'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.imageAlt': 'Un frontalier qui travaille à Lugano et réside à Crevoladossola contemple le lac de Lugano',
+    'blog.article.vivere-rodero-lavorare-ticino-frontaliere.title': 'Vivre à Rodero et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-rodero-lavorare-ticino-frontaliere.excerpt': 'Guide pratique pour les frontaliers : taxe à la source, nouvel accord 2024, franchise € 10\'000, permis G et liaisons Brogeda-Chiasso.',
+    'blog.article.vivere-rodero-lavorare-ticino-frontaliere.imageAlt': 'Travailleur frontalier franchissant le poste de Brogeda entre Rodero et le Tessin',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.title': 'Vivre à Agra et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.excerpt': 'Impact du nouvel accord sur les frontaliers tessinois : nouvelles règles, exemptions et avantages.',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.imageAlt': 'Frontalier avec enfant marche le long de la rive du lac de Lugano',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.title': 'Déménager à Uggiate-Trevano en tant que frontalier : pour et contre',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.excerpt': 'Réglage à la source, nouvel accord frontalier et avantages pour les travailleurs du Tessin.',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.imageAlt': 'Vue d\'Uggiate-Trevano avec le lac de Lugano',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.title': 'Vivre à Cugliate-Fabiasco et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.excerpt': 'Le nouvel accord frontalier a été signé le 23 décembre 2020 et entre en vigueur le 1er janvier 2024. C\'est ce qui change dans la vie des frontaliers.',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Frontaliers avec enfants sur la rive du Lac de Lugano',
+    'blog.article.vivere-dumenza-lavorare-ticino.title': 'Vivre à Dumenza et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-dumenza-lavorare-ticino.excerpt': 'Tous les faits importants pour les frontaliers qui travaillent au Tessin et résident à Dumenza.',
+    'blog.article.vivere-dumenza-lavorare-ticino.imageAlt': 'Un frontalier vit à Dumenza et travaille dans le Tessin.',
 };
 
 export default blogMetaFr;
