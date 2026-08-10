@@ -2035,6 +2035,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.title': 'Catastrophes naturelles, pertes de 112 milliards de dollars',
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.excerpt': 'Les vagues de chaleur ont eu une influence directe sur la productivité du travail, ce qui se répercute ensuite sur les prix de l\'énergie.',
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.imageAlt': 'Dommages causés par les ondes de chaleur en Suisse',
+    'blog.article.glencore-quotazione-australia.title': 'Glencore renoue avec le bénéfice, 4,4 milliards de bénéfices',
+    'blog.article.glencore-quotazione-australia.excerpt': 'Le géant minier et des matières premières Glencore a clôturé les six premiers mois de 2026 avec un fort retour à la rentabilité',
+    'blog.article.glencore-quotazione-australia.imageAlt': 'Glencore retourne aux bénéfices avec 4,4 milliards de dollars de bénéfices et annonce une introduction en bourse en Australie',
 };
 
 export default blogMetaChFr;
