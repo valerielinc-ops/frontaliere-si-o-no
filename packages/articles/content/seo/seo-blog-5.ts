@@ -62198,6 +62198,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-a-valmorea-da-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a Valmorea da frontaliere: pro e contro',
+    description: 'La decisione di trasferirsi a Valmorea da frontaliere può essere un\'esperienza complessa e affascinante. In questo articolo, esploreremo i pro e i contro',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, valmorea, contro, decisione',
+    ogTitle: 'Trasferirsi a Valmorea da frontaliere: pro e contro',
+    ogDescription: 'La decisione di trasferirsi a Valmorea da frontaliere può essere un\'esperienza complessa e affascinante. In questo articolo, esploreremo i pro e i contro di tale decisione.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-a-valmorea-da-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Valmorea da frontaliere: pro e contro",
+      "description": "La decisione di trasferirsi a Valmorea da frontaliere può essere un'esperienza complessa e affascinante. In questo articolo, esploreremo i pro e i contro",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-a-valmorea-da-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una famiglia di frontaliere si trasferisce a Valmorea"
+      },
+      "datePublished": "2026-08-10T05:17:44+00:00",
+      "dateModified": "2026-08-10T05:17:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-valmorea-da-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
