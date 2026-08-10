@@ -155,6 +155,23 @@ const WAIT_SOURCE_FALLBACK: Record<Locale, string> = {
   fr: 'jeu interne / historique des frontières',
 };
 
+/**
+ * The comuni that get a full CARD (province, distance, nearest crossing) at the
+ * top of the hub — an editorial "most searched" shortlist, NOT the crawl
+ * surface.
+ *
+ * It used to be the ONLY thing `buildHubPatch()` emitted, and that was Causa B
+ * of issue #5434: `eligibleMunicipalities()` emits and sitemaps all 320
+ * corridor comuni, while the hub linked these 16, so 304 pages had no inbound
+ * link inside `maxDepth` and `audit:max-bfs-depth` counted every one of them.
+ * The province-grouped index `buildHubPatch()` now appends below the cards is
+ * what carries reachability: it links the FULL `eligibleMunicipalities()` list,
+ * so this array can be re-ordered or trimmed for editorial reasons without ever
+ * orphaning a page again.
+ *
+ * Keep it a subset of the emitted set — a name not in `municipalities` is
+ * silently dropped by the `byName` lookup below (no card, no error).
+ */
 const CANDIDATE_HUB_LINKS = [
   'Como',
   'Cernobbio',
@@ -234,6 +251,8 @@ interface Copy {
   faq3a: string;
   hubTitle: string;
   hubText: string;
+  hubAllTitle: string;
+  hubAllText: string;
   /**
    * `altCantonName`/`altCantonCode` describe whichever canton the closer
    * (non-primary) crossing actually belongs to — currently always Valais/VS
@@ -294,6 +313,8 @@ const COPY = {
     faq3a: 'No. Servono a orientare la scelta abitativa e il pendolarismo. La tassazione dipende anche da data di assunzione, status vecchio/nuovo frontaliere, dichiarazione italiana, deduzioni e situazione familiare.',
     hubTitle: 'Esplora i comuni più cercati',
     hubText: 'Parti da un comune concreto: la scheda mostra cosa cambia su dogana, tempi, tasse locali e collegamenti utili.',
+    hubAllTitle: 'Tutti i comuni di frontiera, per provincia',
+    hubAllText: 'L’elenco completo dei comuni con una scheda dedicata. Se il tuo non è tra quelli in evidenza qui sopra, lo trovi qui.',
     vsAlternativeNote: (vsCrossing: string, altCantonName: string, altCantonCode: string, tiCrossing: string) => `Sei più vicino al valico ${vsCrossing} che porta verso il ${altCantonName} (cantone ${altCantonCode}). Se lavori in Ticino il passaggio TI utile resta ${tiCrossing}, usato in tutti i tempi qui sotto.`,
   },
   en: {
@@ -346,6 +367,8 @@ const COPY = {
     faq3a: 'No. These pages help with orientation. Tax treatment depends on hiring date, old/new cross-border status, Italian filing, deductions and family situation.',
     hubTitle: 'Explore popular municipalities',
     hubText: 'Start from a concrete municipality: each profile shows border crossing, timing, local taxes and useful links.',
+    hubAllTitle: 'Every border municipality, by province',
+    hubAllText: 'The complete list of municipalities with a dedicated profile. If yours is not among the highlights above, it is here.',
     vsAlternativeNote: (vsCrossing: string, altCantonName: string, altCantonCode: string, tiCrossing: string) => `You are closer to ${vsCrossing}, which leads into ${altCantonName} (canton ${altCantonCode}). If you commute to Ticino the useful TI crossing remains ${tiCrossing}, used in all timings below.`,
   },
   de: {
@@ -398,6 +421,8 @@ const COPY = {
     faq3a: 'Nein. Die Seite dient zur Orientierung. Die Besteuerung hängt von Einstellungsdatum, altem/neuem Grenzgängerstatus, italienischer Erklärung, Abzügen und Familie ab.',
     hubTitle: 'Beliebte Gemeinden erkunden',
     hubText: 'Starte bei einer konkreten Gemeinde: jede Karte zeigt Grenze, Zeiten, lokale Steuern und nützliche Links.',
+    hubAllTitle: 'Alle Grenzgemeinden, nach Provinz',
+    hubAllText: 'Die vollständige Liste der Gemeinden mit eigenem Profil. Fehlt deine oben unter den Hervorhebungen, findest du sie hier.',
     vsAlternativeNote: (vsCrossing: string, altCantonName: string, altCantonCode: string, tiCrossing: string) => `Du bist näher an ${vsCrossing}, das ins ${altCantonName} (Kanton ${altCantonCode}) führt. Wer ins Tessin pendelt, nutzt weiterhin den TI-Übergang ${tiCrossing} — er liegt allen Zeiten unten zugrunde.`,
   },
   fr: {
@@ -450,6 +475,8 @@ const COPY = {
     faq3a: 'Non. Cette page sert d’orientation. Le traitement fiscal dépend de la date d’embauche, du statut ancien/nouveau frontalier, de la déclaration italienne, des déductions et de la famille.',
     hubTitle: 'Explorer les communes populaires',
     hubText: 'Partez d’une commune concrète: chaque fiche montre douane, temps, taxes locales et liens utiles.',
+    hubAllTitle: 'Toutes les communes frontalières, par province',
+    hubAllText: 'La liste complète des communes disposant d’une fiche dédiée. Si la vôtre n’est pas mise en avant ci-dessus, elle est ici.',
     vsAlternativeNote: (vsCrossing: string, altCantonName: string, altCantonCode: string, tiCrossing: string) => `Vous êtes plus proche du poste ${vsCrossing}, qui mène au ${altCantonName} (canton ${altCantonCode}). Pour le Tessin, le passage TI utile reste ${tiCrossing}, utilisé dans tous les temps ci-dessous.`,
   },
 } satisfies Record<Locale, Copy>;
@@ -1084,7 +1111,12 @@ function patchSitemapIndex(distDir: string, dateStamp: string): void {
   fs.writeFileSync(sitemapPath, idx, 'utf-8');
 }
 
-function buildHubPatch(municipalities: Municipality[]): string {
+/**
+ * Exported for `tests/bfs-depth-hub-link-coverage.test.ts` — the whole point of
+ * the #5434 fix is a property of this function's OUTPUT (every input comune is
+ * linked), and there is no other seam to assert it from without a full build.
+ */
+export function buildHubPatch(municipalities: Municipality[]): string {
   const byName = new Map(municipalities.map((m) => [m.name, m]));
   const links = CANDIDATE_HUB_LINKS
     .map((name) => byName.get(name))
@@ -1102,7 +1134,52 @@ function buildHubPatch(municipalities: Municipality[]): string {
     <h2 class="text-2xl font-bold text-heading">${esc(COPY.it.hubTitle)}</h2>
     <p class="mt-2 max-w-3xl text-sm leading-6 text-body">${esc(COPY.it.hubText)}</p>
     <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">${links}</div>
+    ${buildHubFullIndex(municipalities)}
   </section>`;
+}
+
+/**
+ * Province-grouped index of EVERY comune this plugin emits — the hub's crawl
+ * surface (issue #5434, Causa B).
+ *
+ * Deliberately a flat run of bare `<a>` separated by "·" rather than the card
+ * markup above: at 320 comuni the card form costs ~76 KB of HTML on a single
+ * page, this one ~30 KB, and the card's extra fields (distance, nearest
+ * crossing) are already on each comune's own page one click away. Grouping by
+ * province is free — `corridorMunicipalities()` already sorts by
+ * `province, name`, so a single pass produces contiguous groups.
+ *
+ * Depth budget: the hub sits at depth 2 (home → /vivere-in-ticino/ → hub, and
+ * now also home → hub directly via the shell's link section), so the comuni
+ * land at 3 — inside `maxDepth: 4` with a hop to spare. That spare hop is why
+ * this stays a single flat list instead of an A-Z index page in between.
+ */
+function buildHubFullIndex(municipalities: Municipality[]): string {
+  if (municipalities.length === 0) return '';
+  const byProvince = new Map<string, Municipality[]>();
+  for (const m of municipalities) {
+    const bucket = byProvince.get(m.province);
+    if (bucket) bucket.push(m);
+    else byProvince.set(m.province, [m]);
+  }
+
+  const groups = [...byProvince.entries()]
+    .map(([province, list]) => {
+      const items = list
+        .map((m) => `<a class="text-link" href="${pathFor('it', m)}">${esc(m.name)}</a>`)
+        .join(' · ');
+      return `<div class="mt-4">
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-muted">${esc(province)} <span class="font-normal normal-case">(${list.length})</span></h3>
+        <p class="mt-1 text-sm leading-7 text-body">${items}</p>
+      </div>`;
+    })
+    .join('');
+
+  return `<div data-border-municipality-index="1" class="mt-8 border-t border-edge pt-6">
+    <h2 class="text-xl font-bold text-heading">${esc(COPY.it.hubAllTitle)}</h2>
+    <p class="mt-2 max-w-3xl text-sm leading-6 text-body">${esc(COPY.it.hubAllText)}</p>
+    ${groups}
+  </div>`;
 }
 
 function patchHubPage(distDir: string, municipalities: Municipality[]): void {

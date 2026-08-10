@@ -1332,6 +1332,18 @@ function mirroredEventImageObject(event: SiteEvent): ImageObjectLd | null {
 const CARD_EXCERPT_CHARS = 160;
 
 /**
+ * How many events a comune hub (and the comune-less `altri-eventi` sentinel)
+ * renders as full CARDS. Was an inline `80` literal duplicated at both render
+ * sites; named here because `renderOverflowIndex()` has to slice at exactly the
+ * same offset — an overflow index computed against a different cap would either
+ * skip events (re-orphaning them, the #5434 bug) or repeat carded ones.
+ *
+ * Raising it is a page-weight decision, not a reachability one any more: every
+ * event past the cap is still linked, just as a text row.
+ */
+const EVENT_CARD_CAP = 80;
+
+/**
  * The event's own summary, shown on every card in every listing (canton hub,
  * comune page, digest, and the "more events" grid on a detail page).
  *
@@ -1422,6 +1434,72 @@ function renderEventList(events: SiteEvent[], locale: Locale, detailHref?: Detai
   return `<div class="ev-grid">${events
     .map((e) => renderEventCard(e, locale, detailHref ? detailHref(e) : null))
     .join('')}</div>`;
+}
+
+/**
+ * Copy for `renderOverflowIndex()`. Standalone `Record<Locale, …>` rather than a
+ * field on `Copy`/`OtherEventsCopy`: there is no canton name to substitute, so
+ * it would only ever ride `copyFor()`'s `...base` spread untouched — same
+ * reasoning as `OTHER_EVENTS_TITLE_FALLBACK` above.
+ */
+const OVERFLOW_INDEX_COPY: Record<Locale, { title: string; text: (n: number) => string }> = {
+  it: { title: 'Tutti gli altri eventi', text: (n) => `Altri ${n} eventi in programma, in ordine di data.` },
+  en: { title: 'All the other events', text: (n) => `${n} more scheduled events, in date order.` },
+  de: { title: 'Alle weiteren Veranstaltungen', text: (n) => `${n} weitere geplante Veranstaltungen, nach Datum.` },
+  fr: { title: 'Tous les autres événements', text: (n) => `${n} autres événements programmés, par date.` },
+};
+
+/**
+ * Text index of the events the card grid's `slice(0, cap)` left out — the hub's
+ * crawl surface for its own overflow (issue #5434, Causa B).
+ *
+ * WHY IT EXISTS. The cap is a page-weight measure, but it was also silently a
+ * REACHABILITY cap: an event whose only inbound link is its comune hub's card
+ * grid has no inbound link at all once it falls past the cap, so
+ * `audit:max-bfs-depth` counted it as unreachable. Measured on the live graph:
+ * 689 of the 819 `sitemap-eventi.xml` offenders were exactly this, and only in
+ * the two buckets that exceed the cap.
+ *
+ * WHY NOT JUST RAISE THE CAP. A card carries an <img>, a chip, meta and an
+ * excerpt (~650 B measured); a row here is an <a> and a title (~150 B measured).
+ * Rendering the same overflow as cards would cost ~390 KB on the largest bucket
+ * against `scripts/audit-page-weight.mjs`'s 260 KB budget.
+ *
+ * MEASURED HEADROOM (live pages, 2026-08-09, `curl | wc -c`). Only two buckets
+ * in the whole dataset are over the cap, so only two pages per locale grow:
+ *   /eventi/altri-cantoni/altri-eventi/  76.4 KB + 90.1 KB (603 rows) = 167 KB
+ *   /eventi/ginevra/geneve/             115.2 KB + 16.3 KB (111 rows) = 132 KB
+ * Both inside the 260 KB budget. That headroom is not unbounded: at ~150 B per
+ * row the largest bucket has room for roughly 600 more events before it needs a
+ * real pagination ladder. If `audit:page-weight` ever flags an `/eventi/` path,
+ * this is the block to bound — do NOT fix it by dropping rows, that silently
+ * re-orphans them.
+ *
+ * Only events WITH a detail page are listed: `detailHref` returns null for an
+ * event that has none, and linking its external source URL instead would add a
+ * `nofollow` outbound without making our page reachable.
+ */
+function renderOverflowIndex(
+  events: SiteEvent[],
+  cap: number,
+  locale: Locale,
+  detailHref?: DetailHref,
+): string {
+  if (!detailHref || events.length <= cap) return '';
+  const rows = events
+    .slice(cap)
+    .map((event) => ({ event, href: detailHref(event) }))
+    .filter((row): row is { event: SiteEvent; href: string } => Boolean(row.href));
+  if (rows.length === 0) return '';
+  const copy = OVERFLOW_INDEX_COPY[locale];
+  const items = rows
+    .map(({ event, href }) => `<li><a class="ev-lnk" href="${esc(href)}">${esc(localizedTitle(event, locale))}</a></li>`)
+    .join('');
+  return `<section data-events-overflow-index="1" class="ev-panel">
+      <h2 class="ev-h2">${esc(copy.title)}</h2>
+      <p class="mt-2 text-sm leading-6 text-body">${esc(copy.text(rows.length))}</p>
+      <ul class="mt-3 columns-1 gap-6 text-sm leading-7 sm:columns-2 lg:columns-3">${items}</ul>
+    </section>`;
 }
 
 function renderCrosslinks(locale: Locale): string {
@@ -1850,8 +1928,9 @@ export function renderComunePage(params: {
   const canonicalPath = pathFor(locale, canton, comune);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   // Was 40 — see the `upcoming` cap above for why this was raised (same
-  // audit:max-bfs-depth orphan-tail fix).
-  const list = events.slice(0, 80);
+  // audit:max-bfs-depth orphan-tail fix). The tail past the cap is NOT dropped
+  // any more: `renderOverflowIndex()` below links it as text rows (#5434).
+  const list = events.slice(0, EVENT_CARD_CAP);
   const weekendCount = events.filter((e) => isWeekend(e.startDate, weekendDays)).length;
   // #4414: real weekly count + soonest upcoming event for this comune —
   // scoped to the FULL comune `events` list (not the 40-item display slice)
@@ -1886,6 +1965,8 @@ export function renderComunePage(params: {
       <h2 class="font-display text-2xl font-bold text-heading">${esc(copy.eventsIn(comune))}</h2>
       <div class="mt-4">${renderEventList(list, locale, detailHref)}</div>
     </section>
+
+    ${renderOverflowIndex(events, EVENT_CARD_CAP, locale, detailHref)}
 
     <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
       <a class="inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${pathFor(locale, canton)}">${esc(copy.allEvents)} →</a>
@@ -2111,8 +2192,11 @@ export function renderOtherEventsPage(params: {
   const canonicalPath = pathFor(locale, canton, OTHER_EVENTS_COMUNE_KEY);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   // Was 40 — see the `upcoming` cap above for why this was raised (same
-  // audit:max-bfs-depth orphan-tail fix).
-  const list = events.slice(0, 80);
+  // audit:max-bfs-depth orphan-tail fix). The tail past the cap is NOT dropped
+  // any more: `renderOverflowIndex()` below links it as text rows (#5434). This
+  // sentinel bucket is the LARGEST one in the dataset (683 upcoming events
+  // measured 2026-08-09), so it is also the page that block weighs most on.
+  const list = events.slice(0, EVENT_CARD_CAP);
   const weekendCount = events.filter((e) => isWeekend(e.startDate, weekendDays)).length;
 
   const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
@@ -2143,6 +2227,8 @@ export function renderOtherEventsPage(params: {
       <h2 class="font-display text-2xl font-bold text-heading">${esc(oeCopy.h1)}</h2>
       <div class="mt-4">${renderEventList(list, locale, detailHref)}</div>
     </section>
+
+    ${renderOverflowIndex(events, EVENT_CARD_CAP, locale, detailHref)}
 
     <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
       <a class="inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${pathFor(locale, canton)}">${esc(copy.allEvents)} →</a>
