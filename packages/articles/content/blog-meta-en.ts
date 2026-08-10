@@ -9544,6 +9544,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.title': 'Living in Crevoladossola and working in Ticino as a border worker',
     'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.excerpt': 'All the facts and figures of the lives of border workers who work in Ticino and reside in Crevoladossola',
     'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.imageAlt': 'A frontaliere who works in Lugano and resides in Crevoladossola gazes out at Lake Lugano',
+    'blog.article.vivere-rodero-lavorare-ticino-frontaliere.title': 'Living in Rodero and working in Ticino as a border worker',
+    'blog.article.vivere-rodero-lavorare-ticino-frontaliere.excerpt': 'Practical guide for border workers: source tax, new 2024 agreement, €10,000 deductible, G permit and Brogeda-Chiasso connections.',
+    'blog.article.vivere-rodero-lavorare-ticino-frontaliere.imageAlt': 'Cross-border worker crossing the Brogeda border between Rodero and Ticino',
 };
 
 export default blogMetaEn;

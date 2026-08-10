@@ -9546,6 +9546,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.title': 'Vivre à Crevoladossola et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.excerpt': 'Tous les faits et chiffres de la vie des frontaliers qui travaillent au Tessin et résident à Crevoladossola',
     'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.imageAlt': 'Un frontalier qui travaille à Lugano et réside à Crevoladossola contemple le lac de Lugano',
+    'blog.article.vivere-rodero-lavorare-ticino-frontaliere.title': 'Vivre à Rodero et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-rodero-lavorare-ticino-frontaliere.excerpt': 'Guide pratique pour les frontaliers : taxe à la source, nouvel accord 2024, franchise € 10\'000, permis G et liaisons Brogeda-Chiasso.',
+    'blog.article.vivere-rodero-lavorare-ticino-frontaliere.imageAlt': 'Travailleur frontalier franchissant le poste de Brogeda entre Rodero et le Tessin',
 };
 
 export default blogMetaFr;

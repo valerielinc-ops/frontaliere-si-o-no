@@ -62744,6 +62744,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-rodero-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Rodero e lavorare in Ticino da frontaliere',
+    description: 'Scopri come vivere a Rodero e lavorare in Canton Ticino da frontaliere: imposta alla fonte, nuovo accordo 2024, franchigia €10\'000, permesso G e valico',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, rodero, lavorare, pratica',
+    ogTitle: 'Vivere a Rodero e lavorare in Ticino da frontaliere',
+    ogDescription: 'Guida completa per frontalieri che risiedono a Rodero e lavorano in Canton Ticino: tutto su imposta alla fonte, nuovo accordo fiscale 2024, permesso G, collegamenti Brogeda-Chiasso, costo della vita e consigli pratici per evitare la doppia',
+    canonicalPath: '/articoli-frontaliere/vivere-rodero-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Rodero e lavorare in Ticino da frontaliere",
+      "description": "Scopri come vivere a Rodero e lavorare in Canton Ticino da frontaliere: imposta alla fonte, nuovo accordo 2024, franchigia €10'000, permesso G e valico",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-rodero-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che attraversa il valico di Brogeda tra Rodero e Canton Ticino"
+      },
+      "datePublished": "2026-08-10T19:11:09+00:00",
+      "dateModified": "2026-08-10T19:11:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-rodero-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
