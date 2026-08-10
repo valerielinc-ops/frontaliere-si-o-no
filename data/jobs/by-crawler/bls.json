@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-08-09T21:35:36.691Z",
+  "assembledAt": "2026-08-10T10:34:16.153Z",
   "jobs": [
     {
       "id": "bls-5df13e4373ee",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/junior-betriebsplaner-in-bus/a564855b-b74c-48e0-994f-4865aa551b52",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:32.914Z",
+      "crawledAt": "2026-08-10T10:34:13.171Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -80,6 +80,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T13:12:39.014Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -125,7 +126,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/junior-produktemanager-in-autoverlad/05b45652-0fb7-46c8-ae2b-861a6f8737b2",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:32.052Z",
+      "crawledAt": "2026-08-10T10:34:12.331Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -178,6 +179,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:20:22.725Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -191,6 +193,89 @@
         }
       },
       "addressRegion": "BE"
+    },
+    {
+      "id": "bls-1b8f0c58954e",
+      "slug": "teamleiter-in-vorgaben-bls-ch",
+      "slugByLocale": {
+        "de": "teamleiter-in-vorgaben-bls-ch",
+        "it": "teamleiter-in-vorgaben-bls-ch",
+        "en": "teamleiter-in-vorgaben-bls-ch",
+        "fr": "teamleiter-in-vorgaben-bls-ch"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Teamleiter:in Vorgaben",
+      "titleByLocale": {
+        "de": "Teamleiter:in Vorgaben",
+        "it": "Teamleiter:in Vorgaben",
+        "en": "Teamleiter:in Vorgaben",
+        "fr": "Teamleiter:in Vorgaben"
+      },
+      "description": "Du stellst sicher, dass unsere Züge nicht nur rollen, sondern dass jede Fahrt sicher und verlässlich bleibt. Mit deinem Team gibst du den Takt vor für klare Vorgaben und Vorschriften - und sorgst so für ein starkes Fundament, auf das sich alle im Bahnbetrieb verlassen können. Dein Beitrag? Mobilität, die Vertrauen schafft.\n\nDas wartet auf dich:\n\n• Ein engagiertes Team fachlich und personell führen\n\n• Die digitale Transformation des Bereichs aktiv vorantreiben sowie Prozesse, Arbeitsweisen und Dienstleistungen weiterentwickeln\n\n• Verantwortung für die Erstellung, Weiterentwicklung und Aktualisierung von Betriebsvorschriften, Weisungen und Vorgaben übernehmen\n\n• Fachliche Prüfung und Freigabe interner sowie externer Dokumente sicherstellen\n\n• In internen und externen Fachgruppen aktiv mitarbeiten\n\n• Die fristgerechte Verteilung von Vorschriften und Vorgaben an das Fahrpersonal sicherstellen\n\nDas bringst du mit:\n\n• Abgeschlossenes technisches Studium und mehrjährige Erfahrung im Bahnumfeld\n\n• Ein sicherer Umgang mit betrieblichen, regulatorischen und organisatorischen Rahmenbedingungen\n\n• Beratungskompetenz und ein klarer Blick für komplexe Zusammenhänge\n\n• Sicher in der fachlichen Analyse und Freigabe von Vorgaben und Weisungen\n\n• Sehr gute Deutschkenntnisse, Fränzösisch ein Plus\n\n• Freude daran, Verantwortung für ein Team zu tragen und klare Strukturen zu gestalten\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "descriptionByLocale": {
+        "de": "Du stellst sicher, dass unsere Züge nicht nur rollen, sondern dass jede Fahrt sicher und verlässlich bleibt. Mit deinem Team gibst du den Takt vor für klare Vorgaben und Vorschriften - und sorgst so für ein starkes Fundament, auf das sich alle im Bahnbetrieb verlassen können. Dein Beitrag? Mobilität, die Vertrauen schafft.\n\nDas wartet auf dich:\n\n• Ein engagiertes Team fachlich und personell führen\n\n• Die digitale Transformation des Bereichs aktiv vorantreiben sowie Prozesse, Arbeitsweisen und Dienstleistungen weiterentwickeln\n\n• Verantwortung für die Erstellung, Weiterentwicklung und Aktualisierung von Betriebsvorschriften, Weisungen und Vorgaben übernehmen\n\n• Fachliche Prüfung und Freigabe interner sowie externer Dokumente sicherstellen\n\n• In internen und externen Fachgruppen aktiv mitarbeiten\n\n• Die fristgerechte Verteilung von Vorschriften und Vorgaben an das Fahrpersonal sicherstellen\n\nDas bringst du mit:\n\n• Abgeschlossenes technisches Studium und mehrjährige Erfahrung im Bahnumfeld\n\n• Ein sicherer Umgang mit betrieblichen, regulatorischen und organisatorischen Rahmenbedingungen\n\n• Beratungskompetenz und ein klarer Blick für komplexe Zusammenhänge\n\n• Sicher in der fachlichen Analyse und Freigabe von Vorgaben und Weisungen\n\n• Sehr gute Deutschkenntnisse, Fränzösisch ein Plus\n\n• Freude daran, Verantwortung für ein Team zu tragen und klare Strukturen zu gestalten\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "it": "Du stellst sicher, dass unsere Züge nicht nur rollen, sondern dass jede Fahrt sicher und verlässlich bleibt. Mit deinem Team gibst du den Takt vor für klare Vorgaben und Vorschriften - und sorgst so für ein starkes Fundament, auf das sich alle im Bahnbetrieb verlassen können. Dein Beitrag? Mobilität, die Vertrauen schafft.\n\nDas wartet auf dich:\n\n• Ein engagiertes Team fachlich und personell führen\n\n• Die digitale Transformation des Bereichs aktiv vorantreiben sowie Prozesse, Arbeitsweisen und Dienstleistungen weiterentwickeln\n\n• Verantwortung für die Erstellung, Weiterentwicklung und Aktualisierung von Betriebsvorschriften, Weisungen und Vorgaben übernehmen\n\n• Fachliche Prüfung und Freigabe interner sowie externer Dokumente sicherstellen\n\n• In internen und externen Fachgruppen aktiv mitarbeiten\n\n• Die fristgerechte Verteilung von Vorschriften und Vorgaben an das Fahrpersonal sicherstellen\n\nDas bringst du mit:\n\n• Abgeschlossenes technisches Studium und mehrjährige Erfahrung im Bahnumfeld\n\n• Ein sicherer Umgang mit betrieblichen, regulatorischen und organisatorischen Rahmenbedingungen\n\n• Beratungskompetenz und ein klarer Blick für komplexe Zusammenhänge\n\n• Sicher in der fachlichen Analyse und Freigabe von Vorgaben und Weisungen\n\n• Sehr gute Deutschkenntnisse, Fränzösisch ein Plus\n\n• Freude daran, Verantwortung für ein Team zu tragen und klare Strukturen zu gestalten\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "en": "Du stellst sicher, dass unsere Züge nicht nur rollen, sondern dass jede Fahrt sicher und verlässlich bleibt. Mit deinem Team gibst du den Takt vor für klare Vorgaben und Vorschriften - und sorgst so für ein starkes Fundament, auf das sich alle im Bahnbetrieb verlassen können. Dein Beitrag? Mobilität, die Vertrauen schafft.\n\nDas wartet auf dich:\n\n• Ein engagiertes Team fachlich und personell führen\n\n• Die digitale Transformation des Bereichs aktiv vorantreiben sowie Prozesse, Arbeitsweisen und Dienstleistungen weiterentwickeln\n\n• Verantwortung für die Erstellung, Weiterentwicklung und Aktualisierung von Betriebsvorschriften, Weisungen und Vorgaben übernehmen\n\n• Fachliche Prüfung und Freigabe interner sowie externer Dokumente sicherstellen\n\n• In internen und externen Fachgruppen aktiv mitarbeiten\n\n• Die fristgerechte Verteilung von Vorschriften und Vorgaben an das Fahrpersonal sicherstellen\n\nDas bringst du mit:\n\n• Abgeschlossenes technisches Studium und mehrjährige Erfahrung im Bahnumfeld\n\n• Ein sicherer Umgang mit betrieblichen, regulatorischen und organisatorischen Rahmenbedingungen\n\n• Beratungskompetenz und ein klarer Blick für komplexe Zusammenhänge\n\n• Sicher in der fachlichen Analyse und Freigabe von Vorgaben und Weisungen\n\n• Sehr gute Deutschkenntnisse, Fränzösisch ein Plus\n\n• Freude daran, Verantwortung für ein Team zu tragen und klare Strukturen zu gestalten\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "fr": "Du stellst sicher, dass unsere Züge nicht nur rollen, sondern dass jede Fahrt sicher und verlässlich bleibt. Mit deinem Team gibst du den Takt vor für klare Vorgaben und Vorschriften - und sorgst so für ein starkes Fundament, auf das sich alle im Bahnbetrieb verlassen können. Dein Beitrag? Mobilität, die Vertrauen schafft.\n\nDas wartet auf dich:\n\n• Ein engagiertes Team fachlich und personell führen\n\n• Die digitale Transformation des Bereichs aktiv vorantreiben sowie Prozesse, Arbeitsweisen und Dienstleistungen weiterentwickeln\n\n• Verantwortung für die Erstellung, Weiterentwicklung und Aktualisierung von Betriebsvorschriften, Weisungen und Vorgaben übernehmen\n\n• Fachliche Prüfung und Freigabe interner sowie externer Dokumente sicherstellen\n\n• In internen und externen Fachgruppen aktiv mitarbeiten\n\n• Die fristgerechte Verteilung von Vorschriften und Vorgaben an das Fahrpersonal sicherstellen\n\nDas bringst du mit:\n\n• Abgeschlossenes technisches Studium und mehrjährige Erfahrung im Bahnumfeld\n\n• Ein sicherer Umgang mit betrieblichen, regulatorischen und organisatorischen Rahmenbedingungen\n\n• Beratungskompetenz und ein klarer Blick für komplexe Zusammenhänge\n\n• Sicher in der fachlichen Analyse und Freigabe von Vorgaben und Weisungen\n\n• Sehr gute Deutschkenntnisse, Fränzösisch ein Plus\n\n• Freude daran, Verantwortung für ein Team zu tragen und klare Strukturen zu gestalten\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-vorgaben/184b247b-4707-4fae-88db-5ff01e37fe60",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-10T10:34:11.461Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3001",
+      "streetAddress": "Freiburgstrasse 130",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-10",
+      "validThrough": "2026-09-08",
+      "pensum": "70-100%",
+      "salary": "127371",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/184b247b-4707-4fae-88db-5ff01e37fe60",
+      "requirements": [
+        "Abgeschlossenes technisches Studium und mehrjährige Erfahrung im Bahnumfeld",
+        "Ein sicherer Umgang mit betrieblichen, regulatorischen und organisatorischen Rahmenbedingungen",
+        "Beratungskompetenz und ein klarer Blick für komplexe Zusammenhänge",
+        "Sicher in der fachlichen Analyse und Freigabe von Vorgaben und Weisungen",
+        "Sehr gute Deutschkenntnisse, Fränzösisch ein Plus",
+        "Freude daran, Verantwortung für ein Team zu tragen und klare Strukturen zu gestalten"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Abgeschlossenes technisches Studium und mehrjährige Erfahrung im Bahnumfeld",
+          "Ein sicherer Umgang mit betrieblichen, regulatorischen und organisatorischen Rahmenbedingungen",
+          "Beratungskompetenz und ein klarer Blick für komplexe Zusammenhänge",
+          "Sicher in der fachlichen Analyse und Freigabe von Vorgaben und Weisungen",
+          "Sehr gute Deutschkenntnisse, Fränzösisch ein Plus",
+          "Freude daran, Verantwortung für ein Team zu tragen und klare Strukturen zu gestalten"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-08-10T10:34:11.461Z"
     },
     {
       "id": "bls-9f36179aeeb3",
@@ -223,7 +308,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/dd034dae-6852-48aa-9341-ddcb2703eeda",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:31.191Z",
+      "crawledAt": "2026-08-10T10:34:10.733Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -283,6 +368,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:12:15.491Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -328,7 +414,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/66a57cf3-3129-460e-9433-b7cc2d9f708d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:30.330Z",
+      "crawledAt": "2026-08-10T10:34:09.886Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -382,6 +468,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:12:14.673Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -427,7 +514,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/produktionsplaner-in-regelplanung/d8365f87-cb27-47ca-ae73-85c1bcc1d1ea",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:29.584Z",
+      "crawledAt": "2026-08-10T10:34:09.145Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -479,6 +566,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T11:38:10.034Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -524,7 +612,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-security-bahnproduktion/cc7f35ab-c2f8-4a13-b3d3-3873fb67088e",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:28.714Z",
+      "crawledAt": "2026-08-10T10:34:08.286Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -575,6 +663,7 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:49:18.239Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -588,82 +677,6 @@
         }
       },
       "addressRegion": "BE"
-    },
-    {
-      "id": "bls-c2a23f604cc3",
-      "slug": "operatrice-operatore-di-sala-operativa-bls-ch",
-      "slugByLocale": {
-        "it": "operatrice-operatore-di-sala-operativa-bls-ch",
-        "en": "operator-operator-bls-ag-beura-cardezza",
-        "de": "betreiber-betreiber-bls-ag-beura-cardezza",
-        "fr": "operateur-exploitant-bls-ag-beura-cardezza"
-      },
-      "company": "BLS AG",
-      "companyKey": "bls",
-      "companyDomain": "bls.ch",
-      "title": "Operatrice/Operatore di Sala Operativa",
-      "titleByLocale": {
-        "it": "Operatrice/Operatore di Sala Operativa",
-        "en": "Operator/Operator",
-        "de": "Betreiber/Betreiber",
-        "fr": "Opérateur/exploitant"
-      },
-      "description": "Senza di te nessun treno può partire. Come membro dell'affiatato team di BLS Cargo Italia, ti assicuri che tutto funzioni alla perfezione. Il trasporto ferroviario ti appassiona e in un batter d'occhio fai in modo che i nostri treni possano circolare. Grazie a te, migliaia di tonnellate di merci possono attraversare le Alpi in tutta sicurezza.\n\nIl tuo lavoro:\n\n• Inserire e monitorare i dati attraverso software dedicati, assicurando la regolare partenza e l'andamento dei treni\n\n• Interfacciarti con le altre imprese ferroviarie e i terminal per una gestione ottimale del traffico ferroviario\n\n• Gestire situazioni di emergenza e di stress e risolvere problematiche in tempo reale garantendo il corretto svolgimento dell'esercizio\n\n• Gestione delle risorse mirata alla copertura del traffico ferroviario\n\nLe tue competenze:\n\n• Ottima conoscenza della lingua italiana, almeno C1\n\n• Buona conoscenza della lingua tedesca e/o inglese, almeno B2\n\n• Buone conoscenze informatiche\n\n• Diploma di scuola superiore\n\n• Anche se non obbligatorie, costituiranno titolo preferenziale una comprovata esperienza pregressa nel ruolo e il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera o PDT Italia\n\nChi siamo\n\nNon possiamo spostare le montagne, è chiaro. Ma non importa. Perché, come alpinisti esperti nel trasporto merci su rotaia, vediamo le montagne come una sfida, non come un ostacolo. Trasportiamo merci di tonnellate dal Mare del Nord, attraverso le Alpi, fino al Mediterraneo, e questa è un'impresa complessa. La affrontiamo in squadra con i nostri circa 450 collaboratori in Svizzera, Belgio, Germania e Italia. I nostri clienti sono internazionali, le nostre radici locali. Proprio per questo lavorare per BLS Cargo è particolarmente stimolante.",
-      "descriptionByLocale": {
-        "it": "Senza di te nessun treno può partire. Come membro dell'affiatato team di BLS Cargo Italia, ti assicuri che tutto funzioni alla perfezione. Il trasporto ferroviario ti appassiona e in un batter d'occhio fai in modo che i nostri treni possano circolare. Grazie a te, migliaia di tonnellate di merci possono attraversare le Alpi in tutta sicurezza.\n\nIl tuo lavoro:\n\n• Inserire e monitorare i dati attraverso software dedicati, assicurando la regolare partenza e l'andamento dei treni\n\n• Interfacciarti con le altre imprese ferroviarie e i terminal per una gestione ottimale del traffico ferroviario\n\n• Gestire situazioni di emergenza e di stress e risolvere problematiche in tempo reale garantendo il corretto svolgimento dell'esercizio\n\n• Gestione delle risorse mirata alla copertura del traffico ferroviario\n\nLe tue competenze:\n\n• Ottima conoscenza della lingua italiana, almeno C1\n\n• Buona conoscenza della lingua tedesca e/o inglese, almeno B2\n\n• Buone conoscenze informatiche\n\n• Diploma di scuola superiore\n\n• Anche se non obbligatorie, costituiranno titolo preferenziale una comprovata esperienza pregressa nel ruolo e il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera o PDT Italia\n\nChi siamo\n\nNon possiamo spostare le montagne, è chiaro. Ma non importa. Perché, come alpinisti esperti nel trasporto merci su rotaia, vediamo le montagne come una sfida, non come un ostacolo. Trasportiamo merci di tonnellate dal Mare del Nord, attraverso le Alpi, fino al Mediterraneo, e questa è un'impresa complessa. La affrontiamo in squadra con i nostri circa 450 collaboratori in Svizzera, Belgio, Germania e Italia. I nostri clienti sono internazionali, le nostre radici locali. Proprio per questo lavorare per BLS Cargo è particolarmente stimolante.",
-        "en": "Without you no train can leave. As a member of the dedicated team of BLS Cargo Italia, make sure everything works perfectly. Rail transport is passionate about you and in a blink of an eye, so that our trains can circulate. Thanks to you, thousands of tons of goods can cross the Alps safely.\n\nYour job:\n\n• Insert and monitor data through dedicated software, ensuring the regular departure and performance of trains\n\n• Interface with other railway companies and terminals for optimal management of railway traffic\n\n• Manage emergency and stress situations and solve real-time problems by ensuring proper exercise\n\n• Management of resources aimed at rail traffic coverage\n\nYour skills:\n\n• Excellent knowledge of the Italian language, at least C1\n\n• Good knowledge of German and/or English, at least B2\n\n• Good computer knowledge\n\n• High School Diploma\n\n• Even if not mandatory, will constitute preferential title a proven experience in the role and possession of TKC / ZV Switzerland or PDT Italy railway permits\n\nWho are we?\n\nWe can't move the mountains, it's clear. But it doesn't matter. Because, as experienced mountaineers in freight transport on rail, we see the mountains as a challenge, not as an obstacle. We transport goods of tons from the North Sea, through the Alps, to the Mediterranean, and this is a complex enterprise. We team up with our approximately 450 employees in Switzerland, Belgium, Germany and Italy. Our customers are international, our local roots. For this reason, working for BLS Cargo is particularly challenging.",
-        "de": "Ohne dich kann kein Zug abfahren. Als Mitglied des engagierten Teams von BLS Cargo Italia, stellen Sie sicher, dass alles perfekt funktioniert. Der Schienenverkehr ist leidenschaftlich für Sie und im Handumdrehen, damit unsere Züge fahren können. Dank Ihnen können Tausende Tonnen Waren die Alpen sicher überqueren.\n\nIhr Job:\n\n• Einfügen und Überwachen von Daten durch spezielle Software, um die regelmäßige Abfahrt und Leistung von Zügen zu gewährleisten\n\n• Schnittstelle zu anderen Eisenbahnunternehmen und Terminals für optimales Management des Eisenbahnverkehrs\n\n• Verwalten Sie Notfall- und Stresssituationen und lösen Sie Echtzeitprobleme, indem Sie die richtige Bewegung sicherstellen\n\n• Verwaltung von Ressourcen zur Abdeckung des Schienenverkehrs\n\nIhre Fähigkeiten:\n\n• Ausgezeichnete Kenntnisse der italienischen Sprache, mindestens C1\n\n• Gute Deutsch- und/oder Englischkenntnisse, mindestens B2\n\n• Gute Computerkenntnisse\n\n• High School Diplom\n\n• Auch wenn nicht obligatorisch, wird ein bevorzugter Titel eine nachgewiesene Erfahrung in der Rolle und im Besitz von TKC / ZV Schweiz oder PDT Italien Eisenbahngenehmigungen darstellen\n\nWer sind wir?\n\nWir können die Berge nicht bewegen, es ist klar. Aber es spielt keine Rolle. Denn als erfahrene Bergsteiger im Güterverkehr auf der Schiene sehen wir die Berge als Herausforderung, nicht als Hindernis. Wir transportieren Tonnengüter von der Nordsee, durch die Alpen, bis zum Mittelmeer, und das ist ein komplexes Unterfangen. Wir arbeiten mit unseren rund 450 Mitarbeitern in der Schweiz, Belgien, Deutschland und Italien zusammen. Unsere Kunden sind international, unsere lokalen Wurzeln. Aus diesem Grund ist die Arbeit für BLS Cargo eine besondere Herausforderung.",
-        "fr": "Sans toi, aucun train ne peut partir. En tant que membre de l'équipe dédiée de BLS Cargo Italia, assurez-vous que tout fonctionne parfaitement. Le transport ferroviaire est passionné par vous et en un clin d'œil, afin que nos trains puissent circuler. Grâce à vous, des milliers de tonnes de marchandises peuvent traverser les Alpes en toute sécurité.\n\nVotre travail :\n\n• Insérer et surveiller les données au moyen de logiciels dédiés, en assurant le départ et la performance réguliers des trains\n\n• Interface avec d'autres compagnies ferroviaires et terminaux pour une gestion optimale du trafic ferroviaire\n\n• Gérer les situations d'urgence et de stress et résoudre les problèmes en temps réel en assurant un exercice approprié\n\n• Gestion des ressources destinées à couvrir le trafic ferroviaire\n\nVos compétences :\n\n• Excellente connaissance de la langue italienne, au moins C1\n\n• Bonne connaissance de l'allemand et/ou de l'anglais, au moins B2\n\n• Bonnes connaissances informatiques\n\n• Diplôme d'études secondaires\n\n• Même si elle n'est pas obligatoire, constitue un titre préférentiel une expérience prouvée dans le rôle et la possession du CTK / ZV Suisse ou PDT Italie permis ferroviaires\n\nQui sommes-nous ?\n\nOn ne peut pas déplacer les montagnes, c'est clair. Mais peu importe. Parce que, comme les alpinistes expérimentés dans le transport de marchandises sur le rail, nous voyons les montagnes comme un défi, pas comme un obstacle. Nous transportons des marchandises de tonnes de la mer du Nord, à travers les Alpes, à la Méditerranée, et c'est une entreprise complexe. Nous faisons équipe avec environ 450 employés en Suisse, Belgique, Allemagne et Italie. Nos clients sont internationaux, nos racines locales. Pour cette raison, travailler pour BLS Cargo est particulièrement difficile."
-      },
-      "location": "Beura-cardezza",
-      "canton": "",
-      "url": "https://jobs.bls.ch/offene-stellen/operatrice-operatore-di-sala-operativa/b6563f4f-7ab2-4d50-b20b-fa3a8dec7dfe",
-      "source": "BLS AG Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-09T21:35:27.992Z",
-      "addressLocality": "Beura-cardezza",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "28851",
-      "category": "Produzione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Ferrovia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-30",
-      "validThrough": "2026-08-28",
-      "pensum": "60-100%",
-      "applyUrl": "https://jobs.bls.ch/apply/ats/b6563f4f-7ab2-4d50-b20b-fa3a8dec7dfe",
-      "requirements": [
-        "Ottima conoscenza della lingua italiana, almeno C1",
-        "Buona conoscenza della lingua tedesca e/o inglese, almeno B2",
-        "Buone conoscenze informatiche",
-        "Diploma di scuola superiore",
-        "Anche se non obbligatorie, costituiranno titolo preferenziale una comprovata esperienza pregressa nel ruolo e il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera o PDT Italia"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Ottima conoscenza della lingua italiana, almeno C1",
-          "Buona conoscenza della lingua tedesca e/o inglese, almeno B2",
-          "Buone conoscenze informatiche",
-          "Diploma di scuola superiore"
-        ]
-      },
-      "firstSeenAt": "2026-07-30T22:19:48.191Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
     },
     {
       "id": "bls-62603eff990e",
@@ -680,7 +693,7 @@
       "title": "Applikations-Manager:in IAM",
       "titleByLocale": {
         "it": "Gestione delle applicazioni: in IAM",
-        "en": "Application Manager: in IAM",
+        "en": "Applikations-Manager:in IAM",
         "de": "Applikations-Manager:in IAM",
         "fr": "Gestionnaire d'applications: dans IAM"
       },
@@ -696,7 +709,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/applikations-manager-in-iam/fd2c2f22-9bec-4fb3-8d6c-80fb0d3db40d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:27.126Z",
+      "crawledAt": "2026-08-10T10:34:07.560Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -743,6 +756,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:37:59.826Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -788,7 +802,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/tecnico-di-preparazione-dei-treni-pdt/ae78f81d-0c6c-446a-877f-5dfbc60c8096",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-09T21:35:26.266Z",
+      "crawledAt": "2026-08-10T10:34:06.698Z",
       "addressLocality": "Beura-cardezza",
       "addressCountry": "CH",
       "country": "CH",
@@ -822,6 +836,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:19:48.942Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -866,7 +881,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-business-partner-finance-bahnproduktion/265c3f03-9dda-4d26-bae5-b02fde879552",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:25.517Z",
+      "crawledAt": "2026-08-10T10:34:05.964Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -914,6 +929,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:17:58.008Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -959,7 +975,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/senior-organisationsentwickler-in/56c78840-393b-442c-8798-035d2e83027e",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:24.660Z",
+      "crawledAt": "2026-08-10T10:34:05.129Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1012,6 +1028,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:07:28.708Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1057,7 +1074,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-tunneltechnik-loetschberg-basistunnel-lbt/87090c34-c9fd-4541-a605-c35c2780277d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:23.809Z",
+      "crawledAt": "2026-08-10T10:34:04.159Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1104,6 +1121,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:20:28.123Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1149,7 +1167,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/baufuehrer-in-bahnbau/adcb2459-2080-47bc-964b-82d7764e2de5",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:22.957Z",
+      "crawledAt": "2026-08-10T10:34:03.292Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1200,6 +1218,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:35:29.865Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1245,7 +1264,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/elektroinstallateur-in-monteur-in-signaltechnik/f9f80fc2-eb10-485c-99b6-121e4f34f898",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:21.964Z",
+      "crawledAt": "2026-08-10T10:34:02.454Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1297,6 +1316,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T11:38:08.799Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1310,6 +1330,83 @@
         }
       },
       "addressRegion": "BE"
+    },
+    {
+      "id": "bls-c2a23f604cc3",
+      "slug": "operatrice-operatore-di-sala-operativa-bls-ch",
+      "slugByLocale": {
+        "it": "operatrice-operatore-di-sala-operativa-bls-ch",
+        "en": "operator-operator-bls-ag-beura-cardezza",
+        "de": "betreiber-betreiber-bls-ag-beura-cardezza",
+        "fr": "operateur-exploitant-bls-ag-beura-cardezza"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Operatrice/Operatore di Sala Operativa",
+      "titleByLocale": {
+        "it": "Operatrice/Operatore di Sala Operativa",
+        "en": "Operator/Operator",
+        "de": "Betreiber/Betreiber",
+        "fr": "Opérateur/exploitant"
+      },
+      "description": "Senza di te nessun treno può partire. Come membro dell'affiatato team di BLS Cargo Italia, ti assicuri che tutto funzioni alla perfezione. Il trasporto ferroviario ti appassiona e in un batter d'occhio fai in modo che i nostri treni possano circolare. Grazie a te, migliaia di tonnellate di merci possono attraversare le Alpi in tutta sicurezza.\n\nIl tuo lavoro:\n\n• Inserire e monitorare i dati attraverso software dedicati, assicurando la regolare partenza e l'andamento dei treni\n\n• Interfacciarti con le altre imprese ferroviarie e i terminal per una gestione ottimale del traffico ferroviario\n\n• Gestire situazioni di emergenza e di stress e risolvere problematiche in tempo reale garantendo il corretto svolgimento dell'esercizio\n\n• Gestione delle risorse mirata alla copertura del traffico ferroviario\n\nLe tue competenze:\n\n• Ottima conoscenza della lingua italiana, almeno C1\n\n• Buona conoscenza della lingua tedesca e/o inglese, almeno B2\n\n• Buone conoscenze informatiche\n\n• Diploma di scuola superiore\n\n• Anche se non obbligatorie, costituiranno titolo preferenziale una comprovata esperienza pregressa nel ruolo e il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera o PDT Italia\n\nChi siamo\n\nNon possiamo spostare le montagne, è chiaro. Ma non importa. Perché, come alpinisti esperti nel trasporto merci su rotaia, vediamo le montagne come una sfida, non come un ostacolo. Trasportiamo merci di tonnellate dal Mare del Nord, attraverso le Alpi, fino al Mediterraneo, e questa è un'impresa complessa. La affrontiamo in squadra con i nostri circa 450 collaboratori in Svizzera, Belgio, Germania e Italia. I nostri clienti sono internazionali, le nostre radici locali. Proprio per questo lavorare per BLS Cargo è particolarmente stimolante.",
+      "descriptionByLocale": {
+        "it": "Senza di te nessun treno può partire. Come membro dell'affiatato team di BLS Cargo Italia, ti assicuri che tutto funzioni alla perfezione. Il trasporto ferroviario ti appassiona e in un batter d'occhio fai in modo che i nostri treni possano circolare. Grazie a te, migliaia di tonnellate di merci possono attraversare le Alpi in tutta sicurezza.\n\nIl tuo lavoro:\n\n• Inserire e monitorare i dati attraverso software dedicati, assicurando la regolare partenza e l'andamento dei treni\n\n• Interfacciarti con le altre imprese ferroviarie e i terminal per una gestione ottimale del traffico ferroviario\n\n• Gestire situazioni di emergenza e di stress e risolvere problematiche in tempo reale garantendo il corretto svolgimento dell'esercizio\n\n• Gestione delle risorse mirata alla copertura del traffico ferroviario\n\nLe tue competenze:\n\n• Ottima conoscenza della lingua italiana, almeno C1\n\n• Buona conoscenza della lingua tedesca e/o inglese, almeno B2\n\n• Buone conoscenze informatiche\n\n• Diploma di scuola superiore\n\n• Anche se non obbligatorie, costituiranno titolo preferenziale una comprovata esperienza pregressa nel ruolo e il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera o PDT Italia\n\nChi siamo\n\nNon possiamo spostare le montagne, è chiaro. Ma non importa. Perché, come alpinisti esperti nel trasporto merci su rotaia, vediamo le montagne come una sfida, non come un ostacolo. Trasportiamo merci di tonnellate dal Mare del Nord, attraverso le Alpi, fino al Mediterraneo, e questa è un'impresa complessa. La affrontiamo in squadra con i nostri circa 450 collaboratori in Svizzera, Belgio, Germania e Italia. I nostri clienti sono internazionali, le nostre radici locali. Proprio per questo lavorare per BLS Cargo è particolarmente stimolante.",
+        "en": "Without you no train can leave. As a member of the dedicated team of BLS Cargo Italia, make sure everything works perfectly. Rail transport is passionate about you and in a blink of an eye, so that our trains can circulate. Thanks to you, thousands of tons of goods can cross the Alps safely.\n\nYour job:\n\n• Insert and monitor data through dedicated software, ensuring the regular departure and performance of trains\n\n• Interface with other railway companies and terminals for optimal management of railway traffic\n\n• Manage emergency and stress situations and solve real-time problems by ensuring proper exercise\n\n• Management of resources aimed at rail traffic coverage\n\nYour skills:\n\n• Excellent knowledge of the Italian language, at least C1\n\n• Good knowledge of German and/or English, at least B2\n\n• Good computer knowledge\n\n• High School Diploma\n\n• Even if not mandatory, will constitute preferential title a proven experience in the role and possession of TKC / ZV Switzerland or PDT Italy railway permits\n\nWho are we?\n\nWe can't move the mountains, it's clear. But it doesn't matter. Because, as experienced mountaineers in freight transport on rail, we see the mountains as a challenge, not as an obstacle. We transport goods of tons from the North Sea, through the Alps, to the Mediterranean, and this is a complex enterprise. We team up with our approximately 450 employees in Switzerland, Belgium, Germany and Italy. Our customers are international, our local roots. For this reason, working for BLS Cargo is particularly challenging.",
+        "de": "Ohne dich kann kein Zug abfahren. Als Mitglied des engagierten Teams von BLS Cargo Italia, stellen Sie sicher, dass alles perfekt funktioniert. Der Schienenverkehr ist leidenschaftlich für Sie und im Handumdrehen, damit unsere Züge fahren können. Dank Ihnen können Tausende Tonnen Waren die Alpen sicher überqueren.\n\nIhr Job:\n\n• Einfügen und Überwachen von Daten durch spezielle Software, um die regelmäßige Abfahrt und Leistung von Zügen zu gewährleisten\n\n• Schnittstelle zu anderen Eisenbahnunternehmen und Terminals für optimales Management des Eisenbahnverkehrs\n\n• Verwalten Sie Notfall- und Stresssituationen und lösen Sie Echtzeitprobleme, indem Sie die richtige Bewegung sicherstellen\n\n• Verwaltung von Ressourcen zur Abdeckung des Schienenverkehrs\n\nIhre Fähigkeiten:\n\n• Ausgezeichnete Kenntnisse der italienischen Sprache, mindestens C1\n\n• Gute Deutsch- und/oder Englischkenntnisse, mindestens B2\n\n• Gute Computerkenntnisse\n\n• High School Diplom\n\n• Auch wenn nicht obligatorisch, wird ein bevorzugter Titel eine nachgewiesene Erfahrung in der Rolle und im Besitz von TKC / ZV Schweiz oder PDT Italien Eisenbahngenehmigungen darstellen\n\nWer sind wir?\n\nWir können die Berge nicht bewegen, es ist klar. Aber es spielt keine Rolle. Denn als erfahrene Bergsteiger im Güterverkehr auf der Schiene sehen wir die Berge als Herausforderung, nicht als Hindernis. Wir transportieren Tonnengüter von der Nordsee, durch die Alpen, bis zum Mittelmeer, und das ist ein komplexes Unterfangen. Wir arbeiten mit unseren rund 450 Mitarbeitern in der Schweiz, Belgien, Deutschland und Italien zusammen. Unsere Kunden sind international, unsere lokalen Wurzeln. Aus diesem Grund ist die Arbeit für BLS Cargo eine besondere Herausforderung.",
+        "fr": "Sans toi, aucun train ne peut partir. En tant que membre de l'équipe dédiée de BLS Cargo Italia, assurez-vous que tout fonctionne parfaitement. Le transport ferroviaire est passionné par vous et en un clin d'œil, afin que nos trains puissent circuler. Grâce à vous, des milliers de tonnes de marchandises peuvent traverser les Alpes en toute sécurité.\n\nVotre travail :\n\n• Insérer et surveiller les données au moyen de logiciels dédiés, en assurant le départ et la performance réguliers des trains\n\n• Interface avec d'autres compagnies ferroviaires et terminaux pour une gestion optimale du trafic ferroviaire\n\n• Gérer les situations d'urgence et de stress et résoudre les problèmes en temps réel en assurant un exercice approprié\n\n• Gestion des ressources destinées à couvrir le trafic ferroviaire\n\nVos compétences :\n\n• Excellente connaissance de la langue italienne, au moins C1\n\n• Bonne connaissance de l'allemand et/ou de l'anglais, au moins B2\n\n• Bonnes connaissances informatiques\n\n• Diplôme d'études secondaires\n\n• Même si elle n'est pas obligatoire, constitue un titre préférentiel une expérience prouvée dans le rôle et la possession du CTK / ZV Suisse ou PDT Italie permis ferroviaires\n\nQui sommes-nous ?\n\nOn ne peut pas déplacer les montagnes, c'est clair. Mais peu importe. Parce que, comme les alpinistes expérimentés dans le transport de marchandises sur le rail, nous voyons les montagnes comme un défi, pas comme un obstacle. Nous transportons des marchandises de tonnes de la mer du Nord, à travers les Alpes, à la Méditerranée, et c'est une entreprise complexe. Nous faisons équipe avec environ 450 employés en Suisse, Belgique, Allemagne et Italie. Nos clients sont internationaux, nos racines locales. Pour cette raison, travailler pour BLS Cargo est particulièrement difficile."
+      },
+      "location": "Beura-cardezza",
+      "canton": "",
+      "url": "https://jobs.bls.ch/offene-stellen/operatrice-operatore-di-sala-operativa/b6563f4f-7ab2-4d50-b20b-fa3a8dec7dfe",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-10T10:34:01.596Z",
+      "addressLocality": "Beura-cardezza",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "28851",
+      "category": "Produzione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "validThrough": "2026-08-28",
+      "pensum": "60-100%",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/b6563f4f-7ab2-4d50-b20b-fa3a8dec7dfe",
+      "requirements": [
+        "Ottima conoscenza della lingua italiana, almeno C1",
+        "Buona conoscenza della lingua tedesca e/o inglese, almeno B2",
+        "Buone conoscenze informatiche",
+        "Diploma di scuola superiore",
+        "Anche se non obbligatorie, costituiranno titolo preferenziale una comprovata esperienza pregressa nel ruolo e il possesso di abilitazioni ferroviarie di TKC / ZV Svizzera o PDT Italia"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Ottima conoscenza della lingua italiana, almeno C1",
+          "Buona conoscenza della lingua tedesca e/o inglese, almeno B2",
+          "Buone conoscenze informatiche",
+          "Diploma di scuola superiore"
+        ]
+      },
+      "firstSeenAt": "2026-07-30T22:19:48.191Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }
