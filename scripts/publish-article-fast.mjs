@@ -56,10 +56,28 @@
 //      opposite kind of pass — whole-dist, needed by every emitted page — so
 //      it runs last, after the article pages have been post-processed.
 //
+// TWIN FILE. nanakokyobashi-rgb/frontaliere-articles carries a SEPARATE COPY of
+// this script at the same path, with no automatic mirror between them
+// (mirror-articles-engine.yml carries engine/ only). If either copy is touched,
+// touch both. The pair is registered in that repo's
+// scripts/ci/loop-sync-manifest.json so loop-drift-check reports a divergence
+// instead of swallowing it — the declaration used to exist ONLY on the corpus
+// side, where the side that had to act could not read it, and that is precisely
+// how issue #5457 stayed open: #65 wired the control-character guard into that
+// copy and this one kept publishing unscreened for days. The two copies
+// implement DIFFERENT policies on that guard on purpose (there: sanitise; here:
+// refuse) — see scripts/lib/control-char-publish-gate.mjs for why.
+//
 // Writes a summary JSON describing what was rendered, for stream B
 // (incremental shard push) and stream C (fast-publish workflow) to consume:
 //   { id, section, shards: [{locale, subtree, paths, url}, ...],
-//     cdnUploads: [{local, key}, ...], edgeFiles: [{pathname, distPath, urlCount}, ...] }
+//     cdnUploads: [{local, key}, ...], edgeFiles: [{pathname, distPath, urlCount}, ...],
+//     refused: [{path, codes, count}, ...] }
+//   `refused` = rendered files the control-character gate withheld from the
+//   push; they are absent from `shards[].paths` and from `edgeFiles`, and the
+//   copy already on the shard keeps serving. Empty on a clean run. A locale
+//   whose ARTICLE page was refused keeps its (shorter) `paths` and omits `url`
+//   — nothing new is serving there, so nothing is polled or announced for it.
 //   `paths` per shard = [article index.html, article flat bridge, ...that
 //   locale's hub-archive pages from step 6, ...that locale's topic-hub pages
 //   from step 6b].
@@ -91,6 +109,15 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { pinRenderEnv, renderHubsAndOffload } from './lib/render-and-push-hubs.mjs';
+// Output-boundary REFUSAL (see scripts/lib/control-char-publish-gate.mjs).
+// The renderer is build-plugins/ogPagesPlugin.ts, whose article half is the
+// mirrored engine under packages/articles/engine — so the guard sits where
+// THIS script decides what gets pushed. It refuses; it never repairs. The
+// corpus repo's copy of this script sanitises at the same points instead, and
+// that asymmetry is deliberate and documented in the gate's header: over there
+// one poisoned title can cost a 3120-URL sitemap, over here a refusal costs
+// exactly the page it refuses (issue #5457).
+import { keepPublishable, screenShardPaths } from './lib/control-char-publish-gate.mjs';
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -251,17 +278,72 @@ async function main() {
   // section-shard-slugs.json mirrors — so no new shard, key or push leg is
   // involved. The list is empty when step 6b failed, which is why it is
   // spread defensively rather than indexed.
-  const shards = locales.map((locale) => ({
-    locale,
-    subtree: locale === 'it' ? slugMap.it : `${locale}/${slugMap[locale]}`,
-    paths: [
-      entry.paths[locale],
-      entry.flatPaths[locale],
-      ...hubResult.pathsByLocale[locale],
-      ...(topicHubResult.pathsByLocale[locale] ?? []),
+  const candidatePathsByLocale = new Map(
+    locales.map((locale) => [
+      locale,
+      [
+        entry.paths[locale],
+        entry.flatPaths[locale],
+        ...hubResult.pathsByLocale[locale],
+        ...(topicHubResult.pathsByLocale[locale] ?? []),
+      ].filter(Boolean),
+    ]),
+  );
+
+  // ── The control-character gate (issue #5457) ────────────────────────────
+  //
+  // Screened HERE, between "what this run rendered" and "what the workflow is
+  // told to push", because that is the last point at which refusing costs one
+  // page instead of a process. The verdict is used twice below — once per
+  // shard list, once for the apex sitemap — and NEITHER may be replaced by the
+  // unfiltered list: PR #5488 shipped a version of this gate whose result was
+  // computed and then dropped, and its suite stayed 20/20 green while every
+  // poisoned page went out. tests/control-char-publish-gate.test.ts asserts
+  // statically that `keepPublishable` is what `paths` is built from.
+  //
+  // A refusal is NOT a run failure. The clean locales still push, the purge
+  // and the topic sitemap still run, and the refused page keeps serving the
+  // copy it already has — which, for every case measured so far, is the
+  // CORRECT one (the live page renders `ogTitle`, the mangled field is
+  // `title`). Overwriting it with a stripped `Il 3territorio poroso3` would be
+  // the regression, not the fix.
+  const screening = screenShardPaths({
+    baseDir: distDir,
+    relPaths: [
+      ...[...candidatePathsByLocale.values()].flat(),
+      ...(topicHubResult.sitemapPath ? [topicHubResult.sitemapPath] : []),
     ],
-    url: entry.urls[locale],
-  }));
+    logPrefix: '[publish-article-fast]',
+    target: `${args.section}/${args.id}`,
+  });
+
+  // A locale whose every path was refused is dropped rather than pushed empty:
+  // push-article-shard-incremental.sh exits 1 on "bad usage" with no relpaths,
+  // which would turn a correct refusal into a shard-push failure and, through
+  // the workflow's `if: failure()` reporter, into a Bug issue claiming the
+  // article was not published at all.
+  const shards = locales
+    .map((locale) => {
+      const paths = keepPublishable(candidatePathsByLocale.get(locale) ?? [], screening);
+      // `url` is what scripts/wait-for-live-article-shards.mjs polls, and it
+      // digests the FIRST index.html in `paths` to compare against what that
+      // URL serves. Both become wrong when the article's own page is the
+      // refused one: for a NEW article the URL 404s precisely because it was
+      // never pushed, and the digest would be taken from a hub page instead —
+      // so a correct refusal would surface as a failed publish and, through
+      // the workflow's `if: failure()` reporter, as a Bug issue saying the
+      // article never went out. A locale that did not publish its article page
+      // therefore pushes whatever else is clean and advertises no URL to poll.
+      const articleRel = entry.paths[locale];
+      const articlePublished = Boolean(articleRel) && paths.includes(articleRel);
+      return {
+        locale,
+        subtree: locale === 'it' ? slugMap.it : `${locale}/${slugMap[locale]}`,
+        paths,
+        ...(articlePublished ? { url: entry.urls[locale] } : {}),
+      };
+    })
+    .filter((shard) => shard.paths.length > 0);
 
   // Derive cdnUploads from entry.img's ACTUAL resolved directory — NOT a
   // hardcoded `images/blog/`. resolveImagePath() (ogPagesPlugin.ts) resolves
@@ -306,8 +388,18 @@ async function main() {
   // wrote" travel together or not at all. Empty when step 6b failed or
   // produced no indexable hub; the workflow skips the publish rather than
   // pushing a stale copy.
+  //
+  // The sitemap goes through the same gate, and for the strongest version of
+  // the reason: XML 1.0 §2.2 admits no C0 at all, so one byte in one
+  // `<image:title>` entitles a strict consumer to reject the WHOLE document.
+  // Refused here means the previously published sitemap keeps serving, which
+  // is the outcome the workflow already handles — it skips the publish rather
+  // than pushing a stale copy when this list is empty.
   const edgeFiles = [];
-  if (topicHubResult.sitemapPath) {
+  if (
+    topicHubResult.sitemapPath &&
+    keepPublishable([topicHubResult.sitemapPath], screening).length === 1
+  ) {
     edgeFiles.push({
       pathname: `/${topicHubResult.sitemapPath}`,
       distPath: topicHubResult.sitemapPath,
@@ -315,7 +407,16 @@ async function main() {
     });
   }
 
-  const summary = { id: args.id, section: args.section, shards, cdnUploads, edgeFiles };
+  // `refused` rides the summary so the refusal outlives the log: the workflow
+  // steps that run AFTER the push (purge, sitemap, notify) can read it, and a
+  // later step can turn it into a non-zero exit without re-rendering anything.
+  // Deliberately not an exit code here — see the gate header's failure posture.
+  const refused = screening.refused.map(({ relPath, findings }) => ({
+    path: relPath,
+    codes: [...new Set(findings.map((f) => `0x${f.code.toString(16).padStart(2, '0')}`))],
+    count: findings.length,
+  }));
+  const summary = { id: args.id, section: args.section, shards, cdnUploads, edgeFiles, refused };
   const summaryPath = path.resolve(args.summary);
   fs.mkdirSync(path.dirname(summaryPath), { recursive: true });
   fs.writeFileSync(summaryPath, JSON.stringify(summary, null, 2) + '\n', 'utf-8');
@@ -325,6 +426,12 @@ async function main() {
     `[publish-article-fast] done — id=${args.id} section=${args.section} wrote=${written} article files + ${hubResult.written} hub pages, wall=${(wallMs / 1000).toFixed(1)}s`,
   );
   console.log(`[publish-article-fast] summary written to ${summaryPath}`);
+  if (refused.length > 0) {
+    console.log(
+      `[publish-article-fast] control-char gate: ${refused.length} of ${screening.checked} rendered file(s) ` +
+        `withheld, ${shards.length}/${locales.length} locale shard(s) still publishing`,
+    );
+  }
 }
 
 main().catch((err) => {
