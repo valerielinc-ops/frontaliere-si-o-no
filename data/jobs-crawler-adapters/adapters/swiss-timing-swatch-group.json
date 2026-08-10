@@ -10,13 +10,8 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://www.swisstiming.com/careers",
-    "https://www.swisstiming.com/career",
-    "https://www.swisstiming.com/jobs",
-    "https://www.swisstiming.com/karriere",
-    "https://www.swisstiming.com/offene-stellen",
-    "https://www.swisstiming.com/lavora-con-noi"
+    "https://www.swisstiming.com/company/job-offers/"
   ],
-  "notes": "",
-  "updatedAt": "2026-02-27T17:06:06.988Z"
+  "notes": "Seed URLs corrected 2026-08-10 (issue #5395). All SIX previous seeds — /careers, /career, /jobs, /karriere, /offene-stellen, /lavora-con-noi — return HTTP 404 (2366-byte error page, verified on each); the site moved to Azure Front Door and its careers page is now /company/job-offers/, the only careers link in the homepage nav (HTTP 200). The page is served from the Swatch Group central job system (the job lists carry xmlns:c=\"https://www.swatchgroup.com/schemas/company.xsd\") and groups openings per legal entity: 'Swiss Timing LTD' (Corgémont, Switzerland) currently renders an EMPTY <ul>, while the only two live listings belong to its German subsidiary 'ST Sportservice GmbH' (Leipzig) — ?job=269611 Elektroniker and ?job=269751 System Engineer — both out of scope for a Swiss job board. Cross-checked against the group-wide swatchgroup.com/en/job-finder?jf_country=40 pager: 0 of the 106 live Swiss postings carry the swiss-timing brand logo. Zero Swiss openings is therefore the correct current output, and the key is registered in EMPTY_OK_CRAWLERS in scripts/check-crawler-health.mjs; it re-arms when Corgémont publishes a vacancy.",
+  "updatedAt": "2026-08-10T00:00:00.000Z"
 }
