@@ -171,6 +171,73 @@ describe('classifySuppressionDecay — what must NEVER be recovered', () => {
     }
   });
 
+  /**
+   * `bounce_severity` is the STRUCTURED verdict of `classifyBounceSeverity()`;
+   * the reason text is prose. Testing the prose and never the field inverts
+   * the two — and `maybeEscalateSoftBounce()` exploits that inversion by
+   * accident: it writes `bounce_severity: 'hard'` with a reason
+   * (`"<reason> (escalated after N consecutive soft rejects)"`) that matches
+   * none of the hard phrases. Since those addresses generally DO have
+   * historical deliveries, a regex-only classifier files them `proven-alive`,
+   * and `recoveryFields()` resets `soft_bounce_count` — so the weekly job
+   * would escalate→decay→escalate→decay forever, cancelling the
+   * sender-reputation protection outright.
+   */
+  it('treats bounce_severity=hard as authoritative even when the reason matches nothing', () => {
+    const escalated = provenAlive({ bounce_reason: 'some entirely novel provider wording', bounce_severity: 'hard' });
+    expect(HARD_BOUNCE_PATTERN.test(String(escalated.bounce_reason))).toBe(false);
+    const v = classifySuppressionDecay(escalated, NOW);
+    expect(v.tier).toBe('terminal');
+    expect(v.code).toBe('hard-severity');
+  });
+
+  it('never recovers the exact production escalation string', () => {
+    // 84 docs in job_alert_subscribers carried precisely this on 2026-08-10,
+    // plus 3 in newsletter_subscribers; the `inbox was full …(escalated…)`
+    // form accounts for 28 + 27 more, and `Recipient is on the suppression
+    // list (escalated…)` for 5.
+    for (const bounce_reason of [
+      'reject (escalated after 3 consecutive soft rejects)',
+      "The recipient's email provider sent a bounce message because the recipient's inbox was full. (escalated after 3 consecutive soft rejects)",
+      'Recipient is on the suppression list (escalated after 3 consecutive soft rejects)',
+    ]) {
+      const doc = provenAlive({ bounce_reason, bounce_severity: 'hard' });
+      expect(`${bounce_reason} → ${classifySuppressionDecay(doc, NOW).tier}`)
+        .toBe(`${bounce_reason} → terminal`);
+    }
+  });
+
+  it('excludes an escalated soft bounce from BOTH tiers, not just from proven-alive', () => {
+    const noDelivery = {
+      status: 'bounced',
+      bounce_reason: 'reject (escalated after 3 consecutive soft rejects)',
+      bounce_severity: 'hard',
+      bounced_at: daysAgo(400),
+    };
+    expect(classifySuppressionDecay(noDelivery, NOW).tier).toBe('terminal');
+  });
+
+  it('keeps the legacy no-severity backlog recoverable — over-correcting would lose the whole point', () => {
+    // `bounce_severity` was written but never READ anywhere before this PR, so
+    // its ABSENCE is the common case and defines the population this module
+    // exists to drain. Making every `bounced` doc terminal would "fix" the
+    // finding by deleting the feature.
+    const legacy = strandedReject();
+    expect('bounce_severity' in legacy).toBe(false);
+    expect(classifySuppressionDecay(legacy, NOW).tier).toBe('never-probed');
+    expect(classifySuppressionDecay(provenAlive(), NOW).tier).toBe('proven-alive');
+  });
+
+  it('does not treat a soft severity as hard', () => {
+    const soft = provenAlive({ bounce_severity: 'soft' });
+    expect(classifySuppressionDecay(soft, NOW).tier).toBe('proven-alive');
+  });
+
+  it('buckets a hard severity as hard-evidence in the invariant, not as a violation', () => {
+    const escalated = provenAlive({ bounce_reason: 'reject (escalated after 3 consecutive soft rejects)', bounce_severity: 'hard' });
+    expect(classifySuppressionEvidence(escalated, NOW)).toBe('hard-evidence');
+  });
+
   it('does not read a soft/reputation reason as a hard bounce', () => {
     for (const reason of ['reject', 'Over quota', 'spam content', 'greylisted', 'temporary failure', '']) {
       expect(HARD_BOUNCE_PATTERN.test(reason)).toBe(false);

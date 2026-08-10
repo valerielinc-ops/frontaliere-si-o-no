@@ -510,6 +510,40 @@ export function classifySuppressionDecay(sub, nowMs) {
     }
   }
 
+  // ── Severity is the PRIMARY signal; the regex is the legacy fallback ─────
+  //
+  // `bounce_severity` is a STRUCTURED verdict written by
+  // `classifyBounceSeverity()` (functions/src/lib/bounceClassification.js).
+  // Reading the reason text first, and the field never, inverts the two: it
+  // makes a prose string authoritative over the classification the system
+  // actually computed.
+  //
+  // It is also a live defect, not a tidiness point. `maybeEscalateSoftBounce()`
+  // writes `status: 'bounced'`, `bounce_severity: 'hard'` and
+  // `bounce_reason: "<reason> (escalated after N consecutive soft rejects)"`
+  // after 3 consecutive soft rejects with no delivery in between — a
+  // DELIBERATELY permanent suppression that exists to protect the sending
+  // domain. That reason string contains none of the phrases in
+  // HARD_BOUNCE_PATTERN, so a regex-only test files it as recoverable. Since
+  // most of those addresses do have historical deliveries, they land in
+  // `proven-alive` and the weekly `--apply` job would restore every one of them
+  // — and `recoveryFields()` writes `soft_bounce_count: 0`, which re-arms the
+  // escalation counter. Escalate → decay → escalate → decay, once a week,
+  // forever: an oscillator that cancels the protection entirely. Measured
+  // population on 2026-08-10: 84 + 28 docs in `job_alert_subscribers` and
+  // 3 + 27 + 5 in `newsletter_subscribers`.
+  //
+  // Keyed on the FIELD, not on the `(escalated after …)` suffix: pattern-
+  // matching a string to fix a string-matching bug survives exactly until
+  // someone rewords the message.
+  if (norm(sub?.bounce_severity) === 'hard') {
+    return verdict('terminal', 'hard-severity', false, `provider bounce classified hard (bounce_severity), reason "${bounceReason}"`);
+  }
+
+  // Legacy fallback ONLY, for documents written before `bounce_severity`
+  // existed. That absence is the COMMON case in this backlog — it is precisely
+  // what defines the population this module exists to drain — so a missing
+  // field must never be read as hard.
   if (HARD_BOUNCE_PATTERN.test(bounceReason)) {
     return verdict('terminal', 'hard-reason', false, `unambiguous hard-bounce reason: "${bounceReason}"`);
   }
@@ -722,7 +756,7 @@ export function classifySuppressionEvidence(sub, nowMs) {
   // self-heal is right to leave alone — or, worse, stay silent about one it
   // isn't. Bucketing on the machine-readable `code`, never on the prose.
   const { code } = classifySuppressionDecay(sub, nowMs);
-  if (code === 'hard-reason') return 'hard-evidence';
+  if (code === 'hard-reason' || code === 'hard-severity') return 'hard-evidence';
   if (code === 'human-status' || code === 'human-complaint-stamp' || code === 'human-unsubscribe-stamp') {
     return 'own-choice';
   }
