@@ -13,10 +13,10 @@ on:
   workflow_dispatch:
     inputs:
       cap:
-        description: 'Max crawler→agent:fix per run (anti-burst)'
+        description: 'Max crawler→agent:fix DIRETTI per run. La coda concurrency di issue-fix ha profondità 1: >1 garantisce sfratti (#5514). Lo sforo va in agent:fix-queued.'
         required: false
         type: string
-        default: '5'
+        default: '1'
       dry_run:
         description: 'Solo log, nessuna modifica'
         required: false
@@ -188,9 +188,16 @@ jobs:
   # Self-healing del tagging: recupera le issue orfane (no agent:triaged) che il
   # path event-driven non triagia mai (run cancellato da burst, o issue creata da
   # GITHUB_TOKEN → anti-ricorsione). Zero-Claude (riusa il classifier). Gentle
-  # by-construction: crawler → fix capped/run, crawler-transient → solo triaged
-  # (auto-close, label esplicita), ogni altra categoria (dal 2026-07-05) → coda
-  # (drainer 1-alla-volta). Vedi scripts/ci/triage-sweep.mjs.
+  # by-construction: crawler → al più UN agent:fix diretto per run e solo a slot
+  # issue-fix libero (#5514: il vecchio cap 5 garantiva 4 sfratti, la coda
+  # concurrency ha profondità 1), lo sforo in coda ad alta priorità;
+  # crawler-transient → solo triaged (auto-close, label esplicita), ogni altra
+  # categoria (dal 2026-07-05) → coda (drainer 1-alla-volta).
+  # Vedi scripts/ci/triage-sweep.mjs.
+  #
+  # NOTA: per le issue `[crawler-health]` questo sweep è l'UNICO router — il
+  # monitor le apre con GITHUB_TOKEN, quindi `issues:[opened]` non scatta mai
+  # (anti-ricorsione GitHub) e il job `triage` sopra non le vede.
   sweep:
     if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
@@ -239,7 +246,10 @@ jobs:
           GITHUB_PAT: ${{ env.GITHUB_PAT }}
           GH_REPO: ${{ github.repository }}
           # Dispatch inputs reach the shell as DATA, never as script text.
-          INPUT_CAP: ${{ github.event.inputs.cap || '5' }}
+          # Default 1, non 5 (#5514): 5 `agent:fix` nello stesso run del cron
+          # significavano 4 run sfrattate dalla coda concurrency di issue-fix,
+          # che ha profondità 1. Lo sforo finisce in `agent:fix-queued`.
+          INPUT_CAP: ${{ github.event.inputs.cap || '1' }}
           INPUT_DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: |
           set -uo pipefail

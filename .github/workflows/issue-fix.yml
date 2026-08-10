@@ -5,8 +5,27 @@ on:
     types: [labeled]
 
 # Serializza i fixer: un agent alla volta evita N PR concorrenti sullo stesso
-# data file (crawler config) + rispetta il cap OOM (max parallel agent). Le issue
-# in coda vengono processate appena lo slot si libera.
+# data file (crawler config) + rispetta il cap OOM (max parallel agent).
+#
+# ATTENZIONE — questa NON è una coda (#5514). `cancel-in-progress: false`
+# protegge la run IN CORSO, non le pending: GitHub tiene **una sola** run pending
+# per gruppo, e ogni nuova pending SFRATTA (`cancelled`) la precedente. La
+# profondità della coda è 1, non N. Due `agent:fix` applicati a due issue nello
+# stesso minuto producono quindi una run lavorata e una cancellata prima di
+# partire — e poiché `on: issues:[labeled]` è one-shot, l'evento della run
+# sfrattata è consumato: la label resta sulla issue e NIENTE la ri-arma.
+# Misurato: 13 run `cancelled` su 100; il 2026-08-08 alle 09:02 cinque
+# `[crawler-health]` etichettate insieme → 1 riuscita, 4 issue ferme due giorni
+# (#5392 #5393 #5394 #5395). Il commento che stava qui prima diceva l'opposto
+# («le issue in coda vengono processate appena lo slot si libera») ed è ciò che
+# rendeva il difetto invisibile a chi leggeva il workflow.
+#
+# Chi garantisce davvero che una sola pending esista alla volta sta FUORI da
+# questo file: `scripts/ci/followup-drainer.mjs` promuove UNA issue a `agent:fix`
+# per tick e solo a slot libero, e `scripts/ci/triage-sweep.mjs` applica al più
+# un `agent:fix` diretto per run (`crawlerDirectFixBudget`). Se aggiungi un altro
+# punto che applica `agent:fix`, deve rispettare la stessa regola o reintroduce
+# gli sfratti.
 concurrency:
   group: issue-fix
   cancel-in-progress: false
