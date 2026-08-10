@@ -125,10 +125,45 @@ describe('parseArticlePath', () => {
     ['an absolute URL', 'https://frontaliereticino.ch/articoli-frontaliere/x/'],
     ['a relative path', 'articoli-frontaliere/x/'],
     ['a query string', '/articoli-frontaliere/x/?utm=1'],
-    ['an uppercase slug', '/articoli-frontaliere/Gaggiolo/'],
+    ['path traversal', '/articoli-frontaliere/../x/'],
+    ['an empty slug', '/articoli-frontaliere//'],
     ['a non-string', 42],
   ])('rejects %s', (_label, value) => {
     expect(parseArticlePath(value as string)).toBeNull();
+  });
+
+  /**
+   * Review round 1, adversarial check: an alphabet allowlist here is not a
+   * safe default, it is a landmine. `loadArticleRedirects` throws by design, so
+   * a slug shape it fails to anticipate does not skip one redirect — it kills
+   * the production build. These four are REAL published slugs that the first
+   * `^[a-z0-9][a-z0-9-]*$` version rejected.
+   */
+  it.each([
+    ['an accented DE slug', '/de/grenzgaenger-artikel/naspi-ehemalige-grenzgänger-2026/'],
+    ['an accented FR slug', '/fr/articles-frontalier/ristournes-gelées-tessin-italie/'],
+    ['an underscored EN slug', '/en/cross-border-articles/coop_calls_back_cheese_salmonella/'],
+    ['a slug with an uppercase letter', '/de/grenzgaenger-artikel/san-gottardo-Code-good-friday/'],
+  ])('accepts %s, which is live in the corpus today', (_label, value) => {
+    expect(parseArticlePath(value)).not.toBeNull();
+  });
+});
+
+/**
+ * The durable version of the check above: the rule cannot drift away from the
+ * corpus, because the corpus itself is the fixture. 15.356 paths today.
+ */
+describe('parseArticlePath accepts every published article path', () => {
+  it('parses all of them', () => {
+    const published = readPublishedArticlePaths(ROOT);
+    expect(published.missing).toEqual([]);
+    expect(published.paths.size).toBeGreaterThan(10000);
+    const rejected = [...published.paths].filter((p) => parseArticlePath(p) === null);
+    expect(
+      rejected.slice(0, 10),
+      `${rejected.length} published article paths would be refused by parseArticlePath — ` +
+      'since loadArticleRedirects throws, that is a build-killer the day one of them is renamed',
+    ).toEqual([]);
   });
 });
 
@@ -361,6 +396,40 @@ describe('cross-source redirect chains (PR #5537 review round 1)', () => {
     expect(() => readHardcodedRedirects(ROOT, {
       readFileSync: (() => 'const redirects = {};') as never,
     })).toThrow(/lo scan ha trovato 0 coppie/);
+  });
+
+  /**
+   * Review round 1, adversarial check: the "more than 50" canary only catches a
+   * scan that broke completely, not one that silently skips the entries someone
+   * reformatted. Those would drop out of the chain check without a word — the
+   * exact failure shape this whole PR is about. So a key line the parser cannot
+   * read is now an error, not an absence.
+   */
+  it('refuses to under-count: a re-quoted entry is an error, not a silent skip', () => {
+    const source = [
+      "const redirects: Record<string, string> = {",
+      ...Array.from({ length: 60 }, (_, i) => ` '/articoli-frontaliere/a${i}/': '/articoli-frontaliere/b${i}/',`),
+      ' "/articoli-frontaliere/re-quoted/": "/articoli-frontaliere/target/",',
+      '};',
+    ].join('\n');
+    expect(() => readHardcodedRedirects(ROOT, { readFileSync: (() => source) as never }))
+      .toThrow(/re-quoted/);
+  });
+
+  it('tolerates the one computed entry (a job path, which no article can collide with)', () => {
+    const source = [
+      "const redirects: Record<string, string> = {",
+      ...Array.from({ length: 60 }, (_, i) => ` '/articoli-frontaliere/a${i}/': '/articoli-frontaliere/b${i}/',`),
+      " '/job-board/': `/${resolveCantonSection('it', '_AGGREGATE_')}/`,",
+      '};',
+    ].join('\n');
+    const parsed = readHardcodedRedirects(ROOT, { readFileSync: (() => source) as never });
+    expect(Object.keys(parsed)).toHaveLength(60);
+    expect(parsed['/job-board/']).toBeUndefined();
+  });
+
+  it('reads the real map without hitting either guard', () => {
+    expect(Object.keys(HARDCODED).length).toBe(156);
   });
 });
 

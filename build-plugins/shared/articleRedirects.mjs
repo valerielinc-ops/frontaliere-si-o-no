@@ -110,8 +110,25 @@ export function parseArticlePath(p) {
   for (const [prefix, meta] of articleSectionPrefixes()) {
     if (!norm.startsWith(prefix)) continue;
     const slug = norm.slice(prefix.length, -1);
-    if (!slug || slug.includes('/')) return null;
-    if (!/^[a-z0-9][a-z0-9-]*$/.test(slug)) return null;
+    // Deliberately a DENYLIST, not an alphabet allowlist. The first version of
+    // this function required `^[a-z0-9][a-z0-9-]*$`, which reads like an
+    // obviously-safe slug rule and is wrong about this corpus: measured against
+    // the 15.356 published article paths, it rejects 93 of them —
+    //   · 89 with accented lowercase (ß à ä è é ê ï ô ö ü): the whole DE/FR
+    //     side, e.g. `naspi-ehemalige-grenzgänger-2026`, `ristournes-gelées-tessin-italie`;
+    //   · 3 with underscores: `coop_calls_back_cheese_salmonella` + siblings;
+    //   · 1 with an uppercase letter: `san-gottardo-Code-good-friday`.
+    // Since `loadArticleRedirects` throws by design, an allowlist here does not
+    // reject one entry — it kills the whole production build the day anybody
+    // renames one of those 93 articles. `tests/article-rename-redirects.test.ts`
+    // pins this by parsing every published path, so the rule cannot drift away
+    // from the corpus again.
+    //
+    // What is actually worth refusing is the shape that is not a slug at all:
+    // empty, a nested path, or path traversal. Everything else is settled by a
+    // check no regex can do — the truth table against the published registries.
+    if (!slug || slug === '.' || slug === '..') return null;
+    if (/[\\/\s?#]/.test(slug)) return null;
     return { locale: meta.locale, section: meta.section, slug, path: norm };
   }
   return null;
@@ -213,9 +230,37 @@ export function readHardcodedRedirects(rootDir, io = {}) {
   /** @type {Record<string, string>} */
   const out = {};
   let n = 0;
-  for (const m of src.matchAll(/^\s*'(\/[^']*)':\s*'(\/[^']*)',/gm)) {
-    out[withTrailingSlash(m[1])] = withTrailingSlash(m[2]);
-    n++;
+  let dynamic = 0;
+  /** @type {string[]} */
+  const unsupported = [];
+
+  // One pass that classifies EVERY line shaped like a map key, instead of a
+  // regex that quietly matches a subset. A canary on the total ("more than 50")
+  // only catches a scan that broke completely; it says nothing about a scan
+  // that silently skips the twenty entries someone reformatted. Here a key line
+  // this parser cannot read is an error, not an absence:
+  //   group 2 = key, group 3 = single-quoted path value (a pair),
+  //   group 4 = backtick (a computed value — one exists today, `/job-board/`,
+  //   whose target is resolveCantonSection(); it is a job path and can never
+  //   collide with an article redirect), group 5 = anything else.
+  for (const m of src.matchAll(/^[ \t]*(['"])(\/[^'"\n]*)\1\s*:\s*(?:'(\/[^'\n]*)'|(`)|(\S))/gm)) {
+    if (m[3] !== undefined) {
+      out[withTrailingSlash(m[2])] = withTrailingSlash(m[3]);
+      n++;
+    } else if (m[4] !== undefined) {
+      dynamic++;
+    } else {
+      unsupported.push(m[2]);
+    }
+  }
+
+  if (unsupported.length > 0) {
+    throw new Error(
+      `${LEGACY_REDIRECTS_SOURCE}: ${unsupported.length} voci con un valore che questo scan non sa leggere ` +
+      `(atteso '/percorso/' fra apici singoli): ${unsupported.join(', ')}. ` +
+      'Sono redirect reali che verrebbero esclusi in silenzio dai controlli sulle catene: ' +
+      'aggiornare lo scan, non ignorarle.',
+    );
   }
   if (n < HARDCODED_SCAN_FLOOR) {
     throw new Error(
