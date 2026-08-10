@@ -1,18 +1,76 @@
 {
   "key": "mcdonald-s-switzerland",
   "label": "McDonald's",
-  "generatedAt": "2026-08-10T10:47:56.448Z",
+  "generatedAt": "2026-08-10T22:13:33.474Z",
   "total": 210,
-  "newCount": 72,
-  "updatedCount": 0,
+  "newCount": 2,
+  "updatedCount": 70,
   "removedCount": 0,
   "unchangedCount": 139,
-  "durationMs": 6520,
-  "avgDurationMs": 6520,
+  "durationMs": 6871,
+  "avgDurationMs": 6871,
   "durationHistory": [
-    6520
+    6871
   ],
   "newJobs": [
+    {
+      "title": "Crew Mitarbeiter/in",
+      "company": "McDonald's Switzerland",
+      "companyKey": "mcdonald-s-switzerland",
+      "companyDomain": "mcdonalds.ch",
+      "url": "https://jobs.mcdonalds.ch/details-offre/7904",
+      "slug": "crew-mitarbeiter-in-mcdonalds-switzerland-bale-8637",
+      "location": "Bâle",
+      "canton": "",
+      "country": "CH",
+      "postalCode": "",
+      "streetAddress": "Basel Badischer Banhof",
+      "postedDate": "2025-12-17",
+      "validThrough": "",
+      "employmentType": "PART_TIME",
+      "jobReqId": "8637",
+      "sector": "Ristorazione / Fast Food",
+      "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-10T22:13:27.538Z",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    },
+    {
+      "title": "Crew-Mitarbeiter/in",
+      "company": "McDonald's Switzerland",
+      "companyKey": "mcdonald-s-switzerland",
+      "companyDomain": "mcdonalds.ch",
+      "url": "https://jobs.mcdonalds.ch/details-offre/7838",
+      "slug": "crew-mitarbeiter-in-mcdonalds-switzerland-bale-8512",
+      "location": "Bâle",
+      "canton": "",
+      "country": "CH",
+      "postalCode": "",
+      "streetAddress": "Basel Centralbahnstrasse",
+      "postedDate": "2025-11-16",
+      "validThrough": "",
+      "employmentType": "PART_TIME",
+      "jobReqId": "8512",
+      "sector": "Ristorazione / Fast Food",
+      "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-10T22:13:27.538Z",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Crew Mitarbeiter/in",
       "company": "McDonald's Switzerland",
@@ -32,12 +90,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.958Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-08-10T22:13:27.528Z",
+      "id": "mcdonald-s-switzerland-75020c2d9cd0",
+      "firstSeenAt": "2026-08-10T10:47:50.958Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -60,12 +120,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.959Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-08-10T22:13:27.528Z",
+      "id": "mcdonald-s-switzerland-001f6b707efc",
+      "firstSeenAt": "2026-08-10T10:47:50.959Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -88,12 +150,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-10T10:47:50.960Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-08-10T22:13:27.529Z",
+      "id": "mcdonald-s-switzerland-32fbf3e01c78",
+      "firstSeenAt": "2026-08-10T10:47:50.960Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -116,12 +180,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T10:47:50.962Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-08-10T22:13:27.530Z",
+      "id": "mcdonald-s-switzerland-184601d1755f",
+      "firstSeenAt": "2026-08-10T10:47:50.962Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -144,12 +210,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T10:47:50.963Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-08-10T22:13:27.531Z",
+      "id": "mcdonald-s-switzerland-4f77a4fb96ed",
+      "firstSeenAt": "2026-08-10T10:47:50.963Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -172,12 +240,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.963Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-08-10T22:13:27.531Z",
+      "id": "mcdonald-s-switzerland-152f069da783",
+      "firstSeenAt": "2026-08-10T10:47:50.963Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -200,12 +270,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.980Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-08-10T22:13:27.541Z",
+      "id": "mcdonald-s-switzerland-dd7c771e9bd8",
+      "firstSeenAt": "2026-08-10T10:47:50.980Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -228,12 +300,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.964Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-08-10T22:13:27.531Z",
+      "id": "mcdonald-s-switzerland-5649236515d3",
+      "firstSeenAt": "2026-08-10T10:47:50.964Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -256,12 +330,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.977Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-08-10T22:13:27.539Z",
+      "id": "mcdonald-s-switzerland-d03dfe6ffa74",
+      "firstSeenAt": "2026-08-10T10:47:50.977Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -284,12 +360,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T10:47:50.965Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-08-10T22:13:27.532Z",
+      "id": "mcdonald-s-switzerland-c749461a8e23",
+      "firstSeenAt": "2026-08-10T10:47:50.965Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -312,12 +390,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T10:47:50.965Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-08-10T22:13:27.533Z",
+      "id": "mcdonald-s-switzerland-269708d570f4",
+      "firstSeenAt": "2026-08-10T10:47:50.965Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -340,12 +420,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.966Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-08-10T22:13:27.533Z",
+      "id": "mcdonald-s-switzerland-aadb163cd37a",
+      "firstSeenAt": "2026-08-10T10:47:50.966Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -368,12 +450,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.966Z",
-      "_qualityScore": 66,
+      "crawledAt": "2026-08-10T22:13:27.533Z",
+      "id": "mcdonald-s-switzerland-4fbd0fd194a0",
+      "firstSeenAt": "2026-08-10T10:47:50.966Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -396,12 +480,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.966Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-08-10T22:13:27.533Z",
+      "id": "mcdonald-s-switzerland-8ab6e36455b0",
+      "firstSeenAt": "2026-08-10T10:47:50.966Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 23,
         "completeness": 14
       }
     },
@@ -424,12 +510,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.967Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-08-10T22:13:27.534Z",
+      "id": "mcdonald-s-switzerland-3383df52f4e9",
+      "firstSeenAt": "2026-08-10T10:47:50.967Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -452,12 +540,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.967Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-08-10T22:13:27.534Z",
+      "id": "mcdonald-s-switzerland-30822cfc2915",
+      "firstSeenAt": "2026-08-10T10:47:50.967Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -480,12 +570,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.968Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-08-10T22:13:27.534Z",
+      "id": "mcdonald-s-switzerland-2a5ec240e2bd",
+      "firstSeenAt": "2026-08-10T10:47:50.968Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -508,12 +600,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.968Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-08-10T22:13:27.534Z",
+      "id": "mcdonald-s-switzerland-a8ed4319e35e",
+      "firstSeenAt": "2026-08-10T10:47:50.968Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -536,12 +630,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:47:50.969Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-08-10T22:13:27.535Z",
+      "id": "mcdonald-s-switzerland-2fbdb09f913d",
+      "firstSeenAt": "2026-08-10T10:47:50.969Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -564,40 +660,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.969Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-08-10T22:13:27.535Z",
+      "id": "mcdonald-s-switzerland-a44d2957d13e",
+      "firstSeenAt": "2026-08-10T10:47:50.969Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "Schichtkoordinator",
-      "company": "McDonald's Switzerland",
-      "companyKey": "mcdonald-s-switzerland",
-      "companyDomain": "mcdonalds.ch",
-      "url": "https://jobs.mcdonalds.ch/details-offre/8010",
-      "slug": "schichtkoordinator-mcdonalds-switzerland-frauenfeld-8842",
-      "location": "Frauenfeld",
-      "canton": "TG",
-      "country": "CH",
-      "postalCode": "",
-      "streetAddress": "Weinfelden",
-      "postedDate": "2026-01-21",
-      "validThrough": "",
-      "employmentType": "PART_TIME",
-      "jobReqId": "8842",
-      "sector": "Ristorazione / Fast Food",
-      "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.969Z",
-      "_qualityScore": 66,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -620,12 +690,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.970Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-08-10T22:13:27.535Z",
+      "id": "mcdonald-s-switzerland-bd605bc6b3d8",
+      "firstSeenAt": "2026-08-10T10:47:50.970Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -648,12 +720,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:47:50.970Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-08-10T22:13:27.535Z",
+      "id": "mcdonald-s-switzerland-4c554b2adfb0",
+      "firstSeenAt": "2026-08-10T10:47:50.970Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -676,12 +750,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.970Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-08-10T22:13:27.536Z",
+      "id": "mcdonald-s-switzerland-7b934755972a",
+      "firstSeenAt": "2026-08-10T10:47:50.970Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -704,12 +780,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.971Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-08-10T22:13:27.536Z",
+      "id": "mcdonald-s-switzerland-3e5423b871e6",
+      "firstSeenAt": "2026-08-10T10:47:50.971Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -732,12 +810,44 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.971Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-08-10T22:13:27.536Z",
+      "id": "mcdonald-s-switzerland-60ad3a878ff9",
+      "firstSeenAt": "2026-08-10T10:47:50.971Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "title": "Schichtkoordinator",
+      "company": "McDonald's Switzerland",
+      "companyKey": "mcdonald-s-switzerland",
+      "companyDomain": "mcdonalds.ch",
+      "url": "https://jobs.mcdonalds.ch/details-offre/8010",
+      "slug": "schichtkoordinator-mcdonalds-switzerland-frauenfeld-8842",
+      "location": "Frauenfeld",
+      "canton": "TG",
+      "country": "CH",
+      "postalCode": "",
+      "streetAddress": "Weinfelden",
+      "postedDate": "2026-01-21",
+      "validThrough": "",
+      "employmentType": "PART_TIME",
+      "jobReqId": "8842",
+      "sector": "Ristorazione / Fast Food",
+      "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-10T22:13:27.536Z",
+      "id": "mcdonald-s-switzerland-180076e8ce5f",
+      "firstSeenAt": "2026-08-10T10:47:50.969Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -760,12 +870,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.971Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-08-10T22:13:27.536Z",
+      "id": "mcdonald-s-switzerland-29361b932ff2",
+      "firstSeenAt": "2026-08-10T10:47:50.971Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -788,40 +900,14 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.972Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-08-10T22:13:27.536Z",
+      "id": "mcdonald-s-switzerland-9d7668a41a96",
+      "firstSeenAt": "2026-08-10T10:47:50.972Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "Mitarbeiter*in max. 40 % Pensum für Hinwil",
-      "company": "McDonald's Switzerland",
-      "companyKey": "mcdonald-s-switzerland",
-      "companyDomain": "mcdonalds.ch",
-      "url": "https://jobs.mcdonalds.ch/details-offre/7940",
-      "slug": "mitarbeiter-in-max-40-pensum-fur-hinwil-mcdonalds-switzerland-hinwil-8724",
-      "location": "Hinwil",
-      "canton": "ZH",
-      "country": "CH",
-      "postalCode": "",
-      "streetAddress": "Hinwil",
-      "postedDate": "2026-01-03",
-      "validThrough": "",
-      "employmentType": "PART_TIME",
-      "jobReqId": "8724",
-      "sector": "Ristorazione / Fast Food",
-      "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.972Z",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -844,17 +930,48 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:47:50.972Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-08-10T22:13:27.537Z",
+      "id": "mcdonald-s-switzerland-b869df78dd92",
+      "firstSeenAt": "2026-08-10T10:47:50.972Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Mitarbeiter*in max. 40% Pensum, Autobahnzentrum Fuchsberg",
+      "company": "McDonald's Switzerland",
+      "companyKey": "mcdonald-s-switzerland",
+      "companyDomain": "mcdonalds.ch",
+      "url": "https://jobs.mcdonalds.ch/details-offre/7941",
+      "slug": "mitarbeiter-in-max-40-pensum-autobahnzentrum-fuchsberg-mcdonalds-switzerland-wollerau-8726",
+      "location": "Wollerau",
+      "canton": "SZ",
+      "country": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "postedDate": "2026-01-03",
+      "validThrough": "",
+      "employmentType": "PART_TIME",
+      "jobReqId": "8726",
+      "sector": "Ristorazione / Fast Food",
+      "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-10T22:13:27.537Z",
+      "id": "mcdonald-s-switzerland-d38032dc57a2",
+      "firstSeenAt": "2026-08-10T10:47:50.972Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -885,7 +1002,7 @@
       "addressLocality": "LENZBURG",
       "addressCountry": "CH",
       "addressRegion": "AG",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -922,7 +1039,7 @@
       "addressLocality": "ZUCHWIL",
       "addressCountry": "CH",
       "addressRegion": "SO",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -959,7 +1076,7 @@
       "addressLocality": "ETOY",
       "addressCountry": "CH",
       "addressRegion": "VD",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -996,7 +1113,7 @@
       "addressLocality": "ETOY",
       "addressCountry": "CH",
       "addressRegion": "VD",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1033,7 +1150,7 @@
       "addressLocality": "ETOY",
       "addressCountry": "CH",
       "addressRegion": "VD",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1070,7 +1187,7 @@
       "addressLocality": "Crissier",
       "addressCountry": "CH",
       "addressRegion": "VD",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1107,7 +1224,7 @@
       "addressLocality": "SPREITENBACH",
       "addressCountry": "CH",
       "addressRegion": "AG",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1144,7 +1261,7 @@
       "addressLocality": "KOELLIKEN",
       "addressCountry": "CH",
       "addressRegion": "AG",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1181,7 +1298,7 @@
       "addressLocality": "LA CHAUX-DE-FONDS",
       "addressCountry": "CH",
       "addressRegion": "NE",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1218,7 +1335,7 @@
       "addressLocality": "LA CHAUX-DE-FONDS",
       "addressCountry": "CH",
       "addressRegion": "NE",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1255,7 +1372,7 @@
       "addressLocality": "ALLSCHWIL",
       "addressCountry": "CH",
       "addressRegion": "BL",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1292,7 +1409,7 @@
       "addressLocality": "ST-GALLEN",
       "addressCountry": "CH",
       "addressRegion": "SG",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1329,7 +1446,7 @@
       "addressLocality": "St. Margrethen",
       "addressCountry": "CH",
       "addressRegion": "SG",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1366,7 +1483,7 @@
       "addressLocality": "STAAD SG",
       "addressCountry": "CH",
       "addressRegion": "SG",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1403,7 +1520,7 @@
       "addressLocality": "LAUSANNE",
       "addressCountry": "CH",
       "addressRegion": "VD",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1440,7 +1557,7 @@
       "addressLocality": "USTER",
       "addressCountry": "CH",
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1477,7 +1594,7 @@
       "addressLocality": "DELEMONT",
       "addressCountry": "CH",
       "addressRegion": "JU",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1514,7 +1631,7 @@
       "addressCountry": "CH",
       "addressRegion": "ZH",
       "firstSeenAt": "2026-08-05T11:37:57.072Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1551,7 +1668,7 @@
       "addressLocality": "MELS - SG",
       "addressCountry": "CH",
       "addressRegion": "SG",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1588,7 +1705,7 @@
       "addressLocality": "MELS - SG",
       "addressCountry": "CH",
       "addressRegion": "SG",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1625,7 +1742,7 @@
       "addressLocality": "KREUZLINGEN",
       "addressCountry": "CH",
       "addressRegion": "TG",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1662,7 +1779,7 @@
       "addressLocality": "HINWIL",
       "addressCountry": "CH",
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1699,7 +1816,7 @@
       "addressLocality": "KREUZLINGEN",
       "addressCountry": "CH",
       "addressRegion": "TG",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1736,7 +1853,7 @@
       "addressLocality": "FRAUENFELD",
       "addressCountry": "CH",
       "addressRegion": "TG",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1773,7 +1890,7 @@
       "addressLocality": "KREUZLINGEN",
       "addressCountry": "CH",
       "addressRegion": "TG",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1810,7 +1927,7 @@
       "addressLocality": "FRAUENFELD",
       "addressCountry": "CH",
       "addressRegion": "TG",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1847,7 +1964,7 @@
       "addressLocality": "RENENS",
       "addressCountry": "CH",
       "addressRegion": "VD",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1884,7 +2001,7 @@
       "addressLocality": "MORGES",
       "addressCountry": "CH",
       "addressRegion": "VD",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1921,7 +2038,7 @@
       "addressCountry": "CH",
       "addressRegion": "BS",
       "firstSeenAt": "2026-08-05T11:37:57.075Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1958,7 +2075,7 @@
       "addressLocality": "LANGENTHAL",
       "addressCountry": "CH",
       "addressRegion": "BE",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
