@@ -1249,6 +1249,87 @@ jobs:
             npm run audit:canonical-trailing-slash
           spawn_capped audit:news-sitemap            /tmp/g16.log \
             npm run audit:news-sitemap
+
+          # ── JOB TITLE LOCALE — REPORT, NOT A GATE (PR #5571) ───────────────
+          #
+          # `npm run audit:job-title-locale` (scripts/audit-job-title-locale.mjs)
+          # measures how many non-source `titleByLocale` slots still read as
+          # another language once employer/location names are stripped, via
+          # titleLooksUntranslated(). It is wired here DIRECTLY, and the two
+          # things it is NOT are both deliberate:
+          #
+          #  • NOT registered in `scripts/audit-all.mjs`, for two independent
+          #    reasons. (a) STRUCTURAL: audit-all's REGISTRY entries are
+          #    `factory` functions that the unified runner feeds one dist HTML
+          #    file at a time (scripts/lib/audit-runner.mjs). This audit never
+          #    opens dist/ — its corpus is data/jobs.json, restored above from
+          #    the jobs-master artifact because that is the only copy still
+          #    carrying titleByLocale/descriptionByLocale. There is no shape in
+          #    which it is an audit-all auditor. (b) SAMPLING: audit-all reads
+          #    AUDIT_SAMPLE_RATE (scripts/audit-all.mjs, `sample-rate` default
+          #    `process.env.AUDIT_SAMPLE_RATE`), which this step's env pins to
+          #    '0.25'. Registering there means inheriting a 25 % sample IN
+          #    SILENCE — and this audit's entire output is a published RATE
+          #    that tests/job-locale-consistency.test.ts ratchets against
+          #    (33.00 % ceiling, 30.14 % measured 2026-08-10). A number that
+          #    moves with the sample is not the number that ratchet is about,
+          #    and the weekly job-title-locale-audit.yml — which runs the same
+          #    script unsampled — would then disagree with this one for no
+          #    reason a reader could see.
+          #  • NOT `spawn_capped`, for the same reason as the Discover block
+          #    above: spawn_capped's contract is a GATE. A non-zero rc lands in
+          #    /tmp/post-build-failures.txt, fails this step and, through the
+          #    default-deny scripts/ci/classify-validate-dist-failures.mjs,
+          #    sequesters `publish`. This audit is report-only by construction
+          #    (it sets a non-zero exitCode only when the caller passes
+          #    --max-rate, which nothing here does) and ~30 % of title slots
+          #    flag today: gating on it would block every deploy on a defect
+          #    that predates it by months. The `rc=0` below is a LITERAL for
+          #    exactly the Discover reasons; the real rc is echoed into the log
+          #    so a crash stays loud without being blocking.
+          #
+          # WHAT THIS CALL SITE ADDS over the weekly workflow: frequency and
+          # subject. The weekly one assembles the dataset from the committed
+          # slices and owns the speaking issue; this one measures the very
+          # data/jobs.json the deployed build consumed, on every deploy, at
+          # 100 % coverage.
+          #
+          # COST, and why this block is LAST in the spawn list. It is one
+          # JSON.parse of data/jobs.json plus a regex pass over the ~80k
+          # non-source title slots — no dist walk at all, so it adds no new
+          # heap CLASS to this pool: validate:jobs-quality parses the identical
+          # file (scripts/validate-jobs-quality.mjs) under the identical
+          # --max-old-space-size=4096. What it could add is a second COPY of
+          # that parse resident at the same moment. `wait_slot` admits entrants
+          # in source order, and validate:jobs-quality is admitted 2nd while
+          # this is admitted last, after the five light audits above — by then
+          # it has long exited, and what remains co-resident is the pool tail
+          # (audit:all ~1 GB, audit:spa-bundle-injection), neither of which
+          # touches jobs.json. Even a full overlap fits: ~0.5 GB each against
+          # the ~3-4 GB cumulative peak recorded in the MAX_PARALLEL comment
+          # and the runner's ~7 GB. Peak CONCURRENCY is unchanged either way —
+          # `wait_slot` counts every background job of this shell, so one more
+          # entrant in a slot-gated queue cannot raise it.
+          #
+          # The report goes to /tmp, never to the checked-out data/: this job
+          # validates a build, it must not mutate its tree. It is also not
+          # written to dist/audit-reports/, whose `gate-offenders` jq line in
+          # `Publish gate results` expects a gate-shaped record.
+          wait_slot
+          (
+            set +e
+            start=$(date +%s.%N)
+            npm run audit:job-title-locale -- --report /tmp/job-title-locale-audit.json \
+              > /tmp/job-title-locale.log 2>&1
+            rc=$?
+            end=$(date +%s.%N)
+            echo "" >> /tmp/job-title-locale.log
+            echo "[report-only] audit:job-title-locale exited rc=$rc — NOT a gate; never propagated to post-build-failures.txt nor to failed_gates (PR #5571)" \
+              >> /tmp/job-title-locale.log
+            # `rc=0` is HARD-CODED on purpose — see the bullet above.
+            awk "BEGIN{printf \"%-40s %7.2f rc=0\n\", \"audit:job-title-locale(report-only)\", $end-$start}" \
+              >> /tmp/post-build-timings.txt
+          ) &
           # audit:image-object-license migrated into `npm run audit:all`
           # (see scripts/audit-all.mjs REGISTRY). Single dist walk, in-process
           # JSON-LD parse — removes 34 s of standalone wall time from the
@@ -1297,6 +1378,18 @@ jobs:
           echo "Discover eligibility — REPORT ONLY, not a gate (25 % rotating sample)"
           echo "══════════════════════════════════════════════════════════════════════"
           cat /tmp/discover-eligibility.log 2>/dev/null || true
+          echo "══════════════════════════════════════════════════════════════════════"
+
+          # Same argument for the job-title-locale report: no failure branch by
+          # construction, and its JSON goes to /tmp (not to dist/audit-reports,
+          # whose `gate-offenders` jq line below expects a gate-shaped record).
+          # The job log is where this number survives — it outlives the 7-day
+          # artifact retention the weekly workflow's report depends on.
+          echo ""
+          echo "══════════════════════════════════════════════════════════════════════"
+          echo "Job title locale — REPORT ONLY, not a gate (100 % of data/jobs.json)"
+          echo "══════════════════════════════════════════════════════════════════════"
+          cat /tmp/job-title-locale.log 2>/dev/null || true
           echo "══════════════════════════════════════════════════════════════════════"
 
           echo ""

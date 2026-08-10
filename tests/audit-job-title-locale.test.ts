@@ -306,3 +306,82 @@ describe('translate-pending.yml — the repair path is actually scheduled', () =
     expect((yml.match(/mark-mistranslated-jobs\.mjs/g) || []).length).toBeGreaterThanOrEqual(1);
   });
 });
+
+describe('post-deploy-validate-dist.yml — the audit runs on every deploy, report-only and unsampled', () => {
+  const POSTDEPLOY = fs.readFileSync(
+    path.join(ROOT, '.github', 'workflows', 'post-deploy-validate-dist.yml'),
+    'utf-8'
+  );
+  const AUDIT_ALL = fs.readFileSync(path.join(ROOT, 'scripts', 'audit-all.mjs'), 'utf-8');
+
+  /**
+   * The subshell that launches the audit inside the capped pool — CODE only.
+   * Anchored on a line that *starts* with the command, because the rationale
+   * comment above it quotes the same command and every flag it deliberately
+   * does not pass; slicing from the first textual occurrence would swallow the
+   * comment (and the neighbouring Discover block) and make every assertion
+   * below vacuous in the direction that matters.
+   */
+  const block = (() => {
+    const lines = POSTDEPLOY.split('\n');
+    const cmd = lines.findIndex((l) => /^\s*npm run audit:job-title-locale\b/.test(l));
+    if (cmd < 0) return '';
+    let start = cmd;
+    while (start > 0 && !/^\s*wait_slot\s*$/.test(lines[start])) start -= 1;
+    let end = cmd;
+    while (end < lines.length - 1 && !/^\s*\)\s*&\s*$/.test(lines[end])) end += 1;
+    return lines.slice(start, end + 1).join('\n');
+  })();
+
+  it('the extracted block is the launch code, not the prose around it', () => {
+    // Guards the guard: an empty or over-wide slice would make the
+    // `not.toMatch` assertions below pass for the wrong reason.
+    expect(block).toMatch(/^\s*wait_slot\s*$/m);
+    expect(block).toMatch(/^\s*npm run audit:job-title-locale\b/m);
+    expect(block.split('\n').length).toBeLessThan(20);
+  });
+
+  it('is reachable from the workflow at all — the guard tests/deploy-workflow.test.ts enforces', () => {
+    // An `audit:*` script in package.json that no workflow invokes is an audit
+    // that never runs. This is the same reachability assertion, stated from the
+    // audit's side so the reason it holds lives next to the audit.
+    expect(POSTDEPLOY).toMatch(/npm run audit:job-title-locale\b/);
+  });
+
+  it('is NOT a gate: no spawn_capped, and the timings row hard-codes rc=0', () => {
+    // spawn_capped's contract is a GATE — a non-zero rc reaches
+    // /tmp/post-build-failures.txt, fails the step and, via the default-deny
+    // classify-validate-dist-failures.mjs, sequesters `publish`. ~30% of title
+    // slots flag today, so gating here would block every deploy on a defect
+    // that predates the measurement by months.
+    expect(POSTDEPLOY).not.toMatch(/spawn_capped\s+audit:job-title-locale/);
+    expect(block).toMatch(/rc=0/);
+    // The redirection, not the word: the block's own log line SAYS
+    // "post-build-failures.txt" to explain that it never writes there.
+    expect(block).not.toMatch(/>>\s*\/tmp\/post-build-failures\.txt/);
+    // --max-rate is the only flag that makes the script exit non-zero. Passing
+    // it here would turn the report into a gate through the back door.
+    expect(block).not.toMatch(/--max-rate/);
+  });
+
+  it('is NOT registered in audit-all.mjs — that would sample it at AUDIT_SAMPLE_RATE in silence', () => {
+    // audit-all.mjs reads AUDIT_SAMPLE_RATE (pinned to '0.25' in this
+    // workflow's env), so registering there inherits a 25% sample with nothing
+    // written anywhere saying so. This audit's whole output is a published RATE
+    // that tests/job-locale-consistency.test.ts ratchets against, and the
+    // weekly job-title-locale-audit.yml runs the same script unsampled — the
+    // two would disagree for no reason a reader could see. It is also
+    // structurally impossible: audit-all's REGISTRY entries are per-dist-file
+    // auditor factories, and this audit reads data/jobs.json, never dist/.
+    expect(AUDIT_ALL).not.toMatch(/name:\s*['"]job-title-locale['"]/);
+    expect(POSTDEPLOY).toMatch(/AUDIT_SAMPLE_RATE:\s*'0\.25'/);
+  });
+
+  it('prints its summary into the job log, on red runs too', () => {
+    // The pool `cat`s gate logs only in the FAILURE branch, and this block has
+    // no failure branch by construction: without an explicit cat the audit
+    // would run and print nowhere. Printed before the FAIL aggregation so a red
+    // gate elsewhere cannot swallow it.
+    expect(POSTDEPLOY).toMatch(/cat \/tmp\/job-title-locale\.log/);
+  });
+});
