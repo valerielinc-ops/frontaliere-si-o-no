@@ -267,7 +267,7 @@ export function buildNursingLandingCopy(
 // ─────────────────────────────────────────────────────────────────
 
 const IT_NURSES: NursingLandingCopy = {
-  title: 'Lavoro infermiere in Svizzera 2026: stipendi, CCL, permessi, concorsi | Frontaliere Ticino',
+  title: 'Lavoro infermiere in Svizzera 2026: stipendi, CCL, concorsi | Frontaliere Ticino',
   description:
     'Guida completa al lavoro da infermiere in Svizzera per frontalieri e residenti: CCL applicabili, stipendio netto per esperienza, riconoscimento MEBEKO del titolo italiano, concorsi EOC, Moncucco, LIS e cliniche private. Aggiornato 2026.',
   h1: 'Lavoro infermiere in Svizzera: guida 2026 per frontalieri',
