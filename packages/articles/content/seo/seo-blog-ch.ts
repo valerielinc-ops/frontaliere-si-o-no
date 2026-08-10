@@ -12421,16 +12421,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-assicurazione-vita-privata-svizzera-convienne-frontaliere': {
     title: 'Assicurazione vita privata svizzera per il frontaliere: quando conviene?',
-    description: 'Ecco i fatti chiave sull\'assicurazione vita privata svizzera per i frontaliere: regole, tassi, benefici e vantaggi rispetto al terzo pilastro. Dati aggiornati',
+    description: 'Ecco i fatti chiave sull\'assicurazione vita privata svizzera per i frontalieri: regole, tassi, benefici e vantaggi rispetto al terzo pilastro. Dati aggiornati',
     keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, vita, privata, quando',
-    ogTitle: 'Assicurazione vita privata svizzera per i frontaliere: quando conviene?',
-    ogDescription: 'Ecco i fatti chiave sull\'assicurazione vita privata svizzera per i frontaliere: regole, tassi, benefici e vantaggi rispetto al terzo pilastro.',
+    ogTitle: 'Assicurazione vita privata svizzera per i frontalieri: quando conviene?',
+    ogDescription: 'Ecco i fatti chiave sull\'assicurazione vita privata svizzera per i frontalieri: regole, tassi, benefici e vantaggi rispetto al terzo pilastro.',
     canonicalPath: '/articoli-svizzera/assicurazione-vita-privata-svizzera-convienne-frontaliere/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Assicurazione vita privata svizzera per il frontaliere: quando conviene?",
-      "description": "Ecco i fatti chiave sull'assicurazione vita privata svizzera per i frontaliere: regole, tassi, benefici e vantaggi rispetto al terzo pilastro. Dati aggiornati",
+      "description": "Ecco i fatti chiave sull'assicurazione vita privata svizzera per i frontalieri: regole, tassi, benefici e vantaggi rispetto al terzo pilastro. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -15696,17 +15696,17 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-stipendio-psicologo-frontaliere-ticino': {
-    title: 'Quanto guadagna un psicologo frontaliere in Ticino?',
-    description: 'Stipendio reale di un psicologo frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
+    title: 'Quanto guadagna uno psicologo frontaliere in Ticino?',
+    description: 'Stipendio reale di uno psicologo frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
     keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, psicologo, stipendio',
-    ogTitle: 'Quanto guadagna un psicologo frontaliere in Ticino?',
-    ogDescription: 'Stipendio reale di un psicologo frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
+    ogTitle: 'Quanto guadagna uno psicologo frontaliere in Ticino?',
+    ogDescription: 'Stipendio reale di uno psicologo frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
     canonicalPath: '/articoli-svizzera/stipendio-psicologo-frontaliere-ticino/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Quanto guadagna un psicologo frontaliere in Ticino?",
-      "description": "Stipendio reale di un psicologo frontaliere in Ticino: fascia salariale, differenze rispetto all'Italia, fattori che incidono sulla retribuzione.",
+      "headline": "Quanto guadagna uno psicologo frontaliere in Ticino?",
+      "description": "Stipendio reale di uno psicologo frontaliere in Ticino: fascia salariale, differenze rispetto all'Italia, fattori che incidono sulla retribuzione.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -16399,16 +16399,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-frontaliere-assistente-di-cura-ticino-stipendio-requisiti': {
     title: 'Frontaliere assistente di cura in Ticino: requisiti e riconoscimento',
-    description: 'Sono stati pubblicati i requisiti e il stipendio medio per gli assistenti di cura frontalieri in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    description: 'Sono stati pubblicati i requisiti e lo stipendio medio per gli assistenti di cura frontalieri in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, assistente, cura, requisiti, riconoscimento',
     ogTitle: 'Frontaliere assistente di cura in Ticino: stipendio medio, requisiti, riconoscimento del titolo di studio e permesso G',
-    ogDescription: 'Sono stati pubblicati i requisiti e il stipendio medio per gli assistenti di cura frontalieri in Ticino.',
+    ogDescription: 'Sono stati pubblicati i requisiti e lo stipendio medio per gli assistenti di cura frontalieri in Ticino.',
     canonicalPath: '/articoli-svizzera/frontaliere-assistente-di-cura-ticino-stipendio-requisiti/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Frontaliere assistente di cura in Ticino: requisiti e riconoscimento",
-      "description": "Sono stati pubblicati i requisiti e il stipendio medio per gli assistenti di cura frontalieri in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "Sono stati pubblicati i requisiti e lo stipendio medio per gli assistenti di cura frontalieri in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -16672,16 +16672,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-saldatore-frontaliere-ticino-stipendio-requisiti': {
     title: 'Saldatori in Ticino: stipendio, requisiti e riconoscimento',
-    description: 'Il Nuovo Accordo Frontalieri prevede nuove regole per i saldatori frontalieri in Ticino. In questo articolo, scopriamo i requisiti, il stipendio medio e le',
+    description: 'Il Nuovo Accordo Frontalieri prevede nuove regole per i saldatori frontalieri in Ticino. In questo articolo, scopriamo i requisiti, lo stipendio medio e le',
     keywords: 'frontalieri, ticino, svizzera, italia, saldatori, stipendio, requisiti, riconoscimento',
     ogTitle: 'Lavorare come saldatore in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G.',
-    ogDescription: 'Il Nuovo Accordo Frontalieri prevede nuove regole per i saldatori frontalieri in Ticino. In questo articolo, scopriamo i requisiti, il stipendio medio e le',
+    ogDescription: 'Il Nuovo Accordo Frontalieri prevede nuove regole per i saldatori frontalieri in Ticino. In questo articolo, scopriamo i requisiti, lo stipendio medio e le',
     canonicalPath: '/articoli-svizzera/saldatore-frontaliere-ticino-stipendio-requisiti/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Saldatori in Ticino: stipendio, requisiti e riconoscimento",
-      "description": "Il Nuovo Accordo Frontalieri prevede nuove regole per i saldatori frontalieri in Ticino. In questo articolo, scopriamo i requisiti, il stipendio medio e le",
+      "description": "Il Nuovo Accordo Frontalieri prevede nuove regole per i saldatori frontalieri in Ticino. In questo articolo, scopriamo i requisiti, lo stipendio medio e le",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -16789,16 +16789,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti': {
     title: 'Disegnatore tecnico in Ticino: stipendio, requisiti e permesso G',
-    description: 'Gli stipendi dei disegnatori tecnici in Ticino per i frontaliere, i requisiti per lavorare come disegnatore tecnico in Ticino da frontaliere e come riconoscere',
+    description: 'Gli stipendi dei disegnatori tecnici in Ticino per i frontalieri, i requisiti per lavorare come disegnatore tecnico in Ticino da frontaliere e come riconoscere',
     keywords: 'frontalieri, ticino, svizzera, italia, disegnatore, tecnico, stipendio, requisiti',
     ogTitle: 'Frontaliere disegnatore tecnico Ticino stipendio requisiti',
-    ogDescription: 'Gli stipendi dei disegnatori tecnici in Ticino per i frontaliere, i requisiti per lavorare come disegnatore tecnico in Ticino da frontaliere e come riconoscere',
+    ogDescription: 'Gli stipendi dei disegnatori tecnici in Ticino per i frontalieri, i requisiti per lavorare come disegnatore tecnico in Ticino da frontaliere e come riconoscere',
     canonicalPath: '/articoli-svizzera/frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Disegnatore tecnico in Ticino: stipendio, requisiti e permesso G",
-      "description": "Gli stipendi dei disegnatori tecnici in Ticino per i frontaliere, i requisiti per lavorare come disegnatore tecnico in Ticino da frontaliere e come riconoscere",
+      "description": "Gli stipendi dei disegnatori tecnici in Ticino per i frontalieri, i requisiti per lavorare come disegnatore tecnico in Ticino da frontaliere e come riconoscere",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -16945,16 +16945,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-frontaliere-risorse-umane-ticino-stipendio-requisiti': {
     title: 'Lavorare come risorse umane in Ticino: stipendio, requisiti e permesso G',
-    description: 'Nuovo Accordo Frontalieri: cosa cambia per i frontaliere che lavorano in Ticino?. Dati aggiornati 2026 per frontalieri in Ticino.',
+    description: 'Nuovo Accordo Frontalieri: cosa cambia per i frontalieri che lavorano in Ticino?. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, lavorare, risorse, umane, stipendio',
     ogTitle: 'Lavorare come risorse umane in Ticino da frontaliere: stipendio medio, requisiti, riconoscimento del titolo di studio e permesso G.',
-    ogDescription: 'Nuovo Accordo Frontalieri: cosa cambia per i frontaliere che lavorano in Ticino?',
+    ogDescription: 'Nuovo Accordo Frontalieri: cosa cambia per i frontalieri che lavorano in Ticino?',
     canonicalPath: '/articoli-svizzera/frontaliere-risorse-umane-ticino-stipendio-requisiti/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Lavorare come risorse umane in Ticino: stipendio, requisiti e permesso G",
-      "description": "Nuovo Accordo Frontalieri: cosa cambia per i frontaliere che lavorano in Ticino?. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "Nuovo Accordo Frontalieri: cosa cambia per i frontalieri che lavorano in Ticino?. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -17140,16 +17140,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-frontaliere-receptionist-ticino-stipendio-requisiti': {
     title: 'Lavorare come receptionist in Ticino: stipendio e requisiti',
-    description: 'Frontalieri, scopri i requisiti e il stipendio medio per lavorare come receptionist in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    description: 'Frontalieri, scopri i requisiti e lo stipendio medio per lavorare come receptionist in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, lavorare, receptionist, stipendio, requisiti',
     ogTitle: 'Lavorare come receptionist in Ticino da frontaliere: stipendio medio, requisiti e permesso G',
-    ogDescription: 'Frontalieri, scopri i requisiti e il stipendio medio per lavorare come receptionist in Ticino.',
+    ogDescription: 'Frontalieri, scopri i requisiti e lo stipendio medio per lavorare come receptionist in Ticino.',
     canonicalPath: '/articoli-svizzera/frontaliere-receptionist-ticino-stipendio-requisiti/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Lavorare come receptionist in Ticino: stipendio e requisiti",
-      "description": "Frontalieri, scopri i requisiti e il stipendio medio per lavorare come receptionist in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "Frontalieri, scopri i requisiti e lo stipendio medio per lavorare come receptionist in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -17413,16 +17413,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-frontaliere-lattoniere-ticino-stipendio-requisiti': {
     title: 'Lattoniere in Ticino: stipendio, requisiti e titolo',
-    description: 'Ecco i requisiti e il stipendio medio per i frontaliere lattonieri in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    description: 'Ecco i requisiti e lo stipendio medio per i frontalieri lattonieri in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, lattoniere, stipendio, requisiti, titolo',
     ogTitle: 'Lavorare come lattoniere in Ticino da frontaliere: stipendio medio, requisiti e riconoscimento del titolo di studio',
-    ogDescription: 'Ecco i requisiti e il stipendio medio per i frontaliere lattonieri in Ticino',
+    ogDescription: 'Ecco i requisiti e lo stipendio medio per i frontalieri lattonieri in Ticino',
     canonicalPath: '/articoli-svizzera/frontaliere-lattoniere-ticino-stipendio-requisiti/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Lattoniere in Ticino: stipendio, requisiti e titolo",
-      "description": "Ecco i requisiti e il stipendio medio per i frontaliere lattonieri in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "Ecco i requisiti e lo stipendio medio per i frontalieri lattonieri in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",

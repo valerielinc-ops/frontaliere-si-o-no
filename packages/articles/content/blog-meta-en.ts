@@ -9487,6 +9487,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-a-porlezza-e-lavorare-in-ticino-da-frontaliere.title': 'Living in Porlezza, working in Ticino as a border worker',
     'blog.article.vivere-a-porlezza-e-lavorare-in-ticino-da-frontaliere.excerpt': 'New 2026 tax agreement: what it means for frontier workers and how it will apply',
     'blog.article.vivere-a-porlezza-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'A cross-border worker who finds himself in a similar situation may seek to better understand the new fiscal rules that will apply to cross-border workers.',
+    'blog.article.vivere-porlezza-lavorare-ticino-guida.title': 'Living in Porlezza and working in Ticino as a border worker',
+    'blog.article.vivere-porlezza-lavorare-ticino-guida.excerpt': 'Practical guide to commuting between Porlezza and the Canton of Ticino: rules, taxation, permits and income management according to the new agreement.',
+    'blog.article.vivere-porlezza-lavorare-ticino-guida.imageAlt': 'Panoramic view of Lake Lugano',
 };
 
 export default blogMetaEn;
