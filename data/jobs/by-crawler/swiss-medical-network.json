@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-medical-network",
-  "assembledAt": "2026-08-09T10:26:28.079Z",
+  "assembledAt": "2026-08-09T21:36:29.727Z",
   "jobs": [
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142052834-dipl-pflegefachperson-hf",
@@ -45,16 +45,17 @@
       "sourceLang": "de",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-50-70-swiss-medical-network",
-        "dipl-soins-infirmiers-professionnels-hf-swiss-medical-network-zurich",
-        "dipl-pflegefachperson-hf-swiss-medical-network"
+        "dipl-soins-infirmiers-professionnels-hf-swiss-medical-network-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-50-70-swiss-medical-network",
-          "dipl-soins-infirmiers-professionnels-hf-swiss-medical-network-zurich",
-          "dipl-pflegefachperson-hf-swiss-medical-network"
+          "dipl-soins-infirmiers-professionnels-hf-swiss-medical-network-zurich"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1475,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-07T10:12:06.302Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -68,10 +69,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1475
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142052384-fachperson-gesundheit-efz",
@@ -114,6 +112,9 @@
         "location": "Rapperswil-Jona"
       },
       "sourceLang": "de",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1913,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-07T10:12:06.302Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -127,18 +128,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-gesundheit-efz-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "fachperson-gesundheit-efz-swiss-medical-network"
-      ],
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1913
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000141853869-icus",
@@ -183,20 +173,19 @@
       "sourceLang": "fr",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-06T11:39:31.181Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
+      "salaryMin": 116500,
+      "salaryMax": 162500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
+          "minValue": 116500,
+          "maxValue": 162500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000141853839-dieteticien-ne-diplome-e-",
@@ -239,6 +228,9 @@
         "location": "Montreux"
       },
       "sourceLang": "fr",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2423,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-06T11:39:31.181Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -252,35 +244,24 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "dieteticien-ne-diplome-e-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "dieteticien-ne-diplome-e-swiss-medical-network"
-      ],
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2423
+      }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137621779-physiotherapeute",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137621779-physiotherapeute?oga=true",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000141675019-physiotherapeute",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000141675019-physiotherapeute?oga=true",
       "title": "Physiothérapeute",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Glion",
-      "addressLocality": "Glion",
-      "addressRegion": "VD",
-      "canton": "VD",
+      "location": "Saint-Imier",
+      "addressLocality": "Saint-Imier",
+      "addressRegion": "BE",
+      "canton": "BE",
       "country": "CH",
-      "postalCode": "1823",
-      "description": "• Traitement des patients hospitalisés en orthopédie.\n\n• Traitement des patients ambulatoires (orthopédie, chirurgie du rachis, traumatologie, rhumatologie et médecine du sport).\n\n• Développement de la charge de travail en ambulatoire (isocinétisme)\n\n• Diplôme de physiothérapeute reconnu par la Croix Rouge suisse.\n\n• Dynamisme, esprit d’initiative et sens des responsabilités.\n\n• Autonomie, flexibilité, polyvalence et engagement\n\n• Sens de l’organisation et du travail en équipe.\n\n• Désir de s’engager dans la promotion de soins de qualité.\n\n• Grande capacité d’adaptation.\n\n• Une activité variée dans un domaine passionnant, au sein d’une clinique dynamique, stimulante et en pleine expansion\n\n• Un cadre de travail agréable\n\n• Une structure de taille humaine\n\n• Un salaire et des conditions sociales motivants\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nAncrée dans le panorama de la Riviera depuis 1905, la Clinique Valmont offre des séjours de réadaptation personnalisés pour les personnes présentant des atteintes neurologiques, orthopédiques et du dos, dans un cadre exceptionnel, face au Lac Léman et aux Alpes. Aujourd’hui, elle est devenue un établissement phare dans la réadaptation, de par son efficience thérapeutique inégalée, ses équipes compétentes et son plateau technique de pointe. En effet, les médecins en réadaptation collaborent avec une équipe d’experts multidisciplinaires, composée de physiothérapeutes, ergothérapeutes, neuropsychologues, logopédistes, maîtres de sport et diététicienne. En 2006, la clinique a rejoint Swiss Medical Network, l’un des deux principaux groupes suisses de cliniques privées.",
+      "postalCode": "2610",
+      "description": "• prestations de soins à nos patient(e)s hospitalisé(e)s et ambulatoires\n\n• appliquer les protocoles de rééducation dans les différents services hospitaliers\n\n• établir des bilans anamnestiques\n\n• rédiger différents rapports de physiothérapie\n\n• élaborer une démarche de soins individualisée\n\n• envie de s'engager sur la réalisation et prestations de qualité dans différents projets pionniers de développement du service de physiothérapie\n\n• diplôme de physiothérapeute\n\n• une expérience préalable en chirurgie orthopédique et suivi ambulatoire (atout)\n\n• compétences relationnelles et sociales\n\n• sens des responsabilités et de l’initiative\n\n• personnalité ouverte, dynamique et flexible\n\n• conscience professionnelle\n\n• facilité d’intégration et adaptation\n\n• flexibilité et autonomie\n\n• Une activité variée et intéressante, au sein d’un établissement dynamique en constant développement\n\n• Un encadrement professionnel de qualité\n\n• D’excellentes prestations sociales\n\n• Des possibilités de formation continue\n\n• Repas de midi à 5.- CHF pour les collaborateurs\n\n• Entretien et suivi par la Médecine du Personnel\n\n• Cadre de travail varié et stimulant\n\n• Une rémunération selon les normes de la convention collective de travail des hôpitaux et cliniques bernois.\n\n&#xa0;\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nÉtablissements de proximité et s’appuyant sur des compétences multidisciplinaires au service des patients, l’Hôpital de Moutier et l’Hôpital de Saint-Imier offrent des activités à haute valeur ajoutée dans les domaines somatique et de santé mentale. Comptant près de 1’200 collaborateurs, les hôpitaux, le Centre Médical Bienne (CMB/MZB) et les Medicentres du Réseau de l’Arc couvrent les besoins médicaux-hospitaliers d’une population de plus de 50’000 habitants et se caractérisent par leur dynamisme, leurs excellentes infrastructures et leur souci constant de développer des prestations de proximité et de qualité. Le Réseau de l’Arc est également la première organisation suisse de soins intégrés.",
       "descriptionByLocale": {
-        "en": "• Traitement des patients hospitalisés en orthopédie.\n\n• Traitement des patients ambulatoires (orthopédie, chirurgie du rachis, traumatologie, rhumatologie et médecine du sport).\n\n• Développement de la charge de travail en ambulatoire (isocinétisme)\n\n• Diplôme de physiothérapeute reconnu par la Croix Rouge suisse.\n\n• Dynamisme, esprit d’initiative et sens des responsabilités.\n\n• Autonomie, flexibilité, polyvalence et engagement\n\n• Sens de l’organisation et du travail en équipe.\n\n• Désir de s’engager dans la promotion de soins de qualité.\n\n• Grande capacité d’adaptation.\n\n• Une activité variée dans un domaine passionnant, au sein d’une clinique dynamique, stimulante et en pleine expansion\n\n• Un cadre de travail agréable\n\n• Une structure de taille humaine\n\n• Un salaire et des conditions sociales motivants\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nAncrée dans le panorama de la Riviera depuis 1905, la Clinique Valmont offre des séjours de réadaptation personnalisés pour les personnes présentant des atteintes neurologiques, orthopédiques et du dos, dans un cadre exceptionnel, face au Lac Léman et aux Alpes. Aujourd’hui, elle est devenue un établissement phare dans la réadaptation, de par son efficience thérapeutique inégalée, ses équipes compétentes et son plateau technique de pointe. En effet, les médecins en réadaptation collaborent avec une équipe d’experts multidisciplinaires, composée de physiothérapeutes, ergothérapeutes, neuropsychologues, logopédistes, maîtres de sport et diététicienne. En 2006, la clinique a rejoint Swiss Medical Network, l’un des deux principaux groupes suisses de cliniques privées.",
-        "it": "• Traitement des patients hospitalisés en orthopédie.\n\n• Traitement des patients ambulatoires (orthopédie, chirurgie du rachis, traumatologie, rhumatologie et médecine du sport).\n\n• Développement de la charge de travail en ambulatoire (isocinétisme)\n\n• Diplôme de physiothérapeute reconnu par la Croix Rouge suisse.\n\n• Dynamisme, esprit d’initiative et sens des responsabilités.\n\n• Autonomie, flexibilité, polyvalence et engagement\n\n• Sens de l’organisation et du travail en équipe.\n\n• Désir de s’engager dans la promotion de soins de qualité.\n\n• Grande capacité d’adaptation.\n\n• Une activité variée dans un domaine passionnant, au sein d’une clinique dynamique, stimulante et en pleine expansion\n\n• Un cadre de travail agréable\n\n• Une structure de taille humaine\n\n• Un salaire et des conditions sociales motivants\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nAncrée dans le panorama de la Riviera depuis 1905, la Clinique Valmont offre des séjours de réadaptation personnalisés pour les personnes présentant des atteintes neurologiques, orthopédiques et du dos, dans un cadre exceptionnel, face au Lac Léman et aux Alpes. Aujourd’hui, elle est devenue un établissement phare dans la réadaptation, de par son efficience thérapeutique inégalée, ses équipes compétentes et son plateau technique de pointe. En effet, les médecins en réadaptation collaborent avec une équipe d’experts multidisciplinaires, composée de physiothérapeutes, ergothérapeutes, neuropsychologues, logopédistes, maîtres de sport et diététicienne. En 2006, la clinique a rejoint Swiss Medical Network, l’un des deux principaux groupes suisses de cliniques privées."
+        "en": "• prestations de soins à nos patient(e)s hospitalisé(e)s et ambulatoires\n\n• appliquer les protocoles de rééducation dans les différents services hospitaliers\n\n• établir des bilans anamnestiques\n\n• rédiger différents rapports de physiothérapie\n\n• élaborer une démarche de soins individualisée\n\n• envie de s'engager sur la réalisation et prestations de qualité dans différents projets pionniers de développement du service de physiothérapie\n\n• diplôme de physiothérapeute\n\n• une expérience préalable en chirurgie orthopédique et suivi ambulatoire (atout)\n\n• compétences relationnelles et sociales\n\n• sens des responsabilités et de l’initiative\n\n• personnalité ouverte, dynamique et flexible\n\n• conscience professionnelle\n\n• facilité d’intégration et adaptation\n\n• flexibilité et autonomie\n\n• Une activité variée et intéressante, au sein d’un établissement dynamique en constant développement\n\n• Un encadrement professionnel de qualité\n\n• D’excellentes prestations sociales\n\n• Des possibilités de formation continue\n\n• Repas de midi à 5.- CHF pour les collaborateurs\n\n• Entretien et suivi par la Médecine du Personnel\n\n• Cadre de travail varié et stimulant\n\n• Une rémunération selon les normes de la convention collective de travail des hôpitaux et cliniques bernois.\n\n&#xa0;\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nÉtablissements de proximité et s’appuyant sur des compétences multidisciplinaires au service des patients, l’Hôpital de Moutier et l’Hôpital de Saint-Imier offrent des activités à haute valeur ajoutée dans les domaines somatique et de santé mentale. Comptant près de 1’200 collaborateurs, les hôpitaux, le Centre Médical Bienne (CMB/MZB) et les Medicentres du Réseau de l’Arc couvrent les besoins médicaux-hospitaliers d’une population de plus de 50’000 habitants et se caractérisent par leur dynamisme, leurs excellentes infrastructures et leur souci constant de développer des prestations de proximité et de qualité. Le Réseau de l’Arc est également la première organisation suisse de soins intégrés.",
+        "it": "• prestations de soins à nos patient(e)s hospitalisé(e)s et ambulatoires\n\n• appliquer les protocoles de rééducation dans les différents services hospitaliers\n\n• établir des bilans anamnestiques\n\n• rédiger différents rapports de physiothérapie\n\n• élaborer une démarche de soins individualisée\n\n• envie de s'engager sur la réalisation et prestations de qualité dans différents projets pionniers de développement du service de physiothérapie\n\n• diplôme de physiothérapeute\n\n• une expérience préalable en chirurgie orthopédique et suivi ambulatoire (atout)\n\n• compétences relationnelles et sociales\n\n• sens des responsabilités et de l’initiative\n\n• personnalité ouverte, dynamique et flexible\n\n• conscience professionnelle\n\n• facilité d’intégration et adaptation\n\n• flexibilité et autonomie\n\n• Une activité variée et intéressante, au sein d’un établissement dynamique en constant développement\n\n• Un encadrement professionnel de qualité\n\n• D’excellentes prestations sociales\n\n• Des possibilités de formation continue\n\n• Repas de midi à 5.- CHF pour les collaborateurs\n\n• Entretien et suivi par la Médecine du Personnel\n\n• Cadre de travail varié et stimulant\n\n• Une rémunération selon les normes de la convention collective de travail des hôpitaux et cliniques bernois.\n\n&#xa0;\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nÉtablissements de proximité et s’appuyant sur des compétences multidisciplinaires au service des patients, l’Hôpital de Moutier et l’Hôpital de Saint-Imier offrent des activités à haute valeur ajoutée dans les domaines somatique et de santé mentale. Comptant près de 1’200 collaborateurs, les hôpitaux, le Centre Médical Bienne (CMB/MZB) et les Medicentres du Réseau de l’Arc couvrent les besoins médicaux-hospitaliers d’une population de plus de 50’000 habitants et se caractérisent par leur dynamisme, leurs excellentes infrastructures et leur souci constant de développer des prestations de proximité et de qualité. Le Réseau de l’Arc est également la première organisation suisse de soins intégrés."
       },
       "titleByLocale": {
         "en": "Physiothérapeute"
@@ -297,41 +278,41 @@
       "experienceLevel": "MID",
       "sector": "Sanità / Healthcare",
       "_targetScope": {
-        "canton": "VD",
-        "location": "Glion"
+        "canton": "BE",
+        "location": "Saint-Imier"
       },
       "sourceLang": "fr",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-09T10:26:24.953Z"
+      "firstSeenAt": "2026-08-09T21:36:26.492Z"
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135169979-infirmier-ere-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135169979-infirmier-ere-?oga=true",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000141670863-infirmier-ere-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000141670863-infirmier-ere-?oga=true",
       "title": "Infirmier(ère)",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Sion",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "canton": "VS",
+      "location": "Montreux",
+      "addressLocality": "Montreux",
+      "addressRegion": "VD",
+      "canton": "VD",
       "country": "CH",
-      "postalCode": "1950",
-      "description": "• Etre un(e) praticien(ne) réflexive de santé qui a la responsabilité de prodiguer au patient des soins de qualité sur prescription médicale ou selon les critères de son rôle autonome\n\n• Être au bénéfice d’un diplôme d’infirmier(ère) HES ou formation jugée équivalente reconnue par la Croix-Rouge\n\n• Expérience dans un service de chirurgie, un atout\n\n• Vous maîtrisez la langue française ou allemande, avec des bonnes connaissances de la langue partenaire\n\n• Aptitude à s’intégrer dans un groupe et esprit d’équipe\n\n• Grande conscience professionnelle, motivation, flexibilité et dynamisme\n\n• Capacité à gérer le stress\n\n• Être autonome et savoir prendre des initiatives\n\n• Une travail varié (plusieurs disciplines médicales), motivant au sein d’une équipe dynamique et engagée\n\n• Un cadre de travail agréable\n\n• Un salaire et des conditions sociales intéressantes\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nSwiss Visio Network est un réseau de centres d’ophtalmologie à la pointe des techniques médicales traitant toutes les pathologies oculaires. Nos équipes garantissent des soins personnalisés et de première qualité aux patients, en les plaçant au centre des attentions. Swiss Visio se distingue par son environnement de travail agréable et son esprit entrepreneurial. Le réseau compte aujourd’hui 18 centres en Suisse romande, 3 en Suisse alémanique et 1 au Tessin et poursuit son expansion sur le territoire helvétique.&#xa0;",
+      "postalCode": "1823",
+      "description": "• Assurer une prise en charge infirmière globale et de qualité auprès de patients en réadaptation\n\n• Évaluer l’état clinique des patients, assurer leur surveillance et adapter les soins en fonction de leur évolution\n\n• Dispenser des soins personnalisés, en lien avec les objectifs thérapeutiques et le programme de réadaptation\n\n• Accompagner les patients dans la récupération et le développement de leur autonomie\n\n• Collaborer étroitement avec l’équipe interdisciplinaire afin d’assurer une prise en charge coordonnée et sécurisée\n\n• Assurer des transmissions claires et une traçabilité rigoureuse des soins dans le dossier patient\n\n• Participer aux visites médicales et assurer le suivi des prescriptions et traitements\n\n• Veiller au respect des protocoles, des normes de qualité, d’hygiène et de sécurité\n\n• Titulaire d’un diplôme d’infirmier-ère HES ou titre jugé équivalent\n\n• Expérience professionnelle en réadaptation, service de neurologie et chirurgie orthopédique, un atout\n\n• Conscience professionnelle, polyvalence, flexibilité et dynamisme\n\n• Résistance au stress\n\n• Esprit d’équipe\n\n• Sens de l’organisation et du travail en autonomie\n\n• Capacité à travailler en équipe pluridisciplinaire\n\n• Bonnes connaissances de l’anglais\n\n• Un cadre de travail dans un site exceptionnel\n\n• Une activité variée au sein d’une équipe pluridisciplinaire\n\n• Un salaire et des conditions de travail motivants\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nLa Clinique Valmont est une clinique privée située à Valmont dans un cadre pittoresque. Elle se distingue par son approche thérapeutique et son accent sur la rééducation.\nDepuis 1905, la Clinique Valmont accueille des patients en quête de calme et de soins personnalisés. Riche de plus de 115 ans d’expérience et d'histoire au service de la santé, la Clinique Valmont est aujourd’hui un établissement phare dans la réadaptation, de par son efficience thérapeutique inégalée, ses équipes compétentes et son plateau technique de pointe. &#xa0;A la Clinique Valmont, une attention personnelle est portée à chacun de nos patients. Nous mettons tout en oeuvre pour atteindre notre objectif: vous permettre de retrouver votre capital santé.",
       "descriptionByLocale": {
-        "en": "• Etre un(e) praticien(ne) réflexive de santé qui a la responsabilité de prodiguer au patient des soins de qualité sur prescription médicale ou selon les critères de son rôle autonome\n\n• Être au bénéfice d’un diplôme d’infirmier(ère) HES ou formation jugée équivalente reconnue par la Croix-Rouge\n\n• Expérience dans un service de chirurgie, un atout\n\n• Vous maîtrisez la langue française ou allemande, avec des bonnes connaissances de la langue partenaire\n\n• Aptitude à s’intégrer dans un groupe et esprit d’équipe\n\n• Grande conscience professionnelle, motivation, flexibilité et dynamisme\n\n• Capacité à gérer le stress\n\n• Être autonome et savoir prendre des initiatives\n\n• Une travail varié (plusieurs disciplines médicales), motivant au sein d’une équipe dynamique et engagée\n\n• Un cadre de travail agréable\n\n• Un salaire et des conditions sociales intéressantes\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nSwiss Visio Network est un réseau de centres d’ophtalmologie à la pointe des techniques médicales traitant toutes les pathologies oculaires. Nos équipes garantissent des soins personnalisés et de première qualité aux patients, en les plaçant au centre des attentions. Swiss Visio se distingue par son environnement de travail agréable et son esprit entrepreneurial. Le réseau compte aujourd’hui 18 centres en Suisse romande, 3 en Suisse alémanique et 1 au Tessin et poursuit son expansion sur le territoire helvétique.&#xa0;",
-        "it": "• Etre un(e) praticien(ne) réflexive de santé qui a la responsabilité de prodiguer au patient des soins de qualité sur prescription médicale ou selon les critères de son rôle autonome\n\n• Être au bénéfice d’un diplôme d’infirmier(ère) HES ou formation jugée équivalente reconnue par la Croix-Rouge\n\n• Expérience dans un service de chirurgie, un atout\n\n• Vous maîtrisez la langue française ou allemande, avec des bonnes connaissances de la langue partenaire\n\n• Aptitude à s’intégrer dans un groupe et esprit d’équipe\n\n• Grande conscience professionnelle, motivation, flexibilité et dynamisme\n\n• Capacité à gérer le stress\n\n• Être autonome et savoir prendre des initiatives\n\n• Une travail varié (plusieurs disciplines médicales), motivant au sein d’une équipe dynamique et engagée\n\n• Un cadre de travail agréable\n\n• Un salaire et des conditions sociales intéressantes\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nSwiss Visio Network est un réseau de centres d’ophtalmologie à la pointe des techniques médicales traitant toutes les pathologies oculaires. Nos équipes garantissent des soins personnalisés et de première qualité aux patients, en les plaçant au centre des attentions. Swiss Visio se distingue par son environnement de travail agréable et son esprit entrepreneurial. Le réseau compte aujourd’hui 18 centres en Suisse romande, 3 en Suisse alémanique et 1 au Tessin et poursuit son expansion sur le territoire helvétique.&#xa0;"
+        "en": "• Assurer une prise en charge infirmière globale et de qualité auprès de patients en réadaptation\n\n• Évaluer l’état clinique des patients, assurer leur surveillance et adapter les soins en fonction de leur évolution\n\n• Dispenser des soins personnalisés, en lien avec les objectifs thérapeutiques et le programme de réadaptation\n\n• Accompagner les patients dans la récupération et le développement de leur autonomie\n\n• Collaborer étroitement avec l’équipe interdisciplinaire afin d’assurer une prise en charge coordonnée et sécurisée\n\n• Assurer des transmissions claires et une traçabilité rigoureuse des soins dans le dossier patient\n\n• Participer aux visites médicales et assurer le suivi des prescriptions et traitements\n\n• Veiller au respect des protocoles, des normes de qualité, d’hygiène et de sécurité\n\n• Titulaire d’un diplôme d’infirmier-ère HES ou titre jugé équivalent\n\n• Expérience professionnelle en réadaptation, service de neurologie et chirurgie orthopédique, un atout\n\n• Conscience professionnelle, polyvalence, flexibilité et dynamisme\n\n• Résistance au stress\n\n• Esprit d’équipe\n\n• Sens de l’organisation et du travail en autonomie\n\n• Capacité à travailler en équipe pluridisciplinaire\n\n• Bonnes connaissances de l’anglais\n\n• Un cadre de travail dans un site exceptionnel\n\n• Une activité variée au sein d’une équipe pluridisciplinaire\n\n• Un salaire et des conditions de travail motivants\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nLa Clinique Valmont est une clinique privée située à Valmont dans un cadre pittoresque. Elle se distingue par son approche thérapeutique et son accent sur la rééducation.\nDepuis 1905, la Clinique Valmont accueille des patients en quête de calme et de soins personnalisés. Riche de plus de 115 ans d’expérience et d'histoire au service de la santé, la Clinique Valmont est aujourd’hui un établissement phare dans la réadaptation, de par son efficience thérapeutique inégalée, ses équipes compétentes et son plateau technique de pointe. &#xa0;A la Clinique Valmont, une attention personnelle est portée à chacun de nos patients. Nous mettons tout en oeuvre pour atteindre notre objectif: vous permettre de retrouver votre capital santé.",
+        "it": "• Assurer une prise en charge infirmière globale et de qualité auprès de patients en réadaptation\n\n• Évaluer l’état clinique des patients, assurer leur surveillance et adapter les soins en fonction de leur évolution\n\n• Dispenser des soins personnalisés, en lien avec les objectifs thérapeutiques et le programme de réadaptation\n\n• Accompagner les patients dans la récupération et le développement de leur autonomie\n\n• Collaborer étroitement avec l’équipe interdisciplinaire afin d’assurer une prise en charge coordonnée et sécurisée\n\n• Assurer des transmissions claires et une traçabilité rigoureuse des soins dans le dossier patient\n\n• Participer aux visites médicales et assurer le suivi des prescriptions et traitements\n\n• Veiller au respect des protocoles, des normes de qualité, d’hygiène et de sécurité\n\n• Titulaire d’un diplôme d’infirmier-ère HES ou titre jugé équivalent\n\n• Expérience professionnelle en réadaptation, service de neurologie et chirurgie orthopédique, un atout\n\n• Conscience professionnelle, polyvalence, flexibilité et dynamisme\n\n• Résistance au stress\n\n• Esprit d’équipe\n\n• Sens de l’organisation et du travail en autonomie\n\n• Capacité à travailler en équipe pluridisciplinaire\n\n• Bonnes connaissances de l’anglais\n\n• Un cadre de travail dans un site exceptionnel\n\n• Une activité variée au sein d’une équipe pluridisciplinaire\n\n• Un salaire et des conditions de travail motivants\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nLa Clinique Valmont est une clinique privée située à Valmont dans un cadre pittoresque. Elle se distingue par son approche thérapeutique et son accent sur la rééducation.\nDepuis 1905, la Clinique Valmont accueille des patients en quête de calme et de soins personnalisés. Riche de plus de 115 ans d’expérience et d'histoire au service de la santé, la Clinique Valmont est aujourd’hui un établissement phare dans la réadaptation, de par son efficience thérapeutique inégalée, ses équipes compétentes et son plateau technique de pointe. &#xa0;A la Clinique Valmont, une attention personnelle est portée à chacun de nos patients. Nous mettons tout en oeuvre pour atteindre notre objectif: vous permettre de retrouver votre capital santé."
       },
       "titleByLocale": {
         "en": "Infirmier(ère)"
@@ -348,8 +329,8 @@
       "experienceLevel": "MID",
       "sector": "Sanità / Healthcare",
       "_targetScope": {
-        "canton": "VS",
-        "location": "Sion"
+        "canton": "VD",
+        "location": "Montreux"
       },
       "sourceLang": "fr",
       "salaryMin": 86500,
@@ -365,7 +346,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-09T10:26:24.953Z"
+      "firstSeenAt": "2026-08-09T21:36:26.492Z"
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000141665809-assistenzarzt-in-in-der-ambulanten-psychiatrie",
@@ -409,15 +390,16 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network-biel",
-        "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network"
+        "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network-biel",
-          "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network"
+          "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network-biel"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3229,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-05T11:32:10.179Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -431,10 +413,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3229
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000141172969-montchoisi-motionlab",
@@ -491,8 +470,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000140914537-stagiaire-events-communication-marketing",
@@ -553,15 +531,7 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "stagiaire-events-communication-marketing-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "stagiaire-events-communication-marketing-swiss-medical-network"
-      ]
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000140902119-stagiaire-events-project-management",
@@ -618,8 +588,7 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000140222919-medecin-pediatre-h-f-",
@@ -663,15 +632,16 @@
       },
       "sourceLang": "fr",
       "previousSlugs": [
-        "medecin-pediatre-h-f-swiss-medical-network-saint-imier",
-        "medecin-pediatre-h-f-swiss-medical-network"
+        "medecin-pediatre-h-f-swiss-medical-network-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-pediatre-h-f-swiss-medical-network-saint-imier",
-          "medecin-pediatre-h-f-swiss-medical-network"
+          "medecin-pediatre-h-f-swiss-medical-network-saint-imier"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3871,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-28T22:25:54.283Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -685,10 +655,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3871
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000140220229-medecin-specialiste-fmh-en-gynecologie-obstetrique-h-f-",
@@ -731,6 +698,9 @@
         "location": "Saint-Imier"
       },
       "sourceLang": "fr",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3310,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-28T22:25:54.283Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -744,18 +714,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-specialiste-fmh-en-gynecologie-obstetrique-h-f-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "medecin-specialiste-fmh-en-gynecologie-obstetrique-h-f-swiss-medical-network"
-      ],
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3310
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139958019-assistant-e-medical-e-",
@@ -799,15 +758,16 @@
       },
       "sourceLang": "fr",
       "previousSlugs": [
-        "sportphysiotherapeut-in-swiss-medical-network",
-        "assistant-e-medical-e-swiss-medical-network"
+        "sportphysiotherapeut-in-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sportphysiotherapeut-in-swiss-medical-network",
-          "assistant-e-medical-e-swiss-medical-network"
+          "sportphysiotherapeut-in-swiss-medical-network"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3621,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-27T12:39:27.880Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -821,10 +781,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3621
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139931805-medecin-angiologue-h-f-",
@@ -867,6 +824,9 @@
         "location": "St-Imier"
       },
       "sourceLang": "fr",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3759,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-27T12:39:27.880Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -880,18 +840,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-angiologue-h-f-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "medecin-angiologue-h-f-swiss-medical-network"
-      ],
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3759
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139931394-medecin-specialiste-en-chirurgie-de-la-main",
@@ -934,6 +883,9 @@
         "location": "Saint-Imier"
       },
       "sourceLang": "fr",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3579,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-27T12:39:27.880Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -947,18 +899,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network"
-      ],
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3579
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139932029-medecin-generaliste-medecin-de-famille-",
@@ -1002,15 +943,16 @@
       },
       "sourceLang": "fr",
       "previousSlugs": [
-        "medecin-generaliste-f-et-ou-d-swiss-medical-network-biel",
-        "medecin-generaliste-medecin-de-famille-swiss-medical-network"
+        "medecin-generaliste-f-et-ou-d-swiss-medical-network-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-generaliste-f-et-ou-d-swiss-medical-network-biel",
-          "medecin-generaliste-medecin-de-famille-swiss-medical-network"
+          "medecin-generaliste-f-et-ou-d-swiss-medical-network-biel"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3551,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-27T12:39:27.880Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1024,10 +966,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3551
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139931239-assistant-e-s-medicale-s-d-f",
@@ -1043,7 +982,7 @@
       "postalCode": "2502",
       "description": "Pour notre cabinet de médecine générale de Bienne nous recherchons\nUne ou Deux Assistante Médicale(s) F/D &#xa0;\n(1x100% ou 2x50%-60%))\nCe poste requiert de la polyvalence car vous serez actif(ve) dans notre cabinet de médecine générale et notre Walk-in-clinic qui est un cabinet médical d'urgences avec des consultations avec et/ou sans rendez-vous.\nVos principales responsabilités seront les suivantes :\n\n• Assurer l'accueil, l'orientation et l'accompagnement des patients avec professionnalisme et bienveillance.\n\n• Gérer la permanence téléphonique, la prise de rendez-vous et le traitement des messages.\n\n• Réaliser les soins courants tels que prises de sang, injections, perfusions et assister les médecins lors d'actes médicaux spécifiques.\n\n• Effectuer les examens diagnostiques usuels : laboratoire, ECG, radiologie conventionnelle, mesure de la tension artérielle sur 24h, dépistage de l'apnée du sommeil, spirométrie, etc.\n\n• Assurer le suivi administratif des dossiers patients et les différentes tâches administratives liées au bon fonctionnement du cabinet.\n\n• Participer activement à la qualité de la prise en charge et au bon déroulement des activités médicales quotidiennes.\n\n• Titulaire d'un CFC d'Assistant(e) médical(e).\n\n• Expérience en cabinet médical, centre médical ou service d'urgences ambulatoires, un atout.\n\n• Excellentes compétences relationnelles et sens développé de l'accueil.\n\n• Personnalité dynamique, flexible et polyvalente, capable de s'adapter à un environnement en constante évolution.\n\n• Capacité à gérer les priorités, à travailler de manière autonome et rigoureuse.\n\n• Esprit d'équipe marqué et volonté de contribuer à une ambiance de travail collaborative.\n\n• Bonne maîtrise du français, avec de bonnes connaissances de l'allemand. Toute autre langue constitue un avantage.\n\nNous offrons une activité variée et stimulante au sein d’un établissement dynamique en constante évolution. Les équipes bénéficient d’un encadrement professionnel de qualité ainsi que de réelles perspectives de développement de carrière et de très bonnes conditions de rémunération.\nGrâce à une équipe pluridisciplinaire hautement qualifiée et à un plateau technique performant, nous garantissons un environnement de travail propice à l’excellence. Une grande importance est accordée à la formation continue, afin de permettre à chacun et chacune de développer ses compétences et d’évoluer professionnellement.\nNotre établissement attache une attention particulière à la diversité des parcours et promeut l’équité et l’inclusion. Les candidatures de professionnel·les issu·es de tous horizons sont les bienvenues.\nDes renseignements peuvent être obtenus auprès de lFlorence Zybach au 032 630 50 16 ou par email&#xa0;: florence.zybach@reseaudelarc.net\nNous nous réjouissons de recevoir votre dossier complet via notre lien de candidature.\n\nÉtablissement de proximité solidement ancré dans sa région, Le Réseau de l’Arc offre une prise en charge complète des patients.\nIl comprend deux sites hospitaliers situés à Moutier et à Saint-Imier, 9 Medicentres, dont celui de Bienne. Son offre de soins est complétée par un réseau d’ambulances, deux EMS, deux instituts de radiologie, un centre de thérapies physiques et cognitives, ainsi qu’un service d’hospitalisation à domicile.\nGrâce à son expertise multidisciplinaire au service des patients, le Réseau de l’Arc propose des prestations médicales à haute valeur ajoutée. Avec près de 1 300 collaborateurs, il répond aux besoins médicaux et hospitaliers d’une population d’environ 80 000 habitants.",
       "descriptionByLocale": {
-        "it": "Per il nostro Biel General Medical Office cerchiamo uno o due F/D Medical Assistants (1x100% o 2x50%-60%) Questa posizione richiede versatilità perché sarete attivi nel nostro General Medical Office e il nostro Wald-in-Clinic che è un ufficio medico di emergenza con consultazioni con e/o senza appuntamenti. Le vostre principali responsabilità saranno le seguenti:\n\n• Fornire assistenza, guida e supporto ai pazienti con professionalità e gentilezza.\n\n• Gestisce la hotline, l'appuntamento e l'elaborazione dei messaggi.\n\n• Eseguire le cure di routine come esami del sangue, iniezioni, infusioni e assistere i medici in specifiche azioni mediche.\n\n• Eseguire i soliti test diagnostici: laboratorio, ECG, radiologia convenzionale, misurazione della pressione sanguigna 24 ore, screening apnea del sonno, spirometria, ecc.\n\n• Fornire un seguito amministrativo alle cartelle dei pazienti e alle varie attività amministrative connesse al corretto funzionamento dell'impresa.\n\n• partecipare attivamente alla qualità dell'assistenza e al regolare svolgimento delle attività mediche quotidiane.\n\n• Titolare di un assistente medico CFC.\n\n• Esperienza in medicina, centro medico o servizio di emergenza ambulatoriale, un bene.\n\n• Ottime capacità relazionali e un senso di ospitalità sviluppato.\n\n• Personalità dinamica, flessibile e tahale, in grado di adattarsi ad un ambiente in continua evoluzione.\n\n• Capacità di gestire le priorità, di lavorare in modo indipendente e rigoroso.\n\n• Un forte spirito di squadra e la volontà di contribuire ad un'atmosfera di lavoro collaborativa.\n\n• Buona padronanza del francese, con una buona conoscenza del tedesco. Ogni altra lingua è un vantaggio.\n\nOffriamo un'attività varia e stimolante all'interno di un'azienda dinamica e in continua evoluzione. I team beneficiano di una guida professionale di alta qualità e di reali prospettive di sviluppo della carriera e di ottime condizioni retributive. Grazie ad un team multidisciplinare altamente qualificato e ad una piattaforma tecnica ad alte prestazioni, garantiamo un ambiente di lavoro favorevole all'eccellenza.\n\nLe principali caratteristiche del progetto sono: lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale\n\n1 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5\n\n1 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5\n\nla formazione del sistema di formazione, la formazione della formazione del sistema di formazione, la formazione del sistema di formazione, la formazione del personale, il personale, la formazione, la formazione, la formazione, il personale, il personale, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, il personale, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione,\n\nla formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione,\n\nLa rete di l, Arc offre una cura completa dei pazienti, e comprende due sedi ospedaliere situate a Moutier e Saint-Imier, 9 centri medici, tra cui Biel. La sua offerta di assistenza è completata da una rete di ambulanze, due19, due istituti di radiologia, un centro per terapie fisiche e cognitive, e un servizio ospedaliero domestico. Grazie alla sua competenza multidisciplinare nel servizio dei pazienti, la rete di l, Arc offre servizi medici di alto valore.\n\nCon quasi 1.300 dipendenti, soddisfa le esigenze mediche e ospedaliere di una popolazione di circa 80.000 persone.",
+        "it": "Per il nostro Biel General Medical Office cerchiamo uno o due F/D Medical Assistants (1x100% o 2x50%-60%) Questa posizione richiede versatilità perché sarete attivi nel nostro General Medical Office e il nostro Wald-in-Clinic che è un ufficio medico di emergenza con consultazioni con e/o senza appuntamenti. Le vostre principali responsabilità saranno le seguenti:\n\n• Fornire assistenza, guida e supporto ai pazienti con professionalità e gentilezza.\n\n• Gestisce la hotline, l'appuntamento e l'elaborazione dei messaggi.\n\n• Eseguire le cure di routine come esami del sangue, iniezioni, infusioni e assistere i medici in specifiche azioni mediche.\n\n• Eseguire i soliti test diagnostici: laboratorio, ECG, radiologia convenzionale, misurazione della pressione sanguigna 24 ore, screening apnea del sonno, spirometria, ecc.\n\n• Fornire un seguito amministrativo alle cartelle dei pazienti e alle varie attività amministrative connesse al corretto funzionamento dell'impresa.\n\n• partecipare attivamente alla qualità dell'assistenza e al regolare svolgimento delle attività mediche quotidiane.\n\n• Titolare di un assistente medico CFC.\n\n• Esperienza in medicina, centro medico o servizio di emergenza ambulatoriale, un bene.\n\n• Ottime capacità relazionali e un senso di ospitalità sviluppato.\n\n• Personalità dinamica, flessibile e tahale, in grado di adattarsi ad un ambiente in continua evoluzione.\n\n• Capacità di gestire le priorità, di lavorare in modo indipendente e rigoroso.\n\n• Un forte spirito di squadra e la volontà di contribuire ad un'atmosfera di lavoro collaborativa.\n\n• Buona padronanza del francese, con una buona conoscenza del tedesco. Ogni altra lingua è un vantaggio.\n\nOffriamo un'attività varia e stimolante all'interno di un'azienda dinamica e in continua evoluzione. I team beneficiano di una guida professionale di alta qualità e di reali prospettive di sviluppo della carriera e di ottime condizioni retributive. Grazie ad un team multidisciplinare altamente qualificato e ad una piattaforma tecnica ad alte prestazioni, garantiamo un ambiente di lavoro favorevole all'eccellenza.\n\nLe principali caratteristiche del progetto sono: lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale, lo sviluppo del sistema di formazione professionale\n\n1 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5 - 5\n\nla formazione del sistema di formazione, la formazione della formazione del sistema di formazione, la formazione del sistema di formazione, la formazione del personale, il personale, la formazione, la formazione, la formazione, il personale, il personale, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, il personale, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione,\n\nla formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione, la formazione,\n\nLa rete di l, Arc offre una cura completa dei pazienti, e comprende due sedi ospedaliere situate a Moutier e Saint-Imier, 9 centri medici, tra cui Biel. La sua offerta di assistenza è completata da una rete di ambulanze, due19, due istituti di radiologia, un centro per terapie fisiche e cognitive, e un servizio ospedaliero domestico. Grazie alla sua competenza multidisciplinare nel servizio dei pazienti, la rete di l, Arc offre servizi medici di alto valore.\n\nCon quasi 1.300 dipendenti, soddisfa le esigenze mediche e ospedaliere di una popolazione di circa 80.000 persone.",
         "en": "For our Biel General Medical Office we are looking for one or two F/D Medical Assistants (1x100% or 2x50%-60%) This position requires versatility because you will be active in our General Medical Office and our Wald-in-Clinic which is an emergency medical office with consultations with and/or without appointments. Your main responsibilities will be as follows:\n\n• Provide patient care, guidance and support with professionalism and kindness.\n\n• Manages the hotline, appointment and message processing.\n\n• Perform routine care such as blood tests, injections, infusions and assist doctors in specific medical actions.\n\n• Perform the usual diagnostic tests: laboratory, ECG, conventional radiology, 24 hour blood pressure measurement, sleep apnea screening, spirometry, etc.\n\n• Provide administrative follow-up of patient files and the various administrative tasks related to the proper functioning of the firm.\n\n• Actively participate in the quality of care and the smooth running of daily medical activities.\n\n• Holder of a Medical Assistant CFC.\n\n• Experience in medical practice, medical centre or outpatient emergency service, an asset.\n\n• Excellent relational skills and a developed sense of hospitality.\n\n• Dynamic, flexible and versatile personality, capable of adapting to a constantly changing environment.\n\n• Ability to manage priorities, to work independently and rigorously.\n\n• A strong team spirit and a willingness to contribute to a collaborative working atmosphere.\n\n• Good command of French, with good knowledge of German. Any other language is an advantage.\n\nWe offer a varied and stimulating activity within a dynamic and constantly evolving establishment. The teams benefit from a high quality professional guidance and from real career development prospects and very good remuneration conditions. Thanks to a highly qualified multidisciplinary team and a high-performance technical platform, we guarantee a working environment conducive to excellence.\n\nThe following are the main features of the project: the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the vocational training system, the development of the training system, the development of the training system, the development of the vocational training system, the training system, the training of the training system, the training system, the training of the training system, the training system, the training of the training system, the training of the training of the training system, the training of the training of the training system, the training of the training system, the training of the staff, the staff, the training, the training, the training, the staff, the staff, the training, the training, the training, the training, the training, the training, the training, the training, the, the staff, the, the, the training, the, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the, the training, the training, the, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training, the training,\n\nThe network of l, Arc offers a comprehensive care of patients, and it comprises two hospital sites located in Moutier and Saint-Imier, 9 Medicentres, including Biel. Its care offer is complemented by a network of ambulances, two19, two radiology institutes, a centre for physical and cognitive therapies, and a home hospital service. Thanks to its multidisciplinary expertise in the service of patients, the network of l, Arc offers high-value medical services.\n\nWith nearly 1,300 employees, it meets the medical and hospital needs of a population of about 80,000.",
         "de": "Für unser Biel General Medical Office suchen wir ein oder zwei F/D-Ärzte (1x100% oder 2x50%-60%) Diese Position erfordert Vielseitigkeit, da Sie in unserem General Medical Office und unserer Wald-in-Clinic, einem Notarztbüro mit Beratung und/oder ohne Termin, tätig sind. Ihre Hauptaufgaben sind wie folgt:\n\n• Patientenbetreuung, Beratung und Unterstützung mit Professionalität und Freundlichkeit.\n\n• Verwalten Sie die Hotline, Termin- und Nachrichtenverarbeitung.\n\n• Routinebehandlungen wie Blutuntersuchungen, Injektionen, Infusionen und Unterstützung von Ärzten bei bestimmten medizinischen Maßnahmen durchführen.\n\n• Führen Sie die üblichen diagnostischen Tests: Labor, EKG, konventionelle Radiologie, 24 Stunden Blutdruckmessung, Schlafapnoe-Screening, Spirometrie, etc.\n\n• Bereitstellung administrativer Nachprüfungen der Patientenakten und der verschiedenen administrativen Aufgaben im Zusammenhang mit dem ordnungsgemäßen Funktionieren des Unternehmens.\n\n• Aktiv an der Qualität der Pflege und dem reibungslosen Ablauf der täglichen medizinischen Aktivitäten teilnehmen.\n\n• Inhaber eines medizinischen Assistenten CFC.\n\n• Erfahrung in der medizinischen Praxis, im medizinischen Zentrum oder ambulanten Notfalldiensten, ein Vorteil.\n\n• Ausgezeichnete relationale Fähigkeiten und ein entwickeltes Gefühl der Gastfreundschaft.\n\n• Dynamische, flexible und vielseitige Persönlichkeit, die sich an eine sich ständig verändernde Umgebung anpassen kann.\n\n• Fähigkeit, Prioritäten zu verwalten, unabhängig und rigoros zu arbeiten.\n\n• Ein starker Teamgeist und die Bereitschaft, zu einer kollaborativen Arbeitsatmosphäre beizutragen.\n\n• Gute Französischkenntnisse, gute Deutschkenntnisse. Jede andere Sprache ist ein Vorteil.\n\nWir bieten eine abwechslungsreiche und anregende Tätigkeit in einem dynamischen und sich ständig weiterentwickelnden Establishment. Die Teams profitieren von einer hochwertigen fachlichen Beratung und von echten Karriereentwicklungsperspektiven und sehr guten Vergütungsbedingungen. Dank eines hochqualifizierten multidisziplinären Teams und einer leistungsstarken technischen Plattform garantieren wir ein exzellent günstiges Arbeitsumfeld.\n\nDie folgenden Hauptmerkmale des Projekts sind: Entwicklung des Berufsbildungssystems, Entwicklung des Berufsbildungssystems, Entwicklung des Berufsbildungssystems, Entwicklung des Berufsbildungssystems, Entwicklung des Berufsbildungssystems, Entwicklung des Berufsbildungssystems, Entwicklung des Berufsbildungssystems, Entwicklung des Berufsbildungssystems, Entwicklung des Berufsbildungssystems, Entwicklung des Berufsbildungssystems, Entwicklung des Berufsbildungssystems,\n\nDie Berufsbildungssysteme, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die berufliche Bildung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die berufliche Bildung der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die Entwicklung des Systems der Berufsbildung, die berufliche Bildung der Berufsbildung, die berufliche Bildung der Berufsbildung, die berufliche Bildung der Berufsbildung, die berufliche Bildung der Berufsbildung, die Entwicklung der Berufsbildung, die berufliche Systeme der Berufsbildung, die berufliche Bildung der Berufsbildung, die berufliche die berufliche Bildung der Berufsbildung, die Entwicklung der Berufsbildung, die Entwicklung der Berufsbildung, die berufliche die berufliche die berufliche die berufliche die berufliche die berufliche die berufliche die Entwicklung der Berufsbildung, die Ausbildung der Berufsbildung der Berufsbildung, die Entwicklung der Berufsbildung der Berufsbildung der Berufsbildung der Berufsbildung der Berufsbildung der Berufsbildung der Berufsbildung der Berufsbildung der Berufsbildung der Berufsbildung der Berufsbildung der Berufsbildung der Berufsbildung der Berufsbildung, die berufliche die Entwicklung der Berufsbildung, die Entwicklung der Berufsbildung, die Entwicklung der Berufsbildung, die Entwicklung der Berufsbildung, die berufliche die berufliche die Entwicklung der Berufsbildung der Berufsbildung der Berufsbildung der Berufsbildung der Berufsbildung der Berufsbildung der Berufsbildung, die Entwicklung der Berufsbildung, die Entwicklung der Berufsbildung, die Entwicklung der Berufsbildung, die Entwicklung der Berufsbildung, die Entwicklung der Berufsbildung der Berufsbildung der Berufsbildung, die\n\nBerufsbildungssystem, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Entwicklung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, das Ausbildungssystem, die Ausbildung des Ausbildungssystems, das Ausbildungssystem, die Ausbildung des Ausbildungssystems, die Ausbildung des Ausbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Berufsbildungssystems, die Ausbildung des Systems der Berufsbildungswesens, die Ausbildung des Berufsbildungssystems, die Ausbildung des Systems der Berufsbildung, die Ausbildung des Berufsbildungswesens, die Ausbildung des Systems der Berufsbildungswesens, die Ausbildung des Berufsbildungswesens, die Ausbildung des Berufsbildungswesens, die Ausbildung des Systems der Berufsbildungswesens, die Ausbildung des Systems der Berufsbildungswesens, die Ausbildung des Systems der Berufsbildung, die Ausbildung des Systems der Berufsbildung, die Ausbildung des Systems der Berufsbildung, die Ausbildung des Berufsbildung, die Ausbildung des Berufsbildung, die Ausbildung des Systems der Berufsbildung, die Ausbildung des Systems der Berufsbildung, die Ausbildung des Systems der Berufsbildung, die Ausbildung des Systems der Berufsbildung, die Ausbildung des Systems der Berufsbildung, die Ausbildung des Systems der Ausbildung des Systems der Berufsbildung, die Ausbildung des Berufsbildungs der Berufsbildung, die Ausbildung des Systems der Berufsbildung, die Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Berufsbildung, die Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung des Systems der Ausbildung, der Ausbildung des Systems der Ausbildung, der\n\ndie Ausbildung des Ausbildungssystems, die Ausbildung der Ausbildung des Ausbildungssystems, die Ausbildung des Ausbildungssystems, die Ausbildung des Personals, das Personal, die Ausbildung, die Ausbildung, das Personal, das Personal, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die, die Ausbildung, die, die, die Ausbildung, die, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die\n\ndie Ausbildung, die, die Ausbildung, die Ausbildung, die, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die, die, die, die, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die Ausbildung, die, die Ausbildung, die, die Ausbildung,\n\nDas Netzwerk von l, Arc bietet eine umfassende Versorgung der Patienten, und es umfasst zwei Krankenhausstandorte in Moutier und Saint-Imier, 9 Medicentres, einschließlich Biel. Sein Pflegeangebot wird durch ein Netzwerk von Krankenwagen, zwei19, zwei Radiologie-Institute, ein Zentrum für physikalische und kognitive Therapien und ein Heimkrankenhaus Service ergänzt. Dank seiner multidisziplinären Expertise im Dienste der Patienten, bietet das Netzwerk von l, Arc hochwertige medizinische Dienstleistungen.\n\nMit fast 1.300 Mitarbeitern deckt es die medizinischen und Krankenhausbedürfnisse von etwa 80.000 Menschen.",
         "fr": "Pour notre cabinet de médecine générale de Bienne nous recherchons\nUne ou Deux Assistante Médicale(s) F/D\n(1x100% ou 2x50%-60%))\nCe poste requiert de la polyvalence car vous serez actif(ve) dans notre cabinet de médecine générale et notre Walk-in-clinic qui est un cabinet médical d'urgences avec des consultations avec et/ou sans rendez-vous.\nVos principales responsabilités seront les suivantes :\n\n• Assurer l'accueil, l'orientation et l'accompagnement des patients avec professionnalisme et bienveillance.\n\n• Gérer la permanence téléphonique, la prise de rendez-vous et le traitement des messages.\n\n• Réaliser les soins courants tels que prises de sang, injections, perfusions et assister les médecins lors d'actes médicaux spécifiques.\n\n• Effectuer les examens diagnostiques usuels : laboratoire, ECG, radiologie conventionnelle, mesure de la tension artérielle sur 24h, dépistage de l'apnée du sommeil, spirométrie, etc.\n\n• Assurer le suivi administratif des dossiers patients et les différentes tâches administratives liées au bon fonctionnement du cabinet.\n\n• Participer activement à la qualité de la prise en charge et au bon déroulement des activités médicales quotidiennes.\n\n• Titulaire d'un CFC d'Assistant(e) médical(e).\n\n• Expérience en cabinet médical, centre médical ou service d'urgences ambulatoires, un atout.\n\n• Excellentes compétences relationnelles et sens développé de l'accueil.\n\n• Personnalité dynamique, flexible et polyvalente, capable de s'adapter à un environnement en constante évolution.\n\n• Capacité à gérer les priorités, à travailler de manière autonome et rigoureuse.\n\n• Esprit d'équipe marqué et volonté de contribuer à une ambiance de travail collaborative.\n\n• Bonne maîtrise du français, avec de bonnes connaissances de l'allemand. Toute autre langue constitue un avantage.\n\nNous offrons une activité variée et stimulante au sein d’un établissement dynamique en constante évolution. Les équipes bénéficient d’un encadrement professionnel de qualité ainsi que de réelles perspectives de développement de carrière et de très bonnes conditions de rémunération.\nGrâce à une équipe pluridisciplinaire hautement qualifiée et à un plateau technique performant, nous garantissons un environnement de travail propice à l’excellence. Une grande importance est accordée à la formation continue, afin de permettre à chacun et chacune de développer ses compétences et d’évoluer professionnellement.\nNotre établissement attache une attention particulière à la diversité des parcours et promeut l’équité et l’inclusion. Les candidatures de professionnel·les issu·es de tous horizons sont les bienvenues.\nDes renseignements peuvent être obtenus auprès de lFlorence Zybach au 032 630 50 16 ou par email : florence.zybach@reseaudelarc.net\nNous nous réjouissons de recevoir votre dossier complet via notre lien de candidature.\n\nÉtablissement de proximité solidement ancré dans sa région, Le Réseau de l’Arc offre une prise en charge complète des patients.\nIl comprend deux sites hospitaliers situés à Moutier et à Saint-Imier, 9 Medicentres, dont celui de Bienne. Son offre de soins est complétée par un réseau d’ambulances, deux EMS, deux instituts de radiologie, un centre de thérapies physiques et cognitives, ainsi qu’un service d’hospitalisation à domicile.\nGrâce à son expertise multidisciplinaire au service des patients, le Réseau de l’Arc propose des prestations médicales à haute valeur ajoutée. Avec près de 1 300 collaborateurs, il répond aux besoins médicaux et hospitaliers d’une population d’environ 80 000 habitants."
@@ -1071,15 +1010,16 @@
       },
       "sourceLang": "fr",
       "previousSlugs": [
-        "assistant-e-s-medicale-s-d-f-swiss-medical-network-biel",
-        "assistant-e-s-medicale-s-d-f-swiss-medical-network"
+        "assistant-e-s-medicale-s-d-f-swiss-medical-network-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-s-medicale-s-d-f-swiss-medical-network-biel",
-          "assistant-e-s-medicale-s-d-f-swiss-medical-network"
+          "assistant-e-s-medicale-s-d-f-swiss-medical-network-biel"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3561,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-27T12:39:27.880Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1093,10 +1033,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3561
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139920001-fullstack-developer-ai-digital-health-fr",
@@ -1153,8 +1090,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139920480-fullstack-developer-ai-digital-health-de",
@@ -1211,8 +1147,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139314989-tecnico-di-sala-operatoria-infermiere-strumentista",
@@ -1228,7 +1163,7 @@
       "postalCode": "6500",
       "description": "• Preparare e strumentare tutte le operazioni pratiche\n\n• Partecipare all’accoglienza, l’informazione e la sicurezza del paziente\n\n• Contribuire attivamente al buon funzionamento delle attività del servizio e ai progetti di sviluppo del blocco operatorio\n\n• La candidata / il candidato svolgerà l'attività presso i centri di chirurgia della clinica (Via Carlo Salvioni 2A, 6500 Bellinzona / Via Grumo 16, 6929 Gravesano)\n\n• Possiede il diploma di Tecnico di Sala Operatoria o Infermiere strumentista riconosciuto CRS\n\n• Ha spirito d’équipe\n\n• Ha un buon senso dell’organizzazione\n\n• E’ una persona diplomatica e flessibile\n\nOffriamo\n\n• Ambiente di lavoro stimolante e multisciplinare (ortopedia, oftalmologia, chirurgia generale)\n\n• È richiesta flessibilità e dinamicità\n\n• Condizioni contrattuali come Contratto Collettivo di Lavoro delle Cliniche Private Ticinesi\n\nLa Clinica Ars Medica è il polo di riferimento in Ticino per la chirurgia ortopedica e la traumatologia dell'apparato locomotore, per la chirurgia della colonna vertebrale e la medicina dello sport. La Clinica fa parte di Swiss Medical Network: uno dei maggiori gruppi di cliniche private svizzere fondato nel 2002. Il prestigio locale e internazionale della struttura, la preparazione del personale medico ed infermieristico, le tecnologie di punta a disposizione, il trattamento alberghiero e l’attenzione personalizzata verso i bisogni dei pazienti ne rappresentano i principali punti di forza.\nNell'ottobre 2025, la Clinica Ars Medica, in collaborazione con la rete di oftalmologia Swiss Visio Network, ha aperto un nuovo centro di chirurgia ambulatoriale a Bellinzona.",
       "descriptionByLocale": {
-        "it": "Descrizione\n\n- Preparare e strumentare tutte le operazioni pratiche\n- Partecipare all’accoglienza, l’informazione e la sicurezza del paziente\n- Contribuire attivamente al buon funzionamento delle attività del servizio e ai progetti di sviluppo del blocco operatorio\n- La candidata / il candidato svolgerà l'attività presso i centri di chirurgia della clinica (Via Carlo Salvioni 2A, 6500 Bellinzona / Via Grumo 16, 6929 Gravesano)\n- Possiede il diploma di Tecnico di Sala Operatoria o Infermiere strumentista riconosciuto CRS\n- Ha spirito d’équipe\n- Ha un buon senso dell’organizzazione\n- È una persona diplomatica e flessibile\n\nCosa offriamo\n\n- Ambiente di lavoro stimolante e multisciplinare (ortopedia, oftalmologia, chirurgia generale)\n- È richiesta flessibilità e dinamicità\n- Condizioni contrattuali come Contratto Collettivo di Lavoro delle Cliniche Private Ticinesi\n\nLa Clinica Ars Medica è il polo di riferimento in Ticino per la chirurgia ortopedica e la traumatologia dell'apparato locomotore, per la chirurgia della colonna vertebrale e la medicina dello sport. La Clinica fa parte di Swiss Medical Network: uno dei maggiori gruppi di cliniche private svizzere fondato nel 2002. Il prestigio locale e internazionale della struttura, la preparazione del personale medico ed infermieristico, le tecnologie di punta a disposizione, il trattamento alberghiero e l’attenzione personalizzata verso i bisogni dei pazienti ne rappresentano i principali punti di forza.\nNell'ottobre 2025, la Clinica Ars Medica, in collaborazione con la rete di oftalmologia Swiss Visio Network, ha aperto un nuovo centro di chirurgia ambulatoriale a Bellinzona.",
+        "it": "• Preparare e strumentare tutte le operazioni pratiche\n\n• Partecipare all’accoglienza, l’informazione e la sicurezza del paziente\n\n• Contribuire attivamente al buon funzionamento delle attività del servizio e ai progetti di sviluppo del blocco operatorio\n\n• La candidata / il candidato svolgerà l'attività presso i centri di chirurgia della clinica (Via Carlo Salvioni 2A, 6500 Bellinzona / Via Grumo 16, 6929 Gravesano)\n\n• Possiede il diploma di Tecnico di Sala Operatoria o Infermiere strumentista riconosciuto CRS\n\n• Ha spirito d’équipe\n\n• Ha un buon senso dell’organizzazione\n\n• E’ una persona diplomatica e flessibile\n\nOffriamo\n\n• Ambiente di lavoro stimolante e multisciplinare (ortopedia, oftalmologia, chirurgia generale)\n\n• È richiesta flessibilità e dinamicità\n\n• Condizioni contrattuali come Contratto Collettivo di Lavoro delle Cliniche Private Ticinesi\n\nLa Clinica Ars Medica è il polo di riferimento in Ticino per la chirurgia ortopedica e la traumatologia dell'apparato locomotore, per la chirurgia della colonna vertebrale e la medicina dello sport. La Clinica fa parte di Swiss Medical Network: uno dei maggiori gruppi di cliniche private svizzere fondato nel 2002. Il prestigio locale e internazionale della struttura, la preparazione del personale medico ed infermieristico, le tecnologie di punta a disposizione, il trattamento alberghiero e l’attenzione personalizzata verso i bisogni dei pazienti ne rappresentano i principali punti di forza.\nNell'ottobre 2025, la Clinica Ars Medica, in collaborazione con la rete di oftalmologia Swiss Visio Network, ha aperto un nuovo centro di chirurgia ambulatoriale a Bellinzona.",
         "en": "Description\n\n- Prepare and to assist all practical operations - Participate in the reception, l. information and patient safety - actively contribute to the proper functioning of the service activities and to the development projects of the operating block - The candidate / will carry out the activity at the clinic's surgical centers (Via Carlo Salvioni 2A, 6500 Bellinzona / Via Grumo 16, 6929 Gravesano) - He holds the diploma of Operator's Hall Technical or Instrumental Nurse recognized CRS - He has spirit d. team - He has a good sense of the organization - He is a person\n\ndiplomatic and flexible\n\nWhat we offer\n\n- Inspiring and multi-sciplining working environment (orthopaedic, ophthalmology, general surgery) - Flexibility and dynamism required - Contractual conditions as Working Collective Agreement of the Clinics Private Ticino\n\nThe Ars Medica Clinic is the reference centre in Ticino for orthopedic surgery and the u.S.L., for the surgery of the spine and the sport medicine. The Clinic is part of the Swiss Medical Network: one of the largest groups of private clinics in Switzerland founded in 2002. The local and international prestige of the structure, the preparation of medical and nursing staff, the leading technologies available, the hotel treatment and personalized attention to the needs of patients represent its main strengths.\n\nIn October 2025, the Ars Medica Clinic, in collaboration with the Swiss Visio Network Ophthalmology Network, opened a new outpatient surgery centre in Bellinzona.",
         "de": "Warenbezeichnung\n\n- Vorbereitung und Unterstützung aller praktischen Operationen - Teilnahme an der Rezeption, l. Information und Patientensicherheit - aktiv zur ordnungsgemäßen Funktion der Service-Aktivitäten und zu den Entwicklungsprojekten des Operationsblocks beitragen - Der Kandidat / wird die Tätigkeit in der Klinik chirurgischen Zentren durchführen (Via Carlo Salvioni 2A, 6500 Bellinzona / Via Grumo 16, 6929 Gravesano) - Er besitzt das Diplom der Operator's Hall Technische oder Instrumentelle Krankenschwester anerkannt CRS - Er hat Geist d. Team - Er hat ein gutes Gefühl der Organisation - Er ist eine Person\n\ndiplomatische und flexible\n\nWas wir anbieten\n\n- Inspirierendes und multidisziplinäres Arbeitsumfeld (Orthopädik, Augenheilkunde, Allgemeinchirurgie) - Flexibilität und Dynamik erforderlich - Vertragliche Bedingungen als Arbeitskollektivvereinbarung der Kliniken Privates Tessin\n\nDie Ars Medica Klinik ist das Referenzzentrum im Tessin für orthopädische Chirurgie und die U.S.L. für die Chirurgie der Wirbelsäule und der Sportmedizin. Die Klinik ist Teil des Swiss Medical Network: eine der größten Gruppen von Privatkliniken in der Schweiz, die 2002 gegründet wurde. Das lokale und internationale Ansehen der Struktur, die Vorbereitung von medizinischem und pflegerischem Personal, die führenden verfügbaren Technologien, die Hotelbehandlung und die personalisierte Betreuung der Patienten stellen ihre wichtigsten Stärken dar.\n\nIm Oktober 2025 eröffnete die Ars Medica Klinik in Zusammenarbeit mit dem Swiss Visio Network Ophthalmology Network ein neues ambulantes Chirurgiezentrum in Bellinzona.",
         "fr": "Désignation des marchandises\n\n- Préparer et assister toutes les opérations pratiques - Participer à la réception, l. information et sécurité du patient - contribuer activement au bon fonctionnement des activités de service et aux projets de développement du bloc opérationnel - Le candidat / effectuera l'activité dans les centres chirurgicaux de la clinique (Via Carlo Salvioni 2A, 6500 Bellinzona / Via Grumo 16, 6929 Gravesano) - Il détient le diplôme de l'opérateur's Hall Infirmière technique ou instrumentale reconnu CRS - Il a l'esprit d. équipe - Il a une bonne idée de l'organisation - Il est une personne\n\ndiplomatique et souple\n\nCe que nous offrons\n\n- Environnement de travail à l'improvisation et à la multisciplinisation (orthopédie, ophtalmologie, chirurgie générale) - Flexibilité et dynamisme requis - Conditions contractuelles comme convention collective de travail des cliniques Ticino privé\n\nLa Clinique Ars Medica est le centre de référence de Ticino pour la chirurgie orthopédique et l'U.S.L. pour la chirurgie de la colonne vertébrale et la médecine sportive. La Clinique fait partie du Réseau Médical Suisse : l'un des plus grands groupes de cliniques privées en Suisse fondée en 2002. Le prestige local et international de la structure, la préparation du personnel médical et infirmier, les technologies de pointe disponibles, le traitement hôtelier et l'attention personnalisée aux besoins des patients représentent ses principaux atouts.\n\nEn octobre 2025, la clinique Ars Medica, en collaboration avec le Réseau suisse d'ophtalmologie Visio, a ouvert un nouveau centre de chirurgie ambulatoire à Bellinzona."
@@ -1270,8 +1205,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139241709-technische-n-operationsassistent-in-toa-im-pensum-von-40-",
@@ -1314,6 +1248,9 @@
         "location": "Biel"
       },
       "sourceLang": "de",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3660,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-23T11:27:32.206Z",
       "salaryMin": 27400,
       "salaryMax": 41600,
@@ -1327,18 +1264,7 @@
           "maxValue": 41600,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "technische-n-operationsassistent-in-toa-im-pensum-von-40-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "technische-n-operationsassistent-in-toa-im-pensum-von-40-swiss-medical-network"
-      ],
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3660
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139241609-technicien-ne-en-salle-d-operation-tso-40-",
@@ -1382,15 +1308,16 @@
       },
       "sourceLang": "fr",
       "previousSlugs": [
-        "operating-room-technician-swiss-medical-network-sorengo",
-        "technicien-ne-en-salle-d-operation-tso-40-swiss-medical-network"
+        "operating-room-technician-swiss-medical-network-sorengo"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operating-room-technician-swiss-medical-network-sorengo",
-          "technicien-ne-en-salle-d-operation-tso-40-swiss-medical-network"
+          "operating-room-technician-swiss-medical-network-sorengo"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 4859,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-23T11:27:32.206Z",
       "salaryMin": 27400,
       "salaryMax": 41600,
@@ -1404,10 +1331,7 @@
           "maxValue": 41600,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 4859
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139147964-produkt-owner-informationssysteme-der-ambulanten-zentren",
@@ -1450,6 +1374,9 @@
         "location": "Opfikon"
       },
       "sourceLang": "de",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3704,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-22T22:09:02.216Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1463,18 +1390,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "produkt-owner-informationssysteme-der-ambulanten-zentren-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "produkt-owner-informationssysteme-der-ambulanten-zentren-swiss-medical-network"
-      ],
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3704
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139144739-medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung",
@@ -1518,15 +1434,16 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network-zurich",
-        "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network"
+        "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network-zurich",
-          "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network"
+          "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network-zurich"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3355,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-22T22:09:02.216Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1540,10 +1457,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3355
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139144598-it-business-analyst-healthcare",
@@ -1600,8 +1514,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139058702-medecin-adjoint-pedopsychiatre-fmh-h-f-a-100-",
@@ -1644,6 +1557,9 @@
         "location": "Saint-Imier"
       },
       "sourceLang": "fr",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 4663,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-22T22:09:02.216Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1657,18 +1573,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-adjoint-pedopsychiatre-fmh-h-f-a-100-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "medecin-adjoint-pedopsychiatre-fmh-h-f-a-100-swiss-medical-network"
-      ],
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 4663
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139058930-gynakologe-in-und-geburtshelfer-in",
@@ -1684,10 +1589,10 @@
       "postalCode": "3013",
       "description": "• Selbständige ambulante gynäkologische und geburtshilfliche Tätigkeit in der Gruppenpraxis\n\n• Eigenverantwortliche Führung der Sprechstunde mit hoher medizinischer Autonomie\n\n• Langfristige Betreuung der bestehenden Patientinnenbasis\n\n• Keine Praxisdienste, keine Nacht- oder Wochenenddienste im ambulanten Bereich\n\n• Überweisung von Geburten und operativen Eingriffen nach Wunsch\n\n• Optional: stationäre, operative und/oder geburtshilfliche Tätigkeit am Universitätsspital Bern\n\n• Durchführung von Spezialsprechstunden je nach Interesse und Qualifikation\n\n• Enge interdisziplinäre Zusammenarbeit innerhalb des Teams und mit externen Fachstellen\n\n• Facharzttitel Gynäkologie und Geburtshilfe (FMH oder MEBEKO-anerkannt)\n\n• Erfahrung im ambulanten Bereich von Vorteil; stationäre oder operative Erfahrung nicht zwingend\n\n• Selbständige, strukturierte und patientenorientierte Arbeitsweise\n\n• Teamfähigkeit, Verantwortungsbewusstsein und kommunikatives Auftreten\n\n• Interesse an langfristiger Tätigkeit in einem multikulturellen, kollegialen Praxisumfeld\n\nWir bieten Ihnen\n\n• Tätigkeit mit hoher Eigenständigkeit, unterstützt durch ein erfahrenes Praxisteam\n\n• Angenehme, kollegiale Arbeitsatmosphäre in einem motivierten Team\n\n• Interdisziplinäres Umfeld mit Allgemeinärzt:innen, Gynäkolog:innen, Endokrinologin und Ernährungsberaterin\n\n• Flexible Gestaltung des Arbeitspensums, auch für Teilzeit\n\n• Moderne Praxisinfrastruktur und administrative Entlastung\n\n• Transparente und marktgerechte Vergütung; Details gerne im persönlichen Gespräch\n\n• Bestehende Patientinnenbasis, Aufbau weiterer Patientinnen möglich\n\n• Unbefristete Anstellung mit langfristiger Perspektive\n\n• Zentrale Lage in Bern mit hoher Lebensqualität\n\nSTELLENANTRITT: per sofort oder nach Vereinbarung\n\nARBEITSORT(E): Bern\n\nVERTRAGSART: unbefristet\nFRAGEN ZUR STELLE?\nGruppenpraxis Schönburg – Swiss Medical Network\n\nDr. med. Regula Bürki 📧 regula.buerki@hin.ch\n\nDie Gruppenpraxis Schönburg in Bern ist eine etablierte, zentral gelegene Praxis mit Schwerpunkt auf hausärztlicher sowie gynäkologischer und geburtshilflicher Grundversorgung.\n\nUnser multikulturelles Team besteht aus zwei Allgemeinärzt:innen, zwei Gynäkolog:innen (inklusive Mentor/Spezialist), einer Endokrinologin und einer Ernährungsberaterin, die eng zusammenarbeiten. Dieses interdisziplinäre Setup sorgt für vielfältige fachliche Expertise und eine angenehme, unterstützende Arbeitsatmosphäre.\nDie Praxis verfügt über eine bestehende Patientinnenbasis, die eine sofortige, abwechslungsreiche Tätigkeit ermöglicht. Moderne Infrastruktur, internes Labor und ein engagiertes Praxisteam unterstützen Sie in Ihrer Arbeit und schaffen ein professionelles und motivierendes Arbeitsumfeld im Zentrum von Bern.\nEin besonderes Merkmal dieser Stelle ist die Möglichkeit, die ambulante Tätigkeit in der Praxis mit einer niedrigprozentigen stationären Tätigkeit am Universitätsspital Bern zu kombinieren – frei nach Ihrem Wunsch. Dieses Modell bietet fachliche Vielfalt, klare Strukturen und gleichzeitig hohe Flexibilität.\nGynäkologie und Geburtshilfe\nZentral gelegene Gruppenpraxis in Bern\nArbeitspensum: 40–100 %, ambulant; optionale Belegarzttätigkeit am Universitätsspital Bern",
       "descriptionByLocale": {
-        "it": "Designazione delle merci\n\n- Lavoro ginecologico e ostetrico autonomo in ambulatorio di gruppo - Gestione autoresponsabile della sessione di consultazione con elevata autonomia medica - Assistenza a lungo termine della base paziente esistente - Nessun servizio pratico, nessun servizio notturno o weekend nell'area ambulatoriale - Trasferimento di nascite e interventi chirurgici a piacere - • • • • Lavoro in pazienti, operatori e/o ostetricia presso l'ospedale universitario di Berna - Esecuzione di speciali ore di contatto in base all'interesse e alla qualifica - Stretto rapporto interdisciplinare all'interno\n\ndel team e con uffici esterni specializzati\n\nRequisiti\n\n- titolo di specialista Ginecologia e Ostetricia (MfH o MEBEKO-riconosciuti) - esperienza nel campo ambulatoriale di vantaggio; esperienza in pazienti o chirurgici non obbligatoria - metodi di lavoro autonomi, strutturati e orientati al paziente - capacità di gruppo, responsabilità e aspetto comunicativo - interesse per il lavoro a lungo termine in un ambiente di pratica multiculturale, di cui si tratta di un ambiente di lavoro di tipo 156al\n\nOffriamo\n\n- Lavoro con elevata indipendenza, sostenuto da un team di pratica esperto - Piacevole, ambiente di lavoro di un team motivato - Ambiente interdisciplinare con i medici generali:all'interno, ginecologo:all'interno, il genelogo e nutrizionista - Progettazione flessibile della pompa di lavoro, anche per il part-time - Infrastrutture moderne di pratica e sollievo amministrativo - Remunerazione trasparente e orientata al mercato; dettagli come parlare - Base paziente esistente, sviluppo di ulteriori pazienti possibile - Occupazione permanente con prospettiva a lungo termine - Centrale\n\nPosizione a Berna con un'alta qualità di vita\n\nContatto\n\n- RIFERIMENTI DI CONSERVAZIONE: da subito o per accordo - POSIZIONE: Berna - TIPO DI CONTRAENTI: indefinito - DOMANDE SULLA STELLE? - Pratica di Gruppo Schönburg. Rete medica svizzera - Dr. med. Regula.buerki@hin.ch\n\nInformazioni sulla pratica\n\n- La pratica collettiva Schönburg di Berna è una pratica consolidata, situata in posizione centrale, con un focus sulle cure primarie e ginecologiche e ostetriche. - La nostra squadra multiculturale è composta da due operatori generali: all'interno, due ginecologhi: all'interno (tra cui mentore/specialista), un endocrinologo e un nutrizionista che lavorano a stretto contatto. - Questa configurazione interdisciplinare offre una vasta gamma di competenze professionali e un ambiente lavorativo piacevole e di supporto.\n\n- La pratica ha una base di pazienti esistente che consente un'attività immediata e varia. - Le infrastrutture moderne, il laboratorio interno e un team di pratica dedicato vi supportano nel vostro lavoro e creano un ambiente di lavoro professionale e motivante nel centro di Berna. - Una caratteristica speciale di questa posizione è la possibilità di combinare il lavoro ambulatoriale in pratica con un'attività di bassa percentuale di pazienti presso l'ospedale universitario di Berna. gratuitamente come si desidera.\n\n- Questo modello offre una varietà di competenze tecniche, strutture chiare e allo stesso tempo elevata flessibilità.",
-        "en": "Description\n\n- Self-employed outpatient gynecological and obstetrical work in group practice - Self-responsible management of the consultation session with high medical autonomy - Long-term care of the existing patient base - No practical services, no night or weekend services in the outpatient area - Transfer of births and surgical interventions as desired - • • • • Inpatient, operative and/or obstetrical work at the University Hospital Bern - Execution of special contact hours according to interest and qualification - Close interdisciplinary cooperation within\n\nof the team and with external specialist offices\n\nRequirements\n\n- specialist title Gynaecology and Obstetrics (FMH or MEBEKO-recognized) - experience in the outpatient field of advantage; inpatient or surgical experience not mandatory - self-employed, structured and patient-oriented working methods - team ability, responsibility and communicative appearance - interest in long-term work in a multicultural, collegial practice environment\n\nWe offer\n\n- Work with high independence, supported by an experienced practice team - Pleasant, collegial working atmosphere in a motivated team - Interdisciplinary environment with general practitioners:inside, gynecologs:inside, endocrinologist and nutritionist - Flexible design of the work-pump, also for part-time - Modern practice infrastructure and administrative relief - Transparent and market-oriented remuneration; details like to talk - Existing patient base, development of further patients possible - Permanent employment with long-term perspective - Central\n\nLocation in Bern with a high quality of life\n\nContact\n\n- STORAGE REFERENCE: by immediately or by arrangement - LOCATION(S): Berne - CONTRACTING TYPE: indefinite - QUESTIONS ON THE STELLE? - Group Practice Schönburg – Swiss Medical Network - Dr. med. Regula.buerki@hin.ch\n\nAbout practice\n\n- The group practice Schönburg in Bern is an established, centrally located practice with a focus on primary and gynecological and obstetrical care. - Our multicultural team consists of two general practitioners:inside, two gynecologs:inside (including mentor/specialist), an endocrinologist and a nutritionist who work closely together. - This interdisciplinary setup provides a wide range of professional expertise and a pleasant, supportive working atmosphere.\n\n- The practice has an existing patient base that enables an immediate, varied activity. - Modern infrastructure, internal laboratory and a dedicated practice team support you in your work and create a professional and motivating working environment in the centre of Bern. - A special feature of this position is the possibility to combine outpatient work in practice with a low-percent inpatient activity at the University Hospital Bern – free of charge as you wish.\n\n- This model offers a variety of technical skills, clear structures and at the same time high flexibility.",
+        "it": "Designazione delle merci\n\n- Lavoro ginecologico e ostetrico autonomo in ambulatorio di gruppo - Gestione autoresponsabile della sessione di consultazione con elevata autonomia medica - Assistenza a lungo termine della base paziente esistente - Nessun servizio pratico, nessun servizio notturno o weekend nell'area ambulatoriale - Trasferimento di nascite e interventi chirurgici a piacere -\n• •\n• • Lavoro in pazienti, operatori e/o ostetricia presso l'ospedale universitario di Berna - Esecuzione di speciali ore di contatto in base all'interesse e alla qualifica - Stretto rapporto interdisciplinare all'interno\n\ndel team e con uffici esterni specializzati\n\nRequisiti\n\n- titolo di specialista Ginecologia e Ostetricia (MfH o MEBEKO-riconosciuti) - esperienza nel campo ambulatoriale di vantaggio; esperienza in pazienti o chirurgici non obbligatoria - metodi di lavoro autonomi, strutturati e orientati al paziente - capacità di gruppo, responsabilità e aspetto comunicativo - interesse per il lavoro a lungo termine in un ambiente di pratica multiculturale, di cui si tratta di un ambiente di lavoro di tipo 156al\n\nOffriamo\n\n- Lavoro con elevata indipendenza, sostenuto da un team di pratica esperto - Piacevole, ambiente di lavoro di un team motivato - Ambiente interdisciplinare con i medici generali:all'interno, ginecologo:all'interno, il genelogo e nutrizionista - Progettazione flessibile della pompa di lavoro, anche per il part-time - Infrastrutture moderne di pratica e sollievo amministrativo - Remunerazione trasparente e orientata al mercato; dettagli come parlare - Base paziente esistente, sviluppo di ulteriori pazienti possibile - Occupazione permanente con prospettiva a lungo termine - Centrale\n\nPosizione a Berna con un'alta qualità di vita\n\nContatto\n\n- RIFERIMENTI DI CONSERVAZIONE: da subito o per accordo - POSIZIONE: Berna - TIPO DI CONTRAENTI: indefinito - DOMANDE SULLA STELLE? - Pratica di Gruppo Schönburg. Rete medica svizzera - Dr. med. Regula.buerki@hin.ch\n\nInformazioni sulla pratica\n\n- La pratica collettiva Schönburg di Berna è una pratica consolidata, situata in posizione centrale, con un focus sulle cure primarie e ginecologiche e ostetriche. - La nostra squadra multiculturale è composta da due operatori generali: all'interno, due ginecologhi: all'interno (tra cui mentore/specialista), un endocrinologo e un nutrizionista che lavorano a stretto contatto. - Questa configurazione interdisciplinare offre una vasta gamma di competenze professionali e un ambiente lavorativo piacevole e di supporto.\n\n- La pratica ha una base di pazienti esistente che consente un'attività immediata e varia. - Le infrastrutture moderne, il laboratorio interno e un team di pratica dedicato vi supportano nel vostro lavoro e creano un ambiente di lavoro professionale e motivante nel centro di Berna. - Una caratteristica speciale di questa posizione è la possibilità di combinare il lavoro ambulatoriale in pratica con un'attività di bassa percentuale di pazienti presso l'ospedale universitario di Berna. gratuitamente come si desidera.\n\n- Questo modello offre una varietà di competenze tecniche, strutture chiare e allo stesso tempo elevata flessibilità.",
+        "en": "Description\n\n- Self-employed outpatient gynecological and obstetrical work in group practice - Self-responsible management of the consultation session with high medical autonomy - Long-term care of the existing patient base - No practical services, no night or weekend services in the outpatient area - Transfer of births and surgical interventions as desired -\n• •\n• • Inpatient, operative and/or obstetrical work at the University Hospital Bern - Execution of special contact hours according to interest and qualification - Close interdisciplinary cooperation within\n\nof the team and with external specialist offices\n\nRequirements\n\n- specialist title Gynaecology and Obstetrics (FMH or MEBEKO-recognized) - experience in the outpatient field of advantage; inpatient or surgical experience not mandatory - self-employed, structured and patient-oriented working methods - team ability, responsibility and communicative appearance - interest in long-term work in a multicultural, collegial practice environment\n\nWe offer\n\n- Work with high independence, supported by an experienced practice team - Pleasant, collegial working atmosphere in a motivated team - Interdisciplinary environment with general practitioners:inside, gynecologs:inside, endocrinologist and nutritionist - Flexible design of the work-pump, also for part-time - Modern practice infrastructure and administrative relief - Transparent and market-oriented remuneration; details like to talk - Existing patient base, development of further patients possible - Permanent employment with long-term perspective - Central\n\nLocation in Bern with a high quality of life\n\nContact\n\n- STORAGE REFERENCE: by immediately or by arrangement - LOCATION(S): Berne - CONTRACTING TYPE: indefinite - QUESTIONS ON THE STELLE? - Group Practice Schönburg – Swiss Medical Network - Dr. med. Regula.buerki@hin.ch\n\nAbout practice\n\n- The group practice Schönburg in Bern is an established, centrally located practice with a focus on primary and gynecological and obstetrical care. - Our multicultural team consists of two general practitioners:inside, two gynecologs:inside (including mentor/specialist), an endocrinologist and a nutritionist who work closely together. - This interdisciplinary setup provides a wide range of professional expertise and a pleasant, supportive working atmosphere.\n\n- The practice has an existing patient base that enables an immediate, varied activity. - Modern infrastructure, internal laboratory and a dedicated practice team support you in your work and create a professional and motivating working environment in the centre of Bern. - A special feature of this position is the possibility to combine outpatient work in practice with a low-percent inpatient activity at the University Hospital Bern – free of charge as you wish.\n\n- This model offers a variety of technical skills, clear structures and at the same time high flexibility.",
         "de": "Beschreibung\n\n- Selbständige ambulante gynäkologische und geburtshilfliche Tätigkeit in der Gruppenpraxis\n- Eigenverantwortliche Führung der Sprechstunde mit hoher medizinischer Autonomie\n- Langfristige Betreuung der bestehenden Patientinnenbasis\n- Keine Praxisdienste, keine Nacht- oder Wochenenddienste im ambulanten Bereich\n- Überweisung von Geburten und operativen Eingriffen nach Wunsch\n- Optional: stationäre, operative und/oder geburtshilfliche Tätigkeit am Universitätsspital Bern\n- Durchführung von Spezialsprechstunden je nach Interesse und Qualifikation\n- Enge interdisziplinäre Zusammenarbeit innerhalb des Teams und mit externen Fachstellen\n\nAnforderungen\n\n- Facharzttitel Gynäkologie und Geburtshilfe (FMH oder MEBEKO-anerkannt)\n- Erfahrung im ambulanten Bereich von Vorteil; stationäre oder operative Erfahrung nicht zwingend\n- Selbständige, strukturierte und patientenorientierte Arbeitsweise\n- Teamfähigkeit, Verantwortungsbewusstsein und kommunikatives Auftreten\n- Interesse an langfristiger Tätigkeit in einem multikulturellen, kollegialen Praxisumfeld\n\nWir bieten\n\n- Tätigkeit mit hoher Eigenständigkeit, unterstützt durch ein erfahrenes Praxisteam\n- Angenehme, kollegiale Arbeitsatmosphäre in einem motivierten Team\n- Interdisziplinäres Umfeld mit Allgemeinärzt:innen, Gynäkolog:innen, Endokrinologin und Ernährungsberaterin\n- Flexible Gestaltung des Arbeitspensums, auch für Teilzeit\n- Moderne Praxisinfrastruktur und administrative Entlastung\n- Transparente und marktgerechte Vergütung; Details gerne im persönlichen Gespräch\n- Bestehende Patientinnenbasis, Aufbau weiterer Patientinnen möglich\n- Unbefristete Anstellung mit langfristiger Perspektive\n- Zentrale Lage in Bern mit hoher Lebensqualität\n\nKontakt\n\n- STELLENANTRITT: per sofort oder nach Vereinbarung\n- ARBEITSORT(E): Bern\n- VERTRAGSART: unbefristet\n- FRAGEN ZUR STELLE?\n- Gruppenpraxis Schönburg – Swiss Medical Network\n- Dr. med. Regula Bürki 📧 regula.buerki@hin.ch\n\nÜber die Praxis\n\n- Die Gruppenpraxis Schönburg in Bern ist eine etablierte, zentral gelegene Praxis mit Schwerpunkt auf hausärztlicher sowie gynäkologischer und geburtshilflicher Grundversorgung.\n- Unser multikulturelles Team besteht aus zwei Allgemeinärzt:innen, zwei Gynäkolog:innen (inklusive Mentor/Spezialist), einer Endokrinologin und einer Ernährungsberaterin, die eng zusammenarbeiten.\n- Dieses interdisziplinäre Setup sorgt für vielfältige fachliche Expertise und eine angenehme, unterstützende Arbeitsatmosphäre.\n- Die Praxis verfügt über eine bestehende Patientinnenbasis, die eine sofortige, abwechslungsreiche Tätigkeit ermöglicht.\n- Moderne Infrastruktur, internes Labor und ein engagiertes Praxisteam unterstützen Sie in Ihrer Arbeit und schaffen ein professionelles und motivierendes Arbeitsumfeld im Zentrum von Bern.\n- Ein besonderes Merkmal dieser Stelle ist die Möglichkeit, die ambulante Tätigkeit in der Praxis mit einer niedrigprozentigen stationären Tätigkeit am Universitätsspital Bern zu kombinieren – frei nach Ihrem Wunsch.\n- Dieses Modell bietet fachliche Vielfalt, klare Strukturen und gleichzeitig hohe Flexibilität.",
-        "fr": "Désignation des marchandises\n\n- Travail en groupe en gynécologie et en obstétrique - Gestion auto-réponsible de la séance de consultation avec une grande autonomie médicale - Soins de longue durée de la base de patients existante - Pas de services pratiques, pas de services de nuit ou de fin de semaine dans le domaine ambulatoire - Transfert des naissances et interventions chirurgicales selon les besoins - • • • Travail en clinique, en chirurgie et/ou en obstétrique à l'hôpital universitaire de Berne - Exécution d'heures de contact spéciales selon les intérêts et les qualifications - Coopération interdisciplinaire étroite au sein de l'hôpital universitaire de Berne\n\nde l'équipe et avec des bureaux spécialisés externes\n\nBesoins\n\n- titre spécialisé Gynécologie et obstétrique (FMH ou MEBEKO-recognized) - expérience dans le domaine de l'expérience ambulatoire; expérience infirmière ou chirurgicale non obligatoire - méthodes de travail indépendantes, structurées et axées sur le patient - capacité d'équipe, responsabilité et apparence communicative - intérêt pour le travail à long terme dans un environnement multiculturel et collégial\n\nNous offrons\n\n- Travail avec une grande indépendance, soutenu par une équipe de pratique expérimentée - Ambiance de travail agréable et collégiale dans une équipe motivée - Environnement interdisciplinaire avec les médecins généralistes: à l'intérieur, gynécologues: à l'intérieur, endocrinologue et nutritionniste - Conception flexible du pump de travail, également à temps partiel - Infrastructure moderne de la pratique et des services administratifs - Rémunération transparente et orientée vers le marché; détails comme parler - Base de patients existante, développement de patients supplémentaires possible - Emploi permanent dans une perspective à long terme - Central\n\nEmplacement à Berne avec une qualité de vie élevée\n\nPersonne à contacter\n\n- RÉFÉRENCE DE STOCKAGE : par accord immédiat ou par arrangement - LIEU(X) : Berne - TYPE DE CONTRACTATION : indéfini - Questions sur la STELLE? - Pratique de groupe Schönburg – Réseau Médical Suisse - Dr. med. Regula.buerki@hin.ch\n\nSur la pratique\n\n- La pratique collective Schönburg à Berne est une pratique établie et centralisée qui met l'accent sur les soins primaires et gynécologiques et obstétricaux. - Notre équipe multiculturelle se compose de deux généralistes : à l'intérieur, deux gynécologues : à l'intérieur (y compris un mentor/spécialiste), un endocrinologue et un nutritionniste qui travaillent en étroite collaboration. - Cette structure interdisciplinaire offre une vaste expertise professionnelle et une atmosphère de travail agréable et solidaire.\n\n- La pratique a une base de patients existante qui permet une activité immédiate et variée. - Infrastructure moderne, laboratoire interne et une équipe de pratique dédiée vous soutiennent dans votre travail et créent un environnement professionnel et motivant dans le centre de Berne. - Une caractéristique spéciale de ce poste est la possibilité de combiner le travail ambulatoire en pratique avec une activité de patient hospitalisée à faible pourcentage à l'hôpital universitaire de Berne – gratuitement comme vous le souhaitez.\n\n- Ce modèle offre une variété de compétences techniques, des structures claires et en même temps une grande flexibilité."
+        "fr": "Désignation des marchandises\n\n- Travail en groupe en gynécologie et en obstétrique - Gestion auto-réponsible de la séance de consultation avec une grande autonomie médicale - Soins de longue durée de la base de patients existante - Pas de services pratiques, pas de services de nuit ou de fin de semaine dans le domaine ambulatoire - Transfert des naissances et interventions chirurgicales selon les besoins -\n• •\n• Travail en clinique, en chirurgie et/ou en obstétrique à l'hôpital universitaire de Berne - Exécution d'heures de contact spéciales selon les intérêts et les qualifications - Coopération interdisciplinaire étroite au sein de l'hôpital universitaire de Berne\n\nde l'équipe et avec des bureaux spécialisés externes\n\nBesoins\n\n- titre spécialisé Gynécologie et obstétrique (FMH ou MEBEKO-recognized) - expérience dans le domaine de l'expérience ambulatoire; expérience infirmière ou chirurgicale non obligatoire - méthodes de travail indépendantes, structurées et axées sur le patient - capacité d'équipe, responsabilité et apparence communicative - intérêt pour le travail à long terme dans un environnement multiculturel et collégial\n\nNous offrons\n\n- Travail avec une grande indépendance, soutenu par une équipe de pratique expérimentée - Ambiance de travail agréable et collégiale dans une équipe motivée - Environnement interdisciplinaire avec les médecins généralistes: à l'intérieur, gynécologues: à l'intérieur, endocrinologue et nutritionniste - Conception flexible du pump de travail, également à temps partiel - Infrastructure moderne de la pratique et des services administratifs - Rémunération transparente et orientée vers le marché; détails comme parler - Base de patients existante, développement de patients supplémentaires possible - Emploi permanent dans une perspective à long terme - Central\n\nEmplacement à Berne avec une qualité de vie élevée\n\nPersonne à contacter\n\n- RÉFÉRENCE DE STOCKAGE : par accord immédiat ou par arrangement - LIEU(X) : Berne - TYPE DE CONTRACTATION : indéfini - Questions sur la STELLE? - Pratique de groupe Schönburg – Réseau Médical Suisse - Dr. med. Regula.buerki@hin.ch\n\nSur la pratique\n\n- La pratique collective Schönburg à Berne est une pratique établie et centralisée qui met l'accent sur les soins primaires et gynécologiques et obstétricaux. - Notre équipe multiculturelle se compose de deux généralistes : à l'intérieur, deux gynécologues : à l'intérieur (y compris un mentor/spécialiste), un endocrinologue et un nutritionniste qui travaillent en étroite collaboration. - Cette structure interdisciplinaire offre une vaste expertise professionnelle et une atmosphère de travail agréable et solidaire.\n\n- La pratique a une base de patients existante qui permet une activité immédiate et variée. - Infrastructure moderne, laboratoire interne et une équipe de pratique dédiée vous soutiennent dans votre travail et créent un environnement professionnel et motivant dans le centre de Berne. - Une caractéristique spéciale de ce poste est la possibilité de combiner le travail ambulatoire en pratique avec une activité de patient hospitalisée à faible pourcentage à l'hôpital universitaire de Berne – gratuitement comme vous le souhaitez.\n\n- Ce modèle offre une variété de compétences techniques, des structures claires et en même temps une grande flexibilité."
       },
       "titleByLocale": {
         "it": "Ginecologo/-a e Ostetrico/-a",
@@ -1714,20 +1619,21 @@
       "previousSlugs": [
         "gynakologe-in-und-geburtshelfer-in-swiss-medical-network-f0m8p6",
         "gynakologe-in-und-geburtshelfer-in-swiss-medical-network-bern",
-        "gynakologe-in-e-geburtshelfer-in-swiss-medical-network-bern",
-        "gynakologe-in-und-geburtshelfer-in-swiss-medical-network"
+        "gynakologe-in-e-geburtshelfer-in-swiss-medical-network-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gynakologe-in-und-geburtshelfer-in-swiss-medical-network-f0m8p6",
           "gynakologe-in-und-geburtshelfer-in-swiss-medical-network-bern",
-          "gynakologe-in-e-geburtshelfer-in-swiss-medical-network-bern",
-          "gynakologe-in-und-geburtshelfer-in-swiss-medical-network"
+          "gynakologe-in-e-geburtshelfer-in-swiss-medical-network-bern"
         ],
         "de": [
           "gynakologe-in-und-geburtshelfer-in-swiss-medical-network-f0m8p6"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3208,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-22T22:09:02.216Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1741,10 +1647,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3208
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139055349-medizinische-praxisassistentinnen-mpa-w-m-d",
@@ -1790,13 +1693,11 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network-vom39t",
-        "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network"
+        "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network-vom39t"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network-vom39t",
-          "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network"
+          "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network-vom39t"
         ],
         "de": [
           "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network-vom39t"
@@ -1862,15 +1763,16 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "apprendistato-fachperson-gesundheit-swiss-medical-network-rapperswil-jona",
-        "lehrstelle-fachperson-gesundheit-swiss-medical-network"
+        "apprendistato-fachperson-gesundheit-swiss-medical-network-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprendistato-fachperson-gesundheit-swiss-medical-network-rapperswil-jona",
-          "lehrstelle-fachperson-gesundheit-swiss-medical-network"
+          "apprendistato-fachperson-gesundheit-swiss-medical-network-rapperswil-jona"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1313,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-22T11:19:57.601Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -1884,10 +1786,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1313
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138857539-chef-fe-de-rang",
@@ -1929,6 +1828,9 @@
         "location": "Montreux"
       },
       "sourceLang": "fr",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2579,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-21T22:08:03.008Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -1942,35 +1844,24 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-fe-de-rang-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "chef-fe-de-rang-swiss-medical-network"
-      ],
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2579
+      }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138085727-medizinische-praxisassistenz-fur-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138085727-medizinische-praxisassistenz-fur-allgemeine-innere-medizin?oga=true",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138659948-medizinische-praxisassistenz-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138659948-medizinische-praxisassistenz-fur-allgemeine-innere-medizin?oga=true",
       "title": "Medizinische Praxisassistenz für Allgemeine Innere Medizin",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Beromünster",
-      "addressLocality": "Beromünster",
-      "addressRegion": "LU",
-      "canton": "LU",
+      "location": "Stein am Rhein",
+      "addressLocality": "Stein am Rhein",
+      "addressRegion": "SH",
+      "canton": "SH",
       "country": "CH",
-      "postalCode": "6222",
-      "description": "• Administration mittels Ärztekasse-Software&#xa0;Rockethealth\n\n• Sprechstundenassistenz inkl. Assistenz bei kleinchirurgischen Eingriffen\n\n• Röntgen (volldigital)\n\n• Labor, EKG, Spirometrie, 24h-Blutdruck, Infusionen, Impfungen&#xa0;etc.\n\n• Medikamentenbewirtschaftung\n\n• Abgeschlossene Ausbildung als Medizinische Praxisassistenz&#xa0;EFZ oder abgeschlossene Lehre als FaGe mit Weiterbildung bildgebende Diagnostik (Röntgen)\n\n• Gute PC-Kenntnisse und Freude an administrativen Aufgaben\n\n• Organisationstalent, ausgeprägte Kundenorientierung und hohes Qualitätsbewusstsein\n\n• Flexibilität und Belastbarkeit\n\n• Selbständiges Arbeiten in einem interdisziplinären Team, Einsatzbereitschaft und Teamfähigkeit\n\n• Anspruchsvolle, abwechslungsreiche und interessante Tätigkeit mit Eigenverantwortung in einem modernen und dynamischen Umfeld\n\n• Individuelle Aus- und Weiterbildungsmöglichkeiten\n\n• Geregelte Arbeitszeiten (Mo bis Fr)\n\n• Gratis Parkplatz\n\nHaben Sie Interesse an dieser anspruchsvollen und vielseitigen Herausforderung? Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen via E-Mail an: admin-centers@swissmedical.net.\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit mit einem umfassenden Angebot in der allgemein-medizinischen Grundversorgung, Kinder- und Jugendmedizin. Wir sind ein etabliertes Netzwerk von Hausarztpraxen, im Besitz der Swiss Medical Network GesundheitsZentrum AG. Swiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 19 Spitälern und 80 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten. Wir gewährleisten eine umfassende und kompetente Versorgung aller Altersgruppen auf hohem medizinischen Niveau.",
+      "postalCode": "8260",
+      "description": "• Patientenempfang\n\n• Praxisadministration mittels Ärztekasse-Software CB10\n\n• Sprechstundenassistenz inkl. Assistenz bei kleinchirurgischen Eingriffen\n\n• Röntgen (volldigital)\n\n• Labor, EKG, Spirometrie, 24h-Blutdruck, etc.\n\n• Medikamentenbewirtschaftung\n\n• Abgeschlossende Lehre als Medizinische Praxisassistenz&#xa0;EFZ,&#xa0;idealerweise mit Zusatzausbildung erweiterte konventionelle Aufnahmen\n\n• Gute PC-Kenntnisse und Freude an administrativen Aufgaben\n\n• Organisationstalent, ausgeprägte Kundenorientierung und hohes Qualitätsbewusstsein\n\n• Flexibilität und Belastbarkeit\n\n• Selbständiges Arbeiten in einem interdisziplinären Team, Einsatzbereitschaft und Teamfähigkeit\n\n• Anspruchsvolle, abwechslungsreiche und interessante Tätigkeit mit Eigenverantwortung in einem dynamischen Umfeld\n\n• Individuelle Aus- und Weiterbildungsmöglichkeiten\n\n• Zeitgemässe Entlöhnung\n\n• Kollegiales, aufgestelltes, liebenswertes Team\n\nBitte senden Sie uns Ihre vollständigen Bewerbungsunterlagen per E-Mail an: admin-centers@swissmedical.net.\nFür Fragen steht Ihnen unsere Leitende Medizinische Praxisassistentin, Frau Susanne Widmer von Mo - Do gerne zur Verfügung unter Tel. 052 741 36 26.\n\nDas Xundheitszentrum Stein am Rhein ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit mit einem umfassenden Angebot in der allgemein-medizinischen Grundversorgung und gehört zu der Swiss Medical Network Gruppe.\nSwiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 21 Spitälern und 60 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten. Wir gewährleisten eine umfassende und kompetente Versorgung aller Altersgruppen auf hohem medizinischen Niveau.\nZur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine\nMedizinische Praxisassistenz für Allgemeine Innere Medizin 60 - 80%",
       "descriptionByLocale": {
-        "en": "• Administration mittels Ärztekasse-Software&#xa0;Rockethealth\n\n• Sprechstundenassistenz inkl. Assistenz bei kleinchirurgischen Eingriffen\n\n• Röntgen (volldigital)\n\n• Labor, EKG, Spirometrie, 24h-Blutdruck, Infusionen, Impfungen&#xa0;etc.\n\n• Medikamentenbewirtschaftung\n\n• Abgeschlossene Ausbildung als Medizinische Praxisassistenz&#xa0;EFZ oder abgeschlossene Lehre als FaGe mit Weiterbildung bildgebende Diagnostik (Röntgen)\n\n• Gute PC-Kenntnisse und Freude an administrativen Aufgaben\n\n• Organisationstalent, ausgeprägte Kundenorientierung und hohes Qualitätsbewusstsein\n\n• Flexibilität und Belastbarkeit\n\n• Selbständiges Arbeiten in einem interdisziplinären Team, Einsatzbereitschaft und Teamfähigkeit\n\n• Anspruchsvolle, abwechslungsreiche und interessante Tätigkeit mit Eigenverantwortung in einem modernen und dynamischen Umfeld\n\n• Individuelle Aus- und Weiterbildungsmöglichkeiten\n\n• Geregelte Arbeitszeiten (Mo bis Fr)\n\n• Gratis Parkplatz\n\nHaben Sie Interesse an dieser anspruchsvollen und vielseitigen Herausforderung? Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen via E-Mail an: admin-centers@swissmedical.net.\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit mit einem umfassenden Angebot in der allgemein-medizinischen Grundversorgung, Kinder- und Jugendmedizin. Wir sind ein etabliertes Netzwerk von Hausarztpraxen, im Besitz der Swiss Medical Network GesundheitsZentrum AG. Swiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 19 Spitälern und 80 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten. Wir gewährleisten eine umfassende und kompetente Versorgung aller Altersgruppen auf hohem medizinischen Niveau.",
-        "it": "• Administration mittels Ärztekasse-Software&#xa0;Rockethealth\n\n• Sprechstundenassistenz inkl. Assistenz bei kleinchirurgischen Eingriffen\n\n• Röntgen (volldigital)\n\n• Labor, EKG, Spirometrie, 24h-Blutdruck, Infusionen, Impfungen&#xa0;etc.\n\n• Medikamentenbewirtschaftung\n\n• Abgeschlossene Ausbildung als Medizinische Praxisassistenz&#xa0;EFZ oder abgeschlossene Lehre als FaGe mit Weiterbildung bildgebende Diagnostik (Röntgen)\n\n• Gute PC-Kenntnisse und Freude an administrativen Aufgaben\n\n• Organisationstalent, ausgeprägte Kundenorientierung und hohes Qualitätsbewusstsein\n\n• Flexibilität und Belastbarkeit\n\n• Selbständiges Arbeiten in einem interdisziplinären Team, Einsatzbereitschaft und Teamfähigkeit\n\n• Anspruchsvolle, abwechslungsreiche und interessante Tätigkeit mit Eigenverantwortung in einem modernen und dynamischen Umfeld\n\n• Individuelle Aus- und Weiterbildungsmöglichkeiten\n\n• Geregelte Arbeitszeiten (Mo bis Fr)\n\n• Gratis Parkplatz\n\nHaben Sie Interesse an dieser anspruchsvollen und vielseitigen Herausforderung? Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen via E-Mail an: admin-centers@swissmedical.net.\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit mit einem umfassenden Angebot in der allgemein-medizinischen Grundversorgung, Kinder- und Jugendmedizin. Wir sind ein etabliertes Netzwerk von Hausarztpraxen, im Besitz der Swiss Medical Network GesundheitsZentrum AG. Swiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 19 Spitälern und 80 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten. Wir gewährleisten eine umfassende und kompetente Versorgung aller Altersgruppen auf hohem medizinischen Niveau."
+        "en": "• Patientenempfang\n\n• Praxisadministration mittels Ärztekasse-Software CB10\n\n• Sprechstundenassistenz inkl. Assistenz bei kleinchirurgischen Eingriffen\n\n• Röntgen (volldigital)\n\n• Labor, EKG, Spirometrie, 24h-Blutdruck, etc.\n\n• Medikamentenbewirtschaftung\n\n• Abgeschlossende Lehre als Medizinische Praxisassistenz&#xa0;EFZ,&#xa0;idealerweise mit Zusatzausbildung erweiterte konventionelle Aufnahmen\n\n• Gute PC-Kenntnisse und Freude an administrativen Aufgaben\n\n• Organisationstalent, ausgeprägte Kundenorientierung und hohes Qualitätsbewusstsein\n\n• Flexibilität und Belastbarkeit\n\n• Selbständiges Arbeiten in einem interdisziplinären Team, Einsatzbereitschaft und Teamfähigkeit\n\n• Anspruchsvolle, abwechslungsreiche und interessante Tätigkeit mit Eigenverantwortung in einem dynamischen Umfeld\n\n• Individuelle Aus- und Weiterbildungsmöglichkeiten\n\n• Zeitgemässe Entlöhnung\n\n• Kollegiales, aufgestelltes, liebenswertes Team\n\nBitte senden Sie uns Ihre vollständigen Bewerbungsunterlagen per E-Mail an: admin-centers@swissmedical.net.\nFür Fragen steht Ihnen unsere Leitende Medizinische Praxisassistentin, Frau Susanne Widmer von Mo - Do gerne zur Verfügung unter Tel. 052 741 36 26.\n\nDas Xundheitszentrum Stein am Rhein ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit mit einem umfassenden Angebot in der allgemein-medizinischen Grundversorgung und gehört zu der Swiss Medical Network Gruppe.\nSwiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 21 Spitälern und 60 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten. Wir gewährleisten eine umfassende und kompetente Versorgung aller Altersgruppen auf hohem medizinischen Niveau.\nZur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine\nMedizinische Praxisassistenz für Allgemeine Innere Medizin 60 - 80%",
+        "it": "• Patientenempfang\n\n• Praxisadministration mittels Ärztekasse-Software CB10\n\n• Sprechstundenassistenz inkl. Assistenz bei kleinchirurgischen Eingriffen\n\n• Röntgen (volldigital)\n\n• Labor, EKG, Spirometrie, 24h-Blutdruck, etc.\n\n• Medikamentenbewirtschaftung\n\n• Abgeschlossende Lehre als Medizinische Praxisassistenz&#xa0;EFZ,&#xa0;idealerweise mit Zusatzausbildung erweiterte konventionelle Aufnahmen\n\n• Gute PC-Kenntnisse und Freude an administrativen Aufgaben\n\n• Organisationstalent, ausgeprägte Kundenorientierung und hohes Qualitätsbewusstsein\n\n• Flexibilität und Belastbarkeit\n\n• Selbständiges Arbeiten in einem interdisziplinären Team, Einsatzbereitschaft und Teamfähigkeit\n\n• Anspruchsvolle, abwechslungsreiche und interessante Tätigkeit mit Eigenverantwortung in einem dynamischen Umfeld\n\n• Individuelle Aus- und Weiterbildungsmöglichkeiten\n\n• Zeitgemässe Entlöhnung\n\n• Kollegiales, aufgestelltes, liebenswertes Team\n\nBitte senden Sie uns Ihre vollständigen Bewerbungsunterlagen per E-Mail an: admin-centers@swissmedical.net.\nFür Fragen steht Ihnen unsere Leitende Medizinische Praxisassistentin, Frau Susanne Widmer von Mo - Do gerne zur Verfügung unter Tel. 052 741 36 26.\n\nDas Xundheitszentrum Stein am Rhein ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit mit einem umfassenden Angebot in der allgemein-medizinischen Grundversorgung und gehört zu der Swiss Medical Network Gruppe.\nSwiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 21 Spitälern und 60 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten. Wir gewährleisten eine umfassende und kompetente Versorgung aller Altersgruppen auf hohem medizinischen Niveau.\nZur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine\nMedizinische Praxisassistenz für Allgemeine Innere Medizin 60 - 80%"
       },
       "titleByLocale": {
         "en": "Medizinische Praxisassistenz für Allgemeine Innere Medizin"
@@ -1983,28 +1874,28 @@
       "category": "healthcare",
       "datePosted": "2026-08-09",
       "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
       "sector": "Sanità / Healthcare",
       "_targetScope": {
-        "canton": "LU",
-        "location": "Beromünster"
+        "canton": "SH",
+        "location": "Stein am Rhein"
       },
       "sourceLang": "de",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-09T10:26:24.953Z"
+      "firstSeenAt": "2026-08-09T21:36:26.492Z"
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138653929-medecin-responsable-d-unite",
@@ -2061,21 +1952,12 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-responsable-d-unite-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "medecin-responsable-d-unite-swiss-medical-network"
-      ],
-      "retranslationAttempts": 2
+      }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132123413-facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132123413-facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-?oga=true",
-      "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin 50 - 100%",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138086609-facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138086609-facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-?oga=true",
+      "title": "Fachärztin/Facharzt für Allgemeine Innere Medizin 50-100%",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
       "location": "Schaffhausen",
@@ -2083,14 +1965,14 @@
       "addressRegion": "SH",
       "canton": "SH",
       "country": "CH",
-      "postalCode": "8203",
-      "description": "• Eigenverantwortliche medizinische Betreuung von Patienten/-innen aller Altersgruppen\n\n• Zusammenarbeit im Team und einem Netzwerk mit externen Spezialisten\n\n• Beteiligung am lokalen Notfalldienst\n\n• Facharzt/-ärztin für Allgemeine Innere Medizin FMH oder gleichwertiges eidgenössisch anerkanntes Diplom\n\n• Leidenschaft für die Hausarztmedizin\n\n• Verantwortungsbewusste und engagierte Persönlichkeit mit Interesse an teamorientierter Zusammenarbeit\n\n• Spannende und abwechslungsreiche Tätigkeit mit direktem Patientenkontakt\n\n• Wertschätzende Arbeitsatmosphäre in einem interdisziplinären Team\n\n• Moderne Praxisinfrastruktur mit digitaler Dokumentation, eigenes Röntgen, Labor, EKG und mehr\n\n• Attraktive&#xa0;Anstellungsbedingungen mit&#xa0;fortschrittlichen&#xa0;Sozialleistungen\n\n• Möglichkeit zur aktiven Mitgestaltung bei der Weiterentwicklung unseres Xundheitszentrums\n\nHaben wir Ihr Interesse an dieser anspruchsvollen und vielseitigen Herausforderung geweckt?\n\nWir freuen uns auf Ihre vollständigen Bewerbungsunterlagen per E-Mail an admin-centers@swissmedical.net .\nFür Auskünfte steht Ihnen Frau Andrea Stalder, Regionalleitung Xundheitszentren Region Schaffhausen, gerne unter 052 632 19 19 zur Verfügung.\n\nDas Xundheitszentrum Seewadel ist eine Hausarztpraxis, die zu der Swiss Medical Network Gruppe gehört, und gewährleistet eine umfassende und kompetente Versorgung in der Allgemein Medizin auf hohem medizinischem Niveau.\nSwiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 21 Spitälern und 60 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten.",
+      "postalCode": "8200",
+      "description": "• Eigenverantwortliche medizinische Betreuung von Patientinnen und Patienten aller Altersgruppen\n\n• Zusammenarbeit im Team und einem Netzwerk von externen Spezialisten\n\n• Notfalldienst in der Hausärztlichen Notfallpraxis und Teilnahme am regionalen Notfalldienst\n\n• Facharzt/-ärztin für Allgemeine Innere Medizin FMH oder gleichwertiges eidgenössisch anerkanntes Diplom\n\n• Leidenschaft für die Hausarztmedizin\n\n• Verantwortungsbewusste und engagierte Persönlichkeit mit Interesse an teamorientierter&#xa0;und interdisziplinärer Zusammenarbeit\n\n• Anspruchsvolle, abwechslungsreiche und herausfordernde Tätigkeit in einem attraktiven und&#xa0;modernen Arbeitsumfeld\n\n• Wertschätzende Arbeitsatmosphäre in einem interdisziplinären Team\n\n• Fortschrittliche Anstellungsbedingungen mit verschiedenen Entlöhnungsmodellen\n\n• Umfassende Unterstützung bei Ihren Fort- und Weiterbildungen\n\n• Möglichkeit zur aktiven Mitgestaltung bei der Weiterentwicklung unseres Gesundheitszentrums\n\n• Moderne Praxisräumlichkeiten mit digitalem Röntgen, Ultraschall, Praxisapotheke etc. in Bahnhofsnähe\n\nHaben wir Ihr Interesse an dieser anspruchsvollen und vielseitigen Herausforderung geweckt?\n\nWir freuen uns auf Ihre vollständigen Bewerbungsunterlagen per E-Mail an admin-centers@swissmedical.net .\nFür Auskünfte steht Ihnen Frau Andrea Stalder, Regionalleitung Xundheitszentren Region Schaffhausen, gerne unter 052 632 19 19 zur Verfügung.\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit mit einem umfassenden Angebot in der allgemein-medizinischen Grundversorgung, Kinder- und Jugendmedizin.\nWir sind ein etabliertes Netzwerk von Hausarztpraxen, im Besitz der Swiss Medical Network GesundzeitsZentrum AG. Swiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 19 Spitälern und 80 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten. Wir gewährleisten eine umfassende und kompetente Versorgung aller Altersgruppen auf hohem medizinischem Niveau.",
       "descriptionByLocale": {
-        "en": "• Eigenverantwortliche medizinische Betreuung von Patienten/-innen aller Altersgruppen\n\n• Zusammenarbeit im Team und einem Netzwerk mit externen Spezialisten\n\n• Beteiligung am lokalen Notfalldienst\n\n• Facharzt/-ärztin für Allgemeine Innere Medizin FMH oder gleichwertiges eidgenössisch anerkanntes Diplom\n\n• Leidenschaft für die Hausarztmedizin\n\n• Verantwortungsbewusste und engagierte Persönlichkeit mit Interesse an teamorientierter Zusammenarbeit\n\n• Spannende und abwechslungsreiche Tätigkeit mit direktem Patientenkontakt\n\n• Wertschätzende Arbeitsatmosphäre in einem interdisziplinären Team\n\n• Moderne Praxisinfrastruktur mit digitaler Dokumentation, eigenes Röntgen, Labor, EKG und mehr\n\n• Attraktive&#xa0;Anstellungsbedingungen mit&#xa0;fortschrittlichen&#xa0;Sozialleistungen\n\n• Möglichkeit zur aktiven Mitgestaltung bei der Weiterentwicklung unseres Xundheitszentrums\n\nHaben wir Ihr Interesse an dieser anspruchsvollen und vielseitigen Herausforderung geweckt?\n\nWir freuen uns auf Ihre vollständigen Bewerbungsunterlagen per E-Mail an admin-centers@swissmedical.net .\nFür Auskünfte steht Ihnen Frau Andrea Stalder, Regionalleitung Xundheitszentren Region Schaffhausen, gerne unter 052 632 19 19 zur Verfügung.\n\nDas Xundheitszentrum Seewadel ist eine Hausarztpraxis, die zu der Swiss Medical Network Gruppe gehört, und gewährleistet eine umfassende und kompetente Versorgung in der Allgemein Medizin auf hohem medizinischem Niveau.\nSwiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 21 Spitälern und 60 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten.",
-        "it": "• Eigenverantwortliche medizinische Betreuung von Patienten/-innen aller Altersgruppen\n\n• Zusammenarbeit im Team und einem Netzwerk mit externen Spezialisten\n\n• Beteiligung am lokalen Notfalldienst\n\n• Facharzt/-ärztin für Allgemeine Innere Medizin FMH oder gleichwertiges eidgenössisch anerkanntes Diplom\n\n• Leidenschaft für die Hausarztmedizin\n\n• Verantwortungsbewusste und engagierte Persönlichkeit mit Interesse an teamorientierter Zusammenarbeit\n\n• Spannende und abwechslungsreiche Tätigkeit mit direktem Patientenkontakt\n\n• Wertschätzende Arbeitsatmosphäre in einem interdisziplinären Team\n\n• Moderne Praxisinfrastruktur mit digitaler Dokumentation, eigenes Röntgen, Labor, EKG und mehr\n\n• Attraktive&#xa0;Anstellungsbedingungen mit&#xa0;fortschrittlichen&#xa0;Sozialleistungen\n\n• Möglichkeit zur aktiven Mitgestaltung bei der Weiterentwicklung unseres Xundheitszentrums\n\nHaben wir Ihr Interesse an dieser anspruchsvollen und vielseitigen Herausforderung geweckt?\n\nWir freuen uns auf Ihre vollständigen Bewerbungsunterlagen per E-Mail an admin-centers@swissmedical.net .\nFür Auskünfte steht Ihnen Frau Andrea Stalder, Regionalleitung Xundheitszentren Region Schaffhausen, gerne unter 052 632 19 19 zur Verfügung.\n\nDas Xundheitszentrum Seewadel ist eine Hausarztpraxis, die zu der Swiss Medical Network Gruppe gehört, und gewährleistet eine umfassende und kompetente Versorgung in der Allgemein Medizin auf hohem medizinischem Niveau.\nSwiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 21 Spitälern und 60 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten."
+        "en": "• Eigenverantwortliche medizinische Betreuung von Patientinnen und Patienten aller Altersgruppen\n\n• Zusammenarbeit im Team und einem Netzwerk von externen Spezialisten\n\n• Notfalldienst in der Hausärztlichen Notfallpraxis und Teilnahme am regionalen Notfalldienst\n\n• Facharzt/-ärztin für Allgemeine Innere Medizin FMH oder gleichwertiges eidgenössisch anerkanntes Diplom\n\n• Leidenschaft für die Hausarztmedizin\n\n• Verantwortungsbewusste und engagierte Persönlichkeit mit Interesse an teamorientierter&#xa0;und interdisziplinärer Zusammenarbeit\n\n• Anspruchsvolle, abwechslungsreiche und herausfordernde Tätigkeit in einem attraktiven und&#xa0;modernen Arbeitsumfeld\n\n• Wertschätzende Arbeitsatmosphäre in einem interdisziplinären Team\n\n• Fortschrittliche Anstellungsbedingungen mit verschiedenen Entlöhnungsmodellen\n\n• Umfassende Unterstützung bei Ihren Fort- und Weiterbildungen\n\n• Möglichkeit zur aktiven Mitgestaltung bei der Weiterentwicklung unseres Gesundheitszentrums\n\n• Moderne Praxisräumlichkeiten mit digitalem Röntgen, Ultraschall, Praxisapotheke etc. in Bahnhofsnähe\n\nHaben wir Ihr Interesse an dieser anspruchsvollen und vielseitigen Herausforderung geweckt?\n\nWir freuen uns auf Ihre vollständigen Bewerbungsunterlagen per E-Mail an admin-centers@swissmedical.net .\nFür Auskünfte steht Ihnen Frau Andrea Stalder, Regionalleitung Xundheitszentren Region Schaffhausen, gerne unter 052 632 19 19 zur Verfügung.\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit mit einem umfassenden Angebot in der allgemein-medizinischen Grundversorgung, Kinder- und Jugendmedizin.\nWir sind ein etabliertes Netzwerk von Hausarztpraxen, im Besitz der Swiss Medical Network GesundzeitsZentrum AG. Swiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 19 Spitälern und 80 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten. Wir gewährleisten eine umfassende und kompetente Versorgung aller Altersgruppen auf hohem medizinischem Niveau.",
+        "it": "• Eigenverantwortliche medizinische Betreuung von Patientinnen und Patienten aller Altersgruppen\n\n• Zusammenarbeit im Team und einem Netzwerk von externen Spezialisten\n\n• Notfalldienst in der Hausärztlichen Notfallpraxis und Teilnahme am regionalen Notfalldienst\n\n• Facharzt/-ärztin für Allgemeine Innere Medizin FMH oder gleichwertiges eidgenössisch anerkanntes Diplom\n\n• Leidenschaft für die Hausarztmedizin\n\n• Verantwortungsbewusste und engagierte Persönlichkeit mit Interesse an teamorientierter&#xa0;und interdisziplinärer Zusammenarbeit\n\n• Anspruchsvolle, abwechslungsreiche und herausfordernde Tätigkeit in einem attraktiven und&#xa0;modernen Arbeitsumfeld\n\n• Wertschätzende Arbeitsatmosphäre in einem interdisziplinären Team\n\n• Fortschrittliche Anstellungsbedingungen mit verschiedenen Entlöhnungsmodellen\n\n• Umfassende Unterstützung bei Ihren Fort- und Weiterbildungen\n\n• Möglichkeit zur aktiven Mitgestaltung bei der Weiterentwicklung unseres Gesundheitszentrums\n\n• Moderne Praxisräumlichkeiten mit digitalem Röntgen, Ultraschall, Praxisapotheke etc. in Bahnhofsnähe\n\nHaben wir Ihr Interesse an dieser anspruchsvollen und vielseitigen Herausforderung geweckt?\n\nWir freuen uns auf Ihre vollständigen Bewerbungsunterlagen per E-Mail an admin-centers@swissmedical.net .\nFür Auskünfte steht Ihnen Frau Andrea Stalder, Regionalleitung Xundheitszentren Region Schaffhausen, gerne unter 052 632 19 19 zur Verfügung.\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit mit einem umfassenden Angebot in der allgemein-medizinischen Grundversorgung, Kinder- und Jugendmedizin.\nWir sind ein etabliertes Netzwerk von Hausarztpraxen, im Besitz der Swiss Medical Network GesundzeitsZentrum AG. Swiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 19 Spitälern und 80 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten. Wir gewährleisten eine umfassende und kompetente Versorgung aller Altersgruppen auf hohem medizinischem Niveau."
       },
       "titleByLocale": {
-        "en": "Fachärztin / Facharzt für Allgemeine Innere Medizin 50 - 100%"
+        "en": "Fachärztin/Facharzt für Allgemeine Innere Medizin 50-100%"
       },
       "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network",
       "slugByLocale": {
@@ -2121,7 +2003,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-09T10:26:24.953Z"
+      "firstSeenAt": "2026-08-09T21:36:26.492Z"
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137849199-product-owner-klinische-applikationen-",
@@ -2178,33 +2060,24 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "product-owner-klinische-applikationen-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "product-owner-klinische-applikationen-swiss-medical-network"
-      ],
-      "retranslationAttempts": 2
+      }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133558908-facharzt-in-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133558908-facharzt-in-allgemeine-innere-medizin?oga=true",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137655709-facharzt-in-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137655709-facharzt-in-allgemeine-innere-medizin?oga=true",
       "title": "Fachärzt/-in Allgemeine Innere Medizin",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Wengen",
-      "addressLocality": "Wengen",
+      "location": "Grindelwald",
+      "addressLocality": "Grindelwald",
       "addressRegion": "BE",
       "canton": "BE",
       "country": "CH",
-      "postalCode": "3823",
-      "description": "Das Stellenprofil verbindet hausärztliche Tätigkeit mit einem vielseitigen Aufgabenbereich in der Notfallmedizin\nDie Anstellung kann auf Wunsch auch befristet für die Wintersaison erfolgen\nIhre Aufgaben:\nHausärztliche Betreuung: Umfassende Versorgung von Patientinnen und Patienten aller Altersgruppen in sämtlichen Bereichen der Allgemeinmedizin\nNotfallmedizin, Notfalldienst: Teilnahme am lokalen ärztlichen Notfalldienst, Behandlung von Notfallpatienten in der Praxis sowie vor Ort in enger Zusammenarbeit mit der Boden- und Luftrettung\nAltersheim: Kontinuierliche medizinische Betreuung lokaler Patienten im Altersheim in Lauterbrunnen\nAusbildung: Aktive Beteiligung an der Schulung von Assistenzärztinnen, Medizinstudierenden und weiterem medizinischem Fachpersonal\nSanitätsdienst bei Grossveranstaltungen: Mitwirkung bei Organisation und Durchführung von sanitätsdienstlichen Einsätzen (Internationale Lauberhornrennen und andere Grossanlässe)\n\nWas Sie mitbringen:\n\n• Facharzt/-ärztin für Allgemeine Innere Medizin FMH oder gleichwertiges eidgenössisch anerkanntes Diplom\n\n• Interesse und idealerweise Erfahrung in der Notfallmedizin\n\n• Engagement für patientenzentrierte, interdisziplinäre und teamorientierte Arbeit\n\n• Verantwortungsbewusste, belastbare und flexible Persönlichkeit\n\n• Deutschkenntnisse; weitere Fremdsprachen von Vorteil\n\n• Freude am Leben und Arbeiten in einer attraktiven Bergregion\n\nWas wir bieten:\n\n• Spannende und abwechslungsreiche Tätigkeit mit direktem Patientenkontakt\n\n• Moderne Praxisinfrastruktur mit voll-digitalem Röntgen, Labor, Ultraschall, Praxis-Apotheke, EKG und mehr\n\n• Attraktive Anstellungsbedingungen mit fortschrittlichen Sozialleistungen und Fringe Benefits\n\n• Enge Vernetzung mit regionalen Spitälern und Spezialärztinnen/-ärzten\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Unterstützung bei der Wohnungssuche und Integration vor Ort\n\n• Herzliches und erfahrenes interprofessionelles Team\n\n• Arbeiten und Leben in einer traumhaften Berglandschaft\n\nFür Fragen stehen Ihnen unser Leitender Arzt Dr. med. Markus Sinsel gerne telefonisch unter 033 856 28 28\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit und Teil eines schweizweit etablierten Netzwerks von Hausarztpraxen unter Trägerschaft der Swiss Medical Network AG.\nIn Wengen, inmitten des schönen Berner Oberlandes, bieten wir in unserem Xundheitszentrum eine umfassende medizinische Versorgung für Patientinnen und Patienten aller Altersgruppen und aus aller Welt\nUnser motiviertes und erfahrenes Team gewährleistet neben der allgemeinmedizinischen Grundversorgung auch den regionalen Notarztdienst sowie die Begleitung chronisch Kranker und älterer Menschen im Altersheim.\nWir suchen ab Juni 2026&#xa0;(oder nach Vereinbarung) eine/n Fachärztin/Facharzt für Allgemeine Innere Medizin (80–100%)",
+      "postalCode": "3818",
+      "description": "Hausärztliche Betreuung: Umfassende Versorgung von Patientinnen und Patienten aller Altersgruppen in sämtlichen Bereichen der Allgemeinmedizin Altersheim: Kontinuierliche medizinische Betreuung lokaler Patienten im Altersheim Grindelwald\nInterdisziplinäre Zusammenarbeit: enge fachliche Zusammenarbeit mit einer Advanced Practice Nurse und mit der Spitex\nAusbildung: Aktive Beteiligung an der Schulung von Assistenzärztinnen, Medizinstudierenden und weiterem medizinischem Fachpersonal\nNotfalldienst: Behandlung von Notfällen in der Praxis in Zusammenarbeit mit dem Rettungsdienst/Rega\n\n• Facharzt/-ärztin für Allgemeine Innere Medizin FMH oder gleichwertiges eidgenössisch anerkanntes Diplom\n\n• Engagement für patientenzentrierte, interdisziplinäre und teamorientierte Arbeit\n\n• Verantwortungsbewusste, belastbare und flexible Persönlichkeit\n\n• Deutschkenntnisse; weitere Fremdsprachen von Vorteil\n\n• Interesse an Sportmedizin und Traumatologie\n\n• Freude am Leben und Arbeiten in einer attraktiven Bergregion\n\nWas wir bieten:\n\n• Spannende und abwechslungsreiche Tätigkeit mit direktem Patientenkontakt\n\n• Moderne Praxisinfrastruktur mit digitaler Dokumentation, eigenes Röntgen, Labor, EKG und mehr\n\n• Attraktive Anstellungsbedingungen mit fortschrittlichen Sozialleistungen und Fringe Benefits\n\n• Vernetzung mit regionalen Spitälern und Spezialärztinnen/-ärzten\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Unterstützung bei Wohnungssuche und Integration vor Ort\n\n• Herzliches und erfahrenes interprofessionelles Team\n\n• Arbeiten und Leben in einer traumhaften Berglandschaft\nIhr Weg zu uns\n\nBitte senden Sie Ihre vollständigen Bewerbungsunterlagen über unseren Internet-Link\nFür Fragen steht&#xa0;Ihnen unsere Leitende Aerztin Dr. med. Pascale Meyer-Perret gerne telefonisch unter 033 854 54 40 zur Verfügung\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit und Teil eines schweizweit etablierten Netzwerks von Hausarztpraxen unter Trägerschaft der Swiss Medical Network AG.\nIn Grindelwald, inmitten des schönen Berner Oberlandes, bieten wir in unserem Xundheitszentrum eine umfassende medizinische Versorgung für Patientinnen und Patienten aller Altersgruppen und aus aller Welt.\n\nUnser motiviertes und erfahrenes Team gewährleistet die allgemeinmedizinische Grundversorgung, beteiligt sich am regionalen Notfalldienst und fokussiert ebenfalls auf die Begleitung chronisch kranker und älterer Menschen zu Hause und im Altersheim.\nZur Ergänzung des ärztlichen Teams suchen wir per sofort oder nach Vereinbarung eine/n:\nFachärzt/in Allgemeine Innere Medizin 80-100%\nDas Stellenprofil verbindet hausärztliche Tätigkeit mit einem vielseitigen Aufgabenbereich in der Notfallmedizin. Die Anstellung kann auf Wunsch auch befristet für die Wintersaison erfolgen",
       "descriptionByLocale": {
-        "en": "Das Stellenprofil verbindet hausärztliche Tätigkeit mit einem vielseitigen Aufgabenbereich in der Notfallmedizin\nDie Anstellung kann auf Wunsch auch befristet für die Wintersaison erfolgen\nIhre Aufgaben:\nHausärztliche Betreuung: Umfassende Versorgung von Patientinnen und Patienten aller Altersgruppen in sämtlichen Bereichen der Allgemeinmedizin\nNotfallmedizin, Notfalldienst: Teilnahme am lokalen ärztlichen Notfalldienst, Behandlung von Notfallpatienten in der Praxis sowie vor Ort in enger Zusammenarbeit mit der Boden- und Luftrettung\nAltersheim: Kontinuierliche medizinische Betreuung lokaler Patienten im Altersheim in Lauterbrunnen\nAusbildung: Aktive Beteiligung an der Schulung von Assistenzärztinnen, Medizinstudierenden und weiterem medizinischem Fachpersonal\nSanitätsdienst bei Grossveranstaltungen: Mitwirkung bei Organisation und Durchführung von sanitätsdienstlichen Einsätzen (Internationale Lauberhornrennen und andere Grossanlässe)\n\nWas Sie mitbringen:\n\n• Facharzt/-ärztin für Allgemeine Innere Medizin FMH oder gleichwertiges eidgenössisch anerkanntes Diplom\n\n• Interesse und idealerweise Erfahrung in der Notfallmedizin\n\n• Engagement für patientenzentrierte, interdisziplinäre und teamorientierte Arbeit\n\n• Verantwortungsbewusste, belastbare und flexible Persönlichkeit\n\n• Deutschkenntnisse; weitere Fremdsprachen von Vorteil\n\n• Freude am Leben und Arbeiten in einer attraktiven Bergregion\n\nWas wir bieten:\n\n• Spannende und abwechslungsreiche Tätigkeit mit direktem Patientenkontakt\n\n• Moderne Praxisinfrastruktur mit voll-digitalem Röntgen, Labor, Ultraschall, Praxis-Apotheke, EKG und mehr\n\n• Attraktive Anstellungsbedingungen mit fortschrittlichen Sozialleistungen und Fringe Benefits\n\n• Enge Vernetzung mit regionalen Spitälern und Spezialärztinnen/-ärzten\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Unterstützung bei der Wohnungssuche und Integration vor Ort\n\n• Herzliches und erfahrenes interprofessionelles Team\n\n• Arbeiten und Leben in einer traumhaften Berglandschaft\n\nFür Fragen stehen Ihnen unser Leitender Arzt Dr. med. Markus Sinsel gerne telefonisch unter 033 856 28 28\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit und Teil eines schweizweit etablierten Netzwerks von Hausarztpraxen unter Trägerschaft der Swiss Medical Network AG.\nIn Wengen, inmitten des schönen Berner Oberlandes, bieten wir in unserem Xundheitszentrum eine umfassende medizinische Versorgung für Patientinnen und Patienten aller Altersgruppen und aus aller Welt\nUnser motiviertes und erfahrenes Team gewährleistet neben der allgemeinmedizinischen Grundversorgung auch den regionalen Notarztdienst sowie die Begleitung chronisch Kranker und älterer Menschen im Altersheim.\nWir suchen ab Juni 2026&#xa0;(oder nach Vereinbarung) eine/n Fachärztin/Facharzt für Allgemeine Innere Medizin (80–100%)",
-        "it": "Das Stellenprofil verbindet hausärztliche Tätigkeit mit einem vielseitigen Aufgabenbereich in der Notfallmedizin\nDie Anstellung kann auf Wunsch auch befristet für die Wintersaison erfolgen\nIhre Aufgaben:\nHausärztliche Betreuung: Umfassende Versorgung von Patientinnen und Patienten aller Altersgruppen in sämtlichen Bereichen der Allgemeinmedizin\nNotfallmedizin, Notfalldienst: Teilnahme am lokalen ärztlichen Notfalldienst, Behandlung von Notfallpatienten in der Praxis sowie vor Ort in enger Zusammenarbeit mit der Boden- und Luftrettung\nAltersheim: Kontinuierliche medizinische Betreuung lokaler Patienten im Altersheim in Lauterbrunnen\nAusbildung: Aktive Beteiligung an der Schulung von Assistenzärztinnen, Medizinstudierenden und weiterem medizinischem Fachpersonal\nSanitätsdienst bei Grossveranstaltungen: Mitwirkung bei Organisation und Durchführung von sanitätsdienstlichen Einsätzen (Internationale Lauberhornrennen und andere Grossanlässe)\n\nWas Sie mitbringen:\n\n• Facharzt/-ärztin für Allgemeine Innere Medizin FMH oder gleichwertiges eidgenössisch anerkanntes Diplom\n\n• Interesse und idealerweise Erfahrung in der Notfallmedizin\n\n• Engagement für patientenzentrierte, interdisziplinäre und teamorientierte Arbeit\n\n• Verantwortungsbewusste, belastbare und flexible Persönlichkeit\n\n• Deutschkenntnisse; weitere Fremdsprachen von Vorteil\n\n• Freude am Leben und Arbeiten in einer attraktiven Bergregion\n\nWas wir bieten:\n\n• Spannende und abwechslungsreiche Tätigkeit mit direktem Patientenkontakt\n\n• Moderne Praxisinfrastruktur mit voll-digitalem Röntgen, Labor, Ultraschall, Praxis-Apotheke, EKG und mehr\n\n• Attraktive Anstellungsbedingungen mit fortschrittlichen Sozialleistungen und Fringe Benefits\n\n• Enge Vernetzung mit regionalen Spitälern und Spezialärztinnen/-ärzten\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Unterstützung bei der Wohnungssuche und Integration vor Ort\n\n• Herzliches und erfahrenes interprofessionelles Team\n\n• Arbeiten und Leben in einer traumhaften Berglandschaft\n\nFür Fragen stehen Ihnen unser Leitender Arzt Dr. med. Markus Sinsel gerne telefonisch unter 033 856 28 28\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit und Teil eines schweizweit etablierten Netzwerks von Hausarztpraxen unter Trägerschaft der Swiss Medical Network AG.\nIn Wengen, inmitten des schönen Berner Oberlandes, bieten wir in unserem Xundheitszentrum eine umfassende medizinische Versorgung für Patientinnen und Patienten aller Altersgruppen und aus aller Welt\nUnser motiviertes und erfahrenes Team gewährleistet neben der allgemeinmedizinischen Grundversorgung auch den regionalen Notarztdienst sowie die Begleitung chronisch Kranker und älterer Menschen im Altersheim.\nWir suchen ab Juni 2026&#xa0;(oder nach Vereinbarung) eine/n Fachärztin/Facharzt für Allgemeine Innere Medizin (80–100%)"
+        "en": "Hausärztliche Betreuung: Umfassende Versorgung von Patientinnen und Patienten aller Altersgruppen in sämtlichen Bereichen der Allgemeinmedizin Altersheim: Kontinuierliche medizinische Betreuung lokaler Patienten im Altersheim Grindelwald\nInterdisziplinäre Zusammenarbeit: enge fachliche Zusammenarbeit mit einer Advanced Practice Nurse und mit der Spitex\nAusbildung: Aktive Beteiligung an der Schulung von Assistenzärztinnen, Medizinstudierenden und weiterem medizinischem Fachpersonal\nNotfalldienst: Behandlung von Notfällen in der Praxis in Zusammenarbeit mit dem Rettungsdienst/Rega\n\n• Facharzt/-ärztin für Allgemeine Innere Medizin FMH oder gleichwertiges eidgenössisch anerkanntes Diplom\n\n• Engagement für patientenzentrierte, interdisziplinäre und teamorientierte Arbeit\n\n• Verantwortungsbewusste, belastbare und flexible Persönlichkeit\n\n• Deutschkenntnisse; weitere Fremdsprachen von Vorteil\n\n• Interesse an Sportmedizin und Traumatologie\n\n• Freude am Leben und Arbeiten in einer attraktiven Bergregion\n\nWas wir bieten:\n\n• Spannende und abwechslungsreiche Tätigkeit mit direktem Patientenkontakt\n\n• Moderne Praxisinfrastruktur mit digitaler Dokumentation, eigenes Röntgen, Labor, EKG und mehr\n\n• Attraktive Anstellungsbedingungen mit fortschrittlichen Sozialleistungen und Fringe Benefits\n\n• Vernetzung mit regionalen Spitälern und Spezialärztinnen/-ärzten\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Unterstützung bei Wohnungssuche und Integration vor Ort\n\n• Herzliches und erfahrenes interprofessionelles Team\n\n• Arbeiten und Leben in einer traumhaften Berglandschaft\nIhr Weg zu uns\n\nBitte senden Sie Ihre vollständigen Bewerbungsunterlagen über unseren Internet-Link\nFür Fragen steht&#xa0;Ihnen unsere Leitende Aerztin Dr. med. Pascale Meyer-Perret gerne telefonisch unter 033 854 54 40 zur Verfügung\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit und Teil eines schweizweit etablierten Netzwerks von Hausarztpraxen unter Trägerschaft der Swiss Medical Network AG.\nIn Grindelwald, inmitten des schönen Berner Oberlandes, bieten wir in unserem Xundheitszentrum eine umfassende medizinische Versorgung für Patientinnen und Patienten aller Altersgruppen und aus aller Welt.\n\nUnser motiviertes und erfahrenes Team gewährleistet die allgemeinmedizinische Grundversorgung, beteiligt sich am regionalen Notfalldienst und fokussiert ebenfalls auf die Begleitung chronisch kranker und älterer Menschen zu Hause und im Altersheim.\nZur Ergänzung des ärztlichen Teams suchen wir per sofort oder nach Vereinbarung eine/n:\nFachärzt/in Allgemeine Innere Medizin 80-100%\nDas Stellenprofil verbindet hausärztliche Tätigkeit mit einem vielseitigen Aufgabenbereich in der Notfallmedizin. Die Anstellung kann auf Wunsch auch befristet für die Wintersaison erfolgen",
+        "it": "Hausärztliche Betreuung: Umfassende Versorgung von Patientinnen und Patienten aller Altersgruppen in sämtlichen Bereichen der Allgemeinmedizin Altersheim: Kontinuierliche medizinische Betreuung lokaler Patienten im Altersheim Grindelwald\nInterdisziplinäre Zusammenarbeit: enge fachliche Zusammenarbeit mit einer Advanced Practice Nurse und mit der Spitex\nAusbildung: Aktive Beteiligung an der Schulung von Assistenzärztinnen, Medizinstudierenden und weiterem medizinischem Fachpersonal\nNotfalldienst: Behandlung von Notfällen in der Praxis in Zusammenarbeit mit dem Rettungsdienst/Rega\n\n• Facharzt/-ärztin für Allgemeine Innere Medizin FMH oder gleichwertiges eidgenössisch anerkanntes Diplom\n\n• Engagement für patientenzentrierte, interdisziplinäre und teamorientierte Arbeit\n\n• Verantwortungsbewusste, belastbare und flexible Persönlichkeit\n\n• Deutschkenntnisse; weitere Fremdsprachen von Vorteil\n\n• Interesse an Sportmedizin und Traumatologie\n\n• Freude am Leben und Arbeiten in einer attraktiven Bergregion\n\nWas wir bieten:\n\n• Spannende und abwechslungsreiche Tätigkeit mit direktem Patientenkontakt\n\n• Moderne Praxisinfrastruktur mit digitaler Dokumentation, eigenes Röntgen, Labor, EKG und mehr\n\n• Attraktive Anstellungsbedingungen mit fortschrittlichen Sozialleistungen und Fringe Benefits\n\n• Vernetzung mit regionalen Spitälern und Spezialärztinnen/-ärzten\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Unterstützung bei Wohnungssuche und Integration vor Ort\n\n• Herzliches und erfahrenes interprofessionelles Team\n\n• Arbeiten und Leben in einer traumhaften Berglandschaft\nIhr Weg zu uns\n\nBitte senden Sie Ihre vollständigen Bewerbungsunterlagen über unseren Internet-Link\nFür Fragen steht&#xa0;Ihnen unsere Leitende Aerztin Dr. med. Pascale Meyer-Perret gerne telefonisch unter 033 854 54 40 zur Verfügung\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit und Teil eines schweizweit etablierten Netzwerks von Hausarztpraxen unter Trägerschaft der Swiss Medical Network AG.\nIn Grindelwald, inmitten des schönen Berner Oberlandes, bieten wir in unserem Xundheitszentrum eine umfassende medizinische Versorgung für Patientinnen und Patienten aller Altersgruppen und aus aller Welt.\n\nUnser motiviertes und erfahrenes Team gewährleistet die allgemeinmedizinische Grundversorgung, beteiligt sich am regionalen Notfalldienst und fokussiert ebenfalls auf die Begleitung chronisch kranker und älterer Menschen zu Hause und im Altersheim.\nZur Ergänzung des ärztlichen Teams suchen wir per sofort oder nach Vereinbarung eine/n:\nFachärzt/in Allgemeine Innere Medizin 80-100%\nDas Stellenprofil verbindet hausärztliche Tätigkeit mit einem vielseitigen Aufgabenbereich in der Notfallmedizin. Die Anstellung kann auf Wunsch auch befristet für die Wintersaison erfolgen"
       },
       "titleByLocale": {
         "en": "Fachärzt/-in Allgemeine Innere Medizin"
@@ -2222,7 +2095,7 @@
       "sector": "Sanità / Healthcare",
       "_targetScope": {
         "canton": "BE",
-        "location": "Wengen"
+        "location": "Grindelwald"
       },
       "sourceLang": "de",
       "salaryMin": 85000,
@@ -2238,7 +2111,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-09T10:26:24.953Z"
+      "firstSeenAt": "2026-08-09T21:36:26.492Z"
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137161519-dipl-fachperson-operationstechnik-40-80-",
@@ -2283,13 +2156,11 @@
       "sourceLang": "de",
       "previousSlugs": [
         "dipl-fachperson-operationstechnik-40-80-swiss-medical-network-rapperswil-jona",
-        "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-swiss-medical-network",
-        "dipl-fachperson-operationstechnik-40-80-swiss-medical-network"
+        "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-swiss-medical-network",
-          "dipl-fachperson-operationstechnik-40-80-swiss-medical-network"
+          "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-swiss-medical-network"
         ]
       },
       "needsRetranslation": true,
@@ -2306,8 +2177,7 @@
           "maxValue": 69600,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136167655-cuoco-all-80-",
@@ -2323,7 +2193,7 @@
       "postalCode": "6900",
       "description": "Si offre l'opportunità di far parte del nostro rinomato team di cucina a partire dal 1 settembre 2026 con la funzione di cuoca/cuoco all'80 %.\nCompiti da svolgere in autonomia:\n\n• Mis en place e produzione in tutti i reparti della cucina\n\n• Pasti pazienti (sotto la supervisione del servizio dietetico)\n\n• Pasti per il nostro Ristorante à la carte&#xa0;\n\n• Pasti personale&#xa0;\n\n• Eventi di Standing lunch/dinner\n\nElementi indispensabili sono la volontà di inserirsi in gruppo coeso, uno spiccato senso del gusto e dell'estetica nel presentare i piatti.\n\nAFC cuoco o pari certificato estero, AFC dietetica costituisce elemento preferenziale.\n\nPresentare la propia candidatura entro il 31.07.2026.\n\nLa Clinica Sant’Anna fa parte di Swiss Medical Network: uno dei maggiori gruppi di cliniche private svizzere fondato nel 2002. Garantisce un’ampia offerta sanitaria e all’avanguardia, vantando una piattaforma multidisciplinare e interprofessionale per la presa a carico dei pazienti di tutte le età. La Clinica vanta un polo multispecialistico per la chirurgia, la medicina, la geriatria,&#xa0;l’oncologia, e tutte le specialità legate alla salute femminile (ginecologia, ostetricia e centro di senologia). Completano la piattaforma il servizio di diagnostica radiologica e centri di competenza iper-specializzati.\nIl prestigio locale e internazionale della struttura, la preparazione del personale medico ed infermieristico, le tecnologie di punta a disposizione, il trattamento alberghiero e l’attenzione personalizzata verso i bisogni dei pazienti ne rappresentano i principali punti di forza.\nLa Clinica Sant'Anna fa parte di VIVA, la prima organizzazione sanitaria di cure integrate della svizzera italiana.",
       "descriptionByLocale": {
-        "it": "Descrizione\n\nSi offre l'opportunità di far parte del nostro rinomato team di cucina a partire dal 1 settembre 2026 con la funzione di cuoca/cuoco all'80 %.\nCompiti da svolgere in autonomia:\n\n- Mis en place e produzione in tutti i reparti della cucina\n- Pasti pazienti (sotto la supervisione del servizio dietetico)\n- Pasti per il nostro Ristorante à la carte\n- Pasti personale\n- Eventi di Standing lunch/dinner\n\nElementi indispensabili sono la volontà di inserirsi in gruppo coeso, uno spiccato senso del gusto e dell'estetica nel presentare i piatti.\n\nAFC cuoco o pari certificato estero, AFC dietetica costituisce elemento preferenziale.\n\nPresentare la propia candidatura entro il 31.07.2026.\n\nLa Clinica Sant’Anna\n\nfa parte di Swiss Medical Network: uno dei maggiori gruppi di cliniche private svizzere fondato nel 2002.\nGarantisce un’ampia offerta sanitaria e all’avanguardia, vantando una piattaforma multidisciplinare e interprofessionale per la presa a carico dei pazienti di tutte le età.\nLa Clinica vanta un polo multispecialistico per la chirurgia, la medicina, la geriatria, l’oncologia, e tutte le specialità legate alla salute femminile (ginecologia, ostetricia e centro di senologia).\nCompletano la piattaforma il servizio di diagnostica radiologica e centri di competenza iper-specializzati.\nIl prestigio locale e internazionale della struttura, la preparazione del personale medico ed infermieristico, le tecnologie di punta a disposizione, il trattamento alberghiero e l’attenzione personalizzata verso i bisogni dei pazienti ne rappresentano i principali punti di forza.\nLa Clinica Sant'Anna fa parte di VIVA, la prima organizzazione sanitaria di cure integrate della svizzera italiana.",
+        "it": "Si offre l'opportunità di far parte del nostro rinomato team di cucina a partire dal 1 settembre 2026 con la funzione di cuoca/cuoco all'80 %.\nCompiti da svolgere in autonomia:\n\n• Mis en place e produzione in tutti i reparti della cucina\n\n• Pasti pazienti (sotto la supervisione del servizio dietetico)\n\n• Pasti per il nostro Ristorante à la carte&#xa0;\n\n• Pasti personale&#xa0;\n\n• Eventi di Standing lunch/dinner\n\nElementi indispensabili sono la volontà di inserirsi in gruppo coeso, uno spiccato senso del gusto e dell'estetica nel presentare i piatti.\n\nAFC cuoco o pari certificato estero, AFC dietetica costituisce elemento preferenziale.\n\nPresentare la propia candidatura entro il 31.07.2026.\n\nLa Clinica Sant’Anna fa parte di Swiss Medical Network: uno dei maggiori gruppi di cliniche private svizzere fondato nel 2002. Garantisce un’ampia offerta sanitaria e all’avanguardia, vantando una piattaforma multidisciplinare e interprofessionale per la presa a carico dei pazienti di tutte le età. La Clinica vanta un polo multispecialistico per la chirurgia, la medicina, la geriatria,&#xa0;l’oncologia, e tutte le specialità legate alla salute femminile (ginecologia, ostetricia e centro di senologia). Completano la piattaforma il servizio di diagnostica radiologica e centri di competenza iper-specializzati.\nIl prestigio locale e internazionale della struttura, la preparazione del personale medico ed infermieristico, le tecnologie di punta a disposizione, il trattamento alberghiero e l’attenzione personalizzata verso i bisogni dei pazienti ne rappresentano i principali punti di forza.\nLa Clinica Sant'Anna fa parte di VIVA, la prima organizzazione sanitaria di cure integrate della svizzera italiana.",
         "en": "Description\n\nWe offer the opportunity to join our renowned kitchen team from September 1st 2026 with the cucique/cuoco function at 80 percent. Tasks to be done independently:\n\n- Mis en place and production in all kitchen departments - Patient meals (under the supervision of the service) - Meals for our à la carte restaurant - Personal meals - 7-86/dinner\n\nThe essential elements are the desire to join a cohesive group, a strong sense of taste and aesthetics in presenting dishes.\n\nAFC cuoco or even foreign certificate, AFCa is a preferential element.\n\nPresent your application by 31.07.2026.\n\nThe Clinic Sant.Anna\n\nis part of the Swiss Medical Network: one of the largest groups of private clinics in Switzerland founded in 2002. It guarantees a wide range of health and advanced, boasting a multi-disciplinary and inter-professional platform for the care of patients of all ages. The Clinic has a multi-specialistic pole for surgery, medicine, geriatrics, oncology, and all specialties related to female health (gynecology, obstetrics and breastology center). The platform is completed with the service of radiological diagnostics and hyper-specialized centres of expertise.\n\nThe local and international prestige of the structure, the preparation of medical and nursing staff, the leading technologies available, the hotel treatment and personalized attention to the needs of patients represent its main strengths. The Clinica Sant'Anna is part of VIVA, the first integrated health care organisation of the Swiss Italian.",
         "de": "Warenbezeichnung\n\nWir bieten die Möglichkeit, ab dem 1. September 2026 mit der Cucique/Cuoco Funktion mit 80 Prozent zu unserem renommierten Küchenteam zu kommen.\n\n- Mis de place und Produktion in allen Küchenabteilungen - Patientenmahlzeiten (unter Aufsicht des Service) - Mahlzeiten für unser à la carte Restaurant - Persönliche Mahlzeiten - 7-86/ Abendessen\n\nDie wesentlichen Elemente sind der Wunsch, sich einer zusammenhängenden Gruppe anzuschließen, ein starkes Gefühl für Geschmack und Ästhetik in der Präsentation von Gerichten.\n\nAFC Cuoco oder sogar ausländisches Zertifikat, AFCa ist ein bevorzugtes Element.\n\nPräsentieren Sie Ihre Bewerbung bis 31.07.2026.\n\nDie Klinik Sant.Anna\n\nist Teil des Swiss Medical Network: einer der größten privaten Kliniken der Schweiz, die 2002 gegründet wurde. Es garantiert eine breite Palette von Gesundheits- und Fortschrittsaktivitäten, verfügt über eine multidisziplinäre und interprofessionelle Plattform für die Versorgung von Patienten aller Altersgruppen. Die Klinik verfügt über einen multi-spezialistischen Pol für Chirurgie, Medizin, Geriatrie, Onkologie und alle Fachrichtungen der weiblichen Gesundheit (Gynäkologie, Geburtshilfe und Brustklinik). Die Plattform ist mit dem Service der radiologischen Diagnostik und hyper-spezialisierten Zentren der Expertise ergänzt.\n\nDas lokale und internationale Ansehen der Struktur, die Vorbereitung von medizinischen und pflegerischen Mitarbeitern, die führenden verfügbaren Technologien, die Hotelbehandlung und die persönliche Betreuung der Patienten stellen ihre wichtigsten Stärken dar. Die Clinica Sant'Anna ist Teil der VIVA, der ersten integrierten Gesundheitsorganisation der Schweizer Italiener.",
         "fr": "Désignation des marchandises\n\nNous offrons la possibilité de rejoindre notre équipe de cuisine renommée à partir du 1er septembre 2026 avec la fonction de la cuique/cuco à 80%.\n\n- Mis en place et production dans tous les services de cuisine - Repas pour patients (sous la supervision du service) - Repas pour notre restaurant à la carte - Repas personnels - 7-86/dîner\n\nLes éléments essentiels sont le désir de rejoindre un groupe cohésif, un fort sens du goût et de l'esthétique dans la présentation des plats.\n\nAFC cuco ou même certificat étranger, AFCa est un élément préférentiel.\n\nPrésentez votre demande au plus tard le 31.07.2026.\n\nLa clinique Sant. Anna\n\nLa clinique est dotée d'un pôle multispécialiste pour la chirurgie, la médecine, la gériatrie, l'oncologie et toutes les spécialités liées à la santé féminine (centre de gynécologie, d'obstétrique et de bréalogie). La plateforme est complétée par le service de diagnostic radiologique et de centres d'expertise hyperspécialisés.\n\nLe prestige local et international de la structure, la préparation du personnel médical et infirmier, les technologies de pointe disponibles, le traitement hôtelier et l'attention personnalisée aux besoins des patients représentent ses principales forces. La Clinique Sant'Anna fait partie de VIVA, la première organisation intégrée de soins de santé de l'Italien suisse."
@@ -2365,21 +2235,20 @@
           "maxValue": 78800,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136025409-facharztin-facharzt-fur-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136025409-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136025689-facharztin-facharzt-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136025689-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
       "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Egerkingen",
-      "addressLocality": "Egerkingen",
-      "addressRegion": "SO",
-      "canton": "SO",
+      "location": "Beromünster",
+      "addressLocality": "Beromünster",
+      "addressRegion": "LU",
+      "canton": "LU",
       "country": "CH",
-      "postalCode": "4622",
+      "postalCode": "6222",
       "description": "• Eigenverantwortliche Führung von fachärztlichen Sprechstunden\n\n• Auf- und Ausbau des Praxisangebotes\n\n• Laufende Überprüfung und Verbesserung der medizinischen Qualität und der Praxisabläufe\n\n• Zusammenarbeit im Team und einem Netzwerk mit externen Spezialisten\n\n• Beteiligung am lokalen Notfalldienst (nur Tagdienst, kein Nacht-, Wochenend- oder Feiertagsdienst)\n\n• Leidenschaft für die Hausarztmedizin\n\n• Verantwortungsbewusste und engagierte Persönlichkeit\n\n• Motivation und Engagement für eine interdisziplinäre, interprofessionelle und partnerschaftliche Zusammenarbeit\n\n• Anspruchsvolle, abwechslungsreiche und herausfordernde Tätigkeit in einem attraktiven und modernen Arbeitsumfeld\n\n• Wertschätzende Arbeitsatmosphäre in einem interdisziplinären Team\n\n• Fortschrittliche Anstellungsbedingungen und ausgezeichnete Sozialleistungen\n\n• Umfassende Unterstützung bei Ihren Fort- und Weiterbildungen\n\n• Möglichkeit zur aktiven Mitgestaltung bei der Weiterentwicklung unseres Xundheitszentrums\n\nHaben Sie Interesse an dieser anspruchsvollen und vielseitigen Herausforderung? Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen via E-Mail an Dietmar Krämer, dietmar.kraemer@spitalzofingen.ch.\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit mit einem umfassenden Angebot in der allgemein-medizinischen Grundversorgung, Kinder- und Jugendmedizin. Wir sind ein etabliertes Netzwerk von Hausarztpraxen, im Besitz der Swiss Medical Network GesundheitsZentrum AG. Swiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 19 Spitälern und 80 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten. Wir gewährleisten eine umfassende und kompetente Versorgung aller Altersgruppen auf hohem medizinischem Niveau.",
       "descriptionByLocale": {
         "en": "• Eigenverantwortliche Führung von fachärztlichen Sprechstunden\n\n• Auf- und Ausbau des Praxisangebotes\n\n• Laufende Überprüfung und Verbesserung der medizinischen Qualität und der Praxisabläufe\n\n• Zusammenarbeit im Team und einem Netzwerk mit externen Spezialisten\n\n• Beteiligung am lokalen Notfalldienst (nur Tagdienst, kein Nacht-, Wochenend- oder Feiertagsdienst)\n\n• Leidenschaft für die Hausarztmedizin\n\n• Verantwortungsbewusste und engagierte Persönlichkeit\n\n• Motivation und Engagement für eine interdisziplinäre, interprofessionelle und partnerschaftliche Zusammenarbeit\n\n• Anspruchsvolle, abwechslungsreiche und herausfordernde Tätigkeit in einem attraktiven und modernen Arbeitsumfeld\n\n• Wertschätzende Arbeitsatmosphäre in einem interdisziplinären Team\n\n• Fortschrittliche Anstellungsbedingungen und ausgezeichnete Sozialleistungen\n\n• Umfassende Unterstützung bei Ihren Fort- und Weiterbildungen\n\n• Möglichkeit zur aktiven Mitgestaltung bei der Weiterentwicklung unseres Xundheitszentrums\n\nHaben Sie Interesse an dieser anspruchsvollen und vielseitigen Herausforderung? Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen via E-Mail an Dietmar Krämer, dietmar.kraemer@spitalzofingen.ch.\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit mit einem umfassenden Angebot in der allgemein-medizinischen Grundversorgung, Kinder- und Jugendmedizin. Wir sind ein etabliertes Netzwerk von Hausarztpraxen, im Besitz der Swiss Medical Network GesundheitsZentrum AG. Swiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 19 Spitälern und 80 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten. Wir gewährleisten eine umfassende und kompetente Versorgung aller Altersgruppen auf hohem medizinischem Niveau.",
@@ -2396,28 +2265,28 @@
       "category": "medical",
       "datePosted": "2026-08-09",
       "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
+      "employmentType": "PART_TIME",
       "experienceLevel": "MID",
       "sector": "Sanità / Healthcare",
       "_targetScope": {
-        "canton": "SO",
-        "location": "Egerkingen"
+        "canton": "LU",
+        "location": "Beromünster"
       },
       "sourceLang": "de",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-09T10:26:24.953Z"
+      "firstSeenAt": "2026-08-09T21:36:26.492Z"
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135978059-dipl-pflegefachperson-bettenstation-stundenlohn",
@@ -2475,15 +2344,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-bettenstation-stundenlohn-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachperson-bettenstation-stundenlohn-swiss-medical-network"
-      ]
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135954694-teamleitung-gastroenterologie-dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-60-80-",
@@ -2529,13 +2390,11 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-gastroenterologie-endoskopie-40-60-swiss-medical-network",
-        "teamleitung-gastroenterologie-dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-60-80-swiss-medical-network"
+        "dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-gastroenterologie-endoskopie-40-60-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-gastroenterologie-endoskopie-40-60-swiss-medical-network",
-          "teamleitung-gastroenterologie-dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-60-80-swiss-medical-network"
+          "dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-gastroenterologie-endoskopie-40-60-swiss-medical-network"
         ]
       },
       "firstSeenAt": "2026-07-06T15:37:05.963Z",
@@ -2715,13 +2574,11 @@
       "previousSlugs": [
         "professionista-generale-f-o-d-swiss-medical-network-biel",
         "professionista-generale-da-40-a-100-swiss-medical-network-ittigen",
-        "allgemeinmediziner-in-40-bis-100-swiss-medical-network-ittigen",
-        "allgemeinmediziner-in-40-bis-100-swiss-medical-network"
+        "allgemeinmediziner-in-40-bis-100-swiss-medical-network-ittigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "professionista-generale-da-40-a-100-swiss-medical-network-ittigen",
-          "allgemeinmediziner-in-40-bis-100-swiss-medical-network"
+          "professionista-generale-da-40-a-100-swiss-medical-network-ittigen"
         ]
       },
       "firstSeenAt": "2026-06-30T12:39:06.160Z",
@@ -2786,13 +2643,11 @@
         "specialist-specialist-endocrinology-and-diabetology-fmh-pensum-by-agreement-swiss-medical-network-basel",
         "facharztin-facharzt-endokrinologie-und-diabetologie-fmh-pensum-nach-absprache-swiss-medical-network-basel",
         "facharztin-facharzt-endokrinologie-e-diabetologie-fmh-pensum-nach-absprache-swiss-medical-network-basel",
-        "specialista-specialista-endocrinologia-e-diabetologia-fmh-penso-dopo-consultazione-swiss-medical-network-basel",
-        "facharztin-facharzt-endokrinologie-und-diabetologie-fmh-pensum-nach-absprache-swiss-medical-network"
+        "specialista-specialista-endocrinologia-e-diabetologia-fmh-penso-dopo-consultazione-swiss-medical-network-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-specialista-endocrinologia-e-diabetologia-fmh-penso-dopo-consultazione-swiss-medical-network-basel",
-          "facharztin-facharzt-endokrinologie-und-diabetologie-fmh-pensum-nach-absprache-swiss-medical-network"
+          "specialista-specialista-endocrinologia-e-diabetologia-fmh-penso-dopo-consultazione-swiss-medical-network-basel"
         ]
       },
       "firstSeenAt": "2026-06-29T23:34:11.527Z",

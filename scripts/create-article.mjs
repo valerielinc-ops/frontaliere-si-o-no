@@ -149,6 +149,7 @@ import { buildStructuralEvergreenTopics } from './lib/evergreen-topic-generator.
 import { resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
 import { metaFieldRegex, unescapeTsValue } from './lib/meta-field-regex.mjs';
 import { assertNoSlugPromptLeak, stripSlugPromptLeak, findSlugPromptLeak } from './lib/slug-prompt-leak-guard.mjs';
+import { fixMicrocopy } from './lib/it-microcopy-guard.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -2623,6 +2624,48 @@ function collapseShoutingTitle(rawTitle) {
       return result;
     })
     .join(' ');
+}
+
+/**
+ * Apply the deterministic microcopy guard to a locale's title AND excerpt.
+ *
+ * ── Why this sits NEXT TO normalizeTitleCasing and not inside it ──────────
+ *
+ * `normalizeTitleCasing()` above already knows the toponyms — `'ticino'` has
+ * been in `TITLE_CASING_PROPER_NOUNS` the whole time — but it returns before it
+ * can use them:
+ *
+ *     if (!looksTitleCase && !isShouting) return s;
+ *
+ * `looksTitleCase` demands that ≥60% of the words start with a capital. A title
+ * already in sentence case with one lowercase toponym has ~1 in 6 and takes
+ * that branch, so the proper-noun table is never reached. The table was not
+ * missing; the path to it was. That is how these shipped, measured on
+ * `packages/articles/content/` on 2026-08-09:
+ *
+ *   · «Frontaliere gruista ticino: stipendio e requisiti»
+ *   · «Sostanzialmente le novità per i frontaliere gruisti in Ticino»
+ *   · «I requisiti e il stipendio medio…»
+ *
+ * The guard below has no early-exit branch, and it also covers the EXCERPT,
+ * which no casing pass in this file has ever touched despite the excerpt being
+ * the meta description on every article page.
+ *
+ * Fixing the early return instead was the tempting one-liner and is the wrong
+ * move: that branch exists so Italian sentence-case grammar is not imposed on
+ * EN/DE/FR titles, and widening it would start lowercasing German nouns.
+ *
+ * @see scripts/lib/it-microcopy-guard.mjs for what it deliberately does NOT cover.
+ */
+function applyMicrocopyGuard(content, locale) {
+  if (!content || typeof content !== 'object') return;
+  for (const field of ['title', 'excerpt']) {
+    if (typeof content[field] !== 'string' || !content[field].trim()) continue;
+    const { value, fixes } = fixMicrocopy(content[field], { locale, field });
+    if (!fixes.length) continue;
+    console.warn(`  ✍️ [microcopy] ${locale.toUpperCase()} ${field}: ${fixes.map((f) => `${f.rule} "${f.found}"→"${f.expected}"`).join(', ')}`);
+    content[field] = value;
+  }
 }
 
 /**
@@ -5456,6 +5499,13 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     }
   }
 
+  // normalizeTitleCasing() bails out on a title that is ALREADY in sentence
+  // case (its ≥60%-capitalized precondition), and nothing in this file has ever
+  // looked at the excerpt at all. Both gaps shipped on 2026-08-09. This runs
+  // unconditionally on both fields — outside the `if` above on purpose, since
+  // that block is itself conditional on the title having been rewritten.
+  applyMicrocopyGuard(itContent, 'it');
+
   // Preserve FAQ from AI response (not in REQUIRED_IT_BODY_FIELDS, extracted separately)
   const rawFaq = itData?.content?.it?.faq || itData?.content?.faq || itData?.faq;
   if (rawFaq) {
@@ -6032,6 +6082,13 @@ ${terminologyByLang[targetLang] || ''}`;
       console.warn(`  🔡 [title-case] ${locale.toUpperCase()} title normalizzato: "${localeContent.title}" → "${uncappedTitle}"`);
       localeContent.title = uncappedTitle;
     }
+    // Toponym casing is locale-agnostic: Ticino stays Ticino in EN/DE/FR, and
+    // the free-MT cascade carries a lowercase 'ticino' straight over from the
+    // Italian source — measured live in `blog-meta-fr.ts` («Frontalier grutier
+    // ticino : salaire et exigences»). The Italian grammar rules inside the
+    // guard are gated on `locale === 'it'` and do not fire here, so nothing
+    // imposes Italian sentence-case on a German title.
+    applyMicrocopyGuard(localeContent, locale);
   }
 
   console.error(`  ✅ Articolo assemblato — ${Object.keys(data.content).length} lingue`);
@@ -10837,7 +10894,7 @@ export { translateArticle, enforceStrongInternalLinks, findBestFallbackImage, pi
 // Redazione redesign (issue #3174 follow-up): the journalist now authors only
 // {title, body}; these derive the title-casing/excerpt/body1-3/cover-image
 // candidates the shared pipeline above still expects.
-export { normalizeTitleCasing, collapseShoutingTitle, generateExcerpt, splitBodyIntoSections, findStockImageCandidates };
+export { normalizeTitleCasing, collapseShoutingTitle, applyMicrocopyGuard, generateExcerpt, splitBodyIntoSections, findStockImageCandidates };
 
 // Re-exported so eval/research harnesses (e.g. the local-LLM rewrite eval,
 // issue #3656) can run the SAME blocking fact-check gate used in production

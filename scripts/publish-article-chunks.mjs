@@ -107,9 +107,11 @@
 // CLI (no npm ci in this job — see fast-publish-article.yml's own comment;
 // esbuild is invoked via `npx -y` on demand, exactly like tsx@4 already is):
 //   npx -y tsx scripts/publish-article-chunks.mjs [--dry-run]
-// Always (re)publishes BOTH registries — cheap and idempotent (rclone
-// --checksum skips an unchanged re-PUT), and this workflow step doesn't know
-// in isolation which registry(ies) the just-rendered article touched.
+// Always (re)publishes BOTH registries — cheap enough to PUT unconditionally
+// (small JSON payloads; upload-cdn-file.sh always transfers, see its own
+// header on why a checksum-based skip is unsafe here, issue #5497), and this
+// workflow step doesn't know in isolation which registry(ies) the
+// just-rendered article touched.
 //
 // Exit: ALWAYS 0. Every failure mode (esbuild missing, shape mismatch, R2
 // creds absent, upload failure, purge failure) is reported via

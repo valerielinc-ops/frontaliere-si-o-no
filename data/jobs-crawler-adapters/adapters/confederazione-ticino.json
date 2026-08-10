@@ -11,7 +11,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it"
   ],
   "notes": "Confederazione Svizzera — CH-wide federal jobs (all 26 cantons). Fetches the unfiltered national listing from the Prospective.ch API (medium 1000624 — Stellenportal Bund / jobs.admin.ch) and keeps every job whose location resolves to a Swiss canton (inferAnyCanton); foreign \"Estero\" postings are dropped. Covers departments not handled by VTG or Agroscope crawlers: DATEC, DEFR/SECO, DFGP, TPF, etc. Includes apprenticeship and internship positions.",
-  "updatedAt": "2026-08-09T10:06:26.869Z",
+  "updatedAt": "2026-08-09T21:40:23.487Z",
   "seedMetaByUrl": {
     "https://jobs.admin.ch/posti-vacanti/jurist-in/d85d51cc-c2c8-4ed6-ab21-8c0a1b17ddb9": {
       "location": "Bern",

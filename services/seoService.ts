@@ -22,6 +22,7 @@ import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from '../buil
 import { getCantonDisplayName } from '../build-plugins/shared/cantonDisplay';
 import { resolveJobCanton } from '../build-plugins/shared/cantonSection';
 import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription, truncateHeadline, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS } from '../build-plugins/shared/titleSuffix';
+import { ROBOTS_INDEX_ENHANCED_CONTENT } from '../build-plugins/shared/robotsDirective';
 import { truncateCodeUnits } from '../build-plugins/shared/safeTruncate';
 import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescription } from '../build-plugins/shared/borderCrossingTitle';
 import { BLOG_SEO_SHARD_IDS, type BlogSeoShardId } from '../build-plugins/shared/blogSeoShards';
@@ -647,43 +648,57 @@ function shouldApplySerpExperiment(section: string): boolean {
  return serpExperimentState.targets.has(section);
 }
 
-function getSerpIntentLabel(path: string, locale: Locale): string {
+// Returns null when the path doesn't match a known calculator/tool intent —
+// callers must skip the experiment entirely rather than fall back to a
+// generic label. The vocabulary here is calculator-shaped by design ("oltre
+// 20km", "cambio CHF EUR", "pensione frontalieri"); pages outside that set
+// (blog articles, guides, listings) have their own editorial titles, and
+// slapping an unrelated "| simulazione | 2026" suffix on them is a
+// content/intent mismatch that measurably drags down CTR (issue #5479) —
+// the same reasoning that already excludes job-detail pages below.
+//
+// The `pension` entry is intentionally scoped to the two ACTUAL
+// retirement-planning tools (`calcola-previdenza`, `simula-terzo-pilastro`),
+// not the whole `/tasse-e-pensione/` section (issue #5481): most pages under
+// that prefix — dichiarazione-redditi, ristorni-fiscali, scadenze-fiscali,
+// credito-imposta, aliquote-imposta-alla-fonte-*, quiz-fiscale,
+// festivita-ticino, tasse-svizzere-frontalieri, nuova-legge-frontalieri-2026 —
+// are about tax filing/rates/deadlines, not pension, so tagging them
+// "pensione frontalieri" is the same content-mismatch defect #5479 fixed,
+// just with a real (over-broad) match instead of the generic fallback.
+export function getSerpIntentLabel(path: string, locale: Locale): string | null {
  const map = {
  it: {
  over20: 'oltre 20km',
  within20: 'entro 20km',
  exchange: 'cambio CHF EUR',
  pension: 'pensione frontalieri',
- simulation: 'simulazione',
  },
  en: {
  over20: 'over 20km',
  within20: 'within 20km',
  exchange: 'CHF EUR exchange',
  pension: 'cross-border pension',
- simulation: 'simulation',
  },
  de: {
  over20: 'ueber 20km',
  within20: 'innerhalb 20km',
  exchange: 'CHF EUR wechsel',
  pension: 'grenzgaenger rente',
- simulation: 'simulation',
  },
  fr: {
  over20: 'au-dela de 20km',
  within20: 'dans 20km',
  exchange: 'change CHF EUR',
  pension: 'retraite frontalier',
- simulation: 'simulation',
  },
  }[locale];
 
  if (path.includes('oltre-20km')) return map.over20;
  if (path.includes('entro-20km')) return map.within20;
  if (path.includes('cambio-franco-euro')) return map.exchange;
- if (path.includes('calcola-previdenza') || path.includes('tasse-e-pensione')) return map.pension;
- return map.simulation;
+ if (path.includes('calcola-previdenza') || path.includes('simula-terzo-pilastro')) return map.pension;
+ return null;
 }
 
 function applySerpTitleDescriptionVariant(
@@ -697,10 +712,18 @@ function applySerpTitleDescriptionVariant(
  return { title, description, variant: 'control' };
  }
 
+ const intent = getSerpIntentLabel(path, locale);
+ if (intent === null) {
+ // No calculator/tool intent matches this path — the experiment's
+ // suffix vocabulary has nothing relevant to say here, so leave the
+ // page's own title/description untouched instead of appending a
+ // mismatched generic tag (see getSerpIntentLabel above).
+ return { title, description, variant: 'control' };
+ }
+
  const MAX_TITLE_LENGTH = 60;
  const MAX_DESCRIPTION_LENGTH = 160;
  const year = serpExperimentState.year;
- const intent = getSerpIntentLabel(path, locale);
  const cleanTitle = title.replace(/\s+\|\s+Frontaliere Ticino$/i, '').trim();
 
  // Clause-boundary truncation (shared, build-plugins/shared/titleSuffix.ts):
@@ -1797,7 +1820,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  })();
  const robotsDirective = hasFilterQuery
  ? 'noindex, follow'
- : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+ : ROBOTS_INDEX_ENHANCED_CONTENT;
  updateOrCreateMetaTag('name', 'robots', robotsDirective);
 
  // Update Open Graph tags (used by Bing, Facebook, LinkedIn)

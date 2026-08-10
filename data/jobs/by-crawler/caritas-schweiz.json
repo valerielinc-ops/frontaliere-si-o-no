@@ -1,6 +1,6 @@
 {
   "crawlerKey": "caritas-schweiz",
-  "assembledAt": "2026-08-09T10:23:12.773Z",
+  "assembledAt": "2026-08-09T21:43:27.663Z",
   "jobs": [
     {
       "id": "caritas-schweiz-4ac86da4b8d7",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/126757/2335/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T10:23:09.390Z",
+      "crawledAt": "2026-08-09T21:43:24.521Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -89,7 +89,7 @@
       "slug": "administration-finanzen-asyl-integration-e-migration-40-80-m-w-d-caritas-schweiz-aarau",
       "slugByLocale": {
         "it": "administration-finanzen-asyl-integration-e-migration-40-80-m-w-d-caritas-schweiz-aarau",
-        "en": "administration-finance-asylum-integration-and-migration-40-80-m-f-d-caritas-schweiz-aarau",
+        "en": "administration-finanzen-asyl-integration-und-migration-40-80-m-w-d-caritas-schweiz-aarau",
         "de": "administration-finanzen-asyl-integration-und-migration-40-80-m-w-d-caritas-schweiz-aarau",
         "fr": "administration-financement-asile-integration-et-migration-40-80-m-f-d-caritas-schweiz-aarau"
       },
@@ -116,7 +116,7 @@
       "url": "https://apply.refline.ch/126757/2333/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T10:23:08.971Z",
+      "crawledAt": "2026-08-09T21:43:24.043Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -137,13 +137,15 @@
       "pensumMax": 80,
       "pensum": "40 - 80%",
       "previousSlugs": [
-        "administration-finanzen-asyl-integration-und-migration-40-80-m-w-d-caritas-schweiz-aarau"
+        "administration-finanzen-asyl-integration-und-migration-40-80-m-w-d-caritas-schweiz-aarau",
+        "administration-finance-asylum-integration-and-migration-40-80-m-f-d-caritas-schweiz-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "administration-finanzen-asyl-integration-und-migration-40-80-m-w-d-caritas-schweiz-aarau"
         ],
         "en": [
+          "administration-finance-asylum-integration-and-migration-40-80-m-f-d-caritas-schweiz-aarau",
           "administration-finanzen-asyl-integration-und-migration-40-80-m-w-d-caritas-schweiz-aarau"
         ],
         "fr": [
@@ -196,7 +198,7 @@
       "url": "https://apply.refline.ch/126757/2331/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T10:23:08.553Z",
+      "crawledAt": "2026-08-09T21:43:23.565Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -293,7 +295,7 @@
       "url": "https://apply.refline.ch/126757/2345/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-09T10:23:08.131Z",
+      "crawledAt": "2026-08-09T21:43:23.087Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -373,7 +375,7 @@
       "url": "https://apply.refline.ch/126757/2343/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-09T10:23:07.714Z",
+      "crawledAt": "2026-08-09T21:43:22.609Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -439,7 +441,7 @@
       "url": "https://apply.refline.ch/126757/2320/pub/4/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-09T10:23:07.295Z",
+      "crawledAt": "2026-08-09T21:43:22.127Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -521,7 +523,7 @@
       "url": "https://apply.refline.ch/126757/2342/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T10:23:06.875Z",
+      "crawledAt": "2026-08-09T21:43:21.638Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -601,7 +603,7 @@
       "url": "https://apply.refline.ch/126757/2302/pub/4/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T10:23:06.453Z",
+      "crawledAt": "2026-08-09T21:43:21.160Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -683,7 +685,7 @@
       "url": "https://apply.refline.ch/126757/2340/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-09T10:23:06.032Z",
+      "crawledAt": "2026-08-09T21:43:20.680Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -749,7 +751,7 @@
       "url": "https://apply.refline.ch/126757/2338/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T10:23:05.610Z",
+      "crawledAt": "2026-08-09T21:43:20.197Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",

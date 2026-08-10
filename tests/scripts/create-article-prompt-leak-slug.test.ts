@@ -158,4 +158,21 @@ describe('SEO titles are truncated at word boundaries (#4974)', () => {
     expect(cut).not.toMatch(/[,:;.\-–—\s]$/);
     expect(long[cut.length] === ' ' || cut.length === long.length).toBe(true);
   });
+
+  it('never exceeds maxLen when the first token alone is longer than the budget (#5452)', async () => {
+    // No space reachable within maxLen + 1 chars — the old fallback returned
+    // the maxLen + 1 lookahead slice whole, overshooting the budget by 1.
+    const { truncateToClause } = await import('../../build-plugins/shared/clauseTail.mjs');
+    const fn = truncateToClause as (t: string, n: number) => string;
+
+    const long = 'Krankenversicherungspflichtbefreiungsantragsformularvorlage fuer Grenzgaenger';
+    const cut = fn(long, 57);
+    expect(cut.length).toBeLessThanOrEqual(57);
+    expect(long.startsWith(cut)).toBe(true);
+
+    const singleToken = 'Grenzgaengerbewilligungsverfahrenantragsformularvorlageblatt';
+    const cutSingle = fn(singleToken, 30);
+    expect(cutSingle.length).toBeLessThanOrEqual(30);
+    expect(singleToken.startsWith(cutSingle)).toBe(true);
+  });
 });
