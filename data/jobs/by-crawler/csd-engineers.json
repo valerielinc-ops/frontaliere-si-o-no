@@ -684,9 +684,8 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 88,
-      "retranslationAttempts": 15,
+      "retranslationAttempts": 16,
       "firstSeenAt": "2026-06-02T23:14:17.411Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -838,7 +837,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "retranslationAttempts": 1
     },
     {
       "id": "csd-engineers-65a85148fb26",
