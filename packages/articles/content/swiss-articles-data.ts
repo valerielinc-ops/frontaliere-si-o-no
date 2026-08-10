@@ -6022,6 +6022,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo',
+    category: 'fiscale',
+    date: '2026-08-10T00:18:35.537Z',
+    image: '/images/blog/secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

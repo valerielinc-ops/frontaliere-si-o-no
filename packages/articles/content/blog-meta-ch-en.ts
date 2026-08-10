@@ -2008,6 +2008,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-bern-2026-guida.title': 'Guide to the second LPP pillar in Switzerland',
     'blog.article.secondo-pilastro-lpp-bern-2026-guida.excerpt': 'The guide to the second LPP pillar describes contributions, levying, gap redemption and social security planning in Switzerland, with a focus on the canton of Bern and a national comparison.',
     'blog.article.secondo-pilastro-lpp-bern-2026-guida.imageAlt': 'Image of a frontier worker who is in a similar situation to the one described in the guide.',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo.title': 'LPP in Switzerland: Contributions and social security planning',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo.excerpt': 'Find out how the second LPP pillar works in Switzerland, with a focus on the canton of St. Gallen. Settings, contributions, and withdrawals.',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo.imageAlt': 'Practical guide to the second pillar LPP in Switzerland, with a focus on the canton of St. Gallen. Photorealistic scene of Lugano, with a LPP pillar in the foreground.',
 };
 
 export default blogMetaChEn;

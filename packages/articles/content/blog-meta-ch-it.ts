@@ -2008,6 +2008,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-bern-2026-guida.title': 'Guida al secondo pilastro LPP in Svizzera',
     'blog.article.secondo-pilastro-lpp-bern-2026-guida.excerpt': 'La guida al secondo pilastro LPP descrive i contributi, il prelievo, il riscatto delle lacune e la pianificazione previdenziale in Svizzera, con un focus sul canton Berna e un confronto nazionale.',
     'blog.article.secondo-pilastro-lpp-bern-2026-guida.imageAlt': 'Immagine di un frontaliere che si trova in una situazione simile a quella descritta nella guida.',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo.title': 'LPP in Svizzera: Contributi e pianificazione previdenziale',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo.excerpt': 'Scopri come funziona il secondo pilastro LPP in Svizzera, con un focus sul canton San Gallo. Impostazioni, contributi e prelievi.',
+    'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo.imageAlt': 'Guida pratica al secondo pilastro LPP in Svizzera, con un focus sul canton San Gallo. Scena fotorealistica di Lugano, con un pilastro LPP in primo piano.',
 };
 
 export default blogMetaChIt;
