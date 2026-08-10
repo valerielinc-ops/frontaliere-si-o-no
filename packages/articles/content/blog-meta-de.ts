@@ -9525,6 +9525,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.title': 'Als Grenzgänger nach Germignaga ziehen: Vor- und Nachteile',
     'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.excerpt': 'Quellensteuer und neue Regeln für Grenzgänger',
     'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.imageAlt': 'Ein Frontalier zieht nach Germignaga um',
+    'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.title': 'Als Grenzgänger nach Marchirolo ziehen: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.excerpt': 'Untertitel mit konkreten Angaben AUS DER QUELLE (max 160 char)',
+    'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.imageAlt': 'Max 125 caratteri',
 };
 
 export default blogMetaDe;

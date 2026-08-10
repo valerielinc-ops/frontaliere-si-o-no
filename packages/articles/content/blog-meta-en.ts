@@ -9526,6 +9526,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.title': 'Moving to Germignaga by border crossing: pros and cons',
     'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.excerpt': 'Tax at source and new rules for border workers',
     'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.imageAlt': 'A frontaliere is moving to Germignaga',
+    'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.title': 'Moving to Marchirolo from border crossings: pros and cons',
+    'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.excerpt': 'Subtitle with concrete data FROM THE SOURCE (max 160 char)',
+    'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.imageAlt': 'Max 125 caratteri',
 };
 
 export default blogMetaEn;
