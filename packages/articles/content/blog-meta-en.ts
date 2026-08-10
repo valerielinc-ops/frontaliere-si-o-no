@@ -9532,6 +9532,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nodo-biasca-lavori-fase-finale.title': 'Node of Biasca: the last phase of work from 31 August',
     'blog.article.nodo-biasca-lavori-fase-finale.excerpt': 'Work at the Biasca interchange node: the last phase begins on 31 August 2026 and ends on 12 September, with impacts on traffic and alternate senses.',
     'blog.article.nodo-biasca-lavori-fase-finale.imageAlt': 'Road paving works at the Biasca interchange node in Ticino',
+    'blog.article.trasferirsi-tronzano-lago-maggiore-frontaliere.title': 'move to Tronzano Lake Maggiore from frontier pro and con',
+    'blog.article.trasferirsi-tronzano-lago-maggiore-frontaliere.excerpt': 'Tax approach, new border agreement, double taxation',
+    'blog.article.trasferirsi-tronzano-lago-maggiore-frontaliere.imageAlt': 'A family of a commuter moves to Tronzano Lago Maggiore to work in Ticino',
 };
 
 export default blogMetaEn;

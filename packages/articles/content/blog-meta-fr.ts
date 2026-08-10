@@ -9534,6 +9534,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nodo-biasca-lavori-fase-finale.title': 'Nœud de Biasca : la dernière phase des travaux depuis le 31 août',
     'blog.article.nodo-biasca-lavori-fase-finale.excerpt': 'Travaux au nœud d\'échange de Biasca : la dernière phase commence le 31 août 2026 et se termine le 12 septembre, avec des impacts sur le trafic et des sens alternatifs.',
     'blog.article.nodo-biasca-lavori-fase-finale.imageAlt': 'Travaux de pavage routier au nœud d\'échange de Biasca au Tessin',
+    'blog.article.trasferirsi-tronzano-lago-maggiore-frontaliere.title': 'déménager à Tronzano Lago Maggiore en tant que frontalier pour et contre',
+    'blog.article.trasferirsi-tronzano-lago-maggiore-frontaliere.excerpt': 'Réglage fiscal, nouvel accord frontalier, double imposition',
+    'blog.article.trasferirsi-tronzano-lago-maggiore-frontaliere.imageAlt': 'Une famille d\'un frontalier se déplace vers Tronzano Lago Maggiore pour travailler en Suisse',
 };
 
 export default blogMetaFr;

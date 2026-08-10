@@ -9531,6 +9531,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nodo-biasca-lavori-fase-finale.title': 'Biasca-Knotenpunkt: letzte Bauphase ab 31. August',
     'blog.article.nodo-biasca-lavori-fase-finale.excerpt': 'Arbeiten am Verkehrsknotenpunkt Biasca: Die letzte Phase beginnt am 31. August 2026 und endet am 12. September mit Auswirkungen auf den Verkehr und alternierenden Richtungen.',
     'blog.article.nodo-biasca-lavori-fase-finale.imageAlt': 'Asphaltierungsarbeiten am Umsteigeknoten Biasca im Tessin',
+    'blog.article.trasferirsi-tronzano-lago-maggiore-frontaliere.title': 'umzug nach Tronzano Lago Maggiore als Grenzgänger für und gegen',
+    'blog.article.trasferirsi-tronzano-lago-maggiore-frontaliere.excerpt': 'Besteuerung, neues Grenzgängerabkommen, Doppelbesteuerung',
+    'blog.article.trasferirsi-tronzano-lago-maggiore-frontaliere.imageAlt': 'Eine Familie eines Pendler zieht nach Tronzano Lago Maggiore um in Ticino zu arbeiten',
 };
 
 export default blogMetaDe;

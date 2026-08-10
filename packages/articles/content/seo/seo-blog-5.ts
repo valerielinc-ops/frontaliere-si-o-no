@@ -62588,6 +62588,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-tronzano-lago-maggiore-frontaliere': {
+    title: 'trasferirsi a Tronzano Lago Maggiore da frontaliere pro e contro',
+    description: 'Impostazione fiscale, nuovo accordo frontalieri, doppia imposizione. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, tronzano, lago, maggiore',
+    ogTitle: 'trasferirsi a Tronzano Lago Maggiore da frontaliere pro e contro',
+    ogDescription: 'Impostazione fiscale, nuovo accordo frontalieri, doppia imposizione',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-tronzano-lago-maggiore-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "trasferirsi a Tronzano Lago Maggiore da frontaliere pro e contro",
+      "description": "Impostazione fiscale, nuovo accordo frontalieri, doppia imposizione. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-tronzano-lago-maggiore-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere con la famiglia si sposta verso Tronzano Lago Maggiore per lavorare in Ticino"
+      },
+      "datePublished": "2026-08-10T15:18:14+00:00",
+      "dateModified": "2026-08-10T15:18:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-tronzano-lago-maggiore-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
