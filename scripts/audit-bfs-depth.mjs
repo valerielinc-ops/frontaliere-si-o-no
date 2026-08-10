@@ -54,6 +54,11 @@ import { fileURLToPath } from 'node:url';
 import https from 'node:https';
 import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
 import { extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
+import {
+  carryForwardReasons,
+  evaluateBaselineJustification,
+  formatHighBaselineReport,
+} from './lib/bfsBaselineJustification.mjs';
 
 // See audit-text-html-ratio.mjs's identical constant for the rationale.
 // Currently dormant here — this script runs in the validate-dist-postbuild-bfs
@@ -570,6 +575,32 @@ async function main() {
         'a hub at depth ≤ ' + (MAX_DEPTH - 1) + ', never noindex. Rates must only DECREASE.',
     };
     const outPath = resolvePath(WRITE_BASELINE_PATH);
+    // Carry `reason` fields across the rebaseline (#5545). Every entry above
+    // is rebuilt from the current measurement, so without this a justification
+    // written into the baseline survives exactly until the next
+    // `npm run audit:max-bfs-depth:rebaseline` and the whole justification
+    // mechanism becomes vacuous after one run — the failure mode where a gate
+    // stays green because it no longer has anything to read. Reasons are NOT
+    // carried onto an entry whose rate got worse: the justification was
+    // written about a specific number and has to be re-argued, not inherited.
+    try {
+      const previous = JSON.parse(await readFile(outPath, 'utf8'));
+      const { carried, dropped } = carryForwardReasons({
+        previousPerSitemap: previous?.perSitemap,
+        nextPerSitemap: perSitemapForBaseline,
+      });
+      if (carried.length > 0) {
+        process.stderr.write(`[audit-bfs-depth] carried ${carried.length} baseline reason(s) forward\n`);
+      }
+      for (const d of dropped) {
+        process.stderr.write(
+          `[audit-bfs-depth] DROPPED the reason on ${d.name}: rate ${d.from}% → ${d.to}%. ` +
+            'The justification described the old number — re-argue it, do not paste it back.\n',
+        );
+      }
+    } catch {
+      // No previous baseline at this path (first seed) — nothing to carry.
+    }
     await writeFile(outPath, JSON.stringify(baseline, null, 2) + '\n', 'utf8');
     process.stderr.write(`\n→ wrote baseline to ${relative(ROOT, outPath)}\n`);
   }
@@ -590,6 +621,21 @@ async function main() {
       console.error(`   --max-depth=${baseline.maxDepth} or rebaseline with the new value.`);
       process.exit(2);
     }
+    // #5545 report half: the per-sitemap ratchet judges each shard against its
+    // OWN baseline, so it can never say anything about the baseline itself.
+    // Print the high end on every gated run — non-gating here (the gating half
+    // is the static check in tests/seo/bfs-baseline-justification.test.ts,
+    // which runs at PR time, i.e. when a high baseline would be REGISTERED,
+    // rather than post-deploy once it has already shipped).
+    const justification = evaluateBaselineJustification({ baseline });
+    if (justification.high.length > 0) {
+      process.stderr.write('\n' + formatHighBaselineReport(justification).join('\n') + '\n');
+      process.stderr.write(
+        'A high baseline is an assertion that the majority of a family is unreachable and that this is fine.\n' +
+          'Entries marked UNJUSTIFIED carry no written reason — see scripts/lib/bfsBaselineJustification.mjs.\n',
+      );
+    }
+
     const { regressions, unbaselined, buriedNewShards } = evaluateBfsGate({ perSitemap, baseline });
     if (unbaselined.length > 0) {
       process.stderr.write(`\n[audit-bfs-depth] WARNING (non-gating): ${unbaselined.length} sitemap shard(s) not in baseline ship URLs below crawl depth — rebaseline to register (and floor) them:\n`);

@@ -251,6 +251,7 @@
     "audit:text-html-ratio:rebaseline": "node scripts/audit-text-html-ratio.mjs --write-baseline=data/text-html-ratio-baseline.json",
     "audit:max-bfs-depth": "node scripts/audit-bfs-depth.mjs --baseline=data/bfs-depth-baseline.json",
     "audit:max-bfs-depth:rebaseline": "node scripts/audit-bfs-depth.mjs --write-baseline=data/bfs-depth-baseline.json",
+    "report:bfs-high-baselines": "node scripts/report-bfs-high-baselines.mjs",
     "audit:footer-root-presence": "node scripts/audit-footer-root-presence.mjs",
     "audit:no-merge-markers": "node scripts/audit-no-merge-markers.mjs",
     "audit:slug-prompt-leaks": "node scripts/audit-slug-prompt-leaks.mjs",

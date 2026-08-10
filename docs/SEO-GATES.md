@@ -92,6 +92,21 @@ imageObjectLd({
 - **Compact pagination ate the link graph**: section index links only `page-1, current-1, current, current+1, last` — pages 3..N-2 reachable only via chained "next" clicks. Fix: emit a full page navigator linking every `page-N` directly. Reference: commit `aa987d38f7` for the `/articoli-frontaliere/` fix.
 - **Hub page lost a child-list section**: e.g. `/mercato-lavoro-ticino/` stopped listing per-sector snapshots. Fix: add child-list `<section>` so each child is at depth 2 from `/`.
 
+### 4b. Baseline justification — "registered" is not "covered" (#5545)
+
+**Why.** The ratchet above compares each sitemap against **its own** baseline entry, so it can never judge that entry. `sitemap-health-facilities.xml` was registered at 388/436 (**88.99 %**) and stayed green for months — not an accepted trade-off but an undiagnosed defect: `pickFacilities()` capped the linked set at a constant 48 while the family grew with the corpus, so 380 emitted, sitemap-listed pages were linked from nothing (#5434, fixed by #5543). A constant cap against a growing family raises the buried share slowly and monotonically, which is exactly the shape a ratchet ignores.
+
+Two paths could widen a baseline. **Drift** is now mostly covered — the `capSaturated` arm stops a >~87 % shard from being rate-immune — though above 53.33 % the relative term saturates at `maxDeltaPp`, leaving a flat **+13 pp** of slack whatever the baseline already is (4,015 further URLs across the high entries as shipped). **Rebaselining was not covered at all**: `audit:max-bfs-depth:rebaseline` overwrites every number with the current measurement and nothing compared the new file to the old, so a regression that happened to be rebaselined was accepted permanently.
+
+**Where.**
+- Gate: `tests/seo/bfs-baseline-justification.test.ts` — static, runs in the normal `tests` job on every PR, i.e. when a high baseline would be *registered* rather than post-deploy once it has shipped.
+- Report: `npm run report:bfs-high-baselines` (also printed by `audit:max-bfs-depth` on every gated run).
+- Logic + ledger: `scripts/lib/bfsBaselineJustification.mjs`.
+
+**The rule.** An entry is *high* at ≥ 50 % of its URLs below crawl depth over ≥ 20 of them (50 % sits in the widest empty band of the shipped distribution, 39.62 %→61.50 %; 91 % of all registered buried URLs are above it). A high entry must either carry a written `reason` in the baseline JSON — on the model of the corpus's `loop-sync-manifest.json` — or appear in the frozen `UNJUSTIFIED_HIGH_BASELINES` ledger. The ledger is shrink-only: a new high entry fails, a grandfathered one that grows on **both** rate and count fails, and a line that has been fixed or since justified fails with "delete it".
+
+**Playbook.** A failure here is never fixed by raising a frozen number or by writing a reason you cannot defend — both reproduce the defect with extra ceremony. Fix the internal linking so the rate drops below the threshold and delete the ledger line, or diagnose the family, decide the buried state is genuinely correct, and move that argument into the entry's `reason`. Reasons survive a rebaseline (`carryForwardReasons`) but are **dropped** if the rate regressed: the justification described the old number.
+
 ---
 
 ## 5. `<title>` length (60 + 10 % tolerance, max 66)
