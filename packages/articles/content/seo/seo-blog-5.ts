@@ -60523,16 +60523,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-bollettino-frontaliere-2026-08-08': {
     title: 'Bollettino del frontaliere – 8 agosto 2026: 1188 nuovi annunci di lavoro ieri',
-    description: 'I numeri di oggi, 8 agosto 2026, per i frontalieri: attese ai valichi, benzina più economica, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    description: 'Bollettino frontalieri del 8 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
     ogTitle: 'Bollettino del frontaliere – 8 agosto 2026: 1188 nuovi annunci di lavoro ieri',
-    ogDescription: 'I numeri di oggi, 8 agosto 2026, per i frontalieri: attese ai valichi, benzina più economica, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    ogDescription: 'I numeri del 8 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
     canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-08-08',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Bollettino del frontaliere – 8 agosto 2026: 1188 nuovi annunci di lavoro ieri",
-      "description": "I numeri di oggi, 8 agosto 2026, per i frontalieri: attese ai valichi, benzina più economica, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "description": "Bollettino frontalieri del 8 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -60796,16 +60796,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-bollettino-frontaliere-2026-08-09': {
     title: 'Bollettino del frontaliere – 9 agosto 2026: 589 nuovi annunci di lavoro ieri',
-    description: 'I numeri di oggi, 9 agosto 2026, per i frontalieri: attese ai valichi, benzina più economica, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    description: 'Bollettino frontalieri del 9 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
     ogTitle: 'Bollettino del frontaliere – 9 agosto 2026: 589 nuovi annunci di lavoro ieri',
-    ogDescription: 'I numeri di oggi, 9 agosto 2026, per i frontalieri: attese ai valichi, benzina più economica, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    ogDescription: 'I numeri del 9 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
     canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-08-09',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Bollettino del frontaliere – 9 agosto 2026: 589 nuovi annunci di lavoro ieri",
-      "description": "I numeri di oggi, 9 agosto 2026, per i frontalieri: attese ai valichi, benzina più economica, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "description": "Bollettino frontalieri del 9 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
