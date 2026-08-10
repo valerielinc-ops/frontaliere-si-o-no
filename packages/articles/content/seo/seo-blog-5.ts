@@ -54615,7 +54615,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/cuoco-frontaliere-ticino-guadagno.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Vista di Lugano dal lago. Max 125 chars"
+        "caption": "Vista di Lugano dal lago"
       },
       "datePublished": "2026-07-24T02:14:37+00:00",
       "dateModified": "2026-07-24T02:14:37+00:00",
@@ -56526,7 +56526,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/svizzera-vola-per-treni.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Max 125 caratteri"
+        "caption": "Immagine editoriale relativa a: Di più E se a finanziare i treni fossero coloro che prendono l'aereo?"
       },
       "datePublished": "2026-07-28T07:33:15+00:00",
       "dateModified": "2026-07-28T07:33:15+00:00",
@@ -62512,16 +62512,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro': {
     title: 'Trasferirsi a Marchirolo da frontaliere: pro e contro',
-    description: 'Sottotitolo con dati concreti DALLA FONTE (max 160 char). Dati aggiornati 2026 per frontalieri in Ticino.',
+    description: 'La Svizzera ha firmato un nuovo accordo con l\'Italia per evitare la doppia imposizione.',
     keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, marchirolo, contro, sottotitolo',
     ogTitle: 'Trasferirsi a Marchirolo da frontaliere: pro e contro',
-    ogDescription: 'Sottotitolo con dati concreti DALLA FONTE (max 160 char)',
+    ogDescription: 'La Svizzera ha firmato un nuovo accordo con l\'Italia per evitare la doppia imposizione.',
     canonicalPath: '/articoli-frontaliere/trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Trasferirsi a Marchirolo da frontaliere: pro e contro",
-      "description": "Sottotitolo con dati concreti DALLA FONTE (max 160 char). Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "La Svizzera ha firmato un nuovo accordo con l'Italia per evitare la doppia imposizione.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -62532,7 +62532,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Max 125 caratteri"
+        "caption": "Immagine editoriale relativa a: Trasferirsi a Marchirolo da frontaliere: pro e contro"
       },
       "datePublished": "2026-08-10T10:35:34+00:00",
       "dateModified": "2026-08-10T10:35:34+00:00",
@@ -62649,7 +62649,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/vivere-tronzano-lago-maggiore-lavorare-ticino-da-frontaliere.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Max 125 caratteri"
+        "caption": "Immagine editoriale relativa a: Vivere a Tronzano Lago Maggiore e lavorare in Ticino da frontaliere"
       },
       "datePublished": "2026-08-10T15:51:42+00:00",
       "dateModified": "2026-08-10T15:51:42+00:00",
