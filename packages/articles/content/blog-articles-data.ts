@@ -28614,6 +28614,33 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trasferirsi-a-viggiu-da-frontaliere-pro-e-contro',
+ category: 'pratico',
+ date: '2026-08-10T16:46:25.106Z',
+ image: '/images/blog/trasferirsi-a-viggiu-da-frontaliere-pro-e-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'vivere-crevoladossola-lavorare-ticino-frontalieri',
+ category: 'pratico',
+ date: '2026-08-10T17:58:46.290Z',
+ image: '/images/blog/vivere-crevoladossola-lavorare-ticino-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'vivere-rodero-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-10T19:11:09.065Z',
+ image: '/images/blog/vivere-rodero-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

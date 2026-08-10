@@ -12675,7 +12675,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/aprire-conto-banca-svizzera-residenti.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "max 125 chars"
+        "caption": "Immagine editoriale relativa a: Conto bancario in Svizzera per residenti: documenti, banche principali e costi"
       },
       "datePublished": "2026-07-11T18:29:36+00:00",
       "dateModified": "2026-07-11T18:29:36+00:00",
@@ -24453,7 +24453,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/imposta-cantonale-confronto-svizzera-2026-canton-zurigo.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Max 125 caratteri"
+        "caption": "Immagine editoriale relativa a: Cantoni e aliquote: confronto 2026 e strategie di ottimizzazione"
       },
       "datePublished": "2026-08-06T03:55:28+00:00",
       "dateModified": "2026-08-06T03:55:28+00:00",
@@ -25311,7 +25311,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "max 125 caratteri"
+        "caption": "Immagine editoriale relativa a: Terzo pilastro 3a: vantaggi e strategie fiscali"
       },
       "datePublished": "2026-08-09T14:38:53+00:00",
       "dateModified": "2026-08-09T14:38:53+00:00",
@@ -26182,6 +26182,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/nodo-di-interscambio-lavori-settembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imprese-edili-svizzere-chiedono-stop-penali': {
+    title: 'Imprese edili chiedono stop alle penali per ritardi della canicola',
+    description: 'La Società svizzera degli impresari costruttori (SSIC) ha presentato una petizione per regole chiare e tutela della salute durante ondate di caldo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imprese, edili, chiedono, stop',
+    ogTitle: 'Imprese edili svizzere chiedono stop alle penali per ritardi causati dalla canicola',
+    ogDescription: 'La Società svizzera degli impresari costruttori (SSIC) ha presentato una petizione per regole chiare e tutela della salute durante ondate di caldo.',
+    canonicalPath: '/articoli-svizzera/imprese-edili-svizzere-chiedono-stop-penali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imprese edili chiedono stop alle penali per ritardi della canicola",
+      "description": "La Società svizzera degli impresari costruttori (SSIC) ha presentato una petizione per regole chiare e tutela della salute durante ondate di caldo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imprese-edili-svizzere-chiedono-stop-penali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un cantiere edile in Svizzera durante l'estate"
+      },
+      "datePublished": "2026-08-10T17:35:07+00:00",
+      "dateModified": "2026-08-10T17:35:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imprese-edili-svizzere-chiedono-stop-penali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-elisabeth-baume-schneider-protezione-chimica': {
+    title: 'Baume-Schneider chiede protezione contro la sottomissione chimica',
+    description: 'La consigliera federale Elisabeth Baume-Schneider chiede più protezione contro la violenza sessuale commessa tramite sostanze chimiche. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, baume-schneider, chiede, protezione, contro',
+    ogTitle: 'Baume-Schneider chiede protezione contro la sottomissione chimica',
+    ogDescription: 'La consigliera federale Elisabeth Baume-Schneider chiede più protezione contro la violenza sessuale commessa tramite sostanze chimiche.',
+    canonicalPath: '/articoli-svizzera/elisabeth-baume-schneider-protezione-chimica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Baume-Schneider chiede protezione contro la sottomissione chimica",
+      "description": "La consigliera federale Elisabeth Baume-Schneider chiede più protezione contro la violenza sessuale commessa tramite sostanze chimiche. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/elisabeth-baume-schneider-protezione-chimica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La consigliera federale Elisabeth Baume-Schneider durante un'intervista"
+      },
+      "datePublished": "2026-08-10T18:06:26+00:00",
+      "dateModified": "2026-08-10T18:06:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/elisabeth-baume-schneider-protezione-chimica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-carenza-insegnanti-svizzera': {
+    title: 'Carenza di insegnanti in Svizzera mostra segnali di attenuazione',
+    description: 'La carenza di insegnanti in Svizzera mostra segnali di attenuazione, con un calo degli alunni e un aumento delle iscrizioni alle università pedagogiche.',
+    keywords: 'frontalieri, ticino, svizzera, italia, carenza, insegnanti, mostra, segnali',
+    ogTitle: 'Carenza di insegnanti in Svizzera mostra segnali di attenuazione',
+    ogDescription: 'La carenza di insegnanti in Svizzera mostra segnali di attenuazione, con un calo degli alunni e un aumento delle iscrizioni alle università pedagogiche.',
+    canonicalPath: '/articoli-svizzera/carenza-insegnanti-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Carenza di insegnanti in Svizzera mostra segnali di attenuazione",
+      "description": "La carenza di insegnanti in Svizzera mostra segnali di attenuazione, con un calo degli alunni e un aumento delle iscrizioni alle università pedagogiche.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/carenza-insegnanti-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di aula scolastica in Svizzera, con insegnanti e studenti."
+      },
+      "datePublished": "2026-08-10T18:14:33+00:00",
+      "dateModified": "2026-08-10T18:14:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/carenza-insegnanti-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-catastrofi-naturali-perdite-112-miliardi-dollari': {
+    title: 'Catastrofi naturali, perdite per 112 miliardi di dollari',
+    description: 'Le ondate di calore hanno avuto un influsso diretto sulla produttività del lavoro, cosa che poi si ripercuote sui prezzi dell\'energia. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, catastrofi, naturali, perdite, miliardi',
+    ogTitle: 'Catastrofi naturali, perdite per 112 miliardi di dollari',
+    ogDescription: 'Le ondate di calore hanno avuto un influsso diretto sulla produttività del lavoro, cosa che poi si ripercuote sui prezzi dell\'energia.',
+    canonicalPath: '/articoli-svizzera/catastrofi-naturali-perdite-112-miliardi-dollari/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Catastrofi naturali, perdite per 112 miliardi di dollari",
+      "description": "Le ondate di calore hanno avuto un influsso diretto sulla produttività del lavoro, cosa che poi si ripercuote sui prezzi dell'energia. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/catastrofi-naturali-perdite-112-miliardi-dollari.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Danni causati da ondate di calore in Svizzera"
+      },
+      "datePublished": "2026-08-10T19:28:03+00:00",
+      "dateModified": "2026-08-10T19:28:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/catastrofi-naturali-perdite-112-miliardi-dollari/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
