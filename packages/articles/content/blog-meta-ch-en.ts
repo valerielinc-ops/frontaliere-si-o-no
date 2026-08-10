@@ -2050,6 +2050,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.title': 'Economic, Social and Cultural Rights Pact: Developments Switzerland',
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.excerpt': 'The Federal Council adopted Switzerland\'s fifth report on the implementation of the United Nations Covenant on Economic, Social and Cultural Rights (Covenant I) on 19 June 2026.',
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.imageAlt': 'A scene of a commuter working in Switzerland, with the view of Lake Lugano',
+    'blog.article.reno-svizzera-merci-camion-essere.title': 'Switzerland faces cost hikes with Rhine dry',
+    'blog.article.reno-svizzera-merci-camion-essere.excerpt': 'Rhine drought could have direct consequences for Switzerland',
+    'blog.article.reno-svizzera-merci-camion-essere.imageAlt': 'Goods in transit on the road in Switzerland',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.title': 'OECD assigns positive assessment to Switzerland',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.excerpt': 'The Swiss National Contact Point for Responsible Business Conduct was positively assessed by the OECD.',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.imageAlt': 'Image of a view of Lugano',
+    'blog.article.seco-dazi-stati-uniti-2026.title': 'United States: new tariffs on Switzerland, SECO and economic policies',
+    'blog.article.seco-dazi-stati-uniti-2026.excerpt': 'SECO announced that the United States has adopted new tariff measures based on the investigation into trade in goods produced using forced labor.',
+    'blog.article.seco-dazi-stati-uniti-2026.imageAlt': 'A scene of work in Lugano, Switzerland',
+    'blog.article.dazi-usa-consiglio-federale-2026.title': 'US Duties: Switzerland Confirms Intent',
+    'blog.article.dazi-usa-consiglio-federale-2026.excerpt': 'The Federal Council shall abide by the agreements defined in the Joint Statement of Intent of 14 November 2025, signed between Switzerland and the United States.',
+    'blog.article.dazi-usa-consiglio-federale-2026.imageAlt': 'Negotiators outside the Swiss Parliament',
+    'blog.article.calore-data-center-poco-sfruttato.title': 'The heat of the data centers is under-exploited',
+    'blog.article.calore-data-center-poco-sfruttato.excerpt': 'Swiss data centers could provide heat for district heating, but only a third of them use it.',
+    'blog.article.calore-data-center-poco-sfruttato.imageAlt': 'una fotografia di un data center in Svizzera',
 };
 
 export default blogMetaChEn;

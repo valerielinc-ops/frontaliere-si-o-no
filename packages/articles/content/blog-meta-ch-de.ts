@@ -2050,6 +2050,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.title': 'Pakt für wirtschaftliche, soziale und kulturelle Rechte: Entwicklungen Schweiz',
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.excerpt': 'Der Bundesrat hat am 19. Juni 2026 den Fünften Bericht der Schweiz über die Umsetzung des Pakts der Vereinten Nationen über wirtschaftliche, soziale und kulturelle Rechte (Pakt I) verabschiedet.',
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.imageAlt': 'Eine Szene von einem Frontalier, der in der Schweiz arbeitet, mit Blick auf den Luganersee',
+    'blog.article.reno-svizzera-merci-camion-essere.title': 'Reno a secco: la Svizzera paga di più',
+    'blog.article.reno-svizzera-merci-camion-essere.excerpt': 'Die Dürre am Rhein könnte direkte Folgen für die Schweiz haben',
+    'blog.article.reno-svizzera-merci-camion-essere.imageAlt': 'Waren in Transit auf der Strasse in der Schweiz',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.title': 'OECD beurteilt die Schweiz positiv',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.excerpt': 'Die nationale Anlaufstelle der Schweiz für verantwortungsvolles unternehmerisches Handeln wurde von der OECD positiv bewertet.',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.imageAlt': 'Bild einer Aussicht auf Lugano',
+    'blog.article.seco-dazi-stati-uniti-2026.title': 'USA: Neue Zölle auf die Schweiz, Seco und Wirtschaftspolitik',
+    'blog.article.seco-dazi-stati-uniti-2026.excerpt': 'Das SECO gab bekannt, dass die Vereinigten Staaten auf der Grundlage der Untersuchung des Handels mit Waren, die unter Einsatz von Zwangsarbeit hergestellt wurden, neue Zollmaßnahmen ergriffen haben.',
+    'blog.article.seco-dazi-stati-uniti-2026.imageAlt': 'Eine Szene von Arbeit in Lugano, Schweiz',
+    'blog.article.dazi-usa-consiglio-federale-2026.title': 'US-Zölle: Schweiz bestätigt Absichten',
+    'blog.article.dazi-usa-consiglio-federale-2026.excerpt': 'Der Bundesrat hält sich an die Vereinbarungen der gemeinsamen Absichtserklärung vom 14. November 2025 zwischen der Schweiz und den USA.',
+    'blog.article.dazi-usa-consiglio-federale-2026.imageAlt': 'Handelsvertreter vor dem Schweizer Parlament',
+    'blog.article.calore-data-center-poco-sfruttato.title': 'Die Wärme von Rechenzentren wird kaum genutzt',
+    'blog.article.calore-data-center-poco-sfruttato.excerpt': 'Schweizer Rechenzentren könnten Wärme für die Fernwärme liefern, aber nur ein Drittel nutzt sie.',
+    'blog.article.calore-data-center-poco-sfruttato.imageAlt': 'eine Fotografie von einem Datenzentrum in der Schweiz',
 };
 
 export default blogMetaChDe;

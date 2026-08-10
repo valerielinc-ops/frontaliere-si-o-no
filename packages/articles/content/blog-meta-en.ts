@@ -9559,6 +9559,21 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-dumenza-lavorare-ticino.title': 'Living in Dumenza and working in Ticino as a border worker',
     'blog.article.vivere-dumenza-lavorare-ticino.excerpt': 'All the important facts for border workers who work in Ticino and reside in Dumenza.',
     'blog.article.vivere-dumenza-lavorare-ticino.imageAlt': 'A border worker lives in Dumenza and works in Ticino.',
+    'blog.article.trasferirsi-a-marzio-da-frontaliere-pro-e-contro.title': 'Moving to Marzio by frontier: pros and cons',
+    'blog.article.trasferirsi-a-marzio-da-frontaliere-pro-e-contro.excerpt': 'We know what it means to be a frontier worker in Switzerland and Italy. The New Frontier Agreement introduced new rules for frontier workers, but what are the advantages and disadvantages of moving to Marzio?',
+    'blog.article.trasferirsi-a-marzio-da-frontaliere-pro-e-contro.imageAlt': 'Frontaliers who work in Switzerland and reside in Italy considering relocation to Marzio.',
+    'blog.article.vivere-a-cannero-riviera-e-lavorare-in-ticino-da-frontaliere.title': 'Living in Cannero Riviera and working in Ticino as a border worker',
+    'blog.article.vivere-a-cannero-riviera-e-lavorare-in-ticino-da-frontaliere.excerpt': 'What do border workers who wish to live in Cannero Riviera and work in Ticino need to know?',
+    'blog.article.vivere-a-cannero-riviera-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'A frontaliere looks out at Lake Lugano from Cannero Riviera',
+    'blog.article.trasferirsi-a-domodossola-da-frontaliere-pro-e-contro.title': 'Moving to Domodossola by border crossing: pros and cons',
+    'blog.article.trasferirsi-a-domodossola-da-frontaliere-pro-e-contro.excerpt': 'What changes for border workers moving to Domodossola?',
+    'blog.article.trasferirsi-a-domodossola-da-frontaliere-pro-e-contro.imageAlt': 'A scene of a commuter from Domodossola to Ticino.',
+    'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.title': 'Living in Alta Valle Intelvi and working in Ticino as a border worker',
+    'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.excerpt': 'Practical information for border workers working in Ticino and residing in Alta Valle Intelvi.',
+    'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.imageAlt': 'A scene of a commuter working in Ticino and residing in Alta Valle Intelvi.',
+    'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.title': 'Moving to Cernobbio from border crossings: pros and cons',
+    'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.excerpt': 'Tax settings, permits and benefits for border crossers moving to Cernobbio',
+    'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.imageAlt': 'A family of frontiersmen with children moving to Cernobbio',
 };
 
 export default blogMetaEn;
