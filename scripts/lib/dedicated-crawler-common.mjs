@@ -3199,18 +3199,32 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
       for (const locale of DEFAULT_LOCALES) {
         const currentTitle = String(job.titleByLocale[locale] || '').trim();
         const currentDesc = String(job.descriptionByLocale[locale] || '').trim();
-        // Title contamination: detect source-language text in non-source locale slots.
-        // Mirrors isIncomplete() logic: only flag when no other locale was translated
-        // (avoids false positives on international/corporate titles).
-        const isTitleContaminated = locale !== titleSourceLang && currentTitle.length >= 8 && (() => {
-          const otherLocalesTranslated = DEFAULT_LOCALES.some(
-            (l) => l !== locale && l !== titleSourceLang &&
-              (job.titleByLocale[l] || '').trim().toLowerCase() !== sourceTitle.toLowerCase(),
-          );
-          if (otherLocalesTranslated) return false;
-          const det = detectJobTitleLocaleDetails(currentTitle, locale);
-          return det.confidence >= 0.65 && det.lang === titleSourceLang;
-        })();
+        // Title contamination: source-language text sitting in a non-source slot.
+        //
+        // S3 (2026-08-10): this said "Mirrors isIncomplete() logic: only flag when
+        // no other locale was translated (avoids false positives on
+        // international/corporate titles)" — the same cross-locale escape hatch,
+        // plus `detectJobTitleLocaleDetails(...) >= 0.65`, which is measured at a
+        // 55.0% miss rate on broken titles. isIncomplete() no longer works that
+        // way, so the comment had stopped being true as well as the code.
+        //
+        // Gated on `needsRetranslation` on purpose, exactly as in
+        // enrichJobLocalesDCC: a flagged job is in the repair queue (≤100
+        // jobs/run) and re-translating its title costs bounded quota, whereas
+        // applying the full verdict on every ordinary crawl would put ~30% of
+        // jobs through the translators every pass. The source-COPY case is
+        // already covered unconditionally by the third clause below.
+        const isTitleContaminated = locale !== titleSourceLang &&
+          currentTitle.length >= 8 &&
+          Boolean(job.needsRetranslation) &&
+          titleLooksUntranslated({
+            title: currentTitle,
+            sourceTitle,
+            sourceLang: titleSourceLang,
+            targetLocale: locale,
+            company: job.company || '',
+            location: job.addressLocality || job.location || '',
+          }).untranslated;
         const titleNeedsWork =
           !currentTitle ||
           isTitleContaminated ||
