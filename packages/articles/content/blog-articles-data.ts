@@ -28650,6 +28650,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro',
+ category: 'fiscale',
+ date: '2026-08-10T20:24:13.203Z',
+ image: '/images/blog/trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

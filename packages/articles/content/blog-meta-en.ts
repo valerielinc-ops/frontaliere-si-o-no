@@ -9550,6 +9550,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-agra-lavorare-ticino-frontalieri.title': 'Living in Agra and working in Ticino as a border worker',
     'blog.article.vivere-agra-lavorare-ticino-frontalieri.excerpt': 'Impact of the new agreement on Ticino border workers: new rules, exemptions and benefits.',
     'blog.article.vivere-agra-lavorare-ticino-frontalieri.imageAlt': 'Frontalier with child walks along the lake shore of Lugano',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.title': 'Moving to Uggiate-Trevano from border crossings: pros and cons',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.excerpt': 'Set-up at source, new border agreement and benefits for workers in Ticino.',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.imageAlt': 'View of Uggiate-Trevano with Lake Lugano',
 };
 
 export default blogMetaEn;
