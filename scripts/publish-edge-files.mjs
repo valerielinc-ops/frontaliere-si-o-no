@@ -55,10 +55,13 @@
  *   node scripts/publish-edge-files.mjs
  *   node scripts/publish-edge-files.mjs --only=/sitemap-news.xml[,/other.xml]
  *   node scripts/publish-edge-files.mjs --only=/sitemap-topics-svizzera.xml --from-dir=/tmp/fast-publish/dist
+ *   node scripts/publish-edge-files.mjs --producer=build
  *
  * `--from-dir` resolves the named entries' local files from a RENDERED
- * directory instead of `public/`. It exists for the third kind of producer on
- * this table: a file that is neither committed static (`public/`) nor
+ * directory instead of `public/`. It exists for the third kind of local-file
+ * source on this table (not to be confused with the `producer` FIELD below,
+ * which names who is responsible for freshness, not where the bytes come
+ * from): a file that is neither committed static (`public/`) nor
  * re-derivable from a bare checkout ('generated'), but is an output of a
  * render that has already happened in this job and must not be recomputed.
  * `sitemap-topics-<section>.xml` is that: publish-article-fast.mjs writes it
@@ -77,6 +80,20 @@
  * non-build checkout happens to render. An unregistered pathname is a hard
  * error (exit 1), not a silent no-op: a typo in a workflow would otherwise
  * look exactly like a successful publish that pushed nothing.
+ *
+ * `--producer=<name>` is `--only`'s sibling for a caller that owns a whole
+ * CLASS of entries rather than one exact path: it resolves to every entry in
+ * EDGE_PUSHED_FILES (locale-router.js) whose `producer` field matches
+ * `<name>`, straight from that table — never a second, hand-maintained path
+ * list that could drift from it. deploy.yml uses `--producer=build` for
+ * exactly this reason (issue #5458): a bare invocation used to re-publish the
+ * WHOLE table from deploy.yml's own checkout, which can be 2h30m+ stale by
+ * the time this step runs, clobbering entries that OTHER, faster automatic
+ * publishers (the corpus repo's publish-api.yml, this repo's
+ * sync-articles-sitemaps.yml / rerender-article-hubs.yml) keep current. An
+ * unknown `--producer` value is a hard error for the same reason an unknown
+ * `--only` pathname is: a typo must not look like a successful no-op run.
+ * Mutually exclusive with `--only` — pick one selection mechanism per call.
  *
  * Requires the same R2_* env vars as scripts/lib/upload-cdn-file.sh, plus
  * CF_API_TOKEN + CF_ZONE_ID for the purge (all provisioned in CI by
@@ -140,16 +157,36 @@ function runLlmsGenerator() {
 }
 
 /**
- * Resolves the `--only=` filter into the subset of EDGE_PUSHED_FILES this run
- * publishes. No flag → the whole table (the historical behaviour).
+ * Resolves the `--only=` / `--producer=` filter into the subset of
+ * EDGE_PUSHED_FILES this run publishes. No flag → the whole table (the
+ * historical behaviour) — kept for callers that genuinely own everything.
  *
- * Unregistered pathname → throw. A `--only` typo has no observable difference
- * from a correct run that published nothing (every skip in this script is a
- * ::warning:: and exit 0), so the one place it CAN be caught deterministically
- * is here, before any work happens.
+ * Unregistered pathname / unknown producer → throw. A typo in either has no
+ * observable difference from a correct run that published nothing (every
+ * skip in this script is a ::warning:: and exit 0), so the one place it CAN
+ * be caught deterministically is here, before any work happens.
  */
 export function selectedEntries(argv = process.argv) {
   const flag = argv.find((a) => a.startsWith('--only='));
+  const producerFlag = argv.find((a) => a.startsWith('--producer='));
+
+  if (flag && producerFlag) {
+    throw new Error('--only and --producer are mutually exclusive — pick one selection mechanism per call');
+  }
+
+  if (producerFlag) {
+    const producer = producerFlag.slice('--producer='.length);
+    const matches = Object.entries(EDGE_PUSHED_FILES).filter(([, entry]) => entry.producer === producer);
+    if (matches.length === 0) {
+      const known = [...new Set(Object.values(EDGE_PUSHED_FILES).map((entry) => entry.producer))].join(', ');
+      throw new Error(
+        `--producer=${producer} matched no entries in EDGE_PUSHED_FILES (infra/cloudflare-worker/locale-router.js). ` +
+          `Known producers: ${known}`,
+      );
+    }
+    return matches;
+  }
+
   if (!flag) {
     if (argv.some((a) => a.startsWith('--from-dir='))) {
       throw new Error('--from-dir requires --only (see the header: it must not be applied to the whole table)');
