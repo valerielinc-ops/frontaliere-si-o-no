@@ -17,11 +17,17 @@
  * - List-Unsubscribe-Post: List-Unsubscribe=One-Click
  * - POST body "List-Unsubscribe=One-Click" triggers unsubscribe; companyKey +
  *   token travel in the URI query string (mirrors jobAlertUnsubscribe).
+ *
+ * Forensics (`unsubscribe_method` / `_user_agent` / `_ip`) ride along on the
+ * suppression write, same as the other three unsubscribe endpoints — cold email
+ * is precisely where corporate mail-security scanners prefetch links. Built by
+ * the caller via `lib/requestForensics.js`, attribution only, never read back.
  */
 
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import admin from 'firebase-admin';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
+import { forensicsFields } from './lib/requestForensics.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
@@ -114,8 +120,9 @@ function buildConfirmationHtml({ title, message, success }) {
  * Always idempotent: a repeat unsubscribe re-writes the suppression doc with a
  * fresh serverTimestamp and returns 200.
  */
-export async function handleOutreachUnsubscribe({ companyKey, token, secret, db: injectedDb }) {
+export async function handleOutreachUnsubscribe({ companyKey, token, secret, forensics, db: injectedDb }) {
   const key = String(companyKey || '').trim();
+  const forensicFields = forensicsFields(forensics);
 
   if (!key) {
     return {
@@ -144,6 +151,7 @@ export async function handleOutreachUnsubscribe({ companyKey, token, secret, db:
     companyKey: key,
     suppressedAt: admin.firestore.FieldValue.serverTimestamp(),
     source: 'one-click',
+    ...forensicFields,
   }, { merge: true });
 
   return {

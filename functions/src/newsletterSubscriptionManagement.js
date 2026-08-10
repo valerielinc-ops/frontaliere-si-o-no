@@ -7,12 +7,19 @@
  * 3. Returns a branded HTML confirmation page
  *
  * URLs are generated in send-newsletter.mjs with the NEWSLETTER_SECRET env var.
+ *
+ * Every write that sets `unsubscribed_at` here also records forensics
+ * (`unsubscribe_method` / `_user_agent` / `_ip`), built by the caller via
+ * `lib/requestForensics.js` and threaded in as an option so this handler stays
+ * pure. Attribution only — nothing reads them back, so a GET still unsubscribes
+ * immediately and the RFC 8058 one-click POST is unchanged.
  */
 
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import admin from 'firebase-admin';
 import { ensureAdminApp, getAdminDb } from './newsletterResendWebhookCore.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
+import { forensicsFields } from './lib/requestForensics.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 // Proxied by the CF Worker straight to this function (see UNSUB_PROXIES in
@@ -194,8 +201,12 @@ function serializeAlertDoc(id, data) {
  };
 }
 
-export async function handleSubscriptionManagement({ action, email, token, locale, secret, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, dailyBriefFrequency = undefined, db: injectedDb }) {
+export async function handleSubscriptionManagement({ action, email, token, locale, secret, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, dailyBriefFrequency = undefined, forensics = undefined, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
+ // Allowlist-copied and error-swallowing by construction (see forensicsFields):
+ // a hostile or broken forensics object contributes {} and every action below
+ // behaves exactly as it did before.
+ const forensicFields = forensicsFields(forensics);
  const normalizedEmail = normalizeEmail(email);
 
  // Try to get locale from subscriber record
@@ -399,15 +410,19 @@ export async function handleSubscriptionManagement({ action, email, token, local
  unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
  updated_at: admin.firestore.FieldValue.serverTimestamp(),
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ ...forensicFields,
  }, { merge: true });
  }
 
+ // Only the opt-OUT direction gets forensics: the fields are named
+ // `unsubscribe_*` and would be a lie on a resubscribe write.
  await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
  email: normalizedEmail,
  event_type: desired ? 'subscription_resubscribed' : 'subscription_unsubscribed',
  source_channel: 'preferences_link',
  timestamp: admin.firestore.FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
+ ...(desired ? {} : forensicFields),
  });
 
  return { status: 200, json: { success: true, subscribed: desired } };
@@ -654,14 +669,19 @@ export async function handleSubscriptionManagement({ action, email, token, local
  unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
  updated_at: admin.firestore.FieldValue.serverTimestamp(),
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ ...forensicFields,
  }, { merge: true });
 
+ // The subscriber doc keeps only the LAST unsubscribe (a resubscribe cycle
+ // overwrites it); the event doc is the append-only trail, so the forensics
+ // go on both — that is where the scanner-vs-human analysis will run.
  await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
  email: normalizedEmail,
  event_type: 'unsubscribe',
  source_channel: 'unsubscribe_link',
  timestamp: admin.firestore.FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
+ ...forensicFields,
  });
 
  return {

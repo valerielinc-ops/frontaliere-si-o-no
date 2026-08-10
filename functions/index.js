@@ -17,6 +17,7 @@ import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
 import { handleJobAlertUnsubscribe } from './src/jobAlertUnsubscribe.js';
 import { handleSavedJobsDigestUnsubscribe } from './src/savedJobsDigestUnsubscribe.js';
 import { handleOutreachUnsubscribe } from './src/outreachUnsubscribe.js';
+import { buildUnsubscribeForensics } from './src/lib/requestForensics.js';
 import { handleOutreachStopReply } from './src/outreachStopReply.js';
 import { handleOutreachReplyTrack } from './src/outreachReplyTrack.js';
 import { handleEmployerInsights } from './src/employerInsights.js';
@@ -515,6 +516,10 @@ export const newsletterManageSubscription = onRequest(
  specificCompanyKey,
  specificJobId,
  dailyBriefFrequency,
+ // Attribution for the unsubscribe write only — read nothing, gate nothing.
+ // The RFC 8058 one-click POST and the plain footer GET behave identically
+ // to before; the stored verb is what tells them apart afterwards.
+ forensics: buildUnsubscribeForensics(req),
  });
 
  // exchange_auth_code always returns JSON (no HTML page)
@@ -794,6 +799,10 @@ export const jobAlertUnsubscribe = onRequest(
  token,
  secret: newsletterSecret,
  action,
+ // Attribution for the write only — read nothing, gate nothing. A bare GET
+ // still unsubscribes on the spot; this is what makes a scanner prefetch
+ // distinguishable from a human click after the fact. Never throws.
+ forensics: buildUnsubscribeForensics(req),
  });
 
  // RFC 8058 POST returns 200 with no body
@@ -836,6 +845,7 @@ export const savedJobsDigestUnsubscribe = onRequest(
  email,
  token,
  secret: newsletterSecret,
+ forensics: buildUnsubscribeForensics(req),
  });
 
  if (req.method === 'POST') {
@@ -878,6 +888,7 @@ export const outreachUnsubscribe = onRequest(
  companyKey,
  token,
  secret: newsletterSecret,
+ forensics: buildUnsubscribeForensics(req),
  });
 
  // RFC 8058 POST returns 200 with no body
