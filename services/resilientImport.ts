@@ -150,6 +150,39 @@ export function isModuleLinkSkewMessage(msg: string): boolean {
 }
 
 /**
+ * A SyntaxError that escaped a dynamic `import()` and is NOT the LINK-time
+ * export-set skew above — i.e. the bytes the browser fetched for the chunk did
+ * not PARSE as a module (issue #5531).
+ *
+ * The two SyntaxError classes need OPPOSITE recoveries, which is why this is a
+ * separate predicate rather than a widening of isModuleLinkSkewMessage:
+ *
+ *  - LINK-time ("does not provide an export named 'X'"): the bytes are fine,
+ *    a cached IMPORTER links a name the fresh dependency no longer exports.
+ *    Re-running the same import() re-links the same cached pair, so retrying is
+ *    pointless — lazyRetry rethrows to the ErrorBoundary, whose
+ *    isVersionSkewError → recoverFromStaleChunk clears caches and reloads once.
+ *  - PARSE-time ("Unexpected identifier 'diploma'", "Unexpected token '<'"):
+ *    the response body is not JavaScript at all, or is truncated. Observed
+ *    signature is a CONTENT word from this site's own pages appearing as a bare
+ *    identifier, i.e. an HTML document (a 404 page, or the SPA fallback) served
+ *    for a `.js` URL and then parsed as a module. Here a cache-busting RETRY is
+ *    exactly the right move: the bad bytes are in the HTTP/CacheStorage layer.
+ *
+ * Scoped BY CONSTRUCTION to errors that came out of an import() call (lazyRetry
+ * / resilientImport wrap only the factory), so an ordinary `JSON.parse`
+ * SyntaxError elsewhere in the app is never classified as a stale chunk. Kept
+ * out of isVersionSkewError for the same reason: that predicate runs against
+ * every error reaching the global handlers and the top-level ErrorBoundary,
+ * where a blanket SyntaxError match WOULD mask genuine app bugs as skew.
+ */
+export function isModuleParseError(err: unknown): boolean {
+  const e = err as { name?: string; message?: string } | null | undefined;
+  if (!e || e.name !== 'SyntaxError') return false;
+  return !isModuleLinkSkewMessage(e.message || '');
+}
+
+/**
  * Detect a CROSS-CHUNK VERSION-SKEW error — a stale-deploy failure mode the
  * fetch-based detectors above do not cover. Two distinct shapes, ONE root cause
  * (stable filenames + per-asset cache lifetimes → a client ends up with a
@@ -209,6 +242,26 @@ export const CALL_TIME_SKEW_PATTERNS: readonly RegExp[] = [
   /\bcannot read propert(?:y|ies) of undefined \(reading '(?:track|init|set)[A-Za-z]*'\)/i,
   // Safari/WebKit: "undefined is not an object (evaluating 't.Analytics.trackCalculation')"
   /\bundefined is not an object \(evaluating '[^']*\.(?:track|init|set)[A-Za-z]*'\)/i,
+  // React.lazy reads `.default` off whatever its factory RESOLVED. Under the
+  // same skew, a chunk can resolve to `undefined` instead of a module namespace
+  // — Rollup rewrites `import('@/x')` to `import('./x.js').then(m => m.<ns>)`
+  // when x is also statically imported, so a chunk published out-of-band
+  // without that generated namespace export resolves undefined rather than
+  // failing to fetch (#4881; the resilientImport() nullish guard below is the
+  // same defence for non-lazy callers). React then throws this INSTEAD of any
+  // "is not a function" wording, so none of the patterns above matched and the
+  // crash reached the user as a blank page (issue #5533).
+  // lazyRetry now converts its own occurrence of this into a ChunkLoadError
+  // before React can see it; these two entries are the safety net for the
+  // deliberately-unwrapped React.lazy call sites (App.tsx SafeLazy group,
+  // ErrorBoundary.tsx ad slots) and for the pre-module early-boot listener.
+  // Anchored to the exact `default` property — the module-namespace read — so
+  // ordinary null-pointer bugs on app objects are not masked as skew.
+  // Explicit case classes, not /i: build-plugins/constants.ts mirrors only
+  // `re.source` into early-boot.js and drops the flags.
+  /[Cc]annot read propert(?:y|ies) of undefined \(reading '[Dd]efault'\)/,
+  // Safari/WebKit wording for the same read.
+  /undefined is not an object \(evaluating '[^']*\.default'\)/,
 ];
 
 export function isVersionSkewError(err: unknown): boolean {
