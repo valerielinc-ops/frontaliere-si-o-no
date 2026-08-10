@@ -351,11 +351,11 @@
     "canton": "AG"
   },
   "AG::de::gruppenleiter-in-produktion-nachtschicht-panofina-coop-genossenschaft-schafisheim-bina86": {
-    "winnerJobIdentifier": "company-2nv1t9",
-    "winnerCanonical": "gruppenleiter-in-produktion-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau-2nv1t9",
-    "decidedAt": "2026-08-05T00:00:00.000Z",
-    "lastSeenAt": "2026-08-09T00:00:00.000Z",
-    "score": 0.7273,
+    "winnerJobIdentifier": "company-3fmvxm",
+    "winnerCanonical": "gruppenleiter-in-produktion-nachtschicht-coop-genossenschaft-schafisheim-aargau-3fmvxm",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.6364,
     "candidatesCount": 1,
     "canton": "AG"
   },
@@ -495,11 +495,11 @@
     "canton": "AG"
   },
   "AG::de::stv-gruppenleiter-in-produktion-panofina-coop-genossenschaft-schafisheim-w1h09l": {
-    "winnerJobIdentifier": "company-mstpxv",
-    "winnerCanonical": "stv-gruppenleiter-in-produktion-panofina-coop-genossenschaft-schafisheim-aargau-mstpxv",
-    "decidedAt": "2026-08-09T00:00:00.000Z",
-    "lastSeenAt": "2026-08-09T00:00:00.000Z",
-    "score": 0.7273,
+    "winnerJobIdentifier": "company-3fmvxm",
+    "winnerCanonical": "gruppenleiter-in-produktion-nachtschicht-coop-genossenschaft-schafisheim-aargau-3fmvxm",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "AG"
   },
@@ -909,11 +909,11 @@
     "canton": "AG"
   },
   "AG::en::deputy-group-leader-production-panofina-coop-genossenschaft-schafisheim": {
-    "winnerJobIdentifier": "company-mstpxv",
-    "winnerCanonical": "stv-group-leader-in-production-panofina-coop-genossenschaft-schafisheim",
-    "decidedAt": "2026-08-09T00:00:00.000Z",
-    "lastSeenAt": "2026-08-09T00:00:00.000Z",
-    "score": 0.7,
+    "winnerJobIdentifier": "company-3fmvxm",
+    "winnerCanonical": "group-leader-in-production-night-shift-coop-genossenschaft-schafisheim",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.5455,
     "candidatesCount": 1,
     "canton": "AG"
   },
@@ -1593,20 +1593,20 @@
     "canton": "AG"
   },
   "AG::fr::chef-adjoint-de-groupe-production-panofina-coop-genossenschaft-schafisheim": {
-    "winnerJobIdentifier": "company-mstpxv",
-    "winnerCanonical": "chef-de-groupe-stv-en-production-panofina-coop-genossenschaft-schafisheim",
-    "decidedAt": "2026-08-09T00:00:00.000Z",
-    "lastSeenAt": "2026-08-09T00:00:00.000Z",
-    "score": 0.7273,
+    "winnerJobIdentifier": "company-3fmvxm",
+    "winnerCanonical": "chef-de-groupe-en-production-de-nuit-coop-genossenschaft-schafisheim",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.6364,
     "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::fr::chef-adjoint-de-groupe-production-panofina-coop-genossenschaft-schafisheim-w1h09l": {
-    "winnerJobIdentifier": "company-mstpxv",
-    "winnerCanonical": "chef-de-groupe-stv-en-production-panofina-coop-genossenschaft-schafisheim",
-    "decidedAt": "2026-08-09T00:00:00.000Z",
-    "lastSeenAt": "2026-08-09T00:00:00.000Z",
-    "score": 0.6667,
+    "winnerJobIdentifier": "company-3fmvxm",
+    "winnerCanonical": "chef-de-groupe-en-production-de-nuit-coop-genossenschaft-schafisheim",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.5833,
     "candidatesCount": 1,
     "canton": "AG"
   },
@@ -2426,6 +2426,15 @@
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-08-10T00:00:00.000Z",
     "score": 0.4286,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
+  "AG::it::dipl-expertin-experte-anasthesiepflege-nds-hf-spital-zofingen-zofingen": {
+    "winnerJobIdentifier": "spital-zofingen-c0dbd688470a",
+    "winnerCanonical": "dipl-expert-expert-anesthesia-care-nds-hf-spital-zofingen-zofingen",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.4545,
     "candidatesCount": 2,
     "canton": "AG"
   },
@@ -5859,9 +5868,9 @@
     "canton": "BASILEA"
   },
   "BASILEA::en::verkaufer-in-denner-ag-basel": {
-    "winnerJobIdentifier": "company-jm857n",
-    "winnerCanonical": "seller-denner-ag-basel-129873",
-    "decidedAt": "2026-07-24T00:00:00.000Z",
+    "winnerJobIdentifier": "company-cgnby9",
+    "winnerCanonical": "seller-denner-ag-basel-01148f",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
     "lastSeenAt": "2026-08-10T00:00:00.000Z",
     "score": 0.4286,
     "candidatesCount": 1,
@@ -6786,11 +6795,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::fr::verkaufer-in-denner-ag-basel": {
-    "winnerJobIdentifier": "company-jm857n",
-    "winnerCanonical": "vendeur-denner-ag-basel",
-    "decidedAt": "2026-07-24T00:00:00.000Z",
+    "winnerJobIdentifier": "company-cgnby9",
+    "winnerCanonical": "vendeur-denner-ag-basel-01148f",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
     "lastSeenAt": "2026-08-10T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.4286,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -8910,9 +8919,9 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::verkaufer-in-denner-ag-basel": {
-    "winnerJobIdentifier": "company-jm857n",
+    "winnerJobIdentifier": "company-cgnby9",
     "winnerCanonical": "venditore-denner-ag-basel",
-    "decidedAt": "2026-07-24T00:00:00.000Z",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
     "lastSeenAt": "2026-08-10T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
@@ -11852,6 +11861,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::en::verkaufer-in-denner-biel-bienne": {
+    "winnerJobIdentifier": "denner-243d55404764",
+    "winnerCanonical": "seller-denner-ag-biel-bienne",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::en::verkaufer-in-food-coop-erlenbach-im-simmental-bern-3o4bhu": {
     "winnerJobIdentifier": "company-3o4bhu",
     "winnerCanonical": "food-salesperson-coop-genossenschaft-erlenbach-im-simmental-3o4bhu",
@@ -13481,6 +13499,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::fr::verkaufer-in-denner-biel-bienne": {
+    "winnerJobIdentifier": "denner-243d55404764",
+    "winnerCanonical": "vendeur-denner-ag-biel-bienne",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::fr::verkaufer-in-food-coop-erlenbach-im-simmental-bern-3o4bhu": {
     "winnerJobIdentifier": "company-3o4bhu",
     "winnerCanonical": "vendeur-food-coop-genossenschaft-erlenbach-im-simmental-3o4bhu",
@@ -13982,6 +14009,15 @@
     "decidedAt": "2026-07-24T00:00:00.000Z",
     "lastSeenAt": "2026-08-10T00:00:00.000Z",
     "score": 0.2727,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::it::ausbildungsplatz-fage-zur-dipl-pflegefachperson-hf-in-2-jahren-a-spital-emmental-burgdorf": {
+    "winnerJobIdentifier": "spital-emmental-2b60d67336ac",
+    "winnerCanonical": "ausbildungsplatz-zur-dipl-pflegefachperson-hf-psychiatrie-per-quereinsteigende-a-spital-emmental-burgdorf",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.5625,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -16136,6 +16172,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::it::muller-in-anlagenfuhrer-in-w-m-d-ufa-ag-herzogenbuchsee": {
+    "winnerJobIdentifier": "volg-fenaco-29b057c4846c",
+    "winnerCanonical": "apprendistato-come-anlagenfuhrer-in-m-w-d-ufa-ag-herzogenbuchsee",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.7273,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::nds-intensive-care-centro-di-formazione-lindenhofgruppe-bern": {
     "winnerJobIdentifier": "lindenhofgruppe-3b53b88a2897",
     "winnerCanonical": "nds-anesthesia-centro-di-formazione-lindenhofgruppe-bern",
@@ -17891,6 +17936,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::it::verkaufer-in-denner-biel-bienne": {
+    "winnerJobIdentifier": "denner-243d55404764",
+    "winnerCanonical": "venditore-denner-ag-biel-bienne",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::verkaufer-in-food-coop-bern": {
     "winnerJobIdentifier": "company-21du69",
     "winnerCanonical": "verkaufer-in-food-coop-bern-21du69",
@@ -18428,6 +18482,15 @@
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-07-27T00:00:00.000Z",
     "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::it::weiterbildungsstelle-zur-zum-dipl-expertin-experten-notfallpflege-nds-hf-a-spital-emmental": {
+    "winnerJobIdentifier": "spital-emmental-d4c73c98edf8",
+    "winnerCanonical": "ulteriori-centri-di-istruzione-per-al-dipl-expert-expert-emergency-care-nds-hf-a-spital-emmental-burgdorf-langnau",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.2609,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -28413,10 +28476,10 @@
     "canton": "SG"
   },
   "SG::de::oberarztin-oberarzt-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-c9b7803703cc",
+    "winnerJobIdentifier": "psgn-6f58e10a780a",
     "winnerCanonical": "oberarztin-oberarzt-psgn-wil-sg",
-    "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-14T00:00:00.000Z",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "SG"
@@ -32696,6 +32759,15 @@
     "candidatesCount": 1,
     "canton": "SG"
   },
+  "SG::it::dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung": {
+    "winnerJobIdentifier": "kssg-9658f8e83381",
+    "winnerCanonical": "dipl-infermieristica-professionale-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.6923,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::it::dipl-pflegefachfrau-mann-80-100-kssg-ch": {
     "winnerJobIdentifier": "kssg-4dae15af93cc",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
@@ -32769,11 +32841,11 @@
     "canton": "SG"
   },
   "SG::it::dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg-2": {
-    "winnerJobIdentifier": "psgn-4acb30a0ac22",
-    "winnerCanonical": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-08-07T00:00:00.000Z",
-    "lastSeenAt": "2026-08-07T00:00:00.000Z",
-    "score": 0.9091,
+    "winnerJobIdentifier": "psgn-2dda0f8002cd",
+    "winnerCanonical": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.8182,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -41571,12 +41643,12 @@
     "canton": "TG"
   },
   "TG::en::verkauferin-verkaufer-m-w-d-volg-eschlikon": {
-    "winnerJobIdentifier": "volg-fenaco-60dd19761b90",
+    "winnerJobIdentifier": "volg-fenaco-66b2e55cd934",
     "winnerCanonical": "seller-m-f-d-volg-eschlikon",
-    "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-27T00:00:00.000Z",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
     "score": 0.4444,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::en::verkauferin-verkaufer-m-w-d-volg-frenkendorf": {
@@ -41589,12 +41661,12 @@
     "canton": "TG"
   },
   "TG::en::verkauferin-verkaufer-m-w-d-volg-wuppenau": {
-    "winnerJobIdentifier": "volg-fenaco-41d8ca83a986",
-    "winnerCanonical": "seller-m-f-d-volg-wuppenau-3284f1",
-    "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-27T00:00:00.000Z",
-    "score": 0.4,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "volg-fenaco-dbe9b2969897",
+    "winnerCanonical": "seller-m-f-d-volg-wuppenau",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.4444,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::fr::ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2026-bfgs-stgag-ch": {
@@ -42129,12 +42201,12 @@
     "canton": "TG"
   },
   "TG::fr::verkauferin-verkaufer-m-w-d-volg-eschlikon": {
-    "winnerJobIdentifier": "volg-fenaco-60dd19761b90",
+    "winnerJobIdentifier": "volg-fenaco-66b2e55cd934",
     "winnerCanonical": "vendeur-m-f-d-volg-eschlikon",
-    "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-27T00:00:00.000Z",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
     "score": 0.4444,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::fr::verkauferin-verkaufer-m-w-d-volg-frenkendorf": {
@@ -42147,12 +42219,12 @@
     "canton": "TG"
   },
   "TG::fr::verkauferin-verkaufer-m-w-d-volg-wuppenau": {
-    "winnerJobIdentifier": "volg-fenaco-41d8ca83a986",
-    "winnerCanonical": "vendeur-m-f-d-volg-wuppenau-3284f1",
-    "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-27T00:00:00.000Z",
-    "score": 0.4,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "volg-fenaco-dbe9b2969897",
+    "winnerCanonical": "vendeur-m-f-d-volg-wuppenau",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.4444,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::aluminiumschweisser-in-stadler-rail-bussnang": {
@@ -43704,12 +43776,12 @@
     "canton": "TG"
   },
   "TG::it::verkauferin-verkaufer-m-w-d-volg-eschlikon": {
-    "winnerJobIdentifier": "volg-fenaco-60dd19761b90",
+    "winnerJobIdentifier": "volg-fenaco-66b2e55cd934",
     "winnerCanonical": "venditore-m-f-d-volg-eschlikon",
-    "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-27T00:00:00.000Z",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
     "score": 0.4444,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::verkauferin-verkaufer-m-w-d-volg-frenkendorf": {
@@ -43722,12 +43794,12 @@
     "canton": "TG"
   },
   "TG::it::verkauferin-verkaufer-m-w-d-volg-wuppenau": {
-    "winnerJobIdentifier": "volg-fenaco-41d8ca83a986",
+    "winnerJobIdentifier": "volg-fenaco-dbe9b2969897",
     "winnerCanonical": "venditore-m-f-d-volg-wuppenau",
-    "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-27T00:00:00.000Z",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
     "score": 0.4444,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::verkaufsberater-in-garden-e-pflanzen-jumbo-arbon-thurgau-ckv5ey": {
@@ -44325,11 +44397,11 @@
     "canton": "TI"
   },
   "TI::en::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be": {
-    "winnerJobIdentifier": "company-4333hs",
-    "winnerCanonical": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
+    "winnerJobIdentifier": "company-4333g2",
+    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-08-10T00:00:00.000Z",
     "lastSeenAt": "2026-08-10T00:00:00.000Z",
-    "score": 0.4545,
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -44379,20 +44451,20 @@
     "canton": "TI"
   },
   "TI::en::graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-4333hs",
-    "winnerCanonical": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
+    "winnerJobIdentifier": "company-4333fc",
+    "winnerCanonical": "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-08-10T00:00:00.000Z",
     "lastSeenAt": "2026-08-10T00:00:00.000Z",
-    "score": 0.4545,
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fe1cbf": {
-    "winnerJobIdentifier": "company-4333hs",
-    "winnerCanonical": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
+    "winnerJobIdentifier": "company-4333fc",
+    "winnerCanonical": "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-08-10T00:00:00.000Z",
     "lastSeenAt": "2026-08-10T00:00:00.000Z",
-    "score": 0.4545,
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -44541,11 +44613,11 @@
     "canton": "TI"
   },
   "TI::en::nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uikzlh",
-    "winnerCanonical": "nursing-practitioner-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-feezrj",
+    "winnerCanonical": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-08-10T00:00:00.000Z",
     "lastSeenAt": "2026-08-10T00:00:00.000Z",
-    "score": 0.75,
+    "score": 0.875,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -55008,10 +55080,10 @@
     "canton": "ZH"
   },
   "ZH::en::lehre-als-detailhandelsfachmann-frau-efz-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-aaa0b0e48c62",
-    "winnerCanonical": "apprenticeship-as-a-retail-trade-expert-efz-die-schweizerische-post-zurich",
-    "decidedAt": "2026-08-09T00:00:00.000Z",
-    "lastSeenAt": "2026-08-09T00:00:00.000Z",
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-449fb81e22fc",
+    "winnerCanonical": "apprenticeship-as-a-retail-trade-expert-efz-die-schweizerische-post-horgen",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
     "score": 0.1333,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -56201,6 +56273,15 @@
     "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-07-17T00:00:00.000Z",
     "score": 0.4762,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::en::sozialpadagog-in-hortleitung-oder-fachperson-betreuung-an-der-tagesschule-heubeeribuel": {
+    "winnerJobIdentifier": "stadt-zuerich-89542d4c7e56",
+    "winnerCanonical": "social-pedagogue-director-or-specialist-care-at-the-day-school-heubeeribuel-stadt-zurich-zurich",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.0455,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -59130,12 +59211,12 @@
     "canton": "ZH"
   },
   "ZH::fr::lehre-als-detailhandelsfachmann-frau-efz-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-aaa0b0e48c62",
-    "winnerCanonical": "apprentissage-en-tant-qu-expert-en-commerce-de-detail-efz-die-schweizerische-post-zurich",
-    "decidedAt": "2026-08-08T00:00:00.000Z",
-    "lastSeenAt": "2026-08-09T00:00:00.000Z",
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-449fb81e22fc",
+    "winnerCanonical": "apprentissage-en-tant-qu-expert-en-commerce-de-detail-efz-die-schweizerische-post-horgen",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
     "score": 0.1176,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::fr::lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post": {
@@ -60098,6 +60179,15 @@
     "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-07-17T00:00:00.000Z",
     "score": 0.4091,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::sozialpadagog-in-hortleitung-oder-fachperson-betreuung-an-der-tagesschule-heubeeribuel": {
+    "winnerJobIdentifier": "stadt-zuerich-89542d4c7e56",
+    "winnerCanonical": "pedagogue-sociale-directeur-ou-soins-specialises-a-l-ecole-de-jour-heubeeribuel-stadt-zurich-zurich",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.0435,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -62541,11 +62631,11 @@
     "canton": "ZH"
   },
   "ZH::it::consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich": {
-    "winnerJobIdentifier": "kispi-zurich-9dbcb2ab562e",
-    "winnerCanonical": "pflegehelferin-m-w-d-60-universitats-kinderspital-zurich-kispi-zurich",
-    "decidedAt": "2026-08-05T00:00:00.000Z",
-    "lastSeenAt": "2026-08-05T00:00:00.000Z",
-    "score": 0.5455,
+    "winnerJobIdentifier": "kispi-zurich-0926b93b7574",
+    "winnerCanonical": "medico-senior-medico-senior-adolescent-universitats-kinderspital-zurich-kispi-zurich",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -63098,6 +63188,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::it::dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-perioperative-care-60-100-kispi-zurich": {
+    "winnerJobIdentifier": "kispi-zurich-d0e4f1fd48a4",
+    "winnerCanonical": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-perioperative-care-60-100-universitats-kinderspital-zurich-kispi-zurich",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.8462,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-kinderstation-psychiatrische-universitatsklinik-zurich-zurich": {
     "winnerJobIdentifier": "puk-zuerich-fadca51159cb",
     "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
@@ -63278,6 +63377,15 @@
     "candidatesCount": 3,
     "canton": "ZH"
   },
+  "ZH::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich": {
+    "winnerJobIdentifier": "epi-stiftung-591bbe010131",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.8,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich": {
     "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
     "winnerCanonical": "dipl-specialista-infermieristico-specialista-in-allattamento-acute-station-adolescente-a0-psychiatrische",
@@ -63297,12 +63405,12 @@
     "canton": "ZH"
   },
   "ZH::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich": {
-    "winnerJobIdentifier": "epi-stiftung-591bbe010131",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich",
+    "winnerJobIdentifier": "epi-stiftung-4f32dd8a8d3e",
+    "winnerCanonical": "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
     "decidedAt": "2026-08-10T00:00:00.000Z",
     "lastSeenAt": "2026-08-10T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.6667,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitat-dtq80w": {
@@ -67059,11 +67167,11 @@
     "canton": "ZH"
   },
   "ZH::it::senior-consultant-m-w-universitats-kinderspital-zurich-kispi-zurich": {
-    "winnerJobIdentifier": "kispi-zurich-9dbcb2ab562e",
-    "winnerCanonical": "pflegehelferin-m-w-d-60-universitats-kinderspital-zurich-kispi-zurich",
-    "decidedAt": "2026-08-05T00:00:00.000Z",
-    "lastSeenAt": "2026-08-05T00:00:00.000Z",
-    "score": 0.5455,
+    "winnerJobIdentifier": "kispi-zurich-0926b93b7574",
+    "winnerCanonical": "medico-senior-medico-senior-adolescent-universitats-kinderspital-zurich-kispi-zurich",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -70007,6 +70115,15 @@
     "decidedAt": "2026-06-30T00:00:00.000Z",
     "lastSeenAt": "2026-08-10T00:00:00.000Z",
     "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::vice-direttore-di-filiale-denner-ag-zurich": {
+    "winnerJobIdentifier": "company-2zbait",
+    "winnerCanonical": "stv-branch-manager-in-denner-ag-zurich-3e601b",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "score": 0.25,
     "candidatesCount": 2,
     "canton": "ZH"
   },
