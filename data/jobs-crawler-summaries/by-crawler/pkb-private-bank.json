@@ -1,19 +1,52 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-08-10T11:02:46.340Z",
+  "generatedAt": "2026-08-10T22:23:13.823Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6247,
-  "avgDurationMs": 6247,
+  "unchangedCount": 1,
+  "durationMs": 5067,
+  "avgDurationMs": 5067,
   "durationHistory": [
-    6247
+    5067
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "title": "Senior Compliance Officer - Client Tax Compliance (FATCA, QI & AEOI/CRS), AML & CDB",
+      "company": "PKB Private Bank SA",
+      "companyKey": "pkb-private-bank",
+      "companyDomain": "pkb.ch",
+      "url": "https://careers.pkb.ch/job/view-job.php?id=27-senior-compliance-officer-client-tax-compliance-fatca-qi-aeoi-crs-aml-cdb-lugano&language=it",
+      "slug": "senior-compliance-officer-client-tax-compliance-fatca-qi-aeoi-crs-aml-cdb-pkb-private-bank-lugano",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Via Serafino Balestra 1",
+      "postedDate": "2026-07-09",
+      "validThrough": "",
+      "sector": "Banca e servizi finanziari",
+      "role": "Altro",
+      "employmentType": "FULL_TIME",
+      "source": "PKB Dedicated Parser (Arca24)",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-10T22:23:10.628Z",
+      "id": "pkb-private-bank-14e6e40f691f",
+      "firstSeenAt": "2026-07-10T10:40:31.816Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Réceptionniste et Assistant(e) administratif(ve) à 60%",
       "company": "PKB Private Bank SA",
@@ -36,45 +69,19 @@
       "crawledAt": "2026-08-10T11:02:43.670Z",
       "id": "pkb-private-bank-649a7b6c1241",
       "firstSeenAt": "2026-08-03T22:25:34.929Z",
-      "_qualityScore": 86,
+      "salaryMin": 29700,
+      "salaryMax": 45000,
+      "currency": "CHF",
+      "addressLocality": "Genève",
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 20
-      }
-    },
-    {
-      "title": "Senior Compliance Officer - Client Tax Compliance (FATCA, QI & AEOI/CRS), AML & CDB",
-      "company": "PKB Private Bank SA",
-      "companyKey": "pkb-private-bank",
-      "companyDomain": "pkb.ch",
-      "url": "https://careers.pkb.ch/job/view-job.php?id=27-senior-compliance-officer-client-tax-compliance-fatca-qi-aeoi-crs-aml-cdb-lugano&language=it",
-      "slug": "senior-compliance-officer-client-tax-compliance-fatca-qi-aeoi-crs-aml-cdb-pkb-private-bank-lugano",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Serafino Balestra 1",
-      "postedDate": "2026-07-09",
-      "validThrough": "",
-      "sector": "Banca e servizi finanziari",
-      "role": "Altro",
-      "employmentType": "FULL_TIME",
-      "source": "PKB Dedicated Parser (Arca24)",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-10T11:02:44.079Z",
-      "id": "pkb-private-bank-14e6e40f691f",
-      "firstSeenAt": "2026-07-10T10:40:31.816Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
