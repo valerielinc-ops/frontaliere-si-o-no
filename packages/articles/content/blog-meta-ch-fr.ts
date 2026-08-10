@@ -2044,6 +2044,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.siccita-stress-famiglie.title': 'Sécheresse : le stress augmente chez les familles paysannes en Suisse',
     'blog.article.siccita-stress-famiglie.excerpt': 'La sécheresse prolongée et les événements météorologiques extrêmes aggravent les conditions de vie et de travail des familles paysannes en Suisse.',
     'blog.article.siccita-stress-famiglie.imageAlt': 'Famille agricole préoccupée par la sécheresse en Suisse',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.title': 'Empa : potentiel de recyclage dans les infrastructures d\'énergie fossile',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.excerpt': 'Les plates-formes pétrolières, les mines de charbon et les centrales électriques abandonnées contiennent d\'énormes quantités d\'acier et de cuivre. Selon une étude suisse, le recyclage de ces « mines urbaines » pourrait rendre la construction d\'installations solaires et éoliennes plus économique et plus respectueuse de l\'environnement.',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.imageAlt': 'Locarno Film Festival',
 };
 
 export default blogMetaChFr;

@@ -2044,6 +2044,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.siccita-stress-famiglie.title': 'Siccità: in aumento lo stress tra le famiglie contadine in Svizzera',
     'blog.article.siccita-stress-famiglie.excerpt': 'La prolungata siccità e gli eventi meteorologici estremi stanno aggravando le condizioni di vita e di lavoro delle famiglie contadine in Svizzera.',
     'blog.article.siccita-stress-famiglie.imageAlt': 'Famiglia agricola preoccupata per la siccità in Svizzera',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.title': 'Empa: potenziale riciclaggio in infrastrutture per energie fossili',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.excerpt': 'Le piattaforme petrolifere, le miniere di carbone e le centrali elettriche dismesse contengono enormi quantità di acciaio e rame. Secondo uno studio svizzero, il riciclaggio di queste \'miniere urbane\' potrebbe rendere la costruzione di impianti solari ed eolici più economica e più rispettosa dell\'ambiente.',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.imageAlt': 'Locarno Film Festival',
 };
 
 export default blogMetaChIt;

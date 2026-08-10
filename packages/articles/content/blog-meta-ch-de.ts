@@ -2044,6 +2044,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.siccita-stress-famiglie.title': 'Dürre: Stress bei Bauernfamilien in der Schweiz nimmt zu',
     'blog.article.siccita-stress-famiglie.excerpt': 'Längere Dürren und extreme Wetterereignisse verschlechtern die Lebens- und Arbeitsbedingungen der Bauernfamilien in der Schweiz.',
     'blog.article.siccita-stress-famiglie.imageAlt': 'Bauerliche Familie in der Schweiz besorgt über die Dürre',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.title': 'Empa: Recyclingpotenzial in fossilen Energieinfrastrukturen',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.excerpt': 'Ölplattformen, Kohlebergwerke und stillgelegte Kraftwerke enthalten enorme Mengen an Stahl und Kupfer. Laut einer Schweizer Studie könnte das Recycling dieser "städtischen Minen" den Bau von Solar- und Windkraftanlagen wirtschaftlicher und umweltfreundlicher machen.',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.imageAlt': 'Locarno Film Festival',
 };
 
 export default blogMetaChDe;
