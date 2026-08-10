@@ -361,6 +361,38 @@ export function detectBacklogTracker(title, body) {
   return countBacklogItems(body) >= BACKLOG_MIN_ITEMS;
 }
 
+// --- COMPRESS-CONTRACT-DOCS RATCHET PRE-FLIGHT (escalation #5523) -----------
+// `compress-contract-docs.yml` opens/reopens a SINGLE stable-titled issue whenever a
+// hot contract doc (AGENTS.md/REVIEW.md/ISSUES.md/FOLLOWUP.md) crosses its
+// compress-ceiling, asking for prose-only compression that preserves every heading,
+// rule, table, step, code-block, path and exact string verbatim. Across every
+// occurrence on record (#1112/#1113/#1569/#3039/#3641/#4136/#4567/#5507, spanning
+// 2026-06→08), the autonomous fixer has closed NONE of them — each was eventually
+// closed by a human-authored PR. #5507 measured concretely why: trimming redundant
+// prose alone left ISSUES.md at ~23.0KB, still over the 22000B ceiling — the fix that
+// actually landed (#5519) extracted an appendix into a new file, a structural
+// editorial call a mechanical prose-edit does not reach. Promoting it re-pays the
+// same run (and, once it exhausts the turn budget, the same needs-human park) every
+// time the ratchet re-fires. Park pre-promotion instead — the title is a fixed,
+// machine-generated constant the ratchet itself emits verbatim (never edited by a
+// human), so an exact match carries no false-positive risk.
+//
+// Why here and not `classify-issue.mjs` (same rationale as backlog-tracker above):
+// a category routed to `route:'none'` would exclude it from routing upstream, which
+// is exactly what the 2026-07-05 owner decision removed and what
+// `tests/classify-issue.test.ts` asserts against. The drainer pre-flight is the
+// layer this repo already uses for per-issue structural evidence at drain time.
+const COMPRESS_CONTRACT_DOCS_TITLE = '📏 Contract docs over compress ceiling — gentle-compress needed';
+
+/**
+ * Vero se l'issue è quella aperta dal ratchet `compress-contract-docs.yml` (titolo
+ * fisso, machine-generated — mai editato a mano). Pura → testabile.
+ * @param {string} title
+ */
+export function detectCompressContractDocsRatchet(title) {
+  return String(title || '').trim() === COMPRESS_CONTRACT_DOCS_TITLE;
+}
+
 // --- OVERLAP-FILE PRE-FLIGHT (escalation #3810) ----------------------------------
 // fix-outcome:overlap-skip ricorre 8×/14gg: il fixer Claude rileva l'overlap solo
 // DOPO aver bruciato ~1M token. Questo check zero-Claude rimuove il burn alla fonte:
@@ -991,6 +1023,20 @@ function runDrain() {
     // comment+edit di park. Senza tempo per la coppia si esce: la coda resta
     // intatta e il tick successivo riparte dallo stesso primo candidato.
     if (!budget.take(`#${cand.number} (drain)`, ITEM_COST_MS)) break;
+
+    // Check: compress-contract-docs ratchet (escalation #5523) — title-only, gira
+    // PRIMA del fetch del body (nessuna chiamata gh extra). Mai chiusa dal fixer
+    // autonomo in 8 occorrenze storiche, sempre da una PR umana.
+    if (detectCompressContractDocsRatchet(cand.title)) {
+      console.log(`PARK #${cand.number} (compress-contract-docs ratchet) → no promozione, mai chiusa dal fixer autonomo (8/8 storiche via PR umana)`);
+      const note = `⏭️ **Pre-flight drainer (zero-Claude, #5523)**: questa issue è aperta dal ratchet \`compress-contract-docs.yml\` — comprimere un doc "hot" (15-21KB) preservando verbatim heading/regole/tabelle/step/code-block/path/stringhe è un lavoro editoriale, non un difetto meccanico. Nessuna occorrenza storica (#1112 #1113 #1569 #3039 #3641 #4136 #4567 #5507) è mai stata chiusa dal fixer autonomo: tutte hanno richiesto scelte di struttura (es. #5519 ha dovuto estrarre un'appendice in un nuovo file — la sola prosa non bastava a rientrare sotto ceiling) e sono state chiuse da una PR umana. Promuoverla ripaga lo stesso run a vuoto a ogni ri-apertura del ratchet. **Non promuovo**: serve una sessione umana/gentle-compress mirata. Rimuovo \`agent:fix-queued\` e parko (riapribile: togli \`fu-parked\` se il contesto cambia).\n\n<!-- FIX_OUTCOME: revenue-tracker-manual -->`;
+      if (DRY) { console.log(`[dry] park #${cand.number} (compress-contract-docs ratchet)`); continue; }
+      try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
+      catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
+      edit(cand.number, { add: [LBL_PARKED], remove: [LBL_QUEUED, LBL_FIX] });
+      continue; // prova il prossimo in coda
+    }
+
     let body = '';
     try {
       const raw = gh(['issue', 'view', String(cand.number), '--repo', REPO, '--json', 'body'], { json: true });
