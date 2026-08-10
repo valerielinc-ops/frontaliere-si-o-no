@@ -2047,6 +2047,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.title': 'Empa: Recyclingpotenzial in fossilen Energieinfrastrukturen',
     'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.excerpt': 'Ölplattformen, Kohlebergwerke und stillgelegte Kraftwerke enthalten enorme Mengen an Stahl und Kupfer. Laut einer Schweizer Studie könnte das Recycling dieser "städtischen Minen" den Bau von Solar- und Windkraftanlagen wirtschaftlicher und umweltfreundlicher machen.',
     'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.imageAlt': 'Locarno Film Festival',
+    'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.title': 'Pakt für wirtschaftliche, soziale und kulturelle Rechte: Entwicklungen Schweiz',
+    'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.excerpt': 'Der Bundesrat hat am 19. Juni 2026 den Fünften Bericht der Schweiz über die Umsetzung des Pakts der Vereinten Nationen über wirtschaftliche, soziale und kulturelle Rechte (Pakt I) verabschiedet.',
+    'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.imageAlt': 'Eine Szene von einem Frontalier, der in der Schweiz arbeitet, mit Blick auf den Luganersee',
 };
 
 export default blogMetaChDe;
