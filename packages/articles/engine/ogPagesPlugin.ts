@@ -1175,7 +1175,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  '@context': 'https://schema.org',
  '@type': 'Event',
  name: sdStr('name') || localizedTitle,
- description: sdStr('description') || localizedDesc,
+ // repairSerpSnippet anche qui: `localizedDesc` e' gia' riparata al punto di
+ // definizione unico, ma questo fallback rilegge structuredData.description
+ // GREZZA dal registro e la scavalcava — la riparazione applicata una volta e
+ // poi aggirata da un ramo che torna alla sorgente (issue #5453).
+ description: repairSerpSnippet(sdStr('description') || '') || localizedDesc,
  image: imageObjectLd({
  url: imgU,
  width: en.imgW,

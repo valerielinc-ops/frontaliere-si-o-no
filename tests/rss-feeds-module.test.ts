@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { buildAllRssFeeds, buildSectionFeeds, RSS_SECTIONS, RSS_MAX_ITEMS } from '../packages/articles/engine/rssFeeds.mjs';
+import { repairSerpSnippet } from '../build-plugins/shared/clauseTail.mjs';
 
 /**
  * Gate for the RSS generator after it moved out of `scripts/generate-rss-feeds.mjs`
@@ -87,6 +88,7 @@ describe('packages/articles/engine/rssFeeds', () => {
   it('reads the corpus from the layout it is given, not a hardcoded site path', () => {
     const root = makeFixture();
     const [section] = buildAllRssFeeds({
+      repairSerpSnippet,
       fs,
       path,
       rootDir: root,
@@ -119,6 +121,7 @@ describe('packages/articles/engine/rssFeeds', () => {
 
     // Without slugDir the slug map is unreachable → slugs fall back to article ids.
     const blind = buildSectionFeeds({
+      repairSerpSnippet,
       fs, path, rootDir: root, section, registry: REGISTRY, layout: LAYOUT,
     });
     expect(blind.slugCount).toBe(0);
@@ -127,6 +130,7 @@ describe('packages/articles/engine/rssFeeds', () => {
     );
 
     const located = buildSectionFeeds({
+      repairSerpSnippet,
       fs, path, rootDir: root, section, registry: REGISTRY,
       layout: { ...LAYOUT, slugDir: 'corpus' },
     });
@@ -139,6 +143,7 @@ describe('packages/articles/engine/rssFeeds', () => {
   it('emits nothing for a section whose seo chunks are absent, instead of throwing', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'rss-empty-'));
     const result = buildSectionFeeds({
+      repairSerpSnippet,
       fs,
       path,
       rootDir: root,
@@ -153,6 +158,7 @@ describe('packages/articles/engine/rssFeeds', () => {
   it('resolves media:content from the registry, absolutising origin-relative images', () => {
     const root = makeFixture();
     const [section] = buildAllRssFeeds({
+      repairSerpSnippet,
       fs,
       path,
       rootDir: root,
@@ -175,6 +181,7 @@ describe('packages/articles/engine/rssFeeds', () => {
   it('falls back to the app icon when the registry has no image for an article', () => {
     const root = makeFixture();
     const [section] = buildAllRssFeeds({
+      repairSerpSnippet,
       fs,
       path,
       rootDir: root,
@@ -190,6 +197,7 @@ describe('packages/articles/engine/rssFeeds', () => {
   it('renders localized titles, excerpts, bodies and trailing-slash article links', () => {
     const root = makeFixture();
     const [section] = buildAllRssFeeds({
+      repairSerpSnippet,
       fs,
       path,
       rootDir: root,
@@ -199,7 +207,13 @@ describe('packages/articles/engine/rssFeeds', () => {
     const de = section.feeds.find(([name]) => name === 'rss-de.xml')![1];
 
     expect(de).toContain('<title>Alpha de</title>');
-    expect(de).toContain('<![CDATA[Alpha excerpt de]]>');
+    // «Alpha excerpt de» finisce su `de`, che è nella lista di stopword (art.
+    // tedesco/francese), quindi repairSerpSnippet la spela e chiude con il punto.
+    // Il fixture nomina i campi `<cosa> <locale>` e la coincidenza col locale
+    // rende questa asserzione la prova più diretta che la riparazione è ATTIVA
+    // su questo percorso: senza il parametro passato, qui leggeremmo ancora
+    // «Alpha excerpt de».
+    expect(de).toContain('<![CDATA[Alpha excerpt.]]>');
     expect(de).toContain('<content:encoded><![CDATA[Alpha body text');
     // Localized slug + localized section prefix, trailing slash (site convention).
     expect(de).toContain('<link>https://frontaliereticino.ch/de/grenzgaenger-artikel/alpha-de/</link>');
@@ -215,6 +229,7 @@ describe('packages/articles/engine/rssFeeds', () => {
   it('makes the main feed a byte copy of the Italian one, self-linking to the main filename', () => {
     const root = makeFixture();
     const [section] = buildAllRssFeeds({
+      repairSerpSnippet,
       fs,
       path,
       rootDir: root,
@@ -244,6 +259,7 @@ describe('packages/articles/engine/rssFeeds', () => {
     );
 
     const result = buildSectionFeeds({
+      repairSerpSnippet,
       fs,
       path,
       rootDir: root,
@@ -291,5 +307,47 @@ describe('RSS reads the chunk create-article writes to (#4974)', () => {
           `being written to silently stops updating`,
       ).toBeGreaterThan(0);
     }
+  });
+});
+
+/**
+ * Il parametro non deve mai tornare opzionale (issue #5453).
+ *
+ * Il produttore REALE dei dieci feed non e' questo repo: e'
+ * `scripts/build-api.mjs` di nanakokyobashi-rgb/frontaliere-articles, che
+ * importa questo modulo dall'engine mirrorato. Qui dentro l'unico chiamante e'
+ * questo file. Quindi un default identita' — `repairSerpSnippet = (s) => s` —
+ * lascerebbe la riparazione inerte esattamente dove serve, con questa suite
+ * verde: la firma del SiteShellContract, dove la meta' mancante non lancia.
+ *
+ * Questo test fallisce se qualcuno "addolcisce" la firma per far passare un
+ * chiamante dimenticato, che e' il modo in cui il difetto tornerebbe.
+ */
+describe('buildSectionFeeds — repairSerpSnippet e obbligatoria (#5453)', () => {
+  it('lancia quando manca, invece di degradare in silenzio', () => {
+    expect(() =>
+      buildSectionFeeds({
+        fs,
+        path,
+        rootDir: os.tmpdir(),
+        section: RSS_SECTIONS[0],
+        registry: [],
+        layout: {},
+      } as never),
+    ).toThrow(/repairSerpSnippet is required/);
+  });
+
+  it('lancia anche se non e una funzione', () => {
+    expect(() =>
+      buildSectionFeeds({
+        fs,
+        path,
+        rootDir: os.tmpdir(),
+        section: RSS_SECTIONS[0],
+        registry: [],
+        layout: {},
+        repairSerpSnippet: 'nope',
+      } as never),
+    ).toThrow(TypeError);
   });
 });

@@ -103,20 +103,7 @@ export const peelDanglingClauseTail: (s: string) => string = peelDanglingClauseT
  *                  `'.'`, matching description prose). Pass `''` for titles,
  *                  which do not take a terminal stop in the SERP.
  */
-export function repairSerpSnippet(text: string, terminal: string = '.'): string {
-  const normalized = String(text || '').replace(/\s+/g, ' ').trim();
-  if (!normalized) return normalized;
-  // Already reads as a complete sentence/phrase → nothing to repair.
-  if (/[.!?…»"')\]]$/u.test(normalized)) return normalized;
-  const peeled = peelDanglingClauseTail(normalized);
-  // Nothing dangling — a title like "Permesso G Svizzera 2026" legitimately
-  // ends without punctuation on a content word.
-  if (peeled === normalized) return normalized;
-  // Refuse to repair when the peel would gut the string (a tail of stacked
-  // function words); shipping the original is safer than shipping a stub.
-  if (!peeled || peeled.length < normalized.length / 2) return normalized;
-  return terminal && !/[.!?…]$/u.test(peeled) ? peeled + terminal : peeled;
-}
+export { repairSerpSnippet } from './clauseTail.mjs';
 
 /**
  * Does `candidate` (a prefix of `source`) stop at a real word boundary?

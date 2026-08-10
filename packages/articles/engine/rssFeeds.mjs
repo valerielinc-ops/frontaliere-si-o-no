@@ -298,7 +298,7 @@ const FALLBACK_IMAGE = `${BASE_URL}/icons/icon-512x512.png`;
 
 // ── Feed rendering ────────────────────────────────────────────────────
 
-function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, images) {
+function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, images, repairSerpSnippet) {
   const meta = section.localeMeta[locale];
 
   // The IT per-locale feed's self-link points at the section's main feed
@@ -316,7 +316,14 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
       (section.slugFallback === 'it' ? locSlugs?.it : undefined) ||
       articleId;
     const title = titles.get(articleId) || article.headline;
-    const excerpt = excerpts.get(articleId) || article.excerpt || article.description;
+    // Il testo memorizzato in content/seo/** e' stato troncato dal generatore
+    // senza spelare la coda: 3.544 campi su 1.137 articoli finiscono su una
+    // parola funzionale (misurato 2026-08-09). ogPagesPlugin lo ripara al
+    // proprio punto di definizione unico; questa era l'unica superficie che
+    // leggeva gli stessi campi e li spediva verbatim (issue #5453).
+    const excerpt = repairSerpSnippet(
+      excerpts.get(articleId) || article.excerpt || article.description,
+    );
 
     items.push({
       title,
@@ -388,7 +395,19 @@ ${itemsXml}
  * `registry` is the section's article array; only `id` and `image` are read,
  * to resolve `media:content` without touching the filesystem.
  */
-export function buildSectionFeeds({ fs, path, rootDir, section, registry = [], layout = {} }) {
+export function buildSectionFeeds({ fs, path, rootDir, section, registry = [], layout = {}, repairSerpSnippet }) {
+  // NON opzionale, e senza fallback identita'. Il produttore reale dei feed e'
+  // `scripts/build-api.mjs` del repo corpus (qui dentro l'unico altro chiamante
+  // e' tests/rss-feeds-module.test.ts), quindi un default silenzioso renderebbe
+  // la riparazione inerte proprio dove serve, dietro una CI verde di questo
+  // repo. E' la forma dell'incidente SiteShellContract, peggiorata: un
+  // parametro `undefined` mai invocato non lancia nemmeno un TypeError.
+  if (typeof repairSerpSnippet !== 'function') {
+    throw new TypeError(
+      'buildSectionFeeds: repairSerpSnippet is required (issue #5453). Pass it from ' +
+        'build-plugins/shared/clauseTail.mjs — the feeds ship stored corpus text verbatim without it.',
+    );
+  }
   const { seoDir, localesDir, slugDir } = { ...DEFAULT_LAYOUT, ...layout };
 
   const articles = parseSeoBlogs(fs, path, rootDir, seoDir, section.seoFiles);
@@ -414,7 +433,7 @@ export function buildSectionFeeds({ fs, path, rootDir, section, registry = [], l
     const excerpts = parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, 'excerpt');
     const bodies = parseBlogBodies(fs, path, rootDir, localesDir, section.bodyDir, locale);
 
-    const xml = renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, images);
+    const xml = renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, images, repairSerpSnippet);
     if (!xml) continue;
 
     feeds.push([section.feedFile(locale), xml]);
@@ -427,7 +446,7 @@ export function buildSectionFeeds({ fs, path, rootDir, section, registry = [], l
 }
 
 /** Build every feed of every section. `registries` is keyed by section id. */
-export function buildAllRssFeeds({ fs, path, rootDir, registries = {}, layout = {} }) {
+export function buildAllRssFeeds({ fs, path, rootDir, registries = {}, layout = {}, repairSerpSnippet }) {
   return RSS_SECTIONS.map((section) =>
     buildSectionFeeds({
       fs,
@@ -436,6 +455,7 @@ export function buildAllRssFeeds({ fs, path, rootDir, registries = {}, layout = 
       section,
       registry: registries[section.id] ?? [],
       layout,
+      repairSerpSnippet,
     }),
   );
 }
