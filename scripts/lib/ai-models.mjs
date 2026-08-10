@@ -1424,6 +1424,52 @@ function _decayScore(score, lastUsedISO) {
   return Math.round(score * 0.10);                  // > 24h: 10%
 }
 
+// ── Prompt budget: the ONE number discovery and pre-flight share ─────────────
+/**
+ * Largest request (input) payload the pre-flight skip-guard will let through,
+ * in tokens. Not an aspiration — the fleet's actual ceiling: every entry in
+ * DEFAULT_REQUEST_TOKENS_BY_PROVIDER is this number, and 8000 is also the
+ * HIGHEST value in the hand-curated MODEL_MAX_REQUEST_TOKENS map (whose other
+ * entries are 4000 and 3000). A prompt estimated above this is therefore
+ * refused by EVERY model in DEFAULT_CHAIN that declares a cap at all; the
+ * models that don't declare one aren't "accepting" it, they're unvalidated and
+ * take the 413 at runtime instead.
+ *
+ * Scope: this covers the two STATIC sources (MODEL_MAX_REQUEST_TOKENS and the
+ * provider map). _learnedRequestTokenLimits can record a HIGHER ceiling at
+ * runtime when a provider states one in a 413 body, so this is the ceiling
+ * known at module load, not an invariant of every call. The budget reported on
+ * ALL_MODELS_EXHAUSTED is therefore computed from the limits actually observed
+ * during that cascade, never from this constant.
+ *
+ * Runs 31385602513 / 31396507348 / 31402084443 (2026-08-10) are why this symbol
+ * exists: the news branch assembled a ~9431-token prompt, no capped model could
+ * take it, 39-58 models per run were marked exhausted (and markModelExhausted
+ * PERSISTS, so each run poisoned the next), and the runs produced 0 articles in
+ * 27-40 minutes each.
+ */
+export const MAX_PREFLIGHT_REQUEST_TOKENS = 8000;
+
+/**
+ * Minimum advertised context window a discovered model must report to be worth
+ * injecting into DEFAULT_CHAIN. Derived rather than picked: a context window
+ * has to hold the prompt AND the completion, so the floor is the largest prompt
+ * pre-flight will pass plus the default completion budget.
+ *
+ * This replaces six unrelated `8192` literals that used to sit inline in the
+ * per-provider `pick()` filters below. 8192 sat BELOW the payload this same
+ * file would later refuse (8000 + a 4096 completion = 12096), so discovery kept
+ * admitting models that pre-flight then skipped for an input cap, or that
+ * answered HTTP 400 "maximum context length is 8192 tokens" at call time —
+ * discovery and pre-flight were not talking about the same quantity.
+ *
+ * DEFAULT_OPTS.maxTokens is the honest output term here: discovery runs once
+ * per process, before any caller has stated its own maxTokens, so the default
+ * is the only completion budget knowable at that point. Callers asking for MORE
+ * output stay covered by the separate MODEL_MAX_OUTPUT_TOKENS pre-flight skip.
+ */
+export const MIN_DISCOVERY_CONTEXT_TOKENS = MAX_PREFLIGHT_REQUEST_TOKENS + DEFAULT_OPTS.maxTokens;
+
 // ── Dynamic free-model discovery (multi-provider) ────────────
 /**
  * Auto-discover currently-available free models from every provider that
@@ -1432,10 +1478,14 @@ function _decayScore(score, lastUsedISO) {
  * list — new models are picked up automatically every run, so the chain
  * grows as providers ship models instead of waiting for a manual edit.
  *
+ * Every provider's `pick()` enforces the SAME context floor,
+ * MIN_DISCOVERY_CONTEXT_TOKENS (see its declaration above) — never a local
+ * literal, so discovery can't drift below what pre-flight will accept.
+ *
  * Covered providers (each attempted ONLY when its API key is present):
- * - OpenRouter — keeps IDs ending in `:free`, context_length ≥ 8192.
+ * - OpenRouter — keeps IDs ending in `:free`, context_length ≥ the floor.
  * - Groq       — all listed models are free-tier; skips audio/guard/embedding
- *   models and anything with context_window < 8192.
+ *   models and anything with context_window below the floor.
  * - Cerebras   — all listed models are free-tier text models.
  * - Mistral    — free tier covers chat models; skips embedding/OCR/moderation
  *   and models whose capabilities exclude chat completion.
@@ -1519,7 +1569,7 @@ export const DISCOVERY_PROVIDERS = Object.freeze([
       const id = m?.id;
       if (!id || !id.endsWith(':free')) return null;
       // Skip tiny models — not useful for translation/article generation
-      if ((m.context_length || 0) < 8192) return null;
+      if ((m.context_length || 0) < MIN_DISCOVERY_CONTEXT_TOKENS) return null;
       return id;
     },
   },
@@ -1533,7 +1583,7 @@ export const DISCOVERY_PROVIDERS = Object.freeze([
       const id = m?.id;
       if (!id || m.active === false) return null;
       if (NON_CHAT_MODEL_RE.test(id)) return null;
-      if ((m.context_window || m.context_length || 0) < 8192) return null;
+      if ((m.context_window || m.context_length || 0) < MIN_DISCOVERY_CONTEXT_TOKENS) return null;
       return id;
     },
   },
@@ -1565,7 +1615,7 @@ export const DISCOVERY_PROVIDERS = Object.freeze([
       if (/(?:^|\/)labs-/i.test(id)) return null;
       // Mistral exposes per-model capabilities; require chat completion when present.
       if (m.capabilities && m.capabilities.completion_chat === false) return null;
-      if ((m.max_context_length || m.context_length || 0) < 8192) return null;
+      if ((m.max_context_length || m.context_length || 0) < MIN_DISCOVERY_CONTEXT_TOKENS) return null;
       return id;
     },
   },
@@ -1592,6 +1642,30 @@ export const DISCOVERY_PROVIDERS = Object.freeze([
       if (NVIDIA_SPECIALISED_RE.test(id)) return null;
       if (NVIDIA_DEAD_RE.test(id)) return null;
       if (!NVIDIA_ALLOW_FAMILY_RE.test(id)) return null;
+      // Context floor. Every other provider in this list has always had one;
+      // NVIDIA was the single discovery channel with NO context check at all,
+      // and with maxAdd: 40 it is also the widest. That is how
+      // nvidia/nemotron-3-ultra-550b-a55b — matched by NVIDIA_ALLOW_FAMILY_RE's
+      // "nemotron" alternation, never smoke-tested — reached the chain and
+      // became the writer by omission in run 31402084443, returning 1448
+      // characters against a 2500-character minimum.
+      //
+      // Deliberately PRESENT-ONLY, unlike the strict `(m.context_length || 0) <`
+      // form the providers above use. Measured against the live endpoint on
+      // 2026-08-10: integrate.api.nvidia.com/v1/models returns 101 entries whose
+      // key union is exactly {id, object, created, owned_by} — not one context
+      // field anywhere (the fixture in
+      // tests/scripts/ai-models-nvidia-discovery-allowlist.test.ts mirrors that
+      // shape). A strict filter would therefore reject the ENTIRE catalog and
+      // silently delete NVIDIA from the chain — trading one bug for a worse one.
+      //
+      // So today this line is a forward guard, not the operative fix: it starts
+      // filtering the day NVIDIA publishes a size, and until then every
+      // allowlisted id is caught one layer later instead, by
+      // DEFAULT_REQUEST_TOKENS_BY_PROVIDER[PROVIDER.NVIDIA] at pre-flight —
+      // which is the half that actually closes the hole now.
+      const ctx = m?.context_length ?? m?.max_model_len ?? m?.context_window;
+      if (typeof ctx === 'number' && ctx < MIN_DISCOVERY_CONTEXT_TOKENS) return null;
       return id;
     },
   },
@@ -1605,7 +1679,7 @@ export const DISCOVERY_PROVIDERS = Object.freeze([
     pick(m) {
       const id = m?.id;
       if (!id || NON_CHAT_MODEL_RE.test(id)) return null;
-      if ((m.context_length || 0) < 8192) return null;
+      if ((m.context_length || 0) < MIN_DISCOVERY_CONTEXT_TOKENS) return null;
       return id;
     },
   },
@@ -1621,7 +1695,7 @@ export const DISCOVERY_PROVIDERS = Object.freeze([
       if (!id || NON_CHAT_MODEL_RE.test(id)) return null;
       // Together tags each model with a type; keep only text-generation ones.
       if (m.type && !['chat', 'language', 'code'].includes(m.type)) return null;
-      if ((m.context_length || 0) < 8192) return null;
+      if ((m.context_length || 0) < MIN_DISCOVERY_CONTEXT_TOKENS) return null;
       return id;
     },
   },
@@ -1635,7 +1709,7 @@ export const DISCOVERY_PROVIDERS = Object.freeze([
     pick(m) {
       const id = m?.id;
       if (!id || NON_CHAT_MODEL_RE.test(id)) return null;
-      if ((m.context_length || 0) < 8192) return null;
+      if ((m.context_length || 0) < MIN_DISCOVERY_CONTEXT_TOKENS) return null;
       return id;
     },
   },
@@ -2844,14 +2918,30 @@ const MODEL_MAX_REQUEST_TOKENS = {
  * roster on guaranteed 413s.
  */
 const DEFAULT_REQUEST_TOKENS_BY_PROVIDER = {
-  [PROVIDER.GITHUB]: 8000,
+  [PROVIDER.GITHUB]: MAX_PREFLIGHT_REQUEST_TOKENS,
   // Groq free tier enforces a tokens-per-minute (TPM) cap, not a per-model
   // context limit: run 28732970228 (2026-07-05) shows 4 unrelated Groq
   // models — openai/gpt-oss-120b, qwen/qwen3.6-27b, llama-3.1-8b-instant,
   // openai/gpt-oss-20b — all fail identically with HTTP 413 "Request too
   // large ... on tokens per minute (TPM)" at the same ~8300-token estimate.
   // Same account-wide-cap shape as GitHub Models above.
-  [PROVIDER.GROQ]: 8000,
+  [PROVIDER.GROQ]: MAX_PREFLIGHT_REQUEST_TOKENS,
+  // NVIDIA. Added because NVIDIA is the one provider whose discovery filter
+  // cannot do its job unaided: integrate.api.nvidia.com's /v1/models publishes
+  // no context field, so the (present-only) floor in DISCOVERY_PROVIDERS' NVIDIA
+  // `pick` sees nothing to filter on and every allowlisted id enters the chain
+  // unvalidated. Without an entry here those ids also carry no pre-flight cap,
+  // which is the whole "not validated, not accepting" class: they pass the
+  // skip-guard and collect the 413 at runtime.
+  //
+  // 8000 is the evidenced NVIDIA figure, not a guess carried over from the two
+  // providers above: MODEL_MAX_REQUEST_TOKENS already pins
+  // nvidia/llama-3.1-nemotron-nano-vl-8b-v1 at exactly 8000 after run
+  // 28732970228, where NVIDIA models answered HTTP 400 "maximum context length
+  // is N tokens" to a ~9000-token generation prompt. The pre-flight takes
+  // Math.min across all three sources, so tighter per-model entries (e.g.
+  // nvidia/nemotron-mini-4b-instruct at 3000) still win over this default.
+  [PROVIDER.NVIDIA]: MAX_PREFLIGHT_REQUEST_TOKENS,
 };
 
 /**
@@ -4163,6 +4253,11 @@ export async function callLLM(messages, opts = {}) {
   }
 
   const errors = [];
+  // Every pre-flight rejection caused by the INPUT size, as { reqLimit, estTokens }.
+  // Kept separate from `errors` (free text, only ever regex-tallied by
+  // classifyExhaustionCause) because it is the one failure class a caller can
+  // actually act on: see the err.retryRequestTokenBudget block at the throw.
+  const inputCapSkips = [];
 
   for (let i = 0; i < chain.length; i++) {
     const model = chain[i];
@@ -4266,6 +4361,12 @@ export async function callLLM(messages, opts = {}) {
         console.warn(`⏭️  [${model}] Skipped — request would exceed ${reqLimit}-token limit (estimated ${estTokens})`);
         errors.push(`${model}: skipped — request ~${estTokens} tokens exceeds ${reqLimit}-token input cap`);
         _recordLastResortSkip(model, 'request token limit');
+        // Remember the budget this model would have accepted. The cascade can
+        // only ever SKIP an oversized payload — it has no way to shrink one —
+        // so unless the numbers survive to the throw, the caller learns "too
+        // big" without learning "by how much" and retries the identical
+        // `messages` array. See the throw site below.
+        inputCapSkips.push({ reqLimit, estTokens });
         continue;
       }
     }
@@ -4423,8 +4524,55 @@ export async function callLLM(messages, opts = {}) {
   _stats.errors.push(summary);
   // Flush scores before throwing — ensures failure data is persisted
   await flushScores();
-  const err = new Error(`All AI models failed. Chain: [${chain.join(' → ')}]. Errors: ${summary}`);
+
+  // Prompt-budget report. The cascade's only move against an oversized payload
+  // is to skip — it cannot shrink one — so when the chain empties partly or
+  // wholly on input caps, the caller is the only party that CAN act, and up to
+  // now it was told "too big" without a single number. Runs 31385602513 /
+  // 31396507348 / 31402084443 (2026-08-10) are the shape of that: a ~9431-token
+  // news prompt against a fleet whose highest declared cap is 8000, retried
+  // with a byte-identical `messages` array.
+  //
+  // Why the MAXIMUM refusing cap is the actionable one (and the minimum is
+  // merely informational): a retry succeeds as soon as ONE model accepts the
+  // payload, so the target to fit under is the most permissive cap that still
+  // said no. Fitting under the MINIMUM instead (3000, nvidia/nemotron-mini-4b)
+  // would demand a cut ~2.7x deeper than necessary, and for prompts with an
+  // irreducible core it can be arithmetically unreachable — the caller would
+  // conclude "impossible" about a budget 5000 tokens below the one that would
+  // actually have worked. Both are exposed; retryRequestTokenBudget names the
+  // one to aim at so a caller need not re-derive the argument above.
+  let message = `All AI models failed. Chain: [${chain.join(' → ')}]. Errors: ${summary}`;
+  let capReport = null;
+  if (inputCapSkips.length) {
+    const limits = inputCapSkips.map((s) => s.reqLimit);
+    capReport = {
+      count: inputCapSkips.length,
+      maxSkippedReqLimit: Math.max(...limits),
+      minSkippedReqLimit: Math.min(...limits),
+      estimatedRequestTokens: Math.max(...inputCapSkips.map((s) => s.estTokens)),
+    };
+    const over = capReport.estimatedRequestTokens - capReport.maxSkippedReqLimit;
+    message += ` | Prompt budget: ${capReport.count} model(s) refused a ~${capReport.estimatedRequestTokens}-token request;`
+      + ` the most permissive cap among them is ${capReport.maxSkippedReqLimit} tokens (over by ~${over}).`
+      + ` A retry must rebuild the prompt under ${capReport.maxSkippedReqLimit} tokens — resending the same messages cannot succeed.`;
+    console.warn(
+      `📏 Prompt budget: ~${capReport.estimatedRequestTokens} est. tokens vs a ${capReport.maxSkippedReqLimit}-token best cap`
+      + ` (${capReport.count} model(s) skipped on input cap, tightest ${capReport.minSkippedReqLimit}) — shrink by ≥${over} tokens to retry.`,
+    );
+  }
+
+  const err = new Error(message);
   err.code = 'ALL_MODELS_EXHAUSTED';
+  // Always defined (null when no model refused on size), so a caller can branch
+  // on presence without probing for undefined properties.
+  err.inputCapReport = capReport;
+  if (capReport) {
+    err.retryRequestTokenBudget = capReport.maxSkippedReqLimit;
+    err.maxSkippedReqLimit = capReport.maxSkippedReqLimit;
+    err.minSkippedReqLimit = capReport.minSkippedReqLimit;
+    err.estimatedRequestTokens = capReport.estimatedRequestTokens;
+  }
   // Classify the AGGREGATE cause so callers can distinguish a TRANSIENT pool
   // exhaustion (daily quota / rate-limit / provider cooldown / timeout — self-
   // heals at the next window) from a PERSISTENT fault (stale keys 401, depleted
@@ -4433,6 +4581,12 @@ export async function callLLM(messages, opts = {}) {
   // on a transient-dominant run; a persistent-dominant run still exits non-zero
   // and raises the Workflow-Failure issue, so the safety net from #1652 stays
   // intact for real outages (stale keys, provider down, prompt always too big).
+  //
+  // The input-cap class stays PERSISTENT on purpose, unchanged by the budget
+  // report above: a prompt larger than every declared cap does not get smaller
+  // at the next quota window, so deferring on it would loop forever and swallow
+  // the alert. The report doesn't reclassify the failure — it hands the caller
+  // the number it needs to fix the prompt and try again deliberately.
   err.exhaustionBreakdown = classifyExhaustionCause(errors);
   err.transientExhaustion = err.exhaustionBreakdown.transient > 0
     && err.exhaustionBreakdown.transient >= err.exhaustionBreakdown.persistent;
