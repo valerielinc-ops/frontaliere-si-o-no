@@ -2035,6 +2035,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.title': 'Naturkatastrophen, Verluste in Höhe von 112 Milliarden Dollar',
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.excerpt': 'Hitzewellen hatten einen direkten Einfluss auf die Arbeitsproduktivität, was sich dann auf die Energiepreise auswirkte.',
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.imageAlt': 'Schäden durch Hitzewellen in der Schweiz',
+    'blog.article.glencore-quotazione-australia.title': 'Glencore erwirtschaftet wieder Gewinn, 4,4 Milliarden Gewinn',
+    'blog.article.glencore-quotazione-australia.excerpt': 'Der Bergbau- und Rohstoffriese Glencore schloss die ersten sechs Monate des Jahres 2026 mit einer starken Rückkehr in die Gewinnzone ab',
+    'blog.article.glencore-quotazione-australia.imageAlt': 'Glencore kehrt in die schwarzen Zahlen zurück mit 4,4 Milliarden Euro Gewinn und plant Börsegang in Australien',
 };
 
 export default blogMetaChDe;

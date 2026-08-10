@@ -2035,6 +2035,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.title': 'Catastrofi naturali, perdite per 112 miliardi di dollari',
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.excerpt': 'Le ondate di calore hanno avuto un influsso diretto sulla produttività del lavoro, cosa che poi si ripercuote sui prezzi dell\'energia.',
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.imageAlt': 'Danni causati da ondate di calore in Svizzera',
+    'blog.article.glencore-quotazione-australia.title': 'Glencore torna in utile, 4,4 miliardi di profitti',
+    'blog.article.glencore-quotazione-australia.excerpt': 'Il gigante dell\'estrazione e delle materie prime Glencore ha chiuso i primi sei mesi del 2026 con un deciso ritorno alla redditività',
+    'blog.article.glencore-quotazione-australia.imageAlt': 'Glencore torna in utile con profitti per 4,4 miliardi e annuncia quotazione in Australia',
 };
 
 export default blogMetaChIt;

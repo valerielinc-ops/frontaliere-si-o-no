@@ -704,6 +704,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'elisabeth-baume-schneider-protezione-chimica': { it: 'elisabeth-baume-schneider-protezione-chimica', en: 'elisabeth-baume-schneider-chemical-protection', de: 'elisabeth-baume-schneider-chemische-schutz', fr: 'elisabeth-baume-schneider-protection-chimique' },
  'carenza-insegnanti-svizzera': { it: 'carenza-insegnanti-svizzera', en: 'carenza-insegnanti-svizzera', de: 'mangel-an-lehrern-schweiz', fr: 'penurie-denseignants-suisse' },
  'catastrofi-naturali-perdite-112-miliardi-dollari': { it: 'catastrofi-naturali-perdite-112-miliardi-dollari', en: 'natural-disasters-112-billion-dollars', de: 'naturkatastrophen-verluste-112-milliarden', fr: 'catastrophes-naturelles-pertes-112-milliards' },
+ 'glencore-quotazione-australia': { it: 'glencore-quotazione-australia', en: 'glencore-australia-listing', de: 'glencore-australien-boersengang', fr: 'glencore-listing-australie' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

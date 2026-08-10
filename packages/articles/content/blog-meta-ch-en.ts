@@ -2035,6 +2035,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.title': 'Natural catastrophes, $112 billion in losses',
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.excerpt': 'Heat waves have had a direct influence on labour productivity, which then has an impact on energy prices.',
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.imageAlt': 'Heatwave damage in Switzerland',
+    'blog.article.glencore-quotazione-australia.title': 'Glencore returns to profit, 4.4 billion in profits',
+    'blog.article.glencore-quotazione-australia.excerpt': 'Extraction and commodities giant Glencore closed the first six months of 2026 with a strong return to profitability',
+    'blog.article.glencore-quotazione-australia.imageAlt': 'Glencore returns to profit with $4.4 billion profits and announces ASX listing',
 };
 
 export default blogMetaChEn;

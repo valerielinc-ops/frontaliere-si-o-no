@@ -6103,6 +6103,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'glencore-quotazione-australia',
+    category: 'novita',
+    date: '2026-08-10T19:49:56.346Z',
+    image: '/images/blog/glencore-quotazione-australia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
