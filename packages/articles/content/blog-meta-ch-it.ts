@@ -2062,6 +2062,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dazi-usa-consiglio-federale-2026.title': 'Dazi USA: la Svizzera conferma intenti',
     'blog.article.dazi-usa-consiglio-federale-2026.excerpt': 'Il Consiglio federale si attiene agli accordi definiti nella dichiarazione d’intenti congiunta del 14 novembre 2025, sottoscritta tra Svizzera e Stati Uniti.',
     'blog.article.dazi-usa-consiglio-federale-2026.imageAlt': 'Negozianti commerciali davanti al Parlamento svizzero',
+    'blog.article.calore-data-center-poco-sfruttato.title': 'Il calore dei data center è poco sfruttato',
+    'blog.article.calore-data-center-poco-sfruttato.excerpt': 'I data center svizzeri potrebbero fornire calore per il teleriscaldamento, ma solo un terzo di essi lo sfrutta.',
+    'blog.article.calore-data-center-poco-sfruttato.imageAlt': 'una fotografia di un data center in Svizzera',
 };
 
 export default blogMetaChIt;

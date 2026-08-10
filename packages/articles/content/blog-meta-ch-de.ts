@@ -2062,6 +2062,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dazi-usa-consiglio-federale-2026.title': 'US-Zölle: Schweiz bestätigt Absichten',
     'blog.article.dazi-usa-consiglio-federale-2026.excerpt': 'Der Bundesrat hält sich an die Vereinbarungen der gemeinsamen Absichtserklärung vom 14. November 2025 zwischen der Schweiz und den USA.',
     'blog.article.dazi-usa-consiglio-federale-2026.imageAlt': 'Handelsvertreter vor dem Schweizer Parlament',
+    'blog.article.calore-data-center-poco-sfruttato.title': 'Die Wärme von Rechenzentren wird kaum genutzt',
+    'blog.article.calore-data-center-poco-sfruttato.excerpt': 'Schweizer Rechenzentren könnten Wärme für die Fernwärme liefern, aber nur ein Drittel nutzt sie.',
+    'blog.article.calore-data-center-poco-sfruttato.imageAlt': 'eine Fotografie von einem Datenzentrum in der Schweiz',
 };
 
 export default blogMetaChDe;
