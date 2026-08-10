@@ -10,7 +10,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { checkClosesLines } from '../scripts/lib/pr-body-closes-check.mjs';
+import { checkClosesLines, maskQuoted } from '../scripts/lib/pr-body-closes-check.mjs';
 
 describe('checkClosesLines', () => {
   describe('flags the bug (multiple issues, single keyword on one line)', () => {
@@ -64,5 +64,126 @@ describe('checkClosesLines', () => {
     const res = checkClosesLines('Closes owner/repo#5 #6');
     expect(res.ok).toBe(false);
     expect(res.violations[0].refs).toEqual(['5', '6']);
+  });
+
+  it('every violation carries a message (nanako renders v.message)', () => {
+    for (const body of ['Closes #1 #2', 'Chiude #133']) {
+      for (const v of checkClosesLines(body).violations) {
+        expect(typeof v.message).toBe('string');
+        expect(v.message.length).toBeGreaterThan(20);
+        expect(v.type).toMatch(/^(multi-ref-close|ineffective-closing-keyword)$/);
+      }
+    }
+  });
+});
+
+/**
+ * Defect 2 — a closing keyword GitHub does not honor.
+ *
+ * `Chiude #133` reads as closure and does nothing: GitHub acts only on
+ * close/closes/closed, fix/fixes/fixed, resolve/resolves/resolved. PR #139 on
+ * the corpus merged with that line and issue #133 stayed open with its fix
+ * already on `main`. The old detector could not see it: it started FROM the
+ * valid keywords, so a line without one was neither a violation nor a `Closes`.
+ */
+describe('checkClosesLines — ineffective closing keyword', () => {
+  describe('flags closure intent GitHub will ignore', () => {
+    const bad: Array<{ body: string; ref: string }> = [
+      { body: 'Chiude #133', ref: '#133' }, // the measured recurrence (PR #139)
+      { body: 'Chiude definitivamente #133', ref: '#133' },
+      { body: 'Risolve #94', ref: '#94' },
+      { body: 'Risolto #94', ref: '#94' },
+      { body: 'Chiusa da #71', ref: '#71' },
+      { body: 'Corregge #5417', ref: '#5417' },
+      { body: 'Fixa #12', ref: '#12' },
+      { body: 'Closing #12', ref: '#12' }, // gerund is NOT a GitHub keyword
+      { body: 'Fixing #12', ref: '#12' },
+      { body: 'Resolving #12', ref: '#12' },
+      { body: 'Chiude owner/repo#8', ref: 'owner/repo#8' },
+      { body: '## Implementato\n- roba\n\nChiude #133\n', ref: '#133' },
+    ];
+    for (const c of bad) {
+      it(JSON.stringify(c.body.slice(0, 40)), () => {
+        const res = checkClosesLines(c.body);
+        expect(res.ok).toBe(false);
+        const v = res.violations.find((x) => x.type === 'ineffective-closing-keyword');
+        expect(v).toBeDefined();
+        expect(v!.ref).toBe(c.ref);
+        expect(v!.suggestion).toBe(`Closes ${c.ref}`);
+        // The gate must hand over the line to write, not just the diagnosis.
+        expect(v!.message).toContain(`Closes ${c.ref}`);
+      });
+    }
+  });
+
+  describe('never flags a body whose refs GitHub really closes', () => {
+    const good: string[] = [
+      'Closes #133',
+      'Fixes #133\nResolves #134',
+      // The criterion is body-level: a valid keyword anywhere covers the ref,
+      // so restating it in prose is redundancy, not a missed closure.
+      'Closes #133\n\nQuesta PR chiude #133 e basta.',
+      'Chiude la questione senza citare numeri.',
+      // Past-tense report about something ELSE having closed it.
+      'La sibling è già chiusa da #66, qui non si tocca.',
+      'That path was fixed by #66 upstream.',
+      // Connective verbs that deliberately do NOT close.
+      'Addresses #12',
+      'See #42 and #43 for background',
+      'Supersedes #10',
+      'Related to #99',
+    ];
+    for (const body of good) {
+      it(JSON.stringify(body.slice(0, 44)), () => {
+        expect(checkClosesLines(body).ok).toBe(true);
+      });
+    }
+  });
+
+  describe('what is QUOTED is not claimed', () => {
+    // Without this the gate fires on the two bodies most likely to be right
+    // about the rule: the PR that documents it, and any PR opened from the
+    // template that warns about it (the template ships its guidance in HTML
+    // comments, which stay in the body).
+    const quoted: Array<[string, string]> = [
+      ['inline code span', 'Non scrivere `Chiude #133`, usa la forma inglese.'],
+      ['fenced block', '```\nChiude #133\n```'],
+      ['tilde fence', '~~~\nChiude #133\n~~~'],
+      ['HTML comment (the template case)', '<!-- «Chiude #133» è prosa: il link non viene creato -->'],
+      ['multi-ref quoted in a code span', 'La forma `Closes #12 #34` chiude solo la prima.'],
+      ['multi-ref inside an HTML comment', '<!-- Closes #12 #34 chiude solo #12 -->'],
+    ];
+    for (const [name, body] of quoted) {
+      it(name, () => expect(checkClosesLines(body).ok).toBe(true));
+    }
+
+    it('still flags the same shape when it is NOT quoted', () => {
+      expect(checkClosesLines('Chiude #133').ok).toBe(false);
+      expect(checkClosesLines('Closes #12 #34').ok).toBe(false);
+    });
+
+    it('masking preserves line numbers, and the report shows the original line', () => {
+      const body = '`ignora #1`\n\nChiude #133';
+      const res = checkClosesLines(body);
+      expect(res.violations).toHaveLength(1);
+      expect(res.violations[0].line).toBe(3);
+      expect(res.violations[0].text).toBe('Chiude #133');
+    });
+
+    it('maskQuoted blanks content but keeps every newline', () => {
+      const out = maskQuoted('a\n```\nx\n```\nb');
+      expect(out.split('\n')).toHaveLength(5);
+      expect(out.split('\n')[2]).toBe(' ');
+      expect(out.split('\n')[0]).toBe('a');
+    });
+  });
+
+  it('reports the ineffective ref and the multi-ref bug independently', () => {
+    const res = checkClosesLines('Closes #1 #2\nChiude #133');
+    expect(res.violations.map((v) => v.type)).toEqual([
+      'multi-ref-close',
+      'ineffective-closing-keyword',
+    ]);
+    expect(res.violations[1].line).toBe(2);
   });
 });
