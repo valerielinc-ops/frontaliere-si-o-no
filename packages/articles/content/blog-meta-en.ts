@@ -9535,6 +9535,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-tronzano-lago-maggiore-frontaliere.title': 'move to Tronzano Lake Maggiore from frontier pro and con',
     'blog.article.trasferirsi-tronzano-lago-maggiore-frontaliere.excerpt': 'Tax approach, new border agreement, double taxation',
     'blog.article.trasferirsi-tronzano-lago-maggiore-frontaliere.imageAlt': 'A family of a commuter moves to Tronzano Lago Maggiore to work in Ticino',
+    'blog.article.vivere-tronzano-lago-maggiore-lavorare-ticino-da-frontaliere.title': 'Living in Tronzano Lake Maggiore and working in Ticino as a border worker',
+    'blog.article.vivere-tronzano-lago-maggiore-lavorare-ticino-da-frontaliere.excerpt': 'Because Italian border workers living in Tronzano Lago Maggiore can work in Ticino',
+    'blog.article.vivere-tronzano-lago-maggiore-lavorare-ticino-da-frontaliere.imageAlt': 'Max 125 caratteri',
 };
 
 export default blogMetaEn;

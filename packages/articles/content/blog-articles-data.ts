@@ -28605,6 +28605,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-tronzano-lago-maggiore-lavorare-ticino-da-frontaliere',
+ category: 'pratico',
+ date: '2026-08-10T15:51:42.895Z',
+ image: '/images/blog/vivere-tronzano-lago-maggiore-lavorare-ticino-da-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
