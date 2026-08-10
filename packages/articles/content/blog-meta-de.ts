@@ -9528,6 +9528,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.title': 'Als Grenzgänger nach Marchirolo ziehen: Vor- und Nachteile',
     'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.excerpt': 'Untertitel mit konkreten Angaben AUS DER QUELLE (max 160 char)',
     'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.imageAlt': 'Max 125 caratteri',
+    'blog.article.nodo-biasca-lavori-fase-finale.title': 'Biasca-Knotenpunkt: letzte Bauphase ab 31. August',
+    'blog.article.nodo-biasca-lavori-fase-finale.excerpt': 'Arbeiten am Verkehrsknotenpunkt Biasca: Die letzte Phase beginnt am 31. August 2026 und endet am 12. September mit Auswirkungen auf den Verkehr und alternierenden Richtungen.',
+    'blog.article.nodo-biasca-lavori-fase-finale.imageAlt': 'Asphaltierungsarbeiten am Umsteigeknoten Biasca im Tessin',
 };
 
 export default blogMetaDe;

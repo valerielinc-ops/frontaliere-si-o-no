@@ -62549,6 +62549,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nodo-biasca-lavori-fase-finale': {
+    title: 'Nodo di Biasca: l\'ultima fase dei lavori dal 31 agosto',
+    description: 'Lavori al nodo di interscambio di Biasca: l\'ultima fase inizia il 31 agosto 2026 e termina il 12 settembre. Info su sensi alternati e viabilità. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, nodo, biasca, ultima, fase',
+    ogTitle: 'Nodo di Biasca: l\'ultima fase dei lavori dal 31 agosto',
+    ogDescription: 'Lavori al nodo di interscambio di Biasca: l\'ultima fase inizia il 31 agosto 2026 e termina il 12 settembre. Scopri le date, gli orari di lavoro e le gestione della viabilità.',
+    canonicalPath: '/articoli-frontaliere/nodo-biasca-lavori-fase-finale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nodo di Biasca: l'ultima fase dei lavori dal 31 agosto",
+      "description": "Lavori al nodo di interscambio di Biasca: l'ultima fase inizia il 31 agosto 2026 e termina il 12 settembre. Info su sensi alternati e viabilità. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nodo-biasca-lavori-fase-finale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori di asfaltatura del nodo di interscambio di Biasca in Ticino"
+      },
+      "datePublished": "2026-08-10T13:46:22+00:00",
+      "dateModified": "2026-08-10T13:46:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nodo-biasca-lavori-fase-finale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
