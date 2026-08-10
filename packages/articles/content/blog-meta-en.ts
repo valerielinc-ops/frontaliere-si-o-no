@@ -9571,6 +9571,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.title': 'Living in Alta Valle Intelvi and working in Ticino as a border worker',
     'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.excerpt': 'Practical information for border workers working in Ticino and residing in Alta Valle Intelvi.',
     'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.imageAlt': 'A scene of a commuter working in Ticino and residing in Alta Valle Intelvi.',
+    'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.title': 'Moving to Cernobbio from border crossings: pros and cons',
+    'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.excerpt': 'Tax settings, permits and benefits for border crossers moving to Cernobbio',
+    'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.imageAlt': 'A family of frontiersmen with children moving to Cernobbio',
 };
 
 export default blogMetaEn;

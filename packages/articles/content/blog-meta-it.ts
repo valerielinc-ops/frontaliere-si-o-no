@@ -9572,6 +9572,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.title': 'Vivere a Alta Valle Intelvi e lavorare in Ticino da frontaliere',
     'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.excerpt': 'Informazioni pratiche per i frontalieri che lavorano in Ticino e risiedono in Alta Valle Intelvi.',
     'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.imageAlt': 'Una scena di un frontaliere che lavora in Ticino e risiede in Alta Valle Intelvi.',
+    'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Cernobbio da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.excerpt': 'Impostazioni fiscali, permessi e vantaggi per i frontalieri che si trasferiscono a Cernobbio',
+    'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.imageAlt': 'Una famiglia frontaliera con bambini che si trasferisce a Cernobbio',
 };
 
 export default blogMetaIt;
