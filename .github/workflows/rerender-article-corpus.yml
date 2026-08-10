@@ -16,17 +16,20 @@ name: Rerender Article Corpus
 #      on template-file changes below, plus operator-dispatched) is the
 #      replacement.
 #
-#      The detection half of that pair is NOT running. This comment used to
-#      present scripts/audit-article-corpus-drift.mjs as if it were: it was
-#      written for #4881 Fase 4, it is complete, and it has never been given a
-#      cron or any other trigger — `grep -rn audit-article-corpus-drift
-#      .github/` finds only these lines. Nothing samples article HTML against
-#      the current source tree today, so a template regression on the ARTICLE
-#      pages is still detected only by someone looking. Issue #5432 records the
-#      decision to take on that wiring separately rather than in passing: the
-#      script shells out to check-article-byte-identity.mjs, whose ASSET_CDN /
-#      TZ preconditions and on-disk hero images make "does it pass on a clean
-#      CI checkout" an operational question, not a YAML one.
+#      The detection half of that pair now runs, weekly and read-only:
+#      .github/workflows/audit-article-corpus-drift.yml. Issue #5444 tracked
+#      it existing-but-never-triggered for a while (this comment used to say
+#      so, at the present tense — a live trap in itself: it read as "the
+#      safety net exists" to anyone who didn't also grep `.github/`), then a
+#      real CI run (31369064388, 2026-08-10) found the operational
+#      preconditions (ASSET_CDN, TZ, on-disk hero images) all satisfied, and
+#      two genuine template/renderer bugs besides. See that workflow's own
+#      header for the histogram and for why it still does NOT open issues on
+#      every red run: most of its `content-mismatch` signal is the SAME
+#      related-articles staleness described in point 1 above, which a
+#      re-render against the current tree will always show for any article
+#      that isn't the newest, and which is not actionable — not a case of
+#      the detector failing to fire.
 #
 #      What IS watched, from outside and twice a day, is the article-HUB
 #      surface: .github/workflows/article-hub-landing-watchdog.yml compares the

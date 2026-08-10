@@ -1,32 +1,71 @@
-name: Audit Article Corpus Drift (trial, dispatch-only)
+name: Audit Article Corpus Drift (weekly, read-only)
 
-# Issue #5444 — STEP 1 OF THREE, AND ONLY STEP 1.
+# Issue #5444 — step 1 was "does it pass on a clean CI checkout, and at what
+# false-positive rate?". It has now run for real (run 31369064388,
+# 2026-08-10, section=all sample_size=15, ~5m33s end to end) and the answer
+# changed what step 2 means. Numbers first, then why this file now schedules
+# itself but STILL does not open issues.
 #
-# scripts/audit-article-corpus-drift.mjs was written for #4881 Fase 4, has a
-# test (tests/audit-article-corpus-drift-categorize.test.ts), and has never
-# been given a trigger: `grep -rn audit-article-corpus-drift .github/` found
-# only a comment in rerender-article-corpus.yml. This file is the smallest
-# thing that answers the question #5444 says must be answered BEFORE deciding
-# whether to cron it or delete it:
+# THE REAL RUN, read as a histogram (never as pass/fail — see below):
+#   120 locale checks (30 articles x 4 locales), 0 operational noise: 0
+#   render-failure, 0 fetch-or-liveness, 0 unrecognized-verdicts, 0
+#   no-locale-verdicts. Every precondition #5444 worried about — ASSET_CDN,
+#   TZ, hero images materialised by a non-sparse checkout — held. That part
+#   of the question is answered and closed.
+#   28/120 genuinely ok. 92/120 content-mismatch, and — this is the part a
+#   bare percentage hides — they are NOT one failure mode:
+#     - 71/92 (77%) are the related-articles cross-link block reordering.
+#       check-article-byte-identity.mjs's own header already names this a
+#       KNOWN EXPECTED divergence: buildRelatedArticlesHtml slots the newest
+#       corpus article into every sibling's candidate list, so re-rendering
+#       an old article against TODAY's source tree almost always produces a
+#       different pick than what was live at publish time. There is no
+#       "correct" side to fix — both picks were right for their moment — and
+#       the design (fast-publish deliberately does not re-render siblings,
+#       see rerender-article-corpus.yml) makes this permanent, not a bug to
+#       chase out. Expect this category on close to every future run too.
+#     - 12/92 are a genuine renderer inconsistency: `og:image:height` differs
+#       between the fast path (probes the real on-disk image — 1200, 824,
+#       1600 across three sampled articles) and live (a constant 675 on all
+#       three, while `og:image:width` agrees at 1200 on both sides). One side
+#       is wrong for non-16:9 hero images; not yet triaged which.
+#     - 8/92 are `wordCount` inside the NewsArticle JSON-LD disagreeing (538
+#       vs 561) for a byte-identical `articleBody` string — a determinism bug
+#       in the counting step, not a content difference.
+#     - 1/92 is a genuine content edit that never reached the live page: the
+#       source meta description was corrected ("lo stipendio" -> the grammar
+#       fix), live still serves the pre-fix text.
+#   Full per-locale diagnostics for all 30 sampled articles are in this run's
+#   `article-corpus-drift-report` artifact. Filed as a follow-up: the
+#   og:image:height and wordCount findings (see the PR that wired this
+#   schedule for the issue number).
 #
-#     does it pass on a clean CI checkout, and at what false-positive rate?
-#
-# WHAT THIS FILE DELIBERATELY DOES NOT HAVE, and why:
-#   • NO `schedule:`. The cron is step 2, and step 2 is not authorised until a
-#     human has read the output of a real run of step 1.
-#   • NO scripts/lib/github-issue-creator.mjs. Not an oversight — an issue
-#     reporter may not be added until the SAME change decides who CLOSES its
-#     issues on recovery. scripts/ci/close-recovered-failure-issues.mjs only
-#     ever considers issues matching
-#     `TITLE_RE = /^(?:Workflow|Crawler|CI) Failure: (.+)$/`, and it resolves
-#     the captured text as a workflow name; anything outside that shape is
-#     picked up by nothing, and github-issue-creator.mjs's title dedup then
-#     keeps it open forever. That is exactly how alert-pat-down.mjs's issue
-#     became unclosable (#5432), and rpm-canary.yml:150-158 documents the same
-#     trap plus the explicit "Resolve open issue on green" step that is the
-#     other way out. Whichever way this goes, it gets decided in one go.
-#   • NO `issues: write` permission. The two bullets above are promises;
-#     withholding the token scope is the enforcement.
+# WHAT THIS MEANS FOR "cron it or delete it": neither cleanly. Deleting would
+# throw away the only probe that has ever looked at the ARTICLE-PAGE plane
+# (the hub/archive plane is covered twice daily by
+# article-hub-landing-watchdog.yml — a different surface, see that file) and
+# it just found two real, previously-unknown defects on its first real run.
+# But wiring `content-mismatch` straight into
+# scripts/lib/github-issue-creator.mjs, as originally planned, would open or
+# comment on an issue on ~77% of ALL FUTURE RUNS FOREVER for a category
+# nobody can act on — the exact "cries wolf until everyone tunes it out"
+# failure this repo has already paid for once (alert-pat-down.mjs, #5432:
+# an unclosable issue from a title the closer script's regex could never
+# match). So:
+#   • `schedule:` IS added below — the "never scheduled" gap #5444 opened
+#     with is closed. This now runs weekly and its histogram + full report
+#     artifact are one click away for anyone who wants to check the
+#     non-noise categories by hand.
+#   • NO scripts/lib/github-issue-creator.mjs, and NO `issues: write`,
+#     STILL. Auto-filing only becomes safe once `content-mismatch` stops
+#     conflating "corpus grew, expected" with "genuine drift" — i.e. once the
+#     categorizer gains a related-articles-only tolerated class the same way
+#     `ok-cf-bot-script-only` already exists for the Cloudflare bot-fight
+#     script. That is real, separate, safety-argued work (the existing two
+#     normalizations each shipped with their own proof they cannot mask a
+#     genuine value change — see check-article-byte-identity.mjs) — not
+#     something to bolt on speculatively in the same change that decided
+#     whether this runs at all.
 #
 # WHY THIS IS NOT JUST `run: node script.mjs` — the preconditions #5444 flags,
 # and where each is actually satisfied (traced, not assumed):
@@ -55,6 +94,15 @@ name: Audit Article Corpus Drift (trial, dispatch-only)
 # this file does not have. No shard deploy keys are referenced here either.
 
 on:
+  schedule:
+    # Weekly, not daily: the script's own header calls out "run periodically
+    # (e.g. weekly cron)" as the intended cadence for this sampling design —
+    # coverage is probabilistic (~corpusSize/sampleSize runs before a given
+    # article is ever sampled), so a tighter cadence buys little while
+    # spending more curl traffic against production for no gain. Sunday
+    # 05:10 UTC: clear of audit-404-risk's 06:00 daily and the hub watchdog's
+    # 06:40/18:40 twice-daily slots.
+    - cron: '10 5 * * 0'
   workflow_dispatch:
     inputs:
       section:
@@ -74,8 +122,10 @@ on:
         type: string
         default: ''
 
-# contents: read and nothing else. See the header: no issue may be opened from
-# here until the close-on-green half is decided in the same change.
+# contents: read and nothing else. See the header: no issue is opened from
+# here — content-mismatch still conflates expected corpus-growth noise with
+# genuine drift, so there is nothing yet an automated reporter could file
+# that a human wouldn't have to re-triage from scratch anyway.
 permissions:
   contents: read
 
@@ -88,8 +138,10 @@ jobs:
     runs-on: ubuntu-latest
     # Two `npx` spawns per sampled article (the drift script spawns
     # check-article-byte-identity.mjs, which spawns publish-article-fast.mjs)
-    # plus up to 4 live curls each. 20 articles is minutes, but the first run
-    # also pays npx's cold fetch — budget generously, this runs by hand.
+    # plus up to 4 live curls each. Measured on run 31369064388 (section=all
+    # sample_size=15, 30 articles): 5m33s checkout-to-finish, ~2m36s of that
+    # inside the audit itself. 45m stays generous for a cold npx cache or a
+    # slow production response, not because the steady-state cost is close.
     timeout-minutes: 45
     steps:
       - name: Checkout
@@ -123,7 +175,8 @@ jobs:
       # bytes this audit diffs against (fast-publish-article.yml loads the same
       # keys before calling the identical render path). Without it, a provider
       # key that changes rendered output would show up as drift that is really
-      # an environment gap — the false-positive class this trial is measuring.
+      # an environment gap, not a template one — see the header for the
+      # categories run 31369064388 actually found once this precondition held.
       # It grants no write path: the upload steps live in that workflow, not
       # this one. Deliberately NO `npm ci` — everything runs under `npx tsx`,
       # same posture as rerender-article-corpus.yml.
@@ -150,9 +203,9 @@ jobs:
           fi
           # Pinned to the tsx major package.json declares, like every other
           # un-installed path in this repo. NOTE: the drift script's own two
-          # inner spawns still say bare `npx -y tsx` — unpinned. Left alone
-          # here because changing the script is a code change this trial has
-          # not yet justified; recorded so it is a known fact, not a surprise.
+          # inner spawns still say bare `npx -y tsx` — unpinned. Left alone:
+          # changing the script's own spawns is a separate code change, not
+          # something to fold into the trigger this file is deciding.
           npx -y tsx@4 scripts/audit-article-corpus-drift.mjs "${ARGS[@]}"
           code=$?
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
@@ -194,7 +247,7 @@ jobs:
           set -uo pipefail
           REPORT="$RUNNER_TEMP/drift/report.json"
           {
-            echo "### audit-article-corpus-drift — trial run"
+            echo "### audit-article-corpus-drift"
             echo
             echo "- outcome: \`${AUDIT_OUTCOME:-unknown}\`"
             echo "- section: \`${INPUT_SECTION:-all}\` · sample size/section: \`${INPUT_SAMPLE_SIZE:-10}\`"
