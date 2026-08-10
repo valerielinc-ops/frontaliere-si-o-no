@@ -2047,6 +2047,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.title': 'Empa: potential recycling in fossil energy infrastructure',
     'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.excerpt': 'Decommissioned oil rigs, coal mines and power plants contain huge amounts of steel and copper. According to a Swiss study, recycling these \'urban mines\' could make the construction of solar and wind plants cheaper and more environmentally friendly.',
     'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.imageAlt': 'Locarno Film Festival',
+    'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.title': 'Economic, Social and Cultural Rights Pact: Developments Switzerland',
+    'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.excerpt': 'The Federal Council adopted Switzerland\'s fifth report on the implementation of the United Nations Covenant on Economic, Social and Cultural Rights (Covenant I) on 19 June 2026.',
+    'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.imageAlt': 'A scene of a commuter working in Switzerland, with the view of Lake Lugano',
 };
 
 export default blogMetaChEn;

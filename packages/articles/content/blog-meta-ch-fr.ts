@@ -2047,6 +2047,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.title': 'Empa : potentiel de recyclage dans les infrastructures d\'énergie fossile',
     'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.excerpt': 'Les plates-formes pétrolières, les mines de charbon et les centrales électriques abandonnées contiennent d\'énormes quantités d\'acier et de cuivre. Selon une étude suisse, le recyclage de ces « mines urbaines » pourrait rendre la construction d\'installations solaires et éoliennes plus économique et plus respectueuse de l\'environnement.',
     'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.imageAlt': 'Locarno Film Festival',
+    'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.title': 'Pacte droits économiques, sociaux et culturels : évolutions Suisse',
+    'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.excerpt': 'Le Conseil fédéral a adopté le cinquième rapport suisse sur la mise en œuvre du Pacte des Nations Unies relatif aux droits économiques, sociaux et culturels (Pacte I) le 19 juin 2026.',
+    'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.imageAlt': 'Une scène de commutant travaillant en Suisse, avec la vue sur le lac de Lugano',
 };
 
 export default blogMetaChFr;

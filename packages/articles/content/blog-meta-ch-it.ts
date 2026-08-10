@@ -2047,6 +2047,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.title': 'Empa: potenziale riciclaggio in infrastrutture per energie fossili',
     'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.excerpt': 'Le piattaforme petrolifere, le miniere di carbone e le centrali elettriche dismesse contengono enormi quantità di acciaio e rame. Secondo uno studio svizzero, il riciclaggio di queste \'miniere urbane\' potrebbe rendere la costruzione di impianti solari ed eolici più economica e più rispettosa dell\'ambiente.',
     'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.imageAlt': 'Locarno Film Festival',
+    'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.title': 'Patto diritti economici, sociali e culturali: sviluppi Svizzera',
+    'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.excerpt': 'Il Consiglio federale ha adottato il quinto rapporto svizzero sull\'attuazione del Patto delle Nazioni Unite relativo ai diritti economici, sociali e culturali (Patto I) il 19 giugno 2026.',
+    'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.imageAlt': 'Una scena di un frontaliere che lavora in Svizzera, con la vista sul lago di Lugano',
 };
 
 export default blogMetaChIt;
