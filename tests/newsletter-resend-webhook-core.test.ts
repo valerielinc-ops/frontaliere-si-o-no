@@ -367,12 +367,28 @@ describe('newsletterResendWebhookCore', () => {
     expect(subscriberSet!.data.status).toBeUndefined();
   });
 
-  it.each(['complained', 'suppressed', 'bounced'])(
+  // #3305 originally listed complained/suppressed/bounced together as "terminal".
+  // That conflated two different things, and the machine-inferred half turned out
+  // to be a ONE-WAY DOOR: a `suppressed` (provider list) or a `bounced` with a
+  // soft/absent severity is an INFERENCE, and the delivered event that disproves
+  // it could never take effect — 505 addresses were stuck that way in production.
+  // The rule is now split by WHO decided (functions/src/lib/subscriberReactivation.js):
+  // a human's decision is never overridden, a machine's is when disproven.
+  const NEVER_RESURRECTED: Array<[string, Record<string, unknown>]> = [
+    ['complained', { status: 'complained' }],
+    // Not in the original #3305 list, and not in the pending/empty cases either,
+    // so a delivered/open/click used to promote an unsubscribed subscriber
+    // straight back to 'confirmed' + isActive:true. Same defect class.
+    ['unsubscribed', { status: 'unsubscribed' }],
+    ['hard-bounced', { status: 'bounced', bounce_severity: 'hard' }],
+  ];
+
+  it.each(NEVER_RESURRECTED)(
     'does NOT resurrect a %s subscriber back to confirmed on a later delivered event (#3305)',
-    async (terminalStatus) => {
+    async (_label, seed) => {
       const db = createFakeDb({
         newsletter_subscribers: {
-          'terminal@example.com': { status: terminalStatus, isActive: false, active: false },
+          'terminal@example.com': { ...seed, isActive: false, active: false },
         },
       });
 
@@ -386,19 +402,19 @@ describe('newsletterResendWebhookCore', () => {
       );
       expect(subscriberSet).toBeTruthy();
       // Promotion must be skipped — status/isActive/active must NOT be
-      // overwritten back to 'confirmed'/true for terminal negative statuses.
+      // overwritten back to 'confirmed'/true for these statuses.
       expect(subscriberSet!.data.status).toBeUndefined();
       expect(subscriberSet!.data.isActive).toBeUndefined();
       expect(subscriberSet!.data.active).toBeUndefined();
     },
   );
 
-  it.each(['complained', 'suppressed', 'bounced'])(
+  it.each(NEVER_RESURRECTED)(
     'does NOT resurrect a %s subscriber back to confirmed on a later open event (#3305)',
-    async (terminalStatus) => {
+    async (_label, seed) => {
       const db = createFakeDb({
         newsletter_subscribers: {
-          'terminal-open@example.com': { status: terminalStatus, isActive: false, active: false },
+          'terminal-open@example.com': { ...seed, isActive: false, active: false },
         },
       });
 
@@ -416,12 +432,12 @@ describe('newsletterResendWebhookCore', () => {
     },
   );
 
-  it.each(['complained', 'suppressed', 'bounced'])(
+  it.each(NEVER_RESURRECTED)(
     'does NOT resurrect a %s subscriber back to confirmed on a later click event (#3305)',
-    async (terminalStatus) => {
+    async (_label, seed) => {
       const db = createFakeDb({
         newsletter_subscribers: {
-          'terminal-click@example.com': { status: terminalStatus, isActive: false, active: false },
+          'terminal-click@example.com': { ...seed, isActive: false, active: false },
         },
       });
 
@@ -436,6 +452,34 @@ describe('newsletterResendWebhookCore', () => {
       expect(subscriberSet).toBeTruthy();
       expect(subscriberSet!.data.status).toBeUndefined();
       expect(subscriberSet!.data.isActive).toBeUndefined();
+    },
+  );
+
+  it.each<[string, Record<string, unknown>]>([
+    ['suppressed', { status: 'suppressed' }],
+    ['soft-bounced', { status: 'bounced', bounce_severity: 'soft' }],
+    ['bounced with no recorded severity (pre-classifier legacy doc)', { status: 'bounced' }],
+  ])(
+    'DOES recover a %s subscriber on a later delivered event (the mailbox answered)',
+    async (_label, seed) => {
+      const db = createFakeDb({
+        newsletter_subscribers: {
+          'recoverable@example.com': { ...seed, isActive: false, active: false },
+        },
+      });
+
+      await applyResendWebhookEvent({
+        type: 'email.delivered',
+        data: { email: 'recoverable@example.com', email_id: 'msg_recover' },
+      }, { db: db as any });
+
+      const subscriberSet = db.__sets.find(
+        (s) => s.collection === 'newsletter_subscribers' && s.docId === 'recoverable@example.com',
+      );
+      expect(subscriberSet!.data.status).toBe('active');
+      expect(subscriberSet!.data.isActive).toBe(true);
+      expect(subscriberSet!.data.recovered_from_status).toBe(seed.status);
+      expect(subscriberSet!.data.recovered_by_event).toBe('delivered');
     },
   );
 

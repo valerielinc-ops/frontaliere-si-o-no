@@ -155,14 +155,32 @@ describe('newsletterMailgunWebhookCore — instant reactivation (#2852 item 2)',
     expect(update.reactivated_at).toBeUndefined();
   });
 
-  it('does not reactivate a hard-suppressed (bounced) subscriber on a stray open', async () => {
+  // This case used to seed a bare `{ status: 'bounced' }` and assert it stayed
+  // untouched — which read as "hard-suppressed" but actually asserted the
+  // ONE-WAY DOOR for every bounce, hard or not. The intent was right only for a
+  // bounce proven permanent, so the fixture now says so explicitly, and the soft
+  // half of the old assertion is the opposite expectation right below it.
+  it('does not reactivate a hard-bounced subscriber on a stray open', async () => {
     const email = 'bounced-mailgun@example.com';
-    const db = createFakeDb({ newsletter_subscribers: { [email]: { status: 'bounced' } } });
+    const db = createFakeDb({ newsletter_subscribers: { [email]: { status: 'bounced', bounce_severity: 'hard' } } });
 
     await persistMailgunEvent(db as any, { event: 'opened', recipient: email, timestamp: 1700000000, tags: [] });
 
     const update = subscriberUpdateFor(db, email)!;
     expect(update.status).toBeUndefined();
+  });
+
+  it('DOES recover a soft-bounced subscriber on a delivered event', async () => {
+    const email = 'soft-bounced-mailgun@example.com';
+    const db = createFakeDb({ newsletter_subscribers: { [email]: { status: 'bounced', bounce_severity: 'soft' } } });
+
+    await persistMailgunEvent(db as any, { event: 'delivered', recipient: email, timestamp: 1700000000, tags: [] });
+
+    const update = subscriberUpdateFor(db, email)!;
+    expect(update.status).toBe('active');
+    expect(update.bounce_reactivated_at).toBeTruthy();
+    expect(update.recovered_from_status).toBe('bounced');
+    expect(update.recovered_by_event).toBe('delivered');
   });
 });
 

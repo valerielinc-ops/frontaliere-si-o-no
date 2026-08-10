@@ -5,7 +5,12 @@ import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS, lookupSentVariant } from './lib/emailExperimentPostHog.js';
 import { buildDeliveryDocId as buildCanonicalDeliveryDocId, uniqueUnknownFallback } from './lib/deliveryDocId.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
-import { instantReactivationFields } from './lib/subscriberReactivation.js';
+import {
+  positiveEventRecoveryFields,
+  positiveEventStatusFields,
+  HUMAN_DECLARED_SUPPRESSIONS,
+  MACHINE_INFERRED_SUPPRESSIONS,
+} from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 
 function sanitizeString(value) {
@@ -105,13 +110,24 @@ function buildDeliveryDocId(email, campaignId) {
  return buildCanonicalDeliveryDocId(campaignId, email);
 }
 
-// Terminal negative statuses: once a subscriber lands in one of these, a
-// later delivered/open/click event (e.g. a queued/retried ESP notification
-// racing a complaint, or a stale open replaying after a hard bounce) must
-// NOT resurrect them back to 'confirmed'/active. Re-promoting a complained,
-// suppressed, or hard-bounced address is a deliverability/compliance risk
-// (see issue #3305).
-const TERMINAL_NEGATIVE_STATUSES = new Set(['complained', 'suppressed', 'bounced']);
+// Suppressed statuses: once a subscriber lands in one of these, the BLANKET
+// "delivered/open/click → confirmed" promotion below must not fire (a queued/
+// retried ESP notification racing a complaint, or a stale open replaying after
+// a hard bounce, would otherwise resurrect them — issue #3305). Lifting a
+// suppression is not this function's job: it is the single, audited decision in
+// positiveEventRecoveryFields(), applied by the caller right after, which can
+// tell a machine inference apart from a human's consent decision.
+//
+// `unsubscribed` is in the set now. It was missing, and since it is NOT in the
+// pending/empty cases either, a delivered/open/click on an unsubscribed
+// newsletter subscriber promoted them straight back to 'confirmed' +
+// isActive:true — the exact same "machine overwrites a human's decision" defect
+// as the job-alert branch's unconditional `status = 'active'`, in the same
+// class, so it is fixed in the same pass.
+const NON_PROMOTABLE_STATUSES = new Set([
+  ...HUMAN_DECLARED_SUPPRESSIONS,
+  ...MACHINE_INFERRED_SUPPRESSIONS,
+]);
 
 function buildSubscriberUpdate(eventType, data, currentStatus) {
  const FieldValue = admin.firestore.FieldValue;
@@ -176,7 +192,7 @@ function buildSubscriberUpdate(eventType, data, currentStatus) {
  // excluded — otherwise a delivered/open/click event racing (or following)
  // a suppression event would silently resurrect the subscriber (#3305).
  if (eventType === 'delivered' || eventType === 'open' || eventType === 'click') {
- const skipPromotion = !currentStatus || currentStatus === 'pending' || TERMINAL_NEGATIVE_STATUSES.has(currentStatus);
+ const skipPromotion = !currentStatus || currentStatus === 'pending' || NON_PROMOTABLE_STATUSES.has(currentStatus);
  if (!skipPromotion) {
  update.status = 'confirmed';
  update.isActive = true;
@@ -243,12 +259,16 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  // decision made from a stale read.
  const subscriberRef = db.collection('newsletter_subscribers').doc(email);
  await subscriberRef.firestore.runTransaction(async (tx) => {
- // Read current subscriber status to avoid promoting pending users
+ // Read current subscriber status to avoid promoting pending users, plus
+ // `bounce_severity` — the suppression-recovery decision below needs both
+ // (a 'bounced' doc is recoverable only when the bounce was NOT hard).
  let currentStatus = null;
+ let currentBounceSeverity = null;
  try {
  const subscriberDoc = await tx.get(subscriberRef);
  if (subscriberDoc.exists) {
  currentStatus = subscriberDoc.data()?.status || null;
+ currentBounceSeverity = subscriberDoc.data()?.bounce_severity || null;
  }
  } catch {
  // If read fails, proceed without status — safe default
@@ -263,16 +283,24 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
 
  subscriberUpdate.provider = 'resend';
 
- // Instant newsletter-sunset reactivation (#2852 item 2): an open/click on a
- // subscriber the weekly scripts/newsletter-sunset.mjs cron already marked
- // 'inactive' should re-activate them immediately instead of waiting up to a
- // week for the next cron pass. Applied AFTER buildSubscriberUpdate() on
- // purpose: that function's pending-promotion side effect would otherwise
- // leave an 'inactive' subscriber at status 'confirmed' without stamping
- // reactivated_at or clearing the winback markers. No-op unless the status
- // read above was exactly 'inactive'.
- if (type === 'open' || type === 'click') {
- Object.assign(subscriberUpdate, instantReactivationFields(currentStatus));
+ // Suppression recovery — one decision point for all 5 providers, both
+ // branches (functions/src/lib/subscriberReactivation.js). A delivered/open/
+ // click proves the mailbox is alive, so it clears a MACHINE-inferred
+ // suppression: our own 'inactive' sunset (#2852 item 2), a provider
+ // 'suppressed', or a 'bounced' that is NOT proven-permanent. It never
+ // clears a human-declared 'complained'/'unsubscribed', nor a hard bounce.
+ // Applied AFTER buildSubscriberUpdate() on purpose: that function's
+ // pending-promotion side effect would otherwise leave a recovered
+ // subscriber at status 'confirmed' without stamping the audit trail, and
+ // its NON_PROMOTABLE_STATUSES guard (#3305) refuses to blanket-promote a
+ // suppressed subscriber at all — deliberately, since it cannot tell a
+ // recoverable suppression from a permanent one. This can.
+ if (type === 'delivered' || type === 'open' || type === 'click') {
+ Object.assign(subscriberUpdate, positiveEventRecoveryFields({
+ currentStatus,
+ bounceSeverity: currentBounceSeverity,
+ event: type,
+ }));
  }
 
  if (type === 'bounce') {
@@ -418,9 +446,18 @@ async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl
  topUpdate.last_failed_at = FieldValue.serverTimestamp();
  topUpdate.fail_count = FieldValue.increment(1);
  }
- // Healthy delivery events → mark as active
+ // Healthy delivery events → recover a machine-inferred suppression, or (for a
+ // doc that is not suppressed at all) keep the historical "healthy → active"
+ // promotion. This used to be an UNCONDITIONAL `topUpdate.status = 'active'`,
+ // which would overwrite 'complained' — a human's spam complaint — with a
+ // machine's inference, and equally resurrect a proven-permanent hard bounce.
  if (type === 'delivered' || type === 'open' || type === 'click') {
- topUpdate.status = 'active';
+ const current = (await subscriberRef.get()).data() || {};
+ Object.assign(topUpdate, positiveEventStatusFields({
+ currentStatus: current.status,
+ bounceSeverity: current.bounce_severity,
+ event: type,
+ }));
  }
 
  await subscriberRef.set(topUpdate, { merge: true });
