@@ -800,6 +800,12 @@ jobs:
           fi
           exit "$fail"
 
+      # No purge below (unlike "Push locale shard" further down, #5511): a
+      # section fan-out is 26 sections × 2 hosts = 52 URLs/leg, over the
+      # 30-URL cap `cf-purge-cache.mjs --files=` enforces, so the fixed
+      # 9-path list #5511 uses for the locale shard doesn't carry over
+      # as-is — needs chunked purge calls instead. Tracked in #5513.
+
       # Same-run tar artifact for post-deploy-validate-dist's section rehydrate
       # fast path — mirrors "Pack locale shard dist (tar)" below. Previously
       # validate-dist rehydrated each Ticino subtree by `git clone --depth 1`
@@ -1510,6 +1516,9 @@ jobs:
               --locale "$loc" --shards "$(paste -sd, "$BP_FAILED_FILE")" || true
           fi
           exit "$fail"
+
+      # No purge below — same gap as the IT leg above (52 URLs/leg over the
+      # 30-URL cap, needs chunking). Tracked in #5513.
 
       # Same-run tar artifact for post-deploy-validate-dist's section rehydrate
       # fast path — see the IT leg's "Pack section shard dist" step above for
