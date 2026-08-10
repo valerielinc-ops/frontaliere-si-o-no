@@ -6076,6 +6076,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'elisabeth-baume-schneider-protezione-chimica',
+    category: 'fiscale',
+    date: '2026-08-10T18:06:26.400Z',
+    image: '/images/blog/elisabeth-baume-schneider-protezione-chimica.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'carenza-insegnanti-svizzera',
+    category: 'novita',
+    date: '2026-08-10T18:14:33.538Z',
+    image: '/images/blog/carenza-insegnanti-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
