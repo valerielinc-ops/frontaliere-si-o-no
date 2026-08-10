@@ -9547,6 +9547,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-rodero-lavorare-ticino-frontaliere.title': 'Living in Rodero and working in Ticino as a border worker',
     'blog.article.vivere-rodero-lavorare-ticino-frontaliere.excerpt': 'Practical guide for border workers: source tax, new 2024 agreement, €10,000 deductible, G permit and Brogeda-Chiasso connections.',
     'blog.article.vivere-rodero-lavorare-ticino-frontaliere.imageAlt': 'Cross-border worker crossing the Brogeda border between Rodero and Ticino',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.title': 'Living in Agra and working in Ticino as a border worker',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.excerpt': 'Impact of the new agreement on Ticino border workers: new rules, exemptions and benefits.',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.imageAlt': 'Frontalier with child walks along the lake shore of Lugano',
 };
 
 export default blogMetaEn;

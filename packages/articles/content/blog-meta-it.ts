@@ -9548,6 +9548,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-rodero-lavorare-ticino-frontaliere.title': 'Vivere a Rodero e lavorare in Ticino da frontaliere',
     'blog.article.vivere-rodero-lavorare-ticino-frontaliere.excerpt': 'Guida pratica per frontalieri: imposta alla fonte, nuovo accordo 2024, franchigia €10\'000, permesso G e collegamenti Brogeda-Chiasso.',
     'blog.article.vivere-rodero-lavorare-ticino-frontaliere.imageAlt': 'Frontaliere che attraversa il valico di Brogeda tra Rodero e Canton Ticino',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.title': 'Vivere a Agra e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.excerpt': 'Impatto del nuovo accordo sui frontalieri ticinesi: nuove regole, esenzioni e vantaggi.',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.imageAlt': 'Frontaliere con bambino camminano lungo la riva del lago di Lugano',
 };
 
 export default blogMetaIt;
