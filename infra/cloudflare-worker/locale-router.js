@@ -61,7 +61,13 @@
  *   passthrough above on any miss/error.
  */
 
-const SHARD_ORIGIN = {
+// Named export for the same reason SECTION_ROUTES below carries one: the
+// Workers runtime only ever uses the default export, but scripts/lib/cf-worker-routes.mjs
+// needs the real table to name the host a shard path's cache entry is keyed on
+// (#5483). A second copy over there would drift the day a locale is added, and
+// the symptom would be a purge that reports success against a host that never
+// held the entry.
+export const SHARD_ORIGIN = {
   en: 'origin-en.frontaliereticino.ch',
   de: 'origin-de.frontaliereticino.ch',
   fr: 'origin-fr.frontaliereticino.ch',
@@ -89,7 +95,8 @@ const SHARD_ORIGIN = {
 //             de → /de/jobs-in-schweiz/**       fr → /fr/trouver-emploi-suisse/**
 //   zurigo:   it → /cerca-lavoro-zurigo/**      en → /en/find-jobs-zurich/**
 //             de → /de/jobs-in-zurich/**        fr → /fr/trouver-emploi-zurich/**
-const SECTION_ORIGIN = {
+// Named export for the same reason as SHARD_ORIGIN above (#5483).
+export const SECTION_ORIGIN = {
   ticino: {
     it: 'origin-ticino-it.frontaliereticino.ch',
     en: 'origin-ticino-en.frontaliereticino.ch',

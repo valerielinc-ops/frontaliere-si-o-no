@@ -38,7 +38,18 @@
  * scripts/publish-edge-files.mjs, the sole caller of this mode so far).
  * Capped at 30 URLs (free-plan `files` purge limit) — over the cap is a hard
  * error, never a silent truncation (a silently-dropped URL would leave that
- * one file stale with no signal). Skips the PURGE_SETTLE_MS sleep below: that
+ * one file stale with no signal).
+ *
+ * THE AXIS THAT MATTERS ON THIS ZONE IS THE CACHE-KEY HOSTNAME (#5483). For any
+ * path on a Cloudflare Worker route (infra/cloudflare-worker/wrangler.toml) the
+ * entry a visitor is served is keyed on `origin-<shard>.frontaliereticino.ch`,
+ * because locale-router.js's serveShard() fetches that host with
+ * `cacheEverything`. An apex-only `--files=` list for such a path returns 200
+ * and moves nothing, so this mode now emits a `::warning::` naming each apex URL
+ * that has no non-apex companion in the same list — see the block below the cap
+ * check and scripts/lib/cf-worker-routes.mjs.
+ *
+ * Skips the PURGE_SETTLE_MS sleep below: that
  * delay exists specifically for the purge_everything + immediate-live-probe
  * race (issue #4429); targeted callers don't race a live probe, so the sleep
  * would only slow down the fast-publish path for no benefit.
@@ -78,6 +89,9 @@ import { MAX_TARGETED_FILES } from './lib/cf-purge-limits.mjs';
 // Every cache variant the edge keeps for a URL — `Vary: Origin` means the
 // browser's copy is a SEPARATE entry from the one a header-less purge clears.
 import { purgeBodiesForUrls } from './lib/cf-purge-variants.mjs';
+// Which apex paths the Worker answers, and therefore which apex purges cannot
+// move the copy a visitor is served (#5483).
+import { apexPurgeBlindSpots } from './lib/cf-worker-routes.mjs';
 
 const PURGE_SETTLE_MS = Number(process.env.CF_PURGE_SETTLE_MS) || 20_000;
 
@@ -99,6 +113,45 @@ if (targetFiles && targetFiles.length > MAX_TARGETED_FILES) {
     `❌ --files lists ${targetFiles.length} URLs, over the ${MAX_TARGETED_FILES}-URL free-plan cap. Split into multiple calls — never silently truncated.`,
   );
   process.exit(1);
+}
+
+// APEX-BLIND PURGE WARNING (#5483).
+//
+// On THIS zone a ✅ from a `files` purge does not mean the served copy moved.
+// locale-router.js's serveShard() fetches the shard origin with
+// `cacheEverything`, so for every path on a Worker route the entry a visitor
+// reads is keyed on `origin-<shard>.frontaliereticino.ch/<path>` — an apex-only
+// purge of that path returns 200 and clears an entry nobody is being served.
+// The blindness is bounded by infra/cloudflare-worker/wrangler.toml: apex
+// passthrough paths (`/`, `/blog/…`, `/aziende/…`) are keyed on the apex and
+// their purge is the real one.
+//
+// The warning fires BEFORE the token check on purpose. Without a token this
+// script is a clean no-op exit 0, and a caller developing a purge list locally
+// is exactly the reader who needs to be told the list is blind — waiting until
+// a CI run with credentials would hide it from the only person able to fix it.
+//
+// Never fatal, and never a substitute for the caller naming the origin URL
+// itself: the mapping from an apex path to its origin is unambiguous for shard
+// paths but not for the R2-backed EDGE_PUSHED_FILES paths on the same route
+// list, and a wrong expansion would trade a visible gap for a false ✅.
+if (targetFiles) {
+  let blindSpots = [];
+  try {
+    blindSpots = apexPurgeBlindSpots(targetFiles);
+  } catch (err) {
+    console.log(
+      `::warning title=Apex-blind purge check skipped::could not read the Worker routes (${err.message}) — this purge may or may not reach the copy visitors get.`,
+    );
+  }
+  for (const { url, pattern, expectedOrigin } of blindSpots) {
+    const fix = expectedOrigin
+      ? `add https://${expectedOrigin}${new URL(url).pathname} to the SAME --files list`
+      : 'add the URL on the host that actually serves it (shard origin, or the cdn.frontaliereticino.ch key for an EDGE_PUSHED_FILES path)';
+    console.log(
+      `::warning title=Apex purge does not move the served copy::${url} matches the Cloudflare Worker route \`${pattern}\`, so the entry visitors read is keyed on the shard ORIGIN host, not on this apex URL. This URL will still report ✅ and change nothing — ${fix}. See scripts/lib/cf-worker-routes.mjs (#5483).`,
+    );
+  }
 }
 
 // Non-fatal when the secret is absent: callers wire this with
