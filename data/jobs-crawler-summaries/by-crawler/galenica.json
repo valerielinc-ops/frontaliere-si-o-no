@@ -1,35 +1,37 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-08-10T10:31:08.756Z",
-  "total": 389,
+  "generatedAt": "2026-08-10T21:46:36.592Z",
+  "total": 388,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 162979,
-  "avgDurationMs": 162979,
+  "unchangedCount": 1,
+  "durationMs": 110185,
+  "avgDurationMs": 110185,
   "durationHistory": [
-    162979
+    110185
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Spezialist Payroll (m/w/d)",
+      "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
       "company": "Galenica (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3121982.4037645",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3122146.4037721",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Spezialist Payroll (m/w/d) presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "descriptionIt": "Pharma-Assistent / Pharma-Assistentin (w/m/d) presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "applyUrl": "",
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-spezialist-payroll-m-w-d-bern",
-      "id": "galenica-8f51718c2167",
+      "slug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-15bc95",
+      "id": "galenica-06749ac364da",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -39,7 +41,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -48,7 +50,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

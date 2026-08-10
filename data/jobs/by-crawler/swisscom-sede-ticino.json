@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisscom-sede-ticino",
-  "assembledAt": "2026-08-10T10:32:50.964Z",
+  "assembledAt": "2026-08-10T21:49:22.682Z",
   "jobs": [
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Application-Operation-Manager-Banking_R-0005238-1",
@@ -67,6 +67,7 @@
       },
       "firstSeenAt": "2026-08-05T23:01:02.147Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -288,8 +289,7 @@
         "partner-management-swisscom-benefits-swisscom-zurich-qssbv5",
         "gestion-des-partenaires-swisscom-avantages-swisscom-sede-ticino-zurich",
         "gestion-partenaire-swisscom-avantages-swisscom-sede-ticino-zurich",
-        "gestione-partner-swisscom-vantaggi-swisscom-sede-ticino-zurich",
-        "partner-management-swisscom-benefits-swisscom-sede-ticino-zurich"
+        "gestione-partner-swisscom-vantaggi-swisscom-sede-ticino-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -298,8 +298,7 @@
         ],
         "fr": [
           "gestion-des-partenaires-swisscom-avantages-swisscom-sede-ticino-zurich",
-          "gestion-partenaire-swisscom-avantages-swisscom-sede-ticino-zurich",
-          "partner-management-swisscom-benefits-swisscom-sede-ticino-zurich"
+          "gestion-partenaire-swisscom-avantages-swisscom-sede-ticino-zurich"
         ]
       },
       "firstSeenAt": "2026-08-07T21:46:34.076Z",
@@ -1583,6 +1582,7 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
@@ -1661,6 +1661,7 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -1740,6 +1741,7 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
@@ -1819,6 +1821,7 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
@@ -1898,6 +1901,7 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -2918,6 +2922,7 @@
       },
       "firstSeenAt": "2026-06-16T14:41:28.741Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "currency": "CHF",
@@ -3890,7 +3895,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     },
     {
@@ -3968,7 +3973,7 @@
         }
       },
       "addressRegion": "BE",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     },
     {
@@ -4046,7 +4051,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     },
     {
@@ -4126,7 +4131,7 @@
         }
       },
       "addressRegion": "BE",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     }
   ]

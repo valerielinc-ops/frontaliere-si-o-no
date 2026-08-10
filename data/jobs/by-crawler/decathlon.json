@@ -1,6 +1,6 @@
 {
   "crawlerKey": "decathlon",
-  "assembledAt": "2026-08-10T10:35:20.021Z",
+  "assembledAt": "2026-08-10T22:07:13.529Z",
   "jobs": [
     {
       "id": "decathlon-ec18c65fd071",
@@ -33,7 +33,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4250835-vendeur-technicien-atelier-20-80-cdd-hf-avry-matran",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:35:16.397Z",
+      "crawledAt": "2026-08-10T22:07:09.168Z",
       "addressLocality": "Matran",
       "postalCode": "",
       "addressRegion": "FR",
@@ -121,7 +121,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/3885171-store-leader-incubation-mwd-ost-und-zentralschweiz-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:16.069Z",
+      "crawledAt": "2026-08-10T22:07:08.862Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "addressRegion": "ZH",
@@ -206,7 +206,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4067317-sports-leader-verkaufsberater-mwd-50-70-decathlon-spreitenbach-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:15.790Z",
+      "crawledAt": "2026-08-10T22:07:08.571Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -292,7 +292,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4303781-sports-leader-sportberater-mwd-70-im-bereich-velo-befristet-5-monate-8404-winterthur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:15.472Z",
+      "crawledAt": "2026-08-10T22:07:08.255Z",
       "addressLocality": "Winterthur",
       "postalCode": "8404",
       "addressRegion": "ZH",
@@ -381,7 +381,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4278405-store-leader-incubation-mwd-nord-und-westschweiz-bern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:15.190Z",
+      "crawledAt": "2026-08-10T22:07:07.858Z",
       "addressLocality": "Bern",
       "postalCode": "",
       "addressRegion": "BE",
@@ -466,7 +466,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4373697-customer-service-advisor-frdeeng-fixed-term-contract-1425-onnens",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T10:35:14.910Z",
+      "crawledAt": "2026-08-10T22:07:07.540Z",
       "addressLocality": "Onnens",
       "postalCode": "1425",
       "addressRegion": "GE",
@@ -553,7 +553,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4414657-mecanicien-ne-technicien-ne-cycle-hf-60-80-cdi-neuchatelmarin-2074-marin-epagnier",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:35:14.643Z",
+      "crawledAt": "2026-08-10T22:07:07.226Z",
       "addressLocality": "Marin-Epagnier",
       "postalCode": "2074",
       "addressRegion": "GE",
@@ -638,7 +638,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4421375-ski-servicetechniker-mwd-100-unbefristet-federal-workshop-bern-3172-koniz",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:14.359Z",
+      "crawledAt": "2026-08-10T22:07:06.897Z",
       "addressLocality": "Köniz",
       "postalCode": "3172",
       "addressRegion": "BE",
@@ -669,6 +669,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.775Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -713,7 +714,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4421653-velomechaniker-mwd-100-unbefristet-federal-workshop-bern-3172-koniz",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:14.008Z",
+      "crawledAt": "2026-08-10T22:07:06.555Z",
       "addressLocality": "Köniz",
       "postalCode": "3172",
       "addressRegion": "BE",
@@ -791,7 +792,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4426171-sport-leader-verkaufsberater-mwd-befristet-bern-shoppyland-3321-urtenen-schonbuhl",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:13.660Z",
+      "crawledAt": "2026-08-10T22:07:06.198Z",
       "addressLocality": "Urtenen-Schönbühl",
       "postalCode": "3321",
       "addressRegion": "BE",
@@ -877,7 +878,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4308577-sportberaterin-decathlon-biel-city-cdd-60-bienne",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:13.386Z",
+      "crawledAt": "2026-08-10T22:07:05.909Z",
       "addressLocality": "Bienne",
       "postalCode": "",
       "addressRegion": "BE",
@@ -955,7 +956,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4450031-sportberaterin-veloabteilung-decathlon-suhr-20-befristet-5034-suhr",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:13.109Z",
+      "crawledAt": "2026-08-10T22:07:05.584Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "AG",
@@ -1043,7 +1044,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4452153-sport-leaderverkaufsberater-wasserwinter-mwd-60-befristet-basel-4053-basel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:12.841Z",
+      "crawledAt": "2026-08-10T22:07:05.313Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "addressRegion": "BS",
@@ -1122,7 +1123,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4452443-velomechaniker-100-wmd-rickenbach-9532-rickenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:12.585Z",
+      "crawledAt": "2026-08-10T22:07:05.011Z",
       "addressLocality": "Rickenbach",
       "postalCode": "9532",
       "addressRegion": "GE",
@@ -1196,7 +1197,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4460239-sport-leader-verkaufsberater-mwd-80-decathlon-rickenbach-9532-rickenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:12.335Z",
+      "crawledAt": "2026-08-10T22:07:04.661Z",
       "addressLocality": "Rickenbach",
       "postalCode": "9532",
       "addressRegion": "GE",
@@ -1278,7 +1279,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4460247-sport-leader-verkaufsberater-mwd-40-decathlon-rickenbach-9532-rickenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:11.999Z",
+      "crawledAt": "2026-08-10T22:07:04.305Z",
       "addressLocality": "Rickenbach",
       "postalCode": "9532",
       "addressRegion": "GE",
@@ -1356,7 +1357,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4477877-befristet-sport-leader-verkaufsberaterin-mwd-40-decathlon-st-gallen-9015-st-gallen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:11.681Z",
+      "crawledAt": "2026-08-10T22:07:03.921Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressRegion": "SG",
@@ -1438,7 +1439,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4229037-verkaufsberaterin-warenannahme-mwd-40-60-decathlon-schweiz-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:11.405Z",
+      "crawledAt": "2026-08-10T22:07:03.607Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -1538,7 +1539,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4485197-sport-leader-verkaufsberater-mwd-40-60-befristet-chur-7000-chur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:11.068Z",
+      "crawledAt": "2026-08-10T22:07:03.288Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressRegion": "GR",
@@ -1654,7 +1655,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4485439-velomechaniker-mwd-60-80-befristet-chur-7000-chur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:10.790Z",
+      "crawledAt": "2026-08-10T22:07:03.001Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressRegion": "GR",
@@ -1736,7 +1737,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4488193-sport-leader-verkaufsberater-mwd-100-stans-6370-stans",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:10.502Z",
+      "crawledAt": "2026-08-10T22:07:02.692Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -1815,7 +1816,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4490579-sport-leader-verkaufsberater-mwd-40-saisonale-stelle-davos-7270-davos",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:10.190Z",
+      "crawledAt": "2026-08-10T22:07:02.333Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressRegion": "GR",
@@ -1894,7 +1895,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4490585-sport-leader-verkaufsberater-mwd-20-saisonale-stelle-davos-7270-davos",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:09.859Z",
+      "crawledAt": "2026-08-10T22:07:02.009Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressRegion": "GR",
@@ -1973,7 +1974,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4287595-sport-leader-verkaufsberater-mwd-60-stans-6370-stans",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:08.630Z",
+      "crawledAt": "2026-08-10T22:07:01.179Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -2056,7 +2057,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4392641-sport-leader-verkaufsberater-mwd-80-100-stans-6370-stans",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:08.160Z",
+      "crawledAt": "2026-08-10T22:07:00.818Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -2139,7 +2140,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4497253-verkaufsberaterin-service-mitarbeiterin-velo-80-100-stans-6370-stans",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:07.835Z",
+      "crawledAt": "2026-08-10T22:07:00.478Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -2187,83 +2188,6 @@
       }
     },
     {
-      "id": "decathlon-4f29678e6993",
-      "slug": "leader-sportivo-consigliere-sportivo-h-f-ciclo-40-60-decathlon-granges-paccot",
-      "slugByLocale": {
-        "it": "leader-sportivo-consigliere-sportivo-h-f-ciclo-40-60-decathlon-granges-paccot",
-        "en": "sport-leader-sport-counsellor-h-f-cycle-40-60-decathlon-granges-paccot",
-        "de": "sport-leader-sport-counsellor-h-f-zyklus-40-60-decathlon-granges-paccot",
-        "fr": "sport-leader-conseiller-sportif-h-f-cycle-40-60-decathlon-ch"
-      },
-      "company": "Decathlon",
-      "companyKey": "decathlon",
-      "companyDomain": "decathlon.ch",
-      "title": "Sport Leader / Conseiller Sportif (H/F) Cycle 40% - 60%",
-      "titleByLocale": {
-        "it": "Leader sportivo / Consigliere sportivo (H/F) Ciclo 40% - 60%",
-        "en": "Sport Leader / Sport Counsellor (H/F) Cycle 40% - 60%",
-        "de": "Sport Leader / Sport Counsellor (H / F) Zyklus 40% - 60%",
-        "fr": "Sport Leader / Conseiller Sportif (H/F) Cycle 40% - 60%"
-      },
-      "description": "Mission Chez DECATHLON, les équipes sont engagées pour le sport. Notre entreprise aime valoriser les initiatives, elle permet à tous de s’investir et d’évoluer. “Jouer collectif” fait partie de notre ADN, nous gagnons ensemble uniquement si nous sommes une équipe unie et engagée. Rejoins DECATHLON et intègre une entreprise où il fait bon vivre Viens partager une passion collective pour le sport avec une équipe unie et motivée. Marque des points en prenant des responsabilités, exprime ton sens de l’initiative et contribue à rendre le sport accessible à tous. Une diversité de parcours s’offre à toi dans un environnement dynamique et challengeant. Dès ton arrivée, tu intègres un magasin en tant que sportleader/ conseiller-ère sportif. Ta mission met en valeur ton sens du relationnel - Tu accueilles et renseignes nos clients sur nos produits, services et innovations. - Tu assures la disponibilité et la mise en rayon des produits. - Tu enrichis ton jeu et tu participes au développement économique de ton rayon et du magasin. - Tu es entièrement responsable de tes ventes ! Ton terrain de jeu t'offre de réelles opportunités Véritable pilote de ton activité, tu améliores ton jeu pour développer et gérer tes ressources en toute autonomie. Tu travailles main dans la main avec le teamleader qui te manage et tu bénéficies d’un plan de formation pour t'accompagner dans la réussite de l’ensemble de tes missions.",
-      "descriptionByLocale": {
-        "it": "Missione A DECATHLON, le squadre sono impegnate nello sport. La nostra azienda ama valorizzare le iniziative, permette a tutti di investire ed evolvere. Il gioco collettivo fa parte del nostro DNA, vinciamo insieme solo se siamo una squadra unita e impegnata. Unisciti a DECATHLON e integra una società in cui è bene vivere Vieni a condividere una passione collettiva per lo sport con un team unito e motivato. Fare punti assumendo responsabilità, esprimere il vostro senso di iniziativa e contribuire a rendere lo sport accessibile a tutti. Una varietà di percorsi ti offre in un ambiente dinamico e stimolante. Non appena arrivi, entri in un negozio come consulente sportivo. La vostra missione mette in evidenza il vostro senso di relazione - Accogliete e informate i nostri clienti sui nostri prodotti, servizi e innovazioni. - No. Garantisci la disponibilità e la spedizione dei prodotti. - No. Arricchisci il tuo gioco e partecipi allo sviluppo economico del tuo dipartimento e del negozio. - No. Sei completamente responsabile delle tue vendite! Il tuo parco giochi ti offre opportunità reali Vero driver della vostra attività, si migliora il gioco per sviluppare e gestire le risorse in modo indipendente. Lavori di pari passo con il team di leadership che ti gestisce e hai un piano di formazione per accompagnarti nel successo di tutte le tue missioni.",
-        "en": "Mission At DECATHLON, teams are committed to sport. Our company likes to value initiatives, it allows everyone to invest and evolve. Collective play is part of our DNA, we win together only if we are a united and committed team. Join DECATHLON and integrate a company where it is good to live Come share a collective passion for sport with a united and motivated team. Make points by taking responsibility, express your sense of initiative and help to make sport accessible to all. A variety of routes offers you in a dynamic and challenging environment. As soon as you arrive, you enter a store as a sports leader/sports advisor. Your mission highlights your sense of relationship - You welcome and inform our customers about our products, services and innovations. - You guarantee the availability and the dispatch of the products. - You enrich your game and participate in the economic development of your department and the store. - You're completely responsible for your sales! Your playground offers you real opportunities True driver of your activity, you improve your game to develop and manage your resources independently. You work hand in hand with the leadership team that manages you and you have a training plan to accompany you in the success of all your missions.",
-        "de": "Mission Bei DECATHLON engagieren sich Teams für den Sport. Unser Unternehmen schätzt gerne Initiativen, es ermöglicht jedem, zu investieren und sich zu entwickeln. Kollektives Spiel ist Teil unserer DNA, wir gewinnen nur gemeinsam, wenn wir ein vereintes und engagiertes Team sind. Treten Sie DECATHLON bei und integrieren Sie ein Unternehmen, in dem es gut ist zu leben, teilen Sie eine gemeinsame Leidenschaft für Sport mit einem vereinten und motivierten Team. Machen Sie Punkte, indem Sie Verantwortung übernehmen, bringen Sie Ihren Sinn für Initiative zum Ausdruck und helfen Sie, den Sport für alle zugänglich zu machen. Eine Vielzahl von Routen bietet Ihnen in einem dynamischen und herausfordernden Umfeld. Sobald Sie ankommen, betreten Sie ein Geschäft als Sportleiter / Sportberater. Ihre Mission unterstreicht Ihr Beziehungsgefühl - Sie begrüßen und informieren unsere Kunden über unsere Produkte, Dienstleistungen und Innovationen. - Sie garantieren die Verfügbarkeit und den Versand der Produkte. - Sie bereichern Ihr Spiel und beteiligen sich an der wirtschaftlichen Entwicklung Ihrer Abteilung und des Ladens. - Sie sind völlig verantwortlich für Ihren Verkauf! Dein Spielplatz bietet dir echte Chancen Wahrer Treiber Ihrer Aktivität, verbessern Sie Ihr Spiel, um Ihre Ressourcen unabhängig zu entwickeln und zu verwalten. Sie arbeiten Hand in Hand mit dem Führungsteam, das Sie leitet, und Sie haben einen Trainingsplan, der Sie beim Erfolg all Ihrer Missionen begleitet.",
-        "fr": "Mission Chez DECATHLON, les équipes sont engagées pour le sport. Notre entreprise aime valoriser les initiatives, elle permet à tous de s’investir et d’évoluer. “Jouer collectif” fait partie de notre ADN, nous gagnons ensemble uniquement si nous sommes une équipe unie et engagée. Rejoins DECATHLON et intègre une entreprise où il fait bon vivre Viens partager une passion collective pour le sport avec une équipe unie et motivée. Marque des points en prenant des responsabilités, exprime ton sens de l’initiative et contribue à rendre le sport accessible à tous. Une diversité de parcours s’offre à toi dans un environnement dynamique et challengeant. Dès ton arrivée, tu intègres un magasin en tant que sportleader/ conseiller-ère sportif. Ta mission met en valeur ton sens du relationnel - Tu accueilles et renseignes nos clients sur nos produits, services et innovations. - Tu assures la disponibilité et la mise en rayon des produits. - Tu enrichis ton jeu et tu participes au développement économique de ton rayon et du magasin. - Tu es entièrement responsable de tes ventes ! Ton terrain de jeu t'offre de réelles opportunités Véritable pilote de ton activité, tu améliores ton jeu pour développer et gérer tes ressources en toute autonomie. Tu travailles main dans la main avec le teamleader qui te manage et tu bénéficies d’un plan de formation pour t'accompagner dans la réussite de l’ensemble de tes missions."
-      },
-      "location": "Granges-Paccot",
-      "canton": "FR",
-      "url": "https://joinus.decathlon.ch/fr_CH/annonce/3982815-sport-leader-conseiller-sportif-hf-cycle-40-60-1763-granges-paccot",
-      "source": "Decathlon Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:35:07.554Z",
-      "addressLocality": "Granges-Paccot",
-      "postalCode": "1763",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "retail",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-14",
-      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/3982815-sport-leader-conseiller-sportif-hf-cycle-40-60-1763-granges-paccot",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sport-leader-conseiller-sportif-h-f-cycle-40-60-decathlon-ch",
-        "leader-sportivo-consigliere-sportivo-h-f-ciclo-40-60-decathlon-granges-paccot"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sport-leader-conseiller-sportif-h-f-cycle-40-60-decathlon-ch",
-          "leader-sportivo-consigliere-sportivo-h-f-ciclo-40-60-decathlon-granges-paccot"
-        ],
-        "en": [
-          "sport-leader-conseiller-sportif-h-f-cycle-40-60-decathlon-ch"
-        ],
-        "de": [
-          "sport-leader-conseiller-sportif-h-f-cycle-40-60-decathlon-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T23:09:45.189Z",
-      "salaryMin": 41100,
-      "salaryMax": 62400,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41100,
-          "maxValue": 62400,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "decathlon-4cbb4a01ed98",
       "slug": "bike-sales-consulente-im-premiumbereich-m-w-d-80-van-rysel-spreitenbach-decathlon-spreitenbach",
       "slugByLocale": {
@@ -2294,7 +2218,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4369567-bike-sales-advisor-im-premiumbereich-mwd-80-van-rysel-spreitenbach-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:07.187Z",
+      "crawledAt": "2026-08-10T22:07:00.190Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -2378,7 +2302,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4505065-conseiller-ere-sportif-futur-team-leader-velo-routegravel-hf-cdi-80-avry-matran",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:35:05.462Z",
+      "crawledAt": "2026-08-10T22:06:59.804Z",
       "addressLocality": "Matran",
       "postalCode": "",
       "addressRegion": "FR",
@@ -2450,7 +2374,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4507557-team-leader-abteilungsleiter-mwd-100-decathlon-heimberg-3627-heimberg",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:05.062Z",
+      "crawledAt": "2026-08-10T22:06:59.409Z",
       "addressLocality": "Heimberg",
       "postalCode": "3627",
       "addressRegion": "BE",
@@ -2557,7 +2481,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4507567-team-leader-abteilungsleiter-mwd-100-fahrrad-und-workshop-3627-heimberg",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:04.671Z",
+      "crawledAt": "2026-08-10T22:06:59.037Z",
       "addressLocality": "Heimberg",
       "postalCode": "3627",
       "addressRegion": "BE",
@@ -2590,6 +2514,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T23:13:20.658Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -2634,7 +2559,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4507877-sport-leader-verkaufsberater-mwd-60-80-outdoor-wassersport-ski-8305-dietlikon",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:04.327Z",
+      "crawledAt": "2026-08-10T22:06:58.638Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -2716,7 +2641,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4508363-sport-leader-verkaufsberater-mwd-outdoorwassersportski-20-40-8305-dietlikon",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:03.968Z",
+      "crawledAt": "2026-08-10T22:06:58.316Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -2799,7 +2724,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4509977-vendeur-sportif-hf-passionnee-outdoor-2504-biel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:35:03.674Z",
+      "crawledAt": "2026-08-10T22:06:58.011Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "addressRegion": "BE",
@@ -2884,7 +2809,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4510673-befristet-sportberater-outdoor-wasser-winter-mwd-stundenlohnvertrag-40-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:03.358Z",
+      "crawledAt": "2026-08-10T22:06:57.718Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "addressRegion": "ZH",
@@ -2963,7 +2888,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4513245-sport-leader-verkaufsberater-mwd-80-decathlon-st-gallen-9015-st-gallen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:03.083Z",
+      "crawledAt": "2026-08-10T22:06:57.372Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressRegion": "SG",
@@ -3073,7 +2998,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4515671-befristet-sport-leader-verkaufsberater-mwd-50-skiverleih-8305-dietlikon",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:02.820Z",
+      "crawledAt": "2026-08-10T22:06:57.075Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -3153,7 +3078,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4516709-sport-leader-technicien-ne-cycle-hf-cdi-contrat-horaire-40-martigny-1920-martigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:35:02.521Z",
+      "crawledAt": "2026-08-10T22:06:56.741Z",
       "addressLocality": "Martigny",
       "postalCode": "1920",
       "addressRegion": "VS",
@@ -3237,7 +3162,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4517747-team-leader-abteilungsleiter-mwd-100-decathlon-winterthur-8404-winterthur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:02.258Z",
+      "crawledAt": "2026-08-10T22:06:56.374Z",
       "addressLocality": "Winterthur",
       "postalCode": "8404",
       "addressRegion": "ZH",
@@ -3315,7 +3240,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4521591-mecanicien-ne-technicien-ne-cycle-et-sports-hf-cdi-100-bienne-2504-biel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:35:01.961Z",
+      "crawledAt": "2026-08-10T22:06:56.075Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "addressRegion": "BE",
@@ -3403,7 +3328,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4522013-befristet-sport-leader-verkaufsberater-mwd-50-auf-stundenlohnbasis-3800-interlaken",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:01.662Z",
+      "crawledAt": "2026-08-10T22:06:55.758Z",
       "addressLocality": "Interlaken",
       "postalCode": "3800",
       "addressRegion": "BE",
@@ -3497,7 +3422,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4523911-conseiller-ere-expert-ski-hf-cdd-80-5-mois-neuchatel-2074-marin-epagnier",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:35:00.774Z",
+      "crawledAt": "2026-08-10T22:06:55.415Z",
       "addressLocality": "Marin-Epagnier",
       "postalCode": "2074",
       "addressRegion": "GE",
@@ -3574,7 +3499,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4523941-conseiller-ere-skiman-hf-cdd-80-6-mois-neuchatel-2074-marin-epagnier",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:35:00.431Z",
+      "crawledAt": "2026-08-10T22:06:55.117Z",
       "addressLocality": "Marin-Epagnier",
       "postalCode": "2074",
       "addressRegion": "GE",
@@ -3651,7 +3576,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/3898327-velomechanikerin-80-100-wmd-spreitenbach-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:35:00.063Z",
+      "crawledAt": "2026-08-10T22:06:54.790Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -3729,7 +3654,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4526547-sport-leader-verkaufsberater-wasser-winter-mwd-80-100-6020-emmen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:34:59.782Z",
+      "crawledAt": "2026-08-10T22:06:54.500Z",
       "addressLocality": "Emmen",
       "postalCode": "6020",
       "addressRegion": "LU",
@@ -3814,7 +3739,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4527657-mecanicien-ne-technicien-ne-cycle-et-sports-hf-cdi-20-40-1763-granges-paccot",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:34:59.474Z",
+      "crawledAt": "2026-08-10T22:06:54.139Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressRegion": "FR",
@@ -3892,7 +3817,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4528943-technicienne-reparation-outdoor-sports-deau-frde-cdi-100-1425-onnens",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:34:59.197Z",
+      "crawledAt": "2026-08-10T22:06:53.837Z",
       "addressLocality": "Onnens",
       "postalCode": "1425",
       "addressRegion": "GE",
@@ -3970,7 +3895,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4529033-conseiller-ere-sportif-ve-cycle-expert-cdd-30-decathlon-lausanne-1003-lausanne",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:34:58.848Z",
+      "crawledAt": "2026-08-10T22:06:53.517Z",
       "addressLocality": "Lausanne",
       "postalCode": "1003",
       "addressRegion": "VD",
@@ -4049,7 +3974,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4534191-sport-leader-verkaufsberater-mwd-befristet-50-interlaken-3800-interlaken",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:34:58.601Z",
+      "crawledAt": "2026-08-10T22:06:53.217Z",
       "addressLocality": "Interlaken",
       "postalCode": "3800",
       "addressRegion": "BE",
@@ -4098,84 +4023,6 @@
       }
     },
     {
-      "id": "decathlon-e8ef56ea4154",
-      "slug": "head-of-rayon-sports-collectives-h-f-cdi-100-bussigny-lausanne-decathlon-bussigny",
-      "slugByLocale": {
-        "it": "head-of-rayon-sports-collectives-h-f-cdi-100-bussigny-lausanne-decathlon-bussigny",
-        "en": "head-of-rayon-sports-collectives-h-f-cdi-100-bussigny-lausanne-decathlon-bussigny",
-        "de": "head-of-rayon-sports-collectives-h-f-cdi-100-bussigny-lausanne-decathlon-bussigny",
-        "fr": "responsable-de-rayon-sports-collectifs-h-f-cdi-100-bussigny-lausanne-decathlon-ch"
-      },
-      "company": "Decathlon",
-      "companyKey": "decathlon",
-      "companyDomain": "decathlon.ch",
-      "title": "Responsable de Rayon Sports Collectifs (H/F) - CDI 100% - BUSSIGNY (Lausanne)",
-      "titleByLocale": {
-        "it": "Head of Rayon Sports Collectives (H/F) - CDI 100% - BUSSIGNY (Lausanne)",
-        "en": "Head of Rayon Sports Collectives (H/F) - CDI 100% - BUSSIGNY (Lausanne)",
-        "de": "Head of Rayon Sports Collectives (H/F) - CDI 100% - BUSSIGNY (Lausanne)",
-        "fr": "Responsable de Rayon Sports Collectifs (H/F) - CDI 100% - BUSSIGNY (Lausanne)"
-      },
-      "description": "​ Ton futur terrain de jeu Tu rejoindras le magasin de Bussigny , ouvert en 2018 , constitué d’une équipe de 70 collaborateurs . Ton périmètre Sports Collectifs, Sports de raquette et Equitation est au cœur de notre stratégie locale. L'équipe est composée de 5 passionnés . Ta mission ? Faire de ton sport la référence absolue pour tous les pratiquants du coin. Rejoins une aventure qui n'en finit pas de grandir Decathlon en Suisse, c'est une success story qui a débuté en 2017 à Neuchâtel. Depuis, nous avons ouvert une dizaine de magasins par an pour atteindre aujourd'hui 50 points de vente. Et on ne compte pas s'arrêter là ! Notre expansion se poursuit, notamment en Suisse alémanique, offrant des opportunités de carrière partout dans le pays. Et maintenant, place au métier : Tu cherches un métier où tu ne passeras pas ta vie derrière un bureau ? Tu as envie de prendre des décisions, d'être sur le terrain et de gérer ton rayon comme ta propre entreprise ? Tu rêves de coacher une équipe pour l’emmener vers les sommets ? Alors le poste de Responsable de Rayon (=Team Leader) est fait pour toi. Pourquoi ?\n• Tu passeras 80% de ton temps hors du bureau. Ton rayon est ton terrain de jeu. Que ce soit pour passer du temps avec ton équipe ou avec tes clients, tu es au cœur de l'action. Tu conserves un temps stratégique, mais nous te proposons avant tout un métier de terrain.\n• Ta réussite est directement liée à celle de ton équipe. En tant que manager, ton rôle n’est pas de tout contrôler mais de tout faciliter. Tu donnes le “pourquoi” à ton équipe, et ton équipe décide du “comment”. Tu acceptes le droit à l'erreur et tu grandis avec eux. Si ton équipe gagne, tu gagnes.\n• Tu es le/la patron(ne) de ton activité . Ici, tu es un véritable intrapreneur. Tu anticipes tout le cycle d’activité de ton rayon d’aujourd’hui et de demain, tu recrutes tes talents, tu définis tes stratégies commerciales… bref tu es aux commandes. Ce que tu feras au quotidien concrètement : Tu auras 3 grandes casquettes. #1 : Ta casquette de GESTIONNAIRE :\n• Pilotage commercial (ton P&L) : Tu es le/la patron/ne de ton activité. Tu écris et animes ta politique commerciale, tu choisis tes gammes, analyses tes performances économiques et gères tes stocks (dont la réception de marchandises).\n• Permanence magasin (Capitaine) : Par roulement avec d’autres leaders,, tu prends la responsabilité globale du magasin (ouverture, fermeture, sécurité). Tu es le/la garant/e de la fluidité du \"match\" tout au long de la journée. #2 : Ta casquette de MANAGER :\n• Coaching et management : Tu es là pour faire progresser ton équipe chaque jour. Tu mènes les entretiens individuels mensuels avec chacun de tes coéquipiers pour les accompagner dans leur développement.\n• Recrutement : C'est toi qui recherches et choisis tes futurs partenaires de jeu pour bâtir une équipe diversifiée de passionnés.\n• Formation : Tu continues d'apprendre au quotidien (leadership, finance, technique produit, etc.) et tu transmets à ton tour tes savoirs à ton équipe. #3 : Ta casquette de COMMERCANT :\n• Commerce client : La satisfaction client doit être la priorité ! En manager exemplaire, tu mets la main à la pâte : tu conseilles tes clients, tu gères l'accueil, tu fais la réception de marchandises et tu garantis un rayon toujours au top.\n• Missions transverses : Dès que tu es maîtrisant sur ton métier, tu peux sortir du cadre pour booster des projets régionaux, des événements sportifs ou des partenariats clubs. Ce poste N’EST PAS fait pour toi si...\n• Tu attends qu'on te dise quoi faire chaque matin.\n• Tu cherches un job “routinier” sans imprévus.\n• Tes baskets n'ont pas envie de faire 10’000 pas par jour...\n• Tu ne souhaites pas travailler les samedis.",
-      "descriptionByLocale": {
-        "it": "Il tuo futuro parco giochi Ti unirai al negozio di Bussigny, aperto nel 2018, composto da un team di 70 collaboratori. I vostri Collettivi Sportivi, Ciaspolate e Equitazione si trovano nel cuore della nostra strategia locale. Il team è composto da 5 appassionati. La tua missione? Rendere il vostro sport il riferimento assoluto per tutti i professionisti locali. Unisciti a un'avventura che continua a crescere Decathlon in Svizzera, è una storia di successo iniziata nel 2017 a Neuchâtel. Da allora, abbiamo aperto circa dieci negozi all'anno per raggiungere 50 punti vendita oggi. E non ci fermeremo lì! La nostra espansione continua, soprattutto in Svizzera tedesca, offrendo opportunità di carriera in tutto il paese. E ora, stai cercando un lavoro dove non passerai la tua vita dietro un ufficio? Vuoi prendere decisioni, essere in campo e gestire il tuo dipartimento come il tuo business? Vuoi allenare una squadra per portarlo in cima? Poi la posizione di Rayon Manager (=Team Leader) è per voi. Perche'?\n• Passerai l'80% del tuo tempo fuori dall'ufficio. Il tuo raggio e' il tuo parco giochi. Che si tratti di trascorrere del tempo con la tua squadra o con i tuoi clienti, sei al centro dell'azione. Mantenete il tempo strategico, ma prima vi offriamo un lavoro sul campo.\n• Il vostro successo è direttamente legato al vostro team. Come manager, il vostro ruolo non è controllare tutto, ma per facilitare tutto. Date alla vostra squadra la ragione, e la vostra squadra decide come. Accetti il diritto di errore e cresci con loro. Se la tua squadra vince, vinci.\n• Sei il capo della tua attività. Ecco, sei un vero intrapreneur. Si prevede l'intero ciclo di attività del vostro raggio oggi e domani, si reclutano i vostri talenti, si definiscono le vostre strategie di business... Comunque, sei tu il capo. Cosa farete quotidianamente: Avrete 3 berretti grandi. #1: Il tuo cappello MANAGER:\n• Pilotaggio commerciale (ton P&L): Lei è il proprietario/gestore della sua attività. Scrivete e animate la vostra politica commerciale, scegliete le vostre gamme, analizzate le vostre prestazioni economiche e gestite le vostre scorte (comprese le merci ricevute).\n• Permanent Store (Capitano): In esecuzione con altri leader, si assume la responsabilità generale per il negozio (apertura, chiusura, sicurezza). Sei il garante della scorrevolezza del gioco durante tutto il giorno. #2: Il tuo cappello MANAGER:\n• Coaching e management: sei qui per far avanzare la tua squadra ogni giorno. Condurre colloqui individuali mensili con ciascuno dei vostri compagni di squadra per sostenerli nel loro sviluppo.\n• Reclutamento: Sei tu quello che sta cercando e scegliendo i tuoi futuri partner di gioco per costruire un team diverso di appassionati.\n• Formazione: Si continua a imparare ogni giorno (leadership, finanza, tecnologia del prodotto, ecc) e si passa anche la vostra conoscenza al vostro team. #3: Il tuo cappello COMMERCANT:\n• Commercio clienti: La soddisfazione del cliente deve essere la priorità! Come manager esemplare, metti la mano nella pasta: consiglia i tuoi clienti, gestisci la reception, ricevi merci e garantisci un raggio sempre in alto.\n• Missioni trasversali: Non appena avete imparato la vostra professione, è possibile uscire dalla scatola per aumentare i progetti regionali, eventi sportivi o partnership club. Questo post non è per voi se...\n• Aspetta di dirti cosa fare ogni mattina.\n• Stai cercando un lavoro quotidiano.\n• Le tue scarpe non vogliono fare 10.000 passi al giorno...\n• Non vuoi lavorare il sabato.",
-        "en": "Your future playground You will join the shop in Bussigny, opened in 2018, made up of a team of 70 collaborators. Your Sports Collectives, Snowshoeing and Equitation perimeter is at the heart of our local strategy. The team is composed of 5 enthusiasts. Your mission? Make your sport the absolute reference for all local practitioners. Join an adventure that continues to grow Decathlon in Switzerland, it is a success story that started in 2017 in Neuchâtel. Since then, we have opened around ten stores a year to reach 50 outlets today. And we're not going to stop there! Our expansion continues, especially in German-speaking Switzerland, offering career opportunities throughout the country. And now, you're looking for a job where you won't spend your life behind an office? Do you want to make decisions, be in the field and manage your department like your own business? You want to coach a team to take him to the tops? Then the position of Rayon Manager (=Team Leader) is for you. Why?\n• You'll spend 80% of your time out of the office. Your radius is your playground. Whether it's spending time with your team or with your clients, you're at the heart of the action. You keep strategic time, but we offer you a field job first.\n• Your success is directly related to your team's. As a manager, your role is not to control everything but to facilitate everything. You give your team the reason, and your team decides how. You accept the right to error and grow up with them. If your team wins, you win.\n• You are the boss of your activity. Here, you're a real intrapreneur. You anticipate the whole cycle of activity of your ray today and tomorrow, you recruit your talents, you define your business strategies... Anyway, you're in charge. What you will do on a daily basis: You will have 3 large caps. #1: Your MANAGER cap:\n• Commercial Pilotage (ton P&L): You are the owner/manager of your business. You write and animate your trade policy, choose your ranges, analyze your economic performance and manage your stocks (including receiving goods).\n• Permanent Store (Captain): By running with other leaders, you take overall responsibility for the store (opening, closing, security). You are the guarantor of the smoothness of the game throughout the day. #2: Your MANAGER cap:\n• Coaching and management: You're here to advance your team every day. You conduct monthly individual interviews with each of your teammates to support them in their development.\n• Recruitment: You are the one who is looking for and choosing your future game partners to build a diverse team of enthusiasts.\n• Training: You continue to learn every day (leadership, finance, product technology, etc.) and you also pass on your knowledge to your team. #3: Your COMMERCANT cap:\n• Customer trade: Customer satisfaction must be the priority! As an exemplary manager, you put your hand in the dough: you advise your customers, you manage the reception, you receive goods and you guarantee a radius always at the top.\n• Transverse Missions: As soon as you have mastered your profession, you can get out of the box to boost regional projects, sporting events or club partnerships. This post IS NOT for you if...\n• You wait till we tell you what to do every morning.\n• You're looking for a daily job.\n• Your sneakers don't want to do 10,000 steps a day...\n• You don't want to work on Saturdays.",
-        "de": "Dein zukünftiger Spielplatz Sie werden dem Shop in Bussigny beitreten, der 2018 eröffnet wurde und aus einem Team von 70 Mitarbeitern besteht. Ihr Sportkollektiv, Schneeschuh- und Equitationsumfang steht im Mittelpunkt unserer lokalen Strategie. Das Team besteht aus 5 Enthusiasten. Ihre Mission? Machen Sie Ihren Sport zur absoluten Referenz für alle lokalen Praktizierenden. Nehmen Sie an einem Abenteuer teil, das Decathlon in der Schweiz weiter wachsen lässt, es ist eine Erfolgsgeschichte, die 2017 in Neuenburg begann. Seitdem haben wir rund zehn Geschäfte pro Jahr eröffnet, um heute 50 Filialen zu erreichen. Und damit werden wir nicht aufhören! Unsere Expansion geht weiter, insbesondere in der Deutschschweiz, und bietet Karrieremöglichkeiten im ganzen Land. Und jetzt suchen Sie nach einem Job, bei dem Sie Ihr Leben nicht hinter einem Büro verbringen werden? Möchten Sie Entscheidungen treffen, vor Ort sein und Ihre Abteilung wie Ihr eigenes Geschäft führen? Möchten Sie ein Team trainieren, um ihn an die Spitze zu bringen? Dann ist die Position des Rayon Managers (=Team Leader) genau das Richtige für Sie. Warum?\n• Sie verbringen 80% Ihrer Zeit außerhalb des Büros. Dein Radius ist dein Spielplatz. Ob Sie Zeit mit Ihrem Team oder mit Ihren Kunden verbringen, Sie stehen im Mittelpunkt des Geschehens. Sie behalten strategische Zeit, aber wir bieten Ihnen zuerst einen Feldjob an.\n• Ihr Erfolg hängt direkt mit dem Ihres Teams zusammen. Als Manager besteht Ihre Rolle nicht darin, alles zu kontrollieren, sondern alles zu erleichtern. Sie geben Ihrem Team den Grund und Ihr Team entscheidet, wie. Sie akzeptieren das Recht auf Irrtum und wachsen mit ihnen auf. Wenn dein Team gewinnt, gewinnst du.\n• Du bist der Chef deiner Aktivität. Hier sind Sie ein echter Intrapreneur. Sie antizipieren den gesamten Aktivitätszyklus Ihres Strahls heute und morgen, Sie rekrutieren Ihre Talente, Sie definieren Ihre Geschäftsstrategien ... Wie auch immer, du bist verantwortlich. Was Sie täglich tun werden: Sie werden 3 große Caps haben. # 1: Ihre MANAGER Cap:\n• Commercial Pilotage (ton P&L): Sie sind der Eigentümer/Manager Ihres Unternehmens. Sie schreiben und animieren Ihre Handelspolitik, wählen Ihre Bereiche aus, analysieren Ihre wirtschaftliche Leistung und verwalten Ihre Bestände (einschließlich des Erhalts von Waren).\n• Permanent Store (Captain): Indem Sie mit anderen Führungskräften zusammenarbeiten, übernehmen Sie die Gesamtverantwortung für den Laden (Öffnen, Schließen, Sicherheit). Sie sind der Garant für die Glätte des Spiels den ganzen Tag über. # 2: Ihre MANAGER-Kappe:\n• Coaching und Management: Sie sind hier, um Ihr Team jeden Tag voranzubringen. Sie führen monatliche Einzelinterviews mit jedem Ihrer Teamkollegen, um sie in ihrer Entwicklung zu unterstützen.\n• Rekrutierung: Sie sind derjenige, der Ihre zukünftigen Spielpartner sucht und auswählt, um ein vielfältiges Team von Enthusiasten aufzubauen.\n• Training: Du lernst jeden Tag weiter (Führung, Finanzen, Produkttechnologie etc.) und gibst dein Wissen auch an dein Team weiter. # 3: Ihre COMMERCANT Cap:\n• Kundenhandel: Kundenzufriedenheit muss Priorität haben! Als vorbildlicher Manager legen Sie die Hand in den Teig: Sie beraten Ihre Kunden, verwalten die Rezeption, erhalten Waren und garantieren einen Radius immer ganz oben.\n• Querschnittsmissionen: Sobald Sie Ihren Beruf beherrscht haben, können Sie aus der Box kommen, um regionale Projekte, Sportveranstaltungen oder Clubpartnerschaften zu fördern. Dieser Artikel ist nichts für dich, wenn...\n• Du wartest, bis wir dir jeden Morgen sagen, was zu tun ist.\n• Du suchst einen täglichen Job.\n• Ihre Sneaker wollen nicht 10.000 Schritte pro Tag machen ...\n• Sie wollen nicht samstags arbeiten.",
-        "fr": "​ Ton futur terrain de jeu Tu rejoindras le magasin de Bussigny , ouvert en 2018 , constitué d’une équipe de 70 collaborateurs . Ton périmètre Sports Collectifs, Sports de raquette et Equitation est au cœur de notre stratégie locale. L'équipe est composée de 5 passionnés . Ta mission ? Faire de ton sport la référence absolue pour tous les pratiquants du coin. Rejoins une aventure qui n'en finit pas de grandir Decathlon en Suisse, c'est une success story qui a débuté en 2017 à Neuchâtel. Depuis, nous avons ouvert une dizaine de magasins par an pour atteindre aujourd'hui 50 points de vente. Et on ne compte pas s'arrêter là ! Notre expansion se poursuit, notamment en Suisse alémanique, offrant des opportunités de carrière partout dans le pays. Et maintenant, place au métier : Tu cherches un métier où tu ne passeras pas ta vie derrière un bureau ? Tu as envie de prendre des décisions, d'être sur le terrain et de gérer ton rayon comme ta propre entreprise ? Tu rêves de coacher une équipe pour l’emmener vers les sommets ? Alors le poste de Responsable de Rayon (=Team Leader) est fait pour toi. Pourquoi ?\n• Tu passeras 80% de ton temps hors du bureau. Ton rayon est ton terrain de jeu. Que ce soit pour passer du temps avec ton équipe ou avec tes clients, tu es au cœur de l'action. Tu conserves un temps stratégique, mais nous te proposons avant tout un métier de terrain.\n• Ta réussite est directement liée à celle de ton équipe. En tant que manager, ton rôle n’est pas de tout contrôler mais de tout faciliter. Tu donnes le “pourquoi” à ton équipe, et ton équipe décide du “comment”. Tu acceptes le droit à l'erreur et tu grandis avec eux. Si ton équipe gagne, tu gagnes.\n• Tu es le/la patron(ne) de ton activité . Ici, tu es un véritable intrapreneur. Tu anticipes tout le cycle d’activité de ton rayon d’aujourd’hui et de demain, tu recrutes tes talents, tu définis tes stratégies commerciales… bref tu es aux commandes. Ce que tu feras au quotidien concrètement : Tu auras 3 grandes casquettes. #1 : Ta casquette de GESTIONNAIRE :\n• Pilotage commercial (ton P&L) : Tu es le/la patron/ne de ton activité. Tu écris et animes ta politique commerciale, tu choisis tes gammes, analyses tes performances économiques et gères tes stocks (dont la réception de marchandises).\n• Permanence magasin (Capitaine) : Par roulement avec d’autres leaders,, tu prends la responsabilité globale du magasin (ouverture, fermeture, sécurité). Tu es le/la garant/e de la fluidité du \"match\" tout au long de la journée. #2 : Ta casquette de MANAGER :\n• Coaching et management : Tu es là pour faire progresser ton équipe chaque jour. Tu mènes les entretiens individuels mensuels avec chacun de tes coéquipiers pour les accompagner dans leur développement.\n• Recrutement : C'est toi qui recherches et choisis tes futurs partenaires de jeu pour bâtir une équipe diversifiée de passionnés.\n• Formation : Tu continues d'apprendre au quotidien (leadership, finance, technique produit, etc.) et tu transmets à ton tour tes savoirs à ton équipe. #3 : Ta casquette de COMMERCANT :\n• Commerce client : La satisfaction client doit être la priorité ! En manager exemplaire, tu mets la main à la pâte : tu conseilles tes clients, tu gères l'accueil, tu fais la réception de marchandises et tu garantis un rayon toujours au top.\n• Missions transverses : Dès que tu es maîtrisant sur ton métier, tu peux sortir du cadre pour booster des projets régionaux, des événements sportifs ou des partenariats clubs. Ce poste N’EST PAS fait pour toi si...\n• Tu attends qu'on te dise quoi faire chaque matin.\n• Tu cherches un job “routinier” sans imprévus.\n• Tes baskets n'ont pas envie de faire 10’000 pas par jour...\n• Tu ne souhaites pas travailler les samedis."
-      },
-      "location": "Bussigny",
-      "canton": "VD",
-      "url": "https://joinus.decathlon.ch/fr_CH/annonce/4534597-responsable-de-rayon-sports-collectifs-hf-cdi-100-bussigny-lausanne-1030-bussigny",
-      "source": "Decathlon Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:34:58.263Z",
-      "addressLocality": "Bussigny",
-      "postalCode": "1030",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "retail",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-05",
-      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4534597-responsable-de-rayon-sports-collectifs-hf-cdi-100-bussigny-lausanne-1030-bussigny",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "responsable-de-rayon-sports-collectifs-h-f-cdi-100-bussigny-lausanne-decathlon-ch",
-        "head-of-rayon-sports-collectives-h-f-cdi-100-bussigny-lausanne-decathlon-bussigny"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "responsable-de-rayon-sports-collectifs-h-f-cdi-100-bussigny-lausanne-decathlon-ch",
-          "head-of-rayon-sports-collectives-h-f-cdi-100-bussigny-lausanne-decathlon-bussigny"
-        ],
-        "en": [
-          "responsable-de-rayon-sports-collectifs-h-f-cdi-100-bussigny-lausanne-decathlon-ch"
-        ],
-        "de": [
-          "responsable-de-rayon-sports-collectifs-h-f-cdi-100-bussigny-lausanne-decathlon-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-05T22:29:55.653Z",
-      "needsRetranslation": true,
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "decathlon-84e6ff0a37dd",
       "slug": "velo-venditore-m-f-d-50-baar-decathlon-baar",
       "slugByLocale": {
@@ -4206,7 +4053,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4534967-velo-verkaufer-mwd-50-baar-6340-baar",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:34:57.945Z",
+      "crawledAt": "2026-08-10T22:06:52.869Z",
       "addressLocality": "Baar",
       "postalCode": "6340",
       "addressRegion": "ZG",
@@ -4283,7 +4130,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4255943-kassiererin-filiale-schaffhausen-50-unbesfristet-8207-schaffhausen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:34:57.697Z",
+      "crawledAt": "2026-08-10T22:06:52.592Z",
       "addressLocality": "Schaffhausen",
       "postalCode": "8207",
       "addressRegion": "SH",
@@ -4316,6 +4163,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:55:00.079Z",
+      "needsRetranslation": true,
       "salaryMin": 28800,
       "salaryMax": 43500,
       "baseSalary": {
@@ -4331,36 +4179,36 @@
     },
     {
       "id": "decathlon-8eeb119db21e",
-      "slug": "skiman-location-h-f-contrat-horaire-4-a-5-mois-lausanne-bel-air-decathlon-ch",
+      "slug": "noleggio-skiman-h-f-contratto-orario-da-4-a-5-mesi-lausanne-bel-air-decathlon-lausanne",
       "slugByLocale": {
-        "fr": "skiman-location-h-f-contrat-horaire-4-a-5-mois-lausanne-bel-air-decathlon-ch",
-        "it": "skiman-location-h-f-contrat-horaire-4-a-5-mois-lausanne-bel-air-decathlon-ch",
-        "en": "skiman-location-h-f-contrat-horaire-4-a-5-mois-lausanne-bel-air-decathlon-ch",
-        "de": "skiman-location-h-f-contrat-horaire-4-a-5-mois-lausanne-bel-air-decathlon-ch"
+        "it": "noleggio-skiman-h-f-contratto-orario-da-4-a-5-mesi-lausanne-bel-air-decathlon-lausanne",
+        "en": "skiman-rental-h-f-hourly-contract-4-to-5-months-lausanne-bel-air-decathlon-lausanne",
+        "de": "skiman-rental-h-f-stundenvertrag-4-bis-5-monate-lausanne-bel-air-decathlon-lausanne",
+        "fr": "skiman-location-h-f-contrat-horaire-4-a-5-mois-lausanne-bel-air-decathlon-ch"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
       "companyDomain": "decathlon.ch",
       "title": "Skiman Location (H/F) - Contrat horaire - 4 à 5 mois - Lausanne Bel Air",
       "titleByLocale": {
-        "fr": "Skiman Location (H/F) - Contrat horaire - 4 à 5 mois - Lausanne Bel Air",
-        "it": "Skiman Location (H/F) - Contrat horaire - 4 à 5 mois - Lausanne Bel Air",
-        "en": "Skiman Location (H/F) - Contrat horaire - 4 à 5 mois - Lausanne Bel Air",
-        "de": "Skiman Location (H/F) - Contrat horaire - 4 à 5 mois - Lausanne Bel Air"
+        "it": "Noleggio Skiman (H/F) - Contratto orario - da 4 a 5 mesi - Lausanne Bel Air",
+        "en": "Skiman Rental (H/F) - Hourly contract - 4 to 5 months - Lausanne Bel Air",
+        "de": "Skiman Rental (H/F) - Stundenvertrag - 4 bis 5 Monate - Lausanne Bel Air",
+        "fr": "Skiman Location (H/F) - Contrat horaire - 4 à 5 mois - Lausanne Bel Air"
       },
       "description": "Ton futur terrain de jeu Tu rejoindras le magasin de Lausanne Bel Air , constitué d’une équipe de 30 collaborateurs . Magasin de centre-ville avec une affluence continue, ses services comme l'atelier ou la location en ont fait un incontournable en son genre. Ton périmètre Location hiver est au cœur de notre stratégie locale. L'équipe est composée d'une dizaine de passionnés. Tu sera disponible principalement les mercredi, vendredi et samedi. Et maintenant, place au métier : Tu cherches un métier dynamique où aucune journée ne se ressemble ? Tu as envie de partager ta passion du sport et d'offrir une expérience inoubliable à chaque client qui franchit les portes du magasin ? Tu aimes l'action, le terrain et le travail en équipe ? Passionné(e) de glisse hiver et doté(e) d'un excellent sens du contact, vous serez en charge de l'accueil de la clientèle, ainsi que de la préparation, du réglage et de l'entretien du matériel. Rigoureux(se), dynamique et aimant le travail en équipe, vous veillerez à offrir une expérience fluide, chaleureuse et sécurisée à nos clients. Alors le poste de Skiman est fait pour toi. Pourquoi ?\n• Tu es au cœur de l'action . Ton quotidien, c'est 100% sur le terrain. Tu es le visage de Decathlon. Qu'il s'agisse d'accueillir un débutant ou de conseiller un expert, tu partages ta passion et tu crées le lien.\n• Tu es l'acteur⸱rice du commerce de demain . Tu ne te contentes pas de vendre un produit en rayon. Tu proposes une expérience omnicanale et durable : commandes digitales, location de matériel, .. Tu réponds à tous les besoins. Ce que tu feras au quotidien : tes missions\n• Orientation et conseil client : Accueillir les clients, analyser leurs besoins et les guider de manière personnalisée vers l'équipement le mieux adapté a leur niveau et à leurs attentes.\n• Préparation et sécurité : Deliver le matériel de location et régler les fixations avec précision, dans le strict respect des normes de sécurité.\n• Gestion de l'espace location : Assurer le rangement quotidien du matériel, gérer le flux des départs et des retours, et veiller à la bonne présentation du materiel. Ce poste N'EST PAS fait pour toi si...\n• Tu préfères rester assis⸱e derrière un écran toute la journée au calme.\n• Tu n'aimes pas aller spontanément vers les autres.\n• Tu penses que déballer des palettes, ranger un rayon et traiter de la marchandise \"ce n'est pas ton problème\".\n• Tu n'es pas prêt⸱e à voir s'afficher 10 000 pas sur ta montre chaque soir.\n• Tu recherches des horaires fixes et routiniers : ici, on vit au rythme du sport et nos plannings s'adaptent à l'activité\n• Tu ne souhaites pas travailler les samedis.",
       "descriptionByLocale": {
-        "fr": "Ton futur terrain de jeu Tu rejoindras le magasin de Lausanne Bel Air , constitué d’une équipe de 30 collaborateurs . Magasin de centre-ville avec une affluence continue, ses services comme l'atelier ou la location en ont fait un incontournable en son genre. Ton périmètre Location hiver est au cœur de notre stratégie locale. L'équipe est composée d'une dizaine de passionnés. Tu sera disponible principalement les mercredi, vendredi et samedi. Et maintenant, place au métier : Tu cherches un métier dynamique où aucune journée ne se ressemble ? Tu as envie de partager ta passion du sport et d'offrir une expérience inoubliable à chaque client qui franchit les portes du magasin ? Tu aimes l'action, le terrain et le travail en équipe ? Passionné(e) de glisse hiver et doté(e) d'un excellent sens du contact, vous serez en charge de l'accueil de la clientèle, ainsi que de la préparation, du réglage et de l'entretien du matériel. Rigoureux(se), dynamique et aimant le travail en équipe, vous veillerez à offrir une expérience fluide, chaleureuse et sécurisée à nos clients. Alors le poste de Skiman est fait pour toi. Pourquoi ?\n• Tu es au cœur de l'action . Ton quotidien, c'est 100% sur le terrain. Tu es le visage de Decathlon. Qu'il s'agisse d'accueillir un débutant ou de conseiller un expert, tu partages ta passion et tu crées le lien.\n• Tu es l'acteur⸱rice du commerce de demain . Tu ne te contentes pas de vendre un produit en rayon. Tu proposes une expérience omnicanale et durable : commandes digitales, location de matériel, .. Tu réponds à tous les besoins. Ce que tu feras au quotidien : tes missions\n• Orientation et conseil client : Accueillir les clients, analyser leurs besoins et les guider de manière personnalisée vers l'équipement le mieux adapté a leur niveau et à leurs attentes.\n• Préparation et sécurité : Deliver le matériel de location et régler les fixations avec précision, dans le strict respect des normes de sécurité.\n• Gestion de l'espace location : Assurer le rangement quotidien du matériel, gérer le flux des départs et des retours, et veiller à la bonne présentation du materiel. Ce poste N'EST PAS fait pour toi si...\n• Tu préfères rester assis⸱e derrière un écran toute la journée au calme.\n• Tu n'aimes pas aller spontanément vers les autres.\n• Tu penses que déballer des palettes, ranger un rayon et traiter de la marchandise \"ce n'est pas ton problème\".\n• Tu n'es pas prêt⸱e à voir s'afficher 10 000 pas sur ta montre chaque soir.\n• Tu recherches des horaires fixes et routiniers : ici, on vit au rythme du sport et nos plannings s'adaptent à l'activité\n• Tu ne souhaites pas travailler les samedis.",
-        "it": "Ton futur terrain de jeu Tu rejoindras le magasin de Lausanne Bel Air , constitué d’une équipe de 30 collaborateurs . Magasin de centre-ville avec une affluence continue, ses services comme l'atelier ou la location en ont fait un incontournable en son genre. Ton périmètre Location hiver est au cœur de notre stratégie locale. L'équipe est composée d'une dizaine de passionnés. Tu sera disponible principalement les mercredi, vendredi et samedi. Et maintenant, place au métier : Tu cherches un métier dynamique où aucune journée ne se ressemble ? Tu as envie de partager ta passion du sport et d'offrir une expérience inoubliable à chaque client qui franchit les portes du magasin ? Tu aimes l'action, le terrain et le travail en équipe ? Passionné(e) de glisse hiver et doté(e) d'un excellent sens du contact, vous serez en charge de l'accueil de la clientèle, ainsi que de la préparation, du réglage et de l'entretien du matériel. Rigoureux(se), dynamique et aimant le travail en équipe, vous veillerez à offrir une expérience fluide, chaleureuse et sécurisée à nos clients. Alors le poste de Skiman est fait pour toi. Pourquoi ?\n• Tu es au cœur de l'action . Ton quotidien, c'est 100% sur le terrain. Tu es le visage de Decathlon. Qu'il s'agisse d'accueillir un débutant ou de conseiller un expert, tu partages ta passion et tu crées le lien.\n• Tu es l'acteur⸱rice du commerce de demain . Tu ne te contentes pas de vendre un produit en rayon. Tu proposes une expérience omnicanale et durable : commandes digitales, location de matériel, .. Tu réponds à tous les besoins. Ce que tu feras au quotidien : tes missions\n• Orientation et conseil client : Accueillir les clients, analyser leurs besoins et les guider de manière personnalisée vers l'équipement le mieux adapté a leur niveau et à leurs attentes.\n• Préparation et sécurité : Deliver le matériel de location et régler les fixations avec précision, dans le strict respect des normes de sécurité.\n• Gestion de l'espace location : Assurer le rangement quotidien du matériel, gérer le flux des départs et des retours, et veiller à la bonne présentation du materiel. Ce poste N'EST PAS fait pour toi si...\n• Tu préfères rester assis⸱e derrière un écran toute la journée au calme.\n• Tu n'aimes pas aller spontanément vers les autres.\n• Tu penses que déballer des palettes, ranger un rayon et traiter de la marchandise \"ce n'est pas ton problème\".\n• Tu n'es pas prêt⸱e à voir s'afficher 10 000 pas sur ta montre chaque soir.\n• Tu recherches des horaires fixes et routiniers : ici, on vit au rythme du sport et nos plannings s'adaptent à l'activité\n• Tu ne souhaites pas travailler les samedis.",
-        "en": "Ton futur terrain de jeu Tu rejoindras le magasin de Lausanne Bel Air , constitué d’une équipe de 30 collaborateurs . Magasin de centre-ville avec une affluence continue, ses services comme l'atelier ou la location en ont fait un incontournable en son genre. Ton périmètre Location hiver est au cœur de notre stratégie locale. L'équipe est composée d'une dizaine de passionnés. Tu sera disponible principalement les mercredi, vendredi et samedi. Et maintenant, place au métier : Tu cherches un métier dynamique où aucune journée ne se ressemble ? Tu as envie de partager ta passion du sport et d'offrir une expérience inoubliable à chaque client qui franchit les portes du magasin ? Tu aimes l'action, le terrain et le travail en équipe ? Passionné(e) de glisse hiver et doté(e) d'un excellent sens du contact, vous serez en charge de l'accueil de la clientèle, ainsi que de la préparation, du réglage et de l'entretien du matériel. Rigoureux(se), dynamique et aimant le travail en équipe, vous veillerez à offrir une expérience fluide, chaleureuse et sécurisée à nos clients. Alors le poste de Skiman est fait pour toi. Pourquoi ?\n• Tu es au cœur de l'action . Ton quotidien, c'est 100% sur le terrain. Tu es le visage de Decathlon. Qu'il s'agisse d'accueillir un débutant ou de conseiller un expert, tu partages ta passion et tu crées le lien.\n• Tu es l'acteur⸱rice du commerce de demain . Tu ne te contentes pas de vendre un produit en rayon. Tu proposes une expérience omnicanale et durable : commandes digitales, location de matériel, .. Tu réponds à tous les besoins. Ce que tu feras au quotidien : tes missions\n• Orientation et conseil client : Accueillir les clients, analyser leurs besoins et les guider de manière personnalisée vers l'équipement le mieux adapté a leur niveau et à leurs attentes.\n• Préparation et sécurité : Deliver le matériel de location et régler les fixations avec précision, dans le strict respect des normes de sécurité.\n• Gestion de l'espace location : Assurer le rangement quotidien du matériel, gérer le flux des départs et des retours, et veiller à la bonne présentation du materiel. Ce poste N'EST PAS fait pour toi si...\n• Tu préfères rester assis⸱e derrière un écran toute la journée au calme.\n• Tu n'aimes pas aller spontanément vers les autres.\n• Tu penses que déballer des palettes, ranger un rayon et traiter de la marchandise \"ce n'est pas ton problème\".\n• Tu n'es pas prêt⸱e à voir s'afficher 10 000 pas sur ta montre chaque soir.\n• Tu recherches des horaires fixes et routiniers : ici, on vit au rythme du sport et nos plannings s'adaptent à l'activité\n• Tu ne souhaites pas travailler les samedis.",
-        "de": "Ton futur terrain de jeu Tu rejoindras le magasin de Lausanne Bel Air , constitué d’une équipe de 30 collaborateurs . Magasin de centre-ville avec une affluence continue, ses services comme l'atelier ou la location en ont fait un incontournable en son genre. Ton périmètre Location hiver est au cœur de notre stratégie locale. L'équipe est composée d'une dizaine de passionnés. Tu sera disponible principalement les mercredi, vendredi et samedi. Et maintenant, place au métier : Tu cherches un métier dynamique où aucune journée ne se ressemble ? Tu as envie de partager ta passion du sport et d'offrir une expérience inoubliable à chaque client qui franchit les portes du magasin ? Tu aimes l'action, le terrain et le travail en équipe ? Passionné(e) de glisse hiver et doté(e) d'un excellent sens du contact, vous serez en charge de l'accueil de la clientèle, ainsi que de la préparation, du réglage et de l'entretien du matériel. Rigoureux(se), dynamique et aimant le travail en équipe, vous veillerez à offrir une expérience fluide, chaleureuse et sécurisée à nos clients. Alors le poste de Skiman est fait pour toi. Pourquoi ?\n• Tu es au cœur de l'action . Ton quotidien, c'est 100% sur le terrain. Tu es le visage de Decathlon. Qu'il s'agisse d'accueillir un débutant ou de conseiller un expert, tu partages ta passion et tu crées le lien.\n• Tu es l'acteur⸱rice du commerce de demain . Tu ne te contentes pas de vendre un produit en rayon. Tu proposes une expérience omnicanale et durable : commandes digitales, location de matériel, .. Tu réponds à tous les besoins. Ce que tu feras au quotidien : tes missions\n• Orientation et conseil client : Accueillir les clients, analyser leurs besoins et les guider de manière personnalisée vers l'équipement le mieux adapté a leur niveau et à leurs attentes.\n• Préparation et sécurité : Deliver le matériel de location et régler les fixations avec précision, dans le strict respect des normes de sécurité.\n• Gestion de l'espace location : Assurer le rangement quotidien du matériel, gérer le flux des départs et des retours, et veiller à la bonne présentation du materiel. Ce poste N'EST PAS fait pour toi si...\n• Tu préfères rester assis⸱e derrière un écran toute la journée au calme.\n• Tu n'aimes pas aller spontanément vers les autres.\n• Tu penses que déballer des palettes, ranger un rayon et traiter de la marchandise \"ce n'est pas ton problème\".\n• Tu n'es pas prêt⸱e à voir s'afficher 10 000 pas sur ta montre chaque soir.\n• Tu recherches des horaires fixes et routiniers : ici, on vit au rythme du sport et nos plannings s'adaptent à l'activité\n• Tu ne souhaites pas travailler les samedis."
+        "it": "Il tuo futuro parco giochi Ti unirai al negozio di Losanna Bel Air, composto da un team di 30 dipendenti. Negozio di centro con un afflusso continuo, i suoi servizi come officina o noleggio lo hanno reso un must del suo genere. Il vostro perimetro di noleggio invernale è al centro della nostra strategia locale. Il team è composto da circa dieci appassionati. Sarete disponibili principalmente mercoledì, venerdì e sabato. E ora facciamo questo: Stai cercando un lavoro dinamico dove nessun giorno sembra lo stesso? Vuoi condividere la tua passione per lo sport e offrire un'esperienza indimenticabile a ogni cliente che attraversa le porte del negozio? Ti piace l'azione, il terreno e il lavoro di squadra? Appassionato sullo sci invernale e con un ottimo senso di contatto, sarete responsabili della ricezione, preparazione, regolazione e manutenzione dell'attrezzatura. Rigoury, lavoro di squadra dinamico e amorevole, vi garantirà un'esperienza senza soluzione di continuità, calda e sicura per i nostri clienti. Allora il posto di Skiman e' per te. Perche'?\n• Sei al centro dell'azione. La tua vita quotidiana è al 100% nel campo. Sei la faccia di Decathlon. Che si tratti di accogliere un principiante o consigliare un esperto, condividere la vostra passione e creare il link.\n• Sei l'attore negli affari di domani. Non stai solo vendendo un prodotto sulla mensola. Offriamo un'esperienza omnicanale e duratura: ordini digitali, noleggio hardware, .. Tu soddisfi tutte le esigenze. Cosa farai ogni giorno: le tue missioni\n• L'orientamento e la consulenza del cliente: per accogliere i clienti, analizzare le loro esigenze e guidarli in modo personalizzato alle attrezzature più adatte al loro livello e aspettative.\n• Preparazione e sicurezza: Fornire attrezzature di noleggio e regolare i dispositivi di fissaggio con precisione, in stretta conformità con gli standard di sicurezza.\n• Gestione dello spazio di noleggio: Assicurare la conservazione quotidiana delle attrezzature, gestire il flusso di partenze e ritorni, e garantire la corretta presentazione delle attrezzature. Questo lavoro non e' per te se...\n• Preferiresti sederti dietro uno schermo tutto il giorno in un posto tranquillo.\n• Non ti piace andare spontaneamente agli altri.\n• Pensi di disfare pallet, sistemare un raggio e trattare con merce \"non è un tuo problema\".\n• Non sei pronto a vedere 10.000 passi sull'orologio ogni sera.\n• Stai cercando programmi fissi e di routine: qui viviamo nel ritmo dello sport e i nostri programmi si adattano all'attività\n• Non vuoi lavorare il sabato.",
+        "en": "Your future playground You will join the Lausanne Bel Air store, made up of a team of 30 employees. Downtown shop with a continuous influx, its services such as workshop or rental made it a must of its kind. Your Winter Rental perimeter is at the heart of our local strategy. The team is composed of about ten enthusiasts. You will be available mainly on Wednesday, Friday and Saturday. And now, let's do this: Are you looking for a dynamic job where no day looks the same? Do you want to share your passion for sport and offer an unforgettable experience to every customer who crosses the store doors? Do you like action, terrain and teamwork? Passionate about winter skiing and with an excellent sense of contact, you will be in charge of customer reception, preparation, adjustment and maintenance of the equipment. Rigoury, dynamic and loving teamwork, you will ensure that you provide a seamless, warm and secure experience for our customers. Then Skiman's post is for you. Why?\n• You're at the heart of the action. Your daily life is 100% in the field. You're Decathlon's face. Whether it's welcoming a beginner or advising an expert, you share your passion and create the link.\n• You're the actor in tomorrow's business. You're not just selling a product on the shelf. You offer an omnichannel and lasting experience: digital orders, hardware rental, .. You meet all needs. What You Will Do Every Day: Your Missions\n• Customer orientation and advice: To welcome customers, analyze their needs and guide them in a personalized way to the equipment best suited to their level and expectations.\n• Preparation and safety: Deliver rental equipment and adjust fasteners accurately, in strict compliance with safety standards.\n• Rental space management: Ensure the daily storage of equipment, manage the flow of departures and returns, and ensure the proper presentation of equipment. This job isn't for you if...\n• You'd rather sit behind a screen all day in a quiet place.\n• You don't like to go spontaneously to others.\n• You think unpacking pallets, tidying a radius and dealing with merchandise \"that's not your problem.\"\n• You're not ready to see 10,000 steps on your watch every night.\n• You are looking for fixed and routine schedules: here we live in the rhythm of sport and our schedules adapt to the activity\n• You don't want to work on Saturdays.",
+        "de": "Dein zukünftiger Spielplatz Sie werden dem Lausanne Bel Air Store beitreten, der aus einem Team von 30 Mitarbeitern besteht. Downtown-Shop mit einem kontinuierlichen Zustrom, seine Dienstleistungen wie Werkstatt oder Vermietung machte es ein Muss seiner Art. Ihr Winter Rental Perimeter steht im Mittelpunkt unserer lokalen Strategie. Das Team besteht aus etwa zehn Enthusiasten. Sie werden hauptsächlich am Mittwoch, Freitag und Samstag zur Verfügung stehen. Und jetzt machen wir das: Suchen Sie einen dynamischen Job, bei dem kein Tag gleich aussieht? Möchten Sie Ihre Leidenschaft für Sport teilen und jedem Kunden, der die Ladentüren überquert, ein unvergessliches Erlebnis bieten? Magst du Action, Terrain und Teamwork? Leidenschaftlich für das Winterskifahren und mit einem hervorragenden Kontaktgefühl sind Sie für die Rezeption, Vorbereitung, Anpassung und Wartung der Geräte verantwortlich. Strenge, dynamische und liebevolle Teamarbeit, Sie werden sicherstellen, dass Sie eine nahtlose, warme und sichere Erfahrung für unsere Kunden bieten. Dann ist Skimans Post für dich. Warum?\n• Du bist im Mittelpunkt des Geschehens. Ihr tägliches Leben ist 100% im Feld. Du bist Decathlons Gesicht. Ob Sie einen Anfänger begrüßen oder einen Experten beraten, Sie teilen Ihre Leidenschaft und erstellen den Link.\n• Du bist der Schauspieler im Geschäft von morgen. Sie verkaufen nicht nur ein Produkt im Regal. Sie bieten eine Omnichannel- und dauerhafte Erfahrung: digitale Bestellungen, Hardware-Verleih, .. Sie erfüllen alle Bedürfnisse. Was Sie jeden Tag tun werden: Ihre Missionen\n• Kundenorientierung und -beratung: Um Kunden willkommen zu heißen, ihre Bedürfnisse zu analysieren und sie auf personalisierte Weise zu der Ausrüstung zu führen, die am besten zu ihrem Niveau und ihren Erwartungen passt.\n• Vorbereitung und Sicherheit: Liefern Sie Mietausrüstung und passen Sie die Befestigungselemente genau unter strikter Einhaltung der Sicherheitsstandards an.\n• Mietraummanagement: Sorgen Sie für die tägliche Lagerung der Ausrüstung, verwalten Sie den Abfahrts- und Rückfahrtfluss und sorgen Sie für die ordnungsgemäße Präsentation der Ausrüstung. Dieser Job ist nichts für dich, wenn...\n• Du würdest lieber den ganzen Tag an einem ruhigen Ort hinter einem Bildschirm sitzen.\n• Du gehst nicht gerne spontan zu anderen.\n• Sie denken, dass das Auspacken von Paletten, das Aufräumen eines Radius und der Umgang mit Waren \"das ist nicht Ihr Problem\".\n• Sie sind nicht bereit, jede Nacht 10.000 Schritte auf Ihrer Uhr zu sehen.\n• Sie suchen feste und routinemäßige Zeitpläne: Hier leben wir im Rhythmus des Sports und unsere Zeitpläne passen sich der Aktivität an\n• Sie wollen nicht samstags arbeiten.",
+        "fr": "Ton futur terrain de jeu Tu rejoindras le magasin de Lausanne Bel Air , constitué d’une équipe de 30 collaborateurs . Magasin de centre-ville avec une affluence continue, ses services comme l'atelier ou la location en ont fait un incontournable en son genre. Ton périmètre Location hiver est au cœur de notre stratégie locale. L'équipe est composée d'une dizaine de passionnés. Tu sera disponible principalement les mercredi, vendredi et samedi. Et maintenant, place au métier : Tu cherches un métier dynamique où aucune journée ne se ressemble ? Tu as envie de partager ta passion du sport et d'offrir une expérience inoubliable à chaque client qui franchit les portes du magasin ? Tu aimes l'action, le terrain et le travail en équipe ? Passionné(e) de glisse hiver et doté(e) d'un excellent sens du contact, vous serez en charge de l'accueil de la clientèle, ainsi que de la préparation, du réglage et de l'entretien du matériel. Rigoureux(se), dynamique et aimant le travail en équipe, vous veillerez à offrir une expérience fluide, chaleureuse et sécurisée à nos clients. Alors le poste de Skiman est fait pour toi. Pourquoi ?\n• Tu es au cœur de l'action . Ton quotidien, c'est 100% sur le terrain. Tu es le visage de Decathlon. Qu'il s'agisse d'accueillir un débutant ou de conseiller un expert, tu partages ta passion et tu crées le lien.\n• Tu es l'acteur⸱rice du commerce de demain . Tu ne te contentes pas de vendre un produit en rayon. Tu proposes une expérience omnicanale et durable : commandes digitales, location de matériel, .. Tu réponds à tous les besoins. Ce que tu feras au quotidien : tes missions\n• Orientation et conseil client : Accueillir les clients, analyser leurs besoins et les guider de manière personnalisée vers l'équipement le mieux adapté a leur niveau et à leurs attentes.\n• Préparation et sécurité : Deliver le matériel de location et régler les fixations avec précision, dans le strict respect des normes de sécurité.\n• Gestion de l'espace location : Assurer le rangement quotidien du matériel, gérer le flux des départs et des retours, et veiller à la bonne présentation du materiel. Ce poste N'EST PAS fait pour toi si...\n• Tu préfères rester assis⸱e derrière un écran toute la journée au calme.\n• Tu n'aimes pas aller spontanément vers les autres.\n• Tu penses que déballer des palettes, ranger un rayon et traiter de la marchandise \"ce n'est pas ton problème\".\n• Tu n'es pas prêt⸱e à voir s'afficher 10 000 pas sur ta montre chaque soir.\n• Tu recherches des horaires fixes et routiniers : ici, on vit au rythme du sport et nos plannings s'adaptent à l'activité\n• Tu ne souhaites pas travailler les samedis."
       },
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4540683-skiman-location-hf-contrat-horaire-4-a-5-mois-lausanne-bel-air-1003-lausanne",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:34:57.436Z",
+      "crawledAt": "2026-08-10T22:06:52.294Z",
       "addressLocality": "Lausanne",
       "postalCode": "1003",
       "addressRegion": "VD",
@@ -4374,6 +4222,83 @@
       "featured": false,
       "postedDate": "2026-08-10",
       "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4540683-skiman-location-hf-contrat-horaire-4-a-5-mois-lausanne-bel-air-1003-lausanne",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "skiman-location-h-f-contrat-horaire-4-a-5-mois-lausanne-bel-air-decathlon-ch",
+        "noleggio-skiman-h-f-contratto-orario-da-4-a-5-mesi-lausanne-bel-air-decathlon-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "skiman-location-h-f-contrat-horaire-4-a-5-mois-lausanne-bel-air-decathlon-ch",
+          "noleggio-skiman-h-f-contratto-orario-da-4-a-5-mesi-lausanne-bel-air-decathlon-lausanne"
+        ],
+        "en": [
+          "skiman-location-h-f-contrat-horaire-4-a-5-mois-lausanne-bel-air-decathlon-ch"
+        ],
+        "de": [
+          "skiman-location-h-f-contrat-horaire-4-a-5-mois-lausanne-bel-air-decathlon-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-10T10:34:57.436Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "decathlon-371535ed7c98",
+      "slug": "responsable-de-rayon-h-f-sports-de-glisse-cdi-100-neuchatel-decathlon-ch",
+      "slugByLocale": {
+        "fr": "responsable-de-rayon-h-f-sports-de-glisse-cdi-100-neuchatel-decathlon-ch",
+        "it": "responsable-de-rayon-h-f-sports-de-glisse-cdi-100-neuchatel-decathlon-ch",
+        "en": "responsable-de-rayon-h-f-sports-de-glisse-cdi-100-neuchatel-decathlon-ch",
+        "de": "responsable-de-rayon-h-f-sports-de-glisse-cdi-100-neuchatel-decathlon-ch"
+      },
+      "company": "Decathlon",
+      "companyKey": "decathlon",
+      "companyDomain": "decathlon.ch",
+      "title": "Responsable de Rayon (H/F) - Sports de GLISSE - CDI 100% - Neuchâtel",
+      "titleByLocale": {
+        "fr": "Responsable de Rayon (H/F) - Sports de GLISSE - CDI 100% - Neuchâtel",
+        "it": "Responsable de Rayon (H/F) - Sports de GLISSE - CDI 100% - Neuchâtel",
+        "en": "Responsable de Rayon (H/F) - Sports de GLISSE - CDI 100% - Neuchâtel",
+        "de": "Responsable de Rayon (H/F) - Sports de GLISSE - CDI 100% - Neuchâtel"
+      },
+      "description": "​ Ton futur terrain de jeu Tu rejoindras le magasin de Neuchâtel, ouvert en 2017 (notre tout premier magasin historique Decathlon en Suisse !). Idéalement situé dans le centre commercial de Marin-Epagnier, juste à côté de Neuchâtel et à deux pas du lac, il offre un cadre de travail exceptionnel pour les passionnés de sport. Ton périmètre GLISSE (soit le ski en hiver et les sports d'eau en été) est au cœur de notre stratégie locale. Tu prendras en charge une activité à fort enjeu économique, générant un chiffre d'affaires annuel de 4,6 millions en omnicanal, dont 3,1 millions réalisés directement en magasin. Pour relever ce défi, tu auras la responsabilité de manager et de faire grandir une équipe de 5 collaborateurs passionnés . Ta mission ? Faire de ton sport la référence absolue pour tous les pratiquants du coin ! Qu'il s'agisse d'équiper les skieurs pour la saison hivernale ou de conseiller les amateurs de stand-up paddle sur le lac à la sortie du magasin l'été, tu construiras un véritable projet commercial local et dynamique pour répondre aux besoins de nos sportifs. Rejoins une aventure qui n'en finit pas de grandir Decathlon en Suisse, c'est une success story qui a débuté en 2017 à Neuchâtel. Depuis, nous avons ouvert une dizaine de magasins par an pour atteindre aujourd'hui 50 points de vente. Et on ne compte pas s'arrêter là ! Notre expansion se poursuit, notamment en Suisse alémanique, offrant des opportunités de carrière partout dans le pays. Et maintenant, place au métier : Tu cherches un métier où tu ne passeras pas ta vie derrière un bureau ? Tu as envie de prendre des décisions, d'être sur le terrain et de gérer ton rayon comme ta propre entreprise ? Tu rêves de coacher une équipe pour l’emmener vers les sommets ? Alors le poste de Responsable de Rayon (=Team Leader) est fait pour toi. Pourquoi ?\n• Tu passeras 80% de ton temps hors du bureau. Ton rayon est ton terrain de jeu. Que ce soit pour passer du temps avec ton équipe ou avec tes clients, tu es au cœur de l'action. Tu conserves un temps stratégique, mais nous te proposons avant tout un métier de terrain.\n• Ta réussite est directement liée à celle de ton équipe. En tant que manager, ton rôle n’est pas de tout contrôler mais de tout faciliter. Tu donnes le “pourquoi” à ton équipe, et ton équipe décide du “comment”. Tu acceptes le droit à l'erreur et tu grandis avec eux. Si ton équipe gagne, tu gagnes.\n• Tu es le/la patron(ne) de ton activité . Ici, tu es un véritable intrapreneur. Tu anticipes tout le cycle d’activité de ton rayon d’aujourd’hui et de demain, tu recrutes tes talents, tu définis tes stratégies commerciales… bref tu es aux commandes. Ce que tu feras au quotidien concrètement : Tu auras 3 grandes casquettes. #1 : Ta casquette de GESTIONNAIRE :\n• Pilotage commercial (ton P&L) : Tu es le/la patron/ne de ton activité. Tu écris et animes ta politique commerciale, tu choisis tes gammes, analyses tes performances économiques et gères tes stocks (dont la réception de marchandises).\n• Permanence magasin (Capitaine) : Par roulement avec d’autres leaders,, tu prends la responsabilité globale du magasin (ouverture, fermeture, sécurité). Tu es le/la garant/e de la fluidité du \"match\" tout au long de la journée. #2 : Ta casquette de MANAGER :\n• Coaching et management : Tu es là pour faire progresser ton équipe chaque jour. Tu mènes les entretiens individuels mensuels avec chacun de tes coéquipiers pour les accompagner dans leur développement.\n• Recrutement : C'est toi qui recherches et choisis tes futurs partenaires de jeu pour bâtir une équipe diversifiée de passionnés.\n• Formation : Tu continues d'apprendre au quotidien (leadership, finance, technique produit, etc.) et tu transmets à ton tour tes savoirs à ton équipe. #3 : Ta casquette de COMMERCANT :\n• Commerce client : La satisfaction client doit être la priorité ! En manager exemplaire, tu mets la main à la pâte : tu conseilles tes clients, tu gères l'accueil, tu fais la réception de marchandises et tu garantis un rayon toujours au top.\n• Missions transverses : Dès que tu es maîtrisant sur ton métier, tu peux sortir du cadre pour booster des projets régionaux, des événements sportifs ou des partenariats clubs. Ce poste N’EST PAS fait pour toi si...\n• Tu attends qu'on te dise quoi faire chaque matin.\n• Tu cherches un job “routinier” sans imprévus.\n• Tes baskets n'ont pas envie de faire 10’000 pas par jour...\n• Tu ne souhaites pas travailler les samedis.",
+      "descriptionByLocale": {
+        "fr": "​ Ton futur terrain de jeu Tu rejoindras le magasin de Neuchâtel, ouvert en 2017 (notre tout premier magasin historique Decathlon en Suisse !). Idéalement situé dans le centre commercial de Marin-Epagnier, juste à côté de Neuchâtel et à deux pas du lac, il offre un cadre de travail exceptionnel pour les passionnés de sport. Ton périmètre GLISSE (soit le ski en hiver et les sports d'eau en été) est au cœur de notre stratégie locale. Tu prendras en charge une activité à fort enjeu économique, générant un chiffre d'affaires annuel de 4,6 millions en omnicanal, dont 3,1 millions réalisés directement en magasin. Pour relever ce défi, tu auras la responsabilité de manager et de faire grandir une équipe de 5 collaborateurs passionnés . Ta mission ? Faire de ton sport la référence absolue pour tous les pratiquants du coin ! Qu'il s'agisse d'équiper les skieurs pour la saison hivernale ou de conseiller les amateurs de stand-up paddle sur le lac à la sortie du magasin l'été, tu construiras un véritable projet commercial local et dynamique pour répondre aux besoins de nos sportifs. Rejoins une aventure qui n'en finit pas de grandir Decathlon en Suisse, c'est une success story qui a débuté en 2017 à Neuchâtel. Depuis, nous avons ouvert une dizaine de magasins par an pour atteindre aujourd'hui 50 points de vente. Et on ne compte pas s'arrêter là ! Notre expansion se poursuit, notamment en Suisse alémanique, offrant des opportunités de carrière partout dans le pays. Et maintenant, place au métier : Tu cherches un métier où tu ne passeras pas ta vie derrière un bureau ? Tu as envie de prendre des décisions, d'être sur le terrain et de gérer ton rayon comme ta propre entreprise ? Tu rêves de coacher une équipe pour l’emmener vers les sommets ? Alors le poste de Responsable de Rayon (=Team Leader) est fait pour toi. Pourquoi ?\n• Tu passeras 80% de ton temps hors du bureau. Ton rayon est ton terrain de jeu. Que ce soit pour passer du temps avec ton équipe ou avec tes clients, tu es au cœur de l'action. Tu conserves un temps stratégique, mais nous te proposons avant tout un métier de terrain.\n• Ta réussite est directement liée à celle de ton équipe. En tant que manager, ton rôle n’est pas de tout contrôler mais de tout faciliter. Tu donnes le “pourquoi” à ton équipe, et ton équipe décide du “comment”. Tu acceptes le droit à l'erreur et tu grandis avec eux. Si ton équipe gagne, tu gagnes.\n• Tu es le/la patron(ne) de ton activité . Ici, tu es un véritable intrapreneur. Tu anticipes tout le cycle d’activité de ton rayon d’aujourd’hui et de demain, tu recrutes tes talents, tu définis tes stratégies commerciales… bref tu es aux commandes. Ce que tu feras au quotidien concrètement : Tu auras 3 grandes casquettes. #1 : Ta casquette de GESTIONNAIRE :\n• Pilotage commercial (ton P&L) : Tu es le/la patron/ne de ton activité. Tu écris et animes ta politique commerciale, tu choisis tes gammes, analyses tes performances économiques et gères tes stocks (dont la réception de marchandises).\n• Permanence magasin (Capitaine) : Par roulement avec d’autres leaders,, tu prends la responsabilité globale du magasin (ouverture, fermeture, sécurité). Tu es le/la garant/e de la fluidité du \"match\" tout au long de la journée. #2 : Ta casquette de MANAGER :\n• Coaching et management : Tu es là pour faire progresser ton équipe chaque jour. Tu mènes les entretiens individuels mensuels avec chacun de tes coéquipiers pour les accompagner dans leur développement.\n• Recrutement : C'est toi qui recherches et choisis tes futurs partenaires de jeu pour bâtir une équipe diversifiée de passionnés.\n• Formation : Tu continues d'apprendre au quotidien (leadership, finance, technique produit, etc.) et tu transmets à ton tour tes savoirs à ton équipe. #3 : Ta casquette de COMMERCANT :\n• Commerce client : La satisfaction client doit être la priorité ! En manager exemplaire, tu mets la main à la pâte : tu conseilles tes clients, tu gères l'accueil, tu fais la réception de marchandises et tu garantis un rayon toujours au top.\n• Missions transverses : Dès que tu es maîtrisant sur ton métier, tu peux sortir du cadre pour booster des projets régionaux, des événements sportifs ou des partenariats clubs. Ce poste N’EST PAS fait pour toi si...\n• Tu attends qu'on te dise quoi faire chaque matin.\n• Tu cherches un job “routinier” sans imprévus.\n• Tes baskets n'ont pas envie de faire 10’000 pas par jour...\n• Tu ne souhaites pas travailler les samedis.",
+        "it": "​ Ton futur terrain de jeu Tu rejoindras le magasin de Neuchâtel, ouvert en 2017 (notre tout premier magasin historique Decathlon en Suisse !). Idéalement situé dans le centre commercial de Marin-Epagnier, juste à côté de Neuchâtel et à deux pas du lac, il offre un cadre de travail exceptionnel pour les passionnés de sport. Ton périmètre GLISSE (soit le ski en hiver et les sports d'eau en été) est au cœur de notre stratégie locale. Tu prendras en charge une activité à fort enjeu économique, générant un chiffre d'affaires annuel de 4,6 millions en omnicanal, dont 3,1 millions réalisés directement en magasin. Pour relever ce défi, tu auras la responsabilité de manager et de faire grandir une équipe de 5 collaborateurs passionnés . Ta mission ? Faire de ton sport la référence absolue pour tous les pratiquants du coin ! Qu'il s'agisse d'équiper les skieurs pour la saison hivernale ou de conseiller les amateurs de stand-up paddle sur le lac à la sortie du magasin l'été, tu construiras un véritable projet commercial local et dynamique pour répondre aux besoins de nos sportifs. Rejoins une aventure qui n'en finit pas de grandir Decathlon en Suisse, c'est une success story qui a débuté en 2017 à Neuchâtel. Depuis, nous avons ouvert une dizaine de magasins par an pour atteindre aujourd'hui 50 points de vente. Et on ne compte pas s'arrêter là ! Notre expansion se poursuit, notamment en Suisse alémanique, offrant des opportunités de carrière partout dans le pays. Et maintenant, place au métier : Tu cherches un métier où tu ne passeras pas ta vie derrière un bureau ? Tu as envie de prendre des décisions, d'être sur le terrain et de gérer ton rayon comme ta propre entreprise ? Tu rêves de coacher une équipe pour l’emmener vers les sommets ? Alors le poste de Responsable de Rayon (=Team Leader) est fait pour toi. Pourquoi ?\n• Tu passeras 80% de ton temps hors du bureau. Ton rayon est ton terrain de jeu. Que ce soit pour passer du temps avec ton équipe ou avec tes clients, tu es au cœur de l'action. Tu conserves un temps stratégique, mais nous te proposons avant tout un métier de terrain.\n• Ta réussite est directement liée à celle de ton équipe. En tant que manager, ton rôle n’est pas de tout contrôler mais de tout faciliter. Tu donnes le “pourquoi” à ton équipe, et ton équipe décide du “comment”. Tu acceptes le droit à l'erreur et tu grandis avec eux. Si ton équipe gagne, tu gagnes.\n• Tu es le/la patron(ne) de ton activité . Ici, tu es un véritable intrapreneur. Tu anticipes tout le cycle d’activité de ton rayon d’aujourd’hui et de demain, tu recrutes tes talents, tu définis tes stratégies commerciales… bref tu es aux commandes. Ce que tu feras au quotidien concrètement : Tu auras 3 grandes casquettes. #1 : Ta casquette de GESTIONNAIRE :\n• Pilotage commercial (ton P&L) : Tu es le/la patron/ne de ton activité. Tu écris et animes ta politique commerciale, tu choisis tes gammes, analyses tes performances économiques et gères tes stocks (dont la réception de marchandises).\n• Permanence magasin (Capitaine) : Par roulement avec d’autres leaders,, tu prends la responsabilité globale du magasin (ouverture, fermeture, sécurité). Tu es le/la garant/e de la fluidité du \"match\" tout au long de la journée. #2 : Ta casquette de MANAGER :\n• Coaching et management : Tu es là pour faire progresser ton équipe chaque jour. Tu mènes les entretiens individuels mensuels avec chacun de tes coéquipiers pour les accompagner dans leur développement.\n• Recrutement : C'est toi qui recherches et choisis tes futurs partenaires de jeu pour bâtir une équipe diversifiée de passionnés.\n• Formation : Tu continues d'apprendre au quotidien (leadership, finance, technique produit, etc.) et tu transmets à ton tour tes savoirs à ton équipe. #3 : Ta casquette de COMMERCANT :\n• Commerce client : La satisfaction client doit être la priorité ! En manager exemplaire, tu mets la main à la pâte : tu conseilles tes clients, tu gères l'accueil, tu fais la réception de marchandises et tu garantis un rayon toujours au top.\n• Missions transverses : Dès que tu es maîtrisant sur ton métier, tu peux sortir du cadre pour booster des projets régionaux, des événements sportifs ou des partenariats clubs. Ce poste N’EST PAS fait pour toi si...\n• Tu attends qu'on te dise quoi faire chaque matin.\n• Tu cherches un job “routinier” sans imprévus.\n• Tes baskets n'ont pas envie de faire 10’000 pas par jour...\n• Tu ne souhaites pas travailler les samedis.",
+        "en": "​ Ton futur terrain de jeu Tu rejoindras le magasin de Neuchâtel, ouvert en 2017 (notre tout premier magasin historique Decathlon en Suisse !). Idéalement situé dans le centre commercial de Marin-Epagnier, juste à côté de Neuchâtel et à deux pas du lac, il offre un cadre de travail exceptionnel pour les passionnés de sport. Ton périmètre GLISSE (soit le ski en hiver et les sports d'eau en été) est au cœur de notre stratégie locale. Tu prendras en charge une activité à fort enjeu économique, générant un chiffre d'affaires annuel de 4,6 millions en omnicanal, dont 3,1 millions réalisés directement en magasin. Pour relever ce défi, tu auras la responsabilité de manager et de faire grandir une équipe de 5 collaborateurs passionnés . Ta mission ? Faire de ton sport la référence absolue pour tous les pratiquants du coin ! Qu'il s'agisse d'équiper les skieurs pour la saison hivernale ou de conseiller les amateurs de stand-up paddle sur le lac à la sortie du magasin l'été, tu construiras un véritable projet commercial local et dynamique pour répondre aux besoins de nos sportifs. Rejoins une aventure qui n'en finit pas de grandir Decathlon en Suisse, c'est une success story qui a débuté en 2017 à Neuchâtel. Depuis, nous avons ouvert une dizaine de magasins par an pour atteindre aujourd'hui 50 points de vente. Et on ne compte pas s'arrêter là ! Notre expansion se poursuit, notamment en Suisse alémanique, offrant des opportunités de carrière partout dans le pays. Et maintenant, place au métier : Tu cherches un métier où tu ne passeras pas ta vie derrière un bureau ? Tu as envie de prendre des décisions, d'être sur le terrain et de gérer ton rayon comme ta propre entreprise ? Tu rêves de coacher une équipe pour l’emmener vers les sommets ? Alors le poste de Responsable de Rayon (=Team Leader) est fait pour toi. Pourquoi ?\n• Tu passeras 80% de ton temps hors du bureau. Ton rayon est ton terrain de jeu. Que ce soit pour passer du temps avec ton équipe ou avec tes clients, tu es au cœur de l'action. Tu conserves un temps stratégique, mais nous te proposons avant tout un métier de terrain.\n• Ta réussite est directement liée à celle de ton équipe. En tant que manager, ton rôle n’est pas de tout contrôler mais de tout faciliter. Tu donnes le “pourquoi” à ton équipe, et ton équipe décide du “comment”. Tu acceptes le droit à l'erreur et tu grandis avec eux. Si ton équipe gagne, tu gagnes.\n• Tu es le/la patron(ne) de ton activité . Ici, tu es un véritable intrapreneur. Tu anticipes tout le cycle d’activité de ton rayon d’aujourd’hui et de demain, tu recrutes tes talents, tu définis tes stratégies commerciales… bref tu es aux commandes. Ce que tu feras au quotidien concrètement : Tu auras 3 grandes casquettes. #1 : Ta casquette de GESTIONNAIRE :\n• Pilotage commercial (ton P&L) : Tu es le/la patron/ne de ton activité. Tu écris et animes ta politique commerciale, tu choisis tes gammes, analyses tes performances économiques et gères tes stocks (dont la réception de marchandises).\n• Permanence magasin (Capitaine) : Par roulement avec d’autres leaders,, tu prends la responsabilité globale du magasin (ouverture, fermeture, sécurité). Tu es le/la garant/e de la fluidité du \"match\" tout au long de la journée. #2 : Ta casquette de MANAGER :\n• Coaching et management : Tu es là pour faire progresser ton équipe chaque jour. Tu mènes les entretiens individuels mensuels avec chacun de tes coéquipiers pour les accompagner dans leur développement.\n• Recrutement : C'est toi qui recherches et choisis tes futurs partenaires de jeu pour bâtir une équipe diversifiée de passionnés.\n• Formation : Tu continues d'apprendre au quotidien (leadership, finance, technique produit, etc.) et tu transmets à ton tour tes savoirs à ton équipe. #3 : Ta casquette de COMMERCANT :\n• Commerce client : La satisfaction client doit être la priorité ! En manager exemplaire, tu mets la main à la pâte : tu conseilles tes clients, tu gères l'accueil, tu fais la réception de marchandises et tu garantis un rayon toujours au top.\n• Missions transverses : Dès que tu es maîtrisant sur ton métier, tu peux sortir du cadre pour booster des projets régionaux, des événements sportifs ou des partenariats clubs. Ce poste N’EST PAS fait pour toi si...\n• Tu attends qu'on te dise quoi faire chaque matin.\n• Tu cherches un job “routinier” sans imprévus.\n• Tes baskets n'ont pas envie de faire 10’000 pas par jour...\n• Tu ne souhaites pas travailler les samedis.",
+        "de": "​ Ton futur terrain de jeu Tu rejoindras le magasin de Neuchâtel, ouvert en 2017 (notre tout premier magasin historique Decathlon en Suisse !). Idéalement situé dans le centre commercial de Marin-Epagnier, juste à côté de Neuchâtel et à deux pas du lac, il offre un cadre de travail exceptionnel pour les passionnés de sport. Ton périmètre GLISSE (soit le ski en hiver et les sports d'eau en été) est au cœur de notre stratégie locale. Tu prendras en charge une activité à fort enjeu économique, générant un chiffre d'affaires annuel de 4,6 millions en omnicanal, dont 3,1 millions réalisés directement en magasin. Pour relever ce défi, tu auras la responsabilité de manager et de faire grandir une équipe de 5 collaborateurs passionnés . Ta mission ? Faire de ton sport la référence absolue pour tous les pratiquants du coin ! Qu'il s'agisse d'équiper les skieurs pour la saison hivernale ou de conseiller les amateurs de stand-up paddle sur le lac à la sortie du magasin l'été, tu construiras un véritable projet commercial local et dynamique pour répondre aux besoins de nos sportifs. Rejoins une aventure qui n'en finit pas de grandir Decathlon en Suisse, c'est une success story qui a débuté en 2017 à Neuchâtel. Depuis, nous avons ouvert une dizaine de magasins par an pour atteindre aujourd'hui 50 points de vente. Et on ne compte pas s'arrêter là ! Notre expansion se poursuit, notamment en Suisse alémanique, offrant des opportunités de carrière partout dans le pays. Et maintenant, place au métier : Tu cherches un métier où tu ne passeras pas ta vie derrière un bureau ? Tu as envie de prendre des décisions, d'être sur le terrain et de gérer ton rayon comme ta propre entreprise ? Tu rêves de coacher une équipe pour l’emmener vers les sommets ? Alors le poste de Responsable de Rayon (=Team Leader) est fait pour toi. Pourquoi ?\n• Tu passeras 80% de ton temps hors du bureau. Ton rayon est ton terrain de jeu. Que ce soit pour passer du temps avec ton équipe ou avec tes clients, tu es au cœur de l'action. Tu conserves un temps stratégique, mais nous te proposons avant tout un métier de terrain.\n• Ta réussite est directement liée à celle de ton équipe. En tant que manager, ton rôle n’est pas de tout contrôler mais de tout faciliter. Tu donnes le “pourquoi” à ton équipe, et ton équipe décide du “comment”. Tu acceptes le droit à l'erreur et tu grandis avec eux. Si ton équipe gagne, tu gagnes.\n• Tu es le/la patron(ne) de ton activité . Ici, tu es un véritable intrapreneur. Tu anticipes tout le cycle d’activité de ton rayon d’aujourd’hui et de demain, tu recrutes tes talents, tu définis tes stratégies commerciales… bref tu es aux commandes. Ce que tu feras au quotidien concrètement : Tu auras 3 grandes casquettes. #1 : Ta casquette de GESTIONNAIRE :\n• Pilotage commercial (ton P&L) : Tu es le/la patron/ne de ton activité. Tu écris et animes ta politique commerciale, tu choisis tes gammes, analyses tes performances économiques et gères tes stocks (dont la réception de marchandises).\n• Permanence magasin (Capitaine) : Par roulement avec d’autres leaders,, tu prends la responsabilité globale du magasin (ouverture, fermeture, sécurité). Tu es le/la garant/e de la fluidité du \"match\" tout au long de la journée. #2 : Ta casquette de MANAGER :\n• Coaching et management : Tu es là pour faire progresser ton équipe chaque jour. Tu mènes les entretiens individuels mensuels avec chacun de tes coéquipiers pour les accompagner dans leur développement.\n• Recrutement : C'est toi qui recherches et choisis tes futurs partenaires de jeu pour bâtir une équipe diversifiée de passionnés.\n• Formation : Tu continues d'apprendre au quotidien (leadership, finance, technique produit, etc.) et tu transmets à ton tour tes savoirs à ton équipe. #3 : Ta casquette de COMMERCANT :\n• Commerce client : La satisfaction client doit être la priorité ! En manager exemplaire, tu mets la main à la pâte : tu conseilles tes clients, tu gères l'accueil, tu fais la réception de marchandises et tu garantis un rayon toujours au top.\n• Missions transverses : Dès que tu es maîtrisant sur ton métier, tu peux sortir du cadre pour booster des projets régionaux, des événements sportifs ou des partenariats clubs. Ce poste N’EST PAS fait pour toi si...\n• Tu attends qu'on te dise quoi faire chaque matin.\n• Tu cherches un job “routinier” sans imprévus.\n• Tes baskets n'ont pas envie de faire 10’000 pas par jour...\n• Tu ne souhaites pas travailler les samedis."
+      },
+      "location": "Marin-Epagnier",
+      "canton": "GE",
+      "url": "https://joinus.decathlon.ch/fr_CH/annonce/4541427-responsable-de-rayon-hf-sports-de-glisse-cdi-100-neuchatel-2074-marin-epagnier",
+      "source": "Decathlon Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-10T22:06:51.993Z",
+      "addressLocality": "Marin-Epagnier",
+      "postalCode": "2074",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-10",
+      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4541427-responsable-de-rayon-hf-sports-de-glisse-cdi-100-neuchatel-2074-marin-epagnier",
       "requirements": [],
       "requirementsByLocale": {
         "fr": []
@@ -4391,7 +4316,288 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-10T10:34:57.436Z"
+      "firstSeenAt": "2026-08-10T22:06:51.993Z"
+    },
+    {
+      "id": "decathlon-96f3dbef602d",
+      "slug": "fullstack-developer-backend-specialist-fastapi-decathlon-ch",
+      "slugByLocale": {
+        "it": "fullstack-developer-backend-specialist-fastapi-decathlon-ch",
+        "en": "fullstack-developer-backend-specialist-fastapi-decathlon-ch",
+        "de": "fullstack-developer-backend-specialist-fastapi-decathlon-ch",
+        "fr": "fullstack-developer-backend-specialist-fastapi-decathlon-ch"
+      },
+      "company": "Decathlon",
+      "companyKey": "decathlon",
+      "companyDomain": "decathlon.ch",
+      "title": "Fullstack Developer (Backend Specialist – FastAPI)",
+      "titleByLocale": {
+        "it": "Fullstack Sviluppatore (Backend Specialista – FastAPI)",
+        "en": "Fullstack Developer (Backend Specialist – FastAPI)",
+        "de": "Fullstack Entwickler (Backend Spezialist – FastAPI)",
+        "fr": "Fullstack Développeur (Backend Spécialiste – FastAPI)"
+      },
+      "description": "The context Since 1976, Decathlon has been on a mission: \"Moving People through the Wonders of Sport.\" Our global family includes 105,000 teammates, 2,000 stores in 70 countries, and 85 product brands. Our Swiss success story began in 2017 with the opening of our very first store in Neuchâtel. Today, we have rapidly grown to 1,500 teammates across 54 stores throughout the country. And we are not stopping there! We are continuously expanding our footprint, particularly in the German-speaking part of Switzerland. In this dynamic environment, our Digital team is evolving. Following a recent reorganization within the IT engineering team, we are creating a new permanent position and looking for a pure developer . If you are looking for a 100% technical role where you can fully immerse yourself in the code and architecture, this newly created role is for you. Our culture: Dare, Test, and Play Together At Decathlon, you are not just executing tasks; you are an intrapreneur. We work in an environment where we love to test, dare, and take decisions. We strongly believe in the \"right to make mistakes\"—we try, we sometimes fail, we learn, and we grow together. In this position, you will have the the freedom to work with modern stacks (Svelte, FastAPI) in a fast-paced environment (GCP Severless). But beyond the code, we are a team of sports enthusiasts. We regularly share sports sessions together, from lunch-break runs to team outdoor events. Finally, career evolution here is not a myth: joining Decathlon means entering a global network where your career path can evolve according to your desires, whether in Switzerland or internationally. The mission We are looking for a Fullstack Developer with a \"Backend-First\" mindset to join our engineering team. You will be a key player in architecting and building modern web applications that power our most strategic Swiss initiatives. Your primary focus will be on Python, creating high-performance, reusable component libraries that will serve as the foundation for multiple platforms. Key projects you will tackle\n• Rental solution: Scaling our brand-new platform to make sports equipment more accessible through the circular economy.\n• B2B Platform: Developing professional interfaces for our corporate and club partners.\n• Internal CMS & Tools: Building the \"engine room\" that empowers our internal teams to manage content and operations efficiently. What you will do\n• Architect and Build: Design and implement robust backend architectures using FastAPI.\n• Fullstack Delivery: Maintain and extend our backend services, primarily built as Cloud Functions (GCP) using FastAPI (and occasionally Flask for legacy services).\n• Fullstack Excellence: Develop a library of high-reusable frontend components to ensure UI/UX consistency across all platforms.\n• Collaborate: Work closely with UX/UI designers and product managers to translate complex requirements into elegant technical solutions.\n• Quality: Advocate for best practices in testing, documentation, and performance optimization.",
+      "descriptionByLocale": {
+        "it": "The context Since 1976, Decathlon has been on a mission: \"Moving People through the Wonders of Sport.\" Our global family includes 105,000 teammates, 2,000 stores in 70 countries, and 85 product brands. Our Swiss success story began in 2017 with the opening of our very first store in Neuchâtel. Today, we have rapidly grown to 1,500 teammates across 54 stores throughout the country. And we are not stopping there! We are continuously expanding our footprint, particularly in the German-speaking part of Switzerland. In this dynamic environment, our Digital team is evolving. Following a recent reorganization within the IT engineering team, we are creating a new permanent position and looking for a pure developer . If you are looking for a 100% technical role where you can fully immerse yourself in the code and architecture, this newly created role is for you. Our culture: Dare, Test, and Play Together At Decathlon, you are not just executing tasks; you are an intrapreneur. We work in an environment where we love to test, dare, and take decisions. We strongly believe in the \"right to make mistakes\"—we try, we sometimes fail, we learn, and we grow together. In this position, you will have the the freedom to work with modern stacks (Svelte, FastAPI) in a fast-paced environment (GCP Severless). But beyond the code, we are a team of sports enthusiasts. We regularly share sports sessions together, from lunch-break runs to team outdoor events. Finally, career evolution here is not a myth: joining Decathlon means entering a global network where your career path can evolve according to your desires, whether in Switzerland or internationally. The mission We are looking for a Fullstack Developer with a \"Backend-First\" mindset to join our engineering team. You will be a key player in architecting and building modern web applications that power our most strategic Swiss initiatives. Your primary focus will be on Python, creating high-performance, reusable component libraries that will serve as the foundation for multiple platforms. Key projects you will tackle\n• Rental solution: Scaling our brand-new platform to make sports equipment more accessible through the circular economy.\n• B2B Platform: Developing professional interfaces for our corporate and club partners.\n• Internal CMS & Tools: Building the \"engine room\" that empowers our internal teams to manage content and operations efficiently. What you will do\n• Architect and Build: Design and implement robust backend architectures using FastAPI.\n• Fullstack Delivery: Maintain and extend our backend services, primarily built as Cloud Functions (GCP) using FastAPI (and occasionally Flask for legacy services).\n• Fullstack Excellence: Develop a library of high-reusable frontend components to ensure UI/UX consistency across all platforms.\n• Collaborate: Work closely with UX/UI designers and product managers to translate complex requirements into elegant technical solutions.\n• Quality: Advocate for best practices in testing, documentation, and performance optimization.",
+        "en": "The context Since 1976, Decathlon has been on a mission: \"Moving People through the Wonders of Sport.\" Our global family includes 105,000 teammates, 2,000 stores in 70 countries, and 85 product brands. Our Swiss success story began in 2017 with the opening of our very first store in Neuchâtel. Today, we have rapidly grown to 1,500 teammates across 54 stores throughout the country. And we are not stopping there! We are continuously expanding our footprint, particularly in the German-speaking part of Switzerland. In this dynamic environment, our Digital team is evolving. Following a recent reorganization within the IT engineering team, we are creating a new permanent position and looking for a pure developer . If you are looking for a 100% technical role where you can fully immerse yourself in the code and architecture, this newly created role is for you. Our culture: Dare, Test, and Play Together At Decathlon, you are not just executing tasks; you are an intrapreneur. We work in an environment where we love to test, dare, and take decisions. We strongly believe in the \"right to make mistakes\"—we try, we sometimes fail, we learn, and we grow together. In this position, you will have the the freedom to work with modern stacks (Svelte, FastAPI) in a fast-paced environment (GCP Severless). But beyond the code, we are a team of sports enthusiasts. We regularly share sports sessions together, from lunch-break runs to team outdoor events. Finally, career evolution here is not a myth: joining Decathlon means entering a global network where your career path can evolve according to your desires, whether in Switzerland or internationally. The mission We are looking for a Fullstack Developer with a \"Backend-First\" mindset to join our engineering team. You will be a key player in architecting and building modern web applications that power our most strategic Swiss initiatives. Your primary focus will be on Python, creating high-performance, reusable component libraries that will serve as the foundation for multiple platforms. Key projects you will tackle\n• Rental solution: Scaling our brand-new platform to make sports equipment more accessible through the circular economy.\n• B2B Platform: Developing professional interfaces for our corporate and club partners.\n• Internal CMS & Tools: Building the \"engine room\" that empowers our internal teams to manage content and operations efficiently. What you will do\n• Architect and Build: Design and implement robust backend architectures using FastAPI.\n• Fullstack Delivery: Maintain and extend our backend services, primarily built as Cloud Functions (GCP) using FastAPI (and occasionally Flask for legacy services).\n• Fullstack Excellence: Develop a library of high-reusable frontend components to ensure UI/UX consistency across all platforms.\n• Collaborate: Work closely with UX/UI designers and product managers to translate complex requirements into elegant technical solutions.\n• Quality: Advocate for best practices in testing, documentation, and performance optimization.",
+        "de": "The context Since 1976, Decathlon has been on a mission: \"Moving People through the Wonders of Sport.\" Our global family includes 105,000 teammates, 2,000 stores in 70 countries, and 85 product brands. Our Swiss success story began in 2017 with the opening of our very first store in Neuchâtel. Today, we have rapidly grown to 1,500 teammates across 54 stores throughout the country. And we are not stopping there! We are continuously expanding our footprint, particularly in the German-speaking part of Switzerland. In this dynamic environment, our Digital team is evolving. Following a recent reorganization within the IT engineering team, we are creating a new permanent position and looking for a pure developer . If you are looking for a 100% technical role where you can fully immerse yourself in the code and architecture, this newly created role is for you. Our culture: Dare, Test, and Play Together At Decathlon, you are not just executing tasks; you are an intrapreneur. We work in an environment where we love to test, dare, and take decisions. We strongly believe in the \"right to make mistakes\"—we try, we sometimes fail, we learn, and we grow together. In this position, you will have the the freedom to work with modern stacks (Svelte, FastAPI) in a fast-paced environment (GCP Severless). But beyond the code, we are a team of sports enthusiasts. We regularly share sports sessions together, from lunch-break runs to team outdoor events. Finally, career evolution here is not a myth: joining Decathlon means entering a global network where your career path can evolve according to your desires, whether in Switzerland or internationally. The mission We are looking for a Fullstack Developer with a \"Backend-First\" mindset to join our engineering team. You will be a key player in architecting and building modern web applications that power our most strategic Swiss initiatives. Your primary focus will be on Python, creating high-performance, reusable component libraries that will serve as the foundation for multiple platforms. Key projects you will tackle\n• Rental solution: Scaling our brand-new platform to make sports equipment more accessible through the circular economy.\n• B2B Platform: Developing professional interfaces for our corporate and club partners.\n• Internal CMS & Tools: Building the \"engine room\" that empowers our internal teams to manage content and operations efficiently. What you will do\n• Architect and Build: Design and implement robust backend architectures using FastAPI.\n• Fullstack Delivery: Maintain and extend our backend services, primarily built as Cloud Functions (GCP) using FastAPI (and occasionally Flask for legacy services).\n• Fullstack Excellence: Develop a library of high-reusable frontend components to ensure UI/UX consistency across all platforms.\n• Collaborate: Work closely with UX/UI designers and product managers to translate complex requirements into elegant technical solutions.\n• Quality: Advocate for best practices in testing, documentation, and performance optimization.",
+        "fr": "The context Since 1976, Decathlon has been on a mission: \"Moving People through the Wonders of Sport.\" Our global family includes 105,000 teammates, 2,000 stores in 70 countries, and 85 product brands. Our Swiss success story began in 2017 with the opening of our very first store in Neuchâtel. Today, we have rapidly grown to 1,500 teammates across 54 stores throughout the country. And we are not stopping there! We are continuously expanding our footprint, particularly in the German-speaking part of Switzerland. In this dynamic environment, our Digital team is evolving. Following a recent reorganization within the IT engineering team, we are creating a new permanent position and looking for a pure developer . If you are looking for a 100% technical role where you can fully immerse yourself in the code and architecture, this newly created role is for you. Our culture: Dare, Test, and Play Together At Decathlon, you are not just executing tasks; you are an intrapreneur. We work in an environment where we love to test, dare, and take decisions. We strongly believe in the \"right to make mistakes\"—we try, we sometimes fail, we learn, and we grow together. In this position, you will have the the freedom to work with modern stacks (Svelte, FastAPI) in a fast-paced environment (GCP Severless). But beyond the code, we are a team of sports enthusiasts. We regularly share sports sessions together, from lunch-break runs to team outdoor events. Finally, career evolution here is not a myth: joining Decathlon means entering a global network where your career path can evolve according to your desires, whether in Switzerland or internationally. The mission We are looking for a Fullstack Developer with a \"Backend-First\" mindset to join our engineering team. You will be a key player in architecting and building modern web applications that power our most strategic Swiss initiatives. Your primary focus will be on Python, creating high-performance, reusable component libraries that will serve as the foundation for multiple platforms. Key projects you will tackle\n• Rental solution: Scaling our brand-new platform to make sports equipment more accessible through the circular economy.\n• B2B Platform: Developing professional interfaces for our corporate and club partners.\n• Internal CMS & Tools: Building the \"engine room\" that empowers our internal teams to manage content and operations efficiently. What you will do\n• Architect and Build: Design and implement robust backend architectures using FastAPI.\n• Fullstack Delivery: Maintain and extend our backend services, primarily built as Cloud Functions (GCP) using FastAPI (and occasionally Flask for legacy services).\n• Fullstack Excellence: Develop a library of high-reusable frontend components to ensure UI/UX consistency across all platforms.\n• Collaborate: Work closely with UX/UI designers and product managers to translate complex requirements into elegant technical solutions.\n• Quality: Advocate for best practices in testing, documentation, and performance optimization."
+      },
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://joinus.decathlon.ch/fr_CH/annonce/4541901-fullstack-developer-backend-specialist-fastapi-1201-geneve",
+      "source": "Decathlon Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-10T22:06:51.645Z",
+      "addressLocality": "Genève",
+      "postalCode": "1201",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-10",
+      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4541901-fullstack-developer-backend-specialist-fastapi-1201-geneve",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-10T22:06:51.645Z"
+    },
+    {
+      "id": "decathlon-17184b723b89",
+      "slug": "conseiller-ere-sportif-h-f-natation-et-run-cdd-50-a-90-fribourg-decathlon-ch",
+      "slugByLocale": {
+        "fr": "conseiller-ere-sportif-h-f-natation-et-run-cdd-50-a-90-fribourg-decathlon-ch",
+        "it": "conseiller-ere-sportif-h-f-natation-et-run-cdd-50-a-90-fribourg-decathlon-ch",
+        "en": "conseiller-ere-sportif-h-f-natation-et-run-cdd-50-a-90-fribourg-decathlon-ch",
+        "de": "conseiller-ere-sportif-h-f-natation-et-run-cdd-50-a-90-fribourg-decathlon-ch"
+      },
+      "company": "Decathlon",
+      "companyKey": "decathlon",
+      "companyDomain": "decathlon.ch",
+      "title": "Conseiller.ère sportif (H/F) - NATATION ET RUN - CDD 50 à 90% - FRIBOURG",
+      "titleByLocale": {
+        "fr": "Conseiller.ère sportif (H/F) - NATATION ET RUN - CDD 50 à 90% - FRIBOURG",
+        "it": "Conseiller.ère sportif (H/F) - NATATION ET RUN - CDD 50 à 90% - FRIBOURG",
+        "en": "Conseiller.ère sportif (H/F) - NATATION ET RUN - CDD 50 à 90% - FRIBOURG",
+        "de": "Conseiller.ère sportif (H/F) - NATATION ET RUN - CDD 50 à 90% - FRIBOURG"
+      },
+      "description": "Ton futur terrain de jeu Tu rejoindras le magasin d'Avry, idéalement situé dans le centre commercial Avry Centre, à seulement 10 minutes du centre-ville de Fribourg. Très facile d'accès, que ce soit en transports en commun ou en voiture, c'est un point de rencontre incontournable pour tous les sportifs de la région ! Et maintenant, place au métier : Tu cherches un défi intense pour les prochains mois où aucune journée ne se ressemble ? Tu as envie de partager ta passion du sport et d'offrir une expérience inoubliable le temps de ta mission ? Tu aimes l'action, le terrain et prêter main-forte à une équipe soudée ? Sache qu'ici, un CDD n'est pas juste \"de passage\" : tu fais partie intégrante de la famille et ton énergie est ultra précieuse pour donner une véritable impulsion au magasin ! Pourquoi ce job est fait pour toi ?\n• Tu es au cœur de l'action. Le temps de ta mission, ton quotidien, c'est 100% sur le terrain. Tu es le visage de Decathlon. Qu'il s'agisse d'accueillir un⸱e débutant⸱e ou de conseiller un⸱e expert⸱e, tu partages ta passion et tu crées le lien.\n• Tu es l'acteur⸱rice du commerce de demain. Tu ne te contentes pas de vendre un produit en rayon. Tu proposes une expérience omnicanale et durable : commandes digitales, location de matériel, reprise d'anciens produits (Seconde Vie)… Tu réponds à tous les besoins.\n• Même en contrat temporaire, tu as de l'autonomie et de l'impact ! Tu es garant⸱e de ton sport. Tu t'assures que ton rayon donne envie, tu gères ton stock et tu mets en place tes opérations commerciales. Ton efficacité se voit directement sur la satisfaction de tes clients. Ce que tu feras au quotidien : tes missions\n• Conseil et vente omnicanale: Tu accueilles tes clients comme des invités. Tu les conseilles, tu conclus les ventes (en physique ou via nos outils digitaux), tu proposes notre programme de fidélité et tu gères l'encaissement.\n• Dynamisme commercial : Tu implantes les produits selon les logiques d’implantation, tu gères le \"facing\" pour que ton rayon soit toujours impeccable, et tu mets en valeur les nouveautés et les incontournables du moment.\n• Disponibilité et logistique : Tu mets la main à la pâte ! De la réception de la livraison à la mise en rayon, tu garantis la justesse de tes stocks et la disponibilité rapide de tes produits. Tu prépares aussi les commandes web.\n• Économie circulaire et services : Tu es un⸱e ambassadeur⸱rice de nos nouveaux modèles : tu gères le rachat de matériel d'occasion et tu pousses nos solutions de location pour prolonger la durée de vie de nos produits. Ce que cette mission va t'apporter (les petits plus) :\n• Un vrai tremplin : Travailler chez Decathlon, c'est l'assurance de booster son employabilité. Nous sommes réputés pour être une vraie \"école\" du commerce et de la relation client : ce que tu vas apprendre sur le terrain avec nous sera un atout majeur sur ton CV !\n• Des missions à la carte : Selon la durée de ton contrat et ton implication, tu pourras prendre le lead sur des sujets précis ou épauler l'équipe sur des projets spécifiques au magasin. Ce poste N'EST PAS fait pour toi si...\n• Tu préfères rester assis⸱e derrière un écran toute la journée au calme.\n• Tu n'aimes pas aller spontanément vers les autres.\n• Tu penses que déballer des palettes, ranger un rayon et traiter de la marchandise \"ce n'est pas ton problème\".\n• Tu n'es pas prêt⸱e à voir s'afficher 10 000 pas sur ta montre chaque soir.\n• Tu recherches des horaires fixes et routiniers : ici, on vit au rythme du sport et nos plannings s'adaptent à l'activité (même si on te les communique 6 semaines à l'avance pour que tu puisses t'organiser !).\n• Tu ne souhaites pas travailler les samedis.",
+      "descriptionByLocale": {
+        "fr": "Ton futur terrain de jeu Tu rejoindras le magasin d'Avry, idéalement situé dans le centre commercial Avry Centre, à seulement 10 minutes du centre-ville de Fribourg. Très facile d'accès, que ce soit en transports en commun ou en voiture, c'est un point de rencontre incontournable pour tous les sportifs de la région ! Et maintenant, place au métier : Tu cherches un défi intense pour les prochains mois où aucune journée ne se ressemble ? Tu as envie de partager ta passion du sport et d'offrir une expérience inoubliable le temps de ta mission ? Tu aimes l'action, le terrain et prêter main-forte à une équipe soudée ? Sache qu'ici, un CDD n'est pas juste \"de passage\" : tu fais partie intégrante de la famille et ton énergie est ultra précieuse pour donner une véritable impulsion au magasin ! Pourquoi ce job est fait pour toi ?\n• Tu es au cœur de l'action. Le temps de ta mission, ton quotidien, c'est 100% sur le terrain. Tu es le visage de Decathlon. Qu'il s'agisse d'accueillir un⸱e débutant⸱e ou de conseiller un⸱e expert⸱e, tu partages ta passion et tu crées le lien.\n• Tu es l'acteur⸱rice du commerce de demain. Tu ne te contentes pas de vendre un produit en rayon. Tu proposes une expérience omnicanale et durable : commandes digitales, location de matériel, reprise d'anciens produits (Seconde Vie)… Tu réponds à tous les besoins.\n• Même en contrat temporaire, tu as de l'autonomie et de l'impact ! Tu es garant⸱e de ton sport. Tu t'assures que ton rayon donne envie, tu gères ton stock et tu mets en place tes opérations commerciales. Ton efficacité se voit directement sur la satisfaction de tes clients. Ce que tu feras au quotidien : tes missions\n• Conseil et vente omnicanale: Tu accueilles tes clients comme des invités. Tu les conseilles, tu conclus les ventes (en physique ou via nos outils digitaux), tu proposes notre programme de fidélité et tu gères l'encaissement.\n• Dynamisme commercial : Tu implantes les produits selon les logiques d’implantation, tu gères le \"facing\" pour que ton rayon soit toujours impeccable, et tu mets en valeur les nouveautés et les incontournables du moment.\n• Disponibilité et logistique : Tu mets la main à la pâte ! De la réception de la livraison à la mise en rayon, tu garantis la justesse de tes stocks et la disponibilité rapide de tes produits. Tu prépares aussi les commandes web.\n• Économie circulaire et services : Tu es un⸱e ambassadeur⸱rice de nos nouveaux modèles : tu gères le rachat de matériel d'occasion et tu pousses nos solutions de location pour prolonger la durée de vie de nos produits. Ce que cette mission va t'apporter (les petits plus) :\n• Un vrai tremplin : Travailler chez Decathlon, c'est l'assurance de booster son employabilité. Nous sommes réputés pour être une vraie \"école\" du commerce et de la relation client : ce que tu vas apprendre sur le terrain avec nous sera un atout majeur sur ton CV !\n• Des missions à la carte : Selon la durée de ton contrat et ton implication, tu pourras prendre le lead sur des sujets précis ou épauler l'équipe sur des projets spécifiques au magasin. Ce poste N'EST PAS fait pour toi si...\n• Tu préfères rester assis⸱e derrière un écran toute la journée au calme.\n• Tu n'aimes pas aller spontanément vers les autres.\n• Tu penses que déballer des palettes, ranger un rayon et traiter de la marchandise \"ce n'est pas ton problème\".\n• Tu n'es pas prêt⸱e à voir s'afficher 10 000 pas sur ta montre chaque soir.\n• Tu recherches des horaires fixes et routiniers : ici, on vit au rythme du sport et nos plannings s'adaptent à l'activité (même si on te les communique 6 semaines à l'avance pour que tu puisses t'organiser !).\n• Tu ne souhaites pas travailler les samedis.",
+        "it": "Ton futur terrain de jeu Tu rejoindras le magasin d'Avry, idéalement situé dans le centre commercial Avry Centre, à seulement 10 minutes du centre-ville de Fribourg. Très facile d'accès, que ce soit en transports en commun ou en voiture, c'est un point de rencontre incontournable pour tous les sportifs de la région ! Et maintenant, place au métier : Tu cherches un défi intense pour les prochains mois où aucune journée ne se ressemble ? Tu as envie de partager ta passion du sport et d'offrir une expérience inoubliable le temps de ta mission ? Tu aimes l'action, le terrain et prêter main-forte à une équipe soudée ? Sache qu'ici, un CDD n'est pas juste \"de passage\" : tu fais partie intégrante de la famille et ton énergie est ultra précieuse pour donner une véritable impulsion au magasin ! Pourquoi ce job est fait pour toi ?\n• Tu es au cœur de l'action. Le temps de ta mission, ton quotidien, c'est 100% sur le terrain. Tu es le visage de Decathlon. Qu'il s'agisse d'accueillir un⸱e débutant⸱e ou de conseiller un⸱e expert⸱e, tu partages ta passion et tu crées le lien.\n• Tu es l'acteur⸱rice du commerce de demain. Tu ne te contentes pas de vendre un produit en rayon. Tu proposes une expérience omnicanale et durable : commandes digitales, location de matériel, reprise d'anciens produits (Seconde Vie)… Tu réponds à tous les besoins.\n• Même en contrat temporaire, tu as de l'autonomie et de l'impact ! Tu es garant⸱e de ton sport. Tu t'assures que ton rayon donne envie, tu gères ton stock et tu mets en place tes opérations commerciales. Ton efficacité se voit directement sur la satisfaction de tes clients. Ce que tu feras au quotidien : tes missions\n• Conseil et vente omnicanale: Tu accueilles tes clients comme des invités. Tu les conseilles, tu conclus les ventes (en physique ou via nos outils digitaux), tu proposes notre programme de fidélité et tu gères l'encaissement.\n• Dynamisme commercial : Tu implantes les produits selon les logiques d’implantation, tu gères le \"facing\" pour que ton rayon soit toujours impeccable, et tu mets en valeur les nouveautés et les incontournables du moment.\n• Disponibilité et logistique : Tu mets la main à la pâte ! De la réception de la livraison à la mise en rayon, tu garantis la justesse de tes stocks et la disponibilité rapide de tes produits. Tu prépares aussi les commandes web.\n• Économie circulaire et services : Tu es un⸱e ambassadeur⸱rice de nos nouveaux modèles : tu gères le rachat de matériel d'occasion et tu pousses nos solutions de location pour prolonger la durée de vie de nos produits. Ce que cette mission va t'apporter (les petits plus) :\n• Un vrai tremplin : Travailler chez Decathlon, c'est l'assurance de booster son employabilité. Nous sommes réputés pour être une vraie \"école\" du commerce et de la relation client : ce que tu vas apprendre sur le terrain avec nous sera un atout majeur sur ton CV !\n• Des missions à la carte : Selon la durée de ton contrat et ton implication, tu pourras prendre le lead sur des sujets précis ou épauler l'équipe sur des projets spécifiques au magasin. Ce poste N'EST PAS fait pour toi si...\n• Tu préfères rester assis⸱e derrière un écran toute la journée au calme.\n• Tu n'aimes pas aller spontanément vers les autres.\n• Tu penses que déballer des palettes, ranger un rayon et traiter de la marchandise \"ce n'est pas ton problème\".\n• Tu n'es pas prêt⸱e à voir s'afficher 10 000 pas sur ta montre chaque soir.\n• Tu recherches des horaires fixes et routiniers : ici, on vit au rythme du sport et nos plannings s'adaptent à l'activité (même si on te les communique 6 semaines à l'avance pour que tu puisses t'organiser !).\n• Tu ne souhaites pas travailler les samedis.",
+        "en": "Ton futur terrain de jeu Tu rejoindras le magasin d'Avry, idéalement situé dans le centre commercial Avry Centre, à seulement 10 minutes du centre-ville de Fribourg. Très facile d'accès, que ce soit en transports en commun ou en voiture, c'est un point de rencontre incontournable pour tous les sportifs de la région ! Et maintenant, place au métier : Tu cherches un défi intense pour les prochains mois où aucune journée ne se ressemble ? Tu as envie de partager ta passion du sport et d'offrir une expérience inoubliable le temps de ta mission ? Tu aimes l'action, le terrain et prêter main-forte à une équipe soudée ? Sache qu'ici, un CDD n'est pas juste \"de passage\" : tu fais partie intégrante de la famille et ton énergie est ultra précieuse pour donner une véritable impulsion au magasin ! Pourquoi ce job est fait pour toi ?\n• Tu es au cœur de l'action. Le temps de ta mission, ton quotidien, c'est 100% sur le terrain. Tu es le visage de Decathlon. Qu'il s'agisse d'accueillir un⸱e débutant⸱e ou de conseiller un⸱e expert⸱e, tu partages ta passion et tu crées le lien.\n• Tu es l'acteur⸱rice du commerce de demain. Tu ne te contentes pas de vendre un produit en rayon. Tu proposes une expérience omnicanale et durable : commandes digitales, location de matériel, reprise d'anciens produits (Seconde Vie)… Tu réponds à tous les besoins.\n• Même en contrat temporaire, tu as de l'autonomie et de l'impact ! Tu es garant⸱e de ton sport. Tu t'assures que ton rayon donne envie, tu gères ton stock et tu mets en place tes opérations commerciales. Ton efficacité se voit directement sur la satisfaction de tes clients. Ce que tu feras au quotidien : tes missions\n• Conseil et vente omnicanale: Tu accueilles tes clients comme des invités. Tu les conseilles, tu conclus les ventes (en physique ou via nos outils digitaux), tu proposes notre programme de fidélité et tu gères l'encaissement.\n• Dynamisme commercial : Tu implantes les produits selon les logiques d’implantation, tu gères le \"facing\" pour que ton rayon soit toujours impeccable, et tu mets en valeur les nouveautés et les incontournables du moment.\n• Disponibilité et logistique : Tu mets la main à la pâte ! De la réception de la livraison à la mise en rayon, tu garantis la justesse de tes stocks et la disponibilité rapide de tes produits. Tu prépares aussi les commandes web.\n• Économie circulaire et services : Tu es un⸱e ambassadeur⸱rice de nos nouveaux modèles : tu gères le rachat de matériel d'occasion et tu pousses nos solutions de location pour prolonger la durée de vie de nos produits. Ce que cette mission va t'apporter (les petits plus) :\n• Un vrai tremplin : Travailler chez Decathlon, c'est l'assurance de booster son employabilité. Nous sommes réputés pour être une vraie \"école\" du commerce et de la relation client : ce que tu vas apprendre sur le terrain avec nous sera un atout majeur sur ton CV !\n• Des missions à la carte : Selon la durée de ton contrat et ton implication, tu pourras prendre le lead sur des sujets précis ou épauler l'équipe sur des projets spécifiques au magasin. Ce poste N'EST PAS fait pour toi si...\n• Tu préfères rester assis⸱e derrière un écran toute la journée au calme.\n• Tu n'aimes pas aller spontanément vers les autres.\n• Tu penses que déballer des palettes, ranger un rayon et traiter de la marchandise \"ce n'est pas ton problème\".\n• Tu n'es pas prêt⸱e à voir s'afficher 10 000 pas sur ta montre chaque soir.\n• Tu recherches des horaires fixes et routiniers : ici, on vit au rythme du sport et nos plannings s'adaptent à l'activité (même si on te les communique 6 semaines à l'avance pour que tu puisses t'organiser !).\n• Tu ne souhaites pas travailler les samedis.",
+        "de": "Ton futur terrain de jeu Tu rejoindras le magasin d'Avry, idéalement situé dans le centre commercial Avry Centre, à seulement 10 minutes du centre-ville de Fribourg. Très facile d'accès, que ce soit en transports en commun ou en voiture, c'est un point de rencontre incontournable pour tous les sportifs de la région ! Et maintenant, place au métier : Tu cherches un défi intense pour les prochains mois où aucune journée ne se ressemble ? Tu as envie de partager ta passion du sport et d'offrir une expérience inoubliable le temps de ta mission ? Tu aimes l'action, le terrain et prêter main-forte à une équipe soudée ? Sache qu'ici, un CDD n'est pas juste \"de passage\" : tu fais partie intégrante de la famille et ton énergie est ultra précieuse pour donner une véritable impulsion au magasin ! Pourquoi ce job est fait pour toi ?\n• Tu es au cœur de l'action. Le temps de ta mission, ton quotidien, c'est 100% sur le terrain. Tu es le visage de Decathlon. Qu'il s'agisse d'accueillir un⸱e débutant⸱e ou de conseiller un⸱e expert⸱e, tu partages ta passion et tu crées le lien.\n• Tu es l'acteur⸱rice du commerce de demain. Tu ne te contentes pas de vendre un produit en rayon. Tu proposes une expérience omnicanale et durable : commandes digitales, location de matériel, reprise d'anciens produits (Seconde Vie)… Tu réponds à tous les besoins.\n• Même en contrat temporaire, tu as de l'autonomie et de l'impact ! Tu es garant⸱e de ton sport. Tu t'assures que ton rayon donne envie, tu gères ton stock et tu mets en place tes opérations commerciales. Ton efficacité se voit directement sur la satisfaction de tes clients. Ce que tu feras au quotidien : tes missions\n• Conseil et vente omnicanale: Tu accueilles tes clients comme des invités. Tu les conseilles, tu conclus les ventes (en physique ou via nos outils digitaux), tu proposes notre programme de fidélité et tu gères l'encaissement.\n• Dynamisme commercial : Tu implantes les produits selon les logiques d’implantation, tu gères le \"facing\" pour que ton rayon soit toujours impeccable, et tu mets en valeur les nouveautés et les incontournables du moment.\n• Disponibilité et logistique : Tu mets la main à la pâte ! De la réception de la livraison à la mise en rayon, tu garantis la justesse de tes stocks et la disponibilité rapide de tes produits. Tu prépares aussi les commandes web.\n• Économie circulaire et services : Tu es un⸱e ambassadeur⸱rice de nos nouveaux modèles : tu gères le rachat de matériel d'occasion et tu pousses nos solutions de location pour prolonger la durée de vie de nos produits. Ce que cette mission va t'apporter (les petits plus) :\n• Un vrai tremplin : Travailler chez Decathlon, c'est l'assurance de booster son employabilité. Nous sommes réputés pour être une vraie \"école\" du commerce et de la relation client : ce que tu vas apprendre sur le terrain avec nous sera un atout majeur sur ton CV !\n• Des missions à la carte : Selon la durée de ton contrat et ton implication, tu pourras prendre le lead sur des sujets précis ou épauler l'équipe sur des projets spécifiques au magasin. Ce poste N'EST PAS fait pour toi si...\n• Tu préfères rester assis⸱e derrière un écran toute la journée au calme.\n• Tu n'aimes pas aller spontanément vers les autres.\n• Tu penses que déballer des palettes, ranger un rayon et traiter de la marchandise \"ce n'est pas ton problème\".\n• Tu n'es pas prêt⸱e à voir s'afficher 10 000 pas sur ta montre chaque soir.\n• Tu recherches des horaires fixes et routiniers : ici, on vit au rythme du sport et nos plannings s'adaptent à l'activité (même si on te les communique 6 semaines à l'avance pour que tu puisses t'organiser !).\n• Tu ne souhaites pas travailler les samedis."
+      },
+      "location": "Matran",
+      "canton": "FR",
+      "url": "https://joinus.decathlon.ch/fr_CH/annonce/4541907-conseiller-ere-sportif-hf-natation-et-run-cdd-50-a-90-fribourg-matran",
+      "source": "Decathlon Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-10T22:06:51.003Z",
+      "addressLocality": "Matran",
+      "postalCode": "",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-10",
+      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4541907-conseiller-ere-sportif-hf-natation-et-run-cdd-50-a-90-fribourg-matran",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 61700,
+      "salaryMax": 93600,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 61700,
+          "maxValue": 93600,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-10T22:06:51.003Z"
+    },
+    {
+      "id": "decathlon-4f29678e6993",
+      "slug": "leader-sportivo-consigliere-sportivo-h-f-ciclo-40-60-decathlon-granges-paccot",
+      "slugByLocale": {
+        "it": "leader-sportivo-consigliere-sportivo-h-f-ciclo-40-60-decathlon-granges-paccot",
+        "en": "sport-leader-sport-counsellor-h-f-cycle-40-60-decathlon-granges-paccot",
+        "de": "sport-leader-sport-counsellor-h-f-zyklus-40-60-decathlon-granges-paccot",
+        "fr": "sport-leader-conseiller-sportif-h-f-cycle-40-60-decathlon-ch"
+      },
+      "company": "Decathlon",
+      "companyKey": "decathlon",
+      "companyDomain": "decathlon.ch",
+      "title": "Sport Leader / Conseiller Sportif (H/F) Cycle 40% - 60%",
+      "titleByLocale": {
+        "it": "Leader sportivo / Consigliere sportivo (H/F) Ciclo 40% - 60%",
+        "en": "Sport Leader / Sport Counsellor (H/F) Cycle 40% - 60%",
+        "de": "Sport Leader / Sport Counsellor (H / F) Zyklus 40% - 60%",
+        "fr": "Sport Leader / Conseiller Sportif (H/F) Cycle 40% - 60%"
+      },
+      "description": "Mission Chez DECATHLON, les équipes sont engagées pour le sport. Notre entreprise aime valoriser les initiatives, elle permet à tous de s’investir et d’évoluer. “Jouer collectif” fait partie de notre ADN, nous gagnons ensemble uniquement si nous sommes une équipe unie et engagée. Rejoins DECATHLON et intègre une entreprise où il fait bon vivre Viens partager une passion collective pour le sport avec une équipe unie et motivée. Marque des points en prenant des responsabilités, exprime ton sens de l’initiative et contribue à rendre le sport accessible à tous. Une diversité de parcours s’offre à toi dans un environnement dynamique et challengeant. Dès ton arrivée, tu intègres un magasin en tant que sportleader/ conseiller-ère sportif. Ta mission met en valeur ton sens du relationnel - Tu accueilles et renseignes nos clients sur nos produits, services et innovations. - Tu assures la disponibilité et la mise en rayon des produits. - Tu enrichis ton jeu et tu participes au développement économique de ton rayon et du magasin. - Tu es entièrement responsable de tes ventes ! Ton terrain de jeu t'offre de réelles opportunités Véritable pilote de ton activité, tu améliores ton jeu pour développer et gérer tes ressources en toute autonomie. Tu travailles main dans la main avec le teamleader qui te manage et tu bénéficies d’un plan de formation pour t'accompagner dans la réussite de l’ensemble de tes missions.",
+      "descriptionByLocale": {
+        "it": "Missione A DECATHLON, le squadre sono impegnate nello sport. La nostra azienda ama valorizzare le iniziative, permette a tutti di investire ed evolvere. Il gioco collettivo fa parte del nostro DNA, vinciamo insieme solo se siamo una squadra unita e impegnata. Unisciti a DECATHLON e integra una società in cui è bene vivere Vieni a condividere una passione collettiva per lo sport con un team unito e motivato. Fare punti assumendo responsabilità, esprimere il vostro senso di iniziativa e contribuire a rendere lo sport accessibile a tutti. Una varietà di percorsi ti offre in un ambiente dinamico e stimolante. Non appena arrivi, entri in un negozio come consulente sportivo. La vostra missione mette in evidenza il vostro senso di relazione - Accogliete e informate i nostri clienti sui nostri prodotti, servizi e innovazioni. - No. Garantisci la disponibilità e la spedizione dei prodotti. - No. Arricchisci il tuo gioco e partecipi allo sviluppo economico del tuo dipartimento e del negozio. - No. Sei completamente responsabile delle tue vendite! Il tuo parco giochi ti offre opportunità reali Vero driver della vostra attività, si migliora il gioco per sviluppare e gestire le risorse in modo indipendente. Lavori di pari passo con il team di leadership che ti gestisce e hai un piano di formazione per accompagnarti nel successo di tutte le tue missioni.",
+        "en": "Mission At DECATHLON, teams are committed to sport. Our company likes to value initiatives, it allows everyone to invest and evolve. Collective play is part of our DNA, we win together only if we are a united and committed team. Join DECATHLON and integrate a company where it is good to live Come share a collective passion for sport with a united and motivated team. Make points by taking responsibility, express your sense of initiative and help to make sport accessible to all. A variety of routes offers you in a dynamic and challenging environment. As soon as you arrive, you enter a store as a sports leader/sports advisor. Your mission highlights your sense of relationship - You welcome and inform our customers about our products, services and innovations. - You guarantee the availability and the dispatch of the products. - You enrich your game and participate in the economic development of your department and the store. - You're completely responsible for your sales! Your playground offers you real opportunities True driver of your activity, you improve your game to develop and manage your resources independently. You work hand in hand with the leadership team that manages you and you have a training plan to accompany you in the success of all your missions.",
+        "de": "Mission Bei DECATHLON engagieren sich Teams für den Sport. Unser Unternehmen schätzt gerne Initiativen, es ermöglicht jedem, zu investieren und sich zu entwickeln. Kollektives Spiel ist Teil unserer DNA, wir gewinnen nur gemeinsam, wenn wir ein vereintes und engagiertes Team sind. Treten Sie DECATHLON bei und integrieren Sie ein Unternehmen, in dem es gut ist zu leben, teilen Sie eine gemeinsame Leidenschaft für Sport mit einem vereinten und motivierten Team. Machen Sie Punkte, indem Sie Verantwortung übernehmen, bringen Sie Ihren Sinn für Initiative zum Ausdruck und helfen Sie, den Sport für alle zugänglich zu machen. Eine Vielzahl von Routen bietet Ihnen in einem dynamischen und herausfordernden Umfeld. Sobald Sie ankommen, betreten Sie ein Geschäft als Sportleiter / Sportberater. Ihre Mission unterstreicht Ihr Beziehungsgefühl - Sie begrüßen und informieren unsere Kunden über unsere Produkte, Dienstleistungen und Innovationen. - Sie garantieren die Verfügbarkeit und den Versand der Produkte. - Sie bereichern Ihr Spiel und beteiligen sich an der wirtschaftlichen Entwicklung Ihrer Abteilung und des Ladens. - Sie sind völlig verantwortlich für Ihren Verkauf! Dein Spielplatz bietet dir echte Chancen Wahrer Treiber Ihrer Aktivität, verbessern Sie Ihr Spiel, um Ihre Ressourcen unabhängig zu entwickeln und zu verwalten. Sie arbeiten Hand in Hand mit dem Führungsteam, das Sie leitet, und Sie haben einen Trainingsplan, der Sie beim Erfolg all Ihrer Missionen begleitet.",
+        "fr": "Mission Chez DECATHLON, les équipes sont engagées pour le sport. Notre entreprise aime valoriser les initiatives, elle permet à tous de s’investir et d’évoluer. “Jouer collectif” fait partie de notre ADN, nous gagnons ensemble uniquement si nous sommes une équipe unie et engagée. Rejoins DECATHLON et intègre une entreprise où il fait bon vivre Viens partager une passion collective pour le sport avec une équipe unie et motivée. Marque des points en prenant des responsabilités, exprime ton sens de l’initiative et contribue à rendre le sport accessible à tous. Une diversité de parcours s’offre à toi dans un environnement dynamique et challengeant. Dès ton arrivée, tu intègres un magasin en tant que sportleader/ conseiller-ère sportif. Ta mission met en valeur ton sens du relationnel - Tu accueilles et renseignes nos clients sur nos produits, services et innovations. - Tu assures la disponibilité et la mise en rayon des produits. - Tu enrichis ton jeu et tu participes au développement économique de ton rayon et du magasin. - Tu es entièrement responsable de tes ventes ! Ton terrain de jeu t'offre de réelles opportunités Véritable pilote de ton activité, tu améliores ton jeu pour développer et gérer tes ressources en toute autonomie. Tu travailles main dans la main avec le teamleader qui te manage et tu bénéficies d’un plan de formation pour t'accompagner dans la réussite de l’ensemble de tes missions."
+      },
+      "location": "Granges-Paccot",
+      "canton": "FR",
+      "url": "https://joinus.decathlon.ch/fr_CH/annonce/3982815-sport-leader-conseiller-sportif-hf-cycle-40-60-1763-granges-paccot",
+      "source": "Decathlon Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-10T10:35:07.554Z",
+      "addressLocality": "Granges-Paccot",
+      "postalCode": "1763",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-14",
+      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/3982815-sport-leader-conseiller-sportif-hf-cycle-40-60-1763-granges-paccot",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sport-leader-conseiller-sportif-h-f-cycle-40-60-decathlon-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sport-leader-conseiller-sportif-h-f-cycle-40-60-decathlon-ch"
+        ],
+        "en": [
+          "sport-leader-conseiller-sportif-h-f-cycle-40-60-decathlon-ch"
+        ],
+        "de": [
+          "sport-leader-conseiller-sportif-h-f-cycle-40-60-decathlon-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-14T23:09:45.189Z",
+      "salaryMin": 41100,
+      "salaryMax": 62400,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41100,
+          "maxValue": 62400,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
+    },
+    {
+      "id": "decathlon-e8ef56ea4154",
+      "slug": "head-of-rayon-sports-collectives-h-f-cdi-100-bussigny-lausanne-decathlon-bussigny",
+      "slugByLocale": {
+        "it": "head-of-rayon-sports-collectives-h-f-cdi-100-bussigny-lausanne-decathlon-bussigny",
+        "en": "head-of-rayon-sports-collectives-h-f-cdi-100-bussigny-lausanne-decathlon-bussigny",
+        "de": "head-of-rayon-sports-collectives-h-f-cdi-100-bussigny-lausanne-decathlon-bussigny",
+        "fr": "responsable-de-rayon-sports-collectifs-h-f-cdi-100-bussigny-lausanne-decathlon-ch"
+      },
+      "company": "Decathlon",
+      "companyKey": "decathlon",
+      "companyDomain": "decathlon.ch",
+      "title": "Responsable de Rayon Sports Collectifs (H/F) - CDI 100% - BUSSIGNY (Lausanne)",
+      "titleByLocale": {
+        "it": "Head of Rayon Sports Collectives (H/F) - CDI 100% - BUSSIGNY (Lausanne)",
+        "en": "Head of Rayon Sports Collectives (H/F) - CDI 100% - BUSSIGNY (Lausanne)",
+        "de": "Head of Rayon Sports Collectives (H/F) - CDI 100% - BUSSIGNY (Lausanne)",
+        "fr": "Responsable de Rayon Sports Collectifs (H/F) - CDI 100% - BUSSIGNY (Lausanne)"
+      },
+      "description": "​ Ton futur terrain de jeu Tu rejoindras le magasin de Bussigny , ouvert en 2018 , constitué d’une équipe de 70 collaborateurs . Ton périmètre Sports Collectifs, Sports de raquette et Equitation est au cœur de notre stratégie locale. L'équipe est composée de 5 passionnés . Ta mission ? Faire de ton sport la référence absolue pour tous les pratiquants du coin. Rejoins une aventure qui n'en finit pas de grandir Decathlon en Suisse, c'est une success story qui a débuté en 2017 à Neuchâtel. Depuis, nous avons ouvert une dizaine de magasins par an pour atteindre aujourd'hui 50 points de vente. Et on ne compte pas s'arrêter là ! Notre expansion se poursuit, notamment en Suisse alémanique, offrant des opportunités de carrière partout dans le pays. Et maintenant, place au métier : Tu cherches un métier où tu ne passeras pas ta vie derrière un bureau ? Tu as envie de prendre des décisions, d'être sur le terrain et de gérer ton rayon comme ta propre entreprise ? Tu rêves de coacher une équipe pour l’emmener vers les sommets ? Alors le poste de Responsable de Rayon (=Team Leader) est fait pour toi. Pourquoi ?\n• Tu passeras 80% de ton temps hors du bureau. Ton rayon est ton terrain de jeu. Que ce soit pour passer du temps avec ton équipe ou avec tes clients, tu es au cœur de l'action. Tu conserves un temps stratégique, mais nous te proposons avant tout un métier de terrain.\n• Ta réussite est directement liée à celle de ton équipe. En tant que manager, ton rôle n’est pas de tout contrôler mais de tout faciliter. Tu donnes le “pourquoi” à ton équipe, et ton équipe décide du “comment”. Tu acceptes le droit à l'erreur et tu grandis avec eux. Si ton équipe gagne, tu gagnes.\n• Tu es le/la patron(ne) de ton activité . Ici, tu es un véritable intrapreneur. Tu anticipes tout le cycle d’activité de ton rayon d’aujourd’hui et de demain, tu recrutes tes talents, tu définis tes stratégies commerciales… bref tu es aux commandes. Ce que tu feras au quotidien concrètement : Tu auras 3 grandes casquettes. #1 : Ta casquette de GESTIONNAIRE :\n• Pilotage commercial (ton P&L) : Tu es le/la patron/ne de ton activité. Tu écris et animes ta politique commerciale, tu choisis tes gammes, analyses tes performances économiques et gères tes stocks (dont la réception de marchandises).\n• Permanence magasin (Capitaine) : Par roulement avec d’autres leaders,, tu prends la responsabilité globale du magasin (ouverture, fermeture, sécurité). Tu es le/la garant/e de la fluidité du \"match\" tout au long de la journée. #2 : Ta casquette de MANAGER :\n• Coaching et management : Tu es là pour faire progresser ton équipe chaque jour. Tu mènes les entretiens individuels mensuels avec chacun de tes coéquipiers pour les accompagner dans leur développement.\n• Recrutement : C'est toi qui recherches et choisis tes futurs partenaires de jeu pour bâtir une équipe diversifiée de passionnés.\n• Formation : Tu continues d'apprendre au quotidien (leadership, finance, technique produit, etc.) et tu transmets à ton tour tes savoirs à ton équipe. #3 : Ta casquette de COMMERCANT :\n• Commerce client : La satisfaction client doit être la priorité ! En manager exemplaire, tu mets la main à la pâte : tu conseilles tes clients, tu gères l'accueil, tu fais la réception de marchandises et tu garantis un rayon toujours au top.\n• Missions transverses : Dès que tu es maîtrisant sur ton métier, tu peux sortir du cadre pour booster des projets régionaux, des événements sportifs ou des partenariats clubs. Ce poste N’EST PAS fait pour toi si...\n• Tu attends qu'on te dise quoi faire chaque matin.\n• Tu cherches un job “routinier” sans imprévus.\n• Tes baskets n'ont pas envie de faire 10’000 pas par jour...\n• Tu ne souhaites pas travailler les samedis.",
+      "descriptionByLocale": {
+        "it": "Il tuo futuro parco giochi Ti unirai al negozio di Bussigny, aperto nel 2018, composto da un team di 70 collaboratori. I vostri Collettivi Sportivi, Ciaspolate e Equitazione si trovano nel cuore della nostra strategia locale. Il team è composto da 5 appassionati. La tua missione? Rendere il vostro sport il riferimento assoluto per tutti i professionisti locali. Unisciti a un'avventura che continua a crescere Decathlon in Svizzera, è una storia di successo iniziata nel 2017 a Neuchâtel. Da allora, abbiamo aperto circa dieci negozi all'anno per raggiungere 50 punti vendita oggi. E non ci fermeremo lì! La nostra espansione continua, soprattutto in Svizzera tedesca, offrendo opportunità di carriera in tutto il paese. E ora, stai cercando un lavoro dove non passerai la tua vita dietro un ufficio? Vuoi prendere decisioni, essere in campo e gestire il tuo dipartimento come il tuo business? Vuoi allenare una squadra per portarlo in cima? Poi la posizione di Rayon Manager (=Team Leader) è per voi. Perche'?\n• Passerai l'80% del tuo tempo fuori dall'ufficio. Il tuo raggio e' il tuo parco giochi. Che si tratti di trascorrere del tempo con la tua squadra o con i tuoi clienti, sei al centro dell'azione. Mantenete il tempo strategico, ma prima vi offriamo un lavoro sul campo.\n• Il vostro successo è direttamente legato al vostro team. Come manager, il vostro ruolo non è controllare tutto, ma per facilitare tutto. Date alla vostra squadra la ragione, e la vostra squadra decide come. Accetti il diritto di errore e cresci con loro. Se la tua squadra vince, vinci.\n• Sei il capo della tua attività. Ecco, sei un vero intrapreneur. Si prevede l'intero ciclo di attività del vostro raggio oggi e domani, si reclutano i vostri talenti, si definiscono le vostre strategie di business... Comunque, sei tu il capo. Cosa farete quotidianamente: Avrete 3 berretti grandi. #1: Il tuo cappello MANAGER:\n• Pilotaggio commerciale (ton P&L): Lei è il proprietario/gestore della sua attività. Scrivete e animate la vostra politica commerciale, scegliete le vostre gamme, analizzate le vostre prestazioni economiche e gestite le vostre scorte (comprese le merci ricevute).\n• Permanent Store (Capitano): In esecuzione con altri leader, si assume la responsabilità generale per il negozio (apertura, chiusura, sicurezza). Sei il garante della scorrevolezza del gioco durante tutto il giorno. #2: Il tuo cappello MANAGER:\n• Coaching e management: sei qui per far avanzare la tua squadra ogni giorno. Condurre colloqui individuali mensili con ciascuno dei vostri compagni di squadra per sostenerli nel loro sviluppo.\n• Reclutamento: Sei tu quello che sta cercando e scegliendo i tuoi futuri partner di gioco per costruire un team diverso di appassionati.\n• Formazione: Si continua a imparare ogni giorno (leadership, finanza, tecnologia del prodotto, ecc) e si passa anche la vostra conoscenza al vostro team. #3: Il tuo cappello COMMERCANT:\n• Commercio clienti: La soddisfazione del cliente deve essere la priorità! Come manager esemplare, metti la mano nella pasta: consiglia i tuoi clienti, gestisci la reception, ricevi merci e garantisci un raggio sempre in alto.\n• Missioni trasversali: Non appena avete imparato la vostra professione, è possibile uscire dalla scatola per aumentare i progetti regionali, eventi sportivi o partnership club. Questo post non è per voi se...\n• Aspetta di dirti cosa fare ogni mattina.\n• Stai cercando un lavoro quotidiano.\n• Le tue scarpe non vogliono fare 10.000 passi al giorno...\n• Non vuoi lavorare il sabato.",
+        "en": "Your future playground You will join the shop in Bussigny, opened in 2018, made up of a team of 70 collaborators. Your Sports Collectives, Snowshoeing and Equitation perimeter is at the heart of our local strategy. The team is composed of 5 enthusiasts. Your mission? Make your sport the absolute reference for all local practitioners. Join an adventure that continues to grow Decathlon in Switzerland, it is a success story that started in 2017 in Neuchâtel. Since then, we have opened around ten stores a year to reach 50 outlets today. And we're not going to stop there! Our expansion continues, especially in German-speaking Switzerland, offering career opportunities throughout the country. And now, you're looking for a job where you won't spend your life behind an office? Do you want to make decisions, be in the field and manage your department like your own business? You want to coach a team to take him to the tops? Then the position of Rayon Manager (=Team Leader) is for you. Why?\n• You'll spend 80% of your time out of the office. Your radius is your playground. Whether it's spending time with your team or with your clients, you're at the heart of the action. You keep strategic time, but we offer you a field job first.\n• Your success is directly related to your team's. As a manager, your role is not to control everything but to facilitate everything. You give your team the reason, and your team decides how. You accept the right to error and grow up with them. If your team wins, you win.\n• You are the boss of your activity. Here, you're a real intrapreneur. You anticipate the whole cycle of activity of your ray today and tomorrow, you recruit your talents, you define your business strategies... Anyway, you're in charge. What you will do on a daily basis: You will have 3 large caps. #1: Your MANAGER cap:\n• Commercial Pilotage (ton P&L): You are the owner/manager of your business. You write and animate your trade policy, choose your ranges, analyze your economic performance and manage your stocks (including receiving goods).\n• Permanent Store (Captain): By running with other leaders, you take overall responsibility for the store (opening, closing, security). You are the guarantor of the smoothness of the game throughout the day. #2: Your MANAGER cap:\n• Coaching and management: You're here to advance your team every day. You conduct monthly individual interviews with each of your teammates to support them in their development.\n• Recruitment: You are the one who is looking for and choosing your future game partners to build a diverse team of enthusiasts.\n• Training: You continue to learn every day (leadership, finance, product technology, etc.) and you also pass on your knowledge to your team. #3: Your COMMERCANT cap:\n• Customer trade: Customer satisfaction must be the priority! As an exemplary manager, you put your hand in the dough: you advise your customers, you manage the reception, you receive goods and you guarantee a radius always at the top.\n• Transverse Missions: As soon as you have mastered your profession, you can get out of the box to boost regional projects, sporting events or club partnerships. This post IS NOT for you if...\n• You wait till we tell you what to do every morning.\n• You're looking for a daily job.\n• Your sneakers don't want to do 10,000 steps a day...\n• You don't want to work on Saturdays.",
+        "de": "Dein zukünftiger Spielplatz Sie werden dem Shop in Bussigny beitreten, der 2018 eröffnet wurde und aus einem Team von 70 Mitarbeitern besteht. Ihr Sportkollektiv, Schneeschuh- und Equitationsumfang steht im Mittelpunkt unserer lokalen Strategie. Das Team besteht aus 5 Enthusiasten. Ihre Mission? Machen Sie Ihren Sport zur absoluten Referenz für alle lokalen Praktizierenden. Nehmen Sie an einem Abenteuer teil, das Decathlon in der Schweiz weiter wachsen lässt, es ist eine Erfolgsgeschichte, die 2017 in Neuenburg begann. Seitdem haben wir rund zehn Geschäfte pro Jahr eröffnet, um heute 50 Filialen zu erreichen. Und damit werden wir nicht aufhören! Unsere Expansion geht weiter, insbesondere in der Deutschschweiz, und bietet Karrieremöglichkeiten im ganzen Land. Und jetzt suchen Sie nach einem Job, bei dem Sie Ihr Leben nicht hinter einem Büro verbringen werden? Möchten Sie Entscheidungen treffen, vor Ort sein und Ihre Abteilung wie Ihr eigenes Geschäft führen? Möchten Sie ein Team trainieren, um ihn an die Spitze zu bringen? Dann ist die Position des Rayon Managers (=Team Leader) genau das Richtige für Sie. Warum?\n• Sie verbringen 80% Ihrer Zeit außerhalb des Büros. Dein Radius ist dein Spielplatz. Ob Sie Zeit mit Ihrem Team oder mit Ihren Kunden verbringen, Sie stehen im Mittelpunkt des Geschehens. Sie behalten strategische Zeit, aber wir bieten Ihnen zuerst einen Feldjob an.\n• Ihr Erfolg hängt direkt mit dem Ihres Teams zusammen. Als Manager besteht Ihre Rolle nicht darin, alles zu kontrollieren, sondern alles zu erleichtern. Sie geben Ihrem Team den Grund und Ihr Team entscheidet, wie. Sie akzeptieren das Recht auf Irrtum und wachsen mit ihnen auf. Wenn dein Team gewinnt, gewinnst du.\n• Du bist der Chef deiner Aktivität. Hier sind Sie ein echter Intrapreneur. Sie antizipieren den gesamten Aktivitätszyklus Ihres Strahls heute und morgen, Sie rekrutieren Ihre Talente, Sie definieren Ihre Geschäftsstrategien ... Wie auch immer, du bist verantwortlich. Was Sie täglich tun werden: Sie werden 3 große Caps haben. # 1: Ihre MANAGER Cap:\n• Commercial Pilotage (ton P&L): Sie sind der Eigentümer/Manager Ihres Unternehmens. Sie schreiben und animieren Ihre Handelspolitik, wählen Ihre Bereiche aus, analysieren Ihre wirtschaftliche Leistung und verwalten Ihre Bestände (einschließlich des Erhalts von Waren).\n• Permanent Store (Captain): Indem Sie mit anderen Führungskräften zusammenarbeiten, übernehmen Sie die Gesamtverantwortung für den Laden (Öffnen, Schließen, Sicherheit). Sie sind der Garant für die Glätte des Spiels den ganzen Tag über. # 2: Ihre MANAGER-Kappe:\n• Coaching und Management: Sie sind hier, um Ihr Team jeden Tag voranzubringen. Sie führen monatliche Einzelinterviews mit jedem Ihrer Teamkollegen, um sie in ihrer Entwicklung zu unterstützen.\n• Rekrutierung: Sie sind derjenige, der Ihre zukünftigen Spielpartner sucht und auswählt, um ein vielfältiges Team von Enthusiasten aufzubauen.\n• Training: Du lernst jeden Tag weiter (Führung, Finanzen, Produkttechnologie etc.) und gibst dein Wissen auch an dein Team weiter. # 3: Ihre COMMERCANT Cap:\n• Kundenhandel: Kundenzufriedenheit muss Priorität haben! Als vorbildlicher Manager legen Sie die Hand in den Teig: Sie beraten Ihre Kunden, verwalten die Rezeption, erhalten Waren und garantieren einen Radius immer ganz oben.\n• Querschnittsmissionen: Sobald Sie Ihren Beruf beherrscht haben, können Sie aus der Box kommen, um regionale Projekte, Sportveranstaltungen oder Clubpartnerschaften zu fördern. Dieser Artikel ist nichts für dich, wenn...\n• Du wartest, bis wir dir jeden Morgen sagen, was zu tun ist.\n• Du suchst einen täglichen Job.\n• Ihre Sneaker wollen nicht 10.000 Schritte pro Tag machen ...\n• Sie wollen nicht samstags arbeiten.",
+        "fr": "​ Ton futur terrain de jeu Tu rejoindras le magasin de Bussigny , ouvert en 2018 , constitué d’une équipe de 70 collaborateurs . Ton périmètre Sports Collectifs, Sports de raquette et Equitation est au cœur de notre stratégie locale. L'équipe est composée de 5 passionnés . Ta mission ? Faire de ton sport la référence absolue pour tous les pratiquants du coin. Rejoins une aventure qui n'en finit pas de grandir Decathlon en Suisse, c'est une success story qui a débuté en 2017 à Neuchâtel. Depuis, nous avons ouvert une dizaine de magasins par an pour atteindre aujourd'hui 50 points de vente. Et on ne compte pas s'arrêter là ! Notre expansion se poursuit, notamment en Suisse alémanique, offrant des opportunités de carrière partout dans le pays. Et maintenant, place au métier : Tu cherches un métier où tu ne passeras pas ta vie derrière un bureau ? Tu as envie de prendre des décisions, d'être sur le terrain et de gérer ton rayon comme ta propre entreprise ? Tu rêves de coacher une équipe pour l’emmener vers les sommets ? Alors le poste de Responsable de Rayon (=Team Leader) est fait pour toi. Pourquoi ?\n• Tu passeras 80% de ton temps hors du bureau. Ton rayon est ton terrain de jeu. Que ce soit pour passer du temps avec ton équipe ou avec tes clients, tu es au cœur de l'action. Tu conserves un temps stratégique, mais nous te proposons avant tout un métier de terrain.\n• Ta réussite est directement liée à celle de ton équipe. En tant que manager, ton rôle n’est pas de tout contrôler mais de tout faciliter. Tu donnes le “pourquoi” à ton équipe, et ton équipe décide du “comment”. Tu acceptes le droit à l'erreur et tu grandis avec eux. Si ton équipe gagne, tu gagnes.\n• Tu es le/la patron(ne) de ton activité . Ici, tu es un véritable intrapreneur. Tu anticipes tout le cycle d’activité de ton rayon d’aujourd’hui et de demain, tu recrutes tes talents, tu définis tes stratégies commerciales… bref tu es aux commandes. Ce que tu feras au quotidien concrètement : Tu auras 3 grandes casquettes. #1 : Ta casquette de GESTIONNAIRE :\n• Pilotage commercial (ton P&L) : Tu es le/la patron/ne de ton activité. Tu écris et animes ta politique commerciale, tu choisis tes gammes, analyses tes performances économiques et gères tes stocks (dont la réception de marchandises).\n• Permanence magasin (Capitaine) : Par roulement avec d’autres leaders,, tu prends la responsabilité globale du magasin (ouverture, fermeture, sécurité). Tu es le/la garant/e de la fluidité du \"match\" tout au long de la journée. #2 : Ta casquette de MANAGER :\n• Coaching et management : Tu es là pour faire progresser ton équipe chaque jour. Tu mènes les entretiens individuels mensuels avec chacun de tes coéquipiers pour les accompagner dans leur développement.\n• Recrutement : C'est toi qui recherches et choisis tes futurs partenaires de jeu pour bâtir une équipe diversifiée de passionnés.\n• Formation : Tu continues d'apprendre au quotidien (leadership, finance, technique produit, etc.) et tu transmets à ton tour tes savoirs à ton équipe. #3 : Ta casquette de COMMERCANT :\n• Commerce client : La satisfaction client doit être la priorité ! En manager exemplaire, tu mets la main à la pâte : tu conseilles tes clients, tu gères l'accueil, tu fais la réception de marchandises et tu garantis un rayon toujours au top.\n• Missions transverses : Dès que tu es maîtrisant sur ton métier, tu peux sortir du cadre pour booster des projets régionaux, des événements sportifs ou des partenariats clubs. Ce poste N’EST PAS fait pour toi si...\n• Tu attends qu'on te dise quoi faire chaque matin.\n• Tu cherches un job “routinier” sans imprévus.\n• Tes baskets n'ont pas envie de faire 10’000 pas par jour...\n• Tu ne souhaites pas travailler les samedis."
+      },
+      "location": "Bussigny",
+      "canton": "VD",
+      "url": "https://joinus.decathlon.ch/fr_CH/annonce/4534597-responsable-de-rayon-sports-collectifs-hf-cdi-100-bussigny-lausanne-1030-bussigny",
+      "source": "Decathlon Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-10T10:34:58.263Z",
+      "addressLocality": "Bussigny",
+      "postalCode": "1030",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-05",
+      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4534597-responsable-de-rayon-sports-collectifs-hf-cdi-100-bussigny-lausanne-1030-bussigny",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "responsable-de-rayon-sports-collectifs-h-f-cdi-100-bussigny-lausanne-decathlon-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-rayon-sports-collectifs-h-f-cdi-100-bussigny-lausanne-decathlon-ch"
+        ],
+        "en": [
+          "responsable-de-rayon-sports-collectifs-h-f-cdi-100-bussigny-lausanne-decathlon-ch"
+        ],
+        "de": [
+          "responsable-de-rayon-sports-collectifs-h-f-cdi-100-bussigny-lausanne-decathlon-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-05T22:29:55.653Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "decathlon-fd46c186bb8a",
@@ -4469,7 +4675,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
