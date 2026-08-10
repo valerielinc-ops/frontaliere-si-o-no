@@ -1,0 +1,314 @@
+name: Suppression Hygiene
+
+# Weekly self-heal + escalation for machine-inferred email suppressions.
+#
+# THE DEFECT. Subscriber `status` gates every send
+# (functions/src/lib/emailSuppression.js), and `bounced`/`suppressed` are
+# permanent in practice: once written we stop sending, so the delivered/open
+# event that would clear them can never arrive. Measured in production on
+# 2026-08-10: 505 addresses blocked from all sends with no unambiguous
+# hard-bounce evidence, 453 of them confirmed signups. The only recovery that
+# ever ran was a hand-run one-off on ONE collection
+# (scripts/dev/reactivate-false-positive-bounces.mjs, 2026-07-01), so
+# `job_alert_subscribers` — 137 bounced docs, 108 of them false positives by
+# that same script's own criteria — has never been cleaned once.
+#
+# ORDER MATTERS: self-heal first, escalate only the residue. An issue that
+# reports a condition the pipeline could have fixed by itself is noise; an
+# issue that reports what it could NOT fix is the signal.
+#
+#   1. scripts/suppression-decay.mjs --apply --tier=proven-alive
+#      The tier the owner already approved and ran with --apply: the mailbox
+#      has demonstrably accepted or been read, and the reason is not an
+#      unambiguous hard bounce. Measured outcome of that 2026-07-01 run, on
+#      2026-08-10: of 2.016 reactivated docs, 1.955 delivered (96,97%), 1.202
+#      opened (59,6%), and 11 bounced again (0,55%).
+#   2. scripts/suppression-decay.mjs --apply --tier=never-probed
+#      Owner decision 2026-08-10: this tier runs automatically too, RAMPED.
+#      THE PROBE IS THE NORMAL SEND — nothing here invents a probe message. The
+#      runner un-suppresses REPROBE_BATCH_SIZE (50) addresses, the next regular
+#      newsletter reaches them through the existing cascade, and the provider
+#      webhook records `delivered` or `bounce`. Both edges are existing code: a
+#      delivery promotes the address permanently, a genuine hard bounce
+#      re-suppresses it while a soft signal only increments the counter. So the
+#      recovery loop and the re-suppression loop both close by themselves.
+#      Rails (scripts/lib/suppressionDecay.mjs, unit-tested): 50/run oldest
+#      first, a per-address budget of 2 probes, a circuit breaker on the
+#      previous cohort's outcome, a 48h settle window, and the kill switch
+#      below. The 0,55% base rate above does NOT transfer to this tier — those
+#      addresses were excluded from the July run precisely because they have no
+#      delivery and no open in their history. The ramp is what buys the real
+#      number safely.
+#   3. scripts/check-suppression-invariant.mjs
+#      Asserts what is left, and opens ONE deduped issue for the residue.
+#      Mirrored --resolve on the green path, so the issue auto-closes when the
+#      residue reaches zero instead of going stale.
+on:
+  schedule:
+    # Weekly, Thursday 04:33 UTC — clear of job-alert-sunset (Mon 04:00),
+    # newsletter-sunset (Mon 04:11), mailtrap-suppression-retry (Wed 04:21) and
+    # the daily newsletter send (03:33 UTC). Deliberately AFTER the Wednesday
+    # retry: that run resolves provider-side suppressions, so this pass sees an
+    # already-reduced backlog instead of racing it. Weekly also gives each
+    # re-probe cohort a full week of sends before the next run measures it.
+    - cron: '33 4 * * 4'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'dry-run (default) or apply'
+        required: false
+        default: 'dry-run'
+        type: choice
+        options:
+          - dry-run
+          - apply
+      tiers:
+        description: 'KILL SWITCH — proven-alive-only stops the re-probe without a deploy'
+        required: false
+        default: 'both'
+        type: choice
+        options:
+          - both
+          - proven-alive-only
+
+permissions:
+  contents: read
+  issues: write
+
+env:
+  # KILL SWITCH, layer 1: flip this literal to 'false' and merge — no deploy,
+  # no Remote Config. Deliberately NOT an RC parameter: a value that is not
+  # also present in the RC_TO_ENV table of scripts/load-rc-env.mjs reads as
+  # `undefined` however it is set in the console, which is a silent no-op at
+  # exactly the moment someone is trying to stop something.
+  # Layer 2 is the `tiers` dispatch input above, for stopping it right now.
+  SUPPRESSION_REPROBE_ENABLED: 'true'
+
+# Never overlap with itself (it mutates subscriber status in batches).
+concurrency:
+  group: suppression-hygiene
+  cancel-in-progress: false
+
+jobs:
+  hygiene:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      # --ignore-scripts: the three scripts here need firebase-admin and the
+      # Node stdlib only; the native postinstalls (onnxruntime) are dead weight.
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "❌ FIREBASE_SERVICE_ACCOUNT_JSON missing — nothing here can read Firestore."
+            exit 1
+          fi
+
+      - name: Load secrets from Remote Config
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      # ── 1. Self-heal ────────────────────────────────────────────────────────
+      - name: Decay proven-alive suppressions
+        env:
+          # Scheduled runs apply; manual runs use the chosen mode (default
+          # dry-run — safe to inspect before acting). Same convention as
+          # job-alert-sunset.yml and mailtrap-suppression-retry.yml.
+          MODE: ${{ github.event_name == 'schedule' && 'apply' || inputs.mode || 'dry-run' }}
+        run: |
+          echo "♻️  Suppression decay (tier=proven-alive) mode=$MODE"
+          case "$MODE" in
+            apply) node scripts/suppression-decay.mjs --apply --tier=proven-alive ;;
+            *)     node scripts/suppression-decay.mjs --tier=proven-alive ;;
+          esac
+          cp data/suppression-decay-report.json data/suppression-decay-report-proven-alive.json
+
+      # ── 2. Ramped re-probe ──────────────────────────────────────────────────
+      - name: Re-probe never-probed suppressions (ramped)
+        continue-on-error: true
+        env:
+          MODE: ${{ github.event_name == 'schedule' && 'apply' || inputs.mode || 'dry-run' }}
+          # Both kill-switch layers collapse into one value here: the repo-level
+          # env above, AND the dispatch input. Either one set to stop wins,
+          # because the runner treats the literal 'false' as off.
+          SUPPRESSION_REPROBE_ENABLED: ${{ (inputs.tiers == 'proven-alive-only' && 'false') || env.SUPPRESSION_REPROBE_ENABLED }}
+        run: |
+          echo "🔬 Re-probe (tier=never-probed) mode=$MODE enabled=$SUPPRESSION_REPROBE_ENABLED"
+          echo "   The probe IS the next regular newsletter — no probe message is sent from here."
+          echo "   Rails: batch cap, per-address budget, circuit breaker on the previous cohort."
+          # NEVER --force-reprobe from the cron: that flag is the only way a
+          # tripped breaker clears, and an automated caller holding it would
+          # make the breaker decorative.
+          case "$MODE" in
+            apply) node scripts/suppression-decay.mjs --apply --tier=never-probed ;;
+            *)     node scripts/suppression-decay.mjs --tier=never-probed ;;
+          esac
+          cp data/suppression-decay-report.json data/suppression-decay-report-never-probed.json
+
+      # ── 3. Escalate the residue ─────────────────────────────────────────────
+      - name: Check suppression invariant
+        id: invariant
+        continue-on-error: true
+        run: node scripts/check-suppression-invariant.mjs
+
+      - name: Open issue for the residue the self-heal could not fix
+        if: steps.invariant.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          report=data/suppression-invariant-report.json
+          if [ ! -f "$report" ]; then
+            echo "Check failed but no report emitted (Firestore/auth error) — skipping issue creation."
+            exit 0
+          fi
+          count=$(jq -r '.totals["no-evidence"]' "$report")
+          if [ "$count" -eq 0 ]; then
+            echo "No no-evidence residue (check failed for another reason) — skipping issue creation."
+            exit 0
+          fi
+          proven=$(jq -r '.noEvidenceByTier["proven-alive"]' "$report")
+          probed=$(jq -r '.noEvidenceByTier["never-probed"]' "$report")
+          cooling=$(jq -r '.noEvidenceByTier.none' "$report")
+          per_collection=$(jq -r '.collections | to_entries | map("- `" + .key + "`: " + (.value.buckets["no-evidence"]|tostring) + " no-evidence / " + (.value.scanned|tostring) + " scanned") | join("\n")' "$report")
+          reasons=$(jq -r '[.collections | to_entries[] | .value.reasonBreakdown | to_entries[]] | group_by(.key) | map({k: .[0].key, v: (map(.value) | add)}) | sort_by(-.v) | .[0:10] | map("- `" + .k + "` × " + (.v|tostring)) | join("\n")' "$report")
+
+          # The re-probe ramp's own state. A halted breaker is the single most
+          # important thing this issue can say — without it the residue looks
+          # like a stalled drain rather than a deliberate stop.
+          probe_report=data/suppression-decay-report-never-probed.json
+          probe_state='- re-probe report not emitted this run.'
+          if [ -f "$probe_report" ]; then
+            probe_state=$(jq -r '
+              (.reprobe // {}) as $r
+              | "- kill switch: " + (if ($r.enabled // true) then "enabled" else "**DISABLED**" end)
+              + "\n- circuit breaker: " + (if ($r.halted // false) then "**TRIPPED**" else "clear" end)
+              + "\n- verdict: " + (($r.reason // "n/a") | tostring)
+              + "\n- selected this run: " + ((.totals.selected // 0) | tostring)
+              + " of " + ((.totals.candidates // 0) | tostring) + " candidate(s), cap " + ((.limit // 0) | tostring)
+            ' "$probe_report")
+          fi
+
+          body=$(cat <<EOF
+          Weekly suppression-hygiene run found **${count}** address(es) blocked from every send with **no human decision and no unambiguous hard-bounce evidence** — after the self-heal pass had already run. By decay tier: **${proven}** \`proven-alive\`, **${probed}** \`never-probed\`, **${cooling}** still inside the cooldown.
+
+          Per collection:
+
+          ${per_collection}
+
+          Top recorded reasons in the no-evidence bucket:
+
+          ${reasons}
+
+          Re-probe ramp state:
+
+          ${probe_state}
+
+          ## Why this is a defect and not a backlog
+
+          Subscriber \`status\` gates every send (\`functions/src/lib/emailSuppression.js\`). A machine-inferred \`bounced\`/\`suppressed\` is therefore permanent in practice: we stop sending, so the \`delivered\`/\`open\` event that would clear it can never arrive. Every address in the no-evidence bucket is someone we stopped talking to on a guess, with no path back.
+
+          ## Suggested action
+
+          Read the buckets before changing anything — the three tiers need opposite responses:
+
+          - \`proven-alive\` **> 0 for more than ~3 consecutive runs** means the self-heal is not draining. \`MAX_DECAY_PER_RUN\` (200) in \`scripts/lib/suppressionDecay.mjs\` caps each pass, so a backlog larger than ~600 is expected to persist for a few weeks — a *flat* number across runs is not. Check \`RECOVERED_STATUS_BY_COLLECTION[...]\` covers every collection in \`SUPPRESSION_COLLECTIONS\`.
+          - \`never-probed\` drains at \`REPROBE_BATCH_SIZE\` (50) per weekly run, so a few hundred addresses take a couple of months by design. If the ramp state above says **TRIPPED**, that is the breaker doing its job: the previous cohort re-bounced above \`REPROBE_HALT_HARD_BOUNCE_RATE\` (12%) or produced a spam complaint. Do **not** raise the threshold to clear it — read the cohort first. The only intended way out is an owner running \`node scripts/suppression-decay.mjs --apply --tier=never-probed --force-reprobe\`.
+          - A reason string in the list above that genuinely means "this mailbox is gone" belongs in \`HARD_BOUNCE_PATTERN\` in \`scripts/lib/suppressionDecay.mjs\` — that reclassifies it as \`tier === 'terminal'\` and removes it from the violation honestly, instead of hiding it. A reason that means "temporary" must **not** go there.
+          - If a reason appears that no writer should ever have produced, the writer is the bug: \`classifyBounceSeverity()\` in \`functions/src/lib/bounceClassification.js\` decides \`severity === 'hard'\`, and only that branch may write \`status: 'bounced'\`.
+
+          Policy and tiers: \`scripts/lib/suppressionDecay.mjs\`. Unit tests: \`tests/suppression-decay.test.ts\`.
+
+          ### Riproduzione
+
+          \`node scripts/check-suppression-invariant.mjs\`
+
+          Workflow run: ${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}
+          Source data: \`data/suppression-invariant-report.json\` (artifact on the run above).
+          Detection script: \`scripts/check-suppression-invariant.mjs\`
+          Self-heal runner: \`scripts/suppression-decay.mjs\`
+          EOF
+          )
+
+          # Stable title: NO counts, NO dates, NO run numbers. The helper dedups
+          # on the first 60 chars, and glossario-definitions-monitor.yml already
+          # paid for this lesson — a `${count}` at char 25 opened a second issue
+          # for the same standing condition the week the number moved 3→4. The
+          # numbers live in the body's first line.
+          node scripts/lib/github-issue-creator.mjs \
+            --title "[suppression-invariant] addresses blocked with no evidence" \
+            --description "$body" \
+            --priority 2 \
+            --label bug \
+            --label automated \
+            --workflow "${{ github.workflow }}"
+
+      # Mirror of the reporter above: a green pass must CLOSE the canonical
+      # issue, or it goes stale while the condition is already resolved.
+      - name: Resolve the residue issue when the invariant holds
+        if: steps.invariant.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "[suppression-invariant] addresses blocked with no evidence" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --resolve
+
+      - name: Upload reports artifact
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: suppression-hygiene-reports
+          path: |
+            data/suppression-invariant-report.json
+            data/suppression-decay-report-proven-alive.json
+            data/suppression-decay-report-never-probed.json
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Fail job when the invariant is violated
+        if: steps.invariant.outcome == 'failure'
+        run: |
+          echo "Suppression invariant violated — see the report artifact and the issue above."
+          exit 1
+
+      - name: Report unexpected failure to GitHub Issues
+        # Fires on a muted failure: the job died BEFORE/OUTSIDE the invariant
+        # step (auth, npm ci, Firestore outage), which leaves zero visible
+        # signal from the steps above.
+        if: failure() && steps.invariant.outcome != 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito (crash pre/fuori dal check dell'invariante)
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}
+          Nota: verifica FIREBASE_SERVICE_ACCOUNT_JSON e l'esito di \`node scripts/load-rc-env.mjs\`." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

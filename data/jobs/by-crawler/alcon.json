@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alcon",
-  "assembledAt": "2026-08-10T10:31:07.292Z",
+  "assembledAt": "2026-08-10T21:47:06.885Z",
   "jobs": [
     {
       "id": "alcon-b66acee3cbdc",
@@ -34,7 +34,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Associate--Inter-Company-Order---Invoice-Flow_R-2026-47978-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T10:31:04.257Z",
+      "crawledAt": "2026-08-10T21:47:04.917Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -97,7 +97,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Geneva-Switzerland/Director--Corporate-Strategy---Business-Development_R-2026-48005-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T10:31:03.568Z",
+      "crawledAt": "2026-08-10T21:47:04.244Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -179,7 +179,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Schaffhausen-Switzerland/Senior-Manager-Materials-Management--m-w-d-_R-2026-48278-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:31:02.882Z",
+      "crawledAt": "2026-08-10T21:47:03.577Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Senior-Legal-Counsel-DACH--m-w-d----Medizinprodukte---Pharma_R-2026-48316",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:31:02.203Z",
+      "crawledAt": "2026-08-10T21:47:02.852Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -331,7 +331,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Quality-Assurance-Associate---Digital-Quality--Systems---AI-Compliance_R-2026-47973-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T10:31:01.435Z",
+      "crawledAt": "2026-08-10T21:47:02.207Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -410,7 +410,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Territory-Sales-Manager--m-w-d----Medical-Devices--Ophthalmology--Switzerland-_R-2026-47026-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:31:00.725Z",
+      "crawledAt": "2026-08-10T21:47:01.488Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -518,7 +518,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Schaffhausen-Switzerland/Regulatory-Strategy-Sr-Associate--m-f-d----Medical-Devices---German---English-speaking_R-2026-48088-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T10:31:00.007Z",
+      "crawledAt": "2026-08-10T21:47:00.771Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -564,6 +564,71 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "alcon-a810e5d06e06",
+      "slug": "international-accounting-and-reporting-director-alcon-ch",
+      "slugByLocale": {
+        "en": "international-accounting-and-reporting-director-alcon-ch",
+        "it": "international-accounting-and-reporting-director-alcon-ch",
+        "de": "international-accounting-and-reporting-director-alcon-ch",
+        "fr": "international-accounting-and-reporting-director-alcon-ch"
+      },
+      "company": "Alcon",
+      "companyKey": "alcon",
+      "companyDomain": "alcon.com",
+      "title": "International Accounting and Reporting Director",
+      "titleByLocale": {
+        "en": "International Accounting and Reporting Director",
+        "it": "International Accounting and Reporting Direttore",
+        "de": "International Accounting and Reporting Direktor",
+        "fr": "International Accounting and Reporting Directeur"
+      },
+      "description": "At Alcon, we're passionate about enhancing sight and helping people see brilliantly. With more than 25,000 associates, we innovate fearlessly, champion progress, and act swiftly to impact global eye health. We foster an inclusive culture, recognizing your contributions and offering opportunities to grow your career like never before. Together, we make a difference in the lives of our patients and customers. Are you ready to join us?\n\nThe International Accounting and Reporting Director is a pivotal senior finance leadership role responsible for driving the strategic direction and strengthening governance of accounting and financial reporting across International markets. This role provides enterprise-wide oversight of IFRS and Alcon policy application, leading complex accounting decisions and ensuring consistency, transparency, and control at scale. Acting as a trusted advisor to senior regional and global stakeholders, the Director shapes key business decisions and drives financial integrity. With strong visibility to executive leadership, this position plays a critical role in advancing reporting excellence, driving digital transformation, and building organizational capability. It is a key successor role within the International Finance leadership pipeline, with significant ownership and influence over high-impact financial outcomes.\n\nLeadership Expectations:\n\n• Lead the evolution of FRA function into an International organization, scaling the team and operating model to support the growth of the region.\n\n• Own and elevate stakeholder experience, delivering high-quality, reliable accounting outcomes and balance sheet reviews.\n\n• Act as the single point of accountability (for Global Technical Accounting, International FRA Head, Consolidations and Reporting function) for key accounting and reporting decisions and risk management across regions.\n\n• Champion digital transformation, advancing automation and innovation in accounting and reporting.\n\n• Strengthen controller capability, partnering with regions to build a high-performing, future-ready finance talent bench.\n\nIn this role, a typical day will include:\n\n• International Accounting & Reporting\n\n• Lead quarterly International Balance Sheet reviews with the CFO and Head of FRA, driving alignment on key risks, judgments, and actions.\n\n• Own key International Accounting processes and drive harmonization of accounting practices across regions.\n\n• Conduct deep-dive reviews of critical balance sheet and income statement areas, identifying opportunities to enhance consistency, transparency, and control.\n\n• Align regional processes to support growth, ensuring effective coordination with Regional teams, Global functions, Consolidations and Reporting, and cross-functional stakeholders.\n\n• Risk, Controls & Governance\n\n• Lead and coordinate resolution of complex and unusual accounting topics, partnering with C&R and Global Technical Accounting to ensure alignment.\n\n• Shape regional revenue recognition positions and drive alignment with Global Technical Accounting.\n\n• Establish a robust risk identification and governance framework, ensuring timely escalation, resolution, and mitigation of key accounting risks across markets.\n\n• Key partner to the Internal Controls function to strengthen controls across International markets.\n\n• Champion Digital Transformation\n\n• Key member of governance body within FRA International to implement responsible usage of automation and artificial intelligence capabilities. Embed a culture of innovation, continuously evaluating emerging tools and technologies to modernize the FRA function.\n\n• Identify and prioritize opportunities to automate processes and leverage AI in core accounting and reporting activities.\n\n• Lead implementation of digital initiatives by partnering with internal teams and external consultants, ensuring measurable efficiency and quality gains.\n\n• People & Organizational Leadership\n\n• Partner with regional FRA/Finance leaders to build a hig",
+      "descriptionByLocale": {
+        "en": "At Alcon, we're passionate about enhancing sight and helping people see brilliantly. With more than 25,000 associates, we innovate fearlessly, champion progress, and act swiftly to impact global eye health. We foster an inclusive culture, recognizing your contributions and offering opportunities to grow your career like never before. Together, we make a difference in the lives of our patients and customers. Are you ready to join us?\n\nThe International Accounting and Reporting Director is a pivotal senior finance leadership role responsible for driving the strategic direction and strengthening governance of accounting and financial reporting across International markets. This role provides enterprise-wide oversight of IFRS and Alcon policy application, leading complex accounting decisions and ensuring consistency, transparency, and control at scale. Acting as a trusted advisor to senior regional and global stakeholders, the Director shapes key business decisions and drives financial integrity. With strong visibility to executive leadership, this position plays a critical role in advancing reporting excellence, driving digital transformation, and building organizational capability. It is a key successor role within the International Finance leadership pipeline, with significant ownership and influence over high-impact financial outcomes.\n\nLeadership Expectations:\n\n• Lead the evolution of FRA function into an International organization, scaling the team and operating model to support the growth of the region.\n\n• Own and elevate stakeholder experience, delivering high-quality, reliable accounting outcomes and balance sheet reviews.\n\n• Act as the single point of accountability (for Global Technical Accounting, International FRA Head, Consolidations and Reporting function) for key accounting and reporting decisions and risk management across regions.\n\n• Champion digital transformation, advancing automation and innovation in accounting and reporting.\n\n• Strengthen controller capability, partnering with regions to build a high-performing, future-ready finance talent bench.\n\nIn this role, a typical day will include:\n\n• International Accounting & Reporting\n\n• Lead quarterly International Balance Sheet reviews with the CFO and Head of FRA, driving alignment on key risks, judgments, and actions.\n\n• Own key International Accounting processes and drive harmonization of accounting practices across regions.\n\n• Conduct deep-dive reviews of critical balance sheet and income statement areas, identifying opportunities to enhance consistency, transparency, and control.\n\n• Align regional processes to support growth, ensuring effective coordination with Regional teams, Global functions, Consolidations and Reporting, and cross-functional stakeholders.\n\n• Risk, Controls & Governance\n\n• Lead and coordinate resolution of complex and unusual accounting topics, partnering with C&R and Global Technical Accounting to ensure alignment.\n\n• Shape regional revenue recognition positions and drive alignment with Global Technical Accounting.\n\n• Establish a robust risk identification and governance framework, ensuring timely escalation, resolution, and mitigation of key accounting risks across markets.\n\n• Key partner to the Internal Controls function to strengthen controls across International markets.\n\n• Champion Digital Transformation\n\n• Key member of governance body within FRA International to implement responsible usage of automation and artificial intelligence capabilities. Embed a culture of innovation, continuously evaluating emerging tools and technologies to modernize the FRA function.\n\n• Identify and prioritize opportunities to automate processes and leverage AI in core accounting and reporting activities.\n\n• Lead implementation of digital initiatives by partnering with internal teams and external consultants, ensuring measurable efficiency and quality gains.\n\n• People & Organizational Leadership\n\n• Partner with regional FRA/Finance leaders to build a hig",
+        "it": "At Alcon, we're passionate about enhancing sight and helping people see brilliantly. With more than 25,000 associates, we innovate fearlessly, champion progress, and act swiftly to impact global eye health. We foster an inclusive culture, recognizing your contributions and offering opportunities to grow your career like never before. Together, we make a difference in the lives of our patients and customers. Are you ready to join us?\n\nThe International Accounting and Reporting Director is a pivotal senior finance leadership role responsible for driving the strategic direction and strengthening governance of accounting and financial reporting across International markets. This role provides enterprise-wide oversight of IFRS and Alcon policy application, leading complex accounting decisions and ensuring consistency, transparency, and control at scale. Acting as a trusted advisor to senior regional and global stakeholders, the Director shapes key business decisions and drives financial integrity. With strong visibility to executive leadership, this position plays a critical role in advancing reporting excellence, driving digital transformation, and building organizational capability. It is a key successor role within the International Finance leadership pipeline, with significant ownership and influence over high-impact financial outcomes.\n\nLeadership Expectations:\n\n• Lead the evolution of FRA function into an International organization, scaling the team and operating model to support the growth of the region.\n\n• Own and elevate stakeholder experience, delivering high-quality, reliable accounting outcomes and balance sheet reviews.\n\n• Act as the single point of accountability (for Global Technical Accounting, International FRA Head, Consolidations and Reporting function) for key accounting and reporting decisions and risk management across regions.\n\n• Champion digital transformation, advancing automation and innovation in accounting and reporting.\n\n• Strengthen controller capability, partnering with regions to build a high-performing, future-ready finance talent bench.\n\nIn this role, a typical day will include:\n\n• International Accounting & Reporting\n\n• Lead quarterly International Balance Sheet reviews with the CFO and Head of FRA, driving alignment on key risks, judgments, and actions.\n\n• Own key International Accounting processes and drive harmonization of accounting practices across regions.\n\n• Conduct deep-dive reviews of critical balance sheet and income statement areas, identifying opportunities to enhance consistency, transparency, and control.\n\n• Align regional processes to support growth, ensuring effective coordination with Regional teams, Global functions, Consolidations and Reporting, and cross-functional stakeholders.\n\n• Risk, Controls & Governance\n\n• Lead and coordinate resolution of complex and unusual accounting topics, partnering with C&R and Global Technical Accounting to ensure alignment.\n\n• Shape regional revenue recognition positions and drive alignment with Global Technical Accounting.\n\n• Establish a robust risk identification and governance framework, ensuring timely escalation, resolution, and mitigation of key accounting risks across markets.\n\n• Key partner to the Internal Controls function to strengthen controls across International markets.\n\n• Champion Digital Transformation\n\n• Key member of governance body within FRA International to implement responsible usage of automation and artificial intelligence capabilities. Embed a culture of innovation, continuously evaluating emerging tools and technologies to modernize the FRA function.\n\n• Identify and prioritize opportunities to automate processes and leverage AI in core accounting and reporting activities.\n\n• Lead implementation of digital initiatives by partnering with internal teams and external consultants, ensuring measurable efficiency and quality gains.\n\n• People & Organizational Leadership\n\n• Partner with regional FRA/Finance leaders to build a hig",
+        "de": "At Alcon, we're passionate about enhancing sight and helping people see brilliantly. With more than 25,000 associates, we innovate fearlessly, champion progress, and act swiftly to impact global eye health. We foster an inclusive culture, recognizing your contributions and offering opportunities to grow your career like never before. Together, we make a difference in the lives of our patients and customers. Are you ready to join us?\n\nThe International Accounting and Reporting Director is a pivotal senior finance leadership role responsible for driving the strategic direction and strengthening governance of accounting and financial reporting across International markets. This role provides enterprise-wide oversight of IFRS and Alcon policy application, leading complex accounting decisions and ensuring consistency, transparency, and control at scale. Acting as a trusted advisor to senior regional and global stakeholders, the Director shapes key business decisions and drives financial integrity. With strong visibility to executive leadership, this position plays a critical role in advancing reporting excellence, driving digital transformation, and building organizational capability. It is a key successor role within the International Finance leadership pipeline, with significant ownership and influence over high-impact financial outcomes.\n\nLeadership Expectations:\n\n• Lead the evolution of FRA function into an International organization, scaling the team and operating model to support the growth of the region.\n\n• Own and elevate stakeholder experience, delivering high-quality, reliable accounting outcomes and balance sheet reviews.\n\n• Act as the single point of accountability (for Global Technical Accounting, International FRA Head, Consolidations and Reporting function) for key accounting and reporting decisions and risk management across regions.\n\n• Champion digital transformation, advancing automation and innovation in accounting and reporting.\n\n• Strengthen controller capability, partnering with regions to build a high-performing, future-ready finance talent bench.\n\nIn this role, a typical day will include:\n\n• International Accounting & Reporting\n\n• Lead quarterly International Balance Sheet reviews with the CFO and Head of FRA, driving alignment on key risks, judgments, and actions.\n\n• Own key International Accounting processes and drive harmonization of accounting practices across regions.\n\n• Conduct deep-dive reviews of critical balance sheet and income statement areas, identifying opportunities to enhance consistency, transparency, and control.\n\n• Align regional processes to support growth, ensuring effective coordination with Regional teams, Global functions, Consolidations and Reporting, and cross-functional stakeholders.\n\n• Risk, Controls & Governance\n\n• Lead and coordinate resolution of complex and unusual accounting topics, partnering with C&R and Global Technical Accounting to ensure alignment.\n\n• Shape regional revenue recognition positions and drive alignment with Global Technical Accounting.\n\n• Establish a robust risk identification and governance framework, ensuring timely escalation, resolution, and mitigation of key accounting risks across markets.\n\n• Key partner to the Internal Controls function to strengthen controls across International markets.\n\n• Champion Digital Transformation\n\n• Key member of governance body within FRA International to implement responsible usage of automation and artificial intelligence capabilities. Embed a culture of innovation, continuously evaluating emerging tools and technologies to modernize the FRA function.\n\n• Identify and prioritize opportunities to automate processes and leverage AI in core accounting and reporting activities.\n\n• Lead implementation of digital initiatives by partnering with internal teams and external consultants, ensuring measurable efficiency and quality gains.\n\n• People & Organizational Leadership\n\n• Partner with regional FRA/Finance leaders to build a hig",
+        "fr": "At Alcon, we're passionate about enhancing sight and helping people see brilliantly. With more than 25,000 associates, we innovate fearlessly, champion progress, and act swiftly to impact global eye health. We foster an inclusive culture, recognizing your contributions and offering opportunities to grow your career like never before. Together, we make a difference in the lives of our patients and customers. Are you ready to join us?\n\nThe International Accounting and Reporting Director is a pivotal senior finance leadership role responsible for driving the strategic direction and strengthening governance of accounting and financial reporting across International markets. This role provides enterprise-wide oversight of IFRS and Alcon policy application, leading complex accounting decisions and ensuring consistency, transparency, and control at scale. Acting as a trusted advisor to senior regional and global stakeholders, the Director shapes key business decisions and drives financial integrity. With strong visibility to executive leadership, this position plays a critical role in advancing reporting excellence, driving digital transformation, and building organizational capability. It is a key successor role within the International Finance leadership pipeline, with significant ownership and influence over high-impact financial outcomes.\n\nLeadership Expectations:\n\n• Lead the evolution of FRA function into an International organization, scaling the team and operating model to support the growth of the region.\n\n• Own and elevate stakeholder experience, delivering high-quality, reliable accounting outcomes and balance sheet reviews.\n\n• Act as the single point of accountability (for Global Technical Accounting, International FRA Head, Consolidations and Reporting function) for key accounting and reporting decisions and risk management across regions.\n\n• Champion digital transformation, advancing automation and innovation in accounting and reporting.\n\n• Strengthen controller capability, partnering with regions to build a high-performing, future-ready finance talent bench.\n\nIn this role, a typical day will include:\n\n• International Accounting & Reporting\n\n• Lead quarterly International Balance Sheet reviews with the CFO and Head of FRA, driving alignment on key risks, judgments, and actions.\n\n• Own key International Accounting processes and drive harmonization of accounting practices across regions.\n\n• Conduct deep-dive reviews of critical balance sheet and income statement areas, identifying opportunities to enhance consistency, transparency, and control.\n\n• Align regional processes to support growth, ensuring effective coordination with Regional teams, Global functions, Consolidations and Reporting, and cross-functional stakeholders.\n\n• Risk, Controls & Governance\n\n• Lead and coordinate resolution of complex and unusual accounting topics, partnering with C&R and Global Technical Accounting to ensure alignment.\n\n• Shape regional revenue recognition positions and drive alignment with Global Technical Accounting.\n\n• Establish a robust risk identification and governance framework, ensuring timely escalation, resolution, and mitigation of key accounting risks across markets.\n\n• Key partner to the Internal Controls function to strengthen controls across International markets.\n\n• Champion Digital Transformation\n\n• Key member of governance body within FRA International to implement responsible usage of automation and artificial intelligence capabilities. Embed a culture of innovation, continuously evaluating emerging tools and technologies to modernize the FRA function.\n\n• Identify and prioritize opportunities to automate processes and leverage AI in core accounting and reporting activities.\n\n• Lead implementation of digital initiatives by partnering with internal teams and external consultants, ensuring measurable efficiency and quality gains.\n\n• People & Organizational Leadership\n\n• Partner with regional FRA/Finance leaders to build a hig"
+      },
+      "needsRetranslation": true,
+      "location": "Fribourg",
+      "canton": "FR",
+      "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/International-Accounting-and-Reporting-Director_R-2026-46854",
+      "source": "Alcon Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-10T21:47:00.099Z",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendite",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Medtech / Cura della vista",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-10",
+      "applyUrl": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/International-Accounting-and-Reporting-Director_R-2026-46854",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "jobReqId": "R-2026-46854",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-10T21:47:00.099Z"
     }
   ]
 }
