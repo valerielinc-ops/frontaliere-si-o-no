@@ -9510,6 +9510,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-besano-da-frontaliere.title': 'Moving to Besano by border crossing: pros and cons',
     'blog.article.trasferirsi-besano-da-frontaliere.excerpt': 'Impacts of travel for border workers and benefits of residence in Ticino',
     'blog.article.trasferirsi-besano-da-frontaliere.imageAlt': 'A frontaliere moving to Besano from Lugano',
+    'blog.article.trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.title': 'Moving to Cadegliano-Viconago by border crossing: pros and cons',
+    'blog.article.trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.excerpt': 'What to consider before moving to Cadegliano-Viconago working in Ticino as a border worker.',
+    'blog.article.trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.imageAlt': 'A frontaliere looking out at Lake Lugano, pondering the decision to relocate to Cadegliano-Viconago.',
 };
 
 export default blogMetaEn;
