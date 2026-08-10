@@ -51,7 +51,7 @@ function sizeAt(ref, file) {
   }
 }
 
-function main() {
+export function main() {
   const [beforeSha, afterSha] = process.argv.slice(2);
   if (!beforeSha || !afterSha) {
     console.error('usage: guard-data-integrity.mjs <beforeSha> <afterSha>');
@@ -111,4 +111,7 @@ function main() {
   process.stdout.write(JSON.stringify(violations));
 }
 
-main();
+// Esegui solo come CLI (non quando importato dai test → evita di lanciare git).
+if (process.argv[1]?.endsWith('guard-data-integrity.mjs')) {
+  main();
+}

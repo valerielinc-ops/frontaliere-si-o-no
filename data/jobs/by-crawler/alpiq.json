@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-08-09T21:52:29.971Z",
+  "assembledAt": "2026-08-10T10:43:56.413Z",
   "jobs": [
     {
       "id": "alpiq-04e9cf13b072",
@@ -61,6 +61,7 @@
           "unitText": "YEAR"
         }
       },
+      "crawlerMissStreak": 1,
       "previousSlugsByLocale": {
         "it": [
           "financial-performance-analyst-alpiq-lausanne",
@@ -117,7 +118,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-09T21:52:28.148Z",
+      "crawledAt": "2026-08-10T10:43:53.761Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -177,7 +178,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9598&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-09T21:52:28.148Z",
+      "crawledAt": "2026-08-10T10:43:53.761Z",
       "firstSeenAt": "2026-07-16T23:01:54.449Z",
       "salaryMin": 68000,
       "salaryMax": 104000,
@@ -245,7 +246,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:52:28.148Z",
+      "crawledAt": "2026-08-10T10:43:53.761Z",
       "firstSeenAt": "2026-07-06T12:57:17.444Z",
       "salaryMin": 68000,
       "salaryMax": 104000,
@@ -313,7 +314,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:52:28.148Z",
+      "crawledAt": "2026-08-10T10:43:53.760Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -378,7 +379,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-09T21:52:28.147Z",
+      "crawledAt": "2026-08-10T10:43:53.759Z",
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 61,
       "retranslationAttempts": 3,
