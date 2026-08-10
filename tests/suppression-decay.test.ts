@@ -783,3 +783,42 @@ describe('the hard-bounce regex is not duplicated', () => {
     expect(source).toContain('suppressionDecay.mjs');
   });
 });
+
+describe('every shared symbol a script uses is actually imported', () => {
+  /**
+   * Extracting a helper leaves the call site behind. A missing import in a
+   * script that only runs on a weekly cron surfaces as a ReferenceError in
+   * production, weeks later, with nothing between here and there to catch it:
+   * these files are never imported by the test suite (they open Firestore at
+   * module scope), so no other test loads them.
+   */
+  const SHARED = ['hasConsentEvidence', 'HARD_BOUNCE_PATTERN', 'classifySuppressionDecay', 'recoveredStatus'];
+
+  /**
+   * Comments are stripped first. These modules DOCUMENT each other heavily —
+   * `check-suppression-invariant.mjs` names `HARD_BOUNCE_PATTERN` in its header
+   * to explain the invariant without importing it — and a scan that counted a
+   * docblock mention as a usage would demand an unused import.
+   */
+  const stripComments = (s: string) => s.replace(/\/\*[\s\S]*?\*\//g, '').replace(/(^|\s)\/\/.*$/gm, '$1');
+
+  it('resolves every shared identifier used outside the module that defines it', () => {
+    const offenders: string[] = [];
+    for (const root of SCAN_ROOTS) {
+      for (const file of sourceFiles(path.join(REPO_ROOT, root))) {
+        const rel = path.relative(REPO_ROOT, file);
+        if (rel === path.join('scripts', 'lib', 'suppressionDecay.mjs')) continue;
+        const raw = fs.readFileSync(file, 'utf-8');
+        const source = stripComments(raw);
+        for (const symbol of SHARED) {
+          const used = new RegExp(`\\b${symbol}\\b`).test(source);
+          if (!used) continue;
+          const declared = new RegExp(`(?:const|let|var|function)\\s+${symbol}\\b`).test(source);
+          const imported = new RegExp(`import\\s*\\{[^}]*\\b${symbol}\\b[^}]*\\}`, 's').test(source);
+          if (!declared && !imported) offenders.push(`${rel}: uses ${symbol} without importing or declaring it`);
+        }
+      }
+    }
+    expect(offenders).toEqual([]);
+  });
+});

@@ -35,6 +35,11 @@
  *   --limit <n> cap the number of docs restored in one run (default: no cap)
  */
 import admin from 'firebase-admin';
+// Consent detection was written HERE first and is now shared: the general
+// suppression-decay path restores newsletter docs with the same rule, and two
+// copies of "may this address come back as `confirmed`?" would drift into two
+// different answers to the one question that must never be got wrong.
+import { hasConsentEvidence } from './lib/suppressionDecay.mjs';
 
 const argv = process.argv.slice(2);
 const flag = (n) => argv.includes(`--${n}`);
