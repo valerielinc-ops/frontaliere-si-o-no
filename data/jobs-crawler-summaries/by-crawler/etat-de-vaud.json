@@ -1,19 +1,21 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-08-10T10:47:30.218Z",
-  "total": 62,
+  "generatedAt": "2026-08-10T22:02:02.133Z",
+  "total": 63,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 29181,
-  "avgDurationMs": 29181,
+  "unchangedCount": 1,
+  "durationMs": 29342,
+  "avgDurationMs": 29342,
   "durationHistory": [
-    29181
+    29342
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "etat-de-vaud-5612",
       "slug": "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-lausanne-cca071",
@@ -45,7 +47,7 @@
       "firstSeenAt": "2026-07-05T11:43:20.041Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +56,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
