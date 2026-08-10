@@ -9477,6 +9477,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-maslianico-lavoro-ticino.title': 'Vivre à Maslianico et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-maslianico-lavoro-ticino.excerpt': 'Guide pratique pour les frontaliers résidant à Maslianico : nouvel accord, fiscalité, obligations d\'assurance LAMal et procédures de déplacement.',
     'blog.article.vivere-maslianico-lavoro-ticino.imageAlt': 'Vue de la frontière entre l\'Italie et la Suisse',
+    'blog.article.trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Maslianico: pro e contro',
+    'blog.article.trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.excerpt': 'Taxes, permis et conditions de travail : ce qu\'il faut savoir avant de déménager à Maslianico en tant que navetteur transfrontalier.',
+    'blog.article.trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.imageAlt': 'Vue de Lugano, avec le lac de Lugano et les montagnes environnantes.',
 };
 
 export default blogMetaFr;

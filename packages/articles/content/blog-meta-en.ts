@@ -9475,6 +9475,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-maslianico-lavoro-ticino.title': 'Living in Maslianico and working in Ticino as a border worker',
     'blog.article.vivere-maslianico-lavoro-ticino.excerpt': 'Practical guide for border workers residing in Maslianico: new agreement, taxation, LAMal insurance obligations and commuting procedures.',
     'blog.article.vivere-maslianico-lavoro-ticino.imageAlt': 'View of the border between Italy and Switzerland',
+    'blog.article.trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.title': 'Moving to Maslianico as a cross-border commuter: pros and cons',
+    'blog.article.trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.excerpt': 'Taxes, permits and working conditions: what to know before moving to Maslianico as a cross-border commuter.',
+    'blog.article.trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.imageAlt': 'View of Lugano, with Lake Lugano and surrounding mountains.',
 };
 
 export default blogMetaEn;
