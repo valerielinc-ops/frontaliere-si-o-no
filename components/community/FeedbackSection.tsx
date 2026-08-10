@@ -3,6 +3,7 @@ import { Send, Bug, Lightbulb, Github, CheckCircle, Clock, Sparkles, Loader2, Me
 import { Analytics } from '../../services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
 import { useTranslation } from '@/services/i18n';
+import { redactPersonalData } from '@/services/privacy/redactPii';
 import recaptchaService from '../../services/recaptchaService';
 
 interface FeedbackItem {
@@ -33,6 +34,44 @@ export const FeedbackSection: React.FC = () => {
  description: '',
  type: 'BUG'
  });
+
+ /**
+  * Redact personal data out of anything this form sends (#5196).
+  *
+  * ── WHY THIS FORM, AND WHY IT IS THE WORST SINK OF THE SET ──
+  *
+  * The #5196 inventory tracked eleven destinations for user-authored free text
+  * and fixed the analytics ones. It missed this form, which is not an analytics
+  * sink at all: `handleSubmit` posts the title and the body to
+  * `createFeedbackIssue`, which opens an issue on a **public** repository. That
+  * is a worse destination than every entry on that list. A PostHog event or a
+  * session replay can be deleted by the owner; a public GitHub issue is
+  * world-readable the instant it is created, is indexed, and is mirrored by
+  * scrapers before anyone notices. Deleting it does not undo any of that.
+  *
+  * The class of input is identical to the one that started the issue: a person
+  * describing their own situation. On this site a bug report reads "sono Mario
+  * Rossi, nato il 14/03/1987, abito in Via …, e il calcolatore mi dà un
+  * risultato sbagliato" — the same three fields, aimed at a public URL.
+  *
+  * ── THE FALSE-POSITIVE TRADE, STATED ──
+  *
+  * `inferNamesFromCapitalisation` is left ON — the protective default — and not
+  * turned off as it is for the search box. Two reasons, in order:
+  *
+  *  1. The destination is public and permanent, so the module's asymmetry
+  *     (over-redaction costs readability, under-redaction is an incident)
+  *     applies here more strongly than anywhere else in the codebase.
+  *  2. The readability cost is close to zero HERE, because the volume is: one
+  *     issue in the repository's whole history carries the "Segnalato tramite
+  *     Web App" marker this endpoint appends. There is no corpus to preserve,
+  *     and when a report does arrive over-redacted the reporter is reachable,
+  *     which a leaked name is not.
+  *
+  * The cost that remains is real and is not hidden: a capitalised UI label in a
+  * report ("il bottone Calcola Stipendio") is reported as `[name]`.
+  */
+ const redactForPublication = (raw: string) => redactPersonalData(raw).text;
 
  const REPO_OWNER = 'valerielinc-ops';
  const REPO_NAME = 'frontaliere-si-o-no';
@@ -81,15 +120,31 @@ export const FeedbackSection: React.FC = () => {
  Analytics.trackUIInteraction('supporto', 'feedback', 'ai_ottimizza', 'click', formData.type);
 
  try {
+ // Redacted BEFORE the vendor call, not only before the issue is opened.
+ // The rewrite is cosmetic — a Product-Manager-style restatement — so it loses
+ // nothing by working on `[name]`/`[address]` tokens, and redacting here
+ // removes one third-party copy of the raw text instead of only cleaning the
+ // final destination. It also makes the redaction VISIBLE: the rewritten text
+ // is written straight back into the textarea, so the reporter sees what will
+ // be published before they submit it.
+ //
+ // This is the opposite call from the chatbot's LLM cascade, deliberately:
+ // there the user typed the question in order to be answered, and degrading
+ // the prompt degrades the service they asked for. Here the service is a
+ // rephrasing, and it is just as good on redacted input.
+ const safeDescription = redactForPublication(formData.description);
  // Gemini runs server-side (geminiGenerate Cloud Function); no API key in the browser.
- const userPrompt = `Agisci come un esperto Product Manager. L'utente vuole segnalare un problema o un'idea per un'app di calcolo tasse frontalieri.\nTesto utente: "${formData.description}".\n\nRiscrivi il testo in modo chiaro e tecnico per una GitHub Issue. Non aggiungere saluti. Solo il corpo del testo.`;
+ const userPrompt = `Agisci come un esperto Product Manager. L'utente vuole segnalare un problema o un'idea per un'app di calcolo tasse frontalieri.\nTesto utente: "${safeDescription}".\n\nRiscrivi il testo in modo chiaro e tecnico per una GitHub Issue. Non aggiungere saluti. Solo il corpo del testo.`;
  const res = await fetch('https://europe-west6-frontaliere-ticino.cloudfunctions.net/geminiGenerate', {
  method: 'POST',
  headers: { 'Content-Type': 'application/json' },
  body: JSON.stringify({ userPrompt, maxTokens: 1024, temperature: 0.5 }),
  });
  const data = await res.json().catch(() => ({}));
- const optimizedText = (data?.ok && data.text) ? data.text : formData.description;
+ // On failure fall back to the REDACTED text, not the raw one: the point of
+ // the fallback is to leave the field usable, not to put the personal data
+ // back in it.
+ const optimizedText = (data?.ok && data.text) ? data.text : safeDescription;
  setFormData(prev => ({ ...prev, description: optimizedText }));
  } catch (e) {
  reportCaughtError(e, 'feedback.aiOptimize');
@@ -116,12 +171,16 @@ export const FeedbackSection: React.FC = () => {
  return;
  }
 
+ // Both fields, not just the body: a reporter who writes "il calcolatore
+ // sbaglia per Mario Rossi" puts the name in the TITLE, which is the part
+ // that ends up in the issue list, in search results and in every
+ // notification email.
  const response = await fetch(FEEDBACK_ISSUE_ENDPOINT, {
  method: 'POST',
  headers: { 'Content-Type': 'application/json' },
  body: JSON.stringify({
- title: formData.title,
- description: `${formData.description}`,
+ title: redactForPublication(formData.title),
+ description: redactForPublication(formData.description),
  type: formData.type,
  recaptchaToken,
  }),
