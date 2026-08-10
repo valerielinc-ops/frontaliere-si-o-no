@@ -309,3 +309,79 @@ describe('github-issue-creator crawler-failure consecutive gate', () => {
     expect(searchArg).not.toBe('in:title "escalation(harvester)"'); // not collapsed
   });
 });
+
+describe('reopenWithinHours + buildSha deploy-latency guard (#5539)', () => {
+  const CLOSED_ISSUE = {
+    number: 50,
+    title: 'Validation Failure (dist): validate:internal-links',
+    url: 'https://github.com/o/r/issues/50',
+    closedAt: ISO(1),
+  };
+
+  function mockGh({ compareStatus }: { compareStatus: string }) {
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') {
+        const state = args[args.indexOf('--state') + 1];
+        return state === 'closed' ? JSON.stringify([CLOSED_ISSUE]) : '[]';
+      }
+      if (args[0] === 'api' && String(args[1]).includes('/issues/50/events')) return 'closingSha123';
+      if (args[0] === 'api' && String(args[1]).includes('/compare/')) return compareStatus;
+      return '';
+    });
+  }
+
+  it('build predates the closing commit → comments latency, does NOT reopen', async () => {
+    mockGh({ compareStatus: 'ahead' }); // buildSha is an ancestor of the closing commit
+
+    const res = await createGithubIssue({
+      title: 'Validation Failure (dist): validate:internal-links',
+      description: 'broken links',
+      priority: 1,
+      labels: ['Bug'],
+      reopenWithinHours: 6,
+      buildSha: 'staleBuildSha',
+    } as any);
+
+    expect(ghCalls().some((a) => a[0] === 'issue' && a[1] === 'reopen')).toBe(false);
+    const comment = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'comment');
+    expect(comment?.[2]).toBe('50');
+    expect(comment?.[comment.indexOf('--body') + 1]).toContain('precede la fix');
+    expect(res?.number).toBe(50);
+    expect((res as any)?.staleBuild).toBe(true);
+  });
+
+  it('build is at/after the closing commit → reopens as a real recurrence', async () => {
+    mockGh({ compareStatus: 'behind' }); // buildSha is NOT an ancestor — already has the fix
+
+    const res = await createGithubIssue({
+      title: 'Validation Failure (dist): validate:internal-links',
+      description: 'broken links again',
+      priority: 1,
+      labels: ['Bug'],
+      reopenWithinHours: 6,
+      buildSha: 'freshBuildSha',
+    } as any);
+
+    const reopenCall = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'reopen');
+    expect(reopenCall?.[2]).toBe('50');
+    const comment = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'comment');
+    expect(comment?.[comment.indexOf('--body') + 1]).toContain('Reopened');
+    expect(res?.number).toBe(50);
+  });
+
+  it('no buildSha supplied → skips the ancestor check, preserves pre-#5539 unconditional reopen', async () => {
+    mockGh({ compareStatus: 'ahead' });
+
+    await createGithubIssue({
+      title: 'Validation Failure (dist): validate:internal-links',
+      description: 'broken links',
+      priority: 1,
+      labels: ['Bug'],
+      reopenWithinHours: 6,
+    } as any);
+
+    expect(ghCalls().some((a) => a[0] === 'api')).toBe(false); // no ancestor lookup at all
+    const reopenCall = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'reopen');
+    expect(reopenCall?.[2]).toBe('50');
+  });
+});

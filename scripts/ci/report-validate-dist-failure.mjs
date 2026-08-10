@@ -533,6 +533,9 @@ function reportDist({ dryRun }) {
 
   // Sequenziale: createGithubIssue dedupa per titolo (prefisso 60 char),
   // reopen entro 6h per il flap rosso→verde→rosso (#928/#931/#937/#941).
+  // deployRef è il commit della BUILD (workflow_run.head_sha), distinto dal
+  // run che la valida — passarlo abilita il guard anti-latenza (#5539): se
+  // predata la fix che ha chiuso la issue, il reopener non la riapre.
   return payloads.reduce(
     (p, payload) => p.then(() => createGithubIssue({
       title: payload.title,
@@ -541,6 +544,7 @@ function reportDist({ dryRun }) {
       labels: payload.labels,
       workflow: WORKFLOW_DISPLAY_NAME,
       reopenWithinHours: 6,
+      buildSha: deployRef || null,
     })),
     Promise.resolve(),
   );
