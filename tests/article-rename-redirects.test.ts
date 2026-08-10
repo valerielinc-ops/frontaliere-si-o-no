@@ -47,7 +47,9 @@ import {
   ARTICLE_REDIRECTS_FILE,
   articleSectionPrefixes,
   assertNoCrossSourceChains,
+  assertNoInternalChains,
   findCrossSourceChains,
+  findInternalChains,
   loadArticleRedirects,
   parseArticlePath,
   parseArticleRedirects,
@@ -430,6 +432,76 @@ describe('cross-source redirect chains (PR #5537 review round 1)', () => {
 
   it('reads the real map without hitting either guard', () => {
     expect(Object.keys(HARDCODED).length).toBe(156);
+  });
+});
+
+/**
+ * Review round 3. `findCrossSourceChains` looks BETWEEN the two sources and by
+ * construction cannot see a chain declared entirely inside one of them — and
+ * the hardcoded map had two, both on production URLs, both born the same way:
+ * a later batch re-pointed the middle hop and nobody went back to the entry
+ * pointing into it.
+ *
+ * Measured live before the fix (2026-08-10):
+ *
+ *   /comparatori/traffico-valichi/        200 noindex,follow → canonical /statistiche/traffico-dogane/
+ *   /statistiche/traffico-dogane/         200 noindex,follow → canonical /guida-frontaliere/tempi-attesa-dogana/
+ *   /guida-frontaliere/tempi-attesa-dogana/  200 index,follow  ← the real page
+ *
+ * and the FR twin on health-insurance premiums. Same defect this PR describes,
+ * already shipped. Disclosing them in the PR body was not repairing them.
+ */
+describe('internal redirect chains (PR #5537 review round 3)', () => {
+  it('finds nothing in a flat map', () => {
+    expect(findInternalChains({
+      '/a/': '/target/',
+      '/b/': '/target/',
+    })).toEqual([]);
+  });
+
+  it('catches X → A → B declared in one map', () => {
+    expect(findInternalChains({
+      '/x/': '/a/',
+      '/a/': '/b/',
+    })).toEqual([{ from: '/x/', via: '/a/', to: '/b/' }]);
+  });
+
+  it('normalizes the trailing slash before comparing', () => {
+    expect(findInternalChains({ '/x': '/a', '/a/': '/b/' })).toHaveLength(1);
+  });
+
+  it('does not treat a self-map as a chain (the emit loop already skips those)', () => {
+    expect(findInternalChains({ '/a/': '/a/' })).toEqual([]);
+  });
+
+  it('throws with the collapsed line spelled out', () => {
+    expect(() => assertNoInternalChains({ '/x/': '/a/', '/a/': '/b/' }))
+      .toThrow(/rimedio: '\/x\/': '\/b\/',/);
+  });
+
+  // ── The regression guard ────────────────────────────────────────────────
+  it('the real hardcoded map declares no chain', () => {
+    const chains = findInternalChains(HARDCODED);
+    expect(
+      chains.map((c) => `${c.from} → ${c.via} → ${c.to}`),
+      'a redirect whose target is itself redirected sends the canonical to a noindex page',
+    ).toEqual([]);
+  });
+
+  /**
+   * Pinned by target, not just by "no chains": if someone re-points
+   * `/statistiche/traffico-dogane/` again, the chain guard above catches it —
+   * but these two assertions say out loud where the collapsed entries are
+   * supposed to land, so the fix cannot be quietly undone into a different
+   * shape that happens not to chain.
+   */
+  it.each([
+    ['/comparatori/traffico-valichi/', '/guida-frontaliere/tempi-attesa-dogana/'],
+    ['/fr/primes-assurance-maladie/ticino/', '/fr/statistiques/primes-assurance-maladie-communes/'],
+  ])('%s points straight at the final page', (from, to) => {
+    expect(HARDCODED[from]).toBe(to);
+    // …and the final page must not itself be a redirect source.
+    expect(HARDCODED[to]).toBeUndefined();
   });
 });
 

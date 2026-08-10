@@ -21,7 +21,7 @@ import {
  type CantonLocale,
 } from './shared/cantonSection';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import { loadArticleRedirects, assertNoCrossSourceChains, ARTICLE_REDIRECTS_FILE } from './shared/articleRedirects.mjs';
+import { loadArticleRedirects, assertNoCrossSourceChains, assertNoInternalChains, ARTICLE_REDIRECTS_FILE } from './shared/articleRedirects.mjs';
 import { loadJobsJson } from './shared/loadJobsJson';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
@@ -103,7 +103,14 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/stats/': '/statistiche/',
  '/comparatori/': '/compara-servizi/',
  '/comparatori/cambio-valuta/': '/compara-servizi/cambio-franco-euro/',
- '/comparatori/traffico-valichi/': '/statistiche/traffico-dogane/',
+ // Collassata (#5352, review round 3). Puntava a /statistiche/traffico-dogane/,
+ // che la pulizia H.9 piu' sotto ha a sua volta reindirizzato: due hop, con il
+ // primo canonical su una pagina noindex. Misurato in produzione prima della
+ // fix: /comparatori/traffico-valichi/ → 200 noindex,follow canonical
+ // /statistiche/traffico-dogane/ → 200 noindex,follow canonical
+ // /guida-frontaliere/tempi-attesa-dogana/ (200 index,follow, la pagina vera).
+ // Stessa destinazione di /guida-frontaliere/traffico-valichi/ piu' sotto.
+ '/comparatori/traffico-valichi/': '/guida-frontaliere/tempi-attesa-dogana/',
  '/comparatori/banche/': '/compara-servizi/confronta-banche/',
  '/comparatori/operatori-mobili/': '/compara-servizi/confronta-operatori-mobili/',
  '/comparatori/mappa-comuni/': '/guida-frontaliere/mappa-confine/',
@@ -250,7 +257,14 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // NOTE: '/fr/salaires-frontaliers-tessin/' is already declared above; do not duplicate.
  '/fr/glossaire/': '/fr/glossaire-frontalier/',
  '/fr/comparer-services/assurance-maladie/': '/fr/comparer-services/comparer-caisses-maladie/',
- '/fr/primes-assurance-maladie/ticino/': '/fr/primes-assurance-maladie-communes/ticino/',
+ // Collassata (#5352, review round 3), stessa forma della gemella IT sopra: il
+ // bersaglio /fr/primes-assurance-maladie-communes/ticino/ e' a sua volta
+ // reindirizzato piu' sotto verso /fr/statistiques/primes-assurance-maladie-communes/.
+ // Misurato prima della fix: 200 noindex,follow → 200 noindex,follow → 200
+ // index,follow. La destinazione finale non porta il segmento /ticino/, ed e'
+ // gia' dov'e' finito l'utente fin qui: collassare non cambia dove si arriva,
+ // toglie solo l'hop che perde il segnale.
+ '/fr/primes-assurance-maladie/ticino/': '/fr/statistiques/primes-assurance-maladie-communes/',
  '/fr/prix-diesel/aujourdhui/': '/fr/prix-gasoil-suisse/aujourd-hui/',
  '/fr/prix-diesel/aujourd-hui/': '/fr/prix-gasoil-suisse/aujourd-hui/',
  // FR recency-hub slug variant Google indexed (/3-derniers-jours/ → canonical /derniers-3-jours/)
@@ -400,6 +414,14 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
    order: 'post',
    sequential: true,
    handler: async () => {
+ // Prima di qualunque cosa, e prima che la mappa cathedral ci scriva dentro:
+ // qui `redirects` e' ancora esattamente il letterale scritto a mano sopra.
+ // Due delle sue voci formavano una catena a due hop (issue #5352, review
+ // round 3) — un batch successivo aveva ripuntato l'anello di mezzo senza che
+ // nessuno tornasse a guardare chi ci puntava dentro. Il canonical del primo
+ // bridge finiva su una pagina noindex, che non inoltra il segnale.
+ assertNoInternalChains(redirects);
+
  const distDir = path.resolve(rootDir, 'dist');
  let count = 0;
  let compatCount = 0;

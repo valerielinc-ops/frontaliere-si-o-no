@@ -336,6 +336,64 @@ export function findCrossSourceChains(hardcoded, data) {
 }
 
 /**
+ * Catene DENTRO una sola mappa: `X → A` e `A → B` dichiarate entrambe qui.
+ *
+ * `findCrossSourceChains` guarda **fra** le due fonti e per costruzione non
+ * vede questa forma. Serve, e non per simmetria: al momento in cui e' stata
+ * scritta la mappa hardcoded ne conteneva **due**, entrambe su URL di
+ * produzione, entrambe nate nello stesso modo — un batch successivo ha
+ * ripuntato l'anello di mezzo e nessuno e' tornato a guardare chi ci puntava
+ * dentro (issue #5352, review round 3):
+ *
+ *   /comparatori/traffico-valichi/       → /statistiche/traffico-dogane/            → /guida-frontaliere/tempi-attesa-dogana/
+ *   /fr/primes-assurance-maladie/ticino/ → /fr/primes-assurance-maladie-communes/…  → /fr/statistiques/primes-assurance-maladie-communes/
+ *
+ * Misurate live prima della fix: 200 `noindex,follow` → 200 `noindex,follow` →
+ * 200 `index,follow`. Cioe' esattamente il difetto che questa PR descrive, gia'
+ * in produzione. Con i tre controlli — dati×dati (`parseArticleRedirects`),
+ * hardcoded×hardcoded (questo) e hardcoded×dati (`findCrossSourceChains`) — la
+ * mappa finale non puo' piu' contenere due hop da nessuna combinazione.
+ *
+ * @param {Record<string, string>} map
+ * @returns {Array<{from: string, via: string, to: string}>}
+ */
+export function findInternalChains(map) {
+  /** @type {Map<string, string>} */
+  const byFrom = new Map();
+  for (const [f, t] of Object.entries(map)) byFrom.set(withTrailingSlash(f), withTrailingSlash(t));
+
+  const out = [];
+  for (const [from, via] of byFrom) {
+    const to = byFrom.get(via);
+    if (to === undefined || via === from) continue;
+    out.push({ from, via, to });
+  }
+  return out;
+}
+
+/**
+ * @param {Record<string, string>} map
+ * @param {{ file?: string }} [opts]
+ */
+export function assertNoInternalChains(map, opts = {}) {
+  const file = opts.file ?? LEGACY_REDIRECTS_SOURCE;
+  const chains = findInternalChains(map);
+  if (chains.length === 0) return;
+
+  const lines = chains.map(({ from, via, to }) =>
+    `  ${from}\n    → ${via}   (a sua volta reindirizzata)\n    → ${to}\n` +
+    `    rimedio: '${from}': '${to}',`,
+  );
+  throw new Error(
+    `${file}: ${chains.length} catena/e di redirect dentro la stessa mappa.\n` +
+    'Il primo bridge manda il canonical su una pagina 200 `noindex`, che non inoltra il\n' +
+    'segnale: la URL piu\' vecchia smette di consolidare su qualunque cosa. Ogni voce deve\n' +
+    'puntare DIRETTAMENTE alla destinazione finale.\n' +
+    lines.join('\n'),
+  );
+}
+
+/**
  * Fa fallire il build (e prima ancora la CI e il writer) su una catena a cavallo
  * delle due fonti, con il rimedio scritto per esteso: la voce hardcoded va
  * ripuntata sulla destinazione finale, cosi' la catena torna a un hop solo.
