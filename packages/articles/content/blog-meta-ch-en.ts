@@ -2041,6 +2041,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.job-sharing-svizzera.title': 'Job sharing conquers Swiss top management',
     'blog.article.job-sharing-svizzera.excerpt': 'On, Vontobel and other companies adopt co-leadership to innovate.',
     'blog.article.job-sharing-svizzera.imageAlt': 'Image of a Swiss company headquarters',
+    'blog.article.siccita-stress-famiglie.title': 'Drought: Stress on the rise among farming families in Switzerland',
+    'blog.article.siccita-stress-famiglie.excerpt': 'Prolonged drought and extreme weather events are aggravating the living and working conditions of farming families in Switzerland.',
+    'blog.article.siccita-stress-famiglie.imageAlt': 'Swiss farming family worried about drought',
 };
 
 export default blogMetaChEn;

@@ -6121,6 +6121,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'siccita-stress-famiglie',
+    category: 'pratico',
+    date: '2026-08-10T20:29:52.517Z',
+    image: '/images/blog/siccita-stress-famiglie.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

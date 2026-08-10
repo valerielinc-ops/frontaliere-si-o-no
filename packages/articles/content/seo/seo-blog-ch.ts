@@ -26420,6 +26420,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-siccita-stress-famiglie': {
+    title: 'Siccità: in aumento lo stress tra le famiglie contadine in Svizzera',
+    description: 'La prolungata siccità sta aggravando le condizioni di vita e di lavoro delle famiglie contadine in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, aumento, stress, famiglie',
+    ogTitle: 'Siccità in Svizzera: lo stress tra le famiglie contadine',
+    ogDescription: 'La prolungata siccità sta aggravando le condizioni di vita e di lavoro delle famiglie contadine in Svizzera.',
+    canonicalPath: '/articoli-svizzera/siccita-stress-famiglie/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità: in aumento lo stress tra le famiglie contadine in Svizzera",
+      "description": "La prolungata siccità sta aggravando le condizioni di vita e di lavoro delle famiglie contadine in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/siccita-stress-famiglie.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia agricola preoccupata per la siccità in Svizzera"
+      },
+      "datePublished": "2026-08-10T20:29:52+00:00",
+      "dateModified": "2026-08-10T20:29:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/siccita-stress-famiglie/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
