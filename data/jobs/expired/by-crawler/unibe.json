@@ -192,65 +192,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "gestione-amministrativa-caso-universitat-bern-bern-9ee764",
-    "title": "Administrative/r Sachbearbeiter/in",
-    "titleByLocale": {
-      "it": "Gestione amministrativa/caso",
-      "en": "Administrative/Case handler",
-      "de": "Administrative/r Sachbearbeiter/in",
-      "fr": "Administrateur/gestionnaire de cas"
-    },
-    "company": "Universität Bern",
-    "companyKey": "unibe",
-    "location": "Bern",
-    "addressLocality": "Bern",
-    "descriptionByLocale": {
-      "it": "<b> L'UniBE è versatile. </b> Con noi ci si può aspettare una vasta gamma di argomenti e un sacco di libertà di progettazione. Compiti:\n• Iniziativa propria in un ambiente di ricerca dinamico\n• Metodo di lavoro indipendente, orientato alla soluzione, attento e preciso\n• Ottima conoscenza di tedesco e inglese essenziale, almeno livello B2, per corrispondenza aziendale e argomenti finanziari\n• Conoscenza informatica molto buona (Excel, Word, PowerPoint) e la volontà di familiarizzare con nuove applicazioni per computer\n• Formazione nel settore commerciale auspicabile\n• Alta resilienza, buona auto-organizzazione\n• Ambiente di lavoro multiculturale, elevata competenza sociale Requisiti\n• Attività interessante e varia in un ambiente innovativo, dinamico e internazionale\n• Prestazioni sociali e salariali secondo gli orientamenti cantonali\n• Ore lavorative flessibili Offriamo: Cultura aziendale sana e un buon ambiente di lavoro",
-      "en": "<b>The UniBE is versatile. </b><br/>With us you can expect a wide variety of topics and a lot of design freedom. Tasks:\n• Own initiative in a dynamic research environment\n• Independent, solution-oriented, careful and exact working method\n• Excellent knowledge of German and English essential, at least level B2, for business correspondence and financial topics\n• Very good computer science knowledge (Excel, Word, PowerPoint) as well as willingness to familiarize yourself with new computer applications\n• Training in the commercial sector desirable\n• High resilience, good self-organization\n• Enjoyment of multicultural working environment, high social competence Requirements\n• Interesting and varied activity in an innovative, dynamic and international environment\n• Wage and social benefits according to cantonal guidelines\n• Flexible working hours We offer: Healthy corporate culture and a good working environment",
-      "de": "<b>Die UniBE ist vielseitig.</b><br/>Bei uns erwartet Sie eine grosse Themenvielfalt und viel Gestaltungsfreiraum.\n\nAufgaben:\n• Eigeninitiative in dynamischem Forschungsumfeld\n\n• Selbständige, lösungsorientierte, sorgfältige und exakte Arbeitsweise\n\n• Ausgezeichnete Deutsch- und Englischkenntnisse unerlässlich, mindestens Niveau B2, für Geschäftskorrespondenz und Finanzthemen\n\n• Sehr gute Informatikkenntnisse (Excel, Word, Powerpoint) sowie Bereitschaft, sich in neue EDV-Applikationen einzuarbeiten\n\n• Ausbildung in kaufmännischer Branche wünschenswert\n\n• Hohe Belastbarkeit, gute Selbstorganisation\n\n• Freude an multikultureller Arbeitsumgebung, hohe Sozialkompetenz\n\nAnforderungen:\n• Interessante und abwechslungsreiche Tätigkeit in einem innovativen, dynamischen und internationalen Umfeld\n\n• Lohn und Sozialleistungen nach kantonalen Richtlinien\n\n• Flexible Arbeitszeiten\n\nWir bieten:\nGesunde Unternehmenskultur und gutes Arbeitsklima",
-      "fr": "L'UniBE est polyvalent. Avec nous, vous pouvez vous attendre à une grande variété de sujets et beaucoup de liberté de conception. Tâches :\n• Son initiative dans un environnement de recherche dynamique\n• Méthode de travail indépendante, orientée vers la solution, prudente et exacte\n• Excellente connaissance de l'allemand et de l'anglais essentiel, au moins niveau B2, pour la correspondance commerciale et les sujets financiers\n• Très bonne connaissance de l'informatique (Excel, Word, PowerPoint) ainsi que volonté de se familiariser avec de nouvelles applications informatiques\n• Formation dans le secteur commercial souhaitable\n• Haute résilience, bonne organisation\n• Appréciation d'un environnement de travail multiculturel, haute compétence sociale Exigences\n• Activités intéressantes et variées dans un environnement innovant, dynamique et international\n• Salaire et prestations sociales selon les directives cantonales\n• Durée du travail flexible Nous offrons: Une culture d'entreprise saine et un bon environnement de travail"
-    },
-    "slugByLocale": {
-      "it": "gestione-amministrativa-caso-universitat-bern-bern-9ee764",
-      "en": "administrative-case-handler-universitat-bern-bern-9ee764",
-      "de": "administrative-r-sachbearbeiter-in-unibe-bern",
-      "fr": "administrateur-gestionnaire-de-cas-universitat-bern-bern-9ee764"
-    },
-    "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-08-04T22:41:43.411Z",
-    "previousSlugs": [
-      "administrative-r-sachbearbeiter-in-unibe-bern",
-      "gestione-amministrativa-caso-universitat-bern-bern",
-      "administrative-case-handler-universitat-bern-bern",
-      "administrateur-gestionnaire-de-cas-universitat-bern-bern",
-      "administrative-r-sachbearbeiter-in-universitat-bern-bern",
-      "assistant-e-administratif-ve-universitat-bern",
-      "gestione-amministrativa-caso-universitat-bern-bern-9ee764"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "administrative-r-sachbearbeiter-in-unibe-bern",
-        "gestione-amministrativa-caso-universitat-bern-bern",
-        "administrative-r-sachbearbeiter-in-universitat-bern-bern",
-        "assistant-e-administratif-ve-universitat-bern",
-        "gestione-amministrativa-caso-universitat-bern-bern-9ee764"
-      ],
-      "en": [
-        "administrative-case-handler-universitat-bern-bern",
-        "administrative-r-sachbearbeiter-in-universitat-bern-bern"
-      ],
-      "fr": [
-        "administrateur-gestionnaire-de-cas-universitat-bern-bern",
-        "administrative-r-sachbearbeiter-in-universitat-bern-bern"
-      ]
-    },
-    "postalCode": "3012",
-    "salaryMin": 68500,
-    "salaryMax": 104000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "phd-doktorat-zu-tierwohl-e-waldweiden-m-w-d-universitat-bern",
     "title": "PhD Doktorat zu Tierwohl und Waldweiden (m/w/d)",
     "titleByLocale": {
