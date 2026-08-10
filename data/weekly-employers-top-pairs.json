@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-27T09:36:08.066Z",
-  "totalQualifyingPairs": 41,
+  "generatedAt": "2026-08-10T07:12:04.427Z",
+  "totalQualifyingPairs": 37,
   "topPairs": [
     {
       "company": "Zurich Insurance (sede Ticino)",
       "companySlug": "zurich-insurance-sede-ticino",
       "city": "lugano",
-      "active": 229
+      "active": 454
     },
     {
       "company": "EOC – Ente Ospedaliero Cantonale",
@@ -18,19 +18,13 @@
       "company": "EOC – Ente Ospedaliero Cantonale",
       "companySlug": "eoc-ente-ospedaliero-cantonale",
       "city": "lugano",
-      "active": 37
+      "active": 36
     },
     {
       "company": "VF International (The North Face, Timberland)",
       "companySlug": "vf-international-the-north-face-timberland",
       "city": "stabio",
-      "active": 24
-    },
-    {
-      "company": "EOC – Ente Ospedaliero Cantonale",
-      "companySlug": "eoc-ente-ospedaliero-cantonale",
-      "city": "locarno",
-      "active": 18
+      "active": 35
     },
     {
       "company": "EOC – Ente Ospedaliero Cantonale",
@@ -45,22 +39,28 @@
       "active": 17
     },
     {
+      "company": "EOC – Ente Ospedaliero Cantonale",
+      "companySlug": "eoc-ente-ospedaliero-cantonale",
+      "city": "locarno",
+      "active": 17
+    },
+    {
+      "company": "PEMSA",
+      "companySlug": "pemsa",
+      "city": "bellinzona",
+      "active": 10
+    },
+    {
       "company": "Delvitech SA",
       "companySlug": "delvitech-sa",
       "city": "mendrisio",
       "active": 10
     },
     {
-      "company": "Amministrazione Cantonale Ticino",
-      "companySlug": "amministrazione-cantonale-ticino",
-      "city": "bellinzona",
-      "active": 9
-    },
-    {
       "company": "Rapelli - ORIOR Food AG",
       "companySlug": "rapelli-orior-food-ag",
       "city": "stabio",
-      "active": 9
+      "active": 8
     }
   ]
 }
