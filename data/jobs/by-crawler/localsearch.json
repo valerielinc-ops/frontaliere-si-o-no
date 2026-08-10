@@ -1,6 +1,6 @@
 {
   "crawlerKey": "localsearch",
-  "assembledAt": "2026-08-10T10:39:59.171Z",
+  "assembledAt": "2026-08-10T21:44:30.375Z",
   "jobs": [
     {
       "id": "localsearch-dbae903f8a6d",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "venditore-esterno-localsearch-bremgarten",
         "en": "field-sales-representative-localsearch-bremgarten",
-        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d37tln",
+        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
         "fr": "representant-commercial-en-terrain-localsearch-bremgarten"
       },
       "company": "localsearch",
@@ -33,7 +33,7 @@
       "url": "https://emp.jobylon.com/jobs/310123-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:55.405Z",
+      "crawledAt": "2026-08-10T21:44:28.340Z",
       "addressLocality": "Bremgarten",
       "addressCountry": "CH",
       "country": "CH",
@@ -80,19 +80,24 @@
         ]
       },
       "previousSlugs": [
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-6",
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d37tln",
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-6"
+        "venditore-esterno-localsearch-bremgarten"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-6",
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-6"
+          "venditore-esterno-localsearch-bremgarten"
         ],
         "de": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d37tln",
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:19.132Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -113,7 +118,7 @@
       "slugByLocale": {
         "it": "venditore-a-in-rete-localsearch-zurich",
         "en": "sales-representative-localsearch-zurich",
-        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d37tnb",
+        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
         "fr": "vendeur-euse-en-region-localsearch-zurich"
       },
       "company": "localsearch",
@@ -138,7 +143,7 @@
       "url": "https://emp.jobylon.com/jobs/310141-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:54.534Z",
+      "crawledAt": "2026-08-10T21:44:27.498Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -185,19 +190,24 @@
         ]
       },
       "previousSlugs": [
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-4",
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d37tnb",
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-4"
+        "venditore-a-in-rete-localsearch-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-4",
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-4"
+          "venditore-a-in-rete-localsearch-zurich"
         ],
         "de": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d37tnb",
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:15.782Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -243,7 +253,7 @@
       "url": "https://emp.jobylon.com/jobs/310143-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:53.689Z",
+      "crawledAt": "2026-08-10T21:44:26.659Z",
       "addressLocality": "Landquart",
       "addressCountry": "CH",
       "country": "CH",
@@ -291,15 +301,18 @@
       },
       "previousSlugs": [
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-5"
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-5",
+        "venditore-a-in-rete-localsearch-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-5"
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-5",
+          "venditore-a-in-rete-localsearch-landquart"
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:14.891Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -320,7 +333,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-nel-campo-localsearch-zurich",
         "en": "seller-seller-in-the-field-localsearch-zurich",
-        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d37tna",
+        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
         "fr": "vendeur-vendeur-dans-le-champ-localsearch-zurich"
       },
       "company": "localsearch",
@@ -345,7 +358,7 @@
       "url": "https://emp.jobylon.com/jobs/310140-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:52.827Z",
+      "crawledAt": "2026-08-10T21:44:25.821Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -361,22 +374,26 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-9",
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d37tna",
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-9"
+        "venditore-venditore-nel-campo-localsearch-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-9",
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-9"
+          "venditore-venditore-nel-campo-localsearch-zurich"
         ],
         "en": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-9"
         ],
+        "de": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d37tna",
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+        ],
         "fr": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-9"
-        ],
-        "de": [
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
         ]
       },
       "firstSeenAt": "2026-05-17T10:38:39.388Z",
@@ -400,7 +417,7 @@
       "slugByLocale": {
         "it": "venditore-esterno-localsearch-horgen",
         "en": "field-sales-representative-localsearch-horgen",
-        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d37tnj",
+        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
         "fr": "representant-commercial-en-terrain-localsearch-horgen"
       },
       "company": "localsearch",
@@ -425,7 +442,7 @@
       "url": "https://emp.jobylon.com/jobs/310149-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:51.984Z",
+      "crawledAt": "2026-08-10T21:44:24.986Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -471,19 +488,24 @@
         ]
       },
       "previousSlugs": [
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-10",
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d37tnj",
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-10"
+        "venditore-esterno-localsearch-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-10",
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-10"
+          "venditore-esterno-localsearch-horgen"
         ],
         "de": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d37tnj",
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:07.844Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -529,7 +551,7 @@
       "url": "https://emp.jobylon.com/jobs/310097-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:51.120Z",
+      "crawledAt": "2026-08-10T21:44:24.156Z",
       "addressLocality": "Rapperswil-Jona",
       "addressCountry": "CH",
       "country": "CH",
@@ -576,15 +598,18 @@
       },
       "previousSlugs": [
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-14"
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-14",
+        "venditore-esterno-localsearch-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-14"
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-14",
+          "venditore-esterno-localsearch-rapperswil-jona"
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:00.086Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -630,7 +655,7 @@
       "url": "https://emp.jobylon.com/jobs/310098-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:50.257Z",
+      "crawledAt": "2026-08-10T21:44:23.254Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -679,15 +704,18 @@
       "previousSlugs": [
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
         "venditore-esterno-localsearch-lyssach",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-17"
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-17",
+        "venditore-venditrice-esterno-localsearch-lyssach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-17"
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-17",
+          "venditore-venditrice-esterno-localsearch-lyssach"
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:54.880Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -733,7 +761,7 @@
       "url": "https://emp.jobylon.com/jobs/310100-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:49.428Z",
+      "crawledAt": "2026-08-10T21:44:22.404Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -750,12 +778,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18"
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18",
+        "venditore-venditore-nel-campo-localsearch-lyssach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18"
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18",
+          "venditore-venditore-nel-campo-localsearch-lyssach"
         ],
         "en": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18"
@@ -785,7 +815,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-esterno-localsearch-volketswil",
         "en": "sales-representative-field-sales-localsearch-volketswil",
-        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d37tni",
+        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
         "fr": "commercial-e-itinerant-e-localsearch-volketswil"
       },
       "company": "localsearch",
@@ -810,7 +840,7 @@
       "url": "https://emp.jobylon.com/jobs/310148-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:48.567Z",
+      "crawledAt": "2026-08-10T21:44:21.558Z",
       "addressLocality": "Volketswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -857,19 +887,24 @@
         ]
       },
       "previousSlugs": [
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-19",
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d37tni",
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-19"
+        "venditore-venditrice-esterno-localsearch-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-19",
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-19"
+          "venditore-venditrice-esterno-localsearch-volketswil"
         ],
         "de": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d37tni",
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:47.599Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -890,7 +925,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-nel-campo-localsearch-regensdorf",
         "en": "seller-seller-in-the-field-localsearch-regensdorf",
-        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d37t08",
+        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
         "fr": "vendeur-vendeur-dans-le-champ-localsearch-regensdorf"
       },
       "company": "localsearch",
@@ -915,7 +950,7 @@
       "url": "https://emp.jobylon.com/jobs/310087-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:47.600Z",
+      "crawledAt": "2026-08-10T21:44:20.731Z",
       "addressLocality": "Regensdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -931,22 +966,26 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-20",
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d37t08",
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-20"
+        "venditore-venditore-nel-campo-localsearch-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-20",
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-20"
+          "venditore-venditore-nel-campo-localsearch-regensdorf"
         ],
         "en": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-20"
         ],
+        "de": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d37t08",
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+        ],
         "fr": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-20"
-        ],
-        "de": [
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
         ]
       },
       "firstSeenAt": "2026-04-28T11:14:12.745Z",
@@ -995,7 +1034,7 @@
       "url": "https://emp.jobylon.com/jobs/360005-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:46.714Z",
+      "crawledAt": "2026-08-10T21:44:19.865Z",
       "addressLocality": "Aargau, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1015,7 +1054,8 @@
         "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz",
         "verkaufsberater-aussendienst-localsearch-ch",
         "verkaufsberater-aussendienst-localsearch-ch-2",
-        "verkaufsberater-in-aussendienst-localsearch-ch-4"
+        "verkaufsberater-in-aussendienst-localsearch-ch-4",
+        "consulente-di-vendita-in-servizio-esterno-localsearch-aargau-schweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1023,7 +1063,8 @@
           "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz",
           "verkaufsberater-aussendienst-localsearch-ch",
           "verkaufsberater-aussendienst-localsearch-ch-2",
-          "verkaufsberater-in-aussendienst-localsearch-ch-4"
+          "verkaufsberater-in-aussendienst-localsearch-ch-4",
+          "consulente-di-vendita-in-servizio-esterno-localsearch-aargau-schweiz"
         ],
         "en": [
           "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz"
@@ -1082,7 +1123,7 @@
       "url": "https://emp.jobylon.com/jobs/360110-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:45.913Z",
+      "crawledAt": "2026-08-10T21:44:19.076Z",
       "addressLocality": "Baselland, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1100,13 +1141,15 @@
       "previousSlugs": [
         "verkaufsberater-in-aussendienst-localsearch-ch-2",
         "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz",
-        "verkaufsberater-in-aussendienst-localsearch-ch"
+        "verkaufsberater-in-aussendienst-localsearch-ch",
+        "consulente-di-vendita-in-servizio-esterno-localsearch-baselland-schweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-aussendienst-localsearch-ch-2",
           "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz",
-          "verkaufsberater-in-aussendienst-localsearch-ch"
+          "verkaufsberater-in-aussendienst-localsearch-ch",
+          "consulente-di-vendita-in-servizio-esterno-localsearch-baselland-schweiz"
         ],
         "en": [
           "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz"
@@ -1165,7 +1208,7 @@
       "url": "https://emp.jobylon.com/jobs/360113-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:45.080Z",
+      "crawledAt": "2026-08-10T21:44:18.268Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1184,14 +1227,16 @@
         "verkaufsberater-in-aussendienst-localsearch-ch-3",
         "verkaufsberater-in-aussendienst-localsearch-zurich",
         "verkaufsberater-aussendienst-localsearch-zurich",
-        "verkaufsberater-in-aussendienst-localsearch-ch"
+        "verkaufsberater-in-aussendienst-localsearch-ch",
+        "consulente-di-vendita-in-servizio-straniero-localsearch-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-aussendienst-localsearch-ch-3",
           "verkaufsberater-in-aussendienst-localsearch-zurich",
           "verkaufsberater-aussendienst-localsearch-zurich",
-          "verkaufsberater-in-aussendienst-localsearch-ch"
+          "verkaufsberater-in-aussendienst-localsearch-ch",
+          "consulente-di-vendita-in-servizio-straniero-localsearch-zurich"
         ],
         "en": [
           "verkaufsberater-in-aussendienst-localsearch-zurich"
@@ -1204,6 +1249,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T11:26:58.141Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1249,7 +1295,7 @@
       "url": "https://emp.jobylon.com/jobs/360117-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:44.191Z",
+      "crawledAt": "2026-08-10T21:44:17.461Z",
       "addressLocality": "Graubünden, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1268,14 +1314,16 @@
         "verkaufsberater-in-aussendienst-localsearch-ch-3",
         "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz",
         "verkaufsberater-aussendienst-localsearch-graubunden-schweiz",
-        "verkaufsberater-in-aussendienst-localsearch-ch"
+        "verkaufsberater-in-aussendienst-localsearch-ch",
+        "consulente-di-vendita-in-servizio-esterno-localsearch-graubunden-schweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-aussendienst-localsearch-ch-3",
           "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz",
           "verkaufsberater-aussendienst-localsearch-graubunden-schweiz",
-          "verkaufsberater-in-aussendienst-localsearch-ch"
+          "verkaufsberater-in-aussendienst-localsearch-ch",
+          "consulente-di-vendita-in-servizio-esterno-localsearch-graubunden-schweiz"
         ],
         "en": [
           "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz"
@@ -1334,7 +1382,7 @@
       "url": "https://emp.jobylon.com/jobs/310147-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:43.434Z",
+      "crawledAt": "2026-08-10T21:44:16.649Z",
       "addressLocality": "Buchrain",
       "addressCountry": "CH",
       "country": "CH",
@@ -1354,13 +1402,15 @@
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
         "field-sales-representative-localsearch-bremgarten",
         "representant-commercial-en-terrain-localsearch-bremgarten",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-6"
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-6",
+        "venditore-venditore-nel-campo-localsearch-buchrain"
       ],
       "previousSlugsByLocale": {
         "it": [
           "venditore-esterno-localsearch-bremgarten",
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-6"
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-6",
+          "venditore-venditore-nel-campo-localsearch-buchrain"
         ],
         "en": [
           "field-sales-representative-localsearch-bremgarten",
@@ -1417,7 +1467,7 @@
       "url": "https://emp.jobylon.com/jobs/335376-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:42.589Z",
+      "crawledAt": "2026-08-10T21:44:15.823Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -1434,12 +1484,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch-2",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
+        "venditore-venditore-nel-settore-localsearch-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-2",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
+          "venditore-venditore-nel-settore-localsearch-thun"
         ],
         "en": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-2"
@@ -1494,7 +1546,7 @@
       "url": "https://emp.jobylon.com/jobs/335382-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:41.682Z",
+      "crawledAt": "2026-08-10T21:44:14.999Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -1511,12 +1563,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch-3",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
+        "venditore-venditore-nel-settore-localsearch-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-3",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
+          "venditore-venditore-nel-settore-localsearch-visp"
         ],
         "en": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-3"
@@ -1546,7 +1600,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-nel-settore-localsearch-urdorf",
         "en": "salesperson-salesperson-in-the-field-localsearch-urdorf",
-        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d60vi9",
+        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
         "fr": "vendeur-dans-le-domaine-localsearch-urdorf"
       },
       "company": "localsearch",
@@ -1571,7 +1625,7 @@
       "url": "https://emp.jobylon.com/jobs/363941-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:40.557Z",
+      "crawledAt": "2026-08-10T21:44:14.160Z",
       "addressLocality": "Urdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1588,23 +1642,27 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch-7",
+        "salesperson-in-the-field-localsearch-urdorf",
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d60vi9",
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "salesperson-in-the-field-localsearch-urdorf"
+        "venditore-venditore-nel-settore-localsearch-urdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-7",
+          "salesperson-in-the-field-localsearch-urdorf",
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-          "salesperson-in-the-field-localsearch-urdorf"
+          "venditore-venditore-nel-settore-localsearch-urdorf"
         ],
         "en": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-7"
         ],
+        "de": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-d60vi9",
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+        ],
         "fr": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-7"
-        ],
-        "de": [
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
         ]
       },
       "firstSeenAt": "2026-06-09T11:49:14.847Z",
@@ -1653,7 +1711,7 @@
       "url": "https://emp.jobylon.com/jobs/363946-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:39.748Z",
+      "crawledAt": "2026-08-10T21:44:13.265Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -1670,12 +1728,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch-8",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
+        "venditore-venditore-nel-settore-localsearch-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-8",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
+          "venditore-venditore-nel-settore-localsearch-langenthal"
         ],
         "en": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-8"
@@ -1730,7 +1790,7 @@
       "url": "https://emp.jobylon.com/jobs/363947-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:38.950Z",
+      "crawledAt": "2026-08-10T21:44:12.407Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1747,12 +1807,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch-12",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
+        "venditore-venditore-nel-settore-localsearch-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-12",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
+          "venditore-venditore-nel-settore-localsearch-basel"
         ],
         "en": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-12"
@@ -1807,7 +1869,7 @@
       "url": "https://emp.jobylon.com/jobs/363948-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:37.989Z",
+      "crawledAt": "2026-08-10T21:44:11.518Z",
       "addressLocality": "Unterentfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -1824,12 +1886,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch-13",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
+        "venditore-venditore-nel-settore-localsearch-unterentfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-13",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
+          "venditore-venditore-nel-settore-localsearch-unterentfelden"
         ],
         "en": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-13"
@@ -1884,7 +1948,7 @@
       "url": "https://emp.jobylon.com/jobs/363950-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:36.819Z",
+      "crawledAt": "2026-08-10T21:44:10.634Z",
       "addressLocality": "Muttenz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1901,12 +1965,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch-16",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
+        "venditore-venditore-nel-settore-localsearch-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-16",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
+          "venditore-venditore-nel-settore-localsearch-muttenz"
         ],
         "en": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-16"
@@ -1961,7 +2027,7 @@
       "url": "https://emp.jobylon.com/jobs/363951-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:35.850Z",
+      "crawledAt": "2026-08-10T21:44:09.769Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1979,13 +2045,15 @@
       "previousSlugs": [
         "venditore-venditrice-in-servizio-esterno-localsearch-st-gallen",
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch-22",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
+        "venditore-venditore-nel-campo-localsearch-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "venditore-venditrice-in-servizio-esterno-localsearch-st-gallen",
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-22",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
+          "venditore-venditore-nel-campo-localsearch-bern"
         ],
         "en": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-22"
@@ -2040,7 +2108,7 @@
       "url": "https://emp.jobylon.com/jobs/310027-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:35.034Z",
+      "crawledAt": "2026-08-10T21:44:08.905Z",
       "addressLocality": "Sirnach",
       "addressCountry": "CH",
       "country": "CH",
@@ -2057,12 +2125,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-15"
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-15",
+        "venditore-venditore-nel-settore-localsearch-sirnach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-15"
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-15",
+          "venditore-venditore-nel-settore-localsearch-sirnach"
         ],
         "en": [
           "verkauferin-verkaufer-im-aussendienst-localsearch-ch-15"
@@ -2101,7 +2171,7 @@
       "title": "Senior Manager Sales Performance & Incentive Strategy 80-100%",
       "titleByLocale": {
         "it": "Prestazioni e strategia d'incentivazione per senior manager 80-100 %",
-        "en": "Senior Manager Sales Performance & Incentive Strategy 80-100 %",
+        "en": "Senior Manager Sales Performance & Incentive Strategy 80-100%",
         "de": "Senior Manager Sales Performance & Incentive Strategy 80-100%",
         "fr": "Directeur principal Performance commerciale et stratégie incitative 80-100 %"
       },
@@ -2117,7 +2187,7 @@
       "url": "https://emp.jobylon.com/jobs/371446-localsearch-senior-manager-sales-performance-incentive-strategy-80-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:34.076Z",
+      "crawledAt": "2026-08-10T21:44:08.038Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2133,17 +2203,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-sales-performance-incentive-strategy-80-100-localsearch-ch"
+        "senior-manager-sales-performance-incentive-strategy-80-100-localsearch-ch",
+        "prestazioni-e-strategia-d-incentivazione-per-senior-manager-80-100-localsearch-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-sales-performance-incentive-strategy-80-100-localsearch-ch"
+          "senior-manager-sales-performance-incentive-strategy-80-100-localsearch-ch",
+          "prestazioni-e-strategia-d-incentivazione-per-senior-manager-80-100-localsearch-zurich"
         ],
         "fr": [
           "senior-manager-sales-performance-incentive-strategy-80-100-localsearch-ch"
         ]
       },
       "firstSeenAt": "2026-07-21T11:16:48.350Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2162,9 +2235,9 @@
       "id": "localsearch-26589b932362",
       "slug": "venditore-venditore-nel-settore-localsearch-fehraltorf",
       "slugByLocale": {
-        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
         "it": "venditore-venditore-nel-settore-localsearch-fehraltorf",
         "en": "salesperson-salesperson-in-the-field-localsearch-fehraltorf",
+        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
         "fr": "vendeur-dans-le-domaine-localsearch-fehraltorf"
       },
       "company": "localsearch",
@@ -2172,16 +2245,16 @@
       "companyDomain": "localsearch.ch",
       "title": "Verkäuferin / Verkäufer im Aussendienst",
       "titleByLocale": {
-        "de": "Verkäuferin / Verkäufer im Aussendienst",
         "it": "Venditore / venditore nel settore",
         "en": "Salesperson / salesperson in the field",
+        "de": "Verkäuferin / Verkäufer im Aussendienst",
         "fr": "Vendeur dans le domaine"
       },
       "description": "Region: Zürcher Oberland / Winterthur\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Deputy Danijel Belan wenden: +41 79 773 99 97\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
       "descriptionByLocale": {
-        "de": "Region: Zürcher Oberland / Winterthur\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Deputy Danijel Belan wenden: +41 79 773 99 97\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
         "it": "Regione: Oberland di Zurigo / Winterthur\n\nlocalsearch è il principale partner commerciale e pubblicitario per le PMI svizzere.\nFacciamo i clienti di successo nel mondo digitale.\n\nVende la tua passione? Il tuo cuore batte per il marketing digitale? Ti piace viaggiare e immergerti nel mondo delle PMI? Vuoi influenzare i tuoi guadagni? Allora sei proprio qui!\n\nSiamo alla ricerca di voi come un talento di vendita nel servizio di campo\n\nVisiterai sia i clienti delle PMI esistenti che i potenziali nuovi clienti e li presenterai con soluzioni di marketing digitale personalizzate. Il vostro obiettivo è quello di creare un valore aggiunto sostenibile e quindi rendere le PMI digitalmente di successo.\n\nCompetenze e requisiti\n\nQuesto è ciò che porti con te per avere successo con noi:\n\n• Il piacere della vendita e della consulenza: Lei brucia per il contatto personale e telefonico del cliente e attribuisce grande importanza per comprendere veramente i nostri clienti.\n\n• L'orientamento del cliente: si costruisce relazioni di fiducia con i vostri clienti e spiegare con successo i vantaggi delle nostre soluzioni di marketing online.\n\n• L'orientamento di successo: la vostra auto-motivazione e l'ambizione sono i vostri fattori di successo. Anche in tempi turbolenti, rimani concentrato e mirato.\n\n• Comunicare: Lei parla fluentemente tedesco e padroneggia i mezzi comuni di comunicazione.\n\n• Radiance: Hai umorismo e ti piace mostrare la tua personalità.\n\n• Mobilità: Hai una patente valida (cat. B) e la tua auto, in modo da poter visitare i nostri clienti in modo affidabile sul sito.\n\n• Azione responsabile: Il tuo aspetto è professionale e la tua reputazione è impeccabile (reputable)\n\n• Flessibilità: Il lavoro a tempo parziale è possibile in linea di principio, ma solo dal secondo mese di occupazione. Nel primo mese è richiesta la partecipazione alla formazione di base presso la nostra sede di Zurigo.\n\nQuesto è ciò che vi offriamo\n\nQuesto è il motivo per cui si desidera entrare a far parte della ricerca locale:\n\n• Lavoro di squadra: Sei integrato in un team vivace che si sostiene e si riunisce per incontri regolari.\n\n• Zona di vendita: Vi verrà assegnato un'area con i clienti PMI esistenti e potenziali nuovi clienti.\n\n• Soluzioni di marketing: hai a disposizione una vasta gamma di prodotti dal marketing digitale.\n\n• Lavorare indipendentemente: Si assume la responsabilità per i vostri compiti, pianificare i vostri appuntamenti del cliente in modo indipendente e agire con un alto grado di iniziativa.\n\n• Formazione completa e ulteriore sviluppo: si inizia con diverse settimane di formazione e ricevere regolarmente supporto e formazione nel settore delle vendite e dei prodotti.\n\n• Un attraente modello di provisioning: il vostro successo è immediatamente ricompensato – ogni buon consiglio che porta ad un incarico determina il vostro reddito.\n\n• Spese a tasso piatto: il tuo veicolo ti porterà in modo sicuro all'appuntamento del cliente e ti compenseremo in modo tempestivo.\n\nContatto e applicazione\n\nPer domande professionali è possibile contattare direttamente il nostro responsabile vendite Vice Danijel Belan: +41 79 773 99 97\n\nNon vediamo l'ora di incontrarvi!\n\nUlteriori informazioni sul lavoro e localsearch possono essere trovate qui.",
         "en": "Region: Zurich Oberland / Winterthur\n\nlocalsearch is the leading marketing and advertising partner for Swiss SMEs.\nWe make customers successful in the digital world.\n\nIs selling your passion? Is your heart beating for digital marketing? Do you like to travel and immerse yourself in the SME world? Do you want to influence your own earnings? Then you are exactly right here!\n\nWe are looking for you as a sales talent in the field service\n\nYou will visit both existing SME customers and potential new customers and present them with customized digital marketing solutions. Your goal is to create sustainable added value and thus make SMEs digitally successful.\n\nSkills and requirements\n\nThis is what you bring with you to be successful with us:\n\n• The pleasure of selling and consulting: You burn for personal and telephone customer contact and attach great importance to really understanding our customers.\n\n• Customer orientation: You build trusting relationships with your customers and successfully explain the benefits of our online marketing solutions.\n\n• Success orientation: Your self-motivation and ambition are your success factors. Even in turbulent times, you remain focused and purposeful.\n\n• Communicative : You speak fluent German and master the common means of communication.\n\n• Radiance: You have humor and like to show your personality.\n\n• Mobility: You have a valid driver’s license (cat. B) and your own car, so you can visit our customers reliably on site.\n\n• Responsible action: Your appearance is professional and your reputation is impeccable (reputable)\n\n• Flexibility: Part-time work is possible in principle, but only from the second month of employment. In the first month, participation in the basic training at our headquarters in Zurich is required.\n\nThis is what we offer you\n\nThis is why you want to become part of localsearch:\n\n• Teamwork: You are integrated into a lively team that supports each other and meets for regular meetings.\n\n• Own sales area: You will be assigned an area with existing SME customers and potential new customers.\n\n• Marketing solutions: You have a varied range of products from digital marketing at your disposal.\n\n• Working independently: You take responsibility for your tasks, plan your customer appointments independently and act with a high degree of initiative.\n\n• Comprehensive training and further development: You start with several weeks of training and receive regular support and training in the area of sales and products.\n\n• An attractive provisioning model: Your success is immediately rewarded – every good advice that leads to an assignment determines your income.\n\n• Flat-rate expenses: Your own vehicle will bring you safely to the customer appointment and we will compensate you for this in a timely manner.\n\nContact and Application\n\nFor professional questions you can contact our Sales Manager Deputy Danijel Belan directly: +41 79 773 99 97\n\nWe look forward to meeting you!\n\nAdditional information about the job and localsearch can be found here.",
+        "de": "Region: Zürcher Oberland / Winterthur\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität: Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität: Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork: Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen: Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten: Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung: Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell: Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale: Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Deputy Danijel Belan wenden: +41 79 773 99 97\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
         "fr": "Région: Zurich Oberland / Winterthur\n\nlocalsearch est le principal partenaire commercial et publicitaire des PME suisses.\nNous faisons des clients un succès dans le monde numérique.\n\nTu vends ta passion ? Votre cœur bat pour le marketing numérique ? Vous aimez voyager et vous immerger dans le monde des PME ? Voulez-vous influencer vos propres gains? Alors vous êtes exactement là !\n\nNous vous recherchons comme un talent de vente dans le service sur le terrain\n\nVous visiterez les PME existantes et les nouveaux clients potentiels et les présenterez avec des solutions de marketing numérique personnalisées. Votre objectif est de créer une valeur ajoutée durable et donc de faire des PME un succès numérique.\n\nCompétences et exigences\n\nC'est ce que vous apportez avec vous pour réussir avec nous:\n\n• Le plaisir de vendre et de consulter: Vous brûlez pour le contact client personnel et téléphonique et attachez une grande importance à vraiment comprendre nos clients.\n\n• Orientation client: Vous créez des relations de confiance avec vos clients et expliquez avec succès les avantages de nos solutions marketing en ligne.\n\n• Orientation du succès : Votre motivation et votre ambition sont vos facteurs de réussite. Même dans les temps agités, vous restez concentré et objectif.\n\n• Communicative : Vous parlez couramment allemand et maîtrisez les moyens de communication communs.\n\n• Radiance : Vous avez de l'humour et aimez montrer votre personnalité.\n\n• Mobilité: Vous avez un permis de conduire valide (cat. B) et votre propre voiture, de sorte que vous pouvez visiter nos clients de manière fiable sur le site.\n\n• Action responsable: Votre apparence est professionnelle et votre réputation est impeccable (réputable)\n\n• Flexibilité: le travail à temps partiel est possible en principe, mais seulement à partir du deuxième mois d'emploi. Dans le premier mois, la participation à la formation de base de notre siège à Zurich est requise.\n\nC'est ce que nous vous offrons.\n\nC'est pourquoi vous voulez faire partie de la recherche locale:\n\n• Travail d'équipe: Vous êtes intégré dans une équipe animée qui se soutient mutuellement et se réunit régulièrement.\n\n• Espace de vente propre: Un espace vous sera attribué avec des clients PME existants et de nouveaux clients potentiels.\n\n• Solutions marketing : Vous disposez d'une gamme variée de produits du marketing numérique.\n\n• Travailler de façon indépendante : Vous assumez la responsabilité de vos tâches, planifiez vos rendez-vous de façon indépendante et agissez avec un degré élevé d'initiative.\n\n• Formation complète et perfectionnement: Vous commencez par plusieurs semaines de formation et recevez régulièrement un soutien et une formation dans le domaine des ventes et des produits.\n\n• Un modèle de provisionnement attrayant : Votre succès est immédiatement récompensé – chaque bon conseil qui mène à une affectation détermine votre revenu.\n\n• Frais à taux fixe: Votre propre véhicule vous amènera en toute sécurité au rendez-vous client et nous vous indemniserons en temps opportun.\n\nContact et demande\n\nPour toute question professionnelle, veuillez contacter notre délégué commercial Danijel Belan directement: +41 79 773 99 97\n\nNous sommes impatients de vous rencontrer!\n\nDes informations supplémentaires sur le travail et la recherche locale peuvent être trouvées ici."
       },
       "location": "Fehraltorf",
@@ -2189,7 +2262,7 @@
       "url": "https://emp.jobylon.com/jobs/310107-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:39:33.187Z",
+      "crawledAt": "2026-08-10T21:44:07.112Z",
       "addressLocality": "Fehraltorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -2203,9 +2276,24 @@
       "postedDate": "2026-08-10",
       "applyUrl": "https://emp.jobylon.com/jobs/310107-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
+        "venditore-venditore-nel-settore-localsearch-fehraltorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
+          "venditore-venditore-nel-settore-localsearch-fehraltorf"
+        ],
+        "en": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
+        ]
       },
+      "firstSeenAt": "2026-08-10T10:39:33.187Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2218,22 +2306,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-10T10:39:33.187Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
-        ],
-        "en": [
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
-        ],
-        "fr": [
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
-        ]
-      },
-      "previousSlugs": [
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
-      ]
+      "addressRegion": "ZH"
     }
   ]
 }
