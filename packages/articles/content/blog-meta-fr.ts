@@ -9552,6 +9552,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-agra-lavorare-ticino-frontalieri.title': 'Vivre à Agra et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-agra-lavorare-ticino-frontalieri.excerpt': 'Impact du nouvel accord sur les frontaliers tessinois : nouvelles règles, exemptions et avantages.',
     'blog.article.vivere-agra-lavorare-ticino-frontalieri.imageAlt': 'Frontalier avec enfant marche le long de la rive du lac de Lugano',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.title': 'Déménager à Uggiate-Trevano en tant que frontalier : pour et contre',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.excerpt': 'Réglage à la source, nouvel accord frontalier et avantages pour les travailleurs du Tessin.',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.imageAlt': 'Vue d\'Uggiate-Trevano avec le lac de Lugano',
 };
 
 export default blogMetaFr;

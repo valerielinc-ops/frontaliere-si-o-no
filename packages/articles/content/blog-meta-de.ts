@@ -9549,6 +9549,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-agra-lavorare-ticino-frontalieri.title': 'Leben in Agra und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-agra-lavorare-ticino-frontalieri.excerpt': 'Auswirkungen des neuen Abkommens auf die Tessiner Grenzgänger: neue Regeln, Befreiungen und Vorteile.',
     'blog.article.vivere-agra-lavorare-ticino-frontalieri.imageAlt': 'Frontalier mit Kind geht an der Seeufer von Lugano entlang',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.title': 'Umzug nach Uggiate-Trevano als Grenzgänger: Vor- und Nachteile',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.excerpt': 'Einstellung an der Quelle, neue Grenzübertrittsvereinbarung und Vorteile für die Arbeitnehmer im Tessin.',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.imageAlt': 'Blick auf Uggiate-Trevano mit dem Luganersee',
 };
 
 export default blogMetaDe;
