@@ -984,7 +984,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.trasferirsi-svizzera-guida.imageAlt': 'Une guide pratique pour les Italiens non-frontaliers pour s\'installer en Suisse',
     'blog.article.aprire-conto-banca-svizzera-residenti.title': 'Conti correnti in Svizzera per residenti: documenti, banche principali e costi',
     'blog.article.aprire-conto-banca-svizzera-residenti.excerpt': 'Les documents nécessaires pour ouvrir un compte bancaire en Suisse en tant que résident et les principales banques offrant ce service',
-    'blog.article.aprire-conto-banca-svizzera-residenti.imageAlt': 'max 125 chars',
+    'blog.article.aprire-conto-banca-svizzera-residenti.imageAlt': 'Image éditoriale relative à: Conti correnti in Svizzera per residenti: documenti, banche principali e costi',
     'blog.article.imparare-svizzero-tedesco-corsi-e-app.title': 'Apprendre le suisse-allemand : cours et applications',
     'blog.article.imparare-svizzero-tedesco-corsi-e-app.excerpt': 'Êtes-vous intéressé à apprendre le suisse-allemand ? Découvrez les cours et les applications qui vous conviennent le mieux.',
     'blog.article.imparare-svizzero-tedesco-corsi-e-app.imageAlt': 'Cours de tchèque suisse dans une école du canton du Tessin',
@@ -1890,7 +1890,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.votazioni-federali-svizzera-funzionano.imageAlt': 'Bâtiments fédéraux suisses avec des symboles de la démocratie directe',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.title': 'Cantons et taux : comparaison 2026 et stratégies d\'optimisation',
     'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.excerpt': 'Les taux d\'imposition cantonaux en Suisse varient considérablement d\'un canton à l\'autre et d\'un échelon à l\'autre. Le canton de Zurich est l\'un de ceux qui nécessitent le plus d\'attention en matière d\'impôts.',
-    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.imageAlt': 'Max 125 caratteri',
+    'blog.article.imposta-cantonale-confronto-svizzera-2026-canton-zurigo.imageAlt': 'Image éditoriale relative à: Cantons et taux : comparaison 2026 et stratégies d\'optimisation',
     'blog.article.lex-netflix-cinema-svizzero-2025.title': 'Investimenti Netflix nel cinema svizzero in crescita del 25% nel 2025',
     'blog.article.lex-netflix-cinema-svizzero-2025.excerpt': 'En 2025, les plateformes de streaming ont investi 19,9 millions de francs dans le cinéma suisse, soit une augmentation de 25% par rapport à l\'année précédente, grâce à l\'obligation de 4% sur le revenu brut suisse.',
     'blog.article.lex-netflix-cinema-svizzero-2025.imageAlt': 'Équipe de cinéma suisse travaillant sur une production locale en 2025',
@@ -1956,7 +1956,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-basilea-2026.imageAlt': 'Employé suisse à Bâle consultant des documents du deuxième pilier LPP',
     'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.title': 'Troisième pilier 3a : avantages et stratégies fiscales',
     'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.excerpt': 'Le troisième pilier 3a suisse offre des avantages fiscaux et de prévoyance aux frontaliers du canton de Bâle.',
-    'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.imageAlt': 'max 125 caratteri',
+    'blog.article.terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.imageAlt': 'Image éditoriale relative à: Troisième pilier 3a : avantages et stratégies fiscales',
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.title': 'Troisième pilier 3a suisse : avantages et système de versement unique',
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.excerpt': 'Le système de versement unique du troisième pilier 3a suisse offre des avantages fiscaux et de versement uniques aux citoyens suisses.',
     'blog.article.terzo-pilastro-3a-svizzero-vantaggi-2026-canton-basilea.imageAlt': 'Une vue panoramique du lac de Lugano avec la ville de Lugano à l\'arrière-plan. Un travailleur frontalier suisse observe le lac avec une expression réfléchie.',
@@ -2026,6 +2026,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imprese-edili-svizzere-chiedono-stop-penali.title': 'Imprese edili chiedono stop alle penali per ritardi della canicola',
     'blog.article.imprese-edili-svizzere-chiedono-stop-penali.excerpt': 'La Société suisse des entrepreneurs constructeurs (SSIC) présente une pétition pour des règles claires et la protection de la santé pendant les vagues de chaleur',
     'blog.article.imprese-edili-svizzere-chiedono-stop-penali.imageAlt': 'Image d\'un chantier de construction en Suisse pendant l\'été',
+    'blog.article.elisabeth-baume-schneider-protezione-chimica.title': 'Baume-Schneider demande une protection contre la soumission chimique',
+    'blog.article.elisabeth-baume-schneider-protezione-chimica.excerpt': 'La conseillère fédérale Elisabeth Baume-Schneider demande plus de protection contre les violences sexuelles commises par des substances chimiques.',
+    'blog.article.elisabeth-baume-schneider-protezione-chimica.imageAlt': 'La conseillère fédérale Elisabeth Baume-Schneider pendant une interview',
 };
 
 export default blogMetaChFr;

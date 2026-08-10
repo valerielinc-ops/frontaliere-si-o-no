@@ -2094,7 +2094,7 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
         "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Max 125 chars"
+        "caption": "Immagine editoriale relativa a: Banditi assaltano gioielleria a Tavernola: l'assalto e le ricerche"
       },
       "datePublished": "2026-04-24T04:08:30+00:00",
       "dateModified": "2026-04-24T04:08:30+00:00",
@@ -3838,7 +3838,7 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
         "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/chiasso-scoperta-enti-primo-intervento.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Max 125 chars"
+        "caption": "Immagine editoriale relativa a: Chiasso: Una giornata alla scoperta degli enti di primo intervento"
       },
       "datePublished": "2026-04-27T00:35:22+00:00",
       "dateModified": "2026-04-27T00:35:22+00:00",
@@ -3866,7 +3866,7 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
         "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "max 125 chars"
+        "caption": "Immagine editoriale relativa a: Tennis donne / “Open” di Chiasso, a Marija Glebovna Timofeeva il titolo"
       },
       "datePublished": "2026-04-27T00:52:53+00:00",
       "dateModified": "2026-04-27T00:52:53+00:00",
