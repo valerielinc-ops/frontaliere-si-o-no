@@ -512,6 +512,56 @@ const EMPTY_OK_CRAWLERS = new Set([
   // off each brand's real legal-entity name, so a genuine future Rado or
   // Assembly posting is picked up immediately. Same class as the
   // brand/regional-filter entries above.
+  //
+  // CORRECTION (2026-08-10, #5392): "the shared engine stamps their
+  // `companyKey` on EVERY job of the pool" above is not what happens. The
+  // shared crawler de-duplicates the pool by URL across the per-companyKey
+  // iterations, so each pooled posting is stamped ONCE, with whichever key
+  // reached it first, and never re-stamped for the others — measured on run
+  // 2026-08-09T21:52Z, where all 53 pooled jobs carried only
+  // `swatch-group-assembly` and `rado`. update-swatchgroup-jobs.mjs used to
+  // narrow by that key BEFORE running the brand filter, which is why "rado:
+  // brand filter kept 0/7" was reported while three genuine Rado postings
+  // (32617/32619/32620, hiringOrganization "Rado Watch Co. Ltd.") were live
+  // in the pool under a sibling's key. Fixed via selectSharedPoolBrandJobs()
+  // in scripts/lib/swatchgroup-brand-filter.mjs; rado and
+  // swatch-group-assembly stay registered here because a genuinely empty run
+  // remains their normal state.
+  'comadur-swatch-group',
+  'nivarox-swatch-group',
+  // ^ comadur + nivarox (#5392, #5394): the two remaining members of the
+  // same four-brand shared-pool set as rado/swatch-group-assembly above,
+  // registered here for the same reason. Measured 2026-08-10 by walking the
+  // whole group-wide pager (swatchgroup.com/en/job-finder?jf_country=40,
+  // pages 0..11, 106 unique Swiss postings, brand read off each card's
+  // /sites/default/files/brands-logos/<brand>.png marker — the same
+  // discriminator scripts/lib/omega-job-parser.mjs relies on):
+  //   comadur → exactly 1 live posting (job 32757 "Comptable Polyvalent",
+  //     hiringOrganization "Comadur SA", Col-des-Roches 33, 2400 Le Locle)
+  //   nivarox → 0 live postings; "Nivarox-FAR SA" appears nowhere in the
+  //     pool, and no card carries a nivarox logo.
+  // Comadur's single posting is now correctly attributed by the
+  // selectSharedPoolBrandJobs() fix, so this key reports 1 today — but both
+  // are small production subsidiaries that post a handful of roles a year
+  // (swatchgroup-brand-filter.mjs records that neither slice has ever
+  // persisted a job), so dropping back to 0 is their normal state and must
+  // not reopen a "3 consecutive runs returned 0 jobs" issue. The brand
+  // patterns key off the real legal-entity names (Comadur SA, Nivarox-FAR
+  // SA), so a genuine posting is picked up on the next run.
+  'swiss-timing-swatch-group',
+  // ^ swiss-timing (#5395): unlike the four above this brand seeds from its
+  // OWN domain, and all six seed URLs in its adapter had rotted to HTTP 404
+  // (/careers, /career, /jobs, /karriere, /offene-stellen, /lavora-con-noi —
+  // each verified individually, 2366-byte error page). The adapter now
+  // points at the live page, https://www.swisstiming.com/company/job-offers/
+  // (HTTP 200, the only careers link in the homepage nav). That page groups
+  // openings per legal entity and the Swiss one — "Swiss Timing LTD",
+  // Corgémont — renders an EMPTY <ul>; the only two live listings belong to
+  // the German subsidiary ST Sportservice GmbH in Leipzig (?job=269611
+  // Elektroniker, ?job=269751 System Engineer), correctly out of scope for a
+  // Swiss job board. Cross-checked against the group pager above: 0 of the
+  // 106 live Swiss Swatch postings carry a swiss-timing brand logo. Zero is
+  // the correct output; re-arms when Corgémont publishes a vacancy.
   // Croix-Rouge fribourgeoise (cantonal Red Cross section, JobCloud Company
   // Page https://company.jobcloud.ch/fr/job-list/1773421929172x328595190866247700):
   // verified live 2026-08-03 — the server-rendered listing page returns HTTP

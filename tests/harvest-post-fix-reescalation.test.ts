@@ -113,3 +113,41 @@ describe('integrazione concettuale: il bucket #4578 si sarebbe auto-soppresso', 
     expect(examplesSinceFix(mixed, cutoff)).toEqual([{ issue: 2, at: '2026-07-21T09:00:00Z' }]);
   });
 });
+
+describe('integrazione: reviewer-finding ora filtra come fix-outcome (#5516)', () => {
+  // sibling-class-fix è escalato 6 volte (#3809/#4260/#4342/#4672/#4963/#5426) e
+  // finché gli esempi reviewer-finding non portavano `at`, examplesSinceFix non
+  // poteva mai scartare le PR pre-fix: il bucket ricontava all'infinito le stesse
+  // occorrenze già "risolte" da un'escalation chiusa. Questo verifica che, con
+  // `at` = mergedAt della PR, lo stesso meccanismo già provato per fix-outcome
+  // funziona identico per reviewer-finding.
+  it('esempi pre-fix contro un fix spedito danno effectiveCount 0 → niente re-escalation', () => {
+    const closedEscalations = [{
+      title: 'escalation(harvester): reviewer-finding/sibling-class-fix ricorre nonostante regola',
+      closedAt: '2026-08-09T10:39:00Z',
+    }];
+    const key = 'sibling-class-fix';
+    const fullKey = `reviewer-finding/${key}`;
+    expect(parseEscalationKey(closedEscalations[0].title)).toBe(fullKey);
+    const cutoff = lastEscalationClosedAt(fullKey, closedEscalations);
+    const preFixExamples = [
+      { pr: 5423, at: '2026-08-08T00:00:00Z' },
+      { pr: 5419, at: '2026-08-08T00:00:00Z' },
+      { pr: 5405, at: '2026-08-07T00:00:00Z' },
+    ];
+    expect(examplesSinceFix(preFixExamples, cutoff)).toHaveLength(0);
+  });
+
+  it('una PR mergiata DOPO il fix conta normalmente (nessuna soppressione permanente)', () => {
+    const closedEscalations = [{
+      title: 'escalation(harvester): reviewer-finding/sibling-class-fix ricorre nonostante regola',
+      closedAt: '2026-08-09T10:39:00Z',
+    }];
+    const cutoff = lastEscalationClosedAt('reviewer-finding/sibling-class-fix', closedEscalations);
+    const mixed = [
+      { pr: 5423, at: '2026-08-08T00:00:00Z' }, // pre-fix, scartato
+      { pr: 5600, at: '2026-08-11T09:00:00Z' }, // post-fix, genuino
+    ];
+    expect(examplesSinceFix(mixed, cutoff)).toEqual([{ pr: 5600, at: '2026-08-11T09:00:00Z' }]);
+  });
+});
