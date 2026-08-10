@@ -28533,6 +28533,15 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'trasferirsi-besano-da-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-10T06:18:56.946Z',
+ image: '/images/blog/trasferirsi-besano-da-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

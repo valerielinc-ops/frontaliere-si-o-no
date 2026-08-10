@@ -9507,6 +9507,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-10.imageAlt': 'The day\'s numbers for cross-border commuters – August 10, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-08-10.seoDescription': 'Cross-border brief, August 10, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-08-10.ogDescription': 'The numbers for August 10, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.trasferirsi-besano-da-frontaliere.title': 'Moving to Besano by border crossing: pros and cons',
+    'blog.article.trasferirsi-besano-da-frontaliere.excerpt': 'Impacts of travel for border workers and benefits of residence in Ticino',
+    'blog.article.trasferirsi-besano-da-frontaliere.imageAlt': 'A frontaliere moving to Besano from Lugano',
 };
 
 export default blogMetaEn;

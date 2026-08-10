@@ -9506,6 +9506,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-10.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 10. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-08-10.seoDescription': 'Grenzgänger-Bulletin vom 10. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-08-10.ogDescription': 'Die Zahlen vom 10. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.trasferirsi-besano-da-frontaliere.title': 'Umzug nach Besano als Grenzgänger: Vor- und Nachteile',
+    'blog.article.trasferirsi-besano-da-frontaliere.excerpt': 'Auswirkungen der Ausreise für Grenzgänger und Vorteile des Wohnsitzes im Tessin',
+    'blog.article.trasferirsi-besano-da-frontaliere.imageAlt': 'Eine Frontaliererin, die sich nach Besano aus Lugano umzieht',
 };
 
 export default blogMetaDe;

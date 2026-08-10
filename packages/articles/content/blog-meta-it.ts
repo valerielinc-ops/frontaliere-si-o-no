@@ -9508,6 +9508,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-10.imageAlt': 'I numeri del giorno per i frontalieri – 10 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-08-10.seoDescription': 'Bollettino frontalieri del 10 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-08-10.ogDescription': 'I numeri del 10 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.trasferirsi-besano-da-frontaliere.title': 'Trasferirsi a Besano da frontaliere: pro e contro',
+    'blog.article.trasferirsi-besano-da-frontaliere.excerpt': 'Impatti della trasferta per i frontalieri e vantaggi della residenza in Ticino',
+    'blog.article.trasferirsi-besano-da-frontaliere.imageAlt': 'Una frontaliere che si trasferisce a Besano da Lugano',
 };
 
 export default blogMetaIt;
