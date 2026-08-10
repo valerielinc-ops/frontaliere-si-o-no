@@ -54615,7 +54615,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/cuoco-frontaliere-ticino-guadagno.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Vista di Lugano dal lago. Max 125 chars"
+        "caption": "Vista di Lugano dal lago"
       },
       "datePublished": "2026-07-24T02:14:37+00:00",
       "dateModified": "2026-07-24T02:14:37+00:00",
@@ -56526,7 +56526,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/svizzera-vola-per-treni.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Max 125 caratteri"
+        "caption": "Immagine editoriale relativa a: Di più E se a finanziare i treni fossero coloro che prendono l'aereo?"
       },
       "datePublished": "2026-07-28T07:33:15+00:00",
       "dateModified": "2026-07-28T07:33:15+00:00",
@@ -62512,16 +62512,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro': {
     title: 'Trasferirsi a Marchirolo da frontaliere: pro e contro',
-    description: 'Sottotitolo con dati concreti DALLA FONTE (max 160 char). Dati aggiornati 2026 per frontalieri in Ticino.',
+    description: 'La Svizzera ha firmato un nuovo accordo con l\'Italia per evitare la doppia imposizione.',
     keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, marchirolo, contro, sottotitolo',
     ogTitle: 'Trasferirsi a Marchirolo da frontaliere: pro e contro',
-    ogDescription: 'Sottotitolo con dati concreti DALLA FONTE (max 160 char)',
+    ogDescription: 'La Svizzera ha firmato un nuovo accordo con l\'Italia per evitare la doppia imposizione.',
     canonicalPath: '/articoli-frontaliere/trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Trasferirsi a Marchirolo da frontaliere: pro e contro",
-      "description": "Sottotitolo con dati concreti DALLA FONTE (max 160 char). Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "La Svizzera ha firmato un nuovo accordo con l'Italia per evitare la doppia imposizione.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -62532,7 +62532,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Max 125 caratteri"
+        "caption": "Immagine editoriale relativa a: Trasferirsi a Marchirolo da frontaliere: pro e contro"
       },
       "datePublished": "2026-08-10T10:35:34+00:00",
       "dateModified": "2026-08-10T10:35:34+00:00",
@@ -62649,7 +62649,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/vivere-tronzano-lago-maggiore-lavorare-ticino-da-frontaliere.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Max 125 caratteri"
+        "caption": "Immagine editoriale relativa a: Vivere a Tronzano Lago Maggiore e lavorare in Ticino da frontaliere"
       },
       "datePublished": "2026-08-10T15:51:42+00:00",
       "dateModified": "2026-08-10T15:51:42+00:00",
@@ -62701,6 +62701,435 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-viggiu-da-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-crevoladossola-lavorare-ticino-frontalieri': {
+    title: 'Vivere a Crevoladossola e lavorare in Ticino da frontaliere',
+    description: 'Tutti i fatti e le cifre della vita dei frontalieri che lavorano in Ticino e risiedono a Crevoladossola. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, crevoladossola, lavorare, tutti',
+    ogTitle: 'Vivere a Crevoladossola e lavorare in Ticino da frontaliere',
+    ogDescription: 'Tutti i fatti e le cifre della vita dei frontalieri che lavorano in Ticino e risiedono a Crevoladossola',
+    canonicalPath: '/articoli-frontaliere/vivere-crevoladossola-lavorare-ticino-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Crevoladossola e lavorare in Ticino da frontaliere",
+      "description": "Tutti i fatti e le cifre della vita dei frontalieri che lavorano in Ticino e risiedono a Crevoladossola. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-crevoladossola-lavorare-ticino-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che lavora a Lugano e risiede a Crevoladossola si affaccia sul lago di Lugano"
+      },
+      "datePublished": "2026-08-10T17:58:46+00:00",
+      "dateModified": "2026-08-10T17:58:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-crevoladossola-lavorare-ticino-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-rodero-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Rodero e lavorare in Ticino da frontaliere',
+    description: 'Scopri come vivere a Rodero e lavorare in Canton Ticino da frontaliere: imposta alla fonte, nuovo accordo 2024, franchigia €10\'000, permesso G e valico',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, rodero, lavorare, pratica',
+    ogTitle: 'Vivere a Rodero e lavorare in Ticino da frontaliere',
+    ogDescription: 'Guida completa per frontalieri che risiedono a Rodero e lavorano in Canton Ticino: tutto su imposta alla fonte, nuovo accordo fiscale 2024, permesso G, collegamenti Brogeda-Chiasso, costo della vita e consigli pratici per evitare la doppia',
+    canonicalPath: '/articoli-frontaliere/vivere-rodero-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Rodero e lavorare in Ticino da frontaliere",
+      "description": "Scopri come vivere a Rodero e lavorare in Canton Ticino da frontaliere: imposta alla fonte, nuovo accordo 2024, franchigia €10'000, permesso G e valico",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-rodero-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che attraversa il valico di Brogeda tra Rodero e Canton Ticino"
+      },
+      "datePublished": "2026-08-10T19:11:09+00:00",
+      "dateModified": "2026-08-10T19:11:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-rodero-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-agra-lavorare-ticino-frontalieri': {
+    title: 'Vivere a Agra e lavorare in Ticino da frontaliere',
+    description: 'Impatto del nuovo accordo sui frontalieri ticinesi: nuove regole, esenzioni e vantaggi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, agra, lavorare, impatto',
+    ogTitle: 'Vivere a Agra e lavorare in Ticino da frontaliere: nuove regole e vantaggi',
+    ogDescription: 'Impatto del nuovo accordo sui frontalieri ticinesi: nuove regole, esenzioni e vantaggi.',
+    canonicalPath: '/articoli-frontaliere/vivere-agra-lavorare-ticino-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Agra e lavorare in Ticino da frontaliere",
+      "description": "Impatto del nuovo accordo sui frontalieri ticinesi: nuove regole, esenzioni e vantaggi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-agra-lavorare-ticino-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere con bambino camminano lungo la riva del lago di Lugano"
+      },
+      "datePublished": "2026-08-10T19:36:58+00:00",
+      "dateModified": "2026-08-10T19:36:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-agra-lavorare-ticino-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a Uggiate-Trevano da frontaliere: pro e contro',
+    description: 'Impostazione alla fonte, nuovo accordo frontalieri e vantaggi per i lavoratori in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, uggiate-trevano, contro, impostazione',
+    ogTitle: 'Trasferirsi a Uggiate-Trevano da frontaliere: pro e contro',
+    ogDescription: 'Impostazione alla fonte, nuovo accordo frontalieri e vantaggi per i lavoratori in Ticino.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Uggiate-Trevano da frontaliere: pro e contro",
+      "description": "Impostazione alla fonte, nuovo accordo frontalieri e vantaggi per i lavoratori in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Uggiate-Trevano con il lago di Lugano"
+      },
+      "datePublished": "2026-08-10T20:24:13+00:00",
+      "dateModified": "2026-08-10T20:24:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere': {
+    title: 'Vivere a Cugliate-Fabiasco e lavorare in Ticino da frontaliere',
+    description: 'Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 e entra in vigore dal 1° gennaio 2024. Ecco cosa cambia nella vita dei frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, cugliate-fabiasco, lavorare, nuovo',
+    ogTitle: 'Vivere a Cugliate-Fabiasco e lavorare in Ticino da frontaliere',
+    ogDescription: 'Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 e entra in vigore dal 1° gennaio 2024. Ecco cosa cambia nella vita dei frontalieri.',
+    canonicalPath: '/articoli-frontaliere/vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Cugliate-Fabiasco e lavorare in Ticino da frontaliere",
+      "description": "Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 e entra in vigore dal 1° gennaio 2024. Ecco cosa cambia nella vita dei frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri con bambini sulla riva del Lago di Lugano"
+      },
+      "datePublished": "2026-08-10T20:38:14+00:00",
+      "dateModified": "2026-08-10T20:38:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-dumenza-lavorare-ticino': {
+    title: 'Vivere a Dumenza e lavorare in Ticino da frontaliere',
+    description: 'Tutti i fatti importanti per i frontalieri che lavorano in Ticino e risiedono a Dumenza. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, dumenza, lavorare, tutti',
+    ogTitle: 'Vivere a Dumenza e lavorare in Ticino da frontaliere',
+    ogDescription: 'Tutti i fatti importanti per i frontalieri che lavorano in Ticino e risiedono a Dumenza.',
+    canonicalPath: '/articoli-frontaliere/vivere-dumenza-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Dumenza e lavorare in Ticino da frontaliere",
+      "description": "Tutti i fatti importanti per i frontalieri che lavorano in Ticino e risiedono a Dumenza. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-dumenza-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere lavora in Ticino e risiede a Dumenza."
+      },
+      "datePublished": "2026-08-10T20:50:44+00:00",
+      "dateModified": "2026-08-10T20:50:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-dumenza-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-trasferirsi-a-marzio-da-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a Marzio da frontaliere: pro e contro',
+    description: 'Sappiamo cosa significa essere un frontaliere in Svizzera e in Italia. Il Nuovo Accordo Frontalieri ha introdotto nuove regole per i frontalieri, ma quali sono',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, marzio, contro, sappiamo',
+    ogTitle: 'Trasferirsi a Marzio da frontaliere: pro e contro',
+    ogDescription: 'Sappiamo cosa significa essere un frontaliere in Svizzera e in Italia. Il Nuovo Accordo Frontalieri ha introdotto nuove regole per i frontalieri, ma quali sono i vantaggi e svantaggi di trasferirsi a Marzio?',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-a-marzio-da-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Marzio da frontaliere: pro e contro",
+      "description": "Sappiamo cosa significa essere un frontaliere in Svizzera e in Italia. Il Nuovo Accordo Frontalieri ha introdotto nuove regole per i frontalieri, ma quali sono",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-a-marzio-da-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri che lavorano in Svizzera e risiedono in Italia che considerano il trasferimento a Marzio."
+      },
+      "datePublished": "2026-08-10T21:40:00+00:00",
+      "dateModified": "2026-08-10T21:40:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-marzio-da-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-a-cannero-riviera-e-lavorare-in-ticino-da-frontaliere': {
+    title: 'Vivere a Cannero Riviera e lavorare in Ticino da frontaliere',
+    description: 'Cosa devono sapere i frontaliere che desiderano vivere a Cannero Riviera e lavorare in Ticino?. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, cannero, riviera, lavorare',
+    ogTitle: 'Vivere a Cannero Riviera e lavorare in Ticino da frontaliere',
+    ogDescription: 'Cosa devono sapere i frontaliere che desiderano vivere a Cannero Riviera e lavorare in Ticino?',
+    canonicalPath: '/articoli-frontaliere/vivere-a-cannero-riviera-e-lavorare-in-ticino-da-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Cannero Riviera e lavorare in Ticino da frontaliere",
+      "description": "Cosa devono sapere i frontaliere che desiderano vivere a Cannero Riviera e lavorare in Ticino?. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-a-cannero-riviera-e-lavorare-in-ticino-da-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere si affaccia sul lago di Lugano da Cannero Riviera"
+      },
+      "datePublished": "2026-08-10T21:53:16+00:00",
+      "dateModified": "2026-08-10T21:53:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-a-cannero-riviera-e-lavorare-in-ticino-da-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-trasferirsi-a-domodossola-da-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a Domodossola da frontaliere: pro e contro',
+    description: 'Cosa cambia per i frontalieri che si trasferiscono a Domodossola?. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, domodossola, contro, cosa',
+    ogTitle: 'Trasferirsi a Domodossola da frontaliere: pro e contro',
+    ogDescription: 'Cosa cambia per i frontalieri che si trasferiscono a Domodossola?',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-a-domodossola-da-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Domodossola da frontaliere: pro e contro",
+      "description": "Cosa cambia per i frontalieri che si trasferiscono a Domodossola?. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-a-domodossola-da-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di un frontaliere in transito da Domodossola verso il Ticino."
+      },
+      "datePublished": "2026-08-10T22:05:00+00:00",
+      "dateModified": "2026-08-10T22:05:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-domodossola-da-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-altavalleintelvi-lavorare-ticino-da-frontaliere': {
+    title: 'Vivere a Alta Valle Intelvi e lavorare in Ticino da frontaliere',
+    description: 'Informazioni pratiche per i frontalieri che lavorano in Ticino e risiedono in Alta Valle Intelvi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, alta, valle, intelvi',
+    ogTitle: 'Vivere a Alta Valle Intelvi e lavorare in Ticino da frontaliere: cosa devi sapere',
+    ogDescription: 'Informazioni pratiche per i frontalieri che lavorano in Ticino e risiedono in Alta Valle Intelvi.',
+    canonicalPath: '/articoli-frontaliere/vivere-altavalleintelvi-lavorare-ticino-da-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Alta Valle Intelvi e lavorare in Ticino da frontaliere",
+      "description": "Informazioni pratiche per i frontalieri che lavorano in Ticino e risiedono in Alta Valle Intelvi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di un frontaliere che lavora in Ticino e risiede in Alta Valle Intelvi."
+      },
+      "datePublished": "2026-08-10T22:25:16+00:00",
+      "dateModified": "2026-08-10T22:25:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-altavalleintelvi-lavorare-ticino-da-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a Cernobbio da frontaliere: pro e contro',
+    description: 'Impostazioni fiscali, permessi e vantaggi per i frontaliere che si trasferiscono a Cernobbio. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, cernobbio, contro, impostazioni',
+    ogTitle: 'Trasferirsi a Cernobbio da frontaliere: pro e contro',
+    ogDescription: 'Impostazioni fiscali, permessi e vantaggi per i frontaliere che si trasferiscono a Cernobbio.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Cernobbio da frontaliere: pro e contro",
+      "description": "Impostazioni fiscali, permessi e vantaggi per i frontaliere che si trasferiscono a Cernobbio. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una famiglia frontaliera con bambini che si trasferisce a Cernobbio"
+      },
+      "datePublished": "2026-08-10T22:37:39+00:00",
+      "dateModified": "2026-08-10T22:37:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

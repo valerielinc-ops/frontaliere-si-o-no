@@ -12675,7 +12675,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/aprire-conto-banca-svizzera-residenti.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "max 125 chars"
+        "caption": "Immagine editoriale relativa a: Conto bancario in Svizzera per residenti: documenti, banche principali e costi"
       },
       "datePublished": "2026-07-11T18:29:36+00:00",
       "dateModified": "2026-07-11T18:29:36+00:00",
@@ -24453,7 +24453,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/imposta-cantonale-confronto-svizzera-2026-canton-zurigo.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Max 125 caratteri"
+        "caption": "Immagine editoriale relativa a: Cantoni e aliquote: confronto 2026 e strategie di ottimizzazione"
       },
       "datePublished": "2026-08-06T03:55:28+00:00",
       "dateModified": "2026-08-06T03:55:28+00:00",
@@ -25311,7 +25311,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/terzo-pilastro-3a-svizzera-vantaggi-2026-canton-basilea.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "max 125 caratteri"
+        "caption": "Immagine editoriale relativa a: Terzo pilastro 3a: vantaggi e strategie fiscali"
       },
       "datePublished": "2026-08-09T14:38:53+00:00",
       "dateModified": "2026-08-09T14:38:53+00:00",
@@ -26221,6 +26221,474 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imprese-edili-svizzere-chiedono-stop-penali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-elisabeth-baume-schneider-protezione-chimica': {
+    title: 'Baume-Schneider chiede protezione contro la sottomissione chimica',
+    description: 'La consigliera federale Elisabeth Baume-Schneider chiede più protezione contro la violenza sessuale commessa tramite sostanze chimiche. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, baume-schneider, chiede, protezione, contro',
+    ogTitle: 'Baume-Schneider chiede protezione contro la sottomissione chimica',
+    ogDescription: 'La consigliera federale Elisabeth Baume-Schneider chiede più protezione contro la violenza sessuale commessa tramite sostanze chimiche.',
+    canonicalPath: '/articoli-svizzera/elisabeth-baume-schneider-protezione-chimica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Baume-Schneider chiede protezione contro la sottomissione chimica",
+      "description": "La consigliera federale Elisabeth Baume-Schneider chiede più protezione contro la violenza sessuale commessa tramite sostanze chimiche. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/elisabeth-baume-schneider-protezione-chimica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La consigliera federale Elisabeth Baume-Schneider durante un'intervista"
+      },
+      "datePublished": "2026-08-10T18:06:26+00:00",
+      "dateModified": "2026-08-10T18:06:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/elisabeth-baume-schneider-protezione-chimica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-carenza-insegnanti-svizzera': {
+    title: 'Carenza di insegnanti in Svizzera mostra segnali di attenuazione',
+    description: 'La carenza di insegnanti in Svizzera mostra segnali di attenuazione, con un calo degli alunni e un aumento delle iscrizioni alle università pedagogiche.',
+    keywords: 'frontalieri, ticino, svizzera, italia, carenza, insegnanti, mostra, segnali',
+    ogTitle: 'Carenza di insegnanti in Svizzera mostra segnali di attenuazione',
+    ogDescription: 'La carenza di insegnanti in Svizzera mostra segnali di attenuazione, con un calo degli alunni e un aumento delle iscrizioni alle università pedagogiche.',
+    canonicalPath: '/articoli-svizzera/carenza-insegnanti-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Carenza di insegnanti in Svizzera mostra segnali di attenuazione",
+      "description": "La carenza di insegnanti in Svizzera mostra segnali di attenuazione, con un calo degli alunni e un aumento delle iscrizioni alle università pedagogiche.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/carenza-insegnanti-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di aula scolastica in Svizzera, con insegnanti e studenti."
+      },
+      "datePublished": "2026-08-10T18:14:33+00:00",
+      "dateModified": "2026-08-10T18:14:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/carenza-insegnanti-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-catastrofi-naturali-perdite-112-miliardi-dollari': {
+    title: 'Catastrofi naturali, perdite per 112 miliardi di dollari',
+    description: 'Le ondate di calore hanno avuto un influsso diretto sulla produttività del lavoro, cosa che poi si ripercuote sui prezzi dell\'energia. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, catastrofi, naturali, perdite, miliardi',
+    ogTitle: 'Catastrofi naturali, perdite per 112 miliardi di dollari',
+    ogDescription: 'Le ondate di calore hanno avuto un influsso diretto sulla produttività del lavoro, cosa che poi si ripercuote sui prezzi dell\'energia.',
+    canonicalPath: '/articoli-svizzera/catastrofi-naturali-perdite-112-miliardi-dollari/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Catastrofi naturali, perdite per 112 miliardi di dollari",
+      "description": "Le ondate di calore hanno avuto un influsso diretto sulla produttività del lavoro, cosa che poi si ripercuote sui prezzi dell'energia. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/catastrofi-naturali-perdite-112-miliardi-dollari.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Danni causati da ondate di calore in Svizzera"
+      },
+      "datePublished": "2026-08-10T19:28:03+00:00",
+      "dateModified": "2026-08-10T19:28:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/catastrofi-naturali-perdite-112-miliardi-dollari/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-glencore-quotazione-australia': {
+    title: 'Glencore torna in utile, 4,4 miliardi di profitti',
+    description: 'Il gigante dell\'estrazione e delle materie prime Glencore ha chiuso i primi sei mesi del 2026 con un deciso ritorno alla redditività. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, glencore, torna, utile, miliardi',
+    ogTitle: 'Glencore torna in utile con profitti per 4,4 miliardi e annuncia quotazione in Australia',
+    ogDescription: 'Il gigante dell\'estrazione e delle materie prime Glencore ha chiuso i primi sei mesi del 2026 con un deciso ritorno alla redditività',
+    canonicalPath: '/articoli-svizzera/glencore-quotazione-australia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Glencore torna in utile, 4,4 miliardi di profitti",
+      "description": "Il gigante dell'estrazione e delle materie prime Glencore ha chiuso i primi sei mesi del 2026 con un deciso ritorno alla redditività. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/glencore-quotazione-australia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Glencore torna in utile con profitti per 4,4 miliardi e annuncia quotazione in Australia"
+      },
+      "datePublished": "2026-08-10T19:49:56+00:00",
+      "dateModified": "2026-08-10T19:49:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/glencore-quotazione-australia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-job-sharing-svizzera': {
+    title: 'Il job sharing conquista i vertici aziendali svizzeri',
+    description: 'On, Vontobel e altre aziende adottano la co-leadership per innovare. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sharing, conquista, vertici, aziendali',
+    ogTitle: 'Il job sharing conquista i vertici aziendali svizzeri',
+    ogDescription: 'On, Vontobel e altre aziende adottano la co-leadership per innovare.',
+    canonicalPath: '/articoli-svizzera/job-sharing-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il job sharing conquista i vertici aziendali svizzeri",
+      "description": "On, Vontobel e altre aziende adottano la co-leadership per innovare. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/job-sharing-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un vertice aziendale svizzero"
+      },
+      "datePublished": "2026-08-10T20:20:28+00:00",
+      "dateModified": "2026-08-10T20:20:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/job-sharing-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-siccita-stress-famiglie': {
+    title: 'Siccità: in aumento lo stress tra le famiglie contadine in Svizzera',
+    description: 'La prolungata siccità sta aggravando le condizioni di vita e di lavoro delle famiglie contadine in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, aumento, stress, famiglie',
+    ogTitle: 'Siccità in Svizzera: lo stress tra le famiglie contadine',
+    ogDescription: 'La prolungata siccità sta aggravando le condizioni di vita e di lavoro delle famiglie contadine in Svizzera.',
+    canonicalPath: '/articoli-svizzera/siccita-stress-famiglie/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità: in aumento lo stress tra le famiglie contadine in Svizzera",
+      "description": "La prolungata siccità sta aggravando le condizioni di vita e di lavoro delle famiglie contadine in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/siccita-stress-famiglie.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia agricola preoccupata per la siccità in Svizzera"
+      },
+      "datePublished": "2026-08-10T20:29:52+00:00",
+      "dateModified": "2026-08-10T20:29:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/siccita-stress-famiglie/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-potenziale-riciclaggio-infrastrutture-energie-fossili': {
+    title: 'Empa: potenziale riciclaggio in infrastrutture per energie fossili',
+    description: 'Il riciclaggio delle infrastrutture per vettori fossili potrebbe coprire l\'intero fabbisogno di acciaio e circa un terzo di quello di rame necessario',
+    keywords: 'frontalieri, ticino, svizzera, italia, empa, potenziale, riciclaggio, infrastrutture',
+    ogTitle: 'Riciclaggio delle infrastrutture per vettori fossili',
+    ogDescription: 'Il riciclaggio delle infrastrutture per vettori fossili potrebbe coprire l\'intero fabbisogno di acciaio e circa un terzo di quello di rame necessario per la transizione energetica.',
+    canonicalPath: '/articoli-svizzera/potenziale-riciclaggio-infrastrutture-energie-fossili/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Empa: potenziale riciclaggio in infrastrutture per energie fossili",
+      "description": "Il riciclaggio delle infrastrutture per vettori fossili potrebbe coprire l'intero fabbisogno di acciaio e circa un terzo di quello di rame necessario",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/potenziale-riciclaggio-infrastrutture-energie-fossili.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Locarno Film Festival"
+      },
+      "datePublished": "2026-08-10T20:43:18+00:00",
+      "dateModified": "2026-08-10T20:43:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/potenziale-riciclaggio-infrastrutture-energie-fossili/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera': {
+    title: 'Patto diritti economici, sociali e culturali: sviluppi Svizzera',
+    description: 'Il Consiglio federale ha adottato il quinto rapporto svizzero sull\'attuazione del Patto delle Nazioni Unite relativo ai diritti economici, sociali e culturali',
+    keywords: 'frontalieri, ticino, svizzera, italia, patto, diritti, economici, sociali',
+    ogTitle: 'Maggiori informazioni su «Patto relativo ai diritti economici, sociali e culturali: la Svizzera riferisce sui progressi compiuti»',
+    ogDescription: 'Il Consiglio federale ha adottato il quinto rapporto svizzero sull\'attuazione del Patto delle Nazioni Unite relativo ai diritti economici, sociali e culturali (Patto I) il 19 giugno 2026.',
+    canonicalPath: '/articoli-svizzera/patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patto diritti economici, sociali e culturali: sviluppi Svizzera",
+      "description": "Il Consiglio federale ha adottato il quinto rapporto svizzero sull'attuazione del Patto delle Nazioni Unite relativo ai diritti economici, sociali e culturali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di un frontaliere che lavora in Svizzera, con la vista sul lago di Lugano"
+      },
+      "datePublished": "2026-08-10T20:58:53+00:00",
+      "dateModified": "2026-08-10T20:58:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-reno-svizzera-merci-camion-essere': {
+    title: 'Con il Reno a secco, le cose per la Svizzera rischiano davvero di farsi più care',
+    description: 'La siccità del Reno potrebbe avere conseguenze dirette per la Svizzera e le merci in transito. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, reno, secco, cose, rischiano',
+    ogTitle: 'Siccità del Reno e merci in transito in Svizzera',
+    ogDescription: 'La siccità del Reno potrebbe avere conseguenze dirette per la Svizzera e le merci in transito',
+    canonicalPath: '/articoli-svizzera/reno-svizzera-merci-camion-essere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Con il Reno a secco, le cose per la Svizzera rischiano davvero di farsi più care",
+      "description": "La siccità del Reno potrebbe avere conseguenze dirette per la Svizzera e le merci in transito. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/reno-svizzera-merci-camion-essere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Merci in transito sulla strada in Svizzera"
+      },
+      "datePublished": "2026-08-10T21:49:21+00:00",
+      "dateModified": "2026-08-10T21:49:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/reno-svizzera-merci-camion-essere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo': {
+    title: 'OCSE assegna giudizio positivo alla Svizzera | Frontaliere Ticino',
+    description: 'Il punto di contatto nazionale svizzero per la condotta aziendale responsabile è stato valutato positivamente dall\'OCSE. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, ocse, assegna, giudizio, positivo',
+    ogTitle: 'Condotta aziendale responsabile: l\'OCSE assegna alla Svizzera un giudizio positivo',
+    ogDescription: 'Il punto di contatto nazionale svizzero per la condotta aziendale responsabile è stato valutato positivamente dall\'OCSE.',
+    canonicalPath: '/articoli-svizzera/condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "OCSE assegna giudizio positivo alla Svizzera",
+      "description": "Il punto di contatto nazionale svizzero per la condotta aziendale responsabile è stato valutato positivamente dall'OCSE. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di una vista di Lugano"
+      },
+      "datePublished": "2026-08-10T21:58:14+00:00",
+      "dateModified": "2026-08-10T21:58:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-seco-dazi-stati-uniti-2026': {
+    title: 'Stati Uniti: nuovi dazi sulla Svizzera, SECO e politiche economiche',
+    description: 'La SECO ha annunciato che gli Stati Uniti hanno adottato nuove misure di dazi sulla base dell\'indagine sul commercio di beni prodotti ricorrendo al lavoro',
+    keywords: 'frontalieri, ticino, svizzera, italia, stati, uniti, nuovi, dazi',
+    ogTitle: 'Stati Uniti: nuovi dazi sulla Svizzera, SECO e politiche economiche',
+    ogDescription: 'La SECO ha annunciato che gli Stati Uniti hanno adottato nuove misure di dazi sulla base dell\'indagine sul commercio di beni prodotti ricorrendo al lavoro forzato.',
+    canonicalPath: '/articoli-svizzera/seco-dazi-stati-uniti-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stati Uniti: nuovi dazi sulla Svizzera, SECO e politiche economiche",
+      "description": "La SECO ha annunciato che gli Stati Uniti hanno adottato nuove misure di dazi sulla base dell'indagine sul commercio di beni prodotti ricorrendo al lavoro",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/seco-dazi-stati-uniti-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di lavoro a Lugano, in Svizzera"
+      },
+      "datePublished": "2026-08-10T22:21:13+00:00",
+      "dateModified": "2026-08-10T22:21:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/seco-dazi-stati-uniti-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-dazi-usa-consiglio-federale-2026': {
+    title: 'Dazi USA: la Svizzera conferma intenti | Frontaliere Ticino',
+    description: 'Il Consiglio federale di Berna ha pubblicato una dichiarazione sull\'attuazione di determinati ulteriori elementi della dichiarazione congiunta Svizzera-USA.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dazi, conferma, intenti, consiglio',
+    ogTitle: 'Dazi USA: il Consiglio federale conferma la dichiarazione d’intenti Svizzera - USA',
+    ogDescription: 'Il Consiglio federale di Berna ha pubblicato una dichiarazione sull\'attuazione di determinati ulteriori elementi della dichiarazione congiunta Svizzera-USA.',
+    canonicalPath: '/articoli-svizzera/dazi-usa-consiglio-federale-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dazi USA: la Svizzera conferma intenti",
+      "description": "Il Consiglio federale di Berna ha pubblicato una dichiarazione sull'attuazione di determinati ulteriori elementi della dichiarazione congiunta Svizzera-USA.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dazi-usa-consiglio-federale-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Negozianti commerciali davanti al Parlamento svizzero"
+      },
+      "datePublished": "2026-08-10T22:30:49+00:00",
+      "dateModified": "2026-08-10T22:30:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dazi-usa-consiglio-federale-2026/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

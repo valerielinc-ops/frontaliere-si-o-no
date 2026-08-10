@@ -4113,7 +4113,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/ticino-swissminiatur-inaugura-miniera-doro-sessa.webp`,
  "width": 1344,
  "height": 756,
- "caption": "Max 125 chars"
+ "caption": "Immagine editoriale relativa a: Ticino: Swissminiatur inaugura la Miniera d'Oro di Sessa"
  },
  "datePublished": "2026-03-14T17:34:47+00:00",
  "dateModified": "2026-03-14T17:34:47+00:00",
