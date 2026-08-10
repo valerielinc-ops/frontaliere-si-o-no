@@ -2029,6 +2029,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.elisabeth-baume-schneider-protezione-chimica.title': 'Baume-Schneider asks for protection against chemical submission',
     'blog.article.elisabeth-baume-schneider-protezione-chimica.excerpt': 'Federal Councilwoman Elisabeth Baume-Schneider is calling for more protection against chemical sexual violence.',
     'blog.article.elisabeth-baume-schneider-protezione-chimica.imageAlt': 'The Federal Councillor Elisabeth Baume-Schneider during an interview',
+    'blog.article.carenza-insegnanti-svizzera.title': 'Shortage of teachers in Switzerland shows signs of attenuation',
+    'blog.article.carenza-insegnanti-svizzera.excerpt': 'Pupils are dropping and enrolments in pedagogical universities are increasing, but special pedagogy and teaching quality remain critical.',
+    'blog.article.carenza-insegnanti-svizzera.imageAlt': 'A Swiss classroom scene, with teachers and students.',
 };
 
 export default blogMetaChEn;

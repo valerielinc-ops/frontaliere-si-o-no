@@ -2029,6 +2029,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.elisabeth-baume-schneider-protezione-chimica.title': 'Baume-Schneider chiede protezione contro la sottomissione chimica',
     'blog.article.elisabeth-baume-schneider-protezione-chimica.excerpt': 'La consigliera federale Elisabeth Baume-Schneider chiede più protezione contro la violenza sessuale commessa tramite sostanze chimiche.',
     'blog.article.elisabeth-baume-schneider-protezione-chimica.imageAlt': 'La consigliera federale Elisabeth Baume-Schneider durante un\'intervista',
+    'blog.article.carenza-insegnanti-svizzera.title': 'Carenza di insegnanti in Svizzera mostra segnali di attenuazione',
+    'blog.article.carenza-insegnanti-svizzera.excerpt': 'Calano gli alunni e aumentano le iscrizioni alle università pedagogiche, ma restano criticità nella pedagogia speciale e nella qualità dell\'insegnamento.',
+    'blog.article.carenza-insegnanti-svizzera.imageAlt': 'Una scena di aula scolastica in Svizzera, con insegnanti e studenti.',
 };
 
 export default blogMetaChIt;

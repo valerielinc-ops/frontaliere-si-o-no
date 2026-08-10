@@ -2029,6 +2029,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.elisabeth-baume-schneider-protezione-chimica.title': 'Baume-Schneider bittet um Schutz vor chemischer Einwirkung',
     'blog.article.elisabeth-baume-schneider-protezione-chimica.excerpt': 'Bundesrätin Elisabeth Baume-Schneider fordert mehr Schutz vor sexueller Gewalt durch Chemikalien.',
     'blog.article.elisabeth-baume-schneider-protezione-chimica.imageAlt': 'Die Bundesrätin Elisabeth Baume-Schneider während einer Interview',
+    'blog.article.carenza-insegnanti-svizzera.title': 'Lehrermangel in der Schweiz zeigt Anzeichen einer Abschwächung',
+    'blog.article.carenza-insegnanti-svizzera.excerpt': 'Die Schüler sinken und die Einschreibung an den pädagogischen Universitäten nimmt zu, aber die besondere Pädagogik und die Qualität des Unterrichts bleiben kritisch.',
+    'blog.article.carenza-insegnanti-svizzera.imageAlt': 'Eine Szene aus einer Schweizer Schule, mit Lehrern und Schülern.',
 };
 
 export default blogMetaChDe;
