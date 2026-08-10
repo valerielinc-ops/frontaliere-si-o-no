@@ -62159,6 +62159,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-besano-frontaliere-ticino': {
+    title: 'Vivere a Besano e lavorare in Ticino da frontaliere',
+    description: 'Guida per frontalieri residenti a Besano: impatto del nuovo accordo fiscale, gestione busta paga, franchigie e procedure per il pendolarismo in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, besano, lavorare, pratica',
+    ogTitle: 'Vivere a Besano e lavorare in Ticino da frontaliere',
+    ogDescription: 'Guida per frontalieri residenti a Besano: impatto del nuovo accordo fiscale, gestione busta paga, franchigie e procedure per il pendolarismo in Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-besano-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Besano e lavorare in Ticino da frontaliere",
+      "description": "Guida per frontalieri residenti a Besano: impatto del nuovo accordo fiscale, gestione busta paga, franchigie e procedure per il pendolarismo in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-besano-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del confine tra Besano e il Mendrisiotto"
+      },
+      "datePublished": "2026-08-10T04:52:17+00:00",
+      "dateModified": "2026-08-10T04:52:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-besano-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

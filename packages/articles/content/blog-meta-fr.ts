@@ -9495,6 +9495,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-a-ronago-da-frontaliere-pro-e-contro.title': 'Déménager à Ronago en frontalier : pour et contre',
     'blog.article.trasferirsi-a-ronago-da-frontaliere-pro-e-contro.excerpt': 'Le nouvel accord frontalier prévoit de nouvelles règles pour les frontaliers qui s\'installent à Ronago, avec des exemptions et des franchises différentes',
     'blog.article.trasferirsi-a-ronago-da-frontaliere-pro-e-contro.imageAlt': 'Frontalier du Tessin qui se déplace à Ronago, avec sa famille et son travail',
+    'blog.article.vivere-besano-frontaliere-ticino.title': 'Vivre à Besano et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-besano-frontaliere-ticino.excerpt': 'Guide pratique pour ceux qui choisissent Besano comme résidence : impact du nouvel accord fiscal, gestion des revenus et procédures pour les déplacements vers le Tessin.',
+    'blog.article.vivere-besano-frontaliere-ticino.imageAlt': 'Vue panoramique de la frontière entre Besano et le Mendrisiotto',
 };
 
 export default blogMetaFr;
