@@ -159,9 +159,17 @@ describe('SEO titles are truncated at word boundaries (#4974)', () => {
     expect(long[cut.length] === ' ' || cut.length === long.length).toBe(true);
   });
 
-  it('never exceeds maxLen when the first token alone is longer than the budget (#5452)', async () => {
-    // No space reachable within maxLen + 1 chars — the old fallback returned
-    // the maxLen + 1 lookahead slice whole, overshooting the budget by 1.
+  it('never exceeds maxLen NOR cuts mid-word when the first token alone is longer than the budget (#5452)', async () => {
+    // No space reachable within maxLen + 1 chars. Two defects lived on this
+    // branch, fixed in two separate rounds:
+    //   - #5474 closed the overshoot: the old fallback returned the
+    //     maxLen + 1 lookahead slice whole, one char past budget.
+    //   - #5452 (this test) closes the mid-word cut #5474 left behind: its
+    //     fix slid the slice from `maxLen + 1` to `maxLen`, which stayed
+    //     inside the token — one character earlier, still not a word.
+    // A single token longer than the budget has no non-empty prefix that is
+    // simultaneously <= maxLen and ends on a word boundary, so the only
+    // value satisfying both is ''.
     const { truncateToClause } = await import('../../build-plugins/shared/clauseTail.mjs');
     const fn = truncateToClause as (t: string, n: number) => string;
 
@@ -169,10 +177,13 @@ describe('SEO titles are truncated at word boundaries (#4974)', () => {
     const cut = fn(long, 57);
     expect(cut.length).toBeLessThanOrEqual(57);
     expect(long.startsWith(cut)).toBe(true);
+    expect(cut, 'must not return a mid-word fragment of the oversized token').toBe('');
 
-    const singleToken = 'Grenzgaengerbewilligungsverfahrenantragsformularvorlageblatt';
+    const singleToken = 'Grenzgaengerbewilligungsverfahrensantragsformularvorlageblattes';
+    expect(singleToken.length).toBe(63);
     const cutSingle = fn(singleToken, 30);
     expect(cutSingle.length).toBeLessThanOrEqual(30);
     expect(singleToken.startsWith(cutSingle)).toBe(true);
+    expect(cutSingle, 'must not return a mid-word fragment of the oversized token').toBe('');
   });
 });

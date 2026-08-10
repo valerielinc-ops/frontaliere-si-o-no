@@ -33,6 +33,14 @@ import {
   endsOnWordBoundary,
   truncateClauseAware,
 } from '../build-plugins/shared/titleSuffix';
+// Imported directly, not only via titleSuffix.ts: issue #5452 measured that this
+// suite — despite being titled after the clause-truncation fix — never once
+// named the function every generator actually calls (create-article.mjs,
+// newsletter-template.mjs, repair-truncated-article-titles.mjs all delegate to
+// it). `endsOnWordBoundary`/`truncateClauseAware` above were covered; this
+// wasn't, which is exactly how the mid-word-cut half of #5452 shipped behind a
+// green suite after #5474 fixed only the overshoot half.
+import { truncateToClause } from '../build-plugins/shared/clauseTail.mjs';
 
 /** Function words that must never end a SERP string. Kept small on purpose — the
  *  authoritative list lives in titleSuffix.ts; this is an independent spot-check. */
@@ -62,6 +70,60 @@ describe('peelDanglingClauseTail — the shared primitive', () => {
     expect(peelDanglingClauseTail('Cross-border guide for')).toBe('Cross-border guide');
     expect(peelDanglingClauseTail('Grenzgänger Ratgeber für')).toBe('Grenzgänger Ratgeber');
     expect(peelDanglingClauseTail('Guide frontalier pour')).toBe('Guide frontalier');
+  });
+});
+
+describe('truncateToClause — the function every generator actually calls (#5452)', () => {
+  it('returns short input verbatim', () => {
+    expect(truncateToClause('Tasse frontalieri 2026', 60)).toBe('Tasse frontalieri 2026');
+  });
+
+  it('cuts on the reachable space and peels the dangling stopword', () => {
+    const out = truncateToClause('Stipendio netto frontaliere 2026: come si calcola', 40);
+    expect(out.length).toBeLessThanOrEqual(40);
+    expect('Stipendio netto frontaliere 2026: come si calcola'.startsWith(out)).toBe(true);
+    expectClauseComplete(out);
+  });
+
+  it('never overshoots maxLen when a space sits exactly at the budget (#5474 regression)', () => {
+    // 'Stipendio netto frontaliere' is exactly 27 chars — a space lands at
+    // index 27, i.e. exactly at maxLen. The `+ 1` lookahead exists so this
+    // still counts as reachable instead of falling to the no-boundary branch.
+    const s = 'Stipendio netto frontaliere 2026';
+    expect(s.indexOf(' ', 20)).toBe(27);
+    expect(truncateToClause(s, 27)).toBe('Stipendio netto frontaliere');
+  });
+
+  it('never overshoots maxLen NOR cuts mid-word when the first token alone exceeds the budget (#5452)', () => {
+    // Reproduction measured in the issue: the first token is 59 chars, past
+    // maxLen 57, so no space is reachable within the budget at all.
+    const text = 'Krankenversicherungspflichtbefreiungsantragsformularvorlage fuer Grenzgaenger';
+    const out = truncateToClause(text, 57);
+    expect(out.length).toBeLessThanOrEqual(57);
+    // The pre-#5474 bug returned 58 chars ("…vorlage" cut inside the word).
+    // The pre-this-fix (#5474-only) state returned exactly 57 chars, ALSO cut
+    // inside the word ("…vorlag"). Neither is a valid word: the token itself
+    // is one unbroken run of letters, so any non-empty prefix that fits the
+    // budget necessarily stops inside it. '' is the only value that is both
+    // <= maxLen and never mid-word.
+    expect(out).toBe('');
+  });
+
+  it('same defect, maxLen 30, a single 63-char token with no spaces anywhere', () => {
+    const singleToken = 'Grenzgaengerbewilligungsverfahrensantragsformularvorlageblattes';
+    expect(singleToken.length).toBe(63);
+    expect(singleToken).not.toMatch(/\s/);
+    const out = truncateToClause(singleToken, 30);
+    expect(out.length).toBeLessThanOrEqual(30);
+    expect(out).toBe('');
+  });
+
+  it('does not degrade to the empty-string fallback when a reachable space exists', () => {
+    // Guard against an overly-eager fallback: "no space within budget" is the
+    // ONLY trigger for the empty result, not "the text is long" in general —
+    // here a space sits right at the budget, so this must take the normal
+    // space-based branch, never the no-boundary one.
+    expect(truncateToClause('Guida pratica frontalieri Ticino', 13)).toBe('Guida pratica');
   });
 });
 

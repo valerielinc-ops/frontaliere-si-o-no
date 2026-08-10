@@ -98,6 +98,12 @@ export function peelDanglingClauseTail(s) {
  * on a function word. No ellipsis is appended — callers that want a truncation
  * marker add their own.
  *
+ * Returns `''` in the one case where "never mid-word" and "never over
+ * `maxLen`" cannot both hold on a non-empty string: the very first token
+ * alone is already longer than `maxLen` and there is nothing else in the
+ * budget (space or otherwise) to cut on (#5452). Callers must tolerate an
+ * empty result the same way they already tolerate an empty/unset field.
+ *
  * @param {string} text
  * @param {number} maxLen
  * @returns {string}
@@ -112,14 +118,34 @@ export function truncateToClause(text, maxLen) {
   if (lastSpace > 0) {
     return peelDanglingClauseTail(cut.slice(0, lastSpace).trim());
   }
-  // No space within the budget — the first token alone exceeds maxLen, so
-  // there is no clause boundary to fall back to. Hard-clamp to maxLen
-  // exactly instead of returning the maxLen+1 lookahead slice: the length
-  // contract must never be violated, matching the sibling truncation sites
-  // (capForTitle in relatedSearchClustersPlugin.ts, orphanQueryLandingPlugin.ts,
-  // borderWaitPagesPlugin.ts) that already slice to `maxLen`, not `maxLen + 1`,
-  // on this same fallback.
-  return peelDanglingClauseTail(s.slice(0, maxLen).trim());
+  // No space within the budget — the first token alone is at least
+  // `maxLen + 1` chars, so there is NO clause boundary reachable within the
+  // budget at all (#5452). Two constraints this function must never trade
+  // off against each other:
+  //   - never overshoot `maxLen` (the defect #5474 closed: slicing the
+  //     `maxLen + 1` lookahead and returning it whole);
+  //   - never end mid-word (the defect THIS fix closes: #5474 swapped the
+  //     overshooting slice for `s.slice(0, maxLen)`, which is still a plain
+  //     character cut — one char earlier, still inside the token, e.g.
+  //     "…vorlage" -> "…vorlag").
+  // A single token longer than the budget has no non-empty prefix that
+  // satisfies both at once: any prefix that fits stops inside the token BY
+  // CONSTRUCTION, because nothing else (space, punctuation) exists in the
+  // budget to cut on instead. Returning '' is the only value that is
+  // simultaneously <= maxLen and never mid-word — the same contract
+  // `truncateClauseAware`'s `requireWordBoundary: true` already uses in
+  // titleSuffix.ts for the identical dilemma (see
+  // tests/seo-serp-clause-truncation.test.ts, "refuses the same slice when
+  // the caller cannot signal truncation"). This module appends no ellipsis
+  // (see the header), so there is no way to mark a mid-word cut as
+  // intentional the way `truncateHeadline`'s trailing "…" does — which is
+  // exactly why that function is allowed to keep the raw slice and this one
+  // is not.
+  // Measured (issue #5452): 0 of 27 764 stored SEO fields hit this branch
+  // today, so no shipped title/description changes; callers that DO hit it
+  // in the future get an empty string back rather than a broken snippet —
+  // same as an unset field, which callers already have to tolerate.
+  return '';
 }
 
 /**
