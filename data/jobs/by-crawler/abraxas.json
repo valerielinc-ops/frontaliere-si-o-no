@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-08-09T21:35:38.517Z",
+  "assembledAt": "2026-08-10T10:45:29.606Z",
   "jobs": [
     {
       "id": "abraxas-f90530a90f84",
@@ -17,7 +17,7 @@
       "title": "ServiceNow Engineer KI & Automation 80-100%",
       "titleByLocale": {
         "it": "ServiceNow Ingegnere KI & Automation 80-100%",
-        "en": "ServiceNow Engineer KI & Automation 80-100 %",
+        "en": "ServiceNow Engineer KI & Automation 80-100%",
         "de": "ServiceNow Ingenieur KI & Automation 80-100%",
         "fr": "ServiceNow Ingénieur KI & Automation 80-100%"
       },
@@ -33,7 +33,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-engineer-ki-amp-automation-80-100-3223",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:34.485Z",
+      "crawledAt": "2026-08-10T10:45:26.124Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -97,7 +98,7 @@
       "title": "Senior Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior Software-Ingegnere 80–100 %",
-        "en": "Senior Software Engineer 80-100%",
+        "en": "Senior Software-Engineer 80–100 %",
         "de": "Senior Software-Ingenieur 80–100 %",
         "fr": "Senior Software-Ingénieur 80–100 %"
       },
@@ -113,7 +114,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-80-100-8049",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:33.993Z",
+      "crawledAt": "2026-08-10T10:45:25.644Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -193,7 +195,7 @@
       "title": "Senior OpenStack Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior OpenStack Ingegnere 80–100 %",
-        "en": "Senior OpenStack Engineer 80-100%",
+        "en": "Senior OpenStack Engineer 80–100 %",
         "de": "Senior OpenStack Ingenieur 80–100 %",
         "fr": "Senior OpenStack Ingénieur 80–100 %"
       },
@@ -209,7 +211,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-3470",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:33.503Z",
+      "crawledAt": "2026-08-10T10:45:25.131Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -267,6 +270,76 @@
       }
     },
     {
+      "id": "abraxas-a15196463f56",
+      "slug": "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
+      "slugByLocale": {
+        "de": "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
+        "it": "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
+        "en": "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
+        "fr": "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "Senior Cyber Security Analyst / Engineer 80–100 %",
+      "titleByLocale": {
+        "de": "Senior Cyber Security Analyst / Ingenieur 80–100 %",
+        "en": "Senior Cyber Security Analyst / Engineer 80–100 %",
+        "it": "Senior Cyber Security Analista / Ingegnere 80–100 %",
+        "fr": "Senior Cyber Security Analyste / Ingénieur 80–100 %"
+      },
+      "description": "Bist Du ein Teamplayer und suchst nicht nur einen Job, sondern möchtest Cyber Security aktiv mitgestalten? Dann bist Du in unserem Cyber Security Team genau richtig. In unserem SOC übernimmst du eine Schlüsselrolle beim Schutz kritischer Infrastrukturen im Behördenumfeld der Schweiz.\nBei uns kombinierst du die Dynamik eines hochspezialisierten Security-Teams mit der Stabilität eines etablierten IT-Dienstleisters – inklusive viel Eigenverantwortung, Einfluss und Gestaltungsspielraum.\nDeine Rolle\n• Verantwortung für Analyse, Triage und Incident Response komplexer Security Incidents im Rahmen eines etablierten Emergency Response Teams\n• Leitung und Koordination von Security Incident Investigations (End-to-End)\n• Aktive Mitgestaltung und Weiterentwicklung unserer Cyber Security Services und SOC-Prozesse\n• Technische und konzeptionelle Leitung von Projekten\n• Sicherstellung eines stabilen und hochverfügbaren Betriebs unserer Security-Plattformen und Services\n• Beratung und Sparring-Partner für Kunden (inkl. Durchführung von Security Briefings auf Senior-Level)\n• Mitwirkung in Ausschreibungen – mit der Möglichkeit, deine Expertise direkt einzubringen\n• Beteiligung am Pikettdienst und ausserordentlichen Einsätzen ausserhalb der normalen Arbeitszeit\nDein Profil\n• Mindestens 5 Jahre Erfahrung in der Cyber Security Analyse und Incident Response (idealerweise SOC/CSIRT)\n• Fundierte praktische Expertise in mehreren der folgenden Bereiche: SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Sehr gutes technisches Verständnis von Netzwerken, Betriebssystemen (Linux/Windows/macOS), Firewalls und Loganalyse\n• Erfahrung in der Leitung von Incidents oder Projekten von Vorteil\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Anerkannte Cyber Security Zertifizierungen (z. B. GIAC, CISSP, CISM etc.)\n• Sehr gute Deutsch- und Englischkenntnisse (Deutsch C1)\n• Strukturierte, eigenverantwortliche und kommunikationsstarke Persönlichkeit mit hoher Vertrauenswürdigkeit\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "descriptionByLocale": {
+        "de": "Bist Du ein Teamplayer und suchst nicht nur einen Job, sondern möchtest Cyber Security aktiv mitgestalten? Dann bist Du in unserem Cyber Security Team genau richtig. In unserem SOC übernimmst du eine Schlüsselrolle beim Schutz kritischer Infrastrukturen im Behördenumfeld der Schweiz.\nBei uns kombinierst du die Dynamik eines hochspezialisierten Security-Teams mit der Stabilität eines etablierten IT-Dienstleisters – inklusive viel Eigenverantwortung, Einfluss und Gestaltungsspielraum.\nDeine Rolle\n• Verantwortung für Analyse, Triage und Incident Response komplexer Security Incidents im Rahmen eines etablierten Emergency Response Teams\n• Leitung und Koordination von Security Incident Investigations (End-to-End)\n• Aktive Mitgestaltung und Weiterentwicklung unserer Cyber Security Services und SOC-Prozesse\n• Technische und konzeptionelle Leitung von Projekten\n• Sicherstellung eines stabilen und hochverfügbaren Betriebs unserer Security-Plattformen und Services\n• Beratung und Sparring-Partner für Kunden (inkl. Durchführung von Security Briefings auf Senior-Level)\n• Mitwirkung in Ausschreibungen – mit der Möglichkeit, deine Expertise direkt einzubringen\n• Beteiligung am Pikettdienst und ausserordentlichen Einsätzen ausserhalb der normalen Arbeitszeit\nDein Profil\n• Mindestens 5 Jahre Erfahrung in der Cyber Security Analyse und Incident Response (idealerweise SOC/CSIRT)\n• Fundierte praktische Expertise in mehreren der folgenden Bereiche: SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Sehr gutes technisches Verständnis von Netzwerken, Betriebssystemen (Linux/Windows/macOS), Firewalls und Loganalyse\n• Erfahrung in der Leitung von Incidents oder Projekten von Vorteil\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Anerkannte Cyber Security Zertifizierungen (z. B. GIAC, CISSP, CISM etc.)\n• Sehr gute Deutsch- und Englischkenntnisse (Deutsch C1)\n• Strukturierte, eigenverantwortliche und kommunikationsstarke Persönlichkeit mit hoher Vertrauenswürdigkeit\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "it": "Bist Du ein Teamplayer und suchst nicht nur einen Job, sondern möchtest Cyber Security aktiv mitgestalten? Dann bist Du in unserem Cyber Security Team genau richtig. In unserem SOC übernimmst du eine Schlüsselrolle beim Schutz kritischer Infrastrukturen im Behördenumfeld der Schweiz.\nBei uns kombinierst du die Dynamik eines hochspezialisierten Security-Teams mit der Stabilität eines etablierten IT-Dienstleisters – inklusive viel Eigenverantwortung, Einfluss und Gestaltungsspielraum.\nDeine Rolle\n• Verantwortung für Analyse, Triage und Incident Response komplexer Security Incidents im Rahmen eines etablierten Emergency Response Teams\n• Leitung und Koordination von Security Incident Investigations (End-to-End)\n• Aktive Mitgestaltung und Weiterentwicklung unserer Cyber Security Services und SOC-Prozesse\n• Technische und konzeptionelle Leitung von Projekten\n• Sicherstellung eines stabilen und hochverfügbaren Betriebs unserer Security-Plattformen und Services\n• Beratung und Sparring-Partner für Kunden (inkl. Durchführung von Security Briefings auf Senior-Level)\n• Mitwirkung in Ausschreibungen – mit der Möglichkeit, deine Expertise direkt einzubringen\n• Beteiligung am Pikettdienst und ausserordentlichen Einsätzen ausserhalb der normalen Arbeitszeit\nDein Profil\n• Mindestens 5 Jahre Erfahrung in der Cyber Security Analyse und Incident Response (idealerweise SOC/CSIRT)\n• Fundierte praktische Expertise in mehreren der folgenden Bereiche: SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Sehr gutes technisches Verständnis von Netzwerken, Betriebssystemen (Linux/Windows/macOS), Firewalls und Loganalyse\n• Erfahrung in der Leitung von Incidents oder Projekten von Vorteil\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Anerkannte Cyber Security Zertifizierungen (z. B. GIAC, CISSP, CISM etc.)\n• Sehr gute Deutsch- und Englischkenntnisse (Deutsch C1)\n• Strukturierte, eigenverantwortliche und kommunikationsstarke Persönlichkeit mit hoher Vertrauenswürdigkeit\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "en": "Bist Du ein Teamplayer und suchst nicht nur einen Job, sondern möchtest Cyber Security aktiv mitgestalten? Dann bist Du in unserem Cyber Security Team genau richtig. In unserem SOC übernimmst du eine Schlüsselrolle beim Schutz kritischer Infrastrukturen im Behördenumfeld der Schweiz.\nBei uns kombinierst du die Dynamik eines hochspezialisierten Security-Teams mit der Stabilität eines etablierten IT-Dienstleisters – inklusive viel Eigenverantwortung, Einfluss und Gestaltungsspielraum.\nDeine Rolle\n• Verantwortung für Analyse, Triage und Incident Response komplexer Security Incidents im Rahmen eines etablierten Emergency Response Teams\n• Leitung und Koordination von Security Incident Investigations (End-to-End)\n• Aktive Mitgestaltung und Weiterentwicklung unserer Cyber Security Services und SOC-Prozesse\n• Technische und konzeptionelle Leitung von Projekten\n• Sicherstellung eines stabilen und hochverfügbaren Betriebs unserer Security-Plattformen und Services\n• Beratung und Sparring-Partner für Kunden (inkl. Durchführung von Security Briefings auf Senior-Level)\n• Mitwirkung in Ausschreibungen – mit der Möglichkeit, deine Expertise direkt einzubringen\n• Beteiligung am Pikettdienst und ausserordentlichen Einsätzen ausserhalb der normalen Arbeitszeit\nDein Profil\n• Mindestens 5 Jahre Erfahrung in der Cyber Security Analyse und Incident Response (idealerweise SOC/CSIRT)\n• Fundierte praktische Expertise in mehreren der folgenden Bereiche: SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Sehr gutes technisches Verständnis von Netzwerken, Betriebssystemen (Linux/Windows/macOS), Firewalls und Loganalyse\n• Erfahrung in der Leitung von Incidents oder Projekten von Vorteil\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Anerkannte Cyber Security Zertifizierungen (z. B. GIAC, CISSP, CISM etc.)\n• Sehr gute Deutsch- und Englischkenntnisse (Deutsch C1)\n• Strukturierte, eigenverantwortliche und kommunikationsstarke Persönlichkeit mit hoher Vertrauenswürdigkeit\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Bist Du ein Teamplayer und suchst nicht nur einen Job, sondern möchtest Cyber Security aktiv mitgestalten? Dann bist Du in unserem Cyber Security Team genau richtig. In unserem SOC übernimmst du eine Schlüsselrolle beim Schutz kritischer Infrastrukturen im Behördenumfeld der Schweiz.\nBei uns kombinierst du die Dynamik eines hochspezialisierten Security-Teams mit der Stabilität eines etablierten IT-Dienstleisters – inklusive viel Eigenverantwortung, Einfluss und Gestaltungsspielraum.\nDeine Rolle\n• Verantwortung für Analyse, Triage und Incident Response komplexer Security Incidents im Rahmen eines etablierten Emergency Response Teams\n• Leitung und Koordination von Security Incident Investigations (End-to-End)\n• Aktive Mitgestaltung und Weiterentwicklung unserer Cyber Security Services und SOC-Prozesse\n• Technische und konzeptionelle Leitung von Projekten\n• Sicherstellung eines stabilen und hochverfügbaren Betriebs unserer Security-Plattformen und Services\n• Beratung und Sparring-Partner für Kunden (inkl. Durchführung von Security Briefings auf Senior-Level)\n• Mitwirkung in Ausschreibungen – mit der Möglichkeit, deine Expertise direkt einzubringen\n• Beteiligung am Pikettdienst und ausserordentlichen Einsätzen ausserhalb der normalen Arbeitszeit\nDein Profil\n• Mindestens 5 Jahre Erfahrung in der Cyber Security Analyse und Incident Response (idealerweise SOC/CSIRT)\n• Fundierte praktische Expertise in mehreren der folgenden Bereiche: SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Sehr gutes technisches Verständnis von Netzwerken, Betriebssystemen (Linux/Windows/macOS), Firewalls und Loganalyse\n• Erfahrung in der Leitung von Incidents oder Projekten von Vorteil\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Anerkannte Cyber Security Zertifizierungen (z. B. GIAC, CISSP, CISM etc.)\n• Sehr gute Deutsch- und Englischkenntnisse (Deutsch C1)\n• Strukturierte, eigenverantwortliche und kommunikationsstarke Persönlichkeit mit hoher Vertrauenswürdigkeit\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
+      },
+      "location": "Zürich-Flughafen",
+      "canton": "ZH",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-cyber-security-analyst-engineer-80-100-5103",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-10T10:45:24.635Z",
+      "needsRetranslation": true,
+      "addressLocality": "Zürich-Flughafen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8058",
+      "streetAddress": "",
+      "category": "IT / Sicurezza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-10",
+      "applyUrl": "https://apply.refline.ch/215876/2475/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "215876-2475",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-10T10:45:24.635Z"
+    },
+    {
       "id": "abraxas-ba9e19c5a748",
       "slug": "security-architetto-con-schwerpunkt-ai-security-80-100-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
@@ -297,7 +370,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/security-architect-mit-schwerpunkt-ai-security-80-100-9038",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:33.011Z",
+      "crawledAt": "2026-08-10T10:45:24.153Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -380,7 +454,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/leiterin-solution-architektur-80-100-7399",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:32.521Z",
+      "crawledAt": "2026-08-10T10:45:23.671Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -477,7 +551,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lehrstelle-als-informatikerin-plattformentwicklung-2149",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:32.034Z",
+      "crawledAt": "2026-08-10T10:45:23.180Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -560,7 +635,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lehrstelle-als-fachfrau-fachmann-kundendialog-efz-6830",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:31.535Z",
+      "crawledAt": "2026-08-10T10:45:22.689Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -627,7 +703,7 @@
       "title": "KI - Consultant 80–100 %",
       "titleByLocale": {
         "it": "KI - Consulente 80–100 %",
-        "en": "AI - Consultant 80-100%",
+        "en": "KI - Consultant 80–100 %",
         "de": "KI - Berater 80–100 %",
         "fr": "AI - Consultant 80-100%"
       },
@@ -643,7 +719,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ki-consultant-80-100-9837",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:31.043Z",
+      "crawledAt": "2026-08-10T10:45:22.205Z",
+      "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -702,6 +779,76 @@
       }
     },
     {
+      "id": "abraxas-48ea1a73c7c8",
+      "slug": "it-service-manager-m-w-d-focus-change-incident-practice-management-100-abraxas-st-gallen",
+      "slugByLocale": {
+        "de": "it-service-manager-m-w-d-focus-change-incident-practice-management-100-abraxas-st-gallen",
+        "it": "it-service-manager-m-w-d-focus-change-incident-practice-management-100-abraxas-st-gallen",
+        "en": "it-service-manager-m-w-d-focus-change-incident-practice-management-100-abraxas-st-gallen",
+        "fr": "it-service-manager-m-w-d-focus-change-incident-practice-management-100-abraxas-st-gallen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "IT Service Manager (m/w/d) - Focus Change, Incident & Practice Management (100%)",
+      "titleByLocale": {
+        "de": "IT Service Manager (m/w/d) - Focus Change, Incident & Practice Management (100%)",
+        "en": "IT Service Manager (m/w/d) - Focus Change, Incident & Practice Management (100%)",
+        "it": "IT Service Manager (m/w/d) - Focus Change, Incident & Practice Management (100%)",
+        "fr": "IT Service Manager (m/w/d) - Focus Change, Incident & Practice Management (100%)"
+      },
+      "description": "In dieser anspruchsvollen Schlüsselposition bist du direkt als Stabstelle beim Leiter Abraxas SERVICE DESK IT angesiedelt. Du trägst die ganzheitliche Verantwortung dafür, dass der gesamte Ablauf vom ersten Kundenanliegen bis zur nachhaltigen Lösung reibungslos funktioniert. Du bist das strategische und operative Bindeglied, das sicherstellt, dass Anfragen (Incidents und Requests) unsere Support- und Betriebsorganisation effizient und sauber durchlaufen.\nFür unseren Standort in St. Gallen oder Zürich-Flughafen suchen wir ab dem 1. September oder nach Vereinbarung eine motivierte Persönlichkeit als IT Service Manager (m/w/d).\nDeine Rolle\n• Incident- & Major Incident Management (Kundenfokus): Du überwachst und steuerst den Fluss von Störungsmeldungen durch die Supporteinheiten. Bei kritischen Grossstörungen (Major Incidents) übernimmst du die zentrale, kundenfokussierte Rolle: Du stellst eine lückenlose, professionelle und transparente Kommunikation gegenüber unseren anspruchsvollen Kunden sicher.\n• Change Management & Change Enablement: Du verantwortest die Steuerung aller IT-Changes und treibst das Change Enablement aktiv voran. Durch deine proaktive Lenkung und Steuerung des gesamten Prozesses minimierst du das Risiko für change-bedingte Events im Betrieb und sicherst die Stabilität der Kundensysteme.\n• Practice Management & Prozesslenkung: Du analysierst kontinuierlich die Schnittstellen und Abläufe zwischen Kundenanforderung, Support und Betrieb. Du definierst Standards, optimierst die ITSM-Praktiken (CSI Approach orientiert an ITIL Version 5), mit Schwerpunkt Service Desk & Change Enablement, und stellst deren Einhaltung, der KPI, in der Organisation sicher. Wenn nötig stellst du einen Know-How Transfer in der Organisation, nach dem Train-the-Trainer-Prinzip, sicher.\nDein Profil\n• Abgeschlossenes Studium in Informatik, Wirtschaftsinformatik oder eine vergleichbare Qualifikation mit entsprechender langjähriger Berufserfahrung.\n• Fundierte Praxis im IT Service Management, spezifisch im Incident-, Major Incident-, Problem- und Change Management in einem komplexen Enterprise- oder Provider-Umfeld.\n• Zertifizierung in ITIL 4 oder höher (idealerweise Managing Professional) sowie tiefes Verständnis für agile und klassische Betriebsstrukturen.\n• Du bewahrst in kritischen Situationen einen kühlen Kopf, bist kommunikationsstark und durchsetzungsfähig.\n• Du verstehst es, die Bedürfnisse von Behörden und Blaulichtorganisationen in professionelle IT-Prozesse zu übersetzen.\n• Verhandlungssicheres Deutsch (C1-Niveau) und sehr gute Englischkenntnisse sind die Voraussetzung für diese Rolle, weitere Landessprachen sind von Vorteil.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "descriptionByLocale": {
+        "de": "In dieser anspruchsvollen Schlüsselposition bist du direkt als Stabstelle beim Leiter Abraxas SERVICE DESK IT angesiedelt. Du trägst die ganzheitliche Verantwortung dafür, dass der gesamte Ablauf vom ersten Kundenanliegen bis zur nachhaltigen Lösung reibungslos funktioniert. Du bist das strategische und operative Bindeglied, das sicherstellt, dass Anfragen (Incidents und Requests) unsere Support- und Betriebsorganisation effizient und sauber durchlaufen.\nFür unseren Standort in St. Gallen oder Zürich-Flughafen suchen wir ab dem 1. September oder nach Vereinbarung eine motivierte Persönlichkeit als IT Service Manager (m/w/d).\nDeine Rolle\n• Incident- & Major Incident Management (Kundenfokus): Du überwachst und steuerst den Fluss von Störungsmeldungen durch die Supporteinheiten. Bei kritischen Grossstörungen (Major Incidents) übernimmst du die zentrale, kundenfokussierte Rolle: Du stellst eine lückenlose, professionelle und transparente Kommunikation gegenüber unseren anspruchsvollen Kunden sicher.\n• Change Management & Change Enablement: Du verantwortest die Steuerung aller IT-Changes und treibst das Change Enablement aktiv voran. Durch deine proaktive Lenkung und Steuerung des gesamten Prozesses minimierst du das Risiko für change-bedingte Events im Betrieb und sicherst die Stabilität der Kundensysteme.\n• Practice Management & Prozesslenkung: Du analysierst kontinuierlich die Schnittstellen und Abläufe zwischen Kundenanforderung, Support und Betrieb. Du definierst Standards, optimierst die ITSM-Praktiken (CSI Approach orientiert an ITIL Version 5), mit Schwerpunkt Service Desk & Change Enablement, und stellst deren Einhaltung, der KPI, in der Organisation sicher. Wenn nötig stellst du einen Know-How Transfer in der Organisation, nach dem Train-the-Trainer-Prinzip, sicher.\nDein Profil\n• Abgeschlossenes Studium in Informatik, Wirtschaftsinformatik oder eine vergleichbare Qualifikation mit entsprechender langjähriger Berufserfahrung.\n• Fundierte Praxis im IT Service Management, spezifisch im Incident-, Major Incident-, Problem- und Change Management in einem komplexen Enterprise- oder Provider-Umfeld.\n• Zertifizierung in ITIL 4 oder höher (idealerweise Managing Professional) sowie tiefes Verständnis für agile und klassische Betriebsstrukturen.\n• Du bewahrst in kritischen Situationen einen kühlen Kopf, bist kommunikationsstark und durchsetzungsfähig.\n• Du verstehst es, die Bedürfnisse von Behörden und Blaulichtorganisationen in professionelle IT-Prozesse zu übersetzen.\n• Verhandlungssicheres Deutsch (C1-Niveau) und sehr gute Englischkenntnisse sind die Voraussetzung für diese Rolle, weitere Landessprachen sind von Vorteil.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "it": "In dieser anspruchsvollen Schlüsselposition bist du direkt als Stabstelle beim Leiter Abraxas SERVICE DESK IT angesiedelt. Du trägst die ganzheitliche Verantwortung dafür, dass der gesamte Ablauf vom ersten Kundenanliegen bis zur nachhaltigen Lösung reibungslos funktioniert. Du bist das strategische und operative Bindeglied, das sicherstellt, dass Anfragen (Incidents und Requests) unsere Support- und Betriebsorganisation effizient und sauber durchlaufen.\nFür unseren Standort in St. Gallen oder Zürich-Flughafen suchen wir ab dem 1. September oder nach Vereinbarung eine motivierte Persönlichkeit als IT Service Manager (m/w/d).\nDeine Rolle\n• Incident- & Major Incident Management (Kundenfokus): Du überwachst und steuerst den Fluss von Störungsmeldungen durch die Supporteinheiten. Bei kritischen Grossstörungen (Major Incidents) übernimmst du die zentrale, kundenfokussierte Rolle: Du stellst eine lückenlose, professionelle und transparente Kommunikation gegenüber unseren anspruchsvollen Kunden sicher.\n• Change Management & Change Enablement: Du verantwortest die Steuerung aller IT-Changes und treibst das Change Enablement aktiv voran. Durch deine proaktive Lenkung und Steuerung des gesamten Prozesses minimierst du das Risiko für change-bedingte Events im Betrieb und sicherst die Stabilität der Kundensysteme.\n• Practice Management & Prozesslenkung: Du analysierst kontinuierlich die Schnittstellen und Abläufe zwischen Kundenanforderung, Support und Betrieb. Du definierst Standards, optimierst die ITSM-Praktiken (CSI Approach orientiert an ITIL Version 5), mit Schwerpunkt Service Desk & Change Enablement, und stellst deren Einhaltung, der KPI, in der Organisation sicher. Wenn nötig stellst du einen Know-How Transfer in der Organisation, nach dem Train-the-Trainer-Prinzip, sicher.\nDein Profil\n• Abgeschlossenes Studium in Informatik, Wirtschaftsinformatik oder eine vergleichbare Qualifikation mit entsprechender langjähriger Berufserfahrung.\n• Fundierte Praxis im IT Service Management, spezifisch im Incident-, Major Incident-, Problem- und Change Management in einem komplexen Enterprise- oder Provider-Umfeld.\n• Zertifizierung in ITIL 4 oder höher (idealerweise Managing Professional) sowie tiefes Verständnis für agile und klassische Betriebsstrukturen.\n• Du bewahrst in kritischen Situationen einen kühlen Kopf, bist kommunikationsstark und durchsetzungsfähig.\n• Du verstehst es, die Bedürfnisse von Behörden und Blaulichtorganisationen in professionelle IT-Prozesse zu übersetzen.\n• Verhandlungssicheres Deutsch (C1-Niveau) und sehr gute Englischkenntnisse sind die Voraussetzung für diese Rolle, weitere Landessprachen sind von Vorteil.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "en": "In dieser anspruchsvollen Schlüsselposition bist du direkt als Stabstelle beim Leiter Abraxas SERVICE DESK IT angesiedelt. Du trägst die ganzheitliche Verantwortung dafür, dass der gesamte Ablauf vom ersten Kundenanliegen bis zur nachhaltigen Lösung reibungslos funktioniert. Du bist das strategische und operative Bindeglied, das sicherstellt, dass Anfragen (Incidents und Requests) unsere Support- und Betriebsorganisation effizient und sauber durchlaufen.\nFür unseren Standort in St. Gallen oder Zürich-Flughafen suchen wir ab dem 1. September oder nach Vereinbarung eine motivierte Persönlichkeit als IT Service Manager (m/w/d).\nDeine Rolle\n• Incident- & Major Incident Management (Kundenfokus): Du überwachst und steuerst den Fluss von Störungsmeldungen durch die Supporteinheiten. Bei kritischen Grossstörungen (Major Incidents) übernimmst du die zentrale, kundenfokussierte Rolle: Du stellst eine lückenlose, professionelle und transparente Kommunikation gegenüber unseren anspruchsvollen Kunden sicher.\n• Change Management & Change Enablement: Du verantwortest die Steuerung aller IT-Changes und treibst das Change Enablement aktiv voran. Durch deine proaktive Lenkung und Steuerung des gesamten Prozesses minimierst du das Risiko für change-bedingte Events im Betrieb und sicherst die Stabilität der Kundensysteme.\n• Practice Management & Prozesslenkung: Du analysierst kontinuierlich die Schnittstellen und Abläufe zwischen Kundenanforderung, Support und Betrieb. Du definierst Standards, optimierst die ITSM-Praktiken (CSI Approach orientiert an ITIL Version 5), mit Schwerpunkt Service Desk & Change Enablement, und stellst deren Einhaltung, der KPI, in der Organisation sicher. Wenn nötig stellst du einen Know-How Transfer in der Organisation, nach dem Train-the-Trainer-Prinzip, sicher.\nDein Profil\n• Abgeschlossenes Studium in Informatik, Wirtschaftsinformatik oder eine vergleichbare Qualifikation mit entsprechender langjähriger Berufserfahrung.\n• Fundierte Praxis im IT Service Management, spezifisch im Incident-, Major Incident-, Problem- und Change Management in einem komplexen Enterprise- oder Provider-Umfeld.\n• Zertifizierung in ITIL 4 oder höher (idealerweise Managing Professional) sowie tiefes Verständnis für agile und klassische Betriebsstrukturen.\n• Du bewahrst in kritischen Situationen einen kühlen Kopf, bist kommunikationsstark und durchsetzungsfähig.\n• Du verstehst es, die Bedürfnisse von Behörden und Blaulichtorganisationen in professionelle IT-Prozesse zu übersetzen.\n• Verhandlungssicheres Deutsch (C1-Niveau) und sehr gute Englischkenntnisse sind die Voraussetzung für diese Rolle, weitere Landessprachen sind von Vorteil.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "In dieser anspruchsvollen Schlüsselposition bist du direkt als Stabstelle beim Leiter Abraxas SERVICE DESK IT angesiedelt. Du trägst die ganzheitliche Verantwortung dafür, dass der gesamte Ablauf vom ersten Kundenanliegen bis zur nachhaltigen Lösung reibungslos funktioniert. Du bist das strategische und operative Bindeglied, das sicherstellt, dass Anfragen (Incidents und Requests) unsere Support- und Betriebsorganisation effizient und sauber durchlaufen.\nFür unseren Standort in St. Gallen oder Zürich-Flughafen suchen wir ab dem 1. September oder nach Vereinbarung eine motivierte Persönlichkeit als IT Service Manager (m/w/d).\nDeine Rolle\n• Incident- & Major Incident Management (Kundenfokus): Du überwachst und steuerst den Fluss von Störungsmeldungen durch die Supporteinheiten. Bei kritischen Grossstörungen (Major Incidents) übernimmst du die zentrale, kundenfokussierte Rolle: Du stellst eine lückenlose, professionelle und transparente Kommunikation gegenüber unseren anspruchsvollen Kunden sicher.\n• Change Management & Change Enablement: Du verantwortest die Steuerung aller IT-Changes und treibst das Change Enablement aktiv voran. Durch deine proaktive Lenkung und Steuerung des gesamten Prozesses minimierst du das Risiko für change-bedingte Events im Betrieb und sicherst die Stabilität der Kundensysteme.\n• Practice Management & Prozesslenkung: Du analysierst kontinuierlich die Schnittstellen und Abläufe zwischen Kundenanforderung, Support und Betrieb. Du definierst Standards, optimierst die ITSM-Praktiken (CSI Approach orientiert an ITIL Version 5), mit Schwerpunkt Service Desk & Change Enablement, und stellst deren Einhaltung, der KPI, in der Organisation sicher. Wenn nötig stellst du einen Know-How Transfer in der Organisation, nach dem Train-the-Trainer-Prinzip, sicher.\nDein Profil\n• Abgeschlossenes Studium in Informatik, Wirtschaftsinformatik oder eine vergleichbare Qualifikation mit entsprechender langjähriger Berufserfahrung.\n• Fundierte Praxis im IT Service Management, spezifisch im Incident-, Major Incident-, Problem- und Change Management in einem komplexen Enterprise- oder Provider-Umfeld.\n• Zertifizierung in ITIL 4 oder höher (idealerweise Managing Professional) sowie tiefes Verständnis für agile und klassische Betriebsstrukturen.\n• Du bewahrst in kritischen Situationen einen kühlen Kopf, bist kommunikationsstark und durchsetzungsfähig.\n• Du verstehst es, die Bedürfnisse von Behörden und Blaulichtorganisationen in professionelle IT-Prozesse zu übersetzen.\n• Verhandlungssicheres Deutsch (C1-Niveau) und sehr gute Englischkenntnisse sind die Voraussetzung für diese Rolle, weitere Landessprachen sind von Vorteil.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-service-manager-mwd-focus-change-incident-amp-practice-management-100-8653",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-10T10:45:21.722Z",
+      "needsRetranslation": true,
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9001",
+      "streetAddress": "St. Leonhard-Strasse 80",
+      "category": "IT / Supporto",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-10",
+      "applyUrl": "https://apply.refline.ch/215876/2518/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "215876-2518",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-10T10:45:21.722Z"
+    },
+    {
       "id": "abraxas-f8a55d71589b",
       "slug": "ict-system-engineer-citrix-80-100-abraxas-zurich-flughafen",
       "slugByLocale": {
@@ -716,7 +863,7 @@
       "title": "ICT-System Engineer Citrix 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Citrix 80–100 %",
-        "en": "ICT System Engineer Citrix 80-100%",
+        "en": "ICT-System Engineer Citrix 80–100 %",
         "de": "ICT-System Ingenieur Citrix 80–100 %",
         "fr": "ICT-System Ingénieur Citrix 80–100 %"
       },
@@ -732,7 +879,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-citrix-80-100-3914",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:30.555Z",
+      "crawledAt": "2026-08-10T10:45:21.237Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -794,7 +942,7 @@
       "title": "ICT-System Engineer Betrieb 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Betrieb 80–100 %",
-        "en": "ICT System Engineer Operation 80-100%",
+        "en": "ICT-System Engineer Betrieb 80–100 %",
         "de": "ICT-System Ingenieur Betrieb 80–100 %",
         "fr": "ICT-System Ingénieur Betrieb 80–100 %"
       },
@@ -810,7 +958,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-3478",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:30.064Z",
+      "crawledAt": "2026-08-10T10:45:20.749Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -874,7 +1023,7 @@
       "title": "ICT-System Engineer Betrieb 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Betrieb 80–100 %",
-        "en": "ICT System Engineer Operation 80-100%",
+        "en": "ICT-System Engineer Betrieb 80–100 %",
         "de": "ICT-System Ingenieur Betrieb 80–100 %",
         "fr": "ICT-System Ingénieur Betrieb 80–100 %"
       },
@@ -890,7 +1039,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-9116",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:29.568Z",
+      "crawledAt": "2026-08-10T10:45:20.263Z",
+      "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -986,7 +1136,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-devops-80-100-6206",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:29.068Z",
+      "crawledAt": "2026-08-10T10:45:19.780Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1037,7 +1188,7 @@
       "title": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere – IAM (WAF/IDP) 80%–100 %",
-        "en": "ICT System Engineer – IAM (WAF/IDP) 80%-100%",
+        "en": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
         "de": "ICT System Ingenieur – IAM (WAF/IDP) 80%–100 %",
         "fr": "ICT System Ingénieur – IAM (WAF/IDP) 80%–100 %"
       },
@@ -1053,7 +1204,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-7949",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:28.571Z",
+      "crawledAt": "2026-08-10T10:45:19.294Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1090,6 +1242,76 @@
       }
     },
     {
+      "id": "abraxas-a3884f6a485b",
+      "slug": "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
+      "slugByLocale": {
+        "de": "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
+        "it": "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
+        "en": "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
+        "fr": "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "Cybersecurity Engineer im öffentlichen Sektor 80–100 %",
+      "titleByLocale": {
+        "de": "Cybersecurity Engineer im öffentlichen Sektor 80–100 %",
+        "it": "Cybersecurity Ingegnere im öffentlichen Sektor 80–100 %",
+        "en": "Cybersecurity Engineer im öffentlichen Sektor 80–100 %",
+        "fr": "Cybersecurity Ingénieur im öffentlichen Sektor 80–100 %"
+      },
+      "description": "Du glaubst nicht an Silodenken in der Sicherheit? Du verstehst sowohl die Perspektive der Angreifer als auch der Verteidiger und weisst, dass echte Sicherheit aus Zusammenarbeit entsteht? Du kombinierst offensives Denken mit praktischer Empathie und hast die Gabe, komplexe Sicherheitsprobleme nicht nur zu finden, sondern sie schnell fixbar zu machen? Dann suchen wir genau dich!\nAls \"Purple Hat\" bist du die Schnittstelle zwischen Angriffsforschung und Verteidigungsstrategie. Du validierst Findings, beschleunigst die Behebung von Sicherheitslücken und stellst sicher, dass Dein Wissen bei den Teams ankommt. Dabei bewegst du dich direkt im Kontext unserer Eigenentwicklungen – von internen Plattformen bis hin zu produktiven Fachlösungen unserer Kunden.\nDeine Rolle\n• Du führst kontinuierliche interne Security-Tests durch und jagst nach Schwachstellen in Systemen, Code und Konfigurationen\n• Du validierst externe Inputs aus Vulnerability Disclosure Programmen, Bug Bounties und Security-Advisories auf Exploitierbarkeit\n• Du arbeitest eng mit Development- und Operations-Teams zusammen und übersetzt technische Findings in konkrete, umsetzbare Massnahmen\n• Du erstellst Hardening-Checklisten, Detektionsregeln und Schritt-für-Schritt-Reproduktionen statt nur die Probleme zu zeigen\n• Du schlägst Patch-Strategien vor, reviewst Fixes und orchestrierst die Validierung von Korrekturen\n• Du priorisierst im Dschungel von KI-generierten Vulnerability-Reports und hilfst deinem Team, den Fokus auf die kritischen Risiken zu legen\n• Du kommunizierst auf Augenhöhe, schaffst es zu begeistern und unterschiedliche Teams ins Boot zu holen\nDein Profil\n• Erfahrungen in Offensive Security und Code-Analyse\n• Solide Programmier- und Debugging- Fähigkeiten – du verstehst Code, nicht nur die Konzepte\n• Verständnis und Erfahrungen in einer oder mehrere Programmiersprachen.\n• Wir entwickeln in .NET, Java und erstellen mehrheitlich Angular-Web-Frontends\n• Cloud- und Plattform-Wissen (Kubernetes, moderne Infrastrukturen)\n• Praktische Erfahrung mit defensiven Sicherheitsmassnahmen und Detektionsmöglichkeiten\n• Hohe Affinität zu Automations- und Analyse-Tools, inklusive neuer AI-basierter Security-Methoden\n• Gutes technisches Schreiben und die Gabe, komplexe Inhalte verschiedenen Zielgruppen verständlich zu machen\n• Selbständigkeit, strukturierte Arbeitsweise und vor allem: Verständnis für die Teams, die die Findings implementieren müssen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "descriptionByLocale": {
+        "de": "Du glaubst nicht an Silodenken in der Sicherheit? Du verstehst sowohl die Perspektive der Angreifer als auch der Verteidiger und weisst, dass echte Sicherheit aus Zusammenarbeit entsteht? Du kombinierst offensives Denken mit praktischer Empathie und hast die Gabe, komplexe Sicherheitsprobleme nicht nur zu finden, sondern sie schnell fixbar zu machen? Dann suchen wir genau dich!\nAls \"Purple Hat\" bist du die Schnittstelle zwischen Angriffsforschung und Verteidigungsstrategie. Du validierst Findings, beschleunigst die Behebung von Sicherheitslücken und stellst sicher, dass Dein Wissen bei den Teams ankommt. Dabei bewegst du dich direkt im Kontext unserer Eigenentwicklungen – von internen Plattformen bis hin zu produktiven Fachlösungen unserer Kunden.\nDeine Rolle\n• Du führst kontinuierliche interne Security-Tests durch und jagst nach Schwachstellen in Systemen, Code und Konfigurationen\n• Du validierst externe Inputs aus Vulnerability Disclosure Programmen, Bug Bounties und Security-Advisories auf Exploitierbarkeit\n• Du arbeitest eng mit Development- und Operations-Teams zusammen und übersetzt technische Findings in konkrete, umsetzbare Massnahmen\n• Du erstellst Hardening-Checklisten, Detektionsregeln und Schritt-für-Schritt-Reproduktionen statt nur die Probleme zu zeigen\n• Du schlägst Patch-Strategien vor, reviewst Fixes und orchestrierst die Validierung von Korrekturen\n• Du priorisierst im Dschungel von KI-generierten Vulnerability-Reports und hilfst deinem Team, den Fokus auf die kritischen Risiken zu legen\n• Du kommunizierst auf Augenhöhe, schaffst es zu begeistern und unterschiedliche Teams ins Boot zu holen\nDein Profil\n• Erfahrungen in Offensive Security und Code-Analyse\n• Solide Programmier- und Debugging- Fähigkeiten – du verstehst Code, nicht nur die Konzepte\n• Verständnis und Erfahrungen in einer oder mehrere Programmiersprachen.\n• Wir entwickeln in .NET, Java und erstellen mehrheitlich Angular-Web-Frontends\n• Cloud- und Plattform-Wissen (Kubernetes, moderne Infrastrukturen)\n• Praktische Erfahrung mit defensiven Sicherheitsmassnahmen und Detektionsmöglichkeiten\n• Hohe Affinität zu Automations- und Analyse-Tools, inklusive neuer AI-basierter Security-Methoden\n• Gutes technisches Schreiben und die Gabe, komplexe Inhalte verschiedenen Zielgruppen verständlich zu machen\n• Selbständigkeit, strukturierte Arbeitsweise und vor allem: Verständnis für die Teams, die die Findings implementieren müssen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "it": "Du glaubst nicht an Silodenken in der Sicherheit? Du verstehst sowohl die Perspektive der Angreifer als auch der Verteidiger und weisst, dass echte Sicherheit aus Zusammenarbeit entsteht? Du kombinierst offensives Denken mit praktischer Empathie und hast die Gabe, komplexe Sicherheitsprobleme nicht nur zu finden, sondern sie schnell fixbar zu machen? Dann suchen wir genau dich!\nAls \"Purple Hat\" bist du die Schnittstelle zwischen Angriffsforschung und Verteidigungsstrategie. Du validierst Findings, beschleunigst die Behebung von Sicherheitslücken und stellst sicher, dass Dein Wissen bei den Teams ankommt. Dabei bewegst du dich direkt im Kontext unserer Eigenentwicklungen – von internen Plattformen bis hin zu produktiven Fachlösungen unserer Kunden.\nDeine Rolle\n• Du führst kontinuierliche interne Security-Tests durch und jagst nach Schwachstellen in Systemen, Code und Konfigurationen\n• Du validierst externe Inputs aus Vulnerability Disclosure Programmen, Bug Bounties und Security-Advisories auf Exploitierbarkeit\n• Du arbeitest eng mit Development- und Operations-Teams zusammen und übersetzt technische Findings in konkrete, umsetzbare Massnahmen\n• Du erstellst Hardening-Checklisten, Detektionsregeln und Schritt-für-Schritt-Reproduktionen statt nur die Probleme zu zeigen\n• Du schlägst Patch-Strategien vor, reviewst Fixes und orchestrierst die Validierung von Korrekturen\n• Du priorisierst im Dschungel von KI-generierten Vulnerability-Reports und hilfst deinem Team, den Fokus auf die kritischen Risiken zu legen\n• Du kommunizierst auf Augenhöhe, schaffst es zu begeistern und unterschiedliche Teams ins Boot zu holen\nDein Profil\n• Erfahrungen in Offensive Security und Code-Analyse\n• Solide Programmier- und Debugging- Fähigkeiten – du verstehst Code, nicht nur die Konzepte\n• Verständnis und Erfahrungen in einer oder mehrere Programmiersprachen.\n• Wir entwickeln in .NET, Java und erstellen mehrheitlich Angular-Web-Frontends\n• Cloud- und Plattform-Wissen (Kubernetes, moderne Infrastrukturen)\n• Praktische Erfahrung mit defensiven Sicherheitsmassnahmen und Detektionsmöglichkeiten\n• Hohe Affinität zu Automations- und Analyse-Tools, inklusive neuer AI-basierter Security-Methoden\n• Gutes technisches Schreiben und die Gabe, komplexe Inhalte verschiedenen Zielgruppen verständlich zu machen\n• Selbständigkeit, strukturierte Arbeitsweise und vor allem: Verständnis für die Teams, die die Findings implementieren müssen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "en": "Du glaubst nicht an Silodenken in der Sicherheit? Du verstehst sowohl die Perspektive der Angreifer als auch der Verteidiger und weisst, dass echte Sicherheit aus Zusammenarbeit entsteht? Du kombinierst offensives Denken mit praktischer Empathie und hast die Gabe, komplexe Sicherheitsprobleme nicht nur zu finden, sondern sie schnell fixbar zu machen? Dann suchen wir genau dich!\nAls \"Purple Hat\" bist du die Schnittstelle zwischen Angriffsforschung und Verteidigungsstrategie. Du validierst Findings, beschleunigst die Behebung von Sicherheitslücken und stellst sicher, dass Dein Wissen bei den Teams ankommt. Dabei bewegst du dich direkt im Kontext unserer Eigenentwicklungen – von internen Plattformen bis hin zu produktiven Fachlösungen unserer Kunden.\nDeine Rolle\n• Du führst kontinuierliche interne Security-Tests durch und jagst nach Schwachstellen in Systemen, Code und Konfigurationen\n• Du validierst externe Inputs aus Vulnerability Disclosure Programmen, Bug Bounties und Security-Advisories auf Exploitierbarkeit\n• Du arbeitest eng mit Development- und Operations-Teams zusammen und übersetzt technische Findings in konkrete, umsetzbare Massnahmen\n• Du erstellst Hardening-Checklisten, Detektionsregeln und Schritt-für-Schritt-Reproduktionen statt nur die Probleme zu zeigen\n• Du schlägst Patch-Strategien vor, reviewst Fixes und orchestrierst die Validierung von Korrekturen\n• Du priorisierst im Dschungel von KI-generierten Vulnerability-Reports und hilfst deinem Team, den Fokus auf die kritischen Risiken zu legen\n• Du kommunizierst auf Augenhöhe, schaffst es zu begeistern und unterschiedliche Teams ins Boot zu holen\nDein Profil\n• Erfahrungen in Offensive Security und Code-Analyse\n• Solide Programmier- und Debugging- Fähigkeiten – du verstehst Code, nicht nur die Konzepte\n• Verständnis und Erfahrungen in einer oder mehrere Programmiersprachen.\n• Wir entwickeln in .NET, Java und erstellen mehrheitlich Angular-Web-Frontends\n• Cloud- und Plattform-Wissen (Kubernetes, moderne Infrastrukturen)\n• Praktische Erfahrung mit defensiven Sicherheitsmassnahmen und Detektionsmöglichkeiten\n• Hohe Affinität zu Automations- und Analyse-Tools, inklusive neuer AI-basierter Security-Methoden\n• Gutes technisches Schreiben und die Gabe, komplexe Inhalte verschiedenen Zielgruppen verständlich zu machen\n• Selbständigkeit, strukturierte Arbeitsweise und vor allem: Verständnis für die Teams, die die Findings implementieren müssen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Du glaubst nicht an Silodenken in der Sicherheit? Du verstehst sowohl die Perspektive der Angreifer als auch der Verteidiger und weisst, dass echte Sicherheit aus Zusammenarbeit entsteht? Du kombinierst offensives Denken mit praktischer Empathie und hast die Gabe, komplexe Sicherheitsprobleme nicht nur zu finden, sondern sie schnell fixbar zu machen? Dann suchen wir genau dich!\nAls \"Purple Hat\" bist du die Schnittstelle zwischen Angriffsforschung und Verteidigungsstrategie. Du validierst Findings, beschleunigst die Behebung von Sicherheitslücken und stellst sicher, dass Dein Wissen bei den Teams ankommt. Dabei bewegst du dich direkt im Kontext unserer Eigenentwicklungen – von internen Plattformen bis hin zu produktiven Fachlösungen unserer Kunden.\nDeine Rolle\n• Du führst kontinuierliche interne Security-Tests durch und jagst nach Schwachstellen in Systemen, Code und Konfigurationen\n• Du validierst externe Inputs aus Vulnerability Disclosure Programmen, Bug Bounties und Security-Advisories auf Exploitierbarkeit\n• Du arbeitest eng mit Development- und Operations-Teams zusammen und übersetzt technische Findings in konkrete, umsetzbare Massnahmen\n• Du erstellst Hardening-Checklisten, Detektionsregeln und Schritt-für-Schritt-Reproduktionen statt nur die Probleme zu zeigen\n• Du schlägst Patch-Strategien vor, reviewst Fixes und orchestrierst die Validierung von Korrekturen\n• Du priorisierst im Dschungel von KI-generierten Vulnerability-Reports und hilfst deinem Team, den Fokus auf die kritischen Risiken zu legen\n• Du kommunizierst auf Augenhöhe, schaffst es zu begeistern und unterschiedliche Teams ins Boot zu holen\nDein Profil\n• Erfahrungen in Offensive Security und Code-Analyse\n• Solide Programmier- und Debugging- Fähigkeiten – du verstehst Code, nicht nur die Konzepte\n• Verständnis und Erfahrungen in einer oder mehrere Programmiersprachen.\n• Wir entwickeln in .NET, Java und erstellen mehrheitlich Angular-Web-Frontends\n• Cloud- und Plattform-Wissen (Kubernetes, moderne Infrastrukturen)\n• Praktische Erfahrung mit defensiven Sicherheitsmassnahmen und Detektionsmöglichkeiten\n• Hohe Affinität zu Automations- und Analyse-Tools, inklusive neuer AI-basierter Security-Methoden\n• Gutes technisches Schreiben und die Gabe, komplexe Inhalte verschiedenen Zielgruppen verständlich zu machen\n• Selbständigkeit, strukturierte Arbeitsweise und vor allem: Verständnis für die Teams, die die Findings implementieren müssen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/cybersecurity-engineer-im-oeffentlichen-sektor-80-100-9583",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-10T10:45:18.807Z",
+      "needsRetranslation": true,
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9001",
+      "streetAddress": "St. Leonhard-Strasse 80",
+      "category": "IT / Sicurezza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-10",
+      "applyUrl": "https://apply.refline.ch/215876/2481/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "215876-2481",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-10T10:45:18.807Z"
+    },
+    {
       "id": "abraxas-cdc5597b1779",
       "slug": "area-controller-in-60-80-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
@@ -1120,7 +1342,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/bereichscontrollerin-60-80-7514",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:28.074Z",
+      "crawledAt": "2026-08-10T10:45:18.325Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1250,7 +1473,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-supporterin-epsipol-ordnungsbussen-deutsch-amp-franzoesisch-80-100-5077",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:27.585Z",
+      "crawledAt": "2026-08-10T10:45:17.839Z",
       "needsRetranslation": false,
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
@@ -1334,7 +1557,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-teamleiterin-80-100-3906",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:27.085Z",
+      "crawledAt": "2026-08-10T10:45:17.346Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1417,7 +1641,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-3900",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:26.587Z",
+      "crawledAt": "2026-08-10T10:45:16.859Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1500,7 +1725,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-finanzen-80-100-5481",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:26.095Z",
+      "crawledAt": "2026-08-10T10:45:16.375Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1583,7 +1809,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-amp-abareport-80-100-2411",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:25.604Z",
+      "crawledAt": "2026-08-10T10:45:15.735Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
