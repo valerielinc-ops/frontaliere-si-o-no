@@ -12,6 +12,12 @@
  */
 
 import type { ProfessionId } from './professionLandingsData';
+// The four FAQ-hub hrefs below come from the same builder the hub itself uses.
+// They are correct today; they were hard-coded, which is how the copy in
+// staticPagesPlugin.ts drifted to `/de/haeufig-gestellte-fragen/` — a 404 that
+// stayed invisible until the DE locale root grew a rail pointing at it and
+// buried the hub's 103 entries at BFS depth 5 (issue #5428).
+import { buildFaqHubPath } from '../data/faq-hub/routes';
 
 export interface FrontalierePillarCopy {
   readonly title: string;
@@ -140,7 +146,7 @@ const IT: FrontalierePillarCopy = {
     { href: '/vivere-in-ticino/comuni-di-frontiera/', label: 'Comuni di frontiera: dove conviene vivere' },
     { href: '/statistiche/confronta-stipendi/', label: 'Confronto stipendi Italia vs Svizzera' },
     { href: '/glossario-frontaliere/', label: 'Glossario dei termini frontalieri' },
-    { href: '/domande-frequenti-frontalieri/', label: 'Domande frequenti sui frontalieri' },
+    { href: buildFaqHubPath('it'), label: 'Domande frequenti sui frontalieri' },
     { href: '/articoli-frontaliere/', label: 'Articoli e approfondimenti per frontalieri' },
     { href: '/articoli-svizzera/', label: 'Notizie e articoli sulla Svizzera' },
     { href: '/confronti-frontalieri/', label: 'Confronta servizi per frontalieri' },
@@ -242,7 +248,7 @@ const EN: FrontalierePillarCopy = {
     { href: '/en/nursing-jobs-switzerland/', label: 'Nursing jobs in Switzerland' },
     { href: '/en/cross-border-guide/', label: 'Cross-border guide' },
     { href: '/en/cross-border-glossary/', label: 'Cross-border worker glossary' },
-    { href: '/en/frequently-asked-questions/', label: 'Frequently asked questions' },
+    { href: buildFaqHubPath('en'), label: 'Frequently asked questions' },
     { href: '/en/cross-border-articles/', label: 'Cross-border worker articles' },
     { href: '/en/swiss-articles/', label: 'Switzerland news and articles' },
     { href: '/en/cross-border-comparisons/', label: 'Compare cross-border services' },
@@ -344,7 +350,7 @@ const DE: FrontalierePillarCopy = {
     { href: '/de/pflegejobs-schweiz/', label: 'Pflegestellen in der Schweiz' },
     { href: '/de/grenzgaenger-ratgeber/', label: 'Grenzgänger-Ratgeber' },
     { href: '/de/grenzgaenger-glossar/', label: 'Grenzgänger-Glossar' },
-    { href: '/de/haeufige-fragen/', label: 'Häufige Fragen für Grenzgänger' },
+    { href: buildFaqHubPath('de'), label: 'Häufige Fragen für Grenzgänger' },
     { href: '/de/grenzgaenger-artikel/', label: 'Grenzgänger-Artikel' },
     { href: '/de/schweiz-artikel/', label: 'Schweiz: Artikel und News' },
     { href: '/de/grenzgaenger-vergleich/', label: 'Grenzgänger-Dienste vergleichen' },
@@ -446,7 +452,7 @@ const FR: FrontalierePillarCopy = {
     { href: '/fr/emplois-infirmiers-suisse/', label: 'Emplois infirmiers en Suisse' },
     { href: '/fr/guide-frontalier/', label: 'Guide frontalier' },
     { href: '/fr/glossaire-frontalier/', label: 'Glossaire du frontalier' },
-    { href: '/fr/questions-frequentes/', label: 'Questions fréquentes des frontaliers' },
+    { href: buildFaqHubPath('fr'), label: 'Questions fréquentes des frontaliers' },
     { href: '/fr/articles-frontalier/', label: 'Articles pour frontaliers' },
     { href: '/fr/articles-suisse/', label: 'Actualités et articles sur la Suisse' },
     { href: '/fr/comparaisons-frontaliers/', label: 'Comparer les services frontaliers' },
