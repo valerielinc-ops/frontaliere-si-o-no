@@ -2020,6 +2020,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.title': 'Rentals in Switzerland 2026: prices and rights',
     'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.excerpt': 'Average rental prices in Switzerland in 2026: CHF 2,500 - 3,500 per month.',
     'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.imageAlt': 'Photo of rentals in Switzerland with Lake Lugano as the background.',
+    'blog.article.nodo-di-interscambio-lavori-settembre.title': 'Interchange node, the works enter the last phase',
+    'blog.article.nodo-di-interscambio-lavori-settembre.excerpt': 'The works for the arrangement of the Biasca interchange node will be completed on 12 September.',
+    'blog.article.nodo-di-interscambio-lavori-settembre.imageAlt': 'Image of a Swiss interchange',
 };
 
 export default blogMetaChEn;

@@ -17,17 +17,17 @@
  * Consumers: borderWaitPagesPlugin.ts, healthPremiumsLandingPlugin.ts.
  */
 import { BASE_URL, buildCanonicalBridgePage } from '../constants';
+import { GUIDE_HUB_HREF } from './pillarGuideHrefs';
 
 export type GuideHubLocale = 'it' | 'en' | 'de' | 'fr';
 
 export const GUIDE_HUB_LOCALES: readonly GuideHubLocale[] = ['it', 'en', 'de', 'fr'];
 
-export const GUIDE_HUB_PATH: Record<GuideHubLocale, string> = {
-  it: '/guida-frontaliere/',
-  en: '/en/cross-border-guide/',
-  de: '/de/grenzgaenger-ratgeber/',
-  fr: '/fr/guide-frontalier/',
-};
+// Shared single source of truth (build-plugins/shared/pillarGuideHrefs.ts,
+// derived from SLUG_TABLES[locale].guida). Seven copies of this table lived
+// under build-plugins/; four held these values and three had drifted to a
+// 404 EN and a noindex DE — see #5428.
+export const GUIDE_HUB_PATH: Record<GuideHubLocale, string> = GUIDE_HUB_HREF;
 
 const GUIDE_HUB_BRIDGE_COPY: Record<GuideHubLocale, { title: string; description: string; ctaLabel: string }> = {
   it: {
