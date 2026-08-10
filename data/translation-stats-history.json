@@ -1,233 +1,5 @@
 [
   {
-    "timestamp": "2026-07-22T06:49:21.338Z",
-    "label": "before",
-    "total": 24845,
-    "needsRetranslation": 8337,
-    "suppressed": 35,
-    "incomplete": 176,
-    "complete": 24669,
-    "missingByLocale": {
-      "it": 126,
-      "en": 73,
-      "de": 62,
-      "fr": 92
-    },
-    "topPending": [
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 20
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 13
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 11
-      },
-      {
-        "company": "Sulzer",
-        "pending": 9
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 7
-      },
-      {
-        "company": "Roche",
-        "pending": 5
-      },
-      {
-        "company": "SRG SSR",
-        "pending": 5
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 4
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-22T07:00:00.547Z",
-    "label": "after",
-    "total": 24845,
-    "needsRetranslation": 1333,
-    "suppressed": 35,
-    "incomplete": 176,
-    "complete": 24669,
-    "missingByLocale": {
-      "it": 126,
-      "en": 73,
-      "de": 62,
-      "fr": 92
-    },
-    "topPending": [
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 20
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 13
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 11
-      },
-      {
-        "company": "Sulzer",
-        "pending": 9
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 7
-      },
-      {
-        "company": "Roche",
-        "pending": 5
-      },
-      {
-        "company": "SRG SSR",
-        "pending": 5
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 4
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-22T11:18:54.850Z",
-    "label": "before",
-    "total": 24671,
-    "needsRetranslation": 1266,
-    "suppressed": 35,
-    "incomplete": 96,
-    "complete": 24575,
-    "missingByLocale": {
-      "it": 60,
-      "en": 31,
-      "de": 41,
-      "fr": 43
-    },
-    "topPending": [
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 23
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 19
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "Roche",
-        "pending": 5
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 4
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Sulzer",
-        "pending": 3
-      },
-      {
-        "company": "Avaloq",
-        "pending": 2
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-22T12:53:23.996Z",
-    "label": "after",
-    "total": 24671,
-    "needsRetranslation": 1209,
-    "suppressed": 37,
-    "incomplete": 94,
-    "complete": 24577,
-    "missingByLocale": {
-      "it": 58,
-      "en": 30,
-      "de": 39,
-      "fr": 42
-    },
-    "topPending": [
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 23
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 19
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "Roche",
-        "pending": 5
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Sulzer",
-        "pending": 3
-      },
-      {
-        "company": "Avaloq",
-        "pending": 2
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 2
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-22T13:36:52.118Z",
     "label": "before",
     "total": 24673,
@@ -11510,6 +11282,120 @@
       {
         "company": "Sulzer",
         "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-10T17:06:33.973Z",
+    "label": "before",
+    "total": 26861,
+    "needsRetranslation": 13891,
+    "suppressed": 47,
+    "incomplete": 618,
+    "complete": 26243,
+    "missingByLocale": {
+      "it": 499,
+      "en": 239,
+      "de": 143,
+      "fr": 284
+    },
+    "topPending": [
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 183
+      },
+      {
+        "company": "Jaeger-LeCoultre",
+        "pending": 88
+      },
+      {
+        "company": "Roche",
+        "pending": 27
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 18
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 18
+      },
+      {
+        "company": "PEMSA",
+        "pending": 17
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 17
+      },
+      {
+        "company": "PostFinance",
+        "pending": 16
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 14
+      },
+      {
+        "company": "Spitex Stäfa",
+        "pending": 13
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-10T17:17:10.163Z",
+    "label": "after",
+    "total": 26861,
+    "needsRetranslation": 1034,
+    "suppressed": 47,
+    "incomplete": 615,
+    "complete": 26246,
+    "missingByLocale": {
+      "it": 496,
+      "en": 236,
+      "de": 143,
+      "fr": 281
+    },
+    "topPending": [
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 183
+      },
+      {
+        "company": "Jaeger-LeCoultre",
+        "pending": 88
+      },
+      {
+        "company": "Roche",
+        "pending": 27
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 18
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 18
+      },
+      {
+        "company": "PEMSA",
+        "pending": 17
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 17
+      },
+      {
+        "company": "PostFinance",
+        "pending": 16
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 14
+      },
+      {
+        "company": "Spitex Stäfa",
+        "pending": 13
       }
     ]
   }

@@ -9545,6 +9545,21 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.title': 'Vivere a Crevoladossola e lavorare in Ticino da frontaliere',
     'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.excerpt': 'Tutti i fatti e le cifre della vita dei frontalieri che lavorano in Ticino e risiedono a Crevoladossola',
     'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.imageAlt': 'Un frontaliere che lavora a Lugano e risiede a Crevoladossola si affaccia sul lago di Lugano',
+    'blog.article.vivere-rodero-lavorare-ticino-frontaliere.title': 'Vivere a Rodero e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-rodero-lavorare-ticino-frontaliere.excerpt': 'Guida pratica per frontalieri: imposta alla fonte, nuovo accordo 2024, franchigia €10\'000, permesso G e collegamenti Brogeda-Chiasso.',
+    'blog.article.vivere-rodero-lavorare-ticino-frontaliere.imageAlt': 'Frontaliere che attraversa il valico di Brogeda tra Rodero e Canton Ticino',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.title': 'Vivere a Agra e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.excerpt': 'Impatto del nuovo accordo sui frontalieri ticinesi: nuove regole, esenzioni e vantaggi.',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.imageAlt': 'Frontaliere con bambino camminano lungo la riva del lago di Lugano',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Uggiate-Trevano da frontaliere: pro e contro',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.excerpt': 'Impostazione alla fonte, nuovo accordo frontalieri e vantaggi per i lavoratori in Ticino.',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.imageAlt': 'Vista di Uggiate-Trevano con il lago di Lugano',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.title': 'Vivere a Cugliate-Fabiasco e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.excerpt': 'Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 e entra in vigore dal 1° gennaio 2024. Ecco cosa cambia nella vita dei frontalieri.',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Frontalieri con bambini sulla riva del Lago di Lugano',
+    'blog.article.vivere-dumenza-lavorare-ticino.title': 'Vivere a Dumenza e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-dumenza-lavorare-ticino.excerpt': 'Tutti i fatti importanti per i frontalieri che lavorano in Ticino e risiedono a Dumenza.',
+    'blog.article.vivere-dumenza-lavorare-ticino.imageAlt': 'Un frontaliere lavora in Ticino e risiede a Dumenza.',
 };
 
 export default blogMetaIt;
