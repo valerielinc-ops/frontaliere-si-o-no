@@ -2782,7 +2782,7 @@ export const BLOG_SLUGS: Record<string, Record<ArticleLocale, string>> = {
   'gallarate-rho-lavori-luglio-2026': { it: 'gallarate-rho-lavori-luglio-2026', en: 'gallarate-rho-closes-again-weekend-july-2026', de: 'gallarate-rho-schliesst-wieder-wochenende-juli-2026', fr: 'gallarate-rho-ferme-encore-weekend-juillet-2026' },
   'laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri': { it: 'laccordo-italia-svizzera-del-2020-sulla-tassazione-dei-lavoratori-frontalieri', en: 'the-2020-italy-switzerland-agreement-on-the-taxation-of-frontier-workers', de: 'abkommen-2020-besteuerung-von-grenzgangern', fr: 'l-accord-italie-suisse-de-2020-sur-la-taxation-des-travailleurs-frontaliers' },
   'mercato-lavoro-svizzera-rallenta-estate-2024': { it: 'mercato-lavoro-svizzera-rallenta-estate-2024', en: 'swiss-labour-market-slows-summer-2024', de: 'schweizer-arbeitsmarkt-verlangsamt-sommer-2024', fr: 'marche-du-travail-suisse-ralentit-ete-2024' },
-  'gaggiolo-traffico': { it: 'gaggiolo-traffico', en: 'slug-gaggiolo-traffic', de: 'slug-gaggiolo-verkehr', fr: 'slug-gaggiolo-traffic' },
+  'gaggiolo-traffico': { it: 'gaggiolo-traffico', en: 'gaggiolo-traffic', de: 'gaggiolo-verkehr', fr: 'gaggiolo-traffic' },
   'axa-manno': { it: 'axa-manno', en: 'axa-manno', de: 'axa-manno', fr: 'axa-manno' },
   'kebab-case-3-5-words-max-40-chars': { it: 'kebab-case-3-5-words-max-40-chars', en: 'slug-en', de: 'slug-de', fr: 'slug-fr' },
   'posta-chiasso': { it: 'posta-chiasso', en: 'posta-chiasso', de: 'posta-chiasso', fr: 'posta-chiasso' },
