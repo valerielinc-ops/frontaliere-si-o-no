@@ -2014,6 +2014,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guida-lpp-secondo-pilastro-2026-vaud.title': 'BVG in der Schweiz: Beiträge und Vorsorgeplanung im Kanton Waadt',
     'blog.article.guida-lpp-secondo-pilastro-2026-vaud.excerpt': 'Der Leitfaden zur zweiten Säule BVG deckt Beiträge, Bezug, Lückenrückkauf und Vorsorgeplanung im Kanton Waadt ab.',
     'blog.article.guida-lpp-secondo-pilastro-2026-vaud.imageAlt': 'Ein Mensch schaut auf einen Smartphone-Bildschirm mit einem Pensionsplan-Graph',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026.title': 'Mietmarkt Schweiz: Preise und Rechte',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026.excerpt': 'Durchschnittliche Mietpreise in der Schweiz im Jahr 2026, Mieterrechte, Kaution und Kündigung.',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026.imageAlt': 'Szene eines Schweizer Immobilienmarktes mit Menschen, die Anzeigen für Miete und Kauf von Häusern und Apartments betrachten.',
 };
 
 export default blogMetaChDe;

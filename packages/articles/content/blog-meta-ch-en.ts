@@ -2014,6 +2014,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-lpp-secondo-pilastro-2026-vaud.title': 'LPP in Switzerland: Vaud Contributions',
     'blog.article.guida-lpp-secondo-pilastro-2026-vaud.excerpt': 'The guide to the second pillar LPP covers contributions, withdrawal, redemption gaps and social security planning in the Canton of Vaud.',
     'blog.article.guida-lpp-secondo-pilastro-2026-vaud.imageAlt': 'A person looks at a pension plan graph with a smartphone',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026.title': 'Rental market in Switzerland: prices and rights',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026.excerpt': 'Average rental prices in Switzerland in 2026, tenant\'s rights, security deposit and cancellation.',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026.imageAlt': 'Scene of a Swiss real estate market with people looking at rental and sale announcements of houses and apartments.',
 };
 
 export default blogMetaChEn;
