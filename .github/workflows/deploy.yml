@@ -1140,10 +1140,30 @@ jobs:
       # matrix guard makes it run exactly once per deploy rather than per
       # locale. continue-on-error matches the script's own fail-open posture —
       # a failed PUT leaves the previous R2 copy serving, exactly as before.
+      #
+      # `--producer=build` (issue #5458), NOT a bare call. This step used to
+      # invoke publish-edge-files.mjs with no flag at all, which re-publishes
+      # the WHOLE EDGE_PUSHED_FILES table from THIS checkout — fixed to the
+      # commit that triggered this run, and this run takes 2h+ end to end. By
+      # the time this step executes, entries this deploy does NOT produce
+      # (sitemap-blog.xml / sitemap-blog-ch.xml / sitemap-articles-archive.xml,
+      # written straight to this same R2 prefix by the corpus repo's own
+      # publish-api.yml; sitemap-news.xml and the ten rss*.xml, kept fresh by
+      # sync-articles-sitemaps.yml; the two sitemap-topics-*.xml, kept fresh by
+      # rerender-article-hubs.yml) had already been refreshed by their real,
+      # faster publishers — and this step clobbered them with a 2h-stale copy,
+      # with a purge on top that pushed the stale version to every PoP
+      # immediately. `--producer=build` resolves against the SAME table
+      # (infra/cloudflare-worker/locale-router.js's `producer` field is the
+      # single source of truth — see its comment), never a second hardcoded
+      # path list here: only entries this deploy's own full build actually
+      # produces (sitemap-glossario.xml, the llms.txt family) are in scope.
+      # tests/locale-router-edge-pushed-files.test.ts enforces this invocation
+      # shape so it cannot silently regress back to a bare call.
       - name: Publish edge files (refresh the R2 copies the Worker prefers)
         if: matrix.locale == 'it'
         continue-on-error: true
-        run: node scripts/publish-edge-files.mjs
+        run: node scripts/publish-edge-files.mjs --producer=build
 
       - name: Upload Pages artifact (compression-level 9)
         if: matrix.locale == 'it'

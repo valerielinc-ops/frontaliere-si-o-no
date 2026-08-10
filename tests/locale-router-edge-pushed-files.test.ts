@@ -309,7 +309,10 @@ describe('every EDGE_PUSHED_FILES path has an automatically-triggered publisher'
 
   /**
    * Pathnames a workflow's publish-edge-files.mjs invocations cover.
-   * `--only=a,b` covers exactly a and b; a bare invocation covers everything.
+   * `--only=a,b` covers exactly a and b; `--producer=X` covers every entry in
+   * EDGE_PUSHED_FILES whose `producer` field is X (resolved against the SAME
+   * table this test already imports — not a second guess at the mapping); a
+   * bare invocation (neither flag) covers everything.
    */
   function coveredPaths(workflowSource: string): Set<string> {
     const covered = new Set<string>();
@@ -317,6 +320,13 @@ describe('every EDGE_PUSHED_FILES path has an automatically-triggered publisher'
       if (!line.includes('scripts/publish-edge-files.mjs')) continue;
       // Skip prose: only a `run:`-style shell line actually invokes it.
       if (/^\s*#/.test(line)) continue;
+      const producerFlag = line.match(/--producer=(\S+)/);
+      if (producerFlag) {
+        for (const [p, entry] of Object.entries(EDGE_PUSHED_FILES)) {
+          if (entry.producer === producerFlag[1]) covered.add(p);
+        }
+        continue;
+      }
       const only = line.match(/--only=(\S+)/);
       if (only) {
         for (const p of only[1].split(',')) if (p) covered.add(p);
@@ -405,7 +415,30 @@ describe('every EDGE_PUSHED_FILES path has an automatically-triggered publisher'
     }
   });
 
-  it.each(Object.keys(EDGE_PUSHED_FILES))(
+  // Scoped to producer 'build' / 'sync' (issue #5458): these are the two
+  // classes this repo's OWN workflow set can actually attest to by scanning
+  // `.github/workflows/*.yml` for a literal `--only=`/`--producer=` match.
+  // 'corpus' (published cross-repo, by nanakokyobashi-rgb/frontaliere-articles'
+  // publish-api.yml) and 'hub-render' (rerender-article-hubs.yml, but its
+  // `--only="/$REL"` is a runtime shell variable, never a literal string in
+  // this source) are checked below by mechanism instead — a bare `Object.keys`
+  // scan here would have reported them "covered" for the wrong reason (deploy.yml's
+  // now-removed bare invocation), which is exactly the vacuous gate #5458 found.
+  const inRepoCheckablePaths = Object.entries(EDGE_PUSHED_FILES)
+    .filter(([, entry]) => entry.producer === 'build' || entry.producer === 'sync')
+    .map(([pathname]) => pathname);
+
+  it('accounts for every registered path across the four known producer classes', () => {
+    // A future entry with a typo'd or unhandled `producer` value would
+    // otherwise silently fall out of ALL the coverage assertions below
+    // (in-repo, corpus, and hub-render) rather than failing loudly.
+    const known = new Set(['build', 'sync', 'corpus', 'hub-render']);
+    for (const [pathname, entry] of Object.entries(EDGE_PUSHED_FILES)) {
+      expect(known.has(entry.producer), `${pathname} has an unrecognized producer: '${entry.producer}'`).toBe(true);
+    }
+  });
+
+  it.each(inRepoCheckablePaths)(
     '%s is published by a workflow that fires without a manual dispatch',
     (pathname) => {
       const covering = publishers
@@ -423,6 +456,127 @@ describe('every EDGE_PUSHED_FILES path has an automatically-triggered publisher'
       ).not.toHaveLength(0);
     },
   );
+
+  // producer: 'corpus' — published straight to this same R2 prefix by
+  // nanakokyobashi-rgb/frontaliere-articles' publish-api.yml, cross-repo, on
+  // every push to its main touching content/ (verified 2026-08-10:
+  // `.github/workflows/publish-api.yml` there PUTs `dist/api/<f>` to
+  // `edge/<f>` for exactly these three names). This repo's workflow scan
+  // structurally cannot see that job, so the only thing enforceable HERE is
+  // the failure mode #5458 was actually about: deploy.yml, whose checkout can
+  // be 2h30m+ stale, may not claim to publish it too — that specific race is
+  // what clobbered the corpus's fresher copy. Scoped to deploy.yml, not "any
+  // workflow in this repo": fast-publish-article.yml's OWN bare invocation
+  // also names these paths, but from a checkout that is minutes (not hours)
+  // behind the very commit create-article.mjs just wrote them in — a
+  // different staleness profile, and out of scope for #5458 (see PR notes).
+  const corpusOwnedPaths = Object.entries(EDGE_PUSHED_FILES)
+    .filter(([, entry]) => entry.producer === 'corpus')
+    .map(([pathname]) => pathname);
+
+  it.each(corpusOwnedPaths)('%s is not (re-)published by deploy.yml', (pathname) => {
+    const deployYml = publishers.find(({ file }) => file === 'deploy.yml');
+    const stillCovers = deployYml ? coveredPaths(deployYml.source).has(pathname) : false;
+
+    expect(
+      stillCovers,
+      `${pathname} is producer: 'corpus' (published cross-repo by the corpus repo's own ` +
+        `publish-api.yml straight to the same R2 key) but deploy.yml's invocation still covers ` +
+        `it — that race, deploy.yml's 2h30m-stale checkout overwriting the corpus's fresh PUT, ` +
+        `is the exact #5458 failure mode.`,
+    ).toBe(false);
+  });
+
+  // producer: 'hub-render' — rerender-article-hubs.yml selects its --only
+  // pathname at RUNTIME from that run's own render summary (`--only="/$REL"`),
+  // so it can never appear as a literal string for coveredPaths() to match.
+  // The static-scan approach above is structurally blind here; this instead
+  // asserts the MECHANISM is wired: the workflow exists, fires automatically,
+  // and actually invokes the publish script against its own render output.
+  const hubRenderPaths = Object.entries(EDGE_PUSHED_FILES)
+    .filter(([, entry]) => entry.producer === 'hub-render')
+    .map(([pathname]) => pathname);
+
+  it.each(hubRenderPaths)('%s has an automatically-triggered render+publish mechanism wired', () => {
+    const hubWorkflow = publishers.find(({ file }) => file === 'rerender-article-hubs.yml');
+
+    expect(hubWorkflow, 'rerender-article-hubs.yml no longer invokes scripts/publish-edge-files.mjs').toBeTruthy();
+    if (!hubWorkflow) return;
+
+    expect(
+      hasAutomaticTrigger(hubWorkflow.source),
+      'rerender-article-hubs.yml lost its automatic (push/workflow_run) trigger — it would only run on workflow_dispatch, same failure class as fast-publish-article.yml',
+    ).toBe(true);
+    expect(
+      hubWorkflow.source,
+      'rerender-article-hubs.yml no longer publishes its own render output to the edge (expected a `--only="/$REL" --from-dir=` -shaped invocation)',
+    ).toMatch(/scripts\/publish-edge-files\.mjs\s+--only="[^"]+"\s+--from-dir=/);
+  });
+});
+
+/**
+ * The invocation deploy.yml actually runs, not the table (issue #5458).
+ *
+ * The describe block above proves every path HAS a publisher somewhere; it
+ * does not prove deploy.yml stays out of the way of the ones it does not own.
+ * That was exactly the gap: `tests/locale-router-edge-pushed-files.test.ts`
+ * stayed green while deploy.yml invoked publish-edge-files.mjs bare, because
+ * a bare invocation credits deploy.yml with covering EVERY key — including
+ * ones it does not produce — so the coverage assertions above could never
+ * have caught deploy.yml re-publishing (and clobbering) a corpus- or
+ * sync-owned entry with its own 2h30m-stale checkout. Only a check on the
+ * literal `run:` line in deploy.yml, not on EDGE_PUSHED_FILES, closes that.
+ */
+describe('deploy.yml only publishes the EDGE_PUSHED_FILES entries it actually produces (#5458)', () => {
+  const DEPLOY_YML_SOURCE = readFileSync(
+    path.resolve(__dirname, '..', '.github', 'workflows', 'deploy.yml'),
+    'utf-8',
+  );
+
+  function deployEdgePublishInvocations(): string[] {
+    return DEPLOY_YML_SOURCE.split('\n').filter(
+      (line) => line.includes('scripts/publish-edge-files.mjs') && !/^\s*#/.test(line),
+    );
+  }
+
+  it('still invokes publish-edge-files.mjs (this test would be vacuous otherwise)', () => {
+    expect(deployEdgePublishInvocations().length).toBeGreaterThan(0);
+  });
+
+  it('never invokes it bare — every call is scoped with --only= or --producer=', () => {
+    for (const line of deployEdgePublishInvocations()) {
+      expect(
+        line,
+        `deploy.yml runs "${line.trim()}" with neither --only= nor --producer= — this re-publishes ` +
+          `the WHOLE EDGE_PUSHED_FILES table from deploy.yml's own checkout, which can be 2h30m+ ` +
+          `stale by the time this step runs, clobbering fresher R2 copies written by the corpus ` +
+          `repo's publish-api.yml, sync-articles-sitemaps.yml and rerender-article-hubs.yml (#5458).`,
+      ).toMatch(/--only=|--producer=/);
+    }
+  });
+
+  it('resolves to a set that is entirely producer: "build" — nothing owned by another workflow', () => {
+    for (const line of deployEdgePublishInvocations()) {
+      const producerMatch = line.match(/--producer=(\S+)/);
+      const onlyMatch = line.match(/--only=(\S+)/);
+      const coveredPathnames = producerMatch
+        ? Object.entries(EDGE_PUSHED_FILES)
+            .filter(([, entry]) => entry.producer === producerMatch[1])
+            .map(([pathname]) => pathname)
+        : onlyMatch
+          ? onlyMatch[1].split(',').filter(Boolean)
+          : []; // an unscoped line is already failed by the previous test
+
+      for (const pathname of coveredPathnames) {
+        expect(
+          EDGE_PUSHED_FILES[pathname]?.producer,
+          `deploy.yml's invocation covers ${pathname}, whose producer is ` +
+            `'${EDGE_PUSHED_FILES[pathname]?.producer}' — deploy.yml only owns producer: 'build' ` +
+            `entries (see the producer table in infra/cloudflare-worker/locale-router.js).`,
+        ).toBe('build');
+      }
+    }
+  });
 });
 
 /**
@@ -447,5 +601,40 @@ describe('publish-edge-files --only selection', () => {
     expect(() =>
       selectedEntries(['node', 'publish-edge-files.mjs', '--only=/sitemap-typo.xml']),
     ).toThrow(/not registered in EDGE_PUSHED_FILES/);
+  });
+});
+
+/**
+ * `--producer` (issue #5458) is `--only`'s sibling for a caller that owns a
+ * whole CLASS of entries: it resolves against EDGE_PUSHED_FILES's own
+ * `producer` field rather than a second, hand-maintained path list, so
+ * deploy.yml's invocation stays correct automatically as entries are added
+ * or reclassified.
+ */
+describe('publish-edge-files --producer selection', () => {
+  it('narrows to every entry whose producer field matches', () => {
+    const picked = selectedEntries(['node', 'publish-edge-files.mjs', '--producer=build']);
+    const buildOwned = Object.entries(EDGE_PUSHED_FILES).filter(([, entry]) => entry.producer === 'build');
+
+    expect(picked).toEqual(buildOwned);
+    // Guards against a vacuous pass: if a future edit accidentally marked
+    // every entry 'build' (or none), this equality above would still hold
+    // trivially. Pin the known shape too.
+    expect(picked.map(([p]) => p)).toEqual(
+      expect.arrayContaining(['/sitemap-glossario.xml', '/llms.txt', '/llms-full.txt', '/.well-known/llms.txt']),
+    );
+    expect(picked.every(([, entry]) => entry.producer === 'build')).toBe(true);
+  });
+
+  it('throws on a producer value nothing in the table declares', () => {
+    expect(() => selectedEntries(['node', 'publish-edge-files.mjs', '--producer=typo'])).toThrow(
+      /matched no entries in EDGE_PUSHED_FILES/,
+    );
+  });
+
+  it('rejects --only and --producer together — pick one selection mechanism', () => {
+    expect(() =>
+      selectedEntries(['node', 'publish-edge-files.mjs', '--only=/sitemap-news.xml', '--producer=build']),
+    ).toThrow(/mutually exclusive/);
   });
 });
