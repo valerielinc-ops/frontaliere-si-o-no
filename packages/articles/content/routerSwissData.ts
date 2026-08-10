@@ -700,6 +700,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'affitti-svizzera-mercato-immobiliare-2026': { it: 'affitti-svizzera-mercato-immobiliare-2026', en: 'swiss-rental-market-2026', de: 'schweizer-mietmarkt-2026', fr: 'marche-immobilier-suisse-2026' },
  'affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo': { it: 'affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo', en: 'switzerland-rental-market-2026-cantons-san-gallo', de: 'schweiz-mietwohnungen-markt-2026-kanton-san-gallo', fr: 'location-suisse-marche-2026-canton-san-gallo' },
  'nodo-di-interscambio-lavori-settembre': { it: 'nodo-di-interscambio-lavori-settembre', en: 'interchange-nodes-labor-projects-settembre', de: 'kreuzungsbahnhof-arbeiten-settembre', fr: 'n-ud-dechange-travaux-settembre' },
+ 'imprese-edili-svizzere-chiedono-stop-penali': { it: 'imprese-edili-svizzere-chiedono-stop-penali', en: 'swiss-construction-companies-ask-for-halt-to-penalties', de: 'schweizer-bauunternehmen-verlangen-entweder-penalisierung', fr: 'entreprises-de-construction-suisses-demandent-arret-de-penalites' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

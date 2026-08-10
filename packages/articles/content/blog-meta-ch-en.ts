@@ -2023,6 +2023,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.nodo-di-interscambio-lavori-settembre.title': 'Interchange node, the works enter the last phase',
     'blog.article.nodo-di-interscambio-lavori-settembre.excerpt': 'The works for the arrangement of the Biasca interchange node will be completed on 12 September.',
     'blog.article.nodo-di-interscambio-lavori-settembre.imageAlt': 'Image of a Swiss interchange',
+    'blog.article.imprese-edili-svizzere-chiedono-stop-penali.title': 'Construction companies ask for an end to penalties for delays in the heatwave',
+    'blog.article.imprese-edili-svizzere-chiedono-stop-penali.excerpt': 'The Swiss Society of Construction Entrepreneurs (SSIC) presents a petition for clear rules and health protection during heatwaves',
+    'blog.article.imprese-edili-svizzere-chiedono-stop-penali.imageAlt': 'Image of a construction site in Switzerland during summer',
 };
 
 export default blogMetaChEn;
