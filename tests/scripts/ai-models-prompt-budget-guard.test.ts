@@ -121,9 +121,11 @@ describe('shared prompt budget (discovery floor derived from the pre-flight cap)
 
   // One row per discovery provider that declares a context filter, with the
   // field name that provider's listing actually uses. Cerebras and Cohere have
-  // no context filter (their listings expose no usable context field) and are
-  // intentionally absent; NVIDIA is covered separately below because its filter
-  // is present-only.
+  // no DISCOVERY-level context filter (their listings expose no usable context
+  // field) and are intentionally absent here — they're covered instead by the
+  // provider-level DEFAULT_REQUEST_TOKENS_BY_PROVIDER cap asserted further down
+  // (#5572); NVIDIA is covered separately below because its filter is
+  // present-only.
   const CONTEXT_FILTERED = [
     { provider: 'OpenRouter', id: 'meta-llama/llama-3.3-70b-instruct:free', field: 'context_length', extra: {} },
     { provider: 'Groq', id: 'llama-3.3-70b-versatile', field: 'context_window', extra: { active: true } },
@@ -209,16 +211,22 @@ describe('ALL_MODELS_EXHAUSTED carries a prompt budget the caller can act on', (
 
   let prevKey: string | undefined;
   let prevNimKey: string | undefined;
+  let prevCerebrasKey: string | undefined;
+  let prevCohereKey: string | undefined;
 
   beforeEach(() => {
     prevKey = process.env.NVIDIA_API_KEY;
     prevNimKey = process.env.NVIDIA_NIM_API_KEY;
+    prevCerebrasKey = process.env.CEREBRAS_API_KEY;
+    prevCohereKey = process.env.COHERE_API_KEY;
     // A key must be present or the models are skipped for "no API key" instead
     // of for the input cap — a different branch than the one under test. It is
     // never used: every model in these chains is refused pre-flight, which is
     // what forbidNetwork() asserts by turning any real call into a failure.
     process.env.NVIDIA_API_KEY = 'fake-key-for-preflight-only';
     delete process.env.NVIDIA_NIM_API_KEY;
+    process.env.CEREBRAS_API_KEY = 'fake-key-for-preflight-only';
+    process.env.COHERE_API_KEY = 'fake-key-for-preflight-only';
     forbidNetwork();
   });
 
@@ -228,6 +236,10 @@ describe('ALL_MODELS_EXHAUSTED carries a prompt budget the caller can act on', (
     else process.env.NVIDIA_API_KEY = prevKey;
     if (prevNimKey === undefined) delete process.env.NVIDIA_NIM_API_KEY;
     else process.env.NVIDIA_NIM_API_KEY = prevNimKey;
+    if (prevCerebrasKey === undefined) delete process.env.CEREBRAS_API_KEY;
+    else process.env.CEREBRAS_API_KEY = prevCerebrasKey;
+    if (prevCohereKey === undefined) delete process.env.COHERE_API_KEY;
+    else process.env.COHERE_API_KEY = prevCohereKey;
   });
 
   it('reproduces the 9431-token estimate the incident runs produced', () => {
@@ -293,5 +305,20 @@ describe('ALL_MODELS_EXHAUSTED carries a prompt budget the caller can act on', (
     const caught = await callAndCatch(['nvidia/nvidia/nemotron-3-ultra-550b-a55b']);
     expect(caught?.transientExhaustion).toBe(false);
     expect(caught?.exhaustionBreakdown?.persistent).toBeGreaterThan(0);
+  });
+
+  // #5572: Cerebras and Cohere discovery has no context-length filter (their
+  // listings don't expose a field discovery can filter on), and — unlike
+  // NVIDIA after #5565 — they had no DEFAULT_REQUEST_TOKENS_BY_PROVIDER entry
+  // either, so a discovered model of either provider carried no pre-flight cap
+  // at all and took its first 413 at runtime instead of being skip-guarded.
+  it.each([
+    ['Cerebras', 'cerebras/qwen-3-235b-a22b-instruct-2507'],
+    ['Cohere', 'cohere/command-a-03-2025'],
+  ])('gives %s models a provider-level input cap (they used to be unvalidated, not accepting)', async (_name, model) => {
+    const caught = await callAndCatch([model]);
+    expect(caught?.code).toBe('ALL_MODELS_EXHAUSTED');
+    expect(caught?.message).toMatch(/exceeds 8000-token input cap/);
+    expect(caught?.retryRequestTokenBudget).toBe(MAX_PREFLIGHT_REQUEST_TOKENS);
   });
 });
