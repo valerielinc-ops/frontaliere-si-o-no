@@ -9499,6 +9499,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-valmorea-da-frontaliere-pro-e-contro.title': 'Moving to Valmorea by border crossing: pros and cons',
     'blog.article.trasferirsi-a-valmorea-da-frontaliere-pro-e-contro.excerpt': 'The decision to move to Valmorea as a border worker can be a complex and fascinating experience. In this article, we will explore the pros and cons of such a decision.',
     'blog.article.trasferirsi-a-valmorea-da-frontaliere-pro-e-contro.imageAlt': 'A family of frontiers moves to Valmorea',
+    'blog.article.vivere-besano-lavorare-ticino.title': 'Living in Besano and working in Ticino: a practical guide',
+    'blog.article.vivere-besano-lavorare-ticino.excerpt': 'Analysis for border workers: connections, taxation and tax at source, AVS/LPP pension and LAMal for those residing in Besano and working in the Canton of Ticino.',
+    'blog.article.vivere-besano-lavorare-ticino.imageAlt': 'Landscape between Besano and the Ticino border',
 };
 
 export default blogMetaEn;

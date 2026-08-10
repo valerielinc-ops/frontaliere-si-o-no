@@ -9500,6 +9500,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-valmorea-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Valmorea da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-valmorea-da-frontaliere-pro-e-contro.excerpt': 'La decisione di trasferirsi a Valmorea da frontaliere può essere un\'esperienza complessa e affascinante. In questo articolo, esploreremo i pro e i contro di tale decisione.',
     'blog.article.trasferirsi-a-valmorea-da-frontaliere-pro-e-contro.imageAlt': 'Una famiglia di frontaliere si trasferisce a Valmorea',
+    'blog.article.vivere-besano-lavorare-ticino.title': 'Vivere a Besano e lavorare in Ticino: guida pratica',
+    'blog.article.vivere-besano-lavorare-ticino.excerpt': 'Analisi per frontalieri: collegamenti, fiscalità e imposta alla fonte, previdenza AVS/LPP e LAMal per chi risiede a Besano e lavora nel Canton Ticino.',
+    'blog.article.vivere-besano-lavorare-ticino.imageAlt': 'Paesaggio tra Besano e il confine ticinese',
 };
 
 export default blogMetaIt;
