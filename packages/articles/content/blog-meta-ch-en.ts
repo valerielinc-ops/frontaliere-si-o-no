@@ -2050,6 +2050,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.title': 'Economic, Social and Cultural Rights Pact: Developments Switzerland',
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.excerpt': 'The Federal Council adopted Switzerland\'s fifth report on the implementation of the United Nations Covenant on Economic, Social and Cultural Rights (Covenant I) on 19 June 2026.',
     'blog.article.patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera.imageAlt': 'A scene of a commuter working in Switzerland, with the view of Lake Lugano',
+    'blog.article.reno-svizzera-merci-camion-essere.title': 'Switzerland faces cost hikes with Rhine dry',
+    'blog.article.reno-svizzera-merci-camion-essere.excerpt': 'Rhine drought could have direct consequences for Switzerland',
+    'blog.article.reno-svizzera-merci-camion-essere.imageAlt': 'Goods in transit on the road in Switzerland',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.title': 'OECD assigns positive assessment to Switzerland',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.excerpt': 'The Swiss National Contact Point for Responsible Business Conduct was positively assessed by the OECD.',
+    'blog.article.condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo.imageAlt': 'Image of a view of Lugano',
 };
 
 export default blogMetaChEn;

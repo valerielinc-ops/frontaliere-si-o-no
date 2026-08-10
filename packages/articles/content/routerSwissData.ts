@@ -709,6 +709,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'siccita-stress-famiglie': { it: 'siccita-stress-famiglie', en: 'drought-stress-families', de: 'durre-stress-familien', fr: 'secheresse-stress-familles' },
  'potenziale-riciclaggio-infrastrutture-energie-fossili': { it: 'potenziale-riciclaggio-infrastrutture-energie-fossili', en: 'potential-recycling-infrastructure-fossil-fuels', de: 'potenzielles-recycling-infrastructure-fossile-brennstoffe', fr: 'potentiel-de-recyclage-infrastructure-carburants-fossiles' },
  'patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera': { it: 'patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera', en: 'patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera', de: 'patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera', fr: 'patto-diritti-economici-sociali-e-culturali-sviluppi-svizzera' },
+ 'reno-svizzera-merci-camion-essere': { it: 'reno-svizzera-merci-camion-essere', en: 'switzerland-reno-merchandise-truck-transport', de: 'schweiz-reno-lieferungen-lkw-verkehr', fr: 'suisse-reno-marchandises-transport-camion' },
+ 'condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo': { it: 'condotta-aziendale-responsabile-ocse-assegna-giudizio-positivo', en: 'ocse-recognizes-switzerland-responsible-business-conduct', de: 'ocse-erkennt-schweizer-verantwortungsvolle-unternehmensfuhrung-an', fr: 'ocse-reconnait-la-conduite-entreprise-responsable-de-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
