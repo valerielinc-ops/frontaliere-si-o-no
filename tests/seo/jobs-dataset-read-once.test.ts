@@ -46,12 +46,24 @@ const SELF = 'jobs-dataset-read-once.test.ts';
  */
 function jobsPathBindings(src: string): string[] {
   const names: string[] = [];
-  // `const X = <anything up to the statement end that mentions jobs.json>`.
-  // The character class excludes `;` so the match cannot run past the
-  // statement, and includes newlines so a wrapped `path.join(...)` still binds.
-  const rx = /(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=[^;]*?jobs\.json/g;
+  // Anchored on the DATASET, then walked backwards to the `=` that binds it —
+  // rather than forwards from a `const`/`let`/`var` keyword. Anchoring on the
+  // keyword made the pattern brittle in two ways a reviewer found on #5503:
+  //   - `const dataPath: string = …` never matched, because what follows the
+  //     identifier is `:` and not `=` — reopening the rename evasion this
+  //     guard exists to close, with a type annotation;
+  //   - `const a = 1, dataPath = …` captured `a`, the first declarator on the
+  //     statement, and not the one actually holding the path.
+  // Walking back from `jobs.json` to the NEAREST preceding `=` fixes both:
+  // `[^;=]` in the tail forbids crossing either a statement end or another
+  // binding, so the identifier found is the one this expression is assigned to.
+  const BIND = /([A-Za-z_$][\w$]*)\s*(?::\s*[^=;]+?)?\s*=\s*[^;=]*$/;
+  const rx = /jobs\.json/g;
   let m: RegExpExecArray | null;
-  while ((m = rx.exec(src)) !== null) names.push(m[1]);
+  while ((m = rx.exec(src)) !== null) {
+    const bind = BIND.exec(src.slice(Math.max(0, m.index - 400), m.index));
+    if (bind) names.push(bind[1]);
+  }
   return names;
 }
 
@@ -63,7 +75,11 @@ function jobsPathBindings(src: string): string[] {
  */
 function readsDatasetDirectly(src: string): boolean {
   const names = ['JOBS_PATH', 'jobsPath', ...jobsPathBindings(src)];
-  const rx = new RegExp(`readFileSync\\s*\\(\\s*[^)]*(?:jobs\\.json|${names.join('|')})`);
+  // `\b…\b` around the names: without it a binding captured as `a` matches the
+  // `a` inside `readFileSync(dataPath, …)` and the guard fires on a substring
+  // — right answer, wrong reason, and a false positive waiting for the first
+  // short variable name in the directory.
+  const rx = new RegExp(`readFileSync\\s*\\(\\s*[^)]*(?:jobs\\.json|\\b(?:${names.join('|')})\\b)`);
   return rx.test(src);
 }
 
@@ -98,11 +114,42 @@ describe('gate:seo-source — the jobs dataset is read through the shared memo',
     // Inline path, no binding at all.
     expect(readsDatasetDirectly("fs.readFileSync(path.join(R, 'data', 'jobs.json'), 'utf8')")).toBe(true);
 
+    // The two forms a reviewer found slipping past the keyword-anchored
+    // version of this function (#5503): an explicit type annotation, and a
+    // second declarator on the same statement.
+    expect(
+      readsDatasetDirectly(
+        [
+          "const dataPath: string = path.join(REPO_ROOT, 'data', 'jobs.json');",
+          "const jobs = JSON.parse(fs.readFileSync(dataPath, 'utf8'));",
+        ].join('\n'),
+      ),
+      'a type annotation must not hide the binding',
+    ).toBe(true);
+    expect(
+      readsDatasetDirectly(
+        [
+          "const a = 1, dataPath = path.join(REPO_ROOT, 'data', 'jobs.json');",
+          "const jobs = JSON.parse(fs.readFileSync(dataPath, 'utf8'));",
+        ].join('\n'),
+      ),
+      'the declarator holding the path is the one that must be captured',
+    ).toBe(true);
+
     // …and it stays quiet on the things that are fine: merely naming the
     // dataset, reading a DIFFERENT file, and the sanctioned call itself.
     expect(readsDatasetDirectly('// data/jobs.json is assembled in CI')).toBe(false);
     expect(readsDatasetDirectly("const src = fs.readFileSync(PLUGIN_PATH, 'utf8');")).toBe(false);
     expect(readsDatasetDirectly('const jobs = readJobsDataset<Job>(JOBS_PATH);')).toBe(false);
+
+    // A short binding name must not match as a SUBSTRING of an unrelated
+    // argument: `n` inside `readFileSync(fixtureName, …)` is not a dataset read.
+    expect(
+      readsDatasetDirectly(
+        ["const n = 'x/jobs.json';", "const s = fs.readFileSync(fixtureName, 'utf8');"].join('\n'),
+      ),
+      'the binding must match as a whole identifier, not a substring',
+    ).toBe(false);
   });
 
   // The guard above is only worth its runtime if the helper it points at
