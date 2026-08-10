@@ -2038,6 +2038,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.glencore-quotazione-australia.title': 'Glencore erwirtschaftet wieder Gewinn, 4,4 Milliarden Gewinn',
     'blog.article.glencore-quotazione-australia.excerpt': 'Der Bergbau- und Rohstoffriese Glencore schloss die ersten sechs Monate des Jahres 2026 mit einer starken Rückkehr in die Gewinnzone ab',
     'blog.article.glencore-quotazione-australia.imageAlt': 'Glencore kehrt in die schwarzen Zahlen zurück mit 4,4 Milliarden Euro Gewinn und plant Börsegang in Australien',
+    'blog.article.job-sharing-svizzera.title': 'Jobsharing erobert die Schweizer Unternehmensführung',
+    'blog.article.job-sharing-svizzera.excerpt': 'On, Vontobel und andere Unternehmen übernehmen die Co-Führung, um innovativ zu sein.',
+    'blog.article.job-sharing-svizzera.imageAlt': 'Bild eines Schweizer Unternehmens',
 };
 
 export default blogMetaChDe;

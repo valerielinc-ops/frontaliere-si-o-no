@@ -2038,6 +2038,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.glencore-quotazione-australia.title': 'Glencore torna in utile, 4,4 miliardi di profitti',
     'blog.article.glencore-quotazione-australia.excerpt': 'Il gigante dell\'estrazione e delle materie prime Glencore ha chiuso i primi sei mesi del 2026 con un deciso ritorno alla redditività',
     'blog.article.glencore-quotazione-australia.imageAlt': 'Glencore torna in utile con profitti per 4,4 miliardi e annuncia quotazione in Australia',
+    'blog.article.job-sharing-svizzera.title': 'Il job sharing conquista i vertici aziendali svizzeri',
+    'blog.article.job-sharing-svizzera.excerpt': 'On, Vontobel e altre aziende adottano la co-leadership per innovare.',
+    'blog.article.job-sharing-svizzera.imageAlt': 'Immagine di un vertice aziendale svizzero',
 };
 
 export default blogMetaChIt;

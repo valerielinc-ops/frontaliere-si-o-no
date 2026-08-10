@@ -2038,6 +2038,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.glencore-quotazione-australia.title': 'Glencore renoue avec le bénéfice, 4,4 milliards de bénéfices',
     'blog.article.glencore-quotazione-australia.excerpt': 'Le géant minier et des matières premières Glencore a clôturé les six premiers mois de 2026 avec un fort retour à la rentabilité',
     'blog.article.glencore-quotazione-australia.imageAlt': 'Glencore retourne aux bénéfices avec 4,4 milliards de dollars de bénéfices et annonce une introduction en bourse en Australie',
+    'blog.article.job-sharing-svizzera.title': 'Le job sharing conquiert les sommets de l\'entreprise suisse',
+    'blog.article.job-sharing-svizzera.excerpt': 'On, Vontobel et d\'autres entreprises adoptent le co-leadership pour innover.',
+    'blog.article.job-sharing-svizzera.imageAlt': 'Image d\'un siège social suisse',
 };
 
 export default blogMetaChFr;

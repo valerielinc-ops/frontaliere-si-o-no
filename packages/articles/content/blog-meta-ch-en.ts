@@ -2038,6 +2038,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.glencore-quotazione-australia.title': 'Glencore returns to profit, 4.4 billion in profits',
     'blog.article.glencore-quotazione-australia.excerpt': 'Extraction and commodities giant Glencore closed the first six months of 2026 with a strong return to profitability',
     'blog.article.glencore-quotazione-australia.imageAlt': 'Glencore returns to profit with $4.4 billion profits and announces ASX listing',
+    'blog.article.job-sharing-svizzera.title': 'Job sharing conquers Swiss top management',
+    'blog.article.job-sharing-svizzera.excerpt': 'On, Vontobel and other companies adopt co-leadership to innovate.',
+    'blog.article.job-sharing-svizzera.imageAlt': 'Image of a Swiss company headquarters',
 };
 
 export default blogMetaChEn;
