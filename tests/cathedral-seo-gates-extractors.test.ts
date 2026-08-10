@@ -7,6 +7,7 @@ import {
   currentOffenders,
   baselineOffenders,
   GATES,
+  evaluateGate,
 } from '../scripts/cathedral-seo-gates-check.mjs';
 
 /**
@@ -263,5 +264,106 @@ describe('#5169 — the gate replays the deployed dist instead of rebuilding it'
     ]) {
       expect(fs.existsSync(path.join(REPO_ROOT, rel)), rel).toBe(true);
     }
+  });
+});
+
+/**
+ * Issue #5528 — the title-length gate false-failed on organic volume growth.
+ *
+ * audit-title-length.mjs (and audit-text-html-ratio.mjs, and
+ * audit-title-no-disambig-hash.mjs) already run a composition-shift-aware
+ * ratchet internally (scripts/lib/mixAdjustedRateGate.mjs) and encode the
+ * verdict in their own `--json` exit code. evaluateGate() used to ignore that
+ * exit code entirely and re-derive `regressed`/`pass` from a raw
+ * current-vs-baseline OFFENDER COUNT comparison — exactly the
+ * composition-shift-BLIND check mixAdjustedRateGate.mjs exists to replace.
+ * On 2026-08-10 dist/'s blog-post population grew between the baseline and a
+ * run, so the raw count grew with it (4290 -> 4647) even though
+ * audit-title-length.mjs's own rate-adjusted check reported no regression —
+ * and the naive wrapper comparison opened issue #5528 anyway.
+ *
+ * `usesOwnRatchet: true` makes evaluateGate() trust the audit's exit code for
+ * gates that already compute this correctly. These tests spawn a fake audit
+ * (a `node -e` one-liner) so the exact 2026-08-10 numbers can be pinned
+ * without needing a real dist/ build.
+ */
+describe('#5528 — usesOwnRatchet trusts the audit exit code, not a raw count delta', () => {
+  const fakeGate = (overrides) => ({
+    name: 'fake-gate',
+    cmd: ['node', '-e', overrides.script],
+    auditCmd: 'npm run fake-gate',
+    rebaselineCmd: 'npm run fake-gate:rebaseline',
+    baselineFile: null,
+    extractCurrent: (parsed) => Number(parsed.offenders),
+    extractBaseline: () => 4290,
+    notes: 'fake gate for #5528 regression tests',
+    ...overrides,
+  });
+
+  it('usesOwnRatchet + exit 0 is NOT regressed even though current (4647) > baseline (4290)', async () => {
+    const entry = await evaluateGate(
+      fakeGate({
+        usesOwnRatchet: true,
+        script: 'console.log(JSON.stringify({ offenders: 4647 })); process.exit(0);',
+      }),
+    );
+    expect(entry.current).toBe(4647);
+    expect(entry.baseline).toBe(4290);
+    expect(entry.delta).toBe(357);
+    expect(entry.status).toBe('pass');
+  });
+
+  it('usesOwnRatchet + exit 1 IS regressed, even when the raw count went DOWN', async () => {
+    const entry = await evaluateGate(
+      fakeGate({
+        usesOwnRatchet: true,
+        script: 'console.log(JSON.stringify({ offenders: 1 })); process.exit(1);',
+      }),
+    );
+    expect(entry.current).toBe(1);
+    expect(entry.status).toBe('regressed');
+  });
+
+  it('usesOwnRatchet + exit 0 + current BELOW baseline still surfaces as an improvement', async () => {
+    const entry = await evaluateGate(
+      fakeGate({
+        usesOwnRatchet: true,
+        script: 'console.log(JSON.stringify({ offenders: 100 })); process.exit(0);',
+      }),
+    );
+    expect(entry.status).toBe('improved');
+  });
+
+  it('WITHOUT usesOwnRatchet, the exact same #5528 payload false-fails — pins the bug this fix removes', async () => {
+    const entry = await evaluateGate(
+      fakeGate({
+        usesOwnRatchet: false,
+        script: 'console.log(JSON.stringify({ offenders: 4647 })); process.exit(0);',
+      }),
+    );
+    expect(entry.current).toBe(4647);
+    expect(entry.status).toBe('regressed');
+  });
+
+  it('exactly the four gates with their own composition-aware ratchet are marked usesOwnRatchet', () => {
+    const flagged = GATES.filter((g) => g.usesOwnRatchet === true)
+      .map((g) => g.name)
+      .sort();
+    expect(flagged).toEqual([
+      'max-bfs-depth',
+      'text-html-ratio',
+      'title-length',
+      'title-no-disambig-hash',
+    ]);
+    // orphan-sitemap-pages doesn't pass `--baseline` at all (its underlying
+    // script doesn't even accept the flag) — the wrapper's raw comparison is
+    // the ONLY check for it, so it must stay off this list. image-object-license
+    // is zero-tolerance and has no ratchet to defer to either. max-bfs-depth
+    // DOES pass --baseline to a script with its own rate ratchet
+    // (evaluateBfsGate()) and is flagged above, not here.
+    const notFlagged = GATES.filter((g) => g.usesOwnRatchet !== true)
+      .map((g) => g.name)
+      .sort();
+    expect(notFlagged).toEqual(['image-object-license', 'orphan-sitemap-pages']);
   });
 });
