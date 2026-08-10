@@ -29,6 +29,7 @@ import {
   TRAILING_STOPWORDS,
   CLAUSE_SEPARATOR_TAIL_RE,
   peelDanglingClauseTail as peelDanglingClauseTailImpl,
+  truncateToClauseNonEmpty as truncateToClauseNonEmptyImpl,
 } from './clauseTail.mjs';
 
 export const TITLE_BRAND_SUFFIX = ' | Frontaliere Ticino';
@@ -79,6 +80,24 @@ export const TITLE_MAX_CHARS = 66;
  * the loop again.
  */
 export const peelDanglingClauseTail: (s: string) => string = peelDanglingClauseTailImpl;
+
+/**
+ * Truncate to `maxLen` on a complete clause, guaranteeing a NON-EMPTY result.
+ *
+ * The `<title>`-safe half of the clause-truncation pair. `truncateToClause`
+ * (clauseTail.mjs) refuses — returns `''` — when the first token alone
+ * overflows the budget, because no prefix of it is both within `maxLen` and on
+ * a word boundary. That refusal is correct for a droppable field and wrong for
+ * a title: the result is interpolated into {@link TITLE_BRAND_SUFFIX}, so `''`
+ * ships `" | Frontaliere Ticino"` as the whole title tag.
+ *
+ * Exposed here as well as from clauseTail.mjs so the TypeScript render layer
+ * gets the type, exactly like {@link peelDanglingClauseTail} above. See the
+ * implementation's doc comment for the full three-rung ladder and the measured
+ * incidence.
+ */
+export const truncateToClauseNonEmpty: (text: string, maxLen: number) => string =
+  truncateToClauseNonEmptyImpl;
 
 /**
  * Repair a SERP string that was ALREADY truncated mid-clause upstream, before
