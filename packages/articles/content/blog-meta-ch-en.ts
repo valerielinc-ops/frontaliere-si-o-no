@@ -2044,6 +2044,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.siccita-stress-famiglie.title': 'Drought: Stress on the rise among farming families in Switzerland',
     'blog.article.siccita-stress-famiglie.excerpt': 'Prolonged drought and extreme weather events are aggravating the living and working conditions of farming families in Switzerland.',
     'blog.article.siccita-stress-famiglie.imageAlt': 'Swiss farming family worried about drought',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.title': 'Empa: potential recycling in fossil energy infrastructure',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.excerpt': 'Decommissioned oil rigs, coal mines and power plants contain huge amounts of steel and copper. According to a Swiss study, recycling these \'urban mines\' could make the construction of solar and wind plants cheaper and more environmentally friendly.',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.imageAlt': 'Locarno Film Festival',
 };
 
 export default blogMetaChEn;

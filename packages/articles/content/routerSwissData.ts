@@ -707,6 +707,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'glencore-quotazione-australia': { it: 'glencore-quotazione-australia', en: 'glencore-australia-listing', de: 'glencore-australien-boersengang', fr: 'glencore-listing-australie' },
  'job-sharing-svizzera': { it: 'job-sharing-svizzera', en: 'job-sharing-switzerland', de: 'job-sharing-schweiz', fr: 'job-sharing-suisse' },
  'siccita-stress-famiglie': { it: 'siccita-stress-famiglie', en: 'drought-stress-families', de: 'durre-stress-familien', fr: 'secheresse-stress-familles' },
+ 'potenziale-riciclaggio-infrastrutture-energie-fossili': { it: 'potenziale-riciclaggio-infrastrutture-energie-fossili', en: 'potential-recycling-infrastructure-fossil-fuels', de: 'potenzielles-recycling-infrastructure-fossile-brennstoffe', fr: 'potentiel-de-recyclage-infrastructure-carburants-fossiles' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
