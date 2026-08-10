@@ -22,12 +22,29 @@
  * GENTLE BY-CONSTRUCTION (anti-burst, frugalità quota):
  *   - crawler-transient → solo `agent:triaged`, NIENTE route: si auto-chiudono
  *     quando il crawler recupera; routarle brucerebbe issue-fix per nulla.
- *   - crawler (non-transient) → `agent:fix`, ma CAP per run (ROUTE_FIX_CAP):
- *     ogni agent:fix accende un run issue-fix; il cap fa drenare il backlog su
- *     più tick invece di un'unica raffica. Eccesso loggato (no silent cap).
+ *   - crawler (non-transient) → `agent:fix` diretto SOLO se lo slot issue-fix è
+ *     libero, e UNO per run (`crawlerDirectFixBudget`); gli altri finiscono in
+ *     `agent:fix-queued` + `fu-prio:high` come tutti. Vedi sotto.
  *   - ogni altra categoria (follow-up, revenue, tracker, validation-failure,
  *     other, …) → `agent:fix-queued` (+fu-prio): il followup-drainer le
  *     promuove UNA alla volta → nessun burst per costruzione.
+ *
+ * IL CAP A 5 ERA CALIBRATO SUL NUMERO SBAGLIATO (#5514, 2026-08-10). Il vecchio
+ * `ROUTE_FIX_CAP=5` era nato come anti-burst, ma la coda che doveva proteggere
+ * ha profondità **1**, non 5: `issue-fix.yml` ha `concurrency: group: issue-fix`
+ * + `cancel-in-progress: false`, e con cancel=false GitHub tiene UNA sola run
+ * pending per gruppo — ogni nuova pending SFRATTA la precedente. Cinque
+ * `agent:fix` applicati nello stesso minuto da un unico run di questo sweep
+ * garantiscono quindi quattro run cancellate, e una run cancellata su una issue
+ * crawler non veniva ripresa da nessuno (`on: issues:[labeled]` è one-shot,
+ * l'evento è consumato; il rescue del drainer filtra su `isQueueManaged`, che
+ * esclude i crawler per definizione). Misurato il 2026-08-08 alle 09:02: cinque
+ * `[crawler-health]` etichettate insieme, 1 run riuscita e 4 cancellate —
+ * #5392 #5393 #5394 #5395 ancora aperte con `agent:fix` addosso due giorni dopo.
+ * Ora l'eccedenza non viene più rinviata (rinviarla ripeteva la raffica al tick
+ * successivo): entra nella coda `agent:fix-queued`, che il followup-drainer
+ * drena UNO alla volta e solo a slot libero. `fu-prio:high` perché un crawler
+ * rotto è production-critical e non deve drenare dietro ai follow-up.
  *
  * Secondo passaggio — triaged-but-not-routed (aggiunto 2026-07-05, follow-up #3580):
  * Copre un terzo buco: issue-triage.yml applica `agent:triaged` e routing nella
@@ -56,14 +73,51 @@ const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 const PAT = process.env.GITHUB_PAT || '';
 const argv = process.argv.slice(2);
 const DRY = argv.includes('--dry-run');
-const capArg = argv.includes('--cap') ? Number(argv[argv.indexOf('--cap') + 1]) : 5;
-const ROUTE_FIX_CAP = Number.isFinite(capArg) ? capArg : 5; // --cap senza valore/non-numerico → default 5 (no cap-off silenzioso)
+// Default 1 (era 5): tetto sui `agent:fix` DIRETTI per run. La coda concurrency
+// di issue-fix ha profondità 1 — vedi la nota nel docstring — quindi qualunque
+// valore >1 produce sfratti garantiti. Resta un knob perché serve poterlo
+// azzerare (`--cap 0` → tutti i crawler in coda) in una sessione di debug.
+const capArg = argv.includes('--cap') ? Number(argv[argv.indexOf('--cap') + 1]) : 1;
+const ROUTE_FIX_CAP = Number.isFinite(capArg) ? capArg : 1; // --cap senza valore/non-numerico → default 1 (no cap-off silenzioso)
 const SWEEP_MAX = 60; // safety bound sul numero di issue ispezionate per run
 
 function gh(args, { json = true, token } = {}) {
   const env = token ? { ...process.env, GH_TOKEN: token } : process.env;
   const out = execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, env });
   return json ? JSON.parse(out) : out;
+}
+
+/** Quante run issue-fix sono in volo (queued|in_progress). Errore API →
+ * +Infinity (conservativo: slot considerato occupato → nessun route diretto,
+ * tutto in coda — che è comunque una destinazione corretta, non una perdita). */
+function inFlightFixCount() {
+  let n = 0;
+  for (const status of ['queued', 'in_progress']) {
+    try {
+      const runs = gh(['run', 'list', '--repo', REPO, '--workflow', 'issue-fix.yml',
+        '--status', status, '--json', 'databaseId', '--limit', '20']);
+      n += Array.isArray(runs) ? runs.length : 0;
+    } catch { return Number.POSITIVE_INFINITY; }
+  }
+  return n;
+}
+
+/**
+ * Quanti `agent:fix` DIRETTI (route='fix', crawler) questo run può applicare.
+ * Pura → testabile senza mock.
+ *
+ * Lo slot è "rivendicato" se una run issue-fix è già queued/in_progress OPPURE
+ * se una issue aperta porta già `agent:fix` (una run può non essere ancora
+ * registrata in `gh run list`: la label è il claim, la run la conseguenza).
+ * In quel caso il budget è 0 e ogni crawler va in coda: applicare la label
+ * adesso sfratterebbe la pending esistente. Slot libero → `cap` (default 1).
+ *
+ * @param {{inFlightFixRuns: number, openFixLabeled: number, cap?: number}} args
+ */
+export function crawlerDirectFixBudget({ inFlightFixRuns, openFixLabeled, cap = ROUTE_FIX_CAP }) {
+  const slotClaimed = !(inFlightFixRuns === 0) || openFixLabeled > 0;
+  if (slotClaimed) return 0;
+  return Number.isFinite(cap) && cap > 0 ? cap : 0;
 }
 
 const names = (iss) => (iss.labels || []).map((l) => l.name);
@@ -88,11 +142,23 @@ function main() {
     .sort((a, b) => a.number - b.number);
   const orphans = allOrphans.slice(0, SWEEP_MAX);
 
+  // Budget di route DIRETTO per questo run (#5514): 0 se lo slot issue-fix è già
+  // rivendicato, altrimenti `ROUTE_FIX_CAP` (default 1). Calcolato UNA volta:
+  // `routedFix` lo consuma, e da lì in poi i crawler vanno in coda invece che
+  // sfrattarsi a vicenda. Il conteggio delle `agent:fix` aperte è gratis (la
+  // lista open è già in mano); la sola chiamata extra è `gh run list`.
+  const directFixBudget = crawlerDirectFixBudget({
+    inFlightFixRuns: inFlightFixCount(),
+    openFixLabeled: issues.filter((i) => has(i, 'agent:fix')).length,
+  });
+  console.log(`budget route diretto (crawler→agent:fix) per questo run: ${directFixBudget}` +
+    (directFixBudget === 0 ? ' — slot issue-fix già rivendicato → tutti i crawler in coda.' : '.'));
+
   // Contatori condivisi tra i due passaggi (aggregati nel summary finale).
   let routedFix = 0;
   let routedQueue = 0;
   let markedOnly = 0;
-  let fixDeferredByCap = 0;
+  let crawlerQueued = 0;
   let routeDeferredNoPat = 0;
 
   // Helper: marca agent:triaged (GITHUB_TOKEN, idempotente, non triggera).
@@ -133,12 +199,12 @@ function main() {
         continue;
       }
 
-      // crawler non-transient oltre il cap: NON marcare triaged → resta orfano →
-      // il prossimo tick lo riprende (drain del backlog su più run, anti-burst).
-      if (isCrawlerFix && routedFix >= ROUTE_FIX_CAP) {
-        fixDeferredByCap++;
-        continue;
-      }
+      // crawler non-transient oltre il budget diretto (#5514): NON lo lasciamo
+      // più orfano (rinviarlo ripeteva la raffica identica al tick successivo, e
+      // nel frattempo la issue restava invisibile al drainer). Va nella coda
+      // `agent:fix-queued` come tutti, con priorità alta.
+      const crawlerToQueue = isCrawlerFix && routedFix >= directFixBudget;
+      const effRoute = crawlerToQueue ? 'queue' : route;
 
       // Da qui marchiamo SEMPRE triaged (idempotente).
       markTriaged(n);
@@ -156,15 +222,17 @@ function main() {
       if (route === 'none' || autofix !== true) { markedOnly++; continue; }
       // PAT garantito qui: le routabili con !PAT sono già state lasciate orfane sopra.
 
-      if (route === 'queue') {
+      if (effRoute === 'queue') {
         // follow-up: gentle by-construction (drainer 1-alla-volta) → nessun cap.
-        const prio = fuPrio || 'low';
-        if (DRY) { console.log(`[dry] #${n} → agent:fix-queued + fu-prio:${prio}`); routedQueue++; continue; }
+        // crawler in eccedenza: stessa coda, ma priorità alta (production-critical).
+        const prio = crawlerToQueue ? 'high' : (fuPrio || 'low');
+        const why = crawlerToQueue ? ' [crawler oltre il budget diretto: coda invece di sfratto]' : '';
+        if (DRY) { console.log(`[dry] #${n} → agent:fix-queued + fu-prio:${prio}${why}`); if (crawlerToQueue) crawlerQueued++; else routedQueue++; continue; }
         try {
           gh(['issue', 'edit', String(n), '--repo', REPO,
             '--add-label', 'agent:fix-queued', '--add-label', `fu-prio:${prio}`], { json: false, token: PAT });
-          console.log(`#${n} → agent:fix-queued + fu-prio:${prio} (drainer).`);
-          routedQueue++;
+          console.log(`#${n} → agent:fix-queued + fu-prio:${prio} (drainer).${why}`);
+          if (crawlerToQueue) crawlerQueued++; else routedQueue++;
         } catch (e) { console.log(`::warning::#${n} accodamento PAT fallito: ${String(e).slice(0, 100)}`); }
       } else {
         // crawler non-transient → agent:fix (sotto cap, già verificato sopra).
@@ -211,18 +279,19 @@ function main() {
         continue;
       }
 
-      if (route === 'queue') {
-        const prio = fuPrio || 'low';
-        if (DRY) { console.log(`[dry] #${n} triaged-no-route → agent:fix-queued + fu-prio:${prio}`); routedQueue++; continue; }
+      // crawler oltre il budget diretto: coda ad alta priorità, mai rinviato (#5514).
+      const crawlerToQueue = route === 'fix' && routedFix >= directFixBudget;
+      if (route === 'queue' || crawlerToQueue) {
+        const prio = crawlerToQueue ? 'high' : (fuPrio || 'low');
+        const why = crawlerToQueue ? ' [crawler oltre il budget diretto: coda invece di sfratto]' : '';
+        if (DRY) { console.log(`[dry] #${n} triaged-no-route → agent:fix-queued + fu-prio:${prio}${why}`); if (crawlerToQueue) crawlerQueued++; else routedQueue++; continue; }
         try {
           gh(['issue', 'edit', String(n), '--repo', REPO,
             '--add-label', 'agent:fix-queued', '--add-label', `fu-prio:${prio}`], { json: false, token: PAT });
-          console.log(`#${n} triaged-no-route → agent:fix-queued + fu-prio:${prio}.`);
-          routedQueue++;
+          console.log(`#${n} triaged-no-route → agent:fix-queued + fu-prio:${prio}.${why}`);
+          if (crawlerToQueue) crawlerQueued++; else routedQueue++;
         } catch (e) { console.log(`::warning::#${n} triaged-no-route accodamento fallito: ${String(e).slice(0, 100)}`); }
       } else if (route === 'fix') {
-        // crawler non-transient: soggetto allo stesso cap del primo passaggio.
-        if (routedFix >= ROUTE_FIX_CAP) { fixDeferredByCap++; continue; }
         if (DRY) { console.log(`[dry] #${n} triaged-no-route → agent:fix (crawler)`); routedFix++; continue; }
         try {
           gh(['issue', 'edit', String(n), '--repo', REPO, '--add-label', 'agent:fix'], { json: false, token: PAT });
@@ -234,8 +303,11 @@ function main() {
   }
 
   console.log(`\nSweep done: fix=${routedFix} queue=${routedQueue} marked-only=${markedOnly}` +
-    (fixDeferredByCap ? ` · ${fixDeferredByCap} crawler-fix rinviati dal cap ${ROUTE_FIX_CAP}/run (no silent cap; prossimo tick).` : '') +
+    (crawlerQueued ? ` · ${crawlerQueued} crawler oltre il budget diretto ${directFixBudget}/run → agent:fix-queued fu-prio:high (drainer 1-alla-volta, nessuno sfrattato).` : '') +
     (routeDeferredNoPat ? ` · ${routeDeferredNoPat} routabili lasciate orfane/skip (GITHUB_PAT assente; retry sweep post-recovery).` : ''));
 }
 
-main();
+// Esegui solo come CLI (non quando importato dai test → evita di lanciare gh).
+if (process.argv[1]?.endsWith('triage-sweep.mjs')) {
+  main();
+}
