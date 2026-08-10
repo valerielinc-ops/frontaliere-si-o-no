@@ -6935,12 +6935,14 @@ function optimizeSeoMetadata(data) {
   data.seo.description = truncateAtWordBoundary(desc, SEO_DESCRIPTION_MAX);
   data.seo.ogDescription = truncateAtWordBoundary(data.seo.ogDescription || data.seo.description, SEO_DESCRIPTION_MAX);
 
-  const STOP = new Set(['frontaliere', 'frontalieri', 'ticino', 'svizzera', 'italia', 'della', 'delle', 'degli', 'degli', 'come', 'guida', '2026']);
+  const STOP = new Set(['frontaliere', 'frontalieri', 'ticino', 'svizzera', 'italia', 'della', 'delle', 'degli', 'degli', 'come', 'guida']);
   const terms = `${it.title || ''} ${it.excerpt || ''} ${data.id || ''}`
     .toLowerCase()
     .replace(/[^a-z0-9àèéìòùäöüßç\s-]/gi, ' ')
     .split(/\s+/)
-    .filter((w) => w.length > 3 && !STOP.has(w));
+    // A literal year in STOP would need rewriting every January (issue #5560);
+    // a four-digit-year test is a no-op for any year, current or future.
+    .filter((w) => w.length > 3 && !STOP.has(w) && !/^(19|20)\d{2}$/.test(w));
 
   const uniqueTerms = [];
   for (const t of terms) {
@@ -6989,13 +6991,15 @@ function evergreenTopicFamily(text) {
 
 function evergreenAngleTokens(text) {
   const structural = new Set([
-    'frontali', 'frontalier', 'svizzer', 'ital', 'ticin', '2025', '2026',
+    'frontali', 'frontalier', 'svizzer', 'ital', 'ticin',
     'guida', 'pratic', 'aggiornat', 'confront', 'simulazion', 'scenar',
     'regol', 'quando', 'come', 'cosa',
   ]);
+  // A literal year (formerly '2025', '2026') would need rewriting every
+  // January (issue #5560); a four-digit-year test is a no-op for any year.
   return filterDistinctive(tokenizeIt(text))
     .map(normalizeItWord)
-    .filter((w) => w.length > 2 && !structural.has(w));
+    .filter((w) => w.length > 2 && !structural.has(w) && !/^(19|20)\d{2}$/.test(w));
 }
 
 function preFlightEvergreenTopicCheck(candidate, existingArticles) {
