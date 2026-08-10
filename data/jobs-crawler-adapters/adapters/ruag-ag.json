@@ -66,10 +66,11 @@
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027/6d6f25f0-2262-4a3d-a7fe-5c7f598981a2",
     "https://jobs.ruag.ch/offene-stellen/legal-counsel/9e7711a0-4521-4fdf-a1e4-99dcd29eb969",
     "https://jobs.ruag.ch/offene-stellen/compliance-investigation-officer/f1721f91-de32-4fdb-8e82-992eff94a200",
-    "https://jobs.ruag.ch/offene-stellen/teamleader-project-management/cd3f740e-3ee3-4796-8833-e7dac463e74a"
+    "https://jobs.ruag.ch/offene-stellen/teamleader-project-management/cd3f740e-3ee3-4796-8833-e7dac463e74a",
+    "https://jobs.ruag.ch/offene-stellen/helikoptermechaniker-ec-635/24e02ed3-4dc6-4358-a9f4-9383b380371b"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-08-09T21:51:52.001Z",
+  "updatedAt": "2026-08-10T10:43:57.282Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
@@ -412,6 +413,12 @@
       "canton": "BE",
       "company": "RUAG AG",
       "postedDate": "2026-08-07"
+    },
+    "https://jobs.ruag.ch/offene-stellen/helikoptermechaniker-ec-635/24e02ed3-4dc6-4358-a9f4-9383b380371b": {
+      "location": "Alpnach",
+      "canton": "OW",
+      "company": "RUAG AG",
+      "postedDate": "2026-08-10"
     }
   }
 }
