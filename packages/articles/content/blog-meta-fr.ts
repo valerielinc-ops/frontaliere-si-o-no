@@ -9522,6 +9522,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-cadegliano-viconago-frontaliere.title': 'Vivre à Cadegliano-Viconago et travailler au Tessin',
     'blog.article.vivere-cadegliano-viconago-frontaliere.excerpt': 'Guide des frontaliers à Cadegliano-Viconago : fiscalité, transports et avantages du nouvel accord fiscal entre l\'Italie et la Suisse en vigueur depuis 2024.',
     'blog.article.vivere-cadegliano-viconago-frontaliere.imageAlt': 'Vue panoramique de Cadegliano-Viconago vers la frontière suisse du canton du Tessin',
+    'blog.article.germignaga-lavoro-ticino-frontaliere.title': 'vivre à Germignaga et travailler au Tessin en tant que frontalier',
+    'blog.article.germignaga-lavoro-ticino-frontaliere.excerpt': 'Faits et procédures clés pour les frontaliers résidant à Germignaga qui travaillent au Tessin.',
+    'blog.article.germignaga-lavoro-ticino-frontaliere.imageAlt': 'Frontaliers en Suisse',
+    'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.title': 'Déménager à Germignaga en tant que frontalier : avantages et inconvénients',
+    'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.excerpt': 'Taxe à la source et nouvelles règles pour les frontaliers',
+    'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.imageAlt': 'Un frontalier se déplace à Germignaga',
 };
 
 export default blogMetaFr;
