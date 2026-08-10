@@ -74,8 +74,8 @@ describe('scan-job-timeouts — two timed-out jobs of one run ⇒ ONE issue', ()
       return '';
     });
 
-    await import('../scripts/ci/scan-job-timeouts.mjs');
-    await vi.waitFor(() => expect(callsFor('create').length).toBeGreaterThan(0));
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await main();
 
     // The bug: this was 2.
     expect(callsFor('create')).toHaveLength(1);
@@ -105,8 +105,8 @@ describe('scan-job-timeouts — two timed-out jobs of one run ⇒ ONE issue', ()
       return '';
     });
 
-    await import('../scripts/ci/scan-job-timeouts.mjs');
-    await vi.waitFor(() => expect(callsFor('create').length).toBeGreaterThan(0));
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await main();
 
     // 2 timed-out jobs ⇒ 2 GitHub writes total, exactly one of them a create.
     expect(callsFor('create').length + callsFor('comment').length).toBe(JOBS.length);
