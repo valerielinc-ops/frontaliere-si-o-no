@@ -25835,6 +25835,318 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-cassa-malati-lamal-2026-cantone-bern': {
+    title: 'LAMal nel Cantone Berna: guida ai premi e sussidi',
+    description: 'I premi LAMal nel Cantone Berna sono soggetti a differenze rispetto ad altri cantoni svizzeri. Ecco cosa sapere sulla franchigia ottimale, sul cambio cassa',
+    keywords: 'frontalieri, ticino, svizzera, italia, lamal, cantone, berna, premi',
+    ogTitle: 'Guida ai premi LAMal nel Cantone Berna',
+    ogDescription: 'I premi LAMal nel Cantone Berna sono soggetti a differenze rispetto ad altri cantoni svizzeri. Ecco cosa sapere sulla franchigia ottimale, sul cambio cassa e sui sussidi disponibili.',
+    canonicalPath: '/articoli-svizzera/premi-cassa-malati-lamal-2026-cantone-bern/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LAMal nel Cantone Berna: guida ai premi e sussidi",
+      "description": "I premi LAMal nel Cantone Berna sono soggetti a differenze rispetto ad altri cantoni svizzeri. Ecco cosa sapere sulla franchigia ottimale, sul cambio cassa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-lamal-2026-cantone-bern.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un lago in Svizzera"
+      },
+      "datePublished": "2026-08-09T23:13:30+00:00",
+      "dateModified": "2026-08-09T23:13:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-cassa-malati-lamal-2026-cantone-bern/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-cassa-malati-lamal-2026-canton-basilea': {
+    title: 'Premi cassa malati LAMal 2026 nel Canton Basilea',
+    description: 'Franchigie adulti CHF 300, 500, 1000, 1500, 2000, 2500. Premi fissati per cantone e regione di premio. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, lamal',
+    ogTitle: 'Premi cassa malati LAMal 2026 nel Canton Basilea',
+    ogDescription: 'Franchigie adulti CHF 300, 500, 1000, 1500, 2000, 2500. Premi fissati per cantone e regione di premio.',
+    canonicalPath: '/articoli-svizzera/premi-cassa-malati-lamal-2026-canton-basilea/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati LAMal 2026 nel Canton Basilea",
+      "description": "Franchigie adulti CHF 300, 500, 1000, 1500, 2000, 2500. Premi fissati per cantone e regione di premio. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-lamal-2026-canton-basilea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena svizzera nazionale/cantonale pertinente al tema premi cassa malati, fotorealistica, DSLR, non sembrare AI"
+      },
+      "datePublished": "2026-08-09T23:27:39+00:00",
+      "dateModified": "2026-08-09T23:27:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-cassa-malati-lamal-2026-canton-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-secondo-pilastro-lpp-svizzera-guida-2026-bern': {
+    title: 'Guida LPP: contributi, prelievo e pianificazione previdenziale in Svizzera',
+    description: 'Guida 2026 al secondo pilastro LPP in Svizzera: contributi, prelievo, riscatto lacune e pianificazione previdenziale. Facciamo un focus sul canton Berna',
+    keywords: 'frontalieri, ticino, svizzera, italia, contributi, prelievo, pianificazione, previdenziale',
+    ogTitle: 'Secondo pilastro LPP in Svizzera: contributi, prelievo e pianificazione previdenziale',
+    ogDescription: 'Guida 2026 al secondo pilastro LPP in Svizzera: contributi, prelievo, riscatto lacune e pianificazione previdenziale. Facciamo un focus sul canton Berna e confrontiamo i dati con quelli nazionali.',
+    canonicalPath: '/articoli-svizzera/secondo-pilastro-lpp-svizzera-guida-2026-bern/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guida LPP: contributi, prelievo e pianificazione previdenziale in Svizzera",
+      "description": "Guida 2026 al secondo pilastro LPP in Svizzera: contributi, prelievo, riscatto lacune e pianificazione previdenziale. Facciamo un focus sul canton Berna",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/secondo-pilastro-lpp-svizzera-guida-2026-bern.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoro in Svizzera, stipendio"
+      },
+      "datePublished": "2026-08-09T23:51:38+00:00",
+      "dateModified": "2026-08-09T23:51:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/secondo-pilastro-lpp-svizzera-guida-2026-bern/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-secondo-pilastro-lpp-bern-2026-guida': {
+    title: 'Guida al secondo pilastro LPP in Svizzera | Frontaliere Ticino',
+    description: 'La guida al secondo pilastro LPP descrive i contributi, il prelievo, il riscatto delle lacune e la pianificazione previdenziale in Svizzera, con un focus',
+    keywords: 'frontalieri, ticino, svizzera, italia, secondo, pilastro, descrive, contributi',
+    ogTitle: 'Guida al secondo pilastro LPP: contributi, prelievo, riscatto lacune e pianificazione previdenziale in Svizzera. Focus sul canton Berna e confronto nazionale.',
+    ogDescription: 'La guida al secondo pilastro LPP descrive i contributi, il prelievo, il riscatto delle lacune e la pianificazione previdenziale in Svizzera, con un focus sul canton Berna e un confronto nazionale.',
+    canonicalPath: '/articoli-svizzera/secondo-pilastro-lpp-bern-2026-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guida al secondo pilastro LPP in Svizzera",
+      "description": "La guida al secondo pilastro LPP descrive i contributi, il prelievo, il riscatto delle lacune e la pianificazione previdenziale in Svizzera, con un focus",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/secondo-pilastro-lpp-bern-2026-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un frontaliere che si trova in una situazione simile a quella descritta nella guida."
+      },
+      "datePublished": "2026-08-10T00:03:58+00:00",
+      "dateModified": "2026-08-10T00:03:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/secondo-pilastro-lpp-bern-2026-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo': {
+    title: 'LPP in Svizzera: Contributi e pianificazione previdenziale',
+    description: 'Scopri come funziona il secondo pilastro LPP in Svizzera, con un focus sul canton San Gallo. Impostazioni, contributi e prelievi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, contributi, pianificazione, previdenziale, scopri',
+    ogTitle: 'Guida pratica al secondo pilastro LPP in Svizzera: contributi, prelievo, riscatto lacune e pianificazione previdenziale',
+    ogDescription: 'Scopri come funziona il secondo pilastro LPP in Svizzera, con un focus sul canton San Gallo. Impostazioni, contributi e prelievi.',
+    canonicalPath: '/articoli-svizzera/secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LPP in Svizzera: Contributi e pianificazione previdenziale",
+      "description": "Scopri come funziona il secondo pilastro LPP in Svizzera, con un focus sul canton San Gallo. Impostazioni, contributi e prelievi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guida pratica al secondo pilastro LPP in Svizzera, con un focus sul canton San Gallo. Scena fotorealistica di Lugano, con un pilastro LPP in primo piano."
+      },
+      "datePublished": "2026-08-10T00:18:35+00:00",
+      "dateModified": "2026-08-10T00:18:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-guida-lpp-secondo-pilastro-2026-vaud': {
+    title: 'LPP in Svizzera: contributi e pianificazione previdenziale nel Canton Vaud',
+    description: 'La guida al secondo pilastro LPP copre contributi, prelievo, riscatto lacune e pianificazione previdenziale nel Canton Vaud. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, contributi, pianificazione, previdenziale, canton',
+    ogTitle: 'Guida al secondo pilastro LPP in Svizzera: contributi, prelievo, riscatto lacune e pianificazione previdenziale nel Canton Vaud',
+    ogDescription: 'La guida al secondo pilastro LPP copre contributi, prelievo, riscatto lacune e pianificazione previdenziale nel Canton Vaud.',
+    canonicalPath: '/articoli-svizzera/guida-lpp-secondo-pilastro-2026-vaud/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LPP in Svizzera: contributi e pianificazione previdenziale nel Canton Vaud",
+      "description": "La guida al secondo pilastro LPP copre contributi, prelievo, riscatto lacune e pianificazione previdenziale nel Canton Vaud. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guida-lpp-secondo-pilastro-2026-vaud.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una persona guarda un grafico di piano di pensione con un smartphone"
+      },
+      "datePublished": "2026-08-10T00:29:07+00:00",
+      "dateModified": "2026-08-10T00:29:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guida-lpp-secondo-pilastro-2026-vaud/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affitti-svizzera-mercato-immobiliare-2026': {
+    title: 'Mercato degli affitti in Svizzera: prezzi e diritti',
+    description: 'Prezzi medi degli affitti in Svizzera, diritti dell\'inquilino, deposito cauzionale e disdetta. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, affitti, prezzi, diritti',
+    ogTitle: 'Mercato degli affitti in Svizzera nel 2026: prezzi medi per cantone, diritti dell\'inquilino, deposito cauzionale e disdetta.',
+    ogDescription: 'Prezzi medi degli affitti in Svizzera, diritti dell\'inquilino, deposito cauzionale e disdetta.',
+    canonicalPath: '/articoli-svizzera/affitti-svizzera-mercato-immobiliare-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato degli affitti in Svizzera: prezzi e diritti",
+      "description": "Prezzi medi degli affitti in Svizzera, diritti dell'inquilino, deposito cauzionale e disdetta. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-svizzera-mercato-immobiliare-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena di un mercato immobiliare in Svizzera con gente che guarda annunci di affitto e vendita di case e appartamenti."
+      },
+      "datePublished": "2026-08-10T00:58:10+00:00",
+      "dateModified": "2026-08-10T00:58:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-svizzera-mercato-immobiliare-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo': {
+    title: 'Affitti in Svizzera 2026: prezzi e diritti | Frontaliere Ticino',
+    description: 'Prezzi medi per affitti in Svizzera nel 2026, diritti dell\'inquilino e deposito cauzionale. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, prezzi, diritti, medi',
+    ogTitle: 'Mercato degli affitti in Svizzera nel 2026: prezzi medi per cantone, diritti dell\'inquilino, deposito cauzionale e disdetta.',
+    ogDescription: 'Prezzi medi per affitti in Svizzera nel 2026, diritti dell\'inquilino e deposito cauzionale.',
+    canonicalPath: '/articoli-svizzera/affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti in Svizzera 2026: prezzi e diritti",
+      "description": "Prezzi medi per affitti in Svizzera nel 2026, diritti dell'inquilino e deposito cauzionale. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Foto di affitti in Svizzera con il lago di Lugano come sfondo."
+      },
+      "datePublished": "2026-08-10T01:28:26+00:00",
+      "dateModified": "2026-08-10T01:28:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

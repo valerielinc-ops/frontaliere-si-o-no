@@ -221,10 +221,13 @@
           "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n48",
           "facteurs-de-l-economie-nationale-eoc-ente-ospedaliero-cantonale-novaggio",
           "facteurs-de-l-economie-nationale-eoc-ente-ospedaliero-cantonale-novaggio-1addc7",
-          "facteurs-de-l-economie-nationale-eoc-ente-ospedaliero-cantonale-novaggio-2c868a"
+          "facteurs-de-l-economie-nationale-eoc-ente-ospedaliero-cantonale-novaggio-2c868a",
+          "mitarbeiter-in-eoc-ente-ospedaliero-cantonale-novaggio",
+          "pflegehelfer-in-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio"
+          "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
+          "mitarbeiter-in-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
@@ -233,7 +236,10 @@
         "facteurs-de-l-economie-nationale-eoc-ente-ospedaliero-cantonale-novaggio",
         "facteurs-de-l-economie-nationale-eoc-ente-ospedaliero-cantonale-novaggio-1addc7",
         "facteurs-de-l-economie-nationale-eoc-ente-ospedaliero-cantonale-novaggio-2c868a",
-        "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio"
+        "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistant-e-en-economie-domestique-eoc-ente-ospedaliero-cantonale-novaggio",
+        "mitarbeiter-in-eoc-ente-ospedaliero-cantonale-novaggio",
+        "pflegehelfer-in-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -293,8 +299,12 @@
       "requirementsByLocale": {},
       "sourceLang": "it",
       "previousSlugsByLocale": {
+        "de": [
+          "administrativer-mitarbeiter-70-90-eoc-ente-ospedaliero-cantonale-mendrisio",
+          "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ],
         "it": [
-          "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-af270e",
           "assistant-administratif-70-90-eoc-ente-ospedaliero-cantonale-mendrisio",
           "administrativer-mitarbeiter-70-90-eoc-ente-ospedaliero-cantonale-mendrisio",
           "impiegato-a-amministrativo-a-70-90-eoc-ente-ospedaliero-cantonale-mendrisio-uilqfl",
@@ -312,15 +322,12 @@
           "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-uil2qc",
           "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n60",
           "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-uikzov",
-          "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-x29miu"
+          "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-x29miu",
+          "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-bdaccb",
+          "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-x29miu"
         ],
         "en": [
           "impiegato-a-amministrativo-a-70-90-eoc-ente-ospedaliero-cantonale-mendrisio-uilqfl"
-        ],
-        "de": [
-          "administrativer-mitarbeiter-70-90-eoc-ente-ospedaliero-cantonale-mendrisio",
-          "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
           "assistant-administratif-70-90-eoc-ente-ospedaliero-cantonale-mendrisio"
@@ -347,7 +354,9 @@
         "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-novaggio-3",
         "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-uil169",
         "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-bdaccb",
+        "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-x29miu"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -412,13 +421,15 @@
         "it": [
           "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
           "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikyu1",
-          "responsabile-dell-economia-domestica-80-100-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "responsabile-dell-economia-domestica-80-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "collaborateur-trice-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
           "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "collaborateur-trice-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
@@ -426,7 +437,8 @@
         "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikyu1",
         "responsabile-dell-economia-domestica-80-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "collaborateur-trice-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -652,7 +664,11 @@
         "medical-assistant-hospital-doctor-eoc-ente-ospedaliero-cantonale-novaggio",
         "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio",
         "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio-9f5427",
-        "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio-bbd7f1"
+        "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio-bbd7f1",
+        "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-bellinzona-x29n4c",
+        "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4d",
+        "assistant-medical-hopital-medical-eoc-ente-ospedaliero-cantonale-novaggio-9f5427"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -960,17 +976,6 @@
       },
       "sourceLang": "it",
       "previousSlugsByLocale": {
-        "it": [
-          "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
-          "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev",
-          "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
-          "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n62",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n63",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6q",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6r"
-        ],
         "en": [
           "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
           "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
@@ -982,6 +987,19 @@
         "fr": [
           "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
           "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio"
+        ],
+        "it": [
+          "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+          "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev",
+          "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+          "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n62",
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n63",
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64",
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6q",
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6r",
+          "physiotherapeute-80-eoc-ente-ospedaliero-cantonale-novaggio",
+          "physiotherapist-80-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
@@ -996,7 +1014,9 @@
         "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
         "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "physiotherapeute-80-eoc-ente-ospedaliero-cantonale-novaggio",
+        "physiotherapist-80-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -6176,8 +6196,7 @@
         "vor-supsi-ausbildungs-praktikum-eoc-ente-ospedaliero-cantonale-novaggio",
         "pre-supsi-ausbildungs-praktikum-eoc-ente-ospedaliero-cantonale-novaggio",
         "pre-supsi-praktikum-eoc-ente-ospedaliero-cantonale-novaggio",
-        "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio-fef0d4",
-        "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio"
+        "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio-fef0d4"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
@@ -6185,8 +6204,7 @@
           "stadio-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-bellinzona-uil1ss"
         ],
         "en": [
-          "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio-fef0d4",
-          "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio"
+          "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio-fef0d4"
         ]
       }
     },

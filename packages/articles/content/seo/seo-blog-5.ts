@@ -61769,6 +61769,318 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-a-saltrio-da-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a Saltrio da frontaliere: pro e contro',
+    description: 'Imposte, doppie imposizioni e nuove regole per i frontalieri che intendono trasferirsi a Saltrio. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, saltrio, contro, imposte',
+    ogTitle: 'Trasferirsi a Saltrio da frontaliere: pro e contro',
+    ogDescription: 'Imposte, doppie imposizioni e nuove regole per i frontalieri che intendono trasferirsi a Saltrio',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-a-saltrio-da-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Saltrio da frontaliere: pro e contro",
+      "description": "Imposte, doppie imposizioni e nuove regole per i frontalieri che intendono trasferirsi a Saltrio. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-a-saltrio-da-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una fotografia di un valico di frontiera tra Italia e Svizzera"
+      },
+      "datePublished": "2026-08-09T23:17:47+00:00",
+      "dateModified": "2026-08-09T23:17:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-saltrio-da-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-trasferirsi-cannobio-frontaliere-pro-contro': {
+    title: 'Trasferirsi a Cannobio da frontaliere: pro e contro',
+    description: 'Vivere a Cannobio lavorando in Ticino: guida pratica su fisco, nuovo accordo frontalieri, tassazione e gestione del pendolarismo quotidiano. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, cannobio, contro, analisi',
+    ogTitle: 'Trasferirsi a Cannobio da frontaliere: pro e contro',
+    ogDescription: 'Analisi completa per chi si trasferisce a Cannobio lavorando in Svizzera: imposte, previdenza e gestione quotidiana del lavoro transfrontaliero.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-cannobio-frontaliere-pro-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Cannobio da frontaliere: pro e contro",
+      "description": "Vivere a Cannobio lavorando in Ticino: guida pratica su fisco, nuovo accordo frontalieri, tassazione e gestione del pendolarismo quotidiano. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-cannobio-frontaliere-pro-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Cannobio sul Lago Maggiore"
+      },
+      "datePublished": "2026-08-09T23:30:56+00:00",
+      "dateModified": "2026-08-09T23:30:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-cannobio-frontaliere-pro-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-trasferirsi-a-varzo-da-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a Varzo da frontaliere: pro e contro',
+    description: 'Impostazione fiscale, permessi di soggiorno e condizioni di lavoro: cosa sapere prima di trasferirsi a Varzo da frontaliere. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, varzo, contro, impostazione',
+    ogTitle: 'Trasferirsi a Varzo da frontaliere: pro e contro',
+    ogDescription: 'Impostazione fiscale, permessi di soggiorno e condizioni di lavoro: cosa sapere prima di trasferirsi a Varzo da frontaliere.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-a-varzo-da-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Varzo da frontaliere: pro e contro",
+      "description": "Impostazione fiscale, permessi di soggiorno e condizioni di lavoro: cosa sapere prima di trasferirsi a Varzo da frontaliere. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-a-varzo-da-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che si trasferisce a Varzo per lavorare in Ticino"
+      },
+      "datePublished": "2026-08-09T23:56:11+00:00",
+      "dateModified": "2026-08-09T23:56:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-varzo-da-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-maslianico-lavoro-ticino': {
+    title: 'Vivere a Maslianico e lavorare in Ticino da frontaliere',
+    description: 'Guida per frontalieri residenti a Maslianico: scopri le regole del nuovo accordo fiscale, il regime LAMal e come gestire la tassazione del lavoro in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, maslianico, lavorare, pratica',
+    ogTitle: 'Vivere a Maslianico e lavorare in Ticino da frontaliere',
+    ogDescription: 'Tutto ciò che i frontalieri residenti a Maslianico devono sapere su tasse, assicurazione LAMal e nuovo accordo fiscale tra Italia e Svizzera.',
+    canonicalPath: '/articoli-frontaliere/vivere-maslianico-lavoro-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Maslianico e lavorare in Ticino da frontaliere",
+      "description": "Guida per frontalieri residenti a Maslianico: scopri le regole del nuovo accordo fiscale, il regime LAMal e come gestire la tassazione del lavoro in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-maslianico-lavoro-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del confine tra Italia e Svizzera"
+      },
+      "datePublished": "2026-08-10T00:08:09+00:00",
+      "dateModified": "2026-08-10T00:08:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-maslianico-lavoro-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-trasferirsi-a-maslianico-da-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a Maslianico da frontaliere: pro e contro',
+    description: 'Imposte, permessi e condizioni di lavoro: cosa sapere prima di trasferirsi a Maslianico da frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, maslianico, contro, imposte',
+    ogTitle: 'Trasferirsi a Maslianico da frontaliere: pro e contro',
+    ogDescription: 'Imposte, permessi e condizioni di lavoro: cosa sapere prima di trasferirsi a Maslianico da frontaliere.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-a-maslianico-da-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Maslianico da frontaliere: pro e contro",
+      "description": "Imposte, permessi e condizioni di lavoro: cosa sapere prima di trasferirsi a Maslianico da frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-a-maslianico-da-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano, con il Lago di Lugano e le montagne circostanti."
+      },
+      "datePublished": "2026-08-10T00:24:42+00:00",
+      "dateModified": "2026-08-10T00:24:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-maslianico-da-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-porlezza-frontaliere-pro-contro': {
+    title: 'Trasferirsi a Porlezza da frontaliere: pro e contro',
+    description: 'Guida pratica per frontalieri che valutano di trasferirsi a Porlezza: analisi dei vantaggi, degli svantaggi e dei tempi di spostamento. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, porlezza, contro, analisi',
+    ogTitle: 'Vivere a Porlezza e lavorare in Ticino: pro e contro per frontalieri',
+    ogDescription: 'Scopri i vantaggi, gli svantaggi e le informazioni pratiche per chi sceglie di risiedere a Porlezza lavorando quotidianamente in Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/porlezza-frontaliere-pro-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Porlezza da frontaliere: pro e contro",
+      "description": "Guida pratica per frontalieri che valutano di trasferirsi a Porlezza: analisi dei vantaggi, degli svantaggi e dei tempi di spostamento. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/porlezza-frontaliere-pro-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del Lago di Lugano vicino al confine italo-svizzero"
+      },
+      "datePublished": "2026-08-10T00:39:23+00:00",
+      "dateModified": "2026-08-10T00:39:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/porlezza-frontaliere-pro-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-ronago-lavorare-ticino': {
+    title: 'Vivere a Ronago e lavorare in Ticino da frontaliere',
+    description: 'Guida fiscale e pratica per frontalieri tra Ronago e Ticino: nuovo accordo, tasse, AVS, LPP e LAMal spiegati per chi lavora in Svizzera. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, ronago, lavorare, pratica',
+    ogTitle: 'Vivere a Ronago e lavorare in Ticino da frontaliere',
+    ogDescription: 'Tutto quello che i frontalieri residenti a Ronago devono sapere sul nuovo accordo fiscale, le trattenute AVS, LPP e il funzionamento della LAMal in Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-ronago-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Ronago e lavorare in Ticino da frontaliere",
+      "description": "Guida fiscale e pratica per frontalieri tra Ronago e Ticino: nuovo accordo, tasse, AVS, LPP e LAMal spiegati per chi lavora in Svizzera. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-ronago-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Mendrisio in Ticino, zona di confine"
+      },
+      "datePublished": "2026-08-10T01:04:26+00:00",
+      "dateModified": "2026-08-10T01:04:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-ronago-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-a-porlezza-e-lavorare-in-ticino-da-frontaliere': {
+    title: 'Vivere a Porlezza e lavorare in Ticino da frontaliere: cosa cambia e cosa fare',
+    description: 'Nuovo accordo fiscale 2026: cosa significa per i frontalieri e come si applicherà. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, porlezza, lavorare, cosa',
+    ogTitle: 'Vivere a Porlezza e lavorare in Ticino da frontaliere: cosa cambia e cosa fare',
+    ogDescription: 'Nuovo accordo fiscale 2026: cosa significa per i frontalieri e come si applicherà',
+    canonicalPath: '/articoli-frontaliere/vivere-a-porlezza-e-lavorare-in-ticino-da-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Porlezza e lavorare in Ticino da frontaliere: cosa cambia e cosa fare",
+      "description": "Nuovo accordo fiscale 2026: cosa significa per i frontalieri e come si applicherà. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-a-porlezza-e-lavorare-in-ticino-da-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che si trova in una situazione simile potrebbe cercare di comprendere meglio le nuove norme fiscali che saranno applicate ai frontalieri."
+      },
+      "datePublished": "2026-08-10T01:32:59+00:00",
+      "dateModified": "2026-08-10T01:32:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-a-porlezza-e-lavorare-in-ticino-da-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
