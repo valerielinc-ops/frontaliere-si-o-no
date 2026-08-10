@@ -46,30 +46,33 @@ const SELF = 'jobs-dataset-read-once.test.ts';
  */
 function jobsPathBindings(src: string): string[] {
   const names: string[] = [];
-  // Anchored on the DATASET, then walked backwards to the `=` that binds it —
-  // rather than forwards from a `const`/`let`/`var` keyword. Anchoring on the
-  // keyword made the pattern brittle in two ways a reviewer found on #5503:
-  //   - `const dataPath: string = …` never matched, because what follows the
-  //     identifier is `:` and not `=` — reopening the rename evasion this
-  //     guard exists to close, with a type annotation;
-  //   - `const a = 1, dataPath = …` captured `a`, the first declarator on the
-  //     statement, and not the one actually holding the path.
-  // Walking back from `jobs.json` to the NEAREST preceding `=` fixes both:
-  // `[^;=]` in the tail forbids crossing either a statement end or another
-  // binding, so the identifier found is the one this expression is assigned to.
-  // The tail tolerates `=>` explicitly: an arrow function between the
-  // assignment and the path (`const p = resolve(() => 'data/jobs.json')`)
-  // carries a literal `=` that would otherwise end the walk and drop the
-  // binding — the same evasion, one nesting level down.
-  const BIND = /([A-Za-z_$][\w$]*)\s*(?::\s*[^=;]+?)?\s*=\s*(?:[^;=]|=>)*$/;
+  // Anchored on the DATASET, not forwards from a `const`/`let`/`var` keyword:
+  // keyword-anchoring missed `const dataPath: string = …` outright, because
+  // what follows the identifier is `:` and not `=`.
+  //
+  // Within the statement holding the path, EVERY binding is collected, not the
+  // nearest one. Three revisions of this function tried to pick the single
+  // right binding and three reviews found a shape where the pick was wrong:
+  // `const a = 1, dataPath = …` (nearest-from-the-left picks `a`),
+  // `const p = fn(() => '…jobs.json')` (an arrow's `=` ends a backwards walk),
+  // `const p = fn(a = 1, '…jobs.json')` (a nested assignment does the same).
+  // Picking is the bug. Over-collecting is safe: the extra names are bound in
+  // this same statement, and a name only matters if it then shows up as a
+  // whole word inside a `readFileSync(...)` argument list.
+  //
+  // `=(?!=|>)` is the assignment operator only — never `==`, `===` or `=>`.
+  const BIND = /([A-Za-z_$][\w$]*)\s*(?::\s*[^=;]+?)?\s*=(?!=|>)/g;
   const rx = /jobs\.json/g;
   let m: RegExpExecArray | null;
   while ((m = rx.exec(src)) !== null) {
     // Bounded by the previous statement, not by a fixed character window: a
     // long or multi-line `path.join(...)` overflows any constant you pick,
-    // and the binding then disappears with no signal.
-    const bind = BIND.exec(src.slice(src.lastIndexOf(';', m.index) + 1, m.index));
-    if (bind) names.push(bind[1]);
+    // and the binding then disappears with no signal. No preceding `;` —
+    // first statement of the file — gives `-1 + 1 = 0`, i.e. from the top.
+    const head = src.slice(src.lastIndexOf(';', m.index) + 1, m.index);
+    let bind: RegExpExecArray | null;
+    BIND.lastIndex = 0;
+    while ((bind = BIND.exec(head)) !== null) names.push(bind[1]);
   }
   return names;
 }
@@ -177,6 +180,30 @@ describe('gate:seo-source — the jobs dataset is read through the shared memo',
         ].join('\n'),
       ),
       'a `$` in the binding name must not break the alternation',
+    ).toBe(true);
+
+    // An assignment nested in the argument list, before the path — the third
+    // shape where picking a single "nearest" binding picked the wrong one.
+    expect(
+      readsDatasetDirectly(
+        [
+          "const dataPath = someFn(a = 1, 'data/jobs.json');",
+          "const jobs = JSON.parse(fs.readFileSync(dataPath, 'utf8'));",
+        ].join('\n'),
+      ),
+      'a nested assignment must not displace the real binding',
+    ).toBe(true);
+
+    // First statement of the file: there is no preceding `;` to bound the
+    // walk-back, and it must read from the top rather than find nothing.
+    expect(
+      readsDatasetDirectly(
+        [
+          "const dataPath = '/repo/data/jobs.json'",
+          "const jobs = JSON.parse(fs.readFileSync(dataPath, 'utf8'))",
+        ].join('\n'),
+      ),
+      'a binding with no preceding statement must still be found',
     ).toBe(true);
 
     // A short binding name must not match as a SUBSTRING of an unrelated
