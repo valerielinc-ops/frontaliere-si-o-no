@@ -4,6 +4,7 @@ import {
   isChunkLoadError,
   isVersionSkewError,
   isModuleLinkSkewMessage,
+  isModuleParseError,
   recoverFromStaleChunk,
   bustAssetHttpCache,
   MAX_RELOADS,
@@ -536,5 +537,66 @@ describe('bustAssetHttpCache', () => {
       expect.objectContaining({ cache: 'reload' }),
     );
     expect((window.location.reload as unknown as ReturnType<typeof vi.fn>)).toHaveBeenCalledTimes(1);
+  });
+});
+
+// ── issue #5531 / #5533 ──────────────────────────────────────────────────────
+// Two dynamic-import failure shapes reached the top-level ErrorBoundary as a
+// blank page because no predicate classified them as stale-deploy skew:
+//   #5533  TypeError: Cannot read properties of undefined (reading 'default')
+//          — React.lazy read `.default` off a factory that RESOLVED undefined.
+//   #5531  SyntaxError: Unexpected identifier '<content word>'
+//          — a chunk URL answered with an HTML document, parsed as a module.
+describe('isModuleParseError — parse-time vs link-time SyntaxError (#5531)', () => {
+  it('classifies a parse-time SyntaxError from an import as a stale chunk', () => {
+    // Exact GA4-reported wording: a word from this site's own job pages showing
+    // up as a bare identifier is an HTML body parsed as JavaScript.
+    const err = new SyntaxError("Unexpected identifier 'diploma'");
+    expect(isModuleParseError(err)).toBe(true);
+  });
+
+  it('classifies the other HTML-as-JS wordings too', () => {
+    expect(isModuleParseError(new SyntaxError("Unexpected token '<'"))).toBe(true);
+    expect(isModuleParseError(new SyntaxError('Invalid or unexpected token'))).toBe(true);
+  });
+
+  it('does NOT claim a link-time export-set skew — that class must not be retried', () => {
+    // lazyRetry rethrows this to the ErrorBoundary instead of retrying, because
+    // re-running the import re-links the same cached dependency. If
+    // isModuleParseError matched it, the widening in lazyRetry would steal that
+    // no-retry path and burn the shared reload budget on a useless attempt.
+    const err = new SyntaxError(
+      "The requested module './router.js' does not provide an export named 'isJobSlugMapReady'",
+    );
+    expect(isModuleParseError(err)).toBe(false);
+    expect(isModuleLinkSkewMessage(err.message)).toBe(true);
+  });
+
+  it('ignores non-SyntaxError values', () => {
+    expect(isModuleParseError(new TypeError('boom'))).toBe(false);
+    expect(isModuleParseError(null)).toBe(false);
+    expect(isModuleParseError(undefined)).toBe(false);
+  });
+});
+
+describe("isVersionSkewError — React.lazy's `.default` read (#5533)", () => {
+  it('recognises the V8/Chrome wording', () => {
+    const err = new TypeError("Cannot read properties of undefined (reading 'default')");
+    expect(isVersionSkewError(err)).toBe(true);
+  });
+
+  it('recognises the Safari/WebKit wording', () => {
+    const err = new TypeError("undefined is not an object (evaluating 'e.default')");
+    expect(isVersionSkewError(err)).toBe(true);
+  });
+
+  it('still ignores an ordinary null-pointer bug on an app object', () => {
+    // The pattern is anchored to the `default` module-namespace member on
+    // purpose: widening it to any property would mask real first-party bugs as
+    // skew and reload the page under them.
+    expect(isVersionSkewError(new TypeError("Cannot read properties of undefined (reading 'salary')"))).toBe(
+      false,
+    );
+    expect(isVersionSkewError(new TypeError("Cannot read properties of null (reading 'default')"))).toBe(false);
   });
 });
