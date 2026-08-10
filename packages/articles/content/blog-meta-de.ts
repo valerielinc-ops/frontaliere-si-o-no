@@ -9534,6 +9534,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-tronzano-lago-maggiore-frontaliere.title': 'umzug nach Tronzano Lago Maggiore als Grenzgänger für und gegen',
     'blog.article.trasferirsi-tronzano-lago-maggiore-frontaliere.excerpt': 'Besteuerung, neues Grenzgängerabkommen, Doppelbesteuerung',
     'blog.article.trasferirsi-tronzano-lago-maggiore-frontaliere.imageAlt': 'Eine Familie eines Pendler zieht nach Tronzano Lago Maggiore um in Ticino zu arbeiten',
+    'blog.article.vivere-tronzano-lago-maggiore-lavorare-ticino-da-frontaliere.title': 'Leben in Tronzano Lago Maggiore und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-tronzano-lago-maggiore-lavorare-ticino-da-frontaliere.excerpt': 'Warum italienische Grenzgänger, die in Tronzano Lago Maggiore leben, im Tessin arbeiten können',
+    'blog.article.vivere-tronzano-lago-maggiore-lavorare-ticino-da-frontaliere.imageAlt': 'Max 125 caratteri',
 };
 
 export default blogMetaDe;
