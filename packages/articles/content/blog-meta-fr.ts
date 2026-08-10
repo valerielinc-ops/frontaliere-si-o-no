@@ -9570,6 +9570,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-a-domodossola-da-frontaliere-pro-e-contro.title': 'Déménager à Domodossola en tant que frontalier : avantages et inconvénients',
     'blog.article.trasferirsi-a-domodossola-da-frontaliere-pro-e-contro.excerpt': 'Qu\'est-ce qui change pour les frontaliers qui déménagent à Domodossola ?',
     'blog.article.trasferirsi-a-domodossola-da-frontaliere-pro-e-contro.imageAlt': 'Une scène d\'un frontalier en transit de Domodossola vers le Ticino.',
+    'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.title': 'Vivre à Alta Valle Intelvi et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.excerpt': 'Informations pratiques pour les frontaliers qui travaillent au Tessin et résident à Alta Valle Intelvi.',
+    'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.imageAlt': 'Une scène d\'un frontalier qui travaille en Suisse et réside dans la haute vallée d\'Intelvi.',
 };
 
 export default blogMetaFr;

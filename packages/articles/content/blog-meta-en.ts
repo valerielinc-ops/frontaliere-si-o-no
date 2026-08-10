@@ -9568,6 +9568,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-domodossola-da-frontaliere-pro-e-contro.title': 'Moving to Domodossola by border crossing: pros and cons',
     'blog.article.trasferirsi-a-domodossola-da-frontaliere-pro-e-contro.excerpt': 'What changes for border workers moving to Domodossola?',
     'blog.article.trasferirsi-a-domodossola-da-frontaliere-pro-e-contro.imageAlt': 'A scene of a commuter from Domodossola to Ticino.',
+    'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.title': 'Living in Alta Valle Intelvi and working in Ticino as a border worker',
+    'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.excerpt': 'Practical information for border workers working in Ticino and residing in Alta Valle Intelvi.',
+    'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.imageAlt': 'A scene of a commuter working in Ticino and residing in Alta Valle Intelvi.',
 };
 
 export default blogMetaEn;

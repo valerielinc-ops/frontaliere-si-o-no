@@ -9567,6 +9567,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-a-domodossola-da-frontaliere-pro-e-contro.title': 'Umzug nach Domodossola als Grenzgänger: Vor- und Nachteile',
     'blog.article.trasferirsi-a-domodossola-da-frontaliere-pro-e-contro.excerpt': 'Was ändert sich für Grenzgänger, die nach Domodossola ziehen?',
     'blog.article.trasferirsi-a-domodossola-da-frontaliere-pro-e-contro.imageAlt': 'Eine Szene eines Pendler von Domodossola nach Ticino.',
+    'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.title': 'Leben im Oberen Intelvi-Tal und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.excerpt': 'Praktische Informationen für Grenzgänger, die im Tessin arbeiten und im oberen Intelvi-Tal wohnen.',
+    'blog.article.vivere-altavalleintelvi-lavorare-ticino-da-frontaliere.imageAlt': 'Eine Szene eines Pendelers, der in Ticino arbeitet und in Alta Valle Intelvi wohnt.',
 };
 
 export default blogMetaDe;
