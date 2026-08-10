@@ -795,6 +795,40 @@
                   <li><a href="/domande-frequenti-frontalieri/" style="color:#334155;text-decoration:none">FAQ Frontalieri</a></li>
                 </ul>
               </div>
+              <!-- Vivere in Ticino — this column is the crawl entry point for two
+                   page families that had NO indexable inbound link at depth 1
+                   (issue #5434, Causa B). Both entries are load-bearing, not
+                   editorial: removing either one pushes a whole family back out
+                   of `audit:max-bfs-depth`'s maxDepth: 4 budget.
+
+                   /eventi/ — the Swiss-wide events index. It already links all
+                   25 canton hubs, so home(0) → /eventi/(1) → canton(2) →
+                   comune(3) → event(4) lands the whole family inside the
+                   budget. Before this link the only route in was
+                   /vivere-in-ticino/(1) → /eventi/ticino/(2), one hop lower,
+                   which put 819 event pages over budget or unreachable; 556 of
+                   those were held inside it only by "Eventi vicino a te" on the
+                   JOB pages (shared/jobEventsCrosslink.ts) — a borrowed bridge
+                   that moves with job-listing churn. Note /vivere-in-ticino/ is
+                   NOT a substitute: simulated on the real link graph it leaves
+                   all 819 over budget.
+
+                   /vivere-in-ticino/comuni-di-frontiera/ — the border-comuni hub
+                   (320 pages behind it). Its "official" door,
+                   /guida-frontaliere/comuni-di-frontiera/, is noindex,follow and
+                   scripts/audit-bfs-depth.mjs `continue`s on any noindex, so the
+                   whole family hung off ONE indexable depth-1 inbound:
+                   /vivere-in-ticino/confronta-asili-nido/. -->
+              <div>
+                <h3 style="font-size:15px;font-weight:600;color:#1e40af;margin:0 0 8px">Vivere in Ticino</h3>
+                <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:4px">
+                  <li><a href="/vivere-in-ticino/" style="color:#334155;text-decoration:none">Vivere in Ticino</a></li>
+                  <li><a href="/eventi/" style="color:#334155;text-decoration:none">Eventi in Svizzera</a></li>
+                  <li><a href="/eventi/ticino/" style="color:#334155;text-decoration:none">Eventi in Ticino</a></li>
+                  <li><a href="/vivere-in-ticino/comuni-di-frontiera/" style="color:#334155;text-decoration:none">Comuni di Frontiera</a></li>
+                  <li><a href="/vivere-in-ticino/trasporti-frontalieri/" style="color:#334155;text-decoration:none">Trasporti Frontalieri</a></li>
+                </ul>
+              </div>
             </div>
           </section>
 
